@@ -100,7 +100,7 @@ static inline void findMaxAndMaxIndex (DataType* data, const int dataSize,
 template<typename DataType>
 static inline DataType findRangeOfExtrema (DataType* data, const int dataSize)
 {
-    return FloatVectorOperations::findMinAndMax (data, dataSize).getLength();
+    return juce::FloatVectorOperations::findMinAndMax (data, dataSize).getLength();
 }
     
     
