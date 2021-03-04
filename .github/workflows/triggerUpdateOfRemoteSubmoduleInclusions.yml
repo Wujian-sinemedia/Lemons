@@ -14,9 +14,16 @@ jobs:
 
     steps:
 
-      - name: Repository Dispatch
+      - name: Update the Imogen repo's copy
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.PAT_TOKEN }}
           repository: benthevining/imogen
+          event-type: update_submodules
+
+      - name: Update the Pitch Detector repo's copy
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          repository: benthevining/Pitch-detector
           event-type: update_submodules
