@@ -1,0 +1,22 @@
+name: Trigger update of remote submodule inclusions
+
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+  - cron: "00 00 * * 1"
+
+jobs:
+
+  send-repository-dispatch:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          repository: benthevining/imogen
+          event-type: update_submodules
