@@ -20,6 +20,7 @@
 #include "dsp/Panner.h"
 #include "midi/MidiFIFO.h"
 #include "midi/MidiUtilities.h"
+#include "VectorOps.h"
 
 
 namespace bav
