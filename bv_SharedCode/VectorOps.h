@@ -142,6 +142,27 @@ inline void findMaxAndMaxIndex (DataType* data, const int dataSize,
     
     
 template<typename DataType>
+inline void locateGreatestAbsMagnitude (DataType* data, const int dataSize,
+                                        DataType& greatestMagnitude, int& index)
+{
+    jassert (dataSize > 1);
+#if BV_VECTOROPS_USE_VDSP
+    constexpr vDSP_Stride strideOfOne = vDSP_Stride(1);
+    unsigned long i = 0.0;
+    
+    if constexpr (std::is_same_v <DataType, float>)
+        vDSP_maxmgvi (data, strideOfOne, &greatestMagnitude, &i, vDSP_Length(dataSize));
+    else if constexpr (std::is_same_v <DataType, double>)
+        vDSP_maxmgviD (data, strideOfOne, &greatestMagnitude, &i, vDSP_Length(dataSize));
+    
+    index = int(i);
+#else
+    
+#endif
+}
+    
+    
+template<typename DataType>
 inline DataType findRangeOfExtrema (DataType* data, const int dataSize)
 {
     return juce::FloatVectorOperations::findMinAndMax (data, dataSize).getLength();
