@@ -101,6 +101,9 @@ namespace dsp
         if (storedSamples < 0) storedSamples = 0;
     }
     
+    template class AudioFIFO<float>;
+    template class AudioFIFO<double>;
+    
 }  // namspace dsp
     
 }  // namespace bav
