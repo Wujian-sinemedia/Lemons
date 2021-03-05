@@ -1,4 +1,7 @@
 
+#include "bv_SharedCode/bv_SharedCode.h"
+
+
 namespace bav
 {
     
@@ -54,27 +57,36 @@ namespace midi
                                                 std::max (0, meta.samplePosition + sampleOffset));
                        } );
     }
-
+    
     /*
-    */
+     */
     
     PitchConverter::PitchConverter(const int initialConcertPitch, const int initialRootNote, const int initialNotesPerOctave):
-        concertPitchHz(initialConcertPitch), rootNote(initialRootNote), notesPerOctave(initialNotesPerOctave)
-        { }
+    concertPitchHz(initialConcertPitch), rootNote(initialRootNote), notesPerOctave(initialNotesPerOctave)
+    { }
     
-    template<typename SampleType>
-    SampleType PitchConverter::mtof (SampleType midiNote) const
+    int PitchConverter::mtof (int midiNote) const
     {
-        midiNote = juce::jlimit (SampleType(0.0), SampleType(127.0), midiNote);
-        constexpr SampleType two = SampleType(2.0);
-        return static_cast<SampleType>(concertPitchHz.load() * std::pow(two, ((midiNote - rootNote.load()) / notesPerOctave.load())));
+        jassert (midiNote >= 0 && midiNote <= 127);
+        return juce::roundToInt(concertPitchHz.load() * std::pow(2, ((midiNote - rootNote.load()) / notesPerOctave.load())));
     }
     
-    template<typename SampleType>
-    SampleType PitchConverter::ftom (const SampleType inputFreq) const
+    float PitchConverter::mtof (float midiNote) const
     {
-        jassert (inputFreq >= 0);
-        return static_cast<SampleType>(notesPerOctave.load() * log2(inputFreq / concertPitchHz.load()) + rootNote.load());
+        jassert (midiNote >= 0.0f && midiNote <= 127.0f);
+        return float(concertPitchHz.load() * std::pow(2.0f, ((midiNote - rootNote.load()) / notesPerOctave.load())));
+    }
+    
+    int PitchConverter::ftom (const int inputFreq) const
+    {
+        jassert (inputFreq > 0);
+        return juce::roundToInt(notesPerOctave.load() * log2(inputFreq / concertPitchHz.load()) + rootNote.load());
+    }
+    
+    float PitchConverter::ftom (const float inputFreq) const
+    {
+        jassert (inputFreq > 0.0f);
+        return float(notesPerOctave.load() * log2(inputFreq / concertPitchHz.load()) + rootNote.load());
     }
     
     void PitchConverter::setConcertPitchHz (const int newConcertPitch) noexcept
@@ -101,8 +113,8 @@ namespace midi
     
     
     PitchBendHelper::PitchBendHelper(const int initialStUp, const int initialStDwn):
-        rangeUp(initialStUp), rangeDown(initialStDwn), lastRecievedPitchbend(64)
-        { }
+    rangeUp(initialStUp), rangeDown(initialStDwn), lastRecievedPitchbend(64)
+    { }
     
     void PitchBendHelper::setRange (const int newStUp, const int newStDown) noexcept
     {
@@ -154,7 +166,7 @@ namespace midi
         sensitivity.store (juce::jlimit (0.0f, 1.0f, newSensitivity));
     }
     
-    float VelocityHelper::intVelocity (int midiVelocity)
+    float VelocityHelper::intVelocity (int midiVelocity) const
     {
         midiVelocity = juce::jlimit (0, 127, midiVelocity);
         return getGainMult (midiVelocity / 127.0f, sensitivity.load());
@@ -176,3 +188,4 @@ namespace midi
 }  // namespace midi
     
 }  // namespace bav
+

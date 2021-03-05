@@ -8,7 +8,7 @@
 namespace bav
 
 {
-
+    
 namespace midi
 {
     
@@ -22,20 +22,20 @@ namespace midi
                                 const int startSampleOfInput,
                                 const int startSampleOfOutput,
                                 const int numSamples);
-
-
+    
+    
     class PitchConverter
     {
     public:
         PitchConverter(const int initialConcertPitch, const int initialRootNote, const int initialNotesPerOctave);
         
         // converts midi pitch to frequency in Hz
-        template<typename SampleType>
-        SampleType mtof (SampleType midiNote) const;
+        int mtof (int midiNote) const;
+        float mtof (float midiNote) const;
         
         // converts frequency in Hz to midipitch
-        template<typename SampleType>
-        SampleType ftom (const SampleType inputFreq) const;
+        int ftom (const int inputFreq) const;
+        float ftom (const float inputFreq) const;
         
         void setConcertPitchHz (const int newConcertPitch) noexcept;
         
@@ -59,9 +59,9 @@ namespace midi
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PitchConverter)
         
     };
-
-
-
+    
+    
+    
     class PitchBendHelper
     {
     public:
@@ -85,9 +85,9 @@ namespace midi
         
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PitchBendHelper)
     };
-
-
-
+    
+    
+    
     class VelocityHelper
     {
     public:
@@ -111,8 +111,9 @@ namespace midi
         
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(VelocityHelper)
     };
-
+    
     
 }  // namespace midi
-    
+
 } // namespace bav
+
