@@ -27,58 +27,29 @@ namespace midi
     class PitchConverter
     {
     public:
-        
-        PitchConverter(const int initialConcertPitch, const int initialRootNote, const int initialNotesPerOctave):
-        concertPitchHz(initialConcertPitch), rootNote(initialRootNote), notesPerOctave(initialNotesPerOctave)
-        { }
+        PitchConverter(const int initialConcertPitch, const int initialRootNote, const int initialNotesPerOctave);
         
         // converts midi pitch to frequency in Hz
         template<typename SampleType>
-        SampleType mtof (SampleType midiNote) const
-        {
-            midiNote = juce::jlimit (SampleType(0.0), SampleType(127.0), midiNote);
-            constexpr SampleType two = SampleType(2.0);
-            return static_cast<SampleType>(concertPitchHz.load() * std::pow(two, ((midiNote - rootNote.load()) / notesPerOctave.load())));
-        }
+        SampleType mtof (SampleType midiNote) const;
         
         // converts frequency in Hz to midipitch
         template<typename SampleType>
-        SampleType ftom (const SampleType inputFreq) const
-        {
-            jassert (inputFreq >= 0);
-            return static_cast<SampleType>(notesPerOctave.load() * log2(inputFreq / concertPitchHz.load()) + rootNote.load());
-        }
+        SampleType ftom (const SampleType inputFreq) const;
         
-        void setConcertPitchHz (const int newConcertPitch) noexcept
-        {
-            jassert (newConcertPitch > 0);
-            
-            concertPitchHz.store (newConcertPitch);
-        }
+        void setConcertPitchHz (const int newConcertPitch) noexcept;
         
         int getCurrentConcertPitchHz() const noexcept { return concertPitchHz.load(); }
         
-        void setNotesPerOctave (const int newNPO) noexcept
-        {
-            jassert (newNPO > 0);
-            
-            notesPerOctave.store (newNPO);
-        }
+        void setNotesPerOctave (const int newNPO) noexcept;
         
         int getCurrentNotesPerOctave() const noexcept { return notesPerOctave.load(); }
         
-        void setRootNote (const int newRoot) noexcept
-        {
-            jassert (newRoot > 0);
-            
-            rootNote.store (newRoot);
-        }
+        void setRootNote (const int newRoot) noexcept;
         
         int getCurrentRootNote() const noexcept { return rootNote.load(); }
         
-        
     private:
-        
         std::atomic<int> concertPitchHz; // the frequency in Hz of the root note. Usually 440 in standard Western tuning.
         
         std::atomic<int> rootNote; // the midiPitch that corresponds to concertPitchHz. Usually 69 (A4) in Western standard tuning.
@@ -93,52 +64,24 @@ namespace midi
 
     class PitchBendHelper
     {
-        
     public:
-        PitchBendHelper(const int initialStUp, const int initialStDwn):
-        rangeUp(initialStUp), rangeDown(initialStDwn), lastRecievedPitchbend(64)
-        { }
+        PitchBendHelper(const int initialStUp, const int initialStDwn);
         
-        void setRange (const int newStUp, const int newStDown) noexcept
-        {
-            rangeUp.store (newStUp);
-            rangeDown.store (newStDown);
-        }
+        void setRange (const int newStUp, const int newStDown) noexcept;
         
         int getCurrentRangeUp()   const noexcept { return rangeUp.load(); }
         int getCurrentRangeDown() const noexcept { return rangeDown.load(); }
         
         int getLastRecievedPitchbend() const noexcept { return lastRecievedPitchbend.load(); }
         
-        float newNoteRecieved (const int newMidiPitch) const
-        {
-            return getMidifloat (juce::jlimit (0, 127, newMidiPitch),
-                                 lastRecievedPitchbend.load());
-        }
+        float newNoteRecieved (const int newMidiPitch) const;
         
-        void newPitchbendRecieved (const int newPitchbend) noexcept
-        {
-            lastRecievedPitchbend.store (juce::jlimit (0, 127, newPitchbend));
-        }
-        
+        void newPitchbendRecieved (const int newPitchbend) noexcept;
         
     private:
-        
         std::atomic<int> rangeUp, rangeDown, lastRecievedPitchbend;
         
-        float getMidifloat (const int midiPitch, const int pitchbend) const
-        {
-            jassert (juce::isPositiveAndBelow(midiPitch, 128) && juce::isPositiveAndBelow(pitchbend, 128));
-            
-            if (pitchbend == 64)
-                return static_cast<float>(midiPitch);
-            
-            if (pitchbend > 64)
-                return static_cast<float>(((rangeUp.load() * (pitchbend - 65)) / 62) + midiPitch);
-            
-            const int currentdownrange = rangeDown.load();
-            return static_cast<float>((((1 - currentdownrange) * pitchbend) / 63) + midiPitch - currentdownrange);
-        }
+        float getMidifloat (const int midiPitch, const int pitchbend) const;
         
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PitchBendHelper)
     };
@@ -148,44 +91,23 @@ namespace midi
     class VelocityHelper
     {
     public:
-        VelocityHelper(const int initialSensitivity): sensitivity(initialSensitivity/100.0f)
-        { }
+        VelocityHelper(const int initialSensitivity);
         
-        void setSensitivity (int newSensitivity) noexcept
-        {
-            newSensitivity = juce::jlimit (0, 100, newSensitivity);
-            sensitivity.store (newSensitivity / 100.0f);
-        }
+        void setSensitivity (int newSensitivity) noexcept;
         
-        void setFloatSensitivity (const float newSensitivity) noexcept
-        {
-            sensitivity.store (juce::jlimit (0.0f, 1.0f, newSensitivity));
-        }
+        void setFloatSensitivity (const float newSensitivity) noexcept;
         
         float getCurrentSensitivity() const noexcept { return sensitivity.load(); }
         
-        float intVelocity (int midiVelocity)
-        {
-            midiVelocity = juce::jlimit (0, 127, midiVelocity);
-            return getGainMult (midiVelocity / 127.0f, sensitivity.load());
-        }
+        float intVelocity (int midiVelocity) const;
         
-        float floatVelocity (float floatVelocity) const
-        {
-            floatVelocity = juce::jlimit (0.0f, 1.0f, floatVelocity);
-            return getGainMult (floatVelocity, sensitivity.load());
-        }
-        
+        float floatVelocity (float floatVelocity) const;
         
     private:
         
         std::atomic<float> sensitivity;
         
-        float getGainMult (const float floatVelocity, const float floatSensitivity) const
-        {
-            return juce::jlimit (0.0f, 1.0f,
-                           (1.0f - floatVelocity) * (1.0f - floatSensitivity) + floatVelocity);
-        }
+        float getGainMult (const float floatVelocity, const float floatSensitivity) const;
         
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(VelocityHelper)
     };
