@@ -13,9 +13,9 @@ namespace midi
 {
     
     
-    bool isMidiNoteBlackKey (const int midipitch);
+    inline bool isMidiNoteBlackKey (const int midipitch);
     
-    bool areNotesSamePitchClass (const int pitch1, const int pitch2);
+    inline bool areNotesSamePitchClass (const int pitch1, const int pitch2);
     
     
     void copyRangeOfMidiBuffer (const juce::MidiBuffer& readingBuffer, juce::MidiBuffer& destBuffer,

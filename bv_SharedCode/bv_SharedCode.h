@@ -29,7 +29,7 @@ namespace bav
 namespace gui
 {
     
-    static juce::Button::ButtonState buttonStateFromBool (const bool isOn)
+    inline juce::Button::ButtonState buttonStateFromBool (const bool isOn)
     {
         if (isOn)
             return juce::Button::ButtonState::buttonDown;

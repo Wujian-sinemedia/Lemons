@@ -32,7 +32,7 @@ namespace vecops
     
     
 template<typename SampleType>
-static inline void makeHannWindow (SampleType* output, const int numSamples)
+inline void makeHannWindow (SampleType* output, const int numSamples)
 {
     jassert (numSamples > 1);
 #if BV_VECTOROPS_USE_VDSP
@@ -52,8 +52,8 @@ static inline void makeHannWindow (SampleType* output, const int numSamples)
 
 
 template<typename DataType>
-static inline void findMinAndMinIndex (DataType* data, const int dataSize,
-                                       DataType& minimum, int& minIndex)
+inline void findMinAndMinIndex (DataType* data, const int dataSize,
+                                DataType& minimum, int& minIndex)
 {
     jassert (dataSize > 1);
 #if BV_VECTOROPS_USE_VDSP
@@ -75,8 +75,8 @@ static inline void findMinAndMinIndex (DataType* data, const int dataSize,
     
     
 template<typename DataType>
-static inline void findMaxAndMaxIndex (DataType* data, const int dataSize,
-                                       DataType& maximum, int& maxIndex)
+inline void findMaxAndMaxIndex (DataType* data, const int dataSize,
+                                DataType& maximum, int& maxIndex)
 {
     jassert (dataSize > 1);
 #if BV_VECTOROPS_USE_VDSP
@@ -98,7 +98,7 @@ static inline void findMaxAndMaxIndex (DataType* data, const int dataSize,
     
     
 template<typename DataType>
-static inline DataType findRangeOfExtrema (DataType* data, const int dataSize)
+inline DataType findRangeOfExtrema (DataType* data, const int dataSize)
 {
     return juce::FloatVectorOperations::findMinAndMax (data, dataSize).getLength();
 }

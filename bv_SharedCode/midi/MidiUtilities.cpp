@@ -8,7 +8,7 @@ namespace bav
 namespace midi
 {
     
-    bool isMidiNoteBlackKey (const int midipitch)
+    inline bool isMidiNoteBlackKey (const int midipitch)
     {
         jassert (midipitch >= 0 && midipitch <= 127);
         
@@ -24,7 +24,7 @@ namespace midi
     }
     
     
-    bool areNotesSamePitchClass (const int pitch1, const int pitch2)
+    inline bool areNotesSamePitchClass (const int pitch1, const int pitch2)
     {
         jassert (pitch1 >= 0 && pitch2 >= 0 && pitch1 <= 127 && pitch2 <= 127);
         return (pitch1 % 12 == pitch2 % 12);
