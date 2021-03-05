@@ -16,7 +16,6 @@
 #include <juce_audio_utils/juce_audio_utils.h>
 
 // the rest of this module
-#include "RangeWrappedInt.h"
 #include "dsp/AudioFIFO.h"
 #include "dsp/Panner.h"
 #include "midi/MidiFIFO.h"
