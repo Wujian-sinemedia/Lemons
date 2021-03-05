@@ -50,6 +50,50 @@ inline void makeHannWindow (SampleType* output, const int numSamples)
 #endif
 }
 
+    
+template<typename DataType>
+inline int findIndexOfMinElement (DataType* data, const int dataSize)
+{
+    jassert (dataSize > 1);
+#if BV_VECTOROPS_USE_VDSP
+    constexpr vDSP_Stride strideOfOne = vDSP_Stride(1);
+    unsigned long index = 0.0;
+    DataType minimum = 0;
+    
+    if constexpr (std::is_same_v <DataType, float>)
+        vDSP_minvi (data, strideOfOne, &minimum, &index, vDSP_Length(dataSize));
+    else if constexpr (std::is_same_v <DataType, double>)
+        vDSP_minviD (data, strideOfOne, &minimum, &index, vDSP_Length(dataSize));
+    
+    return int(index);
+#else
+    return static_cast<int> (std::distance (data,
+                                            std::min_element (data, data + dataSize)));
+#endif
+}
+    
+    
+template<typename DataType>
+inline int findIndexOfMaxElement (DataType* data, const int dataSize)
+{
+    jassert (dataSize > 1);
+#if BV_VECTOROPS_USE_VDSP
+    constexpr vDSP_Stride strideOfOne = vDSP_Stride(1);
+    unsigned long index = 0.0;
+    DataType maximum = 0;
+    
+    if constexpr (std::is_same_v <DataType, float>)
+        vDSP_maxvi (data, strideOfOne, &maximum, &index, vDSP_Length(dataSize));
+    else if constexpr (std::is_same_v <DataType, double>)
+        vDSP_maxviD (data, strideOfOne, &maximum, &index, vDSP_Length(dataSize));
+    
+    return int(index);
+#else
+    return static_cast<int> (std::distance (data,
+                                            std::max_element (data, data + dataSize)));
+#endif
+}
+    
 
 template<typename DataType>
 inline void findMinAndMinIndex (DataType* data, const int dataSize,
