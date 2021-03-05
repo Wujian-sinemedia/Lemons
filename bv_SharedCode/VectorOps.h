@@ -157,7 +157,22 @@ inline void locateGreatestAbsMagnitude (DataType* data, const int dataSize,
     
     index = int(i);
 #else
+    int strongestMagIndex = 0;
+    SampleType strongestMag = abs(data[0]);
     
+    for (int i = 1; i < dataSize; ++i)
+    {
+        const SampleType current = abs(data[i]);
+        
+        if (current > strongestMag)
+        {
+            strongestMag = current;
+            strongestMagIndex = i;
+        }
+    }
+    
+    greatestMagnitude = strongestMag;
+    index = strongestMagIndex;
 #endif
 }
     
