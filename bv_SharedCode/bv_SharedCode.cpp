@@ -1,4 +1,4 @@
 
-#include "bv_SharedCode.cpp"
+#include "bv_SharedCode.h"
 
-#include "MidiUtilities.cpp"
+#include "midi/MidiUtilities.cpp"
