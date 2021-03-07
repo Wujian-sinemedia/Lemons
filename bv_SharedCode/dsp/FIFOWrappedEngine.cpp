@@ -13,6 +13,8 @@ namespace dsp
     {
         inputBuffer.initialize(2, internalBlocksize * 2);
         outputBuffer.initialize(2, internalBlocksize * 2);
+        
+        prepare (44100.0, std::max(512, initInternalBlocksize));
     }
     
     template<typename SampleType>
@@ -153,12 +155,14 @@ namespace dsp
 ****************************************************************************************************************************************************/
     
     
-    
+    s
     template<typename SampleType>
     FIFOWrappedEngineWithMidi<SampleType>::FIFOWrappedEngineWithMidi(int initInternalBlocksize): internalBlocksize(initInternalBlocksize)
     {
         inputBuffer.initialize(2, internalBlocksize * 2);
         outputBuffer.initialize(2, internalBlocksize * 2);
+        
+        prepare (44100.0, std::max(512, initInternalBlocksize));
     }
     
     template<typename SampleType>
