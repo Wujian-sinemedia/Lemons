@@ -8,16 +8,19 @@ namespace bav
 namespace dsp
 {
     
-    FIFOWrappedEngine::FIFOWrappedEngine(int initInternalBlocksize): internalBlocksize(initInternalBlocksize)
+    template<typename SampleType>
+    FIFOWrappedEngine<SampleType>::FIFOWrappedEngine(int initInternalBlocksize): internalBlocksize(initInternalBlocksize)
     {
         inputBuffer.initialize(2, internalBlocksize * 2);
         outputBuffer.initialize(2, internalBlocksize * 2);
     }
     
-    virtual FIFOWrappedEngine::~FIFOWrappedEngine() { }
+    template<typename SampleType>
+    virtual FIFOWrappedEngine<SampleType>::~FIFOWrappedEngine() { }
     
     
-    void FIFOWrappedEngine::prepare (double samplerate, int blocksize)
+    template<typename SampleType>
+    void FIFOWrappedEngine<SampleType>::prepare (double samplerate, int blocksize)
     {
         jassert (sampleRate > 0);
         jassert (samplesPerBlock > 0);
@@ -32,10 +35,19 @@ namespace dsp
         inBuffer.setSize (2, internalBlocksize, true, true, true);
         inputBuffer.changeSize (2, internalBlocksize * 2);
         outputBuffer.changeSize(2, internalBlocksize * 3);
+        
+        prepareToPlay (samplerate, blocksize);
+    }
+    
+    template<typename SampleType>
+    void FIFOWrappedEngine<SampleType>::prepareToPlay (double samplerate, int blocksize)
+    {
+        
     }
     
     
-    void FIFOWrappedEngine::releaseResources()
+    template<typename SampleType>
+    void FIFOWrappedEngine<SampleType>::releaseResources()
     {
         inBuffer.setSize(0, 0, false, false, false);
         
@@ -46,10 +58,19 @@ namespace dsp
         midiInputCollection.clear();
         midiOutputCollection.clear();
         chunkMidiBuffer.clear();
+        
+        release();
+    }
+    
+    template<typename SampleType>
+    void FIFOWrappedEngine<SampleType>::release()
+    {
+        
     }
     
     
-    void FIFOWrappedEngine::changeLatency (int newInternalBlocksize)
+    template<typename SampleType>
+    void FIFOWrappedEngine<SampleType>::changeLatency (int newInternalBlocksize)
     {
         if (internalBlocksize == newLatency)
             return;
@@ -63,9 +84,10 @@ namespace dsp
     }
     
     
-    void FIFOWrappedEngine::process (AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages,
-                                     const bool applyFadeIn = false, const bool applyFadeOut = false,
-                                     const bool isBypassed = false)
+    template<typename SampleType>
+    void FIFOWrappedEngine<SampleType>::process (AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages,
+                                                 const bool applyFadeIn = false, const bool applyFadeOut = false,
+                                                 const bool isBypassed = false)
     {
         const int totalNumSamples = input.getNumSamples();
         
@@ -111,10 +133,11 @@ namespace dsp
     }
     
     
-    void FIFOWrappedEngine::processWrapped (AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output,
-                                            MidiBuffer& midiMessages,
-                                            const bool applyFadeIn, const bool applyFadeOut,
-                                            const bool isBypassed = false)
+    template<typename SampleType>
+    void FIFOWrappedEngine<SampleType>::processWrapped (AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output,
+                                                        MidiBuffer& midiMessages,
+                                                        const bool applyFadeIn, const bool applyFadeOut,
+                                                        const bool isBypassed = false)
     {
         const int numNewSamples = input.getNumSamples();
         

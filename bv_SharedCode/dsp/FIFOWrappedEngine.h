@@ -38,7 +38,11 @@ private:
                          const bool applyFadeIn, const bool applyFadeOut,
                          const bool isBypassed = false);
     
-    virtual void renderBlock (const AudioBuffer<SampleType>& input, AudioBuffer& output, MidiBuffer& midiMessages)=0;
+    virtual void renderBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages)=0;
+    
+    virtual void prepareToPlay (double samplerate, int blocksize);
+    
+    virtual void release();
     
     int internalBlocksize; // the size of the processing blocks, in samples, that the algorithm will be processing
     
