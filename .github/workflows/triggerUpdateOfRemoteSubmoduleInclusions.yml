@@ -27,3 +27,10 @@ jobs:
           token: ${{ secrets.PAT_TOKEN }}
           repository: benthevining/Pitch-detector
           event-type: update_submodules
+
+      - name: Update the Pitch Detector Tester App repo's copy
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          repository: benthevining/pitch-detector-tester
+          event-type: update_submodules
