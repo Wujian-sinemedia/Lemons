@@ -53,6 +53,8 @@ namespace dsp
         if (internalBlocksize == newInternalBlocksize)
             return;
         
+        jassert (newInternalBlocksize > 0);
+        
         internalBlocksize = newInternalBlocksize;
         
         inBuffer.setSize (2, internalBlocksize, true, true, true);
@@ -211,6 +213,8 @@ namespace dsp
     {
         if (internalBlocksize == newInternalBlocksize)
             return;
+        
+        jassert (newInternalBlocksize > 0);
         
         internalBlocksize = newInternalBlocksize;
         
