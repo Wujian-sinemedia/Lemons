@@ -40,9 +40,11 @@ private:
     
     virtual void renderBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages)=0;
     
-    virtual void prepareToPlay (double samplerate, int blocksize);
+    virtual void prepareToPlay (double samplerate, int blocksize) { juce::ignoreUnused (samplerate, blocksize); }
     
-    virtual void release();
+    virtual void release() { }
+    
+    virtual void latencyChanged (int newInternalBlocksize) { juce::ignoreUnused(newInternalBlocksize); }
     
     int internalBlocksize; // the size of the processing blocks, in samples, that the algorithm will be processing
     

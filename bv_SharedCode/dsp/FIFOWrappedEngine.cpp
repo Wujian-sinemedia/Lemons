@@ -41,13 +41,6 @@ namespace dsp
     }
     
     template<typename SampleType>
-    void FIFOWrappedEngine<SampleType>::prepareToPlay (double samplerate, int blocksize)
-    {
-        juce::ignoreUnused (samplerate, blocksize);
-    }
-    
-    
-    template<typename SampleType>
     void FIFOWrappedEngine<SampleType>::releaseResources()
     {
         inBuffer.setSize(0, 0, false, false, false);
@@ -65,13 +58,6 @@ namespace dsp
     }
     
     template<typename SampleType>
-    void FIFOWrappedEngine<SampleType>::release()
-    {
-        
-    }
-    
-    
-    template<typename SampleType>
     void FIFOWrappedEngine<SampleType>::changeLatency (int newInternalBlocksize)
     {
         if (internalBlocksize == newInternalBlocksize)
@@ -84,8 +70,9 @@ namespace dsp
         
         inputBuffer.changeSize (2, internalBlocksize * 2);
         outputBuffer.changeSize(2, internalBlocksize * 3);
+        
+        latencyChanged (newInternalBlocksize);
     }
-    
     
     template<typename SampleType>
     void FIFOWrappedEngine<SampleType>::process (AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages,
@@ -134,7 +121,6 @@ namespace dsp
         }
         while (samplesLeft > 0);
     }
-    
     
     template<typename SampleType>
     void FIFOWrappedEngine<SampleType>::processWrapped (AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output,
