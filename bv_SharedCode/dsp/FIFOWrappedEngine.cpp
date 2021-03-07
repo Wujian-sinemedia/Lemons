@@ -63,7 +63,7 @@ namespace dsp
     }
     
     template<typename SampleType>
-    void FIFOWrappedEngine<SampleType>::process (AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages,
+    void FIFOWrappedEngine<SampleType>::process (AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output,
                                                  const bool applyFadeIn, const bool applyFadeOut,
                                                  const bool isBypassed)
     {
@@ -74,7 +74,7 @@ namespace dsp
         
         if (totalNumSamples <= internalBlocksize)
         {
-            processWrapped (input, output, midiMessages, applyFadeIn, applyFadeOut, isBypassed);
+            processWrapped (input, output, applyFadeIn, applyFadeOut, isBypassed);
             return;
         }
         
@@ -162,7 +162,7 @@ namespace dsp
     }
     
     template<typename SampleType>
-    FIFOWrappedEngineWithMidi<SampleType>::FIFOWrappedEngineWithMidi() { }
+    FIFOWrappedEngineWithMidi<SampleType>::~FIFOWrappedEngineWithMidi() { }
     
     
     template<typename SampleType>

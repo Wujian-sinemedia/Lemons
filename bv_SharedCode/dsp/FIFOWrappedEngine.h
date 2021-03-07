@@ -70,7 +70,7 @@ class FIFOWrappedEngineWithMidi
 {
 public:
     FIFOWrappedEngineWithMidi(int internalBlocksize);
-    virtual FIFOWrappedEngineWithMidi();
+    virtual ~FIFOWrappedEngineWithMidi();
     
     
     void process (AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages,
