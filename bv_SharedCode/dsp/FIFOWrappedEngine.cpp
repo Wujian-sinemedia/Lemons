@@ -155,7 +155,6 @@ namespace dsp
 ****************************************************************************************************************************************************/
     
     
-    s
     template<typename SampleType>
     FIFOWrappedEngineWithMidi<SampleType>::FIFOWrappedEngineWithMidi(int initInternalBlocksize): internalBlocksize(initInternalBlocksize)
     {
