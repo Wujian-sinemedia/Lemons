@@ -54,6 +54,7 @@ private:
     bav::dsp::AudioFIFO<SampleType> inputBuffer;
     bav::dsp::AudioFIFO<SampleType> outputBuffer;
     AudioBuffer<SampleType> inBuffer;
+    AudioBuffer<SampleType> outBuffer;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FIFOWrappedEngine)
 };
