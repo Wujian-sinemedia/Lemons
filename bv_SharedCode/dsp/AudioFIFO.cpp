@@ -14,7 +14,7 @@ namespace dsp
         writeIndex = 0;
         storedSamples = 0;
         
-        base.setSize (numChannels, size);
+        base.setSize (numChannels, size * 2);
         
         constexpr SampleType zero = SampleType(0.0);
         
@@ -31,12 +31,12 @@ namespace dsp
     }
     
     template<typename SampleType>
-    void AudioFIFO<SampleType>::changeSize (const int newNumChannels, const int newSize)
+    void AudioFIFO<SampleType>::changeSize (const int newNumChannels, int newSize)
     {
+        newSize += newSize;
+        
         if (base.getNumSamples() == newSize && base.getNumChannels() == newNumChannels)
             return;
-        
-        const juce::ScopedLock sl (lock);
         
         base.setSize (newNumChannels, newSize, true, true, true);
         
@@ -50,12 +50,10 @@ namespace dsp
     template<typename SampleType>
     void AudioFIFO<SampleType>::pushSamples (const SampleType* inputSamples, const int numSamples, const int destChannel)
     {
-        const juce::ScopedLock sl (lock);
-        
         const int length = base.getNumSamples();
         
         jassert (length > 0 && base.getNumChannels() > 0);
-        jassert (numSamples <= length);
+        jassert (numSamples + storedSamples <= length);
         
         SampleType* writing = base.getWritePointer(destChannel);
         
@@ -74,8 +72,6 @@ namespace dsp
     template<typename SampleType>
     void AudioFIFO<SampleType>::popSamples (SampleType* output, const int numSamples, const int readingChannel)
     {
-        const juce::ScopedLock sl (lock);
-        
         const int length = base.getNumSamples();
         
         jassert (length > 0 && base.getNumChannels() > 0);

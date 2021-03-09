@@ -58,9 +58,7 @@ public:
                      const int destStartSample, const int numSamples,
                      const int readingChannel)
     {
-        jassert (destStartSample + numSamples <= destBuffer.getNumSamples());
-        
-        popSamples (destBuffer.getWritePointer(destChannel) + destStartSample,
+        popSamples (destBuffer.getWritePointer(destChannel, destStartSample),
                     numSamples, readingChannel);
     }
     
@@ -80,8 +78,6 @@ private:
     
     int writeIndex;
     int storedSamples;
-    
-    juce::CriticalSection lock;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudioFIFO)
 };
