@@ -7,7 +7,7 @@
 namespace bav
 
 {
-    
+
 namespace dsp
 {
     
@@ -25,7 +25,7 @@ public:
     AudioFIFO()
     {
         writeIndex = 0;
-        storedSamples = 0;
+        storedSamples.add(0);
         base.setSize (0, 0);
     }
     
@@ -66,7 +66,7 @@ public:
     void popSamples (SampleType* output, const int numSamples, const int readingChannel);
     
     
-    int numStoredSamples() const noexcept { return storedSamples; }
+    int numStoredSamples(int channel) const noexcept { return storedSamples.getUnchecked(channel); }
     
     
     int getSize() const noexcept { return base.getNumSamples(); }
@@ -77,13 +77,15 @@ private:
     juce::AudioBuffer<SampleType> base;
     
     int writeIndex;
-    int storedSamples;
+    
+    juce::Array<int> storedSamples;  // need to store the # of samples in EACH channel!
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudioFIFO)
 };
-    
-    
+
+
 }  // namespace dsp
-    
+
 } // namespace bav
+
 
