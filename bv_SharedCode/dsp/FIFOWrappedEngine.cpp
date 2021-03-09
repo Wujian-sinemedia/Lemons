@@ -151,9 +151,9 @@ namespace dsp
                                                                         outBuffer.getNumChannels(), 0, internalBlocksize);
             
             if (isBypassed)
-                renderBypassedBlock (inBuffer, outProxy, chunkMidiBuffer);
+                renderBypassedBlock (inBuffer, outProxy);
             else
-                renderBlock (inBuffer, outProxy, chunkMidiBuffer);
+                renderBlock (inBuffer, outProxy);
             
             for (int chan = 0; chan < outBuffer.getNumChannels(); ++chan)
                 outputBuffer.pushSamples (outProxy, chan, 0, internalBlocksize, chan);
