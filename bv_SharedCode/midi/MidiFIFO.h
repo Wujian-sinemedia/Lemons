@@ -12,30 +12,46 @@ namespace midi
 {
 
 
-class MidiFIFO  :    public juce::MidiBuffer
+class MidiFIFO
 {
     
 public:
     
     MidiFIFO() { }
     
+    MidiFIFO(int maxNumMessages)
+    {
+        base.ensureSize (maxNumMessages);
+        copying.ensureSize (maxNumMessages);
+    }
+    
     ~MidiFIFO() { }
+    
+    
+    void setSize (int maxNumMessages)
+    {
+        base.ensureSize (maxNumMessages);
+        copying.ensureSize (maxNumMessages);
+    }
+    
+    void clear()
+    {
+        base.clear();
+        copying.clear();
+    }
     
     void pushEvents (const juce::MidiBuffer& source, const int numSamples)
     {
-        auto sourceStart = source.findNextSamplePosition (0);
+        const auto sourceStart = source.findNextSamplePosition (0);
+        const auto sourceEnd   = source.findNextSamplePosition (numSamples);
         
-        if (sourceStart == source.cend())
-            return;
-        
-        const auto sourceEnd = source.findNextSamplePosition (numSamples);
-        
-        const int writingStartSample = (this->getNumEvents() == 0) ? 0 : this->getLastEventTime() + 1;
+        const int writingStartSample = base.isEmpty() ? 0 : base.getLastEventTime() + 1;
         
         std::for_each (sourceStart, sourceEnd,
                        [&] (const juce::MidiMessageMetadata& meta)
                        {
-                           this->addEvent (meta.getMessage(), meta.samplePosition + writingStartSample);
+                           base.addEvent (meta.getMessage(),
+                                          meta.samplePosition + writingStartSample);
                        } );
     }
     
@@ -44,15 +60,8 @@ public:
     {
         output.clear();
         
-        auto readStart = this->findNextSamplePosition (0);
-        
-        if (readStart == this->cend())
-            return;
-        
-        auto readEnd = this->findNextSamplePosition (numSamples);
-        
-        if (readStart == readEnd)
-            return;
+        const auto readStart = base.findNextSamplePosition (0);
+        const auto readEnd   = base.findNextSamplePosition (numSamples);
         
         std::for_each (readStart, readEnd,
                        [&] (const juce::MidiMessageMetadata& meta)
@@ -60,18 +69,26 @@ public:
                            output.addEvent (meta.getMessage(), meta.samplePosition);
                        } );
         
-        this->clear();
+        copying.clear();
         
-        std::for_each (output.findNextSamplePosition(0), output.findNextSamplePosition(numSamples),
+        std::for_each (readEnd, base.cend(),
                        [&] (const juce::MidiMessageMetadata& meta)
                        {
-                           this->addEvent (meta.getMessage(),
-                                           std::max (0, meta.samplePosition - numSamples));
+                           copying.addEvent (meta.getMessage(),
+                                             std::max(0, meta.samplePosition - numSamples));
                        } );
+        
+        base.clear();
+        base.swapWith (copying);
     }
     
     
 private:
+    
+    juce::MidiBuffer base;
+    
+    juce::MidiBuffer copying;
+    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MidiFIFO)
 };
 
