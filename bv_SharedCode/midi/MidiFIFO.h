@@ -40,6 +40,8 @@ public:
         copying.clear();
     }
     
+    int numStoredEvents() { return base.getNumEvents(); }
+    
     void pushEvents (const juce::MidiBuffer& source, const int numSamples)
     {
         const auto sourceStart = source.findNextSamplePosition (0);
