@@ -45,14 +45,11 @@ void AudioFIFO<SampleType>::changeSize (const int newNumChannels, int newSize)
     base.setSize (newNumChannels, newSize, true, true, true);
     storedSamples.ensureStorageAllocated (newNumChannels);
     
-    const int prevChans = writeIndex.size();
-    
     for (int chan = 0; chan < newNumChannels; ++chan)
     {
-        if (chan > prevChans)
+        if (storedSamples.isEmpty() || chan >= storedSamples.size())
         {
             storedSamples.add (0);
-            writeIndex.add (0);
         }
         else
         {
@@ -60,7 +57,14 @@ void AudioFIFO<SampleType>::changeSize (const int newNumChannels, int newSize)
             
             if (prev > newSize)
                 storedSamples.set (chan, newSize);
-            
+        }
+        
+        if (writeIndex.isEmpty() || chan >= writeIndex.size())
+        {
+            writeIndex.add (0);
+        }
+        else
+        {
             const int prevW = writeIndex.getUnchecked(chan);
             
             if (prevW > newSize)
