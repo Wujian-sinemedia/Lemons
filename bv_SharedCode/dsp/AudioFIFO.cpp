@@ -53,10 +53,17 @@ void AudioFIFO<SampleType>::changeSize (const int newNumChannels, int newSize)
         if (prev > newSize)
             storedSamples.set (chan, newSize);
         
-        const int prevW = writeIndex.getUnchecked(chan);
-        
-        if (prevW > newSize)
-            writeIndex.set (chan, newSize);
+        if (chan < writeIndex.size())
+        {
+            const int prevW = writeIndex.getUnchecked(chan);
+            
+            if (prevW > newSize)
+                writeIndex.set (chan, newSize);
+        }
+        else
+        {
+            writeIndex.add(writeIndex.getUnchecked(0));
+        }
     }
 }
 
