@@ -24,7 +24,7 @@ public:
     
     AudioFIFO()
     {
-        writeIndex = 0;
+        writeIndex.add(0);
         storedSamples.add(0);
         base.setSize (0, 0);
     }
@@ -46,8 +46,7 @@ public:
                       const int inputStartSample, const int numSamples,
                       const int destChannel)
     {
-        pushSamples (inputBuffer.getReadPointer(inputChannel, inputStartSample),
-                     numSamples, destChannel);
+        pushSamples (inputBuffer.getReadPointer(inputChannel) + inputStartSample, numSamples, destChannel);
     }
     
     
@@ -58,8 +57,7 @@ public:
                      const int destStartSample, const int numSamples,
                      const int readingChannel)
     {
-        popSamples (destBuffer.getWritePointer(destChannel, destStartSample),
-                    numSamples, readingChannel);
+        popSamples (destBuffer.getWritePointer(destChannel) + destStartSample, numSamples, readingChannel);
     }
     
     
@@ -76,16 +74,17 @@ private:
     
     juce::AudioBuffer<SampleType> base;
     
-    int writeIndex;
-    
-    juce::Array<int> storedSamples;  // need to store the # of samples in EACH channel!
+    // need to store the write index & number of stored samples for EACH channel!
+    juce::Array<int> writeIndex;
+    juce::Array<int> storedSamples;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudioFIFO)
 };
 
-
+    
 }  // namespace dsp
 
 } // namespace bav
+
 
 
