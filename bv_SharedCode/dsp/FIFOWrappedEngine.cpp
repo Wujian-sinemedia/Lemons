@@ -10,11 +10,11 @@ namespace dsp
 
 template<typename SampleType>
 FIFOWrappedEngine<SampleType>::FIFOWrappedEngine (int initInternalBlocksize):
-internalBlocksize(initInternalBlocksize),
-wasBypassedLastCallback(true)
+        internalBlocksize(initInternalBlocksize),
+        wasBypassedLastCallback(true)
 {
     inputBuffer.initialize(2, internalBlocksize * 2);
-    outputBuffer.initialize(2, internalBlocksize * 4);
+    outputBuffer.initialize(2, internalBlocksize * 2);
     
     prepare (44100.0, std::max(512, initInternalBlocksize));
 }
@@ -29,10 +29,12 @@ void FIFOWrappedEngine<SampleType>::prepare (double samplerate, int blocksize)
     jassert (samplerate > 0);
     jassert (blocksize > 0);
     
-    inBuffer.setSize (2, internalBlocksize, true, true, true);
-    outBuffer.setSize(2, internalBlocksize, true, true, true);
-    inputBuffer.changeSize (2, internalBlocksize * 2);
-    outputBuffer.changeSize(2, internalBlocksize * 4);
+    const int doubleBlocksize = internalBlocksize * 2;
+    
+    inBuffer.setSize (2, doubleBlocksize, true, true, true);
+    outBuffer.setSize (2, doubleBlocksize, true, true, true);
+    inputBuffer.changeSize (2, doubleBlocksize);
+    outputBuffer.changeSize(2, doubleBlocksize);
     
     wasBypassedLastCallback = true;
     
@@ -63,11 +65,12 @@ void FIFOWrappedEngine<SampleType>::changeLatency (int newInternalBlocksize)
     
     internalBlocksize = newInternalBlocksize;
     
-    inBuffer.setSize (2, internalBlocksize, true, true, true);
-    outBuffer.setSize (2, internalBlocksize, true, true, true);
+    const int doubleBlocksize = internalBlocksize * 2;
     
-    inputBuffer.changeSize (2, internalBlocksize * 2);
-    outputBuffer.changeSize(2, internalBlocksize * 4);
+    inBuffer.setSize (2, doubleBlocksize, true, true, true);
+    outBuffer.setSize (2, doubleBlocksize, true, true, true);
+    inputBuffer.changeSize (2, doubleBlocksize);
+    outputBuffer.changeSize(2, doubleBlocksize);
     
     latencyChanged (newInternalBlocksize);
 }
@@ -191,11 +194,11 @@ template class FIFOWrappedEngine<double>;
 
 template<typename SampleType>
 FIFOWrappedEngineWithMidi<SampleType>::FIFOWrappedEngineWithMidi (int initInternalBlocksize):
-internalBlocksize(initInternalBlocksize),
-wasBypassedLastCallback(true)
+        internalBlocksize(initInternalBlocksize),
+        wasBypassedLastCallback(true)
 {
     inputBuffer.initialize(2, internalBlocksize * 2);
-    outputBuffer.initialize(2, internalBlocksize * 4);
+    outputBuffer.initialize(2, internalBlocksize * 2);
     
     prepare (44100.0, std::max(512, initInternalBlocksize));
 }
@@ -210,17 +213,21 @@ void FIFOWrappedEngineWithMidi<SampleType>::prepare (double samplerate, int bloc
     jassert (samplerate > 0);
     jassert (blocksize > 0);
     
-    const size_t doubleBlocksize = size_t(internalBlocksize * 2);
+    const int doubleBlocksize = internalBlocksize * 2;
     
-    midiInputCollection .ensureSize (doubleBlocksize);
-    midiOutputCollection.ensureSize (doubleBlocksize);
-    chunkMidiBuffer.ensureSize (doubleBlocksize);
-    midiChoppingBuffer.ensureSize (doubleBlocksize);
+    inBuffer.setSize (2, doubleBlocksize, true, true, true);
+    outBuffer.setSize (2, doubleBlocksize, true, true, true);
+    inputBuffer.changeSize (2, doubleBlocksize);
+    outputBuffer.changeSize(2, doubleBlocksize);
     
-    inBuffer.setSize (2, internalBlocksize * 2, true, true, true);
-    outBuffer.setSize(2, internalBlocksize * 2, true, true, true);
-    inputBuffer.changeSize (2, internalBlocksize * 2);
-    outputBuffer.changeSize(2, internalBlocksize * 4);
+    const size_t doubleBlocksizeT = size_t(doubleBlocksize);
+    
+    midiInputCollection .ensureSize (doubleBlocksizeT);
+    midiOutputCollection.ensureSize (doubleBlocksizeT);
+    chunkMidiBuffer.ensureSize (doubleBlocksizeT);
+    midiChoppingBuffer.ensureSize (doubleBlocksizeT);
+    
+    wasBypassedLastCallback = true;
     
     prepareToPlay (samplerate, blocksize);
 }
@@ -239,6 +246,8 @@ void FIFOWrappedEngineWithMidi<SampleType>::releaseResources()
     midiOutputCollection.clear();
     chunkMidiBuffer.clear();
     
+    wasBypassedLastCallback = true;
+    
     release();
 }
 
@@ -252,11 +261,19 @@ void FIFOWrappedEngineWithMidi<SampleType>::changeLatency (int newInternalBlocks
     
     internalBlocksize = newInternalBlocksize;
     
-    inBuffer.setSize (2, internalBlocksize, true, true, true);
-    outBuffer.setSize (2, internalBlocksize, true, true, true);
+    const int doubleBlocksize = internalBlocksize * 2;
     
-    inputBuffer.changeSize (2, internalBlocksize * 2);
-    outputBuffer.changeSize(2, internalBlocksize * 4);
+    inBuffer.setSize (2, doubleBlocksize, true, true, true);
+    outBuffer.setSize (2, doubleBlocksize, true, true, true);
+    inputBuffer.changeSize (2, doubleBlocksize);
+    outputBuffer.changeSize(2, doubleBlocksize);
+    
+    const size_t doubleBlocksizeT = size_t(doubleBlocksize);
+    
+    midiInputCollection .ensureSize (doubleBlocksizeT);
+    midiOutputCollection.ensureSize (doubleBlocksizeT);
+    chunkMidiBuffer.ensureSize (doubleBlocksizeT);
+    midiChoppingBuffer.ensureSize (doubleBlocksizeT);
     
     latencyChanged (newInternalBlocksize);
 }
@@ -322,6 +339,7 @@ void FIFOWrappedEngineWithMidi<SampleType>::process (AudioBuffer<SampleType>& in
         
         actuallyFadingIn  = false;
         actuallyFadingOut = false;
+        processingBypassedThisFrame = isBypassed;
     } while (samplesLeft > 0);
 }
 
