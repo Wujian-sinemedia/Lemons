@@ -171,8 +171,7 @@ namespace dsp
     
     template<typename SampleType>
     void FIFOWrappedEngine<SampleType>::renderBypassedBlock (const AudioBuffer<SampleType>& input,
-                                                             AudioBuffer<SampleType>& output,
-                                                             MidiBuffer& midiMessages)
+                                                             AudioBuffer<SampleType>& output)
     {
         for (int chan = 0; chan < 2; ++chan)
             output.copyFrom (chan, 0, input, chan, 0, internalBlocksize);

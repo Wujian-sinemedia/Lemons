@@ -43,7 +43,7 @@ private:
     
     virtual void renderBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output)=0;
     
-    virtual void renderBypassedBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages);
+    virtual void renderBypassedBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output);
     
     virtual void prepareToPlay (double samplerate, int blocksize) { juce::ignoreUnused (samplerate, blocksize); }
     
