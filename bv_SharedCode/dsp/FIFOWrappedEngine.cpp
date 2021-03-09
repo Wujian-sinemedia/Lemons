@@ -4,14 +4,14 @@
 
 namespace bav
 {
-    
+
 namespace dsp
 {
 
 template<typename SampleType>
 FIFOWrappedEngine<SampleType>::FIFOWrappedEngine (int initInternalBlocksize):
-        internalBlocksize(initInternalBlocksize),
-        wasBypassedLastCallback(true)
+internalBlocksize(initInternalBlocksize),
+wasBypassedLastCallback(true)
 {
     inputBuffer.initialize(2, internalBlocksize * 2);
     outputBuffer.initialize(2, internalBlocksize * 2);
@@ -194,8 +194,8 @@ template class FIFOWrappedEngine<double>;
 
 template<typename SampleType>
 FIFOWrappedEngineWithMidi<SampleType>::FIFOWrappedEngineWithMidi (int initInternalBlocksize):
-        internalBlocksize(initInternalBlocksize),
-        wasBypassedLastCallback(true)
+internalBlocksize(initInternalBlocksize),
+wasBypassedLastCallback(true)
 {
     inputBuffer.initialize(2, internalBlocksize * 2);
     outputBuffer.initialize(2, internalBlocksize * 2);
@@ -222,8 +222,8 @@ void FIFOWrappedEngineWithMidi<SampleType>::prepare (double samplerate, int bloc
     
     const size_t doubleBlocksizeT = size_t(doubleBlocksize);
     
-    midiInputCollection .ensureSize (doubleBlocksizeT);
-    midiOutputCollection.ensureSize (doubleBlocksizeT);
+    midiInputCollection.setSize(doubleBlocksize);
+    midiOutputCollection.setSize(doubleBlocksize);
     chunkMidiBuffer.ensureSize (doubleBlocksizeT);
     midiChoppingBuffer.ensureSize (doubleBlocksizeT);
     
@@ -270,8 +270,8 @@ void FIFOWrappedEngineWithMidi<SampleType>::changeLatency (int newInternalBlocks
     
     const size_t doubleBlocksizeT = size_t(doubleBlocksize);
     
-    midiInputCollection .ensureSize (doubleBlocksizeT);
-    midiOutputCollection.ensureSize (doubleBlocksizeT);
+    midiInputCollection.setSize(doubleBlocksize);
+    midiOutputCollection.setSize(doubleBlocksize);
     chunkMidiBuffer.ensureSize (doubleBlocksizeT);
     midiChoppingBuffer.ensureSize (doubleBlocksizeT);
     
@@ -416,4 +416,5 @@ template class FIFOWrappedEngineWithMidi<double>;
 }  // namespace dsp
 
 }  // namespace bav
+
 

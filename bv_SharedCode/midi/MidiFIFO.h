@@ -21,8 +21,7 @@ public:
     
     MidiFIFO(int maxNumMessages)
     {
-        base.ensureSize (maxNumMessages);
-        copying.ensureSize (maxNumMessages);
+        setSize (maxNumMessages);
     }
     
     ~MidiFIFO() { }
@@ -30,8 +29,9 @@ public:
     
     void setSize (int maxNumMessages)
     {
-        base.ensureSize (maxNumMessages);
-        copying.ensureSize (maxNumMessages);
+        const size_t messages = size_t(maxNumMessages);
+        base.ensureSize (messages);
+        copying.ensureSize (messages);
     }
     
     void clear()

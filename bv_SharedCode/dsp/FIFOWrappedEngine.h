@@ -113,9 +113,9 @@ private:
     int internalBlocksize; // the size of the processing blocks, in samples, that the algorithm will be processing
     
     juce::MidiBuffer midiChoppingBuffer;
+    juce::MidiBuffer chunkMidiBuffer;
     bav::midi::MidiFIFO midiInputCollection;
     bav::midi::MidiFIFO midiOutputCollection;
-    bav::midi::MidiFIFO chunkMidiBuffer;
     
     bav::dsp::AudioFIFO<SampleType> inputBuffer;
     bav::dsp::AudioFIFO<SampleType> outputBuffer;
