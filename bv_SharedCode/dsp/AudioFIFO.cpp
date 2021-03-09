@@ -31,7 +31,6 @@ void AudioFIFO<SampleType>::releaseResources()
     base.setSize (0, 0);
     storedSamples.clear();
     writeIndex.clear();
-    storedSamples = 0;
 }
 
 
@@ -46,23 +45,26 @@ void AudioFIFO<SampleType>::changeSize (const int newNumChannels, int newSize)
     base.setSize (newNumChannels, newSize, true, true, true);
     storedSamples.ensureStorageAllocated (newNumChannels);
     
+    const int prevChans = writeIndex.size();
+    
     for (int chan = 0; chan < newNumChannels; ++chan)
     {
-        const int prev = storedSamples.getUnchecked(chan);
-        
-        if (prev > newSize)
-            storedSamples.set (chan, newSize);
-        
-        if (chan < writeIndex.size())
+        if (chan > prevChans)
         {
+            storedSamples.add (0);
+            writeIndex.add (0);
+        }
+        else
+        {
+            const int prev = storedSamples.getUnchecked(chan);
+            
+            if (prev > newSize)
+                storedSamples.set (chan, newSize);
+            
             const int prevW = writeIndex.getUnchecked(chan);
             
             if (prevW > newSize)
                 writeIndex.set (chan, newSize);
-        }
-        else
-        {
-            writeIndex.add(writeIndex.getUnchecked(0));
         }
     }
 }
