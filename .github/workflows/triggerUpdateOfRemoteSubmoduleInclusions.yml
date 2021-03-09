@@ -48,3 +48,10 @@ jobs:
           token: ${{ secrets.PAT_TOKEN }}
           repository: benthevining/audio-fifo-tester
           event-type: update_submodules
+          
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          repository: benthevining/midi-fifo-tester
+          event-type: update_submodules
