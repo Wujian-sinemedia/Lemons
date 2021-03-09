@@ -34,3 +34,17 @@ jobs:
           token: ${{ secrets.PAT_TOKEN }}
           repository: benthevining/pitch-detector-tester
           event-type: update_submodules
+          
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          repository: benthevining/new-juce-project-template
+          event-type: update_submodules
+          
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          repository: benthevining/audio-fifo-tester
+          event-type: update_submodules
