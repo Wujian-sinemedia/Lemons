@@ -149,23 +149,26 @@ void FIFOWrappedEngine<SampleType>::processWrapped (AudioBuffer<SampleType>& inp
         for (int chan = 0; chan < 2; ++chan)
             inputBuffer.popSamples (inBuffer, chan, 0, internalBlocksize, chan);
         
-        outBuffer.clear();
-        AudioBuffer<SampleType> outProxy = AudioBuffer<SampleType> (outBuffer.getArrayOfWritePointers(),
-                                                                    outBuffer.getNumChannels(), 0, internalBlocksize);
-        
-        AudioBuffer<SampleType> inProxy = AudioBuffer<SampleType> (inBuffer.getArrayOfWritePointers(),
-                                                                   2, 0, internalBlocksize);
+        AudioBuffer<SampleType> inProxy = AudioBuffer<SampleType> (inBuffer.getArrayOfWritePointers(), 2, 0, internalBlocksize);
         
         if (isBypassed)
-            renderBypassedBlock (inProxy, outProxy);
+        {
+            for (int chan = 0; chan < 2; ++chan)
+                outputBuffer.pushSamples (inProxy, chan, 0, internalBlocksize, chan);
+        }
         else
+        {
+            outBuffer.clear();
+            AudioBuffer<SampleType> outProxy = AudioBuffer<SampleType> (outBuffer.getArrayOfWritePointers(), 2, 0, internalBlocksize);
+            
             renderBlock (inProxy, outProxy);
-        
-        for (int chan = 0; chan < outBuffer.getNumChannels(); ++chan)
-            outputBuffer.pushSamples (outProxy, chan, 0, internalBlocksize, chan);
+            
+            for (int chan = 0; chan < 2; ++chan)
+                outputBuffer.pushSamples (outProxy, chan, 0, internalBlocksize, chan);
+        }
     }
     
-    for (int chan = 0; chan < output.getNumChannels(); ++chan)
+    for (int chan = 0; chan < 2; ++chan)
         outputBuffer.popSamples (output, chan, 0, numNewSamples, chan);
     
     if (applyFadeIn)
@@ -173,14 +176,6 @@ void FIFOWrappedEngine<SampleType>::processWrapped (AudioBuffer<SampleType>& inp
     
     if (applyFadeOut)
         output.applyGainRamp (0, numNewSamples, 1.0f, 0.0f);
-}
-
-template<typename SampleType>
-void FIFOWrappedEngine<SampleType>::renderBypassedBlock (const AudioBuffer<SampleType>& input,
-                                                         AudioBuffer<SampleType>& output)
-{
-    for (int chan = 0; chan < 2; ++chan)
-        output.copyFrom (chan, 0, input, chan, 0, internalBlocksize);
 }
 
 
@@ -367,25 +362,28 @@ void FIFOWrappedEngineWithMidi<SampleType>::processWrapped (AudioBuffer<SampleTy
         chunkMidiBuffer.clear();
         midiInputCollection.popEvents (chunkMidiBuffer,  internalBlocksize);
         
-        outBuffer.clear();
-        AudioBuffer<SampleType> outProxy = AudioBuffer<SampleType> (outBuffer.getArrayOfWritePointers(),
-                                                                    2, 0, internalBlocksize);
-        
-        AudioBuffer<SampleType> inProxy = AudioBuffer<SampleType> (inBuffer.getArrayOfWritePointers(),
-                                                                   2, 0, internalBlocksize);
+        AudioBuffer<SampleType> inProxy = AudioBuffer<SampleType> (inBuffer.getArrayOfWritePointers(), 2, 0, internalBlocksize);
         
         if (isBypassed)
-            renderBypassedBlock (inProxy, outProxy, chunkMidiBuffer);
+        {
+            for (int chan = 0; chan < 2; ++chan)
+                outputBuffer.pushSamples (inProxy, chan, 0, internalBlocksize, chan);
+        }
         else
+        {
+            outBuffer.clear();
+            AudioBuffer<SampleType> outProxy = AudioBuffer<SampleType> (outBuffer.getArrayOfWritePointers(), 2, 0, internalBlocksize);
+            
             renderBlock (inProxy, outProxy, chunkMidiBuffer);
-        
-        for (int chan = 0; chan < outBuffer.getNumChannels(); ++chan)
-            outputBuffer.pushSamples (outProxy, chan, 0, internalBlocksize, chan);
+            
+            for (int chan = 0; chan < 2; ++chan)
+                outputBuffer.pushSamples (outProxy, chan, 0, internalBlocksize, chan);
+        }
         
         midiOutputCollection.pushEvents (chunkMidiBuffer, internalBlocksize);
     }
     
-    for (int chan = 0; chan < output.getNumChannels(); ++chan)
+    for (int chan = 0; chan < 2; ++chan)
         outputBuffer.popSamples (output, chan, 0, numNewSamples, chan);
     
     midiOutputCollection.popEvents (midiMessages, numNewSamples);
@@ -397,16 +395,6 @@ void FIFOWrappedEngineWithMidi<SampleType>::processWrapped (AudioBuffer<SampleTy
         output.applyGainRamp (0, numNewSamples, 1.0f, 0.0f);
 }
 
-template<typename SampleType>
-void FIFOWrappedEngineWithMidi<SampleType>::renderBypassedBlock (const AudioBuffer<SampleType>& input,
-                                                                 AudioBuffer<SampleType>& output,
-                                                                 MidiBuffer& midiMessages)
-{
-    for (int chan = 0; chan < 2; ++chan)
-        output.copyFrom (chan, 0, input, chan, 0, internalBlocksize);
-    
-    ignoreUnused (midiMessages);
-}
 
 
 template class FIFOWrappedEngineWithMidi<float>;

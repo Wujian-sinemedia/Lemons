@@ -43,8 +43,6 @@ private:
     
     virtual void renderBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output)=0;
     
-    virtual void renderBypassedBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output);
-    
     virtual void prepareToPlay (double samplerate, int blocksize) { juce::ignoreUnused (samplerate, blocksize); }
     
     virtual void release() { }
@@ -101,8 +99,6 @@ private:
     // these virtual functions should be overriden by your subclass to implement your engine's functionality:
     
     virtual void renderBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages)=0;
-    
-    virtual void renderBypassedBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages);
     
     virtual void prepareToPlay (double samplerate, int blocksize) { juce::ignoreUnused (samplerate, blocksize); }
     
