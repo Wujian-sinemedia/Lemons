@@ -9,7 +9,9 @@ namespace dsp
 {
     
     template<typename SampleType>
-    FIFOWrappedEngine<SampleType>::FIFOWrappedEngine(int initInternalBlocksize): internalBlocksize(initInternalBlocksize)
+    FIFOWrappedEngine<SampleType>::FIFOWrappedEngine (int initInternalBlocksize):
+            internalBlocksize(initInternalBlocksize),
+            wasBypassedLastCallback(true)
     {
         inputBuffer.initialize(2, internalBlocksize * 2);
         outputBuffer.initialize(2, internalBlocksize * 2);
@@ -32,6 +34,8 @@ namespace dsp
         inputBuffer.changeSize (2, internalBlocksize * 2);
         outputBuffer.changeSize(2, internalBlocksize * 3);
         
+        wasBypassedLastCallback = true;
+        
         prepareToPlay (samplerate, blocksize);
     }
     
@@ -43,6 +47,8 @@ namespace dsp
         
         inputBuffer.releaseResources();
         outputBuffer.releaseResources();
+        
+        wasBypassedLastCallback = true;
         
         release();
     }
@@ -67,8 +73,8 @@ namespace dsp
     }
     
     template<typename SampleType>
-    void FIFOWrappedEngine<SampleType>::process (AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output,
-                                                 const bool applyFadeIn, const bool applyFadeOut,
+    void FIFOWrappedEngine<SampleType>::process (AudioBuffer<SampleType>& input,
+                                                 AudioBuffer<SampleType>& output,
                                                  const bool isBypassed)
     {
         const int totalNumSamples = input.getNumSamples();
@@ -76,9 +82,26 @@ namespace dsp
         if (totalNumSamples == 0 || input.getNumChannels() == 0 || output.getNumSamples() == 0 || output.getNumChannels() == 0)
             return;
         
+        bool applyFadeIn, applyFadeOut;
+        bool processingBypassedThisFrame = isBypassed;
+        
+        if (isBypassed)
+        {
+            processingBypassedThisFrame = wasBypassedLastCallback;
+            applyFadeIn = false;
+            applyFadeOut = ! wasBypassedLastCallback;
+        }
+        else
+        {
+            applyFadeOut = false;
+            applyFadeIn = wasBypassedLastCallback;
+        }
+        
+        wasBypassedLastCallback = isBypassed;
+        
         if (totalNumSamples <= internalBlocksize)
         {
-            processWrapped (input, output, applyFadeIn, applyFadeOut, isBypassed);
+            processWrapped (input, output, applyFadeIn, applyFadeOut, processingBypassedThisFrame);
             return;
         }
         
@@ -94,15 +117,15 @@ namespace dsp
             AudioBuffer<SampleType> inputProxy  (input.getArrayOfWritePointers(),  input.getNumChannels(), startSample, chunkNumSamples);
             AudioBuffer<SampleType> outputProxy (output.getArrayOfWritePointers(), 2,                      startSample, chunkNumSamples);
             
-            processWrapped (inputProxy, outputProxy, actuallyFadingIn, actuallyFadingOut, isBypassed);
+            processWrapped (inputProxy, outputProxy, actuallyFadingIn, actuallyFadingOut, processingBypassedThisFrame);
             
             startSample += chunkNumSamples;
             samplesLeft -= chunkNumSamples;
             
             actuallyFadingIn  = false;
             actuallyFadingOut = false;
-        }
-        while (samplesLeft > 0);
+            processingBypassedThisFrame = isBypassed;
+        } while (samplesLeft > 0);
     }
     
     template<typename SampleType>
@@ -114,28 +137,26 @@ namespace dsp
         
         jassert (numNewSamples <= internalBlocksize);
         
-        inputBuffer.pushSamples (input, 0, 0, numNewSamples, 0);
+        for (int chan = 0; chan < 2; ++chan)
+            inputBuffer.pushSamples (input, chan, 0, numNewSamples, chan);
         
         if (inputBuffer.numStoredSamples() >= internalBlocksize)  // we have enough samples, render the new chunk
         {
             inBuffer.clear();
-            inputBuffer.popSamples (inBuffer, 0, 0, internalBlocksize, 0);
+            for (int chan = 0; chan < 2; ++chan)
+                inputBuffer.popSamples (inBuffer, chan, 0, internalBlocksize, chan);
+            
+            outBuffer.clear();
+            AudioBuffer<SampleType> outProxy = AudioBuffer<SampleType> (outBuffer.getArrayOfWritePointers(),
+                                                                        outBuffer.getNumChannels(), 0, internalBlocksize);
             
             if (isBypassed)
-            {
-                for (int chan = 0; chan < 2; ++chan)
-                    outputBuffer.pushSamples (inBuffer, 0, 0, internalBlocksize, chan);
-            }
+                renderBypassedBlock (inBuffer, outProxy, chunkMidiBuffer);
             else
-            {
-                AudioBuffer<SampleType> outProxy = AudioBuffer<SampleType> (outBuffer.getArrayOfWritePointers(),
-                                                                            outBuffer.getNumChannels(), 0, internalBlocksize);
-                
-                renderBlock (inBuffer, outProxy);
-                
-                for (int chan = 0; chan < outBuffer.getNumChannels(); ++chan)
-                    outputBuffer.pushSamples (outBuffer, chan, 0, internalBlocksize, chan);
-            }
+                renderBlock (inBuffer, outProxy, chunkMidiBuffer);
+            
+            for (int chan = 0; chan < outBuffer.getNumChannels(); ++chan)
+                outputBuffer.pushSamples (outProxy, chan, 0, internalBlocksize, chan);
         }
         
         for (int chan = 0; chan < output.getNumChannels(); ++chan)
@@ -148,6 +169,15 @@ namespace dsp
             output.applyGainRamp (0, numNewSamples, 1.0f, 0.0f);
     }
     
+    template<typename SampleType>
+    void FIFOWrappedEngine<SampleType>::renderBypassedBlock (const AudioBuffer<SampleType>& input,
+                                                             AudioBuffer<SampleType>& output,
+                                                             MidiBuffer& midiMessages)
+    {
+        for (int chan = 0; chan < 2; ++chan)
+            output.copyFrom (chan, 0, input, chan, 0, internalBlocksize);
+    }
+    
     
     template class FIFOWrappedEngine<float>;
     template class FIFOWrappedEngine<double>;
@@ -158,7 +188,9 @@ namespace dsp
     
     
     template<typename SampleType>
-    FIFOWrappedEngineWithMidi<SampleType>::FIFOWrappedEngineWithMidi(int initInternalBlocksize): internalBlocksize(initInternalBlocksize)
+    FIFOWrappedEngineWithMidi<SampleType>::FIFOWrappedEngineWithMidi (int initInternalBlocksize):
+            internalBlocksize(initInternalBlocksize),
+            wasBypassedLastCallback(true)
     {
         inputBuffer.initialize(2, internalBlocksize * 2);
         outputBuffer.initialize(2, internalBlocksize * 2);
@@ -228,8 +260,8 @@ namespace dsp
     }
     
     template<typename SampleType>
-    void FIFOWrappedEngineWithMidi<SampleType>::process (AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages,
-                                                         const bool applyFadeIn, const bool applyFadeOut,
+    void FIFOWrappedEngineWithMidi<SampleType>::process (AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output,
+                                                         MidiBuffer& midiMessages,
                                                          const bool isBypassed)
     {
         const int totalNumSamples = input.getNumSamples();
@@ -237,9 +269,26 @@ namespace dsp
         if (totalNumSamples == 0 || input.getNumChannels() == 0 || output.getNumSamples() == 0 || output.getNumChannels() == 0)
             return;
         
+        bool applyFadeIn, applyFadeOut;
+        bool processingBypassedThisFrame = isBypassed;
+        
+        if (isBypassed)
+        {
+            processingBypassedThisFrame = wasBypassedLastCallback;
+            applyFadeIn = false;
+            applyFadeOut = ! wasBypassedLastCallback;
+        }
+        else
+        {
+            applyFadeOut = false;
+            applyFadeIn = wasBypassedLastCallback;
+        }
+        
+        wasBypassedLastCallback = isBypassed;
+        
         if (totalNumSamples <= internalBlocksize)
         {
-            processWrapped (input, output, midiMessages, applyFadeIn, applyFadeOut, isBypassed);
+            processWrapped (input, output, midiMessages, applyFadeIn, applyFadeOut, processingBypassedThisFrame);
             return;
         }
         
@@ -252,18 +301,18 @@ namespace dsp
         do {
             const int chunkNumSamples = std::min (internalBlocksize, samplesLeft);
             
-            AudioBuffer<SampleType> inputProxy  (input.getArrayOfWritePointers(),  input.getNumChannels(), startSample, chunkNumSamples);
-            AudioBuffer<SampleType> outputProxy (output.getArrayOfWritePointers(), 2,                      startSample, chunkNumSamples);
+            AudioBuffer<SampleType> inputProxy  (input.getArrayOfWritePointers(),  2, startSample, chunkNumSamples);
+            AudioBuffer<SampleType> outputProxy (output.getArrayOfWritePointers(), 2, startSample, chunkNumSamples);
             
             /* put just the midi messages for this time segment into the midiChoppingBuffer
              in the midiChoppingBuffer, events will start at timestamp sample 0
-             the harmonizer's midi output will be returned by being copied to this same region of the midiChoppingBuffer */
+             the midi output will be returned by being copied to this same region of the midiChoppingBuffer */
             midiChoppingBuffer.clear();
             bav::midi::copyRangeOfMidiBuffer (midiMessages, midiChoppingBuffer, startSample, 0, chunkNumSamples);
             
-            processWrapped (inputProxy, outputProxy, midiChoppingBuffer, actuallyFadingIn, actuallyFadingOut, isBypassed);
+            processWrapped (inputProxy, outputProxy, midiChoppingBuffer, actuallyFadingIn, actuallyFadingOut, processingBypassedThisFrame);
             
-            // copy the harmonizer's midi output back to midiMessages (I/O), at the original startSample
+            // copy the midi output back to midiMessages (I/O), at the original startSample
             bav::midi::copyRangeOfMidiBuffer (midiChoppingBuffer, midiMessages, 0, startSample, chunkNumSamples);
             
             startSample += chunkNumSamples;
@@ -271,8 +320,7 @@ namespace dsp
             
             actuallyFadingIn  = false;
             actuallyFadingOut = false;
-        }
-        while (samplesLeft > 0);
+        } while (samplesLeft > 0);
     }
     
     template<typename SampleType>
@@ -285,32 +333,31 @@ namespace dsp
         
         jassert (numNewSamples <= internalBlocksize);
         
-        inputBuffer.pushSamples (input, 0, 0, numNewSamples, 0);
+        for (int chan = 0; chan < 2; ++chan)
+            inputBuffer.pushSamples (input, chan, 0, numNewSamples, chan);
+        
         midiInputCollection.pushEvents (midiMessages, numNewSamples);
         
         if (inputBuffer.numStoredSamples() >= internalBlocksize)  // we have enough samples, render the new chunk
         {
             inBuffer.clear();
-            inputBuffer.popSamples (inBuffer, 0, 0, internalBlocksize, 0);
+            for (int chan = 0; chan < 2; ++chan)
+                inputBuffer.popSamples (inBuffer, chan, 0, internalBlocksize, chan);
             
             chunkMidiBuffer.clear();
             midiInputCollection.popEvents (chunkMidiBuffer,  internalBlocksize);
             
+            outBuffer.clear();
+            AudioBuffer<SampleType> outProxy = AudioBuffer<SampleType> (outBuffer.getArrayOfWritePointers(),
+                                                                        outBuffer.getNumChannels(), 0, internalBlocksize);
+            
             if (isBypassed)
-            {
-                for (int chan = 0; chan < 2; ++chan)
-                    outputBuffer.pushSamples (inBuffer, 0, 0, internalBlocksize, chan);
-            }
+                renderBypassedBlock (inBuffer, outProxy, chunkMidiBuffer);
             else
-            {
-                AudioBuffer<SampleType> outProxy = AudioBuffer<SampleType> (outBuffer.getArrayOfWritePointers(),
-                                                                            outBuffer.getNumChannels(), 0, internalBlocksize);
-                
                 renderBlock (inBuffer, outProxy, chunkMidiBuffer);
-                
-                for (int chan = 0; chan < outBuffer.getNumChannels(); ++chan)
-                    outputBuffer.pushSamples (outBuffer, chan, 0, internalBlocksize, chan);
-            }
+            
+            for (int chan = 0; chan < outBuffer.getNumChannels(); ++chan)
+                outputBuffer.pushSamples (outProxy, chan, 0, internalBlocksize, chan);
             
             midiOutputCollection.pushEvents (chunkMidiBuffer, internalBlocksize);
         }
@@ -325,6 +372,15 @@ namespace dsp
         
         if (applyFadeOut)
             output.applyGainRamp (0, numNewSamples, 1.0f, 0.0f);
+    }
+    
+    template<typename SampleType>
+    void FIFOWrappedEngineWithMidi<SampleType>::renderBypassedBlock (const AudioBuffer<SampleType>& input,
+                                                                     AudioBuffer<SampleType>& output,
+                                                                     MidiBuffer& midiMessages)
+    {
+        for (int chan = 0; chan < 2; ++chan)
+            output.copyFrom (chan, 0, input, chan, 0, internalBlocksize);
     }
     
     

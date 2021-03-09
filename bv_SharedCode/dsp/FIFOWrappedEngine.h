@@ -18,11 +18,9 @@ public:
     FIFOWrappedEngine(int internalBlocksize);
     virtual ~FIFOWrappedEngine();
     
+    // these are the public functions your AudioProcessor should call directly from its processBlock, prepareToPlay, etc...
     
-    void process (AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output,
-                  const bool applyFadeIn = false, const bool applyFadeOut = false,
-                  const bool isBypassed = false);
-    
+    void process (AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, const bool isBypassed = false);
     
     void prepare (double samplerate, int blocksize);
     
@@ -41,7 +39,11 @@ private:
                          const bool applyFadeIn, const bool applyFadeOut,
                          const bool isBypassed = false);
     
+    // these virtual functions should be overriden by your subclass to implement your engine's functionality:
+    
     virtual void renderBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output)=0;
+    
+    virtual void renderBypassedBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages);
     
     virtual void prepareToPlay (double samplerate, int blocksize) { juce::ignoreUnused (samplerate, blocksize); }
     
@@ -55,6 +57,8 @@ private:
     bav::dsp::AudioFIFO<SampleType> outputBuffer;
     AudioBuffer<SampleType> inBuffer;
     AudioBuffer<SampleType> outBuffer;
+    
+    bool wasBypassedLastCallback;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FIFOWrappedEngine)
 };
@@ -72,11 +76,9 @@ public:
     FIFOWrappedEngineWithMidi(int internalBlocksize);
     virtual ~FIFOWrappedEngineWithMidi();
     
+    // these are the public functions your AudioProcessor should call directly from its processBlock, prepareToPlay, etc...
     
-    void process (AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages,
-                  const bool applyFadeIn = false, const bool applyFadeOut = false,
-                  const bool isBypassed = false);
-    
+    void process (AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages, const bool isBypassed = false);
     
     void prepare (double samplerate, int blocksize);
     
@@ -96,7 +98,11 @@ private:
                          const bool applyFadeIn, const bool applyFadeOut,
                          const bool isBypassed = false);
     
+    // these virtual functions should be overriden by your subclass to implement your engine's functionality:
+    
     virtual void renderBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages)=0;
+    
+    virtual void renderBypassedBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages);
     
     virtual void prepareToPlay (double samplerate, int blocksize) { juce::ignoreUnused (samplerate, blocksize); }
     
@@ -115,6 +121,8 @@ private:
     bav::dsp::AudioFIFO<SampleType> outputBuffer;
     AudioBuffer<SampleType> inBuffer;
     AudioBuffer<SampleType> outBuffer;
+    
+    bool wasBypassedLastCallback;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FIFOWrappedEngineWithMidi)
 };
