@@ -70,9 +70,9 @@ namespace dsp
     
     inline int msToSamps (double samplerate, int ms) { return juce::roundToInt(samplerate / 1000.0f * ms); }
     
-    inline int midiToFreq (int midiNote) { return std::pow (2, (midiNote - 69)/12) * 440; }
+    inline int midiToFreq (int midiNote) { return juce::roundToInt (440 * std::pow (2, (midiNote - 69)/12)); }
     
-    inline int freqToMidi (int freqHz) { return juce::roundToInt(12 * log2(freqHz / 440) + 69); }
+    inline int freqToMidi (int freqHz) { return juce::roundToInt (69 + 12 * log2(freqHz / 440)); }
     
 }  // namespace dsp
 
