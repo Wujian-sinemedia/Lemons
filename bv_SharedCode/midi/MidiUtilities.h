@@ -36,10 +36,10 @@ namespace midi
     }
     
     
-    void copyRangeOfMidiBuffer (const juce::MidiBuffer& readingBuffer, juce::MidiBuffer& destBuffer,
-                                const int startSampleOfInput,
-                                const int startSampleOfOutput,
-                                const int numSamples)
+    inline void copyRangeOfMidiBuffer (const juce::MidiBuffer& readingBuffer, juce::MidiBuffer& destBuffer,
+                                       const int startSampleOfInput,
+                                       const int startSampleOfOutput,
+                                       const int numSamples)
     {
         destBuffer.clear (startSampleOfOutput, numSamples);
         
