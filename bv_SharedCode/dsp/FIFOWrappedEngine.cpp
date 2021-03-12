@@ -7,42 +7,68 @@ namespace bav
 
 namespace dsp
 {
+s
+    
+template<typename SampleType>
+FIFOWrappedEngine<SampleType>::FIFOWrappedEngine (int consistentInternalBlocksize, double samplerate):
+{
+    initialize (samplerate, consistentInternalBlocksize);
+}
+    
 
 template<typename SampleType>
-FIFOWrappedEngine<SampleType>::FIFOWrappedEngine (int initInternalBlocksize):
-    internalBlocksize(initInternalBlocksize),
-    wasBypassedLastCallback(true),
-    resourcesReleased(true)
+FIFOWrappedEngine<SampleType>::FIFOWrappedEngine(): internalBlocksize(0)
 {
-    inputBuffer.initialize(2, internalBlocksize * 2);
-    outputBuffer.initialize(2, internalBlocksize * 2);
     
-    prepare (44100.0, std::max(512, initInternalBlocksize));
 }
 
+    
 template<typename SampleType>
 FIFOWrappedEngine<SampleType>::~FIFOWrappedEngine() { }
+    
+    
+template<typename SampleType>
+FIFOWrappedEngine<SampleType>::initialize (double samplerate, int newInternalBlocksize)
+{
+    jassert (samplerate > 0);
+    jassert (newInternalBlocksize > 0);
+    
+    internalBlocksize = newInternalBlocksize;
+    
+    const int doubleBlocksize = newInternalBlocksize * 2;
+    inputBuffer.initialize (2, doubleBlocksize);
+    outputBuffer.initialize(2, doubleBlocksize);
+    inBuffer.setSize (2, doubleBlocksize, true, true, true);
+    outBuffer.setSize (2, doubleBlocksize, true, true, true);
+    
+    const size_t doubleBlocksizeT = size_t(doubleBlocksize);
+    
+    midiInputCollection.setSize(doubleBlocksize);
+    midiOutputCollection.setSize(doubleBlocksize);
+    chunkMidiBuffer.ensureSize (doubleBlocksizeT);
+    midiChoppingBuffer.ensureSize (doubleBlocksizeT);
+    
+    wasBypassedLastCallback = true;
+    isInitialized = true;
+    
+    initialized (newInternalBlocksize);
+    
+    prepare (samplerate);
+}
 
 
 template<typename SampleType>
-void FIFOWrappedEngine<SampleType>::prepare (double samplerate, int blocksize)
+void FIFOWrappedEngine<SampleType>::prepare (double samplerate)
 {
     jassert (samplerate > 0);
-    jassert (blocksize > 0);
+    jassert (isInitialized);
     
-    const int doubleBlocksize = internalBlocksize * 2;
-    
-    inBuffer.setSize (2, doubleBlocksize, true, true, true);
-    outBuffer.setSize (2, doubleBlocksize, true, true, true);
-    inputBuffer.changeSize (2, doubleBlocksize);
-    outputBuffer.changeSize(2, doubleBlocksize);
-    
-    wasBypassedLastCallback = true;
     resourcesReleased = false;
     
-    prepareToPlay (samplerate, blocksize);
+    prepareToPlay (samplerate);
 }
 
+    
 template<typename SampleType>
 void FIFOWrappedEngine<SampleType>::releaseResources()
 {
@@ -52,11 +78,17 @@ void FIFOWrappedEngine<SampleType>::releaseResources()
     inputBuffer.releaseResources();
     outputBuffer.releaseResources();
     
+    midiChoppingBuffer.clear();
+    midiInputCollection.clear();
+    midiOutputCollection.clear();
+    chunkMidiBuffer.clear();
+    
     wasBypassedLastCallback = true;
     resourcesReleased = true;
     
     release();
 }
+    
 
 template<typename SampleType>
 void FIFOWrappedEngine<SampleType>::changeLatency (int newInternalBlocksize)
@@ -75,202 +107,6 @@ void FIFOWrappedEngine<SampleType>::changeLatency (int newInternalBlocksize)
     inputBuffer.changeSize (2, doubleBlocksize);
     outputBuffer.changeSize(2, doubleBlocksize);
     
-    latencyChanged (newInternalBlocksize);
-}
-
-template<typename SampleType>
-void FIFOWrappedEngine<SampleType>::process (AudioBuffer<SampleType>& input,
-                                             AudioBuffer<SampleType>& output,
-                                             const bool isBypassed)
-{
-    jassert (! resourcesReleased);
-    
-    const int totalNumSamples = input.getNumSamples();
-    
-    if (totalNumSamples == 0 || input.getNumChannels() == 0 || output.getNumSamples() == 0 || output.getNumChannels() == 0)
-        return;
-    
-    bool applyFadeIn, applyFadeOut;
-    bool processingBypassedThisFrame = isBypassed;
-    
-    if (isBypassed)
-    {
-        processingBypassedThisFrame = wasBypassedLastCallback;
-        applyFadeIn = false;
-        applyFadeOut = ! wasBypassedLastCallback;
-    }
-    else
-    {
-        applyFadeOut = false;
-        applyFadeIn = wasBypassedLastCallback;
-    }
-    
-    wasBypassedLastCallback = isBypassed;
-    
-    if (totalNumSamples <= internalBlocksize)
-    {
-        processWrapped (input, output, applyFadeIn, applyFadeOut, processingBypassedThisFrame);
-        return;
-    }
-    
-    int samplesLeft = totalNumSamples;
-    int startSample = 0;
-    
-    bool actuallyFadingIn  = applyFadeIn;
-    bool actuallyFadingOut = applyFadeOut;
-    
-    do {
-        const int chunkNumSamples = std::min (internalBlocksize, samplesLeft);
-        
-        AudioBuffer<SampleType> inputProxy  (input.getArrayOfWritePointers(),  2, startSample, chunkNumSamples);
-        AudioBuffer<SampleType> outputProxy (output.getArrayOfWritePointers(), 2, startSample, chunkNumSamples);
-        
-        processWrapped (inputProxy, outputProxy, actuallyFadingIn, actuallyFadingOut, processingBypassedThisFrame);
-        
-        startSample += chunkNumSamples;
-        samplesLeft -= chunkNumSamples;
-        
-        actuallyFadingIn  = false;
-        actuallyFadingOut = false;
-        processingBypassedThisFrame = isBypassed;
-    } while (samplesLeft > 0);
-}
-
-template<typename SampleType>
-void FIFOWrappedEngine<SampleType>::processWrapped (AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output,
-                                                    const bool applyFadeIn, const bool applyFadeOut,
-                                                    const bool isBypassed)
-{
-    const int numNewSamples = input.getNumSamples();
-    
-    jassert (numNewSamples <= internalBlocksize);
-    
-    for (int chan = 0; chan < 2; ++chan)
-        inputBuffer.pushSamples (input, chan, 0, numNewSamples, chan);
-    
-    if (inputBuffer.numStoredSamples(0) >= internalBlocksize)  // we have enough samples, render the new chunk
-    {
-        inBuffer.clear();
-        for (int chan = 0; chan < 2; ++chan)
-            inputBuffer.popSamples (inBuffer, chan, 0, internalBlocksize, chan);
-        
-        AudioBuffer<SampleType> inProxy = AudioBuffer<SampleType> (inBuffer.getArrayOfWritePointers(), 2, 0, internalBlocksize);
-        
-        if (isBypassed)
-        {
-            for (int chan = 0; chan < 2; ++chan)
-                outputBuffer.pushSamples (inProxy, chan, 0, internalBlocksize, chan);
-        }
-        else
-        {
-            outBuffer.clear();
-            AudioBuffer<SampleType> outProxy = AudioBuffer<SampleType> (outBuffer.getArrayOfWritePointers(), 2, 0, internalBlocksize);
-            
-            renderBlock (inProxy, outProxy);
-            
-            for (int chan = 0; chan < 2; ++chan)
-                outputBuffer.pushSamples (outProxy, chan, 0, internalBlocksize, chan);
-        }
-    }
-    
-    for (int chan = 0; chan < 2; ++chan)
-        outputBuffer.popSamples (output, chan, 0, numNewSamples, chan);
-    
-    if (applyFadeIn)
-        output.applyGainRamp (0, numNewSamples, 0.0f, 1.0f);
-    
-    if (applyFadeOut)
-        output.applyGainRamp (0, numNewSamples, 1.0f, 0.0f);
-}
-
-
-template class FIFOWrappedEngine<float>;
-template class FIFOWrappedEngine<double>;
-
-
-/****************************************************************************************************************************************************
- ****************************************************************************************************************************************************/
-
-
-template<typename SampleType>
-FIFOWrappedEngineWithMidi<SampleType>::FIFOWrappedEngineWithMidi (int initInternalBlocksize):
-    internalBlocksize(initInternalBlocksize),
-    wasBypassedLastCallback(true),
-    resourcesReleased(true)
-{
-    inputBuffer.initialize(2, internalBlocksize * 2);
-    outputBuffer.initialize(2, internalBlocksize * 2);
-    
-    prepare (44100.0, std::max(512, initInternalBlocksize));
-}
-
-template<typename SampleType>
-FIFOWrappedEngineWithMidi<SampleType>::~FIFOWrappedEngineWithMidi() { }
-
-
-template<typename SampleType>
-void FIFOWrappedEngineWithMidi<SampleType>::prepare (double samplerate, int blocksize)
-{
-    jassert (samplerate > 0);
-    jassert (blocksize > 0);
-    
-    const int doubleBlocksize = internalBlocksize * 2;
-    
-    inBuffer.setSize (2, doubleBlocksize, true, true, true);
-    outBuffer.setSize (2, doubleBlocksize, true, true, true);
-    inputBuffer.changeSize (2, doubleBlocksize);
-    outputBuffer.changeSize(2, doubleBlocksize);
-    
-    const size_t doubleBlocksizeT = size_t(doubleBlocksize);
-    
-    midiInputCollection.setSize(doubleBlocksize);
-    midiOutputCollection.setSize(doubleBlocksize);
-    chunkMidiBuffer.ensureSize (doubleBlocksizeT);
-    midiChoppingBuffer.ensureSize (doubleBlocksizeT);
-    
-    wasBypassedLastCallback = true;
-    resourcesReleased = false;
-    
-    prepareToPlay (samplerate, blocksize);
-}
-
-template<typename SampleType>
-void FIFOWrappedEngineWithMidi<SampleType>::releaseResources()
-{
-    inBuffer.setSize(0, 0, false, false, false);
-    outBuffer.setSize(0, 0, false, false, false);
-    
-    inputBuffer.releaseResources();
-    outputBuffer.releaseResources();
-    
-    midiChoppingBuffer.clear();
-    midiInputCollection.clear();
-    midiOutputCollection.clear();
-    chunkMidiBuffer.clear();
-    
-    wasBypassedLastCallback = true;
-    resourcesReleased = true;
-    
-    release();
-}
-
-template<typename SampleType>
-void FIFOWrappedEngineWithMidi<SampleType>::changeLatency (int newInternalBlocksize)
-{
-    if (internalBlocksize == newInternalBlocksize)
-        return;
-    
-    jassert (newInternalBlocksize > 0);
-    
-    internalBlocksize = newInternalBlocksize;
-    
-    const int doubleBlocksize = internalBlocksize * 2;
-    
-    inBuffer.setSize (2, doubleBlocksize, true, true, true);
-    outBuffer.setSize (2, doubleBlocksize, true, true, true);
-    inputBuffer.changeSize (2, doubleBlocksize);
-    outputBuffer.changeSize(2, doubleBlocksize);
-    
     const size_t doubleBlocksizeT = size_t(doubleBlocksize);
     
     midiInputCollection.setSize(doubleBlocksize);
@@ -280,13 +116,15 @@ void FIFOWrappedEngineWithMidi<SampleType>::changeLatency (int newInternalBlocks
     
     latencyChanged (newInternalBlocksize);
 }
+    
 
 template<typename SampleType>
-void FIFOWrappedEngineWithMidi<SampleType>::process (AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output,
+void FIFOWrappedEngine<SampleType>::process (AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output,
                                                      MidiBuffer& midiMessages,
                                                      const bool isBypassed)
 {
     jassert (! resourcesReleased);
+    jassert (isInitialized);
     
     const int totalNumSamples = input.getNumSamples();
     
@@ -349,7 +187,7 @@ void FIFOWrappedEngineWithMidi<SampleType>::process (AudioBuffer<SampleType>& in
 }
 
 template<typename SampleType>
-void FIFOWrappedEngineWithMidi<SampleType>::processWrapped (AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output,
+void FIFOWrappedEngine<SampleType>::processWrapped (AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output,
                                                             MidiBuffer& midiMessages,
                                                             const bool applyFadeIn, const bool applyFadeOut,
                                                             const bool isBypassed)
