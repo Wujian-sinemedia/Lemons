@@ -39,7 +39,7 @@ void FIFOWrappedEngine<SampleType>::initialize (double samplerate, int newIntern
     
     initialized (newInternalBlocksize, samplerate);
     
-    changeLatency (int newInternalBlocksize);
+    changeLatency (newInternalBlocksize);
 }
 
 
@@ -96,9 +96,6 @@ void FIFOWrappedEngine<SampleType>::releaseResources()
 template<typename SampleType>
 void FIFOWrappedEngine<SampleType>::changeLatency (int newInternalBlocksize)
 {
-    if (internalBlocksize == newInternalBlocksize)
-        return;
-    
     jassert (newInternalBlocksize > 0);
     
     internalBlocksize = newInternalBlocksize;
