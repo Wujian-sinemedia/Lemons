@@ -24,7 +24,7 @@ public:
     
     void initialize (double samplerate, int newInternalBlocksize);
     
-    void prepare (double samplerate, int newInternalBlocksize);
+    void prepare (double samplerate);
     
     void reset();
     

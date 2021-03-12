@@ -7,7 +7,7 @@ namespace bav
 
 namespace dsp
 {
-s
+
     
 template<typename SampleType>
 FIFOWrappedEngine<SampleType>::FIFOWrappedEngine (int consistentInternalBlocksize, double samplerate):
@@ -260,8 +260,8 @@ void FIFOWrappedEngine<SampleType>::processWrapped (AudioBuffer<SampleType>& inp
 
 
 
-template class FIFOWrappedEngineWithMidi<float>;
-template class FIFOWrappedEngineWithMidi<double>;
+template class FIFOWrappedEngine<float>;
+template class FIFOWrappedEngine<double>;
 
 
 }  // namespace dsp
