@@ -10,7 +10,7 @@ namespace bav
 
 namespace midi
 {
-
+    
 
 class MidiFIFO
 {
@@ -34,68 +34,54 @@ public:
         copying.ensureSize (messages);
     }
     
+    
     void clear()
     {
         base.clear();
         copying.clear();
+        numStoredSamples = 0;
     }
+    
     
     int numStoredEvents() { return base.getNumEvents(); }
     
+    
     void pushEvents (const juce::MidiBuffer& source, const int numSamples)
     {
-        const auto sourceStart = source.findNextSamplePosition (0);
-        const auto sourceEnd   = source.findNextSamplePosition (numSamples);
-        
-        const int writingStartSample = base.isEmpty() ? 0 : base.getLastEventTime() + 1;
-        
-        std::for_each (sourceStart, sourceEnd,
-                       [&] (const juce::MidiMessageMetadata& meta)
-                       {
-                           base.addEvent (meta.getMessage(),
-                                          meta.samplePosition + writingStartSample);
-                       } );
+        base.addEvents (source, 0, numSamples, numStoredSamples);
+        numStoredSamples += numSamples;
     }
     
     
     void popEvents (juce::MidiBuffer& output, const int numSamples)
     {
         output.clear();
+        output.addEvents (base, 0, numSamples, 0);
         
-        const auto readStart = base.findNextSamplePosition (0);
-        const auto readEnd   = base.findNextSamplePosition (numSamples);
-        
-        std::for_each (readStart, readEnd,
-                       [&] (const juce::MidiMessageMetadata& meta)
-                       {
-                           output.addEvent (meta.getMessage(), meta.samplePosition);
-                       } );
-        
+        // Move all the remaining events forward by the number of samples removed
         copying.clear();
-        
-        std::for_each (readEnd, base.cend(),
-                       [&] (const juce::MidiMessageMetadata& meta)
-                       {
-                           copying.addEvent (meta.getMessage(),
-                                             std::max(0, meta.samplePosition - numSamples));
-                       } );
+        copying.addEvents (base, numSamples, numStoredSamples, -numSamples);
         
         base.clear();
         base.swapWith (copying);
+        numStoredSamples -= numSamples;
     }
     
     
 private:
     
+    int numStoredSamples = 0;  // even though no audio is stored, we need to keep an internal representation of the actual number of samples this buffer represents in time
+    
     juce::MidiBuffer base;
     
-    juce::MidiBuffer copying;
+    juce::MidiBuffer copying; // pre-allocated memory for copying left-over events back to the front of the base buffer after popping events...
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MidiFIFO)
 };
 
-    
+
 }  // namespace midi
-    
+
 } // namespace bav
+
 
