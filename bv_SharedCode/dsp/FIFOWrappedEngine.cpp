@@ -10,7 +10,7 @@ namespace dsp
 
     
 template<typename SampleType>
-FIFOWrappedEngine<SampleType>::FIFOWrappedEngine (int consistentInternalBlocksize, double samplerate):
+FIFOWrappedEngine<SampleType>::FIFOWrappedEngine (int consistentInternalBlocksize, double samplerate)
 {
     initialize (samplerate, consistentInternalBlocksize);
 }
@@ -28,7 +28,7 @@ FIFOWrappedEngine<SampleType>::~FIFOWrappedEngine() { }
     
     
 template<typename SampleType>
-FIFOWrappedEngine<SampleType>::initialize (double samplerate, int newInternalBlocksize)
+void FIFOWrappedEngine<SampleType>::initialize (double samplerate, int newInternalBlocksize)
 {
     jassert (samplerate > 0);
     jassert (newInternalBlocksize > 0);
