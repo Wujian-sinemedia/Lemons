@@ -29,26 +29,6 @@ namespace bav
 
 namespace vecops
 {
-    
-    
-template<typename SampleType>
-inline void makeHannWindow (SampleType* output, const int numSamples)
-{
-    jassert (numSamples > 1);
-#if BV_VECTOROPS_USE_VDSP
-    if constexpr (std::is_same_v <SampleType, float>)
-        vDSP_hann_window (output, vDSP_Length(numSamples), 2);
-    else if constexpr (std::is_same_v <SampleType, double>)
-        vDSP_hann_windowD (output, vDSP_Length(numSamples), 2);
-#else
-    const SampleType samplemultiplier = static_cast<SampleType>( (juce::MathConstants<SampleType>::pi * 2.0) / (numSamples - 1) );
-    constexpr SampleType one = SampleType(1.0);
-    constexpr SampleType pointFive = SampleType(0.5);
-    
-    for (int i = 0; i < numSamples; ++i)
-        output[i] = static_cast<SampleType>( (one - (std::cos (i * samplemultiplier))) * pointFive );
-#endif
-}
 
     
 template<typename DataType>
