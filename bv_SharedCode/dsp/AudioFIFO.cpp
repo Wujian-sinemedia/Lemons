@@ -32,6 +32,19 @@ void AudioFIFO<SampleType>::releaseResources()
     storedSamples.clear();
     writeIndex.clear();
 }
+    
+
+template<typename SampleType>
+void AudioFIFO<SampleType>::clear()
+{
+    base.clear();
+    
+    for (int i = 0; i < base.getNumChannels(); ++i)
+    {
+        storedSamples.set (i, 0);
+        writeIndex.set (1, 0);
+    }
+}
 
 
 template<typename SampleType>

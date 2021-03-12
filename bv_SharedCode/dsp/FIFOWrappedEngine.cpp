@@ -50,10 +50,9 @@ FIFOWrappedEngine<SampleType>::initialize (double samplerate, int newInternalBlo
     
     wasBypassedLastCallback = true;
     isInitialized = true;
+    resourcesReleased = false;
     
-    initialized (newInternalBlocksize);
-    
-    prepare (samplerate);
+    initialized (newInternalBlocksize, samplerate);
 }
 
 
@@ -66,6 +65,22 @@ void FIFOWrappedEngine<SampleType>::prepare (double samplerate)
     resourcesReleased = false;
     
     prepareToPlay (samplerate);
+}
+    
+
+template<typename SampleType>
+void FIFOWrappedEngine<SampleType>::reset()
+{
+    midiChoppingBuffer.clear();
+    chunkMidiBuffer.clear();
+    inBuffer.clear();
+    outBuffer.clear();
+    inputBuffer.clear();
+    outputBuffer.clear();
+    midiInputCollection.clear();
+    midiOutputCollection.clear();
+    
+    resetTriggered();
 }
 
     

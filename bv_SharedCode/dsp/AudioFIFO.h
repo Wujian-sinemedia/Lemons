@@ -36,6 +36,9 @@ public:
     void initialize (const int numChannels, const int size);
     
     
+    void clear();
+    
+    
     void releaseResources();
     
     

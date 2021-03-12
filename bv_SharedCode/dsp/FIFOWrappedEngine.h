@@ -26,6 +26,8 @@ public:
     
     void prepare (double samplerate, int newInternalBlocksize);
     
+    void reset();
+    
     void releaseResources();
     
     void changeLatency (int newInternalBlocksize);
@@ -48,9 +50,11 @@ private:
     
     virtual void renderBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages)=0;
     
-    virtual void initialized (int newInternalBlocksize) { juce::ignoreUnused (newInternalBlocksize); }
+    virtual void initialized (int newInternalBlocksize, double samplerate) { juce::ignoreUnused (newInternalBlocksize, samplerate); }
     
     virtual void prepareToPlay (double samplerate) { juce::ignoreUnused (samplerate); }
+    
+    virtual void resetTriggered() { }
     
     virtual void release() { }
     
