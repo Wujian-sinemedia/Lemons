@@ -10,8 +10,9 @@ namespace dsp
 
 template<typename SampleType>
 FIFOWrappedEngine<SampleType>::FIFOWrappedEngine (int initInternalBlocksize):
-internalBlocksize(initInternalBlocksize),
-wasBypassedLastCallback(true)
+    internalBlocksize(initInternalBlocksize),
+    wasBypassedLastCallback(true),
+    resourcesReleased(true)
 {
     inputBuffer.initialize(2, internalBlocksize * 2);
     outputBuffer.initialize(2, internalBlocksize * 2);
@@ -37,6 +38,7 @@ void FIFOWrappedEngine<SampleType>::prepare (double samplerate, int blocksize)
     outputBuffer.changeSize(2, doubleBlocksize);
     
     wasBypassedLastCallback = true;
+    resourcesReleased = false;
     
     prepareToPlay (samplerate, blocksize);
 }
@@ -51,6 +53,7 @@ void FIFOWrappedEngine<SampleType>::releaseResources()
     outputBuffer.releaseResources();
     
     wasBypassedLastCallback = true;
+    resourcesReleased = true;
     
     release();
 }
@@ -80,6 +83,8 @@ void FIFOWrappedEngine<SampleType>::process (AudioBuffer<SampleType>& input,
                                              AudioBuffer<SampleType>& output,
                                              const bool isBypassed)
 {
+    jassert (! resourcesReleased);
+    
     const int totalNumSamples = input.getNumSamples();
     
     if (totalNumSamples == 0 || input.getNumChannels() == 0 || output.getNumSamples() == 0 || output.getNumChannels() == 0)
@@ -189,8 +194,9 @@ template class FIFOWrappedEngine<double>;
 
 template<typename SampleType>
 FIFOWrappedEngineWithMidi<SampleType>::FIFOWrappedEngineWithMidi (int initInternalBlocksize):
-internalBlocksize(initInternalBlocksize),
-wasBypassedLastCallback(true)
+    internalBlocksize(initInternalBlocksize),
+    wasBypassedLastCallback(true),
+    resourcesReleased(true)
 {
     inputBuffer.initialize(2, internalBlocksize * 2);
     outputBuffer.initialize(2, internalBlocksize * 2);
@@ -223,6 +229,7 @@ void FIFOWrappedEngineWithMidi<SampleType>::prepare (double samplerate, int bloc
     midiChoppingBuffer.ensureSize (doubleBlocksizeT);
     
     wasBypassedLastCallback = true;
+    resourcesReleased = false;
     
     prepareToPlay (samplerate, blocksize);
 }
@@ -242,6 +249,7 @@ void FIFOWrappedEngineWithMidi<SampleType>::releaseResources()
     chunkMidiBuffer.clear();
     
     wasBypassedLastCallback = true;
+    resourcesReleased = true;
     
     release();
 }
@@ -278,6 +286,8 @@ void FIFOWrappedEngineWithMidi<SampleType>::process (AudioBuffer<SampleType>& in
                                                      MidiBuffer& midiMessages,
                                                      const bool isBypassed)
 {
+    jassert (! resourcesReleased);
+    
     const int totalNumSamples = input.getNumSamples();
     
     if (totalNumSamples == 0 || input.getNumChannels() == 0 || output.getNumSamples() == 0 || output.getNumChannels() == 0)

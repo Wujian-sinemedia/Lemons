@@ -24,12 +24,13 @@ public:
     
     void prepare (double samplerate, int blocksize);
     
-    
     void releaseResources();
     
     void changeLatency (int newInternalBlocksize);
     
     int getLatency() const noexcept { return internalBlocksize; }
+    
+    bool hasBeenReleased() const noexcept { return resourcesReleased; }
     
     
 private:
@@ -58,6 +59,8 @@ private:
     
     bool wasBypassedLastCallback;
     
+    bool resourcesReleased;
+    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FIFOWrappedEngine)
 };
     
@@ -80,12 +83,13 @@ public:
     
     void prepare (double samplerate, int blocksize);
     
-    
     void releaseResources();
     
     void changeLatency (int newInternalBlocksize);
     
     int getLatency() const noexcept { return internalBlocksize; }
+    
+    bool hasBeenReleased() const noexcept { return resourcesReleased; }
     
     
 private:
@@ -119,6 +123,8 @@ private:
     AudioBuffer<SampleType> outBuffer;
     
     bool wasBypassedLastCallback;
+    
+    bool resourcesReleased;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FIFOWrappedEngineWithMidi)
 };
