@@ -135,8 +135,8 @@ void FIFOWrappedEngine<SampleType>::changeLatency (int newInternalBlocksize)
 
 template<typename SampleType>
 void FIFOWrappedEngine<SampleType>::process (AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output,
-                                                     MidiBuffer& midiMessages,
-                                                     const bool isBypassed)
+                                             MidiBuffer& midiMessages,
+                                             const bool isBypassed)
 {
     jassert (! resourcesReleased);
     jassert (isInitialized);
@@ -203,9 +203,9 @@ void FIFOWrappedEngine<SampleType>::process (AudioBuffer<SampleType>& input, Aud
 
 template<typename SampleType>
 void FIFOWrappedEngine<SampleType>::processWrapped (AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output,
-                                                            MidiBuffer& midiMessages,
-                                                            const bool applyFadeIn, const bool applyFadeOut,
-                                                            const bool isBypassed)
+                                                    MidiBuffer& midiMessages,
+                                                    const bool applyFadeIn, const bool applyFadeOut,
+                                                    const bool isBypassed)
 {
     const int numNewSamples = input.getNumSamples();
     
