@@ -10,7 +10,7 @@ namespace dsp
 
     
 template<typename SampleType>
-FIFOWrappedEngine<SampleType>::FIFOWrappedEngine (int consistentInternalBlocksize, double samplerate)
+FIFOWrappedEngine<SampleType>::FIFOWrappedEngine (int consistentInternalBlocksize, double samplerate): internalBlocksize(0)
 {
     initialize (samplerate, consistentInternalBlocksize);
 }
@@ -33,26 +33,13 @@ void FIFOWrappedEngine<SampleType>::initialize (double samplerate, int newIntern
     jassert (samplerate > 0);
     jassert (newInternalBlocksize > 0);
     
-    internalBlocksize = newInternalBlocksize;
-    
-    const int doubleBlocksize = newInternalBlocksize * 2;
-    inputBuffer.initialize (2, doubleBlocksize);
-    outputBuffer.initialize(2, doubleBlocksize);
-    inBuffer.setSize (2, doubleBlocksize, true, true, true);
-    outBuffer.setSize (2, doubleBlocksize, true, true, true);
-    
-    const size_t doubleBlocksizeT = size_t(doubleBlocksize);
-    
-    midiInputCollection.setSize(doubleBlocksize);
-    midiOutputCollection.setSize(doubleBlocksize);
-    chunkMidiBuffer.ensureSize (doubleBlocksizeT);
-    midiChoppingBuffer.ensureSize (doubleBlocksizeT);
-    
     wasBypassedLastCallback = true;
     isInitialized = true;
     resourcesReleased = false;
     
     initialized (newInternalBlocksize, samplerate);
+    
+    changeLatency (int newInternalBlocksize);
 }
 
 
@@ -100,6 +87,7 @@ void FIFOWrappedEngine<SampleType>::releaseResources()
     
     wasBypassedLastCallback = true;
     resourcesReleased = true;
+    isInitialized = false;
     
     release();
 }
