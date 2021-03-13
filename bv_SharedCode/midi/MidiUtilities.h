@@ -42,25 +42,7 @@ namespace midi
                                        const int numSamples)
     {
         destBuffer.clear (startSampleOfOutput, numSamples);
-        
-        auto midiIterator = readingBuffer.findNextSamplePosition(startSampleOfInput);
-        
-        if (midiIterator == readingBuffer.cend())
-            return;
-        
-        const auto midiEnd = readingBuffer.findNextSamplePosition(startSampleOfInput + numSamples);
-        
-        if (midiIterator == midiEnd)
-            return;
-        
-        const int sampleOffset = startSampleOfOutput - startSampleOfInput;
-        
-        std::for_each (midiIterator, midiEnd,
-                       [&] (const juce::MidiMessageMetadata& meta)
-                       {
-                           destBuffer.addEvent (meta.getMessage(),
-                                                std::max (0, meta.samplePosition + sampleOffset));
-                       } );
+        destBuffer.addEvents (readingBuffer, startSampleOfInput, numSamples, startSampleOfOutput - startSampleOfInput);
     }
     
     
