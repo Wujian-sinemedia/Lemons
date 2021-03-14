@@ -46,6 +46,21 @@ void AudioFIFO<SampleType>::clear()
     }
 }
 
+    
+template<typename SampleType>
+int AudioFIFO<SampleType>::numStoredSamples() const
+{
+    jassert (! storedSamples.isEmpty());
+    
+    int minNumSamples = storedSamples.getUnchecked(0);
+    
+    for (int stored : storedSamples)
+        if (stored < minNumSamples)
+            minNumSamples = stored;
+    
+    return stored;
+}
+
 
 template<typename SampleType>
 void AudioFIFO<SampleType>::changeSize (const int newNumChannels, int newSize)

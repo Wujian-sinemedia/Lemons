@@ -22,6 +22,8 @@ public:
     
     void process (AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages, const bool isBypassed = false);
     
+    void process (AudioBuffer<SampleType>& inplaceInAndOut, MidiBuffer& midiMessages, const bool isBypassed = false);
+    
     void initialize (double samplerate, int newInternalBlocksize);
     
     void prepare (double samplerate);

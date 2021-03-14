@@ -120,6 +120,13 @@ void FIFOWrappedEngine<SampleType>::changeLatency (int newInternalBlocksize)
     
 
 template<typename SampleType>
+void FIFOWrappedEngine<SampleType>::process (AudioBuffer<SampleType>& inplaceInAndOut, MidiBuffer& midiMessages, const bool isBypassed)
+{
+    process (inplaceInAndOut, inplaceInAndOut, midiMessages, isBypassed);
+}
+    
+
+template<typename SampleType>
 void FIFOWrappedEngine<SampleType>::process (AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output,
                                              MidiBuffer& midiMessages,
                                              const bool isBypassed)
@@ -193,14 +200,14 @@ void FIFOWrappedEngine<SampleType>::processWrapped (AudioBuffer<SampleType>& inp
 {
     const int numNewSamples = input.getNumSamples();
     
-    jassert (numNewSamples <= internalBlocksize);
+    jassert (numNewSamples <= internalBlocksize && numNewSamples > 0);
     
     for (int chan = 0; chan < 2; ++chan)
         inputBuffer.pushSamples (input, chan, 0, numNewSamples, chan);
     
     midiInputCollection.pushEvents (midiMessages, numNewSamples);
     
-    if (inputBuffer.numStoredSamples(0) >= internalBlocksize)  // we have enough samples, render the new chunk
+    if (inputBuffer.numStoredSamples() >= internalBlocksize)  // we have enough samples, render the new chunk
     {
         inBuffer.clear();
         for (int chan = 0; chan < 2; ++chan)

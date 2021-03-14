@@ -67,10 +67,15 @@ public:
     void popSamples (SampleType* output, const int numSamples, const int readingChannel);
     
     
+    int getSize() const noexcept { return base.getNumSamples(); }
+    
+    
+    // returns the number of samples stored in a particular channel of the base buffer
     int numStoredSamples(int channel) const noexcept { return storedSamples.getUnchecked(channel); }
     
-    
-    int getSize() const noexcept { return base.getNumSamples(); }
+    /* returns the lowest number of samples stored in any channel
+     (essentially, the highest sample index you can safely access in a for loop iterating over all channels of this FIFO) */
+    int numStoredSamples() const;
     
     
 private:
