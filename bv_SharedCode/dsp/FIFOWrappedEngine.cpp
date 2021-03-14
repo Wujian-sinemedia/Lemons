@@ -115,6 +115,8 @@ void FIFOWrappedEngine<SampleType>::changeLatency (int newInternalBlocksize)
     chunkMidiBuffer.ensureSize (doubleBlocksizeT);
     midiChoppingBuffer.ensureSize (doubleBlocksizeT);
     
+    isInitialized = true;
+    
     latencyChanged (newInternalBlocksize);
 }
     
