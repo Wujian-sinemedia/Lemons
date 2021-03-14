@@ -58,7 +58,7 @@ int AudioFIFO<SampleType>::numStoredSamples() const
         if (stored < minNumSamples)
             minNumSamples = stored;
     
-    return stored;
+    return minNumSamples;
 }
 
 
