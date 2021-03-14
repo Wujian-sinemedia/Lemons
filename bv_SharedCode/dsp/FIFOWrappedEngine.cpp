@@ -100,10 +100,11 @@ void FIFOWrappedEngine<SampleType>::changeLatency (int newInternalBlocksize)
     
     internalBlocksize = newInternalBlocksize;
     
+    inBuffer.setSize (2, internalBlocksize, true, true, true);
+    outBuffer.setSize (2, internalBlocksize, true, true, true);
+    
     const int doubleBlocksize = internalBlocksize * 2;
     
-    inBuffer.setSize (2, doubleBlocksize, true, true, true);
-    outBuffer.setSize (2, doubleBlocksize, true, true, true);
     inputBuffer.changeSize (2, doubleBlocksize);
     outputBuffer.changeSize(2, doubleBlocksize);
     
@@ -128,11 +129,13 @@ void FIFOWrappedEngine<SampleType>::process (AudioBuffer<SampleType>& input, Aud
     
     const int totalNumSamples = input.getNumSamples();
     
-    if (totalNumSamples == 0 || input.getNumChannels() == 0 || output.getNumSamples() == 0 || output.getNumChannels() == 0)
+    if (totalNumSamples == 0)
         return;
     
-    bool applyFadeIn, applyFadeOut;
-    bool processingBypassedThisFrame = isBypassed;
+    jassert (totalNumSamples == output.getNumSamples());
+    jassert (input.getNumChannels() == 2 && output.getNumChannels() == 2);
+    
+    bool processingBypassedThisFrame, applyFadeIn, applyFadeOut;
     
     if (isBypassed)
     {
@@ -142,8 +145,9 @@ void FIFOWrappedEngine<SampleType>::process (AudioBuffer<SampleType>& input, Aud
     }
     else
     {
-        applyFadeOut = false;
+        processingBypassedThisFrame = false;
         applyFadeIn = wasBypassedLastCallback;
+        applyFadeOut = false;
     }
     
     wasBypassedLastCallback = isBypassed;
@@ -157,22 +161,17 @@ void FIFOWrappedEngine<SampleType>::process (AudioBuffer<SampleType>& input, Aud
     int samplesLeft = totalNumSamples;
     int startSample = 0;
     
-    bool actuallyFadingIn  = applyFadeIn;
-    bool actuallyFadingOut = applyFadeOut;
-    
     do {
         const int chunkNumSamples = std::min (internalBlocksize, samplesLeft);
         
         AudioBuffer<SampleType> inputProxy  (input.getArrayOfWritePointers(),  2, startSample, chunkNumSamples);
         AudioBuffer<SampleType> outputProxy (output.getArrayOfWritePointers(), 2, startSample, chunkNumSamples);
         
-        /* put just the midi messages for this time segment into the midiChoppingBuffer
-         in the midiChoppingBuffer, events will start at timestamp sample 0
-         the midi output will be returned by being copied to this same region of the midiChoppingBuffer */
+        // put just the midi messages for this time segment into the midiChoppingBuffer, starting at timestamp 0
         midiChoppingBuffer.clear();
         bav::midi::copyRangeOfMidiBuffer (midiMessages, midiChoppingBuffer, startSample, 0, chunkNumSamples);
         
-        processWrapped (inputProxy, outputProxy, midiChoppingBuffer, actuallyFadingIn, actuallyFadingOut, processingBypassedThisFrame);
+        processWrapped (inputProxy, outputProxy, midiChoppingBuffer, applyFadeIn, applyFadeOut, processingBypassedThisFrame);
         
         // copy the midi output back to midiMessages (I/O), at the original startSample
         bav::midi::copyRangeOfMidiBuffer (midiChoppingBuffer, midiMessages, 0, startSample, chunkNumSamples);
@@ -180,8 +179,8 @@ void FIFOWrappedEngine<SampleType>::process (AudioBuffer<SampleType>& input, Aud
         startSample += chunkNumSamples;
         samplesLeft -= chunkNumSamples;
         
-        actuallyFadingIn  = false;
-        actuallyFadingOut = false;
+        applyFadeIn  = false;
+        applyFadeOut = false;
         processingBypassedThisFrame = isBypassed;
     } while (samplesLeft > 0);
 }
@@ -210,22 +209,19 @@ void FIFOWrappedEngine<SampleType>::processWrapped (AudioBuffer<SampleType>& inp
         chunkMidiBuffer.clear();
         midiInputCollection.popEvents (chunkMidiBuffer,  internalBlocksize);
         
-        AudioBuffer<SampleType> inProxy = AudioBuffer<SampleType> (inBuffer.getArrayOfWritePointers(), 2, 0, internalBlocksize);
-        
         if (isBypassed)
         {
             for (int chan = 0; chan < 2; ++chan)
-                outputBuffer.pushSamples (inProxy, chan, 0, internalBlocksize, chan);
+                outputBuffer.pushSamples (inBuffer, chan, 0, internalBlocksize, chan);
         }
         else
         {
             outBuffer.clear();
-            AudioBuffer<SampleType> outProxy = AudioBuffer<SampleType> (outBuffer.getArrayOfWritePointers(), 2, 0, internalBlocksize);
             
-            renderBlock (inProxy, outProxy, chunkMidiBuffer);
+            renderBlock (inBuffer, outBuffer, chunkMidiBuffer);
             
             for (int chan = 0; chan < 2; ++chan)
-                outputBuffer.pushSamples (outProxy, chan, 0, internalBlocksize, chan);
+                outputBuffer.pushSamples (outBuffer, chan, 0, internalBlocksize, chan);
         }
         
         midiOutputCollection.pushEvents (chunkMidiBuffer, internalBlocksize);
