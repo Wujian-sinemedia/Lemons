@@ -33,10 +33,16 @@ public:
     
     
 private:
+    
+    SidechainedNoiseGate<SampleType> gate;
+    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(DeEsser)
 };
     
-    
+
+template class DeEsser<float>;
+template class DeEsser<double>;
+
 }  // namespace dsp
 
 }  // namespace bav
