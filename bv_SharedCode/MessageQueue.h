@@ -19,7 +19,7 @@ namespace bav
             
             ~Message() { }
             
-            int typeID() const { return typeID; }
+            int type() const { return typeID; }
             
             float value() const { return val; }
             
