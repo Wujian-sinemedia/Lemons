@@ -192,6 +192,16 @@ inline void locateLeastAbsMagnitude (DataType* data, const int dataSize,
 #endif
 }
     
+
+template<typename DataType>
+inline void findExtrema (DataType* data, const int dataSize,
+                         DataType& min, DataType& max)
+{
+    auto range = juce::FloatVectorOperations::findMinAndMax (data, dataSize);
+    min = range.getStart();
+    max = range.getEnd();
+}
+    
     
 template<typename DataType>
 inline DataType findRangeOfExtrema (DataType* data, const int dataSize)
