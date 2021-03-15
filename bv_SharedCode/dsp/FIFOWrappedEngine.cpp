@@ -47,7 +47,9 @@ template<typename SampleType>
 void FIFOWrappedEngine<SampleType>::prepare (double samplerate)
 {
     jassert (samplerate > 0);
-    jassert (isInitialized);
+    
+    if (! isInitialized)
+        initialize (samplerate, internalBlocksize);
     
     resourcesReleased = false;
     
