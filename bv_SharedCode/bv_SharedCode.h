@@ -5,7 +5,7 @@
  version:            0.0.1
  name:               Ben Vining's codebase
  description:        General utilities useful for developing plugins.
- dependencies:       juce_audio_utils
+ dependencies:       juce_audio_utils, juce_dsp
  END_JUCE_MODULE_DECLARATION
  *******************************************************************************/
 
@@ -14,10 +14,12 @@
 
 // dependency
 #include <juce_audio_utils/juce_audio_utils.h>
+#include <juce_dsp/juce_dsp.h>
 
 // the rest of this module
 #include "dsp/AudioFIFO.h"
 #include "dsp/Panner.h"
+#include "dsp/DeEsser.h"
 #include "midi/MidiFIFO.h"
 #include "midi/MidiUtilities.h"
 #include "VectorOps.h"

@@ -6,7 +6,6 @@
 
 
 namespace bav
-
 {
     
 namespace midi

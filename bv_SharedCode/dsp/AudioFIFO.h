@@ -5,7 +5,6 @@
 
 
 namespace bav
-
 {
 
 namespace dsp
