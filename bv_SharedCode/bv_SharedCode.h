@@ -25,6 +25,7 @@
 #include "midi/MidiUtilities.h"
 #include "VectorOps.h"
 #include "dsp/FIFOWrappedEngine.h"
+#include "MessageQueue.h"
 
 
 namespace bav
