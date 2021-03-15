@@ -13,15 +13,15 @@ public:
     {
         update();
         
-        RMSFilter.setLevelCalculationType (BallisticsFilterLevelCalculationType::RMS);
+        RMSFilter.setLevelCalculationType (juce::dsp::BallisticsFilterLevelCalculationType::RMS);
         RMSFilter.setAttackTime  (static_cast<SampleType> (0.0));
         RMSFilter.setReleaseTime (static_cast<SampleType> (50.0));
     }
     
-    /** Sets the threshold in dB of the noise-gate.*/
-    void setThreshold (SampleType newThreshold)
+    
+    void setThreshold (SampleType newThreshold_dB)
     {
-        thresholddB = newValue;
+        thresholddB = newThreshold_dB;
         update();
     }
     
@@ -34,21 +34,21 @@ public:
         update();
     }
     
-    /** Sets the attack time in milliseconds of the noise-gate.*/
-    void setAttack (SampleType newAttack)
+    
+    void setAttack (SampleType newAttack_ms)
     {
-        attackTime = newAttack;
+        attackTime = newAttack_ms;
         update();
     }
     
-    /** Sets the release time in milliseconds of the noise-gate.*/
-    void setRelease (SampleType newRelease)
+    
+    void setRelease (SampleType newRelease_ms)
     {
-        releaseTime = newRelease;
+        releaseTime = newRelease_ms;
         update();
     }
     
-    /** Initialises the processor. */
+    
     void prepare (int numChannels, int maxBlocksize, double samplerate)
     {
         jassert (samplerate > 0);
@@ -65,7 +65,7 @@ public:
         reset();
     }
     
-    /** Resets the internal state variables of the processor. */
+    
     void reset()
     {
         RMSFilter.reset();
@@ -88,7 +88,7 @@ public:
             auto* readingSamples = signal.getReadPointer (channel);
             auto* writingSamples = signal.getWritePointer (channel);
             
-            for (size_t i = 0; i < numSamples; ++i)
+            for (int i = 0; i < numSamples; ++i)
                 writingSamples[i] = processSample (channel, sidechainSamples[i], readingSamples[i]);
         }
     }
@@ -119,7 +119,7 @@ private:
     
     void update()
     {
-        threshold = Decibels::decibelsToGain (thresholddB, static_cast<SampleType> (-200.0));
+        threshold = juce::Decibels::decibelsToGain (thresholddB, static_cast<SampleType> (-200.0));
         thresholdInverse = static_cast<SampleType> (1.0) / threshold;
         currentRatio = ratio;
         
@@ -131,7 +131,7 @@ private:
     juce::dsp::ProcessSpec spec;
     
     SampleType threshold, thresholdInverse, currentRatio;
-    BallisticsFilter<SampleType> envelopeFilter, RMSFilter;
+    juce::dsp::BallisticsFilter<SampleType> envelopeFilter, RMSFilter;
     
     SampleType thresholddB = -100, ratio = 10.0, attackTime = 1.0, releaseTime = 100.0;
     

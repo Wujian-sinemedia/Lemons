@@ -19,6 +19,7 @@
 // the rest of this module
 #include "dsp/AudioFIFO.h"
 #include "dsp/Panner.h"
+#include "dsp/SidechainedNoiseGate.h"
 #include "dsp/DeEsser.h"
 #include "midi/MidiFIFO.h"
 #include "midi/MidiUtilities.h"
