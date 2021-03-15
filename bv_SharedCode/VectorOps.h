@@ -156,6 +156,42 @@ inline void locateGreatestAbsMagnitude (DataType* data, const int dataSize,
 #endif
 }
     
+
+template<typename DataType>
+inline void locateLeastAbsMagnitude (DataType* data, const int dataSize,
+                                     DataType& leastMagnitude, int& index)
+{
+    jassert (dataSize > 1);
+#if BV_VECTOROPS_USE_VDSP
+    constexpr vDSP_Stride strideOfOne = vDSP_Stride(1);
+    unsigned long i = 0.0;
+    
+    if constexpr (std::is_same_v <DataType, float>)
+        vDSP_minmgvi (data, strideOfOne, &leastMagnitude, &i, vDSP_Length(dataSize));
+    else if constexpr (std::is_same_v <DataType, double>)
+        vDSP_minmgviD (data, strideOfOne, &leastMagnitude, &i, vDSP_Length(dataSize));
+    
+    index = int(i);
+#else
+    int weakestMagIndex = 0;
+    DataType weakestMag = abs(data[0]);
+    
+    for (int i = 1; i < dataSize; ++i)
+    {
+        const DataType current = abs(data[i]);
+        
+        if (current < weakestMag)
+        {
+            weakestMag = current;
+            weakestMagIndex = i;
+        }
+    }
+    
+    leastMagnitude = weakestMag;
+    index = weakestMagIndex;
+#endif
+}
+    
     
 template<typename DataType>
 inline DataType findRangeOfExtrema (DataType* data, const int dataSize)
