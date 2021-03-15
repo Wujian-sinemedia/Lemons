@@ -110,10 +110,7 @@ void AudioFIFO<SampleType>::pushSamples (const SampleType* inputSamples, const i
     const int length = base.getNumSamples();
     
     jassert (length > 0 && base.getNumChannels() > 0);
-    
-    int ns = storedSamples.getUnchecked(destChannel);
-    
-    jassert (numSamples + ns <= length);
+    jassert (numSamples + storedSamples.getUnchecked(destChannel) <= length);
     
     SampleType* writing = base.getWritePointer(destChannel);
     
@@ -126,7 +123,7 @@ void AudioFIFO<SampleType>::pushSamples (const SampleType* inputSamples, const i
     }
     
     writeIndex.set (destChannel, index);
-    storedSamples.set (destChannel, ns += numSamples);
+    storedSamples.set (destChannel, storedSamples.getUnchecked(destChannel) + numSamples);
 }
 
 
@@ -139,7 +136,7 @@ void AudioFIFO<SampleType>::popSamples (SampleType* output, const int numSamples
     
     jassert (length > 0 && base.getNumChannels() > 0);
     
-    int ns = storedSamples.getUnchecked(readingChannel);
+    const int ns = storedSamples.getUnchecked(readingChannel);
     
     int readIndex = writeIndex.getUnchecked(readingChannel) - ns;
     if (readIndex < 0) readIndex += length;
