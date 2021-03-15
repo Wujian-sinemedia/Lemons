@@ -10,48 +10,72 @@ namespace bav
         ~MessageQueue() { }
         
         
-        template<typename ValueType>
         class Message
         {
         public:
             Message() { }
             
-            Message(juce::String type, ValueType newValue): messageType(type), val(newValue) { }
+            Message(int msgID, float newValue): typeID(msgID), val(newValue) { }
             
             ~Message() { }
             
-            juce::String type() const { return messageType; }
+            int typeID() const { return typeID; }
             
-            ValueType value() const { return val; }
+            float value() const { return val; }
             
         private:
-            
-            juce::String messageType;
-            
-            ValueType val;
-            
+            int typeID;
+            float val;
         };  // class message
         
         
-        template<typename ValueType>
-        void pushMessage (Message<ValueType> message)
+        
+        void pushMessage (int typeID, float value)
         {
-            
+            pushMessage (Message(typeID, value));
         }
         
-        template<typename ValueType>
-        Message<ValueType> popMessage()
+        
+        void pushMessage (Message message)
         {
-            
+            messages.add (message);
         }
+        
+        
+        Message popMessage()
+        {
+            return messages.removeAndReturn (0);
+        }
+        
         
         int numStoredMessages() const
         {
-            
+            return messages.size();
+        }
+        
+        
+        bool isEmpty() const
+        {
+            return messages.isEmpty();
+        }
+        
+        
+        void clear()
+        {
+            messages.clearQuick();
+        }
+        
+        
+        void reserveSize (int numMessages)
+        {
+            messages.ensureStorageAllocated (numMessages);
         }
 
         
+        
     private:
+        
+        juce::Array<Message> messages;
         
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MessageQueue)
     };
