@@ -15,13 +15,13 @@ namespace dsp
         
         void setThreshold (float thresh_dB)
         {
-            thresholddB = SampleType(thresh_dB);
+            thresholddB = thresh_dB;
             update();
         }
         
         void setRelease (float release_ms)
         {
-            releaseTime = SampleType(release_ms);
+            releaseTime = release_ms;
             update();
         }
         
@@ -72,12 +72,14 @@ namespace dsp
                       SampleType* signalToLimit,
                       const int numSamples)
         {
+            for (int s = 0; s < numSamples; ++s)
+            {
+                const auto sc = sidechain[s];
+                *(signalToLimit + s) = firstStageCompressor.processSample  (channel, sc, signalToLimit[s]);
+                *(signalToLimit + s) = secondStageCompressor.processSample (channel, sc, signalToLimit[s]);
+                *(signalToLimit + s) = signalToLimit[s] * outputVolume.getNextValue();
+            }
             
-            firstStageCompressor.process (channel, sidechain, signalToLimit, numSamples);
-            secondStageCompressor.process (channel, sidechain, signalToLimit, numSamples);
-            
-            juce::FloatVectorOperations::multiply (signalToLimit, outputVolume);
-        
             juce::FloatVectorOperations::clip (signalToLimit, signalToLimit, SampleType(-1.0), SampleType(1.0), numSamples);
         }
         
@@ -99,7 +101,7 @@ namespace dsp
             auto ratioInverse = (SampleType) (1.0 / 4.0);
             
             auto gain = (SampleType) std::pow (10.0, 10.0 * (1.0 - ratioInverse) / 40.0);
-            gain *= Decibels::decibelsToGain (-thresholddB, (SampleType) -100.0);
+            gain *= juce::Decibels::decibelsToGain (-thresholddB, -100.0f);
             
             outputVolume.setTargetValue (gain);
         }
@@ -107,7 +109,7 @@ namespace dsp
         
         SidechainedCompressor<SampleType> firstStageCompressor, secondStageCompressor;
         
-        SmoothedValue<SampleType, ValueSmoothingTypes::Linear> outputVolume;
+        juce::SmoothedValue<SampleType, juce::ValueSmoothingTypes::Linear> outputVolume;
         
         double sampleRate = 44100.0;
         float thresholddB = -10.0, releaseTime = 100.0;
@@ -122,3 +124,4 @@ namespace dsp
 }  // namespace dsp
 
 }  // namespace bav
+

@@ -104,7 +104,7 @@ public:
                   const int numSamples)
     {
         for (int s = 0; s < numSamples; ++s)
-            *(signalToGate[s]) = processSample (channel, sidechain[s], signalToGate[s]);
+            *(signalToGate + s) = processSample (channel, sidechain[s], signalToGate[s]);
     }
     
     

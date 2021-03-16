@@ -85,7 +85,7 @@ namespace dsp
                       const int numSamples)
         {
             for (int s = 0; s < numSamples; ++s)
-                *(signalToCompress[s]) = processSample (channel, sidechain[s], signalToCompress[s]);
+                *(signalToCompress + s) = processSample (channel, sidechain[s], signalToCompress[s]);
         }
         
         
