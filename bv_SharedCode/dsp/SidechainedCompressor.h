@@ -80,10 +80,13 @@ namespace dsp
         
         
         void process (const int channel,
-                      const SampleType* sidechain,
+                      SampleType* sidechain,
                       SampleType* signalToCompress,
                       const int numSamples)
         {
+            if (sidechain == nullptr)
+                sidechain = signalToCompress;
+            
             for (int s = 0; s < numSamples; ++s)
                 *(signalToCompress + s) = processSample (channel, sidechain[s], signalToCompress[s]);
         }

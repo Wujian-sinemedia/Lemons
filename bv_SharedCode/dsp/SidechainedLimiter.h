@@ -68,10 +68,13 @@ namespace dsp
         
         
         void process (const int channel,
-                      const SampleType* sidechain,
+                      SampleType* sidechain,
                       SampleType* signalToLimit,
                       const int numSamples)
         {
+            if (sidechain == nullptr)
+                sidechain = signalToLimit;
+            
             for (int s = 0; s < numSamples; ++s)
             {
                 const auto sc = sidechain[s];

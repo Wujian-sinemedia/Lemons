@@ -18,6 +18,7 @@ public:
         RMSFilter.setReleaseTime (static_cast<SampleType> (50.0));
     }
     
+    ~SidechainedNoiseGate() { }
     
     void setInverted (bool gateBehaviorShouldBeInverted)
     {
@@ -99,10 +100,13 @@ public:
     
     
     void process (const int channel,
-                  const SampleType* sidechain,
+                  SampleType* sidechain,
                   SampleType* signalToGate,
                   const int numSamples)
     {
+        if (sidechain == nullptr)
+            sidechain = signalToGate;
+        
         for (int s = 0; s < numSamples; ++s)
             *(signalToGate + s) = processSample (channel, sidechain[s], signalToGate[s]);
     }
