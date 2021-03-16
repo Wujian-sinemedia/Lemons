@@ -100,7 +100,7 @@ public:
     
     
     void process (const int channel,
-                  SampleType* sidechain,
+                  const SampleType* sidechain,
                   SampleType* signalToGate,
                   const int numSamples)
     {

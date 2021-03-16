@@ -68,7 +68,7 @@ namespace dsp
         
         
         void process (const int channel,
-                      SampleType* sidechain,
+                      const SampleType* sidechain,
                       SampleType* signalToLimit,
                       const int numSamples)
         {

@@ -80,7 +80,7 @@ namespace dsp
         
         
         void process (const int channel,
-                      SampleType* sidechain,
+                      const SampleType* sidechain,
                       SampleType* signalToCompress,
                       const int numSamples)
         {
