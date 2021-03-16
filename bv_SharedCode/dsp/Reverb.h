@@ -122,27 +122,32 @@ namespace dsp
         void process (juce::AudioBuffer<float>& input,
                       juce::AudioBuffer<float>* compressorSidechain = nullptr)
         {
+            const int numSamples = input.getNumSamples();
+            
             if (compressorSidechain != nullptr)
-                jassert (input.getNumSamples() == compressorSidechain->getNumSamples());
+                jassert (numSamples == compressorSidechain->getNumSamples());
             
             switch (input.getNumChannels())
             {
                 case (0): return;
                     
                 case (1):
-                    reverb.processMono (input.getWritePointer(0), input.getNumSamples());
+                    reverb.processMono (input.getWritePointer(0), numSamples);
                     
                 default:
                     reverb.processStereo (input.getWritePointer(0),
                                           input.getWritePointer(1),
-                                          input.getNumSamples());
+                                          numSamples);
             }
             
-            juce::dsp::AudioBlock<float> block (input);
-            juce::dsp::ProcessContextReplacing<float> context (block);
-            
-            loCut.process (context);
-            hiCut.process (context);
+            for (int chan = 0; chan < 2; ++chan)
+            {
+                juce::AudioBuffer<float> mono (input.getArrayOfWritePointers() + chan, 1, 0, numSamples);
+                juce::dsp::AudioBlock<float> block (mono);
+                juce::dsp::ProcessContextReplacing<float> context (block);
+                loCut.process (context);
+                hiCut.process (context);
+            }
             
             if (isDucking)
             {
@@ -181,6 +186,7 @@ namespace dsp
 }  // namespace dsp
 
 }  // namespace bav
+
 
 
 
