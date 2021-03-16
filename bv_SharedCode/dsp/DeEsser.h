@@ -79,7 +79,7 @@ public:
     
     SampleType processSample (const int channel, const SampleType inputSample)
     {
-        return gate.processSample (chan,
+        return gate.processSample (channel,
                                    hiPass.processSample (inputSample),
                                    inputSample);
     }
