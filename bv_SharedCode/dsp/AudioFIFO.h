@@ -32,16 +32,79 @@ public:
     { }
     
     
-    void initialize (const int numChannels, const int size);
+    void initialize (const int numChannels, const int size)
+    {
+        base.setSize (numChannels, size * 2);
+        storedSamples.ensureStorageAllocated (numChannels);
+        
+        constexpr SampleType zero = SampleType(0.0);
+        
+        for (int chan = 0; chan < numChannels; ++chan)
+        {
+            juce::FloatVectorOperations::fill (base.getWritePointer(chan), zero, base.getNumSamples());
+            storedSamples.set (chan, 0);
+            writeIndex.set (chan, 0);
+        }
+    }
     
     
-    void clear();
+    void clear()
+    {
+        base.clear();
+        
+        for (int i = 0; i < base.getNumChannels(); ++i)
+        {
+            storedSamples.set (i, 0);
+            writeIndex.set (1, 0);
+        }
+    }
     
     
-    void releaseResources();
+    void releaseResources()
+    {
+        base.setSize (0, 0);
+        storedSamples.clear();
+        writeIndex.clear();
+    }
     
     
-    void changeSize (const int newNumChannels, const int newSize);
+    void changeSize (const int newNumChannels, const int newSize)
+    {
+        newSize += newSize;  // the real size is always blocksize * 2 under the hood
+        
+        if (base.getNumSamples() == newSize && base.getNumChannels() == newNumChannels)
+            return;
+        
+        base.setSize (newNumChannels, newSize, true, true, true);
+        storedSamples.ensureStorageAllocated (newNumChannels);
+        
+        for (int chan = 0; chan < newNumChannels; ++chan)
+        {
+            if (storedSamples.isEmpty() || chan >= storedSamples.size())
+            {
+                storedSamples.add (0);
+            }
+            else
+            {
+                const int prev = storedSamples.getUnchecked(chan);
+                
+                if (prev > newSize)
+                    storedSamples.set (chan, newSize);
+            }
+            
+            if (writeIndex.isEmpty() || chan >= writeIndex.size())
+            {
+                writeIndex.add (0);
+            }
+            else
+            {
+                const int prevW = writeIndex.getUnchecked(chan);
+                
+                if (prevW > newSize)
+                    writeIndex.set (chan, newSize);
+            }
+        }
+    }
     
     
     void pushSamples (const juce::AudioBuffer<SampleType>& inputBuffer, const int inputChannel,
@@ -53,6 +116,27 @@ public:
     
     
     void pushSamples (const SampleType* inputSamples, const int numSamples, const int destChannel);
+    {
+        jassert (destChannel >= 0 && destChannel < base.getNumChannels());
+        
+        const int length = base.getNumSamples();
+        
+        jassert (length > 0 && base.getNumChannels() > 0);
+        jassert (numSamples + storedSamples.getUnchecked(destChannel) <= length);
+        
+        SampleType* writing = base.getWritePointer(destChannel);
+        
+        int index = writeIndex.getUnchecked(destChannel);
+        
+        for (int s = 0; s < numSamples; ++s, ++index)
+        {
+            if (index >= length) index = 0;
+            writing[index] = inputSamples[s];
+        }
+        
+        writeIndex.set (destChannel, index);
+        storedSamples.set (destChannel, storedSamples.getUnchecked(destChannel) + numSamples);
+    }
     
     
     void popSamples (juce::AudioBuffer<SampleType>& destBuffer, const int destChannel,
@@ -63,18 +147,57 @@ public:
     }
     
     
-    void popSamples (SampleType* output, const int numSamples, const int readingChannel);
+    void popSamples (SampleType* output, const int numSamples, const int readingChannel)
+    {
+        jassert (readingChannel >= 0 && readingChannel < base.getNumChannels());
+        
+        const int length = base.getNumSamples();
+        
+        jassert (length > 0 && base.getNumChannels() > 0);
+        
+        const int ns = storedSamples.getUnchecked(readingChannel);
+        
+        int readIndex = writeIndex.getUnchecked(readingChannel) - ns;
+        if (readIndex < 0) readIndex += length;
+        
+        jassert (readIndex >= 0 && readIndex < length);
+        
+        const SampleType* reading = base.getReadPointer(readingChannel);
+        SampleType* writing = base.getWritePointer(readingChannel);
+        
+        constexpr SampleType zero = SampleType(0.0);
+        
+        for (int s = 0, index = readIndex; s < numSamples; ++s, ++index)
+        {
+            if (index >= length) index = 0;
+            output[s] = reading[index];
+            writing[index] = zero;
+        }
+        
+        storedSamples.set (readingChannel, std::max (0, ns - numSamples));
+    }
     
     
     int getSize() const noexcept { return base.getNumSamples(); }
     
     
     // returns the number of samples stored in a particular channel of the base buffer
-    int numStoredSamples(int channel) const noexcept { return storedSamples.getUnchecked(channel); }
+    int numStoredSamples(int channel) const { return storedSamples.getUnchecked(channel); }
     
     /* returns the lowest number of samples stored in any channel
      (essentially, the highest sample index you can safely access in a for loop iterating over all channels of this FIFO) */
-    int numStoredSamples() const;
+    int numStoredSamples() const
+    {
+        jassert (! storedSamples.isEmpty());
+        
+        int minNumSamples = storedSamples.getUnchecked(0);
+        
+        for (int stored : storedSamples)
+            if (stored < minNumSamples)
+                minNumSamples = stored;
+        
+        return minNumSamples;
+    }
     
     
 private:
@@ -87,6 +210,11 @@ private:
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudioFIFO)
 };
+
+
+    
+template class AudioFIFO<float>;
+template class AudioFIFO<double>;
 
     
 }  // namespace dsp

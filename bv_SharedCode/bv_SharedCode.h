@@ -17,16 +17,16 @@
 #include <juce_dsp/juce_dsp.h>
 
 // the rest of this module
+#include "VectorOps.h"
+#include "MessageQueue.h"
 #include "dsp/AudioFIFO.h"
 #include "dsp/Panner.h"
 #include "dsp/SidechainedNoiseGate.h"
 #include "dsp/DeEsser.h"
 #include "dsp/Reverb.h"
+#include "dsp/FIFOWrappedEngine.h"
 #include "midi/MidiFIFO.h"
 #include "midi/MidiUtilities.h"
-#include "VectorOps.h"
-#include "dsp/FIFOWrappedEngine.h"
-#include "MessageQueue.h"
 
 
 namespace bav
