@@ -21,10 +21,13 @@ namespace dsp
         
         ~Reverb() { }
         
-        void prepare (double samplerate)
+        void prepare (int blocksize, double samplerate)
         {
             reverb.setSampleRate (samplerate);
             reverb.setParameters (params);
+            
+            if constexpr (std::is_same_v <SampleType, double>)
+                workingBuffer.setSize (2, blocksize, true, true, true);
         }
         
         void reset()
@@ -35,26 +38,37 @@ namespace dsp
         void setRoomSize (float newRoomSize)
         {
             params.roomSize = newRoomSize;
+            reverb.setParameters (params);
         }
         
         void setDamping (float newDampingAmount)
         {
             params.damping = newDampingAmount;
+            reverb.setParameters (params);
         }
         
         void setWidth (float newWidth)
         {
             params.width = newWidth;
+            reverb.setParameters (params);
         }
         
         void setDryWet (int wetMixPercent)
         {
             params.wetLevel = wetMixPercent * 0.01f;
             params.dryLevel = 1.0f - params.wetLevel;
+            reverb.setParameters (params);
         }
         
         
-        void process (juce::AudioBuffer<SampleType>& input)
+        void process (juce::AudioBuffer<double>& input)
+        {
+            workingBuffer.makeCopyOf (input, true);
+            process (workingBuffer);
+        }
+        
+        
+        void process (juce::AudioBuffer<float>& input)
         {
             switch (input.getNumChannels())
             {
@@ -77,10 +91,13 @@ namespace dsp
         
         juce::Reverb::Parameters params;
         
+        juce::AudioBuffer<float> workingBuffer;
+        
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Reverb)
     };
     
 }  // namespace dsp
 
 }  // namespace bav
+
 
