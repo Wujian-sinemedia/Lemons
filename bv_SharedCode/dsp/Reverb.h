@@ -89,8 +89,8 @@ namespace dsp
             }
             else
             {
-                sidechainBuffer.makeCopyOf (compressorSidechain, true);
-                process (workingBuffer, sidechainBuffer);
+                sidechainBuffer.makeCopyOf (*compressorSidechain, true);
+                process (workingBuffer, &sidechainBuffer);
             }
             
             input.makeCopyOf (workingBuffer, true);
