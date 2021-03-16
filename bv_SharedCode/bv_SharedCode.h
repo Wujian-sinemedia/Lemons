@@ -21,6 +21,7 @@
 #include "dsp/Panner.h"
 #include "dsp/SidechainedNoiseGate.h"
 #include "dsp/DeEsser.h"
+#include "dsp/Reverb.h"
 #include "midi/MidiFIFO.h"
 #include "midi/MidiUtilities.h"
 #include "VectorOps.h"

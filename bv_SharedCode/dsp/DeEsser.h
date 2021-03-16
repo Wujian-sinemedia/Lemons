@@ -72,14 +72,16 @@ public:
             auto* output = audio.getWritePointer (chan);
             
             for (int s = 0; s < audio.getNumSamples(); ++s)
-            {
-                const auto sample = input[s];
-                
-                output[s] = gate.processSample (chan,
-                                                hiPass.processSample (sample),
-                                                sample);
-            }
+                output[s] = processSample (chan, input[s]);
         }
+    }
+    
+    
+    SampleType processSample (const int channel, const SampleType inputSample)
+    {
+        return gate.processSample (chan,
+                                   hiPass.processSample (inputSample),
+                                   inputSample);
     }
     
 
