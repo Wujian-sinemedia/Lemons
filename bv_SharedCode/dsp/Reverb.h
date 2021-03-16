@@ -139,9 +139,10 @@ namespace dsp
             }
             
             juce::dsp::AudioBlock<float> block (input);
+            juce::dsp::ProcessContextReplacing<float> context (block);
             
-            loCut.process ( juce::dsp::ProcessContextReplacing<float> (block) );
-            hiCut.process ( juce::dsp::ProcessContextReplacing<float> (block) );
+            loCut.process (context);
+            hiCut.process (context);
             
             if (isDucking)
             {
