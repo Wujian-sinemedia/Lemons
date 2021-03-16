@@ -31,6 +31,14 @@ namespace dsp
             
             compressor.prepare (blocksize, samplerate, 2);
             
+            sampleRate = samplerate;
+            
+            loCut.coefficients = juce::dsp::IIR::Coefficients<float>::makeLowPass (samplerate, loCutFreq);
+            loCut.reset();
+            
+            hiCut.coefficients = juce::dsp::IIR::Coefficients<float>::makeHighPass (samplerate, hiCutFreq);
+            hiCut.reset();
+            
             if constexpr (std::is_same_v <SampleType, double>)
             {
                 workingBuffer.setSize (2, blocksize, true, true, true);
@@ -77,6 +85,20 @@ namespace dsp
             compressor.setRatio (juce::jmap (newDuckAmount, 1.0f, 10.0f));
         }
         
+        void setLoCutFrequency (float freq)
+        {
+            loCutFreq = freq;
+            loCut.coefficients = juce::dsp::IIR::Coefficients<float>::makeLowPass (sampleRate, loCutFreq);
+            loCut.reset();
+        }
+        
+        void setHiCutFrequency (float freq)
+        {
+            hiCutFreq = freq;
+            hiCut.coefficients = juce::dsp::IIR::Coefficients<float>::makeHighPass (sampleRate, hiCutFreq);
+            hiCut.reset();
+        }
+        
         
         void process (juce::AudioBuffer<double>& input,
                       juce::AudioBuffer<double>* compressorSidechain = nullptr)
@@ -116,6 +138,11 @@ namespace dsp
                                           input.getNumSamples());
             }
             
+            juce::dsp::AudioBlock<float> block (input);
+            
+            loCut.process ( juce::dsp::ProcessContextReplacing<float> (block) );
+            hiCut.process ( juce::dsp::ProcessContextReplacing<float> (block) );
+            
             if (isDucking)
             {
                 if (compressorSidechain == nullptr)
@@ -138,15 +165,21 @@ namespace dsp
         bool isDucking;
         bav::dsp::SidechainedCompressor<float> compressor;
         
+        juce::dsp::IIR::Filter<float> loCut, hiCut;
+        float loCutFreq = 80.0f, hiCutFreq = 5500.0f;
+        
+        double sampleRate = 0.0;
+        
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Reverb)
     };
-
-
-template class Reverb<float>;
-template class Reverb<double>;
+    
+    
+    template class Reverb<float>;
+    template class Reverb<double>;
     
 }  // namespace dsp
 
 }  // namespace bav
+
 
 
