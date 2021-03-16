@@ -17,6 +17,9 @@ namespace dsp
             params.dryLevel = 0.6f;
             params.width = 1.0f;
             params.freezeMode = 0.2f;
+            
+            compressor.setAttack (15.0f);
+            compressor.setRelease (35.0f);
         }
         
         ~Reverb() { }
@@ -26,13 +29,19 @@ namespace dsp
             reverb.setSampleRate (samplerate);
             reverb.setParameters (params);
             
+            compressor.prepare (blocksize, samplerate, 2);
+            
             if constexpr (std::is_same_v <SampleType, double>)
+            {
                 workingBuffer.setSize (2, blocksize, true, true, true);
+                sidechainBuffer.setSize (2, blocksize, true, true, true);
+            }
         }
         
         void reset()
         {
             reverb.reset();
+            compressor.reset();
             workingBuffer.clear();
         }
         
@@ -61,17 +70,39 @@ namespace dsp
             reverb.setParameters (params);
         }
         
+        void setDuckAmount (float newDuckAmount)
+        {
+            isDucking = newDuckAmount > 0.0f;
+            compressor.setThreshold (juce::jmap (newDuckAmount, 0.0f, -20.0f));
+            compressor.setRatio (juce::jmap (newDuckAmount, 1.0f, 10.0f));
+        }
         
-        void process (juce::AudioBuffer<double>& input)
+        
+        void process (juce::AudioBuffer<double>& input,
+                      juce::AudioBuffer<double>* compressorSidechain)
         {
             workingBuffer.makeCopyOf (input, true);
-            process (workingBuffer);
+            
+            if (compressorSidechain == nullptr)
+            {
+                process (workingBuffer, nullptr);
+            }
+            else
+            {
+                sidechainBuffer.makeCopyOf (compressorSidechain, true);
+                process (workingBuffer, sidechainBuffer);
+            }
+            
             input.makeCopyOf (workingBuffer, true);
         }
         
         
-        void process (juce::AudioBuffer<float>& input)
+        void process (juce::AudioBuffer<float>& input,
+                      juce::AudioBuffer<float>* compressorSidechain)
         {
+            if (compressorSidechain != nullptr)
+                jassert (input.getNumSamples() == compressorSidechain->getNumSamples());
+            
             switch (input.getNumChannels())
             {
                 case (0): return;
@@ -84,6 +115,14 @@ namespace dsp
                                           input.getWritePointer(1),
                                           input.getNumSamples());
             }
+            
+            if (isDucking)
+            {
+                if (compressorSidechain == nullptr)
+                    compressor.process (input, input);
+                else
+                    compressor.process (*compressorSidechain, input);
+            }
         }
         
         
@@ -94,6 +133,10 @@ namespace dsp
         juce::Reverb::Parameters params;
         
         juce::AudioBuffer<float> workingBuffer;
+        juce::AudioBuffer<float> sidechainBuffer;
+        
+        bool isDucking;
+        bav::dsp::SidechainedCompressor<float> compressor;
         
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Reverb)
     };
