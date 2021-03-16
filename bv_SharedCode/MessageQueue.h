@@ -76,8 +76,6 @@ namespace bav
     private:
         
         juce::Array<Message> messages;
-        
-        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MessageQueue)
     };
     
 }  // namespace bav
