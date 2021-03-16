@@ -66,7 +66,7 @@ public:
     
     void process (juce::AudioBuffer<SampleType>& audio)
     {
-        for (int chan = 0; chan < 2; ++chan)
+        for (int chan = 0; chan < std::min(2, audio.getNumChannels()); ++chan)
         {
             const auto* input = audio.getReadPointer (chan);
             auto* output = audio.getWritePointer (chan);
