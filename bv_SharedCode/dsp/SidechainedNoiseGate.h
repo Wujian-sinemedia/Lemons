@@ -80,10 +80,10 @@ public:
     
     
     void process (const juce::AudioBuffer<SampleType>& sidechain,
-                  juce::AudioBuffer<SampleType>& signal) 
+                  juce::AudioBuffer<SampleType>& signalToGate)
     {
-        const int numChannels = signal.getNumChannels();
-        const int numSamples  = signal.getNumSamples();
+        const int numChannels = signalToGate.getNumChannels();
+        const int numSamples  = signalToGate.getNumSamples();
         
         jassert (sidechain.getNumChannels() == numChannels);
         jassert (sidechain.getNumSamples() == numSamples);
@@ -92,7 +92,7 @@ public:
         {
             process (channel,
                      sidechain.getReadPointer (channel),
-                     signal.getWritePointer (channel),
+                     signalToGate.getWritePointer (channel),
                      numSamples);
         }
     }

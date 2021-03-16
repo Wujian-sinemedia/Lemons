@@ -37,7 +37,19 @@ namespace dsp
         void process (const juce::AudioBuffer<SampleType>& sidechain,
                       juce::AudioBuffer<SampleType>& signalToLimit)
         {
+            const int numChannels = signalToLimit.getNumChannels();
+            const int numSamples  = signalToLimit.getNumSamples();
             
+            jassert (sidechain.getNumChannels() == numChannels);
+            jassert (sidechain.getNumSamples() == numSamples);
+            
+            for (int channel = 0; channel < numChannels; ++channel)
+            {
+                process (channel,
+                         sidechain.getReadPointer (channel),
+                         signalToLimit.getWritePointer (channel),
+                         numSamples);
+            }
         }
         
         

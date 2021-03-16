@@ -63,8 +63,8 @@ namespace dsp
         void process (const juce::AudioBuffer<SampleType>& sidechain,
                       juce::AudioBuffer<SampleType>& signalToCompress)
         {
-            const int numChannels = signal.getNumChannels();
-            const int numSamples  = signal.getNumSamples();
+            const int numChannels = signalToCompress.getNumChannels();
+            const int numSamples  = signalToCompress.getNumSamples();
             
             jassert (sidechain.getNumChannels() == numChannels);
             jassert (sidechain.getNumSamples() == numSamples);
