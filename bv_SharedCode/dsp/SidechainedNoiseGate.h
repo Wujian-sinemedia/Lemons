@@ -19,6 +19,12 @@ public:
     }
     
     
+    void setInverted (bool gateBehaviorShouldBeInverted)
+    {
+        inverted = gateBehaviorShouldBeInverted;
+    }
+    
+    
     void setThreshold (SampleType newThreshold_dB)
     {
         thresholddB = newThreshold_dB;
@@ -106,10 +112,19 @@ public:
         env = envelopeFilter.processSample (channel, env);
         
         // VCA
-        auto gain = (env > threshold) ? static_cast<SampleType> (1.0)
-                                      : std::pow (env * thresholdInverse, currentRatio - static_cast<SampleType> (1.0));
+        SampleType gain;
         
-        // Output
+        if (inverted)
+        {
+            gain = (env < threshold) ? static_cast<SampleType> (1.0)
+                                     : std::pow (env * thresholdInverse, currentRatio - static_cast<SampleType> (1.0));
+        }
+        else
+        {
+            gain = (env > threshold) ? static_cast<SampleType> (1.0)
+                                     : std::pow (env * thresholdInverse, currentRatio - static_cast<SampleType> (1.0));
+        }
+        
         return gain * sampleToGate;
     }
     
@@ -134,6 +149,8 @@ private:
     juce::dsp::BallisticsFilter<SampleType> envelopeFilter, RMSFilter;
     
     SampleType thresholddB = -100, ratio = 10.0, attackTime = 1.0, releaseTime = 100.0;
+    
+    bool inverted = false;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SidechainedNoiseGate)
 };

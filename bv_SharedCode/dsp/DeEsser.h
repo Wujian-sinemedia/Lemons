@@ -25,6 +25,7 @@ public:
     {
         gate.setAttack (bvng_ATTACK_MS);
         gate.setRelease (bvng_RELEASE_MS);
+        gate.setInverted (true);
     }
     
     ~DeEsser() { }
@@ -34,7 +35,6 @@ public:
     {
         hiPass.coefficients = juce::dsp::IIR::Coefficients<SampleType>::makeHighPass (samplerate,
                                                                                       SampleType(bvng_HI_PASS_FREQ));
-        
         gate.prepare (2, blocksize, samplerate);
     }
     
@@ -66,7 +66,7 @@ public:
     
     void process (juce::AudioBuffer<SampleType>& audio)
     {
-        for (int chan = 0; chan < audio.getNumChannels(); ++chan)
+        for (int chan = 0; chan < 2; ++chan)
         {
             const auto* input = audio.getReadPointer (chan);
             auto* output = audio.getWritePointer (chan);
@@ -81,7 +81,6 @@ public:
             }
         }
     }
-    
     
 
 private:

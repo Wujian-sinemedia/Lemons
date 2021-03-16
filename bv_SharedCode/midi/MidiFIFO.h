@@ -28,7 +28,7 @@ public:
     
     void setSize (int maxNumMessages)
     {
-        const size_t messages = size_t(maxNumMessages);
+        const size_t messages { maxNumMessages };
         base.ensureSize (messages);
         copying.ensureSize (messages);
     }
@@ -63,7 +63,7 @@ public:
         
         base.clear();
         base.swapWith (copying);
-        numStoredSamples -= numSamples;
+        numStoredSamples = std::max (0, numStoredSamples - numSamples);
     }
     
     
