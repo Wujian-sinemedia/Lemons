@@ -79,7 +79,7 @@ namespace dsp
         
         
         void process (juce::AudioBuffer<double>& input,
-                      juce::AudioBuffer<double>* compressorSidechain)
+                      juce::AudioBuffer<double>* compressorSidechain = nullptr)
         {
             workingBuffer.makeCopyOf (input, true);
             
@@ -98,7 +98,7 @@ namespace dsp
         
         
         void process (juce::AudioBuffer<float>& input,
-                      juce::AudioBuffer<float>* compressorSidechain)
+                      juce::AudioBuffer<float>* compressorSidechain = nullptr)
         {
             if (compressorSidechain != nullptr)
                 jassert (input.getNumSamples() == compressorSidechain->getNumSamples());
