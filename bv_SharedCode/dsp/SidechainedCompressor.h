@@ -46,7 +46,7 @@ namespace dsp
             
             spec.sampleRate = samplerate;
             spec.maximumBlockSize = juce::uint32(blocksize);
-            spec.numChannels = numChannels;
+            spec.numChannels = juce::uint32(numChannels);
             
             envelopeFilter.prepare (spec);
             
@@ -63,32 +63,41 @@ namespace dsp
         void process (const juce::AudioBuffer<SampleType>& sidechain,
                       juce::AudioBuffer<SampleType>& signalToCompress)
         {
-            jassert (sidechain.getNumSamples() == signalToCompress.getNumSamples());
+            const int numChannels = signal.getNumChannels();
+            const int numSamples  = signal.getNumSamples();
             
-            const auto* sc = sidechain.getReadPointer(0);
+            jassert (sidechain.getNumChannels() == numChannels);
+            jassert (sidechain.getNumSamples() == numSamples);
             
-            for (int chan = 0; chan < signalToCompress.getNumChannels(); ++chan)
+            for (int chan = 0; chan < numChannels; ++chan)
             {
-                const auto* input = signalToCompress.getReadPointer(chan);
-                auto* output = signalToCompress.getWritePointer(chan);
-                
-                for (int s = 0; s < sidechain.getNumSamples(); ++s)
-                {
-                    output[s] = processSample (chan, sc[s], input[s]);
-                }
+                process (chan,
+                         sidechain.getReadPointer (chan),
+                         signalToCompress.getWritePointer (chan),
+                         numSamples);
             }
+        }
+        
+        
+        void process (const int channel,
+                      const SampleType* sidechain,
+                      SampleType* signalToCompress,
+                      const int numSamples)
+        {
+            for (int s = 0; s < numSamples; ++s)
+                *(signalToCompress[s]) = processSample (channel, sidechain[s], signalToCompress[s]);
         }
         
         
         SampleType processSample (int channel, SampleType sidechainSample, SampleType inputSample)
         {
-            auto env = envelopeFilter.processSample (channel, inputSample); // Ballistics filter with peak rectifier
+            auto env = envelopeFilter.processSample (channel, sidechainSample); // Ballistics filter with peak rectifier
             
             // VCA
             auto gain = (env < threshold) ? SampleType(1.0)
-                                          : std::pow (env * thresholdInverse, ratioInverse - SampleType(1.0));
+            : std::pow (env * thresholdInverse, ratioInverse - SampleType(1.0));
             
-            return gain * inputValue;
+            return gain * inputSample;
         }
         
         
@@ -115,10 +124,11 @@ namespace dsp
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SidechainedCompressor)
     };
     
-
-template class SidechainedCompressor<float>;
-template class SidechainedCompressor<double>;
+    
+    template class SidechainedCompressor<float>;
+    template class SidechainedCompressor<double>;
     
 }  // namespace dsp
 
 }  // namespace bav
+

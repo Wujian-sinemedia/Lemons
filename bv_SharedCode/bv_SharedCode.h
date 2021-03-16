@@ -23,6 +23,7 @@
 #include "dsp/Panner.h"
 #include "dsp/SidechainedNoiseGate.h"
 #include "dsp/SidechainedCompressor.h"
+#include "dsp/SidechainedLimiter.h"
 #include "dsp/DeEsser.h"
 #include "dsp/Reverb.h"
 #include "midi/MidiFIFO.h"

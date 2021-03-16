@@ -80,7 +80,7 @@ public:
     
     
     void process (const juce::AudioBuffer<SampleType>& sidechain,
-                  juce::AudioBuffer<SampleType>& signal) noexcept
+                  juce::AudioBuffer<SampleType>& signal) 
     {
         const int numChannels = signal.getNumChannels();
         const int numSamples  = signal.getNumSamples();
@@ -90,13 +90,21 @@ public:
         
         for (int channel = 0; channel < numChannels; ++channel)
         {
-            auto* sidechainSamples = sidechain.getReadPointer (channel);
-            auto* readingSamples = signal.getReadPointer (channel);
-            auto* writingSamples = signal.getWritePointer (channel);
-            
-            for (int i = 0; i < numSamples; ++i)
-                writingSamples[i] = processSample (channel, sidechainSamples[i], readingSamples[i]);
+            process (channel,
+                     sidechain.getReadPointer (channel),
+                     signal.getWritePointer (channel),
+                     numSamples);
         }
+    }
+    
+    
+    void process (const int channel,
+                  const SampleType* sidechain,
+                  SampleType* signalToGate,
+                  const int numSamples)
+    {
+        for (int s = 0; s < numSamples; ++s)
+            *(signalToGate[s]) = processSample (channel, sidechain[s], signalToGate[s]);
     }
     
     
