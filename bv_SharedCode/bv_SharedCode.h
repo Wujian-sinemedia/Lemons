@@ -24,9 +24,9 @@
 #include "dsp/SidechainedNoiseGate.h"
 #include "dsp/DeEsser.h"
 #include "dsp/Reverb.h"
-#include "dsp/FIFOWrappedEngine.h"
 #include "midi/MidiFIFO.h"
 #include "midi/MidiUtilities.h"
+#include "dsp/FIFOWrappedEngine.h"
 
 
 namespace bav

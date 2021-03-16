@@ -68,7 +68,7 @@ public:
     }
     
     
-    void changeSize (const int newNumChannels, const int newSize)
+    void changeSize (const int newNumChannels, int newSize)
     {
         newSize += newSize;  // the real size is always blocksize * 2 under the hood
         
@@ -115,7 +115,7 @@ public:
     }
     
     
-    void pushSamples (const SampleType* inputSamples, const int numSamples, const int destChannel);
+    void pushSamples (const SampleType* inputSamples, const int numSamples, const int destChannel)
     {
         jassert (destChannel >= 0 && destChannel < base.getNumChannels());
         

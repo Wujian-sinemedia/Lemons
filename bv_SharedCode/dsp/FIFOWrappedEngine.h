@@ -17,7 +17,7 @@ public:
         initialize (samplerate, consistentInternalBlocksize);
     }
     
-    FIFOWrappedEngine(): internalBlocksize(0)
+    FIFOWrappedEngine(): internalBlocksize(0) { }
     
     virtual ~FIFOWrappedEngine() { }
     
