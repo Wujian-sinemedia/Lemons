@@ -28,7 +28,7 @@ public:
     
     void setSize (int maxNumMessages)
     {
-        const size_t messages { maxNumMessages };
+        const size_t messages = size_t(maxNumMessages);
         base.ensureSize (messages);
         copying.ensureSize (messages);
     }
