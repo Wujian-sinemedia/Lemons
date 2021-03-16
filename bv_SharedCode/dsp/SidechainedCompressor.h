@@ -16,7 +16,7 @@ namespace dsp
         
         void setThreshold (float newThresh_dB)
         {
-            thresholddB = SampleType(newThreshold);
+            thresholddB = SampleType(newThresh_dB);
             update();
         }
         
@@ -30,13 +30,13 @@ namespace dsp
         
         void setAttack (float attackMs)
         {
-            attackTime = SampleType(newAttack);
+            attackTime = SampleType(attackMs);
             update();
         }
         
         void setRelease (float releaseMs)
         {
-            releaseTime = SampleType(newRelease);
+            releaseTime = SampleType(releaseMs);
             update();
         }
         
@@ -82,7 +82,7 @@ namespace dsp
         
         SampleType processSample (int channel, SampleType sidechainSample, SampleType inputSample)
         {
-            auto env = envelopeFilter.processSample (channel, inputValue); // Ballistics filter with peak rectifier
+            auto env = envelopeFilter.processSample (channel, inputSample); // Ballistics filter with peak rectifier
             
             // VCA
             auto gain = (env < threshold) ? SampleType(1.0)
@@ -96,7 +96,7 @@ namespace dsp
         
         void update()
         {
-            threshold = Decibels::decibelsToGain (thresholddB, static_cast<SampleType> (-200.0));
+            threshold = juce::Decibels::decibelsToGain (thresholddB, static_cast<SampleType> (-200.0));
             thresholdInverse = static_cast<SampleType> (1.0) / threshold;
             ratioInverse     = static_cast<SampleType> (1.0) / ratio;
             
@@ -105,7 +105,7 @@ namespace dsp
         }
         
         SampleType threshold, thresholdInverse, ratioInverse;
-        BallisticsFilter<SampleType> envelopeFilter;
+        juce::dsp::BallisticsFilter<SampleType> envelopeFilter;
         
         juce::dsp::ProcessSpec spec;
         
