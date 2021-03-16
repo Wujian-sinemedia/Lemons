@@ -5,7 +5,6 @@ namespace bav
 namespace dsp
 {
     
-    template<typename SampleType>
     class Reverb
     {
     public:
@@ -39,11 +38,8 @@ namespace dsp
             hiCut.coefficients = juce::dsp::IIR::Coefficients<float>::makeHighPass (samplerate, hiCutFreq);
             hiCut.reset();
             
-            if constexpr (std::is_same_v <SampleType, double>)
-            {
-                workingBuffer.setSize (2, blocksize, true, true, true);
-                sidechainBuffer.setSize (2, blocksize, true, true, true);
-            }
+            sidechainBuffer.setSize (2, blocksize, true, true, true);
+            workingBuffer.setSize (2, blocksize, true, true, true);
         }
         
         void reset()
@@ -124,8 +120,15 @@ namespace dsp
         {
             const int numSamples = input.getNumSamples();
             
-            if (compressorSidechain != nullptr)
+            if (compressorSidechain == nullptr)
+            {
+                if (isDucking)
+                    sidechainBuffer.makeCopyOf (input, true);
+            }
+            else
+            {
                 jassert (numSamples == compressorSidechain->getNumSamples());
+            }
             
             switch (input.getNumChannels())
             {
@@ -135,9 +138,7 @@ namespace dsp
                     reverb.processMono (input.getWritePointer(0), numSamples);
                     
                 default:
-                    reverb.processStereo (input.getWritePointer(0),
-                                          input.getWritePointer(1),
-                                          numSamples);
+                    reverb.processStereo (input.getWritePointer(0), input.getWritePointer(1), numSamples);
             }
             
             for (int chan = 0; chan < 2; ++chan)
@@ -152,7 +153,7 @@ namespace dsp
             if (isDucking)
             {
                 if (compressorSidechain == nullptr)
-                    compressor.process (input, input);
+                    compressor.process (sidechainBuffer, input);
                 else
                     compressor.process (*compressorSidechain, input);
             }
@@ -180,12 +181,10 @@ namespace dsp
     };
     
     
-    template class Reverb<float>;
-    template class Reverb<double>;
-    
 }  // namespace dsp
 
 }  // namespace bav
+
 
 
 
