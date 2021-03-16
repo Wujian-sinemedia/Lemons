@@ -33,6 +33,7 @@ namespace dsp
         void reset()
         {
             reverb.reset();
+            workingBuffer.clear();
         }
         
         void setRoomSize (float newRoomSize)
@@ -95,6 +96,10 @@ namespace dsp
         
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Reverb)
     };
+
+
+template class Reverb<float>;
+template class Reverb<double>;
     
 }  // namespace dsp
 
