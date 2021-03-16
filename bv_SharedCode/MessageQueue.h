@@ -13,6 +13,8 @@ namespace bav
         class Message
         {
         public:
+            Message(): typeID(-1), val(0.0f) { }
+            
             Message(int msgID, float newValue): typeID(msgID), val(newValue) { }
             
             ~Message() { }
@@ -75,7 +77,7 @@ namespace bav
         
         juce::Array<Message> messages;
         
-        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MessageQueue);
+        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MessageQueue)
     };
     
 }  // namespace bav
