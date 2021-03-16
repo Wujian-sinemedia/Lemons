@@ -66,6 +66,7 @@ namespace dsp
         {
             workingBuffer.makeCopyOf (input, true);
             process (workingBuffer);
+            input.makeCopyOf (workingBuffer, true);
         }
         
         

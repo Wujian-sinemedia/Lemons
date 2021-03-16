@@ -61,7 +61,8 @@ namespace dsp
         
         
         void process (const juce::AudioBuffer<SampleType>& sidechain,
-                      juce::AudioBuffer<SampleType>& signalToCompress)
+                      juce::AudioBuffer<SampleType>& signalToCompress,
+                      SampleType* gainReduction = nullptr)
         {
             const int numChannels = signalToCompress.getNumChannels();
             const int numSamples  = signalToCompress.getNumSamples();
@@ -74,7 +75,8 @@ namespace dsp
                 process (chan,
                          sidechain.getReadPointer (chan),
                          signalToCompress.getWritePointer (chan),
-                         numSamples);
+                         numSamples,
+                         gainReduction);
             }
         }
         
@@ -82,23 +84,42 @@ namespace dsp
         void process (const int channel,
                       const SampleType* sidechain,
                       SampleType* signalToCompress,
-                      const int numSamples)
+                      const int numSamples,
+                      SampleType* gainReduction = nullptr)
         {
             if (sidechain == nullptr)
                 sidechain = signalToCompress;
             
+            SampleType avgGainReduction = 0;
+            SampleType gainRedux = 0;
+            
             for (int s = 0; s < numSamples; ++s)
-                *(signalToCompress + s) = processSample (channel, sidechain[s], signalToCompress[s]);
+            {
+                *(signalToCompress + s) = processSample (channel, sidechain[s], signalToCompress[s], &gainRedux);
+                avgGainReduction += gainRedux;
+            }
+            
+            if (gainReduction != nullptr)
+            {
+                avgGainReduction *= (1 / numSamples);
+                *gainReduction = avgGainReduction;
+            }
         }
         
         
-        SampleType processSample (int channel, SampleType sidechainSample, SampleType inputSample)
+        SampleType processSample (int channel,
+                                  SampleType sidechainSample,
+                                  SampleType inputSample,
+                                  SampleType* gainReduction = nullptr)
         {
             auto env = envelopeFilter.processSample (channel, sidechainSample); // Ballistics filter with peak rectifier
             
             // VCA
             auto gain = (env < threshold) ? SampleType(1.0)
-            : std::pow (env * thresholdInverse, ratioInverse - SampleType(1.0));
+                                          : std::pow (env * thresholdInverse, ratioInverse - SampleType(1.0));
+            
+            if (gainReduction != nullptr)
+                *gainReduction = gain;
             
             return gain * inputSample;
         }

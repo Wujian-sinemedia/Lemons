@@ -64,24 +64,45 @@ public:
     }
     
     
-    void process (juce::AudioBuffer<SampleType>& audio)
+    void process (juce::AudioBuffer<SampleType>& audio, SampleType* gainReduction = nullptr)
     {
+        const int numSamples = audio.getNumSamples();
+        
         for (int chan = 0; chan < std::min(2, audio.getNumChannels()); ++chan)
+            process (chan, audio.getWritePointer(chan), numSamples, gainReduction);
+    }
+    
+    
+    void process (const int channel,
+                  SampleType* signalToDeEss,
+                  const int numSamples,
+                  SampleType* gainReduction = nullptr)
+    {
+        SampleType avgGainReduction = 0;
+        SampleType gainRedux = 0;
+        
+        for (int s = 0; s < numSamples; ++s)
         {
-            const auto* input = audio.getReadPointer (chan);
-            auto* output = audio.getWritePointer (chan);
-            
-            for (int s = 0; s < audio.getNumSamples(); ++s)
-                output[s] = processSample (chan, input[s]);
+            *(signalToDeEss + s) = processSample (channel, signalToDeEss[s], &gainRedux);
+            avgGainReduction += gainRedux;
+        }
+        
+        if (gainReduction != nullptr)
+        {
+            avgGainReduction *= (1 / numSamples);
+            *gainReduction = avgGainReduction;
         }
     }
     
     
-    SampleType processSample (const int channel, const SampleType inputSample)
+    SampleType processSample (const int channel,
+                              const SampleType inputSample,
+                              SampleType* gainReduction = nullptr)
     {
         return gate.processSample (channel,
                                    hiPass.processSample (inputSample),
-                                   inputSample);
+                                   inputSample,
+                                   gainReduction);
     }
     
 

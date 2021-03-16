@@ -81,7 +81,8 @@ public:
     
     
     void process (const juce::AudioBuffer<SampleType>& sidechain,
-                  juce::AudioBuffer<SampleType>& signalToGate)
+                  juce::AudioBuffer<SampleType>& signalToGate,
+                  SampleType* gainReduction = nullptr)
     {
         const int numChannels = signalToGate.getNumChannels();
         const int numSamples  = signalToGate.getNumSamples();
@@ -94,7 +95,8 @@ public:
             process (channel,
                      sidechain.getReadPointer (channel),
                      signalToGate.getWritePointer (channel),
-                     numSamples);
+                     numSamples,
+                     gainReduction);
         }
     }
     
@@ -102,20 +104,34 @@ public:
     void process (const int channel,
                   const SampleType* sidechain,
                   SampleType* signalToGate,
-                  const int numSamples)
+                  const int numSamples,
+                  SampleType* gainReduction = nullptr)
     {
         if (sidechain == nullptr)
             sidechain = signalToGate;
         
+        SampleType avgGainReduction = 0;
+        SampleType gainRedux = 0;
+        
         for (int s = 0; s < numSamples; ++s)
-            *(signalToGate + s) = processSample (channel, sidechain[s], signalToGate[s]);
+        {
+            *(signalToGate + s) = processSample (channel, sidechain[s], signalToGate[s], &gainRedux);
+            avgGainReduction += gainRedux;
+        }
+        
+        if (gainReduction != nullptr)
+        {
+            avgGainReduction *= (1 / numSamples);
+            *gainReduction = avgGainReduction;
+        }
     }
     
     
     /** Performs the processing operation on a single sample at a time. */
     SampleType processSample (const int channel,
                               const SampleType sidechainValue,
-                              const SampleType sampleToGate)
+                              const SampleType sampleToGate,
+                              SampleType* gainReduction = nullptr)
     {
         // RMS ballistics filter
         auto env = RMSFilter.processSample (channel, sidechainValue);
@@ -136,6 +152,9 @@ public:
             gain = (env > threshold) ? static_cast<SampleType> (1.0)
                                      : std::pow (env * thresholdInverse, currentRatio - static_cast<SampleType> (1.0));
         }
+        
+        if (gainReduction != nullptr)
+            *gainReduction = gain;
         
         return gain * sampleToGate;
     }
