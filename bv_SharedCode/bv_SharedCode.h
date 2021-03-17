@@ -33,7 +33,15 @@
 
 namespace bav
 {
+    
+    
+    inline bool probability (int percentOfTheTime)
+    {
+        return juce::Random::getSystemRandom().nextInt (100) < percentOfTheTime;
+    }
 
+    
+    
 namespace gui
 {
     
