@@ -85,9 +85,9 @@ namespace bav::dsp::FX
             for (int s = 0; s < numSamples; ++s)
             {
                 const auto sc = sidechain[s];
-                const auto sample = signalToLimit[s];
-                *(signalToLimit + s) = firstStageCompressor.processSample  (channel, sample, sc);
-                *(signalToLimit + s) = secondStageCompressor.processSample (channel, sample, sc);
+                
+                *(signalToLimit + s) = firstStageCompressor.processSample  (channel, signalToLimit[s], sc);
+                *(signalToLimit + s) = secondStageCompressor.processSample (channel, signalToLimit[s], sc);
                 *(signalToLimit + s) = signalToLimit[s] * outputVolume.getNextValue();
             }
             
