@@ -98,7 +98,7 @@ public:
     {
         return gate.processSample (channel,
                                    inputSample,
-                                   hiPass.processSample (inputSample)
+                                   hiPass.processSample (inputSample),
                                    gainReduction);
     }
     

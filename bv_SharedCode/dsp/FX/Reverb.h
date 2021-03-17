@@ -125,9 +125,9 @@ namespace bav::dsp::FX
                       juce::AudioBuffer<double>& compressorSidechain)
         {
             conversionBuffer.makeCopyOf (input, true);
-            sidechainBuffer.makeCopyOf (*compressorSidechain, true);
+            sidechainBuffer.makeCopyOf (compressorSidechain, true);
             
-            process (conversionBuffer, &sidechainBuffer);
+            process (conversionBuffer, sidechainBuffer);
         
             input.makeCopyOf (conversionBuffer, true);
         }
