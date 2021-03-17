@@ -253,7 +253,7 @@ private:
     
     virtual void renderBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages)=0;
     
-    virtual void bypassedBlock (const AudioBuffer<SampleType>& input, const MidiBuffer& midiMessages) { juce::ignoreUnused (input, midiMessages); }
+    virtual void bypassedBlock (const AudioBuffer<SampleType>& input, MidiBuffer& midiMessages) { juce::ignoreUnused (input, midiMessages); }
     
     virtual void initialized (int newInternalBlocksize, double samplerate) { juce::ignoreUnused (newInternalBlocksize, samplerate); }
     
