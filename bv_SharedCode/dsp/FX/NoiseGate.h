@@ -79,6 +79,15 @@ namespace bav::dsp::FX
         }
         
         
+        //  processes a signal with no external sidechain
+        void process (juce::AudioBuffer<SampleType>& signalToGate,
+                      SampleType* gainReduction = nullptr)
+        {
+            process (signalToGate, signalToGate, gainReduction);
+        }
+        
+        
+        // processes a signal with an external sidechain. Use the same buffer in both arguments to sidechain a signal to itself.
         void process (const juce::AudioBuffer<SampleType>& sidechain,
                       juce::AudioBuffer<SampleType>& signalToGate,
                       SampleType* gainReduction = nullptr)
@@ -99,13 +108,7 @@ namespace bav::dsp::FX
         }
         
         
-        void process (juce::AudioBuffer<SampleType>& signalToGate,
-                      SampleType* gainReduction = nullptr)
-        {
-            process (signalToGate, signalToGate, gainReduction);
-        }
-        
-        
+        //  processes a signal with an external sidechain. Omit the sidechain argument or pass a nullptr to sidechain the signal to itself.
         void process (const int channel,
                       const int numSamples,
                       SampleType* signalToGate,
@@ -122,7 +125,7 @@ namespace bav::dsp::FX
             
             for (int s = 0; s < numSamples; ++s)
             {
-                *(signalToGate + s) = processSample (channel, sidechain[s], signalToGate[s], &gainRedux);
+                *(signalToGate + s) = processSample (channel, signalToGate[s], sidechain[s], &gainRedux);
                 avgGainReduction += gainRedux;
             }
             
@@ -134,10 +137,10 @@ namespace bav::dsp::FX
         }
         
         
-        /** Performs the processing operation on a single sample at a time. */
+        //  processes a single sample. Omit the sidechainSample argument or pass the same value in both args to use as a standard compressor (sidechaining the signal to itself).
         SampleType processSample (const int channel,
-                                  const SampleType sidechainValue,
                                   const SampleType sampleToGate,
+                                  const SampleType sidechainValue = sampleToGate,
                                   SampleType* gainReduction = nullptr)
         {
             auto env = RMSFilter.processSample (channel, sidechainValue);  // RMS ballistics filter
@@ -150,26 +153,18 @@ namespace bav::dsp::FX
             if (inverted)
             {
                 gain = (env < threshold) ? static_cast<SampleType> (1.0)
-                : std::pow (env * thresholdInverse, currentRatio - static_cast<SampleType> (1.0));
+                                         : std::pow (env * thresholdInverse, currentRatio - static_cast<SampleType> (1.0));
             }
             else
             {
                 gain = (env > threshold) ? static_cast<SampleType> (1.0)
-                : std::pow (env * thresholdInverse, currentRatio - static_cast<SampleType> (1.0));
+                                         : std::pow (env * thresholdInverse, currentRatio - static_cast<SampleType> (1.0));
             }
             
-            if (gainReduction != nullptr)
+            if (gainReduction != nullptr)  // report gain reduction, if requested
                 *gainReduction = gain;
             
             return gain * sampleToGate;
-        }
-        
-        
-        SampleType processSample (const int channel,
-                                  const SampleType sampleToGate,
-                                  SampleType* gainReduction = nullptr)
-        {
-            return processSample (channel, sampleToGate, sampleToGate, gainReduction);
         }
         
         

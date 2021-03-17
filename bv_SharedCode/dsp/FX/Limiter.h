@@ -47,6 +47,14 @@ namespace bav::dsp::FX
         }
         
         
+        //  processes a signal with no sidechain
+        void process (juce::AudioBuffer<SampleType>& signalToLimit)
+        {
+            process (signalToLimit, signalToLimit);
+        }
+        
+        
+        //  processes a signal with an external sidechain. Use the same buffer in both arguments to sidechain a signal to itself.
         void process (const juce::AudioBuffer<SampleType>& sidechain,
                       juce::AudioBuffer<SampleType>& signalToLimit)
         {
@@ -65,12 +73,7 @@ namespace bav::dsp::FX
         }
         
         
-        void process (juce::AudioBuffer<SampleType>& signalToLimit)
-        {
-            process (signalToLimit, signalToLimit);
-        }
-        
-        
+        //  processes a signal with an external sidechain. Omit the final argument or pass a nullptr to sidechain the signal to itself.
         void process (const int channel,
                       const int numSamples,
                       SampleType* signalToLimit,
@@ -82,8 +85,9 @@ namespace bav::dsp::FX
             for (int s = 0; s < numSamples; ++s)
             {
                 const auto sc = sidechain[s];
-                *(signalToLimit + s) = firstStageCompressor.processSample  (channel, sc, signalToLimit[s]);
-                *(signalToLimit + s) = secondStageCompressor.processSample (channel, sc, signalToLimit[s]);
+                const auto sample = signalToLimit[s];
+                *(signalToLimit + s) = firstStageCompressor.processSample  (channel, sample, sc);
+                *(signalToLimit + s) = secondStageCompressor.processSample (channel, sample, sc);
                 *(signalToLimit + s) = signalToLimit[s] * outputVolume.getNextValue();
             }
             

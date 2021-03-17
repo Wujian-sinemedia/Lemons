@@ -97,8 +97,8 @@ public:
                               SampleType* gainReduction = nullptr)
     {
         return gate.processSample (channel,
-                                   hiPass.processSample (inputSample),
                                    inputSample,
+                                   hiPass.processSample (inputSample)
                                    gainReduction);
     }
     
