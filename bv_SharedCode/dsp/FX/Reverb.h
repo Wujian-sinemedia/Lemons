@@ -1,8 +1,5 @@
 
-namespace bav
-{
-
-namespace dsp
+namespace bav::dsp::FX
 {
     
     class Reverb
@@ -44,6 +41,9 @@ namespace dsp
             sidechainBuffer.setSize (numChannels, blocksize, true, true, true);
             workingBuffer.setSize (numChannels, blocksize, true, true, true);
             conversionBuffer.setSize (numChannels, blocksize, true, true, true);
+            
+            dryGain.reset (blocksize);
+            wetGain.reset (blocksize);
         }
         
         void reset()
@@ -53,6 +53,10 @@ namespace dsp
             workingBuffer.clear();
             sidechainBuffer.clear();
             conversionBuffer.clear();
+            
+            const int numSamps = workingBuffer.getNumSamples();
+            dryGain.reset (numSamps);
+            wetGain.reset (numSamps);
         }
         
         void setRoomSize (float newRoomSize)
@@ -75,10 +79,9 @@ namespace dsp
         
         void setDryWet (int wetMixPercent)
         {
-            prevDryMult = dryMult;
-            prevWetMult = wetMult;
-            wetMult = wetMixPercent * 0.01f;
-            dryMult = 1.0f - wetMult;
+            const auto wetGain = wetMixPercent * 0.01f;
+            wetMult.setTargetValue (wetGain);
+            dryMult.setTargetValue (1.0f - wetGain);
         }
         
         void setDuckAmount (float newDuckAmount)
@@ -174,14 +177,18 @@ namespace dsp
                     compressor.process (*compressorSidechain, workingBuffer);
             }
             
-            // write to output
-            input.applyGainRamp (0, numSamples, prevDryMult, dryMult);
+            // write to output & apply dry/wet gain
+            input.clear();
             
             for (int chan = 0; chan < numChannels; ++chan)
-                input.addFromWithRamp (chan, 0, workingBuffer.getReadPointer(chan), numSamples, prevWetMult, wetMult);
+            {
+                auto* output = input.getWritePointer(chan);
+                const auto* drySamples = sidechainBuffer.getReadPointer(chan);
+                const auto* wetSamples = workingBuffer.getReadPointer(chan);
             
-            prevDryMult = dryMult;
-            prevWetMult = wetMult;
+                for (int s = 0; s < numSamples; ++s)
+                    output[s] = (drySamples[s] * dryGain.getNextValue()) + (wetSamples[s] * wetGain.getNextValue());
+            }
         }
         
         
@@ -196,23 +203,21 @@ namespace dsp
         juce::AudioBuffer<float> sidechainBuffer;
         
         bool isDucking;
-        bav::dsp::SidechainedCompressor<float> compressor;
+        Compressor<float> compressor;
         
         juce::dsp::IIR::Filter<float> loCut, hiCut;
         float loCutFreq = 80.0f, hiCutFreq = 5500.0f;
         
         double sampleRate = 0.0;
         
-        float dryMult = 1.0f, wetMult = 0.0f;
-        float prevDryMult = 1.0f, prevWetMult = 0.0f;
+        juce::SmoothedValue<float, juce::ValueSmoothingTypes::Multiplicative> dryGain;
+        juce::SmoothedValue<float, juce::ValueSmoothingTypes::Multiplicative> wetGain;
         
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Reverb)
     };
     
     
-}  // namespace dsp
-
-}  // namespace bav
+}  // namespace 
 
 
 

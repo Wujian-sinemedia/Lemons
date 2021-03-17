@@ -1,15 +1,13 @@
 
-namespace bav
+namespace bav::dsp::FX
 {
 
-namespace dsp
-{
 
 template<typename SampleType>
-class SidechainedNoiseGate
+class NoiseGate
 {
 public:
-    SidechainedNoiseGate()
+    NoiseGate()
     {
         update();
         
@@ -18,7 +16,7 @@ public:
         RMSFilter.setReleaseTime (static_cast<SampleType> (50.0));
     }
     
-    ~SidechainedNoiseGate() { }
+    ~NoiseGate() { }
     
     void setInverted (bool gateBehaviorShouldBeInverted)
     {
@@ -101,12 +99,21 @@ public:
     }
     
     
+    void process (juce::AudioBuffer<SampleType>& signalToGate,
+                  SampleType* gainReduction = nullptr)
+    {
+        process (signalToGate, signalToGate, gainReduction);
+    }
+    
+    
     void process (const int channel,
-                  const SampleType* sidechain,
+                  const SampleType* sidechain = nullptr,
                   SampleType* signalToGate,
                   const int numSamples,
                   SampleType* gainReduction = nullptr)
     {
+        jassert (numSamples > 0);
+        
         if (sidechain == nullptr)
             sidechain = signalToGate;
         
@@ -133,11 +140,9 @@ public:
                               const SampleType sampleToGate,
                               SampleType* gainReduction = nullptr)
     {
-        // RMS ballistics filter
-        auto env = RMSFilter.processSample (channel, sidechainValue);
+        auto env = RMSFilter.processSample (channel, sidechainValue);  // RMS ballistics filter
         
-        // Ballistics filter
-        env = envelopeFilter.processSample (channel, env);
+        env = envelopeFilter.processSample (channel, env);  // Ballistics filter
         
         // VCA
         SampleType gain;
@@ -157,6 +162,14 @@ public:
             *gainReduction = gain;
         
         return gain * sampleToGate;
+    }
+    
+    
+    SampleType processSample (const int channel,
+                              const SampleType sampleToGate,
+                              SampleType* gainReduction = nullptr)
+    {
+        return processSample (channel, sampleToGate, sampleToGate, gainReduction);
     }
     
     
@@ -183,13 +196,11 @@ private:
     
     bool inverted = false;
     
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SidechainedNoiseGate)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(NoiseGate)
 };
     
 
-template class SidechainedNoiseGate<float>;
-template class SidechainedNoiseGate<double>;
+template class NoiseGate<float>;
+template class NoiseGate<double>;
 
-}  // namespace dsp
-
-}  // namespace bav
+}  // namespace

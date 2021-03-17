@@ -4,12 +4,9 @@
  */
 
 
-namespace bav
+namespace bav::dsp::FX
 {
 
-namespace dsp
-{
-    
 
 #define bvng_HI_PASS_FREQ 7600.0
 
@@ -110,7 +107,7 @@ private:
     
     juce::dsp::IIR::Filter<SampleType> hiPass;
     
-    SidechainedNoiseGate<SampleType> gate;
+    NoiseGate<SampleType> gate;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(DeEsser)
 };
@@ -119,7 +116,5 @@ private:
 template class DeEsser<float>;
 template class DeEsser<double>;
 
-}  // namespace dsp
-
-}  // namespace bav
+}  // namespace
 

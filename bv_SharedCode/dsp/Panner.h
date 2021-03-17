@@ -20,81 +20,70 @@ public:
     ~Panner()
     { }
     
-    int getLastMidiPan() const noexcept { return lastRecievedMidiPan.load(); }
+    void reset()
+    {
+        left  = 0.5f;
+        right = 0.5f;
+    }
     
-    float getLeftGain()  const noexcept { return leftGain.load(); }
+    int getLastMidiPan() const noexcept { return lastRecievedMidiPan; }
     
-    float getRightGain() const noexcept { return rightGain.load(); }
+    float getLeftGain()  const noexcept { return leftGain; }
     
-    float getPrevLeftGain()  const noexcept { return prevLeftGain.load(); }
-    
-    float getPrevRightGain() const noexcept { return prevRightGain.load(); }
+    float getRightGain() const noexcept { return rightGain; }
     
     float getGainMult (const int chan) const
     {
         switch (chan)
         {
-            case 0:
-                return leftGain.load();
-                
-            case 1:
-                return rightGain.load();
-                
-            default:
-                return 1.0f;
+            case 0:  return leftGain;
+            case 1:  return rightGain;
+            default: return 1.0f;
         }
     }
     
-    float getPrevGain (const int chan) const
+    void getGainMults (float& left, float& right)
     {
-        switch (chan)
-        {
-            case 0:
-                return prevLeftGain.load();
-                
-            case 1:
-                return prevRightGain.load();
-                
-            default:
-                return 1.0f;
-        }
+        left  = leftGain;
+        right = rightGain;
     }
     
     void setMidiPan (int newMidiPan)
     {
         newMidiPan = juce::jlimit (0, 127, newMidiPan);
         
-        if (lastRecievedMidiPan.load() == newMidiPan)
+        if (lastRecievedMidiPan == newMidiPan)
             return;
         
-        prevLeftGain.store(leftGain.load());
-        prevRightGain.store(rightGain.load());
-        
-        float panningAngle = (90.0f * newMidiPan / 127.0f * juce::MathConstants<float>::pi) / 180.0f;
+        auto panningAngle = (90.0f * newMidiPan / 127.0f * juce::MathConstants<float>::pi) / 180.0f;
         
         panningAngle = juce::jlimit (0.0f, 90.0f, panningAngle);
         
-        const float left  = juce::jlimit (0.0f, 1.0f, std::sin (panningAngle));
-        const float right = juce::jlimit (0.0f, 1.0f, std::cos (panningAngle));
+        leftGain  = std::sin (panningAngle);
+        rightGain = std::cos (panningAngle);
         
-        jassert (left >= 0.0f && left <= 1.0f);
-        jassert (right >= 0.0f && right <= 1.0f);
+        jassert (leftGain >= 0.0f && leftGain <= 1.0f);
+        jassert (rightGain >= 0.0f && rightGain <= 1.0f);
         
-        leftGain.store(left);
-        rightGain.store(right);
-        
-        lastRecievedMidiPan.store(newMidiPan);
+        lastRecievedMidiPan = newMidiPan;
+    }
+    
+    void setMidiPan (int newMidiPan,
+                     float& leftGainOutput,
+                     float& rightGainOutput)
+    {
+        setMidiPan (newMidiPan);
+        leftGainOutput  = leftGain;
+        rightGainOutput = rightGain;
     }
     
     
 private:
     
-    std::atomic<int> lastRecievedMidiPan;
+    int lastRecievedMidiPan;
     
-    std::atomic<float> leftGain;
-    std::atomic<float> rightGain;
-    
-    std::atomic<float> prevLeftGain, prevRightGain;
+    float leftGain;
+    float rightGain;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Panner)
 };

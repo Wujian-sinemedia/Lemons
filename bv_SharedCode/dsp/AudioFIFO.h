@@ -37,7 +37,7 @@ public:
         base.setSize (numChannels, size * 2);
         storedSamples.ensureStorageAllocated (numChannels);
         
-        constexpr SampleType zero = SampleType(0.0);
+        constexpr auto zero = SampleType(0.0);
         
         for (int chan = 0; chan < numChannels; ++chan)
         {
@@ -124,7 +124,7 @@ public:
         jassert (length > 0 && base.getNumChannels() > 0);
         jassert (numSamples + storedSamples.getUnchecked(destChannel) <= length);
         
-        SampleType* writing = base.getWritePointer(destChannel);
+        auto* writing = base.getWritePointer(destChannel);
         
         int index = writeIndex.getUnchecked(destChannel);
         
@@ -162,10 +162,10 @@ public:
         
         jassert (readIndex >= 0 && readIndex < length);
         
-        const SampleType* reading = base.getReadPointer(readingChannel);
-        SampleType* writing = base.getWritePointer(readingChannel);
+        const auto* reading = base.getReadPointer(readingChannel);
+        auto* writing = base.getWritePointer(readingChannel);
         
-        constexpr SampleType zero = SampleType(0.0);
+        constexpr auto zero = SampleType(0.0);
         
         for (int s = 0, index = readIndex; s < numSamples; ++s, ++index)
         {

@@ -1,17 +1,15 @@
 
-namespace bav
+namespace bav::dsp::FX
 {
 
-namespace dsp
-{
     
     template<typename SampleType>
-    class SidechainedCompressor
+    class Compressor
     {
     public:
-        SidechainedCompressor() { update(); }
+        Compressor() { update(); }
         
-        ~SidechainedCompressor()
+        ~Compressor()
         { }
         
         void setThreshold (float newThresh_dB)
@@ -81,12 +79,21 @@ namespace dsp
         }
         
         
+        void process (juce::AudioBuffer<SampleType>& signalToCompress,
+                      SampleType* gainReduction = nullptr)
+        {
+            process (signalToCompress, signalToCompress, gainReduction);
+        }
+        
+        
         void process (const int channel,
-                      const SampleType* sidechain,
+                      const SampleType* sidechain = nullptr,
                       SampleType* signalToCompress,
                       const int numSamples,
                       SampleType* gainReduction = nullptr)
         {
+            jassert (numSamples > 0);
+            
             if (sidechain == nullptr)
                 sidechain = signalToCompress;
             
@@ -125,6 +132,14 @@ namespace dsp
         }
         
         
+        SampleType processSample (int channel,
+                                  SampleType inputSample,
+                                  SampleType* gainReduction = nullptr)
+        {
+            return processSample (channel, inputSample, inputSample, gainReduction);
+        }
+        
+        
     private:
         
         void update()
@@ -145,14 +160,12 @@ namespace dsp
         double sampleRate = 44100.0;
         SampleType thresholddB = 0.0, ratio = 1.0, attackTime = 1.0, releaseTime = 100.0;
         
-        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SidechainedCompressor)
+        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Compressor)
     };
     
     
-    template class SidechainedCompressor<float>;
-    template class SidechainedCompressor<double>;
+    template class Compressor<float>;
+    template class Compressor<double>;
     
-}  // namespace dsp
-
 }  // namespace bav
 

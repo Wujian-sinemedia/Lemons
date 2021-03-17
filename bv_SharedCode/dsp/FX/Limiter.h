@@ -1,17 +1,15 @@
 
-namespace bav
+namespace bav::dsp::FX
 {
 
-namespace dsp
-{
     
     template<typename SampleType>
-    class SidechainedLimiter
+    class Limiter
     {
     public:
-        SidechainedLimiter() { }
+        Limiter() { }
         
-        ~SidechainedLimiter() { }
+        ~Limiter() { }
         
         void setThreshold (float thresh_dB)
         {
@@ -67,8 +65,15 @@ namespace dsp
         }
         
         
+        void process (juce::AudioBuffer<SampleType>& signalToLimit)
+        {
+            for (int channel = 0; channel < signalToLimit.getNumChannels(); ++channel)
+                process (channel, nullptr, signalToLimit.getWritePointer (channel), numSamples);
+        }
+        
+        
         void process (const int channel,
-                      const SampleType* sidechain,
+                      const SampleType* sidechain = nullptr,
                       SampleType* signalToLimit,
                       const int numSamples)
         {
@@ -110,21 +115,19 @@ namespace dsp
         }
         
         
-        SidechainedCompressor<SampleType> firstStageCompressor, secondStageCompressor;
+        Compressor<SampleType> firstStageCompressor, secondStageCompressor;
         
         juce::SmoothedValue<SampleType, juce::ValueSmoothingTypes::Linear> outputVolume;
         
         double sampleRate = 44100.0;
         float thresholddB = -10.0, releaseTime = 100.0;
         
-        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SidechainedLimiter)
+        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Limiter)
     };
     
     
-    template class SidechainedLimiter<float>;
-    template class SidechainedLimiter<double>;
+    template class Limiter<float>;
+    template class Limiter<double>;
     
-}  // namespace dsp
-
 }  // namespace bav
 

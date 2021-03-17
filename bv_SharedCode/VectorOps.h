@@ -36,7 +36,7 @@ inline int findIndexOfMinElement (DataType* data, const int dataSize)
 {
     jassert (dataSize > 1);
 #if BV_VECTOROPS_USE_VDSP
-    constexpr vDSP_Stride strideOfOne = vDSP_Stride(1);
+    constexpr auto strideOfOne = vDSP_Stride(1);
     unsigned long index = 0.0;
     DataType minimum = 0;
     
@@ -58,7 +58,7 @@ inline int findIndexOfMaxElement (DataType* data, const int dataSize)
 {
     jassert (dataSize > 1);
 #if BV_VECTOROPS_USE_VDSP
-    constexpr vDSP_Stride strideOfOne = vDSP_Stride(1);
+    constexpr auto strideOfOne = vDSP_Stride(1);
     unsigned long index = 0.0;
     DataType maximum = 0;
     
@@ -81,7 +81,7 @@ inline void findMinAndMinIndex (DataType* data, const int dataSize,
 {
     jassert (dataSize > 1);
 #if BV_VECTOROPS_USE_VDSP
-    constexpr vDSP_Stride strideOfOne = vDSP_Stride(1);
+    constexpr auto strideOfOne = vDSP_Stride(1);
     unsigned long index = 0.0;
     
     if constexpr (std::is_same_v <DataType, float>)
@@ -91,7 +91,7 @@ inline void findMinAndMinIndex (DataType* data, const int dataSize,
     
     minIndex = int (index);
 #else
-    DataType* lowestElement = std::min_element (data, data + dataSize);
+    auto* lowestElement = std::min_element (data, data + dataSize);
     minimum = *lowestElement;
     minIndex = static_cast<int> (std::distance (data, lowestElement));
 #endif
@@ -104,7 +104,7 @@ inline void findMaxAndMaxIndex (DataType* data, const int dataSize,
 {
     jassert (dataSize > 1);
 #if BV_VECTOROPS_USE_VDSP
-    constexpr vDSP_Stride strideOfOne = vDSP_Stride(1);
+    constexpr auto strideOfOne = vDSP_Stride(1);
     unsigned long index = 0.0;
     
     if constexpr (std::is_same_v <DataType, float>)
@@ -114,7 +114,7 @@ inline void findMaxAndMaxIndex (DataType* data, const int dataSize,
     
     maxIndex = int (index);
 #else
-    DataType* highestElement = std::max_element (data, data + dataSize);
+    auto* highestElement = std::max_element (data, data + dataSize);
     maximum = *highestElement;
     maxIndex = static_cast<int> (std::distance (data, highestElement));
 #endif
@@ -127,7 +127,7 @@ inline void locateGreatestAbsMagnitude (DataType* data, const int dataSize,
 {
     jassert (dataSize > 1);
 #if BV_VECTOROPS_USE_VDSP
-    constexpr vDSP_Stride strideOfOne = vDSP_Stride(1);
+    constexpr auto strideOfOne = vDSP_Stride(1);
     unsigned long i = 0.0;
     
     if constexpr (std::is_same_v <DataType, float>)
@@ -138,11 +138,11 @@ inline void locateGreatestAbsMagnitude (DataType* data, const int dataSize,
     index = int(i);
 #else
     int strongestMagIndex = 0;
-    DataType strongestMag = abs(data[0]);
+    auto strongestMag = abs(data[0]);
     
     for (int i = 1; i < dataSize; ++i)
     {
-        const DataType current = abs(data[i]);
+        const auto current = abs(data[i]);
         
         if (current > strongestMag)
         {
@@ -163,7 +163,7 @@ inline void locateLeastAbsMagnitude (DataType* data, const int dataSize,
 {
     jassert (dataSize > 1);
 #if BV_VECTOROPS_USE_VDSP
-    constexpr vDSP_Stride strideOfOne = vDSP_Stride(1);
+    constexpr auto strideOfOne = vDSP_Stride(1);
     unsigned long i = 0.0;
     
     if constexpr (std::is_same_v <DataType, float>)
@@ -174,11 +174,11 @@ inline void locateLeastAbsMagnitude (DataType* data, const int dataSize,
     index = int(i);
 #else
     int weakestMagIndex = 0;
-    DataType weakestMag = abs(data[0]);
+    auto weakestMag = abs(data[0]);
     
     for (int i = 1; i < dataSize; ++i)
     {
-        const DataType current = abs(data[i]);
+        const auto current = abs(data[i]);
         
         if (current < weakestMag)
         {
@@ -206,7 +206,8 @@ inline void findExtrema (DataType* data, const int dataSize,
 template<typename DataType>
 inline DataType findRangeOfExtrema (DataType* data, const int dataSize)
 {
-    return juce::FloatVectorOperations::findMinAndMax (data, dataSize).getLength();
+    return juce::FloatVectorOperations::findMinAndMax (data, dataSize)
+           .getLength();
 }
     
     

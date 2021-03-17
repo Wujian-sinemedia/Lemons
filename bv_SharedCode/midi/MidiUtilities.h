@@ -18,10 +18,10 @@ namespace midi
         
         switch (midipitch % 12)
         {
-            case 1: return true;
-            case 3: return true;
-            case 6: return true;
-            case 8: return true;
+            case 1:  return true;
+            case 3:  return true;
+            case 6:  return true;
+            case 8:  return true;
             case 10: return true;
             default: return false;
         }
@@ -203,7 +203,7 @@ namespace midi
         float intVelocity (int midiVelocity) const
         {
             jassert (midiVelocity >= 0 && midiVelocity <= 127);
-            constexpr float inv127 = 1.0f / 127.0f;
+            constexpr auto inv127 = 1.0f / 127.0f;
             return getGainMult (midiVelocity * inv127, sensitivity.load());
         }
         
@@ -213,13 +213,14 @@ namespace midi
             return getGainMult (floatVelocity, sensitivity.load());
         }
         
+        
     private:
         
         std::atomic<float> sensitivity;
         
         float getGainMult (const float floatVelocity, const float floatSensitivity) const
         {
-            const float gain = (1.0f - floatVelocity) * (1.0f - floatSensitivity) + floatVelocity;
+            const auto gain = (1.0f - floatVelocity) * (1.0f - floatSensitivity) + floatVelocity;
             
             jassert (gain >= 0.0f && gain <= 1.0f);
             
