@@ -220,6 +220,8 @@ private:
             {
                 for (int chan = 0; chan < 2; ++chan)
                     outputBuffer.pushSamples (inBuffer, chan, 0, internalBlocksize, chan);
+                
+                bypassedBlock (inBuffer, chunkMidiBuffer);
             }
             else
             {
@@ -250,6 +252,8 @@ private:
     // these virtual functions should be overriden by your subclass to implement your engine's functionality:
     
     virtual void renderBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages)=0;
+    
+    virtual void bypassedBlock (const AudioBuffer<SampleType>& input, const MidiBuffer& midiMessages) { juce::ignoreUnused (input, midiMessages); }
     
     virtual void initialized (int newInternalBlocksize, double samplerate) { juce::ignoreUnused (newInternalBlocksize, samplerate); }
     
