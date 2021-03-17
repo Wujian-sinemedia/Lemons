@@ -1,7 +1,8 @@
 
+
 namespace bav::dsp::FX
 {
-
+    
     
     template<typename SampleType>
     class Compressor
@@ -70,10 +71,9 @@ namespace bav::dsp::FX
             
             for (int chan = 0; chan < numChannels; ++chan)
             {
-                process (chan,
-                         sidechain.getReadPointer (chan),
+                process (chan, numSamples,
                          signalToCompress.getWritePointer (chan),
-                         numSamples,
+                         sidechain.getReadPointer (chan),
                          gainReduction);
             }
         }
@@ -87,9 +87,9 @@ namespace bav::dsp::FX
         
         
         void process (const int channel,
-                      const SampleType* sidechain = nullptr,
-                      SampleType* signalToCompress,
                       const int numSamples,
+                      SampleType* signalToCompress,
+                      const SampleType* sidechain = nullptr,
                       SampleType* gainReduction = nullptr)
         {
             jassert (numSamples > 0);
@@ -123,7 +123,7 @@ namespace bav::dsp::FX
             
             // VCA
             auto gain = (env < threshold) ? SampleType(1.0)
-                                          : std::pow (env * thresholdInverse, ratioInverse - SampleType(1.0));
+            : std::pow (env * thresholdInverse, ratioInverse - SampleType(1.0));
             
             if (gainReduction != nullptr)
                 *gainReduction = gain;

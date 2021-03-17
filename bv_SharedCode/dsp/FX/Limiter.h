@@ -1,7 +1,8 @@
 
+
 namespace bav::dsp::FX
 {
-
+    
     
     template<typename SampleType>
     class Limiter
@@ -57,25 +58,23 @@ namespace bav::dsp::FX
             
             for (int channel = 0; channel < numChannels; ++channel)
             {
-                process (channel,
-                         sidechain.getReadPointer (channel),
+                process (channel, numSamples,
                          signalToLimit.getWritePointer (channel),
-                         numSamples);
+                         sidechain.getReadPointer (channel));
             }
         }
         
         
         void process (juce::AudioBuffer<SampleType>& signalToLimit)
         {
-            for (int channel = 0; channel < signalToLimit.getNumChannels(); ++channel)
-                process (channel, nullptr, signalToLimit.getWritePointer (channel), numSamples);
+            process (signalToLimit, signalToLimit);
         }
         
         
         void process (const int channel,
-                      const SampleType* sidechain = nullptr,
+                      const int numSamples,
                       SampleType* signalToLimit,
-                      const int numSamples)
+                      const SampleType* sidechain = nullptr)
         {
             if (sidechain == nullptr)
                 sidechain = signalToLimit;
@@ -130,4 +129,5 @@ namespace bav::dsp::FX
     template class Limiter<double>;
     
 }  // namespace bav
+
 

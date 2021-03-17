@@ -14,7 +14,7 @@ namespace dsp
 class Panner
 {
 public:
-    Panner(): lastRecievedMidiPan(64), leftGain(0.5f), rightGain(0.5f), prevLeftGain(0.5f), prevRightGain(0.5f)
+    Panner(): lastRecievedMidiPan(64), leftGain(0.5f), rightGain(0.5f)
     { }
     
     ~Panner()
@@ -22,8 +22,8 @@ public:
     
     void reset()
     {
-        left  = 0.5f;
-        right = 0.5f;
+        leftGain  = 0.5f;
+        rightGain = 0.5f;
     }
     
     int getLastMidiPan() const noexcept { return lastRecievedMidiPan; }

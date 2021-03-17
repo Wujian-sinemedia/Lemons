@@ -1,4 +1,5 @@
 
+
 namespace bav::dsp::FX
 {
     
@@ -79,9 +80,9 @@ namespace bav::dsp::FX
         
         void setDryWet (int wetMixPercent)
         {
-            const auto wetGain = wetMixPercent * 0.01f;
-            wetMult.setTargetValue (wetGain);
-            dryMult.setTargetValue (1.0f - wetGain);
+            const auto wet = wetMixPercent * 0.01f;
+            wetGain.setTargetValue (wet);
+            dryGain.setTargetValue (1.0f - wet);
         }
         
         void setDuckAmount (float newDuckAmount)
@@ -185,7 +186,7 @@ namespace bav::dsp::FX
                 auto* output = input.getWritePointer(chan);
                 const auto* drySamples = sidechainBuffer.getReadPointer(chan);
                 const auto* wetSamples = workingBuffer.getReadPointer(chan);
-            
+                
                 for (int s = 0; s < numSamples; ++s)
                     output[s] = (drySamples[s] * dryGain.getNextValue()) + (wetSamples[s] * wetGain.getNextValue());
             }
@@ -217,7 +218,8 @@ namespace bav::dsp::FX
     };
     
     
-}  // namespace 
+}  // namespace
+
 
 
 
