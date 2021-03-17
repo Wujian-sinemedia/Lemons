@@ -1,4 +1,8 @@
 
+// multiplicative smoothing cannot ever actually reach 0
+#define bvr_MIN_SMOOTHED_GAIN 0.0000001f
+#define _SMOOTHING_ZERO_CHECK(inputGain) std::max(bvr_MIN_SMOOTHED_GAIN, inputGain)
+
 
 namespace bav::dsp::FX
 {
@@ -81,8 +85,8 @@ namespace bav::dsp::FX
         void setDryWet (int wetMixPercent)
         {
             const auto wet = wetMixPercent * 0.01f;
-            wetGain.setTargetValue (wet);
-            dryGain.setTargetValue (1.0f - wet);
+            wetGain.setTargetValue (_SMOOTHING_ZERO_CHECK (wet));
+            dryGain.setTargetValue (_SMOOTHING_ZERO_CHECK (1.0f - wet));
         }
         
         void setDuckAmount (float newDuckAmount)
@@ -128,7 +132,7 @@ namespace bav::dsp::FX
             sidechainBuffer.makeCopyOf (compressorSidechain, true);
             
             process (conversionBuffer, sidechainBuffer);
-        
+            
             input.makeCopyOf (conversionBuffer, true);
         }
         
@@ -214,7 +218,8 @@ namespace bav::dsp::FX
 }  // namespace
 
 
-
+#undef bvr_MIN_SMOOTHED_GAIN
+#undef _SMOOTHING_ZERO_CHECK
 
 
 
