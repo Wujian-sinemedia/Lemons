@@ -137,10 +137,19 @@ namespace bav::dsp::FX
         }
         
         
+        //  processes a single sample with no external sidechain
+        SampleType processSample (const int channel,
+                                  const SampleType sampleToGate,
+                                  SampleType* gainReduction = nullptr)
+        {
+            return processSample (channel, sampleToGate, sampleToGate, gainReduction);
+        }
+        
+        
         //  processes a single sample. Omit the sidechainSample argument or pass the same value in both args to use as a standard compressor (sidechaining the signal to itself).
         SampleType processSample (const int channel,
                                   const SampleType sampleToGate,
-                                  const SampleType sidechainValue = sampleToGate,
+                                  const SampleType sidechainValue,
                                   SampleType* gainReduction = nullptr)
         {
             auto env = RMSFilter.processSample (channel, sidechainValue);  // RMS ballistics filter

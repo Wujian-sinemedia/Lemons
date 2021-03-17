@@ -117,10 +117,19 @@ namespace bav::dsp::FX
         }
         
         
+        //  processes a single sample with no external sidechain
+        SampleType processSample (int channel,
+                                  SampleType inputSample,
+                                  SampleType* gainReduction = nullptr)
+        {
+            return processSample (channel, inputSample, inputSample, gainReduction);
+        }
+        
+        
         //  processes a single sample. Omit the sidechainSample argument or pass the same value in both args to use as a standard compressor (sidechaining the signal to itself).
         SampleType processSample (int channel,
                                   SampleType inputSample,
-                                  SampleType sidechainSample = inputSample,
+                                  SampleType sidechainSample,
                                   SampleType* gainReduction = nullptr)
         {
             auto env = envelopeFilter.processSample (channel, sidechainSample); // Ballistics filter with peak rectifier

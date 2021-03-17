@@ -107,44 +107,42 @@ namespace bav::dsp::FX
         }
         
         
+        //  process input with no external compressor sidechain
+        void process (juce::AudioBuffer<double>& input)
+        {
+            process (input, input);
+        }
+        
+        void process (juce::AudioBuffer<float>& input)
+        {
+            process (input, input);
+        }
+        
+        
+        //  process input with an external signal as the compressor's sidechain
+        
         void process (juce::AudioBuffer<double>& input,
-                      juce::AudioBuffer<double>* compressorSidechain = nullptr)
+                      juce::AudioBuffer<double>& compressorSidechain)
         {
             conversionBuffer.makeCopyOf (input, true);
+            sidechainBuffer.makeCopyOf (*compressorSidechain, true);
             
-            if (compressorSidechain == nullptr)
-            {
-                process (conversionBuffer, nullptr);
-            }
-            else
-            {
-                sidechainBuffer.makeCopyOf (*compressorSidechain, true);
-                process (conversionBuffer, &sidechainBuffer);
-            }
-            
+            process (conversionBuffer, &sidechainBuffer);
+        
             input.makeCopyOf (conversionBuffer, true);
         }
         
         
         void process (juce::AudioBuffer<float>& input,
-                      juce::AudioBuffer<float>* compressorSidechain = nullptr)
+                      juce::AudioBuffer<float>& compressorSidechain)
         {
             const int numSamples = input.getNumSamples();
             const int numChannels = input.getNumChannels();
             
-            jassert (numChannels <= workingBuffer.getNumChannels());
+            jassert (numSamples == compressorSidechain.getNumSamples());
+            jassert (numChannels == compressorSidechain.getNumChannels());
             
-            if (compressorSidechain == nullptr)
-            {
-                if (isDucking)
-                    sidechainBuffer.makeCopyOf (input, true);
-            }
-            else
-            {
-                jassert (numSamples == compressorSidechain->getNumSamples());
-                jassert (numChannels == compressorSidechain->getNumChannels());
-            }
-            
+            sidechainBuffer.makeCopyOf (compressorSidechain, true);
             workingBuffer.makeCopyOf (input);
             
             // reverb
@@ -171,12 +169,7 @@ namespace bav::dsp::FX
             
             // sidechain compressor
             if (isDucking)
-            {
-                if (compressorSidechain == nullptr)
-                    compressor.process (sidechainBuffer, workingBuffer);
-                else
-                    compressor.process (*compressorSidechain, workingBuffer);
-            }
+                compressor.process (sidechainBuffer, workingBuffer);
             
             // write to output & apply dry/wet gain
             input.clear();
