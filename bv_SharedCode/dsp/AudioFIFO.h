@@ -163,7 +163,7 @@ public:
         int readIndex = writeIndex.getUnchecked(readingChannel) - ns;
         if (readIndex < 0) readIndex += length;
         
-        jassert (readIndex >= 0 && readIndex < length);
+        jassert (readIndex >= 0 && readIndex <= length);
         
         const auto* reading = base.getReadPointer(readingChannel);
         auto* writing = base.getWritePointer(readingChannel);
