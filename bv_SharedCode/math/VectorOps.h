@@ -1,7 +1,4 @@
 
-#include "bv_SharedCode/System.h"
-
-
 namespace bav::vecops
 {
     

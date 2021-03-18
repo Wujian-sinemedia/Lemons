@@ -20,35 +20,32 @@
     If you are compiling for an Apple target platform, this file will include Apple's vDSP header and vDSP functions will be used where possible in the VectorOps.h file.
  */
 
-#pragma once
-
 
 #if defined (_WIN32) || defined (_WIN64)
   #define  BV_WINDOWS 1
-  #define  BV_OPERATING_SYSTEM_NAME   "Windows"
+  #define  BV_OPERATING_SYSTEM_NAME "Windows"
 #elif __ANDROID__
   #define  BV_ANDROID 1
-  #define  BV_OPERATING_SYSTEM_NAME   "Android"
+  #define  BV_OPERATING_SYSTEM_NAME "Android"
 #elif defined (LINUX) || defined (__linux__)
   #define  BV_LINUX 1
-  #define  BV_OPERATING_SYSTEM_NAME   "Linux"
+  #define  BV_OPERATING_SYSTEM_NAME "Linux"
 #elif __APPLE__
   #define BV_APPLE 1
   #include <TargetConditionals.h>
-
   #if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
     #define  BV_IOS 1
-    #define  BV_OPERATING_SYSTEM_NAME   "iOS"
+    #define  BV_OPERATING_SYSTEM_NAME "iOS"
   #else
     #define  BV_OSX 1
-    #define  BV_OPERATING_SYSTEM_NAME   "OSX"
+    #define  BV_OPERATING_SYSTEM_NAME "OSX"
   #endif
 #elif defined (__FreeBSD__) || (__OpenBSD__)
   #define  BV_BSD 1
-  #define  BV_OPERATING_SYSTEM_NAME   "BSD"
+  #define  BV_OPERATING_SYSTEM_NAME "BSD"
 #elif defined (_POSIX_VERSION)
   #define  BV_POSIX 1
-  #define  BV_OPERATING_SYSTEM_NAME   "Posix"
+  #define  BV_OPERATING_SYSTEM_NAME "Posix"
 #else
   #warning "Unknown platform!"
 #endif
@@ -61,7 +58,7 @@
   #define BV_ANDROID 0
 #endif
 
-#ifnef BV_LINUX
+#ifndef BV_LINUX
   #define BV_LINUX 0
 #endif
 
