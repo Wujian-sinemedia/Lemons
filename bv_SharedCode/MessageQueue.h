@@ -88,6 +88,28 @@ namespace bav
         }
 
         
+        // static function that takes an array of message objects and keeps only the most recent message of each type
+        static inline void flushRepeatedMessages (juce::Array<Message>& messages)
+        {
+            if (messages.isEmpty())
+                return;
+            
+            // for each message in the array, if there is another message of the same type later in the array, remove the message
+            for (int i = 0; i < messages.size() - 1; ++i)
+            {
+                const int origType = messages.getUnchecked(i).type();
+                
+                for (int t = i + 1; t < messages.size(); ++t)
+                {
+                    if (messages.getUnchecked(t).type() == origType)
+                    {
+                        messages.remove (i); // remove the message we were testing
+                        --i;  // removing from the array moves up all the next elements by 1 index, and the loop is about to increment our counter
+                        break;
+                    }
+                }
+            }
+        }
         
     private:
         
