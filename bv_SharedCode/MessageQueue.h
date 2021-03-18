@@ -32,7 +32,7 @@ namespace bav
             
             float value()  const noexcept { return val; }
             
-            bool isValid() const noexcept { return typeID >= 0; }
+            bool isValid() const noexcept { return typeID != -1; }
             
         private:
             int typeID;  // the value -1 is used to represent an invalid message. Theoretically, other negative values could be used as valid keys
