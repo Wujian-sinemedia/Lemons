@@ -17,6 +17,7 @@
 #include <juce_dsp/juce_dsp.h>
 
 // the rest of this module
+#include "System.h"
 #include "math/mathHelpers.h"
 #include "math/intOps.h"
 #include "math/VectorOps.h"

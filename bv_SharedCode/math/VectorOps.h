@@ -1,26 +1,5 @@
 
-#pragma once
-
-
-#undef BV_VECTOROPS_USE_VDSP
-
-#ifdef JUCE_USE_VDSP_FRAMEWORK
-  #if JUCE_USE_VDSP_FRAMEWORK
-    #define BV_VECTOROPS_USE_VDSP 1
-  #else
-    #define BV_VECTOROPS_USE_VDSP 0
-  #endif
-#else
-  #if (JUCE_MAC || JUCE_IOS)
-    #define BV_VECTOROPS_USE_VDSP 1
-  #else
-    #define BV_VECTOROPS_USE_VDSP 0
-  #endif
-#endif
-
-#if BV_VECTOROPS_USE_VDSP
-  #include <Accelerate/Accelerate.h>
-#endif
+#include "bv_SharedCode/System.h"
 
 
 namespace bav::vecops
