@@ -57,7 +57,7 @@ namespace bav
         // returns the next available message from the FIFO
         Message popMessage()
         {
-            if (messages.isEmpty)
+            if (messages.isEmpty())
                 return Message();  // returns an invalid message if the queue is empty
             
             return messages.removeAndReturn (0);

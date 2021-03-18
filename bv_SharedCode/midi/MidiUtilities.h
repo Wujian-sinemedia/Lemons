@@ -28,7 +28,7 @@ namespace bav::midi
     
     
     // returns true if the two pitches are the same pitch class, regardless of octave
-    template<typename noteType1, noteType2>
+    template<typename noteType1, typename noteType2>
     inline bool areNotesSamePitchClass (const noteType1 pitch1, const noteType2 pitch2)
     {
         jassert (pitch1 >= noteType1(0) && pitch2 >= noteType2(0) && pitch1 <= noteType1(127) && pitch2 <= noteType2(127));

@@ -9,14 +9,14 @@ namespace bav::intops
 // returns the minimum element in the dataset
 inline int findMinElement (int* data, int dataSize)
 {
-    return std::min_element (data, data + dataSize);
+    return *(std::min_element (data, data + dataSize));
 }
     
 
 // returns the maximum element in the dataset
 inline int findMaxElement (int* data, int dataSize)
 {
-    return std::min_element (data, data + dataSize);
+    return *(std::max_element (data, data + dataSize));
 }
     
     
@@ -47,7 +47,7 @@ inline void findMinAndMinIndex (int* data, const int dataSize,
     
 
 // returns both the maximum element and its index in the dataset into the variables maximum and maxIndex
-inline void findMinAndMinIndex (int* data, const int dataSize,
+inline void findMaxAndMaxIndex (int* data, const int dataSize,
                                 int& maximum, int& maxIndex)
 {
     auto* highestElement = std::max_element (data, data + dataSize);
