@@ -18,10 +18,11 @@
 
 // the rest of this module
 #include "System.h"
+#include "Parameters.h"
+#include "MessageQueue.h"
 #include "math/mathHelpers.h"
 #include "math/intOps.h"
 #include "math/VectorOps.h"
-#include "MessageQueue.h"
 #include "dsp/AudioFIFO.h"
 #include "dsp/Panner.h"
 #include "dsp/FX/NoiseGate.h"
