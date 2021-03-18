@@ -4,12 +4,15 @@
  */
 
 
-namespace bav
-{
-
-namespace dsp
+namespace bav::dsp
 {
     
+    
+/*
+    simple FIFO that uses a juce::AudioBuffer as its base storage.
+ 
+    This class is NOT thread-safe, it is intended to be written to and read from by the same thread.
+*/
 
 template<typename SampleType>
 class AudioFIFO
@@ -217,8 +220,6 @@ template class AudioFIFO<float>;
 template class AudioFIFO<double>;
 
     
-}  // namespace dsp
-
 } // namespace bav
 
 

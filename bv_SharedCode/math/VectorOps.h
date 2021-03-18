@@ -23,14 +23,18 @@
 #endif
 
 
-namespace bav
+namespace bav::vecops
 {
     
 
-namespace vecops
-{
+    /*
+        This namespace contains several floating inlined functions that extend the functionality of JUCE's FloatVectorOperations class.
+        Apple's vDSP framework is used where possible.
+    */
 
-    
+
+
+// returns the index in the vector of the element with the minimum value
 template<typename DataType>
 inline int findIndexOfMinElement (DataType* data, const int dataSize)
 {
@@ -53,6 +57,7 @@ inline int findIndexOfMinElement (DataType* data, const int dataSize)
 }
     
     
+// returns the index in the vector of the element with the maximum value
 template<typename DataType>
 inline int findIndexOfMaxElement (DataType* data, const int dataSize)
 {
@@ -75,6 +80,7 @@ inline int findIndexOfMaxElement (DataType* data, const int dataSize)
 }
     
 
+// returns both the minimum element and its index in the vector into the variables minimum and minIndex
 template<typename DataType>
 inline void findMinAndMinIndex (DataType* data, const int dataSize,
                                 DataType& minimum, int& minIndex)
@@ -97,7 +103,8 @@ inline void findMinAndMinIndex (DataType* data, const int dataSize,
 #endif
 }
     
-    
+
+// returns both the maximum element and its index in the vector into the variables maximum and maxIndex
 template<typename DataType>
 inline void findMaxAndMaxIndex (DataType* data, const int dataSize,
                                 DataType& maximum, int& maxIndex)
@@ -120,7 +127,8 @@ inline void findMaxAndMaxIndex (DataType* data, const int dataSize,
 #endif
 }
     
-    
+
+// locates the element with the highest absolute value and its index in the vector, and returns them into the variables greatestMagnitude and index
 template<typename DataType>
 inline void locateGreatestAbsMagnitude (DataType* data, const int dataSize,
                                         DataType& greatestMagnitude, int& index)
@@ -157,6 +165,7 @@ inline void locateGreatestAbsMagnitude (DataType* data, const int dataSize,
 }
     
 
+// locates the element with the lowest absolute value and its index in the vector, and returns them into the variables leastMagnitude and index
 template<typename DataType>
 inline void locateLeastAbsMagnitude (DataType* data, const int dataSize,
                                      DataType& leastMagnitude, int& index)
@@ -193,6 +202,7 @@ inline void locateLeastAbsMagnitude (DataType* data, const int dataSize,
 }
     
 
+// finds both the maximum and minimum elements in the vector and returns them into the variables max and min.
 template<typename DataType>
 inline void findExtrema (DataType* data, const int dataSize,
                          DataType& min, DataType& max)
@@ -203,6 +213,7 @@ inline void findExtrema (DataType* data, const int dataSize,
 }
     
     
+// returns the distance between the maximum and minimum element of the vector
 template<typename DataType>
 inline DataType findRangeOfExtrema (DataType* data, const int dataSize)
 {
@@ -211,7 +222,4 @@ inline DataType findRangeOfExtrema (DataType* data, const int dataSize)
 }
     
     
-    
-}  // namespace vecops
-    
-}  // namespace bav
+}  // namespace

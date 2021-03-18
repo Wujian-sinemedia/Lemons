@@ -4,13 +4,14 @@
  */
 
 
-namespace bav
+namespace bav::midi
 {
 
-namespace midi
-{
+
+/*
+    A simple MIDI FIFO that uses JUCE's MidiBuffer as its interface.
+*/
     
-
 class MidiFIFO
 {
     
@@ -78,9 +79,7 @@ private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MidiFIFO)
 };
 
-
-}  // namespace midi
-
-} // namespace bav
+    
+} // namespace 
 
 

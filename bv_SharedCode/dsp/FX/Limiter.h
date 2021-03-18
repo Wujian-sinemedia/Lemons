@@ -3,6 +3,9 @@
 namespace bav::dsp::FX
 {
     
+/*
+    Simple limiter that allows you to sidechain the signal.
+*/
     
     template<typename SampleType>
     class Limiter

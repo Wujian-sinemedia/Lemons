@@ -5,16 +5,15 @@
 
 
 
-namespace bav
-{
-    
-namespace midi
+namespace bav::midi
 {
     
     
-    inline bool isMidiNoteBlackKey (const int midipitch)
+    // returns true if the given midinote is a black key
+    template<typename noteType>
+    inline bool isMidiNoteBlackKey (noteType midipitch)
     {
-        jassert (midipitch >= 0 && midipitch <= 127);
+        jassert (midipitch >= noteType(0) && midipitch <= noteType(127));
         
         switch (midipitch % 12)
         {
@@ -28,13 +27,16 @@ namespace midi
     }
     
     
-    inline bool areNotesSamePitchClass (const int pitch1, const int pitch2)
+    // returns true if the two pitches are the same pitch class, regardless of octave
+    template<typename noteType1, noteType2>
+    inline bool areNotesSamePitchClass (const noteType1 pitch1, const noteType2 pitch2)
     {
-        jassert (pitch1 >= 0 && pitch2 >= 0 && pitch1 <= 127 && pitch2 <= 127);
+        jassert (pitch1 >= noteType1(0) && pitch2 >= noteType2(0) && pitch1 <= noteType1(127) && pitch2 <= noteType2(127));
         return (pitch1 % 12 == pitch2 % 12);
     }
     
     
+    // copies a range of events from one juce::MidiBuffer to another, optionally providing a sample offset
     inline void copyRangeOfMidiBuffer (const juce::MidiBuffer& readingBuffer, juce::MidiBuffer& destBuffer,
                                        const int startSampleOfInput,
                                        const int startSampleOfOutput,
@@ -49,6 +51,7 @@ namespace midi
     */
     
     
+    // helper class to convert midi pitch to frequency and vice versa, with tracking for alternate concert pitch Hz, root note, and number of notes per octave.
     class PitchConverter
     {
     public:
@@ -124,6 +127,7 @@ namespace midi
     */
     
     
+    // helper class for outputting midifloat values based on input midiPitch, pitchbend, and pitchbend range controls
     class PitchBendHelper
     {
     public:
@@ -181,6 +185,7 @@ namespace midi
     */
     
     
+    // helper class for outputting weighted midi velocities
     class VelocityHelper
     {
     public:
@@ -231,7 +236,5 @@ namespace midi
     };
     
     
-}  // namespace midi
-
-} // namespace bav
+} // namespace 
 

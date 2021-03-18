@@ -3,6 +3,9 @@
 namespace bav::dsp::FX
 {
     
+    /*
+        Simple noise gate that allows you to sidechain the signal.
+    */
     
     template<typename SampleType>
     class NoiseGate
