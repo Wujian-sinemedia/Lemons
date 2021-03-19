@@ -17,12 +17,14 @@
 #include <juce_dsp/juce_dsp.h>
 
 // the rest of this module
-#include "System.h"
-#include "Parameters.h"
-#include "MessageQueue.h"
+#include "misc/System.h"
+#include "misc/Parameters.h"
+#include "misc/MessageQueue.h"
 #include "math/mathHelpers.h"
 #include "math/intOps.h"
 #include "math/VectorOps.h"
+#include "midi/MidiFIFO.h"
+#include "midi/MidiUtilities.h"
 #include "dsp/AudioFIFO.h"
 #include "dsp/Panner.h"
 #include "dsp/FX/NoiseGate.h"
@@ -30,10 +32,7 @@
 #include "dsp/FX/Limiter.h"
 #include "dsp/FX/DeEsser.h"
 #include "dsp/FX/Reverb.h"
-#include "midi/MidiFIFO.h"
-#include "midi/MidiUtilities.h"
 #include "dsp/FIFOWrappedEngine.h"
-
 
 
 namespace bav::gui
