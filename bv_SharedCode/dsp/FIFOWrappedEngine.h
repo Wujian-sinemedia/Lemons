@@ -16,7 +16,7 @@ To create your own engine using this base class, create a subclass that inherits
     void renderBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages)
             - REQUIRED for any class that inherits from this base class!!!
             - this is the function that will be called with a regulated blocksize. The number of samples in the input and output buffers will always be the engine's internal latency, as set by the last call to changeLatency()
-            - as of now, the input and output buffers will always have two (2) channels.
+            - as of now, the input and output buffers will always have two (2) channels if a buffer with two or more channels is sent into process(). If a mono buffer is sent into process(), renderBlock() will recieve a mono buffer.
             - your engine's midi output should be returned by copying it back to midiMessages. Simply do nothing with midiMessages for an engine that does not output midi.
  
     void bypassedBlock (const AudioBuffer<SampleType>& input, MidiBuffer& midiMessages)
@@ -96,7 +96,7 @@ public:
             return;
         
         jassert (totalNumSamples == output.getNumSamples());
-        jassert (input.getNumChannels() == 2 && output.getNumChannels() == 2);
+        jassert (input.getNumChannels() == output.getNumChannels());
         
         bool processingBypassedThisFrame, applyFadeIn, applyFadeOut;
         
@@ -121,14 +121,16 @@ public:
             return;
         }
         
+        const int numChannels = std::min (2, input.getNumChannels());
+        
         int samplesLeft = totalNumSamples;
         int startSample = 0;
         
         do {
             const int chunkNumSamples = std::min (internalBlocksize, samplesLeft);
             
-            AudioBuffer<SampleType> inputProxy  (input.getArrayOfWritePointers(),  2, startSample, chunkNumSamples);
-            AudioBuffer<SampleType> outputProxy (output.getArrayOfWritePointers(), 2, startSample, chunkNumSamples);
+            AudioBuffer<SampleType> inputProxy  (input.getArrayOfWritePointers(),  numChannels, startSample, chunkNumSamples);
+            AudioBuffer<SampleType> outputProxy (output.getArrayOfWritePointers(), numChannels, startSample, chunkNumSamples);
             
             // put just the midi messages for this time segment into the midiChoppingBuffer, starting at timestamp 0
             midiChoppingBuffer.clear();
@@ -228,7 +230,7 @@ public:
         
         internalBlocksize = newInternalBlocksize;
         
-        inBuffer.setSize (2, internalBlocksize, true, true, true);
+        inBuffer.setSize  (2, internalBlocksize, true, true, true);
         outBuffer.setSize (2, internalBlocksize, true, true, true);
         
         const int doubleBlocksize = internalBlocksize * 2;
@@ -264,10 +266,12 @@ private:
                          const bool isBypassed = false)
     {
         const int numNewSamples = input.getNumSamples();
-        
         jassert (numNewSamples <= internalBlocksize && numNewSamples > 0);
         
-        for (int chan = 0; chan < 2; ++chan)
+        const int numChannels = std::min (2, input.getNumChannels());
+        jassert (numChannels == output.getNumChannels());
+        
+        for (int chan = 0; chan < numChannels; ++chan)
             inputBuffer.pushSamples (input, chan, 0, numNewSamples, chan);
         
         midiInputCollection.pushEvents (midiMessages, numNewSamples);
@@ -275,7 +279,7 @@ private:
         if (inputBuffer.numStoredSamples() >= internalBlocksize)  // we have enough samples, render the new chunk
         {
             inBuffer.clear();
-            for (int chan = 0; chan < 2; ++chan)
+            for (int chan = 0; chan < numChannels; ++chan)
                 inputBuffer.popSamples (inBuffer, chan, 0, internalBlocksize, chan);
             
             chunkMidiBuffer.clear();
@@ -283,7 +287,7 @@ private:
             
             if (isBypassed)
             {
-                for (int chan = 0; chan < 2; ++chan)
+                for (int chan = 0; chan < numChannels; ++chan)
                     outputBuffer.pushSamples (inBuffer, chan, 0, internalBlocksize, chan);
                 
                 bypassedBlock (inBuffer, chunkMidiBuffer);
@@ -294,14 +298,14 @@ private:
                 
                 renderBlock (inBuffer, outBuffer, chunkMidiBuffer);
                 
-                for (int chan = 0; chan < 2; ++chan)
+                for (int chan = 0; chan < numChannels; ++chan)
                     outputBuffer.pushSamples (outBuffer, chan, 0, internalBlocksize, chan);
             }
             
             midiOutputCollection.pushEvents (chunkMidiBuffer, internalBlocksize);
         }
         
-        for (int chan = 0; chan < 2; ++chan)
+        for (int chan = 0; chan < numChannels; ++chan)
             outputBuffer.popSamples (output, chan, 0, numNewSamples, chan);
         
         midiOutputCollection.popEvents (midiMessages, numNewSamples);
