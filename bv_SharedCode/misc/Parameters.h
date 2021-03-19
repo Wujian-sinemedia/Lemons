@@ -70,7 +70,7 @@ namespace bav
         // assigns the default value to the parameter's current value
         void refreshDefault()
         {
-            currentDefault.store (AudioParameterFloat::getNormalisableRange().convertTo0to1 (this->get()));
+            currentDefault.store (getCurrentNormalizedValue());
         }
         
         // returns the parameter's current value as a normalized float in range 0.0 to 1.0
@@ -117,7 +117,7 @@ namespace bav
         // assigns the default value to the parameter's current value
         void refreshDefault()
         {
-            currentDefault.store (AudioParameterInt::getNormalisableRange().convertTo0to1 (this->get()));
+            currentDefault.store (getCurrentNormalizedValue());
         }
         
         // returns the parameter's current value as a normalized float in range 0.0 to 1.0
@@ -171,10 +171,7 @@ namespace bav
         // assigns the default value to the parameter's current value
         void refreshDefault()
         {
-            if (this->get())
-                currentDefault.store (1.0f);
-            else
-                currentDefault.store (0.0f);
+            currentDefault.store (getCurrentNormalizedValue());
         }
         
         // returns the parameter's current value as a normalized float in range 0.0 to 1.0
