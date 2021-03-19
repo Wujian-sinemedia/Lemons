@@ -95,7 +95,7 @@ namespace bav
         IntParameter(juce::String parameterID, juce::String parameterName, int min, int max, int defaultVal):
         AudioParameterInt(parameterID, parameterName, min, max, defaultVal)
         {
-            currentDefault.store (AudioParameterInt::getNormalisableRange().convertTo0to1 (defaultVal));
+            setDefault (defaultVal);
             rap = dynamic_cast<juce::RangedAudioParameter*>(this);
             jassert (rap != nullptr);
         }
@@ -111,7 +111,7 @@ namespace bav
         
         void setDefault (int newDefault)
         {
-            currentDefault.store (AudioParameterInt::getNormalisableRange().convertTo0to1 (newDefault));
+            currentDefault.store (AudioParameterInt::getNormalisableRange().convertTo0to1 (float(newDefault)));
         }
         
         // assigns the default value to the parameter's current value
