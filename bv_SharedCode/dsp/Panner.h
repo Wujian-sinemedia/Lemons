@@ -55,20 +55,16 @@ public:
     
     void setMidiPan (int newMidiPan)
     {
-        newMidiPan = juce::jlimit (0, 127, newMidiPan);
+        jassert (newMidiPan >= 0 && newMidiPan <= 127);
         
         if (lastRecievedMidiPan == newMidiPan)
             return;
         
-        auto panningAngle = (90.0f * newMidiPan / 127.0f * juce::MathConstants<float>::pi) / 180.0f;
+        const auto panningAngle = juce::jlimit (0.0f, 90.0f,
+                                                (90.0f * newMidiPan / 127.0f * juce::MathConstants<float>::pi) / 180.0f);
         
-        panningAngle = juce::jlimit (0.0f, 90.0f, panningAngle);
-        
-        leftGain  = std::sin (panningAngle);
-        rightGain = std::cos (panningAngle);
-        
-        jassert (leftGain >= 0.0f && leftGain <= 1.0f);
-        jassert (rightGain >= 0.0f && rightGain <= 1.0f);
+        leftGain  = juce::jlimit (0.0f, 1.0f, std::sin (panningAngle));
+        rightGain = juce::jlimit (0.0f, 1.0f, std::cos (panningAngle));
         
         lastRecievedMidiPan = newMidiPan;
     }
