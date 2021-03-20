@@ -9,10 +9,6 @@ namespace bav
     class MessageQueue
     {
     public:
-        MessageQueue() { }
-        
-        ~MessageQueue() { }
-        
         
         /*
             The FIFO queue stores a collection of these message objects
@@ -83,6 +79,28 @@ namespace bav
         void reserveSize (int numMessages)
         {
             messages.ensureStorageAllocated (numMessages);
+        }
+        
+        
+        /*
+            This function puts all the currently ready messgaes in the FIFO into the passed in array of Message objects.
+            Set the flushRepeated flag to true to process only the most recent message of each type.
+        */
+        void getReadyMessages (juce::Array<Message>& outputMessages, bool flushRepeated = false)
+        {
+            outputMessages.clearQuick();
+            
+            juce::CriticalSection& mutex = messages.getLock();
+            
+            mutex.tryEnter();
+            
+            while (! messages.isEmpty())
+                outputMessages.add (popMessage());
+            
+            if (flushRepeated)
+                flushRepeatedMessages (outputMessages);
+            
+            mutex.exit();
         }
 
         
