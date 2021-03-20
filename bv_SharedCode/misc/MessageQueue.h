@@ -34,6 +34,11 @@ namespace bav
         };
         
         
+        MessageQueue() { }
+        
+        ~MessageQueue() { }
+        
+        
         // adds a message to the FIFO with a specified type and value
         void pushMessage (int typeID, float value)
         {
@@ -90,9 +95,7 @@ namespace bav
         {
             outputMessages.clearQuick();
             
-            juce::CriticalSection& mutex = messages.getLock();
-            
-            mutex.tryEnter();
+            messages.getLock().tryEnter();
             
             while (! messages.isEmpty())
                 outputMessages.add (popMessage());
@@ -100,7 +103,7 @@ namespace bav
             if (flushRepeated)
                 flushRepeatedMessages (outputMessages);
             
-            mutex.exit();
+            messages.getLock().exit();
         }
 
         
