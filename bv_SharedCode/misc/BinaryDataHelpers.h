@@ -7,6 +7,8 @@
 */
 
 
+#pragma once
+
 #include "BinaryData.h"
 
 
