@@ -85,15 +85,15 @@ namespace bav
      Wrapper class around juce::AudioParameterFloat that allows you to change its default value at runtime, and exposes the getValue() function as public
      */
     class FloatParameter  :     public juce::AudioParameterFloat,
-    public bav::Parameter
+                                public bav::Parameter
     {
         using AudioParameterFloat = juce::AudioParameterFloat;
         
     public:
         // use the constructor just like you would the constructor for juce::AudioParameterFloat. All the args are simply forwarded.
         FloatParameter(juce::String parameterID, juce::String parameterName, juce::NormalisableRange<float> range, float defaultVal):
-        AudioParameterFloat(parameterID, parameterName, range, defaultVal),
-        Parameter(dynamic_cast<juce::RangedAudioParameter*>(this), range)
+                AudioParameterFloat(parameterID, parameterName, range, defaultVal),
+                Parameter(dynamic_cast<juce::RangedAudioParameter*>(this), range)
         {
             currentDefault.store (range.convertTo0to1 (defaultVal));
         }
@@ -115,7 +115,7 @@ namespace bav
      Wrapper class around juce::AudioParameterInt that allows you to change its default value at runtime, and exposes the getValue() function as public
      */
     class IntParameter    :     public juce::AudioParameterInt,
-    public bav::Parameter
+                                public bav::Parameter
     
     {
         using AudioParameterInt = juce::AudioParameterInt;
@@ -123,8 +123,8 @@ namespace bav
     public:
         // use the constructor just like you would the constructor for juce::AudioParameterInt. All the args are simply forwarded.
         IntParameter(juce::String parameterID, juce::String parameterName, int min, int max, int defaultVal):
-        AudioParameterInt(parameterID, parameterName, min, max, defaultVal),
-        Parameter(dynamic_cast<juce::RangedAudioParameter*>(this), AudioParameterInt::getNormalisableRange())
+                AudioParameterInt(parameterID, parameterName, min, max, defaultVal),
+                Parameter(dynamic_cast<juce::RangedAudioParameter*>(this), AudioParameterInt::getNormalisableRange())
         {
             setDefault (defaultVal);
         }
@@ -149,7 +149,7 @@ namespace bav
      Wrapper class around juce::AudioParameterBool that allows you to change its default value at runtime, and exposes the getValue() function as public
      */
     class BoolParameter    :        public juce::AudioParameterBool,
-    public bav::Parameter
+                                    public bav::Parameter
     
     {
         using AudioParameterBool = juce::AudioParameterBool;
@@ -157,8 +157,8 @@ namespace bav
     public:
         // use the constructor just like you would the constructor for juce::AudioParameterInt. All the args are simply forwarded.
         BoolParameter(juce::String parameterID, juce::String parameterName, bool defaultVal):
-        AudioParameterBool(parameterID, parameterName, defaultVal),
-        Parameter(dynamic_cast<juce::RangedAudioParameter*>(this), AudioParameterBool::getNormalisableRange())
+                AudioParameterBool(parameterID, parameterName, defaultVal),
+                Parameter(dynamic_cast<juce::RangedAudioParameter*>(this), AudioParameterBool::getNormalisableRange())
         {
             setDefault (defaultVal);
         }
