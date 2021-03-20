@@ -10,7 +10,7 @@
 #include "BinaryData.h"
 
 
-namespace bav::BinaryData
+namespace bav::Assets
 {
     
     // returns the available BinaryData filenames as a StringArray
@@ -18,8 +18,8 @@ namespace bav::BinaryData
     {
         juce::StringArray names;
         
-        for (int i = 0; i < juce::BinaryData::namedResourceListSize; ++i)
-            names.add (juce::String::fromUTF8 (juce::BinaryData::namedResourceList [i]));
+        for (int i = 0; i < BinaryData::namedResourceListSize; ++i)
+            names.add (juce::String::fromUTF8 (BinaryData::namedResourceList [i]));
         
         return names;
     }
@@ -29,7 +29,7 @@ namespace bav::BinaryData
     inline juce::Image getImage (const juce::String& name)
     {
         int dataSize = 0;
-        const char* data = juce::BinaryData::getNamedResource (name.toRawUTF8(), dataSize);
+        const char* data = BinaryData::getNamedResource (name.toRawUTF8(), dataSize);
         
         if (data != nullptr)
             return juce::ImageCache::getFromMemory (data, dataSize);
