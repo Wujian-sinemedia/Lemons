@@ -4,8 +4,6 @@ namespace bav
 
     /*
         A basic FIFO queue for messages that are keyed with an integer ID and can hold a float value.
-     
-        TO DO: make this class thread-safe!!!
     */
     
     class MessageQueue
