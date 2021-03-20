@@ -19,7 +19,7 @@ namespace bav
 #elif BV_WINDOWS
         rootFolder = juce::File::getSpecialLocation (juce::File::SpecialLocationType::userDocumentsDirectory);
 #else
-  #error Unknown operating system!
+#error Unknown operating system!
 #endif
         rootFolder = rootFolder.getChildFile (companyName).getChildFile (pluginName);
         
@@ -40,32 +40,24 @@ namespace bav
     }
     
     
+    
     /*
-     Wrapper class around juce::AudioParameterFloat that allows you to change its default value at runtime, and exposes the getValue() function as public
+     Base class for all my inherited parameter wrapper types
      */
-    class FloatParameter  :     public juce::AudioParameterFloat
+    
+    class Parameter
     {
-        using AudioParameterFloat = juce::AudioParameterFloat;
+        using RangedParam = juce::RangedAudioParameter;
+        using Range = juce::NormalisableRange<float>;
         
     public:
-        // use the constructor just like you would the constructor for juce::AudioParameterFloat. All the args are simply forwarded.
-        FloatParameter(juce::String parameterID, juce::String parameterName, juce::NormalisableRange<float> range, float defaultVal): AudioParameterFloat(parameterID, parameterName, range, defaultVal)
+        Parameter(RangedParam* p, const Range& r): rap(p), range(r)
         {
-            currentDefault.store (range.convertTo0to1 (defaultVal));
-            rap = dynamic_cast<juce::RangedAudioParameter*>(this);
             jassert (rap != nullptr);
         }
         
         // returns the current default value, within the 0-1 normalized range for this parameter
         float getNormalizedDefault() const { return currentDefault.load(); }
-        
-        // returns the absolute default value as a float
-        float getDefault() const { return AudioParameterFloat::getNormalisableRange().convertFrom0to1 (currentDefault.load()); }
-        
-        void setDefault (float newDefault)
-        {
-            currentDefault.store (AudioParameterFloat::getNormalisableRange().convertTo0to1 (newDefault));
-        }
         
         // assigns the default value to the parameter's current value
         void refreshDefault()
@@ -76,9 +68,45 @@ namespace bav
         // returns the parameter's current value as a normalized float in range 0.0 to 1.0
         float getCurrentNormalizedValue() const { return rap->getValue(); }
         
-    private:
+        // returns a const reference to this parameter's NormalisableRange object
+        const Range& getRange() const { return range; }
+        
+    protected:
         std::atomic<float> currentDefault;
-        juce::RangedAudioParameter* rap = nullptr;
+        
+    private:
+        RangedParam* rap = nullptr;
+        const Range& range;
+    };
+    
+    
+    
+    /*
+     Wrapper class around juce::AudioParameterFloat that allows you to change its default value at runtime, and exposes the getValue() function as public
+     */
+    class FloatParameter  :     public juce::AudioParameterFloat,
+    public bav::Parameter
+    {
+        using AudioParameterFloat = juce::AudioParameterFloat;
+        
+    public:
+        // use the constructor just like you would the constructor for juce::AudioParameterFloat. All the args are simply forwarded.
+        FloatParameter(juce::String parameterID, juce::String parameterName, juce::NormalisableRange<float> range, float defaultVal):
+        AudioParameterFloat(parameterID, parameterName, range, defaultVal),
+        Parameter(dynamic_cast<juce::RangedAudioParameter*>(this), range)
+        {
+            currentDefault.store (range.convertTo0to1 (defaultVal));
+        }
+        
+        // returns the absolute default value as a float
+        float getDefault() const { return AudioParameterFloat::getNormalisableRange().convertFrom0to1 (currentDefault.load()); }
+        
+        void setDefault (float newDefault)
+        {
+            currentDefault.store (AudioParameterFloat::getNormalisableRange().convertTo0to1 (newDefault));
+        }
+        
+    private:
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(FloatParameter)
     };
     
@@ -86,22 +114,20 @@ namespace bav
     /*
      Wrapper class around juce::AudioParameterInt that allows you to change its default value at runtime, and exposes the getValue() function as public
      */
-    class IntParameter    :     public juce::AudioParameterInt
+    class IntParameter    :     public juce::AudioParameterInt,
+    public bav::Parameter
+    
     {
         using AudioParameterInt = juce::AudioParameterInt;
         
     public:
         // use the constructor just like you would the constructor for juce::AudioParameterInt. All the args are simply forwarded.
         IntParameter(juce::String parameterID, juce::String parameterName, int min, int max, int defaultVal):
-        AudioParameterInt(parameterID, parameterName, min, max, defaultVal)
+        AudioParameterInt(parameterID, parameterName, min, max, defaultVal),
+        Parameter(dynamic_cast<juce::RangedAudioParameter*>(this), AudioParameterInt::getNormalisableRange())
         {
             setDefault (defaultVal);
-            rap = dynamic_cast<juce::RangedAudioParameter*>(this);
-            jassert (rap != nullptr);
         }
-        
-        // returns the current default value, within the 0-1 normalized range for this parameter
-        float getNormalizedDefault() const { return currentDefault.load(); }
         
         // returns the absolute default value as an int
         int getDefault() const
@@ -114,18 +140,7 @@ namespace bav
             currentDefault.store (AudioParameterInt::getNormalisableRange().convertTo0to1 (float(newDefault)));
         }
         
-        // assigns the default value to the parameter's current value
-        void refreshDefault()
-        {
-            currentDefault.store (getCurrentNormalizedValue());
-        }
-        
-        // returns the parameter's current value as a normalized float in range 0.0 to 1.0
-        float getCurrentNormalizedValue() const { return rap->getValue(); }
-        
     private:
-        std::atomic<float> currentDefault;
-        juce::RangedAudioParameter* rap = nullptr;
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(IntParameter)
     };
     
@@ -133,23 +148,20 @@ namespace bav
     /*
      Wrapper class around juce::AudioParameterBool that allows you to change its default value at runtime, and exposes the getValue() function as public
      */
-    class BoolParameter    :     public juce::AudioParameterBool
+    class BoolParameter    :        public juce::AudioParameterBool,
+    public bav::Parameter
+    
     {
         using AudioParameterBool = juce::AudioParameterBool;
         
     public:
         // use the constructor just like you would the constructor for juce::AudioParameterInt. All the args are simply forwarded.
         BoolParameter(juce::String parameterID, juce::String parameterName, bool defaultVal):
-        AudioParameterBool(parameterID, parameterName, defaultVal)
+        AudioParameterBool(parameterID, parameterName, defaultVal),
+        Parameter(dynamic_cast<juce::RangedAudioParameter*>(this), AudioParameterBool::getNormalisableRange())
         {
-            if (defaultVal)
-                currentDefault.store (1.0f);
-            else
-                currentDefault.store (0.0f);
+            setDefault (defaultVal);
         }
-        
-        // returns the current default value, within the 0-1 normalized range for this parameter
-        float getNormalizedDefault() const { return currentDefault.load(); }
         
         // returns the absolute default value as a bool
         bool getDefault() const
@@ -168,26 +180,11 @@ namespace bav
                 currentDefault.store (0.0f);
         }
         
-        // assigns the default value to the parameter's current value
-        void refreshDefault()
-        {
-            currentDefault.store (getCurrentNormalizedValue());
-        }
-        
-        // returns the parameter's current value as a normalized float in range 0.0 to 1.0
-        float getCurrentNormalizedValue() const
-        {
-            if (this->get())
-                return 1.0f;
-            
-            return 0.0f;
-        }
-        
     private:
-        std::atomic<float> currentDefault;
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(BoolParameter)
     };
     
     
 }  // namespace bav
+
 
