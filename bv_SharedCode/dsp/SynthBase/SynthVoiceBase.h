@@ -61,12 +61,15 @@ public:
     virtual void renderBlock (AudioBuffer& output)
     {
         const bool voiceIsOnRightNow = isQuickFading ? quickRelease.isActive()
-        : ( parent->isADSRon() ? adsr.isActive() : ! noteTurnedOff );
+                                                     : ( parent->isADSRon() ? adsr.isActive() : ! noteTurnedOff );
         if (! voiceIsOnRightNow)
         {
             clearCurrentNote();
             return;
         }
+        
+        jassert (output.getNumSamples() > 0);
+        jassert (output.getNumChannels() > 0);
         
         jassert (currentOutputFreq > 0);
         jassert (parent->getSamplerate() > 0);
@@ -95,15 +98,20 @@ public:
         if (isQuickFading)  // quick fade out for stopNote w/ no tail off, to prevent clicks from jumping to 0
             quickRelease.applyEnvelopeToBuffer (render, 0, numSamples);
         
-        //  write to stereoBuffer and apply panning
-        stereoBuffer.copyFrom (0, 0, render, 0, 0, numSamples);
-        stereoBuffer.copyFrom (1, 0, render, 0, 0, numSamples);
-        outputLeftGain.applyGain  (stereoBuffer.getWritePointer(0), numSamples);
-        outputRightGain.applyGain (stereoBuffer.getWritePointer(1), numSamples);
-        
-        //  add (!) to output
-        for (int chan = 0; chan < 2; ++chan)
-            output.addFrom (chan, 0, stereoBuffer, chan, 0, numSamples);
+        if (output.getNumChannels() == 1)
+            output.addFrom (0, 0, render, 0, 0, numSamples);
+        else
+        {
+            //  write to stereoBuffer and apply panning
+            stereoBuffer.copyFrom (0, 0, render, 0, 0, numSamples);
+            stereoBuffer.copyFrom (1, 0, render, 0, 0, numSamples);
+            outputLeftGain.applyGain  (stereoBuffer.getWritePointer(0), numSamples);
+            outputRightGain.applyGain (stereoBuffer.getWritePointer(1), numSamples);
+            
+            //  add (!) to output
+            for (int chan = 0; chan < 2; ++chan)
+                output.addFrom (chan, 0, stereoBuffer, chan, 0, numSamples);
+        }
     }
     
     
