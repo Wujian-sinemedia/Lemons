@@ -33,6 +33,8 @@
 #include "dsp/FX/DeEsser.h"
 #include "dsp/FX/Reverb.h"
 #include "dsp/FIFOWrappedEngine.h"
+#include "dsp/SynthBase/SynthVoiceBase.h"
+#include "dsp/SynthBase/SynthVoice.h"
 
 
 namespace bav::gui
