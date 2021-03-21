@@ -34,7 +34,7 @@
 #include "dsp/FX/Reverb.h"
 #include "dsp/FIFOWrappedEngine.h"
 #include "dsp/SynthBase/SynthVoiceBase.h"
-#include "dsp/SynthBase/SynthVoice.h"
+#include "dsp/SynthBase/SynthBase.h"
 
 
 namespace bav::gui
