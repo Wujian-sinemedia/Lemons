@@ -1,7 +1,7 @@
 
 /*
-Base class for a polyphonic synthesiser-style instrument.
-This class owns, manages & manipulates a collection of SynthVoiceBase (or SynthVoiceBase-derived) objects.
+    Base class for a polyphonic synthesiser-style instrument.
+    This class owns, manages & manipulates a collection of SynthVoiceBase (or SynthVoiceBase-derived) objects.
 */
 
 
@@ -41,7 +41,7 @@ public:
         quickAttackParams.sustain = 1.0f;
         quickAttackParams.release = 0.015f;
         
-        setCurrentPlaybackSampleRate(44100.0);
+        setCurrentPlaybackSampleRate (44100.0);
         
         pedal.isOn = false;
         pedal.lastPitch = -1;
@@ -52,6 +52,8 @@ public:
         descant.lastPitch = -1;
         descant.lowerThresh = 127;
         descant.interval = 12;
+        
+        setConcertPitchHz (440);
     }
     
     virtual ~SynthBase()
@@ -72,7 +74,8 @@ public:
         prepare (initBlocksize);
     }
     
-    virtual void renderVoices (juce::AudioBuffer<SampleType>& output)
+    
+    virtual void renderVoices (juce::MidiBuffer midiMessages, juce::AudioBuffer<SampleType>& output)
     {
         jassert (! voices.isEmpty());
         jassert (sampleRate > 0);
@@ -84,9 +87,9 @@ public:
         if (getNumActiveVoices() == 0)
             return;
         
-        const int numSamples = inputAudio.getNumSamples();
+        const int numSamples = output.getNumSamples();
         
-        for (auto* voice : Base::voices)
+        for (auto* voice : voices)
         {
             if (voice->isVoiceActive())
                 voice->renderBlock (output);
@@ -94,6 +97,7 @@ public:
                 voice->bypassedBlock (numSamples);
         }
     }
+    
     
     void releaseResources()
     {
@@ -422,6 +426,22 @@ public:
         if (descant.isOn)
             applyDescant();
     }
+    
+    
+    void setConcertPitchHz (const int newConcertPitchhz)
+    {
+        jassert (newConcertPitchhz > 0);
+        
+        if (pitchConverter.getCurrentConcertPitchHz() == newConcertPitchhz)
+            return;
+        
+        pitchConverter.setConcertPitchHz (newConcertPitchhz);
+        
+        for (auto* voice : voices)
+            if (voice->isVoiceActive())
+                voice->setCurrentOutputFreq (getOutputFrequency (voice->getCurrentlyPlayingNote()));
+    }
+    
     
     void updateStereoWidth (int newWidth)
     {
@@ -1385,5 +1405,6 @@ private:
 
 
 }  // namespace
+
 
 

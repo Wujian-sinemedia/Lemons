@@ -1,6 +1,6 @@
 
 /*
-Base class for one voice that can be used by the SynthBase to play polyphonically
+    Base class for one voice that can be used by the SynthBase to play polyphonically
 */
 
 
@@ -24,13 +24,15 @@ class SynthVoiceBase
     using uint32 = juce::uint32;
     using ADSR = juce::ADSR;
     using ADSRParams = juce::ADSR::Parameters;
+    using AudioBuffer = juce::AudioBuffer<SampleType>;
     
 public:
     SynthVoiceBase(SynthBase<SampleType>* base, double initSamplerate = 44100.0):
-        parent(base),
-        keyIsDown(false), playingButReleased(false), sustainingFromSostenutoPedal(false), isQuickFading(false), noteTurnedOff(false),
-        currentlyPlayingNote(-1), currentAftertouch(0), currentOutputFreq(-1.0f),  lastRecievedVelocity(0.0f), noteOnTime(0),
-        isPedalPitchVoice(false), isDescantVoice(false)
+    parent(base),
+    keyIsDown(false), playingButReleased(false), sustainingFromSostenutoPedal(false), isQuickFading(false), noteTurnedOff(false),
+    currentlyPlayingNote(-1), currentAftertouch(0), currentOutputFreq(-1.0f),  lastRecievedVelocity(0.0f), noteOnTime(0),
+    isPedalPitchVoice(false), isDescantVoice(false),
+    renderingBuffer(0, 0), stereoBuffer(0, 0)
     {
         adsr        .setSampleRate (initSamplerate);
         quickRelease.setSampleRate (initSamplerate);
@@ -44,16 +46,22 @@ public:
     { }
     
     /*=================================================================================
-    =================================================================================*/
+     =================================================================================*/
     
-    //  if you're looking for a prepare() function, it's a virtual void down in the priavate section!
+    // prepare is virtual, because if you don't use the default renderBlock, you may not need to initialize the renderingBuffer.
+    virtual void prepare (const int blocksize)
+    {
+        renderingBuffer.setSize (1, blocksize, true, true, true);
+        stereoBuffer.setSize (2, blocksize, true, true, true);
+    }
     
     void release() { released(); }
     
-    virtual void renderBlock (juce::AudioBuffer<SampleType>& output)
+    
+    virtual void renderBlock (AudioBuffer& output)
     {
         const bool voiceIsOnRightNow = isQuickFading ? quickRelease.isActive()
-                                                     : ( parent->isADSRon() ? adsr.isActive() : ! noteTurnedOff );
+        : ( parent->isADSRon() ? adsr.isActive() : ! noteTurnedOff );
         if (! voiceIsOnRightNow)
         {
             clearCurrentNote();
@@ -62,32 +70,42 @@ public:
         
         jassert (currentOutputFreq > 0);
         jassert (parent->getSamplerate() > 0);
+        jassert (renderingBuffer.getNumChannels() > 0);
         
-        // generate some mono audio output at the frequency currentOutputFreq.....
+        const int numSamples = output.getNumSamples();
         
-        // an example of how the provided gain smoothers & ADSRs should be used:
+        //  alias buffer containing exactly the # of samples we want this frame
+        AudioBuffer render (renderingBuffer.getArrayOfWritePointers(), 1, 0, numSamples);
+        
+        //  generate some mono audio output at the frequency currentOutputFreq.....
+        renderPlease (render, currentOutputFreq, parent->getSamplerate());
         
         //  smoothed gain modulations
-//        midiVelocityGain.applyGain (synthesisBuffer, numSamples);
-//        softPedalGain.applyGain (synthesisBuffer, numSamples);
-//        playingButReleasedGain.applyGain (synthesisBuffer, numSamples);
-//        aftertouchGain.applyGain (synthesisBuffer, numSamples);
+        midiVelocityGain.applyGain       (render, numSamples);
+        softPedalGain.applyGain          (render, numSamples);
+        playingButReleasedGain.applyGain (render, numSamples);
+        aftertouchGain.applyGain         (render, numSamples);
         
         //  ADSR
-//        if (parent->isADSRon())
-//            adsr.applyEnvelopeToBuffer (synthesisBuffer, 0, numSamples); // midi-triggered adsr envelope
-//        else
-//            quickAttack.applyEnvelopeToBuffer (synthesisBuffer, 0, numSamples); // to prevent pops at start of notes if adsr is off
-//
-//        if (isQuickFading)  // quick fade out for stopNote w/ no tail off, to prevent clicks from jumping to 0
-//            quickRelease.applyEnvelopeToBuffer (synthesisBuffer, 0, numSamples);
+        if (parent->isADSRon())
+            adsr.applyEnvelopeToBuffer (render, 0, numSamples); // midi-triggered adsr envelope
+        else
+            quickAttack.applyEnvelopeToBuffer (render, 0, numSamples); // to prevent pops at start of notes if adsr is off
         
-        //  write to output and apply panning
-//        outputBuffer.copyFrom (0, 0, synthesisBuffer, 0, 0, numSamples);
-//        outputBuffer.copyFrom (1, 0, synthesisBuffer, 0, 0, numSamples);
-//        outputLeftGain.applyGain (outputBuffer.getWritePointer(0), numSamples);
-//        outputRightGain.applyGain (outputBuffer.getWritePointer(1), numSamples);
+        if (isQuickFading)  // quick fade out for stopNote w/ no tail off, to prevent clicks from jumping to 0
+            quickRelease.applyEnvelopeToBuffer (render, 0, numSamples);
+        
+        //  write to stereoBuffer and apply panning
+        stereoBuffer.copyFrom (0, 0, render, 0, 0, numSamples);
+        stereoBuffer.copyFrom (1, 0, render, 0, 0, numSamples);
+        outputLeftGain.applyGain  (stereoBuffer.getWritePointer(0), numSamples);
+        outputRightGain.applyGain (stereoBuffer.getWritePointer(1), numSamples);
+        
+        //  add (!) to output
+        for (int chan = 0; chan < 2; ++chan)
+            output.addFrom (chan, 0, stereoBuffer, chan, 0, numSamples);
     }
+    
     
     void bypassedBlock (const int numSamples)
     {
@@ -186,8 +204,10 @@ protected:
     
 private:
     
-    // if overridden, called in the subclass when the top-level call to the SynthBase's prepare() function is called
-    virtual void prepare (const int blocksize) { juce::ignoreUnused (blocksize); }
+    virtual void renderPlease (AudioBuffer& output, float desiredFrequency, double currentSamplerate)
+    {
+        juce::ignoreUnused (output, desiredFrequency, currentSamplerate);
+    }
     
     // if overridden, called in the subclass when the top-level call to release() is made
     virtual void released() { }
@@ -332,6 +352,9 @@ private:
     // gain smoothers
     juce::SmoothedValue<SampleType, juce::ValueSmoothingTypes::Multiplicative> midiVelocityGain, softPedalGain, playingButReleasedGain, outputLeftGain, outputRightGain, aftertouchGain;
     
+    AudioBuffer renderingBuffer;  // mono audio will be placed in here
+    AudioBuffer stereoBuffer;     // stereo audio will be placed in here
+    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(SynthVoiceBase)
 };
 
@@ -340,5 +363,6 @@ private:
 
 #undef bv_MIN_SMOOTHED_GAIN
 #undef _SMOOTHING_ZERO_CHECK
+
 
 
