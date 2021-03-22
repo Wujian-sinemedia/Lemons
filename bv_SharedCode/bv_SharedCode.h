@@ -18,8 +18,8 @@
 
 // the rest of this module
 #include "misc/System.h"
-#include "misc/Parameters.h"
 #include "misc/MessageQueue.h"
+#include "misc/Parameters.h"
 #include "math/mathHelpers.h"
 #include "math/intOps.h"
 #include "math/VectorOps.h"
