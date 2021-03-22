@@ -19,7 +19,7 @@ namespace bav
 #elif BV_WINDOWS
         rootFolder = juce::File::getSpecialLocation (juce::File::SpecialLocationType::userDocumentsDirectory);
 #else
-  #error Unknown operating system!
+#error Unknown operating system!
 #endif
         rootFolder = rootFolder.getChildFile (companyName).getChildFile (pluginName);
         
@@ -70,7 +70,7 @@ namespace bav
         float getCurrentNormalizedValue() const { return rap->getValue(); }
         
         // returns a const reference to this parameter's NormalisableRange object
-        const juce::NormalisableRange<float>& getRange() const { return rap->getNormalisableRange(); }
+        virtual const juce::NormalisableRange<float>& getRange() const { return rap->getNormalisableRange(); }
         
     protected:
         std::atomic<float> currentDefault;
@@ -85,15 +85,15 @@ namespace bav
      Wrapper class around juce::AudioParameterFloat that allows you to change its default value at runtime, and exposes the getValue() function as public
      */
     class FloatParameter  :     public juce::AudioParameterFloat,
-                                public bav::Parameter
+    public bav::Parameter
     {
         using AudioParameterFloat = juce::AudioParameterFloat;
         
     public:
         // use the constructor just like you would the constructor for juce::AudioParameterFloat. All the args are simply forwarded.
         FloatParameter(juce::String parameterID, juce::String parameterName, juce::NormalisableRange<float> range, float defaultVal):
-        AudioParameterFloat(parameterID, parameterName, range, defaultVal),
-        Parameter(dynamic_cast<juce::RangedAudioParameter*>(this))
+                AudioParameterFloat(parameterID, parameterName, range, defaultVal),
+                Parameter(dynamic_cast<juce::RangedAudioParameter*>(this))
         {
             currentDefault.store (range.convertTo0to1 (defaultVal));
         }
@@ -106,6 +106,9 @@ namespace bav
             currentDefault.store (AudioParameterFloat::getNormalisableRange().convertTo0to1 (newDefault));
         }
         
+        // returns a const reference to this parameter's NormalisableRange object
+        const juce::NormalisableRange<float>& getRange() const override { return AudioParameterFloat::getNormalisableRange(); }
+        
     private:
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(FloatParameter)
     };
@@ -115,15 +118,15 @@ namespace bav
      Wrapper class around juce::AudioParameterInt that allows you to change its default value at runtime, and exposes the getValue() function as public
      */
     class IntParameter    :     public juce::AudioParameterInt,
-                                public bav::Parameter
+    public bav::Parameter
     {
         using AudioParameterInt = juce::AudioParameterInt;
         
     public:
         // use the constructor just like you would the constructor for juce::AudioParameterInt. All the args are simply forwarded.
         IntParameter(juce::String parameterID, juce::String parameterName, int min, int max, int defaultVal):
-        AudioParameterInt(parameterID, parameterName, min, max, defaultVal),
-        Parameter(dynamic_cast<juce::RangedAudioParameter*>(this))
+                AudioParameterInt(parameterID, parameterName, min, max, defaultVal),
+                Parameter(dynamic_cast<juce::RangedAudioParameter*>(this))
         {
             setDefault (defaultVal);
         }
@@ -139,6 +142,9 @@ namespace bav
             currentDefault.store (AudioParameterInt::getNormalisableRange().convertTo0to1 (float(newDefault)));
         }
         
+        // returns a const reference to this parameter's NormalisableRange object
+        const juce::NormalisableRange<float>& getRange() const override { return AudioParameterInt::getNormalisableRange(); }
+        
     private:
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(IntParameter)
     };
@@ -148,15 +154,15 @@ namespace bav
      Wrapper class around juce::AudioParameterBool that allows you to change its default value at runtime, and exposes the getValue() function as public
      */
     class BoolParameter    :        public juce::AudioParameterBool,
-                                    public bav::Parameter
+    public bav::Parameter
     {
         using AudioParameterBool = juce::AudioParameterBool;
         
     public:
         // use the constructor just like you would the constructor for juce::AudioParameterInt. All the args are simply forwarded.
         BoolParameter(juce::String parameterID, juce::String parameterName, bool defaultVal):
-        AudioParameterBool(parameterID, parameterName, defaultVal),
-        Parameter(dynamic_cast<juce::RangedAudioParameter*>(this))
+                AudioParameterBool(parameterID, parameterName, defaultVal),
+                Parameter(dynamic_cast<juce::RangedAudioParameter*>(this))
         {
             setDefault (defaultVal);
         }
@@ -178,6 +184,9 @@ namespace bav
                 currentDefault.store (0.0f);
         }
         
+        // returns a const reference to this parameter's NormalisableRange object
+        const juce::NormalisableRange<float>& getRange() const override { return AudioParameterBool::getNormalisableRange(); }
+        
     private:
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(BoolParameter)
     };
@@ -185,30 +194,30 @@ namespace bav
     
     
     /*
-        Attachment class that listens for changes in one specific parameter and pushes appropriate messages for each value change to a message queue.
-        To use, you should create an enum where each parameter gets a specified integer ID.
-        My suggestion is to create a vector to store your parameter messengers, then use it like this:
+     Attachment class that listens for changes in one specific parameter and pushes appropriate messages for each value change to a message queue.
+     To use, you should create an enum where each parameter gets a specified integer ID.
+     My suggestion is to create a vector to store your parameter messengers, then use it like this:
      
-          @code
+     @code
      
-          //  where "parameterMessengers" is a std::vector of type ParameterMessenger and "tree" is your processor's juce::AudioProcessorValueTreeState
+     //  where "parameterMessengers" is a std::vector of type ParameterMessenger and "tree" is your processor's juce::AudioProcessorValueTreeState
      
-          void YourAudioProcessor::addParameterMessenger (juce::String stringID, int paramID)
-          {
-             auto& messenger { parameterMessengers.emplace_back (ParameterMessenger(paramChanges, getParameterPntr(parameterID(paramID)), paramID)) };
-             tree.addParameterListener (stringID, &messenger);
-          }
+     void YourAudioProcessor::addParameterMessenger (juce::String stringID, int paramID)
+     {
+        auto& messenger { parameterMessengers.emplace_back (ParameterMessenger(paramChanges, getParameterPntr(parameterID(paramID)), paramID)) };
+        tree.addParameterListener (stringID, &messenger);
+     }
      
-          @end-code
+     @end-code
      
-        Note that you should reserve the total size needed for your vector of messengers before calling this function, as using emplace_back will invalidate the previous pointers...
-    */
+     Note that you should reserve the total size needed for your vector of messengers before calling this function, as using emplace_back will invalidate the previous pointers...
+     */
     
     class ParameterMessenger :  public juce::AudioProcessorValueTreeState::Listener
     {
     public:
         ParameterMessenger(bav::MessageQueue& queue, bav::Parameter* p, int paramIDtoListen):
-        q(queue), param(p), paramID(paramIDtoListen)
+                q(queue), param(p), paramID(paramIDtoListen)
         {
             jassert (param != nullptr);
         }
@@ -229,5 +238,6 @@ namespace bav
     
     
 }  // namespace bav
+
 
 
