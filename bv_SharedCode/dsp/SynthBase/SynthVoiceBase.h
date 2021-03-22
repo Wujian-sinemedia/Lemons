@@ -36,9 +36,9 @@ public:
         adsr        .setSampleRate (initSamplerate);
         quickRelease.setSampleRate (initSamplerate);
         quickAttack .setSampleRate (initSamplerate);
-        adsr        .setParameters (parent->getCurrentAdsrParams());
-        quickRelease.setParameters (parent->getCurrentQuickReleaseParams());
-        quickAttack .setParameters (parent->getCurrentQuickAttackParams());
+//        adsr        .setParameters (parent->getCurrentAdsrParams());
+//        quickRelease.setParameters (parent->getCurrentQuickReleaseParams());
+//        quickAttack .setParameters (parent->getCurrentQuickAttackParams());
     }
     
     virtual ~SynthVoiceBase() = default;
@@ -186,7 +186,7 @@ protected:
         
         setPan (64);
         
-        resetRampedValues (parent->getLastBlocksize());
+        //resetRampedValues (parent->getLastBlocksize());
         
         noteCleared();
     }
@@ -236,31 +236,12 @@ private:
     void startNote (const int midiPitch,  const float velocity,
                     const uint32 noteOnTimestamp,
                     const bool keyboardKeyIsDown = true,
-                    const bool isPedal = false, const bool isDescant = false)
-    {
-        noteOnTime = noteOnTimestamp;
-        currentlyPlayingNote = midiPitch;
-        lastRecievedVelocity = velocity;
-        currentOutputFreq = parent->getOutputFrequency (midiPitch);
-        isQuickFading = false;
-        noteTurnedOff = false;
-        isPedalPitchVoice = isPedal;
-        isDescantVoice = isDescant;
-        
-        adsr.noteOn();
-        quickAttack.noteOn();
-        
-        if (! quickRelease.isActive())
-            quickRelease.noteOn();
-        
-        setKeyDown (keyboardKeyIsDown);
-        
-        midiVelocityGain.setTargetValue (_SMOOTHING_ZERO_CHECK (parent->getWeightedVelocity (velocity)));
-    }
+                    const bool isPedal = false, const bool isDescant = false);
+    
     
     void stopNote (const float velocity, const bool allowTailOff)
     {
-        midiVelocityGain.setTargetValue (_SMOOTHING_ZERO_CHECK (parent->getWeightedVelocity (lastRecievedVelocity - velocity)));
+        //midiVelocityGain.setTargetValue (_SMOOTHING_ZERO_CHECK (parent->getWeightedVelocity (lastRecievedVelocity - velocity)));
         
         if (allowTailOff)
         {
@@ -287,10 +268,10 @@ private:
         adsr        .setSampleRate (newSamplerate);
         quickRelease.setSampleRate (newSamplerate);
         quickAttack .setSampleRate (newSamplerate);
-        
-        adsr        .setParameters (parent->getCurrentAdsrParams());
-        quickRelease.setParameters (parent->getCurrentQuickReleaseParams());
-        quickAttack .setParameters (parent->getCurrentQuickAttackParams());
+//
+//        adsr        .setParameters (parent->getCurrentAdsrParams());
+//        quickRelease.setParameters (parent->getCurrentQuickReleaseParams());
+//        quickAttack .setParameters (parent->getCurrentQuickAttackParams());
     }
     
     void setKeyDown (bool isNowDown)
@@ -301,18 +282,18 @@ private:
             playingButReleased = false;
         else
         {
-            if (isPedalPitchVoice || isDescantVoice)
-                playingButReleased = false;
-            else if (parent->isLatched())
-                playingButReleased = false;
-            else
-                playingButReleased = isVoiceActive();
+//            if (isPedalPitchVoice || isDescantVoice)
+//                playingButReleased = false;
+//            else if (parent->isLatched())
+//                playingButReleased = false;
+//            else
+//                playingButReleased = isVoiceActive();
         }
         
-        if (playingButReleased)
-            playingButReleasedGain.setTargetValue (_SMOOTHING_ZERO_CHECK (parent->getPlayingButReleasedMultiplier()));
-        else
-            playingButReleasedGain.setTargetValue (SampleType(1.0));
+//        if (playingButReleased)
+//            playingButReleasedGain.setTargetValue (_SMOOTHING_ZERO_CHECK (parent->getPlayingButReleasedMultiplier()));
+//        else
+//            playingButReleasedGain.setTargetValue (SampleType(1.0));
     }
     
     void setPan (int newPan)
@@ -335,10 +316,10 @@ private:
     
     void softPedalChanged (bool isDown)
     {
-        if (isDown)
-            softPedalGain.setTargetValue (_SMOOTHING_ZERO_CHECK (parent->getSoftPedalMultiplier()));
-        else
-            softPedalGain.setTargetValue (SampleType(1.0));
+//        if (isDown)
+//            softPedalGain.setTargetValue (_SMOOTHING_ZERO_CHECK (parent->getSoftPedalMultiplier()));
+//        else
+//            softPedalGain.setTargetValue (SampleType(1.0));
     }
     
     void aftertouchChanged (const int newAftertouchValue)
