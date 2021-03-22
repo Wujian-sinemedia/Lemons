@@ -56,6 +56,8 @@ namespace bav
             jassert (rap != nullptr);
         }
         
+        ~Parameter() = default;
+        
         // returns the current default value, within the 0-1 normalized range for this parameter
         float getNormalizedDefault() const { return currentDefault.load(); }
         
