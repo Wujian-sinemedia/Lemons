@@ -42,8 +42,37 @@ namespace bav
     
     
     /*
-     Base class for all my inherited parameter wrapper types
-     */
+        My wrapper classes for each individual parameter type all inherit from this base class.
+        This base class provides functionality for saving, changing, and recalling a defaut (normalized float) value; as well as some useful functions that each individual parameter type overrides to provide access to data specific to each parameter type through the base class interface.
+        This base class does NOT inherit from any of the JUCE parameter classes, in order to avoid a tangle of double- and cross-inheritances with the individual parameter type classes below.
+        My typical use case of this base class is to be able to access any parameter value from one function call to my processor, regardless of the type of parameter, e.g.:
+     @code
+         class MyAudioProcessor  :      public juce::AudioProcessor
+         {
+         public:
+            enum parameterID { gain, bypass };
+     
+            float getParameterValue (const parameterID id)
+            {
+                return getParamPtr(id)->getCurrentNormalizedValue();
+            }
+     
+         private:
+             bav::Parameter* getParamPtr (const parameterID id)
+             {
+                 switch (id)
+                 {
+                    case (gain):   return gainParam;
+                    case (bypass): return bypassParam;
+                 }
+             }
+     
+             bav::FloatParameter* gainParam;
+             bav::BoolParameter* bypassParam;
+            //NB. you can initialize these by doing e.g. bypassParam = dynamic_cast<bav::BoolParameter*>(apvts.getParameter("bypass"));
+         };
+     @end-code
+    */
     
     class Parameter
     {
@@ -71,6 +100,12 @@ namespace bav
         
         // returns a const reference to this parameter's NormalisableRange object
         virtual const juce::NormalisableRange<float>& getRange() const { return rap->getNormalisableRange(); }
+        
+        // returns a float value normalized in the range 0 to 1, using this parameter's NormalisableRange object
+        virtual float normalize (const float input) const { return rap->convertTo0to1(input); }
+        
+        // takes a normalized float value as input and returns a denormalized float value within the natural range of this parameter.
+        virtual float denormalize (const float input) const { return rap->convertFrom0to1(input); }
         
     protected:
         std::atomic<float> currentDefault;
@@ -109,6 +144,12 @@ namespace bav
         // returns a const reference to this parameter's NormalisableRange object
         const juce::NormalisableRange<float>& getRange() const override { return AudioParameterFloat::getNormalisableRange(); }
         
+        // returns a float value normalized in the range 0 to 1, using this parameter's NormalisableRange object
+        float normalize (const float input) const override { return AudioParameterFloat::convertTo0to1(input); }
+        
+        // takes a normalized float value as input and returns a denormalized float value within the natural range of this parameter.
+        virtual float denormalize (const float input) const override { return AudioParameterFloat::convertFrom0to1(input); }
+        
     private:
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(FloatParameter)
     };
@@ -144,6 +185,12 @@ namespace bav
         
         // returns a const reference to this parameter's NormalisableRange object
         const juce::NormalisableRange<float>& getRange() const override { return AudioParameterInt::getNormalisableRange(); }
+        
+        // returns a float value normalized in the range 0 to 1, using this parameter's NormalisableRange object
+        float normalize (const float input) const override { return AudioParameterInt::convertTo0to1(input); }
+        
+        // takes a normalized float value as input and returns a denormalized float value within the natural range of this parameter.
+        virtual float denormalize (const float input) const override { return AudioParameterInt::convertFrom0to1(input); }
         
     private:
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(IntParameter)
@@ -187,6 +234,12 @@ namespace bav
         // returns a const reference to this parameter's NormalisableRange object
         const juce::NormalisableRange<float>& getRange() const override { return AudioParameterBool::getNormalisableRange(); }
         
+        // returns a float value normalized in the range 0 to 1, using this parameter's NormalisableRange object
+        float normalize (const float input) const override { return AudioParameterBool::convertTo0to1(input); }
+        
+        // takes a normalized float value as input and returns a denormalized float value within the natural range of this parameter.
+        virtual float denormalize (const float input) const override { return AudioParameterBool::convertFrom0to1(input); }
+        
     private:
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(BoolParameter)
     };
@@ -204,7 +257,7 @@ namespace bav
      
      void YourAudioProcessor::addParameterMessenger (juce::String stringID, int paramID)
      {
-        auto& messenger { parameterMessengers.emplace_back (ParameterMessenger(paramChanges, getParameterPntr(parameterID(paramID)), paramID)) };
+        auto& messenger { parameterMessengers.emplace_back (ParameterMessenger(paramChanges, parameter, paramID)) };
         tree.addParameterListener (stringID, &messenger);
      }
      
@@ -225,9 +278,9 @@ namespace bav
         void parameterChanged (const juce::String& s, float value) override
         {
             juce::ignoreUnused (s);
-            value = param->getRange().convertTo0to1 (value);
+            value = param->normalize(value);
             jassert (value >= 0.0f && value <= 1.0f);
-            q.pushMessage (paramID, value);
+            q.pushMessage (paramID, value);  // the message will store a normalized value
         }
         
     private:
