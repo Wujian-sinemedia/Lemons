@@ -120,7 +120,7 @@ namespace bav
      Wrapper class around juce::AudioParameterFloat that allows you to change its default value at runtime, and exposes the getValue() function as public
      */
     class FloatParameter  :     public juce::AudioParameterFloat,
-    public bav::Parameter
+                                public bav::Parameter
     {
         using AudioParameterFloat = juce::AudioParameterFloat;
         
@@ -148,7 +148,7 @@ namespace bav
         float normalize (const float input) const override { return AudioParameterFloat::convertTo0to1(input); }
         
         // takes a normalized float value as input and returns a denormalized float value within the natural range of this parameter.
-        virtual float denormalize (const float input) const override { return AudioParameterFloat::convertFrom0to1(input); }
+        float denormalize (const float input) const override { return AudioParameterFloat::convertFrom0to1(input); }
         
     private:
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(FloatParameter)
@@ -159,7 +159,7 @@ namespace bav
      Wrapper class around juce::AudioParameterInt that allows you to change its default value at runtime, and exposes the getValue() function as public
      */
     class IntParameter    :     public juce::AudioParameterInt,
-    public bav::Parameter
+                                public bav::Parameter
     {
         using AudioParameterInt = juce::AudioParameterInt;
         
@@ -190,7 +190,7 @@ namespace bav
         float normalize (const float input) const override { return AudioParameterInt::convertTo0to1(input); }
         
         // takes a normalized float value as input and returns a denormalized float value within the natural range of this parameter.
-        virtual float denormalize (const float input) const override { return AudioParameterInt::convertFrom0to1(input); }
+        float denormalize (const float input) const override { return AudioParameterInt::convertFrom0to1(input); }
         
     private:
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(IntParameter)
@@ -201,7 +201,7 @@ namespace bav
      Wrapper class around juce::AudioParameterBool that allows you to change its default value at runtime, and exposes the getValue() function as public
      */
     class BoolParameter    :        public juce::AudioParameterBool,
-    public bav::Parameter
+                                    public bav::Parameter
     {
         using AudioParameterBool = juce::AudioParameterBool;
         
@@ -238,7 +238,7 @@ namespace bav
         float normalize (const float input) const override { return AudioParameterBool::convertTo0to1(input); }
         
         // takes a normalized float value as input and returns a denormalized float value within the natural range of this parameter.
-        virtual float denormalize (const float input) const override { return AudioParameterBool::convertFrom0to1(input); }
+        float denormalize (const float input) const override { return AudioParameterBool::convertFrom0to1(input); }
         
     private:
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(BoolParameter)
