@@ -1,16 +1,21 @@
 
 /*
-    This file defines a basic framework for a reorderable audio effects chain.
-*/
+ This file defines a basic framework for a reorderable audio effects chain.
+ */
 
 
 namespace bav::dsp
 {
     
+    /// forward declaration...
+    template<typename SampleType>
+    class ReorderableFxChain;
+    
+    
     /*
-        This base class defines the basic interface any processor must use to be a member of a reorderable FX chain.
-        The FX chain owns and manages a collection of these objects, and will delete them when they are removed.
-    */
+     This base class defines the basic interface any processor must use to be a member of a reorderable FX chain.
+     The FX chain owns and manages a collection of these objects, and will delete them when they are removed.
+     */
     template<typename SampleType>
     class ReorderableEffect
     {
@@ -22,13 +27,11 @@ namespace bav::dsp
         virtual ~ReorderableEffect() = default;
         
         
-        int number() const noexcept { return effectNumber; }
-        
-        bool isBypassed() const noexcept { return effectNumber > -1; }
-        
-        virtual void process (const AudioBuffer& input, AudioBuffer& output)
+    protected:
+        // audio must be rendered in place!!!
+        virtual void process (AudioBuffer& audio)
         {
-            juce::ignoreUnused (input, output);
+            juce::ignoreUnused (audio);
         }
         
         
@@ -41,16 +44,22 @@ namespace bav::dsp
     private:
         friend class ReorderableFxChain<SampleType>;
         
-        int effectNumber;  // this is the effect's number in the chain. Set this to -1 if the effect is temporarily bypassed.
+        int effectNumber;
+        
+        bool isBypassed = false;
         
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ReorderableEffect)
     };
     
+    /// explicit instantiations
+    template class ReorderableEffect<float>;
+    template class ReorderableEffect<double>;
+    
     
     
     /*
-        Base class for an engine object that owns and manages a series of individual effects processors, and can reorder them dynamically.
-    */
+     Base class for an engine object that owns and manages a series of individual effects processors, and can reorder them dynamically.
+     */
     template<typename SampleType>
     class ReorderableFxChain
     {
@@ -65,10 +74,15 @@ namespace bav::dsp
         virtual ~ReorderableFxChain() = default;
         
         
-        void addEffect (Effect* effect, const int numberInChain)
+        void addEffect (Effect* effect, const int numberInChain, bool addAsBypassed = false)
         {
             // edge case : new num is same as an existing num
             // edge case : new num is larger than 1+ largest existing num in chain...
+            
+            effect->effectNumber = numberInChain;
+            
+            if (addAsBypassed)
+                effect->isBypassed = true;
         }
         
         
@@ -81,7 +95,7 @@ namespace bav::dsp
         
         Effect* getEffect (const int numberInChain)
         {
-            jassert (numberInChain > -1); // this can't reliably find a specific bypassed effect, since they ALL have number -1...
+            jassert (numberInChain >= 0);
             
             for (auto* effect : effects)
                 if (effect->effectNumber == numberInChain)
@@ -91,16 +105,31 @@ namespace bav::dsp
         }
         
         
-        void swapTwoEffects (Effect* first, Effect* second)
+        bool swapTwoEffects (Effect* first, Effect* second)
         {
+            if (first == nullptr || second == nullptr)
+                return false;
+            
             const int initNum = first->effectNumber;
             first->effectNumber = second->effectNumber;
             second->effectNumber = initNum;
+            return true;
         }
         
-        void swapTwoEffects (const int firstNumInChain, const int secondNumInChain)
+        bool swapTwoEffects (const int firstNumInChain, const int secondNumInChain)
         {
-            swapTwoEffects (getEffect(firstNumInChain), getEffect(secondNumInChain));
+            return swapTwoEffects (getEffect(firstNumInChain), getEffect(secondNumInChain));
+        }
+        
+        
+        void setEffectBypass (Effect* effect, const bool shouldBeBypassed)
+        {
+            effect->isBypassed = shouldBeBypassed;
+        }
+        
+        void setEffectBypass (const int numberInChain, const bool shouldBeBypassed)
+        {
+            setEffectBypass (getEffect (numberInChain), shouldBeBypassed);
         }
         
         
@@ -109,31 +138,63 @@ namespace bav::dsp
             int numActive = 0;
             
             for (auto* effect : effects)
-                if (! effect->isBypassed())
+                if (! effect->isBypassed)
                     ++numActive;
             
             return numActive;
         }
         
         
-        /*
-            The top-level rendering callback that renders the entire effects chain in order.
-        */
-        void process (const AudioBuffer& input, AudioBuffer& output)
+        void bypassAll()
         {
-            for (int i = 0; i < numActiveEffects(); ++i)
-            {
-                getEffect(i)->process (input, output);
-            }
+            for (auto* effect : effects)
+                effect->isBypassed = true;
+        }
+        
+        void unBypassAll()
+        {
+            for (auto* effect : effects)
+                effect->isBypassed = false;
         }
         
         
-        void processBypassed (const int numSamples)
+        /*
+         The top-level rendering callback that renders the entire effects chain in order.
+         Audio will be output in place.
+         */
+        void process (AudioBuffer& audio)
+        {
+            audio.clear();
+            
+            for (int i = 0; i < numActiveEffects(); ++i)
+                if (auto* effect = getEffect(i))
+                    if (! effect->isBypassed)
+                        effect->process (audio);
+        }
+        
+        
+        /*
+         call this function to render the entire chain in reverse order.
+         */
+        void processInReverseOrder (AudioBuffer& audio)
+        {
+            audio.clear();
+            
+            for (int i = numActiveEffects() - 1; i >= 0; --i)
+                if (auto* effect = getEffect(i))
+                    if (! effect->isBypassed)
+                        effect->process (audio);
+        }
+        
+        
+        /*
+         Call this function to inform the FX chain when a bypassed block is recieved.
+         */
+        void bypassedBlock (const int numSamples)
         {
             for (int i = 0; i < numActiveEffects(); ++i)
-            {
-                getEffect(i)->bypassedBlock (numSamples);
-            }
+                if (auto* effect = getEffect(i))
+                    effect->bypassedBlock (numSamples);
         }
         
         
@@ -144,4 +205,9 @@ namespace bav::dsp
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ReorderableFxChain)
     };
     
+    /// explicit instantiations
+    template class ReorderableFxChain<float>;
+    template class ReorderableFxChain<double>;
+    
 }  // namespace
+
