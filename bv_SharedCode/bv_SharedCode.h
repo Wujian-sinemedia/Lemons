@@ -27,6 +27,7 @@
 #include "midi/MidiUtilities.h"
 #include "dsp/AudioFIFO.h"
 #include "dsp/Panner.h"
+#include "dsp/FX/ReorderableFxChain.h"
 #include "dsp/FX/NoiseGate.h"
 #include "dsp/FX/Compressor.h"
 #include "dsp/FX/Limiter.h"
