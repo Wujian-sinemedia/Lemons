@@ -194,7 +194,7 @@ namespace bav::dsp
             ddenyq();
             const int hs1 = m_size/2+1;
             vDSP_zvmagsD (m_dpacked, 1, m_dspare, 1, hs1);
-            //vvsqrt (m_dspare2, m_dspare, &hs1);
+            vvsqrt (m_dspare2, m_dspare, &hs1);
             // vDSP forward FFTs are scaled 2x (for some reason)
             double two = 2.0;
             vDSP_vsdivD (m_dspare2, 1, &two, magOut, 1, hs1);
@@ -208,7 +208,7 @@ namespace bav::dsp
             fdenyq();
             const int hs1 = m_size/2 + 1;
             vDSP_zvmags (m_fpacked, 1, m_fspare, 1, hs1);
-            //vvsqrtf (m_fspare2, m_fspare, &hs1);
+            vvsqrtf (m_fspare2, m_fspare, &hs1);
             // vDSP forward FFTs are scaled 2x (for some reason)
             float two = 2.f;
             vDSP_vsdiv (m_fspare2, 1, &two, magOut, 1, hs1);
@@ -224,8 +224,8 @@ namespace bav::dsp
             // vDSP forward FFTs are scaled 2x (for some reason)
             for (int i = 0; i < hs1; ++i) m_dpacked->realp[i] *= 0.5;
             for (int i = 0; i < hs1; ++i) m_dpacked->imagp[i] *= 0.5;
-//            v_cartesian_to_polar (magOut, phaseOut,
-//                                  m_dpacked->realp, m_dpacked->imagp, hs1);
+            vecops::cartesian_to_polar (magOut, phaseOut,
+                                        m_dpacked->realp, m_dpacked->imagp, hs1);
         }
         
         void forwardPolar (const float* realIn, float* magOut, float* phaseOut) override
@@ -238,8 +238,8 @@ namespace bav::dsp
             // vDSP forward FFTs are scaled 2x (for some reason)
             for (int i = 0; i < hs1; ++i) m_fpacked->realp[i] *= 0.5f;
             for (int i = 0; i < hs1; ++i) m_fpacked->imagp[i] *= 0.5f;
-//            v_cartesian_to_polar (magOut, phaseOut,
-//                                  m_fpacked->realp, m_fpacked->imagp, hs1);
+            vecops::cartesian_to_polar (magOut, phaseOut,
+                                        m_fpacked->realp, m_fpacked->imagp, hs1);
         }
         
         /*
@@ -265,7 +265,7 @@ namespace bav::dsp
         {
             if (! m_dspec) initDouble();
             double *d[2] = { m_dpacked->realp, m_dpacked->imagp };
-            // v_deinterleave (d, complexIn, 2, m_size/2 + 1);
+            vecops::deinterleave (d, complexIn, 2, m_size/2 + 1);
             vDSP_fft_zriptD (m_dspec, m_dpacked, 1, m_dbuf, m_order, FFT_INVERSE);
             unpackReal (realOut);
         }
@@ -274,7 +274,7 @@ namespace bav::dsp
         {
             if (! m_fspec) initFloat();
             float *f[2] = { m_fpacked->realp, m_fpacked->imagp };
-            // v_deinterleave (f, complexIn, 2, m_size/2 + 1);
+            vecops::deinterleave (f, complexIn, 2, m_size/2 + 1);
             vDSP_fft_zript (m_fspec, m_fpacked, 1, m_fbuf, m_order, FFT_INVERSE);
             unpackReal (realOut);
         }
@@ -283,7 +283,7 @@ namespace bav::dsp
         {
             if (! m_dspec) initDouble();
             const int hs1 = m_size/2+1;
-            // vvsincos (m_dpacked->imagp, m_dpacked->realp, phaseIn, &hs1);
+            vvsincos (m_dpacked->imagp, m_dpacked->realp, phaseIn, &hs1);
             double *const rp = m_dpacked->realp;
             double *const ip = m_dpacked->imagp;
             for (int i = 0; i < hs1; ++i) rp[i] *= magIn[i];
@@ -297,7 +297,7 @@ namespace bav::dsp
         {
             if (! m_fspec) initFloat();
             const int hs1 = m_size/2+1;
-            // vvsincosf (m_fpacked->imagp, m_fpacked->realp, phaseIn, &hs1);
+            vvsincosf (m_fpacked->imagp, m_fpacked->realp, phaseIn, &hs1);
             float *const rp = m_fpacked->realp;
             float *const ip = m_fpacked->imagp;
             for (int i = 0; i < hs1; ++i) rp[i] *= magIn[i];
@@ -313,7 +313,7 @@ namespace bav::dsp
             const int hs1 = m_size/2 + 1;
             FVO::copy (m_dspare, magIn, hs1);
             FVO::add (m_dspare, 0.000001, hs1);
-            // vvlog (m_dspare2, m_dspare, &hs1);
+            vvlog (m_dspare2, m_dspare, &hs1);
             inverse (m_dspare2, 0, cepOut);
         }
         
@@ -323,7 +323,7 @@ namespace bav::dsp
             const int hs1 = m_size/2 + 1;
             FVO::copy (m_fspare, magIn, hs1);
             FVO::add (m_fspare, 0.000001, hs1);
-            // vvlogf (m_fspare2, m_fspare, &hs1);
+            vvlogf (m_fspare2, m_fspare, &hs1);
             inverse (m_fspare2, 0, cepOut);
         }
         

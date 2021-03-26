@@ -194,7 +194,93 @@ template<typename DataType>
 static inline DataType findRangeOfExtrema (DataType* data, const int dataSize)
 {
     return juce::FloatVectorOperations::findMinAndMax (data, dataSize)
-           .getLength();
+                .getLength();
+}
+    
+    
+// deinterleave samples from dst into src
+template<typename T>
+static inline void deinterleave (T* dst,
+                                 const T* src,
+                                 const int channels,
+                                 const int count)
+{
+    int idx = 0;
+    
+    switch (channels)
+    {
+        case 2:
+            // common case, may be vectorized by compiler if hardcoded
+            for (int i = 0; i < count; ++i) {
+                for (int j = 0; j < 2; ++j) {
+                    dst[j][i] = src[idx++];
+                }
+            }
+            return;
+            
+        case 1:
+            juce::FloatVectorOperations::copy (dst[0], src, count);
+            return;
+            
+        default:
+            for (int i = 0; i < count; ++i) {
+                for (int j = 0; j < channels; ++j) {
+                    dst[j][i] = src[idx++];
+                }
+            }
+    }
+}
+    
+    
+template<typename SampleType>
+static inline void cartesian_to_polar (float* const mag,
+                                       float* const phase,
+                                       const float* const real,
+                                       const float* const imag,
+                                       const int count)
+{
+#if BV_USE_VDSP
+    if constexpr (std::is_same_v <SampleType, float>)
+    {
+        DSPSplitComplex c;
+        c.realp = const_cast<float*>(real);
+        c.imagp = const_cast<float*>(imag);
+        vDSP_zvmags (&c, 1, phase, 1, count); // using phase as a temporary dest
+        vvsqrtf (mag, phase, &count); // using phase as the source
+        vvatan2f (phase, imag, real, &count);
+    }
+    else if constexpr (std::is_same_v <SampleType, double>)
+    {
+        DSPDoubleSplitComplex c;
+        c.realp = const_cast<double*>(real);
+        c.imagp = const_cast<double*>(imag);
+        vDSP_zvmagsD (&c, 1, phase, 1, count); // using phase as a temporary dest
+        vvsqrt (mag, phase, &count); // using phase as the source
+        vvatan2 (phase, imag, real, &count);
+    }
+#elif BV_USE_IPP
+    if constexpr (std::is_same_v <SampleType, float>)
+    {
+        ippsCartToPolar_32f (real, imag, mag, phase, count);
+    }
+    else if constexpr (std::is_same_v <SampleType, double>)
+    {
+        ippsCartToPolar_64f (real, imag, mag, phase, count);
+    }
+#else
+    for (int i = 0; i < count; ++i)
+    {
+        c_magphase<T>(mag + i, phase + i, real[i], imag[i]);
+    }
+#endif
+}
+    
+    
+template<typename T>
+static inline void c_magphase (T* mag, T* phase, T real, T imag)
+{
+    *mag = sqrt (real * real + imag * imag);
+    *phase = atan2 (imag, real);
 }
     
     
