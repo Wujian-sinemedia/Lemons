@@ -1,9 +1,9 @@
 /*
-    bv_FFT: This is a wrapper class around several platform-specific FFT implementations that can be used in a generalized way.
-    This is packaged as a separate JUCE module from bv_SharedCode, but has a dependancy on bv_SharedCode.
+ bv_FFT: This is a wrapper class around several platform-specific FFT implementations that can be used in a generalized way.
+ This is packaged as a separate JUCE module from bv_SharedCode, but has a dependancy on bv_SharedCode.
  
-    On Apple platforms, this class uses Apple's vDSP framework. On Intel platforms, Intel IPP is used if available.
-*/
+ On Apple platforms, this class uses Apple's vDSP framework. On Intel platforms, Intel IPP is used if available.
+ */
 
 
 /*******************************************************************************
@@ -30,7 +30,7 @@ namespace bav::dsp
     class FFTinterface
     {
     public:
-        virtual ~FFTinterface = default;
+        virtual ~FFTinterface() = default;
         
         virtual int getSize() const = 0;
         
@@ -61,7 +61,7 @@ namespace bav::dsp
     
     
     /*
-    */
+     */
     
 #if BV_USE_VDSP
     
@@ -71,13 +71,13 @@ namespace bav::dsp
         
     public:
         FFT(int size) :
-            m_size(size), m_fspec(0), m_dspec(0),
-            m_fpacked(0), m_fspare(0),
-            m_dpacked(0), m_dspare(0)
+        m_size(size), m_fspec(nullptr), m_dspec(nullptr),
+        m_fpacked(nullptr), m_fspare(nullptr),
+        m_dpacked(nullptr), m_dspare(nullptr)
         {
             for (int i = 0; ; ++i) {
                 if (m_size & (1 << i)) {
-                    m_order = i;
+                    m_order = vDSP_Length(i);
                     break;
                 }
             }
@@ -125,13 +125,13 @@ namespace bav::dsp
             m_fspec = vDSP_create_fftsetup (m_order, FFT_RADIX2);
             m_fbuf = new DSPSplitComplex;
             //!!! "If possible, tempBuffer->realp and tempBuffer->imagp should be 32-byte aligned for best performance."
-            m_fbuf->realp = aligned_allocate<float>(m_size);
-            m_fbuf->imagp = aligned_allocate<float>(m_size);
+            m_fbuf->realp = aligned_allocate<float>(size_t(m_size));
+            m_fbuf->imagp = aligned_allocate<float>(size_t(m_size));
             m_fpacked = new DSPSplitComplex;
-            m_fpacked->realp = aligned_allocate<float>(m_size / 2 + 1);
-            m_fpacked->imagp = aligned_allocate<float>(m_size / 2 + 1);
-            m_fspare = aligned_allocate<float>(m_size + 2);
-            m_fspare2 = aligned_allocate<float>(m_size + 2);
+            m_fpacked->realp = aligned_allocate<float>(size_t(m_size / 2 + 1));
+            m_fpacked->imagp = aligned_allocate<float>(size_t(m_size / 2 + 1));
+            m_fspare = aligned_allocate<float>(size_t(m_size + 2));
+            m_fspare2 = aligned_allocate<float>(size_t(m_size + 2));
         }
         
         void initDouble() override
@@ -140,13 +140,13 @@ namespace bav::dsp
             m_dspec = vDSP_create_fftsetupD (m_order, FFT_RADIX2);
             m_dbuf = new DSPDoubleSplitComplex;
             //!!! "If possible, tempBuffer->realp and tempBuffer->imagp should be 32-byte aligned for best performance."
-            m_dbuf->realp = aligned_allocate<double>(m_size);
-            m_dbuf->imagp = aligned_allocate<double>(m_size);
+            m_dbuf->realp = aligned_allocate<double>(size_t(m_size));
+            m_dbuf->imagp = aligned_allocate<double>(size_t(m_size));
             m_dpacked = new DSPDoubleSplitComplex;
-            m_dpacked->realp = aligned_allocate<double>(m_size / 2 + 1);
-            m_dpacked->imagp = aligned_allocate<double>(m_size / 2 + 1);
-            m_dspare = aligned_allocate<double>(m_size + 2);
-            m_dspare2 = aligned_allocate<double>(m_size + 2);
+            m_dpacked->realp = aligned_allocate<double>(size_t(m_size / 2 + 1));
+            m_dpacked->imagp = aligned_allocate<double>(size_t(m_size / 2 + 1));
+            m_dspare = aligned_allocate<double>(size_t(m_size + 2));
+            m_dspare2 = aligned_allocate<double>(size_t(m_size + 2));
         }
         
         
@@ -193,11 +193,11 @@ namespace bav::dsp
             vDSP_fft_zriptD (m_dspec, m_dpacked, 1, m_dbuf, m_order, FFT_FORWARD);
             ddenyq();
             const int hs1 = m_size/2+1;
-            vDSP_zvmagsD (m_dpacked, 1, m_dspare, 1, hs1);
+            vDSP_zvmagsD (m_dpacked, 1, m_dspare, 1, vDSP_Length(hs1));
             vvsqrt (m_dspare2, m_dspare, &hs1);
             // vDSP forward FFTs are scaled 2x (for some reason)
             double two = 2.0;
-            vDSP_vsdivD (m_dspare2, 1, &two, magOut, 1, hs1);
+            vDSP_vsdivD (m_dspare2, 1, &two, magOut, 1, vDSP_Length(hs1));
         }
         
         void forwardMagnitude (const float* realIn, float* magOut) override
@@ -207,11 +207,11 @@ namespace bav::dsp
             vDSP_fft_zript (m_fspec, m_fpacked, 1, m_fbuf, m_order, FFT_FORWARD);
             fdenyq();
             const int hs1 = m_size/2 + 1;
-            vDSP_zvmags (m_fpacked, 1, m_fspare, 1, hs1);
+            vDSP_zvmags (m_fpacked, 1, m_fspare, 1, vDSP_Length(hs1));
             vvsqrtf (m_fspare2, m_fspare, &hs1);
             // vDSP forward FFTs are scaled 2x (for some reason)
             float two = 2.f;
-            vDSP_vsdiv (m_fspare2, 1, &two, magOut, 1, hs1);
+            vDSP_vsdiv (m_fspare2, 1, &two, magOut, 1, vDSP_Length(hs1));
         }
         
         void forwardPolar (const double* realIn, double* magOut, double* phaseOut) override
@@ -243,7 +243,7 @@ namespace bav::dsp
         }
         
         /*
-        */
+         */
         
         void inverse (const double* realIn, const double* imagIn, double* realOut) override
         {
@@ -264,8 +264,8 @@ namespace bav::dsp
         void inverseInterleaved (const double* complexIn, double* realOut) override
         {
             if (! m_dspec) initDouble();
-            double *d[2] = { m_dpacked->realp, m_dpacked->imagp };
-            vecops::deinterleave (d, complexIn, 2, m_size/2 + 1);
+            //            double *d[2] = { m_dpacked->realp, m_dpacked->imagp };
+            //            vecops::deinterleave (d, complexIn, 2, m_size/2 + 1);
             vDSP_fft_zriptD (m_dspec, m_dpacked, 1, m_dbuf, m_order, FFT_INVERSE);
             unpackReal (realOut);
         }
@@ -273,8 +273,8 @@ namespace bav::dsp
         void inverseInterleaved (const float* complexIn, float* realOut) override
         {
             if (! m_fspec) initFloat();
-            float *f[2] = { m_fpacked->realp, m_fpacked->imagp };
-            vecops::deinterleave (f, complexIn, 2, m_size/2 + 1);
+            //            float *f[2] = { m_fpacked->realp, m_fpacked->imagp };
+            //            vecops::deinterleave (f, complexIn, 2, m_size/2 + 1);
             vDSP_fft_zript (m_fspec, m_fpacked, 1, m_fbuf, m_order, FFT_INVERSE);
             unpackReal (realOut);
         }
@@ -314,7 +314,7 @@ namespace bav::dsp
             FVO::copy (m_dspare, magIn, hs1);
             FVO::add (m_dspare, 0.000001, hs1);
             vvlog (m_dspare2, m_dspare, &hs1);
-            inverse (m_dspare2, 0, cepOut);
+            inverse (m_dspare2, nullptr, cepOut);
         }
         
         void inverseCepstral (const float* magIn, float* cepOut) override
@@ -322,9 +322,9 @@ namespace bav::dsp
             if (! m_fspec) initFloat();
             const int hs1 = m_size/2 + 1;
             FVO::copy (m_fspare, magIn, hs1);
-            FVO::add (m_fspare, 0.000001, hs1);
+            FVO::add (m_fspare, 0.000001f, hs1);
             vvlogf (m_fspare2, m_fspare, &hs1);
-            inverse (m_fspare2, 0, cepOut);
+            inverse (m_fspare2, nullptr, cepOut);
         }
         
         
@@ -332,12 +332,12 @@ namespace bav::dsp
         
         void packReal (const float* const re)  // Pack input for forward transform
         {
-            vDSP_ctoz ((DSPComplex *)re, 2, m_fpacked, 1, m_size/2);
+            vDSP_ctoz ((DSPComplex *)re, 2, m_fpacked, 1, vDSP_Length(m_size/2));
         }
         
         void packReal (const double* const re)
         {
-            vDSP_ctozD ((DSPDoubleComplex *)re, 2, m_dpacked, 1, m_size/2);
+            vDSP_ctozD ((DSPDoubleComplex *)re, 2, m_dpacked, 1, vDSP_Length(m_size/2));
         }
         
         void packComplex (const float* const re, const float* const im)  // Pack input for inverse transform
@@ -353,40 +353,40 @@ namespace bav::dsp
                 FVO::copy (m_fpacked->imagp, im, num);
             else
                 FVO::fill (m_fpacked->imagp, 0.0f, num);
-                           
+            
             fnyq();
         }
-                           
+        
         void packComplex (const double* const re, const double* const im)
         {
             const int num = m_size/2 + 1;
-           
-           if (re)
-               FVO::copy (m_dpacked->realp, re, num);
-           else
-               FVO::fill (m_dpacked->realp, 0.0, num);
-           
-           if (im)
-               FVO::copy (m_dpacked->imagp, im, num);
-           else
-               FVO::fill (m_dpacked->imagp, 0.0, num);
-           
-           dnyq();
+            
+            if (re)
+                FVO::copy (m_dpacked->realp, re, num);
+            else
+                FVO::fill (m_dpacked->realp, 0.0, num);
+            
+            if (im)
+                FVO::copy (m_dpacked->imagp, im, num);
+            else
+                FVO::fill (m_dpacked->imagp, 0.0, num);
+            
+            dnyq();
         }
         
         void unpackReal (float* const re)  // Unpack output for inverse transform
         {
-            vDSP_ztoc (m_fpacked, 1, (DSPComplex *)re, 2, m_size/2);
+            vDSP_ztoc (m_fpacked, 1, (DSPComplex *)re, 2, vDSP_Length(m_size/2));
         }
         
         void unpackReal (double* const re)
         {
-            vDSP_ztocD (m_dpacked, 1, (DSPDoubleComplex *)re, 2, m_size/2);
+            vDSP_ztocD (m_dpacked, 1, (DSPDoubleComplex *)re, 2, vDSP_Length(m_size/2));
         }
         
         void unpackComplex (float* const re, float* const im) // Unpack output for forward transform
         {
-            const auto num = m_size/2 + 1;
+            const auto num = vDSP_Length(m_size/2 + 1);
             
             // vDSP forward FFTs are scaled 2x (for some reason)
             float two = 2.f;
@@ -408,7 +408,7 @@ namespace bav::dsp
         
         void unpackComplex (double* const re, double* const im)
         {
-            const auto num = m_size/2 + 1;
+            const auto num = vDSP_Length(m_size/2 + 1);
             
             // vDSP forward FFTs are scaled 2x (for some reason)
             double two = 2.0;
@@ -461,10 +461,10 @@ namespace bav::dsp
         }
         
         /*
-        */
+         */
         
         const int m_size;
-        int m_order;
+        vDSP_Length m_order;
         FFTSetup m_fspec;
         FFTSetupD m_dspec;
         DSPSplitComplex* m_fbuf;
@@ -478,12 +478,17 @@ namespace bav::dsp
         
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FFT)
     };
-   
+    
     
 #elif BV_USE_IPP  /* if BV_USE_VDSP  */
+    
+    
+    
+#else  /* if BV_USE_VDSP  */
     
     
 #endif /* if BV_USE_VDSP  */
     
     
 }  // namespace
+
