@@ -1,6 +1,6 @@
 
 /*
-    This file defines some useful platform macros and provides some useful data serialisation functions.
+    This file defines some useful platform macros and provides some useful system functions.
 */
 
 
@@ -82,18 +82,40 @@
   #define BV_POSIX 0
 #endif
 
+#ifndef BV_OPERATING_SYSTEM_NAME
+  #define BV_OPERATING_SYSTEM_NAME ""
+#endif
+
 
 #if (BV_APPLE)
-  #define BV_VECTOROPS_USE_VDSP 1
+  #define BV_USE_VDSP 1
   #include <Accelerate/Accelerate.h>
 #else
-  #define BV_VECTOROPS_USE_VDSP 0
+  #define BV_USE_VDSP 0
 #endif
 
 
 /*
-    It's never a smart idea to include any C headers before your C++ ones, as they often pollute your namespace with all kinds of dangerous macros like these ones. These symbols are undef'ed here just in case.
+    this function attempts to return the default location your plugin's preset files should be saved to and loaded from.
+    if the directory cannot be found for your plugin, calling this function will attempt to create it.
  */
-#undef max
-#undef min
-
+inline juce::File getPresetsFolder (std::string companyName, std::string pluginName)
+{
+    juce::File rootFolder;
+    
+#if BV_WINDOWS
+    rootFolder = juce::File::getSpecialLocation (juce::File::SpecialLocationType::userDocumentsDirectory);
+#else
+    rootFolder = juce::File::getSpecialLocation (juce::File::SpecialLocationType::userApplicationDataDirectory);
+  #if BV_OSX
+    rootFolder = rootFolder.getChildFile ("Audio").getChildFile ("Presets");
+  #endif
+#endif
+    
+    rootFolder = rootFolder.getChildFile (companyName).getChildFile (pluginName);
+    
+    if (! rootFolder.isDirectory())
+        rootFolder.createDirectory(); // creates the presets folder if it doesn't already exist
+    
+    return rootFolder;
+}

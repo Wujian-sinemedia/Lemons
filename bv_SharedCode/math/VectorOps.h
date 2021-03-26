@@ -15,7 +15,7 @@ template<typename DataType>
 inline int findIndexOfMinElement (DataType* data, const int dataSize)
 {
     jassert (dataSize > 1);
-#if BV_VECTOROPS_USE_VDSP
+#if BV_USE_VDSP
     constexpr auto strideOfOne = vDSP_Stride(1);
     unsigned long index = 0.0;
     DataType minimum = 0;
@@ -38,7 +38,7 @@ template<typename DataType>
 inline int findIndexOfMaxElement (DataType* data, const int dataSize)
 {
     jassert (dataSize > 1);
-#if BV_VECTOROPS_USE_VDSP
+#if BV_USE_VDSP
     constexpr auto strideOfOne = vDSP_Stride(1);
     unsigned long index = 0.0;
     DataType maximum = 0;
@@ -62,7 +62,7 @@ inline void findMinAndMinIndex (DataType* data, const int dataSize,
                                 DataType& minimum, int& minIndex)
 {
     jassert (dataSize > 1);
-#if BV_VECTOROPS_USE_VDSP
+#if BV_USE_VDSP
     constexpr auto strideOfOne = vDSP_Stride(1);
     unsigned long index = 0.0;
     
@@ -86,7 +86,7 @@ inline void findMaxAndMaxIndex (DataType* data, const int dataSize,
                                 DataType& maximum, int& maxIndex)
 {
     jassert (dataSize > 1);
-#if BV_VECTOROPS_USE_VDSP
+#if BV_USE_VDSP
     constexpr auto strideOfOne = vDSP_Stride(1);
     unsigned long index = 0.0;
     
@@ -110,7 +110,7 @@ inline void locateGreatestAbsMagnitude (DataType* data, const int dataSize,
                                         DataType& greatestMagnitude, int& index)
 {
     jassert (dataSize > 1);
-#if BV_VECTOROPS_USE_VDSP
+#if BV_USE_VDSP
     constexpr auto strideOfOne = vDSP_Stride(1);
     unsigned long i = 0.0;
     
@@ -147,7 +147,7 @@ inline void locateLeastAbsMagnitude (DataType* data, const int dataSize,
                                      DataType& leastMagnitude, int& index)
 {
     jassert (dataSize > 1);
-#if BV_VECTOROPS_USE_VDSP
+#if BV_USE_VDSP
     constexpr auto strideOfOne = vDSP_Stride(1);
     unsigned long i = 0.0;
     

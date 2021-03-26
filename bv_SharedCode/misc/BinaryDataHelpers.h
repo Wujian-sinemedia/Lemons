@@ -31,9 +31,8 @@ namespace bav::Assets
     inline juce::Image getImage (const juce::String& name)
     {
         int dataSize = 0;
-        const char* data = BinaryData::getNamedResource (name.toRawUTF8(), dataSize);
         
-        if (data != nullptr)
+        if (const char* data = BinaryData::getNamedResource (name.toRawUTF8(), dataSize))
             return juce::ImageCache::getFromMemory (data, dataSize);
         
         return {};

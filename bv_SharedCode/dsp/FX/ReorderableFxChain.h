@@ -28,16 +28,20 @@ namespace bav::dsp
         
         
     protected:
-        // audio must be rendered in place!!!
-        virtual void process (AudioBuffer& audio)
-        {
-            juce::ignoreUnused (audio);
-        }
+        
+        // called in the subclass to apply the effect to the input audio. Output should be rendered in place.
+        virtual void process (AudioBuffer& audio) = 0;
         
         
         virtual void bypassedBlock (const int numSamples)
         {
             juce::ignoreUnused (numSamples);
+        }
+        
+        
+        virtual void prepare (double samplerate, int blocksize)
+        {
+            juce::ignoreUnused (samplerate, blocksize);
         }
         
         
@@ -73,16 +77,25 @@ namespace bav::dsp
         
         virtual ~ReorderableFxChain() = default;
         
-        
-        void addEffect (Effect* effect, const int numberInChain, bool addAsBypassed = false)
+        // adds an effect to the chain. Returns the actual number in the chain that the effect was placed in.
+        int addEffect (Effect* effect, const int numberInChain, bool addAsBypassed = false)
         {
-            // edge case : new num is same as an existing num
-            // edge case : new num is larger than 1+ largest existing num in chain...
+            const int newNumber = assignNewEffectNumber (numberInChain);
             
-            effect->effectNumber = numberInChain;
+            jassert (newNumber >= 0);
             
-            if (addAsBypassed)
-                effect->isBypassed = true;
+            effect->effectNumber = newNumber;
+            
+            effect->isBypassed = addAsBypassed;
+            
+            effects.add (effect);
+            
+            jassert (getEffect(newNumber) != nullptr);
+            
+            if (lastSamplerate > 0.0 && lastBlocksize > 0)
+                getEffect(newNumber)->prepare (lastSamplerate, lastBlocksize);
+            
+            return newNumber;
         }
         
         
@@ -122,14 +135,18 @@ namespace bav::dsp
         }
         
         
-        void setEffectBypass (Effect* effect, const bool shouldBeBypassed)
+        bool setEffectBypass (Effect* effect, const bool shouldBeBypassed)
         {
+            if (effect == nullptr)
+                return false;
+            
             effect->isBypassed = shouldBeBypassed;
+            return true;
         }
         
-        void setEffectBypass (const int numberInChain, const bool shouldBeBypassed)
+        bool void setEffectBypass (const int numberInChain, const bool shouldBeBypassed)
         {
-            setEffectBypass (getEffect (numberInChain), shouldBeBypassed);
+            return setEffectBypass (getEffect (numberInChain), shouldBeBypassed);
         }
         
         
@@ -158,47 +175,128 @@ namespace bav::dsp
         }
         
         
+        void prepare (double samplerate, int blocksize)
+        {
+            jassert (samplerate > 0.0 && blocksize > 0);
+            
+            lastSamplerate = samplerate;
+            lastBlocksize = blocksize;
+            
+            for (auto* effect : effects)
+                effect->prepare (samplerate, blocksize);
+        }
+        
+        
         /*
-         The top-level rendering callback that renders the entire effects chain in order.
-         Audio will be output in place.
+            The top-level rendering callback that renders the entire effects chain in order.
+            Audio will be output in place.
          */
         void process (AudioBuffer& audio)
         {
+            jassert (! effects.isEmpty());
+            jassert (lastSamplerate > 0.0 && lastBlocksize > 0);
+            
             audio.clear();
             
             for (int i = 0; i < numActiveEffects(); ++i)
                 if (auto* effect = getEffect(i))
                     if (! effect->isBypassed)
                         effect->process (audio);
+            
+            const int numSamples = audio.getNumSamples();
+            
+            for (auto* effect : effects)
+                if (effect->isBypassed)
+                    effect->bypassedBlock (numSamples);
         }
         
         
         /*
-         call this function to render the entire chain in reverse order.
+            Call this function to render the entire chain in reverse order.
          */
         void processInReverseOrder (AudioBuffer& audio)
         {
+            jassert (! effects.isEmpty());
+            jassert (lastSamplerate > 0.0 && lastBlocksize > 0);
+            
             audio.clear();
             
             for (int i = numActiveEffects() - 1; i >= 0; --i)
                 if (auto* effect = getEffect(i))
                     if (! effect->isBypassed)
                         effect->process (audio);
-        }
-        
-        
-        /*
-         Call this function to inform the FX chain when a bypassed block is recieved.
-         */
-        void bypassedBlock (const int numSamples)
-        {
-            for (int i = 0; i < numActiveEffects(); ++i)
-                if (auto* effect = getEffect(i))
+            
+            const int numSamples = audio.getNumSamples();
+            
+            for (auto* effect : effects)
+                if (effect->isBypassed)
                     effect->bypassedBlock (numSamples);
         }
         
         
+        /*
+            Call this function to inform the FX chain when a bypassed block is recieved.
+         */
+        void bypassedBlock (const int numSamples)
+        {
+            for (auto* effect : effects)
+                effect->bypassedBlock (numSamples);
+        }
+        
+        
     private:
+        
+       // if the current effect number is out of range or taken, attempts to return the closest availabe effect number to the passed number.
+       inline int assignNewEffectNumber (int requestedNumber)
+       {
+           if (effects.isEmpty())
+               return requestedNumber;
+           
+           if (requestedNumber < 0)
+               requestedNumber = 0;
+           
+           if (isEffectNumberAvailable (requestedNumber))
+               return requestedNumber;
+           
+           int maxNumber = -1;
+           
+           for (auto* effect : effects)
+               if (effect->effectNumber > maxNumber)
+                   maxNumber = effect->effectNumber;
+           
+           for (int num = 0, p = 1, m = -1;
+                num <= maxNumber;
+                ++num, ++p, --m)
+           {
+               const int lower = requestedNumber + m;
+               
+               if (lower >= 0 && isEffectNumberAvailable (lower))
+                   return lower;
+               
+               const int higher = requestedNumber + p;
+               
+               if (higher >= maxNumber && isEffectNumberAvailable (higher))
+                   return higher;
+           }
+           
+           return maxNumber + 1;
+       }
+                                           
+       // returns true if the effect number is not assigned to an effect currently in this chain.
+       inline bool isEffectNumberAvailable (numberInChain)
+       {
+           for (auto* effect : effects)
+               if (effect->effectNumber == numberInChain)
+                   return false;
+           
+           return true;
+       }
+        
+        /*
+        */
+        
+        double lastSamplerate = 0.0;
+        int lastBlocksize = 0;
         
         juce::OwnedArray< Effect > effects;
         
