@@ -24,6 +24,27 @@ static inline void saveImageToFile (const juce::Image& image, juce::File file)
 }
     
     
+    //  THESE FUNCTONS ARE ON MY TO DO LIST...
+    
+static inline juce::Image getImageFromFile (juce::File file)
+{
+    juce::ignoreUnused (file);
+}
+    
+    
+template<typename SampleType>
+static inline void saveAudioToFile (const juce::AudioBuffer<SampleType> audio, juce::File file)
+{
+    juce::ignoreUnused (audio, file);
+}
+    
+static inline void juce::AudioBuffer<float> getAudioFromFile (juce::File file)
+{
+    juce::ignoreUnused (file);
+}
+    
+    
+    
 /**
  Helper function to serialise a system font to a file.
  This is useful if you want to include a custom font in an application so that is
@@ -85,12 +106,12 @@ static inline bool serializeFont (const juce::Font& font, juce::File& destinatio
     
 static inline juce::Typeface::Ptr deserializeFont (const void* data, size_t dataSize)
 {
-    juce::ScopedPointer<juce::MemoryInputStream> fontStream (new juce::MemoryInputStream (data, datatSize, false));
+    std::unique_ptr<juce::MemoryInputStream> fontStream (new juce::MemoryInputStream (data, dataSize, false));
     
     if (fontStream == nullptr)
         return nullptr;
     
-    return new CustomTypeface (*fontStream);
+    return new juce::CustomTypeface (*fontStream);
 }
 
 
