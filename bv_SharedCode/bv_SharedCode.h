@@ -34,19 +34,5 @@
 #include "dsp/FX/DeEsser.h"
 #include "dsp/FX/Reverb.h"
 #include "dsp/FIFOWrappedEngine.h"
+#include "gui.h"
 
-
-namespace bav::gui
-{
-    
-    
-    inline juce::Button::ButtonState buttonStateFromBool (const bool isOn)
-    {
-        if (isOn)
-            return juce::Button::ButtonState::buttonDown;
-
-        return juce::Button::ButtonState::buttonNormal;
-    }
-    
-
-}  // namespace

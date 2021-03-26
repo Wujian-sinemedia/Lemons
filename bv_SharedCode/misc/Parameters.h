@@ -7,7 +7,7 @@ namespace bav
      This function returns a given RangedAudioParameter's current normalized value in the range 0.0f to 1.0f.
      This function is necessary because the provided juce subclasses AudioParameterFloat|Bool|Int implement getValue() as private.
      */
-    inline float getNormalizedParameterValue (juce::RangedAudioParameter& param)
+    static inline float getNormalizedParameterValue (juce::RangedAudioParameter& param)
     {
         return param.getValue();
     }

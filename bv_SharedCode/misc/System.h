@@ -95,11 +95,14 @@
 #endif
 
 
+namespace bav
+{
+
 /*
     this function attempts to return the default location your plugin's preset files should be saved to and loaded from.
     if the directory cannot be found for your plugin, calling this function will attempt to create it.
  */
-inline juce::File getPresetsFolder (std::string companyName, std::string pluginName)
+static inline juce::File getPresetsFolder (std::string companyName, std::string pluginName)
 {
     juce::File rootFolder;
     
@@ -119,3 +122,6 @@ inline juce::File getPresetsFolder (std::string companyName, std::string pluginN
     
     return rootFolder;
 }
+
+
+}  // namespace

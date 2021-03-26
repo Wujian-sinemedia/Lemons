@@ -144,7 +144,7 @@ namespace bav::dsp
             return true;
         }
         
-        bool void setEffectBypass (const int numberInChain, const bool shouldBeBypassed)
+        bool setEffectBypass (const int numberInChain, const bool shouldBeBypassed)
         {
             return setEffectBypass (getEffect (numberInChain), shouldBeBypassed);
         }
@@ -283,7 +283,7 @@ namespace bav::dsp
        }
                                            
        // returns true if the effect number is not assigned to an effect currently in this chain.
-       inline bool isEffectNumberAvailable (numberInChain)
+       inline bool isEffectNumberAvailable (const int numberInChain)
        {
            for (auto* effect : effects)
                if (effect->effectNumber == numberInChain)

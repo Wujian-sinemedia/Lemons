@@ -8,8 +8,11 @@ namespace bav::math
     */
     
     
+    constexpr float float_Pi = juce::MathConstants<float>::pi;
+    
+    
     //  returns true a specified percent of the time
-    inline bool probability (int percentOfTheTime)
+    static inline bool probability (int percentOfTheTime)
     {
         return juce::Random::getSystemRandom().nextInt (100) < percentOfTheTime;
     }
@@ -17,7 +20,7 @@ namespace bav::math
     
     // returns true if n is 2^something
     template<typename Integer>
-    inline bool isPowerOfTwo (Integer n)
+    static inline bool isPowerOfTwo (Integer n)
     {
         return n > 0 && (n & (n - 1)) == 0;
     }
@@ -25,26 +28,16 @@ namespace bav::math
     
     // returns the period in samples of a specified frequency in hz at a specified samplerate
     template<typename FreqType>
-    inline int periodInSamples (double samplerate, FreqType freqHz)
+    static inline int periodInSamples (double samplerate, FreqType freqHz)
     {
         jassert (freqHz > FreqType(0.0));
         return juce::roundToInt (samplerate / freqHz);
     }
-    
-    
-    // returns the number of decimal digits needed to print a given unsigned number
-    inline int getNumDecimalDigits (uint32_t n)
-    {
-        return n < 1000 ? (n < 10 ? 1 : (n < 100 ? 2 : 3))
-                        : n < 1000000 ? (n < 10000 ? 4 : (n < 100000 ? 5 : 6))
-                        : n < 100000000  ? (n < 10000000 ? 7 : 8)
-                        : n < 1000000000 ? 9 : 10;
-    }
-    
+
     
     // returns the resultant fundamental frequency in Hz from a specified period in samples and samplerate
     template<typename PeriodType>
-    inline PeriodType freqFromPeriod (double samplerate, PeriodType period)
+    static inline PeriodType freqFromPeriod (double samplerate, PeriodType period)
     {
         jassert (period > PeriodType(0.0));
         
@@ -56,7 +49,7 @@ namespace bav::math
     
     
     // converts a specified number of samples to milliseconds
-    inline int sampsToMs (double samplerate, int numSamples)
+    static inline int sampsToMs (double samplerate, int numSamples)
     {
         jassert (samplerate > 0.0);
         return juce::roundToInt ((numSamples / samplerate) * 1000.0f);
@@ -65,7 +58,7 @@ namespace bav::math
     
     // converts a specified amount of time in milliseconds to the closest integer number of samples at the specified samplerate
     template<typename msType>
-    inline int msToSamps (double samplerate, msType ms)
+    static inline int msToSamps (double samplerate, msType ms)
     {
         return juce::roundToInt (samplerate / 1000.0f * ms);
     }
@@ -73,7 +66,7 @@ namespace bav::math
     
     // converts a midi note to a frequency in Hz
     template<typename noteType>
-    inline noteType midiToFreq (noteType midiNote)
+    static inline noteType midiToFreq (noteType midiNote)
     {
         if constexpr (std::is_same_v<noteType, int>)
             return juce::roundToInt (440 * std::pow (2, (midiNote - 69)/12));
@@ -84,7 +77,7 @@ namespace bav::math
     
     // converts a frequency in Hz to a midi pitch
     template<typename noteType>
-    inline noteType freqToMidi (noteType freqHz)
+    static inline noteType freqToMidi (noteType freqHz)
     {
         if constexpr (std::is_same_v<noteType, int>)
             return juce::roundToInt (69 + 12 * log2(freqHz / 440));

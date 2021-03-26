@@ -12,7 +12,7 @@ namespace bav::vecops
 
 // returns the index in the vector of the element with the minimum value
 template<typename DataType>
-inline int findIndexOfMinElement (DataType* data, const int dataSize)
+static inline int findIndexOfMinElement (DataType* data, const int dataSize)
 {
     jassert (dataSize > 1);
 #if BV_USE_VDSP
@@ -35,7 +35,7 @@ inline int findIndexOfMinElement (DataType* data, const int dataSize)
     
 // returns the index in the vector of the element with the maximum value
 template<typename DataType>
-inline int findIndexOfMaxElement (DataType* data, const int dataSize)
+static inline int findIndexOfMaxElement (DataType* data, const int dataSize)
 {
     jassert (dataSize > 1);
 #if BV_USE_VDSP
@@ -58,8 +58,8 @@ inline int findIndexOfMaxElement (DataType* data, const int dataSize)
 
 // returns both the minimum element and its index in the vector into the variables minimum and minIndex
 template<typename DataType>
-inline void findMinAndMinIndex (DataType* data, const int dataSize,
-                                DataType& minimum, int& minIndex)
+static inline void findMinAndMinIndex (DataType* data, const int dataSize,
+                                       DataType& minimum, int& minIndex)
 {
     jassert (dataSize > 1);
 #if BV_USE_VDSP
@@ -82,8 +82,8 @@ inline void findMinAndMinIndex (DataType* data, const int dataSize,
 
 // returns both the maximum element and its index in the vector into the variables maximum and maxIndex
 template<typename DataType>
-inline void findMaxAndMaxIndex (DataType* data, const int dataSize,
-                                DataType& maximum, int& maxIndex)
+static inline void findMaxAndMaxIndex (DataType* data, const int dataSize,
+                                       DataType& maximum, int& maxIndex)
 {
     jassert (dataSize > 1);
 #if BV_USE_VDSP
@@ -106,8 +106,8 @@ inline void findMaxAndMaxIndex (DataType* data, const int dataSize,
 
 // locates the element with the highest absolute value and its index in the vector, and returns them into the variables greatestMagnitude and index
 template<typename DataType>
-inline void locateGreatestAbsMagnitude (DataType* data, const int dataSize,
-                                        DataType& greatestMagnitude, int& index)
+static inline void locateGreatestAbsMagnitude (DataType* data, const int dataSize,
+                                               DataType& greatestMagnitude, int& index)
 {
     jassert (dataSize > 1);
 #if BV_USE_VDSP
@@ -143,8 +143,8 @@ inline void locateGreatestAbsMagnitude (DataType* data, const int dataSize,
 
 // locates the element with the lowest absolute value and its index in the vector, and returns them into the variables leastMagnitude and index
 template<typename DataType>
-inline void locateLeastAbsMagnitude (DataType* data, const int dataSize,
-                                     DataType& leastMagnitude, int& index)
+static inline void locateLeastAbsMagnitude (DataType* data, const int dataSize,
+                                            DataType& leastMagnitude, int& index)
 {
     jassert (dataSize > 1);
 #if BV_USE_VDSP
@@ -180,8 +180,8 @@ inline void locateLeastAbsMagnitude (DataType* data, const int dataSize,
 
 // finds both the maximum and minimum elements in the vector and returns them into the variables max and min.
 template<typename DataType>
-inline void findExtrema (DataType* data, const int dataSize,
-                         DataType& min, DataType& max)
+static inline void findExtrema (DataType* data, const int dataSize,
+                                DataType& min, DataType& max)
 {
     auto range = juce::FloatVectorOperations::findMinAndMax (data, dataSize);
     min = range.getStart();
@@ -191,7 +191,7 @@ inline void findExtrema (DataType* data, const int dataSize,
     
 // returns the distance between the maximum and minimum element of the vector
 template<typename DataType>
-inline DataType findRangeOfExtrema (DataType* data, const int dataSize)
+static inline DataType findRangeOfExtrema (DataType* data, const int dataSize)
 {
     return juce::FloatVectorOperations::findMinAndMax (data, dataSize)
            .getLength();
