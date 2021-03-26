@@ -26,10 +26,10 @@ static inline void saveImageToFile (const juce::Image& image, juce::File file)
     
     //  THESE FUNCTONS ARE ON MY TO DO LIST...
     
-static inline juce::Image getImageFromFile (juce::File file)
-{
-    juce::ignoreUnused (file);
-}
+//static inline juce::Image getImageFromFile (juce::File file)
+//{
+//    juce::ignoreUnused (file);
+//}
     
     
 template<typename SampleType>
@@ -38,10 +38,10 @@ static inline void saveAudioToFile (const juce::AudioBuffer<SampleType> audio, j
     juce::ignoreUnused (audio, file);
 }
     
-static inline void juce::AudioBuffer<float> getAudioFromFile (juce::File file)
-{
-    juce::ignoreUnused (file);
-}
+//static inline void juce::AudioBuffer<float> getAudioFromFile (juce::File file)
+//{
+//    juce::ignoreUnused (file);
+//}
     
     
     
