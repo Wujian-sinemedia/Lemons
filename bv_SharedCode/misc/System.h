@@ -145,6 +145,32 @@
 #endif
 
 
+/*
+    Platform-independant restriction macro to reduce pointer aliasing, allowing for better optimizations. Use with care, this can result in UB!
+*/
+
+#ifdef __clang__
+  #define BV_R_ __restrict__
+#else
+  #ifdef __GNUC__
+    #define BV_R_ __restrict__
+  #endif
+#endif
+
+#ifndef BV_R_
+  #ifdef _MSC_VER
+    #define BV_R_ __restrict
+  #else
+    #ifdef __MSVC__
+      #define BV_R_ __restrict
+    #endif
+  #endif
+#endif
+
+#ifndef BV_R_
+  #define BV_R_
+#endif
+
 
 
 namespace bav

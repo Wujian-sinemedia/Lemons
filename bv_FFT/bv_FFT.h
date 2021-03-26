@@ -37,25 +37,25 @@ namespace bav::dsp
         virtual void initFloat() = 0;
         virtual void initDouble() = 0;
         
-        virtual void forward (const double* realIn, double* realOut, double* imagOut) = 0;
-        virtual void forwardInterleaved (const double* realIn, double* complexOut) = 0;
-        virtual void forwardPolar (const double* realIn, double* magOut, double* phaseOut) = 0;
-        virtual void forwardMagnitude (const double* realIn, double* magOut) = 0;
+        virtual void forward (const double* BV_R_ realIn, double* BV_R_ realOut, double* BV_R_ imagOut) = 0;
+        virtual void forwardInterleaved (const double* BV_R_ realIn, double* BV_R_ complexOut) = 0;
+        virtual void forwardPolar (const double* BV_R_ realIn, double* BV_R_ magOut, double* BV_R_ phaseOut) = 0;
+        virtual void forwardMagnitude (const double* BV_R_ realIn, double* BV_R_ magOut) = 0;
         
-        virtual void forward (const float* realIn, float* realOut, float* imagOut) = 0;
-        virtual void forwardInterleaved (const float* realIn, float* complexOut) = 0;
-        virtual void forwardPolar (const float* realIn, float* magOut, float* phaseOut) = 0;
-        virtual void forwardMagnitude (const float* realIn, float* magOut) = 0;
+        virtual void forward (const float* BV_R_ realIn, float* BV_R_ realOut, float* BV_R_ imagOut) = 0;
+        virtual void forwardInterleaved (const float* BV_R_ realIn, float* BV_R_ complexOut) = 0;
+        virtual void forwardPolar (const float* BV_R_ realIn, float* BV_R_ magOut, float* BV_R_ phaseOut) = 0;
+        virtual void forwardMagnitude (const float* BV_R_ realIn, float* BV_R_ magOut) = 0;
         
-        virtual void inverse (const double* realIn, const double* imagIn, double* realOut) = 0;
-        virtual void inverseInterleaved (const double* complexIn, double* realOut) = 0;
-        virtual void inversePolar (const double* magIn, const double* phaseIn, double* realOut) = 0;
-        virtual void inverseCepstral (const double* magIn, double* cepOut) = 0;
+        virtual void inverse (const double* BV_R_ realIn, const double* BV_R_ imagIn, double* BV_R_ realOut) = 0;
+        virtual void inverseInterleaved (const double* BV_R_ complexIn, double* BV_R_ realOut) = 0;
+        virtual void inversePolar (const double* BV_R_ magIn, const double* BV_R_ phaseIn, BV_R_ double* realOut) = 0;
+        virtual void inverseCepstral (const double* BV_R_ magIn, double* BV_R_ cepOut) = 0;
         
-        virtual void inverse (const float* realIn, const float* imagIn, float* realOut) = 0;
-        virtual void inverseInterleaved (const float* complexIn, float* realOut) = 0;
-        virtual void inversePolar (const float* magIn, const float* phaseIn, float* realOut) = 0;
-        virtual void inverseCepstral (const float* magIn, float* cepOut) = 0;
+        virtual void inverse (const float* BV_R_ realIn, const float* BV_R_ imagIn, float* BV_R_ realOut) = 0;
+        virtual void inverseInterleaved (const float* BV_R_ complexIn, float* BV_R_ realOut) = 0;
+        virtual void inversePolar (const float* BV_R_ magIn, const float* BV_R_ phaseIn, float* BV_R_ realOut) = 0;
+        virtual void inverseCepstral (const float* BV_R_ magIn, float* BV_R_ cepOut) = 0;
     };
     
     
@@ -150,7 +150,7 @@ namespace bav::dsp
         }
         
         
-        void forward (const double* realIn, double* realOut, double* imagOut) override
+        void forward (const double* BV_R_ realIn, double* BV_R_ realOut, double* BV_R_ imagOut) override
         {
             if (! m_dspec) initDouble();
             packReal (realIn);
@@ -159,7 +159,7 @@ namespace bav::dsp
             unpackComplex (realOut, imagOut);
         }
         
-        void forward (const float* realIn, float* realOut, float* imagOut) override
+        void forward (const float* BV_R_ realIn, float* BV_R_ realOut, float* BV_R_ imagOut) override
         {
             if (! m_fspec) initFloat();
             packReal (realIn);
@@ -168,7 +168,7 @@ namespace bav::dsp
             unpackComplex (realOut, imagOut);
         }
         
-        void forwardInterleaved (const double* realIn, double* complexOut) override
+        void forwardInterleaved (const double* BV_R_ realIn, double* BV_R_ complexOut) override
         {
             if (! m_dspec) initDouble();
             packReal (realIn);
@@ -177,7 +177,7 @@ namespace bav::dsp
             unpackComplex (complexOut);
         }
         
-        void forwardInterleaved (const float* realIn, float* complexOut) override
+        void forwardInterleaved (const float* BV_R_ realIn, float* BV_R_ complexOut) override
         {
             if (! m_fspec) initFloat();
             packReal(realIn);
@@ -186,7 +186,7 @@ namespace bav::dsp
             unpackComplex (complexOut);
         }
         
-        void forwardMagnitude (const double* realIn, double* magOut) override
+        void forwardMagnitude (const double* BV_R_ realIn, double* BV_R_ magOut) override
         {
             if (! m_dspec) initDouble();
             packReal (realIn);
@@ -200,7 +200,7 @@ namespace bav::dsp
             vDSP_vsdivD (m_dspare2, 1, &two, magOut, 1, vDSP_Length(hs1));
         }
         
-        void forwardMagnitude (const float* realIn, float* magOut) override
+        void forwardMagnitude (const float* BV_R_ realIn, float* BV_R_ magOut) override
         {
             if (! m_fspec) initFloat();
             packReal (realIn);
@@ -214,7 +214,7 @@ namespace bav::dsp
             vDSP_vsdiv (m_fspare2, 1, &two, magOut, 1, vDSP_Length(hs1));
         }
         
-        void forwardPolar (const double* realIn, double* magOut, double* phaseOut) override
+        void forwardPolar (const double* BV_R_ realIn, double* BV_R_ magOut, double* BV_R_ phaseOut) override
         {
             if (! m_dspec) initDouble();
             const int hs1 = m_size/2+1;
@@ -228,7 +228,7 @@ namespace bav::dsp
                                         m_dpacked->realp, m_dpacked->imagp, hs1);
         }
         
-        void forwardPolar (const float* realIn, float* magOut, float* phaseOut) override
+        void forwardPolar (const float* BV_R_ realIn, float* BV_R_ magOut, float* BV_R_ phaseOut) override
         {
             if (! m_fspec) initFloat();
             const int hs1 = m_size/2+1;
@@ -245,7 +245,7 @@ namespace bav::dsp
         /*
          */
         
-        void inverse (const double* realIn, const double* imagIn, double* realOut) override
+        void inverse (const double* BV_R_ realIn, const double* BV_R_ imagIn, double* BV_R_ realOut) override
         {
             if (! m_dspec) initDouble();
             packComplex (realIn, imagIn);
@@ -253,7 +253,7 @@ namespace bav::dsp
             unpackReal (realOut);
         }
         
-        void inverse (const float* realIn, const float* imagIn, float* realOut) override
+        void inverse (const float* BV_R_ realIn, const float* BV_R_ imagIn, float* BV_R_ realOut) override
         {
             if (! m_fspec) initFloat();
             packComplex (realIn, imagIn);
@@ -261,7 +261,7 @@ namespace bav::dsp
             unpackReal (realOut);
         }
         
-        void inverseInterleaved (const double* complexIn, double* realOut) override
+        void inverseInterleaved (const double* BV_R_ complexIn, double* BV_R_ realOut) override
         {
             if (! m_dspec) initDouble();
             //            double *d[2] = { m_dpacked->realp, m_dpacked->imagp };
@@ -270,7 +270,7 @@ namespace bav::dsp
             unpackReal (realOut);
         }
         
-        void inverseInterleaved (const float* complexIn, float* realOut) override
+        void inverseInterleaved (const float* BV_R_ complexIn, float* BV_R_ realOut) override
         {
             if (! m_fspec) initFloat();
             //            float *f[2] = { m_fpacked->realp, m_fpacked->imagp };
@@ -279,7 +279,7 @@ namespace bav::dsp
             unpackReal (realOut);
         }
         
-        void inversePolar (const double* magIn, const double* phaseIn, double* realOut) override
+        void inversePolar (const double* BV_R_ magIn, const double* BV_R_ phaseIn, double* BV_R_ realOut) override
         {
             if (! m_dspec) initDouble();
             const int hs1 = m_size/2+1;
@@ -293,7 +293,7 @@ namespace bav::dsp
             unpackReal (realOut);
         }
         
-        void inversePolar (const float* magIn, const float* phaseIn, float* realOut) override
+        void inversePolar (const float* BV_R_ magIn, const float* BV_R_ phaseIn, float* BV_R_ realOut) override
         {
             if (! m_fspec) initFloat();
             const int hs1 = m_size/2+1;
@@ -307,7 +307,7 @@ namespace bav::dsp
             unpackReal (realOut);
         }
         
-        void inverseCepstral (const double* magIn, double* cepOut) override
+        void inverseCepstral (const double* BV_R_ magIn, double* BV_R_ cepOut) override
         {
             if (! m_dspec) initDouble();
             const int hs1 = m_size/2 + 1;
@@ -317,7 +317,7 @@ namespace bav::dsp
             inverse (m_dspare2, nullptr, cepOut);
         }
         
-        void inverseCepstral (const float* magIn, float* cepOut) override
+        void inverseCepstral (const float* BV_R_ magIn, float* BV_R_ cepOut) override
         {
             if (! m_fspec) initFloat();
             const int hs1 = m_size/2 + 1;

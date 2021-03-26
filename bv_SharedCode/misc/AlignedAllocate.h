@@ -34,9 +34,22 @@ namespace bav
         }
         
 #else /* BV_POSIX_MEMALIGN */
-#warning "No aligned malloc implementation is available for your platform."
+#warning "No aligned malloc implementation is available for your platform. Hacking one together for you now..."
         
-        ptr = malloc(count * sizeof(T)); // all else has failed, so just use regular malloc to at least try and get some memory here...
+        // Alignment must be a power of two, bigger than the pointer
+        // size. Stuff the actual malloc'd pointer in just before the
+        // returned value.  This is the least desirable way to do this --
+        // the other options are all better  ¯\_(ツ)_/¯
+        size_t allocd = count * sizeof(T) + alignment;
+        void* buf = malloc(allocd);
+        if (buf != nullptr)
+        {
+            char *adj = (char *)buf;
+            while ((unsigned long long)adj & (alignment-1)) --adj;
+            ptr = ((char *)adj) + alignment;
+            new (((void **)ptr)[-1]) (void *);
+            ((void **)ptr)[-1] = buf;
+        }
         
 #endif /* BV_POSIX_MEMALIGN */
 #endif /* BV_HAVE__ALIGNED_MALLOC */

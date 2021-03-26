@@ -232,56 +232,63 @@ static inline void deinterleave (T* dst,
 }
     
     
-template<typename SampleType>
-static inline void cartesian_to_polar (SampleType* const mag,
-                                       SampleType* const phase,
-                                       const SampleType* const real,
-                                       const SampleType* const imag,
+static inline void cartesian_to_polar (float* const mag,
+                                       float* const phase,
+                                       const float* const real,
+                                       const float* const imag,
                                        const int count)
 {
 #if BV_USE_VDSP
-    if constexpr (std::is_same_v <SampleType, float>)
-    {
-        DSPSplitComplex c;
-        c.realp = const_cast<float*>(real);
-        c.imagp = const_cast<float*>(imag);
-        vDSP_zvmags (&c, 1, phase, 1, vDSP_Length(count)); // using phase as a temporary dest
-        vvsqrtf (mag, phase, &count); // using phase as the source
-        vvatan2f (phase, imag, real, &count);
-    }
-    else if constexpr (std::is_same_v <SampleType, double>)
-    {
-        DSPDoubleSplitComplex c;
-        c.realp = const_cast<double*>(real);
-        c.imagp = const_cast<double*>(imag);
-        vDSP_zvmagsD (&c, 1, phase, 1, vDSP_Length(count)); // using phase as a temporary dest
-        vvsqrt (mag, phase, &count); // using phase as the source
-        vvatan2 (phase, imag, real, &count);
-    }
+    DSPSplitComplex c;
+    c.realp = const_cast<float*>(real);
+    c.imagp = const_cast<float*>(imag);
+    vDSP_zvmags (&c, 1, phase, 1, vDSP_Length(count)); // using phase as a temporary dest
+    vvsqrtf (mag, phase, &count); // using phase as the source
+    vvatan2f (phase, imag, real, &count);
 #elif BV_USE_IPP
-    if constexpr (std::is_same_v <SampleType, float>)
-    {
-        ippsCartToPolar_32f (real, imag, mag, phase, count);
-    }
-    else if constexpr (std::is_same_v <SampleType, double>)
-    {
-        ippsCartToPolar_64f (real, imag, mag, phase, count);
-    }
+    
+    ippsCartToPolar_32f (real, imag, mag, phase, count);
+    
 #else
     for (int i = 0; i < count; ++i)
     {
-        c_magphase<T>(mag + i, phase + i, real[i], imag[i]);
+        const auto r = real[i];
+        const auto c = imag[i];
+        *(mag + i)   = sqrt (r * r + c * c);
+        *(phase + i) = atan2 (c, r);
+    }
+#endif
+}
+    
+static inline void cartesian_to_polar (double* const mag,
+                                       double* const phase,
+                                       const double* const real,
+                                       const double* const imag,
+                                       const int count)
+{
+#if BV_USE_VDSP
+    DSPDoubleSplitComplex c;
+    c.realp = const_cast<double*>(real);
+    c.imagp = const_cast<double*>(imag);
+    vDSP_zvmagsD (&c, 1, phase, 1, vDSP_Length(count)); // using phase as a temporary dest
+    vvsqrt (mag, phase, &count); // using phase as the source
+    vvatan2 (phase, imag, real, &count);
+#elif BV_USE_IPP
+    
+    ippsCartToPolar_64f (real, imag, mag, phase, count);
+    
+#else
+    for (int i = 0; i < count; ++i)
+    {
+        const auto r = real[i];
+        const auto c = imag[i];
+        *(mag + i)   = sqrt (r * r + c * c);
+        *(phase + i) = atan2 (c, r);
     }
 #endif
 }
     
     
-template<typename T>
-static inline void c_magphase (T* mag, T* phase, T real, T imag)
-{
-    *mag = sqrt (real * real + imag * imag);
-    *phase = atan2 (imag, real);
-}
     
     
 }  // namespace
