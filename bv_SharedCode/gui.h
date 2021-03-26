@@ -159,6 +159,21 @@ namespace bav::gui
     }
     
     
+    //==============================================================================
+    
+    /* Returns a unicode sharp symbol.
+     */
+    static inline const juce_wchar getSharpSymbol() noexcept   {   return *CharPointer_UTF8 ("\xe2\x99\xaf");  }
+    
+    /* Returns a unicode flat symbol.
+     */
+    static inline const juce_wchar getFlatSymbol() noexcept    {   return *CharPointer_UTF8 ("\xe2\x99\xad");  }
+    
+    /* Returns a unicode natural symbol.
+     */
+    static inline const juce_wchar getNaturalSymbol() noexcept {   return *CharPointer_UTF8 ("\xe2\x99\xae");  }
+    
+    
     
     /*
         List of icons to be used with the createIcon method.
@@ -501,6 +516,42 @@ namespace bav::gui
                 return blank;
             }
         }
+    }
+    
+    
+    /*
+        Draws a line representing the normalised set of samples to the given Image.
+        Note the samples must be in the range of 1-0 and the line will be stretched to fit the whole image.
+    */
+    static inline void drawBufferToImage (const juce::Image& image, const float* samples, int numSamples, juce::Colour colour, float thickness)
+    {
+        if (image.isNull())
+            return;
+        
+        jassert (image.getWidth() > 0 && image.getHeight() > 0);
+        
+        juce::Graphics g (image);
+        g.setColour (colour);
+        const float imageXScale = image.getWidth() / (float) numSamples;
+        
+        juce::Path p;
+        bool isFirst = true;
+        
+        for (int i = 0; i < numSamples; ++i)
+        {
+            const float x = i * imageXScale;
+            const float y = image.getHeight() - (samples[i] * image.getHeight());
+            
+            if (isFirst)
+            {
+                p.startNewSubPath (x, y);
+                isFirst = false;
+            }
+            
+            p.lineTo (x, y);
+        }
+        
+        g.strokePath (p, juce::PathStrokeType (thickness));
     }
     
     

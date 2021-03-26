@@ -18,6 +18,12 @@
 
 // the rest of this module
 #include "misc/System.h"
+
+#ifdef __clang__
+  #pragma clang diagnostic push
+  #pragma clang diagnostic ignored "-Wunused-function"
+#endif
+
 #include "misc/MessageQueue.h"
 #include "misc/Parameters.h"
 #include "math/mathHelpers.h"
@@ -35,4 +41,27 @@
 #include "dsp/FX/Reverb.h"
 #include "dsp/FIFOWrappedEngine.h"
 #include "gui.h"
+
+
+#ifdef __clang__
+  #pragma clang diagnostic pop
+#endif
+
+
+/*
+    This handy macro is a platform independent way of stopping compiler warnings for unused variables.
+*/
+#ifndef UNUSED_NOWARN
+  #if defined(JUCE_MAC) || defined(JUCE_IOS)
+    // enable supression of unused variable in GCC
+    #define UNUSED_NOWARN __attribute__((unused))
+  #elif defined(JUCE_MSVC)
+    #define UNUSED_NOWARN
+    // disable unused variable warnings in MSVC (Windows)
+    #pragma warning( push )
+    #pragma warning( disable : 4705 )
+  #else
+    #define UNUSED_NOWARN
+  #endif
+#endif
 

@@ -18,6 +18,43 @@ namespace bav::math
     }
     
     
+    /* Returns true if the given integer number is even. */
+    static inline bool isEven (int number) noexcept
+    {
+        return ! (number & 0x1);
+    }
+    
+    /* Returns true if the given integer number is odd. */
+    static inline bool isOdd (int number) noexcept
+    {
+        return number & 0x1;
+    }
+    
+    
+    /* Checks to see if a number is NaN eg. sqrt (-1). */
+    template <typename Type>
+    static inline bool isnan (Type value)
+    {
+#if BV_OSX
+        return std::isnan (value);
+#else
+        volatile Type num = value;
+        return num != num;
+#endif
+    }
+    
+    /* Checks to see if a number is Inf eg. 100.0 / 0.0. */
+    template <typename Type>
+    static inline bool isinf (Type value)
+    {
+#if BV_WINDOWS
+        return ! _finite (value);
+#else
+        return std::isinf (value);
+#endif
+    }
+
+    
     // returns true if n is 2^something
     template<typename Integer>
     static inline bool isPowerOfTwo (Integer n)
