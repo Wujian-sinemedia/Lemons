@@ -14,10 +14,7 @@
      ...based on the current operating system.
  Each macro will be defined to either 1 or 0, so you should reference them by using #if... ,  NOT  #ifdef... !!!
  
-     It also declares a string literal macro BV_OPERATING_SYSTEM_NAME
-    which can be used if you need a text description of the OS.
- 
-    If you are compiling for an Apple target platform, this file will include Apple's vDSP header and vDSP functions will be used where possible in the VectorOps.h file.
+     It also declares a string literal macro BV_OPERATING_SYSTEM_NAME which can be used if you need a text description of the OS.
  */
 
 
@@ -79,7 +76,11 @@
 #endif
 
 #ifndef BV_POSIX
-  #define BV_POSIX 0
+  #if (BV_OSX || BV_LINUX)
+    #define BV_POSIX 1
+  #else
+    #define BV_POSIX 0
+  #endif
 #endif
 
 #ifndef BV_OPERATING_SYSTEM_NAME
@@ -102,6 +103,48 @@
 #else
   #define BV_USE_IPP 0
 #endif
+
+
+/*
+    These conditionals declare the following macros:
+ 
+    - BV_POSIX_MEMALIGN
+    - BV_MALLOC_IS_ALIGNED
+    - BV_HAVE__ALIGNED_MALLOC
+*/
+
+#if (BV_POSIX || BV_BSD)
+  #define BV_POSIX_MEMALIGN 1
+#else
+  #define BV_POSIX_MEMALIGN 0
+#endif
+
+#ifndef MALLOC_IS_NOT_ALIGNED
+  #if BV_APPLE
+    #define BV_MALLOC_IS_ALIGNED 1
+  #endif
+#endif
+
+#ifndef BV_MALLOC_IS_ALIGNED
+  #define BV_MALLOC_IS_ALIGNED 0
+#endif
+
+#ifndef LACK__ALIGNED_MALLOC
+  #if BV_WINDOWS
+    #define BV_HAVE__ALIGNED_MALLOC 1
+  #endif
+#endif
+
+#ifndef BV_HAVE__ALIGNED_MALLOC
+  #define BV_HAVE__ALIGNED_MALLOC 0
+#endif
+
+
+#if BV_POSIX_MEMALIGN
+  #include <sys/mman.h>
+#endif
+
+
 
 
 namespace bav

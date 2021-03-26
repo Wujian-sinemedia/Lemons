@@ -3,53 +3,6 @@
 */
 
 
-#ifndef HAVE_POSIX_MEMALIGN
-  #ifndef LACK_POSIX_MEMALIGN
-    #ifndef _WIN32
-      #ifndef __APPLE__
-        #define HAVE_POSIX_MEMALIGN 1
-      #endif
-    #endif
-  #endif
-#endif
-
-#ifndef HAVE_POSIX_MEMALIGN
-  #define HAVE_POSIX_MEMALIGN 0
-#endif
-
-
-#ifndef MALLOC_IS_ALIGNED
-  #ifndef MALLOC_IS_NOT_ALIGNED
-    #ifdef __APPLE__
-      #define MALLOC_IS_ALIGNED 1
-    #endif
-  #endif
-#endif
-
-#ifndef MALLOC_IS_ALIGNED
-  #define MALLOC_IS_ALIGNED 0
-#endif
-
-#ifndef HAVE__ALIGNED_MALLOC
-  #ifndef LACK__ALIGNED_MALLOC
-    #ifdef _WIN32
-      #define HAVE__ALIGNED_MALLOC 1
-    #endif
-  #endif
-#endif
-
-#ifndef HAVE__ALIGNED_MALLOC
-  #define HAVE__ALIGNED_MALLOC 0
-#endif
-
-
-#if HAVE_POSIX_MEMALIGN
-  #include <sys/mman.h>
-  #include <errno.h>
-#endif
-
-
-
 namespace bav
 {
     
@@ -58,37 +11,36 @@ namespace bav
     {
         void* ptr = nullptr;
         
-#if MALLOC_IS_ALIGNED
+#if BV_MALLOC_IS_ALIGNED
         ptr = malloc(count * sizeof(T));
 #else
         
         // 32-byte alignment is required for at least OpenMAX
         static const int alignment = 32;
         
-#if HAVE__ALIGNED_MALLOC
+#if BV_HAVE__ALIGNED_MALLOC
         ptr = _aligned_malloc(count * sizeof(T), alignment);
 #else
         
-#if HAVE_POSIX_MEMALIGN
+#if BV_POSIX_MEMALIGN
         int rv = posix_memalign(&ptr, alignment, count * sizeof(T));
         
-        if (rv)
+        if (rv != 0)
         {
-            if (rv == EINVAL) {
-                throw std::logic_error("Internal error: invalid alignment");
-            } else {
+            if (rv == EINVAL)
+                throw std::logic_error("Internal error: invalid size passed to aligned_allocate");
+            else
                 throw std::bad_alloc();
-            }
         }
         
-#else /* !HAVE_POSIX_MEMALIGN */
+#else /* BV_POSIX_MEMALIGN */
 #warning "No aligned malloc implementation is available for your platform."
         
-        ptr = malloc(count * sizeof(T));
+        ptr = malloc(count * sizeof(T)); // all else has failed, so just use regular malloc to at least try and get some memory here...
         
-#endif /* !HAVE_POSIX_MEMALIGN */
-#endif /* !HAVE__ALIGNED_MALLOC */
-#endif /* !MALLOC_IS_ALIGNED */
+#endif /* BV_POSIX_MEMALIGN */
+#endif /* BV_HAVE__ALIGNED_MALLOC */
+#endif /* BV_MALLOC_IS_ALIGNED */
         
         if (ptr == nullptr)
         {
@@ -103,6 +55,7 @@ namespace bav
         return typed_ptr;
     }
     
+    
 #if BV_USE_IPP
     
     template <>
@@ -110,7 +63,7 @@ namespace bav
     {
         if (count > INT_MAX)
         {
-            throw std::length_error("Size overflow in allocate");
+            throw std::length_error("Size overflow in aligned_allocate");
         }
         
         float *ptr = ippsMalloc_32f(int(count));
@@ -131,7 +84,7 @@ namespace bav
     {
         if (count > INT_MAX)
         {
-            throw std::length_error("Size overflow in allocate");
+            throw std::length_error("Size overflow in aligned_allocate");
         }
         
         double *ptr = ippsMalloc_64f(int(count));
@@ -161,12 +114,13 @@ namespace bav
         if (ptr == nullptr)
             return;
         
-#if HAVE__ALIGNED_MALLOC
+#if BV_HAVE__ALIGNED_MALLOC
         _aligned_free((void *)ptr);
 #else
         free((void *)ptr);
-#endif /* !HAVE__ALIGNED_MALLOC */
+#endif
     }
+    
     
 #if BV_USE_IPP
     
