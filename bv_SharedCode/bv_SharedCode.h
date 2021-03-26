@@ -40,7 +40,8 @@
 #include "dsp/FX/DeEsser.h"
 #include "dsp/FX/Reverb.h"
 #include "dsp/FIFOWrappedEngine.h"
-#include "gui.h"
+#include "gui/gui.h"
+#include "data/DataHelpers.h"
 
 
 #ifdef __clang__

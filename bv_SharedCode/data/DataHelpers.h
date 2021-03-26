@@ -1,0 +1,97 @@
+
+/*
+    This file includes some useful data serialization functions.
+*/
+
+
+namespace bav::data
+{
+
+
+/*
+ Dumps a given image to a File in png format.
+ If the file parameter is nonexistant a temp file will be created on the desktop.
+ */
+static inline void saveImageToFile (const juce::Image& image, juce::File file)
+{
+    if (! file.exists())
+        file = juce::File::getSpecialLocation (juce::File::userDesktopDirectory).getNonexistentChildFile ("tempImage", ".png");
+    
+    juce::PNGImageFormat format;
+    
+    if (auto os = file.createOutputStream())
+        format.writeImageToStream (image, *os);
+}
+    
+    
+/**
+ Helper function to serialise a system font to a file.
+ This is useful if you want to include a custom font in an application so that is
+ guarenteed to be avialiable cross-platform.
+ 
+ Once you have the generated file you can include it as BinarayData (as generated
+ by ProJucer) and then reload it in a look and feel.
+ 
+ In your LookAndFeel subclass overide getTypeFaceForFont and create a Typeface::Ptr
+ to hold the font e.g.
+ 
+ @code
+ //==============================================================================
+ class FontLookAndFeel : public LookAndFeel
+ {
+ public:
+    const Typeface::Ptr getTypefaceForFont (const Font& font);
+ 
+ private:
+    Typeface::Ptr customTypeface;
+ }
+ @endcode
+ 
+ Then in your constructor reload the font using deserializeFont() and then
+ return your custom typeface in getTypefaceForFont if the requested font names match.
+ 
+ @code
+ //==============================================================================
+ FontLookAndFeel::FontLookAndFeel()
+ {
+    customTypeface = deserializeFont (BinaryData::Custom_Font, BinaryData::Custom_FontSize);
+ }
+ //==============================================================================
+ const Typeface::Ptr FontLookAndFeel::getTypefaceForFont (const Font& font)
+ {
+    if (customTypeface != nullptr && font.getTypefaceName() == customTypeface->getName())
+        return customTypeface;
+ 
+    return LookAndFeel::getTypefaceForFont (font);
+ }
+ @endcode
+ */
+static inline bool serializeFont (const juce::Font& font, juce::File& destinationFile, int maxNumChars = 127)
+{
+    destinationFile.deleteFile();
+    auto outFileStream = destinationFile.createOutputStream();
+    
+    if (outFileStream == nullptr)
+        return false;
+    
+    juce::CustomTypeface customTypeface;
+    customTypeface.setCharacteristics (font.getTypefaceName(), font.getAscent(),
+                                       font.isBold(), font.isItalic(), ' ');
+    customTypeface.addGlyphsFromOtherTypeface (*font.getTypeface(), 0, maxNumChars);
+    
+    return customTypeface.writeToStream (*outFileStream);
+}
+    
+    
+static inline juce::Typeface::Ptr deserializeFont (const void* data, size_t dataSize)
+{
+    juce::ScopedPointer<juce::MemoryInputStream> fontStream (new juce::MemoryInputStream (data, datatSize, false));
+    
+    if (fontStream == nullptr)
+        return nullptr;
+    
+    return new CustomTypeface (*fontStream);
+}
+
+
+}  // namespace

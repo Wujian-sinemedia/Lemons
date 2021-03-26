@@ -8,8 +8,6 @@ namespace bav::math
     */
     
     
-    constexpr float float_Pi = juce::MathConstants<float>::pi;
-    
     
     //  returns true a specified percent of the time
     static inline bool probability (int percentOfTheTime)

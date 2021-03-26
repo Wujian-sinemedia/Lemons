@@ -98,70 +98,6 @@ namespace bav::gui
     }
     
     
-    
-    /**
-     Helper function to serialise a system font to a file.
-     This is useful if you want to include a custom font in an application so that is
-     guarenteed to be avialiable cross-platform.
-     
-     Once you have the generated file you can include it as BinarayData (as generated
-     by theIntorjucer) and then reload it in a look and feel.
-     
-     In your LookAndFeel subclass overide getTypeFaceForFont and create a Typeface::Ptr
-     to hold the font e.g.
-     
-     @code
-     //==============================================================================
-     class FontLookAndFeel : public LookAndFeel
-     {
-     public:
-        const Typeface::Ptr getTypefaceForFont (const Font& font);
-     
-     private:
-        Typeface::Ptr customTypeface;
-     }
-     @endcode
-     
-     Then in your constructor reload the font and the return your custom typeface
-     in getTypefaceForFont if the requested font names match.
-     
-     @code
-     //==============================================================================
-     FontLookAndFeel::FontLookAndFeel()
-     {
-        ScopedPointer<MemoryInputStream> fontStream (new MemoryInputStream (BinaryData::Custom_Font,
-                                                                            BinaryData::Custom_FontSize,
-                                                                            false));
-        if (fontStream != nullptr)
-            customTypeface = new CustomTypeface (*fontStream);
-     }
-     //==============================================================================
-     const Typeface::Ptr FontLookAndFeel::getTypefaceForFont (const Font& font)
-     {
-        if (customTypeface != nullptr && font.getTypefaceName() == customTypeface->getName())
-            return customTypeface;
-     
-        return LookAndFeel::getTypefaceForFont (font);
-     }
-     @endcode
-     */
-    static inline bool serializeFont (const juce::Font& font, juce::File& destinationFile, int maxNumChars = 127)
-    {
-        destinationFile.deleteFile();
-        auto outFileStream = destinationFile.createOutputStream();
-        
-        if (outFileStream == nullptr)
-            return false;
-        
-        juce::CustomTypeface customTypeface;
-        customTypeface.setCharacteristics (font.getTypefaceName(), font.getAscent(),
-                                           font.isBold(), font.isItalic(), ' ');
-        customTypeface.addGlyphsFromOtherTypeface (*font.getTypeface(), 0, maxNumChars);
-        
-        return customTypeface.writeToStream (*outFileStream);
-    }
-    
-    
     //==============================================================================
     
     /* Returns a unicode sharp symbol.
@@ -371,7 +307,8 @@ namespace bav::gui
             case Power:
             {
                 juce::Path p;
-                p.addArc (0.0f, 20.0f, 100.0f, 100.0f, 0.18f * math::float_Pi, 2.0f * math::float_Pi - (0.18f * math::float_Pi), true);
+                p.addArc (0.0f, 20.0f, 100.0f, 100.0f, 0.18f * juce::MathConstants<float>::pi,
+                          2.0f * juce::MathConstants<float>::pi - (0.18f * juce::MathConstants<float>::pi), true);
                 p.startNewSubPath (50.0f, 0.0f);
                 p.lineTo (50.0f, 70.0f);
                 
@@ -470,7 +407,7 @@ namespace bav::gui
                 p.addPolygon (juce::Point<float> (50.0f, 50.0f),
                               8,
                               50.0f,
-                              math::float_Pi * -0.125f);
+                              juce::MathConstants<float>::pi * -0.125f);
                 
                 juce::DrawablePath dp;
                 dp.setFill (colour);
@@ -485,9 +422,9 @@ namespace bav::gui
                 juce::Path p;
                 p.addRoundedRectangle (0.0f, 33.0f, 33.0f, 33.0f, 2.0f);
                 p.addTriangle (7.5f, 50.0f, 55.0f, 6.5f, 55.0f, 93.5f);
-                p.addArc (60.0f, 30.0f, 12.0f, 40.0f, math::float_Pi * 0.15f, math::float_Pi * 0.85f, true);
-                p.addArc (70.0f, 20.0f, 16.0f, 60.0f, math::float_Pi * 0.15f, math::float_Pi * 0.85f, true);
-                p.addArc (80.0f, 10.0f, 20.0f, 80.0f, math::float_Pi * 0.15f, math::float_Pi * 0.85f, true);
+                p.addArc (60.0f, 30.0f, 12.0f, 40.0f, juce::MathConstants<float>::pi * 0.15f, juce::MathConstants<float>::pi * 0.85f, true);
+                p.addArc (70.0f, 20.0f, 16.0f, 60.0f, juce::MathConstants<float>::pi, juce::MathConstants<float>::pi * 0.85f, true);
+                p.addArc (80.0f, 10.0f, 20.0f, 80.0f, juce::MathConstants<float>::pi * 0.15f, juce::MathConstants<float>::pi * 0.85f, true);
                 
                 juce::DrawablePath dp;
                 dp.setFill (colour);

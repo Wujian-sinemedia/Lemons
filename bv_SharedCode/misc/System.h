@@ -123,21 +123,5 @@ static inline juce::File getPresetsFolder (std::string companyName, std::string 
     return rootFolder;
 }
     
-    
-/*
-    Dumps a given image to a File in png format.
-    If the file parameter is nonexistant a temp file will be created on the desktop.
-*/
-static inline void saveImageToFile (const juce::Image& image, juce::File file)
-{
-    if (! file.exists())
-        file = juce::File::getSpecialLocation (juce::File::userDesktopDirectory).getNonexistentChildFile ("tempImage", ".png");
-    
-    juce::PNGImageFormat format;
-    
-    if (auto os = file.createOutputStream())
-        format.writeImageToStream (image, *os);
-}
-
 
 }  // namespace
