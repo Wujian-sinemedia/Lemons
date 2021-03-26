@@ -79,14 +79,14 @@ namespace bav::gui
         g.saveState();
         
         g.setColour (baseColour);
-        g.strokePath (pL, PathStrokeType (bevelThickness));
-        g.strokePath (pR, PathStrokeType (bevelThickness));
+        g.strokePath (pL, juce::PathStrokeType (bevelThickness));
+        g.strokePath (pR, juce::PathStrokeType (bevelThickness));
         
         g.setColour (baseColour.darker (0.5f));
-        g.strokePath (pT, PathStrokeType (bevelThickness, juce::PathStrokeType::mitered, juce::PathStrokeType::square));
+        g.strokePath (pT, juce::PathStrokeType (bevelThickness, juce::PathStrokeType::mitered, juce::PathStrokeType::square));
         
         g.setColour (baseColour.brighter (0.5f));
-        g.strokePath (pB, PathStrokeType (bevelThickness, juce::PathStrokeType::mitered, juce::PathStrokeType::square));
+        g.strokePath (pB, juce::PathStrokeType (bevelThickness, juce::PathStrokeType::mitered, juce::PathStrokeType::square));
         
         g.setColour (baseColour);
         g.fillPath (pTL);
@@ -144,18 +144,11 @@ namespace bav::gui
         return LookAndFeel::getTypefaceForFont (font);
      }
      @endcode
-     
-     @param font             The font to serialise.
-     @param destinationFile  The file to serialise the font to.
-     @param maxNumChars      The maximum number of characters to serialise.
-     @return                 True if the font was written successfully, false otherwise
-     
-     @see Font, CustomTypeface
      */
     static bool serializeFont (const juce::Font& font, juce::File& destinationFile, int maxNumChars = 127)
     {
         destinationFile.deleteFile();
-        juce::ScopedPointer<FileOutputStream> outFileStream (destinationFile.createOutputStream());
+        juce::ScopedPointer<juce::FileOutputStream> outFileStream (destinationFile.createOutputStream());
         
         juce::CustomTypeface customTypeface;
         customTypeface.setCharacteristics (font.getTypefaceName(), font.getAscent(),
