@@ -233,10 +233,10 @@ static inline void deinterleave (T* dst,
     
     
 template<typename SampleType>
-static inline void cartesian_to_polar (float* const mag,
-                                       float* const phase,
-                                       const float* const real,
-                                       const float* const imag,
+static inline void cartesian_to_polar (SampleType* const mag,
+                                       SampleType* const phase,
+                                       const SampleType* const real,
+                                       const SampleType* const imag,
                                        const int count)
 {
 #if BV_USE_VDSP
