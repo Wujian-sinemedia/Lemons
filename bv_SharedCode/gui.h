@@ -147,15 +147,15 @@ namespace bav::gui
      */
     static bool serializeFont (const juce::Font& font, juce::File& destinationFile, int maxNumChars = 127)
     {
-        destinationFile.deleteFile();
-        juce::ScopedPointer<juce::FileOutputStream> outFileStream (destinationFile.createOutputStream());
-        
-        juce::CustomTypeface customTypeface;
-        customTypeface.setCharacteristics (font.getTypefaceName(), font.getAscent(),
-                                           font.isBold(), font.isItalic(), ' ');
-        customTypeface.addGlyphsFromOtherTypeface (*font.getTypeface(), 0, maxNumChars);
-        
-        return customTypeface.writeToStream (*outFileStream);
+//        destinationFile.deleteFile();
+//        juce::ScopedPointer<juce::FileOutputStream> outFileStream (destinationFile.createOutputStream());
+//
+//        juce::CustomTypeface customTypeface;
+//        customTypeface.setCharacteristics (font.getTypefaceName(), font.getAscent(),
+//                                           font.isBold(), font.isItalic(), ' ');
+//        customTypeface.addGlyphsFromOtherTypeface (*font.getTypeface(), 0, maxNumChars);
+//
+//        return customTypeface.writeToStream (*outFileStream);
     }
     
     
