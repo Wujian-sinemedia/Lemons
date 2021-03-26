@@ -145,17 +145,20 @@ namespace bav::gui
      }
      @endcode
      */
-    static bool serializeFont (const juce::Font& font, juce::File& destinationFile, int maxNumChars = 127)
+    static inline bool serializeFont (const juce::Font& font, juce::File& destinationFile, int maxNumChars = 127)
     {
-//        destinationFile.deleteFile();
-//        juce::ScopedPointer<juce::FileOutputStream> outFileStream (destinationFile.createOutputStream());
-//
-//        juce::CustomTypeface customTypeface;
-//        customTypeface.setCharacteristics (font.getTypefaceName(), font.getAscent(),
-//                                           font.isBold(), font.isItalic(), ' ');
-//        customTypeface.addGlyphsFromOtherTypeface (*font.getTypeface(), 0, maxNumChars);
-//
-//        return customTypeface.writeToStream (*outFileStream);
+        destinationFile.deleteFile();
+        auto outFileStream = destinationFile.createOutputStream();
+        
+        if (outFileStream == nullptr)
+            return false;
+        
+        juce::CustomTypeface customTypeface;
+        customTypeface.setCharacteristics (font.getTypefaceName(), font.getAscent(),
+                                           font.isBold(), font.isItalic(), ' ');
+        customTypeface.addGlyphsFromOtherTypeface (*font.getTypeface(), 0, maxNumChars);
+        
+        return customTypeface.writeToStream (*outFileStream);
     }
     
     
@@ -163,15 +166,15 @@ namespace bav::gui
     
     /* Returns a unicode sharp symbol.
      */
-    static inline const juce_wchar getSharpSymbol() noexcept   {   return *CharPointer_UTF8 ("\xe2\x99\xaf");  }
+    static inline const juce::juce_wchar getSharpSymbol() noexcept   {   return *juce::CharPointer_UTF8 ("\xe2\x99\xaf");  }
     
     /* Returns a unicode flat symbol.
      */
-    static inline const juce_wchar getFlatSymbol() noexcept    {   return *CharPointer_UTF8 ("\xe2\x99\xad");  }
+    static inline const juce::juce_wchar getFlatSymbol() noexcept    {   return *juce::CharPointer_UTF8 ("\xe2\x99\xad");  }
     
     /* Returns a unicode natural symbol.
      */
-    static inline const juce_wchar getNaturalSymbol() noexcept {   return *CharPointer_UTF8 ("\xe2\x99\xae");  }
+    static inline const juce::juce_wchar getNaturalSymbol() noexcept {   return *juce::CharPointer_UTF8 ("\xe2\x99\xae");  }
     
     
     
@@ -207,7 +210,7 @@ namespace bav::gui
     /*
         Creates an icon in a given colour.
      */
-    static inline juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
+    static juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
     {
         switch (icon)
         {
