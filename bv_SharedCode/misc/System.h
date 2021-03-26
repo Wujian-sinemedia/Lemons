@@ -87,11 +87,20 @@
 #endif
 
 
-#if (BV_APPLE)
+#if BV_APPLE
   #define BV_USE_VDSP 1
   #include <Accelerate/Accelerate.h>
 #else
   #define BV_USE_VDSP 0
+#endif
+
+
+#if INTEL_IPP
+  #define BV_USE_IPP 1
+  #include <ippversion.h>
+  #include <ipps.h>
+#else
+  #define BV_USE_IPP 0
 #endif
 
 

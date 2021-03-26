@@ -18,6 +18,7 @@
 
 // the rest of this module
 #include "misc/System.h"
+#include "misc/AlignedAllocate.h"
 
 #ifdef __clang__
   #pragma clang diagnostic push
