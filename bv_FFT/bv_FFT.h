@@ -1009,9 +1009,11 @@ public:
     
     void inverseCepstral (const float* BV_R_ magIn, float* BV_R_ cepOut) override
     {
+        vecops::convert (m_e, magIn, m_half + 1);
+        
         for (int i = 0; i <= m_half; ++i)
         {
-            m_a[i] = logf(double(magIn[i]) + 0.000001);
+            m_a[i] = logf(m_e[i] + 0.000001);
             m_b[i] = 0.0;
         }
         transformI (m_a, m_b, cepOut);
@@ -1179,7 +1181,7 @@ private:
                 cm1 = m_sincos[ix++];
                 cm2 = m_sincos[ix++];
             } else {
-                double phase = 2.0 * M_PI / double(blockSize);
+                double phase = 2.0 * juce::MathConstants<double>::pi / double(blockSize);
                 sm1 = ifactor * sin(phase);
                 sm2 = ifactor * sin(2.0 * phase);
                 cm1 = cos(phase);
