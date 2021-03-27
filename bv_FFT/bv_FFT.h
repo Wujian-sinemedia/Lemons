@@ -859,18 +859,17 @@ public:
         m_blockTableSize(16),
         m_maxTabledBlock(1 << m_blockTableSize)
     {
-        const auto half = size_t(size / 2);
-        m_table = aligned_allocate_zero<int>(half);
-        m_sincos = aligned_allocate_zero<double>(m_blockTableSize * 4);
-        m_sincos_r = aligned_allocate_zero<double>(half);
-        m_vr = aligned_allocate_zero<double>(half);
-        m_vi = aligned_allocate_zero<double>(half);
-        m_a = aligned_allocate_zero<double>(half + 1);
-        m_b = aligned_allocate_zero<double>(half + 1);
-        m_c = aligned_allocate_zero<double>(half + 1);
-        m_d = aligned_allocate_zero<double>(half + 1);
-        m_e = aligned_allocate_zero<double>(half + 1);
-        m_f = aligned_allocate_zero<double>(half + 1);
+        m_table = aligned_allocate_zero<int>(m_half);
+        m_sincos = aligned_allocate_zero<double>(size_t(m_blockTableSize * 4));
+        m_sincos_r = aligned_allocate_zero<double>(m_half);
+        m_vr = aligned_allocate_zero<double>(m_half);
+        m_vi = aligned_allocate_zero<double>(m_half);
+        m_a = aligned_allocate_zero<double>(m_half + 1);
+        m_b = aligned_allocate_zero<double>(m_half + 1);
+        m_c = aligned_allocate_zero<double>(m_half + 1);
+        m_d = aligned_allocate_zero<double>(m_half + 1);
+        m_e = aligned_allocate_zero<double>(m_half + 1);
+        m_f = aligned_allocate_zero<double>(m_half + 1);
         m_a_and_b[0] = m_a;
         m_a_and_b[1] = m_b;
         m_c_and_d[0] = m_c;
