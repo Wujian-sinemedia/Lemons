@@ -14,7 +14,7 @@ namespace bav::vecops
 BV_FORCE_INLINE void fill (float* BV_R_ vector, const float value, const int count)
 {
 #if BV_USE_VDSP
-    vDSP_vfill (&value, vector, vDSP_Stride(1), vdSP_Length(count));
+    vDSP_vfill (&value, vector, vDSP_Stride(1), vDSP_Length(count));
 #elif BV_USE_IPP
     
 #else
@@ -25,7 +25,7 @@ BV_FORCE_INLINE void fill (float* BV_R_ vector, const float value, const int cou
 BV_FORCE_INLINE void fill (double* BV_R_ vector, const double value, const int count)
 {
 #if BV_USE_VDSP
-    vDSP_vfillD (&value, vector, vDSP_Stride(1), vdSP_Length(count));
+    vDSP_vfillD (&value, vector, vDSP_Stride(1), vDSP_Length(count));
 #elif BV_USE_IPP
     
 #else
