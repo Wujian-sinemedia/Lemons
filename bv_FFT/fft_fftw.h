@@ -1,0 +1,501 @@
+/*
+ FFT class using FFTW.
+*/
+
+
+/*
+ Define FFTW_DOUBLE_ONLY to make all uses of FFTW functions be
+ double-precision (so "float" FFTs are calculated by casting to
+ doubles and using the double-precision FFTW function).
+ Define FFTW_SINGLE_ONLY to make all uses of FFTW functions be
+ single-precision (so "double" FFTs are calculated by casting to
+ floats and using the single-precision FFTW function).
+ Neither of these flags is desirable for either performance or
+ precision. The main reason to define either flag is to avoid linking
+ against both fftw3 and fftw3f libraries.
+ */
+
+//#define FFTW_DOUBLE_ONLY 1
+//#define FFTW_SINGLE_ONLY 1
+
+#if defined(FFTW_DOUBLE_ONLY) && defined(FFTW_SINGLE_ONLY)
+// Can't meaningfully define both
+#error Can only define one of FFTW_DOUBLE_ONLY and FFTW_SINGLE_ONLY
+#endif
+
+#ifdef FFTW_DOUBLE_ONLY
+  #define fft_float_type double
+  #define fftwf_complex fftw_complex
+  #define fftwf_plan fftw_plan
+  #define fftwf_plan_dft_r2c_1d fftw_plan_dft_r2c_1d
+  #define fftwf_plan_dft_c2r_1d fftw_plan_dft_c2r_1d
+  #define fftwf_destroy_plan fftw_destroy_plan
+  #define fftwf_malloc fftw_malloc
+  #define fftwf_free fftw_free
+  #define fftwf_execute fftw_execute
+  #define atan2f atan2
+  #define sqrtf sqrt
+  #define cosf cos
+  #define sinf sin
+#else
+  #define fft_float_type float
+#endif /* FFTW_DOUBLE_ONLY */
+
+#ifdef FFTW_SINGLE_ONLY
+  #define fft_double_type float
+  #define fftw_complex fftwf_complex
+  #define fftw_plan fftwf_plan
+  #define fftw_plan_dft_r2c_1d fftwf_plan_dft_r2c_1d
+  #define fftw_plan_dft_c2r_1d fftwf_plan_dft_c2r_1d
+  #define fftw_destroy_plan fftwf_destroy_plan
+  #define fftw_malloc fftwf_malloc
+  #define fftw_free fftwf_free
+  #define fftw_execute fftwf_execute
+  #define atan2 atan2f
+  #define sqrt sqrtf
+  #define cos cosf
+  #define sin sinf
+#else
+  #define fft_double_type double
+#endif /* FFTW_SINGLE_ONLY */
+
+class FFT : public FFTImpl
+{
+public:
+    FFT(int size) :
+        m_fplanf(0), m_dplanf(0), m_size(size)
+    {
+    }
+    
+    ~FFT() override
+    {
+        if (m_fplanf)
+        {
+            fftwf_destroy_plan(m_fplanf);
+            fftwf_destroy_plan(m_fplani);
+            fftwf_free(m_fbuf);
+            fftwf_free(m_fpacked);
+        }
+        if (m_dplanf)
+        {
+            fftw_destroy_plan(m_dplanf);
+            fftw_destroy_plan(m_dplani);
+            fftw_free(m_dbuf);
+            fftw_free(m_dpacked);
+        }
+        if (m_extantf <= 0 && m_extantd <= 0) {
+#ifndef FFTW_DOUBLE_ONLY
+            fftwf_cleanup();
+#endif
+#ifndef FFTW_SINGLE_ONLY
+            fftw_cleanup();
+#endif
+        }
+    }
+    
+    int getSize() const
+    {
+        return m_size;
+    }
+    
+    bool isFloatInitialized() override
+    {
+        return m_fplanf;
+    }
+    
+    bool isDoubleInitialized() override
+    {
+        return m_dplanf;
+    }
+    
+    void initFloat()
+    {
+        if (m_fplanf) return;
+        
+        m_fbuf = (fft_float_type *)fftw_malloc(m_size * sizeof(fft_float_type));
+        m_fpacked = (fftwf_complex *)fftw_malloc
+        ((m_size/2 + 1) * sizeof(fftwf_complex));
+
+        m_fplanf = fftwf_plan_dft_r2c_1d
+        (m_size, m_fbuf, m_fpacked, FFTW_ESTIMATE);
+        m_fplani = fftwf_plan_dft_c2r_1d
+        (m_size, m_fpacked, m_fbuf, FFTW_ESTIMATE);
+    }
+    
+    void initDouble()
+    {
+        if (m_dplanf) return;
+        
+        m_dbuf = (fft_double_type *)fftw_malloc(m_size * sizeof(fft_double_type));
+        m_dpacked = (fftw_complex *)fftw_malloc
+        ((m_size/2 + 1) * sizeof(fftw_complex));
+
+        m_dplanf = fftw_plan_dft_r2c_1d
+        (m_size, m_dbuf, m_dpacked, FFTW_ESTIMATE);
+        m_dplani = fftw_plan_dft_c2r_1d
+        (m_size, m_dpacked, m_dbuf, FFTW_ESTIMATE);
+    }
+    
+    
+    void forward (const double *BQ_R__ realIn, double *BQ_R__ realOut, double *BQ_R__ imagOut)
+    {
+        if (!m_dplanf) initDouble();
+        const int sz = m_size;
+        fft_double_type *const BQ_R__ dbuf = m_dbuf;
+#ifndef FFTW_SINGLE_ONLY
+        if (realIn != dbuf)
+#endif
+            for (int i = 0; i < sz; ++i) {
+                dbuf[i] = realIn[i];
+            }
+        fftw_execute(m_dplanf);
+        unpackDouble(realOut, imagOut);
+    }
+    
+    void forwardInterleaved(const double *BQ_R__ realIn, double *BQ_R__ complexOut) {
+        if (!m_dplanf) initDouble();
+        const int sz = m_size;
+        fft_double_type *const BQ_R__ dbuf = m_dbuf;
+#ifndef FFTW_SINGLE_ONLY
+        if (realIn != dbuf)
+#endif
+            for (int i = 0; i < sz; ++i) {
+                dbuf[i] = realIn[i];
+            }
+        fftw_execute(m_dplanf);
+        v_convert(complexOut, (const fft_double_type *)m_dpacked, sz + 2);
+    }
+    
+    void forwardPolar(const double *BQ_R__ realIn, double *BQ_R__ magOut, double *BQ_R__ phaseOut) {
+        if (!m_dplanf) initDouble();
+        fft_double_type *const BQ_R__ dbuf = m_dbuf;
+        const int sz = m_size;
+#ifndef FFTW_SINGLE_ONLY
+        if (realIn != dbuf)
+#endif
+            for (int i = 0; i < sz; ++i) {
+                dbuf[i] = realIn[i];
+            }
+        fftw_execute(m_dplanf);
+        v_cartesian_interleaved_to_polar
+        (magOut, phaseOut, (const fft_double_type *)m_dpacked, m_size/2+1);
+    }
+    
+    void forwardMagnitude(const double *BQ_R__ realIn, double *BQ_R__ magOut) {
+        if (!m_dplanf) initDouble();
+        fft_double_type *const BQ_R__ dbuf = m_dbuf;
+        const int sz = m_size;
+#ifndef FFTW_SINGLE_ONLY
+        if (realIn != m_dbuf)
+#endif
+            for (int i = 0; i < sz; ++i) {
+                dbuf[i] = realIn[i];
+            }
+        fftw_execute(m_dplanf);
+        v_cartesian_interleaved_to_magnitudes
+        (magOut, (const fft_double_type *)m_dpacked, m_size/2+1);
+    }
+    
+    void forward(const float *BQ_R__ realIn, float *BQ_R__ realOut, float *BQ_R__ imagOut) {
+        if (!m_fplanf) initFloat();
+        fft_float_type *const BQ_R__ fbuf = m_fbuf;
+        const int sz = m_size;
+#ifndef FFTW_DOUBLE_ONLY
+        if (realIn != fbuf)
+#endif
+            for (int i = 0; i < sz; ++i) {
+                fbuf[i] = realIn[i];
+            }
+        fftwf_execute(m_fplanf);
+        unpackFloat(realOut, imagOut);
+    }
+    
+    void forwardInterleaved(const float *BQ_R__ realIn, float *BQ_R__ complexOut) {
+        if (!m_fplanf) initFloat();
+        fft_float_type *const BQ_R__ fbuf = m_fbuf;
+        const int sz = m_size;
+#ifndef FFTW_DOUBLE_ONLY
+        if (realIn != fbuf)
+#endif
+            for (int i = 0; i < sz; ++i) {
+                fbuf[i] = realIn[i];
+            }
+        fftwf_execute(m_fplanf);
+        v_convert(complexOut, (const fft_float_type *)m_fpacked, sz + 2);
+    }
+    
+    void forwardPolar(const float *BQ_R__ realIn, float *BQ_R__ magOut, float *BQ_R__ phaseOut) {
+        if (!m_fplanf) initFloat();
+        fft_float_type *const BQ_R__ fbuf = m_fbuf;
+        const int sz = m_size;
+#ifndef FFTW_DOUBLE_ONLY
+        if (realIn != fbuf)
+#endif
+            for (int i = 0; i < sz; ++i) {
+                fbuf[i] = realIn[i];
+            }
+        fftwf_execute(m_fplanf);
+        v_cartesian_interleaved_to_polar
+        (magOut, phaseOut, (const fft_float_type *)m_fpacked, m_size/2+1);
+    }
+    
+    void forwardMagnitude(const float *BQ_R__ realIn, float *BQ_R__ magOut) {
+        if (!m_fplanf) initFloat();
+        fft_float_type *const BQ_R__ fbuf = m_fbuf;
+        const int sz = m_size;
+#ifndef FFTW_DOUBLE_ONLY
+        if (realIn != fbuf)
+#endif
+            for (int i = 0; i < sz; ++i) {
+                fbuf[i] = realIn[i];
+            }
+        fftwf_execute(m_fplanf);
+        v_cartesian_interleaved_to_magnitudes
+        (magOut, (const fft_float_type *)m_fpacked, m_size/2+1);
+    }
+    
+    void inverse(const double *BQ_R__ realIn, const double *BQ_R__ imagIn, double *BQ_R__ realOut) {
+        if (!m_dplanf) initDouble();
+        packDouble(realIn, imagIn);
+        fftw_execute(m_dplani);
+        const int sz = m_size;
+        fft_double_type *const BQ_R__ dbuf = m_dbuf;
+#ifndef FFTW_SINGLE_ONLY
+        if (realOut != dbuf)
+#endif
+            for (int i = 0; i < sz; ++i) {
+                realOut[i] = dbuf[i];
+            }
+    }
+    
+    void inverseInterleaved(const double *BQ_R__ complexIn, double *BQ_R__ realOut) {
+        if (!m_dplanf) initDouble();
+        v_convert((fft_double_type *)m_dpacked, complexIn, m_size + 2);
+        fftw_execute(m_dplani);
+        const int sz = m_size;
+        fft_double_type *const BQ_R__ dbuf = m_dbuf;
+#ifndef FFTW_SINGLE_ONLY
+        if (realOut != dbuf)
+#endif
+            for (int i = 0; i < sz; ++i) {
+                realOut[i] = dbuf[i];
+            }
+    }
+    
+    void inversePolar(const double *BQ_R__ magIn, const double *BQ_R__ phaseIn, double *BQ_R__ realOut) {
+        if (!m_dplanf) initDouble();
+        v_polar_to_cartesian_interleaved
+        ((fft_double_type *)m_dpacked, magIn, phaseIn, m_size/2+1);
+        fftw_execute(m_dplani);
+        const int sz = m_size;
+        fft_double_type *const BQ_R__ dbuf = m_dbuf;
+#ifndef FFTW_SINGLE_ONLY
+        if (realOut != dbuf)
+#endif
+            for (int i = 0; i < sz; ++i) {
+                realOut[i] = dbuf[i];
+            }
+    }
+    
+    void inverseCepstral(const double *BQ_R__ magIn, double *BQ_R__ cepOut) {
+        if (!m_dplanf) initDouble();
+        fft_double_type *const BQ_R__ dbuf = m_dbuf;
+        fftw_complex *const BQ_R__ dpacked = m_dpacked;
+        const int hs = m_size/2;
+        for (int i = 0; i <= hs; ++i) {
+            dpacked[i][0] = log(magIn[i] + 0.000001);
+        }
+        for (int i = 0; i <= hs; ++i) {
+            dpacked[i][1] = 0.0;
+        }
+        fftw_execute(m_dplani);
+        const int sz = m_size;
+#ifndef FFTW_SINGLE_ONLY
+        if (cepOut != dbuf)
+#endif
+            for (int i = 0; i < sz; ++i) {
+                cepOut[i] = dbuf[i];
+            }
+    }
+    
+    void inverse(const float *BQ_R__ realIn, const float *BQ_R__ imagIn, float *BQ_R__ realOut) {
+        if (!m_fplanf) initFloat();
+        packFloat(realIn, imagIn);
+        fftwf_execute(m_fplani);
+        const int sz = m_size;
+        fft_float_type *const BQ_R__ fbuf = m_fbuf;
+#ifndef FFTW_DOUBLE_ONLY
+        if (realOut != fbuf)
+#endif
+            for (int i = 0; i < sz; ++i) {
+                realOut[i] = fbuf[i];
+            }
+    }
+    
+    void inverseInterleaved(const float *BQ_R__ complexIn, float *BQ_R__ realOut) {
+        if (!m_fplanf) initFloat();
+        v_convert((fft_float_type *)m_fpacked, complexIn, m_size + 2);
+        fftwf_execute(m_fplani);
+        const int sz = m_size;
+        fft_float_type *const BQ_R__ fbuf = m_fbuf;
+#ifndef FFTW_DOUBLE_ONLY
+        if (realOut != fbuf)
+#endif
+            for (int i = 0; i < sz; ++i) {
+                realOut[i] = fbuf[i];
+            }
+    }
+    
+    void inversePolar(const float *BQ_R__ magIn, const float *BQ_R__ phaseIn, float *BQ_R__ realOut) {
+        if (!m_fplanf) initFloat();
+        v_polar_to_cartesian_interleaved
+        ((fft_float_type *)m_fpacked, magIn, phaseIn, m_size/2+1);
+        fftwf_execute(m_fplani);
+        const int sz = m_size;
+        fft_float_type *const BQ_R__ fbuf = m_fbuf;
+#ifndef FFTW_DOUBLE_ONLY
+        if (realOut != fbuf)
+#endif
+            for (int i = 0; i < sz; ++i) {
+                realOut[i] = fbuf[i];
+            }
+    }
+    
+    void inverseCepstral(const float *BQ_R__ magIn, float *BQ_R__ cepOut) {
+        if (!m_fplanf) initFloat();
+        const int hs = m_size/2;
+        fftwf_complex *const BQ_R__ fpacked = m_fpacked;
+        for (int i = 0; i <= hs; ++i) {
+            fpacked[i][0] = logf(magIn[i] + 0.000001f);
+        }
+        for (int i = 0; i <= hs; ++i) {
+            fpacked[i][1] = 0.f;
+        }
+        fftwf_execute(m_fplani);
+        const int sz = m_size;
+        fft_float_type *const BQ_R__ fbuf = m_fbuf;
+#ifndef FFTW_DOUBLE_ONLY
+        if (cepOut != fbuf)
+#endif
+            for (int i = 0; i < sz; ++i) {
+                cepOut[i] = fbuf[i];
+            }
+    }
+    
+    
+private:
+    void packFloat (const float *BQ_R__ re, const float *BQ_R__ im)
+    {
+        const int hs = m_size/2;
+        fftwf_complex *const BQ_R__ fpacked = m_fpacked;
+        for (int i = 0; i <= hs; ++i) {
+            fpacked[i][0] = re[i];
+        }
+        if (im) {
+            for (int i = 0; i <= hs; ++i) {
+                fpacked[i][1] = im[i];
+            }
+        } else {
+            for (int i = 0; i <= hs; ++i) {
+                fpacked[i][1] = 0.f;
+            }
+        }
+    }
+    
+    void packDouble (const double *BQ_R__ re, const double *BQ_R__ im)
+    {
+        const int hs = m_size/2;
+        fftw_complex *const BQ_R__ dpacked = m_dpacked;
+        for (int i = 0; i <= hs; ++i) {
+            dpacked[i][0] = re[i];
+        }
+        if (im) {
+            for (int i = 0; i <= hs; ++i) {
+                dpacked[i][1] = im[i];
+            }
+        } else {
+            for (int i = 0; i <= hs; ++i) {
+                dpacked[i][1] = 0.0;
+            }
+        }
+    }
+    
+    void unpackFloat (float *BQ_R__ re, float *BQ_R__ im)
+    {
+        const int hs = m_size/2;
+        for (int i = 0; i <= hs; ++i) {
+            re[i] = m_fpacked[i][0];
+        }
+        if (im) {
+            for (int i = 0; i <= hs; ++i) {
+                im[i] = m_fpacked[i][1];
+            }
+        }
+    }
+    
+    void unpackDouble (double *BQ_R__ re, double *BQ_R__ im)
+    {
+        const int hs = m_size/2;
+        for (int i = 0; i <= hs; ++i) {
+            re[i] = m_dpacked[i][0];
+        }
+        if (im) {
+            for (int i = 0; i <= hs; ++i) {
+                im[i] = m_dpacked[i][1];
+            }
+        }
+    }
+    
+    fftwf_plan m_fplanf;
+    fftwf_plan m_fplani;
+#ifdef FFTW_DOUBLE_ONLY
+    double *m_fbuf;
+#else
+    float *m_fbuf;
+#endif
+    fftwf_complex *m_fpacked;
+    fftw_plan m_dplanf;
+    fftw_plan m_dplani;
+#ifdef FFTW_SINGLE_ONLY
+    float *m_dbuf;
+#else
+    double *m_dbuf;
+#endif
+    fftw_complex *m_dpacked;
+    const int m_size;
+    static int m_extantf;
+    static int m_extantd;
+};
+
+#undef fft_float_type
+#undef fft_double_type
+
+#ifdef FFTW_DOUBLE_ONLY
+  #undef fftwf_complex
+  #undef fftwf_plan
+  #undef fftwf_plan_dft_r2c_1d
+  #undef fftwf_plan_dft_c2r_1d
+  #undef fftwf_destroy_plan
+  #undef fftwf_malloc
+  #undef fftwf_free
+  #undef fftwf_execute
+  #undef atan2f
+  #undef sqrtf
+  #undef cosf
+  #undef sinf
+#endif /* FFTW_DOUBLE_ONLY */
+
+#ifdef FFTW_SINGLE_ONLY
+  #undef fftw_complex
+  #undef fftw_plan
+  #undef fftw_plan_dft_r2c_1d
+  #undef fftw_plan_dft_c2r_1d
+  #undef fftw_destroy_plan
+  #undef fftw_malloc
+  #undef fftw_free
+  #undef fftw_execute
+  #undef atan2
+  #undef sqrt
+  #undef cos
+  #undef sin
+#endif /* FFTW_SINGLE_ONLY */
