@@ -95,6 +95,14 @@
   #define BV_USE_VDSP 0
 #endif
 
+#ifndef JUCE_USE_VDSP_FRAMEWORK
+  #if BV_USE_VDSP
+    #define JUCE_USE_VDSP_FRAMEWORK 1
+  #else
+    #define JUCE_USE_VDSP_FRAMEWORK 0
+  #endif
+#endif
+
 
 #if INTEL_IPP
   #define BV_USE_IPP 1

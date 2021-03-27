@@ -5,27 +5,105 @@ namespace bav::vecops
 
     /*
         This namespace contains several floating inlined functions that extend the functionality of JUCE's FloatVectorOperations class.
-        Apple's vDSP framework is used where possible.
+        Apple's vDSP framework and Intel IPP are used where possible.
     */
-
+    
+    
+// replaces each element in the passed vector with its square root
+static inline void squareRoot (float* BV_R_ data, const int dataSize)
+{
+#if BV_USE_VDSP
+    vvsqrtf (data, data, &dataSize);
+#elif BV_USE_IPP
+    ippsSqrt_32f_I (data, dataSize);
+#else
+    for (int i = 0; i < dataSize; ++i) {
+        data[i] = sqrt (data[i]);
+    }
+#endif
+}
+    
+static inline void squareRoot (double* BV_R_ data, const int dataSize)
+{
+#if BV_USE_VDSP
+    vvsqrt (data, data, &dataSize);
+#elif BV_USE_IPP
+    ippsSqrt_64f_I (data, dataSize);
+#else
+    for (int i = 0; i < dataSize; ++i) {
+        data[i] = sqrt (data[i]);
+    }
+#endif
+}
+    
+    
+// replaces each element in the passed vector with its square.
+static inline void square (float* BV_R_ data, const int dataSize)
+{
+#if BV_USE_VDSP
+    vDSP_vsq (data, vDSP_Stride(1), data, vdSP_Stride(1), vDSP_Length(dataSize));
+#elif BV_USE_IPP
+    ippsSqr_32f_I (data, dataSize);
+#else
+    for (int i = 0; i < dataSize; ++i) {
+        const auto datum = data[i];
+        data[i] = datum * datum;
+    }
+#endif
+}
+    
+static inline void square (double* BV_R_ data, const int dataSize)
+{
+#if BV_USE_VDSP
+    vDSP_vsqD (data, vDSP_Stride(1), data, vdSP_Stride(1), vDSP_Length(dataSize));
+#elif BV_USE_IPP
+    ippsSqr_64f_I (data, dataSize);
+#else
+    for (int i = 0; i < dataSize; ++i) {
+        const auto datum = data[i];
+        data[i] = datum * datum;
+    }
+#endif
+}
 
 
 // returns the index in the vector of the element with the minimum value
-template<typename DataType>
-static inline int findIndexOfMinElement (DataType* data, const int dataSize)
+static inline int findIndexOfMinElement (const float* BV_R_ data, const int dataSize)
 {
     jassert (dataSize > 1);
 #if BV_USE_VDSP
-    constexpr auto strideOfOne = vDSP_Stride(1);
     unsigned long index = 0.0;
-    DataType minimum = 0;
-    
-    if constexpr (std::is_same_v <DataType, float>)
-        vDSP_minvi (data, strideOfOne, &minimum, &index, vDSP_Length(dataSize));
-    else if constexpr (std::is_same_v <DataType, double>)
-        vDSP_minviD (data, strideOfOne, &minimum, &index, vDSP_Length(dataSize));
-    
+    float minimum = 0.0f;
+    vDSP_minvi (data, vDSP_Stride(1), &minimum, &index, vDSP_Length(dataSize));
     return int(index);
+    
+#elif BV_USE_IPP
+    float minimum = 0.0f;
+    int index = 0;
+    ippsMinIndx_32f (data, dataSize, &minimum, &index);
+    return index;
+    
+#else
+    return static_cast<int> (std::distance (data,
+                                            std::min_element (data, data + dataSize)));
+#endif
+}
+    
+static inline int findIndexOfMinElement (const double* BV_R_ data, const int dataSize)
+{
+    jassert (dataSize > 1);
+#if BV_USE_VDSP
+    unsigned long index = 0.0;
+    double minimum = 0.0;
+    vDSP_minviD (data, vDSP_Stride(1), &minimum, &index, vDSP_Length(dataSize));
+    return int(index);
+    
+#elif BV_USE_IPP
+    double minimum = 0.0;
+    int index = 0;
+    ippsMinIndx_64f (data, dataSize, &minimum, &index);
+    return index;
+    
 #else
     return static_cast<int> (std::distance (data,
                                             std::min_element (data, data + dataSize)));
@@ -33,45 +111,85 @@ static inline int findIndexOfMinElement (DataType* data, const int dataSize)
 }
     
     
+    
 // returns the index in the vector of the element with the maximum value
-template<typename DataType>
-static inline int findIndexOfMaxElement (DataType* data, const int dataSize)
+static inline int findIndexOfMaxElement (const float* BV_R_ data, const int dataSize)
 {
     jassert (dataSize > 1);
 #if BV_USE_VDSP
-    constexpr auto strideOfOne = vDSP_Stride(1);
     unsigned long index = 0.0;
     DataType maximum = 0;
-    
-    if constexpr (std::is_same_v <DataType, float>)
-        vDSP_maxvi (data, strideOfOne, &maximum, &index, vDSP_Length(dataSize));
-    else if constexpr (std::is_same_v <DataType, double>)
-        vDSP_maxviD (data, strideOfOne, &maximum, &index, vDSP_Length(dataSize));
-    
+    vDSP_maxvi (data, vDSP_Stride(1), &maximum, &index, vDSP_Length(dataSize));
     return int(index);
+    
+#elif BV_USE_IPP
+    float maximum = 0.0f;
+    int index = 0;
+    ippsMaxIndx_32f (data, dataSize, &maximum, &index);
+    return index;
+    
 #else
     return static_cast<int> (std::distance (data,
                                             std::max_element (data, data + dataSize)));
 #endif
 }
     
-
-// returns both the minimum element and its index in the vector into the variables minimum and minIndex
-template<typename DataType>
-static inline void findMinAndMinIndex (DataType* data, const int dataSize,
-                                       DataType& minimum, int& minIndex)
+static inline int findIndexOfMaxElement (const double* BV_R_ data, const int dataSize)
 {
     jassert (dataSize > 1);
 #if BV_USE_VDSP
-    constexpr auto strideOfOne = vDSP_Stride(1);
     unsigned long index = 0.0;
+    DataType maximum = 0;
+    vDSP_maxviD (data, vDSP_Stride(1), &maximum, &index, vDSP_Length(dataSize));
+    return int(index);
     
-    if constexpr (std::is_same_v <DataType, float>)
-        vDSP_minvi (data, strideOfOne, &minimum, &index, vDSP_Length(dataSize));
-    else if constexpr (std::is_same_v <DataType, double>)
-        vDSP_minviD (data, strideOfOne, &minimum, &index, vDSP_Length(dataSize));
+#elif BV_USE_IPP
+    double maximum = 0.0;
+    int index = 0;
+    ippsMaxIndx_64f (data, dataSize, &maximum, &index);
+    return index;
     
+#else
+    return static_cast<int> (std::distance (data,
+                                            std::max_element (data, data + dataSize)));
+#endif
+}
+    
+    
+    
+
+// returns both the minimum element and its index in the vector into the variables minimum and minIndex
+static inline void findMinAndMinIndex (const float* BV_R_ data, const int dataSize,
+                                       float& minimum, int& minIndex)
+{
+    jassert (dataSize > 1);
+#if BV_USE_VDSP
+    unsigned long index = 0.0;
+    vDSP_minvi (data, vDSP_Stride(1), &minimum, &index, vDSP_Length(dataSize));
     minIndex = int (index);
+    
+#elif BV_USE_IPP
+    ippsMinIndx_32f (data, dataSize, &minimum, &minIndex);
+    
+#else
+    auto* lowestElement = std::min_element (data, data + dataSize);
+    minimum = *lowestElement;
+    minIndex = static_cast<int> (std::distance (data, lowestElement));
+#endif
+}
+    
+static inline void findMinAndMinIndex (const double* BV_R_ data, const int dataSize,
+                                       double& minimum, int& minIndex)
+{
+    jassert (dataSize > 1);
+#if BV_USE_VDSP
+    unsigned long index = 0.0;
+    vDSP_minviD (data, vDSP_Stride(1), &minimum, &index, vDSP_Length(dataSize));
+    minIndex = int (index);
+    
+#elif BV_USE_IPP
+    ippsMinIndx_64f (data, dataSize, &minimum, &minIndex);
+    
 #else
     auto* lowestElement = std::min_element (data, data + dataSize);
     minimum = *lowestElement;
@@ -81,21 +199,37 @@ static inline void findMinAndMinIndex (DataType* data, const int dataSize,
     
 
 // returns both the maximum element and its index in the vector into the variables maximum and maxIndex
-template<typename DataType>
-static inline void findMaxAndMaxIndex (DataType* data, const int dataSize,
-                                       DataType& maximum, int& maxIndex)
+static inline void findMaxAndMaxIndex (const float* BV_R_ data, const int dataSize,
+                                       float& maximum, int& maxIndex)
 {
     jassert (dataSize > 1);
 #if BV_USE_VDSP
-    constexpr auto strideOfOne = vDSP_Stride(1);
     unsigned long index = 0.0;
-    
-    if constexpr (std::is_same_v <DataType, float>)
-        vDSP_maxvi (data, strideOfOne, &maximum, &index, vDSP_Length(dataSize));
-    else if constexpr (std::is_same_v <DataType, double>)
-        vDSP_maxviD (data, strideOfOne, &maximum, &index, vDSP_Length(dataSize));
-    
+    vDSP_maxvi (data, vDSP_Stride(1), &maximum, &index, vDSP_Length(dataSize));
     maxIndex = int (index);
+    
+#elif BV_USE_IPP
+    ippsMaxIndx_32f (data, dataSize, &maximum, &maxIndex);
+    
+#else
+    auto* highestElement = std::max_element (data, data + dataSize);
+    maximum = *highestElement;
+    maxIndex = static_cast<int> (std::distance (data, highestElement));
+#endif
+}
+    
+static inline void findMaxAndMaxIndex (const double* BV_R_ data, const int dataSize,
+                                       double& maximum, int& maxIndex)
+{
+    jassert (dataSize > 1);
+#if BV_USE_VDSP
+    unsigned long index = 0.0;
+    vDSP_maxviD (data, vDSP_Stride(1), &maximum, &index, vDSP_Length(dataSize));
+    maxIndex = int (index);
+    
+#elif BV_USE_IPP
+    ippsMaxIndx_64f (data, dataSize, &maximum, &maxIndex);
+    
 #else
     auto* highestElement = std::max_element (data, data + dataSize);
     maximum = *highestElement;
@@ -105,21 +239,50 @@ static inline void findMaxAndMaxIndex (DataType* data, const int dataSize,
     
 
 // locates the element with the highest absolute value and its index in the vector, and returns them into the variables greatestMagnitude and index
-template<typename DataType>
-static inline void locateGreatestAbsMagnitude (DataType* data, const int dataSize,
-                                               DataType& greatestMagnitude, int& index)
+static inline void locateGreatestAbsMagnitude (const float* BV_R_ data, const int dataSize,
+                                               float& greatestMagnitude, int& index)
 {
     jassert (dataSize > 1);
 #if BV_USE_VDSP
-    constexpr auto strideOfOne = vDSP_Stride(1);
     unsigned long i = 0.0;
-    
-    if constexpr (std::is_same_v <DataType, float>)
-        vDSP_maxmgvi (data, strideOfOne, &greatestMagnitude, &i, vDSP_Length(dataSize));
-    else if constexpr (std::is_same_v <DataType, double>)
-        vDSP_maxmgviD (data, strideOfOne, &greatestMagnitude, &i, vDSP_Length(dataSize));
-    
+    vDSP_maxmgvi (data, vDSP_Stride(1), &greatestMagnitude, &i, vDSP_Length(dataSize));
     index = int(i);
+    
+#elif BV_USE_IPP
+    ippsMaxAbsIndx_32f (data, dataSize, &greatestMagnitude, &index);
+    
+#else
+    int strongestMagIndex = 0;
+    auto strongestMag = abs(data[0]);
+    
+    for (int i = 1; i < dataSize; ++i)
+    {
+        const auto current = abs(data[i]);
+        
+        if (current > strongestMag)
+        {
+            strongestMag = current;
+            strongestMagIndex = i;
+        }
+    }
+    
+    greatestMagnitude = strongestMag;
+    index = strongestMagIndex;
+#endif
+}
+    
+static inline void locateGreatestAbsMagnitude (const double* BV_R_ data, const int dataSize,
+                                               double& greatestMagnitude, int& index)
+{
+    jassert (dataSize > 1);
+#if BV_USE_VDSP
+    unsigned long i = 0.0;
+    vDSP_maxmgviD (data, vDSP_Stride(1), &greatestMagnitude, &i, vDSP_Length(dataSize));
+    index = int(i);
+    
+#elif BV_USE_IPP
+    ippsMaxAbsIndx_64f (data, dataSize, &greatestMagnitude, &index);
+    
 #else
     int strongestMagIndex = 0;
     auto strongestMag = abs(data[0]);
@@ -142,21 +305,50 @@ static inline void locateGreatestAbsMagnitude (DataType* data, const int dataSiz
     
 
 // locates the element with the lowest absolute value and its index in the vector, and returns them into the variables leastMagnitude and index
-template<typename DataType>
-static inline void locateLeastAbsMagnitude (DataType* data, const int dataSize,
-                                            DataType& leastMagnitude, int& index)
+static inline void locateLeastAbsMagnitude (const float* BV_R_ data, const int dataSize,
+                                            float& leastMagnitude, int& index)
 {
     jassert (dataSize > 1);
 #if BV_USE_VDSP
-    constexpr auto strideOfOne = vDSP_Stride(1);
     unsigned long i = 0.0;
-    
-    if constexpr (std::is_same_v <DataType, float>)
-        vDSP_minmgvi (data, strideOfOne, &leastMagnitude, &i, vDSP_Length(dataSize));
-    else if constexpr (std::is_same_v <DataType, double>)
-        vDSP_minmgviD (data, strideOfOne, &leastMagnitude, &i, vDSP_Length(dataSize));
-    
+    vDSP_minmgvi (data, vDSP_Stride(1), &leastMagnitude, &i, vDSP_Length(dataSize));
     index = int(i);
+    
+#elif BV_USE_IPP
+    ippsMinAbsIndx_32f (data, dataSize, &leastMagnitude, &index);
+    
+#else
+    int weakestMagIndex = 0;
+    auto weakestMag = abs(data[0]);
+    
+    for (int i = 1; i < dataSize; ++i)
+    {
+        const auto current = abs(data[i]);
+        
+        if (current < weakestMag)
+        {
+            weakestMag = current;
+            weakestMagIndex = i;
+        }
+    }
+    
+    leastMagnitude = weakestMag;
+    index = weakestMagIndex;
+#endif
+}
+    
+static inline void locateLeastAbsMagnitude (const double* BV_R_ data, const int dataSize,
+                                            double& leastMagnitude, int& index)
+{
+    jassert (dataSize > 1);
+#if BV_USE_VDSP
+    unsigned long i = 0.0;
+    vDSP_minmgviD (data, vDSP_Stride(1), &leastMagnitude, &i, vDSP_Length(dataSize));
+    index = int(i);
+    
+#elif BV_USE_IPP
+    ippsMinAbsIndx_64f (data, dataSize, &leastMagnitude, &index);
+    
 #else
     int weakestMagIndex = 0;
     auto weakestMag = abs(data[0]);
@@ -179,22 +371,74 @@ static inline void locateLeastAbsMagnitude (DataType* data, const int dataSize,
     
 
 // finds both the maximum and minimum elements in the vector and returns them into the variables max and min.
-template<typename DataType>
-static inline void findExtrema (DataType* data, const int dataSize,
-                                DataType& min, DataType& max)
+static inline void findExtrema (const float* BV_R_ data, const int dataSize,
+                                float& min, float& max)
 {
+#if BV_USE_VDSP
+    vDSP_minv (data, vDSP_Stride(1), &min, vDSP_Length(dataSize));
+    vDSP_maxv (data, vDSP_Stride(1), &max, vDSP_Length(dataSize));
+    
+#elif BV_USE_IPP
+    ippsMinMax_32f (data, dataSize, &min, &max);
+#else
     auto range = juce::FloatVectorOperations::findMinAndMax (data, dataSize);
     min = range.getStart();
     max = range.getEnd();
+#endif
+}
+    
+static inline void findExtrema (double* BV_R_ data, const int dataSize,
+                                double& min, double& max)
+{
+#if BV_USE_VDSP
+    vDSP_minvD (data, vDSP_Stride(1), &min, vDSP_Length(dataSize));
+    vDSP_maxvD (data, vDSP_Stride(1), &max, vDSP_Length(dataSize));
+    
+#elif BV_USE_IPP
+    ippsMinMax_64f (data, dataSize, &min, &max);
+#else
+    auto range = juce::FloatVectorOperations::findMinAndMax (data, dataSize);
+    min = range.getStart();
+    max = range.getEnd();
+#endif
 }
     
     
 // returns the distance between the maximum and minimum element of the vector
-template<typename DataType>
-static inline DataType findRangeOfExtrema (DataType* data, const int dataSize)
+static inline float findRangeOfExtrema (const float* BV_R_ data, const int dataSize)
 {
+#if BV_USE_VDSP
+    float min = 0.0f, max = 0.0f;
+    vDSP_minv (data, vDSP_Stride(1), &min, vDSP_Length(dataSize));
+    vDSP_maxv (data, vDSP_Stride(1), &max, vDSP_Length(dataSize));
+    return max - min;
+    
+#elif BV_USE_IPP
+    float min = 0.0f, max = 0.0f;
+    ippsMinMax_32f (data, dataSize, &min, &max);
+    return max - min;
+#else
     return juce::FloatVectorOperations::findMinAndMax (data, dataSize)
                 .getLength();
+#endif
+}
+
+static inline double findRangeOfExtrema (const double* BV_R_ data, const int dataSize)
+{
+#if BV_USE_VDSP
+    double min = 0.0, max = 0.0;
+    vDSP_minvD (data, vDSP_Stride(1), &min, vDSP_Length(dataSize));
+    vDSP_maxvD (data, vDSP_Stride(1), &max, vDSP_Length(dataSize));
+    return max - min;
+    
+#elif BV_USE_IPP
+    double min = 0.0, max = 0.0;
+    ippsMinMax_64f (data, dataSize, &min, &max);
+    return max - min;
+#else
+    return juce::FloatVectorOperations::findMinAndMax (data, dataSize)
+                .getLength();
+#endif
 }
     
     
@@ -232,10 +476,10 @@ static inline void deinterleave (T* dst,
 }
     
     
-static inline void cartesian_to_polar (float* const mag,
-                                       float* const phase,
-                                       const float* const real,
-                                       const float* const imag,
+static inline void cartesian_to_polar (float* const BV_R_ mag,
+                                       float* const BV_R_ phase,
+                                       const float* const BV_R_ real,
+                                       const float* const BV_R_ imag,
                                        const int count)
 {
 #if BV_USE_VDSP
@@ -245,8 +489,8 @@ static inline void cartesian_to_polar (float* const mag,
     vDSP_zvmags (&c, 1, phase, 1, vDSP_Length(count)); // using phase as a temporary dest
     vvsqrtf (mag, phase, &count); // using phase as the source
     vvatan2f (phase, imag, real, &count);
-#elif BV_USE_IPP
     
+#elif BV_USE_IPP
     ippsCartToPolar_32f (real, imag, mag, phase, count);
     
 #else
@@ -260,10 +504,10 @@ static inline void cartesian_to_polar (float* const mag,
 #endif
 }
     
-static inline void cartesian_to_polar (double* const mag,
-                                       double* const phase,
-                                       const double* const real,
-                                       const double* const imag,
+static inline void cartesian_to_polar (double* const BV_R_ mag,
+                                       double* const BV_R_ phase,
+                                       const double* const BV_R_ real,
+                                       const double* const BV_R_ imag,
                                        const int count)
 {
 #if BV_USE_VDSP
@@ -273,8 +517,8 @@ static inline void cartesian_to_polar (double* const mag,
     vDSP_zvmagsD (&c, 1, phase, 1, vDSP_Length(count)); // using phase as a temporary dest
     vvsqrt (mag, phase, &count); // using phase as the source
     vvatan2 (phase, imag, real, &count);
-#elif BV_USE_IPP
     
+#elif BV_USE_IPP
     ippsCartToPolar_64f (real, imag, mag, phase, count);
     
 #else
@@ -285,6 +529,90 @@ static inline void cartesian_to_polar (double* const mag,
         *(mag + i)   = sqrt (r * r + c * c);
         *(phase + i) = atan2 (c, r);
     }
+#endif
+}
+    
+    
+static inline void polar_to_cartesian   (float* const BV_R_ real,
+                                         float* const BV_R_ imag,
+                                         const float* const BV_R_ mag,
+                                         const float* const BV_R_ phase,
+                                         const int dataSize)
+{
+#if BV_USE_IPP
+    ippsPolarToCart_32f (mag, phase, real, imag, dataSize);
+    
+#else
+    for (int i = 0; i < dataSize; ++i) {
+        phasor (real + i, imag + i, phase[i]);
+    }
+    
+    juce::FloatVectorOperations::multiply (real, real, mag, dataSize);
+    juce::FloatVectorOperations::multiply (imag, imag, mag, dataSize);
+#endif
+}
+    
+static inline void polar_to_cartesian   (double* const BV_R_ real,
+                                         double* const BV_R_ imag,
+                                         const double* const BV_R_ mag,
+                                         const double* const BV_R_ phase,
+                                         const int dataSize)
+{
+#if BV_USE_IPP
+    ippsPolarToCart_64f (mag, phase, real, imag, dataSize);
+    
+#else
+    for (int i = 0; i < dataSize; ++i) {
+        phasor (real + i, imag + i, phase[i]);
+    }
+    
+    juce::FloatVectorOperations::multiply (real, real, mag, dataSize);
+    juce::FloatVectorOperations::multiply (imag, imag, mag, dataSize);
+#endif
+}
+    
+    
+static inline void phasor (float* real, float* imag, float phase)
+{
+#if defined HAVE_VDSP
+    int one = 1;
+    vvsincosf (imag, real, (const float *)&phase, &one);
+    
+#elif defined LACK_SINCOS
+    *real = cosf(phase);
+    *imag = sinf(phase);
+    
+#elif defined __GNUC__
+  #if defined __APPLE__
+    #define sincosf __sincosf
+  #endif
+    sincosf (phase, imag, real);
+    
+#else
+    *real = cosf(phase);
+    *imag = sinf(phase);
+#endif
+}
+    
+static inline void phasor (double* real, double* imag, double phase)
+{
+#if defined HAVE_VDSP
+    int one = 1;
+    
+    vvsincos (imag, real, (const double *)&phase, &one);
+#elif defined LACK_SINCOS
+    *real = cos(phase);
+    *imag = sin(phase);
+    
+#elif defined __GNUC__
+  #if defined __APPLE__
+    #define sincos __sincos
+  #endif
+    sincos (phase, imag, real);
+    
+#else
+    *real = cos(phase);
+    *imag = sin(phase);
 #endif
 }
     
