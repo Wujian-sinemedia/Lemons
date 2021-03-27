@@ -103,13 +103,13 @@
   #endif
 #endif
 
+#ifndef BV_USE_IPP
+  #define BV_USE_IPP 0
+#endif
 
-#if INTEL_IPP
-  #define BV_USE_IPP 1
+#if BV_USE_IPP
   #include <ippversion.h>
   #include <ipps.h>
-#else
-  #define BV_USE_IPP 0
 #endif
 
 
