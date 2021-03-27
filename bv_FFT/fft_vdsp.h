@@ -286,7 +286,7 @@ void inverseCepstral (const float* BV_R_ magIn, float* BV_R_ cepOut) override
     memcpy (m_fspare, magIn, (size_t) hs1 * sizeof (float));
     
     const float tinyvalue = 0.000001f;
-    vDSP_vsadd (m_dspare, vDSP_Stride(1), &tinyvalue, m_dspare, vDSP_Stride(1), vDSP_Length(hs1));
+    vDSP_vsadd (m_fspare, vDSP_Stride(1), &tinyvalue, m_fspare, vDSP_Stride(1), vDSP_Length(hs1));
     
     vvlogf (m_fspare2, m_fspare, &hs1);
     inverse (m_fspare2, nullptr, cepOut);
