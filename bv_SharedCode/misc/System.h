@@ -181,6 +181,18 @@
 
 
 
+/*
+    Cross-platform "force inline" macro
+*/
+
+#if BV_WINDOWS
+  #define BV_FORCE_INLINE __forceinline
+#else
+  #define BV_FORCE_INLINE inline __attribute__((always_inline))
+#endif
+
+
+
 namespace bav
 {
 

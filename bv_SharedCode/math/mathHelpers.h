@@ -10,20 +10,20 @@ namespace bav::math
     
     
     //  returns true a specified percent of the time
-    static inline bool probability (int percentOfTheTime)
+    static BV_FORCE_INLINE bool probability (int percentOfTheTime)
     {
         return juce::Random::getSystemRandom().nextInt (100) < percentOfTheTime;
     }
     
     
     /* Returns true if the given integer number is even. */
-    static inline bool isEven (int number) noexcept
+    static BV_FORCE_INLINE bool isEven (int number) noexcept
     {
         return ! (number & 0x1);
     }
     
     /* Returns true if the given integer number is odd. */
-    static inline bool isOdd (int number) noexcept
+    static BV_FORCE_INLINE bool isOdd (int number) noexcept
     {
         return number & 0x1;
     }
@@ -31,7 +31,7 @@ namespace bav::math
     
     /* Checks to see if a number is NaN eg. sqrt (-1). */
     template <typename Type>
-    static inline bool isnan (Type value)
+    static BV_FORCE_INLINE bool isnan (Type value)
     {
 #if BV_OSX
         return std::isnan (value);
@@ -43,7 +43,7 @@ namespace bav::math
     
     /* Checks to see if a number is Inf eg. 100.0 / 0.0. */
     template <typename Type>
-    static inline bool isinf (Type value)
+    static BV_FORCE_INLINE bool isinf (Type value)
     {
 #if BV_WINDOWS
         return ! _finite (value);
@@ -55,7 +55,7 @@ namespace bav::math
     
     // returns true if n is 2^something
     template<typename Integer>
-    static inline bool isPowerOfTwo (Integer n)
+    static BV_FORCE_INLINE bool isPowerOfTwo (Integer n)
     {
         return n > 0 && (n & (n - 1)) == 0;
     }
@@ -63,7 +63,7 @@ namespace bav::math
     
     // returns the period in samples of a specified frequency in hz at a specified samplerate
     template<typename FreqType>
-    static inline int periodInSamples (double samplerate, FreqType freqHz)
+    static BV_FORCE_INLINE int periodInSamples (double samplerate, FreqType freqHz)
     {
         jassert (freqHz > FreqType(0.0));
         return juce::roundToInt (samplerate / freqHz);
@@ -72,7 +72,7 @@ namespace bav::math
     
     // returns the resultant fundamental frequency in Hz from a specified period in samples and samplerate
     template<typename PeriodType>
-    static inline PeriodType freqFromPeriod (double samplerate, PeriodType period)
+    static BV_FORCE_INLINE PeriodType freqFromPeriod (double samplerate, PeriodType period)
     {
         jassert (period > PeriodType(0.0));
         
@@ -84,7 +84,7 @@ namespace bav::math
     
     
     // converts a specified number of samples to milliseconds
-    static inline int sampsToMs (double samplerate, int numSamples)
+    static BV_FORCE_INLINE int sampsToMs (double samplerate, int numSamples)
     {
         jassert (samplerate > 0.0);
         return juce::roundToInt ((numSamples / samplerate) * 1000.0f);
@@ -93,7 +93,7 @@ namespace bav::math
     
     // converts a specified amount of time in milliseconds to the closest integer number of samples at the specified samplerate
     template<typename msType>
-    static inline int msToSamps (double samplerate, msType ms)
+    static BV_FORCE_INLINE int msToSamps (double samplerate, msType ms)
     {
         return juce::roundToInt (samplerate / 1000.0f * ms);
     }
@@ -101,7 +101,7 @@ namespace bav::math
     
     // converts a midi note to a frequency in Hz
     template<typename noteType>
-    static inline noteType midiToFreq (noteType midiNote)
+    static BV_FORCE_INLINE noteType midiToFreq (noteType midiNote)
     {
         if constexpr (std::is_same_v<noteType, int>)
             return juce::roundToInt (440 * std::pow (2, (midiNote - 69)/12));
@@ -112,7 +112,7 @@ namespace bav::math
     
     // converts a frequency in Hz to a midi pitch
     template<typename noteType>
-    static inline noteType freqToMidi (noteType freqHz)
+    static BV_FORCE_INLINE noteType freqToMidi (noteType freqHz)
     {
         if constexpr (std::is_same_v<noteType, int>)
             return juce::roundToInt (69 + 12 * log2(freqHz / 440));

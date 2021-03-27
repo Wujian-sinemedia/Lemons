@@ -10,7 +10,7 @@ namespace bav::vecops
     
     
 // replaces each element in the passed vector with its square root
-static inline void squareRoot (float* BV_R_ data, const int dataSize)
+static BV_FORCE_INLINE void squareRoot (float* BV_R_ data, const int dataSize)
 {
 #if BV_USE_VDSP
     vvsqrtf (data, data, &dataSize);
@@ -23,7 +23,7 @@ static inline void squareRoot (float* BV_R_ data, const int dataSize)
 #endif
 }
     
-static inline void squareRoot (double* BV_R_ data, const int dataSize)
+static BV_FORCE_INLINE void squareRoot (double* BV_R_ data, const int dataSize)
 {
 #if BV_USE_VDSP
     vvsqrt (data, data, &dataSize);
@@ -38,7 +38,7 @@ static inline void squareRoot (double* BV_R_ data, const int dataSize)
     
     
 // replaces each element in the passed vector with its square.
-static inline void square (float* BV_R_ data, const int dataSize)
+static BV_FORCE_INLINE void square (float* BV_R_ data, const int dataSize)
 {
 #if BV_USE_VDSP
     vDSP_vsq (data, vDSP_Stride(1), data, vDSP_Stride(1), vDSP_Length(dataSize));
@@ -52,7 +52,7 @@ static inline void square (float* BV_R_ data, const int dataSize)
 #endif
 }
     
-static inline void square (double* BV_R_ data, const int dataSize)
+static BV_FORCE_INLINE void square (double* BV_R_ data, const int dataSize)
 {
 #if BV_USE_VDSP
     vDSP_vsqD (data, vDSP_Stride(1), data, vDSP_Stride(1), vDSP_Length(dataSize));
@@ -68,7 +68,7 @@ static inline void square (double* BV_R_ data, const int dataSize)
 
 
 // returns the index in the vector of the element with the minimum value
-static inline int findIndexOfMinElement (const float* BV_R_ data, const int dataSize)
+static BV_FORCE_INLINE int findIndexOfMinElement (const float* BV_R_ data, const int dataSize)
 {
     jassert (dataSize > 1);
 #if BV_USE_VDSP
@@ -89,7 +89,7 @@ static inline int findIndexOfMinElement (const float* BV_R_ data, const int data
 #endif
 }
     
-static inline int findIndexOfMinElement (const double* BV_R_ data, const int dataSize)
+static BV_FORCE_INLINE int findIndexOfMinElement (const double* BV_R_ data, const int dataSize)
 {
     jassert (dataSize > 1);
 #if BV_USE_VDSP
@@ -113,7 +113,7 @@ static inline int findIndexOfMinElement (const double* BV_R_ data, const int dat
     
     
 // returns the index in the vector of the element with the maximum value
-static inline int findIndexOfMaxElement (const float* BV_R_ data, const int dataSize)
+static BV_FORCE_INLINE int findIndexOfMaxElement (const float* BV_R_ data, const int dataSize)
 {
     jassert (dataSize > 1);
 #if BV_USE_VDSP
@@ -134,7 +134,7 @@ static inline int findIndexOfMaxElement (const float* BV_R_ data, const int data
 #endif
 }
     
-static inline int findIndexOfMaxElement (const double* BV_R_ data, const int dataSize)
+static BV_FORCE_INLINE int findIndexOfMaxElement (const double* BV_R_ data, const int dataSize)
 {
     jassert (dataSize > 1);
 #if BV_USE_VDSP
@@ -159,8 +159,8 @@ static inline int findIndexOfMaxElement (const double* BV_R_ data, const int dat
     
 
 // returns both the minimum element and its index in the vector into the variables minimum and minIndex
-static inline void findMinAndMinIndex (const float* BV_R_ data, const int dataSize,
-                                       float& minimum, int& minIndex)
+static BV_FORCE_INLINE void findMinAndMinIndex (const float* BV_R_ data, const int dataSize,
+                                                float& minimum, int& minIndex)
 {
     jassert (dataSize > 1);
 #if BV_USE_VDSP
@@ -178,8 +178,8 @@ static inline void findMinAndMinIndex (const float* BV_R_ data, const int dataSi
 #endif
 }
     
-static inline void findMinAndMinIndex (const double* BV_R_ data, const int dataSize,
-                                       double& minimum, int& minIndex)
+static BV_FORCE_INLINE void findMinAndMinIndex (const double* BV_R_ data, const int dataSize,
+                                                double& minimum, int& minIndex)
 {
     jassert (dataSize > 1);
 #if BV_USE_VDSP
@@ -199,8 +199,8 @@ static inline void findMinAndMinIndex (const double* BV_R_ data, const int dataS
     
 
 // returns both the maximum element and its index in the vector into the variables maximum and maxIndex
-static inline void findMaxAndMaxIndex (const float* BV_R_ data, const int dataSize,
-                                       float& maximum, int& maxIndex)
+static BV_FORCE_INLINE void findMaxAndMaxIndex (const float* BV_R_ data, const int dataSize,
+                                                float& maximum, int& maxIndex)
 {
     jassert (dataSize > 1);
 #if BV_USE_VDSP
@@ -218,8 +218,8 @@ static inline void findMaxAndMaxIndex (const float* BV_R_ data, const int dataSi
 #endif
 }
     
-static inline void findMaxAndMaxIndex (const double* BV_R_ data, const int dataSize,
-                                       double& maximum, int& maxIndex)
+static BV_FORCE_INLINE void findMaxAndMaxIndex (const double* BV_R_ data, const int dataSize,
+                                                double& maximum, int& maxIndex)
 {
     jassert (dataSize > 1);
 #if BV_USE_VDSP
@@ -239,8 +239,8 @@ static inline void findMaxAndMaxIndex (const double* BV_R_ data, const int dataS
     
 
 // locates the element with the highest absolute value and its index in the vector, and returns them into the variables greatestMagnitude and index
-static inline void locateGreatestAbsMagnitude (const float* BV_R_ data, const int dataSize,
-                                               float& greatestMagnitude, int& index)
+static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const float* BV_R_ data, const int dataSize,
+                                                        float& greatestMagnitude, int& index)
 {
     jassert (dataSize > 1);
 #if BV_USE_VDSP
@@ -271,8 +271,8 @@ static inline void locateGreatestAbsMagnitude (const float* BV_R_ data, const in
 #endif
 }
     
-static inline void locateGreatestAbsMagnitude (const double* BV_R_ data, const int dataSize,
-                                               double& greatestMagnitude, int& index)
+static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const double* BV_R_ data, const int dataSize,
+                                                        double& greatestMagnitude, int& index)
 {
     jassert (dataSize > 1);
 #if BV_USE_VDSP
@@ -305,8 +305,8 @@ static inline void locateGreatestAbsMagnitude (const double* BV_R_ data, const i
     
 
 // locates the element with the lowest absolute value and its index in the vector, and returns them into the variables leastMagnitude and index
-static inline void locateLeastAbsMagnitude (const float* BV_R_ data, const int dataSize,
-                                            float& leastMagnitude, int& index)
+static BV_FORCE_INLINE void locateLeastAbsMagnitude (const float* BV_R_ data, const int dataSize,
+                                                     float& leastMagnitude, int& index)
 {
     jassert (dataSize > 1);
 #if BV_USE_VDSP
@@ -337,8 +337,8 @@ static inline void locateLeastAbsMagnitude (const float* BV_R_ data, const int d
 #endif
 }
     
-static inline void locateLeastAbsMagnitude (const double* BV_R_ data, const int dataSize,
-                                            double& leastMagnitude, int& index)
+static BV_FORCE_INLINE void locateLeastAbsMagnitude (const double* BV_R_ data, const int dataSize,
+                                                     double& leastMagnitude, int& index)
 {
     jassert (dataSize > 1);
 #if BV_USE_VDSP
@@ -387,8 +387,8 @@ static inline void findExtrema (const float* BV_R_ data, const int dataSize,
 #endif
 }
     
-static inline void findExtrema (double* BV_R_ data, const int dataSize,
-                                double& min, double& max)
+static BV_FORCE_INLINE void findExtrema (double* BV_R_ data, const int dataSize,
+                                         double& min, double& max)
 {
 #if BV_USE_VDSP
     vDSP_minvD (data, vDSP_Stride(1), &min, vDSP_Length(dataSize));
@@ -405,7 +405,7 @@ static inline void findExtrema (double* BV_R_ data, const int dataSize,
     
     
 // returns the distance between the maximum and minimum element of the vector
-static inline float findRangeOfExtrema (const float* BV_R_ data, const int dataSize)
+static BV_FORCE_INLINE float findRangeOfExtrema (const float* BV_R_ data, const int dataSize)
 {
 #if BV_USE_VDSP
     float min = 0.0f, max = 0.0f;
@@ -423,7 +423,7 @@ static inline float findRangeOfExtrema (const float* BV_R_ data, const int dataS
 #endif
 }
 
-static inline double findRangeOfExtrema (const double* BV_R_ data, const int dataSize)
+static BV_FORCE_INLINE double findRangeOfExtrema (const double* BV_R_ data, const int dataSize)
 {
 #if BV_USE_VDSP
     double min = 0.0, max = 0.0;
@@ -476,11 +476,11 @@ static inline void deinterleave (T* dst,
 }
     
     
-static inline void cartesian_to_polar (float* const BV_R_ mag,
-                                       float* const BV_R_ phase,
-                                       const float* const BV_R_ real,
-                                       const float* const BV_R_ imag,
-                                       const int count)
+static BV_FORCE_INLINE void cartesian_to_polar (float* const BV_R_ mag,
+                                                float* const BV_R_ phase,
+                                                const float* const BV_R_ real,
+                                                const float* const BV_R_ imag,
+                                                const int count)
 {
 #if BV_USE_VDSP
     DSPSplitComplex c;
@@ -504,11 +504,11 @@ static inline void cartesian_to_polar (float* const BV_R_ mag,
 #endif
 }
     
-static inline void cartesian_to_polar (double* const BV_R_ mag,
-                                       double* const BV_R_ phase,
-                                       const double* const BV_R_ real,
-                                       const double* const BV_R_ imag,
-                                       const int count)
+static BV_FORCE_INLINE void cartesian_to_polar (double* const BV_R_ mag,
+                                                double* const BV_R_ phase,
+                                                const double* const BV_R_ real,
+                                                const double* const BV_R_ imag,
+                                                const int count)
 {
 #if BV_USE_VDSP
     DSPDoubleSplitComplex c;
@@ -533,7 +533,7 @@ static inline void cartesian_to_polar (double* const BV_R_ mag,
 }
     
 
-static inline void phasor (float* real, float* imag, float phase)
+static BV_FORCE_INLINE void phasor (float* real, float* imag, float phase)
 {
 #if defined HAVE_VDSP
     int one = 1;
@@ -555,7 +555,7 @@ static inline void phasor (float* real, float* imag, float phase)
 #endif
 }
 
-static inline void phasor (double* real, double* imag, double phase)
+static BV_FORCE_INLINE void phasor (double* real, double* imag, double phase)
 {
 #if defined HAVE_VDSP
     int one = 1;
@@ -578,11 +578,11 @@ static inline void phasor (double* real, double* imag, double phase)
 }
     
     
-static inline void polar_to_cartesian   (float* const BV_R_ real,
-                                         float* const BV_R_ imag,
-                                         const float* const BV_R_ mag,
-                                         const float* const BV_R_ phase,
-                                         const int dataSize)
+static BV_FORCE_INLINE void polar_to_cartesian   (float* const BV_R_ real,
+                                                  float* const BV_R_ imag,
+                                                  const float* const BV_R_ mag,
+                                                  const float* const BV_R_ phase,
+                                                  const int dataSize)
 {
 #if BV_USE_IPP
     ippsPolarToCart_32f (mag, phase, real, imag, dataSize);
@@ -597,11 +597,11 @@ static inline void polar_to_cartesian   (float* const BV_R_ real,
 #endif
 }
     
-static inline void polar_to_cartesian   (double* const BV_R_ real,
-                                         double* const BV_R_ imag,
-                                         const double* const BV_R_ mag,
-                                         const double* const BV_R_ phase,
-                                         const int dataSize)
+static BV_FORCE_INLINE void polar_to_cartesian   (double* const BV_R_ real,
+                                                  double* const BV_R_ imag,
+                                                  const double* const BV_R_ mag,
+                                                  const double* const BV_R_ phase,
+                                                  const int dataSize)
 {
 #if BV_USE_IPP
     ippsPolarToCart_64f (mag, phase, real, imag, dataSize);

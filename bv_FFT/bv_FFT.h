@@ -348,17 +348,17 @@ namespace bav::dsp
         
     private:
         
-        void packReal (const float* const re)  // Pack input for forward transform
+        BV_FORCE_INLINE void packReal (const float* const re)  // Pack input for forward transform
         {
             vDSP_ctoz ((DSPComplex *)re, 2, m_fpacked, 1, vDSP_Length(m_size/2));
         }
         
-        void packReal (const double* const re)
+        BV_FORCE_INLINE void packReal (const double* const re)
         {
             vDSP_ctozD ((DSPDoubleComplex *)re, 2, m_dpacked, 1, vDSP_Length(m_size/2));
         }
         
-        void packComplex (const float* const re, const float* const im)  // Pack input for inverse transform
+        BV_FORCE_INLINE void packComplex (const float* const re, const float* const im)  // Pack input for inverse transform
         {
             const int num = m_size/2 + 1;
             
@@ -375,7 +375,7 @@ namespace bav::dsp
             fnyq();
         }
         
-        void packComplex (const double* const re, const double* const im)
+        BV_FORCE_INLINE void packComplex (const double* const re, const double* const im)
         {
             const int num = m_size/2 + 1;
             
@@ -392,17 +392,17 @@ namespace bav::dsp
             dnyq();
         }
         
-        void unpackReal (float* const re)  // Unpack output for inverse transform
+        BV_FORCE_INLINE void unpackReal (float* const re)  // Unpack output for inverse transform
         {
             vDSP_ztoc (m_fpacked, 1, (DSPComplex *)re, 2, vDSP_Length(m_size/2));
         }
         
-        void unpackReal (double* const re)
+        BV_FORCE_INLINE void unpackReal (double* const re)
         {
             vDSP_ztocD (m_dpacked, 1, (DSPDoubleComplex *)re, 2, vDSP_Length(m_size/2));
         }
         
-        void unpackComplex (float* const re, float* const im) // Unpack output for forward transform
+        BV_FORCE_INLINE void unpackComplex (float* const re, float* const im) // Unpack output for forward transform
         {
             const auto num = vDSP_Length(m_size/2 + 1);
             
@@ -412,7 +412,7 @@ namespace bav::dsp
             vDSP_vsdiv (m_fpacked->imagp, 1, &two, im, 1, num);
         }
         
-        void unpackComplex (float* const cplx)
+        BV_FORCE_INLINE void unpackComplex (float* const cplx)
         {
             // vDSP forward FFTs are scaled 2x (for some reason)
             const int num = m_size/2 + 1;
@@ -424,7 +424,7 @@ namespace bav::dsp
             }
         }
         
-        void unpackComplex (double* const re, double* const im)
+        BV_FORCE_INLINE void unpackComplex (double* const re, double* const im)
         {
             const auto num = vDSP_Length(m_size/2 + 1);
             
@@ -434,7 +434,7 @@ namespace bav::dsp
             vDSP_vsdivD (m_dpacked->imagp, 1, &two, im, 1, num);
         }
         
-        void unpackComplex (double* const cplx)
+        BV_FORCE_INLINE void unpackComplex (double* const cplx)
         {
             // vDSP forward FFTs are scaled 2x (for some reason)
             const int num = m_size/2 + 1;
@@ -446,7 +446,7 @@ namespace bav::dsp
             }
         }
         
-        void fdenyq()  // for fft result in packed form, unpack the DC and Nyquist bins
+        BV_FORCE_INLINE void fdenyq()  // for fft result in packed form, unpack the DC and Nyquist bins
         {
             const int hs = m_size/2;
             m_fpacked->realp[hs] = m_fpacked->imagp[0];
@@ -454,7 +454,7 @@ namespace bav::dsp
             m_fpacked->imagp[0] = 0.f;
         }
         
-        void ddenyq()  // for fft result in packed form, unpack the DC and Nyquist bins
+        BV_FORCE_INLINE void ddenyq()  // for fft result in packed form, unpack the DC and Nyquist bins
         {
             const int hs = m_size/2;
             m_dpacked->realp[hs] = m_dpacked->imagp[0];
@@ -462,7 +462,7 @@ namespace bav::dsp
             m_dpacked->imagp[0] = 0.;
         }
         
-        void fnyq()  // for ifft input in packed form, pack the DC and Nyquist bins
+        BV_FORCE_INLINE void fnyq()  // for ifft input in packed form, pack the DC and Nyquist bins
         {
             const int hs = m_size/2;
             m_fpacked->imagp[0] = m_fpacked->realp[hs];
@@ -470,7 +470,7 @@ namespace bav::dsp
             m_fpacked->imagp[hs] = 0.f;
         }
         
-        void dnyq()  // for ifft input in packed form, pack the DC and Nyquist bins
+        BV_FORCE_INLINE void dnyq()  // for ifft input in packed form, pack the DC and Nyquist bins
         {
             const int hs = m_size/2;
             m_dpacked->imagp[0] = m_dpacked->realp[hs];
@@ -749,7 +749,7 @@ namespace bav::dsp
         
         
     private:
-        void packFloat (const float* BV_R_ re, const float* BV_R_ im)
+        BV_FORCE_INLINE void packFloat (const float* BV_R_ re, const float* BV_R_ im)
         {
             int index = 0;
             const int hs = m_size/2;
@@ -771,7 +771,7 @@ namespace bav::dsp
             }
         }
         
-        void packDouble (const double* BV_R_ re, const double* BV_R_ im)
+        BV_FORCE_INLINE void packDouble (const double* BV_R_ re, const double* BV_R_ im)
         {
             int index = 0;
             const int hs = m_size/2;
@@ -793,7 +793,7 @@ namespace bav::dsp
             }
         }
         
-        void unpackFloat (float* re, float* BV_R_ im)  // re may be equal to m_fpacked
+        BV_FORCE_INLINE void unpackFloat (float* re, float* BV_R_ im)  // re may be equal to m_fpacked
         {
             int index = 0;
             const int hs = m_size/2;
@@ -810,7 +810,7 @@ namespace bav::dsp
             }
         }
         
-        void unpackDouble (double* re, double* BV_R_ im)  // re may be equal to m_dpacked
+        BV_FORCE_INLINE void unpackDouble (double* re, double* BV_R_ im)  // re may be equal to m_dpacked
         {
             int index = 0;
             const int hs = m_size/2;
