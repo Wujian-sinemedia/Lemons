@@ -1,15 +1,15 @@
 
 namespace bav::vecops
 {
-    
 
-    /*
-        This namespace contains several floating inlined functions that extend the functionality of JUCE's FloatVectorOperations class.
-        Apple's vDSP framework and Intel IPP are used where possible.
-    */
-    
-    
-    
+
+/*
+    This namespace contains several floating inlined functions that extend the functionality of JUCE's FloatVectorOperations class.
+    Apple's vDSP framework and Intel IPP are used if they are available.
+*/
+
+
+
 // fills a vector with the specified value
 BV_FORCE_INLINE void fill (float* BV_R_ vector, const float value, const int count)
 {
@@ -21,7 +21,7 @@ BV_FORCE_INLINE void fill (float* BV_R_ vector, const float value, const int cou
     juce::FloatVectorOperations::fill (vector, value, count);
 #endif
 }
-    
+
 BV_FORCE_INLINE void fill (double* BV_R_ vector, const double value, const int count)
 {
 #if BV_USE_VDSP
@@ -32,10 +32,10 @@ BV_FORCE_INLINE void fill (double* BV_R_ vector, const double value, const int c
     juce::FloatVectorOperations::fill (vector, value, count);
 #endif
 }
-    
-    
+
+
 // copies the contents of one vector to another
-BV_FORCE_INLINE copy (float* BV_R_ source, float* BV_R_ dest, const int count)
+BV_FORCE_INLINE void copy (float* BV_R_ source, float* BV_R_ dest, const int count)
 {
 #if BV_USE_IPP
     ippsMove_32f (source, dest, count);
@@ -43,8 +43,8 @@ BV_FORCE_INLINE copy (float* BV_R_ source, float* BV_R_ dest, const int count)
     memcpy (dest, source, (size_t) count * sizeof (float));
 #endif
 }
-    
-BV_FORCE_INLINE copy (double* BV_R_ source, double* BV_R_ dest, const int count)
+
+BV_FORCE_INLINE void copy (double* BV_R_ source, double* BV_R_ dest, const int count)
 {
 #if BV_USE_IPP
     ippsMove_64f (source, dest, count);
@@ -52,56 +52,56 @@ BV_FORCE_INLINE copy (double* BV_R_ source, double* BV_R_ dest, const int count)
     memcpy (dest, source, (size_t) count * sizeof (double));
 #endif
 }
-    
-    
+
+
 // adds a single operand to each value in the vector
 BV_FORCE_INLINE void addC (float* BV_R_ vector, const float value, const int count)
 {
 #if BV_USE_VDSP
-    vDSP_vsadd (vector, vDSP_Stride(1), &value, vector, vDSP_Stride(1), vDSP_Length(num));
+    vDSP_vsadd (vector, vDSP_Stride(1), &value, vector, vDSP_Stride(1), vDSP_Length(count));
 #elif BV_USE_IPP
     ippsAddC_32f_I (value, vector, count);
 #else
     juce::FloatVectorOperations::add (vector, value, count);
 #endif
 }
-    
+
 BV_FORCE_INLINE void addC (double* BV_R_ vector, const double value, const int count)
 {
 #if BV_USE_VDSP
-    vDSP_vsaddD (vector, vDSP_Stride(1), &value, vector, vDSP_Stride(1), vDSP_Length(num));
+    vDSP_vsaddD (vector, vDSP_Stride(1), &value, vector, vDSP_Stride(1), vDSP_Length(count));
 #elif BV_USE_IPP
     ippsAddC_64f_I (value, vector, count);
 #else
     juce::FloatVectorOperations::add (vector, value, count);
 #endif
 }
-    
-    
+
+
 // adds two vectors together and writes the result to vecA
 BV_FORCE_INLINE void addV (float* BV_R_ vecA, float* BV_R_ vecB, const int count)
 {
 #if BV_USE_VDSP
-    vDSP_vadd (vecB, vDSP_Stride(1), vecA, vDSP_Stride(1), vecA, vDSP_Stride(1), vDSP_Length(num));
+    vDSP_vadd (vecB, vDSP_Stride(1), vecA, vDSP_Stride(1), vecA, vDSP_Stride(1), vDSP_Length(count));
 #elif BV_USE_IPP
     ippsAdd_32f_I (vecB, vecA, count);
 #else
     juce::FloatVectorOperations::add (vecA, vecB, count);
 #endif
 }
-    
+
 BV_FORCE_INLINE void addV (double* BV_R_ vecA, double* BV_R_ vecB, const int count)
 {
 #if BV_USE_VDSP
-    vDSP_vaddD (vecB, vDSP_Stride(1), vecA, vDSP_Stride(1), vecA, vDSP_Stride(1), vDSP_Length(num));
+    vDSP_vaddD (vecB, vDSP_Stride(1), vecA, vDSP_Stride(1), vecA, vDSP_Stride(1), vDSP_Length(count));
 #elif BV_USE_IPP
     ippsAdd_64f_I (vecB, vecA, count);
 #else
     juce::FloatVectorOperations::add (vecA, vecB, count);
 #endif
 }
-    
-    
+
+
 // multiplies each value in the vector by a single operand
 BV_FORCE_INLINE void multiplyC (float* BV_R_ vector, const float value, const int count)
 {
@@ -113,7 +113,7 @@ BV_FORCE_INLINE void multiplyC (float* BV_R_ vector, const float value, const in
     juce::FloatVectorOperations::multiply (vector, value, count);
 #endif
 }
-    
+
 BV_FORCE_INLINE void multiplyC (double* BV_R_ vector, const double value, const int count)
 {
 #if BV_USE_VDSP
@@ -124,7 +124,7 @@ BV_FORCE_INLINE void multiplyC (double* BV_R_ vector, const double value, const 
     juce::FloatVectorOperations::multiply (vector, value, count);
 #endif
 }
-    
+
 
 // multiplies two vectors together and writes the result to vecA
 BV_FORCE_INLINE void multiplyV (float* BV_R_ vecA, float* BV_R_ vecB, const int count)
@@ -137,7 +137,7 @@ BV_FORCE_INLINE void multiplyV (float* BV_R_ vecA, float* BV_R_ vecB, const int 
     juce::FloatVectorOperations::multiply (vecA, vecB, count);
 #endif
 }
-    
+
 BV_FORCE_INLINE void multiplyV (double* BV_R_ vecA, double* BV_R_ vecB, const int count)
 {
 #if BV_USE_VDSP
@@ -148,8 +148,8 @@ BV_FORCE_INLINE void multiplyV (double* BV_R_ vecA, double* BV_R_ vecB, const in
     juce::FloatVectorOperations::multiply (vecA, vecB, count);
 #endif
 }
-    
-    
+
+
 // divides each element in the vector by a single operand
 BV_FORCE_INLINE void divideC (float* BV_R_ vector, const float value, const int count)
 {
@@ -161,7 +161,7 @@ BV_FORCE_INLINE void divideC (float* BV_R_ vector, const float value, const int 
     juce::FloatVectorOperations::multiply (vector, 1.0f / value, count);
 #endif
 }
-    
+
 BV_FORCE_INLINE void divideC (double* BV_R_ vector, const double value, const int count)
 {
 #if BV_USE_VDSP
@@ -172,8 +172,8 @@ BV_FORCE_INLINE void divideC (double* BV_R_ vector, const double value, const in
     juce::FloatVectorOperations::multiply (vector, 1.0 / value, count);
 #endif
 }
-    
-    
+
+
 // divides two vectors and stores the result in vecA
 BV_FORCE_INLINE void divideV (float* BV_R_ vecA, float* BV_R_ vecB, const int count)
 {
@@ -186,8 +186,8 @@ BV_FORCE_INLINE void divideV (float* BV_R_ vecA, float* BV_R_ vecB, const int co
         *(vecA[i]) = vecA[i] / vecB[i];
 #endif
 }
-    
-BV_FORCE_INLINE void divideV (float* BV_R_ vecA, float* BV_R_ vecB, const int count)
+
+BV_FORCE_INLINE void divideV (double* BV_R_ vecA, double* BV_R_ vecB, const int count)
 {
 #if BV_USE_VDSP
     vDSP_vdivD (vecB, vDSP_Stride(1), vecA, vDSP_Stride(1), vecA, vDSP_Stride(1), vDSP_Length(count));
@@ -198,9 +198,9 @@ BV_FORCE_INLINE void divideV (float* BV_R_ vecA, float* BV_R_ vecB, const int co
         *(vecA[i]) = vecA[i] / vecB[i];
 #endif
 }
-    
-    
-    
+
+
+
 // copies each value of src into dst. The vectors may have different value types. If they are the same type, this is the same as using FVO::copy
 template<typename T, typename U>
 BV_FORCE_INLINE void convert (U* const BV_R_ dst,
@@ -242,9 +242,9 @@ BV_FORCE_INLINE void convert (float* const BV_R_ dst,
     ippsConvert_64f32f (src, dst, count);
 }
 #endif
-    
-    
-    
+
+
+
 // replaces each element in the passed vector with its square root
 static BV_FORCE_INLINE void squareRoot (float* BV_R_ data, const int dataSize)
 {
@@ -258,7 +258,7 @@ static BV_FORCE_INLINE void squareRoot (float* BV_R_ data, const int dataSize)
     }
 #endif
 }
-    
+
 static BV_FORCE_INLINE void squareRoot (double* BV_R_ data, const int dataSize)
 {
 #if BV_USE_VDSP
@@ -271,8 +271,8 @@ static BV_FORCE_INLINE void squareRoot (double* BV_R_ data, const int dataSize)
     }
 #endif
 }
-    
-    
+
+
 // replaces each element in the passed vector with its square.
 static BV_FORCE_INLINE void square (float* BV_R_ data, const int dataSize)
 {
@@ -284,7 +284,7 @@ static BV_FORCE_INLINE void square (float* BV_R_ data, const int dataSize)
     juce::FloatVectorOperations::multiply (data, data, dataSize);
 #endif
 }
-    
+
 static BV_FORCE_INLINE void square (double* BV_R_ data, const int dataSize)
 {
 #if BV_USE_VDSP
@@ -318,7 +318,7 @@ static BV_FORCE_INLINE int findIndexOfMinElement (const float* BV_R_ data, const
                                             std::min_element (data, data + dataSize)));
 #endif
 }
-    
+
 static BV_FORCE_INLINE int findIndexOfMinElement (const double* BV_R_ data, const int dataSize)
 {
     jassert (dataSize > 1);
@@ -339,9 +339,9 @@ static BV_FORCE_INLINE int findIndexOfMinElement (const double* BV_R_ data, cons
                                             std::min_element (data, data + dataSize)));
 #endif
 }
-    
-    
-    
+
+
+
 // returns the index in the vector of the element with the maximum value
 static BV_FORCE_INLINE int findIndexOfMaxElement (const float* BV_R_ data, const int dataSize)
 {
@@ -363,7 +363,7 @@ static BV_FORCE_INLINE int findIndexOfMaxElement (const float* BV_R_ data, const
                                             std::max_element (data, data + dataSize)));
 #endif
 }
-    
+
 static BV_FORCE_INLINE int findIndexOfMaxElement (const double* BV_R_ data, const int dataSize)
 {
     jassert (dataSize > 1);
@@ -384,9 +384,9 @@ static BV_FORCE_INLINE int findIndexOfMaxElement (const double* BV_R_ data, cons
                                             std::max_element (data, data + dataSize)));
 #endif
 }
-    
-    
-    
+
+
+
 
 // returns both the minimum element and its index in the vector into the variables minimum and minIndex
 static BV_FORCE_INLINE void findMinAndMinIndex (const float* BV_R_ data, const int dataSize,
@@ -407,7 +407,7 @@ static BV_FORCE_INLINE void findMinAndMinIndex (const float* BV_R_ data, const i
     minIndex = static_cast<int> (std::distance (data, lowestElement));
 #endif
 }
-    
+
 static BV_FORCE_INLINE void findMinAndMinIndex (const double* BV_R_ data, const int dataSize,
                                                 double& minimum, int& minIndex)
 {
@@ -426,7 +426,7 @@ static BV_FORCE_INLINE void findMinAndMinIndex (const double* BV_R_ data, const 
     minIndex = static_cast<int> (std::distance (data, lowestElement));
 #endif
 }
-    
+
 
 // returns both the maximum element and its index in the vector into the variables maximum and maxIndex
 static BV_FORCE_INLINE void findMaxAndMaxIndex (const float* BV_R_ data, const int dataSize,
@@ -447,7 +447,7 @@ static BV_FORCE_INLINE void findMaxAndMaxIndex (const float* BV_R_ data, const i
     maxIndex = static_cast<int> (std::distance (data, highestElement));
 #endif
 }
-    
+
 static BV_FORCE_INLINE void findMaxAndMaxIndex (const double* BV_R_ data, const int dataSize,
                                                 double& maximum, int& maxIndex)
 {
@@ -466,7 +466,7 @@ static BV_FORCE_INLINE void findMaxAndMaxIndex (const double* BV_R_ data, const 
     maxIndex = static_cast<int> (std::distance (data, highestElement));
 #endif
 }
-    
+
 
 // locates the element with the highest absolute value and its index in the vector, and returns them into the variables greatestMagnitude and index
 static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const float* BV_R_ data, const int dataSize,
@@ -500,7 +500,7 @@ static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const float* BV_R_ data,
     index = strongestMagIndex;
 #endif
 }
-    
+
 static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const double* BV_R_ data, const int dataSize,
                                                         double& greatestMagnitude, int& index)
 {
@@ -532,7 +532,7 @@ static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const double* BV_R_ data
     index = strongestMagIndex;
 #endif
 }
-    
+
 
 // locates the element with the lowest absolute value and its index in the vector, and returns them into the variables leastMagnitude and index
 static BV_FORCE_INLINE void locateLeastAbsMagnitude (const float* BV_R_ data, const int dataSize,
@@ -566,7 +566,7 @@ static BV_FORCE_INLINE void locateLeastAbsMagnitude (const float* BV_R_ data, co
     index = weakestMagIndex;
 #endif
 }
-    
+
 static BV_FORCE_INLINE void locateLeastAbsMagnitude (const double* BV_R_ data, const int dataSize,
                                                      double& leastMagnitude, int& index)
 {
@@ -598,7 +598,7 @@ static BV_FORCE_INLINE void locateLeastAbsMagnitude (const double* BV_R_ data, c
     index = weakestMagIndex;
 #endif
 }
-    
+
 
 // finds both the maximum and minimum elements in the vector and returns them into the variables max and min.
 static inline void findExtrema (const float* BV_R_ data, const int dataSize,
@@ -616,7 +616,7 @@ static inline void findExtrema (const float* BV_R_ data, const int dataSize,
     max = range.getEnd();
 #endif
 }
-    
+
 static BV_FORCE_INLINE void findExtrema (double* BV_R_ data, const int dataSize,
                                          double& min, double& max)
 {
@@ -632,8 +632,8 @@ static BV_FORCE_INLINE void findExtrema (double* BV_R_ data, const int dataSize,
     max = range.getEnd();
 #endif
 }
-    
-    
+
+
 // returns the distance between the maximum and minimum element of the vector
 static BV_FORCE_INLINE float findRangeOfExtrema (const float* BV_R_ data, const int dataSize)
 {
@@ -649,7 +649,7 @@ static BV_FORCE_INLINE float findRangeOfExtrema (const float* BV_R_ data, const 
     return max - min;
 #else
     return juce::FloatVectorOperations::findMinAndMax (data, dataSize)
-                .getLength();
+    .getLength();
 #endif
 }
 
@@ -667,11 +667,11 @@ static BV_FORCE_INLINE double findRangeOfExtrema (const double* BV_R_ data, cons
     return max - min;
 #else
     return juce::FloatVectorOperations::findMinAndMax (data, dataSize)
-                .getLength();
+    .getLength();
 #endif
 }
-    
-    
+
+
 // deinterleave samples from dst into src
 template<typename T>
 static inline void deinterleave (T* dst,
@@ -704,10 +704,10 @@ static inline void deinterleave (T* dst,
             }
     }
 }
-    
-    
 
-    
+
+
+
 static BV_FORCE_INLINE void cartesian_to_polar (float* const BV_R_ mag,
                                                 float* const BV_R_ phase,
                                                 const float* const BV_R_ real,
@@ -735,7 +735,7 @@ static BV_FORCE_INLINE void cartesian_to_polar (float* const BV_R_ mag,
     }
 #endif
 }
-    
+
 static BV_FORCE_INLINE void cartesian_to_polar (double* const BV_R_ mag,
                                                 double* const BV_R_ phase,
                                                 const double* const BV_R_ real,
@@ -763,7 +763,7 @@ static BV_FORCE_INLINE void cartesian_to_polar (double* const BV_R_ mag,
     }
 #endif
 }
-    
+
 
 static BV_FORCE_INLINE void phasor (float* real, float* imag, float phase)
 {
@@ -776,9 +776,9 @@ static BV_FORCE_INLINE void phasor (float* real, float* imag, float phase)
     *imag = sinf(phase);
     
 #elif defined __GNUC__
-  #if defined __APPLE__
-    #define sincosf __sincosf
-  #endif
+#if defined __APPLE__
+#define sincosf __sincosf
+#endif
     sincosf (phase, imag, real);
     
 #else
@@ -798,9 +798,9 @@ static BV_FORCE_INLINE void phasor (double* real, double* imag, double phase)
     *imag = sin(phase);
     
 #elif defined __GNUC__
-  #if defined __APPLE__
-    #define sincos __sincos
-  #endif
+#if defined __APPLE__
+#define sincos __sincos
+#endif
     sincos (phase, imag, real);
     
 #else
@@ -808,8 +808,8 @@ static BV_FORCE_INLINE void phasor (double* real, double* imag, double phase)
     *imag = sin(phase);
 #endif
 }
-    
-    
+
+
 static BV_FORCE_INLINE void polar_to_cartesian   (float* const BV_R_ real,
                                                   float* const BV_R_ imag,
                                                   const float* const BV_R_ mag,
@@ -828,7 +828,7 @@ static BV_FORCE_INLINE void polar_to_cartesian   (float* const BV_R_ real,
     juce::FloatVectorOperations::multiply (imag, imag, mag, dataSize);
 #endif
 }
-    
+
 static BV_FORCE_INLINE void polar_to_cartesian   (double* const BV_R_ real,
                                                   double* const BV_R_ imag,
                                                   const double* const BV_R_ mag,
@@ -847,8 +847,8 @@ static BV_FORCE_INLINE void polar_to_cartesian   (double* const BV_R_ real,
     juce::FloatVectorOperations::multiply (imag, imag, mag, dataSize);
 #endif
 }
-    
-    
+
+
 BV_FORCE_INLINE void cartesian_to_magnitudes (float* const BV_R_ mag,
                                               const float* const BV_R_ real,
                                               const float* const BV_R_ imag,
@@ -883,8 +883,5 @@ BV_FORCE_INLINE void cartesian_to_magnitudes (double* const BV_R_ mag,
 }
 
 
-    
-    
-    
-    
 }  // namespace
+
