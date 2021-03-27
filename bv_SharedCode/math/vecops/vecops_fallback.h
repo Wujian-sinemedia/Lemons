@@ -1,4 +1,8 @@
 
+/*
+    The default implementations of the vecops functions. Uses juce::FloatVectorOperations where possible, and plain C++ where not.
+*/
+
 
 namespace bav::vecops
 {

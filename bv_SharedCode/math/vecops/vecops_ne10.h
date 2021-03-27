@@ -1,6 +1,8 @@
 
 /*
-    Implementations of vecops functions using Apple vDSP.
+    Implementations of vecops functions using Ne10.
+ 
+    Ne10 does not currently provide functions for working with doubles. Ne10 is used here for all float function calls, and the "fallback" implementations have simply been copied for all other functions.
 */
 
 
@@ -8,16 +10,16 @@
 namespace bav::vecops
 {
 
-    
+
 /* fills a vector with the specified value. */
 static BV_FORCE_INLINE void fill (float* BV_R_ vector, const float value, const int count)
 {
-    vDSP_vfill (&value, vector, vDSP_Stride(1), vDSP_Length(count));
+    ne10_setc_float (vector, value, uint32_t(count));
 }
 
 static BV_FORCE_INLINE void fill (double* BV_R_ vector, const double value, const int count)
 {
-    vDSP_vfillD (&value, vector, vDSP_Stride(1), vDSP_Length(count));
+    juce::FloatVectorOperations::fill (vector, value, count);
 }
 
 
@@ -36,170 +38,170 @@ static BV_FORCE_INLINE void copy (double* BV_R_ source, double* BV_R_ dest, cons
 /* copies each value of src into dst. The vectors may have different value types. If they are the same type, this is the same as using copy */
 static BV_FORCE_INLINE void convert (double* const BV_R_ dst, const float* const BV_R_ src, const int count)
 {
-    vDSP_vspdp (src, vDSP_Stride(1), dst, vDSP_Stride(1), vDSP_Length(count));
+    for (int i = 0; i < count; ++i) {
+        dst[i] = double(src[i]);
+    }
 }
 
 static BV_FORCE_INLINE void convert (float* const BV_R_ dst, const double* const BV_R_ src, const int count)
 {
-    vDSP_vdpsp (src, vDSP_Stride(1), dst, vDSP_Stride(1), vDSP_Length(count));
+    for (int i = 0; i < count; ++i) {
+        dst[i] = float(src[i]);
+    }
 }
 
 
 /* adds a single operand to each value in the vector */
 static BV_FORCE_INLINE void addC (float* BV_R_ vector, const float value, const int count)
 {
-    vDSP_vsadd (vector, vDSP_Stride(1), &value, vector, vDSP_Stride(1), vDSP_Length(count));
+    ne10_addc_float (vector, vector, value, uint32_t(count));
 }
 
 static BV_FORCE_INLINE void addC (double* BV_R_ vector, const double value, const int count)
 {
-    vDSP_vsaddD (vector, vDSP_Stride(1), &value, vector, vDSP_Stride(1), vDSP_Length(count));
+    juce::FloatVectorOperations::add (vector, value, count);
 }
 
 
 /* performs element-wise addition of two vectors and writes the output to vecA */
 static BV_FORCE_INLINE void addV (float* BV_R_ vecA, float* BV_R_ vecB, const int count)
 {
-    vDSP_vadd (vecB, vDSP_Stride(1), vecA, vDSP_Stride(1), vecA, vDSP_Stride(1), vDSP_Length(count));
+    ne10_add_float (vecA, vecA, vecB, uint32_t(count));
 }
 
 static BV_FORCE_INLINE void addV (double* BV_R_ vecA, double* BV_R_ vecB, const int count)
 {
-    vDSP_vaddD (vecB, vDSP_Stride(1), vecA, vDSP_Stride(1), vecA, vDSP_Stride(1), vDSP_Length(count));
+    juce::FloatVectorOperations::add (vecA, vecB, count);
 }
 
 
 /* subtracts a single operand from every element in the vector */
 static BV_FORCE_INLINE void subtractC (float* BV_R_ vector, const float value, const int count)
 {
-    const auto val = -value;
-    vDSP_vsadd (vector, vDSP_Stride(1), &val, vector, vDSP_Stride(1), vDSP_Length(count));
+    ne10_subc_float (vector, vector, value, uint32_t(count));
 }
 
 static BV_FORCE_INLINE void subtractC (double* BV_R_ vector, const double value, const int count)
 {
-    const auto val = -value;
-    vDSP_vsaddD (vector, vDSP_Stride(1), &val, vector, vDSP_Stride(1), vDSP_Length(count));
+    juce::FloatVectorOperations::add (vector, -value, count);
 }
 
 
 /* performs element-wise subtraction of two vectors and writes the output to vecA */
 static BV_FORCE_INLINE void subtractV (float* BV_R_ vecA, float* BV_R_ vecB, const int count)
 {
-    vDSP_vsub (vecA, vDSP_Stride(1), vecB, vDSP_Stride(1), vecA, vDSP_Stride(1), vDSP_Length(count));
+    ne10_sub_float (vecA, vecA, vecB, uint32_t(count));
 }
 
 static BV_FORCE_INLINE void subtractV (double* BV_R_ vecA, double* BV_R_ vecB, const int count)
 {
-    vDSP_vsubD (vecA, vDSP_Stride(1), vecB, vDSP_Stride(1), vecA, vDSP_Stride(1), vDSP_Length(count));
+    for (int i = 0; i < count; ++i)
+        *(vecA + i) = vecA[i] - vecB[i];
 }
 
 
 /* multiplies every element in the vector by a single operand */
 static BV_FORCE_INLINE void multiplyC (float* BV_R_ vector, const float value, const int count)
 {
-    vDSP_vsmul (vector, vDSP_Stride(1), &value, vector, vDSP_Stride(1), vDSP_Length(count));
+    ne10_mulc_float (vector, vector, value, uint32_t(count));
 }
 
 static BV_FORCE_INLINE void multiplyC (double* BV_R_ vector, const double value, const int count)
 {
-    vDSP_vsmulD (vector, vDSP_Stride(1), &value, vector, vDSP_Stride(1), vDSP_Length(count));
+    juce::FloatVectorOperations::multiply (vector, value, count);
 }
 
 
 /* performs element-wise multiplication of two vectors and writes the output to vecA */
 static BV_FORCE_INLINE void multiplyV (float* BV_R_ vecA, float* BV_R_ vecB, const int count)
 {
-    vDSP_vmul (vecA, vDSP_Stride(1), vecB, vDSP_Stride(1), vecA, vDSP_Stride(1), vDSP_Length(count));
+    ne10_mul_float (vecA, vecA, vecB, uint32_t(count));
 }
 
 static BV_FORCE_INLINE void multiplyV (double* BV_R_ vecA, double* BV_R_ vecB, const int count)
 {
-    vDSP_vmulD (vecA, vDSP_Stride(1), vecB, vDSP_Stride(1), vecA, vDSP_Stride(1), vDSP_Length(count));
+    juce::FloatVectorOperations::multiply (vecA, vecB, count);
 }
 
 
 /* divides every element in the vector by a single operand */
 static BV_FORCE_INLINE void divideC (float* BV_R_ vector, const float value, const int count)
 {
-    vDSP_vsdiv (vector, vDSP_Stride(1), &value, vector, vDSP_Stride(1), vDSP_Length(count));
+    ne10_divc_float (vector, vector, value, uint32_t(count));
 }
 
 static BV_FORCE_INLINE void divideC (double* BV_R_ vector, const double value, const int count)
 {
-    vDSP_vsdivD (vector, vDSP_Stride(1), &value, vector, vDSP_Stride(1), vDSP_Length(count));
+    juce::FloatVectorOperations::multiply (vector, 1.0f / value, count);
 }
 
 
 /* performs element-wise division of two vectors and writes the output to vecA */
 static BV_FORCE_INLINE void divideV (float* BV_R_ vecA, float* BV_R_ vecB, const int count)
 {
-    vDSP_vdiv (vecB, vDSP_Stride(1), vecA, vDSP_Stride(1), vecA, vDSP_Stride(1), vDSP_Length(count));
+    ne10_div_float (vecA, vecA, vecB, uint32_t(count));
 }
 
 static BV_FORCE_INLINE void divideV (double* BV_R_ vecA, double* BV_R_ vecB, const int count)
 {
-    vDSP_vdivD (vecB, vDSP_Stride(1), vecA, vDSP_Stride(1), vecA, vDSP_Stride(1), vDSP_Length(count));
+    for (int i = 0; i < count; ++i)
+        *(vecA + i) = vecA[i] / vecB[i];
 }
 
 
 /* replaces every element in the passed vector with its square root */
 static BV_FORCE_INLINE void squareRoot (float* BV_R_ data, const int dataSize)
 {
-    vvsqrtf (data, data, &dataSize);
+    for (int i = 0; i < dataSize; ++i) {
+        data[i] = sqrt (data[i]);
+    }
 }
 
 static BV_FORCE_INLINE void squareRoot (double* BV_R_ data, const int dataSize)
 {
-    vvsqrt (data, data, &dataSize);
+    for (int i = 0; i < dataSize; ++i) {
+        data[i] = sqrt (data[i]);
+    }
 }
 
 
 /* replaces every element in the passed vector with its square */
 static BV_FORCE_INLINE void square (float* BV_R_ data, const int dataSize)
 {
-   vDSP_vsq (data, vDSP_Stride(1), data, vDSP_Stride(1), vDSP_Length(dataSize));
+    ne10_mul_float (data, data, data, uint32_t(count));
 }
 
 static BV_FORCE_INLINE void square (double* BV_R_ data, const int dataSize)
 {
-   vDSP_vsqD (data, vDSP_Stride(1), data, vDSP_Stride(1), vDSP_Length(dataSize));
+    juce::FloatVectorOperations::multiply (data, data, dataSize);
 }
 
 
 /* returns the index in the vector of the minimum element */
 static BV_FORCE_INLINE int findIndexOfMinElement (const float* BV_R_ data, const int dataSize)
 {
-    unsigned long index = 0.0;
-    float minimum = 0.0f;
-    vDSP_minvi (data, vDSP_Stride(1), &minimum, &index, vDSP_Length(dataSize));
-    return int(index);
+    return static_cast<int> (std::distance (data,
+                                            std::min_element (data, data + dataSize)));
 }
 
 static BV_FORCE_INLINE int findIndexOfMinElement (const double* BV_R_ data, const int dataSize)
 {
-    unsigned long index = 0.0;
-    double minimum = 0.0;
-    vDSP_minviD (data, vDSP_Stride(1), &minimum, &index, vDSP_Length(dataSize));
-    return int(index);
+    return static_cast<int> (std::distance (data,
+                                            std::min_element (data, data + dataSize)));
 }
 
 
 /* returns the index in the vector of the maximum element */
 static BV_FORCE_INLINE int findIndexOfMaxElement (const float* BV_R_ data, const int dataSize)
 {
-    unsigned long index = 0.0;
-    float maximum = 0.0f;
-    vDSP_maxvi (data, vDSP_Stride(1), &maximum, &index, vDSP_Length(dataSize));
-    return int(index);
+    return static_cast<int> (std::distance (data,
+                                            std::max_element (data, data + dataSize)));
 }
 
 static BV_FORCE_INLINE int findIndexOfMaxElement (const double* BV_R_ data, const int dataSize)
 {
-    unsigned long index = 0.0;
-    double maximum = 0.0;
-    vDSP_maxviD (data, vDSP_Stride(1), &maximum, &index, vDSP_Length(dataSize));
-    return int(index);
+    return static_cast<int> (std::distance (data,
+                                            std::max_element (data, data + dataSize)));
 }
 
 
@@ -207,17 +209,17 @@ static BV_FORCE_INLINE int findIndexOfMaxElement (const double* BV_R_ data, cons
 static BV_FORCE_INLINE void findMinAndMinIndex (const float* BV_R_ data, const int dataSize,
                                                 float& minimum, int& minIndex)
 {
-    unsigned long index = 0.0;
-    vDSP_minvi (data, vDSP_Stride(1), &minimum, &index, vDSP_Length(dataSize));
-    minIndex = int (index);
+    auto* lowestElement = std::min_element (data, data + dataSize);
+    minimum = *lowestElement;
+    minIndex = static_cast<int> (std::distance (data, lowestElement));
 }
 
 static BV_FORCE_INLINE void findMinAndMinIndex (const double* BV_R_ data, const int dataSize,
                                                 double& minimum, int& minIndex)
 {
-    unsigned long index = 0.0;
-    vDSP_minviD (data, vDSP_Stride(1), &minimum, &index, vDSP_Length(dataSize));
-    minIndex = int (index);
+    auto* lowestElement = std::min_element (data, data + dataSize);
+    minimum = *lowestElement;
+    minIndex = static_cast<int> (std::distance (data, lowestElement));
 }
 
 
@@ -225,17 +227,17 @@ static BV_FORCE_INLINE void findMinAndMinIndex (const double* BV_R_ data, const 
 static BV_FORCE_INLINE void findMaxAndMaxIndex (const float* BV_R_ data, const int dataSize,
                                                 float& maximum, int& maxIndex)
 {
-    unsigned long index = 0.0;
-    vDSP_maxvi (data, vDSP_Stride(1), &maximum, &index, vDSP_Length(dataSize));
-    maxIndex = int (index);
+    auto* highestElement = std::max_element (data, data + dataSize);
+    maximum = *highestElement;
+    maxIndex = static_cast<int> (std::distance (data, highestElement));
 }
 
 static BV_FORCE_INLINE void findMaxAndMaxIndex (const double* BV_R_ data, const int dataSize,
                                                 double& maximum, int& maxIndex)
 {
-    unsigned long index = 0.0;
-    vDSP_maxviD (data, vDSP_Stride(1), &maximum, &index, vDSP_Length(dataSize));
-    maxIndex = int (index);
+    auto* highestElement = std::max_element (data, data + dataSize);
+    maximum = *highestElement;
+    maxIndex = static_cast<int> (std::distance (data, highestElement));
 }
 
 
@@ -243,17 +245,43 @@ static BV_FORCE_INLINE void findMaxAndMaxIndex (const double* BV_R_ data, const 
 static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const float* BV_R_ data, const int dataSize,
                                                         float& greatestMagnitude, int& index)
 {
-    unsigned long i = 0.0;
-    vDSP_maxmgvi (data, vDSP_Stride(1), &greatestMagnitude, &i, vDSP_Length(dataSize));
-    index = int(i);
+    int strongestMagIndex = 0;
+    auto strongestMag = abs(data[0]);
+    
+    for (int i = 1; i < dataSize; ++i)
+    {
+        const auto current = abs(data[i]);
+        
+        if (current > strongestMag)
+        {
+            strongestMag = current;
+            strongestMagIndex = i;
+        }
+    }
+    
+    greatestMagnitude = strongestMag;
+    index = strongestMagIndex;
 }
 
 static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const double* BV_R_ data, const int dataSize,
                                                         double& greatestMagnitude, int& index)
 {
-    unsigned long i = 0.0;
-    vDSP_maxmgviD (data, vDSP_Stride(1), &greatestMagnitude, &i, vDSP_Length(dataSize));
-    index = int(i);
+    int strongestMagIndex = 0;
+    auto strongestMag = abs(data[0]);
+    
+    for (int i = 1; i < dataSize; ++i)
+    {
+        const auto current = abs(data[i]);
+        
+        if (current > strongestMag)
+        {
+            strongestMag = current;
+            strongestMagIndex = i;
+        }
+    }
+    
+    greatestMagnitude = strongestMag;
+    index = strongestMagIndex;
 }
 
 
@@ -261,17 +289,43 @@ static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const double* BV_R_ data
 static BV_FORCE_INLINE void locateLeastAbsMagnitude (const float* BV_R_ data, const int dataSize,
                                                      float& leastMagnitude, int& index)
 {
-    unsigned long i = 0.0;
-    vDSP_minmgvi (data, vDSP_Stride(1), &leastMagnitude, &i, vDSP_Length(dataSize));
-    index = int(i);
+    int weakestMagIndex = 0;
+    auto weakestMag = abs(data[0]);
+    
+    for (int i = 1; i < dataSize; ++i)
+    {
+        const auto current = abs(data[i]);
+        
+        if (current < weakestMag)
+        {
+            weakestMag = current;
+            weakestMagIndex = i;
+        }
+    }
+    
+    leastMagnitude = weakestMag;
+    index = weakestMagIndex;
 }
 
 static BV_FORCE_INLINE void locateLeastAbsMagnitude (const double* BV_R_ data, const int dataSize,
                                                      double& leastMagnitude, int& index)
 {
-    unsigned long i = 0.0;
-    vDSP_minmgviD (data, vDSP_Stride(1), &leastMagnitude, &i, vDSP_Length(dataSize));
-    index = int(i);
+    int weakestMagIndex = 0;
+    auto weakestMag = abs(data[0]);
+    
+    for (int i = 1; i < dataSize; ++i)
+    {
+        const auto current = abs(data[i]);
+        
+        if (current < weakestMag)
+        {
+            weakestMag = current;
+            weakestMagIndex = i;
+        }
+    }
+    
+    leastMagnitude = weakestMag;
+    index = weakestMagIndex;
 }
 
 
@@ -279,68 +333,64 @@ static BV_FORCE_INLINE void locateLeastAbsMagnitude (const double* BV_R_ data, c
 static inline void findExtrema (const float* BV_R_ data, const int dataSize,
                                 float& min, float& max)
 {
-    vDSP_minv (data, vDSP_Stride(1), &min, vDSP_Length(dataSize));
-    vDSP_maxv (data, vDSP_Stride(1), &max, vDSP_Length(dataSize));
+    auto range = juce::FloatVectorOperations::findMinAndMax (data, dataSize);
+    min = range.getStart();
+    max = range.getEnd();
 }
 
 static BV_FORCE_INLINE void findExtrema (double* BV_R_ data, const int dataSize,
                                          double& min, double& max)
 {
-    vDSP_minvD (data, vDSP_Stride(1), &min, vDSP_Length(dataSize));
-    vDSP_maxvD (data, vDSP_Stride(1), &max, vDSP_Length(dataSize));
+    auto range = juce::FloatVectorOperations::findMinAndMax (data, dataSize);
+    min = range.getStart();
+    max = range.getEnd();
 }
 
 
 /* returns the distance between the maximum and minimum element of the vector */
 static BV_FORCE_INLINE float findRangeOfExtrema (const float* BV_R_ data, const int dataSize)
 {
-    float min = 0.0f, max = 0.0f;
-    vDSP_minv (data, vDSP_Stride(1), &min, vDSP_Length(dataSize));
-    vDSP_maxv (data, vDSP_Stride(1), &max, vDSP_Length(dataSize));
-    return max - min;
+    return juce::FloatVectorOperations::findMinAndMax (data, dataSize).getLength();
 }
 
 static BV_FORCE_INLINE double findRangeOfExtrema (const double* BV_R_ data, const int dataSize)
 {
-    double min = 0.0, max = 0.0;
-    vDSP_minvD (data, vDSP_Stride(1), &min, vDSP_Length(dataSize));
-    vDSP_maxvD (data, vDSP_Stride(1), &max, vDSP_Length(dataSize));
-    return max - min;
+    return juce::FloatVectorOperations::findMinAndMax (data, dataSize).getLength();
 }
-    
-    
+
+
 /* normalizes the vector to the absolute maximum value contained in the vector. */
 static BV_FORCE_INLINE void normalize (float* BV_R_ vector, const int numSamples)
 {
     float max = 0.0f;
-    unsigned long i = 0.0;
-    vDSP_maxmgvi (vector, vDSP_Stride(1), &max, &i, vDSP_Length(numSamples));
+    int location;
+    
+    locateGreatestAbsMagnitude (vector, numSamples, max, location);
     
     if (max == 0.0f)
     {
-        vDSP_vfill (&max, vector, vDSP_Stride(1), vDSP_Length(numSamples));
+        ne10_setc_float (vector, 0.0f, uint32_t(numSamples));
     }
     else
     {
-        const auto oneOverMax = 1.0f / max;
-        vDSP_vsmul (vector, vDSP_Stride(1), &oneOverMax, vector, vDSP_Stride(1), vDSP_Length(numSamples));
+        ne10_mulc_float (vector, vector, 1.0f / max, uint32_t(numSamples));
     }
 }
- 
+
 static BV_FORCE_INLINE void normalize (double* BV_R_ vector, const int numSamples)
 {
-    double max = 0.0;
-    unsigned long i = 0.0;
-    vDSP_maxmgviD (vector, vDSP_Stride(1), &max, &i, vDSP_Length(numSamples));
+    float max = 0.0f;
+    int location;
     
-    if (max == 0.0)
+    locateGreatestAbsMagnitude (vector, numSamples, max, location);
+    
+    if (max == 0.0f)
     {
-        vDSP_vfillD (&max, vector, vDSP_Stride(1), vDSP_Length(numSamples));
+        juce::FloatVectorOperations::fill (vector, 0.0f, numSamples);
     }
     else
     {
-        const auto oneOverMax = 1.0 / max;
-        vDSP_vsmulD (vector, vDSP_Stride(1), &oneOverMax, vector, vDSP_Stride(1), vDSP_Length(numSamples));
+        juce::FloatVectorOperations::multiply (vector, 1.0 / max, numSamples);
     }
 }
 
@@ -350,24 +400,26 @@ static BV_FORCE_INLINE void cartesian_to_polar (float* const BV_R_ mag, float* c
                                                 const float* const BV_R_ real, const float* const BV_R_ imag,
                                                 const int count)
 {
-    DSPSplitComplex c;
-    c.realp = const_cast<float*>(real);
-    c.imagp = const_cast<float*>(imag);
-    vDSP_zvmags (&c, 1, phase, 1, vDSP_Length(count)); // using phase as a temporary dest
-    vvsqrtf (mag, phase, &count); // using phase as the source
-    vvatan2f (phase, imag, real, &count);
+    for (int i = 0; i < count; ++i)
+    {
+        const auto r = real[i];
+        const auto c = imag[i];
+        *(mag + i)   = sqrt (r * r + c * c);
+        *(phase + i) = atan2 (c, r);
+    }
 }
 
 static BV_FORCE_INLINE void cartesian_to_polar (double* const BV_R_ mag, double* const BV_R_ phase,
                                                 const double* const BV_R_ real, const double* const BV_R_ imag,
                                                 const int count)
 {
-    DSPDoubleSplitComplex c;
-    c.realp = const_cast<double*>(real);
-    c.imagp = const_cast<double*>(imag);
-    vDSP_zvmagsD (&c, 1, phase, 1, vDSP_Length(count)); // using phase as a temporary dest
-    vvsqrt (mag, phase, &count); // using phase as the source
-    vvatan2 (phase, imag, real, &count);
+    for (int i = 0; i < count; ++i)
+    {
+        const auto r = real[i];
+        const auto c = imag[i];
+        *(mag + i)   = sqrt (r * r + c * c);
+        *(phase + i) = atan2 (c, r);
+    }
 }
 
 
@@ -376,20 +428,24 @@ static BV_FORCE_INLINE void polar_to_cartesian   (float* const BV_R_ real, float
                                                   const float* const BV_R_ mag, const float* const BV_R_ phase,
                                                   const int dataSize)
 {
-    vvsincosf (imag, real, phase, &dataSize);
+    for (int i = 0; i < dataSize; ++i) {
+        phasor (real + i, imag + i, phase[i]);
+    }
     
-    vDSP_vmul (real, vDSP_Stride(1), mag, vDSP_Stride(1), real, vDSP_Stride(1), vDSP_Length(dataSize));
-    vDSP_vmul (imag, vDSP_Stride(1), mag, vDSP_Stride(1), imag, vDSP_Stride(1), vDSP_Length(dataSize));
+    ne10_mul_float (real, real, mag, uint32_t(dataSize));
+    ne10_mul_float (imag, imag, mag, uint32_t(dataSize));
 }
 
 static BV_FORCE_INLINE void polar_to_cartesian   (double* const BV_R_ real, double* const BV_R_ imag,
                                                   const double* const BV_R_ mag, const double* const BV_R_ phase,
                                                   const int dataSize)
 {
-    vvsincos (imag, real, phase, &dataSize);
+    for (int i = 0; i < dataSize; ++i) {
+        phasor (real + i, imag + i, phase[i]);
+    }
     
-    vDSP_vmulD (real, vDSP_Stride(1), mag, vDSP_Stride(1), real, vDSP_Stride(1), vDSP_Length(dataSize));
-    vDSP_vmulD (imag, vDSP_Stride(1), mag, vDSP_Stride(1), imag, vDSP_Stride(1), vDSP_Length(dataSize));
+    juce::FloatVectorOperations::multiply (real, real, mag, dataSize);
+    juce::FloatVectorOperations::multiply (imag, imag, mag, dataSize);
 }
 
 

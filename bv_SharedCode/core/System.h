@@ -9,8 +9,11 @@
      - BV_WINDOWS
      - BV_ANDROID
      - BV_LINUX
+     - BV_APPLE
      - BV_OSX
      - BV_IOS
+     - BV_BSD
+     - BV_POSIX
      ...based on the current operating system.
  Each macro will be defined to either 1 or 0, so you should reference them by using #if... ,  NOT  #ifdef... !!!
  
@@ -88,6 +91,15 @@
 #endif
 
 
+
+/*
+    These conditionals select whether to use any optimization libraries for vecops, FFTs, etc.
+    Changing these options here will control which implementation is used for the entire Shared-code module, including vecops and the FFT module.
+    - On Apple platforms, Accelerate/vDSP is included with the OS. It should always be available, and there's pretty much no reason not to use it.
+    - "IPP" stands for Intel Integrated Performance Primitives, which is available on Intel Atom, Core, and Xeon processors. IPP must be specially installed and linked to in order to use it.
+    - Ne10 is an open-source library of vectorized functions for ARM NEON processors. It must be specially compiled and linked to in order to use it.
+*/
+
 #if BV_APPLE
   #define BV_USE_VDSP 1
   #include <Accelerate/Accelerate.h>
@@ -106,6 +118,14 @@
 #if BV_USE_IPP
   #include <ippversion.h>
   #include <ipps.h>
+#endif
+
+#ifndef BV_USE_NE10
+  #define BV_USE_NE10 0
+#endif
+
+#if BV_USE_NE10
+  #include <NE10.h>
 #endif
 
 

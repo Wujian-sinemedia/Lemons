@@ -1,4 +1,8 @@
 
+/*
+    Implementations of vecops functions using Intel IPP.
+*/
+
 
 namespace bav::vecops
 {

@@ -333,6 +333,9 @@ static BV_FORCE_INLINE void phasor (double* real, double* imag, double phase)
   #include "vecops_vdsp.h"
 #elif BV_USE_IPP
   #include "vecops_ipp.h"
+#elif BV_USE_NE10
+  #include "vecops_ne10.h"
 #else
   #include "vecops_fallback.h"
 #endif
+
