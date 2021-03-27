@@ -84,13 +84,13 @@ static BV_FORCE_INLINE void subtractC (double* BV_R_ vector, const double value,
 static BV_FORCE_INLINE void subtractV (float* BV_R_ vecA, float* BV_R_ vecB, const int count)
 {
     for (int i = 0; i < count; ++i)
-        *(vecA[i]) = vecA[i] - vecB[i];
+        *(vecA + i) = vecA[i] - vecB[i];
 }
 
 static BV_FORCE_INLINE void subtractV (double* BV_R_ vecA, double* BV_R_ vecB, const int count)
 {
     for (int i = 0; i < count; ++i)
-        *(vecA[i]) = vecA[i] - vecB[i];
+        *(vecA + i) = vecA[i] - vecB[i];
 }
 
 
@@ -134,13 +134,13 @@ static BV_FORCE_INLINE void divideC (double* BV_R_ vector, const double value, c
 static BV_FORCE_INLINE void divideV (float* BV_R_ vecA, float* BV_R_ vecB, const int count)
 {
     for (int i = 0; i < count; ++i)
-        *(vecA[i]) = vecA[i] / vecB[i];
+        *(vecA + i) = vecA[i] / vecB[i];
 }
 
 static BV_FORCE_INLINE void divideV (double* BV_R_ vecA, double* BV_R_ vecB, const int count)
 {
     for (int i = 0; i < count; ++i)
-        *(vecA[i]) = vecA[i] / vecB[i];
+        *(vecA + i) = vecA[i] / vecB[i];
 }
 
 
