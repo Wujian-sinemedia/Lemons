@@ -41,7 +41,7 @@ static inline void squareRoot (double* BV_R_ data, const int dataSize)
 static inline void square (float* BV_R_ data, const int dataSize)
 {
 #if BV_USE_VDSP
-    vDSP_vsq (data, vDSP_Stride(1), data, vdSP_Stride(1), vDSP_Length(dataSize));
+    vDSP_vsq (data, vDSP_Stride(1), data, vDSP_Stride(1), vDSP_Length(dataSize));
 #elif BV_USE_IPP
     ippsSqr_32f_I (data, dataSize);
 #else
@@ -55,7 +55,7 @@ static inline void square (float* BV_R_ data, const int dataSize)
 static inline void square (double* BV_R_ data, const int dataSize)
 {
 #if BV_USE_VDSP
-    vDSP_vsqD (data, vDSP_Stride(1), data, vdSP_Stride(1), vDSP_Length(dataSize));
+    vDSP_vsqD (data, vDSP_Stride(1), data, vDSP_Stride(1), vDSP_Length(dataSize));
 #elif BV_USE_IPP
     ippsSqr_64f_I (data, dataSize);
 #else
@@ -118,7 +118,7 @@ static inline int findIndexOfMaxElement (const float* BV_R_ data, const int data
     jassert (dataSize > 1);
 #if BV_USE_VDSP
     unsigned long index = 0.0;
-    DataType maximum = 0;
+    float maximum = 0.0f;
     vDSP_maxvi (data, vDSP_Stride(1), &maximum, &index, vDSP_Length(dataSize));
     return int(index);
     
@@ -139,7 +139,7 @@ static inline int findIndexOfMaxElement (const double* BV_R_ data, const int dat
     jassert (dataSize > 1);
 #if BV_USE_VDSP
     unsigned long index = 0.0;
-    DataType maximum = 0;
+    double maximum = 0.0;
     vDSP_maxviD (data, vDSP_Stride(1), &maximum, &index, vDSP_Length(dataSize));
     return int(index);
     
@@ -532,6 +532,51 @@ static inline void cartesian_to_polar (double* const BV_R_ mag,
 #endif
 }
     
+
+static inline void phasor (float* real, float* imag, float phase)
+{
+#if defined HAVE_VDSP
+    int one = 1;
+    vvsincosf (imag, real, (const float *)&phase, &one);
+    
+#elif defined LACK_SINCOS
+    *real = cosf(phase);
+    *imag = sinf(phase);
+    
+#elif defined __GNUC__
+  #if defined __APPLE__
+    #define sincosf __sincosf
+  #endif
+    sincosf (phase, imag, real);
+    
+#else
+    *real = cosf(phase);
+    *imag = sinf(phase);
+#endif
+}
+
+static inline void phasor (double* real, double* imag, double phase)
+{
+#if defined HAVE_VDSP
+    int one = 1;
+    
+    vvsincos (imag, real, (const double *)&phase, &one);
+#elif defined LACK_SINCOS
+    *real = cos(phase);
+    *imag = sin(phase);
+    
+#elif defined __GNUC__
+  #if defined __APPLE__
+    #define sincos __sincos
+  #endif
+    sincos (phase, imag, real);
+    
+#else
+    *real = cos(phase);
+    *imag = sin(phase);
+#endif
+}
+    
     
 static inline void polar_to_cartesian   (float* const BV_R_ real,
                                          float* const BV_R_ imag,
@@ -572,49 +617,7 @@ static inline void polar_to_cartesian   (double* const BV_R_ real,
 }
     
     
-static inline void phasor (float* real, float* imag, float phase)
-{
-#if defined HAVE_VDSP
-    int one = 1;
-    vvsincosf (imag, real, (const float *)&phase, &one);
-    
-#elif defined LACK_SINCOS
-    *real = cosf(phase);
-    *imag = sinf(phase);
-    
-#elif defined __GNUC__
-  #if defined __APPLE__
-    #define sincosf __sincosf
-  #endif
-    sincosf (phase, imag, real);
-    
-#else
-    *real = cosf(phase);
-    *imag = sinf(phase);
-#endif
-}
-    
-static inline void phasor (double* real, double* imag, double phase)
-{
-#if defined HAVE_VDSP
-    int one = 1;
-    
-    vvsincos (imag, real, (const double *)&phase, &one);
-#elif defined LACK_SINCOS
-    *real = cos(phase);
-    *imag = sin(phase);
-    
-#elif defined __GNUC__
-  #if defined __APPLE__
-    #define sincos __sincos
-  #endif
-    sincos (phase, imag, real);
-    
-#else
-    *real = cos(phase);
-    *imag = sin(phase);
-#endif
-}
+
     
     
     
