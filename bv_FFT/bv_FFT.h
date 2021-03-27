@@ -1012,7 +1012,7 @@ public:
     {
         for (int i = 0; i <= m_half; ++i)
         {
-            m_a[i] = logf(magIn[i] + 0.000001);
+            m_a[i] = logf(double(magIn[i]) + 0.000001);
             m_b[i] = 0.0;
         }
         transformI (m_a, m_b, cepOut);
@@ -1064,8 +1064,9 @@ private:
         
         // sin and cos tables for complex fft
         int ix = 0;
-        for (i = 2; i <= m_maxTabledBlock; i <<= 1) {
-            double phase = 2.0 * M_PI / double(i);
+        for (i = 2; i <= m_maxTabledBlock; i <<= 1)
+        {
+            auto phase = 2.0 * juce::MathConstants<double>::pi / double(i);
             m_sincos[ix++] = sin(phase);
             m_sincos[ix++] = sin(2.0 * phase);
             m_sincos[ix++] = cos(phase);
@@ -1075,7 +1076,7 @@ private:
         // sin and cos tables for real-complex transform
         ix = 0;
         for (i = 0; i < n/2; ++i) {
-            double phase = M_PI * (double(i + 1) / double(m_half) + 0.5);
+            double phase = juce::MathConstants<double>::pi * (double(i + 1) / double(m_half) + 0.5);
             m_sincos_r[ix++] = sin(phase);
             m_sincos_r[ix++] = cos(phase);
         }
