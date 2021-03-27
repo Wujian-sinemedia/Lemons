@@ -340,6 +340,22 @@ static BV_FORCE_INLINE void cartesian_to_polar (double* const BV_R_ mag, double*
 {
     ippsCartToPolar_64f (real, imag, mag, phase, count);
 }
+    
+static BV_FORCE_INLINE void cartesian_interleaved_to_polar (double* const BV_R_ mag,
+                                                            double* const BV_R_ phase,
+                                                            const double* const BV_R_ src,
+                                                            const int count)
+{
+    ippsCartToPolar_64fc (src, mag, phase, count);
+}
+
+static BV_FORCE_INLINE void cartesian_interleaved_to_polar (float* const BV_R_ mag,
+                                                            float* const BV_R_ phase,
+                                                            const float* const BV_R_ src,
+                                                            const int count)
+{
+    ippsCartToPolar_32fc (src, mag, phase, count);
+}
 
 
 /* converts polar to cartesian coordinates */
@@ -355,6 +371,22 @@ static BV_FORCE_INLINE void polar_to_cartesian   (double* const BV_R_ real, doub
                                                   const int dataSize)
 {
     ippsPolarToCart_64f (mag, phase, real, imag, dataSize);
+}
+    
+static BV_FORCE_INLINE void polar_to_cartesian_interleaved (float* const BV_R_ dst,
+                                                            const float* const BV_R_ mag,
+                                                            const float* const BV_R_ phase,
+                                                            const int count)
+{
+    ippsPolarToCart_32fc (mag, phase, dst, count);
+}
+
+static BV_FORCE_INLINE void polar_to_cartesian_interleaved (double* const BV_R_ dst,
+                                                            const double* const BV_R_ mag,
+                                                            const double* const BV_R_ phase,
+                                                            const int count)
+{
+    ippsPolarToCart_64fc (mag, phase, dst, count);
 }
 
 
@@ -372,6 +404,20 @@ static BV_FORCE_INLINE void cartesian_to_magnitudes (double* const BV_R_ mag,
                                                      const int count)
 {
     ippsMagnitude_64f (real, imag, mag, count);
+}
+    
+static BV_FORCE_INLINE void cartesian_interleaved_to_magnitudes (float* const BV_R_ mag,
+                                                                 const float* const BV_R_ src,
+                                                                 const int count)
+{
+    ippsMagnitude_32fc (src, mag, count);
+}
+
+static BV_FORCE_INLINE void cartesian_interleaved_to_magnitudes (double* const BV_R_ mag,
+                                                                 const double* const BV_R_ src,
+                                                                 const int count)
+{
+    ippsMagnitude_64fc (src, mag, count);
 }
 
 

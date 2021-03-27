@@ -129,6 +129,11 @@
 #endif
 
 
+#ifndef BV_USE_FFTW
+  #define BV_USE_FFTW 0
+#endif
+
+
 /*
     These conditionals declare the following macros:
  

@@ -69,7 +69,9 @@ namespace bav::dsp
      */
 
 
-#if BV_USE_VDSP
+#if BV_USE_FFTW  // if someone's gone to the trouble to link to FFTW, they probably want to use it...
+  #include "fft_fftw.h"
+#elif BV_USE_VDSP
   #include "fft_vdsp.h"
 #elif BV_USE_IPP
   #include "fft_ipp.h"

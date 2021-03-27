@@ -369,6 +369,34 @@ static BV_FORCE_INLINE void cartesian_to_polar (double* const BV_R_ mag, double*
     vvsqrt (mag, phase, &count); // using phase as the source
     vvatan2 (phase, imag, real, &count);
 }
+    
+static BV_FORCE_INLINE void cartesian_interleaved_to_polar (double* const BV_R_ mag,
+                                                            double* const BV_R_ phase,
+                                                            const double* const BV_R_ src,
+                                                            const int count)
+{
+    for (int i = 0; i < count; ++i)
+    {
+        const auto real = src[i * 2];
+        const auto imag = src[i * 2 + 1];
+        *(mag + i) = sqrt (real * real + imag * imag);
+        *(phase + i) = atan2 (imag, real);
+    }
+}
+
+static BV_FORCE_INLINE void cartesian_interleaved_to_polar (float* const BV_R_ mag,
+                                                            float* const BV_R_ phase,
+                                                            const float* const BV_R_ src,
+                                                            const int count)
+{
+    for (int i = 0; i < count; ++i)
+    {
+        const auto real = src[i * 2];
+        const auto imag = src[i * 2 + 1];
+        *(mag + i) = sqrt (real * real + imag * imag);
+        *(phase + i) = atan2 (imag, real);
+    }
+}
 
 
 /* converts polar to cartesian coordinates */
@@ -390,6 +418,38 @@ static BV_FORCE_INLINE void polar_to_cartesian   (double* const BV_R_ real, doub
     
     vDSP_vmulD (real, vDSP_Stride(1), mag, vDSP_Stride(1), real, vDSP_Stride(1), vDSP_Length(dataSize));
     vDSP_vmulD (imag, vDSP_Stride(1), mag, vDSP_Stride(1), imag, vDSP_Stride(1), vDSP_Length(dataSize));
+}
+    
+static BV_FORCE_INLINE void polar_to_cartesian_interleaved (float* const BV_R_ dst,
+                                                            const float* const BV_R_ mag,
+                                                            const float* const BV_R_ phase,
+                                                            const int count)
+{
+    float real, imag;
+    for (int i = 0; i < count; ++i)
+    {
+        phasor (&real, &imag, phase[i]);
+        real *= mag[i];
+        imag *= mag[i];
+        dst[i*2] = real;
+        dst[i*2+1] = imag;
+    }
+}
+
+static BV_FORCE_INLINE void polar_to_cartesian_interleaved (double* const BV_R_ dst,
+                                                            const double* const BV_R_ mag,
+                                                            const double* const BV_R_ phase,
+                                                            const int count)
+{
+    double real, imag;
+    for (int i = 0; i < count; ++i)
+    {
+        phasor (&real, &imag, phase[i]);
+        real *= mag[i];
+        imag *= mag[i];
+        dst[i*2] = real;
+        dst[i*2+1] = imag;
+    }
 }
 
 
@@ -414,6 +474,30 @@ static BV_FORCE_INLINE void cartesian_to_magnitudes (double* const BV_R_ mag,
         const auto r = real[i];
         const auto c = imag[i];
         mag[i] = sqrt (r * r + c * c);
+    }
+}
+    
+static BV_FORCE_INLINE void cartesian_interleaved_to_magnitudes (float* const BV_R_ mag,
+                                                                 const float* const BV_R_ src,
+                                                                 const int count)
+{
+    for (int i = 0; i < count; ++i)
+    {
+        const auto ip = src[i*2];
+        const auto tn = src[i*2+1];
+        mag[i] = sqrtf (ip * ip + tn * tn);
+    }
+}
+
+static BV_FORCE_INLINE void cartesian_interleaved_to_magnitudes (double* const BV_R_ mag,
+                                                                 const double* const BV_R_ src,
+                                                                 const int count)
+{
+    for (int i = 0; i < count; ++i)
+    {
+        const auto ip = src[i*2];
+        const auto tn = src[i*2+1];
+        mag[i] = sqrt (ip * ip + tn * tn);
     }
 }
 

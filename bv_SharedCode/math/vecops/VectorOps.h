@@ -225,6 +225,16 @@ static BV_FORCE_INLINE void cartesian_to_polar (float* const BV_R_ mag, float* c
 static BV_FORCE_INLINE void cartesian_to_polar (double* const BV_R_ mag, double* const BV_R_ phase,
                                                 const double* const BV_R_ real, const double* const BV_R_ imag,
                                                 const int count);
+    
+static BV_FORCE_INLINE void cartesian_interleaved_to_polar (double* const BV_R_ mag,
+                                                            double* const BV_R_ phase,
+                                                            const double* const BV_R_ src,
+                                                            const int count);
+    
+static BV_FORCE_INLINE void cartesian_interleaved_to_polar (float* const BV_R_ mag,
+                                                            float* const BV_R_ phase,
+                                                            const float* const BV_R_ src,
+                                                            const int count);
 
 
 /* converts polar to cartesian coordinates */
@@ -235,6 +245,16 @@ static BV_FORCE_INLINE void polar_to_cartesian   (float* const BV_R_ real, float
 static BV_FORCE_INLINE void polar_to_cartesian   (double* const BV_R_ real, double* const BV_R_ imag,
                                                   const double* const BV_R_ mag, const double* const BV_R_ phase,
                                                   const int dataSize);
+    
+static BV_FORCE_INLINE void polar_to_cartesian_interleaved (float* const BV_R_ dst,
+                                                            const float* const BV_R_ mag,
+                                                            const float* const BV_R_ phase,
+                                                            const int count);
+
+static BV_FORCE_INLINE void polar_to_cartesian_interleaved (double* const BV_R_ dst,
+                                                            const double* const BV_R_ mag,
+                                                            const double* const BV_R_ phase,
+                                                            const int count);
 
 
 /* converts cartesian coordinates to frequency bin magnitudes */
@@ -246,6 +266,14 @@ static BV_FORCE_INLINE void cartesian_to_magnitudes (float* const BV_R_ mag,
 static BV_FORCE_INLINE void cartesian_to_magnitudes (double* const BV_R_ mag,
                                                      const double* const BV_R_ real, const double* const BV_R_ imag,
                                                      const int count);
+    
+static BV_FORCE_INLINE void cartesian_interleaved_to_magnitudes (float* const BV_R_ mag,
+                                                                 const float* const BV_R_ src,
+                                                                 const int count);
+    
+static BV_FORCE_INLINE void cartesian_interleaved_to_magnitudes (double* const BV_R_ mag,
+                                                                 const double* const BV_R_ src,
+                                                                 const int count);
 
     
 // deinterleave samples from dst into src

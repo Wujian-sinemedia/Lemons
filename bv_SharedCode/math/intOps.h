@@ -38,7 +38,7 @@ static BV_FORCE_INLINE int findIndexOfMaxElement (int* data, int dataSize)
     
 // returns both the minimum element and its index in the dataset into the variables minimum and minIndex
 static BV_FORCE_INLINE void findMinAndMinIndex (int* data, const int dataSize,
-                                int& minimum, int& minIndex)
+                                                int& minimum, int& minIndex)
 {
     auto* lowestElement = std::min_element (data, data + dataSize);
     minimum = *lowestElement;
@@ -48,7 +48,7 @@ static BV_FORCE_INLINE void findMinAndMinIndex (int* data, const int dataSize,
 
 // returns both the maximum element and its index in the dataset into the variables maximum and maxIndex
 static BV_FORCE_INLINE void findMaxAndMaxIndex (int* data, const int dataSize,
-                                int& maximum, int& maxIndex)
+                                                int& maximum, int& maxIndex)
 {
     auto* highestElement = std::max_element (data, data + dataSize);
     maximum = *highestElement;
@@ -58,7 +58,7 @@ static BV_FORCE_INLINE void findMaxAndMaxIndex (int* data, const int dataSize,
 
 // finds both the maximum and minimum elements in the dataset and returns them into the variables max and min.
 static BV_FORCE_INLINE void findExtrema (int* data, const int dataSize,
-                         int& min, int& max)
+                                         int& min, int& max)
 {
     min = *(std::min_element (data, data + dataSize));
     max = *(std::max_element (data, data + dataSize));
