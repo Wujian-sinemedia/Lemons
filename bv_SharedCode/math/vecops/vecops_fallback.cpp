@@ -2,6 +2,10 @@
 #include "bv_SharedCode.h"
 
 
+namespace bav::vecops
+{
+    
+
 /* fills a vector with the specified value. */
 static BV_FORCE_INLINE void fill (float* BV_R_ vector, const float value, const int count)
 {
@@ -431,4 +435,4 @@ static BV_FORCE_INLINE void cartesian_to_magnitudes (double* const BV_R_ mag,
 }
 
 
-
+}  // namespace

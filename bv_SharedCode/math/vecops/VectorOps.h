@@ -214,7 +214,7 @@ static BV_FORCE_INLINE void phasor (float* real, float* imag, float phase)
 {
 #if BV_USE_VDSP
     int one = 1;
-    vvsincosf (imag, real, (const float *)&phase, &one);
+    vvsincosf (imag, real, &phase, &one);
 
 #elif defined LACK_SINCOS
     *real = cosf(phase);
@@ -236,7 +236,7 @@ static BV_FORCE_INLINE void phasor (double* real, double* imag, double phase)
 {
 #if BV_USE_VDSP
     int one = 1;
-    vvsincos (imag, real, (const float *)&phase, &one);
+    vvsincos (imag, real, &phase, &one);
 
 #elif defined LACK_SINCOS
     *real = cos(phase);
@@ -254,3 +254,5 @@ static BV_FORCE_INLINE void phasor (double* real, double* imag, double phase)
 #endif
 }
 
+
+}  // namespace
