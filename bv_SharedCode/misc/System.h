@@ -76,7 +76,7 @@
 #endif
 
 #ifndef BV_POSIX
-  #if (BV_OSX || BV_LINUX)
+  #if BV_OSX || BV_LINUX || BV_BSD
     #define BV_POSIX 1
   #else
     #define BV_POSIX 0
@@ -121,7 +121,7 @@
     - BV_HAVE__ALIGNED_MALLOC
 */
 
-#if (BV_POSIX || BV_BSD)
+#if BV_POSIX || BV_LINUX || BV_OSX
   #define BV_POSIX_MEMALIGN 1
 #else
   #define BV_POSIX_MEMALIGN 0
@@ -154,6 +154,50 @@
 
 
 /*
+    These conditionals set the macro BV_BIT_DEPTH to either 32 or 64.
+*/
+
+#if BV_WINDOWS
+  #ifdef _MSC_VER
+    #ifdef _WIN64
+      #define BV_BIT_DEPTH 64
+    #else
+      #define BV_BIT_DEPTH 32
+    #endif
+  #endif
+
+  #ifdef __MINGW32__
+    #ifdef __MINGW64__
+      #define BV_BIT_DEPTH 64
+    #else
+      #define BV_BIT_DEPTH 32
+    #endif
+  #endif
+#endif  /* if BV_WINDOWS  */
+
+#if BV_APPLE
+  #ifdef __LP64__
+    #define BV_BIT_DEPTH 64
+  #else
+    #define BV_BIT_DEPTH 32
+  #endif
+#endif  /* if BV_APPLE  */
+
+#if BV_LINUX || JUCE_ANDROID
+  #if defined (__LP64__) || defined (_LP64) || defined (__arm64__)
+    #define BV_BIT_DEPTH 64
+  #else
+    #define BV_BIT_DEPTH 32
+  #endif
+#endif  /* if BV_LINUX || JUCE_ANDROID  */
+
+#ifndef BV_BIT_DEPTH
+  #define BV_BIT_DEPTH 32
+#endif
+
+
+
+/*
     Platform-independant restriction macro to reduce pointer aliasing, allowing for better optimizations. Use with care, this can result in UB!
 */
 
@@ -176,6 +220,7 @@
 #endif
 
 #ifndef BV_R_
+  #warning No pointer restriction available for your compiler
   #define BV_R_
 #endif
 

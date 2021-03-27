@@ -859,9 +859,9 @@ public:
         m_blockTableSize(16),
         m_maxTabledBlock(1 << m_blockTableSize)
     {
-        const int half = size / 2;
+        const auto half = size_t(size / 2);
         m_table = aligned_allocate_zero<int>(half);
-        m_sincos = aligned_allocate_zero<double>(int(m_blockTableSize * 4));
+        m_sincos = aligned_allocate_zero<double>(m_blockTableSize * 4);
         m_sincos_r = aligned_allocate_zero<double>(half);
         m_vr = aligned_allocate_zero<double>(half);
         m_vi = aligned_allocate_zero<double>(half);
@@ -941,7 +941,9 @@ public:
     void forwardPolar (const float* BV_R_ realIn, float* BV_R_ magOut, float* BV_R_ phaseOut) override
     {
         transformF (realIn, m_c, m_d);
-        vecops::cartesian_to_polar (magOut, phaseOut, m_c, m_d, m_half + 1);
+        vecops::cartesian_to_polar (m_e, m_f, m_c, m_d, m_half + 1);
+        vecops::convert (magOut, m_e, m_half + 1);
+        vecops::convert (phaseOut, m_f, m_half + 1);
     }
     
     void forwardMagnitude (const double* BV_R_ realIn, double* BV_R_ magOut) override

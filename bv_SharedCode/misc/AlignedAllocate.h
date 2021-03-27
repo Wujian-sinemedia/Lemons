@@ -15,8 +15,7 @@ namespace bav
         ptr = malloc(count * sizeof(T));
 #else
         
-        // 32-byte alignment is required for at least OpenMAX
-        static const int alignment = 32;
+        static const int alignment = BV_BIT_DEPTH;
         
 #if BV_HAVE__ALIGNED_MALLOC
         ptr = _aligned_malloc(count * sizeof(T), alignment);
@@ -65,6 +64,12 @@ namespace bav
         for (size_t i = 0; i < count; ++i) {
             new (typed_ptr + i) T;
         }
+        
+        if (typed_ptr == nullptr)
+        {
+            throw std::bad_alloc();
+        }
+        
         return typed_ptr;
     }
     
@@ -116,6 +121,10 @@ namespace bav
 #endif  /* if BV_USE_IPP */
     
     
+    
+    /*
+        Allocates an aligned block of memory and initializes it to zero
+    */
     
     template<typename T>
     T* aligned_allocate_zero (size_t count)
