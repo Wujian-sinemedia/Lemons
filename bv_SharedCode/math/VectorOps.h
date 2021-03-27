@@ -520,7 +520,21 @@ static inline void deinterleave (T* dst,
 }
     
     
-    
+template<typename T1, typename T2, typename T3, typename T4>
+static BV_FORCE_INLINE void cartesian_to_polar (T1* const BV_R_ mag,
+                                                T2* const BV_R_ phase,
+                                                const T3* const BV_R_ real,
+                                                const T4* const BV_R_ imag,
+                                                const int count)
+{
+    for (int i = 0; i < count; ++i)
+    {
+        const T3 r = real[i];
+        const auto c = T3 (imag[i]);
+        *(mag + i)   = T1 (sqrt (r * r + c * c));
+        *(phase + i) = T2 (atan2 (c, r));
+    }
+}
     
 static BV_FORCE_INLINE void cartesian_to_polar (float* const BV_R_ mag,
                                                 float* const BV_R_ phase,

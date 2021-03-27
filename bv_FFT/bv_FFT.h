@@ -923,8 +923,8 @@ public:
     {
         transformF (realIn, m_c, m_d);
         
-        for (int i = 0; i <= m_half; ++i) complexOut[i*2] = m_c[i];
-        for (int i = 0; i <= m_half; ++i) complexOut[i*2+1] = m_d[i];
+        for (int i = 0; i <= m_half; ++i) complexOut[i*2] = float(m_c[i]);
+        for (int i = 0; i <= m_half; ++i) complexOut[i*2+1] = float(m_d[i]);
     }
     
     void forwardPolar (const double* BV_R_ realIn, double* BV_R_ magOut, double* BV_R_ phaseOut) override
