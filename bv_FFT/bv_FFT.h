@@ -12,7 +12,7 @@
  vendor:             Ben Vining
  version:            0.0.1
  name:               bv_FFT
- description:        Ben Vining's wrapper class for FFT's
+ description:        wrapper class providing a common interface for various platform-optimized FFT implementations
  dependencies:       bv_SharedCode
  END_JUCE_MODULE_DECLARATION
  *******************************************************************************/
