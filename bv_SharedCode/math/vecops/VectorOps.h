@@ -8,6 +8,113 @@ This namespace contains several floating inlined functions that extend the funct
 Apple's vDSP framework and Intel IPP are used if they are available.
 */
 
+    
+/* Normalises a set of samples to the absolute maximum contained within the buffer. */
+static BV_FORCE_INLINE void normalize (float* BV_R_ vector, const int numSamples)
+{
+    float max = 0;
+    int location;
+    
+    locateGreatestAbsMagnitude (vector, numSamples, max, location);
+    
+    if (max == 0)
+    {
+        fill (vector, 0.0f, numSamples);
+    }
+    else
+    {
+        const float oneOverMax = 1.0f / max;
+        
+        for (int i = 0; i < numSamples; ++i)
+            vector[i] *= oneOverMax;
+    }
+}
+    
+static BV_FORCE_INLINE void normalize (double* BV_R_ vector, const int numSamples)
+{
+    double max = 0;
+    int location;
+    
+    locateGreatestAbsMagnitude (vector, numSamples, max, location);
+    
+    if (max == 0)
+    {
+        fill (vector, 0.0, numSamples);
+    }
+    else
+    {
+        const double oneOverMax = 1.0f / max;
+        
+        for (int i = 0; i < numSamples; ++i)
+            vector[i] *= oneOverMax;
+    }
+}
+    
+    
+/* Finds the autocorrelation of a set of samples using a shrinking integration window */
+static BV_FORCE_INLINE void autocorrelate (const float* BV_R_ inputSamples, int numSamples, float* BV_R_ outputSamples)
+{
+    const float oneOverNumSamples = 1.0f / numSamples;
+    
+    for (int i = 0; i < numSamples; i++)
+    {
+        float sum = 0;
+        
+        for (int j = 0; j < numSamples - i; j++)
+            sum += inputSamples[j] * inputSamples[j + i];
+        
+        outputSamples[i] = sum * oneOverNumSamples;
+    }
+}
+    
+static BV_FORCE_INLINE void autocorrelate (const double* BV_R_ inputSamples, int numSamples, double* BV_R_ outputSamples)
+{
+    const double oneOverNumSamples = 1.0 / numSamples;
+    
+    for (int i = 0; i < numSamples; i++)
+    {
+        double sum = 0;
+        
+        for (int j = 0; j < numSamples - i; j++)
+            sum += inputSamples[j] * inputSamples[j + i];
+        
+        outputSamples[i] = sum * oneOverNumSamples;
+    }
+}
+    
+    
+/* Autocorrelates a signal with itself using a squared difference function. Uses a shrinking integration window. */
+static BV_FORCE_INLINE void sdfAutocorrelate (const float* BV_R_ inputSamples, int numSamples, float* BV_R_ outputSamples)
+{
+    for (int i = 0; i < numSamples; i++)
+    {
+        float sum = 0;
+        
+        for (int j = 0; j < numSamples - i; j++)
+        {
+            const auto difference = inputSamples[j] - inputSamples[j + i];
+            sum += difference * difference;
+        }
+        
+        outputSamples[i] = sum;
+    }
+}
+    
+static BV_FORCE_INLINE void sdfAutocorrelate (const double* BV_R_ inputSamples, int numSamples, double* BV_R_ outputSamples)
+{
+    for (int i = 0; i < numSamples; i++)
+    {
+        double sum = 0;
+        
+        for (int j = 0; j < numSamples - i; j++)
+        {
+            const auto difference = inputSamples[j] - inputSamples[j + i];
+            sum += difference * difference;
+        }
+        
+        outputSamples[i] = sum;
+    }
+}
 
 
 /* fills a vector with the specified value. */
