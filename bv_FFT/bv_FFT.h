@@ -859,15 +859,18 @@ public:
         m_blockTableSize(16),
         m_maxTabledBlock(1 << m_blockTableSize)
     {
-        m_table = aligned_allocate_zero<int>(m_half);
-        m_sincos = aligned_allocate_zero<double>(m_blockTableSize * 4);
-        m_sincos_r = aligned_allocate_zero<double>(m_half);
-        m_vr = aligned_allocate_zero<double>(m_half);
-        m_vi = aligned_allocate_zero<double>(m_half);
-        m_a = aligned_allocate_zero<double>(m_half + 1);
-        m_b = aligned_allocate_zero<double>(m_half + 1);
-        m_c = aligned_allocate_zero<double>(m_half + 1);
-        m_d = aligned_allocate_zero<double>(m_half + 1);
+        const int half = size / 2;
+        m_table = aligned_allocate_zero<int>(half);
+        m_sincos = aligned_allocate_zero<double>(int(m_blockTableSize * 4));
+        m_sincos_r = aligned_allocate_zero<double>(half);
+        m_vr = aligned_allocate_zero<double>(half);
+        m_vi = aligned_allocate_zero<double>(half);
+        m_a = aligned_allocate_zero<double>(half + 1);
+        m_b = aligned_allocate_zero<double>(half + 1);
+        m_c = aligned_allocate_zero<double>(half + 1);
+        m_d = aligned_allocate_zero<double>(half + 1);
+        m_e = aligned_allocate_zero<double>(half + 1);
+        m_f = aligned_allocate_zero<double>(half + 1);
         m_a_and_b[0] = m_a;
         m_a_and_b[1] = m_b;
         m_c_and_d[0] = m_c;
@@ -886,6 +889,8 @@ public:
         aligned_deallocate (m_b);
         aligned_deallocate (m_c);
         aligned_deallocate (m_d);
+        aligned_deallocate (m_e);
+        aligned_deallocate (m_f);
     }
     
     int getSize() const override
@@ -948,7 +953,8 @@ public:
     void forwardMagnitude (const float* BV_R_ realIn, float* BV_R_ magOut) override
     {
         transformF (realIn, m_c, m_d);
-        vecops::cartesian_to_magnitudes (magOut, m_c, m_d, m_half + 1);
+        vecops::cartesian_to_magnitudes (m_e, m_c, m_d, m_half + 1);
+        vecops::convert (magOut, m_e, m_half + 1);
     }
     
     void inverse (const double* BV_R_ realIn, const double* BV_R_ imagIn, double* BV_R_ realOut) override
@@ -984,7 +990,9 @@ public:
     
     void inversePolar (const float* BV_R_ magIn, const float* BV_R_ phaseIn, float* BV_R_ realOut) override
     {
-        vecops::polar_to_cartesian (m_a, m_b, magIn, phaseIn, m_half + 1);
+        vecops::convert (m_e, magIn, m_half + 1);
+        vecops::convert (m_f, phaseIn, m_half + 1);
+        vecops::polar_to_cartesian (m_a, m_b, m_e, m_f, m_half + 1);
         transformI (m_a, m_b, realOut);
     }
     
@@ -1022,6 +1030,8 @@ private:
     double *m_b;
     double *m_c;
     double *m_d;
+    double *m_e;
+    double *m_f;
     double *m_a_and_b[2];
     double *m_c_and_d[2];
     
