@@ -302,6 +302,42 @@ static BV_FORCE_INLINE double findRangeOfExtrema (const double* BV_R_ data, cons
     vDSP_maxvD (data, vDSP_Stride(1), &max, vDSP_Length(dataSize));
     return max - min;
 }
+    
+    
+/* normalizes the vector to the absolute maximum value contained in the vector. */
+static BV_FORCE_INLINE void normalize (float* BV_R_ vector, const int numSamples)
+{
+    float max = 0.0f;
+    unsigned long i = 0.0;
+    vDSP_maxmgvi (vector, vDSP_Stride(1), &max, &i, vDSP_Length(numSamples));
+    
+    if (max == 0.0f)
+    {
+        vDSP_vfill (&max, vector, vDSP_Stride(1), vDSP_Length(numSamples));
+    }
+    else
+    {
+        const auto oneOverMax = 1.0f / max;
+        vDSP_vsmul (vector, vDSP_Stride(1), &oneOverMax, vector, vDSP_Stride(1), vDSP_Length(numSamples));
+    }
+}
+ 
+static BV_FORCE_INLINE void normalize (double* BV_R_ vector, const int numSamples)
+{
+    double max = 0.0;
+    unsigned long i = 0.0;
+    vDSP_maxmgviD (vector, vDSP_Stride(1), &max, &i, vDSP_Length(numSamples));
+    
+    if (max == 0.0)
+    {
+        vDSP_vfillD (&max, vector, vDSP_Stride(1), vDSP_Length(numSamples));
+    }
+    else
+    {
+        const auto oneOverMax = 1.0 / max;
+        vDSP_vsmulD (vector, vDSP_Stride(1), &oneOverMax, vector, vDSP_Stride(1), vDSP_Length(numSamples));
+    }
+}
 
 
 /* converts cartesian to polar coordinates */

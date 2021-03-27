@@ -284,6 +284,42 @@ static BV_FORCE_INLINE double findRangeOfExtrema (const double* BV_R_ data, cons
     ippsMinMax_64f (data, dataSize, &min, &max);
     return max - min;
 }
+    
+    
+/* normalizes the vector to the absolute maximum value contained in the vector. */
+static BV_FORCE_INLINE void normalize (float* BV_R_ vector, const int numSamples)
+{
+    float max = 0.0;
+    int location;
+    
+    ippsMaxAbsIndx_32f (vector, numSamples, &max, &location);
+    
+    if (max == 0.0)
+    {
+        ippsSet_32f (0.0, vector, numSamples);
+    }
+    else
+    {
+        ippsMulC_32fc_I (1.0 / max, vector, numSamples);
+    }
+}
+
+static BV_FORCE_INLINE void normalize (double* BV_R_ vector, const int numSamples)
+{
+    double max = 0.0;
+    int location;
+    
+    ippsMaxAbsIndx_64f (vector, numSamples, &max, &location);
+    
+    if (max == 0.0)
+    {
+        ippsSet_64f (0.0, vector, numSamples);
+    }
+    else
+    {
+        ippsMulC_64fc_I (1.0 / max, vector, numSamples);
+    }
+}
 
 
 /* converts cartesian to polar coordinates */

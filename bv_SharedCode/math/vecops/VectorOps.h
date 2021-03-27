@@ -7,48 +7,6 @@ namespace bav::vecops
 This namespace contains several floating inlined functions that extend the functionality of JUCE's FloatVectorOperations class.
 Apple's vDSP framework and Intel IPP are used if they are available.
 */
-
-    
-/* Normalises a set of samples to the absolute maximum contained within the buffer. */
-static BV_FORCE_INLINE void normalize (float* BV_R_ vector, const int numSamples)
-{
-    float max = 0;
-    int location;
-    
-    locateGreatestAbsMagnitude (vector, numSamples, max, location);
-    
-    if (max == 0)
-    {
-        fill (vector, 0.0f, numSamples);
-    }
-    else
-    {
-        const float oneOverMax = 1.0f / max;
-        
-        for (int i = 0; i < numSamples; ++i)
-            vector[i] *= oneOverMax;
-    }
-}
-    
-static BV_FORCE_INLINE void normalize (double* BV_R_ vector, const int numSamples)
-{
-    double max = 0;
-    int location;
-    
-    locateGreatestAbsMagnitude (vector, numSamples, max, location);
-    
-    if (max == 0)
-    {
-        fill (vector, 0.0, numSamples);
-    }
-    else
-    {
-        const double oneOverMax = 1.0f / max;
-        
-        for (int i = 0; i < numSamples; ++i)
-            vector[i] *= oneOverMax;
-    }
-}
     
     
 /* Finds the autocorrelation of a set of samples using a shrinking integration window */
@@ -251,6 +209,12 @@ static BV_FORCE_INLINE void findExtrema (double* BV_R_ data, const int dataSize,
 static BV_FORCE_INLINE float findRangeOfExtrema (const float* BV_R_ data, const int dataSize);
 
 static BV_FORCE_INLINE double findRangeOfExtrema (const double* BV_R_ data, const int dataSize);
+    
+    
+/* Normalises a set of samples to the absolute maximum contained within the buffer. */
+static BV_FORCE_INLINE void normalize (float* BV_R_ vector, const int numSamples);
+
+static BV_FORCE_INLINE void normalize (double* BV_R_ vector, const int numSamples);
 
 
 /* converts cartesian to polar coordinates */

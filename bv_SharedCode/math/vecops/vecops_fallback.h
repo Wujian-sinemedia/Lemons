@@ -42,7 +42,7 @@ static BV_FORCE_INLINE void convert (float* const BV_R_ dst, const double* const
         dst[i] = float(src[i]);
     }
 }
-
+    
 
 /* adds a single operand to each value in the vector */
 static BV_FORCE_INLINE void addC (float* BV_R_ vector, const float value, const int count)
@@ -351,6 +351,42 @@ static BV_FORCE_INLINE float findRangeOfExtrema (const float* BV_R_ data, const 
 static BV_FORCE_INLINE double findRangeOfExtrema (const double* BV_R_ data, const int dataSize)
 {
     return juce::FloatVectorOperations::findMinAndMax (data, dataSize).getLength();
+}
+    
+    
+/* normalizes the vector to the absolute maximum value contained in the vector. */
+static BV_FORCE_INLINE void normalize (float* BV_R_ vector, const int numSamples)
+{
+    float max = 0.0f;
+    int location;
+    
+    locateGreatestAbsMagnitude (vector, numSamples, max, location);
+    
+    if (max == 0.0f)
+    {
+        juce::FloatVectorOperations::fill (vector, 0.0f, numSamples);
+    }
+    else
+    {
+        juce::FloatVectorOperations::multiply (vector, 1.0f / max, numSamples);
+    }
+}
+
+static BV_FORCE_INLINE void normalize (double* BV_R_ vector, const int numSamples)
+{
+    double max = 0.0;
+    int location;
+    
+    locateGreatestAbsMagnitude (vector, numSamples, max, location);
+    
+    if (max == 0.0)
+    {
+        juce::FloatVectorOperations::fill (vector, 0.0, numSamples);
+    }
+    else
+    {
+        juce::FloatVectorOperations::multiply (vector, 1.0 / max, numSamples);
+    }
 }
 
 
