@@ -16,7 +16,7 @@ BV_FORCE_INLINE void fill (float* BV_R_ vector, const float value, const int cou
 #if BV_USE_VDSP
     vDSP_vfill (&value, vector, vDSP_Stride(1), vDSP_Length(count));
 #elif BV_USE_IPP
-    
+    ippsSet_32f (value, vector, count);
 #else
     juce::FloatVectorOperations::fill (vector, value, count);
 #endif
@@ -27,9 +27,77 @@ BV_FORCE_INLINE void fill (double* BV_R_ vector, const double value, const int c
 #if BV_USE_VDSP
     vDSP_vfillD (&value, vector, vDSP_Stride(1), vDSP_Length(count));
 #elif BV_USE_IPP
-    
+    ippsSet_64f (value, vector, count);
 #else
     juce::FloatVectorOperations::fill (vector, value, count);
+#endif
+}
+    
+    
+// copies the contents of one vector to another
+BV_FORCE_INLINE copy (float* BV_R_ source, float* BV_R_ dest, const int count)
+{
+#if BV_USE_IPP
+    ippsMove_32f (source, dest, count);
+#else
+    memcpy (dest, source, (size_t) count * sizeof (float));
+#endif
+}
+    
+BV_FORCE_INLINE copy (double* BV_R_ source, double* BV_R_ dest, const int count)
+{
+#if BV_USE_IPP
+    ippsMove_64f (source, dest, count);
+#else
+    memcpy (dest, source, (size_t) count * sizeof (double));
+#endif
+}
+    
+    
+// adds a single operand to each value in the vector
+BV_FORCE_INLINE void addC (float* BV_R_ vector, const float value, const int count)
+{
+#if BV_USE_VDSP
+    vDSP_vsadd (vector, vDSP_Stride(1), &value, vector, vDSP_Stride(1), vDSP_Length(num));
+#elif BV_USE_IPP
+    ippsAddC_32f_I (value, vector, count);
+#else
+    juce::FloatVectorOperations::add (vector, value, count);
+#endif
+}
+    
+BV_FORCE_INLINE void addC (double* BV_R_ vector, const double value, const int count)
+{
+#if BV_USE_VDSP
+    vDSP_vsaddD (vector, vDSP_Stride(1), &value, vector, vDSP_Stride(1), vDSP_Length(num));
+#elif BV_USE_IPP
+    ippsAddC_64f_I (value, vector, count);
+#else
+    juce::FloatVectorOperations::add (vector, value, count);
+#endif
+}
+    
+    
+// adds two vectors together and writes the result to vecA
+BV_FORCE_INLINE void addV (float* BV_R_ vecA, float* BV_R_ vecB, const int count)
+{
+#if BV_USE_VDSP
+    vDSP_vadd (vecB, vDSP_Stride(1), vecA, vDSP_Stride(1), vecA, vDSP_Stride(1), vDSP_Length(num));
+#elif BV_USE_IPP
+    ippsAdd_32f_I (vecB, vecA, count);
+#else
+    juce::FloatVectorOperations::add (vecA, vecB, count);
+#endif
+}
+    
+BV_FORCE_INLINE void addV (double* BV_R_ vecA, double* BV_R_ vecB, const int count)
+{
+#if BV_USE_VDSP
+    vDSP_vaddD (vecB, vDSP_Stride(1), vecA, vDSP_Stride(1), vecA, vDSP_Stride(1), vDSP_Length(num));
+#elif BV_USE_IPP
+    ippsAdd_64f_I (vecB, vecA, count);
+#else
+    juce::FloatVectorOperations::add (vecA, vecB, count);
 #endif
 }
     
@@ -78,6 +146,56 @@ BV_FORCE_INLINE void multiplyV (double* BV_R_ vecA, double* BV_R_ vecB, const in
     ippsMul_64f_I (vecB, vecA, count);
 #else
     juce::FloatVectorOperations::multiply (vecA, vecB, count);
+#endif
+}
+    
+    
+// divides each element in the vector by a single operand
+BV_FORCE_INLINE void divideC (float* BV_R_ vector, const float value, const int count)
+{
+#if BV_USE_VDSP
+    vDSP_vsdiv (vector, vDSP_Stride(1), &value, vector, vDSP_Stride(1), vDSP_Length(count));
+#elif BV_USE_IPP
+    ippsDivC_32f_I (value, vector, count);
+#else
+    juce::FloatVectorOperations::multiply (vector, 1.0f / value, count);
+#endif
+}
+    
+BV_FORCE_INLINE void divideC (double* BV_R_ vector, const double value, const int count)
+{
+#if BV_USE_VDSP
+    vDSP_vsdivD (vector, vDSP_Stride(1), &value, vector, vDSP_Stride(1), vDSP_Length(count));
+#elif BV_USE_IPP
+    ippsDivC_64f_I (value, vector, count);
+#else
+    juce::FloatVectorOperations::multiply (vector, 1.0 / value, count);
+#endif
+}
+    
+    
+// divides two vectors and stores the result in vecA
+BV_FORCE_INLINE void divideV (float* BV_R_ vecA, float* BV_R_ vecB, const int count)
+{
+#if BV_USE_VDSP
+    vDSP_vdiv (vecB, vDSP_Stride(1), vecA, vDSP_Stride(1), vecA, vDSP_Stride(1), vDSP_Length(count));
+#elif BV_USE_IPP
+    ippsDiv_32f_I (vecB, vecA, count);
+#else
+    for (int i = 0; i < count; ++i)
+        *(vecA[i]) = vecA[i] / vecB[i];
+#endif
+}
+    
+BV_FORCE_INLINE void divideV (float* BV_R_ vecA, float* BV_R_ vecB, const int count)
+{
+#if BV_USE_VDSP
+    vDSP_vdivD (vecB, vDSP_Stride(1), vecA, vDSP_Stride(1), vecA, vDSP_Stride(1), vDSP_Length(count));
+#elif BV_USE_IPP
+    ippsDiv_64f_I (vecB, vecA, count);
+#else
+    for (int i = 0; i < count; ++i)
+        *(vecA[i]) = vecA[i] / vecB[i];
 #endif
 }
     

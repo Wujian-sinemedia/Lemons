@@ -96,11 +96,7 @@
 #endif
 
 #ifndef JUCE_USE_VDSP_FRAMEWORK
-  #if BV_USE_VDSP
-    #define JUCE_USE_VDSP_FRAMEWORK 1
-  #else
-    #define JUCE_USE_VDSP_FRAMEWORK 0
-  #endif
+  #define JUCE_USE_VDSP_FRAMEWORK BV_USE_VDSP
 #endif
 
 #ifndef BV_USE_IPP
