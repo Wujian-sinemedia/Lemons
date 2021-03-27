@@ -859,17 +859,18 @@ public:
         m_blockTableSize(16),
         m_maxTabledBlock(1 << m_blockTableSize)
     {
-        m_table = aligned_allocate_zero<int>(m_half);
+        const auto half = size_t(m_half);
+        m_table = aligned_allocate_zero<int>(half);
         m_sincos = aligned_allocate_zero<double>(size_t(m_blockTableSize * 4));
-        m_sincos_r = aligned_allocate_zero<double>(m_half);
-        m_vr = aligned_allocate_zero<double>(m_half);
-        m_vi = aligned_allocate_zero<double>(m_half);
-        m_a = aligned_allocate_zero<double>(m_half + 1);
-        m_b = aligned_allocate_zero<double>(m_half + 1);
-        m_c = aligned_allocate_zero<double>(m_half + 1);
-        m_d = aligned_allocate_zero<double>(m_half + 1);
-        m_e = aligned_allocate_zero<double>(m_half + 1);
-        m_f = aligned_allocate_zero<double>(m_half + 1);
+        m_sincos_r = aligned_allocate_zero<double>(half);
+        m_vr = aligned_allocate_zero<double>(half);
+        m_vi = aligned_allocate_zero<double>(half);
+        m_a = aligned_allocate_zero<double>(half + 1);
+        m_b = aligned_allocate_zero<double>(half + 1);
+        m_c = aligned_allocate_zero<double>(half + 1);
+        m_d = aligned_allocate_zero<double>(half + 1);
+        m_e = aligned_allocate_zero<double>(half + 1);
+        m_f = aligned_allocate_zero<double>(half + 1);
         m_a_and_b[0] = m_a;
         m_a_and_b[1] = m_b;
         m_c_and_d[0] = m_c;
@@ -1009,11 +1010,9 @@ public:
     
     void inverseCepstral (const float* BV_R_ magIn, float* BV_R_ cepOut) override
     {
-        vecops::convert (m_e, magIn, m_half + 1);
-        
         for (int i = 0; i <= m_half; ++i)
         {
-            m_a[i] = logf(m_e[i] + 0.000001);
+            m_a[i] = double(logf(magIn[i] + 0.000001f));
             m_b[i] = 0.0;
         }
         transformI (m_a, m_b, cepOut);
@@ -1145,8 +1144,8 @@ private:
         }
         transformComplex (m_vr, m_vi, m_c, m_d, true);
         for (int i = 0; i < m_half; ++i) {
-            ro[i*2] = m_c[i];
-            ro[i*2+1] = m_d[i];
+            ro[i*2] = T(m_c[i]);
+            ro[i*2+1] = T(m_d[i]);
         }
     }
     
