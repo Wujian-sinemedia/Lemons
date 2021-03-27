@@ -117,6 +117,19 @@ namespace bav
     
     
     
+    template<typename T>
+    T* aligned_allocate_zero (size_t count)
+    {
+        T *ptr = aligned_allocate<T>(count);
+        
+        for (size_t i = 0; i < count; ++i)
+            ptr[i] = T();
+        
+        return ptr;
+    }
+    
+    
+    
     /*
     */
     

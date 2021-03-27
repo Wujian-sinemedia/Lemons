@@ -9,6 +9,50 @@ namespace bav::vecops
     */
     
     
+// copies each value of src into dst. The vectors may have different value types. If they are the same type, this is the same as using FVO::copy
+template<typename T, typename U>
+BV_FORCE_INLINE void convert (U* const BV_R_ dst,
+                     const T* const BV_R_ src,
+                     const int count)
+{
+    for (int i = 0; i < count; ++i) {
+        dst[i] = U(src[i]);
+    }
+}
+#if BV_USE_VDSP
+template<>
+BV_FORCE_INLINE void convert (double* const BV_R_ dst,
+                     const float* const BV_R_ src,
+                     const int count)
+{
+    vDSP_vspdp (src, vDSP_Stride(1), dst, vDSP_Stride(1), count);
+}
+template<>
+BV_FORCE_INLINE void convert (float* const BV_R_ dst,
+                     const double* const BV_R_ src,
+                     const int count)
+{
+    vDSP_vdpsp (src, vDSP_Stride(1), dst, vDSP_Stride(1), count);
+}
+#elif BV_USE_IPP
+template<>
+BV_FORCE_INLINE void convert (double* const BV_R_ dst,
+                     const float* const BV_R_ src,
+                     const int count)
+{
+    ippsConvert_32f64f (src, dst, count);
+}
+template<>
+BV_FORCE_INLINE void convert (float* const BV_R_ dst,
+                     const double* const BV_R_ src,
+                     const int count)
+{
+    ippsConvert_64f32f (src, dst, count);
+}
+#endif
+    
+    
+    
 // replaces each element in the passed vector with its square root
 static BV_FORCE_INLINE void squareRoot (float* BV_R_ data, const int dataSize)
 {
@@ -476,6 +520,8 @@ static inline void deinterleave (T* dst,
 }
     
     
+    
+    
 static BV_FORCE_INLINE void cartesian_to_polar (float* const BV_R_ mag,
                                                 float* const BV_R_ phase,
                                                 const float* const BV_R_ real,
@@ -617,6 +663,39 @@ static BV_FORCE_INLINE void polar_to_cartesian   (double* const BV_R_ real,
 }
     
     
+BV_FORCE_INLINE void cartesian_to_magnitudes (float* const BV_R_ mag,
+                                              const float* const BV_R_ real,
+                                              const float* const BV_R_ imag,
+                                              const int count)
+{
+#if BV_USE_IPP
+    ippsMagnitude_32f (real, imag, mag, count);
+#else
+    for (int i = 0; i < count; ++i) {
+        const auto r = real[i];
+        const auto c = imag[i];
+        mag[i] = sqrt (r * r + c * c);
+    }
+#endif
+}
+
+
+BV_FORCE_INLINE void cartesian_to_magnitudes (double* const BV_R_ mag,
+                                              const double* const BV_R_ real,
+                                              const double* const BV_R_ imag,
+                                              const int count)
+{
+#if BV_USE_IPP
+    ippsMagnitude_64f (real, imag, mag, count);
+#else
+    for (int i = 0; i < count; ++i) {
+        const auto r = real[i];
+        const auto c = imag[i];
+        mag[i] = sqrt (r * r + c * c);
+    }
+#endif
+}
+
 
     
     
