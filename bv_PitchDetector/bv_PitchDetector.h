@@ -25,8 +25,6 @@ class PitchDetector
     
     using AudioBuffer = juce::AudioBuffer<SampleType>;
     
-    using FVO = juce::FloatVectorOperations;
-    
     
 public:
     

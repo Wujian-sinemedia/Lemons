@@ -137,7 +137,7 @@ float PitchDetector<SampleType>::detectPitch (const AudioBuffer& inputAudio)
     
     auto* asdfData = asdfBuffer.getWritePointer(0);
     
-    FVO::fill (asdfData, zero, asdfBuffer.getNumSamples());
+    vecops::fill (asdfData, SampleType(0), asdfBuffer.getNumSamples());
     
     // COMPUTE ASDF
     
@@ -160,7 +160,7 @@ float PitchDetector<SampleType>::detectPitch (const AudioBuffer& inputAudio)
     
     const int asdfDataSize = maxLag - minLag + 1;
     
-    FVO::multiply (asdfData, pnt5 / numSamples, asdfDataSize);  // normalize
+    vecops::multiplyC (asdfData, SampleType(0.5 / numSamples), asdfDataSize);  // normalize
     
     int minIndex = 0;
     SampleType greatestConfidence = 0;

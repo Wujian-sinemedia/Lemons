@@ -9,11 +9,85 @@ namespace bav::vecops
     */
     
     
+    
+// fills a vector with the specified value
+BV_FORCE_INLINE void fill (float* BV_R_ vector, const float value, const int count)
+{
+#if BV_USE_VDSP
+    vDSP_vfill (&value, vector, vDSP_Stride(1), vdSP_Length(count));
+#elif BV_USE_IPP
+    
+#else
+    juce::FloatVectorOperations::fill (vector, value, count);
+#endif
+}
+    
+BV_FORCE_INLINE void fill (double* BV_R_ vector, const double value, const int count)
+{
+#if BV_USE_VDSP
+    vDSP_vfillD (&value, vector, vDSP_Stride(1), vdSP_Length(count));
+#elif BV_USE_IPP
+    
+#else
+    juce::FloatVectorOperations::fill (vector, value, count);
+#endif
+}
+    
+    
+// multiplies each value in the vector by a single operand
+BV_FORCE_INLINE void multiplyC (float* BV_R_ vector, const float value, const int count)
+{
+#if BV_USE_VDSP
+    vDSP_vsmul (vector, vDSP_Stride(1), &value, vector, vDSP_Stride(1), vDSP_Length(count));
+#elif BV_USE_IPP
+    ippsMulC_32fc_I (value, vector, count);
+#else
+    juce::FloatVectorOperations::multiply (vector, value, count);
+#endif
+}
+    
+BV_FORCE_INLINE void multiplyC (double* BV_R_ vector, const double value, const int count)
+{
+#if BV_USE_VDSP
+    vDSP_vsmulD (vector, vDSP_Stride(1), &value, vector, vDSP_Stride(1), vDSP_Length(count));
+#elif BV_USE_IPP
+    ippsMulC_64fc_I (value, vector, count);
+#else
+    juce::FloatVectorOperations::multiply (vector, value, count);
+#endif
+}
+    
+
+// multiplies two vectors together and writes the result to vecA
+BV_FORCE_INLINE void multiplyV (float* BV_R_ vecA, float* BV_R_ vecB, const int count)
+{
+#if BV_USE_VDSP
+    vDSP_vmul (vecA, vDSP_Stride(1), vecB, vDSP_Stride(1), vecA, vDSP_Stride(1), vDSP_Length(count));
+#elif BV_USE_IPP
+    ippsMul_32f_I (vecB, vecA, count);
+#else
+    juce::FloatVectorOperations::multiply (vecA, vecB, count);
+#endif
+}
+    
+BV_FORCE_INLINE void multiplyV (double* BV_R_ vecA, double* BV_R_ vecB, const int count)
+{
+#if BV_USE_VDSP
+    vDSP_vmulD (vecA, vDSP_Stride(1), vecB, vDSP_Stride(1), vecA, vDSP_Stride(1), vDSP_Length(count));
+#elif BV_USE_IPP
+    ippsMul_64f_I (vecB, vecA, count);
+#else
+    juce::FloatVectorOperations::multiply (vecA, vecB, count);
+#endif
+}
+    
+    
+    
 // copies each value of src into dst. The vectors may have different value types. If they are the same type, this is the same as using FVO::copy
 template<typename T, typename U>
 BV_FORCE_INLINE void convert (U* const BV_R_ dst,
-                     const T* const BV_R_ src,
-                     const int count)
+                              const T* const BV_R_ src,
+                              const int count)
 {
     for (int i = 0; i < count; ++i) {
         dst[i] = U(src[i]);
@@ -22,30 +96,30 @@ BV_FORCE_INLINE void convert (U* const BV_R_ dst,
 #if BV_USE_VDSP
 template<>
 BV_FORCE_INLINE void convert (double* const BV_R_ dst,
-                     const float* const BV_R_ src,
-                     const int count)
+                              const float* const BV_R_ src,
+                              const int count)
 {
     vDSP_vspdp (src, vDSP_Stride(1), dst, vDSP_Stride(1), vDSP_Length(count));
 }
 template<>
 BV_FORCE_INLINE void convert (float* const BV_R_ dst,
-                     const double* const BV_R_ src,
-                     const int count)
+                              const double* const BV_R_ src,
+                              const int count)
 {
     vDSP_vdpsp (src, vDSP_Stride(1), dst, vDSP_Stride(1), vDSP_Length(count));
 }
 #elif BV_USE_IPP
 template<>
 BV_FORCE_INLINE void convert (double* const BV_R_ dst,
-                     const float* const BV_R_ src,
-                     const int count)
+                              const float* const BV_R_ src,
+                              const int count)
 {
     ippsConvert_32f64f (src, dst, count);
 }
 template<>
 BV_FORCE_INLINE void convert (float* const BV_R_ dst,
-                     const double* const BV_R_ src,
-                     const int count)
+                              const double* const BV_R_ src,
+                              const int count)
 {
     ippsConvert_64f32f (src, dst, count);
 }
@@ -89,10 +163,7 @@ static BV_FORCE_INLINE void square (float* BV_R_ data, const int dataSize)
 #elif BV_USE_IPP
     ippsSqr_32f_I (data, dataSize);
 #else
-    for (int i = 0; i < dataSize; ++i) {
-        const auto datum = data[i];
-        data[i] = datum * datum;
-    }
+    juce::FloatVectorOperations::multiply (data, data, dataSize);
 #endif
 }
     
@@ -103,10 +174,7 @@ static BV_FORCE_INLINE void square (double* BV_R_ data, const int dataSize)
 #elif BV_USE_IPP
     ippsSqr_64f_I (data, dataSize);
 #else
-    for (int i = 0; i < dataSize; ++i) {
-        const auto datum = data[i];
-        data[i] = datum * datum;
-    }
+    juce::FloatVectorOperations::multiply (data, data, dataSize);
 #endif
 }
 

@@ -266,5 +266,10 @@ static inline juce::File getPresetsFolder (std::string companyName, std::string 
     return rootFolder;
 }
     
+    
+// simple function to silence "unused variable" warnings
+template <typename... Args>
+BV_FORCE_INLINE void unused(Args&&...) {}
 
+    
 }  // namespace
