@@ -70,13 +70,15 @@ namespace bav::dsp
 
 
 #if BV_USE_FFTW  // if someone's gone to the trouble to link to FFTW, they probably want to use it...
-  #include "fft_fftw.h"
+  #include "implementations/fft_fftw.h"
 #elif BV_USE_VDSP
-  #include "fft_vdsp.h"
+  #include "implementations/fft_vdsp.h"
 #elif BV_USE_IPP
-  #include "fft_ipp.h"
+  #include "implementations/fft_ipp.h"
+#elif BV_USE_NE10
+  #include "implementations/fft_ne10.h"
 #else
-  #include "fft_fallback.h"
+  #include "implementations/fft_fallback.h"
 #endif
     
 

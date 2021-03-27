@@ -34,6 +34,7 @@
 #include "midi/MidiFIFO.h"
 #include "midi/MidiUtilities.h"
 
+#include "dsp/oscillators.h"
 #include "dsp/AudioFIFO.h"
 #include "dsp/Panner.h"
 #include "dsp/FX/ReorderableFxChain.h"

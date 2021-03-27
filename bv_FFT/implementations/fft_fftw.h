@@ -509,6 +509,8 @@ private:
     const int m_size;
     static int m_extantf;
     static int m_extantd;
+    
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(FFT)
 };
 
 #undef fft_float_type
