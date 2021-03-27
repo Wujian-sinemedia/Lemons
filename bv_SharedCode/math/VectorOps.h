@@ -25,14 +25,14 @@ BV_FORCE_INLINE void convert (double* const BV_R_ dst,
                      const float* const BV_R_ src,
                      const int count)
 {
-    vDSP_vspdp (src, vDSP_Stride(1), dst, vDSP_Stride(1), count);
+    vDSP_vspdp (src, vDSP_Stride(1), dst, vDSP_Stride(1), vDSP_Length(count));
 }
 template<>
 BV_FORCE_INLINE void convert (float* const BV_R_ dst,
                      const double* const BV_R_ src,
                      const int count)
 {
-    vDSP_vdpsp (src, vDSP_Stride(1), dst, vDSP_Stride(1), count);
+    vDSP_vdpsp (src, vDSP_Stride(1), dst, vDSP_Stride(1), vDSP_Length(count));
 }
 #elif BV_USE_IPP
 template<>
