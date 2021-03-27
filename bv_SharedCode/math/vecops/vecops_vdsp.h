@@ -339,8 +339,8 @@ static BV_FORCE_INLINE void polar_to_cartesian   (float* const BV_R_ real, float
 {
     vvsincosf (imag, real, phase, &dataSize);
     
-    vDSP_vmulD (real, vDSP_Stride(1), mag, vDSP_Stride(1), real, vDSP_Stride(1), vDSP_Length(count));
-    vDSP_vmulD (imag, vDSP_Stride(1), mag, vDSP_Stride(1), imag, vDSP_Stride(1), vDSP_Length(count));
+    vDSP_vmul (real, vDSP_Stride(1), mag, vDSP_Stride(1), real, vDSP_Stride(1), vDSP_Length(dataSize));
+    vDSP_vmul (imag, vDSP_Stride(1), mag, vDSP_Stride(1), imag, vDSP_Stride(1), vDSP_Length(dataSize));
 }
 
 static BV_FORCE_INLINE void polar_to_cartesian   (double* const BV_R_ real, double* const BV_R_ imag,
@@ -349,8 +349,8 @@ static BV_FORCE_INLINE void polar_to_cartesian   (double* const BV_R_ real, doub
 {
     vvsincos (imag, real, phase, &dataSize);
     
-    vDSP_vmulD (real, vDSP_Stride(1), mag, vDSP_Stride(1), real, vDSP_Stride(1), vDSP_Length(count));
-    vDSP_vmulD (imag, vDSP_Stride(1), mag, vDSP_Stride(1), imag, vDSP_Stride(1), vDSP_Length(count));
+    vDSP_vmulD (real, vDSP_Stride(1), mag, vDSP_Stride(1), real, vDSP_Stride(1), vDSP_Length(dataSize));
+    vDSP_vmulD (imag, vDSP_Stride(1), mag, vDSP_Stride(1), imag, vDSP_Stride(1), vDSP_Length(dataSize));
 }
 
 

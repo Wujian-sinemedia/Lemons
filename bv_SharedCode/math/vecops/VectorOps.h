@@ -256,3 +256,12 @@ static BV_FORCE_INLINE void phasor (double* real, double* imag, double phase)
 
 
 }  // namespace
+
+
+#if BV_USE_VDSP
+  #include "vecops_vdsp.h"
+#elif BV_USE_IPP
+  #include "vecops_ipp.h"
+#else
+  #include "vecops_fallback.h"
+#endif
