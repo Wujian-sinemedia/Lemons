@@ -23,16 +23,17 @@
 #endif
 
 // the rest of this module
-#include "misc/System.h"
-#include "misc/AlignedAllocate.h"
+#include "core/System.h"
+#include "core/AlignedAllocate.h"
+#include "core/DataHelpers.h"
 
-#include "misc/MessageQueue.h"
-#include "misc/Parameters.h"
 #include "math/mathHelpers.h"
 #include "math/intOps.h"
 #include "math/VectorOps.h"
+
 #include "midi/MidiFIFO.h"
 #include "midi/MidiUtilities.h"
+
 #include "dsp/AudioFIFO.h"
 #include "dsp/Panner.h"
 #include "dsp/FX/ReorderableFxChain.h"
@@ -42,8 +43,10 @@
 #include "dsp/FX/DeEsser.h"
 #include "dsp/FX/Reverb.h"
 #include "dsp/FIFOWrappedEngine.h"
+
 #include "gui/gui.h"
-#include "data/DataHelpers.h"
+#include "misc/MessageQueue.h"
+#include "misc/Parameters.h"
 
 
 #ifdef __clang__
