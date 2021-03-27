@@ -18,10 +18,10 @@ namespace bav
 
 template<typename SampleType>
 PitchDetector<SampleType>::PitchDetector():
-minHz(0), maxHz(0),
-lastEstimatedPeriod(0), lastFrameWasPitched(false),
-samplerate(0.0), confidenceThresh(SampleType(0.15)),
-asdfBuffer(0, 0)
+    minHz(0), maxHz(0),
+    lastEstimatedPeriod(0), lastFrameWasPitched(false),
+    samplerate(0.0), confidenceThresh(SampleType(0.15)),
+    asdfBuffer(0, 0)
 {
     
 }
@@ -165,7 +165,7 @@ float PitchDetector<SampleType>::detectPitch (const AudioBuffer& inputAudio)
     int minIndex = 0;
     SampleType greatestConfidence = 0;
     
-    bav::vecops::findMinAndMinIndex (asdfData, asdfDataSize, greatestConfidence, minIndex);
+    vecops::findMinAndMinIndex (asdfData, asdfDataSize, greatestConfidence, minIndex);
     
     jassert (minIndex >= 0 && minIndex <= asdfDataSize);
     
@@ -215,7 +215,7 @@ int PitchDetector<SampleType>::chooseIdealPeriodCandidate (const SampleType* asd
         candidateDeltas.add (float (abs (candidate + minPeriod - lastEstimatedPeriod)));
     
     // find the difference between the max & min delta values of the candidates
-    const float deltaRange = bav::vecops::findRangeOfExtrema (candidateDeltas.getRawDataPointer(), candidateDeltas.size());
+    const float deltaRange = vecops::findRangeOfExtrema (candidateDeltas.getRawDataPointer(), candidateDeltas.size());
     
     if (deltaRange < 0.005f)  // prevent dividing by zero in the next step...
         return minIndex;
@@ -227,8 +227,8 @@ int PitchDetector<SampleType>::chooseIdealPeriodCandidate (const SampleType* asd
         weightedCandidateConfidence.add (asdfData[periodCandidates.getUnchecked(c)] * (candidateDeltas.getUnchecked(c) / deltaRange));
     
     // choose the estimated period based son the lowest weighted asdf data value:
-    return periodCandidates.getUnchecked (bav::vecops::findIndexOfMinElement (weightedCandidateConfidence.getRawDataPointer(),
-                                                                              weightedCandidateConfidence.size()));
+    return periodCandidates.getUnchecked (vecops::findIndexOfMinElement (weightedCandidateConfidence.getRawDataPointer(),
+                                                                         weightedCandidateConfidence.size()));
 }
 
 
@@ -275,7 +275,7 @@ void PitchDetector<SampleType>::getNextBestPeriodCandidate (juce::Array<int>& ca
 template<typename SampleType>
 int PitchDetector<SampleType>::samplesToFirstZeroCrossing (const SampleType* inputAudio, const int numInputSamples)
 {
-#if BV_PITCH_DETECTOR_USE_VDSP
+#if BV_USE_VDSP
     unsigned long index = 0; // in Apple's vDSP, the type vDSP_Length is an alias for unsigned long
     unsigned long totalcrossings = 0;
     
