@@ -153,6 +153,26 @@ static BV_FORCE_INLINE void square (double* BV_R_ data, const int dataSize)
 {
    vDSP_vsqD (data, vDSP_Stride(1), data, vDSP_Stride(1), vDSP_Length(dataSize));
 }
+    
+    
+/* replaces every element in the passed vector with its absolute value */
+static BV_FORCE_INLINE void absVal (float* BV_R_ data, const int dataSize)
+{
+#if (defined(MACOSX_DEPLOYMENT_TARGET) && MACOSX_DEPLOYMENT_TARGET <= 1070 && MAC_OS_X_VERSION_MIN_REQUIRED <= 1070)
+    vvfabf (data, data, &count);
+#else
+    vvfabsf (data, data, &count);
+#endif
+}
+
+static BV_FORCE_INLINE void absVal (double* BV_R_ data, const int dataSize)
+{
+#if (defined(MACOSX_DEPLOYMENT_TARGET) && MACOSX_DEPLOYMENT_TARGET <= 1070 && MAC_OS_X_VERSION_MIN_REQUIRED <= 1070)
+    vvfab (data, data, &count);
+#else
+    vvfabs (data, data, &count);
+#endif
+}
 
 
 /* returns the index in the vector of the minimum element */

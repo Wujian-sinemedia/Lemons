@@ -163,6 +163,20 @@ static BV_FORCE_INLINE void square (double* BV_R_ data, const int dataSize)
 {
     juce::FloatVectorOperations::multiply (data, data, dataSize);
 }
+    
+    
+/* replaces every element in the passed vector with its absolute value */
+static BV_FORCE_INLINE void absVal (float* BV_R_ data, const int dataSize)
+{
+    ne10_abs_float (data, data, uint32_t(dataSize));
+}
+
+static BV_FORCE_INLINE void absVal (double* BV_R_ data, const int dataSize)
+{
+    for (int i = 0; i < dataSize; ++i) {
+        data[i] = abs(data[i]);
+    }
+}
 
 
 /* returns the index in the vector of the minimum element */

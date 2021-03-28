@@ -9,6 +9,24 @@ Apple's vDSP framework and Intel IPP are used if they are available.
 */
     
     
+#if defined( __GNUC__ ) && defined( _WIN32 )
+// MinGW doesn't appear to have sincos, so define it -- it's
+// a single x87 instruction anyway
+static BV_FORCE_INLINE void sincos (double x, double* sin, double* cos)
+{
+    __asm__ ("fsincos;" : "=t" (*cos), "=u" (*sin) : "0" (x) : "st(7)");
+}
+    
+static BV_FORCE_INLINE void sincosf (float fx, float* fsin, float* fcos)
+{
+    double sin, cos;
+    sincos (fx, &sin, &cos);
+    *fsin = sin;
+    *fcos = cos;
+}
+#endif
+    
+    
 /* Finds the autocorrelation of a set of samples using a shrinking integration window */
 static BV_FORCE_INLINE void autocorrelate (const float* BV_R_ inputSamples, int numSamples, float* BV_R_ outputSamples)
 {
@@ -165,6 +183,12 @@ static BV_FORCE_INLINE void squareRoot (double* BV_R_ data, const int dataSize);
 static BV_FORCE_INLINE void square (float* BV_R_ data, const int dataSize);
 
 static BV_FORCE_INLINE void square (double* BV_R_ data, const int dataSize);
+    
+    
+/* replaces every element in the passed vector with its absolute value */
+static BV_FORCE_INLINE void absVal (float* BV_R_ data, const int dataSize);
+
+static BV_FORCE_INLINE void absVal (double* BV_R_ data, const int dataSize);
 
 
 /* returns the index in the vector of the minimum element */
@@ -251,12 +275,65 @@ static BV_FORCE_INLINE void polar_to_cartesian   (double* const BV_R_ real, doub
                                                   const int dataSize);
     
     
+    
+/**
+ * interleave
+ *
+ * Interleave (zip) the \arg channels vectors in \arg src, each of
+ * length \arg count, into the single vector \arg dst of length \arg
+ * channels * \arg count.
+ *
+ * Caller guarantees that the \arg src and \arg dst vectors are
+ * non-overlapping.
+ */
+template<typename T>
+inline void interleave (T *const BV_R_ dst,
+                        const T* const BV_R_ *const BV_R_ src,
+                        const int channels,
+                        const int count)
+{
+    int idx = 0;
+    switch (channels) {
+        case 2:
+            // common case, may be vectorized by compiler if hardcoded
+            for (int i = 0; i < count; ++i) {
+                for (int j = 0; j < 2; ++j) {
+                    dst[idx++] = src[j][i];
+                }
+            }
+            return;
+        case 1:
+            v_copy(dst, src[0], count);
+            return;
+        default:
+            for (int i = 0; i < count; ++i) {
+                for (int j = 0; j < channels; ++j) {
+                    dst[idx++] = src[j][i];
+                }
+            }
+    }
+}
+#if BV_USE_IPP
+  #if (IPP_VERSION_MAJOR <= 7) // Deprecated in v8, removed in v9
+    template<>
+    inline void interleave (float* const BV_R_ dst,
+                            const float* const BV_R_ *const BV_R_ src,
+                            const int channels,
+                            const int count)
+    {
+        ippsInterleave_32f ((const Ipp32f **)src, channels, count, dst);
+    }
+    // IPP does not (currently?) provide double-precision interleave
+  #endif
+#endif
+    
+    
 // deinterleave samples from dst into src
 template<typename T>
-static inline void deinterleave (T* dst,
-                             const T* src,
-                             const int channels,
-                             const int count)
+static inline void deinterleave (T* const BV_R_ *const BV_R_ dst,
+                                 const T* const BV_R_ src,
+                                 const int channels,
+                                 const int count)
 {
     int idx = 0;
 
@@ -283,6 +360,19 @@ static inline void deinterleave (T* dst,
             }
     }
 }
+#if BV_USE_IPP
+  #if (IPP_VERSION_MAJOR <= 7) // Deprecated in v8, removed in v9
+    template<>
+    inline void v_deinterleave(float* const BV_R_ *const BV_R_ dst,
+                               const float* const BV_R_ src,
+                               const int channels,
+                               const int count)
+    {
+        ippsDeinterleave_32f((const Ipp32f *)src, channels, count, (Ipp32f **)dst);
+    }
+    // IPP does not (currently?) provide double-precision deinterleave
+  #endif
+#endif
 
     
 static BV_FORCE_INLINE void phasor (float* real, float* imag, float phase)

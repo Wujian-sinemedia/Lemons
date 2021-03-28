@@ -221,8 +221,8 @@ void inverse (const float* BV_R_ realIn, const float* BV_R_ imagIn, float* BV_R_
 void inverseInterleaved (const double* BV_R_ complexIn, double* BV_R_ realOut) override
 {
     if (m_dspec == nullptr) initDouble();
-    //            double *d[2] = { m_dpacked->realp, m_dpacked->imagp };
-    //            vecops::deinterleave (d, complexIn, 2, m_size/2 + 1);
+    double *d[2] = { m_dpacked->realp, m_dpacked->imagp };
+    vecops::deinterleave (d, complexIn, 2, m_size/2 + 1);
     vDSP_fft_zriptD (m_dspec, m_dpacked, 1, m_dbuf, m_order, FFT_INVERSE);
     unpackReal (realOut);
 }
@@ -230,8 +230,8 @@ void inverseInterleaved (const double* BV_R_ complexIn, double* BV_R_ realOut) o
 void inverseInterleaved (const float* BV_R_ complexIn, float* BV_R_ realOut) override
 {
     if (m_fspec == nullptr) initFloat();
-    //            float *f[2] = { m_fpacked->realp, m_fpacked->imagp };
-    //            vecops::deinterleave (f, complexIn, 2, m_size/2 + 1);
+    float *f[2] = { m_fpacked->realp, m_fpacked->imagp };
+    vecops::deinterleave (f, complexIn, 2, m_size/2 + 1);
     vDSP_fft_zript (m_fspec, m_fpacked, 1, m_fbuf, m_order, FFT_INVERSE);
     unpackReal (realOut);
 }

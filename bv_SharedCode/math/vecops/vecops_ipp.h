@@ -150,6 +150,18 @@ static BV_FORCE_INLINE void square (double* BV_R_ data, const int dataSize)
 {
     ippsSqr_64f_I (data, dataSize);
 }
+    
+    
+/* replaces every element in the passed vector with its absolute value */
+static BV_FORCE_INLINE void absVal (float* BV_R_ data, const int dataSize)
+{
+    ippsAbs_32f_I (data, dataSize);
+}
+
+static BV_FORCE_INLINE void absVal (double* BV_R_ data, const int dataSize)
+{
+    ippsAbs_64f_I (data, dataSize);
+}
 
 
 /* returns the index in the vector of the minimum element */
