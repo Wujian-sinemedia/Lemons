@@ -135,7 +135,7 @@ static BV_FORCE_INLINE void fill (double* BV_R_ vector, const double value, cons
 
 
 /* copies the contents of one vector to another. */
-static BV_FORCE_INLINE void copy (float* BV_R_ source, float* BV_R_ dest, const int count)
+static BV_FORCE_INLINE void copy (const float* const BV_R_ source, float* const BV_R_ dest, const int count)
 {
 #if BV_USE_IPP
     ippsMove_32f (source, dest, count);
@@ -144,7 +144,7 @@ static BV_FORCE_INLINE void copy (float* BV_R_ source, float* BV_R_ dest, const 
 #endif
 }
 
-static BV_FORCE_INLINE void copy (double* BV_R_ source, double* BV_R_ dest, const int count)
+static BV_FORCE_INLINE void copy (const double* const BV_R_ source, double* const BV_R_ dest, const int count)
 {
 #if BV_USE_IPP
     ippsMove_64f (source, dest, count);
@@ -338,7 +338,7 @@ inline void interleave (T *const BV_R_ dst,
             }
             return;
         case 1:
-            v_copy(dst, src[0], count);
+            copy (src[0], dst, count);
             return;
         default:
             for (int i = 0; i < count; ++i) {
@@ -384,7 +384,7 @@ static inline void deinterleave (T* const BV_R_ *const BV_R_ dst,
             return;
             
         case 1:
-            juce::FloatVectorOperations::copy (dst[0], src, count);
+            copy (src, dst[0], count);
             return;
             
         default:
