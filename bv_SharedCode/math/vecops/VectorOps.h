@@ -9,32 +9,39 @@ Apple's vDSP framework and Intel IPP are used if they are available.
 */
     
     
-#if JUCE_USE_SSE_INTRINSICS
-  #define BV_USE_POMMIER 1
-  #include "pommier/pommier_sse.h"
-#elif JUCE_USE_ARM_NEON
-  #define BV_USE_POMMIER 1
-  #include "pommier/pommier_neon.h"
-#else
-  #define BV_USE_POMMIER 0
-#endif
-   
+// set this to 1 to allow using some special SSE & NEON optimizations for sin, cos, exp and log. May not work on all architectures.
+#define BV_USE_POMMIER 0
     
+#ifndef BV_USE_POMMIER
+  #if JUCE_USE_SSE_INTRINSICS
+    #define BV_USE_POMMIER 1
+    #include "pommier/pommier_sse.h"
+  #elif JUCE_USE_ARM_NEON
+    #define BV_USE_POMMIER 1
+    #include "pommier/pommier_neon.h"
+  #else
+    #define BV_USE_POMMIER 0
+  #endif
+#endif  /* ifndef BV_USE_POMMIER */
+    
+    
+#if ! BV_USE_POMMIER
 #if defined( __GNUC__ ) && defined( _WIN32 )
-// MinGW doesn't appear to have sincos, so define it -- it's
-// a single x87 instruction anyway
-static BV_FORCE_INLINE void sincos (double x, double* sin, double* cos)
-{
-    __asm__ ("fsincos;" : "=t" (*cos), "=u" (*sin) : "0" (x) : "st(7)");
-}
+    // MinGW doesn't appear to have sincos, so define it -- it's
+    // a single x87 instruction anyway
+    static BV_FORCE_INLINE void sincos (double x, double* sin, double* cos)
+    {
+        __asm__ ("fsincos;" : "=t" (*cos), "=u" (*sin) : "0" (x) : "st(7)");
+    }
     
-static BV_FORCE_INLINE void sincosf (float fx, float* fsin, float* fcos)
-{
-    double sin, cos;
-    sincos (fx, &sin, &cos);
-    *fsin = sin;
-    *fcos = cos;
-}
+    static BV_FORCE_INLINE void sincosf (float fx, float* fsin, float* fcos)
+    {
+        double sin, cos;
+        sincos (fx, &sin, &cos);
+        *fsin = sin;
+        *fcos = cos;
+    }
+#endif
 #endif
     
     
