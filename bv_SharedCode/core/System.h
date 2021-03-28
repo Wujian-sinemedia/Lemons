@@ -134,39 +134,6 @@
   #include <NE10.h>
 #endif
 
-/*
-    These conditionals control the optional usage of special accelerated NEON & SSE intrinsics in the vecops functions
-*/
-
-#if JUCE_USE_ARM_NEON || JUCE_USE_SSE_INTRINSICS
-  #define BV_USE_POMMIER 1
-#endif
-
-#ifndef BV_USE_POMMIER
-
-#if defined( __GNUC__ ) && defined( _WIN32 )
-  #define BV_USE_POMMIER 1
-#endif
-
-#ifndef BV_USE_POMMIER
-  #if __ARM_NEON__ && ! BV_USE_VDSP
-    #define BV_USE_POMMIER 1
-  #endif
-#endif
-
-#if TARGET_IPHONE_SIMULATOR
-  #ifdef BV_USE_POMMIER
-    #undef BV_USE_POMMIER
-  #endif
-  #define BV_USE_POMMIER 0
-#endif
-
-#ifndef BV_USE_POMMIER
-  #define BV_USE_POMMIER 1
-#endif
-
-#endif  /* ifndef BV_USE_POMMIER */
-
 
 /*
     These conditionals declare the following macros:

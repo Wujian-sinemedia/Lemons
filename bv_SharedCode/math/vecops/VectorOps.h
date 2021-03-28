@@ -7,6 +7,17 @@ namespace bav::vecops
 This namespace contains several floating inlined functions that extend the functionality of JUCE's FloatVectorOperations class.
 Apple's vDSP framework and Intel IPP are used if they are available.
 */
+    
+    
+#if JUCE_USE_SSE_INTRINSICS
+  #define BV_USE_POMMIER 1
+  #include "pommier/pommier_sse.h"
+#elif JUCE_USE_ARM_NEON
+  #define BV_USE_POMMIER 1
+  #include "pommier/pommier_neon.h"
+#else
+  #define BV_USE_POMMIER 0
+#endif
    
     
 #if defined( __GNUC__ ) && defined( _WIN32 )
