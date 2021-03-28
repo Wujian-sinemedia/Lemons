@@ -12,6 +12,11 @@
 
 #pragma once
 
+
+#ifndef __BV_SHARED_CODE_H__
+#define __BV_SHARED_CODE_H__
+
+
 // dependencies
 #include <juce_audio_utils/juce_audio_utils.h>
 #include <juce_dsp/juce_dsp.h>
@@ -54,3 +59,5 @@
   #pragma clang diagnostic pop
 #endif
 
+
+#endif  /* ifndef __BV_SHARED_CODE_H__ */
