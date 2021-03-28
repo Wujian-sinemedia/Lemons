@@ -194,7 +194,7 @@ private:
     double *m_a_and_b[2];
     double *m_c_and_d[2];
     
-    BV_FORCE_INLINE void makeTables()
+    inline void makeTables()
     {
         // main table for complex fft - this is of size m_half
         

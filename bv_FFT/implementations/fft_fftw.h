@@ -21,6 +21,11 @@
  double-only, unless we have been explicitly told otherwise.
 */
 
+
+
+#include <fftw3.h>
+
+
 #ifndef FFTW_SINGLE_ONLY
   #ifndef FFTW_DOUBLE_ONLY
     #define FFTW_DOUBLE_ONLY 1
@@ -427,7 +432,7 @@ public:
     
     
 private:
-    void packFloat (const float* BV_R_ re, const float* BV_R_ im)
+    BV_FORCE_INLINE void packFloat (const float* BV_R_ re, const float* BV_R_ im)
     {
         const int hs = m_size/2;
         fftwf_complex* const BV_R_ fpacked = m_fpacked;
@@ -445,7 +450,7 @@ private:
         }
     }
     
-    void packDouble (const double* BV_R_ re, const double* BV_R_ im)
+    BV_FORCE_INLINE void packDouble (const double* BV_R_ re, const double* BV_R_ im)
     {
         const int hs = m_size/2;
         fftw_complex* const BV_R_ dpacked = m_dpacked;
@@ -463,7 +468,7 @@ private:
         }
     }
     
-    void unpackFloat (float* BV_R_ re, float* BV_R_ im)
+    BV_FORCE_INLINE void unpackFloat (float* BV_R_ re, float* BV_R_ im)
     {
         const int hs = m_size/2;
         for (int i = 0; i <= hs; ++i) {
@@ -476,7 +481,7 @@ private:
         }
     }
     
-    void unpackDouble (double* BV_R_ re, double* BV_R_ im)
+    BV_FORCE_INLINE void unpackDouble (double* BV_R_ re, double* BV_R_ im)
     {
         const int hs = m_size/2;
         for (int i = 0; i <= hs; ++i) {

@@ -27,6 +27,10 @@
   #define BV_USE_FFTW 0
 #endif
 
+#ifndef BV_USE_KISSFFT
+  #define BV_USE_KISSFFT 0
+#endif
+
 
 
 namespace bav::dsp
@@ -90,6 +94,8 @@ namespace bav::dsp
  
     - Ne10: Decently optimized for NEON processors, but only supports single-precision processing. Calls to the functions with double arguments will internally convert data to 32-bit floating point and back, so some precision may be lost. Only supports power-of-two FFT lengths.
  
+    - KissFFT: Only supports single-precision processing internally. Not especially fast. Supports FFT lengths that are any multiple of two.
+ 
     - Fallback: Plain C++ version hard-coded into the module. Only use this if all else fails. Should produce accurate results, but I make no promises for speed.
 */
 
@@ -102,6 +108,8 @@ namespace bav::dsp
   #include "implementations/fft_ipp.h"
 #elif BV_USE_NE10  // next best is Ne10
   #include "implementations/fft_ne10.h"
+#elif BV_USE_KISSFFT // next best is KissFFT
+  #include "implementations/fft_kissfft.h"
 #else
   #include "implementations/fft_fallback.h"
 #endif
