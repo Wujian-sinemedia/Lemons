@@ -74,7 +74,9 @@ namespace bav::dsp
 {
     
 
-class FFT : public FFTImpl
+/* FFTW supports any FFT size */
+    
+class FFT : public FFTinterface
 {
 public:
     FFT(int size) :

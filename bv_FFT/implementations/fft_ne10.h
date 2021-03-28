@@ -7,12 +7,14 @@ namespace bav::dsp
 {
 
     
+    /* Ne10 only supports power-of-two FFT sizes */
+    
     class FFT :     public FFTinterface
     {
     public:
         FFT(int size): m_size(size)
         {
-            
+            jassert (math::isPowerOfTwo (size));  // Ne10 only supports power-of-two FFT sizes
         }
         
         ~FFT() override

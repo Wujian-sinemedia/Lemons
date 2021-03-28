@@ -32,7 +32,8 @@
 namespace bav::dsp
 {
     
-    /* abstract base class that defines the interface for any of the FFT implementations.  */
+    /* abstract base class that defines the interface for the FFT implementations.  */
+    
     class FFTinterface
     {
     public:
@@ -75,13 +76,31 @@ namespace bav::dsp
      */
 
 
+/*
+    When you compile this juce module, there will only be ONE version of an "FFT" class defined, and each instance of bav::dsp::FFT will use the same implementation.
+    (Note that "FFT" is NOT a template class, and every instance of the class has methods for both float and double operations.)
+ 
+    Here is a brief and generalized overview of the various implementations:
+ 
+    - FFTW: Fastest open source library, and portable, but its bulk and GPL licence may be an issue. Supports any FFT length.
+ 
+    - Apple vDSP: Faster than any open source library on Apple hardware, and ships with the OS. There is pretty much never a good reason not to use this if it is available to you, which is why it is the default choice if you are on an Apple platform. Only supports power-of-two FFT lengths.
+ 
+    - Intel IPP (Integrated Performance Primitives): By far the fastest on actual Intel hardware. Of uncertain benefit with other manufacturers. Not available beyond x86/amd64, not open source. Only supports power-of-two FFT lengths.
+ 
+    - Ne10: Decently optimized for NEON processors, but only supports single-precision processing. Calls to the functions with double arguments will internally convert data to 32-bit floating point and back, so some precision may be lost. Only supports power-of-two FFT lengths.
+ 
+    - Fallback: Plain C++ version hard-coded into the module. Only use this if all else fails. Should produce accurate results, but I make no promises for speed.
+*/
+
+
 #if BV_USE_FFTW  // if someone's gone to the trouble to link to FFTW, they probably want to use it...
   #include "implementations/fft_fftw.h"
-#elif BV_USE_VDSP
+#elif BV_USE_VDSP // besides FFTW, the default choice is vDSP if it's available to us
   #include "implementations/fft_vdsp.h"
-#elif BV_USE_IPP
+#elif BV_USE_IPP  // next best is IPP
   #include "implementations/fft_ipp.h"
-#elif BV_USE_NE10
+#elif BV_USE_NE10  // next best is Ne10
   #include "implementations/fft_ne10.h"
 #else
   #include "implementations/fft_fallback.h"

@@ -6,6 +6,8 @@ FFT class using Intel IPP.
 namespace bav::dsp
 {
     
+    
+/* IPP only supports power-of-two FFT sizes */
 
 class FFT :     public FFTinterface
 {
@@ -13,6 +15,7 @@ public:
 FFT(int size) :
     m_size(size), m_fspec(0), m_dspec(0)
 {
+    jassert (math::isPowerOfTwo (size));  // IPP only supports power-of-two FFT sizes
     for (int i = 0; ; ++i) {
         if (m_size & (1 << i)) {
             m_order = i;

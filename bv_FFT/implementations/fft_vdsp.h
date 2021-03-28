@@ -8,6 +8,8 @@ namespace bav::dsp
 {
 
     
+/* vDSP only supports power-of-two FFT sizes */
+    
 class FFT :     public FFTinterface
 {
 
@@ -17,6 +19,7 @@ FFT(int size) :
     m_fpacked(nullptr), m_fspare(nullptr),
     m_dpacked(nullptr), m_dspare(nullptr)
 {
+    jassert (math::isPowerOfTwo (size));  // vDSP only supports power-of-two FFT sizes
     for (int i = 0; ; ++i) {
         if (m_size & (1 << i)) {
             m_order = vDSP_Length(i);
