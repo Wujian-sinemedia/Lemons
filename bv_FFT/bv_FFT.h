@@ -23,6 +23,12 @@
 #include "bv_SharedCode/bv_SharedCode.h"
 
 
+#ifndef BV_USE_FFTW
+  #define BV_USE_FFTW 0
+#endif
+
+
+
 namespace bav::dsp
 {
     
