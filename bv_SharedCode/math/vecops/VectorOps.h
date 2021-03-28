@@ -7,7 +7,7 @@ namespace bav::vecops
 This namespace contains several floating inlined functions that extend the functionality of JUCE's FloatVectorOperations class.
 Apple's vDSP framework and Intel IPP are used if they are available.
 */
-    
+   
     
 #if defined( __GNUC__ ) && defined( _WIN32 )
 // MinGW doesn't appear to have sincos, so define it -- it's
@@ -24,6 +24,23 @@ static BV_FORCE_INLINE void sincosf (float fx, float* fsin, float* fcos)
     *fsin = sin;
     *fcos = cos;
 }
+#endif
+    
+    
+#if BV_USE_POMMIER
+  #ifdef __ARMEL__
+    typedef union {
+        float f[4];
+        int i[4];
+        v4sf  v;
+    } V4SF;
+  #else
+    typedef ALIGN16_BEG union {
+        float f[4];
+        int i[4];
+        v4sf  v;
+    } ALIGN16_END V4SF;
+  #endif
 #endif
     
     
@@ -100,7 +117,7 @@ static BV_FORCE_INLINE void fill (double* BV_R_ vector, const double value, cons
 
 
 /* copies the contents of one vector to another. */
-static BV_FORCE_INLINE void copy (float* BV_R_ source, float* BV_R_ dest, const int count);
+static BV_FORCE_INLINE void copy (float* BV_R_ source, float* BV_R_ dest, const int count)
 {
 #if BV_USE_IPP
     ippsMove_32f (source, dest, count);
@@ -479,7 +496,7 @@ static BV_FORCE_INLINE void cartesian_interleaved_to_magnitudes (double* const B
     {
         const auto ip = src[i*2];
         const auto tn = src[i*2+1];
-        mag[i] = sqrtf (ip * ip + tn * tn);
+        mag[i] = sqrt (ip * ip + tn * tn);
     }
 #endif
 }
@@ -529,6 +546,35 @@ static BV_FORCE_INLINE void polar_to_cartesian_interleaved (float* const BV_R_ d
 {
 #if BV_USE_IPP  // IPP is the only one of the auxillery libraries that supports this in one function call
     ippsPolarToCart_32fc (mag, phase, dst, count);
+#elif BV_USE_POMMIER
+    int i;
+    int idx = 0, tidx = 0;
+    
+    for (i = 0; i + 4 <= count; i += 4) {
+        
+        V4SF fmag, fphase, fre, fim;
+        
+        for (int j = 0; j < 3; ++j) {
+            fmag.f[j] = mag[idx];
+            fphase.f[j] = phase[idx];
+            ++idx;
+        }
+        
+        sincos_ps (fphase.v, &fim.v, &fre.v);
+        
+        for (int j = 0; j < 3; ++j) {
+            dst[tidx++] = fre.f[j] * fmag.f[j];
+            dst[tidx++] = fim.f[j] * fmag.f[j];
+        }
+    }
+    
+    while (i < count) {
+        float real, imag;
+        phasor (&real, &imag, phase[i]);
+        dst[tidx++] = real * mag[i];
+        dst[tidx++] = imag * mag[i];
+        ++i;
+    }
 #else
     float real, imag;
     for (int i = 0; i < count; ++i)

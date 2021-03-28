@@ -159,18 +159,18 @@ static BV_FORCE_INLINE void square (double* BV_R_ data, const int dataSize)
 static BV_FORCE_INLINE void absVal (float* BV_R_ data, const int dataSize)
 {
 #if (defined(MACOSX_DEPLOYMENT_TARGET) && MACOSX_DEPLOYMENT_TARGET <= 1070 && MAC_OS_X_VERSION_MIN_REQUIRED <= 1070)
-    vvfabf (data, data, &count);
+    vvfabf (data, data, &dataSize);
 #else
-    vvfabsf (data, data, &count);
+    vvfabsf (data, data, &dataSize);
 #endif
 }
 
 static BV_FORCE_INLINE void absVal (double* BV_R_ data, const int dataSize)
 {
 #if (defined(MACOSX_DEPLOYMENT_TARGET) && MACOSX_DEPLOYMENT_TARGET <= 1070 && MAC_OS_X_VERSION_MIN_REQUIRED <= 1070)
-    vvfab (data, data, &count);
+    vvfab (data, data, &dataSize);
 #else
-    vvfabs (data, data, &count);
+    vvfabs (data, data, &dataSize);
 #endif
 }
 
