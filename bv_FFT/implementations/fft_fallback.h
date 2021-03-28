@@ -78,7 +78,7 @@ public:
     void forwardInterleaved (const double* BV_R_ realIn, double* BV_R_ complexOut) override
     {
         transformF (realIn, m_c, m_d);
-        //v_interleave (complexOut, m_c_and_d, 2, m_half + 1);
+        vecops::interleave (complexOut, m_c_and_d, 2, m_half + 1);
     }
     
     void forwardInterleaved (const float* BV_R_ realIn, float* BV_R_ complexOut) override
@@ -130,7 +130,7 @@ public:
     
     void inverseInterleaved (const double* BV_R_ complexIn, double* BV_R_ realOut) override
     {
-        //v_deinterleave (m_a_and_b, complexIn, 2, m_half + 1);
+        vecops::deinterleave (m_a_and_b, complexIn, 2, m_half + 1);
         transformI (m_a, m_b, realOut);
     }
     

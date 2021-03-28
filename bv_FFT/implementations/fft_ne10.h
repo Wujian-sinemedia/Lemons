@@ -5,10 +5,6 @@
 
 namespace bav::dsp
 {
-    
-//    // Perform the FFT
-//    ne10_fft_r2c_1d_float32(dst, src, cfg);
-
 
     
     class FFT :     public FFTinterface
