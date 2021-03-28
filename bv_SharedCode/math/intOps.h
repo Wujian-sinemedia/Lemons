@@ -23,16 +23,14 @@ static BV_FORCE_INLINE int findMaxElement (int* data, int dataSize)
 // returns the index in the dataset of the minimum datum
 static BV_FORCE_INLINE int findIndexOfMinElement (int* data, int dataSize)
 {
-    return static_cast<int> (std::distance (data,
-                                            std::min_element (data, data + dataSize)));
+    return static_cast<int> (std::min_element (data, data + dataSize) - data);
 }
     
     
 // returns the index in the dataset of the maximum datum
 static BV_FORCE_INLINE int findIndexOfMaxElement (int* data, int dataSize)
 {
-    return static_cast<int> (std::distance (data,
-                                            std::max_element (data, data + dataSize)));
+    return static_cast<int> (std::max_element (data, data + dataSize) - data);
 }
     
     
@@ -42,7 +40,7 @@ static BV_FORCE_INLINE void findMinAndMinIndex (int* data, const int dataSize,
 {
     auto* lowestElement = std::min_element (data, data + dataSize);
     minimum = *lowestElement;
-    minIndex = static_cast<int> (std::distance (data, lowestElement));
+    minIndex = static_cast<int> (lowestElement - data);
 }
     
 
@@ -52,7 +50,7 @@ static BV_FORCE_INLINE void findMaxAndMaxIndex (int* data, const int dataSize,
 {
     auto* highestElement = std::max_element (data, data + dataSize);
     maximum = *highestElement;
-    maxIndex = static_cast<int> (std::distance (data, highestElement));
+    maxIndex = static_cast<int> (highestElement - data);
 }
     
 

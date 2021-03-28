@@ -100,21 +100,34 @@
     - Ne10 is an open-source library of vectorized functions for ARM NEON processors. It must be specially compiled and linked to in order to use it.
 */
 
+#ifdef BV_IGNORE_VDSP
+  #ifdef BV_USE_VDSP
+    #undef BV_USE_VDSP
+  #endif
+  #define BV_USE_VDSP 0
+#endif
+
 #ifndef BV_USE_VDSP
-  #ifdef BV_IGNORE_VDSP
-    #define BV_USE_VDSP !BV_IGNORE_VDSP
+  #if BV_APPLE
+    #define BV_USE_VDSP 1
   #else
-    #if BV_APPLE
-      #define BV_USE_VDSP 1
-      #include <Accelerate/Accelerate.h>
-    #else
-      #define BV_USE_VDSP 0
-    #endif
+    #define BV_USE_VDSP 0
   #endif
 #endif  /* ifndef BV_USE_VDSP */
 
+#if BV_USE_VDSP
+  #include <Accelerate/Accelerate.h>
+#endif
+
 #ifndef JUCE_USE_VDSP_FRAMEWORK
   #define JUCE_USE_VDSP_FRAMEWORK BV_USE_VDSP
+#endif
+
+#ifdef BV_IGNORE_IPP
+  #ifdef BV_USE_IPP
+    #undef BV_USE_IPP
+  #endif
+  #define BV_USE_IPP 0
 #endif
 
 #ifndef BV_USE_IPP
@@ -124,6 +137,13 @@
 #if BV_USE_IPP
   #include <ippversion.h>
   #include <ipps.h>
+#endif
+
+#ifdef BV_IGNORE_NE10
+  #ifdef BV_USE_NE10
+    #undef BV_USE_NE10
+  #endif
+#define BV_USE_NE10 0
 #endif
 
 #ifndef BV_USE_NE10

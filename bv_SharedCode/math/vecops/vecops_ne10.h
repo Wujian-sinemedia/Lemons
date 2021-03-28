@@ -182,28 +182,24 @@ static BV_FORCE_INLINE void absVal (double* BV_R_ data, const int dataSize)
 /* returns the index in the vector of the minimum element */
 static BV_FORCE_INLINE int findIndexOfMinElement (const float* BV_R_ data, const int dataSize)
 {
-    return static_cast<int> (std::distance (data,
-                                            std::min_element (data, data + dataSize)));
+    return static_cast<int> (std::min_element (data, data + dataSize) - data);
 }
 
 static BV_FORCE_INLINE int findIndexOfMinElement (const double* BV_R_ data, const int dataSize)
 {
-    return static_cast<int> (std::distance (data,
-                                            std::min_element (data, data + dataSize)));
+    return static_cast<int> (std::min_element (data, data + dataSize) - data);
 }
 
 
 /* returns the index in the vector of the maximum element */
 static BV_FORCE_INLINE int findIndexOfMaxElement (const float* BV_R_ data, const int dataSize)
 {
-    return static_cast<int> (std::distance (data,
-                                            std::max_element (data, data + dataSize)));
+    return static_cast<int> (std::max_element (data, data + dataSize) - data);
 }
 
 static BV_FORCE_INLINE int findIndexOfMaxElement (const double* BV_R_ data, const int dataSize)
 {
-    return static_cast<int> (std::distance (data,
-                                            std::max_element (data, data + dataSize)));
+    return static_cast<int> (std::max_element (data, data + dataSize) - data);
 }
 
 
@@ -213,7 +209,7 @@ static BV_FORCE_INLINE void findMinAndMinIndex (const float* BV_R_ data, const i
 {
     auto* lowestElement = std::min_element (data, data + dataSize);
     minimum = *lowestElement;
-    minIndex = static_cast<int> (std::distance (data, lowestElement));
+    minIndex = static_cast<int> (lowestElement - data);
 }
 
 static BV_FORCE_INLINE void findMinAndMinIndex (const double* BV_R_ data, const int dataSize,
@@ -221,7 +217,7 @@ static BV_FORCE_INLINE void findMinAndMinIndex (const double* BV_R_ data, const 
 {
     auto* lowestElement = std::min_element (data, data + dataSize);
     minimum = *lowestElement;
-    minIndex = static_cast<int> (std::distance (data, lowestElement));
+    minIndex = static_cast<int> (lowestElement - data);
 }
 
 
@@ -231,7 +227,7 @@ static BV_FORCE_INLINE void findMaxAndMaxIndex (const float* BV_R_ data, const i
 {
     auto* highestElement = std::max_element (data, data + dataSize);
     maximum = *highestElement;
-    maxIndex = static_cast<int> (std::distance (data, highestElement));
+    maxIndex = static_cast<int> (highestElement - data);
 }
 
 static BV_FORCE_INLINE void findMaxAndMaxIndex (const double* BV_R_ data, const int dataSize,
@@ -239,7 +235,7 @@ static BV_FORCE_INLINE void findMaxAndMaxIndex (const double* BV_R_ data, const 
 {
     auto* highestElement = std::max_element (data, data + dataSize);
     maximum = *highestElement;
-    maxIndex = static_cast<int> (std::distance (data, highestElement));
+    maxIndex = static_cast<int> (highestElement - data);
 }
 
 
