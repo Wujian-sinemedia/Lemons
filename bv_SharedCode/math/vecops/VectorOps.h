@@ -18,23 +18,6 @@ namespace bav::vecops
 */
     
     
-#if defined __GNUC__ && defined _WIN32
-    // MinGW doesn't appear to have sincos, so define it -- it's a single x87 instruction anyway
-    static BV_FORCE_INLINE void sincos (double x, double* sin, double* cos)
-    {
-        __asm__ ("fsincos;" : "=t" (*cos), "=u" (*sin) : "0" (x) : "st(7)");
-    }
-    
-    static BV_FORCE_INLINE void sincosf (float fx, float* fsin, float* fcos)
-    {
-        double sin, cos;
-        sincos (fx, &sin, &cos);
-        *fsin = sin;
-        *fcos = cos;
-    }
-#endif
-    
-    
 /* Finds the autocorrelation of a set of samples using a shrinking integration window */
 static BV_FORCE_INLINE void autocorrelate (const float* BV_R_ inputSamples, int numSamples, float* BV_R_ outputSamples)
 {

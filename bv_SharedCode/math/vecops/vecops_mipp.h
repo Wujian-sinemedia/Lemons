@@ -685,7 +685,7 @@ namespace bav::vecops
             const auto r = real[i];
             const auto c = imag[i];
             *(mag + i)   = sqrt (r * r + c * c);
-            *(phase + i) = atan2 (c, r);
+            *(phase + i) = atan2 (c, r); // AFAIK, MIPP doesn't provide this function, which is the only thing preventing this function frm being vectorized...
         }
     }
     
@@ -708,22 +708,46 @@ namespace bav::vecops
                                                       const float* const BV_R_ mag, const float* const BV_R_ phase,
                                                       const int dataSize)
     {
-        for (int i = 0; i < dataSize; ++i)
-            phasor (real + i, imag + i, phase[i]);
+        const auto vecLoopSize = (dataSize / mipp::N<float>()) * mipp::N<float>();
         
-        multiplyV (real, mag, dataSize);
-        multiplyV (imag, mag, dataSize);
+        mipp::Reg<float> magIn, phaseIn, realOut, ImagOut;
+        
+        for (int i = 0; i < vecLoopSize; i += mipp::N<float>()) {
+            magIn.load (&mag[i]);
+            phaseIn.load (&real[i]);
+            realOut = cos (phaseIn) * magIn;
+            imagOut = sin (phaseIn) * magIn;
+            realOut.store (&real[i]);
+            imagOut.store (&imag[i]);
+        }
+        
+        for (int i = vecLoopSize; i < dataSize; ++i) {
+            real[i] = cos(phase[i]) * mag[i];
+            imag[i] = sin(phase[i]) * mag[i];
+        }
     }
     
     static BV_FORCE_INLINE void polar_to_cartesian   (double* const BV_R_ real, double* const BV_R_ imag,
                                                       const double* const BV_R_ mag, const double* const BV_R_ phase,
                                                       const int dataSize)
     {
-        for (int i = 0; i < dataSize; ++i)
-            phasor (real + i, imag + i, phase[i]);
+        const auto vecLoopSize = (dataSize / mipp::N<double>()) * mipp::N<double>();
         
-        multiplyV (real, mag, dataSize);
-        multiplyV (imag, mag, dataSize);
+        mipp::Reg<double> magIn, phaseIn, realOut, ImagOut;
+        
+        for (int i = 0; i < vecLoopSize; i += mipp::N<double>()) {
+            magIn.load (&mag[i]);
+            phaseIn.load (&real[i]);
+            realOut = cos (phaseIn) * magIn;
+            imagOut = sin (phaseIn) * magIn;
+            realOut.store (&real[i]);
+            imagOut.store (&imag[i]);
+        }
+        
+        for (int i = vecLoopSize; i < dataSize; ++i) {
+            real[i] = cos(phase[i]) * mag[i];
+            imag[i] = sin(phase[i]) * mag[i];
+        }
     }
     
     

@@ -9,6 +9,23 @@ namespace bav::math
     
     
     
+/* MinGW doesn't appear to have sincos, so define it -- it's a single x87 instruction anyway  */
+#if defined __GNUC__ && defined _WIN32
+    static BV_FORCE_INLINE void sincos (double x, double* sin, double* cos)
+    {
+        __asm__ ("fsincos;" : "=t" (*cos), "=u" (*sin) : "0" (x) : "st(7)");
+    }
+    
+    static BV_FORCE_INLINE void sincosf (float fx, float* fsin, float* fcos)
+    {
+        double sin, cos;
+        sincos (fx, &sin, &cos);
+        *fsin = float(sin);
+        *fcos = float(cos);
+    }
+#endif
+    
+    
     //  returns true a specified percent of the time
     static BV_FORCE_INLINE bool probability (int percentOfTheTime)
     {

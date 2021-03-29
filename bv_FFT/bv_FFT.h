@@ -109,11 +109,11 @@ namespace bav::dsp
   #include "implementations/fft_fftw.h"
 #elif BV_USE_VDSP // besides FFTW, the default choice is vDSP if it's available to us
   #include "implementations/fft_vdsp.h"
-#elif BV_USE_IPP  // next best is IPP
+#elif BV_USE_IPP
   #include "implementations/fft_ipp.h"
-#elif BV_USE_NE10  // next best is Ne10
+#elif BV_USE_NE10
   #include "implementations/fft_ne10.h"
-#elif BV_USE_KISSFFT // next best is KissFFT
+#elif BV_USE_KISSFFT
   #include "implementations/fft_kissfft.h"
 #else
   #include "implementations/fft_fallback.h"
