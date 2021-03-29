@@ -26,7 +26,7 @@ static BV_FORCE_INLINE void autocorrelate (const float* BV_R_ inputSamples, int 
     for (int i = 0; i < numSamples; i++)
     {
         float sum = 0;
-        
+
         for (int j = 0; j < numSamples - i; j++)
             sum += inputSamples[j] * inputSamples[j + i];
         
@@ -392,15 +392,14 @@ static BV_FORCE_INLINE void phasor (float* real, float* imag, float phase)
     int one = 1;
     vvsincosf (imag, real, &phase, &one);
 
-#elif defined LACK_SINCOS
-    *real = cosf(phase);
-    *imag = sinf(phase);
-
-#elif defined __GNUC__
+#else
+#ifndef LACK_SINCOS
+#if defined __GNUC__
   #if defined __APPLE__
     #define sincosf __sincosf
   #endif
     sincosf (phase, imag, real);
+#endif /* ifndef LACK_SINCOS */
 
 #else
     *real = cosf(phase);
@@ -413,16 +412,15 @@ static BV_FORCE_INLINE void phasor (double* real, double* imag, double phase)
 #if BV_USE_VDSP
     int one = 1;
     vvsincos (imag, real, &phase, &one);
-
-#elif defined LACK_SINCOS
-    *real = cos(phase);
-    *imag = sin(phase);
-
-#elif defined __GNUC__
+    
+#else
+#ifndef LACK_SINCOS
+#if defined __GNUC__
   #if defined __APPLE__
     #define sincos __sincos
   #endif
     sincos (phase, imag, real);
+#endif /* ifndef LACK_SINCOS */
 
 #else
     *real = cos(phase);
@@ -438,6 +436,23 @@ static BV_FORCE_INLINE void cartesian_to_magnitudes (float* const BV_R_ mag,
 {
 #if BV_USE_IPP  // IPP is the only one of the auxillery libraries that supports this in one function call
     ippsMagnitude_32f (real, imag, mag, count);
+#elif BV_USE_MIPP
+    const auto vecLoopSize = (count / mipp::N<float>()) * mipp::N<float>();
+    
+    mipp::Reg<float> realIn, imagIn, magOut;
+    
+    for (int i = 0; i < vecLoopSize; i += mipp::N<float>()) {
+        realIn.load (&real[i]);
+        imagIn.load (&imag[i]);
+        magOut = mipp::sqrt ((realIn * realIn) + (imagIn * imagIn));
+        magOut.store (&mag[i]);
+    }
+    
+    for (int i = vecLoopSize; i < count; ++i) {
+        const auto r = real[i];
+        const auto c = imag[i];
+        mag[i] = sqrt (r * r + c * c);
+    }
 #else
     for (int i = 0; i < count; ++i) {
         const auto r = real[i];
@@ -454,6 +469,23 @@ static BV_FORCE_INLINE void cartesian_to_magnitudes (double* const BV_R_ mag,
 {
 #if BV_USE_IPP
     ippsMagnitude_64f (real, imag, mag, count);
+#elif BV_USE_MIPP
+    const auto vecLoopSize = (count / mipp::N<double>()) * mipp::N<double>();
+    
+    mipp::Reg<double> realIn, imagIn, magOut;
+    
+    for (int i = 0; i < vecLoopSize; i += mipp::N<double>()) {
+        realIn.load (&real[i]);
+        imagIn.load (&imag[i]);
+        magOut = mipp::sqrt ((realIn * realIn) + (imagIn * imagIn));
+        magOut.store (&mag[i]);
+    }
+    
+    for (int i = vecLoopSize; i < count; ++i) {
+        const auto r = real[i];
+        const auto c = imag[i];
+        mag[i] = sqrt (r * r + c * c);
+    }
 #else
     for (int i = 0; i < count; ++i) {
         const auto r = real[i];
@@ -469,12 +501,28 @@ static BV_FORCE_INLINE void cartesian_interleaved_to_magnitudes (float* const BV
 {
 #if BV_USE_IPP
     ippsMagnitude_32fc (src, mag, count);
+#elif BV_USE_MIPP
+    const auto vecLoopSize = (count / mipp::N<float>()) * mipp::N<float>();
+    
+    mipp::reg<float> realIn, imagIn, magOut;
+    
+    for (int i = 0; i < vecLoopSize; i += mipp::N<float>()) {
+        realIn.load (&src[i*2]);
+        imagIn.load (&src[i*2+1]);
+        magOut = mipp::sqrt ((realIn * realIn) + (imagIn * imagIn));
+    }
+    
+    for (int i = vecLoopSize; i < count; ++i) {
+        const auto r = src[i*2];
+        const auto c = src[i*2+1];
+        mag[i] = sqrt (r * r + c * c);
+    }
 #else
     for (int i = 0; i < count; ++i)
     {
-        const auto ip = src[i*2];
-        const auto tn = src[i*2+1];
-        mag[i] = sqrt (ip * ip + tn * tn);
+        const auto r = src[i*2];
+        const auto c = src[i*2+1];
+        mag[i] = sqrt (r * r + c * c);
     }
 #endif
 }
@@ -485,12 +533,28 @@ static BV_FORCE_INLINE void cartesian_interleaved_to_magnitudes (double* const B
 {
 #if BV_USE_IPP
     ippsMagnitude_64fc (src, mag, count);
+#elif BV_USE_MIPP
+    const auto vecLoopSize = (count / mipp::N<double>()) * mipp::N<double>();
+    
+    mipp::reg<double> realIn, imagIn, magOut;
+    
+    for (int i = 0; i < vecLoopSize; i += mipp::N<double>()) {
+        realIn.load (&src[i*2]);
+        imagIn.load (&src[i*2+1]);
+        magOut = mipp::sqrt ((realIn * realIn) + (imagIn * imagIn));
+    }
+    
+    for (int i = vecLoopSize; i < count; ++i) {
+        const auto r = src[i*2];
+        const auto c = src[i*2+1];
+        mag[i] = sqrt (r * r + c * c);
+    }
 #else
     for (int i = 0; i < count; ++i)
     {
-        const auto ip = src[i*2];
-        const auto tn = src[i*2+1];
-        mag[i] = sqrt (ip * ip + tn * tn);
+        const auto r = src[i*2];
+        const auto c = src[i*2+1];
+        mag[i] = sqrt (r * r + c * c);
     }
 #endif
 }
@@ -540,6 +604,27 @@ static BV_FORCE_INLINE void polar_to_cartesian_interleaved (float* const BV_R_ d
 {
 #if BV_USE_IPP
     ippsPolarToCart_32fc (mag, phase, dst, count);
+#elif BV_USE_MIPP
+    const auto vecLoopSize = (dataSize / mipp::N<float>()) * mipp::N<float>();
+    
+    mipp::Reg<float> magIn, phaseIn, realOut, ImagOut;
+    
+    for (int i = 0; i < vecLoopSize; i += mipp::N<float>()) {
+        magIn.load (&mag[i]);
+        phaseIn.load (&phase[i]);
+        realOut = mipp::cos (phaseIn) * magIn;
+        imagOut = mipp::sin (phaseIn) * magIn;
+        realOut.store (&real[i*2]);
+        imagOut.store (&imag[i*2+1]);
+    }
+    
+    float real, imag;
+    for (int i = vecLoopSize; i < dataSize; ++i) {
+        phasor (&real, &imag, phase[i])
+        const auto m_mag = mag[i];
+        dst[i*2] = real * m_mag;
+        dst[i*2+1] = imag * m_mag;
+    }
 #else
     float real, imag;
     for (int i = 0; i < count; ++i)
@@ -560,6 +645,27 @@ static BV_FORCE_INLINE void polar_to_cartesian_interleaved (double* const BV_R_ 
 {
 #if BV_USE_IPP
     ippsPolarToCart_64fc (mag, phase, dst, count);
+#elif BV_USE_MIPP
+    const auto vecLoopSize = (dataSize / mipp::N<float>()) * mipp::N<float>();
+    
+    mipp::Reg<float> magIn, phaseIn, realOut, ImagOut;
+    
+    for (int i = 0; i < vecLoopSize; i += mipp::N<float>()) {
+        magIn.load (&mag[i]);
+        phaseIn.load (&phase[i]);
+        realOut = mipp::cos (phaseIn) * magIn;
+        imagOut = mipp::sin (phaseIn) * magIn;
+        realOut.store (&real[i*2]);
+        imagOut.store (&imag[i*2+1]);
+    }
+    
+    float real, imag;
+    for (int i = vecLoopSize; i < dataSize; ++i) {
+        phasor (&real, &imag, phase[i])
+        const auto m_mag = mag[i];
+        dst[i*2] = real * m_mag;
+        dst[i*2+1] = imag * m_mag;
+    }
 #else
     double real, imag;
     for (int i = 0; i < count; ++i)

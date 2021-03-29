@@ -714,18 +714,19 @@ namespace bav::vecops
         
         for (int i = 0; i < vecLoopSize; i += mipp::N<float>()) {
             magIn.load (&mag[i]);
-            phaseIn.load (&real[i]);
+            phaseIn.load (&phase[i]);
             realOut = mipp::cos (phaseIn) * magIn;
             imagOut = mipp::sin (phaseIn) * magIn;
             realOut.store (&real[i]);
             imagOut.store (&imag[i]);
         }
         
+        float m_real, m_imag;
         for (int i = vecLoopSize; i < dataSize; ++i) {
-            phasor (real + i, imag + i, phase[i])
+            phasor (&m_real, &m_imag, phase[i])
             const auto m_mag = mag[i];
-            real[i] *= m_mag;
-            imag[i] *= m_mag;
+            real[i] = m_real * m_mag;
+            imag[i] = m_imag * m_mag;
         }
     }
     
@@ -739,18 +740,19 @@ namespace bav::vecops
         
         for (int i = 0; i < vecLoopSize; i += mipp::N<double>()) {
             magIn.load (&mag[i]);
-            phaseIn.load (&real[i]);
+            phaseIn.load (&phase[i]);
             realOut = mipp::cos (phaseIn) * magIn;
             imagOut = mipp::sin (phaseIn) * magIn;
             realOut.store (&real[i]);
             imagOut.store (&imag[i]);
         }
         
+        double m_real, m_imag;
         for (int i = vecLoopSize; i < dataSize; ++i) {
-            phasor (real + i, imag + i, phase[i])
+            phasor (&m_real, &m_imag, phase[i])
             const auto m_mag = mag[i];
-            real[i] *= m_mag;
-            imag[i] *= m_mag;
+            real[i] = m_real * m_mag;
+            imag[i] = m_imag * m_mag;
         }
     }
     
