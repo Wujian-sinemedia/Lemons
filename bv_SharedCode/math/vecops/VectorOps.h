@@ -14,36 +14,9 @@ namespace bav::vecops
     - IPP: stands for "Intel Integrated Performance Primitives". By far the fastest on supported Intel hardware, but must be specially linked to. Only available on x86/amd64.
     - Ne10: an open-source library of optimized functions for ARM NEON architecture. Very fast for floating point computations, but supports ONLY 32-bit floating point. Any functions with doubles as input or output will either use Juce::FloatVectorOperations or involve some internal conversion overhead.
     - Fallback: wraps Juce::FloatVectorOperations where available, and implements operations in pure C/C++ where FVO doesn't provide an implementation.
- 
-    In addition, there are some experimental accelerations available for ARM NEON or SSE, which can be enabled by setting BV_USE_POMMIER to 1. These vectorize the sin, cos, exp and log functons, and if enabled will be used where possible regardless of which vecops implementation is selected.
 */
     
     
-// set this to 1 to allow using some special SSE & NEON optimizations for sin, cos, exp and log. Experimental, and may not work on all architectures.
-#define BV_USE_POMMIER 0
-    
-#ifndef BV_USE_POMMIER
-  #if JUCE_USE_SSE_INTRINSICS || JUCE_USE_ARM_NEON
-    #define BV_USE_POMMIER 1
-  #else
-    #define BV_USE_POMMIER 0
-  #endif
-#endif  /* ifndef BV_USE_POMMIER */
-    
-    
-#if BV_USE_POMMIER
-  #if JUCE_USE_SSE_INTRINSICS
-    #include "pommier/pommier_sse.h"
-  #elif JUCE_USE_ARM_NEON
-    #include "pommier/pommier_neon.h"
-  #else
-    #undef BV_USE_POMMIER
-    #define BV_USE_POMMIER 0
-  #endif
-#endif  /* if BV_USE_POMMIER */
-    
-    
-#if ! BV_USE_POMMIER
 #if defined __GNUC__ && defined _WIN32
     // MinGW doesn't appear to have sincos, so define it -- it's a single x87 instruction anyway
     static BV_FORCE_INLINE void sincos (double x, double* sin, double* cos)
@@ -58,24 +31,6 @@ namespace bav::vecops
         *fsin = sin;
         *fcos = cos;
     }
-#endif
-#endif
-    
-    
-#if BV_USE_POMMIER
-  #ifdef __ARMEL__
-    typedef union {
-        float f[4];
-        int i[4];
-        v4sf  v;
-    } V4SF;
-  #else
-    typedef ALIGN16_BEG union {
-        float f[4];
-        int i[4];
-        v4sf  v;
-    } ALIGN16_END V4SF;
-  #endif
 #endif
     
     
@@ -581,35 +536,6 @@ static BV_FORCE_INLINE void polar_to_cartesian_interleaved (float* const BV_R_ d
 {
 #if BV_USE_IPP
     ippsPolarToCart_32fc (mag, phase, dst, count);
-#elif BV_USE_POMMIER
-    int i;
-    int idx = 0, tidx = 0;
-    
-    for (i = 0; i + 4 <= count; i += 4) {
-        
-        V4SF fmag, fphase, fre, fim;
-        
-        for (int j = 0; j < 3; ++j) {
-            fmag.f[j] = mag[idx];
-            fphase.f[j] = phase[idx];
-            ++idx;
-        }
-        
-        sincos_ps (fphase.v, &fim.v, &fre.v);
-        
-        for (int j = 0; j < 3; ++j) {
-            dst[tidx++] = fre.f[j] * fmag.f[j];
-            dst[tidx++] = fim.f[j] * fmag.f[j];
-        }
-    }
-    
-    while (i < count) {
-        float real, imag;
-        phasor (&real, &imag, phase[i]);
-        dst[tidx++] = real * mag[i];
-        dst[tidx++] = imag * mag[i];
-        ++i;
-    }
 #else
     float real, imag;
     for (int i = 0; i < count; ++i)

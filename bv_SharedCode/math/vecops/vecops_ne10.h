@@ -426,42 +426,12 @@ static BV_FORCE_INLINE void polar_to_cartesian   (float* const BV_R_ real, float
                                                   const float* const BV_R_ mag, const float* const BV_R_ phase,
                                                   const int dataSize)
 {
-#if BV_USE_POMMIER
-    int idx = 0, tidx = 0;
-    int i = 0;
-    
-    for (int i = 0; i + 4 < dataSize; i += 4) {
-        
-        V4SF fmag, fphase, fre, fim;
-        
-        for (int j = 0; j < 3; ++j) {
-            fmag.f[j] = mag[idx];
-            fphase.f[j] = phase[idx++];
-        }
-        
-        sincos_ps (fphase.v, &fim.v, &fre.v);
-        
-        for (int j = 0; j < 3; ++j) {
-            real[tidx] = fre.f[j] * fmag.f[j];
-            imag[tidx++] = fim.f[j] * fmag.f[j];
-        }
-    }
-    
-    while (i < dataSize) {
-        float re, im;
-        phasor (&re, &im, phase[i]);
-        real[tidx] = re * mag[i];
-        imag[tidx++] = im * mag[i];
-        ++i;
-    }
-#else
     for (int i = 0; i < dataSize; ++i) {
         phasor (real + i, imag + i, phase[i]);
     }
     
     ne10_mul_float (real, real, mag, uint32_t(dataSize));
     ne10_mul_float (imag, imag, mag, uint32_t(dataSize));
-#endif
 }
 
 static BV_FORCE_INLINE void polar_to_cartesian   (double* const BV_R_ real, double* const BV_R_ imag,
