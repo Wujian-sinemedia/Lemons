@@ -32,8 +32,22 @@
   #define BV_USE_FFTW 0
 #endif
 
+#if BV_USE_FFTW
+  #ifdef BV_USE_KISSFFT
+    #undef BV_USE_KISSFFT
+  #endif
+#define BV_USE_KISSFFT 0
+#endif
+
 #ifndef BV_USE_KISSFFT
   #define BV_USE_KISSFFT 0
+#endif
+
+#if BV_USE_KISSFFT
+  #ifdef BV_USE_FFTW
+    #undef BV_USE_FFTW
+  #endif
+#define BV_USE_FFTW 0
 #endif
 
 
@@ -75,6 +89,53 @@ namespace bav::dsp
         virtual void inverseInterleaved (const float* BV_R_ complexIn, float* BV_R_ realOut) = 0;
         virtual void inversePolar (const float* BV_R_ magIn, const float* BV_R_ phaseIn, float* BV_R_ realOut) = 0;
         virtual void inverseCepstral (const float* BV_R_ magIn, float* BV_R_ cepOut) = 0;
+        
+        static constexpr bool isUsingFFTW()
+        {
+#if BV_USE_FFTW
+            return true;
+#else
+            return false;
+#endif
+        }
+        
+        static constexpr bool isUsingKissFFT()
+        {
+#if BV_USE_KISSFFT
+            return true;
+#else
+            return false;
+#endif
+        }
+        
+        static constexpr bool isUsingVDSP()
+        {
+#if BV_USE_VDSP && ! ( BV_USE_FFTW || BV_USE_KISSFFT )
+            return true;
+#else
+            return false;
+        }
+        
+        static constexpr bool isUsingIPP()
+        {
+#if BV_USE_IPP && ! ( BV_USE_FFTW || BV_USE_KISSFFT )
+            return true;
+#else
+            return false;
+        }
+        
+        static constexpr bool isUsingNe10()
+        {
+#if BV_USE_NE10 && ! ( BV_USE_FFTW || BV_USE_KISSFFT )
+            return true;
+#else
+            return false;
+        }
+        
+        static constexpr bool isUsingFallback()
+        {
+            return ! ( isUsingFFTW() || isUsingKissFFT() || isUsingVDSP() || isUsingIPP() || isUsingNe10() );
+        }
     };
     
     
@@ -107,16 +168,15 @@ namespace bav::dsp
 
 #if BV_USE_FFTW  // if someone's gone to the trouble to link to FFTW, they probably want to use it...
   #include "implementations/fft_fftw.h"
-#elif BV_USE_VDSP // besides FFTW, the default choice is vDSP if it's available to us
+#elif BV_USE_KISSFFT
+  #include "implementations/fft_kissfft.h" // same goes for KissFFT
+#elif BV_USE_VDSP
   #include "implementations/fft_vdsp.h"
 #elif BV_USE_IPP
   #include "implementations/fft_ipp.h"
 #elif BV_USE_NE10
   #include "implementations/fft_ne10.h"
-#elif BV_USE_KISSFFT
-  #include "implementations/fft_kissfft.h"
 #else
   #include "implementations/fft_fallback.h"
 #endif
-    
 

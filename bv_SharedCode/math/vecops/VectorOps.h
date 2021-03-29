@@ -676,6 +676,48 @@ static BV_FORCE_INLINE void polar_to_cartesian_interleaved (double* const BV_R_ 
     }
 #endif
 }
+    
+    
+static constexpr bool isUsingVDSP()
+{
+#if BV_USE_VDSP
+    return true;
+#else
+    return false;
+#endif
+}
+    
+static constexpr bool isUsingIPP()
+{
+#if BV_USE_IPP
+    return true;
+#else
+    return false;
+#endif
+}
+    
+static constexpr bool isUsingMIPP()
+{
+#if BV_USE_MIPP
+    return true;
+#else
+    return false;
+#endif
+}
+    
+static constexpr bool isUsingNe10()
+{
+#if BV_USE_NE10
+    return true;
+#else
+    return false;
+#endif
+}
+    
+static constexpr bool isUsingFallback()
+{
+    return !  ( isUsingVDSP() || isUsingIPP() || isUsingMIPP() || isUsingNe10() );
+}
 
 
 }  // namespace

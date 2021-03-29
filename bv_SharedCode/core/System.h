@@ -122,7 +122,20 @@
 
 #if BV_USE_VDSP
   #include <Accelerate/Accelerate.h>
-#endif
+
+  #ifndef BV_IGNORE_IPP
+    #define BV_IGNORE_IPP
+  #endif
+
+  #ifndef BV_IGNORE_NE10
+    #define BV_IGNORE_NE10
+  #endif
+
+  #ifndef BV_IGNORE_MIPP
+    #define BV_IGNORE_MIPP
+  #endif
+
+#endif /* if BV_USE_VDSP */
 
 #ifdef JUCE_USE_VDSP_FRAMEWORK
   #undef JUCE_USE_VDSP_FRAMEWORK
@@ -147,7 +160,16 @@
 #if BV_USE_IPP
   #include <ippversion.h>
   #include <ipps.h>
-#endif
+
+  #ifndef BV_IGNORE_NE10
+    #define BV_IGNORE_NE10
+  #endif
+
+  #ifndef BV_IGNORE_MIPP
+    #define BV_IGNORE_MIPP
+  #endif
+
+#endif /* if BV_USE_IPP */
 
 
 /// Ne10 ///
@@ -165,6 +187,10 @@
 
 #if BV_USE_NE10
   #include <NE10.h>
+
+  #ifndef BV_IGNORE_MIPP
+    #define BV_IGNORE_MIPP
+  #endif
 #endif
 
 
