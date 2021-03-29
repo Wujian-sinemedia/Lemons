@@ -4,31 +4,47 @@ namespace bav::vecops
 
 
 /*
-This namespace contains several floating inlined functions that extend the functionality of JUCE's FloatVectorOperations class.
-Apple's vDSP framework and Intel IPP are used if they are available.
+    This namespace contains some useful vectorized functions optimized for a variety of platforms.
+    This header file defines the common interface for the vecops functions, and there is a separate header defining implementations for each individual vectorization library.
+    When you compile the bv_SharedCode Juce module, only ONE of the available vecops implementations will be selected and compiled, and all calls to vecops functions will use the same implementation.
+ 
+    Here is a brief, generalized overview of the available implementations:
+ 
+    - vDSP: created by Apple and optimized for their hardware. vDSP ships with the OS on any Apple hardware and easily outperforms any open source library. There isn't really a good reason not to use this if it is available to you, which is why it is the default choice on Apple platforms.
+    - IPP: stands for "Intel Integrated Performance Primitives". By far the fastest on supported Intel hardware, but must be specially linked to. Only available on x86/amd64.
+    - Ne10: an open-source library of optimized functions for ARM NEON architecture. Very fast for floating point computations, but supports ONLY 32-bit floating point. Any functions with doubles as input or output will either use Juce::FloatVectorOperations or involve some internal conversion overhead.
+    - Fallback: wraps Juce::FloatVectorOperations where available, and implements operations in pure C/C++ where FVO doesn't provide an implementation.
+ 
+    In addition, there are some experimental accelerations available for ARM NEON or SSE, which can be enabled by setting BV_USE_POMMIER to 1. These vectorize the sin, cos, exp and log functons, and if enabled will be used where possible regardless of which vecops implementation is selected.
 */
     
     
-// set this to 1 to allow using some special SSE & NEON optimizations for sin, cos, exp and log. May not work on all architectures.
+// set this to 1 to allow using some special SSE & NEON optimizations for sin, cos, exp and log. Experimental, and may not work on all architectures.
 #define BV_USE_POMMIER 0
     
 #ifndef BV_USE_POMMIER
-  #if JUCE_USE_SSE_INTRINSICS
+  #if JUCE_USE_SSE_INTRINSICS || JUCE_USE_ARM_NEON
     #define BV_USE_POMMIER 1
-    #include "pommier/pommier_sse.h"
-  #elif JUCE_USE_ARM_NEON
-    #define BV_USE_POMMIER 1
-    #include "pommier/pommier_neon.h"
   #else
     #define BV_USE_POMMIER 0
   #endif
 #endif  /* ifndef BV_USE_POMMIER */
     
     
+#if BV_USE_POMMIER
+  #if JUCE_USE_SSE_INTRINSICS
+    #include "pommier/pommier_sse.h"
+  #elif JUCE_USE_ARM_NEON
+    #include "pommier/pommier_neon.h"
+  #else
+    #undef BV_USE_POMMIER
+    #define BV_USE_POMMIER 0
+#endif  /* if BV_USE_POMMIER */
+    
+    
 #if ! BV_USE_POMMIER
-#if defined( __GNUC__ ) && defined( _WIN32 )
-    // MinGW doesn't appear to have sincos, so define it -- it's
-    // a single x87 instruction anyway
+#if defined __GNUC__ && defined _WIN32
+    // MinGW doesn't appear to have sincos, so define it -- it's a single x87 instruction anyway
     static BV_FORCE_INLINE void sincos (double x, double* sin, double* cos)
     {
         __asm__ ("fsincos;" : "=t" (*cos), "=u" (*sin) : "0" (x) : "st(7)");
@@ -476,7 +492,7 @@ static BV_FORCE_INLINE void cartesian_to_magnitudes (double* const BV_R_ mag,
                                                      const double* const BV_R_ real, const double* const BV_R_ imag,
                                                      const int count)
 {
-#if BV_USE_IPP  // IPP is the only one of the auxillery libraries that supports this in one function call
+#if BV_USE_IPP
     ippsMagnitude_64f (real, imag, mag, count);
 #else
     for (int i = 0; i < count; ++i) {
@@ -491,7 +507,7 @@ static BV_FORCE_INLINE void cartesian_interleaved_to_magnitudes (float* const BV
                                                                  const float* const BV_R_ src,
                                                                  const int count)
 {
-#if BV_USE_IPP  // IPP is the only one of the auxillery libraries that supports this in one function call
+#if BV_USE_IPP
     ippsMagnitude_32fc (src, mag, count);
 #else
     for (int i = 0; i < count; ++i)
@@ -507,7 +523,7 @@ static BV_FORCE_INLINE void cartesian_interleaved_to_magnitudes (double* const B
                                                                  const double* const BV_R_ src,
                                                                  const int count)
 {
-#if BV_USE_IPP  // IPP is the only one of the auxillery libraries that supports this in one function call
+#if BV_USE_IPP
     ippsMagnitude_64fc (src, mag, count);
 #else
     for (int i = 0; i < count; ++i)
@@ -525,7 +541,7 @@ static BV_FORCE_INLINE void cartesian_interleaved_to_polar (double* const BV_R_ 
                                                             const double* const BV_R_ src,
                                                             const int count)
 {
-#if BV_USE_IPP  // IPP is the only one of the auxillery libraries that supports this in one function call
+#if BV_USE_IPP
     ippsCartToPolar_64fc (src, mag, phase, count);
 #else
     for (int i = 0; i < count; ++i)
@@ -543,7 +559,7 @@ static BV_FORCE_INLINE void cartesian_interleaved_to_polar (float* const BV_R_ m
                                                             const float* const BV_R_ src,
                                                             const int count)
 {
-#if BV_USE_IPP  // IPP is the only one of the auxillery libraries that supports this in one function call
+#if BV_USE_IPP
     ippsCartToPolar_32fc (src, mag, phase, count);
 #else
     for (int i = 0; i < count; ++i)
@@ -562,7 +578,7 @@ static BV_FORCE_INLINE void polar_to_cartesian_interleaved (float* const BV_R_ d
                                                             const float* const BV_R_ phase,
                                                             const int count)
 {
-#if BV_USE_IPP  // IPP is the only one of the auxillery libraries that supports this in one function call
+#if BV_USE_IPP
     ippsPolarToCart_32fc (mag, phase, dst, count);
 #elif BV_USE_POMMIER
     int i;
@@ -611,7 +627,7 @@ static BV_FORCE_INLINE void polar_to_cartesian_interleaved (double* const BV_R_ 
                                                             const double* const BV_R_ phase,
                                                             const int count)
 {
-#if BV_USE_IPP  // IPP is the only one of the auxillery libraries that supports this in one function call
+#if BV_USE_IPP
     ippsPolarToCart_64fc (mag, phase, dst, count);
 #else
     double real, imag;

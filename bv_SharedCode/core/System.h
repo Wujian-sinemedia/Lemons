@@ -104,7 +104,7 @@
   #ifdef BV_USE_VDSP
     #undef BV_USE_VDSP
   #endif
-  #define BV_USE_VDSP 0
+#define BV_USE_VDSP 0
 #endif
 
 #ifndef BV_USE_VDSP
@@ -127,7 +127,7 @@
   #ifdef BV_USE_IPP
     #undef BV_USE_IPP
   #endif
-  #define BV_USE_IPP 0
+#define BV_USE_IPP 0
 #endif
 
 #ifndef BV_USE_IPP

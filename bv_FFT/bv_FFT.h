@@ -20,8 +20,17 @@
 
 #pragma once
 
+
+/*
+    This module relies on my bv_SharedCode module for its built-in assignment of various preprocessor defs, that are used below to determime which FFT implementation to use.
+    If you want to use this module by itself, without the bv_SharedCode dependancy, simply remove this include and define the following macros somewhere in your project before including this header: BV_USE_VDSP, BV_USE_IPP, BV_USE_NE10
+*/
 #include "bv_SharedCode/bv_SharedCode.h"
 
+
+/*
+    FFTW and KissFFT are platform-independant, but must be specially installed and linked to. To use either, link your project to it and define either BV_USE_FFTW or BV_USE_KISSFFT.
+*/
 
 #ifndef BV_USE_FFTW
   #define BV_USE_FFTW 0
@@ -38,7 +47,7 @@ namespace bav::dsp
     
     /* abstract base class that defines the interface for the FFT implementations.  */
     
-    class FFTinterface
+    class FFTinterface  // note that this is NOT a template class!!!
     {
     public:
         virtual ~FFTinterface() = default;
