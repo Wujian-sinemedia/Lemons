@@ -399,6 +399,7 @@ static BV_FORCE_INLINE void phasor (float* real, float* imag, float phase)
     #define sincosf __sincosf
   #endif
     sincosf (phase, imag, real);
+#endif
 #endif /* ifndef LACK_SINCOS */
 
 #else
@@ -420,6 +421,7 @@ static BV_FORCE_INLINE void phasor (double* real, double* imag, double phase)
     #define sincos __sincos
   #endif
     sincos (phase, imag, real);
+#endif
 #endif /* ifndef LACK_SINCOS */
 
 #else
