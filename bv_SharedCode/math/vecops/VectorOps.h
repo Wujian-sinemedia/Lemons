@@ -393,18 +393,17 @@ static BV_FORCE_INLINE void phasor (float* real, float* imag, float phase)
     vvsincosf (imag, real, &phase, &one);
 
 #else
-#ifndef LACK_SINCOS
-#if defined __GNUC__
-  #if defined __APPLE__
-    #define sincosf __sincosf
-  #endif
+  #ifndef LACK_SINCOS
+    #if defined __GNUC__
+      #if defined __APPLE__
+        #define sincosf __sincosf
+      #endif
     sincosf (phase, imag, real);
-#endif
-#endif /* ifndef LACK_SINCOS */
-
-#else
+    #endif
+  #else
     *real = cosf(phase);
     *imag = sinf(phase);
+  #endif
 #endif
 }
 
@@ -415,18 +414,17 @@ static BV_FORCE_INLINE void phasor (double* real, double* imag, double phase)
     vvsincos (imag, real, &phase, &one);
     
 #else
-#ifndef LACK_SINCOS
-#if defined __GNUC__
-  #if defined __APPLE__
-    #define sincos __sincos
-  #endif
+  #ifndef LACK_SINCOS
+    #if defined __GNUC__
+      #if defined __APPLE__
+        #define sincos __sincos
+      #endif
     sincos (phase, imag, real);
-#endif
-#endif /* ifndef LACK_SINCOS */
-
-#else
+    #endif
+  #else
     *real = cos(phase);
     *imag = sin(phase);
+  #endif
 #endif
 }
     
