@@ -21,10 +21,6 @@
 #pragma once
 
 
-/*
-    This module relies on my bv_SharedCode module for its built-in assignment of various preprocessor defs, that are used below to determime which FFT implementation to use.
-    If you want to use this module by itself, without the bv_SharedCode dependancy, simply remove this include and define the following macros somewhere in your project before including this header: BV_USE_VDSP, BV_USE_IPP, BV_USE_NE10
-*/
 #include "bv_SharedCode/bv_SharedCode.h"
 
 

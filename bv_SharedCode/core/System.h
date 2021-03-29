@@ -98,7 +98,11 @@
     - On Apple platforms, Accelerate/vDSP is included with the OS. It should always be available, and there's pretty much no reason not to use it.
     - "IPP" stands for Intel Integrated Performance Primitives, which is available on Intel Atom, Core, and Xeon processors. IPP must be specially installed and linked to in order to use it.
     - Ne10 is an open-source library of vectorized functions for ARM NEON processors. It must be specially compiled and linked to in order to use it.
+    - MIPP is an open-source library that serves as a portable wrapper around various SIMD instruction sets. Supports NEON, SSE, AVX and AVX-512. Can be found at https://github.com/aff3ct/MIPP.
 */
+
+
+/// vDSP ///
 
 #ifdef BV_IGNORE_VDSP
   #ifdef BV_USE_VDSP
@@ -123,6 +127,8 @@
   #define JUCE_USE_VDSP_FRAMEWORK BV_USE_VDSP
 #endif
 
+/// IPP ///
+
 #ifdef BV_IGNORE_IPP
   #ifdef BV_USE_IPP
     #undef BV_USE_IPP
@@ -139,6 +145,8 @@
   #include <ipps.h>
 #endif
 
+/// Ne10 ///
+
 #ifdef BV_IGNORE_NE10
   #ifdef BV_USE_NE10
     #undef BV_USE_NE10
@@ -152,6 +160,23 @@
 
 #if BV_USE_NE10
   #include <NE10.h>
+#endif
+
+/// MIPP ///
+
+#ifdef BV_IGNORE_MIPP
+  #ifdef BV_USE_MIPP
+    #undef BV_USE_MIPP
+  #endif
+#define BV_USE_MIPP 0
+#endif
+
+#ifndef BV_USE_MIPP
+  #define BV_USE_MIPP 0
+#endif
+
+#if BV_USE_MIPP
+  #include "mipp.h"
 #endif
 
 

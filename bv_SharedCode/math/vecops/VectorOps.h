@@ -14,6 +14,7 @@ namespace bav::vecops
     - IPP: stands for "Intel Integrated Performance Primitives". By far the fastest on supported Intel hardware, but must be specially linked to. Only available on x86/amd64.
     - Ne10: an open-source library of optimized functions for ARM NEON architecture. Very fast for floating point computations, but supports ONLY 32-bit floating point. Any functions with doubles as input or output will either use Juce::FloatVectorOperations or involve some internal conversion overhead.
     - Fallback: wraps Juce::FloatVectorOperations where available, and implements operations in pure C/C++ where FVO doesn't provide an implementation.
+    - MIPP: an open source library that essentially serves as a wrapper around native SIMD instruction sets. Currently supports NEON, SSE, AVX and AVX-512.
 */
     
     
@@ -579,6 +580,8 @@ static BV_FORCE_INLINE void polar_to_cartesian_interleaved (double* const BV_R_ 
   #include "vecops_ipp.h"
 #elif BV_USE_NE10
   #include "vecops_ne10.h"
+#elif BV_USE_MIPP
+  #include "vecops/vecops_mipp.h"
 #else
   #include "vecops_fallback.h"
 #endif
