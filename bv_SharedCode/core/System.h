@@ -216,7 +216,7 @@
   #endif
 #endif  /* if BV_APPLE  */
 
-#if BV_LINUX || JUCE_ANDROID
+#if BV_LINUX || BV_ANDROID
   #if defined (__LP64__) || defined (_LP64) || defined (__arm64__)
     #define BV_BIT_DEPTH 64
   #else
