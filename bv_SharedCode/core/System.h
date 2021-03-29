@@ -95,6 +95,7 @@
 /*
     These conditionals select whether to use any optimization libraries for vecops, FFTs, etc.
     Changing these options here will control which implementation is used for the entire Shared-code module, including vecops and the FFT module.
+ 
     - On Apple platforms, Accelerate/vDSP is included with the OS. It should always be available, and there's pretty much no reason not to use it.
     - "IPP" stands for Intel Integrated Performance Primitives, which is available on Intel Atom, Core, and Xeon processors. IPP must be specially installed and linked to in order to use it.
     - Ne10 is an open-source library of vectorized functions for ARM NEON processors. It must be specially compiled and linked to in order to use it.

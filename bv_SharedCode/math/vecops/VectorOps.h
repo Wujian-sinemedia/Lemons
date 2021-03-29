@@ -13,8 +13,8 @@ namespace bav::vecops
     - vDSP: created by Apple and optimized for their hardware. vDSP ships with the OS on any Apple hardware and easily outperforms any open source library. There isn't really a good reason not to use this if it is available to you, which is why it is the default choice on Apple platforms.
     - IPP: stands for "Intel Integrated Performance Primitives". By far the fastest on supported Intel hardware, but must be specially linked to. Only available on x86/amd64.
     - Ne10: an open-source library of optimized functions for ARM NEON architecture. Very fast for floating point computations, but supports ONLY 32-bit floating point. Any functions with doubles as input or output will either use Juce::FloatVectorOperations or involve some internal conversion overhead.
-    - Fallback: wraps Juce::FloatVectorOperations where available, and implements operations in pure C/C++ where FVO doesn't provide an implementation.
     - MIPP: an open source library that essentially serves as a wrapper around native SIMD instruction sets. Currently supports NEON, SSE, AVX and AVX-512.
+    - Fallback: wraps Juce::FloatVectorOperations where available, and implements operations in pure C/C++ where FVO doesn't provide an implementation.
 */
     
     
@@ -112,6 +112,16 @@ static BV_FORCE_INLINE void copy (const float* const BV_R_ source, float* const 
 {
 #if BV_USE_IPP
     ippsMove_32f (source, dest, count);
+#elif BV_USE_MIPP
+    const auto vecLoopSize = (count / mipp::N<float>()) * mipp::N<float>();
+    mipp::Reg<float> rin, rout;
+    for (int i = 0; i < vecLoopSize; i += mipp::N<float>()) {
+        rin.load(&source[i]);
+        rout = rin;
+        rout.store (&dest[i]);
+    }
+    for (int i = vecLoopSize; i < count; ++i)  // Scalar tail loop: finish the remaining elements that can't be vectorized.
+        dest[i] = source[i];
 #else
     memcpy (dest, source, (size_t) count * sizeof (float));
 #endif
@@ -121,6 +131,16 @@ static BV_FORCE_INLINE void copy (const double* const BV_R_ source, double* cons
 {
 #if BV_USE_IPP
     ippsMove_64f (source, dest, count);
+#elif BV_USE_MIPP
+    const auto vecLoopSize = (count / mipp::N<double>()) * mipp::N<double>();
+    mipp::Reg<float> rin, rout;
+    for (int i = 0; i < vecLoopSize; i += mipp::N<double>()) {
+        rin.load(&source[i]);
+        rout = rin;
+        rout.store (&dest[i]);
+    }
+    for (int i = vecLoopSize; i < count; ++i)
+        dest[i] = source[i];
 #else
     memcpy (dest, source, (size_t) count * sizeof (double));
 #endif
@@ -578,10 +598,10 @@ static BV_FORCE_INLINE void polar_to_cartesian_interleaved (double* const BV_R_ 
   #include "vecops_vdsp.h"
 #elif BV_USE_IPP
   #include "vecops_ipp.h"
-#elif BV_USE_NE10
-  #include "vecops_ne10.h"
 #elif BV_USE_MIPP
   #include "vecops/vecops_mipp.h"
+#elif BV_USE_NE10
+  #include "vecops_ne10.h"
 #else
   #include "vecops_fallback.h"
 #endif
