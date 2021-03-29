@@ -39,6 +39,7 @@ namespace bav::vecops
   #else
     #undef BV_USE_POMMIER
     #define BV_USE_POMMIER 0
+  #endif
 #endif  /* if BV_USE_POMMIER */
     
     
