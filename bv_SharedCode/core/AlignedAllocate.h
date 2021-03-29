@@ -3,6 +3,46 @@
 */
 
 
+/*
+ These conditionals declare the following macros:
+ 
+ - BV_POSIX_MEMALIGN
+ - BV_MALLOC_IS_ALIGNED
+ - BV_HAVE__ALIGNED_MALLOC
+ */
+
+#if BV_POSIX || BV_LINUX || BV_OSX
+  #define BV_POSIX_MEMALIGN 1
+#else
+  #define BV_POSIX_MEMALIGN 0
+#endif
+
+#ifndef MALLOC_IS_NOT_ALIGNED
+  #if BV_APPLE
+    #define BV_MALLOC_IS_ALIGNED 1
+  #endif
+#endif
+
+#ifndef BV_MALLOC_IS_ALIGNED
+  #define BV_MALLOC_IS_ALIGNED 0
+#endif
+
+#ifndef LACK__ALIGNED_MALLOC
+  #if BV_WINDOWS
+    #define BV_HAVE__ALIGNED_MALLOC 1
+  #endif
+#endif
+
+#ifndef BV_HAVE__ALIGNED_MALLOC
+  #define BV_HAVE__ALIGNED_MALLOC 0
+#endif
+
+
+#if BV_POSIX_MEMALIGN
+  #include <sys/mman.h>
+#endif
+
+
 namespace bav
 {
     
@@ -177,3 +217,8 @@ namespace bav
     
     
 }  // namespace
+
+
+#undef BV_POSIX_MEMALIGN
+#undef BV_MALLOC_IS_ALIGNED
+#undef BV_HAVE__ALIGNED_MALLOC

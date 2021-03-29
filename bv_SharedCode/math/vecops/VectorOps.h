@@ -391,7 +391,6 @@ static BV_FORCE_INLINE void phasor (float* real, float* imag, float phase)
 #if BV_USE_VDSP
     int one = 1;
     vvsincosf (imag, real, &phase, &one);
-
 #else
   #ifndef LACK_SINCOS
     #if defined __GNUC__
@@ -412,7 +411,6 @@ static BV_FORCE_INLINE void phasor (double* real, double* imag, double phase)
 #if BV_USE_VDSP
     int one = 1;
     vvsincos (imag, real, &phase, &one);
-    
 #else
   #ifndef LACK_SINCOS
     #if defined __GNUC__

@@ -16,8 +16,9 @@
 #ifndef __BV_SHARED_CODE_H__
 #define __BV_SHARED_CODE_H__
 
+#include "core/System.h"
 
-// dependencies
+// JUCE dependencies
 #include <juce_audio_utils/juce_audio_utils.h>
 #include <juce_dsp/juce_dsp.h>
 
@@ -27,8 +28,7 @@
   #pragma clang diagnostic ignored "-Wunused-function"
 #endif
 
-// the rest of this module
-#include "core/System.h"
+
 #include "core/AlignedAllocate.h"
 #include "core/DataHelpers.h"
 

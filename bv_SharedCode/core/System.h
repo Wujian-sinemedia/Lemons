@@ -97,9 +97,9 @@
     Changing these options here will control which implementation is used for the entire Shared-code module, including vecops and the FFT module.
  
     - On Apple platforms, Accelerate/vDSP is included with the OS. It should always be available, and there's pretty much no reason not to use it.
-    - "IPP" stands for Intel Integrated Performance Primitives, which is available on Intel Atom, Core, and Xeon processors. IPP must be specially installed and linked to in order to use it.
-    - Ne10 is an open-source library of vectorized functions for ARM NEON processors. It must be specially compiled and linked to in order to use it.
+    - "IPP" stands for Intel Integrated Performance Primitives, which is available on Intel Atom, Core, and Xeon processors. By far the fastest on actual Intel hardware. IPP must be specially installed and linked to in order to use it.
     - MIPP is an open-source library that serves as a portable wrapper around various SIMD instruction sets. Supports NEON, SSE, AVX and AVX-512. Can be found at https://github.com/aff3ct/MIPP.
+    - Ne10 is an open-source library of vectorized functions for ARM NEON processors. Supports fewer architectures than MIPP (will internally revert to C code if compiled using Ne10 and run on a non-NEON processor), but when run on a NEON processor, should outpace MIPP as it is more specially tailored to the various flavors of NEON processors.
 */
 
 
@@ -124,9 +124,12 @@
   #include <Accelerate/Accelerate.h>
 #endif
 
-#ifndef JUCE_USE_VDSP_FRAMEWORK
-  #define JUCE_USE_VDSP_FRAMEWORK BV_USE_VDSP
+#ifdef JUCE_USE_VDSP_FRAMEWORK
+  #undef JUCE_USE_VDSP_FRAMEWORK
 #endif
+
+#define JUCE_USE_VDSP_FRAMEWORK BV_USE_VDSP
+
 
 /// IPP ///
 
@@ -146,6 +149,7 @@
   #include <ipps.h>
 #endif
 
+
 /// Ne10 ///
 
 #ifdef BV_IGNORE_NE10
@@ -163,6 +167,7 @@
   #include <NE10.h>
 #endif
 
+
 /// MIPP ///
 
 #ifdef BV_IGNORE_MIPP
@@ -178,46 +183,6 @@
 
 #if BV_USE_MIPP
   #include "mipp.h"
-#endif
-
-
-/*
-    These conditionals declare the following macros:
- 
-    - BV_POSIX_MEMALIGN
-    - BV_MALLOC_IS_ALIGNED
-    - BV_HAVE__ALIGNED_MALLOC
-*/
-
-#if BV_POSIX || BV_LINUX || BV_OSX
-  #define BV_POSIX_MEMALIGN 1
-#else
-  #define BV_POSIX_MEMALIGN 0
-#endif
-
-#ifndef MALLOC_IS_NOT_ALIGNED
-  #if BV_APPLE
-    #define BV_MALLOC_IS_ALIGNED 1
-  #endif
-#endif
-
-#ifndef BV_MALLOC_IS_ALIGNED
-  #define BV_MALLOC_IS_ALIGNED 0
-#endif
-
-#ifndef LACK__ALIGNED_MALLOC
-  #if BV_WINDOWS
-    #define BV_HAVE__ALIGNED_MALLOC 1
-  #endif
-#endif
-
-#ifndef BV_HAVE__ALIGNED_MALLOC
-  #define BV_HAVE__ALIGNED_MALLOC 0
-#endif
-
-
-#if BV_POSIX_MEMALIGN
-  #include <sys/mman.h>
 #endif
 
 
