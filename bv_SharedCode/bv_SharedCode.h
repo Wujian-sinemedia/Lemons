@@ -33,8 +33,8 @@
 #include "core/DataHelpers.h"
 
 #include "math/mathHelpers.h"
-#include "math/intOps.h"
 #include "math/VectorOps.h"
+#include "math/intOps.h"
 
 #include "midi/MidiFIFO.h"
 #include "midi/MidiUtilities.h"

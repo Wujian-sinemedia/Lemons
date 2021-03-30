@@ -9,28 +9,52 @@ namespace bav::intops
 // returns the minimum element in the dataset
 static BV_FORCE_INLINE int findMinElement (int* data, int dataSize)
 {
+#if BV_USE_IPP
+    int min = 0;
+    ippsMin_32s (data, dataSize, &min);
+    return min;
+#else
     return *(std::min_element (data, data + dataSize));
+#endif
 }
     
 
 // returns the maximum element in the dataset
 static BV_FORCE_INLINE int findMaxElement (int* data, int dataSize)
 {
+#if BV_USE_IPP
+    int max = 0;
+    ippsMax_32s (data, dataSize, &max);
+    return max;
+#else
     return *(std::max_element (data, data + dataSize));
+#endif
 }
     
     
 // returns the index in the dataset of the minimum datum
 static BV_FORCE_INLINE int findIndexOfMinElement (int* data, int dataSize)
 {
+#if BV_USE_IPP
+    int idx = 0, min = 0;
+    ippsMinIndx_32s (data, dataSize, &min, &idx);
+    return idx;
+#else
     return static_cast<int> (std::min_element (data, data + dataSize) - data);
+#endif
 }
     
     
 // returns the index in the dataset of the maximum datum
 static BV_FORCE_INLINE int findIndexOfMaxElement (int* data, int dataSize)
 {
+#if BV_USE_IPP
+    int idx = 0, max = 0;
+    ippsMaxIndx_32s (data, dataSize, &max, &idx);
+    return idx;
+#else
     return static_cast<int> (std::max_element (data, data + dataSize) - data);
+#endif
 }
     
     
@@ -38,9 +62,13 @@ static BV_FORCE_INLINE int findIndexOfMaxElement (int* data, int dataSize)
 static BV_FORCE_INLINE void findMinAndMinIndex (int* data, const int dataSize,
                                                 int& minimum, int& minIndex)
 {
+#if BV_USE_IPP
+    ippsMinIndx_32s (data, dataSize, &minimum, &minIndex);
+#else
     auto* lowestElement = std::min_element (data, data + dataSize);
     minimum = *lowestElement;
     minIndex = static_cast<int> (lowestElement - data);
+#endif
 }
     
 
@@ -48,9 +76,13 @@ static BV_FORCE_INLINE void findMinAndMinIndex (int* data, const int dataSize,
 static BV_FORCE_INLINE void findMaxAndMaxIndex (int* data, const int dataSize,
                                                 int& maximum, int& maxIndex)
 {
+#if BV_USE_IPP
+    ippsMaxIndx_32s (data, dataSize, &maximum, &maxIndex);
+#else
     auto* highestElement = std::max_element (data, data + dataSize);
     maximum = *highestElement;
     maxIndex = static_cast<int> (highestElement - data);
+#endif
 }
     
 
@@ -58,15 +90,27 @@ static BV_FORCE_INLINE void findMaxAndMaxIndex (int* data, const int dataSize,
 static BV_FORCE_INLINE void findExtrema (int* data, const int dataSize,
                                          int& min, int& max)
 {
+#if BV_USE_IPP
+    ippsMax_32s (data, dataSize, &max);
+    ippsMin_32s (data, dataSize, &min);
+#else
     min = *(std::min_element (data, data + dataSize));
     max = *(std::max_element (data, data + dataSize));
+#endif
 }
     
     
 //  returns the distance between the maximum and minimum elements in the dataset
 static BV_FORCE_INLINE int findRangeOfExtrema (int* data, const int dataSize)
 {
+#if BV_USE_IPP
+    int max = 0, min = 0;
+    ippsMax_32s (data, dataSize, &max);
+    ippsMin_32s (data, dataSize, &min);
+    return max - min;
+#else
     return *(std::max_element (data, data + dataSize)) - *(std::min_element (data, data + dataSize));
+#endif
 }
 
     
