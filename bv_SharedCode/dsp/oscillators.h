@@ -7,7 +7,7 @@ namespace bav::dsp::osc
     {
         void resetPhase() noexcept { phase = 0; }
         
-        void setFrequency (FloatType frequency, FloatType sampleRate)
+        void setFrequency (SampleType frequency, SampleType sampleRate)
         {
             jassert (sampleRate > 0 && frequency > 0);
             increment = frequency / sampleRate;
@@ -19,8 +19,8 @@ namespace bav::dsp::osc
             auto p = phase;
             phase += increment;
             
-            while (phase >= wrap)
-                phase -= wrap;
+            while (phase >= wrapLimit)
+                phase -= wrapLimit;
             
             return p;
         }
