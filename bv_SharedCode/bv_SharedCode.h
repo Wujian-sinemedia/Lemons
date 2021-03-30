@@ -34,7 +34,7 @@
 
 #include "math/mathHelpers.h"
 #include "math/intOps.h"
-#include "math/vecops/VectorOps.h"
+#include "math/VectorOps.h"
 
 #include "midi/MidiFIFO.h"
 #include "midi/MidiUtilities.h"
