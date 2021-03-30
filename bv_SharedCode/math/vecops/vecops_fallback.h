@@ -75,14 +75,14 @@ static BV_FORCE_INLINE void subtractC (double* BV_R_ vector, const double value,
 /* performs element-wise subtraction of two vectors and writes the output to vecA */
 static BV_FORCE_INLINE void subtractV (float* BV_R_ vecA, float* BV_R_ vecB, const int count)
 {
-    for (int i = 0; i < count; ++i)
-        *(vecA + i) = vecA[i] - vecB[i];
+    juce::FloatVectorOperations::negate (vecB, vecB, count);
+    juce::FloatVectorOperations::add (vecA, vecB, count);
 }
 
 static BV_FORCE_INLINE void subtractV (double* BV_R_ vecA, double* BV_R_ vecB, const int count)
 {
-    for (int i = 0; i < count; ++i)
-        *(vecA + i) = vecA[i] - vecB[i];
+    juce::FloatVectorOperations::negate (vecB, vecB, count);
+    juce::FloatVectorOperations::add (vecA, vecB, count);
 }
 
 
@@ -167,16 +167,12 @@ static BV_FORCE_INLINE void square (double* BV_R_ data, const int dataSize)
 /* replaces every element in the passed vector with its absolute value */
 static BV_FORCE_INLINE void absVal (float* BV_R_ data, const int dataSize)
 {
-    for (int i = 0; i < dataSize; ++i) {
-        data[i] = abs(data[i]);
-    }
+    juce::FloatVectorOperations::abs (data, data, dataSize);
 }
 
 static BV_FORCE_INLINE void absVal (double* BV_R_ data, const int dataSize)
 {
-    for (int i = 0; i < dataSize; ++i) {
-        data[i] = abs(data[i]);
-    }
+    juce::FloatVectorOperations::abs (data, data, dataSize);
 }
 
 

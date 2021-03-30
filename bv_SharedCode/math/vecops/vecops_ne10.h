@@ -83,8 +83,8 @@ static BV_FORCE_INLINE void subtractV (float* BV_R_ vecA, float* BV_R_ vecB, con
 
 static BV_FORCE_INLINE void subtractV (double* BV_R_ vecA, double* BV_R_ vecB, const int count)
 {
-    for (int i = 0; i < count; ++i)
-        *(vecA + i) = vecA[i] - vecB[i];
+    juce::FloatVectorOperations::negate (vecB, vecB, count);
+    juce::FloatVectorOperations::add (vecA, vecB, count);
 }
 
 
@@ -173,9 +173,7 @@ static BV_FORCE_INLINE void absVal (float* BV_R_ data, const int dataSize)
 
 static BV_FORCE_INLINE void absVal (double* BV_R_ data, const int dataSize)
 {
-    for (int i = 0; i < dataSize; ++i) {
-        data[i] = abs(data[i]);
-    }
+    juce::FloatVectorOperations::abs (data, data, dataSize);
 }
 
 

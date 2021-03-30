@@ -18,6 +18,26 @@ namespace bav::vecops
 */
     
     
+// make sure that only one of these is set to 1...
+// these are evaluated in approximate order of preference, and the first one found in this list is used: vDSP, IPP, MIPP, Ne10, fallback
+#if BV_USE_VDSP
+  #undef BV_USE_IPP
+  #define BV_USE_IPP 0
+  #undef BV_USE_MIPP
+  #define BV_USE_MIPP 0
+  #undef BV_USE_NE10
+  #define BV_USE_NE10 0
+#elif BV_USE_IPP
+  #undef BV_USE_MIPP
+  #define BV_USE_MIPP 0
+  #undef BV_USE_NE10
+  #define BV_USE_NE10 0
+#elif BV_USE_MIPP
+  #undef BV_USE_NE10
+  #define BV_USE_NE10 0
+#endif /* if BV_USE_VDSP */
+    
+    
 /* Finds the autocorrelation of a set of samples using a shrinking integration window */
 static BV_FORCE_INLINE void autocorrelate (const float* BV_R_ inputSamples, int numSamples, float* BV_R_ outputSamples)
 {
@@ -716,7 +736,7 @@ static constexpr bool isUsingNe10()
     
 static constexpr bool isUsingFallback()
 {
-    return !  ( isUsingVDSP() || isUsingIPP() || isUsingMIPP() || isUsingNe10() );
+    return ! ( isUsingVDSP() || isUsingIPP() || isUsingMIPP() || isUsingNe10() );
 }
 
 

@@ -28,26 +28,18 @@
     FFTW and KissFFT are platform-independant, but must be specially installed and linked to. To use either, link your project to it and define either BV_USE_FFTW or BV_USE_KISSFFT.
 */
 
+
 #ifndef BV_USE_FFTW
   #define BV_USE_FFTW 0
-#endif
-
-#if BV_USE_FFTW
-  #ifdef BV_USE_KISSFFT
-    #undef BV_USE_KISSFFT
-  #endif
-#define BV_USE_KISSFFT 0
 #endif
 
 #ifndef BV_USE_KISSFFT
   #define BV_USE_KISSFFT 0
 #endif
 
-#if BV_USE_KISSFFT
-  #ifdef BV_USE_FFTW
-    #undef BV_USE_FFTW
-  #endif
-#define BV_USE_FFTW 0
+#if BV_USE_FFTW
+  #undef BV_USE_KISSFFT
+  #define BV_USE_KISSFFT 0
 #endif
 
 
@@ -166,8 +158,8 @@ namespace bav::dsp
 */
 
 
-#if BV_USE_FFTW  // if someone's gone to the trouble to link to FFTW, they probably want to use it...
-  #include "implementations/fft_fftw.h"
+#if BV_USE_FFTW
+  #include "implementations/fft_fftw.h" // if someone's gone to the trouble to link to FFTW, they probably want to use it...
 #elif BV_USE_KISSFFT
   #include "implementations/fft_kissfft.h" // same goes for KissFFT
 #elif BV_USE_VDSP

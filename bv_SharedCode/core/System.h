@@ -1,6 +1,6 @@
 
 /*
-    This file defines some useful platform macros and provides some useful system functions.
+    This file defines some useful platform macros and tries to set up some appropriate platform-specific features for this module.
 */
 
 
