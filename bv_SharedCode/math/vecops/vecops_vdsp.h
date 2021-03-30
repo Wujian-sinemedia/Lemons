@@ -46,12 +46,12 @@ static BV_FORCE_INLINE void addC (double* BV_R_ vector, const double value, cons
 
 
 /* performs element-wise addition of two vectors and writes the output to vecA */
-static BV_FORCE_INLINE void addV (float* BV_R_ vecA, float* BV_R_ vecB, const int count)
+static BV_FORCE_INLINE void addV (float* BV_R_ vecA, const float* BV_R_ vecB, const int count)
 {
     vDSP_vadd (vecB, vDSP_Stride(1), vecA, vDSP_Stride(1), vecA, vDSP_Stride(1), vDSP_Length(count));
 }
 
-static BV_FORCE_INLINE void addV (double* BV_R_ vecA, double* BV_R_ vecB, const int count)
+static BV_FORCE_INLINE void addV (double* BV_R_ vecA, const double* BV_R_ vecB, const int count)
 {
     vDSP_vaddD (vecB, vDSP_Stride(1), vecA, vDSP_Stride(1), vecA, vDSP_Stride(1), vDSP_Length(count));
 }
@@ -72,12 +72,12 @@ static BV_FORCE_INLINE void subtractC (double* BV_R_ vector, const double value,
 
 
 /* performs element-wise subtraction of two vectors and writes the output to vecA */
-static BV_FORCE_INLINE void subtractV (float* BV_R_ vecA, float* BV_R_ vecB, const int count)
+static BV_FORCE_INLINE void subtractV (float* BV_R_ vecA, const float* BV_R_ vecB, const int count)
 {
     vDSP_vsub (vecA, vDSP_Stride(1), vecB, vDSP_Stride(1), vecA, vDSP_Stride(1), vDSP_Length(count));
 }
 
-static BV_FORCE_INLINE void subtractV (double* BV_R_ vecA, double* BV_R_ vecB, const int count)
+static BV_FORCE_INLINE void subtractV (double* BV_R_ vecA, const double* BV_R_ vecB, const int count)
 {
     vDSP_vsubD (vecA, vDSP_Stride(1), vecB, vDSP_Stride(1), vecA, vDSP_Stride(1), vDSP_Length(count));
 }
@@ -96,12 +96,12 @@ static BV_FORCE_INLINE void multiplyC (double* BV_R_ vector, const double value,
 
 
 /* performs element-wise multiplication of two vectors and writes the output to vecA */
-static BV_FORCE_INLINE void multiplyV (float* BV_R_ vecA, float* BV_R_ vecB, const int count)
+static BV_FORCE_INLINE void multiplyV (float* BV_R_ vecA, const float* BV_R_ vecB, const int count)
 {
     vDSP_vmul (vecA, vDSP_Stride(1), vecB, vDSP_Stride(1), vecA, vDSP_Stride(1), vDSP_Length(count));
 }
 
-static BV_FORCE_INLINE void multiplyV (double* BV_R_ vecA, double* BV_R_ vecB, const int count)
+static BV_FORCE_INLINE void multiplyV (double* BV_R_ vecA, const double* BV_R_ vecB, const int count)
 {
     vDSP_vmulD (vecA, vDSP_Stride(1), vecB, vDSP_Stride(1), vecA, vDSP_Stride(1), vDSP_Length(count));
 }
@@ -120,12 +120,12 @@ static BV_FORCE_INLINE void divideC (double* BV_R_ vector, const double value, c
 
 
 /* performs element-wise division of two vectors and writes the output to vecA */
-static BV_FORCE_INLINE void divideV (float* BV_R_ vecA, float* BV_R_ vecB, const int count)
+static BV_FORCE_INLINE void divideV (float* BV_R_ vecA, const float* BV_R_ vecB, const int count)
 {
     vDSP_vdiv (vecB, vDSP_Stride(1), vecA, vDSP_Stride(1), vecA, vDSP_Stride(1), vDSP_Length(count));
 }
 
-static BV_FORCE_INLINE void divideV (double* BV_R_ vecA, double* BV_R_ vecB, const int count)
+static BV_FORCE_INLINE void divideV (double* BV_R_ vecA, const double* BV_R_ vecB, const int count)
 {
     vDSP_vdivD (vecB, vDSP_Stride(1), vecA, vDSP_Stride(1), vecA, vDSP_Stride(1), vDSP_Length(count));
 }

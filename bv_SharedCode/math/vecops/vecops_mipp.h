@@ -102,7 +102,7 @@ namespace bav::vecops
     
     
     /* performs element-wise addition of two vectors and writes the output to vecA */
-    static BV_FORCE_INLINE void addV (float* BV_R_ vecA, float* BV_R_ vecB, const int count)
+    static BV_FORCE_INLINE void addV (float* BV_R_ vecA, const float* BV_R_ vecB, const int count)
     {
         const auto vecLoopSize = (count / mipp::N<float>()) * mipp::N<float>();
         
@@ -119,7 +119,7 @@ namespace bav::vecops
             vecA[i] = vecA[i] + vecB[i];
     }
     
-    static BV_FORCE_INLINE void addV (double* BV_R_ vecA, double* BV_R_ vecB, const int count)
+    static BV_FORCE_INLINE void addV (double* BV_R_ vecA, const double* BV_R_ vecB, const int count)
     {
         const auto vecLoopSize = (count / mipp::N<double>()) * mipp::N<double>();
         
@@ -176,7 +176,7 @@ namespace bav::vecops
     
     
     /* performs element-wise subtraction of two vectors and writes the output to vecA */
-    static BV_FORCE_INLINE void subtractV (float* BV_R_ vecA, float* BV_R_ vecB, const int count)
+    static BV_FORCE_INLINE void subtractV (float* BV_R_ vecA, const float* BV_R_ vecB, const int count)
     {
         const auto vecLoopSize = (count / mipp::N<float>()) * mipp::N<float>();
         
@@ -193,7 +193,7 @@ namespace bav::vecops
             vecA[i] = vecA[i] - vecB[i];
     }
     
-    static BV_FORCE_INLINE void subtractV (double* BV_R_ vecA, double* BV_R_ vecB, const int count)
+    static BV_FORCE_INLINE void subtractV (double* BV_R_ vecA, const double* BV_R_ vecB, const int count)
     {
         const auto vecLoopSize = (count / mipp::N<double>()) * mipp::N<double>();
         
@@ -250,7 +250,7 @@ namespace bav::vecops
     
     
     /* performs element-wise multiplication of two vectors and writes the output to vecA */
-    static BV_FORCE_INLINE void multiplyV (float* BV_R_ vecA, float* BV_R_ vecB, const int count)
+    static BV_FORCE_INLINE void multiplyV (float* BV_R_ vecA, const float* BV_R_ vecB, const int count)
     {
         const auto vecLoopSize = (count / mipp::N<float>()) * mipp::N<float>();
         
@@ -267,7 +267,7 @@ namespace bav::vecops
             vecA[i] = vecA[i] * vecB[i];
     }
     
-    static BV_FORCE_INLINE void multiplyV (double* BV_R_ vecA, double* BV_R_ vecB, const int count)
+    static BV_FORCE_INLINE void multiplyV (double* BV_R_ vecA, const double* BV_R_ vecB, const int count)
     {
         const auto vecLoopSize = (count / mipp::N<double>()) * mipp::N<double>();
         
@@ -324,7 +324,7 @@ namespace bav::vecops
     
     
     /* performs element-wise division of two vectors and writes the output to vecA */
-    static BV_FORCE_INLINE void divideV (float* BV_R_ vecA, float* BV_R_ vecB, const int count)
+    static BV_FORCE_INLINE void divideV (float* BV_R_ vecA, const float* BV_R_ vecB, const int count)
     {
         const auto vecLoopSize = (count / mipp::N<float>()) * mipp::N<float>();
         
@@ -341,7 +341,7 @@ namespace bav::vecops
             vecA[i] = vecA[i] / vecB[i];
     }
     
-    static BV_FORCE_INLINE void divideV (double* BV_R_ vecA, double* BV_R_ vecB, const int count)
+    static BV_FORCE_INLINE void divideV (double* BV_R_ vecA, const double* BV_R_ vecB, const int count)
     {
         const auto vecLoopSize = (count / mipp::N<double>()) * mipp::N<double>();
         
