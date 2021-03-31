@@ -68,8 +68,8 @@ public:
         
         if (lastFrameWasPitched)  // pitch shouldn't halve or double between consecutive voiced frames
         {
-            minLag = std::max (minLag, juce::roundToInt (lastEstimatedPeriod * pnt5));
-            maxLag = std::min (maxLag, juce::roundToInt (lastEstimatedPeriod * two));
+            minLag = std::max (minLag, juce::roundToInt (lastEstimatedPeriod * SampleType(0.5)));
+            maxLag = std::min (maxLag, juce::roundToInt (lastEstimatedPeriod * SampleType(2)));
         }
         
         minLag = std::max (minLag, minPeriod);
@@ -176,20 +176,10 @@ public:
             setHzRange (minHz, maxHz);
     }
     
+    /*
+    */
     
 private:
-    
-    int minHz, maxHz;
-    int minPeriod, maxPeriod;
-    
-    int lastEstimatedPeriod;
-    bool lastFrameWasPitched;
-    
-    double samplerate;
-    
-    SampleType confidenceThresh;  // if the lowest asdf data value is above this thresh, the frame of audio is determined to be unpitched
-    
-    AudioBuffer asdfBuffer; // calculated ASDF values will be placed in this buffer
     
     int chooseIdealPeriodCandidate (const SampleType* asdfData, const int asdfDataSize, const int minIndex)
     {
@@ -274,9 +264,9 @@ private:
         constexpr vDSP_Length lengthOfOne = vDSP_Length(1);
         
         if constexpr (std::is_same_v <SampleType, float>)
-            vDSP_nzcros (inputAudio, strideOfOne, lengthOfOne, &index, &totalcrossings, vDSP_Length(numInputSamples));
+            vDSP_nzcros (inputAudio, strideOfOne, lengthOfOne, &index, &totalcrossings, vDSP_Length(numSamples));
         else
-            vDSP_nzcrosD (inputAudio, strideOfOne, lengthOfOne, &index, &totalcrossings, vDSP_Length(numInputSamples));
+            vDSP_nzcrosD (inputAudio, strideOfOne, lengthOfOne, &index, &totalcrossings, vDSP_Length(numSamples));
         
         return int(index);
 #else
@@ -294,6 +284,20 @@ private:
 #endif
     }
     
+    /*
+    */
+    
+    int minHz, maxHz;
+    int minPeriod, maxPeriod;
+    
+    int lastEstimatedPeriod;
+    bool lastFrameWasPitched;
+    
+    double samplerate;
+    
+    SampleType confidenceThresh;  // if the lowest asdf data value is above this thresh, the frame of audio is determined to be unpitched
+    
+    AudioBuffer asdfBuffer; // calculated ASDF values will be placed in this buffer
     
     juce::Array<int> periodCandidates;
     juce::Array<float> candidateDeltas;
