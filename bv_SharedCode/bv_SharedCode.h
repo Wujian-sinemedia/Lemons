@@ -49,6 +49,7 @@
 #include "dsp/FX/DeEsser.h"
 #include "dsp/FX/Reverb.h"
 #include "dsp/FIFOWrappedEngine.h"
+#include "dsp/pitch-detector.h"
 
 #include "gui/gui.h"
 #include "misc/MessageQueue.h"
