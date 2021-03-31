@@ -83,12 +83,12 @@ static BV_FORCE_INLINE void subtractV (double* BV_R_ vecA, const double* BV_R_ v
 /* multiplies every element in the vector by a single operand */
 static BV_FORCE_INLINE void multiplyC (float* BV_R_ vector, const float value, const int count)
 {
-    ippsMulC_32fc_I (value, vector, count);
+    ippsMulC_32f_I (value, vector, count);
 }
 
 static BV_FORCE_INLINE void multiplyC (double* BV_R_ vector, const double value, const int count)
 {
-    ippsMulC_64fc_I (value, vector, count);
+    ippsMulC_64f_I (value, vector, count);
 }
 
 
@@ -304,7 +304,7 @@ static BV_FORCE_INLINE void normalize (float* BV_R_ vector, const int numSamples
     }
     else
     {
-        ippsMulC_32fc_I (1.0 / max, vector, numSamples);
+        ippsMulC_32f_I (1.0 / max, vector, numSamples);
     }
 }
 
@@ -321,7 +321,7 @@ static BV_FORCE_INLINE void normalize (double* BV_R_ vector, const int numSample
     }
     else
     {
-        ippsMulC_64fc_I (1.0 / max, vector, numSamples);
+        ippsMulC_64f_I (1.0 / max, vector, numSamples);
     }
 }
 

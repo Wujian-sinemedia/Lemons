@@ -404,6 +404,9 @@ static inline void deinterleave (T* const BV_R_ *const BV_R_ dst,
     // IPP does not (currently?) provide double-precision deinterleave
   #endif
 #endif
+    
+    
+
 
     
 static BV_FORCE_INLINE void phasor (float* real, float* imag, float phase)
@@ -414,9 +417,6 @@ static BV_FORCE_INLINE void phasor (float* real, float* imag, float phase)
 #else
   #ifndef LACK_SINCOS
     #if defined __GNUC__
-      #if defined __APPLE__
-        #define sincosf __sincosf
-      #endif
     sincosf (phase, imag, real);
     #endif
   #else
@@ -434,9 +434,6 @@ static BV_FORCE_INLINE void phasor (double* real, double* imag, double phase)
 #else
   #ifndef LACK_SINCOS
     #if defined __GNUC__
-      #if defined __APPLE__
-        #define sincos __sincos
-      #endif
     sincos (phase, imag, real);
     #endif
   #else
@@ -528,6 +525,7 @@ static BV_FORCE_INLINE void cartesian_interleaved_to_magnitudes (float* const BV
         realIn.load (&src[i*2]);
         imagIn.load (&src[i*2+1]);
         magOut = mipp::sqrt ((realIn * realIn) + (imagIn * imagIn));
+        magOut.store (&mag[i]);
     }
     
     for (int i = vecLoopSize; i < count; ++i) {
@@ -560,6 +558,7 @@ static BV_FORCE_INLINE void cartesian_interleaved_to_magnitudes (double* const B
         realIn.load (&src[i*2]);
         imagIn.load (&src[i*2+1]);
         magOut = mipp::sqrt ((realIn * realIn) + (imagIn * imagIn));
+        magOut.store (&mag[i]);
     }
     
     for (int i = vecLoopSize; i < count; ++i) {
