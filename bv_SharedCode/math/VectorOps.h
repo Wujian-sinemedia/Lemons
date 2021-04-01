@@ -41,7 +41,7 @@ namespace bav::vecops
 /* Finds the autocorrelation of a set of samples using a shrinking integration window */
 static BV_FORCE_INLINE void autocorrelate (const float* BV_R_ inputSamples, int numSamples, float* BV_R_ outputSamples)
 {
-    const float oneOverNumSamples = 1.0f / numSamples;
+    const auto oneOverNumSamples = 1.0f / numSamples;
     
     for (int i = 0; i < numSamples; i++)
     {
@@ -56,7 +56,7 @@ static BV_FORCE_INLINE void autocorrelate (const float* BV_R_ inputSamples, int 
     
 static BV_FORCE_INLINE void autocorrelate (const double* BV_R_ inputSamples, int numSamples, double* BV_R_ outputSamples)
 {
-    const double oneOverNumSamples = 1.0 / numSamples;
+    const auto oneOverNumSamples = 1.0 / numSamples;
     
     for (int i = 0; i < numSamples; i++)
     {

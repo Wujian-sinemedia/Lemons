@@ -62,7 +62,7 @@ namespace bav
 #else
         
 #if BV_POSIX_MEMALIGN
-        int rv = posix_memalign(&ptr, alignment, count * sizeof(T));
+        auto rv = posix_memalign(&ptr, alignment, count * sizeof(T));
         
         if (rv != 0)
         {
@@ -124,7 +124,7 @@ namespace bav
             throw std::length_error("Size overflow in aligned_allocate");
         }
         
-        float *ptr = ippsMalloc_32f(int(count));
+        auto* ptr = ippsMalloc_32f (int(count));
                       
         if (ptr == nullptr)
         {
@@ -145,7 +145,7 @@ namespace bav
             throw std::length_error("Size overflow in aligned_allocate");
         }
         
-        double *ptr = ippsMalloc_64f(int(count));
+        auto* ptr = ippsMalloc_64f (int(count));
         
         if (ptr == nullptr)
         {
@@ -169,7 +169,7 @@ namespace bav
     template<typename T>
     T* aligned_allocate_zero (size_t count)
     {
-        T *ptr = aligned_allocate<T>(count);
+        auto ptr = aligned_allocate<T>(count);
         
         for (size_t i = 0; i < count; ++i)
             ptr[i] = T();

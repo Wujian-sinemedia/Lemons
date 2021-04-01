@@ -63,7 +63,7 @@ namespace bav::dsp::FX
             sidechainBuffer.clear();
             conversionBuffer.clear();
             
-            const int numSamps = workingBuffer.getNumSamples();
+            const auto numSamps = workingBuffer.getNumSamples();
             dryGain.reset (numSamps);
             wetGain.reset (numSamps);
         }
@@ -144,8 +144,8 @@ namespace bav::dsp::FX
         void process (juce::AudioBuffer<float>& input,
                       juce::AudioBuffer<float>& compressorSidechain)
         {
-            const int numSamples = input.getNumSamples();
-            const int numChannels = input.getNumChannels();
+            const auto numSamples = input.getNumSamples();
+            const auto numChannels = input.getNumChannels();
             
             jassert (numSamples == compressorSidechain.getNumSamples());
             jassert (numChannels == compressorSidechain.getNumChannels());

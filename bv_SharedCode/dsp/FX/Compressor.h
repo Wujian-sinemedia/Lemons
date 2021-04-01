@@ -75,8 +75,8 @@ namespace bav::dsp::FX
                       juce::AudioBuffer<SampleType>& signalToCompress,
                       SampleType* gainReduction = nullptr)
         {
-            const int numChannels = signalToCompress.getNumChannels();
-            const int numSamples  = signalToCompress.getNumSamples();
+            const auto numChannels = signalToCompress.getNumChannels();
+            const auto numSamples  = signalToCompress.getNumSamples();
             
             jassert (sidechain.getNumChannels() == numChannels);
             jassert (sidechain.getNumSamples() == numSamples);

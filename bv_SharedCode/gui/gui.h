@@ -25,7 +25,7 @@ namespace bav::gui
                                                  const bool isMouseOver,
                                                  const bool isButtonDown) noexcept
     {
-        const float saturation = hasKeyboardFocus ? 1.3f : 0.9f;
+        const auto saturation = hasKeyboardFocus ? 1.3f : 0.9f;
         const juce::Colour baseColour (colour.withMultipliedSaturation (saturation));
         
         if (isButtonDown)
@@ -472,15 +472,15 @@ namespace bav::gui
         
         juce::Graphics g (image);
         g.setColour (colour);
-        const float imageXScale = image.getWidth() / (float) numSamples;
+        const auto imageXScale = float(image.getWidth()) / float(numSamples);
         
         juce::Path p;
         bool isFirst = true;
         
         for (int i = 0; i < numSamples; ++i)
         {
-            const float x = i * imageXScale;
-            const float y = image.getHeight() - (samples[i] * image.getHeight());
+            const auto x = i * imageXScale;
+            const auto y = image.getHeight() - (samples[i] * image.getHeight());
             
             if (isFirst)
             {

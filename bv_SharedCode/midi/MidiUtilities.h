@@ -173,7 +173,7 @@ namespace bav::midi
             if (pitchbend > 64)
                 return float(((rangeUp.load() * (pitchbend - 65)) / 62) + midiPitch);
             
-            const int currentdownrange = rangeDown.load();
+            const auto currentdownrange = rangeDown.load();
             return float((((1 - currentdownrange) * pitchbend) / 63) + midiPitch - currentdownrange);
         }
         

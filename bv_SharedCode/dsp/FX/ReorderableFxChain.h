@@ -80,7 +80,7 @@ namespace bav::dsp
         // adds an effect to the chain. Returns the actual number in the chain that the effect was placed in.
         int addEffect (Effect* effect, const int numberInChain, bool addAsBypassed = false)
         {
-            const int newNumber = assignNewEffectNumber (numberInChain);
+            const auto newNumber = assignNewEffectNumber (numberInChain);
             
             jassert (newNumber >= 0);
             
@@ -123,7 +123,7 @@ namespace bav::dsp
             if (first == nullptr || second == nullptr)
                 return false;
             
-            const int initNum = first->effectNumber;
+            const auto initNum = first->effectNumber;
             first->effectNumber = second->effectNumber;
             second->effectNumber = initNum;
             return true;
@@ -203,7 +203,7 @@ namespace bav::dsp
                     if (! effect->isBypassed)
                         effect->process (audio);
             
-            const int numSamples = audio.getNumSamples();
+            const auto numSamples = audio.getNumSamples();
             
             for (auto* effect : effects)
                 if (effect->isBypassed)
@@ -226,7 +226,7 @@ namespace bav::dsp
                     if (! effect->isBypassed)
                         effect->process (audio);
             
-            const int numSamples = audio.getNumSamples();
+            const auto numSamples = audio.getNumSamples();
             
             for (auto* effect : effects)
                 if (effect->isBypassed)
@@ -268,12 +268,12 @@ namespace bav::dsp
                 num <= maxNumber;
                 ++num, ++p, --m)
            {
-               const int lower = requestedNumber + m;
+               const auto lower = requestedNumber + m;
                
                if (lower >= 0 && isEffectNumberAvailable (lower))
                    return lower;
                
-               const int higher = requestedNumber + p;
+               const auto higher = requestedNumber + p;
                
                if (higher >= maxNumber && isEffectNumberAvailable (higher))
                    return higher;

@@ -93,7 +93,7 @@ namespace bav::dsp
             jassert (! resourcesReleased);
             jassert (isInitialized);
             
-            const int totalNumSamples = input.getNumSamples();
+            const auto totalNumSamples = input.getNumSamples();
             
             if (totalNumSamples == 0)
                 return;
@@ -124,13 +124,13 @@ namespace bav::dsp
                 return;
             }
             
-            const int numChannels = std::min (2, input.getNumChannels());
+            const auto numChannels = std::min (2, input.getNumChannels());
             
             int samplesLeft = totalNumSamples;
             int startSample = 0;
             
             do {
-                const int chunkNumSamples = std::min (internalBlocksize, samplesLeft);
+                const auto chunkNumSamples = std::min (internalBlocksize, samplesLeft);
                 
                 AudioBuffer inputProxy  (input.getArrayOfWritePointers(),  numChannels, startSample, chunkNumSamples);
                 AudioBuffer outputProxy (output.getArrayOfWritePointers(), numChannels, startSample, chunkNumSamples);
@@ -208,8 +208,8 @@ namespace bav::dsp
         
         void releaseResources()
         {
-            inBuffer.setSize(0, 0, false, false, false);
-            outBuffer.setSize(0, 0, false, false, false);
+            inBuffer.setSize (0, 0, false, false, false);
+            outBuffer.setSize (0, 0, false, false, false);
             
             inputBuffer.releaseResources();
             outputBuffer.releaseResources();
@@ -236,12 +236,12 @@ namespace bav::dsp
             inBuffer.setSize  (2, internalBlocksize, true, true, true);
             outBuffer.setSize (2, internalBlocksize, true, true, true);
             
-            const int doubleBlocksize = internalBlocksize * 2;
+            const auto doubleBlocksize = internalBlocksize * 2;
             
             inputBuffer.changeSize (2, doubleBlocksize);
             outputBuffer.changeSize(2, doubleBlocksize);
             
-            const size_t doubleBlocksizeT = size_t(doubleBlocksize);
+            const auto doubleBlocksizeT = size_t(doubleBlocksize);
             
             midiInputCollection.setSize(doubleBlocksize);
             midiOutputCollection.setSize(doubleBlocksize);
@@ -267,10 +267,10 @@ namespace bav::dsp
                              const bool applyFadeIn, const bool applyFadeOut,
                              const bool isBypassed = false)
         {
-            const int numNewSamples = input.getNumSamples();
+            const auto numNewSamples = input.getNumSamples();
             jassert (numNewSamples <= internalBlocksize && numNewSamples > 0);
             
-            const int numChannels = std::min (2, input.getNumChannels());
+            const auto numChannels = std::min (2, input.getNumChannels());
             jassert (numChannels == output.getNumChannels());
             
             for (int chan = 0; chan < numChannels; ++chan)

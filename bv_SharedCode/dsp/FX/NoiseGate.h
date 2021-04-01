@@ -95,8 +95,8 @@ namespace bav::dsp::FX
                       juce::AudioBuffer<SampleType>& signalToGate,
                       SampleType* gainReduction = nullptr)
         {
-            const int numChannels = signalToGate.getNumChannels();
-            const int numSamples  = signalToGate.getNumSamples();
+            const auto numChannels = signalToGate.getNumChannels();
+            const auto numSamples  = signalToGate.getNumSamples();
             
             jassert (sidechain.getNumChannels() == numChannels);
             jassert (sidechain.getNumSamples() == numSamples);

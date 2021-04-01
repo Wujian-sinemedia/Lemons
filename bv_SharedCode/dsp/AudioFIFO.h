@@ -89,7 +89,7 @@ public:
             }
             else
             {
-                const int prev = storedSamples.getUnchecked(chan);
+                const auto prev = storedSamples.getUnchecked(chan);
                 
                 if (prev > newSize)
                     storedSamples.set (chan, newSize);
@@ -101,7 +101,7 @@ public:
             }
             else
             {
-                const int prevW = writeIndex.getUnchecked(chan);
+                const auto prevW = writeIndex.getUnchecked(chan);
                 
                 if (prevW > newSize)
                     writeIndex.set (chan, newSize);
@@ -122,14 +122,14 @@ public:
     {
         jassert (destChannel >= 0 && destChannel < base.getNumChannels());
         
-        const int length = base.getNumSamples();
+        const auto length = base.getNumSamples();
         
         jassert (length > 0 && base.getNumChannels() > 0);
         jassert (numSamples + storedSamples.getUnchecked(destChannel) <= length);
         
         auto* writing = base.getWritePointer(destChannel);
         
-        int index = writeIndex.getUnchecked(destChannel);
+        auto index = writeIndex.getUnchecked(destChannel);
         
         for (int s = 0; s < numSamples; ++s, ++index)
         {
@@ -154,13 +154,13 @@ public:
     {
         jassert (readingChannel >= 0 && readingChannel < base.getNumChannels());
         
-        const int length = base.getNumSamples();
+        const auto length = base.getNumSamples();
         
         jassert (length > 0 && base.getNumChannels() > 0);
         
-        const int ns = storedSamples.getUnchecked(readingChannel);
+        const auto ns = storedSamples.getUnchecked(readingChannel);
         
-        int readIndex = writeIndex.getUnchecked(readingChannel) - ns;
+        auto readIndex = writeIndex.getUnchecked(readingChannel) - ns;
         if (readIndex < 0) readIndex += length;
         
         jassert (readIndex >= 0 && readIndex <= length);
@@ -193,7 +193,7 @@ public:
     {
         jassert (! storedSamples.isEmpty());
         
-        int minNumSamples = storedSamples.getUnchecked(0);
+        auto minNumSamples = storedSamples.getUnchecked(0);
         
         for (int stored : storedSamples)
             if (stored < minNumSamples)

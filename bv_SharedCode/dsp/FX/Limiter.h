@@ -61,8 +61,8 @@ namespace bav::dsp::FX
         void process (const juce::AudioBuffer<SampleType>& sidechain,
                       juce::AudioBuffer<SampleType>& signalToLimit)
         {
-            const int numChannels = signalToLimit.getNumChannels();
-            const int numSamples  = signalToLimit.getNumSamples();
+            const auto numChannels = signalToLimit.getNumChannels();
+            const auto numSamples  = signalToLimit.getNumSamples();
             
             jassert (sidechain.getNumChannels() == numChannels);
             jassert (sidechain.getNumSamples() == numSamples);

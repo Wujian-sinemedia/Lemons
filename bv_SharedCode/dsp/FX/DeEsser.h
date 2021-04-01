@@ -66,7 +66,7 @@ public:
     
     void process (juce::AudioBuffer<SampleType>& audio, SampleType* gainReduction = nullptr)
     {
-        const int numSamples = audio.getNumSamples();
+        const auto numSamples = audio.getNumSamples();
         
         for (int chan = 0; chan < std::min(2, audio.getNumChannels()); ++chan)
             process (chan, audio.getWritePointer(chan), numSamples, gainReduction);

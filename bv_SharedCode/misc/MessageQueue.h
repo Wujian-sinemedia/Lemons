@@ -116,7 +116,7 @@ namespace bav
             // for each message in the array, if there is another message of the same type later in the array, remove the message
             for (int i = 0; i < messages.size() - 1; ++i)
             {
-                const int origType = messages.getUnchecked(i).type();
+                const auto origType = messages.getUnchecked(i).type();
                 
                 for (int t = i + 1; t < messages.size(); ++t)
                 {

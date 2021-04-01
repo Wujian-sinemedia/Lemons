@@ -54,8 +54,8 @@ public:
         
         jassert (samplerate > 0);
         
-        const int numSamples = inputAudio.getNumSamples();
-        const int halfNumSamples = juce::roundToInt (floor (numSamples * 0.5f));
+        const auto numSamples = inputAudio.getNumSamples();
+        const auto halfNumSamples = juce::roundToInt (floor (numSamples * 0.5f));
         
         jassert (numSamples >= 2 * maxPeriod);
         
@@ -63,8 +63,8 @@ public:
         
         // the minPeriod & maxPeriod members define the overall global period range; here, the minLag & maxLag local variables are used to define the period range for this specific frame of audio, if it can be constrained more than the global range based on instantaneous conditions:
         
-        int minLag = samplesToFirstZeroCrossing (reading, numSamples);  // period cannot be smaller than the # of samples to the first zero crossing
-        int maxLag = halfNumSamples;
+        auto minLag = samplesToFirstZeroCrossing (reading, numSamples);  // period cannot be smaller than the # of samples to the first zero crossing
+        auto maxLag = halfNumSamples;
         
         if (lastFrameWasPitched)  // pitch shouldn't halve or double between consecutive voiced frames
         {
@@ -90,7 +90,7 @@ public:
         
         for (int k = minLag; k <= maxLag; ++k)  // k = lag = period
         {
-            const int index = k - minLag; // the actual asdfBuffer index for this k value's data. offset = minPeriod
+            const auto index = k - minLag; // the actual asdfBuffer index for this k value's data. offset = minPeriod
             
             for (int s1 = 0, s2 = halfNumSamples;
                  s1 < halfNumSamples && s2 < numSamples;
@@ -103,7 +103,7 @@ public:
             }
         }
         
-        const int asdfDataSize = maxLag - minLag + 1;
+        const auto asdfDataSize = maxLag - minLag + 1;
         
         vecops::multiplyC (asdfData, SampleType(0.5 / numSamples), asdfDataSize);  // normalize
         
@@ -123,7 +123,7 @@ public:
         if (lastFrameWasPitched)
             minIndex = chooseIdealPeriodCandidate (asdfData, asdfDataSize, minIndex);
         
-        const int realPeriod = minIndex + minLag;   // account for offset in asdf data (index 0 stored data for lag of minPeriod)
+        const auto realPeriod = minIndex + minLag;   // account for offset in asdf data (index 0 stored data for lag of minPeriod)
         
         jassert (realPeriod <= maxPeriod && realPeriod >= minPeriod);
         
@@ -133,7 +133,9 @@ public:
         return float(samplerate / realPeriod); // return pitch in hz
     }
     
+    
     int getLatencySamples() const noexcept { return 2 * maxPeriod; }
+    
     
     void setHzRange (const int newMinHz, const int newMaxHz)
     {
@@ -155,13 +157,15 @@ public:
         if (! (maxPeriod > minPeriod))
             maxPeriod = minPeriod + 1;
         
-        const int numOfLagValues = maxPeriod - minPeriod + 1;
+        const auto numOfLagValues = maxPeriod - minPeriod + 1;
         
         if (asdfBuffer.getNumSamples() != numOfLagValues)
             asdfBuffer.setSize (1, numOfLagValues, true, true, true);
     }
     
+    
     void setConfidenceThresh (const SampleType newThresh) { confidenceThresh = newThresh; }
+    
     
     void setSamplerate (const double newSamplerate)
     {
@@ -202,7 +206,7 @@ private:
             candidateDeltas.add (float (abs (candidate + minPeriod - lastEstimatedPeriod)));
         
         // find the difference between the max & min delta values of the candidates
-        const float deltaRange = vecops::findRangeOfExtrema (candidateDeltas.getRawDataPointer(), candidateDeltas.size());
+        const auto deltaRange = vecops::findRangeOfExtrema (candidateDeltas.getRawDataPointer(), candidateDeltas.size());
         
         if (deltaRange < 0.005f)  // prevent dividing by zero in the next step...
             return minIndex;
@@ -217,6 +221,7 @@ private:
         return periodCandidates.getUnchecked (vecops::findIndexOfMinElement (weightedCandidateConfidence.getRawDataPointer(),
                                                                              weightedCandidateConfidence.size()));
     }
+    
     
     void getNextBestPeriodCandidate (juce::Array<int>& candidates, const SampleType* asdfData, const int dataSize)
     {
@@ -234,7 +239,7 @@ private:
         if (initIndex == -1)
             return;
         
-        int minIndex = initIndex;
+        auto minIndex = initIndex;
         auto min = asdfData[initIndex];
         
         for (int i = 0; i < dataSize; ++i)
@@ -254,19 +259,17 @@ private:
         candidates.add (minIndex);
     }
     
+    
     int samplesToFirstZeroCrossing (const SampleType* inputAudio, const int numSamples)
     {
 #if BV_USE_VDSP
         unsigned long index = 0; // in Apple's vDSP, the type vDSP_Length is an alias for unsigned long
         unsigned long totalcrossings = 0;
         
-        constexpr vDSP_Stride strideOfOne = vDSP_Stride(1);
-        constexpr vDSP_Length lengthOfOne = vDSP_Length(1);
-        
         if constexpr (std::is_same_v <SampleType, float>)
-            vDSP_nzcros (inputAudio, strideOfOne, lengthOfOne, &index, &totalcrossings, vDSP_Length(numSamples));
+            vDSP_nzcros (inputAudio, vDSP_Stride(1), vDSP_Length(1), &index, &totalcrossings, vDSP_Length(numSamples));
         else
-            vDSP_nzcrosD (inputAudio, strideOfOne, lengthOfOne, &index, &totalcrossings, vDSP_Length(numSamples));
+            vDSP_nzcrosD (inputAudio, vDSP_Stride(1), vDSP_Length(1), &index, &totalcrossings, vDSP_Length(numSamples));
         
         return int(index);
 #else
