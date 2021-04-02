@@ -11,8 +11,6 @@ static BV_FORCE_INLINE void fill (int* BV_R_ vector, const int value, const int 
 {
 #if BV_USE_IPP
     ippsSet_32s (value, vector, count);
-#elif BV_USE_VDSP
-    catlas_cset (int32_t(count), &value, vector, int32_t(1));
 #else
     memset (vector, value, (size_t) count * sizeof (int));
 #endif
