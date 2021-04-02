@@ -105,7 +105,7 @@ public:
         
         const auto asdfDataSize = maxLag - minLag + 1;
         
-        vecops::multiplyC (asdfData, SampleType(0.5 / numSamples), asdfDataSize);  // normalize
+        vecops::normalize (asdfData, asdfDataSize);
         
         int minIndex = 0;
         SampleType greatestConfidence = 0;
@@ -201,14 +201,16 @@ private:
         if (periodCandidates.size() == 1)
             return minIndex;
         
+        const auto adding = minPeriod - lastEstimatedPeriod;
+        
         // candidate deltas: how far away each period candidate is from the last estimated period
         for (int candidate : periodCandidates)
-            candidateDeltas.add (float (abs (candidate + minPeriod - lastEstimatedPeriod)));
+            candidateDeltas.add (abs (candidate + adding));
         
         // find the difference between the max & min delta values of the candidates
         const auto deltaRange = vecops::findRangeOfExtrema (candidateDeltas.getRawDataPointer(), candidateDeltas.size());
         
-        if (deltaRange < 0.005f)  // prevent dividing by zero in the next step...
+        if (deltaRange < 2)  // prevent dividing by zero in the next step...
             return minIndex;
         
         // weight the asdf data based on each candidate's delta value
@@ -225,22 +227,21 @@ private:
     
     void getNextBestPeriodCandidate (juce::Array<int>& candidates, const SampleType* asdfData, const int dataSize)
     {
-        int initIndex = -1;
+        int index = -1;
         
         for (int i = 0; i < dataSize; ++i)
         {
             if (! candidates.contains (i))
             {
-                initIndex = i;
+                index = i;
                 break;
             }
         }
         
-        if (initIndex == -1)
+        if (index == -1)
             return;
         
-        auto minIndex = initIndex;
-        auto min = asdfData[initIndex];
+        auto min = asdfData[index];
         
         for (int i = 0; i < dataSize; ++i)
         {
@@ -252,11 +253,11 @@ private:
             if (current < min)
             {
                 min = current;
-                minIndex = i;
+                index = i;
             }
         }
         
-        candidates.add (minIndex);
+        candidates.add (index);
     }
     
     
@@ -303,7 +304,7 @@ private:
     AudioBuffer asdfBuffer; // calculated ASDF values will be placed in this buffer
     
     juce::Array<int> periodCandidates;
-    juce::Array<float> candidateDeltas;
+    juce::Array<int> candidateDeltas;
     juce::Array<SampleType> weightedCandidateConfidence;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PitchDetector)
