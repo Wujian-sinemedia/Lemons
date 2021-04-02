@@ -166,14 +166,14 @@ namespace bav::dsp::FX
             }
             
             // filters
-            for (int chan = 0; chan < numChannels; ++chan)
-            {
-                juce::AudioBuffer<float> mono (workingBuffer.getArrayOfWritePointers() + chan, 1, 0, numSamples);
-                juce::dsp::AudioBlock<float> block (mono);
-                juce::dsp::ProcessContextReplacing<float> context (block);
-                loCut.process (context);
-                hiCut.process (context);
-            }
+//            for (int chan = 0; chan < numChannels; ++chan)
+//            {
+//                juce::AudioBuffer<float> mono (workingBuffer.getArrayOfWritePointers() + chan, 1, 0, numSamples);
+//                juce::dsp::AudioBlock<float> block (mono);
+//                juce::dsp::ProcessContextReplacing<float> context (block);
+//                loCut.process (context);
+//                hiCut.process (context);
+//            }
             
             // sidechain compressor
             if (isDucking)
