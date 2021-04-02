@@ -6,6 +6,122 @@ namespace bav::intops
     */
     
     
+/* fills a vector with the specified value. */
+static BV_FORCE_INLINE void fill (int* BV_R_ vector, const int value, const int count)
+{
+#if BV_USE_IPP
+    ippsSet_32s (value, vector, count);
+#else
+    memset (vector, value, (size_t) count * sizeof (int));
+#endif
+}
+    
+    
+/* copies the contents of one vector to another. */
+static BV_FORCE_INLINE void copy (const int* const BV_R_ source, int* const BV_R_ dest, const int count)
+{
+#if BV_USE_IPP
+    ippsCopy_32s (source, dest, count);
+#else
+    memcpy (dest, source, (size_t) count * sizeof (int));
+#endif
+}
+    
+    
+/* adds a single operand to each value in the vector */
+static BV_FORCE_INLINE void addC (int* BV_R_ vector, const int value, const int count)
+{
+    for (int i = 0; i < count; ++i) {
+        vecA[i] += value;
+    }
+}
+    
+    
+/* performs element-wise addition of two vectors and writes the output to vecA */
+static BV_FORCE_INLINE void addV (int* BV_R_ vecA, const int* BV_R_ vecB, const int count)
+{
+    for (int i = 0; i < count; ++i) {
+        vecA[i] += vecB[i];
+    }
+}
+    
+    
+/* subtracts a single operand from every element in the vector */
+static BV_FORCE_INLINE void subtractC (int* BV_R_ vector, const int value, const int count)
+{
+    for (int i = 0; i < count; ++i) {
+        vector[i] -= value;
+    }
+}
+    
+    
+/* performs element-wise subtraction of two vectors and writes the output to vecA */
+static BV_FORCE_INLINE void subtractV (int* BV_R_ vecA, const int* BV_R_ vecB, const int count)
+{
+    for (int i = 0; i < count; ++i) {
+        vecA[i] -= vecB[i];
+    }
+}
+    
+    
+/* multiplies every element in the vector by a single operand */
+static BV_FORCE_INLINE void multiplyC (int* BV_R_ vector, const int value, const int count)
+{
+    for (int i = 0; i < count; ++i) {
+        vecA[i] *= value;
+    }
+}
+    
+    
+/* performs element-wise multiplication of two vectors and writes the output to vecA */
+static BV_FORCE_INLINE void multiplyV (int* BV_R_ vecA, const int* BV_R_ vecB, const int count)
+{
+    for (int i = 0; i < count; ++i) {
+        vecA[i] *= vecB[i];
+    }
+}
+    
+    
+/* divides every element in the vector by a single operand */
+static BV_FORCE_INLINE void divideC (int* BV_R_ vector, const int value, const int count)
+{
+    for (int i = 0; i < count; ++i) {
+        vector[i] = juce::roundToInt (vector[i] / value);
+    }
+}
+    
+    
+/* performs element-wise division of two vectors and writes the output to vecA */
+static BV_FORCE_INLINE void divideV (int* BV_R_ vecA, const int* BV_R_ vecB, const int count)
+{
+    for (int i = 0; i < count; ++i) {
+        vecA[i] = juce::roundToInt (vecA[i] / vecB[i]);
+    }
+}
+    
+    
+/* replaces every element in the passed vector with its square */
+static BV_FORCE_INLINE void square (int* BV_R_ data, const int dataSize)
+{
+    for (int i = 0; i < dataSize; ++i) {
+        data[i] *= data[i];
+    }
+}
+    
+    
+/* replaces every element in the passed vector with its absolute value */
+static BV_FORCE_INLINE void absVal (int* BV_R_ data, const int dataSize)
+{
+#if BV_USE_IPP
+    ippsAbs_32s_I (data, dataSize);
+#else
+    for (int i = 0; i < dataSize; ++i) {
+        data[i] = abs(data[i]);
+    }
+#endif
+}
+    
+    
 // returns the minimum element in the dataset
 static BV_FORCE_INLINE int findMinElement (int* data, int dataSize)
 {
@@ -84,6 +200,61 @@ static BV_FORCE_INLINE void findMaxAndMaxIndex (int* data, const int dataSize,
     maxIndex = static_cast<int> (highestElement - data);
 #endif
 }
+    
+    
+/* locates the element with the highest absolute value and its index in the vector, and returns them into the variables greatestMagnitude and index */
+static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const int* BV_R_ data, const int dataSize,
+                                                        int& greatestMagnitude, int& index)
+{
+#if BV_USE_IPP
+    ippsMaxAbsIndx_32s (data, dataSize, &greatestMagnitude, &index);
+#else
+    int strongestMagIndex = 0;
+    auto strongestMag = abs(data[0]);
+    
+    for (int i = 1; i < dataSize; ++i)
+    {
+        const auto current = abs(data[i]);
+        
+        if (current > strongestMag)
+        {
+            strongestMag = current;
+            strongestMagIndex = i;
+        }
+    }
+    
+    greatestMagnitude = strongestMag;
+    index = strongestMagIndex;
+#endif
+}
+    
+    
+/* locates the element with the lowest absolute value and its index in the vector, and returns them into the variables leastMagnitude and index */
+static BV_FORCE_INLINE void locateLeastAbsMagnitude (const int* BV_R_ data, const int dataSize,
+                                                     int& leastMagnitude, int& index)
+{
+#if BV_USE_IPP
+    ippsMinAbsIndx_32s (data, dataSize, &leastMagnitude, &index);
+#else
+    int weakestMagIndex = 0;
+    auto weakestMag = abs(data[0]);
+    
+    for (int i = 1; i < dataSize; ++i)
+    {
+        const auto current = abs(data[i]);
+        
+        if (current < weakestMag)
+        {
+            weakestMag = current;
+            weakestMagIndex = i;
+        }
+    }
+    
+    leastMagnitude = weakestMag;
+    index = weakestMagIndex;
+#endif
+}
+
     
 
 // finds both the maximum and minimum elements in the dataset and returns them into the variables max and min.
