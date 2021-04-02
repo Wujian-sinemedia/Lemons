@@ -32,7 +32,7 @@ static BV_FORCE_INLINE void copy (const int* const BV_R_ source, int* const BV_R
 static BV_FORCE_INLINE void addC (int* BV_R_ vector, const int value, const int count)
 {
     for (int i = 0; i < count; ++i) {
-        vecA[i] += value;
+        vector[i] += value;
     }
 }
     
@@ -68,7 +68,7 @@ static BV_FORCE_INLINE void subtractV (int* BV_R_ vecA, const int* BV_R_ vecB, c
 static BV_FORCE_INLINE void multiplyC (int* BV_R_ vector, const int value, const int count)
 {
     for (int i = 0; i < count; ++i) {
-        vecA[i] *= value;
+        vector[i] *= value;
     }
 }
     
