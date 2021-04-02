@@ -92,6 +92,7 @@ namespace bav::dsp
         {
             jassert (! resourcesReleased);
             jassert (isInitialized);
+            jassert (sampleRate > 0);
             
             const auto totalNumSamples = input.getNumSamples();
             
@@ -179,6 +180,8 @@ namespace bav::dsp
         {
             jassert (samplerate > 0);
             
+            sampleRate = samplerate;
+            
             if (! isInitialized)
             {
                 jassert (internalBlocksize > 0); // if you hit this assertion, you probably made a call to prepare() before calling initialize().
@@ -258,6 +261,8 @@ namespace bav::dsp
         
         bool hasBeenInitialized() const noexcept { return isInitialized; }
         bool hasBeenReleased() const noexcept { return resourcesReleased; }
+        
+        double getSamplerate() const noexcept { return sampleRate; }
         
         
     private:
@@ -353,6 +358,8 @@ namespace bav::dsp
         bool resourcesReleased = true;
         
         bool isInitialized = false;
+        
+        double sampleRate = 0;
         
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FIFOWrappedEngine)
     };
