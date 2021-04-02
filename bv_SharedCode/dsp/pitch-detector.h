@@ -96,8 +96,8 @@ public:
                  s1 < halfNumSamples && s2 < numSamples;
                  ++s1, ++s2)
             {
-                const auto difference = ((reading[s1] - reading[s1 + k])
-                                         + (reading[s2] - reading[s2 - k]));
+                const auto difference = ( (reading[s1] - reading[s1 + k])
+                                         + (reading[s2 - k] - reading[s2]) );
                 
                 asdfData[index] += (difference * difference);
             }
