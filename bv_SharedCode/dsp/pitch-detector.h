@@ -276,7 +276,7 @@ private:
 #else
         const bool startedPositive = inputAudio[0] > SampleType(0);
         
-        for (int s = 1; s < numInputSamples; ++s)
+        for (int s = 1; s < numSamples; ++s)
         {
             const auto currentSample = inputAudio[s];
             
