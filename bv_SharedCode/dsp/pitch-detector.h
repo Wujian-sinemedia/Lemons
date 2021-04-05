@@ -274,13 +274,13 @@ private:
         
         return int(index);
 #else
-        const bool startedPositive = inputAudio[0] > zero;
+        const bool startedPositive = inputAudio[0] > SampleType(0);
         
         for (int s = 1; s < numInputSamples; ++s)
         {
             const auto currentSample = inputAudio[s];
             
-            if (startedPositive != (currentSample > zero))
+            if (startedPositive != (currentSample > SampleType(0)))
                 return s;
         }
         
