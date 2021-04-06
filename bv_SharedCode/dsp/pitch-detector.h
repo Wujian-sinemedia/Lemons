@@ -288,6 +288,12 @@ private:
 #endif
     }
     
+    
+    juce::Range<int> getCurrentLegalPeriodRange() const
+    {
+        return juce::Range<int>(minPeriod, maxPeriod);
+    }
+    
     /*
     */
     
