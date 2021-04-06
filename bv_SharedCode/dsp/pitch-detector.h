@@ -180,6 +180,12 @@ public:
             setHzRange (minHz, maxHz);
     }
     
+    
+    juce::Range<int> getCurrentLegalPeriodRange() const
+    {
+        return juce::Range<int>(minPeriod, maxPeriod);
+    }
+    
     /*
     */
     
@@ -286,12 +292,6 @@ private:
         
         return 0;
 #endif
-    }
-    
-    
-    juce::Range<int> getCurrentLegalPeriodRange() const
-    {
-        return juce::Range<int>(minPeriod, maxPeriod);
     }
     
     /*
