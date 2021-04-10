@@ -12,7 +12,7 @@ namespace bav
     {
     public:
         
-        FIFO(size_t maxSize): size(maxSize), head(0), tail(0) { }
+        FIFO(): head(0), tail(0) { }
         
         ~FIFO() = default;
         
