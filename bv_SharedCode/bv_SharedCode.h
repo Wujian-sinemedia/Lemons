@@ -32,6 +32,7 @@
 
 #include "core/AlignedAllocate.h"
 #include "core/DataHelpers.h"
+#include "core/LockFreeFifo.h"
 
 #include "math/mathHelpers.h"
 #include "math/VectorOps.h"

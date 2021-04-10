@@ -34,7 +34,7 @@ namespace bav
         };
         
         
-        MessageQueue() { }
+        MessageQueue(size_t maxNumMessages): fifo(maxNumMessages) { }
         
         ~MessageQueue() { }
         
@@ -49,90 +49,44 @@ namespace bav
         // adds a pre-constructed message object to the FIFO
         void pushMessage (Message message)
         {
-            messages.add (message);
+            fifo.push (message);
         }
         
         
         // returns the next available message from the FIFO
         Message popMessage()
         {
-            if (messages.isEmpty())
-                return Message();  // returns an invalid message if the queue is empty
-            
-            return messages.removeAndReturn (0);
-        }
-        
-        
-        int numStoredMessages() const
-        {
-            return messages.size();
+            return fifo.pop();
         }
         
         
         bool isEmpty() const
         {
-            return messages.isEmpty();
+            return fifo.isEmpty();
         }
         
         
         void clear()
         {
-            messages.clearQuick();
-        }
-        
-        
-        void reserveSize (int numMessages)
-        {
-            messages.ensureStorageAllocated (numMessages);
+            fifo.clearAll();
         }
         
         
         /*
             This function puts all the currently ready messgaes in the FIFO into the passed in array of Message objects.
-            Set the flushRepeated flag to true to process only the most recent message of each type.
         */
-        void getReadyMessages (juce::Array<Message>& outputMessages, bool flushRepeated = false)
+        void getReadyMessages (juce::Array<Message>& outputMessages)
         {
             outputMessages.clearQuick();
             
-            messages.getLock().tryEnter();
-            
-            while (! messages.isEmpty())
-                outputMessages.add (popMessage());
-            
-            if (flushRepeated)
-                flushRepeatedMessages (outputMessages);
-            
-            messages.getLock().exit();
+            while (! fifo.isEmpty())
+                outputMessages.add (fifo.pop());
         }
-
         
-        // static function that takes an array of message objects and keeps only the most recent message of each type
-        static inline void flushRepeatedMessages (juce::Array<Message>& messages)
-        {
-            if (messages.isEmpty())
-                return;
-            
-            // for each message in the array, if there is another message of the same type later in the array, remove the message
-            for (int i = 0; i < messages.size() - 1; ++i)
-            {
-                const auto origType = messages.getUnchecked(i).type();
-                
-                for (int t = i + 1; t < messages.size(); ++t)
-                {
-                    if (messages.getUnchecked(t).type() == origType)
-                    {
-                        messages.remove (i); // remove the message we were testing
-                        --i;  // removing from the array moves up all the next elements by 1 index, and the loop is about to increment our counter
-                        break;
-                    }
-                }
-            }
-        }
         
     private:
         
-        juce::Array<Message> messages;
+        FIFO<Message> fifo;
         
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MessageQueue)
     };
