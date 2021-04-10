@@ -216,52 +216,7 @@ namespace bav
     private:
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(BoolParameter)
     };
-    
-    
-    
-    /*
-     Attachment class that listens for changes in one specific parameter and pushes appropriate messages for each value change to a message queue.
-     To use, you should create an enum where each parameter gets a specified integer ID.
-     My suggestion is to create a vector to store your parameter messengers, then use it like this:
-     
-     @code
-     
-     //  where "parameterMessengers" is a std::vector of type ParameterMessenger and "tree" is your processor's juce::AudioProcessorValueTreeState
-     
-     void YourAudioProcessor::addParameterMessenger (juce::String stringID, int paramID)
-     {
-        auto& messenger { parameterMessengers.emplace_back (ParameterMessenger(paramChanges, parameter, paramID)) };
-        tree.addParameterListener (stringID, &messenger);
-     }
-     
-     @end-code
-     
-     Note that you should reserve the total size needed for your vector of messengers before calling this function, as using emplace_back will invalidate the previous pointers...
-     */
-    
-    class ParameterMessenger :  public juce::AudioProcessorValueTreeState::Listener
-    {
-    public:
-        ParameterMessenger(bav::MessageQueue& queue, bav::Parameter* p, int paramIDtoListen):
-                q(queue), param(p), paramID(paramIDtoListen)
-        {
-            jassert (param != nullptr);
-        }
-        
-        void parameterChanged (const juce::String& s, float value) override
-        {
-            juce::ignoreUnused (s);
-            value = param->normalize(value);
-            jassert (value >= 0.0f && value <= 1.0f);
-            q.pushMessage (paramID, value);  // the message will store a normalized value
-        }
-        
-    private:
-        bav::MessageQueue& q;
-        bav::Parameter* param;
-        const int paramID;
-    };
-    
+
     
 }  // namespace bav
 
