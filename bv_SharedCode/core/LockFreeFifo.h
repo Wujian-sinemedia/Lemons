@@ -7,7 +7,7 @@ namespace bav
 {
     
     /* DataType must be default-constructable. */
-    template<typename DataType>
+    template<typename DataType, size_t size>
     class FIFO
     {
     public:
@@ -63,7 +63,6 @@ namespace bav
             return (index + size) % (size + 1);
         }
         
-        const size_t size;
         std::atomic<size_t> head;
         std::atomic<size_t> tail;
         std::array<DataType, size + 1> data;

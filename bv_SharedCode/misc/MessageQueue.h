@@ -6,6 +6,7 @@ namespace bav
         A basic FIFO queue for messages that are keyed with an integer ID and can hold a float value.
     */
     
+    template<size_t maxNumMessages>
     class MessageQueue
     {
     public:
@@ -34,9 +35,9 @@ namespace bav
         };
         
         
-        MessageQueue(size_t maxNumMessages): fifo(maxNumMessages) { }
+        MessageQueue() = default;
         
-        ~MessageQueue() { }
+        ~MessageQueue() = default;
         
         
         // adds a message to the FIFO with a specified type and value
@@ -85,8 +86,7 @@ namespace bav
         
         
     private:
-        
-        FIFO<Message> fifo;
+        FIFO<Message, maxNumMessages> fifo;
         
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MessageQueue)
     };
