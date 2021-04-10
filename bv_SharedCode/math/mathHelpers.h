@@ -7,24 +7,6 @@ namespace bav::math
         This namespace conatins several floating inlined functions that are useful helpers and utilities for math-related operations
     */
     
-    
-    
-/* MinGW doesn't appear to have sincos, so define it -- it's a single x87 instruction anyway  */
-#if defined __GNUC__ && defined _WIN32
-    static BV_FORCE_INLINE void sincos (double x, double* sin, double* cos)
-    {
-        __asm__ ("fsincos;" : "=t" (*cos), "=u" (*sin) : "0" (x) : "st(7)");
-    }
-    
-    static BV_FORCE_INLINE void sincosf (float fx, float* fsin, float* fcos)
-    {
-        double sin, cos;
-        sincos (fx, &sin, &cos);
-        *fsin = float(sin);
-        *fcos = float(cos);
-    }
-#endif
-    
 // alias __sincos as sincos and __sincosf as sincosf for GNU on Apple platforms
 #ifndef LACK_SINCOS
   #if defined __GNUC__

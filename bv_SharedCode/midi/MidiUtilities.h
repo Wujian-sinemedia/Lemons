@@ -150,8 +150,17 @@ namespace bav::midi
         
         float newNoteRecieved (const int newMidiPitch) const
         {
-            return getMidifloat (juce::jlimit (0, 127, newMidiPitch),
-                                 lastRecievedPitchbend.load());
+            return getMidifloat (newMidiPitch, lastRecievedPitchbend.load());
+        }
+        
+        float newNoteRecieved (const float newMidiPitch) const
+        {
+            return getMidifloat (newMidiPitch, lastRecievedPitchbend.load());
+        }
+        
+        float newNoteRecieved (const double newMidiPitch) const
+        {
+            return getMidifloat (newMidiPitch, lastRecievedPitchbend.load());
         }
         
         void newPitchbendRecieved (const int newPitchbend) noexcept
@@ -163,18 +172,17 @@ namespace bav::midi
     private:
         std::atomic<int> rangeUp, rangeDown, lastRecievedPitchbend;
         
-        float getMidifloat (const int midiPitch, const int pitchbend) const
+        template<typename NoteType>
+        float getMidifloat (const NoteType midiPitch, const int pitchbend) const
         {
-            jassert (juce::isPositiveAndBelow(midiPitch, 128) && juce::isPositiveAndBelow(pitchbend, 128));
-            
             if (pitchbend == 64)
                 return float(midiPitch);
             
             if (pitchbend > 64)
-                return float(((rangeUp.load() * (pitchbend - 65)) / 62) + midiPitch);
+                return float(((rangeUp.load() * (pitchbend - 65.0f)) / 62.0f) + midiPitch);
             
             const auto currentdownrange = rangeDown.load();
-            return float((((1 - currentdownrange) * pitchbend) / 63) + midiPitch - currentdownrange);
+            return float((((1.0f - currentdownrange) * pitchbend) / 63.0f) + midiPitch - currentdownrange);
         }
         
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(PitchBendHelper)
