@@ -52,7 +52,7 @@ namespace bav
         using RangedParam = juce::RangedAudioParameter;
         
     public:
-        Parameter(RangedParam* p): rap(p)
+        Parameter(RangedParam* p, float defaultValue): currentDefault(defaultValue), rap(p)
         {
             jassert (rap != nullptr);
         }
@@ -101,9 +101,8 @@ namespace bav
         // use the constructor just like you would the constructor for juce::AudioParameterFloat. All the args are simply forwarded.
         FloatParameter(juce::String parameterID, juce::String parameterName, juce::NormalisableRange<float> range, float defaultVal):
                 AudioParameterFloat(parameterID, parameterName, range, defaultVal),
-                Parameter(dynamic_cast<juce::RangedAudioParameter*>(this))
+                Parameter(dynamic_cast<juce::RangedAudioParameter*>(this), range.convertTo0to1 (defaultVal))
         {
-            currentDefault.store (range.convertTo0to1 (defaultVal));
         }
         
         // returns the absolute default value as a float
@@ -140,9 +139,9 @@ namespace bav
         // use the constructor just like you would the constructor for juce::AudioParameterInt. All the args are simply forwarded.
         IntParameter(juce::String parameterID, juce::String parameterName, int min, int max, int defaultVal):
                 AudioParameterInt(parameterID, parameterName, min, max, defaultVal),
-                Parameter(dynamic_cast<juce::RangedAudioParameter*>(this))
+                Parameter(dynamic_cast<juce::RangedAudioParameter*>(this),
+                          AudioParameterInt::getNormalisableRange().convertTo0to1 (float(defaultVal)))
         {
-            setDefault (defaultVal);
         }
         
         // returns the absolute default value as an int
@@ -182,7 +181,8 @@ namespace bav
         // use the constructor just like you would the constructor for juce::AudioParameterInt. All the args are simply forwarded.
         BoolParameter(juce::String parameterID, juce::String parameterName, bool defaultVal):
                 AudioParameterBool(parameterID, parameterName, defaultVal),
-                Parameter(dynamic_cast<juce::RangedAudioParameter*>(this))
+                Parameter(dynamic_cast<juce::RangedAudioParameter*>(this),
+                          AudioParameterBool::getNormalisableRange().convertTo0to1 (float(defaultVal)))
         {
             setDefault (defaultVal);
         }
