@@ -56,6 +56,7 @@
 #include "gui/gui.h"
 #include "misc/MessageQueue.h"
 #include "misc/Parameters.h"
+#include "misc/MidiMapping.h"
 
 
 
