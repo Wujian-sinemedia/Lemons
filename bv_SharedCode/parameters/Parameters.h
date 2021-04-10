@@ -80,11 +80,17 @@ namespace bav
         // takes a normalized float value as input and returns a denormalized float value within the natural range of this parameter.
         virtual float denormalize (const float input) const { return rap->convertFrom0to1(input); }
         
+        // value passed should be normalized
+        void setValue (float newValue) { rap->setValue(newValue); }
+        
+        // value passed should be normalized
+        void setValueNotifyingHost (float newValue) { rap->setValueNotifyingHost(newValue); }
+        
     protected:
         std::atomic<float> currentDefault;
         
     private:
-        RangedParam* rap = nullptr;
+        RangedParam* const rap = nullptr;
     };
     
     

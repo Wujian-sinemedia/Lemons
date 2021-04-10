@@ -54,9 +54,10 @@
 #include "dsp/pitch-detector.h"
 
 #include "gui/gui.h"
-#include "misc/MessageQueue.h"
-#include "misc/Parameters.h"
-#include "misc/MidiMapping.h"
+
+#include "parameters/MessageQueue.h"
+#include "parameters/Parameters.h"
+#include "parameters/MidiMapping.h"
 
 
 
