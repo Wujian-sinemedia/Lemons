@@ -27,7 +27,7 @@ namespace bav
             constexpr auto inv127 = 1.0f / 127.0f;
             
             if (controllerNumber == controllerNum)
-                parameter->setValueNotifyingHost (parameter->normalize (controllerValue * inv127));
+                parameter->changeValueNotifyHost (parameter->normalize (controllerValue * inv127));
         }
         
         void changeControllerNumber (int newControllerNumber) noexcept { controllerNum = newControllerNumber; }

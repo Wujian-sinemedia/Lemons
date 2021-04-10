@@ -81,10 +81,10 @@ namespace bav
         virtual float denormalize (const float input) const { return rap->convertFrom0to1(input); }
         
         // value passed should be normalized
-        void setValue (float newValue) { rap->setValue(newValue); }
+        void changeValue (float newValue) { rap->setValue(newValue); }
         
         // value passed should be normalized
-        void setValueNotifyingHost (float newValue) { rap->setValueNotifyingHost(newValue); }
+        void changeValueNotifyHost (float newValue) { rap->setValueNotifyingHost(newValue); }
         
     protected:
         std::atomic<float> currentDefault;
