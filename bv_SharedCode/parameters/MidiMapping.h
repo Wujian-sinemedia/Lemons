@@ -80,11 +80,11 @@ namespace bav
         /* clears any previous mappings this object held and loads the new specified set of mappings */
         void loadMappingSet (MidiCC_Listener* parameterMappings, int numMappings)
         {
-            mappings.clearQuick();
+            mappings.clear();
             mappings.ensureStorageAllocated (numMappings);
             
             for (int i = 0; i < numMappings; ++i)
-                mappings.add (std::move (parameterMappings[i]));
+                mappings.add (parameterMappings[i]);
         }
         
         /* if a mapping exists for the current parameter, it will be changed to now listen for the new CC number. If no mapping exists for the parameter, returns false. */
