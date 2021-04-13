@@ -39,7 +39,7 @@ namespace bav
             auto item = data[currentHead];
             head.store (nextIndex (currentHead));
             
-            return std::move(item);
+            return item;
         }
         
         bool isEmpty() const { return tail == head; }
