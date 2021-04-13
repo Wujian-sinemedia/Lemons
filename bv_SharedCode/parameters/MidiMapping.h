@@ -84,7 +84,10 @@ namespace bav
             mappings.ensureStorageAllocated (numMappings);
             
             for (int i = 0; i < numMappings; ++i)
-                mappings.add (parameterMappings[i]);
+            {
+                auto* mapping = parameterMappings[i];
+                mappings.add (new MidiCC_Listener (mapping->getParameter(), mapping->getControllerNumber()));
+            }
         }
         
         /* if a mapping exists for the current parameter, it will be changed to now listen for the new CC number. If no mapping exists for the parameter, returns false. */
@@ -128,7 +131,7 @@ namespace bav
         /* clears all active parameter mappings */
         void clearAllMappings()
         {
-            mappings.clearQuick();
+            mappings.clear();
         }
         
         
