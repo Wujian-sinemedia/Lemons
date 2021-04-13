@@ -105,9 +105,9 @@ namespace bav
         
     public:
         // use the constructor just like you would the constructor for juce::AudioParameterFloat. All the args are simply forwarded.
-        FloatParameter(juce::String parameterID, juce::String parameterName, juce::NormalisableRange<float> range, float defaultVal):
-                AudioParameterFloat(parameterID, parameterName, range, defaultVal),
-                Parameter(dynamic_cast<juce::RangedAudioParameter*>(this), range.convertTo0to1 (defaultVal))
+        FloatParameter(juce::String parameterID, juce::String parameterName, juce::NormalisableRange<float> nRange, float defaultVal):
+                AudioParameterFloat(parameterID, parameterName, nRange, defaultVal),
+                Parameter(dynamic_cast<juce::RangedAudioParameter*>(this), nRange.convertTo0to1 (defaultVal))
         {
         }
         
