@@ -10,7 +10,7 @@ namespace bav::math
 // alias __sincos as sincos and __sincosf as sincosf for GNU on Apple platforms
 #ifndef LACK_SINCOS
   #if defined __GNUC__
-    #if BV_APPLE
+    #if JUCE_APPLE
       #define sincosf __sincosf
       #define sincos __sincos
     #endif
@@ -42,7 +42,7 @@ namespace bav::math
     template <typename Type>
     static BV_FORCE_INLINE bool isnan (Type value)
     {
-#if BV_OSX
+#if JUCE_IOS || JUCE_MAC
         return std::isnan (value);
 #else
         volatile Type num = value;
@@ -54,7 +54,7 @@ namespace bav::math
     template <typename Type>
     static BV_FORCE_INLINE bool isinf (Type value)
     {
-#if BV_WINDOWS
+#if JUCE_WINDOWS
         return ! _finite (value);
 #else
         return std::isinf (value);
