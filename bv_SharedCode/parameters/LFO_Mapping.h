@@ -14,6 +14,8 @@ namespace bav
       
         void addMapping (Parameter* param) 
         { 
+            jassert (param != nullpr && param->orig() != nullptr);
+          
             if (! destinations.contains (param))
                 destinations.add (param); 
         }
@@ -24,8 +26,10 @@ namespace bav
         {
             const auto value = getNextSampleValue();
           
+            jassert (value >= 0.0f && value <= 1.0f);
+          
             for (auto paramPtr : destinations)
-                paramPtr->changeValueNotifyHost (value);
+                paramPtr->orig()->setValueNotifyingHost (value);
         }
       
     private:
