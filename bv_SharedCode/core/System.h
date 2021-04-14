@@ -1,95 +1,16 @@
 
 /*
-    This file defines some useful platform macros and tries to set up some appropriate platform-specific features for this module.
+    This file defines some useful platform macros and tries to set up some appropriate platform-specific features.
 */
 
 
-/*
-     These conditionals declare the macros
-     - BV_WINDOWS
-     - BV_ANDROID
-     - BV_LINUX
-     - BV_APPLE
-     - BV_OSX
-     - BV_IOS
-     - BV_BSD
-     - BV_POSIX
-     ...based on the current operating system.
- Each macro will be defined to either 1 or 0, so you should reference them by using #if... ,  NOT  #ifdef... !!!
- 
-     It also declares a string literal macro BV_OPERATING_SYSTEM_NAME which can be used if you need a text description of the OS.
- */
-
-
-#if defined (_WIN32) || defined (_WIN64)
-  #define  BV_WINDOWS 1
-  #define  BV_OPERATING_SYSTEM_NAME "Windows"
-#elif __ANDROID__
-  #define  BV_ANDROID 1
-  #define  BV_OPERATING_SYSTEM_NAME "Android"
-#elif defined (LINUX) || defined (__linux__)
-  #define  BV_LINUX 1
-  #define  BV_OPERATING_SYSTEM_NAME "Linux"
-#elif __APPLE__
-  #define BV_APPLE 1
-  #include <TargetConditionals.h>
-  #if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
-    #define  BV_IOS 1
-    #define  BV_OPERATING_SYSTEM_NAME "iOS"
-  #else
-    #define  BV_OSX 1
-    #define  BV_OPERATING_SYSTEM_NAME "OSX"
-  #endif
-#elif defined (__FreeBSD__) || (__OpenBSD__)
-  #define  BV_BSD 1
-  #define  BV_OPERATING_SYSTEM_NAME "BSD"
-#elif defined (_POSIX_VERSION)
-  #define  BV_POSIX 1
-  #define  BV_OPERATING_SYSTEM_NAME "Posix"
-#else
-  #warning "Unknown platform!"
-#endif
-
-#ifndef BV_WINDOWS
-  #define BV_WINDOWS 0
-#endif
-
-#ifndef BV_ANDROID
-  #define BV_ANDROID 0
-#endif
-
-#ifndef BV_LINUX
-  #define BV_LINUX 0
-#endif
-
-#ifndef BV_APPLE
-  #define BV_APPLE 0
-#endif
-
-#ifndef BV_IOS
-  #define BV_IOS 0
-#endif
-
-#ifndef BV_OSX
-  #define BV_OSX 0
-#endif
-
-#ifndef BV_BSD
-  #define BV_BSD 0
-#endif
-
-#ifndef BV_POSIX
-  #if BV_OSX || BV_LINUX || BV_BSD
+#undef BV_POSIX
+  #if JUCE_LINUX || JUCE_MAC || JUCE_BSD
     #define BV_POSIX 1
   #else
     #define BV_POSIX 0
   #endif
 #endif
-
-#ifndef BV_OPERATING_SYSTEM_NAME
-  #define BV_OPERATING_SYSTEM_NAME ""
-#endif
-
 
 
 /*
@@ -113,7 +34,7 @@
 #endif
 
 #ifndef BV_USE_VDSP
-  #if BV_APPLE
+  #if JUCE_IOS || JUCE_MAC
     #define BV_USE_VDSP 1
   #else
     #define BV_USE_VDSP 0
@@ -146,6 +67,10 @@
 
 /// IPP ///
 
+#if ! JUCE_INTEL
+  #define BV_IGNORE_IPP
+#endif
+
 #ifdef BV_IGNORE_IPP
   #ifdef BV_USE_IPP
     #undef BV_USE_IPP
@@ -173,6 +98,10 @@
 
 
 /// Ne10 ///
+
+#if ! JUCE_ARM
+  #define BV_IGNORE_NE10
+#endif
 
 #ifdef BV_IGNORE_NE10
   #ifdef BV_USE_NE10
@@ -216,44 +145,13 @@
     These conditionals set the macro BV_BIT_DEPTH to either 32 or 64.
 */
 
-#if BV_WINDOWS
-  #ifdef _MSC_VER
-    #ifdef _WIN64
-      #define BV_BIT_DEPTH 64
-    #else
-      #define BV_BIT_DEPTH 32
-    #endif
-  #endif
-
-  #ifdef __MINGW32__
-    #ifdef __MINGW64__
-      #define BV_BIT_DEPTH 64
-    #else
-      #define BV_BIT_DEPTH 32
-    #endif
-  #endif
-#endif  /* if BV_WINDOWS  */
-
-#if BV_APPLE
-  #ifdef __LP64__
-    #define BV_BIT_DEPTH 64
-  #else
-    #define BV_BIT_DEPTH 32
-  #endif
-#endif  /* if BV_APPLE  */
-
-#if BV_LINUX || BV_ANDROID
-  #if defined (__LP64__) || defined (_LP64) || defined (__arm64__)
-    #define BV_BIT_DEPTH 64
-  #else
-    #define BV_BIT_DEPTH 32
-  #endif
-#endif  /* if BV_LINUX || JUCE_ANDROID  */
-
-#ifndef BV_BIT_DEPTH
+#if JUCE_32BIT
   #define BV_BIT_DEPTH 32
+#elif JUCE_64BIT
+  #define BV_BIT_DEPTH 64
+#else
+  #error Unknown bit depth
 #endif
-
 
 
 /*
