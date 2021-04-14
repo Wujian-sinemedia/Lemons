@@ -12,9 +12,13 @@ namespace bav
       
         bool isMappedTo (Parameter* param) { return destinations.contains (param); }
       
-        void addMapping (Parameter* param) { destinations.add (param); }
+        void addMapping (Parameter* param) 
+        { 
+            if (! destinations.contains (param))
+                destinations.add (param); 
+        }
       
-        void removeMapping (Parameter* param) { destinations.removeAllInstancesOf (param); }
+        void removeMapping (Parameter* param) { destinations.removeFirstMatchingValue (param); }
       
         void processNextSample()
         {
