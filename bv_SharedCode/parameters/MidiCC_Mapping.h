@@ -14,7 +14,7 @@ namespace bav
               controllerNum(controller),
               lastControllerValue(defaultLastControllerVal)
         {
-            jassert (parameter != nullptr);
+            jassert (parameter != nullptr && parameter->orig() != nullptr);
         }
         
         ~MidiCC_Listener() = default;
@@ -31,7 +31,7 @@ namespace bav
             
             if (controllerNumber == controllerNum)
             {
-                parameter->changeValueNotifyHost (controllerValue * inv127);
+                parameter->orig()->setValueNotifyingHost (controllerValue * inv127);
                 lastControllerValue = controllerValue;
             }
         }
