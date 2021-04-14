@@ -40,7 +40,7 @@ namespace bav
       void addNewMapping (Parameter* parameter, juce::OSCAddress address)
       {
           auto* newMapping = mappings.add (new OSC_Attachment (parameter));
-          this->addListener (newMapping, address);
+          juce::OSCReceiver::addListener (newMapping, address);
       }
       
       
