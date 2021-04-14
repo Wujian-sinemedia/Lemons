@@ -43,7 +43,7 @@ namespace bav
     /*
         Mapper class that owns & manages a collection of OSC_Attachment objects and serves as the main OSC reciever 
     */
-    class OSCMappingManager  :    juce::OSCReceiver
+    class OSCMappingManager  :    public juce::OSCReceiver
     {
     public:
       OSCMappingManager() { }
@@ -54,7 +54,38 @@ namespace bav
           juce::OSCReceiver::addListener (newMapping, address);
       }
       
+      void removeMapping (OSC_Attachment* mapping)
+      {
+          juce::OSCReceiver::removeListener (mapping);
+          mappings.removeObject (mapping);
+      }
       
+      OSC_Attachment* getMappingForParameter (Parameter* param) const
+      {
+          for (auto* mapping : mappings)
+              if (mapping->getParameter() == param)
+                  return mapping;
+          
+          return nullptr;
+      }
+      
+      OSC_Attachment* getMappingForAddress (juce::OSCAddress address)
+      {
+          for (auto* mapping : mappings)
+              if (mapping->getOSCaddress() == address)
+                  return mapping;
+                  
+          return nullptr;
+      }
+      
+      void clearAllMappings()
+      {
+          do {
+              removeMapping (mappings.getFirst());
+          } while (! mappings.isEmpty())
+      }
+      
+     
     private:
       juce::OwnedArray< OSC_Attachment > mappings;
     };
