@@ -61,6 +61,7 @@
 #include "parameters/Parameters.h"
 #include "parameters/MidiCC_Mapping.h"
 #include "parameters/OSC_Mapping.h"
+#include "parameters/LFO_Mapping.h"
 
 
 #ifndef BV_HAS_BINARY_DATA
