@@ -58,6 +58,7 @@
 #include "parameters/MessageQueue.h"
 #include "parameters/Parameters.h"
 #include "parameters/MidiMapping.h"
+#include "parameters/OSCMapping.h"
 
 
 
