@@ -195,6 +195,8 @@ namespace bav::dsp
         {
             jassert (! effects.isEmpty());
             jassert (lastSamplerate > 0.0 && lastBlocksize > 0);
+         
+            const auto numSamples = audio.getNumSamples();
             
             audio.clear();
             
@@ -202,7 +204,7 @@ namespace bav::dsp
             {
                 if (auto* effect = getEffect(i))
                 {
-                    if (effect->isBypassed())
+                    if (effect->isBypassed)
                         effect->bypassedBlock (numSamples);
                     else
                         effect->process (audio);
