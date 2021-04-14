@@ -15,7 +15,18 @@ namespace bav
       
         void oscMessageReceived (const juce::OSCMessage& message) override
         {
-            juce::ignoreUnused (message);
+            if (message.isEmpty())
+                 return;
+             
+            const auto argument = message[0];
+             
+            auto* rap = parameter->orig();
+            jassert (rap != nullptr);
+             
+            if (argument.isFloat32())
+                 rap->setValueNotifyingHost (rap->convertTo0to1 (argument.getFloat32()));
+            else if (argument.isInt32())
+                 rap->setValueNotifyingHost (rap->convertTo0to1 (float (argument.getInt32())));
         }
       
         Parameter* getParameter() const noexcept { return parameter; }
