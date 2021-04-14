@@ -80,17 +80,14 @@ namespace bav
         // takes a normalized float value as input and returns a denormalized float value within the natural range of this parameter.
         virtual float denormalize (const float input) const { return rap->convertFrom0to1(input); }
         
-        // value passed should be normalized
-        void changeValue (float newValue) { rap->setValue(newValue); }
-        
-        // value passed should be normalized
-        void changeValueNotifyHost (float newValue) { rap->setValueNotifyingHost(newValue); }
+        // exposes the underlying juce::RangedAudioParameter
+        RangedParam* orig() const noexcept { return rap; }
         
     protected:
         std::atomic<float> currentDefault;
         
     private:
-        RangedParam* const rap = nullptr;
+        RangedParam* const rap;
     };
     
     
