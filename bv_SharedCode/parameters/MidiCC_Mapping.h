@@ -158,7 +158,7 @@ namespace bav
         }
         
         /* if the parameter is currently mapped, returns a pointer to its MidiCC_Listener; else returns a nullptr */
-        MidiCC_Listener* getMappingForParameter (const Parameter* parameter)
+        MidiCC_Listener* getMappingForParameter (const Parameter* parameter) const noexcept
         {
             for (auto* mapping : mappings)
                 if (mapping->getParameter() == parameter)
@@ -168,7 +168,7 @@ namespace bav
         }
         
         /* if the passed MIDI controller number is mapped, returns a pointer to its MidiCC_Listener; else returns a nullptr */
-        MidiCC_Listener* getMappingForController (int midiControllerNumber)
+        MidiCC_Listener* getMappingForController (int midiControllerNumber) const noexcept
         {
             for (auto* mapping : mappings)
                 if (mapping->getControllerNumber() == midiControllerNumber)
