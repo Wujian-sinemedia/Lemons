@@ -85,11 +85,11 @@ namespace bav
     {
         juce::File rootFolder;
         
-#if BV_WINDOWS
+#if JUCE_WINDOWS
         rootFolder = juce::File::getSpecialLocation (juce::File::SpecialLocationType::userDocumentsDirectory);
 #else
         rootFolder = juce::File::getSpecialLocation (juce::File::SpecialLocationType::userApplicationDataDirectory);
-#if BV_OSX
+#if JUCE_MAC
         rootFolder = rootFolder.getChildFile ("Audio").getChildFile ("Presets");
 #endif
 #endif
