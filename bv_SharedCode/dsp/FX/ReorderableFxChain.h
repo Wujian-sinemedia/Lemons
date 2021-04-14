@@ -198,39 +198,16 @@ namespace bav::dsp
             
             audio.clear();
             
-            for (int i = 0; i < numActiveEffects(); ++i)
+            for (int i = 0; i < effects.size(); ++i)
+            {
                 if (auto* effect = getEffect(i))
-                    if (! effect->isBypassed)
+                {
+                    if (effect->isBypassed())
+                        effect->bypassedBlock (numSamples);
+                    else
                         effect->process (audio);
-            
-            const auto numSamples = audio.getNumSamples();
-            
-            for (auto* effect : effects)
-                if (effect->isBypassed)
-                    effect->bypassedBlock (numSamples);
-        }
-        
-        
-        /*
-            Call this function to render the entire chain in reverse order.
-         */
-        void processInReverseOrder (AudioBuffer& audio)
-        {
-            jassert (! effects.isEmpty());
-            jassert (lastSamplerate > 0.0 && lastBlocksize > 0);
-            
-            audio.clear();
-            
-            for (int i = numActiveEffects() - 1; i >= 0; --i)
-                if (auto* effect = getEffect(i))
-                    if (! effect->isBypassed)
-                        effect->process (audio);
-            
-            const auto numSamples = audio.getNumSamples();
-            
-            for (auto* effect : effects)
-                if (effect->isBypassed)
-                    effect->bypassedBlock (numSamples);
+                }
+            }
         }
         
         
