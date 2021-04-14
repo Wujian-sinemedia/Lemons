@@ -57,8 +57,17 @@
 
 #include "parameters/MessageQueue.h"
 #include "parameters/Parameters.h"
-#include "parameters/MidiMapping.h"
-#include "parameters/OSCMapping.h"
+#include "parameters/MidiCC_Mapping.h"
+#include "parameters/OSC_Mapping.h"
+
+
+#ifndef BV_HAS_BINARY_DATA
+  #define BV_HAS_BINARY_DATA 0
+#endif
+
+#if BV_HAS_BINARY_DATA
+  #include "BinaryDataHelpers.h"
+#endif
 
 
 
