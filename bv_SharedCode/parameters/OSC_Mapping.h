@@ -82,7 +82,7 @@ namespace bav
       {
           do {
               removeMapping (mappings.getFirst());
-          } while (! mappings.isEmpty())
+          } while (! mappings.isEmpty());
       }
       
      
