@@ -6,19 +6,12 @@
 /*
  These conditionals declare the following macros:
  
- - BV_POSIX_MEMALIGN
  - BV_MALLOC_IS_ALIGNED
  - BV_HAVE__ALIGNED_MALLOC
  */
 
-#if BV_POSIX || BV_LINUX || BV_OSX
-  #define BV_POSIX_MEMALIGN 1
-#else
-  #define BV_POSIX_MEMALIGN 0
-#endif
-
 #ifndef MALLOC_IS_NOT_ALIGNED
-  #if BV_APPLE
+  #if JUCE_IOS || JUCE_MAC
     #define BV_MALLOC_IS_ALIGNED 1
   #endif
 #endif
@@ -28,7 +21,7 @@
 #endif
 
 #ifndef LACK__ALIGNED_MALLOC
-  #if BV_WINDOWS
+  #if JUCE_WINDOWS
     #define BV_HAVE__ALIGNED_MALLOC 1
   #endif
 #endif
@@ -38,7 +31,7 @@
 #endif
 
 
-#if BV_POSIX_MEMALIGN
+#if BV_POSIX
   #include <sys/mman.h>
 #endif
 
@@ -61,7 +54,7 @@ namespace bav
         ptr = _aligned_malloc(count * sizeof(T), alignment);
 #else
         
-#if BV_POSIX_MEMALIGN
+#if BV_POSIX
         auto rv = posix_memalign(&ptr, alignment, count * sizeof(T));
         
         if (rv != 0)
@@ -72,7 +65,7 @@ namespace bav
                 throw std::bad_alloc();
         }
         
-#else /* BV_POSIX_MEMALIGN */
+#else /* BV_POSIX */
 #warning "No aligned malloc implementation is available for your platform. Hacking one together for you now..."
         
         // Alignment must be a power of two, bigger than the pointer
@@ -90,7 +83,7 @@ namespace bav
             ((void **)ptr)[-1] = buf;
         }
         
-#endif /* BV_POSIX_MEMALIGN */
+#endif /* BV_POSIX */
 #endif /* BV_HAVE__ALIGNED_MALLOC */
 #endif /* BV_MALLOC_IS_ALIGNED */
         
@@ -219,6 +212,5 @@ namespace bav
 }  // namespace
 
 
-#undef BV_POSIX_MEMALIGN
 #undef BV_MALLOC_IS_ALIGNED
 #undef BV_HAVE__ALIGNED_MALLOC
