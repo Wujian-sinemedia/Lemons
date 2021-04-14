@@ -5,7 +5,7 @@ namespace bav
     /*
         Attachment class that links a parameter to a specified OSC string.
     */
-    class OSC_Attachment  :   public juce::OSCReceiver::ListenerWithOSCAddress< RealtimeCallback >
+    class OSC_Attachment  :   public juce::OSCReceiver::ListenerWithOSCAddress< juce::OSCReceiver::RealtimeCallback >
     {
     public:
         OSC_Attachment(Parameter* param, juce::OSCAddress addr): parameter(param), address(addr)
@@ -39,7 +39,7 @@ namespace bav
       
       void addNewMapping (Parameter* parameter, juce::OSCAddress address)
       {
-          auto* newMapping = mappings.add (new OSC_Attachment (parameter));
+          auto* newMapping = mappings.add (new OSC_Attachment (parameter, address));
           juce::OSCReceiver::addListener (newMapping, address);
       }
       
