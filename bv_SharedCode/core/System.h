@@ -5,11 +5,10 @@
 
 
 #undef BV_POSIX
-  #if JUCE_LINUX || JUCE_MAC || JUCE_BSD
-    #define BV_POSIX 1
-  #else
-    #define BV_POSIX 0
-  #endif
+#if JUCE_LINUX || JUCE_MAC || JUCE_BSD
+  #define BV_POSIX 1
+#else
+  #define BV_POSIX 0
 #endif
 
 
