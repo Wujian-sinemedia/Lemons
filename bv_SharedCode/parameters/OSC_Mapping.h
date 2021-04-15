@@ -73,14 +73,14 @@ namespace bav
           for (int i = 0; i < numMappings; ++i)
           {
               auto* mapping = oscMappings + i;
-              mappings.add (new MidiCC_Listener (mapping->getParameter(), mapping->getOSCaddress()));
+              mappings.add (new OSC_Attachment (mapping->getParameter(), mapping->getOSCaddress()));
           }
       }
       
       void changeMapping (OSC_Attachment* mapping, juce::OSCAddress newAddress)
       {
           juce::OSCReceiver::removeListener (mapping);
-          mapping.changeOSCaddress (newAddress);
+          mapping->changeOSCaddress (newAddress);
           juce::OSCReceiver::addListener (mapping, newAddress);
       }
       
