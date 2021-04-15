@@ -223,8 +223,8 @@ namespace bav::dsp::FX
         A version that implements the ReorderableEffect interface, for use with my ReorderableFxChain class.
     */
     template<typename SampleType>
-    class ReorderableReverb :     public Reverb,
-                                  public ReorderableEffect
+    class ReorderableReverb :     public Reverb<SampleType>,
+                                  public ReorderableEffect<SampleType>
     {
         using Reverb = Reverb<SampleType>;
         
