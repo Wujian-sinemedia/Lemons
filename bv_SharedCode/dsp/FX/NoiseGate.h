@@ -210,5 +210,37 @@ namespace bav::dsp::FX
     template class NoiseGate<float>;
     template class NoiseGate<double>;
     
+    
+    
+    /*
+        A version that implements the ReorderableEffect interface, for use with my ReorderableFxChain class.
+    */
+    template<typename SampleType>
+    class ReorderableNoiseGate :    public NoiseGate,
+                                    public ReorderableEffect
+    {
+        using Gate = NoiseGate<SampleType>;
+        
+    public:
+        ReorderableNoiseGate() { }
+    
+    protected:
+        void fxChain_process (juce::AudioBuffer<SampleType>& audio) override
+        {
+            Gate::process (audio, nullptr);
+        }
+        
+        void fxChain_prepare (double samplerate, int blocksize) override
+        {
+            Gate::prepare (2, blocksize, samplerate);
+        }
+    
+    private:
+        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ReorderableNoiseGate)
+    };
+    
+    template class ReorderableNoiseGate<float>;
+    template class ReorderableNoiseGate<double>;
+    
 }  // namespace
 
