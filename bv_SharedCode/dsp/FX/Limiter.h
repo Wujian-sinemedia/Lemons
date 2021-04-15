@@ -140,8 +140,8 @@ namespace bav::dsp::FX
         A version that implements the ReorderableEffect interface, for use with my ReorderableFxChain class.
     */
     template<typename SampleType>
-    class ReorderableLimiter :    public Limiter,
-                                  public ReorderableEffect
+    class ReorderableLimiter :    public Limiter<SampleType>,
+                                  public ReorderableEffect<SampleType>
     {
         using Limiter = Limiter<SampleType>;
         
