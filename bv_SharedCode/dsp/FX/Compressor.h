@@ -181,8 +181,8 @@ namespace bav::dsp::FX
         A version that implements the ReorderableEffect interface, for use with my ReorderableFxChain class.
     */
     template<typename SampleType>
-    class ReorderableCompressor :    public Compressor,
-                                     public ReorderableEffect
+    class ReorderableCompressor :    public Compressor<SampleType>,
+                                     public ReorderableEffect<SampleType>
     {
         using Compressor = Compressor<SampleType>;
         
