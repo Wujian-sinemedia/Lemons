@@ -85,8 +85,8 @@ namespace bav
             
             for (int i = 0; i < numMappings; ++i)
             {
-                auto mapping = parameterMappings[i];
-                mappings.add (new MidiCC_Listener (mapping.getParameter(), mapping.getControllerNumber()));
+                auto* mapping = parameterMappings + i;
+                mappings.add (new MidiCC_Listener (mapping->getParameter(), mapping->getControllerNumber()));
             }
         }
         
