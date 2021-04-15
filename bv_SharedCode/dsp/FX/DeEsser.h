@@ -127,20 +127,18 @@ template class DeEsser<double>;
     class ReorderableDeEsser :    public DeEsser<SampleType>,
                                   public ReorderableEffect<SampleType>
     {
-        using DeEsser = DeEsser<SampleType>;
-        
     public:
         ReorderableDeEsser() { }
     
     protected:
         void fxChain_process (juce::AudioBuffer<SampleType>& audio) override
         {
-            DeEsser::process (audio, nullptr);
+            DeEsser<SampleType>::process (audio, nullptr);
         }
         
         void fxChain_prepare (double samplerate, int blocksize) override
         {
-            DeEsser::prepare (blocksize, samplerate);
+            DeEsser<SampleType>::prepare (blocksize, samplerate);
         }
     
     private:
