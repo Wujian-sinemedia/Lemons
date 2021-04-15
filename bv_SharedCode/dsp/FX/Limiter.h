@@ -135,6 +135,37 @@ namespace bav::dsp::FX
     template class Limiter<float>;
     template class Limiter<double>;
     
-}  // namespace bav
+    
+    /*
+        A version that implements the ReorderableEffect interface, for use with my ReorderableFxChain class.
+    */
+    template<typename SampleType>
+    class ReorderableLimiter :    public Limiter,
+                                  public ReorderableEffect
+    {
+        using Limiter = Limiter<SampleType>;
+        
+    public:
+        ReorderableLimiter() { }
+    
+    protected:
+        void fxChain_process (juce::AudioBuffer<SampleType>& audio) override
+        {
+            Limiter::process (audio);
+        }
+        
+        void fxChain_prepare (double samplerate, int blocksize) override
+        {
+            Limiter::prepare (blocksize, samplerate, 2);
+        }
+    
+    private:
+        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ReorderableLimiter)
+    };
+    
+    template class ReorderableLimiter<float>;
+    template class ReorderableLimiter<double>;
+    
+}  // namespace 
 
 
