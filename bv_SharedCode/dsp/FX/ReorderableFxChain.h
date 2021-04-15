@@ -317,7 +317,7 @@ namespace bav::dsp
             jassert (getEffect(newNumber) != nullptr);
             
             if (lastSamplerate > 0.0 && lastBlocksize > 0)
-                getEffect(newNumber)->prepare (lastSamplerate, lastBlocksize);
+                getEffect(newNumber)->fxChain_prepare (lastSamplerate, lastBlocksize);
         }
      
         inline int highestCurrentEffectNumber()
