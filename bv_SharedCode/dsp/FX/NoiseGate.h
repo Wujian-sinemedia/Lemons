@@ -219,20 +219,18 @@ namespace bav::dsp::FX
     class ReorderableNoiseGate :    public NoiseGate<SampleType>,
                                     public ReorderableEffect<SampleType>
     {
-        using Gate = NoiseGate<SampleType>;
-        
     public:
         ReorderableNoiseGate() { }
     
     protected:
         void fxChain_process (juce::AudioBuffer<SampleType>& audio) override
         {
-            Gate::process (audio, nullptr);
+            NoiseGate<SampleType>::process (audio, nullptr);
         }
         
         void fxChain_prepare (double samplerate, int blocksize) override
         {
-            Gate::prepare (2, blocksize, samplerate);
+            NoiseGate<SampleType>::prepare (2, blocksize, samplerate);
         }
     
     private:
