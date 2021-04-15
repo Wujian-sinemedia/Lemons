@@ -27,11 +27,22 @@ namespace bav
                  rap->setValueNotifyingHost (rap->convertTo0to1 (argument.getFloat32()));
             else if (argument.isInt32())
                  rap->setValueNotifyingHost (rap->convertTo0to1 (float (argument.getInt32())));
+            else if (argument.isString())
+            {
+                 const auto string = argument.getString();
+                 
+                 if (string.containsIgnoreCase ("reset") || string.containsIgnoreCase ("default"))
+                      parameter->resetToDefault();
+                 else if (string.containsIgnoreCase ("refreshdefault") || string.containsIgnoreCase ("updatedefault"))
+                      parameter->refreshDefault();
+            }
         }
       
         Parameter* getParameter() const noexcept { return parameter; }
       
         juce::OSCAddress getOSCaddress() const noexcept { return address; }
+         
+        void changeOSCaddress (const juce::OSCAddress& newAddress) { address = newAddress; }
       
     private:
         Parameter* const parameter;
@@ -52,6 +63,25 @@ namespace bav
       {
           auto* newMapping = mappings.add (new OSC_Attachment (parameter, address));
           juce::OSCReceiver::addListener (newMapping, address);
+      }
+      
+      void loadMappingSet (OSC_Attachment* oscMappings, int numMappings)
+      {
+          mappings.clear();
+          mappings.ensureStorageAllocated (numMappings);
+
+          for (int i = 0; i < numMappings; ++i)
+          {
+              auto* mapping = oscMappings + i;
+              mappings.add (new MidiCC_Listener (mapping->getParameter(), mapping->getOSCaddress()));
+          }
+      }
+      
+      void changeMapping (OSC_Attachment* mapping, juce::OSCAddress newAddress)
+      {
+          juce::OSCReceiver::removeListener (mapping);
+          mapping.changeOSCaddress (newAddress);
+          juce::OSCReceiver::addListener (mapping, newAddress);
       }
       
       void removeMapping (OSC_Attachment* mapping)
