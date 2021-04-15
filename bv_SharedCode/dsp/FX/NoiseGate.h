@@ -216,8 +216,8 @@ namespace bav::dsp::FX
         A version that implements the ReorderableEffect interface, for use with my ReorderableFxChain class.
     */
     template<typename SampleType>
-    class ReorderableNoiseGate :    public NoiseGate,
-                                    public ReorderableEffect
+    class ReorderableNoiseGate :    public NoiseGate<SampleType>,
+                                    public ReorderableEffect<SampleType>
     {
         using Gate = NoiseGate<SampleType>;
         
