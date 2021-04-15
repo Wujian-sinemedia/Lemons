@@ -226,20 +226,18 @@ namespace bav::dsp::FX
     class ReorderableReverb :     public Reverb<SampleType>,
                                   public ReorderableEffect<SampleType>
     {
-        using Reverb = Reverb<SampleType>;
-        
     public:
         ReorderableReverb() { }
     
     protected:
         void fxChain_process (juce::AudioBuffer<SampleType>& audio) override
         {
-            Reverb::process (audio);
+            Reverb<SampleType>::process (audio);
         }
         
         void fxChain_prepare (double samplerate, int blocksize) override
         {
-            Reverb::prepare (blocksize, samplerate, 2);
+            Reverb<SampleType>::prepare (blocksize, samplerate, 2);
         }
     
     private:
