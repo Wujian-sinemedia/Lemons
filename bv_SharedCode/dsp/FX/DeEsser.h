@@ -135,7 +135,7 @@ template class DeEsser<double>;
     protected:
         void fxChain_process (juce::AudioBuffer<SampleType>& audio) override
         {
-            DeEsser::process (audio, nullptr)
+            DeEsser::process (audio, nullptr);
         }
         
         void fxChain_prepare (double samplerate, int blocksize) override
