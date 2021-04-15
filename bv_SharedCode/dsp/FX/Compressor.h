@@ -176,5 +176,36 @@ namespace bav::dsp::FX
     template class Compressor<float>;
     template class Compressor<double>;
     
+    
+    /*
+        A version that implements the ReorderableEffect interface, for use with my ReorderableFxChain class.
+    */
+    template<typename SampleType>
+    class ReorderableCompressor :    public Compressor,
+                                     public ReorderableEffect
+    {
+        using Compressor = Compressor<SampleType>;
+        
+    public:
+        ReorderableCompressor() { }
+    
+    protected:
+        void fxChain_process (juce::AudioBuffer<SampleType>& audio) override
+        {
+            Compressor::process (audio, nullptr);
+        }
+        
+        void fxChain_prepare (double samplerate, int blocksize) override
+        {
+            Compressor::prepare (blocksize, samplerate, 2);
+        }
+    
+    private:
+        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ReorderableCompressor)
+    };
+    
+    template class ReorderableCompressor<float>;
+    template class ReorderableCompressor<double>;
+    
 }  // namespace bav
 
