@@ -118,6 +118,37 @@ private:
 
 template class DeEsser<float>;
 template class DeEsser<double>;
+ 
+ 
+    /*
+        A version that implements the ReorderableEffect interface, for use with my ReorderableFxChain class.
+    */
+    template<typename SampleType>
+    class ReorderableDeEsser :    public DeEsser,
+                                  public ReorderableEffect
+    {
+        using DeEsser = DeEsser<SampleType>;
+        
+    public:
+        ReorderableDeEsser() { }
+    
+    protected:
+        void fxChain_process (juce::AudioBuffer<SampleType>& audio) override
+        {
+            DeEsser::process (audio, nullptr)
+        }
+        
+        void fxChain_prepare (double samplerate, int blocksize) override
+        {
+            DeEsser::prepare (blocksize, samplerate);
+        }
+    
+    private:
+        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ReorderableDeEsser)
+    };
+    
+    template class ReorderableDeEsser<float>;
+    template class ReorderableDeEsser<double>;
 
 }  // namespace
 
