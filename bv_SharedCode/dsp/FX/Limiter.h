@@ -143,20 +143,18 @@ namespace bav::dsp::FX
     class ReorderableLimiter :    public Limiter<SampleType>,
                                   public ReorderableEffect<SampleType>
     {
-        using Limiter = Limiter<SampleType>;
-        
     public:
         ReorderableLimiter() { }
     
     protected:
         void fxChain_process (juce::AudioBuffer<SampleType>& audio) override
         {
-            Limiter::process (audio);
+            Limiter<SampleType>::process (audio);
         }
         
         void fxChain_prepare (double samplerate, int blocksize) override
         {
-            Limiter::prepare (blocksize, samplerate, 2);
+            Limiter<SampleType>::prepare (blocksize, samplerate, 2);
         }
     
     private:
