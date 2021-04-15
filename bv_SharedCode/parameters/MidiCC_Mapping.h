@@ -67,7 +67,7 @@ namespace bav
     class MidiCC_MappingManager
     {
     public:
-        MidiCC_MappingManager() { }
+        MidiCC_MappingManager(): lastMovedController(0), lastControllerValue(0) { }
         
         ~MidiCC_MappingManager() { mappings.clear(); }
         
@@ -155,6 +155,9 @@ namespace bav
         {
             for (auto* mapping : mappings)
                 mapping->processNewControllerMessage (controllerNumber, controllerValue);
+            
+            lastMovedController.store (controllerNumber);
+            lastControllerValue.store (controllerValue);
         }
         
         /* if the parameter is currently mapped, returns a pointer to its MidiCC_Listener; else returns a nullptr */
@@ -178,8 +181,19 @@ namespace bav
         }
         
         
+        void getLastMovedController (int* controllerNumber, int* controllerValue = nullptr)
+        {
+            if (controllerNumber != nullptr)
+                *controllerNumber = lastMovedController.load();
+            
+            if (controllerValue != nullptr)
+                *controllerValue = lastControllerValue.load();
+        }
+        
+        
     private:
         juce::OwnedArray< MidiCC_Listener > mappings;
+        std::atomic<int> lastMovedController, lastControllerValue;
     };
     
 }  // namespace
