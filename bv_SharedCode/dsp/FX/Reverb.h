@@ -223,7 +223,7 @@ namespace bav::dsp::FX
         A version that implements the ReorderableEffect interface, for use with my ReorderableFxChain class.
     */
     template<typename SampleType>
-    class ReorderableReverb :     public Reverb<SampleType>,
+    class ReorderableReverb :     public Reverb,
                                   public ReorderableEffect<SampleType>
     {
     public:
@@ -232,12 +232,12 @@ namespace bav::dsp::FX
     protected:
         void fxChain_process (juce::AudioBuffer<SampleType>& audio) override
         {
-            Reverb<SampleType>::process (audio);
+            Reverb::process (audio);
         }
         
         void fxChain_prepare (double samplerate, int blocksize) override
         {
-            Reverb<SampleType>::prepare (blocksize, samplerate, 2);
+            Reverb::prepare (blocksize, samplerate, 2);
         }
     
     private:
