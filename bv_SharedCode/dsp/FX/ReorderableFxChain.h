@@ -28,18 +28,22 @@ namespace bav::dsp
         
         
     protected:
-        
+        /*
+            These are the virtual functions you should override to implement the effect's functionality. 
+            These purposefully have unique names so that you can easily add the ReorderableEffect interface to an existing effect or processor class; usually you can just reroute these functions to your previously implemented process(), prepare(), etc.
+        */
+     
         // called in the subclass to apply the effect to the input audio. Output should be rendered in place.
-        virtual void process (AudioBuffer& audio) = 0;
+        virtual void fxChain_process (AudioBuffer& audio) = 0;
         
         
-        virtual void bypassedBlock (const int numSamples)
+        virtual void fxChain_bypassedBlock (const int numSamples)
         {
             juce::ignoreUnused (numSamples);
         }
         
         
-        virtual void prepare (double samplerate, int blocksize)
+        virtual void fxChain_prepare (double samplerate, int blocksize)
         {
             juce::ignoreUnused (samplerate, blocksize);
         }
@@ -77,24 +81,56 @@ namespace bav::dsp
         
         virtual ~ReorderableFxChain() = default;
         
-        // adds an effect to the chain. Returns the actual number in the chain that the effect was placed in.
+        // adds an effect to the chain. Returns the actual number in the chain that the effect was placed in. (Doesn't move anything in the chain around.)
         int addEffect (Effect* effect, const int numberInChain, bool addAsBypassed = false)
         {
+            jassert (effect != nullptr);
+         
             const auto newNumber = assignNewEffectNumber (numberInChain);
             
             jassert (newNumber >= 0);
             
-            effect->effectNumber = newNumber;
+            addEffectWithNumber (effect, newNumber, addAsBypassed);
             
-            effect->isBypassed = addAsBypassed;
-            
-            effects.add (effect);
-            
-            jassert (getEffect(newNumber) != nullptr);
-            
-            if (lastSamplerate > 0.0 && lastBlocksize > 0)
-                getEffect(newNumber)->prepare (lastSamplerate, lastBlocksize);
-            
+            return newNumber;
+        }
+     
+        // adds an effect to the chain between two others in the chain. If it needs to, this function will move everything in the chain after the new node up by one position number to fit the new effect in.
+        // -1 indicates an error, and that the new effect was not added to the chain.
+        // to add an effect in a much more 'friendly' way, use the above addEffect() function -- the effect is guarunteed to be added to the chain, and it doesn't move any of the existing effects around.
+        int addEffectBetweenTwoOthers (Effect* effectToAdd, Effect* slotBeforeNew, Effect* slotAfterNew, bool addEffectAsBypassed = false)
+        {
+            jassert (effectToAdd != nullptr);
+         
+            if (slotBeforeNew == nullptr || slotAfterNew == nullptr)
+                return -1;
+         
+            if (slotBeforeNew->effectNumber == slotAfterNew->effectNumber)
+                return -1;
+         
+            if (slotBeforeNew->effectNumber > slotAfterNew->effectNumber)
+            {
+                auto* temp = slotBeforeNew;
+                slotBeforeNew = slotAfterNew;
+                slotAfterNew = temp;
+            }
+         
+            for (int i = slotBeforeNew->effectNumber + 1; i < slotAfterNew->effectNumber; ++i)
+            {
+                if (isEffectNumberAvailable (i))
+                {
+                    addEffectWithNumber (effectToAdd, i, addEffectAsBypassed);
+                    return i;
+                }
+            }
+         
+            const auto newNumber = slotBeforeNew->effectNumber + 1;
+         
+            for (int i = newNumber; i < highestCurrentEffectNumber(); ++i)
+                if (auto* fct = getEffect(i))
+                    fct->effectNumber++;
+         
+            addEffectWithNumber (effectToAdd, newNumber, addEffectAsBypassed);
             return newNumber;
         }
         
@@ -183,7 +219,7 @@ namespace bav::dsp
             lastBlocksize = blocksize;
             
             for (auto* effect : effects)
-                effect->prepare (samplerate, blocksize);
+                effect->fxChain_prepare (samplerate, blocksize);
         }
         
         
@@ -205,9 +241,9 @@ namespace bav::dsp
                 if (auto* effect = getEffect(i))
                 {
                     if (effect->isBypassed)
-                        effect->bypassedBlock (numSamples);
+                        effect->fxChain_bypassedBlock (numSamples);
                     else
-                        effect->process (audio);
+                        effect->fxChain_process (audio);
                 }
             }
         }
@@ -219,7 +255,7 @@ namespace bav::dsp
         void bypassedBlock (const int numSamples)
         {
             for (auto* effect : effects)
-                effect->bypassedBlock (numSamples);
+                effect->fxChain_bypassedBlock (numSamples);
         }
         
         
@@ -237,11 +273,7 @@ namespace bav::dsp
            if (isEffectNumberAvailable (requestedNumber))
                return requestedNumber;
            
-           int maxNumber = -1;
-           
-           for (auto* effect : effects)
-               if (effect->effectNumber > maxNumber)
-                   maxNumber = effect->effectNumber;
+           const auto maxNumber = highestCurrentEffectNumber();
            
            for (int num = 0, p = 1, m = -1;
                 num <= maxNumber;
@@ -270,6 +302,34 @@ namespace bav::dsp
            
            return true;
        }
+     
+     
+        inline void addEffectWithNumber (Effect* effect, int newNumber, bool addAsBypassed)
+        {
+            jassert (isEffectNumberAvailable (newNumber));
+         
+            effect->effectNumber = newNumber;
+            
+            effect->isBypassed = addAsBypassed;
+            
+            effects.add (effect);
+            
+            jassert (getEffect(newNumber) != nullptr);
+            
+            if (lastSamplerate > 0.0 && lastBlocksize > 0)
+                getEffect(newNumber)->prepare (lastSamplerate, lastBlocksize);
+        }
+     
+        inline int highestCurrentEffectNumber()
+        {
+           int maxNumber = -1;
+           
+           for (auto* effect : effects)
+               if (effect->effectNumber > maxNumber)
+                   maxNumber = effect->effectNumber;
+         
+           return maxNumber;
+        }
         
         /*
         */
