@@ -124,8 +124,8 @@ template class DeEsser<double>;
         A version that implements the ReorderableEffect interface, for use with my ReorderableFxChain class.
     */
     template<typename SampleType>
-    class ReorderableDeEsser :    public DeEsser,
-                                  public ReorderableEffect
+    class ReorderableDeEsser :    public DeEsser<SampleType>,
+                                  public ReorderableEffect<SampleType>
     {
         using DeEsser = DeEsser<SampleType>;
         
