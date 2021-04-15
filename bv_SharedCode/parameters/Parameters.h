@@ -68,6 +68,9 @@ namespace bav
             currentDefault.store (getCurrentNormalizedValue());
         }
         
+        // resets the parameter to its currently stored default
+        void resetToDefault() { rap->setValueNotifyingHost (currentDefault.load()); }
+        
         // returns the parameter's current value as a normalized float in range 0.0 to 1.0
         float getCurrentNormalizedValue() const { return rap->getValue(); }
         
