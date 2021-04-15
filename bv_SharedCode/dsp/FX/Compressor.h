@@ -184,20 +184,18 @@ namespace bav::dsp::FX
     class ReorderableCompressor :    public Compressor<SampleType>,
                                      public ReorderableEffect<SampleType>
     {
-        using Compressor = Compressor<SampleType>;
-        
     public:
         ReorderableCompressor() { }
     
     protected:
         void fxChain_process (juce::AudioBuffer<SampleType>& audio) override
         {
-            Compressor::process (audio, nullptr);
+            Compressor<SampleType>::process (audio, nullptr);
         }
         
         void fxChain_prepare (double samplerate, int blocksize) override
         {
-            Compressor::prepare (blocksize, samplerate, 2);
+            Compressor<SampleType>::prepare (blocksize, samplerate, 2);
         }
     
     private:
