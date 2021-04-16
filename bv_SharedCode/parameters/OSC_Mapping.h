@@ -63,6 +63,11 @@ namespace bav
     public:
       OSCMappingManager(bool enabledAtStart = true) { enabled.store(enabledAtStart); }
       
+      void addNewMapping (Parameter* parameter, const char* oscAddress)
+      {
+          addNewMapping (parameter, juce::OSCAddress(oscAddress));
+      }
+      
       void addNewMapping (Parameter* parameter, juce::OSCAddress address)
       {
           auto* newMapping = mappings.add (new OSC_Attachment (parameter, address, enabled.load()));
