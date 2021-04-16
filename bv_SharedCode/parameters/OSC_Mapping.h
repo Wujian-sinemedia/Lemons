@@ -119,7 +119,7 @@ namespace bav
       
       void clearAllMappings()
       {
-          while (! mappings.isEmpty() {
+          while (! mappings.isEmpty()) {
               removeMapping (mappings.getFirst());
           }
       }
