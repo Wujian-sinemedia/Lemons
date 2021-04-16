@@ -8,14 +8,15 @@ namespace bav
     class OSC_Attachment  :   public juce::OSCReceiver::ListenerWithOSCAddress< juce::OSCReceiver::RealtimeCallback >
     {
     public:
-        OSC_Attachment(Parameter* param, juce::OSCAddress addr): parameter(param), address(addr)
+        OSC_Attachment(Parameter* param, juce::OSCAddress addr, bool enabledAtStart = true): parameter(param), address(addr)
         {
             jassert (parameter != nullptr);
+             enabled.store (enabledAtStart);
         }
       
         void oscMessageReceived (const juce::OSCMessage& message) override
         {
-            if (message.isEmpty())
+            if (message.isEmpty() || ! enabled.load())
                  return;
              
             const auto argument = message[0];
@@ -43,10 +44,13 @@ namespace bav
         juce::OSCAddress getOSCaddress() const noexcept { return address; }
          
         void changeOSCaddress (const juce::OSCAddress& newAddress) { address = newAddress; }
+         
+        void setEnabled (bool isNowEnabled) { enabled.store (isNowEnabled); }
       
     private:
         Parameter* const parameter;
         juce::OSCAddress address;
+        std::atomic<bool> enabled;
     };
   
   
@@ -57,11 +61,11 @@ namespace bav
     class OSCMappingManager  :    public juce::OSCReceiver
     {
     public:
-      OSCMappingManager() { }
+      OSCMappingManager(bool enabledAtStart = true) { enabled.store(enabledAtStart); }
       
       void addNewMapping (Parameter* parameter, juce::OSCAddress address)
       {
-          auto* newMapping = mappings.add (new OSC_Attachment (parameter, address));
+          auto* newMapping = mappings.add (new OSC_Attachment (parameter, address, enabled.load()));
           juce::OSCReceiver::addListener (newMapping, address);
       }
       
@@ -73,7 +77,7 @@ namespace bav
           for (int i = 0; i < numMappings; ++i)
           {
               auto* mapping = oscMappings + i;
-              mappings.add (new OSC_Attachment (mapping->getParameter(), mapping->getOSCaddress()));
+              mappings.add (new OSC_Attachment (mapping->getParameter(), mapping->getOSCaddress(), enabled.load()));
           }
       }
       
@@ -110,14 +114,25 @@ namespace bav
       
       void clearAllMappings()
       {
-          do {
+          while (! mappings.isEmpty() {
               removeMapping (mappings.getFirst());
-          } while (! mappings.isEmpty());
+          }
       }
+      
+      void setEnabled (bool shouldBeEnabled) 
+      { 
+          enabled.store (shouldBeEnabled); 
+          
+          for (auto* mapping : mappings)
+              mapping->setEnabled (shouldBeEnabled);
+      }
+      
+      bool areOscMessagesEnabled() const noexcept { return enabled.load(); }
       
      
     private:
       juce::OwnedArray< OSC_Attachment > mappings;
+      std::atomic<bool> enabled;
     };
   
   
