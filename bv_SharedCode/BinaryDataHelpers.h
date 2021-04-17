@@ -10,6 +10,7 @@
 #pragma once
 
 #include "BinaryData.h"
+#include <juce_graphics/juce_graphics.h>
 
 
 namespace bav::Assets
