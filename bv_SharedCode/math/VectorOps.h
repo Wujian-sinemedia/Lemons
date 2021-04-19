@@ -136,9 +136,9 @@ static BV_FORCE_INLINE void copy (const double* const BV_R_ source, double* cons
     ippsMove_64f (source, dest, count);
 #elif BV_USE_MIPP
     const auto vecLoopSize = (count / mipp::N<double>()) * mipp::N<double>();
-    mipp::Reg<float> rin, rout;
+    mipp::Reg<double> rin, rout;
     for (int i = 0; i < vecLoopSize; i += mipp::N<double>()) {
-        rin.load(&source[i]);
+        rin.load (&source[i]);
         rout = rin;
         rout.store (&dest[i]);
     }
@@ -515,7 +515,7 @@ static BV_FORCE_INLINE void cartesian_interleaved_to_magnitudes (float* const BV
 #elif BV_USE_MIPP
     const auto vecLoopSize = (count / mipp::N<float>()) * mipp::N<float>();
     
-    mipp::reg<float> realIn, imagIn, magOut;
+    mipp::Reg<float> realIn, imagIn, magOut;
     
     for (int i = 0; i < vecLoopSize; i += mipp::N<float>()) {
         realIn.load (&src[i*2]);
@@ -548,7 +548,7 @@ static BV_FORCE_INLINE void cartesian_interleaved_to_magnitudes (double* const B
 #elif BV_USE_MIPP
     const auto vecLoopSize = (count / mipp::N<double>()) * mipp::N<double>();
     
-    mipp::reg<double> realIn, imagIn, magOut;
+    mipp::Reg<double> realIn, imagIn, magOut;
     
     for (int i = 0; i < vecLoopSize; i += mipp::N<double>()) {
         realIn.load (&src[i*2]);
@@ -618,22 +618,22 @@ static BV_FORCE_INLINE void polar_to_cartesian_interleaved (float* const BV_R_ d
 #if BV_USE_IPP
     ippsPolarToCart_32fc (mag, phase, dst, count);
 #elif BV_USE_MIPP
-    const auto vecLoopSize = (dataSize / mipp::N<float>()) * mipp::N<float>();
+    const auto vecLoopSize = (count / mipp::N<float>()) * mipp::N<float>();
     
-    mipp::Reg<float> magIn, phaseIn, realOut, ImagOut;
+    mipp::Reg<float> magIn, phaseIn, realOut, imagOut;
     
     for (int i = 0; i < vecLoopSize; i += mipp::N<float>()) {
         magIn.load (&mag[i]);
         phaseIn.load (&phase[i]);
         realOut = mipp::cos (phaseIn) * magIn;
         imagOut = mipp::sin (phaseIn) * magIn;
-        realOut.store (&real[i*2]);
-        imagOut.store (&imag[i*2+1]);
+        realOut.store (&dst[i*2]);
+        imagOut.store (&dst[i*2+1]);
     }
     
     float real, imag;
     for (int i = vecLoopSize; i < dataSize; ++i) {
-        phasor (&real, &imag, phase[i])
+        phasor (&real, &imag, phase[i]);
         const auto m_mag = mag[i];
         dst[i*2] = real * m_mag;
         dst[i*2+1] = imag * m_mag;
@@ -659,22 +659,22 @@ static BV_FORCE_INLINE void polar_to_cartesian_interleaved (double* const BV_R_ 
 #if BV_USE_IPP
     ippsPolarToCart_64fc (mag, phase, dst, count);
 #elif BV_USE_MIPP
-    const auto vecLoopSize = (dataSize / mipp::N<float>()) * mipp::N<float>();
+    const auto vecLoopSize = (count / mipp::N<float>()) * mipp::N<float>();
     
-    mipp::Reg<float> magIn, phaseIn, realOut, ImagOut;
+    mipp::Reg<double> magIn, phaseIn, realOut, imagOut;
     
     for (int i = 0; i < vecLoopSize; i += mipp::N<float>()) {
         magIn.load (&mag[i]);
         phaseIn.load (&phase[i]);
         realOut = mipp::cos (phaseIn) * magIn;
         imagOut = mipp::sin (phaseIn) * magIn;
-        realOut.store (&real[i*2]);
-        imagOut.store (&imag[i*2+1]);
+        realOut.store (&dst[i*2]);
+        imagOut.store (&dst[i*2+1]);
     }
     
     float real, imag;
     for (int i = vecLoopSize; i < dataSize; ++i) {
-        phasor (&real, &imag, phase[i])
+        phasor (&real, &imag, phase[i]);
         const auto m_mag = mag[i];
         dst[i*2] = real * m_mag;
         dst[i*2+1] = imag * m_mag;
