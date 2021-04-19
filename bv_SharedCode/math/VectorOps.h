@@ -743,7 +743,7 @@ static constexpr bool isUsingFallback()
 #elif BV_USE_IPP
   #include "vecops/vecops_ipp.h"
 #elif BV_USE_MIPP
-  #include "vecops/vecops/vecops_mipp.h"
+  #include "vecops/vecops_mipp.h"
 #elif BV_USE_NE10
   #include "vecops/vecops_ne10.h"
 #else
