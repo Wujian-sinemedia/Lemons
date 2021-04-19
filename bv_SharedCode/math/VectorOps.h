@@ -672,7 +672,7 @@ static BV_FORCE_INLINE void polar_to_cartesian_interleaved (double* const BV_R_ 
         imagOut.store (&dst[i*2+1]);
     }
     
-    float real, imag;
+    double real, imag;
     for (int i = vecLoopSize; i < count; ++i) {
         phasor (&real, &imag, phase[i]);
         const auto m_mag = mag[i];
