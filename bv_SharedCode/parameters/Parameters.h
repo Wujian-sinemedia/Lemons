@@ -185,8 +185,8 @@ namespace bav
         
     public:
         // use the constructor just like you would the constructor for juce::AudioParameterInt. All the args are simply forwarded.
-        BoolParameter(juce::String parameterID, juce::String parameterName, bool defaultVal):
-                AudioParameterBool(parameterID, parameterName, defaultVal),
+        BoolParameter(juce::String parameterID, juce::String parameterName, bool defaultVal, juce::String parameterLabel = juce::String(), std::function<juce::String(bool value, int maximumStringLength)> stringFromBool = nullptr, std::function<bool(const juce::String& text)> boolFromString = nullptr):
+                AudioParameterBool(parameterID, parameterName, defaultVal, parameterLabel, stringFromBool, boolFromString),
                 Parameter(dynamic_cast<juce::RangedAudioParameter*>(this),
                           AudioParameterBool::getNormalisableRange().convertTo0to1 (float(defaultVal)))
         {
