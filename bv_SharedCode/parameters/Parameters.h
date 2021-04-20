@@ -105,8 +105,8 @@ namespace bav
         
     public:
         // use the constructor just like you would the constructor for juce::AudioParameterFloat. All the args are simply forwarded.
-        FloatParameter(juce::String parameterID, juce::String parameterName, juce::NormalisableRange<float> nRange, float defaultVal):
-                AudioParameterFloat(parameterID, parameterName, nRange, defaultVal),
+        FloatParameter(juce::String parameterID, juce::String parameterName, juce::NormalisableRange<float> nRange, float defaultVal, juce::String parameterLabel = juce::String(), juce::AudioProcessorParameter::Category parameterCategory = juce::AudioProcessorParameter::genericParameter, std::function<juce::String(float value, int maximumStringLength)> stringFromValue = nullptr, std::function<float(const juce::String& text)> valueFromString = nullptr):
+                AudioParameterFloat(parameterID, parameterName, nRange, defaultVal, parameterLabel, parameterCategory, stringFromValue, valueFromString),
                 Parameter(dynamic_cast<juce::RangedAudioParameter*>(this), nRange.convertTo0to1 (defaultVal))
         {
         }
