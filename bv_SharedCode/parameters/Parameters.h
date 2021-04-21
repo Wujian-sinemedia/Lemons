@@ -15,13 +15,13 @@ namespace bav
     
     static inline int midiPanStringToInt (const juce::String& string)
     {
-        if (string.endsWithIgnoreCase ("C"))
+        if (string.endsWithIgnoreCase (TRANS("C")))
             return 64;
         
-        if (string.endsWithIgnoreCase ("R"))
+        if (string.endsWithIgnoreCase (TRANS("R")))
             return juce::jmap (string.dropLastCharacters(1).getIntValue(), 1, 50, 65, 127);
         
-        if (string.endsWithIgnoreCase ("L"))
+        if (string.endsWithIgnoreCase (TRANS("L")))
             return juce::jmap (string.dropLastCharacters(1).getIntValue(), 1, 50, 63, 0);
         
         return string.getIntValue();
@@ -30,16 +30,16 @@ namespace bav
     static inline juce::String midiPanIntToString (const int midiPan)
     {
         if (midiPan == 64)
-            return juce::String ("C");
+            return juce::String (TRANS("C"));
         
         if (midiPan > 64)
         { 
             const auto amtRight = juce::jmap (midiPan, 65, 127, 1, 50);
-            return juce::String (amtRight) + "R";
+            return juce::String (amtRight) + TRANS("R");
         }
         
         const auto amtLeft = juce::jmap (midiPan, 63, 0, 1, 50);
-        return juce::String (amtLeft) + "L";
+        return juce::String (amtLeft) + TRANS("L");
     }    
     
     
