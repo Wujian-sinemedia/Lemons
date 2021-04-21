@@ -40,6 +40,8 @@
 #include "math/VectorOps.h"
 #include "math/intOps.h"
 
+#include "gui/gui.h"
+
 #include "midi/MidiFIFO.h"
 #include "midi/MidiUtilities.h"
 
@@ -54,8 +56,6 @@
 #include "dsp/FX/Reverb.h"
 #include "dsp/FIFOWrappedEngine.h"
 #include "dsp/pitch-detector.h"
-
-#include "gui/gui.h"
 
 #include "parameters/MessageQueue.h"
 #include "parameters/Parameters.h"
