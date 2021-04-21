@@ -102,10 +102,15 @@ namespace bav
     }
     
     
-    // simple function to silence "unused variable" warnings
-    template <typename... Args>
-    BV_FORCE_INLINE void unused(Args&&...) {}
-    
+    /* helper struct that can be used to initialize Juce's translation features in a processor constructor's initialization list */
+    struct TranslationInitializer
+    {
+        TranslationInitializer(juce::File& translationFileToUse)
+        {
+            juce::LocalisedStrings::setCurrentMappings (new juce::LocalisedStrings (translationFileToUse, true)); 
+        }
+    };
+ 
     
 }  // namespace
 
