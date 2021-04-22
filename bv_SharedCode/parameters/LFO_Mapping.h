@@ -14,7 +14,7 @@ namespace bav
       
         void addMapping (Parameter* param) 
         { 
-            jassert (param != nullpr && param->orig() != nullptr);
+            jassert (param != nullptr && param->orig() != nullptr);
           
             if (! destinations.contains (param))
                 destinations.add (param); 
