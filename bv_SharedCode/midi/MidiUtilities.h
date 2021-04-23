@@ -73,7 +73,7 @@ namespace bav::midi
     }
  
     // converts a pitch class string to an integer representation, eg A4 = note 69
-    inline int stringToPitch (const juce::String& string, const bool asSharps = true)
+    inline int stringToPitch (const juce::String& string)
     {
         const auto octaveName = string.retainCharacters ("0123456789");
      
