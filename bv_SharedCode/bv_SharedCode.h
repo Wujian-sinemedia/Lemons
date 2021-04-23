@@ -23,6 +23,29 @@
 
 #include "core/System.h"
 
+#if BV_USE_VDSP
+  #include <Accelerate/Accelerate.h>
+#elif BV_USE_IPP
+  #include <ippversion.h>
+  #include <ipps.h>
+#elif BV_USE_NE10
+  #include <NE10.h>
+#elif BV_USE_MIPP
+  #include "mipp.h"
+#endif
+
+#if JUCE_MAC || JUCE_IOS
+  #import <Foundation/Foundation.h>
+  #include <sys/stat.h>
+#elif JUCE_WINDOWS
+  #include <Windows.h>
+#elif JUCE_LINUX || JUCE_ANDROID
+  #include <sys/inotify.h>
+  #include <sys/stat.h>
+#else
+  #error
+#endif
+
 #include <climits>
 
 

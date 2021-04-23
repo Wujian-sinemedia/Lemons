@@ -4,11 +4,10 @@
 */
 
 
-#undef BV_POSIX
-#if JUCE_LINUX || JUCE_MAC || JUCE_BSD
-  #define BV_POSIX 1
-#else
+#if JUCE_WINDOWS || JUCE_IOS || JUCE_ANDROID
   #define BV_POSIX 0
+#else
+  #define BV_POSIX 1
 #endif
 
 
@@ -26,10 +25,8 @@
 /// vDSP ///
 
 #ifdef BV_IGNORE_VDSP
-  #ifdef BV_USE_VDSP
-    #undef BV_USE_VDSP
-  #endif
-#define BV_USE_VDSP 0
+  #undef BV_USE_VDSP
+  #define BV_USE_VDSP 0
 #endif
 
 #ifndef BV_USE_VDSP
@@ -38,24 +35,16 @@
   #else
     #define BV_USE_VDSP 0
   #endif
-#endif  /* ifndef BV_USE_VDSP */
+#endif
 
 #if BV_USE_VDSP
-  #include <Accelerate/Accelerate.h>
-
-  #ifndef BV_IGNORE_IPP
-    #define BV_IGNORE_IPP
-  #endif
-
-  #ifndef BV_IGNORE_NE10
-    #define BV_IGNORE_NE10
-  #endif
-
-  #ifndef BV_IGNORE_MIPP
-    #define BV_IGNORE_MIPP
-  #endif
-
-#endif /* if BV_USE_VDSP */
+  #undef BV_IGNORE_IPP
+  #undef BV_IGNORE_NE10
+  #undef BV_IGNORE_MIPP
+  #define BV_IGNORE_IPP
+  #define BV_IGNORE_NE10
+  #define BV_IGNORE_MIPP
+#endif
 
 #ifdef JUCE_USE_VDSP_FRAMEWORK
   #undef JUCE_USE_VDSP_FRAMEWORK
@@ -71,10 +60,8 @@
 #endif
 
 #ifdef BV_IGNORE_IPP
-  #ifdef BV_USE_IPP
-    #undef BV_USE_IPP
-  #endif
-#define BV_USE_IPP 0
+  #undef BV_USE_IPP
+  #define BV_USE_IPP 0
 #endif
 
 #ifndef BV_USE_IPP
@@ -82,18 +69,11 @@
 #endif
 
 #if BV_USE_IPP
-  #include <ippversion.h>
-  #include <ipps.h>
-
-  #ifndef BV_IGNORE_NE10
-    #define BV_IGNORE_NE10
-  #endif
-
-  #ifndef BV_IGNORE_MIPP
-    #define BV_IGNORE_MIPP
-  #endif
-
-#endif /* if BV_USE_IPP */
+  #undef BV_IGNORE_NE10
+  #undef BV_IGNORE_MIPP
+  #define BV_IGNORE_NE10
+  #define BV_IGNORE_MIPP
+#endif
 
 
 /// Ne10 ///
@@ -103,10 +83,8 @@
 #endif
 
 #ifdef BV_IGNORE_NE10
-  #ifdef BV_USE_NE10
-    #undef BV_USE_NE10
-  #endif
-#define BV_USE_NE10 0
+  #undef BV_USE_NE10
+  #define BV_USE_NE10 0
 #endif
 
 #ifndef BV_USE_NE10
@@ -114,29 +92,20 @@
 #endif
 
 #if BV_USE_NE10
-  #include <NE10.h>
-
-  #ifndef BV_IGNORE_MIPP
-    #define BV_IGNORE_MIPP
-  #endif
+  #undef BV_IGNORE_MIPP
+  #define BV_IGNORE_MIPP
 #endif
 
 
 /// MIPP ///
 
 #ifdef BV_IGNORE_MIPP
-  #ifdef BV_USE_MIPP
-    #undef BV_USE_MIPP
-  #endif
-#define BV_USE_MIPP 0
+  #undef BV_USE_MIPP
+  #define BV_USE_MIPP 0
 #endif
 
 #ifndef BV_USE_MIPP
   #define BV_USE_MIPP 0
-#endif
-
-#if BV_USE_MIPP
-  #include "mipp.h"
 #endif
 
 

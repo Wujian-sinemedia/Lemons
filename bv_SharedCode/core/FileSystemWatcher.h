@@ -285,7 +285,7 @@ public:
 #elif JUCE_WINDOWS  /* elif JUCE_LINUX */
 
 class FileSystemWatcher::Impl : private juce::AsyncUpdater,
-private juce::Thread
+                                private juce::Thread
 {
 public:
     struct Event
