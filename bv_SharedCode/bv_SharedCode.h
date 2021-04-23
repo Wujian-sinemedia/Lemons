@@ -34,18 +34,6 @@
   #include "mipp.h"
 #endif
 
-#if JUCE_MAC || JUCE_IOS
-//  #import <Foundation/Foundation.h>
-//  #include <sys/stat.h>
-#elif JUCE_WINDOWS
-  #include <Windows.h>
-#elif JUCE_LINUX || JUCE_ANDROID
-  #include <sys/inotify.h>
-  #include <sys/stat.h>
-#else
-  #error
-#endif
-
 #include <climits>
 
 
@@ -58,10 +46,7 @@
 #include "core/AlignedAllocate.h"
 #include "core/DataHelpers.h"
 #include "core/LockFreeFifo.h"
-
-#if ! JUCE_MAC || JUCE_IOS
-  #include "core/FileSystemWatcher.h"
-#endif
+//#include "core/FileSystemWatcher.h"
 
 #include "math/mathHelpers.h"
 #include "math/VectorOps.h"
