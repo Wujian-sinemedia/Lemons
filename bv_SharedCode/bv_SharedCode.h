@@ -35,8 +35,8 @@
 #endif
 
 #if JUCE_MAC || JUCE_IOS
-  #import <Foundation/Foundation.h>
-  #include <sys/stat.h>
+//  #import <Foundation/Foundation.h>
+//  #include <sys/stat.h>
 #elif JUCE_WINDOWS
   #include <Windows.h>
 #elif JUCE_LINUX || JUCE_ANDROID
@@ -59,8 +59,8 @@
 #include "core/DataHelpers.h"
 #include "core/LockFreeFifo.h"
 
-#if ! JUCE_MAC
-#include "core/FileSystemWatcher.h"
+#if ! JUCE_MAC || JUCE_IOS
+  #include "core/FileSystemWatcher.h"
 #endif
 
 #include "math/mathHelpers.h"
