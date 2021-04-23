@@ -35,12 +35,14 @@
 #include "core/AlignedAllocate.h"
 #include "core/DataHelpers.h"
 #include "core/LockFreeFifo.h"
+#include "core/FileSystemWatcher.h"
 
 #include "math/mathHelpers.h"
 #include "math/VectorOps.h"
 #include "math/intOps.h"
 
 #include "gui/gui.h"
+#include "gui/Spline.h"
 
 #include "midi/MidiFIFO.h"
 #include "midi/MidiUtilities.h"
@@ -62,6 +64,10 @@
 #include "parameters/MidiCC_Mapping.h"
 #include "parameters/OSC_Mapping.h"
 #include "parameters/LFO_Mapping.h"
+#include "parameters/ValueTreeUtilities.h"
+
+#include "network/AsyncDownload.h"
+#include "network/DownloadManager.h"
 
 
 #ifndef BV_HAS_BINARY_DATA
