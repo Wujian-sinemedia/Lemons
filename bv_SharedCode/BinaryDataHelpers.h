@@ -27,17 +27,4 @@ namespace bav::Assets
         return names;
     }
     
-    
-    // returns an image loaded into BinaryData as a juce::Image object
-    inline juce::Image getImage (const juce::String& name)
-    {
-        int dataSize = 0;
-        
-        if (const char* data = BinaryData::getNamedResource (name.toRawUTF8(), dataSize))
-            return juce::ImageCache::getFromMemory (data, dataSize);
-        
-        return {};
-    }
-
-    
 }  // namespace
