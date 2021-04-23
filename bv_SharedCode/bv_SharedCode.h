@@ -35,7 +35,10 @@
 #include "core/AlignedAllocate.h"
 #include "core/DataHelpers.h"
 #include "core/LockFreeFifo.h"
-//#include "core/FileSystemWatcher.h"
+
+#if ! JUCE_MAC
+#include "core/FileSystemWatcher.h"
+#endif
 
 #include "math/mathHelpers.h"
 #include "math/VectorOps.h"
