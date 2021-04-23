@@ -32,15 +32,15 @@
 #endif
 
 
-#if JUCE_MAC
-  #include <Foundation.h>
-#endif
+//#if JUCE_MAC
+//  #include <Foundation/Foundation.h>
+//#endif
 
 
 #include "core/AlignedAllocate.h"
 #include "core/DataHelpers.h"
 #include "core/LockFreeFifo.h"
-#include "core/FileSystemWatcher.h"
+//#include "core/FileSystemWatcher.h"
 
 #include "math/mathHelpers.h"
 #include "math/VectorOps.h"
