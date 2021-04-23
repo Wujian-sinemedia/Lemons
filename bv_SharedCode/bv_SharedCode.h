@@ -32,6 +32,11 @@
 #endif
 
 
+#if JUCE_MAC
+  #include <Foundation.h>
+#endif
+
+
 #include "core/AlignedAllocate.h"
 #include "core/DataHelpers.h"
 #include "core/LockFreeFifo.h"

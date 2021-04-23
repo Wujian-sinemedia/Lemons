@@ -15,26 +15,11 @@ public:
     
     //==============================================================================
     /* Adds a folder to be watched */
-    void addFolder (const juce::File& folder)
-    {
-        // You can only listen to folders that exist
-        jassert (folder.isDirectory());
-        watched.add (new Impl (*this, folder));
-    }
+    void addFolder (const juce::File& folder);
     
     
     /* Removes a folder from being watched */
-    void removeFolder (const juce::File& folder)
-    {
-        for (int i = watched.size(); --i >= 0;)
-        {
-            if (watched[i]->folder == folder)
-            {
-                watched.remove (i);
-                return;
-            }
-        }
-    }
+    void removeFolder (const juce::File& folder);
     
     
     /* Removes all folders from being watched */
@@ -45,17 +30,8 @@ public:
     
     
     /* Gets a list of folders being watched */
-    juce::Array<juce::File> getWatchedFolders()
-    {
-        juce::Array<juce::File> res;
-        
-        res.ensureStorageAllocated (watched.size());
-        
-        for (auto w : watched)
-            res.add (w->folder);
-        
-        return res;
-    }
+    juce::Array<juce::File> getWatchedFolders();
+    
     
     /* A set of events that can happen to a file.
      When a file is renamed it will appear as the original filename being deleted and the new filename being created
@@ -194,7 +170,7 @@ public:
 #define BUF_LEN (10 * (sizeof(struct inotify_event) + NAME_MAX + 1))
 
 class FileSystemWatcher::Impl : public juce::Thread,
-                                private juce::AsyncUpdater
+private juce::AsyncUpdater
 {
 public:
     struct Event
@@ -309,7 +285,7 @@ public:
 #elif JUCE_WINDOWS  /* elif JUCE_LINUX */
 
 class FileSystemWatcher::Impl : private juce::AsyncUpdater,
-                                private juce::Thread
+private juce::Thread
 {
 public:
     struct Event
@@ -421,7 +397,7 @@ public:
             }
         }
     }
-
+    
     void handleAsyncUpdate() override
     {
         juce::ScopedLock sl (lock);
@@ -447,3 +423,39 @@ public:
 
 
 #endif  /* if JUCE_MAC || JUCE_WINDOWS || JUCE_LINUX */
+
+
+
+void FileSystemWatcher::addFolder (const juce::File& folder)
+{
+    // You can only listen to folders that exist
+    jassert (folder.isDirectory());
+    watched.add (new Impl (*this, folder));
+}
+
+
+void FileSystemWatcher::removeFolder (const juce::File& folder)
+{
+    for (int i = watched.size(); --i >= 0;)
+    {
+        if (watched[i]->folder == folder)
+        {
+            watched.remove (i);
+            return;
+        }
+    }
+}
+
+
+juce::Array<juce::File> FileSystemWatcher::getWatchedFolders()
+{
+    juce::Array<juce::File> res;
+    
+    res.ensureStorageAllocated (watched.size());
+    
+    for (auto w : watched)
+        res.add (w->folder);
+    
+    return res;
+}
+
