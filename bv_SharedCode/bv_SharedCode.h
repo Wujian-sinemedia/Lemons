@@ -5,7 +5,7 @@
  version:            0.0.1
  name:               Ben Vining's codebase
  description:        General utilities useful for developing plugins.
- dependencies:       juce_audio_utils juce_dsp juce_osc juce_gui_extra juce_events
+ dependencies:       juce_audio_utils juce_dsp juce_osc
  END_JUCE_MODULE_DECLARATION
  *******************************************************************************/
 
@@ -20,8 +20,6 @@
 #include <juce_audio_utils/juce_audio_utils.h>
 #include <juce_dsp/juce_dsp.h>
 #include <juce_osc/juce_osc.h>
-#include <juce_gui_extra/juce_gui_extra.h>
-#include <juce_events/juce_events.h>
 
 #include "core/System.h"
 
