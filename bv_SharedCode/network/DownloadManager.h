@@ -1,7 +1,4 @@
 
-#pragma once
-
-
 /**
  Downloads files to a memory block and then calls a lambda on the message thread with the results. Does not block the message thread while establishing the HTTP connect like juce::URL::downloadToFile
  */

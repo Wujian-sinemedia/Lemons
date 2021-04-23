@@ -1,5 +1,5 @@
 
-static juce::var toVar (const juce::ValueTree& v)
+static inline juce::var toVar (const juce::ValueTree& v)
 {
     auto obj = new juce::DynamicObject();
     
@@ -36,14 +36,14 @@ static juce::var toVar (const juce::ValueTree& v)
     return juce::var (obj);
 }
 
-juce::String valueTreeToJSON (const juce::ValueTree& v)
+static juce::String valueTreeToJSON (const juce::ValueTree& v)
 {
     auto obj = toVar (v);
     return juce::JSON::toString (obj);
 }
 
 //==============================================================================
-juce::ValueTree fromVar (const juce::var& obj)
+static inline juce::ValueTree fromVar (const juce::var& obj)
 {
     if (auto dobj = obj.getDynamicObject())
     {
@@ -60,7 +60,9 @@ juce::ValueTree fromVar (const juce::var& obj)
         for (auto itr : properties)
         {
             auto name = itr.name.toString();
-            if (name == "_name" || name == "_children") continue;
+            
+            if (name == "_name" || name == "_children")
+                continue;
             
             if (name.startsWith ("base64:"))
             {
@@ -79,7 +81,7 @@ juce::ValueTree fromVar (const juce::var& obj)
     return {};
 }
 
-juce::ValueTree valueTreeFromJSON (const juce::String& jsonText)
+inline juce::ValueTree valueTreeFromJSON (const juce::String& jsonText)
 {
     juce::var obj = juce::JSON::parse (jsonText);
     
