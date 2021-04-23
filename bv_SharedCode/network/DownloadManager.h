@@ -1,16 +1,16 @@
 
+#pragma once
+
+
 /**
- Downloads files to a memory block and then calls a lambda
- on the message thread with the results. Does not block the
- message thread while establishing the HTTP connect like
- URL::downloadToFile
+ Downloads files to a memory block and then calls a lambda on the message thread with the results. Does not block the message thread while establishing the HTTP connect like juce::URL::downloadToFile
  */
 class DownloadManager
 {
 public:
     //==============================================================================
-    DownloadManager (int connectTimeout = 30 * 1000, int shutdownTimeout = 30 * 1000)
-        : connectTimeout (connect), shutdownTimeout (shutdown)
+    DownloadManager (int connectTimeoutMs = 30 * 1000, int shutdownTimeoutMs = 30 * 1000)
+    : connectTimeout (connectTimeoutMs), shutdownTimeout (shutdownTimeoutMs)
     { }
     
     virtual ~DownloadManager() { cancelAllDownloads(); }
@@ -31,7 +31,7 @@ public:
     void setRetryDelay (double seconds)         { retryDelay = seconds;     }
     
     /** Maximum number of downloads to allow at once */
-    void setConcurrentDownloadLimit (int l)
+    void setConcurrentDownloadLimit (int limit)
     {
         maxDownloads = limit;
         triggerNextDownload();
@@ -62,7 +62,7 @@ public:
     /** Pause / resume all downloads. This actually stops any running downloads
      and then restarts them when unpaused. You will loose some downloaded data
      that will need to be redownloaded. */
-    void pauseDownloads (bool)                  { pause = p; }
+    void pauseDownloads (bool shouldBePaused)   { pause = shouldBePaused; }
     
     //==============================================================================
     struct DownloadResult
@@ -96,9 +96,12 @@ public:
     int startAsyncDownload (juce::URL url,
                             std::function<void (DownloadResult)> completionCallback,
                             std::function<void (juce::int64, juce::int64, juce::int64)> progressCallback = nullptr,
-                            juce::String extraHeaders = {});
+                            juce::String extraHeaders = {})
+    {
+        return startAsyncDownloadPriv (url, completionCallback, progressCallback, extraHeaders);
+    }
     
-
+    
     /** Cancels all downloads */
     void cancelAllDownloads()
     {
@@ -107,7 +110,10 @@ public:
     }
     
     /** Cancels a download with a given id */
-    void cancelDownload (int downloadId);
+    void cancelDownload (int downloadId)
+    {
+        cancelDownloadPriv (downloadId);
+    }
     
     
     //==============================================================================
@@ -116,7 +122,10 @@ public:
         return blockingDownload (juce::URL (url).withPOSTData (postData), extraHeaders);
     }
     
-    DownloadResult blockingDownload (juce::URL url, juce::String extraHeaders = {});
+    DownloadResult blockingDownload (juce::URL url, juce::String extraHeaders = {})
+    {
+        return blockingDownloadPriv (url, extraHeaders);
+    }
     
     
 private:
@@ -161,11 +170,11 @@ private:
                 juce::WeakReference<Download> myself = this;
                 juce::MessageManager::callAsync ([myself]
                                                  {
-                                                     if (myself != nullptr)
-                                                         myself->completionCallback (myself->result);
-                                                     if (myself != nullptr)
-                                                         myself->owner.downloadFinished (myself);
-                                                 });
+                    if (myself != nullptr)
+                        myself->completionCallback (myself->result);
+                    if (myself != nullptr)
+                        myself->owner.downloadFinished (myself);
+                });
             }
         }
         
@@ -283,9 +292,9 @@ private:
                         juce::WeakReference<Download> myself = this;
                         juce::MessageManager::callAsync ([myself, current, total, delta]
                                                          {
-                                                             if (myself != nullptr)
-                                                                 myself->progressCallback (current, total, delta);
-                                                         });
+                            if (myself != nullptr)
+                                myself->progressCallback (current, total, delta);
+                        });
                     }
                 }
             }
@@ -310,7 +319,7 @@ private:
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Download)
     };
     
-    void downloadFinished (Download*)
+    void downloadFinished (Download* download)
     {
         runningDownloads--;
         downloads.removeObject (download);
@@ -348,80 +357,81 @@ private:
     bool gzipDeflate = true;
     std::atomic<bool> pause;
     
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DownloadManager)
-};
-
-
-//==============================================================================
-
-DownloadManager::DownloadResult DownloadManager::blockingDownload (juce::URL url, juce::String extraHeaders = {})
-{
-#if JUCE_WINDOWS
-    auto headerList = juce::StringArray::fromTokens (extraHeaders, "\n", "");
-    headerList.add ("Accept-Encoding: gzip");
-    extraHeaders = headerList.joinIntoString ("\n");
-#endif
+    //==============================================================================
     
-    Download download (*this);
-    download.async = false;
-    download.result.url = url;
-    download.headers = extraHeaders;
-    download.result.downloadId = 0;
-    download.completionCallback = nullptr;
-    download.progressCallback = nullptr;
-    
-    download.run();
-    
-    return download.result;
-}
-
-
-int DownloadManager::startAsyncDownload (juce::URL url,
-                                         std::function<void (DownloadResult)> completionCallback,
-                                         std::function<void (juce::int64, juce::int64, juce::int64)> progressCallback = nullptr,
-                                         juce::String extraHeaders = {})
-{
-#if JUCE_WINDOWS
-    // macOS does this automatically
-    if (gzipDeflate)
+    DownloadResult blockingDownloadPriv (juce::URL url, juce::String extraHeaders)
     {
+#if JUCE_WINDOWS
         auto headerList = juce::StringArray::fromTokens (extraHeaders, "\n", "");
         headerList.add ("Accept-Encoding: gzip");
         extraHeaders = headerList.joinIntoString ("\n");
-    }
 #endif
+        
+        Download download (*this);
+        download.async = false;
+        download.result.url = url;
+        download.headers = extraHeaders;
+        download.result.downloadId = 0;
+        download.completionCallback = nullptr;
+        download.progressCallback = nullptr;
+        
+        download.run();
+        
+        return download.result;
+    }
     
-    auto download = new Download (*this);
-    download->result.url = url;
-    download->headers = extraHeaders;
-    download->result.downloadId = ++nextId;
-    download->completionCallback = completionCallback;
-    download->progressCallback = progressCallback;
     
-    downloads.add (download);
-    
-    triggerNextDownload();
-    
-    return download->result.downloadId;
-}
-
-
-void DownloadManager::cancelDownload (int downloadId)
-{
-    for (int i = downloads.size(); --i >= 0;)
+    int startAsyncDownloadPriv (juce::URL url,
+                                std::function<void (DownloadResult)> completionCallback,
+                                std::function<void (juce::int64, juce::int64, juce::int64)> progressCallback,
+                                juce::String extraHeaders)
     {
-        if (downloads[i]->result.downloadId == downloadId)
+#if JUCE_WINDOWS
+        // macOS does this automatically
+        if (gzipDeflate)
         {
-            if (downloads[i]->isThreadRunning())
-                runningDownloads--;
-            
-            downloads.remove (i);
-            triggerNextDownload();
-            
-            if (downloads.size() == 0 && queueFinishedCallback)
-                queueFinishedCallback();
-            
-            break;
+            auto headerList = juce::StringArray::fromTokens (extraHeaders, "\n", "");
+            headerList.add ("Accept-Encoding: gzip");
+            extraHeaders = headerList.joinIntoString ("\n");
+        }
+#endif
+        
+        auto download = new Download (*this);
+        download->result.url = url;
+        download->headers = extraHeaders;
+        download->result.downloadId = ++nextId;
+        download->completionCallback = completionCallback;
+        download->progressCallback = progressCallback;
+        
+        downloads.add (download);
+        
+        triggerNextDownload();
+        
+        return download->result.downloadId;
+    }
+    
+    
+    void cancelDownloadPriv (int downloadId)
+    {
+        for (int i = downloads.size(); --i >= 0;)
+        {
+            if (downloads[i]->result.downloadId == downloadId)
+            {
+                if (downloads[i]->isThreadRunning())
+                    runningDownloads--;
+                
+                downloads.remove (i);
+                triggerNextDownload();
+                
+                if (downloads.size() == 0 && queueFinishedCallback)
+                    queueFinishedCallback();
+                
+                break;
+            }
         }
     }
-}
+    
+    
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DownloadManager)
+};
+
