@@ -31,7 +31,7 @@
 #elif BV_USE_NE10
   #include <NE10.h>
 #elif BV_USE_MIPP
-  #include "mipp.h"
+  #include <mipp.h>
 #endif
 
 #include <climits>
