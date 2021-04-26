@@ -33,9 +33,10 @@ public:
     
     void reset()
     {
-        delay.reset(); '
-        dryGain.reset (spec.maximumBlockSize);
-        wetGain.reset (spec.maximumBlockSize);
+        delay.reset();
+        const auto blocksize = int (spec.maximumBlockSize);
+        dryGain.reset (blocksize);
+        wetGain.reset (blocksize);
     }
     
     void setDryWet (int wetMixPercent)
@@ -60,18 +61,18 @@ public:
     void process (int channelNum, SampleType* samples, int numSamples)
     {
         for (int i = 0; i < numSamples; ++i)
-            pushSample (channelNum, samples[i]);
+        pushSample (channelNum, samples[i]);
         
         for (int i = 0; i < numSamples; ++i)
-            *(samples + i) = popSample (channel);
+        *(samples + i) = popSample (channelNum);
     }
     
     void process (juce::AudioBuffer<SampleType> audio)
     {
         const auto numSamples = audio.getNumSamples();
         
-        for (int i = 0; i < audio.getNumChannels; ++i)
-            process (i, audio.getWritePointer(i), numSamples);
+        for (int i = 0; i < audio.getNumChannels(); ++i)
+        process (i, audio.getWritePointer(i), numSamples);
     }
     
     
@@ -97,6 +98,7 @@ template class Delay<double>;
 /*
     A version that implements the ReorderableEffect interface, for use with my ReorderableFxChain class.
 */
+
 template<typename SampleType>
 class ReorderableDelay :     public Delay<SampleType>,
                              public ReorderableEffect<SampleType>
@@ -107,12 +109,12 @@ public:
 protected:
     void fxChain_process (juce::AudioBuffer<SampleType>& audio) override
     {
-        Delay::process (audio);
+        Delay<SampleType>::process (audio);
     }
     
     void fxChain_prepare (double samplerate, int blocksize) override
     {
-        Delay::prepare (blocksize, samplerate, 2);
+        Delay<SampleType>::prepare (blocksize, samplerate, 2);
     }
     
 private:
@@ -124,3 +126,4 @@ template class ReorderableDelay<double>;
 
 
 }  // namespace
+
