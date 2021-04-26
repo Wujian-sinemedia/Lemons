@@ -27,7 +27,7 @@ namespace bav::dsp::FX
             compressor.setRelease (35.0f);
         }
         
-        ~Reverb() { }
+        virtual ~Reverb() = default;
         
         void prepare (int blocksize, double samplerate, int numChannels)
         {
@@ -212,8 +212,7 @@ namespace bav::dsp::FX
         
         double sampleRate = 0.0;
         
-        juce::SmoothedValue<float, juce::ValueSmoothingTypes::Multiplicative> dryGain;
-        juce::SmoothedValue<float, juce::ValueSmoothingTypes::Multiplicative> wetGain;
+        juce::SmoothedValue<float, juce::ValueSmoothingTypes::Multiplicative> dryGain, wetGain;
         
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Reverb)
     };

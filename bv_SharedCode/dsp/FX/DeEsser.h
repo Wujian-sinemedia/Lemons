@@ -28,7 +28,7 @@ public:
         gate.setInverted (true);
     }
     
-    ~DeEsser() { }
+    virtual ~DeEsser() = default;
     
     
     void prepare (int blocksize, double samplerate)

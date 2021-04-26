@@ -13,7 +13,7 @@ namespace bav::dsp::FX
     public:
         Limiter() { }
         
-        ~Limiter() { }
+        virtual ~Limiter() = default;
         
         void setThreshold (float thresh_dB)
         {

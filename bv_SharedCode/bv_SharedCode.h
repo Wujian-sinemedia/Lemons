@@ -67,6 +67,7 @@
 #include "dsp/FX/Limiter.h"
 #include "dsp/FX/DeEsser.h"
 #include "dsp/FX/Reverb.h"
+#include "dsp/FX/Delay.h"
 #include "dsp/FIFOWrappedEngine.h"
 #include "dsp/pitch-detector.h"
 

@@ -20,7 +20,7 @@ namespace bav::dsp::FX
             RMSFilter.setReleaseTime (static_cast<SampleType> (50.0));
         }
         
-        ~NoiseGate() { }
+        virtual ~NoiseGate() = default;
         
         void setInverted (bool gateBehaviorShouldBeInverted)
         {

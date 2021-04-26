@@ -13,8 +13,7 @@ namespace bav::dsp::FX
     public:
         Compressor() { update(); }
         
-        ~Compressor()
-        { }
+        virtual ~Compressor() = default;
         
         void setThreshold (float newThresh_dB)
         {
