@@ -67,7 +67,7 @@ public:
         *(samples + i) = popSample (channelNum);
     }
     
-    void process (juce::AudioBuffer<SampleType> audio)
+    void process (juce::AudioBuffer<SampleType>& audio)
     {
         const auto numSamples = audio.getNumSamples();
         
