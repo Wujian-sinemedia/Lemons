@@ -118,6 +118,14 @@ namespace bav
         
         int key() const noexcept { return keyID; }
         
+        void doAction()
+        {
+            if (actionableFunction)
+                actionableFunction (rap->convertFrom0to1 (rap->getValue()));
+        }
+        
+        std::function<void(float)> actionableFunction = nullptr;
+        
     protected:
         std::atomic<float> currentDefault;
         
