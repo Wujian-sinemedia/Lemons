@@ -117,16 +117,6 @@ namespace bav
         
         return rootFolder;
     }
-    
-    
-    /* helper struct that can be used to initialize Juce's translation features in a processor constructor's initialization list */
-    struct TranslationInitializer
-    {
-        TranslationInitializer(juce::File& translationFileToUse)
-        {
-            juce::LocalisedStrings::setCurrentMappings (new juce::LocalisedStrings (translationFileToUse, true)); 
-        }
-    };
 
 
 // hacky little struct to force juce::LocalisedStrings to initialize its mappings at the start of an initializer list
