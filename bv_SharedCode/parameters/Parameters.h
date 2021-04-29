@@ -82,7 +82,7 @@ namespace bav
         using RangedParam = juce::RangedAudioParameter;
         
     public:
-        Parameter(RangedParam* p, float defaultValue): currentDefault(defaultValue), rap(p)
+        Parameter(int key, RangedParam* p, float defaultValue): currentDefault(defaultValue), rap(p), keyID(key)
         {
             jassert (rap != nullptr);
         }
@@ -116,11 +116,14 @@ namespace bav
         // exposes the underlying juce::RangedAudioParameter
         RangedParam* orig() const noexcept { return rap; }
         
+        int key() const noexcept { return keyID; }
+        
     protected:
         std::atomic<float> currentDefault;
         
     private:
         RangedParam* const rap;
+        const int keyID;
     };
     
     
@@ -135,9 +138,13 @@ namespace bav
         
     public:
         // use the constructor just like you would the constructor for juce::AudioParameterFloat. All the args are simply forwarded.
-        FloatParameter(juce::String parameterID, juce::String parameterName, juce::NormalisableRange<float> nRange, float defaultVal, juce::String parameterLabel = juce::String(), juce::AudioProcessorParameter::Category parameterCategory = juce::AudioProcessorParameter::genericParameter, std::function<juce::String(float value, int maximumStringLength)> stringFromValue = nullptr, std::function<float(const juce::String& text)> valueFromString = nullptr):
-                AudioParameterFloat(parameterID, parameterName, nRange, defaultVal, parameterLabel, parameterCategory, stringFromValue, valueFromString),
-                Parameter(dynamic_cast<juce::RangedAudioParameter*>(this), nRange.convertTo0to1 (defaultVal))
+        FloatParameter(int key, juce::String parameterID, juce::String parameterName,
+                       juce::NormalisableRange<float> nRange, float defaultVal, juce::String parameterLabel = juce::String(),
+                       juce::AudioProcessorParameter::Category parameterCategory = juce::AudioProcessorParameter::genericParameter,
+                       std::function<juce::String(float value, int maximumStringLength)> stringFromValue = nullptr,
+                       std::function<float(const juce::String& text)> valueFromString = nullptr)
+             :  AudioParameterFloat(parameterID, parameterName, nRange, defaultVal, parameterLabel, parameterCategory, stringFromValue, valueFromString),
+                Parameter(key, this, nRange.convertTo0to1 (defaultVal))
         {
         }
         
@@ -173,10 +180,12 @@ namespace bav
         
     public:
         // use the constructor just like you would the constructor for juce::AudioParameterInt. All the args are simply forwarded.
-        IntParameter(juce::String parameterID, juce::String parameterName, int min, int max, int defaultVal, juce::String parameterLabel = juce::String(), std::function<juce::String(int value, int maximumStringLength)> stringFromInt = nullptr, std::function<int(const juce::String& text)> intFromString = nullptr):
-                AudioParameterInt(parameterID, parameterName, min, max, defaultVal, parameterLabel, stringFromInt, intFromString),
-                Parameter(dynamic_cast<juce::RangedAudioParameter*>(this),
-                          AudioParameterInt::getNormalisableRange().convertTo0to1 (float(defaultVal)))
+        IntParameter(int key, juce::String parameterID, juce::String parameterName, int min, int max, int defaultVal,
+                     juce::String parameterLabel = juce::String(),
+                     std::function<juce::String(int value, int maximumStringLength)> stringFromInt = nullptr,
+                     std::function<int(const juce::String& text)> intFromString = nullptr)
+            :   AudioParameterInt(parameterID, parameterName, min, max, defaultVal, parameterLabel, stringFromInt, intFromString),
+                Parameter(key, this, AudioParameterInt::getNormalisableRange().convertTo0to1 (float(defaultVal)))
         {
         }
         
@@ -215,10 +224,12 @@ namespace bav
         
     public:
         // use the constructor just like you would the constructor for juce::AudioParameterBool. All the args are simply forwarded.
-        BoolParameter(juce::String parameterID, juce::String parameterName, bool defaultVal, juce::String parameterLabel = juce::String(), std::function<juce::String(bool value, int maximumStringLength)> stringFromBool = nullptr, std::function<bool(const juce::String& text)> boolFromString = nullptr):
-                AudioParameterBool(parameterID, parameterName, defaultVal, parameterLabel, stringFromBool, boolFromString),
-                Parameter(dynamic_cast<juce::RangedAudioParameter*>(this),
-                          AudioParameterBool::getNormalisableRange().convertTo0to1 (float(defaultVal)))
+        BoolParameter(int key, juce::String parameterID, juce::String parameterName, bool defaultVal,
+                      juce::String parameterLabel = juce::String(),
+                      std::function<juce::String(bool value, int maximumStringLength)> stringFromBool = nullptr,
+                      std::function<bool(const juce::String& text)> boolFromString = nullptr)
+             :  AudioParameterBool(parameterID, parameterName, defaultVal, parameterLabel, stringFromBool, boolFromString),
+                Parameter(key, this, AudioParameterBool::getNormalisableRange().convertTo0to1 (float(defaultVal)))
         {
             setDefault (defaultVal);
         }

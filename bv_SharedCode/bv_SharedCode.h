@@ -74,7 +74,6 @@
 #include "parameters/MessageQueue.h"
 #include "parameters/Parameters.h"
 #include "parameters/MidiCC_Mapping.h"
-#include "parameters/OSC_Mapping.h"
 #include "parameters/LFO_Mapping.h"
 #include "parameters/ValueTreeUtilities.h"
 
