@@ -100,8 +100,13 @@ namespace bav::dsp
                 return;
             
             jassert (totalNumSamples == output.getNumSamples());
-            jassert (input.getNumChannels() == output.getNumChannels());
             
+            const auto numInChannels  = std::min (2, input.getNumChannels());
+            const auto numOutChannels = std::min (2, output.getNumChannels());
+            
+            if (numInChannels == 0 || numOutChannels == 0)
+                return;
+                
             bool processingBypassedThisFrame, applyFadeIn, applyFadeOut;
             
             if (isBypassed)
@@ -125,16 +130,14 @@ namespace bav::dsp
                 return;
             }
             
-            const auto numChannels = std::min (2, input.getNumChannels());
-            
             int samplesLeft = totalNumSamples;
             int startSample = 0;
             
             do {
                 const auto chunkNumSamples = std::min (internalBlocksize, samplesLeft);
                 
-                AudioBuffer inputProxy  (input.getArrayOfWritePointers(),  numChannels, startSample, chunkNumSamples);
-                AudioBuffer outputProxy (output.getArrayOfWritePointers(), numChannels, startSample, chunkNumSamples);
+                AudioBuffer inputProxy  (input.getArrayOfWritePointers(),  numInChannels,  startSample, chunkNumSamples);
+                AudioBuffer outputProxy (output.getArrayOfWritePointers(), numOutChannels, startSample, chunkNumSamples);
                 
                 // put just the midi messages for this time segment into the midiChoppingBuffer, starting at timestamp 0
                 midiChoppingBuffer.clear();
@@ -268,17 +271,20 @@ namespace bav::dsp
     private:
         
         // part of the FIFO process, not for public use
-        void processWrapped (AudioBuffer& input, AudioBuffer& output, MidiBuffer& midiMessages,
+        void processWrapped (AudioBuffer& input, AudioBuffer& output,
+                             MidiBuffer& midiMessages,
                              const bool applyFadeIn, const bool applyFadeOut,
                              const bool isBypassed = false)
         {
             const auto numNewSamples = input.getNumSamples();
             jassert (numNewSamples <= internalBlocksize && numNewSamples > 0);
             
-            const auto numChannels = std::min (2, input.getNumChannels());
-            jassert (numChannels == output.getNumChannels());
+            const auto numInChannels  = input.getNumChannels();
+            const auto numOutChannels = output.getNumChannels();
             
-            for (int chan = 0; chan < numChannels; ++chan)
+            jassert (numInChannels <= 2 && numOutChannels <= 2);
+            
+            for (int chan = 0; chan < numInChannels; ++chan)
                 inputBuffer.pushSamples (input, chan, 0, numNewSamples, chan);
             
             midiInputCollection.pushEvents (midiMessages, numNewSamples);
@@ -286,7 +292,8 @@ namespace bav::dsp
             if (inputBuffer.numStoredSamples() >= internalBlocksize)  // we have enough samples, render the new chunk
             {
                 inBuffer.clear();
-                for (int chan = 0; chan < numChannels; ++chan)
+                
+                for (int chan = 0; chan < numInChannels; ++chan)
                     inputBuffer.popSamples (inBuffer, chan, 0, internalBlocksize, chan);
                 
                 chunkMidiBuffer.clear();
@@ -294,7 +301,7 @@ namespace bav::dsp
                 
                 if (isBypassed)
                 {
-                    for (int chan = 0; chan < numChannels; ++chan)
+                    for (int chan = 0; chan < numOutChannels; ++chan)
                         outputBuffer.pushSamples (inBuffer, chan, 0, internalBlocksize, chan);
                     
                     bypassedBlock (inBuffer, chunkMidiBuffer);
@@ -305,14 +312,14 @@ namespace bav::dsp
                     
                     renderBlock (inBuffer, outBuffer, chunkMidiBuffer);
                     
-                    for (int chan = 0; chan < numChannels; ++chan)
+                    for (int chan = 0; chan < numOutChannels; ++chan)
                         outputBuffer.pushSamples (outBuffer, chan, 0, internalBlocksize, chan);
                 }
                 
                 midiOutputCollection.pushEvents (chunkMidiBuffer, internalBlocksize);
             }
             
-            for (int chan = 0; chan < numChannels; ++chan)
+            for (int chan = 0; chan < numOutChannels; ++chan)
                 outputBuffer.popSamples (output, chan, 0, numNewSamples, chan);
             
             midiOutputCollection.popEvents (midiMessages, numNewSamples);
