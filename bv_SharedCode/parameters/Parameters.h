@@ -87,7 +87,7 @@ namespace bav
             jassert (rap != nullptr);
         }
         
-        ~Parameter() = default;
+        virtual ~Parameter() = default;
         
         // returns the current default value, within the 0-1 normalized range for this parameter
         float getNormalizedDefault() const { return currentDefault.load(); }
@@ -156,6 +156,8 @@ namespace bav
         {
         }
         
+        virtual ~FloatParameter() = default;
+        
         // returns the absolute default value as a float
         float getDefault() const { return AudioParameterFloat::getNormalisableRange().convertFrom0to1 (currentDefault.load()); }
         
@@ -196,6 +198,8 @@ namespace bav
                 Parameter(key, this, AudioParameterInt::getNormalisableRange().convertTo0to1 (float(defaultVal)))
         {
         }
+        
+        virtual ~IntParameter() = default;
         
         // returns the absolute default value as an int
         int getDefault() const
@@ -241,6 +245,8 @@ namespace bav
         {
             setDefault (defaultVal);
         }
+        
+        virtual ~BoolParameter() = default;
         
         // returns the absolute default value as a bool
         bool getDefault() const
