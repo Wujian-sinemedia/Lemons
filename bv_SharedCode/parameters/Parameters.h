@@ -156,7 +156,7 @@ namespace bav
         {
         }
         
-        virtual ~FloatParameter() = default;
+        virtual ~FloatParameter() override = default;
         
         // returns the absolute default value as a float
         float getDefault() const { return AudioParameterFloat::getNormalisableRange().convertFrom0to1 (currentDefault.load()); }
@@ -199,7 +199,7 @@ namespace bav
         {
         }
         
-        virtual ~IntParameter() = default;
+        virtual ~IntParameter() override = default;
         
         // returns the absolute default value as an int
         int getDefault() const
@@ -246,7 +246,7 @@ namespace bav
             setDefault (defaultVal);
         }
         
-        virtual ~BoolParameter() = default;
+        virtual ~BoolParameter() override = default;
         
         // returns the absolute default value as a bool
         bool getDefault() const
