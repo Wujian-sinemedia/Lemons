@@ -285,4 +285,26 @@ struct ParameterAttachment  :   ParameterToValueTreeAttachment,
     { }
 };
 
+
+/* note: this only works if the underlying parameter objects in the group are derived from my Parameter base class */
+static inline void createValueTreeFromParameterTree (juce::ValueTree& tree,
+                                                     const juce::AudioProcessorParameterGroup& parameterTree)
+{
+    for (auto* node : parameterTree)
+    {
+        if (auto* param = node->getParameter())
+        {
+            if (auto* parameter = dynamic_cast<bav::Parameter*>(param))
+            {
+                tree.setProperty (parameter->identifier, parameter->getCurrentDenormalizedValue(), nullptr);
+                tree.setProperty (parameter->gestureIdentifier, false, nullptr);
+            }
+        }
+        else if (auto* thisGroup = node->getGroup())
+        {
+            createValueTreeFromParameterTree (tree, *thisGroup);
+        }
+    }
+}
+
 }  // namespace
