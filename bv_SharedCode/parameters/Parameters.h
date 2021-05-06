@@ -44,45 +44,15 @@ namespace bav
     
     
     
-    /*
-        My wrapper classes for each individual parameter type all inherit from this base class.
-        This base class provides functionality for saving, changing, and recalling a defaut (normalized float) value; as well as some useful functions that each individual parameter type overrides to provide access to data specific to each parameter type through the base class interface.
-        This base class does NOT inherit from any of the JUCE parameter classes, in order to avoid a tangle of double- and cross-inheritances with the individual parameter type classes below.
-        My typical use case of this base class is to be able to access any parameter value from one function call to my processor, regardless of the type of parameter, e.g.:
-     @code
-         class MyAudioProcessor  :      public juce::AudioProcessor
-         {
-         public:
-            enum parameterID { gain, bypass };
-     
-            float getParameterValue (const parameterID id)
-            {
-                return getParamPtr(id)->getCurrentNormalizedValue();
-            }
-     
-         private:
-             bav::Parameter* getParamPtr (const parameterID id)
-             {
-                 switch (id)
-                 {
-                    case (gain):   return gainParam;
-                    case (bypass): return bypassParam;
-                 }
-             }
-     
-             bav::FloatParameter* gainParam;
-             bav::BoolParameter* bypassParam;
-            //NB. you can initialize these by doing e.g. bypassParam = dynamic_cast<bav::BoolParameter*>(apvts.getParameter("bypass"));
-         };
-     @end-code
-    */
-    
     class Parameter
     {
         using RangedParam = juce::RangedAudioParameter;
         
     public:
-        Parameter(int key, RangedParam* p, float defaultValue): currentDefault(defaultValue), rap(p), keyID(key)
+        Parameter (int key, RangedParam* p, float defaultValue,
+                   juce::Identifier ident = juce::Identifier()
+                   juce::Identifier gestureIdent = juce::Identifier())
+            : identifier(ident), gestureIdentifier(gestureIdent), currentDefault(defaultValue), rap(p), keyID(key)
         {
             jassert (rap != nullptr);
         }
@@ -126,6 +96,9 @@ namespace bav
         
         std::function<void(float)> actionableFunction = nullptr;
         
+        const juce::Identifier identifier;
+        const juce::Identifier gestureIdentifier;
+        
     protected:
         std::atomic<float> currentDefault;
         
@@ -146,13 +119,16 @@ namespace bav
         
     public:
         // use the constructor just like you would the constructor for juce::AudioParameterFloat. All the args are simply forwarded.
-        FloatParameter(int key, juce::String parameterID, juce::String parameterName,
-                       juce::NormalisableRange<float> nRange, float defaultVal, juce::String parameterLabel = juce::String(),
-                       juce::AudioProcessorParameter::Category parameterCategory = juce::AudioProcessorParameter::genericParameter,
-                       std::function<juce::String(float value, int maximumStringLength)> stringFromValue = nullptr,
-                       std::function<float(const juce::String& text)> valueFromString = nullptr)
-             :  AudioParameterFloat(parameterID, parameterName, nRange, defaultVal, parameterLabel, parameterCategory, stringFromValue, valueFromString),
-                Parameter(key, this, nRange.convertTo0to1 (defaultVal))
+        FloatParameter (int key, juce::String parameterID, juce::String parameterName,
+                        juce::NormalisableRange<float> nRange, float defaultVal, juce::String parameterLabel = juce::String(),
+                        juce::AudioProcessorParameter::Category parameterCategory = juce::AudioProcessorParameter::genericParameter,
+                        std::function<juce::String(float value, int maximumStringLength)> stringFromValue = nullptr,
+                        std::function<float(const juce::String& text)> valueFromString = nullptr,
+                        juce::Identifier ident = juce::Identifier(),
+                        juce::Identifier gestureIdent = juce::Identifier())
+             :  AudioParameterFloat (parameterID, parameterName, nRange, defaultVal,
+                                     parameterLabel, parameterCategory, stringFromValue, valueFromString),
+                Parameter (key, this, nRange.convertTo0to1 (defaultVal), ident, gestureIdent)
         {
         }
         
@@ -190,12 +166,17 @@ namespace bav
         
     public:
         // use the constructor just like you would the constructor for juce::AudioParameterInt. All the args are simply forwarded.
-        IntParameter(int key, juce::String parameterID, juce::String parameterName, int min, int max, int defaultVal,
-                     juce::String parameterLabel = juce::String(),
-                     std::function<juce::String(int value, int maximumStringLength)> stringFromInt = nullptr,
-                     std::function<int(const juce::String& text)> intFromString = nullptr)
-            :   AudioParameterInt(parameterID, parameterName, min, max, defaultVal, parameterLabel, stringFromInt, intFromString),
-                Parameter(key, this, AudioParameterInt::getNormalisableRange().convertTo0to1 (float(defaultVal)))
+        IntParameter (int key, juce::String parameterID, juce::String parameterName, int min, int max, int defaultVal,
+                      juce::String parameterLabel = juce::String(),
+                      std::function<juce::String(int value, int maximumStringLength)> stringFromInt = nullptr,
+                      std::function<int(const juce::String& text)> intFromString = nullptr,
+                      juce::Identifier ident = juce::Identifier(),
+                      juce::Identifier gestureIdent = juce::Identifier())
+            :   AudioParameterInt (parameterID, parameterName, min, max, defaultVal,
+                                   parameterLabel, stringFromInt, intFromString),
+                Parameter (key, this,
+                           AudioParameterInt::getNormalisableRange().convertTo0to1 (static_cast<float>(defaultVal)),
+                           ident, gestureIdent)
         {
         }
         
@@ -236,12 +217,16 @@ namespace bav
         
     public:
         // use the constructor just like you would the constructor for juce::AudioParameterBool. All the args are simply forwarded.
-        BoolParameter(int key, juce::String parameterID, juce::String parameterName, bool defaultVal,
-                      juce::String parameterLabel = juce::String(),
-                      std::function<juce::String(bool value, int maximumStringLength)> stringFromBool = nullptr,
-                      std::function<bool(const juce::String& text)> boolFromString = nullptr)
-             :  AudioParameterBool(parameterID, parameterName, defaultVal, parameterLabel, stringFromBool, boolFromString),
-                Parameter(key, this, AudioParameterBool::getNormalisableRange().convertTo0to1 (float(defaultVal)))
+        BoolParameter (int key, juce::String parameterID, juce::String parameterName, bool defaultVal,
+                       juce::String parameterLabel = juce::String(),
+                       std::function<juce::String(bool value, int maximumStringLength)> stringFromBool = nullptr,
+                       std::function<bool(const juce::String& text)> boolFromString = nullptr,
+                       juce::Identifier ident = juce::Identifier(),
+                       juce::Identifier gestureIdent = juce::Identifier())
+             :  AudioParameterBool (parameterID, parameterName, defaultVal, parameterLabel, stringFromBool, boolFromString),
+                Parameter (key, this,
+                           AudioParameterBool::getNormalisableRange().convertTo0to1 (static_cast<float>(defaultVal)),
+                           ident, gestureIdent)
         {
             setDefault (defaultVal);
         }
