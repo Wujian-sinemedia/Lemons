@@ -76,6 +76,7 @@
 #include "parameters/MidiCC_Mapping.h"
 #include "parameters/LFO_Mapping.h"
 #include "parameters/ValueTreeUtilities.h"
+#include "parameters/ParameterHelpers.h"
 
 #include "network/AsyncDownload.h"
 #include "network/DownloadManager.h"
