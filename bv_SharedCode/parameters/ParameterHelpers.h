@@ -150,5 +150,17 @@ namespace bav::ParameterValueConversionLambdas
         return text.trim().getFloatValue();
     };
 
+    /* MIDI pan -> string (eg, 127 = 50R, 64 = C, 0 = 50L) */
+    static const std::function< juce::String (int value, int maxLength) > midiPan_stringFromInt =
+    [](int value, int maxLength)
+    {
+        return bav::midiPanIntToString (value).substring(0, maxLength);
+    };
+
+    static const std::function< int (const juce::String& text) > midiPan_intFromString =
+    [](const juce::String& text)
+    {
+        return bav::midiPanStringToInt (text);
+    };
 
 } // namespace
