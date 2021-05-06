@@ -1,10 +1,8 @@
 
 
-namespace bav
+namespace bav::ParameterValueConversionLambdas
 {
 
-struct ParameterValueConversionLambdas
-{
     /* Boolean toggles */
     static const std::function< juce::String (bool value, int maximumStringLength) > toggle_stringFromBool =
     [](bool value, int maxLength)
@@ -151,6 +149,6 @@ struct ParameterValueConversionLambdas
         
         return text.trim().getFloatValue();
     };
-};
+
 
 } // namespace
