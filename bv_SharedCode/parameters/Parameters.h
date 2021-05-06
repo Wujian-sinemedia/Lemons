@@ -50,7 +50,7 @@ namespace bav
         
     public:
         Parameter (int key, RangedParam* p, float defaultValue,
-                   juce::Identifier ident = juce::Identifier()
+                   juce::Identifier ident = juce::Identifier(),
                    juce::Identifier gestureIdent = juce::Identifier())
             : identifier(ident), gestureIdentifier(gestureIdent), currentDefault(defaultValue), rap(p), keyID(key)
         {
