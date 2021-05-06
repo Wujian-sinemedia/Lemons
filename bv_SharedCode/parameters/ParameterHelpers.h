@@ -178,15 +178,16 @@ public:
                                     juce::ValueTree& treeToUse,
                                     juce::Identifier paramIdentifierToUse,
                                     juce::Identifier paramGestureIdentifierToUse)
-    : param (paramToUse),
-    tree (treeToUse),
-    paramIdentifier (paramIdentifierToUse),
-    paramGestureIdentifier (paramGestureIdentifierToUse)
+      : param (paramToUse),
+        tree (treeToUse)
     {
         param->orig()->addListener (this);
         startTimerHz (10);
         lastSentValue = param->getCurrentDenormalizedValue();
-        lastSentChangeState = false;
+        isChanging.store (false);
+        
+        currentValue.referTo (tree, paramIdentifierToUse, nullptr);
+        currentGesture.referTo (tree, paramGestureIdentifierToUse, nullptr);
     }
     
     virtual ~ParameterToValueTreeAttachment() override
@@ -199,19 +200,13 @@ public:
     {
         const auto newValue = param->getCurrentDenormalizedValue();
         
-        if (lastSentValue != newValue)
-        {
-            lastSentValue = newValue;
-            tree.setProperty (paramIdentifier, newValue, nullptr);
-        }
+        if (currentValue.get() != newValue)
+            currentValue.setValue (newValue, nullptr);
         
         const auto changeState = isChanging.load();
         
-        if (lastSentChangeState != changeState)
-        {
-            lastSentChangeState = changeState;
-            tree.setProperty (paramGestureIdentifier, isChanging.load(), nullptr);
-        }
+        if (currentGesture.get() != changeState)
+            currentGesture.setValue (changeState, nullptr);
     }
     
     void parameterValueChanged (int, float) override final { }
@@ -224,14 +219,12 @@ public:
     
 private:
     bav::Parameter* const param;
-    juce::ValueTree& tree;
+    juce::ValueTree tree;
     
-    float lastSentValue;
-    bool  lastSentChangeState;
     std::atomic<bool> isChanging;
     
-    const juce::Identifier paramIdentifier;
-    const juce::Identifier paramGestureIdentifier;
+    juce::CachedValue<float> currentValue;
+    juce::CachedValue<bool>  currentGesture;
 };
 
 
@@ -243,60 +236,48 @@ public:
                                     juce::ValueTree& treeToUse,
                                     juce::Identifier paramIdentifierToUse,
                                     juce::Identifier paramGestureIdentifierToUse)
-    : param (paramToUse),
-    tree (treeToUse),
-    paramIdentifier (paramIdentifierToUse),
-    paramGestureIdentifier (paramGestureIdentifierToUse)
+      : param (paramToUse),
+        tree (treeToUse)
     {
         tree.addListener (this);
-        lastSentValue = param->getCurrentDenormalizedValue();
         lastSentChangeState = false;
+        
+        currentValue.referTo (tree, paramIdentifierToUse, nullptr);
+        currentGesture.referTo (tree, paramGestureIdentifierToUse, nullptr);
     }
-    
-    ~ValueTreeToParameterAttachment() override
-    {
-        tree.removeListener (this);
-    }
+
     
     void valueTreePropertyChanged (juce::ValueTree& ltree, const juce::Identifier& property) override final
     {
-        if (property == paramIdentifier)
+        const auto value = currentValue.get();
+        
+        if (value != param->getCurrentDenormalizedValue())
+            param->orig()->setValueNotifyingHost (value);
+        
+        const auto changing = currentGesture.get();
+        
+        if (changing != lastSentChangeState)
         {
-            const float newValue = ltree.getProperty (paramIdentifier);
+            lastSentChangeState = changing;
             
-            if (lastSentValue != newValue)
-            {
-                lastSentValue = newValue;
-                param->orig()->setValueNotifyingHost (newValue);
-            }
-        }
-        else if (property == paramGestureIdentifier)
-        {
-            const bool isNowChanging = ltree.getProperty (paramGestureIdentifier);
-            
-            if (lastSentChangeState != isNowChanging)
-            {
-                lastSentChangeState = isNowChanging;
-                
-                if (isNowChanging)
-                    param->orig()->beginChangeGesture();
-                else
-                    param->orig()->endChangeGesture();
-            }
+            if (changing)
+                param->orig()->beginChangeGesture();
+            else
+                param->orig()->endChangeGesture();
         }
     }
     
     
 private:
     bav::Parameter* const param;
-    juce::ValueTree& tree;
+    juce::ValueTree tree;
     
-    float lastSentValue;
-    bool  lastSentChangeState;
+    bool lastSentChangeState;
     
-    const juce::Identifier paramIdentifier;
-    const juce::Identifier paramGestureIdentifier;
+    juce::CachedValue<float> currentValue;
+    juce::CachedValue<bool>  currentGesture;
 };
+
 
 
 struct ParameterAttachment  :   ParameterToValueTreeAttachment,
@@ -306,6 +287,7 @@ struct ParameterAttachment  :   ParameterToValueTreeAttachment,
                          juce::ValueTree& treeToUse,
                          juce::Identifier paramIdentifierToUse,
                          juce::Identifier paramGestureIdentifierToUse)
+    
     : ParameterToValueTreeAttachment (paramToUse, treeToUse, paramIdentifierToUse, paramGestureIdentifierToUse),
       ValueTreeToParameterAttachment (paramToUse, treeToUse, paramIdentifierToUse, paramGestureIdentifierToUse)
     { }
