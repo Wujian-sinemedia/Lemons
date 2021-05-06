@@ -129,14 +129,14 @@ namespace bav
     public:
         // use the constructor just like you would the constructor for juce::AudioParameterFloat. All the args are simply forwarded.
         FloatParameter (int key,
-                        juce::String parameterNameShort, juce::String parameterNameVerbose,
+                        juce::String paramNameShort, juce::String paramNameVerbose,
                         juce::NormalisableRange<float> nRange, float defaultVal, juce::String parameterLabel = juce::String(),
                         juce::AudioProcessorParameter::Category parameterCategory = juce::AudioProcessorParameter::genericParameter,
                         std::function<juce::String(float value, int maximumStringLength)> stringFromValue = nullptr,
                         std::function<float(const juce::String& text)> valueFromString = nullptr)
-             :  AudioParameterFloat (parameterNameVerbose, parameterNameVerbose, nRange, defaultVal,
+             :  AudioParameterFloat (paramNameVerbose, paramNameVerbose, nRange, defaultVal,
                                      parameterLabel, parameterCategory, stringFromValue, valueFromString),
-                Parameter (key, this, nRange.convertTo0to1 (defaultVal), parameterNameShort, parameterNameVerbose)
+                Parameter (key, this, nRange.convertTo0to1 (defaultVal), paramNameShort, paramNameVerbose)
         {
         }
         
@@ -175,18 +175,16 @@ namespace bav
     public:
         // use the constructor just like you would the constructor for juce::AudioParameterInt. All the args are simply forwarded.
         IntParameter (int key,
-                      juce::String parameterNameShort, juce::String parameterNameVerbose,
+                      juce::String paramNameShort, juce::String paramNameVerbose,
                       int min, int max, int defaultVal,
                       juce::String parameterLabel = juce::String(),
                       std::function<juce::String(int value, int maximumStringLength)> stringFromInt = nullptr,
-                      std::function<int(const juce::String& text)> intFromString = nullptr,
-                      juce::Identifier ident = juce::Identifier(),
-                      juce::Identifier gestureIdent = juce::Identifier())
-            :   AudioParameterInt (parameterNameVerbose, parameterNameVerbose, min, max, defaultVal,
+                      std::function<int(const juce::String& text)> intFromString = nullptr)
+            :   AudioParameterInt (paramNameVerbose, paramNameVerbose, min, max, defaultVal,
                                    parameterLabel, stringFromInt, intFromString),
                 Parameter (key, this,
                            AudioParameterInt::getNormalisableRange().convertTo0to1 (static_cast<float>(defaultVal)),
-                           parameterNameShort, parameterNameVerbose)
+                           paramNameShort, paramNameVerbose)
         {
         }
         
@@ -228,18 +226,16 @@ namespace bav
     public:
         // use the constructor just like you would the constructor for juce::AudioParameterBool. All the args are simply forwarded.
         BoolParameter (int key,
-                       juce::String parameterNameShort, juce::String parameterNameVerbose,
+                       juce::String paramNameShort, juce::String paramNameVerbose,
                        bool defaultVal,
                        juce::String parameterLabel = juce::String(),
                        std::function<juce::String(bool value, int maximumStringLength)> stringFromBool = nullptr,
-                       std::function<bool(const juce::String& text)> boolFromString = nullptr,
-                       juce::Identifier ident = juce::Identifier(),
-                       juce::Identifier gestureIdent = juce::Identifier())
-             :  AudioParameterBool (parameterNameVerbose, parameterNameVerbose, defaultVal, parameterLabel,
+                       std::function<bool(const juce::String& text)> boolFromString = nullptr)
+             :  AudioParameterBool (paramNameVerbose, paramNameVerbose, defaultVal, parameterLabel,
                                     stringFromBool, boolFromString),
                 Parameter (key, this,
                            AudioParameterBool::getNormalisableRange().convertTo0to1 (static_cast<float>(defaultVal)),
-                           parameterNameShort, parameterNameVerbose)
+                           paramNameShort, paramNameVerbose)
         {
             setDefault (defaultVal);
         }
