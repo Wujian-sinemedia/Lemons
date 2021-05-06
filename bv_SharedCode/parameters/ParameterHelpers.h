@@ -175,9 +175,7 @@ class ParameterToValueTreeAttachment   :     private juce::Timer,
 {
 public:
     ParameterToValueTreeAttachment (bav::Parameter* paramToUse,
-                                    juce::ValueTree& treeToUse,
-                                    juce::Identifier paramIdentifierToUse,
-                                    juce::Identifier paramGestureIdentifierToUse)
+                                    juce::ValueTree& treeToUse)
       : param (paramToUse),
         tree (treeToUse)
     {
@@ -185,8 +183,8 @@ public:
         startTimerHz (10);
         isChanging.store (false);
         
-        currentValue.referTo (tree, paramIdentifierToUse, nullptr);
-        currentGesture.referTo (tree, paramGestureIdentifierToUse, nullptr);
+        currentValue.referTo (tree, param->identifier, nullptr);
+        currentGesture.referTo (tree, param->gestureIdentifier, nullptr);
     }
     
     virtual ~ParameterToValueTreeAttachment() override
@@ -232,17 +230,15 @@ class ValueTreeToParameterAttachment   :    public juce::ValueTree::Listener
 {
 public:
     ValueTreeToParameterAttachment (bav::Parameter* paramToUse,
-                                    juce::ValueTree& treeToUse,
-                                    juce::Identifier paramIdentifierToUse,
-                                    juce::Identifier paramGestureIdentifierToUse)
+                                    juce::ValueTree& treeToUse)
       : param (paramToUse),
         tree (treeToUse)
     {
         tree.addListener (this);
         lastSentChangeState = false;
         
-        currentValue.referTo (tree, paramIdentifierToUse, nullptr);
-        currentGesture.referTo (tree, paramGestureIdentifierToUse, nullptr);
+        currentValue.referTo (tree, param->identifier, nullptr);
+        currentGesture.referTo (tree, param->gestureIdentifier, nullptr);
     }
 
     
@@ -283,12 +279,9 @@ struct ParameterAttachment  :   ParameterToValueTreeAttachment,
                                 ValueTreeToParameterAttachment
 {
     ParameterAttachment (bav::Parameter* paramToUse,
-                         juce::ValueTree& treeToUse,
-                         juce::Identifier paramIdentifierToUse,
-                         juce::Identifier paramGestureIdentifierToUse)
-    
-    : ParameterToValueTreeAttachment (paramToUse, treeToUse, paramIdentifierToUse, paramGestureIdentifierToUse),
-      ValueTreeToParameterAttachment (paramToUse, treeToUse, paramIdentifierToUse, paramGestureIdentifierToUse)
+                         juce::ValueTree& treeToUse)
+        : ParameterToValueTreeAttachment (paramToUse, treeToUse),
+          ValueTreeToParameterAttachment (paramToUse, treeToUse)
     { }
 };
 
