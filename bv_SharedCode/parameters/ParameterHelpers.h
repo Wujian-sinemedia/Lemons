@@ -183,7 +183,6 @@ public:
     {
         param->orig()->addListener (this);
         startTimerHz (10);
-        lastSentValue = param->getCurrentDenormalizedValue();
         isChanging.store (false);
         
         currentValue.referTo (tree, paramIdentifierToUse, nullptr);
@@ -247,7 +246,7 @@ public:
     }
 
     
-    void valueTreePropertyChanged (juce::ValueTree& ltree, const juce::Identifier& property) override final
+    void valueTreePropertyChanged (juce::ValueTree&, const juce::Identifier&) override final
     {
         const auto value = currentValue.get();
         
