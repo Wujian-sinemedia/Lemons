@@ -120,17 +120,6 @@ namespace bav
     }
 
 
-// hacky little struct to force juce::LocalisedStrings to initialize its mappings at the start of an initializer list
-struct TranslationInitializer
-{
-    TranslationInitializer (const juce::File& fileToLoad)
-    {
-        if (fileToLoad.existsAsFile())
-            juce::LocalisedStrings::setCurrentMappings (new juce::LocalisedStrings (fileToLoad, true));
-    }
-};
-
-
 static inline juce::String addFileExtensionIfMissing (const juce::String& string, const juce::String& extension)
 {
     return juce::File::createLegalFileName (string.endsWith (extension) ? string.trim() : (string + extension).trim());
