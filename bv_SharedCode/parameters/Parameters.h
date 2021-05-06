@@ -52,11 +52,11 @@ namespace bav
         Parameter (int key, RangedParam* p, float defaultValue,
                    juce::String paramNameShort,
                    juce::String paramNameVerbose)
-              : parameterNameShort (paramNameShort),
-                parameterNameVerbose (paramNameVerbose),
+              : parameterNameShort   (TRANS (paramNameShort)),
+                parameterNameVerbose (TRANS (paramNameVerbose)),
                 parameterNameVerboseNoSpaces (paramNameVerbose.trim().replaceCharacters (" ", "_")),
-                identifier (parameterNameVerboseNoSpaces),
-                gestureIdentifier (parameterNameVerboseNoSpaces + "_isChanging"),
+                identifier (paramNameVerbose.trim().replaceCharacters (" ", "_")),
+                gestureIdentifier (identifier.toString() + "_isChanging"),
                 currentDefault (defaultValue), rap (p), keyID (key)
         {
             jassert (rap != nullptr);
@@ -134,7 +134,7 @@ namespace bav
                         juce::AudioProcessorParameter::Category parameterCategory = juce::AudioProcessorParameter::genericParameter,
                         std::function<juce::String(float value, int maximumStringLength)> stringFromValue = nullptr,
                         std::function<float(const juce::String& text)> valueFromString = nullptr)
-             :  AudioParameterFloat (paramNameVerbose, paramNameVerbose, nRange, defaultVal,
+             :  AudioParameterFloat (paramNameVerbose, TRANS (paramNameVerbose), nRange, defaultVal,
                                      parameterLabel, parameterCategory, stringFromValue, valueFromString),
                 Parameter (key, this, nRange.convertTo0to1 (defaultVal), paramNameShort, paramNameVerbose)
         {
@@ -180,7 +180,7 @@ namespace bav
                       juce::String parameterLabel = juce::String(),
                       std::function<juce::String(int value, int maximumStringLength)> stringFromInt = nullptr,
                       std::function<int(const juce::String& text)> intFromString = nullptr)
-            :   AudioParameterInt (paramNameVerbose, paramNameVerbose, min, max, defaultVal,
+            :   AudioParameterInt (paramNameVerbose, TRANS (paramNameVerbose), min, max, defaultVal,
                                    parameterLabel, stringFromInt, intFromString),
                 Parameter (key, this,
                            AudioParameterInt::getNormalisableRange().convertTo0to1 (static_cast<float>(defaultVal)),
@@ -231,7 +231,7 @@ namespace bav
                        juce::String parameterLabel = juce::String(),
                        std::function<juce::String(bool value, int maximumStringLength)> stringFromBool = nullptr,
                        std::function<bool(const juce::String& text)> boolFromString = nullptr)
-             :  AudioParameterBool (paramNameVerbose, paramNameVerbose, defaultVal, parameterLabel,
+             :  AudioParameterBool (paramNameVerbose, TRANS (paramNameVerbose), defaultVal, parameterLabel,
                                     stringFromBool, boolFromString),
                 Parameter (key, this,
                            AudioParameterBool::getNormalisableRange().convertTo0to1 (static_cast<float>(defaultVal)),
