@@ -225,14 +225,13 @@ namespace bav
 
     struct MeterParameter :     public FloatParameter
     {
-        MeterParameter (int key,
-                        juce::String paramNameShort, juce::String paramNameVerbose,
+        MeterParameter (juce::String paramNameShort, juce::String paramNameVerbose,
                         juce::NormalisableRange<float> nRange, float defaultVal, juce::String parameterLabel = juce::String(),
                         juce::AudioProcessorParameter::Category parameterCategory = juce::AudioProcessorParameter::genericParameter,
                         std::function<juce::String(float value, int maximumStringLength)> stringFromValue = nullptr,
                         std::function<float(const juce::String& text)> valueFromString = nullptr)
         
-        :   FloatParameter (key, paramNameShort, paramNameVerbose, nRange, defaultVal,
+        :   FloatParameter (0, paramNameShort, paramNameVerbose, nRange, defaultVal,
                             parameterLabel, parameterCategory, stringFromValue, valueFromString)
         { }
         
@@ -242,11 +241,10 @@ namespace bav
 
     struct GainMeterParameter : public MeterParameter
     {
-        GainMeterParameter (int key,
-                            juce::String paramNameShort, juce::String paramNameVerbose,
+        GainMeterParameter (juce::String paramNameShort, juce::String paramNameVerbose,
                             juce::AudioProcessorParameter::Category parameterCategory = juce::AudioProcessorParameter::genericParameter)
         
-        :   MeterParameter (key, paramNameShort, paramNameVerbose,
+        :   MeterParameter (0, paramNameShort, paramNameVerbose,
                             juce::NormalisableRange<float>(-60.0f, 0.0f, 0.01f),
                             -60.0f, TRANS ("dB"), parameterCategory,
                             ParameterValueConversionLambdas::gain_stringFromFloat,
