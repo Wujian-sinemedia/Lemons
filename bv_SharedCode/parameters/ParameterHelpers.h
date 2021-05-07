@@ -327,7 +327,7 @@ struct ParameterAttachment  :   ParameterToValueTreeAttachment,
                                 ValueTreeToParameterAttachment
 {
     ParameterAttachment (bav::Parameter* paramToUse,
-                         juce::ValueTree& treeToUse)
+                         juce::ValueTree treeToUse)
         : ParameterToValueTreeAttachment (paramToUse, treeToUse),
           ValueTreeToParameterAttachment (paramToUse, treeToUse)
     { }
