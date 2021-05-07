@@ -119,7 +119,6 @@ namespace bav
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(FloatParameter)
     };
     
-    
 
     class IntParameter    :     public juce::AudioParameterInt,
                                 public bav::Parameter
@@ -220,6 +219,39 @@ namespace bav
         
     private:
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(BoolParameter)
+    };
+
+
+
+    struct MeterParameter :     public FloatParameter
+    {
+        MeterParameter (int key,
+                        juce::String paramNameShort, juce::String paramNameVerbose,
+                        juce::NormalisableRange<float> nRange, float defaultVal, juce::String parameterLabel = juce::String(),
+                        juce::AudioProcessorParameter::Category parameterCategory = juce::AudioProcessorParameter::genericParameter,
+                        std::function<juce::String(float value, int maximumStringLength)> stringFromValue = nullptr,
+                        std::function<float(const juce::String& text)> valueFromString = nullptr)
+        
+        :   FloatParameter (key, paramNameShort, paramNameVerbose, nRange, defaultVal,
+                            parameterLabel, parameterCategory, stringFromValue, valueFromString)
+        { }
+        
+        bool isAutomatable() const override final { return false; }
+    };
+
+
+    struct GainMeterParameter : public MeterParameter
+    {
+        GainMeterParameter (int key,
+                            juce::String paramNameShort, juce::String paramNameVerbose,
+                            juce::AudioProcessorParameter::Category parameterCategory = juce::AudioProcessorParameter::genericParameter)
+        
+        :   MeterParameter (key, paramNameShort, paramNameVerbose,
+                            juce::NormalisableRange<float>(-60.0f, 0.0f, 0.01f),
+                            -60.0f, TRANS ("dB"), parameterCategory,
+                            ParameterValueConversionLambdas::gain_stringFromFloat,
+                            ParameterValueConversionLambdas::gain_floatFromString)
+        { }
     };
 
     

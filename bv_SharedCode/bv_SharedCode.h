@@ -70,6 +70,7 @@
 #include "dsp/pitch-detector.h"
 
 #include "parameters/MessageQueue.h"
+#include "parameters/ParameterValueConversionLambdas.h"
 #include "parameters/Parameters.h"
 #include "parameters/MidiCC_Mapping.h"
 #include "parameters/LFO_Mapping.h"
