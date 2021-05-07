@@ -6,6 +6,8 @@ namespace bav
 static inline void createValueTreeFromParameterTree (juce::ValueTree& tree,
                                                      const juce::AudioProcessorParameterGroup& parameterTree)
 {
+    jassert (tree.isValid());
+    
     for (auto* node : parameterTree)
     {
         if (auto* param = node->getParameter())
@@ -26,6 +28,16 @@ static inline void createValueTreeFromParameterTree (juce::ValueTree& tree,
             createValueTreeFromParameterTree (tree, *thisGroup);
         }
     }
+}
+
+
+/* Returns the child tree representing the desired parameter in a ValueTree created by the createValueTreeFromParameterTree method */
+static inline juce::ValueTree getChildTreeForParameter (juce::ValueTree& topLevelTree,
+                                                        const bav::Parameter* const parameter)
+{
+    jassert (topLevelTree.isValid() && parameter != nullptr);
+    
+    return topLevelTree.getChildWithProperty ("Name", parameter->parameterNameVerbose);
 }
 
 
