@@ -34,8 +34,6 @@
   #include <mipp.h>
 #endif
 
-#include <climits>
-
 
 #ifdef __clang__
   #pragma clang diagnostic push
