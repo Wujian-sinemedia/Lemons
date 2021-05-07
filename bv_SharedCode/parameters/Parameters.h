@@ -232,7 +232,7 @@ namespace bav
                         std::function<juce::String(float value, int maximumStringLength)> stringFromValue = nullptr,
                         std::function<float(const juce::String& text)> valueFromString = nullptr)
         
-        :   FloatParameter (0, paramNameShort, paramNameVerbose, nRange, defaultVal,
+        :   FloatParameter (key, paramNameShort, paramNameVerbose, nRange, defaultVal,
                             parameterLabel, parameterCategory, stringFromValue, valueFromString)
         { }
         
