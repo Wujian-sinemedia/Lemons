@@ -44,6 +44,27 @@ static inline juce::ValueTree getChildTreeForParameter (juce::ValueTree& topLeve
 //==============================================================================
 //==============================================================================
 
+
+static inline void createParameterValueTreeAttachments (juce::OwnedArray<bav::ParameterAttachment>& attachments,
+                                                        juce::ValueTree parameterValueTree,
+                                                        std::function<bav::Parameter*(int)> findParameter)
+{
+    attachments.ensureStorageAllocated (numParams);
+    
+    for (int i = 0; i < numParams; ++i)
+    {
+        auto parameter = findParameter (i);
+        jassert (parameter != nullptr);
+        
+        attachments.add (new bav::ParameterAttachment (parameter,
+                                                       bav::getChildTreeForParameter (parameterValueTree, parameter)));
+    }
+}
+
+
+//==============================================================================
+//==============================================================================
+
 static inline juce::var valueTreeToVar (const juce::ValueTree& v)
 {
     auto obj = new juce::DynamicObject();
