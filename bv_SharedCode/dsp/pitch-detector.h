@@ -221,9 +221,9 @@ private:
         
         // weight the asdf data based on each candidate's delta value
         // because higher asdf values represent a lower confidence in that period candidate, we want to artificially increase the asdf data a bit for candidates with higher deltas
-        
         for (int c = 0; c < periodCandidates.size(); ++c)
-            weightedCandidateConfidence.add (asdfData[periodCandidates.getUnchecked(c)] * (candidateDeltas.getUnchecked(c) / deltaRange));
+            weightedCandidateConfidence.add ( asdfData[periodCandidates.getUnchecked(c)]
+                                             * ( candidateDeltas.getUnchecked(c) / deltaRange ) );
         
         // choose the estimated period based son the lowest weighted asdf data value:
         return periodCandidates.getUnchecked (vecops::findIndexOfMinElement (weightedCandidateConfidence.getRawDataPointer(),
