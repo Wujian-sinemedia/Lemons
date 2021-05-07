@@ -244,7 +244,7 @@ namespace bav
         GainMeterParameter (juce::String paramNameShort, juce::String paramNameVerbose,
                             juce::AudioProcessorParameter::Category parameterCategory = juce::AudioProcessorParameter::genericParameter)
         
-        :   MeterParameter (0, paramNameShort, paramNameVerbose,
+        :   MeterParameter (paramNameShort, paramNameVerbose,
                             juce::NormalisableRange<float>(-60.0f, 0.0f, 0.01f),
                             -60.0f, TRANS ("dB"), parameterCategory,
                             ParameterValueConversionLambdas::gain_stringFromFloat,
