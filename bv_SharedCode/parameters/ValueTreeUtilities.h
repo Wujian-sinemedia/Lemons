@@ -14,11 +14,11 @@ static inline void createValueTreeFromParameterTree (juce::ValueTree& tree,
             {
                 juce::ValueTree parameterTreeNode { "Parameter" };
                 
-                parameterTreeNode.setProperty ("Name",  parameterNameVerbose, nullptr);
+                parameterTreeNode.setProperty ("Name",  parameter->parameterNameVerbose, nullptr);
                 parameterTreeNode.setProperty ("Value", parameter->getCurrentDenormalizedValue(), nullptr);
                 parameterTreeNode.setProperty ("IsChanging", false, nullptr);
                 
-                tree.addChild (parameterTreeNode, nullptr);
+                tree.addChild (parameterTreeNode, 0, nullptr);
             }
         }
         else if (auto* thisGroup = node->getGroup())
@@ -41,7 +41,7 @@ static inline juce::var valueTreeToVar (const juce::ValueTree& v)
     juce::Array<juce::var> children;
     
     for (auto c : v)
-        children.add (toVar (c));
+        children.add (valueTreeToVar (c));
     
     if (children.size() > 0)
         obj->setProperty ("_children", children);
@@ -89,7 +89,7 @@ static inline juce::ValueTree valueTreefromVar (const juce::var& obj)
         
         if (c.isArray())
             for (auto& child : *c.getArray())
-                v.addChild (fromVar (child), -1, nullptr);
+                v.addChild (valueTreefromVar (child), -1, nullptr);
         
         auto properties = dobj->getProperties();
         
