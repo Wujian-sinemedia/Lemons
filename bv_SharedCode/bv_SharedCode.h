@@ -73,8 +73,8 @@
 #include "parameters/Parameters.h"
 #include "parameters/MidiCC_Mapping.h"
 #include "parameters/LFO_Mapping.h"
-#include "parameters/ValueTreeUtilities.h"
 #include "parameters/ParameterHelpers.h"
+#include "parameters/ValueTreeUtilities.h"
 
 #include "network/AsyncDownload.h"
 #include "network/DownloadManager.h"
@@ -116,6 +116,15 @@ namespace bav
         
         return rootFolder;
     }
+
+
+
+static inline void initializeTranslations (const juce::File& translationFile,
+                                           bool ignoreCaseOfKeys = true)
+{
+    if (translationFile.existsAsFile())
+        juce::LocalisedStrings::setCurrentMappings (new juce::LocalisedStrings (translationFile, ignoreCaseOfKeys));
+}
 
 
 static inline juce::String addFileExtensionIfMissing (const juce::String& string, const juce::String& extension)

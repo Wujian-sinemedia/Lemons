@@ -1,5 +1,38 @@
 
-static inline juce::var toVar (const juce::ValueTree& v)
+namespace bav
+{
+
+/* note: this only works if the underlying parameter objects in the group are derived from my Parameter base class */
+static inline void createValueTreeFromParameterTree (juce::ValueTree& tree,
+                                                     const juce::AudioProcessorParameterGroup& parameterTree)
+{
+    for (auto* node : parameterTree)
+    {
+        if (auto* param = node->getParameter())
+        {
+            if (auto* parameter = dynamic_cast<bav::Parameter*>(param))
+            {
+                juce::ValueTree parameterTreeNode { "Parameter" };
+                
+                parameterTreeNode.setProperty ("Name",  parameterNameVerbose, nullptr);
+                parameterTreeNode.setProperty ("Value", parameter->getCurrentDenormalizedValue(), nullptr);
+                parameterTreeNode.setProperty ("IsChanging", false, nullptr);
+                
+                tree.addChild (parameterTreeNode, nullptr);
+            }
+        }
+        else if (auto* thisGroup = node->getGroup())
+        {
+            createValueTreeFromParameterTree (tree, *thisGroup);
+        }
+    }
+}
+
+
+//==============================================================================
+//==============================================================================
+
+static inline juce::var valueTreeToVar (const juce::ValueTree& v)
 {
     auto obj = new juce::DynamicObject();
     
@@ -36,14 +69,17 @@ static inline juce::var toVar (const juce::ValueTree& v)
     return juce::var (obj);
 }
 
+
 static juce::String valueTreeToJSON (const juce::ValueTree& v)
 {
-    auto obj = toVar (v);
+    auto obj = valueTreeToVar (v);
     return juce::JSON::toString (obj);
 }
 
 //==============================================================================
-static inline juce::ValueTree fromVar (const juce::var& obj)
+//==============================================================================
+
+static inline juce::ValueTree valueTreefromVar (const juce::var& obj)
 {
     if (auto dobj = obj.getDynamicObject())
     {
@@ -81,12 +117,16 @@ static inline juce::ValueTree fromVar (const juce::var& obj)
     return {};
 }
 
+
 inline juce::ValueTree valueTreeFromJSON (const juce::String& jsonText)
 {
     juce::var obj = juce::JSON::parse (jsonText);
     
     if (obj.isObject())
-        return fromVar (obj);
+        return valueTreefromVar (obj);
     
     return {};
 }
+
+
+}  // namespace

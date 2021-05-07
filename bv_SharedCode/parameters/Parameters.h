@@ -3,47 +3,7 @@
 namespace bav
 {
     
-    /*
-     This function returns a given RangedAudioParameter's current normalized value in the range 0.0f to 1.0f.
-     This function is necessary because the provided juce subclasses AudioParameterFloat|Bool|Int implement getValue() as private.
-     */
-    static inline float getNormalizedParameterValue (juce::RangedAudioParameter& param)
-    {
-        return param.getValue();
-    }
-    
-    
-    static inline int midiPanStringToInt (const juce::String& string)
-    {
-        if (string.endsWithIgnoreCase (TRANS("C")))
-            return 64;
-        
-        if (string.endsWithIgnoreCase (TRANS("R")))
-            return juce::jmap (string.dropLastCharacters(1).getIntValue(), 1, 50, 65, 127);
-        
-        if (string.endsWithIgnoreCase (TRANS("L")))
-            return juce::jmap (string.dropLastCharacters(1).getIntValue(), 1, 50, 63, 0);
-        
-        return string.getIntValue();
-    }   
-    
-    static inline juce::String midiPanIntToString (const int midiPan)
-    {
-        if (midiPan == 64)
-            return juce::String (TRANS("C"));
-        
-        if (midiPan > 64)
-        { 
-            const auto amtRight = juce::jmap (midiPan, 65, 127, 1, 50);
-            return juce::String (amtRight) + TRANS("R");
-        }
-        
-        const auto amtLeft = juce::jmap (midiPan, 63, 0, 1, 50);
-        return juce::String (amtLeft) + TRANS("L");
-    }    
-    
-    
-    
+
     class Parameter
     {
         using RangedParam = juce::RangedAudioParameter;
@@ -118,16 +78,12 @@ namespace bav
     
     
     
-    /*
-     Wrapper class around juce::AudioParameterFloat that allows you to change its default value at runtime, and exposes the getValue() function as public
-     */
     class FloatParameter  :     public juce::AudioParameterFloat,
                                 public bav::Parameter
     {
         using AudioParameterFloat = juce::AudioParameterFloat;
         
     public:
-        // use the constructor just like you would the constructor for juce::AudioParameterFloat. All the args are simply forwarded.
         FloatParameter (int key,
                         juce::String paramNameShort, juce::String paramNameVerbose,
                         juce::NormalisableRange<float> nRange, float defaultVal, juce::String parameterLabel = juce::String(),
@@ -164,16 +120,13 @@ namespace bav
     };
     
     
-    /*
-     Wrapper class around juce::AudioParameterInt that allows you to change its default value at runtime, and exposes the getValue() function as public
-     */
+
     class IntParameter    :     public juce::AudioParameterInt,
                                 public bav::Parameter
     {
         using AudioParameterInt = juce::AudioParameterInt;
         
     public:
-        // use the constructor just like you would the constructor for juce::AudioParameterInt. All the args are simply forwarded.
         IntParameter (int key,
                       juce::String paramNameShort, juce::String paramNameVerbose,
                       int min, int max, int defaultVal,
@@ -215,16 +168,13 @@ namespace bav
     };
     
     
-    /*
-     Wrapper class around juce::AudioParameterBool that allows you to change its default value at runtime, and exposes the getValue() function as public
-     */
+
     class BoolParameter    :        public juce::AudioParameterBool,
                                     public bav::Parameter
     {
         using AudioParameterBool = juce::AudioParameterBool;
         
     public:
-        // use the constructor just like you would the constructor for juce::AudioParameterBool. All the args are simply forwarded.
         BoolParameter (int key,
                        juce::String paramNameShort, juce::String paramNameVerbose,
                        bool defaultVal,
