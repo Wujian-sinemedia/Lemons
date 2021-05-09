@@ -16,9 +16,9 @@ static inline void createValueTreeFromParameterTree (juce::ValueTree& tree,
             {
                 juce::ValueTree parameterTreeNode { "Parameter" };
                 
-                parameterTreeNode.setProperty ("Name",  parameter->parameterNameVerbose, nullptr);
-                parameterTreeNode.setProperty ("Value", parameter->getCurrentDenormalizedValue(), nullptr);
-                parameterTreeNode.setProperty ("IsChanging", false, nullptr);
+                parameterTreeNode.setProperty ("ParameterName",  parameter->parameterNameVerbose, nullptr);
+                parameterTreeNode.setProperty ("ParameterValue", parameter->getCurrentDenormalizedValue(), nullptr);
+                parameterTreeNode.setProperty ("ParameterIsChanging", false, nullptr);
                 
                 tree.addChild (parameterTreeNode, 0, nullptr);
             }
@@ -37,7 +37,7 @@ static inline juce::ValueTree getChildTreeForParameter (juce::ValueTree& topLeve
 {
     jassert (topLevelTree.isValid() && parameter != nullptr);
     
-    return topLevelTree.getChildWithProperty ("Name", parameter->parameterNameVerbose);
+    return topLevelTree.getChildWithProperty ("ParameterName", parameter->parameterNameVerbose);
 }
 
 
@@ -50,6 +50,8 @@ static inline void createParameterValueTreeAttachments (juce::OwnedArray<bav::Pa
                                                         int totalNumParams,
                                                         std::function<bav::Parameter*(int)> findParameter)
 {
+    jassert (parameterValueTree.isValid());
+    
     attachments.ensureStorageAllocated (totalNumParams);
     
     for (int i = 0; i < totalNumParams; ++i)
