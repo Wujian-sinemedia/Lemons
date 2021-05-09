@@ -14,6 +14,12 @@ static inline float getNormalizedParameterValue (juce::RangedAudioParameter& par
 static inline juce::AudioProcessorParameterGroup* findParameterSubgroup (const juce::AudioProcessorParameterGroup& parameterTree,
                                                                          const juce::String& subgroupName)
 {
+    return findParameterSubgroup (&parameterTree, subgroupName);
+}
+
+static inline juce::AudioProcessorParameterGroup* findParameterSubgroup (const juce::AudioProcessorParameterGroup* parameterTree,
+                                                                         const juce::String& subgroupName)
+{
     for (auto* node : parameterTree)
         if (auto* group = node->getGroup())
             if (group->getName() == subgroupName)
