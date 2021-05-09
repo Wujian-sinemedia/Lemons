@@ -81,15 +81,6 @@
 #include "network/DownloadManager.h"
 
 
-#ifndef BV_HAS_BINARY_DATA
-  #define BV_HAS_BINARY_DATA 0
-#endif
-
-#if BV_HAS_BINARY_DATA
-  #include "BinaryDataHelpers.h"
-#endif
-
-
 
 namespace bav
 {

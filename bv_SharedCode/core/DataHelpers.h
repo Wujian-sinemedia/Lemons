@@ -8,6 +8,44 @@ namespace bav::data
 {
 
 
+#if BV_HAS_BINARY_DATA
+  #include "BinaryData.h"
+
+struct RawData
+{
+    explicit RawData (const char* fileToFind)
+    {
+        using namespace BinaryData;
+        
+        for (int index = 0; index < namedResourceListSize; ++index)
+        {
+            auto binaryName = namedResourceList[index];
+            auto fileName = getNamedResourceOriginalFilename(binaryName);
+            
+            if (fileName == fileToFind)
+            {
+                data = BinaryData::getNamedResource(binaryName, size);
+                break;
+            }
+        }
+        
+        jassert (data != nullptr);  // File not found
+    }
+    
+    const char* data = nullptr;
+    int size = 0;
+};
+
+/** To easily access some binary data:
+ @code
+    RawData binary {"File.wav"};
+    doSomethingWithData (binary.data, binary.size);
+ @end-code
+ */
+#endif
+
+
+
 /*
  Dumps a given image to a File in png format.
  If the file parameter is nonexistant a temp file will be created on the desktop.
