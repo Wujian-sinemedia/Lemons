@@ -36,6 +36,8 @@ public:
       : param (paramToUse),
         tree (treeToUse)
     {
+        jassert (tree.isValid());
+        
         param->orig()->addListener (this);
         startTimerHz (10);
         isChanging.store (false);
@@ -91,6 +93,8 @@ public:
       : param (paramToUse),
         tree (treeToUse)
     {
+        jassert (tree.isValid());
+        
         tree.addListener (this);
         lastSentChangeState = false;
         
