@@ -22,6 +22,10 @@ static inline void createValueTreeFromParameterTree (juce::ValueTree& tree,
                 
                 tree.addChild (parameterTreeNode, 0, nullptr);
             }
+            else
+            {
+                jassertfalse;
+            }
         }
         else if (auto* thisGroup = node->getGroup())
         {
