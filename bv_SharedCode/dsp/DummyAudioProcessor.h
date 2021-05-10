@@ -16,7 +16,7 @@ public:
     
     void processBlock (juce::AudioBuffer<float>&,  juce::MidiBuffer&) override { }
     
-    double getTailLengthSeconds() const override { }
+    double getTailLengthSeconds() const override { return 0.0; }
     
     void getStateInformation (juce::MemoryBlock&) override { }
     void setStateInformation (const void*, int) override { }
