@@ -49,10 +49,10 @@ static inline juce::ValueTree getChildTreeForParameter (juce::ValueTree& topLeve
 //==============================================================================
 
 
-static inline void createParameterValueTreeAttachments (juce::OwnedArray<bav::ParameterAttachment>& attachments,
-                                                        juce::ValueTree parameterValueTree,
-                                                        int totalNumParams,
-                                                        std::function< bav::Parameter* (int) > findParameter)
+static inline void createTwoWayParameterValueTreeAttachments (juce::OwnedArray<bav::ParameterAttachment>& attachments,
+                                                              juce::ValueTree parameterValueTree,
+                                                              int totalNumParams,
+                                                              std::function< bav::Parameter* (int) > findParameter)
 {
     jassert (parameterValueTree.isValid());
     
@@ -69,10 +69,10 @@ static inline void createParameterValueTreeAttachments (juce::OwnedArray<bav::Pa
 }
 
 
-static inline void createOneWayParameterValueTreeAttachments (juce::OwnedArray<bav::ValueTreeToParameterAttachment>& attachments,
-                                                              juce::ValueTree parameterValueTree,
-                                                              int totalNumParams,
-                                                              std::function< bav::Parameter* (int) > findParameter)
+static inline void createReadOnlyParameterValueTreeAttachments (juce::OwnedArray<bav::ValueTreeToParameterAttachment>& attachments,
+                                                                juce::ValueTree parameterValueTree,
+                                                                int totalNumParams,
+                                                                std::function< bav::Parameter* (int) > findParameter)
 {
     jassert (parameterValueTree.isValid());
     
@@ -84,6 +84,26 @@ static inline void createOneWayParameterValueTreeAttachments (juce::OwnedArray<b
         jassert (parameter != nullptr);
         
         attachments.add (new bav::ValueTreeToParameterAttachment (parameter,
+                                                                  bav::getChildTreeForParameter (parameterValueTree, parameter)));
+    }
+}
+
+
+static inline void createWriteOnlyParameterValueTreeAttachments (juce::OwnedArray<bav::ParameterToValueTreeAttachment>& attachments,
+                                                                 juce::ValueTree parameterValueTree,
+                                                                 int totalNumParams,
+                                                                 std::function< bav::Parameter* (int) > findParameter)
+{
+    jassert (parameterValueTree.isValid());
+    
+    attachments.ensureStorageAllocated (totalNumParams);
+    
+    for (int i = 0; i < totalNumParams; ++i)
+    {
+        auto parameter = findParameter (i);
+        jassert (parameter != nullptr);
+        
+        attachments.add (new bav::ParameterToValueTreeAttachment (parameter,
                                                                   bav::getChildTreeForParameter (parameterValueTree, parameter)));
     }
 }
