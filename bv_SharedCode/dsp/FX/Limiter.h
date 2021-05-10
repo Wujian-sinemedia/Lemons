@@ -51,15 +51,17 @@ namespace bav::dsp::FX
         
         
         //  processes a signal with no sidechain
-        void process (juce::AudioBuffer<SampleType>& signalToLimit)
+        void process (juce::AudioBuffer<SampleType>& signalToLimit,
+                      SampleType* gainReduction = nullptr)
         {
-            process (signalToLimit, signalToLimit);
+            process (signalToLimit, signalToLimit, gainReduction);
         }
         
         
         //  processes a signal with an external sidechain. Use the same buffer in both arguments to sidechain a signal to itself.
         void process (const juce::AudioBuffer<SampleType>& sidechain,
-                      juce::AudioBuffer<SampleType>& signalToLimit)
+                      juce::AudioBuffer<SampleType>& signalToLimit,
+                      SampleType* gainReduction = nullptr)
         {
             const auto numChannels = signalToLimit.getNumChannels();
             const auto numSamples  = signalToLimit.getNumSamples();
@@ -71,7 +73,8 @@ namespace bav::dsp::FX
             {
                 process (channel, numSamples,
                          signalToLimit.getWritePointer (channel),
-                         sidechain.getReadPointer (channel));
+                         sidechain.getReadPointer (channel),
+                         gainReduction);
             }
         }
         
@@ -80,10 +83,19 @@ namespace bav::dsp::FX
         void process (const int channel,
                       const int numSamples,
                       SampleType* signalToLimit,
-                      const SampleType* sidechain = nullptr)
+                      const SampleType* sidechain = nullptr,
+                      SampleType* gainReduction = nullptr)
         {
             if (sidechain == nullptr)
                 sidechain = signalToLimit;
+            
+            auto getMagnitude = [](float* signal, int numSamps)
+                                {
+                                    auto r = FloatVectorOperations::findMinAndMax (signal, numSamps);
+                                    return juce::jmax (r.getStart(), -r.getStart(), r.getEnd(), -r.getEnd());
+                                };
+            
+            const auto levelBefore = getMagnitude (signalToLimit, numSamples);
             
             for (int s = 0; s < numSamples; ++s)
             {
@@ -95,6 +107,14 @@ namespace bav::dsp::FX
             }
             
             juce::FloatVectorOperations::clip (signalToLimit, signalToLimit, SampleType(-1.0), SampleType(1.0), numSamples);
+            
+            if (gainReduction != nullptr)
+            {
+                const auto levelAfter = getMagnitude (signalToLimit, numSamples);
+                
+                *gainReduction = juce::jlimit (SampleType(0.0), SampleType(1.0),
+                                               levelAfter - levelBefore);
+            }
         }
         
         
