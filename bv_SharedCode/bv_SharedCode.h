@@ -81,6 +81,7 @@ BV_DECLARE_VALUETREEID (ParameterIsChanging);
 #include "dsp/FX/Delay.h"
 #include "dsp/FIFOWrappedEngine.h"
 #include "dsp/pitch-detector.h"
+#include "dsp/DummyAudioProcessor.h"
 
 #include "parameters/MessageQueue.h"
 #include "parameters/ParameterValueConversionLambdas.h"
