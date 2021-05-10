@@ -4,16 +4,11 @@ namespace bav
 {
 
 
-static inline float getNormalizedParameterValue (juce::RangedAudioParameter& param)
-{
-    return param.getValue();
-}
-
-
-
 static inline juce::AudioProcessorParameterGroup* findParameterSubgroup (const juce::AudioProcessorParameterGroup* parameterTree,
                                                                          const juce::String& subgroupName)
 {
+    jassert (parameterTree != nullptr);
+    
     for (auto* node : *parameterTree)
         if (auto* group = node->getGroup())
             if (group->getName() == subgroupName)
@@ -30,6 +25,8 @@ static inline juce::AudioProcessorParameterGroup* findParameterSubgroup (const j
 static inline void parseParameterTreeForParameterPointers (const juce::AudioProcessorParameterGroup* group,
                                                            std::vector< bav::Parameter* >& pointers)
 {
+    jassert (group != nullptr);
+    
     for (auto* node : *group)
     {
         if (auto* rawParam = node->getParameter())
@@ -109,6 +106,9 @@ private:
 };
 
 
+//==============================================================================
+
+
 /* Updates the parameter object with changes from the ValueTree */
 class ValueTreeToParameterAttachment   :    public juce::ValueTree::Listener
 {
@@ -159,6 +159,8 @@ private:
     juce::CachedValue<bool>  currentGesture;
 };
 
+
+//==============================================================================
 
 
 struct ParameterAttachment  :   ParameterToValueTreeAttachment,
