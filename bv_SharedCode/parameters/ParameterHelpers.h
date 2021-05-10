@@ -55,7 +55,7 @@ class ParameterToValueTreeAttachment   :     private juce::Timer,
 public:
     ParameterToValueTreeAttachment (bav::Parameter* paramToUse,
                                     juce::ValueTree treeToUse,
-                                    juce::UndoManager* um = nullptr;)
+                                    juce::UndoManager* um = nullptr)
       : param (paramToUse),
         tree (treeToUse),
         undoManager (um)
@@ -182,7 +182,7 @@ public:
         bool needToEndGesture = false;
         
         /* Gesture state */
-        const auto changeState = currentGesture.load();
+        const auto changeState = currentGesture.get();
         
         if (changeState != lastSentChangeState)
         {
