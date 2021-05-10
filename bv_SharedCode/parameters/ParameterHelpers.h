@@ -22,6 +22,31 @@ static inline juce::AudioProcessorParameterGroup* findParameterSubgroup (const j
     return nullptr;
 }
 
+
+//==============================================================================
+//==============================================================================
+
+
+static inline void parseParameterTreeForParameterPointers (const juce::AudioProcessorParameterGroup* group,
+                                                           std::vector< bav::Parameter* >& pointers)
+{
+    for (auto* node : *group)
+    {
+        if (auto* rawParam = node->getParameter())
+        {
+            if (auto* parameter = dynamic_cast<bav::Parameter*> (rawParam))
+                pointers.push_back (parameter);
+            else
+                jassertfalse;
+        }
+        else if (auto* thisGroup = node->getGroup())
+        {
+            parseParameterTreeForParameterPointers (thisGroup, pointers);
+        }
+    }
+}
+
+
 //==============================================================================
 //==============================================================================
 
