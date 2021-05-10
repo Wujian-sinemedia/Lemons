@@ -89,9 +89,9 @@ namespace bav::dsp::FX
             if (sidechain == nullptr)
                 sidechain = signalToLimit;
             
-            auto getMagnitude = [](float* signal, int numSamps)
+            auto getMagnitude = [](SampleType* signal, int numSamps)
                                 {
-                                    auto r = FloatVectorOperations::findMinAndMax (signal, numSamps);
+                                    auto r = juce::FloatVectorOperations::findMinAndMax (signal, numSamps);
                                     return juce::jmax (r.getStart(), -r.getStart(), r.getEnd(), -r.getEnd());
                                 };
             
