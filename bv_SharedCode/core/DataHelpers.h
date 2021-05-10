@@ -4,16 +4,20 @@
 */
 
 
-namespace bav::data
-{
-
-
 #ifndef BV_HAS_BINARY_DATA
   #define BV_HAS_BINARY_DATA 0
 #endif
 
 #if BV_HAS_BINARY_DATA
   #include "BinaryData.h"
+#endif
+
+
+namespace bav
+{
+
+
+#if BV_HAS_BINARY_DATA
 
 struct RawData
 {
@@ -46,7 +50,8 @@ struct RawData
     doSomethingWithData (binary.data, binary.size);
  @end-code
  */
-#endif
+
+#endif  /* if BV_HAS_BINARY_DATA */
 
 
 
