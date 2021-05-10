@@ -46,33 +46,69 @@ public:
         dryGain.setTargetValue (smoothingZeroCheck (1.0f - wet));
     }
     
+    
     void pushSample (int channel, SampleType sample) { delay.pushSample (channel, sample); }
     
-    SampleType popSample (int channel)
+    
+    SampleType popSample (int channel, SampleType* delayLevel = nullptr)
     {
         const auto delaySamps = delay.getDelay();
         
         const auto drySample = delay.popSample (channel, SampleType(0), false) * dryGain.getNextValue();
         const auto wetSample = delay.popSample (channel, delaySamps, true) * wetGain.getNextValue();
         
+        if (delayLevel != nullptr)
+            *delayLevel = std::abs (wetSample);
+        
         return drySample + wetSample;
     }
     
-    void process (int channelNum, SampleType* samples, int numSamples)
+    
+    void process (int channelNum, SampleType* samples, int numSamples, SampleType* delayLevel = nullptr)
     {
-        for (int i = 0; i < numSamples; ++i)
-        pushSample (channelNum, samples[i]);
+        jassert (numSamples > 0);
         
         for (int i = 0; i < numSamples; ++i)
-        *(samples + i) = popSample (channelNum);
+            pushSample (channelNum, samples[i]);
+        
+        auto avgMag = SampleType(0.0);
+       
+        for (int i = 0; i < numSamples; ++i)
+        {
+            SampleType mag;
+            *(samples + i) = popSample (channelNum, &mag);
+            avgMag += mag;
+        }
+        
+        if (delayLevel != nullptr)
+        {
+            avgMag /= numSamples;
+            *delayLevel = avgMag;
+        }
     }
     
-    void process (juce::AudioBuffer<SampleType>& audio)
+    
+    void process (juce::AudioBuffer<SampleType>& audio, SampleType* delayLevel = nullptr)
     {
         const auto numSamples = audio.getNumSamples();
+        const auto numChannels = audio.getNumChannels();
         
-        for (int i = 0; i < audio.getNumChannels(); ++i)
-        process (i, audio.getWritePointer(i), numSamples);
+        jassert (numChannels > 0);
+        
+        auto avgMag = SampleType(0.0);
+        
+        for (int i = 0; i < numChannels; ++i)
+        {
+            SampleType mag;
+            process (i, audio.getWritePointer(i), numSamples, &mag);
+            avgMag += mag;
+        }
+        
+        if (delayLevel != nullptr)
+        {
+            avgMag /= numChannels;
+            *delayLevel = avgMag;
+        }
     }
     
     

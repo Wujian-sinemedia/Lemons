@@ -116,33 +116,42 @@ namespace bav::dsp::FX
         
         
         //  process input with no external compressor sidechain
-        void process (juce::AudioBuffer<double>& input)
+        void process (juce::AudioBuffer<double>& input,
+                      double* reverbLevel = nullptr)
         {
-            process (input, input);
+            process (input, input, reverbLevel);
         }
         
-        void process (juce::AudioBuffer<float>& input)
+        void process (juce::AudioBuffer<float>& input,
+                      float* reverbLevel = nullptr)
         {
-            process (input, input);
+            process (input, input, reverbLevel);
         }
         
         
         //  process input with an external signal as the compressor's sidechain
         
         void process (juce::AudioBuffer<double>& input,
-                      juce::AudioBuffer<double>& compressorSidechain)
+                      juce::AudioBuffer<double>& compressorSidechain,
+                      double* reverbLevel = nullptr)
         {
             conversionBuffer.makeCopyOf (input, true);
             sidechainBuffer.makeCopyOf (compressorSidechain, true);
             
-            process (conversionBuffer, sidechainBuffer);
+            float level;
+            
+            process (conversionBuffer, sidechainBuffer, &level);
             
             input.makeCopyOf (conversionBuffer, true);
+            
+            if (reverbLevel != nullptr)
+                *reverbLevel = static_cast<double> (level);
         }
         
         
         void process (juce::AudioBuffer<float>& input,
-                      juce::AudioBuffer<float>& compressorSidechain)
+                      juce::AudioBuffer<float>& compressorSidechain,
+                      float* reverbLevel = nullptr)
         {
             const auto numSamples = input.getNumSamples();
             const auto numChannels = input.getNumChannels();
@@ -164,6 +173,9 @@ namespace bav::dsp::FX
                 default:
                     reverb.processStereo (workingBuffer.getWritePointer(0), workingBuffer.getWritePointer(1), numSamples);
             }
+            
+            if (reverbLevel != nullptr)
+                *reverbLevel = workingBuffer.getMagnitude (0, numSamples);
             
             // filters
 //            for (int chan = 0; chan < numChannels; ++chan)
