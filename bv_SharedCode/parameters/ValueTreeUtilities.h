@@ -21,6 +21,7 @@ static inline void createValueTreeFromParameterTree (juce::ValueTree& tree,
                 
                 parameterTreeNode.setProperty (ParameterName,  parameter->parameterNameVerbose, nullptr);
                 parameterTreeNode.setProperty (ParameterValue, parameter->getCurrentDenormalizedValue(), nullptr);
+                parameterTreeNode.setProperty (ParameterDefaultValue, parameter->getNormalizedDefault(), nullptr);
                 parameterTreeNode.setProperty (ParameterIsChanging, false, nullptr);
                 
                 tree.addChild (parameterTreeNode, -1, nullptr);

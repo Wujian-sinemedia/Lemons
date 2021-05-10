@@ -61,10 +61,11 @@ public:
         jassert (tree.isValid());
         
         param->orig()->addListener (this);
-        startTimerHz (10);
+        startTimerHz (60);
         isChanging.store (false);
         
         currentValue.referTo (tree, DefaultValueTreeIds::ParameterValue, nullptr);
+        currentDefaultValue.referTo (tree, DefaultValueTreeIds::ParameterDefaultValue, nullptr);
         currentGesture.referTo (tree, DefaultValueTreeIds::ParameterIsChanging, nullptr);
     }
     
@@ -80,6 +81,11 @@ public:
         
         if (currentValue.get() != newValue)
             currentValue.setValue (newValue, nullptr);
+        
+        const auto newDefault = param->getNormalizedDefault();
+        
+        if (currentDefaultValue.get() != newDefault)
+            currentDefaultValue.setValue (newDefault, nullptr);
         
         const auto changeState = isChanging.load();
         
@@ -102,6 +108,7 @@ private:
     std::atomic<bool> isChanging;
     
     juce::CachedValue<float> currentValue;
+    juce::CachedValue<float> currentDefaultValue;
     juce::CachedValue<bool>  currentGesture;
 };
 
@@ -124,6 +131,7 @@ public:
         lastSentChangeState = false;
         
         currentValue.referTo (tree, DefaultValueTreeIds::ParameterValue, nullptr);
+        currentDefaultValue.referTo (tree, DefaultValueTreeIds::ParameterDefaultValue, nullptr);
         currentGesture.referTo (tree, DefaultValueTreeIds::ParameterIsChanging, nullptr);
     }
 
@@ -134,6 +142,11 @@ public:
         
         if (value != param->getCurrentDenormalizedValue())
             param->orig()->setValueNotifyingHost (value);
+        
+        const auto defaultVal = currentDefaultValue.get();
+        
+        if (defaultVal != param->getNormalizedDefault)
+            param->setNormalizedDefault (defaultVal);
         
         const auto changing = currentGesture.get();
         
@@ -156,6 +169,7 @@ private:
     bool lastSentChangeState;
     
     juce::CachedValue<float> currentValue;
+    juce::CachedValue<float> currentDefaultValue;
     juce::CachedValue<bool>  currentGesture;
 };
 

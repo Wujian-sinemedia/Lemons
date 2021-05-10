@@ -31,6 +31,12 @@ namespace bav
             currentDefault.store (getCurrentNormalizedValue());
         }
         
+        void setNormalizedDefault (float value)
+        {
+            jassert (value >= 0.0f && value <= 1.0f);
+            currentDefault.store (value);
+        }
+        
         // resets the parameter to its currently stored default
         void resetToDefault() { rap->setValueNotifyingHost (currentDefault.load()); }
         

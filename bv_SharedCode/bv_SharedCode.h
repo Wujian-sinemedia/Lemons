@@ -45,10 +45,11 @@ namespace DefaultValueTreeIds
 {
 #define BV_DECLARE_VALUETREEID(name) static inline juce::Identifier name { "name" }
 
-BV_DECLARE_VALUETREEID (ParameterNode);
-BV_DECLARE_VALUETREEID (ParameterName);
-BV_DECLARE_VALUETREEID (ParameterValue);
-BV_DECLARE_VALUETREEID (ParameterIsChanging);
+    BV_DECLARE_VALUETREEID (ParameterNode);
+    BV_DECLARE_VALUETREEID (ParameterName);
+    BV_DECLARE_VALUETREEID (ParameterValue);
+    BV_DECLARE_VALUETREEID (ParameterDefaultValue);
+    BV_DECLARE_VALUETREEID (ParameterIsChanging);
 
 #undef BV_DECLARE_VALUETREEID
 }
