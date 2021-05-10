@@ -145,7 +145,7 @@ public:
         
         const auto defaultVal = currentDefaultValue.get();
         
-        if (defaultVal != param->getNormalizedDefault)
+        if (defaultVal != param->getNormalizedDefault())
             param->setNormalizedDefault (defaultVal);
         
         const auto changing = currentGesture.get();
