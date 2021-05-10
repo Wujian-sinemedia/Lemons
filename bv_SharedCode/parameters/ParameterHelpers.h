@@ -32,7 +32,7 @@ class ParameterToValueTreeAttachment   :     private juce::Timer,
 {
 public:
     ParameterToValueTreeAttachment (bav::Parameter* paramToUse,
-                                    juce::ValueTree& treeToUse)
+                                    juce::ValueTree treeToUse)
       : param (paramToUse),
         tree (treeToUse)
     {
@@ -89,7 +89,7 @@ class ValueTreeToParameterAttachment   :    public juce::ValueTree::Listener
 {
 public:
     ValueTreeToParameterAttachment (bav::Parameter* paramToUse,
-                                    juce::ValueTree& treeToUse)
+                                    juce::ValueTree treeToUse)
       : param (paramToUse),
         tree (treeToUse)
     {
