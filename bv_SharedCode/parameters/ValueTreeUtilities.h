@@ -2,25 +2,28 @@
 namespace bav
 {
 
+
 /* note: this only works if the underlying parameter objects in the group are derived from my Parameter base class */
 static inline void createValueTreeFromParameterTree (juce::ValueTree& tree,
                                                      const juce::AudioProcessorParameterGroup& parameterTree)
 {
+    using namespace DefaultValueTreeIds;
+    
     jassert (tree.isValid());
     
     for (auto* node : parameterTree)
     {
         if (auto* param = node->getParameter())
         {
-            if (auto* parameter = dynamic_cast<bav::Parameter*>(param))
+            if (auto* parameter = dynamic_cast<bav::Parameter*> (param))
             {
-                juce::ValueTree parameterTreeNode { "Parameter" };
+                juce::ValueTree parameterTreeNode { ParameterNode };
                 
-                parameterTreeNode.setProperty ("ParameterName",  parameter->parameterNameVerbose, nullptr);
-                parameterTreeNode.setProperty ("ParameterValue", parameter->getCurrentDenormalizedValue(), nullptr);
-                parameterTreeNode.setProperty ("ParameterIsChanging", false, nullptr);
+                parameterTreeNode.setProperty (ParameterName,  parameter->parameterNameVerbose, nullptr);
+                parameterTreeNode.setProperty (ParameterValue, parameter->getCurrentDenormalizedValue(), nullptr);
+                parameterTreeNode.setProperty (ParameterIsChanging, false, nullptr);
                 
-                tree.addChild (parameterTreeNode, 0, nullptr);
+                tree.addChild (parameterTreeNode, -1, nullptr);
             }
             else
             {
@@ -41,7 +44,12 @@ static inline juce::ValueTree getChildTreeForParameter (juce::ValueTree& topLeve
 {
     jassert (topLevelTree.isValid() && parameter != nullptr);
     
-    return topLevelTree.getChildWithProperty ("ParameterName", parameter->parameterNameVerbose);
+    auto child = topLevelTree.getChildWithProperty (DefaultValueTreeIds::ParameterName,
+                                                    parameter->parameterNameVerbose);
+    
+    jassert (child.isValid());
+    
+    return child;
 }
 
 

@@ -42,8 +42,8 @@ public:
         startTimerHz (10);
         isChanging.store (false);
         
-        currentValue.referTo (tree, param->identifier, nullptr);
-        currentGesture.referTo (tree, param->gestureIdentifier, nullptr);
+        currentValue.referTo (tree, DefaultValueTreeIds::ParameterValue, nullptr);
+        currentGesture.referTo (tree, DefaultValueTreeIds::ParameterIsChanging, nullptr);
     }
     
     virtual ~ParameterToValueTreeAttachment() override
@@ -98,8 +98,8 @@ public:
         tree.addListener (this);
         lastSentChangeState = false;
         
-        currentValue.referTo (tree, param->identifier, nullptr);
-        currentGesture.referTo (tree, param->gestureIdentifier, nullptr);
+        currentValue.referTo (tree, DefaultValueTreeIds::ParameterValue, nullptr);
+        currentGesture.referTo (tree, DefaultValueTreeIds::ParameterIsChanging, nullptr);
     }
 
     

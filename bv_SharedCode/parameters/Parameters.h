@@ -15,8 +15,6 @@ namespace bav
               : parameterNameShort   (TRANS (paramNameShort)),
                 parameterNameVerbose (TRANS (paramNameVerbose)),
                 parameterNameVerboseNoSpaces (paramNameVerbose.trim().replaceCharacters (" ", "_")),
-                identifier (paramNameVerbose.trim().replaceCharacters (" ", "_")),
-                gestureIdentifier (identifier.toString() + "_isChanging"),
                 currentDefault (defaultValue), rap (p), keyID (key)
         {
             jassert (rap != nullptr);
@@ -64,9 +62,6 @@ namespace bav
         const juce::String parameterNameShort;
         const juce::String parameterNameVerbose;
         const juce::String parameterNameVerboseNoSpaces;
-        
-        const juce::Identifier identifier;
-        const juce::Identifier gestureIdentifier;
         
     protected:
         std::atomic<float> currentDefault;
