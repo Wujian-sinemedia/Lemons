@@ -75,7 +75,7 @@ static const std::function< juce::String (float value, int maximumStringLength) 
 [](float value, int maxLength)
 {
     auto string = (value < 1000.0f) ? juce::String (value) + " " + TRANS("Hz")
-    : juce::String (value * 0.001f) + " " + TRANS("kHz");
+                                    : juce::String (value * 0.001f) + " " + TRANS("kHz");
     
     return string.substring(0, maxLength);
 };
@@ -118,16 +118,16 @@ static const std::function< int (const juce::String& text) > st_intFromString =
 static const std::function< juce::String (int value, int maximumStringLength) > pitch_stringFromInt =
 [](int value, int maxLength)
 {
-    return bav::midi::pitchToString (value, true).substring(0, maxLength);
+    return midi::pitchToString (value, true).substring(0, maxLength);
 };
 
 static const std::function< int (const juce::String& text) > pitch_intFromString =
 [](const juce::String& text)
 {
-    static const auto pitchClassTokens = juce::String("AaBbCcDdEeFfGg#") + bav::gui::getSharpSymbol() + bav::gui::getFlatSymbol();
+    static const auto pitchClassTokens = juce::String("AaBbCcDdEeFfGg#") + getSharpSymbol() + getFlatSymbol();
     
     if (text.containsAnyOf (pitchClassTokens))
-        return bav::midi::stringToPitch (text.trim());
+        return midi::stringToPitch (text.trim());
     
     return text.trim().getIntValue();
 };
@@ -154,13 +154,13 @@ static const std::function< int (const juce::String& text) > normPcnt_intFromStr
 static const std::function< juce::String (int value, int maxLength) > midiPan_stringFromInt =
 [](int value, int maxLength)
 {
-    return bav::midiPanIntToString (value).substring(0, maxLength);
+    return midiPanIntToString (value).substring(0, maxLength);
 };
 
 static const std::function< int (const juce::String& text) > midiPan_intFromString =
 [](const juce::String& text)
 {
-    return bav::midiPanStringToInt (text);
+    return midiPanStringToInt (text);
 };
 
 } // namespace

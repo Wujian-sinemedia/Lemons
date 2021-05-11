@@ -99,7 +99,22 @@ namespace bav::DefaultValueTreeIds
 
 namespace bav
 {
+    /* Returns a unicode sharp symbol.
+     */
+    static inline const juce::juce_wchar getSharpSymbol() noexcept   {   return *juce::CharPointer_UTF8 ("\xe2\x99\xaf");  }
+
+    /* Returns a unicode flat symbol.
+     */
+    static inline const juce::juce_wchar getFlatSymbol() noexcept    {   return *juce::CharPointer_UTF8 ("\xe2\x99\xad");  }
+
+    /* Returns a unicode natural symbol.
+     */
+    static inline const juce::juce_wchar getNaturalSymbol() noexcept {   return *juce::CharPointer_UTF8 ("\xe2\x99\xae");  }
+
+
+//==============================================================================
     
+
     /*
         this function attempts to return the default location your plugin's preset files should be saved to and loaded from.
         if the directory cannot be found for your plugin, calling this function will attempt to create it.
@@ -125,6 +140,8 @@ namespace bav
     }
 
 
+//==============================================================================
+
 
 static inline void initializeTranslations (const juce::File& translationFile,
                                            bool ignoreCaseOfKeys = true)
@@ -132,6 +149,9 @@ static inline void initializeTranslations (const juce::File& translationFile,
     if (translationFile.existsAsFile())
         juce::LocalisedStrings::setCurrentMappings (new juce::LocalisedStrings (translationFile, ignoreCaseOfKeys));
 }
+
+
+//==============================================================================
 
 
 static inline juce::String addFileExtensionIfMissing (const juce::String& string, const juce::String& extension)
