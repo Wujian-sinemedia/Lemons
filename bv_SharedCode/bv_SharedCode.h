@@ -41,7 +41,7 @@
 #endif
 
 
-namespace DefaultValueTreeIds
+namespace bav::DefaultValueTreeIds
 {
 #define BV_DECLARE_VALUETREEID(name) static inline juce::Identifier name { "name" }
 
@@ -63,9 +63,6 @@ namespace DefaultValueTreeIds
 #include "math/mathHelpers.h"
 #include "math/VectorOps.h"
 #include "math/intOps.h"
-
-#include "gui/gui.h"
-#include "gui/Spline.h"
 
 #include "midi/MidiFIFO.h"
 #include "midi/MidiUtilities.h"
@@ -91,6 +88,9 @@ namespace DefaultValueTreeIds
 #include "parameters/LFO_Mapping.h"
 #include "parameters/ParameterHelpers.h"
 #include "parameters/ValueTreeUtilities.h"
+
+#include "gui/gui.h"
+#include "gui/Spline.h"
 
 #include "network/AsyncDownload.h"
 #include "network/DownloadManager.h"
