@@ -7,17 +7,7 @@ namespace bav::math
         This namespace conatins several floating inlined functions that are useful helpers and utilities for math-related operations
     */
     
-// alias __sincos as sincos and __sincosf as sincosf for GNU on Apple platforms
-#ifndef LACK_SINCOS
-  #if defined __GNUC__
-    #if JUCE_APPLE
-      #define sincosf __sincosf
-      #define sincos __sincos
-    #endif
-  #endif
-#endif
-    
-    
+
     //  returns true a specified percent of the time
     static BV_FORCE_INLINE bool probability (int percentOfTheTime)
     {

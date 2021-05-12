@@ -407,20 +407,14 @@ static inline void deinterleave (T* const BV_R_ *const BV_R_ dst,
     
     
 
-
-    
 static BV_FORCE_INLINE void phasor (float* real, float* imag, float phase)
 {
 #if BV_USE_VDSP
     int one = 1;
     vvsincosf (imag, real, &phase, &one);
 #else
-  #if defined __GNUC__ && ! defined LACK_SINCOS
-    sincosf (phase, imag, real);
-  #else
     *real = cosf (phase);
     *imag = sinf (phase);
-  #endif
 #endif
 }
 
@@ -430,12 +424,8 @@ static BV_FORCE_INLINE void phasor (double* real, double* imag, double phase)
     int one = 1;
     vvsincos (imag, real, &phase, &one);
 #else
-  #if defined __GNUC__ && ! defined LACK_SINCOS
-    sincos (phase, imag, real);
-  #else
-    *real = cos(phase);
-    *imag = sin(phase);
-  #endif
+    *real = cos (phase);
+    *imag = sin (phase);
 #endif
 }
     
