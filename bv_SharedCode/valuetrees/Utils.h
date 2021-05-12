@@ -58,7 +58,7 @@ static inline juce::ValueTree getChildTreeForParameter (juce::ValueTree& topLeve
 //==============================================================================
 
 static inline void createValueTreeFromNonParamNodes (juce::ValueTree& tree,
-                                                     const std::vector<std::unique_ptr<NonParamValueTreeNode>>& groups)
+                                                     const std::vector<std::unique_ptr<NonParamValueTreeNodeGroup>>& groups)
 {
     using namespace DefaultValueTreeIds;
     
@@ -72,7 +72,7 @@ static inline void createValueTreeFromNonParamNodes (juce::ValueTree& tree,
         {
             juce::ValueTree treeNode { NonParameterNode };
         
-            treeNode.setProperty (NonParameterName, node->name, nullptr);
+            treeNode.setProperty (NonParameterName, node->longName, nullptr);
             // initialize the value property?
             
             tree.addChild (treeNode, -1, nullptr);
