@@ -63,7 +63,7 @@ namespace bav
                 actionableFunction (rap->convertFrom0to1 (rap->getValue()));
         }
         
-        std::function<void(float)> actionableFunction = nullptr;
+        std::function< void (float) > actionableFunction = nullptr;
         
         const juce::String parameterNameShort;
         const juce::String parameterNameVerbose;

@@ -7,10 +7,10 @@ namespace bav::gui
 class ComponentWithParameterConnection  :   public juce::Component
 {
 public:
-    ComponentWithParameterConnection (bav::Parameter* parameter, juce::ValueTree& vt, juce::UndoManager& um)
-      : state(vt),
-        parameterName(parameter->parameterNameVerbose),
-        undoManager(um)
+    ComponentWithParameterConnection (Parameter* parameter, juce::ValueTree& vt, juce::UndoManager& um)
+      : state (vt),
+        parameterName (parameter->parameterNameVerbose),
+        undoManager (um)
     {
         setName (parameter->parameterNameVerbose);
         setComponentID (parameter->parameterNameVerbose);
@@ -62,6 +62,30 @@ protected:
     juce::UndoManager& undoManager;
 };
 
+
+    /*=========================================================================================*/
+    /*=========================================================================================*/
+
+class ComponentWithNonParameterPropertyConnection  :   public juce::Component
+{
+public:
+    ComponentWithParameterConnection (NonParamValueTreeNode* property, juce::ValueTree& vt, juce::UndoManager& um)
+      : state (vt),
+        propertyName (property->longName),
+        undoManager (um)
+    {
+        setName (property->longName);
+        setComponentID (property->longName);
+    }
+    
+    
+protected:
+    juce::ValueTree state;
+    
+    const juce::String propertyName;
+    
+    juce::UndoManager& undoManager;
+};
 
     /*=========================================================================================*/
     /*=========================================================================================*/
