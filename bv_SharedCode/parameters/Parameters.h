@@ -106,9 +106,6 @@ namespace bav
             currentDefault.store (AudioParameterFloat::getNormalisableRange().convertTo0to1 (newDefault));
         }
         
-        // returns a const reference to this parameter's NormalisableRange object
-        const juce::NormalisableRange<float>& getRange() const override { return AudioParameterFloat::getNormalisableRange(); }
-        
         // returns a float value normalized in the range 0 to 1, using this parameter's NormalisableRange object
         float normalize (const float input) const override { return AudioParameterFloat::convertTo0to1(input); }
         
@@ -155,9 +152,6 @@ namespace bav
         {
             currentDefault.store (AudioParameterInt::getNormalisableRange().convertTo0to1 (float(newDefault)));
         }
-        
-        // returns a const reference to this parameter's NormalisableRange object
-        const juce::NormalisableRange<float>& getRange() const override { return AudioParameterInt::getNormalisableRange(); }
         
         // returns a float value normalized in the range 0 to 1, using this parameter's NormalisableRange object
         float normalize (const float input) const override { return AudioParameterInt::convertTo0to1(input); }
@@ -212,9 +206,6 @@ namespace bav
             else
                 currentDefault.store (0.0f);
         }
-        
-        // returns a const reference to this parameter's NormalisableRange object
-        const juce::NormalisableRange<float>& getRange() const override { return AudioParameterBool::getNormalisableRange(); }
         
         // returns a float value normalized in the range 0 to 1, using this parameter's NormalisableRange object
         float normalize (const float input) const override { return AudioParameterBool::convertTo0to1(input); }

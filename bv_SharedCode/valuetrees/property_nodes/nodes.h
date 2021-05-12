@@ -139,12 +139,16 @@ struct IntValueTreeNode  :  NonParamValueTreeNode
     {
         if (intFromString)
             setValue (intFromString (string));
+        else
+            setValue (backup_ValueFromString (string));
     }
     
     void setDefaultValueFromString (juce::String string) override final
     {
         if (intFromString)
             setDefaultValue (intFromString (string));
+        else
+            setDefaultValue (backup_ValueFromString (string));
     }
     
     //
@@ -174,6 +178,11 @@ struct IntValueTreeNode  :  NonParamValueTreeNode
 private:
     std::atomic<int> currentValue;
     std::atomic<int> defaultValue;
+    
+    int backup_ValueFromString (const juce::String& string)
+    {
+        return string.retainCharacters ("01234567890").getIntValue();
+    }
 };
 
 
@@ -248,12 +257,16 @@ struct BoolValueTreeNode   :  NonParamValueTreeNode
     {
         if (boolFromString)
             setValue (boolFromString (string));
+        else
+            setValue (backup_ValueFromString (string));
     }
     
     void setDefaultValueFromString (juce::String string) override final
     {
         if (boolFromString)
             setDefaultValue (boolFromString (string));
+        else
+            setDefaultValue (backup_ValueFromString (string));
     }
     
     //
@@ -281,6 +294,14 @@ struct BoolValueTreeNode   :  NonParamValueTreeNode
 private:
     std::atomic<bool> currentValue;
     std::atomic<bool> defaultValue;
+    
+    bool backup_ValueFromString (const juce::String& string)
+    {
+        if (string.containsWholeWordIgnoreCase ("Yes") || string.containsWholeWordIgnoreCase ("True"))
+            return true;
+        
+        return false;
+    }
 };
 
 
@@ -357,12 +378,16 @@ struct FloatValueTreeNode  :  NonParamValueTreeNode
     {
         if (floatFromString)
             setValue (floatFromString (string));
+        else
+            setValue (backup_ValueFromString (string));
     }
     
     void setDefaultValueFromString (juce::String string) override final
     {
         if (floatFromString)
             setDefaultValue (floatFromString (string));
+        else
+            setDefaultValue (backup_ValueFromString (string));
     }
     
     //
@@ -392,6 +417,11 @@ struct FloatValueTreeNode  :  NonParamValueTreeNode
 private:
     std::atomic<float> currentValue;
     std::atomic<float> defaultValue;
+    
+    float backup_ValueFromString (const juce::String& string)
+    {
+        return string.retainCharacters (".01234567890").getFloatValue();
+    }
 };
 
 
