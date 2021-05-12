@@ -56,11 +56,10 @@ namespace bav
         
         void doAction()
         {
-            if (actionableFunction)
-                actionableFunction();
+            actionableFunction();
         }
         
-        std::function< void() > actionableFunction = nullptr;
+        std::function< void() > actionableFunction { [](){}; };
         
         const juce::String parameterNameShort;
         const juce::String parameterNameVerbose;
@@ -96,15 +95,12 @@ namespace bav
         {
             Parameter::actionableFunction = [this]()
                                             {
-                                                if (onAction)
+                                                const auto newValue = Parameter::getCurrentDenormalizedValue();
+                                                
+                                                if (newValue != lastActionedValue.load())
                                                 {
-                                                    const auto newValue = Parameter::getCurrentDenormalizedValue();
-                                                    
-                                                    if (newValue != lastActionedValue.load())
-                                                    {
-                                                        lastActionedValue.store (newValue);
-                                                        onAction (newValue);
-                                                    }
+                                                    lastActionedValue.store (newValue);
+                                                    onAction (newValue);
                                                 }
                                             };
             
@@ -127,7 +123,7 @@ namespace bav
         // takes a normalized float value as input and returns a denormalized float value within the natural range of this parameter.
         float denormalize (const float input) const override { return AudioParameterFloat::convertFrom0to1(input); }
         
-        std::function < void (float) > onAction;
+        std::function < void (float) > onAction { [](float){}; };
         
     private:
         std::atomic<float> lastActionedValue;
@@ -159,15 +155,12 @@ namespace bav
         {
             Parameter::actionableFunction = [this]()
                                             {
-                                                if (onAction)
+                                                const auto newValue = juce::roundToInt (Parameter::getCurrentDenormalizedValue());
+                                                
+                                                if (newValue != lastActionedValue.load())
                                                 {
-                                                    const auto newValue = juce::roundToInt (Parameter::getCurrentDenormalizedValue());
-                                                    
-                                                    if (newValue != lastActionedValue.load())
-                                                    {
-                                                        lastActionedValue.store (newValue);
-                                                        onAction (newValue);
-                                                    }
+                                                    lastActionedValue.store (newValue);
+                                                    onAction (newValue);
                                                 }
                                             };
             
@@ -193,7 +186,7 @@ namespace bav
         // takes a normalized float value as input and returns a denormalized float value within the natural range of this parameter.
         float denormalize (const float input) const override { return AudioParameterInt::convertFrom0to1(input); }
         
-        std::function < void (int) > onAction;
+        std::function < void (int) > onAction { [](int){}; };
         
     private:
         std::atomic<int> lastActionedValue;
@@ -227,15 +220,12 @@ namespace bav
             
             Parameter::actionableFunction = [this]()
                                             {
-                                                if (onAction)
+                                                const auto newValue = Parameter::getCurrentDenormalizedValue() >= 0.5f;
+                                                
+                                                if (newValue != lastActionedValue.load())
                                                 {
-                                                    const auto newValue = Parameter::getCurrentDenormalizedValue() >= 0.5f;
-                                                    
-                                                    if (newValue != lastActionedValue.load())
-                                                    {
-                                                        lastActionedValue.store (newValue);
-                                                        onAction (newValue);
-                                                    }
+                                                    lastActionedValue.store (newValue);
+                                                    onAction (newValue);
                                                 }
                                             };
             
@@ -267,7 +257,7 @@ namespace bav
         // takes a normalized float value as input and returns a denormalized float value within the natural range of this parameter.
         float denormalize (const float input) const override { return AudioParameterBool::convertFrom0to1(input); }
         
-        std::function < void (bool) > onAction;
+        std::function < void (bool) > onAction { [](bool){}; };
         
     private:
         std::atomic<bool> lastActionedValue;

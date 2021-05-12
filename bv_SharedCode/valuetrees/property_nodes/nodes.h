@@ -31,11 +31,10 @@ struct NonParamValueTreeNode
     
     void doAction()
     {
-        if (actionableFunction)
-            actionableFunction();
+        actionableFunction();
     }
     
-    std::function< void() > actionableFunction = nullptr;
+    std::function< void() > actionableFunction { [](){}; };
     
     //
     
@@ -90,15 +89,12 @@ struct IntValueTreeNode  :  NonParamValueTreeNode
     {
         Base::actionableFunction = [this]()
                                    {
-                                       if (onAction)
+                                       const auto value = getCurrentValue();
+                                       
+                                       if (value != lastActionedValue.load())
                                        {
-                                           const auto value = getCurrentValue();
-                                           
-                                           if (value != lastActionedValue.load())
-                                           {
-                                               lastActionedValue.store (value);
-                                               onAction (value);
-                                           }
+                                           lastActionedValue.store (value);
+                                           onAction (value);
                                        }
                                    };
         
@@ -189,7 +185,7 @@ struct IntValueTreeNode  :  NonParamValueTreeNode
     std::function < juce::String (int, int) > stringFromInt;
     std::function < int (juce::String) > intFromString;
     
-    std::function < void (int) > onAction;
+    std::function < void (int) > onAction { [](int){}; };
     
     //
     
@@ -228,15 +224,12 @@ struct BoolValueTreeNode   :  NonParamValueTreeNode
     {
         Base::actionableFunction = [this]()
                                    {
-                                       if (onAction)
+                                       const auto value = getCurrentValue();
+                                       
+                                       if (value != lastActionedValue.load())
                                        {
-                                           const auto value = getCurrentValue();
-                                           
-                                           if (value != lastActionedValue.load())
-                                           {
-                                               lastActionedValue.store (value);
-                                               onAction (value);
-                                           }
+                                           lastActionedValue.store (value);
+                                           onAction (value);
                                        }
                                    };
         
@@ -325,7 +318,7 @@ struct BoolValueTreeNode   :  NonParamValueTreeNode
     std::function < juce::String (bool, int) > stringFromBool;
     std::function < bool (juce::String) > boolFromString;
     
-    std::function < void (bool) > onAction;
+    std::function < void (bool) > onAction { [](bool){}; };
     
     //
     
@@ -369,15 +362,12 @@ struct FloatValueTreeNode  :  NonParamValueTreeNode
     {
         Base::actionableFunction = [this]()
                                    {
-                                       if (onAction)
+                                       const auto value = getCurrentValue();
+                                       
+                                       if (value != lastActionedValue.load())
                                        {
-                                           const auto value = getCurrentValue();
-                                           
-                                           if (value != lastActionedValue.load())
-                                           {
-                                               lastActionedValue.store (value);
-                                               onAction (value);
-                                           }
+                                           lastActionedValue.store (value);
+                                           onAction (value);
                                        }
                                    };
         
@@ -468,7 +458,7 @@ struct FloatValueTreeNode  :  NonParamValueTreeNode
     std::function < juce::String (float, int) > stringFromFloat;
     std::function < float (juce::String) > floatFromString;
     
-    std::function < void (float) > onAction;
+    std::function < void (float) > onAction { [](float){}; };
     
     //
     
@@ -503,15 +493,12 @@ struct StringValueTreeNode :  NonParamValueTreeNode
     {
         Base::actionableFunction = [this]()
                                    {
-                                       if (onAction)
+                                       const auto value = getCurrentValue();
+                                       
+                                       if (value != lastActionedValue)
                                        {
-                                           const auto value = getCurrentValue();
-                                           
-                                           if (value != lastActionedValue)
-                                           {
-                                               lastActionedValue = value;
-                                               onAction (value);
-                                           }
+                                           lastActionedValue = value;
+                                           onAction (value);
                                        }
                                    };
         
@@ -595,7 +582,7 @@ struct StringValueTreeNode :  NonParamValueTreeNode
     
     //
     
-    std::function < void (juce::String) > onAction;
+    std::function < void (juce::String) > onAction { [](juce::String){}; };
     
 private:
     juce::String currentValue;
