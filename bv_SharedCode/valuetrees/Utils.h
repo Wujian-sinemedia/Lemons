@@ -59,10 +59,26 @@ static inline juce::ValueTree getChildTreeForParameter (juce::ValueTree& topLeve
 //==============================================================================
 //==============================================================================
 
+namespace nodeaddinghelper {
+template<typename ValueType>
+void addPropertyNode (juce::ValueTree& tree, const juce::Identifier& identifier, const juce::String& name,
+                      ValueType currentValue, ValueType defaultValue)
+{
+    using namespace DefaultValueTreeIds;
+    
+    juce::ValueTree propertyNode { identifier };
+    propertyNode.setProperty (NonParameterName, name, nullptr);
+    propertyNode.setProperty (NonParameterValue, currentValue, nullptr);
+    propertyNode.setProperty (NonParameterDefaultValue, defaultValue, nullptr);
+    tree.addChild (propertyNode, -1, nullptr);
+}
+}
+
 static inline void createValueTreeFromNonParamNodes (juce::ValueTree& tree,
                                                      const NonParamValueTreeNodeGroup& propertyTree)
 {
     using namespace DefaultValueTreeIds;
+    using namespace nodeaddinghelper;
     
     jassert (tree.isValid());
     
@@ -70,41 +86,29 @@ static inline void createValueTreeFromNonParamNodes (juce::ValueTree& tree,
     {
         if (auto* intNode = node->getIntNode())
         {
-            juce::ValueTree propertyNode { NonParameterNode_Int };
-            propertyNode.setProperty (NonParameterName, intNode->longName, nullptr);
-            propertyNode.setProperty (NonParameterValue, intNode->getCurrentValue(), nullptr);
-            propertyNode.setProperty (NonParameterDefaultValue, intNode->getDefaultValue(), nullptr);
-            tree.addChild (propertyNode, -1, nullptr);
+            addPropertyNode (tree, NonParameterNode_Int, intNode->longName, intNode->getCurrentValue(), intNode->getDefaultValue());
         }
         else if (auto* boolNode = node->getBoolNode())
         {
-            juce::ValueTree propertyNode { NonParameterNode_Bool };
-            propertyNode.setProperty (NonParameterName, boolNode->longName, nullptr);
-            propertyNode.setProperty (NonParameterValue, boolNode->getCurrentValue(), nullptr);
-            propertyNode.setProperty (NonParameterDefaultValue, boolNode->getDefaultValue(), nullptr);
-            tree.addChild (propertyNode, -1, nullptr);
+            addPropertyNode (tree, NonParameterNode_Bool, boolNode->longName, boolNode->getCurrentValue(), boolNode->getDefaultValue());
         }
         else if (auto* floatNode = node->getFloatNode())
         {
-            juce::ValueTree propertyNode { NonParameterNode_Float };
-            propertyNode.setProperty (NonParameterName, floatNode->longName, nullptr);
-            propertyNode.setProperty (NonParameterValue, floatNode->getCurrentValue(), nullptr);
-            propertyNode.setProperty (NonParameterDefaultValue, floatNode->getDefaultValue(), nullptr);
-            tree.addChild (propertyNode, -1, nullptr);
+            addPropertyNode (tree, NonParameterNode_Float, floatNode->longName, floatNode->getCurrentValue(), floatNode->getDefaultValue());
         }
         else if (auto* stringNode = node->getStringNode())
         {
-            juce::ValueTree propertyNode { NonParameterNode_String };
-            propertyNode.setProperty (NonParameterName, stringNode->longName, nullptr);
-            propertyNode.setProperty (NonParameterValue, stringNode->getCurrentValue(), nullptr);
-            propertyNode.setProperty (NonParameterDefaultValue, stringNode->getDefaultValue(), nullptr);
-            tree.addChild (propertyNode, -1, nullptr);
+            addPropertyNode (tree, NonParameterNode_String, stringNode->longName, stringNode->getCurrentValue(), stringNode->getDefaultValue());
         }
         else if (auto* group = node->getGroup())
         {
             juce::ValueTree propertyGroupNode { NonParameterGroupNode };
             createValueTreeFromNonParamNodes (propertyGroupNode, *group);
             tree.addChild (propertyGroupNode, -1, nullptr);
+        }
+        else
+        {
+            jassertfalse;
         }
     }
 }
