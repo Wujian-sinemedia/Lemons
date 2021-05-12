@@ -32,10 +32,10 @@ struct NonParamValueTreeNode
     void doAction()
     {
         if (actionableFunction)
-            actionableFunction (getCurrentValueAsString());
+            actionableFunction();
     }
     
-    std::function< void (juce::String currentValueAsString) > actionableFunction = nullptr;
+    std::function< void() > actionableFunction = nullptr;
     
     //
     
@@ -87,7 +87,13 @@ struct IntValueTreeNode  :  NonParamValueTreeNode
         stringFromInt (std::move (stringFromIntFunc)),
         intFromString (std::move (intFromStringFunc)),
         currentValue (defaultVal), defaultValue (defaultVal)
-    { }
+    {
+        Base::actionableFunction = [this]()
+                                   {
+                                       if (onAction)
+                                           onAction (getCurrentValue());
+                                   };
+    }
     
     juce::String getCurrentValueAsString (int maximumLength = 100) const override final
     {
@@ -173,6 +179,8 @@ struct IntValueTreeNode  :  NonParamValueTreeNode
     std::function < juce::String (int, int) > stringFromInt;
     std::function < int (juce::String) > intFromString;
     
+    std::function < void (int) > onAction;
+    
     //
     
 private:
@@ -205,7 +213,13 @@ struct BoolValueTreeNode   :  NonParamValueTreeNode
         stringFromBool (std::move (stringFromBoolFunc)),
         boolFromString (std::move (boolFromStringFunc)),
         currentValue (defaultVal), defaultValue (defaultVal)
-    { }
+    {
+        Base::actionableFunction = [this]()
+                                   {
+                                       if (onAction)
+                                           onAction (getCurrentValue());
+                                   };
+    }
     
     juce::String getCurrentValueAsString (int maximumLength = 100) const override final
     {
@@ -289,6 +303,8 @@ struct BoolValueTreeNode   :  NonParamValueTreeNode
     std::function < juce::String (bool, int) > stringFromBool;
     std::function < bool (juce::String) > boolFromString;
     
+    std::function < void (bool) > onAction;
+    
     //
     
 private:
@@ -326,7 +342,13 @@ struct FloatValueTreeNode  :  NonParamValueTreeNode
         stringFromFloat (std::move (stringFromFloatFunc)),
         floatFromString (std::move (floatFromStringFunc)),
         currentValue (defaultVal), defaultValue (defaultVal)
-    { }
+    {
+        Base::actionableFunction = [this]()
+                                   {
+                                       if (onAction)
+                                           onAction (getCurrentValue());
+                                   };
+    }
     
     juce::String getCurrentValueAsString (int maximumLength = 100) const override final
     {
@@ -412,6 +434,8 @@ struct FloatValueTreeNode  :  NonParamValueTreeNode
     std::function < juce::String (float, int) > stringFromFloat;
     std::function < float (juce::String) > floatFromString;
     
+    std::function < void (float) > onAction;
+    
     //
     
 private:
@@ -440,7 +464,13 @@ struct StringValueTreeNode :  NonParamValueTreeNode
                          const juce::String& defaultVal)
       : NonParamValueTreeNode (id, nameShort, nameVerbose),
         currentValue (defaultVal), defaultValue (defaultVal)
-    { }
+    {
+        Base::actionableFunction = [this]()
+                                   {
+                                       if (onAction)
+                                           onAction (getCurrentValue());
+                                   };
+    }
     
     juce::String getCurrentValueAsString (int maximumLength = 100) const override final
     {
@@ -518,6 +548,8 @@ struct StringValueTreeNode :  NonParamValueTreeNode
     }
     
     //
+    
+    std::function < void (juce::String) > onAction;
     
 private:
     juce::String currentValue;
