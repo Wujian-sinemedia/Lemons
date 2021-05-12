@@ -84,11 +84,11 @@
 #include "parameters/MidiCC_Mapping.h"
 #include "parameters/ParameterHelpers.h"
 
-#include "valuetrees/ParameterAttachments.h"
 #include "valuetrees/property_nodes/nodes.h"
 #include "valuetrees/property_nodes/propertyNodeGroup.h"
 #include "valuetrees/property_nodes/NodeAttachments.h"
 #include "valuetrees/Utils.h"
+#include "valuetrees/ParameterAttachments.h"
 #include "valuetrees/json_converter.h"
 
 #include "gui/gui.h"
