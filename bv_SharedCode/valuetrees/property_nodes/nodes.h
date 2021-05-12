@@ -10,8 +10,7 @@ struct NonParamValueTreeNode
                            const juce::String& nameVerbose)
       : nodeID (id),
         shortName (TRANS (nameShort)),
-        longName (TRANS (nameVerbose)),
-        nodeNameID (nameVerbose)
+        longName (TRANS (nameVerbose))
     { }
     
     virtual ~NonParamValueTreeNode() = default;
@@ -33,7 +32,7 @@ struct NonParamValueTreeNode
     void doAction()
     {
         if (actionableFunction)
-            actionableFunction (getCurrentValueAsString();
+            actionableFunction (getCurrentValueAsString());
     }
     
     std::function< void (juce::String currentValueAsString) > actionableFunction = nullptr;
@@ -49,9 +48,9 @@ struct NonParamValueTreeNode
     
     struct Listener
     {
-        void propertyValueChanged (const juce::String& currentValueAsString) = 0;
+        virtual void propertyValueChanged (const juce::String& currentValueAsString) = 0;
         
-        void propertyDefaultValueChanged (const juce::String& currentValueAsString);
+        virtual void propertyDefaultValueChanged (const juce::String& currentValueAsString);
     };
     
     //==============================================================================
@@ -81,12 +80,13 @@ struct IntValueTreeNode  :  NonParamValueTreeNode
                       std::function < juce::String (int, int) > stringFromIntFunc = nullptr,
                       std::function < int (juce::String) > intFromStringFunc = nullptr)
       : NonParamValueTreeNode (id, nameShort, nameVerbose),
-        minValue (min), maxValue(max), currentValue (defaultVal), defaultValue (defaultVal),
+        minValue (min), maxValue(max),
         stringFromInt (std::move (stringFromIntFunc)),
-        intFromString (std::move (intFromStringFunc))
+        intFromString (std::move (intFromStringFunc)),
+        currentValue (defaultVal), defaultValue (defaultVal)
     { }
     
-    juce::String getCurrentValueAsString (int maximumLength = 100)) const override final
+    juce::String getCurrentValueAsString (int maximumLength = 100) const override final
     {
         if (stringFromInt)
             return stringFromInt (currentValue.load(), maximumLength);
@@ -166,9 +166,9 @@ struct BoolValueTreeNode   :  NonParamValueTreeNode
                        std::function < juce::String (bool, int) > stringFromBoolFunc = nullptr,
                        std::function < int (juce::String) > boolFromStringFunc = nullptr)
       : NonParamValueTreeNode (id, nameShort, nameVerbose),
-        currentValue (defaultVal), defaultValue (defaultVal),
         stringFromBool (std::move (stringFromBoolFunc)),
-        boolFromString (std::move (boolFromStringFunc))
+        boolFromString (std::move (boolFromStringFunc)),
+        currentValue (defaultVal), defaultValue (defaultVal)
     { }
     
     juce::String getCurrentValueAsString (int maximumLength = 100) const override final
@@ -250,9 +250,10 @@ struct FloatValueTreeNode  :  NonParamValueTreeNode
                         std::function < juce::String (float, int) > stringFromFloatFunc = nullptr,
                         std::function < float (juce::String) > floatFromStringFunc = nullptr)
       : NonParamValueTreeNode (id, nameShort, nameVerbose),
-        range (normRange), defaultValue (defaultVal),
+        range (normRange),
         stringFromFloat (std::move (stringFromFloatFunc)),
-        floatFromString (std::move (floatFromStringFunc))
+        floatFromString (std::move (floatFromStringFunc)),
+        currentValue (defaultVal), defaultValue (defaultVal)
     { }
     
     juce::String getCurrentValueAsString (int maximumLength = 100) const override final
@@ -333,8 +334,7 @@ struct StringValueTreeNode :  NonParamValueTreeNode
                          const juce::String& nameVerbose,
                          const juce::String& defaultVal)
       : NonParamValueTreeNode (id, nameShort, nameVerbose),
-        defaultValue (defaultVal),
-        currentValue (defaultVal)
+        currentValue (defaultVal), defaultValue (defaultVal)
     { }
     
     juce::String getCurrentValueAsString (int maximumLength = 100) const override final
@@ -421,3 +421,4 @@ private:
 
 
 }  // namespace
+
