@@ -39,6 +39,10 @@ struct NonParamValueTreeNode
     
     //
     
+    virtual juce::ValueTree toValueTree() const = 0;
+    
+    //
+    
     const int nodeID;
     
     const juce::String shortName;
@@ -138,6 +142,21 @@ struct IntValueTreeNode  :  NonParamValueTreeNode
     
     //
     
+    juce::ValueTree toValueTree() const override final
+    {
+        using namespace DefaultValueTreeIds;
+        
+        juce::ValueTree tree { NonParameterNode_Int };
+        
+        propertyNode.setProperty (NonParameterName, Base::longName, nullptr);
+        propertyNode.setProperty (NonParameterValue, getCurrentValue(), nullptr);
+        propertyNode.setProperty (NonParameterDefaultValue, getDefaultValue(), nullptr);
+        
+        return tree;
+    }
+    
+    //
+    
     const int minValue, maxValue;
     
     std::function < juce::String (int, int) > stringFromInt;
@@ -219,6 +238,21 @@ struct BoolValueTreeNode   :  NonParamValueTreeNode
         currentValue.store (defaultValue.load());
         const auto asString = getCurrentValueAsString();
         Base::listeners.call ([&asString] (Listener& l) { l.propertyValueChanged (asString); });
+    }
+    
+    //
+    
+    juce::ValueTree toValueTree() const override final
+    {
+        using namespace DefaultValueTreeIds;
+        
+        juce::ValueTree tree { NonParameterNode_Bool };
+        
+        propertyNode.setProperty (NonParameterName, Base::longName, nullptr);
+        propertyNode.setProperty (NonParameterValue, getCurrentValue(), nullptr);
+        propertyNode.setProperty (NonParameterDefaultValue, getDefaultValue(), nullptr);
+        
+        return tree;
     }
     
     //
@@ -308,6 +342,21 @@ struct FloatValueTreeNode  :  NonParamValueTreeNode
     
     //
     
+    juce::ValueTree toValueTree() const override final
+    {
+        using namespace DefaultValueTreeIds;
+        
+        juce::ValueTree tree { NonParameterNode_Float };
+        
+        propertyNode.setProperty (NonParameterName, Base::longName, nullptr);
+        propertyNode.setProperty (NonParameterValue, getCurrentValue(), nullptr);
+        propertyNode.setProperty (NonParameterDefaultValue, getDefaultValue(), nullptr);
+        
+        return tree;
+    }
+    
+    //
+    
     const juce::NormalisableRange<float> range;
     
     std::function < juce::String (float, int) > stringFromFloat;
@@ -383,6 +432,21 @@ struct StringValueTreeNode :  NonParamValueTreeNode
     
     //
     
+    juce::ValueTree toValueTree() const override final
+    {
+        using namespace DefaultValueTreeIds;
+        
+        juce::ValueTree tree { NonParameterNode_String };
+        
+        propertyNode.setProperty (NonParameterName, Base::longName, nullptr);
+        propertyNode.setProperty (NonParameterValue, getCurrentValue(), nullptr);
+        propertyNode.setProperty (NonParameterDefaultValue, getDefaultValue(), nullptr);
+        
+        return tree;
+    }
+    
+    //
+    
 private:
     juce::String currentValue;
     juce::String defaultValue;
@@ -400,8 +464,7 @@ struct NonParamValueTreeNodeGroup
     struct NonParamValueTreeNodeGroupNode
     {
         NonParamValueTreeNodeGroupNode (NonParamValueTreeNodeGroupNode&& other)
-          : group (std::move (other.group)), intNode (std::move (other.intNode)), boolNode (std::move (other.boolNode)),
-            floatNode (std::move (other.floatNode)), stringNode (std::move (other.stringNode))
+          : group (std::move (other.group)), node (std::move (other.node))
         { }
         
         ~NonParamValueTreeNodeGroupNode() = default;
@@ -409,39 +472,21 @@ struct NonParamValueTreeNodeGroup
         //
         
         NonParamValueTreeNodeGroup* getGroup() const { return group.get(); }
-        IntValueTreeNode*    getIntNode()    const { return intNode.get(); }
-        BoolValueTreeNode*   getBoolNode()   const { return boolNode.get(); }
-        FloatValueTreeNode*  getFloatNode()  const { return floatNode.get(); }
-        StringValueTreeNode* getStringNode() const { return stringNode.get(); }
+        NonParamValueTreeNode* getNode() const { return node.get(); }
         
     private:
-        NonParamValueTreeNodeGroupNode (std::unique_ptr<NonParamValueTreeNodeGroup> group)
-          : group (std::move (group))
+        NonParamValueTreeNodeGroupNode (std::unique_ptr<NonParamValueTreeNodeGroup> group_)
+          : group (std::move (group_))
         { }
         
-        NonParamValueTreeNodeGroupNode (std::unique_ptr<IntValueTreeNode> intnode)
-          : intNode (std::move (intnode))
-        { }
-        
-        NonParamValueTreeNodeGroupNode (std::unique_ptr<BoolValueTreeNode> boolnode)
-          : boolNode (std::move (boolnode))
-        { }
-        
-        NonParamValueTreeNodeGroupNode (std::unique_ptr<FloatValueTreeNode> floatnode)
-          : floatNode (std::move (floatnode))
-        { }
-        
-        NonParamValueTreeNodeGroupNode (std::unique_ptr<StringValueTreeNode> stringnode)
-          : stringNode (std::move (stringnode))
+        NonParamValueTreeNodeGroupNode (std::unique_ptr<NonParamValueTreeNode> node_)
+          : node (std::move (node_))
         { }
         
         //
         
         std::unique_ptr<NonParamValueTreeNodeGroup> group;
-        std::unique_ptr<IntValueTreeNode> intNode;
-        std::unique_ptr<BoolValueTreeNode> boolNode;
-        std::unique_ptr<FloatValueTreeNode> floatNode;
-        std::unique_ptr<StringValueTreeNode> stringNode;
+        std::unique_ptr<NonParamValueTreeNode> node;
         
         friend struct NonParamValueTreeNodeGroup;
         
@@ -486,7 +531,7 @@ struct NonParamValueTreeNodeGroup
     template <typename NodeOrSubgroup>
     void addChild (std::unique_ptr<NodeOrSubgroup> child)
     {
-        /* If you get a compiler error here, then you are attempting to add a child that is neither a NonParamValueTreeNodeGroup or a node type. */
+        /* If you get a compiler error here, then you are attempting to add a child that is neither a NonParamValueTreeNodeGroup or a NonParamValueTreeNode. */
         append (std::move (child));
     }
     
@@ -508,22 +553,7 @@ private:
         children.add (new NonParamValueTreeNodeGroupNode (std::move (group)));
     }
     
-    void append (std::unique_ptr<IntValueTreeNode> node)
-    {
-        children.add (new NonParamValueTreeNodeGroupNode (std::move (node)));
-    }
-    
-    void append (std::unique_ptr<BoolValueTreeNode> node)
-    {
-        children.add (new NonParamValueTreeNodeGroupNode (std::move (node)));
-    }
-    
-    void append (std::unique_ptr<FloatValueTreeNode> node)
-    {
-        children.add (new NonParamValueTreeNodeGroupNode (std::move (node)));
-    }
-    
-    void append (std::unique_ptr<StringValueTreeNode> node)
+    void append (std::unique_ptr<NonParamValueTreeNode> node)
     {
         children.add (new NonParamValueTreeNodeGroupNode (std::move (node)));
     }

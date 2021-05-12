@@ -59,21 +59,6 @@ static inline juce::ValueTree getChildTreeForParameter (juce::ValueTree& topLeve
 //==============================================================================
 //==============================================================================
 
-namespace nodeaddinghelper {
-template<typename ValueType>
-void addPropertyNode (juce::ValueTree& tree, const juce::Identifier& identifier, const juce::String& name,
-                      ValueType currentValue, ValueType defaultValue)
-{
-    using namespace DefaultValueTreeIds;
-    
-    juce::ValueTree propertyNode { identifier };
-    propertyNode.setProperty (NonParameterName, name, nullptr);
-    propertyNode.setProperty (NonParameterValue, currentValue, nullptr);
-    propertyNode.setProperty (NonParameterDefaultValue, defaultValue, nullptr);
-    tree.addChild (propertyNode, -1, nullptr);
-}
-}
-
 static inline void createValueTreeFromNonParamNodes (juce::ValueTree& tree,
                                                      const NonParamValueTreeNodeGroup& propertyTree)
 {
@@ -84,27 +69,15 @@ static inline void createValueTreeFromNonParamNodes (juce::ValueTree& tree,
     
     for (auto* node : propertyTree)
     {
-        if (auto* intNode = node->getIntNode())
+        if (auto* thisNode = node->getNode())
         {
-            addPropertyNode (tree, NonParameterNode_Int, intNode->longName, intNode->getCurrentValue(), intNode->getDefaultValue());
-        }
-        else if (auto* boolNode = node->getBoolNode())
-        {
-            addPropertyNode (tree, NonParameterNode_Bool, boolNode->longName, boolNode->getCurrentValue(), boolNode->getDefaultValue());
-        }
-        else if (auto* floatNode = node->getFloatNode())
-        {
-            addPropertyNode (tree, NonParameterNode_Float, floatNode->longName, floatNode->getCurrentValue(), floatNode->getDefaultValue());
-        }
-        else if (auto* stringNode = node->getStringNode())
-        {
-            addPropertyNode (tree, NonParameterNode_String, stringNode->longName, stringNode->getCurrentValue(), stringNode->getDefaultValue());
+            tree.appendChild (thisNode->toValueTree(), nullptr);
         }
         else if (auto* group = node->getGroup())
         {
             juce::ValueTree propertyGroupNode { NonParameterGroupNode };
             createValueTreeFromNonParamNodes (propertyGroupNode, *group);
-            tree.addChild (propertyGroupNode, -1, nullptr);
+            tree.appendChild (propertyGroupNode, nullptr);
         }
         else
         {
