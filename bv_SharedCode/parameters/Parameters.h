@@ -59,7 +59,7 @@ namespace bav
             actionableFunction();
         }
         
-        std::function< void() > actionableFunction { [](){}; };
+        std::function< void() > actionableFunction { [](){} };
         
         const juce::String parameterNameShort;
         const juce::String parameterNameVerbose;
@@ -123,7 +123,7 @@ namespace bav
         // takes a normalized float value as input and returns a denormalized float value within the natural range of this parameter.
         float denormalize (const float input) const override { return AudioParameterFloat::convertFrom0to1(input); }
         
-        std::function < void (float) > onAction { [](float){}; };
+        std::function < void (float) > onAction { [](float){} };
         
     private:
         std::atomic<float> lastActionedValue;
@@ -186,7 +186,7 @@ namespace bav
         // takes a normalized float value as input and returns a denormalized float value within the natural range of this parameter.
         float denormalize (const float input) const override { return AudioParameterInt::convertFrom0to1(input); }
         
-        std::function < void (int) > onAction { [](int){}; };
+        std::function < void (int) > onAction { [](int){} };
         
     private:
         std::atomic<int> lastActionedValue;
@@ -257,7 +257,7 @@ namespace bav
         // takes a normalized float value as input and returns a denormalized float value within the natural range of this parameter.
         float denormalize (const float input) const override { return AudioParameterBool::convertFrom0to1(input); }
         
-        std::function < void (bool) > onAction { [](bool){}; };
+        std::function < void (bool) > onAction { [](bool){} };
         
     private:
         std::atomic<bool> lastActionedValue;

@@ -34,7 +34,7 @@ struct NonParamValueTreeNode
         actionableFunction();
     }
     
-    std::function< void() > actionableFunction { [](){}; };
+    std::function< void() > actionableFunction { [](){} };
     
     //
     
@@ -185,7 +185,7 @@ struct IntValueTreeNode  :  NonParamValueTreeNode
     std::function < juce::String (int, int) > stringFromInt;
     std::function < int (juce::String) > intFromString;
     
-    std::function < void (int) > onAction { [](int){}; };
+    std::function < void (int) > onAction { [](int){} };
     
     //
     
@@ -318,7 +318,7 @@ struct BoolValueTreeNode   :  NonParamValueTreeNode
     std::function < juce::String (bool, int) > stringFromBool;
     std::function < bool (juce::String) > boolFromString;
     
-    std::function < void (bool) > onAction { [](bool){}; };
+    std::function < void (bool) > onAction { [](bool){} };
     
     //
     
@@ -458,7 +458,7 @@ struct FloatValueTreeNode  :  NonParamValueTreeNode
     std::function < juce::String (float, int) > stringFromFloat;
     std::function < float (juce::String) > floatFromString;
     
-    std::function < void (float) > onAction { [](float){}; };
+    std::function < void (float) > onAction { [](float){} };
     
     //
     
@@ -582,7 +582,7 @@ struct StringValueTreeNode :  NonParamValueTreeNode
     
     //
     
-    std::function < void (juce::String) > onAction { [](juce::String){}; };
+    std::function < void (juce::String) > onAction { [](juce::String){} };
     
 private:
     juce::String currentValue;
