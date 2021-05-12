@@ -394,9 +394,83 @@ private:
 
 struct NonParamValueTreeNodeGroup
 {
+    //==============================================================================
+    // A node of a NonParamValueTreeNodeGroup. This can contain either another NonParamValueTreeNodeGroup or a kind of NonParamValueTreeNode
+    
+    struct NonParamValueTreeNodeGroupNode
+    {
+        NonParamValueTreeNodeGroupNode (NonParamValueTreeNodeGroupNode&& other)
+          : group (std::move (other.group)), intNode (std::move (other.intNode)), boolNode (std::move (other.boolNode)),
+            floatNode (std::move (other.floatNode)), stringNode (std::move (other.stringNode))
+        { }
+        
+        ~NonParamValueTreeNodeGroupNode() = default;
+        
+        //
+        
+        NonParamValueTreeNodeGroup* getGroup() { return group.get(); }
+        IntValueTreeNode*    getIntNode()    { return intNode.get(); }
+        BoolValueTreeNode*   getBoolNode()   { return boolNode.get(); }
+        FloatValueTreeNode*  getFloatNode()  { return floatNode.get(); }
+        StringValueTreeNode* getStringNode() { return stringNode.get(); }
+        
+    private:
+        NonParamValueTreeNodeGroupNode (std::unique_ptr<NonParamValueTreeNodeGroup> group)
+          : group (std::move (group))
+        { }
+        
+        NonParamValueTreeNodeGroupNode (std::unique_ptr<IntValueTreeNode> intnode)
+          : intNode (std::move (intnode))
+        { }
+        
+        NonParamValueTreeNodeGroupNode (std::unique_ptr<BoolValueTreeNode> boolnode)
+          : boolNode (std::move (boolnode))
+        { }
+        
+        NonParamValueTreeNodeGroupNode (std::unique_ptr<FloatValueTreeNode> floatnode)
+          : floatNode (std::move (floatnode))
+        { }
+        
+        NonParamValueTreeNodeGroupNode (std::unique_ptr<StringValueTreeNode> stringnode)
+          : stringNode (std::move (stringnode))
+        { }
+        
+        //
+        
+        std::unique_ptr<NonParamValueTreeNodeGroup> group;
+        std::unique_ptr<IntValueTreeNode> intNode;
+        std::unique_ptr<BoolValueTreeNode> boolNode;
+        std::unique_ptr<FloatValueTreeNode> floatNode;
+        std::unique_ptr<StringValueTreeNode> stringNode;
+        
+        friend struct NonParamValueTreeNodeGroup;
+        
+        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (NonParamValueTreeNodeGroupNode)
+    };
+    
+    //==============================================================================
+    
     NonParamValueTreeNodeGroup (const juce::String& groupName)
         : name (TRANS (groupName))
     { }
+    
+    template <typename NodeOrSubgroup>
+    NonParamValueTreeNodeGroup (const juce::String& groupName,
+                                std::unique_ptr<NodeOrSubgroup> child)
+        : NonParamValueTreeNodeGroup (groupName)
+    {
+        addChild (std::move (child));
+    }
+
+    template <typename NodeOrSubgroup, typename... Args>
+    NonParamValueTreeNodeGroup (const juce::String& groupName,
+                                std::unique_ptr<NodeOrSubgroup> firstChild, Args&&... remainingChildren)
+        : NonParamValueTreeNodeGroup (groupName, std::move (firstChild))
+    {
+        addChild (std::forward<Args> (remainingChildren)...);
+    }
+    
+    //
     
     const NonParamValueTreeNode* const* begin() const noexcept
     {
@@ -409,12 +483,52 @@ struct NonParamValueTreeNodeGroup
     }
     
     
-    void addChild (NonParamValueTreeNode* node) { children.add (node); }
+    template <typename NodeOrSubgroup>
+    void addChild (std::unique_ptr<NodeOrSubgroup> child)
+    {
+        /* If you get a compiler error here, then you are attempting to add a child that is neither a NonParamValueTreeNodeGroup or a node type. */
+        append (std::move (child));
+    }
+    
+    template <typename NodeOrSubgroup, typename... Args>
+    void addChild (std::unique_ptr<NodeOrSubgroup> firstChild, Args&&... remainingChildren)
+    {
+        addChild (std::move (firstChild));
+        addChild (std::forward<Args> (remainingChildren)...);
+    }
     
     
     const juce::String name;
     
+    //
+    
 private:
+    void append (std::unique_ptr<NonParamValueTreeNodeGroup> group)
+    {
+        children.add (new NonParamValueTreeNodeGroupNode (std::move (group)));
+    }
+    
+    void append (std::unique_ptr<IntValueTreeNode> node)
+    {
+        children.add (new NonParamValueTreeNodeGroupNode (std::move (node)));
+    }
+    
+    void append (std::unique_ptr<BoolValueTreeNode> node)
+    {
+        children.add (new NonParamValueTreeNodeGroupNode (std::move (node)));
+    }
+    
+    void append (std::unique_ptr<FloatValueTreeNode> node)
+    {
+        children.add (new NonParamValueTreeNodeGroupNode (std::move (node)));
+    }
+    
+    void append (std::unique_ptr<StringValueTreeNode> node)
+    {
+        children.add (new NonParamValueTreeNodeGroupNode (std::move (node)));
+    }
+    
+    //
     
     juce::OwnedArray <NonParamValueTreeNode> children;
 };
