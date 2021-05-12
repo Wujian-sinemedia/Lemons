@@ -408,11 +408,11 @@ struct NonParamValueTreeNodeGroup
         
         //
         
-        NonParamValueTreeNodeGroup* getGroup() { return group.get(); }
-        IntValueTreeNode*    getIntNode()    { return intNode.get(); }
-        BoolValueTreeNode*   getBoolNode()   { return boolNode.get(); }
-        FloatValueTreeNode*  getFloatNode()  { return floatNode.get(); }
-        StringValueTreeNode* getStringNode() { return stringNode.get(); }
+        NonParamValueTreeNodeGroup* getGroup() const { return group.get(); }
+        IntValueTreeNode*    getIntNode()    const { return intNode.get(); }
+        BoolValueTreeNode*   getBoolNode()   const { return boolNode.get(); }
+        FloatValueTreeNode*  getFloatNode()  const { return floatNode.get(); }
+        StringValueTreeNode* getStringNode() const { return stringNode.get(); }
         
     private:
         NonParamValueTreeNodeGroupNode (std::unique_ptr<NonParamValueTreeNodeGroup> group)
