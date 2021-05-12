@@ -57,6 +57,33 @@ static inline juce::ValueTree getChildTreeForParameter (juce::ValueTree& topLeve
 //==============================================================================
 //==============================================================================
 
+static inline void createValueTreeFromNonParamNodes (juce::ValueTree& tree,
+                                                     const std::vector<std::unique_ptr<NonParamValueTreeNode>>& groups)
+{
+    using namespace DefaultValueTreeIds;
+    
+    jassert (tree.isValid());
+    
+    for (auto& gr : groups)
+    {
+        auto* group = gr.get();
+        
+        for (auto* node : *group)
+        {
+            juce::ValueTree treeNode { NonParameterNode };
+        
+            treeNode.setProperty (NonParameterName, node->name, nullptr);
+            // initialize the value property?
+            
+            tree.addChild (treeNode, -1, nullptr);
+        }
+    }
+}
+
+
+//==============================================================================
+//==============================================================================
+
 
 static inline void createTwoWayParameterValueTreeAttachments (juce::OwnedArray<bav::ParameterAttachment>& attachments,
                                                               juce::ValueTree parameterValueTree,
@@ -225,3 +252,4 @@ inline juce::ValueTree valueTreeFromJSON (const juce::String& jsonText)
 
 
 }  // namespace
+

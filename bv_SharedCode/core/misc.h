@@ -82,6 +82,10 @@ namespace DefaultValueTreeIds
     BV_DECLARE_VALUETREEID (ParameterDefaultValue);
     BV_DECLARE_VALUETREEID (ParameterIsChanging);
 
+    BV_DECLARE_VALUETREEID (NonParameterNode);
+    BV_DECLARE_VALUETREEID (NonParameterName);
+    BV_DECLARE_VALUETREEID (NonParameterValue);
+
 #undef BV_DECLARE_VALUETREEID
 }
 
