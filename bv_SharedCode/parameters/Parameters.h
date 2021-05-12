@@ -78,6 +78,8 @@ namespace bav
     };
     
     
+//==============================================================================
+
     
     class FloatParameter  :     public juce::AudioParameterFloat,
                                 public bav::Parameter
@@ -120,6 +122,9 @@ namespace bav
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(FloatParameter)
     };
     
+
+//==============================================================================
+
 
     class IntParameter    :     public juce::AudioParameterInt,
                                 public bav::Parameter
@@ -168,6 +173,8 @@ namespace bav
     };
     
     
+//==============================================================================
+
 
     class BoolParameter    :        public juce::AudioParameterBool,
                                     public bav::Parameter
@@ -223,6 +230,8 @@ namespace bav
     };
 
 
+//==============================================================================
+
 
     struct MeterParameter :     public FloatParameter
     {
@@ -239,6 +248,9 @@ namespace bav
         
         bool isAutomatable() const override final { return false; }
     };
+
+
+//==============================================================================
 
 
     struct GainMeterParameter : public MeterParameter

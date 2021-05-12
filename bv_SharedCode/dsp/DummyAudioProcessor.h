@@ -32,7 +32,7 @@ public:
     bool supportsMPE()  const override { return false; }
     bool isMidiEffect() const override { return false; }
     
-    const juce::String getName() const override { return "DummyAudioProcessor"; }
+    const juce::String getName() const override { return TRANS ("Dummy AudioProcessor"); }
    
     bool hasEditor() const override { return false; }
     juce::AudioProcessorEditor* createEditor() override { return nullptr; }

@@ -1,32 +1,6 @@
-/*
- bv_FFT: This is a wrapper class around several platform-specific FFT implementations that can be used in a generalized way.
- This is packaged as a separate JUCE module from bv_SharedCode, but has a dependancy on bv_SharedCode.
- 
- On Apple platforms, this class uses Apple's vDSP framework. On Intel platforms, Intel IPP is used if available.
- */
-
-
-/*******************************************************************************
- BEGIN_JUCE_MODULE_DECLARATION
- ID:                 bv_FFT
- vendor:             Ben Vining
- version:            0.0.1
- name:               bv_FFT
- description:        wrapper class providing a common interface for various platform-optimized FFT implementations
- dependencies:       bv_SharedCode
- END_JUCE_MODULE_DECLARATION
- *******************************************************************************/
 
 
 #pragma once
-
-
-#include "bv_SharedCode/bv_SharedCode.h"
-
-
-/*
-    FFTW and KissFFT are platform-independant, but must be specially installed and linked to. To use either, link your project to it and define either BV_USE_FFTW or BV_USE_KISSFFT.
-*/
 
 
 #ifndef BV_USE_FFTW
@@ -171,4 +145,3 @@ namespace bav::dsp
 #else
   #include "implementations/fft_fallback.h"
 #endif
-
