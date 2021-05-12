@@ -91,8 +91,18 @@ struct IntValueTreeNode  :  NonParamValueTreeNode
         Base::actionableFunction = [this]()
                                    {
                                        if (onAction)
-                                           onAction (getCurrentValue());
+                                       {
+                                           const auto value = getCurrentValue();
+                                           
+                                           if (value != lastActionedValue.load())
+                                           {
+                                               lastActionedValue.store (value);
+                                               onAction (value);
+                                           }
+                                       }
                                    };
+        
+        lastActionedValue.store (defaultValue.load());
     }
     
     juce::String getCurrentValueAsString (int maximumLength = 100) const override final
@@ -191,6 +201,8 @@ private:
     {
         return string.retainCharacters ("01234567890").getIntValue();
     }
+    
+    std::atomic<int> lastActionedValue;
 };
 
 
@@ -217,8 +229,18 @@ struct BoolValueTreeNode   :  NonParamValueTreeNode
         Base::actionableFunction = [this]()
                                    {
                                        if (onAction)
-                                           onAction (getCurrentValue());
+                                       {
+                                           const auto value = getCurrentValue();
+                                           
+                                           if (value != lastActionedValue.load())
+                                           {
+                                               lastActionedValue.store (value);
+                                               onAction (value);
+                                           }
+                                       }
                                    };
+        
+        lastActionedValue.store (defaultValue.load());
     }
     
     juce::String getCurrentValueAsString (int maximumLength = 100) const override final
@@ -318,6 +340,8 @@ private:
         
         return false;
     }
+    
+    std::atomic<bool> lastActionedValue;
 };
 
 
@@ -346,8 +370,18 @@ struct FloatValueTreeNode  :  NonParamValueTreeNode
         Base::actionableFunction = [this]()
                                    {
                                        if (onAction)
-                                           onAction (getCurrentValue());
+                                       {
+                                           const auto value = getCurrentValue();
+                                           
+                                           if (value != lastActionedValue.load())
+                                           {
+                                               lastActionedValue.store (value);
+                                               onAction (value);
+                                           }
+                                       }
                                    };
+        
+        lastActionedValue.store (defaultValue.load());
     }
     
     juce::String getCurrentValueAsString (int maximumLength = 100) const override final
@@ -446,6 +480,8 @@ private:
     {
         return string.retainCharacters (".01234567890").getFloatValue();
     }
+    
+    std::atomic<float> lastActionedValue;
 };
 
 
@@ -468,8 +504,18 @@ struct StringValueTreeNode :  NonParamValueTreeNode
         Base::actionableFunction = [this]()
                                    {
                                        if (onAction)
-                                           onAction (getCurrentValue());
+                                       {
+                                           const auto value = getCurrentValue();
+                                           
+                                           if (value != lastActionedValue)
+                                           {
+                                               lastActionedValue = value;
+                                               onAction (value);
+                                           }
+                                       }
                                    };
+        
+        lastActionedValue = defaultValue;
     }
     
     juce::String getCurrentValueAsString (int maximumLength = 100) const override final
@@ -556,6 +602,8 @@ private:
     juce::String defaultValue;
     
     juce::CriticalSection lock;
+    
+    juce::String lastActionedValue;
 };
 
 

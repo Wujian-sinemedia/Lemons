@@ -97,8 +97,18 @@ namespace bav
             Parameter::actionableFunction = [this]()
                                             {
                                                 if (onAction)
-                                                    onAction (Parameter::getCurrentDenormalizedValue());
-                                            }
+                                                {
+                                                    const auto newValue = Parameter::getCurrentDenormalizedValue();
+                                                    
+                                                    if (newValue != lastActionedValue.load())
+                                                    {
+                                                        lastActionedValue.store (newValue);
+                                                        onAction (newValue);
+                                                    }
+                                                }
+                                            };
+            
+            lastActionedValue.store (getDefault());
         }
         
         virtual ~FloatParameter() override = default;
@@ -120,6 +130,8 @@ namespace bav
         std::function < void (float) > onAction;
         
     private:
+        std::atomic<float> lastActionedValue;
+        
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(FloatParameter)
     };
     
@@ -148,8 +160,18 @@ namespace bav
             Parameter::actionableFunction = [this]()
                                             {
                                                 if (onAction)
-                                                    onAction (juce::roundToInt (Parameter::getCurrentDenormalizedValue()));
-                                            }
+                                                {
+                                                    const auto newValue = juce::roundToInt (Parameter::getCurrentDenormalizedValue());
+                                                    
+                                                    if (newValue != lastActionedValue.load())
+                                                    {
+                                                        lastActionedValue.store (newValue);
+                                                        onAction (newValue);
+                                                    }
+                                                }
+                                            };
+            
+            lastActionedValue.store (getDefault());
         }
         
         virtual ~IntParameter() override = default;
@@ -174,6 +196,8 @@ namespace bav
         std::function < void (int) > onAction;
         
     private:
+        std::atomic<int> lastActionedValue;
+        
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(IntParameter)
     };
     
@@ -204,8 +228,18 @@ namespace bav
             Parameter::actionableFunction = [this]()
                                             {
                                                 if (onAction)
-                                                    onAction (Parameter::getCurrentDenormalizedValue() >= 0.5f);
-                                            }
+                                                {
+                                                    const auto newValue = Parameter::getCurrentDenormalizedValue() >= 0.5f;
+                                                    
+                                                    if (newValue != lastActionedValue.load())
+                                                    {
+                                                        lastActionedValue.store (newValue);
+                                                        onAction (newValue);
+                                                    }
+                                                }
+                                            };
+            
+            lastActionedValue.store (getDefault());
         }
         
         virtual ~BoolParameter() override = default;
@@ -236,6 +270,8 @@ namespace bav
         std::function < void (bool) > onAction;
         
     private:
+        std::atomic<bool> lastActionedValue;
+        
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(BoolParameter)
     };
 
