@@ -472,14 +472,14 @@ struct NonParamValueTreeNodeGroup
     
     //
     
-    const NonParamValueTreeNode* const* begin() const noexcept
+    const NonParamValueTreeNodeGroupNode* const* begin() const noexcept
     {
-        return const_cast<const NonParamValueTreeNode**> (children.begin());
+        return const_cast<const NonParamValueTreeNodeGroupNode**> (children.begin());
     }
     
-    const NonParamValueTreeNode* const* end() const noexcept
+    const NonParamValueTreeNodeGroupNode* const* end() const noexcept
     {
-        return const_cast<const NonParamValueTreeNode**> (children.end());
+        return const_cast<const NonParamValueTreeNodeGroupNode**> (children.end());
     }
     
     
@@ -530,7 +530,7 @@ private:
     
     //
     
-    juce::OwnedArray <NonParamValueTreeNode> children;
+    juce::OwnedArray <NonParamValueTreeNodeGroupNode> children;
 };
 
 

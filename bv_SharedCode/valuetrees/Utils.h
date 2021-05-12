@@ -33,7 +33,9 @@ static inline void createValueTreeFromParameterTree (juce::ValueTree& tree,
         }
         else if (auto* thisGroup = node->getGroup())
         {
-            createValueTreeFromParameterTree (tree, *thisGroup);
+            juce::ValueTree parameterGroupNode { ParameterGroupNode };
+            createValueTreeFromParameterTree (parameterGroupNode, *thisGroup);
+            tree.addChild (parameterGroupNode, -1, nullptr);
         }
     }
 }
@@ -58,26 +60,66 @@ static inline juce::ValueTree getChildTreeForParameter (juce::ValueTree& topLeve
 //==============================================================================
 
 static inline void createValueTreeFromNonParamNodes (juce::ValueTree& tree,
-                                                     const std::vector<std::unique_ptr<NonParamValueTreeNodeGroup>>& groups)
+                                                     const NonParamValueTreeNodeGroup& propertyTree)
 {
     using namespace DefaultValueTreeIds;
     
     jassert (tree.isValid());
     
-    for (auto& gr : groups)
+    for (auto* node : propertyTree)
     {
-        auto* group = gr.get();
-        
-        for (auto* node : *group)
+        if (auto* intNode = node->getIntNode())
         {
-            juce::ValueTree treeNode { NonParameterNode };
-        
-            treeNode.setProperty (NonParameterName, node->longName, nullptr);
-            // initialize the value property?
-            
-            tree.addChild (treeNode, -1, nullptr);
+            juce::ValueTree propertyNode { NonParameterNode_Int };
+            propertyNode.setProperty (NonParameterName, intNode->longName, nullptr);
+            propertyNode.setProperty (NonParameterValue, intNode->getCurrentValue(), nullptr);
+            propertyNode.setProperty (NonParameterDefaultValue, intNode->getDefaultValue(), nullptr);
+            tree.addChild (propertyNode, -1, nullptr);
+        }
+        else if (auto* boolNode = node->getBoolNode())
+        {
+            juce::ValueTree propertyNode { NonParameterNode_Bool };
+            propertyNode.setProperty (NonParameterName, boolNode->longName, nullptr);
+            propertyNode.setProperty (NonParameterValue, boolNode->getCurrentValue(), nullptr);
+            propertyNode.setProperty (NonParameterDefaultValue, boolNode->getDefaultValue(), nullptr);
+            tree.addChild (propertyNode, -1, nullptr);
+        }
+        else if (auto* floatNode = node->getFloatNode())
+        {
+            juce::ValueTree propertyNode { NonParameterNode_Float };
+            propertyNode.setProperty (NonParameterName, floatNode->longName, nullptr);
+            propertyNode.setProperty (NonParameterValue, floatNode->getCurrentValue(), nullptr);
+            propertyNode.setProperty (NonParameterDefaultValue, floatNode->getDefaultValue(), nullptr);
+            tree.addChild (propertyNode, -1, nullptr);
+        }
+        else if (auto* stringNode = node->getStringNode())
+        {
+            juce::ValueTree propertyNode { NonParameterNode_String };
+            propertyNode.setProperty (NonParameterName, stringNode->longName, nullptr);
+            propertyNode.setProperty (NonParameterValue, stringNode->getCurrentValue(), nullptr);
+            propertyNode.setProperty (NonParameterDefaultValue, stringNode->getDefaultValue(), nullptr);
+            tree.addChild (propertyNode, -1, nullptr);
+        }
+        else if (auto* group = node->getGroup())
+        {
+            juce::ValueTree propertyGroupNode { NonParameterGroupNode };
+            createValueTreeFromNonParamNodes (propertyGroupNode, *group);
+            tree.addChild (propertyGroupNode, -1, nullptr);
         }
     }
+}
+
+static inline juce::ValueTree getChildTreeForNonParamProperty (juce::ValueTree& topLevelTree,
+                                                               const NonParamValueTreeNode* const property)
+{
+    jassert (topLevelTree.isValid() && property != nullptr);
+    
+    auto child = topLevelTree.getChildWithProperty (DefaultValueTreeIds::NonParameterName,
+                                                    property->longName);
+    
+    jassert (child.isValid());
+    
+    return child;
 }
 
 
