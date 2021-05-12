@@ -43,9 +43,6 @@ namespace bav
         float getCurrentNormalizedValue()   const { return rap->getValue(); }
         float getCurrentDenormalizedValue() const { return rap->convertFrom0to1 (rap->getValue()); }
         
-        // returns a const reference to this parameter's NormalisableRange object
-        virtual const juce::NormalisableRange<float>& getRange() const { return rap->getNormalisableRange(); }
-        
         // returns a float value normalized in the range 0 to 1, using this parameter's NormalisableRange object
         virtual float normalize (const float input) const { return rap->convertTo0to1(input); }
         

@@ -86,6 +86,7 @@
 
 #include "valuetrees/ParameterAttachments.h"
 #include "valuetrees/property_nodes/nodes.h"
+#include "valuetrees/property_nodes/propertyNodeGroup.h"
 #include "valuetrees/property_nodes/NodeAttachments.h"
 #include "valuetrees/Utils.h"
 

@@ -18,14 +18,14 @@ struct NonParamValueTreeNode
     //
     
     virtual juce::String getCurrentValueAsString (int maximumLength = 100) const = 0;
-    
     virtual juce::String getDefaultValueAsString (int maximumLength = 100) const = 0;
     
     //
     
     virtual void setCurrentValueAsDefault() = 0;
-    
     virtual void resetToDefaultValue() = 0;
+    virtual void setValueFromString (juce::String string) = 0;
+    virtual void setDefaultValueFromString (juce::String string) = 0;
     
     //
     
@@ -60,15 +60,14 @@ struct NonParamValueTreeNode
     //==============================================================================
     
     void addListener (Listener* l) { listeners.add (l); }
-    
     void removeListener (Listener* l) { listeners.remove (l); }
-    
     
 protected:
     juce::ListenerList< Listener > listeners;
 };
 
 
+//==============================================================================
 //==============================================================================
 
 
@@ -128,16 +127,24 @@ struct IntValueTreeNode  :  NonParamValueTreeNode
     
     void setCurrentValueAsDefault() override final
     {
-        defaultValue.store (currentValue.load());
-        const auto asString = getDefaultValueAsString();
-        Base::listeners.call ([&asString] (Listener& l) { l.propertyDefaultValueChanged (asString); });
+        setDefaultValue (getCurrentValue());
     }
     
     void resetToDefaultValue() override final
     {
-        currentValue.store (defaultValue.load());
-        const auto asString = getCurrentValueAsString();
-        Base::listeners.call ([&asString] (Listener& l) { l.propertyValueChanged (asString); });
+        setValue (getDefaultValue());
+    }
+    
+    void setValueFromString (juce::String string) override final
+    {
+        if (intFromString)
+            setValue (intFromString (string));
+    }
+    
+    void setDefaultValueFromString (juce::String string) override final
+    {
+        if (intFromString)
+            setDefaultValue (intFromString (string));
     }
     
     //
@@ -171,6 +178,7 @@ private:
 
 
 //==============================================================================
+//==============================================================================
 
 
 struct BoolValueTreeNode   :  NonParamValueTreeNode
@@ -201,7 +209,7 @@ struct BoolValueTreeNode   :  NonParamValueTreeNode
     juce::String getDefaultValueAsString (int maximumLength = 100) const override final
     {
         if (stringFromBool)
-            return stringFromBool (defaultValue, maximumLength);
+            return stringFromBool (defaultValue.load(), maximumLength);
         
         return {};
     }
@@ -228,16 +236,24 @@ struct BoolValueTreeNode   :  NonParamValueTreeNode
     
     void setCurrentValueAsDefault() override final
     {
-        defaultValue.store (currentValue.load());
-        const auto asString = getDefaultValueAsString();
-        Base::listeners.call ([&asString] (Listener& l) { l.propertyDefaultValueChanged (asString); });
+        setDefaultValue (getCurrentValue());
     }
     
     void resetToDefaultValue() override final
     {
-        currentValue.store (defaultValue.load());
-        const auto asString = getCurrentValueAsString();
-        Base::listeners.call ([&asString] (Listener& l) { l.propertyValueChanged (asString); });
+        setValue (getDefaultValue());
+    }
+    
+    void setValueFromString (juce::String string) override final
+    {
+        if (boolFromString)
+            setValue (boolFromString (string));
+    }
+    
+    void setDefaultValueFromString (juce::String string) override final
+    {
+        if (boolFromString)
+            setDefaultValue (boolFromString (string));
     }
     
     //
@@ -268,6 +284,7 @@ private:
 };
 
 
+//==============================================================================
 //==============================================================================
 
 
@@ -301,7 +318,7 @@ struct FloatValueTreeNode  :  NonParamValueTreeNode
     juce::String getDefaultValueAsString (int maximumLength = 100) const override final
     {
         if (stringFromFloat)
-            return stringFromFloat (defaultValue, maximumLength);
+            return stringFromFloat (defaultValue.load(), maximumLength);
         
         return {};
     }
@@ -328,16 +345,24 @@ struct FloatValueTreeNode  :  NonParamValueTreeNode
     
     void setCurrentValueAsDefault() override final
     {
-        defaultValue.store (currentValue.load());
-        const auto asString = getDefaultValueAsString();
-        Base::listeners.call ([&asString] (Listener& l) { l.propertyDefaultValueChanged (asString); });
+        setDefaultValue (getCurrentValue());
     }
     
     void resetToDefaultValue() override final
     {
-        currentValue.store (defaultValue.load());
-        const auto asString = getCurrentValueAsString();
-        Base::listeners.call ([&asString] (Listener& l) { l.propertyValueChanged (asString); });
+        setValue (getDefaultValue());
+    }
+    
+    void setValueFromString (juce::String string) override final
+    {
+        if (floatFromString)
+            setValue (floatFromString (string));
+    }
+    
+    void setDefaultValueFromString (juce::String string) override final
+    {
+        if (floatFromString)
+            setDefaultValue (floatFromString (string));
     }
     
     //
@@ -371,6 +396,7 @@ private:
 
 
 //==============================================================================
+//==============================================================================
 
 
 struct StringValueTreeNode :  NonParamValueTreeNode
@@ -388,22 +414,31 @@ struct StringValueTreeNode :  NonParamValueTreeNode
     
     juce::String getCurrentValueAsString (int maximumLength = 100) const override final
     {
-        return currentValue.substring (0, maximumLength);
+        return getCurrentValue().substring (0, maximumLength);
     }
     
     juce::String getDefaultValueAsString (int maximumLength = 100) const override final
     {
-        return defaultValue.substring (0, maximumLength);
+        return getDefaultValue().substring (0, maximumLength);
     }
     
-    juce::String getCurrentValue() const { return currentValue; }
+    juce::String getCurrentValue() const
+    {
+        juce::ScopedLock l (lock);
+        return currentValue;
+    }
     
-    juce::String getDefaultValue() const { return defaultValue; }
+    juce::String getDefaultValue() const
+    {
+        juce::ScopedLock l (lock);
+        return defaultValue;
+    }
     
     //
     
-    void setValue (juce::String newValue)
+    void setValue (const juce::String& newValue)
     {
+        juce::ScopedLock l (lock);
         currentValue = newValue;
         const auto asString = getCurrentValueAsString();
         Base::listeners.call ([&asString] (Listener& l) { l.propertyValueChanged (asString); });
@@ -411,6 +446,7 @@ struct StringValueTreeNode :  NonParamValueTreeNode
     
     void setDefaultValue (juce::String newDefault)
     {
+        juce::ScopedLock l (lock);
         defaultValue = newDefault;
         const auto asString = getDefaultValueAsString();
         Base::listeners.call ([&asString] (Listener& l) { l.propertyDefaultValueChanged (asString); });
@@ -418,16 +454,22 @@ struct StringValueTreeNode :  NonParamValueTreeNode
     
     void setCurrentValueAsDefault() override final
     {
-        defaultValue = currentValue;
-        const auto asString = getDefaultValueAsString();
-        Base::listeners.call ([&asString] (Listener& l) { l.propertyDefaultValueChanged (asString); });
+        setDefaultValue (getCurrentValue());
     }
     
     void resetToDefaultValue() override final
     {
-        currentValue = defaultValue;
-        const auto asString = getCurrentValueAsString();
-        Base::listeners.call ([&asString] (Listener& l) { l.propertyValueChanged (asString); });
+        setValue (getDefaultValue());
+    }
+    
+    void setValueFromString (juce::String string) override final
+    {
+        setValue (string);
+    }
+    
+    void setDefaultValueFromString (juce::String string) override final
+    {
+        setDefaultValue (string);
     }
     
     //
@@ -450,117 +492,8 @@ struct StringValueTreeNode :  NonParamValueTreeNode
 private:
     juce::String currentValue;
     juce::String defaultValue;
-};
-
-
-//==============================================================================
-
-
-struct NonParamValueTreeNodeGroup
-{
-    //==============================================================================
-    // A node of a NonParamValueTreeNodeGroup. This can contain either another NonParamValueTreeNodeGroup or a kind of NonParamValueTreeNode
     
-    struct NonParamValueTreeNodeGroupNode
-    {
-        NonParamValueTreeNodeGroupNode (NonParamValueTreeNodeGroupNode&& other)
-          : group (std::move (other.group)), node (std::move (other.node))
-        { }
-        
-        ~NonParamValueTreeNodeGroupNode() = default;
-        
-        //
-        
-        NonParamValueTreeNodeGroup* getGroup() const { return group.get(); }
-        NonParamValueTreeNode* getNode() const { return node.get(); }
-        
-    private:
-        NonParamValueTreeNodeGroupNode (std::unique_ptr<NonParamValueTreeNodeGroup> group_)
-          : group (std::move (group_))
-        { }
-        
-        NonParamValueTreeNodeGroupNode (std::unique_ptr<NonParamValueTreeNode> node_)
-          : node (std::move (node_))
-        { }
-        
-        //
-        
-        std::unique_ptr<NonParamValueTreeNodeGroup> group;
-        std::unique_ptr<NonParamValueTreeNode> node;
-        
-        friend struct NonParamValueTreeNodeGroup;
-        
-        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (NonParamValueTreeNodeGroupNode)
-    };
-    
-    //==============================================================================
-    
-    NonParamValueTreeNodeGroup (const juce::String& groupName)
-        : name (TRANS (groupName))
-    { }
-    
-    template <typename NodeOrSubgroup>
-    NonParamValueTreeNodeGroup (const juce::String& groupName,
-                                std::unique_ptr<NodeOrSubgroup> child)
-        : NonParamValueTreeNodeGroup (groupName)
-    {
-        addChild (std::move (child));
-    }
-
-    template <typename NodeOrSubgroup, typename... Args>
-    NonParamValueTreeNodeGroup (const juce::String& groupName,
-                                std::unique_ptr<NodeOrSubgroup> firstChild, Args&&... remainingChildren)
-        : NonParamValueTreeNodeGroup (groupName, std::move (firstChild))
-    {
-        addChild (std::forward<Args> (remainingChildren)...);
-    }
-    
-    //
-    
-    const NonParamValueTreeNodeGroupNode* const* begin() const noexcept
-    {
-        return const_cast<const NonParamValueTreeNodeGroupNode**> (children.begin());
-    }
-    
-    const NonParamValueTreeNodeGroupNode* const* end() const noexcept
-    {
-        return const_cast<const NonParamValueTreeNodeGroupNode**> (children.end());
-    }
-    
-    
-    template <typename NodeOrSubgroup>
-    void addChild (std::unique_ptr<NodeOrSubgroup> child)
-    {
-        /* If you get a compiler error here, then you are attempting to add a child that is neither a NonParamValueTreeNodeGroup or a NonParamValueTreeNode. */
-        append (std::move (child));
-    }
-    
-    template <typename NodeOrSubgroup, typename... Args>
-    void addChild (std::unique_ptr<NodeOrSubgroup> firstChild, Args&&... remainingChildren)
-    {
-        addChild (std::move (firstChild));
-        addChild (std::forward<Args> (remainingChildren)...);
-    }
-    
-    
-    const juce::String name;
-    
-    //
-    
-private:
-    void append (std::unique_ptr<NonParamValueTreeNodeGroup> group)
-    {
-        children.add (new NonParamValueTreeNodeGroupNode (std::move (group)));
-    }
-    
-    void append (std::unique_ptr<NonParamValueTreeNode> node)
-    {
-        children.add (new NonParamValueTreeNodeGroupNode (std::move (node)));
-    }
-    
-    //
-    
-    juce::OwnedArray <NonParamValueTreeNodeGroupNode> children;
+    juce::CriticalSection lock;
 };
 
 
