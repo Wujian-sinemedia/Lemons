@@ -63,7 +63,6 @@ static inline void createValueTreeFromNonParamNodes (juce::ValueTree& tree,
                                                      const NonParamValueTreeNodeGroup& propertyTree)
 {
     using namespace DefaultValueTreeIds;
-    using namespace nodeaddinghelper;
     
     jassert (tree.isValid());
     

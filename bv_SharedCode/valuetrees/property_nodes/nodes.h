@@ -148,9 +148,9 @@ struct IntValueTreeNode  :  NonParamValueTreeNode
         
         juce::ValueTree tree { NonParameterNode_Int };
         
-        propertyNode.setProperty (NonParameterName, Base::longName, nullptr);
-        propertyNode.setProperty (NonParameterValue, getCurrentValue(), nullptr);
-        propertyNode.setProperty (NonParameterDefaultValue, getDefaultValue(), nullptr);
+        tree.setProperty (NonParameterName, Base::longName, nullptr);
+        tree.setProperty (NonParameterValue, getCurrentValue(), nullptr);
+        tree.setProperty (NonParameterDefaultValue, getDefaultValue(), nullptr);
         
         return tree;
     }
@@ -248,9 +248,9 @@ struct BoolValueTreeNode   :  NonParamValueTreeNode
         
         juce::ValueTree tree { NonParameterNode_Bool };
         
-        propertyNode.setProperty (NonParameterName, Base::longName, nullptr);
-        propertyNode.setProperty (NonParameterValue, getCurrentValue(), nullptr);
-        propertyNode.setProperty (NonParameterDefaultValue, getDefaultValue(), nullptr);
+        tree.setProperty (NonParameterName, Base::longName, nullptr);
+        tree.setProperty (NonParameterValue, getCurrentValue(), nullptr);
+        tree.setProperty (NonParameterDefaultValue, getDefaultValue(), nullptr);
         
         return tree;
     }
@@ -348,9 +348,9 @@ struct FloatValueTreeNode  :  NonParamValueTreeNode
         
         juce::ValueTree tree { NonParameterNode_Float };
         
-        propertyNode.setProperty (NonParameterName, Base::longName, nullptr);
-        propertyNode.setProperty (NonParameterValue, getCurrentValue(), nullptr);
-        propertyNode.setProperty (NonParameterDefaultValue, getDefaultValue(), nullptr);
+        tree.setProperty (NonParameterName, Base::longName, nullptr);
+        tree.setProperty (NonParameterValue, getCurrentValue(), nullptr);
+        tree.setProperty (NonParameterDefaultValue, getDefaultValue(), nullptr);
         
         return tree;
     }
@@ -438,9 +438,9 @@ struct StringValueTreeNode :  NonParamValueTreeNode
         
         juce::ValueTree tree { NonParameterNode_String };
         
-        propertyNode.setProperty (NonParameterName, Base::longName, nullptr);
-        propertyNode.setProperty (NonParameterValue, getCurrentValue(), nullptr);
-        propertyNode.setProperty (NonParameterDefaultValue, getDefaultValue(), nullptr);
+        tree.setProperty (NonParameterName, Base::longName, nullptr);
+        tree.setProperty (NonParameterValue, getCurrentValue(), nullptr);
+        tree.setProperty (NonParameterDefaultValue, getDefaultValue(), nullptr);
         
         return tree;
     }
