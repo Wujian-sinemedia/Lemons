@@ -82,7 +82,6 @@
 #include "parameters/ParameterValueConversionLambdas.h"
 #include "parameters/Parameters.h"
 #include "parameters/MidiCC_Mapping.h"
-#include "parameters/LFO_Mapping.h"
 #include "parameters/ParameterHelpers.h"
 #include "parameters/ValueTreeUtilities.h"
 
