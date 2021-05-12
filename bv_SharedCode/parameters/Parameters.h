@@ -57,10 +57,10 @@ namespace bav
         void doAction()
         {
             if (actionableFunction)
-                actionableFunction (rap->convertFrom0to1 (rap->getValue()));
+                actionableFunction();
         }
         
-        std::function< void (float) > actionableFunction = nullptr;
+        std::function< void() > actionableFunction = nullptr;
         
         const juce::String parameterNameShort;
         const juce::String parameterNameVerbose;
@@ -94,6 +94,11 @@ namespace bav
                                      parameterLabel, parameterCategory, stringFromValue, valueFromString),
                 Parameter (key, this, nRange.convertTo0to1 (defaultVal), paramNameShort, paramNameVerbose)
         {
+            Parameter::actionableFunction = [this]()
+                                            {
+                                                if (onAction)
+                                                    onAction (Parameter::getCurrentDenormalizedValue());
+                                            }
         }
         
         virtual ~FloatParameter() override = default;
@@ -111,6 +116,8 @@ namespace bav
         
         // takes a normalized float value as input and returns a denormalized float value within the natural range of this parameter.
         float denormalize (const float input) const override { return AudioParameterFloat::convertFrom0to1(input); }
+        
+        std::function < void (float) > onAction;
         
     private:
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(FloatParameter)
@@ -138,6 +145,11 @@ namespace bav
                            AudioParameterInt::getNormalisableRange().convertTo0to1 (static_cast<float>(defaultVal)),
                            paramNameShort, paramNameVerbose)
         {
+            Parameter::actionableFunction = [this]()
+                                            {
+                                                if (onAction)
+                                                    onAction (juce::roundToInt (Parameter::getCurrentDenormalizedValue()));
+                                            }
         }
         
         virtual ~IntParameter() override = default;
@@ -158,6 +170,8 @@ namespace bav
         
         // takes a normalized float value as input and returns a denormalized float value within the natural range of this parameter.
         float denormalize (const float input) const override { return AudioParameterInt::convertFrom0to1(input); }
+        
+        std::function < void (int) > onAction;
         
     private:
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(IntParameter)
@@ -186,6 +200,12 @@ namespace bav
                            paramNameShort, paramNameVerbose)
         {
             setDefault (defaultVal);
+            
+            Parameter::actionableFunction = [this]()
+                                            {
+                                                if (onAction)
+                                                    onAction (Parameter::getCurrentDenormalizedValue() >= 0.5f);
+                                            }
         }
         
         virtual ~BoolParameter() override = default;
@@ -212,6 +232,8 @@ namespace bav
         
         // takes a normalized float value as input and returns a denormalized float value within the natural range of this parameter.
         float denormalize (const float input) const override { return AudioParameterBool::convertFrom0to1(input); }
+        
+        std::function < void (bool) > onAction;
         
     private:
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(BoolParameter)
