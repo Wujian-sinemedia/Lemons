@@ -84,9 +84,9 @@
 #include "parameters/MidiCC_Mapping.h"
 #include "parameters/ParameterHelpers.h"
 
-#include "valuetrees/Utils.h"
 #include "valuetrees/NonParameterVTNodes.h"
 #include "valuetrees/ParameterAttachments.h"
+#include "valuetrees/Utils.h"
 
 #include "gui/gui.h"
 #include "gui/Spline.h"
