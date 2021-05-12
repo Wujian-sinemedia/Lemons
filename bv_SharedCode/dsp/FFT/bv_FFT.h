@@ -76,26 +76,29 @@ namespace bav::dsp
         
         static constexpr bool isUsingVDSP()
         {
-#if BV_USE_VDSP && ! ( BV_USE_FFTW || BV_USE_KISSFFT )
-            return true;
+#if BV_USE_VDSP
+            return ! (isUsingFFTW() || isUsingKissFFT());
 #else
             return false;
+#endif
         }
         
         static constexpr bool isUsingIPP()
         {
-#if BV_USE_IPP && ! ( BV_USE_FFTW || BV_USE_KISSFFT )
-            return true;
+#if BV_USE_IPP
+            return ! (isUsingFFTW() || isUsingKissFFT());
 #else
             return false;
+#endif
         }
         
         static constexpr bool isUsingNe10()
         {
-#if BV_USE_NE10 && ! ( BV_USE_FFTW || BV_USE_KISSFFT )
-            return true;
+#if BV_USE_NE10
+            return ! (isUsingFFTW() || isUsingKissFFT());
 #else
             return false;
+#endif
         }
         
         static constexpr bool isUsingFallback()
