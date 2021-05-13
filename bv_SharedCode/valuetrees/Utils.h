@@ -96,7 +96,7 @@ static inline void createValueTreeFromNonParamNodes (juce::ValueTree& tree,
         {
             juce::ValueTree propertyGroupNode { NonParameterGroupNode };
             createValueTreeFromNonParamNodes (propertyGroupNode, *group);
-            tree.appendChild (propertyGroupNode, nullptr);
+            tree.addChild (propertyGroupNode, -1, nullptr);
         }
         else
         {
@@ -104,6 +104,8 @@ static inline void createValueTreeFromNonParamNodes (juce::ValueTree& tree,
         }
     }
 }
+
+
 
 static inline juce::ValueTree getChildTreeForNonParamProperty (juce::ValueTree& topLevelTree,
                                                                const NonParamValueTreeNode* const property)

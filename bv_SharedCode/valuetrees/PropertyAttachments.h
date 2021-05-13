@@ -636,48 +636,4 @@ static inline void createTwoWayPropertyValueTreeAttachments (juce::OwnedArray< P
 }
 
 
-//static inline void createReadOnlyParameterValueTreeAttachments (juce::OwnedArray<bav::ValueTreeToParameterAttachment>& attachments,
-//                                                                juce::ValueTree parameterValueTree,
-//                                                                int totalNumParams,
-//                                                                std::function< bav::Parameter* (int) > findParameter,
-//                                                                juce::UndoManager* um = nullptr)
-//{
-//    jassert (parameterValueTree.isValid());
-//
-//    attachments.ensureStorageAllocated (totalNumParams);
-//
-//    for (int i = 0; i < totalNumParams; ++i)
-//    {
-//        auto parameter = findParameter (i);
-//        jassert (parameter != nullptr);
-//
-//        attachments.add (new bav::ValueTreeToParameterAttachment (parameter,
-//                                                                  bav::getChildTreeForParameter (parameterValueTree, parameter),
-//                                                                  um));
-//    }
-//}
-//
-//
-//static inline void createWriteOnlyParameterValueTreeAttachments (juce::OwnedArray<bav::ParameterToValueTreeAttachment>& attachments,
-//                                                                 juce::ValueTree parameterValueTree,
-//                                                                 int totalNumParams,
-//                                                                 std::function< bav::Parameter* (int) > findParameter,
-//                                                                 juce::UndoManager* um = nullptr)
-//{
-//    jassert (parameterValueTree.isValid());
-//
-//    attachments.ensureStorageAllocated (totalNumParams);
-//
-//    for (int i = 0; i < totalNumParams; ++i)
-//    {
-//        auto parameter = findParameter (i);
-//        jassert (parameter != nullptr);
-//
-//        attachments.add (new bav::ParameterToValueTreeAttachment (parameter,
-//                                                                  bav::getChildTreeForParameter (parameterValueTree, parameter),
-//                                                                  um));
-//    }
-//}
-
-
 }  // namespace
