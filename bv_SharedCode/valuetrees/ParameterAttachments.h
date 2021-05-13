@@ -11,9 +11,9 @@ public:
     ParameterToValueTreeAttachment (bav::Parameter* paramToUse,
                                     juce::ValueTree treeToUse,
                                     juce::UndoManager* um = nullptr)
-    : param (paramToUse),
-    tree (treeToUse),
-    undoManager (um)
+      : param (paramToUse),
+        tree (treeToUse),
+        undoManager (um)
     {
         jassert (tree.isValid());
         
@@ -115,11 +115,9 @@ class ValueTreeToParameterAttachment   :    public juce::ValueTree::Listener
 {
 public:
     ValueTreeToParameterAttachment (bav::Parameter* paramToUse,
-                                    juce::ValueTree treeToUse,
-                                    juce::UndoManager* um = nullptr)
-    : param (paramToUse),
-    tree (treeToUse),
-    undoManager (um)
+                                    juce::ValueTree treeToUse)
+      : param (paramToUse),
+        tree (treeToUse),
     {
         jassert (tree.isValid());
         
@@ -145,12 +143,6 @@ public:
             
             if (changeState)
             {
-                if (undoManager != nullptr)
-                {
-                    undoManager->beginNewTransaction();
-                    undoManager->setCurrentTransactionName (TRANS ("Changed") + " " + param->parameterNameVerbose);
-                }
-                
                 param->orig()->beginChangeGesture();
             }
             else
@@ -175,12 +167,6 @@ public:
         
         if (defaultVal != param->getNormalizedDefault())
         {
-            if (undoManager != nullptr)
-            {
-                undoManager->beginNewTransaction();
-                undoManager->setCurrentTransactionName (TRANS ("Changed default value of") + " " + param->parameterNameVerbose);
-            }
-            
             param->setNormalizedDefault (defaultVal);
         }
     }
@@ -195,8 +181,6 @@ private:
     juce::CachedValue<float> currentValue;
     juce::CachedValue<float> currentDefaultValue;
     juce::CachedValue<bool>  currentGesture;
-    
-    juce::UndoManager* const undoManager;
 };
 
 
@@ -210,8 +194,8 @@ ValueTreeToParameterAttachment
                          juce::ValueTree treeToUse,
                          juce::UndoManager* um = nullptr)
     
-    : ParameterToValueTreeAttachment (paramToUse, treeToUse, nullptr),
-    ValueTreeToParameterAttachment (paramToUse, treeToUse, um)  // only use one UndoManager at a time...
+      : ParameterToValueTreeAttachment (paramToUse, treeToUse, um),
+        ValueTreeToParameterAttachment (paramToUse, treeToUse)
     { }
 };
 
@@ -249,7 +233,6 @@ static inline void createReadOnlyParameterValueTreeAttachments (juce::OwnedArray
                                                                 juce::ValueTree parameterValueTree,
                                                                 int totalNumParams,
                                                                 std::function< bav::Parameter* (int) > findParameter,
-                                                                juce::UndoManager* um = nullptr,
                                                                 int paramIndexToStartAt = 0)
 {
     jassert (parameterValueTree.isValid());
@@ -264,8 +247,7 @@ static inline void createReadOnlyParameterValueTreeAttachments (juce::OwnedArray
         jassert (parameter != nullptr);
         
         attachments.add (new bav::ValueTreeToParameterAttachment (parameter,
-                                                                  bav::getChildTreeForParameter (parameterValueTree, parameter),
-                                                                  um));
+                                                                  bav::getChildTreeForParameter (parameterValueTree, parameter)));
     }
 }
 
@@ -274,8 +256,8 @@ static inline void createWriteOnlyParameterValueTreeAttachments (juce::OwnedArra
                                                                  juce::ValueTree parameterValueTree,
                                                                  int totalNumParams,
                                                                  std::function< bav::Parameter* (int) > findParameter,
-                                                                 juce::UndoManager* um = nullptr,
-                                                                 int paramIndexToStartAt = 0)
+                                                                 int paramIndexToStartAt = 0,
+                                                                 juce::UndoManager* um = nullptr)
 {
     jassert (parameterValueTree.isValid());
     

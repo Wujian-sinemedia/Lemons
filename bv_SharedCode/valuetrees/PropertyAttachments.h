@@ -32,17 +32,27 @@ public:
     void propertyValueChanged (const juce::String&) override final
     {
         if (juce::MessageManager::getInstance()->isThisTheMessageThread())
-            handleUpdateNowIfNeeded();
+        {
+            cancelPendingUpdate();
+            handleAsyncUpdate();
+        }
         else
+        {
             triggerAsyncUpdate();
+        }
     }
     
     void propertyDefaultValueChanged (const juce::String&) override final
     {
         if (juce::MessageManager::getInstance()->isThisTheMessageThread())
-            handleUpdateNowIfNeeded();
+        {
+            cancelPendingUpdate();
+            handleAsyncUpdate();
+        }
         else
+        {
             triggerAsyncUpdate();
+        }
     }
     
     void handleAsyncUpdate() override final
@@ -118,17 +128,27 @@ public:
     void propertyValueChanged (const juce::String&) override final
     {
         if (juce::MessageManager::getInstance()->isThisTheMessageThread())
-            handleUpdateNowIfNeeded();
+        {
+            cancelPendingUpdate();
+            handleAsyncUpdate();
+        }
         else
+        {
             triggerAsyncUpdate();
+        }
     }
     
     void propertyDefaultValueChanged (const juce::String&) override final
     {
         if (juce::MessageManager::getInstance()->isThisTheMessageThread())
-            handleUpdateNowIfNeeded();
+        {
+            cancelPendingUpdate();
+            handleAsyncUpdate();
+        }
         else
+        {
             triggerAsyncUpdate();
+        }
     }
     
     void handleAsyncUpdate() override final
@@ -204,17 +224,27 @@ public:
     void propertyValueChanged (const juce::String&) override final
     {
         if (juce::MessageManager::getInstance()->isThisTheMessageThread())
-            handleUpdateNowIfNeeded();
+        {
+            cancelPendingUpdate();
+            handleAsyncUpdate();
+        }
         else
+        {
             triggerAsyncUpdate();
+        }
     }
     
     void propertyDefaultValueChanged (const juce::String&) override final
     {
         if (juce::MessageManager::getInstance()->isThisTheMessageThread())
-            handleUpdateNowIfNeeded();
+        {
+            cancelPendingUpdate();
+            handleAsyncUpdate();
+        }
         else
+        {
             triggerAsyncUpdate();
+        }
     }
     
     void handleAsyncUpdate() override final
@@ -290,17 +320,27 @@ public:
     void propertyValueChanged (const juce::String&) override final
     {
         if (juce::MessageManager::getInstance()->isThisTheMessageThread())
-            handleUpdateNowIfNeeded();
+        {
+            cancelPendingUpdate();
+            handleAsyncUpdate();
+        }
         else
+        {
             triggerAsyncUpdate();
+        }
     }
     
     void propertyDefaultValueChanged (const juce::String&) override final
     {
         if (juce::MessageManager::getInstance()->isThisTheMessageThread())
-            handleUpdateNowIfNeeded();
+        {
+            cancelPendingUpdate();
+            handleAsyncUpdate();
+        }
         else
+        {
             triggerAsyncUpdate();
+        }
     }
     
     void handleAsyncUpdate() override final
@@ -370,11 +410,7 @@ public:
     
     void valueTreePropertyChanged (juce::ValueTree&, const juce::Identifier&) override final
     {
-        /* Current property value */
-        const auto value = currentValue.get();
-        
-        if (value != node->getCurrentValue())
-            node->setValue (value);
+        node->setValue (currentValue.get());
         
         /* Property default value */
         const auto defaultVal = currentDefaultValue.get();
@@ -413,11 +449,7 @@ public:
     
     void valueTreePropertyChanged (juce::ValueTree&, const juce::Identifier&) override final
     {
-        /* Current property value */
-        const auto value = currentValue.get();
-        
-        if (value != node->getCurrentValue())
-            node->setValue (value);
+        node->setValue (currentValue.get());
         
         /* Property default value */
         const auto defaultVal = currentDefaultValue.get();
@@ -456,11 +488,7 @@ public:
     
     void valueTreePropertyChanged (juce::ValueTree&, const juce::Identifier&) override final
     {
-        /* Current property value */
-        const auto value = currentValue.get();
-        
-        if (value != node->getCurrentValue())
-            node->setValue (value);
+        node->setValue (currentValue.get());
         
         /* Property default value */
         const auto defaultVal = currentDefaultValue.get();
@@ -499,11 +527,7 @@ public:
     
     void valueTreePropertyChanged (juce::ValueTree&, const juce::Identifier&) override final
     {
-        /* Current property value */
-        const auto value = currentValue.get();
-        
-        if (value != node->getCurrentValue())
-            node->setValue (value);
+        node->setValue (currentValue.get());
         
         /* Property default value */
         const auto defaultVal = currentDefaultValue.get();
