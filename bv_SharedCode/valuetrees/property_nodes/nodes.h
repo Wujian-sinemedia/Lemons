@@ -38,6 +38,15 @@ struct NonParamValueTreeNode
     
     //
     
+    void updateValueFromExternalSource()
+    {
+        valueUpdatingFunction();
+    }
+    
+    std::function < void() > valueUpdatingFunction { [](){} };
+    
+    //
+    
     virtual juce::ValueTree toValueTree() const = 0;
     
     //
@@ -98,6 +107,11 @@ struct IntValueTreeNode  :  NonParamValueTreeNode
                                        }
                                    };
         
+        Base::valueUpdatingFunction = [this]()
+                                      {
+                                          setValue (getNewValueFromExternalSource());
+                                      };
+        
         lastActionedValue.store (defaultValue.load());
     }
     
@@ -125,6 +139,9 @@ struct IntValueTreeNode  :  NonParamValueTreeNode
     
     void setValue (int newValue)
     {
+        if (currentValue.load() == newValue)
+            return;
+        
         currentValue.store (newValue);
         const auto asString = getCurrentValueAsString();
         Base::listeners.call ([&asString] (Listener& l) { l.propertyValueChanged (asString); });
@@ -187,6 +204,8 @@ struct IntValueTreeNode  :  NonParamValueTreeNode
     
     std::function < void (int) > onAction { [](int){} };
     
+    std::function < int () > getNewValueFromExternalSource { [this](){ return getCurrentValue(); } };
+    
     //
     
 private:
@@ -233,6 +252,11 @@ struct BoolValueTreeNode   :  NonParamValueTreeNode
                                        }
                                    };
         
+        Base::valueUpdatingFunction = [this]()
+                                      {
+                                          setValue (getNewValueFromExternalSource());
+                                      };
+        
         lastActionedValue.store (defaultValue.load());
     }
     
@@ -260,6 +284,9 @@ struct BoolValueTreeNode   :  NonParamValueTreeNode
     
     void setValue (bool newValue)
     {
+        if (currentValue.load() == newValue)
+            return;
+        
         currentValue.store (newValue);
         const auto asString = getCurrentValueAsString();
         Base::listeners.call ([&asString] (Listener& l) { l.propertyValueChanged (asString); });
@@ -320,6 +347,8 @@ struct BoolValueTreeNode   :  NonParamValueTreeNode
     
     std::function < void (bool) > onAction { [](bool){} };
     
+    std::function < bool () > getNewValueFromExternalSource { [this](){ return getCurrentValue(); } };
+    
     //
     
 private:
@@ -371,6 +400,11 @@ struct FloatValueTreeNode  :  NonParamValueTreeNode
                                        }
                                    };
         
+        Base::valueUpdatingFunction = [this]()
+                                      {
+                                          setValue (getNewValueFromExternalSource());
+                                      };
+        
         lastActionedValue.store (defaultValue.load());
     }
     
@@ -398,6 +432,9 @@ struct FloatValueTreeNode  :  NonParamValueTreeNode
     
     void setValue (float newValue)
     {
+        if (currentValue.load() == newValue)
+            return;
+        
         currentValue.store (newValue);
         const auto asString = getCurrentValueAsString();
         Base::listeners.call ([&asString] (Listener& l) { l.propertyValueChanged (asString); });
@@ -460,6 +497,8 @@ struct FloatValueTreeNode  :  NonParamValueTreeNode
     
     std::function < void (float) > onAction { [](float){} };
     
+    std::function < float () > getNewValueFromExternalSource { [this](){ return getCurrentValue(); } };
+    
     //
     
 private:
@@ -502,6 +541,11 @@ struct StringValueTreeNode :  NonParamValueTreeNode
                                        }
                                    };
         
+        Base::valueUpdatingFunction = [this]()
+                                      {
+                                          setValue (getNewValueFromExternalSource());
+                                      };
+        
         lastActionedValue = defaultValue;
     }
     
@@ -531,7 +575,11 @@ struct StringValueTreeNode :  NonParamValueTreeNode
     
     void setValue (const juce::String& newValue)
     {
-        juce::ScopedLock l (lock);
+        juce::ScopedLock sl (lock);
+        
+        if (currentValue == newValue)
+            return;
+        
         currentValue = newValue;
         const auto asString = getCurrentValueAsString();
         Base::listeners.call ([&asString] (Listener& l) { l.propertyValueChanged (asString); });
@@ -539,7 +587,7 @@ struct StringValueTreeNode :  NonParamValueTreeNode
     
     void setDefaultValue (juce::String newDefault)
     {
-        juce::ScopedLock l (lock);
+        juce::ScopedLock sl (lock);
         defaultValue = newDefault;
         const auto asString = getDefaultValueAsString();
         Base::listeners.call ([&asString] (Listener& l) { l.propertyDefaultValueChanged (asString); });
@@ -583,6 +631,8 @@ struct StringValueTreeNode :  NonParamValueTreeNode
     //
     
     std::function < void (juce::String) > onAction { [](juce::String){} };
+    
+    std::function < juce::String () > getNewValueFromExternalSource { [this](){ return getCurrentValue(); } };
     
 private:
     juce::String currentValue;
