@@ -129,6 +129,10 @@ namespace bav
         std::function < void () >      voidAction;
         
         std::atomic<float> lastActionedValue;
+        
+        //==============================================================================
+        
+        
     };
     
     

@@ -2,13 +2,15 @@
 namespace bav 
 {
 
+template <typename ArgumentType>
 class BackgroundCaller :    private juce::Thread,
                             private juce::AsyncUpdater
 {
 public:
-    BackgroundCaller (std::function< void() > func)
+    BackgroundCaller (std::function< void (ArgumentType) > func,
+                      ArgumentType arg)
       : juce::Thread (TRANS ("Function called synchronously on background thread")),
-        function (func)
+        function (func), argument (arg)
     {
         startThread();
     }
@@ -16,11 +18,12 @@ public:
     ~BackgroundCaller() override
     {
         stopThread (1000);
+        cancelPendingUpdate();
     }
     
     void run() override final
     {
-        function();
+        function (argument);
         triggerAsyncUpdate();
     }
     
@@ -30,14 +33,31 @@ public:
     }
     
 private:
-    std::function< void() > function;
+    std::function< void (ArgumentType) > function;
+    const ArgumentType argument;
 };
 
-    
-void callInBackground (std::function< void() > function)
+
+template <typename ArgumentType = void>
+void callInBackground (std::function< void (ArgumentType) > function, ArgumentType argument)
 {
-    new BackgroundCaller (function);
+    new BackgroundCaller<ArgumentType> (function, argument);
 }
+
+
+template class BackgroundCaller<void>;
+template class BackgroundCaller<double>;
+template class BackgroundCaller<float>;
+template class BackgroundCaller<int>;
+template class BackgroundCaller<bool>;
+template class BackgroundCaller<juce::String>;
+
+template void callInBackground (std::function< void (void) >, void);
+template void callInBackground (std::function< void (double) >, double);
+template void callInBackground (std::function< void float >, float);
+template void callInBackground (std::function< void (int) >, int);
+template void callInBackground (std::function< void (bool) >, bool);
+template void callInBackground (std::function< void (juce::String) >, juce::String);
 
 
 //
@@ -63,7 +83,7 @@ private:
 };
 
 
-void delayedLambda (std::function< void() > callback, int msInFuture)
+void callDelayed (std::function< void() > callback, int msInFuture)
 {
     new DelayedLambdaHelper (callback, msInFuture);
 }

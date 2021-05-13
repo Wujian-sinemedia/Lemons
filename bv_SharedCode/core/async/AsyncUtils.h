@@ -4,13 +4,15 @@ namespace bav
 {
 
 
-/* calls a function synchronously on a background thread */
-void callInBackground (std::function< void() > function);
+/* calls a function synchronously on a background thread with a single argument */
+
+template <typename ArgumentType = void>
+void callInBackground (std::function< void (ArgumentType) > function, ArgumentType argument);
 
 
 
 /* calls a function on the message thread after a specified delay */
-void delayedLambda (std::function< void() > callback, int msInFuture);
+void callDelayed (std::function< void() > callback, int msInFuture);
 
 
 
