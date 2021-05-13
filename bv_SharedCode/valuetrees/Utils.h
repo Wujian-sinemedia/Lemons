@@ -3,6 +3,26 @@ namespace bav
 {
 
 
+static inline void parsePropertyTreeForPropertyPointers (const NonParamValueTreeNodeGroup* group,
+                                                         std::vector< NonParamValueTreeNode* >& pointers)
+{
+    jassert (group != nullptr);
+    
+    for (auto* node : *group)
+    {
+        if (auto* prop = node->getNode())
+        {
+            pointers.push_back (prop);
+        }
+        else if (auto* thisGroup = node->getGroup())
+        {
+            parsePropertyTreeForPropertyPointers (thisGroup, pointers);
+        }
+    }
+}
+
+
+
 /* note: this only works if the underlying parameter objects in the group are derived from my Parameter base class */
 static inline void createValueTreeFromParameterTree (juce::ValueTree& tree,
                                                      const juce::AudioProcessorParameterGroup& parameterTree)

@@ -11,7 +11,7 @@ struct NonParamValueTreeNodeGroup
     struct NonParamValueTreeNodeGroupNode
     {
         NonParamValueTreeNodeGroupNode (NonParamValueTreeNodeGroupNode&& other)
-        : group (std::move (other.group)), node (std::move (other.node))
+            : group (std::move (other.group)), node (std::move (other.node))
         { }
         
         ~NonParamValueTreeNodeGroupNode() = default;
@@ -23,11 +23,11 @@ struct NonParamValueTreeNodeGroup
         
     private:
         NonParamValueTreeNodeGroupNode (std::unique_ptr<NonParamValueTreeNodeGroup> group_)
-        : group (std::move (group_))
+            : group (std::move (group_))
         { }
         
         NonParamValueTreeNodeGroupNode (std::unique_ptr<NonParamValueTreeNode> node_)
-        : node (std::move (node_))
+            : node (std::move (node_))
         { }
         
         //
