@@ -58,6 +58,8 @@
 #include "core/DataHelpers.h"
 #include "core/LockFreeFifo.h"
 
+#include "core/async/AsyncUtils.h"
+
 #include "math/mathHelpers.h"
 #include "math/VectorOps.h"
 #include "math/intOps.h"
