@@ -34,7 +34,37 @@ struct NonParamValueTreeNode
         actionableFunction();
     }
     
-    std::function< void() > actionableFunction { [](){} };
+    void setFloatAction (std::function < void (float) > action)
+    {
+        floatAction = std::move(action);
+        intAction  = nullptr;
+        boolAction = nullptr;
+        voidAction = nullptr;
+    }
+    
+    void setIntAction (std::function < void (int) > action)
+    {
+        intAction = std::move(action);
+        floatAction = nullptr;
+        boolAction  = nullptr;
+        voidAction  = nullptr;
+    }
+    
+    void setBoolAction (std::function < void (bool) > action)
+    {
+        boolAction  = std::move(action);
+        floatAction = nullptr;
+        intAction   = nullptr;
+        voidAction  = nullptr;
+    }
+    
+    void setVoidAction (std::function < void () > action)
+    {
+        voidAction  = std::move(action);
+        floatAction = nullptr;
+        intAction   = nullptr;
+        boolAction  = nullptr;
+    }
     
     //
     
@@ -72,6 +102,13 @@ struct NonParamValueTreeNode
     
 protected:
     juce::ListenerList< Listener > listeners;
+    
+    std::function < void (float) >        floatAction;
+    std::function < void (int) >          intAction;
+    std::function < void (bool) >         boolAction;
+    std::function < void (juce::String) > stringAction;
+    
+    std::function< void() > actionableFunction { [](){} };
 };
 
 
@@ -98,12 +135,15 @@ struct IntValueTreeNode  :  NonParamValueTreeNode
     {
         Base::actionableFunction = [this]()
                                    {
+                                       if (! Base::intAction)
+                                           return;
+                                       
                                        const auto value = getCurrentValue();
                                        
                                        if (value != lastActionedValue.load())
                                        {
                                            lastActionedValue.store (value);
-                                           onAction (value);
+                                           Base::intAction (value);
                                        }
                                    };
         
@@ -202,8 +242,6 @@ struct IntValueTreeNode  :  NonParamValueTreeNode
     std::function < juce::String (int, int) > stringFromInt;
     std::function < int (juce::String) > intFromString;
     
-    std::function < void (int) > onAction { [](int){} };
-    
     std::function < int () > getNewValueFromExternalSource { [this](){ return getCurrentValue(); } };
     
     //
@@ -243,12 +281,15 @@ struct BoolValueTreeNode   :  NonParamValueTreeNode
     {
         Base::actionableFunction = [this]()
                                    {
+                                       if (! Base::boolAction)
+                                           return;
+                                       
                                        const auto value = getCurrentValue();
                                        
                                        if (value != lastActionedValue.load())
                                        {
                                            lastActionedValue.store (value);
-                                           onAction (value);
+                                           Base::boolAction (value);
                                        }
                                    };
         
@@ -345,8 +386,6 @@ struct BoolValueTreeNode   :  NonParamValueTreeNode
     std::function < juce::String (bool, int) > stringFromBool;
     std::function < bool (juce::String) > boolFromString;
     
-    std::function < void (bool) > onAction { [](bool){} };
-    
     std::function < bool () > getNewValueFromExternalSource { [this](){ return getCurrentValue(); } };
     
     //
@@ -391,12 +430,15 @@ struct FloatValueTreeNode  :  NonParamValueTreeNode
     {
         Base::actionableFunction = [this]()
                                    {
+                                       if (! Base::floatAction)
+                                           return;
+                                       
                                        const auto value = getCurrentValue();
                                        
                                        if (value != lastActionedValue.load())
                                        {
                                            lastActionedValue.store (value);
-                                           onAction (value);
+                                           Base::floatAction (value);
                                        }
                                    };
         
@@ -495,8 +537,6 @@ struct FloatValueTreeNode  :  NonParamValueTreeNode
     std::function < juce::String (float, int) > stringFromFloat;
     std::function < float (juce::String) > floatFromString;
     
-    std::function < void (float) > onAction { [](float){} };
-    
     std::function < float () > getNewValueFromExternalSource { [this](){ return getCurrentValue(); } };
     
     //
@@ -532,12 +572,15 @@ struct StringValueTreeNode :  NonParamValueTreeNode
     {
         Base::actionableFunction = [this]()
                                    {
+                                       if (! Base::stringAction)
+                                           return;
+                                       
                                        const auto value = getCurrentValue();
                                        
                                        if (value != lastActionedValue)
                                        {
                                            lastActionedValue = value;
-                                           onAction (value);
+                                           Base::stringAction (value);
                                        }
                                    };
         
@@ -629,8 +672,6 @@ struct StringValueTreeNode :  NonParamValueTreeNode
     }
     
     //
-    
-    std::function < void (juce::String) > onAction { [](juce::String){} };
     
     std::function < juce::String () > getNewValueFromExternalSource { [this](){ return getCurrentValue(); } };
     
