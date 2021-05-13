@@ -200,5 +200,28 @@ static inline void createTwoWayFreeParameterValueTreeAttachments (juce::OwnedArr
 }
 
 
+static inline void createReadOnlyFreeParameterValueTreeAttachments (juce::OwnedArray<ValueTreeToFreeStandingParameterAttachment>& attachments,
+                                                                    juce::ValueTree parameterValueTree,
+                                                                    int totalNumParams,
+                                                                    std::function< FreestandingParameter* (int) > findParameter,
+                                                                    int paramIndexToStartAt = 0)
+{
+    jassert (parameterValueTree.isValid());
+    
+    attachments.ensureStorageAllocated (totalNumParams);
+    
+    for (int i = paramIndexToStartAt;
+         i < paramIndexToStartAt + totalNumParams;
+         ++i)
+    {
+        auto* parameter = findParameter (i);
+        jassert (parameter != nullptr);
+        
+        attachments.add (new ValueTreeToFreeStandingParameterAttachment (parameter,
+                                                                         bav::getChildTreeForParameter (parameterValueTree, parameter)));
+    }
+}
+
+
 }  // namespace
 

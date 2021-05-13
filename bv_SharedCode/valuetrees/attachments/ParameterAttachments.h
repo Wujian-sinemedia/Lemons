@@ -229,29 +229,6 @@ static inline void createTwoWayParameterValueTreeAttachments (juce::OwnedArray<b
 }
 
 
-static inline void createReadOnlyParameterValueTreeAttachments (juce::OwnedArray<bav::ValueTreeToParameterAttachment>& attachments,
-                                                                juce::ValueTree parameterValueTree,
-                                                                int totalNumParams,
-                                                                std::function< bav::Parameter* (int) > findParameter,
-                                                                int paramIndexToStartAt = 0)
-{
-    jassert (parameterValueTree.isValid());
-    
-    attachments.ensureStorageAllocated (totalNumParams);
-    
-    for (int i = paramIndexToStartAt;
-         i < paramIndexToStartAt + totalNumParams;
-         ++i)
-    {
-        auto* parameter = findParameter (i);
-        jassert (parameter != nullptr);
-        
-        attachments.add (new bav::ValueTreeToParameterAttachment (parameter,
-                                                                  bav::getChildTreeForParameter (parameterValueTree, parameter)));
-    }
-}
-
-
 static inline void createWriteOnlyParameterValueTreeAttachments (juce::OwnedArray<bav::ParameterToValueTreeAttachment>& attachments,
                                                                  juce::ValueTree parameterValueTree,
                                                                  int totalNumParams,
