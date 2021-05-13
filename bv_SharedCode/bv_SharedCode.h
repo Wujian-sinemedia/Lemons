@@ -66,7 +66,7 @@
 #include "midi/MidiUtilities.h"
 
 #include "dsp/oscillators.h"
-#include "dsp/AudioFIFO.h"
+#include "dsp/AudioFIFO/AudioFIFO.h"
 #include "dsp/Panner.h"
 #include "dsp/FX/ReorderableFxChain.h"
 #include "dsp/FX/NoiseGate.h"
@@ -75,8 +75,8 @@
 #include "dsp/FX/DeEsser.h"
 #include "dsp/FX/Reverb.h"
 #include "dsp/FX/Delay.h"
-#include "dsp/FIFOWrappedEngine.h"
-#include "dsp/pitch-detector.h"
+#include "dsp/FIFOWrappedEngine/FIFOWrappedEngine.h"
+#include "dsp/PitchDetector/pitch-detector.h"
 #include "dsp/DummyAudioProcessor.h"
 
 #include "dsp/FFT/bv_FFT.h"
@@ -101,18 +101,11 @@
 
 //==============================================================================
 
-#ifndef BV_USE_MOTION
-  #define BV_USE_MOTION 0
+#if JUCE_IOS
+  #include "core/motion/iosMotion.h"
+#elif JUCE_ANDROID
+  #include "core/motion/androidMotion.h"
 #endif
-
-#if BV_USE_MOTION
-  #if JUCE_IOS
-    #include "core/motion/iosMotion.h"
-  #elif JUCE_ANDROID
-    #include "core/motion/androidMotion.h"
-  #endif
-#endif
-
 
 //==============================================================================
 
