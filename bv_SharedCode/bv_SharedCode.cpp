@@ -7,6 +7,6 @@
 #include "dsp/PitchDetector/pitch-detector.cpp"
 
 
-#if JUCE_IOS
-  #include "core/motion/iosMotionManager.mm"
-#endif
+//#if JUCE_IOS
+//  #include "core/motion/iosMotionManager.mm"
+//#endif

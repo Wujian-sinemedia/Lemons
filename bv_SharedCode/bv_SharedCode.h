@@ -101,11 +101,11 @@
 
 //==============================================================================
 
-#if JUCE_IOS
-  #include "core/motion/iosMotion.h"
-#elif JUCE_ANDROID
-  #include "core/motion/androidMotion.h"
-#endif
+//#if JUCE_IOS
+//  #include "core/motion/iosMotion.h"
+//#elif JUCE_ANDROID
+//  #include "core/motion/androidMotion.h"
+//#endif
 
 //==============================================================================
 
