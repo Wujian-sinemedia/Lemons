@@ -176,7 +176,7 @@ public:
         }
     }
     
-    void setAction (std::function < void (float) > action)
+    void setFloatAction (std::function < void (float) > action)
     {
         floatAction = std::move(action);
         intAction  = nullptr;
@@ -184,7 +184,7 @@ public:
         voidAction = nullptr;
     }
     
-    void setAction (std::function < void (int) > action)
+    void setIntAction (std::function < void (int) > action)
     {
         intAction = std::move(action);
         floatAction = nullptr;
@@ -192,7 +192,7 @@ public:
         voidAction  = nullptr;
     }
     
-    void setAction (std::function < void (bool) > action)
+    void setBoolAction (std::function < void (bool) > action)
     {
         boolAction  = std::move(action);
         floatAction = nullptr;
@@ -200,7 +200,7 @@ public:
         voidAction  = nullptr;
     }
     
-    void setAction (std::function < void () > action)
+    void setVoidAction (std::function < void () > action)
     {
         voidAction  = std::move(action);
         floatAction = nullptr;
