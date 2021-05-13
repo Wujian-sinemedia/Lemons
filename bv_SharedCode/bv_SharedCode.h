@@ -97,6 +97,20 @@
 #include "network/AsyncDownload.h"
 #include "network/DownloadManager.h"
 
+//==============================================================================
+
+#ifndef BV_USE_MOTION
+  #define BV_USE_MOTION 0
+#endif
+
+#if BV_USE_MOTION
+  #if JUCE_IOS
+    #include "core/motion/iosMotion.h"
+  #elif JUCE_ANDROID
+    #include "core/motion/androidMotion.h"
+  #endif
+#endif
+
 
 //==============================================================================
 

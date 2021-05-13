@@ -11,6 +11,13 @@
 #endif
 
 
+#if JUCE_IOS || JUCE_ANDROID
+  #define BV_MOBILE 1
+#else
+  #define BV_MOBILE 0
+#endif
+
+
 /*
     These conditionals select whether to use any optimization libraries for vecops, FFTs, etc.
     Changing these options here will control which implementation is used for the entire Shared-code module, including vecops and the FFT module.
