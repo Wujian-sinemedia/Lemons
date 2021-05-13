@@ -48,9 +48,9 @@ public:
     void handleAsyncUpdate() override final
     {
         /* Current value */
-        const auto currentValue = node->getCurrentValue();
+        const auto val = node->getCurrentValue();
         
-        if (currentValue.get() != currentValue)
+        if (currentValue.get() != val)
         {
             if (undoManager != nullptr)
             {
@@ -58,13 +58,13 @@ public:
                 undoManager->setCurrentTransactionName (TRANS ("Changed") + " " + node->longName);
             }
             
-            currentValue.setValue (currentValue, undoManager);
+            currentValue.setValue (val, undoManager);
         }
         
         /* Default value */
-        const auto currentDefault = node->getDefaultValue();
+        const auto def = node->getDefaultValue();
         
-        if (currentDefaultValue.get() != currentDefault)
+        if (currentDefaultValue.get() != def)
         {
             if (undoManager != nullptr)
             {
@@ -72,7 +72,7 @@ public:
                 undoManager->setCurrentTransactionName (TRANS ("Changed default value of") + " " + node->longName);
             }
             
-            currentDefaultValue.setValue (currentDefault, undoManager);
+            currentDefaultValue.setValue (def, undoManager);
         }
     }
     
@@ -134,9 +134,9 @@ public:
     void handleAsyncUpdate() override final
     {
         /* Current value */
-        const auto currentValue = node->getCurrentValue();
+        const auto val = node->getCurrentValue();
         
-        if (currentValue.get() != currentValue)
+        if (currentValue.get() != val)
         {
             if (undoManager != nullptr)
             {
@@ -144,13 +144,13 @@ public:
                 undoManager->setCurrentTransactionName (TRANS ("Changed") + " " + node->longName);
             }
             
-            currentValue.setValue (currentValue, undoManager);
+            currentValue.setValue (val, undoManager);
         }
         
         /* Default value */
-        const auto currentDefault = node->getDefaultValue();
+        const auto def = node->getDefaultValue();
         
-        if (currentDefaultValue.get() != currentDefault)
+        if (currentDefaultValue.get() != def)
         {
             if (undoManager != nullptr)
             {
@@ -158,7 +158,7 @@ public:
                 undoManager->setCurrentTransactionName (TRANS ("Changed default value of") + " " + node->longName);
             }
             
-            currentDefaultValue.setValue (currentDefault, undoManager);
+            currentDefaultValue.setValue (def, undoManager);
         }
     }
     
@@ -220,9 +220,9 @@ public:
     void handleAsyncUpdate() override final
     {
         /* Current value */
-        const auto currentValue = node->getCurrentValue();
+        const auto val = node->getCurrentValue();
         
-        if (currentValue.get() != currentValue)
+        if (currentValue.get() != val)
         {
             if (undoManager != nullptr)
             {
@@ -230,13 +230,13 @@ public:
                 undoManager->setCurrentTransactionName (TRANS ("Changed") + " " + node->longName);
             }
             
-            currentValue.setValue (currentValue, undoManager);
+            currentValue.setValue (val, undoManager);
         }
         
         /* Default value */
-        const auto currentDefault = node->getDefaultValue();
+        const auto def = node->getDefaultValue();
         
-        if (currentDefaultValue.get() != currentDefault)
+        if (currentDefaultValue.get() != def)
         {
             if (undoManager != nullptr)
             {
@@ -244,7 +244,7 @@ public:
                 undoManager->setCurrentTransactionName (TRANS ("Changed default value of") + " " + node->longName);
             }
             
-            currentDefaultValue.setValue (currentDefault, undoManager);
+            currentDefaultValue.setValue (def, undoManager);
         }
     }
     
@@ -306,9 +306,9 @@ public:
     void handleAsyncUpdate() override final
     {
         /* Current value */
-        const auto currentValue = node->getCurrentValue();
+        const auto val = node->getCurrentValue();
         
-        if (currentValue.get() != currentValue)
+        if (currentValue.get() != val)
         {
             if (undoManager != nullptr)
             {
@@ -316,13 +316,13 @@ public:
                 undoManager->setCurrentTransactionName (TRANS ("Changed") + " " + node->longName);
             }
             
-            currentValue.setValue (currentValue, undoManager);
+            currentValue.setValue (val, undoManager);
         }
         
         /* Default value */
-        const auto currentDefault = node->getDefaultValue();
+        const auto def = node->getDefaultValue();
         
-        if (currentDefaultValue.get() != currentDefault)
+        if (currentDefaultValue.get() != def)
         {
             if (undoManager != nullptr)
             {
@@ -330,7 +330,7 @@ public:
                 undoManager->setCurrentTransactionName (TRANS ("Changed default value of") + " " + node->longName);
             }
             
-            currentDefaultValue.setValue (currentDefault, undoManager);
+            currentDefaultValue.setValue (def, undoManager);
         }
     }
     
