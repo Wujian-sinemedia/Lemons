@@ -59,7 +59,7 @@ public:
         }
         
         /* Current parameter value */
-        const auto newValue = param->getCurrentDenormalizedValue();
+        const auto newValue = param->getCurrentNormalizedValue();
         
         if (currentValue.get() != newValue)
             currentValue.setValue (newValue, undoManager);

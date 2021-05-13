@@ -5,12 +5,12 @@ namespace bav
 
 /* Updates the ValueTree with changes from the parameter object */
 
-class ParameterToValueTreeAttachment   :     public  FreestandingParameter::Listener
+class FreeStandingParameterToValueTreeAttachment   :     public  FreestandingParameter::Listener
 {
 public:
-    ParameterToValueTreeAttachment (FreestandingParameter* paramToUse,
-                                    juce::ValueTree treeToUse,
-                                    juce::UndoManager* um = nullptr)
+    FreeStandingParameterToValueTreeAttachment (FreestandingParameter* paramToUse,
+                                                juce::ValueTree treeToUse,
+                                                juce::UndoManager* um = nullptr)
       : param (paramToUse),
         tree (treeToUse),
         undoManager (um)
@@ -24,7 +24,7 @@ public:
         currentGesture.referTo (tree, DefaultValueTreeIds::ParameterIsChanging, nullptr);
     }
     
-    virtual ~ParameterToValueTreeAttachment() override
+    virtual ~FreeStandingParameterToValueTreeAttachment() override
     {
         param->removeListener (this);
     }
@@ -86,79 +86,74 @@ private:
 
 
 /* Updates the parameter object with changes from the ValueTree */
-//class ValueTreeToParameterAttachment   :    public juce::ValueTree::Listener
-//{
-//public:
-//    ValueTreeToParameterAttachment (bav::Parameter* paramToUse,
-//                                    juce::ValueTree treeToUse)
-//    : param (paramToUse),
-//    tree (treeToUse)
-//    {
-//        jassert (tree.isValid());
-//
-//        tree.addListener (this);
-//        lastSentChangeState = false;
-//
-//        currentValue.referTo (tree, DefaultValueTreeIds::ParameterValue, nullptr);
-//        currentDefaultValue.referTo (tree, DefaultValueTreeIds::ParameterDefaultValue, nullptr);
-//        currentGesture.referTo (tree, DefaultValueTreeIds::ParameterIsChanging, nullptr);
-//    }
-//
-//
-//    void valueTreePropertyChanged (juce::ValueTree&, const juce::Identifier&) override final
-//    {
-//        bool needToEndGesture = false;
-//
-//        /* Gesture state */
-//        const auto changeState = currentGesture.get();
-//
-//        if (changeState != lastSentChangeState)
-//        {
-//            lastSentChangeState = changeState;
-//
-//            if (changeState)
-//            {
-//                param->orig()->beginChangeGesture();
-//            }
-//            else
-//            {
-//                needToEndGesture = true;
-//            }
-//        }
-//
-//        /* Current parameter value */
-//        const auto value = currentValue.get();
-//
-//        if (value != param->getCurrentDenormalizedValue())
-//            param->orig()->setValueNotifyingHost (value);
-//
-//        // if gesture state switched to off, we need to send that message after any value changes
-//        if (needToEndGesture)
-//            param->orig()->endChangeGesture();
-//
-//
-//        /* Parameter default value */
-//        const auto defaultVal = currentDefaultValue.get();
-//
-//        if (defaultVal != param->getNormalizedDefault())
-//        {
-//            param->setNormalizedDefault (defaultVal);
-//        }
-//    }
-//
-//
-//private:
-//    bav::Parameter* const param;
-//    juce::ValueTree tree;
-//
-//    bool lastSentChangeState;
-//
-//    juce::CachedValue<float> currentValue;
-//    juce::CachedValue<float> currentDefaultValue;
-//    juce::CachedValue<bool>  currentGesture;
-//};
-//
-//
+
+class ValueTreeToFreeStandingParameterAttachment   :    public juce::ValueTree::Listener
+{
+public:
+    ValueTreeToFreeStandingParameterAttachment (FreestandingParameter* paramToUse,
+                                                juce::ValueTree treeToUse)
+      : param (paramToUse),
+        tree (treeToUse)
+    {
+        jassert (tree.isValid());
+
+        tree.addListener (this);
+        
+        currentValue.referTo (tree, DefaultValueTreeIds::ParameterValue, nullptr);
+        currentDefaultValue.referTo (tree, DefaultValueTreeIds::ParameterDefaultValue, nullptr);
+        currentGesture.referTo (tree, DefaultValueTreeIds::ParameterIsChanging, nullptr);
+    }
+
+
+    void valueTreePropertyChanged (juce::ValueTree&, const juce::Identifier&) override final
+    {
+        bool needToEndGesture = false;
+
+        /* Gesture state */
+        const auto changeState = currentGesture.get();
+
+        if (changeState != param->isChanging())
+        {
+            if (changeState)
+            {
+                param->beginChangeGesture();
+            }
+            else
+            {
+                needToEndGesture = true;
+            }
+        }
+
+        /* Current parameter value */
+        const auto value = currentValue.get();
+
+        if (value != param->getCurrentNormalizedValue())
+            param->setValueNormalized (value);
+            
+        // if gesture state switched to off, we need to send that message after any value changes
+        if (needToEndGesture)
+            param->endChangeGesture();
+
+        /* Parameter default value */
+        const auto defaultVal = currentDefaultValue.get();
+
+        if (defaultVal != param->getNormalizedDefault())
+        {
+            param->setNormalizedDefault (defaultVal);
+        }
+    }
+
+
+private:
+    FreestandingParameter* const param;
+    juce::ValueTree tree;
+
+    juce::CachedValue<float> currentValue;
+    juce::CachedValue<float> currentDefaultValue;
+    juce::CachedValue<bool>  currentGesture;
+};
+
+
 ////==============================================================================
 //
 //
