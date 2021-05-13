@@ -175,12 +175,12 @@ struct FreeStandingParameterAttachment  :   FreeStandingParameterToValueTreeAtta
 //===================================================================================================================================
 
 
-static inline void createTwoWayParameterValueTreeAttachments (juce::OwnedArray<FreeStandingParameterAttachment>& attachments,
-                                                              juce::ValueTree parameterValueTree,
-                                                              int totalNumParams,
-                                                              std::function< FreestandingParameter* (int) > findParameter,
-                                                              juce::UndoManager* um = nullptr,
-                                                              int paramIndexToStartAt = 0)
+static inline void createTwoWayFreeParameterValueTreeAttachments (juce::OwnedArray<FreeStandingParameterAttachment>& attachments,
+                                                                  juce::ValueTree parameterValueTree,
+                                                                  int totalNumParams,
+                                                                  std::function< FreestandingParameter* (int) > findParameter,
+                                                                  juce::UndoManager* um = nullptr,
+                                                                  int paramIndexToStartAt = 0)
 {
     jassert (parameterValueTree.isValid());
 

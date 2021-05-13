@@ -92,35 +92,6 @@ static inline juce::ValueTree getChildTreeForParameter (juce::ValueTree& topLeve
 //==============================================================================
 //==============================================================================
 
-static inline void convertPluginParametersToFreestanding (std::vector< bav::Parameter* >& pluginParams,
-                                                          juce::OwnedArray< bav::FreestandingParameter >& freestanders)
-{
-    std::for_each (pluginParams.begin(),
-                   pluginParams.end(),
-                   [&freestanders](bav::Parameter* p)
-                   {
-                        if (auto* floatParam = dynamic_cast<bav::FloatParameter*>(p))
-                        {
-                            freestanders.add (new bav::FreestandingParameter (floatParam));
-                        }
-                        else if (auto* intParam = dynamic_cast<bav::IntParameter*>(p))
-                        {
-                            freestanders.add (new bav::FreestandingParameter (intParam));
-                        }
-                        else if (auto* boolParam = dynamic_cast<bav::BoolParameter*>(p))
-                        {
-                            freestanders.add (new bav::FreestandingParameter (boolParam));
-                        }
-                        else
-                        {
-                            jassertfalse;
-                        }
-                   });
-}
-
-//==============================================================================
-//==============================================================================
-
 static inline void createValueTreeFromNonParamNodes (juce::ValueTree& tree,
                                                      const NonParamValueTreeNodeGroup& propertyTree)
 {
