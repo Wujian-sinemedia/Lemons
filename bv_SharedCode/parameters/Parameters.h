@@ -3,8 +3,7 @@
 namespace bav
 {
     
-
-    class Parameter
+    class Parameter     :   private juce::AudioProcessorParameter::Listener
     {
         using RangedParam = juce::RangedAudioParameter;
         
@@ -19,9 +18,13 @@ namespace bav
         {
             jassert (rap != nullptr);
             lastActionedValue.store (defaultValue);
+            rap->addListener (this);
         }
         
-        virtual ~Parameter() = default;
+        virtual ~Parameter()
+        {
+            rap->removeListener (this);
+        }
         
         // returns the current default value, within the 0-1 normalized range for this parameter
         float getNormalizedDefault() const { return currentDefault.load(); }
@@ -36,6 +39,9 @@ namespace bav
         {
             jassert (value >= 0.0f && value <= 1.0f);
             currentDefault.store (value);
+            
+            if (onDefaultChange)
+                bav::callInBackground<float> (onDefaultChange, value);
         }
         
         // resets the parameter to its currently stored default
@@ -114,6 +120,29 @@ namespace bav
         const juce::String parameterNameVerbose;
         const juce::String parameterNameVerboseNoSpaces;
         
+        //==============================================================================
+        // if defined, these functions will be called synchronously on a background thread when this parameter changes
+        // these will get the new normalized values.
+        std::function< void (float) > onParameterChange;
+        std::function< void (float) > onDefaultChange;
+        std::function< void (bool)  > onGestureStateChange;
+        
+        //==============================================================================
+        
+        void parameterValueChanged (int, float newValue) override final
+        {
+            if (onParameterChange)
+                bav::callInBackground<float> (onParameterChange, newValue);
+        }
+        
+        void parameterGestureChanged (int, bool gestureIsStarting) override final
+        {
+            if (onGestureStateChange)
+                bav::callInBackground<bool> (onGestureStateChange, gestureIsStarting);
+        }
+        
+        //==============================================================================
+        
     protected:
         std::atomic<float> currentDefault;
         
@@ -129,10 +158,6 @@ namespace bav
         std::function < void () >      voidAction;
         
         std::atomic<float> lastActionedValue;
-        
-        //==============================================================================
-        
-        
     };
     
     
