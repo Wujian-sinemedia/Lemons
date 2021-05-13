@@ -36,34 +36,34 @@ struct NonParamValueTreeNode
     
     void setFloatAction (std::function < void (float) > action)
     {
-        floatAction = std::move(action);
-        intAction  = nullptr;
-        boolAction = nullptr;
-        voidAction = nullptr;
+        floatAction  = std::move(action);
+        intAction    = nullptr;
+        boolAction   = nullptr;
+        stringAction = nullptr;
     }
     
     void setIntAction (std::function < void (int) > action)
     {
-        intAction = std::move(action);
-        floatAction = nullptr;
-        boolAction  = nullptr;
-        voidAction  = nullptr;
+        intAction    = std::move(action);
+        floatAction  = nullptr;
+        boolAction   = nullptr;
+        stringAction = nullptr;
     }
     
     void setBoolAction (std::function < void (bool) > action)
     {
-        boolAction  = std::move(action);
-        floatAction = nullptr;
-        intAction   = nullptr;
-        voidAction  = nullptr;
+        boolAction   = std::move(action);
+        floatAction  = nullptr;
+        intAction    = nullptr;
+        stringAction = nullptr;
     }
     
-    void setVoidAction (std::function < void () > action)
+    void setStringAction (std::function < void (juce::String) > action)
     {
-        voidAction  = std::move(action);
-        floatAction = nullptr;
-        intAction   = nullptr;
-        boolAction  = nullptr;
+        stringAction = std::move(action);
+        floatAction  = nullptr;
+        intAction    = nullptr;
+        boolAction   = nullptr;
     }
     
     //
@@ -103,10 +103,10 @@ struct NonParamValueTreeNode
 protected:
     juce::ListenerList< Listener > listeners;
     
-    std::function < void (float) >        floatAction;
-    std::function < void (int) >          intAction;
-    std::function < void (bool) >         boolAction;
-    std::function < void (juce::String) > stringAction;
+    std::function < void (float) >        floatAction  { [](float){} };
+    std::function < void (int) >          intAction    { [](int){} };
+    std::function < void (bool) >         boolAction   { [](bool){} };
+    std::function < void (juce::String) > stringAction { [](juce::String){} };
     
     std::function< void() > actionableFunction { [](){} };
 };
@@ -135,9 +135,6 @@ struct IntValueTreeNode  :  NonParamValueTreeNode
     {
         Base::actionableFunction = [this]()
                                    {
-                                       if (! Base::intAction)
-                                           return;
-                                       
                                        const auto value = getCurrentValue();
                                        
                                        if (value != lastActionedValue.load())
@@ -281,9 +278,6 @@ struct BoolValueTreeNode   :  NonParamValueTreeNode
     {
         Base::actionableFunction = [this]()
                                    {
-                                       if (! Base::boolAction)
-                                           return;
-                                       
                                        const auto value = getCurrentValue();
                                        
                                        if (value != lastActionedValue.load())
@@ -430,9 +424,6 @@ struct FloatValueTreeNode  :  NonParamValueTreeNode
     {
         Base::actionableFunction = [this]()
                                    {
-                                       if (! Base::floatAction)
-                                           return;
-                                       
                                        const auto value = getCurrentValue();
                                        
                                        if (value != lastActionedValue.load())
@@ -572,9 +563,6 @@ struct StringValueTreeNode :  NonParamValueTreeNode
     {
         Base::actionableFunction = [this]()
                                    {
-                                       if (! Base::stringAction)
-                                           return;
-                                       
                                        const auto value = getCurrentValue();
                                        
                                        if (value != lastActionedValue)
