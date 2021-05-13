@@ -4,6 +4,9 @@
     This is useful for holding parameters on the GUI side of things -- you can define the specifics for your parameters only once when you construct your bav::Parameter objects, and then in the GUI simply construct a bunch of these objects from the Parameter objects.
  */
 
+namespace bav
+{
+
 
 class FreestandingParameter
 {
@@ -22,17 +25,19 @@ public:
     
     
     FreestandingParameter (const FloatParameter* const floatParam)
-      : FreestandingParameter (static_cast<const Parameter* const> (floatParam)),
-        floatToStringFunction (std::move (floatParam->floatToString)),
-        stringToFloatFunction (std::move (floatParam->stringToFloat))
-    { }
+      : FreestandingParameter (static_cast<const Parameter* const> (floatParam))
+    {
+        floatToStringFunction = std::move (floatParam->floatToString);
+        stringToFloatFunction = std::move (floatParam->stringToFloat);
+    }
     
     
     FreestandingParameter (const IntParameter* const intParam)
-      : FreestandingParameter (static_cast<const Parameter* const> (intParam)),
-        intToString (std::move (intParam->intToString)),
-        stringToInt (std::move (intParam->stringToInt))
+      : FreestandingParameter (static_cast<const Parameter* const> (intParam))
     {
+        intToString = std::move (intParam->intToString);
+        stringToInt = std::move (intParam->stringToInt);
+        
         floatToStringFunction = [this](float value, int maxLength)
                                 {
                                     return intToString (juce::roundToInt (denormalize (value)),
@@ -47,10 +52,11 @@ public:
     
     
     FreestandingParameter (const BoolParameter* const boolParam)
-      : FreestandingParameter (static_cast<const Parameter* const> (boolParam)),
-        boolToString (std::move (boolParam->boolToString)),
-        stringToBool (std::move (boolParam->stringToBool))
+      : FreestandingParameter (static_cast<const Parameter* const> (boolParam))
     {
+        boolToString = std::move (boolParam->boolToString);
+        stringToBool = std::move (boolParam->stringToBool);
+        
         floatToStringFunction = [&boolToString](float value, int maxLength)
                                 {
                                     return boolToString (value >= 0.5f, maxLength);
@@ -229,3 +235,6 @@ private:
     
     juce::ListenerList<Listener> listeners;
 };
+
+
+}  // namespace
