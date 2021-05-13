@@ -105,7 +105,7 @@ static inline void createValueTreeFromNonParamNodes (juce::ValueTree& tree,
         {
             auto child = thisNode->toValueTree();
             jassert (child.isValid());
-            child.setProperty (DefaultValueTreeIds::NonParameterName, thisnode->longName, nullptr);
+            child.setProperty (DefaultValueTreeIds::NonParameterName, thisNode->longName, nullptr);
             tree.addChild (child, -1, nullptr);
         }
         else if (auto* group = node->getGroup())
