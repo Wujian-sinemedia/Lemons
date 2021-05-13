@@ -2,17 +2,102 @@
 namespace bav
 {
 
+/* Updates the value tree with changes from the property object */
 
-/* Updates the ValueTree with changes from the property object */
-template<typename NodeType>
-class PropertyNodeToValueTreeAttachment   :     public  NonParamValueTreeNode::Listener,
-                                                private juce::AsyncUpdater
+class IntNodeToValueTreeAttachment  :      public  NonParamValueTreeNode::Listener,
+                                           private juce::AsyncUpdater
 {
 public:
-    PropertyNodeToValueTreeAttachment (NonParamValueTreeNode* nodeToUse,
-                                       juce::ValueTree treeToUse,
-                                       juce::UndoManager* um = nullptr)
-      : node (nodeToUse),
+    IntNodeToValueTreeAttachment (IntValueTreeNode* intNode,
+                                  juce::ValueTree treeToUse,
+                                  juce::UndoManager* um = nullptr)
+        : node (intNode),
+          tree (treeToUse),
+          undoManager (um)
+    {
+        jassert (tree.isValid());
+        
+        node->addListener (this);
+        
+        currentValue.referTo (tree, DefaultValueTreeIds::NonParameterValue, nullptr);
+        currentDefaultValue.referTo (tree, DefaultValueTreeIds::NonParameterDefaultValue, nullptr);
+    }
+    
+    virtual ~IntNodeToValueTreeAttachment() override
+    {
+        cancelPendingUpdate();
+        node->removeListener (this);
+    }
+    
+    void propertyValueChanged (const juce::String&) override final
+    {
+        if (juce::MessageManager::getInstance()->isThisTheMessageThread())
+            handleUpdateNowIfNeeded();
+        else
+            triggerAsyncUpdate();
+    }
+    
+    void propertyDefaultValueChanged (const juce::String&) override final
+    {
+        if (juce::MessageManager::getInstance()->isThisTheMessageThread())
+            handleUpdateNowIfNeeded();
+        else
+            triggerAsyncUpdate();
+    }
+    
+    void handleAsyncUpdate() override final
+    {
+        /* Current value */
+        const auto currentValue = node->getCurrentValue();
+        
+        if (currentValue.get() != currentValue)
+        {
+            if (undoManager != nullptr)
+            {
+                undoManager->beginNewTransaction();
+                undoManager->setCurrentTransactionName (TRANS ("Changed") + " " + node->longName);
+            }
+            
+            currentValue.setValue (currentValue, undoManager);
+        }
+        
+        /* Default value */
+        const auto currentDefault = node->getDefaultValue();
+        
+        if (currentDefaultValue.get() != currentDefault)
+        {
+            if (undoManager != nullptr)
+            {
+                undoManager->beginNewTransaction();
+                undoManager->setCurrentTransactionName (TRANS ("Changed default value of") + " " + node->longName);
+            }
+            
+            currentDefaultValue.setValue (currentDefault, undoManager);
+        }
+    }
+    
+private:
+    IntValueTreeNode* const node;
+    juce::ValueTree tree;
+    
+    juce::CachedValue<int> currentValue;
+    juce::CachedValue<int> currentDefaultValue;
+    
+    juce::UndoManager* const undoManager;
+};
+
+
+//
+
+
+class FloatNodeToValueTreeAttachment  :      public  NonParamValueTreeNode::Listener,
+                                             private juce::AsyncUpdater
+{
+public:
+    FloatNodeToValueTreeAttachment (FloatValueTreeNode* intNode,
+                                    juce::ValueTree treeToUse,
+                                    juce::UndoManager* um = nullptr)
+      : node (intNode),
         tree (treeToUse),
         undoManager (um)
     {
@@ -24,14 +109,13 @@ public:
         currentDefaultValue.referTo (tree, DefaultValueTreeIds::NonParameterDefaultValue, nullptr);
     }
     
-    virtual ~PropertyNodeToValueTreeAttachment() override
+    virtual ~IntNodeToValueTreeAttachment() override
     {
         cancelPendingUpdate();
         node->removeListener (this);
     }
     
-    
-    void propertyValueChanged (const juce::String& currentValueAsString) override final
+    void propertyValueChanged (const juce::String&) override final
     {
         if (juce::MessageManager::getInstance()->isThisTheMessageThread())
             handleUpdateNowIfNeeded();
@@ -39,7 +123,7 @@ public:
             triggerAsyncUpdate();
     }
     
-    void propertyDefaultValueChanged (const juce::String& currentValueAsString) override final
+    void propertyDefaultValueChanged (const juce::String&) override final
     {
         if (juce::MessageManager::getInstance()->isThisTheMessageThread())
             handleUpdateNowIfNeeded();
@@ -49,211 +133,215 @@ public:
     
     void handleAsyncUpdate() override final
     {
-        updateValueTree();
-    }
-    
-    virtual void updateValueTree() = 0;
-    
-    
-protected:
-    NonParamValueTreeNode* const node;
-    juce::ValueTree tree;
-    
-    juce::CachedValue<NodeType> currentValue;
-    juce::CachedValue<NodeType> currentDefaultValue;
-    
-    juce::UndoManager* const undoManager;
-};
-
-template class PropertyNodeToValueTreeAttachment<int>;
-template class PropertyNodeToValueTreeAttachment<float>;
-template class PropertyNodeToValueTreeAttachment<bool>;
-template class PropertyNodeToValueTreeAttachment<juce::String>;
-
-//---------------------------------------------------------------
-
-struct IntNodeToValueTreeAttachment    :    PropertyNodeToValueTreeAttachment<int>
-{
-    using Base = PropertyNodeToValueTreeAttachment<int>;
-    
-    IntNodeToValueTreeAttachment (IntValueTreeNode* intNode,
-                                  juce::ValueTree treeToUse,
-                                  juce::UndoManager* um = nullptr)
-        : Base (intNode, treeToUse, um),
-          node (intNode)
-    { }
-    
-    void updateValueTree() override final
-    {
         /* Current value */
         const auto currentValue = node->getCurrentValue();
         
-        if (Base::currentValue.get() != currentValue)
+        if (currentValue.get() != currentValue)
         {
-            if (Base::undoManager != nullptr)
+            if (undoManager != nullptr)
             {
-                Base::undoManager->beginNewTransaction();
-                Base::undoManager->setCurrentTransactionName (TRANS ("Changed") + " " + node->longName);
+                undoManager->beginNewTransaction();
+                undoManager->setCurrentTransactionName (TRANS ("Changed") + " " + node->longName);
             }
             
-            Base::currentValue.setValue (currentValue, Base::undoManager);
+            currentValue.setValue (currentValue, undoManager);
         }
         
         /* Default value */
         const auto currentDefault = node->getDefaultValue();
         
-        if (Base::currentDefaultValue.get() != currentDefault)
+        if (currentDefaultValue.get() != currentDefault)
         {
-            if (Base::undoManager != nullptr)
+            if (undoManager != nullptr)
             {
-                Base::undoManager->beginNewTransaction();
-                Base::undoManager->setCurrentTransactionName (TRANS ("Changed default value of") + " " + node->longName);
+                undoManager->beginNewTransaction();
+                undoManager->setCurrentTransactionName (TRANS ("Changed default value of") + " " + node->longName);
             }
             
-            Base::currentDefaultValue.setValue (currentDefault, undoManager);
-        }
-    }
-    
-private:
-    IntValueTreeNode* const node;
-};
-
-struct FloatNodeToValueTreeAttachment  :    PropertyNodeToValueTreeAttachment<float>
-{
-    using Base = PropertyNodeToValueTreeAttachment<float>;
-    
-    FloatNodeToValueTreeAttachment (FloatValueTreeNode* floatNode,
-                                    juce::ValueTree treeToUse,
-                                    juce::UndoManager* um = nullptr)
-      : Base (floatNode, treeToUse, um),
-        node (floatNode)
-    { }
-    
-    void updateValueTree() override final
-    {
-        /* Current value */
-        const auto currentValue = node->getCurrentValue();
-        
-        if (Base::currentValue.get() != currentValue)
-        {
-            if (Base::undoManager != nullptr)
-            {
-                Base::undoManager->beginNewTransaction();
-                Base::undoManager->setCurrentTransactionName (TRANS ("Changed") + " " + node->longName);
-            }
-            
-            Base::currentValue.setValue (currentValue, Base::undoManager);
-        }
-        
-        /* Default value */
-        const auto currentDefault = node->getDefaultValue();
-        
-        if (Base::currentDefaultValue.get() != currentDefault)
-        {
-            if (Base::undoManager != nullptr)
-            {
-                Base::undoManager->beginNewTransaction();
-                Base::undoManager->setCurrentTransactionName (TRANS ("Changed default value of") + " " + node->longName);
-            }
-            
-            Base::currentDefaultValue.setValue (currentDefault, undoManager);
+            currentDefaultValue.setValue (currentDefault, undoManager);
         }
     }
     
 private:
     FloatValueTreeNode* const node;
+    juce::ValueTree tree;
+    
+    juce::CachedValue<float> currentValue;
+    juce::CachedValue<float> currentDefaultValue;
+    
+    juce::UndoManager* const undoManager;
 };
 
-struct BoolNodeToValueTreeAttachment   :    PropertyNodeToValueTreeAttachment<bool>
+
+//
+
+
+class BoolNodeToValueTreeAttachment  :      public  NonParamValueTreeNode::Listener,
+                                            private juce::AsyncUpdater
 {
-    using Base = PropertyNodeToValueTreeAttachment<bool>;
-    
-    BoolNodeToValueTreeAttachment (BoolValueTreeNode* boolNode,
+public:
+    BoolNodeToValueTreeAttachment (BoolValueTreeNode* intNode,
                                    juce::ValueTree treeToUse,
                                    juce::UndoManager* um = nullptr)
-      : Base (boolNode, treeToUse, um),
-        node (boolNode)
-    { }
+      : node (intNode),
+        tree (treeToUse),
+        undoManager (um)
+    {
+        jassert (tree.isValid());
+        
+        node->addListener (this);
+        
+        currentValue.referTo (tree, DefaultValueTreeIds::NonParameterValue, nullptr);
+        currentDefaultValue.referTo (tree, DefaultValueTreeIds::NonParameterDefaultValue, nullptr);
+    }
     
-    void updateValueTree() override final
+    virtual ~IntNodeToValueTreeAttachment() override
+    {
+        cancelPendingUpdate();
+        node->removeListener (this);
+    }
+    
+    void propertyValueChanged (const juce::String&) override final
+    {
+        if (juce::MessageManager::getInstance()->isThisTheMessageThread())
+            handleUpdateNowIfNeeded();
+        else
+            triggerAsyncUpdate();
+    }
+    
+    void propertyDefaultValueChanged (const juce::String&) override final
+    {
+        if (juce::MessageManager::getInstance()->isThisTheMessageThread())
+            handleUpdateNowIfNeeded();
+        else
+            triggerAsyncUpdate();
+    }
+    
+    void handleAsyncUpdate() override final
     {
         /* Current value */
         const auto currentValue = node->getCurrentValue();
         
-        if (Base::currentValue.get() != currentValue)
+        if (currentValue.get() != currentValue)
         {
-            if (Base::undoManager != nullptr)
+            if (undoManager != nullptr)
             {
-                Base::undoManager->beginNewTransaction();
-                Base::undoManager->setCurrentTransactionName (TRANS ("Changed") + " " + node->longName);
+                undoManager->beginNewTransaction();
+                undoManager->setCurrentTransactionName (TRANS ("Changed") + " " + node->longName);
             }
             
-            Base::currentValue.setValue (currentValue, Base::undoManager);
+            currentValue.setValue (currentValue, undoManager);
         }
         
         /* Default value */
         const auto currentDefault = node->getDefaultValue();
         
-        if (Base::currentDefaultValue.get() != currentDefault)
+        if (currentDefaultValue.get() != currentDefault)
         {
-            if (Base::undoManager != nullptr)
+            if (undoManager != nullptr)
             {
-                Base::undoManager->beginNewTransaction();
-                Base::undoManager->setCurrentTransactionName (TRANS ("Changed default value of") + " " + node->longName);
+                undoManager->beginNewTransaction();
+                undoManager->setCurrentTransactionName (TRANS ("Changed default value of") + " " + node->longName);
             }
             
-            Base::currentDefaultValue.setValue (currentDefault, undoManager);
+            currentDefaultValue.setValue (currentDefault, undoManager);
         }
     }
     
 private:
     BoolValueTreeNode* const node;
+    juce::ValueTree tree;
+    
+    juce::CachedValue<bool> currentValue;
+    juce::CachedValue<bool> currentDefaultValue;
+    
+    juce::UndoManager* const undoManager;
 };
 
-struct StringNodeToValueTreeAttachment :    PropertyNodeToValueTreeAttachment<juce::String>
+
+//
+
+
+class StringNodeToValueTreeAttachment  :      public  NonParamValueTreeNode::Listener,
+                                              private juce::AsyncUpdater
 {
-    using Base = PropertyNodeToValueTreeAttachment<juce::String>;
-    
-    StringNodeToValueTreeAttachment (StringValueTreeNode* boolNode,
+public:
+    StringNodeToValueTreeAttachment (StringValueTreeNode* intNode,
                                      juce::ValueTree treeToUse,
                                      juce::UndoManager* um = nullptr)
-      : Base (boolNode, treeToUse, um),
-        node (boolNode)
-    { }
+      : node (intNode),
+        tree (treeToUse),
+        undoManager (um)
+    {
+        jassert (tree.isValid());
+        
+        node->addListener (this);
+        
+        currentValue.referTo (tree, DefaultValueTreeIds::NonParameterValue, nullptr);
+        currentDefaultValue.referTo (tree, DefaultValueTreeIds::NonParameterDefaultValue, nullptr);
+    }
     
-    void updateValueTree() override final
+    virtual ~IntNodeToValueTreeAttachment() override
+    {
+        cancelPendingUpdate();
+        node->removeListener (this);
+    }
+    
+    void propertyValueChanged (const juce::String&) override final
+    {
+        if (juce::MessageManager::getInstance()->isThisTheMessageThread())
+            handleUpdateNowIfNeeded();
+        else
+            triggerAsyncUpdate();
+    }
+    
+    void propertyDefaultValueChanged (const juce::String&) override final
+    {
+        if (juce::MessageManager::getInstance()->isThisTheMessageThread())
+            handleUpdateNowIfNeeded();
+        else
+            triggerAsyncUpdate();
+    }
+    
+    void handleAsyncUpdate() override final
     {
         /* Current value */
         const auto currentValue = node->getCurrentValue();
         
-        if (Base::currentValue.get() != currentValue)
+        if (currentValue.get() != currentValue)
         {
-            if (Base::undoManager != nullptr)
+            if (undoManager != nullptr)
             {
-                Base::undoManager->beginNewTransaction();
-                Base::undoManager->setCurrentTransactionName (TRANS ("Changed") + " " + node->longName);
+                undoManager->beginNewTransaction();
+                undoManager->setCurrentTransactionName (TRANS ("Changed") + " " + node->longName);
             }
             
-            Base::currentValue.setValue (currentValue, Base::undoManager);
+            currentValue.setValue (currentValue, undoManager);
         }
         
         /* Default value */
         const auto currentDefault = node->getDefaultValue();
         
-        if (Base::currentDefaultValue.get() != currentDefault)
+        if (currentDefaultValue.get() != currentDefault)
         {
-            if (Base::undoManager != nullptr)
+            if (undoManager != nullptr)
             {
-                Base::undoManager->beginNewTransaction();
-                Base::undoManager->setCurrentTransactionName (TRANS ("Changed default value of") + " " + node->longName);
+                undoManager->beginNewTransaction();
+                undoManager->setCurrentTransactionName (TRANS ("Changed default value of") + " " + node->longName);
             }
             
-            Base::currentDefaultValue.setValue (currentDefault, undoManager);
+            currentDefaultValue.setValue (currentDefault, undoManager);
         }
     }
     
 private:
-    StringValueTreeNode* const node;
+    BoolValueTreeNode* const node;
+    juce::ValueTree tree;
+    
+    juce::CachedValue<juce::String> currentValue;
+    juce::CachedValue<juce::String> currentDefaultValue;
+    
+    juce::UndoManager* const undoManager;
 };
 
 
@@ -262,7 +350,9 @@ private:
 //==============================================================================
 
 
-/* Updates the parameter object with changes from the ValueTree */
+
+/* Updates the property object with changes from the ValueTree */
+
 //class ValueTreeToPropertyNodeAttachment   :    public juce::ValueTree::Listener
 //{
 //public:
