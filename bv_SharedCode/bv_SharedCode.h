@@ -85,13 +85,18 @@
 #include "parameters/Parameters.h"
 #include "parameters/MidiCC_Mapping.h"
 #include "parameters/ParameterHelpers.h"
+#include "parameters/FreestandingParameter.h"
 
 #include "valuetrees/property_nodes/nodes.h"
 #include "valuetrees/property_nodes/propertyNodeGroup.h"
 #include "valuetrees/Utils.h"
-#include "valuetrees/ParameterAttachments.h"
-#include "valuetrees/PropertyAttachments.h"
 #include "valuetrees/json_converter.h"
+
+#include "valuetrees/attachments/ParameterAttachments.h"
+#include "valuetrees/attachments/FreestandingParameterAttachments.h"
+#include "valuetrees/attachments/property-attachments/PropertyToValueTreeAttachments.h"
+#include "valuetrees/attachments/property-attachments/ValueTreeToPropertyAttachments.h"
+#include "valuetrees/attachments/property-attachments/PropertyAttachmentUtils.h"
 
 #include "gui/gui.h"
 #include "gui/Spline.h"

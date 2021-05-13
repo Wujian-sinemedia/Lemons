@@ -91,7 +91,8 @@ namespace bav
                         std::function<float(const juce::String& text)> valueFromString = nullptr)
              :  AudioParameterFloat (paramNameVerbose, TRANS (paramNameVerbose), nRange, defaultVal,
                                      parameterLabel, parameterCategory, stringFromValue, valueFromString),
-                Parameter (key, this, nRange.convertTo0to1 (defaultVal), paramNameShort, paramNameVerbose)
+                Parameter (key, this, nRange.convertTo0to1 (defaultVal), paramNameShort, paramNameVerbose),
+                floatToString (stringFromValue), stringToFloat(valueFromString)
         {
             Parameter::actionableFunction = [this]()
                                             {
@@ -125,6 +126,9 @@ namespace bav
         
         std::function < void (float) > onAction { [](float){} };
         
+        std::function< juce::String (float, int) > floatToString;
+        std::function< float (const juce::String&) > stringToFloat;
+        
     private:
         std::atomic<float> lastActionedValue;
         
@@ -151,7 +155,8 @@ namespace bav
                                    parameterLabel, stringFromInt, intFromString),
                 Parameter (key, this,
                            AudioParameterInt::getNormalisableRange().convertTo0to1 (static_cast<float>(defaultVal)),
-                           paramNameShort, paramNameVerbose)
+                           paramNameShort, paramNameVerbose),
+                intToString (stringFromInt), stringToInt (intFromString)
         {
             Parameter::actionableFunction = [this]()
                                             {
@@ -188,6 +193,9 @@ namespace bav
         
         std::function < void (int) > onAction { [](int){} };
         
+        std::function< juce::String (int, int) > intToString;
+        std::function< int (const juce::String&) > stringToInt;
+        
     private:
         std::atomic<int> lastActionedValue;
         
@@ -214,7 +222,8 @@ namespace bav
                                     stringFromBool, boolFromString),
                 Parameter (key, this,
                            AudioParameterBool::getNormalisableRange().convertTo0to1 (static_cast<float>(defaultVal)),
-                           paramNameShort, paramNameVerbose)
+                           paramNameShort, paramNameVerbose),
+                boolToString (stringFromBool), stringToBool (boolFromString)
         {
             setDefault (defaultVal);
             
@@ -258,6 +267,9 @@ namespace bav
         float denormalize (const float input) const override { return AudioParameterBool::convertFrom0to1(input); }
         
         std::function < void (bool) > onAction { [](bool){} };
+        
+        std::function< juce::String (bool, int) > boolToString;
+        std::function< bool (const juce::String& text) > stringToBool;
         
     private:
         std::atomic<bool> lastActionedValue;
