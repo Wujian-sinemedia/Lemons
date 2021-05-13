@@ -117,7 +117,7 @@ public:
     ValueTreeToParameterAttachment (bav::Parameter* paramToUse,
                                     juce::ValueTree treeToUse)
       : param (paramToUse),
-        tree (treeToUse),
+        tree (treeToUse)
     {
         jassert (tree.isValid());
         
