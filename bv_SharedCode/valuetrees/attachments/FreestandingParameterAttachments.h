@@ -24,7 +24,7 @@ public:
         currentGesture.referTo (tree, DefaultValueTreeIds::ParameterIsChanging, nullptr);
     }
     
-    virtual ~FreeStandingParameterToValueTreeAttachment() override
+    virtual ~FreeStandingParameterToValueTreeAttachment()
     {
         param->removeListener (this);
     }
@@ -154,97 +154,50 @@ private:
 };
 
 
-////==============================================================================
-//
-//
-//struct ParameterAttachment  :   ParameterToValueTreeAttachment,
-//ValueTreeToParameterAttachment
-//{
-//    ParameterAttachment (bav::Parameter* paramToUse,
-//                         juce::ValueTree treeToUse,
-//                         juce::UndoManager* um = nullptr)
-//
-//    : ParameterToValueTreeAttachment (paramToUse, treeToUse, um),
-//    ValueTreeToParameterAttachment (paramToUse, treeToUse)
-//    { }
-//};
-//
-//
-////===================================================================================================================================
-////===================================================================================================================================
-//
-//
-//static inline void createTwoWayParameterValueTreeAttachments (juce::OwnedArray<bav::ParameterAttachment>& attachments,
-//                                                              juce::ValueTree parameterValueTree,
-//                                                              int totalNumParams,
-//                                                              std::function< bav::Parameter* (int) > findParameter,
-//                                                              juce::UndoManager* um = nullptr,
-//                                                              int paramIndexToStartAt = 0)
-//{
-//    jassert (parameterValueTree.isValid());
-//
-//    attachments.ensureStorageAllocated (totalNumParams);
-//
-//    for (int i = paramIndexToStartAt;
-//         i < paramIndexToStartAt + totalNumParams;
-//         ++i)
-//    {
-//        auto* parameter = findParameter (i);
-//        jassert (parameter != nullptr);
-//
-//        attachments.add (new bav::ParameterAttachment (parameter,
-//                                                       bav::getChildTreeForParameter (parameterValueTree, parameter),
-//                                                       um));
-//    }
-//}
-//
-//
-//static inline void createReadOnlyParameterValueTreeAttachments (juce::OwnedArray<bav::ValueTreeToParameterAttachment>& attachments,
-//                                                                juce::ValueTree parameterValueTree,
-//                                                                int totalNumParams,
-//                                                                std::function< bav::Parameter* (int) > findParameter,
-//                                                                int paramIndexToStartAt = 0)
-//{
-//    jassert (parameterValueTree.isValid());
-//
-//    attachments.ensureStorageAllocated (totalNumParams);
-//
-//    for (int i = paramIndexToStartAt;
-//         i < paramIndexToStartAt + totalNumParams;
-//         ++i)
-//    {
-//        auto* parameter = findParameter (i);
-//        jassert (parameter != nullptr);
-//
-//        attachments.add (new bav::ValueTreeToParameterAttachment (parameter,
-//                                                                  bav::getChildTreeForParameter (parameterValueTree, parameter)));
-//    }
-//}
-//
-//
-//static inline void createWriteOnlyParameterValueTreeAttachments (juce::OwnedArray<bav::ParameterToValueTreeAttachment>& attachments,
-//                                                                 juce::ValueTree parameterValueTree,
-//                                                                 int totalNumParams,
-//                                                                 std::function< bav::Parameter* (int) > findParameter,
-//                                                                 int paramIndexToStartAt = 0,
-//                                                                 juce::UndoManager* um = nullptr)
-//{
-//    jassert (parameterValueTree.isValid());
-//
-//    attachments.ensureStorageAllocated (totalNumParams);
-//
-//    for (int i = paramIndexToStartAt;
-//         i < paramIndexToStartAt + totalNumParams;
-//         ++i)
-//    {
-//        auto* parameter = findParameter (i);
-//        jassert (parameter != nullptr);
-//
-//        attachments.add (new bav::ParameterToValueTreeAttachment (parameter,
-//                                                                  bav::getChildTreeForParameter (parameterValueTree, parameter),
-//                                                                  um));
-//    }
-//}
+//==============================================================================
+
+
+struct FreeStandingParameterAttachment  :   FreeStandingParameterToValueTreeAttachment,
+                                            ValueTreeToFreeStandingParameterAttachment
+{
+    FreeStandingParameterAttachment (FreestandingParameter* paramToUse,
+                                     juce::ValueTree treeToUse,
+                                     juce::UndoManager* um = nullptr)
+
+      : FreeStandingParameterToValueTreeAttachment (paramToUse, treeToUse, um),
+        ValueTreeToFreeStandingParameterAttachment (paramToUse, treeToUse)
+    { }
+};
+
+
+
+//===================================================================================================================================
+//===================================================================================================================================
+
+
+static inline void createTwoWayParameterValueTreeAttachments (juce::OwnedArray<FreeStandingParameterAttachment>& attachments,
+                                                              juce::ValueTree parameterValueTree,
+                                                              int totalNumParams,
+                                                              std::function< FreestandingParameter* (int) > findParameter,
+                                                              juce::UndoManager* um = nullptr,
+                                                              int paramIndexToStartAt = 0)
+{
+    jassert (parameterValueTree.isValid());
+
+    attachments.ensureStorageAllocated (totalNumParams);
+
+    for (int i = paramIndexToStartAt;
+         i < paramIndexToStartAt + totalNumParams;
+         ++i)
+    {
+        auto* parameter = findParameter (i);
+        jassert (parameter != nullptr);
+
+        attachments.add (new FreeStandingParameterAttachment (parameter,
+                                                              bav::getChildTreeForParameter (parameterValueTree, parameter),
+                                                              um));
+    }
+}
 
 
 }  // namespace

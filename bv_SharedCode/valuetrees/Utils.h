@@ -75,6 +75,24 @@ static inline juce::ValueTree getChildTreeForParameter (juce::ValueTree& topLeve
     return child;
 }
 
+static inline juce::ValueTree getChildTreeForParameter (juce::ValueTree& topLevelTree,
+                                                        const FreestandingParameter* const parameter)
+{
+    jassert (topLevelTree.isValid() && parameter != nullptr);
+    
+    auto child = topLevelTree.getChildWithProperty (DefaultValueTreeIds::ParameterName,
+                                                    parameter->parameterNameVerbose);
+    
+    jassert (child.isValid());
+    
+    return child;
+}
+
+
+//==============================================================================
+//==============================================================================
+
+
 
 //==============================================================================
 //==============================================================================
