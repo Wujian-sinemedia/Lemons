@@ -18,6 +18,7 @@ namespace bav
                 currentDefault (defaultValue), rap (p), keyID (key)
         {
             jassert (rap != nullptr);
+            lastActionedValue.store (defaultValue);
         }
         
         virtual ~Parameter() = default;
@@ -54,12 +55,60 @@ namespace bav
         
         int key() const noexcept { return keyID; }
         
+        //==============================================================================
+        
         void doAction()
         {
-            actionableFunction();
+            const auto value = getCurrentNormalizedValue();
+            
+            if (value != lastActionedValue.load())
+            {
+                lastActionedValue.store (value);
+                
+                if (floatAction)
+                    floatAction (getCurrentDenormalizedValue());
+                else if (intAction)
+                    intAction (juce::roundToInt (getCurrentDenormalizedValue()));
+                else if (boolAction)
+                    boolAction (getCurrentNormalizedValue() >= 0.5f);
+                else if (voidAction)
+                    voidAction();
+            }
         }
         
-        std::function< void() > actionableFunction { [](){} };
+        void setAction (std::function < void (float) > action)
+        {
+            floatAction = std::move(action);
+            intAction  = nullptr;
+            boolAction = nullptr;
+            voidAction = nullptr;
+        }
+        
+        void setAction (std::function < void (int) > action)
+        {
+            intAction = std::move(action);
+            floatAction = nullptr;
+            boolAction  = nullptr;
+            voidAction  = nullptr;
+        }
+        
+        void setAction (std::function < void (bool) > action)
+        {
+            boolAction  = std::move(action);
+            floatAction = nullptr;
+            intAction   = nullptr;
+            voidAction  = nullptr;
+        }
+        
+        void setAction (std::function < void () > action)
+        {
+            voidAction  = std::move(action);
+            floatAction = nullptr;
+            intAction   = nullptr;
+            boolAction  = nullptr;
+        }
+        
+        //==============================================================================
         
         const juce::String parameterNameShort;
         const juce::String parameterNameVerbose;
@@ -71,6 +120,15 @@ namespace bav
     private:
         RangedParam* const rap;
         const int keyID;
+        
+        //==============================================================================
+        
+        std::function < void (float) > floatAction;
+        std::function < void (int) >   intAction;
+        std::function < void (bool) >  boolAction;
+        std::function < void () >      voidAction;
+        
+        std::atomic<float> lastActionedValue;
     };
     
     
@@ -93,20 +151,7 @@ namespace bav
                                      parameterLabel, parameterCategory, stringFromValue, valueFromString),
                 Parameter (key, this, nRange.convertTo0to1 (defaultVal), paramNameShort, paramNameVerbose),
                 floatToString (stringFromValue), stringToFloat(valueFromString)
-        {
-            Parameter::actionableFunction = [this]()
-                                            {
-                                                const auto newValue = Parameter::getCurrentDenormalizedValue();
-                                                
-                                                if (newValue != lastActionedValue.load())
-                                                {
-                                                    lastActionedValue.store (newValue);
-                                                    onAction (newValue);
-                                                }
-                                            };
-            
-            lastActionedValue.store (getDefault());
-        }
+        { }
         
         virtual ~FloatParameter() override = default;
         
@@ -124,14 +169,10 @@ namespace bav
         // takes a normalized float value as input and returns a denormalized float value within the natural range of this parameter.
         float denormalize (const float input) const override { return AudioParameterFloat::convertFrom0to1(input); }
         
-        std::function < void (float) > onAction { [](float){} };
-        
         std::function< juce::String (float, int) > floatToString;
         std::function< float (const juce::String&) > stringToFloat;
         
     private:
-        std::atomic<float> lastActionedValue;
-        
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(FloatParameter)
     };
     
@@ -157,20 +198,7 @@ namespace bav
                            AudioParameterInt::getNormalisableRange().convertTo0to1 (static_cast<float>(defaultVal)),
                            paramNameShort, paramNameVerbose),
                 intToString (stringFromInt), stringToInt (intFromString)
-        {
-            Parameter::actionableFunction = [this]()
-                                            {
-                                                const auto newValue = juce::roundToInt (Parameter::getCurrentDenormalizedValue());
-                                                
-                                                if (newValue != lastActionedValue.load())
-                                                {
-                                                    lastActionedValue.store (newValue);
-                                                    onAction (newValue);
-                                                }
-                                            };
-            
-            lastActionedValue.store (getDefault());
-        }
+        { }
         
         virtual ~IntParameter() override = default;
         
@@ -191,14 +219,10 @@ namespace bav
         // takes a normalized float value as input and returns a denormalized float value within the natural range of this parameter.
         float denormalize (const float input) const override { return AudioParameterInt::convertFrom0to1(input); }
         
-        std::function < void (int) > onAction { [](int){} };
-        
         std::function< juce::String (int, int) > intToString;
         std::function< int (const juce::String&) > stringToInt;
         
     private:
-        std::atomic<int> lastActionedValue;
-        
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(IntParameter)
     };
     
@@ -226,19 +250,6 @@ namespace bav
                 boolToString (stringFromBool), stringToBool (boolFromString)
         {
             setDefault (defaultVal);
-            
-            Parameter::actionableFunction = [this]()
-                                            {
-                                                const auto newValue = Parameter::getCurrentDenormalizedValue() >= 0.5f;
-                                                
-                                                if (newValue != lastActionedValue.load())
-                                                {
-                                                    lastActionedValue.store (newValue);
-                                                    onAction (newValue);
-                                                }
-                                            };
-            
-            lastActionedValue.store (getDefault());
         }
         
         virtual ~BoolParameter() override = default;
@@ -266,14 +277,10 @@ namespace bav
         // takes a normalized float value as input and returns a denormalized float value within the natural range of this parameter.
         float denormalize (const float input) const override { return AudioParameterBool::convertFrom0to1(input); }
         
-        std::function < void (bool) > onAction { [](bool){} };
-        
         std::function< juce::String (bool, int) > boolToString;
         std::function< bool (const juce::String& text) > stringToBool;
         
     private:
-        std::atomic<bool> lastActionedValue;
-        
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(BoolParameter)
     };
 

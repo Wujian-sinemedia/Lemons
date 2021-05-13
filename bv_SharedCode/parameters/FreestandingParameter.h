@@ -21,6 +21,7 @@ public:
         currentValue.store (param->getNormalizedDefault());
         currentDefault.store (param->getNormalizedDefault());
         changing.store (false);
+        lastActionedValue.store (param->getNormalizedDefault());
     }
     
     
@@ -154,12 +155,60 @@ public:
     
     int key() const noexcept { return keyID; }
     
+    //==============================================================================
+    
     void doAction()
     {
-        actionableFunction();
+        const auto value = getCurrentNormalizedValue();
+        
+        if (value != lastActionedValue.load())
+        {
+            lastActionedValue.store (value);
+            
+            if (floatAction)
+                floatAction (getCurrentDenormalizedValue());
+            else if (intAction)
+                intAction (juce::roundToInt (getCurrentDenormalizedValue()));
+            else if (boolAction)
+                boolAction (getCurrentNormalizedValue() >= 0.5f);
+            else if (voidAction)
+                voidAction();
+        }
     }
     
-    std::function< void() > actionableFunction { [](){} };
+    void setAction (std::function < void (float) > action)
+    {
+        floatAction = std::move(action);
+        intAction  = nullptr;
+        boolAction = nullptr;
+        voidAction = nullptr;
+    }
+    
+    void setAction (std::function < void (int) > action)
+    {
+        intAction = std::move(action);
+        floatAction = nullptr;
+        boolAction  = nullptr;
+        voidAction  = nullptr;
+    }
+    
+    void setAction (std::function < void (bool) > action)
+    {
+        boolAction  = std::move(action);
+        floatAction = nullptr;
+        intAction   = nullptr;
+        voidAction  = nullptr;
+    }
+    
+    void setAction (std::function < void () > action)
+    {
+        voidAction  = std::move(action);
+        floatAction = nullptr;
+        intAction   = nullptr;
+        boolAction  = nullptr;
+    }
+    
+    //==============================================================================
     
     const juce::String parameterNameShort;
     const juce::String parameterNameVerbose;
@@ -227,11 +276,24 @@ protected:
 private:
     const int keyID;
     
+    //==============================================================================
+    
+    std::function < void (float) > floatAction;
+    std::function < void (int) >   intAction;
+    std::function < void (bool) >  boolAction;
+    std::function < void () >      voidAction;
+    
+    std::atomic<float> lastActionedValue;
+    
+    //==============================================================================
+    
     std::function <juce::String (bool, int) > boolToString;
     std::function <bool (const juce::String& text) > stringToBool;
     
     std::function< juce::String (int, int) > intToString;
     std::function< int (const juce::String&) > stringToInt;
+    
+    //==============================================================================
     
     juce::ListenerList<Listener> listeners;
 };
