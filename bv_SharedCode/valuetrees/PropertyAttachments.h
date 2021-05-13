@@ -525,7 +525,15 @@ private:
 //==============================================================================
 
 
-struct IntPropertyAttachment    :   IntNodeToValueTreeAttachment,
+struct PropertyAttachmentBase
+{
+    PropertyAttachmentBase() = default;
+    ~PropertyAttachmentBase() = default;
+};
+
+
+struct IntPropertyAttachment    :   PropertyAttachmentBase,
+                                    IntNodeToValueTreeAttachment,
                                     ValueTreeToIntNodeAttachment
 {
     IntPropertyAttachment (IntValueTreeNode* intNode,
@@ -538,7 +546,8 @@ struct IntPropertyAttachment    :   IntNodeToValueTreeAttachment,
 };
 
 
-struct FloatPropertyAttachment  :   FloatNodeToValueTreeAttachment,
+struct FloatPropertyAttachment  :   PropertyAttachmentBase,
+                                    FloatNodeToValueTreeAttachment,
                                     ValueTreeToFloatNodeAttachment
 {
     FloatPropertyAttachment (FloatValueTreeNode* floatNode,
@@ -551,7 +560,8 @@ struct FloatPropertyAttachment  :   FloatNodeToValueTreeAttachment,
 };
 
 
-struct BoolPropertyAttachment  :    BoolNodeToValueTreeAttachment,
+struct BoolPropertyAttachment  :    PropertyAttachmentBase,
+                                    BoolNodeToValueTreeAttachment,
                                     ValueTreeToBoolNodeAttachment
 {
     BoolPropertyAttachment (BoolValueTreeNode* boolNode,
@@ -564,7 +574,8 @@ struct BoolPropertyAttachment  :    BoolNodeToValueTreeAttachment,
 };
 
 
-struct StringPropertyAttachment  :    StringNodeToValueTreeAttachment,
+struct StringPropertyAttachment  :    PropertyAttachmentBase,
+                                      StringNodeToValueTreeAttachment,
                                       ValueTreeToStringNodeAttachment
 {
     StringPropertyAttachment (StringValueTreeNode* boolNode,
@@ -581,14 +592,14 @@ struct StringPropertyAttachment  :    StringNodeToValueTreeAttachment,
 //==============================================================================
 
 
-static inline void createTwoWayPropertyValueTreeAttachments (juce::OwnedArray< NonParamValueTreeNode::Listener >& attachments,
+static inline void createTwoWayPropertyValueTreeAttachments (juce::OwnedArray< PropertyAttachmentBase >& attachments,
                                                              juce::ValueTree propertyTree,
                                                              int totalNumProperties,
                                                              std::function< NonParamValueTreeNode* (int) > findProperty,
                                                              juce::UndoManager* um = nullptr,
                                                              int propertyIndexToStartAt = 0)
 {
-    jassert (parameterValueTree.isValid());
+    jassert (propertyTree.isValid());
     
     attachments.ensureStorageAllocated (totalNumProperties);
     
