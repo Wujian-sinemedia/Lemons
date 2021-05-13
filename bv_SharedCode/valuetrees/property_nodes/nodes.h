@@ -53,7 +53,7 @@ struct NonParamValueTreeNode
     {
         virtual void propertyValueChanged (const juce::String& currentValueAsString) = 0;
         
-        virtual void propertyDefaultValueChanged (const juce::String& currentValueAsString);
+        virtual void propertyDefaultValueChanged (const juce::String& currentValueAsString) { juce::ignoreUnused (currentValueAsString); }
     };
     
     //==============================================================================
