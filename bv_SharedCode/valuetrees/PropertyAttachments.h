@@ -368,8 +368,6 @@ public:
         currentDefaultValue.referTo (tree, DefaultValueTreeIds::NonParameterDefaultValue, nullptr);
     }
     
-    virtual ~ValueTreeToIntNodeAttachment() = default;
-    
     void valueTreePropertyChanged (juce::ValueTree&, const juce::Identifier&) override final
     {
         /* Current property value */
@@ -382,7 +380,7 @@ public:
         const auto defaultVal = currentDefaultValue.get();
         
         if (defaultVal != node->getDefaultValue())
-            param->setDefaultValue (defaultVal);
+            node->setDefaultValue (defaultVal);
     }
     
 private:
@@ -413,8 +411,6 @@ public:
         currentDefaultValue.referTo (tree, DefaultValueTreeIds::NonParameterDefaultValue, nullptr);
     }
     
-    virtual ~ValueTreeToFloatNodeAttachment() = default;
-    
     void valueTreePropertyChanged (juce::ValueTree&, const juce::Identifier&) override final
     {
         /* Current property value */
@@ -427,7 +423,7 @@ public:
         const auto defaultVal = currentDefaultValue.get();
         
         if (defaultVal != node->getDefaultValue())
-            param->setDefaultValue (defaultVal);
+            node->setDefaultValue (defaultVal);
     }
     
 private:
@@ -458,8 +454,6 @@ public:
         currentDefaultValue.referTo (tree, DefaultValueTreeIds::NonParameterDefaultValue, nullptr);
     }
     
-    virtual ~ValueTreeToBoolNodeAttachment() = default;
-    
     void valueTreePropertyChanged (juce::ValueTree&, const juce::Identifier&) override final
     {
         /* Current property value */
@@ -472,7 +466,7 @@ public:
         const auto defaultVal = currentDefaultValue.get();
         
         if (defaultVal != node->getDefaultValue())
-            param->setDefaultValue (defaultVal);
+            node->setDefaultValue (defaultVal);
     }
     
 private:
@@ -503,8 +497,6 @@ public:
         currentDefaultValue.referTo (tree, DefaultValueTreeIds::NonParameterDefaultValue, nullptr);
     }
     
-    virtual ~ValueTreeToStringNodeAttachment() = default;
-    
     void valueTreePropertyChanged (juce::ValueTree&, const juce::Identifier&) override final
     {
         /* Current property value */
@@ -517,7 +509,7 @@ public:
         const auto defaultVal = currentDefaultValue.get();
         
         if (defaultVal != node->getDefaultValue())
-            param->setDefaultValue (defaultVal);
+            node->setDefaultValue (defaultVal);
     }
     
 private:
@@ -529,22 +521,60 @@ private:
 };
 
 
+//==============================================================================
+//==============================================================================
 
 
-////==============================================================================
-//
-//
-//struct PropertyAttachment  :   PropertyNodeToValueTreeAttachment,
-//                               ValueTreeToPropertyNodeAttachment
-//{
-//    PropertyAttachment (bav::Parameter* paramToUse,
-//                        juce::ValueTree treeToUse,
-//                        juce::UndoManager* um = nullptr)
-//
-//      : PropertyNodeToValueTreeAttachment (paramToUse, treeToUse, nullptr),
-//        ValueTreeToPropertyNodeAttachment (paramToUse, treeToUse, um)  // only use one UndoManager at a time...
-//    { }
-//};
+struct IntPropertyAttachment    :   IntNodeToValueTreeAttachment,
+                                    ValueTreeToIntNodeAttachment
+{
+    IntPropertyAttachment (IntValueTreeNode* intNode,
+                           juce::ValueTree tree,
+                           juce::UndoManager* um = nullptr)
+    
+      : IntNodeToValueTreeAttachment (intNode, tree, um),
+        ValueTreeToIntNodeAttachment (intNode, tree)
+    { }
+};
+
+
+struct FloatPropertyAttachment  :   FloatNodeToValueTreeAttachment,
+                                    ValueTreeToFloatNodeAttachment
+{
+    FloatPropertyAttachment (FloatValueTreeNode* floatNode,
+                             juce::ValueTree tree,
+                             juce::UndoManager* um = nullptr)
+    
+      : FloatNodeToValueTreeAttachment (floatNode, tree, um),
+        ValueTreeToFloatNodeAttachment (floatNode, tree)
+    { }
+};
+
+
+struct BoolPropertyAttachment  :    BoolNodeToValueTreeAttachment,
+                                    ValueTreeToBoolNodeAttachment
+{
+    BoolPropertyAttachment (BoolValueTreeNode* boolNode,
+                            juce::ValueTree tree,
+                            juce::UndoManager* um = nullptr)
+    
+      : BoolNodeToValueTreeAttachment (boolNode, tree, um),
+        ValueTreeToBoolNodeAttachment (boolNode, tree)
+    { }
+};
+
+
+struct StringPropertyAttachment  :    StringNodeToValueTreeAttachment,
+                                      ValueTreeToStringNodeAttachment
+{
+    StringPropertyAttachment (StringValueTreeNode* boolNode,
+                              juce::ValueTree tree,
+                              juce::UndoManager* um = nullptr)
+    
+      : StringNodeToValueTreeAttachment (boolNode, tree, um),
+        ValueTreeToStringNodeAttachment (boolNode, tree)
+    { }
+};
 
 
 }  // namespace
