@@ -109,7 +109,7 @@ public:
         currentDefaultValue.referTo (tree, DefaultValueTreeIds::NonParameterDefaultValue, nullptr);
     }
     
-    virtual ~IntNodeToValueTreeAttachment() override
+    virtual ~FloatNodeToValueTreeAttachment() override
     {
         cancelPendingUpdate();
         node->removeListener (this);
@@ -195,7 +195,7 @@ public:
         currentDefaultValue.referTo (tree, DefaultValueTreeIds::NonParameterDefaultValue, nullptr);
     }
     
-    virtual ~IntNodeToValueTreeAttachment() override
+    virtual ~BoolNodeToValueTreeAttachment() override
     {
         cancelPendingUpdate();
         node->removeListener (this);
@@ -281,7 +281,7 @@ public:
         currentDefaultValue.referTo (tree, DefaultValueTreeIds::NonParameterDefaultValue, nullptr);
     }
     
-    virtual ~IntNodeToValueTreeAttachment() override
+    virtual ~StringNodeToValueTreeAttachment() override
     {
         cancelPendingUpdate();
         node->removeListener (this);
