@@ -27,16 +27,16 @@ public:
     FreestandingParameter (const FloatParameter* const floatParam)
       : FreestandingParameter (static_cast<const Parameter* const> (floatParam))
     {
-        floatToStringFunction = std::move (floatParam->floatToString);
-        stringToFloatFunction = std::move (floatParam->stringToFloat);
+        floatToStringFunction = floatParam->floatToString;
+        stringToFloatFunction = floatParam->stringToFloat;
     }
     
     
     FreestandingParameter (const IntParameter* const intParam)
       : FreestandingParameter (static_cast<const Parameter* const> (intParam))
     {
-        intToString = std::move (intParam->intToString);
-        stringToInt = std::move (intParam->stringToInt);
+        intToString = intParam->intToString;
+        stringToInt = intParam->stringToInt;
         
         floatToStringFunction = [this](float value, int maxLength)
                                 {
@@ -54,8 +54,8 @@ public:
     FreestandingParameter (const BoolParameter* const boolParam)
       : FreestandingParameter (static_cast<const Parameter* const> (boolParam))
     {
-        boolToString = std::move (boolParam->boolToString);
-        stringToBool = std::move (boolParam->stringToBool);
+        boolToString = boolParam->boolToString;
+        stringToBool = boolParam->stringToBool;
         
         floatToStringFunction = [this](float value, int maxLength)
                                 {
