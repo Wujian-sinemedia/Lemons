@@ -57,12 +57,12 @@ public:
         boolToString = std::move (boolParam->boolToString);
         stringToBool = std::move (boolParam->stringToBool);
         
-        floatToStringFunction = [&boolToString](float value, int maxLength)
+        floatToStringFunction = [this](float value, int maxLength)
                                 {
                                     return boolToString (value >= 0.5f, maxLength);
                                 };
         
-        stringToFloatFunction = [&stringToBool](const juce::String& string)
+        stringToFloatFunction = [this](const juce::String& string)
                                 {
                                     return stringToBool (string) ? 1.0f : 0.0f;
                                 };
