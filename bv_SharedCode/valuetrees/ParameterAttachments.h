@@ -50,7 +50,7 @@ public:
                     undoManager->setCurrentTransactionName (TRANS ("Changed") + " " + param->parameterNameVerbose);
                 }
                 
-                currentGesture.setValue (true, nullptr);
+                currentGesture.setValue (true, undoManager);
             }
             else
             {
@@ -62,11 +62,11 @@ public:
         const auto newValue = param->getCurrentDenormalizedValue();
         
         if (currentValue.get() != newValue)
-            currentValue.setValue (newValue, nullptr);
+            currentValue.setValue (newValue, undoManager);
         
         // if gesture state switched to off, we need to send that message after any value changes
         if (needToEndGesture)
-            currentGesture.setValue (false, nullptr);
+            currentGesture.setValue (false, undoManager);
         
         
         /* Parameter default value */
@@ -80,7 +80,7 @@ public:
                 undoManager->setCurrentTransactionName (TRANS ("Changed default value of") + " " + param->parameterNameVerbose);
             }
             
-            currentDefaultValue.setValue (newDefault, nullptr);
+            currentDefaultValue.setValue (newDefault, undoManager);
         }
     }
     

@@ -1,12 +1,12 @@
 
 #if JUCE_IOS
 
-#import <TargetConditionals.h>
+#include <TargetConditionals.h>
 
 #ifdef TARGET_OS_IOS
 
 #include "iosMotion.h"
-#import <CoreMotion/CoreMotion.h>
+#include <CoreMotion/CoreMotion.h>
 
 
 namespace bav
