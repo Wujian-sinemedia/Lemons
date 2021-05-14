@@ -19,6 +19,7 @@ namespace bav
             jassert (rap != nullptr);
             lastActionedValue.store (defaultValue);
             rap->addListener (this);
+            isChanging.store (false);
         }
         
         virtual ~Parameter()
@@ -38,10 +39,14 @@ namespace bav
         void setNormalizedDefault (float value)
         {
             jassert (value >= 0.0f && value <= 1.0f);
+            
+            if (currentDefault.load() == value)
+                return;
+            
             currentDefault.store (value);
             
             if (onDefaultChange)
-                bav::callInBackground<float> (onDefaultChange, value);
+                bav::callOnMessageThread<float> (onDefaultChange, value);
         }
         
         // resets the parameter to its currently stored default
@@ -62,6 +67,9 @@ namespace bav
         int key() const noexcept { return keyID; }
         
         //==============================================================================
+        /* You can specify an action of a certain type, to be performed synchronously when you call doAction(), only if the parameter calue has changed since the last call to doAction().
+           You can only specify one type of action at a time. Each type will be called with the denormalized current parameter value in its natural range -- so, float actions will recieve denormalized values, int actions will recieve denormalized floats rounded to integers, and bool actions will recieve boolean literals. You can also specify a void action, that will be called with no arguments.
+         */
         
         void doAction()
         {
@@ -85,14 +93,14 @@ namespace bav
         void setFloatAction (std::function < void (float) > action)
         {
             floatAction = std::move(action);
-            intAction  = nullptr;
-            boolAction = nullptr;
-            voidAction = nullptr;
+            intAction   = nullptr;
+            boolAction  = nullptr;
+            voidAction  = nullptr;
         }
         
         void setIntAction (std::function < void (int) > action)
         {
-            intAction = std::move(action);
+            intAction   = std::move(action);
             floatAction = nullptr;
             boolAction  = nullptr;
             voidAction  = nullptr;
@@ -121,7 +129,7 @@ namespace bav
         const juce::String parameterNameVerboseNoSpaces;
         
         //==============================================================================
-        // if defined, these functions will be called synchronously on a background thread when this parameter changes
+        // if defined, these functions will be called on the message thread when this parameter changes ("somewhat synchronously")
         // these will get the new normalized values.
         std::function< void (float) > onParameterChange;
         std::function< void (float) > onDefaultChange;
@@ -132,16 +140,23 @@ namespace bav
         void parameterValueChanged (int, float newValue) override final
         {
             if (onParameterChange)
-                bav::callInBackground<float> (onParameterChange, newValue);
+                bav::callOnMessageThread<float> (onParameterChange, newValue);
         }
         
         void parameterGestureChanged (int, bool gestureIsStarting) override final
         {
+            isChanging.store (gestureIsStarting);
             if (onGestureStateChange)
-                bav::callInBackground<bool> (onGestureStateChange, gestureIsStarting);
+                bav::callOnMessageThread<bool> (onGestureStateChange, gestureIsStarting);
         }
         
         //==============================================================================
+        
+        virtual juce::ValueTree toValueTree() const = 0;
+        
+        //==============================================================================
+        
+        bool isChanging() const { return isChanging.load(); }
         
     protected:
         std::atomic<float> currentDefault;
@@ -149,6 +164,8 @@ namespace bav
     private:
         RangedParam* const rap;
         const int keyID;
+        
+        std::atomic<bool> isChanging;
         
         //==============================================================================
         
@@ -201,6 +218,20 @@ namespace bav
         std::function< juce::String (float, int) > floatToString;
         std::function< float (const juce::String&) > stringToFloat;
         
+        juce::ValueTree toValueTree() const override
+        {
+            using namespace DefaultValueTreeIds;
+            
+            juce::ValueTree tree { Parameter_Float };
+            
+            tree.setProperty (ParameterName, Parameter::parameterNameVerbose, nullptr);
+            tree.setProperty (ParameterValue, AudioParameterFloat::get(), nullptr);
+            tree.setProperty (ParameterDefaultValue, getDefault(), nullptr);
+            tree.setProperty (ParameterIsChanging, Parameter::isChanging(), nullptr);
+            
+            return tree;
+        }
+        
     private:
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(FloatParameter)
     };
@@ -250,6 +281,20 @@ namespace bav
         
         std::function< juce::String (int, int) > intToString;
         std::function< int (const juce::String&) > stringToInt;
+        
+        juce::ValueTree toValueTree() const override final
+        {
+            using namespace DefaultValueTreeIds;
+            
+            juce::ValueTree tree { Parameter_Int };
+            
+            tree.setProperty (ParameterName, Parameter::parameterNameVerbose, nullptr);
+            tree.setProperty (ParameterValue, AudioParameterInt::get(), nullptr);
+            tree.setProperty (ParameterDefaultValue, getDefault(), nullptr);
+            tree.setProperty (ParameterIsChanging, Parameter::isChanging(), nullptr);
+            
+            return tree;
+        }
         
     private:
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(IntParameter)
@@ -309,6 +354,20 @@ namespace bav
         std::function< juce::String (bool, int) > boolToString;
         std::function< bool (const juce::String& text) > stringToBool;
         
+        juce::ValueTree toValueTree() const override final
+        {
+            using namespace DefaultValueTreeIds;
+            
+            juce::ValueTree tree { Parameter_Bool };
+            
+            tree.setProperty (ParameterName, Parameter::parameterNameVerbose, nullptr);
+            tree.setProperty (ParameterValue, AudioParameterBool::get(), nullptr);
+            tree.setProperty (ParameterDefaultValue, getDefault(), nullptr);
+            tree.setProperty (ParameterIsChanging, Parameter::isChanging(), nullptr);
+            
+            return tree;
+        }
+        
     private:
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(BoolParameter)
     };
@@ -329,6 +388,15 @@ namespace bav
         :   FloatParameter (key, paramNameShort, paramNameVerbose, nRange, defaultVal,
                             parameterLabel, parameterCategory, stringFromValue, valueFromString)
         { }
+        
+        juce::ValueTree toValueTree() const override final
+        {
+            juce::ValueTree tree { DefaultValueTreeIds::Parameter_Meter };
+            
+            tree.copyPropertiesFrom (FloatParameter::toValueTree(), nullptr);
+            
+            return tree;
+        }
         
         bool isAutomatable() const override final { return false; }
     };
