@@ -14,7 +14,7 @@ namespace bav
               : parameterNameShort   (TRANS (paramNameShort)),
                 parameterNameVerbose (TRANS (paramNameVerbose)),
                 parameterNameVerboseNoSpaces (paramNameVerbose.trim().replaceCharacters (" ", "_")),
-                currentDefault (defaultValue), rap (p), keyID (key)
+                rap (p), keyID (key), currentDefault (defaultValue)
         {
             jassert (rap != nullptr);
             lastActionedValue.store (defaultValue);

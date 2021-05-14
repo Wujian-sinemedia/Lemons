@@ -112,7 +112,7 @@ public:
         triggerAsyncUpdate();
     }
     
-    ~VoidMessageThreadCaller()
+    ~VoidMessageThreadCaller() override
     {
         cancelPendingUpdate();
     }
@@ -141,13 +141,14 @@ void callOnMessageThread (std::function< void() > function)
 template<typename ArgumentType>
 class MessageThreadCaller  :    private juce::AsyncUpdater
 {
-    MessageThreadCaller (std::function< void (ArgumentType) func, ArgumentType arg)
+public:
+    MessageThreadCaller (std::function< void (ArgumentType) > func, ArgumentType arg)
         : function (func), argument (arg)
     {
         triggerAsyncUpdate();
     }
     
-    ~MessageThreadCaller()
+    ~MessageThreadCaller() override
     {
         cancelPendingUpdate();
     }
