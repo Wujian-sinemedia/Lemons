@@ -19,10 +19,10 @@ namespace bav
             jassert (rap != nullptr);
             lastActionedValue.store (defaultValue);
             rap->addListener (this);
-            isChanging.store (false);
+            changing.store (false);
         }
         
-        virtual ~Parameter()
+        virtual ~Parameter() override
         {
             rap->removeListener (this);
         }
@@ -31,6 +31,7 @@ namespace bav
         
         // returns the current default value, within the 0-1 normalized range for this parameter
         float getNormalizedDefault() const { return currentDefault.load(); }
+        float getDenormalizedDefault() const { return denormalize (currentDefault.load()); }
         
         // assigns the default value to the parameter's current value
         void refreshDefault()
@@ -225,6 +226,8 @@ namespace bav
                 floatToString (stringFromValue), stringToFloat(valueFromString)
         { }
         
+        float getDefault() const { return Parameter::getDenormalizedDefault(); }
+        
         std::function< juce::String (float, int) > floatToString;
         std::function< float (const juce::String&) > stringToFloat;
         
@@ -270,6 +273,8 @@ namespace bav
                 intToString (stringFromInt), stringToInt (intFromString)
         { }
         
+        int getDefault() const { return juce::roundToInt (Parameter::getDenormalizedDefault()); }
+        
         std::function< juce::String (int, int) > intToString;
         std::function< int (const juce::String&) > stringToInt;
         
@@ -313,9 +318,9 @@ namespace bav
                            AudioParameterBool::getNormalisableRange().convertTo0to1 (static_cast<float>(defaultVal)),
                            paramNameShort, paramNameVerbose),
                 boolToString (stringFromBool), stringToBool (boolFromString)
-        {
-            setDefault (defaultVal);
-        }
+        { }
+        
+        bool getDefault() const { return Parameter::getNormalizedDefault() >= 0.5f; }
         
         std::function< juce::String (bool, int) > boolToString;
         std::function< bool (const juce::String& text) > stringToBool;
