@@ -37,14 +37,9 @@ static inline void createValueTreeFromParameterTree (juce::ValueTree& tree,
         {
             if (auto* parameter = dynamic_cast<bav::Parameter*> (param))
             {
-                juce::ValueTree parameterTreeNode { ParameterNode };
-                
-                parameterTreeNode.setProperty (ParameterName,  parameter->parameterNameVerbose, nullptr);
-                parameterTreeNode.setProperty (ParameterValue, parameter->getCurrentDenormalizedValue(), nullptr);
-                parameterTreeNode.setProperty (ParameterDefaultValue, parameter->getNormalizedDefault(), nullptr);
-                parameterTreeNode.setProperty (ParameterIsChanging, false, nullptr);
-                
-                tree.addChild (parameterTreeNode, -1, nullptr);
+                auto child = parameter->toValueTree();
+                jassert (child.isValid());
+                tree.addChild (child, -1, nullptr);
             }
             else
             {

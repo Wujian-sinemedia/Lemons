@@ -106,7 +106,7 @@ template void callInBackground (std::function< void (juce::String) >, juce::Stri
 class VoidMessageThreadCaller :     private juce::AsyncUpdater
 {
 public:
-    VoidMessageThreadCaller (std::function< void() func)
+    VoidMessageThreadCaller (std::function< void() > func)
         : function (func)
     {
         triggerAsyncUpdate();
