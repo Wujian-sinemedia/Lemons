@@ -27,6 +27,8 @@ namespace bav
             rap->removeListener (this);
         }
         
+        //==============================================================================
+        
         // returns the current default value, within the 0-1 normalized range for this parameter
         float getNormalizedDefault() const { return currentDefault.load(); }
         
@@ -49,17 +51,44 @@ namespace bav
                 bav::callOnMessageThread<float> (onDefaultChange, value);
         }
         
+        void setDefault (float value)
+        {
+            setNormalizedDefault (normalize (value));
+        }
+        
+        void setDefault (int value)
+        {
+            setNormalizedDefault (normalize (static_cast<float> (value)));
+        }
+        
+        void setDefault (bool value)
+        {
+            const auto def = value ? 1.0f : 0.0f;
+            setNormalizedDefault (def);
+        }
+        
         // resets the parameter to its currently stored default
         void resetToDefault() { rap->setValueNotifyingHost (currentDefault.load()); }
         
+        //==============================================================================
+        
         float getCurrentNormalizedValue()   const { return rap->getValue(); }
         float getCurrentDenormalizedValue() const { return rap->convertFrom0to1 (rap->getValue()); }
+        
+        // these functions return the current denormalized value as the desired type literal
+        float getFloatValue() const { return getCurrentDenormalizedValue(); }
+        int   getIntValue()   const { return juce::roundToInt (getCurrentDenormalizedValue()); }
+        bool  getBoolValue()  const { return getCurrentNormalizedValue() >= 0.5f; }
+        
+        //==============================================================================
         
         // returns a float value normalized in the range 0 to 1, using this parameter's NormalisableRange object
         virtual float normalize (const float input) const { return rap->convertTo0to1(input); }
         
         // takes a normalized float value as input and returns a denormalized float value within the natural range of this parameter.
         virtual float denormalize (const float input) const { return rap->convertFrom0to1(input); }
+        
+        //==============================================================================
         
         // exposes the underlying juce::RangedAudioParameter
         RangedParam* orig() const noexcept { return rap; }
@@ -80,11 +109,11 @@ namespace bav
                 lastActionedValue.store (value);
                 
                 if (floatAction)
-                    floatAction (getCurrentDenormalizedValue());
+                    floatAction (getFloatValue());
                 else if (intAction)
-                    intAction (juce::roundToInt (getCurrentDenormalizedValue()));
+                    intAction (getIntValue());
                 else if (boolAction)
-                    boolAction (getCurrentNormalizedValue() >= 0.5f);
+                    boolAction (getBoolValue());
                 else if (voidAction)
                     voidAction();
             }
@@ -123,29 +152,22 @@ namespace bav
         }
         
         //==============================================================================
-        
-        const juce::String parameterNameShort;
-        const juce::String parameterNameVerbose;
-        const juce::String parameterNameVerboseNoSpaces;
-        
-        //==============================================================================
         // if defined, these functions will be called on the message thread when this parameter changes ("somewhat synchronously")
-        // these will get the new normalized values.
-        std::function< void (float) > onParameterChange;
+        std::function< void (float) > onParameterChange; // this gets the denormalized new float value
         std::function< void (float) > onDefaultChange;
         std::function< void (bool)  > onGestureStateChange;
         
         //==============================================================================
         
-        void parameterValueChanged (int, float newValue) override final
+        void parameterValueChanged (int, float) override final
         {
             if (onParameterChange)
-                bav::callOnMessageThread<float> (onParameterChange, newValue);
+                bav::callOnMessageThread<float> (onParameterChange, getCurrentDenormalizedValue());
         }
         
         void parameterGestureChanged (int, bool gestureIsStarting) override final
         {
-            isChanging.store (gestureIsStarting);
+            changing.store (gestureIsStarting);
             if (onGestureStateChange)
                 bav::callOnMessageThread<bool> (onGestureStateChange, gestureIsStarting);
         }
@@ -156,16 +178,20 @@ namespace bav
         
         //==============================================================================
         
-        bool isChanging() const { return isChanging.load(); }
+        bool isChanging() const { return changing.load(); }
         
-    protected:
-        std::atomic<float> currentDefault;
+        const juce::String parameterNameShort;
+        const juce::String parameterNameVerbose;
+        const juce::String parameterNameVerboseNoSpaces;
+        
+        //==============================================================================
         
     private:
         RangedParam* const rap;
         const int keyID;
         
-        std::atomic<bool> isChanging;
+        std::atomic<float> currentDefault;
+        std::atomic<bool> changing;
         
         //==============================================================================
         
@@ -198,22 +224,6 @@ namespace bav
                 Parameter (key, this, nRange.convertTo0to1 (defaultVal), paramNameShort, paramNameVerbose),
                 floatToString (stringFromValue), stringToFloat(valueFromString)
         { }
-        
-        virtual ~FloatParameter() override = default;
-        
-        // returns the absolute default value as a float
-        float getDefault() const { return AudioParameterFloat::getNormalisableRange().convertFrom0to1 (currentDefault.load()); }
-        
-        void setDefault (float newDefault)
-        {
-            currentDefault.store (AudioParameterFloat::getNormalisableRange().convertTo0to1 (newDefault));
-        }
-        
-        // returns a float value normalized in the range 0 to 1, using this parameter's NormalisableRange object
-        float normalize (const float input) const override { return AudioParameterFloat::convertTo0to1(input); }
-        
-        // takes a normalized float value as input and returns a denormalized float value within the natural range of this parameter.
-        float denormalize (const float input) const override { return AudioParameterFloat::convertFrom0to1(input); }
         
         std::function< juce::String (float, int) > floatToString;
         std::function< float (const juce::String&) > stringToFloat;
@@ -259,25 +269,6 @@ namespace bav
                            paramNameShort, paramNameVerbose),
                 intToString (stringFromInt), stringToInt (intFromString)
         { }
-        
-        virtual ~IntParameter() override = default;
-        
-        // returns the absolute default value as an int
-        int getDefault() const
-        {
-            return juce::roundToInt (AudioParameterInt::getNormalisableRange().convertFrom0to1 (currentDefault.load()));
-        }
-        
-        void setDefault (int newDefault)
-        {
-            currentDefault.store (AudioParameterInt::getNormalisableRange().convertTo0to1 (float(newDefault)));
-        }
-        
-        // returns a float value normalized in the range 0 to 1, using this parameter's NormalisableRange object
-        float normalize (const float input) const override { return AudioParameterInt::convertTo0to1(input); }
-        
-        // takes a normalized float value as input and returns a denormalized float value within the natural range of this parameter.
-        float denormalize (const float input) const override { return AudioParameterInt::convertFrom0to1(input); }
         
         std::function< juce::String (int, int) > intToString;
         std::function< int (const juce::String&) > stringToInt;
@@ -325,31 +316,6 @@ namespace bav
         {
             setDefault (defaultVal);
         }
-        
-        virtual ~BoolParameter() override = default;
-        
-        // returns the absolute default value as a bool
-        bool getDefault() const
-        {
-            if (currentDefault.load() == 0.0f)
-                return false;
-            
-            return true;
-        }
-        
-        void setDefault (bool newDefault)
-        {
-            if (newDefault)
-                currentDefault.store (1.0f);
-            else
-                currentDefault.store (0.0f);
-        }
-        
-        // returns a float value normalized in the range 0 to 1, using this parameter's NormalisableRange object
-        float normalize (const float input) const override { return AudioParameterBool::convertTo0to1(input); }
-        
-        // takes a normalized float value as input and returns a denormalized float value within the natural range of this parameter.
-        float denormalize (const float input) const override { return AudioParameterBool::convertFrom0to1(input); }
         
         std::function< juce::String (bool, int) > boolToString;
         std::function< bool (const juce::String& text) > stringToBool;

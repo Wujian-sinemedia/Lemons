@@ -30,6 +30,8 @@ public:
     {
         floatToStringFunction = floatParam->floatToString;
         stringToFloatFunction = floatParam->stringToFloat;
+        
+        valueType = floatValue;
     }
     
     
@@ -49,6 +51,8 @@ public:
                                 {
                                     return static_cast<float> (stringToInt (string));
                                 };
+        
+        valueType = intValue;
     }
     
     
@@ -67,6 +71,8 @@ public:
                                 {
                                     return stringToBool (string) ? 1.0f : 0.0f;
                                 };
+        
+        valueType = boolValue;
     }
     
     
@@ -85,6 +91,9 @@ public:
             currentValue.store (value);
             const auto denorm = denormalize (value);
             listeners.call ([&value, &denorm] (Listener& l) { l.parameterValueChanged (value, denorm); });
+            
+            if (onParameterChange)
+                bav::callOnMessageThread<float> (onParameterChange, getCurrentDenormalizedValue());
         }
     }
     
@@ -93,8 +102,26 @@ public:
         setValueNormalized (normalize (value));
     }
     
+    void setValueDenormalized (int value)
+    {
+        setValueNormalized (normalize (static_cast<float> (value)));
+    }
+    
+    void setValueDenormalized (bool value)
+    {
+        const auto def = value ? 1.0f : 0.0f;
+        setValueNormalized (def);
+    }
+    
+    //==============================================================================
+    
     float getCurrentNormalizedValue()   const { return currentValue.load(); }
     float getCurrentDenormalizedValue() const { return normalize (currentValue.load()); }
+    
+    // these functions return the current denormalized value as the desired type literal
+    float getFloatValue() const { return getCurrentDenormalizedValue(); }
+    int   getIntValue()   const { return juce::roundToInt (getCurrentDenormalizedValue()); }
+    bool  getBoolValue()  const { return getCurrentNormalizedValue() >= 0.5f; }
     
     //==============================================================================
     
@@ -104,6 +131,9 @@ public:
         {
             changing.store (true);
             listeners.call ([] (Listener& l) { l.parameterGestureChanged (true); });
+            
+            if (onGestureStateChange)
+                onGestureStateChange (true);
         }
     }
     
@@ -113,6 +143,9 @@ public:
         {
             changing.store (false);
             listeners.call ([] (Listener& l) { l.parameterGestureChanged (false); });
+            
+            if (onGestureStateChange)
+                onGestureStateChange (false);
         }
     }
     
@@ -129,12 +162,26 @@ public:
             currentDefault.store (value);
             const auto denorm = denormalize (value);
             listeners.call ([&value, &denorm] (Listener& l) { l.parameterDefaultValueChanged (value, denorm); });
+            
+            if (onDefaultChange)
+                bav::callOnMessageThread<float> (onDefaultChange, value);
         }
     }
     
-    void setDenormalizedDefault (float value)
+    void setDefault (float value)
     {
         setNormalizedDefault (normalize (value));
+    }
+    
+    void setDefault (int value)
+    {
+        setNormalizedDefault (normalize (static_cast<float> (value)));
+    }
+    
+    void setDefault (bool value)
+    {
+        const auto def = value ? 1.0f : 0.0f;
+        setNormalizedDefault (def);
     }
     
     void refreshDefault()
@@ -145,6 +192,7 @@ public:
     void resetToDefault() { setValueNormalized (getNormalizedDefault()); }
     
     float getNormalizedDefault() const { return currentDefault.load(); }
+    
     float getDenormalizedDefault() const { return denormalize (currentDefault.load()); }
     
     //==============================================================================
@@ -210,6 +258,12 @@ public:
     
     //==============================================================================
     
+    std::function< void (float) > onParameterChange; // this gets the denormalized new float value
+    std::function< void (float) > onDefaultChange;
+    std::function< void (bool)  > onGestureStateChange;
+    
+    //==============================================================================
+    
     const juce::String parameterNameShort;
     const juce::String parameterNameVerbose;
     const juce::String parameterNameVerboseNoSpaces;
@@ -244,19 +298,54 @@ public:
         return floatToStringFunction (value, maxLength);
     }
     
-    juce::String stringFromDenormalizedValue (float value, int maxLength)
-    {
-        return stringFromNormalizedValue (normalize (value), maxLength);
-    }
-    
     float normalizedValueFromString (const juce::String& string)
     {
         return normalize (stringToFloatFunction (string));
     }
     
-    float denormalizedValueFromString (const juce::String& string)
+    //==============================================================================
+    
+    juce::ValueTree toValueTree() const
     {
-        return denormalize (normalizedValueFromString (string));
+        using namespace DefaultValueTreeIds;
+        
+        switch (valueType)
+        {
+            case (floatValue):
+            {
+                juce::ValueTree tree { Parameter_Float };
+                
+                tree.setProperty (ParameterName, parameterNameVerbose, nullptr);
+                tree.setProperty (ParameterValue, getCurrentDenormalizedValue(), nullptr);
+                tree.setProperty (ParameterDefaultValue, getDenormalizedDefault(), nullptr);
+                tree.setProperty (ParameterIsChanging, isChanging(), nullptr);
+                
+                return tree;
+            }
+            case (intValue):
+            {
+                juce::ValueTree tree { Parameter_Int };
+                
+                tree.setProperty (ParameterName, parameterNameVerbose, nullptr);
+                tree.setProperty (ParameterValue, getIntValue(), nullptr);
+                tree.setProperty (ParameterDefaultValue, juce::roundToInt (getDenormalizedDefault()), nullptr);
+                tree.setProperty (ParameterIsChanging, isChanging(), nullptr);
+                
+                return tree;
+            }
+            case (boolValue):
+            {
+                juce::ValueTree tree { Parameter_Bool };
+                
+                tree.setProperty (ParameterName, parameterNameVerbose, nullptr);
+                tree.setProperty (ParameterValue, getBoolValue(), nullptr);
+                tree.setProperty (ParameterDefaultValue, getNormalizedDefault() >= 0.5f, nullptr);
+                tree.setProperty (ParameterIsChanging, isChanging(), nullptr);
+                
+                return tree;
+            }
+            default: jassertfalse;
+        }
     }
     
     
@@ -296,6 +385,12 @@ private:
     //==============================================================================
     
     juce::ListenerList<Listener> listeners;
+    
+    //==============================================================================
+    
+    enum ValueType { floatValue, intValue, boolValue };
+    
+    ValueType valueType;
 };
 
 
