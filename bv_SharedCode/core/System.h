@@ -168,3 +168,13 @@
   #define BV_FORCE_INLINE inline __attribute__((always_inline))
 #endif
 
+
+/*
+    Cross-platform macro that creates a CPU wait/sleep inctruction
+*/
+
+#if JUCE_INTEL
+  #define BV_WAIT_INSTRUCTION _mm_pause()
+#else
+  #define BV_WAIT_INSTRUCTION  __asm__ __volatile__ ("yield")
+#endif

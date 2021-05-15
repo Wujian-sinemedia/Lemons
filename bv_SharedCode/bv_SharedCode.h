@@ -53,10 +53,13 @@
 
 #include "core/misc.h"
 
+#include "valuetrees/DefaultValueTreeIDs.h"
+
 
 #include "core/AlignedAllocate.h"
 #include "core/DataHelpers.h"
 #include "core/LockFreeFifo.h"
+#include "core/RealtimeSpinLock.h"
 
 #include "core/async/AsyncUtils.h"
 
@@ -84,6 +87,7 @@
 #include "dsp/FFT/bv_FFT.h"
 
 #include "parameters/ParameterValueConversionLambdas.h"
+#include "parameters/Parameter_Base.h"
 #include "parameters/Parameters.h"
 #include "parameters/MidiCC_Mapping.h"
 #include "parameters/ParameterHelpers.h"
@@ -100,6 +104,8 @@
 #include "valuetrees/attachments/property-attachments/ValueTreeToPropertyAttachments.h"
 #include "valuetrees/attachments/property-attachments/PropertyAttachmentUtils.h"
 
+#include "gui/icons.h"
+#include "gui/components.h"
 #include "gui/gui.h"
 #include "gui/Spline.h"
 
