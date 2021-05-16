@@ -110,6 +110,7 @@
 #include "dsp/FX/dynamics/NoiseGate.h"
 #include "dsp/FX/stereo_image/MonoStereoConverter.h"
 #include "dsp/FX/stereo_image/Panner.h"
+#include "dsp/FX/stereo_image/StereoWidener.h"
 #include "dsp/FX/time/BeatRepeat.h"
 #include "dsp/FX/time/Delay.h"
 #include "dsp/FX/time/Freezer.h"
