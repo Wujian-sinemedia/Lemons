@@ -62,45 +62,59 @@
 #include "core/RealtimeSpinLock.h"
 #include "core/ValueListeners.h"
 
+
 // building blocks
 #include "building_blocks/ApplicationBase.h"
 #include "building_blocks/ProcessorBase.h"
 #include "building_blocks/PluginEditorBase.h"
 
+
 // async
 #include "async/AsyncUtils.h"
+
 
 // math
 #include "math/mathHelpers.h"
 #include "math/VectorOps.h"
 #include "math/intOps.h"
 
+
 // midi
 #include "midi/MidiFIFO.h"
 #include "midi/MidiUtilities.h"
 #include "midi/PitchbendTracker.h"
 #include "midi/PitchConverter.h"
+#include "midi/Chord.h"
+
 
 // dsp
 #include "dsp/Oscillators/oscillators.h"
 #include "dsp/Oscillators/LFO/LFO.h"
 #include "dsp/FIFOs/AudioFIFO.h"
 #include "dsp/FIFOs/AudioAndMidiFIFO.h"
-#include "dsp/FX/ReorderableFxChain.h"
-#include "dsp/FX/SmoothedGain.h"
-#include "dsp/FX/Panner.h"
-#include "dsp/FX/NoiseGate.h"
-#include "dsp/FX/Compressor.h"
-#include "dsp/FX/Limiter.h"
-#include "dsp/FX/DeEsser.h"
-#include "dsp/FX/Reverb.h"
-#include "dsp/FX/Delay.h"
-#include "dsp/FX/MonoStereoConverter.h"
 #include "dsp/FIFOWrappedEngine/FIFOWrappedEngine.h"
 #include "dsp/FFT/bv_FFT.h"
 #include "dsp/PitchDetector/pitch-detector.h"
 #include "dsp/PSOLA/analysis/psola_analyzer.h"
 #include "dsp/PSOLA/resynthesis/psola_shifter.h"
+
+// dsp FX
+#include "dsp/FX/ReorderableFxChain.h"
+#include "dsp/FX/DeEsser.h"
+#include "dsp/FX/Distortion.h"
+#include "dsp/FX/PitchShifter.h"
+#include "dsp/FX/Reverb.h"
+#include "dsp/FX/SmoothedGain.h"
+#include "dsp/FX/dynamics/Compressor.h"
+#include "dsp/FX/dynamics/Limiter.h"
+#include "dsp/FX/dynamics/NoiseGate.h"
+#include "dsp/FX/stereo_image/MonoStereoConverter.h"
+#include "dsp/FX/stereo_image/Panner.h"
+#include "dsp/FX/time/BeatRepeat.h"
+#include "dsp/FX/time/Delay.h"
+#include "dsp/FX/time/Freezer.h"
+#include "dsp/FX/time/Looper.h"
+
 
 // parameters
 #include "parameters/helpers/ParameterValueConversionLambdas.h"
@@ -111,6 +125,7 @@
 #include "parameters/helpers/ParameterHelpers.h"
 #include "parameters/mappings/MidiCC_Mapping.h"
 #include "parameters/mappings/LFO_Mapping.h"
+
 
 // value trees
 #include "valuetrees/property_nodes/nodes.h"
@@ -123,21 +138,29 @@
 #include "valuetrees/attachments/property-attachments/ValueTreeToPropertyAttachments.h"
 #include "valuetrees/attachments/property-attachments/PropertyAttachmentUtils.h"
 
+
 // files
 #include "FileUtilities.h"
+
 
 // localization
 #include "localization/localization.h"
 
+
 // gui
 #include "gui/icons.h"
-#include "gui/components/components.h"
 #include "gui/gui.h"
 #include "gui/Spline.h"
+#include "gui/components/ParameterOwningComponent.h"
+#include "gui/components/LevelMeters.h"
+#include "gui/components/SynthMidiKeyboardComponent/SynthMidiKeyboardComponent.h"
+#include "gui/components/SynthStaffDisplayComponent/SynthStaffDisplayComponent.h"
+
 
 // network
 #include "network/AsyncDownload.h"
 #include "network/DownloadManager.h"
+
 
 //==============================================================================
 // motion (mobile only, experimental)
