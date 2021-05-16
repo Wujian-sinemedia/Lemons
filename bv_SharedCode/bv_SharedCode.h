@@ -97,8 +97,10 @@
 #include "dsp/FX/Delay.h"
 #include "dsp/FX/MonoStereoConverter.h"
 #include "dsp/FIFOWrappedEngine/FIFOWrappedEngine.h"
-#include "dsp/PitchDetector/pitch-detector.h"
 #include "dsp/FFT/bv_FFT.h"
+#include "dsp/PitchDetector/pitch-detector.h"
+#include "dsp/PSOLA/analysis/psola_analyzer.h"
+#include "dsp/PSOLA/resynthesis/psola_shifter.h"
 
 // parameters
 #include "parameters/helpers/ParameterValueConversionLambdas.h"
