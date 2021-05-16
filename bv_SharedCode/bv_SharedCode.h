@@ -30,7 +30,7 @@
 #include <juce_osc/juce_osc.h>
 
 
-#include "core/System.h"
+#include "core/PlatformDefs.h"
 
 
 #if BV_USE_VDSP
@@ -56,68 +56,95 @@
 #include "valuetrees/DefaultValueTreeIDs.h"
 
 
+#include "core/ApplicationBase.h"
+#include "dsp/ProcessorBase.h"
+#include "gui/PluginEditorBase.h"
+
+
+// core
 #include "core/AlignedAllocate.h"
 #include "core/DataHelpers.h"
 #include "core/LockFreeFifo.h"
 #include "core/RealtimeSpinLock.h"
+#include "core/ValueListeners.h"
 
-#include "core/async/AsyncUtils.h"
+// async
+#include "async/AsyncUtils.h"
 
+// math
 #include "math/mathHelpers.h"
 #include "math/VectorOps.h"
 #include "math/intOps.h"
 
+// midi
 #include "midi/MidiFIFO.h"
 #include "midi/MidiUtilities.h"
+#include "midi/PitchbendTracker.h"
+#include "midi/PitchConverter.h"
 
-#include "dsp/oscillators.h"
-#include "dsp/AudioFIFO/AudioFIFO.h"
-#include "dsp/Panner.h"
+// dsp
+#include "dsp/Oscillators/oscillators.h"
+#include "dsp/Oscillators/LFO/LFO.h"
+#include "dsp/FIFOs/AudioFIFO.h"
+#include "dsp/FIFOs/AudioAndMidiFIFO.h"
 #include "dsp/FX/ReorderableFxChain.h"
+#include "dsp/FX/SmoothedGain.h"
+#include "dsp/FX/Panner.h"
 #include "dsp/FX/NoiseGate.h"
 #include "dsp/FX/Compressor.h"
 #include "dsp/FX/Limiter.h"
 #include "dsp/FX/DeEsser.h"
 #include "dsp/FX/Reverb.h"
 #include "dsp/FX/Delay.h"
+#include "dsp/FX/MonoStereoConverter.h"
 #include "dsp/FIFOWrappedEngine/FIFOWrappedEngine.h"
 #include "dsp/PitchDetector/pitch-detector.h"
-#include "dsp/DummyAudioProcessor.h"
-
 #include "dsp/FFT/bv_FFT.h"
 
-#include "parameters/ParameterValueConversionLambdas.h"
+// parameters
+#include "parameters/helpers/ParameterValueConversionLambdas.h"
 #include "parameters/Parameter_Base.h"
-#include "parameters/Parameters.h"
-#include "parameters/MidiCC_Mapping.h"
-#include "parameters/ParameterHelpers.h"
-#include "parameters/FreestandingParameter.h"
+#include "parameters/Parameter_ProcessorOwned.h"
+#include "parameters/Parameter_SelfOwned.h"
+#include "parameters/ParameterList.h"
+#include "parameters/helpers/ParameterHelpers.h"
+#include "parameters/mappings/MidiCC_Mapping.h"
+#include "parameters/mappings/LFO_Mapping.h"
 
+// value trees
 #include "valuetrees/property_nodes/nodes.h"
 #include "valuetrees/property_nodes/propertyNodeGroup.h"
 #include "valuetrees/Utils.h"
 #include "valuetrees/json_converter.h"
-
 #include "valuetrees/attachments/ParameterAttachments.h"
 #include "valuetrees/attachments/FreestandingParameterAttachments.h"
 #include "valuetrees/attachments/property-attachments/PropertyToValueTreeAttachments.h"
 #include "valuetrees/attachments/property-attachments/ValueTreeToPropertyAttachments.h"
 #include "valuetrees/attachments/property-attachments/PropertyAttachmentUtils.h"
 
+// files
+#include "FileUtilities.h"
+
+// localization
+#include "localization/localization.h"
+
+// gui
 #include "gui/icons.h"
-#include "gui/components.h"
+#include "gui/components/components.h"
 #include "gui/gui.h"
 #include "gui/Spline.h"
 
+// network
 #include "network/AsyncDownload.h"
 #include "network/DownloadManager.h"
 
 //==============================================================================
+// motion (mobile only, experimental)
 
 //#if JUCE_IOS
-//  #include "core/motion/iosMotion.h"
+//  #include "motion/iOS/iosMotion.h"
 //#elif JUCE_ANDROID
-//  #include "core/motion/androidMotion.h"
+//  #include "motion/Android/androidMotion.h"
 //#endif
 
 //==============================================================================

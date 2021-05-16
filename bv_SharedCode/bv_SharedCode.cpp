@@ -2,14 +2,15 @@
 #include "bv_SharedCode.h"
 
 
-#include "core/async/AsyncUtils.cpp"
+#include "async/AsyncUtils.cpp"
 
 
-#include "dsp/AudioFIFO/AudioFIFO.cpp"
+#include "dsp/FIFOs/AudioFIFO.cpp"
 #include "dsp/FIFOWrappedEngine/FIFOWrappedEngine.cpp"
 #include "dsp/PitchDetector/pitch-detector.cpp"
+#include "dsp/Oscillators/LFO/LFO.cpp"
 
 
 //#if JUCE_IOS
-//  #include "core/motion/iosMotionManager.mm"
+//  #include "motion/iOS/iosMotionManager.mm"
 //#endif

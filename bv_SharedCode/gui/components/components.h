@@ -71,9 +71,9 @@ protected:
 class ComponentWithPropertyConnection  :   public juce::Component
 {
 public:
-    ComponentWithNonParameterPropertyConnection (NonParamValueTreeNode* property,
-                                                 juce::ValueTree& vt,
-                                                 juce::UndoManager& um)
+    ComponentWithPropertyConnection (NonParamValueTreeNode* property,
+                                     juce::ValueTree& vt,
+                                     juce::UndoManager& um)
     : state (vt),
     propertyName (property->longName),
     undoManager (um)

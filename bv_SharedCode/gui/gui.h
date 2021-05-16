@@ -9,8 +9,8 @@ class ScopedCursor
 {
 public:
     ScopedCursor (const juce::MouseCursor& cursor,
-                  juce::MouseCursor resetCursor = juce::MouseCursor::NormalCursor)
-        : resetCursor (std::move(resetCursor))
+                  juce::MouseCursor cursorToResetTo = juce::MouseCursor::NormalCursor)
+        : resetCursor (std::move (cursorToResetTo))
     {
         juce::Desktop::getInstance().getMainMouseSource().showMouseCursor (cursor);
     }

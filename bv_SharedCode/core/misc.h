@@ -3,6 +3,15 @@ namespace bav
 {
 
 
+/* A less verbose way of checking if this is the MessageThread.
+ */
+static inline bool thisIsTheMessageThread() noexcept
+{
+    return juce::MessageManager::getInstance()->isThisTheMessageThread();
+}
+
+
+
 /* Returns a unicode sharp symbol.
  */
 static inline const juce::juce_wchar getSharpSymbol() noexcept   {   return *juce::CharPointer_UTF8 ("\xe2\x99\xaf");  }
