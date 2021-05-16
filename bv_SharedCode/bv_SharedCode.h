@@ -51,22 +51,21 @@
 #endif
 
 
-#include "core/misc.h"
-
 #include "valuetrees/DefaultValueTreeIDs.h"
 
 
-#include "core/ApplicationBase.h"
-#include "dsp/ProcessorBase.h"
-#include "gui/PluginEditorBase.h"
-
-
 // core
+#include "core/misc.h"
 #include "core/AlignedAllocate.h"
 #include "core/DataHelpers.h"
 #include "core/LockFreeFifo.h"
 #include "core/RealtimeSpinLock.h"
 #include "core/ValueListeners.h"
+
+// building blocks
+#include "building_blocks/ApplicationBase.h"
+#include "building_blocks/ProcessorBase.h"
+#include "building_blocks/PluginEditorBase.h"
 
 // async
 #include "async/AsyncUtils.h"
