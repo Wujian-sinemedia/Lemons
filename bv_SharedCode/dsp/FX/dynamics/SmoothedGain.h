@@ -11,7 +11,7 @@ public:
     SmoothedGain()
     {
         for (size_t i = 0; i < channels; ++i)
-            smoothers.emplace_back (new Smoother);
+            smoothers.emplace_back (new Smoother());
     }
     
     virtual ~SmoothedGain() = default;
