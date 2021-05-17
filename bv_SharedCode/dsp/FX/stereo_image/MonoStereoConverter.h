@@ -8,7 +8,9 @@ class MonoStereoConverter
     using Buffer = juce::AudioBuffer<SampleType>;
     
 public:
-    MonoStereoConverter() = default;
+    MonoStereoConverter()
+        : toMonoMode (leftOnly), monoStorage (1, 0)
+    { }
     
     virtual ~MonoStereoConverter() = default;
     
@@ -28,6 +30,8 @@ public:
     
     
     void setStereoReductionMode (StereoReductionMode newmode) { toMonoMode = newmode; }
+    
+    StereoReductionMode getStereoReductionMode() const { return toMonoMode; }
     
     
     void convertStereoToMono (const SampleType* leftIn, const SampleType* rightIn,
