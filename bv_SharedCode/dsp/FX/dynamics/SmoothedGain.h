@@ -11,17 +11,18 @@ public:
     SmoothedGain()
     {
         for (size_t i = 0; i < channels; ++i)
-            smoothers.emplace_back (new Smoother());
+            smoothers.add (new Smoother());
     }
     
     virtual ~SmoothedGain() = default;
+    
     
     void setGain (float gain)
     {
         const auto newTarget = static_cast<SampleType> (std::max (gain, 0.0001f));
         
-        for (auto& smoother : smoothers)
-            smoother.setTargetValue (newTarget);
+        for (auto* smoother : smoothers)
+            smoother->setTargetValue (newTarget);
     }
     
     void prepare (int blocksize)
@@ -33,15 +34,15 @@ public:
     
     void reset()
     {
-        for (auto& smoother : smoothers)
-            smoother.reset (lastBlocksize);
+        for (auto* smoother : smoothers)
+            smoother->reset (lastBlocksize);
     }
     
     void skipSamples (int numSamples)
     {
-        for (auto& smoother : smoothers)
+        for (auto* smoother : smoothers)
             for (int s = 0; s < numSamples; ++s)
-                smoother.getNextValue();
+                smoother->getNextValue();
     }
     
     
@@ -53,9 +54,8 @@ public:
     
     void process (SampleType* samples, int numSamples, int channel)
     {
-        const auto chan = static_cast<size_t>(channel);
-        jassert (chan < channels);
-        smoothers[chan].applyGain (samples, numSamples);
+        jassert (static_cast<size_t>(channel) < channels);
+        smoothers[channel]->applyGain (samples, numSamples);
     }
     
     void process (juce::AudioBuffer<SampleType>& audio, float newGain)
@@ -71,12 +71,14 @@ public:
         for (int chan = 0;
              chan < std::min (static_cast<int>(channels), audio.getNumChannels());
              ++chan)
+        {
             process (audio.getWritePointer (chan), numSamples, chan);
+        }
     }
     
     
 private:
-    std::vector< Smoother > smoothers;
+    juce::OwnedArray< Smoother > smoothers;
     
     int lastBlocksize = 0;
 };
@@ -118,3 +120,4 @@ template class ReorderableSmoothedGain<double>;
 
 
 }  // namespace
+
