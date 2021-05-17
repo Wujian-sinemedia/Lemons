@@ -100,13 +100,13 @@
 
 // dsp FX
 #include "dsp/FX/ReorderableFxChain.h"
+#include "dsp/FX/dynamics/NoiseGate.h"
 #include "dsp/FX/DeEsser.h"
 #include "dsp/FX/Distortion.h"
 #include "dsp/FX/Reverb.h"
 #include "dsp/FX/SmoothedGain.h"
 #include "dsp/FX/dynamics/Compressor.h"
 #include "dsp/FX/dynamics/Limiter.h"
-#include "dsp/FX/dynamics/NoiseGate.h"
 #include "dsp/FX/stereo_image/MonoStereoConverter.h"
 #include "dsp/FX/stereo_image/MonoToStereoPanner.h"
 #include "dsp/FX/stereo_image/StereoPanner.h"

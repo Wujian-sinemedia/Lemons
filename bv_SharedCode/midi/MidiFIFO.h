@@ -43,7 +43,7 @@ public:
     }
     
     
-    int numStoredEvents() { return base.getNumEvents(); }
+    int numStoredEvents() const { return base.getNumEvents(); }
     
     
     void pushEvents (const juce::MidiBuffer& source, const int numSamples)

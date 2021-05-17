@@ -58,7 +58,7 @@ public:
     
 private:
     AudioFIFO<SampleType> audio;
-    MidiFIFO              midi;
+    midi::MidiFIFO        midi;
 };
 
 
