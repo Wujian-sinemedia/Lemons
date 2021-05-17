@@ -85,7 +85,7 @@ private:
     float leftGain;
     float rightGain;
     
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Panner)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PannerBase)
 };
     
     

@@ -84,8 +84,8 @@ namespace bav::dsp::FX
         void setDryWet (int wetMixPercent)
         {
             const auto wet = static_cast<float>(wetMixPercent) * 0.01f;
-            wetGain.setTargetValue (wet);
-            dryGain.setTargetValue (1.0f - wet);
+            wetGain.setGain (wet);
+            dryGain.setGain (1.0f - wet);
         }
         
         void setDuckAmount (float newDuckAmount)
@@ -191,7 +191,7 @@ namespace bav::dsp::FX
             dryGain.process (sidechainBuffer);
             wetGain.process (workingBuffer);
             
-            for (in chan = 0; chan < numChannels; ++chan)
+            for (int chan = 0; chan < numChannels; ++chan)
             {
                 // add & write result to workingBuffer
                 vecops::addV (workingBuffer.getWritePointer (chan), sidechainBuffer.getReadPointer (chan), numSamples);

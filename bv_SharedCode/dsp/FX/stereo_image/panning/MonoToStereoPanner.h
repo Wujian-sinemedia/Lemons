@@ -10,6 +10,7 @@ class MonoToStereoPanner  :     public PannerBase
     virtual ~MonoToStereoPanner() = default;
     
     
+    
 };
 
 }  // namespace
