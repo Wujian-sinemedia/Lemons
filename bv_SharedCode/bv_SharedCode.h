@@ -102,7 +102,6 @@
 #include "dsp/FX/ReorderableFxChain.h"
 #include "dsp/FX/DeEsser.h"
 #include "dsp/FX/Distortion.h"
-#include "dsp/FX/PitchShifter.h"
 #include "dsp/FX/Reverb.h"
 #include "dsp/FX/SmoothedGain.h"
 #include "dsp/FX/dynamics/Compressor.h"
@@ -115,6 +114,8 @@
 #include "dsp/FX/time/Delay.h"
 #include "dsp/FX/time/Freezer.h"
 #include "dsp/FX/time/Looper.h"
+#include "dsp/FX/pitch/PitchShifter.h"
+#include "dsp/FX/pitch/PitchCorrector.h"
 
 
 // parameters
