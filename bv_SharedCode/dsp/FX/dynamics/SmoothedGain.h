@@ -54,8 +54,9 @@ public:
     
     void process (SampleType* samples, int numSamples, int channel)
     {
-        jassert (channel < channels);
-        smoothers[channel].applyGain (samples, numSamples);
+        const auto chan = static_cast<size_t>(channel);
+        jassert (chan < channels);
+        smoothers[chan].applyGain (samples, numSamples);
     }
     
     void process (juce::AudioBuffer<SampleType>& audio, float newGain)
@@ -68,7 +69,9 @@ public:
     {
         const auto numSamples = audio.getNumSamples();
         
-        for (size_t chan = 0; chan < std::min (channels, audio.getNumChannels()); ++chan)
+        for (int chan = 0;
+             chan < std::min (static_cast<int>(channels), audio.getNumChannels());
+             ++chan)
             process (audio.getWritePointer (chan), numSamples, chan);
     }
     

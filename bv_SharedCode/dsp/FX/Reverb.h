@@ -220,7 +220,7 @@ namespace bav::dsp::FX
         
         double sampleRate = 0.0;
         
-        SmoothedGain<float, 2> dryGain, wetgain;
+        SmoothedGain<float, 2> dryGain, wetGain;
         
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Reverb)
     };
