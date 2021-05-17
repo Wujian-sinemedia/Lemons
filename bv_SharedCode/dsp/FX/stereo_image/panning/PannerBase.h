@@ -4,7 +4,7 @@
  */
 
 
-namespace bav::dsp
+namespace bav::dsp::FX
 {
 
     
@@ -16,7 +16,7 @@ namespace bav::dsp
     Note that this class does no value smoothing, and simply outputs the next target value for the left and right channels each time the panning is changed. You may want to feed this class's output to a juce::SmoothedValue, or employ some other smoothing mechanism.
 */
 
-class Panner
+class MonoToStereoPanner
 {
 public:
     Panner(): lastRecievedMidiPan(64), leftGain(0.5f), rightGain(0.5f)

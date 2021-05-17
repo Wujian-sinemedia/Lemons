@@ -1,8 +1,4 @@
 
-// multiplicative smoothing cannot ever actually reach 0
-#define bvr_MIN_SMOOTHED_GAIN 0.0000001f
-#define _SMOOTHING_ZERO_CHECK(inputGain) std::max(bvr_MIN_SMOOTHED_GAIN, inputGain)
-
 
 namespace bav::dsp::FX
 {
@@ -51,8 +47,8 @@ namespace bav::dsp::FX
             workingBuffer.setSize (numChannels, blocksize, true, true, true);
             conversionBuffer.setSize (numChannels, blocksize, true, true, true);
             
-            dryGain.reset (blocksize);
-            wetGain.reset (blocksize);
+            dryGain.prepare (blocksize);
+            wetGain.prepare (blocksize);
         }
         
         void reset()
@@ -63,9 +59,8 @@ namespace bav::dsp::FX
             sidechainBuffer.clear();
             conversionBuffer.clear();
             
-            const auto numSamps = workingBuffer.getNumSamples();
-            dryGain.reset (numSamps);
-            wetGain.reset (numSamps);
+            dryGain.reset();
+            wetGain.reset();
         }
         
         void setRoomSize (float newRoomSize)
@@ -88,9 +83,9 @@ namespace bav::dsp::FX
         
         void setDryWet (int wetMixPercent)
         {
-            const auto wet = wetMixPercent * 0.01f;
-            wetGain.setTargetValue (_SMOOTHING_ZERO_CHECK (wet));
-            dryGain.setTargetValue (_SMOOTHING_ZERO_CHECK (1.0f - wet));
+            const auto wet = static_cast<float>(wetMixPercent) * 0.01f;
+            wetGain.setTargetValue (wet);
+            dryGain.setTargetValue (1.0f - wet);
         }
         
         void setDuckAmount (float newDuckAmount)
@@ -154,7 +149,7 @@ namespace bav::dsp::FX
                       float* reverbLevel = nullptr)
         {
             const auto numSamples = input.getNumSamples();
-            const auto numChannels = input.getNumChannels();
+            const auto numChannels = std::min (2, input.getNumChannels());
             
             jassert (numSamples == compressorSidechain.getNumSamples());
             jassert (numChannels == compressorSidechain.getNumChannels());
@@ -191,17 +186,18 @@ namespace bav::dsp::FX
             if (isDucking)
                 compressor.process (sidechainBuffer, workingBuffer);
             
-            // write to output & apply dry/wet gain
             input.clear();
             
-            for (int chan = 0; chan < numChannels; ++chan)
+            dryGain.process (sidechainBuffer);
+            wetGain.process (workingBuffer);
+            
+            for (in chan = 0; chan < numChannels; ++chan)
             {
-                auto* output = input.getWritePointer(chan);
-                const auto* drySamples = sidechainBuffer.getReadPointer(chan);
-                const auto* wetSamples = workingBuffer.getReadPointer(chan);
+                // add & write result to workingBuffer
+                vecops::addV (workingBuffer.getWritePointer (chan), sidechainBuffer.getReadPointer (chan), numSamples);
                 
-                for (int s = 0; s < numSamples; ++s)
-                    output[s] = (drySamples[s] * dryGain.getNextValue()) + (wetSamples[s] * wetGain.getNextValue());
+                // copy to output
+                vecops::copy (workingBuffer.getReadPointer (chan), input.getWritePointer (chan), numSamples);
             }
         }
         
@@ -224,7 +220,7 @@ namespace bav::dsp::FX
         
         double sampleRate = 0.0;
         
-        juce::SmoothedValue<float, juce::ValueSmoothingTypes::Multiplicative> dryGain, wetGain;
+        SmoothedGain<float, 2> dryGain, wetgain;
         
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Reverb)
     };
@@ -260,11 +256,4 @@ namespace bav::dsp::FX
     
     
 }  // namespace
-
-
-#undef bvr_MIN_SMOOTHED_GAIN
-#undef _SMOOTHING_ZERO_CHECK
-
-
-
 
