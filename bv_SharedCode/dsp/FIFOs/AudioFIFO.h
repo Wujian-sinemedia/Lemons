@@ -53,9 +53,10 @@ public:
     
     int getSize() const noexcept { return base.getNumSamples(); }
     
+    int getNumChannels() const noexcept { return base.getNumChannels(); }
     
     // returns the number of samples stored in a particular channel of the base buffer
-    int numStoredSamples (int channel) const { return storedSamples.getUnchecked(channel); }
+    int numStoredSamples (int channel) const { return storedSamples.getUnchecked (channel); }
     
     /* returns the lowest number of samples stored in any channel
      (essentially, the highest sample index you can safely access in a for loop iterating over all channels of this FIFO) */

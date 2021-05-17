@@ -19,7 +19,7 @@ public:
     
     MidiFIFO() { }
     
-    MidiFIFO(int maxNumMessages)
+    MidiFIFO (int maxNumMessages)
     {
         setSize (maxNumMessages);
     }

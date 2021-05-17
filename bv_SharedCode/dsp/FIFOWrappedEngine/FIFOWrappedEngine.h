@@ -138,14 +138,14 @@ namespace bav::dsp
         int internalBlocksize; // the size of the processing blocks, in samples, that the algorithm will be processing
         
         MidiBuffer midiChoppingBuffer;
-        MidiBuffer chunkMidiBuffer;
-        bav::midi::MidiFIFO midiInputCollection;
-        bav::midi::MidiFIFO midiOutputCollection;
         
-        bav::dsp::AudioFIFO<SampleType> inputBuffer;
-        bav::dsp::AudioFIFO<SampleType> outputBuffer;
+        bav::dsp::AudioAndMidiFIFO<SampleType> inputFIFO;
+        bav::dsp::AudioAndMidiFIFO<SampleType> outputFIFO;
+        
         AudioBuffer inBuffer;
         AudioBuffer outBuffer;
+        
+        MidiBuffer chunkMidiBuffer;
         
         bool wasBypassedLastCallback = true;
         

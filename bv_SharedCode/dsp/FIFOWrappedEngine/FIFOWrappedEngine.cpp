@@ -111,27 +111,18 @@ void FIFOWrappedEngine<SampleType>::processWrapped (AudioBuffer& input, AudioBuf
     
     jassert (numInChannels <= 2 && numOutChannels <= 2);
     
-    for (int chan = 0; chan < numInChannels; ++chan)
-        inputBuffer.pushSamples (input, chan, 0, numNewSamples, chan);
+    inputFIFO.push (input, midiMessages, numNewSamples);
     
-    midiInputCollection.pushEvents (midiMessages, numNewSamples);
-    
-    if (inputBuffer.numStoredSamples() >= internalBlocksize)  // we have enough samples, render the new chunk
+    if (inputFIFO.numStoredSamples() >= internalBlocksize)  // we have enough samples, render the new chunk
     {
         inBuffer.clear();
-        
-        for (int chan = 0; chan < numInChannels; ++chan)
-            inputBuffer.popSamples (inBuffer, chan, 0, internalBlocksize, chan);
-        
         chunkMidiBuffer.clear();
-        midiInputCollection.popEvents (chunkMidiBuffer,  internalBlocksize);
+        
+        inputFIFO.pop (inBuffer, chunkMidiBuffer, internalBlocksize);
         
         if (isBypassed)
         {
-            for (int chan = 0; chan < numOutChannels; ++chan)
-                outputBuffer.pushSamples (inBuffer, chan, 0, internalBlocksize, chan);
-            
-            bypassedBlock (inBuffer, chunkMidiBuffer);
+            outputFIFO.push (inBuffer, chunkMidiBuffer, internalBlocksize);
         }
         else
         {
@@ -139,17 +130,11 @@ void FIFOWrappedEngine<SampleType>::processWrapped (AudioBuffer& input, AudioBuf
             
             renderBlock (inBuffer, outBuffer, chunkMidiBuffer);
             
-            for (int chan = 0; chan < numOutChannels; ++chan)
-                outputBuffer.pushSamples (outBuffer, chan, 0, internalBlocksize, chan);
+            outputFIFO.push (outBuffer, chunkMidiBuffer, internalBlocksize);
         }
-        
-        midiOutputCollection.pushEvents (chunkMidiBuffer, internalBlocksize);
     }
     
-    for (int chan = 0; chan < numOutChannels; ++chan)
-        outputBuffer.popSamples (output, chan, 0, numNewSamples, chan);
-    
-    midiOutputCollection.popEvents (midiMessages, numNewSamples);
+    outputFIFO.pop (output, midiMessages, numNewSamples);
     
     if (applyFadeIn)
         output.applyGainRamp (0, numNewSamples, 0.0f, 1.0f);
@@ -169,15 +154,11 @@ void FIFOWrappedEngine<SampleType>::changeLatency (int newInternalBlocksize)
     inBuffer.setSize  (2, internalBlocksize, true, true, true);
     outBuffer.setSize (2, internalBlocksize, true, true, true);
     
-    const auto doubleBlocksize = internalBlocksize * 2;
+    inputFIFO.changeSize  (2, internalBlocksize);
+    outputFIFO.changeSize (2, internalBlocksize);
     
-    inputBuffer.changeSize (2, doubleBlocksize);
-    outputBuffer.changeSize(2, doubleBlocksize);
+    const auto doubleBlocksizeT = static_cast<size_t> (internalBlocksize * 2);
     
-    const auto doubleBlocksizeT = size_t(doubleBlocksize);
-    
-    midiInputCollection.setSize(doubleBlocksize);
-    midiOutputCollection.setSize(doubleBlocksize);
     chunkMidiBuffer.ensureSize (doubleBlocksizeT);
     midiChoppingBuffer.ensureSize (doubleBlocksizeT);
     
@@ -229,10 +210,9 @@ void FIFOWrappedEngine<SampleType>::reset()
     chunkMidiBuffer.clear();
     inBuffer.clear();
     outBuffer.clear();
-    inputBuffer.clear();
-    outputBuffer.clear();
-    midiInputCollection.clear();
-    midiOutputCollection.clear();
+    
+    inputFIFO.clear();
+    outputFIFO.clear();
     
     resetTriggered();
 }
@@ -244,13 +224,11 @@ void FIFOWrappedEngine<SampleType>::releaseResources()
     inBuffer.setSize (0, 0, false, false, false);
     outBuffer.setSize (0, 0, false, false, false);
     
-    inputBuffer.releaseResources();
-    outputBuffer.releaseResources();
-    
     midiChoppingBuffer.clear();
-    midiInputCollection.clear();
-    midiOutputCollection.clear();
     chunkMidiBuffer.clear();
+    
+    inputFIFO.clear();
+    outputFIFO.clear();
     
     wasBypassedLastCallback = true;
     resourcesReleased = true;
