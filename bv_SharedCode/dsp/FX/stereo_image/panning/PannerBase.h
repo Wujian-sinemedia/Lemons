@@ -25,10 +25,11 @@ public:
     
     virtual~PannerBase() = default;
     
-    void reset()
+    void resetToCenter()
     {
         leftGain  = 0.5f;
         rightGain = 0.5f;
+        lastRecievedMidiPan = 64;
     }
     
     int getLastMidiPan() const noexcept { return lastRecievedMidiPan; }

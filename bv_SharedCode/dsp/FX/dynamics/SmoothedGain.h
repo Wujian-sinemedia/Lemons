@@ -28,8 +28,13 @@ public:
     {
         lastBlocksize = blocksize;
         
+        reset();
+    }
+    
+    void reset()
+    {
         for (auto& smoother : smoothers)
-            smoother.reset (blocksize);
+            smoother.reset (lastBlocksize);
     }
     
     void skipSamples (int numSamples)
@@ -37,12 +42,6 @@ public:
         for (auto& smoother : smoothers)
             for (int s = 0; s < numSamples; ++s)
                 smoother.getNextValue();
-    }
-    
-    void reset()
-    {
-        for (auto& smoother : smoothers)
-            smoother.reset (lastBlocksize);
     }
     
     
