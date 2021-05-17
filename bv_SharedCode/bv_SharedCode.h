@@ -84,6 +84,7 @@
 #include "midi/MidiUtilities.h"
 #include "midi/PitchbendTracker.h"
 #include "midi/PitchConverter.h"
+#include "midi/VelocityHelper.h"
 #include "midi/Chord.h"
 
 
