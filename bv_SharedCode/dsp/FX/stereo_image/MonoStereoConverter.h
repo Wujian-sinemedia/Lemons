@@ -60,7 +60,7 @@ public:
         
         if (input.getNumChannels() == 1)
         {
-            vecops::copy (input.getReadPointer(0), output.getWritePointer(0),  numSamples);
+            vecops::copy (input.getReadPointer(0), output.getWritePointer(0),  output.getNumSamples());
         }
         else
         {
@@ -91,7 +91,7 @@ public:
     
     
 private:
-    MonoConversionMode toMonoMode;
+    StereoReductionMode toMonoMode;
     
     juce::AudioBuffer<SampleType> monoStorage;
 };
