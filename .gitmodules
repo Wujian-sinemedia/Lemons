@@ -1,3 +1,6 @@
 [submodule "JUCE"]
 	path = JUCE
 	url = https://github.com/juce-framework/JUCE.git
+[submodule "SynthBase"]
+	path = SynthBase
+	url = https://github.com/benthevining/JuceSynthBase.git

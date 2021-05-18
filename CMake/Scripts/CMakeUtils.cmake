@@ -76,6 +76,7 @@ function (set_default_juce_options target)
 
     target_link_libraries (${target} PUBLIC
         bv_SharedCode
+        bv_SynthBase
         juce::juce_recommended_config_flags
         juce::juce_recommended_lto_flags
         juce::juce_recommended_warning_flags)

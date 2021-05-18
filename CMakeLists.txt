@@ -13,4 +13,4 @@ add_subdirectory (CMake)
 
 juce_add_module (bv_SharedCode)
 
-juce_add_module (bv_SynthBase)
+juce_add_module (SynthBase/bv_SynthBase)
