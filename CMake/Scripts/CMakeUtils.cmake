@@ -69,7 +69,7 @@ function (set_default_juce_options target)
             JUCE_LOAD_CURL_SYMBOLS_LAZILY=1)
 
     if (APPLE)
-        target_compile_definitions (${target} PUBLIC JUCE_USE_VDSP_FRAMEWORK=1)
+        target_compile_definitions (${target} PUBLIC JUCE_USE_VDSP_FRAMEWORK=1 BV_USE_VDSP=1)
     endif()
 
     adjustDefaultMacTarget (${target} ${target})
