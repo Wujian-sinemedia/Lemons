@@ -1,6 +1,6 @@
 macro (setDefaultAppleSettings)
 
-    if (${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
+    if ("${CMAKE_SYSTEM_NAME}" STREQUAL "iOS")
 
         set (CMAKE_OSX_DEPLOYMENT_TARGET 9.3 CACHE STRING "Minimum OS X deployment version" FORCE)
         set (CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "iPhone Developer")
