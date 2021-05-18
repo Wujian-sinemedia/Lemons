@@ -13,28 +13,27 @@ public:
     
     void prepare (int blocksize)
     {
-        lastBlocksize = blocksize;
-        reset();
+        left.prepare (blocksize);
+        right.prepare (blocksize);
     }
     
     void reset()
     {
-        left.reset  (lastBlocksize);
-        right.reset (lastBlocksize);
+        left.reset();
+        right.reset();
     }
     
     
     void process (const SampleType* input, SampleType* leftOut, SampleType* rightOut, int numSamples)
     {
-        left.setTargetValue  (smoothingZeroCheck (PannerBase::getLeftGain()));
-        right.setTargetValue (smoothingZeroCheck (PannerBase::getRightGain()));
+        left.setGain  (PannerBase::getLeftGain());
+        right.setGain (PannerBase::getRightGain());
         
-        for (int i = 0; i < numSamples; ++i)
-        {
-            const auto sample = input[i];
-            leftOut[i]  = sample * left.getNextValue();
-            rightOut[i] = sample * right.getNextValue();
-        }
+        vecops::copy (input, leftOut,  numSamples);
+        vecops::copy (input, rightOut, numSamples);
+        
+        left.process  (leftOut,  numSamples, 0);
+        right.process (rightOut, numSamples, 0);
     }
     
     
@@ -53,13 +52,7 @@ public:
     
     
 private:
-    juce::SmoothedValue<SampleType, juce::ValueSmoothingTypes::Multiplicative> left, right;
-    int lastBlocksize = 0;
-    
-    inline SampleType smoothingZeroCheck (float gain)
-    {
-        return static_cast<SampleType> (std::max (gain, 0.001f));
-    }
+    SmoothedGain<SampleType, 1> left, right;
 };
 
 
