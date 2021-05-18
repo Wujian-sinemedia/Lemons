@@ -1,4 +1,4 @@
-/*******************************************************************************
+/******************************************************************************
  BEGIN_JUCE_MODULE_DECLARATION
  ID:                 bv_dsp
  vendor:             Ben Vining
@@ -11,7 +11,14 @@
 
 #pragma once
 
-// dsp
+// juce dependencies
+#include <juce_audio_utils/juce_audio_utils.h>
+#include <juce_dsp/juce_dsp.h>
+
+
+#include <bv_SharedCode/bv_SharedCode.h>
+
+
 #include "dsp/Oscillators/oscillators.h"
 #include "dsp/Oscillators/LFO/LFO.h"
 #include "dsp/FIFOs/AudioFIFO.h"
@@ -22,7 +29,7 @@
 #include "dsp/PSOLA/analysis/psola_analyzer.h"
 #include "dsp/PSOLA/resynthesis/psola_shifter.h"
 
-// dsp FX
+// FX
 #include "dsp/FX/ReorderableFxChain.h"
 #include "dsp/FX/dynamics/SmoothedGain.h"
 #include "dsp/FX/dynamics/NoiseGate.h"
