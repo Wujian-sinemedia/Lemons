@@ -13,6 +13,6 @@ add_subdirectory (CMake)
 
 add_subdirectory (modules)
 
-juce_add_module (SynthBase/bv_SynthBase)
+add_subdirectory (SynthBase)
 
 set (bv_sharedcode_dir ${CMAKE_CURRENT_LIST_DIR} CACHE INTERNAL "shared code path")
