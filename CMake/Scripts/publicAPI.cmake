@@ -40,16 +40,7 @@ function (set_default_juce_options target)
         target_include_directories (${target} PUBLIC "${bv_sharedcode_dir}/third_party/MIPP/src" "MIPP")
     endif()
 
-    if (NOT DEFINED bvsb_USE_MTS_ESP)
-        set (bvsb_USE_MTS_ESP FALSE)
-    endif()
-
-    if (${bvsb_USE_MTS_ESP})
-        target_include_directories (${target} PUBLIC "MTS-ESP/Client" "MTS-ESP")
-        target_compile_definitions (${target} PUBLIC bvsb_USE_MTS_ESP=1)
-    else()
-        target_compile_definitions (${target} PUBLIC bvsb_USE_MTS_ESP=0)
-    endif()
+    configure_synth_module (${target})
 
     _adjustDefaultMacTarget (${target} ${target})
 
