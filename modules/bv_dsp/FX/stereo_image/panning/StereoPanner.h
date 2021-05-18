@@ -43,7 +43,7 @@ public:
     {
         stereoOutput.clear();
         jassert (stereoInput.getNumChannels() >= 2 && stereoOutput.getNumChannels() >= 2);
-        jassert (monoInput.getNumSamples() == stereoOutput.getNumSamples());
+        jassert (stereoInput.getNumSamples() == stereoOutput.getNumSamples());
         
         process (stereoInput.getReadPointer (0), stereoInput.getReadPointer (1),
                  stereoOutput.getWritePointer (0), stereoOutput.getWritePointer (1),
@@ -76,13 +76,13 @@ protected:
         StereoPanner<SampleType>::process (audio, audio);
     }
     
-    void fxChain_prepare (double, int) override
+    void fxChain_prepare (double, int blocksize) override
     {
-        StereoPanner<SampleType>::prepare();
+        StereoPanner<SampleType>::prepare (blocksize);
     }
     
 private:
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ReorderableLimiter)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ReorderableStereoPanner)
 };
 
 template class ReorderableStereoPanner<float>;
