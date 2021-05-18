@@ -85,9 +85,9 @@ function (set_default_juce_options target)
 
     if (${bvsb_USE_MTS_ESP})
         target_include_directories (${target} PUBLIC "MTS-ESP/Client" "MTS-ESP")
-        target_compile_definitions (${target} bvsb_USE_MTS_ESP=1)
+        target_compile_definitions (${target} "bvsb_USE_MTS_ESP"="1")
     else()
-        target_compile_definitions (${target} bvsb_USE_MTS_ESP=0)
+        target_compile_definitions (${target} "bvsb_USE_MTS_ESP"="0")
     endif()
 
     _adjustDefaultMacTarget (${target} ${target})
