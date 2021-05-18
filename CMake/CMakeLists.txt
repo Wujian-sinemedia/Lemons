@@ -1,7 +1,7 @@
 list (APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/Scripts)
 
-include (Scripts/CMakeUtils.cmake)
-include (Scripts/DirectoryHelpers.cmake)
+include (Scripts/internal.cmake)
+include (Scripts/publicAPI.cmake)
 
 if (APPLE)
 	include (native/Apple.cmake)

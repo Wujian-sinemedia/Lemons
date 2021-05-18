@@ -1,43 +1,4 @@
 
-function (_adjustDefaultMacTarget target bundleName)
-    if (APPLE)
-        set_target_properties (${target} PROPERTIES JUCE_BUNDLE_ID "com.bv.${bundleName}")
-
-        if (${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
-            set_target_properties (${target} PROPERTIES
-                    ARCHIVE_OUTPUT_DIRECTORY "./"
-                    XCODE_ATTRIBUTE_INSTALL_PATH "$(LOCAL_APPS_DIR)"
-                    XCODE_ATTRIBUTE_SKIP_INSTALL "NO")
-        endif ()
-    endif ()
-endfunction()
-
-#
-
-function (_create_resources_target targetName folder)
-    file (GLOB_RECURSE files "${folder}/*.*")
-    juce_add_binary_data (${targetName} SOURCES ${files})
-    set_target_properties (${targetName} PROPERTIES POSITION_INDEPENDENT_CODE TRUE)
-    target_compile_definitions (${targetName} PUBLIC BV_HAS_BINARY_DATA=1)
-endfunction()
-
-#
-
-function (_link_resources_target target resourcesTarget)
-    _adjustDefaultMacTarget (${resourcesTarget} ${target})
-    target_link_libraries (${target} PRIVATE ${resourcesTarget})
-endfunction()
-
-#
-
-function (_add_resources_folder target folder)
-    set (resourcesTarget ${target}-Assets)
-    _create_resources_target (${resourcesTarget} ${folder})
-    _link_resources_target (${target} ${resourcesTarget})
-endfunction()
-
-#
-
 function (add_binary_data_folder target folder)
     _add_resources_folder (${target} ${CMAKE_CURRENT_LIST_DIR}/${folder})
 endfunction()
@@ -103,4 +64,19 @@ function (set_default_juce_options target)
     target_compile_features (${target} PUBLIC cxx_std_17)
 endfunction()
 
-#
+
+###########
+
+
+function (add_subdirectories)
+    if (NOT DEFINED BuildAll)
+        set (BuildAll TRUE)
+    endif()
+
+    if (BuildAll)
+        _add_all_subdirs()
+    else()
+        _add_all_flagged_subdirs()
+    endif()
+endfunction()
+
