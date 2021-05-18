@@ -2,7 +2,7 @@
 	path = JUCE
 	url = https://github.com/juce-framework/JUCE.git
 [submodule "SynthBase"]
-	path = SynthBase
+	path = modules/SynthBase
 	url = https://github.com/benthevining/JuceSynthBase.git
 [submodule "third_party/MIPP"]
 	path = third_party/MIPP
