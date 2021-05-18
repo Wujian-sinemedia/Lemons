@@ -1,4 +1,5 @@
-function (adjustDefaultMacTarget target bundleName)
+
+function (_adjustDefaultMacTarget target bundleName)
     if (APPLE)
         set_target_properties (${target} PROPERTIES JUCE_BUNDLE_ID "com.bv.${bundleName}")
 
@@ -13,7 +14,7 @@ endfunction()
 
 #
 
-function (create_resources_target targetName folder)
+function (_create_resources_target targetName folder)
     file (GLOB_RECURSE files "${folder}/*.*")
     juce_add_binary_data (${targetName} SOURCES ${files})
     set_target_properties (${targetName} PROPERTIES POSITION_INDEPENDENT_CODE TRUE)
@@ -21,23 +22,23 @@ endfunction()
 
 #
 
-function (link_resources_target target resourcesTarget)
-    adjustDefaultMacTarget (${resourcesTarget} ${target})
+function (_link_resources_target target resourcesTarget)
+    _adjustDefaultMacTarget (${resourcesTarget} ${target})
     target_link_libraries (${target} PRIVATE ${resourcesTarget})
 endfunction()
 
 #
 
-function (add_resources_folder target folder)
+function (_add_resources_folder target folder)
     set (resourcesTarget ${target}-Assets)
-    create_resources_target (${resourcesTarget} ${folder})
-    link_resources_target (${target} ${resourcesTarget})
+    _create_resources_target (${resourcesTarget} ${folder})
+    _link_resources_target (${target} ${resourcesTarget})
 endfunction()
 
 #
 
 function (add_binary_data_folder target folder)
-    add_resources_folder (${target} ${CMAKE_CURRENT_LIST_DIR}/${folder})
+    _add_resources_folder (${target} ${CMAKE_CURRENT_LIST_DIR}/${folder})
 endfunction()
 
 #
@@ -69,10 +70,15 @@ function (set_default_juce_options target)
             JUCE_LOAD_CURL_SYMBOLS_LAZILY=1)
 
     if (APPLE)
+    	message (STATUS "Configuring vDSP for vecops...")
         target_compile_definitions (${target} PUBLIC JUCE_USE_VDSP_FRAMEWORK=1 BV_USE_VDSP=1)
+    else()
+    	message (STATUS "Configuring MIPP for vecops...")
+    	target_compile_definitions (${target} PUBLIC MIPP_ENABLE_BACKTRACE BV_USE_MIPP=1)
+        target_include_directories (${target} PUBLIC "${bv_sharedcode_dir}/third_party/MIPP/src" "MIPP")
     endif()
 
-    adjustDefaultMacTarget (${target} ${target})
+    _adjustDefaultMacTarget (${target} ${target})
 
     target_link_libraries (${target} PUBLIC
         bv_SharedCode

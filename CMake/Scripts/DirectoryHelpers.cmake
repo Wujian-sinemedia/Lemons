@@ -1,4 +1,4 @@
-macro (subdir_list result curdir)
+macro (_subdir_list result curdir)
     file (GLOB children RELATIVE ${curdir} ${curdir}/*)
     set (dirlist "")
 
@@ -13,7 +13,7 @@ endmacro()
 
 #
 
-function (add_subdirectory_if_valid subdir)
+function (_add_subdirectory_if_valid subdir)
     if (EXISTS ${CMAKE_CURRENT_LIST_DIR}/${subdir}/CMakeLists.txt)
         add_subdirectory (${subdir})
     endif ()
@@ -21,24 +21,24 @@ endfunction()
 
 #
 
-function (add_all_subdirs)
-    subdir_list (subDirs ${CMAKE_CURRENT_LIST_DIR})
+function (_add_all_subdirs)
+    _subdir_list (subDirs ${CMAKE_CURRENT_LIST_DIR})
 
     foreach (subdir ${subDirs})
-        add_subdirectory_if_valid (${subdir})
+        _add_subdirectory_if_valid (${subdir})
     endforeach()
 endfunction()
 
 #
 
-function (add_all_flagged_subdirs)
-    subdir_list (subDirs ${CMAKE_CURRENT_LIST_DIR})
+function (_add_all_flagged_subdirs)
+    _subdir_list (subDirs ${CMAKE_CURRENT_LIST_DIR})
 
     foreach (subdir ${subDirs})
         set (buildflag "Build${subdir}")
 
         if (${buildflag})
-            add_subdirectory_if_valid (${subdir})
+            _add_subdirectory_if_valid (${subdir})
         endif ()
     endforeach ()
 endfunction()
@@ -51,9 +51,9 @@ function (add_subdirectories)
     endif()
 
     if (BuildAll)
-        add_all_subdirs()
+        _add_all_subdirs()
     else()
-        add_all_flagged_subdirs()
+        _add_all_flagged_subdirs()
     endif()
 endfunction()
 

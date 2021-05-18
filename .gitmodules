@@ -4,3 +4,6 @@
 [submodule "SynthBase"]
 	path = SynthBase
 	url = https://github.com/benthevining/JuceSynthBase.git
+[submodule "third_party/MIPP"]
+	path = third_party/MIPP
+	url = https://github.com/aff3ct/MIPP.git
