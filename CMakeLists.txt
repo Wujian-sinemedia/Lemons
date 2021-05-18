@@ -15,4 +15,4 @@ add_subdirectory (modules)
 
 juce_add_module (SynthBase/bv_SynthBase)
 
-set (bv_sharedcode_dir ${CMAKE_CURRENT_LIST_DIR} CACHE INTERNAL)
+set (bv_sharedcode_dir ${CMAKE_CURRENT_LIST_DIR} CACHE INTERNAL "shared code path")
