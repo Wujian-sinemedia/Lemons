@@ -75,6 +75,7 @@ function (set_default_juce_options target)
     adjustDefaultMacTarget (${target} ${target})
 
     target_link_libraries (${target} PUBLIC
+        bv_SharedCode
         juce::juce_recommended_config_flags
         juce::juce_recommended_lto_flags
         juce::juce_recommended_warning_flags)
