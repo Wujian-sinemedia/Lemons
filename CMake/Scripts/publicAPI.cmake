@@ -45,8 +45,12 @@ function (set_default_juce_options target)
     _adjustDefaultMacTarget (${target} ${target})
 
     target_link_libraries (${target} PUBLIC
-        bv_SharedCode
+        bv_data_model
         bv_dsp
+        bv_gui
+        bv_midi
+        bv_motion
+        bv_core
         bv_SynthBase
         juce::juce_recommended_config_flags
         juce::juce_recommended_lto_flags
