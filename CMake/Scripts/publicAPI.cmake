@@ -10,7 +10,7 @@ endfunction()
 
 ###########
 
-function (set_default_juce_options target)
+function (set_default_juce_options target useBrowser)
 	message (STATUS "Configuring ${target}...")
 
     if (TARGET ${target}_AAX)
@@ -24,8 +24,6 @@ function (set_default_juce_options target)
     set_target_properties (${target} PROPERTIES FOLDER "")
 
     target_compile_definitions (${target} PUBLIC
-            JUCE_WEB_BROWSER=1
-            JUCE_USE_CURL=1
             JUCE_VST3_CAN_REPLACE_VST2=0
             JUCE_APPLICATION_NAME_STRING="$<TARGET_PROPERTY:${target},JUCE_PRODUCT_NAME>"
             JUCE_APPLICATION_VERSION_STRING="$<TARGET_PROPERTY:${target},JUCE_VERSION>"
@@ -33,8 +31,18 @@ function (set_default_juce_options target)
             _CRT_SECURE_NO_WARNINGS=1
             JUCE_MICROPHONE_PERMISSION_ENABLED=1
             JUCE_STRICT_REFCOUNTEDPTR=1
-            JUCE_MODAL_LOOPS_PERMITTED=0
+            JUCE_MODAL_LOOPS_PERMITTED=0)
+    
+    if (${useBrowser})
+        target_compile_definitions (${target} PUBLIC 
+            JUCE_WEB_BROWSER=1
+            JUCE_USE_CURL=1
             JUCE_LOAD_CURL_SYMBOLS_LAZILY=1)
+    else()
+        target_compile_definitions (${target} PUBLIC 
+            JUCE_WEB_BROWSER=0
+            JUCE_USE_CURL=0)
+    endif()
 
     if (APPLE)
     	message (STATUS "Configuring vDSP for vecops...")
