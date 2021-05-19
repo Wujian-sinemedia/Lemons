@@ -37,6 +37,7 @@
 #include "FX/misc/Distortion.h"
 #include "FX/dynamics/Compressor.h"
 #include "FX/misc/Reverb.h"
+#include "FX/misc/EQ.h"
 #include "FX/dynamics/Limiter.h"
 #include "FX/stereo_image/MonoStereoConverter.h"
 #include "FX/stereo_image/panning/PannerBase.h"

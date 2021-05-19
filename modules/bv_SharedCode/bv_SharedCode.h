@@ -5,7 +5,7 @@
  version:            0.0.1
  name:               Ben Vining's codebase
  description:        General utilities useful for developing plugins.
- dependencies:       juce_audio_utils juce_osc bv_midi
+ dependencies:       juce_audio_utils juce_osc bv_midi bv_data_model
  OSXFrameworks: Accelerate
  END_JUCE_MODULE_DECLARATION
  *******************************************************************************/
@@ -23,11 +23,12 @@
 #endif
 
 
-// JUCE dependencies
+// dependencies
 #include <juce_audio_utils/juce_audio_utils.h>
 #include <juce_osc/juce_osc.h>
 
 #include "bv_midi/bv_midi.h"
+#include "bv_data_model/bv_data_model.h"
 
 
 #include "core/PlatformDefs.h"
@@ -77,29 +78,6 @@
 #include "math/mathHelpers.h"
 #include "math/VectorOps.h"
 #include "math/intOps.h"
-
-
-// parameters
-#include "parameters/helpers/ParameterValueConversionLambdas.h"
-#include "parameters/Parameter_Base.h"
-#include "parameters/Parameter_ProcessorOwned.h"
-#include "parameters/Parameter_SelfOwned.h"
-#include "parameters/Parameter_List.h"
-#include "parameters/helpers/ParameterHelpers.h"
-#include "parameters/mappings/MidiCC_Mapping.h"
-#include "parameters/mappings/LFO_Mapping.h"
-
-
-// value trees
-#include "valuetrees/property_nodes/nodes.h"
-#include "valuetrees/property_nodes/propertyNodeGroup.h"
-#include "valuetrees/Utils.h"
-#include "valuetrees/json_converter.h"
-#include "valuetrees/attachments/ParameterAttachments.h"
-#include "valuetrees/attachments/FreestandingParameterAttachments.h"
-#include "valuetrees/attachments/property-attachments/PropertyToValueTreeAttachments.h"
-#include "valuetrees/attachments/property-attachments/ValueTreeToPropertyAttachments.h"
-#include "valuetrees/attachments/property-attachments/PropertyAttachmentUtils.h"
 
 
 // files
