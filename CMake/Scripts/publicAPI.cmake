@@ -34,6 +34,8 @@ function (set_default_juce_options target useBrowser)
             JUCE_MODAL_LOOPS_PERMITTED=0)
     
     if (${useBrowser})
+        message (STATUS "Configuring JUCE web browser...")
+
         target_compile_definitions (${target} PUBLIC 
             JUCE_WEB_BROWSER=1
             JUCE_USE_CURL=1
