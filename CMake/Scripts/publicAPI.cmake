@@ -6,6 +6,8 @@ endfunction()
 ###########
 
 function (set_default_juce_options target)
+	message (STATUS "Configuring ${target}...")
+
     if (TARGET ${target}_AAX)
         set_target_properties (${target}_AAX PROPERTIES OSX_ARCHITECTURES x86_64)
     endif()
