@@ -13,9 +13,9 @@
 
 #include <bv_SharedCode/bv_SharedCode.h>
 
-#include "GuiUtils.h"
-#include "icons.h"
-#include "Spline.h"
+#include "utilities/GuiUtils.h"
+#include "utilities/icons.h"
+#include "utilities/Spline.h"
 #include "components/ParameterOwningComponent.h"
 #include "components/LevelMeters.h"
 #include "components/SynthMidiKeyboardComponent/SynthMidiKeyboardComponent.h"
