@@ -1,6 +1,7 @@
-juce_add_module (bv_SharedCode)
-
-juce_add_module (bv_dsp)
+juce_add_modules (bv_SharedCode
+                  bv_dsp
+                  bv_gui
+                  )
 
 
 add_subdirectory (SynthBase)

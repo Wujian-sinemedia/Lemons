@@ -117,17 +117,6 @@
 // localization
 #include "localization/localization.h"
 
-
-// gui
-#include "gui/icons.h"
-#include "gui/gui.h"
-#include "gui/Spline.h"
-#include "gui/components/ParameterOwningComponent.h"
-#include "gui/components/LevelMeters.h"
-#include "gui/components/SynthMidiKeyboardComponent/SynthMidiKeyboardComponent.h"
-#include "gui/components/SynthStaffDisplayComponent/SynthStaffDisplayComponent.h"
-
-
 // network
 #include "network/AsyncDownload.h"
 #include "network/DownloadManager.h"
