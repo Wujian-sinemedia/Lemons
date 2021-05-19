@@ -1,17 +1,21 @@
 
-function (add_binary_data_folder target folder)
-    _add_resources_folder (${target} ${CMAKE_CURRENT_LIST_DIR}/${folder})
+function (_adjustDefaultMacTarget target bundleName)
+    if (APPLE)
+        set_target_properties (${target} PROPERTIES JUCE_BUNDLE_ID "com.bv.${bundleName}")
+
+        if (${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
+            set_target_properties (${target} PROPERTIES
+                    ARCHIVE_OUTPUT_DIRECTORY "./"
+                    XCODE_ATTRIBUTE_INSTALL_PATH "$(LOCAL_APPS_DIR)"
+                    XCODE_ATTRIBUTE_SKIP_INSTALL "NO")
+        endif ()
+    endif ()
 endfunction()
 
+#
 
-function (link_binary_data_to_target_create_if_needed target folder)
-    _add_resources_folder_dont_regenerate (${target} ${CMAKE_CURRENT_LIST_DIR}/${folder})
-endfunction()
-
-###########
-
-function (set_default_juce_options target useBrowser)
-	message (STATUS "Configuring ${target}...")
+function (_configure_juce_app target useBrowser)
+    message (STATUS "Configuring ${target}...")
 
     if (TARGET ${target}_AAX)
         set_target_properties (${target}_AAX PROPERTIES OSX_ARCHITECTURES x86_64)
@@ -47,11 +51,11 @@ function (set_default_juce_options target useBrowser)
     endif()
 
     if (APPLE)
-    	message (STATUS "Configuring vDSP for vecops...")
+        message (STATUS "Configuring vDSP for vecops...")
         target_compile_definitions (${target} PUBLIC JUCE_USE_VDSP_FRAMEWORK=1 BV_USE_VDSP=1)
     else()
-    	message (STATUS "Configuring MIPP for vecops...")
-    	target_compile_definitions (${target} PUBLIC MIPP_ENABLE_BACKTRACE BV_USE_MIPP=1)
+        message (STATUS "Configuring MIPP for vecops...")
+        target_compile_definitions (${target} PUBLIC MIPP_ENABLE_BACKTRACE BV_USE_MIPP=1)
         target_include_directories (${target} PUBLIC "${bv_sharedcode_dir}/third_party/MIPP/src" "MIPP")
     endif()
 
@@ -72,21 +76,5 @@ function (set_default_juce_options target useBrowser)
         juce::juce_recommended_warning_flags)
 
     target_compile_features (${target} PUBLIC cxx_std_17)
-endfunction()
-
-
-###########
-
-
-function (add_subdirectories)
-    if (NOT DEFINED BuildAll)
-        set (BuildAll TRUE)
-    endif()
-
-    if (BuildAll)
-        _add_all_subdirs()
-    else()
-        _add_all_flagged_subdirs()
-    endif()
 endfunction()
 
