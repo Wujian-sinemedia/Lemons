@@ -74,22 +74,6 @@ inline juce::String pitchToString (const int midiNoteNumber, const bool asSharps
 }
 
 
-// converts a pitch class string to an integer representation, eg A4 = note 69
-inline int stringToPitch (const juce::String& string)
-{
-    const auto octaveName = string.retainCharacters ("0123456789");
-    
-    const auto pitchClassTokens = juce::String("abcdefg#") + getSharpSymbol() + getFlatSymbol() + getNaturalSymbol();
-    const auto pitchClassName = string.toLowerCase().retainCharacters (pitchClassTokens);
-    
-    const auto octave = octaveName.getIntValue();
-    const auto pitchClass = pitchClassFromString (pitchClassName);
-    jassert (pitchClass > -1);
-    
-    return (octave * 12) + pitchClass;
-}
-
-
 /*  Returns the pitch class number for a given string.
  If the string is not in the required format i.e. A#4 etc. this
  will return -1.
@@ -136,6 +120,22 @@ inline int pitchClassFromString (const juce::String& pitchClassName) noexcept
     }
     
     return pitchClass;
+}
+
+
+// converts a pitch class string to an integer representation, eg A4 = note 69
+inline int stringToPitch (const juce::String& string)
+{
+    const auto octaveName = string.retainCharacters ("0123456789");
+    
+    const auto pitchClassTokens = juce::String("abcdefg#") + getSharpSymbol() + getFlatSymbol() + getNaturalSymbol();
+    const auto pitchClassName = string.toLowerCase().retainCharacters (pitchClassTokens);
+    
+    const auto octave = octaveName.getIntValue();
+    const auto pitchClass = pitchClassFromString (pitchClassName);
+    jassert (pitchClass > -1);
+    
+    return (octave * 12) + pitchClass;
 }
 
 
