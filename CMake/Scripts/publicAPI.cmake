@@ -6,10 +6,6 @@ endfunction()
 ###########
 
 function (set_default_juce_options target)
-    option (JUCE_ENABLE_MODULE_SOURCE_GROUPS "Enable Module Source Groups" ON)
-    option (JUCE_BUILD_EXAMPLES "Build JUCE Examples" OFF)
-    option (JUCE_BUILD_EXTRAS "Build JUCE Extras" OFF)
-
     if (TARGET ${target}_AAX)
         set_target_properties (${target}_AAX PROPERTIES OSX_ARCHITECTURES x86_64)
     endif()
@@ -17,6 +13,8 @@ function (set_default_juce_options target)
     if (TARGET ${target}_LV2)
         set_target_properties (${target}_LV2 PROPERTIES JUCE_LV2_URI https://github.com/benthevining/${CMAKE_PROJECT_NAME})
     endif()
+
+    set_target_properties (${target} PROPERTIES FOLDER "")
 
     target_compile_definitions (${target} PUBLIC
             JUCE_WEB_BROWSER=1
