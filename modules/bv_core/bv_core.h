@@ -29,7 +29,7 @@
 #include <juce_osc/juce_osc.h>
 
 
-#include "core/PlatformDefs.h"
+#include "preprocessor/PlatformDefs.h"
 
 
 #if BV_USE_VDSP
@@ -50,13 +50,13 @@
 #endif
 
 
-// core
-#include "core/misc.h"
-#include "core/AlignedAllocate.h"
-#include "core/DataHelpers.h"
-#include "core/LockFreeFifo.h"
-#include "core/RealtimeSpinLock.h"
-#include "core/ValueListeners.h"
+// misc
+#include "misc/misc.h"
+#include "misc/AlignedAllocate.h"
+#include "misc/DataHelpers.h"
+#include "misc/LockFreeFifo.h"
+#include "misc/RealtimeSpinLock.h"
+#include "misc/ValueListeners.h"
 
 
 // building blocks
