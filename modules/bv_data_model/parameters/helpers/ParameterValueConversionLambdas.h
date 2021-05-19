@@ -118,7 +118,7 @@ static const std::function< int (const juce::String& text) > st_intFromString =
 static const std::function< juce::String (int value, int maximumStringLength) > pitch_stringFromInt =
 [](int value, int maxLength)
 {
-    return midi::pitchToString (value, true).substring(0, maxLength);
+    return pitchToString (value, true).substring(0, maxLength);
 };
 
 static const std::function< int (const juce::String& text) > pitch_intFromString =
@@ -127,7 +127,7 @@ static const std::function< int (const juce::String& text) > pitch_intFromString
     static const auto pitchClassTokens = juce::String("AaBbCcDdEeFfGg#") + getSharpSymbol() + getFlatSymbol();
     
     if (text.containsAnyOf (pitchClassTokens))
-        return midi::stringToPitch (text.trim());
+        return stringToPitch (text.trim());
     
     return text.trim().getIntValue();
 };
