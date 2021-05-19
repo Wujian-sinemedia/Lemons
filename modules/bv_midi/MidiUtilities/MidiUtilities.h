@@ -1,54 +1,6 @@
 
 namespace bav::midi
 {
-/*  Returns the pitch class number for a given string.
- If the string is not in the required format i.e. A#4 etc. this
- will return -1.
- */
-inline int pitchClassFromString (const juce::String& pitchClassName) noexcept
-{
-    int pitchClass = -1;
-    const auto numChars = pitchClassName.length();
-    
-    if (numChars > 0)
-    {
-        const auto base = pitchClassName.toLowerCase()[0];
-        
-        switch (base)
-        {
-            case 'c':   pitchClass = 0;     break;
-            case 'd':   pitchClass = 2;     break;
-            case 'e':   pitchClass = 4;     break;
-            case 'f':   pitchClass = 5;     break;
-            case 'g':   pitchClass = 7;     break;
-            case 'a':   pitchClass = 9;     break;
-            case 'b':   pitchClass = 11;    break;
-            default:    pitchClass = -1;    break;
-        }
-    }
-    
-    if (numChars > 1)
-    {
-        const auto sharpOrFlat = pitchClassName[1];
-        
-        switch (sharpOrFlat)
-        {
-            case '#':   ++pitchClass;       break;
-            case 'b':   --pitchClass;       break;
-            default:                        break;
-        }
-        
-        if (sharpOrFlat == getSharpSymbol())
-            ++pitchClass;
-        else if (sharpOrFlat == getFlatSymbol())
-            --pitchClass;
-        
-        pitchClass %= 12;
-    }
-    
-    return pitchClass;
-}
-
 
 // returns true if the given midinote is a black key
 template<typename noteType>
