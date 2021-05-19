@@ -30,6 +30,13 @@
 
 
 #include "preprocessor/PlatformDefs.h"
+#include "preprocessor/PreprocessorUtils.h"
+
+
+#ifdef __clang__
+  #pragma clang diagnostic push
+  #pragma clang diagnostic ignored "-Wunused-function"
+#endif
 
 
 #if BV_USE_VDSP
@@ -41,12 +48,6 @@
   #include <NE10.h>
 #elif BV_USE_MIPP
   #include <mipp.h>
-#endif
-
-
-#ifdef __clang__
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wunused-function"
 #endif
 
 
