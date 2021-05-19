@@ -3,7 +3,7 @@ function (add_binary_data_folder target folder)
     _add_resources_folder (${target} ${CMAKE_CURRENT_LIST_DIR}/${folder})
 endfunction()
 
-#
+###########
 
 function (set_default_juce_options target)
     option (JUCE_ENABLE_MODULE_SOURCE_GROUPS "Enable Module Source Groups" ON)
@@ -15,7 +15,7 @@ function (set_default_juce_options target)
     endif()
 
     if (TARGET ${target}_LV2)
-        set_target_properties (${target}_LV2 PROPERTIES JUCE_LV2_URI https://github.com/benthevining/${target})
+        set_target_properties (${target}_LV2 PROPERTIES JUCE_LV2_URI https://github.com/benthevining/${CMAKE_PROJECT_NAME})
     endif()
 
     target_compile_definitions (${target} PUBLIC
