@@ -7,16 +7,16 @@
 
 
 #if JUCE_WINDOWS || JUCE_IOS || JUCE_ANDROID
-  #define BV_POSIX 0
+#define BV_POSIX 0
 #else
-  #define BV_POSIX 1
+#define BV_POSIX 1
 #endif
 
 
 #if JUCE_IOS || JUCE_ANDROID
-  #define BV_MOBILE 1
+#define BV_MOBILE 1
 #else
-  #define BV_MOBILE 0
+#define BV_MOBILE 0
 #endif
 
 
@@ -34,29 +34,29 @@
 /// vDSP ///
 
 #ifdef BV_IGNORE_VDSP
-  #undef BV_USE_VDSP
-  #define BV_USE_VDSP 0
+#undef BV_USE_VDSP
+#define BV_USE_VDSP 0
 #endif
 
 #ifndef BV_USE_VDSP
-  #if JUCE_IOS || JUCE_MAC
-    #define BV_USE_VDSP 1
-  #else
-    #define BV_USE_VDSP 0
-  #endif
+#if JUCE_IOS || JUCE_MAC
+#define BV_USE_VDSP 1
+#else
+#define BV_USE_VDSP 0
+#endif
 #endif
 
 #if BV_USE_VDSP
-  #undef BV_IGNORE_IPP
-  #undef BV_IGNORE_NE10
-  #undef BV_IGNORE_MIPP
-  #define BV_IGNORE_IPP
-  #define BV_IGNORE_NE10
-  #define BV_IGNORE_MIPP
+#undef BV_IGNORE_IPP
+#undef BV_IGNORE_NE10
+#undef BV_IGNORE_MIPP
+#define BV_IGNORE_IPP
+#define BV_IGNORE_NE10
+#define BV_IGNORE_MIPP
 #endif
 
 #ifdef JUCE_USE_VDSP_FRAMEWORK
-  #undef JUCE_USE_VDSP_FRAMEWORK
+#undef JUCE_USE_VDSP_FRAMEWORK
 #endif
 
 #define JUCE_USE_VDSP_FRAMEWORK BV_USE_VDSP
@@ -64,57 +64,57 @@
 
 /// IPP ///
 
-#if ! JUCE_INTEL
-  #define BV_IGNORE_IPP
+#if !JUCE_INTEL
+#define BV_IGNORE_IPP
 #endif
 
 #ifdef BV_IGNORE_IPP
-  #undef BV_USE_IPP
-  #define BV_USE_IPP 0
+#undef BV_USE_IPP
+#define BV_USE_IPP 0
 #endif
 
 #ifndef BV_USE_IPP
-  #define BV_USE_IPP 0
+#define BV_USE_IPP 0
 #endif
 
 #if BV_USE_IPP
-  #undef BV_IGNORE_NE10
-  #undef BV_IGNORE_MIPP
-  #define BV_IGNORE_NE10
-  #define BV_IGNORE_MIPP
+#undef BV_IGNORE_NE10
+#undef BV_IGNORE_MIPP
+#define BV_IGNORE_NE10
+#define BV_IGNORE_MIPP
 #endif
 
 
 /// Ne10 ///
 
-#if ! JUCE_ARM
-  #define BV_IGNORE_NE10
+#if !JUCE_ARM
+#define BV_IGNORE_NE10
 #endif
 
 #ifdef BV_IGNORE_NE10
-  #undef BV_USE_NE10
-  #define BV_USE_NE10 0
+#undef BV_USE_NE10
+#define BV_USE_NE10 0
 #endif
 
 #ifndef BV_USE_NE10
-  #define BV_USE_NE10 0
+#define BV_USE_NE10 0
 #endif
 
 #if BV_USE_NE10
-  #undef BV_IGNORE_MIPP
-  #define BV_IGNORE_MIPP
+#undef BV_IGNORE_MIPP
+#define BV_IGNORE_MIPP
 #endif
 
 
 /// MIPP ///
 
 #ifdef BV_IGNORE_MIPP
-  #undef BV_USE_MIPP
-  #define BV_USE_MIPP 0
+#undef BV_USE_MIPP
+#define BV_USE_MIPP 0
 #endif
 
 #ifndef BV_USE_MIPP
-  #define BV_USE_MIPP 0
+#define BV_USE_MIPP 0
 #endif
 
 
@@ -123,9 +123,9 @@
 */
 
 #if JUCE_32BIT
-  #define BV_BIT_DEPTH 32
+#define BV_BIT_DEPTH 32
 #elif JUCE_64BIT
-  #define BV_BIT_DEPTH 64
+#define BV_BIT_DEPTH 64
 #else
-  #error Unknown bit depth
+#error Unknown bit depth
 #endif

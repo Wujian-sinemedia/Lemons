@@ -1,8 +1,8 @@
 
 namespace bav::DefaultValueTreeIds
 {
-
-#define BV_DECLARE_VALUETREEID(name) static inline juce::Identifier name { "name" }
+#define BV_DECLARE_VALUETREEID(name)                                                \
+    static inline juce::Identifier name { "name" }
 
 BV_DECLARE_VALUETREEID (ParameterGroupNode);
 BV_DECLARE_VALUETREEID (Parameter_Float);
@@ -25,4 +25,4 @@ BV_DECLARE_VALUETREEID (NonParameterDefaultValue);
 
 #undef BV_DECLARE_VALUETREEID
 
-}  // namespace
+} // namespace bav::DefaultValueTreeIds

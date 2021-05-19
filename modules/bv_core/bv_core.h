@@ -20,7 +20,7 @@
 
 
 #ifndef BV_HAS_BINARY_DATA
-  #define BV_HAS_BINARY_DATA 0
+#define BV_HAS_BINARY_DATA 0
 #endif
 
 
@@ -34,20 +34,20 @@
 
 
 #ifdef __clang__
-  #pragma clang diagnostic push
-  #pragma clang diagnostic ignored "-Wunused-function"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-function"
 #endif
 
 
 #if BV_USE_VDSP
-  #include <Accelerate/Accelerate.h>
+#include <Accelerate/Accelerate.h>
 #elif BV_USE_IPP
-  #include <ippversion.h>
-  #include <ipps.h>
+#include <ippversion.h>
+#include <ipps.h>
 #elif BV_USE_NE10
-  #include <NE10.h>
+#include <NE10.h>
 #elif BV_USE_MIPP
-  #include <mipp.h>
+#include <mipp.h>
 #endif
 
 
@@ -89,8 +89,8 @@
 
 
 #ifdef __clang__
-  #pragma clang diagnostic pop
+#pragma clang diagnostic pop
 #endif
 
 
-#endif  /* ifndef __BV_SHARED_CODE_H__ */
+#endif /* ifndef __BV_SHARED_CODE_H__ */

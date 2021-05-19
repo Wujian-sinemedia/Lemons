@@ -1,6 +1,6 @@
 
-#if ! JUCE_ANDROID
-  #error
+#if !JUCE_ANDROID
+#error
 #endif
 
 #pragma once
@@ -10,45 +10,51 @@
 
 namespace bav
 {
- 
-
-class MotionManager :   public MotionManagerInterface,
-                        private juce::Timer
+class MotionManager : public MotionManagerInterface, private juce::Timer
 {
 public:
     MotionManager()
     {
-        sensorManager    = ASensorManager_getInstance();
-        accelerometer    = ASensorManager_getDefaultSensor (sensorManager, ASENSOR_TYPE_LINEAR_ACCELERATION);
-        rotation         = ASensorManager_getDefaultSensor (sensorManager, ASENSOR_TYPE_GYROSCOPE);
-        gravity          = ASensorManager_getDefaultSensor (sensorManager, ASENSOR_TYPE_GRAVITY);
-        attitude         = ASensorManager_getDefaultSensor (sensorManager, ASENSOR_TYPE_GAME_ROTATION_VECTOR);
+        sensorManager = ASensorManager_getInstance();
+        accelerometer = ASensorManager_getDefaultSensor (
+            sensorManager, ASENSOR_TYPE_LINEAR_ACCELERATION);
+        rotation =
+            ASensorManager_getDefaultSensor (sensorManager, ASENSOR_TYPE_GYROSCOPE);
+        gravity =
+            ASensorManager_getDefaultSensor (sensorManager, ASENSOR_TYPE_GRAVITY);
+        attitude = ASensorManager_getDefaultSensor (
+            sensorManager, ASENSOR_TYPE_GAME_ROTATION_VECTOR);
         looper           = ALooper_prepare (ALOOPER_PREPARE_ALLOW_NON_CALLBACKS);
-        motionEventQueue = ASensorManager_createEventQueue (sensorManager, looper, LOOPER_ID_USER, NULL, NULL);
+        motionEventQueue = ASensorManager_createEventQueue (
+            sensorManager, looper, LOOPER_ID_USER, NULL, NULL);
     }
-    
+
     virtual ~MotionManager() override
     {
         ASensorManager_destroyEventQueue (sensorManager, motionEventQueue);
     }
-    
+
     virtual void start() override final
     {
-        if (! running)
+        if (!running)
         {
             running = true;
             ASensorEventQueue_enableSensor (motionEventQueue, accelerometer);
-            ASensorEventQueue_setEventRate (motionEventQueue, accelerometer, SENSOR_REFRESH_PERIOD_US);
+            ASensorEventQueue_setEventRate (
+                motionEventQueue, accelerometer, SENSOR_REFRESH_PERIOD_US);
             ASensorEventQueue_enableSensor (motionEventQueue, rotation);
-            ASensorEventQueue_setEventRate (motionEventQueue, rotation, SENSOR_REFRESH_PERIOD_US);
+            ASensorEventQueue_setEventRate (
+                motionEventQueue, rotation, SENSOR_REFRESH_PERIOD_US);
             ASensorEventQueue_enableSensor (motionEventQueue, gravity);
-            ASensorEventQueue_setEventRate (motionEventQueue, gravity, SENSOR_REFRESH_PERIOD_US);
+            ASensorEventQueue_setEventRate (
+                motionEventQueue, gravity, SENSOR_REFRESH_PERIOD_US);
             ASensorEventQueue_enableSensor (motionEventQueue, attitude);
-            ASensorEventQueue_setEventRate (motionEventQueue, attitude, SENSOR_REFRESH_PERIOD_US);
+            ASensorEventQueue_setEventRate (
+                motionEventQueue, attitude, SENSOR_REFRESH_PERIOD_US);
             Timer::startTimerHz (SENSOR_REFRESH_RATE_HZ);
         }
     }
-    
+
     virtual void stop() override final
     {
         running = false;
@@ -58,37 +64,36 @@ public:
         ASensorEventQueue_disableSensor (motionEventQueue, attitude);
         Timer::stopTimer();
     }
-    
+
     virtual bool isRunning() override final { return running; }
-    
+
     void timerCallback() override final
     {
-        if (running)
-            update();
+        if (running) update();
     }
-    
-    
+
+
 private:
     bool running;
-    
-    const int LOOPER_ID_USER = 3;
-    int SENSOR_REFRESH_RATE_HZ = 100;
-    int SENSOR_REFRESH_PERIOD_US = 1000000 / SENSOR_REFRESH_RATE_HZ;
-    
-    ASensorManager* sensorManager;
+
+    const int LOOPER_ID_USER           = 3;
+    int       SENSOR_REFRESH_RATE_HZ   = 100;
+    int       SENSOR_REFRESH_PERIOD_US = 1000000 / SENSOR_REFRESH_RATE_HZ;
+
+    ASensorManager*    sensorManager;
     ASensorEventQueue* motionEventQueue;
-    ALooper* looper;
-    
+    ALooper*           looper;
+
     const ASensor* accelerometer;
     const ASensor* rotation;
     const ASensor* gravity;
     const ASensor* attitude;
-    
+
     void update()
     {
         ALooper_pollAll (0, NULL, NULL, NULL);
         ASensorEvent event;
-        
+
         while (ASensorEventQueue_getEvents (motionEventQueue, &event, 1) > 0)
         {
             if (event.type == ASENSOR_TYPE_LINEAR_ACCELERATION)
@@ -119,4 +124,4 @@ private:
     }
 };
 
-}  // namespace
+} // namespace bav

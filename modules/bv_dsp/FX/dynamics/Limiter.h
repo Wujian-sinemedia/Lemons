@@ -2,188 +2,191 @@
 
 namespace bav::dsp::FX
 {
-    
 /*
     Simple limiter that allows you to sidechain the signal.
 */
-    
-    template<typename SampleType>
-    class Limiter
+
+template < typename SampleType >
+class Limiter
+{
+public:
+    Limiter() { }
+
+    virtual ~Limiter() = default;
+
+    void setThreshold (float thresh_dB)
     {
-    public:
-        Limiter() { }
-        
-        virtual ~Limiter() = default;
-        
-        void setThreshold (float thresh_dB)
+        thresholddB = thresh_dB;
+        update();
+    }
+
+    void setRelease (float release_ms)
+    {
+        releaseTime = release_ms;
+        update();
+    }
+
+    void prepare (int blocksize, double samplerate, int numChannels)
+    {
+        jassert (samplerate > 0);
+        jassert (numChannels > 0);
+
+        sampleRate = samplerate;
+
+        firstStageCompressor.prepare (blocksize, samplerate, numChannels);
+        secondStageCompressor.prepare (blocksize, samplerate, numChannels);
+
+        update();
+        reset();
+    }
+
+    void reset()
+    {
+        firstStageCompressor.reset();
+        secondStageCompressor.reset();
+
+        outputVolume.reset (sampleRate, 0.001);
+    }
+
+
+    //  processes a signal with no sidechain
+    void process (juce::AudioBuffer< SampleType >& signalToLimit,
+                  SampleType*                      gainReduction = nullptr)
+    {
+        process (signalToLimit, signalToLimit, gainReduction);
+    }
+
+
+    //  processes a signal with an external sidechain. Use the same buffer in both arguments to sidechain a signal to itself.
+    void process (const juce::AudioBuffer< SampleType >& sidechain,
+                  juce::AudioBuffer< SampleType >&       signalToLimit,
+                  SampleType*                            gainReduction = nullptr)
+    {
+        const auto numChannels = signalToLimit.getNumChannels();
+        const auto numSamples  = signalToLimit.getNumSamples();
+
+        jassert (sidechain.getNumChannels() == numChannels);
+        jassert (sidechain.getNumSamples() == numSamples);
+
+        for (int channel = 0; channel < numChannels; ++channel)
         {
-            thresholddB = thresh_dB;
-            update();
+            process (channel,
+                     numSamples,
+                     signalToLimit.getWritePointer (channel),
+                     sidechain.getReadPointer (channel),
+                     gainReduction);
         }
-        
-        void setRelease (float release_ms)
+    }
+
+
+    //  processes a signal with an external sidechain. Omit the final argument or pass a nullptr to sidechain the signal to itself.
+    void process (const int         channel,
+                  const int         numSamples,
+                  SampleType*       signalToLimit,
+                  const SampleType* sidechain     = nullptr,
+                  SampleType*       gainReduction = nullptr)
+    {
+        if (sidechain == nullptr) sidechain = signalToLimit;
+
+        auto getMagnitude = [] (SampleType* signal, int numSamps)
         {
-            releaseTime = release_ms;
-            update();
-        }
-        
-        void prepare (int blocksize, double samplerate, int numChannels)
+            auto r = juce::FloatVectorOperations::findMinAndMax (signal, numSamps);
+            return juce::jmax (r.getStart(), -r.getStart(), r.getEnd(), -r.getEnd());
+        };
+
+        const auto levelBefore = getMagnitude (signalToLimit, numSamples);
+
+        for (int s = 0; s < numSamples; ++s)
         {
-            jassert (samplerate > 0);
-            jassert (numChannels > 0);
-            
-            sampleRate = samplerate;
-            
-            firstStageCompressor.prepare (blocksize, samplerate, numChannels);
-            secondStageCompressor.prepare (blocksize, samplerate, numChannels);
-            
-            update();
-            reset();
+            const auto sc = sidechain[s];
+
+            *(signalToLimit + s) =
+                firstStageCompressor.processSample (channel, signalToLimit[s], sc);
+            *(signalToLimit + s) =
+                secondStageCompressor.processSample (channel, signalToLimit[s], sc);
+            *(signalToLimit + s) = signalToLimit[s] * outputVolume.getNextValue();
         }
-        
-        void reset()
+
+        juce::FloatVectorOperations::clip (signalToLimit,
+                                           signalToLimit,
+                                           SampleType (-1.0),
+                                           SampleType (1.0),
+                                           numSamples);
+
+        if (gainReduction != nullptr)
         {
-            firstStageCompressor.reset();
-            secondStageCompressor.reset();
-            
-            outputVolume.reset (sampleRate, 0.001);
+            const auto levelAfter = getMagnitude (signalToLimit, numSamples);
+
+            *gainReduction = juce::jlimit (
+                SampleType (0.0), SampleType (1.0), levelAfter - levelBefore);
         }
-        
-        
-        //  processes a signal with no sidechain
-        void process (juce::AudioBuffer<SampleType>& signalToLimit,
-                      SampleType* gainReduction = nullptr)
-        {
-            process (signalToLimit, signalToLimit, gainReduction);
-        }
-        
-        
-        //  processes a signal with an external sidechain. Use the same buffer in both arguments to sidechain a signal to itself.
-        void process (const juce::AudioBuffer<SampleType>& sidechain,
-                      juce::AudioBuffer<SampleType>& signalToLimit,
-                      SampleType* gainReduction = nullptr)
-        {
-            const auto numChannels = signalToLimit.getNumChannels();
-            const auto numSamples  = signalToLimit.getNumSamples();
-            
-            jassert (sidechain.getNumChannels() == numChannels);
-            jassert (sidechain.getNumSamples() == numSamples);
-            
-            for (int channel = 0; channel < numChannels; ++channel)
-            {
-                process (channel, numSamples,
-                         signalToLimit.getWritePointer (channel),
-                         sidechain.getReadPointer (channel),
-                         gainReduction);
-            }
-        }
-        
-        
-        //  processes a signal with an external sidechain. Omit the final argument or pass a nullptr to sidechain the signal to itself.
-        void process (const int channel,
-                      const int numSamples,
-                      SampleType* signalToLimit,
-                      const SampleType* sidechain = nullptr,
-                      SampleType* gainReduction = nullptr)
-        {
-            if (sidechain == nullptr)
-                sidechain = signalToLimit;
-            
-            auto getMagnitude = [](SampleType* signal, int numSamps)
-                                {
-                                    auto r = juce::FloatVectorOperations::findMinAndMax (signal, numSamps);
-                                    return juce::jmax (r.getStart(), -r.getStart(), r.getEnd(), -r.getEnd());
-                                };
-            
-            const auto levelBefore = getMagnitude (signalToLimit, numSamples);
-            
-            for (int s = 0; s < numSamples; ++s)
-            {
-                const auto sc = sidechain[s];
-                
-                *(signalToLimit + s) = firstStageCompressor.processSample  (channel, signalToLimit[s], sc);
-                *(signalToLimit + s) = secondStageCompressor.processSample (channel, signalToLimit[s], sc);
-                *(signalToLimit + s) = signalToLimit[s] * outputVolume.getNextValue();
-            }
-            
-            juce::FloatVectorOperations::clip (signalToLimit, signalToLimit, SampleType(-1.0), SampleType(1.0), numSamples);
-            
-            if (gainReduction != nullptr)
-            {
-                const auto levelAfter = getMagnitude (signalToLimit, numSamples);
-                
-                *gainReduction = juce::jlimit (SampleType(0.0), SampleType(1.0),
-                                               levelAfter - levelBefore);
-            }
-        }
-        
-        
-    private:
-        
-        void update()
-        {
-            firstStageCompressor.setThreshold (-10.0f);
-            firstStageCompressor.setRatio     (4.0f);
-            firstStageCompressor.setAttack    (2.0f);
-            firstStageCompressor.setRelease   (200.0f);
-            
-            secondStageCompressor.setThreshold (thresholddB);
-            secondStageCompressor.setRatio     (1000.0f);
-            secondStageCompressor.setAttack    (0.001f);
-            secondStageCompressor.setRelease   (releaseTime);
-            
-            auto ratioInverse = (SampleType) (1.0 / 4.0);
-            
-            auto gain = (SampleType) std::pow (10.0, 10.0 * (1.0 - ratioInverse) / 40.0);
-            gain *= juce::Decibels::decibelsToGain (-thresholddB, -100.0f);
-            
-            outputVolume.setTargetValue (gain);
-        }
-        
-        
-        Compressor<SampleType> firstStageCompressor, secondStageCompressor;
-        
-        juce::SmoothedValue<SampleType, juce::ValueSmoothingTypes::Linear> outputVolume;
-        
-        double sampleRate = 44100.0;
-        float thresholddB = -10.0, releaseTime = 100.0;
-        
-        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Limiter)
-    };
-    
-    
-    template class Limiter<float>;
-    template class Limiter<double>;
-    
-    
-    /*
+    }
+
+
+private:
+    void update()
+    {
+        firstStageCompressor.setThreshold (-10.0f);
+        firstStageCompressor.setRatio (4.0f);
+        firstStageCompressor.setAttack (2.0f);
+        firstStageCompressor.setRelease (200.0f);
+
+        secondStageCompressor.setThreshold (thresholddB);
+        secondStageCompressor.setRatio (1000.0f);
+        secondStageCompressor.setAttack (0.001f);
+        secondStageCompressor.setRelease (releaseTime);
+
+        auto ratioInverse = (SampleType) (1.0 / 4.0);
+
+        auto gain = (SampleType) std::pow (10.0, 10.0 * (1.0 - ratioInverse) / 40.0);
+        gain *= juce::Decibels::decibelsToGain (-thresholddB, -100.0f);
+
+        outputVolume.setTargetValue (gain);
+    }
+
+
+    Compressor< SampleType > firstStageCompressor, secondStageCompressor;
+
+    juce::SmoothedValue< SampleType, juce::ValueSmoothingTypes::Linear >
+        outputVolume;
+
+    double sampleRate  = 44100.0;
+    float  thresholddB = -10.0, releaseTime = 100.0;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Limiter)
+};
+
+
+template class Limiter< float >;
+template class Limiter< double >;
+
+
+/*
         A version that implements the ReorderableEffect interface, for use with my ReorderableFxChain class.
     */
-    template<typename SampleType>
-    class ReorderableLimiter :    public Limiter<SampleType>,
-                                  public ReorderableEffect<SampleType>
+template < typename SampleType >
+class ReorderableLimiter : public Limiter< SampleType >,
+                           public ReorderableEffect< SampleType >
+{
+public:
+    ReorderableLimiter() { }
+
+protected:
+    void fxChain_process (juce::AudioBuffer< SampleType >& audio) override
     {
-    public:
-        ReorderableLimiter() { }
-    
-    protected:
-        void fxChain_process (juce::AudioBuffer<SampleType>& audio) override
-        {
-            Limiter<SampleType>::process (audio);
-        }
-        
-        void fxChain_prepare (double samplerate, int blocksize) override
-        {
-            Limiter<SampleType>::prepare (blocksize, samplerate, 2);
-        }
-    
-    private:
-        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(ReorderableLimiter)
-    };
-    
-    template class ReorderableLimiter<float>;
-    template class ReorderableLimiter<double>;
-    
-}  // namespace 
+        Limiter< SampleType >::process (audio);
+    }
 
+    void fxChain_prepare (double samplerate, int blocksize) override
+    {
+        Limiter< SampleType >::prepare (blocksize, samplerate, 2);
+    }
 
+private:
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ReorderableLimiter)
+};
+
+template class ReorderableLimiter< float >;
+template class ReorderableLimiter< double >;
+
+} // namespace bav::dsp::FX

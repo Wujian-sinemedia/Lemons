@@ -1,114 +1,119 @@
 
 namespace bav
 {
-
 // this struct holds the data for a ValueTree property node that will not be represented by an actual parameter object
 struct NonParamValueTreeNode
 {
-    NonParamValueTreeNode (int id,
+    NonParamValueTreeNode (int                 id,
                            const juce::String& nameShort,
                            const juce::String& nameVerbose)
-      : nodeID (id),
-        shortName (TRANS (nameShort)),
-        longName (TRANS (nameVerbose))
-    { }
-    
+        : nodeID (id)
+        , shortName (TRANS (nameShort))
+        , longName (TRANS (nameVerbose))
+    {
+    }
+
     virtual ~NonParamValueTreeNode() = default;
-    
+
     //
-    
+
     virtual juce::String getCurrentValueAsString (int maximumLength = 100) const = 0;
     virtual juce::String getDefaultValueAsString (int maximumLength = 100) const = 0;
-    
+
     //
-    
-    virtual void setCurrentValueAsDefault() = 0;
-    virtual void resetToDefaultValue() = 0;
-    virtual void setValueFromString (juce::String string) = 0;
+
+    virtual void setCurrentValueAsDefault()                      = 0;
+    virtual void resetToDefaultValue()                           = 0;
+    virtual void setValueFromString (juce::String string)        = 0;
     virtual void setDefaultValueFromString (juce::String string) = 0;
-    
+
     //
-    
-    void doAction()
+
+    void doAction() { actionableFunction(); }
+
+    void setFloatAction (std::function< void (float) > action)
     {
-        actionableFunction();
-    }
-    
-    void setFloatAction (std::function < void (float) > action)
-    {
-        floatAction  = std::move(action);
+        floatAction  = std::move (action);
         intAction    = nullptr;
         boolAction   = nullptr;
         stringAction = nullptr;
     }
-    
-    void setIntAction (std::function < void (int) > action)
+
+    void setIntAction (std::function< void (int) > action)
     {
-        intAction    = std::move(action);
+        intAction    = std::move (action);
         floatAction  = nullptr;
         boolAction   = nullptr;
         stringAction = nullptr;
     }
-    
-    void setBoolAction (std::function < void (bool) > action)
+
+    void setBoolAction (std::function< void (bool) > action)
     {
-        boolAction   = std::move(action);
+        boolAction   = std::move (action);
         floatAction  = nullptr;
         intAction    = nullptr;
         stringAction = nullptr;
     }
-    
-    void setStringAction (std::function < void (juce::String) > action)
+
+    void setStringAction (std::function< void (juce::String) > action)
     {
-        stringAction = std::move(action);
+        stringAction = std::move (action);
         floatAction  = nullptr;
         intAction    = nullptr;
         boolAction   = nullptr;
     }
-    
+
     //
-    
-    void updateValueFromExternalSource()
-    {
-        valueUpdatingFunction();
-    }
-    
-    std::function < void() > valueUpdatingFunction { [](){} };
-    
+
+    void updateValueFromExternalSource() { valueUpdatingFunction(); }
+
+    std::function< void() > valueUpdatingFunction {[]() {
+    }};
+
     //
-    
+
     virtual juce::ValueTree toValueTree() const = 0;
-    
+
     //
-    
+
     const int nodeID;
-    
+
     const juce::String shortName;
     const juce::String longName;
-    
+
     //==============================================================================
-    
+
     struct Listener
     {
-        virtual void propertyValueChanged (const juce::String& currentValueAsString) = 0;
-        
-        virtual void propertyDefaultValueChanged (const juce::String& currentValueAsString) { juce::ignoreUnused (currentValueAsString); }
+        virtual void
+            propertyValueChanged (const juce::String& currentValueAsString) = 0;
+
+        virtual void
+            propertyDefaultValueChanged (const juce::String& currentValueAsString)
+        {
+            juce::ignoreUnused (currentValueAsString);
+        }
     };
-    
+
     //==============================================================================
-    
+
     void addListener (Listener* l) { listeners.add (l); }
     void removeListener (Listener* l) { listeners.remove (l); }
-    
+
 protected:
     juce::ListenerList< Listener > listeners;
-    
-    std::function < void (float) >        floatAction  { [](float){} };
-    std::function < void (int) >          intAction    { [](int){} };
-    std::function < void (bool) >         boolAction   { [](bool){} };
-    std::function < void (juce::String) > stringAction { [](juce::String){} };
-    
-    std::function< void() > actionableFunction { [](){} };
+
+    std::function< void (float) >        floatAction {[] (float) {
+    }};
+    std::function< void (int) >          intAction {[] (int) {
+    }};
+    std::function< void (bool) >         boolAction {[] (bool) {
+    }};
+    std::function< void (juce::String) > stringAction {[] (juce::String) {
+    }};
+
+    std::function< void() > actionableFunction {[]() {
+    }};
 };
 
 
@@ -116,91 +121,94 @@ protected:
 //==============================================================================
 
 
-struct IntValueTreeNode  :  NonParamValueTreeNode
+struct IntValueTreeNode : NonParamValueTreeNode
 {
-    using Base = NonParamValueTreeNode;
+    using Base     = NonParamValueTreeNode;
     using Listener = NonParamValueTreeNode::Listener;
-    
-    IntValueTreeNode (int id,
-                      const juce::String& nameShort,
-                      const juce::String& nameVerbose,
-                      int min, int max, int defaultVal,
-                      std::function < juce::String (int, int) > stringFromIntFunc = nullptr,
-                      std::function < int (juce::String) > intFromStringFunc = nullptr)
-      : NonParamValueTreeNode (id, nameShort, nameVerbose),
-        minValue (min), maxValue(max),
-        stringFromInt (std::move (stringFromIntFunc)),
-        intFromString (std::move (intFromStringFunc)),
-        currentValue (defaultVal), defaultValue (defaultVal)
+
+    IntValueTreeNode (
+        int                                      id,
+        const juce::String&                      nameShort,
+        const juce::String&                      nameVerbose,
+        int                                      min,
+        int                                      max,
+        int                                      defaultVal,
+        std::function< juce::String (int, int) > stringFromIntFunc = nullptr,
+        std::function< int (juce::String) >      intFromStringFunc = nullptr)
+        : NonParamValueTreeNode (id, nameShort, nameVerbose)
+        , minValue (min)
+        , maxValue (max)
+        , stringFromInt (std::move (stringFromIntFunc))
+        , intFromString (std::move (intFromStringFunc))
+        , currentValue (defaultVal)
+        , defaultValue (defaultVal)
     {
         Base::actionableFunction = [this]()
-                                   {
-                                       const auto value = getCurrentValue();
-                                       
-                                       if (value != lastActionedValue.load())
-                                       {
-                                           lastActionedValue.store (value);
-                                           Base::intAction (value);
-                                       }
-                                   };
-        
+        {
+            const auto value = getCurrentValue();
+
+            if (value != lastActionedValue.load())
+            {
+                lastActionedValue.store (value);
+                Base::intAction (value);
+            }
+        };
+
         Base::valueUpdatingFunction = [this]()
-                                      {
-                                          setValue (getNewValueFromExternalSource());
-                                      };
-        
+        {
+            setValue (getNewValueFromExternalSource());
+        };
+
         lastActionedValue.store (defaultValue.load());
     }
-    
-    juce::String getCurrentValueAsString (int maximumLength = 100) const override final
+
+    juce::String
+        getCurrentValueAsString (int maximumLength = 100) const override final
     {
-        if (stringFromInt)
-            return stringFromInt (currentValue.load(), maximumLength);
-        
+        if (stringFromInt) return stringFromInt (currentValue.load(), maximumLength);
+
         return {};
     }
-    
-    juce::String getDefaultValueAsString (int maximumLength = 100) const override final
+
+    juce::String
+        getDefaultValueAsString (int maximumLength = 100) const override final
     {
-        if (stringFromInt)
-            return stringFromInt (defaultValue.load(), maximumLength);
-        
+        if (stringFromInt) return stringFromInt (defaultValue.load(), maximumLength);
+
         return {};
     }
-    
+
     int getCurrentValue() const { return currentValue.load(); }
-    
+
     int getDefaultValue() const { return defaultValue.load(); }
-    
+
     //
-    
+
     void setValue (int newValue)
     {
-        if (currentValue.load() == newValue)
-            return;
-        
+        if (currentValue.load() == newValue) return;
+
         currentValue.store (newValue);
         const auto asString = getCurrentValueAsString();
-        Base::listeners.call ([&asString] (Listener& l) { l.propertyValueChanged (asString); });
+        Base::listeners.call ([&asString] (Listener& l)
+                              { l.propertyValueChanged (asString); });
     }
-    
+
     void setDefaultValue (int newDefault)
     {
         defaultValue.store (newDefault);
         const auto asString = getDefaultValueAsString();
-        Base::listeners.call ([&asString] (Listener& l) { l.propertyDefaultValueChanged (asString); });
+        Base::listeners.call ([&asString] (Listener& l)
+                              { l.propertyDefaultValueChanged (asString); });
     }
-    
+
     void setCurrentValueAsDefault() override final
     {
         setDefaultValue (getCurrentValue());
     }
-    
-    void resetToDefaultValue() override final
-    {
-        setValue (getDefaultValue());
-    }
-    
+
+    void resetToDefaultValue() override final { setValue (getDefaultValue()); }
+
     void setValueFromString (juce::String string) override final
     {
         if (intFromString)
@@ -208,7 +216,7 @@ struct IntValueTreeNode  :  NonParamValueTreeNode
         else
             setValue (backup_ValueFromString (string));
     }
-    
+
     void setDefaultValueFromString (juce::String string) override final
     {
         if (intFromString)
@@ -216,43 +224,47 @@ struct IntValueTreeNode  :  NonParamValueTreeNode
         else
             setDefaultValue (backup_ValueFromString (string));
     }
-    
+
     //
-    
+
     juce::ValueTree toValueTree() const override final
     {
         using namespace DefaultValueTreeIds;
-        
-        juce::ValueTree tree { NonParameterNode_Int };
-        
+
+        juce::ValueTree tree {NonParameterNode_Int};
+
         tree.setProperty (NonParameterName, Base::longName, nullptr);
         tree.setProperty (NonParameterValue, getCurrentValue(), nullptr);
         tree.setProperty (NonParameterDefaultValue, getDefaultValue(), nullptr);
-        
+
         return tree;
     }
-    
+
     //
-    
+
     const int minValue, maxValue;
-    
-    std::function < juce::String (int, int) > stringFromInt;
-    std::function < int (juce::String) > intFromString;
-    
-    std::function < int () > getNewValueFromExternalSource { [this](){ return getCurrentValue(); } };
-    
+
+    std::function< juce::String (int, int) > stringFromInt;
+    std::function< int (juce::String) >      intFromString;
+
+    std::function< int() > getNewValueFromExternalSource {
+        [this]()
+        {
+            return getCurrentValue();
+        }};
+
     //
-    
+
 private:
-    std::atomic<int> currentValue;
-    std::atomic<int> defaultValue;
-    
+    std::atomic< int > currentValue;
+    std::atomic< int > defaultValue;
+
     int backup_ValueFromString (const juce::String& string)
     {
         return string.retainCharacters ("01234567890").getIntValue();
     }
-    
-    std::atomic<int> lastActionedValue;
+
+    std::atomic< int > lastActionedValue;
 };
 
 
@@ -260,90 +272,92 @@ private:
 //==============================================================================
 
 
-struct BoolValueTreeNode   :  NonParamValueTreeNode
+struct BoolValueTreeNode : NonParamValueTreeNode
 {
-    using Base = NonParamValueTreeNode;
+    using Base     = NonParamValueTreeNode;
     using Listener = NonParamValueTreeNode::Listener;
-    
-    BoolValueTreeNode (int id,
-                       const juce::String& nameShort,
-                       const juce::String& nameVerbose,
-                       bool defaultVal,
-                       std::function < juce::String (bool, int) > stringFromBoolFunc = nullptr,
-                       std::function < int (juce::String) > boolFromStringFunc = nullptr)
-      : NonParamValueTreeNode (id, nameShort, nameVerbose),
-        stringFromBool (std::move (stringFromBoolFunc)),
-        boolFromString (std::move (boolFromStringFunc)),
-        currentValue (defaultVal), defaultValue (defaultVal)
+
+    BoolValueTreeNode (
+        int                                       id,
+        const juce::String&                       nameShort,
+        const juce::String&                       nameVerbose,
+        bool                                      defaultVal,
+        std::function< juce::String (bool, int) > stringFromBoolFunc = nullptr,
+        std::function< int (juce::String) >       boolFromStringFunc = nullptr)
+        : NonParamValueTreeNode (id, nameShort, nameVerbose)
+        , stringFromBool (std::move (stringFromBoolFunc))
+        , boolFromString (std::move (boolFromStringFunc))
+        , currentValue (defaultVal)
+        , defaultValue (defaultVal)
     {
         Base::actionableFunction = [this]()
-                                   {
-                                       const auto value = getCurrentValue();
-                                       
-                                       if (value != lastActionedValue.load())
-                                       {
-                                           lastActionedValue.store (value);
-                                           Base::boolAction (value);
-                                       }
-                                   };
-        
+        {
+            const auto value = getCurrentValue();
+
+            if (value != lastActionedValue.load())
+            {
+                lastActionedValue.store (value);
+                Base::boolAction (value);
+            }
+        };
+
         Base::valueUpdatingFunction = [this]()
-                                      {
-                                          setValue (getNewValueFromExternalSource());
-                                      };
-        
+        {
+            setValue (getNewValueFromExternalSource());
+        };
+
         lastActionedValue.store (defaultValue.load());
     }
-    
-    juce::String getCurrentValueAsString (int maximumLength = 100) const override final
+
+    juce::String
+        getCurrentValueAsString (int maximumLength = 100) const override final
     {
         if (stringFromBool)
             return stringFromBool (currentValue.load(), maximumLength);
-        
+
         return {};
     }
-    
-    juce::String getDefaultValueAsString (int maximumLength = 100) const override final
+
+    juce::String
+        getDefaultValueAsString (int maximumLength = 100) const override final
     {
         if (stringFromBool)
             return stringFromBool (defaultValue.load(), maximumLength);
-        
+
         return {};
     }
-    
+
     bool getCurrentValue() const { return currentValue.load(); }
-    
+
     bool getDefaultValue() const { return defaultValue.load(); }
-    
+
     //
-    
+
     void setValue (bool newValue)
     {
-        if (currentValue.load() == newValue)
-            return;
-        
+        if (currentValue.load() == newValue) return;
+
         currentValue.store (newValue);
         const auto asString = getCurrentValueAsString();
-        Base::listeners.call ([&asString] (Listener& l) { l.propertyValueChanged (asString); });
+        Base::listeners.call ([&asString] (Listener& l)
+                              { l.propertyValueChanged (asString); });
     }
-    
+
     void setDefaultValue (bool newDefault)
     {
         defaultValue.store (newDefault);
         const auto asString = getDefaultValueAsString();
-        Base::listeners.call ([&asString] (Listener& l) { l.propertyDefaultValueChanged (asString); });
+        Base::listeners.call ([&asString] (Listener& l)
+                              { l.propertyDefaultValueChanged (asString); });
     }
-    
+
     void setCurrentValueAsDefault() override final
     {
         setDefaultValue (getCurrentValue());
     }
-    
-    void resetToDefaultValue() override final
-    {
-        setValue (getDefaultValue());
-    }
-    
+
+    void resetToDefaultValue() override final { setValue (getDefaultValue()); }
+
     void setValueFromString (juce::String string) override final
     {
         if (boolFromString)
@@ -351,7 +365,7 @@ struct BoolValueTreeNode   :  NonParamValueTreeNode
         else
             setValue (backup_ValueFromString (string));
     }
-    
+
     void setDefaultValueFromString (juce::String string) override final
     {
         if (boolFromString)
@@ -359,44 +373,49 @@ struct BoolValueTreeNode   :  NonParamValueTreeNode
         else
             setDefaultValue (backup_ValueFromString (string));
     }
-    
+
     //
-    
+
     juce::ValueTree toValueTree() const override final
     {
         using namespace DefaultValueTreeIds;
-        
-        juce::ValueTree tree { NonParameterNode_Bool };
-        
+
+        juce::ValueTree tree {NonParameterNode_Bool};
+
         tree.setProperty (NonParameterName, Base::longName, nullptr);
         tree.setProperty (NonParameterValue, getCurrentValue(), nullptr);
         tree.setProperty (NonParameterDefaultValue, getDefaultValue(), nullptr);
-        
+
         return tree;
     }
-    
+
     //
-    
-    std::function < juce::String (bool, int) > stringFromBool;
-    std::function < bool (juce::String) > boolFromString;
-    
-    std::function < bool () > getNewValueFromExternalSource { [this](){ return getCurrentValue(); } };
-    
+
+    std::function< juce::String (bool, int) > stringFromBool;
+    std::function< bool (juce::String) >      boolFromString;
+
+    std::function< bool() > getNewValueFromExternalSource {
+        [this]()
+        {
+            return getCurrentValue();
+        }};
+
     //
-    
+
 private:
-    std::atomic<bool> currentValue;
-    std::atomic<bool> defaultValue;
-    
+    std::atomic< bool > currentValue;
+    std::atomic< bool > defaultValue;
+
     bool backup_ValueFromString (const juce::String& string)
     {
-        if (string.containsWholeWordIgnoreCase ("Yes") || string.containsWholeWordIgnoreCase ("True"))
+        if (string.containsWholeWordIgnoreCase ("Yes")
+            || string.containsWholeWordIgnoreCase ("True"))
             return true;
-        
+
         return false;
     }
-    
-    std::atomic<bool> lastActionedValue;
+
+    std::atomic< bool > lastActionedValue;
 };
 
 
@@ -404,92 +423,94 @@ private:
 //==============================================================================
 
 
-struct FloatValueTreeNode  :  NonParamValueTreeNode
+struct FloatValueTreeNode : NonParamValueTreeNode
 {
-    using Base = NonParamValueTreeNode;
+    using Base     = NonParamValueTreeNode;
     using Listener = NonParamValueTreeNode::Listener;
-    
-    FloatValueTreeNode (int id,
-                        const juce::String& nameShort,
-                        const juce::String& nameVerbose,
-                        juce::NormalisableRange<float> normRange,
-                        float defaultVal,
-                        std::function < juce::String (float, int) > stringFromFloatFunc = nullptr,
-                        std::function < float (juce::String) > floatFromStringFunc = nullptr)
-      : NonParamValueTreeNode (id, nameShort, nameVerbose),
-        range (normRange),
-        stringFromFloat (std::move (stringFromFloatFunc)),
-        floatFromString (std::move (floatFromStringFunc)),
-        currentValue (defaultVal), defaultValue (defaultVal)
+
+    FloatValueTreeNode (
+        int                                        id,
+        const juce::String&                        nameShort,
+        const juce::String&                        nameVerbose,
+        juce::NormalisableRange< float >           normRange,
+        float                                      defaultVal,
+        std::function< juce::String (float, int) > stringFromFloatFunc = nullptr,
+        std::function< float (juce::String) >      floatFromStringFunc = nullptr)
+        : NonParamValueTreeNode (id, nameShort, nameVerbose)
+        , range (normRange)
+        , stringFromFloat (std::move (stringFromFloatFunc))
+        , floatFromString (std::move (floatFromStringFunc))
+        , currentValue (defaultVal)
+        , defaultValue (defaultVal)
     {
         Base::actionableFunction = [this]()
-                                   {
-                                       const auto value = getCurrentValue();
-                                       
-                                       if (value != lastActionedValue.load())
-                                       {
-                                           lastActionedValue.store (value);
-                                           Base::floatAction (value);
-                                       }
-                                   };
-        
+        {
+            const auto value = getCurrentValue();
+
+            if (value != lastActionedValue.load())
+            {
+                lastActionedValue.store (value);
+                Base::floatAction (value);
+            }
+        };
+
         Base::valueUpdatingFunction = [this]()
-                                      {
-                                          setValue (getNewValueFromExternalSource());
-                                      };
-        
+        {
+            setValue (getNewValueFromExternalSource());
+        };
+
         lastActionedValue.store (defaultValue.load());
     }
-    
-    juce::String getCurrentValueAsString (int maximumLength = 100) const override final
+
+    juce::String
+        getCurrentValueAsString (int maximumLength = 100) const override final
     {
         if (stringFromFloat)
             return stringFromFloat (currentValue.load(), maximumLength);
-        
+
         return {};
     }
-    
-    juce::String getDefaultValueAsString (int maximumLength = 100) const override final
+
+    juce::String
+        getDefaultValueAsString (int maximumLength = 100) const override final
     {
         if (stringFromFloat)
             return stringFromFloat (defaultValue.load(), maximumLength);
-        
+
         return {};
     }
-    
+
     float getCurrentValue() const { return currentValue.load(); }
-    
+
     float getDefaultValue() const { return defaultValue.load(); }
-    
+
     //
-    
+
     void setValue (float newValue)
     {
-        if (currentValue.load() == newValue)
-            return;
-        
+        if (currentValue.load() == newValue) return;
+
         currentValue.store (newValue);
         const auto asString = getCurrentValueAsString();
-        Base::listeners.call ([&asString] (Listener& l) { l.propertyValueChanged (asString); });
+        Base::listeners.call ([&asString] (Listener& l)
+                              { l.propertyValueChanged (asString); });
     }
-    
+
     void setDefaultValue (float newDefault)
     {
         defaultValue.store (newDefault);
         const auto asString = getDefaultValueAsString();
-        Base::listeners.call ([&asString] (Listener& l) { l.propertyDefaultValueChanged (asString); });
+        Base::listeners.call ([&asString] (Listener& l)
+                              { l.propertyDefaultValueChanged (asString); });
     }
-    
+
     void setCurrentValueAsDefault() override final
     {
         setDefaultValue (getCurrentValue());
     }
-    
-    void resetToDefaultValue() override final
-    {
-        setValue (getDefaultValue());
-    }
-    
+
+    void resetToDefaultValue() override final { setValue (getDefaultValue()); }
+
     void setValueFromString (juce::String string) override final
     {
         if (floatFromString)
@@ -497,7 +518,7 @@ struct FloatValueTreeNode  :  NonParamValueTreeNode
         else
             setValue (backup_ValueFromString (string));
     }
-    
+
     void setDefaultValueFromString (juce::String string) override final
     {
         if (floatFromString)
@@ -505,43 +526,47 @@ struct FloatValueTreeNode  :  NonParamValueTreeNode
         else
             setDefaultValue (backup_ValueFromString (string));
     }
-    
+
     //
-    
+
     juce::ValueTree toValueTree() const override final
     {
         using namespace DefaultValueTreeIds;
-        
-        juce::ValueTree tree { NonParameterNode_Float };
-        
+
+        juce::ValueTree tree {NonParameterNode_Float};
+
         tree.setProperty (NonParameterName, Base::longName, nullptr);
         tree.setProperty (NonParameterValue, getCurrentValue(), nullptr);
         tree.setProperty (NonParameterDefaultValue, getDefaultValue(), nullptr);
-        
+
         return tree;
     }
-    
+
     //
-    
-    const juce::NormalisableRange<float> range;
-    
-    std::function < juce::String (float, int) > stringFromFloat;
-    std::function < float (juce::String) > floatFromString;
-    
-    std::function < float () > getNewValueFromExternalSource { [this](){ return getCurrentValue(); } };
-    
+
+    const juce::NormalisableRange< float > range;
+
+    std::function< juce::String (float, int) > stringFromFloat;
+    std::function< float (juce::String) >      floatFromString;
+
+    std::function< float() > getNewValueFromExternalSource {
+        [this]()
+        {
+            return getCurrentValue();
+        }};
+
     //
-    
+
 private:
-    std::atomic<float> currentValue;
-    std::atomic<float> defaultValue;
-    
+    std::atomic< float > currentValue;
+    std::atomic< float > defaultValue;
+
     float backup_ValueFromString (const juce::String& string)
     {
         return string.retainCharacters (".01234567890").getFloatValue();
     }
-    
-    std::atomic<float> lastActionedValue;
+
+    std::atomic< float > lastActionedValue;
 };
 
 
@@ -549,129 +574,133 @@ private:
 //==============================================================================
 
 
-struct StringValueTreeNode :  NonParamValueTreeNode
+struct StringValueTreeNode : NonParamValueTreeNode
 {
-    using Base = NonParamValueTreeNode;
+    using Base     = NonParamValueTreeNode;
     using Listener = NonParamValueTreeNode::Listener;
-    
-    StringValueTreeNode (int id,
+
+    StringValueTreeNode (int                 id,
                          const juce::String& nameShort,
                          const juce::String& nameVerbose,
                          const juce::String& defaultVal)
-      : NonParamValueTreeNode (id, nameShort, nameVerbose),
-        currentValue (defaultVal), defaultValue (defaultVal)
+        : NonParamValueTreeNode (id, nameShort, nameVerbose)
+        , currentValue (defaultVal)
+        , defaultValue (defaultVal)
     {
         Base::actionableFunction = [this]()
-                                   {
-                                       const auto value = getCurrentValue();
-                                       
-                                       if (value != lastActionedValue)
-                                       {
-                                           lastActionedValue = value;
-                                           Base::stringAction (value);
-                                       }
-                                   };
-        
+        {
+            const auto value = getCurrentValue();
+
+            if (value != lastActionedValue)
+            {
+                lastActionedValue = value;
+                Base::stringAction (value);
+            }
+        };
+
         Base::valueUpdatingFunction = [this]()
-                                      {
-                                          setValue (getNewValueFromExternalSource());
-                                      };
-        
+        {
+            setValue (getNewValueFromExternalSource());
+        };
+
         lastActionedValue = defaultValue;
     }
-    
-    juce::String getCurrentValueAsString (int maximumLength = 100) const override final
+
+    juce::String
+        getCurrentValueAsString (int maximumLength = 100) const override final
     {
         return getCurrentValue().substring (0, maximumLength);
     }
-    
-    juce::String getDefaultValueAsString (int maximumLength = 100) const override final
+
+    juce::String
+        getDefaultValueAsString (int maximumLength = 100) const override final
     {
         return getDefaultValue().substring (0, maximumLength);
     }
-    
+
     juce::String getCurrentValue() const
     {
         juce::ScopedLock l (lock);
         return currentValue;
     }
-    
+
     juce::String getDefaultValue() const
     {
         juce::ScopedLock l (lock);
         return defaultValue;
     }
-    
+
     //
-    
+
     void setValue (const juce::String& newValue)
     {
         juce::ScopedLock sl (lock);
-        
-        if (currentValue == newValue)
-            return;
-        
-        currentValue = newValue;
+
+        if (currentValue == newValue) return;
+
+        currentValue        = newValue;
         const auto asString = getCurrentValueAsString();
-        Base::listeners.call ([&asString] (Listener& l) { l.propertyValueChanged (asString); });
+        Base::listeners.call ([&asString] (Listener& l)
+                              { l.propertyValueChanged (asString); });
     }
-    
+
     void setDefaultValue (juce::String newDefault)
     {
         juce::ScopedLock sl (lock);
-        defaultValue = newDefault;
+        defaultValue        = newDefault;
         const auto asString = getDefaultValueAsString();
-        Base::listeners.call ([&asString] (Listener& l) { l.propertyDefaultValueChanged (asString); });
+        Base::listeners.call ([&asString] (Listener& l)
+                              { l.propertyDefaultValueChanged (asString); });
     }
-    
+
     void setCurrentValueAsDefault() override final
     {
         setDefaultValue (getCurrentValue());
     }
-    
-    void resetToDefaultValue() override final
-    {
-        setValue (getDefaultValue());
-    }
-    
+
+    void resetToDefaultValue() override final { setValue (getDefaultValue()); }
+
     void setValueFromString (juce::String string) override final
     {
         setValue (string);
     }
-    
+
     void setDefaultValueFromString (juce::String string) override final
     {
         setDefaultValue (string);
     }
-    
+
     //
-    
+
     juce::ValueTree toValueTree() const override final
     {
         using namespace DefaultValueTreeIds;
-        
-        juce::ValueTree tree { NonParameterNode_String };
-        
+
+        juce::ValueTree tree {NonParameterNode_String};
+
         tree.setProperty (NonParameterName, Base::longName, nullptr);
         tree.setProperty (NonParameterValue, getCurrentValue(), nullptr);
         tree.setProperty (NonParameterDefaultValue, getDefaultValue(), nullptr);
-        
+
         return tree;
     }
-    
+
     //
-    
-    std::function < juce::String () > getNewValueFromExternalSource { [this](){ return getCurrentValue(); } };
-    
+
+    std::function< juce::String() > getNewValueFromExternalSource {
+        [this]()
+        {
+            return getCurrentValue();
+        }};
+
 private:
     juce::String currentValue;
     juce::String defaultValue;
-    
+
     juce::CriticalSection lock;
-    
+
     juce::String lastActionedValue;
 };
 
 
-}  // namespace
-
+} // namespace bav

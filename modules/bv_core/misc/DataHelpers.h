@@ -5,18 +5,16 @@
 
 
 #ifndef BV_HAS_BINARY_DATA
-  #define BV_HAS_BINARY_DATA 0
+#define BV_HAS_BINARY_DATA 0
 #endif
 
 #if BV_HAS_BINARY_DATA
-  #include "BinaryData.h"
+#include "BinaryData.h"
 #endif
 
 
 namespace bav
 {
-
-
 #if BV_HAS_BINARY_DATA
 
 struct RawData
@@ -24,24 +22,24 @@ struct RawData
     explicit RawData (const char* fileToFind)
     {
         using namespace BinaryData;
-        
+
         for (int index = 0; index < namedResourceListSize; ++index)
         {
             auto binaryName = namedResourceList[index];
-            auto fileName = getNamedResourceOriginalFilename(binaryName);
-            
+            auto fileName   = getNamedResourceOriginalFilename (binaryName);
+
             if (fileName == fileToFind)
             {
-                data = BinaryData::getNamedResource(binaryName, size);
+                data = BinaryData::getNamedResource (binaryName, size);
                 break;
             }
         }
-        
-        jassert (data != nullptr);  // File not found
+
+        jassert (data != nullptr); // File not found
     }
-    
+
     const char* data = nullptr;
-    int size = 0;
+    int         size = 0;
 };
 
 /** To easily access some binary data:
@@ -51,8 +49,7 @@ struct RawData
  @end-code
  */
 
-#endif  /* if BV_HAS_BINARY_DATA */
-
+#endif /* if BV_HAS_BINARY_DATA */
 
 
 /*
@@ -61,37 +58,37 @@ struct RawData
  */
 static inline void saveImageToFile (const juce::Image& image, juce::File file)
 {
-    if (! file.exists())
-        file = juce::File::getSpecialLocation (juce::File::userDesktopDirectory).getNonexistentChildFile ("tempImage", ".png");
-    
+    if (!file.exists())
+        file = juce::File::getSpecialLocation (juce::File::userDesktopDirectory)
+                   .getNonexistentChildFile ("tempImage", ".png");
+
     juce::PNGImageFormat format;
-    
-    if (auto os = file.createOutputStream())
-        format.writeImageToStream (image, *os);
+
+    if (auto os = file.createOutputStream()) format.writeImageToStream (image, *os);
 }
-    
-    
-    //  THESE FUNCTONS ARE ON MY TO DO LIST...
-    
+
+
+//  THESE FUNCTONS ARE ON MY TO DO LIST...
+
 //static inline juce::Image getImageFromFile (juce::File file)
 //{
 //    juce::ignoreUnused (file);
 //}
-    
-    
-template<typename SampleType>
-static inline void saveAudioToFile (const juce::AudioBuffer<SampleType> audio, juce::File file)
+
+
+template < typename SampleType >
+static inline void saveAudioToFile (const juce::AudioBuffer< SampleType > audio,
+                                    juce::File                            file)
 {
     juce::ignoreUnused (audio, file);
 }
-    
+
 //static inline void juce::AudioBuffer<float> getAudioFromFile (juce::File file)
 //{
 //    juce::ignoreUnused (file);
 //}
-    
-    
-    
+
+
 /**
  Helper function to serialise a system font to a file.
  This is useful if you want to include a custom font in an application so that is
@@ -134,32 +131,36 @@ static inline void saveAudioToFile (const juce::AudioBuffer<SampleType> audio, j
  }
  @endcode
  */
-static inline bool serializeFont (const juce::Font& font, juce::File& destinationFile, int maxNumChars = 127)
+static inline bool serializeFont (const juce::Font& font,
+                                  juce::File&       destinationFile,
+                                  int               maxNumChars = 127)
 {
     destinationFile.deleteFile();
     auto outFileStream = destinationFile.createOutputStream();
-    
-    if (outFileStream == nullptr)
-        return false;
-    
+
+    if (outFileStream == nullptr) return false;
+
     juce::CustomTypeface customTypeface;
-    customTypeface.setCharacteristics (font.getTypefaceName(), font.getAscent(),
-                                       font.isBold(), font.isItalic(), ' ');
+    customTypeface.setCharacteristics (font.getTypefaceName(),
+                                       font.getAscent(),
+                                       font.isBold(),
+                                       font.isItalic(),
+                                       ' ');
     customTypeface.addGlyphsFromOtherTypeface (*font.getTypeface(), 0, maxNumChars);
-    
+
     return customTypeface.writeToStream (*outFileStream);
 }
-    
-    
+
+
 static inline juce::Typeface::Ptr deserializeFont (const void* data, size_t dataSize)
 {
-    std::unique_ptr<juce::MemoryInputStream> fontStream (new juce::MemoryInputStream (data, dataSize, false));
-    
-    if (fontStream == nullptr)
-        return nullptr;
-    
+    std::unique_ptr< juce::MemoryInputStream > fontStream (
+        new juce::MemoryInputStream (data, dataSize, false));
+
+    if (fontStream == nullptr) return nullptr;
+
     return new juce::CustomTypeface (*fontStream);
 }
 
 
-}  // namespace
+} // namespace bav
