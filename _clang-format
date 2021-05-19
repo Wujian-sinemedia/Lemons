@@ -42,11 +42,13 @@ SortIncludes: false
 SpaceAfterCStyleCast: true
 SpaceBeforeAssignmentOperators: true
 SpaceInEmptyParentheses: false
+SpaceInEmptyBlock: true
 SpacesInAngles: true
 SpacesInCStyleCastParentheses: false
 SpacesInContainerLiterals: true
 SpacesInParentheses: false
 SpacesInSquareBrackets: false
+SpaceBeforeParens: NonEmptyParentheses
 Standard: c++17
 TabWidth: 4
 UseTab: Never
