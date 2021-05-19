@@ -18,6 +18,8 @@
 #include "bv_core/bv_core.h"
 
 
+#include "valuetrees/DefaultValueTreeIDs.h"
+
 // parameters
 #include "parameters/helpers/ParameterValueConversionLambdas.h"
 #include "parameters/Parameter_Base.h"
