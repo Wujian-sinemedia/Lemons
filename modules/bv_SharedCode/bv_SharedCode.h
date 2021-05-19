@@ -5,9 +5,8 @@
  version:            0.0.1
  name:               Ben Vining's codebase
  description:        General utilities useful for developing plugins.
- dependencies:       juce_audio_utils juce_osc bv_midi bv_gui
+ dependencies:       juce_audio_utils juce_osc bv_midi
  OSXFrameworks: Accelerate
- iOSFrameworks: CoreMotion
  END_JUCE_MODULE_DECLARATION
  *******************************************************************************/
 
@@ -29,7 +28,6 @@
 #include <juce_osc/juce_osc.h>
 
 #include "bv_midi/bv_midi.h"
-#include "bv_gui/bv_gui.h"
 
 
 #include "core/PlatformDefs.h"
@@ -114,18 +112,6 @@
 // network
 #include "network/AsyncDownload.h"
 #include "network/DownloadManager.h"
-
-
-//==============================================================================
-// motion (mobile only, experimental)
-
-//#if JUCE_IOS
-//  #include "motion/iOS/iosMotion.h"
-//#elif JUCE_ANDROID
-//  #include "motion/Android/androidMotion.h"
-//#endif
-
-//==============================================================================
 
 
 #ifdef __clang__

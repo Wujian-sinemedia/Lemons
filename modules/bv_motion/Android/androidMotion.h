@@ -5,7 +5,6 @@
 
 #pragma once
 
-#include "MobileMotionManager.h"
 #include <android/sensor.h>
 
 

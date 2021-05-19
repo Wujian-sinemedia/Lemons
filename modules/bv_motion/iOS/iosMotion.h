@@ -3,9 +3,10 @@
   #error
 #endif
 
+
 #pragma once
 
-#include "MobileMotionManager.h"
+#include <CoreMotion/CoreMotion.h>
 
 
 namespace bav
