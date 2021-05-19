@@ -7,6 +7,7 @@
  description:        General utilities useful for developing plugins.
  dependencies:       juce_audio_utils juce_osc
  OSXFrameworks: Accelerate
+ iOSFrameworks: Accelerate
  END_JUCE_MODULE_DECLARATION
  *******************************************************************************/
 
