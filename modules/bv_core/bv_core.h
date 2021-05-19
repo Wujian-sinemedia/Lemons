@@ -5,7 +5,7 @@
  version:            0.0.1
  name:               Ben Vining's codebase
  description:        General utilities useful for developing plugins.
- dependencies:       juce_audio_utils juce_osc bv_midi bv_data_model
+ dependencies:       juce_audio_utils juce_osc
  OSXFrameworks: Accelerate
  END_JUCE_MODULE_DECLARATION
  *******************************************************************************/
@@ -23,12 +23,9 @@
 #endif
 
 
-// dependencies
+// juce dependencies
 #include <juce_audio_utils/juce_audio_utils.h>
 #include <juce_osc/juce_osc.h>
-
-#include "bv_midi/bv_midi.h"
-#include "bv_data_model/bv_data_model.h"
 
 
 #include "core/PlatformDefs.h"

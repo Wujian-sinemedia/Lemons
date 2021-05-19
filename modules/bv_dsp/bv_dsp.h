@@ -5,7 +5,7 @@
  version:            0.0.1
  name:               bv_dsp
  description:        DSP and audio utilities and effects
- dependencies:       juce_audio_utils juce_dsp bv_SharedCode
+ dependencies:       juce_audio_utils juce_dsp bv_core
  END_JUCE_MODULE_DECLARATION
  *******************************************************************************/
 
@@ -15,8 +15,7 @@
 #include <juce_audio_utils/juce_audio_utils.h>
 #include <juce_dsp/juce_dsp.h>
 
-
-#include <bv_SharedCode/bv_SharedCode.h>
+#include <bv_core/bv_core.h>
 
 
 #include "Oscillators/oscillators.h"

@@ -5,13 +5,15 @@
  version:            0.0.1
  name:               bv_data_model
  description:        Utilities for creating and managing the data model of the internal state of a plugin or app
- dependencies:       juce_audio_utils
+ dependencies:       juce_audio_utils bv_core
  END_JUCE_MODULE_DECLARATION
  *******************************************************************************/
 
 #pragma once
 
 #include <juce_audio_utils/juce_audio_utils.h>
+
+#include "bv_core/bv_core.h"
 
 
 // parameters
