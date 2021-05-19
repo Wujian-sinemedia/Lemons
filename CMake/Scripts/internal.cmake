@@ -37,6 +37,17 @@ function (_add_resources_folder target folder)
 endfunction()
 
 
+function (_add_resources_folder_dont_regenerate target folder)
+    set (resourcesTarget ${CMAKE_PROJECT_NAME}_assets)
+    
+    if (NOT TARGET ${resourcesTarget})
+        _create_resources_target (${resourcesTarget} ${folder})
+    endif()
+
+    _link_resources_target (${target} ${resourcesTarget})
+endfunction()
+
+
 #######
 
 
