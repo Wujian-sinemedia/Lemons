@@ -11,8 +11,7 @@ class FIFO
 {
 public:
     FIFO()
-        : head (0)
-        , tail (0)
+        : head (0), tail (0)
     {
     }
 
@@ -46,7 +45,7 @@ public:
 
     void clearAll()
     {
-        while (!isEmpty())
+        while (! isEmpty())
             pop();
     }
 
@@ -64,4 +63,4 @@ private:
     std::array< DataType, size + 1 > data;
 };
 
-} // namespace bav
+}  // namespace bav

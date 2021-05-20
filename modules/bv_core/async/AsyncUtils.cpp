@@ -5,8 +5,7 @@ class VoidCaller : private juce::Thread, private juce::AsyncUpdater
 {
 public:
     VoidCaller (std::function< void() > func)
-        : juce::Thread (TRANS ("Function called synchronously on background thread"))
-        , function (func)
+        : juce::Thread (TRANS ("Function called synchronously on background thread")), function (func)
     {
         startThread();
     }
@@ -43,9 +42,7 @@ class BackgroundCaller : private juce::Thread, private juce::AsyncUpdater
 {
 public:
     BackgroundCaller (std::function< void (ArgumentType) > func, ArgumentType arg)
-        : juce::Thread (TRANS ("Function called synchronously on background thread"))
-        , function (func)
-        , argument (arg)
+        : juce::Thread (TRANS ("Function called synchronously on background thread")), function (func), argument (arg)
     {
         startThread();
     }
@@ -131,8 +128,7 @@ class MessageThreadCaller : private juce::AsyncUpdater
 {
 public:
     MessageThreadCaller (std::function< void (ArgumentType) > func, ArgumentType arg)
-        : function (func)
-        , argument (arg)
+        : function (func), argument (arg)
     {
         triggerAsyncUpdate();
     }
@@ -214,8 +210,7 @@ public:
     DelayedLambdaHelper (std::function< void (ArgumentType) >& cb,
                          ArgumentType                          arg,
                          int                                   ms)
-        : callback (cb)
-        , argument (arg)
+        : callback (cb), argument (arg)
     {
         startTimer (ms);
     }
@@ -264,9 +259,8 @@ public:
         : juce::Thread (
             TRANS (
                 "Function called synchronously on background thread with delay of ")
-            + juce::String (msInFuture))
-        , function (func)
-        , delayMs (msInFuture)
+            + juce::String (msInFuture)),
+          function (func), delayMs (msInFuture)
     {
         startThread();
     }
@@ -281,7 +275,7 @@ public:
     {
         wait (delayMs);
 
-        if (!threadShouldExit()) function();
+        if (! threadShouldExit()) function();
 
         triggerAsyncUpdate();
     }
@@ -312,10 +306,8 @@ public:
         : juce::Thread (
             TRANS (
                 "Function called synchronously on background thread with delay of ")
-            + juce::String (msInFuture))
-        , function (func)
-        , argument (arg)
-        , delayMs (msInFuture)
+            + juce::String (msInFuture)),
+          function (func), argument (arg), delayMs (msInFuture)
     {
         startThread();
     }
@@ -330,7 +322,7 @@ public:
     {
         wait (delayMs);
 
-        if (!threadShouldExit()) function (argument);
+        if (! threadShouldExit()) function (argument);
 
         triggerAsyncUpdate();
     }
@@ -368,4 +360,4 @@ template void callInBackgroundDelayed (std::function< void (juce::String) >,
                                        int);
 
 
-} // namespace bav
+}  // namespace bav

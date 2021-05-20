@@ -157,9 +157,9 @@ public:
                               SampleType*      gainReduction = nullptr)
     {
         auto env = RMSFilter.processSample (channel,
-                                            sidechainValue); // RMS ballistics filter
+                                            sidechainValue);  // RMS ballistics filter
 
-        env = envelopeFilter.processSample (channel, env); // Ballistics filter
+        env = envelopeFilter.processSample (channel, env);  // Ballistics filter
 
         // VCA
         SampleType gain;
@@ -167,19 +167,19 @@ public:
         if (inverted)
         {
             gain = (env < threshold)
-                       ? static_cast< SampleType > (1.0)
-                       : std::pow (env * thresholdInverse,
-                                   currentRatio - static_cast< SampleType > (1.0));
+                     ? static_cast< SampleType > (1.0)
+                     : std::pow (env * thresholdInverse,
+                                 currentRatio - static_cast< SampleType > (1.0));
         }
         else
         {
             gain = (env > threshold)
-                       ? static_cast< SampleType > (1.0)
-                       : std::pow (env * thresholdInverse,
-                                   currentRatio - static_cast< SampleType > (1.0));
+                     ? static_cast< SampleType > (1.0)
+                     : std::pow (env * thresholdInverse,
+                                 currentRatio - static_cast< SampleType > (1.0));
         }
 
-        if (gainReduction != nullptr) // report gain reduction, if requested
+        if (gainReduction != nullptr)  // report gain reduction, if requested
             *gainReduction = gain;
 
         return gain * sampleToGate;
@@ -201,7 +201,7 @@ private:
 
     juce::dsp::ProcessSpec spec;
 
-    SampleType threshold, thresholdInverse, currentRatio;
+    SampleType                                threshold, thresholdInverse, currentRatio;
     juce::dsp::BallisticsFilter< SampleType > envelopeFilter, RMSFilter;
 
     SampleType thresholddB = -100, ratio = 10.0, attackTime = 1.0,
@@ -245,4 +245,4 @@ private:
 template class ReorderableNoiseGate< float >;
 template class ReorderableNoiseGate< double >;
 
-} // namespace bav::dsp::FX
+}  // namespace bav::dsp::FX

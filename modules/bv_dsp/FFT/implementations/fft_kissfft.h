@@ -14,11 +14,9 @@ class FFT : public FFTinterface
 {
 public:
     FFT (int size)
-        : m_size (size)
-        , m_fplanf (0)
-        , m_fplani (0)
+        : m_size (size), m_fplanf (0), m_fplani (0)
     {
-        jassert (size % 2 == 0); // KissFFT only supports multiple-of-two FFT sizes
+        jassert (size % 2 == 0);  // KissFFT only supports multiple-of-two FFT sizes
         m_fbuf    = new kiss_fft_scalar[m_size + 2];
         m_fpacked = new kiss_fft_cpx[m_size + 2];
         m_fplanf  = kiss_fftr_alloc (m_size, 0, NULL, NULL);
@@ -284,4 +282,4 @@ private:
 };
 
 
-} // namespace bav::dsp
+}  // namespace bav::dsp

@@ -9,12 +9,12 @@ inline bool isMidiNoteBlackKey (noteType midipitch)
 
     switch (midipitch % 12)
     {
-        case 1: return true;
-        case 3: return true;
-        case 6: return true;
-        case 8: return true;
-        case 10: return true;
-        default: return false;
+        case 1 : return true;
+        case 3 : return true;
+        case 6 : return true;
+        case 8 : return true;
+        case 10 : return true;
+        default : return false;
     }
 }
 
@@ -44,4 +44,4 @@ inline void copyRangeOfMidiBuffer (const juce::MidiBuffer& readingBuffer,
 }
 
 
-} // namespace bav::midi
+}  // namespace bav::midi

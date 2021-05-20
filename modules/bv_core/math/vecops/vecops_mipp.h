@@ -18,7 +18,7 @@ static BV_FORCE_INLINE void
     mipp::Reg< float > rout, val;
 
     val.load (
-        &value); // this vector register stores the value we're setting the vector to. Only need to load it once
+        &value);  // this vector register stores the value we're setting the vector to. Only need to load it once
 
     for (int i = 0; i < vecLoopSize; i += mipp::N< float >())
     {
@@ -28,7 +28,7 @@ static BV_FORCE_INLINE void
 
     for (
         int i = vecLoopSize; i < count;
-        ++i) // Scalar tail loop: finish the remaining elements that can't be vectorized.
+        ++i)  // Scalar tail loop: finish the remaining elements that can't be vectorized.
         vector[i] = value;
 }
 
@@ -40,7 +40,7 @@ static BV_FORCE_INLINE void
     mipp::Reg< double > rout, val;
 
     val.load (
-        &value); // this vector register stores the value we're setting the vector to. Only need to load it once
+        &value);  // this vector register stores the value we're setting the vector to. Only need to load it once
 
     for (int i = 0; i < vecLoopSize; i += mipp::N< double >())
     {
@@ -82,7 +82,7 @@ static BV_FORCE_INLINE void
     mipp::Reg< float > rin, rout, val;
 
     val.load (
-        &value); // this vector register stores the value we're adding to the vector. Only need to load it once
+        &value);  // this vector register stores the value we're adding to the vector. Only need to load it once
 
     for (int i = 0; i < vecLoopSize; i += mipp::N< float >())
     {
@@ -103,7 +103,7 @@ static BV_FORCE_INLINE void
     mipp::Reg< double > rin, rout, val;
 
     val.load (
-        &value); // this vector register stores the value we're adding to the vector. Only need to load it once
+        &value);  // this vector register stores the value we're adding to the vector. Only need to load it once
 
     for (int i = 0; i < vecLoopSize; i += mipp::N< double >())
     {
@@ -166,7 +166,7 @@ static BV_FORCE_INLINE void
     mipp::Reg< float > rin, rout, val;
 
     val.load (
-        &value); // this vector register stores the value we're adding to the vector. Only need to load it once
+        &value);  // this vector register stores the value we're adding to the vector. Only need to load it once
 
     for (int i = 0; i < vecLoopSize; i += mipp::N< float >())
     {
@@ -187,7 +187,7 @@ static BV_FORCE_INLINE void
     mipp::Reg< double > rin, rout, val;
 
     val.load (
-        &value); // this vector register stores the value we're adding to the vector. Only need to load it once
+        &value);  // this vector register stores the value we're adding to the vector. Only need to load it once
 
     for (int i = 0; i < vecLoopSize; i += mipp::N< double >())
     {
@@ -250,7 +250,7 @@ static BV_FORCE_INLINE void
     mipp::Reg< float > rin, rout, val;
 
     val.load (
-        &value); // this vector register stores the value we're multiplying to the vector. Only need to load it once
+        &value);  // this vector register stores the value we're multiplying to the vector. Only need to load it once
 
     for (int i = 0; i < vecLoopSize; i += mipp::N< float >())
     {
@@ -271,7 +271,7 @@ static BV_FORCE_INLINE void
     mipp::Reg< double > rin, rout, val;
 
     val.load (
-        &value); // this vector register stores the value we're multiplying to the vector. Only need to load it once
+        &value);  // this vector register stores the value we're multiplying to the vector. Only need to load it once
 
     for (int i = 0; i < vecLoopSize; i += mipp::N< double >())
     {
@@ -334,7 +334,7 @@ static BV_FORCE_INLINE void
     mipp::Reg< float > rin, rout, val;
 
     val.load (
-        &value); // this vector register stores the value we're dividing the vector by. Only need to load it once
+        &value);  // this vector register stores the value we're dividing the vector by. Only need to load it once
 
     for (int i = 0; i < vecLoopSize; i += mipp::N< float >())
     {
@@ -355,7 +355,7 @@ static BV_FORCE_INLINE void
     mipp::Reg< double > rin, rout, val;
 
     val.load (
-        &value); // this vector register stores the value we're dividing the vector by. Only need to load it once
+        &value);  // this vector register stores the value we're dividing the vector by. Only need to load it once
 
     for (int i = 0; i < vecLoopSize; i += mipp::N< double >())
     {
@@ -592,8 +592,8 @@ static BV_FORCE_INLINE void findMaxAndMaxIndex (const double* BV_R_ data,
 /* locates the element with the highest absolute value and its index in the vector, and returns them into the variables greatestMagnitude and index */
 static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const float* BV_R_ data,
                                                         const int          dataSize,
-                                                        float& greatestMagnitude,
-                                                        int&   index)
+                                                        float&             greatestMagnitude,
+                                                        int&               index)
 {
     int  strongestMagIndex = 0;
     auto strongestMag      = abs (data[0]);
@@ -615,8 +615,8 @@ static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const float* BV_R_ data,
 
 static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const double* BV_R_ data,
                                                         const int           dataSize,
-                                                        double& greatestMagnitude,
-                                                        int&    index)
+                                                        double&             greatestMagnitude,
+                                                        int&                index)
 {
     int  strongestMagIndex = 0;
     auto strongestMag      = abs (data[0]);
@@ -640,8 +640,8 @@ static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const double* BV_R_ data
 /* locates the element with the lowest absolute value and its index in the vector, and returns them into the variables leastMagnitude and index */
 static BV_FORCE_INLINE void locateLeastAbsMagnitude (const float* BV_R_ data,
                                                      const int          dataSize,
-                                                     float& leastMagnitude,
-                                                     int&   index)
+                                                     float&             leastMagnitude,
+                                                     int&               index)
 {
     int  weakestMagIndex = 0;
     auto weakestMag      = abs (data[0]);
@@ -663,8 +663,8 @@ static BV_FORCE_INLINE void locateLeastAbsMagnitude (const float* BV_R_ data,
 
 static BV_FORCE_INLINE void locateLeastAbsMagnitude (const double* BV_R_ data,
                                                      const int           dataSize,
-                                                     double& leastMagnitude,
-                                                     int&    index)
+                                                     double&             leastMagnitude,
+                                                     int&                index)
 {
     int  weakestMagIndex = 0;
     auto weakestMag      = abs (data[0]);
@@ -725,7 +725,10 @@ static BV_FORCE_INLINE void normalize (float* BV_R_ vector, const int numSamples
 
     locateGreatestAbsMagnitude (vector, numSamples, max, location);
 
-    if (max == 0.0f) { fill (vector, 0.0f, numSamples); }
+    if (max == 0.0f)
+    {
+        fill (vector, 0.0f, numSamples);
+    }
     else
     {
         multiplyC (vector, 1.0f / max, numSamples);
@@ -739,7 +742,10 @@ static BV_FORCE_INLINE void normalize (double* BV_R_ vector, const int numSample
 
     locateGreatestAbsMagnitude (vector, numSamples, max, location);
 
-    if (max == 0.0) { fill (vector, 0.0, numSamples); }
+    if (max == 0.0)
+    {
+        fill (vector, 0.0, numSamples);
+    }
     else
     {
         multiplyC (vector, 1.0 / max, numSamples);
@@ -761,7 +767,7 @@ static BV_FORCE_INLINE void cartesian_to_polar (float* const BV_R_       mag,
         *(mag + i)   = sqrt (r * r + c * c);
         *(phase + i) = atan2 (
             c,
-            r); // AFAIK, MIPP doesn't provide this function, which is the only thing preventing this function frm being vectorized...
+            r);  // AFAIK, MIPP doesn't provide this function, which is the only thing preventing this function frm being vectorized...
     }
 }
 
@@ -843,4 +849,4 @@ static BV_FORCE_INLINE void polar_to_cartesian (double* const BV_R_       real,
 }
 
 
-} // namespace bav::vecops
+}  // namespace bav::vecops

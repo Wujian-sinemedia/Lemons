@@ -8,8 +8,7 @@ public:
     //==============================================================================
     DownloadManager (int connectTimeoutMs  = 30 * 1000,
                      int shutdownTimeoutMs = 30 * 1000)
-        : connectTimeout (connectTimeoutMs)
-        , shutdownTimeout (shutdownTimeoutMs)
+        : connectTimeout (connectTimeoutMs), shutdownTimeout (shutdownTimeoutMs)
     {
     }
 
@@ -88,9 +87,10 @@ public:
      and will be maximum int64 value.
      */
     int startAsyncDownload (
-        juce::String                           url,
-        juce::String                           postData,
-        std::function< void (DownloadResult) > completionCallback,
+        juce::String url,
+        juce::String postData,
+        std::function< void (DownloadResult) >
+            completionCallback,
         std::function< void (juce::int64, juce::int64, juce::int64) >
                      progressCallback = nullptr,
         juce::String extraHeaders     = {})
@@ -102,8 +102,9 @@ public:
     }
 
     int startAsyncDownload (
-        juce::URL                              url,
-        std::function< void (DownloadResult) > completionCallback,
+        juce::URL url,
+        std::function< void (DownloadResult) >
+            completionCallback,
         std::function< void (juce::int64, juce::int64, juce::int64) >
                      progressCallback = nullptr,
         juce::String extraHeaders     = {})
@@ -145,8 +146,7 @@ private:
     struct Download : public juce::Thread
     {
         Download (DownloadManager& o)
-            : Thread ("DownloadManager::Download")
-            , owner (o)
+            : Thread ("DownloadManager::Download"), owner (o)
         {
         }
 
@@ -163,7 +163,7 @@ private:
         {
             int attemps = owner.retryLimit + 1;
 
-            while (attemps-- > 0 && !threadShouldExit())
+            while (attemps-- > 0 && ! threadShouldExit())
             {
                 result.attempts++;
 
@@ -176,7 +176,7 @@ private:
                     wait (500);
             }
 
-            if (async && !threadShouldExit())
+            if (async && ! threadShouldExit())
             {
                 // Get a weak reference to self, to check if we get deleted before async call happens.
                 juce::WeakReference< Download > myself = this;
@@ -225,7 +225,7 @@ private:
 
                     // Download all data
                     char buffer[128 * 1000];
-                    while (!is->isExhausted() && !threadShouldExit()
+                    while (! is->isExhausted() && ! threadShouldExit()
                            && downloaded < totalLength)
                     {
                         juce::int64 toRead =
@@ -256,7 +256,7 @@ private:
                             if (totalLength
                                 < std::numeric_limits< juce::int64 >::max())
                                 result.ok = (totalLength == downloaded)
-                                            && result.httpCode == 200;
+                                         && result.httpCode == 200;
                             else
                                 result.ok = result.httpCode == 200;
 
@@ -283,7 +283,7 @@ private:
 
                 result.data.reset();
 
-                while (!gis.isExhausted())
+                while (! gis.isExhausted())
                 {
                     char buffer[10 * 1024];
                     int  read = gis.read (buffer, sizeof (buffer));
@@ -360,7 +360,7 @@ private:
         for (int i = 0; i < downloads.size() && runningDownloads < maxDownloads; i++)
         {
             auto d = downloads[i];
-            if (!d->started)
+            if (! d->started)
             {
                 runningDownloads++;
                 d->started = true;
@@ -408,8 +408,9 @@ private:
 
 
     int startAsyncDownloadPriv (
-        juce::URL                              url,
-        std::function< void (DownloadResult) > completionCallback,
+        juce::URL url,
+        std::function< void (DownloadResult) >
+            completionCallback,
         std::function< void (juce::int64, juce::int64, juce::int64) >
                      progressCallback,
         juce::String extraHeaders)

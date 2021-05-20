@@ -8,7 +8,7 @@ FIFOWrappedEngine< SampleType >::FIFOWrappedEngine()
 }
 
 template < typename SampleType >
-FIFOWrappedEngine< SampleType >::FIFOWrappedEngine (int consistentInternalBlocksize,
+FIFOWrappedEngine< SampleType >::FIFOWrappedEngine (int    consistentInternalBlocksize,
                                                     double samplerate)
     : internalBlocksize (0)
 {
@@ -31,7 +31,7 @@ void FIFOWrappedEngine< SampleType >::process (AudioBuffer& input,
                                                MidiBuffer&  midiMessages,
                                                const bool   isBypassed)
 {
-    jassert (!resourcesReleased);
+    jassert (! resourcesReleased);
     jassert (isInitialized);
     jassert (sampleRate > 0);
 
@@ -52,7 +52,7 @@ void FIFOWrappedEngine< SampleType >::process (AudioBuffer& input,
     {
         processingBypassedThisFrame = wasBypassedLastCallback;
         applyFadeIn                 = false;
-        applyFadeOut                = !wasBypassedLastCallback;
+        applyFadeOut                = ! wasBypassedLastCallback;
     }
     else
     {
@@ -135,7 +135,7 @@ void FIFOWrappedEngine< SampleType >::processWrapped (AudioBuffer& input,
     inputFIFO.push (input, midiMessages, numNewSamples);
 
     if (inputFIFO.numStoredSamples()
-        >= internalBlocksize) // we have enough samples, render the new chunk
+        >= internalBlocksize)  // we have enough samples, render the new chunk
     {
         inBuffer.clear();
         chunkMidiBuffer.clear();
@@ -212,11 +212,11 @@ void FIFOWrappedEngine< SampleType >::prepare (double samplerate)
 
     sampleRate = samplerate;
 
-    if (!isInitialized)
+    if (! isInitialized)
     {
         jassert (
             internalBlocksize
-            > 0); // if you hit this assertion, you probably made a call to prepare() before calling initialize().
+            > 0);  // if you hit this assertion, you probably made a call to prepare() before calling initialize().
         initialize (samplerate, internalBlocksize);
     }
 
@@ -264,4 +264,4 @@ void FIFOWrappedEngine< SampleType >::releaseResources()
 template class FIFOWrappedEngine< float >;
 template class FIFOWrappedEngine< double >;
 
-} // namespace bav::dsp
+}  // namespace bav::dsp

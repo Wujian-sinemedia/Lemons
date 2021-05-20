@@ -94,4 +94,4 @@ template class ReorderableStereoPanner< float >;
 template class ReorderableStereoPanner< double >;
 
 
-} // namespace bav::dsp::FX
+}  // namespace bav::dsp::FX

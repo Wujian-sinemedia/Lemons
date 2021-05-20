@@ -160,12 +160,12 @@ public:
         // reverb
         switch (numChannels)
         {
-            case (0): return;
+            case (0) : return;
 
-            case (1):
+            case (1) :
                 reverb.processMono (workingBuffer.getWritePointer (0), numSamples);
 
-            default:
+            default :
                 reverb.processStereo (workingBuffer.getWritePointer (0),
                                       workingBuffer.getWritePointer (1),
                                       numSamples);
@@ -258,4 +258,4 @@ template class ReorderableReverb< float >;
 template class ReorderableReverb< double >;
 
 
-} // namespace bav::dsp::FX
+}  // namespace bav::dsp::FX

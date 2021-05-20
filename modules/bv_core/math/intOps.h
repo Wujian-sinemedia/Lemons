@@ -225,8 +225,8 @@ static BV_FORCE_INLINE void
 /* locates the element with the highest absolute value and its index in the vector, and returns them into the variables greatestMagnitude and index */
 static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const int* BV_R_ data,
                                                         const int        dataSize,
-                                                        int& greatestMagnitude,
-                                                        int& index)
+                                                        int&             greatestMagnitude,
+                                                        int&             index)
 {
 #if BV_USE_IPP
     ippsMaxAbsIndx_32s (data, dataSize, &greatestMagnitude, &index);
@@ -304,9 +304,9 @@ static BV_FORCE_INLINE int findRangeOfExtrema (int* data, const int dataSize)
     return max - min;
 #else
     return *(std::max_element (data, data + dataSize))
-           - *(std::min_element (data, data + dataSize));
+         - *(std::min_element (data, data + dataSize));
 #endif
 }
 
 
-} // namespace bav::intops
+}  // namespace bav::intops

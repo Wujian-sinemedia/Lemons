@@ -99,14 +99,14 @@ inline int pitchClassFromString (const juce::String& pitchClassName) noexcept
 
         switch (base)
         {
-            case 'c': pitchClass = 0; break;
-            case 'd': pitchClass = 2; break;
-            case 'e': pitchClass = 4; break;
-            case 'f': pitchClass = 5; break;
-            case 'g': pitchClass = 7; break;
-            case 'a': pitchClass = 9; break;
-            case 'b': pitchClass = 11; break;
-            default: pitchClass = -1; break;
+            case 'c' : pitchClass = 0; break;
+            case 'd' : pitchClass = 2; break;
+            case 'e' : pitchClass = 4; break;
+            case 'f' : pitchClass = 5; break;
+            case 'g' : pitchClass = 7; break;
+            case 'a' : pitchClass = 9; break;
+            case 'b' : pitchClass = 11; break;
+            default : pitchClass = -1; break;
         }
     }
 
@@ -116,9 +116,9 @@ inline int pitchClassFromString (const juce::String& pitchClassName) noexcept
 
         switch (sharpOrFlat)
         {
-            case '#': ++pitchClass; break;
-            case 'b': --pitchClass; break;
-            default: break;
+            case '#' : ++pitchClass; break;
+            case 'b' : --pitchClass; break;
+            default : break;
         }
 
         if (sharpOrFlat == getSharpSymbol())
@@ -139,7 +139,7 @@ inline int stringToPitch (const juce::String& string)
     const auto octaveName = string.retainCharacters ("0123456789");
 
     const auto pitchClassTokens = juce::String ("abcdefg#") + getSharpSymbol()
-                                  + getFlatSymbol() + getNaturalSymbol();
+                                + getFlatSymbol() + getNaturalSymbol();
     const auto pitchClassName =
         string.toLowerCase().retainCharacters (pitchClassTokens);
 
@@ -151,4 +151,4 @@ inline int stringToPitch (const juce::String& string)
 }
 
 
-} // namespace bav
+}  // namespace bav

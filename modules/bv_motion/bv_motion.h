@@ -51,11 +51,11 @@ public:
 };
 
 
-#if JUCE_IOS
-#include "iOS/iosMotion.h"
-#elif JUCE_ANDROID
-#include "Android/androidMotion.h"
-#endif
+#    if JUCE_IOS
+#        include "iOS/iosMotion.h"
+#    elif JUCE_ANDROID
+#        include "Android/androidMotion.h"
+#    endif
 
 #else /* if JUCE_IOS || JUCE_ANDROID */
 
@@ -90,4 +90,4 @@ public:
 
 #endif
 
-} // namespace bav
+}  // namespace bav

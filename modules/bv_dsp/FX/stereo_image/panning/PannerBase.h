@@ -18,9 +18,7 @@ class PannerBase
 {
 public:
     PannerBase()
-        : lastRecievedMidiPan (64)
-        , leftGain (0.5f)
-        , rightGain (0.5f)
+        : lastRecievedMidiPan (64), leftGain (0.5f), rightGain (0.5f)
     {
     }
 
@@ -43,9 +41,9 @@ public:
     {
         switch (chan)
         {
-            case 0: return leftGain;
-            case 1: return rightGain;
-            default: return 1.0f;
+            case 0 : return leftGain;
+            case 1 : return rightGain;
+            default : return 1.0f;
         }
     }
 
@@ -91,4 +89,4 @@ private:
 };
 
 
-} // namespace bav::dsp::FX
+}  // namespace bav::dsp::FX

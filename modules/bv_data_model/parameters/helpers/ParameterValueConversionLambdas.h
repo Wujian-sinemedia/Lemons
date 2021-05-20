@@ -77,8 +77,8 @@ static const std::function< juce::String (float value, int maximumStringLength) 
     hz_stringFromFloat = [] (float value, int maxLength)
 {
     auto string = (value < 1000.0f)
-                      ? juce::String (value) + " " + TRANS ("Hz")
-                      : juce::String (value * 0.001f) + " " + TRANS ("kHz");
+                    ? juce::String (value) + " " + TRANS ("Hz")
+                    : juce::String (value * 0.001f) + " " + TRANS ("kHz");
 
     return string.substring (0, maxLength);
 };
@@ -90,7 +90,7 @@ static const std::function< float (const juce::String& text) > hz_floatFromStrin
 
     if (kHz_token_location > -1)
         return text.substring (0, kHz_token_location).trim().getFloatValue()
-               * 1000.0f;
+             * 1000.0f;
 
     const auto hz_token_location = text.indexOfWholeWordIgnoreCase (TRANS ("Hz"));
 
@@ -167,4 +167,4 @@ static const std::function< int (const juce::String& text) > midiPan_intFromStri
     return midiPanStringToInt (text);
 };
 
-} // namespace bav::ParameterValueConversionLambdas
+}  // namespace bav::ParameterValueConversionLambdas

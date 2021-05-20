@@ -38,7 +38,7 @@ static juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
 {
     switch (icon)
     {
-        case Stop:
+        case Stop :
         {
             juce::Path squarePath;
             squarePath.addRectangle (100.0f, 100.0f, 100.0f, 100.0f);
@@ -49,7 +49,7 @@ static juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
 
             return squareImage;
         }
-        case Play:
+        case Play :
         {
             juce::Path trianglePath;
             trianglePath.addTriangle (0.0f, 0.0f, 0.0f, 100.0f, 100.0f, 50.0f);
@@ -60,7 +60,7 @@ static juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
 
             return triangleImage;
         }
-        case Pause:
+        case Pause :
         {
             juce::Path pausePath;
             pausePath.addRectangle (0.0f, 0.0f, 20.0f, 100.0f);
@@ -72,7 +72,7 @@ static juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
 
             return pauseImage;
         }
-        case Cue:
+        case Cue :
         {
             juce::Path p;
             p.addRectangle (0, 0, 30, 50);
@@ -87,7 +87,7 @@ static juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
 
             return drawablePath;
         }
-        case Next:
+        case Next :
         {
             juce::Path p;
             p.addTriangle (0.0f, 0.0f, 0.0f, 100.0f, 90.0f, 50.0f);
@@ -99,7 +99,7 @@ static juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
 
             return drawablePath;
         }
-        case Previous:
+        case Previous :
         {
             juce::Path p;
             p.addTriangle (100.0f, 100.0f, 100.0f, 0.0f, 10.0f, 50.0f);
@@ -111,7 +111,7 @@ static juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
 
             return drawablePath;
         }
-        case ShuffleForward:
+        case ShuffleForward :
         {
             juce::Path p;
             p.addTriangle (0.0f, 0.0f, 0.0f, 100.0f, 50.0f, 50.0f);
@@ -123,7 +123,7 @@ static juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
 
             return drawablePath;
         }
-        case ShuffleBack:
+        case ShuffleBack :
         {
             juce::Path p;
             p.addTriangle (0.0f, 50.0f, 75.0f, 0.0f, 75.0f, 100.0f);
@@ -135,7 +135,7 @@ static juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
 
             return drawablePath;
         }
-        case Eject:
+        case Eject :
         {
             juce::Path p;
             p.addTriangle (0, 65, 100, 65, 50, 0);
@@ -147,7 +147,7 @@ static juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
 
             return drawablePath;
         }
-        case Cross:
+        case Cross :
         {
             juce::Path p;
             p.startNewSubPath (0.0f, 0.0f);
@@ -163,7 +163,7 @@ static juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
 
             return drawablePath;
         }
-        case Add:
+        case Add :
         {
             juce::Path p;
             p.startNewSubPath (50.0f, 0.0f);
@@ -179,7 +179,7 @@ static juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
 
             return drawablePath;
         }
-        case Search:
+        case Search :
         {
             juce::Path p;
             p.addEllipse (20, 0, 80, 80);
@@ -194,7 +194,7 @@ static juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
 
             return drawablePath;
         }
-        case Power:
+        case Power :
         {
             juce::Path p;
             p.addArc (0.0f,
@@ -216,7 +216,7 @@ static juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
 
             return drawablePath;
         }
-        case Bypass:
+        case Bypass :
         {
             juce::Path p;
             p.startNewSubPath (50.0f, 0.0f);
@@ -233,7 +233,7 @@ static juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
 
             return drawablePath;
         }
-        case GoUp:
+        case GoUp :
         {
             juce::Path arrowPath;
             arrowPath.addArrow (juce::Line< float > (50.0f, 100.0f, 50.0f, 0.0f),
@@ -247,7 +247,7 @@ static juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
 
             return arrowImage;
         }
-        case Infinity:
+        case Infinity :
         {
             juce::Path infPath;
             infPath.addEllipse (0.0f, 0.0f, 50.0f, 50.0f);
@@ -262,7 +262,7 @@ static juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
 
             return infImg;
         }
-        case DownTriangle:
+        case DownTriangle :
         {
             juce::Path trianglePath;
             trianglePath.addTriangle (0.0f, 0.0f, 100.0f, 0.0f, 50.0f, 100.0f);
@@ -273,7 +273,7 @@ static juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
 
             return triangleImage;
         }
-        case Info:
+        case Info :
         {
             juce::Path circlePath;
             circlePath.addEllipse (0.0f, 0.0f, 100.0f, 100.0f);
@@ -284,7 +284,7 @@ static juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
 
             return circleImage;
         }
-        case Loop:
+        case Loop :
         {
             juce::Path loopPath;
             loopPath.addRoundedRectangle (0.0f, 0.0f, 150.0f, 50.0f, 25.0f);
@@ -299,7 +299,7 @@ static juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
 
             return loopImage;
         }
-        case Slow:
+        case Slow :
         {
             juce::Path p;
             p.addPolygon (juce::Point< float > (50.0f, 50.0f),
@@ -315,7 +315,7 @@ static juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
 
             return dp;
         }
-        case Speaker:
+        case Speaker :
         {
             juce::Path p;
             p.addRoundedRectangle (0.0f, 33.0f, 33.0f, 33.0f, 2.0f);
@@ -350,7 +350,7 @@ static juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
 
             return dp;
         }
-        case MutedSpeaker:
+        case MutedSpeaker :
         {
             juce::Path p;
             p.addRoundedRectangle (0.0f, 33.0f, 33.0f, 33.0f, 2.0f);
@@ -366,7 +366,7 @@ static juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
             return dp;
         }
 
-        default:
+        default :
         {
             juce::DrawablePath blank;
             return blank;
@@ -375,4 +375,4 @@ static juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
 }
 
 
-} // namespace bav::gui
+}  // namespace bav::gui

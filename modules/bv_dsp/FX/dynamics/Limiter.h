@@ -189,4 +189,4 @@ private:
 template class ReorderableLimiter< float >;
 template class ReorderableLimiter< double >;
 
-} // namespace bav::dsp::FX
+}  // namespace bav::dsp::FX

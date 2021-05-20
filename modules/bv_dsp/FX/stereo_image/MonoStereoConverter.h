@@ -8,8 +8,7 @@ class MonoStereoConverter
 
 public:
     MonoStereoConverter()
-        : toMonoMode (leftOnly)
-        , monoStorage (1, 0)
+        : toMonoMode (leftOnly), monoStorage (1, 0)
     {
     }
 
@@ -45,15 +44,15 @@ public:
     {
         switch (toMonoMode)
         {
-            case (leftOnly):
+            case (leftOnly) :
             {
                 vecops::copy (leftIn, monoOut, numSamples);
             }
-            case (rightOnly):
+            case (rightOnly) :
             {
                 vecops::copy (rightIn, monoOut, numSamples);
             }
-            case (mixToMono):
+            case (mixToMono) :
             {
                 const auto pnt5 = static_cast< SampleType > (0.5);
                 monoStorage.copyFrom (0, 0, leftIn, numSamples, pnt5);
@@ -115,4 +114,4 @@ template class MonoStereoConverter< float >;
 template class MonoStereoConverter< double >;
 
 
-} // namespace bav::dsp::FX
+}  // namespace bav::dsp::FX

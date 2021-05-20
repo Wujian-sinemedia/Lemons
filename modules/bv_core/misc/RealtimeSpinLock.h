@@ -35,11 +35,11 @@ public:
 
     bool try_lock() noexcept
     {
-        return !flag.test_and_set (std::memory_order_acquire);
+        return ! flag.test_and_set (std::memory_order_acquire);
     }
 
 private:
     std::atomic_flag flag = ATOMIC_FLAG_INIT;
 };
 
-} // namespace bav
+}  // namespace bav

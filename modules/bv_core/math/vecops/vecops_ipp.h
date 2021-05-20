@@ -265,16 +265,16 @@ static BV_FORCE_INLINE void findMaxAndMaxIndex (const double* BV_R_ data,
 /* locates the element with the highest absolute value and its index in the vector, and returns them into the variables greatestMagnitude and index */
 static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const float* BV_R_ data,
                                                         const int          dataSize,
-                                                        float& greatestMagnitude,
-                                                        int&   index)
+                                                        float&             greatestMagnitude,
+                                                        int&               index)
 {
     ippsMaxAbsIndx_32f (data, dataSize, &greatestMagnitude, &index);
 }
 
 static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const double* BV_R_ data,
                                                         const int           dataSize,
-                                                        double& greatestMagnitude,
-                                                        int&    index)
+                                                        double&             greatestMagnitude,
+                                                        int&                index)
 {
     ippsMaxAbsIndx_64f (data, dataSize, &greatestMagnitude, &index);
 }
@@ -283,16 +283,16 @@ static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const double* BV_R_ data
 /* locates the element with the lowest absolute value and its index in the vector, and returns them into the variables leastMagnitude and index */
 static BV_FORCE_INLINE void locateLeastAbsMagnitude (const float* BV_R_ data,
                                                      const int          dataSize,
-                                                     float& leastMagnitude,
-                                                     int&   index)
+                                                     float&             leastMagnitude,
+                                                     int&               index)
 {
     ippsMinAbsIndx_32f (data, dataSize, &leastMagnitude, &index);
 }
 
 static BV_FORCE_INLINE void locateLeastAbsMagnitude (const double* BV_R_ data,
                                                      const int           dataSize,
-                                                     double& leastMagnitude,
-                                                     int&    index)
+                                                     double&             leastMagnitude,
+                                                     int&                index)
 {
     ippsMinAbsIndx_64f (data, dataSize, &leastMagnitude, &index);
 }
@@ -338,7 +338,10 @@ static BV_FORCE_INLINE void normalize (float* BV_R_ vector, const int numSamples
 
     ippsMaxAbsIndx_32f (vector, numSamples, &max, &location);
 
-    if (max == 0.0) { ippsSet_32f (0.0, vector, numSamples); }
+    if (max == 0.0)
+    {
+        ippsSet_32f (0.0, vector, numSamples);
+    }
     else
     {
         ippsMulC_32f_I (1.0 / max, vector, numSamples);
@@ -352,7 +355,10 @@ static BV_FORCE_INLINE void normalize (double* BV_R_ vector, const int numSample
 
     ippsMaxAbsIndx_64f (vector, numSamples, &max, &location);
 
-    if (max == 0.0) { ippsSet_64f (0.0, vector, numSamples); }
+    if (max == 0.0)
+    {
+        ippsSet_64f (0.0, vector, numSamples);
+    }
     else
     {
         ippsMulC_64f_I (1.0 / max, vector, numSamples);
@@ -400,4 +406,4 @@ static BV_FORCE_INLINE void polar_to_cartesian (double* const BV_R_       real,
 }
 
 
-} // namespace bav::vecops
+}  // namespace bav::vecops

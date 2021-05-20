@@ -193,7 +193,7 @@ public:
         int numActive = 0;
 
         for (auto* effect : effects)
-            if (!effect->isBypassed) ++numActive;
+            if (! effect->isBypassed) ++numActive;
 
         return numActive;
     }
@@ -230,7 +230,7 @@ public:
          */
     void process (AudioBuffer& audio)
     {
-        jassert (!effects.isEmpty());
+        jassert (! effects.isEmpty());
         jassert (lastSamplerate > 0.0 && lastBlocksize > 0);
 
         const auto numSamples = audio.getNumSamples();
@@ -339,4 +339,4 @@ private:
 template class ReorderableFxChain< float >;
 template class ReorderableFxChain< double >;
 
-} // namespace bav::dsp
+}  // namespace bav::dsp

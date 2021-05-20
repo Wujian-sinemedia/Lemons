@@ -66,9 +66,9 @@ private:
     double samplerate;
 
     SampleType
-        confidenceThresh; // if the lowest asdf data value is above this thresh, the frame of audio is determined to be unpitched
+        confidenceThresh;  // if the lowest asdf data value is above this thresh, the frame of audio is determined to be unpitched
 
-    AudioBuffer asdfBuffer; // calculated ASDF values will be placed in this buffer
+    AudioBuffer asdfBuffer;  // calculated ASDF values will be placed in this buffer
 
     juce::Array< int >        periodCandidates;
     juce::Array< int >        candidateDeltas;
@@ -79,4 +79,4 @@ private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PitchDetector)
 };
 
-} // namespace bav::dsp
+}  // namespace bav::dsp

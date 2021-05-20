@@ -137,8 +137,8 @@ public:
         static constexpr auto half = SampleType (0.5);
 
         return (p < half ? SampleType (-1) : SampleType (1))
-               - blep (p, phase.increment)
-               + blep (std::fmod (p + half, SampleType (1)), phase.increment);
+             - blep (p, phase.increment)
+             + blep (std::fmod (p + half, SampleType (1)), phase.increment);
     }
 
     void getSamples (SampleType* BV_R_ output, const int numSamples)
@@ -192,4 +192,4 @@ private:
 };
 
 
-} // namespace bav::dsp::osc
+}  // namespace bav::dsp::osc

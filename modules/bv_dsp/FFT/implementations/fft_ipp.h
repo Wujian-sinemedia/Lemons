@@ -11,12 +11,10 @@ class FFT : public FFTinterface
 {
 public:
     FFT (int size)
-        : m_size (size)
-        , m_fspec (0)
-        , m_dspec (0)
+        : m_size (size), m_fspec (0), m_dspec (0)
     {
         jassert (
-            math::isPowerOfTwo (size)); // IPP only supports power-of-two FFT sizes
+            math::isPowerOfTwo (size));  // IPP only supports power-of-two FFT sizes
         for (int i = 0;; ++i)
         {
             if (m_size & (1 << i))
@@ -253,7 +251,7 @@ public:
     {
         if (m_dspec == nullptr) initDouble();
         ippsPolarToCart_64f (magIn, phaseIn, realOut, m_dspare, m_size / 2 + 1);
-        packDouble (realOut, m_dspare); // to m_dpacked
+        packDouble (realOut, m_dspare);  // to m_dpacked
         ippsFFTInv_CCSToR_64f (m_dpacked, realOut, m_dspec, m_dbuf);
     }
 
@@ -263,7 +261,7 @@ public:
     {
         if (m_fspec == nullptr) initFloat();
         ippsPolarToCart_32f (magIn, phaseIn, realOut, m_fspare, m_size / 2 + 1);
-        packFloat (realOut, m_fspare); // to m_fpacked
+        packFloat (realOut, m_fspare);  // to m_fpacked
         ippsFFTInv_CCSToR_32f (m_fpacked, realOut, m_fspec, m_fbuf);
     }
 
@@ -348,7 +346,7 @@ private:
     }
 
     BV_FORCE_INLINE void
-        unpackFloat (float* re, float* BV_R_ im) // re may be equal to m_fpacked
+        unpackFloat (float* re, float* BV_R_ im)  // re may be equal to m_fpacked
     {
         int       index = 0;
         const int hs    = m_size / 2;
@@ -369,7 +367,7 @@ private:
     }
 
     BV_FORCE_INLINE void
-        unpackDouble (double* re, double* BV_R_ im) // re may be equal to m_dpacked
+        unpackDouble (double* re, double* BV_R_ im)  // re may be equal to m_dpacked
     {
         int       index = 0;
         const int hs    = m_size / 2;
@@ -410,4 +408,4 @@ private:
 };
 
 
-} // namespace bav::dsp
+}  // namespace bav::dsp

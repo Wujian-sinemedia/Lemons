@@ -277,8 +277,8 @@ static BV_FORCE_INLINE void findMaxAndMaxIndex (const double* BV_R_ data,
 /* locates the element with the highest absolute value and its index in the vector, and returns them into the variables greatestMagnitude and index */
 static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const float* BV_R_ data,
                                                         const int          dataSize,
-                                                        float& greatestMagnitude,
-                                                        int&   index)
+                                                        float&             greatestMagnitude,
+                                                        int&               index)
 {
     int  strongestMagIndex = 0;
     auto strongestMag      = abs (data[0]);
@@ -300,8 +300,8 @@ static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const float* BV_R_ data,
 
 static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const double* BV_R_ data,
                                                         const int           dataSize,
-                                                        double& greatestMagnitude,
-                                                        int&    index)
+                                                        double&             greatestMagnitude,
+                                                        int&                index)
 {
     int  strongestMagIndex = 0;
     auto strongestMag      = abs (data[0]);
@@ -325,8 +325,8 @@ static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const double* BV_R_ data
 /* locates the element with the lowest absolute value and its index in the vector, and returns them into the variables leastMagnitude and index */
 static BV_FORCE_INLINE void locateLeastAbsMagnitude (const float* BV_R_ data,
                                                      const int          dataSize,
-                                                     float& leastMagnitude,
-                                                     int&   index)
+                                                     float&             leastMagnitude,
+                                                     int&               index)
 {
     int  weakestMagIndex = 0;
     auto weakestMag      = abs (data[0]);
@@ -348,8 +348,8 @@ static BV_FORCE_INLINE void locateLeastAbsMagnitude (const float* BV_R_ data,
 
 static BV_FORCE_INLINE void locateLeastAbsMagnitude (const double* BV_R_ data,
                                                      const int           dataSize,
-                                                     double& leastMagnitude,
-                                                     int&    index)
+                                                     double&             leastMagnitude,
+                                                     int&                index)
 {
     int  weakestMagIndex = 0;
     auto weakestMag      = abs (data[0]);
@@ -427,7 +427,10 @@ static BV_FORCE_INLINE void normalize (double* BV_R_ vector, const int numSample
 
     locateGreatestAbsMagnitude (vector, numSamples, max, location);
 
-    if (max == 0.0) { juce::FloatVectorOperations::fill (vector, 0.0, numSamples); }
+    if (max == 0.0)
+    {
+        juce::FloatVectorOperations::fill (vector, 0.0, numSamples);
+    }
     else
     {
         juce::FloatVectorOperations::multiply (vector, 1.0 / max, numSamples);
@@ -499,4 +502,4 @@ static BV_FORCE_INLINE void polar_to_cartesian (double* const BV_R_       real,
 }
 
 
-} // namespace bav::vecops
+}  // namespace bav::vecops

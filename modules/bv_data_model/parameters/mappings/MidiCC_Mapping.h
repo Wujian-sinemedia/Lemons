@@ -9,9 +9,7 @@ class MidiCC_Listener
 {
 public:
     MidiCC_Listener (Parameter* param, int controller)
-        : parameter (param)
-        , controllerNum (controller)
-        , lastControllerValue (defaultLastControllerVal)
+        : parameter (param), controllerNum (controller), lastControllerValue (defaultLastControllerVal)
     {
         jassert (parameter != nullptr && parameter->orig() != nullptr);
     }
@@ -66,8 +64,7 @@ class MidiCC_MappingManager
 {
 public:
     MidiCC_MappingManager()
-        : lastMovedController (0)
-        , lastControllerValue (0)
+        : lastMovedController (0), lastControllerValue (0)
     {
     }
 
@@ -201,4 +198,4 @@ private:
     std::atomic< int >                  lastMovedController, lastControllerValue;
 };
 
-} // namespace bav
+}  // namespace bav

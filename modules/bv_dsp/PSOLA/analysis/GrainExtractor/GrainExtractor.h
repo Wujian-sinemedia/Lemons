@@ -30,7 +30,7 @@ public:
 
 private:
     IArray
-        peakIndices; // used by all the kinds of peak picking algorithms to store their output for transformation to grains
+        peakIndices;  // used by all the kinds of peak picking algorithms to store their output for transformation to grains
 
     IArray peakCandidates;
     IArray peakSearchingOrder;
@@ -83,4 +83,4 @@ private:
 };
 
 
-} // namespace bav
+}  // namespace bav

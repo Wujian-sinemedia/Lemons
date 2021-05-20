@@ -17,7 +17,7 @@ static BV_FORCE_INLINE bool probability (int percentOfTheTime)
 /* Returns true if the given integer number is even. */
 static BV_FORCE_INLINE bool isEven (int number) noexcept
 {
-    return !(number & 0x1);
+    return ! (number & 0x1);
 }
 
 /* Returns true if the given integer number is odd. */
@@ -44,7 +44,7 @@ template < typename Type >
 static BV_FORCE_INLINE bool isinf (Type value)
 {
 #if JUCE_WINDOWS
-    return !_finite (value);
+    return ! _finite (value);
 #else
     return std::isinf (value);
 #endif
@@ -120,4 +120,4 @@ static BV_FORCE_INLINE noteType freqToMidi (noteType freqHz)
 }
 
 
-} // namespace bav::math
+}  // namespace bav::math

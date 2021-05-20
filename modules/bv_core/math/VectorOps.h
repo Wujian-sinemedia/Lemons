@@ -19,20 +19,20 @@ namespace bav::vecops
 // make sure that only one of these is set to 1...
 // these are evaluated in approximate order of preference, and the first one found in this list is used: vDSP, IPP, MIPP, Ne10, fallback
 #if BV_USE_VDSP
-#undef BV_USE_IPP
-#define BV_USE_IPP 0
-#undef BV_USE_MIPP
-#define BV_USE_MIPP 0
-#undef BV_USE_NE10
-#define BV_USE_NE10 0
+#    undef BV_USE_IPP
+#    define BV_USE_IPP 0
+#    undef BV_USE_MIPP
+#    define BV_USE_MIPP 0
+#    undef BV_USE_NE10
+#    define BV_USE_NE10 0
 #elif BV_USE_IPP
-#undef BV_USE_MIPP
-#define BV_USE_MIPP 0
-#undef BV_USE_NE10
-#define BV_USE_NE10 0
+#    undef BV_USE_MIPP
+#    define BV_USE_MIPP 0
+#    undef BV_USE_NE10
+#    define BV_USE_NE10 0
 #elif BV_USE_MIPP
-#undef BV_USE_NE10
-#define BV_USE_NE10 0
+#    undef BV_USE_NE10
+#    define BV_USE_NE10 0
 #endif /* if BV_USE_VDSP */
 
 
@@ -125,7 +125,7 @@ static BV_FORCE_INLINE void
 #if BV_USE_IPP
     ippsMove_32f (source, dest, count);
 #elif BV_USE_MIPP
-    const auto vecLoopSize = (count / mipp::N< float >()) * mipp::N< float >();
+    const auto         vecLoopSize = (count / mipp::N< float >()) * mipp::N< float >();
     mipp::Reg< float > rin, rout;
     for (int i = 0; i < vecLoopSize; i += mipp::N< float >())
     {
@@ -135,7 +135,7 @@ static BV_FORCE_INLINE void
     }
     for (
         int i = vecLoopSize; i < count;
-        ++i) // Scalar tail loop: finish the remaining elements that can't be vectorized.
+        ++i)  // Scalar tail loop: finish the remaining elements that can't be vectorized.
         dest[i] = source[i];
 #else
     memcpy (dest, source, (size_t) count * sizeof (float));
@@ -149,7 +149,7 @@ static BV_FORCE_INLINE void copy (const double* const BV_R_ source,
 #if BV_USE_IPP
     ippsMove_64f (source, dest, count);
 #elif BV_USE_MIPP
-    const auto vecLoopSize = (count / mipp::N< double >()) * mipp::N< double >();
+    const auto          vecLoopSize = (count / mipp::N< double >()) * mipp::N< double >();
     mipp::Reg< double > rin, rout;
     for (int i = 0; i < vecLoopSize; i += mipp::N< double >())
     {
@@ -298,25 +298,25 @@ static BV_FORCE_INLINE void findMaxAndMaxIndex (const double* BV_R_ data,
 /* locates the element with the highest absolute value and its index in the vector, and returns them into the variables greatestMagnitude and index */
 static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const float* BV_R_ data,
                                                         const int          dataSize,
-                                                        float& greatestMagnitude,
-                                                        int&   index);
+                                                        float&             greatestMagnitude,
+                                                        int&               index);
 
 static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const double* BV_R_ data,
                                                         const int           dataSize,
-                                                        double& greatestMagnitude,
-                                                        int&    index);
+                                                        double&             greatestMagnitude,
+                                                        int&                index);
 
 
 /* locates the element with the lowest absolute value and its index in the vector, and returns them into the variables leastMagnitude and index */
 static BV_FORCE_INLINE void locateLeastAbsMagnitude (const float* BV_R_ data,
                                                      const int          dataSize,
-                                                     float& leastMagnitude,
-                                                     int&   index);
+                                                     float&             leastMagnitude,
+                                                     int&               index);
 
 static BV_FORCE_INLINE void locateLeastAbsMagnitude (const double* BV_R_ data,
                                                      const int           dataSize,
-                                                     double& leastMagnitude,
-                                                     int&    index);
+                                                     double&             leastMagnitude,
+                                                     int&                index);
 
 
 /* finds both the maximum and minimum elements in the vector and returns them into the variables max and min */
@@ -390,7 +390,7 @@ inline void interleave (T* const BV_R_ dst,
     int idx = 0;
     switch (channels)
     {
-        case 2:
+        case 2 :
             // common case, may be vectorized by compiler if hardcoded
             for (int i = 0; i < count; ++i)
             {
@@ -400,8 +400,8 @@ inline void interleave (T* const BV_R_ dst,
                 }
             }
             return;
-        case 1: copy (src[0], dst, count); return;
-        default:
+        case 1 : copy (src[0], dst, count); return;
+        default :
             for (int i = 0; i < count; ++i)
             {
                 for (int j = 0; j < channels; ++j)
@@ -412,7 +412,7 @@ inline void interleave (T* const BV_R_ dst,
     }
 }
 #if BV_USE_IPP
-#if (IPP_VERSION_MAJOR <= 7) // Deprecated in v8, removed in v9
+#    if (IPP_VERSION_MAJOR <= 7)  // Deprecated in v8, removed in v9
 template <>
 inline void interleave (float* const BV_R_ dst,
                         const float* const BV_R_* const BV_R_ src,
@@ -422,7 +422,7 @@ inline void interleave (float* const BV_R_ dst,
     ippsInterleave_32f ((const Ipp32f**) src, channels, count, dst);
 }
 // IPP does not (currently?) provide double-precision interleave
-#endif
+#    endif
 #endif
 
 
@@ -437,7 +437,7 @@ static inline void deinterleave (T* const BV_R_* const BV_R_ dst,
 
     switch (channels)
     {
-        case 2:
+        case 2 :
             // common case, may be vectorized by compiler if hardcoded
             for (int i = 0; i < count; ++i)
             {
@@ -448,9 +448,9 @@ static inline void deinterleave (T* const BV_R_* const BV_R_ dst,
             }
             return;
 
-        case 1: copy (src, dst[0], count); return;
+        case 1 : copy (src, dst[0], count); return;
 
-        default:
+        default :
             for (int i = 0; i < count; ++i)
             {
                 for (int j = 0; j < channels; ++j)
@@ -461,7 +461,7 @@ static inline void deinterleave (T* const BV_R_* const BV_R_ dst,
     }
 }
 #if BV_USE_IPP
-#if (IPP_VERSION_MAJOR <= 7) // Deprecated in v8, removed in v9
+#    if (IPP_VERSION_MAJOR <= 7)  // Deprecated in v8, removed in v9
 template <>
 inline void v_deinterleave (float* const BV_R_* const BV_R_ dst,
                             const float* const BV_R_        src,
@@ -471,7 +471,7 @@ inline void v_deinterleave (float* const BV_R_* const BV_R_ dst,
     ippsDeinterleave_32f ((const Ipp32f*) src, channels, count, (Ipp32f**) dst);
 }
 // IPP does not (currently?) provide double-precision deinterleave
-#endif
+#    endif
 #endif
 
 
@@ -504,7 +504,7 @@ static BV_FORCE_INLINE void cartesian_to_magnitudes (float* const BV_R_       ma
                                                      const float* const BV_R_ imag,
                                                      const int                count)
 {
-#if BV_USE_IPP // IPP is the only one of the auxillery libraries that supports this in one function call
+#if BV_USE_IPP  // IPP is the only one of the auxillery libraries that supports this in one function call
     ippsMagnitude_32f (real, imag, mag, count);
 #elif BV_USE_MIPP
     const auto vecLoopSize = (count / mipp::N< float >()) * mipp::N< float >();
@@ -807,21 +807,21 @@ static constexpr bool isUsingNe10()
 
 static constexpr bool isUsingFallback()
 {
-    return !(isUsingVDSP() || isUsingIPP() || isUsingMIPP() || isUsingNe10());
+    return ! (isUsingVDSP() || isUsingIPP() || isUsingMIPP() || isUsingNe10());
 }
 
 
-} // namespace bav::vecops
+}  // namespace bav::vecops
 
 
 #if BV_USE_VDSP
-#include "vecops/vecops_vdsp.h"
+#    include "vecops/vecops_vdsp.h"
 #elif BV_USE_IPP
-#include "vecops/vecops_ipp.h"
+#    include "vecops/vecops_ipp.h"
 #elif BV_USE_MIPP
-#include "vecops/vecops_mipp.h"
+#    include "vecops/vecops_mipp.h"
 #elif BV_USE_NE10
-#include "vecops/vecops_ne10.h"
+#    include "vecops/vecops_ne10.h"
 #else
-#include "vecops/vecops_fallback.h"
+#    include "vecops/vecops_fallback.h"
 #endif

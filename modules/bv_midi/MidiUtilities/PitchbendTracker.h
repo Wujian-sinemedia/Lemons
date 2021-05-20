@@ -6,9 +6,7 @@ class PitchBendHelper
 {
 public:
     PitchBendHelper (const int initialStUp, const int initialStDwn)
-        : rangeUp (initialStUp)
-        , rangeDown (initialStDwn)
-        , lastRecievedPitchbend (64)
+        : rangeUp (initialStUp), rangeDown (initialStDwn), lastRecievedPitchbend (64)
     {
     }
 
@@ -67,4 +65,4 @@ private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PitchBendHelper)
 };
 
-} // namespace bav::midi
+}  // namespace bav::midi

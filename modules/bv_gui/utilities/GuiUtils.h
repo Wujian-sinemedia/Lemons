@@ -52,10 +52,11 @@ static inline juce::Button::ButtonState
         Draws a square bevel around a given rectange.
         This is useful for insetting components and giving them a border.
      */
-static void drawBevel (juce::Graphics&          g,
-                       juce::Rectangle< float > innerBevelBounds,
-                       float                    bevelThickness,
-                       const juce::Colour&      baseColour)
+static void drawBevel (juce::Graphics& g,
+                       juce::Rectangle< float >
+                                           innerBevelBounds,
+                       float               bevelThickness,
+                       const juce::Colour& baseColour)
 {
     juce::Rectangle< float > outerBevelBounds (
         innerBevelBounds.expanded (bevelThickness, bevelThickness));
@@ -173,4 +174,4 @@ static inline void drawSamplesToImage (const juce::Image& image,
 }
 
 
-} // namespace bav::gui
+}  // namespace bav::gui

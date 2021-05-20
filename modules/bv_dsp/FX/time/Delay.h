@@ -60,7 +60,7 @@ public:
         const auto delaySamps = delay.getDelay();
 
         const auto drySample = delay.popSample (channel, SampleType (0), false)
-                               * dryGain.getNextValue();
+                             * dryGain.getNextValue();
         const auto wetSample =
             delay.popSample (channel, delaySamps, true) * wetGain.getNextValue();
 
@@ -172,4 +172,4 @@ template class ReorderableDelay< float >;
 template class ReorderableDelay< double >;
 
 
-} // namespace bav::dsp::FX
+}  // namespace bav::dsp::FX

@@ -59,7 +59,7 @@ void AudioFIFO< SampleType >::releaseResources()
 template < typename SampleType >
 void AudioFIFO< SampleType >::changeSize (const int newNumChannels, int newSize)
 {
-    newSize += newSize; // the real size is always blocksize * 2 under the hood
+    newSize += newSize;  // the real size is always blocksize * 2 under the hood
 
     if (base.getNumSamples() == newSize && base.getNumChannels() == newNumChannels)
         return;
@@ -187,7 +187,7 @@ void AudioFIFO< SampleType >::popSamples (SampleType* output,
 template < typename SampleType >
 int AudioFIFO< SampleType >::numStoredSamples() const
 {
-    jassert (!storedSamples.isEmpty());
+    jassert (! storedSamples.isEmpty());
 
     auto minNumSamples = storedSamples.getUnchecked (0);
 
@@ -201,4 +201,4 @@ int AudioFIFO< SampleType >::numStoredSamples() const
 template class AudioFIFO< float >;
 template class AudioFIFO< double >;
 
-} // namespace bav::dsp
+}  // namespace bav::dsp

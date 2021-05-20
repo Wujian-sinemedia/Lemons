@@ -11,28 +11,28 @@
  */
 
 #ifndef MALLOC_IS_NOT_ALIGNED
-#if JUCE_IOS || JUCE_MAC
-#define BV_MALLOC_IS_ALIGNED 1
-#endif
+#    if JUCE_IOS || JUCE_MAC
+#        define BV_MALLOC_IS_ALIGNED 1
+#    endif
 #endif
 
 #ifndef BV_MALLOC_IS_ALIGNED
-#define BV_MALLOC_IS_ALIGNED 0
+#    define BV_MALLOC_IS_ALIGNED 0
 #endif
 
 #ifndef LACK__ALIGNED_MALLOC
-#if JUCE_WINDOWS
-#define BV_HAVE__ALIGNED_MALLOC 1
-#endif
+#    if JUCE_WINDOWS
+#        define BV_HAVE__ALIGNED_MALLOC 1
+#    endif
 #endif
 
 #ifndef BV_HAVE__ALIGNED_MALLOC
-#define BV_HAVE__ALIGNED_MALLOC 0
+#    define BV_HAVE__ALIGNED_MALLOC 0
 #endif
 
 
 #if BV_POSIX
-#include <sys/mman.h>
+#    include <sys/mman.h>
 #endif
 
 
@@ -49,11 +49,11 @@ T* aligned_allocate (size_t count)
 
     static const int alignment = BV_BIT_DEPTH;
 
-#if BV_HAVE__ALIGNED_MALLOC
+#    if BV_HAVE__ALIGNED_MALLOC
     ptr                        = _aligned_malloc (count * sizeof (T), alignment);
-#else
+#    else
 
-#if BV_POSIX
+#        if BV_POSIX
     auto rv = posix_memalign (&ptr, alignment, count * sizeof (T));
 
     if (rv != 0)
@@ -65,9 +65,9 @@ T* aligned_allocate (size_t count)
             throw std::bad_alloc();
     }
 
-#else /* BV_POSIX */
-#warning                                                                            \
-    "No aligned malloc implementation is available for your platform. Hacking one together for you now..."
+#        else /* BV_POSIX */
+#            warning \
+                "No aligned malloc implementation is available for your platform. Hacking one together for you now..."
 
     // Alignment must be a power of two, bigger than the pointer
     // size. Stuff the actual malloc'd pointer in just before the
@@ -85,11 +85,14 @@ T* aligned_allocate (size_t count)
         ((void**) ptr)[-1] = buf;
     }
 
-#endif /* BV_POSIX */
-#endif /* BV_HAVE__ALIGNED_MALLOC */
-#endif /* BV_MALLOC_IS_ALIGNED */
+#        endif /* BV_POSIX */
+#    endif     /* BV_HAVE__ALIGNED_MALLOC */
+#endif         /* BV_MALLOC_IS_ALIGNED */
 
-    if (ptr == nullptr) { throw std::bad_alloc(); }
+    if (ptr == nullptr)
+    {
+        throw std::bad_alloc();
+    }
 
     T* typed_ptr = static_cast< T* > (ptr);
 
@@ -98,7 +101,10 @@ T* aligned_allocate (size_t count)
         new (typed_ptr + i) T;
     }
 
-    if (typed_ptr == nullptr) { throw std::bad_alloc(); }
+    if (typed_ptr == nullptr)
+    {
+        throw std::bad_alloc();
+    }
 
     return typed_ptr;
 }
@@ -116,7 +122,10 @@ float* aligned_allocate (size_t count)
 
     auto* ptr = ippsMalloc_32f (int (count));
 
-    if (ptr == nullptr) { throw (std::bad_alloc()); }
+    if (ptr == nullptr)
+    {
+        throw (std::bad_alloc());
+    }
 
     for (size_t i = 0; i < count; ++i)
     {
@@ -135,7 +144,10 @@ double* aligned_allocate (size_t count)
 
     auto* ptr = ippsMalloc_64f (int (count));
 
-    if (ptr == nullptr) { throw (std::bad_alloc()); }
+    if (ptr == nullptr)
+    {
+        throw (std::bad_alloc());
+    }
 
     for (size_t i = 0; i < count; ++i)
     {
@@ -197,7 +209,7 @@ void aligned_deallocate (double* ptr)
 #endif /* if BV_USE_IPP */
 
 
-} // namespace bav
+}  // namespace bav
 
 
 #undef BV_MALLOC_IS_ALIGNED

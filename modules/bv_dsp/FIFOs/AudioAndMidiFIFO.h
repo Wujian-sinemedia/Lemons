@@ -69,4 +69,4 @@ template class AudioAndMidiFIFO< float >;
 template class AudioAndMidiFIFO< double >;
 
 
-} // namespace bav::dsp
+}  // namespace bav::dsp

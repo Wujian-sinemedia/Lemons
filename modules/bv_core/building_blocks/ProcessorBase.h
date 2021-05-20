@@ -45,4 +45,4 @@ private:
 };
 
 
-} // namespace bav::dsp
+}  // namespace bav::dsp

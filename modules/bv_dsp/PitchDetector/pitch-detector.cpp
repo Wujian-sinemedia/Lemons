@@ -3,13 +3,7 @@ namespace bav::dsp
 {
 template < typename SampleType >
 PitchDetector< SampleType >::PitchDetector()
-    : minHz (0)
-    , maxHz (0)
-    , lastEstimatedPeriod (0)
-    , lastFrameWasPitched (false)
-    , samplerate (0.0)
-    , confidenceThresh (static_cast< SampleType > (0.15))
-    , asdfBuffer (0, 0)
+    : minHz (0), maxHz (0), lastEstimatedPeriod (0), lastFrameWasPitched (false), samplerate (0.0), confidenceThresh (static_cast< SampleType > (0.15)), asdfBuffer (0, 0)
 {
 }
 
@@ -55,10 +49,10 @@ float PitchDetector< SampleType >::detectPitch (const AudioBuffer& inputAudio)
 
     auto minLag = samplesToFirstZeroCrossing (
         reading,
-        numSamples); // period cannot be smaller than the # of samples to the first zero crossing
+        numSamples);  // period cannot be smaller than the # of samples to the first zero crossing
     auto maxLag = halfNumSamples;
 
-    if (lastFrameWasPitched) // pitch shouldn't halve or double between consecutive voiced frames
+    if (lastFrameWasPitched)  // pitch shouldn't halve or double between consecutive voiced frames
     {
         minLag = std::max (
             minLag, juce::roundToInt (lastEstimatedPeriod * SampleType (0.5)));
@@ -69,7 +63,7 @@ float PitchDetector< SampleType >::detectPitch (const AudioBuffer& inputAudio)
     minLag = std::max (minLag, minPeriod);
     maxLag = std::min (maxLag, maxPeriod);
 
-    if (!(maxLag > minLag)) // truncation of edge cases
+    if (! (maxLag > minLag))  // truncation of edge cases
         minLag = std::min (maxLag - 1, minPeriod);
 
     jassert (maxLag > minLag);
@@ -82,11 +76,11 @@ float PitchDetector< SampleType >::detectPitch (const AudioBuffer& inputAudio)
 
     jassert (asdfBuffer.getNumSamples() >= maxLag - minLag + 1);
 
-    for (int k = minLag; k <= maxLag; ++k) // k = lag = period
+    for (int k = minLag; k <= maxLag; ++k)  // k = lag = period
     {
         const auto index =
             k
-            - minLag; // the actual asdfBuffer index for this k value's data. offset = minPeriod
+            - minLag;  // the actual asdfBuffer index for this k value's data. offset = minPeriod
 
         for (int s1 = 0, s2 = halfNumSamples; s1 < halfNumSamples && s2 < numSamples;
              ++s1, ++s2)
@@ -111,7 +105,7 @@ float PitchDetector< SampleType >::detectPitch (const AudioBuffer& inputAudio)
     jassert (minIndex >= 0 && minIndex <= asdfDataSize);
 
     if (greatestConfidence
-        > confidenceThresh) // determine if frame is unpitched - not enough periodicity
+        > confidenceThresh)  // determine if frame is unpitched - not enough periodicity
     {
         lastFrameWasPitched = false;
         return 0.0f;
@@ -122,7 +116,7 @@ float PitchDetector< SampleType >::detectPitch (const AudioBuffer& inputAudio)
 
     const auto realPeriod =
         minIndex
-        + minLag; // account for offset in asdf data (index 0 stored data for lag of minPeriod)
+        + minLag;  // account for offset in asdf data (index 0 stored data for lag of minPeriod)
 
     jassert (realPeriod <= maxPeriod && realPeriod >= minPeriod);
 
@@ -143,7 +137,7 @@ void PitchDetector< SampleType >::getNextBestPeriodCandidate (
 
     for (int i = 0; i < dataSize; ++i)
     {
-        if (!candidates.contains (i))
+        if (! candidates.contains (i))
         {
             index = i;
             break;
@@ -184,7 +178,7 @@ int PitchDetector< SampleType >::chooseIdealPeriodCandidate (
     for (int c = 1; c <= numPeriodCandidatesToTest; ++c)
         getNextBestPeriodCandidate (periodCandidates, asdfData, asdfDataSize);
 
-    jassert (!periodCandidates.isEmpty());
+    jassert (! periodCandidates.isEmpty());
 
     if (periodCandidates.size() <= 2) return minIndex;
 
@@ -198,7 +192,7 @@ int PitchDetector< SampleType >::chooseIdealPeriodCandidate (
     const auto deltaRange = intops::findRangeOfExtrema (
         candidateDeltas.getRawDataPointer(), candidateDeltas.size());
 
-    if (deltaRange < 2) // prevent dividing by zero in the next step...
+    if (deltaRange < 2)  // prevent dividing by zero in the next step...
         return minIndex;
 
     // weight the asdf data based on each candidate's delta value
@@ -231,7 +225,7 @@ void PitchDetector< SampleType >::setHzRange (const int newMinHz, const int newM
 
     if (minPeriod < 1) minPeriod = 1;
 
-    if (!(maxPeriod > minPeriod)) maxPeriod = minPeriod + 1;
+    if (! (maxPeriod > minPeriod)) maxPeriod = minPeriod + 1;
 
     const auto numOfLagValues = maxPeriod - minPeriod + 1;
 
@@ -261,7 +255,7 @@ int PitchDetector< SampleType >::samplesToFirstZeroCrossing (
 {
 #if BV_USE_VDSP
     unsigned long index =
-        0; // in Apple's vDSP, the type vDSP_Length is an alias for unsigned long
+        0;  // in Apple's vDSP, the type vDSP_Length is an alias for unsigned long
     unsigned long totalcrossings = 0;
 
     if constexpr (std::is_same_v< SampleType, float >)
@@ -298,4 +292,4 @@ int PitchDetector< SampleType >::samplesToFirstZeroCrossing (
 template class PitchDetector< float >;
 template class PitchDetector< double >;
 
-} // namespace bav::dsp
+}  // namespace bav::dsp

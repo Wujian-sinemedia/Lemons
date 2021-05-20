@@ -16,15 +16,15 @@ static inline juce::File getPresetsFolder (std::string companyName,
 #else
     rootFolder = juce::File::getSpecialLocation (
         juce::File::SpecialLocationType::userApplicationDataDirectory);
-#if JUCE_MAC
+#    if JUCE_MAC
     rootFolder = rootFolder.getChildFile ("Audio").getChildFile ("Presets");
-#endif
+#    endif
 #endif
     rootFolder = rootFolder.getChildFile (companyName).getChildFile (pluginName);
 
-    if (!rootFolder.isDirectory())
+    if (! rootFolder.isDirectory())
         rootFolder
-            .createDirectory(); // creates the presets folder if it doesn't already exist
+            .createDirectory();  // creates the presets folder if it doesn't already exist
 
     return rootFolder;
 }
@@ -45,9 +45,9 @@ static inline juce::String removeFileExtensionIfThere (const juce::String& strin
                                                        const juce::String& extension)
 {
     return (string.endsWith (extension))
-               ? string.dropLastCharacters (extension.length()).trim()
-               : string.trim();
+             ? string.dropLastCharacters (extension.length()).trim()
+             : string.trim();
 }
 
 
-} // namespace bav
+}  // namespace bav

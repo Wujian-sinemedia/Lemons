@@ -7,9 +7,7 @@ public:
     ComponentWithParameterConnection (Parameter*         parameter,
                                       juce::ValueTree&   vt,
                                       juce::UndoManager& um)
-        : state (vt)
-        , parameterName (parameter->parameterNameVerbose)
-        , undoManager (um)
+        : state (vt), parameterName (parameter->parameterNameVerbose), undoManager (um)
     {
         setName (parameter->parameterNameVerbose);
         setComponentID (parameter->parameterNameVerbose);
@@ -31,7 +29,7 @@ public:
 
     void beginGesture()
     {
-        if (!parameterIsChanging.get())
+        if (! parameterIsChanging.get())
         {
             undoManager.beginNewTransaction();
             undoManager.setCurrentTransactionName (TRANS ("Changed") + " "
@@ -74,9 +72,7 @@ public:
     ComponentWithPropertyConnection (NonParamValueTreeNode* property,
                                      juce::ValueTree&       vt,
                                      juce::UndoManager&     um)
-        : state (vt)
-        , propertyName (property->longName)
-        , undoManager (um)
+        : state (vt), propertyName (property->longName), undoManager (um)
     {
         setName (property->longName);
         setComponentID (property->longName);
@@ -92,4 +88,4 @@ protected:
 };
 
 
-} // namespace bav::gui
+}  // namespace bav::gui

@@ -64,7 +64,7 @@ void GrainExtractor< SampleType >::getGrainOnsetIndices (
 
     findPsolaPeaks (peakIndices, inputSamples, numSamples, period);
 
-    jassert (!peakIndices.isEmpty());
+    jassert (! peakIndices.isEmpty());
 
     const auto grainLength = period * 2;
     const auto halfPeriod  = juce::roundToInt (period * 0.5f);
@@ -77,7 +77,7 @@ void GrainExtractor< SampleType >::getGrainOnsetIndices (
 
         auto grainStart =
             peakIndex
-            - period; // offset the peak index by the period so that the peak index will be in the center of the grain (if grain is 2 periods long)
+            - period;  // offset the peak index by the period so that the peak index will be in the center of the grain (if grain is 2 periods long)
 
         if (grainStart < 0)
         {
@@ -96,7 +96,7 @@ void GrainExtractor< SampleType >::getGrainOnsetIndices (
 
             if (grainStart < 0)
             {
-                if (!targetArray.isEmpty()) continue;
+                if (! targetArray.isEmpty()) continue;
 
                 grainStart = 0;
             }
@@ -105,33 +105,33 @@ void GrainExtractor< SampleType >::getGrainOnsetIndices (
         targetArray.add (grainStart);
     }
 
-    jassert (!targetArray.isEmpty());
+    jassert (! targetArray.isEmpty());
 }
 
 
 template < typename SampleType >
-inline void GrainExtractor< SampleType >::findPsolaPeaks (IArray& targetArray,
+inline void GrainExtractor< SampleType >::findPsolaPeaks (IArray&           targetArray,
                                                           const SampleType* reading,
-                                                          const int totalNumSamples,
-                                                          const int period)
+                                                          const int         totalNumSamples,
+                                                          const int         period)
 {
     targetArray.clearQuick();
 
     const auto grainSize =
-        2 * period; // output grains are 2 periods long w/ 50% overlap
+        2 * period;  // output grains are 2 periods long w/ 50% overlap
     const auto halfPeriod = juce::roundToInt (period * 0.5f);
 
     jassert (totalNumSamples >= grainSize);
 
     int analysisIndex =
-        halfPeriod; // marks the center of the analysis windows, which are 1 period long
+        halfPeriod;  // marks the center of the analysis windows, which are 1 period long
 
     do
     {
         const auto frameStart = analysisIndex - halfPeriod;
         const auto frameEnd =
             std::min (totalNumSamples,
-                      frameStart + period); // analysis grains are 1 period long
+                      frameStart + period);  // analysis grains are 1 period long
 
         jassert (frameStart >= 0 && frameEnd <= totalNumSamples);
 
@@ -139,13 +139,13 @@ inline void GrainExtractor< SampleType >::findPsolaPeaks (IArray& targetArray,
             frameStart,
             frameEnd,
             std::min (analysisIndex,
-                      frameEnd), // predicted peak location for this frame
+                      frameEnd),  // predicted peak location for this frame
             reading,
             targetArray,
             period,
             grainSize));
 
-        jassert (!targetArray.isEmpty());
+        jassert (! targetArray.isEmpty());
 
         const auto prevAnalysisIndex = analysisIndex;
         const auto targetArraySize   = targetArray.size();
@@ -166,9 +166,9 @@ inline void GrainExtractor< SampleType >::findPsolaPeaks (IArray& targetArray,
 
 
 template < typename SampleType >
-inline int GrainExtractor< SampleType >::findNextPeak (const int frameStart,
-                                                       const int frameEnd,
-                                                       int       predictedPeak,
+inline int GrainExtractor< SampleType >::findNextPeak (const int         frameStart,
+                                                       const int         frameEnd,
+                                                       int               predictedPeak,
                                                        const SampleType* reading,
                                                        const IArray&     targetArray,
                                                        const int         period,
@@ -193,15 +193,15 @@ inline int GrainExtractor< SampleType >::findNextPeak (const int frameStart,
                                  predictedPeak,
                                  peakSearchingOrder);
 
-    jassert (!peakCandidates.isEmpty());
+    jassert (! peakCandidates.isEmpty());
 
     switch (peakCandidates.size())
     {
-        case 1: return peakCandidates.getUnchecked (0);
+        case 1 : return peakCandidates.getUnchecked (0);
 
-        case 2: return choosePeakWithGreatestPower (peakCandidates, reading);
+        case 2 : return choosePeakWithGreatestPower (peakCandidates, reading);
 
-        default:
+        default :
         {
             if (targetArray.size() <= 1)
                 return choosePeakWithGreatestPower (peakCandidates, reading);
@@ -225,13 +225,13 @@ inline void GrainExtractor< SampleType >::getPeakCandidateInRange (
     const int         predictedPeak,
     const IArray&     searchingOrder)
 {
-    jassert (!searchingOrder.isEmpty());
+    jassert (! searchingOrder.isEmpty());
 
     int starting = -1;
 
     for (int poss : searchingOrder)
     {
-        if (!candidates.contains (poss))
+        if (! candidates.contains (poss))
         {
             starting = poss;
             break;
@@ -250,8 +250,8 @@ inline void GrainExtractor< SampleType >::getPeakCandidateInRange (
 
     const auto numSamples = endSample - startSample;
 
-    auto localMin = input[starting] * weight (starting, predictedPeak, numSamples);
-    auto localMax = localMin;
+    auto localMin        = input[starting] * weight (starting, predictedPeak, numSamples);
+    auto localMax        = localMin;
     auto indexOfLocalMin = starting;
     auto indexOfLocalMax = starting;
 
@@ -277,7 +277,10 @@ inline void GrainExtractor< SampleType >::getPeakCandidateInRange (
         }
     }
 
-    if (indexOfLocalMax == indexOfLocalMin) { candidates.add (indexOfLocalMax); }
+    if (indexOfLocalMax == indexOfLocalMin)
+    {
+        candidates.add (indexOfLocalMax);
+    }
     else if (localMax < SampleType (0.0))
     {
         candidates.add (indexOfLocalMin);
@@ -334,7 +337,7 @@ inline int GrainExtractor< SampleType >::chooseIdealPeakCandidate (
 
         candidateDeltas.set (
             minimumIndex,
-            10000.0f); // make sure this value won't be chosen again, w/o deleting it from the candidateDeltas array
+            10000.0f);  // make sure this value won't be chosen again, w/o deleting it from the candidateDeltas array
     }
 
     jassert (finalHandful.size() == finalHandfulSize
@@ -345,7 +348,7 @@ inline int GrainExtractor< SampleType >::chooseIdealPeakCandidate (
     const auto deltaRange = bav::vecops::findRangeOfExtrema (
         finalHandfulDeltas.getRawDataPointer(), finalHandfulDeltas.size());
 
-    if (deltaRange < 0.05f) // prevent dividing by 0 in the next step...
+    if (deltaRange < 0.05f)  // prevent dividing by 0 in the next step...
         return finalHandful.getUnchecked (0);
 
     const auto deltaWeight = [] (float delta, float totalDeltaRange)
@@ -403,7 +406,7 @@ inline int GrainExtractor< SampleType >::choosePeakWithGreatestPower (
 
 template < typename SampleType >
 inline void GrainExtractor< SampleType >::sortSampleIndicesForPeakSearching (
-    IArray&   output, // array to write the sorted sample indices to
+    IArray&   output,  // array to write the sorted sample indices to
     const int startSample,
     const int endSample,
     const int predictedPeak)
@@ -421,7 +424,7 @@ inline void GrainExtractor< SampleType >::sortSampleIndicesForPeakSearching (
         const auto pos = predictedPeak + p;
         const auto neg = predictedPeak + m;
 
-        if (n % 2 == 0) // n is even
+        if (n % 2 == 0)  // n is even
         {
             if (neg >= startSample)
             {
@@ -457,4 +460,4 @@ template class GrainExtractor< float >;
 template class GrainExtractor< double >;
 
 
-} // namespace bav
+}  // namespace bav

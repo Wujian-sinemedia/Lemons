@@ -10,11 +10,7 @@ class FreestandingParameter
 {
 public:
     FreestandingParameter (const Parameter* const param)
-        : parameterNameShort (param->parameterNameShort)
-        , parameterNameVerbose (param->parameterNameVerbose)
-        , parameterNameVerboseNoSpaces (param->parameterNameVerboseNoSpaces)
-        , range (param->orig()->getNormalisableRange())
-        , keyID (param->key())
+        : parameterNameShort (param->parameterNameShort), parameterNameVerbose (param->parameterNameVerbose), parameterNameVerboseNoSpaces (param->parameterNameVerboseNoSpaces), range (param->orig()->getNormalisableRange()), keyID (param->key())
     {
         currentValue.store (param->getNormalizedDefault());
         currentDefault.store (param->getNormalizedDefault());
@@ -132,10 +128,11 @@ public:
 
     void beginChangeGesture()
     {
-        if (!changing.load())
+        if (! changing.load())
         {
             changing.store (true);
-            listeners.call ([] (Listener& l) { l.parameterGestureChanged (true); });
+            listeners.call ([] (Listener& l)
+                            { l.parameterGestureChanged (true); });
 
             if (onGestureStateChange) onGestureStateChange (true);
         }
@@ -146,7 +143,8 @@ public:
         if (changing.load())
         {
             changing.store (false);
-            listeners.call ([] (Listener& l) { l.parameterGestureChanged (false); });
+            listeners.call ([] (Listener& l)
+                            { l.parameterGestureChanged (false); });
 
             if (onGestureStateChange) onGestureStateChange (false);
         }
@@ -263,7 +261,7 @@ public:
     //==============================================================================
 
     std::function< void (float) >
-        onParameterChange; // this gets the denormalized new float value
+                                  onParameterChange;  // this gets the denormalized new float value
     std::function< void (float) > onDefaultChange;
     std::function< void (bool) >  onGestureStateChange;
 
@@ -321,7 +319,7 @@ public:
 
         switch (valueType)
         {
-            case (floatValue):
+            case (floatValue) :
             {
                 juce::ValueTree tree {Parameter_Float};
 
@@ -334,7 +332,7 @@ public:
 
                 return tree;
             }
-            case (intValue):
+            case (intValue) :
             {
                 juce::ValueTree tree {Parameter_Int};
 
@@ -347,7 +345,7 @@ public:
 
                 return tree;
             }
-            case (boolValue):
+            case (boolValue) :
             {
                 juce::ValueTree tree {Parameter_Bool};
 
@@ -359,7 +357,7 @@ public:
 
                 return tree;
             }
-            default: jassertfalse;
+            default : jassertfalse;
         }
     }
 
@@ -447,4 +445,4 @@ static inline void convertPluginParametersToFreestanding (
 }
 
 
-} // namespace bav
+}  // namespace bav

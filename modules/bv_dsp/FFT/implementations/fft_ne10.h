@@ -14,7 +14,7 @@ public:
         : m_size (size)
     {
         jassert (
-            math::isPowerOfTwo (size)); // Ne10 only supports power-of-two FFT sizes
+            math::isPowerOfTwo (size));  // Ne10 only supports power-of-two FFT sizes
     }
 
     ~FFT() override
@@ -321,7 +321,7 @@ private:
     ne10_fft_r2c_cfg_float32_t* config;
 
     ne10_fft_cpx_float32_t temp[m_size / 2 + 1] =
-        {}; // A destination array for the transformed data
+        {};  // A destination array for the transformed data
 
     float*  conversionBuf;
     double* workingBuf;
@@ -330,4 +330,4 @@ private:
 };
 
 
-} // namespace bav::dsp
+}  // namespace bav::dsp

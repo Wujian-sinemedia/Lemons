@@ -255,7 +255,7 @@ static BV_FORCE_INLINE void square (double* BV_R_ data, const int dataSize)
 /* replaces every element in the passed vector with its absolute value */
 static BV_FORCE_INLINE void absVal (float* BV_R_ data, const int dataSize)
 {
-#if (defined(MACOSX_DEPLOYMENT_TARGET) && MACOSX_DEPLOYMENT_TARGET <= 1070          \
+#if (defined(MACOSX_DEPLOYMENT_TARGET) && MACOSX_DEPLOYMENT_TARGET <= 1070 \
      && MAC_OS_X_VERSION_MIN_REQUIRED <= 1070)
     vvfabf (data, data, &dataSize);
 #else
@@ -265,7 +265,7 @@ static BV_FORCE_INLINE void absVal (float* BV_R_ data, const int dataSize)
 
 static BV_FORCE_INLINE void absVal (double* BV_R_ data, const int dataSize)
 {
-#if (defined(MACOSX_DEPLOYMENT_TARGET) && MACOSX_DEPLOYMENT_TARGET <= 1070          \
+#if (defined(MACOSX_DEPLOYMENT_TARGET) && MACOSX_DEPLOYMENT_TARGET <= 1070 \
      && MAC_OS_X_VERSION_MIN_REQUIRED <= 1070)
     vvfab (data, data, &dataSize);
 #else
@@ -361,8 +361,8 @@ static BV_FORCE_INLINE void findMaxAndMaxIndex (const double* BV_R_ data,
 /* locates the element with the highest absolute value and its index in the vector, and returns them into the variables greatestMagnitude and index */
 static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const float* BV_R_ data,
                                                         const int          dataSize,
-                                                        float& greatestMagnitude,
-                                                        int&   index)
+                                                        float&             greatestMagnitude,
+                                                        int&               index)
 {
     unsigned long i = 0.0;
     vDSP_maxmgvi (
@@ -372,8 +372,8 @@ static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const float* BV_R_ data,
 
 static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const double* BV_R_ data,
                                                         const int           dataSize,
-                                                        double& greatestMagnitude,
-                                                        int&    index)
+                                                        double&             greatestMagnitude,
+                                                        int&                index)
 {
     unsigned long i = 0.0;
     vDSP_maxmgviD (
@@ -385,8 +385,8 @@ static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const double* BV_R_ data
 /* locates the element with the lowest absolute value and its index in the vector, and returns them into the variables leastMagnitude and index */
 static BV_FORCE_INLINE void locateLeastAbsMagnitude (const float* BV_R_ data,
                                                      const int          dataSize,
-                                                     float& leastMagnitude,
-                                                     int&   index)
+                                                     float&             leastMagnitude,
+                                                     int&               index)
 {
     unsigned long i = 0.0;
     vDSP_minmgvi (
@@ -396,8 +396,8 @@ static BV_FORCE_INLINE void locateLeastAbsMagnitude (const float* BV_R_ data,
 
 static BV_FORCE_INLINE void locateLeastAbsMagnitude (const double* BV_R_ data,
                                                      const int           dataSize,
-                                                     double& leastMagnitude,
-                                                     int&    index)
+                                                     double&             leastMagnitude,
+                                                     int&                index)
 {
     unsigned long i = 0.0;
     vDSP_minmgviD (
@@ -499,8 +499,8 @@ static BV_FORCE_INLINE void cartesian_to_polar (float* const BV_R_       mag,
     c.realp = const_cast< float* > (real);
     c.imagp = const_cast< float* > (imag);
     vDSP_zvmags (
-        &c, 1, phase, 1, vDSP_Length (count)); // using phase as a temporary dest
-    vvsqrtf (mag, phase, &count); // using phase as the source
+        &c, 1, phase, 1, vDSP_Length (count));  // using phase as a temporary dest
+    vvsqrtf (mag, phase, &count);               // using phase as the source
     vvatan2f (phase, imag, real, &count);
 }
 
@@ -514,8 +514,8 @@ static BV_FORCE_INLINE void cartesian_to_polar (double* const BV_R_       mag,
     c.realp = const_cast< double* > (real);
     c.imagp = const_cast< double* > (imag);
     vDSP_zvmagsD (
-        &c, 1, phase, 1, vDSP_Length (count)); // using phase as a temporary dest
-    vvsqrt (mag, phase, &count); // using phase as the source
+        &c, 1, phase, 1, vDSP_Length (count));  // using phase as a temporary dest
+    vvsqrt (mag, phase, &count);                // using phase as the source
     vvatan2 (phase, imag, real, &count);
 }
 
@@ -570,4 +570,4 @@ static BV_FORCE_INLINE void polar_to_cartesian (double* const BV_R_       real,
 }
 
 
-} // namespace bav::vecops
+}  // namespace bav::vecops

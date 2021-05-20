@@ -60,4 +60,4 @@ void callInBackgroundDelayed (std::function< void (ArgumentType) > function,
                               int                                  msInFuture);
 
 
-} // namespace bav
+}  // namespace bav

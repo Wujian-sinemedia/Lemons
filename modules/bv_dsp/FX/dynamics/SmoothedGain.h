@@ -118,4 +118,4 @@ template class ReorderableSmoothedGain< float >;
 template class ReorderableSmoothedGain< double >;
 
 
-} // namespace bav::dsp::FX
+}  // namespace bav::dsp::FX

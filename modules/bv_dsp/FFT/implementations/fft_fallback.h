@@ -9,27 +9,24 @@ class FFT : public FFTinterface
 {
 public:
     FFT (int size)
-        : m_size (size)
-        , m_half (size / 2)
-        , m_blockTableSize (16)
-        , m_maxTabledBlock (1 << m_blockTableSize)
+        : m_size (size), m_half (size / 2), m_blockTableSize (16), m_maxTabledBlock (1 << m_blockTableSize)
     {
         const auto half = size_t (m_half);
         m_table         = aligned_allocate_zero< int > (half);
-        m_sincos   = aligned_allocate_zero< double > (size_t (m_blockTableSize * 4));
-        m_sincos_r = aligned_allocate_zero< double > (half);
-        m_vr       = aligned_allocate_zero< double > (half);
-        m_vi       = aligned_allocate_zero< double > (half);
-        m_a        = aligned_allocate_zero< double > (half + 1);
-        m_b        = aligned_allocate_zero< double > (half + 1);
-        m_c        = aligned_allocate_zero< double > (half + 1);
-        m_d        = aligned_allocate_zero< double > (half + 1);
-        m_e        = aligned_allocate_zero< double > (half + 1);
-        m_f        = aligned_allocate_zero< double > (half + 1);
-        m_a_and_b[0] = m_a;
-        m_a_and_b[1] = m_b;
-        m_c_and_d[0] = m_c;
-        m_c_and_d[1] = m_d;
+        m_sincos        = aligned_allocate_zero< double > (size_t (m_blockTableSize * 4));
+        m_sincos_r      = aligned_allocate_zero< double > (half);
+        m_vr            = aligned_allocate_zero< double > (half);
+        m_vi            = aligned_allocate_zero< double > (half);
+        m_a             = aligned_allocate_zero< double > (half + 1);
+        m_b             = aligned_allocate_zero< double > (half + 1);
+        m_c             = aligned_allocate_zero< double > (half + 1);
+        m_d             = aligned_allocate_zero< double > (half + 1);
+        m_e             = aligned_allocate_zero< double > (half + 1);
+        m_f             = aligned_allocate_zero< double > (half + 1);
+        m_a_and_b[0]    = m_a;
+        m_a_and_b[1]    = m_b;
+        m_c_and_d[0]    = m_c;
+        m_c_and_d[1]    = m_d;
         makeTables();
     }
 
@@ -258,7 +255,7 @@ private:
         for (i = 0; i < n / 2; ++i)
         {
             double phase = juce::MathConstants< double >::pi
-                           * (double (i + 1) / double (m_half) + 0.5);
+                         * (double (i + 1) / double (m_half) + 0.5);
             m_sincos_r[ix++] = sin (phase);
             m_sincos_r[ix++] = cos (phase);
         }
@@ -420,4 +417,4 @@ private:
 };
 
 
-} // namespace bav::dsp
+}  // namespace bav::dsp

@@ -63,15 +63,15 @@ public:
 
 private:
     int numStoredSamples =
-        0; // even though no audio is stored, we need to keep an internal representation of the actual number of samples this buffer represents in time
+        0;  // even though no audio is stored, we need to keep an internal representation of the actual number of samples this buffer represents in time
 
     juce::MidiBuffer base;
 
     juce::MidiBuffer
-        copying; // pre-allocated memory for copying left-over events back to the front of the base buffer after popping events...
+        copying;  // pre-allocated memory for copying left-over events back to the front of the base buffer after popping events...
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MidiFIFO)
 };
 
 
-} // namespace bav::midi
+}  // namespace bav::midi

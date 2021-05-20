@@ -61,4 +61,4 @@ private:
 template class MonoToStereoPanner< float >;
 template class MonoToStereoPanner< double >;
 
-} // namespace bav::dsp::FX
+}  // namespace bav::dsp::FX

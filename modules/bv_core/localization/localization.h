@@ -26,4 +26,4 @@ struct TranslationInitializer
 };
 
 
-} // namespace bav
+}  // namespace bav

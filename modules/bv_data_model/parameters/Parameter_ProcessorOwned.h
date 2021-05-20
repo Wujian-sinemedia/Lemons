@@ -12,13 +12,9 @@ public:
                float        defaultValue,
                juce::String paramNameShort,
                juce::String paramNameVerbose)
-        : parameterNameShort (TRANS (paramNameShort))
-        , parameterNameVerbose (TRANS (paramNameVerbose))
-        , parameterNameVerboseNoSpaces (
-              paramNameVerbose.trim().replaceCharacters (" ", "_"))
-        , rap (p)
-        , keyID (key)
-        , currentDefault (defaultValue)
+        : parameterNameShort (TRANS (paramNameShort)), parameterNameVerbose (TRANS (paramNameVerbose)), parameterNameVerboseNoSpaces (
+                                                                                                            paramNameVerbose.trim().replaceCharacters (" ", "_")),
+          rap (p), keyID (key), currentDefault (defaultValue)
     {
         jassert (rap != nullptr);
         lastActionedValue.store (defaultValue);
@@ -164,7 +160,7 @@ public:
     //==============================================================================
     // if defined, these functions will be called on the message thread when this parameter changes ("somewhat synchronously")
     std::function< void (float) >
-        onParameterChange; // this gets the denormalized new float value
+                                  onParameterChange;  // this gets the denormalized new float value
     std::function< void (float) > onDefaultChange;
     std::function< void (bool) >  onGestureStateChange;
 
@@ -226,10 +222,11 @@ class FloatParameter : public juce::AudioParameterFloat, public bav::Parameter
 
 public:
     FloatParameter (
-        int                                     key,
-        juce::String                            paramNameShort,
-        juce::String                            paramNameVerbose,
-        juce::NormalisableRange< float >        nRange,
+        int          key,
+        juce::String paramNameShort,
+        juce::String paramNameVerbose,
+        juce::NormalisableRange< float >
+                                                nRange,
         float                                   defaultVal,
         juce::String                            parameterLabel = juce::String(),
         juce::AudioProcessorParameter::Category parameterCategory =
@@ -244,14 +241,13 @@ public:
                                parameterLabel,
                                parameterCategory,
                                stringFromValue,
-                               valueFromString)
-        , Parameter (key,
+                               valueFromString),
+          Parameter (key,
                      this,
                      nRange.convertTo0to1 (defaultVal),
                      paramNameShort,
-                     paramNameVerbose)
-        , floatToString (stringFromValue)
-        , stringToFloat (valueFromString)
+                     paramNameVerbose),
+          floatToString (stringFromValue), stringToFloat (valueFromString)
     {
     }
 
@@ -305,15 +301,14 @@ public:
                              defaultVal,
                              parameterLabel,
                              stringFromInt,
-                             intFromString)
-        , Parameter (key,
+                             intFromString),
+          Parameter (key,
                      this,
                      AudioParameterInt::getNormalisableRange().convertTo0to1 (
                          static_cast< float > (defaultVal)),
                      paramNameShort,
-                     paramNameVerbose)
-        , intToString (stringFromInt)
-        , stringToInt (intFromString)
+                     paramNameVerbose),
+          intToString (stringFromInt), stringToInt (intFromString)
     {
     }
 
@@ -366,15 +361,14 @@ public:
                               defaultVal,
                               parameterLabel,
                               stringFromBool,
-                              boolFromString)
-        , Parameter (key,
+                              boolFromString),
+          Parameter (key,
                      this,
                      AudioParameterBool::getNormalisableRange().convertTo0to1 (
                          static_cast< float > (defaultVal)),
                      paramNameShort,
-                     paramNameVerbose)
-        , boolToString (stringFromBool)
-        , stringToBool (boolFromString)
+                     paramNameVerbose),
+          boolToString (stringFromBool), stringToBool (boolFromString)
     {
     }
 
@@ -408,10 +402,11 @@ private:
 struct MeterParameter : public FloatParameter
 {
     MeterParameter (
-        int                                     key,
-        juce::String                            paramNameShort,
-        juce::String                            paramNameVerbose,
-        juce::NormalisableRange< float >        nRange,
+        int          key,
+        juce::String paramNameShort,
+        juce::String paramNameVerbose,
+        juce::NormalisableRange< float >
+                                                nRange,
         float                                   defaultVal,
         juce::String                            parameterLabel = juce::String(),
         juce::AudioProcessorParameter::Category parameterCategory =
@@ -470,4 +465,4 @@ struct GainMeterParameter : public MeterParameter
 };
 
 
-} // namespace bav
+}  // namespace bav

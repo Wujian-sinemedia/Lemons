@@ -43,4 +43,4 @@ static inline void parseParameterTreeForParameterPointers (
 }
 
 
-} // namespace bav
+}  // namespace bav

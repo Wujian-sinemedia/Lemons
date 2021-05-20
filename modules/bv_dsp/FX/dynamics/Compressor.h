@@ -132,14 +132,14 @@ public:
                               SampleType* gainReduction = nullptr)
     {
         auto env = envelopeFilter.processSample (
-            channel, sidechainSample); // Ballistics filter with peak rectifier
+            channel, sidechainSample);  // Ballistics filter with peak rectifier
 
         // VCA
         auto gain = (env < threshold) ? SampleType (1.0)
                                       : std::pow (env * thresholdInverse,
                                                   ratioInverse - SampleType (1.0));
 
-        if (gainReduction != nullptr) // report gain reduction, if requested
+        if (gainReduction != nullptr)  // report gain reduction, if requested
             *gainReduction = gain;
 
         return gain * inputSample;
@@ -158,7 +158,7 @@ private:
         envelopeFilter.setReleaseTime (releaseTime);
     }
 
-    SampleType threshold, thresholdInverse, ratioInverse;
+    SampleType                                threshold, thresholdInverse, ratioInverse;
     juce::dsp::BallisticsFilter< SampleType > envelopeFilter;
 
     juce::dsp::ProcessSpec spec;
@@ -202,4 +202,4 @@ private:
 template class ReorderableCompressor< float >;
 template class ReorderableCompressor< double >;
 
-} // namespace bav::dsp::FX
+}  // namespace bav::dsp::FX

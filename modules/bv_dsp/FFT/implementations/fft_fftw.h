@@ -26,51 +26,51 @@
 
 
 #ifndef FFTW_SINGLE_ONLY
-#ifndef FFTW_DOUBLE_ONLY
-#define FFTW_DOUBLE_ONLY 1
-#endif
+#    ifndef FFTW_DOUBLE_ONLY
+#        define FFTW_DOUBLE_ONLY 1
+#    endif
 #endif
 
 
 /* Can't meaningfully define both... */
 #if defined(FFTW_DOUBLE_ONLY) && defined(FFTW_SINGLE_ONLY)
-#error Can only define one of FFTW_DOUBLE_ONLY or FFTW_SINGLE_ONLY
+#    error Can only define one of FFTW_DOUBLE_ONLY or FFTW_SINGLE_ONLY
 #endif
 
 #ifdef FFTW_DOUBLE_ONLY
-#define fft_float_type double
-#define fftwf_complex fftw_complex
-#define fftwf_plan fftw_plan
-#define fftwf_plan_dft_r2c_1d fftw_plan_dft_r2c_1d
-#define fftwf_plan_dft_c2r_1d fftw_plan_dft_c2r_1d
-#define fftwf_destroy_plan fftw_destroy_plan
-#define fftwf_malloc fftw_malloc
-#define fftwf_free fftw_free
-#define fftwf_execute fftw_execute
-#define atan2f atan2
-#define sqrtf sqrt
-#define cosf cos
-#define sinf sin
+#    define fft_float_type        double
+#    define fftwf_complex         fftw_complex
+#    define fftwf_plan            fftw_plan
+#    define fftwf_plan_dft_r2c_1d fftw_plan_dft_r2c_1d
+#    define fftwf_plan_dft_c2r_1d fftw_plan_dft_c2r_1d
+#    define fftwf_destroy_plan    fftw_destroy_plan
+#    define fftwf_malloc          fftw_malloc
+#    define fftwf_free            fftw_free
+#    define fftwf_execute         fftw_execute
+#    define atan2f                atan2
+#    define sqrtf                 sqrt
+#    define cosf                  cos
+#    define sinf                  sin
 #else
-#define fft_float_type float
+#    define fft_float_type float
 #endif /* FFTW_DOUBLE_ONLY */
 
 #ifdef FFTW_SINGLE_ONLY
-#define fft_double_type float
-#define fftw_complex fftwf_complex
-#define fftw_plan fftwf_plan
-#define fftw_plan_dft_r2c_1d fftwf_plan_dft_r2c_1d
-#define fftw_plan_dft_c2r_1d fftwf_plan_dft_c2r_1d
-#define fftw_destroy_plan fftwf_destroy_plan
-#define fftw_malloc fftwf_malloc
-#define fftw_free fftwf_free
-#define fftw_execute fftwf_execute
-#define atan2 atan2f
-#define sqrt sqrtf
-#define cos cosf
-#define sin sinf
+#    define fft_double_type      float
+#    define fftw_complex         fftwf_complex
+#    define fftw_plan            fftwf_plan
+#    define fftw_plan_dft_r2c_1d fftwf_plan_dft_r2c_1d
+#    define fftw_plan_dft_c2r_1d fftwf_plan_dft_c2r_1d
+#    define fftw_destroy_plan    fftwf_destroy_plan
+#    define fftw_malloc          fftwf_malloc
+#    define fftw_free            fftwf_free
+#    define fftw_execute         fftwf_execute
+#    define atan2                atan2f
+#    define sqrt                 sqrtf
+#    define cos                  cosf
+#    define sin                  sinf
 #else
-#define fft_double_type double
+#    define fft_double_type double
 #endif /* FFTW_SINGLE_ONLY */
 
 
@@ -82,9 +82,7 @@ class FFT : public FFTinterface
 {
 public:
     FFT (int size)
-        : m_fplanf (0)
-        , m_dplanf (0)
-        , m_size (size)
+        : m_fplanf (0), m_dplanf (0), m_size (size)
     {
     }
 
@@ -581,34 +579,34 @@ private:
 #undef fft_double_type
 
 #ifdef FFTW_DOUBLE_ONLY
-#undef fftwf_complex
-#undef fftwf_plan
-#undef fftwf_plan_dft_r2c_1d
-#undef fftwf_plan_dft_c2r_1d
-#undef fftwf_destroy_plan
-#undef fftwf_malloc
-#undef fftwf_free
-#undef fftwf_execute
-#undef atan2f
-#undef sqrtf
-#undef cosf
-#undef sinf
+#    undef fftwf_complex
+#    undef fftwf_plan
+#    undef fftwf_plan_dft_r2c_1d
+#    undef fftwf_plan_dft_c2r_1d
+#    undef fftwf_destroy_plan
+#    undef fftwf_malloc
+#    undef fftwf_free
+#    undef fftwf_execute
+#    undef atan2f
+#    undef sqrtf
+#    undef cosf
+#    undef sinf
 #endif /* FFTW_DOUBLE_ONLY */
 
 #ifdef FFTW_SINGLE_ONLY
-#undef fftw_complex
-#undef fftw_plan
-#undef fftw_plan_dft_r2c_1d
-#undef fftw_plan_dft_c2r_1d
-#undef fftw_destroy_plan
-#undef fftw_malloc
-#undef fftw_free
-#undef fftw_execute
-#undef atan2
-#undef sqrt
-#undef cos
-#undef sin
+#    undef fftw_complex
+#    undef fftw_plan
+#    undef fftw_plan_dft_r2c_1d
+#    undef fftw_plan_dft_c2r_1d
+#    undef fftw_destroy_plan
+#    undef fftw_malloc
+#    undef fftw_free
+#    undef fftw_execute
+#    undef atan2
+#    undef sqrt
+#    undef cos
+#    undef sin
 #endif /* FFTW_SINGLE_ONLY */
 
 
-} // namespace bav::dsp
+}  // namespace bav::dsp

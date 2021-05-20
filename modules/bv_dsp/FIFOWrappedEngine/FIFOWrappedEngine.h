@@ -152,7 +152,7 @@ private:
         juce::ignoreUnused (newInternalBlocksize);
     }
 
-    int internalBlocksize; // the size of the processing blocks, in samples, that the algorithm will be processing
+    int internalBlocksize;  // the size of the processing blocks, in samples, that the algorithm will be processing
 
     MidiBuffer midiChoppingBuffer;
 
@@ -176,4 +176,4 @@ private:
 };
 
 
-} // namespace bav::dsp
+}  // namespace bav::dsp

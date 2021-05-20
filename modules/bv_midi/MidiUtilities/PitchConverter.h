@@ -8,9 +8,7 @@ public:
     PitchConverter (const int initialConcertPitch,
                     const int initialRootNote,
                     const int initialNotesPerOctave)
-        : concertPitchHz (initialConcertPitch)
-        , rootNote (initialRootNote)
-        , notesPerOctave (initialNotesPerOctave)
+        : concertPitchHz (initialConcertPitch), rootNote (initialRootNote), notesPerOctave (initialNotesPerOctave)
     {
     }
 
@@ -75,15 +73,15 @@ public:
 
 private:
     std::atomic< int >
-        concertPitchHz; // the frequency in Hz of the root note. Usually 440 in standard Western tuning.
+        concertPitchHz;  // the frequency in Hz of the root note. Usually 440 in standard Western tuning.
 
     std::atomic< int >
-        rootNote; // the midiPitch that corresponds to concertPitchHz. Usually 69 (A4) in Western standard tuning.
+        rootNote;  // the midiPitch that corresponds to concertPitchHz. Usually 69 (A4) in Western standard tuning.
 
     std::atomic< int >
-        notesPerOctave; // the number of notes per octave. Usually 12 in standard Western tuning.
+        notesPerOctave;  // the number of notes per octave. Usually 12 in standard Western tuning.
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PitchConverter)
 };
 
-} // namespace bav::midi
+}  // namespace bav::midi

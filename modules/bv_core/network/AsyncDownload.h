@@ -4,25 +4,21 @@ class AsyncDownload : private juce::Thread, private juce::AsyncUpdater
 {
 public:
     AsyncDownload (
-        juce::String                                                    url_,
-        std::function< void (AsyncDownload*, juce::MemoryBlock, bool) > cb_,
+        juce::String url_,
+        std::function< void (AsyncDownload*, juce::MemoryBlock, bool) >
+            cb_,
         int timeoutMS_ = 0)
-        : Thread ("AsyncDownload")
-        , url (url_)
-        , cb (cb_)
-        , timeoutMS (timeoutMS_)
+        : Thread ("AsyncDownload"), url (url_), cb (cb_), timeoutMS (timeoutMS_)
     {
         startThread();
     }
 
     AsyncDownload (
-        juce::URL                                                       url_,
-        std::function< void (AsyncDownload*, juce::MemoryBlock, bool) > cb_,
+        juce::URL url_,
+        std::function< void (AsyncDownload*, juce::MemoryBlock, bool) >
+            cb_,
         int timeoutMS_ = 0)
-        : Thread ("AsyncDownload")
-        , url (url_)
-        , cb (cb_)
-        , timeoutMS (timeoutMS_)
+        : Thread ("AsyncDownload"), url (url_), cb (cb_), timeoutMS (timeoutMS_)
     {
         startThread();
     }
@@ -60,6 +56,6 @@ public:
     juce::URL                                                       url;
     std::function< void (AsyncDownload*, juce::MemoryBlock, bool) > cb;
     int                                                             timeoutMS = 0;
-    bool                                                            ok = false;
+    bool                                                            ok        = false;
     juce::MemoryBlock                                               data;
 };

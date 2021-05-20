@@ -4,16 +4,16 @@
 
 
 #ifndef BV_USE_FFTW
-#define BV_USE_FFTW 0
+#    define BV_USE_FFTW 0
 #endif
 
 #ifndef BV_USE_KISSFFT
-#define BV_USE_KISSFFT 0
+#    define BV_USE_KISSFFT 0
 #endif
 
 #if BV_USE_FFTW
-#undef BV_USE_KISSFFT
-#define BV_USE_KISSFFT 0
+#    undef BV_USE_KISSFFT
+#    define BV_USE_KISSFFT 0
 #endif
 
 
@@ -21,7 +21,7 @@ namespace bav::dsp
 {
 /* abstract base class that defines the interface for the FFT implementations.  */
 
-class FFTinterface // note that this is NOT a template class!!!
+class FFTinterface  // note that this is NOT a template class!!!
 {
 public:
     virtual ~FFTinterface() = default;
@@ -98,7 +98,7 @@ public:
     static constexpr bool isUsingVDSP()
     {
 #if BV_USE_VDSP
-        return !(isUsingFFTW() || isUsingKissFFT());
+        return ! (isUsingFFTW() || isUsingKissFFT());
 #else
         return false;
 #endif
@@ -107,7 +107,7 @@ public:
     static constexpr bool isUsingIPP()
     {
 #if BV_USE_IPP
-        return !(isUsingFFTW() || isUsingKissFFT());
+        return ! (isUsingFFTW() || isUsingKissFFT());
 #else
         return false;
 #endif
@@ -116,7 +116,7 @@ public:
     static constexpr bool isUsingNe10()
     {
 #if BV_USE_NE10
-        return !(isUsingFFTW() || isUsingKissFFT());
+        return ! (isUsingFFTW() || isUsingKissFFT());
 #else
         return false;
 #endif
@@ -124,13 +124,13 @@ public:
 
     static constexpr bool isUsingFallback()
     {
-        return !(isUsingFFTW() || isUsingKissFFT() || isUsingVDSP() || isUsingIPP()
-                 || isUsingNe10());
+        return ! (isUsingFFTW() || isUsingKissFFT() || isUsingVDSP() || isUsingIPP()
+                  || isUsingNe10());
     }
 };
 
 
-} // namespace bav::dsp
+}  // namespace bav::dsp
 
 
 /*
@@ -158,15 +158,15 @@ public:
 
 
 #if BV_USE_FFTW
-#include "implementations/fft_fftw.h" // if someone's gone to the trouble to link to FFTW, they probably want to use it...
+#    include "implementations/fft_fftw.h"  // if someone's gone to the trouble to link to FFTW, they probably want to use it...
 #elif BV_USE_KISSFFT
-#include "implementations/fft_kissfft.h" // same goes for KissFFT
+#    include "implementations/fft_kissfft.h"  // same goes for KissFFT
 #elif BV_USE_VDSP
-#include "implementations/fft_vdsp.h"
+#    include "implementations/fft_vdsp.h"
 #elif BV_USE_IPP
-#include "implementations/fft_ipp.h"
+#    include "implementations/fft_ipp.h"
 #elif BV_USE_NE10
-#include "implementations/fft_ne10.h"
+#    include "implementations/fft_ne10.h"
 #else
-#include "implementations/fft_fallback.h"
+#    include "implementations/fft_fallback.h"
 #endif

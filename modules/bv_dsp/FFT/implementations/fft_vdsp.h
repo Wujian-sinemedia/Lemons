@@ -12,16 +12,10 @@ class FFT : public FFTinterface
 {
 public:
     FFT (int size)
-        : m_size (size)
-        , m_fspec (nullptr)
-        , m_dspec (nullptr)
-        , m_fpacked (nullptr)
-        , m_fspare (nullptr)
-        , m_dpacked (nullptr)
-        , m_dspare (nullptr)
+        : m_size (size), m_fspec (nullptr), m_dspec (nullptr), m_fpacked (nullptr), m_fspare (nullptr), m_dpacked (nullptr), m_dspare (nullptr)
     {
         jassert (
-            math::isPowerOfTwo (size)); // vDSP only supports power-of-two FFT sizes
+            math::isPowerOfTwo (size));  // vDSP only supports power-of-two FFT sizes
         for (int i = 0;; ++i)
         {
             if (m_size & (1 << i))
@@ -329,7 +323,7 @@ public:
 
 private:
     BV_FORCE_INLINE void
-        packReal (const float* const re) // Pack input for forward transform
+        packReal (const float* const re)  // Pack input for forward transform
     {
         vDSP_ctoz ((DSPComplex*) re, 2, m_fpacked, 1, vDSP_Length (m_size / 2));
     }
@@ -342,7 +336,7 @@ private:
 
     BV_FORCE_INLINE void
         packComplex (const float* const re,
-                     const float* const im) // Pack input for inverse transform
+                     const float* const im)  // Pack input for inverse transform
     {
         const int num = m_size / 2 + 1;
 
@@ -383,7 +377,7 @@ private:
     }
 
     BV_FORCE_INLINE void
-        unpackReal (float* const re) // Unpack output for inverse transform
+        unpackReal (float* const re)  // Unpack output for inverse transform
     {
         vDSP_ztoc (m_fpacked, 1, (DSPComplex*) re, 2, vDSP_Length (m_size / 2));
     }
@@ -396,7 +390,7 @@ private:
 
     BV_FORCE_INLINE void
         unpackComplex (float* const re,
-                       float* const im) // Unpack output for forward transform
+                       float* const im)  // Unpack output for forward transform
     {
         const auto num = vDSP_Length (m_size / 2 + 1);
 
@@ -441,7 +435,7 @@ private:
     }
 
     BV_FORCE_INLINE void
-        fdenyq() // for fft result in packed form, unpack the DC and Nyquist bins
+        fdenyq()  // for fft result in packed form, unpack the DC and Nyquist bins
     {
         const int hs         = m_size / 2;
         m_fpacked->realp[hs] = m_fpacked->imagp[0];
@@ -450,7 +444,7 @@ private:
     }
 
     BV_FORCE_INLINE void
-        ddenyq() // for fft result in packed form, unpack the DC and Nyquist bins
+        ddenyq()  // for fft result in packed form, unpack the DC and Nyquist bins
     {
         const int hs         = m_size / 2;
         m_dpacked->realp[hs] = m_dpacked->imagp[0];
@@ -459,7 +453,7 @@ private:
     }
 
     BV_FORCE_INLINE void
-        fnyq() // for ifft input in packed form, pack the DC and Nyquist bins
+        fnyq()  // for ifft input in packed form, pack the DC and Nyquist bins
     {
         const int hs         = m_size / 2;
         m_fpacked->imagp[0]  = m_fpacked->realp[hs];
@@ -468,7 +462,7 @@ private:
     }
 
     BV_FORCE_INLINE void
-        dnyq() // for ifft input in packed form, pack the DC and Nyquist bins
+        dnyq()  // for ifft input in packed form, pack the DC and Nyquist bins
     {
         const int hs         = m_size / 2;
         m_dpacked->imagp[0]  = m_dpacked->realp[hs];
@@ -496,4 +490,4 @@ private:
 };
 
 
-} // namespace bav::dsp
+}  // namespace bav::dsp

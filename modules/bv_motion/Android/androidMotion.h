@@ -1,6 +1,6 @@
 
-#if !JUCE_ANDROID
-#error
+#if ! JUCE_ANDROID
+#    error
 #endif
 
 #pragma once
@@ -36,7 +36,7 @@ public:
 
     virtual void start() override final
     {
-        if (!running)
+        if (! running)
         {
             running = true;
             ASensorEventQueue_enableSensor (motionEventQueue, accelerometer);
@@ -124,4 +124,4 @@ private:
     }
 };
 
-} // namespace bav
+}  // namespace bav

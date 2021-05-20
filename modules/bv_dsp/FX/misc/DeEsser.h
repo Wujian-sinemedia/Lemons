@@ -11,7 +11,7 @@ namespace bav::dsp::FX
 {
 #define bvng_HI_PASS_FREQ 7600.0
 
-#define bvng_ATTACK_MS 20
+#define bvng_ATTACK_MS  20
 #define bvng_RELEASE_MS 30
 
 
@@ -146,4 +146,4 @@ private:
 template class ReorderableDeEsser< float >;
 template class ReorderableDeEsser< double >;
 
-} // namespace bav::dsp::FX
+}  // namespace bav::dsp::FX

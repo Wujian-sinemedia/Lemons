@@ -8,7 +8,7 @@ public:
     Spline (const juce::Array< juce::Point< double > >& points)
     {
         jassert (points.size()
-                 >= 3); // "Must have at least three points for interpolation"
+                 >= 3);  // "Must have at least three points for interpolation"
         points.size();
         int n = points.size() - 1;
 
@@ -76,11 +76,7 @@ public:
         }
 
         Element (double x_, double a_, double b_, double c_, double d_)
-            : x (x_)
-            , a (a_)
-            , b (b_)
-            , c (c_)
-            , d (d_)
+            : x (x_), a (a_), b (b_), c (c_), d (d_)
         {
         }
 
@@ -105,7 +101,7 @@ public:
         int i;
         for (i = 0; i < elements.size(); i++)
         {
-            if (!(elements[i] < x)) break;
+            if (! (elements[i] < x)) break;
         }
         if (i != 0) i--;
 

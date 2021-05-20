@@ -5,11 +5,11 @@
 
 
 #ifndef BV_HAS_BINARY_DATA
-#define BV_HAS_BINARY_DATA 0
+#    define BV_HAS_BINARY_DATA 0
 #endif
 
 #if BV_HAS_BINARY_DATA
-#include "BinaryData.h"
+#    include "BinaryData.h"
 #endif
 
 
@@ -35,7 +35,7 @@ struct RawData
             }
         }
 
-        jassert (data != nullptr); // File not found
+        jassert (data != nullptr);  // File not found
     }
 
     const char* data = nullptr;
@@ -58,7 +58,7 @@ struct RawData
  */
 static inline void saveImageToFile (const juce::Image& image, juce::File file)
 {
-    if (!file.exists())
+    if (! file.exists())
         file = juce::File::getSpecialLocation (juce::File::userDesktopDirectory)
                    .getNonexistentChildFile ("tempImage", ".png");
 
@@ -163,4 +163,4 @@ static inline juce::Typeface::Ptr deserializeFont (const void* data, size_t data
 }
 
 
-} // namespace bav
+}  // namespace bav
