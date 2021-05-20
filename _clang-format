@@ -39,7 +39,6 @@ Cpp11BracedListStyle: true
 EmptyLineBeforeAccessModifier: LogicalBlock
 ExperimentalAutoDetectBinPacking: true
 FixNamespaceComments: true
-IndentAccessModifiers: true
 IndentCaseBlocks: false
 IndentCaseLabels: true
 IndentPPDirectives: AfterHash
