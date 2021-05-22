@@ -5,9 +5,9 @@
  version:            0.0.1
  name:               Ben Vining's codebase
  description:        General utilities useful for developing plugins.
- dependencies:       juce_audio_utils juce_osc
- OSXFrameworks: Accelerate
- iOSFrameworks: Accelerate
+ dependencies:       juce_audio_utils
+ OSXFrameworks:      Accelerate
+ iOSFrameworks:      Accelerate
  END_JUCE_MODULE_DECLARATION
  *******************************************************************************/
 
@@ -20,9 +20,7 @@
 #endif
 
 
-// juce dependencies
 #include <juce_audio_utils/juce_audio_utils.h>
-#include <juce_osc/juce_osc.h>
 
 
 #include "preprocessor/PlatformDefs.h"
