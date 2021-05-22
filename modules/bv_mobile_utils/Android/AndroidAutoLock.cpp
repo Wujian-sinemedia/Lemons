@@ -5,6 +5,10 @@
 
 #include <juce_core/native/juce_android_JNIHelpers.h>
 
+
+namespace bav
+{
+
 #define JNI_CLASS_MEMBERS(METHOD, STATICMETHOD, FIELD, STATICFIELD, CALLBACK) \
     METHOD (addFlags, "addFlags", "(I)V")                                     \
     METHOD (clearFlags, "clearFlags", "(I)V")
@@ -26,3 +30,5 @@ void AutoLock::setAutolockEnabled (bool shouldBeOn)
     else
         env->CallVoidMethod (window.get(), Window.addFlags, keepScreenOnFlag);
 }
+
+}  // namespace

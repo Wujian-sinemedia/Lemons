@@ -17,6 +17,8 @@ void AutoLock::setEnabled (bool shouldBeEnabled)
 
 #else
 /* dummy implementations of these classes that can be used on desktop (so you don't have to change your code) */
+namespace bav
+{
 
 void AutoLock::setEnabled (bool) { }
 
@@ -31,5 +33,6 @@ void MotionManager::stop() { }
 
 bool MotionManager::isRunning() { return false; }
 
+} // namespace
 
 #endif

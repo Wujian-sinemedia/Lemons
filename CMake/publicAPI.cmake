@@ -12,9 +12,15 @@ endfunction()
 
 ###########
 
-function (set_default_juce_options target)
+function (configure_default_juce_plugin target)
 
 	_configure_juce_app (${target} TRUE TRUE)
+endfunction()
+
+
+function (configure_default_juce_app target)
+
+    _configure_juce_app (${target} TRUE FALSE)
 endfunction()
 
 
