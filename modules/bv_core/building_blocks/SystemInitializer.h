@@ -22,10 +22,17 @@ struct SystemInitializer
 
 struct GUIInitializer
 {
+#if ! JUCE_OPENGL
+    GUIInitializer()
+    { }
+#endif
+    
+    
     GUIInitializer (juce::Component* topLevelComponent = nullptr)
     {
 #if JUCE_OPENGL
-        openGLContext.attachTo (*getTopLevelComponent());
+        jassert (topLevelComponent != nullptr);
+        openGLContext.attachTo (*topLevelComponent);
 #endif
     }
     
