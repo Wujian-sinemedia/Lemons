@@ -6,7 +6,6 @@
 
 namespace bav::vecops
 {
-
 static void
     fill (float* BV_R_ vector, const float value, const int count)
 {
@@ -187,35 +186,35 @@ static void absVal (double* BV_R_ data, const int dataSize)
 
 
 static int findIndexOfMinElement (const float* BV_R_ data,
-                                                  const int          dataSize)
+                                  const int          dataSize)
 {
     return static_cast< int > (std::min_element (data, data + dataSize) - data);
 }
 
 static int findIndexOfMinElement (const double* BV_R_ data,
-                                                  const int           dataSize)
+                                  const int           dataSize)
 {
     return static_cast< int > (std::min_element (data, data + dataSize) - data);
 }
 
 
 static int findIndexOfMaxElement (const float* BV_R_ data,
-                                                  const int          dataSize)
+                                  const int          dataSize)
 {
     return static_cast< int > (std::max_element (data, data + dataSize) - data);
 }
 
 static int findIndexOfMaxElement (const double* BV_R_ data,
-                                                  const int           dataSize)
+                                  const int           dataSize)
 {
     return static_cast< int > (std::max_element (data, data + dataSize) - data);
 }
 
 
 static void findMinAndMinIndex (const float* BV_R_ data,
-                                                const int          dataSize,
-                                                float&             minimum,
-                                                int&               minIndex)
+                                const int          dataSize,
+                                float&             minimum,
+                                int&               minIndex)
 {
     auto* lowestElement = std::min_element (data, data + dataSize);
     minimum             = *lowestElement;
@@ -223,9 +222,9 @@ static void findMinAndMinIndex (const float* BV_R_ data,
 }
 
 static void findMinAndMinIndex (const double* BV_R_ data,
-                                                const int           dataSize,
-                                                double&             minimum,
-                                                int&                minIndex)
+                                const int           dataSize,
+                                double&             minimum,
+                                int&                minIndex)
 {
     auto* lowestElement = std::min_element (data, data + dataSize);
     minimum             = *lowestElement;
@@ -234,9 +233,9 @@ static void findMinAndMinIndex (const double* BV_R_ data,
 
 
 static void findMaxAndMaxIndex (const float* BV_R_ data,
-                                                const int          dataSize,
-                                                float&             maximum,
-                                                int&               maxIndex)
+                                const int          dataSize,
+                                float&             maximum,
+                                int&               maxIndex)
 {
     auto* highestElement = std::max_element (data, data + dataSize);
     maximum              = *highestElement;
@@ -244,9 +243,9 @@ static void findMaxAndMaxIndex (const float* BV_R_ data,
 }
 
 static void findMaxAndMaxIndex (const double* BV_R_ data,
-                                                const int           dataSize,
-                                                double&             maximum,
-                                                int&                maxIndex)
+                                const int           dataSize,
+                                double&             maximum,
+                                int&                maxIndex)
 {
     auto* highestElement = std::max_element (data, data + dataSize);
     maximum              = *highestElement;
@@ -255,9 +254,9 @@ static void findMaxAndMaxIndex (const double* BV_R_ data,
 
 
 static void locateGreatestAbsMagnitude (const float* BV_R_ data,
-                                                        const int          dataSize,
-                                                        float&             greatestMagnitude,
-                                                        int&               index)
+                                        const int          dataSize,
+                                        float&             greatestMagnitude,
+                                        int&               index)
 {
     int  strongestMagIndex = 0;
     auto strongestMag      = abs (data[0]);
@@ -278,9 +277,9 @@ static void locateGreatestAbsMagnitude (const float* BV_R_ data,
 }
 
 static void locateGreatestAbsMagnitude (const double* BV_R_ data,
-                                                        const int           dataSize,
-                                                        double&             greatestMagnitude,
-                                                        int&                index)
+                                        const int           dataSize,
+                                        double&             greatestMagnitude,
+                                        int&                index)
 {
     int  strongestMagIndex = 0;
     auto strongestMag      = abs (data[0]);
@@ -302,9 +301,9 @@ static void locateGreatestAbsMagnitude (const double* BV_R_ data,
 
 
 static void locateLeastAbsMagnitude (const float* BV_R_ data,
-                                                     const int          dataSize,
-                                                     float&             leastMagnitude,
-                                                     int&               index)
+                                     const int          dataSize,
+                                     float&             leastMagnitude,
+                                     int&               index)
 {
     int  weakestMagIndex = 0;
     auto weakestMag      = abs (data[0]);
@@ -325,9 +324,9 @@ static void locateLeastAbsMagnitude (const float* BV_R_ data,
 }
 
 static void locateLeastAbsMagnitude (const double* BV_R_ data,
-                                                     const int           dataSize,
-                                                     double&             leastMagnitude,
-                                                     int&                index)
+                                     const int           dataSize,
+                                     double&             leastMagnitude,
+                                     int&                index)
 {
     int  weakestMagIndex = 0;
     auto weakestMag      = abs (data[0]);
@@ -366,13 +365,13 @@ static void
 
 
 static float findRangeOfExtrema (const float* BV_R_ data,
-                                                 const int          dataSize)
+                                 const int          dataSize)
 {
     return juce::FloatVectorOperations::findMinAndMax (data, dataSize).getLength();
 }
 
 static double findRangeOfExtrema (const double* BV_R_ data,
-                                                  const int           dataSize)
+                                  const int           dataSize)
 {
     return juce::FloatVectorOperations::findMinAndMax (data, dataSize).getLength();
 }
@@ -414,10 +413,10 @@ static void normalize (double* BV_R_ vector, const int numSamples)
 
 
 static void cartesian_to_polar (float* const BV_R_       mag,
-                                                float* const BV_R_       phase,
-                                                const float* const BV_R_ real,
-                                                const float* const BV_R_ imag,
-                                                const int                count)
+                                float* const BV_R_       phase,
+                                const float* const BV_R_ real,
+                                const float* const BV_R_ imag,
+                                const int                count)
 {
     for (int i = 0; i < count; ++i)
     {
@@ -429,10 +428,10 @@ static void cartesian_to_polar (float* const BV_R_       mag,
 }
 
 static void cartesian_to_polar (double* const BV_R_       mag,
-                                                double* const BV_R_       phase,
-                                                const double* const BV_R_ real,
-                                                const double* const BV_R_ imag,
-                                                const int                 count)
+                                double* const BV_R_       phase,
+                                const double* const BV_R_ real,
+                                const double* const BV_R_ imag,
+                                const int                 count)
 {
     for (int i = 0; i < count; ++i)
     {
@@ -445,10 +444,10 @@ static void cartesian_to_polar (double* const BV_R_       mag,
 
 
 static void polar_to_cartesian (float* const BV_R_       real,
-                                                float* const BV_R_       imag,
-                                                const float* const BV_R_ mag,
-                                                const float* const BV_R_ phase,
-                                                const int                dataSize)
+                                float* const BV_R_       imag,
+                                const float* const BV_R_ mag,
+                                const float* const BV_R_ phase,
+                                const int                dataSize)
 {
     for (int i = 0; i < dataSize; ++i)
     {
@@ -460,10 +459,10 @@ static void polar_to_cartesian (float* const BV_R_       real,
 }
 
 static void polar_to_cartesian (double* const BV_R_       real,
-                                                double* const BV_R_       imag,
-                                                const double* const BV_R_ mag,
-                                                const double* const BV_R_ phase,
-                                                const int                 dataSize)
+                                double* const BV_R_       imag,
+                                const double* const BV_R_ mag,
+                                const double* const BV_R_ phase,
+                                const int                 dataSize)
 {
     for (int i = 0; i < dataSize; ++i)
     {

@@ -366,3 +366,6 @@ static constexpr bool isUsingFallback();
 
 
 }  // namespace bav::vecops
+
+
+#include "implementations/vecops_impl.h"

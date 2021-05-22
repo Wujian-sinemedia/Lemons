@@ -563,15 +563,15 @@ static constexpr bool isUsingFallback()
 
 
 #if BV_USE_VDSP
-#    include "implementations/vecops_vdsp.cpp"
+#    include "vecops_vdsp.h"
 #elif BV_USE_IPP
-#    include "implementations/vecops_ipp.cpp"
+#    include "vecops_ipp.h"
 #elif BV_USE_MIPP
-#    include "implementations/vecops_mipp.cpp"
+#    include "vecops_mipp.h"
 #elif BV_USE_NE10
-#    include "implementations/vecops_ne10.cpp"
+#    include "vecops_ne10.h"
 #else
-#    include "implementations/vecops_fallback.cpp"
+#    include "vecops_fallback.h"
 #endif
 
 }  // namespace bav::vecops
