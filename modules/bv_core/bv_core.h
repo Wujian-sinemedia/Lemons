@@ -56,6 +56,11 @@
 #include "misc/ValueListeners.h"
 
 
+// files
+#include "files/FileUtilities.h"
+#include "files/BinaryDataHelpers/BinaryDataHelpers.h"
+
+
 // localization
 #include "localization/localization.h"
 
@@ -63,8 +68,8 @@
 // building blocks
 #include "building_blocks/SystemInitializer.h"
 #include "building_blocks/ApplicationBase.h"
-#include "building_blocks/ProcessorBase.h"
 #include "building_blocks/PluginEditorBase.h"
+#include "building_blocks/ProcessorBase.h"
 
 
 // async
@@ -75,11 +80,6 @@
 #include "math/mathHelpers.h"
 #include "math/vecops/vecops.h"
 #include "math/intops/intOps.h"
-
-
-// files
-#include "files/FileUtilities.h"
-#include "files/BinaryDataHelpers/BinaryDataHelpers.h"
 
 
 // network

@@ -16,6 +16,8 @@ namespace bav
 struct RawData
 {
     explicit RawData (const char* fileToFind);
+    
+    bool isValid() const;
 
     const char* data = nullptr;
     int         size = 0;

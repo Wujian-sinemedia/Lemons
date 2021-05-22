@@ -18,8 +18,12 @@ RawData::RawData (const char* fileToFind)
             break;
         }
     }
+}
 
-    jassert (data != nullptr);  // File not found
+
+bool RawData::isValid() const
+{
+    return data != nullptr && size > 0;
 }
 
 

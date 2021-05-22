@@ -1,11 +1,20 @@
 
+#pragma once
+
+
 namespace bav::dsp
 {
-class DummyAudioProcessor : public juce::AudioProcessor
+
+class ProcessorBase :   private SystemInitializer,
+                        public juce::AudioProcessor
 {
 public:
-    DummyAudioProcessor() { }
-    ~DummyAudioProcessor() override { }
+    ProcessorBase()
+    : SystemInitializer (getDefaultTranslationFile())
+    , AudioProcessor (createBusProperties())
+    { }
+    
+    virtual ~ProcessorBase() override { }
 
     /*=========================================================================================*/
 
@@ -30,17 +39,41 @@ public:
     bool supportsMPE() const override { return false; }
     bool isMidiEffect() const override { return false; }
 
-    const juce::String getName() const override
-    {
-        return TRANS ("Dummy AudioProcessor");
-    }
+    const juce::String getName() const override { return "ProcessorBase"; }
 
-    bool                        hasEditor() const override { return false; }
-    juce::AudioProcessorEditor* createEditor() override { return nullptr; }
+    bool                        hasEditor() const override { return true; }
+    juce::AudioProcessorEditor* createEditor() override { return new EditorBase(*this); }
+    
+    bool isBusesLayoutSupported(const BusesLayout& layout) const override
+    {
+        using Set = juce::AudioChannelSet;
+        
+        auto isValid = [](const Set& set) { return set != Set::disabled() };
+        
+        return isValid (layout.getMainInputChannelSet()) && isValid (layout.getMainOutputChannelSet());
+    }
+    
+    virtual void saveEditorSize (int width, int height)
+    {
+        savedEditorSize.x = width;
+        savedEditorSize.y = height;
+    }
+    
+    virtual juce::Point<int> getSavedEditorSize() const { return savedEditorSize; }
 
     /*=========================================================================================*/
 
-private:
+protected:
+    virtual juce::AudioProcessor::BusesProperties createBusProperties() const
+    {
+        const auto stereo = juce::AudioChannelSet::stereo();
+        
+        return BusesProperties().withInput (TRANS ("Input"), stereo, true)
+                                .withOutput (TRANS ("Output"), stereo, true);
+    }
+    
+    juce::Point<int> savedEditorSize;
+    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DummyAudioProcessor)
 };
 
