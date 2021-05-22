@@ -9,7 +9,7 @@ template<typename SampleType>
 PsolaShifter<SampleType>::PsolaShifter (Analyzer& parentAnalyzer)
 : analyzer (parentAnalyzer)
 {
-    jassert (analyzer != nullptr);
+    
 }
 
 

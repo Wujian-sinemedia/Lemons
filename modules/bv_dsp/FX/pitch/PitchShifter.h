@@ -50,7 +50,7 @@ private:
     {
         Engine(): shifter(analyzer) { }
         
-        void initialized (double samplerate, int newInternalBlocksize) override
+        void initialized (int, double) override
         {
             analyzer.initialize();
         }
@@ -58,7 +58,7 @@ private:
         void prepareToPlay (double samplerate) override
         {
             analyzer.setSamplerate (samplerate);
-            changeLatency (analyzer.getLatency());
+            FIFOWrappedEngine<SampleType>::changeLatency (analyzer.getLatency());
             shifter.prepare();
         }
         
@@ -78,7 +78,7 @@ private:
 
         int getDesiredPeriod() const { return desiredPeriod; }
         
-        void renderBlock (const AudioBuffer& input, AudioBuffer& output, MidiBuffer& midiMessages) override
+        void renderBlock (const AudioBuffer& input, AudioBuffer& output, MidiBuffer&) override
         {
             const auto numSamples = input.getNumSamples();
             analyzer.analyzeInput (input.getReadPointer(0), numSamples);
@@ -118,12 +118,12 @@ public:
 protected:
     void fxChain_process (juce::AudioBuffer< SampleType >& audio) override
     {
-        process (audio);
+        PitchShifter< SampleType >::process (audio);
     }
     
     void fxChain_prepare (double samplerate, int) override
     {
-        prepare (samplerate);
+        PitchShifter< SampleType >::prepare (samplerate);
     }
     
 private:
