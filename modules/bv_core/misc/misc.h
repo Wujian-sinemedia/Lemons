@@ -31,14 +31,14 @@ static inline const juce::juce_wchar getNaturalSymbol() noexcept
 }
 
 
-static int midiPanStringToInt (const juce::String& string);
+extern int midiPanStringToInt (const juce::String& string);
 
 
-static juce::String midiPanIntToString (const int midiPan);
+extern juce::String midiPanIntToString (const int midiPan);
 
 
 // converts a midi pitch to a string representation, eg note 69 = A4
-juce::String pitchToString (const int  midiNoteNumber,
+extern juce::String pitchToString (const int  midiNoteNumber,
                             const bool asSharps = true);
 
 
@@ -46,11 +46,11 @@ juce::String pitchToString (const int  midiNoteNumber,
  If the string is not in the required format i.e. A#4 etc. this
  will return -1.
  */
-int pitchClassFromString (const juce::String& pitchClassName) noexcept;
+extern int pitchClassFromString (const juce::String& pitchClassName) noexcept;
 
 
 // converts a pitch class string to an integer representation, eg A4 = note 69
-int stringToPitch (const juce::String& string);
+extern int stringToPitch (const juce::String& string);
 
 
 }  // namespace bav

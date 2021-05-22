@@ -2,7 +2,7 @@
 namespace bav
 {
 
-static int midiPanStringToInt (const juce::String& string)
+int midiPanStringToInt (const juce::String& string)
 {
     if (string.endsWithIgnoreCase (TRANS ("C"))) return 64;
     
@@ -17,7 +17,7 @@ static int midiPanStringToInt (const juce::String& string)
     return string.getIntValue();
 }
 
-static juce::String midiPanIntToString (const int midiPan)
+juce::String midiPanIntToString (const int midiPan)
 {
     if (midiPan == 64) return juce::String (TRANS ("C"));
     
