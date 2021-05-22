@@ -5,8 +5,8 @@
  version:            0.0.1
  name:               bv_mobile_utils
  description:        JUCE module that provides some useful utilities for crossplatform iOS and Android development
- dependencies: juce_gui_basics
- iOSFrameworks: CoreMotion
+ dependencies:       juce_gui_basics
+ iOSFrameworks:      CoreMotion
  END_JUCE_MODULE_DECLARATION
  *******************************************************************************/
 
