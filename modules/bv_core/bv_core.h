@@ -48,6 +48,7 @@
 // misc
 #include "misc/StaticObjects.h"
 #include "misc/misc.h"
+#include "misc/CachedEvent.h"
 #include "misc/CopyableAtomic.h"
 #include "misc/AlignedAllocate.h"
 #include "misc/DataHelpers.h"
