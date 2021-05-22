@@ -1,7 +1,6 @@
 
 namespace bav::math
 {
-
 bool probability (int percentOfTheTime)
 {
     return juce::Random::getSystemRandom().nextInt (100) < percentOfTheTime;
@@ -17,7 +16,6 @@ bool isOdd (int number) noexcept
 {
     return number & 0x1;
 }
-
 
 
 template < typename Type >
@@ -43,13 +41,11 @@ bool isinf (Type value)
 }
 
 
-
 template < typename Integer >
 bool isPowerOfTwo (Integer n)
 {
     return n > 0 && (n & (n - 1)) == 0;
 }
-
 
 
 template < typename FreqType >
@@ -60,19 +56,17 @@ int periodInSamples (double samplerate, FreqType freqHz)
 }
 
 
-
 template < typename PeriodType >
 PeriodType freqFromPeriod (double     samplerate,
-                                                  PeriodType period)
+                           PeriodType period)
 {
     jassert (period > PeriodType (0.0));
-    
+
     if constexpr (std::is_same_v< PeriodType, int >)
         return juce::roundToInt (samplerate / period);
     else
         return PeriodType (samplerate / period);
 }
-
 
 
 int sampsToMs (double samplerate, int numSamples)
@@ -82,13 +76,11 @@ int sampsToMs (double samplerate, int numSamples)
 }
 
 
-
 template < typename msType >
 int msToSamps (double samplerate, msType ms)
 {
     return juce::roundToInt (samplerate / 1000.0f * ms);
 }
-
 
 
 template < typename noteType >
@@ -99,7 +91,6 @@ noteType midiToFreq (noteType midiNote)
     else
         return noteType (440 * std::pow (2, (midiNote - 69) / 12));
 }
-
 
 
 template < typename noteType >
