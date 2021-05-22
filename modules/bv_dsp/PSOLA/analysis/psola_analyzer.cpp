@@ -68,7 +68,7 @@ void PsolaAnalyzer<SampleType>::analyzeInput (const SampleType* inputSamples, co
 {
     jassert (samplerate > 0);
     
-    const auto inputFrequency = pitchDetector.detectPitch (inputAudio); // outputs 0.0 if frame is unpitched
+    const auto inputFrequency = pitchDetector.detectPitch (inputSamples, numSamples); // outputs 0.0 if frame is unpitched
     const bool frameIsPitched = inputFrequency > 0;
     
     const auto periodThisFrame = frameIsPitched ? math::periodInSamples (samplerate, inputFrequency)
