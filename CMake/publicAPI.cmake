@@ -12,9 +12,9 @@ endfunction()
 
 ###########
 
-function (set_default_juce_options target useBrowser)
+function (set_default_juce_options target)
 
-	_configure_juce_app (${target} ${useBrowser})
+	_configure_juce_app (${target} TRUE TRUE)
 endfunction()
 
 
