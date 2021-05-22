@@ -10,8 +10,7 @@ class ProcessorBase :   private SystemInitializer,
 {
 public:
     ProcessorBase()
-    : SystemInitializer (getDefaultTranslationFile())
-    , AudioProcessor (createBusProperties())
+    : AudioProcessor (createBusProperties())
     { }
     
     virtual ~ProcessorBase() override { }

@@ -4,14 +4,13 @@ namespace bav
 
 struct SystemInitializer
 {
-    SystemInitializer (juce::File translationFileToUse = juce::File())
+    SystemInitializer()
     {
 #if BV_USE_NE10
         ne10_init();
 #endif
         
-        if (translationFileToUse.existsAsFile())
-            initializeTranslations (translationFileToUse);
+        initializeTranslationsFromBinaryData (getDefaultTranslationFile());
     }
     
     virtual ~SystemInitializer()

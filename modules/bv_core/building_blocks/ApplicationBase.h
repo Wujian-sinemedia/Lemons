@@ -6,9 +6,9 @@ class ApplicationBase  :    private GUIInitializer,
                             private SystemInitializer
 {
 public:
-    ApplicationBase()
-    : SystemInitializer (getDefaultTranslationFile())
-    { }
+    ApplicationBase() { }
+    
+    virtual ~ApplicationBase() override { }
     
 private:
 };

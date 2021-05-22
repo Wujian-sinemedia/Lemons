@@ -8,13 +8,13 @@ static inline juce::String getCountryCodeToUse()
 }
 
 
-static inline juce::File getDefaultTranslationFile()
+static inline RawData getDefaultTranslationFile()
 {
 #if BV_HAS_BINARY_DATA
     juce::String fileName = "trans_" + getCountryCodeToUse() + ".txt";
-    RawData file (fileName.toRawUTF8());
+    return RawData (fileName.toRawUTF8());
 #else
-    return juce::File();
+    return RawData();
 #endif
 }
 
@@ -25,6 +25,19 @@ static inline void initializeTranslations (const juce::File& translationFile,
     if (translationFile.existsAsFile())
         juce::LocalisedStrings::setCurrentMappings (
             new juce::LocalisedStrings (translationFile, ignoreCaseOfKeys));
+}
+
+
+static inline void initializeTranslationsFromBinaryData (RawData data,
+                                                         bool ignoreCaseOfKeys = true)
+{
+    if (! data.isValid())
+        return;
+    
+    juce::String fileContents (data.data, data.size);
+    
+    juce::LocalisedStrings::setCurrentMappings (
+                                                new juce::LocalisedStrings (fileContents, ignoreCaseOfKeys));
 }
 
 

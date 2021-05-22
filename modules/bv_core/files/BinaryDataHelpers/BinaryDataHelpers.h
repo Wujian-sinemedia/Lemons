@@ -5,16 +5,18 @@
 #    define BV_HAS_BINARY_DATA 0
 #endif
 
-
 #if BV_HAS_BINARY_DATA
-
-#    include "BinaryData.h"
+#include "BinaryData.h"
+#endif
 
 
 namespace bav
 {
+
 struct RawData
 {
+    RawData() { }
+    
     explicit RawData (const char* fileToFind);
     
     bool isValid() const;
@@ -32,5 +34,3 @@ struct RawData
 
 }  // namespace bav
 
-
-#endif /* if BV_HAS_BINARY_DATA */
