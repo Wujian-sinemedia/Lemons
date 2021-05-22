@@ -61,10 +61,10 @@ int periodInSamples (double samplerate, FreqType freqHz)
 // returns the resultant fundamental frequency in Hz from a specified period in samples and samplerate
 template < typename PeriodType >
 PeriodType freqFromPeriod (double     samplerate,
-                                  PeriodType period)
+                           PeriodType period)
 {
     jassert (period > PeriodType (0.0));
-    
+
     if constexpr (std::is_same_v< PeriodType, int >)
         return juce::roundToInt (samplerate / period);
     else
