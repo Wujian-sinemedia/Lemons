@@ -47,7 +47,7 @@ public:
     {
         using Set = juce::AudioChannelSet;
         
-        auto isValid = [](const Set& set) { return set != Set::disabled() };
+        auto isValid = [](const Set& set) { return set != Set::disabled(); };
         
         return isValid (layout.getMainInputChannelSet()) && isValid (layout.getMainOutputChannelSet());
     }
