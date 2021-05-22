@@ -1,6 +1,9 @@
 
 #if BV_HAS_BINARY_DATA
 
+namespace bav
+{
+
 RawData::RawData (const char* fileToFind)
 {
     using namespace BinaryData;
@@ -20,5 +23,7 @@ RawData::RawData (const char* fileToFind)
     jassert (data != nullptr);  // File not found
 }
 
+
+}  // namespace
 
 #endif /* if BV_HAS_BINARY_DATA */
