@@ -106,4 +106,8 @@ SampleType AnalysisGrain<SampleType>::getWindowValue (int windowSize, int index)
     return static_cast< SampleType > (0.5 - 0.5 * cos2);
 }
 
+
+template class AnalysisGrain< float >;
+template class AnalysisGrain< double >;
+
 }  // namespace

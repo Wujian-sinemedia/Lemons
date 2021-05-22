@@ -151,4 +151,8 @@ bool PsolaShifter<SampleType>::anyGrainsAreActive() const
     return false;
 }
 
+
+template class PsolaShifter< float >;
+template class PsolaShifter< double >;
+
 }  // namespace

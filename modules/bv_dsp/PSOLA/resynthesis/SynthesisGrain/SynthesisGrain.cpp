@@ -97,4 +97,8 @@ void SynthesisGrain<SampleType>::stop() noexcept
     }
 }
 
+
+template class SynthesisGrain< float >;
+template class SynthesisGrain< double >;
+
 }  // namespace

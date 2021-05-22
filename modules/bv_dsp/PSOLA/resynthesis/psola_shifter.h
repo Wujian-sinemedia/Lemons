@@ -50,8 +50,4 @@ private:
 };
 
 
-template class PsolaShifter< float >;
-template class PsolaShifter< double >;
-
-
 } // namespace bav

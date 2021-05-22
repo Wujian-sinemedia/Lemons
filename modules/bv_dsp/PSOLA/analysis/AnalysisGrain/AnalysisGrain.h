@@ -52,7 +52,4 @@ private:
     juce::AudioBuffer< SampleType > samples;
 };
 
-template class AnalysisGrain< float >;
-template class AnalysisGrain< double >;
-
 }

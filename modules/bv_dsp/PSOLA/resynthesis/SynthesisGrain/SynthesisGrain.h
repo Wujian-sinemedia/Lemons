@@ -42,7 +42,4 @@ private:
     int halfIndex; // marks the halfway point for this grain
 };
 
-template class SynthesisGrain< float >;
-template class SynthesisGrain< double >;
-
 }

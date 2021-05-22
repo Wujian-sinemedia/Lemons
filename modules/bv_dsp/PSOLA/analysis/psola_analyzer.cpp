@@ -8,11 +8,24 @@ namespace bav
 
 template<typename SampleType>
 PsolaAnalyzer<SampleType>::PsolaAnalyzer()
-{ }
+{
+    pitchDetector.setConfidenceThresh (SampleType (0.3));
+    
+    pitchDetector.setHzRange (60, 1500);
+}
 
 template<typename SampleType>
-void PsolaAnalyzer<SampleType>::prepare (int blocksize)
+void PsolaAnalyzer<SampleType>::initialize()
 {
+    pitchDetector.initialize();
+}
+
+template<typename SampleType>
+void PsolaAnalyzer<SampleType>::prepare (int blocksize, double sr)
+{
+    samplerate = sr;
+    pitchDetector.setSamplerate (sr);
+    
     while (analysisGrains.size() < numAnalysisGrains)
         analysisGrains.add (new Analysis_Grain());
     
@@ -43,11 +56,20 @@ void PsolaAnalyzer<SampleType>::releaseResources()
     indicesOfGrainOnsets.clear();
     grainExtractor.releaseResources();
     analysisGrains.clear();
+    pitchDetector.releaseResources();
 }
 
 template<typename SampleType>
-void PsolaAnalyzer<SampleType>::analyzeInput (const SampleType* inputSamples, const int numSamples, const int periodThisFrame)
+void PsolaAnalyzer<SampleType>::analyzeInput (const SampleType* inputSamples, const int numSamples)
 {
+    jassert (samplerate > 0);
+    
+    const auto inputFrequency = pitchDetector.detectPitch (inputAudio); // outputs 0.0 if frame is unpitched
+    const bool frameIsPitched = inputFrequency > 0;
+    
+    const auto periodThisFrame = frameIsPitched ? math::periodInSamples (samplerate, inputFrequency)
+                                                : juce::Random::getSystemRandom().nextInt (pitchDetector.getCurrentLegalPeriodRange());
+    
     jassert (analysisGrains.size() == numAnalysisGrains);
     jassert (periodThisFrame > 0 && numSamples >= periodThisFrame * 2);
     
@@ -138,5 +160,15 @@ AnalysisGrain< SampleType >* PsolaAnalyzer<SampleType>::getEmptyGrain() const
     
     return nullptr;
 }
+
+template<typename SampleType>
+int PsolaAnalyzer<SampleType>::getLatency() const
+{
+    return pitchDetector.getLatencySamples();
+}
+
+
+template class PsolaAnalyzer< float >;
+template class PsolaAnalyzer< double >;
 
 }  // namespace
