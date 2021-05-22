@@ -8,7 +8,7 @@ class EditorBase  :     private GUIInitializer,
                         public juce::AudioProcessorEditor
 {
 public:
-    EditorBase(ProcessorBase& b);
+    EditorBase(dsp::ProcessorBase& b);
     virtual ~EditorBase() override;
     
     void resized() override final;
@@ -16,7 +16,7 @@ public:
 protected:
     virtual void resizeTriggered (juce::Rectangle<int> area);
     
-    ProcessorBase& processorBase;
+    dsp::ProcessorBase& processorBase;
     
     bool darkMode = true;
 };
