@@ -13,7 +13,7 @@ class PsolaShifter
     using Synthesis_Grain = SynthesisGrain< SampleType >;
     
 public:
-    PsolaShifter (Analyzer* parentAnalyzer);
+    PsolaShifter (Analyzer& parentAnalyzer);
     
     void prepare();
     
@@ -25,7 +25,7 @@ public:
     
     void bypassedBlockRecieved (int numSamples);
     
-    void getSamples (SampleType* outputSamples, const int numSamples, const int newPeriod, const int origPeriod);
+    void getSamples (SampleType* outputSamples, const int numSamples, const int newPeriod);
     
     SampleType getNextSample (const int newPeriod, const int origPeriod);
     
@@ -38,7 +38,7 @@ private:
     bool anyGrainsAreActive() const;
     
     
-    Analyzer* analyzer;
+    Analyzer& analyzer;
     
     juce::OwnedArray< Synthesis_Grain > synthesisGrains;
     

@@ -91,6 +91,16 @@ public:
                   AudioBuffer& output,
                   MidiBuffer&  midiMessages,
                   const bool   isBypassed = false);
+    
+    // call these two functions to use the engine without MIDI
+    // (the engine's internal renderBlock() will recieve an empty midiBuffer)
+    
+    void process (AudioBuffer& inplaceInAndOut,
+                  const bool   isBypassed = false);
+    
+    void process (AudioBuffer& input,
+                  AudioBuffer& output,
+                  const bool   isBypassed = false);
 
 
     void initialize (double samplerate, int newInternalBlocksize);
@@ -171,7 +181,9 @@ private:
     bool isInitialized = false;
 
     double sampleRate = 0;
-
+    
+    MidiBuffer dummyMidiBuffer;
+    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FIFOWrappedEngine)
 };
 

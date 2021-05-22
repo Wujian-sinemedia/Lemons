@@ -96,6 +96,8 @@ void PsolaAnalyzer<SampleType>::analyzeInput (const SampleType* inputSamples, co
     
     if (indicesOfGrainOnsets.getLast() + grainSize < numSamples) // bit @ end
         if (auto* grain = getEmptyGrain()) grain->storeNewGrain (inputSamples, indicesOfGrainOnsets.getLast() + grainSize, numSamples, grainSize);
+    
+    lastPeriod = periodThisFrame;
 }
 
 template<typename SampleType>
@@ -169,6 +171,12 @@ template<typename SampleType>
 int PsolaAnalyzer<SampleType>::getLatency() const
 {
     return pitchDetector.getLatencySamples();
+}
+
+template<typename SampleType>
+int PsolaAnalyzer<SampleType>::getLastPeriod() const noexcept
+{
+    return lastPeriod;
 }
 
 

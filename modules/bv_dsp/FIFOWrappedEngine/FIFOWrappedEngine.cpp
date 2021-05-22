@@ -18,6 +18,24 @@ FIFOWrappedEngine< SampleType >::FIFOWrappedEngine (int    consistentInternalBlo
 
 template < typename SampleType >
 void FIFOWrappedEngine< SampleType >::process (AudioBuffer& inplaceInAndOut,
+                                               const bool   isBypassed)
+{
+    process (inplaceInAndOut, inplaceInAndOut, isBypassed);
+}
+
+template < typename SampleType >
+void FIFOWrappedEngine< SampleType >::process (AudioBuffer& input,
+                                               AudioBuffer& output,
+                                               const bool   isBypassed)
+{
+    dummyMidiBuffer.clear();
+    process (input, output, dummyMidiBuffer, isBypassed);
+}
+
+
+
+template < typename SampleType >
+void FIFOWrappedEngine< SampleType >::process (AudioBuffer& inplaceInAndOut,
                                                MidiBuffer&  midiMessages,
                                                const bool   isBypassed)
 {
@@ -181,6 +199,7 @@ void FIFOWrappedEngine< SampleType >::changeLatency (int newInternalBlocksize)
 
     chunkMidiBuffer.ensureSize (doubleBlocksizeT);
     midiChoppingBuffer.ensureSize (doubleBlocksizeT);
+    dummyMidiBuffer.ensureSize (doubleBlocksizeT);
 
     isInitialized = true;
 

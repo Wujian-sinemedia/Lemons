@@ -6,7 +6,7 @@ namespace bav::dsp
 {
 
 template<typename SampleType>
-PsolaShifter<SampleType>::PsolaShifter (Analyzer* parentAnalyzer)
+PsolaShifter<SampleType>::PsolaShifter (Analyzer& parentAnalyzer)
 : analyzer (parentAnalyzer)
 {
     jassert (analyzer != nullptr);
@@ -61,8 +61,10 @@ void PsolaShifter<SampleType>::bypassedBlockRecieved (int numSamples)
 }
 
 template<typename SampleType>
-void PsolaShifter<SampleType>::getSamples (SampleType* outputSamples, const int numSamples, const int newPeriod, const int origPeriod)
+void PsolaShifter<SampleType>::getSamples (SampleType* outputSamples, const int numSamples, const int newPeriod)
 {
+    const auto origPeriod = analyzer.getLastPeriod();
+    
     for (int i = 0; i < numSamples; ++i)
         outputSamples[i] = getNextSample (newPeriod, origPeriod);
 }
@@ -103,7 +105,7 @@ void PsolaShifter<SampleType>::startNewGrain (const int newPeriod, const int ori
         
         //           const auto bufferPos = anyGrainsAreActive() ? lastAnalysisPitchMark + origPeriod : 0;
         
-        auto* analysisGrain = analyzer->findClosestGrain (nextAnalysisPitchMark);
+        auto* analysisGrain = analyzer.findClosestGrain (nextAnalysisPitchMark);
         
         const auto samplesInFuture = juce::roundToInt (analysisGrain->percentOfExpectedSize() * (nextSynthesisPitchMark - nextAnalysisPitchMark));
         

@@ -36,6 +36,8 @@ public:
     
     int getLatency() const;
     
+    int getLastPeriod() const noexcept;
+    
 
 private:
     double samplerate = 0;
@@ -48,6 +50,8 @@ private:
     juce::Array< int >           indicesOfGrainOnsets;
     
     juce::OwnedArray< Analysis_Grain > analysisGrains;
+    
+    int lastPeriod = -1;
     
     static constexpr auto numAnalysisGrains = 48;
 };
