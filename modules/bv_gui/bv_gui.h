@@ -14,7 +14,7 @@
 #include <bv_data_model/bv_data_model.h>
 
 #include "utilities/GuiUtils.h"
-#include "utilities/icons.h"
+#include "utilities/icons/icons.h"
 #include "utilities/Spline.h"
 #include "components/ParameterOwningComponent.h"
 #include "components/LevelMeters.h"
