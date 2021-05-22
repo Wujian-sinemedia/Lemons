@@ -16,14 +16,4 @@ static inline void initializeTranslations (const juce::File& translationFile,
 }
 
 
-struct TranslationInitializer
-{
-    TranslationInitializer (const juce::File& translationFile,
-                            bool              ignoreCaseOfKeys = true)
-    {
-        initializeTranslations (translationFile, ignoreCaseOfKeys);
-    }
-};
-
-
 }  // namespace bav

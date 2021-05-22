@@ -47,7 +47,6 @@
 
 // misc
 #include "misc/StaticObjects.h"
-#include "misc/SystemInitializer.h"
 #include "misc/misc.h"
 #include "misc/CopyableAtomic.h"
 #include "misc/AlignedAllocate.h"
@@ -58,6 +57,7 @@
 
 
 // building blocks
+#include "building_blocks/SystemInitializer.h"
 #include "building_blocks/ApplicationBase.h"
 #include "building_blocks/ProcessorBase.h"
 #include "building_blocks/PluginEditorBase.h"
