@@ -2,9 +2,9 @@
 namespace bav::vecops
 {
 /* Finds the autocorrelation of a set of samples using a shrinking integration window */
-static BV_FORCE_INLINE void autocorrelate (const float* BV_R_ inputSamples,
-                                           int                numSamples,
-                                           float* BV_R_       outputSamples)
+static void autocorrelate (const float* BV_R_ inputSamples,
+                           int                numSamples,
+                           float* BV_R_       outputSamples)
 {
     const auto oneOverNumSamples = 1.0f / numSamples;
 
@@ -19,9 +19,9 @@ static BV_FORCE_INLINE void autocorrelate (const float* BV_R_ inputSamples,
     }
 }
 
-static BV_FORCE_INLINE void autocorrelate (const double* BV_R_ inputSamples,
-                                           int                 numSamples,
-                                           double* BV_R_       outputSamples)
+static void autocorrelate (const double* BV_R_ inputSamples,
+                           int                 numSamples,
+                           double* BV_R_       outputSamples)
 {
     const auto oneOverNumSamples = 1.0 / numSamples;
 
@@ -38,9 +38,9 @@ static BV_FORCE_INLINE void autocorrelate (const double* BV_R_ inputSamples,
 
 
 /* Autocorrelates a signal with itself using a squared difference function. Uses a shrinking integration window. */
-static BV_FORCE_INLINE void sdfAutocorrelate (const float* BV_R_ inputSamples,
-                                              int                numSamples,
-                                              float* BV_R_       outputSamples)
+static void sdfAutocorrelate (const float* BV_R_ inputSamples,
+                              int                numSamples,
+                              float* BV_R_       outputSamples)
 {
     for (int i = 0; i < numSamples; i++)
     {
@@ -56,9 +56,9 @@ static BV_FORCE_INLINE void sdfAutocorrelate (const float* BV_R_ inputSamples,
     }
 }
 
-static BV_FORCE_INLINE void sdfAutocorrelate (const double* BV_R_ inputSamples,
-                                              int                 numSamples,
-                                              double* BV_R_       outputSamples)
+static void sdfAutocorrelate (const double* BV_R_ inputSamples,
+                              int                 numSamples,
+                              double* BV_R_       outputSamples)
 {
     for (int i = 0; i < numSamples; i++)
     {
@@ -76,7 +76,7 @@ static BV_FORCE_INLINE void sdfAutocorrelate (const double* BV_R_ inputSamples,
 
 
 /* copies the contents of one vector to another. */
-static BV_FORCE_INLINE void
+static void
     copy (const float* const BV_R_ source, float* const BV_R_ dest, const int count)
 {
 #if BV_USE_IPP
@@ -99,9 +99,9 @@ static BV_FORCE_INLINE void
 #endif
 }
 
-static BV_FORCE_INLINE void copy (const double* const BV_R_ source,
-                                  double* const BV_R_       dest,
-                                  const int                 count)
+static void copy (const double* const BV_R_ source,
+                  double* const BV_R_       dest,
+                  const int                 count)
 {
 #if BV_USE_IPP
     ippsMove_64f (source, dest, count);
@@ -133,10 +133,10 @@ static BV_FORCE_INLINE void copy (const double* const BV_R_ source,
  * non-overlapping.
  */
 template < typename T >
-static inline void interleave (T* const BV_R_ dst,
-                               const T* const BV_R_* const BV_R_ src,
-                               const int                         channels,
-                               const int                         count)
+static void interleave (T* const BV_R_ dst,
+                        const T* const BV_R_* const BV_R_ src,
+                        const int                         channels,
+                        const int                         count)
 {
     int idx = 0;
     switch (channels)
@@ -165,10 +165,10 @@ static inline void interleave (T* const BV_R_ dst,
 #if BV_USE_IPP
 #    if (IPP_VERSION_MAJOR <= 7)  // Deprecated in v8, removed in v9
 template <>
-static inline void interleave (float* const BV_R_ dst,
-                               const float* const BV_R_* const BV_R_ src,
-                               const int                             channels,
-                               const int                             count)
+static void interleave (float* const BV_R_ dst,
+                        const float* const BV_R_* const BV_R_ src,
+                        const int                             channels,
+                        const int                             count)
 {
     ippsInterleave_32f ((const Ipp32f**) src, channels, count, dst);
 }
@@ -179,10 +179,10 @@ static inline void interleave (float* const BV_R_ dst,
 
 // deinterleave samples from dst into src
 template < typename T >
-static inline void deinterleave (T* const BV_R_* const BV_R_ dst,
-                                 const T* const BV_R_        src,
-                                 const int                   channels,
-                                 const int                   count)
+static void deinterleave (T* const BV_R_* const BV_R_ dst,
+                          const T* const BV_R_        src,
+                          const int                   channels,
+                          const int                   count)
 {
     int idx = 0;
 
@@ -214,10 +214,10 @@ static inline void deinterleave (T* const BV_R_* const BV_R_ dst,
 #if BV_USE_IPP
 #    if (IPP_VERSION_MAJOR <= 7)  // Deprecated in v8, removed in v9
 template <>
-static inline void deinterleave (float* const BV_R_* const BV_R_ dst,
-                                 const float* const BV_R_        src,
-                                 const int                       channels,
-                                 const int                       count)
+static void deinterleave (float* const BV_R_* const BV_R_ dst,
+                          const float* const BV_R_        src,
+                          const int                       channels,
+                          const int                       count)
 {
     ippsDeinterleave_32f ((const Ipp32f*) src, channels, count, (Ipp32f**) dst);
 }
@@ -226,7 +226,7 @@ static inline void deinterleave (float* const BV_R_* const BV_R_ dst,
 #endif
 
 
-static BV_FORCE_INLINE void phasor (float* real, float* imag, float phase)
+static void phasor (float* real, float* imag, float phase)
 {
 #if BV_USE_VDSP
     int one = 1;
@@ -237,7 +237,7 @@ static BV_FORCE_INLINE void phasor (float* real, float* imag, float phase)
 #endif
 }
 
-static BV_FORCE_INLINE void phasor (double* real, double* imag, double phase)
+static void phasor (double* real, double* imag, double phase)
 {
 #if BV_USE_VDSP
     int one = 1;
@@ -250,10 +250,10 @@ static BV_FORCE_INLINE void phasor (double* real, double* imag, double phase)
 
 
 /* converts cartesian coordinates to frequency bin magnitudes */
-static BV_FORCE_INLINE void cartesian_to_magnitudes (float* const BV_R_       mag,
-                                                     const float* const BV_R_ real,
-                                                     const float* const BV_R_ imag,
-                                                     const int                count)
+static void cartesian_to_magnitudes (float* const BV_R_       mag,
+                                     const float* const BV_R_ real,
+                                     const float* const BV_R_ imag,
+                                     const int                count)
 {
 #if BV_USE_IPP  // IPP is the only one of the auxillery libraries that supports this in one function call
     ippsMagnitude_32f (real, imag, mag, count);
@@ -287,10 +287,10 @@ static BV_FORCE_INLINE void cartesian_to_magnitudes (float* const BV_R_       ma
 }
 
 
-static BV_FORCE_INLINE void cartesian_to_magnitudes (double* const BV_R_       mag,
-                                                     const double* const BV_R_ real,
-                                                     const double* const BV_R_ imag,
-                                                     const int                 count)
+static void cartesian_to_magnitudes (double* const BV_R_       mag,
+                                     const double* const BV_R_ real,
+                                     const double* const BV_R_ imag,
+                                     const int                 count)
 {
 #if BV_USE_IPP
     ippsMagnitude_64f (real, imag, mag, count);
@@ -323,7 +323,7 @@ static BV_FORCE_INLINE void cartesian_to_magnitudes (double* const BV_R_       m
 #endif
 }
 
-static BV_FORCE_INLINE void cartesian_interleaved_to_magnitudes (
+static void cartesian_interleaved_to_magnitudes (
     float* const BV_R_ mag, const float* const BV_R_ src, const int count)
 {
 #if BV_USE_IPP
@@ -357,7 +357,7 @@ static BV_FORCE_INLINE void cartesian_interleaved_to_magnitudes (
 #endif
 }
 
-static BV_FORCE_INLINE void cartesian_interleaved_to_magnitudes (
+static void cartesian_interleaved_to_magnitudes (
     double* const BV_R_ mag, const double* const BV_R_ src, const int count)
 {
 #if BV_USE_IPP
@@ -392,7 +392,7 @@ static BV_FORCE_INLINE void cartesian_interleaved_to_magnitudes (
 }
 
 
-static BV_FORCE_INLINE void
+static void
     cartesian_interleaved_to_polar (double* const BV_R_       mag,
                                     double* const BV_R_       phase,
                                     const double* const BV_R_ src,
@@ -411,7 +411,7 @@ static BV_FORCE_INLINE void
 #endif
 }
 
-static BV_FORCE_INLINE void
+static void
     cartesian_interleaved_to_polar (float* const BV_R_       mag,
                                     float* const BV_R_       phase,
                                     const float* const BV_R_ src,
@@ -431,7 +431,7 @@ static BV_FORCE_INLINE void
 }
 
 
-static BV_FORCE_INLINE void
+static void
     polar_to_cartesian_interleaved (float* const BV_R_       dst,
                                     const float* const BV_R_ mag,
                                     const float* const BV_R_ phase,
@@ -475,7 +475,7 @@ static BV_FORCE_INLINE void
 #endif
 }
 
-static BV_FORCE_INLINE void
+static void
     polar_to_cartesian_interleaved (double* const BV_R_       dst,
                                     const double* const BV_R_ mag,
                                     const double* const BV_R_ phase,
