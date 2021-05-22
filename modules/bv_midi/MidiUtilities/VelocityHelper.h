@@ -1,4 +1,6 @@
 
+#pragma once
+
 namespace bav::midi
 {
 // helper class for outputting weighted midi velocities

@@ -1,4 +1,6 @@
 
+#pragma once
+
 namespace bav::midi
 {
 // helper class for outputting midifloat values based on input midiPitch, pitchbend, and pitchbend range controls

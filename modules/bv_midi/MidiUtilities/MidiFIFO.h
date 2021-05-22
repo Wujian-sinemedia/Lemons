@@ -1,8 +1,5 @@
-/*
- Part of module: bv_SharedCode
- Parent file: bv_SharedCode.h
- */
 
+#pragma once
 
 namespace bav::midi
 {

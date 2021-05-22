@@ -1,4 +1,6 @@
 
+#pragma once
+
 namespace bav::midi
 {
 // helper class to convert midi pitch to frequency and vice versa, with tracking for alternate concert pitch Hz, root note, and number of notes per octave.
