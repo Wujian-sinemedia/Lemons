@@ -21,12 +21,6 @@ struct SystemInitializer
 
 struct GUIInitializer
 {
-#if ! JUCE_OPENGL
-    GUIInitializer()
-    { }
-#endif
-    
-    
     GUIInitializer (juce::Component* topLevelComponent = nullptr)
     {
 #if JUCE_OPENGL

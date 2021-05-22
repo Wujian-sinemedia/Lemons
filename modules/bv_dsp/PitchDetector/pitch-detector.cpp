@@ -34,7 +34,7 @@ void PitchDetector< SampleType >::releaseResources()
 template < typename SampleType >
 float PitchDetector< SampleType >::detectPitch (const AudioBuffer& inputAudio)
 {
-    detectPitch (inputAudio.getReadPointer(0), inputAudio.getNumSamples());
+    return detectPitch (inputAudio.getReadPointer(0), inputAudio.getNumSamples());
 }
 
 template < typename SampleType >
