@@ -15,14 +15,16 @@ macro (setDefaultAppleSettings)
         set (MAC_CURRENT_SDK "${MAC_SDK_DIR}/MacOSX${MAC_SDK_VERSION}.sdk")
 
         if (IS_DIRECTORY ${MAC_CURRENT_SDK})
-            message ("Using Mac OSX SDK ${MAC_SDK_VERSION}")
             set (CMAKE_OSX_SYSROOT ${MAC_CURRENT_SDK})
-        else()
-            message ("Can't find Mac SDK ${MAC_SDK_VERSION}, switching to default instead")
         endif()
 
         set (CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE INTERNAL "")
     endif()
+    
+# No ZERO_CHECK target on XCode (it helps bust cache for cmake)
+if ("${CMAKE_GENERATOR}" STREQUAL "Xcode")
+    set (CMAKE_SUPPRESS_REGENERATION TRUE)
+endif()
 
 endmacro()
 
