@@ -33,6 +33,8 @@ struct GUIInitializer
 #if JUCE_OPENGL
         jassert (topLevelComponent != nullptr);
         openGLContext.attachTo (*topLevelComponent);
+#else
+        juce::ignoreUnused (topLevelComponent);
 #endif
     }
     
@@ -50,4 +52,4 @@ private:
 #endif
 };
 
-};
+}  // namespace
