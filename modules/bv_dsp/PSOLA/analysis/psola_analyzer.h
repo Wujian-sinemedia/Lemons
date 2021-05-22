@@ -18,7 +18,9 @@ public:
     
     void initialize();
     
-    void prepare (int blocksize, double sr);
+    void prepare (int blocksize);
+    
+    void setSamplerate (double sr);
     
     void reset();
     

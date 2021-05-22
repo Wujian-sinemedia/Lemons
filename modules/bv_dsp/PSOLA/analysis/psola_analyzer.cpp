@@ -21,11 +21,8 @@ void PsolaAnalyzer<SampleType>::initialize()
 }
 
 template<typename SampleType>
-void PsolaAnalyzer<SampleType>::prepare (int blocksize, double sr)
+void PsolaAnalyzer<SampleType>::prepare (int blocksize)
 {
-    samplerate = sr;
-    pitchDetector.setSamplerate (sr);
-    
     while (analysisGrains.size() < numAnalysisGrains)
         analysisGrains.add (new Analysis_Grain());
     
@@ -34,6 +31,13 @@ void PsolaAnalyzer<SampleType>::prepare (int blocksize, double sr)
     
     indicesOfGrainOnsets.ensureStorageAllocated (blocksize);
     grainExtractor.prepare (blocksize);
+}
+
+template<typename SampleType>
+void PsolaAnalyzer<SampleType>::setSamplerate (double sr)
+{
+    samplerate = sr;
+    pitchDetector.setSamplerate (sr);
 }
 
 template<typename SampleType>
