@@ -1,2 +1,51 @@
 
-//#include "GrainExtractor/GrainExtractor.h"
+#pragma once
+
+#include "GrainExtractor/GrainExtractor.h"
+#include "AnalysisGrain/AnalysisGrain.h"
+
+
+namespace bav
+{
+template < typename SampleType >
+class PsolaAnalyzer
+{
+    using Analysis_Grain = AnalysisGrain< SampleType >;
+    
+    
+public:
+    PsolaAnalyzer();
+    
+    void prepare (int blocksize);
+    
+    void reset();
+    
+    void clearUnusedGrains();
+    
+    void releaseResources();
+    
+    void analyzeInput (const SampleType* inputSamples, const int numSamples, const int periodThisFrame);
+    
+    Analysis_Grain* findClosestGrain (int idealBufferPos) const;
+    
+    Analysis_Grain* findBestNewGrain (Analysis_Grain* prevGrain) const;
+    
+
+private:
+    Analysis_Grain* getEmptyGrain() const;
+    
+    
+    GrainExtractor< SampleType > grainExtractor;
+    juce::Array< int >           indicesOfGrainOnsets;
+    
+    juce::OwnedArray< Analysis_Grain > analysisGrains;
+    
+    static constexpr auto numAnalysisGrains = 48;
+};
+
+
+template class PsolaAnalyzer< float >;
+template class PsolaAnalyzer< double >;
+
+
+} // namespace bav
