@@ -9,7 +9,7 @@ class PitchShifter
     using MidiBuffer = juce::MidiBuffer;
     
 public:
-    PitchShifter(): shifter(analyzer)
+    PitchShifter()
     {
         leftEngine.initialize (44100.0, 512);
         rightEngine.initialize (44100.0, 512);
@@ -50,25 +50,25 @@ private:
     {
         Engine(): shifter(analyzer) { }
         
-        void initialize (double samplerate, int newInternalBlocksize) override
+        void initialized (double samplerate, int newInternalBlocksize) override
         {
             analyzer.initialize();
         }
         
-        void prepare (double samplerate) override
+        void prepareToPlay (double samplerate) override
         {
             analyzer.setSamplerate (samplerate);
             changeLatency (analyzer.getLatency());
             shifter.prepare();
         }
         
-        void reset() override
+        void resetTriggered() override
         {
             analyzer.reset();
             shifter.reset();
         }
         
-        void releaseResources() override
+        void release() override
         {
             analyzer.releaseResources();
             shifter.releaseResources();
