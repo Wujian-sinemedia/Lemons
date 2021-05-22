@@ -12,11 +12,6 @@ set_property (GLOBAL PROPERTY USE_FOLDERS YES)
 
 set (bv_sharedcode_dir ${CMAKE_CURRENT_LIST_DIR} CACHE INTERNAL "shared code path")
 
-# No ZERO_CHECK target on XCode (it helps bust cache for cmake)
-if ("${CMAKE_GENERATOR}" STREQUAL "Xcode")
-    set (CMAKE_SUPPRESS_REGENERATION TRUE)
-endif()
-
 # clang-tidy needs this to be happy
 set (CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
