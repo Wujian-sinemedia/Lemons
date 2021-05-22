@@ -18,4 +18,3 @@
 #include "MidiUtilities/PitchbendTracker.h"
 #include "MidiUtilities/PitchConverter.h"
 #include "MidiUtilities/VelocityHelper.h"
-#include "MidiUtilities/Chord.h"
