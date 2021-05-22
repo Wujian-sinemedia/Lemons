@@ -56,6 +56,10 @@
 #include "misc/ValueListeners.h"
 
 
+// localization
+#include "localization/localization.h"
+
+
 // building blocks
 #include "building_blocks/SystemInitializer.h"
 #include "building_blocks/ApplicationBase.h"
@@ -76,9 +80,6 @@
 // files
 #include "files/FileUtilities.h"
 
-
-// localization
-#include "localization/localization.h"
 
 // network
 #include "network/AsyncDownload.h"

@@ -369,3 +369,15 @@ static constexpr bool isUsingFallback();
 
 
 #include "implementations/vecops_impl.h"
+
+#if BV_USE_VDSP
+#    include "implementations/vecops_vdsp.h"
+#elif BV_USE_IPP
+#    include "implementations/vecops_ipp.h"
+#elif BV_USE_MIPP
+#    include "implementations/vecops_mipp.h"
+#elif BV_USE_NE10
+#    include "implementations/vecops_ne10.h"
+#else
+#    include "implementations/vecops_fallback.h"
+#endif
