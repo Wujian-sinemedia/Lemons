@@ -68,7 +68,7 @@ void PsolaShifter<SampleType>::getSamples (SampleType* outputSamples, const int 
 }
 
 template<typename SampleType>
-void PsolaShifter<SampleType>::getNextSample (const int newPeriod, const int origPeriod)
+SampleType PsolaShifter<SampleType>::getNextSample (const int newPeriod, const int origPeriod)
 {
     jassert (synthesisGrains.size() == numSynthesisGrains);
     jassert (newPeriod > 0 && origPeriod > 0);
