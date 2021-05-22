@@ -7,7 +7,7 @@ namespace bav::intops
 
 
 /* fills a vector with the specified value. */
-static BV_FORCE_INLINE void
+extern void
     fill (int* BV_R_ vector, const int value, const int count)
 {
 #if BV_USE_IPP
@@ -19,7 +19,7 @@ static BV_FORCE_INLINE void
 
 
 /* copies the contents of one vector to another. */
-static BV_FORCE_INLINE void
+extern void
     copy (const int* const BV_R_ source, int* const BV_R_ dest, const int count)
 {
 #if BV_USE_IPP
@@ -31,7 +31,7 @@ static BV_FORCE_INLINE void
 
 
 /* adds a single operand to each value in the vector */
-static BV_FORCE_INLINE void
+extern void
     addC (int* BV_R_ vector, const int value, const int count)
 {
     for (int i = 0; i < count; ++i)
@@ -42,7 +42,7 @@ static BV_FORCE_INLINE void
 
 
 /* performs element-wise addition of two vectors and writes the output to vecA */
-static BV_FORCE_INLINE void
+extern void
     addV (int* BV_R_ vecA, const int* BV_R_ vecB, const int count)
 {
     for (int i = 0; i < count; ++i)
@@ -53,7 +53,7 @@ static BV_FORCE_INLINE void
 
 
 /* subtracts a single operand from every element in the vector */
-static BV_FORCE_INLINE void
+extern void
     subtractC (int* BV_R_ vector, const int value, const int count)
 {
     for (int i = 0; i < count; ++i)
@@ -64,7 +64,7 @@ static BV_FORCE_INLINE void
 
 
 /* performs element-wise subtraction of two vectors and writes the output to vecA */
-static BV_FORCE_INLINE void
+extern void
     subtractV (int* BV_R_ vecA, const int* BV_R_ vecB, const int count)
 {
     for (int i = 0; i < count; ++i)
@@ -75,7 +75,7 @@ static BV_FORCE_INLINE void
 
 
 /* multiplies every element in the vector by a single operand */
-static BV_FORCE_INLINE void
+extern void
     multiplyC (int* BV_R_ vector, const int value, const int count)
 {
     for (int i = 0; i < count; ++i)
@@ -86,7 +86,7 @@ static BV_FORCE_INLINE void
 
 
 /* performs element-wise multiplication of two vectors and writes the output to vecA */
-static BV_FORCE_INLINE void
+extern void
     multiplyV (int* BV_R_ vecA, const int* BV_R_ vecB, const int count)
 {
     for (int i = 0; i < count; ++i)
@@ -97,7 +97,7 @@ static BV_FORCE_INLINE void
 
 
 /* divides every element in the vector by a single operand */
-static BV_FORCE_INLINE void
+extern void
     divideC (int* BV_R_ vector, const int value, const int count)
 {
     for (int i = 0; i < count; ++i)
@@ -108,7 +108,7 @@ static BV_FORCE_INLINE void
 
 
 /* performs element-wise division of two vectors and writes the output to vecA */
-static BV_FORCE_INLINE void
+extern void
     divideV (int* BV_R_ vecA, const int* BV_R_ vecB, const int count)
 {
     for (int i = 0; i < count; ++i)
@@ -119,7 +119,7 @@ static BV_FORCE_INLINE void
 
 
 /* replaces every element in the passed vector with its square */
-static BV_FORCE_INLINE void square (int* BV_R_ data, const int dataSize)
+extern void square (int* BV_R_ data, const int dataSize)
 {
     for (int i = 0; i < dataSize; ++i)
     {
@@ -129,7 +129,7 @@ static BV_FORCE_INLINE void square (int* BV_R_ data, const int dataSize)
 
 
 /* replaces every element in the passed vector with its absolute value */
-static BV_FORCE_INLINE void absVal (int* BV_R_ data, const int dataSize)
+extern void absVal (int* BV_R_ data, const int dataSize)
 {
 #if BV_USE_IPP
     ippsAbs_32s_I (data, dataSize);
@@ -143,7 +143,7 @@ static BV_FORCE_INLINE void absVal (int* BV_R_ data, const int dataSize)
 
 
 // returns the minimum element in the dataset
-static BV_FORCE_INLINE int findMinElement (int* data, int dataSize)
+extern int findMinElement (int* data, int dataSize)
 {
 #if BV_USE_IPP
     int min = 0;
@@ -156,7 +156,7 @@ static BV_FORCE_INLINE int findMinElement (int* data, int dataSize)
 
 
 // returns the maximum element in the dataset
-static BV_FORCE_INLINE int findMaxElement (int* data, int dataSize)
+extern int findMaxElement (int* data, int dataSize)
 {
 #if BV_USE_IPP
     int max = 0;
@@ -169,7 +169,7 @@ static BV_FORCE_INLINE int findMaxElement (int* data, int dataSize)
 
 
 // returns the index in the dataset of the minimum datum
-static BV_FORCE_INLINE int findIndexOfMinElement (int* data, int dataSize)
+extern int findIndexOfMinElement (int* data, int dataSize)
 {
 #if BV_USE_IPP
     int idx = 0, min = 0;
@@ -182,7 +182,7 @@ static BV_FORCE_INLINE int findIndexOfMinElement (int* data, int dataSize)
 
 
 // returns the index in the dataset of the maximum datum
-static BV_FORCE_INLINE int findIndexOfMaxElement (int* data, int dataSize)
+extern int findIndexOfMaxElement (int* data, int dataSize)
 {
 #if BV_USE_IPP
     int idx = 0, max = 0;
@@ -195,7 +195,7 @@ static BV_FORCE_INLINE int findIndexOfMaxElement (int* data, int dataSize)
 
 
 // returns both the minimum element and its index in the dataset into the variables minimum and minIndex
-static BV_FORCE_INLINE void
+extern void
     findMinAndMinIndex (int* data, const int dataSize, int& minimum, int& minIndex)
 {
 #if BV_USE_IPP
@@ -209,7 +209,7 @@ static BV_FORCE_INLINE void
 
 
 // returns both the maximum element and its index in the dataset into the variables maximum and maxIndex
-static BV_FORCE_INLINE void
+extern void
     findMaxAndMaxIndex (int* data, const int dataSize, int& maximum, int& maxIndex)
 {
 #if BV_USE_IPP
@@ -223,10 +223,10 @@ static BV_FORCE_INLINE void
 
 
 /* locates the element with the highest absolute value and its index in the vector, and returns them into the variables greatestMagnitude and index */
-static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const int* BV_R_ data,
-                                                        const int        dataSize,
-                                                        int&             greatestMagnitude,
-                                                        int&             index)
+extern void locateGreatestAbsMagnitude (const int* BV_R_ data,
+                                        const int        dataSize,
+                                        int&             greatestMagnitude,
+                                        int&             index)
 {
 #if BV_USE_IPP
     ippsMaxAbsIndx_32s (data, dataSize, &greatestMagnitude, &index);
@@ -252,10 +252,10 @@ static BV_FORCE_INLINE void locateGreatestAbsMagnitude (const int* BV_R_ data,
 
 
 /* locates the element with the lowest absolute value and its index in the vector, and returns them into the variables leastMagnitude and index */
-static BV_FORCE_INLINE void locateLeastAbsMagnitude (const int* BV_R_ data,
-                                                     const int        dataSize,
-                                                     int&             leastMagnitude,
-                                                     int&             index)
+extern void locateLeastAbsMagnitude (const int* BV_R_ data,
+                                     const int        dataSize,
+                                     int&             leastMagnitude,
+                                     int&             index)
 {
 #if BV_USE_IPP
     ippsMinAbsIndx_32s (data, dataSize, &leastMagnitude, &index);
@@ -281,7 +281,7 @@ static BV_FORCE_INLINE void locateLeastAbsMagnitude (const int* BV_R_ data,
 
 
 // finds both the maximum and minimum elements in the dataset and returns them into the variables max and min.
-static BV_FORCE_INLINE void
+extern void
     findExtrema (int* data, const int dataSize, int& min, int& max)
 {
 #if BV_USE_IPP
@@ -295,7 +295,7 @@ static BV_FORCE_INLINE void
 
 
 //  returns the distance between the maximum and minimum elements in the dataset
-static BV_FORCE_INLINE int findRangeOfExtrema (int* data, const int dataSize)
+extern int findRangeOfExtrema (int* data, const int dataSize)
 {
 #if BV_USE_IPP
     int max = 0, min = 0;

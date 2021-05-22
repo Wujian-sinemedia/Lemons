@@ -556,17 +556,4 @@ constexpr bool isUsingFallback()
     return ! (isUsingVDSP() || isUsingIPP() || isUsingMIPP() || isUsingNe10());
 }
 
-
-#if BV_USE_VDSP
-#    include "implementations/vecops_vdsp.cpp"
-#elif BV_USE_IPP
-#    include "implementations/vecops_ipp.cpp"
-#elif BV_USE_MIPP
-#    include "implementations/vecops_mipp.cpp"
-#elif BV_USE_NE10
-#    include "implementations/vecops_ne10.cpp"
-#else
-#    include "implementations/vecops_fallback.cpp"
-#endif
-
 }  // namespace bav::vecops

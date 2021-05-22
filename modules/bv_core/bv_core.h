@@ -74,7 +74,7 @@
 // math
 #include "math/mathHelpers.h"
 #include "math/vecops/vecops.h"
-#include "math/intOps.h"
+#include "math/intops/intOps.h"
 
 
 // files
