@@ -68,8 +68,8 @@
 // building blocks
 #include "building_blocks/SystemInitializer.h"
 #include "building_blocks/ApplicationBase.h"
-#include "building_blocks/PluginEditorBase.h"
-#include "building_blocks/ProcessorBase.h"
+#include "building_blocks/EditorBase/EditorBase.h"
+#include "building_blocks/ProcessorBase/ProcessorBase.h"
 
 
 // async
