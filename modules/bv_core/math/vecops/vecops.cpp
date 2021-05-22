@@ -2,9 +2,9 @@
 namespace bav::vecops
 {
 /* Finds the autocorrelation of a set of samples using a shrinking integration window */
-static void autocorrelate (const float* BV_R_ inputSamples,
-                           int                numSamples,
-                           float* BV_R_       outputSamples)
+void autocorrelate (const float* BV_R_ inputSamples,
+                    int                numSamples,
+                    float* BV_R_       outputSamples)
 {
     const auto oneOverNumSamples = 1.0f / numSamples;
 
@@ -19,9 +19,9 @@ static void autocorrelate (const float* BV_R_ inputSamples,
     }
 }
 
-static void autocorrelate (const double* BV_R_ inputSamples,
-                           int                 numSamples,
-                           double* BV_R_       outputSamples)
+void autocorrelate (const double* BV_R_ inputSamples,
+                    int                 numSamples,
+                    double* BV_R_       outputSamples)
 {
     const auto oneOverNumSamples = 1.0 / numSamples;
 
@@ -38,9 +38,9 @@ static void autocorrelate (const double* BV_R_ inputSamples,
 
 
 /* Autocorrelates a signal with itself using a squared difference function. Uses a shrinking integration window. */
-static void sdfAutocorrelate (const float* BV_R_ inputSamples,
-                              int                numSamples,
-                              float* BV_R_       outputSamples)
+void sdfAutocorrelate (const float* BV_R_ inputSamples,
+                       int                numSamples,
+                       float* BV_R_       outputSamples)
 {
     for (int i = 0; i < numSamples; i++)
     {
@@ -56,9 +56,9 @@ static void sdfAutocorrelate (const float* BV_R_ inputSamples,
     }
 }
 
-static void sdfAutocorrelate (const double* BV_R_ inputSamples,
-                              int                 numSamples,
-                              double* BV_R_       outputSamples)
+void sdfAutocorrelate (const double* BV_R_ inputSamples,
+                       int                 numSamples,
+                       double* BV_R_       outputSamples)
 {
     for (int i = 0; i < numSamples; i++)
     {
@@ -76,8 +76,7 @@ static void sdfAutocorrelate (const double* BV_R_ inputSamples,
 
 
 /* copies the contents of one vector to another. */
-static void
-    copy (const float* const BV_R_ source, float* const BV_R_ dest, const int count)
+void copy (const float* const BV_R_ source, float* const BV_R_ dest, const int count)
 {
 #if BV_USE_IPP
     ippsMove_32f (source, dest, count);
@@ -99,9 +98,9 @@ static void
 #endif
 }
 
-static void copy (const double* const BV_R_ source,
-                  double* const BV_R_       dest,
-                  const int                 count)
+void copy (const double* const BV_R_ source,
+           double* const BV_R_       dest,
+           const int                 count)
 {
 #if BV_USE_IPP
     ippsMove_64f (source, dest, count);
@@ -133,10 +132,10 @@ static void copy (const double* const BV_R_ source,
  * non-overlapping.
  */
 template < typename T >
-static void interleave (T* const BV_R_ dst,
-                        const T* const BV_R_* const BV_R_ src,
-                        const int                         channels,
-                        const int                         count)
+void interleave (T* const BV_R_ dst,
+                 const T* const BV_R_* const BV_R_ src,
+                 const int                         channels,
+                 const int                         count)
 {
     int idx = 0;
     switch (channels)
@@ -165,10 +164,10 @@ static void interleave (T* const BV_R_ dst,
 #if BV_USE_IPP
 #    if (IPP_VERSION_MAJOR <= 7)  // Deprecated in v8, removed in v9
 template <>
-static void interleave (float* const BV_R_ dst,
-                        const float* const BV_R_* const BV_R_ src,
-                        const int                             channels,
-                        const int                             count)
+void interleave (float* const BV_R_ dst,
+                 const float* const BV_R_* const BV_R_ src,
+                 const int                             channels,
+                 const int                             count)
 {
     ippsInterleave_32f ((const Ipp32f**) src, channels, count, dst);
 }
@@ -179,10 +178,10 @@ static void interleave (float* const BV_R_ dst,
 
 // deinterleave samples from dst into src
 template < typename T >
-static void deinterleave (T* const BV_R_* const BV_R_ dst,
-                          const T* const BV_R_        src,
-                          const int                   channels,
-                          const int                   count)
+void deinterleave (T* const BV_R_* const BV_R_ dst,
+                   const T* const BV_R_        src,
+                   const int                   channels,
+                   const int                   count)
 {
     int idx = 0;
 
@@ -214,10 +213,10 @@ static void deinterleave (T* const BV_R_* const BV_R_ dst,
 #if BV_USE_IPP
 #    if (IPP_VERSION_MAJOR <= 7)  // Deprecated in v8, removed in v9
 template <>
-static void deinterleave (float* const BV_R_* const BV_R_ dst,
-                          const float* const BV_R_        src,
-                          const int                       channels,
-                          const int                       count)
+void deinterleave (float* const BV_R_* const BV_R_ dst,
+                   const float* const BV_R_        src,
+                   const int                       channels,
+                   const int                       count)
 {
     ippsDeinterleave_32f ((const Ipp32f*) src, channels, count, (Ipp32f**) dst);
 }
@@ -226,7 +225,7 @@ static void deinterleave (float* const BV_R_* const BV_R_ dst,
 #endif
 
 
-static void phasor (float* real, float* imag, float phase)
+void phasor (float* real, float* imag, float phase)
 {
 #if BV_USE_VDSP
     int one = 1;
@@ -250,10 +249,10 @@ static void phasor (double* real, double* imag, double phase)
 
 
 /* converts cartesian coordinates to frequency bin magnitudes */
-static void cartesian_to_magnitudes (float* const BV_R_       mag,
-                                     const float* const BV_R_ real,
-                                     const float* const BV_R_ imag,
-                                     const int                count)
+void cartesian_to_magnitudes (float* const BV_R_       mag,
+                              const float* const BV_R_ real,
+                              const float* const BV_R_ imag,
+                              const int                count)
 {
 #if BV_USE_IPP  // IPP is the only one of the auxillery libraries that supports this in one function call
     ippsMagnitude_32f (real, imag, mag, count);
@@ -287,10 +286,10 @@ static void cartesian_to_magnitudes (float* const BV_R_       mag,
 }
 
 
-static void cartesian_to_magnitudes (double* const BV_R_       mag,
-                                     const double* const BV_R_ real,
-                                     const double* const BV_R_ imag,
-                                     const int                 count)
+void cartesian_to_magnitudes (double* const BV_R_       mag,
+                              const double* const BV_R_ real,
+                              const double* const BV_R_ imag,
+                              const int                 count)
 {
 #if BV_USE_IPP
     ippsMagnitude_64f (real, imag, mag, count);
@@ -323,7 +322,7 @@ static void cartesian_to_magnitudes (double* const BV_R_       mag,
 #endif
 }
 
-static void cartesian_interleaved_to_magnitudes (
+void cartesian_interleaved_to_magnitudes (
     float* const BV_R_ mag, const float* const BV_R_ src, const int count)
 {
 #if BV_USE_IPP
@@ -357,7 +356,7 @@ static void cartesian_interleaved_to_magnitudes (
 #endif
 }
 
-static void cartesian_interleaved_to_magnitudes (
+void cartesian_interleaved_to_magnitudes (
     double* const BV_R_ mag, const double* const BV_R_ src, const int count)
 {
 #if BV_USE_IPP
@@ -392,11 +391,10 @@ static void cartesian_interleaved_to_magnitudes (
 }
 
 
-static void
-    cartesian_interleaved_to_polar (double* const BV_R_       mag,
-                                    double* const BV_R_       phase,
-                                    const double* const BV_R_ src,
-                                    const int                 count)
+void cartesian_interleaved_to_polar (double* const BV_R_       mag,
+                                     double* const BV_R_       phase,
+                                     const double* const BV_R_ src,
+                                     const int                 count)
 {
 #if BV_USE_IPP
     ippsCartToPolar_64fc (src, mag, phase, count);
@@ -411,11 +409,10 @@ static void
 #endif
 }
 
-static void
-    cartesian_interleaved_to_polar (float* const BV_R_       mag,
-                                    float* const BV_R_       phase,
-                                    const float* const BV_R_ src,
-                                    const int                count)
+void cartesian_interleaved_to_polar (float* const BV_R_       mag,
+                                     float* const BV_R_       phase,
+                                     const float* const BV_R_ src,
+                                     const int                count)
 {
 #if BV_USE_IPP
     ippsCartToPolar_32fc (src, mag, phase, count);
@@ -431,11 +428,10 @@ static void
 }
 
 
-static void
-    polar_to_cartesian_interleaved (float* const BV_R_       dst,
-                                    const float* const BV_R_ mag,
-                                    const float* const BV_R_ phase,
-                                    const int                count)
+void polar_to_cartesian_interleaved (float* const BV_R_       dst,
+                                     const float* const BV_R_ mag,
+                                     const float* const BV_R_ phase,
+                                     const int                count)
 {
 #if BV_USE_IPP
     ippsPolarToCart_32fc (mag, phase, dst, count);
@@ -475,11 +471,10 @@ static void
 #endif
 }
 
-static void
-    polar_to_cartesian_interleaved (double* const BV_R_       dst,
-                                    const double* const BV_R_ mag,
-                                    const double* const BV_R_ phase,
-                                    const int                 count)
+void polar_to_cartesian_interleaved (double* const BV_R_       dst,
+                                     const double* const BV_R_ mag,
+                                     const double* const BV_R_ phase,
+                                     const int                 count)
 {
 #if BV_USE_IPP
     ippsPolarToCart_64fc (mag, phase, dst, count);
@@ -520,7 +515,7 @@ static void
 }
 
 
-static constexpr bool isUsingVDSP()
+constexpr bool isUsingVDSP()
 {
 #if BV_USE_VDSP
     return true;
@@ -529,7 +524,7 @@ static constexpr bool isUsingVDSP()
 #endif
 }
 
-static constexpr bool isUsingIPP()
+constexpr bool isUsingIPP()
 {
 #if BV_USE_IPP
     return true;
@@ -538,7 +533,7 @@ static constexpr bool isUsingIPP()
 #endif
 }
 
-static constexpr bool isUsingMIPP()
+constexpr bool isUsingMIPP()
 {
 #if BV_USE_MIPP
     return true;
@@ -547,7 +542,7 @@ static constexpr bool isUsingMIPP()
 #endif
 }
 
-static constexpr bool isUsingNe10()
+constexpr bool isUsingNe10()
 {
 #if BV_USE_NE10
     return true;
@@ -556,9 +551,22 @@ static constexpr bool isUsingNe10()
 #endif
 }
 
-static constexpr bool isUsingFallback()
+constexpr bool isUsingFallback()
 {
     return ! (isUsingVDSP() || isUsingIPP() || isUsingMIPP() || isUsingNe10());
 }
+
+
+#if BV_USE_VDSP
+#    include "implementations/vecops_vdsp.cpp"
+#elif BV_USE_IPP
+#    include "implementations/vecops_ipp.cpp"
+#elif BV_USE_MIPP
+#    include "implementations/vecops_mipp.cpp"
+#elif BV_USE_NE10
+#    include "implementations/vecops_ne10.cpp"
+#else
+#    include "implementations/vecops_fallback.cpp"
+#endif
 
 }  // namespace bav::vecops

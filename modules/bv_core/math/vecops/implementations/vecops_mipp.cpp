@@ -2,8 +2,7 @@
 
 namespace bav::vecops
 {
-static void
-    fill (float* BV_R_ vector, const float value, const int count)
+void fill (float* BV_R_ vector, const float value, const int count)
 {
     const auto vecLoopSize = (count / mipp::N< float >()) * mipp::N< float >();
 
@@ -24,15 +23,14 @@ static void
         vector[i] = value;
 }
 
-static void
-    fill (double* BV_R_ vector, const double value, const int count)
+void fill (double* BV_R_ vector, const double value, const int count)
 {
     const auto vecLoopSize = (count / mipp::N< double >()) * mipp::N< double >();
 
     mipp::Reg< double > rout, val;
 
     val.load (
-        &value);  // this vector register stores the value we're setting the vector to. Only need to load it once
+        &value);
 
     for (int i = 0; i < vecLoopSize; i += mipp::N< double >())
     {
@@ -45,8 +43,7 @@ static void
 }
 
 
-static void
-    convert (double* const BV_R_ dst, const float* const BV_R_ src, const int count)
+void convert (double* const BV_R_ dst, const float* const BV_R_ src, const int count)
 {
     for (int i = 0; i < count; ++i)
     {
@@ -54,8 +51,7 @@ static void
     }
 }
 
-static void
-    convert (float* const BV_R_ dst, const double* const BV_R_ src, const int count)
+void convert (float* const BV_R_ dst, const double* const BV_R_ src, const int count)
 {
     for (int i = 0; i < count; ++i)
     {
@@ -64,15 +60,14 @@ static void
 }
 
 
-static void
-    addC (float* BV_R_ vector, const float value, const int count)
+void addC (float* BV_R_ vector, const float value, const int count)
 {
     const auto vecLoopSize = (count / mipp::N< float >()) * mipp::N< float >();
 
     mipp::Reg< float > rin, rout, val;
 
     val.load (
-        &value);  // this vector register stores the value we're adding to the vector. Only need to load it once
+        &value);
 
     for (int i = 0; i < vecLoopSize; i += mipp::N< float >())
     {
@@ -85,15 +80,14 @@ static void
         vector[i] = vector[i] + value;
 }
 
-static void
-    addC (double* BV_R_ vector, const double value, const int count)
+void addC (double* BV_R_ vector, const double value, const int count)
 {
     const auto vecLoopSize = (count / mipp::N< double >()) * mipp::N< double >();
 
     mipp::Reg< double > rin, rout, val;
 
     val.load (
-        &value);  // this vector register stores the value we're adding to the vector. Only need to load it once
+        &value);
 
     for (int i = 0; i < vecLoopSize; i += mipp::N< double >())
     {
@@ -107,8 +101,7 @@ static void
 }
 
 
-static void
-    addV (float* BV_R_ vecA, const float* BV_R_ vecB, const int count)
+void addV (float* BV_R_ vecA, const float* BV_R_ vecB, const int count)
 {
     const auto vecLoopSize = (count / mipp::N< float >()) * mipp::N< float >();
 
@@ -126,8 +119,7 @@ static void
         vecA[i] = vecA[i] + vecB[i];
 }
 
-static void
-    addV (double* BV_R_ vecA, const double* BV_R_ vecB, const int count)
+void addV (double* BV_R_ vecA, const double* BV_R_ vecB, const int count)
 {
     const auto vecLoopSize = (count / mipp::N< double >()) * mipp::N< double >();
 
@@ -146,15 +138,14 @@ static void
 }
 
 
-static void
-    subtractC (float* BV_R_ vector, const float value, const int count)
+void subtractC (float* BV_R_ vector, const float value, const int count)
 {
     const auto vecLoopSize = (count / mipp::N< float >()) * mipp::N< float >();
 
     mipp::Reg< float > rin, rout, val;
 
     val.load (
-        &value);  // this vector register stores the value we're adding to the vector. Only need to load it once
+        &value);
 
     for (int i = 0; i < vecLoopSize; i += mipp::N< float >())
     {
@@ -167,15 +158,14 @@ static void
         vector[i] = vector[i] - value;
 }
 
-static void
-    subtractC (double* BV_R_ vector, const double value, const int count)
+void subtractC (double* BV_R_ vector, const double value, const int count)
 {
     const auto vecLoopSize = (count / mipp::N< double >()) * mipp::N< double >();
 
     mipp::Reg< double > rin, rout, val;
 
     val.load (
-        &value);  // this vector register stores the value we're adding to the vector. Only need to load it once
+        &value);
 
     for (int i = 0; i < vecLoopSize; i += mipp::N< double >())
     {
@@ -188,8 +178,7 @@ static void
         vector[i] = vector[i] - value;
 }
 
-static void
-    subtractV (float* BV_R_ vecA, const float* BV_R_ vecB, const int count)
+void subtractV (float* BV_R_ vecA, const float* BV_R_ vecB, const int count)
 {
     const auto vecLoopSize = (count / mipp::N< float >()) * mipp::N< float >();
 
@@ -207,8 +196,7 @@ static void
         vecA[i] = vecA[i] - vecB[i];
 }
 
-static void
-    subtractV (double* BV_R_ vecA, const double* BV_R_ vecB, const int count)
+void subtractV (double* BV_R_ vecA, const double* BV_R_ vecB, const int count)
 {
     const auto vecLoopSize = (count / mipp::N< double >()) * mipp::N< double >();
 
@@ -227,15 +215,14 @@ static void
 }
 
 
-static void
-    multiplyC (float* BV_R_ vector, const float value, const int count)
+void multiplyC (float* BV_R_ vector, const float value, const int count)
 {
     const auto vecLoopSize = (count / mipp::N< float >()) * mipp::N< float >();
 
     mipp::Reg< float > rin, rout, val;
 
     val.load (
-        &value);  // this vector register stores the value we're multiplying to the vector. Only need to load it once
+        &value);
 
     for (int i = 0; i < vecLoopSize; i += mipp::N< float >())
     {
@@ -248,15 +235,14 @@ static void
         vector[i] = vector[i] * value;
 }
 
-static void
-    multiplyC (double* BV_R_ vector, const double value, const int count)
+void multiplyC (double* BV_R_ vector, const double value, const int count)
 {
     const auto vecLoopSize = (count / mipp::N< double >()) * mipp::N< double >();
 
     mipp::Reg< double > rin, rout, val;
 
     val.load (
-        &value);  // this vector register stores the value we're multiplying to the vector. Only need to load it once
+        &value);
 
     for (int i = 0; i < vecLoopSize; i += mipp::N< double >())
     {
@@ -270,8 +256,7 @@ static void
 }
 
 
-static void
-    multiplyV (float* BV_R_ vecA, const float* BV_R_ vecB, const int count)
+void multiplyV (float* BV_R_ vecA, const float* BV_R_ vecB, const int count)
 {
     const auto vecLoopSize = (count / mipp::N< float >()) * mipp::N< float >();
 
@@ -289,8 +274,7 @@ static void
         vecA[i] = vecA[i] * vecB[i];
 }
 
-static void
-    multiplyV (double* BV_R_ vecA, const double* BV_R_ vecB, const int count)
+void multiplyV (double* BV_R_ vecA, const double* BV_R_ vecB, const int count)
 {
     const auto vecLoopSize = (count / mipp::N< double >()) * mipp::N< double >();
 
@@ -309,15 +293,14 @@ static void
 }
 
 
-static void
-    divideC (float* BV_R_ vector, const float value, const int count)
+void divideC (float* BV_R_ vector, const float value, const int count)
 {
     const auto vecLoopSize = (count / mipp::N< float >()) * mipp::N< float >();
 
     mipp::Reg< float > rin, rout, val;
 
     val.load (
-        &value);  // this vector register stores the value we're dividing the vector by. Only need to load it once
+        &value);
 
     for (int i = 0; i < vecLoopSize; i += mipp::N< float >())
     {
@@ -330,15 +313,14 @@ static void
         vector[i] = vector[i] / value;
 }
 
-static void
-    divideC (double* BV_R_ vector, const double value, const int count)
+void divideC (double* BV_R_ vector, const double value, const int count)
 {
     const auto vecLoopSize = (count / mipp::N< double >()) * mipp::N< double >();
 
     mipp::Reg< double > rin, rout, val;
 
     val.load (
-        &value);  // this vector register stores the value we're dividing the vector by. Only need to load it once
+        &value);
 
     for (int i = 0; i < vecLoopSize; i += mipp::N< double >())
     {
@@ -352,8 +334,7 @@ static void
 }
 
 
-static void
-    divideV (float* BV_R_ vecA, const float* BV_R_ vecB, const int count)
+void divideV (float* BV_R_ vecA, const float* BV_R_ vecB, const int count)
 {
     const auto vecLoopSize = (count / mipp::N< float >()) * mipp::N< float >();
 
@@ -371,8 +352,7 @@ static void
         vecA[i] = vecA[i] / vecB[i];
 }
 
-static void
-    divideV (double* BV_R_ vecA, const double* BV_R_ vecB, const int count)
+void divideV (double* BV_R_ vecA, const double* BV_R_ vecB, const int count)
 {
     const auto vecLoopSize = (count / mipp::N< double >()) * mipp::N< double >();
 
@@ -391,7 +371,7 @@ static void
 }
 
 
-static void squareRoot (float* BV_R_ data, const int dataSize)
+void squareRoot (float* BV_R_ data, const int dataSize)
 {
     const auto vecLoopSize = (dataSize / mipp::N< float >()) * mipp::N< float >();
 
@@ -408,7 +388,7 @@ static void squareRoot (float* BV_R_ data, const int dataSize)
         data[i] = sqrt (data[i]);
 }
 
-static void squareRoot (double* BV_R_ data, const int dataSize)
+void squareRoot (double* BV_R_ data, const int dataSize)
 {
     const auto vecLoopSize = (dataSize / mipp::N< double >()) * mipp::N< double >();
 
@@ -426,7 +406,7 @@ static void squareRoot (double* BV_R_ data, const int dataSize)
 }
 
 
-static void square (float* BV_R_ data, const int dataSize)
+void square (float* BV_R_ data, const int dataSize)
 {
     const auto vecLoopSize = (dataSize / mipp::N< float >()) * mipp::N< float >();
 
@@ -443,7 +423,7 @@ static void square (float* BV_R_ data, const int dataSize)
         data[i] = data[i] * data[i];
 }
 
-static void square (double* BV_R_ data, const int dataSize)
+void square (double* BV_R_ data, const int dataSize)
 {
     const auto vecLoopSize = (dataSize / mipp::N< double >()) * mipp::N< double >();
 
@@ -461,7 +441,7 @@ static void square (double* BV_R_ data, const int dataSize)
 }
 
 
-static void absVal (float* BV_R_ data, const int dataSize)
+void absVal (float* BV_R_ data, const int dataSize)
 {
     const auto vecLoopSize = (dataSize / mipp::N< float >()) * mipp::N< float >();
 
@@ -478,7 +458,7 @@ static void absVal (float* BV_R_ data, const int dataSize)
         data[i] = abs (data[i]);
 }
 
-static void absVal (double* BV_R_ data, const int dataSize)
+void absVal (double* BV_R_ data, const int dataSize)
 {
     const auto vecLoopSize = (dataSize / mipp::N< double >()) * mipp::N< double >();
 
@@ -496,46 +476,46 @@ static void absVal (double* BV_R_ data, const int dataSize)
 }
 
 
-static int findIndexOfMinElement (const float* BV_R_ data,
-                                  const int          dataSize)
+int findIndexOfMinElement (const float* BV_R_ data,
+                           const int          dataSize)
 {
     return static_cast< int > (std::min_element (data, data + dataSize) - data);
 }
 
-static int findIndexOfMinElement (const double* BV_R_ data,
-                                  const int           dataSize)
+int findIndexOfMinElement (const double* BV_R_ data,
+                           const int           dataSize)
 {
     return static_cast< int > (std::min_element (data, data + dataSize) - data);
 }
 
 
-static int findIndexOfMaxElement (const float* BV_R_ data,
-                                  const int          dataSize)
+int findIndexOfMaxElement (const float* BV_R_ data,
+                           const int          dataSize)
 {
     return static_cast< int > (std::max_element (data, data + dataSize) - data);
 }
 
-static int findIndexOfMaxElement (const double* BV_R_ data,
-                                  const int           dataSize)
+int findIndexOfMaxElement (const double* BV_R_ data,
+                           const int           dataSize)
 {
     return static_cast< int > (std::max_element (data, data + dataSize) - data);
 }
 
 
-static void findMinAndMinIndex (const float* BV_R_ data,
-                                const int          dataSize,
-                                float&             minimum,
-                                int&               minIndex)
+void findMinAndMinIndex (const float* BV_R_ data,
+                         const int          dataSize,
+                         float&             minimum,
+                         int&               minIndex)
 {
     auto* lowestElement = std::min_element (data, data + dataSize);
     minimum             = *lowestElement;
     minIndex            = static_cast< int > (lowestElement - data);
 }
 
-static void findMinAndMinIndex (const double* BV_R_ data,
-                                const int           dataSize,
-                                double&             minimum,
-                                int&                minIndex)
+void findMinAndMinIndex (const double* BV_R_ data,
+                         const int           dataSize,
+                         double&             minimum,
+                         int&                minIndex)
 {
     auto* lowestElement = std::min_element (data, data + dataSize);
     minimum             = *lowestElement;
@@ -543,20 +523,20 @@ static void findMinAndMinIndex (const double* BV_R_ data,
 }
 
 
-static void findMaxAndMaxIndex (const float* BV_R_ data,
-                                const int          dataSize,
-                                float&             maximum,
-                                int&               maxIndex)
+void findMaxAndMaxIndex (const float* BV_R_ data,
+                         const int          dataSize,
+                         float&             maximum,
+                         int&               maxIndex)
 {
     auto* highestElement = std::max_element (data, data + dataSize);
     maximum              = *highestElement;
     maxIndex             = static_cast< int > (highestElement - data);
 }
 
-static void findMaxAndMaxIndex (const double* BV_R_ data,
-                                const int           dataSize,
-                                double&             maximum,
-                                int&                maxIndex)
+void findMaxAndMaxIndex (const double* BV_R_ data,
+                         const int           dataSize,
+                         double&             maximum,
+                         int&                maxIndex)
 {
     auto* highestElement = std::max_element (data, data + dataSize);
     maximum              = *highestElement;
@@ -564,10 +544,10 @@ static void findMaxAndMaxIndex (const double* BV_R_ data,
 }
 
 
-static void locateGreatestAbsMagnitude (const float* BV_R_ data,
-                                        const int          dataSize,
-                                        float&             greatestMagnitude,
-                                        int&               index)
+void locateGreatestAbsMagnitude (const float* BV_R_ data,
+                                 const int          dataSize,
+                                 float&             greatestMagnitude,
+                                 int&               index)
 {
     int  strongestMagIndex = 0;
     auto strongestMag      = abs (data[0]);
@@ -587,10 +567,10 @@ static void locateGreatestAbsMagnitude (const float* BV_R_ data,
     index             = strongestMagIndex;
 }
 
-static void locateGreatestAbsMagnitude (const double* BV_R_ data,
-                                        const int           dataSize,
-                                        double&             greatestMagnitude,
-                                        int&                index)
+void locateGreatestAbsMagnitude (const double* BV_R_ data,
+                                 const int           dataSize,
+                                 double&             greatestMagnitude,
+                                 int&                index)
 {
     int  strongestMagIndex = 0;
     auto strongestMag      = abs (data[0]);
@@ -611,10 +591,10 @@ static void locateGreatestAbsMagnitude (const double* BV_R_ data,
 }
 
 
-static void locateLeastAbsMagnitude (const float* BV_R_ data,
-                                     const int          dataSize,
-                                     float&             leastMagnitude,
-                                     int&               index)
+void locateLeastAbsMagnitude (const float* BV_R_ data,
+                              const int          dataSize,
+                              float&             leastMagnitude,
+                              int&               index)
 {
     int  weakestMagIndex = 0;
     auto weakestMag      = abs (data[0]);
@@ -634,10 +614,10 @@ static void locateLeastAbsMagnitude (const float* BV_R_ data,
     index          = weakestMagIndex;
 }
 
-static void locateLeastAbsMagnitude (const double* BV_R_ data,
-                                     const int           dataSize,
-                                     double&             leastMagnitude,
-                                     int&                index)
+void locateLeastAbsMagnitude (const double* BV_R_ data,
+                              const int           dataSize,
+                              double&             leastMagnitude,
+                              int&                index)
 {
     int  weakestMagIndex = 0;
     auto weakestMag      = abs (data[0]);
@@ -658,16 +638,14 @@ static void locateLeastAbsMagnitude (const double* BV_R_ data,
 }
 
 
-static void
-    findExtrema (const float* BV_R_ data, const int dataSize, float& min, float& max)
+void findExtrema (const float* BV_R_ data, const int dataSize, float& min, float& max)
 {
     auto range = juce::FloatVectorOperations::findMinAndMax (data, dataSize);
     min        = range.getStart();
     max        = range.getEnd();
 }
 
-static void
-    findExtrema (double* BV_R_ data, const int dataSize, double& min, double& max)
+void findExtrema (double* BV_R_ data, const int dataSize, double& min, double& max)
 {
     auto range = juce::FloatVectorOperations::findMinAndMax (data, dataSize);
     min        = range.getStart();
@@ -675,20 +653,20 @@ static void
 }
 
 
-static float findRangeOfExtrema (const float* BV_R_ data,
-                                 const int          dataSize)
+float findRangeOfExtrema (const float* BV_R_ data,
+                          const int          dataSize)
 {
     return juce::FloatVectorOperations::findMinAndMax (data, dataSize).getLength();
 }
 
-static double findRangeOfExtrema (const double* BV_R_ data,
-                                  const int           dataSize)
+double findRangeOfExtrema (const double* BV_R_ data,
+                           const int           dataSize)
 {
     return juce::FloatVectorOperations::findMinAndMax (data, dataSize).getLength();
 }
 
 
-static void normalize (float* BV_R_ vector, const int numSamples)
+void normalize (float* BV_R_ vector, const int numSamples)
 {
     float max = 0.0f;
     int   location;
@@ -705,7 +683,7 @@ static void normalize (float* BV_R_ vector, const int numSamples)
     }
 }
 
-static void normalize (double* BV_R_ vector, const int numSamples)
+void normalize (double* BV_R_ vector, const int numSamples)
 {
     double max = 0.0;
     int    location;
@@ -723,28 +701,30 @@ static void normalize (double* BV_R_ vector, const int numSamples)
 }
 
 
-static void cartesian_to_polar (float* const BV_R_       mag,
-                                float* const BV_R_       phase,
-                                const float* const BV_R_ real,
-                                const float* const BV_R_ imag,
-                                const int                count)
+void cartesian_to_polar (float* const BV_R_       mag,
+                         float* const BV_R_       phase,
+                         const float* const BV_R_ real,
+                         const float* const BV_R_ imag,
+                         const int                count)
 {
     for (int i = 0; i < count; ++i)
     {
         const auto r = real[i];
         const auto c = imag[i];
         *(mag + i)   = sqrt (r * r + c * c);
+
+        // AFAIK, MIPP doesn't provide this function, which is the only thing preventing this function frm being vectorized...
         *(phase + i) = atan2 (
             c,
-            r);  // AFAIK, MIPP doesn't provide this function, which is the only thing preventing this function frm being vectorized...
+            r);
     }
 }
 
-static void cartesian_to_polar (double* const BV_R_       mag,
-                                double* const BV_R_       phase,
-                                const double* const BV_R_ real,
-                                const double* const BV_R_ imag,
-                                const int                 count)
+void cartesian_to_polar (double* const BV_R_       mag,
+                         double* const BV_R_       phase,
+                         const double* const BV_R_ real,
+                         const double* const BV_R_ imag,
+                         const int                 count)
 {
     for (int i = 0; i < count; ++i)
     {
@@ -756,11 +736,11 @@ static void cartesian_to_polar (double* const BV_R_       mag,
 }
 
 
-static void polar_to_cartesian (float* const BV_R_       real,
-                                float* const BV_R_       imag,
-                                const float* const BV_R_ mag,
-                                const float* const BV_R_ phase,
-                                const int                dataSize)
+void polar_to_cartesian (float* const BV_R_       real,
+                         float* const BV_R_       imag,
+                         const float* const BV_R_ mag,
+                         const float* const BV_R_ phase,
+                         const int                dataSize)
 {
     const auto vecLoopSize = (dataSize / mipp::N< float >()) * mipp::N< float >();
 
@@ -786,11 +766,11 @@ static void polar_to_cartesian (float* const BV_R_       real,
     }
 }
 
-static void polar_to_cartesian (double* const BV_R_       real,
-                                double* const BV_R_       imag,
-                                const double* const BV_R_ mag,
-                                const double* const BV_R_ phase,
-                                const int                 dataSize)
+void polar_to_cartesian (double* const BV_R_       real,
+                         double* const BV_R_       imag,
+                         const double* const BV_R_ mag,
+                         const double* const BV_R_ phase,
+                         const int                 dataSize)
 {
     const auto vecLoopSize = (dataSize / mipp::N< double >()) * mipp::N< double >();
 

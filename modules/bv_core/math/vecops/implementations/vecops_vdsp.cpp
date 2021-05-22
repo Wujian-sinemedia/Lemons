@@ -2,34 +2,29 @@
 
 namespace bav::vecops
 {
-static void
-    fill (float* BV_R_ vector, const float value, const int count)
+void fill (float* BV_R_ vector, const float value, const int count)
 {
     vDSP_vfill (&value, vector, vDSP_Stride (1), vDSP_Length (count));
 }
 
-static void
-    fill (double* BV_R_ vector, const double value, const int count)
+void fill (double* BV_R_ vector, const double value, const int count)
 {
     vDSP_vfillD (&value, vector, vDSP_Stride (1), vDSP_Length (count));
 }
 
 
-static void
-    convert (double* const BV_R_ dst, const float* const BV_R_ src, const int count)
+void convert (double* const BV_R_ dst, const float* const BV_R_ src, const int count)
 {
     vDSP_vspdp (src, vDSP_Stride (1), dst, vDSP_Stride (1), vDSP_Length (count));
 }
 
-static void
-    convert (float* const BV_R_ dst, const double* const BV_R_ src, const int count)
+void convert (float* const BV_R_ dst, const double* const BV_R_ src, const int count)
 {
     vDSP_vdpsp (src, vDSP_Stride (1), dst, vDSP_Stride (1), vDSP_Length (count));
 }
 
 
-static void
-    addC (float* BV_R_ vector, const float value, const int count)
+void addC (float* BV_R_ vector, const float value, const int count)
 {
     vDSP_vsadd (vector,
                 vDSP_Stride (1),
@@ -39,8 +34,7 @@ static void
                 vDSP_Length (count));
 }
 
-static void
-    addC (double* BV_R_ vector, const double value, const int count)
+void addC (double* BV_R_ vector, const double value, const int count)
 {
     vDSP_vsaddD (vector,
                  vDSP_Stride (1),
@@ -51,8 +45,7 @@ static void
 }
 
 
-static void
-    addV (float* BV_R_ vecA, const float* BV_R_ vecB, const int count)
+void addV (float* BV_R_ vecA, const float* BV_R_ vecB, const int count)
 {
     vDSP_vadd (vecB,
                vDSP_Stride (1),
@@ -63,8 +56,7 @@ static void
                vDSP_Length (count));
 }
 
-static void
-    addV (double* BV_R_ vecA, const double* BV_R_ vecB, const int count)
+void addV (double* BV_R_ vecA, const double* BV_R_ vecB, const int count)
 {
     vDSP_vaddD (vecB,
                 vDSP_Stride (1),
@@ -76,16 +68,14 @@ static void
 }
 
 
-static void
-    subtractC (float* BV_R_ vector, const float value, const int count)
+void subtractC (float* BV_R_ vector, const float value, const int count)
 {
     const auto val = -value;
     vDSP_vsadd (
         vector, vDSP_Stride (1), &val, vector, vDSP_Stride (1), vDSP_Length (count));
 }
 
-static void
-    subtractC (double* BV_R_ vector, const double value, const int count)
+void subtractC (double* BV_R_ vector, const double value, const int count)
 {
     const auto val = -value;
     vDSP_vsaddD (
@@ -93,8 +83,7 @@ static void
 }
 
 
-static void
-    subtractV (float* BV_R_ vecA, const float* BV_R_ vecB, const int count)
+void subtractV (float* BV_R_ vecA, const float* BV_R_ vecB, const int count)
 {
     vDSP_vsub (vecA,
                vDSP_Stride (1),
@@ -105,8 +94,7 @@ static void
                vDSP_Length (count));
 }
 
-static void
-    subtractV (double* BV_R_ vecA, const double* BV_R_ vecB, const int count)
+void subtractV (double* BV_R_ vecA, const double* BV_R_ vecB, const int count)
 {
     vDSP_vsubD (vecA,
                 vDSP_Stride (1),
@@ -118,8 +106,7 @@ static void
 }
 
 
-static void
-    multiplyC (float* BV_R_ vector, const float value, const int count)
+void multiplyC (float* BV_R_ vector, const float value, const int count)
 {
     vDSP_vsmul (vector,
                 vDSP_Stride (1),
@@ -129,8 +116,7 @@ static void
                 vDSP_Length (count));
 }
 
-static void
-    multiplyC (double* BV_R_ vector, const double value, const int count)
+void multiplyC (double* BV_R_ vector, const double value, const int count)
 {
     vDSP_vsmulD (vector,
                  vDSP_Stride (1),
@@ -141,8 +127,7 @@ static void
 }
 
 
-static void
-    multiplyV (float* BV_R_ vecA, const float* BV_R_ vecB, const int count)
+void multiplyV (float* BV_R_ vecA, const float* BV_R_ vecB, const int count)
 {
     vDSP_vmul (vecA,
                vDSP_Stride (1),
@@ -153,8 +138,7 @@ static void
                vDSP_Length (count));
 }
 
-static void
-    multiplyV (double* BV_R_ vecA, const double* BV_R_ vecB, const int count)
+void multiplyV (double* BV_R_ vecA, const double* BV_R_ vecB, const int count)
 {
     vDSP_vmulD (vecA,
                 vDSP_Stride (1),
@@ -166,8 +150,7 @@ static void
 }
 
 
-static void
-    divideC (float* BV_R_ vector, const float value, const int count)
+void divideC (float* BV_R_ vector, const float value, const int count)
 {
     vDSP_vsdiv (vector,
                 vDSP_Stride (1),
@@ -177,8 +160,7 @@ static void
                 vDSP_Length (count));
 }
 
-static void
-    divideC (double* BV_R_ vector, const double value, const int count)
+void divideC (double* BV_R_ vector, const double value, const int count)
 {
     vDSP_vsdivD (vector,
                  vDSP_Stride (1),
@@ -189,8 +171,7 @@ static void
 }
 
 
-static void
-    divideV (float* BV_R_ vecA, const float* BV_R_ vecB, const int count)
+void divideV (float* BV_R_ vecA, const float* BV_R_ vecB, const int count)
 {
     vDSP_vdiv (vecB,
                vDSP_Stride (1),
@@ -201,8 +182,7 @@ static void
                vDSP_Length (count));
 }
 
-static void
-    divideV (double* BV_R_ vecA, const double* BV_R_ vecB, const int count)
+void divideV (double* BV_R_ vecA, const double* BV_R_ vecB, const int count)
 {
     vDSP_vdivD (vecB,
                 vDSP_Stride (1),
@@ -214,29 +194,29 @@ static void
 }
 
 
-static void squareRoot (float* BV_R_ data, const int dataSize)
+void squareRoot (float* BV_R_ data, const int dataSize)
 {
     vvsqrtf (data, data, &dataSize);
 }
 
-static void squareRoot (double* BV_R_ data, const int dataSize)
+void squareRoot (double* BV_R_ data, const int dataSize)
 {
     vvsqrt (data, data, &dataSize);
 }
 
 
-static void square (float* BV_R_ data, const int dataSize)
+void square (float* BV_R_ data, const int dataSize)
 {
     vDSP_vsq (data, vDSP_Stride (1), data, vDSP_Stride (1), vDSP_Length (dataSize));
 }
 
-static void square (double* BV_R_ data, const int dataSize)
+void square (double* BV_R_ data, const int dataSize)
 {
     vDSP_vsqD (data, vDSP_Stride (1), data, vDSP_Stride (1), vDSP_Length (dataSize));
 }
 
 
-static void absVal (float* BV_R_ data, const int dataSize)
+void absVal (float* BV_R_ data, const int dataSize)
 {
 #if (defined(MACOSX_DEPLOYMENT_TARGET) && MACOSX_DEPLOYMENT_TARGET <= 1070 \
      && MAC_OS_X_VERSION_MIN_REQUIRED <= 1070)
@@ -246,7 +226,7 @@ static void absVal (float* BV_R_ data, const int dataSize)
 #endif
 }
 
-static void absVal (double* BV_R_ data, const int dataSize)
+void absVal (double* BV_R_ data, const int dataSize)
 {
 #if (defined(MACOSX_DEPLOYMENT_TARGET) && MACOSX_DEPLOYMENT_TARGET <= 1070 \
      && MAC_OS_X_VERSION_MIN_REQUIRED <= 1070)
@@ -257,8 +237,8 @@ static void absVal (double* BV_R_ data, const int dataSize)
 }
 
 
-static int findIndexOfMinElement (const float* BV_R_ data,
-                                  const int          dataSize)
+int findIndexOfMinElement (const float* BV_R_ data,
+                           const int          dataSize)
 {
     unsigned long index   = 0.0;
     float         minimum = 0.0f;
@@ -266,8 +246,8 @@ static int findIndexOfMinElement (const float* BV_R_ data,
     return int (index);
 }
 
-static int findIndexOfMinElement (const double* BV_R_ data,
-                                  const int           dataSize)
+int findIndexOfMinElement (const double* BV_R_ data,
+                           const int           dataSize)
 {
     unsigned long index   = 0.0;
     double        minimum = 0.0;
@@ -276,8 +256,8 @@ static int findIndexOfMinElement (const double* BV_R_ data,
 }
 
 
-static int findIndexOfMaxElement (const float* BV_R_ data,
-                                  const int          dataSize)
+int findIndexOfMaxElement (const float* BV_R_ data,
+                           const int          dataSize)
 {
     unsigned long index   = 0.0;
     float         maximum = 0.0f;
@@ -285,8 +265,8 @@ static int findIndexOfMaxElement (const float* BV_R_ data,
     return int (index);
 }
 
-static int findIndexOfMaxElement (const double* BV_R_ data,
-                                  const int           dataSize)
+int findIndexOfMaxElement (const double* BV_R_ data,
+                           const int           dataSize)
 {
     unsigned long index   = 0.0;
     double        maximum = 0.0;
@@ -295,20 +275,20 @@ static int findIndexOfMaxElement (const double* BV_R_ data,
 }
 
 
-static void findMinAndMinIndex (const float* BV_R_ data,
-                                const int          dataSize,
-                                float&             minimum,
-                                int&               minIndex)
+void findMinAndMinIndex (const float* BV_R_ data,
+                         const int          dataSize,
+                         float&             minimum,
+                         int&               minIndex)
 {
     unsigned long index = 0.0;
     vDSP_minvi (data, vDSP_Stride (1), &minimum, &index, vDSP_Length (dataSize));
     minIndex = int (index);
 }
 
-static void findMinAndMinIndex (const double* BV_R_ data,
-                                const int           dataSize,
-                                double&             minimum,
-                                int&                minIndex)
+void findMinAndMinIndex (const double* BV_R_ data,
+                         const int           dataSize,
+                         double&             minimum,
+                         int&                minIndex)
 {
     unsigned long index = 0.0;
     vDSP_minviD (data, vDSP_Stride (1), &minimum, &index, vDSP_Length (dataSize));
@@ -316,20 +296,20 @@ static void findMinAndMinIndex (const double* BV_R_ data,
 }
 
 
-static void findMaxAndMaxIndex (const float* BV_R_ data,
-                                const int          dataSize,
-                                float&             maximum,
-                                int&               maxIndex)
+void findMaxAndMaxIndex (const float* BV_R_ data,
+                         const int          dataSize,
+                         float&             maximum,
+                         int&               maxIndex)
 {
     unsigned long index = 0.0;
     vDSP_maxvi (data, vDSP_Stride (1), &maximum, &index, vDSP_Length (dataSize));
     maxIndex = int (index);
 }
 
-static void findMaxAndMaxIndex (const double* BV_R_ data,
-                                const int           dataSize,
-                                double&             maximum,
-                                int&                maxIndex)
+void findMaxAndMaxIndex (const double* BV_R_ data,
+                         const int           dataSize,
+                         double&             maximum,
+                         int&                maxIndex)
 {
     unsigned long index = 0.0;
     vDSP_maxviD (data, vDSP_Stride (1), &maximum, &index, vDSP_Length (dataSize));
@@ -337,10 +317,10 @@ static void findMaxAndMaxIndex (const double* BV_R_ data,
 }
 
 
-static void locateGreatestAbsMagnitude (const float* BV_R_ data,
-                                        const int          dataSize,
-                                        float&             greatestMagnitude,
-                                        int&               index)
+void locateGreatestAbsMagnitude (const float* BV_R_ data,
+                                 const int          dataSize,
+                                 float&             greatestMagnitude,
+                                 int&               index)
 {
     unsigned long i = 0.0;
     vDSP_maxmgvi (
@@ -348,10 +328,10 @@ static void locateGreatestAbsMagnitude (const float* BV_R_ data,
     index = int (i);
 }
 
-static void locateGreatestAbsMagnitude (const double* BV_R_ data,
-                                        const int           dataSize,
-                                        double&             greatestMagnitude,
-                                        int&                index)
+void locateGreatestAbsMagnitude (const double* BV_R_ data,
+                                 const int           dataSize,
+                                 double&             greatestMagnitude,
+                                 int&                index)
 {
     unsigned long i = 0.0;
     vDSP_maxmgviD (
@@ -360,10 +340,10 @@ static void locateGreatestAbsMagnitude (const double* BV_R_ data,
 }
 
 
-static void locateLeastAbsMagnitude (const float* BV_R_ data,
-                                     const int          dataSize,
-                                     float&             leastMagnitude,
-                                     int&               index)
+void locateLeastAbsMagnitude (const float* BV_R_ data,
+                              const int          dataSize,
+                              float&             leastMagnitude,
+                              int&               index)
 {
     unsigned long i = 0.0;
     vDSP_minmgvi (
@@ -371,10 +351,10 @@ static void locateLeastAbsMagnitude (const float* BV_R_ data,
     index = int (i);
 }
 
-static void locateLeastAbsMagnitude (const double* BV_R_ data,
-                                     const int           dataSize,
-                                     double&             leastMagnitude,
-                                     int&                index)
+void locateLeastAbsMagnitude (const double* BV_R_ data,
+                              const int           dataSize,
+                              double&             leastMagnitude,
+                              int&                index)
 {
     unsigned long i = 0.0;
     vDSP_minmgviD (
@@ -383,23 +363,21 @@ static void locateLeastAbsMagnitude (const double* BV_R_ data,
 }
 
 
-static void
-    findExtrema (const float* BV_R_ data, const int dataSize, float& min, float& max)
+void findExtrema (const float* BV_R_ data, const int dataSize, float& min, float& max)
 {
     vDSP_minv (data, vDSP_Stride (1), &min, vDSP_Length (dataSize));
     vDSP_maxv (data, vDSP_Stride (1), &max, vDSP_Length (dataSize));
 }
 
-static void
-    findExtrema (double* BV_R_ data, const int dataSize, double& min, double& max)
+void findExtrema (double* BV_R_ data, const int dataSize, double& min, double& max)
 {
     vDSP_minvD (data, vDSP_Stride (1), &min, vDSP_Length (dataSize));
     vDSP_maxvD (data, vDSP_Stride (1), &max, vDSP_Length (dataSize));
 }
 
 
-static float findRangeOfExtrema (const float* BV_R_ data,
-                                 const int          dataSize)
+float findRangeOfExtrema (const float* BV_R_ data,
+                          const int          dataSize)
 {
     float min = 0.0f, max = 0.0f;
     vDSP_minv (data, vDSP_Stride (1), &min, vDSP_Length (dataSize));
@@ -407,8 +385,8 @@ static float findRangeOfExtrema (const float* BV_R_ data,
     return max - min;
 }
 
-static double findRangeOfExtrema (const double* BV_R_ data,
-                                  const int           dataSize)
+double findRangeOfExtrema (const double* BV_R_ data,
+                           const int           dataSize)
 {
     double min = 0.0, max = 0.0;
     vDSP_minvD (data, vDSP_Stride (1), &min, vDSP_Length (dataSize));
@@ -417,7 +395,7 @@ static double findRangeOfExtrema (const double* BV_R_ data,
 }
 
 
-static void normalize (float* BV_R_ vector, const int numSamples)
+void normalize (float* BV_R_ vector, const int numSamples)
 {
     float         max = 0.0f;
     unsigned long i   = 0.0;
@@ -439,7 +417,7 @@ static void normalize (float* BV_R_ vector, const int numSamples)
     }
 }
 
-static void normalize (double* BV_R_ vector, const int numSamples)
+void normalize (double* BV_R_ vector, const int numSamples)
 {
     double        max = 0.0;
     unsigned long i   = 0.0;
@@ -462,11 +440,11 @@ static void normalize (double* BV_R_ vector, const int numSamples)
 }
 
 
-static void cartesian_to_polar (float* const BV_R_       mag,
-                                float* const BV_R_       phase,
-                                const float* const BV_R_ real,
-                                const float* const BV_R_ imag,
-                                const int                count)
+void cartesian_to_polar (float* const BV_R_       mag,
+                         float* const BV_R_       phase,
+                         const float* const BV_R_ real,
+                         const float* const BV_R_ imag,
+                         const int                count)
 {
     DSPSplitComplex c;
     c.realp = const_cast< float* > (real);
@@ -477,11 +455,11 @@ static void cartesian_to_polar (float* const BV_R_       mag,
     vvatan2f (phase, imag, real, &count);
 }
 
-static void cartesian_to_polar (double* const BV_R_       mag,
-                                double* const BV_R_       phase,
-                                const double* const BV_R_ real,
-                                const double* const BV_R_ imag,
-                                const int                 count)
+void cartesian_to_polar (double* const BV_R_       mag,
+                         double* const BV_R_       phase,
+                         const double* const BV_R_ real,
+                         const double* const BV_R_ imag,
+                         const int                 count)
 {
     DSPDoubleSplitComplex c;
     c.realp = const_cast< double* > (real);
@@ -493,11 +471,11 @@ static void cartesian_to_polar (double* const BV_R_       mag,
 }
 
 
-static void polar_to_cartesian (float* const BV_R_       real,
-                                float* const BV_R_       imag,
-                                const float* const BV_R_ mag,
-                                const float* const BV_R_ phase,
-                                const int                dataSize)
+void polar_to_cartesian (float* const BV_R_       real,
+                         float* const BV_R_       imag,
+                         const float* const BV_R_ mag,
+                         const float* const BV_R_ phase,
+                         const int                dataSize)
 {
     vvsincosf (imag, real, phase, &dataSize);
 
@@ -517,11 +495,11 @@ static void polar_to_cartesian (float* const BV_R_       real,
                vDSP_Length (dataSize));
 }
 
-static void polar_to_cartesian (double* const BV_R_       real,
-                                double* const BV_R_       imag,
-                                const double* const BV_R_ mag,
-                                const double* const BV_R_ phase,
-                                const int                 dataSize)
+void polar_to_cartesian (double* const BV_R_       real,
+                         double* const BV_R_       imag,
+                         const double* const BV_R_ mag,
+                         const double* const BV_R_ phase,
+                         const int                 dataSize)
 {
     vvsincos (imag, real, phase, &dataSize);
 
