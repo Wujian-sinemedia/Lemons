@@ -322,10 +322,10 @@ static BV_FORCE_INLINE void cartesian_to_magnitudes (double* const BV_R_       m
                                                      const int                 count);
 
 static BV_FORCE_INLINE void cartesian_interleaved_to_magnitudes (
-                                                                 float* const BV_R_ mag, const float* const BV_R_ src, const int count);
+    float* const BV_R_ mag, const float* const BV_R_ src, const int count);
 
 static BV_FORCE_INLINE void cartesian_interleaved_to_magnitudes (
-                                                                 double* const BV_R_ mag, const double* const BV_R_ src, const int count);
+    double* const BV_R_ mag, const double* const BV_R_ src, const int count);
 
 
 static BV_FORCE_INLINE void
@@ -366,4 +366,3 @@ static constexpr bool isUsingFallback();
 
 
 }  // namespace bav::vecops
-
