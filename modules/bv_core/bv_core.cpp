@@ -20,3 +20,6 @@
 #else
 #    include "math/vecops/implementations/vecops_fallback.cpp"
 #endif
+
+#include "files/FileUtilities.cpp"
+#include "BinaryDataHelpers/BinaryDataHelpers.cpp"

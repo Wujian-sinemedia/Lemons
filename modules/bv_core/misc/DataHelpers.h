@@ -4,52 +4,8 @@
 */
 
 
-#ifndef BV_HAS_BINARY_DATA
-#    define BV_HAS_BINARY_DATA 0
-#endif
-
-#if BV_HAS_BINARY_DATA
-#    include "BinaryData.h"
-#endif
-
-
 namespace bav
 {
-#if BV_HAS_BINARY_DATA
-
-struct RawData
-{
-    explicit RawData (const char* fileToFind)
-    {
-        using namespace BinaryData;
-
-        for (int index = 0; index < namedResourceListSize; ++index)
-        {
-            auto binaryName = namedResourceList[index];
-            auto fileName   = getNamedResourceOriginalFilename (binaryName);
-
-            if (fileName == fileToFind)
-            {
-                data = BinaryData::getNamedResource (binaryName, size);
-                break;
-            }
-        }
-
-        jassert (data != nullptr);  // File not found
-    }
-
-    const char* data = nullptr;
-    int         size = 0;
-};
-
-/** To easily access some binary data:
- @code
-    RawData binary {"File.wav"};
-    doSomethingWithData (binary.data, binary.size);
- @end-code
- */
-
-#endif /* if BV_HAS_BINARY_DATA */
 
 
 /*

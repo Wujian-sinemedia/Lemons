@@ -79,6 +79,7 @@
 
 // files
 #include "files/FileUtilities.h"
+#include "BinaryDataHelpers/BinaryDataHelpers.h"
 
 
 // network
