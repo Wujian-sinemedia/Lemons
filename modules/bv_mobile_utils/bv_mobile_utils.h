@@ -29,8 +29,7 @@ struct AutoLock
 class MotionManagerInterface
 {
 public:
-    MotionManagerInterface() { }
-
+    MotionManagerInterface()          = default;
     virtual ~MotionManagerInterface() = default;
 
     virtual void start() = 0;
@@ -59,12 +58,11 @@ public:
 
 #if JUCE_IOS
 #    include "iOS/iosMotion.h"
+
 #elif JUCE_ANDROID
 #    include "Android/androidMotion.h"
 
-
 #else
-
 
 /* This dummy Motionmanager class can be instantiated on non-mobile devices */
 class MotionManager : public MotionManagerInterface
