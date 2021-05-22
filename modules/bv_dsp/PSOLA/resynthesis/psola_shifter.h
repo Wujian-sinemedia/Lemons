@@ -4,7 +4,7 @@
 #include "SynthesisGrain/SynthesisGrain.h"
 
 
-namespace bav
+namespace bav::dsp
 {
 template < typename SampleType >
 class PsolaShifter

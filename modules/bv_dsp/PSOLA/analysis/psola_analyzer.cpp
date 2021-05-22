@@ -3,7 +3,7 @@
 #include "AnalysisGrain/AnalysisGrain.cpp"
 
 
-namespace bav
+namespace bav::dsp
 {
 
 template<typename SampleType>

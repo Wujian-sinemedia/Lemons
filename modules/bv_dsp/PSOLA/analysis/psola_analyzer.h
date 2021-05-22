@@ -5,7 +5,7 @@
 #include "AnalysisGrain/AnalysisGrain.h"
 
 
-namespace bav
+namespace bav::dsp
 {
 template < typename SampleType >
 class PsolaAnalyzer

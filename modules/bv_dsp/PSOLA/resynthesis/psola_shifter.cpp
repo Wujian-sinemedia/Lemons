@@ -2,7 +2,7 @@
 #include "SynthesisGrain/SynthesisGrain.cpp"
 
 
-namespace bav
+namespace bav::dsp
 {
 
 template<typename SampleType>
