@@ -45,4 +45,4 @@ bool isValidMidiPitch (int note)
     return note >= 0 && note <= 127;
 }
 
-};  // namespace bav::midi
+}  // namespace bav::midi
