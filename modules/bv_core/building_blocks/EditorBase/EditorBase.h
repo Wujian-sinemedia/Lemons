@@ -20,7 +20,7 @@ protected:
     
     bool darkMode = true;
     
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ProcessorBase)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (EditorBase)
 };
 
 }  // namespace

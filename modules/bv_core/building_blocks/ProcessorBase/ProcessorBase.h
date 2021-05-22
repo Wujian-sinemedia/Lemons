@@ -26,7 +26,7 @@ public:
     int                getCurrentProgram() override;
     void               setCurrentProgram (int) override;
     const juce::String getProgramName (int) override;
-    void               changeProgramName (int, const juce::String&);
+    void               changeProgramName (int, const juce::String&) override;
 
     bool acceptsMidi() const override;
     bool producesMidi() const override;
