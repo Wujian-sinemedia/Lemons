@@ -267,7 +267,7 @@ static int findIndexOfMinElement (const float* BV_R_ data,
     return int (index);
 }
 
-static int findIndexOfMinElement (const double* BV_R_ data
+static int findIndexOfMinElement (const double* BV_R_ data,
                                                   const int           dataSize)
 {
     unsigned long index   = 0.0;
