@@ -16,7 +16,7 @@ public:
     
     void reserveSize (int numSamples);
     
-    void incNumActive();
+    void incNumActive() noexcept;
     
     void decNumActive() noexcept;
     

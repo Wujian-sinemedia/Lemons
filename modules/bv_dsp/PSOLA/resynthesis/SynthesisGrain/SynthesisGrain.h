@@ -20,7 +20,7 @@ public:
     
     bool isActive() const noexcept;
     
-    bool isHalfwayThrough() const noexcept { return samplesLeft() == juce::roundToInt (getSize() * 0.5f); }
+    bool isHalfwayThrough() const noexcept;
     
     void startNewGrain (Grain* newGrain, int samplesInFuture);
     

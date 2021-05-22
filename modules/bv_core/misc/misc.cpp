@@ -110,4 +110,6 @@ int stringToPitch (const juce::String& string)
     
     return (octave * 12) + pitchClass;
 
+} 
+
 }  // namespace
