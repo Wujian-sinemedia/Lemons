@@ -13,11 +13,10 @@
 
 namespace bav
 {
-
 struct RawData
 {
     explicit RawData (const char* fileToFind);
-    
+
     const char* data = nullptr;
     int         size = 0;
 };
