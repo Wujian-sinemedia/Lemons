@@ -69,7 +69,7 @@
 
 // math
 #include "math/mathHelpers.h"
-#include "math/VectorOps.h"
+#include "math/vecops/vecops.h"
 #include "math/intOps.h"
 
 
