@@ -24,5 +24,5 @@
 #include "files/FileUtilities.cpp"
 #include "files/BinaryDataHelpers/BinaryDataHelpers.cpp"
 
-#include "building_blocks/EditorBase/EditorBase.cpp"
 #include "building_blocks/ProcessorBase/ProcessorBase.cpp"
+#include "building_blocks/EditorBase/EditorBase.cpp"

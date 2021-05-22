@@ -33,11 +33,11 @@ bool ProcessorBase::isMidiEffect() const { return false; }
 
 juce::String ProcessorBase::getName() const { return "ProcessorBase"; }
 
-bool                        ProcessorBase::hasEditor() const { return true; }
+bool                        ProcessorBase::hasEditor() const { return false; }
 
-juce::AudioProcessorEditor* ProcessorBase::createEditor() { return new EditorBase(*this); }
+juce::AudioProcessorEditor* ProcessorBase::createEditor() { return nullptr; }
 
-bool ProcessorBase::isBusesLayoutSupported(const BusesLayout& layout) const override
+bool ProcessorBase::isBusesLayoutSupported(const BusesLayout& layout) const
 {
     using Set = juce::AudioChannelSet;
     
