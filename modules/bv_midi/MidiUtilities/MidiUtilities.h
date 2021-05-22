@@ -20,5 +20,8 @@ void copyRangeOfMidiBuffer (const juce::MidiBuffer& readingBuffer,
                             const int               startSampleOfOutput,
                             const int               numSamples);
 
+// returns true if the passed int is between 0 and 127
+bool isValidMidiPitch (int note);
+
 
 }  // namespace bav::midi

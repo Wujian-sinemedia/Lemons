@@ -17,7 +17,7 @@ public:
     // converts midi pitch to frequency in Hz
     int mtof (int midiNote) const
     {
-        jassert (midiNote >= 0 && midiNote <= 127);
+        jassert (isValidMidiPitch (midiNote));
         return juce::roundToInt (
             concertPitchHz.load()
             * std::pow (2, ((midiNote - rootNote.load()) / notesPerOctave.load())));
@@ -25,7 +25,7 @@ public:
 
     float mtof (float midiNote) const
     {
-        jassert (midiNote >= 0.0f && midiNote <= 127.0f);
+        jassert (isValidMidiPitch (juce::roundToInt (midiNote)));
         return float (
             concertPitchHz.load()
             * std::pow (2.0f,
