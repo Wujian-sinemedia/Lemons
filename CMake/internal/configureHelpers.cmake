@@ -68,7 +68,7 @@ function (_configure_juce_app target useBrowser)
         bv_dsp
         bv_gui
         bv_midi
-        bv_mobile_utilities
+        bv_mobile_utils
         bv_core
         bv_SynthBase
         juce::juce_recommended_config_flags
