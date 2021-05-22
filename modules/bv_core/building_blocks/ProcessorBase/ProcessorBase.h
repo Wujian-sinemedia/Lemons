@@ -33,7 +33,7 @@ public:
     bool supportsMPE() const override;
     bool isMidiEffect() const override;
 
-    juce::String getName() const override;
+    const juce::String getName() const override;
 
     bool                        hasEditor() const override;
     juce::AudioProcessorEditor* createEditor() override;

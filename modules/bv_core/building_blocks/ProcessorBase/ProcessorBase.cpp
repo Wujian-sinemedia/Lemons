@@ -31,7 +31,7 @@ bool ProcessorBase::producesMidi() const { return true; }
 bool ProcessorBase::supportsMPE() const { return false; }
 bool ProcessorBase::isMidiEffect() const { return false; }
 
-juce::String ProcessorBase::getName() const { return "ProcessorBase"; }
+const juce::String ProcessorBase::getName() const { return "ProcessorBase"; }
 
 bool                        ProcessorBase::hasEditor() const { return false; }
 
