@@ -236,7 +236,7 @@ void phasor (float* real, float* imag, float phase)
 #endif
 }
 
-static void phasor (double* real, double* imag, double phase)
+void phasor (double* real, double* imag, double phase)
 {
 #if BV_USE_VDSP
     int one = 1;
