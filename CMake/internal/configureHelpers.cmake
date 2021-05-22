@@ -14,8 +14,8 @@ endfunction()
 
 #
 
-function (_configure_juce_app target useBrowser)
-    message (STATUS "Configuring ${target}...")
+function (_configure_juce_app target useBrowser useSynthModule)
+    message (STATUS "Configuring ${target}")
 
     if (TARGET ${target}_AAX)
         set_target_properties (${target}_AAX PROPERTIES OSX_ARCHITECTURES x86_64)
@@ -25,7 +25,7 @@ function (_configure_juce_app target useBrowser)
         set_target_properties (${target}_LV2 PROPERTIES JUCE_LV2_URI https://github.com/benthevining/${CMAKE_PROJECT_NAME})
     endif()
 
-    set_target_properties (${target} PROPERTIES FOLDER "")
+    set_target_properties (${target} PROPERTIES FOLDER "${CMAKE_PROJECT_NAME}")
 
     target_compile_definitions (${target} PUBLIC
             JUCE_VST3_CAN_REPLACE_VST2=0
@@ -59,7 +59,9 @@ function (_configure_juce_app target useBrowser)
         target_include_directories (${target} PUBLIC "${bv_sharedcode_dir}/third_party/MIPP/src" "MIPP")
     endif()
 
-    configure_synth_module (${target})
+    if (${useSynthModule})
+        configure_synth_module (${target})
+    endif()
 
     _adjustDefaultMacTarget (${target} ${target})
 
