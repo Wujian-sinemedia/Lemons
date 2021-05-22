@@ -1,18 +1,18 @@
 /*******************************************************************************
  BEGIN_JUCE_MODULE_DECLARATION
- ID:                 bv_motion
+ ID:                 bv_mobile_utils
  vendor:             Ben Vining
  version:            0.0.1
- name:               bv_motion
- description:        JUCE module to recieve data from motion sensors on mobile devices
- dependencies: juce_core
+ name:               bv_mobile_utils
+ description:        JUCE module that provides some useful utilities for crossplatform iOS and Android development
+ dependencies: juce_gui_basics
  iOSFrameworks: CoreMotion
  END_JUCE_MODULE_DECLARATION
  *******************************************************************************/
 
 #pragma once
 
-#include "juce_core/juce_core.h"
+#include <juce_gui_basics/juce_gui_basics.h>
 
 
 namespace bav
@@ -57,6 +57,12 @@ public:
 #        include "Android/androidMotion.h"
 #    endif
 
+
+struct AutoLock
+{
+    static void setEnabled (bool shouldBeEnabled);
+};
+
 #else /* if JUCE_IOS || JUCE_ANDROID */
 
 /* This dummy Motionmanager class can be instantiated on non-mobile devices */
@@ -86,6 +92,13 @@ public:
     double attitudeX = 0;
     double attitudeY = 0;
     double attitudeZ = 0;
+};
+
+
+/* Dummy Autolock struct that can be called on desktop platforms (does nothing) */
+struct AutoLock
+{
+    static void setEnabled (bool) { }
 };
 
 #endif
