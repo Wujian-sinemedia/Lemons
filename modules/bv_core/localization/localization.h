@@ -34,7 +34,7 @@ static inline void initializeTranslationsFromBinaryData (RawData data,
     if (! data.isValid())
         return;
     
-    juce::String fileContents (data.data, data.size);
+    juce::String fileContents (data.data, static_cast<size_t>(data.size));
     
     juce::LocalisedStrings::setCurrentMappings (
                                                 new juce::LocalisedStrings (fileContents, ignoreCaseOfKeys));

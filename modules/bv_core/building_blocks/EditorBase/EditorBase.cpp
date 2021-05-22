@@ -3,7 +3,7 @@ namespace bav::gui
 {
 
 EditorBase::EditorBase(dsp::ProcessorBase& b)
-: GUIInitializer (*getTopLevelComponent()),
+: GUIInitializer (getTopLevelComponent()),
 AudioProcessorEditor (b),
 processorBase (b)
 {
