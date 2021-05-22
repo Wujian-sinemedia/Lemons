@@ -6,7 +6,6 @@ template<typename SampleType>
 class PitchShifter
 {
     using AudioBuffer = juce::AudioBuffer<SampleType>;
-    using MidiBuffer = juce::MidiBuffer;
     
 public:
     PitchShifter()
@@ -48,6 +47,8 @@ public:
 private:
     struct Engine :     FIFOWrappedEngine<SampleType>
     {
+        using AudioBuffer = juce::AudioBuffer<SampleType>;
+        
         Engine(): shifter(analyzer) { }
         
         void initialized (int, double) override
@@ -78,7 +79,7 @@ private:
 
         int getDesiredPeriod() const { return desiredPeriod; }
         
-        void renderBlock (const AudioBuffer& input, AudioBuffer& output, MidiBuffer&) override
+        void renderBlock (const AudioBuffer& input, AudioBuffer& output, juce::MidiBuffer&) override
         {
             const auto numSamples = input.getNumSamples();
             analyzer.analyzeInput (input.getReadPointer(0), numSamples);
