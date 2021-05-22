@@ -70,8 +70,7 @@ public:
 class MotionManager : public MotionManagerInterface
 {
 public:
-    MotionManager();
-    ~MotionManager();
+    MotionManager() = default;
 
     void start() override final;
     void stop() override final;

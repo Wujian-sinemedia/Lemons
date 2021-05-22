@@ -8,7 +8,6 @@
 
 namespace bav
 {
-
 #define JNI_CLASS_MEMBERS(METHOD, STATICMETHOD, FIELD, STATICFIELD, CALLBACK) \
     METHOD (addFlags, "addFlags", "(I)V")                                     \
     METHOD (clearFlags, "clearFlags", "(I)V")
@@ -31,4 +30,4 @@ void AutoLock::setAutolockEnabled (bool shouldBeOn)
         env->CallVoidMethod (window.get(), Window.addFlags, keepScreenOnFlag);
 }
 
-}  // namespace
+}  // namespace bav
