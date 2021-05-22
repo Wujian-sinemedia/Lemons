@@ -12,7 +12,24 @@ void AutoLock::setEnabled (bool shouldBeEnabled)
 
 
 #elif JUCE_ANDROID
-
 #    include "Android/AndroidAutoLock.cpp"
+
+
+#else
+/* dummy implementations of these classes that can be used on desktop (so you don't have to change your code) */
+
+void AutoLock::setEnabled (bool) { }
+
+
+MotionManager::MotionManager() { }
+
+MotionManager::~MotionManager() { }
+
+void MotionManager::start() { }
+
+void MotionManager::stop() { }
+
+bool MotionManager::isRunning() { return false; }
+
 
 #endif

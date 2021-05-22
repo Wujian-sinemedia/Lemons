@@ -10,7 +10,8 @@
 
 namespace bav
 {
-class MotionManager : public MotionManagerInterface, private juce::Timer
+class MotionManager : public MotionManagerInterface,
+                      private juce::Timer
 {
 public:
     MotionManager()

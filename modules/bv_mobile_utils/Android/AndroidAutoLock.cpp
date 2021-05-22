@@ -18,7 +18,7 @@ void AutoLock::setAutolockEnabled (bool shouldBeOn)
     auto env      = getEnv();
     auto window   = env->CallObjectMethod (activity.get(), AndroidActivity.getWindow);
 
-    //https://developer.android.com/reference/android/view/WindowManager.LayoutParams#FLAG_KEEP_SCREEN_ON
+    // https://developer.android.com/reference/android/view/WindowManager.LayoutParams#FLAG_KEEP_SCREEN_ON
     const auto keepScreenOnFlag {0x00000080};
 
     if (shouldBeOn)
