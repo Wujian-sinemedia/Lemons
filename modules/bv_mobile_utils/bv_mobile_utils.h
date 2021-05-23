@@ -65,7 +65,7 @@ struct AutoLock
  Classes dealing with motion & movement sensors
 =====================================================================================================*/
 
-class MotionListener
+struct MotionListener
 {
     virtual ~MotionListener() = default;
     

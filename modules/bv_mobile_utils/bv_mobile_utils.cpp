@@ -26,7 +26,7 @@ DeviceRotationListener::~DeviceRotationListener()
 
 void DeviceRotationListener::timerCallback()
 {
-    const auto orientation = juce::Desktop::getInstance()->getCurrentOrientation();
+    const auto orientation = juce::Desktop::getInstance().getCurrentOrientation();
     
     if (orientation != prevOrientation)
     {
@@ -42,20 +42,20 @@ void DeviceRotationListener::timerCallback()
 
 void DeviceRotation::disableRotation()
 {
-    auto* desktop = juce::Desktop::getInstance();
-    desktop->setOrientationsEnabled (desktop->getCurrentOrientation());
+    auto& desktop = juce::Desktop::getInstance();
+    desktop.setOrientationsEnabled (desktop.getCurrentOrientation());
 }
 
 void DeviceRotation::enableOnlyVerticalRotations()
 {
     using Desktop = juce::Desktop;
-    Desktop::getInstance()->setOrientationsEnabled (Desktop::upright | Desktop::upsideDown);
+    Desktop::getInstance().setOrientationsEnabled (Desktop::upright | Desktop::upsideDown);
 }
 
 void DeviceRotation::enableOnlyLandscapeRotations()
 {
     using Desktop = juce::Desktop;
-    Desktop::getInstance()->setOrientationsEnabled (Desktop::rotatedClockwise | Desktop::rotatedAntiClockwise);
+    Desktop::getInstance().setOrientationsEnabled (Desktop::rotatedClockwise | Desktop::rotatedAntiClockwise);
 }
 
 
@@ -69,7 +69,7 @@ void MotionManagerInterface::accelerationChanged (double x, double y, double z)
     acceleration.y = y;
     acceleration.z = z;
     
-    listeners.call ([&acceleration](MotionListener& l){ l.accelerationChanged (acceleration.x, acceleration.y, acceleration.z); });
+    listeners.call ([this](MotionListener& l){ l.accelerationChanged (acceleration.x, acceleration.y, acceleration.z); });
 }
 
 void MotionManagerInterface::gravityChanged (double x, double y, double z)
@@ -78,7 +78,7 @@ void MotionManagerInterface::gravityChanged (double x, double y, double z)
     gravity.y = y;
     gravity.z = z;
     
-    listeners.call ([&gravity](MotionListener& l){ l.gravityChanged (gravity.x, gravity.y, gravity.z); });
+    listeners.call ([this](MotionListener& l){ l.gravityChanged (gravity.x, gravity.y, gravity.z); });
 }
 
 void MotionManagerInterface::rotationChanged (double x, double y, double z)
@@ -87,7 +87,7 @@ void MotionManagerInterface::rotationChanged (double x, double y, double z)
     rotation.y = y;
     rotation.z = z;
     
-    listeners.call ([&rotation](MotionListener& l){ l.rotationChanged (rotation.x, rotation.y, rotation.z); });
+    listeners.call ([this](MotionListener& l){ l.rotationChanged (rotation.x, rotation.y, rotation.z); });
 }
 
 void MotionManagerInterface::attitudeChanged (double x, double y, double z)
@@ -96,7 +96,7 @@ void MotionManagerInterface::attitudeChanged (double x, double y, double z)
     attitude.y = y;
     attitude.z = z;
     
-    listeners.call ([&attitude](MotionListener& l){ l.attitudeChanged (attitude.x, attitude.y, attitude.z); });
+    listeners.call ([this](MotionListener& l){ l.attitudeChanged (attitude.x, attitude.y, attitude.z); });
 }
 
 
@@ -108,7 +108,7 @@ void MotionManagerInterface::attitudeChanged (double x, double y, double z)
 
 void AutoLock::setEnabled (bool shouldBeEnabled)
 {
-    juce::Desktop::getInstance()->setScreenSaverEnabled (shouldBeEnabled);
+    juce::Desktop::getInstance().setScreenSaverEnabled (shouldBeEnabled);
 }
 
 /*=====================================================================================================
@@ -126,7 +126,7 @@ void AutoLock::setEnabled (bool shouldBeEnabled)
 
 void AutoLock::setEnabled (bool shouldBeEnabled)
 {
-    juce::Desktop::getInstance()->setScreenSaverEnabled (shouldBeEnabled);
+    juce::Desktop::getInstance().setScreenSaverEnabled (shouldBeEnabled);
 }
 
 
