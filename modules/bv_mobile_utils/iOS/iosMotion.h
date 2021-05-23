@@ -22,15 +22,7 @@ class MotionManager : public MotionManagerInterface
     virtual void stop() override final;
 
     virtual bool isRunning() override final { return running; }
-
-
-    void accelerationChanged (double x, double y, double z);
-
-    void gravityChanged (double x, double y, double z);
-
-    void rotationChanged (double x, double y, double z);
-
-    void attitudeChanged (double x, double y, double z);
+    
 
 private:
     void* motionManagerWrapper;

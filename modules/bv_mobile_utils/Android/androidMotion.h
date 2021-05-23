@@ -23,10 +23,7 @@ public:
 
     virtual bool isRunning() override final { return running; }
 
-    void timerCallback() override final
-    {
-        if (running) update();
-    }
+    void timerCallback() override final;
 
 
 private:

@@ -118,34 +118,6 @@ namespace bav
         running = false;
     }
     
-    void MotionManager::accelerationChanged (double x, double y, double z)
-    {
-        accelerationX = x;
-        accelerationY = y;
-        accelerationZ = z;
-    }
-    
-    void MotionManager::gravityChanged      (double x, double y, double z)
-    {
-        gravityX = x;
-        gravityY = y;
-        gravityZ = z;
-    }
-    
-    void MotionManager::rotationChanged     (double x, double y, double z)
-    {
-        rotationX = x;
-        rotationY = y;
-        rotationZ = z;
-    }
-    
-    void MotionManager::attitudeChanged     (double x, double y, double z)
-    {
-        attitudeX = x;
-        attitudeY = y;
-        attitudeZ = z;
-    }
-    
 
 }  // namespace
 

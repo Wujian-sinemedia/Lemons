@@ -19,6 +19,40 @@ namespace bav
 {
 // to-do: rotation lock
 
+/*=====================================================================================================
+ Classes dealing with screen rotation
+ =====================================================================================================*/
+
+/* This struct listens for changes to a mobile device's orientation and recieves a callback when it changes.
+ This class does nothing on desktop, and the callback will never be called. */
+
+struct DeviceRotationListener  :    private juce::Timer
+{
+    DeviceRotationListener (std::function<void()> callbackToUse);
+    virtual ~DeviceRotationListener();
+    
+    void timerCallback() override final;
+    
+private:
+    std::function<void()> callback;
+    juce::DisplayOrientation prevOrientation;
+};
+
+
+/* This struct allows you to lock the screen from rotating, or easily set landscape-only or vertical-only rotations. */
+
+struct DeviceRotation
+{
+    static void disableRotation();
+    
+    static void enableOnlyVerticalRotations();
+    static void enableOnlyLandscapeRotations();
+};
+
+
+/*=====================================================================================================
+ Control the auto-locking of the screen on mobile devices. On desktop, this disables the computer's screensaver.
+ =====================================================================================================*/
 
 struct AutoLock
 {
@@ -26,34 +60,66 @@ struct AutoLock
 };
 
 
+
+/*=====================================================================================================
+ Classes dealing with motion & movement sensors
+=====================================================================================================*/
+
+class MotionListener
+{
+    virtual ~MotionListener() = default;
+    
+    virtual void accelerationChanged (double, double, double) { }
+    virtual void gravityChanged (double, double, double) { }
+    virtual void rotationChanged (double, double, double) { }
+    virtual void attitudeChanged (double, double, double) { }
+};
+
+
 class MotionManagerInterface
 {
 public:
+    struct Coords
+    {
+        double x = 0;
+        double y = 0;
+        double z = 0;
+    };
+    
     MotionManagerInterface()          = default;
     virtual ~MotionManagerInterface() = default;
 
     virtual void start() = 0;
-
     virtual void stop() = 0;
-
     virtual bool isRunning() = 0;
+    
+    Coords getAcceleration() const { return acceleration; }
+    Coords getGravity() const { return gravity; }
+    Coords getRotation() const { return rotation; }
+    Coords getAttitude() const { return attitude; }
+    
+    void addListener (MotionListener* l) { listeners.add (l); }
+    void removeListener (MotionListener* l) { listeners.remove (l); }
+    
+protected:
+    void accelerationChanged (double x, double y, double z);
+    void gravityChanged (double x, double y, double z);
+    void rotationChanged (double x, double y, double z);
+    void attitudeChanged (double x, double y, double z);
 
-    double accelerationX = 0;
-    double accelerationY = 0;
-    double accelerationZ = 0;
-
-    double gravityX = 0;
-    double gravityY = 0;
-    double gravityZ = 0;
-
-    double rotationX = 0;
-    double rotationY = 0;
-    double rotationZ = 0;
-
-    double attitudeX = 0;
-    double attitudeY = 0;
-    double attitudeZ = 0;
+    Coords acceleration;
+    Coords gravity;
+    Coords rotation;
+    Coords attitude;
+    
+    juce::ListenerList<MotionListener> listeners;
 };
+
+
+}  // namespace bav
+
+/*=====================================================================================================
+ =====================================================================================================*/
 
 
 #if JUCE_IOS
@@ -63,20 +129,6 @@ public:
 #    include "Android/androidMotion.h"
 
 #else
-
-/* This dummy Motionmanager class can be instantiated on non-mobile devices */
-class MotionManager : public MotionManagerInterface
-{
-public:
-    MotionManager() = default;
-
-    void start() override final;
-    void stop() override final;
-
-    /* note that this will always return false on desktop. */
-    bool isRunning() override final;
-};
+#    include "dummy_desktop_versions/DummyMotionManager.h"
 
 #endif
-
-}  // namespace bav

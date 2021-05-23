@@ -22,6 +22,11 @@ MotionManager::~MotionManager()
     ASensorManager_destroyEventQueue (sensorManager, motionEventQueue);
 }
 
+void MotionManager::timerCallback()
+{
+    if (running) update();
+}
+
 void MotionManager::start()
 {
     if (! running)
@@ -63,27 +68,27 @@ void MotionManager::update()
     {
         if (event.type == ASENSOR_TYPE_LINEAR_ACCELERATION)
         {
-            accelerationX = event.acceleration.x * -0.08;
-            accelerationY = event.acceleration.y * 0.08;
-            accelerationZ = event.acceleration.z * 0.08;
+            accelerationChanged (event.acceleration.x * -0.08,
+                                 event.acceleration.y * 0.08,
+                                 event.acceleration.z * 0.08);
         }
         else if (event.type == ASENSOR_TYPE_GYROSCOPE)
         {
-            rotationX = event.vector.x * 1;
-            rotationY = event.vector.y * 1;
-            rotationZ = event.vector.z * 1;
+            rotationChanged (event.vector.x * 1.0,
+                             event.vector.y * 1.0,
+                             event.vector.z * 1.0);
         }
         else if (event.type == ASENSOR_TYPE_GRAVITY)
         {
-            gravityX = event.acceleration.x * -0.1;
-            gravityY = event.acceleration.y * 0.1;
-            gravityZ = event.acceleration.z * 0.1;
+            gravityChanged (event.acceleration.x * -0.1,
+                            event.acceleration.y * 0.1,
+                            event.acceleration.z * 0.1);
         }
         else if (event.type == ASENSOR_TYPE_GAME_ROTATION_VECTOR)
         {
-            attitudeX = event.vector.y * 2;
-            attitudeY = event.vector.x * 2;
-            attitudeZ = event.vector.z * 2;
+            rotationChanged (event.vector.y * 2.0,
+                             event.vector.x * 2.0,
+                             event.vector.z * 2.0);
         }
     }
 }
