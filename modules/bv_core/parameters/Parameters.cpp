@@ -6,7 +6,8 @@ Parameter::Parameter (int          keyID,
                       float        defaultValue,
                       juce::String paramNameShort,
                       juce::String paramNameVerbose)
-    : rap (p),
+    : SerializableData (paramNameVerbose),
+      rap (p),
       key (keyID),
       parameterNameShort (TRANS (paramNameShort)),
       parameterNameVerbose (TRANS (paramNameVerbose))
