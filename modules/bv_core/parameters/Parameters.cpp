@@ -214,10 +214,10 @@ juce::ValueTree FloatParameter::toValueTree() const
 {
     using namespace DefaultValueTreeIds;
 
-    juce::ValueTree tree {Parameter_Float};
+    juce::ValueTree tree {Parameter::parameterNameVerbose};
 
     tree.setProperty (ParameterName, Parameter::parameterNameVerbose, nullptr);
-    tree.setProperty (ParameterValue, AudioParameterFloat::get(), nullptr);
+    tree.setProperty (ParameterValue, get(), nullptr);
     tree.setProperty (ParameterDefaultValue, getDefault(), nullptr);
     tree.setProperty (ParameterIsChanging, Parameter::isChanging(), nullptr);
 
@@ -227,10 +227,14 @@ juce::ValueTree FloatParameter::toValueTree() const
 void FloatParameter::restoreFromValueTree (const juce::ValueTree& tree)
 {
     using namespace DefaultValueTreeIds;
-    jassert (tree.hasType (Parameter_Float));
-
-    set (tree.getProperty (ParameterValue));
-    setDefault (float (tree.getProperty (ParameterDefaultValue)));
+    
+    auto t = tree.getChildWithName (Parameter::parameterNameVerbose);
+    
+    if (t.isValid())
+    {
+        set (tree.getProperty (ParameterValue));
+        setDefault (float (tree.getProperty (ParameterDefaultValue)));
+    }
 }
 
 void FloatParameter::addListener (Listener* l)
@@ -327,10 +331,10 @@ juce::ValueTree IntParameter::toValueTree() const
 {
     using namespace DefaultValueTreeIds;
 
-    juce::ValueTree tree {Parameter_Int};
+    juce::ValueTree tree {Parameter::parameterNameVerbose};
 
     tree.setProperty (ParameterName, Parameter::parameterNameVerbose, nullptr);
-    tree.setProperty (ParameterValue, AudioParameterInt::get(), nullptr);
+    tree.setProperty (ParameterValue, get(), nullptr);
     tree.setProperty (ParameterDefaultValue, getDefault(), nullptr);
     tree.setProperty (ParameterIsChanging, Parameter::isChanging(), nullptr);
 
@@ -340,10 +344,14 @@ juce::ValueTree IntParameter::toValueTree() const
 void IntParameter::restoreFromValueTree (const juce::ValueTree& tree)
 {
     using namespace DefaultValueTreeIds;
-    jassert (tree.hasType (Parameter_Int));
-
-    set (tree.getProperty (ParameterValue));
-    setDefault (int (tree.getProperty (ParameterDefaultValue)));
+    
+    auto t = tree.getChildWithName (Parameter::parameterNameVerbose);
+    
+    if (t.isValid())
+    {
+        set (tree.getProperty (ParameterValue));
+        setDefault (int (tree.getProperty (ParameterDefaultValue)));
+    }
 }
 
 void IntParameter::addListener (Listener* l)
@@ -438,10 +446,10 @@ juce::ValueTree BoolParameter::toValueTree() const
 {
     using namespace DefaultValueTreeIds;
 
-    juce::ValueTree tree {Parameter_Bool};
+    juce::ValueTree tree {Parameter::parameterNameVerbose};
 
     tree.setProperty (ParameterName, Parameter::parameterNameVerbose, nullptr);
-    tree.setProperty (ParameterValue, AudioParameterBool::get(), nullptr);
+    tree.setProperty (ParameterValue, get(), nullptr);
     tree.setProperty (ParameterDefaultValue, getDefault(), nullptr);
     tree.setProperty (ParameterIsChanging, Parameter::isChanging(), nullptr);
 
@@ -451,10 +459,14 @@ juce::ValueTree BoolParameter::toValueTree() const
 void BoolParameter::restoreFromValueTree (const juce::ValueTree& tree)
 {
     using namespace DefaultValueTreeIds;
-    jassert (tree.hasType (Parameter_Bool));
-
-    set (tree.getProperty (ParameterValue));
-    setDefault (bool (tree.getProperty (ParameterDefaultValue)));
+    
+    auto t = tree.getChildWithName (Parameter::parameterNameVerbose);
+    
+    if (t.isValid())
+    {
+        set (tree.getProperty (ParameterValue));
+        setDefault (bool (tree.getProperty (ParameterDefaultValue)));
+    }
 }
 
 void BoolParameter::addListener (Listener* l)
@@ -500,24 +512,6 @@ MeterParameter::MeterParameter (
                       stringFromValue,
                       valueFromString)
 {
-}
-
-juce::ValueTree MeterParameter::toValueTree() const
-{
-    juce::ValueTree tree {DefaultValueTreeIds::Parameter_Meter};
-
-    tree.copyPropertiesFrom (FloatParameter::toValueTree(), nullptr);
-
-    return tree;
-}
-
-void MeterParameter::restoreFromValueTree (const juce::ValueTree& tree)
-{
-    using namespace DefaultValueTreeIds;
-    jassert (tree.hasType (Parameter_Meter));
-
-    FloatParameter::set (tree.getProperty (ParameterValue));
-    FloatParameter::setDefault (float (tree.getProperty (ParameterDefaultValue)));
 }
 
 

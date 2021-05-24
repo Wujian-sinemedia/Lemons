@@ -83,16 +83,7 @@ juce::ValueTree ParameterList::toValueTree() const
     juce::ValueTree tree {"Parameters"};
     
     for (auto meta : params)
-    {
-        auto* param = meta.holder.getParam();
-        
-        if (auto* f = dynamic_cast<bav::FloatParameter*>(param))
-            tree.setProperty (f->parameterNameVerbose, f->get(), nullptr);
-        else if (auto* i = dynamic_cast<bav::IntParameter*>(param))
-            tree.setProperty (i->parameterNameVerbose, i->get(), nullptr);
-        else if (auto* b = dynamic_cast<bav::BoolParameter*>(param))
-            tree.setProperty (b->parameterNameVerbose, b->get(), nullptr);
-    }
+        tree.appendChild (meta.holder.getParam()->toValueTree());
     
     return tree;
 }
@@ -100,16 +91,7 @@ juce::ValueTree ParameterList::toValueTree() const
 void ParameterList::restoreFromValueTree (const juce::ValueTree& tree)
 {
     for (auto meta : params)
-    {
-        auto* param = meta.holder.getParam();
-        
-        if (auto* f = dynamic_cast<bav::FloatParameter*>(param))
-            f->set (tree.getProperty (f->parameterNameVerbose));
-        else if (auto* i = dynamic_cast<bav::IntParameter*>(param))
-            i->set (tree.getProperty (i->parameterNameVerbose));
-        else if (auto* b = dynamic_cast<bav::BoolParameter*>(param))
-            b->set (tree.getProperty (b->parameterNameVerbose));
-    }
+        meta.holder.getParam().restoreFromValueTree (tree);
 }
 
 }  // namespace bav

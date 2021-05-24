@@ -277,9 +277,6 @@ struct MeterParameter : public FloatParameter
                                                           stringFromValue = nullptr,
         std::function< float (const juce::String& text) > valueFromString = nullptr);
 
-    juce::ValueTree toValueTree() const override;
-    void            restoreFromValueTree (const juce::ValueTree& tree) override;
-
     bool isAutomatable() const override final { return false; }
 };
 
