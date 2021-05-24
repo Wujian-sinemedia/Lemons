@@ -8,13 +8,7 @@ struct ParamHolderBase
 {
     virtual ~ParamHolderBase() = default;
     
-    virtual juce::RangedAudioParameter* getParam() = 0;
-    
-    void addTo (juce::AudioProcessor& processor)
-    {
-        processor.addParameter (getParam());
-        addedToProcessor = true;
-    }
+    virtual void addTo (juce::AudioProcessor& processor) = 0;
     
 protected:
     bool addedToProcessor = false;
@@ -22,7 +16,7 @@ protected:
 
 
 template<typename ParameterType>
-class ParameterHolder :     public ParamHolderBase  final
+class ParameterHolder :     public ParamHolderBase
 {
 public:
     template <typename... Args>
@@ -37,7 +31,13 @@ public:
             delete param;
     }
     
-    juce::RangedAudioParameter* getParam() override final { return param; }
+    void addTo (juce::AudioProcessor& processor) override final
+    {
+        processor.addParameter (param);
+        ParamHolderBase::addedToProcessor = true;
+    }
+    
+    juce::RangedAudioParameter* getParam() { return param; }
     
     operator ParameterType&() { return &param; }
     ParameterType* operator->() { return param; }
@@ -52,5 +52,39 @@ using IntParam = ParameterHolder<FloatParameter>;
 using FloatParam = ParameterHolder<IntParameter>;
 using BoolParam = ParameterHolder<BoolParameter>;
 
+
+
+class ParameterGroupHolder  :   public ParamHolderBase
+{
+public:
+    using Group = juce::AudioProcessorParameterGroup;
+    
+    template <typename... Args>
+    explicit ParameterGroupHolder (Args&&... args)
+    {
+        group = new Group (std::forward<Args> (args)...);
+    }
+    
+    ~ParameterGroupHolder() override
+    {
+        if (! ParamHolderBase::addedToProcessor)
+            delete group;
+    }
+    
+    void addTo (juce::AudioProcessor& processor) override final
+    {
+        processor.addParameterGroup (group);
+        ParamHolderBase::addedToProcessor = true;
+    }
+    
+    Group* getGroup() { return group; }
+    
+    operator Group&() { return &group; }
+    Group* operator->() { return group; }
+    Group& operator*() { return *group; }
+    
+private:
+    Group* group;
+};
 
 }  // namespace
