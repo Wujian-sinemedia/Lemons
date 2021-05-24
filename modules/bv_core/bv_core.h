@@ -83,6 +83,7 @@
 
 #include "parameters/helpers/ParameterValueConversionLambdas.h"
 #include "parameters/Parameters.h"
+#include "parameters/ParameterHolder.h"
 #include "parameters/helpers/ParameterHelpers.h"
 
 #include "valuetrees/json_converter.h"

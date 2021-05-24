@@ -62,7 +62,6 @@ public:
     //==============================================================================
 
 protected:
-
     void setFloatAction (std::function< void (float) > action);
     void setIntAction (std::function< void (int) > action);
     void setBoolAction (std::function< void (bool) > action);
