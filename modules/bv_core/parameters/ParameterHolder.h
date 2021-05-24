@@ -6,6 +6,8 @@ namespace bav
 
 struct ParamHolderBase
 {
+    ParamHolderBase (bool internal = false): isInternal (internal) { }
+    
     virtual ~ParamHolderBase() = default;
     
     virtual Parameter* getParam() = 0;
@@ -16,7 +18,7 @@ struct ParamHolderBase
         addedToProcessor = true;
     }
     
-    bool isInternal = false;
+    bool isInternal;
     
 protected:
     bool addedToProcessor = false;
@@ -33,7 +35,8 @@ public:
         param = new ParameterType (keyID, std::forward<Args> (args)...);
     }
     
-    explicit ParameterHolder (ParameterType* p)
+    explicit ParameterHolder (ParameterType* p, bool isInternal = false)
+    : ParamHolderBase (isInternal)
     {
         param = std::move (p);
     }

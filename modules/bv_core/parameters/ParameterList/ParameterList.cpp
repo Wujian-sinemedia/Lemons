@@ -28,16 +28,14 @@ void ParameterList::addInternal (ParamHolderBase& param)
 
 void ParameterList::addParameter (ParamHolderBase& param, bool isInternal)
 {
-    param.isInternal = isInternal;
-    
     auto* parameter = param.getParam();
     
     if (auto* f = dynamic_cast<FloatParameter*> (parameter))
-        params.add (new FloatParam (f));
+        params.add (new FloatParam (f), isInternal);
     else if (auto* i = dynamic_cast<IntParameter*> (parameter))
-        params.add (new IntParam (i));
+        params.add (new IntParam (i), isInternal);
     else if (auto* b = dynamic_cast<BoolParameter*> (parameter))
-        params.add (new BoolParam (b));
+        params.add (new BoolParam (b), isInternal);
     else
         jassertfalse;
 }
