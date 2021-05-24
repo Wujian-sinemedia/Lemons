@@ -13,7 +13,7 @@ namespace bav
 struct DeviceRotationListener : private juce::Timer
 {
     DeviceRotationListener (std::function< void() > callbackToUse);
-    virtual ~DeviceRotationListener();
+    virtual ~DeviceRotationListener() override;
 
     void timerCallback() override final;
 
