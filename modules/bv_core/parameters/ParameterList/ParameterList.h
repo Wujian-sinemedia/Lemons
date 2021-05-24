@@ -33,6 +33,8 @@ public:
 
     int getNextKeyNumber() const;
     
+    int getNumParameters() const;
+    
     void refreshAllDefaults();
     void resetAllToDefault();
     

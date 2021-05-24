@@ -60,6 +60,11 @@ int ParameterList::getNextKeyNumber() const
     return ++highestKey;
 }
 
+int ParameterList::getNumParameters() const
+{
+    return params.size();
+}
+
 void ParameterList::refreshAllDefaults()
 {
     for (auto meta : params)
