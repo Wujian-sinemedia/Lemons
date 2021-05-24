@@ -33,9 +33,9 @@ public:
         param = new ParameterType (std::forward<Args> (args)...);
     }
     
-    explicit ParameterHolder (Parameter* param)
+    explicit ParameterHolder (Parameter* p)
     {
-        param = std::move (param);
+        param = std::move (p);
     }
     
     ~ParameterHolder() override

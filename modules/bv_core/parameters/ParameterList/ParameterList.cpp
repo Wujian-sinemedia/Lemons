@@ -29,7 +29,17 @@ void ParameterList::addInternal (ParamHolderBase& param)
 void ParameterList::addParameter (ParamHolderBase& param, bool isInternal)
 {
     param.isInternal = isInternal;
-    internal_add (param.getParam());
+    
+    auto* parameter = param.getParam();
+    
+    if (auto* p = dynamic_cast<FloatParameter*> (parameter))
+        params.add (new FloatParam (p));
+    else if (auto* p = dynamic_cast<IntParameter*> (parameter))
+        params.add (new IntParam (p));
+    else if (auto* p = dynamic_cast<BoolParameter*> (parameter))
+        params.add (new BoolParam (p));
+    else
+        jassertfalse;
 }
 
 void ParameterList::addParametersTo (juce::AudioProcessor& processor)
@@ -67,21 +77,6 @@ int ParameterList::getNextKeyNumber() const
             highestKey = param->key;
     
     return ++highestKey;
-}
-
-void ParameterList::internal_add (FloatParameter* param)
-{
-    params.add (new FloatParam (param));
-}
-
-void ParameterList::internal_add (IntParameter* param)
-{
-    params.add (new IntParam (param));
-}
-
-void ParameterList::internal_add (BoolParameter* param)
-{
-    params.add (new BoolParam (param));
 }
 
 }  // namespace
