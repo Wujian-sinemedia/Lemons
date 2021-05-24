@@ -53,38 +53,4 @@ using FloatParam = ParameterHolder<IntParameter>;
 using BoolParam = ParameterHolder<BoolParameter>;
 
 
-
-class ParameterGroupHolder  :   public ParamHolderBase
-{
-public:
-    using Group = juce::AudioProcessorParameterGroup;
-    
-    template <typename... Args>
-    explicit ParameterGroupHolder (Args&&... args)
-    {
-        group = new Group (std::forward<Args> (args)...);
-    }
-    
-    ~ParameterGroupHolder() override
-    {
-        if (! ParamHolderBase::addedToProcessor)
-            delete group;
-    }
-    
-    void addTo (juce::AudioProcessor& processor) override final
-    {
-        processor.addParameterGroup (group);
-        ParamHolderBase::addedToProcessor = true;
-    }
-    
-    Group* getGroup() { return group; }
-    
-    operator Group&() { return &group; }
-    Group* operator->() { return group; }
-    Group& operator*() { return *group; }
-    
-private:
-    Group* group;
-};
-
 }  // namespace
