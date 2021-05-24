@@ -47,6 +47,7 @@ public:
     }
 
     Parameter* getParam() override final { return param; }
+    ParameterType* get() { return param; }
 
                    operator ParameterType&() { return &param; }
     ParameterType* operator->() { return param; }
