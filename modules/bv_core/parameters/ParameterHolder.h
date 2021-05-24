@@ -8,7 +8,15 @@ struct ParamHolderBase
 {
     virtual ~ParamHolderBase() = default;
     
-    virtual void addTo (juce::AudioProcessor& processor) = 0;
+    Parameter* getParam() = 0;
+    
+    void addTo (juce::AudioProcessor& processor)
+    {
+        processor.addParameter (param);
+        addedToProcessor = true;
+    }
+    
+    bool isInternal;
     
 protected:
     bool addedToProcessor = false;
@@ -31,13 +39,7 @@ public:
             delete param;
     }
     
-    void addTo (juce::AudioProcessor& processor) override final
-    {
-        processor.addParameter (param);
-        ParamHolderBase::addedToProcessor = true;
-    }
-    
-    juce::RangedAudioParameter* getParam() { return param; }
+    Parameter* getParam() override final { return param; }
     
     operator ParameterType&() { return &param; }
     ParameterType* operator->() { return param; }
@@ -48,9 +50,9 @@ private:
 };
 
 
-using IntParam = ParameterHolder<FloatParameter>;
-using FloatParam = ParameterHolder<IntParameter>;
-using BoolParam = ParameterHolder<BoolParameter>;
+using FloatParam = ParameterHolder<FloatParameter>;
+using IntParam   = ParameterHolder<IntParameter>;
+using BoolParam  = ParameterHolder<BoolParameter>;
 
 
 }  // namespace
