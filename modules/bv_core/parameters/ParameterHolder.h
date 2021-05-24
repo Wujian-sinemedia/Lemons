@@ -8,7 +8,7 @@ struct ParamHolderBase
 {
     virtual ~ParamHolderBase() = default;
     
-    Parameter* getParam() = 0;
+    virtual Parameter* getParam() = 0;
     
     void addTo (juce::AudioProcessor& processor)
     {
@@ -16,7 +16,7 @@ struct ParamHolderBase
         addedToProcessor = true;
     }
     
-    bool isInternal;
+    bool isInternal = false;
     
 protected:
     bool addedToProcessor = false;
