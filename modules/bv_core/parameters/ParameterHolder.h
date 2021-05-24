@@ -22,7 +22,7 @@ protected:
 
 
 template<typename ParameterType>
-class ParameterHolder
+class ParameterHolder   final
 {
 public:
     template <typename... Args>
@@ -31,7 +31,7 @@ public:
         param = new ParameterType (std::forward<Args> (args)...);
     }
     
-    ~ParameterHolder override
+    ~ParameterHolder() override
     {
         if (! ParamHolderBase::addedToProcessor)
             delete param;
