@@ -26,16 +26,16 @@ namespace bav
 /* This struct listens for changes to a mobile device's orientation and recieves a callback when it changes.
  This class does nothing on desktop, and the callback will never be called. */
 
-struct DeviceRotationListener  :    private juce::Timer
+struct DeviceRotationListener : private juce::Timer
 {
-    DeviceRotationListener (std::function<void()> callbackToUse);
+    DeviceRotationListener (std::function< void() > callbackToUse);
     virtual ~DeviceRotationListener();
-    
+
     void timerCallback() override final;
-    
+
 private:
-    std::function<void()> callback;
-    juce::DisplayOrientation prevOrientation;
+    std::function< void() >           callback;
+    juce::Desktop::DisplayOrientation prevOrientation;
 };
 
 
@@ -44,7 +44,7 @@ private:
 struct DeviceRotation
 {
     static void disableRotation();
-    
+
     static void enableOnlyVerticalRotations();
     static void enableOnlyLandscapeRotations();
 };
@@ -60,7 +60,6 @@ struct AutoLock
 };
 
 
-
 /*=====================================================================================================
  Classes dealing with motion & movement sensors
 =====================================================================================================*/
@@ -68,7 +67,7 @@ struct AutoLock
 struct MotionListener
 {
     virtual ~MotionListener() = default;
-    
+
     virtual void accelerationChanged (double, double, double) { }
     virtual void gravityChanged (double, double, double) { }
     virtual void rotationChanged (double, double, double) { }
@@ -85,22 +84,22 @@ public:
         double y = 0;
         double z = 0;
     };
-    
+
     MotionManagerInterface()          = default;
     virtual ~MotionManagerInterface() = default;
 
-    virtual void start() = 0;
-    virtual void stop() = 0;
+    virtual void start()     = 0;
+    virtual void stop()      = 0;
     virtual bool isRunning() = 0;
-    
+
     Coords getAcceleration() const { return acceleration; }
     Coords getGravity() const { return gravity; }
     Coords getRotation() const { return rotation; }
     Coords getAttitude() const { return attitude; }
-    
+
     void addListener (MotionListener* l) { listeners.add (l); }
     void removeListener (MotionListener* l) { listeners.remove (l); }
-    
+
 protected:
     void accelerationChanged (double x, double y, double z);
     void gravityChanged (double x, double y, double z);
@@ -111,8 +110,8 @@ protected:
     Coords gravity;
     Coords rotation;
     Coords attitude;
-    
-    juce::ListenerList<MotionListener> listeners;
+
+    juce::ListenerList< MotionListener > listeners;
 };
 
 
