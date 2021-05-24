@@ -15,6 +15,8 @@ public:
                juce::String paramNameVerbose);
 
     virtual ~Parameter() override;
+    
+    operator== (const Parameter& other) const override { return key == other.key; }
 
     //==============================================================================
 

@@ -8,7 +8,7 @@ namespace bav
 class MidiCC_Listener
 {
 public:
-    MidiCC_Listener (Parameter* param, int controller)
+    MidiCC_Listener (Parameter& param, int controller)
         : parameter (param), controllerNum (controller), lastControllerValue (defaultLastControllerVal)
     {
         jassert (parameter != nullptr && parameter->orig() != nullptr);
@@ -29,7 +29,7 @@ public:
 
         if (controllerNumber == controllerNum)
         {
-            parameter->orig()->setValueNotifyingHost (controllerValue * inv127);
+            parameter.rap.setValueNotifyingHost (controllerValue * inv127);
             lastControllerValue = controllerValue;
         }
     }
@@ -40,15 +40,15 @@ public:
         lastControllerValue = defaultLastControllerVal;
     }
 
-    Parameter* getParameter() const noexcept { return parameter; }
-
     int getControllerNumber() const noexcept { return controllerNum; }
 
     int getLastControllerValue() const noexcept { return lastControllerValue; }
+    
+    
+    Parameter& parameter;
 
 
 private:
-    Parameter* const parameter;
     int              controllerNum;
     int              lastControllerValue;
 
@@ -71,7 +71,7 @@ public:
     ~MidiCC_MappingManager() { mappings.clear(); }
 
     /* adds a new MidiCC_Listener linked to the specified parameter and listening for the specified MIDI controller. */
-    void addParameterMapping (Parameter* parameter, int controllerNumber)
+    void addParameterMapping (Parameter& parameter, int controllerNumber)
     {
         mappings.add (new MidiCC_Listener (parameter, controllerNumber));
     }
@@ -91,11 +91,11 @@ public:
     }
 
     /* if a mapping exists for the current parameter, it will be changed to now listen for the new CC number. If no mapping exists for the parameter, returns false. */
-    bool changeParameterMapping (const Parameter* parameter, int newControllerNumber)
+    bool changeParameterMapping (const Parameter& parameter, int newControllerNumber)
     {
         for (auto* mapping : mappings)
         {
-            if (mapping->getParameter() == parameter)
+            if (mapping->parameter == parameter)
             {
                 mapping->changeControllerNumber (newControllerNumber);
                 return true;
@@ -105,10 +105,10 @@ public:
     }
 
     /* removes all mappings to the passed parameter */
-    void removeAllParameterMappingsFor (const Parameter* parameter)
+    void removeAllParameterMappingsFor (const Parameter& parameter)
     {
         for (auto* mapping : mappings)
-            if (mapping->getParameter() == parameter)
+            if (mapping->parameter == parameter)
                 mappings.removeObject (mapping);
     }
 
@@ -121,10 +121,10 @@ public:
     }
 
     /* removes only mappings that map the passed parameter to the passed CC nnumber */
-    void removeParameterMapping (const Parameter* parameter, int controllerNumber)
+    void removeParameterMapping (const Parameter& parameter, int controllerNumber)
     {
         for (auto* mapping : mappings)
-            if (mapping->getParameter() == parameter
+            if (mapping->parameter == parameter
                 && mapping->getControllerNumber() == controllerNumber)
                 mappings.removeObject (mapping);
     }
@@ -162,10 +162,10 @@ public:
 
     /* if the parameter is currently mapped, returns a pointer to its MidiCC_Listener; else returns a nullptr */
     MidiCC_Listener*
-        getMappingForParameter (const Parameter* parameter) const noexcept
+        getMappingForParameter (const Parameter& parameter) const noexcept
     {
         for (auto* mapping : mappings)
-            if (mapping->getParameter() == parameter) return mapping;
+            if (mapping->parameter == parameter) return mapping;
 
         return nullptr;
     }
