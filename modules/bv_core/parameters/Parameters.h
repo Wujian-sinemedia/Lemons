@@ -18,11 +18,12 @@ public:
 
     bool operator== (const Parameter& other) const { return key == other.key; }
 
-    void refreshDefault();  // sets the parameter's current value to be the default value
-    void resetToDefault();  // resets the parameter's value to the default
-    
+    void  refreshDefault();  // sets the parameter's current value to be the default value
+    void  resetToDefault();  // resets the parameter's value to the default
     float getNormalizedDefault() const;
     float getDenormalizedDefault() const;
+    void  setNormalizedDefault (float value);
+    void  setDenormalizedDefault (float value);
 
     // these functions return the current denormalized value as the desired type literal
     float getFloatValue() const;
@@ -31,11 +32,16 @@ public:
     
     float getCurrentNormalizedValue() const;
     float getCurrentDenormalizedValue() const;
+    void  setNormalizedValue (float value);
+    void  setDenormalizedValue (float value);
+    
+    float normalize (float input) const;
+    float denormalize (float input) const;
 
     bool isChanging() const;
 
     void doAction();
-
+    
     // if defined, these functions will be called on the message thread when this parameter changes ("somewhat synchronously"):
     std::function< void (float) > onParameterChange;  // this gets the denormalized new float value
     std::function< void (float) > onDefaultChange;
@@ -56,15 +62,6 @@ public:
     //==============================================================================
 
 protected:
-    
-    void setNormalizedDefault (float value);
-    void setDenormalizedDefault (float value);
-
-    void setNormalizedValue (float value);
-    void setDenormalizedValue (float value);
-
-    float normalize (float input) const;
-    float denormalize (float input) const;
 
     void setFloatAction (std::function< void (float) > action);
     void setIntAction (std::function< void (int) > action);
