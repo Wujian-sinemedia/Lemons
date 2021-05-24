@@ -1,23 +1,10 @@
 
 namespace bav
 {
-template < typename... Args >
-void ParameterList::add (ParamHolderBase& param, Args&&... args)
-{
-    add (param);
-    add (std::forward< Args > (args)...);
-}
 
 void ParameterList::add (ParamHolderBase& param)
 {
     addParameter (param, true);
-}
-
-template < typename... Args >
-void ParameterList::addInternal (ParamHolderBase& param, Args&&... args)
-{
-    addInternal (param);
-    addInternal (std::forward< Args > (args)...);
 }
 
 void ParameterList::addInternal (ParamHolderBase& param)
