@@ -72,7 +72,7 @@ void ParameterList::resetAllToDefault()
         meta.holder.getParam()->resetToDefault();
 }
 
-void doAllActions()
+void ParameterList::doAllActions()
 {
     for (auto meta : params)
         meta.holder.getParam()->doAction();

@@ -9,7 +9,7 @@ struct ParamHolderBase
 
     virtual ~ParamHolderBase() = default;
 
-    virtual Parameter* getParam() = 0;
+    virtual Parameter* getParam() const = 0;
 
     void addTo (juce::AudioProcessor& processor)
     {
@@ -46,8 +46,8 @@ public:
             delete param;
     }
 
-    Parameter* getParam() override final { return param; }
-    ParameterType* get() { return param; }
+    Parameter* getParam() const override final { return param; }
+    ParameterType* get() const { return param; }
 
                    operator ParameterType&() { return &param; }
     ParameterType* operator->() { return param; }
