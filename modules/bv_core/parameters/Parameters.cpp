@@ -124,7 +124,6 @@ void Parameter::setFloatAction (std::function< void (float) > action)
     floatAction = std::move (action);
     intAction   = nullptr;
     boolAction  = nullptr;
-    voidAction  = nullptr;
 }
 
 void Parameter::setIntAction (std::function< void (int) > action)
@@ -132,7 +131,6 @@ void Parameter::setIntAction (std::function< void (int) > action)
     intAction   = std::move (action);
     floatAction = nullptr;
     boolAction  = nullptr;
-    voidAction  = nullptr;
 }
 
 void Parameter::setBoolAction (std::function< void (bool) > action)
@@ -140,15 +138,6 @@ void Parameter::setBoolAction (std::function< void (bool) > action)
     boolAction  = std::move (action);
     floatAction = nullptr;
     intAction   = nullptr;
-    voidAction  = nullptr;
-}
-
-void Parameter::setVoidAction (std::function< void() > action)
-{
-    voidAction  = std::move (action);
-    floatAction = nullptr;
-    intAction   = nullptr;
-    boolAction  = nullptr;
 }
 
 bool Parameter::isChanging() const

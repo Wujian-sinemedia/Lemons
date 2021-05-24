@@ -20,11 +20,17 @@ public:
 
     void refreshDefault();  // sets the parameter's current value to be the default value
     void resetToDefault();  // resets the parameter's value to the default
+    
+    float getNormalizedDefault() const;
+    float getDenormalizedDefault() const;
 
     // these functions return the current denormalized value as the desired type literal
     float getFloatValue() const;
     int   getIntValue() const;
     bool  getBoolValue() const;
+    
+    float getCurrentNormalizedValue() const;
+    float getCurrentDenormalizedValue() const;
 
     bool isChanging() const;
 
@@ -50,17 +56,12 @@ public:
     //==============================================================================
 
 protected:
-    float getNormalizedDefault() const;
-    float getDenormalizedDefault() const;
-
+    
     void setNormalizedDefault (float value);
     void setDenormalizedDefault (float value);
 
     void setNormalizedValue (float value);
     void setDenormalizedValue (float value);
-
-    float getCurrentNormalizedValue() const;
-    float getCurrentDenormalizedValue() const;
 
     float normalize (float input) const;
     float denormalize (float input) const;
