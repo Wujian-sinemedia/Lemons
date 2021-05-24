@@ -59,6 +59,7 @@
 #include "misc/ValueListeners.h"
 
 #include "valuetrees/DefaultValueTreeIDs.h"
+#include "valuetrees/json_converter.h"
 
 #include "serializing/SerializableData.h"
 
@@ -87,10 +88,6 @@
 #include "parameters/Parameters.h"
 #include "parameters/ParameterHolder.h"
 #include "parameters/helpers/ParameterHelpers.h"
-
-#include "valuetrees/json_converter.h"
-#include "valuetrees/Utils.h"
-
 #include "parameters/mappings/MidiCC_Mapping.h"
 #include "parameters/mappings/LFO_Mapping.h"
 #include "parameters/ParameterList/ParameterList.h"
