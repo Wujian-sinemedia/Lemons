@@ -18,10 +18,6 @@
 #include "bv_core/bv_core.h"
 
 
-#include "valuetrees/DefaultValueTreeIDs.h"
-
-
-// value trees
 #include "valuetrees/property_nodes/nodes.h"
 #include "valuetrees/property_nodes/propertyNodeGroup.h"
 #include "valuetrees/Utils.h"

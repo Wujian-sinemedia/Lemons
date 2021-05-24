@@ -7,8 +7,6 @@
 
 #include "misc/misc.cpp"
 
-#include "async/AsyncUtils.cpp"
-
 #if BV_USE_VDSP
 #    include "math/vecops/implementations/vecops_vdsp.cpp"
 #elif BV_USE_IPP
@@ -29,3 +27,5 @@
 
 #include "parameters/Parameters.cpp"
 #include "parameters/ParameterList/ParameterList.cpp"
+
+#include "async/AsyncUtils.cpp"
