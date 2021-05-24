@@ -33,7 +33,7 @@ public:
         param = new ParameterType (keyID, std::forward<Args> (args)...);
     }
     
-    explicit ParameterHolder (Parameter* p)
+    explicit ParameterHolder (ParameterType* p)
     {
         param = std::move (p);
     }
