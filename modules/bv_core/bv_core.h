@@ -81,6 +81,11 @@
 #include "async/AsyncUtils.h"
 
 
+// valuetrees
+#include "valuetrees/json_converter.h"
+#include "valuetrees/Utils.h"
+
+
 // parameters
 #include "parameters/helpers/ParameterValueConversionLambdas.h"
 #include "parameters/Parameters.h"
@@ -89,11 +94,6 @@
 #include "parameters/mappings/LFO_Mapping.h"
 #include "parameters/ParameterList/ParameterList.h"
 #include "parameters/ValueTreeAttachments/ParameterValueTreeAttachments.h"
-
-
-// valuetrees
-#include "valuetrees/json_converter.h"
-#include "valuetrees/Utils.h"
 
 
 // math
