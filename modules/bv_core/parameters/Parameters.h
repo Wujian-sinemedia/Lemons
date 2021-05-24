@@ -130,7 +130,7 @@ private:
     void onAction() override final;
     
     void toValueTree (juce::ValueTree& tree) const override final;
-    void fromValueTree (const juce::ValueTree& tree) const override final;
+    void fromValueTree (const juce::ValueTree& tree) override final;
     
     std::function< void (float) > actionFunc;
     juce::ListenerList< Listener > listeners;
@@ -190,7 +190,7 @@ private:
     void onAction() override final;
     
     void toValueTree (juce::ValueTree& tree) const override final;
-    void fromValueTree (const juce::ValueTree& tree) const override final;
+    void fromValueTree (const juce::ValueTree& tree) override final;
 
     std::function< void (int) > actionFunc;
     juce::ListenerList< Listener > listeners;
@@ -248,7 +248,7 @@ private:
     void onAction() override final;
     
     void toValueTree (juce::ValueTree& tree) const override final;
-    void fromValueTree (const juce::ValueTree& tree) const override final;
+    void fromValueTree (const juce::ValueTree& tree) override final;
 
     std::function< void (bool) > actionFunc;
     juce::ListenerList< Listener > listeners;

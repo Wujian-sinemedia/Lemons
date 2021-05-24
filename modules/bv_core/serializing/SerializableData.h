@@ -18,7 +18,7 @@ struct SerializableData
     {
         ValueTree child {dataIdentifier};
         toValueTree (child);
-        tree.appendChild (child);
+        tree.appendChild (child, nullptr);
     }
     
     void deserialize (const ValueTree& tree)
