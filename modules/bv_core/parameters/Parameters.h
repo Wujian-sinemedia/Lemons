@@ -5,9 +5,9 @@ namespace bav
 {
 class Parameter : private juce::AudioProcessorParameter::Listener
 {
-    using RangedParam = juce::RangedAudioParameter;
-
 public:
+    using RangedParam = juce::RangedAudioParameter;
+    
     Parameter (int          keyID,
                RangedParam& p,
                float        defaultValue,
@@ -16,7 +16,9 @@ public:
 
     virtual ~Parameter() override;
     
-    bool operator== (const Parameter& other) const override { return key == other.key; }
+    bool operator== (const Parameter& other) const { return key == other.key; }
+    
+    bool operator= (float value) { rap.setValueNotifyingHost (value); }
 
     //==============================================================================
 
@@ -113,9 +115,9 @@ private:
 
 class FloatParameter : public juce::AudioParameterFloat, public bav::Parameter
 {
-    using AudioParameterFloat = juce::AudioParameterFloat;
-
 public:
+    using AudioParameterFloat = juce::AudioParameterFloat;
+    
     FloatParameter (
         int          keyID,
         juce::String paramNameShort,
@@ -149,9 +151,9 @@ private:
 
 class IntParameter : public juce::AudioParameterInt, public bav::Parameter
 {
-    using AudioParameterInt = juce::AudioParameterInt;
-
 public:
+    using AudioParameterInt = juce::AudioParameterInt;
+    
     IntParameter (
         int          keyID,
         juce::String paramNameShort,
@@ -183,9 +185,9 @@ private:
 
 class BoolParameter : public juce::AudioParameterBool, public bav::Parameter
 {
-    using AudioParameterBool = juce::AudioParameterBool;
-
 public:
+    using AudioParameterBool = juce::AudioParameterBool;
+    
     BoolParameter (
         int          keyID,
         juce::String paramNameShort,
@@ -227,19 +229,7 @@ struct MeterParameter : public FloatParameter
             juce::AudioProcessorParameter::genericParameter,
         std::function< juce::String (float value, int maximumStringLength) >
                                                           stringFromValue = nullptr,
-        std::function< float (const juce::String& text) > valueFromString = nullptr)
-
-        : FloatParameter (key,
-                          paramNameShort,
-                          paramNameVerbose,
-                          nRange,
-                          defaultVal,
-                          parameterLabel,
-                          parameterCategory,
-                          stringFromValue,
-                          valueFromString)
-    {
-    }
+                    std::function< float (const juce::String& text) > valueFromString = nullptr);
 
     juce::ValueTree toValueTree() const override;
     
