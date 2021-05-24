@@ -90,6 +90,12 @@
 #include "parameters/ParameterList/ParameterList.h"
 
 
+// valuetrees
+#include "valuetrees/json_converter.h"
+#include "valuetrees/ParameterAttachments.h"
+#include "valuetrees/Utils.h"
+
+
 // math
 #include "math/mathHelpers.h"
 #include "math/vecops/vecops.h"

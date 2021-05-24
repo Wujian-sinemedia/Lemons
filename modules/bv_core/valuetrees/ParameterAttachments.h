@@ -15,7 +15,7 @@ public:
     {
         jassert (tree.isValid());
 
-        param->orig()->addListener (this);
+        param->rap.addListener (this);
         startTimerHz (60);
         isChanging.store (false);
 
@@ -29,7 +29,7 @@ public:
     virtual ~ParameterToValueTreeAttachment() override
     {
         stopTimer();
-        param->orig()->removeListener (this);
+        param->rap.removeListener (this);
     }
 
 
@@ -146,7 +146,7 @@ public:
         {
             lastSentChangeState = changeState;
 
-            if (changeState) { param->orig()->beginChangeGesture(); }
+            if (changeState) { param->rap.beginChangeGesture(); }
             else
             {
                 needToEndGesture = true;
@@ -157,10 +157,10 @@ public:
         const auto value = currentValue.get();
 
         if (value != param->getCurrentDenormalizedValue())
-            param->orig()->setValueNotifyingHost (value);
+            param->rap.setValueNotifyingHost (value);
 
         // if gesture state switched to off, we need to send that message after any value changes
-        if (needToEndGesture) param->orig()->endChangeGesture();
+        if (needToEndGesture) param->rap.endChangeGesture();
 
 
         /* Parameter default value */

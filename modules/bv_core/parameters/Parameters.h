@@ -16,7 +16,7 @@ public:
 
     virtual ~Parameter() override;
     
-    operator== (const Parameter& other) const override { return key == other.key; }
+    bool operator== (const Parameter& other) const override { return key == other.key; }
 
     //==============================================================================
 
@@ -117,7 +117,7 @@ class FloatParameter : public juce::AudioParameterFloat, public bav::Parameter
 
 public:
     FloatParameter (
-        int          key,
+        int          keyID,
         juce::String paramNameShort,
         juce::String paramNameVerbose,
         juce::NormalisableRange< float >
@@ -153,7 +153,7 @@ class IntParameter : public juce::AudioParameterInt, public bav::Parameter
 
 public:
     IntParameter (
-        int          key,
+        int          keyID,
         juce::String paramNameShort,
         juce::String paramNameVerbose,
         int          min,
@@ -187,7 +187,7 @@ class BoolParameter : public juce::AudioParameterBool, public bav::Parameter
 
 public:
     BoolParameter (
-        int          key,
+        int          keyID,
         juce::String paramNameShort,
         juce::String paramNameVerbose,
         bool         defaultVal,
@@ -216,7 +216,7 @@ private:
 struct MeterParameter : public FloatParameter
 {
     MeterParameter (
-        int          key,
+        int          keyID,
         juce::String paramNameShort,
         juce::String paramNameVerbose,
         juce::NormalisableRange< float >
@@ -254,7 +254,7 @@ struct MeterParameter : public FloatParameter
 
 struct GainMeterParameter : public MeterParameter
 {
-    GainMeterParameter (int                                     key,
+    GainMeterParameter (int                                     keyID,
                         juce::String                            paramNameShort,
                         juce::String                            paramNameVerbose,
                         juce::AudioProcessorParameter::Category parameterCategory =

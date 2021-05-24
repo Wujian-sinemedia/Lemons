@@ -12,8 +12,7 @@ Parameter::Parameter    (int          keyID,
   parameterNameShort (TRANS (paramNameShort)),
   parameterNameVerbose (TRANS (paramNameVerbose))
 {
-    jassert (rap != nullptr);
-    lastActionedValue.store (defaultValue);
+    lastActionedValue = defaultValue;
     rap.addListener (this);
     changing.store (false);
 }
@@ -193,18 +192,17 @@ void Parameter::parameterGestureChanged (int, bool gestureIsStarting)
 -----------------------------------------------------------------------------------------------------------------------*/
 
 FloatParameter::FloatParameter (
-                int          key,
+                int          keyID,
                 juce::String paramNameShort,
                 juce::String paramNameVerbose,
                 juce::NormalisableRange< float >
                 nRange,
                 float                                   defaultVal,
-                juce::String                            parameterLabel = juce::String(),
-                juce::AudioProcessorParameter::Category parameterCategory =
-                juce::AudioProcessorParameter::genericParameter,
+                juce::String                            parameterLabel,
+                juce::AudioProcessorParameter::Category parameterCategory,
                 std::function< juce::String (float value, int maximumStringLength) >
-                stringFromValue = nullptr,
-                std::function< float (const juce::String& text) > valueFromString = nullptr)
+                stringFromValue,
+                std::function< float (const juce::String& text) > valueFromString)
 : AudioParameterFloat (paramNameVerbose,
                        TRANS (paramNameVerbose),
                        nRange,
@@ -214,7 +212,7 @@ FloatParameter::FloatParameter (
                        stringFromValue,
                        valueFromString),
 Parameter (key,
-           this,
+           *this,
            nRange.convertTo0to1 (defaultVal),
            paramNameShort,
            paramNameVerbose),
@@ -247,7 +245,7 @@ void FloatParameter::restoreFromValueTree (const juce::ValueTree& tree)
     jassert (tree.hasType (Parameter_Float));
     
     AudioParameterFloat::setValueNotifyingHost (tree.getProperty (ParameterValue));
-    Parameter::setDefault (tree.getProperty (ParameterDefaultValue));
+    Parameter::setDefault (float (tree.getProperty (ParameterDefaultValue)));
 }
 
 
@@ -255,16 +253,16 @@ void FloatParameter::restoreFromValueTree (const juce::ValueTree& tree)
  -----------------------------------------------------------------------------------------------------------------------*/
 
 IntParameter::IntParameter (
-              int          key,
+              int          keyID,
               juce::String paramNameShort,
               juce::String paramNameVerbose,
               int          min,
               int          max,
               int          defaultVal,
-              juce::String parameterLabel = juce::String(),
+              juce::String parameterLabel,
               std::function< juce::String (int value, int maximumStringLength) >
-              stringFromInt = nullptr,
-              std::function< int (const juce::String& text) > intFromString = nullptr)
+              stringFromInt,
+              std::function< int (const juce::String& text) > intFromString)
 : AudioParameterInt (paramNameVerbose,
                      TRANS (paramNameVerbose),
                      min,
@@ -274,7 +272,7 @@ IntParameter::IntParameter (
                      stringFromInt,
                      intFromString),
 Parameter (key,
-           this,
+           *this,
            AudioParameterInt::getNormalisableRange().convertTo0to1 (
                                                                     static_cast< float > (defaultVal)),
            paramNameShort,
@@ -308,7 +306,7 @@ void IntParameter::restoreFromValueTree (const juce::ValueTree& tree)
     jassert (tree.hasType (Parameter_Int));
     
     AudioParameterInt::setValueNotifyingHost (tree.getProperty (ParameterValue));
-    Parameter::setDefault (tree.getProperty (ParameterDefaultValue));
+    Parameter::setDefault (int (tree.getProperty (ParameterDefaultValue)));
 }
 
 
@@ -316,14 +314,14 @@ void IntParameter::restoreFromValueTree (const juce::ValueTree& tree)
  -----------------------------------------------------------------------------------------------------------------------*/
 
 BoolParameter::BoolParameter (
-               int          key,
+               int          keyID,
                juce::String paramNameShort,
                juce::String paramNameVerbose,
                bool         defaultVal,
-               juce::String parameterLabel = juce::String(),
+               juce::String parameterLabel,
                std::function< juce::String (bool value, int maximumStringLength) >
-               stringFromBool = nullptr,
-               std::function< bool (const juce::String& text) > boolFromString = nullptr)
+               stringFromBool,
+               std::function< bool (const juce::String& text) > boolFromString)
 : AudioParameterBool (paramNameVerbose,
                       TRANS (paramNameVerbose),
                       defaultVal,
@@ -331,7 +329,7 @@ BoolParameter::BoolParameter (
                       stringFromBool,
                       boolFromString),
 Parameter (key,
-           this,
+           *this,
            AudioParameterBool::getNormalisableRange().convertTo0to1 (
                                                                      static_cast< float > (defaultVal)),
            paramNameShort,
@@ -359,13 +357,13 @@ juce::ValueTree BoolParameter::toValueTree() const
     return tree;
 }
 
-void IntParameter::restoreFromValueTree (const juce::ValueTree& tree)
+void BoolParameter::restoreFromValueTree (const juce::ValueTree& tree)
 {
     using namespace DefaultValueTreeIds;
     jassert (tree.hasType (Parameter_Bool));
     
     AudioParameterBool::setValueNotifyingHost (tree.getProperty (ParameterValue));
-    Parameter::setDefault (tree.getProperty (ParameterDefaultValue));
+    Parameter::setDefault (bool (tree.getProperty (ParameterDefaultValue)));
 }
 
 
@@ -373,18 +371,17 @@ void IntParameter::restoreFromValueTree (const juce::ValueTree& tree)
  -----------------------------------------------------------------------------------------------------------------------*/
 
 MeterParameter::MeterParameter (
-                int          key,
+                int          keyID,
                 juce::String paramNameShort,
                 juce::String paramNameVerbose,
                 juce::NormalisableRange< float >
                 nRange,
                 float                                   defaultVal,
-                juce::String                            parameterLabel = juce::String(),
-                juce::AudioProcessorParameter::Category parameterCategory =
-                juce::AudioProcessorParameter::genericParameter,
+                juce::String                            parameterLabel,
+                juce::AudioProcessorParameter::Category parameterCategory,
                 std::function< juce::String (float value, int maximumStringLength) >
-                stringFromValue = nullptr,
-                std::function< float (const juce::String& text) > valueFromString = nullptr)
+                stringFromValue,
+                std::function< float (const juce::String& text) > valueFromString)
 
 : FloatParameter (key,
                   paramNameShort,
@@ -420,11 +417,10 @@ void MeterParameter::restoreFromValueTree (const juce::ValueTree& tree)
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 
-GainMeterParameter::GainMeterParameter (int                                     key,
+GainMeterParameter::GainMeterParameter (int                                     keyID,
                     juce::String                            paramNameShort,
                     juce::String                            paramNameVerbose,
-                    juce::AudioProcessorParameter::Category parameterCategory =
-                    juce::AudioProcessorParameter::genericParameter)
+                    juce::AudioProcessorParameter::Category parameterCategory)
 
 : MeterParameter (key,
                   paramNameShort,

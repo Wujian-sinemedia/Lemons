@@ -10,9 +10,7 @@ class MidiCC_Listener
 public:
     MidiCC_Listener (Parameter& param, int controller)
         : parameter (param), controllerNum (controller), lastControllerValue (defaultLastControllerVal)
-    {
-        jassert (parameter != nullptr && parameter->orig() != nullptr);
-    }
+    { }
 
     ~MidiCC_Listener() = default;
 
@@ -85,7 +83,7 @@ public:
         for (int i = 0; i < numMappings; ++i)
         {
             auto* mapping = parameterMappings + i;
-            mappings.add (new MidiCC_Listener (mapping->getParameter(),
+            mappings.add (new MidiCC_Listener (mapping->parameter,
                                                mapping->getControllerNumber()));
         }
     }
