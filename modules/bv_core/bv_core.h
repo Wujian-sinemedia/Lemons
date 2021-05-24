@@ -88,12 +88,12 @@
 #include "parameters/mappings/MidiCC_Mapping.h"
 #include "parameters/mappings/LFO_Mapping.h"
 #include "parameters/ParameterList/ParameterList.h"
+#include "ValueTreeAttachments/ParameterValueTreeAttachments.h"
 
 
 // valuetrees
 #include "valuetrees/json_converter.h"
 #include "valuetrees/Utils.h"
-#include "valuetrees/ParameterAttachments.h"
 
 
 // math
