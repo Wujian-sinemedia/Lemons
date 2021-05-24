@@ -22,7 +22,7 @@ protected:
 
 
 template<typename ParameterType>
-class ParameterHolder   final
+class ParameterHolder :     public ParamHolderBase  final
 {
 public:
     template <typename... Args>
