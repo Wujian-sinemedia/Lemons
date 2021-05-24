@@ -88,7 +88,7 @@
 #include "parameters/mappings/MidiCC_Mapping.h"
 #include "parameters/mappings/LFO_Mapping.h"
 #include "parameters/ParameterList/ParameterList.h"
-#include "ValueTreeAttachments/ParameterValueTreeAttachments.h"
+#include "parameters/ParameterValueTreeAttachments.h"
 
 
 // valuetrees
