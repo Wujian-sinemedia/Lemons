@@ -8,25 +8,13 @@ struct SerializableData
 {
     using ValueTree = juce::ValueTree;
     
-    SerializableData (juce::Identifier identifier)
-        : dataIdentifier (identifier)
-    { }
+    SerializableData (juce::Identifier identifier);
     
     virtual ~SerializableData() = default;
     
-    void serialize (ValueTree& tree)
-    {
-        ValueTree child {dataIdentifier};
-        toValueTree (child);
-        
-        tree.appendChild (child, nullptr);
-    }
+    void serialize (ValueTree& tree);
     
-    void deserialize (const ValueTree& tree)
-    {
-        auto t = tree.getChildWithName (dataIdentifier);
-        if (t.isValid()) fromValueTree (t);
-    }
+    void deserialize (const ValueTree& tree);
     
     
     const juce::Identifier dataIdentifier;

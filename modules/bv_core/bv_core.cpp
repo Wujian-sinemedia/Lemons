@@ -7,6 +7,8 @@
 
 #include "misc/misc.cpp"
 
+#include "serializing/SerializableData.cpp"
+
 #if BV_USE_VDSP
 #    include "math/vecops/implementations/vecops_vdsp.cpp"
 #elif BV_USE_IPP
