@@ -23,7 +23,6 @@
 #include "valuetrees/Utils.h"
 #include "valuetrees/json_converter.h"
 #include "valuetrees/attachments/ParameterAttachments.h"
-#include "valuetrees/attachments/FreestandingParameterAttachments.h"
 #include "valuetrees/attachments/property-attachments/PropertyToValueTreeAttachments.h"
 #include "valuetrees/attachments/property-attachments/ValueTreeToPropertyAttachments.h"
 #include "valuetrees/attachments/property-attachments/PropertyAttachmentUtils.h"

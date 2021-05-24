@@ -94,7 +94,7 @@ private:
     void parameterValueChanged (int, float) override final;
     void parameterGestureChanged (int, bool gestureIsStarting) override final;
     
-    RangedParam& const rap;
+    RangedParam& rap;
 
     std::atomic< float > currentDefault;
     std::atomic< bool >  changing;
