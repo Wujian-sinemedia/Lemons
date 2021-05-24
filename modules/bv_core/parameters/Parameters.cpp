@@ -13,9 +13,7 @@ Parameter::Parameter (int          keyID,
 {
     lastActionedValue = defaultValue;
     rap.addListener (this);
-    changing.store (false);
 }
-
 
 Parameter::~Parameter()
 {
@@ -24,50 +22,49 @@ Parameter::~Parameter()
 
 float Parameter::getNormalizedDefault() const
 {
-    return currentDefault.load();
+    return currentDefault;
 }
 
 float Parameter::getDenormalizedDefault() const
 {
-    return denormalize (currentDefault.load());
+    return denormalize (currentDefault);
 }
 
 void Parameter::setNormalizedDefault (float value)
 {
     jassert (value >= 0.0f && value <= 1.0f);
 
-    if (currentDefault.load() == value) return;
+    if (currentDefault == value) return;
 
-    currentDefault.store (value);
+    currentDefault = value;
 
     if (onDefaultChange)
         bav::callOnMessageThread< float > (onDefaultChange, value);
 }
 
-void Parameter::setDefault (float value)
+void Parameter::setDenormalizedDefault (float value)
 {
     setNormalizedDefault (normalize (value));
 }
 
-void Parameter::setDefault (int value)
-{
-    setNormalizedDefault (normalize (static_cast< float > (value)));
-}
-
-void Parameter::setDefault (bool value)
-{
-    const auto def = value ? 1.0f : 0.0f;
-    setNormalizedDefault (def);
-}
-
 void Parameter::refreshDefault()
 {
-    currentDefault.store (getCurrentNormalizedValue());
+    currentDefault = getCurrentNormalizedValue();
 }
 
 void Parameter::resetToDefault()
 {
-    rap.setValueNotifyingHost (currentDefault.load());
+    rap.setValueNotifyingHost (currentDefault);
+}
+
+void Parameter::setNormalizedValue (float value)
+{
+    rap.setValueNotifyingHost (value);
+}
+
+void Parameter::setDenormalizedValue (float value)
+{
+    setNormalizedValue (normalize (value));
 }
 
 float Parameter::getCurrentNormalizedValue() const
@@ -100,16 +97,6 @@ float Parameter::normalize (float input) const
     return rap.convertTo0to1 (input);
 }
 
-float Parameter::normalize (int input) const
-{
-    return rap.convertTo0to1 (static_cast< float > (input));
-}
-
-float Parameter::normalize (bool input) const
-{
-    return input ? 1.0f : 0.0f;
-}
-
 float Parameter::denormalize (float input) const
 {
     return rap.convertFrom0to1 (input);
@@ -129,8 +116,6 @@ void Parameter::doAction()
             intAction (getIntValue());
         else if (boolAction)
             boolAction (getBoolValue());
-        else if (voidAction)
-            voidAction();
     }
 }
 
@@ -190,6 +175,7 @@ void Parameter::parameterGestureChanged (int, bool gestureIsStarting)
 /*-----------------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------------*/
 
+
 FloatParameter::FloatParameter (
     int          keyID,
     juce::String paramNameShort,
@@ -211,7 +197,7 @@ FloatParameter::FloatParameter (
                            parameterCategory,
                            stringFromValue,
                            valueFromString),
-      Parameter (key,
+      Parameter (keyID,
                  *this,
                  nRange.convertTo0to1 (defaultVal),
                  paramNameShort,
@@ -220,9 +206,39 @@ FloatParameter::FloatParameter (
 {
 }
 
+float FloatParameter::get() const
+{
+    return Parameter::getFloatValue();
+}
+
 float FloatParameter::getDefault() const
 {
     return Parameter::getDenormalizedDefault();
+}
+
+void FloatParameter::set (float newValue)
+{
+    Parameter::setDenormalizedValue (newValue);
+    listeners.call ([&newValue] (Listener& l)
+                    { l.parameterValueChanged (newValue); });
+}
+
+void FloatParameter::setDefault (float newDefaultValue)
+{
+    Parameter::setDenormalizedDefault (newDefaultValue);
+    listeners.call ([&newDefaultValue] (Listener& l)
+                    { l.parameterDefaultChanged (newDefaultValue); });
+}
+
+void FloatParameter::onGestureChange (bool gestureIsStarting)
+{
+    listeners.call ([&gestureIsStarting] (Listener& l)
+                    { l.parameterGestureStateChanged (gestureIsStarting); });
+}
+
+void FloatParameter::setAction (std::function< void (float) > action)
+{
+    Parameter::setFloatAction (action);
 }
 
 juce::ValueTree FloatParameter::toValueTree() const
@@ -248,9 +264,24 @@ void FloatParameter::restoreFromValueTree (const juce::ValueTree& tree)
     Parameter::setDefault (float (tree.getProperty (ParameterDefaultValue)));
 }
 
+void FloatParameter::addListener (Listener* l)
+{
+    listeners.add (l);
+}
+
+void FloatParameter::removeListener (Listener* l)
+{
+    listeners.remove (l);
+}
+
+void FloatParameter::Listener::parameterValueChanged (float) { }
+void FloatParameter::Listener::parameterDefaultChanged (float) { }
+void FloatParameter::Listener::parameterGestureStateChanged (bool) { }
+
 
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
+
 
 IntParameter::IntParameter (
     int          keyID,
@@ -272,7 +303,7 @@ IntParameter::IntParameter (
                          parameterLabel,
                          stringFromInt,
                          intFromString),
-      Parameter (key,
+      Parameter (keyID,
                  *this,
                  AudioParameterInt::getNormalisableRange().convertTo0to1 (
                      static_cast< float > (defaultVal)),
@@ -282,9 +313,39 @@ IntParameter::IntParameter (
 {
 }
 
+int IntParameter::get() const
+{
+    return Parameter::getIntValue();
+}
+
 int IntParameter::getDefault() const
 {
     return juce::roundToInt (Parameter::getDenormalizedDefault());
+}
+
+void IntParameter::set (int newValue)
+{
+    Parameter::setDenormalizedValue (static_cast< float > (newValue));
+    listeners.call ([&newValue] (Listener& l)
+                    { l.parameterValueChanged (newValue); });
+}
+
+void IntParameter::setDefault (int newDefaultValue)
+{
+    Parameter::setDenormalizedDefault (static_cast< float > (newDefaultValue));
+    listeners.call ([&newDefaultValue] (Listener& l)
+                    { l.parameterDefaultChanged (newDefaultValue); });
+}
+
+void IntParameter::onGestureChange (bool gestureIsStarting)
+{
+    listeners.call ([&gestureIsStarting] (Listener& l)
+                    { l.parameterGestureStateChanged (gestureIsStarting); });
+}
+
+void IntParameter::setAction (std::function< void (int) > action)
+{
+    Parameter::setIntAction (action);
 }
 
 juce::ValueTree IntParameter::toValueTree() const
@@ -310,9 +371,24 @@ void IntParameter::restoreFromValueTree (const juce::ValueTree& tree)
     Parameter::setDefault (int (tree.getProperty (ParameterDefaultValue)));
 }
 
+void IntParameter::addListener (Listener* l)
+{
+    listeners.add (l);
+}
+
+void IntParameter::removeListener (Listener* l)
+{
+    listeners.remove (l);
+}
+
+void IntParameter::Listener::parameterValueChanged (int) { }
+void IntParameter::Listener::parameterDefaultChanged (int) { }
+void IntParameter::Listener::parameterGestureStateChanged (bool) { }
+
 
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
+
 
 BoolParameter::BoolParameter (
     int          keyID,
@@ -330,7 +406,7 @@ BoolParameter::BoolParameter (
                           parameterLabel,
                           stringFromBool,
                           boolFromString),
-      Parameter (key,
+      Parameter (keyID,
                  *this,
                  AudioParameterBool::getNormalisableRange().convertTo0to1 (
                      static_cast< float > (defaultVal)),
@@ -340,9 +416,41 @@ BoolParameter::BoolParameter (
 {
 }
 
+bool BoolParameter::get() const
+{
+    return Parameter::getBoolValue();
+}
+
 bool BoolParameter::getDefault() const
 {
     return Parameter::getNormalizedDefault() >= 0.5f;
+}
+
+void BoolParameter::set (bool newValue)
+{
+    const auto val = newValue ? 1.0f : 0.0f;
+    Parameter::setNormalizedValue (val);
+    listeners.call ([&newValue] (Listener& l)
+                    { l.parameterValueChanged (newValue); });
+}
+
+void BoolParameter::setDefault (bool newDefaultValue)
+{
+    const auto val = newValue ? 1.0f : 0.0f;
+    Parameter::setNormalizedDefault (val);
+    listeners.call ([&newDefaultValue] (Listener& l)
+                    { l.parameterDefaultChanged (newDefaultValue); });
+}
+
+void BoolParameter::onGestureChange (bool gestureIsStarting)
+{
+    listeners.call ([&gestureIsStarting] (Listener& l)
+                    { l.parameterGestureStateChanged (gestureIsStarting); });
+}
+
+void BoolParameter::setAction (std::function< void (bool) > action)
+{
+    Parameter::setBoolAction (action);
 }
 
 juce::ValueTree BoolParameter::toValueTree() const
@@ -368,9 +476,24 @@ void BoolParameter::restoreFromValueTree (const juce::ValueTree& tree)
     Parameter::setDefault (bool (tree.getProperty (ParameterDefaultValue)));
 }
 
+void BoolParameter::addListener (Listener* l)
+{
+    listeners.add (l);
+}
+
+void BoolParameter::removeListener (Listener* l)
+{
+    listeners.remove (l);
+}
+
+void BoolParameter::Listener::parameterValueChanged (bool) { }
+void BoolParameter::Listener::parameterDefaultChanged (bool) { }
+void BoolParameter::Listener::parameterGestureStateChanged (bool) { }
+
 
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
+
 
 MeterParameter::MeterParameter (
     int          keyID,
@@ -386,7 +509,7 @@ MeterParameter::MeterParameter (
     std::function< float (const juce::String& text) >
         valueFromString)
 
-    : FloatParameter (key,
+    : FloatParameter (keyID,
                       paramNameShort,
                       paramNameVerbose,
                       nRange,
@@ -420,12 +543,13 @@ void MeterParameter::restoreFromValueTree (const juce::ValueTree& tree)
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 
+
 GainMeterParameter::GainMeterParameter (int                                     keyID,
                                         juce::String                            paramNameShort,
                                         juce::String                            paramNameVerbose,
                                         juce::AudioProcessorParameter::Category parameterCategory)
 
-    : MeterParameter (key,
+    : MeterParameter (keyID,
                       paramNameShort,
                       paramNameVerbose,
                       juce::NormalisableRange< float > (-60.0f, 0.0f, 0.01f),

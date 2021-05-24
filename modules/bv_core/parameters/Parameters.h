@@ -18,70 +18,25 @@ public:
 
     bool operator== (const Parameter& other) const { return key == other.key; }
 
-    bool operator= (float value) { rap.setValueNotifyingHost (value); }
-
-    //==============================================================================
-
-    float getNormalizedDefault() const;
-    float getDenormalizedDefault() const;
-    void  setNormalizedDefault (float value);
-
-    // these functions set the denormalized default
-    void setDefault (float value);
-    void setDefault (int value);
-    void setDefault (bool value);
-
-    // sets the parameter's current value to be the default value
-    void refreshDefault();
-
-    // resets the parameter's value to the default
-    void resetToDefault();
-
-    //==============================================================================
-
-    float getCurrentNormalizedValue() const;
-    float getCurrentDenormalizedValue() const;
+    void refreshDefault();  // sets the parameter's current value to be the default value
+    void resetToDefault();  // resets the parameter's value to the default
 
     // these functions return the current denormalized value as the desired type literal
     float getFloatValue() const;
     int   getIntValue() const;
     bool  getBoolValue() const;
 
-    //==============================================================================
-
-    // returns a float value normalized in the range 0 to 1, using this parameter's NormalisableRange object
-    float normalize (float input) const;
-    float normalize (int input) const;
-    float normalize (bool input) const;
-
-    // takes a normalized value as input and returns a denormalized float value within the natural range of this parameter.
-    float denormalize (float input) const;
-
-    //==============================================================================
-    /* You can specify an action of a certain type, to be performed synchronously when you call doAction(), only if the parameter calue has changed since the last call to doAction().
-           You can only specify one type of action at a time. Each type will be called with the denormalized current parameter value in its natural range -- so, float actions will recieve denormalized values, int actions will recieve denormalized floats rounded to integers, and bool actions will recieve boolean literals. You can also specify a void action, that will be called with no arguments.
-         */
+    bool isChanging() const;
 
     void doAction();
 
-    void setFloatAction (std::function< void (float) > action);
-    void setIntAction (std::function< void (int) > action);
-    void setBoolAction (std::function< void (bool) > action);
-    void setVoidAction (std::function< void() > action);
-
-    // if defined, these functions will be called on the message thread when this parameter changes ("somewhat synchronously")
-    std::function< void (float) >
-                                  onParameterChange;  // this gets the denormalized new float value
+    // if defined, these functions will be called on the message thread when this parameter changes ("somewhat synchronously"):
+    std::function< void (float) > onParameterChange;  // this gets the denormalized new float value
     std::function< void (float) > onDefaultChange;
     std::function< void (bool) >  onGestureStateChange;
 
-    bool isChanging() const;
-
-    //==============================================================================
-
-    virtual juce::ValueTree toValueTree() const = 0;
-
-    virtual void restoreFromValueTree (const juce::ValueTree& tree) = 0;
+    virtual juce::ValueTree toValueTree() const                                = 0;
+    virtual void            restoreFromValueTree (const juce::ValueTree& tree) = 0;
 
     //==============================================================================
 
@@ -94,22 +49,47 @@ public:
 
     //==============================================================================
 
-private:
-    void parameterValueChanged (int, float) override final;
-    void parameterGestureChanged (int, bool gestureIsStarting) override final;
+protected:
+    float getNormalizedDefault() const;
+    float getDenormalizedDefault() const;
 
-    std::atomic< float > currentDefault;
-    std::atomic< bool >  changing;
+    void setNormalizedDefault (float value);
+    void setDenormalizedDefault (float value);
+
+    void setNormalizedValue (float value);
+    void setDenormalizedValue (float value);
+
+    float getCurrentNormalizedValue() const;
+    float getCurrentDenormalizedValue() const;
+
+    float normalize (float input) const;
+    float denormalize (float input) const;
+
+    void setFloatAction (std::function< void (float) > action);
+    void setIntAction (std::function< void (int) > action);
+    void setBoolAction (std::function< void (bool) > action);
+
+    //==============================================================================
+
+private:
+    void         parameterValueChanged (int, float) override final;
+    void         parameterGestureChanged (int, bool gestureIsStarting) override final;
+    virtual void onGestureChange (bool gestureIsStarting) = 0;
+
+    float currentDefault;
+    bool  changing = false;
 
     std::function< void (float) > floatAction;
     std::function< void (int) >   intAction;
     std::function< void (bool) >  boolAction;
-    std::function< void() >       voidAction;
 
     float lastActionedValue;
+
+    juce::ListenerList< Listener > listeners;
 };
 
 
+//==============================================================================
 //==============================================================================
 
 
@@ -132,20 +112,44 @@ public:
                                                           stringFromValue = nullptr,
         std::function< float (const juce::String& text) > valueFromString = nullptr);
 
+    float get() const;
     float getDefault() const;
 
-    std::function< juce::String (float, int) >   floatToString;
-    std::function< float (const juce::String&) > stringToFloat;
+    void set (float newValue);
+    void setDefault (float newDefaultValue);
+
+    void setAction (std::function< void (float) > action);
 
     juce::ValueTree toValueTree() const override;
+    void            restoreFromValueTree (const juce::ValueTree& tree) override;
 
-    void restoreFromValueTree (const juce::ValueTree& tree) override;
+    const std::function< juce::String (float, int) >   floatToString;
+    const std::function< float (const juce::String&) > stringToFloat;
+
+    //==============================================================================
+
+    struct Listener
+    {
+        virtual ~Listener() = default;
+
+        void parameterValueChanged (float newValue);
+        void parameterDefaultChanged (float newDefault);
+        void parameterGestureStateChanged (bool paramIsChanging);
+    };
+
+    void addListener (Listener* l);
+    void removeListener (Listener* l);
+
+    //==============================================================================
 
 private:
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FloatParameter)
+    void onGestureChange (bool gestureIsStarting) override final;
+
+    juce::ListenerList< Listener > listeners;
 };
 
 
+//==============================================================================
 //==============================================================================
 
 
@@ -166,20 +170,44 @@ public:
                                                         stringFromInt = nullptr,
         std::function< int (const juce::String& text) > intFromString = nullptr);
 
+    int get() const;
     int getDefault() const;
 
-    std::function< juce::String (int, int) >   intToString;
-    std::function< int (const juce::String&) > stringToInt;
+    void set (int newValue);
+    void setDefault (int newDefaultValue);
+
+    void setAction (std::function< void (int) > action);
 
     juce::ValueTree toValueTree() const override;
+    void            restoreFromValueTree (const juce::ValueTree& tree) override;
 
-    void restoreFromValueTree (const juce::ValueTree& tree) override;
+    const std::function< juce::String (int, int) >   intToString;
+    const std::function< int (const juce::String&) > stringToInt;
+
+    //==============================================================================
+
+    struct Listener
+    {
+        virtual ~Listener() = default;
+
+        void parameterValueChanged (int newValue);
+        void parameterDefaultChanged (int newDefault);
+        void parameterGestureStateChanged (bool paramIsChanging);
+    };
+
+    void addListener (Listener* l);
+    void removeListener (Listener* l);
+
+    //==============================================================================
 
 private:
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (IntParameter)
+    void onGestureChange (bool gestureIsStarting) override final;
+
+    juce::ListenerList< Listener > listeners;
 };
 
 
+//==============================================================================
 //==============================================================================
 
 
@@ -198,20 +226,44 @@ public:
                                                          stringFromBool = nullptr,
         std::function< bool (const juce::String& text) > boolFromString = nullptr);
 
+    bool get() const;
     bool getDefault() const;
+
+    void set (bool newValue);
+    void setDefault (bool newDefaultValue);
+
+    void setAction (std::function< void (bool) > action);
+
+    juce::ValueTree toValueTree() const override;
+    void            restoreFromValueTree (const juce::ValueTree& tree) override;
 
     std::function< juce::String (bool, int) >        boolToString;
     std::function< bool (const juce::String& text) > stringToBool;
 
-    juce::ValueTree toValueTree() const override;
+    //==============================================================================
 
-    void restoreFromValueTree (const juce::ValueTree& tree) override;
+    struct Listener
+    {
+        virtual ~Listener() = default;
+
+        void parameterValueChanged (bool newValue);
+        void parameterDefaultChanged (bool newDefault);
+        void parameterGestureStateChanged (bool paramIsChanging);
+    };
+
+    void addListener (Listener* l);
+    void removeListener (Listener* l);
+
+    //==============================================================================
 
 private:
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (BoolParameter)
+    void onGestureChange (bool gestureIsStarting) override final;
+
+    juce::ListenerList< Listener > listeners;
 };
 
 
+//==============================================================================
 //==============================================================================
 
 
@@ -232,13 +284,13 @@ struct MeterParameter : public FloatParameter
         std::function< float (const juce::String& text) > valueFromString = nullptr);
 
     juce::ValueTree toValueTree() const override;
-
-    void restoreFromValueTree (const juce::ValueTree& tree) override;
+    void            restoreFromValueTree (const juce::ValueTree& tree) override;
 
     bool isAutomatable() const override final { return false; }
 };
 
 
+//==============================================================================
 //==============================================================================
 
 
