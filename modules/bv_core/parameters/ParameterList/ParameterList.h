@@ -28,11 +28,11 @@ public:
 private:
     struct ParamHolderMetadata
     {
-        ParamHolderMetadata (ParamHolderBase* h, bool internal)
+        ParamHolderMetadata (ParamHolderBase& h, bool internal)
             : holder (h), isInternal(internal)
         { }
         
-        ParamHolderBase* holder;
+        ParamHolderBase& holder;
         bool isInternal;
     };
     
