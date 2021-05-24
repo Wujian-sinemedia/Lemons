@@ -26,3 +26,6 @@
 
 #include "building_blocks/ProcessorBase/ProcessorBase.cpp"
 #include "building_blocks/EditorBase/EditorBase.cpp"
+
+#include "parameters/Parameters.cpp"
+#include "parameters/ParameterList/ParameterList.cpp"

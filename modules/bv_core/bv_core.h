@@ -75,6 +75,15 @@
 #include "building_blocks/EditorBase/EditorBase.h"
 
 
+// parameters
+#include "parameters/helpers/ParameterValueConversionLambdas.h"
+#include "parameters/Parameters.h"
+#include "parameters/helpers/ParameterHelpers.h"
+#include "parameters/mappings/MidiCC_Mapping.h"
+#include "parameters/mappings/LFO_Mapping.h"
+#include "parameters/ParameterList/ParameterList.h"
+
+
 // async
 #include "async/AsyncUtils.h"
 

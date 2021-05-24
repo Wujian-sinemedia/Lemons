@@ -20,16 +20,6 @@
 
 #include "valuetrees/DefaultValueTreeIDs.h"
 
-// parameters
-#include "parameters/helpers/ParameterValueConversionLambdas.h"
-#include "parameters/Parameter_Base.h"
-#include "parameters/Parameter_ProcessorOwned.h"
-#include "parameters/Parameter_SelfOwned.h"
-#include "parameters/Parameter_List.h"
-#include "parameters/helpers/ParameterHelpers.h"
-#include "parameters/mappings/MidiCC_Mapping.h"
-#include "parameters/mappings/LFO_Mapping.h"
-
 
 // value trees
 #include "valuetrees/property_nodes/nodes.h"
