@@ -4,15 +4,26 @@ namespace bav
 
 static inline juce::String getCountryCodeToUse()
 {
-    return {};
+    return juce::SystemStats::getDisplayLanguage().upToFirstOccurrenceOf ("-", false, false);
 }
 
 
-static inline RawData getDefaultTranslationFile()
+static inline RawData getDefaultTranslationFile (juce::String defaultCountryCode = "en")
 {
 #if BV_HAS_BINARY_DATA
-    juce::String fileName = "trans_" + getCountryCodeToUse() + ".txt";
-    return RawData (fileName.toRawUTF8());
+    const auto countryCodeToTranslationFileName = [](const juce::String& countryCode)
+                                                  {
+                                                      return "trans_" + countryCode + ".txt";
+                                                  };
+    
+    const auto fileName = countryCodeToTranslationFileName (getCountryCodeToUse());
+    auto data = RawData (fileName.toRawUTF8());
+    
+    if (data.isValid())
+        return data;
+    
+    const auto defaultFilename = countryCodeToTranslationFileName (defaultCountryCode);
+    return RawData (defaultFilename.toRawUTF8());
 #else
     return RawData();
 #endif
@@ -38,6 +49,12 @@ static inline void initializeTranslationsFromBinaryData (RawData data,
     
     juce::LocalisedStrings::setCurrentMappings (
                                                 new juce::LocalisedStrings (fileContents, ignoreCaseOfKeys));
+}
+
+
+static inline void initializeDefaultTranslations()
+{
+    initializeTranslationsFromBinaryData (getDefaultTranslationFile());
 }
 
 

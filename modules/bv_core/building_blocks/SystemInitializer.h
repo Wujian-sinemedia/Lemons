@@ -10,9 +10,7 @@ struct SystemInitializer
         ne10_init();
 #endif
         
-#if BV_HAS_BINARY_DATA
-        initializeTranslationsFromBinaryData (getDefaultTranslationFile());
-#endif
+        initializeDefaultTranslations();
     }
     
     virtual ~SystemInitializer()
