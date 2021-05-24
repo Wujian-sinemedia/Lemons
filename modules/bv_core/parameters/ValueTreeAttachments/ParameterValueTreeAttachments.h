@@ -17,12 +17,12 @@ public:
 
 private:
     void timerCallback() override final;
-    
+
     void parameterValueChanged (int, float) override final { }
     void parameterGestureChanged (int, bool gestureIsStarting) override final;
-    
-    bav::Parameter& const param;
-    juce::ValueTree       tree;
+
+    bav::Parameter& param;
+    juce::ValueTree tree;
 
     std::atomic< bool > isChanging;
 
@@ -44,13 +44,13 @@ public:
     ValueTreeToParameterAttachment (bav::Parameter& paramToUse,
                                     juce::ValueTree treeToUse);
 
-    
+
 private:
     void valueTreePropertyChanged (juce::ValueTree&,
                                    const juce::Identifier&) override final;
-    
-    bav::Parameter& const param;
-    juce::ValueTree       tree;
+
+    bav::Parameter& param;
+    juce::ValueTree tree;
 
     bool lastSentChangeState;
 
@@ -80,9 +80,10 @@ static inline void createTwoWayParameterValueTreeAttachments (
     juce::OwnedArray< bav::ParameterAttachment >& attachments,
     juce::ValueTree                               parameterValueTree,
     int                                           totalNumParams,
-    std::function< bav::Parameter*(int) >         findParameter,
-    juce::UndoManager*                            um                  = nullptr,
-    int                                           paramIndexToStartAt = 0)
+    std::function< bav::Parameter*(int) >
+                       findParameter,
+    juce::UndoManager* um                  = nullptr,
+    int                paramIndexToStartAt = 0)
 {
     jassert (parameterValueTree.isValid());
 
@@ -105,9 +106,10 @@ static inline void createWriteOnlyParameterValueTreeAttachments (
     juce::OwnedArray< bav::ParameterToValueTreeAttachment >& attachments,
     juce::ValueTree                                          parameterValueTree,
     int                                                      totalNumParams,
-    std::function< bav::Parameter*(int) >                    findParameter,
-    int                                                      paramIndexToStartAt = 0,
-    juce::UndoManager*                                       um = nullptr)
+    std::function< bav::Parameter*(int) >
+                       findParameter,
+    int                paramIndexToStartAt = 0,
+    juce::UndoManager* um                  = nullptr)
 {
     jassert (parameterValueTree.isValid());
 
@@ -126,4 +128,4 @@ static inline void createWriteOnlyParameterValueTreeAttachments (
 }
 
 
-} // namespace bav
+}  // namespace bav

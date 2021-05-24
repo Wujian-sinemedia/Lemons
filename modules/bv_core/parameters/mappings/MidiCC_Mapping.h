@@ -10,7 +10,8 @@ class MidiCC_Listener
 public:
     MidiCC_Listener (Parameter& param, int controller)
         : parameter (param), controllerNum (controller), lastControllerValue (defaultLastControllerVal)
-    { }
+    {
+    }
 
     ~MidiCC_Listener() = default;
 
@@ -41,14 +42,14 @@ public:
     int getControllerNumber() const noexcept { return controllerNum; }
 
     int getLastControllerValue() const noexcept { return lastControllerValue; }
-    
-    
+
+
     Parameter& parameter;
 
 
 private:
-    int              controllerNum;
-    int              lastControllerValue;
+    int controllerNum;
+    int lastControllerValue;
 
     static constexpr int defaultLastControllerVal = 64;
 };

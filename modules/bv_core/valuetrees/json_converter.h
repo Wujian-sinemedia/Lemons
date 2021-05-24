@@ -26,9 +26,9 @@ static inline juce::var valueTreeToVar (const juce::ValueTree& v)
         else
         {
             // These types can't be stored as JSON!
-            jassert (!val.isObject());
-            jassert (!val.isMethod());
-            jassert (!val.isArray());
+            jassert (! val.isObject());
+            jassert (! val.isMethod());
+            jassert (! val.isArray());
 
             obj->setProperty (name, val.toString());
         }
@@ -99,4 +99,4 @@ inline juce::ValueTree valueTreeFromJSON (const juce::String& jsonText)
 }
 
 
-} // namespace bav
+}  // namespace bav

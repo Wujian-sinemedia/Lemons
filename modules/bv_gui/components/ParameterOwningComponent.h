@@ -9,7 +9,7 @@ public:
     ComponentWithParameterConnection (Parameter&         parameter,
                                       juce::ValueTree&   vt,
                                       juce::UndoManager& um)
-        : state (vt), parameterName (parameter->parameterNameVerbose), undoManager (um)
+        : state (vt), parameterName (parameter.parameterNameVerbose), undoManager (um)
     {
         setName (parameter.parameterNameVerbose);
         setComponentID (parameter.parameterNameVerbose);

@@ -7,7 +7,7 @@ class Parameter : private juce::AudioProcessorParameter::Listener
 {
 public:
     using RangedParam = juce::RangedAudioParameter;
-    
+
     Parameter (int          keyID,
                RangedParam& p,
                float        defaultValue,
@@ -15,17 +15,17 @@ public:
                juce::String paramNameVerbose);
 
     virtual ~Parameter() override;
-    
+
     bool operator== (const Parameter& other) const { return key == other.key; }
-    
+
     bool operator= (float value) { rap.setValueNotifyingHost (value); }
 
     //==============================================================================
 
     float getNormalizedDefault() const;
     float getDenormalizedDefault() const;
-    void setNormalizedDefault (float value);
-    
+    void  setNormalizedDefault (float value);
+
     // these functions set the denormalized default
     void setDefault (float value);
     void setDefault (int value);
@@ -76,28 +76,28 @@ public:
     std::function< void (bool) >  onGestureStateChange;
 
     bool isChanging() const;
-    
+
     //==============================================================================
 
     virtual juce::ValueTree toValueTree() const = 0;
-    
+
     virtual void restoreFromValueTree (const juce::ValueTree& tree) = 0;
 
     //==============================================================================
-    
+
     RangedParam& rap;
-    
+
     const int key;
-    
+
     const juce::String parameterNameShort;
     const juce::String parameterNameVerbose;
-    
+
     //==============================================================================
 
 private:
     void parameterValueChanged (int, float) override final;
     void parameterGestureChanged (int, bool gestureIsStarting) override final;
-    
+
     std::atomic< float > currentDefault;
     std::atomic< bool >  changing;
 
@@ -117,7 +117,7 @@ class FloatParameter : public juce::AudioParameterFloat, public bav::Parameter
 {
 public:
     using AudioParameterFloat = juce::AudioParameterFloat;
-    
+
     FloatParameter (
         int          keyID,
         juce::String paramNameShort,
@@ -130,7 +130,7 @@ public:
             juce::AudioProcessorParameter::genericParameter,
         std::function< juce::String (float value, int maximumStringLength) >
                                                           stringFromValue = nullptr,
-                    std::function< float (const juce::String& text) > valueFromString = nullptr);
+        std::function< float (const juce::String& text) > valueFromString = nullptr);
 
     float getDefault() const;
 
@@ -138,9 +138,9 @@ public:
     std::function< float (const juce::String&) > stringToFloat;
 
     juce::ValueTree toValueTree() const override;
-    
+
     void restoreFromValueTree (const juce::ValueTree& tree) override;
-    
+
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FloatParameter)
 };
@@ -153,7 +153,7 @@ class IntParameter : public juce::AudioParameterInt, public bav::Parameter
 {
 public:
     using AudioParameterInt = juce::AudioParameterInt;
-    
+
     IntParameter (
         int          keyID,
         juce::String paramNameShort,
@@ -164,7 +164,7 @@ public:
         juce::String parameterLabel = juce::String(),
         std::function< juce::String (int value, int maximumStringLength) >
                                                         stringFromInt = nullptr,
-                  std::function< int (const juce::String& text) > intFromString = nullptr);
+        std::function< int (const juce::String& text) > intFromString = nullptr);
 
     int getDefault() const;
 
@@ -172,7 +172,7 @@ public:
     std::function< int (const juce::String&) > stringToInt;
 
     juce::ValueTree toValueTree() const override;
-    
+
     void restoreFromValueTree (const juce::ValueTree& tree) override;
 
 private:
@@ -187,7 +187,7 @@ class BoolParameter : public juce::AudioParameterBool, public bav::Parameter
 {
 public:
     using AudioParameterBool = juce::AudioParameterBool;
-    
+
     BoolParameter (
         int          keyID,
         juce::String paramNameShort,
@@ -196,7 +196,7 @@ public:
         juce::String parameterLabel = juce::String(),
         std::function< juce::String (bool value, int maximumStringLength) >
                                                          stringFromBool = nullptr,
-                   std::function< bool (const juce::String& text) > boolFromString = nullptr);
+        std::function< bool (const juce::String& text) > boolFromString = nullptr);
 
     bool getDefault() const;
 
@@ -204,7 +204,7 @@ public:
     std::function< bool (const juce::String& text) > stringToBool;
 
     juce::ValueTree toValueTree() const override;
-    
+
     void restoreFromValueTree (const juce::ValueTree& tree) override;
 
 private:
@@ -229,10 +229,10 @@ struct MeterParameter : public FloatParameter
             juce::AudioProcessorParameter::genericParameter,
         std::function< juce::String (float value, int maximumStringLength) >
                                                           stringFromValue = nullptr,
-                    std::function< float (const juce::String& text) > valueFromString = nullptr);
+        std::function< float (const juce::String& text) > valueFromString = nullptr);
 
     juce::ValueTree toValueTree() const override;
-    
+
     void restoreFromValueTree (const juce::ValueTree& tree) override;
 
     bool isAutomatable() const override final { return false; }
@@ -248,7 +248,7 @@ struct GainMeterParameter : public MeterParameter
                         juce::String                            paramNameShort,
                         juce::String                            paramNameVerbose,
                         juce::AudioProcessorParameter::Category parameterCategory =
-                        juce::AudioProcessorParameter::genericParameter);
+                            juce::AudioProcessorParameter::genericParameter);
 };
 
 

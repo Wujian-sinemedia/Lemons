@@ -1,8 +1,6 @@
 
 namespace bav
 {
-
-
 /* note: this only works if the underlying parameter objects in the group are derived from my Parameter base class */
 static inline void createValueTreeFromParameterTree (
     juce::ValueTree& tree, const juce::AudioProcessorParameterGroup& parameterTree)
@@ -52,4 +50,4 @@ static inline juce::ValueTree
 }
 
 
-} // namespace bav
+}  // namespace bav
