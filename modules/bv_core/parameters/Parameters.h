@@ -3,7 +3,8 @@
 
 namespace bav
 {
-class Parameter : private juce::AudioProcessorParameter::Listener
+class Parameter :   public bav::SerializableData,
+                    private juce::AudioProcessorParameter::Listener
 {
 public:
     using RangedParam = juce::RangedAudioParameter;
@@ -46,9 +47,6 @@ public:
     std::function< void (float) > onParameterChange;  // this gets the denormalized new float value
     std::function< void (float) > onDefaultChange;
     std::function< void (bool) >  onGestureStateChange;
-
-    virtual juce::ValueTree toValueTree() const                                = 0;
-    virtual void            restoreFromValueTree (const juce::ValueTree& tree) = 0;
 
     //==============================================================================
 
@@ -108,9 +106,6 @@ public:
 
     void setAction (std::function< void (float) > action);
 
-    juce::ValueTree toValueTree() const override;
-    void            restoreFromValueTree (const juce::ValueTree& tree) override;
-
     const std::function< juce::String (float, int) >   floatToString;
     const std::function< float (const juce::String&) > stringToFloat;
 
@@ -129,10 +124,13 @@ public:
     void removeListener (Listener* l);
 
     //==============================================================================
-
+    
 private:
     void onGestureChange (bool gestureIsStarting) override final;
     void onAction() override final;
+    
+    void toValueTree (juce::ValueTree& tree) const override final;
+    void fromValueTree (const juce::ValueTree& tree) const override final;
     
     std::function< void (float) > actionFunc;
     juce::ListenerList< Listener > listeners;
@@ -168,9 +166,6 @@ public:
 
     void setAction (std::function< void (int) > action);
 
-    juce::ValueTree toValueTree() const override;
-    void            restoreFromValueTree (const juce::ValueTree& tree) override;
-
     const std::function< juce::String (int, int) >   intToString;
     const std::function< int (const juce::String&) > stringToInt;
 
@@ -193,6 +188,9 @@ public:
 private:
     void onGestureChange (bool gestureIsStarting) override final;
     void onAction() override final;
+    
+    void toValueTree (juce::ValueTree& tree) const override final;
+    void fromValueTree (const juce::ValueTree& tree) const override final;
 
     std::function< void (int) > actionFunc;
     juce::ListenerList< Listener > listeners;
@@ -226,9 +224,6 @@ public:
 
     void setAction (std::function< void (bool) > action);
 
-    juce::ValueTree toValueTree() const override;
-    void            restoreFromValueTree (const juce::ValueTree& tree) override;
-
     std::function< juce::String (bool, int) >        boolToString;
     std::function< bool (const juce::String& text) > stringToBool;
 
@@ -251,6 +246,9 @@ public:
 private:
     void onGestureChange (bool gestureIsStarting) override final;
     void onAction() override final;
+    
+    void toValueTree (juce::ValueTree& tree) const override final;
+    void fromValueTree (const juce::ValueTree& tree) const override final;
 
     std::function< void (bool) > actionFunc;
     juce::ListenerList< Listener > listeners;

@@ -60,6 +60,8 @@
 
 #include "valuetrees/DefaultValueTreeIDs.h"
 
+#include "serializing/SerializableData.h"
+
 
 // files
 #include "files/FileUtilities.h"
