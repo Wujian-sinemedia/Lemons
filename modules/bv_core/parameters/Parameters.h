@@ -61,24 +61,15 @@ public:
 
     //==============================================================================
 
-protected:
-    void setFloatAction (std::function< void (float) > action);
-    void setIntAction (std::function< void (int) > action);
-    void setBoolAction (std::function< void (bool) > action);
-
-    //==============================================================================
-
 private:
     void         parameterValueChanged (int, float) override final;
     void         parameterGestureChanged (int, bool gestureIsStarting) override final;
+    
     virtual void onGestureChange (bool gestureIsStarting) = 0;
+    virtual void onAction() = 0;
 
     float currentDefault;
     bool  changing = false;
-
-    std::function< void (float) > floatAction;
-    std::function< void (int) >   intAction;
-    std::function< void (bool) >  boolAction;
 
     float lastActionedValue;
 
@@ -141,7 +132,9 @@ public:
 
 private:
     void onGestureChange (bool gestureIsStarting) override final;
-
+    void onAction() override final;
+    
+    std::function< void (float) > actionFunc;
     juce::ListenerList< Listener > listeners;
 };
 
@@ -199,7 +192,9 @@ public:
 
 private:
     void onGestureChange (bool gestureIsStarting) override final;
+    void onAction() override final;
 
+    std::function< void (int) > actionFunc;
     juce::ListenerList< Listener > listeners;
 };
 
@@ -255,7 +250,9 @@ public:
 
 private:
     void onGestureChange (bool gestureIsStarting) override final;
+    void onAction() override final;
 
+    std::function< void (bool) > actionFunc;
     juce::ListenerList< Listener > listeners;
 };
 

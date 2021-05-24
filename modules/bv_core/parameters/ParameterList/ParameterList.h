@@ -38,8 +38,8 @@ public:
     
     void doAllActions();
     
-    virtual juce::ValueTree toValueTree() const = 0;
-    virtual void restoreFromValueTree (const juce::ValueTree& tree) = 0;
+    virtual juce::ValueTree toValueTree() const;
+    virtual void restoreFromValueTree (const juce::ValueTree& tree);
 
     
 private:

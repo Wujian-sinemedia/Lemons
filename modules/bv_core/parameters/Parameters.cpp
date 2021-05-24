@@ -110,34 +110,8 @@ void Parameter::doAction()
     {
         lastActionedValue = value;
 
-        if (floatAction)
-            floatAction (getFloatValue());
-        else if (intAction)
-            intAction (getIntValue());
-        else if (boolAction)
-            boolAction (getBoolValue());
+        onAction();
     }
-}
-
-void Parameter::setFloatAction (std::function< void (float) > action)
-{
-    floatAction = std::move (action);
-    intAction   = nullptr;
-    boolAction  = nullptr;
-}
-
-void Parameter::setIntAction (std::function< void (int) > action)
-{
-    intAction   = std::move (action);
-    floatAction = nullptr;
-    boolAction  = nullptr;
-}
-
-void Parameter::setBoolAction (std::function< void (bool) > action)
-{
-    boolAction  = std::move (action);
-    floatAction = nullptr;
-    intAction   = nullptr;
 }
 
 bool Parameter::isChanging() const
@@ -227,7 +201,13 @@ void FloatParameter::onGestureChange (bool gestureIsStarting)
 
 void FloatParameter::setAction (std::function< void (float) > action)
 {
-    Parameter::setFloatAction (action);
+    actionFunc = std::move (action);
+}
+
+void FloatParameter::onAction()
+{
+    if (actionFunc)
+        actionFunc (get());
 }
 
 juce::ValueTree FloatParameter::toValueTree() const
@@ -334,7 +314,13 @@ void IntParameter::onGestureChange (bool gestureIsStarting)
 
 void IntParameter::setAction (std::function< void (int) > action)
 {
-    Parameter::setIntAction (action);
+    actionFunc = std::move (action);
+}
+
+void IntParameter::onAction()
+{
+    if (actionFunc)
+        actionFunc (get());
 }
 
 juce::ValueTree IntParameter::toValueTree() const
@@ -439,7 +425,13 @@ void BoolParameter::onGestureChange (bool gestureIsStarting)
 
 void BoolParameter::setAction (std::function< void (bool) > action)
 {
-    Parameter::setBoolAction (action);
+    actionFunc = std::move (action);
+}
+
+void BoolParameter::onAction()
+{
+    if (actionFunc)
+        actionFunc (get());
 }
 
 juce::ValueTree BoolParameter::toValueTree() const
