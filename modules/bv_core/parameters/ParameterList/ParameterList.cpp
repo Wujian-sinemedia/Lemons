@@ -27,40 +27,31 @@ void ParameterList::addInternal (ParamHolderBase& param)
 
 void ParameterList::addParameter (ParamHolderBase& param, bool isInternal)
 {
-    auto* parameter = param.getParam();
-
-    if (auto* f = dynamic_cast< FloatParameter* > (parameter))
-        params.add (new FloatParam (f, isInternal));
-    else if (auto* i = dynamic_cast< IntParameter* > (parameter))
-        params.add (new IntParam (i, isInternal));
-    else if (auto* b = dynamic_cast< BoolParameter* > (parameter))
-        params.add (new BoolParam (b, isInternal));
-    else
-        jassertfalse;  // if you hit this assertion, you're attempting to add a parameter that is not derived from the FloatParam, IntParam, or BoolParam classes!
+    ParamHolderMetadata.add ({ &param, isInternal });
 }
 
 void ParameterList::addParametersTo (juce::AudioProcessor& processor)
 {
-    for (auto* param : params)
+    for (auto* meta : params)
     {
-        if (param->isInternal)
-            param->addTo (dummyProcessor);
+        if (meta->holder->isInternal)
+            meta->holder->addTo (processor);
         else
-            param->addTo (processor);
+            meta->holder->addTo (dummyProcessor);
     }
 }
 
 void ParameterList::addAllParametersAsInternal()
 {
-    for (auto* param : params)
-        param->addTo (dummyProcessor);
+    for (auto* meta : params)
+        meta->holder->addTo (dummyProcessor);
 }
 
 Parameter* ParameterList::getParameter (int key) const
 {
-    for (auto* holder : params)
+    for (auto* meta : params)
     {
-        auto* param = holder->getParam();
+        auto* param = meta->holder->getParam();
         if (param->key == key)
             return param;
     }
@@ -74,7 +65,7 @@ int ParameterList::getNextKeyNumber() const
 
     for (auto* holder : params)
     {
-        auto* param = holder->getParam();
+        auto* param = meta->holder->getParam();
         if (param->key > highestKey)
             highestKey = param->key;
     }

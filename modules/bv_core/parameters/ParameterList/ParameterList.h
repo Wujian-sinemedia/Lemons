@@ -26,8 +26,18 @@ public:
     int getNextKeyNumber() const;
 
 private:
-    juce::OwnedArray< ParamHolderBase > params;
-    dsp::ProcessorBase                  dummyProcessor;
+    struct ParamHolderMetadata
+    {
+        ParamHolderMetadata (ParamHolderBase* h, bool internal)
+            : holder (h), isInternal(internal)
+        { }
+        
+        ParamHolderBase* holder;
+        bool isInternal;
+    };
+    
+    juce::Array< ParamHolderMetadata > params;
+    dsp::ProcessorBase                 dummyProcessor;
 };
 
 }  // namespace bav
