@@ -88,7 +88,7 @@ juce::ValueTree ParameterList::toValueTree() const
     juce::ValueTree tree {"Parameters"};
     
     for (auto meta : params)
-        meta.holder.getParam()->serialize (tree);
+        meta->serialize (tree);
     
     return tree;
 }
@@ -96,7 +96,7 @@ juce::ValueTree ParameterList::toValueTree() const
 void ParameterList::restoreFromValueTree (const juce::ValueTree& tree)
 {
     for (auto meta : params)
-        meta.holder.getParam()->deserialize (tree);
+        meta->deserialize (tree);
 }
 
 }  // namespace bav

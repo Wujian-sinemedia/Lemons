@@ -18,6 +18,7 @@ struct SerializableData
     {
         ValueTree child {dataIdentifier};
         toValueTree (child);
+        
         tree.appendChild (child, nullptr);
     }
     
@@ -26,6 +27,7 @@ struct SerializableData
         auto t = tree.getChildWithName (dataIdentifier);
         if (t.isValid()) fromValueTree (t);
     }
+    
     
     const juce::Identifier dataIdentifier;
     

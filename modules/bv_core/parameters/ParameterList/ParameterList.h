@@ -45,7 +45,7 @@ public:
 
     
 private:
-    struct ParamHolderMetadata
+    struct ParamHolderMetadata  :   SerializableData
     {
         ParamHolderMetadata (ParamHolderBase& h, bool internal)
             : holder (h), isInternal(internal)
@@ -53,6 +53,17 @@ private:
         
         ParamHolderBase& holder;
         bool isInternal;
+        
+    private:
+        void toValueTree (ValueTree& tree) const override final
+        {
+            holder.getParam()->serialize (tree);
+        }
+        
+        void fromValueTree (const ValueTree& tree) override final
+        {
+            holder.getParam()->deserialize (tree);
+        }
     };
     
     juce::Array< ParamHolderMetadata > params;
