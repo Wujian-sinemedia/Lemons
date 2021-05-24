@@ -24,6 +24,8 @@ public:
     
     Parameter* getParameter (int key) const;
     
+    int getNextKeyNumber() const;
+    
 private:
     juce::OwnedArray<ParamHolderBase> params;
     dsp::ProcessorBase dummyProcessor;

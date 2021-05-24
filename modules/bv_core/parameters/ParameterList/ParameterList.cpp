@@ -58,4 +58,15 @@ Parameter* ParameterList::getParameter (int key) const
     return nullptr;
 }
 
+int ParameterList::getNextKeyNumber() const
+{
+    int highestKey = 0;
+    
+    for (auto* param : params)
+        if (param->key > highestKey)
+            highestKey = param->key;
+    
+    return ++highestKey;
+}
+
 }  // namespace
