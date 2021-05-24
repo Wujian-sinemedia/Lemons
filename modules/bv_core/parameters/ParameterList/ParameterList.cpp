@@ -83,7 +83,7 @@ juce::ValueTree ParameterList::toValueTree() const
     juce::ValueTree tree {"Parameters"};
     
     for (auto meta : params)
-        tree.appendChild (meta.holder.getParam()->toValueTree());
+        tree.appendChild (meta.holder.getParam()->toValueTree(), nullptr);
     
     return tree;
 }
@@ -91,7 +91,7 @@ juce::ValueTree ParameterList::toValueTree() const
 void ParameterList::restoreFromValueTree (const juce::ValueTree& tree)
 {
     for (auto meta : params)
-        meta.holder.getParam().restoreFromValueTree (tree);
+        meta.holder.getParam()->restoreFromValueTree (tree);
 }
 
 }  // namespace bav
