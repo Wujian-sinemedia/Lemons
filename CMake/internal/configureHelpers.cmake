@@ -66,7 +66,6 @@ function (_configure_juce_app target useBrowser useSynthModule)
     _adjustDefaultMacTarget (${target} ${target})
 
     target_link_libraries (${target} PUBLIC
-        bv_data_model
         bv_dsp
         bv_gui
         bv_midi
