@@ -29,19 +29,19 @@ public:
     float getFloatValue() const;
     int   getIntValue() const;
     bool  getBoolValue() const;
-    
+
     float getCurrentNormalizedValue() const;
     float getCurrentDenormalizedValue() const;
     void  setNormalizedValue (float value);
     void  setDenormalizedValue (float value);
-    
+
     float normalize (float input) const;
     float denormalize (float input) const;
 
     bool isChanging() const;
 
     void doAction();
-    
+
     // if defined, these functions will be called on the message thread when this parameter changes ("somewhat synchronously"):
     std::function< void (float) > onParameterChange;  // this gets the denormalized new float value
     std::function< void (float) > onDefaultChange;
