@@ -33,6 +33,11 @@ public:
 
     int getNextKeyNumber() const;
     
+    void refreshAllDefaults();
+    void resetAllToDefault();
+    
+    void doAllActions();
+    
     virtual juce::ValueTree toValueTree() const = 0;
     virtual void restoreFromValueTree (const juce::ValueTree& tree) = 0;
 

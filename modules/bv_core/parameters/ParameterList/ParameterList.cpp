@@ -60,4 +60,22 @@ int ParameterList::getNextKeyNumber() const
     return ++highestKey;
 }
 
+void ParameterList::refreshAllDefaults()
+{
+    for (auto meta : params)
+        meta.holder.getParam()->refreshDefault();
+}
+
+void ParameterList::resetAllToDefault()
+{
+    for (auto meta : params)
+        meta.holder.getParam()->resetToDefault();
+}
+
+void doAllActions()
+{
+    for (auto meta : params)
+        meta.holder.getParam()->doAction();
+}
+
 }  // namespace bav
