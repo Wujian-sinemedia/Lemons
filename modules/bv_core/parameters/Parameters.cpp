@@ -410,7 +410,7 @@ void MeterParameter::restoreFromValueTree (const juce::ValueTree& tree)
     jassert (tree.hasType (Parameter_Meter));
     
     AudioParameterFloat::setValueNotifyingHost (tree.getProperty (ParameterValue));
-    Parameter::setDefault (tree.getProperty (ParameterDefaultValue));
+    Parameter::setDefault (float (tree.getProperty (ParameterDefaultValue)));
 }
 
 

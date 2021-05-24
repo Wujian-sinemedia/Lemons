@@ -1,16 +1,18 @@
 
+#pragma once
+
 namespace bav::gui
 {
 class ComponentWithParameterConnection : public juce::Component
 {
 public:
-    ComponentWithParameterConnection (Parameter*         parameter,
+    ComponentWithParameterConnection (Parameter&         parameter,
                                       juce::ValueTree&   vt,
                                       juce::UndoManager& um)
         : state (vt), parameterName (parameter->parameterNameVerbose), undoManager (um)
     {
-        setName (parameter->parameterNameVerbose);
-        setComponentID (parameter->parameterNameVerbose);
+        setName (parameter.parameterNameVerbose);
+        setComponentID (parameter.parameterNameVerbose);
 
         parameterValue.referTo (state, DefaultValueTreeIds::ParameterValue, nullptr);
         parameterIsChanging.referTo (
@@ -57,32 +59,6 @@ protected:
 
     juce::CachedValue< float > parameterValue;
     juce::CachedValue< bool >  parameterIsChanging;
-
-    juce::UndoManager& undoManager;
-};
-
-
-/*=========================================================================================*/
-/*=========================================================================================*/
-
-
-class ComponentWithPropertyConnection : public juce::Component
-{
-public:
-    ComponentWithPropertyConnection (NonParamValueTreeNode* property,
-                                     juce::ValueTree&       vt,
-                                     juce::UndoManager&     um)
-        : state (vt), propertyName (property->longName), undoManager (um)
-    {
-        setName (property->longName);
-        setComponentID (property->longName);
-    }
-
-
-protected:
-    juce::ValueTree state;
-
-    const juce::String propertyName;
 
     juce::UndoManager& undoManager;
 };
