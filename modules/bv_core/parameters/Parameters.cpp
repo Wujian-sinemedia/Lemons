@@ -142,7 +142,7 @@ void Parameter::setBoolAction (std::function< void (bool) > action)
 
 bool Parameter::isChanging() const
 {
-    return changing.load();
+    return changing;
 }
 
 void Parameter::parameterValueChanged (int, float)
@@ -154,7 +154,7 @@ void Parameter::parameterValueChanged (int, float)
 
 void Parameter::parameterGestureChanged (int, bool gestureIsStarting)
 {
-    changing.store (gestureIsStarting);
+    changing = gestureIsStarting;
     if (onGestureStateChange)
         bav::callOnMessageThread< bool > (onGestureStateChange,
                                           gestureIsStarting);
@@ -249,8 +249,8 @@ void FloatParameter::restoreFromValueTree (const juce::ValueTree& tree)
     using namespace DefaultValueTreeIds;
     jassert (tree.hasType (Parameter_Float));
 
-    AudioParameterFloat::setValueNotifyingHost (tree.getProperty (ParameterValue));
-    Parameter::setDefault (float (tree.getProperty (ParameterDefaultValue)));
+    set (tree.getProperty (ParameterValue));
+    setDefault (float (tree.getProperty (ParameterDefaultValue)));
 }
 
 void FloatParameter::addListener (Listener* l)
@@ -356,8 +356,8 @@ void IntParameter::restoreFromValueTree (const juce::ValueTree& tree)
     using namespace DefaultValueTreeIds;
     jassert (tree.hasType (Parameter_Int));
 
-    AudioParameterInt::setValueNotifyingHost (tree.getProperty (ParameterValue));
-    Parameter::setDefault (int (tree.getProperty (ParameterDefaultValue)));
+    set (tree.getProperty (ParameterValue));
+    setDefault (int (tree.getProperty (ParameterDefaultValue)));
 }
 
 void IntParameter::addListener (Listener* l)
@@ -425,7 +425,7 @@ void BoolParameter::set (bool newValue)
 
 void BoolParameter::setDefault (bool newDefaultValue)
 {
-    const auto val = newValue ? 1.0f : 0.0f;
+    const auto val = newDefaultValue ? 1.0f : 0.0f;
     Parameter::setNormalizedDefault (val);
     listeners.call ([&newDefaultValue] (Listener& l)
                     { l.parameterDefaultChanged (newDefaultValue); });
@@ -461,8 +461,8 @@ void BoolParameter::restoreFromValueTree (const juce::ValueTree& tree)
     using namespace DefaultValueTreeIds;
     jassert (tree.hasType (Parameter_Bool));
 
-    AudioParameterBool::setValueNotifyingHost (tree.getProperty (ParameterValue));
-    Parameter::setDefault (bool (tree.getProperty (ParameterDefaultValue)));
+    set (tree.getProperty (ParameterValue));
+    setDefault (bool (tree.getProperty (ParameterDefaultValue)));
 }
 
 void BoolParameter::addListener (Listener* l)
@@ -524,8 +524,8 @@ void MeterParameter::restoreFromValueTree (const juce::ValueTree& tree)
     using namespace DefaultValueTreeIds;
     jassert (tree.hasType (Parameter_Meter));
 
-    AudioParameterFloat::setValueNotifyingHost (tree.getProperty (ParameterValue));
-    Parameter::setDefault (float (tree.getProperty (ParameterDefaultValue)));
+    FloatParameter::set (tree.getProperty (ParameterValue));
+    FloatParameter::setDefault (float (tree.getProperty (ParameterDefaultValue)));
 }
 
 
