@@ -32,12 +32,12 @@ void ParameterList::addParameter (ParamHolderBase& param, bool isInternal)
     
     auto* parameter = param.getParam();
     
-    if (auto* p = dynamic_cast<FloatParameter*> (parameter))
-        params.add (new FloatParam (p));
-    else if (auto* p = dynamic_cast<IntParameter*> (parameter))
-        params.add (new IntParam (p));
-    else if (auto* p = dynamic_cast<BoolParameter*> (parameter))
-        params.add (new BoolParam (p));
+    if (auto* f = dynamic_cast<FloatParameter*> (parameter))
+        params.add (new FloatParam (f));
+    else if (auto* i = dynamic_cast<IntParameter*> (parameter))
+        params.add (new IntParam (i));
+    else if (auto* b = dynamic_cast<BoolParameter*> (parameter))
+        params.add (new BoolParam (b));
     else
         jassertfalse;
 }
@@ -61,9 +61,12 @@ void ParameterList::addAllParametersAsInternal()
 
 Parameter* ParameterList::getParameter (int key) const
 {
-    for (auto* param : params)
-        if (param->getParam()->key == key)
+    for (auto* holder : params)
+    {
+        auto* param = holder->getParam();
+        if (param->key == key)
             return param;
+    }
     
     return nullptr;
 }
@@ -72,9 +75,12 @@ int ParameterList::getNextKeyNumber() const
 {
     int highestKey = 0;
     
-    for (auto* param : params)
-        if (param->getParam()->key > highestKey)
+    for (auto* holder : params)
+    {
+        auto* param = holder->getParam();
+        if (param->key > highestKey)
             highestKey = param->key;
+    }
     
     return ++highestKey;
 }

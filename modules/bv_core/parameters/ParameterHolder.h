@@ -28,9 +28,9 @@ class ParameterHolder :     public ParamHolderBase
 {
 public:
     template <typename... Args>
-    explicit ParameterHolder (Args&&... args)
+    explicit ParameterHolder (int keyID, Args&&... args)
     {
-        param = new ParameterType (std::forward<Args> (args)...);
+        param = new ParameterType (keyID, std::forward<Args> (args)...);
     }
     
     explicit ParameterHolder (Parameter* p)
