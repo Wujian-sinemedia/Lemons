@@ -12,7 +12,7 @@ struct ParamHolderBase
     
     void addTo (juce::AudioProcessor& processor)
     {
-        processor.addParameter (param);
+        processor.addParameter (getParam()->rap);
         addedToProcessor = true;
     }
     
