@@ -12,7 +12,7 @@ struct ParamHolderBase
     
     void addTo (juce::AudioProcessor& processor)
     {
-        processor.addParameter (getParam()->rap);
+        processor.addParameter (&getParam()->rap);
         addedToProcessor = true;
     }
     
@@ -31,6 +31,11 @@ public:
     explicit ParameterHolder (Args&&... args)
     {
         param = new ParameterType (std::forward<Args> (args)...);
+    }
+    
+    explicit ParameterHolder (Parameter* param)
+    {
+        param = std::move (param);
     }
     
     ~ParameterHolder() override

@@ -27,6 +27,10 @@ public:
     int getNextKeyNumber() const;
     
 private:
+    void internal_add (FloatParameter* param);
+    void internal_add (IntParameter* param);
+    void internal_add (BoolParameter* param);
+     
     juce::OwnedArray<ParamHolderBase> params;
     dsp::ProcessorBase dummyProcessor;
 };

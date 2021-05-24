@@ -29,14 +29,14 @@ void ParameterList::addInternal (ParamHolderBase& param)
 void ParameterList::addParameter (ParamHolderBase& param, bool isInternal)
 {
     param.isInternal = isInternal;
-    params.add (new ParamHolderBase (param););
+    internal_add (param.getParam());
 }
 
 void ParameterList::addParametersTo (juce::AudioProcessor& processor)
 {
     for (auto* param : params)
     {
-        if (param.isInternal)
+        if (param->isInternal)
             param->addTo (dummyProcessor);
         else
             param->addTo (processor);
@@ -52,7 +52,7 @@ void ParameterList::addAllParametersAsInternal()
 Parameter* ParameterList::getParameter (int key) const
 {
     for (auto* param : params)
-        if (param->key == key)
+        if (param->getParam()->key == key)
             return param;
     
     return nullptr;
@@ -63,10 +63,25 @@ int ParameterList::getNextKeyNumber() const
     int highestKey = 0;
     
     for (auto* param : params)
-        if (param->key > highestKey)
+        if (param->getParam()->key > highestKey)
             highestKey = param->key;
     
     return ++highestKey;
+}
+
+void ParameterList::internal_add (FloatParameter* param)
+{
+    params.add (new FloatParam (param));
+}
+
+void ParameterList::internal_add (IntParameter* param)
+{
+    params.add (new IntParam (param));
+}
+
+void ParameterList::internal_add (BoolParameter* param)
+{
+    params.add (new BoolParam (param));
 }
 
 }  // namespace
