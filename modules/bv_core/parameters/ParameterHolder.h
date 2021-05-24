@@ -49,7 +49,7 @@ public:
     Parameter* getParam() const override final { return param; }
     ParameterType* get() const { return param; }
 
-                   operator ParameterType&() { return &param; }
+                   operator ParameterType&() { return *param; }
     ParameterType* operator->() { return param; }
     ParameterType& operator*() { return *param; }
 
