@@ -1,4 +1,6 @@
 
+#pragma once
+
 namespace bav
 {
 static inline juce::var valueTreeToVar (const juce::ValueTree& v)

@@ -58,7 +58,6 @@
 #include "misc/RealtimeSpinLock.h"
 #include "misc/ValueListeners.h"
 
-#include "valuetrees/DefaultValueTreeIDs.h"
 #include "valuetrees/json_converter.h"
 
 #include "serializing/SerializableData.h"

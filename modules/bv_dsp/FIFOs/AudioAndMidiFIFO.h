@@ -1,4 +1,6 @@
 
+#pragma once
+
 namespace bav::dsp
 {
 /* A FIFO that manages both audio samples and MIDI events */

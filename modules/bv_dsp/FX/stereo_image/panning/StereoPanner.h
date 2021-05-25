@@ -1,4 +1,6 @@
 
+#pragma once
+
 namespace bav::dsp::FX
 {
 template < typename SampleType >

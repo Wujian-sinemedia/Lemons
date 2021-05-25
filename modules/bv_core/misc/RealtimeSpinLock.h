@@ -1,4 +1,7 @@
 
+#pragma once
+
+
 namespace bav
 {
 /* A basic spin lock where try_lock() is safe to call from the realtime thread and will never result in a system call. */

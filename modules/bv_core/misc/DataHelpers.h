@@ -1,7 +1,5 @@
 
-/*
-    This file includes some useful data serialization functions.
-*/
+#pragma once
 
 
 namespace bav

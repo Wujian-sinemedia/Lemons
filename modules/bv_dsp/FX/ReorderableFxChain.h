@@ -1,7 +1,5 @@
 
-/*
- This file defines a basic framework for a reorderable audio effects chain.
- */
+#pragma once
 
 
 namespace bav::dsp

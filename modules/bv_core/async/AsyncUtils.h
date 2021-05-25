@@ -1,4 +1,6 @@
 
+#pragma once
+
 namespace bav
 {
 /* Calls a function synchronously on a background thread */

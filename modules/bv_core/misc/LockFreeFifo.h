@@ -2,6 +2,7 @@
     A simple lock-free, single-producer single-consumer FIFO.
 */
 
+#pragma once
 
 namespace bav
 {

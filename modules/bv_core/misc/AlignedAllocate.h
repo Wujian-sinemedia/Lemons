@@ -1,6 +1,4 @@
-/*
-    This file provides functions that attempt to allocate memory in aligned blocks
-*/
+#pragma once
 
 
 /*

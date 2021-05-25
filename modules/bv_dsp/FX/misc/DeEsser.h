@@ -1,7 +1,4 @@
-/*
- Part of module: bv_SharedCode
- Parent file: bv_SharedCode.h
- */
+#pragma once
 
 /*
     Simple de-esser that works by sending the input signal through an inverted noise gate sidechained by a hi-passed version of the original signal.

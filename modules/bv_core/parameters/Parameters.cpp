@@ -214,16 +214,14 @@ void FloatParameter::onAction()
 
 void FloatParameter::toValueTree (juce::ValueTree& tree) const
 {
-    using namespace DefaultValueTreeIds;
-    tree.setProperty (ParameterValue, get(), nullptr);
-    tree.setProperty (ParameterDefaultValue, getDefault(), nullptr);
+    tree.setProperty ("ParameterValue", get(), nullptr);
+    tree.setProperty ("ParameterDefaultValue", getDefault(), nullptr);
 }
 
 void FloatParameter::fromValueTree (const juce::ValueTree& tree)
 {
-    using namespace DefaultValueTreeIds;
-    set (tree.getProperty (ParameterValue));
-    setDefault (float (tree.getProperty (ParameterDefaultValue)));
+    set (tree.getProperty ("ParameterValue"));
+    setDefault (float (tree.getProperty ("ParameterDefaultValue")));
 }
 
 void FloatParameter::addListener (Listener* l)
@@ -316,16 +314,14 @@ void IntParameter::onAction()
 
 void IntParameter::toValueTree (juce::ValueTree& tree) const
 {
-    using namespace DefaultValueTreeIds;
-    tree.setProperty (ParameterValue, get(), nullptr);
-    tree.setProperty (ParameterDefaultValue, getDefault(), nullptr);
+    tree.setProperty ("ParameterValue", get(), nullptr);
+    tree.setProperty ("ParameterDefaultValue", getDefault(), nullptr);
 }
 
 void IntParameter::fromValueTree (const juce::ValueTree& tree)
 {
-    using namespace DefaultValueTreeIds;
-    set (tree.getProperty (ParameterValue));
-    setDefault (float (tree.getProperty (ParameterDefaultValue)));
+    set (tree.getProperty ("ParameterValue"));
+    setDefault (float (tree.getProperty ("ParameterDefaultValue")));
 }
 
 void IntParameter::addListener (Listener* l)
@@ -416,16 +412,14 @@ void BoolParameter::onAction()
 
 void BoolParameter::toValueTree (juce::ValueTree& tree) const
 {
-    using namespace DefaultValueTreeIds;
-    tree.setProperty (ParameterValue, get(), nullptr);
-    tree.setProperty (ParameterDefaultValue, getDefault(), nullptr);
+    tree.setProperty ("ParameterValue", get(), nullptr);
+    tree.setProperty ("ParameterDefaultValue", getDefault(), nullptr);
 }
 
 void BoolParameter::fromValueTree (const juce::ValueTree& tree)
 {
-    using namespace DefaultValueTreeIds;
-    set (tree.getProperty (ParameterValue));
-    setDefault (float (tree.getProperty (ParameterDefaultValue)));
+    set (tree.getProperty ("ParameterValue"));
+    setDefault (float (tree.getProperty ("ParameterDefaultValue")));
 }
 
 void BoolParameter::addListener (Listener* l)

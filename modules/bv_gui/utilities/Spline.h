@@ -1,4 +1,6 @@
 
+#pragma once
+
 /* Cubic spline interpolation is a simple way to obtain a smooth curve from a set of discrete points.
  It has both C1 (first derivative) and C2 (second derivative) continuity, enabling it to produce a continuous piecewise function given a set of data points.
  Add points in increasing x order. */

@@ -1,7 +1,5 @@
 
-/*
-    Wraps the juce::Delay into a processor that includes a dry/wet amount
-*/
+#pragma once
 
 
 namespace bav::dsp::FX

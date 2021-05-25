@@ -3,6 +3,8 @@
     ASDF-based pitch detector
 */
 
+#pragma once
+
 namespace bav::dsp
 {
 template < typename SampleType >

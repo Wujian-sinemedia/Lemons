@@ -1,5 +1,6 @@
-/** Async Download. Doesn't have the main thread pause the URL::downloadToFile has
- */
+
+#pragma once
+
 class AsyncDownload : private juce::Thread, private juce::AsyncUpdater
 {
 public:
