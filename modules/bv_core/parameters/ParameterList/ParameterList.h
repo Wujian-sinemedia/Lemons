@@ -7,8 +7,7 @@ class ParameterList  :      public SerializableData
 {
 public:
     ParameterList (juce::Identifier listName);
-    
-    virtual ~ParameterList() = default;
+    virtual ~ParameterList() override = default;
 
     template < typename... Args >
     void add (ParamHolderBase& param, Args&&... args)
