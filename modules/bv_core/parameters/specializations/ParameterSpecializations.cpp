@@ -32,7 +32,7 @@ floatToString (stringFromValue), stringToFloat (valueFromString)
 
 float FloatParameter::get() const
 {
-    return Parameter::getFloatValue();
+    return Parameter::getCurrentDenormalizedValue();
 }
 
 float FloatParameter::getDefault() const
@@ -132,7 +132,7 @@ intToString (stringFromInt), stringToInt (intFromString)
 
 int IntParameter::get() const
 {
-    return Parameter::getIntValue();
+    return juce::roundToInt (Parameter::getCurrentDenormalizedValue());
 }
 
 int IntParameter::getDefault() const
@@ -228,7 +228,7 @@ boolToString (stringFromBool), stringToBool (boolFromString)
 
 bool BoolParameter::get() const
 {
-    return Parameter::getBoolValue();
+    return Parameter::getCurrentNormalizedValue() >= 0.5f;
 }
 
 bool BoolParameter::getDefault() const
