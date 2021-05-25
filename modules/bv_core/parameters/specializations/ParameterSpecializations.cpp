@@ -8,12 +8,12 @@ FloatParameter::FloatParameter (
                                 juce::NormalisableRange< float >
                                 nRange,
                                 float                                   defaultVal,
-                                juce::String                            parameterLabel,
                                 juce::AudioProcessorParameter::Category parameterCategory,
                                 std::function< juce::String (float value, int maximumStringLength) >
                                 stringFromValue,
                                 std::function< float (const juce::String& text) >
-                                valueFromString)
+                                valueFromString,
+                                juce::String parameterLabel)
 : AudioParameterFloat (paramNameVerbose,
                        TRANS (paramNameVerbose),
                        nRange,
@@ -108,11 +108,11 @@ IntParameter::IntParameter (
                             int          min,
                             int          max,
                             int          defaultVal,
-                            juce::String parameterLabel,
                             std::function< juce::String (int value, int maximumStringLength) >
                             stringFromInt,
                             std::function< int (const juce::String& text) >
-                            intFromString)
+                            intFromString,
+                            juce::String parameterLabel)
 : AudioParameterInt (paramNameVerbose,
                      TRANS (paramNameVerbose),
                      min,
@@ -206,7 +206,6 @@ BoolParameter::BoolParameter (
                               juce::String paramNameShort,
                               juce::String paramNameVerbose,
                               bool         defaultVal,
-                              juce::String parameterLabel,
                               std::function< juce::String (bool value, int maximumStringLength) >
                               stringFromBool,
                               std::function< bool (const juce::String& text) >
@@ -214,7 +213,7 @@ BoolParameter::BoolParameter (
 : AudioParameterBool (paramNameVerbose,
                       TRANS (paramNameVerbose),
                       defaultVal,
-                      parameterLabel,
+                      juce::String(),
                       stringFromBool,
                       boolFromString),
 Parameter (*this,
@@ -306,12 +305,12 @@ MeterParameter::MeterParameter (
                                 juce::NormalisableRange< float >
                                 nRange,
                                 float                                   defaultVal,
-                                juce::String                            parameterLabel,
                                 juce::AudioProcessorParameter::Category parameterCategory,
                                 std::function< juce::String (float value, int maximumStringLength) >
                                 stringFromValue,
                                 std::function< float (const juce::String& text) >
-                                valueFromString)
+                                valueFromString,
+                                juce::String parameterLabel)
 
 : FloatParameter (paramNameShort,
                   paramNameVerbose,
@@ -337,10 +336,10 @@ GainMeterParameter::GainMeterParameter (juce::String                            
                   paramNameVerbose,
                   juce::NormalisableRange< float > (-60.0f, 0.0f, 0.01f),
                   -60.0f,
-                  TRANS ("dB"),
                   parameterCategory,
                   ParameterValueConversionLambdas::gain_stringFromFloat,
-                  ParameterValueConversionLambdas::gain_floatFromString)
+                  ParameterValueConversionLambdas::gain_floatFromString,
+                  TRANS ("dB"))
 {
 }
 

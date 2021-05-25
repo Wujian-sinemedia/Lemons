@@ -15,12 +15,12 @@ public:
                     juce::NormalisableRange< float >
                     nRange,
                     float                                   defaultVal,
-                    juce::String                            parameterLabel = juce::String(),
                     juce::AudioProcessorParameter::Category parameterCategory =
                     juce::AudioProcessorParameter::genericParameter,
                     std::function< juce::String (float value, int maximumStringLength) >
                     stringFromValue = nullptr,
-                    std::function< float (const juce::String& text) > valueFromString = nullptr);
+                    std::function< float (const juce::String& text) > valueFromString = nullptr,
+                    juce::String parameterLabel = juce::String());
     
     float get() const;
     float getDefault() const;
@@ -76,10 +76,10 @@ public:
                   int          min,
                   int          max,
                   int          defaultVal,
-                  juce::String parameterLabel = juce::String(),
                   std::function< juce::String (int value, int maximumStringLength) >
                   stringFromInt = nullptr,
-                  std::function< int (const juce::String& text) > intFromString = nullptr);
+                  std::function< int (const juce::String& text) > intFromString = nullptr,
+                  juce::String parameterLabel = juce::String());
     
     int get() const;
     int getDefault() const;
@@ -133,7 +133,6 @@ public:
                    juce::String paramNameShort,
                    juce::String paramNameVerbose,
                    bool         defaultVal,
-                   juce::String parameterLabel = juce::String(),
                    std::function< juce::String (bool value, int maximumStringLength) >
                    stringFromBool = nullptr,
                    std::function< bool (const juce::String& text) > boolFromString = nullptr);
@@ -189,12 +188,12 @@ struct MeterParameter : public FloatParameter
                     juce::NormalisableRange< float >
                     nRange,
                     float                                   defaultVal,
-                    juce::String                            parameterLabel = juce::String(),
                     juce::AudioProcessorParameter::Category parameterCategory =
                     juce::AudioProcessorParameter::genericParameter,
                     std::function< juce::String (float value, int maximumStringLength) >
                     stringFromValue = nullptr,
-                    std::function< float (const juce::String& text) > valueFromString = nullptr);
+                    std::function< float (const juce::String& text) > valueFromString = nullptr,
+                    juce::String parameterLabel = juce::String());
     
     bool isAutomatable() const override final { return false; }
     
