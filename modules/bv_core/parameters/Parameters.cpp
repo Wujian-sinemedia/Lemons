@@ -43,7 +43,7 @@ void Parameter::setNormalizedDefault (float value)
     currentDefault = value;
 
     if (onDefaultChange)
-        bav::callOnMessageThread< float > (onDefaultChange, value);
+        bav::callOnMessageThread (onDefaultChange);
 }
 
 void Parameter::setDenormalizedDefault (float value)
@@ -113,7 +113,6 @@ void Parameter::doAction()
     if (value != lastActionedValue)
     {
         lastActionedValue = value;
-
         onAction();
     }
 }
@@ -126,8 +125,7 @@ bool Parameter::isChanging() const
 void Parameter::parameterValueChanged (int, float)
 {
     if (onParameterChange)
-        bav::callOnMessageThread< float > (onParameterChange,
-                                           getCurrentDenormalizedValue());
+        bav::callOnMessageThread (onParameterChange);
 }
 
 void Parameter::parameterGestureChanged (int, bool gestureIsStarting)

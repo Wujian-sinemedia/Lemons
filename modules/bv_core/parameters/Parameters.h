@@ -43,8 +43,8 @@ public:
     void doAction();
 
     // if defined, these functions will be called on the message thread when this parameter changes ("somewhat synchronously"):
-    std::function< void (float) > onParameterChange;  // this gets the denormalized new float value
-    std::function< void (float) > onDefaultChange;
+    std::function< void() > onParameterChange;
+    std::function< void() > onDefaultChange;
     std::function< void (bool) >  onGestureStateChange;
 
     //==============================================================================
