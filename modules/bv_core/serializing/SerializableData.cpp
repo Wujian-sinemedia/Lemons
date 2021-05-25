@@ -32,12 +32,17 @@ void SerializableData::deserialize (const ValueTree& tree)
 }
 
 
-void SerializableData::deserialize (const void* data, int sizeInBytes)
+void SerializableData::deserialize (const void* data, size_t sizeInBytes)
 {
-    auto newTree = ValueTree::readFromData (data, static_cast< size_t > (sizeInBytes));
+    auto newTree = ValueTree::readFromData (data, sizeInBytes);
     if (! newTree.isValid()) return;
     
     deserialize (newTree);
+}
+
+void SerializableData::deserialize (const void* data, int sizeInBytes)
+{
+    deserialize (data, static_cast<size_t> (sizeInBytes));
 }
 
 

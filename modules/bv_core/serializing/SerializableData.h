@@ -16,6 +16,7 @@ struct SerializableData
     
     void deserialize (const ValueTree& tree);
     void deserialize (const void* data, int sizeInBytes);
+    void deserialize (const void* data, size_t sizeInBytes);
     
     
     const juce::Identifier dataIdentifier;
