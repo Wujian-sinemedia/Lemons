@@ -73,7 +73,7 @@ void ParameterList::doAllActions()
         meta.holder.getParam()->doAction();
 }
 
-void ParameterList::toValueTree (ValueTree& tree) const
+void ParameterList::toValueTree (ValueTree& tree)
 {
     for (auto meta : params)
         meta.holder.getParam()->serialize (tree);

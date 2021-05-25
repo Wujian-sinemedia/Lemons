@@ -210,7 +210,7 @@ void FloatParameter::onAction()
         actionFunc (get());
 }
 
-void FloatParameter::toValueTree (juce::ValueTree& tree) const
+void FloatParameter::toValueTree (juce::ValueTree& tree)
 {
     tree.setProperty ("ParameterValue", get(), nullptr);
     tree.setProperty ("ParameterDefaultValue", getDefault(), nullptr);
@@ -310,7 +310,7 @@ void IntParameter::onAction()
         actionFunc (get());
 }
 
-void IntParameter::toValueTree (juce::ValueTree& tree) const
+void IntParameter::toValueTree (juce::ValueTree& tree)
 {
     tree.setProperty ("ParameterValue", get(), nullptr);
     tree.setProperty ("ParameterDefaultValue", getDefault(), nullptr);
@@ -408,7 +408,7 @@ void BoolParameter::onAction()
         actionFunc (get());
 }
 
-void BoolParameter::toValueTree (juce::ValueTree& tree) const
+void BoolParameter::toValueTree (juce::ValueTree& tree)
 {
     tree.setProperty ("ParameterValue", get(), nullptr);
     tree.setProperty ("ParameterDefaultValue", getDefault(), nullptr);
