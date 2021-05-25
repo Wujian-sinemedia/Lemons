@@ -3,6 +3,7 @@
 
 namespace bav
 {
+
 struct ParamHolderBase
 {
     ParamHolderBase (bool internal = false) : isInternal (internal) { }
@@ -22,6 +23,9 @@ struct ParamHolderBase
 protected:
     bool addedToProcessor = false;
 };
+
+
+//==============================================================================
 
 
 template < typename ParameterType >

@@ -27,7 +27,8 @@
 #include "building_blocks/ProcessorBase/ProcessorBase.cpp"
 #include "building_blocks/EditorBase/EditorBase.cpp"
 
-#include "parameters/Parameters.cpp"
+#include "parameters/Parameter.cpp"
+#include "parameters/specializations/ParameterSpecializations.cpp"
 #include "parameters/ParameterList/ParameterList.cpp"
 
 #include "async/AsyncUtils.cpp"
