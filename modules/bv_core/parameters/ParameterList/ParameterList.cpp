@@ -111,7 +111,7 @@ ParameterListSynchronizer::~ParameterListSynchronizer()
     Timer::stopTimer();
 }
 
-void ParameterListSynchronizer::applyChangeData (void* data, size_t dataSize)
+void ParameterListSynchronizer::applyChangeData (const void* data, size_t dataSize)
 {
     auto newTree = juce::ValueTree::readFromData (data, dataSize);
     
@@ -124,7 +124,7 @@ void ParameterListSynchronizer::timerCallback()
 {
     juce::MemoryOutputStream m;
     
-    juce::ValueTree {"ParameterListSync"};
+    juce::ValueTree tree {"ParameterListSync"};
     list.serialize (tree).writeToStream (m);
     
     sendChangeData (m.getData(), m.getDataSize());

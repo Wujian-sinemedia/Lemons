@@ -68,12 +68,12 @@ public:
     
     virtual ~ParameterListSynchronizer() override;
     
-    void applyChangeData (void* data, size_t dataSize);
+    void applyChangeData (const void* data, size_t dataSize);
     
 private:
     void timerCallback() override final;
     
-    virtual void sendChangeData (void* data, size_t dataSize) const = 0;
+    virtual void sendChangeData (const void* data, size_t dataSize) const = 0;
     
     ParameterList& list;
 };
