@@ -12,7 +12,7 @@ struct SerializableData
     
     virtual ~SerializableData() = default;
     
-    void serialize (ValueTree& tree);
+    ValueTree& serialize (ValueTree& tree);
     
     void deserialize (const ValueTree& tree);
     

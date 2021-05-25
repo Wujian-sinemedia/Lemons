@@ -41,16 +41,12 @@ public:
     
     
 private:
-    struct ParamHolderMetadata  :   SerializableData
+    struct ParamHolderMetadata
     {
         ParamHolderMetadata (ParamHolderBase& h, bool internal);
         
         ParamHolderBase& holder;
         bool isInternal;
-        
-    private:
-        void toValueTree (ValueTree& tree) const override final;
-        void fromValueTree (const ValueTree& tree) override final;
     };
     
     

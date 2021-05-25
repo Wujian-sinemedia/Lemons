@@ -76,28 +76,17 @@ void ParameterList::doAllActions()
 void ParameterList::toValueTree (ValueTree& tree) const
 {
     for (auto meta : params)
-        meta.serialize (tree);
+        meta.holder.getParam()->serialize (tree);
 }
 
 void ParameterList::fromValueTree (const ValueTree& tree)
 {
     for (auto meta : params)
-        meta.deserialize (tree);
+        meta.holder.getParam()->deserialize (tree);
 }
 
 ParameterList::ParamHolderMetadata::ParamHolderMetadata (ParamHolderBase& h, bool internal)
-: SerializableData (h.getParam()->parameterNameVerbose + "_Metadata"),
-holder (h), isInternal(internal)
+: holder (h), isInternal(internal)
 { }
-
-void ParameterList::ParamHolderMetadata::toValueTree (ValueTree& tree) const
-{
-    holder.getParam()->serialize (tree);
-}
-
-void ParameterList::ParamHolderMetadata::fromValueTree (const ValueTree& tree) 
-{
-    holder.getParam()->deserialize (tree);
-}
 
 }  // namespace bav
