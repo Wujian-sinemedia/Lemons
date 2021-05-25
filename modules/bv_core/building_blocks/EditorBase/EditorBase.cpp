@@ -24,12 +24,4 @@ processorBase (b)
 EditorBase::~EditorBase() { }
 
 
-void EditorBase::resized()
-{
-    processorBase.saveEditorSize (getWidth(), getHeight());
-    resizeTriggered (getLocalBounds());
-}
-
-void EditorBase::resizeTriggered (juce::Rectangle<int>) { }
-
 }  //namespace

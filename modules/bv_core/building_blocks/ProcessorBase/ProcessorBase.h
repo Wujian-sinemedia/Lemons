@@ -40,10 +40,6 @@ public:
     
     bool isBusesLayoutSupported(const BusesLayout& layout) const override;
     
-    virtual void saveEditorSize (int width, int height);
-    
-    virtual juce::Point<int> getSavedEditorSize() const;
-
     /*=========================================================================================*/
 
 protected:

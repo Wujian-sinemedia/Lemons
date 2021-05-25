@@ -11,11 +11,8 @@ public:
     EditorBase(dsp::ProcessorBase& b);
     virtual ~EditorBase() override;
     
-    void resized() override final;
     
 protected:
-    virtual void resizeTriggered (juce::Rectangle<int> area);
-    
     dsp::ProcessorBase& processorBase;
     
     bool darkMode = true;

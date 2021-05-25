@@ -46,14 +46,6 @@ bool ProcessorBase::isBusesLayoutSupported(const BusesLayout& layout) const
     return isValid (layout.getMainInputChannelSet()) && isValid (layout.getMainOutputChannelSet());
 }
 
-void ProcessorBase::saveEditorSize (int width, int height)
-{
-    savedEditorSize.x = width;
-    savedEditorSize.y = height;
-}
-
-juce::Point<int> ProcessorBase::getSavedEditorSize() const { return savedEditorSize; }
-
 juce::AudioProcessor::BusesProperties ProcessorBase::createBusProperties() const
 {
     const auto stereo = juce::AudioChannelSet::stereo();
