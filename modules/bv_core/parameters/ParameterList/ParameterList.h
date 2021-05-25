@@ -29,7 +29,7 @@ public:
     void addParametersTo (juce::AudioProcessor& processor);
     void addAllParametersAsInternal();
 
-    Parameter* getParameter (int key) const;
+    Parameter* getParameter (juce::String parameterNameVerbose) const;
 
     int getNextKeyNumber() const;
     

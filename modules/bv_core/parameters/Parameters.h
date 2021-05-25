@@ -9,15 +9,14 @@ class Parameter :   public bav::SerializableData,
 public:
     using RangedParam = juce::RangedAudioParameter;
 
-    Parameter (int          keyID,
-               RangedParam& p,
+    Parameter (RangedParam& p,
                float        defaultValue,
                juce::String paramNameShort,
                juce::String paramNameVerbose);
 
     virtual ~Parameter() override;
 
-    bool operator== (const Parameter& other) const { return key == other.key; }
+    bool operator== (const Parameter& other);
 
     void  refreshDefault();  // sets the parameter's current value to be the default value
     void  resetToDefault();  // resets the parameter's value to the default
@@ -52,8 +51,6 @@ public:
 
     RangedParam& rap;
 
-    const int key;
-
     const juce::String parameterNameShort;
     const juce::String parameterNameVerbose;
 
@@ -85,7 +82,6 @@ public:
     using AudioParameterFloat = juce::AudioParameterFloat;
 
     FloatParameter (
-        int          keyID,
         juce::String paramNameShort,
         juce::String paramNameVerbose,
         juce::NormalisableRange< float >
@@ -147,7 +143,6 @@ public:
     using AudioParameterInt = juce::AudioParameterInt;
 
     IntParameter (
-        int          keyID,
         juce::String paramNameShort,
         juce::String paramNameVerbose,
         int          min,
@@ -207,7 +202,6 @@ public:
     using AudioParameterBool = juce::AudioParameterBool;
 
     BoolParameter (
-        int          keyID,
         juce::String paramNameShort,
         juce::String paramNameVerbose,
         bool         defaultVal,

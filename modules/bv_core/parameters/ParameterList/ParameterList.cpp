@@ -34,12 +34,12 @@ void ParameterList::addAllParametersAsInternal()
         meta.holder.addTo (dummyProcessor);
 }
 
-Parameter* ParameterList::getParameter (int key) const
+Parameter* ParameterList::getParameter (juce::String parameterNameVerbose) const
 {
     for (auto meta : params)
     {
         auto* param = meta.holder.getParam();
-        if (param->key == key)
+        if (param->parameterNameVerbose == parameterNameVerbose)
             return param;
     }
 

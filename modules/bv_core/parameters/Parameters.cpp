@@ -1,14 +1,12 @@
 
 namespace bav
 {
-Parameter::Parameter (int          keyID,
-                      RangedParam& p,
+Parameter::Parameter (RangedParam& p,
                       float        defaultValue,
                       juce::String paramNameShort,
                       juce::String paramNameVerbose)
     : SerializableData (paramNameVerbose),
       rap (p),
-      key (keyID),
       parameterNameShort (TRANS (paramNameShort)),
       parameterNameVerbose (TRANS (paramNameVerbose))
 {
@@ -19,6 +17,11 @@ Parameter::Parameter (int          keyID,
 Parameter::~Parameter()
 {
     rap.removeListener (this);
+}
+
+bool Parameter::operator== (const Parameter& other)
+{
+    return parameterNameShort == other.parameterNameShort && parameterNameVerbose == other.parameterNameVerbose;
 }
 
 float Parameter::getNormalizedDefault() const
@@ -141,7 +144,6 @@ void Parameter::parameterGestureChanged (int, bool gestureIsStarting)
 
 
 FloatParameter::FloatParameter (
-    int          keyID,
     juce::String paramNameShort,
     juce::String paramNameVerbose,
     juce::NormalisableRange< float >
@@ -161,8 +163,7 @@ FloatParameter::FloatParameter (
                            parameterCategory,
                            stringFromValue,
                            valueFromString),
-      Parameter (keyID,
-                 *this,
+      Parameter (*this,
                  nRange.convertTo0to1 (defaultVal),
                  paramNameShort,
                  paramNameVerbose),
@@ -245,7 +246,6 @@ void FloatParameter::Listener::parameterGestureStateChanged (bool) { }
 
 
 IntParameter::IntParameter (
-    int          keyID,
     juce::String paramNameShort,
     juce::String paramNameVerbose,
     int          min,
@@ -264,8 +264,7 @@ IntParameter::IntParameter (
                          parameterLabel,
                          stringFromInt,
                          intFromString),
-      Parameter (keyID,
-                 *this,
+      Parameter (*this,
                  AudioParameterInt::getNormalisableRange().convertTo0to1 (
                      static_cast< float > (defaultVal)),
                  paramNameShort,
@@ -349,7 +348,6 @@ void IntParameter::Listener::parameterGestureStateChanged (bool) { }
 
 
 BoolParameter::BoolParameter (
-    int          keyID,
     juce::String paramNameShort,
     juce::String paramNameVerbose,
     bool         defaultVal,
@@ -364,8 +362,7 @@ BoolParameter::BoolParameter (
                           parameterLabel,
                           stringFromBool,
                           boolFromString),
-      Parameter (keyID,
-                 *this,
+      Parameter (*this,
                  AudioParameterBool::getNormalisableRange().convertTo0to1 (
                      static_cast< float > (defaultVal)),
                  paramNameShort,
@@ -451,7 +448,6 @@ void BoolParameter::Listener::parameterGestureStateChanged (bool) { }
 
 
 MeterParameter::MeterParameter (
-    int          keyID,
     juce::String paramNameShort,
     juce::String paramNameVerbose,
     juce::NormalisableRange< float >
@@ -464,8 +460,7 @@ MeterParameter::MeterParameter (
     std::function< float (const juce::String& text) >
         valueFromString)
 
-    : FloatParameter (keyID,
-                      paramNameShort,
+    : FloatParameter (paramNameShort,
                       paramNameVerbose,
                       nRange,
                       defaultVal,
@@ -481,13 +476,11 @@ MeterParameter::MeterParameter (
  -----------------------------------------------------------------------------------------------------------------------*/
 
 
-GainMeterParameter::GainMeterParameter (int                                     keyID,
-                                        juce::String                            paramNameShort,
+GainMeterParameter::GainMeterParameter (juce::String                            paramNameShort,
                                         juce::String                            paramNameVerbose,
                                         juce::AudioProcessorParameter::Category parameterCategory)
 
-    : MeterParameter (keyID,
-                      paramNameShort,
+    : MeterParameter (paramNameShort,
                       paramNameVerbose,
                       juce::NormalisableRange< float > (-60.0f, 0.0f, 0.01f),
                       -60.0f,
