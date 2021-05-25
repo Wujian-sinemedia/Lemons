@@ -89,7 +89,7 @@
 #include "parameters/helpers/ParameterHelpers.h"
 #include "parameters/mappings/MidiCC_Mapping.h"
 #include "parameters/mappings/LFO_Mapping.h"
-#include "parameters/ParameterListParameterHolder.h"
+#include "parameters/ParameterList/ParameterHolder.h"
 #include "parameters/ParameterList/ParameterList.h"
 
 
