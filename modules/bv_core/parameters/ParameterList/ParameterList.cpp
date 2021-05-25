@@ -83,6 +83,9 @@ void ParameterList::fromValueTree (const ValueTree& tree)
 {
     for (auto meta : params)
         meta.holder.getParam()->deserialize (tree);
+    
+    refreshAllDefaults();
+    doAllActions();
 }
 
 ParameterList::ParamHolderMetadata::ParamHolderMetadata (ParamHolderBase& h, bool internal)
