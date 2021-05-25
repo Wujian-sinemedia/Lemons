@@ -123,7 +123,7 @@ private:
     void onGestureChange (bool gestureIsStarting) override final;
     void onAction() override final;
     
-    void toValueTree (juce::ValueTree& tree) const override final;
+    void toValueTree (juce::ValueTree& tree) override final;
     void fromValueTree (const juce::ValueTree& tree) override final;
     
     std::function< void (float) > actionFunc;
@@ -182,7 +182,7 @@ private:
     void onGestureChange (bool gestureIsStarting) override final;
     void onAction() override final;
     
-    void toValueTree (juce::ValueTree& tree) const override final;
+    void toValueTree (juce::ValueTree& tree) override final;
     void fromValueTree (const juce::ValueTree& tree) override final;
 
     std::function< void (int) > actionFunc;
@@ -239,7 +239,7 @@ private:
     void onGestureChange (bool gestureIsStarting) override final;
     void onAction() override final;
     
-    void toValueTree (juce::ValueTree& tree) const override final;
+    void toValueTree (juce::ValueTree& tree) override final;
     void fromValueTree (const juce::ValueTree& tree) override final;
 
     std::function< void (bool) > actionFunc;

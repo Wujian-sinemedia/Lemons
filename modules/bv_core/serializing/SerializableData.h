@@ -21,7 +21,7 @@ struct SerializableData
     const juce::Identifier dataIdentifier;
     
 private:
-    virtual void toValueTree (ValueTree& tree) const = 0;
+    virtual void toValueTree (ValueTree& tree) = 0;
     virtual void fromValueTree (const ValueTree& tree) = 0;
 };
 

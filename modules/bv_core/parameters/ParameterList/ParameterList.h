@@ -49,7 +49,7 @@ private:
         bool isInternal;
     };
     
-    virtual void toValueTree (ValueTree& tree) const override;
+    virtual void toValueTree (ValueTree& tree) override;
     virtual void fromValueTree (const ValueTree& tree) override;
     
     juce::Array< ParamHolderMetadata > params;
