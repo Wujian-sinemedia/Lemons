@@ -31,8 +31,6 @@ public:
 
     Parameter* getParameter (juce::String parameterNameVerbose) const;
 
-    int getNextKeyNumber() const;
-    
     int getNumParameters() const;
     
     void refreshAllDefaults();

@@ -46,20 +46,6 @@ Parameter* ParameterList::getParameter (juce::String parameterNameVerbose) const
     return nullptr;
 }
 
-int ParameterList::getNextKeyNumber() const
-{
-    int highestKey = 0;
-
-    for (auto meta : params)
-    {
-        auto* param = meta.holder.getParam();
-        if (param->key > highestKey)
-            highestKey = param->key;
-    }
-
-    return ++highestKey;
-}
-
 int ParameterList::getNumParameters() const
 {
     return params.size();

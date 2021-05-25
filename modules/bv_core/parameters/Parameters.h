@@ -256,7 +256,6 @@ private:
 struct MeterParameter : public FloatParameter
 {
     MeterParameter (
-        int          keyID,
         juce::String paramNameShort,
         juce::String paramNameVerbose,
         juce::NormalisableRange< float >
@@ -279,8 +278,7 @@ struct MeterParameter : public FloatParameter
 
 struct GainMeterParameter : public MeterParameter
 {
-    GainMeterParameter (int                                     keyID,
-                        juce::String                            paramNameShort,
+    GainMeterParameter (juce::String                            paramNameShort,
                         juce::String                            paramNameVerbose,
                         juce::AudioProcessorParameter::Category parameterCategory =
                             juce::AudioProcessorParameter::genericParameter);
