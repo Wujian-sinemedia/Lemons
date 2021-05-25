@@ -46,4 +46,11 @@ juce::String removeFileExtensionIfThere (const juce::String& string,
 }
 
 
+//==============================================================================
+
+bool renameFile (juce::File& f, const juce::String& newName)
+{
+    return f.moveFileTo (f.getSiblingFile (newName));
+}
+
 }  // namespace bav
