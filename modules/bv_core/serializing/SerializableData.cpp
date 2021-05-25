@@ -6,6 +6,7 @@ SerializableData::SerializableData (juce::Identifier identifier)
     : dataIdentifier (identifier)
 { }
 
+
 juce::ValueTree& SerializableData::serialize (ValueTree& tree)
 {
     ValueTree child {dataIdentifier};
@@ -14,10 +15,12 @@ juce::ValueTree& SerializableData::serialize (ValueTree& tree)
     return tree;
 }
 
+
 void SerializableData::deserialize (const ValueTree& tree)
 {
     auto t = tree.getChildWithName (dataIdentifier);
-    if (t.isValid()) fromValueTree (t);
+    jassert (t.isValid());
+    fromValueTree (t);
 }
     
 
