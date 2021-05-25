@@ -23,10 +23,9 @@ GainParameter::GainParameter (juce::String                            paramNameS
 ToggleParameter::ToggleParameter (juce::String paramNameShort,
                                   juce::String paramNameVerbose,
                                   bool         defaultVal)
-: BoolParameter (
-                 juce::String paramNameShort,
-                 juce::String paramNameVerbose,
-                 bool         defaultVal,
+: BoolParameter (paramNameShort,
+                 paramNameVerbose,
+                 defaultVal,
                  ParameterValueConversionLambdas::toggle_stringFromBool,
                  ParameterValueConversionLambdas::toggle_boolFromString)
 { }
