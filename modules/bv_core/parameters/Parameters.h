@@ -67,8 +67,6 @@ private:
     bool  changing = false;
 
     float lastActionedValue;
-
-    juce::ListenerList< Listener > listeners;
 };
 
 

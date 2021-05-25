@@ -38,7 +38,7 @@ void ParameterList::addAllParametersAsInternal()
         meta.holder.addTo (dummyProcessor);
 }
 
-Parameter* ParameterList::getParameter (juce::String parameterNameVerbose) const
+Parameter* ParameterList::getParameter (const juce::String& parameterNameVerbose) const
 {
     for (auto meta : params)
     {
@@ -84,12 +84,50 @@ void ParameterList::fromValueTree (const ValueTree& tree)
     for (auto meta : params)
         meta.holder.getParam()->deserialize (tree);
     
-    refreshAllDefaults();
     doAllActions();
 }
+
+
+/*-------------------------------------------------------------*/
+
 
 ParameterList::ParamHolderMetadata::ParamHolderMetadata (ParamHolderBase& h, bool internal)
 : holder (h), isInternal(internal)
 { }
+
+
+/*-----------------------------------------------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------------*/
+
+
+ParameterListSynchronizer::ParameterListSynchronizer (ParameterList& listToUse)
+    : list (listToUse)
+{
+    Timer::startTimerHz (10);
+}
+
+ParameterListSynchronizer::~ParameterListSynchronizer()
+{
+    Timer::stopTimer();
+}
+
+void ParameterListSynchronizer::applyChangeData (void* data, size_t dataSize)
+{
+    auto newTree = juce::ValueTree::readFromData (data, dataSize);
+    
+    if (! newTree.isValid()) return;
+    
+    list.deserialize (newTree);
+}
+
+void ParameterListSynchronizer::timerCallback()
+{
+    juce::MemoryOutputStream m;
+    
+    juce::ValueTree {"ParameterListSync"};
+    list.serialize (tree).writeToStream (m);
+    
+    sendChangeData (m.getData(), m.getDataSize());
+}
 
 }  // namespace bav

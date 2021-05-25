@@ -30,7 +30,7 @@ public:
     void addParametersTo (juce::AudioProcessor& processor);
     void addAllParametersAsInternal();
 
-    Parameter* getParameter (juce::String parameterNameVerbose) const;
+    Parameter* getParameter (const juce::String& parameterNameVerbose) const;
 
     int getNumParameters() const;
     
@@ -49,13 +49,34 @@ private:
         bool isInternal;
     };
     
-    
     virtual void toValueTree (ValueTree& tree) const override;
     virtual void fromValueTree (const ValueTree& tree) override;
-    
     
     juce::Array< ParamHolderMetadata > params;
     dsp::ProcessorBase                 dummyProcessor;
 };
+
+
+/*-----------------------------------------------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------------*/
+
+
+class ParameterListSynchronizer  :      private juce::Timer
+{
+public:
+    explicit ParameterListSynchronizer (ParameterList& listToUse);
+    
+    virtual ~ParameterListSynchronizer() override;
+    
+    void applyChangeData (void* data, size_t dataSize);
+    
+private:
+    void timerCallback() override final;
+    
+    virtual void sendChangeData (void* data, size_t dataSize) const = 0;
+    
+    ParameterList& list;
+};
+
 
 }  // namespace bav

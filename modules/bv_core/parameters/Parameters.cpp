@@ -221,7 +221,7 @@ void FloatParameter::toValueTree (juce::ValueTree& tree) const
 void FloatParameter::fromValueTree (const juce::ValueTree& tree)
 {
     set (tree.getProperty ("ParameterValue"));
-    setDefault (float (tree.getProperty ("ParameterDefaultValue")));
+    setDefault (tree.getProperty ("ParameterDefaultValue"));
 }
 
 void FloatParameter::addListener (Listener* l)
@@ -321,7 +321,7 @@ void IntParameter::toValueTree (juce::ValueTree& tree) const
 void IntParameter::fromValueTree (const juce::ValueTree& tree)
 {
     set (tree.getProperty ("ParameterValue"));
-    setDefault (float (tree.getProperty ("ParameterDefaultValue")));
+    setDefault (tree.getProperty ("ParameterDefaultValue"));
 }
 
 void IntParameter::addListener (Listener* l)
@@ -419,7 +419,7 @@ void BoolParameter::toValueTree (juce::ValueTree& tree) const
 void BoolParameter::fromValueTree (const juce::ValueTree& tree)
 {
     set (tree.getProperty ("ParameterValue"));
-    setDefault (float (tree.getProperty ("ParameterDefaultValue")));
+    setDefault (tree.getProperty ("ParameterDefaultValue"));
 }
 
 void BoolParameter::addListener (Listener* l)
