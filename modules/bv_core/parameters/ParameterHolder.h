@@ -29,9 +29,9 @@ class ParameterHolder : public ParamHolderBase
 {
 public:
     template < typename... Args >
-    explicit ParameterHolder (int keyID, Args&&... args)
+    explicit ParameterHolder (juce::String name, Args&&... args)
     {
-        param = new ParameterType (keyID, std::forward< Args > (args)...);
+        param = new ParameterType (name, std::forward< Args > (args)...);
     }
 
     explicit ParameterHolder (ParameterType* p, bool internal = false)
