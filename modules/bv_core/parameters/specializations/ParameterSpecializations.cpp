@@ -316,10 +316,10 @@ MeterParameter::MeterParameter (
                   paramNameVerbose,
                   nRange,
                   defaultVal,
-                  parameterLabel,
                   parameterCategory,
                   stringFromValue,
-                  valueFromString)
+                  valueFromString,
+                  parameterLabel)
 {
 }
 
