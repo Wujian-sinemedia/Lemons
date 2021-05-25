@@ -27,6 +27,7 @@
 #include "building_blocks/ProcessorBase/ProcessorBase.cpp"
 
 #include "parameters/Parameter.cpp"
+#include "parameters/specializations/fundamental_types/ParameterTypes.cpp"
 #include "parameters/specializations/ParameterSpecializations.cpp"
 #include "parameters/ParameterList/ParameterList.cpp"
 
