@@ -38,18 +38,6 @@ void ParameterList::addAllParametersAsInternal()
         meta.holder.addTo (dummyProcessor);
 }
 
-Parameter* ParameterList::getParameter (const juce::String& parameterNameVerbose) const
-{
-    for (auto meta : params)
-    {
-        auto* param = meta.holder.getParam();
-        if (param->parameterNameVerbose == parameterNameVerbose)
-            return param;
-    }
-
-    return nullptr;
-}
-
 int ParameterList::getNumParameters() const
 {
     return params.size();

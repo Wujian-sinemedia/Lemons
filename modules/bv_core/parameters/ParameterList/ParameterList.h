@@ -30,8 +30,6 @@ public:
     void addParametersTo (juce::AudioProcessor& processor);
     void addAllParametersAsInternal();
 
-    Parameter* getParameter (const juce::String& parameterNameVerbose) const;
-
     int getNumParameters() const;
     
     void refreshAllDefaults();

@@ -25,11 +25,6 @@ public:
     void  setNormalizedDefault (float value);
     void  setDenormalizedDefault (float value);
 
-    // these functions return the current denormalized value as the desired type literal
-    float getFloatValue() const;
-    int   getIntValue() const;
-    bool  getBoolValue() const;
-
     float getCurrentNormalizedValue() const;
     float getCurrentDenormalizedValue() const;
     void  setNormalizedValue (float value);

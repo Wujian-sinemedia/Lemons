@@ -33,15 +33,9 @@ class ParameterHolder : public ParamHolderBase
 {
 public:
     template < typename... Args >
-    explicit ParameterHolder (juce::String name, Args&&... args)
+    explicit ParameterHolder (Args&&... args)
     {
-        param = new ParameterType (name, std::forward< Args > (args)...);
-    }
-
-    explicit ParameterHolder (ParameterType* p, bool internal = false)
-        : ParamHolderBase (internal)
-    {
-        param = std::move (p);
+        param = new ParameterType (std::forward< Args > (args)...);
     }
 
     ~ParameterHolder() override

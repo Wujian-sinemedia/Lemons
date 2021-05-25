@@ -81,21 +81,6 @@ float Parameter::getCurrentDenormalizedValue() const
     return rap.convertFrom0to1 (rap.getValue());
 }
 
-float Parameter::getFloatValue() const
-{
-    return getCurrentDenormalizedValue();
-}
-
-int Parameter::getIntValue() const
-{
-    return juce::roundToInt (getCurrentDenormalizedValue());
-}
-
-bool Parameter::getBoolValue() const
-{
-    return getCurrentNormalizedValue() >= 0.5f;
-}
-
 float Parameter::normalize (float input) const
 {
     return rap.convertTo0to1 (input);
