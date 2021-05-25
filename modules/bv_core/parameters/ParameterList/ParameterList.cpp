@@ -94,38 +94,4 @@ ParameterList::ParamHolderMetadata::ParamHolderMetadata (ParamHolderBase& h, boo
 { }
 
 
-/*-----------------------------------------------------------------------------------------------------------------------
- -----------------------------------------------------------------------------------------------------------------------*/
-
-
-ParameterListSynchronizer::ParameterListSynchronizer (ParameterList& listToUse)
-    : list (listToUse)
-{
-    Timer::startTimerHz (10);
-}
-
-ParameterListSynchronizer::~ParameterListSynchronizer()
-{
-    Timer::stopTimer();
-}
-
-void ParameterListSynchronizer::applyChangeData (const void* data, size_t dataSize)
-{
-    auto newTree = juce::ValueTree::readFromData (data, dataSize);
-    
-    if (! newTree.isValid()) return;
-    
-    list.deserialize (newTree);
-}
-
-void ParameterListSynchronizer::timerCallback()
-{
-    juce::MemoryOutputStream m;
-    
-    juce::ValueTree tree {"ParameterListSync"};
-    list.serialize (tree).writeToStream (m);
-    
-    sendChangeData (m.getData(), m.getDataSize());
-}
-
 }  // namespace bav

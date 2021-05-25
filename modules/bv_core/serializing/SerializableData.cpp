@@ -39,6 +39,36 @@ void SerializableData::deserialize (const void* data, int sizeInBytes)
     
     deserialize (newTree);
 }
+
+
+/*-----------------------------------------------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------------*/
+
+
+DataSynchronizer::DataSynchronizer (SerializableData& dataToUse)
+: sData (dataToUse)
+{
+    Timer::startTimerHz (10);
+}
+
+DataSynchronizer::~DataSynchronizer()
+{
+    Timer::stopTimer();
+}
+
+
+void DataSynchronizer::applyChangeData (const void* data, size_t dataSize)
+{
+    sData.deserialize (data, dataSize);
+}
+
+
+void DataSynchronizer::timerCallback()
+{
+    juce::MemoryOutputStream m;
+    sData.serialize().writeToStream (m);
+    sendChangeData (m.getData(), m.getDataSize());
+}
     
 
 }  // namespace
