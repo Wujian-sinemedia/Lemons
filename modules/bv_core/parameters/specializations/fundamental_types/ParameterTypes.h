@@ -22,6 +22,8 @@ public:
                     std::function< float (const juce::String& text) > valueFromString = nullptr,
                     juce::String parameterLabel = juce::String());
     
+    virtual ~FloatParameter() override = default;
+    
     float get() const;
     float getDefault() const;
     
@@ -81,6 +83,8 @@ public:
                   std::function< int (const juce::String& text) > intFromString = nullptr,
                   juce::String parameterLabel = juce::String());
     
+    virtual ~IntParameter() override = default;
+    
     int get() const;
     int getDefault() const;
     
@@ -136,6 +140,8 @@ public:
                    std::function< juce::String (bool value, int maximumStringLength) >
                    stringFromBool = nullptr,
                    std::function< bool (const juce::String& text) > boolFromString = nullptr);
+    
+    virtual ~BoolParameter() override = default;
     
     bool get() const;
     bool getDefault() const;
