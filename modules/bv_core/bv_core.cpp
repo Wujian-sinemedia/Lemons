@@ -29,6 +29,5 @@
 
 #include "parameters/Parameters.cpp"
 #include "parameters/ParameterList/ParameterList.cpp"
-#include "parameters/ValueTreeAttachments/ParameterValueTreeAttachments.cpp"
 
 #include "async/AsyncUtils.cpp"

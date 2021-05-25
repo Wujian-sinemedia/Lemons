@@ -90,7 +90,6 @@
 #include "parameters/mappings/MidiCC_Mapping.h"
 #include "parameters/mappings/LFO_Mapping.h"
 #include "parameters/ParameterList/ParameterList.h"
-#include "parameters/ValueTreeAttachments/ParameterValueTreeAttachments.h"
 
 
 // math
