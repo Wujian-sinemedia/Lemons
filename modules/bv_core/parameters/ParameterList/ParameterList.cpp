@@ -83,8 +83,6 @@ void ParameterList::fromValueTree (const ValueTree& tree)
 {
     for (auto meta : params)
         meta.holder.getParam()->deserialize (tree);
-    
-    doAllActions();
 }
 
 
