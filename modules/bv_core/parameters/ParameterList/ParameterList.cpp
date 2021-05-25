@@ -2,6 +2,10 @@
 namespace bav
 {
 
+ParameterList::ParameterList (juce::Identifier listName)
+: SerializableData (listName)
+{ }
+
 void ParameterList::add (ParamHolderBase& param)
 {
     addParameter (param, true);
@@ -80,6 +84,18 @@ juce::ValueTree ParameterList::toValueTree() const
 }
 
 void ParameterList::restoreFromValueTree (const juce::ValueTree& tree)
+{
+    for (auto meta : params)
+        meta.deserialize (tree);
+}
+
+void ParameterList::toValueTree (ValueTree& tree) const
+{
+    for (auto meta : params)
+        meta.serialize (tree);
+}
+
+void ParameterList::fromValueTree (const ValueTree& tree)
 {
     for (auto meta : params)
         meta.deserialize (tree);

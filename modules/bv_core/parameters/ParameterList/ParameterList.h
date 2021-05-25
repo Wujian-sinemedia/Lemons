@@ -3,9 +3,11 @@
 
 namespace bav
 {
-class ParameterList
+class ParameterList  :      public SerializableData
 {
 public:
+    ParameterList (juce::Identifier listName);
+    
     virtual ~ParameterList() = default;
 
     template < typename... Args >
@@ -38,9 +40,6 @@ public:
     
     void doAllActions();
     
-    virtual juce::ValueTree toValueTree() const;
-    virtual void restoreFromValueTree (const juce::ValueTree& tree);
-
     
 private:
     struct ParamHolderMetadata  :   SerializableData
@@ -54,6 +53,10 @@ private:
         void toValueTree (ValueTree& tree) const override final;
         void fromValueTree (const ValueTree& tree) override final;
     };
+    
+    
+    virtual void toValueTree (ValueTree& tree) const override;
+    virtual void fromValueTree (const ValueTree& tree) override;
     
     
     juce::Array< ParamHolderMetadata > params;
