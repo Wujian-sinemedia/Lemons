@@ -73,22 +73,6 @@ void ParameterList::doAllActions()
         meta.holder.getParam()->doAction();
 }
 
-juce::ValueTree ParameterList::toValueTree() const
-{
-    juce::ValueTree tree {"Parameters"};
-    
-    for (auto meta : params)
-        meta.serialize (tree);
-    
-    return tree;
-}
-
-void ParameterList::restoreFromValueTree (const juce::ValueTree& tree)
-{
-    for (auto meta : params)
-        meta.deserialize (tree);
-}
-
 void ParameterList::toValueTree (ValueTree& tree) const
 {
     for (auto meta : params)
