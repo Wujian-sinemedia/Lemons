@@ -6,7 +6,7 @@ SerializableData::SerializableData (juce::Identifier identifier)
     : dataIdentifier (identifier)
 { }
 
-ValueTree& SerializableData::serialize (ValueTree& tree)
+juce::ValueTree& SerializableData::serialize (ValueTree& tree)
 {
     ValueTree child {dataIdentifier};
     toValueTree (child);
