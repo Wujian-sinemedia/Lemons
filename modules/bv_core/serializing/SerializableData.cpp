@@ -7,6 +7,14 @@ SerializableData::SerializableData (juce::Identifier identifier)
 { }
 
 
+juce::ValueTree SerializableData::serialize()
+{
+    ValueTree tree {dataIdentifier};
+    toValueTree (tree);
+    return tree;
+}
+
+
 juce::ValueTree& SerializableData::serialize (ValueTree& tree)
 {
     ValueTree child {dataIdentifier};

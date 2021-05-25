@@ -11,7 +11,9 @@ struct SerializableData
     SerializableData (juce::Identifier identifier);
     virtual ~SerializableData() = default;
     
+    ValueTree serialize();
     ValueTree& serialize (ValueTree& tree);
+    
     void deserialize (const ValueTree& tree);
     
     
