@@ -30,6 +30,7 @@ extern void toBinary (SerializableData& data, juce::File  file);
 extern void toBinary (SerializableData& data, juce::File& file);
 extern void toBinary (SerializableData& data, juce::MemoryBlock& dest);
 
+extern void fromBinary (juce::File  file, SerializableData& dest);
 extern void fromBinary (juce::File& file, SerializableData& dest);
 extern void fromBinary (juce::MemoryBlock& data, SerializableData& dest);
 extern void fromBinary (const void* data, size_t dataSizeInBytes, SerializableData& dest);

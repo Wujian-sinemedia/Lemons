@@ -53,6 +53,14 @@ void toBinary (SerializableData& data, juce::MemoryBlock& dest)
     data.serialize().writeToStream (stream);
 }
 
+void fromBinary (juce::File file, SerializableData& dest)
+{
+    juce::MemoryBlock data;
+    juce::FileInputStream stream (file);
+    stream.readIntoMemoryBlock (data);
+    fromBinary (data.getData(), data.getSize(), dest);
+}
+
 void fromBinary (juce::File& file, SerializableData& dest)
 {
     juce::MemoryBlock data;
