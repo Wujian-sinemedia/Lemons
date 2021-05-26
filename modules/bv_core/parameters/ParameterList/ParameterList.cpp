@@ -18,7 +18,7 @@ void ParameterList::addInternal (ParamHolderBase& param)
 
 void ParameterList::addParameter (ParamHolderBase& param, bool isInternal)
 {
-    params.add ({ &param, isInternal });
+    params.add ({ param, isInternal });
 }
 
 void ParameterList::addParametersTo (juce::AudioProcessor& processor)
@@ -77,7 +77,7 @@ void ParameterList::fromValueTree (const ValueTree& tree)
 /*-------------------------------------------------------------*/
 
 
-ParameterList::ParamHolderMetadata::ParamHolderMetadata (ParamHolderBase* h, bool internal)
+ParameterList::ParamHolderMetadata::ParamHolderMetadata (ParamHolderBase& h, bool internal)
 : holder (h), isInternal(internal)
 { }
 

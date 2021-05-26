@@ -41,9 +41,9 @@ public:
 private:
     struct ParamHolderMetadata
     {
-        ParamHolderMetadata (ParamHolderBase* h, bool internal);
+        ParamHolderMetadata (ParamHolderBase& h, bool internal);
         
-        ParamHolderBase* holder;
+        ParamHolderBase& holder;
         bool isInternal;
     };
     
