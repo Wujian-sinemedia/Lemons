@@ -16,7 +16,8 @@
 #include "utilities/GuiUtils.h"
 #include "utilities/Spline.h"
 #include "icons/icons.h"
-#include "components/ParameterOwningComponent.h"
 #include "components/LevelMeters.h"
 #include "components/SynthMidiKeyboardComponent/SynthMidiKeyboardComponent.h"
 #include "components/SynthStaffDisplayComponent/SynthStaffDisplayComponent.h"
+
+#include "components/ParameterConnected/ParameterConnectedComponents.h"

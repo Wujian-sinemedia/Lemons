@@ -40,6 +40,37 @@ class ScopedWaitCursor : ScopedCursor
 /*=========================================================================================*/
 
 
+struct DarkModeSentinel     private juce::Timer
+{
+    DarkModeSentinel (BoolParameter& paramToUse)
+        : darkModeParameter (paramToUse)
+    {
+#if JUCE_MAC
+        Timer::startTimerHz (10);
+#endif
+    }
+    
+    virtual ~DarkModeSentinel()
+    {
+#if JUCE_MAC
+        Timer::stopTimer();
+#endif
+    }
+    
+private:
+    void timerCallback() override final
+    {
+        darkModeParameter.set (juce::Desktop::isOSXDarkModeActive());
+    }
+    
+    BoolParameter& darkModeParameter;
+};
+
+
+/*=========================================================================================*/
+/*=========================================================================================*/
+
+
 static inline juce::Button::ButtonState
     buttonStateFromBool (const bool isOn) noexcept
 {

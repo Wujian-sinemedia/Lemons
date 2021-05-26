@@ -5,3 +5,5 @@
 #include "components/SynthStaffDisplayComponent/SynthStaffDisplayComponent.cpp"
 
 #include "icons/icons.cpp"
+
+#include "components/ParameterConnected/ParameterConnectedComponents.cpp"
