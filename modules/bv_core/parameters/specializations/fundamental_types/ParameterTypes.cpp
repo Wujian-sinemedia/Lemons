@@ -42,6 +42,9 @@ float FloatParameter::getDefault() const
 
 void FloatParameter::set (float newValue)
 {
+    if (newValue == get())
+        return;
+    
     Parameter::setDenormalizedValue (newValue);
     listeners.call ([&newValue] (Listener& l)
                     { l.parameterValueChanged (newValue); });
@@ -142,6 +145,9 @@ int IntParameter::getDefault() const
 
 void IntParameter::set (int newValue)
 {
+    if (newValue == get())
+        return;
+    
     Parameter::setDenormalizedValue (static_cast< float > (newValue));
     listeners.call ([&newValue] (Listener& l)
                     { l.parameterValueChanged (newValue); });
@@ -237,6 +243,9 @@ bool BoolParameter::getDefault() const
 
 void BoolParameter::set (bool newValue)
 {
+    if (newValue == get())
+        return;
+    
     const auto val = newValue ? 1.0f : 0.0f;
     Parameter::setNormalizedValue (val);
     listeners.call ([&newValue] (Listener& l)
