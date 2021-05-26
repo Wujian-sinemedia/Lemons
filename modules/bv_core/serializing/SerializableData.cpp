@@ -50,11 +50,8 @@ void toBinary (SerializableData& data, juce::MemoryBlock& dest)
 void fromBinary (juce::File& file, SerializableData& dest)
 {
     juce::MemoryBlock data;
-    
     juce::FileInputStream stream (file);
-    
     stream.readIntoMemoryBlock (data);
-    
     fromBinary (data.getData(), data.getSize(), dest);
 }
 
@@ -65,10 +62,14 @@ void fromBinary (juce::MemoryBlock& data, SerializableData& dest)
 
 void fromBinary (const void* data, size_t dataSizeInBytes, SerializableData& dest)
 {
-    auto newTree = ValueTree::readFromData (data, dataSizeInBytes);
-    if (! newTree.isValid()) return;
-    
+    auto newTree = juce::ValueTree::readFromData (data, dataSizeInBytes);
+    jassert (newTree.isValid());
     dest.deserialize (newTree);
+}
+
+void fromBinary (const void* data, int dataSizeInBytes, SerializableData& dest)
+{
+    fromBinary (data, static_cast<size_t> (dataSizeInBytes), dest);
 }
  
 
