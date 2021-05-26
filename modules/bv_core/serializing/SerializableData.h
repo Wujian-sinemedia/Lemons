@@ -26,6 +26,7 @@ private:
 
 /*-------------------------------------------------------------*/
 
+extern void toBinary (SerializableData& data, juce::File  file);
 extern void toBinary (SerializableData& data, juce::File& file);
 extern void toBinary (SerializableData& data, juce::MemoryBlock& dest);
 

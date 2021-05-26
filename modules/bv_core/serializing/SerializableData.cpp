@@ -35,6 +35,11 @@ void SerializableData::deserialize (const ValueTree& tree)
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 
+void toBinary (SerializableData& data, juce::File file)
+{
+    juce::FileOutputStream stream (file);
+    data.serialize().writeToStream (stream);
+}
 
 void toBinary (SerializableData& data, juce::File& file)
 {
