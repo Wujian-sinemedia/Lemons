@@ -10,7 +10,6 @@ public:
     using RangedParam = juce::RangedAudioParameter;
 
     Parameter (RangedParam& p,
-               float        defaultValue,
                juce::String paramNameShort,
                juce::String paramNameVerbose);
 

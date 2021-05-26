@@ -23,7 +23,6 @@ FloatParameter::FloatParameter (
                        stringFromValue,
                        valueFromString),
 Parameter (*this,
-           nRange.convertTo0to1 (defaultVal),
            paramNameShort,
            paramNameVerbose),
 floatToString (stringFromValue), stringToFloat (valueFromString)
@@ -125,8 +124,6 @@ IntParameter::IntParameter (
                      stringFromInt,
                      intFromString),
 Parameter (*this,
-           AudioParameterInt::getNormalisableRange().convertTo0to1 (
-                                                                    static_cast< float > (defaultVal)),
            paramNameShort,
            paramNameVerbose),
 intToString (stringFromInt), stringToInt (intFromString)
@@ -218,7 +215,6 @@ BoolParameter::BoolParameter (
                               boolFromString)
 : AudioParameterBool (paramNameVerbose,
                       TRANS (paramNameVerbose),
-                      defaultVal,
                       juce::String(),
                       stringFromBool,
                       boolFromString),

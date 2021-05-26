@@ -2,7 +2,6 @@
 namespace bav
 {
 Parameter::Parameter (RangedParam& p,
-                      float        defaultValue,
                       juce::String paramNameShort,
                       juce::String paramNameVerbose)
     : SerializableData (paramNameVerbose),
@@ -10,7 +9,8 @@ Parameter::Parameter (RangedParam& p,
       parameterNameShort (TRANS (paramNameShort)),
       parameterNameVerbose (TRANS (paramNameVerbose))
 {
-    lastActionedValue = defaultValue;
+    currentDefault = rap.getDefaultValue();
+    lastActionedValue = currentDefault;
     rap.addListener (this);
 }
 
