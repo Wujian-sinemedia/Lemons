@@ -55,11 +55,11 @@ struct FloatAmountParameter :   public FloatParameter
 /* This parameter is for an integer value in the range 0 - 100 */
 struct PercentParameter :     public IntParameter
 {
-    IntAmountParameter (juce::String paramNameShort,
+    PercentParameter (juce::String paramNameShort,
                         juce::String paramNameVerbose,
                         int defaultVal);
     
-    virtual ~IntAmountParameter() override = default;
+    virtual ~PercentParameter() override = default;
     
     using Listener = IntParameter::Listener;
 };
