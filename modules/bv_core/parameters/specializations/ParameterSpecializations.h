@@ -34,6 +34,39 @@ struct ToggleParameter :    public BoolParameter
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 
+/* This parameter is for a value in a normalized 0.0-1.0 range */
+struct FloatAmountParameter :   public FloatParameter
+{
+    FloatAmountParameter (juce::String paramNameShort,
+                          juce::String paramNameVerbose,
+                          float        defaultVal,
+                          juce::AudioProcessorParameter::Category parameterCategory =
+                            juce::AudioProcessorParameter::genericParameter,
+                          juce::String parameterLabel = juce::String());
+    
+    virtual ~FloatAmountParameter() override = default;
+    
+    using Listener = FloatParameter::Listener;
+};
+
+/*-----------------------------------------------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------------*/
+
+/* This parameter is for an integer value in the range 0 - 100 */
+struct PercentParameter :     public IntParameter
+{
+    IntAmountParameter (juce::String paramNameShort,
+                        juce::String paramNameVerbose,
+                        int defaultVal);
+    
+    virtual ~IntAmountParameter() override = default;
+    
+    using Listener = IntParameter::Listener;
+};
+
+/*-----------------------------------------------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------------*/
+
 struct MeterParameter : public FloatParameter
 {
     MeterParameter (

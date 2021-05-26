@@ -60,5 +60,7 @@ using FloatParam = ParameterHolder< FloatParameter >;
 using IntParam   = ParameterHolder< IntParameter >;
 using BoolParam  = ParameterHolder< BoolParameter >;
 
+using GainParam   = ParameterHolder< GainParameter >;
+using ToggleParam = ParameterHolder< ToggleParameter >;
 
 }  // namespace bav
