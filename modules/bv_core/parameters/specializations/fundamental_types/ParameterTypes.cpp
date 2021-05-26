@@ -215,12 +215,11 @@ BoolParameter::BoolParameter (
                               boolFromString)
 : AudioParameterBool (paramNameVerbose,
                       TRANS (paramNameVerbose),
+                      defaultVal,
                       juce::String(),
                       stringFromBool,
                       boolFromString),
 Parameter (*this,
-           AudioParameterBool::getNormalisableRange().convertTo0to1 (
-                                                                     static_cast< float > (defaultVal)),
            paramNameShort,
            paramNameVerbose),
 boolToString (stringFromBool), stringToBool (boolFromString)
