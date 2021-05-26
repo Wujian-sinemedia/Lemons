@@ -50,7 +50,7 @@ struct DarkModeSentinel     :        private juce::Timer
 #endif
     }
     
-    virtual ~DarkModeSentinel()
+    virtual ~DarkModeSentinel() override
     {
 #if JUCE_MAC
         Timer::stopTimer();
