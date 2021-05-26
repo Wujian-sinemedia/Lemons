@@ -40,7 +40,7 @@ class ScopedWaitCursor : ScopedCursor
 /*=========================================================================================*/
 
 
-struct DarkModeSentinel     private juce::Timer
+struct DarkModeSentinel     :        private juce::Timer
 {
     DarkModeSentinel (BoolParameter& paramToUse)
         : darkModeParameter (paramToUse)
