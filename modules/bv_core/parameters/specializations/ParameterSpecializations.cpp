@@ -59,8 +59,8 @@ PercentParameter::PercentParameter (juce::String paramNameShort,
                 0,
                 100,
                 defaultVal,
-                ParameterValueConversionLambdas::pcnt_intFromString,
                 ParameterValueConversionLambdas::pcnt_stringFromInt,
+                ParameterValueConversionLambdas::pcnt_intFromString,
                 "%")
 { }
 
