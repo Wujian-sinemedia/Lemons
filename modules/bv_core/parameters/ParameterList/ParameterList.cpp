@@ -25,17 +25,17 @@ void ParameterList::addParametersTo (juce::AudioProcessor& processor)
 {
     for (auto meta : params)
     {
-        if (meta.holder->isInternal)
-            meta.holder->addTo (processor);
+        if (meta.holder.isInternal)
+            meta.holder.addTo (processor);
         else
-            meta.holder->addTo (dummyProcessor);
+            meta.holder.addTo (dummyProcessor);
     }
 }
 
 void ParameterList::addAllParametersAsInternal()
 {
     for (auto meta : params)
-        meta.holder->addTo (dummyProcessor);
+        meta.holder.addTo (dummyProcessor);
 }
 
 int ParameterList::getNumParameters() const
@@ -46,31 +46,31 @@ int ParameterList::getNumParameters() const
 void ParameterList::refreshAllDefaults()
 {
     for (auto meta : params)
-        meta.holder->getParam()->refreshDefault();
+        meta.holder.getParam()->refreshDefault();
 }
 
 void ParameterList::resetAllToDefault()
 {
     for (auto meta : params)
-        meta.holder->getParam()->resetToDefault();
+        meta.holder.getParam()->resetToDefault();
 }
 
 void ParameterList::doAllActions()
 {
     for (auto meta : params)
-        meta.holder->getParam()->doAction();
+        meta.holder.getParam()->doAction();
 }
 
 void ParameterList::toValueTree (ValueTree& tree)
 {
     for (auto meta : params)
-        meta.holder->getParam()->serialize (tree);
+        meta.holder.getParam()->serialize (tree);
 }
 
 void ParameterList::fromValueTree (const ValueTree& tree)
 {
     for (auto meta : params)
-        meta.holder->getParam()->deserialize (tree);
+        meta.holder.getParam()->deserialize (tree);
 }
 
 
