@@ -259,7 +259,7 @@ static inline juce::DrawablePath createMutedSpeakerIcon (juce::Colour colour)
 }
 
 
-static juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
+juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
 {
     switch (icon)
     {

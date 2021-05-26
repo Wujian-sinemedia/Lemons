@@ -30,7 +30,7 @@ enum IconType
 /*
  Creates an icon in a given colour.
  */
-static juce::DrawablePath createIcon (IconType icon, juce::Colour colour = juce::Colours::black);
+extern juce::DrawablePath createIcon (IconType icon, juce::Colour colour = juce::Colours::black);
 
 
 }  // namespace bav::gui

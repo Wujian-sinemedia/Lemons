@@ -60,7 +60,9 @@ struct DarkModeSentinel     :        private juce::Timer
 private:
     void timerCallback() override final
     {
+#if JUCE_MAC
         darkModeParameter.set (juce::Desktop::isOSXDarkModeActive());
+#endif
     }
     
     BoolParameter& darkModeParameter;

@@ -31,6 +31,8 @@ public:
 
     float normalize (float input) const;
     float denormalize (float input) const;
+    
+    void setUndoManager (juce::UndoManager& managerToUse);
 
     bool isChanging() const;
 
@@ -61,6 +63,8 @@ private:
     bool  changing = false;
 
     float lastActionedValue;
+    
+    juce::UndoManager* um;
 };
 
 

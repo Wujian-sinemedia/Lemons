@@ -44,6 +44,11 @@ void Parameter::setNormalizedDefault (float value)
 
     if (onDefaultChange)
         bav::callOnMessageThread (onDefaultChange);
+    
+    if (um != nullptr)
+    {
+        
+    }
 }
 
 void Parameter::setDenormalizedDefault (float value)
@@ -64,6 +69,11 @@ void Parameter::resetToDefault()
 void Parameter::setNormalizedValue (float value)
 {
     rap.setValueNotifyingHost (value);
+    
+    if (um != nullptr)
+    {
+        
+    }
 }
 
 void Parameter::setDenormalizedValue (float value)
@@ -89,6 +99,11 @@ float Parameter::normalize (float input) const
 float Parameter::denormalize (float input) const
 {
     return rap.convertFrom0to1 (input);
+}
+
+void Parameter::setUndoManager (juce::UndoManager& managerToUse)
+{
+    um = &managerToUse;
 }
 
 void Parameter::doAction()

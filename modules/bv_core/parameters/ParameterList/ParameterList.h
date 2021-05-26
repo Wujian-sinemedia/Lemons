@@ -37,6 +37,8 @@ public:
     
     void doAllActions();
     
+    void setUndoManager (juce::UndoManager& um);
+    
     
 private:
     struct ParamHolderMetadata

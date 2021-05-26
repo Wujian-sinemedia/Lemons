@@ -73,6 +73,12 @@ void ParameterList::fromValueTree (const ValueTree& tree)
         meta.holder.getParam()->deserialize (tree);
 }
 
+void ParameterList::setUndoManager (juce::UndoManager& um)
+{
+    for (auto meta : params)
+        meta.holder.getParam()->setUndoManager (um);
+}
+
 
 /*-------------------------------------------------------------*/
 
