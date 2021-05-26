@@ -32,19 +32,45 @@ void SerializableData::deserialize (const ValueTree& tree)
 }
 
 
-void SerializableData::deserialize (const void* data, size_t sizeInBytes)
+/*-----------------------------------------------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------------*/
+
+void toBinary (SerializableData& data, juce::File& file)
 {
-    auto newTree = ValueTree::readFromData (data, sizeInBytes);
+    juce::FileOutputStream stream (file);
+    data.serialize().writeToStream (stream);
+}
+
+void toBinary (SerializableData& data, juce::MemoryBlock& dest)
+{
+    juce::MemoryOutputStream stream (dest, false);
+    data.serialize().writeToStream (stream);
+}
+
+void fromBinary (juce::File& file, SerializableData& dest)
+{
+    juce::MemoryBlock data;
+    
+    juce::FileInputStream stream (file);
+    
+    stream.readIntoMemoryBlock (data);
+    
+    fromBinary (data.getData(), data.getSize(), dest);
+}
+
+void fromBinary (juce::MemoryBlock& data, SerializableData& dest)
+{
+    fromBinary (data.getData(), data.getSize(), dest);
+}
+
+void fromBinary (const void* data, size_t dataSizeInBytes, SerializableData& dest)
+{
+    auto newTree = ValueTree::readFromData (data, dataSizeInBytes);
     if (! newTree.isValid()) return;
     
-    deserialize (newTree);
+    dest.deserialize (newTree);
 }
-
-void SerializableData::deserialize (const void* data, int sizeInBytes)
-{
-    deserialize (data, static_cast<size_t> (sizeInBytes));
-}
-
+ 
 
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
@@ -64,7 +90,7 @@ DataSynchronizer::~DataSynchronizer()
 
 void DataSynchronizer::applyChangeData (const void* data, size_t dataSize)
 {
-    sData.deserialize (data, dataSize);
+    fromBinary (data, dataSize, sData);
 }
 
 
