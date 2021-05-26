@@ -26,5 +26,7 @@ extern juce::String removeFileExtensionIfThere (const juce::String& string,
 
 extern bool renameFile (const juce::File& f, const juce::String& newName);
 
+extern void deleteFile (const juce::File& f);
+
 
 }  // namespace bav
