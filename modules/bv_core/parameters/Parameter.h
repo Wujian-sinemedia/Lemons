@@ -37,7 +37,9 @@ public:
     
     void setUndoManager (juce::UndoManager& managerToUse);
 
-    void doAction();
+    void doAction (bool force = false);
+    
+    void sendListenerSyncCallback() const;  // sends a value update message to all listeners
 
     //==============================================================================
 
@@ -61,12 +63,11 @@ public:
         Parameter& param;
     };
     
-    void addParameterListener (Listener* l);
-    void removeParameterListener (Listener* l);
-    
     //==============================================================================
 
 private:
+    friend Listener;
+    
     virtual void onAction() { }
 
     float currentDefault;

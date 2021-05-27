@@ -55,10 +55,10 @@ void ParameterList::resetAllToDefault()
         meta.holder.getParam()->resetToDefault();
 }
 
-void ParameterList::doAllActions()
+void ParameterList::doAllActions (bool force)
 {
     for (auto meta : params)
-        meta.holder.getParam()->doAction();
+        meta.holder.getParam()->doAction (force);
 }
 
 void ParameterList::toValueTree (ValueTree& tree)

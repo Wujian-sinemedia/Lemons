@@ -39,7 +39,7 @@ public:
     struct Listener : public Parameter::Listener
     {
         Listener (FloatParameter& toUse);
-        virtual ~Listener() override;
+        virtual ~Listener() override = default;
 
         virtual void paramValueChanged (float newValue);
         virtual void paramDefaultChanged (float newDefault);
@@ -59,7 +59,7 @@ private:
     void toValueTree (juce::ValueTree& tree) override final;
     void fromValueTree (const juce::ValueTree& tree) override final;
 
-    std::function< void (float) > actionFunc;
+    std::function< void (float) > actionFunc = [](float){ };
 };
 
 
@@ -101,7 +101,7 @@ public:
     struct Listener : public Parameter::Listener
     {
         Listener (IntParameter& toUse);
-        virtual ~Listener() override;
+        virtual ~Listener() override = default;
 
         virtual void paramValueChanged (int newValue);
         virtual void paramDefaultChanged (int newDefault);
@@ -121,7 +121,7 @@ private:
     void toValueTree (juce::ValueTree& tree) override final;
     void fromValueTree (const juce::ValueTree& tree) override final;
 
-    std::function< void (int) > actionFunc;
+    std::function< void (int) > actionFunc = [](int){ };
 };
 
 
@@ -160,7 +160,7 @@ public:
     struct Listener : public Parameter::Listener
     {
         Listener (BoolParameter& toUse);
-        virtual ~Listener() override;
+        virtual ~Listener() override = default;
 
         virtual void paramValueChanged (bool newValue);
         virtual void paramDefaultChanged (bool newDefault);
@@ -180,7 +180,7 @@ private:
     void toValueTree (juce::ValueTree& tree) override final;
     void fromValueTree (const juce::ValueTree& tree) override final;
 
-    std::function< void (bool) > actionFunc;
+    std::function< void (bool) > actionFunc = [](bool){ };
 };
 
 

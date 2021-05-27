@@ -35,7 +35,7 @@ public:
     void refreshAllDefaults();
     void resetAllToDefault();
 
-    void doAllActions();
+    void doAllActions (bool force = true);
 
     void setUndoManager (juce::UndoManager& um);
 

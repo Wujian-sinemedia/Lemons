@@ -52,6 +52,8 @@ SliderAttachmentBase::SliderAttachmentBase (Parameter& paramToUse)
 
     Slider::setPopupDisplayEnabled (true, false, this);
     Slider::setPopupMenuEnabled (true);
+    
+    param.sendListenerSyncCallback();
 }
 
 void SliderAttachmentBase::startedDragging()
@@ -155,13 +157,15 @@ ToggleButton::ToggleButton (BoolParameter& paramToUse)
     : BoolParameter::Listener (paramToUse),
       param (paramToUse)
 {
-    ToggleButton::onClick = [this]()
+    TB::onClick = [this]()
     { refresh(); };
-    ToggleButton::onStateChange = [this]()
+    TB::onStateChange = [this]()
     { refresh(); };
 
-    ToggleButton::setButtonText (param.parameterNameVerbose);
-    ToggleButton::setTooltip (param.parameterNameShort);
+    TB::setButtonText (param.parameterNameVerbose);
+    TB::setTooltip (param.parameterNameShort);
+    
+    param.sendListenerSyncCallback();
 }
 
 ToggleButton::~ToggleButton()
@@ -170,12 +174,12 @@ ToggleButton::~ToggleButton()
 
 void ToggleButton::refresh()
 {
-    param.set (Button::getToggleState());
+    param.set (TB::getToggleState());
 }
 
 void ToggleButton::paramValueChanged (bool newValue)
 {
-    ToggleButton::setToggleState (newValue, juce::NotificationType::dontSendNotification);
+    TB::setToggleState (newValue, juce::NotificationType::dontSendNotification);
 }
 
 

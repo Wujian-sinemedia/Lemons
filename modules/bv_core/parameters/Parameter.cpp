@@ -141,37 +141,33 @@ void Parameter::setUndoManager (juce::UndoManager& managerToUse)
     um = &managerToUse;
 }
 
-void Parameter::doAction()
+void Parameter::doAction (bool force)
 {
     const auto value = getCurrentNormalizedValue();
 
-    if (value != lastActionedValue)
+    if (force || value != lastActionedValue)
     {
         lastActionedValue = value;
         onAction();
     }
 }
 
-void Parameter::addParameterListener (Listener* l)
+void Parameter::sendListenerSyncCallback() const
 {
-    listeners.add (l);
-}
-
-void Parameter::removeParameterListener (Listener* l)
-{
-    listeners.remove (l);
+    const auto value = getCurrentNormalizedValue();
+    listeners.call ([&value](Listener& l){ l.parameterValueChanged (value); });
 }
 
 
 Parameter::Listener::Listener (Parameter& paramToUse)
 : param (paramToUse)
 {
-    param.addParameterListener (this);
+    param.listeners.add (this);
 }
 
 Parameter::Listener::~Listener()
 {
-    param.removeParameterListener (this);
+    param.listeners.remove (this);
 }
 
 void Parameter::Listener::parameterValueChanged (float) { }

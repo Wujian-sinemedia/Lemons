@@ -40,9 +40,6 @@ float FloatParameter::getDefault() const
 
 void FloatParameter::set (float newValue)
 {
-    if (newValue == get())
-        return;
-
     Parameter::setDenormalizedValue (newValue);
 }
 
@@ -58,8 +55,7 @@ void FloatParameter::setAction (std::function< void (float) > action)
 
 void FloatParameter::onAction()
 {
-    if (actionFunc)
-        actionFunc (get());
+    actionFunc (get());
 }
 
 void FloatParameter::toValueTree (juce::ValueTree& tree)
@@ -78,12 +74,6 @@ FloatParameter::Listener::Listener (FloatParameter& toUse)
     : Parameter::Listener (toUse),
       param (toUse)
 {
-    param.addParameterListener (this);
-}
-
-FloatParameter::Listener::~Listener()
-{
-    param.removeParameterListener (this);
 }
 
 void FloatParameter::Listener::parameterValueChanged (float)
@@ -142,9 +132,6 @@ int IntParameter::getDefault() const
 
 void IntParameter::set (int newValue)
 {
-    if (newValue == get())
-        return;
-
     Parameter::setDenormalizedValue (static_cast< float > (newValue));
 }
 
@@ -160,8 +147,7 @@ void IntParameter::setAction (std::function< void (int) > action)
 
 void IntParameter::onAction()
 {
-    if (actionFunc)
-        actionFunc (get());
+    actionFunc (get());
 }
 
 void IntParameter::toValueTree (juce::ValueTree& tree)
@@ -180,12 +166,6 @@ IntParameter::Listener::Listener (IntParameter& toUse)
     : Parameter::Listener (toUse),
       param (toUse)
 {
-    param.addParameterListener (this);
-}
-
-IntParameter::Listener::~Listener()
-{
-    param.removeParameterListener (this);
 }
 
 void IntParameter::Listener::parameterValueChanged (float)
@@ -239,17 +219,18 @@ bool BoolParameter::getDefault() const
 
 void BoolParameter::set (bool newValue)
 {
-    if (newValue == get())
-        return;
-
-    const auto val = newValue ? 1.0f : 0.0f;
-    Parameter::setNormalizedValue (val);
+    if (newValue)
+        Parameter::setNormalizedValue (1.0f);
+    else
+        Parameter::setNormalizedValue (0.0f);
 }
 
 void BoolParameter::setDefault (bool newDefaultValue)
 {
-    const auto val = newDefaultValue ? 1.0f : 0.0f;
-    Parameter::setNormalizedDefault (val);
+    if (newDefaultValue)
+        Parameter::setNormalizedDefault (1.0f);
+    else
+        Parameter::setNormalizedDefault (0.0f);
 }
 
 void BoolParameter::setAction (std::function< void (bool) > action)
@@ -259,8 +240,7 @@ void BoolParameter::setAction (std::function< void (bool) > action)
 
 void BoolParameter::onAction()
 {
-    if (actionFunc)
-        actionFunc (get());
+    actionFunc (get());
 }
 
 void BoolParameter::toValueTree (juce::ValueTree& tree)
@@ -279,12 +259,6 @@ BoolParameter::Listener::Listener (BoolParameter& toUse)
     : Parameter::Listener (toUse),
       param (toUse)
 {
-    param.addParameterListener (this);
-}
-
-BoolParameter::Listener::~Listener()
-{
-    param.removeParameterListener (this);
 }
 
 void BoolParameter::Listener::parameterValueChanged (float)

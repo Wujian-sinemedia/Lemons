@@ -79,6 +79,8 @@ public:
 private:
     void paramValueChanged (bool newValue) override final;
     void refresh();
+    
+    using TB = juce::ToggleButton;
 };
 
 }  // namespace bav::gui
