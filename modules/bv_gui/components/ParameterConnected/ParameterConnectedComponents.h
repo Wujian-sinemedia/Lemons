@@ -5,7 +5,7 @@ namespace bav::gui
 {
 
 class SliderWithFloatParam  :   public juce::Slider,
-                                private FloatParameter::Listener
+                                private bav::FloatParameter::Listener
 {
 public:
     SliderWithFloatParam (FloatParameter& paramToUse)
@@ -13,8 +13,8 @@ public:
     {
         param.addListener (this);
         
-        Slider::valueFromTextFunction = [&param] (const String& text) { return (double) param.stringToFloat (text); };
-        Slider::textFromValueFunction = [&param] (double value) { return param.floatToString (value, 50); };
+        Slider::valueFromTextFunction = [this] (const String& text) { return (double) param.stringToFloat (text); };
+        Slider::textFromValueFunction = [this] (double value) { return param.floatToString (value, 50); };
         Slider::setDoubleClickReturnValue (true, param.getDefault());
         
         auto range = param.rap.getNormalisableRange();
@@ -46,7 +46,7 @@ public:
             return (double) range.snapToLegalValue ((float) mappedValue);
         };
         
-        NormalisableRange<double> newRange { (double) range.start,
+        juce::NormalisableRange<double> newRange { (double) range.start,
             (double) range.end,
             std::move (convertFrom0To1Function),
             std::move (convertTo0To1Function),
