@@ -84,8 +84,7 @@ private:
 
 struct GUIInitializer
 {
-    GUIInitializer (juce::Component& componentToUse, BoolParameter& darkModeParameter)
-    : darkModeSentinel (darkModeParameter, componentToUse)
+    GUIInitializer (juce::Component& componentToUse)
     {
 #if JUCE_OPENGL
         openGLContext.attachTo (componentToUse);
@@ -106,8 +105,6 @@ private:
 #if JUCE_OPENGL
     OpenGLContext openGLContext;
 #endif
-    
-    DarkModeSentinel darkModeSentinel;
 };
 
 
