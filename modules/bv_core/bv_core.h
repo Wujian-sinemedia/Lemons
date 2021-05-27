@@ -71,7 +71,6 @@
 
 // building blocks
 #include "building_blocks/SystemInitializer.h"
-#include "building_blocks/ApplicationBase.h"
 #include "building_blocks/ProcessorBase/ProcessorBase.h"
 
 
