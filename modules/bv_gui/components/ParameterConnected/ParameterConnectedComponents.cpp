@@ -55,6 +55,8 @@ SliderWithFloatParam::SliderWithFloatParam (FloatParameter& paramToUse)
     Slider::setTextBoxIsEditable (true);
     
     Slider::setTextValueSuffix (param.rap.getLabel());
+    
+    Slider::setTooltip (param.parameterNameShort);
 }
 
 SliderWithFloatParam::~SliderWithFloatParam()
@@ -145,6 +147,8 @@ SliderWithIntParam::SliderWithIntParam (IntParameter& paramToUse)
     Slider::setTextBoxIsEditable (true);
     
     Slider::setTextValueSuffix (param.rap.getLabel());
+    
+    Slider::setTooltip (param.parameterNameShort);
 }
 
 SliderWithIntParam::~SliderWithIntParam()
@@ -182,5 +186,26 @@ void SliderWithIntParam::valueChanged()
  -----------------------------------------------------------------------------------------------------------------------*/
 
 
+ToggleButton::ToggleButton (BoolParameter& paramToUse)
+: param (paramToUse)
+{
+    param.addListener (this);
+    
+    ToggleButton::onClick = [this](){ param.set (Button::getToggleState()); };
+    ToggleButton::onStateChange = [this](){ param.set (Button::getToggleState()); };
+    
+    ToggleButton::setButtonText (param.parameterNameVerbose);
+    ToggleButton::setTooltip (param.parameterNameShort);
+}
+
+ToggleButton::~ToggleButton()
+{
+    param.removeListener (this);
+}
+
+void ToggleButton::parameterValueChanged (bool newValue)
+{
+    ToggleButton::setToggleState (newValue, juce::NotificationType::dontSendNotification);
+}
 
 }  // namespace

@@ -47,19 +47,19 @@ private:
 
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
-#if 0
-class ToggleButton      :   public juce::ToggleButton
+
+class ToggleButton      :   public juce::ToggleButton,
+                            private bav::BoolParameter::Listener
 {
 public:
-    ToggleButton (BoolParameter& paramToUse)
-    : param (paramToUse)
-    { }
+    ToggleButton (BoolParameter& paramToUse);
     
-    virtual ~ToggleButton() = default;
+    virtual ~ToggleButton() override;
+    
+    BoolParameter& param;
     
 private:
-    BoolParameter& param;
+    void parameterValueChanged (bool newValue) override final;
 };
 
-#endif  // if 0
 }  // namespace

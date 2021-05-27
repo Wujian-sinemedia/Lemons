@@ -73,12 +73,19 @@ private:
 /*=========================================================================================*/
 
 
-static inline juce::Button::ButtonState
-    buttonStateFromBool (const bool isOn) noexcept
+static inline juce::Button::ButtonState boolToButtonState (const bool isOn) noexcept
 {
     if (isOn) return juce::Button::ButtonState::buttonDown;
 
     return juce::Button::ButtonState::buttonNormal;
+}
+
+static inline bool buttonStateToBool (juce::Button::ButtonState state) noexcept
+{
+    if (state == juce::Button::ButtonState::buttonDown)
+        return true;
+    
+    return false;
 }
 
 
