@@ -30,5 +30,6 @@
 #include "parameters/specializations/fundamental_types/ParameterTypes.cpp"
 #include "parameters/specializations/ParameterSpecializations.cpp"
 #include "parameters/ParameterList/ParameterList.cpp"
+#include "parameters/attachments/ParameterAttachments.cpp"
 
 #include "async/AsyncUtils.cpp"

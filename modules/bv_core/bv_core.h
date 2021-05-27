@@ -86,11 +86,11 @@
 #include "parameters/Parameter.h"
 #include "parameters/specializations/fundamental_types/ParameterTypes.h"
 #include "parameters/specializations/ParameterSpecializations.h"
-#include "parameters/helpers/ParameterHelpers.h"
 #include "parameters/mappings/MidiCC_Mapping.h"
 #include "parameters/mappings/LFO_Mapping.h"
 #include "parameters/ParameterList/ParameterHolder.h"
 #include "parameters/ParameterList/ParameterList.h"
+#include "parameters/attachments/ParameterAttachments.h"
 
 
 // math

@@ -11,17 +11,54 @@ Parameter::Parameter (RangedParam& p,
 {
     currentDefault = rap.getDefaultValue();
     lastActionedValue = currentDefault;
-    rap.addListener (this);
 }
 
 Parameter::~Parameter()
 {
-    rap.removeListener (this);
 }
 
 bool Parameter::operator== (const Parameter& other)
 {
     return parameterNameShort == other.parameterNameShort && parameterNameVerbose == other.parameterNameVerbose;
+}
+
+void Parameter::beginGesture()
+{
+    if (changing)
+        return;
+    
+    if (um != nullptr)
+    {
+        um->begingNewTransaction();
+        um->setCurrentTransactionName (TRANS("Changed") + " " + parameterNameVerbose);
+    }
+    
+    changing = true;
+    rap.beginChangeGesture();
+    
+    onGestureChange();
+    
+    if (onGestureStateChange)
+        bav::callOnMessageThread< bool > (onGestureStateChange, true);
+}
+
+void Parameter::endGesture()
+{
+    if (! changing)
+        return;
+    
+    changing = false;
+    rap.endChangeGesture();
+    
+    onGestureChange();
+    
+    if (onGestureStateChange)
+        bav::callOnMessageThread< bool > (onGestureStateChange, false);
+}
+
+bool Parameter::isChanging() const
+{
+    return changing;
 }
 
 float Parameter::getNormalizedDefault() const
@@ -39,7 +76,7 @@ void Parameter::setNormalizedDefault (float value)
     jassert (value >= 0.0f && value <= 1.0f);
 
     if (currentDefault == value) return;
-
+    
     currentDefault = value;
 
     if (onDefaultChange)
@@ -68,12 +105,13 @@ void Parameter::resetToDefault()
 
 void Parameter::setNormalizedValue (float value)
 {
+    if (! changing)
+        beginGesture();
+    
     rap.setValueNotifyingHost (value);
     
-    if (um != nullptr)
-    {
-        
-    }
+    if (onParameterChange)
+        bav::callOnMessageThread (onParameterChange);
 }
 
 void Parameter::setDenormalizedValue (float value)
@@ -115,25 +153,6 @@ void Parameter::doAction()
         lastActionedValue = value;
         onAction();
     }
-}
-
-bool Parameter::isChanging() const
-{
-    return changing;
-}
-
-void Parameter::parameterValueChanged (int, float)
-{
-    if (onParameterChange)
-        bav::callOnMessageThread (onParameterChange);
-}
-
-void Parameter::parameterGestureChanged (int, bool gestureIsStarting)
-{
-    changing = gestureIsStarting;
-    if (onGestureStateChange)
-        bav::callOnMessageThread< bool > (onGestureStateChange,
-                                          gestureIsStarting);
 }
 
 

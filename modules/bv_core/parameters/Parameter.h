@@ -3,8 +3,7 @@
 
 namespace bav
 {
-class Parameter :   public bav::SerializableData,
-                    private juce::AudioProcessorParameter::Listener
+class Parameter :   public bav::SerializableData
 {
 public:
     using RangedParam = juce::RangedAudioParameter;
@@ -28,13 +27,15 @@ public:
     float getCurrentDenormalizedValue() const;
     void  setNormalizedValue (float value);
     void  setDenormalizedValue (float value);
+    
+    void beginGesture();
+    void endGesture();
+    bool isChanging() const;
 
     float normalize (float input) const;
     float denormalize (float input) const;
     
     void setUndoManager (juce::UndoManager& managerToUse);
-
-    bool isChanging() const;
 
     void doAction();
 
@@ -53,9 +54,6 @@ public:
     //==============================================================================
 
 private:
-    void         parameterValueChanged (int, float) override final;
-    void         parameterGestureChanged (int, bool gestureIsStarting) override final;
-    
     virtual void onGestureChange (bool gestureIsStarting) = 0;
     virtual void onAction() = 0;
 
