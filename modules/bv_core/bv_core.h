@@ -56,7 +56,7 @@
 #include "misc/RealtimeSpinLock.h"
 
 #include "serializing/SerializableData.h"
-#include "serializing/valuetree/json_converter.h"
+#include "serializing/valuetree_json_converter.h"
 
 
 // files
