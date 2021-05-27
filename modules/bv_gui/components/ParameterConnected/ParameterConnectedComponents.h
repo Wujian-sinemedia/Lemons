@@ -8,12 +8,14 @@ namespace bav::gui
 class SliderAttachmentBase  :   public juce::Slider
 {
 public:
-    SliderAttachmentBase (juce::RangedAudioParameter& paramToUse);
-    
+    SliderAttachmentBase (Parameter& paramToUse);
     virtual ~SliderAttachmentBase() override = default;
     
 private:
-    juce::RangedAudioParameter& param;
+    Parameter& param;
+    
+    void startedDragging() override final;
+    void stoppedDragging() override final;
 };
 
 
@@ -26,7 +28,6 @@ class FloatSlider  :   public SliderAttachmentBase,
 {
 public:
     FloatSlider (FloatParameter& paramToUse);
-    
     virtual ~FloatSlider() override = default;
     
     FloatParameter& param;
@@ -35,8 +36,6 @@ private:
     void paramValueChanged (float newValue) override final;
     void paramDefaultChanged (float newDefault) override final;
     
-    void startedDragging() override final;
-    void stoppedDragging() override final;
     void valueChanged() override final;
 };
 
@@ -50,7 +49,6 @@ class IntSlider  :   public SliderAttachmentBase,
 {
 public:
     IntSlider (IntParameter& paramToUse);
-    
     virtual ~IntSlider() override = default;
     
     IntParameter& param;
@@ -59,8 +57,6 @@ private:
     void paramValueChanged (int newValue) override final;
     void paramDefaultChanged (int newDefault) override final;
     
-    void startedDragging() override final;
-    void stoppedDragging() override final;
     void valueChanged() override final;
 };
 
@@ -74,7 +70,6 @@ class ToggleButton      :   public juce::ToggleButton,
 {
 public:
     ToggleButton (BoolParameter& paramToUse);
-    
     virtual ~ToggleButton() override;
     
     BoolParameter& param;

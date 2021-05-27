@@ -5,7 +5,7 @@ namespace bav::gui
 SliderAttachmentBase::SliderAttachmentBase (juce::RangedAudioParameter& paramToUse)
 : param (paramToUse)
 {
-    auto range = param.getNormalisableRange();
+    auto range = param.rap.getNormalisableRange();
     
     auto convertFrom0To1Function = [range] (double currentRangeStart,
                                             double currentRangeEnd,
@@ -48,7 +48,19 @@ SliderAttachmentBase::SliderAttachmentBase (juce::RangedAudioParameter& paramToU
     
     Slider::setTextBoxIsEditable (true);
     
-    Slider::setTextValueSuffix (param.getLabel());
+    Slider::setTextValueSuffix (param.rap.getLabel());
+    
+    Slider::setTooltip (param.parameterNameShort);
+}
+
+void SliderAttachmentBase::startedDragging()
+{
+    param.beginGesture();
+}
+
+void SliderAttachmentBase::stoppedDragging()
+{
+    param.endGesture();
 }
 
 
@@ -64,33 +76,22 @@ param (paramToUse)
     Slider::valueFromTextFunction = [this] (const juce::String& text) { return (double) param.stringToFloat (text); };
     Slider::textFromValueFunction = [this] (double value) { return param.floatToString (float(value), 50); };
     Slider::setDoubleClickReturnValue (true, double (param.getDefault()));
-    
-    Slider::setTooltip (param.parameterNameShort);
 }
 
 void FloatSlider::paramValueChanged (float newValue)
 {
-    Slider::setValue (double(newValue), juce::NotificationType::dontSendNotification);
+    Slider::setValue (static_cast<double>(newValue),
+                      juce::NotificationType::dontSendNotification);
 }
 
 void FloatSlider::paramDefaultChanged (float newDefault)
 {
-    Slider::setDoubleClickReturnValue (true, newDefault);
-}
-
-void FloatSlider::startedDragging()
-{
-    param.beginGesture();
-}
-
-void FloatSlider::stoppedDragging()
-{
-    param.endGesture();
+    Slider::setDoubleClickReturnValue (true, static_cast<double>(newDefault));
 }
 
 void FloatSlider::valueChanged()
 {
-    param.set (float (Slider::getValue()));
+    param.set (static_cast<float> (Slider::getValue()));
 }
 
 
@@ -106,33 +107,22 @@ param (paramToUse)
     Slider::valueFromTextFunction = [this] (const juce::String& text) { return (double) param.stringToInt (text); };
     Slider::textFromValueFunction = [this] (double value) { return param.intToString (juce::roundToInt(value), 50); };
     Slider::setDoubleClickReturnValue (true, double(param.getDefault()));
-    
-    Slider::setTooltip (param.parameterNameShort);
 }
 
 void IntSlider::paramValueChanged (int newValue)
 {
-    Slider::setValue (double(newValue), juce::NotificationType::dontSendNotification);
+    Slider::setValue (static_cast<double>(newValue),
+                      juce::NotificationType::dontSendNotification);
 }
 
 void IntSlider::paramDefaultChanged (int newDefault)
 {
-    Slider::setDoubleClickReturnValue (true, newDefault);
-}
-
-void IntSlider::startedDragging()
-{
-    param.beginGesture();
-}
-
-void IntSlider::stoppedDragging()
-{
-    param.endGesture();
+    Slider::setDoubleClickReturnValue (true, static_cast<double>(newDefault));
 }
 
 void IntSlider::valueChanged()
 {
-    param.set (juce::roundToInt (Slider::getValue()));
+    param.set (static_cast<float> (Slider::getValue()));
 }
 
 
