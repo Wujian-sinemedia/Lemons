@@ -29,14 +29,14 @@ void Parameter::beginGesture()
     
     if (um != nullptr)
     {
-        um->begingNewTransaction();
+        um->beginNewTransaction();
         um->setCurrentTransactionName (TRANS("Changed") + " " + parameterNameVerbose);
     }
     
     changing = true;
     rap.beginChangeGesture();
     
-    onGestureChange();
+    onGestureChange (true);
     
     if (onGestureStateChange)
         bav::callOnMessageThread< bool > (onGestureStateChange, true);
@@ -50,7 +50,7 @@ void Parameter::endGesture()
     changing = false;
     rap.endChangeGesture();
     
-    onGestureChange();
+    onGestureChange (false);
     
     if (onGestureStateChange)
         bav::callOnMessageThread< bool > (onGestureStateChange, false);
