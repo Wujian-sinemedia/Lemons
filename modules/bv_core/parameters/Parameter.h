@@ -39,7 +39,7 @@ public:
 
     void doAction (bool force = false);
     
-    void sendListenerSyncCallback() const;  // sends a value update message to all listeners
+    void sendListenerSyncCallback();  // sends a value update message to all listeners
 
     //==============================================================================
 

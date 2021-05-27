@@ -152,7 +152,7 @@ void Parameter::doAction (bool force)
     }
 }
 
-void Parameter::sendListenerSyncCallback() const
+void Parameter::sendListenerSyncCallback()
 {
     const auto value = getCurrentNormalizedValue();
     listeners.call ([&value](Listener& l){ l.parameterValueChanged (value); });
