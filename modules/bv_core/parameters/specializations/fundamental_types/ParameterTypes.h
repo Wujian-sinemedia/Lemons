@@ -41,9 +41,9 @@ public:
     {
         virtual ~Listener() = default;
         
-        void parameterValueChanged (float newValue);
-        void parameterDefaultChanged (float newDefault);
-        void parameterGestureStateChanged (bool paramIsChanging);
+        virtual void parameterValueChanged (float newValue);
+        virtual void parameterDefaultChanged (float newDefault);
+        virtual void parameterGestureStateChanged (bool paramIsChanging);
     };
     
     void addListener (Listener* l);
@@ -102,9 +102,9 @@ public:
     {
         virtual ~Listener() = default;
         
-        void parameterValueChanged (int newValue);
-        void parameterDefaultChanged (int newDefault);
-        void parameterGestureStateChanged (bool paramIsChanging);
+        virtual void parameterValueChanged (int newValue);
+        virtual void parameterDefaultChanged (int newDefault);
+        virtual void parameterGestureStateChanged (bool paramIsChanging);
     };
     
     void addListener (Listener* l);
@@ -160,9 +160,9 @@ public:
     {
         virtual ~Listener() = default;
         
-        void parameterValueChanged (bool newValue);
-        void parameterDefaultChanged (bool newDefault);
-        void parameterGestureStateChanged (bool paramIsChanging);
+        virtual void parameterValueChanged (bool newValue);
+        virtual void parameterDefaultChanged (bool newDefault);
+        virtual void parameterGestureStateChanged (bool paramIsChanging);
     };
     
     void addListener (Listener* l);

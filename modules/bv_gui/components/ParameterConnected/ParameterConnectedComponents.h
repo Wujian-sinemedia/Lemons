@@ -13,7 +13,7 @@ public:
     {
         param.addListener (this);
         
-        Slider::valueFromTextFunction = [this] (const String& text) { return (double) param.stringToFloat (text); };
+        Slider::valueFromTextFunction = [this] (const juce::String& text) { return (double) param.stringToFloat (text); };
         Slider::textFromValueFunction = [this] (double value) { return param.floatToString (value, 50); };
         Slider::setDoubleClickReturnValue (true, param.getDefault());
         
