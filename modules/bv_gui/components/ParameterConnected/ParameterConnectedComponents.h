@@ -7,6 +7,7 @@ namespace bav::gui
 
 class SliderAttachmentBase  :   public juce::Slider
 {
+public:
     SliderAttachmentBase (juce::RangedAudioParameter& paramToUse);
     
     virtual ~SliderAttachmentBase() override = default;
