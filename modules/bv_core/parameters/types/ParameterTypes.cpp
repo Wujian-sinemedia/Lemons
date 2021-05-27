@@ -1,31 +1,30 @@
 
 namespace bav
 {
-
 FloatParameter::FloatParameter (
-                                juce::String paramNameShort,
-                                juce::String paramNameVerbose,
-                                juce::NormalisableRange< float >
-                                nRange,
-                                float                                   defaultVal,
-                                juce::AudioProcessorParameter::Category parameterCategory,
-                                std::function< juce::String (float value, int maximumStringLength) >
-                                stringFromValue,
-                                std::function< float (const juce::String& text) >
-                                valueFromString,
-                                juce::String parameterLabel)
-: AudioParameterFloat (paramNameVerbose,
-                       TRANS (paramNameVerbose),
-                       nRange,
-                       defaultVal,
-                       parameterLabel,
-                       parameterCategory,
-                       stringFromValue,
-                       valueFromString),
-Parameter (*this,
-           paramNameShort,
-           paramNameVerbose),
-floatToString (stringFromValue), stringToFloat (valueFromString)
+    juce::String paramNameShort,
+    juce::String paramNameVerbose,
+    juce::NormalisableRange< float >
+                                            nRange,
+    float                                   defaultVal,
+    juce::AudioProcessorParameter::Category parameterCategory,
+    std::function< juce::String (float value, int maximumStringLength) >
+        stringFromValue,
+    std::function< float (const juce::String& text) >
+                 valueFromString,
+    juce::String parameterLabel)
+    : AudioParameterFloat (paramNameVerbose,
+                           TRANS (paramNameVerbose),
+                           nRange,
+                           defaultVal,
+                           parameterLabel,
+                           parameterCategory,
+                           stringFromValue,
+                           valueFromString),
+      Parameter (*this,
+                 paramNameShort,
+                 paramNameVerbose),
+      floatToString (stringFromValue), stringToFloat (valueFromString)
 {
 }
 
@@ -43,7 +42,7 @@ void FloatParameter::set (float newValue)
 {
     if (newValue == get())
         return;
-    
+
     Parameter::setDenormalizedValue (newValue);
 }
 
@@ -76,8 +75,8 @@ void FloatParameter::fromValueTree (const juce::ValueTree& tree)
 }
 
 FloatParameter::Listener::Listener (FloatParameter& toUse)
- :  Parameter::Listener (toUse),
-    param (toUse)
+    : Parameter::Listener (toUse),
+      param (toUse)
 {
     param.addParameterListener (this);
 }
@@ -106,28 +105,28 @@ void FloatParameter::Listener::paramDefaultChanged (float) { }
 
 
 IntParameter::IntParameter (
-                            juce::String paramNameShort,
-                            juce::String paramNameVerbose,
-                            int          min,
-                            int          max,
-                            int          defaultVal,
-                            std::function< juce::String (int value, int maximumStringLength) >
-                            stringFromInt,
-                            std::function< int (const juce::String& text) >
-                            intFromString,
-                            juce::String parameterLabel)
-: AudioParameterInt (paramNameVerbose,
-                     TRANS (paramNameVerbose),
-                     min,
-                     max,
-                     defaultVal,
-                     parameterLabel,
-                     stringFromInt,
-                     intFromString),
-Parameter (*this,
-           paramNameShort,
-           paramNameVerbose),
-intToString (stringFromInt), stringToInt (intFromString)
+    juce::String paramNameShort,
+    juce::String paramNameVerbose,
+    int          min,
+    int          max,
+    int          defaultVal,
+    std::function< juce::String (int value, int maximumStringLength) >
+        stringFromInt,
+    std::function< int (const juce::String& text) >
+                 intFromString,
+    juce::String parameterLabel)
+    : AudioParameterInt (paramNameVerbose,
+                         TRANS (paramNameVerbose),
+                         min,
+                         max,
+                         defaultVal,
+                         parameterLabel,
+                         stringFromInt,
+                         intFromString),
+      Parameter (*this,
+                 paramNameShort,
+                 paramNameVerbose),
+      intToString (stringFromInt), stringToInt (intFromString)
 {
 }
 
@@ -145,7 +144,7 @@ void IntParameter::set (int newValue)
 {
     if (newValue == get())
         return;
-    
+
     Parameter::setDenormalizedValue (static_cast< float > (newValue));
 }
 
@@ -178,8 +177,8 @@ void IntParameter::fromValueTree (const juce::ValueTree& tree)
 }
 
 IntParameter::Listener::Listener (IntParameter& toUse)
- :  Parameter::Listener (toUse),
-    param (toUse)
+    : Parameter::Listener (toUse),
+      param (toUse)
 {
     param.addParameterListener (this);
 }
@@ -208,23 +207,23 @@ void IntParameter::Listener::paramDefaultChanged (int) { }
 
 
 BoolParameter::BoolParameter (
-                              juce::String paramNameShort,
-                              juce::String paramNameVerbose,
-                              bool         defaultVal,
-                              std::function< juce::String (bool value, int maximumStringLength) >
-                              stringFromBool,
-                              std::function< bool (const juce::String& text) >
-                              boolFromString)
-: AudioParameterBool (paramNameVerbose,
-                      TRANS (paramNameVerbose),
-                      defaultVal,
-                      juce::String(),
-                      stringFromBool,
-                      boolFromString),
-Parameter (*this,
-           paramNameShort,
-           paramNameVerbose),
-boolToString (stringFromBool), stringToBool (boolFromString)
+    juce::String paramNameShort,
+    juce::String paramNameVerbose,
+    bool         defaultVal,
+    std::function< juce::String (bool value, int maximumStringLength) >
+        stringFromBool,
+    std::function< bool (const juce::String& text) >
+        boolFromString)
+    : AudioParameterBool (paramNameVerbose,
+                          TRANS (paramNameVerbose),
+                          defaultVal,
+                          juce::String(),
+                          stringFromBool,
+                          boolFromString),
+      Parameter (*this,
+                 paramNameShort,
+                 paramNameVerbose),
+      boolToString (stringFromBool), stringToBool (boolFromString)
 {
 }
 
@@ -242,7 +241,7 @@ void BoolParameter::set (bool newValue)
 {
     if (newValue == get())
         return;
-    
+
     const auto val = newValue ? 1.0f : 0.0f;
     Parameter::setNormalizedValue (val);
 }
@@ -277,8 +276,8 @@ void BoolParameter::fromValueTree (const juce::ValueTree& tree)
 }
 
 BoolParameter::Listener::Listener (BoolParameter& toUse)
- :  Parameter::Listener (toUse),
-    param (toUse)
+    : Parameter::Listener (toUse),
+      param (toUse)
 {
     param.addParameterListener (this);
 }
@@ -302,4 +301,4 @@ void BoolParameter::Listener::paramValueChanged (bool) { }
 void BoolParameter::Listener::paramDefaultChanged (bool) { }
 
 
-}  // namespace
+}  // namespace bav

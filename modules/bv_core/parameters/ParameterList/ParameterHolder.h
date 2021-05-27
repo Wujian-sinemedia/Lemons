@@ -3,7 +3,6 @@
 
 namespace bav
 {
-
 struct ParamHolderBase
 {
     ParamHolderBase (bool internal = false) : isInternal (internal) { }
@@ -44,7 +43,7 @@ public:
             delete param;
     }
 
-    Parameter* getParam() const override final { return param; }
+    Parameter*     getParam() const override final { return param; }
     ParameterType* get() const { return param; }
 
                    operator ParameterType&() { return *param; }

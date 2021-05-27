@@ -3,7 +3,7 @@
 
 namespace bav
 {
-class ParameterList  :      public SerializableData
+class ParameterList : public SerializableData
 {
 public:
     ParameterList (juce::Identifier listName);
@@ -31,27 +31,27 @@ public:
     void addAllParametersAsInternal();
 
     int getNumParameters() const;
-    
+
     void refreshAllDefaults();
     void resetAllToDefault();
-    
+
     void doAllActions();
-    
+
     void setUndoManager (juce::UndoManager& um);
-    
-    
+
+
 private:
     struct ParamHolderMetadata
     {
         ParamHolderMetadata (ParamHolderBase& h, bool internal);
-        
+
         ParamHolderBase& holder;
-        bool isInternal;
+        bool             isInternal;
     };
-    
+
     virtual void toValueTree (ValueTree& tree) override;
     virtual void fromValueTree (const ValueTree& tree) override;
-    
+
     juce::Array< ParamHolderMetadata > params;
     dsp::ProcessorBase                 dummyProcessor;
 };

@@ -1,10 +1,10 @@
 
 namespace bav
 {
-
 ParameterList::ParameterList (juce::Identifier listName)
-: SerializableData (listName)
-{ }
+    : SerializableData (listName)
+{
+}
 
 void ParameterList::add (ParamHolderBase& param)
 {
@@ -18,7 +18,7 @@ void ParameterList::addInternal (ParamHolderBase& param)
 
 void ParameterList::addParameter (ParamHolderBase& param, bool isInternal)
 {
-    params.add ({ param, isInternal });
+    params.add ({param, isInternal});
 }
 
 void ParameterList::addParametersTo (juce::AudioProcessor& processor)
@@ -84,8 +84,9 @@ void ParameterList::setUndoManager (juce::UndoManager& um)
 
 
 ParameterList::ParamHolderMetadata::ParamHolderMetadata (ParamHolderBase& h, bool internal)
-: holder (h), isInternal(internal)
-{ }
+    : holder (h), isInternal (internal)
+{
+}
 
 
 }  // namespace bav

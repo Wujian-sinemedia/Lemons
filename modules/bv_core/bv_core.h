@@ -55,9 +55,8 @@
 #include "misc/LockFreeFifo.h"
 #include "misc/RealtimeSpinLock.h"
 
-#include "valuetrees/json_converter.h"
-
 #include "serializing/SerializableData.h"
+#include "serializing/valuetree/json_converter.h"
 
 
 // files
