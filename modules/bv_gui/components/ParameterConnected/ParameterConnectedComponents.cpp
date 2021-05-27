@@ -121,6 +121,12 @@ param (paramToUse)
     Slider::setNumDecimalPlacesToDisplay (0);
 }
 
+IntSlider::IntSlider (IntParameter& paramToUse, SliderStyle style)
+: IntSlider (paramToUse)
+{
+    Slider::setSliderStyle (style);
+}
+
 void IntSlider::paramValueChanged (int newValue)
 {
     Slider::setValue (static_cast<double>(newValue),

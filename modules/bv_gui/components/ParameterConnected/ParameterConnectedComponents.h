@@ -27,8 +27,6 @@ class FloatSlider  :   public SliderAttachmentBase,
                        private bav::FloatParameter::Listener
 {
 public:
-    using SliderStyle = juce::SliderStyle;
-    
     FloatSlider (FloatParameter& paramToUse);
     FloatSlider (FloatParameter& paramToUse, SliderStyle style);
     
@@ -53,6 +51,8 @@ class IntSlider  :   public SliderAttachmentBase,
 {
 public:
     IntSlider (IntParameter& paramToUse);
+    IntSlider (IntParameter& paramToUse, SliderStyle style);
+    
     virtual ~IntSlider() override = default;
     
     IntParameter& param;
