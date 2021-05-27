@@ -8,115 +8,46 @@ class SliderWithFloatParam  :   public juce::Slider,
                                 private bav::FloatParameter::Listener
 {
 public:
-    SliderWithFloatParam (FloatParameter& paramToUse)
-    : param (paramToUse)
-    {
-        param.addListener (this);
-        
-        Slider::valueFromTextFunction = [this] (const juce::String& text) { return (double) param.stringToFloat (text); };
-        Slider::textFromValueFunction = [this] (double value) { return param.floatToString (value, 50); };
-        Slider::setDoubleClickReturnValue (true, param.getDefault());
-        
-        auto range = param.rap.getNormalisableRange();
-        
-        auto convertFrom0To1Function = [range] (double currentRangeStart,
-                                                double currentRangeEnd,
-                                                double normalisedValue) mutable
-        {
-            range.start = (float) currentRangeStart;
-            range.end = (float) currentRangeEnd;
-            return (double) range.convertFrom0to1 ((float) normalisedValue);
-        };
-        
-        auto convertTo0To1Function = [range] (double currentRangeStart,
-                                              double currentRangeEnd,
-                                              double mappedValue) mutable
-        {
-            range.start = (float) currentRangeStart;
-            range.end = (float) currentRangeEnd;
-            return (double) range.convertTo0to1 ((float) mappedValue);
-        };
-        
-        auto snapToLegalValueFunction = [range] (double currentRangeStart,
-                                                 double currentRangeEnd,
-                                                 double mappedValue) mutable
-        {
-            range.start = (float) currentRangeStart;
-            range.end = (float) currentRangeEnd;
-            return (double) range.snapToLegalValue ((float) mappedValue);
-        };
-        
-        juce::NormalisableRange<double> newRange { (double) range.start,
-            (double) range.end,
-            std::move (convertFrom0To1Function),
-            std::move (convertTo0To1Function),
-            std::move (snapToLegalValueFunction) };
-        
-        newRange.interval = range.interval;
-        newRange.skew = range.skew;
-        newRange.symmetricSkew = range.symmetricSkew;
-        
-        Slider::setNormalisableRange (newRange);
-        
-        Slider::setTextBoxIsEditable (true);
-        
-        Slider::setTextValueSuffix (param.rap.getLabel());
-    }
+    SliderWithFloatParam (FloatParameter& paramToUse);
     
-    virtual ~SliderWithFloatParam() override
-    {
-        param.removeListener (this);
-    }
-    
-    
-private:
-    void parameterValueChanged (float newValue) override final
-    {
-        Slider::setValue (double(newValue), juce::NotificationType::dontSendNotification);
-    }
-    
-    void parameterDefaultChanged (float newDefault) override final
-    {
-        Slider::setDoubleClickReturnValue (true, newDefault);
-    }
-    
-    void startedDragging() override
-    {
-        param.beginGesture();
-    }
-    
-    void stoppedDragging() override
-    {
-        param.endGesture();
-    }
-    
-    void valueChanged() override
-    {
-        param.set (float (Slider::getValue()));
-    }
+    virtual ~SliderWithFloatParam() override;
     
     FloatParameter& param;
+    
+private:
+    void parameterValueChanged (float newValue) override final;
+    void parameterDefaultChanged (float newDefault) override final;
+    
+    void startedDragging() override final;
+    void stoppedDragging() override final;
+    void valueChanged() override final;
+};
+
+/*-----------------------------------------------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------------*/
+
+class SliderWithIntParam  :   public juce::Slider,
+                              private bav::IntParameter::Listener
+{
+public:
+    SliderWithIntParam (IntParameter& paramToUse);
+    
+    virtual ~SliderWithIntParam() override;
+    
+    IntParameter& param;
+    
+private:
+    void parameterValueChanged (int newValue) override final;
+    void parameterDefaultChanged (int newDefault) override final;
+    
+    void startedDragging() override final;
+    void stoppedDragging() override final;
+    void valueChanged() override final;
 };
 
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 #if 0
-class SliderWithIntParam    :   public juce::Slider
-{
-public:
-    SliderWithIntParam (IntParameter& paramToUse)
-    : param (paramToUse)
-    { }
-    
-    virtual ~SliderWithIntParam() = default;
-    
-private:
-    IntParameter& param;
-};
-
-/*-----------------------------------------------------------------------------------------------------------------------
- -----------------------------------------------------------------------------------------------------------------------*/
-
 class ToggleButton      :   public juce::ToggleButton
 {
 public:
