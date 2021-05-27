@@ -7,7 +7,9 @@ Parameter::Parameter (RangedParam& p,
     : SerializableData (paramNameVerbose),
       rap (p),
       parameterNameShort (TRANS (paramNameShort)),
-      parameterNameVerbose (TRANS (paramNameVerbose))
+      parameterNameVerbose (TRANS (paramNameVerbose)),
+      valueChangeTransactionName (TRANS ("Changed") + " " + parameterNameVerbose),
+      defaultChangeTransactionName (TRANS ("Changed default value of") + " " + parameterNameVerbose)
 {
     currentDefault = rap.getDefaultValue();
     lastActionedValue = currentDefault;
@@ -30,16 +32,13 @@ void Parameter::beginGesture()
     if (um != nullptr)
     {
         um->beginNewTransaction();
-        um->setCurrentTransactionName (TRANS("Changed") + " " + parameterNameVerbose);
+        um->setCurrentTransactionName (valueChangeTransactionName);
     }
     
     changing = true;
     rap.beginChangeGesture();
     
     listeners.call ([](Listener& l){ l.parameterGestureStateChanged (true); });
-    
-    if (onGestureStateChange)
-        bav::callOnMessageThread< bool > (onGestureStateChange, true);
 }
 
 void Parameter::endGesture()
@@ -51,9 +50,6 @@ void Parameter::endGesture()
     rap.endChangeGesture();
     
     listeners.call ([](Listener& l){ l.parameterGestureStateChanged (false); });
-    
-    if (onGestureStateChange)
-        bav::callOnMessageThread< bool > (onGestureStateChange, false);
 }
 
 bool Parameter::isChanging() const
@@ -76,18 +72,16 @@ void Parameter::setNormalizedDefault (float value)
     jassert (value >= 0.0f && value <= 1.0f);
 
     if (currentDefault == value) return;
+
+    if (um != nullptr)
+    {
+        um->beginNewTransaction();
+        um->setCurrentTransactionName (defaultChangeTransactionName);
+    }
     
     currentDefault = value;
     
     listeners.call ([&value](Listener& l){ l.parameterDefaultChanged (value); });
-
-    if (onDefaultChange)
-        bav::callOnMessageThread (onDefaultChange);
-    
-    if (um != nullptr)
-    {
-        
-    }
 }
 
 void Parameter::setDenormalizedDefault (float value)
@@ -115,9 +109,6 @@ void Parameter::setNormalizedValue (float value)
     rap.setValueNotifyingHost (value);
     
     listeners.call ([&value](Listener& l){ l.parameterValueChanged (value); });
-    
-    if (onParameterChange)
-        bav::callOnMessageThread (onParameterChange);
 }
 
 void Parameter::setDenormalizedValue (float value)

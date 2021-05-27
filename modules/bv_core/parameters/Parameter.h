@@ -39,11 +39,6 @@ public:
 
     void doAction();
 
-    // if defined, these functions will be called on the message thread when this parameter changes ("somewhat synchronously"):
-    std::function< void() > onParameterChange;
-    std::function< void() > onDefaultChange;
-    std::function< void (bool) >  onGestureStateChange;
-
     //==============================================================================
 
     RangedParam& rap;
@@ -72,7 +67,7 @@ public:
     //==============================================================================
 
 private:
-    virtual void onAction() = 0;
+    virtual void onAction() { }
 
     float currentDefault;
     bool  changing = false;
@@ -82,6 +77,9 @@ private:
     juce::UndoManager* um;
     
     juce::ListenerList<Listener> listeners;
+    
+    const juce::String valueChangeTransactionName;
+    const juce::String defaultChangeTransactionName;
 };
 
 
