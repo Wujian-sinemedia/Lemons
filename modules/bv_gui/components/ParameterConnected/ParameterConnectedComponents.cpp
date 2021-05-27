@@ -69,7 +69,7 @@ void SliderAttachmentBase::stoppedDragging()
 
 
 FloatSlider::FloatSlider (FloatParameter& paramToUse)
-: SliderAttachmentBase (paramToUse.rap),
+: SliderAttachmentBase (paramToUse),
 FloatParameter::Listener (paramToUse),
 param (paramToUse)
 {
@@ -100,7 +100,7 @@ void FloatSlider::valueChanged()
 
 
 IntSlider::IntSlider (IntParameter& paramToUse)
-: SliderAttachmentBase (paramToUse.rap),
+: SliderAttachmentBase (paramToUse),
 IntParameter::Listener (paramToUse),
 param (paramToUse)
 {
