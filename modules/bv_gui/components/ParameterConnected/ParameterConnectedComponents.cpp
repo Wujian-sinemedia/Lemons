@@ -6,8 +6,8 @@ SliderWithFloatParam::SliderWithFloatParam (FloatParameter& paramToUse)
 : FloatParameter::Listener (paramToUse),
 param (paramToUse)
 {
-    Slider::valueFromTextFunction = [param] (const juce::String& text) { return (double) param.stringToFloat (text); };
-    Slider::textFromValueFunction = [param] (double value) { return param.floatToString (float(value), 50); };
+    Slider::valueFromTextFunction = [this] (const juce::String& text) { return (double) param.stringToFloat (text); };
+    Slider::textFromValueFunction = [this] (double value) { return param.floatToString (float(value), 50); };
     Slider::setDoubleClickReturnValue (true, double (param.getDefault()));
     
     auto range = param.rap.getNormalisableRange();
@@ -96,8 +96,8 @@ SliderWithIntParam::SliderWithIntParam (IntParameter& paramToUse)
 : IntParameter::Listener (paramToUse),
 param (paramToUse)
 {
-    Slider::valueFromTextFunction = [param] (const juce::String& text) { return (double) param.stringToInt (text); };
-    Slider::textFromValueFunction = [param] (double value) { return param.intToString (juce::roundToInt(value), 50); };
+    Slider::valueFromTextFunction = [this] (const juce::String& text) { return (double) param.stringToInt (text); };
+    Slider::textFromValueFunction = [this] (double value) { return param.intToString (juce::roundToInt(value), 50); };
     Slider::setDoubleClickReturnValue (true, double(param.getDefault()));
     
     auto range = param.rap.getNormalisableRange();
