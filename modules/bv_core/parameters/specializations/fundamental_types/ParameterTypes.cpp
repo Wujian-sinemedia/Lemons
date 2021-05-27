@@ -79,12 +79,12 @@ FloatParameter::Listener::Listener (FloatParameter& toUse)
  :  Parameter::Listener (toUse),
     param (toUse)
 {
-    param.addListener (this);
+    param.addParameterListener (this);
 }
 
 FloatParameter::Listener::~Listener()
 {
-    param.removeListener (this);
+    param.removeParameterListener (this);
 }
 
 void FloatParameter::Listener::valueChanged (float)
@@ -182,12 +182,12 @@ IntParameter::Listener::Listener (IntParameter& toUse)
  :  Parameter::Listener (toUse),
     param (toUse)
 {
-    param.addListener (this);
+    param.addParameterListener (this);
 }
 
 IntParameter::Listener::~Listener()
 {
-    param.removeListener (this);
+    param.removeParameterListener (this);
 }
 
 void IntParameter::Listener::valueChanged (float)
@@ -282,12 +282,12 @@ BoolParameter::Listener::Listener (BoolParameter& toUse)
  :  Parameter::Listener (toUse),
     param (toUse)
 {
-    param.addListener (this);
+    param.addParameterListener (this);
 }
 
 BoolParameter::Listener::~Listener()
 {
-    param.removeListener (this);
+    param.removeParameterListener (this);
 }
 
 void BoolParameter::Listener::valueChanged (float)

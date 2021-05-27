@@ -40,7 +40,7 @@ public:
     struct Listener   :     public Parameter::Listener
     {
         Listener (FloatParameter& toUse);
-        virtual ~Listener();
+        virtual ~Listener() override;
         
         virtual void parameterValueChanged (float newValue);
         virtual void parameterDefaultChanged (float newDefault);
@@ -102,7 +102,7 @@ public:
     struct Listener   :     public Parameter::Listener
     {
         Listener (IntParameter& toUse);
-        virtual ~Listener();
+        virtual ~Listener() override;
         
         virtual void parameterValueChanged (int newValue);
         virtual void parameterDefaultChanged (int newDefault);
@@ -161,7 +161,7 @@ public:
     struct Listener   :     public Parameter::Listener
     {
         Listener (BoolParameter& toUse);
-        virtual ~Listener();
+        virtual ~Listener() override;
         
         virtual void parameterValueChanged (bool newValue);
         virtual void parameterDefaultChanged (bool newDefault);

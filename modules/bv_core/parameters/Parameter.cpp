@@ -161,16 +161,26 @@ void Parameter::doAction()
     }
 }
 
+void Parameter::addParameterListener (Listener* l)
+{
+    listeners.add (l);
+}
+
+void Parameter::removeParameterListener (Listener* l)
+{
+    listeners.remove (l);
+}
+
 
 Parameter::Listener::Listener (Parameter& paramToUse)
 : param (paramToUse)
 {
-    param.addListener (this);
+    param.addParameterListener (this);
 }
 
 Parameter::Listener::~Listener()
 {
-    param.removeListener (this);
+    param.removeParameterListener (this);
 }
 
 void Parameter::Listener::valueChanged (float) { }

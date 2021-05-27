@@ -66,8 +66,8 @@ public:
         Parameter& param;
     };
     
-    void addListener (Listener* l) { listeners.add (l); }
-    void removeListener (Listener* l) { listeners.add (l); }
+    void addParameterListener (Listener* l);
+    void removeParameterListener (Listener* l);
     
     //==============================================================================
 
