@@ -2,7 +2,7 @@
 namespace bav::gui
 {
 
-SliderAttachmentBase::SliderAttachmentBase (juce::RangedAudioParameter& paramToUse)
+SliderAttachmentBase::SliderAttachmentBase (Parameter& paramToUse)
 : param (paramToUse)
 {
     auto range = param.rap.getNormalisableRange();
