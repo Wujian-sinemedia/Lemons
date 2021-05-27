@@ -39,11 +39,15 @@ public:
     
     struct Listener
     {
-        virtual ~Listener() = default;
+        Listener (FloatParameter& toUse);
+        virtual ~Listener();
         
         virtual void parameterValueChanged (float newValue);
         virtual void parameterDefaultChanged (float newDefault);
         virtual void parameterGestureStateChanged (bool paramIsChanging);
+        
+    private:
+        FloatParameter& param;
     };
     
     void addListener (Listener* l);
@@ -100,11 +104,15 @@ public:
     
     struct Listener
     {
-        virtual ~Listener() = default;
+        Listener (IntParameter& toUse);
+        virtual ~Listener();
         
         virtual void parameterValueChanged (int newValue);
         virtual void parameterDefaultChanged (int newDefault);
         virtual void parameterGestureStateChanged (bool paramIsChanging);
+        
+    private:
+        IntParameter& param;
     };
     
     void addListener (Listener* l);
@@ -158,11 +166,15 @@ public:
     
     struct Listener
     {
-        virtual ~Listener() = default;
+        Listener (BoolParameter& toUse);
+        virtual ~Listener();
         
         virtual void parameterValueChanged (bool newValue);
         virtual void parameterDefaultChanged (bool newDefault);
         virtual void parameterGestureStateChanged (bool paramIsChanging);
+        
+    private:
+        BoolParameter& param;
     };
     
     void addListener (Listener* l);

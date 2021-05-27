@@ -3,10 +3,9 @@ namespace bav::gui
 {
 
 SliderWithFloatParam::SliderWithFloatParam (FloatParameter& paramToUse)
-: param (paramToUse)
+: FloatParameter::Listener (paramToUse),
+param (paramToUse)
 {
-    param.addListener (this);
-    
     Slider::valueFromTextFunction = [this] (const juce::String& text) { return (double) param.stringToFloat (text); };
     Slider::textFromValueFunction = [this] (double value) { return param.floatToString (float(value), 50); };
     Slider::setDoubleClickReturnValue (true, double (param.getDefault()));
@@ -61,7 +60,6 @@ SliderWithFloatParam::SliderWithFloatParam (FloatParameter& paramToUse)
 
 SliderWithFloatParam::~SliderWithFloatParam()
 {
-    param.removeListener (this);
 }
 
 void SliderWithFloatParam::parameterValueChanged (float newValue)
@@ -95,10 +93,9 @@ void SliderWithFloatParam::valueChanged()
 
 
 SliderWithIntParam::SliderWithIntParam (IntParameter& paramToUse)
-: param (paramToUse)
+: IntParameter::Listener (paramToUse),
+param (paramToUse)
 {
-    param.addListener (this);
-    
     Slider::valueFromTextFunction = [this] (const juce::String& text) { return (double) param.stringToInt (text); };
     Slider::textFromValueFunction = [this] (double value) { return param.intToString (juce::roundToInt(value), 50); };
     Slider::setDoubleClickReturnValue (true, double(param.getDefault()));
@@ -153,7 +150,6 @@ SliderWithIntParam::SliderWithIntParam (IntParameter& paramToUse)
 
 SliderWithIntParam::~SliderWithIntParam()
 {
-    param.removeListener (this);
 }
 
 void SliderWithIntParam::parameterValueChanged (int newValue)
@@ -187,10 +183,9 @@ void SliderWithIntParam::valueChanged()
 
 
 ToggleButton::ToggleButton (BoolParameter& paramToUse)
-: param (paramToUse)
+: BoolParameter::Listener (paramToUse),
+param (paramToUse)
 {
-    param.addListener (this);
-    
     ToggleButton::onClick = [this](){ param.set (Button::getToggleState()); };
     ToggleButton::onStateChange = [this](){ param.set (Button::getToggleState()); };
     
@@ -200,7 +195,6 @@ ToggleButton::ToggleButton (BoolParameter& paramToUse)
 
 ToggleButton::~ToggleButton()
 {
-    param.removeListener (this);
 }
 
 void ToggleButton::parameterValueChanged (bool newValue)

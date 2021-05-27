@@ -95,6 +95,17 @@ void FloatParameter::removeListener (Listener* l)
     listeners.remove (l);
 }
 
+FloatParameter::Listener::Listener (FloatParameter& toUse)
+: param (toUse)
+{
+    param.addListener (this);
+}
+
+FloatParameter::Listener::~Listener()
+{
+    param.removeListener (this);
+}
+
 void FloatParameter::Listener::parameterValueChanged (float) { }
 void FloatParameter::Listener::parameterDefaultChanged (float) { }
 void FloatParameter::Listener::parameterGestureStateChanged (bool) { }
@@ -196,6 +207,17 @@ void IntParameter::removeListener (Listener* l)
     listeners.remove (l);
 }
 
+IntParameter::Listener::Listener (IntParameter& toUse)
+: param (toUse)
+{
+    param.addListener (this);
+}
+
+IntParameter::Listener::~Listener()
+{
+    param.removeListener (this);
+}
+
 void IntParameter::Listener::parameterValueChanged (int) { }
 void IntParameter::Listener::parameterDefaultChanged (int) { }
 void IntParameter::Listener::parameterGestureStateChanged (bool) { }
@@ -292,6 +314,17 @@ void BoolParameter::addListener (Listener* l)
 void BoolParameter::removeListener (Listener* l)
 {
     listeners.remove (l);
+}
+
+BoolParameter::Listener::Listener (BoolParameter& toUse)
+: param (toUse)
+{
+    param.addListener (this);
+}
+
+BoolParameter::Listener::~Listener()
+{
+    param.removeListener (this);
 }
 
 void BoolParameter::Listener::parameterValueChanged (bool) { }
