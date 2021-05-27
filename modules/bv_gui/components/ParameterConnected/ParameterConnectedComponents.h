@@ -4,13 +4,29 @@
 namespace bav::gui
 {
 
-class SliderWithFloatParam  :   public juce::Slider,
-                                private bav::FloatParameter::Listener
+
+class SliderAttachmentBase  :   public juce::Slider
+{
+    SliderAttachmentBase (juce::RangedAudioParameter& paramToUse);
+    
+    virtual ~SliderAttachmentBase() override = default;
+    
+private:
+    juce::RangedAudioParameter& param;
+};
+
+
+/*-----------------------------------------------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------------*/
+
+
+class FloatSlider  :   public SliderAttachmentBase,
+                       private bav::FloatParameter::Listener
 {
 public:
-    SliderWithFloatParam (FloatParameter& paramToUse);
+    FloatSlider (FloatParameter& paramToUse);
     
-    virtual ~SliderWithFloatParam() override;
+    virtual ~FloatSlider() override = default;
     
     FloatParameter& param;
     
@@ -23,16 +39,18 @@ private:
     void valueChanged() override final;
 };
 
+
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 
-class SliderWithIntParam  :   public juce::Slider,
-                              private bav::IntParameter::Listener
+
+class IntSlider  :   public SliderAttachmentBase,
+                     private bav::IntParameter::Listener
 {
 public:
-    SliderWithIntParam (IntParameter& paramToUse);
+    IntSlider (IntParameter& paramToUse);
     
-    virtual ~SliderWithIntParam() override;
+    virtual ~IntSlider() override = default;
     
     IntParameter& param;
     
@@ -45,8 +63,10 @@ private:
     void valueChanged() override final;
 };
 
+
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
+
 
 class ToggleButton      :   public juce::ToggleButton,
                             private bav::BoolParameter::Listener
