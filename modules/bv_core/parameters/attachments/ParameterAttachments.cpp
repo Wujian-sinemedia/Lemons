@@ -1,5 +1,0 @@
-
-namespace bav
-{
-
-}  // namespace
