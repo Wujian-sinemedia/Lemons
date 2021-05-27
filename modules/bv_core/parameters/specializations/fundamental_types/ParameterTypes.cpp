@@ -45,21 +45,11 @@ void FloatParameter::set (float newValue)
         return;
     
     Parameter::setDenormalizedValue (newValue);
-    listeners.call ([&newValue] (Listener& l)
-                    { l.parameterValueChanged (newValue); });
 }
 
 void FloatParameter::setDefault (float newDefaultValue)
 {
     Parameter::setDenormalizedDefault (newDefaultValue);
-    listeners.call ([&newDefaultValue] (Listener& l)
-                    { l.parameterDefaultChanged (newDefaultValue); });
-}
-
-void FloatParameter::onGestureChange (bool gestureIsStarting)
-{
-    listeners.call ([&gestureIsStarting] (Listener& l)
-                    { l.parameterGestureStateChanged (gestureIsStarting); });
 }
 
 void FloatParameter::setAction (std::function< void (float) > action)
@@ -85,16 +75,6 @@ void FloatParameter::fromValueTree (const juce::ValueTree& tree)
     setDefault (tree.getProperty ("ParameterDefaultValue"));
 }
 
-void FloatParameter::addListener (Listener* l)
-{
-    listeners.add (l);
-}
-
-void FloatParameter::removeListener (Listener* l)
-{
-    listeners.remove (l);
-}
-
 FloatParameter::Listener::Listener (FloatParameter& toUse)
 : param (toUse)
 {
@@ -104,6 +84,16 @@ FloatParameter::Listener::Listener (FloatParameter& toUse)
 FloatParameter::Listener::~Listener()
 {
     param.removeListener (this);
+}
+
+void FloatParameter::Listener::valueChanged (float)
+{
+    parameterValueChanged (param.get());
+}
+
+void FloatParameter::Listener::defaultChanged (float)
+{
+    parameterDefaultChanged (param.getDefault());
 }
 
 void FloatParameter::Listener::parameterValueChanged (float) { }
@@ -157,21 +147,11 @@ void IntParameter::set (int newValue)
         return;
     
     Parameter::setDenormalizedValue (static_cast< float > (newValue));
-    listeners.call ([&newValue] (Listener& l)
-                    { l.parameterValueChanged (newValue); });
 }
 
 void IntParameter::setDefault (int newDefaultValue)
 {
     Parameter::setDenormalizedDefault (static_cast< float > (newDefaultValue));
-    listeners.call ([&newDefaultValue] (Listener& l)
-                    { l.parameterDefaultChanged (newDefaultValue); });
-}
-
-void IntParameter::onGestureChange (bool gestureIsStarting)
-{
-    listeners.call ([&gestureIsStarting] (Listener& l)
-                    { l.parameterGestureStateChanged (gestureIsStarting); });
 }
 
 void IntParameter::setAction (std::function< void (int) > action)
@@ -197,16 +177,6 @@ void IntParameter::fromValueTree (const juce::ValueTree& tree)
     setDefault (tree.getProperty ("ParameterDefaultValue"));
 }
 
-void IntParameter::addListener (Listener* l)
-{
-    listeners.add (l);
-}
-
-void IntParameter::removeListener (Listener* l)
-{
-    listeners.remove (l);
-}
-
 IntParameter::Listener::Listener (IntParameter& toUse)
 : param (toUse)
 {
@@ -216,6 +186,16 @@ IntParameter::Listener::Listener (IntParameter& toUse)
 IntParameter::Listener::~Listener()
 {
     param.removeListener (this);
+}
+
+void IntParameter::Listener::valueChanged (float)
+{
+    parameterValueChanged (param.get());
+}
+
+void IntParameter::Listener::defaultChanged (float)
+{
+    parameterDefaultChanged (param.getDefault());
 }
 
 void IntParameter::Listener::parameterValueChanged (int) { }
@@ -265,22 +245,12 @@ void BoolParameter::set (bool newValue)
     
     const auto val = newValue ? 1.0f : 0.0f;
     Parameter::setNormalizedValue (val);
-    listeners.call ([&newValue] (Listener& l)
-                    { l.parameterValueChanged (newValue); });
 }
 
 void BoolParameter::setDefault (bool newDefaultValue)
 {
     const auto val = newDefaultValue ? 1.0f : 0.0f;
     Parameter::setNormalizedDefault (val);
-    listeners.call ([&newDefaultValue] (Listener& l)
-                    { l.parameterDefaultChanged (newDefaultValue); });
-}
-
-void BoolParameter::onGestureChange (bool gestureIsStarting)
-{
-    listeners.call ([&gestureIsStarting] (Listener& l)
-                    { l.parameterGestureStateChanged (gestureIsStarting); });
 }
 
 void BoolParameter::setAction (std::function< void (bool) > action)
@@ -306,16 +276,6 @@ void BoolParameter::fromValueTree (const juce::ValueTree& tree)
     setDefault (tree.getProperty ("ParameterDefaultValue"));
 }
 
-void BoolParameter::addListener (Listener* l)
-{
-    listeners.add (l);
-}
-
-void BoolParameter::removeListener (Listener* l)
-{
-    listeners.remove (l);
-}
-
 BoolParameter::Listener::Listener (BoolParameter& toUse)
 : param (toUse)
 {
@@ -325,6 +285,16 @@ BoolParameter::Listener::Listener (BoolParameter& toUse)
 BoolParameter::Listener::~Listener()
 {
     param.removeListener (this);
+}
+
+void BoolParameter::Listener::valueChanged (float)
+{
+    parameterValueChanged (param.get());
+}
+
+void BoolParameter::Listener::defaultChanged (float)
+{
+    parameterDefaultChanged (param.getDefault());
 }
 
 void BoolParameter::Listener::parameterValueChanged (bool) { }

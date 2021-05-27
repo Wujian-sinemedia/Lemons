@@ -52,9 +52,26 @@ public:
     const juce::String parameterNameVerbose;
 
     //==============================================================================
+    
+    struct Listener
+    {
+        Listener (Parameter& paramToUse);
+        virtual ~Listener();
+        
+        virtual void valueChanged (float newNormalizedValue);
+        virtual void gestureStateChanged (bool gestureIsStarting);
+        virtual void defaultChanged (float newNormalizedDefault);
+        
+    private:
+        Parameter& param;
+    };
+    
+    void addListener (Listener* l) { listeners.add (l); }
+    void removeListener (Listener* l) { listeners.add (l); }
+    
+    //==============================================================================
 
 private:
-    virtual void onGestureChange (bool gestureIsStarting) = 0;
     virtual void onAction() = 0;
 
     float currentDefault;
@@ -63,6 +80,8 @@ private:
     float lastActionedValue;
     
     juce::UndoManager* um;
+    
+    juce::ListenerList<Listener> listeners;
 };
 
 

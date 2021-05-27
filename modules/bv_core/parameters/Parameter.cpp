@@ -36,7 +36,7 @@ void Parameter::beginGesture()
     changing = true;
     rap.beginChangeGesture();
     
-    onGestureChange (true);
+    listeners.call ([](Listener& l){ l.gestureStateChanged (true); });
     
     if (onGestureStateChange)
         bav::callOnMessageThread< bool > (onGestureStateChange, true);
@@ -50,7 +50,7 @@ void Parameter::endGesture()
     changing = false;
     rap.endChangeGesture();
     
-    onGestureChange (false);
+    listeners.call ([](Listener& l){ l.gestureStateChanged (false); });
     
     if (onGestureStateChange)
         bav::callOnMessageThread< bool > (onGestureStateChange, false);
@@ -78,6 +78,8 @@ void Parameter::setNormalizedDefault (float value)
     if (currentDefault == value) return;
     
     currentDefault = value;
+    
+    listeners.call ([&value](Listener& l){ l.defaultChanged (value); });
 
     if (onDefaultChange)
         bav::callOnMessageThread (onDefaultChange);
@@ -105,10 +107,14 @@ void Parameter::resetToDefault()
 
 void Parameter::setNormalizedValue (float value)
 {
+    if (value == rap.getValue()) return;
+    
     if (! changing)
         beginGesture();
     
     rap.setValueNotifyingHost (value);
+    
+    listeners.call ([&value](Listener& l){ l.valueChanged (value); });
     
     if (onParameterChange)
         bav::callOnMessageThread (onParameterChange);
@@ -155,5 +161,22 @@ void Parameter::doAction()
     }
 }
 
+
+Parameter::Listener::Listener (Parameter& paramToUse)
+: param (paramToUse)
+{
+    param.addListener (this);
+}
+
+Parameter::Listener::~Listener()
+{
+    param.removeListener (this);
+}
+
+void Parameter::Listener::valueChanged (float) { }
+
+void Parameter::Listener::gestureStateChanged (bool) { }
+
+void Parameter::Listener::defaultChanged (float) { }
 
 }  // namespace bav

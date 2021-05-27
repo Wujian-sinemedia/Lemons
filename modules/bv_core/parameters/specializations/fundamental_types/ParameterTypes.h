@@ -37,33 +37,30 @@ public:
     
     //==============================================================================
     
-    struct Listener
+    struct Listener   :     public Parameter::Listener
     {
         Listener (FloatParameter& toUse);
         virtual ~Listener();
         
         virtual void parameterValueChanged (float newValue);
         virtual void parameterDefaultChanged (float newDefault);
-        virtual void parameterGestureStateChanged (bool paramIsChanging);
         
     private:
+        void valueChanged (float newNormalizedValue) override final;
+        void defaultChanged (float newNormalizedDefault) override final;
+        
         FloatParameter& param;
     };
-    
-    void addListener (Listener* l);
-    void removeListener (Listener* l);
     
     //==============================================================================
     
 private:
-    void onGestureChange (bool gestureIsStarting) override final;
     void onAction() override final;
     
     void toValueTree (juce::ValueTree& tree) override final;
     void fromValueTree (const juce::ValueTree& tree) override final;
     
     std::function< void (float) > actionFunc;
-    juce::ListenerList< Listener > listeners;
 };
 
 
@@ -102,33 +99,30 @@ public:
     
     //==============================================================================
     
-    struct Listener
+    struct Listener   :     public Parameter::Listener
     {
         Listener (IntParameter& toUse);
         virtual ~Listener();
         
         virtual void parameterValueChanged (int newValue);
         virtual void parameterDefaultChanged (int newDefault);
-        virtual void parameterGestureStateChanged (bool paramIsChanging);
         
     private:
+        void valueChanged (float newNormalizedValue) override final;
+        void defaultChanged (float newNormalizedDefault) override final;
+        
         IntParameter& param;
     };
-    
-    void addListener (Listener* l);
-    void removeListener (Listener* l);
     
     //==============================================================================
     
 private:
-    void onGestureChange (bool gestureIsStarting) override final;
     void onAction() override final;
     
     void toValueTree (juce::ValueTree& tree) override final;
     void fromValueTree (const juce::ValueTree& tree) override final;
     
     std::function< void (int) > actionFunc;
-    juce::ListenerList< Listener > listeners;
 };
 
 
@@ -164,33 +158,30 @@ public:
     
     //==============================================================================
     
-    struct Listener
+    struct Listener   :     public Parameter::Listener
     {
         Listener (BoolParameter& toUse);
         virtual ~Listener();
         
         virtual void parameterValueChanged (bool newValue);
         virtual void parameterDefaultChanged (bool newDefault);
-        virtual void parameterGestureStateChanged (bool paramIsChanging);
         
     private:
+        void valueChanged (float newNormalizedValue) override final;
+        void defaultChanged (float newNormalizedDefault) override final;
+        
         BoolParameter& param;
     };
-    
-    void addListener (Listener* l);
-    void removeListener (Listener* l);
     
     //==============================================================================
     
 private:
-    void onGestureChange (bool gestureIsStarting) override final;
     void onAction() override final;
     
     void toValueTree (juce::ValueTree& tree) override final;
     void fromValueTree (const juce::ValueTree& tree) override final;
     
     std::function< void (bool) > actionFunc;
-    juce::ListenerList< Listener > listeners;
 };
 
 
