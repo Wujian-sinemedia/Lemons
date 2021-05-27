@@ -82,6 +82,39 @@ private:
 /*=========================================================================================*/
 
 
+struct GUIInitializer
+{
+    GUIInitializer (juce::Component& componentToUse, BoolParameter& darkModeParameter)
+    : darkModeSentinel (darkModeParameter, componentToUse)
+    {
+#if JUCE_OPENGL
+        openGLContext.attachTo (componentToUse);
+#endif
+        
+        AutoLock::setEnabled (false);
+    }
+    
+    virtual ~GUIInitializer()
+    {
+#if JUCE_OPENGL
+        openGLContext.detach();
+#endif
+    }
+    
+    
+private:
+#if JUCE_OPENGL
+    OpenGLContext openGLContext;
+#endif
+    
+    DarkModeSentinel darkModeSentinel;
+};
+
+
+/*=========================================================================================*/
+/*=========================================================================================*/
+
+
 static inline juce::Button::ButtonState boolToButtonState (const bool isOn) noexcept
 {
     if (isOn) return juce::Button::ButtonState::buttonDown;
