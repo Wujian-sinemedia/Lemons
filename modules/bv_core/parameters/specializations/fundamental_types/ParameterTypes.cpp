@@ -76,7 +76,8 @@ void FloatParameter::fromValueTree (const juce::ValueTree& tree)
 }
 
 FloatParameter::Listener::Listener (FloatParameter& toUse)
-: param (toUse)
+ :  Parameter::Listener (toUse),
+    param (toUse)
 {
     param.addListener (this);
 }
@@ -178,7 +179,8 @@ void IntParameter::fromValueTree (const juce::ValueTree& tree)
 }
 
 IntParameter::Listener::Listener (IntParameter& toUse)
-: param (toUse)
+ :  Parameter::Listener (toUse),
+    param (toUse)
 {
     param.addListener (this);
 }
@@ -277,7 +279,8 @@ void BoolParameter::fromValueTree (const juce::ValueTree& tree)
 }
 
 BoolParameter::Listener::Listener (BoolParameter& toUse)
-: param (toUse)
+ :  Parameter::Listener (toUse),
+    param (toUse)
 {
     param.addListener (this);
 }
