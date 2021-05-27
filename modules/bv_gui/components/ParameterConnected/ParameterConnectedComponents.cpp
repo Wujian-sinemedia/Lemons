@@ -157,7 +157,7 @@ void SliderWithIntParam::parameterValueChanged (int newValue)
     Slider::setValue (double(newValue), juce::NotificationType::dontSendNotification);
 }
 
-void SliderWithIntParam::parameterDefaultChanged (int newDefault
+void SliderWithIntParam::parameterDefaultChanged (int newDefault)
 {
     Slider::setDoubleClickReturnValue (true, newDefault);
 }
