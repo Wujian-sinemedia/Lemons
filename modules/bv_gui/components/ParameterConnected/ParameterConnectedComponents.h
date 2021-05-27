@@ -27,7 +27,11 @@ class FloatSlider  :   public SliderAttachmentBase,
                        private bav::FloatParameter::Listener
 {
 public:
+    using SliderStyle = juce::SliderStyle;
+    
     FloatSlider (FloatParameter& paramToUse);
+    FloatSlider (FloatParameter& paramToUse, SliderStyle style);
+    
     virtual ~FloatSlider() override = default;
     
     FloatParameter& param;
@@ -76,6 +80,7 @@ public:
     
 private:
     void paramValueChanged (bool newValue) override final;
+    void refresh();
 };
 
 }  // namespace

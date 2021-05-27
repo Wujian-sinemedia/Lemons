@@ -47,10 +47,12 @@ SliderAttachmentBase::SliderAttachmentBase (Parameter& paramToUse)
     Slider::setNormalisableRange (newRange);
     
     Slider::setTextBoxIsEditable (true);
-    
     Slider::setTextValueSuffix (param.rap.getLabel());
     
     Slider::setTooltip (param.parameterNameShort);
+    
+    Slider::setPopupDisplayEnabled (true, false, this);
+    Slider::setPopupMenuEnabled (true);
 }
 
 void SliderAttachmentBase::startedDragging()
@@ -76,6 +78,14 @@ param (paramToUse)
     Slider::valueFromTextFunction = [this] (const juce::String& text) { return (double) param.stringToFloat (text); };
     Slider::textFromValueFunction = [this] (double value) { return param.floatToString (float(value), 50); };
     Slider::setDoubleClickReturnValue (true, double (param.getDefault()));
+    
+    Slider::setNumDecimalPlacesToDisplay (2);
+}
+
+FloatSlider::FloatSlider (FloatParameter& paramToUse, SliderStyle style)
+: FloatSlider (paramToUse)
+{
+    Slider::setSliderStyle (style);
 }
 
 void FloatSlider::paramValueChanged (float newValue)
@@ -107,6 +117,8 @@ param (paramToUse)
     Slider::valueFromTextFunction = [this] (const juce::String& text) { return (double) param.stringToInt (text); };
     Slider::textFromValueFunction = [this] (double value) { return param.intToString (juce::roundToInt(value), 50); };
     Slider::setDoubleClickReturnValue (true, double(param.getDefault()));
+    
+    Slider::setNumDecimalPlacesToDisplay (0);
 }
 
 void IntSlider::paramValueChanged (int newValue)
@@ -122,7 +134,7 @@ void IntSlider::paramDefaultChanged (int newDefault)
 
 void IntSlider::valueChanged()
 {
-    param.set (static_cast<float> (Slider::getValue()));
+    param.set (juce::roundToInt (Slider::getValue()));
 }
 
 
@@ -134,8 +146,8 @@ ToggleButton::ToggleButton (BoolParameter& paramToUse)
 : BoolParameter::Listener (paramToUse),
 param (paramToUse)
 {
-    ToggleButton::onClick = [this](){ param.set (Button::getToggleState()); };
-    ToggleButton::onStateChange = [this](){ param.set (Button::getToggleState()); };
+    ToggleButton::onClick = [this](){ refresh(); };
+    ToggleButton::onStateChange = [this](){ refresh(); };
     
     ToggleButton::setButtonText (param.parameterNameVerbose);
     ToggleButton::setTooltip (param.parameterNameShort);
@@ -143,6 +155,11 @@ param (paramToUse)
 
 ToggleButton::~ToggleButton()
 {
+}
+
+void ToggleButton::refresh()
+{
+    param.set (Button::getToggleState());
 }
 
 void ToggleButton::paramValueChanged (bool newValue)
