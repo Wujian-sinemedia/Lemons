@@ -40,10 +40,13 @@ class ScopedWaitCursor : ScopedCursor
 /*=========================================================================================*/
 
 
-struct DarkModeSentinel     :        private juce::Timer
+struct DarkModeSentinel     :        private juce::Timer,
+                                     private BoolParameter::Listener
 {
-    DarkModeSentinel (BoolParameter& paramToUse)
-        : darkModeParameter (paramToUse)
+    DarkModeSentinel (BoolParameter& paramToUse, juce::Component& componentToUse)
+        : BoolParameter::Listener (paramToUse),
+          darkModeParameter (paramToUse),
+          componentToRepaint (componentToUse)
     {
 #if JUCE_MAC
         Timer::startTimerHz (10);
@@ -65,7 +68,13 @@ private:
 #endif
     }
     
+    void paramValueChanged (bool) override final
+    {
+        componentToRepaint.repaint();
+    }
+    
     BoolParameter& darkModeParameter;
+    juce::Component& componentToRepaint;
 };
 
 
