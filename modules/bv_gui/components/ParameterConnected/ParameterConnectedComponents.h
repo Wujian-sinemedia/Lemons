@@ -32,8 +32,8 @@ public:
     FloatParameter& param;
     
 private:
-    void parameterValueChanged (float newValue) override final;
-    void parameterDefaultChanged (float newDefault) override final;
+    void paramValueChanged (float newValue) override final;
+    void paramDefaultChanged (float newDefault) override final;
     
     void startedDragging() override final;
     void stoppedDragging() override final;
@@ -56,8 +56,8 @@ public:
     IntParameter& param;
     
 private:
-    void parameterValueChanged (int newValue) override final;
-    void parameterDefaultChanged (int newDefault) override final;
+    void paramValueChanged (int newValue) override final;
+    void paramDefaultChanged (int newDefault) override final;
     
     void startedDragging() override final;
     void stoppedDragging() override final;
@@ -80,7 +80,7 @@ public:
     BoolParameter& param;
     
 private:
-    void parameterValueChanged (bool newValue) override final;
+    void paramValueChanged (bool newValue) override final;
 };
 
 }  // namespace

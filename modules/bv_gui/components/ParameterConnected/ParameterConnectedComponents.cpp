@@ -68,12 +68,12 @@ param (paramToUse)
     Slider::setTooltip (param.parameterNameShort);
 }
 
-void FloatSlider::parameterValueChanged (float newValue)
+void FloatSlider::paramValueChanged (float newValue)
 {
     Slider::setValue (double(newValue), juce::NotificationType::dontSendNotification);
 }
 
-void FloatSlider::parameterDefaultChanged (float newDefault)
+void FloatSlider::paramDefaultChanged (float newDefault)
 {
     Slider::setDoubleClickReturnValue (true, newDefault);
 }
@@ -110,12 +110,12 @@ param (paramToUse)
     Slider::setTooltip (param.parameterNameShort);
 }
 
-void IntSlider::parameterValueChanged (int newValue)
+void IntSlider::paramValueChanged (int newValue)
 {
     Slider::setValue (double(newValue), juce::NotificationType::dontSendNotification);
 }
 
-void IntSlider::parameterDefaultChanged (int newDefault)
+void IntSlider::paramDefaultChanged (int newDefault)
 {
     Slider::setDoubleClickReturnValue (true, newDefault);
 }
@@ -155,7 +155,7 @@ ToggleButton::~ToggleButton()
 {
 }
 
-void ToggleButton::parameterValueChanged (bool newValue)
+void ToggleButton::paramValueChanged (bool newValue)
 {
     ToggleButton::setToggleState (newValue, juce::NotificationType::dontSendNotification);
 }

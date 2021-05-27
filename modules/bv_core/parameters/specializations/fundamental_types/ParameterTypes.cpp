@@ -87,19 +87,18 @@ FloatParameter::Listener::~Listener()
     param.removeParameterListener (this);
 }
 
-void FloatParameter::Listener::valueChanged (float)
+void FloatParameter::Listener::parameterValueChanged (float)
 {
-    parameterValueChanged (param.get());
+    paramValueChanged (param.get());
 }
 
-void FloatParameter::Listener::defaultChanged (float)
+void FloatParameter::Listener::parameterDefaultChanged (float)
 {
-    parameterDefaultChanged (param.getDefault());
+    paramDefaultChanged (param.getDefault());
 }
 
-void FloatParameter::Listener::parameterValueChanged (float) { }
-void FloatParameter::Listener::parameterDefaultChanged (float) { }
-void FloatParameter::Listener::parameterGestureStateChanged (bool) { }
+void FloatParameter::Listener::paramValueChanged (float) { }
+void FloatParameter::Listener::paramDefaultChanged (float) { }
 
 
 /*-----------------------------------------------------------------------------------------------------------------------
@@ -190,19 +189,18 @@ IntParameter::Listener::~Listener()
     param.removeParameterListener (this);
 }
 
-void IntParameter::Listener::valueChanged (float)
+void IntParameter::Listener::parameterValueChanged (float)
 {
-    parameterValueChanged (param.get());
+    paramValueChanged (param.get());
 }
 
-void IntParameter::Listener::defaultChanged (float)
+void IntParameter::Listener::parameterDefaultChanged (float)
 {
-    parameterDefaultChanged (param.getDefault());
+    paramDefaultChanged (param.getDefault());
 }
 
-void IntParameter::Listener::parameterValueChanged (int) { }
-void IntParameter::Listener::parameterDefaultChanged (int) { }
-void IntParameter::Listener::parameterGestureStateChanged (bool) { }
+void IntParameter::Listener::paramValueChanged (int) { }
+void IntParameter::Listener::paramDefaultChanged (int) { }
 
 
 /*-----------------------------------------------------------------------------------------------------------------------
@@ -290,19 +288,18 @@ BoolParameter::Listener::~Listener()
     param.removeParameterListener (this);
 }
 
-void BoolParameter::Listener::valueChanged (float)
+void BoolParameter::Listener::parameterValueChanged (float)
 {
-    parameterValueChanged (param.get());
+    paramValueChanged (param.get());
 }
 
-void BoolParameter::Listener::defaultChanged (float)
+void BoolParameter::Listener::parameterDefaultChanged (float)
 {
-    parameterDefaultChanged (param.getDefault());
+    paramDefaultChanged (param.getDefault());
 }
 
-void BoolParameter::Listener::parameterValueChanged (bool) { }
-void BoolParameter::Listener::parameterDefaultChanged (bool) { }
-void BoolParameter::Listener::parameterGestureStateChanged (bool) { }
+void BoolParameter::Listener::paramValueChanged (bool) { }
+void BoolParameter::Listener::paramDefaultChanged (bool) { }
 
 
 }  // namespace

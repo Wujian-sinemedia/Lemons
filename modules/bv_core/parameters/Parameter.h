@@ -58,9 +58,9 @@ public:
         Listener (Parameter& paramToUse);
         virtual ~Listener();
         
-        virtual void valueChanged (float newNormalizedValue);
-        virtual void gestureStateChanged (bool gestureIsStarting);
-        virtual void defaultChanged (float newNormalizedDefault);
+        virtual void parameterValueChanged (float newNormalizedValue);
+        virtual void parameterGestureStateChanged (bool gestureIsStarting);
+        virtual void parameterDefaultChanged (float newNormalizedDefault);
         
     private:
         Parameter& param;

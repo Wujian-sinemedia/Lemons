@@ -42,12 +42,12 @@ public:
         Listener (FloatParameter& toUse);
         virtual ~Listener() override;
         
-        virtual void parameterValueChanged (float newValue);
-        virtual void parameterDefaultChanged (float newDefault);
+        virtual void paramValueChanged (float newValue);
+        virtual void paramDefaultChanged (float newDefault);
         
     private:
-        void valueChanged (float newNormalizedValue) override final;
-        void defaultChanged (float newNormalizedDefault) override final;
+        void parameterValueChanged (float newNormalizedValue) override final;
+        void parameterDefaultChanged (float newNormalizedDefault) override final;
         
         FloatParameter& param;
     };
@@ -104,12 +104,12 @@ public:
         Listener (IntParameter& toUse);
         virtual ~Listener() override;
         
-        virtual void parameterValueChanged (int newValue);
-        virtual void parameterDefaultChanged (int newDefault);
+        virtual void paramValueChanged (int newValue);
+        virtual void paramDefaultChanged (int newDefault);
         
     private:
-        void valueChanged (float newNormalizedValue) override final;
-        void defaultChanged (float newNormalizedDefault) override final;
+        void parameterValueChanged (float newNormalizedValue) override final;
+        void parameterDefaultChanged (float newNormalizedDefault) override final;
         
         IntParameter& param;
     };
@@ -163,12 +163,12 @@ public:
         Listener (BoolParameter& toUse);
         virtual ~Listener() override;
         
-        virtual void parameterValueChanged (bool newValue);
-        virtual void parameterDefaultChanged (bool newDefault);
+        virtual void paramValueChanged (bool newValue);
+        virtual void paramDefaultChanged (bool newDefault);
         
     private:
-        void valueChanged (float newNormalizedValue) override final;
-        void defaultChanged (float newNormalizedDefault) override final;
+        void parameterValueChanged (float newNormalizedValue) override final;
+        void parameterDefaultChanged (float newNormalizedDefault) override final;
         
         BoolParameter& param;
     };
