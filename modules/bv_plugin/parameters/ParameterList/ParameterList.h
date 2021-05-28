@@ -6,6 +6,17 @@ namespace bav
 class ParameterList : public SerializableData
 {
 public:
+    using IntParam     = bav::IntParam;
+    using FloatParam   = bav::FloatParam;
+    using BoolParam    = bav::BoolParam;
+    using GainParam    = bav::GainParam;
+    using ToggleParam  = bav::ToggleParam;
+    using PercentParam = bav::PercentParam;
+    
+    using GainMeter = bav::ParameterHolder< bav::GainMeterParameter >;
+    
+    //--------------------------------------------------
+    
     ParameterList (juce::Identifier listName);
     virtual ~ParameterList() override = default;
 
