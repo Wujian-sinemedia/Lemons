@@ -2,11 +2,6 @@
 namespace bav
 {
 
-Parameter::ParameterDefaultChangeAction::ParameterDefaultChangeAction (Parameter& p, float newNormalizedDefault)
-: param (p), targetDefault (newNormalizedDefault), prevDefault (param.getNormalizedDefault())
-{
-}
-
 Parameter::ParameterDefaultChangeAction::ParameterDefaultChangeAction (Parameter& p, float newNormalizedDefault, float prevNormDefault)
 : param (p), targetDefault (newNormalizedDefault), prevDefault (prevNormDefault)
 {
@@ -14,12 +9,18 @@ Parameter::ParameterDefaultChangeAction::ParameterDefaultChangeAction (Parameter
 
 bool Parameter::ParameterDefaultChangeAction::perform()
 {
+    if (param.getNormalizedDefault() == targetDefault)
+        return false;
+    
     param.setDefaultInternal (targetDefault);
     return true;
 }
 
 bool Parameter::ParameterDefaultChangeAction::undo()
 {
+    if (param.getNormalizedDefault() == prevDefault)
+        return false;
+    
     param.setDefaultInternal (prevDefault);
     return true;
 }
@@ -104,13 +105,13 @@ float Parameter::getDenormalizedDefault() const
 void Parameter::setNormalizedDefault (float value)
 {
     jassert (value >= 0.0f && value <= 1.0f);
-
+    
     if (currentDefault == value) return;
 
     if (um != nullptr)
     {
         um->beginNewTransaction (defaultChangeTransactionName);
-        um->perform (new ParameterDefaultChangeAction (*this, value),
+        um->perform (new ParameterDefaultChangeAction (*this, value, currentDefault),
                      defaultChangeTransactionName);
     }
     else
@@ -144,12 +145,19 @@ void Parameter::setNormalizedValue (float value)
 {
     if (value == rap.getValue()) return;
     
+    bool needToEndGesture = false;
+    
     if (! changing)
+    {
         beginGesture();
+        needToEndGesture = true;
+    }
     
     rap.setValueNotifyingHost (value);
-    
     listeners.call ([&value](Listener& l){ l.parameterValueChanged (value); });
+    
+    if (needToEndGesture)
+        endGesture();
 }
 
 void Parameter::setDenormalizedValue (float value)

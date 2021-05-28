@@ -39,7 +39,7 @@ public:
 
     void doAction (bool force = false);
     
-    void sendListenerSyncCallback();  // sends a value update message to all listeners
+    void sendListenerSyncCallback();  // sends a value update message immediately to all listeners
 
     //==============================================================================
 
@@ -55,9 +55,9 @@ public:
         Listener (Parameter& paramToUse);
         virtual ~Listener();
         
-        virtual void parameterValueChanged (float newNormalizedValue);
+        virtual void parameterValueChanged        (float newNormalizedValue);
         virtual void parameterGestureStateChanged (bool gestureIsStarting);
-        virtual void parameterDefaultChanged (float newNormalizedDefault);
+        virtual void parameterDefaultChanged      (float newNormalizedDefault);
         
     private:
         Parameter& param;
@@ -66,8 +66,6 @@ public:
     //==============================================================================
 
 private:
-    friend Listener;
-    
     void setDefaultInternal (float newNormalizedDefault);
     
     virtual void onAction() { }
@@ -89,7 +87,6 @@ private:
     class ParameterDefaultChangeAction  :   public juce::UndoableAction
     {
     public:
-        ParameterDefaultChangeAction (Parameter& p, float newNormalizedDefault);
         ParameterDefaultChangeAction (Parameter& p, float newNormalizedDefault, float prevNormDefault);
         
         bool perform() override final;
