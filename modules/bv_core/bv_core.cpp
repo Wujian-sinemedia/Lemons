@@ -24,8 +24,6 @@
 #include "files/FileUtilities.cpp"
 #include "files/BinaryDataHelpers/BinaryDataHelpers.cpp"
 
-#include "building_blocks/ProcessorBase/ProcessorBase.cpp"
-
 #include "parameters/Parameter.cpp"
 #include "parameters/types/ParameterTypes.cpp"
 #include "parameters/specializations/ParameterSpecializations.cpp"
