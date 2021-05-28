@@ -8,12 +8,12 @@ ParameterList::ParameterList (juce::Identifier listName)
 
 void ParameterList::add (ParamHolderBase& param)
 {
-    addParameter (param, true);
+    addParameter (param, false);
 }
 
 void ParameterList::addInternal (ParamHolderBase& param)
 {
-    addParameter (param, false);
+    addParameter (param, true);
 }
 
 void ParameterList::addParameter (ParamHolderBase& param, bool isInternal)

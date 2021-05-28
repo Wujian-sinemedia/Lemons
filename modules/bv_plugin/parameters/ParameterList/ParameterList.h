@@ -9,6 +9,7 @@ public:
     ParameterList (juce::Identifier listName);
     virtual ~ParameterList() override = default;
 
+    //--------------------------------------------------
     template < typename... Args >
     void add (ParamHolderBase& param, Args&&... args)
     {
@@ -26,6 +27,7 @@ public:
     void addInternal (ParamHolderBase& param);
 
     void addParameter (ParamHolderBase& param, bool isInternal);
+    //--------------------------------------------------
 
     void addParametersTo (juce::AudioProcessor& processor);
     void addAllParametersAsInternal();
