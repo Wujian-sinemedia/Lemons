@@ -49,7 +49,7 @@ public:
 protected:
     virtual juce::AudioProcessor::BusesProperties createBusProperties() const;
     
-    juce::Point<int> savedEditorSize;
+    juce::Point<int> savedEditorSize {450, 300};
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ProcessorBase)
 };
