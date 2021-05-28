@@ -33,6 +33,36 @@ void StateBase::addAllAsInternal()
     pb = nullptr;
 }
 
+void StateBase::refreshAllDefaults()
+{
+    for (auto* list : lists)
+        list->refreshAllDefaults();
+}
+
+void StateBase::resetAllToDefault()
+{
+    for (auto* list : lists)
+        list->resetAllToDefault();
+}
+
+void StateBase::doAllActions (bool force)
+{
+    for (auto* list : lists)
+        list->doAllActions (force);
+}
+
+void StateBase::sendCallbackToAllListeners()
+{
+    for (auto* list : lists)
+        list->sendCallbackToAllListeners();
+}
+
+void StateBase::setUndoManager (juce::UndoManager& um)
+{
+    for (auto* list : lists)
+        list->setUndoManager (um);
+}
+
 void StateBase::toValueTree (ValueTree& tree)
 {
     if (pb != nullptr)

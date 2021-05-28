@@ -21,7 +21,7 @@ Parameter::~Parameter()
 
 bool Parameter::operator== (const Parameter& other)
 {
-    return parameterNameShort == other.parameterNameShort && parameterNameVerbose == other.parameterNameVerbose;
+    return SerializableData::dataIdentifier == other.dataIdentifier;
 }
 
 void Parameter::beginGesture()

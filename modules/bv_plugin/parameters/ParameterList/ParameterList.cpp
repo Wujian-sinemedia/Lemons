@@ -34,13 +34,24 @@ void ParameterList::addParametersTo (juce::AudioProcessor& processor)
             meta.holder.addTo (processor);
         else
             meta.holder.addTo (dummyProcessor);
+        
+        meta.holder.getParam()->sendListenerSyncCallback();
     }
 }
 
 void ParameterList::addAllParametersAsInternal()
 {
     for (auto meta : params)
+    {
         meta.holder.addTo (dummyProcessor);
+        meta.holder.getParam()->sendListenerSyncCallback();
+    }
+}
+
+void ParameterList::sendCallbackToAllListeners()
+{
+    for (auto meta : params)
+        meta.holder.getParam()->sendListenerSyncCallback();
 }
 
 int ParameterList::getNumParameters() const
