@@ -179,6 +179,12 @@ int PsolaAnalyzer<SampleType>::getLastPeriod() const noexcept
     return lastPeriod;
 }
 
+template<typename SampleType>
+float PsolaAnalyzer<SampleType>::getLastFrequency() const
+{
+    return static_cast<float> (math::freqFromPeriod (samplerate, lastPeriod));
+}
+
 
 template class PsolaAnalyzer< float >;
 template class PsolaAnalyzer< double >;

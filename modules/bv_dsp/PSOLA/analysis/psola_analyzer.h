@@ -37,6 +37,7 @@ public:
     int getLatency() const;
     
     int getLastPeriod() const noexcept;
+    float getLastFrequency() const;
     
 
 private:
