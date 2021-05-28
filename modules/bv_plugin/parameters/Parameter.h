@@ -12,7 +12,7 @@ public:
                juce::String paramNameShort,
                juce::String paramNameVerbose);
 
-    virtual ~Parameter() override;
+    virtual ~Parameter() override = default;
 
     bool operator== (const Parameter& other);
 
@@ -68,6 +68,8 @@ public:
 private:
     friend Listener;
     
+    void setDefaultInternal (float newNormalizedDefault);
+    
     virtual void onAction() { }
 
     float currentDefault;
@@ -81,6 +83,25 @@ private:
     
     const juce::String valueChangeTransactionName;
     const juce::String defaultChangeTransactionName;
+    
+    //==============================================================================
+    
+    class ParameterDefaultChangeAction  :   public juce::UndoableAction
+    {
+    public:
+        ParameterDefaultChangeAction (Parameter& p, float newNormalizedDefault);
+        ParameterDefaultChangeAction (Parameter& p, float newNormalizedDefault, float prevNormDefault);
+        
+        bool perform() override final;
+        bool undo() override final;
+        
+        UndoableAction* createCoalescedAction (UndoableAction* nextAction) override final;
+        
+    private:
+        Parameter& param;
+        const float targetDefault;
+        const float prevDefault;
+    };
 };
 
 

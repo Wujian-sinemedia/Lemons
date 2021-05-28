@@ -1,6 +1,45 @@
 
 namespace bav
 {
+
+Parameter::ParameterDefaultChangeAction::ParameterDefaultChangeAction (Parameter& p, float newNormalizedDefault)
+: param (p), targetDefault (newNormalizedDefault), prevDefault (param.getNormalizedDefault())
+{
+}
+
+Parameter::ParameterDefaultChangeAction::ParameterDefaultChangeAction (Parameter& p, float newNormalizedDefault, float prevNormDefault)
+: param (p), targetDefault (newNormalizedDefault), prevDefault (prevNormDefault)
+{
+}
+
+bool Parameter::ParameterDefaultChangeAction::perform()
+{
+    param.setDefaultInternal (targetDefault);
+    return true;
+}
+
+bool Parameter::ParameterDefaultChangeAction::undo()
+{
+    param.setDefaultInternal (prevDefault);
+    return true;
+}
+
+juce::UndoableAction* Parameter::ParameterDefaultChangeAction::createCoalescedAction (UndoableAction* nextAction)
+{
+    if (auto* other = dynamic_cast<ParameterDefaultChangeAction*>(nextAction))
+    {
+        if (other->param == param)
+        {
+            return new ParameterDefaultChangeAction (param, other->targetDefault, prevDefault);
+        }
+    }
+    
+    return nullptr;
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------------*/
+
 Parameter::Parameter (RangedParam& p,
                       juce::String paramNameShort,
                       juce::String paramNameVerbose)
@@ -15,10 +54,6 @@ Parameter::Parameter (RangedParam& p,
     lastActionedValue = currentDefault;
 }
 
-Parameter::~Parameter()
-{
-}
-
 bool Parameter::operator== (const Parameter& other)
 {
     return SerializableData::dataIdentifier == other.dataIdentifier;
@@ -31,8 +66,7 @@ void Parameter::beginGesture()
     
     if (um != nullptr)
     {
-        um->beginNewTransaction();
-        um->setCurrentTransactionName (valueChangeTransactionName);
+        um->beginNewTransaction (valueChangeTransactionName);
     }
     
     changing = true;
@@ -75,13 +109,20 @@ void Parameter::setNormalizedDefault (float value)
 
     if (um != nullptr)
     {
-        um->beginNewTransaction();
-        um->setCurrentTransactionName (defaultChangeTransactionName);
+        um->beginNewTransaction (defaultChangeTransactionName);
+        um->perform (new ParameterDefaultChangeAction (*this, value),
+                     defaultChangeTransactionName);
     }
-    
-    currentDefault = value;
-    
-    listeners.call ([&value](Listener& l){ l.parameterDefaultChanged (value); });
+    else
+    {
+        setDefaultInternal (value);
+    }
+}
+
+void Parameter::setDefaultInternal (float newNormalizedDefault)
+{
+    currentDefault = newNormalizedDefault;
+    listeners.call ([&newNormalizedDefault](Listener& l){ l.parameterDefaultChanged (newNormalizedDefault); });
 }
 
 void Parameter::setDenormalizedDefault (float value)
