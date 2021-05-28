@@ -54,4 +54,21 @@ juce::AudioProcessor::BusesProperties ProcessorBase::createBusProperties() const
     .withOutput (TRANS ("Output"), stereo, true);
 }
 
+void ProcessorBase::saveEditorSize (int width, int height)
+{
+    savedEditorSize.x = width;
+    savedEditorSize.y = height;
+}
+
+juce::Point<int> ProcessorBase::getSavedEditorSize() const
+{
+    return savedEditorSize;
+}
+
+void ProcessorBase::getSavedEditorSize (int& width, int& height) const
+{
+    width = savedEditorSize.x;
+    height = savedEditorSize.y;
+}
+
 }  //namespace
