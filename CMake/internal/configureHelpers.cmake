@@ -44,7 +44,7 @@ function (_configure_juce_app target useBrowser useSynthModule)
         set_target_properties (${target}_LV2 PROPERTIES JUCE_LV2_URI https://github.com/benthevining/${CMAKE_PROJECT_NAME})
     endif()
 
-    set_target_properties (${target} PROPERTIES FOLDER "${CMAKE_PROJECT_NAME}")
+    #set_target_properties (${target} PROPERTIES FOLDER "${CMAKE_PROJECT_NAME}")
 
     target_compile_definitions (${target} PUBLIC
             JUCE_VST3_CAN_REPLACE_VST2=0
