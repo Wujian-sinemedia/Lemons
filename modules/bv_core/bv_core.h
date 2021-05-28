@@ -51,10 +51,7 @@
 #include "misc/StaticObjects.h"
 #include "misc/misc.h"
 #include "misc/AlignedAllocate.h"
-#include "misc/DataHelpers.h"
 #include "misc/LockFreeFifo.h"
-#include "misc/RealtimeSpinLock.h"
-#include "misc/SystemInitializer.h"
 
 #include "serializing/SerializableData.h"
 #include "serializing/valuetree_json_converter.h"
@@ -67,6 +64,8 @@
 
 // localization
 #include "localization/localization.h"
+
+#include "misc/SystemInitializer.h"
 
 
 // async
