@@ -88,7 +88,7 @@ private:
     class ValueChangeAction  :     public juce::UndoableAction
     {
     public:
-        ValueChangeAction (Parameter& p, float newValue, float prevValue);
+        ValueChangeAction (Parameter& p, float newValue, float prevVal);
         
         bool perform() override final;
         bool undo() override final;
@@ -100,6 +100,7 @@ private:
         const float targetValue;
         const float prevValue;
     };
+    
     
     class DefaultChangeAction  :   public juce::UndoableAction
     {

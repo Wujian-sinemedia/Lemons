@@ -2,8 +2,8 @@
 namespace bav
 {
 
-Parameter::ValueChangeAction::ValueChangeAction (Parameter& p, float newValue, float prevValue)
-: param (p), targetValue (newNormalizedDefault), prevValue (prevNormDefault)
+Parameter::ValueChangeAction::ValueChangeAction (Parameter& p, float newValue, float prevVal)
+: param (p), targetValue (newValue), prevValue (prevVal)
 {
 }
 
@@ -12,7 +12,7 @@ bool Parameter::ValueChangeAction::perform()
     if (param.getCurrentNormalizedValue() == targetValue)
         return false;
     
-    param.setValueInternal (targetDefault);
+    param.setValueInternal (targetValue);
     return true;
 }
 
