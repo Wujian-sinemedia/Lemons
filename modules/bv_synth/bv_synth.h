@@ -27,7 +27,7 @@
 #endif
 
 #if bvsb_USE_MTS_ESP
-#    include <MTS-ESP/Client/libMTSClient.h>
+#    include <MTS-ESP/libMTSClient.h>
 #endif
 
 #include "SynthVoice/SynthVoice.h"

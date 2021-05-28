@@ -11,6 +11,11 @@
 
 #pragma once
 
+#ifdef __clang__
+#    pragma clang diagnostic push
+#    pragma clang diagnostic ignored "-Wunused-function"
+#endif
+
 #include <bv_plugin/bv_plugin.h>
 
 #include "utilities/GuiUtils.h"
@@ -22,3 +27,6 @@
 #include "components/parameter_connected/ParameterConnectedComponents.h"
 #include "components/meter_connected/LevelMeters.h"
 
+#ifdef __clang__
+#    pragma clang diagnostic pop
+#endif
