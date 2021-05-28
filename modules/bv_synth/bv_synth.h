@@ -1,10 +1,10 @@
 
 /*******************************************************************************
  BEGIN_JUCE_MODULE_DECLARATION
- ID:                 bv_SynthBase
+ ID:                 bv_synth
  vendor:             Ben Vining
  version:            0.0.1
- name:               SynthBase
+ name:               bv_synth
  description:        Generalized infrastructure for a polyphonic synthesiser instrument
  dependencies:       bv_dsp
  END_JUCE_MODULE_DECLARATION
