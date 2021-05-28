@@ -1,5 +1,5 @@
 
-#include "bv_SynthBase.h"
+#include "bv_synth.h"
 
 #if bvsb_USE_MTS_ESP
 #    include "../MTS-ESP/Client/libMTSClient.cpp"

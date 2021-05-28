@@ -1,22 +1,4 @@
 
-/*===================================================================================================================================================
- 
-        __   __  __   ______  ______          _______  __   _   __  ______  __  __           ____     ___    _____    ______
-       / /  / / / /  / ____/ / ____/         / ___/\ \/ /  / | / / /_  __/ / / / /          / __ )   /   |  / ___/   / ____/
-  __  / /  / / / /  / /     / __/            \__ \  \  /  /  |/ /   / /   / /_/ /          / __  |  / /| |  \__ \   / __/
- / /_/ /  / /_/ /  / /___  / /___           ___/ /  / /  / /|  /   / /   / __  /          / /_/ /  / ___ | ___/ /  / /___
- \____/   \____/   \____/ /_____/          /____/  /_/  /_/ |_/   /_/   /_/ /_/          /_____/  /_/  |_|/____/  /_____/
- 
- 
- This file is part of Ben Vining's bv_SynthBase module.
- 
- This module is free software. Anyone may freely use, copy, modify, and distribute this software, but I make no guaruntee of fitness for any purpose.
- 
- bv_SynthBase.h: This file defines the interface for a synthesizer instrument. The synth owns and manages a collection of SynthVoiceBase (or SynthVoiceBase-derived) objects. In general, you should interact with the synth by calling methods of the parent, rather than by interfacing with the voices directly.
- 
-===================================================================================================================================================*/
-
-
 /*******************************************************************************
  BEGIN_JUCE_MODULE_DECLARATION
  ID:                 bv_SynthBase
