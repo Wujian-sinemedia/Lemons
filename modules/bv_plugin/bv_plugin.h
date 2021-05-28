@@ -7,9 +7,11 @@
  version:            0.0.1
  name:               bv_plugin
  description:        General plugin utilities & tools
- dependencies:       juce_audio_utils
+ dependencies:       bv_core
  END_JUCE_MODULE_DECLARATION
  *******************************************************************************/
+
+#include "bv_core/bv_core.h"
 
 #include "ProcessorBase/ProcessorBase.h"
 
