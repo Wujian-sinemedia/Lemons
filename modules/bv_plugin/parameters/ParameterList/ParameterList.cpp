@@ -18,6 +18,11 @@ void ParameterList::addInternal (ParamHolderBase& param)
 
 void ParameterList::addParameter (ParamHolderBase& param, bool isInternal)
 {
+#if JUCE_DEBUG
+    for (auto meta : params)
+        jassert (meta.holder.getParam()->dataIdentifier != param.getParam()->dataIdentifier);
+#endif
+    
     params.add ({param, isInternal});
 }
 

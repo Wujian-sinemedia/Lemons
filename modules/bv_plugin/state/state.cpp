@@ -9,6 +9,11 @@ StateBase::StateBase (juce::Identifier name)
 
 void StateBase::add (ParameterList& list)
 {
+#if JUCE_DEBUG
+    for (auto* l : lists)
+        jassert (l->dataIdentifier != list.dataIdentifier);
+#endif
+    
     lists.add (&list);
 }
 
