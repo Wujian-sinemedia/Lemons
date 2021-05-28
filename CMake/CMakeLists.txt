@@ -2,6 +2,7 @@ list (APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR})
 
 include (internal/resourcesHelpers.cmake)
 include (internal/directoryHelpers.cmake)
+include (internal/config_synth_module.cmake)
 include (internal/configureHelpers.cmake)
 
 if (APPLE)
