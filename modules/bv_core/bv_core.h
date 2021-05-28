@@ -72,16 +72,6 @@
 #include "async/AsyncUtils.h"
 
 
-#include "parameters/helpers/ParameterValueConversionLambdas.h"
-#include "parameters/Parameter.h"
-#include "parameters/types/ParameterTypes.h"
-#include "parameters/specializations/ParameterSpecializations.h"
-#include "parameters/mappings/MidiCC_Mapping.h"
-#include "parameters/mappings/LFO_Mapping.h"
-#include "parameters/ParameterList/ParameterHolder.h"
-#include "parameters/ParameterList/ParameterList.h"
-
-
 // math
 #include "math/mathHelpers.h"
 #include "math/vecops/vecops.h"

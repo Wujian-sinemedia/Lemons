@@ -18,9 +18,6 @@
 #include <bv_midi/bv_midi.h>
 
 
-#include "ProcessorBase/ProcessorBase.h"
-
-
 #include "Oscillators/oscillators.h"
 #include "Oscillators/LFO/LFO.h"
 #include "FIFOs/AudioFIFO.h"

@@ -24,9 +24,4 @@
 #include "files/FileUtilities.cpp"
 #include "files/BinaryDataHelpers/BinaryDataHelpers.cpp"
 
-#include "parameters/Parameter.cpp"
-#include "parameters/types/ParameterTypes.cpp"
-#include "parameters/specializations/ParameterSpecializations.cpp"
-#include "parameters/ParameterList/ParameterList.cpp"
-
 #include "async/AsyncUtils.cpp"

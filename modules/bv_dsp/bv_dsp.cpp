@@ -1,8 +1,6 @@
 
 #include "bv_dsp.h"
 
-#include "ProcessorBase/ProcessorBase.cpp"
-
 #include "FIFOs/AudioFIFO.cpp"
 #include "Oscillators/LFO/LFO.cpp"
 #include "FIFOWrappedEngine/FIFOWrappedEngine.cpp"
