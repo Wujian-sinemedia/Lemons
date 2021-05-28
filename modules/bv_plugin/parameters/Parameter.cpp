@@ -2,12 +2,51 @@
 namespace bav
 {
 
-Parameter::ParameterDefaultChangeAction::ParameterDefaultChangeAction (Parameter& p, float newNormalizedDefault, float prevNormDefault)
+Parameter::ValueChangeAction::ValueChangeAction (Parameter& p, float newValue, float prevValue)
+: param (p), targetValue (newNormalizedDefault), prevValue (prevNormDefault)
+{
+}
+
+bool Parameter::ValueChangeAction::perform()
+{
+    if (param.getCurrentNormalizedValue() == targetValue)
+        return false;
+    
+    param.setValueInternal (targetDefault);
+    return true;
+}
+
+bool Parameter::ValueChangeAction::undo()
+{
+    if (param.getCurrentNormalizedValue() == prevValue)
+        return false;
+    
+    param.setValueInternal (prevValue);
+    return true;
+}
+
+juce::UndoableAction* Parameter::ValueChangeAction::createCoalescedAction (UndoableAction* nextAction)
+{
+    if (auto* other = dynamic_cast<ValueChangeAction*>(nextAction))
+    {
+        if (other->param == param)
+        {
+            return new ValueChangeAction (param, other->targetValue, prevValue);
+        }
+    }
+    
+    return nullptr;
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------------*/
+
+Parameter::DefaultChangeAction::DefaultChangeAction (Parameter& p, float newNormalizedDefault, float prevNormDefault)
 : param (p), targetDefault (newNormalizedDefault), prevDefault (prevNormDefault)
 {
 }
 
-bool Parameter::ParameterDefaultChangeAction::perform()
+bool Parameter::DefaultChangeAction::perform()
 {
     if (param.getNormalizedDefault() == targetDefault)
         return false;
@@ -16,7 +55,7 @@ bool Parameter::ParameterDefaultChangeAction::perform()
     return true;
 }
 
-bool Parameter::ParameterDefaultChangeAction::undo()
+bool Parameter::DefaultChangeAction::undo()
 {
     if (param.getNormalizedDefault() == prevDefault)
         return false;
@@ -25,13 +64,13 @@ bool Parameter::ParameterDefaultChangeAction::undo()
     return true;
 }
 
-juce::UndoableAction* Parameter::ParameterDefaultChangeAction::createCoalescedAction (UndoableAction* nextAction)
+juce::UndoableAction* Parameter::DefaultChangeAction::createCoalescedAction (UndoableAction* nextAction)
 {
-    if (auto* other = dynamic_cast<ParameterDefaultChangeAction*>(nextAction))
+    if (auto* other = dynamic_cast<DefaultChangeAction*>(nextAction))
     {
         if (other->param == param)
         {
-            return new ParameterDefaultChangeAction (param, other->targetDefault, prevDefault);
+            return new DefaultChangeAction (param, other->targetDefault, prevDefault);
         }
     }
     
@@ -111,7 +150,7 @@ void Parameter::setNormalizedDefault (float value)
     if (um != nullptr)
     {
         um->beginNewTransaction (defaultChangeTransactionName);
-        um->perform (new ParameterDefaultChangeAction (*this, value, currentDefault),
+        um->perform (new DefaultChangeAction (*this, value, currentDefault),
                      defaultChangeTransactionName);
     }
     else
@@ -143,8 +182,23 @@ void Parameter::resetToDefault()
 
 void Parameter::setNormalizedValue (float value)
 {
+    jassert (value >= 0.0f && value <= 1.0f);
+    
     if (value == rap.getValue()) return;
     
+    if (um != nullptr)
+    {
+        um->perform (new ValueChangeAction (*this, value, rap.getValue()),
+                     valueChangeTransactionName);
+    }
+    else
+    {
+        setValueInternal (value);
+    }
+}
+
+void Parameter::setValueInternal (float newNormalizedValue)
+{
     bool needToEndGesture = false;
     
     if (! changing)
@@ -153,8 +207,8 @@ void Parameter::setNormalizedValue (float value)
         needToEndGesture = true;
     }
     
-    rap.setValueNotifyingHost (value);
-    listeners.call ([&value](Listener& l){ l.parameterValueChanged (value); });
+    rap.setValueNotifyingHost (newNormalizedValue);
+    listeners.call ([&newNormalizedValue](Listener& l){ l.parameterValueChanged (newNormalizedValue); });
     
     if (needToEndGesture)
         endGesture();

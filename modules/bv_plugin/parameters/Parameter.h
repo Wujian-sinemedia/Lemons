@@ -66,6 +66,7 @@ public:
     //==============================================================================
 
 private:
+    void setValueInternal (float newNormalizedValue);
     void setDefaultInternal (float newNormalizedDefault);
     
     virtual void onAction() { }
@@ -84,10 +85,26 @@ private:
     
     //==============================================================================
     
-    class ParameterDefaultChangeAction  :   public juce::UndoableAction
+    class ValueChangeAction  :     public juce::UndoableAction
     {
     public:
-        ParameterDefaultChangeAction (Parameter& p, float newNormalizedDefault, float prevNormDefault);
+        ValueChangeAction (Parameter& p, float newValue, float prevValue);
+        
+        bool perform() override final;
+        bool undo() override final;
+        
+        UndoableAction* createCoalescedAction (UndoableAction* nextAction) override final;
+        
+    private:
+        Parameter& param;
+        const float targetValue;
+        const float prevValue;
+    };
+    
+    class DefaultChangeAction  :   public juce::UndoableAction
+    {
+    public:
+        DefaultChangeAction (Parameter& p, float newNormalizedDefault, float prevNormDefault);
         
         bool perform() override final;
         bool undo() override final;
