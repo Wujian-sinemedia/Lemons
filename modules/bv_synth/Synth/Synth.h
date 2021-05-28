@@ -167,7 +167,7 @@ protected:
     /*
      */
 
-    bool latchIsOn;
+    bool latchIsOn {false};
 
     juce::Array< int > currentNotes;
     juce::Array< int > desiredNotes;
@@ -175,16 +175,16 @@ protected:
     ADSRParams adsrParams;
     ADSRParams quickReleaseParams;
 
-    float currentInputFreq;
+    float currentInputFreq {0.0f};
 
-    double sampleRate;
-    uint32 lastNoteOnCounter;
-    int    lastPitchWheelValue;
+    double sampleRate {0.0};
+    uint32 lastNoteOnCounter {0};
+    int    lastPitchWheelValue {64};
 
-    bool shouldStealNotes;
+    bool shouldStealNotes {true};
 
     synth_helpers::PanningManager panner;
-    int                           lowestPannedNote;
+    int                           lowestPannedNote {0};
 
     bav::midi::VelocityHelper  velocityConverter;
     bav::midi::PitchBendHelper bendTracker;
@@ -195,14 +195,16 @@ protected:
     bav::midi::PitchConverter pitchConverter;
 #endif
 
-    int lastMidiTimeStamp;
-    int lastMidiChannel;
+    int lastMidiTimeStamp {0};
+    int lastMidiChannel {1};
 
-    bool aftertouchGainIsOn;
+    bool aftertouchGainIsOn {true};
 
     float playingButReleasedMultiplier;
 
-    bool sustainPedalDown, sostenutoPedalDown, softPedalDown;
+    bool sustainPedalDown {false};
+    bool sostenutoPedalDown {false};
+    bool softPedalDown {false};
 
     float softPedalMultiplier;  // the multiplier by which each voice's output will be multiplied when the soft pedal is down
 
@@ -212,18 +214,18 @@ protected:
 
     struct pedalPitchPrefs
     {
-        bool isOn;
-        int  lastPitch;
-        int  upperThresh;  // pedal pitch has an UPPER thresh - the auto harmony voice is only activated if the lowest keyboard note is BELOW a certain thresh
-        int  interval;
+        bool isOn {false};
+        int  lastPitch {-1};
+        int  upperThresh {127};  // pedal pitch has an UPPER thresh - the auto harmony voice is only activated if the lowest keyboard note is BELOW a certain thresh
+        int  interval {12};
     };
 
     struct descantPrefs
     {
-        bool isOn;
-        int  lastPitch;
-        int  lowerThresh;  // descant has a LOWER thresh - the auto harmony voice is only activated if the highest keyboard note is ABOVE a certain thresh
-        int  interval;
+        bool isOn {false};
+        int  lastPitch {-1};
+        int  lowerThresh {0};  // descant has a LOWER thresh - the auto harmony voice is only activated if the highest keyboard note is ABOVE a certain thresh
+        int  interval {12};
     };
 
     pedalPitchPrefs pedal;

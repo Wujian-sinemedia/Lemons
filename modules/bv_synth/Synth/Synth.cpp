@@ -27,16 +27,6 @@ SynthBase< SampleType >::SynthBase()
 
     setCurrentPlaybackSampleRate (44100.0);
 
-    pedal.isOn        = false;
-    pedal.lastPitch   = -1;
-    pedal.upperThresh = 0;
-    pedal.interval    = 12;
-
-    descant.isOn        = false;
-    descant.lastPitch   = -1;
-    descant.lowerThresh = 127;
-    descant.interval    = 12;
-
     setConcertPitchHz (440);
 
 #if bvsb_USE_MTS_ESP
