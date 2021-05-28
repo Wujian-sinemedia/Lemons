@@ -12,7 +12,6 @@ set_property (GLOBAL PROPERTY USE_FOLDERS YES)
 
 set (bv_sharedcode_dir ${CMAKE_CURRENT_LIST_DIR} CACHE INTERNAL "shared code path")
 
-# clang-tidy needs this to be happy
 set (CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
 #########
