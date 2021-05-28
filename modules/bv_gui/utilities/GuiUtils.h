@@ -88,6 +88,8 @@ struct GUIInitializer
     {
 #if JUCE_OPENGL
         openGLContext.attachTo (componentToUse);
+#else
+        juce::ignoreUnused (componentToUse);
 #endif
         
         AutoLock::setEnabled (false);
