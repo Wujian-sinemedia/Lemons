@@ -275,4 +275,87 @@ void BoolParameter::Listener::paramValueChanged (bool) { }
 void BoolParameter::Listener::paramDefaultChanged (bool) { }
 
 
+/*-----------------------------------------------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------------*/
+#if 0
+
+ChoiceParameter::ChoiceParameter (juce::String paramNameShort,
+                                  juce::String paramNameVerbose,
+                                  const juce::StringArray& choices,
+                                  int defaultItemIndex,
+                                  juce::String parameterLabel)
+: AudioParameterChoice (paramNameShort, paramNameVerbose, choices, defaultItemIndex, parameterLabel,
+                       [this](int index, int maxLength){ return AudioParameterChoice::choices[index].substring(0, maxLength); },
+                       [this](const juce::String& text){ return AudioParameterChoice::choices.indexOf(text, true); }),
+Parameter (*this, paramNameShort, paramNameVerbose)
+{
+    setDefault (AudioParameterChoice::choices[defaultItemIndex]);
+}
+
+juce::String ChoiceParameter::get() const
+{
+    return AudioParameterChoice::getCurrentChoiceName();
+}
+
+juce::String ChoiceParameter::getDefault() const
+{
+    
+}
+
+void ChoiceParameter::set (const juce::String& newValue)
+{
+    const auto index = AudioParameterChoice::choices.indexOf (newValue, true);
+    if (index > -1) this = index;
+}
+
+void ChoiceParameter::setDefault (const juce::String& newDefaultValue)
+{
+    
+}
+
+void ChoiceParameter::setAction (std::function< void (const juce::String&) > action)
+{
+    actionFunc = std::move (action);
+}
+
+void ChoiceParameter::onAction()
+{
+    actionFunc (get());
+}
+
+void ChoiceParameter::toValueTree (juce::ValueTree& tree)
+{
+    tree.setProperty ("ParameterValue", get(), nullptr);
+    tree.setProperty ("ParameterDefaultValue", getDefault(), nullptr);
+}
+
+void ChoiceParameter::fromValueTree (const juce::ValueTree& tree)
+{
+    set (tree.getProperty ("ParameterValue"));
+    setDefault (tree.getProperty ("ParameterDefaultValue"));
+}
+
+
+ChoiceParameter::Listener::Listener (BoolParameter& toUse)
+: Parameter::Listener (toUse),
+param (toUse)
+{
+}
+
+void ChoiceParameter::Listener::parameterValueChanged (float)
+{
+    paramValueChanged (param.get());
+}
+
+void ChoiceParameter::Listener::parameterDefaultChanged (float)
+{
+    paramDefaultChanged (param.getDefault());
+}
+
+void ChoiceParameter::Listener::paramValueChanged (const juce::String&) { }
+void ChoiceParameter::Listener::paramDefaultChanged (const juce::String&) { }
+
+#endif
+
+
 }  // namespace bav
