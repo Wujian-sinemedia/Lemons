@@ -41,4 +41,16 @@ struct AutoLock
 };
 
 
+struct Platform
+{
+    static constexpr bool isMobile()
+    {
+#if JUCE_IOS || JUCE_ANDROID
+        return true;
+#endif
+        return false;
+    }
+};
+
+
 }  // namespace bav

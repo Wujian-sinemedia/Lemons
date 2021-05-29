@@ -54,7 +54,8 @@ function (_configure_juce_app target useBrowser useSynthModule)
             _CRT_SECURE_NO_WARNINGS=1
             JUCE_MICROPHONE_PERMISSION_ENABLED=1
             JUCE_STRICT_REFCOUNTEDPTR=1
-            JUCE_MODAL_LOOPS_PERMITTED=0)
+            JUCE_MODAL_LOOPS_PERMITTED=0
+            JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1)
     
     if (${useBrowser})
         message (STATUS "Configuring JUCE web browser...")

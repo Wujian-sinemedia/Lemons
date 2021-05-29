@@ -15,7 +15,7 @@
 
 #include "ProcessorBase/ProcessorBase.h"
 
-#include "EditorBase.h"
+#include "EditorBase/EditorBase.h"
 
 #include "parameters/helpers/ParameterValueConversionLambdas.h"
 #include "parameters/Parameter.h"
@@ -27,3 +27,5 @@
 #include "parameters/ParameterList/ParameterList.h"
 
 #include "state/state.h"
+
+#include "StandaloneWrapper/StandaloneWrapper.h"
