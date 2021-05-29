@@ -77,11 +77,6 @@
 #include "math/intops/intOps.h"
 
 
-// network
-#include "network/AsyncDownload.h"
-#include "network/DownloadManager.h"
-
-
 #ifdef __clang__
 #    pragma clang diagnostic pop
 #endif
