@@ -49,3 +49,8 @@
 #include "FX/time/Looper.h"
 #include "FX/pitch/PitchShifter.h"
 #include "FX/pitch/PitchCorrector.h"
+
+// synth
+#include "synth/SynthVoice/SynthVoice.h"
+#include "synth/Synth.h"
+#include "synth/sine_synth.h"

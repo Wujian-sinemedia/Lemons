@@ -1,6 +1,14 @@
 
 #pragma once
 
+#ifndef bvsb_USE_MTS_ESP
+#    define bvsb_USE_MTS_ESP 0
+#endif
+
+#if bvsb_USE_MTS_ESP
+#    include <MTS-ESP/libMTSClient.h>
+#endif
+
 #include "PanningManager/PanningManager.h"
 
 
@@ -35,7 +43,7 @@ public:
 
     void setCurrentPlaybackSampleRate (const double newRate);
 
-    virtual void renderVoices (juce::MidiBuffer& midiMessages, juce::AudioBuffer< SampleType >& output);
+    void renderVoices (juce::MidiBuffer& midiMessages, juce::AudioBuffer< SampleType >& output);
 
     void releaseResources();
 
@@ -44,6 +52,7 @@ public:
     void bypassedBlock (const int numSamples, MidiBuffer& midiMessages);
 
     void processMidiEvent (const MidiMessage& m);
+    void handlePitchWheel (int wheelValue);
 
     void playChord (const juce::Array< int >& desiredPitches, const float velocity = 1.0f, const bool allowTailOffOfOld = false);
 
@@ -55,21 +64,15 @@ public:
                                const bool  overrideSostenutoPedal);
 
     bool isPitchActive (const int midiPitch, const bool countRingingButReleased = false, const bool countKeyUpNotes = false) const;
-
     void reportActiveNotes (juce::Array< int >& outputArray, const bool includePlayingButReleased = false, const bool includeKeyUpNotes = true) const;
 
     int getNumActiveVoices() const;
-
     int getNumVoices() const noexcept { return voices.size(); }
-
     void changeNumVoices (const int newNumVoices);
 
     void setNoteStealingEnabled (const bool shouldSteal) noexcept { shouldStealNotes = shouldSteal; }
-
     void updateMidiVelocitySensitivity (int newSensitivity);
-
     void updatePitchbendSettings (const int rangeUp, const int rangeDown);
-
     void setAftertouchGainOnOff (const bool shouldBeOn) { aftertouchGainIsOn = shouldBeOn; }
 
     void setPedalPitch (const bool isOn);
@@ -90,12 +93,9 @@ public:
     bool isLatched() const noexcept { return latchIsOn; }
 
     void updateADSRsettings (const float attack, const float decay, const float sustain, const float release);
+    void updateQuickReleaseMs (const int newMs);
 
     double getSamplerate() const noexcept { return sampleRate; }
-
-    void handlePitchWheel (int wheelValue);
-
-    void updateQuickReleaseMs (const int newMs);
 
     // returns a float velocity weighted according to the current midi velocity sensitivity settings
     float getWeightedVelocity (const float inputFloatVelocity) const;
@@ -106,9 +106,13 @@ public:
     bool  isSustainPedalDown() const noexcept { return sustainPedalDown; }
     bool  isSostenutoPedalDown() const noexcept { return sostenutoPedalDown; }
     bool  isSoftPedalDown() const noexcept { return softPedalDown; }
-    float getSoftPedalMultiplier() const noexcept { return softPedalMultiplier; }
-    float getPlayingButReleasedMultiplier() const noexcept { return playingButReleasedMultiplier; }
     bool  isAftertouchGainOn() const noexcept { return aftertouchGainIsOn; }
+    
+    float getPlayingButReleasedMultiplier() const noexcept { return playingButReleasedMultiplier; }
+    void  setPlayingButReleasedMultiplier (float newGain) { playingButReleasedMultiplier = newGain; }
+    
+    float getSoftPedalMultiplier() const noexcept { return softPedalMultiplier; }
+    void  setSoftPedalMultiplier (float newGain) { softPedalMultiplier = newGain; }
 
     ADSRParams getCurrentAdsrParams() const noexcept { return adsrParams; }
     ADSRParams getCurrentQuickReleaseParams() const noexcept { return quickReleaseParams; }
@@ -152,96 +156,16 @@ protected:
     // if overridden, called in the subclass when the top-level call to releaseResources() is made.
     virtual void release() { }
 
-    // removes a specified # of voices, attempting to remove inactive voices first, and only removes active voices if necessary
-    void removeNumVoices (const int voicesToRemove);
-
-    /*
-     Adds a specified # of voices to the synth. This is virtual because you can override this in your subclass to add instances of your subclass of SynthVoiceBase, assuming you're working with one.
-     Your overridden function should call numVoicesChanged() at the end of the function.
-     */
-    virtual void addNumVoices (const int voicesToAdd);
-
-    // this function should be called any time the number of voices the harmonizer owns changes
-    void numVoicesChanged();
-
-    /*
-     */
-
-    bool latchIsOn {false};
-
-    juce::Array< int > currentNotes;
-    juce::Array< int > desiredNotes;
-
-    ADSRParams adsrParams;
-    ADSRParams quickReleaseParams;
-
-    float currentInputFreq {0.0f};
-
-    double sampleRate {0.0};
-    uint32 lastNoteOnCounter {0};
-    int    lastPitchWheelValue {64};
-
-    bool shouldStealNotes {true};
-
-    synth_helpers::PanningManager panner;
-    int                           lowestPannedNote {0};
-
-    bav::midi::VelocityHelper  velocityConverter;
-    bav::midi::PitchBendHelper bendTracker;
-
-#if bvsb_USE_MTS_ESP
-    MTSClient* mtsClient = nullptr;
-#else
-    bav::midi::PitchConverter pitchConverter;
-#endif
-
-    int lastMidiTimeStamp {0};
-    int lastMidiChannel {1};
-
-    bool aftertouchGainIsOn {true};
-
-    float playingButReleasedMultiplier;
-
-    bool sustainPedalDown {false};
-    bool sostenutoPedalDown {false};
-    bool softPedalDown {false};
-
-    float softPedalMultiplier;  // the multiplier by which each voice's output will be multiplied when the soft pedal is down
-
-    // *********************************
-
-    // for clarity & cleanliness, the individual descant & pedal preferences are each encapsulated into their own struct:
-
-    struct pedalPitchPrefs
-    {
-        bool isOn {false};
-        int  lastPitch {-1};
-        int  upperThresh {127};  // pedal pitch has an UPPER thresh - the auto harmony voice is only activated if the lowest keyboard note is BELOW a certain thresh
-        int  interval {12};
-    };
-
-    struct descantPrefs
-    {
-        bool isOn {false};
-        int  lastPitch {-1};
-        int  lowerThresh {0};  // descant has a LOWER thresh - the auto harmony voice is only activated if the highest keyboard note is ABOVE a certain thresh
-        int  interval {12};
-    };
-
-    pedalPitchPrefs pedal;
-    descantPrefs    descant;
-
-    // *********************************
-
-    // this is protected, not private, to allow access for custom overrides of the addNumVoices() function.
-    juce::OwnedArray< Voice > voices;
-
+    // this method should return an instance of your synth's voice subclass
+    virtual Voice* createVoice();
 
 private:
-    void renderVoicesInternal (juce::AudioBuffer< SampleType >& output, const int startSample, const int numSamples);
+    void renderVoicesInternal (AudioBuffer& output, const int startSample, const int numSamples);
+    
+    void addNumVoices (const int voicesToAdd);
+    void removeNumVoices (const int voicesToRemove);
+    void numVoicesChanged();
 
-
-    // MIDI
     void processMidi (MidiBuffer& midiMessages);
     void handleMidiEvent (const MidiMessage& m, const int samplePosition);
 
@@ -280,6 +204,72 @@ private:
 
     /*==============================================================================================================
      ===============================================================================================================*/
+    
+    juce::OwnedArray< Voice > voices;
+    
+    bool latchIsOn {false};
+    
+    juce::Array< int > currentNotes;
+    juce::Array< int > desiredNotes;
+    
+    ADSRParams adsrParams;
+    ADSRParams quickReleaseParams;
+    
+    float currentInputFreq {0.0f};
+    
+    double sampleRate {0.0};
+    uint32 lastNoteOnCounter {0};
+    int    lastPitchWheelValue {64};
+    
+    bool shouldStealNotes {true};
+    
+    synth_helpers::PanningManager panner;
+    int                           lowestPannedNote {0};
+    
+    bav::midi::VelocityHelper  velocityConverter;
+    bav::midi::PitchBendHelper bendTracker;
+    
+#if bvsb_USE_MTS_ESP
+    MTSClient* mtsClient = nullptr;
+#else
+    bav::midi::PitchConverter pitchConverter;
+#endif
+    
+    int lastMidiTimeStamp {0};
+    int lastMidiChannel {1};
+    
+    bool aftertouchGainIsOn {true};
+    
+    float playingButReleasedMultiplier;
+    
+    bool sustainPedalDown {false};
+    bool sostenutoPedalDown {false};
+    bool softPedalDown {false};
+    
+    float softPedalMultiplier;  // the multiplier by which each voice's output will be multiplied when the soft pedal is down
+    
+    // *********************************
+    
+    // for clarity & cleanliness, the individual descant & pedal preferences are each encapsulated into their own struct:
+    
+    struct pedalPitchPrefs
+    {
+        bool isOn {false};
+        int  lastPitch {-1};
+        int  upperThresh {127};  // pedal pitch has an UPPER thresh - the auto harmony voice is only activated if the lowest keyboard note is BELOW a certain thresh
+        int  interval {12};
+    };
+    
+    struct descantPrefs
+    {
+        bool isOn {false};
+        int  lastPitch {-1};
+        int  lowerThresh {0};  // descant has a LOWER thresh - the auto harmony voice is only activated if the highest keyboard note is ABOVE a certain thresh
+        int  interval {12};
+    };
+    
+    pedalPitchPrefs pedal;
+    descantPrefs    descant;
 
     juce::Array< Voice* > usableVoices;  // this array is used to sort the voices when a 'steal' is requested
 
@@ -290,7 +280,7 @@ private:
     MidiBuffer midiInputStorage;  // each block of midi that comes in is stored in here so we can refer to it later
 
     LastMovedControllerInfo lastMovedControllerInfo;
-
+    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SynthBase)
 };
 

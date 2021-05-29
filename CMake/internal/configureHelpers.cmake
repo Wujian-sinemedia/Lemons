@@ -14,26 +14,7 @@ endfunction()
 
 #
 
-function (configure_synth_module target)
-
-    if (NOT DEFINED bvsb_USE_MTS_ESP)
-        set (bvsb_USE_MTS_ESP FALSE)
-    endif()
-
-    if (${bvsb_USE_MTS_ESP})
-        message (STATUS "Configuring MTS-ESP...")
-        target_include_directories (${target} PUBLIC "${bv_sharedcode_dir}/third_party/MTS-ESP/MTS-ESP/Client" "MTS-ESP")
-        target_compile_definitions (${target} PUBLIC bvsb_USE_MTS_ESP=1)
-        target_link_libraries (${target} PUBLIC bv_synth)
-    else()
-        target_compile_definitions (${target} PUBLIC bvsb_USE_MTS_ESP=0)
-    endif()
-
-endfunction()
-
-#
-
-function (_configure_juce_app target useBrowser useSynthModule)
+function (_configure_juce_app target useBrowser)
     message (STATUS "Configuring ${target}")
 
     if (TARGET ${target}_AAX)
@@ -79,8 +60,16 @@ function (_configure_juce_app target useBrowser useSynthModule)
         target_include_directories (${target} PUBLIC "${bv_sharedcode_dir}/third_party/MIPP/src" "MIPP")
     endif()
 
-    if (${useSynthModule})
-        configure_synth_module (${target})
+    if (NOT DEFINED bvsb_USE_MTS_ESP)
+        set (bvsb_USE_MTS_ESP FALSE)
+    endif()
+
+    if (${bvsb_USE_MTS_ESP})
+        message (STATUS "Configuring MTS-ESP...")
+        target_include_directories (${target} PUBLIC "${bv_sharedcode_dir}/third_party/MTS-ESP/MTS-ESP/Client" "MTS-ESP")
+        target_compile_definitions (${target} PUBLIC bvsb_USE_MTS_ESP=1)
+    else()
+        target_compile_definitions (${target} PUBLIC bvsb_USE_MTS_ESP=0)
     endif()
 
     _adjustDefaultMacTarget (${target} ${target})

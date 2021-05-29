@@ -14,13 +14,13 @@ endfunction()
 
 function (configure_default_juce_plugin target)
 
-	_configure_juce_app (${target} TRUE TRUE)
+	_configure_juce_app (${target} TRUE)
 endfunction()
 
 
 function (configure_default_juce_app target)
 
-    _configure_juce_app (${target} TRUE FALSE)
+    _configure_juce_app (${target} TRUE)
 endfunction()
 
 

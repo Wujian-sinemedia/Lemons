@@ -7,3 +7,7 @@
 #include "PitchDetector/pitch-detector.cpp"
 #include "PSOLA/analysis/psola_analyzer.cpp"
 #include "PSOLA/resynthesis/psola_shifter.cpp"
+
+#include "synth/SynthVoice/SynthVoice.cpp"
+#include "synth/SynthMidi.cpp"
+#include "synth/Synth.cpp"

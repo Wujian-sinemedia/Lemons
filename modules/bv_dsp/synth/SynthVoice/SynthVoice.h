@@ -64,10 +64,6 @@ public:
 
     int getMidiChannel() const { return midiChannel >= 0 ? midiChannel : parent->lastMidiChannel; }
 
-    // this function resets the voice's internal state & marks it as avaiable to accept a new note
-    void clearCurrentNote();
-
-
     /*=================================================================================
          =================================================================================*/
 
@@ -102,28 +98,6 @@ protected:
     /* called each time the parent recieves a new block in renderVoices(), before any calls to renderPlease() are made. This function may be called even if the voice is not currently active. */
     virtual void newBlockComing (int previousBlocksize, int upcomingBlocksize) { juce::ignoreUnused (previousBlocksize, upcomingBlocksize); }
 
-    /*
-         */
-
-    SynthBase< SampleType >*
-        parent;  // pointer to the SynthBase object that manages this voice. Make sure you do not delete the parent object before the child!
-
-    ADSR adsr;  // the main/primary ADSR driven by MIDI input to shape the voice's amplitude envelope. May be turned off by the user.
-    ADSR
-        quickRelease;  // used to quickly fade out signal when stopNote() is called with the allowTailOff argument set to false, instead of jumping signal to 0
-
-    bool keyIsDown, playingButReleased, sustainingFromSostenutoPedal, isQuickFading;
-
-    int   currentlyPlayingNote, currentAftertouch;
-    float currentOutputFreq, lastRecievedVelocity;
-
-    uint32 noteOnTime;
-
-    bool isPedalPitchVoice, isDescantVoice;
-
-    bool isDoubledByPedalVoice, isDoubledByDescantVoice;
-
-
     /*=================================================================================
          =================================================================================*/
 
@@ -137,6 +111,8 @@ private:
                     const int    midichannel       = -1);
 
     void stopNote (const float velocity, const bool allowTailOff);
+    
+    void clearCurrentNote();
 
     void updateSampleRate (const double newSamplerate);
 
@@ -162,6 +138,22 @@ private:
 
     /*=================================================================================
          =================================================================================*/
+    
+    SynthBase< SampleType >* parent;
+    
+    ADSR adsr;  // the main/primary ADSR driven by MIDI input to shape the voice's amplitude envelope. May be turned off by the user.
+    ADSR quickRelease;  // used to quickly fade out signal when stopNote() is called with the allowTailOff argument set to false, instead of jumping signal to 0
+    
+    bool keyIsDown, playingButReleased, sustainingFromSostenutoPedal, isQuickFading;
+    
+    int   currentlyPlayingNote, currentAftertouch;
+    float currentOutputFreq, lastRecievedVelocity;
+    
+    uint32 noteOnTime;
+    
+    bool isPedalPitchVoice, isDescantVoice;
+    
+    bool isDoubledByPedalVoice, isDoubledByDescantVoice;
 
     bav::dsp::FX::MonoToStereoPanner< SampleType > panner;
 

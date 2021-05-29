@@ -51,16 +51,9 @@ class SineSynth : public SynthBase< SampleType >
 public:
     SineSynth() = default;
 
-    void addNumVoices (const int voicesToAdd) override
+    Voice* createVoice()
     {
-        if (voicesToAdd == 0) return;
-
-        for (int i = 0; i < voicesToAdd; ++i)
-            Base::voices.add (new Voice (this));
-
-        jassert (Base::voices.size() >= voicesToAdd);
-
-        Base::numVoicesChanged();
+        return new Voice (this);
     }
 
 

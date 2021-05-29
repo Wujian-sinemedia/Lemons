@@ -413,11 +413,17 @@ void SynthBase< SampleType >::addNumVoices (const int voicesToAdd)
     if (voicesToAdd == 0) return;
 
     for (int i = 0; i < voicesToAdd; ++i)
-        voices.add (new Voice (this, sampleRate));
+        voices.add (createVoice());
 
     jassert (voices.size() >= voicesToAdd);
 
     numVoicesChanged();
+}
+
+template < typename SampleType >
+SynthVoiceBase<SampleType>* SynthBase< SampleType >::createVoice()
+{
+    return new SynthVoiceBase<SampleType> (this);
 }
 
 
