@@ -81,11 +81,15 @@ juce::UndoableAction* Parameter::DefaultChangeAction::createCoalescedAction (Und
 
 Parameter::Parameter (RangedParam& p,
                       juce::String paramNameShort,
-                      juce::String paramNameVerbose)
+                      juce::String paramNameVerbose,
+                      bool automatable,
+                      bool metaParam)
     : SerializableData (paramNameVerbose),
       rap (p),
       parameterNameShort (TRANS (paramNameShort)),
       parameterNameVerbose (TRANS (paramNameVerbose)),
+      isAutomatable (automatable),
+      isMetaParameter (metaParam),
       valueChangeTransactionName (TRANS ("Changed") + " " + parameterNameVerbose),
       defaultChangeTransactionName (TRANS ("Changed default value of") + " " + parameterNameVerbose)
 {

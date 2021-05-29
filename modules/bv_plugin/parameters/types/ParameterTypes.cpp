@@ -12,7 +12,9 @@ FloatParameter::FloatParameter (
         stringFromValue,
     std::function< float (const juce::String& text) >
                  valueFromString,
-    juce::String parameterLabel)
+    juce::String parameterLabel,
+                                bool automatable,
+                                bool metaParam)
     : AudioParameterFloat (paramNameVerbose,
                            TRANS (paramNameVerbose),
                            nRange,
@@ -23,9 +25,21 @@ FloatParameter::FloatParameter (
                            valueFromString),
       Parameter (*this,
                  paramNameShort,
-                 paramNameVerbose),
+                 paramNameVerbose,
+                 automatable,
+                 metaParam),
       floatToString (stringFromValue), stringToFloat (valueFromString)
 {
+}
+
+bool FloatParameter::isAutomatable() const
+{
+    return Parameter::isAutomatable;
+}
+
+bool FloatParameter::isMetaParameter() const
+{
+    return Parameter::isMetaParameter;
 }
 
 float FloatParameter::get() const
@@ -104,7 +118,9 @@ IntParameter::IntParameter (
         stringFromInt,
     std::function< int (const juce::String& text) >
                  intFromString,
-    juce::String parameterLabel)
+    juce::String parameterLabel,
+                            bool automatable,
+                            bool metaParam)
     : AudioParameterInt (paramNameVerbose,
                          TRANS (paramNameVerbose),
                          min,
@@ -115,9 +131,21 @@ IntParameter::IntParameter (
                          intFromString),
       Parameter (*this,
                  paramNameShort,
-                 paramNameVerbose),
+                 paramNameVerbose,
+                 automatable,
+                 metaParam),
       intToString (stringFromInt), stringToInt (intFromString)
 {
+}
+
+bool IntParameter::isAutomatable() const
+{
+    return Parameter::isAutomatable;
+}
+
+bool IntParameter::isMetaParameter() const
+{
+    return Parameter::isMetaParameter;
 }
 
 int IntParameter::get() const
@@ -193,7 +221,9 @@ BoolParameter::BoolParameter (
     std::function< juce::String (bool value, int maximumStringLength) >
         stringFromBool,
     std::function< bool (const juce::String& text) >
-        boolFromString)
+        boolFromString,
+                              bool automatable,
+                              bool metaParam)
     : AudioParameterBool (paramNameVerbose,
                           TRANS (paramNameVerbose),
                           defaultVal,
@@ -202,9 +232,21 @@ BoolParameter::BoolParameter (
                           boolFromString),
       Parameter (*this,
                  paramNameShort,
-                 paramNameVerbose),
+                 paramNameVerbose,
+                 automatable,
+                 metaParam),
       boolToString (stringFromBool), stringToBool (boolFromString)
 {
+}
+
+bool BoolParameter::isAutomatable() const
+{
+    return Parameter::isAutomatable;
+}
+
+bool BoolParameter::isMetaParameter() const
+{
+    return Parameter::isMetaParameter;
 }
 
 bool BoolParameter::get() const

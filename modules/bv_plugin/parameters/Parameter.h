@@ -10,12 +10,14 @@ public:
 
     Parameter (RangedParam& p,
                juce::String paramNameShort,
-               juce::String paramNameVerbose);
+               juce::String paramNameVerbose,
+               bool automatable = true,
+               bool metaParam = false);
 
     virtual ~Parameter() override = default;
 
     bool operator== (const Parameter& other);
-
+    
     void  refreshDefault();  // sets the parameter's current value to be the default value
     void  resetToDefault();  // resets the parameter's value to the default
     float getNormalizedDefault() const;
@@ -47,6 +49,9 @@ public:
 
     const juce::String parameterNameShort;
     const juce::String parameterNameVerbose;
+    
+    const bool isAutomatable;
+    const bool isMetaParameter;
 
     //==============================================================================
 

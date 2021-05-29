@@ -83,8 +83,6 @@ struct MeterParameter : public FloatParameter
 
     virtual ~MeterParameter() override = default;
 
-    bool isAutomatable() const override final { return false; }
-
     using Listener = FloatParameter::Listener;
 };
 
@@ -102,7 +100,7 @@ struct GainMeterParameter : public MeterParameter
 
     virtual ~GainMeterParameter() override = default;
 
-    using Listener = FloatParameter::Listener;
+    using Listener = MeterParameter::Listener;
 };
 
 }  // namespace bav

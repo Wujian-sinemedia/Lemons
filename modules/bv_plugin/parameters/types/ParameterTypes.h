@@ -19,9 +19,14 @@ public:
         std::function< juce::String (float value, int maximumStringLength) >
                                                           stringFromValue = nullptr,
         std::function< float (const juce::String& text) > valueFromString = nullptr,
-        juce::String                                      parameterLabel  = juce::String());
+        juce::String                                      parameterLabel  = juce::String(),
+                    bool automatable = true,
+                    bool metaParam = false);
 
     virtual ~FloatParameter() override = default;
+    
+    bool isAutomatable() const override final;
+    bool isMetaParameter() const override final;
 
     float get() const;
     float getDefault() const;
@@ -81,9 +86,14 @@ public:
         std::function< juce::String (int value, int maximumStringLength) >
                                                         stringFromInt  = nullptr,
         std::function< int (const juce::String& text) > intFromString  = nullptr,
-        juce::String                                    parameterLabel = juce::String());
+        juce::String                                    parameterLabel = juce::String(),
+                  bool automatable = true,
+                  bool metaParam = false);
 
     virtual ~IntParameter() override = default;
+    
+    bool isAutomatable() const override final;
+    bool isMetaParameter() const override final;
 
     int get() const;
     int getDefault() const;
@@ -140,9 +150,14 @@ public:
         bool         defaultVal,
         std::function< juce::String (bool value, int maximumStringLength) >
                                                          stringFromBool = nullptr,
-        std::function< bool (const juce::String& text) > boolFromString = nullptr);
+        std::function< bool (const juce::String& text) > boolFromString = nullptr,
+                   bool automatable = true,
+                   bool metaParam = false);
 
     virtual ~BoolParameter() override = default;
+    
+    bool isAutomatable() const override final;
+    bool isMetaParameter() const override final;
 
     bool get() const;
     bool getDefault() const;

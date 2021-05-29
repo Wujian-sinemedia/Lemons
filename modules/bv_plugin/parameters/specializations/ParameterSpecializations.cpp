@@ -90,7 +90,8 @@ MeterParameter::MeterParameter (
                       parameterCategory,
                       stringFromValue,
                       valueFromString,
-                      parameterLabel)
+                      parameterLabel,
+                      false)
 {
 }
 
