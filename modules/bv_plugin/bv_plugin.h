@@ -7,11 +7,14 @@
  version:            0.0.1
  name:               bv_plugin
  description:        General plugin utilities & tools
- dependencies:       bv_core
+ dependencies:       bv_core bv_mobile_utils
  END_JUCE_MODULE_DECLARATION
  *******************************************************************************/
 
 #include "bv_core/bv_core.h"
+#include "bv_mobile_utils/bv_mobile_utils.h"
+
+#include "SystemInitializer.h"
 
 #include "ProcessorBase/ProcessorBase.h"
 
