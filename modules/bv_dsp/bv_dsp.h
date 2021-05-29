@@ -23,7 +23,6 @@
 #include "FIFOs/AudioFIFO.h"
 #include "FIFOs/AudioAndMidiFIFO.h"
 #include "FIFOWrappedEngine/FIFOWrappedEngine.h"
-#include "FFT/bv_FFT.h"
 #include "PitchDetector/pitch-detector.h"
 #include "PSOLA/analysis/psola_analyzer.h"
 #include "PSOLA/resynthesis/psola_shifter.h"

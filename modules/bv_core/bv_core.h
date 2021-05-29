@@ -50,7 +50,6 @@
 // misc
 #include "misc/StaticObjects.h"
 #include "misc/misc.h"
-#include "misc/AlignedAllocate.h"
 #include "misc/LockFreeFifo.h"
 
 #include "serializing/SerializableData.h"
