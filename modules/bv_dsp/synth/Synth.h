@@ -1,12 +1,12 @@
 
 #pragma once
 
-#ifndef bvsb_USE_MTS_ESP
-#    define bvsb_USE_MTS_ESP 0
+#ifndef BV_USE_MTS_ESP
+#    define BV_USE_MTS_ESP 0
 #endif
 
-#if bvsb_USE_MTS_ESP
-#    include <MTS-ESP/libMTSClient.h>
+#if BV_USE_MTS_ESP
+#    include "libMTSClient.h"
 #endif
 
 #include "internals/PanningManager/PanningManager.h"
@@ -226,7 +226,7 @@ private:
     bav::midi::VelocityHelper  velocityConverter;
     bav::midi::PitchBendHelper bendTracker;
 
-#if bvsb_USE_MTS_ESP
+#if BV_USE_MTS_ESP
     MTSClient* mtsClient = nullptr;
 #else
     bav::midi::PitchConverter pitchConverter;
@@ -245,16 +245,11 @@ private:
 
     float softPedalMultiplier;  // the multiplier by which each voice's output will be multiplied when the soft pedal is down
 
-    // *********************************
-
-    // for clarity & cleanliness, the individual descant & pedal preferences are each encapsulated into their own struct:
-
     juce::Array< Voice* > usableVoices;  // this array is used to sort the voices when a 'steal' is requested
 
     int lastBlocksize;
 
     MidiBuffer aggregateMidiBuffer;  // this midi buffer will be used to collect the harmonizer's aggregate MIDI output
-
     MidiBuffer midiInputStorage;  // each block of midi that comes in is stored in here so we can refer to it later
 
     LastMovedControllerInfo lastMovedControllerInfo;

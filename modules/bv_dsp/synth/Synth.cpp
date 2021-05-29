@@ -2,6 +2,10 @@
 #include "internals/PanningManager/PanningManager.cpp"
 #include "internals/AutomatedHarmonyVoice.cpp"
 
+#if BV_USE_MTS_ESP
+#    include "libMTSClient.cpp"
+#endif
+
 
 namespace bav::dsp
 {
@@ -11,7 +15,7 @@ namespace bav::dsp
 template < typename SampleType >
 SynthBase< SampleType >::SynthBase()
     : velocityConverter (100), bendTracker (2, 2)
-#if ! bvsb_USE_MTS_ESP
+#if ! BV_USE_MTS_ESP
       ,
       pitchConverter (440, 69, 12)
 #endif
@@ -32,7 +36,7 @@ SynthBase< SampleType >::SynthBase()
 
     setConcertPitchHz (440);
 
-#if bvsb_USE_MTS_ESP
+#if BV_USE_MTS_ESP
     mtsClient = MTS_RegisterClient();
     jassert (mtsClient != nullptr);
 #endif
@@ -47,7 +51,7 @@ SynthBase< SampleType >::~SynthBase()
 {
     voices.clear();
 
-#if bvsb_USE_MTS_ESP
+#if BV_USE_MTS_ESP
     MTS_DeregisterClient (mtsClient);
 #endif
 }
@@ -299,7 +303,7 @@ float SynthBase< SampleType >::getWeightedVelocity (const float inputFloatVeloci
 template < typename SampleType >
 float SynthBase< SampleType >::getOutputFrequency (const int midipitch, const int midiChannel) const
 {
-#if bvsb_USE_MTS_ESP
+#if BV_USE_MTS_ESP
     return bav::math::midiToFreq (
         bendTracker.newNoteRecieved (bav::math::freqToMidi (MTS_NoteToFrequency (mtsClient, char (midipitch), char (midiChannel)))));
 #else
@@ -315,7 +319,7 @@ float SynthBase< SampleType >::getOutputFrequency (const int midipitch, const in
 template < typename SampleType >
 bool SynthBase< SampleType >::shouldFilterNote (int midiNote, int midiChannel) const
 {
-#if bvsb_USE_MTS_ESP
+#if BV_USE_MTS_ESP
     return MTS_ShouldFilterNote (mtsClient, char (midiNote), char (midiChannel));
 #else
     juce::ignoreUnused (midiNote, midiChannel);
@@ -339,7 +343,7 @@ void SynthBase< SampleType >::resetRampedValues (int blocksize)
 template < typename SampleType >
 bool SynthBase< SampleType >::isConnectedToMtsEsp() const noexcept
 {
-#if bvsb_USE_MTS_ESP
+#if BV_USE_MTS_ESP
     return MTS_HasMaster (mtsClient);
 #else
     return false;
@@ -349,7 +353,7 @@ bool SynthBase< SampleType >::isConnectedToMtsEsp() const noexcept
 template < typename SampleType >
 juce::String SynthBase< SampleType >::getScaleName() const
 {
-#if bvsb_USE_MTS_ESP
+#if BV_USE_MTS_ESP
     return {MTS_GetScaleName (mtsClient)};
 #else
     return {};

@@ -86,12 +86,11 @@ void SynthBase< SampleType >::noteOn (const int midiPitch, const float velocity,
 {
     // N.B. the `isKeyboard` flag should be true if this note on event was triggered directly from the plugin's midi input; this flag should be false if this note event was automatically triggered by any internal function of Imogen (descant, pedal pitch, etc)
 
-#if bvsb_USE_MTS_ESP
+#if BV_USE_MTS_ESP
     if (MTS_ShouldFilterNote (mtsClient, char (midiPitch), char (midiChannel)))
     {
-        if (pedal.isOn && midiPitch == pedal.lastPitch) pedal.lastPitch = -1;
-        if (descant.isOn && midiPitch == descant.lastPitch) descant.lastPitch = -1;
-
+        pedal.setNoteToOff();
+        descant.setNoteToOff();
         return;
     }
 #endif

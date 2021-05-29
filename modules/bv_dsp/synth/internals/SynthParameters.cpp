@@ -8,7 +8,7 @@ namespace bav::dsp
 template < typename SampleType >
 void SynthBase< SampleType >::setConcertPitchHz (const int newConcertPitchhz)
 {
-#if bvsb_USE_MTS_ESP
+#if BV_USE_MTS_ESP
     juce::ignoreUnused (newConcertPitchhz);
 #else
     jassert (newConcertPitchhz > 0);
