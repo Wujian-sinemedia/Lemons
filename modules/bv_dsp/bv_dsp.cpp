@@ -9,5 +9,7 @@
 #include "PSOLA/resynthesis/psola_shifter.cpp"
 
 #include "synth/SynthVoice/SynthVoice.cpp"
-#include "synth/SynthMidi.cpp"
+#include "synth/internals/SynthMidi.cpp"
+#include "synth/internals/SynthParameters.cpp"
+#include "synth/internals/SynthVoiceAllocation.cpp"
 #include "synth/Synth.cpp"

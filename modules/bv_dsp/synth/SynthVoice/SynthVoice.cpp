@@ -7,7 +7,7 @@ namespace bav::dsp
     */
 template < typename SampleType >
 SynthVoiceBase< SampleType >::SynthVoiceBase (SynthBase< SampleType >* base, double initSamplerate)
-    : parent (base), keyIsDown (false), playingButReleased (false), sustainingFromSostenutoPedal (false), isQuickFading (false), currentlyPlayingNote (-1), currentAftertouch (0), currentOutputFreq (-1.0f), lastRecievedVelocity (0.0f), noteOnTime (0), isPedalPitchVoice (false), isDescantVoice (false), isDoubledByPedalVoice (false), isDoubledByDescantVoice (false), renderingBuffer (0, 0), stereoBuffer (0, 0)
+    : parent (base), keyIsDown (false), playingButReleased (false), sustainingFromSostenutoPedal (false), isQuickFading (false), currentlyPlayingNote (-1), currentAftertouch (0), currentOutputFreq (-1.0f), lastRecievedVelocity (0.0f), noteOnTime (0), isPedalPitchVoice (false), isDescantVoice (false), isDoubledByAutomatedVoice (false), renderingBuffer (0, 0), stereoBuffer (0, 0)
 {
     adsr.setSampleRate (initSamplerate);
     quickRelease.setSampleRate (initSamplerate);
@@ -192,10 +192,9 @@ void SynthVoiceBase< SampleType >::startNote (const int    midiPitch,
     midiVelocityGain.setTargetValue (smoothingZeroCheck (parent->getWeightedVelocity (velocity)));
 
     aftertouchGain.setTargetValue (SampleType (1.0));
-
-    if (isPedal) isDoubledByPedalVoice = false;
-
-    if (isDescant) isDoubledByDescantVoice = false;
+    
+    if (isPedal || isDescant)
+        isDoubledByAutomatedVoice = false;
 }
 
 
@@ -234,8 +233,7 @@ void SynthVoiceBase< SampleType >::clearCurrentNote()
     sustainingFromSostenutoPedal = false;
     isPedalPitchVoice            = false;
     isDescantVoice               = false;
-    isDoubledByPedalVoice        = false;
-    isDoubledByDescantVoice      = false;
+    isDoubledByAutomatedVoice    = false;
 
     if (quickRelease.isActive()) quickRelease.reset();
 

@@ -9,7 +9,7 @@
 #    include <MTS-ESP/libMTSClient.h>
 #endif
 
-#include "PanningManager/PanningManager.h"
+#include "internals/PanningManager/PanningManager.h"
 
 
 namespace bav::dsp
@@ -198,9 +198,6 @@ private:
 
     Voice* getVoicePlayingNote (const int midiPitch) const;
 
-    Voice* getCurrentDescantVoice() const;
-    Voice* getCurrentPedalPitchVoice() const;
-
 
     /*==============================================================================================================
      ===============================================================================================================*/
@@ -252,25 +249,6 @@ private:
     
     // for clarity & cleanliness, the individual descant & pedal preferences are each encapsulated into their own struct:
     
-    struct pedalPitchPrefs
-    {
-        bool isOn {false};
-        int  lastPitch {-1};
-        int  upperThresh {127};  // pedal pitch has an UPPER thresh - the auto harmony voice is only activated if the lowest keyboard note is BELOW a certain thresh
-        int  interval {12};
-    };
-    
-    struct descantPrefs
-    {
-        bool isOn {false};
-        int  lastPitch {-1};
-        int  lowerThresh {0};  // descant has a LOWER thresh - the auto harmony voice is only activated if the highest keyboard note is ABOVE a certain thresh
-        int  interval {12};
-    };
-    
-    pedalPitchPrefs pedal;
-    descantPrefs    descant;
-
     juce::Array< Voice* > usableVoices;  // this array is used to sort the voices when a 'steal' is requested
 
     int lastBlocksize;
@@ -280,6 +258,44 @@ private:
     MidiBuffer midiInputStorage;  // each block of midi that comes in is stored in here so we can refer to it later
 
     LastMovedControllerInfo lastMovedControllerInfo;
+    
+    //--------------------------------------------------
+    
+    class AutomatedHarmonyVoice
+    {
+    public:
+        AutomatedHarmonyVoice (SynthBase& synthToUse, bool shiftUp);
+        
+        void apply();
+        
+        void setEnabled (bool shouldBeEnabled);
+        void setThreshold (int newThresh);
+        void setInterval (int newInterval);
+        
+        void turnNoteOffIfOn();
+        void setNoteToOff() { lastPitch = -1; }
+        
+        bool isAutomatedPitch (int midiNote);
+        
+        // call this function when processing an automated note-off and the voice's keyboard key is still being held
+        void autoNoteOffKeyboardKeyHeld (int midiNote);
+        
+        Voice* getVoice();
+        
+    private:
+        const bool shiftingUp;
+        
+        bool isOn {false};
+        int lastPitch {-1};
+        int thresh {0};
+        int interval {12};
+        
+    private:
+        SynthBase& synth;
+    };
+    
+    AutomatedHarmonyVoice pedal {*this, false};
+    AutomatedHarmonyVoice descant {*this, true};
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SynthBase)
 };

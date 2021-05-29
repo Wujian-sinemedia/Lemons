@@ -153,7 +153,7 @@ private:
     
     bool isPedalPitchVoice, isDescantVoice;
     
-    bool isDoubledByPedalVoice, isDoubledByDescantVoice;
+    bool isDoubledByAutomatedVoice;
 
     bav::dsp::FX::MonoToStereoPanner< SampleType > panner;
 

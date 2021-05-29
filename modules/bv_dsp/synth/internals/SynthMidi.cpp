@@ -113,9 +113,8 @@ void SynthBase< SampleType >::noteOn (const int midiPitch, const float velocity,
         }
         else  // no voice available for this note :(
         {
-            if (pedal.isOn && midiPitch == pedal.lastPitch) pedal.lastPitch = -1;
-            if (descant.isOn && midiPitch == descant.lastPitch) descant.lastPitch = -1;
-
+            pedal.turnNoteOffIfOn();
+            descant.turnNoteOffIfOn();
             return;
         }
     }
@@ -136,10 +135,8 @@ void SynthBase< SampleType >::noteOff (const int midiNoteNumber, const float vel
 
     if (voice == nullptr)
     {
-        if (pedal.isOn && midiNoteNumber == pedal.lastPitch) pedal.lastPitch = -1;
-
-        if (descant.isOn && midiNoteNumber == descant.lastPitch) descant.lastPitch = -1;
-
+        pedal.turnNoteOffIfOn();
+        descant.turnNoteOffIfOn();
         return;
     }
 
@@ -169,20 +166,8 @@ void SynthBase< SampleType >::noteOff (const int midiNoteNumber, const float vel
     }
 
     // we're processing an automated note-off event, but the voice's keyboard key is still being held
-
-    if (pedal.isOn && midiNoteNumber == pedal.lastPitch)
-    {
-        pedal.lastPitch          = -1;
-        voice->isPedalPitchVoice = false;
-        voice->setKeyDown (true);  // refresh the voice's own internal tracking of its key state
-    }
-
-    if (descant.isOn && midiNoteNumber == descant.lastPitch)
-    {
-        descant.lastPitch     = -1;
-        voice->isDescantVoice = false;
-        voice->setKeyDown (true);  // refresh the voice's own internal tracking of its key state
-    }
+    pedal.autoNoteOffKeyboardKeyHeld (midiNoteNumber);
+    descant.autoNoteOffKeyboardKeyHeld (midiNoteNumber);
 }
 
 
@@ -244,8 +229,8 @@ void SynthBase< SampleType >::startVoice (Voice* voice, const int midiPitch, con
         voice->setPan (panner.getNextPanVal());
     }
 
-    const bool isPedal   = pedal.isOn && midiPitch == pedal.lastPitch;
-    const bool isDescant = descant.isOn && midiPitch == descant.lastPitch;
+    const bool isPedal   = pedal.isAutomatedPitch (midiPitch);
+    const bool isDescant = descant.isAutomatedPitch (midiPitch);
     const bool keydown   = isKeyboard ? true : voice->isKeyDown();
 
     voice->startNote (midiPitch, velocity, timestamp, keydown, isPedal, isDescant, midiChannel);
@@ -269,30 +254,19 @@ void SynthBase< SampleType >::stopVoice (Voice* voice, const float velocity, con
     const bool isPedal   = voice->isCurrentPedalVoice();
     const bool isDescant = voice->isCurrentDescantVoice();
 
-    if (isPedal) pedal.lastPitch = -1;
+    if (isPedal) pedal.setNoteToOff();
+    if (isDescant) descant.setNoteToOff();
 
-    if (isDescant) descant.lastPitch = -1;
-
-    const bool shouldStopPedal   = voice->isDoubledByPedalVoice && ! isPedal;
-    const bool shouldStopDescant = voice->isDoubledByDescantVoice && ! isDescant;
+    const bool shouldStopPedal   = voice->isDoubledByAutomatedVoice && ! isPedal;
+    const bool shouldStopDescant = voice->isDoubledByAutomatedVoice && ! isDescant;
 
     voice->stopNote (velocity, allowTailOff);
 
     if (shouldStopPedal)
-    {
-        if (auto* pVoice = getCurrentPedalPitchVoice())
-            stopVoice (pVoice, velocity, allowTailOff);
-        else
-            pedal.lastPitch = -1;
-    }
+        pedal.turnNoteOffIfOn();
 
     if (shouldStopDescant)
-    {
-        if (auto* dVoice = getCurrentDescantVoice())
-            stopVoice (dVoice, velocity, allowTailOff);
-        else
-            descant.lastPitch = -1;
-    }
+        descant.turnNoteOffIfOn();
 }
 
 
@@ -511,148 +485,6 @@ void SynthBase< SampleType >::handleSoftPedal (const int value)
  */
 
 /*
- Creates an automated "pedal" voice at a specified interval below the lowest note currently being played by a keyboard key.
- */
-template < typename SampleType >
-void SynthBase< SampleType >::applyPedalPitch()
-{
-    int    currentLowest = 128;
-    Voice* lowestVoice   = nullptr;
-
-    for (auto* voice : voices)  // find the current lowest note being played by a keyboard key
-    {
-        if (voice->isVoiceActive() && voice->isKeyDown())
-        {
-            const int note = voice->getCurrentlyPlayingNote();
-
-            if (note < currentLowest)
-            {
-                currentLowest = note;
-                lowestVoice   = voice;
-            }
-        }
-    }
-
-    const auto lastPitch = pedal.lastPitch;
-
-    if (currentLowest > pedal.upperThresh)  // only create a pedal voice if the current lowest keyboard key is below a specified threshold
-    {
-        if (lastPitch > -1) noteOff (lastPitch, 1.0f, false, false);
-
-        return;
-    }
-
-    const auto newPedalPitch = currentLowest - pedal.interval;
-
-    if (newPedalPitch == lastPitch)  // pedal output note hasn't changed - do nothing
-        return;
-
-    if (newPedalPitch < 0 || isPitchActive (newPedalPitch, false, true))  // impossible midinote, or the new desired pedal pitch is already on
-    {
-        if (lastPitch > -1) noteOff (lastPitch, 1.0f, false, false);
-
-        return;
-    }
-
-    auto* prevPedalVoice = getCurrentPedalPitchVoice();  // attempt to keep the pedal line consistent - using the same HarmonizerVoice
-
-    if (prevPedalVoice != nullptr)
-        if (prevPedalVoice->isKeyDown())  // can't "steal" the voice playing the last pedal note if its keyboard key is down
-            prevPedalVoice = nullptr;
-
-    pedal.lastPitch = newPedalPitch;
-
-    const auto velocity = (lowestVoice != nullptr) ? lowestVoice->getLastRecievedVelocity()
-                                                   : (prevPedalVoice != nullptr ? prevPedalVoice->getLastRecievedVelocity() : 1.0f);
-
-    if (prevPedalVoice != nullptr)
-    {
-        //  there was a previously active pedal voice, so steal it directly without calling noteOn:
-        startVoice (prevPedalVoice, pedal.lastPitch, velocity, false, prevPedalVoice->getMidiChannel());
-    }
-    else
-    {
-        if (lastPitch > -1) noteOff (lastPitch, 1.0f, false, false);
-
-        noteOn (pedal.lastPitch, velocity, false, lastMidiChannel);
-    }
-
-    if (lowestVoice != nullptr) lowestVoice->isDoubledByPedalVoice = true;
-}
-
-
-/*
- Creates an automated "descant" voice at a specified interval above the highest note currently being played by a keyboard key.
- */
-template < typename SampleType >
-void SynthBase< SampleType >::applyDescant()
-{
-    int    currentHighest = -1;
-    Voice* highestVoice   = nullptr;
-
-    for (auto* voice : voices)  // find the current highest note being played by a keyboard key
-    {
-        if (voice->isVoiceActive() && voice->isKeyDown())
-        {
-            const int note = voice->getCurrentlyPlayingNote();
-
-            if (note > currentHighest)
-            {
-                currentHighest = note;
-                highestVoice   = voice;
-            }
-        }
-    }
-
-    const auto lastPitch = descant.lastPitch;
-
-    if (currentHighest < descant.lowerThresh)  // only create a descant voice if the current highest keyboard key is above a specified threshold
-    {
-        if (lastPitch > -1) noteOff (lastPitch, 1.0f, false, false);
-
-        return;
-    }
-
-    const auto newDescantPitch = currentHighest + descant.interval;
-
-    if (newDescantPitch == lastPitch)  // descant output note hasn't changed - do nothing
-        return;
-
-    if (newDescantPitch > 127 || isPitchActive (newDescantPitch, false, true))  // impossible midinote, or the new desired descant pitch is already on
-    {
-        if (lastPitch > -1) noteOff (lastPitch, 1.0f, false, false);
-
-        return;
-    }
-
-    auto* prevDescantVoice = getCurrentDescantVoice();  // attempt to keep the descant line consistent - using the same HarmonizerVoice
-
-    if (prevDescantVoice != nullptr)
-        if (prevDescantVoice->isKeyDown())  // can't "steal" the voice playing the last descant note if its keyboard key is down
-            prevDescantVoice = nullptr;
-
-    descant.lastPitch = newDescantPitch;
-
-    const auto velocity = (highestVoice != nullptr) ? highestVoice->getLastRecievedVelocity()
-                                                    : (prevDescantVoice != nullptr ? prevDescantVoice->getLastRecievedVelocity() : 1.0f);
-
-    if (prevDescantVoice != nullptr)
-    {
-        //  there was a previously active descant voice, so steal it directly without calling noteOn:
-        startVoice (prevDescantVoice, descant.lastPitch, velocity, false, prevDescantVoice->getMidiChannel());
-    }
-    else
-    {
-        if (lastPitch > -1) noteOff (lastPitch, 1.0f, false, false);
-
-        noteOn (descant.lastPitch, velocity, false, lastMidiChannel);
-    }
-
-    if (highestVoice != nullptr) highestVoice->isDoubledByDescantVoice = true;
-}
-
-
-/*
  Use this function to toggle the synth's "midi latch" feature.
  When latch is on/true, any recieved note offs will be ignored until latch is turned off, at which point any notes whose keyboard keys aren't still being held will be turned off.
  */
@@ -800,9 +632,8 @@ void SynthBase< SampleType >::reportActiveNotes (juce::Array< int >& outputArray
 template < typename SampleType >
 void SynthBase< SampleType >::pitchCollectionChanged()
 {
-    if (pedal.isOn) applyPedalPitch();
-
-    if (descant.isOn) applyDescant();
+    pedal.apply();
+    descant.apply();
 
     if (getNumActiveVoices() == 0) panner.reset();
 }
