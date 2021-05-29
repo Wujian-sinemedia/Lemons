@@ -36,15 +36,15 @@ function (_configure_juce_app target useBrowser)
             JUCE_MICROPHONE_PERMISSION_ENABLED=1
             JUCE_STRICT_REFCOUNTEDPTR=1
             JUCE_MODAL_LOOPS_PERMITTED=0
-            JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1)
+            JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1
+            JUCE_LOAD_CURL_SYMBOLS_LAZILY=1)
     
     if (${useBrowser})
         message (STATUS "Configuring JUCE web browser...")
 
         target_compile_definitions (${target} PUBLIC 
             JUCE_WEB_BROWSER=1
-            JUCE_USE_CURL=1
-            JUCE_LOAD_CURL_SYMBOLS_LAZILY=1)
+            JUCE_USE_CURL=1)
     else()
         target_compile_definitions (${target} PUBLIC 
             JUCE_WEB_BROWSER=0
@@ -55,21 +55,25 @@ function (_configure_juce_app target useBrowser)
         message (STATUS "Configuring vDSP for vecops...")
         target_compile_definitions (${target} PUBLIC JUCE_USE_VDSP_FRAMEWORK=1 BV_USE_VDSP=1)
     else()
-        message (STATUS "Configuring MIPP for vecops...")
-        target_compile_definitions (${target} PUBLIC MIPP_ENABLE_BACKTRACE BV_USE_MIPP=1)
-        target_include_directories (${target} PUBLIC "${bv_sharedcode_dir}/third_party/MIPP/src" "MIPP")
+        if (NOT DEFINED BV_IGNORE_MIPP)
+            set (BV_IGNORE_MIPP FALSE)
+        endif()
+    
+        if (NOT ${BV_IGNORE_MIPP})
+            message (STATUS "Configuring MIPP for vecops...")
+            target_compile_definitions (${target} PUBLIC MIPP_ENABLE_BACKTRACE BV_USE_MIPP=1)
+            target_include_directories (${target} PUBLIC "${bv_sharedcode_dir}/third_party/MIPP/src" "MIPP")
+        endif()
     endif()
 
-    if (NOT DEFINED bvsb_USE_MTS_ESP)
-        set (bvsb_USE_MTS_ESP FALSE)
+    if (NOT DEFINED BV_USE_MTS_ESP)
+        set (BV_USE_MTS_ESP FALSE)
     endif()
 
-    if (${bvsb_USE_MTS_ESP})
+    if (${BV_USE_MTS_ESP})
         message (STATUS "Configuring MTS-ESP...")
-        target_include_directories (${target} PUBLIC "${bv_sharedcode_dir}/third_party/MTS-ESP/MTS-ESP/Client" "MTS-ESP")
-        target_compile_definitions (${target} PUBLIC bvsb_USE_MTS_ESP=1)
-    else()
-        target_compile_definitions (${target} PUBLIC bvsb_USE_MTS_ESP=0)
+        target_include_directories (${target} PUBLIC "${bv_sharedcode_dir}/third_party/MTS-ESP/Client" "MTS-ESP")
+        target_compile_definitions (${target} PUBLIC BV_USE_MTS_ESP=1)
     endif()
 
     _adjustDefaultMacTarget (${target} ${target})
