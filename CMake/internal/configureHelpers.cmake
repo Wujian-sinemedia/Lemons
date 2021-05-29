@@ -39,7 +39,6 @@ function (_configure_juce_app target useBrowser)
             JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1
             JUCE_LOAD_CURL_SYMBOLS_LAZILY=1
             JUCE_JACK=1
-            JUCE_BELA=1
             JUCE_DISABLE_AUDIO_MIXING_WITH_OTHER_APPS=1
             JUCE_EXECUTE_APP_SUSPEND_ON_BACKGROUND_TASK=1)
     
