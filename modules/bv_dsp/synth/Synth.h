@@ -66,8 +66,8 @@ public:
     bool isPitchActive (const int midiPitch, const bool countRingingButReleased = false, const bool countKeyUpNotes = false) const;
     void reportActiveNotes (juce::Array< int >& outputArray, const bool includePlayingButReleased = false, const bool includeKeyUpNotes = true) const;
 
-    int getNumActiveVoices() const;
-    int getNumVoices() const noexcept { return voices.size(); }
+    int  getNumActiveVoices() const;
+    int  getNumVoices() const noexcept { return voices.size(); }
     void changeNumVoices (const int newNumVoices);
 
     void setNoteStealingEnabled (const bool shouldSteal) noexcept { shouldStealNotes = shouldSteal; }
@@ -103,14 +103,14 @@ public:
     // returns the actual frequency in Hz a HarmonizerVoice needs to output for its latest recieved midiNote, weighted for pitchbend with the current settings & pitchwheel position, then converted to frequency with the current concert pitch settings.
     float getOutputFrequency (const int midipitch, const int midiChannel = -1) const;
 
-    bool  isSustainPedalDown() const noexcept { return sustainPedalDown; }
-    bool  isSostenutoPedalDown() const noexcept { return sostenutoPedalDown; }
-    bool  isSoftPedalDown() const noexcept { return softPedalDown; }
-    bool  isAftertouchGainOn() const noexcept { return aftertouchGainIsOn; }
-    
+    bool isSustainPedalDown() const noexcept { return sustainPedalDown; }
+    bool isSostenutoPedalDown() const noexcept { return sostenutoPedalDown; }
+    bool isSoftPedalDown() const noexcept { return softPedalDown; }
+    bool isAftertouchGainOn() const noexcept { return aftertouchGainIsOn; }
+
     float getPlayingButReleasedMultiplier() const noexcept { return playingButReleasedMultiplier; }
     void  setPlayingButReleasedMultiplier (float newGain) { playingButReleasedMultiplier = newGain; }
-    
+
     float getSoftPedalMultiplier() const noexcept { return softPedalMultiplier; }
     void  setSoftPedalMultiplier (float newGain) { softPedalMultiplier = newGain; }
 
@@ -161,7 +161,7 @@ protected:
 
 private:
     void renderVoicesInternal (AudioBuffer& output, const int startSample, const int numSamples);
-    
+
     void addNumVoices (const int voicesToAdd);
     void removeNumVoices (const int voicesToRemove);
     void numVoicesChanged();
@@ -201,54 +201,54 @@ private:
 
     /*==============================================================================================================
      ===============================================================================================================*/
-    
+
     juce::OwnedArray< Voice > voices;
-    
+
     bool latchIsOn {false};
-    
+
     juce::Array< int > currentNotes;
     juce::Array< int > desiredNotes;
-    
+
     ADSRParams adsrParams;
     ADSRParams quickReleaseParams;
-    
+
     float currentInputFreq {0.0f};
-    
+
     double sampleRate {0.0};
     uint32 lastNoteOnCounter {0};
     int    lastPitchWheelValue {64};
-    
+
     bool shouldStealNotes {true};
-    
+
     synth_helpers::PanningManager panner;
     int                           lowestPannedNote {0};
-    
+
     bav::midi::VelocityHelper  velocityConverter;
     bav::midi::PitchBendHelper bendTracker;
-    
+
 #if bvsb_USE_MTS_ESP
     MTSClient* mtsClient = nullptr;
 #else
     bav::midi::PitchConverter pitchConverter;
 #endif
-    
+
     int lastMidiTimeStamp {0};
     int lastMidiChannel {1};
-    
+
     bool aftertouchGainIsOn {true};
-    
+
     float playingButReleasedMultiplier;
-    
+
     bool sustainPedalDown {false};
     bool sostenutoPedalDown {false};
     bool softPedalDown {false};
-    
+
     float softPedalMultiplier;  // the multiplier by which each voice's output will be multiplied when the soft pedal is down
-    
+
     // *********************************
-    
+
     // for clarity & cleanliness, the individual descant & pedal preferences are each encapsulated into their own struct:
-    
+
     juce::Array< Voice* > usableVoices;  // this array is used to sort the voices when a 'steal' is requested
 
     int lastBlocksize;
@@ -258,45 +258,45 @@ private:
     MidiBuffer midiInputStorage;  // each block of midi that comes in is stored in here so we can refer to it later
 
     LastMovedControllerInfo lastMovedControllerInfo;
-    
+
     //--------------------------------------------------
-    
+
     class AutomatedHarmonyVoice
     {
     public:
         AutomatedHarmonyVoice (SynthBase& synthToUse, bool shiftUp);
-        
+
         void apply();
-        
+
         void setEnabled (bool shouldBeEnabled);
         void setThreshold (int newThresh);
         void setInterval (int newInterval);
-        
+
         void turnNoteOffIfOn();
         void setNoteToOff() { lastPitch = -1; }
-        
+
         bool isAutomatedPitch (int midiNote);
-        
+
         // call this function when processing an automated note-off and the voice's keyboard key is still being held
         void autoNoteOffKeyboardKeyHeld (int midiNote);
-        
+
         Voice* getVoice();
-        
+
     private:
         const bool shiftingUp;
-        
+
         bool isOn {false};
-        int lastPitch {-1};
-        int thresh {0};
-        int interval {12};
-        
+        int  lastPitch {-1};
+        int  thresh {0};
+        int  interval {12};
+
     private:
         SynthBase& synth;
     };
-    
+
     AutomatedHarmonyVoice pedal {*this, false};
     AutomatedHarmonyVoice descant {*this, true};
-    
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SynthBase)
 };
 

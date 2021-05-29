@@ -192,7 +192,7 @@ void SynthVoiceBase< SampleType >::startNote (const int    midiPitch,
     midiVelocityGain.setTargetValue (smoothingZeroCheck (parent->getWeightedVelocity (velocity)));
 
     aftertouchGain.setTargetValue (SampleType (1.0));
-    
+
     if (isPedal || isDescant)
         isDoubledByAutomatedVoice = false;
 }

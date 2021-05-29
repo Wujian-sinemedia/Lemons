@@ -1,12 +1,10 @@
 
 namespace bav::dsp
 {
-
 template < typename SampleType >
 SynthBase< SampleType >::AutomatedHarmonyVoice::AutomatedHarmonyVoice (SynthBase& synthToUse, bool shiftUp)
-: shiftingUp (shiftUp), synth (synthToUse)
+    : shiftingUp (shiftUp), synth (synthToUse)
 {
-    
 }
 
 template < typename SampleType >
@@ -14,19 +12,22 @@ void SynthBase< SampleType >::AutomatedHarmonyVoice::apply()
 {
     if (! isOn)
         return;
-    
+
     int    currentExtreme = 128;
     Voice* extremeVoice   = nullptr;
-    
-    auto compare = shiftingUp ? [](int a, int b){ return a > b; } : [](int a, int b){ return a < b; };
-    
+
+    auto compare = shiftingUp ? [] (int a, int b)
+    { return a > b; }
+                              : [] (int a, int b)
+    { return a < b; };
+
     // find the current lowest/highest note being played by a keyboard key
     for (auto* voice : synth.voices)
     {
         if (voice->isVoiceActive() && voice->isKeyDown())
         {
             const int note = voice->getCurrentlyPlayingNote();
-            
+
             if (compare (note, currentExtreme))
             {
                 currentExtreme = note;
@@ -34,32 +35,32 @@ void SynthBase< SampleType >::AutomatedHarmonyVoice::apply()
             }
         }
     }
-    
+
     if (! compare (currentExtreme, thresh))
     {
         turnNoteOffIfOn();
         return;
     }
-    
+
     const auto newPitch = shiftingUp ? currentExtreme + interval : currentExtreme - interval;
-    
+
     if (newPitch == lastPitch)  // output note hasn't changed - do nothing
         return;
-    
+
     if (newPitch < 0 || newPitch > 127 || synth.isPitchActive (newPitch, false, true))  // impossible midinote, or the new desired pedal pitch is already on
     {
         return;
     }
-    
+
     auto* prevVoice = synth.getVoicePlayingNote (lastPitch);  // attempt to keep the pedal line consistent - using the same synth voice
-    
+
     if (prevVoice != nullptr)
         if (prevVoice->isKeyDown())  // can't "steal" the voice playing the last pedal note if its keyboard key is down
             prevVoice = nullptr;
-    
+
     const auto velocity = (extremeVoice != nullptr) ? extremeVoice->getLastRecievedVelocity()
-    : (prevVoice != nullptr ? prevVoice->getLastRecievedVelocity() : 1.0f);
-    
+                                                    : (prevVoice != nullptr ? prevVoice->getLastRecievedVelocity() : 1.0f);
+
     if (prevVoice != nullptr)
     {
         //  there was a previously active pedal voice, so steal it directly without calling noteOn:
@@ -70,9 +71,9 @@ void SynthBase< SampleType >::AutomatedHarmonyVoice::apply()
         turnNoteOffIfOn();
         synth.noteOn (newPitch, velocity, false, synth.lastMidiChannel);
     }
-    
+
     lastPitch = newPitch;
-    
+
     if (extremeVoice != nullptr)
         extremeVoice->isDoubledByAutomatedVoice = true;
 }
@@ -81,9 +82,9 @@ template < typename SampleType >
 void SynthBase< SampleType >::AutomatedHarmonyVoice::setEnabled (bool shouldBeEnabled)
 {
     if (isOn == shouldBeEnabled) return;
-    
+
     isOn = shouldBeEnabled;
-    
+
     if (isOn)
         apply();
     else
@@ -94,9 +95,9 @@ template < typename SampleType >
 void SynthBase< SampleType >::AutomatedHarmonyVoice::setThreshold (int newThresh)
 {
     if (thresh == newThresh) return;
-    
+
     thresh = newThresh;
-    
+
     if (isOn) apply();
 }
 
@@ -104,9 +105,9 @@ template < typename SampleType >
 void SynthBase< SampleType >::AutomatedHarmonyVoice::setInterval (int newInterval)
 {
     if (interval == newInterval) return;
-    
+
     interval = newInterval;
-    
+
     if (isOn) apply();
 }
 
@@ -132,7 +133,7 @@ void SynthBase< SampleType >::AutomatedHarmonyVoice::autoNoteOffKeyboardKeyHeld 
     if (isAutomatedPitch (midiNote))
     {
         lastPitch = -1;
-        
+
         if (auto* voice = synth.getVoicePlayingNote (midiNote))
         {
             voice->isPedalPitchVoice = false;
@@ -142,12 +143,12 @@ void SynthBase< SampleType >::AutomatedHarmonyVoice::autoNoteOffKeyboardKeyHeld 
 }
 
 template < typename SampleType >
-SynthVoiceBase<SampleType>* SynthBase< SampleType >::AutomatedHarmonyVoice::getVoice()
+SynthVoiceBase< SampleType >* SynthBase< SampleType >::AutomatedHarmonyVoice::getVoice()
 {
     if (! isOn || lastPitch < 0)
         return nullptr;
-    
+
     return synth.getVoicePlayingNote (lastPitch);
 }
 
-}  // namespace
+}  // namespace bav::dsp

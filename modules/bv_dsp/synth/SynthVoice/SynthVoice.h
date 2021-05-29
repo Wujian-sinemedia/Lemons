@@ -111,7 +111,7 @@ private:
                     const int    midichannel       = -1);
 
     void stopNote (const float velocity, const bool allowTailOff);
-    
+
     void clearCurrentNote();
 
     void updateSampleRate (const double newSamplerate);
@@ -138,21 +138,21 @@ private:
 
     /*=================================================================================
          =================================================================================*/
-    
+
     SynthBase< SampleType >* parent;
-    
-    ADSR adsr;  // the main/primary ADSR driven by MIDI input to shape the voice's amplitude envelope. May be turned off by the user.
+
+    ADSR adsr;          // the main/primary ADSR driven by MIDI input to shape the voice's amplitude envelope. May be turned off by the user.
     ADSR quickRelease;  // used to quickly fade out signal when stopNote() is called with the allowTailOff argument set to false, instead of jumping signal to 0
-    
+
     bool keyIsDown, playingButReleased, sustainingFromSostenutoPedal, isQuickFading;
-    
+
     int   currentlyPlayingNote, currentAftertouch;
     float currentOutputFreq, lastRecievedVelocity;
-    
+
     uint32 noteOnTime;
-    
+
     bool isPedalPitchVoice, isDescantVoice;
-    
+
     bool isDoubledByAutomatedVoice;
 
     bav::dsp::FX::MonoToStereoPanner< SampleType > panner;

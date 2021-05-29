@@ -1,7 +1,6 @@
 
 namespace bav::dsp
 {
-
 /*
  Sets the frequency in Hz corresponding to midi note 69 (A4). This will usually be 440.
  Setting this to values higher or lower than 440 will effective detune the entire synth.
@@ -13,11 +12,11 @@ void SynthBase< SampleType >::setConcertPitchHz (const int newConcertPitchhz)
     juce::ignoreUnused (newConcertPitchhz);
 #else
     jassert (newConcertPitchhz > 0);
-    
+
     if (pitchConverter.getCurrentConcertPitchHz() == newConcertPitchhz) return;
-    
+
     pitchConverter.setConcertPitchHz (newConcertPitchhz);
-    
+
     for (auto* voice : voices)
         if (voice->isVoiceActive()) voice->setCurrentOutputFreq (getOutputFrequency (voice->getCurrentlyPlayingNote()));
 #endif
@@ -33,13 +32,13 @@ template < typename SampleType >
 void SynthBase< SampleType >::updateMidiVelocitySensitivity (int newSensitivity)
 {
     jassert (newSensitivity >= 0 && newSensitivity <= 100);
-    
+
     const auto newSens = newSensitivity / 100.0f;
-    
+
     if (velocityConverter.getCurrentSensitivity() == newSens) return;
-    
+
     velocityConverter.setFloatSensitivity (newSens);
-    
+
     for (auto* voice : voices)
         if (voice->isVoiceActive()) voice->setVelocityMultiplier (getWeightedVelocity (voice->getLastRecievedVelocity()));
 }
@@ -52,11 +51,11 @@ template < typename SampleType >
 void SynthBase< SampleType >::updatePitchbendSettings (const int rangeUp, const int rangeDown)
 {
     if ((bendTracker.getCurrentRangeUp() == rangeUp) && (bendTracker.getCurrentRangeDown() == rangeDown)) return;
-    
+
     bendTracker.setRange (rangeUp, rangeDown);
-    
+
     if (lastPitchWheelValue == 64) return;
-    
+
     for (auto* voice : voices)
         if (voice->isVoiceActive()) voice->setCurrentOutputFreq (getOutputFrequency (voice->getCurrentlyPlayingNote()));
 }
@@ -79,19 +78,19 @@ template < typename SampleType >
 void SynthBase< SampleType >::updateStereoWidth (int newWidth)
 {
     jassert (newWidth >= 0 && newWidth <= 100);
-    
+
     if (panner.getCurrentStereoWidth() == newWidth) return;
-    
+
     panner.updateStereoWidth (newWidth);
-    
+
     for (auto* voice : voices)
     {
         if (! voice->isVoiceActive()) continue;
-        
+
         if (voice->getCurrentlyPlayingNote() < lowestPannedNote)
         {
             const int currentPan = voice->getCurrentMidiPan();
-            
+
             if (currentPan != 64)
             {
                 panner.panValTurnedOff (currentPan);
@@ -113,20 +112,20 @@ template < typename SampleType >
 void SynthBase< SampleType >::updateLowestPannedNote (int newPitchThresh)
 {
     jassert (newPitchThresh >= 0 && newPitchThresh <= 127);
-    
+
     const auto prevLowestnote = lowestPannedNote;
-    
+
     if (prevLowestnote == newPitchThresh) return;
-    
+
     lowestPannedNote = newPitchThresh;
-    
+
     for (auto* voice : voices)
     {
         if (! voice->isVoiceActive()) continue;
-        
+
         const auto note       = voice->getCurrentlyPlayingNote();
         const auto currentPan = voice->getCurrentMidiPan();
-        
+
         if (note < newPitchThresh)
         {
             if (currentPan != 64)
@@ -136,8 +135,8 @@ void SynthBase< SampleType >::updateLowestPannedNote (int newPitchThresh)
             }
         }
         else if (
-                 note
-                 < prevLowestnote)  // because we haven't updated the lowestPannedNote member variable yet, voices with pitches higher than newPitchThresh but lower than lowestPannedNote are the voices that now qualify for panning
+            note
+            < prevLowestnote)  // because we haven't updated the lowestPannedNote member variable yet, voices with pitches higher than newPitchThresh but lower than lowestPannedNote are the voices that now qualify for panning
         {
             if (currentPan == 64) voice->setPan (panner.getNextPanVal());
         }
@@ -161,12 +160,12 @@ template < typename SampleType >
 void SynthBase< SampleType >::updateADSRsettings (const float attack, const float decay, const float sustain, const float release)
 {
     // attack/decay/release time in SECONDS; sustain ratio 0.0 - 1.0
-    
+
     adsrParams.attack  = attack;
     adsrParams.decay   = decay;
     adsrParams.sustain = sustain;
     adsrParams.release = release;
-    
+
     for (auto* voice : voices)
         voice->setAdsrParameters (adsrParams);
 }
@@ -180,9 +179,9 @@ template < typename SampleType >
 void SynthBase< SampleType >::updateQuickReleaseMs (const int newMs)
 {
     const auto desiredR = newMs * 0.001f;
-    
+
     quickReleaseParams.release = desiredR;
-    
+
     for (auto* voice : voices)
         voice->setQuickReleaseParameters (quickReleaseParams);
 }
@@ -269,4 +268,4 @@ void SynthBase< SampleType >::setDescantLowerThresh (int newThresh)
     descant.setThreshold (newThresh);
 }
 
-}  // namespace
+}  // namespace bav::dsp
