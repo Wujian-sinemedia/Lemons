@@ -1,10 +1,8 @@
-#if JucePlugin_Build_Standalone && JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP
+#pragma once
 
-#    pragma once
-
-#    include <juce_audio_plugin_client/juce_audio_plugin_client.h>
-#    include <juce_audio_utils/juce_audio_utils.h>
-#    include <juce_audio_plugin_client/Standalone/juce_StandaloneFilterWindow.h>
+#include <juce_audio_plugin_client/juce_audio_plugin_client.h>
+#include <juce_audio_utils/juce_audio_utils.h>
+#include <juce_audio_plugin_client/Standalone/juce_StandaloneFilterWindow.h>
 
 
 class StandaloneFilterApp : public juce::JUCEApplication
@@ -53,13 +51,10 @@ struct PropertiesFileOptions : public juce::PropertiesFile::Options
 
     static juce::String getOptionsFolderName()
     {
-#    if JUCE_LINUX
+#if JUCE_LINUX
         return "~/.config";
-#    else
+#else
         return "";
-#    endif
+#endif
     }
 };
-
-
-#endif /* JucePlugin_Build_Standalone && JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP */

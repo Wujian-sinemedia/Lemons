@@ -1,8 +1,3 @@
-#if JucePlugin_Build_Standalone && JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP
-
-#    include "StandaloneWrapper.h"
-#    include "BinaryData.h"
-
 
 StandaloneFilterApp::StandaloneFilterApp()
 {
@@ -25,7 +20,7 @@ juce::StandaloneFilterWindow* StandaloneFilterApp::createWindow()
     window->setTitleBarTextCentred (true);
     window->setUsingNativeTitleBar (false);
 
-//    window->setIcon (juce::ImageCache::getFromMemory (BinaryData::icon_png, BinaryData::icon_pngSize));
+    //    window->setIcon (juce::ImageCache::getFromMemory (BinaryData::icon_png, BinaryData::icon_pngSize));
 
     window->setVisible (true);
 
@@ -79,7 +74,7 @@ bool StandaloneFilterApp::backButtonPressed()
 JUCE_CREATE_APPLICATION_DEFINE (StandaloneFilterApp)
 
 
-#    if JUCE_IOS
+#if JUCE_IOS
 
 bool JUCE_CALLTYPE juce_isInterAppAudioConnected()
 {
@@ -100,6 +95,4 @@ juce::Image JUCE_CALLTYPE juce_getIAAHostIcon (int size)
     return juce::Image();
 }
 
-#    endif /* JUCE_IOS */
-
-#endif /* JucePlugin_Build_Standalone && JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP */
+#endif /* JUCE_IOS */
