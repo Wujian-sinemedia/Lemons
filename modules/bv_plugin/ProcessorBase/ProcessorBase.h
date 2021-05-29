@@ -4,9 +4,8 @@
 
 namespace bav::dsp
 {
-
-class ProcessorBase :   private SystemInitializer,
-                        public juce::AudioProcessor
+class ProcessorBase : private SystemInitializer,
+                      public juce::AudioProcessor
 {
 public:
     ProcessorBase();
@@ -37,20 +36,20 @@ public:
 
     bool                        hasEditor() const override;
     juce::AudioProcessorEditor* createEditor() override;
-    
-    bool isBusesLayoutSupported(const BusesLayout& layout) const override;
-    
-    void saveEditorSize (int width, int height);
-    juce::Point<int> getSavedEditorSize() const;
-    void getSavedEditorSize (int& width, int& height) const;
-    
+
+    bool isBusesLayoutSupported (const BusesLayout& layout) const override;
+
+    void               saveEditorSize (int width, int height);
+    juce::Point< int > getSavedEditorSize() const;
+    void               getSavedEditorSize (int& width, int& height) const;
+
     /*=========================================================================================*/
 
 protected:
     virtual juce::AudioProcessor::BusesProperties createBusProperties() const;
-    
-    juce::Point<int> savedEditorSize {450, 300};
-    
+
+    juce::Point< int > savedEditorSize {450, 300};
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ProcessorBase)
 };
 

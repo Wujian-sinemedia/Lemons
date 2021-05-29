@@ -79,7 +79,7 @@ public:
 private:
     void paramValueChanged (bool newValue) override final;
     void refresh();
-    
+
     using TB = juce::ToggleButton;
 };
 

@@ -1,10 +1,10 @@
 
 namespace bav::dsp
 {
-
 ProcessorBase::ProcessorBase()
-: AudioProcessor (createBusProperties())
-{ }
+    : AudioProcessor (createBusProperties())
+{
+}
 
 ProcessorBase::~ProcessorBase() { }
 
@@ -33,25 +33,25 @@ bool ProcessorBase::isMidiEffect() const { return false; }
 
 const juce::String ProcessorBase::getName() const { return "ProcessorBase"; }
 
-bool                        ProcessorBase::hasEditor() const { return false; }
+bool ProcessorBase::hasEditor() const { return false; }
 
 juce::AudioProcessorEditor* ProcessorBase::createEditor() { return nullptr; }
 
-bool ProcessorBase::isBusesLayoutSupported(const BusesLayout& layout) const
+bool ProcessorBase::isBusesLayoutSupported (const BusesLayout& layout) const
 {
     using Set = juce::AudioChannelSet;
-    
-    auto isValid = [](const Set& set) { return set != Set::disabled(); };
-    
+
+    auto isValid = [] (const Set& set)
+    { return set != Set::disabled(); };
+
     return isValid (layout.getMainInputChannelSet()) && isValid (layout.getMainOutputChannelSet());
 }
 
 juce::AudioProcessor::BusesProperties ProcessorBase::createBusProperties() const
 {
     const auto stereo = juce::AudioChannelSet::stereo();
-    
-    return BusesProperties().withInput (TRANS ("Input"), stereo, true)
-    .withOutput (TRANS ("Output"), stereo, true);
+
+    return BusesProperties().withInput (TRANS ("Input"), stereo, true).withOutput (TRANS ("Output"), stereo, true);
 }
 
 void ProcessorBase::saveEditorSize (int width, int height)
@@ -60,15 +60,15 @@ void ProcessorBase::saveEditorSize (int width, int height)
     savedEditorSize.y = height;
 }
 
-juce::Point<int> ProcessorBase::getSavedEditorSize() const
+juce::Point< int > ProcessorBase::getSavedEditorSize() const
 {
     return savedEditorSize;
 }
 
 void ProcessorBase::getSavedEditorSize (int& width, int& height) const
 {
-    width = savedEditorSize.x;
+    width  = savedEditorSize.x;
     height = savedEditorSize.y;
 }
 
-}  //namespace
+}  // namespace bav::dsp

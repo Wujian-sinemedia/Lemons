@@ -1,12 +1,10 @@
 
 namespace bav::gui
 {
-
 LevelMeter::LevelMeter (GainMeterParameter& meterToUse)
-  : GainMeterParameter::Listener (meterToUse),
-    meter (meterToUse)
+    : GainMeterParameter::Listener (meterToUse),
+      meter (meterToUse)
 {
-    
 }
 
 juce::String LevelMeter::getTooltip()
@@ -21,12 +19,10 @@ void LevelMeter::paramValueChanged (float newValue)
 }
 
 
-
 GainReductionMeter::GainReductionMeter (GainMeterParameter& meterToUse)
-  : GainMeterParameter::Listener (meterToUse),
-    meter (meterToUse)
+    : GainMeterParameter::Listener (meterToUse),
+      meter (meterToUse)
 {
-    
 }
 
 juce::String GainReductionMeter::getTooltip()
@@ -41,4 +37,4 @@ void GainReductionMeter::paramValueChanged (float newValue)
 }
 
 
-}  // namespace
+}  // namespace bav::gui

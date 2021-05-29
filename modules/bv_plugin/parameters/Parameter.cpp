@@ -1,9 +1,8 @@
 
 namespace bav
 {
-
 Parameter::ValueChangeAction::ValueChangeAction (Parameter& p, float newValue, float prevVal)
-: param (p), targetValue (newValue), prevValue (prevVal)
+    : param (p), targetValue (newValue), prevValue (prevVal)
 {
 }
 
@@ -11,7 +10,7 @@ bool Parameter::ValueChangeAction::perform()
 {
     if (param.getCurrentNormalizedValue() == targetValue)
         return false;
-    
+
     param.setValueInternal (targetValue);
     return true;
 }
@@ -20,21 +19,21 @@ bool Parameter::ValueChangeAction::undo()
 {
     if (param.getCurrentNormalizedValue() == prevValue)
         return false;
-    
+
     param.setValueInternal (prevValue);
     return true;
 }
 
 juce::UndoableAction* Parameter::ValueChangeAction::createCoalescedAction (UndoableAction* nextAction)
 {
-    if (auto* other = dynamic_cast<ValueChangeAction*>(nextAction))
+    if (auto* other = dynamic_cast< ValueChangeAction* > (nextAction))
     {
         if (other->param == param)
         {
             return new ValueChangeAction (param, other->targetValue, prevValue);
         }
     }
-    
+
     return nullptr;
 }
 
@@ -42,7 +41,7 @@ juce::UndoableAction* Parameter::ValueChangeAction::createCoalescedAction (Undoa
  -----------------------------------------------------------------------------------------------------------------------*/
 
 Parameter::DefaultChangeAction::DefaultChangeAction (Parameter& p, float newNormalizedDefault, float prevNormDefault)
-: param (p), targetDefault (newNormalizedDefault), prevDefault (prevNormDefault)
+    : param (p), targetDefault (newNormalizedDefault), prevDefault (prevNormDefault)
 {
 }
 
@@ -50,7 +49,7 @@ bool Parameter::DefaultChangeAction::perform()
 {
     if (param.getNormalizedDefault() == targetDefault)
         return false;
-    
+
     param.setDefaultInternal (targetDefault);
     return true;
 }
@@ -59,21 +58,21 @@ bool Parameter::DefaultChangeAction::undo()
 {
     if (param.getNormalizedDefault() == prevDefault)
         return false;
-    
+
     param.setDefaultInternal (prevDefault);
     return true;
 }
 
 juce::UndoableAction* Parameter::DefaultChangeAction::createCoalescedAction (UndoableAction* nextAction)
 {
-    if (auto* other = dynamic_cast<DefaultChangeAction*>(nextAction))
+    if (auto* other = dynamic_cast< DefaultChangeAction* > (nextAction))
     {
         if (other->param == param)
         {
             return new DefaultChangeAction (param, other->targetDefault, prevDefault);
         }
     }
-    
+
     return nullptr;
 }
 
@@ -90,7 +89,7 @@ Parameter::Parameter (RangedParam& p,
       valueChangeTransactionName (TRANS ("Changed") + " " + parameterNameVerbose),
       defaultChangeTransactionName (TRANS ("Changed default value of") + " " + parameterNameVerbose)
 {
-    currentDefault = rap.getDefaultValue();
+    currentDefault    = rap.getDefaultValue();
     lastActionedValue = currentDefault;
 }
 
@@ -103,27 +102,29 @@ void Parameter::beginGesture()
 {
     if (changing)
         return;
-    
+
     if (um != nullptr)
     {
         um->beginNewTransaction (valueChangeTransactionName);
     }
-    
+
     changing = true;
     rap.beginChangeGesture();
-    
-    listeners.call ([](Listener& l){ l.parameterGestureStateChanged (true); });
+
+    listeners.call ([] (Listener& l)
+                    { l.parameterGestureStateChanged (true); });
 }
 
 void Parameter::endGesture()
 {
     if (! changing)
         return;
-    
+
     changing = false;
     rap.endChangeGesture();
-    
-    listeners.call ([](Listener& l){ l.parameterGestureStateChanged (false); });
+
+    listeners.call ([] (Listener& l)
+                    { l.parameterGestureStateChanged (false); });
 }
 
 bool Parameter::isChanging() const
@@ -144,7 +145,7 @@ float Parameter::getDenormalizedDefault() const
 void Parameter::setNormalizedDefault (float value)
 {
     jassert (value >= 0.0f && value <= 1.0f);
-    
+
     if (currentDefault == value) return;
 
     if (um != nullptr)
@@ -162,7 +163,8 @@ void Parameter::setNormalizedDefault (float value)
 void Parameter::setDefaultInternal (float newNormalizedDefault)
 {
     currentDefault = newNormalizedDefault;
-    listeners.call ([&newNormalizedDefault](Listener& l){ l.parameterDefaultChanged (newNormalizedDefault); });
+    listeners.call ([&newNormalizedDefault] (Listener& l)
+                    { l.parameterDefaultChanged (newNormalizedDefault); });
 }
 
 void Parameter::setDenormalizedDefault (float value)
@@ -183,9 +185,9 @@ void Parameter::resetToDefault()
 void Parameter::setNormalizedValue (float value)
 {
     jassert (value >= 0.0f && value <= 1.0f);
-    
+
     if (value == rap.getValue()) return;
-    
+
     if (um != nullptr)
     {
         um->perform (new ValueChangeAction (*this, value, rap.getValue()),
@@ -200,16 +202,17 @@ void Parameter::setNormalizedValue (float value)
 void Parameter::setValueInternal (float newNormalizedValue)
 {
     bool needToEndGesture = false;
-    
+
     if (! changing)
     {
         beginGesture();
         needToEndGesture = true;
     }
-    
+
     rap.setValueNotifyingHost (newNormalizedValue);
-    listeners.call ([&newNormalizedValue](Listener& l){ l.parameterValueChanged (newNormalizedValue); });
-    
+    listeners.call ([&newNormalizedValue] (Listener& l)
+                    { l.parameterValueChanged (newNormalizedValue); });
+
     if (needToEndGesture)
         endGesture();
 }
@@ -258,12 +261,13 @@ void Parameter::doAction (bool force)
 void Parameter::sendListenerSyncCallback()
 {
     const auto value = getCurrentNormalizedValue();
-    listeners.call ([&value](Listener& l){ l.parameterValueChanged (value); });
+    listeners.call ([&value] (Listener& l)
+                    { l.parameterValueChanged (value); });
 }
 
 
 Parameter::Listener::Listener (Parameter& paramToUse)
-: param (paramToUse)
+    : param (paramToUse)
 {
     param.listeners.add (this);
 }

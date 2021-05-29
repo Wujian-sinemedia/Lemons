@@ -33,7 +33,6 @@ void FIFOWrappedEngine< SampleType >::process (AudioBuffer& input,
 }
 
 
-
 template < typename SampleType >
 void FIFOWrappedEngine< SampleType >::process (AudioBuffer& inplaceInAndOut,
                                                MidiBuffer&  midiMessages,

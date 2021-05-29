@@ -11,9 +11,11 @@ template < typename SampleType >
 SynthBase< SampleType >::SynthBase()
     : velocityConverter (100), bendTracker (2, 2)
 #if ! bvsb_USE_MTS_ESP
-      , pitchConverter (440, 69, 12)
+      ,
+      pitchConverter (440, 69, 12)
 #endif
-      , lastBlocksize (0)
+      ,
+      lastBlocksize (0)
 {
     adsrParams.attack  = 0.035f;
     adsrParams.decay   = 0.06f;

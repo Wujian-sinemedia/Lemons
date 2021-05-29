@@ -52,7 +52,7 @@ bool renameFile (const juce::File& f, const juce::String& newName)
 {
     if (! f.existsAsFile())
         return false;
-    
+
     return f.moveFileTo (f.getSiblingFile (newName));
 }
 

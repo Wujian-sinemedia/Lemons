@@ -91,7 +91,7 @@ void SynthBase< SampleType >::noteOn (const int midiPitch, const float velocity,
     {
         if (pedal.isOn && midiPitch == pedal.lastPitch) pedal.lastPitch = -1;
         if (descant.isOn && midiPitch == descant.lastPitch) descant.lastPitch = -1;
-        
+
         return;
     }
 #endif
@@ -344,7 +344,7 @@ template < typename SampleType >
 void SynthBase< SampleType >::handleController (const int controllerNumber, int controllerValue)
 {
     jassert (controllerValue >= 0 && controllerValue <= 127);
-    
+
     lastMovedControllerInfo.controllerNumber = controllerNumber;
     lastMovedControllerInfo.controllerValue  = controllerValue;
 

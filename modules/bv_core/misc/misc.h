@@ -4,8 +4,6 @@
 
 namespace bav
 {
-
-
 static inline bool thisIsTheMessageThread() noexcept
 {
     return juce::MessageManager::getInstance()->isThisTheMessageThread();
@@ -42,7 +40,7 @@ extern juce::String midiPanIntToString (const int midiPan);
 
 // converts a midi pitch to a string representation, eg note 69 = A4
 extern juce::String pitchToString (const int  midiNoteNumber,
-                            const bool asSharps = true);
+                                   const bool asSharps = true);
 
 
 /*  Returns the pitch class number for a given string.

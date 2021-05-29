@@ -34,98 +34,98 @@ void PitchDetector< SampleType >::releaseResources()
 template < typename SampleType >
 float PitchDetector< SampleType >::detectPitch (const AudioBuffer& inputAudio)
 {
-    return detectPitch (inputAudio.getReadPointer(0), inputAudio.getNumSamples());
+    return detectPitch (inputAudio.getReadPointer (0), inputAudio.getNumSamples());
 }
 
 template < typename SampleType >
 float PitchDetector< SampleType >::detectPitch (const SampleType* inputAudio, const int numSamples)
 {
     // this function returns the pitch in Hz, or 0.0f if the frame of audio is determined to be unpitched
-    
+
     jassert (samplerate > 0);
-    
+
     const auto halfNumSamples = juce::roundToInt (floor (numSamples * 0.5f));
-    
+
     jassert (numSamples >= 2 * maxPeriod);
-    
+
     // the minPeriod & maxPeriod members define the overall global period range; here, the minLag & maxLag local variables are used to define the period range for this specific frame of audio, if it can be constrained more than the global range based on instantaneous conditions:
-    
+
     auto minLag = samplesToFirstZeroCrossing (
-                                              inputAudio,
-                                              numSamples);  // period cannot be smaller than the # of samples to the first zero crossing
+        inputAudio,
+        numSamples);  // period cannot be smaller than the # of samples to the first zero crossing
     auto maxLag = halfNumSamples;
-    
+
     if (lastFrameWasPitched)  // pitch shouldn't halve or double between consecutive voiced frames
     {
         minLag = std::max (
-                           minLag, juce::roundToInt (lastEstimatedPeriod * SampleType (0.5)));
+            minLag, juce::roundToInt (lastEstimatedPeriod * SampleType (0.5)));
         maxLag = std::min (maxLag,
                            juce::roundToInt (lastEstimatedPeriod * SampleType (2)));
     }
-    
+
     minLag = std::max (minLag, minPeriod);
     maxLag = std::min (maxLag, maxPeriod);
-    
+
     if (! (maxLag > minLag))  // truncation of edge cases
         minLag = std::min (maxLag - 1, minPeriod);
-    
+
     jassert (maxLag > minLag);
-    
+
     auto* asdfData = asdfBuffer.getWritePointer (0);
-    
+
     vecops::fill (asdfData, SampleType (0), asdfBuffer.getNumSamples());
-    
+
     // COMPUTE ASDF
-    
+
     jassert (asdfBuffer.getNumSamples() >= maxLag - minLag + 1);
-    
+
     for (int k = minLag; k <= maxLag; ++k)  // k = lag = period
     {
         const auto index =
-        k
-        - minLag;  // the actual asdfBuffer index for this k value's data. offset = minPeriod
-        
+            k
+            - minLag;  // the actual asdfBuffer index for this k value's data. offset = minPeriod
+
         for (int s1 = 0, s2 = halfNumSamples; s1 < halfNumSamples && s2 < numSamples;
              ++s1, ++s2)
         {
             const auto difference =
-            ((inputAudio[s1] - inputAudio[s1 + k]) + (inputAudio[s2 - k] - inputAudio[s2]));
-            
+                ((inputAudio[s1] - inputAudio[s1 + k]) + (inputAudio[s2 - k] - inputAudio[s2]));
+
             asdfData[index] += (difference * difference);
         }
     }
-    
+
     const auto asdfDataSize = maxLag - minLag + 1;
-    
+
     vecops::normalize (asdfData, asdfDataSize);
-    
+
     int        minIndex           = 0;
     SampleType greatestConfidence = 0;
-    
+
     vecops::findMinAndMinIndex (
-                                asdfData, asdfDataSize, greatestConfidence, minIndex);
-    
+        asdfData, asdfDataSize, greatestConfidence, minIndex);
+
     jassert (minIndex >= 0 && minIndex <= asdfDataSize);
-    
+
     if (greatestConfidence
         > confidenceThresh)  // determine if frame is unpitched - not enough periodicity
     {
         lastFrameWasPitched = false;
         return 0.0f;
     }
-    
+
     if (lastFrameWasPitched)
         minIndex = chooseIdealPeriodCandidate (asdfData, asdfDataSize, minIndex);
-    
+
     const auto realPeriod =
-    minIndex
-    + minLag;  // account for offset in asdf data (index 0 stored data for lag of minPeriod)
-    
+        minIndex
+        + minLag;  // account for offset in asdf data (index 0 stored data for lag of minPeriod)
+
     jassert (realPeriod <= maxPeriod && realPeriod >= minPeriod);
-    
+
     lastEstimatedPeriod = realPeriod;
     lastFrameWasPitched = true;
-    
+
     // return pitch in hz as a float
     return static_cast< float > (static_cast< float > (samplerate)
                                  / static_cast< float > (realPeriod));

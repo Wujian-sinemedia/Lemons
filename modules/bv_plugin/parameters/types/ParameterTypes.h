@@ -59,7 +59,7 @@ private:
     void toValueTree (juce::ValueTree& tree) override final;
     void fromValueTree (const juce::ValueTree& tree) override final;
 
-    std::function< void (float) > actionFunc = [](float){ };
+    std::function< void (float) > actionFunc = [] (float) {};
 };
 
 
@@ -121,7 +121,7 @@ private:
     void toValueTree (juce::ValueTree& tree) override final;
     void fromValueTree (const juce::ValueTree& tree) override final;
 
-    std::function< void (int) > actionFunc = [](int){ };
+    std::function< void (int) > actionFunc = [] (int) {};
 };
 
 
@@ -180,7 +180,7 @@ private:
     void toValueTree (juce::ValueTree& tree) override final;
     void fromValueTree (const juce::ValueTree& tree) override final;
 
-    std::function< void (bool) > actionFunc = [](bool){ };
+    std::function< void (bool) > actionFunc = [] (bool) {};
 };
 
 

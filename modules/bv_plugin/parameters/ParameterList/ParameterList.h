@@ -12,11 +12,11 @@ public:
     using GainParam    = bav::GainParam;
     using ToggleParam  = bav::ToggleParam;
     using PercentParam = bav::PercentParam;
-    
+
     using GainMeter = bav::ParameterHolder< bav::GainMeterParameter >;
-    
+
     //--------------------------------------------------
-    
+
     ParameterList (juce::Identifier listName);
     virtual ~ParameterList() override = default;
 
@@ -49,7 +49,7 @@ public:
     void resetAllToDefault();
 
     void doAllActions (bool force = true);
-    
+
     void sendCallbackToAllListeners();
 
     void setUndoManager (juce::UndoManager& um);
@@ -66,7 +66,7 @@ private:
 
     virtual void toValueTree (ValueTree& tree) override;
     virtual void fromValueTree (const ValueTree& tree) override;
-    
+
     juce::Array< ParamHolderMetadata > params;
     dsp::ProcessorBase                 dummyProcessor;
 };

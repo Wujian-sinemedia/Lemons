@@ -52,7 +52,7 @@ SliderAttachmentBase::SliderAttachmentBase (Parameter& paramToUse)
 
     Slider::setPopupDisplayEnabled (true, false, this);
     Slider::setPopupMenuEnabled (true);
-    
+
     param.sendListenerSyncCallback();
 }
 
@@ -164,7 +164,7 @@ ToggleButton::ToggleButton (BoolParameter& paramToUse)
 
     TB::setButtonText (param.parameterNameVerbose);
     TB::setTooltip (param.parameterNameShort);
-    
+
     param.sendListenerSyncCallback();
 }
 

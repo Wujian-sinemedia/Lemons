@@ -1,9 +1,8 @@
 
 namespace bav
 {
-
 StateBase::StateBase (juce::Identifier name)
-: SerializableData (name)
+    : SerializableData (name)
 {
 }
 
@@ -13,7 +12,7 @@ void StateBase::add (ParameterList& list)
     for (auto* l : lists)
         jassert (l->dataIdentifier != list.dataIdentifier);
 #endif
-    
+
     lists.add (&list);
 }
 
@@ -21,7 +20,7 @@ void StateBase::addTo (dsp::ProcessorBase& p)
 {
     for (auto* list : lists)
         list->addParametersTo (p);
-    
+
     pb = &p;
 }
 
@@ -29,7 +28,7 @@ void StateBase::addAllAsInternal()
 {
     for (auto* list : lists)
         list->addAllParametersAsInternal();
-    
+
     pb = nullptr;
 }
 
@@ -72,7 +71,7 @@ void StateBase::toValueTree (ValueTree& tree)
         tree.setProperty ("editorSizeX", w, nullptr);
         tree.setProperty ("editorSizeY", h, nullptr);
     }
-    
+
     for (auto* list : lists)
         list->serialize (tree);
 }
@@ -84,10 +83,10 @@ void StateBase::fromValueTree (const ValueTree& tree)
         pb->saveEditorSize (tree.getProperty ("editorSizeX"),
                             tree.getProperty ("editorSizeY"));
     }
-    
+
     for (auto* list : lists)
         list->deserialize (tree);
 }
 
 
-}  // namespace
+}  // namespace bav

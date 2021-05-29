@@ -1,10 +1,10 @@
 
 namespace bav
 {
-
 SerializableData::SerializableData (juce::Identifier identifier)
     : dataIdentifier (identifier)
-{ }
+{
+}
 
 
 juce::ValueTree SerializableData::serialize()
@@ -55,7 +55,7 @@ void toBinary (SerializableData& data, juce::MemoryBlock& dest)
 
 void fromBinary (juce::File file, SerializableData& dest)
 {
-    juce::MemoryBlock data;
+    juce::MemoryBlock     data;
     juce::FileInputStream stream (file);
     stream.readIntoMemoryBlock (data);
     fromBinary (data.getData(), data.getSize(), dest);
@@ -63,7 +63,7 @@ void fromBinary (juce::File file, SerializableData& dest)
 
 void fromBinary (juce::File& file, SerializableData& dest)
 {
-    juce::MemoryBlock data;
+    juce::MemoryBlock     data;
     juce::FileInputStream stream (file);
     stream.readIntoMemoryBlock (data);
     fromBinary (data.getData(), data.getSize(), dest);
@@ -83,7 +83,7 @@ void fromBinary (const void* data, size_t dataSizeInBytes, SerializableData& des
 
 void fromBinary (const void* data, int dataSizeInBytes, SerializableData& dest)
 {
-    fromBinary (data, static_cast<size_t> (dataSizeInBytes), dest);
+    fromBinary (data, static_cast< size_t > (dataSizeInBytes), dest);
 }
 
 
@@ -92,7 +92,7 @@ void fromBinary (const void* data, int dataSizeInBytes, SerializableData& dest)
 
 
 DataSynchronizer::DataSynchronizer (SerializableData& dataToUse)
-: sData (dataToUse)
+    : sData (dataToUse)
 {
     Timer::startTimerHz (10);
 }
@@ -115,6 +115,6 @@ void DataSynchronizer::timerCallback()
     sData.serialize().writeToStream (m);
     sendChangeData (m.getData(), m.getDataSize());
 }
-    
 
-}  // namespace
+
+}  // namespace bav

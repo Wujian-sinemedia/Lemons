@@ -124,8 +124,8 @@ public:
 
     /* if connected to MTS-ESP, queries the master plugin for the name of the current scale. If not using MTS-ESP or not connected to a master plugin, returns an empty String. */
     juce::String getScaleName() const;
-    
-    
+
+
     struct LastMovedControllerInfo
     {
         int controllerNumber = 0;
@@ -288,7 +288,7 @@ private:
     MidiBuffer aggregateMidiBuffer;  // this midi buffer will be used to collect the harmonizer's aggregate MIDI output
 
     MidiBuffer midiInputStorage;  // each block of midi that comes in is stored in here so we can refer to it later
-    
+
     LastMovedControllerInfo lastMovedControllerInfo;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SynthBase)

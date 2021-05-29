@@ -23,7 +23,7 @@ public:
     void releaseResources();
 
     float detectPitch (const AudioBuffer& inputAudio);
-    
+
     float detectPitch (const SampleType* inputAudio, const int numSamples);
 
 

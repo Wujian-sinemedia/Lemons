@@ -22,7 +22,7 @@ void ParameterList::addParameter (ParamHolderBase& param, bool isInternal)
     for (auto meta : params)
         jassert (meta.holder.getParam()->dataIdentifier != param.getParam()->dataIdentifier);
 #endif
-    
+
     params.add ({param, isInternal});
 }
 
@@ -34,7 +34,7 @@ void ParameterList::addParametersTo (juce::AudioProcessor& processor)
             meta.holder.addTo (processor);
         else
             meta.holder.addTo (dummyProcessor);
-        
+
         meta.holder.getParam()->sendListenerSyncCallback();
     }
 }

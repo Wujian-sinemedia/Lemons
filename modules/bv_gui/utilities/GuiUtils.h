@@ -40,8 +40,8 @@ class ScopedWaitCursor : ScopedCursor
 /*=========================================================================================*/
 
 
-struct DarkModeSentinel     :        private juce::Timer,
-                                     private BoolParameter::Listener
+struct DarkModeSentinel : private juce::Timer,
+                          private BoolParameter::Listener
 {
     DarkModeSentinel (BoolParameter& paramToUse, juce::Component& componentToUse)
         : BoolParameter::Listener (paramToUse),
@@ -52,14 +52,14 @@ struct DarkModeSentinel     :        private juce::Timer,
         Timer::startTimerHz (10);
 #endif
     }
-    
+
     virtual ~DarkModeSentinel() override
     {
 #if JUCE_MAC
         Timer::stopTimer();
 #endif
     }
-    
+
 private:
     void timerCallback() override final
     {
@@ -67,13 +67,13 @@ private:
         darkModeParameter.set (juce::Desktop::isOSXDarkModeActive());
 #endif
     }
-    
+
     void paramValueChanged (bool) override final
     {
         componentToRepaint.repaint();
     }
-    
-    BoolParameter& darkModeParameter;
+
+    BoolParameter&   darkModeParameter;
     juce::Component& componentToRepaint;
 };
 
@@ -91,18 +91,18 @@ struct GUIInitializer
 #else
         juce::ignoreUnused (componentToUse);
 #endif
-        
+
         AutoLock::setEnabled (false);
     }
-    
+
     virtual ~GUIInitializer()
     {
 #if JUCE_OPENGL
         openGLContext.detach();
 #endif
     }
-    
-    
+
+
 private:
 #if JUCE_OPENGL
     OpenGLContext openGLContext;
@@ -125,7 +125,7 @@ static inline bool buttonStateToBool (juce::Button::ButtonState state) noexcept
 {
     if (state == juce::Button::ButtonState::buttonDown)
         return true;
-    
+
     return false;
 }
 

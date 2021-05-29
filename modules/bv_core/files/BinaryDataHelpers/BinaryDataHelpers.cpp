@@ -2,7 +2,6 @@
 
 namespace bav
 {
-
 #if BV_HAS_BINARY_DATA
 
 RawData::RawData (const char* fileToFind)
@@ -31,11 +30,12 @@ bool RawData::isValid() const
 
 #else /* if BV_HAS_BINARY_DATA */
 
-RawData::RawData (const char*) { }
+RawData::RawData (const char*)
+{
+}
 
 bool RawData::isValid() const { return false; }
 
 #endif
 
 }  // namespace bav
-
