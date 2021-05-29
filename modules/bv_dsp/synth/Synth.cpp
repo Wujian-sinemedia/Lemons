@@ -3,7 +3,7 @@
 #include "internals/AutomatedHarmonyVoice.cpp"
 
 #if BV_USE_MTS_ESP
-#    include "libMTSClient.cpp"
+#    include <libMTSClient.cpp>
 #endif
 
 

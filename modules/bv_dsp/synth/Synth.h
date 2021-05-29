@@ -1,12 +1,8 @@
 
 #pragma once
 
-#ifndef BV_USE_MTS_ESP
-#    define BV_USE_MTS_ESP 0
-#endif
-
 #if BV_USE_MTS_ESP
-#    include "libMTSClient.h"
+#    include <libMTSClient.h>
 #endif
 
 #include "internals/PanningManager/PanningManager.h"

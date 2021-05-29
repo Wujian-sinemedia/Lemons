@@ -3,41 +3,6 @@
 
 namespace bav::vecops
 {
-/*
-    This namespace contains some useful vectorized functions optimized for a variety of platforms.
-    This header file defines the common interface for the vecops functions, and there is a separate header defining implementations for each individual vectorization library.
-    When you compile the bv_SharedCode Juce module, only ONE of the available vecops implementations will be selected and compiled, and all calls to vecops functions will use the same implementation.
- 
-    Here is a brief, generalized overview of the available implementations:
- 
-    - vDSP: created by Apple and optimized for their hardware. vDSP ships with the OS on any Apple hardware and easily outperforms any open source library. There isn't really a good reason not to use this if it is available to you, which is why it is the default choice on Apple platforms.
-    - IPP: stands for "Intel Integrated Performance Primitives". By far the fastest on supported Intel hardware, but must be specially linked to. Only available on x86/amd64.
-    - Ne10: an open-source library of optimized functions for ARM NEON architecture. Very fast for floating point computations, but supports ONLY 32-bit floating point. Any functions with doubles as input or output will either use Juce::FloatVectorOperations or involve some internal conversion overhead.
-    - MIPP: an open source library that essentially serves as a wrapper around native SIMD instruction sets. Currently supports NEON, SSE, AVX and AVX-512.
-    - Fallback: wraps Juce::FloatVectorOperations where available, and implements operations in pure C/C++ where FVO doesn't provide an implementation.
-*/
-
-
-// make sure that only one of these is set to 1...
-// these are evaluated in approximate order of preference, and the first one found in this list is used: vDSP, IPP, MIPP, Ne10, fallback
-#if BV_USE_VDSP
-#    undef BV_USE_IPP
-#    define BV_USE_IPP 0
-#    undef BV_USE_MIPP
-#    define BV_USE_MIPP 0
-#    undef BV_USE_NE10
-#    define BV_USE_NE10 0
-#elif BV_USE_IPP
-#    undef BV_USE_MIPP
-#    define BV_USE_MIPP 0
-#    undef BV_USE_NE10
-#    define BV_USE_NE10 0
-#elif BV_USE_MIPP
-#    undef BV_USE_NE10
-#    define BV_USE_NE10 0
-#endif /* if BV_USE_VDSP */
-
-
 /* Finds the autocorrelation of a set of samples using a shrinking integration window */
 extern void autocorrelate (const float* BV_R_ inputSamples,
                            int                numSamples,

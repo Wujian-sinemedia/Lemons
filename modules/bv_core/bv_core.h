@@ -1,12 +1,12 @@
 /*******************************************************************************
  BEGIN_JUCE_MODULE_DECLARATION
- ID:                 bv_SharedCode
- vendor:             Ben Vining
- version:            0.0.1
- name:               Ben Vining's codebase
- description:        General utilities useful for developing plugins.
- dependencies:       juce_audio_utils
- OSXFrameworks:      Accelerate
+ ID:                           bv_SharedCode
+ vendor:                    Ben Vining
+ version:                    0.0.1
+ name:                      Ben Vining's codebase
+ description:              General utilities useful for developing plugins.
+ dependencies:         juce_audio_utils
+ OSXFrameworks:    Accelerate
  iOSFrameworks:      Accelerate
  END_JUCE_MODULE_DECLARATION
  *******************************************************************************/
@@ -19,12 +19,131 @@
 #    define BV_HAS_BINARY_DATA 0
 #endif
 
-
 #include <juce_audio_utils/juce_audio_utils.h>
 
 
-#include "preprocessor/PlatformDefs.h"
-#include "preprocessor/PreprocessorUtils.h"
+/*=======================================================================
+ These conditionals select whether to use any optimization libraries for vecops, FFTs, etc.
+ Changing these options here will control which implementation is used for the entire Shared-code module, including vecops and the FFT module.
+ 
+ - On Apple platforms, Accelerate/vDSP is included with the OS. It should always be available, and there's pretty much no reason not to use it.
+ - "IPP" stands for Intel Integrated Performance Primitives, which is available on Intel Atom, Core, and Xeon processors. By far the fastest on actual Intel hardware. IPP must be specially installed and linked to in order to use it.
+ - MIPP is an open-source library that serves as a portable wrapper around various SIMD instruction sets. Supports NEON, SSE, AVX and AVX-512. Can be found at https://github.com/aff3ct/MIPP.
+ - Ne10 is an open-source library of vectorized functions for ARM NEON processors. Supports fewer architectures than MIPP (will internally revert to C code if compiled using Ne10 and run on a non-NEON processor), but when run on a NEON processor, should outpace MIPP as it is more specially tailored to the various flavors of NEON processors.
+=======================================================================*/
+
+#ifndef BV_USE_VDSP
+#    if JUCE_IOS || JUCE_MAC
+#        define BV_USE_VDSP 1
+#    else
+#        define BV_USE_VDSP 0
+#    endif
+#endif
+
+#if BV_USE_VDSP
+#    undef BV_USE_IPP
+#    undef BV_USE_NE10
+#    undef BV_USE_MIPP
+#    define BV_USE_IPP  0
+#    define BV_USE_NE10 0
+#    define BV_USE_NE10 0
+#endif
+
+#ifdef JUCE_USE_VDSP_FRAMEWORK
+#    undef JUCE_USE_VDSP_FRAMEWORK
+#endif
+
+#define JUCE_USE_VDSP_FRAMEWORK BV_USE_VDSP
+
+
+#if ! JUCE_INTEL
+#    undef BV_USE_IPP
+#    define BV_USE_IPP 0
+#endif
+
+#ifndef BV_USE_IPP
+#    define BV_USE_IPP 0
+#endif
+
+#if BV_USE_IPP
+#    undef BV_USE_NE10
+#    undef BV_USE_MIPP
+#    define BV_USE_NE10 0
+#    define BV_USE_MIPP 0
+#endif
+
+
+#if ! JUCE_ARM
+#    undef BV_USE_NE10
+#    define BV_USE_NE10 0
+#endif
+
+#ifndef BV_USE_NE10
+#    define BV_USE_NE10 0
+#endif
+
+#if BV_USE_NE10
+#    undef BV_USE_MIPP
+#    define BV_USE_MIPP 0
+#endif
+
+
+#ifndef BV_USE_MIPP
+#    define BV_USE_MIPP 0
+#endif
+
+
+/*=======================================================================*/
+/*
+ Platform-independant restriction macro to reduce pointer aliasing, allowing for better optimizations. Use with care, this can result in UB!
+ */
+
+#ifdef __clang__
+#    define BV_R_ __restrict__
+#else
+#    ifdef __GNUC__
+#        define BV_R_ __restrict__
+#    endif
+#endif
+
+#ifndef BV_R_
+#    ifdef _MSC_VER
+#        define BV_R_ __restrict
+#    else
+#        ifdef __MSVC__
+#            define BV_R_ __restrict
+#        endif
+#    endif
+#endif
+
+#ifndef BV_R_
+#    warning No pointer restriction available for your compiler
+#    define BV_R_
+#endif
+
+/*=======================================================================*/
+/*
+ Cross-platform "force inline" macro
+ */
+
+#if JUCE_WINDOWS
+#    define BV_FORCE_INLINE __forceinline
+#else
+#    define BV_FORCE_INLINE inline __attribute__ ((always_inline))
+#endif
+
+/*=======================================================================*/
+/*
+ Cross-platform macro that creates a CPU wait/sleep inctruction
+ */
+
+#if JUCE_INTEL
+#    define BV_WAIT_INSTRUCTION _mm_pause()
+#else
+#    define BV_WAIT_INSTRUCTION __asm__ __volatile__("yield")
+#endif
+
+/*=======================================================================*/
 
 
 #ifdef __clang__

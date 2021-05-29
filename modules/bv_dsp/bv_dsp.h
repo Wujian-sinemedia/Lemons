@@ -11,6 +11,10 @@
 
 #pragma once
 
+#ifndef BV_USE_MTS_ESP
+#    define BV_USE_MTS_ESP 0
+#endif
+
 // juce dependencies
 #include <juce_audio_utils/juce_audio_utils.h>
 #include <juce_dsp/juce_dsp.h>

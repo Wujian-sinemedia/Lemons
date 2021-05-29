@@ -1,3 +1,57 @@
+function (_configure_juce_browser target shouldUseBrowser)
+    if (${shouldUseBrowser})
+        message (STATUS "Configuring JUCE web browser...")
+
+        target_compile_definitions (${target} PUBLIC 
+            JUCE_WEB_BROWSER=1
+            JUCE_USE_CURL=1
+            JUCE_LOAD_CURL_SYMBOLS_LAZILY=1)
+    else()
+        target_compile_definitions (${target} PUBLIC 
+            JUCE_WEB_BROWSER=0
+            JUCE_USE_CURL=0)
+    endif()
+endfunction()
+
+#
+
+function (_configure_vecops_options target)
+    if (NOT DEFINED BV_IGNORE_VDSP)
+        set (BV_IGNORE_VDSP FALSE)
+    endif()
+
+    if (APPLE AND NOT ${BV_IGNORE_VDSP})
+        message (STATUS "Configuring vDSP for vecops...")
+        target_compile_definitions (${target} PUBLIC JUCE_USE_VDSP_FRAMEWORK=1 BV_USE_VDSP=1)
+        return()
+    endif()
+
+    if (NOT DEFINED BV_IGNORE_MIPP)
+        set (BV_IGNORE_MIPP FALSE)
+    endif()
+
+    if (NOT ${BV_IGNORE_MIPP})
+        message (STATUS "Configuring MIPP for vecops...")
+        target_compile_definitions (${target} PUBLIC MIPP_ENABLE_BACKTRACE BV_USE_MIPP=1)
+        target_include_directories (${target} PUBLIC "${bv_sharedcode_dir}/third_party/MIPP/src" "MIPP")
+    endif()
+endfunction()
+
+#
+
+function (_configure_mts_esp target)
+    if (NOT DEFINED BV_USE_MTS_ESP)
+        set (BV_USE_MTS_ESP FALSE)
+    endif()
+
+    if (${BV_USE_MTS_ESP})
+        message (STATUS "Configuring MTS-ESP...")
+        target_include_directories (${target} PUBLIC "${bv_sharedcode_dir}/third_party/MTS-ESP/Client" "MTS-ESP")
+        target_compile_definitions (${target} PUBLIC BV_USE_MTS_ESP=1)
+    endif()
+endfunction()
+
+#
 
 function (_adjustDefaultMacTarget target bundleName)
     if (APPLE)
@@ -37,47 +91,15 @@ function (_configure_juce_app target useBrowser)
             JUCE_STRICT_REFCOUNTEDPTR=1
             JUCE_MODAL_LOOPS_PERMITTED=0
             JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=1
-            JUCE_LOAD_CURL_SYMBOLS_LAZILY=1
             JUCE_JACK=1
             JUCE_DISABLE_AUDIO_MIXING_WITH_OTHER_APPS=1
             JUCE_EXECUTE_APP_SUSPEND_ON_BACKGROUND_TASK=1)
     
-    if (${useBrowser})
-        message (STATUS "Configuring JUCE web browser...")
+    _configure_juce_browser (${target} ${useBrowser})
 
-        target_compile_definitions (${target} PUBLIC 
-            JUCE_WEB_BROWSER=1
-            JUCE_USE_CURL=1)
-    else()
-        target_compile_definitions (${target} PUBLIC 
-            JUCE_WEB_BROWSER=0
-            JUCE_USE_CURL=0)
-    endif()
+    _configure_vecops_options (${target})
 
-    if (APPLE)
-        message (STATUS "Configuring vDSP for vecops...")
-        target_compile_definitions (${target} PUBLIC JUCE_USE_VDSP_FRAMEWORK=1 BV_USE_VDSP=1)
-    else()
-        if (NOT DEFINED BV_IGNORE_MIPP)
-            set (BV_IGNORE_MIPP FALSE)
-        endif()
-    
-        if (NOT ${BV_IGNORE_MIPP})
-            message (STATUS "Configuring MIPP for vecops...")
-            target_compile_definitions (${target} PUBLIC MIPP_ENABLE_BACKTRACE BV_USE_MIPP=1)
-            target_include_directories (${target} PUBLIC "${bv_sharedcode_dir}/third_party/MIPP/src" "MIPP")
-        endif()
-    endif()
-
-    if (NOT DEFINED BV_USE_MTS_ESP)
-        set (BV_USE_MTS_ESP FALSE)
-    endif()
-
-    if (${BV_USE_MTS_ESP})
-        message (STATUS "Configuring MTS-ESP...")
-        target_include_directories (${target} PUBLIC "${bv_sharedcode_dir}/third_party/MTS-ESP/Client" "MTS-ESP")
-        target_compile_definitions (${target} PUBLIC BV_USE_MTS_ESP=1)
-    endif()
+    _configure_mts_esp (${target})
 
     _adjustDefaultMacTarget (${target} ${target})
 
