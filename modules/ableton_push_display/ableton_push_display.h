@@ -5,13 +5,13 @@
  version:            0.0.1
  name:               ableton_push_display
  description:       This juce module provides basic facilities for drawing to a Push 2's display using a regular juce::Component. The original example code from Ableton can be found at: https://github.com/Ableton/push2-display-with-juce.
- dependencies:   juce_graphics
+ dependencies:   juce_gui_basics
  END_JUCE_MODULE_DECLARATION
  *******************************************************************************/
 
 #pragma once
 
-#include <juce_graphics/juce_graphics.h>
+#include <juce_gui_basics/juce_gui_basics.h>
 
 
 #include "usb_communication/push_usb.h"

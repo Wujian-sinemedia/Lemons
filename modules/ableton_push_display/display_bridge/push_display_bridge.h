@@ -19,9 +19,16 @@ public:
 
     /*!
      * Tells the bridge the drawing is done and the bitmap can be sent to
-     * the push display
+     * the push display. Should be called after you've finished drawing to
+     * the graphics object.
      */
     void flip();
+    
+    /*!
+     * Draws the entire component and any children into a frame and sends it to the Push display.
+     */
+    void drawComponent (juce::Component& c);
+    void drawComponent (juce::Component* c);
 
 private:
     PushDisplay&   display;
