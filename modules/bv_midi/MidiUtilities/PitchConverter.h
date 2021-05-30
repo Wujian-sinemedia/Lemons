@@ -7,9 +7,9 @@ namespace bav::midi
 class PitchConverter
 {
 public:
-    PitchConverter (const int initialConcertPitch,
-                    const int initialRootNote,
-                    const int initialNotesPerOctave)
+    PitchConverter (const int initialConcertPitch = 440,
+                    const int initialRootNote = 69,
+                    const int initialNotesPerOctave = 12)
         : concertPitchHz (initialConcertPitch), rootNote (initialRootNote), notesPerOctave (initialNotesPerOctave)
     {
     }
