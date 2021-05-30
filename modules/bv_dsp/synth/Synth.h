@@ -2,8 +2,19 @@
 #pragma once
 
 #if BV_USE_MTS_ESP
+
+#    ifdef __clang__
+#        pragma clang diagnostic push
+#        pragma clang diagnostic ignored "-Weverything"
+#    endif
+
 #    include <libMTSClient.h>
-#endif
+
+#    ifdef __clang__
+#        pragma clang diagnostic pop
+#    endif
+
+#endif /* BV_USE_MTS_ESP */
 
 #include "internals/PanningManager/PanningManager.h"
 
@@ -246,7 +257,7 @@ private:
     int lastBlocksize;
 
     MidiBuffer aggregateMidiBuffer;  // this midi buffer will be used to collect the harmonizer's aggregate MIDI output
-    MidiBuffer midiInputStorage;  // each block of midi that comes in is stored in here so we can refer to it later
+    MidiBuffer midiInputStorage;     // each block of midi that comes in is stored in here so we can refer to it later
 
     LastMovedControllerInfo lastMovedControllerInfo;
 

@@ -49,12 +49,8 @@
 #    define BV_USE_NE10 0
 #endif
 
-#ifdef JUCE_USE_VDSP_FRAMEWORK
-#    undef JUCE_USE_VDSP_FRAMEWORK
-#endif
-
+#undef JUCE_USE_VDSP_FRAMEWORK
 #define JUCE_USE_VDSP_FRAMEWORK BV_USE_VDSP
-
 
 #if ! JUCE_INTEL
 #    undef BV_USE_IPP
@@ -72,8 +68,7 @@
 #    define BV_USE_MIPP 0
 #endif
 
-
-#if ! JUCE_ARM
+#ifndef __ARM_NEON__
 #    undef BV_USE_NE10
 #    define BV_USE_NE10 0
 #endif
@@ -87,7 +82,6 @@
 #    define BV_USE_MIPP 0
 #endif
 
-
 #ifndef BV_USE_MIPP
 #    define BV_USE_MIPP 0
 #endif
@@ -98,21 +92,11 @@
  Platform-independant restriction macro to reduce pointer aliasing, allowing for better optimizations. Use with care, this can result in UB!
  */
 
-#ifdef __clang__
+#if defined __clang__ || defined __GNUC__
 #    define BV_R_ __restrict__
 #else
-#    ifdef __GNUC__
-#        define BV_R_ __restrict__
-#    endif
-#endif
-
-#ifndef BV_R_
-#    ifdef _MSC_VER
+#    if defined _MSC_VER || defined __MSVC__
 #        define BV_R_ __restrict
-#    else
-#        ifdef __MSVC__
-#            define BV_R_ __restrict
-#        endif
 #    endif
 #endif
 
@@ -148,7 +132,7 @@
 
 #ifdef __clang__
 #    pragma clang diagnostic push
-#    pragma clang diagnostic ignored "-Wunused-function"
+#    pragma clang diagnostic ignored "-Weverything"
 #endif
 
 

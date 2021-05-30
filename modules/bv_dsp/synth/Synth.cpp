@@ -3,8 +3,19 @@
 #include "internals/AutomatedHarmonyVoice.cpp"
 
 #if BV_USE_MTS_ESP
+
+#    ifdef __clang__
+#        pragma clang diagnostic push
+#        pragma clang diagnostic ignored "-Weverything"
+#    endif
+
 #    include <libMTSClient.cpp>
-#endif
+
+#    ifdef __clang__
+#        pragma clang diagnostic pop
+#    endif
+
+#endif /* BV_USE_MTS_ESP */
 
 
 namespace bav::dsp
