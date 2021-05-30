@@ -137,6 +137,7 @@ juce::String PitchConverter::getScaleName() const
 bool PitchConverter::setConcertPitchHz (const int newConcertPitchhz)
 {
 #if BV_USE_MTS_ESP
+    juce::ignoreUnused (newConcertPitchhz);
     return false;
 #else
     if (converter.getCurrentConcertPitchHz() == newConcertPitchhz) return false;
