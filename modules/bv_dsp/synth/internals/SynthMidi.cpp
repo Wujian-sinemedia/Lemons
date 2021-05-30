@@ -2,27 +2,6 @@
 
 namespace bav::dsp
 {
-/*
- Processes all the events in the given MidiBuffer, and returns the synth's sggregate MIDI output in-place.
- */
-template < typename SampleType >
-void SynthBase< SampleType >::processMidi (MidiBuffer& midiMessages)
-{
-    aggregateMidiBuffer.clear();
-
-    midiInputStorage.clear();
-    midiInputStorage.addEvents (midiMessages, 0, midiMessages.getLastEventTime(), 0);
-
-    std::for_each (midiMessages.findNextSamplePosition (0),
-                   midiMessages.cend(),
-                   [&] (const juce::MidiMessageMetadata& meta)
-                   { handleMidiEvent (meta.getMessage(), meta.samplePosition); });
-
-    midiMessages.swapWith (aggregateMidiBuffer);
-
-    lastMidiTimeStamp = -1;
-    midiInputStorage.clear();
-}
 
 /*
  Processes a single MIDI event at a time (for public use of this class).
@@ -32,40 +11,7 @@ void SynthBase< SampleType >::processMidiEvent (const MidiMessage& m)
 {
     const auto timestamp = int (m.getTimeStamp());
     midiInputStorage.addEvent (m, timestamp);
-    handleMidiEvent (m, timestamp);
-}
-
-
-/*
- This function is the top-level function used for internally processing any given midi event (not for public use).
- */
-template < typename SampleType >
-void SynthBase< SampleType >::handleMidiEvent (const MidiMessage& m, const int samplePosition)
-{
-    lastMidiChannel   = m.getChannel();
-    lastMidiTimeStamp = samplePosition - 1;  // this variable is always incremented when assigned to a new midi output event...
-
-    if (m.isNoteOn())
-    {
-        lastNoteOnCounter = uint32 (lastMidiTimeStamp);
-        noteOn (m.getNoteNumber(), m.getFloatVelocity(), true, lastMidiChannel);
-        pitchCollectionChanged();
-    }
-    else if (m.isNoteOff())
-    {
-        noteOff (m.getNoteNumber(), m.getFloatVelocity(), true, true);
-        pitchCollectionChanged();
-    }
-    else if (m.isAllNotesOff() || m.isAllSoundOff())
-        allNotesOff (false);
-    else if (m.isPitchWheel())
-        handlePitchWheel (juce::jmap (m.getPitchWheelValue(), 0, 16383, 0, 127));
-    else if (m.isAftertouch())
-        handleAftertouch (m.getNoteNumber(), m.getAfterTouchValue());
-    else if (m.isChannelPressure())
-        handleChannelPressure (m.getChannelPressureValue());
-    else if (m.isController())
-        handleController (m.getControllerNumber(), m.getControllerValue());
+    midi.process (m);
 }
 
 
@@ -147,7 +93,7 @@ void SynthBase< SampleType >::noteOff (const int midiNoteNumber, const float vel
         }
         else
         {
-            if (! (sustainPedalDown || voice->sustainingFromSostenutoPedal))
+            if (! (midi.isSustainPedalDown() || voice->sustainingFromSostenutoPedal))
                 stopVoice (voice, velocity, allowTailOff);
             else
                 voice->setKeyDown (false);
@@ -186,20 +132,17 @@ void SynthBase< SampleType >::startVoice (Voice* voice, const int midiPitch, con
     // aftertouch value based on how much the new velocity has changed from the voice's last recieved velocity (only used if applicable)
     const auto aftertouch = juce::jlimit (0, 127, juce::roundToInt ((velocity - voice->getLastRecievedVelocity()) * 127.0f));
 
-    //  if the same note is being retriggered, leave the timestamp the same as it was
-    const auto timestamp = sameNoteRetriggered ? voice->noteOnTime : ++lastNoteOnCounter;
-
     if (! sameNoteRetriggered)  // only output note events if it's not the same note being retriggered
     {
         if (wasStolen)
         {
             // output a note off for the voice's previous note
-            aggregateMidiBuffer.addEvent (MidiMessage::noteOff (midiChannel, prevNote, velocity), lastMidiTimeStamp);
+            aggregateMidiBuffer.addEvent (MidiMessage::noteOff (midiChannel, prevNote, velocity), midi.getLastMidiTimestamp());
         }
 
         voice->aftertouchChanged (0);
 
-        aggregateMidiBuffer.addEvent (MidiMessage::noteOn (midiChannel, midiPitch, velocity), ++lastMidiTimeStamp);
+        aggregateMidiBuffer.addEvent (MidiMessage::noteOn (midiChannel, midiPitch, velocity), midi.getLastMidiTimestamp());
     }
     else if (aftertouch != voice->currentAftertouch)
     {
@@ -208,7 +151,7 @@ void SynthBase< SampleType >::startVoice (Voice* voice, const int midiPitch, con
         voice->aftertouchChanged (aftertouch);
 
         if (aftertouchGainIsOn)
-            aggregateMidiBuffer.addEvent (MidiMessage::aftertouchChange (midiChannel, midiPitch, aftertouch), ++lastMidiTimeStamp);
+            aggregateMidiBuffer.addEvent (MidiMessage::aftertouchChange (midiChannel, midiPitch, aftertouch), midi.getLastMidiTimestamp());
         else
             updateChannelPressure (aftertouch);
     }
@@ -231,6 +174,7 @@ void SynthBase< SampleType >::startVoice (Voice* voice, const int midiPitch, con
     const bool isPedal   = pedal.isAutomatedPitch (midiPitch);
     const bool isDescant = descant.isAutomatedPitch (midiPitch);
     const bool keydown   = isKeyboard ? true : voice->isKeyDown();
+    const auto timestamp = sameNoteRetriggered ? voice->noteOnTime : uint32(midi.getLastMidiTimestamp());
 
     voice->startNote (midiPitch, velocity, timestamp, keydown, isPedal, isDescant, midiChannel);
 }
@@ -244,11 +188,11 @@ void SynthBase< SampleType >::stopVoice (Voice* voice, const float velocity, con
 {
     if (voice == nullptr) return;
 
-    if (sustainPedalDown || voice->sustainingFromSostenutoPedal) return;
+    if (midi.isSustainPedalDown() || voice->sustainingFromSostenutoPedal) return;
 
     const auto note = voice->getCurrentlyPlayingNote();
 
-    aggregateMidiBuffer.addEvent (MidiMessage::noteOff (voice->getMidiChannel(), note, velocity), ++lastMidiTimeStamp);
+    aggregateMidiBuffer.addEvent (MidiMessage::noteOff (voice->getMidiChannel(), note, velocity), midi.getLastMidiTimestamp());
 
     const bool isPedal   = voice->isCurrentPedalVoice();
     const bool isDescant = voice->isCurrentDescantVoice();
@@ -310,26 +254,6 @@ void SynthBase< SampleType >::turnOffAllKeyupNotes (const bool  allowTailOff,
      Functions for handling controller and other miscellaneous MIDI events
  */
 
-/*
- Any controller-type MIDI message is processed by this function.
- */
-template < typename SampleType >
-void SynthBase< SampleType >::handleController (const int controllerNumber, int controllerValue)
-{
-    jassert (controllerValue >= 0 && controllerValue <= 127);
-
-    lastMovedControllerInfo.controllerNumber = controllerNumber;
-    lastMovedControllerInfo.controllerValue  = controllerValue;
-
-    switch (controllerNumber)
-    {
-        case 0x40 : handleSustainPedal (controllerValue); return;
-        case 0x42 : handleSostenutoPedal (controllerValue); return;
-        case 0x43 : handleSoftPedal (controllerValue); return;
-        default : return;
-    }
-}
-
 
 /*
  Handles pitch wheel events.
@@ -339,11 +263,8 @@ void SynthBase< SampleType >::handlePitchWheel (int wheelValue)
 {
     jassert (wheelValue >= 0 && wheelValue <= 127);
 
-    if (lastPitchWheelValue == wheelValue) return;
+    aggregateMidiBuffer.addEvent (MidiMessage::pitchWheel (midi.getLastMidiChannel(), wheelValue), midi.getLastMidiTimestamp());
 
-    aggregateMidiBuffer.addEvent (MidiMessage::pitchWheel (lastMidiChannel, wheelValue), ++lastMidiTimeStamp);
-
-    lastPitchWheelValue = wheelValue;
     bendTracker.newPitchbendRecieved (wheelValue);
 
     for (auto* voice : voices)
@@ -360,7 +281,7 @@ void SynthBase< SampleType >::handleAftertouch (int midiNoteNumber, int aftertou
     jassert (midiNoteNumber >= 0 && midiNoteNumber <= 127);
     jassert (aftertouchValue >= 0 && aftertouchValue <= 127);
 
-    aggregateMidiBuffer.addEvent (MidiMessage::aftertouchChange (lastMidiChannel, midiNoteNumber, aftertouchValue), ++lastMidiTimeStamp);
+    aggregateMidiBuffer.addEvent (MidiMessage::aftertouchChange (midi.getLastMidiChannel(), midiNoteNumber, aftertouchValue), midi.getLastMidiTimestamp());
 
     for (auto* voice : voices)
     {
@@ -381,7 +302,7 @@ void SynthBase< SampleType >::handleChannelPressure (int channelPressureValue)
 {
     jassert (channelPressureValue >= 0 && channelPressureValue <= 127);
 
-    aggregateMidiBuffer.addEvent (MidiMessage::channelPressureChange (lastMidiChannel, channelPressureValue), ++lastMidiTimeStamp);
+    aggregateMidiBuffer.addEvent (MidiMessage::channelPressureChange (midi.getLastMidiChannel(), channelPressureValue), midi.getLastMidiTimestamp());
 
     for (auto* voice : voices)
         voice->aftertouchChanged (channelPressureValue);
@@ -419,11 +340,7 @@ void SynthBase< SampleType >::handleSustainPedal (const int value)
 {
     const bool isDown = (value >= 64);
 
-    if (sustainPedalDown == isDown) return;
-
-    aggregateMidiBuffer.addEvent (MidiMessage::controllerEvent (lastMidiChannel, 0x40, value), ++lastMidiTimeStamp);
-
-    sustainPedalDown = isDown;
+    aggregateMidiBuffer.addEvent (MidiMessage::controllerEvent (midi.getLastMidiChannel(), 0x40, value), midi.getLastMidiTimestamp());
 
     if (! isDown && ! latchIsOn) turnOffAllKeyupNotes (false, false, 0.0f, false);
 }
@@ -437,11 +354,7 @@ void SynthBase< SampleType >::handleSostenutoPedal (const int value)
 {
     const bool isDown = (value >= 64);
 
-    if (sostenutoPedalDown == isDown) return;
-
-    aggregateMidiBuffer.addEvent (MidiMessage::controllerEvent (lastMidiChannel, 0x42, value), ++lastMidiTimeStamp);
-
-    sostenutoPedalDown = isDown;
+    aggregateMidiBuffer.addEvent (MidiMessage::controllerEvent (midi.getLastMidiChannel(), 0x42, value), midi.getLastMidiTimestamp());
 
     if (isDown && ! latchIsOn)
     {
@@ -463,11 +376,7 @@ void SynthBase< SampleType >::handleSoftPedal (const int value)
 {
     const bool isDown = value >= 64;
 
-    if (softPedalDown == isDown) return;
-
-    softPedalDown = isDown;
-
-    aggregateMidiBuffer.addEvent (MidiMessage::controllerEvent (lastMidiChannel, 0x43, value), ++lastMidiTimeStamp);
+    aggregateMidiBuffer.addEvent (MidiMessage::controllerEvent (midi.getLastMidiChannel(), 0x43, value), midi.getLastMidiTimestamp());
 
     for (auto* voice : voices)
         voice->softPedalChanged (isDown);

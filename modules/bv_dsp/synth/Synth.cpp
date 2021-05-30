@@ -126,8 +126,7 @@ void SynthBase< SampleType >::prepare (const int blocksize)
         voice->prepare (blocksize);
 
     panner.prepare (voices.size(), false);
-    lastNoteOnCounter = 0;
-
+    
     resetRampedValues (blocksize);
 
     prepared (blocksize);
@@ -181,8 +180,7 @@ void SynthBase< SampleType >::renderVoices (juce::MidiBuffer& midiMessages, juce
     output.clear();
 
     aggregateMidiBuffer.clear();
-    lastMidiTimeStamp = -1;
-
+    
     auto samplesLeft = output.getNumSamples();
 
     midiInputStorage.clear();
@@ -203,7 +201,6 @@ void SynthBase< SampleType >::renderVoices (juce::MidiBuffer& midiMessages, juce
         {
             renderVoicesInternal (output, startSample, samplesLeft);
             midiMessages.swapWith (aggregateMidiBuffer);
-            lastMidiTimeStamp = -1;
             midiInputStorage.clear();
             return;
         }
@@ -214,18 +211,18 @@ void SynthBase< SampleType >::renderVoices (juce::MidiBuffer& midiMessages, juce
         if (samplesToNextMidiMessage >= samplesLeft)
         {
             renderVoicesInternal (output, startSample, samplesLeft);
-            handleMidiEvent (metadata.getMessage(), metadata.samplePosition);
+            midi.process (metadata);
             break;
         }
 
         if (samplesToNextMidiMessage == 0)
         {
-            handleMidiEvent (metadata.getMessage(), metadata.samplePosition);
+            midi.process (metadata);
             continue;
         }
 
         renderVoicesInternal (output, startSample, samplesToNextMidiMessage);
-        handleMidiEvent (metadata.getMessage(), metadata.samplePosition);
+        midi.process (metadata);
 
         startSample += samplesToNextMidiMessage;
         samplesLeft -= samplesToNextMidiMessage;
@@ -233,10 +230,9 @@ void SynthBase< SampleType >::renderVoices (juce::MidiBuffer& midiMessages, juce
 
     std::for_each (
         midiIterator, midiMessages.cend(), [&] (const juce::MidiMessageMetadata& meta)
-        { handleMidiEvent (meta.getMessage(), meta.samplePosition); });
+                   { midi.process (meta); });
 
     midiMessages.swapWith (aggregateMidiBuffer);
-    lastMidiTimeStamp = -1;
     midiInputStorage.clear();
 }
 
@@ -268,7 +264,7 @@ void SynthBase< SampleType >::renderVoicesInternal (juce::AudioBuffer< SampleTyp
 template < typename SampleType >
 void SynthBase< SampleType >::bypassedBlock (const int numSamples, MidiBuffer& midiMessages)
 {
-    processMidi (midiMessages);
+    midi.process (midiMessages);
 
     for (auto* voice : voices)
         voice->bypassedBlock (numSamples);

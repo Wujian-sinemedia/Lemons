@@ -18,8 +18,8 @@ SynthVoiceBase< SampleType >* SynthBase< SampleType >::findFreeVoice (const bool
 
         const auto note = voice->getCurrentlyPlayingNote();
 
-        for (auto midiIterator = midiInputStorage.findNextSamplePosition (lastMidiTimeStamp + 1);
-             midiIterator != midiInputStorage.findNextSamplePosition (lastMidiTimeStamp + futureStealingMaxMs + 1);
+        for (auto midiIterator = midiInputStorage.findNextSamplePosition (midi.getLastMidiTimestamp() + 1);
+             midiIterator != midiInputStorage.findNextSamplePosition (midi.getLastMidiTimestamp() + futureStealingMaxMs + 1);
              ++midiIterator)
         {
             const auto metadata = *midiIterator;
@@ -174,7 +174,7 @@ void SynthBase< SampleType >::removeNumVoices (const int voicesToRemove)
         {
             panner.panValTurnedOff (removing->getCurrentMidiPan());
             aggregateMidiBuffer.addEvent (MidiMessage::noteOff (removing->getMidiChannel(), removing->getCurrentlyPlayingNote(), 1.0f),
-                                          ++lastMidiTimeStamp);
+                                          midi.getLastMidiTimestamp());
         }
 
         voices.removeObject (removing, true);

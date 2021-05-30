@@ -54,7 +54,7 @@ void SynthBase< SampleType >::updatePitchbendSettings (const int rangeUp, const 
 
     bendTracker.setRange (rangeUp, rangeDown);
 
-    if (lastPitchWheelValue == 64) return;
+    if (midi.getLastPitchwheelValue() == 64) return;
 
     for (auto* voice : voices)
         if (voice->isVoiceActive()) voice->setCurrentOutputFreq (getOutputFrequency (voice->getCurrentlyPlayingNote()));

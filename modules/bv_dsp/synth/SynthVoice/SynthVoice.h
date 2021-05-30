@@ -62,7 +62,7 @@ public:
 
     int getCurrentlyPlayingNote() const noexcept { return currentlyPlayingNote; }
 
-    int getMidiChannel() const { return midiChannel >= 0 ? midiChannel : parent->lastMidiChannel; }
+    int getMidiChannel() const { return midiChannel > 0 ? midiChannel : parent->midi.getLastMidiChannel(); }
 
     /*=================================================================================
          =================================================================================*/

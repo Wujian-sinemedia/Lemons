@@ -72,7 +72,7 @@ void SynthBase< SampleType >::AutomatedHarmonyVoice::apply()
     else
     {
         turnNoteOffIfOn();
-        synth.noteOn (newPitch, velocity, false, synth.lastMidiChannel);
+        synth.noteOn (newPitch, velocity, false, synth.midi.getLastMidiChannel());
     }
 
     lastPitch = newPitch;

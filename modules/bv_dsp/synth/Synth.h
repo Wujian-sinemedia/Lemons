@@ -119,9 +119,9 @@ public:
     // returns the actual frequency in Hz a HarmonizerVoice needs to output for its latest recieved midiNote, weighted for pitchbend with the current settings & pitchwheel position, then converted to frequency with the current concert pitch settings.
     float getOutputFrequency (const int midipitch, const int midiChannel = -1) const;
 
-    bool isSustainPedalDown() const noexcept { return sustainPedalDown; }
-    bool isSostenutoPedalDown() const noexcept { return sostenutoPedalDown; }
-    bool isSoftPedalDown() const noexcept { return softPedalDown; }
+    bool isSustainPedalDown() const noexcept { return midi.isSustainPedalDown(); }
+    bool isSostenutoPedalDown() const noexcept { return midi.isSostenutoPedalDown(); }
+    bool isSoftPedalDown() const noexcept { return midi.isSoftPedalDown(); }
     bool isAftertouchGainOn() const noexcept { return aftertouchGainIsOn; }
 
     float getPlayingButReleasedMultiplier() const noexcept { return playingButReleasedMultiplier; }
@@ -144,15 +144,8 @@ public:
 
     /* if connected to MTS-ESP, queries the master plugin for the name of the current scale. If not using MTS-ESP or not connected to a master plugin, returns an empty String. */
     juce::String getScaleName() const;
-
-
-    struct LastMovedControllerInfo
-    {
-        int controllerNumber = 0;
-        int controllerValue  = 0;
-    };
-
-    LastMovedControllerInfo getLastMovedControllerInfo() const noexcept { return lastMovedControllerInfo; }
+    
+    auto getLastMovedControllerInfo() const { return midi.getLastMovedCCinfo(); }
 
 protected:
     friend class SynthVoiceBase< SampleType >;
@@ -182,22 +175,17 @@ private:
     void removeNumVoices (const int voicesToRemove);
     void numVoicesChanged();
 
-    void processMidi (MidiBuffer& midiMessages);
-    void handleMidiEvent (const MidiMessage& m, const int samplePosition);
-
     void noteOn (const int midiPitch, const float velocity, const bool isKeyboard = true, const int midiChannel = -1);
     void noteOff (const int midiNoteNumber, const float velocity, const bool allowTailOff, const bool isKeyboard = true);
+    void startVoice (Voice* voice, const int midiPitch, const float velocity, const bool isKeyboard, const int midiChannel = -1);
+    void stopVoice (Voice* voice, const float velocity, const bool allowTailOff);
 
     void handleAftertouch (int midiNoteNumber, int aftertouchValue);
     void handleChannelPressure (int channelPressureValue);
     void updateChannelPressure (int newIncomingAftertouch);
-    void handleController (const int controllerNumber, int controllerValue);
     void handleSustainPedal (const int value);
     void handleSostenutoPedal (const int value);
     void handleSoftPedal (const int value);
-
-    void startVoice (Voice* voice, const int midiPitch, const float velocity, const bool isKeyboard, const int midiChannel = -1);
-    void stopVoice (Voice* voice, const float velocity, const bool allowTailOff);
 
     void turnOnList (const juce::Array< int >& toTurnOn, const float velocity, const bool partOfChord = false);
     void turnOffList (const juce::Array< int >& toTurnOff, const float velocity, const bool allowTailOff, const bool partOfChord = false);
@@ -205,15 +193,11 @@ private:
     // this function should be called any time the collection of pitches is changed (ie, with regular keyboard input, on each note on/off, or for chord input, once after each chord is triggered). Used for things like pedal pitch, descant, etc
     void pitchCollectionChanged();
 
-    void applyPedalPitch();
-    void applyDescant();
-
     // voice allocation
     Voice* findFreeVoice (const bool stealIfNoneAvailable);
     Voice* findVoiceToSteal();
 
     Voice* getVoicePlayingNote (const int midiPitch) const;
-
 
     /*==============================================================================================================
      ===============================================================================================================*/
@@ -228,12 +212,8 @@ private:
     ADSRParams adsrParams;
     ADSRParams quickReleaseParams;
 
-    float currentInputFreq {0.0f};
-
     double sampleRate {0.0};
-    uint32 lastNoteOnCounter {0};
-    int    lastPitchWheelValue {64};
-
+    
     bool shouldStealNotes {true};
 
     synth_helpers::PanningManager panner;
@@ -248,16 +228,9 @@ private:
     bav::midi::PitchConverter pitchConverter;
 #endif
 
-    int lastMidiTimeStamp {0};
-    int lastMidiChannel {1};
-
     bool aftertouchGainIsOn {true};
 
     float playingButReleasedMultiplier;
-
-    bool sustainPedalDown {false};
-    bool sostenutoPedalDown {false};
-    bool softPedalDown {false};
 
     float softPedalMultiplier;  // the multiplier by which each voice's output will be multiplied when the soft pedal is down
 
@@ -268,7 +241,63 @@ private:
     MidiBuffer aggregateMidiBuffer;  // this midi buffer will be used to collect the harmonizer's aggregate MIDI output
     MidiBuffer midiInputStorage;     // each block of midi that comes in is stored in here so we can refer to it later
 
-    LastMovedControllerInfo lastMovedControllerInfo;
+    //--------------------------------------------------
+    
+    class MidiProcessor :   public midi::MidiProcessor
+    {
+    public:
+        MidiProcessor (SynthBase& s): synth(s) { }
+        
+    private:
+        void handleNoteOn  (int midiPitch, float velocity)
+        {
+            synth.noteOn (midiPitch, velocity, true, getLastMidiChannel());
+        }
+        
+        void handleNoteOff (int midiPitch, float velocity)
+        {
+            synth.noteOff (midiPitch, velocity, true, getLastMidiChannel());
+        }
+        
+        void handlePitchwheel (int wheelValue)
+        {
+            synth.handlePitchWheel (wheelValue);
+        }
+        
+        void handleAftertouch (int noteNumber, int aftertouchValue)
+        {
+            synth.handleAftertouch (noteNumber, aftertouchValue);
+        }
+        
+        void handleChannelPressure (int channelPressureValue)
+        {
+            synth.handleChannelPressure (channelPressureValue);
+        }
+        
+        void handleSustainPedal (int controllerValue)
+        {
+            synth.handleSustainPedal (controllerValue);
+        }
+        
+        void handleSostenutoPedal (int controllerValue)
+        {
+            synth.handleSostenutoPedal (controllerValue);
+        }
+        
+        void handleSoftPedal (int controllerValue)
+        {
+            synth.handleSoftPedal (controllerValue);
+        }
+        
+        void handleAllSoundOff()
+        {
+            synth.allNotesOff (false);
+        }
+        
+        SynthBase& synth;
+    };
+    
+    MidiProcessor midi {*this};
 
     //--------------------------------------------------
 
