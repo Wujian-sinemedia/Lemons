@@ -165,7 +165,7 @@
 #endif
 
 
-// misc
+
 #include "misc/StaticObjects.h"
 #include "misc/misc.h"
 #include "misc/LockFreeFifo.h"
@@ -173,24 +173,16 @@
 #include "serializing/SerializableData.h"
 #include "serializing/valuetree_json_converter.h"
 
-
-// files
 #include "files/FileUtilities.h"
-#include "files/BinaryDataHelpers/BinaryDataHelpers.h"
 
+#include "binary_data/BinaryDataHelpers.h"
 
-// localization
 #include "localization/localization.h"
-
 
 #include "misc/SystemInitializer.h"
 
-
-// async
 #include "async/AsyncUtils.h"
 
-
-// math
 #include "math/mathHelpers.h"
 #include "math/vecops/vecops.h"
 #include "math/intops/intOps.h"

@@ -22,6 +22,6 @@
 #endif
 
 #include "files/FileUtilities.cpp"
-#include "files/BinaryDataHelpers/BinaryDataHelpers.cpp"
+#include "binary_data/BinaryDataHelpers.cpp"
 
 #include "async/AsyncUtils.cpp"
