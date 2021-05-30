@@ -97,7 +97,7 @@ void SynthBase< SampleType >::startVoice (Voice* voice, const int midiPitch, con
         voice->aftertouchChanged (0);
     }
     
-    if (midiPitch < lowestPannedNote)  // set pan to 64 if note is below panning threshold
+    if (midiPitch < panner.getLowestNote())  // set pan to 64 if note is below panning threshold
     {
         if (wasStolen) panner.panValTurnedOff (voice->getCurrentMidiPan());
         

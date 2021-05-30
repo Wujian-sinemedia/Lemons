@@ -1,8 +1,6 @@
 
 #pragma once
 
-#include "internals/PanningManager/PanningManager.h"
-
 
 namespace bav::dsp
 {
@@ -77,8 +75,8 @@ public:
     /* If you are not using MTS-ESP, you can call this method to alter the master tuning of your synth. If you are using MTS-ESP, calling this method does nothing. */
     void setConcertPitchHz (const int newConcertPitchhz);
 
-    void updateStereoWidth (int newWidth);
-    void updateLowestPannedNote (int newPitchThresh);
+    void updateStereoWidth (int newWidth) { panner.updateStereoWidth (newWidth); }
+    void updateLowestPannedNote (int newPitchThresh) { panner.setLowestNote (newPitchThresh); }
 
     void setMidiLatch (const bool shouldBeOn, const bool allowTailOff = false);
     bool isLatched() const noexcept { return latchIsOn; }
@@ -162,9 +160,6 @@ private:
 
     bool shouldStealNotes {true};
 
-    synth_helpers::PanningManager panner;
-    int                           lowestPannedNote {0};
-
     midi::VelocityHelper velocityConverter;
     midi::PitchPipeline  pitch;
 
@@ -203,6 +198,45 @@ private:
     };
 
     MidiManager midi {*this};
+    
+    //--------------------------------------------------
+    
+    class PanningManager
+    {
+        using Array = juce::Array< int >;
+        
+    public:
+        PanningManager (SynthBase& b): synth (b) { }
+        
+        void prepare (const int numVoices, bool clearArrays = true);
+        void reset();
+        
+        void updateStereoWidth (const int newWidth);
+        
+        void setLowestNote (int newLowestNote);
+        int  getLowestNote() const { return lowestPannedNote; }
+        
+        int  getNextPanVal();
+        void panValTurnedOff (int panVal);
+    
+    private:
+        void updatePanValueLookupTables (int newWidth);
+        void mapArrayIndexes();
+        int  getClosestNewPanValFromOld (int oldPan);
+        int  findClosestValueInNewArray (int targetValue, Array& newArray);
+        
+        SynthBase& synth;
+        
+        int stereoWidth {100};
+        int lowestPannedNote {0};
+        
+        Array arrayIndexesMapped;
+        Array possiblePanVals, panValsInAssigningOrder, unsentPanVals;
+        Array newPanVals, newUnsentVals;
+        Array distances;
+    };
+    
+    PanningManager panner {*this};
 
     //--------------------------------------------------
 

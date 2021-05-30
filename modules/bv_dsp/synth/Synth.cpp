@@ -1,5 +1,5 @@
 
-#include "internals/PanningManager/PanningManager.cpp"
+#include "internals/PanningManager.cpp"
 #include "internals/MidiManager.cpp"
 #include "internals/AutomatedHarmonyVoice.cpp"
 
@@ -106,8 +106,6 @@ void SynthBase< SampleType >::releaseResources()
     usableVoices.clear();
     currentNotes.clear();
     desiredNotes.clear();
-
-    panner.releaseResources();
 
     for (auto* voice : voices)
         voice->release();
