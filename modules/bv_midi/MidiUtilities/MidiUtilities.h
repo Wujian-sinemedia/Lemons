@@ -24,4 +24,23 @@ void copyRangeOfMidiBuffer (const juce::MidiBuffer& readingBuffer,
 bool isValidMidiPitch (int note);
 
 
+extern float getGainMultFromMidiVelocity (float midiVelocity, float sensitivity = 1.0f);
+extern float getGainMultFromMidiVelocity (int   midiVelocity, float sensitivity = 1.0f);
+
+
+struct VelocityHelper
+{
+    void setSensitivity (float newSensitivity);
+    void setSensitivity (int   newSensitivity);
+    
+    float getGainForVelocity (float midiVelocity);
+    float getGainForVelocity (int   midiVelocity);
+    
+    float getSensitivity() const { return sensitivity; }
+    
+private:
+    float sensitivity {1.0f};
+};
+
+
 }  // namespace bav::midi

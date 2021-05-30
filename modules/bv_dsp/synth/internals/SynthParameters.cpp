@@ -35,12 +35,13 @@ void SynthBase< SampleType >::updateMidiVelocitySensitivity (int newSensitivity)
 
     const auto newSens = newSensitivity / 100.0f;
 
-    if (velocityConverter.getCurrentSensitivity() == newSens) return;
+    if (velocityConverter.getSensitivity() == newSens) return;
 
-    velocityConverter.setFloatSensitivity (newSens);
+    velocityConverter.setSensitivity (newSens);
 
     for (auto* voice : voices)
-        if (voice->isVoiceActive()) voice->setVelocityMultiplier (getWeightedVelocity (voice->getLastRecievedVelocity()));
+        if (voice->isVoiceActive())
+            voice->setVelocityMultiplier (velocityConverter.getGainForVelocity (voice->getLastRecievedVelocity()));
 }
 
 

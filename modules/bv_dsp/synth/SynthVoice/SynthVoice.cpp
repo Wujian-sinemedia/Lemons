@@ -189,7 +189,7 @@ void SynthVoiceBase< SampleType >::startNote (const int    midiPitch,
 
     setKeyDown (keyboardKeyIsDown);
 
-    midiVelocityGain.setTargetValue (smoothingZeroCheck (parent->getWeightedVelocity (velocity)));
+    midiVelocityGain.setTargetValue (smoothingZeroCheck (parent->velocityConverter.getGainForVelocity (velocity)));
 
     aftertouchGain.setTargetValue (SampleType (1.0));
 
@@ -205,7 +205,7 @@ template < typename SampleType >
 void SynthVoiceBase< SampleType >::stopNote (const float velocity, const bool allowTailOff)
 {
     const auto newGain = juce::jlimit (0.0f, 1.0f, lastRecievedVelocity - velocity);
-    midiVelocityGain.setTargetValue (smoothingZeroCheck (parent->getWeightedVelocity (newGain)));
+    midiVelocityGain.setTargetValue (smoothingZeroCheck (parent->velocityConverter.getGainForVelocity (newGain)));
 
     adsr.noteOff();
     quickRelease.noteOff();
@@ -286,7 +286,7 @@ void SynthVoiceBase< SampleType >::aftertouchChanged (const int newAftertouchVal
     {
         const auto newWeightedGain = juce::jlimit (0.0f, 1.0f, lastRecievedVelocity + newAftertouchValue * inv127);
 
-        aftertouchGain.setTargetValue (smoothingZeroCheck (parent->getWeightedVelocity (newWeightedGain)));
+        aftertouchGain.setTargetValue (smoothingZeroCheck (parent->velocityConverter.getGainForVelocity (newWeightedGain)));
     }
     else
         aftertouchGain.setTargetValue (SampleType (1.0));

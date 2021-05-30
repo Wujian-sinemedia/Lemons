@@ -34,7 +34,7 @@ namespace bav::dsp
  */
 template < typename SampleType >
 SynthBase< SampleType >::SynthBase()
-    : velocityConverter (100), bendTracker (2, 2)
+    : bendTracker (2, 2)
 #if ! BV_USE_MTS_ESP
       ,
       pitchConverter (440, 69, 12)
@@ -300,17 +300,6 @@ void SynthBase< SampleType >::setCurrentPlaybackSampleRate (const double newRate
  Functions that don't really belong anywhere else
  
  ==========================================================================================================*/
-
-/*
- Returns a float velocity, weighted according to the current midi velocity sensitivity setting.
- The voices call this for setting both their velocity gain and their aftertouch gain -- aftertouch is also weighted according to midi velocity sensitivity.
- */
-template < typename SampleType >
-float SynthBase< SampleType >::getWeightedVelocity (const float inputFloatVelocity) const
-{
-    jassert (inputFloatVelocity >= 0.0f && inputFloatVelocity <= 1.0f);
-    return velocityConverter.floatVelocity (inputFloatVelocity);
-}
 
 
 /*

@@ -113,9 +113,6 @@ public:
 
     double getSamplerate() const noexcept { return sampleRate; }
 
-    // returns a float velocity weighted according to the current midi velocity sensitivity settings
-    float getWeightedVelocity (const float inputFloatVelocity) const;
-
     // returns the actual frequency in Hz a HarmonizerVoice needs to output for its latest recieved midiNote, weighted for pitchbend with the current settings & pitchwheel position, then converted to frequency with the current concert pitch settings.
     float getOutputFrequency (const int midipitch, const int midiChannel = -1) const;
 
