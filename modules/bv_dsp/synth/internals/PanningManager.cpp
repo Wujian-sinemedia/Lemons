@@ -3,7 +3,7 @@ namespace bav::dsp
 {
 
 template<typename SampleType>
-void SynthBase<SampleType>::PanningManager::prepare (const int numVoices, bool clearArrays)
+void SynthBase<SampleType>::PanningManager::prepare (int numVoices, bool clearArrays)
 {
     jassert (numVoices > 0);
 
@@ -31,7 +31,7 @@ void SynthBase<SampleType>::PanningManager::prepare (const int numVoices, bool c
 }
 
 template<typename SampleType>
-void SynthBase<SampleType>::PanningManager::updateStereoWidth (const int newWidth)
+void SynthBase<SampleType>::PanningManager::updateStereoWidth (int newWidth)
 {
     jassert (newWidth >= 0 && newWidth <= 100);
     
@@ -95,7 +95,7 @@ void SynthBase<SampleType>::PanningManager::setLowestNote (int newLowestNote)
 }
 
 template<typename SampleType>
-void SynthBase<SampleType>::PanningManager::updatePanValueLookupTables (const int newWidth)
+void SynthBase<SampleType>::PanningManager::updatePanValueLookupTables (int newWidth)
 {
     const auto numVoices = synth.getNumVoices();
     jassert (numVoices > 0);

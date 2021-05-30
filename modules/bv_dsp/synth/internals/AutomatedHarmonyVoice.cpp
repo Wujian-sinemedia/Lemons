@@ -124,12 +124,6 @@ void SynthBase< SampleType >::AutomatedHarmonyVoice::turnNoteOffIfOn()
 }
 
 template < typename SampleType >
-bool SynthBase< SampleType >::AutomatedHarmonyVoice::isAutomatedPitch (int midiNote)
-{
-    return isOn && lastPitch == midiNote;
-}
-
-template < typename SampleType >
 void SynthBase< SampleType >::AutomatedHarmonyVoice::autoNoteOffKeyboardKeyHeld (int midiNote)
 {
     if (isAutomatedPitch (midiNote))

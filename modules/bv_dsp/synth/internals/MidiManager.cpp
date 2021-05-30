@@ -104,10 +104,4 @@ void SynthBase< SampleType >::MidiManager::handlePitchwheel (int wheelValue)
             voice->setCurrentOutputFreq (synth.pitch.getFrequencyForMidi (voice->getCurrentlyPlayingNote()));
 }
 
-template < typename SampleType >
-void SynthBase< SampleType >::MidiManager::handleAllSoundOff()
-{
-    synth.allNotesOff (false);
-}
-
 }  // namespace

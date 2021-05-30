@@ -43,7 +43,7 @@ SynthBase< SampleType >::~SynthBase()
  Initializes the synth.
  */
 template < typename SampleType >
-void SynthBase< SampleType >::initialize (const int initNumVoices, const double initSamplerate, const int initBlocksize)
+void SynthBase< SampleType >::initialize (int initNumVoices, double initSamplerate, int initBlocksize)
 {
     jassert (initNumVoices > 0 && initSamplerate > 0 && initBlocksize > 0);
 
@@ -76,7 +76,7 @@ void SynthBase< SampleType >::reset()
  Prepares the synth for a new expected maximum blocksize.
  */
 template < typename SampleType >
-void SynthBase< SampleType >::prepare (const int blocksize)
+void SynthBase< SampleType >::prepare (int blocksize)
 {
     jassert (blocksize > 0);
     jassert (! voices.isEmpty());
@@ -201,7 +201,7 @@ void SynthBase< SampleType >::renderVoices (juce::MidiBuffer& midiMessages, juce
  Renders all the synth's voices for the given range of the output buffer. (Not for public use.)
  */
 template < typename SampleType >
-void SynthBase< SampleType >::renderVoicesInternal (juce::AudioBuffer< SampleType >& output, const int startSample, const int numSamples)
+void SynthBase< SampleType >::renderVoicesInternal (juce::AudioBuffer< SampleType >& output, int startSample, int numSamples)
 {
 #if JUCE_DEBUG
     const auto totalNumSamples = output.getNumSamples();
@@ -222,7 +222,7 @@ void SynthBase< SampleType >::renderVoicesInternal (juce::AudioBuffer< SampleTyp
  This will not output any audio, but may alter the contents of the MidiBuffer.
  */
 template < typename SampleType >
-void SynthBase< SampleType >::bypassedBlock (const int numSamples, MidiBuffer& midiMessages)
+void SynthBase< SampleType >::bypassedBlock (int numSamples, MidiBuffer& midiMessages)
 {
     midi.process (midiMessages);
 
@@ -236,7 +236,7 @@ void SynthBase< SampleType >::bypassedBlock (const int numSamples, MidiBuffer& m
  This MUST be called before you attempt to render any audio with the synth!
  */
 template < typename SampleType >
-void SynthBase< SampleType >::setCurrentPlaybackSampleRate (const double newRate)
+void SynthBase< SampleType >::setCurrentPlaybackSampleRate (double newRate)
 {
     jassert (newRate > 0);
 

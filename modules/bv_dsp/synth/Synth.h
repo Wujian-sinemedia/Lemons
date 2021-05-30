@@ -25,63 +25,63 @@ public:
 
     virtual ~SynthBase();
 
-    void initialize (const int initNumVoices, const double initSamplerate, const int initBlocksize);
+    void initialize (int initNumVoices, double initSamplerate = 44100.0, int initBlocksize = 512);
 
-    void prepare (const int blocksize);
+    void prepare (int blocksize);
 
     void reset();
     void resetRampedValues();
 
-    void setCurrentPlaybackSampleRate (const double newRate);
+    void setCurrentPlaybackSampleRate (double newRate);
 
     void renderVoices (juce::MidiBuffer& midiMessages, juce::AudioBuffer< SampleType >& output);
 
     void releaseResources();
 
-    void bypassedBlock (const int numSamples, MidiBuffer& midiMessages);
+    void bypassedBlock (int numSamples, MidiBuffer& midiMessages);
 
     void processMidiEvent (const MidiMessage& m);
 
-    void playChord (const juce::Array< int >& desiredPitches, const float velocity = 1.0f, const bool allowTailOffOfOld = false);
+    void playChord (const juce::Array< int >& desiredPitches, float velocity = 1.0f, bool allowTailOffOfOld = false);
 
-    void allNotesOff (const bool allowTailOff, const float velocity = 1.0f);
+    void allNotesOff (bool allowTailOff = false, float velocity = 1.0f);
 
-    void turnOffAllKeyupNotes (const bool  allowTailOff,
-                               const bool  includePedalPitchAndDescant,
-                               const float velocity,
-                               const bool  overrideSostenutoPedal);
+    void turnOffAllKeyupNotes (bool  allowTailOff = false,
+                               bool  includePedalPitchAndDescant = true,
+                               float velocity = 1.0f,
+                               bool  overrideSostenutoPedal = true);
 
-    bool isPitchActive (const int midiPitch, const bool countRingingButReleased = false, const bool countKeyUpNotes = false) const;
-    void reportActiveNotes (juce::Array< int >& outputArray, const bool includePlayingButReleased = false, const bool includeKeyUpNotes = true) const;
+    bool isPitchActive (int midiPitch, bool countRingingButReleased = false, bool countKeyUpNotes = false) const;
+    void reportActiveNotes (juce::Array< int >& outputArray, bool includePlayingButReleased = false, bool includeKeyUpNotes = true) const;
 
     int  getNumActiveVoices() const;
     int  getNumVoices() const noexcept { return voices.size(); }
-    void changeNumVoices (const int newNumVoices);
+    void changeNumVoices (int newNumVoices);
 
-    void setNoteStealingEnabled (const bool shouldSteal) noexcept { shouldStealNotes = shouldSteal; }
+    void setNoteStealingEnabled (bool shouldSteal) noexcept { shouldStealNotes = shouldSteal; }
     void updateMidiVelocitySensitivity (int newSensitivity);
-    void updatePitchbendSettings (const int rangeUp, const int rangeDown);
-    void setAftertouchGainOnOff (const bool shouldBeOn) { aftertouchGainIsOn = shouldBeOn; }
+    void updatePitchbendSettings (int rangeUp, int rangeDown);
+    void setAftertouchGainOnOff (bool shouldBeOn) { aftertouchGainIsOn = shouldBeOn; }
 
-    void setPedalPitch (const bool isOn);
-    void setPedalPitchUpperThresh (int newThresh);
-    void setPedalPitchInterval (const int newInterval);
+    void setPedalPitch (bool isOn) { pedal.setEnabled (isOn); }
+    void setPedalPitchUpperThresh (int newThresh) { pedal.setThreshold (newThresh); }
+    void setPedalPitchInterval (int newInterval) { pedal.setInterval (newInterval); }
 
-    void setDescant (const bool isOn);
-    void setDescantLowerThresh (int newThresh);
-    void setDescantInterval (const int newInterval);
+    void setDescant (bool isOn) { descant.setEnabled (isOn); }
+    void setDescantLowerThresh (int newThresh) { descant.setThreshold (newThresh); }
+    void setDescantInterval (int newInterval) { descant.setInterval (newInterval); }
 
     /* If you are not using MTS-ESP, you can call this method to alter the master tuning of your synth. If you are using MTS-ESP, calling this method does nothing. */
-    void setConcertPitchHz (const int newConcertPitchhz);
+    void setConcertPitchHz (int newConcertPitchhz);
 
     void updateStereoWidth (int newWidth) { panner.updateStereoWidth (newWidth); }
     void updateLowestPannedNote (int newPitchThresh) { panner.setLowestNote (newPitchThresh); }
 
-    void setMidiLatch (const bool shouldBeOn, const bool allowTailOff = false);
+    void setMidiLatch (bool shouldBeOn, const bool allowTailOff = false);
     bool isLatched() const noexcept { return latchIsOn; }
 
-    void updateADSRsettings (const float attack, const float decay, const float sustain, const float release);
-    void updateQuickReleaseMs (const int newMs);
+    void updateADSRsettings (float attack, float decay, float sustain, float release);
+    void updateQuickReleaseMs (int newMs);
 
     bool isSustainPedalDown() const noexcept { return midi.isSustainPedalDown(); }
     bool isSostenutoPedalDown() const noexcept { return midi.isSostenutoPedalDown(); }
@@ -102,7 +102,7 @@ protected:
     friend class SynthVoiceBase< SampleType >;
 
     // if overridden, called in the subclass when the top-level call to initialize() is made.
-    virtual void initialized (const double initSamplerate, const int initBlocksize) { juce::ignoreUnused (initSamplerate, initBlocksize); }
+    virtual void initialized (double initSamplerate, int initBlocksize) { juce::ignoreUnused (initSamplerate, initBlocksize); }
 
     // if overridden, called in the subclass when the top-level call to prepare() is made.
     virtual void prepared (int blocksize) { juce::ignoreUnused (blocksize); }
@@ -120,27 +120,27 @@ protected:
     virtual Voice* createVoice() = 0;
 
 private:
-    void renderVoicesInternal (AudioBuffer& output, const int startSample, const int numSamples);
+    void renderVoicesInternal (AudioBuffer& output, int startSample, int numSamples);
 
-    void addNumVoices (const int voicesToAdd);
-    void removeNumVoices (const int voicesToRemove);
+    void addNumVoices (int voicesToAdd);
+    void removeNumVoices (int voicesToRemove);
     void numVoicesChanged();
 
-    void noteOn (const int midiPitch, const float velocity, const bool isKeyboard = true, const int midiChannel = -1);
-    void noteOff (const int midiNoteNumber, const float velocity, const bool allowTailOff, const bool isKeyboard = true);
-    void startVoice (Voice* voice, const int midiPitch, const float velocity, const bool isKeyboard, const int midiChannel = -1);
-    void stopVoice (Voice* voice, const float velocity, const bool allowTailOff);
-    void turnOnList (const juce::Array< int >& toTurnOn, const float velocity, const bool partOfChord = false);
-    void turnOffList (const juce::Array< int >& toTurnOff, const float velocity, const bool allowTailOff, const bool partOfChord = false);
+    void noteOn (int midiPitch, float velocity, bool isKeyboard = true, int midiChannel = -1);
+    void noteOff (int midiNoteNumber, float velocity = 1.0f, bool allowTailOff = false, bool isKeyboard = true);
+    void startVoice (Voice* voice, int midiPitch, float velocity, bool isKeyboard, int midiChannel = -1);
+    void stopVoice (Voice* voice, float velocity, bool allowTailOff);
+    void turnOnList (const juce::Array< int >& toTurnOn, float velocity = 1.0f, bool partOfChord = false);
+    void turnOffList (const juce::Array< int >& toTurnOff, float velocity = 1.0f, bool allowTailOff = false, bool partOfChord = false);
 
     void pitchCollectionChanged();
     
     void updateChannelPressure (int newIncomingAftertouch);
 
-    Voice* findFreeVoice (const bool stealIfNoneAvailable);
+    Voice* findFreeVoice (bool stealIfNoneAvailable = true);
     Voice* findVoiceToSteal();
 
-    Voice* getVoicePlayingNote (const int midiPitch) const;
+    Voice* getVoicePlayingNote (int midiPitch) const;
 
     /*==============================================================================================================
      ===============================================================================================================*/
@@ -191,7 +191,7 @@ private:
         void handleSustainPedal (int controllerValue);
         void handleSostenutoPedal (int controllerValue);
         void handleSoftPedal (int controllerValue);
-        void handleAllSoundOff();
+        void handleAllSoundOff() { synth.allNotesOff (false); }
 
         SynthBase& synth;
     };
@@ -207,10 +207,10 @@ private:
     public:
         PanningManager (SynthBase& b): synth (b) { }
         
-        void prepare (const int numVoices, bool clearArrays = true);
+        void prepare (int numVoices, bool clearArrays = true);
         void reset();
         
-        void updateStereoWidth (const int newWidth);
+        void updateStereoWidth (int newWidth);
         
         void setLowestNote (int newLowestNote);
         int  getLowestNote() const { return lowestPannedNote; }
@@ -253,7 +253,7 @@ private:
         void turnNoteOffIfOn();
         void setNoteToOff() { lastPitch = -1; }
 
-        bool isAutomatedPitch (int midiNote);
+        bool isAutomatedPitch (int midiNote) { return isOn && lastPitch == midiNote; }
 
         // call this function when processing an automated note-off and the voice's keyboard key is still being held
         void autoNoteOffKeyboardKeyHeld (int midiNote);

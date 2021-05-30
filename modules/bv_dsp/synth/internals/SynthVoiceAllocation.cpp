@@ -5,7 +5,7 @@ namespace bav::dsp
  Attempts to find the appropriate voice to start when a note-on event is recieved.
  */
 template < typename SampleType >
-SynthVoiceBase< SampleType >* SynthBase< SampleType >::findFreeVoice (const bool stealIfNoneAvailable)
+SynthVoiceBase< SampleType >* SynthBase< SampleType >::findFreeVoice (bool stealIfNoneAvailable)
 {
     jassert (! voices.isEmpty());
 
@@ -109,7 +109,7 @@ SynthVoiceBase< SampleType >* SynthBase< SampleType >::findVoiceToSteal()
  Note that this function will allocate!
  */
 template < typename SampleType >
-void SynthBase< SampleType >::changeNumVoices (const int newNumVoices)
+void SynthBase< SampleType >::changeNumVoices (int newNumVoices)
 {
     const auto currentVoices = voices.size();
 
@@ -129,7 +129,7 @@ void SynthBase< SampleType >::changeNumVoices (const int newNumVoices)
  This is virtual because your subclass can override this to add instances of your subclass of SynthVoiceBase. If you provide a custom implementation, your function MUST call numVoicesChanged() after it has finished adding voices!
  */
 template < typename SampleType >
-void SynthBase< SampleType >::addNumVoices (const int voicesToAdd)
+void SynthBase< SampleType >::addNumVoices (int voicesToAdd)
 {
     if (voicesToAdd == 0) return;
 
@@ -146,7 +146,7 @@ void SynthBase< SampleType >::addNumVoices (const int voicesToAdd)
  Removes a specified number of voices from the synth. This function attempts to remove inactive voices first.
  */
 template < typename SampleType >
-void SynthBase< SampleType >::removeNumVoices (const int voicesToRemove)
+void SynthBase< SampleType >::removeNumVoices (int voicesToRemove)
 {
     if (voicesToRemove == 0) return;
 
@@ -201,7 +201,7 @@ void SynthBase< SampleType >::numVoicesChanged()
  Returns a pointer to the voice playing a certain note. This will return nullptr if the note is not currently active.
  */
 template < typename SampleType >
-SynthVoiceBase< SampleType >* SynthBase< SampleType >::getVoicePlayingNote (const int midiPitch) const
+SynthVoiceBase< SampleType >* SynthBase< SampleType >::getVoicePlayingNote (int midiPitch) const
 {
     auto it = std::find_if (voices.begin(),
                             voices.end(),

@@ -17,7 +17,7 @@ void SynthBase< SampleType >::processMidiEvent (const MidiMessage& m)
  Any time a note-on event is requested, this function is called. This function takes care of determining which voice to use, and outputting the appropriate MIDI event(s) to the aggregateMidiBuffer.
  */
 template < typename SampleType >
-void SynthBase< SampleType >::noteOn (const int midiPitch, const float velocity, const bool isKeyboard, const int midiChannel)
+void SynthBase< SampleType >::noteOn (int midiPitch, float velocity, bool isKeyboard, int midiChannel)
 {
     if (pitch.tuning.shouldFilterNote (midiPitch, midiChannel))
     {
@@ -56,7 +56,7 @@ void SynthBase< SampleType >::noteOn (const int midiPitch, const float velocity,
  This function actually starts a given voice. Pass a nullptr to the first argument to indicate that a note-on event was requested, but an available voice could not be found (ie, if stealing is disbled, etc)
  */
 template < typename SampleType >
-void SynthBase< SampleType >::startVoice (Voice* voice, const int midiPitch, const float velocity, const bool isKeyboard, const int midiChannel)
+void SynthBase< SampleType >::startVoice (Voice* voice, int midiPitch, float velocity, bool isKeyboard, int midiChannel)
 {
     if (voice == nullptr) return;
     
@@ -120,7 +120,7 @@ void SynthBase< SampleType >::startVoice (Voice* voice, const int midiPitch, con
  Any time a note-off event is requested, this function is called. This function takes care of determining which voice to stop, and outputting the appropriate MIDI event(s) to the aggregateMidiBuffer.
  */
 template < typename SampleType >
-void SynthBase< SampleType >::noteOff (const int midiNoteNumber, const float velocity, const bool allowTailOff, const bool isKeyboard)
+void SynthBase< SampleType >::noteOff (int midiNoteNumber, float velocity, bool allowTailOff, bool isKeyboard)
 {
     auto* voice = getVoicePlayingNote (midiNoteNumber);
 
@@ -165,7 +165,7 @@ void SynthBase< SampleType >::noteOff (const int midiNoteNumber, const float vel
  This function actually stops a given voice.
  */
 template < typename SampleType >
-void SynthBase< SampleType >::stopVoice (Voice* voice, const float velocity, const bool allowTailOff)
+void SynthBase< SampleType >::stopVoice (Voice* voice, float velocity, bool allowTailOff)
 {
     if (voice == nullptr) return;
 
@@ -198,7 +198,7 @@ void SynthBase< SampleType >::stopVoice (Voice* voice, const float velocity, con
  Turns off all currently active notes.
  */
 template < typename SampleType >
-void SynthBase< SampleType >::allNotesOff (const bool allowTailOff, const float velocity)
+void SynthBase< SampleType >::allNotesOff (bool allowTailOff, float velocity)
 {
     for (auto* voice : voices)
         if (voice->isVoiceActive()) stopVoice (voice, velocity, allowTailOff);
@@ -211,10 +211,10 @@ void SynthBase< SampleType >::allNotesOff (const bool allowTailOff, const float 
  Turns off all notes whose keyboard keys aren't being held down anymore.
  */
 template < typename SampleType >
-void SynthBase< SampleType >::turnOffAllKeyupNotes (const bool  allowTailOff,
-                                                    const bool  includePedalPitchAndDescant,
-                                                    const float velocity,
-                                                    const bool  overrideSostenutoPedal)
+void SynthBase< SampleType >::turnOffAllKeyupNotes (bool  allowTailOff,
+                                                    bool  includePedalPitchAndDescant,
+                                                    float velocity,
+                                                    bool  overrideSostenutoPedal)
 {
     for (auto* voice : voices)
     {
@@ -258,7 +258,7 @@ void SynthBase< SampleType >::updateChannelPressure (int newIncomingAftertouch)
  When latch is on/true, any recieved note offs will be ignored until latch is turned off, at which point any notes whose keyboard keys aren't still being held will be turned off.
  */
 template < typename SampleType >
-void SynthBase< SampleType >::setMidiLatch (const bool shouldBeOn, const bool allowTailOff)
+void SynthBase< SampleType >::setMidiLatch (bool shouldBeOn, bool allowTailOff)
 {
     if (latchIsOn == shouldBeOn) return;
 
@@ -277,7 +277,7 @@ void SynthBase< SampleType >::setMidiLatch (const bool shouldBeOn, const bool al
  This function uses turnOnList() and turnOffList() internally.
  */
 template < typename SampleType >
-void SynthBase< SampleType >::playChord (const juce::Array< int >& desiredPitches, const float velocity, const bool allowTailOffOfOld)
+void SynthBase< SampleType >::playChord (const juce::Array< int >& desiredPitches, float velocity, bool allowTailOffOfOld)
 {
     if (desiredPitches.isEmpty())
     {
@@ -322,7 +322,7 @@ void SynthBase< SampleType >::playChord (const juce::Array< int >& desiredPitche
  Turns on a specified list of pitches.
  */
 template < typename SampleType >
-void SynthBase< SampleType >::turnOnList (const juce::Array< int >& toTurnOn, const float velocity, const bool partOfChord)
+void SynthBase< SampleType >::turnOnList (const juce::Array< int >& toTurnOn, float velocity, bool partOfChord)
 {
     if (toTurnOn.isEmpty()) return;
 
@@ -337,7 +337,7 @@ void SynthBase< SampleType >::turnOnList (const juce::Array< int >& toTurnOn, co
  Turns off a specified list of pitches.
  */
 template < typename SampleType >
-void SynthBase< SampleType >::turnOffList (const juce::Array< int >& toTurnOff, const float velocity, const bool allowTailOff, const bool partOfChord)
+void SynthBase< SampleType >::turnOffList (const juce::Array< int >& toTurnOff, float velocity, bool allowTailOff, bool partOfChord)
 {
     if (toTurnOff.isEmpty()) return;
 
@@ -352,7 +352,7 @@ void SynthBase< SampleType >::turnOffList (const juce::Array< int >& toTurnOff, 
  Returns true if any of the synth's voices is currently active and playing the specified note.
  */
 template < typename SampleType >
-bool SynthBase< SampleType >::isPitchActive (const int midiPitch, const bool countRingingButReleased, const bool countKeyUpNotes) const
+bool SynthBase< SampleType >::isPitchActive (int midiPitch, bool countRingingButReleased, bool countKeyUpNotes) const
 {
     for (auto* voice : voices)
         if ((voice->isVoiceActive() && voice->getCurrentlyPlayingNote() == midiPitch) && (countRingingButReleased || ! voice->isPlayingButReleased())
@@ -371,8 +371,8 @@ bool SynthBase< SampleType >::isPitchActive (const int midiPitch, const bool cou
  */
 template < typename SampleType >
 void SynthBase< SampleType >::reportActiveNotes (juce::Array< int >& outputArray,
-                                                 const bool          includePlayingButReleased,
-                                                 const bool          includeKeyUpNotes) const
+                                                 bool                includePlayingButReleased,
+                                                 bool                includeKeyUpNotes) const
 {
     outputArray.clearQuick();
 
