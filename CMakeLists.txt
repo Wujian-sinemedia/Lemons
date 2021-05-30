@@ -10,7 +10,7 @@ option (JUCE_BUILD_EXAMPLES "Build JUCE Examples" OFF)
 option (JUCE_BUILD_EXTRAS "Build JUCE Extras" OFF)
 set_property (GLOBAL PROPERTY USE_FOLDERS YES)
 
-set (bv_sharedcode_dir ${CMAKE_CURRENT_LIST_DIR} CACHE INTERNAL "shared code path")
+set (bv_sharedcode_dir ${CMAKE_CURRENT_LIST_DIR} CACHE INTERNAL "")
 
 set (CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
