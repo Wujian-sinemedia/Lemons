@@ -37,5 +37,6 @@
 #include "transport/PluginTransport.h"
 
 #if JucePlugin_Build_Standalone && JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP
-#    include "StandaloneWrapper/StandaloneWrapper.h"
+#    include "StandaloneWrapper/Window/StandaloneFilterWindow.h"
+#    include "StandaloneWrapper/App/StandaloneFilterApp.h"
 #endif
