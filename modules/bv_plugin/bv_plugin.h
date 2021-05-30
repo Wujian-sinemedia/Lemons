@@ -14,6 +14,11 @@
 #include "bv_core/bv_core.h"
 #include "bv_mobile_utils/bv_mobile_utils.h"
 
+#ifndef BV_USE_ABLETON_LINK
+#    define BV_USE_ABLETON_LINK 0
+#endif
+
+
 #include "SystemInitializer.h"
 
 #include "ProcessorBase/ProcessorBase.h"
@@ -30,6 +35,8 @@
 #include "parameters/ParameterList/ParameterList.h"
 
 #include "state/state.h"
+
+#include "transport/PluginTransport.h"
 
 #if JucePlugin_Build_Standalone && JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP
 #    include "StandaloneWrapper/StandaloneWrapper.h"
