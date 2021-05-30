@@ -60,8 +60,8 @@ void SynthBase< SampleType >::AutomatedHarmonyVoice::apply()
         if (prevVoice->isKeyDown())  // can't "steal" the voice playing the last pedal note if its keyboard key is down
             prevVoice = nullptr;
 
-    const auto velocity = (extremeVoice != nullptr) ? extremeVoice->getLastRecievedVelocity()
-                                                    : (prevVoice != nullptr ? prevVoice->getLastRecievedVelocity() : 1.0f);
+    const auto velocity = (extremeVoice != nullptr) ? extremeVoice->lastRecievedVelocity
+                                                    : (prevVoice != nullptr ? prevVoice->lastRecievedVelocity : 1.0f);
 
     if (prevVoice != nullptr)
     {

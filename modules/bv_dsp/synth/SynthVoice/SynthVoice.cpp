@@ -11,8 +11,8 @@ SynthVoiceBase< SampleType >::SynthVoiceBase (SynthBase< SampleType >* base, dou
 {
     adsr.setSampleRate (initSamplerate);
     quickRelease.setSampleRate (initSamplerate);
-    adsr.setParameters (parent->getCurrentAdsrParams());
-    quickRelease.setParameters (parent->getCurrentQuickReleaseParams());
+    adsr.setParameters (parent->adsrParams);
+    quickRelease.setParameters (parent->quickReleaseParams);
 }
 
 
@@ -65,7 +65,7 @@ void SynthVoiceBase< SampleType >::renderBlock (AudioBuffer& output, const int s
         currentOutputFreq = parent->getOutputFrequency (currentlyPlayingNote, midiChannel);
 
     jassert (output.getNumSamples() >= startSample + numSamples);
-    jassert (parent->getSamplerate() > 0);
+    jassert (parent->sampleRate > 0);
     jassert (renderingBuffer.getNumChannels() > 0);
     jassert (currentOutputFreq > 0);
 
@@ -76,7 +76,7 @@ void SynthVoiceBase< SampleType >::renderBlock (AudioBuffer& output, const int s
 
     //  generate some mono audio output at the frequency currentOutputFreq.....
     //  the subclass should write its output to "render" (which is an alias for renderingBuffer)
-    renderPlease (render, currentOutputFreq, parent->getSamplerate(), startSample);
+    renderPlease (render, currentOutputFreq, parent->sampleRate, startSample);
 
     //  smoothed gain modulations
     midiVelocityGain.applyGain (render, numSamples);
@@ -132,7 +132,7 @@ void SynthVoiceBase< SampleType >::bypassedBlock (const int numSamples)
     outputLeftGain.skip (numSamples);
     outputRightGain.skip (numSamples);
 
-    bypassedBlockRecieved (currentOutputFreq, parent->getSamplerate(), numSamples);
+    bypassedBlockRecieved (currentOutputFreq, parent->sampleRate, numSamples);
 }
 
 
@@ -144,9 +144,9 @@ void SynthVoiceBase< SampleType >::updateSampleRate (const double newSamplerate)
 {
     adsr.setSampleRate (newSamplerate);
     quickRelease.setSampleRate (newSamplerate);
-
-    adsr.setParameters (parent->getCurrentAdsrParams());
-    quickRelease.setParameters (parent->getCurrentQuickReleaseParams());
+ 
+    adsr.setParameters (parent->adsrParams);
+    quickRelease.setParameters (parent->quickReleaseParams);
 }
 
 
@@ -266,7 +266,7 @@ template < typename SampleType >
 void SynthVoiceBase< SampleType >::softPedalChanged (bool isDown)
 {
     if (isDown)
-        softPedalGain.setTargetValue (smoothingZeroCheck (parent->getSoftPedalMultiplier()));
+        softPedalGain.setTargetValue (smoothingZeroCheck (parent->softPedalMultiplier));
     else
         softPedalGain.setTargetValue (SampleType (1.0));
 }
@@ -341,7 +341,7 @@ void SynthVoiceBase< SampleType >::setKeyDown (bool isNowDown)
     }
 
     if (playingButReleased)
-        playingButReleasedGain.setTargetValue (smoothingZeroCheck (parent->getPlayingButReleasedMultiplier()));
+        playingButReleasedGain.setTargetValue (smoothingZeroCheck (parent->playingButReleasedMultiplier));
     else
         playingButReleasedGain.setTargetValue (SampleType (1.0));
 }

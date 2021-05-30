@@ -141,12 +141,6 @@ void SynthBase< SampleType >::addNumVoices (const int voicesToAdd)
     numVoicesChanged();
 }
 
-template < typename SampleType >
-SynthVoiceBase< SampleType >* SynthBase< SampleType >::createVoice()
-{
-    return new SynthVoiceBase< SampleType > (this);
-}
-
 
 /*
  Removes a specified number of voices from the synth. This function attempts to remove inactive voices first.

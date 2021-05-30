@@ -29,15 +29,11 @@ public:
 
     virtual ~SynthVoiceBase() = default;
 
-    /*
-         */
-
     void prepare (const int blocksize);
 
-    // this function only redirects to the subclass's released(), if it's been overridden.
     void release() { released(); }
 
-    virtual void renderBlock (AudioBuffer& output, const int startSample, const int numSamples);
+    void renderBlock (AudioBuffer& output, const int startSample, const int numSamples);
 
     void bypassedBlock (const int numSamples);
 
@@ -50,15 +46,13 @@ public:
 
     int getCurrentMidiPan() const noexcept { return panner.getLastMidiPan(); }
 
-    float getLastRecievedVelocity() const noexcept { return lastRecievedVelocity; }
-
     bool isKeyDown() const noexcept { return keyIsDown; }
 
     bool wasStartedBefore (const SynthVoiceBase& other) const noexcept { return noteOnTime < other.noteOnTime; }
 
     bool isPlayingButReleased() const noexcept { return playingButReleased; }
 
-    bool isVoiceActive() const noexcept { return (currentlyPlayingNote >= 0); }
+    bool isVoiceActive() const noexcept { return currentlyPlayingNote >= 0; }
 
     int getCurrentlyPlayingNote() const noexcept { return currentlyPlayingNote; }
 
@@ -75,10 +69,7 @@ protected:
             The output buffer sent to this function will contain the number of samples desired for this frame, and your output samples should start at index 0.
             If you need it, the start sample from the original larger buffer sent to the parent's renderVoices() is also provided. You can probably just ignore this argument.
         */
-    virtual void renderPlease (AudioBuffer& output, float desiredFrequency, double currentSamplerate, int startSampleOfOrigBuffer)
-    {
-        juce::ignoreUnused (output, desiredFrequency, currentSamplerate, startSampleOfOrigBuffer);
-    }
+    virtual void renderPlease (AudioBuffer& output, float desiredFrequency, double currentSamplerate, int startSampleOfOrigBuffer) = 0;
 
     // if overridden, called in the subclass when the top-level call to prepare() is made
     virtual void prepared (int blocksize) { juce::ignoreUnused (blocksize); }

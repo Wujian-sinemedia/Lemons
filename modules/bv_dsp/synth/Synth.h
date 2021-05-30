@@ -111,30 +111,15 @@ public:
     void updateADSRsettings (const float attack, const float decay, const float sustain, const float release);
     void updateQuickReleaseMs (const int newMs);
 
-    double getSamplerate() const noexcept { return sampleRate; }
-
-    // returns the actual frequency in Hz a HarmonizerVoice needs to output for its latest recieved midiNote, weighted for pitchbend with the current settings & pitchwheel position, then converted to frequency with the current concert pitch settings.
-    float getOutputFrequency (const int midipitch, const int midiChannel = -1) const;
-
     bool isSustainPedalDown() const noexcept { return midi.isSustainPedalDown(); }
     bool isSostenutoPedalDown() const noexcept { return midi.isSostenutoPedalDown(); }
     bool isSoftPedalDown() const noexcept { return midi.isSoftPedalDown(); }
     bool isAftertouchGainOn() const noexcept { return aftertouchGainIsOn; }
 
-    float getPlayingButReleasedMultiplier() const noexcept { return playingButReleasedMultiplier; }
-    void  setPlayingButReleasedMultiplier (float newGain) { playingButReleasedMultiplier = newGain; }
-
-    float getSoftPedalMultiplier() const noexcept { return softPedalMultiplier; }
-    void  setSoftPedalMultiplier (float newGain) { softPedalMultiplier = newGain; }
-
-    ADSRParams getCurrentAdsrParams() const noexcept { return adsrParams; }
-    ADSRParams getCurrentQuickReleaseParams() const noexcept { return quickReleaseParams; }
+    void setPlayingButReleasedMultiplier (float newGain) { playingButReleasedMultiplier = newGain; }
+    void setSoftPedalMultiplier (float newGain) { softPedalMultiplier = newGain; }
 
     int getLastBlocksize() const noexcept { return lastBlocksize; }
-
-
-    /* MTS-ESP supports tuning tables in which certain pitches may be filtered out (note ons for these pitches are simply ignored). This function always returns false if you are not using MTS-ESP. */
-    virtual bool shouldFilterNote (int midiNote, int midiChannel = -1) const;
 
     /* returns true if your synth is currently connected to an MTS-ESP master plugin. Returns false if your synth is not using MTS-ESP. */
     bool isConnectedToMtsEsp() const noexcept;
@@ -163,7 +148,10 @@ protected:
     virtual void release() { }
 
     // this method should return an instance of your synth's voice subclass
-    virtual Voice* createVoice();
+    virtual Voice* createVoice() = 0;
+    
+    /* MTS-ESP supports tuning tables in which certain pitches may be filtered out (note ons for these pitches are simply ignored). This function always returns false if you are not using MTS-ESP. */
+    virtual bool shouldFilterNote (int midiNote, int midiChannel = -1) const;
 
 private:
     void renderVoicesInternal (AudioBuffer& output, const int startSample, const int numSamples);
@@ -195,6 +183,9 @@ private:
     Voice* findVoiceToSteal();
 
     Voice* getVoicePlayingNote (const int midiPitch) const;
+    
+    // returns the actual frequency in Hz a voice needs to output for its latest recieved midiNote, weighted for pitchbend with the current settings & pitchwheel position, then converted to frequency with the current concert pitch settings.
+    float getOutputFrequency (const int midipitch, const int midiChannel = -1) const;
 
     /*==============================================================================================================
      ===============================================================================================================*/

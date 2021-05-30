@@ -130,7 +130,7 @@ void SynthBase< SampleType >::startVoice (Voice* voice, const int midiPitch, con
     const bool sameNoteRetriggered = wasStolen && prevNote == midiPitch;
 
     // aftertouch value based on how much the new velocity has changed from the voice's last recieved velocity (only used if applicable)
-    const auto aftertouch = juce::jlimit (0, 127, juce::roundToInt ((velocity - voice->getLastRecievedVelocity()) * 127.0f));
+    const auto aftertouch = juce::jlimit (0, 127, juce::roundToInt ((velocity - voice->lastRecievedVelocity) * 127.0f));
 
     if (! sameNoteRetriggered)  // only output note events if it's not the same note being retriggered
     {

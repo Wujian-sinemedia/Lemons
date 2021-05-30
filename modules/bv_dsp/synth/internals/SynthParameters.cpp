@@ -41,7 +41,7 @@ void SynthBase< SampleType >::updateMidiVelocitySensitivity (int newSensitivity)
 
     for (auto* voice : voices)
         if (voice->isVoiceActive())
-            voice->setVelocityMultiplier (velocityConverter.getGainForVelocity (voice->getLastRecievedVelocity()));
+            voice->setVelocityMultiplier (velocityConverter.getGainForVelocity (voice->lastRecievedVelocity));
 }
 
 
