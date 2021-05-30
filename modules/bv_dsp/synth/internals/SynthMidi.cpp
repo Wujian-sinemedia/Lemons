@@ -8,8 +8,7 @@ namespace bav::dsp
 template < typename SampleType >
 void SynthBase< SampleType >::processMidiEvent (const MidiMessage& m)
 {
-    const auto timestamp = int (m.getTimeStamp());
-    midiInputStorage.addEvent (m, timestamp);
+    midiInputStorage.addEvent (m, static_cast<int> (m.getTimeStamp()));
     midi.process (m);
 }
 

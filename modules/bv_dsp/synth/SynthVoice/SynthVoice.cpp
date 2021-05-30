@@ -24,6 +24,10 @@ void SynthVoiceBase< SampleType >::prepare (const int blocksize)
 {
     renderingBuffer.setSize (1, blocksize, true, true, true);
     stereoBuffer.setSize (2, blocksize, true, true, true);
+    midiVelocityGain.prepare (blocksize);
+    softPedalGain.prepare (blocksize);
+    playingButReleasedGain.prepare (blocksize);
+    aftertouchGain.prepare (blocksize);
     prepared (blocksize);
 }
 
@@ -79,10 +83,10 @@ void SynthVoiceBase< SampleType >::renderBlock (AudioBuffer& output, const int s
     renderPlease (render, currentOutputFreq, parent->sampleRate, startSample);
 
     //  smoothed gain modulations
-    midiVelocityGain.applyGain (render, numSamples);
-    aftertouchGain.applyGain (render, numSamples);
-    softPedalGain.applyGain (render, numSamples);
-    playingButReleasedGain.applyGain (render, numSamples);
+    midiVelocityGain.process (render);
+    aftertouchGain.process (render);
+    softPedalGain.process (render);
+    playingButReleasedGain.process (render);
 
     adsr.applyEnvelopeToBuffer (render, 0, numSamples);  // midi-triggered adsr envelope
 
@@ -100,13 +104,7 @@ void SynthVoiceBase< SampleType >::renderBlock (AudioBuffer& output, const int s
     }
     else
     {
-        //  copy to stereoBuffer
-        for (int chan = 0; chan < 2; ++chan)
-            vecops::copy (render.getReadPointer (0), stereoBuffer.getWritePointer (chan), numSamples);
-
-        //  apply panning
-        outputLeftGain.applyGain (stereoBuffer.getWritePointer (0), numSamples);
-        outputRightGain.applyGain (stereoBuffer.getWritePointer (1), numSamples);
+        panner.process (render, stereoBuffer);
 
         //  add (!) to output
         for (int chan = 0; chan < 2; ++chan)
@@ -125,13 +123,11 @@ void SynthVoiceBase< SampleType >::renderBlock (AudioBuffer& output, const int s
 template < typename SampleType >
 void SynthVoiceBase< SampleType >::bypassedBlock (const int numSamples)
 {
-    midiVelocityGain.skip (numSamples);
-    softPedalGain.skip (numSamples);
-    playingButReleasedGain.skip (numSamples);
-    aftertouchGain.skip (numSamples);
-    outputLeftGain.skip (numSamples);
-    outputRightGain.skip (numSamples);
-
+    midiVelocityGain.skipSamples (numSamples);
+    softPedalGain.skipSamples (numSamples);
+    playingButReleasedGain.skipSamples (numSamples);
+    aftertouchGain.skipSamples (numSamples);
+    
     bypassedBlockRecieved (currentOutputFreq, parent->sampleRate, numSamples);
 }
 
@@ -188,10 +184,9 @@ void SynthVoiceBase< SampleType >::startNote (const int    midiPitch,
     quickRelease.noteOn();
 
     setKeyDown (keyboardKeyIsDown);
-
-    midiVelocityGain.setTargetValue (smoothingZeroCheck (parent->velocityConverter.getGainForVelocity (velocity)));
-
-    aftertouchGain.setTargetValue (SampleType (1.0));
+    
+    midiVelocityGain.setGain (parent->velocityConverter.getGainForVelocity (velocity));
+    aftertouchGain.setGain (1.0f);
 
     if (isPedal || isDescant)
         isDoubledByAutomatedVoice = false;
@@ -205,7 +200,7 @@ template < typename SampleType >
 void SynthVoiceBase< SampleType >::stopNote (const float velocity, const bool allowTailOff)
 {
     const auto newGain = juce::jlimit (0.0f, 1.0f, lastRecievedVelocity - velocity);
-    midiVelocityGain.setTargetValue (smoothingZeroCheck (parent->velocityConverter.getGainForVelocity (newGain)));
+    midiVelocityGain.setGain (parent->velocityConverter.getGainForVelocity (newGain));
 
     adsr.noteOff();
     quickRelease.noteOff();
@@ -243,7 +238,7 @@ void SynthVoiceBase< SampleType >::clearCurrentNote()
 
     setPan (64);
 
-    resetRampedValues (parent->getLastBlocksize());
+    resetRampedValues();
 
     noteCleared();
 }
@@ -255,7 +250,7 @@ void SynthVoiceBase< SampleType >::clearCurrentNote()
 template < typename SampleType >
 void SynthVoiceBase< SampleType >::setVelocityMultiplier (const float newMultiplier)
 {
-    midiVelocityGain.setTargetValue (smoothingZeroCheck (newMultiplier));
+    midiVelocityGain.setGain (newMultiplier);
 }
 
 
@@ -265,10 +260,8 @@ void SynthVoiceBase< SampleType >::setVelocityMultiplier (const float newMultipl
 template < typename SampleType >
 void SynthVoiceBase< SampleType >::softPedalChanged (bool isDown)
 {
-    if (isDown)
-        softPedalGain.setTargetValue (smoothingZeroCheck (parent->softPedalMultiplier));
-    else
-        softPedalGain.setTargetValue (SampleType (1.0));
+    const auto gain = isDown ? parent->softPedalMultiplier : 1.0f;
+    softPedalGain.setGain (gain);
 }
 
 
@@ -285,11 +278,12 @@ void SynthVoiceBase< SampleType >::aftertouchChanged (const int newAftertouchVal
     if (parent->isAftertouchGainOn())
     {
         const auto newWeightedGain = juce::jlimit (0.0f, 1.0f, lastRecievedVelocity + newAftertouchValue * inv127);
-
-        aftertouchGain.setTargetValue (smoothingZeroCheck (parent->velocityConverter.getGainForVelocity (newWeightedGain)));
+        aftertouchGain.setGain (parent->velocityConverter.getGainForVelocity (newWeightedGain));
     }
     else
-        aftertouchGain.setTargetValue (SampleType (1.0));
+    {
+        aftertouchGain.setGain (1.0f);
+    }
 }
 
 
@@ -309,14 +303,13 @@ void SynthVoiceBase< SampleType >::aftertouchChanged (const int newAftertouchVal
         Resets the voice's ramped gain values.
     */
 template < typename SampleType >
-void SynthVoiceBase< SampleType >::resetRampedValues (int blocksize)
+void SynthVoiceBase< SampleType >::resetRampedValues()
 {
-    midiVelocityGain.reset (blocksize);
-    softPedalGain.reset (blocksize);
-    playingButReleasedGain.reset (blocksize);
-    aftertouchGain.reset (blocksize);
-    outputLeftGain.reset (blocksize);
-    outputRightGain.reset (blocksize);
+    midiVelocityGain.reset();
+    softPedalGain.reset();
+    playingButReleasedGain.reset();
+    aftertouchGain.reset();
+    panner.reset();
 }
 
 
@@ -339,11 +332,9 @@ void SynthVoiceBase< SampleType >::setKeyDown (bool isNowDown)
         else
             playingButReleased = isVoiceActive();
     }
-
-    if (playingButReleased)
-        playingButReleasedGain.setTargetValue (smoothingZeroCheck (parent->playingButReleasedMultiplier));
-    else
-        playingButReleasedGain.setTargetValue (SampleType (1.0));
+    
+    const auto gain = playingButReleased ? parent->playingButReleasedMultiplier : 1.0f;
+    playingButReleasedGain.setGain (gain);
 }
 
 
@@ -353,14 +344,7 @@ void SynthVoiceBase< SampleType >::setKeyDown (bool isNowDown)
 template < typename SampleType >
 void SynthVoiceBase< SampleType >::setPan (int newPan)
 {
-    newPan = juce::jlimit (0, 127, newPan);
-
-    if (panner.getLastMidiPan() == newPan) return;
-
-    panner.setMidiPan (newPan);
-
-    outputLeftGain.setTargetValue (smoothingZeroCheck (panner.getLeftGain()));
-    outputRightGain.setTargetValue (smoothingZeroCheck (panner.getRightGain()));
+    panner.setMidiPan (juce::jlimit (0, 127, newPan));
 }
 
 

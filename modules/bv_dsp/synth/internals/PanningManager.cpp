@@ -129,10 +129,6 @@ void SynthBase<SampleType>::PanningManager::updatePanValueLookupTables (const in
         return;
     }
 
-    // the # of values we actually transfer to the I/O array being read from should correspond to the number of unsent pan vals left now -- ie, if some voices are already on, etc. And the values put in the I/O array should also be the values out of the panValsInAssigningOrder array that are closest to the old values from unsentPanVals...
-
-    // make copy of panValsInAssigningOrder bc items will be removed during the searching process below
-
     newPanVals.clearQuick();
 
     for (int newPan : panValsInAssigningOrder)

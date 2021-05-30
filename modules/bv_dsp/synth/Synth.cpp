@@ -89,7 +89,7 @@ void SynthBase< SampleType >::prepare (const int blocksize)
 
     panner.prepare (voices.size(), false);
 
-    resetRampedValues (blocksize);
+    resetRampedValues();
 
     prepared (blocksize);
 }
@@ -249,27 +249,15 @@ void SynthBase< SampleType >::setCurrentPlaybackSampleRate (const double newRate
 }
 
 
-/*=========================================================================================================
-  __  __ _____  _____  _____      ______ _    _ _   _  _____ _______ _____ ____  _   _  _____
- |  \/  |_   _|/ ____|/ ____|    |  ____| |  | | \ | |/ ____|__   __|_   _/ __ \| \ | |/ ____|
- | \  / | | | | (___ | |         | |__  | |  | |  \| | |       | |    | || |  | |  \| | (___
- | |\/| | | |  \___ \| |         |  __| | |  | | . ` | |       | |    | || |  | | . ` |\___ \
- | |  | |_| |_ ____) | |____ _   | |    | |__| | |\  | |____   | |   _| || |__| | |\  |____) |
- |_|  |_|_____|_____/ \_____(_)  |_|     \____/|_| \_|\_____|  |_|  |_____\____/|_| \_|_____/
- 
- Functions that don't really belong anywhere else
- 
- ==========================================================================================================*/
-
 /*
  Resets the voices' ramped gain values, and prepares them for a new blocksize.
  This should be called with/by prepare().
  */
 template < typename SampleType >
-void SynthBase< SampleType >::resetRampedValues (int blocksize)
+void SynthBase< SampleType >::resetRampedValues()
 {
     for (auto* voice : voices)
-        voice->resetRampedValues (blocksize);
+        voice->resetRampedValues();
 }
 
 

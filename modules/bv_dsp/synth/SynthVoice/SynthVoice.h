@@ -32,12 +32,11 @@ public:
     void prepare (const int blocksize);
 
     void release() { released(); }
+    void resetRampedValues();
 
     void renderBlock (AudioBuffer& output, const int startSample, const int numSamples);
 
     void bypassedBlock (const int numSamples);
-
-    void resetRampedValues (int blocksize);
 
     void setCurrentOutputFreq (const float newFreq) { currentOutputFreq = newFreq; }
 
@@ -120,13 +119,6 @@ private:
     void setAdsrParameters (const ADSRParams newParams) { adsr.setParameters (newParams); }
     void setQuickReleaseParameters (const ADSRParams newParams) { quickRelease.setParameters (newParams); }
 
-    // smoothed gain cannot ever reach 0
-    template < typename FloatType >
-    SampleType BV_FORCE_INLINE smoothingZeroCheck (FloatType gain)
-    {
-        return std::max (minSmoothedGain, SampleType (gain));
-    }
-
     /*=================================================================================
          =================================================================================*/
 
@@ -148,16 +140,12 @@ private:
 
     bav::dsp::FX::MonoToStereoPanner< SampleType > panner;
 
-    // gain smoothers
-    juce::SmoothedValue< SampleType, juce::ValueSmoothingTypes::Multiplicative > midiVelocityGain, softPedalGain, playingButReleasedGain,
-        outputLeftGain, outputRightGain, aftertouchGain;
+    FX::SmoothedGain< SampleType, 1 > midiVelocityGain, softPedalGain, playingButReleasedGain, aftertouchGain;
 
     AudioBuffer renderingBuffer;  // mono audio will be placed in here
     AudioBuffer stereoBuffer;     // stereo audio will be placed in here
 
     int midiChannel;
-
-    static constexpr auto minSmoothedGain = SampleType (0.0000001);
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SynthVoiceBase)
 };

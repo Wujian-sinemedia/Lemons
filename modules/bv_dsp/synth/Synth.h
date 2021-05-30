@@ -30,14 +30,13 @@ public:
     void prepare (const int blocksize);
 
     void reset();
+    void resetRampedValues();
 
     void setCurrentPlaybackSampleRate (const double newRate);
 
     void renderVoices (juce::MidiBuffer& midiMessages, juce::AudioBuffer< SampleType >& output);
 
     void releaseResources();
-
-    void resetRampedValues (int blocksize);
 
     void bypassedBlock (const int numSamples, MidiBuffer& midiMessages);
 
