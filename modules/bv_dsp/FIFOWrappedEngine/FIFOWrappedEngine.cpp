@@ -144,11 +144,6 @@ void FIFOWrappedEngine< SampleType >::processWrapped (AudioBuffer& input,
     const auto numNewSamples = input.getNumSamples();
     jassert (numNewSamples <= internalBlocksize && numNewSamples > 0);
 
-    const auto numInChannels  = input.getNumChannels();
-    const auto numOutChannels = output.getNumChannels();
-
-    jassert (numInChannels <= 2 && numOutChannels <= 2);
-
     inputFIFO.push (input, midiMessages, numNewSamples);
 
     if (inputFIFO.numStoredSamples()

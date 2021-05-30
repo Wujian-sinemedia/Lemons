@@ -18,3 +18,5 @@
 #include "MidiUtilities/PitchbendTracker.h"
 #include "MidiUtilities/PitchConverter.h"
 #include "MidiUtilities/VelocityHelper.h"
+
+#include "processors/MidiProcessor.h"
