@@ -28,6 +28,9 @@ public:
         
         // samples after last bar downbeat...?
         // samples until next beat...?
+        
+        enum Source { Host, AbletonLink, Internal };
+        Source source;
     };
     
     

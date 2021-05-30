@@ -19,8 +19,6 @@
 #endif
 
 
-#include "SystemInitializer.h"
-
 #include "ProcessorBase/ProcessorBase.h"
 
 #include "EditorBase/EditorBase.h"

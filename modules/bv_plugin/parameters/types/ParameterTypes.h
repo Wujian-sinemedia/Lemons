@@ -24,9 +24,6 @@ public:
                     bool metaParam = false);
 
     virtual ~FloatParameter() override = default;
-    
-    bool isAutomatable() const override final;
-    bool isMetaParameter() const override final;
 
     float get() const;
     float getDefault() const;
@@ -59,6 +56,9 @@ public:
     //==============================================================================
 
 private:
+    bool isAutomatable() const override final;
+    bool isMetaParameter() const override final;
+    
     void onAction() override final;
 
     void toValueTree (juce::ValueTree& tree) override final;
@@ -91,9 +91,6 @@ public:
                   bool metaParam = false);
 
     virtual ~IntParameter() override = default;
-    
-    bool isAutomatable() const override final;
-    bool isMetaParameter() const override final;
 
     int get() const;
     int getDefault() const;
@@ -126,6 +123,9 @@ public:
     //==============================================================================
 
 private:
+    bool isAutomatable() const override final;
+    bool isMetaParameter() const override final;
+    
     void onAction() override final;
 
     void toValueTree (juce::ValueTree& tree) override final;
@@ -155,9 +155,6 @@ public:
                    bool metaParam = false);
 
     virtual ~BoolParameter() override = default;
-    
-    bool isAutomatable() const override final;
-    bool isMetaParameter() const override final;
 
     bool get() const;
     bool getDefault() const;
@@ -190,6 +187,9 @@ public:
     //==============================================================================
 
 private:
+    bool isAutomatable() const override final;
+    bool isMetaParameter() const override final;
+    
     void onAction() override final;
 
     void toValueTree (juce::ValueTree& tree) override final;
@@ -197,61 +197,5 @@ private:
 
     std::function< void (bool) > actionFunc = [] (bool) {};
 };
-
-
-/*-----------------------------------------------------------------------------------------------------------------------
- -----------------------------------------------------------------------------------------------------------------------*/
-
-#if 0
-class ChoiceParameter : public juce::AudioParameterChoice, public bav::Parameter
-{
-public:
-    using AudioParameterChoice = juce::AudioParameterChoice;
-    
-    ChoiceParameter (
-                  juce::String paramNameShort,
-                  juce::String paramNameVerbose,
-                  const juce::StringArray& choices,
-                  int defaultItemIndex,
-                  juce::String parameterLabel = juce::String());
-    
-    virtual ~ChoiceParameter() override = default;
-    
-    juce::String get() const;
-    juce::String getDefault() const;
-    
-    void set (const juce::String& newValue);
-    void setDefault (const juce::String& newDefaultValue);
-    
-    void setAction (std::function< void (const juce::String&) > action);
-    
-    //==============================================================================
-    
-    struct Listener : public Parameter::Listener
-    {
-        Listener (ChoiceParameter& toUse);
-        virtual ~Listener() override = default;
-        
-        virtual void paramValueChanged (const juce::String& newValue);
-        virtual void paramDefaultChanged (const juce::String& newDefault);
-        
-    private:
-        void parameterValueChanged (float newNormalizedValue) override final;
-        void parameterDefaultChanged (float newNormalizedDefault) override final;
-        
-        ChoiceParameter& param;
-    };
-    
-    //==============================================================================
-    
-private:
-    void onAction() override final;
-    
-    void toValueTree (juce::ValueTree& tree) override final;
-    void fromValueTree (const juce::ValueTree& tree) override final;
-    
-    std::function< void (const juce::String&) > actionFunc = [](const juce::String&){ };
-};
-#endif
 
 }  // namespace bav

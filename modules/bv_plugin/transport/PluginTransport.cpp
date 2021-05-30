@@ -23,6 +23,8 @@ PluginTransport::TimeInfo PluginTransport::fromPlayheadInfo() const
     
     // update Link & internal metronome w bpm...
     
+    info.source = TimeInfo::Host;
+    
     return info;
 }
 
@@ -32,6 +34,8 @@ PluginTransport::TimeInfo PluginTransport::fromInternalMetronome() const
     
     //info.bpm = playheadInfo.bpm;
     info.isPlaying = true;
+    
+    info.source = TimeInfo::Internal;
     
     return info;
 }
@@ -47,6 +51,10 @@ PluginTransport::TimeInfo PluginTransport::fromAbletonLink() const
     info.isPlaying = sessionState.isPlaying();
     
     // update internal metronome w bpm...
+    
+    info.source = TimeInfo::AbletonLink;
+    
+    return info;
 #else
     return {};
 #endif

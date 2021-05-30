@@ -183,6 +183,9 @@
 #include "localization/localization.h"
 
 
+#include "misc/SystemInitializer.h"
+
+
 // async
 #include "async/AsyncUtils.h"
 
