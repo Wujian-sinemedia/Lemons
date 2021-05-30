@@ -16,6 +16,5 @@
 #include "MidiUtilities/MidiFIFO.h"
 #include "MidiUtilities/MidiUtilities.h"
 #include "MidiUtilities/PitchbendTracker.h"
-#include "MidiUtilities/PitchConverter.h"
 
 #include "processors/MidiProcessor.h"

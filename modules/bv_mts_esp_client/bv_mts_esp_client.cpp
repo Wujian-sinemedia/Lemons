@@ -2,15 +2,14 @@
 #include "bv_mts_esp_client.h"
 
 #if BV_USE_MTS_ESP
-#include "mts_esp_client/mts_esp_client.cpp"
+#    include "mts_esp_client/mts_esp_client.cpp"
 #else
-#include "fallback/fallback_pitch_converter.cpp"
+#    include "fallback/fallback_pitch_converter.cpp"
 #endif
 
 
 namespace bav
 {
-
 float PitchConverter::midiToFrequency (int midiNote, int midiChannel) const
 {
 #if BV_USE_MTS_ESP
@@ -80,4 +79,4 @@ bool PitchConverter::setConcertPitchHz (float newConcertPitchhz)
 }
 
 
-}  // namespace
+}  // namespace bav
