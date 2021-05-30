@@ -11,14 +11,17 @@ template < typename SampleType >
 void SynthBase< SampleType >::AutomatedHarmonyVoice::apply()
 {
     if (! isOn)
+    {
+        turnNoteOffIfOn();
         return;
+    }
 
     int    currentExtreme = 128;
     Voice* extremeVoice   = nullptr;
 
-    auto compare = [up = shiftingUp](int a, int b)
+    auto compare = [=](int a, int b)
                    {
-                       if (up)
+                       if (shiftingUp)
                            return a > b;
                        
                        return a < b;
@@ -47,13 +50,9 @@ void SynthBase< SampleType >::AutomatedHarmonyVoice::apply()
 
     const auto newPitch = shiftingUp ? currentExtreme + interval : currentExtreme - interval;
 
-    if (newPitch == lastPitch)  // output note hasn't changed - do nothing
+    // output note hasn't changed, or an impossible midinote, or the new desired pedal pitch is already on
+    if (newPitch == lastPitch || newPitch < 0 || newPitch > 127 || synth.isPitchActive (newPitch, false, true))
         return;
-
-    if (newPitch < 0 || newPitch > 127 || synth.isPitchActive (newPitch, false, true))  // impossible midinote, or the new desired pedal pitch is already on
-    {
-        return;
-    }
 
     auto* prevVoice = synth.getVoicePlayingNote (lastPitch);  // attempt to keep the pedal line consistent - using the same synth voice
 
