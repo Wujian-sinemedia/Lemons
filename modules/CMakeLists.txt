@@ -1,4 +1,5 @@
-juce_add_modules (bv_core
+juce_add_modules (ableton_push_display
+		 bv_core
                   bv_dsp
                   bv_gui
                   bv_midi
