@@ -2,7 +2,6 @@
 
 namespace bav::dsp
 {
-
 /*
  Processes a single MIDI event at a time (for public use of this class).
  */
@@ -30,7 +29,7 @@ void SynthBase< SampleType >::processMidiEvent (const MidiMessage& m)
 template < typename SampleType >
 void SynthBase< SampleType >::noteOn (const int midiPitch, const float velocity, const bool isKeyboard, const int midiChannel)
 {
-    if (pitchConverter.shouldFilterNote (midiPitch, midiChannel))
+    if (pitch.tuning.shouldFilterNote (midiPitch, midiChannel))
     {
         pedal.setNoteToOff();
         descant.setNoteToOff();
@@ -168,7 +167,7 @@ void SynthBase< SampleType >::startVoice (Voice* voice, const int midiPitch, con
     const bool isPedal   = pedal.isAutomatedPitch (midiPitch);
     const bool isDescant = descant.isAutomatedPitch (midiPitch);
     const bool keydown   = isKeyboard ? true : voice->isKeyDown();
-    const auto timestamp = sameNoteRetriggered ? voice->noteOnTime : uint32(midi.getLastMidiTimestamp());
+    const auto timestamp = sameNoteRetriggered ? voice->noteOnTime : uint32 (midi.getLastMidiTimestamp());
 
     voice->startNote (midiPitch, velocity, timestamp, keydown, isPedal, isDescant, midiChannel);
 }
@@ -259,10 +258,11 @@ void SynthBase< SampleType >::handlePitchWheel (int wheelValue)
 
     aggregateMidiBuffer.addEvent (MidiMessage::pitchWheel (midi.getLastMidiChannel(), wheelValue), midi.getLastMidiTimestamp());
 
-    bendTracker.newPitchbendRecieved (wheelValue);
+    pitch.bend.newPitchbendRecieved (wheelValue);
 
     for (auto* voice : voices)
-        if (voice->isVoiceActive()) voice->setCurrentOutputFreq (getOutputFrequency (voice->getCurrentlyPlayingNote()));
+        if (voice->isVoiceActive())
+            voice->setCurrentOutputFreq (pitch.getFrequencyForMidi (voice->getCurrentlyPlayingNote()));
 }
 
 

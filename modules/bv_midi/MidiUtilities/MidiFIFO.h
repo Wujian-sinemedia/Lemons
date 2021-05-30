@@ -3,8 +3,6 @@
 
 namespace bav::midi
 {
-
-
 class MidiFIFO
 {
 public:

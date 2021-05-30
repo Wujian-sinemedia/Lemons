@@ -7,8 +7,8 @@ template < typename SampleType >
 class SineSynthVoice : public SynthVoiceBase< SampleType >
 {
 public:
-    SineSynthVoice (SynthBase<SampleType>* base)
-        : SynthVoiceBase<SampleType> (base)
+    SineSynthVoice (SynthBase< SampleType >* base)
+        : SynthVoiceBase< SampleType > (base)
     {
     }
 

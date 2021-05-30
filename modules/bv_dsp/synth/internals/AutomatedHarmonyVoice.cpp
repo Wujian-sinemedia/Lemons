@@ -19,13 +19,13 @@ void SynthBase< SampleType >::AutomatedHarmonyVoice::apply()
     int    currentExtreme = 128;
     Voice* extremeVoice   = nullptr;
 
-    auto compare = [=](int a, int b)
-                   {
-                       if (shiftingUp)
-                           return a > b;
-                       
-                       return a < b;
-                   };
+    auto compare = [=] (int a, int b)
+    {
+        if (shiftingUp)
+            return a > b;
+
+        return a < b;
+    };
 
     // find the current lowest/highest note being played by a keyboard key
     for (auto* voice : synth.voices)

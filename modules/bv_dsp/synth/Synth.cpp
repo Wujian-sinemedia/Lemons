@@ -9,8 +9,7 @@ namespace bav::dsp
  */
 template < typename SampleType >
 SynthBase< SampleType >::SynthBase()
-    : bendTracker (2, 2)
-      , lastBlocksize (0)
+    : lastBlocksize (0)
 {
     adsrParams.attack  = 0.035f;
     adsrParams.decay   = 0.06f;
@@ -87,7 +86,7 @@ void SynthBase< SampleType >::prepare (const int blocksize)
         voice->prepare (blocksize);
 
     panner.prepare (voices.size(), false);
-    
+
     resetRampedValues (blocksize);
 
     prepared (blocksize);
@@ -141,7 +140,7 @@ void SynthBase< SampleType >::renderVoices (juce::MidiBuffer& midiMessages, juce
     output.clear();
 
     aggregateMidiBuffer.clear();
-    
+
     auto samplesLeft = output.getNumSamples();
 
     midiInputStorage.clear();
@@ -191,7 +190,7 @@ void SynthBase< SampleType >::renderVoices (juce::MidiBuffer& midiMessages, juce
 
     std::for_each (
         midiIterator, midiMessages.cend(), [&] (const juce::MidiMessageMetadata& meta)
-                   { midi.process (meta); });
+        { midi.process (meta); });
 
     midiMessages.swapWith (aggregateMidiBuffer);
     midiInputStorage.clear();
@@ -261,13 +260,6 @@ void SynthBase< SampleType >::setCurrentPlaybackSampleRate (const double newRate
  Functions that don't really belong anywhere else
  
  ==========================================================================================================*/
-
-template < typename SampleType >
-float SynthBase< SampleType >::getOutputFrequency (const int midipitch, const int midiChannel) const
-{
-    return pitchConverter.midiToFrequency (bendTracker.newNoteRecieved(midipitch), midiChannel);
-}
-
 
 /*
  Resets the voices' ramped gain values, and prepares them for a new blocksize.

@@ -97,9 +97,9 @@ public:
 
     int getLastBlocksize() const noexcept { return lastBlocksize; }
 
-    bool isConnectedToMtsEsp() const { return pitchConverter.isConnectedToMtsEsp(); }
-    juce::String getScaleName() const { return pitchConverter.getScaleName(); }
-    
+    bool         isConnectedToMtsEsp() const { return pitch.tuning.isConnectedToMtsEsp(); }
+    juce::String getScaleName() const { return pitch.tuning.getScaleName(); }
+
     auto getLastMovedControllerInfo() const { return midi.getLastMovedCCinfo(); }
 
 protected:
@@ -153,9 +153,6 @@ private:
     Voice* findVoiceToSteal();
 
     Voice* getVoicePlayingNote (const int midiPitch) const;
-    
-    // returns the actual frequency in Hz a voice needs to output for its latest recieved midiNote, weighted for pitchbend with the current settings & pitchwheel position, then converted to frequency with the current concert pitch settings.
-    float getOutputFrequency (const int midipitch, const int midiChannel = -1) const;
 
     /*==============================================================================================================
      ===============================================================================================================*/
@@ -171,16 +168,14 @@ private:
     ADSRParams quickReleaseParams;
 
     double sampleRate {0.0};
-    
+
     bool shouldStealNotes {true};
 
     synth_helpers::PanningManager panner;
     int                           lowestPannedNote {0};
 
-    bav::midi::VelocityHelper  velocityConverter;
-    bav::midi::PitchBendHelper bendTracker;
-
-    bav::PitchConverter pitchConverter;
+    midi::VelocityHelper velocityConverter;
+    midi::PitchPipeline  pitch;
 
     bool aftertouchGainIsOn {true};
 
@@ -196,61 +191,61 @@ private:
     MidiBuffer midiInputStorage;     // each block of midi that comes in is stored in here so we can refer to it later
 
     //--------------------------------------------------
-    
-    class MidiProcessor :   public midi::MidiProcessor
+
+    class MidiProcessor : public midi::MidiProcessor
     {
     public:
-        MidiProcessor (SynthBase& s): synth(s) { }
-        
+        MidiProcessor (SynthBase& s) : synth (s) { }
+
     private:
-        void handleNoteOn  (int midiPitch, float velocity)
+        void handleNoteOn (int midiPitch, float velocity)
         {
             synth.noteOn (midiPitch, velocity, true, getLastMidiChannel());
         }
-        
+
         void handleNoteOff (int midiPitch, float velocity)
         {
             synth.noteOff (midiPitch, velocity, true, getLastMidiChannel());
         }
-        
+
         void handlePitchwheel (int wheelValue)
         {
             synth.handlePitchWheel (wheelValue);
         }
-        
+
         void handleAftertouch (int noteNumber, int aftertouchValue)
         {
             synth.handleAftertouch (noteNumber, aftertouchValue);
         }
-        
+
         void handleChannelPressure (int channelPressureValue)
         {
             synth.handleChannelPressure (channelPressureValue);
         }
-        
+
         void handleSustainPedal (int controllerValue)
         {
             synth.handleSustainPedal (controllerValue);
         }
-        
+
         void handleSostenutoPedal (int controllerValue)
         {
             synth.handleSostenutoPedal (controllerValue);
         }
-        
+
         void handleSoftPedal (int controllerValue)
         {
             synth.handleSoftPedal (controllerValue);
         }
-        
+
         void handleAllSoundOff()
         {
             synth.allNotesOff (false);
         }
-        
+
         SynthBase& synth;
     };
-    
+
     MidiProcessor midi {*this};
 
     //--------------------------------------------------

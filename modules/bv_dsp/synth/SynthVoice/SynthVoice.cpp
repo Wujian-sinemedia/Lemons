@@ -59,10 +59,10 @@ void SynthVoiceBase< SampleType >::renderBlock (AudioBuffer& output, const int s
     if (numSamples == 0) return;
 
     //  it's possible that the MTS-ESP master tuning table has changed since the last time this function was called...
-    if (parent->pitchConverter.shouldFilterNote (currentlyPlayingNote, midiChannel))
+    if (parent->pitch.tuning.shouldFilterNote (currentlyPlayingNote, midiChannel))
         stopNote (1.0f, false);
     else
-        currentOutputFreq = parent->getOutputFrequency (currentlyPlayingNote, midiChannel);
+        currentOutputFreq = parent->pitch.getFrequencyForMidi (currentlyPlayingNote, midiChannel);
 
     jassert (output.getNumSamples() >= startSample + numSamples);
     jassert (parent->sampleRate > 0);
@@ -177,7 +177,7 @@ void SynthVoiceBase< SampleType >::startNote (const int    midiPitch,
     noteOnTime           = noteOnTimestamp;
     currentlyPlayingNote = midiPitch;
     lastRecievedVelocity = velocity;
-    currentOutputFreq    = parent->getOutputFrequency (midiPitch, midichannel);
+    currentOutputFreq    = parent->pitch.getFrequencyForMidi (midiPitch, midichannel);
     isQuickFading        = false;
     isPedalPitchVoice    = isPedal;
     isDescantVoice       = isDescant;

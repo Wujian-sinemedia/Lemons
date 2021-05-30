@@ -4,67 +4,52 @@
 namespace bav::midi
 {
 // helper class for outputting midifloat values based on input midiPitch, pitchbend, and pitchbend range controls
-class PitchBendHelper
+class PitchBendTracker
 {
 public:
-    PitchBendHelper (const int initialStUp, const int initialStDwn)
-        : rangeUp (initialStUp), rangeDown (initialStDwn), lastRecievedPitchbend (64)
+    void setRange (int newStUp, int newStDown) noexcept
     {
+        rangeUp   = newStUp;
+        rangeDown = newStDown;
     }
 
-    void setRange (const int newStUp, const int newStDown) noexcept
-    {
-        rangeUp.store (newStUp);
-        rangeDown.store (newStDown);
-    }
-
-    int getCurrentRangeUp() const noexcept { return rangeUp.load(); }
-    int getCurrentRangeDown() const noexcept { return rangeDown.load(); }
+    int getRangeUp() const noexcept { return rangeUp; }
+    int getRangeDown() const noexcept { return rangeDown; }
 
     int getLastRecievedPitchbend() const noexcept
     {
-        return lastRecievedPitchbend.load();
+        return lastRecievedPitchbend;
     }
 
-    float newNoteRecieved (const int newMidiPitch) const
+    void newPitchbendRecieved (const int newPitchbend)
     {
-        return getMidifloat (newMidiPitch, lastRecievedPitchbend.load());
+        jassert (newPitchbend >= 0 && newPitchbend <= 127);
+        lastRecievedPitchbend = newPitchbend;
     }
-
-    float newNoteRecieved (const float newMidiPitch) const
-    {
-        return getMidifloat (newMidiPitch, lastRecievedPitchbend.load());
-    }
-
-    float newNoteRecieved (const double newMidiPitch) const
-    {
-        return getMidifloat (newMidiPitch, lastRecievedPitchbend.load());
-    }
-
-    void newPitchbendRecieved (const int newPitchbend) noexcept
-    {
-        lastRecievedPitchbend.store (juce::jlimit (0, 127, newPitchbend));
-    }
-
-
-private:
-    std::atomic< int > rangeUp, rangeDown, lastRecievedPitchbend;
 
     template < typename NoteType >
-    float getMidifloat (const NoteType midiPitch, const int pitchbend) const
+    float getAdjustedMidiPitch (NoteType recievedMidiPitch)
     {
-        if (pitchbend == 64) return float (midiPitch);
-
-        if (pitchbend > 64)
-            return float (((rangeUp.load() * (pitchbend - 65.0f)) / 62.0f)
-                          + midiPitch);
-
-        const auto currentdownrange = rangeDown.load();
-        return float ((((1.0f - currentdownrange) * pitchbend) / 63.0f) + midiPitch
-                      - currentdownrange);
+        return getMidifloat (recievedMidiPitch, lastRecievedPitchbend);
     }
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PitchBendHelper)
+private:
+    int rangeUp {2};
+    int rangeDown {2};
+    int lastRecievedPitchbend {64};
+
+    template < typename NoteType >
+    float getMidifloat (NoteType midiPitch, int pitchbend) const
+    {
+        if (pitchbend == 64) return static_cast< float > (midiPitch);
+
+        if (pitchbend > 64)
+            return static_cast< float > (((float (rangeUp) * (float (pitchbend) - 65.0f)) / 62.0f)
+                                         + float (midiPitch));
+
+        return static_cast< float > ((((1.0f - float (rangeDown)) * float (pitchbend)) / 63.0f) + float (midiPitch)
+                                     - float (rangeDown));
+    }
 };
 
 }  // namespace bav::midi

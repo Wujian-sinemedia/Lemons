@@ -8,9 +8,10 @@ namespace bav::dsp
 template < typename SampleType >
 void SynthBase< SampleType >::setConcertPitchHz (const int newConcertPitchhz)
 {
-    if (pitchConverter.setConcertPitchHz (newConcertPitchhz))
+    if (pitch.tuning.setConcertPitchHz (newConcertPitchhz))
         for (auto* voice : voices)
-            if (voice->isVoiceActive()) voice->setCurrentOutputFreq (getOutputFrequency (voice->getCurrentlyPlayingNote()));
+            if (voice->isVoiceActive())
+                voice->setCurrentOutputFreq (pitch.getFrequencyForMidi (voice->getCurrentlyPlayingNote()));
 }
 
 
@@ -42,14 +43,15 @@ void SynthBase< SampleType >::updateMidiVelocitySensitivity (int newSensitivity)
 template < typename SampleType >
 void SynthBase< SampleType >::updatePitchbendSettings (const int rangeUp, const int rangeDown)
 {
-    if ((bendTracker.getCurrentRangeUp() == rangeUp) && (bendTracker.getCurrentRangeDown() == rangeDown)) return;
+    if ((pitch.bend.getRangeUp() == rangeUp) && (pitch.bend.getRangeDown() == rangeDown)) return;
 
-    bendTracker.setRange (rangeUp, rangeDown);
+    pitch.bend.setRange (rangeUp, rangeDown);
 
     if (midi.getLastPitchwheelValue() == 64) return;
 
     for (auto* voice : voices)
-        if (voice->isVoiceActive()) voice->setCurrentOutputFreq (getOutputFrequency (voice->getCurrentlyPlayingNote()));
+        if (voice->isVoiceActive())
+            voice->setCurrentOutputFreq (pitch.getFrequencyForMidi (voice->getCurrentlyPlayingNote()));
 }
 
 
