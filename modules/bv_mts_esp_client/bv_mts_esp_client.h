@@ -92,8 +92,9 @@ public:
     
     juce::String getScaleName() const;
     
-    /* If you are not using MTS-ESP, you can call this method to alter the master tuning (the frequency of A4). If you are using MTS-ESP, calling this method does nothing. */
-    void setConcertPitchHz (const int newConcertPitchhz);
+    /* If you are not using MTS-ESP, you can call this method to alter the master tuning (the frequency of A4). If you are using MTS-ESP, calling this method does nothing.
+       Returns true if this operation had any effect. */
+    bool setConcertPitchHz (const int newConcertPitchhz);
     
 private:
 #if BV_USE_MTS_ESP

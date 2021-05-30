@@ -102,7 +102,7 @@ int PitchConverter::frequencyToMidi (float frequency, int midiChannel) const
     return mtsClient.getNoteForFrequency (frequency, midiChannel);
 #else
     juce::ignoreUnused (midiChannel);
-    return converter.ftom (frequency);
+    return juce::roundToInt (converter.ftom (frequency));
 #endif
 }
 
@@ -111,6 +111,7 @@ bool PitchConverter::shouldFilterNote (int midiPitch, int midiChannel) const
 #if BV_USE_MTS_ESP
     return mtsClient.shouldFilterNote (midiPitch, midiChannel);
 #else
+    juce::ignoreUnused (midiPitch, midiChannel);
     return false;
 #endif
 }
@@ -133,12 +134,14 @@ juce::String PitchConverter::getScaleName() const
 #endif
 }
 
-void PitchConverter::setConcertPitchHz (const int newConcertPitchhz)
+bool PitchConverter::setConcertPitchHz (const int newConcertPitchhz)
 {
 #if BV_USE_MTS_ESP
-    juce::ignoreUnused (newConcertPitchhz);
+    return false;
 #else
+    if (converter.getCurrentConcertPitchHz() == newConcertPitchhz) return false;
     converter.setConcertPitchHz (newConcertPitchhz);
+    return true;
 #endif
 }
 

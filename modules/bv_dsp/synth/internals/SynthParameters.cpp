@@ -8,18 +8,9 @@ namespace bav::dsp
 template < typename SampleType >
 void SynthBase< SampleType >::setConcertPitchHz (const int newConcertPitchhz)
 {
-#if BV_USE_MTS_ESP
-    juce::ignoreUnused (newConcertPitchhz);
-#else
-    jassert (newConcertPitchhz > 0);
-
-    if (pitchConverter.getCurrentConcertPitchHz() == newConcertPitchhz) return;
-
-    pitchConverter.setConcertPitchHz (newConcertPitchhz);
-
-    for (auto* voice : voices)
-        if (voice->isVoiceActive()) voice->setCurrentOutputFreq (getOutputFrequency (voice->getCurrentlyPlayingNote()));
-#endif
+    if (pitchConverter.setConcertPitchHz (newConcertPitchhz))
+        for (auto* voice : voices)
+            if (voice->isVoiceActive()) voice->setCurrentOutputFreq (getOutputFrequency (voice->getCurrentlyPlayingNote()));
 }
 
 
