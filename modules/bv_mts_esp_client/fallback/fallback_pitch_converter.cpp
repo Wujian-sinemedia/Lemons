@@ -1,5 +1,5 @@
 
-namespace bav
+namespace bav::midi
 {
 bool FallbackPitchConverter::setConcertPitchHz (float newConcertPitchHz)
 {

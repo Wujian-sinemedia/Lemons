@@ -1,7 +1,7 @@
 
 #pragma once
 
-namespace bav
+namespace bav::midi
 {
 class FallbackPitchConverter
 {

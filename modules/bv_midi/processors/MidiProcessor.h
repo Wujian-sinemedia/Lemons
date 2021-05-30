@@ -11,6 +11,8 @@ public:
     using Metadata = juce::MidiMessageMetadata;
     using Buffer  = juce::MidiBuffer;
     
+    void reset();
+    
     void process (const Buffer& buffer);
     void process (const Metadata& meta);
     void process (const Message& m);

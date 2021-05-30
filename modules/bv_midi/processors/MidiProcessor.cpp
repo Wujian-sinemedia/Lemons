@@ -2,6 +2,17 @@
 namespace bav::midi
 {
 
+void MidiProcessor::reset()
+{
+    lastMidiTimestamp = 0;
+    
+    lastPitchwheelValue = 64;
+    
+    sustainPedalDown = false;
+    sostenutoPedalDown = false;
+    softPedalDown = false;
+}
+
 void MidiProcessor::process (const Buffer& buffer)
 {
     std::for_each (buffer.begin(), buffer.end(),

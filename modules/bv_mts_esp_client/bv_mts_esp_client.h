@@ -26,7 +26,7 @@
 #endif
 
 
-namespace bav
+namespace bav::midi
 {
 /*
  This class provides a consistent interface for building with or without MTS-ESP, and all of its methods are safe to call whether or not you're using MTS-ESP.

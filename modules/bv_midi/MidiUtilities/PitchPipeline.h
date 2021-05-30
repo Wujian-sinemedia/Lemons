@@ -19,6 +19,12 @@ struct PitchPipeline
         return tuning.midiToFrequency (bend.getAdjustedMidiPitch (midiPitch),
                                        midiChannel);
     }
+    
+    void reset()
+    {
+        bend.newPitchbendRecieved (64);
+        tuning.setConcertPitchHz (440.0f);
+    }
 };
 
 }  // namespace bav::midi

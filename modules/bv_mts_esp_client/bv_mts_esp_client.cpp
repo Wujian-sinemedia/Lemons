@@ -8,7 +8,7 @@
 #endif
 
 
-namespace bav
+namespace bav::midi
 {
 float PitchConverter::midiToFrequency (int midiNote, int midiChannel) const
 {

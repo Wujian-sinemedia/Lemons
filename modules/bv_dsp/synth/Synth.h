@@ -44,7 +44,6 @@ public:
     void bypassedBlock (const int numSamples, MidiBuffer& midiMessages);
 
     void processMidiEvent (const MidiMessage& m);
-    void handlePitchWheel (int wheelValue);
 
     void playChord (const juce::Array< int >& desiredPitches, const float velocity = 1.0f, const bool allowTailOffOfOld = false);
 
@@ -134,21 +133,13 @@ private:
     void noteOff (const int midiNoteNumber, const float velocity, const bool allowTailOff, const bool isKeyboard = true);
     void startVoice (Voice* voice, const int midiPitch, const float velocity, const bool isKeyboard, const int midiChannel = -1);
     void stopVoice (Voice* voice, const float velocity, const bool allowTailOff);
-
-    void handleAftertouch (int midiNoteNumber, int aftertouchValue);
-    void handleChannelPressure (int channelPressureValue);
-    void updateChannelPressure (int newIncomingAftertouch);
-    void handleSustainPedal (const int value);
-    void handleSostenutoPedal (const int value);
-    void handleSoftPedal (const int value);
-
     void turnOnList (const juce::Array< int >& toTurnOn, const float velocity, const bool partOfChord = false);
     void turnOffList (const juce::Array< int >& toTurnOff, const float velocity, const bool allowTailOff, const bool partOfChord = false);
 
-    // this function should be called any time the collection of pitches is changed (ie, with regular keyboard input, on each note on/off, or for chord input, once after each chord is triggered). Used for things like pedal pitch, descant, etc
     void pitchCollectionChanged();
+    
+    void updateChannelPressure (int newIncomingAftertouch);
 
-    // voice allocation
     Voice* findFreeVoice (const bool stealIfNoneAvailable);
     Voice* findVoiceToSteal();
 
@@ -192,61 +183,26 @@ private:
 
     //--------------------------------------------------
 
-    class MidiProcessor : public midi::MidiProcessor
+    class MidiManager : public midi::MidiProcessor
     {
     public:
-        MidiProcessor (SynthBase& s) : synth (s) { }
+        MidiManager (SynthBase& s) : synth (s) { }
 
     private:
-        void handleNoteOn (int midiPitch, float velocity)
-        {
-            synth.noteOn (midiPitch, velocity, true, getLastMidiChannel());
-        }
-
-        void handleNoteOff (int midiPitch, float velocity)
-        {
-            synth.noteOff (midiPitch, velocity, true, getLastMidiChannel());
-        }
-
-        void handlePitchwheel (int wheelValue)
-        {
-            synth.handlePitchWheel (wheelValue);
-        }
-
-        void handleAftertouch (int noteNumber, int aftertouchValue)
-        {
-            synth.handleAftertouch (noteNumber, aftertouchValue);
-        }
-
-        void handleChannelPressure (int channelPressureValue)
-        {
-            synth.handleChannelPressure (channelPressureValue);
-        }
-
-        void handleSustainPedal (int controllerValue)
-        {
-            synth.handleSustainPedal (controllerValue);
-        }
-
-        void handleSostenutoPedal (int controllerValue)
-        {
-            synth.handleSostenutoPedal (controllerValue);
-        }
-
-        void handleSoftPedal (int controllerValue)
-        {
-            synth.handleSoftPedal (controllerValue);
-        }
-
-        void handleAllSoundOff()
-        {
-            synth.allNotesOff (false);
-        }
+        void handleNoteOn (int midiPitch, float velocity);
+        void handleNoteOff (int midiPitch, float velocity);
+        void handlePitchwheel (int wheelValue);
+        void handleAftertouch (int noteNumber, int aftertouchValue);
+        void handleChannelPressure (int channelPressureValue);
+        void handleSustainPedal (int controllerValue);
+        void handleSostenutoPedal (int controllerValue);
+        void handleSoftPedal (int controllerValue);
+        void handleAllSoundOff();
 
         SynthBase& synth;
     };
 
-    MidiProcessor midi {*this};
+    MidiManager midi {*this};
 
     //--------------------------------------------------
 

@@ -20,7 +20,7 @@
 #endif
 
 
-namespace bav
+namespace bav::midi
 {
 MTSESPClient::MTSESPClient()
 {
