@@ -1,30 +1,6 @@
 
 #pragma once
 
-#if BV_USE_MTS_ESP
-
-#    ifdef __clang__
-#        pragma clang diagnostic push
-#        pragma clang diagnostic ignored "-Weverything"
-#    elif defined __GNUC__
-#        pragma GCC diagnostic push
-#        pragma GCC diagnostic ignored "-Weverything"
-#    elif defined _MSC_VER
-#        pragma warning(push, 0)
-#    endif
-
-#    include <libMTSClient.h>
-
-#    ifdef __clang__
-#        pragma clang diagnostic pop
-#    elif defined __GNUC__
-#        pragma GCC diagnostic pop
-#    elif defined _MSC_VER
-#        pragma warning(pop)
-#    endif
-
-#endif /* BV_USE_MTS_ESP */
-
 #include "internals/PanningManager/PanningManager.h"
 
 
@@ -121,11 +97,8 @@ public:
 
     int getLastBlocksize() const noexcept { return lastBlocksize; }
 
-    /* returns true if your synth is currently connected to an MTS-ESP master plugin. Returns false if your synth is not using MTS-ESP. */
-    bool isConnectedToMtsEsp() const noexcept;
-
-    /* if connected to MTS-ESP, queries the master plugin for the name of the current scale. If not using MTS-ESP or not connected to a master plugin, returns an empty String. */
-    juce::String getScaleName() const;
+    bool isConnectedToMtsEsp() const { return pitchConverter.isConnectedToMtsEsp(); }
+    juce::String getScaleName() const { return pitchConverter.getScaleName(); }
     
     auto getLastMovedControllerInfo() const { return midi.getLastMovedCCinfo(); }
 
@@ -149,9 +122,6 @@ protected:
 
     // this method should return an instance of your synth's voice subclass
     virtual Voice* createVoice() = 0;
-    
-    /* MTS-ESP supports tuning tables in which certain pitches may be filtered out (note ons for these pitches are simply ignored). This function always returns false if you are not using MTS-ESP. */
-    virtual bool shouldFilterNote (int midiNote, int midiChannel = -1) const;
 
 private:
     void renderVoicesInternal (AudioBuffer& output, const int startSample, const int numSamples);
@@ -210,11 +180,7 @@ private:
     bav::midi::VelocityHelper  velocityConverter;
     bav::midi::PitchBendHelper bendTracker;
 
-#if BV_USE_MTS_ESP
-    MTSClient* mtsClient = nullptr;
-#else
-    bav::midi::PitchConverter pitchConverter;
-#endif
+    bav::PitchConverter pitchConverter;
 
     bool aftertouchGainIsOn {true};
 

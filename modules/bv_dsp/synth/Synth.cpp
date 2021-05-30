@@ -2,31 +2,6 @@
 #include "internals/PanningManager/PanningManager.cpp"
 #include "internals/AutomatedHarmonyVoice.cpp"
 
-#if BV_USE_MTS_ESP
-
-#    ifdef __clang__
-#        pragma clang diagnostic push
-#        pragma clang diagnostic ignored "-Weverything"
-#    elif defined __GNUC__
-#        pragma GCC diagnostic push
-#        pragma GCC diagnostic ignored "-Weverything"
-#    elif defined _MSC_VER
-#        pragma warning(push, 0)
-#    endif
-
-#    include <libMTSClient.cpp>
-
-#    ifdef __clang__
-#        pragma clang diagnostic pop
-#    elif defined __GNUC__
-#        pragma GCC diagnostic pop
-#    elif defined _MSC_VER
-#        pragma warning(pop)
-#    endif
-
-#endif /* BV_USE_MTS_ESP */
-
-
 namespace bav::dsp
 {
 /*
@@ -35,12 +10,7 @@ namespace bav::dsp
 template < typename SampleType >
 SynthBase< SampleType >::SynthBase()
     : bendTracker (2, 2)
-#if ! BV_USE_MTS_ESP
-      ,
-      pitchConverter (440, 69, 12)
-#endif
-      ,
-      lastBlocksize (0)
+      , lastBlocksize (0)
 {
     adsrParams.attack  = 0.035f;
     adsrParams.decay   = 0.06f;
@@ -55,11 +25,6 @@ SynthBase< SampleType >::SynthBase()
     setCurrentPlaybackSampleRate (44100.0);
 
     setConcertPitchHz (440);
-
-#if BV_USE_MTS_ESP
-    mtsClient = MTS_RegisterClient();
-    jassert (mtsClient != nullptr);
-#endif
 }
 
 
@@ -70,10 +35,6 @@ template < typename SampleType >
 SynthBase< SampleType >::~SynthBase()
 {
     voices.clear();
-
-#if BV_USE_MTS_ESP
-    MTS_DeregisterClient (mtsClient);
-#endif
 }
 
 
@@ -301,35 +262,10 @@ void SynthBase< SampleType >::setCurrentPlaybackSampleRate (const double newRate
  
  ==========================================================================================================*/
 
-
-/*
- Returns a frequency in Hz for a voice to play, based on its recieved midi note. The output frequency takes into account the current pitchwheel position and the current concert pitch Hz setting.
- */
 template < typename SampleType >
 float SynthBase< SampleType >::getOutputFrequency (const int midipitch, const int midiChannel) const
 {
-#if BV_USE_MTS_ESP
-    return bav::math::midiToFreq (
-        bendTracker.newNoteRecieved (bav::math::freqToMidi (MTS_NoteToFrequency (mtsClient, char (midipitch), char (midiChannel)))));
-#else
-    juce::ignoreUnused (midiChannel);
-    return pitchConverter.mtof (bendTracker.newNoteRecieved (midipitch));
-#endif
-}
-
-
-/*
- Returns true if the synth is currently ignoring the midi pitch for the passed midi channel (pass -1 for ÏDK the channel" or äll midi channels")
- */
-template < typename SampleType >
-bool SynthBase< SampleType >::shouldFilterNote (int midiNote, int midiChannel) const
-{
-#if BV_USE_MTS_ESP
-    return MTS_ShouldFilterNote (mtsClient, char (midiNote), char (midiChannel));
-#else
-    juce::ignoreUnused (midiNote, midiChannel);
-    return false;
-#endif
+    return pitchConverter.midiToFrequency (bendTracker.newNoteRecieved(midipitch), midiChannel);
 }
 
 
@@ -342,27 +278,6 @@ void SynthBase< SampleType >::resetRampedValues (int blocksize)
 {
     for (auto* voice : voices)
         voice->resetRampedValues (blocksize);
-}
-
-
-template < typename SampleType >
-bool SynthBase< SampleType >::isConnectedToMtsEsp() const noexcept
-{
-#if BV_USE_MTS_ESP
-    return MTS_HasMaster (mtsClient);
-#else
-    return false;
-#endif
-}
-
-template < typename SampleType >
-juce::String SynthBase< SampleType >::getScaleName() const
-{
-#if BV_USE_MTS_ESP
-    return {MTS_GetScaleName (mtsClient)};
-#else
-    return {};
-#endif
 }
 
 

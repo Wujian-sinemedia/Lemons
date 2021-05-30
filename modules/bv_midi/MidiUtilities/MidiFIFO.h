@@ -3,9 +3,7 @@
 
 namespace bav::midi
 {
-/*
-    A simple MIDI FIFO that uses JUCE's MidiBuffer as its interface.
-*/
+
 
 class MidiFIFO
 {
@@ -52,7 +50,6 @@ public:
         copying.clear();
         copying.addEvents (base, numSamples, numStoredSamples, -numSamples);
 
-        base.clear();
         base.swapWith (copying);
         numStoredSamples = std::max (0, numStoredSamples - numSamples);
     }

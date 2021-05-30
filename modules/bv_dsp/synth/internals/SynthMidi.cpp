@@ -30,16 +30,12 @@ void SynthBase< SampleType >::processMidiEvent (const MidiMessage& m)
 template < typename SampleType >
 void SynthBase< SampleType >::noteOn (const int midiPitch, const float velocity, const bool isKeyboard, const int midiChannel)
 {
-    // N.B. the `isKeyboard` flag should be true if this note on event was triggered directly from the plugin's midi input; this flag should be false if this note event was automatically triggered by any internal function of Imogen (descant, pedal pitch, etc)
-
-#if BV_USE_MTS_ESP
-    if (MTS_ShouldFilterNote (mtsClient, char (midiPitch), char (midiChannel)))
+    if (pitchConverter.shouldFilterNote (midiPitch, midiChannel))
     {
         pedal.setNoteToOff();
         descant.setNoteToOff();
         return;
     }
-#endif
 
     Voice* voice = nullptr;
 
@@ -74,8 +70,6 @@ void SynthBase< SampleType >::noteOn (const int midiPitch, const float velocity,
 template < typename SampleType >
 void SynthBase< SampleType >::noteOff (const int midiNoteNumber, const float velocity, const bool allowTailOff, const bool isKeyboard)
 {
-    // N.B. the `isKeyboard` flag should be true if this note off event was triggered directly from the plugin's midi input; this flag should be false if this note event was automatically triggered by any internal function of Imogen (descant, latch, etc)
-
     auto* voice = getVoicePlayingNote (midiNoteNumber);
 
     if (voice == nullptr)

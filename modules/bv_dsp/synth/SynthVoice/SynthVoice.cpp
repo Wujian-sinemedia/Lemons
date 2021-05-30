@@ -59,7 +59,7 @@ void SynthVoiceBase< SampleType >::renderBlock (AudioBuffer& output, const int s
     if (numSamples == 0) return;
 
     //  it's possible that the MTS-ESP master tuning table has changed since the last time this function was called...
-    if (parent->shouldFilterNote (currentlyPlayingNote, midiChannel))
+    if (parent->pitchConverter.shouldFilterNote (currentlyPlayingNote, midiChannel))
         stopNote (1.0f, false);
     else
         currentOutputFreq = parent->getOutputFrequency (currentlyPlayingNote, midiChannel);

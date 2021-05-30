@@ -5,21 +5,16 @@
  version:            0.0.1
  name:               bv_dsp
  description:        DSP and audio utilities and effects
- dependencies:       juce_audio_utils juce_dsp bv_midi
+ dependencies:       juce_audio_utils juce_dsp bv_mts_esp_client
  END_JUCE_MODULE_DECLARATION
  *******************************************************************************/
 
 #pragma once
 
-#ifndef BV_USE_MTS_ESP
-#    define BV_USE_MTS_ESP 0
-#endif
-
-// juce dependencies
 #include <juce_audio_utils/juce_audio_utils.h>
 #include <juce_dsp/juce_dsp.h>
 
-#include <bv_midi/bv_midi.h>
+#include <bv_mts_esp_client/bv_mts_esp_client.h>
 
 
 #include "Oscillators/oscillators.h"
