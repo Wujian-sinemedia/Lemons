@@ -14,7 +14,7 @@ add_library (AbletonLink INTERFACE)
 
 target_link_libraries (AbletonLink INTERFACE Ableton::Link)
 
-target_include_directories (AbletonLink INTERFACE "ableton-link/include/ableton" "ableton-link/src/ableton" "ableton-link")
+target_include_directories (AbletonLink INTERFACE "ableton-link")
 
 target_compile_definitions (AbletonLink INTERFACE BV_USE_ABLETON_LINK=1)
 
@@ -28,15 +28,15 @@ endif()
 
 if (${BV_USE_MTS_ESP})
 
-add_library (MTS-ESP INTERFACE)
+add_library (MTS-ESP STATIC)
 
-target_sources (MTS-ESP INTERFACE 
+target_sources (MTS-ESP PRIVATE 
 	MTS-ESP/Client/libMTSClient.h
 	MTS-ESP/Client/libMTSClient.cpp)
 
-target_include_directories (MTS-ESP INTERFACE "MTS-ESP/Client" "MTS-ESP")
+target_include_directories (MTS-ESP PUBLIC "MTS-ESP/Client" "MTS-ESP")
 
-target_compile_definitions (MTS-ESP INTERFACE BV_USE_MTS_ESP=1)
+target_compile_definitions (MTS-ESP PUBLIC BV_USE_MTS_ESP=1)
 
 endif()
 
