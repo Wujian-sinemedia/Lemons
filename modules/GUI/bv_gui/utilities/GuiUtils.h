@@ -3,116 +3,19 @@
 
 namespace bav::gui
 {
-/* RAII mechanism for changing the cursor & resetting it later */
-class ScopedCursor
+
+template<typename... Args>
+static inline void addAndMakeVisible (juce::Component* parent, juce::Component* firstChild, Args... rest)
 {
-public:
-    ScopedCursor (
-        const juce::MouseCursor& cursor,
-        juce::MouseCursor        cursorToResetTo = juce::MouseCursor::NormalCursor)
-        : resetCursor (std::move (cursorToResetTo))
-    {
-        juce::Desktop::getInstance().getMainMouseSource().showMouseCursor (cursor);
-    }
+    addAndMakeVisible (parent, firstChild);
+    addAndMakeVisible (parent, std::forward<Args>(rest)...);
+}
 
-    ~ScopedCursor()
-    {
-        juce::Desktop::getInstance().getMainMouseSource().showMouseCursor (
-            resetCursor);
-    }
-
-private:
-    const juce::MouseCursor resetCursor;
-};
-
-
-/* Sets the cursor to the system's default "wait" cursor, then back to the normal one */
-class ScopedWaitCursor : ScopedCursor
+static inline void addAndMakeVisible (juce::Component* parent, juce::Component* child)
 {
-    ScopedWaitCursor()
-        : ScopedCursor (juce::MouseCursor::WaitCursor)
-    {
-    }
-};
-
-
-/*=========================================================================================*/
-/*=========================================================================================*/
-
-
-struct DarkModeSentinel : private juce::Timer,
-                          private BoolParameter::Listener
-{
-    DarkModeSentinel (BoolParameter& paramToUse, juce::Component& componentToUse)
-        : BoolParameter::Listener (paramToUse),
-          darkModeParameter (paramToUse),
-          componentToRepaint (componentToUse)
-    {
-#if JUCE_MAC
-        Timer::startTimerHz (10);
-#endif
-    }
-
-    virtual ~DarkModeSentinel() override
-    {
-#if JUCE_MAC
-        Timer::stopTimer();
-#endif
-    }
-
-private:
-    void timerCallback() override final
-    {
-#if JUCE_MAC
-        darkModeParameter.set (juce::Desktop::isOSXDarkModeActive());
-#endif
-    }
-
-    void paramValueChanged (bool) override final
-    {
-        componentToRepaint.repaint();
-    }
-
-    BoolParameter&   darkModeParameter;
-    juce::Component& componentToRepaint;
-};
-
-
-/*=========================================================================================*/
-/*=========================================================================================*/
-
-
-struct GUIInitializer
-{
-    GUIInitializer (juce::Component& componentToUse)
-    {
-#if JUCE_OPENGL
-        openGLContext.attachTo (componentToUse);
-#else
-        juce::ignoreUnused (componentToUse);
-#endif
-
-        AutoLock::setEnabled (false);
-    }
-
-    virtual ~GUIInitializer()
-    {
-#if JUCE_OPENGL
-        openGLContext.detach();
-#endif
-    }
-
-
-private:
-#if JUCE_OPENGL
-    OpenGLContext openGLContext;
-#endif
-};
-
-
-/*=========================================================================================*/
-/*=========================================================================================*/
-
+    jassert (parent != nullptr && parent != nullptr);
+    parent->addAndMakeVisible (child);
+}
 
 static inline juce::Button::ButtonState boolToButtonState (const bool isOn) noexcept
 {

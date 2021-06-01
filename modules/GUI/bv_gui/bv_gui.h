@@ -23,9 +23,15 @@
 
 #include <bv_plugin/bv_plugin.h>
 
+#include "utilities/Scaling.h"
+#include "utilities/DarkModeSentinel.h"
+#include "utilities/ScopedCursor.h"
+#include "utilities/GuiInitializer.h"
 #include "utilities/GuiUtils.h"
 #include "utilities/Spline.h"
+
 #include "icons/icons.h"
+
 #include "components/SynthMidiKeyboardComponent/SynthMidiKeyboardComponent.h"
 #include "components/SynthStaffDisplayComponent/SynthStaffDisplayComponent.h"
 
