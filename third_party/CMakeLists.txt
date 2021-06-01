@@ -2,16 +2,22 @@ add_subdirectory (JUCE)
 
 #
 
-#include (ableton-link/AbletonLinkConfig.cmake)
-
-list (APPEND CMAKE_MODULE_PATH ableton-link)
-
 if (NOT DEFINED BV_USE_ABLETON_LINK)
 	set (BV_USE_ABLETON_LINK FALSE)
 endif()
 
 if (${BV_USE_ABLETON_LINK})
-	find_package (AbletonLink)
+
+include (ableton-link/AbletonLinkConfig.cmake)
+
+add_library (AbletonLink INTERFACE)
+
+target_link_libraries (AbletonLink INTERFACE Ableton::Link)
+
+target_include_directories (AbletonLink INTERFACE "ableton-link/include/ableton" "ableton-link/src/ableton" "ableton-link")
+
+target_compile_definitions (AbletonLink INTERFACE BV_USE_ABLETON_LINK=1)
+
 endif()
 
 #

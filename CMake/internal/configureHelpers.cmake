@@ -84,8 +84,7 @@ function (_configure_juce_app target useBrowser)
 
     if (${BV_USE_ABLETON_LINK})
         message (STATUS "Configuring Ableton Link...")
-        target_link_libraries (${target} PRIVATE Ableton::Link)
-        target_compile_definitions (${target} PRIVATE BV_USE_ABLETON_LINK=1)
+        target_link_libraries (${target} PRIVATE AbletonLink)
     endif()
 
     _adjustDefaultMacTarget (${target} ${target})
