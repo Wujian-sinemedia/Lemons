@@ -41,7 +41,7 @@ static inline juce::var valueTreeToVar (const juce::ValueTree& v)
 
 //==============================================================================
 
-static juce::String valueTreeToJSON (const juce::ValueTree& v)
+static inline juce::String valueTreeToJSON (const juce::ValueTree& v)
 {
     auto obj = valueTreeToVar (v);
     return juce::JSON::toString (obj);
@@ -91,7 +91,7 @@ static inline juce::ValueTree valueTreefromVar (const juce::var& obj)
 
 //==============================================================================
 
-inline juce::ValueTree valueTreeFromJSON (const juce::String& jsonText)
+static inline juce::ValueTree valueTreeFromJSON (const juce::String& jsonText)
 {
     juce::var obj = juce::JSON::parse (jsonText);
 
