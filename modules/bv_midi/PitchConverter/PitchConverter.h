@@ -1,39 +1,29 @@
 #pragma once
 
-#if 0
-
- BEGIN_JUCE_MODULE_DECLARATION
-
- ID:                 bv_mts_esp_client
- vendor:             Ben Vining
- version:            0.0.1
- name:               bv_mts_esp_client
- description:        Interface that wraps the MTS-ESP library
- dependencies:       juce_core
-
- END_JUCE_MODULE_DECLARATION
- 
-#endif
-
-
-//==============================================================================
-/** Config: BV_USE_MTS_ESP
- 
-    Set this to 1 if your project is using the MTS-ESP library.
-    If this is 0, this module will use the fallback implementation.
- */
-#ifndef BV_USE_MTS_ESP
-#    define BV_USE_MTS_ESP 0
-#endif
-
-
-#include <juce_core/juce_core.h>
 
 #if BV_USE_MTS_ESP
-#    include "mts_esp_client/mts_esp_client.h"
-#else
-#    include "fallback/fallback_pitch_converter.h"
+
+#ifdef __clang__
+#    pragma clang diagnostic push
+#    pragma clang diagnostic ignored "-Weverything"
+#elif defined __GNUC__
+#    pragma GCC diagnostic push
+#    pragma GCC diagnostic ignored "-Weverything"
+#elif defined _MSC_VER
+#    pragma warning(push, 0)
 #endif
+
+#include <libMTSClient.h>
+
+#ifdef __clang__
+#    pragma clang diagnostic pop
+#elif defined __GNUC__
+#    pragma GCC diagnostic pop
+#elif defined _MSC_VER
+#    pragma warning(pop)
+#endif
+
+#endif /* if BV_USE_MTS_ESP */
 
 
 namespace bav::midi
@@ -44,6 +34,9 @@ namespace bav::midi
 class PitchConverter
 {
 public:
+    PitchConverter();
+    virtual ~PitchConverter();
+    
     /*
      MTS-ESP supports specific mappings for each midi channel; pass -1 for "unspecified" or "all channels". In the fallback version, the midi channel is ignored.
      */
@@ -66,9 +59,9 @@ public:
 
 private:
 #if BV_USE_MTS_ESP
-    MTSESPClient mtsClient;
+    MTSClient* client;
 #else
-    FallbackPitchConverter converter;
+    float concertPitchHz {440.0f};
 #endif
 };
 

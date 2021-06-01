@@ -9,19 +9,32 @@
  version:            0.0.1
  name:               bv_midi
  description:        Midi utilities
- dependencies:       bv_core bv_mts_esp_client
+ dependencies:       bv_core
 
  END_JUCE_MODULE_DECLARATION
  
 #endif
 
 
+//==============================================================================
+/** Config: BV_USE_MTS_ESP
+ 
+ Set this to 1 if your project is using the MTS-ESP library.
+ If this is 0, this module will use the fallback implementation.
+ */
+#ifndef BV_USE_MTS_ESP
+#    define BV_USE_MTS_ESP 0
+#endif
+
+
 #include <bv_core/bv_core.h>
-#include <bv_mts_esp_client/bv_mts_esp_client.h>
 
 #include "MidiUtilities/MidiFIFO.h"
 #include "MidiUtilities/MidiUtilities.h"
 #include "MidiUtilities/PitchbendTracker.h"
-#include "MidiUtilities/PitchPipeline.h"
 
 #include "processors/MidiProcessor.h"
+
+#include "PitchConverter/PitchConverter.h"
+
+#include "MidiUtilities/PitchPipeline.h"

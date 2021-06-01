@@ -87,7 +87,6 @@ function (_configure_juce_app target useBrowser)
         bv_mobile_utils
         bv_core
         bv_plugin
-        bv_mts_esp_client
         ableton_push_display
         juce::juce_recommended_config_flags
         juce::juce_recommended_lto_flags
