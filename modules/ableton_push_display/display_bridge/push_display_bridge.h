@@ -10,6 +10,11 @@ class PushDisplayBridge
 {
 public:
     PushDisplayBridge (PushDisplay& d);
+    
+    /*!
+     * Returns the size of an Ableton Push 2 display as a juce Rectangle with a (0, 0) origin
+     */
+    juce::Rectangle<int> getDisplaySize() const { return { 0, 0, PushBitmap::kWidth, PushBitmap::kHeight }; }
 
     /*!
      * Access a reference to the juce::Graphics of the bridge

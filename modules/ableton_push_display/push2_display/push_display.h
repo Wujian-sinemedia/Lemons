@@ -26,6 +26,7 @@ public:
     //return usb.init();
     //}
 
+    /* original comment from ableton: */
     // Transfers the bitmap into the output buffer sent to
     // the push display. The push display buffer has a larger stride
     // as the given bitmap
@@ -46,7 +47,6 @@ public:
             dst += kDataSourceWidth;
         }
     }
-
 
 private:
     static const int kDataSourceWidth  = 1024;

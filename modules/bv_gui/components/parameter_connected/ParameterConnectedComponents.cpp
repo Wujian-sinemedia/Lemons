@@ -4,6 +4,9 @@ namespace bav::gui
 SliderAttachmentBase::SliderAttachmentBase (Parameter& paramToUse)
     : param (paramToUse)
 {
+    Slider::setName (param.parameterNameVerbose);
+    Slider::setComponentID (param.parameterNameVerbose);
+    
     auto range = param.rap.getNormalisableRange();
 
     auto convertFrom0To1Function = [range] (double currentRangeStart,
@@ -164,6 +167,9 @@ ToggleButton::ToggleButton (BoolParameter& paramToUse)
 
     TB::setButtonText (param.parameterNameVerbose);
     TB::setTooltip (param.parameterNameShort);
+    
+    TB::setName (param.parameterNameVerbose);
+    TB::setComponentID (param.parameterNameVerbose);
 
     param.sendListenerSyncCallback();
 }

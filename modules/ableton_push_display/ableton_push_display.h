@@ -18,3 +18,5 @@
 #include "push2_display/push_bitmap.h"
 #include "push2_display/push_display.h"
 #include "display_bridge/push_display_bridge.h"
+
+#include "PushComponent.h"
