@@ -106,10 +106,10 @@ juce::String PitchConverter::getScaleName() const
 #endif
 }
 
-bool PitchConverter::setConcertPitchHz (float newConcertPitchhz)
+bool PitchConverter::setConcertPitchHz (float newConcertPitchHz)
 {
 #if BV_USE_MTS_ESP
-    juce::ignoreUnused (newConcertPitchhz);
+    juce::ignoreUnused (newConcertPitchHz);
     return false;
 #else
     if (concertPitchHz == newConcertPitchHz)

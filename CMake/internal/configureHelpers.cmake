@@ -24,7 +24,10 @@ function (_configure_vecops_options target)
         message (STATUS "Configuring vDSP for vecops...")
         target_compile_definitions (${target} PUBLIC JUCE_USE_VDSP_FRAMEWORK=1 BV_USE_VDSP=1)
     else()
-        _configure_mipp (${target})
+        if (NOT ${BV_IGNORE_MIPP})
+            message (STATUS "Configuring MIPP for vecops...")
+            target_link_libraries (${target} PRIVATE MIPP)
+        endif()
     endif()
 endfunction()
 
@@ -76,7 +79,10 @@ function (_configure_juce_app target useBrowser)
 
     _configure_vecops_options (${target})
 
-    _configure_mts_esp (${target})
+    if (${BV_USE_MTS_ESP})
+        message (STATUS "Configuring MTS-ESP...")
+        target_link_libraries (${target} PRIVATE MTS-ESP)
+    endif()
 
     _adjustDefaultMacTarget (${target} ${target})
 
