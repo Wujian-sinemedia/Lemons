@@ -1,29 +1,8 @@
 #pragma once
 
-
 #if BV_USE_MTS_ESP
-
-#ifdef __clang__
-#    pragma clang diagnostic push
-#    pragma clang diagnostic ignored "-Weverything"
-#elif defined __GNUC__
-#    pragma GCC diagnostic push
-#    pragma GCC diagnostic ignored "-Weverything"
-#elif defined _MSC_VER
-#    pragma warning(push, 0)
+#    include <libMTSClient.h>
 #endif
-
-#include <libMTSClient.h>
-
-#ifdef __clang__
-#    pragma clang diagnostic pop
-#elif defined __GNUC__
-#    pragma GCC diagnostic pop
-#elif defined _MSC_VER
-#    pragma warning(pop)
-#endif
-
-#endif /* if BV_USE_MTS_ESP */
 
 
 namespace bav::midi

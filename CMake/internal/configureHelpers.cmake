@@ -59,8 +59,6 @@ function (_configure_juce_app target useBrowser)
         set_target_properties (${target}_LV2 PROPERTIES JUCE_LV2_URI https://github.com/benthevining/${CMAKE_PROJECT_NAME})
     endif()
 
-    #set_target_properties (${target} PROPERTIES FOLDER "${CMAKE_PROJECT_NAME}")
-
     target_compile_definitions (${target} PUBLIC
             JUCE_VST3_CAN_REPLACE_VST2=0
             JUCE_APPLICATION_NAME_STRING="$<TARGET_PROPERTY:${target},JUCE_PRODUCT_NAME>"
@@ -82,6 +80,12 @@ function (_configure_juce_app target useBrowser)
     if (${BV_USE_MTS_ESP})
         message (STATUS "Configuring MTS-ESP...")
         target_link_libraries (${target} PRIVATE MTS-ESP)
+    endif()
+
+    if (${BV_USE_ABLETON_LINK})
+        message (STATUS "Configuring Ableton Link...")
+        target_link_libraries (${target} PRIVATE Ableton::Link)
+        target_compile_definitions (${target} PRIVATE BV_USE_ABLETON_LINK=1)
     endif()
 
     _adjustDefaultMacTarget (${target} ${target})
