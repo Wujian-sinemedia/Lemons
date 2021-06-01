@@ -155,17 +155,6 @@
 /*=======================================================================*/
 
 
-#ifdef __clang__
-#    pragma clang diagnostic push
-#    pragma clang diagnostic ignored "-Weverything"
-#elif defined __GNUC__
-#    pragma GCC diagnostic push
-#    pragma GCC diagnostic ignored "-Weverything"
-#elif defined _MSC_VER
-#    pragma warning(push, 0)
-#endif
-
-
 #if BV_USE_VDSP
 #    include <Accelerate/Accelerate.h>
 #elif BV_USE_IPP
@@ -179,19 +168,6 @@
 
 
 #include <juce_audio_utils/juce_audio_utils.h>
-
-
-#ifdef __clang__
-#    pragma clang diagnostic pop
-#    pragma clang diagnostic push
-#    pragma clang diagnostic ignored "-Wunused-function"
-#elif defined __GNUC__
-#    pragma GCC diagnostic pop
-#    pragma GCC diagnostic push "-Wunused-function"
-#elif defined _MSC_VER
-#    pragma warning(pop)
-#endif
-
 
 
 #include "misc/StaticObjects.h"
@@ -214,10 +190,3 @@
 #include "math/mathHelpers.h"
 #include "math/vecops/vecops.h"
 #include "math/intops/intOps.h"
-
-
-#ifdef __clang__
-#    pragma clang diagnostic pop
-#elif defined __GNUC__
-#    pragma GCC diagnostic pop
-#endif
