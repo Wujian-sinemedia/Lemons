@@ -23,9 +23,9 @@ endif()
 
 if (${BV_USE_MTS_ESP})
 
-	add_library (MTS-ESP STATIC)
+	add_library (MTS-ESP INTERFACE)
 
-	target_sources (MTS-ESP PRIVATE 
+	target_sources (MTS-ESP INTERFACE 
 		MTS-ESP/Client/libMTSClient.h
 		MTS-ESP/Client/libMTSClient.cpp)
 
