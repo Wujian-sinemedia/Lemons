@@ -22,7 +22,8 @@
 
 #include "usb_communication/push_usb.h"
 #include "push2_display/push_bitmap.h"
-#include "push2_display/push_display.h"
+#include "push2_display/push_display_interface.h"
 #include "display_bridge/push_display_bridge.h"
 
-#include "PushComponent.h"
+#include "public_API/PushDisplay.h"
+#include "public_API/PushComponent.h"

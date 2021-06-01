@@ -4,12 +4,16 @@
 
 namespace ableton
 {
-class PushDisplay
+
+/*
+ This class implements the low-level interface with the Push2 device, preparing the raw pixel data to be transmitted via USB.
+ */
+class PushDisplayInterface
 {
 public:
     using pixel_t = PushBitmap::pixel_t;
 
-    PushDisplay()
+    PushDisplayInterface()
     {
         auto* pData = data;
         for (uint8_t line = 0; line < kDataSourceHeight; line++)
@@ -18,8 +22,6 @@ public:
             pData += kDataSourceWidth;
         }
     }
-
-    virtual ~PushDisplay() = default;
 
     //bool init()
     //{

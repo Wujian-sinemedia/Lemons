@@ -1,7 +1,7 @@
 
 namespace ableton
 {
-PushDisplayBridge::PushDisplayBridge (PushDisplay& d)
+PushDisplayBridge::PushDisplayBridge (PushDisplayInterface& d)
     : display (d)
 {
 }

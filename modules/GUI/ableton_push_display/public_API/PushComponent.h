@@ -7,14 +7,16 @@
 namespace ableton
 {
 
-class PushComponent :   public juce::Component,
+class PushComponent :   public  juce::Component,
                         private juce::Timer
 {
 public:
     PushComponent (int framerate = 30)
     {
-        auto size = bridge.getDisplaySize();
-        setSize (size.getWidth(), size.getHeight());  // automatically resize to the size of the Push display
+        // automatically resize to the size of the Push display
+        setSize (pushDisplay.getWidth(),
+                 pushDisplay.getHeight());
+        
         startTimerHz (framerate);
     }
     
@@ -24,13 +26,12 @@ public:
     }
     
 protected:
-    PushDisplay       display;
-    PushDisplayBridge bridge {display};
-    
+    PushDisplay pushDisplay;
+   
 private:
     void timerCallback() override final
     {
-        bridge.drawComponent (*this);
+        pushDisplay.drawComponent (*this);
     }
 };
 

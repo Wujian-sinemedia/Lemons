@@ -9,11 +9,14 @@ namespace ableton
 class PushDisplayBridge
 {
 public:
-    PushDisplayBridge (PushDisplay& d);
+    PushDisplayBridge (PushDisplayInterface& d);
     
     /*!
-     * Returns the size of an Ableton Push 2 display as a juce Rectangle with a (0, 0) origin
+     * Returns the size of a standard Ableton Push 2 display.
      */
+    
+    int getDisplayWidth() const { return PushBitmap::kWidth; }
+    int getDisplayHeight() const { return PushBitmap::kHeight; }
     juce::Rectangle<int> getDisplaySize() const { return { 0, 0, PushBitmap::kWidth, PushBitmap::kHeight }; }
 
     /*!
@@ -36,9 +39,9 @@ public:
     void drawComponent (juce::Component* c);
 
 private:
-    PushDisplay&   display;
-    juce::Image    image {juce::Image::RGB, PushBitmap::kWidth, PushBitmap::kHeight, false};
-    juce::Graphics graphics {image};
+    PushDisplayInterface& display;
+    juce::Image           image {juce::Image::RGB, PushBitmap::kWidth, PushBitmap::kHeight, false};
+    juce::Graphics        graphics {image};
 };
 
 }  // namespace ableton
