@@ -1,37 +1,40 @@
-/*******************************************************************************
- BEGIN_JUCE_MODULE_DECLARATION
- ID:                           bv_SharedCode
- vendor:                    Ben Vining
- version:                    0.0.1
- name:                      Ben Vining's codebase
- description:              General utilities useful for developing plugins.
- dependencies:         juce_audio_utils
- OSXFrameworks:    Accelerate
- iOSFrameworks:      Accelerate
- END_JUCE_MODULE_DECLARATION
- *******************************************************************************/
-
-
 #pragma once
 
+#if 0
 
+ BEGIN_JUCE_MODULE_DECLARATION
+
+ ID:                bv_SharedCode
+ vendor:            Ben Vining
+ version:           0.0.1
+ name:              bv_SharedCode
+ description:       General utilities useful for developing plugins.
+ dependencies:      juce_audio_utils
+ OSXFrameworks:     Accelerate
+ iOSFrameworks:     Accelerate
+
+ END_JUCE_MODULE_DECLARATION
+
+#endif
+
+
+//==============================================================================
+/** Config: BV_HAS_BINARY_DATA
+ 
+    Set this to 1 if your project has a juce binary data target.
+ */
 #ifndef BV_HAS_BINARY_DATA
 #    define BV_HAS_BINARY_DATA 0
 #endif
 
-#include <juce_audio_utils/juce_audio_utils.h>
 
-
-/*=======================================================================
- These conditionals select whether to use any optimization libraries for vecops, FFTs, etc.
- Changing these options here will control which implementation is used for the entire Shared-code module, including vecops and the FFT module.
+//==============================================================================
+/** Config: BV_USE_VDSP
  
- - On Apple platforms, Accelerate/vDSP is included with the OS. It should always be available, and there's pretty much no reason not to use it.
- - "IPP" stands for Intel Integrated Performance Primitives, which is available on Intel Atom, Core, and Xeon processors. By far the fastest on actual Intel hardware. IPP must be specially installed and linked to in order to use it.
- - MIPP is an open-source library that serves as a portable wrapper around various SIMD instruction sets. Supports NEON, SSE, AVX and AVX-512. Can be found at https://github.com/aff3ct/MIPP.
- - Ne10 is an open-source library of vectorized functions for ARM NEON processors. Supports fewer architectures than MIPP (will internally revert to C code if compiled using Ne10 and run on a non-NEON processor), but when run on a NEON processor, should outpace MIPP as it is more specially tailored to the various flavors of NEON processors.
-=======================================================================*/
-
+    Set this to 1 to use Apple's vDSP library for vecops SIMD.
+    vDSP ships with the OS on Mac and iOS, which is why it's the default on Apple platforms.
+    (Setting this to 1 disables IPP, Ne10 and MIPP.)
+ */
 #ifndef BV_USE_VDSP
 #    if JUCE_IOS || JUCE_MAC
 #        define BV_USE_VDSP 1
@@ -46,12 +49,19 @@
 #    undef BV_USE_MIPP
 #    define BV_USE_IPP  0
 #    define BV_USE_NE10 0
-#    define BV_USE_NE10 0
+#    define BV_USE_MIPP 0
 #endif
 
 #undef JUCE_USE_VDSP_FRAMEWORK
 #define JUCE_USE_VDSP_FRAMEWORK BV_USE_VDSP
 
+
+//==============================================================================
+/** Config: BV_USE_IPP
+ 
+    Set this to 1 to use Intel's Integrated Performance Primitives library for vecops SIMD.
+    (Setting this to 1 disables vDSP, Ne10 and MIPP.)
+ */
 #if ! JUCE_INTEL
 #    undef BV_USE_IPP
 #    define BV_USE_IPP 0
@@ -68,6 +78,13 @@
 #    define BV_USE_MIPP 0
 #endif
 
+
+//==============================================================================
+/** Config: BV_USE_NE10
+ 
+    Ne10 is an open-source SIMD intrinsics library for Arm NEON. Set this to 1 to use Ne10 for vecops SIMD.
+    (Setting this to 1 disables vDSP, IPP and MIPP.)
+ */
 #ifndef __ARM_NEON__
 #    undef BV_USE_NE10
 #    define BV_USE_NE10 0
@@ -82,6 +99,14 @@
 #    define BV_USE_MIPP 0
 #endif
 
+
+//==============================================================================
+/** Config: BV_USE_MIPP
+ 
+    MIPP is a cross-platform SIMD intrinsics library that supports NEON, SSE, AVX and AVX-512.
+    Set this to 1 to use MIPP for vecops SIMD.
+    (Setting this to 1 disables vDSP, IPP and Ne10.)
+ */
 #ifndef BV_USE_MIPP
 #    define BV_USE_MIPP 0
 #endif
@@ -151,6 +176,9 @@
 #elif BV_USE_MIPP
 #    include <mipp.h>
 #endif
+
+
+#include <juce_audio_utils/juce_audio_utils.h>
 
 
 #ifdef __clang__

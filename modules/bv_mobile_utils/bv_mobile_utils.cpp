@@ -6,23 +6,23 @@
 
 #if JUCE_IOS
 #    include "iOS/iOSMotionManager.mm"
-
 #elif JUCE_ANDROID
 #    include "Android/androidMotion.cpp"
 #    include "Android/AndroidAutoLock.cpp"
-
 #endif
 
 
-#if ! JUCE_ANDROID /* this impl works for iOS and desktop */
 namespace bav
 {
+
+#if ! JUCE_ANDROID /* this impl works for iOS and desktop */
+
 void AutoLock::setEnabled (bool shouldBeEnabled)
 {
     juce::Desktop::getInstance().setScreenSaverEnabled (shouldBeEnabled);
 }
 
+#endif /* if ! JUCE_ANDROID */
+
 
 }  // namespace bav
-
-#endif /* if ! JUCE_ANDROID */

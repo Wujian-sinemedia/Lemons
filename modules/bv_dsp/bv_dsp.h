@@ -1,15 +1,20 @@
-/******************************************************************************
- BEGIN_JUCE_MODULE_DECLARATION
- ID:                 bv_dsp
- vendor:             Ben Vining
- version:            0.0.1
- name:               bv_dsp
- description:        DSP and audio utilities and effects
- dependencies:       juce_audio_utils juce_dsp bv_midi
- END_JUCE_MODULE_DECLARATION
- *******************************************************************************/
-
 #pragma once
+
+#if 0
+
+BEGIN_JUCE_MODULE_DECLARATION
+
+ID:                 bv_dsp
+vendor:             Ben Vining
+version:            0.0.1
+name:               bv_dsp
+description:        DSP/audio utilities and effects
+dependencies:       juce_audio_utils juce_dsp bv_midi
+
+END_JUCE_MODULE_DECLARATION
+
+#endif
+
 
 #include <juce_audio_utils/juce_audio_utils.h>
 #include <juce_dsp/juce_dsp.h>

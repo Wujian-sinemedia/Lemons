@@ -1,23 +1,33 @@
-/*******************************************************************************
+#pragma once
+
+#if 0
+
  BEGIN_JUCE_MODULE_DECLARATION
+
  ID:                 bv_mts_esp_client
  vendor:             Ben Vining
  version:            0.0.1
  name:               bv_mts_esp_client
  description:        Interface that wraps the MTS-ESP library
- dependencies:   juce_core
+ dependencies:       juce_core
+
  END_JUCE_MODULE_DECLARATION
- *******************************************************************************/
-
-#pragma once
-
-#include <juce_core/juce_core.h>
+ 
+#endif
 
 
+//==============================================================================
+/** Config: BV_USE_MTS_ESP
+ 
+    Set this to 1 if your project is using the MTS-ESP library.
+    If this is 0, this module will use the fallback implementation.
+ */
 #ifndef BV_USE_MTS_ESP
 #    define BV_USE_MTS_ESP 0
 #endif
 
+
+#include <juce_core/juce_core.h>
 
 #if BV_USE_MTS_ESP
 #    include "mts_esp_client/mts_esp_client.h"

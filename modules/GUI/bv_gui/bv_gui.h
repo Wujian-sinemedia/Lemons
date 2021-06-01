@@ -1,15 +1,20 @@
-/******************************************************************************
+#pragma once
+
+#if 0
+
  BEGIN_JUCE_MODULE_DECLARATION
+
  ID:                 bv_gui
  vendor:             Ben Vining
  version:            0.0.1
  name:               bv_gui
  description:        GUI utility classes and some basic components
  dependencies:       bv_plugin
- END_JUCE_MODULE_DECLARATION
- *******************************************************************************/
 
-#pragma once
+ END_JUCE_MODULE_DECLARATION
+ 
+#endif
+
 
 #ifdef __clang__
 #    pragma clang diagnostic push
