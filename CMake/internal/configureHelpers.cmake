@@ -75,15 +75,6 @@ function (_configure_juce_app target useBrowser)
 
     _configure_vecops_options (${target})
 
-    if (${BV_USE_MTS_ESP})
-        message (STATUS "Configuring MTS-ESP...")
-        target_link_libraries (${target} PRIVATE MTS-ESP)
-    endif()
-
-    if (${BV_USE_ABLETON_LINK})
-        
-    endif()
-
     _adjustDefaultMacTarget (${target} ${target})
 
     target_link_libraries (${target} PUBLIC

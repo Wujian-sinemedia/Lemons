@@ -7,3 +7,38 @@ juce_add_modules (bv_core
                   )
 
 add_subdirectory (GUI)
+
+
+if (${BV_USE_ABLETON_LINK})
+
+    message (STATUS "Configuring Ableton Link...")
+
+    include (../third_party/ableton-link/AbletonLinkConfig.cmake)
+
+    target_link_libraries (bv_plugin INTERFACE Ableton::Link)
+
+    target_compile_definitions (bv_plugin INTERFACE BV_USE_ABLETON_LINK=1)
+
+    target_include_directories (bv_plugin INTERFACE 
+        "${CMAKE_CURRENT_LIST_DIR}/../third_party/ableton-link/include/ableton"
+        "${CMAKE_CURRENT_LIST_DIR}/../third_party/ableton-link/include/ableton/platforms")
+
+endif()
+
+
+if (${BV_USE_MTS_ESP})
+
+    message (STATUS "Configuring MTS-ESP...")
+
+    add_library (MTS-ESP INTERFACE)
+
+    target_sources (MTS-ESP INTERFACE 
+        ../third_party/MTS-ESP/Client/libMTSClient.h
+        ../third_party/MTS-ESP/Client/libMTSClient.cpp)
+
+    target_include_directories (MTS-ESP INTERFACE "${CMAKE_CURRENT_LIST_DIR}/../third_party/MTS-ESP/Client")
+    target_compile_definitions (MTS-ESP INTERFACE BV_USE_MTS_ESP=1)
+
+    target_link_libraries (bv_midi INTERFACE MTS-ESP)
+
+endif()
