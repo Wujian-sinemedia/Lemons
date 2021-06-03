@@ -1,14 +1,6 @@
 
 #include "bv_core.h"
 
-#include "math/mathHelpers.cpp"
-#include "math/vecops/vecops.cpp"
-#include "math/intops/intOps.cpp"
-
-#include "misc/misc.cpp"
-
-#include "serializing/SerializableData.cpp"
-
 #if BV_USE_VDSP
 #    include "math/vecops/implementations/vecops_vdsp.cpp"
 #elif BV_USE_IPP
@@ -20,6 +12,17 @@
 #else
 #    include "math/vecops/implementations/vecops_fallback.cpp"
 #endif
+
+#include "math/mathHelpers.cpp"
+#include "math/vecops/vecops.cpp"
+#include "math/intops/intOps.cpp"
+
+#include "misc/misc.cpp"
+
+#include "serializing/SerializableData/SerializableData.cpp"
+#include "serializing/ValueTreeToJson/valuetree_json_converter.cpp"
+#include "serializing/Serializing/Serializing.cpp"
+#include "serializing/DataSynchronizer/DataSynchronizer.cpp"
 
 #include "files/FileUtilities.cpp"
 #include "binary_data/BinaryDataHelpers.cpp"

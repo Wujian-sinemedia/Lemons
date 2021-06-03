@@ -177,8 +177,10 @@
 #include "events/Broadcaster.h"
 #include "events/Listener.h"
 
-#include "serializing/SerializableData.h"
-#include "serializing/valuetree_json_converter.h"
+#include "serializing/SerializableData/SerializableData.h"
+#include "serializing/ValueTreeToJson/valuetree_json_converter.h"
+#include "serializing/Serializing/Serializing.h"
+#include "serializing/DataSynchronizer/DataSynchronizer.h"
 
 #include "files/FileUtilities.h"
 

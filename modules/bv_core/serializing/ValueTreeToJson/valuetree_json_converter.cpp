@@ -1,7 +1,4 @@
-
-#pragma once
-
-namespace bav
+namespace bav::serializing
 {
 static inline juce::var valueTreeToVar (const juce::ValueTree& v)
 {
@@ -39,9 +36,7 @@ static inline juce::var valueTreeToVar (const juce::ValueTree& v)
     return juce::var (obj);
 }
 
-//==============================================================================
-
-static inline juce::String valueTreeToJSON (const juce::ValueTree& v)
+juce::String valueTreeToJSON (const juce::ValueTree& v)
 {
     auto obj = valueTreeToVar (v);
     return juce::JSON::toString (obj);
@@ -89,9 +84,7 @@ static inline juce::ValueTree valueTreefromVar (const juce::var& obj)
     return {};
 }
 
-//==============================================================================
-
-static inline juce::ValueTree valueTreeFromJSON (const juce::String& jsonText)
+juce::ValueTree valueTreeFromJSON (const juce::String& jsonText)
 {
     juce::var obj = juce::JSON::parse (jsonText);
 
@@ -101,4 +94,4 @@ static inline juce::ValueTree valueTreeFromJSON (const juce::String& jsonText)
 }
 
 
-}  // namespace bav
+}  // namespace bav::serializing
