@@ -258,7 +258,7 @@ void Parameter::doAction (bool force)
     if (force || value != lastActionedValue)
     {
         lastActionedValue = value;
-        onAction();
+        actionBroadcaster.trigger();
     }
 }
 

@@ -174,6 +174,9 @@
 #include "misc/misc.h"
 #include "misc/LockFreeFifo.h"
 
+#include "events/Broadcaster.h"
+#include "events/Listener.h"
+
 #include "serializing/SerializableData.h"
 #include "serializing/valuetree_json_converter.h"
 

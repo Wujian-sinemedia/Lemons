@@ -59,7 +59,7 @@ private:
     bool isAutomatable() const override final;
     bool isMetaParameter() const override final;
     
-    void onAction() override final;
+    events::Listener l {actionBroadcaster, [this](){ actionFunc (get()); }};
 
     void toValueTree (juce::ValueTree& tree) override final;
     void fromValueTree (const juce::ValueTree& tree) override final;
@@ -126,7 +126,7 @@ private:
     bool isAutomatable() const override final;
     bool isMetaParameter() const override final;
     
-    void onAction() override final;
+    events::Listener l {actionBroadcaster, [this](){ actionFunc (get()); }};
 
     void toValueTree (juce::ValueTree& tree) override final;
     void fromValueTree (const juce::ValueTree& tree) override final;
@@ -190,7 +190,7 @@ private:
     bool isAutomatable() const override final;
     bool isMetaParameter() const override final;
     
-    void onAction() override final;
+    events::Listener l {actionBroadcaster, [this](){ actionFunc (get()); }};
 
     void toValueTree (juce::ValueTree& tree) override final;
     void fromValueTree (const juce::ValueTree& tree) override final;

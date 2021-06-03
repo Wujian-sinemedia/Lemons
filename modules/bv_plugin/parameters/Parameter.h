@@ -42,7 +42,7 @@ public:
     void doAction (bool force = false);
 
     void sendListenerSyncCallback();  // sends a value update message immediately to all listeners
-
+    
     //==============================================================================
 
     RangedParam& rap;
@@ -69,17 +69,16 @@ public:
     };
 
     //==============================================================================
+protected:
+    events::Broadcaster actionBroadcaster;
 
 private:
     void setValueInternal (float newNormalizedValue);
     void setDefaultInternal (float newNormalizedDefault);
 
-    virtual void onAction() { }
-
     float currentDefault;
-    bool  changing = false;
-
     float lastActionedValue;
+    bool  changing = false;
 
     juce::UndoManager* um;
 

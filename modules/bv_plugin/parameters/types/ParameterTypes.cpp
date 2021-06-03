@@ -67,11 +67,6 @@ void FloatParameter::setAction (std::function< void (float) > action)
     actionFunc = std::move (action);
 }
 
-void FloatParameter::onAction()
-{
-    actionFunc (get());
-}
-
 void FloatParameter::toValueTree (juce::ValueTree& tree)
 {
     tree.setProperty ("ParameterValue", get(), nullptr);
@@ -171,11 +166,6 @@ void IntParameter::setDefault (int newDefaultValue)
 void IntParameter::setAction (std::function< void (int) > action)
 {
     actionFunc = std::move (action);
-}
-
-void IntParameter::onAction()
-{
-    actionFunc (get());
 }
 
 void IntParameter::toValueTree (juce::ValueTree& tree)
@@ -278,11 +268,6 @@ void BoolParameter::setDefault (bool newDefaultValue)
 void BoolParameter::setAction (std::function< void (bool) > action)
 {
     actionFunc = std::move (action);
-}
-
-void BoolParameter::onAction()
-{
-    actionFunc (get());
 }
 
 void BoolParameter::toValueTree (juce::ValueTree& tree)
