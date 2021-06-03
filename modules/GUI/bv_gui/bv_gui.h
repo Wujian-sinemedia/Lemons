@@ -32,11 +32,8 @@
 
 #include "icons/icons.h"
 
-#include "components/SynthMidiKeyboardComponent/SynthMidiKeyboardComponent.h"
-#include "components/SynthStaffDisplayComponent/SynthStaffDisplayComponent.h"
-
 #include "components/parameter_connected/ParameterConnectedComponents.h"
-#include "components/meter_connected/LevelMeters.h"
+#include "components/LevelMeter/LevelMeter.h"
 
 #ifdef __clang__
 #    pragma clang diagnostic pop
