@@ -3,35 +3,28 @@
 
 namespace bav::gui
 {
+
 class LevelMeter : public juce::Component,
                    public juce::TooltipClient,
                    private GainMeterParameter::Listener
 {
 public:
-    LevelMeter (GainMeterParameter& meterToUse);
-
-    GainMeterParameter& meter;
+    LevelMeter (GainMeterParameter& meterToUse,
+                bool isGainReduction = false,
+                juce::Colour fillColor = juce::Colours::maroon,
+                bool drawBorder = true);
 
 private:
+    void paint (juce::Graphics& g) final;
+    
     void paramValueChanged (float newValue) override final;
 
     juce::String getTooltip() override final;
-};
-
-
-class GainReductionMeter : public juce::Component,
-                           public juce::TooltipClient,
-                           private GainMeterParameter::Listener
-{
-public:
-    GainReductionMeter (GainMeterParameter& meterToUse);
-
+    
     GainMeterParameter& meter;
-
-private:
-    void paramValueChanged (float newValue) override final;
-
-    juce::String getTooltip() override final;
+    const bool isInverted;
+    const juce::Colour color;
+    const bool border;
 };
 
 }  // namespace bav::gui
