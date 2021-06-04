@@ -21,4 +21,16 @@ private:
     juce::MemoryBlock outgoingData;
 };
 
+
+struct SelfOwnedOscDataSynchronizer : public OscManager
+{
+    SelfOwnedOscDataSynchronizer (SerializableData& dataToUse);
+    SelfOwnedOscDataSynchronizer (SerializableData& dataToUse, const juce::String& targetHostName, int portNumber = 53100);
+
+    virtual ~SelfOwnedOscDataSynchronizer() = default;
+
+private:
+    OscDataSynchronizer sync;
+};
+
 }  // namespace bav::network

@@ -1,8 +1,10 @@
 
 #include "bv_networking.h"
 
-#include "AsyncDownload/AsyncDownload.cpp"
-#include "DownloadManager/DownloadManager.cpp"
+#include "Downloads/AsyncDownload/AsyncDownload.cpp"
+#include "Downloads/DownloadManager/DownloadManager.cpp"
 
-#include "DataMirroring/DataSynchronizer/DataSynchronizer.cpp"
-#include "DataMirroring/OSC/OscDataSynchronizer.cpp"
+#include "DataSynchronizer/DataSynchronizer.cpp"
+
+#include "OSC/OscManager/OscManager.cpp"
+#include "OSC/OscDataSynchronizer/OscDataSynchronizer.cpp"

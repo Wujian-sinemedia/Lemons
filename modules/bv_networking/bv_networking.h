@@ -20,8 +20,10 @@ END_JUCE_MODULE_DECLARATION
 #include <juce_osc/juce_osc.h>
 
 
-#include "AsyncDownload/AsyncDownload.h"
-#include "DownloadManager/DownloadManager.h"
+#include "Downloads/AsyncDownload/AsyncDownload.h"
+#include "Downloads/DownloadManager/DownloadManager.h"
 
-#include "DataMirroring/DataSynchronizer/DataSynchronizer.h"
-#include "DataMirroring/OSC/OscDataSynchronizer.h"
+#include "DataSynchronizer/DataSynchronizer.h"
+
+#include "OSC/OscManager/OscManager.h"
+#include "OSC/OscDataSynchronizer/OscDataSynchronizer.h"
