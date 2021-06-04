@@ -14,7 +14,7 @@ public:
 private:
     void timerCallback() override final;
 
-    virtual void sendChangeData (const void* data, size_t dataSize) const = 0;
+    virtual void sendChangeData (const void* data, size_t dataSize) = 0;
 
     SerializableData& sData;
 };

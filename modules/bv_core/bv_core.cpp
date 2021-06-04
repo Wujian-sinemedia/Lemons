@@ -22,7 +22,6 @@
 #include "serializing/SerializableData/SerializableData.cpp"
 #include "serializing/ValueTreeToJson/valuetree_json_converter.cpp"
 #include "serializing/Serializing/Serializing.cpp"
-#include "serializing/DataSynchronizer/DataSynchronizer.cpp"
 
 #include "files/FileUtilities.cpp"
 #include "binary_data/BinaryDataHelpers.cpp"
