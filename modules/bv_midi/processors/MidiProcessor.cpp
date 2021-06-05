@@ -5,9 +5,7 @@ namespace bav::midi
 void MidiProcessor::reset()
 {
     lastMidiTimestamp = 0;
-    
     lastPitchwheelValue = 64;
-    
     sustainPedalDown = false;
     sostenutoPedalDown = false;
     softPedalDown = false;

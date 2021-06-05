@@ -28,7 +28,7 @@ public:
     }
 
     template < typename NoteType >
-    float getAdjustedMidiPitch (NoteType recievedMidiPitch)
+    float getAdjustedMidiPitch (NoteType recievedMidiPitch) const
     {
         return getMidifloat (recievedMidiPitch, lastRecievedPitchbend);
     }

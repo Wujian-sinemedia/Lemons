@@ -27,20 +27,18 @@ void fromBinary (juce::MemoryBlock& data, SerializableData& dest)
 
 void fromBinary (const void* data, size_t dataSizeInBytes, SerializableData& dest)
 {
-    auto newTree = juce::ValueTree::readFromData (data, dataSizeInBytes);
-    dest.deserialize (newTree);
+    dest.deserialize (juce::ValueTree::readFromData (data, dataSizeInBytes));
 }
 
 void fromXML (const juce::XmlElement& xml, SerializableData& dest)
 {
-    auto newTree = juce::ValueTree::fromXml (xml);
-    dest.deserialize (newTree);
+    dest.deserialize (juce::ValueTree::fromXml (xml));
 }
 
 void fromXML (std::unique_ptr< juce::XmlElement > xml, SerializableData& dest)
 {
-    if (xml != nullptr)
-        fromXML (*xml, dest);
+    if (auto* x = xml.get())
+        fromXML (*x, dest);
 }
 
 void fromXML (const juce::File& xmlFile, SerializableData& dest)
@@ -55,18 +53,15 @@ std::unique_ptr< juce::XmlElement > toXML (SerializableData& source)
 
 void toXML (SerializableData& source, const juce::File& file)
 {
-    auto xml = toXML (source);
-
     if (! file.existsAsFile())
         file.create();
 
-    xml->writeTo (file);
+    toXML (source)->writeTo (file);
 }
 
 void fromJSON (const juce::String& jsonText, SerializableData& dest)
 {
-    auto newTree = valueTreeFromJSON (jsonText);
-    dest.deserialize (newTree);
+    dest.deserialize (valueTreeFromJSON (jsonText));
 }
 
 juce::String toJSON (SerializableData& source)

@@ -4,6 +4,11 @@ namespace bav
 {
 #if BV_HAS_BINARY_DATA
 
+RawData::RawData (const juce::String& fileToFind)
+: RawData (fileToFind.toRawUTF8())
+{
+}
+
 RawData::RawData (const char* fileToFind)
 {
     using namespace BinaryData;
@@ -29,6 +34,11 @@ bool RawData::isValid() const
 
 
 #else /* if BV_HAS_BINARY_DATA */
+
+RawData::RawData (const juce::String&)
+{
+    
+}
 
 RawData::RawData (const char*)
 {

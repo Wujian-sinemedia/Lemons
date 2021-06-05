@@ -9,12 +9,12 @@ struct PitchPipeline
     PitchConverter   tuning;
 
 
-    float getFrequencyForMidi (int midiPitch, int midiChannel = -1)
+    float getFrequencyForMidi (int midiPitch, int midiChannel = -1) const
     {
         return getFrequencyForMidi (static_cast< float > (midiPitch), midiChannel);
     }
 
-    float getFrequencyForMidi (float midiPitch, int midiChannel = -1)
+    float getFrequencyForMidi (float midiPitch, int midiChannel = -1) const
     {
         return tuning.midiToFrequency (bend.getAdjustedMidiPitch (midiPitch),
                                        midiChannel);

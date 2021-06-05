@@ -25,6 +25,7 @@ public:
         Broadcaster& broadcaster;
     };
     
+    
     void trigger()
     {
         listeners.call ([](Reciever& l){ l.callback(); });

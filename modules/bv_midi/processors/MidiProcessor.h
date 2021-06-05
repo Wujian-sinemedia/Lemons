@@ -18,7 +18,6 @@ public:
     void process (const Message& m);
     
     int getLastPitchwheelValue() const { return lastPitchwheelValue; }
-    
     int getLastMidiChannel() const { return lastMidiChannel; }
     int getLastMidiTimestamp() const { return lastMidiTimestamp; }
     

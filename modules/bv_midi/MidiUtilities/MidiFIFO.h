@@ -54,8 +54,7 @@ public:
 
 
 private:
-    int numStoredSamples =
-        0;  // even though no audio is stored, we need to keep an internal representation of the actual number of samples this buffer represents in time
+    int numStoredSamples {0};
 
     juce::MidiBuffer base;
 

@@ -12,15 +12,16 @@ juce::File getPresetsFolder (std::string companyName,
 #else
     rootFolder = juce::File::getSpecialLocation (
         juce::File::SpecialLocationType::userApplicationDataDirectory);
+    
 #    if JUCE_MAC
     rootFolder = rootFolder.getChildFile ("Audio").getChildFile ("Presets");
 #    endif
 #endif
+    
     rootFolder = rootFolder.getChildFile (companyName).getChildFile (pluginName);
 
     if (! rootFolder.isDirectory())
-        rootFolder
-            .createDirectory();  // creates the presets folder if it doesn't already exist
+        rootFolder.createDirectory();
 
     return rootFolder;
 }

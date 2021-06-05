@@ -12,8 +12,7 @@ public:
     using GainParam    = bav::GainParam;
     using ToggleParam  = bav::ToggleParam;
     using PercentParam = bav::PercentParam;
-
-    using GainMeter = bav::ParameterHolder< bav::GainMeterParameter >;
+    using GainMeter    = bav::ParameterHolder< bav::GainMeterParameter >;
 
     //--------------------------------------------------
 

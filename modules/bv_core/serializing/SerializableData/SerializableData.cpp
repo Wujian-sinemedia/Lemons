@@ -24,7 +24,8 @@ juce::ValueTree& SerializableData::serialize (ValueTree& tree)
 
 void SerializableData::deserialize (const ValueTree& tree)
 {
-    jassert (tree.isValid());
+    if (! tree.isValid())
+        return;
 
     if (tree.hasType (dataIdentifier))
     {
@@ -33,8 +34,9 @@ void SerializableData::deserialize (const ValueTree& tree)
     }
 
     auto t = tree.getChildWithName (dataIdentifier);
-    jassert (t.isValid());
-    fromValueTree (t);
+    
+    if (t.isValid())
+        fromValueTree (t);
 }
 
 
