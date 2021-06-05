@@ -64,13 +64,7 @@ void StateBase::setUndoManager (juce::UndoManager& um)
 
 void StateBase::toValueTree (ValueTree& tree)
 {
-    if (pb != nullptr)
-    {
-        int w, h;
-        pb->getSavedEditorSize (w, h);
-        tree.setProperty ("editorSizeX", w, nullptr);
-        tree.setProperty ("editorSizeY", h, nullptr);
-    }
+    lastSavedEditorSize.serialize (tree);
 
     for (auto* list : lists)
         list->serialize (tree);
@@ -78,14 +72,36 @@ void StateBase::toValueTree (ValueTree& tree)
 
 void StateBase::fromValueTree (const ValueTree& tree)
 {
-    if (pb != nullptr)
-    {
-        pb->saveEditorSize (tree.getProperty ("editorSizeX"),
-                            tree.getProperty ("editorSizeY"));
-    }
+    lastSavedEditorSize.deserialize (tree);
 
     for (auto* list : lists)
         list->deserialize (tree);
+}
+
+StateBase::LastSavedEditorSize::LastSavedEditorSize(StateBase& b)
+: SerializableData ("LastSavedEditorSize"),
+base (b)
+{
+}
+
+void StateBase::LastSavedEditorSize::toValueTree (ValueTree& tree)
+{
+    if (auto* processor = base.pb)
+    {
+        int w, h;
+        processor->getSavedEditorSize (w, h);
+        tree.setProperty ("editorSizeX", w, nullptr);
+        tree.setProperty ("editorSizeY", h, nullptr);
+    }
+}
+
+void StateBase::LastSavedEditorSize::fromValueTree (const ValueTree& tree)
+{
+    if (auto* processor = base.pb)
+    {
+        processor->saveEditorSize (tree.getProperty ("editorSizeX"),
+                                   tree.getProperty ("editorSizeY"));
+    }
 }
 
 

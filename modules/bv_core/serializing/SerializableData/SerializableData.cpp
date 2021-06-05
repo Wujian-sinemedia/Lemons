@@ -24,19 +24,14 @@ juce::ValueTree& SerializableData::serialize (ValueTree& tree)
 
 void SerializableData::deserialize (const ValueTree& tree)
 {
-    if (! tree.isValid())
-        return;
-
     if (tree.hasType (dataIdentifier))
     {
         fromValueTree (tree);
-        return;
     }
-
-    auto t = tree.getChildWithName (dataIdentifier);
-    
-    if (t.isValid())
-        fromValueTree (t);
+    else
+    {
+        fromValueTree (tree.getChildWithName (dataIdentifier));
+    }
 }
 
 

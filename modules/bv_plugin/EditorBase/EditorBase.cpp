@@ -15,10 +15,6 @@ EditorBase::EditorBase (dsp::ProcessorBase& pbToUse)
         getConstrainer()->setFixedAspectRatio ((float) width / (float) height);
         setSize (width, height);
     }
-    else
-    {
-        setSize (450, 300);
-    }
 }
 
 void EditorBase::resized()
