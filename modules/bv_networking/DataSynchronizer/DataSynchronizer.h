@@ -10,7 +10,7 @@ public:
     virtual ~DataSynchronizer() override;
 
     void applyChangeData (const void* data, size_t dataSize);
-
+    
 private:
     void timerCallback() override final;
 

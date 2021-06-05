@@ -151,17 +151,19 @@ void Parameter::setNormalizedDefault (float value)
     jassert (value >= 0.0f && value <= 1.0f);
 
     if (currentDefault == value) return;
+    
+    setDefaultInternal (value);
 
-    if (um != nullptr)
-    {
-        um->beginNewTransaction (defaultChangeTransactionName);
-        um->perform (new DefaultChangeAction (*this, value, currentDefault),
-                     defaultChangeTransactionName);
-    }
-    else
-    {
-        setDefaultInternal (value);
-    }
+//    if (um != nullptr)
+//    {
+//        um->beginNewTransaction (defaultChangeTransactionName);
+//        um->perform (new DefaultChangeAction (*this, value, currentDefault),
+//                     defaultChangeTransactionName);
+//    }
+//    else
+//    {
+//        setDefaultInternal (value);
+//    }
 }
 
 void Parameter::setDefaultInternal (float newNormalizedDefault)
@@ -191,16 +193,18 @@ void Parameter::setNormalizedValue (float value)
     jassert (value >= 0.0f && value <= 1.0f);
 
     if (value == rap.getValue()) return;
+    
+    setValueInternal (value);
 
-    if (um != nullptr)
-    {
-        um->perform (new ValueChangeAction (*this, value, rap.getValue()),
-                     valueChangeTransactionName);
-    }
-    else
-    {
-        setValueInternal (value);
-    }
+//    if (um != nullptr)
+//    {
+//        um->perform (new ValueChangeAction (*this, value, rap.getValue()),
+//                     valueChangeTransactionName);
+//    }
+//    else
+//    {
+//        setValueInternal (value);
+//    }
 }
 
 void Parameter::setValueInternal (float newNormalizedValue)

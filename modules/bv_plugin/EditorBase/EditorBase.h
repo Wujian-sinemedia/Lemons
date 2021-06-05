@@ -12,7 +12,7 @@ public:
 private:
     void resized() override final;
 
-    virtual void resizeTriggered() = 0;
+    virtual void resizeTriggered() { }
 
     dsp::ProcessorBase& pb;
 };

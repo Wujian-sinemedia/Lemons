@@ -71,4 +71,10 @@ void ProcessorBase::getSavedEditorSize (int& width, int& height) const
     height = savedEditorSize.y;
 }
 
+void ProcessorBase::repaintEditor()
+{
+    if (auto* editor = getActiveEditor())
+        editor->repaint();
+}
+
 }  // namespace bav::dsp

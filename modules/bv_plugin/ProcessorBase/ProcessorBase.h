@@ -42,6 +42,8 @@ public:
     void               saveEditorSize (int width, int height);
     juce::Point< int > getSavedEditorSize() const;
     void               getSavedEditorSize (int& width, int& height) const;
+    
+    void repaintEditor();
 
     /*=========================================================================================*/
 

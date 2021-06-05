@@ -1,9 +1,21 @@
 
 namespace bav::network
 {
+juce::OSCAddressPattern formatAddressPattern (const juce::String& address)
+{
+    jassert (! address.isEmpty());
+    
+    address.replaceCharacters (" ", "/");
+    
+    if (address.startsWith("/"))
+        return address;
+    
+    return juce::String("/") + address;
+}
+
 OscDataSynchronizer::OscDataSynchronizer (SerializableData& dataToUse, juce::OSCSender& s, juce::OSCReceiver& r)
     : DataSynchronizer (dataToUse),
-      addressPattern (dataToUse.dataIdentifier.toString()),
+      addressPattern (formatAddressPattern (dataToUse.dataIdentifier.toString())),
       oscSender (s),
       oscReceiver (r)
 {

@@ -26,6 +26,4 @@
 #include "files/FileUtilities.cpp"
 #include "binary_data/BinaryDataHelpers.cpp"
 
-#include "async/AsyncUtils.cpp"
-
 #include "localization/localization.cpp"

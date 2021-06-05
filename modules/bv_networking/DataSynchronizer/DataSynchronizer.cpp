@@ -4,14 +4,13 @@ namespace bav
 DataSynchronizer::DataSynchronizer (SerializableData& dataToUse)
     : sData (dataToUse)
 {
-    Timer::startTimerHz (10);
+    startTimerHz (10);
 }
 
 DataSynchronizer::~DataSynchronizer()
 {
-    Timer::stopTimer();
+    stopTimer();
 }
-
 
 void DataSynchronizer::applyChangeData (const void* data, size_t dataSize)
 {
