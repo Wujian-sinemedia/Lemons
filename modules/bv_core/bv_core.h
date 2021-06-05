@@ -170,7 +170,6 @@
 #include <juce_audio_utils/juce_audio_utils.h>
 
 
-#include "misc/StaticObjects.h"
 #include "misc/misc.h"
 #include "misc/LockFreeFifo.h"
 

@@ -168,16 +168,13 @@ void AudioFIFO< SampleType >::popSamples (SampleType* output,
 
     jassert (readIndex >= 0 && readIndex <= length);
 
-    const auto* reading = base.getReadPointer (readingChannel);
-    auto*       writing = base.getWritePointer (readingChannel);
-
-    constexpr auto zero = SampleType (0.0);
+    auto* samples = base.getWritePointer (readingChannel);
 
     for (int s = 0, index = readIndex; s < numSamples; ++s, ++index)
     {
         if (index >= length) index = 0;
-        output[s]      = reading[index];
-        writing[index] = zero;
+        output[s]      = samples[index];
+        samples[index] = SampleType (0.0);
     }
 
     storedSamples.set (readingChannel, std::max (0, ns - numSamples));

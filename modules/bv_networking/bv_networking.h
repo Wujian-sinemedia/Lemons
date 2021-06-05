@@ -19,10 +19,6 @@ END_JUCE_MODULE_DECLARATION
 #include <bv_core/bv_core.h>
 #include <juce_osc/juce_osc.h>
 
-
-#include "Downloads/AsyncDownload/AsyncDownload.h"
-#include "Downloads/DownloadManager/DownloadManager.h"
-
 #include "DataSynchronizer/DataSynchronizer.h"
 
 #include "OSC/OscManager/OscManager.h"

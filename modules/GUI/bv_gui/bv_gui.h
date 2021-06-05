@@ -28,7 +28,6 @@
 #include "utilities/ScopedCursor.h"
 #include "utilities/GuiInitializer.h"
 #include "utilities/GuiUtils.h"
-#include "utilities/Spline.h"
 
 #include "icons/icons.h"
 
