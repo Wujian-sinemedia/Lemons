@@ -11,9 +11,9 @@ public:
     virtual ~ProcessorBase() override = default;
 
 private:
-    virtual ParameterList&      getParameterList()    = 0;
-    virtual bav::BoolParameter& getMainBypass() const = 0;
-    virtual SerializableData&   getStateData()        = 0;
+    virtual ParameterList&    getParameterList()    = 0;
+    virtual BoolParameter&    getMainBypass() const = 0;
+    virtual SerializableData& getStateData()        = 0;
 
     virtual void renderChunk (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi)  = 0;
     virtual void renderChunk (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi) = 0;
