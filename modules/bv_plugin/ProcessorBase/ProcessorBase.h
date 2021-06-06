@@ -21,8 +21,8 @@ public:
 
     double getTailLengthSeconds() const override;
 
-    void getStateInformation (juce::MemoryBlock&) override;
-    void setStateInformation (const void*, int) override;
+    void getStateInformation (juce::MemoryBlock&) final;
+    void setStateInformation (const void*, int) final;
 
     int                getNumPrograms() override;
     int                getCurrentProgram() override;
@@ -52,16 +52,17 @@ public:
 
     /*=========================================================================================*/
 
-protected:
-    virtual juce::AudioProcessor::BusesProperties createBusProperties() const;
-
-    juce::Point< int > savedEditorSize {450, 300};
-    
 private:
+    virtual juce::AudioProcessor::BusesProperties createBusProperties() const;
+    
     virtual void processBlockInternal (juce::AudioBuffer< float >&, juce::MidiBuffer&) { }
     virtual void processBlockInternal (juce::AudioBuffer< double >&, juce::MidiBuffer&) { }
     
+    virtual SerializableData* getStateData() { return nullptr; }
+    
     virtual bav::BoolParameter* getMainBypass() const { return nullptr; }
+    
+    juce::Point< int > savedEditorSize {450, 300};
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ProcessorBase)
 };

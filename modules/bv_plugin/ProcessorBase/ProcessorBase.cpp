@@ -48,8 +48,22 @@ juce::AudioProcessorParameter* ProcessorBase::getBypassParameter() const
 
 double ProcessorBase::getTailLengthSeconds() const { return 0.0; }
 
-void ProcessorBase::getStateInformation (juce::MemoryBlock&) { }
-void ProcessorBase::setStateInformation (const void*, int) { }
+void ProcessorBase::getStateInformation (juce::MemoryBlock& block)
+{
+    if (auto* state = getStateData())
+    {
+        serializing::toBinary (*state, block);
+    }
+}
+
+void ProcessorBase::setStateInformation (const void* data, int size)
+{
+    if (auto* state = getStateData())
+    {
+        serializing::fromBinary (data, size, *state);
+        repaintEditor();
+    }
+}
 
 int                ProcessorBase::getNumPrograms() { return 1; }
 int                ProcessorBase::getCurrentProgram() { return 0; }
