@@ -45,6 +45,7 @@
 #include "parameters/ParameterList/ParameterList.h"
 
 #include "state/state.h"
+#include "presets/PresetManager.h"
 
 #include "transport/PluginTransport.h"
 

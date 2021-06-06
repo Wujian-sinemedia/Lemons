@@ -122,7 +122,7 @@ void Parameter::resetMidiControllerMapping()
     setMidiControllerNumber (-1);
 }
 
-void Parameter::processNewControllerMessage (int controllerNumber, int controllerValue)
+void Parameter::processNewControllerMessage (int controllerNumber, int controllerValue, bool triggerAction)
 {
     if (controllerNumber == getMidiControllerNumber())
     {
@@ -130,6 +130,9 @@ void Parameter::processNewControllerMessage (int controllerNumber, int controlle
         setDenormalizedValue (juce::jmap (static_cast< float > (controllerValue),
                                           0.f, 127.f,
                                           range.start, range.end));
+        
+        if (triggerAction)
+            doAction();
     }
 }
 

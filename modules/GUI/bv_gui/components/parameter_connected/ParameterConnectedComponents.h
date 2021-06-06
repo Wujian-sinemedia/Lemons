@@ -12,8 +12,8 @@ public:
 private:
     Parameter& param;
 
-    void startedDragging() override final;
-    void stoppedDragging() override final;
+    void startedDragging() final;
+    void stoppedDragging() final;
 };
 
 
@@ -33,10 +33,10 @@ public:
     FloatParameter& param;
 
 private:
-    void paramValueChanged (float newValue) override final;
-    void paramDefaultChanged (float newDefault) override final;
+    void paramValueChanged (float newValue) final;
+    void paramDefaultChanged (float newDefault) final;
 
-    void valueChanged() override final;
+    void valueChanged() final;
 };
 
 
@@ -56,10 +56,10 @@ public:
     IntParameter& param;
 
 private:
-    void paramValueChanged (int newValue) override final;
-    void paramDefaultChanged (int newDefault) override final;
+    void paramValueChanged (int newValue) final;
+    void paramDefaultChanged (int newDefault) final;
 
-    void valueChanged() override final;
+    void valueChanged() final;
 };
 
 
@@ -77,7 +77,7 @@ public:
     BoolParameter& param;
 
 private:
-    void paramValueChanged (bool newValue) override final;
+    void paramValueChanged (bool newValue) final;
     void refresh();
 
     using TB = juce::ToggleButton;

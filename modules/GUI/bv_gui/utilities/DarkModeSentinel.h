@@ -24,14 +24,14 @@ struct DarkModeSentinel : private juce::Timer,
     }
     
 private:
-    void timerCallback() override final
+    void timerCallback() final
     {
 #if JUCE_MAC
         darkModeParameter.set (juce::Desktop::isOSXDarkModeActive());
 #endif
     }
     
-    void paramValueChanged (bool) override final
+    void paramValueChanged (bool) final
     {
         componentToRepaint.repaint();
     }

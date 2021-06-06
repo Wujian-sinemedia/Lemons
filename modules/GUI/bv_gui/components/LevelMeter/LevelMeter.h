@@ -17,9 +17,9 @@ public:
 private:
     void paint (juce::Graphics& g) final;
     
-    void paramValueChanged (float newValue) override final;
+    void paramValueChanged (float newValue) final;
 
-    juce::String getTooltip() override final;
+    juce::String getTooltip() final;
     
     GainMeterParameter& meter;
     const bool isInverted;

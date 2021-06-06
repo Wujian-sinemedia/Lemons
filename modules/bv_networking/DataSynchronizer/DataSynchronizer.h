@@ -12,7 +12,7 @@ public:
     void applyChangeData (const void* data, size_t dataSize);
     
 private:
-    void timerCallback() override final;
+    void timerCallback() final;
 
     virtual void sendChangeData (const void* data, size_t dataSize) = 0;
 

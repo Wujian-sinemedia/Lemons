@@ -14,10 +14,10 @@ class MotionManager : public MotionManagerInterface
 public:
     MotionManager() = default;
 
-    void start() override final { }
-    void stop() override final { }
+    void start() final { }
+    void stop() final { }
 
-    bool isRunning() override final { return false; }
+    bool isRunning() final { return false; }
 };
 
 

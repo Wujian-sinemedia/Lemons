@@ -17,13 +17,10 @@ class MotionManager : public MotionManagerInterface
 
     virtual ~MotionManager() override;
 
-    virtual void start() override final;
-
-    virtual void stop() override final;
-
-    virtual bool isRunning() override final { return running; }
+    virtual void start() final;
+    virtual void stop() final;
+    virtual bool isRunning() final { return running; }
     
-
 private:
     void* motionManagerWrapper;
     bool  running;

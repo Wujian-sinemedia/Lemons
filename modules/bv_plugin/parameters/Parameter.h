@@ -22,7 +22,7 @@ public:
     bool isMidiControllerMapped() const;
     void setMidiControllerNumber (int newControllerNumber);
     void resetMidiControllerMapping();
-    void processNewControllerMessage (int controllerNumber, int controllerValue);
+    void processNewControllerMessage (int controllerNumber, int controllerValue, bool triggerAction = false);
 
     void  refreshDefault();  // sets the parameter's current value to be the default value
     void  resetToDefault();  // resets the parameter's value to the default

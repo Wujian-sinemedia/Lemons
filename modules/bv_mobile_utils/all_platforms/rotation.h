@@ -15,7 +15,7 @@ struct DeviceRotationListener : private juce::Timer
     DeviceRotationListener (std::function< void() > callbackToUse);
     virtual ~DeviceRotationListener() override;
 
-    void timerCallback() override final;
+    void timerCallback() final;
 
 private:
     std::function< void() >           callback;

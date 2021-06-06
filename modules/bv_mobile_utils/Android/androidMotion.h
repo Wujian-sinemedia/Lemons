@@ -17,16 +17,13 @@ public:
     MotionManager();
     virtual ~MotionManager() override;
 
-    virtual void start() override final;
-
-    virtual void stop() override final;
-
-    virtual bool isRunning() override final { return running; }
-
-    void timerCallback() override final;
-
+    virtual void start() final;
+    virtual void stop() final;
+    virtual bool isRunning() final { return running; }
 
 private:
+    void timerCallback() final;
+    
     bool running;
 
     const int LOOPER_ID_USER           = 3;

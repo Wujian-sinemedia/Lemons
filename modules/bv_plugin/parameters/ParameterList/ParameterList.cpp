@@ -94,22 +94,22 @@ void ParameterList::setUndoManager (juce::UndoManager& um)
         meta.holder.getParam()->setUndoManager (um);
 }
 
-void ParameterList::processMidi (const juce::MidiBuffer& midiMessages)
+void ParameterList::processMidi (const juce::MidiBuffer& midiMessages, bool triggerActions)
 {
     for (auto meta : midiMessages)
-        processMidiMessage (meta.getMessage());
+        processMidiMessage (meta.getMessage(), triggerActions);
 }
 
-void ParameterList::processMidiMessage (const juce::MidiMessage& message)
+void ParameterList::processMidiMessage (const juce::MidiMessage& message, bool triggerAction)
 {
     if (message.isController())
-        processNewControllerMessage (message.getControllerNumber(), message.getControllerValue());
+        processNewControllerMessage (message.getControllerNumber(), message.getControllerValue(), triggerAction);
 }
 
-void ParameterList::processNewControllerMessage (int controllerNumber, int controllerValue)
+void ParameterList::processNewControllerMessage (int controllerNumber, int controllerValue, bool triggerAction)
 {
     for (auto meta : params)
-        meta.holder.getParam()->processNewControllerMessage (controllerNumber, controllerValue);
+        meta.holder.getParam()->processNewControllerMessage (controllerNumber, controllerValue, triggerAction);
 }
 
 

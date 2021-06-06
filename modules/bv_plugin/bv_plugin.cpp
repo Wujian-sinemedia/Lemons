@@ -11,6 +11,7 @@
 #include "parameters/ParameterList/ParameterList.cpp"
 
 #include "state/state.cpp"
+#include "presets/PresetManager.cpp"
 
 #include "transport/PluginTransport.cpp"
 
