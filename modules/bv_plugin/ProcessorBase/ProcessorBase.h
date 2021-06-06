@@ -6,12 +6,11 @@ namespace bav::dsp
 class ProcessorBase : public BasicProcessorBase
 {
 public:
-    using BasicProcessorBase::BasicProcessorBase;
+    ProcessorBase (ParameterList& parameterList);
 
     virtual ~ProcessorBase() override = default;
 
 private:
-    virtual ParameterList&    getParameterList()    = 0;
     virtual BoolParameter&    getMainBypass() const = 0;
     virtual SerializableData& getStateData()        = 0;
 
@@ -32,6 +31,8 @@ private:
 
     template < typename SampleType >
     void processBlockInternal (juce::AudioBuffer< SampleType >& audio, juce::MidiBuffer& midi);
+    
+    juce::AudioProcessorParameter* getBypassParameter() const final { return &getMainBypass(); }
 
     struct ParameterProcessor : ParameterProcessorBase
     {
@@ -44,9 +45,7 @@ private:
         ProcessorBase& processor;
     };
 
-    juce::AudioProcessorParameter* getBypassParameter() const final { return &getMainBypass(); }
-
-    ParameterProcessor parameterProcessor {*this, getParameterList()};
+    ParameterProcessor parameterProcessor;
 };
 
 }  // namespace bav::dsp

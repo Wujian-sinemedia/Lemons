@@ -24,9 +24,13 @@ END_JUCE_MODULE_DECLARATION
 
 #include "Oscillators/oscillators.h"
 #include "Oscillators/LFO/LFO.h"
+
 #include "FIFOs/AudioFIFO.h"
 #include "FIFOs/AudioAndMidiFIFO.h"
-#include "FIFOWrappedEngine/FIFOWrappedEngine.h"
+
+#include "engines/AudioEngine.h"
+#include "engines/FIFOWrappedEngine/FIFOWrappedEngine.h"
+
 #include "PitchDetector/pitch-detector.h"
 #include "PSOLA/analysis/psola_analyzer.h"
 #include "PSOLA/resynthesis/psola_shifter.h"
@@ -57,3 +61,5 @@ END_JUCE_MODULE_DECLARATION
 #include "synth/SynthVoice/SynthVoice.h"
 #include "synth/Synth.h"
 #include "synth/sine_synth.h"
+
+#include "engines/EngineManager.h"

@@ -1,6 +1,11 @@
 
 namespace bav::dsp
 {
+ProcessorBase::ProcessorBase (ParameterList& parameterList)
+: parameterProcessor (*this, parameterList)
+{
+}
+
 void ProcessorBase::getStateInformation (juce::MemoryBlock& block)
 {
     serializing::toBinary (getStateData(), block);
