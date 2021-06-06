@@ -1,71 +1,50 @@
 
 #pragma once
 
-
 namespace bav::dsp
 {
-class ProcessorBase : private SystemInitializer,
-                      public juce::AudioProcessor
+class ProcessorBase : public BasicProcessorBase
 {
 public:
-    ProcessorBase();
-    virtual ~ProcessorBase() override;
+    using BasicProcessorBase::BasicProcessorBase;
 
-    void prepareToPlay (double, int) override;
-    void releaseResources() override;
+    virtual ~ProcessorBase() override = default;
+
+private:
+    virtual ParameterList&      getParameterList()    = 0;
+    virtual bav::BoolParameter& getMainBypass() const = 0;
+    virtual SerializableData&   getStateData()        = 0;
+
+    virtual void renderChunk (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi)  = 0;
+    virtual void renderChunk (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi) = 0;
+
+    /*--------------------------------------------------------------------------------------------*/
+
+    void getStateInformation (juce::MemoryBlock& block) final;
+    void setStateInformation (const void* data, int size) final;
 
     void processBlock (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi) final;
     void processBlock (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi) final;
     void processBlockBypassed (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi) final;
     void processBlockBypassed (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi) final;
 
-    double getTailLengthSeconds() const override;
+    template < typename SampleType >
+    void processBlockInternal (juce::AudioBuffer< SampleType >& audio, juce::MidiBuffer& midi);
 
-    void getStateInformation (juce::MemoryBlock&) final;
-    void setStateInformation (const void*, int) final;
+    struct ParameterProcessor : ParameterProcessorBase
+    {
+        ParameterProcessor (ProcessorBase& p, ParameterList& l);
 
-    int                getNumPrograms() override;
-    int                getCurrentProgram() override;
-    void               setCurrentProgram (int) override;
-    const String getProgramName (int) override;
-    void               changeProgramName (int, const String&) override;
+    private:
+        void renderChunk (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi) final;
+        void renderChunk (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi) final;
 
-    bool acceptsMidi() const override;
-    bool producesMidi() const override;
-    bool supportsMPE() const override;
-    bool isMidiEffect() const override;
+        ProcessorBase& processor;
+    };
 
-    const String getName() const override;
+    juce::AudioProcessorParameter* getBypassParameter() const final { return &getMainBypass(); }
 
-    bool                        hasEditor() const override;
-    juce::AudioProcessorEditor* createEditor() override;
-    
-    juce::AudioProcessorParameter* getBypassParameter() const final;
-
-    bool isBusesLayoutSupported (const BusesLayout& layout) const override;
-
-    void               saveEditorSize (int width, int height);
-    juce::Point< int > getSavedEditorSize() const;
-    void               getSavedEditorSize (int& width, int& height) const;
-    
-    void repaintEditor();
-
-    /*=========================================================================================*/
-
-private:
-    virtual juce::AudioProcessor::BusesProperties createBusProperties() const;
-    
-    virtual void processBlockInternal (juce::AudioBuffer< float >&, juce::MidiBuffer&) { }
-    virtual void processBlockInternal (juce::AudioBuffer< double >&, juce::MidiBuffer&) { }
-    
-    virtual SerializableData* getStateData() { return nullptr; }
-    
-    virtual bav::BoolParameter* getMainBypass() const { return nullptr; }
-    
-    juce::Point< int > savedEditorSize {450, 300};
-
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ProcessorBase)
+    ParameterProcessor parameterProcessor {*this, getParameterList()};
 };
-
 
 }  // namespace bav::dsp

@@ -1,7 +1,7 @@
 
 #include "bv_plugin.h"
 
-#include "ProcessorBase/ProcessorBase.cpp"
+#include "ProcessorBase/BasicProcessor.cpp"
 
 #include "EditorBase/EditorBase.cpp"
 
@@ -10,6 +10,8 @@
 #include "parameters/specializations/ParameterSpecializations.cpp"
 #include "parameters/ParameterList/ParameterList.cpp"
 #include "parameters/processor/ParameterProcessor.cpp"
+
+#include "ProcessorBase/ProcessorBase.cpp"
 
 #include "state/state.cpp"
 #include "presets/PresetManager.cpp"

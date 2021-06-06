@@ -40,11 +40,14 @@
 
 #include "transport/PluginTransport.h"
 
-#include "ProcessorBase/ProcessorBase.h"
-#include "EditorBase/EditorBase.h"
+#include "ProcessorBase/BasicProcessor.h"
 
 #include "parameters/ParameterList/ParameterList.h"
 #include "parameters/processor/ParameterProcessor.h"
+
+#include "ProcessorBase/ProcessorBase.h"
+
+#include "EditorBase/EditorBase.h"
 
 #include "state/state.h"
 #include "presets/PresetManager.h"

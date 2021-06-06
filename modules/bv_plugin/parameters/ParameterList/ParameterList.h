@@ -71,7 +71,7 @@ private:
     void processNewControllerMessage (int controllerNumber, int controllerValue, bool triggerAction);
 
     juce::Array< ParamHolderMetadata > params;
-    dsp::ProcessorBase                 dummyProcessor;
+    dsp::BasicProcessorBase            dummyProcessor;
 };
 
 

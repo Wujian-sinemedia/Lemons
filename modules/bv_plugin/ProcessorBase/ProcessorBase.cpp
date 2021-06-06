@@ -1,17 +1,16 @@
 
 namespace bav::dsp
 {
-ProcessorBase::ProcessorBase()
-    : AudioProcessor (createBusProperties())
+void ProcessorBase::getStateInformation (juce::MemoryBlock& block)
 {
+    serializing::toBinary (getStateData(), block);
 }
 
-ProcessorBase::~ProcessorBase() { }
-
-/*=========================================================================================*/
-
-void ProcessorBase::prepareToPlay (double, int) { }
-void ProcessorBase::releaseResources() { }
+void ProcessorBase::setStateInformation (const void* data, int size)
+{
+    serializing::fromBinary (data, size, getStateData());
+    repaintEditor();
+}
 
 void ProcessorBase::processBlock (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi)
 {
@@ -25,101 +24,43 @@ void ProcessorBase::processBlock (juce::AudioBuffer< double >& audio, juce::Midi
 
 void ProcessorBase::processBlockBypassed (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi)
 {
-    if (auto* b = getMainBypass())
-        if (! b->get())
-            b->set (true);
-    
+    auto& bypass = getMainBypass();
+    if (! bypass.get())
+        bypass.set (true);
+
     processBlockInternal (audio, midi);
 }
 
 void ProcessorBase::processBlockBypassed (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi)
 {
-    if (auto* b = getMainBypass())
-        if (! b->get())
-            b->set (true);
-    
+    auto& bypass = getMainBypass();
+    if (! bypass.get())
+        bypass.set (true);
+
     processBlockInternal (audio, midi);
 }
 
-juce::AudioProcessorParameter* ProcessorBase::getBypassParameter() const
+template < typename SampleType >
+void ProcessorBase::processBlockInternal (juce::AudioBuffer< SampleType >& audio, juce::MidiBuffer& midi)
 {
-    return getMainBypass();
+    juce::ScopedNoDenormals nodenorms;
+    parameterProcessor.process (audio, midi);
 }
 
-double ProcessorBase::getTailLengthSeconds() const { return 0.0; }
-
-void ProcessorBase::getStateInformation (juce::MemoryBlock& block)
+ProcessorBase::ParameterProcessor::ParameterProcessor (ProcessorBase& p, ParameterList& l)
+    : ParameterProcessorBase (l),
+      processor (p)
 {
-    if (auto* state = getStateData())
-    {
-        serializing::toBinary (*state, block);
-    }
 }
 
-void ProcessorBase::setStateInformation (const void* data, int size)
+void ProcessorBase::ParameterProcessor::renderChunk (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi)
 {
-    if (auto* state = getStateData())
-    {
-        serializing::fromBinary (data, size, *state);
-        repaintEditor();
-    }
+    processor.renderChunk (audio, midi);
 }
 
-int                ProcessorBase::getNumPrograms() { return 1; }
-int                ProcessorBase::getCurrentProgram() { return 0; }
-void               ProcessorBase::setCurrentProgram (int) { }
-const String ProcessorBase::getProgramName (int) { return {}; }
-void               ProcessorBase::changeProgramName (int, const String&) { }
-
-bool ProcessorBase::acceptsMidi() const { return true; }
-bool ProcessorBase::producesMidi() const { return true; }
-bool ProcessorBase::supportsMPE() const { return false; }
-bool ProcessorBase::isMidiEffect() const { return false; }
-
-const String ProcessorBase::getName() const { return "ProcessorBase"; }
-
-bool ProcessorBase::hasEditor() const { return false; }
-
-juce::AudioProcessorEditor* ProcessorBase::createEditor() { return nullptr; }
-
-bool ProcessorBase::isBusesLayoutSupported (const BusesLayout& layout) const
+void ProcessorBase::ParameterProcessor::renderChunk (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi)
 {
-    using Set = juce::AudioChannelSet;
-
-    auto isValid = [] (const Set& set)
-    { return set != Set::disabled(); };
-
-    return isValid (layout.getMainInputChannelSet()) && isValid (layout.getMainOutputChannelSet());
-}
-
-juce::AudioProcessor::BusesProperties ProcessorBase::createBusProperties() const
-{
-    const auto stereo = juce::AudioChannelSet::stereo();
-
-    return BusesProperties().withInput (TRANS ("Input"), stereo, true).withOutput (TRANS ("Output"), stereo, true);
-}
-
-void ProcessorBase::saveEditorSize (int width, int height)
-{
-    savedEditorSize.x = width;
-    savedEditorSize.y = height;
-}
-
-juce::Point< int > ProcessorBase::getSavedEditorSize() const
-{
-    return savedEditorSize;
-}
-
-void ProcessorBase::getSavedEditorSize (int& width, int& height) const
-{
-    width  = savedEditorSize.x;
-    height = savedEditorSize.y;
-}
-
-void ProcessorBase::repaintEditor()
-{
-    if (auto* editor = getActiveEditor())
-        editor->repaint();
+    processor.renderChunk (audio, midi);
 }
 
 }  // namespace bav::dsp
