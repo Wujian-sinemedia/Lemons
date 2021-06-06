@@ -13,7 +13,7 @@ FloatParameter::FloatParameter (
     std::function< float (const String& text) >
            valueFromString,
     String parameterLabel,
-    bool   automatable,
+    bool   isAutomatable,
     bool   metaParam)
     : AudioParameterFloat (paramNameVerbose,
                            TRANS (paramNameVerbose),
@@ -26,7 +26,7 @@ FloatParameter::FloatParameter (
       Parameter (*this,
                  paramNameShort,
                  paramNameVerbose,
-                 automatable,
+                 isAutomatable,
                  metaParam),
       floatToString (stringFromValue), stringToFloat (valueFromString)
 {
@@ -92,7 +92,7 @@ IntParameter::IntParameter (
     std::function< int (const String& text) >
            intFromString,
     String parameterLabel,
-    bool   automatable,
+    bool   isAutomatable,
     bool   metaParam)
     : AudioParameterInt (paramNameVerbose,
                          TRANS (paramNameVerbose),
@@ -105,7 +105,7 @@ IntParameter::IntParameter (
       Parameter (*this,
                  paramNameShort,
                  paramNameVerbose,
-                 automatable,
+                 isAutomatable,
                  metaParam),
       intToString (stringFromInt), stringToInt (intFromString)
 {
@@ -168,7 +168,7 @@ BoolParameter::BoolParameter (
         stringFromBool,
     std::function< bool (const String& text) >
          boolFromString,
-    bool automatable,
+    bool isAutomatable,
     bool metaParam)
     : AudioParameterBool (paramNameVerbose,
                           TRANS (paramNameVerbose),
@@ -179,7 +179,7 @@ BoolParameter::BoolParameter (
       Parameter (*this,
                  paramNameShort,
                  paramNameVerbose,
-                 automatable,
+                 isAutomatable,
                  metaParam),
       boolToString (stringFromBool), stringToBool (boolFromString)
 {

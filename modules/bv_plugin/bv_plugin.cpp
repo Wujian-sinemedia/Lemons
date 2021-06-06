@@ -9,6 +9,7 @@
 #include "parameters/types/ParameterTypes.cpp"
 #include "parameters/specializations/ParameterSpecializations.cpp"
 #include "parameters/ParameterList/ParameterList.cpp"
+#include "parameters/processor/ParameterProcessor.cpp"
 
 #include "state/state.cpp"
 #include "presets/PresetManager.cpp"

@@ -9,7 +9,7 @@
  version:            0.0.1
  name:               bv_plugin
  description:        General plugin utilities & tools
- dependencies:       bv_core bv_mobile_utils
+ dependencies:       bv_midi bv_mobile_utils
 
  END_JUCE_MODULE_DECLARATION
  
@@ -29,7 +29,7 @@
 
 
 
-#include "bv_core/bv_core.h"
+#include "bv_midi/bv_midi.h"
 #include "bv_mobile_utils/bv_mobile_utils.h"
 
 
@@ -43,6 +43,7 @@
 #include "parameters/specializations/ParameterSpecializations.h"
 #include "parameters/ParameterList/ParameterHolder.h"
 #include "parameters/ParameterList/ParameterList.h"
+#include "parameters/processor/ParameterProcessor.h"
 
 #include "state/state.h"
 #include "presets/PresetManager.h"

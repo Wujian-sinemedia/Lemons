@@ -20,7 +20,7 @@ public:
                                                     stringFromValue = nullptr,
         std::function< float (const String& text) > valueFromString = nullptr,
         String                                      parameterLabel  = String(),
-        bool                                        automatable     = true,
+        bool                                        isAutomatable   = true,
         bool                                        metaParam       = false);
 
     virtual ~FloatParameter() override = default;
@@ -85,7 +85,7 @@ public:
                                                   stringFromInt  = nullptr,
         std::function< int (const String& text) > intFromString  = nullptr,
         String                                    parameterLabel = juce::String(),
-        bool                                      automatable    = true,
+        bool                                      isAutomatable  = true,
         bool                                      metaParam      = false);
 
     virtual ~IntParameter() override = default;
@@ -147,7 +147,7 @@ public:
         std::function< String (bool value, int maximumStringLength) >
                                                    stringFromBool = nullptr,
         std::function< bool (const String& text) > boolFromString = nullptr,
-        bool                                       automatable    = true,
+        bool                                       isAutomatable  = true,
         bool                                       metaParam      = false);
 
     virtual ~BoolParameter() override = default;

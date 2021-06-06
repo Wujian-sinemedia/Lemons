@@ -246,7 +246,7 @@ void Parameter::setValueInternal (float newNormalizedValue)
 {
     bool needToEndGesture = false;
 
-    if (! changing)
+    if (! isChanging())
     {
         beginGesture();
         needToEndGesture = true;
@@ -272,7 +272,7 @@ float Parameter::getCurrentNormalizedValue() const
 
 float Parameter::getCurrentDenormalizedValue() const
 {
-    return rap.convertFrom0to1 (getCurrentNormalizedValue());
+    return denormalize (getCurrentNormalizedValue());
 }
 
 float Parameter::normalize (float input) const

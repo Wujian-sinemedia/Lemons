@@ -31,6 +31,7 @@ bool PresetManagerBase::loadPreset (const String& presetName)
         return false;
 
     serializing::fromBinary (file, state);
+    state.refreshAllDefaults();
     return true;
 }
 
