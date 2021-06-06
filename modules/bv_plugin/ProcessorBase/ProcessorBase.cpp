@@ -13,7 +13,38 @@ ProcessorBase::~ProcessorBase() { }
 void ProcessorBase::prepareToPlay (double, int) { }
 void ProcessorBase::releaseResources() { }
 
-void ProcessorBase::processBlock (juce::AudioBuffer< float >&, juce::MidiBuffer&) { }
+void ProcessorBase::processBlock (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi)
+{
+    processBlockInternal (audio, midi);
+}
+
+void ProcessorBase::processBlock (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi)
+{
+    processBlockInternal (audio, midi);
+}
+
+void ProcessorBase::processBlockBypassed (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi)
+{
+    if (auto* b = getMainBypass())
+        if (! b->get())
+            b->set (true);
+    
+    processBlockInternal (audio, midi);
+}
+
+void ProcessorBase::processBlockBypassed (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi)
+{
+    if (auto* b = getMainBypass())
+        if (! b->get())
+            b->set (true);
+    
+    processBlockInternal (audio, midi);
+}
+
+juce::AudioProcessorParameter* ProcessorBase::getBypassParameter() const
+{
+    return getMainBypass();
+}
 
 double ProcessorBase::getTailLengthSeconds() const { return 0.0; }
 

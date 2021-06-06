@@ -32,23 +32,22 @@
 #include "bv_midi/bv_midi.h"
 #include "bv_mobile_utils/bv_mobile_utils.h"
 
-
-#include "ProcessorBase/ProcessorBase.h"
-
-#include "EditorBase/EditorBase.h"
-
 #include "parameters/helpers/ParameterValueConversionLambdas.h"
 #include "parameters/Parameter.h"
 #include "parameters/types/ParameterTypes.h"
 #include "parameters/specializations/ParameterSpecializations.h"
 #include "parameters/ParameterList/ParameterHolder.h"
+
+#include "transport/PluginTransport.h"
+
+#include "ProcessorBase/ProcessorBase.h"
+#include "EditorBase/EditorBase.h"
+
 #include "parameters/ParameterList/ParameterList.h"
 #include "parameters/processor/ParameterProcessor.h"
 
 #include "state/state.h"
 #include "presets/PresetManager.h"
-
-#include "transport/PluginTransport.h"
 
 
 #ifndef JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP

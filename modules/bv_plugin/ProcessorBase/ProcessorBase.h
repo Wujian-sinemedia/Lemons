@@ -14,7 +14,10 @@ public:
     void prepareToPlay (double, int) override;
     void releaseResources() override;
 
-    void processBlock (juce::AudioBuffer< float >&, juce::MidiBuffer&) override;
+    void processBlock (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi) final;
+    void processBlock (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi) final;
+    void processBlockBypassed (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi) final;
+    void processBlockBypassed (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi) final;
 
     double getTailLengthSeconds() const override;
 
@@ -36,6 +39,8 @@ public:
 
     bool                        hasEditor() const override;
     juce::AudioProcessorEditor* createEditor() override;
+    
+    juce::AudioProcessorParameter* getBypassParameter() const final;
 
     bool isBusesLayoutSupported (const BusesLayout& layout) const override;
 
@@ -51,6 +56,12 @@ protected:
     virtual juce::AudioProcessor::BusesProperties createBusProperties() const;
 
     juce::Point< int > savedEditorSize {450, 300};
+    
+private:
+    virtual void processBlockInternal (juce::AudioBuffer< float >&, juce::MidiBuffer&) { }
+    virtual void processBlockInternal (juce::AudioBuffer< double >&, juce::MidiBuffer&) { }
+    
+    virtual bav::BoolParameter* getMainBypass() const { return nullptr; }
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ProcessorBase)
 };
