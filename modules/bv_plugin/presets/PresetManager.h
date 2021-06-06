@@ -22,12 +22,15 @@ public:
     void rescanPresetsFolder();
 
     const juce::StringArray& presetNames();
+    
+    events::Broadcaster& getBroadcaster() { return broadcaster; }
 
 private:
     juce::File presetNameToFilePath (const String& presetName);
 
-    StateBase&        state;
-    juce::StringArray namesOfAvailablePresets;
+    StateBase&          state;
+    juce::StringArray   namesOfAvailablePresets;
+    events::Broadcaster broadcaster;
 };
 
 }  // namespace bav

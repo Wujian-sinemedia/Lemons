@@ -69,6 +69,8 @@ void PresetManagerBase::rescanPresetsFolder()
         if (filename.endsWith (xtn))
             namesOfAvailablePresets.addIfNotAlreadyThere (filename.dropLastCharacters (len));
     }
+    
+    broadcaster.trigger();
 }
 
 const juce::StringArray& PresetManagerBase::presetNames()
