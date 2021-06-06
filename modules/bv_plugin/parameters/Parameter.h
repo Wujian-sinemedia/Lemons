@@ -12,16 +12,16 @@ public:
                String       paramNameShort,
                String       paramNameVerbose,
                bool         isAutomatable = true,
-               bool         metaParam   = false);
+               bool         metaParam     = false);
 
     virtual ~Parameter() override = default;
 
     bool operator== (const Parameter& other);
 
-    int  getMidiControllerNumber() const { return midiControllerNumber; }
-    bool isMidiControllerMapped() const { return midiControllerNumber > -1; }
-    void setMidiControllerNumber (int newControllerNumber) { midiControllerNumber = newControllerNumber; }
-    void resetMidiControllerMapping() { midiControllerNumber = -1; }
+    int  getMidiControllerNumber() const;
+    bool isMidiControllerMapped() const;
+    void setMidiControllerNumber (int newControllerNumber);
+    void resetMidiControllerMapping();
     void processNewControllerMessage (int controllerNumber, int controllerValue);
 
     void  refreshDefault();  // sets the parameter's current value to be the default value
@@ -85,9 +85,10 @@ private:
     void toValueTree (juce::ValueTree& tree) final;
     void fromValueTree (const juce::ValueTree& tree) final;
 
-    float currentDefault;
-    float lastActionedValue;
-    bool  changing = false;
+    std::atomic< float > currentDefault;
+    std::atomic< bool >  changing {false};
+    std::atomic< int >   midiControllerNumber {-1};
+    float                lastActionedValue;
 
     juce::UndoManager* um;
 
@@ -95,8 +96,6 @@ private:
 
     const String valueChangeTransactionName;
     const String defaultChangeTransactionName;
-
-    int midiControllerNumber {-1};
 
     //==============================================================================
 

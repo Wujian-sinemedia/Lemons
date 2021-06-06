@@ -88,12 +88,12 @@ Parameter::Parameter (RangedParam& p,
       rap (p),
       parameterNameShort (TRANS (paramNameShort)),
       parameterNameVerbose (TRANS (paramNameVerbose)),
-      automatable (automatable),
+      automatable (isAutomatable),
       metaParameter (metaParam),
       valueChangeTransactionName (TRANS ("Changed") + " " + parameterNameVerbose),
       defaultChangeTransactionName (TRANS ("Changed default value of") + " " + parameterNameVerbose)
 {
-    currentDefault    = rap.getDefaultValue();
+    currentDefault.store (rap.getDefaultValue());
     lastActionedValue = currentDefault;
 }
 
@@ -102,9 +102,29 @@ bool Parameter::operator== (const Parameter& other)
     return dataIdentifier == other.dataIdentifier;
 }
 
+int Parameter::getMidiControllerNumber() const
+{
+    return midiControllerNumber.load();
+}
+
+bool Parameter::isMidiControllerMapped() const
+{
+    return getMidiControllerNumber() > -1;
+}
+
+void Parameter::setMidiControllerNumber (int newControllerNumber)
+{
+    midiControllerNumber.store (newControllerNumber);
+}
+
+void Parameter::resetMidiControllerMapping()
+{
+    setMidiControllerNumber (-1);
+}
+
 void Parameter::processNewControllerMessage (int controllerNumber, int controllerValue)
 {
-    if (controllerNumber == midiControllerNumber)
+    if (controllerNumber == getMidiControllerNumber())
     {
         const auto& range = rap.getNormalisableRange();
         setDenormalizedValue (juce::jmap (static_cast< float > (controllerValue),
@@ -115,7 +135,7 @@ void Parameter::processNewControllerMessage (int controllerNumber, int controlle
 
 void Parameter::beginGesture()
 {
-    if (changing)
+    if (isChanging())
         return;
 
     //    if (um != nullptr)
@@ -123,7 +143,7 @@ void Parameter::beginGesture()
     //        um->beginNewTransaction (valueChangeTransactionName);
     //    }
 
-    changing = true;
+    changing.store (true);
     rap.beginChangeGesture();
 
     listeners.call ([] (Listener& l)
@@ -132,10 +152,10 @@ void Parameter::beginGesture()
 
 void Parameter::endGesture()
 {
-    if (! changing)
+    if (! isChanging())
         return;
 
-    changing = false;
+    changing.store (false);
     rap.endChangeGesture();
 
     listeners.call ([] (Listener& l)
@@ -144,24 +164,24 @@ void Parameter::endGesture()
 
 bool Parameter::isChanging() const
 {
-    return changing;
+    return changing.load();
 }
 
 float Parameter::getNormalizedDefault() const
 {
-    return currentDefault;
+    return currentDefault.load();
 }
 
 float Parameter::getDenormalizedDefault() const
 {
-    return denormalize (currentDefault);
+    return denormalize (getNormalizedDefault());
 }
 
 void Parameter::setNormalizedDefault (float value)
 {
     jassert (value >= 0.0f && value <= 1.0f);
 
-    if (currentDefault == value) return;
+    if (value == getNormalizedDefault()) return;
 
     setDefaultInternal (value);
 
@@ -179,7 +199,8 @@ void Parameter::setNormalizedDefault (float value)
 
 void Parameter::setDefaultInternal (float newNormalizedDefault)
 {
-    currentDefault = newNormalizedDefault;
+    jassert (newNormalizedDefault >= 0.f && newNormalizedDefault <= 1.f);
+    currentDefault.store (newNormalizedDefault);
     listeners.call ([&newNormalizedDefault] (Listener& l)
                     { l.parameterDefaultChanged (newNormalizedDefault); });
 }
@@ -191,19 +212,19 @@ void Parameter::setDenormalizedDefault (float value)
 
 void Parameter::refreshDefault()
 {
-    currentDefault = getCurrentNormalizedValue();
+    setNormalizedDefault (getNormalizedDefault());
 }
 
 void Parameter::resetToDefault()
 {
-    rap.setValueNotifyingHost (currentDefault);
+    setNormalizedValue (getNormalizedDefault());
 }
 
 void Parameter::setNormalizedValue (float value)
 {
     jassert (value >= 0.0f && value <= 1.0f);
 
-    if (value == rap.getValue()) return;
+    if (value == getCurrentNormalizedValue()) return;
 
     setValueInternal (value);
 
@@ -248,7 +269,7 @@ float Parameter::getCurrentNormalizedValue() const
 
 float Parameter::getCurrentDenormalizedValue() const
 {
-    return rap.convertFrom0to1 (rap.getValue());
+    return rap.convertFrom0to1 (getCurrentNormalizedValue());
 }
 
 float Parameter::normalize (float input) const
