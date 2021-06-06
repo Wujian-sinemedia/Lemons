@@ -24,18 +24,16 @@ void ProcessorBase::processBlock (juce::AudioBuffer< double >& audio, juce::Midi
 
 void ProcessorBase::processBlockBypassed (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi)
 {
-    auto& bypass = getMainBypass();
-    if (! bypass.get())
-        bypass.set (true);
+    if (! getMainBypass().get())
+        getMainBypass().set (true);
 
     processBlockInternal (audio, midi);
 }
 
 void ProcessorBase::processBlockBypassed (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi)
 {
-    auto& bypass = getMainBypass();
-    if (! bypass.get())
-        bypass.set (true);
+    if (! getMainBypass().get())
+        getMainBypass().set (true);
 
     processBlockInternal (audio, midi);
 }

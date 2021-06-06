@@ -27,6 +27,8 @@ private:
     void processBlock (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi) final;
     void processBlockBypassed (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi) final;
     void processBlockBypassed (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi) final;
+    
+    bool supportsDoublePrecisionProcessing() const final { return true; }
 
     template < typename SampleType >
     void processBlockInternal (juce::AudioBuffer< SampleType >& audio, juce::MidiBuffer& midi);
