@@ -2,19 +2,19 @@
 namespace bav
 {
 FloatParameter::FloatParameter (
-    juce::String paramNameShort,
-    juce::String paramNameVerbose,
+    String paramNameShort,
+    String paramNameVerbose,
     juce::NormalisableRange< float >
                                             nRange,
     float                                   defaultVal,
     juce::AudioProcessorParameter::Category parameterCategory,
-    std::function< juce::String (float value, int maximumStringLength) >
+    std::function< String (float value, int maximumStringLength) >
         stringFromValue,
-    std::function< float (const juce::String& text) >
-                 valueFromString,
-    juce::String parameterLabel,
-                                bool automatable,
-                                bool metaParam)
+    std::function< float (const String& text) >
+           valueFromString,
+    String parameterLabel,
+    bool   automatable,
+    bool   metaParam)
     : AudioParameterFloat (paramNameVerbose,
                            TRANS (paramNameVerbose),
                            nRange,
@@ -71,12 +71,14 @@ void FloatParameter::toValueTree (juce::ValueTree& tree)
 {
     tree.setProperty ("ParameterValue", get(), nullptr);
     tree.setProperty ("ParameterDefaultValue", getDefault(), nullptr);
+    tree.setProperty ("MappedMidiControllerNumber", getMidiControllerNumber(), nullptr);
 }
 
 void FloatParameter::fromValueTree (const juce::ValueTree& tree)
 {
     set (tree.getProperty ("ParameterValue"));
     setDefault (tree.getProperty ("ParameterDefaultValue"));
+    setMidiControllerNumber (tree.getProperty ("MappedMidiControllerNumber"));
 }
 
 FloatParameter::Listener::Listener (FloatParameter& toUse)
@@ -104,18 +106,18 @@ void FloatParameter::Listener::paramDefaultChanged (float) { }
 
 
 IntParameter::IntParameter (
-    juce::String paramNameShort,
-    juce::String paramNameVerbose,
-    int          min,
-    int          max,
-    int          defaultVal,
-    std::function< juce::String (int value, int maximumStringLength) >
+    String paramNameShort,
+    String paramNameVerbose,
+    int    min,
+    int    max,
+    int    defaultVal,
+    std::function< String (int value, int maximumStringLength) >
         stringFromInt,
-    std::function< int (const juce::String& text) >
-                 intFromString,
-    juce::String parameterLabel,
-                            bool automatable,
-                            bool metaParam)
+    std::function< int (const String& text) >
+           intFromString,
+    String parameterLabel,
+    bool   automatable,
+    bool   metaParam)
     : AudioParameterInt (paramNameVerbose,
                          TRANS (paramNameVerbose),
                          min,
@@ -172,12 +174,14 @@ void IntParameter::toValueTree (juce::ValueTree& tree)
 {
     tree.setProperty ("ParameterValue", get(), nullptr);
     tree.setProperty ("ParameterDefaultValue", getDefault(), nullptr);
+    tree.setProperty ("MappedMidiControllerNumber", getMidiControllerNumber(), nullptr);
 }
 
 void IntParameter::fromValueTree (const juce::ValueTree& tree)
 {
     set (tree.getProperty ("ParameterValue"));
     setDefault (tree.getProperty ("ParameterDefaultValue"));
+    setMidiControllerNumber (tree.getProperty ("MappedMidiControllerNumber"));
 }
 
 IntParameter::Listener::Listener (IntParameter& toUse)
@@ -205,15 +209,15 @@ void IntParameter::Listener::paramDefaultChanged (int) { }
 
 
 BoolParameter::BoolParameter (
-    juce::String paramNameShort,
-    juce::String paramNameVerbose,
-    bool         defaultVal,
-    std::function< juce::String (bool value, int maximumStringLength) >
+    String paramNameShort,
+    String paramNameVerbose,
+    bool   defaultVal,
+    std::function< String (bool value, int maximumStringLength) >
         stringFromBool,
-    std::function< bool (const juce::String& text) >
-        boolFromString,
-                              bool automatable,
-                              bool metaParam)
+    std::function< bool (const String& text) >
+         boolFromString,
+    bool automatable,
+    bool metaParam)
     : AudioParameterBool (paramNameVerbose,
                           TRANS (paramNameVerbose),
                           defaultVal,
@@ -274,12 +278,14 @@ void BoolParameter::toValueTree (juce::ValueTree& tree)
 {
     tree.setProperty ("ParameterValue", get(), nullptr);
     tree.setProperty ("ParameterDefaultValue", getDefault(), nullptr);
+    tree.setProperty ("MappedMidiControllerNumber", getMidiControllerNumber(), nullptr);
 }
 
 void BoolParameter::fromValueTree (const juce::ValueTree& tree)
 {
     set (tree.getProperty ("ParameterValue"));
     setDefault (tree.getProperty ("ParameterDefaultValue"));
+    setMidiControllerNumber (tree.getProperty ("MappedMidiControllerNumber"));
 }
 
 BoolParameter::Listener::Listener (BoolParameter& toUse)

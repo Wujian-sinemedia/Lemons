@@ -7,10 +7,10 @@ struct OscManager
 {
 public:
     OscManager() = default;
-    OscManager (const juce::String& targetHostName, int portNumber = 53100);
+    OscManager (const String& targetHostName, int portNumber = 53100);
     virtual ~OscManager();
 
-    void connect (const juce::String& targetHostName, int portNumber = 53100);
+    void connect (const String& targetHostName, int portNumber = 53100);
     void disconnect();
 
     juce::OSCSender   sender;

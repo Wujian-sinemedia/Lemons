@@ -1,7 +1,6 @@
 
 namespace bav::midi
 {
-
 PitchConverter::PitchConverter()
 {
 #if BV_USE_MTS_ESP
@@ -25,7 +24,7 @@ float PitchConverter::midiToFrequency (int midiNote, int midiChannel) const
     juce::ignoreUnused (midiChannel);
     return static_cast< float > (concertPitchHz
                                  * std::pow (2.0f,
-                                             ((static_cast<float>(midiNote) - 69.0f) / 12.0f)));
+                                             ((static_cast< float > (midiNote) - 69.0f) / 12.0f)));
 #endif
 }
 
@@ -44,11 +43,11 @@ float PitchConverter::midiToFrequency (float midiNote, int midiChannel) const
 int PitchConverter::frequencyToMidi (float frequency, int midiChannel) const
 {
 #if BV_USE_MTS_ESP
-    return juce::roundToInt (MTS_FrequencyToNote (client, static_cast<double>(frequency), char (midiChannel)));
+    return juce::roundToInt (MTS_FrequencyToNote (client, static_cast< double > (frequency), char (midiChannel)));
 #else
     juce::ignoreUnused (midiChannel);
     return juce::roundToInt (12.0f
-                             * log2 (frequency / concertPitchHz)
+                                 * log2 (frequency / concertPitchHz)
                              + 69.0f);
 #endif
 }
@@ -72,7 +71,7 @@ bool PitchConverter::isConnectedToMtsEsp() const
 #endif
 }
 
-juce::String PitchConverter::getScaleName() const
+String PitchConverter::getScaleName() const
 {
 #if BV_USE_MTS_ESP
     return {MTS_GetScaleName (client)};
@@ -89,11 +88,11 @@ bool PitchConverter::setConcertPitchHz (float newConcertPitchHz)
 #else
     if (concertPitchHz == newConcertPitchHz)
         return false;
-    
+
     concertPitchHz = newConcertPitchHz;
     return true;
 #endif
 }
 
 
-}  // namespace bav
+}  // namespace bav::midi

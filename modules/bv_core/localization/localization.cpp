@@ -1,26 +1,25 @@
 
 namespace bav
 {
-
 juce::String getCountryCodeToUse()
 {
     return juce::SystemStats::getDisplayLanguage().upToFirstOccurrenceOf ("-", false, false);
 }
 
 
-RawData getDefaultTranslationFile (juce::String defaultCountryCode = "en")
+RawData getDefaultTranslationFile (String defaultCountryCode = "en")
 {
 #if BV_HAS_BINARY_DATA
-    const auto countryCodeToTranslationFileName = [] (const juce::String& countryCode)
+    const auto countryCodeToTranslationFileName = [] (const String& countryCode)
     {
-        return juce::String("trans_") + countryCode + ".txt";
+        return String ("trans_") + countryCode + ".txt";
     };
-    
+
     auto data = RawData (countryCodeToTranslationFileName (getCountryCodeToUse()));
-    
+
     if (data.isValid())
         return data;
-    
+
     return RawData (countryCodeToTranslationFileName (defaultCountryCode));
 #else
     return {};
@@ -33,7 +32,7 @@ void initializeTranslations (const juce::File& translationFile,
 {
     if (translationFile.existsAsFile())
         juce::LocalisedStrings::setCurrentMappings (
-                                                    new juce::LocalisedStrings (translationFile, ignoreCaseOfKeys));
+            new juce::LocalisedStrings (translationFile, ignoreCaseOfKeys));
 }
 
 
@@ -42,10 +41,10 @@ void initializeTranslationsFromBinaryData (RawData data,
 {
     if (! data.isValid())
         return;
-    
+
     juce::LocalisedStrings::setCurrentMappings (
-                                                new juce::LocalisedStrings ({data.data, static_cast< size_t > (data.size)},
-                                                                            ignoreCaseOfKeys));
+        new juce::LocalisedStrings ({data.data, static_cast< size_t > (data.size)},
+                                    ignoreCaseOfKeys));
 }
 
 
@@ -54,4 +53,4 @@ void initializeDefaultTranslations()
     initializeTranslationsFromBinaryData (getDefaultTranslationFile());
 }
 
-}
+}  // namespace bav

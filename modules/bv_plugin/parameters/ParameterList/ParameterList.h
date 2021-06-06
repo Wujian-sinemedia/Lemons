@@ -53,6 +53,8 @@ public:
 
     void setUndoManager (juce::UndoManager& um);
 
+    void processMidi (const juce::MidiBuffer& midiMessages);
+    void processMidiMessage (const juce::MidiMessage& message);
 
 private:
     struct ParamHolderMetadata
@@ -65,6 +67,8 @@ private:
 
     virtual void toValueTree (ValueTree& tree) override;
     virtual void fromValueTree (const ValueTree& tree) override;
+
+    void processNewControllerMessage (int controllerNumber, int controllerValue);
 
     juce::Array< ParamHolderMetadata > params;
     dsp::ProcessorBase                 dummyProcessor;

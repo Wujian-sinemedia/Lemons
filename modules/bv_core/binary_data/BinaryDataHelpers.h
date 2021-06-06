@@ -15,7 +15,7 @@ namespace bav
 struct RawData
 {
     RawData() = default;
-    explicit RawData (const juce::String& fileToFind);
+    explicit RawData (const String& fileToFind);
     explicit RawData (const char* fileToFind);
 
     bool isValid() const;

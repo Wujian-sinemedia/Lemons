@@ -12,12 +12,12 @@ juce::File getPresetsFolder (std::string companyName,
 #else
     rootFolder = juce::File::getSpecialLocation (
         juce::File::SpecialLocationType::userApplicationDataDirectory);
-    
+
 #    if JUCE_MAC
     rootFolder = rootFolder.getChildFile ("Audio").getChildFile ("Presets");
 #    endif
 #endif
-    
+
     rootFolder = rootFolder.getChildFile (companyName).getChildFile (pluginName);
 
     if (! rootFolder.isDirectory())
@@ -30,16 +30,16 @@ juce::File getPresetsFolder (std::string companyName,
 //==============================================================================
 
 
-juce::String addFileExtensionIfMissing (const juce::String& string,
-                                        const juce::String& extension)
+juce::String addFileExtensionIfMissing (const String& string,
+                                        const String& extension)
 {
     return juce::File::createLegalFileName (
         string.endsWith (extension) ? string.trim() : (string + extension).trim());
 }
 
 
-juce::String removeFileExtensionIfThere (const juce::String& string,
-                                         const juce::String& extension)
+juce::String removeFileExtensionIfThere (const String& string,
+                                         const String& extension)
 {
     return (string.endsWith (extension))
              ? string.dropLastCharacters (extension.length()).trim()
@@ -49,7 +49,7 @@ juce::String removeFileExtensionIfThere (const juce::String& string,
 
 //==============================================================================
 
-bool renameFile (const juce::File& f, const juce::String& newName)
+bool renameFile (const juce::File& f, const String& newName)
 {
     if (! f.existsAsFile())
         return false;

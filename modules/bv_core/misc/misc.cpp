@@ -1,7 +1,7 @@
 
 namespace bav
 {
-int midiPanStringToInt (const juce::String& string)
+int midiPanStringToInt (const String& string)
 {
     if (string.endsWithIgnoreCase (TRANS ("C"))) return 64;
 
@@ -16,22 +16,22 @@ int midiPanStringToInt (const juce::String& string)
     return string.getIntValue();
 }
 
-juce::String midiPanIntToString (const int midiPan)
+String midiPanIntToString (const int midiPan)
 {
-    if (midiPan == 64) return juce::String (TRANS ("C"));
+    if (midiPan == 64) return TRANS ("C");
 
     if (midiPan > 64)
     {
         const auto amtRight = juce::jmap (midiPan, 65, 127, 1, 50);
-        return juce::String (amtRight) + TRANS ("R");
+        return String (amtRight) + TRANS ("R");
     }
 
     const auto amtLeft = juce::jmap (midiPan, 63, 0, 1, 50);
-    return juce::String (amtLeft) + TRANS ("L");
+    return String (amtLeft) + TRANS ("L");
 }
 
-juce::String pitchToString (const int  midiNoteNumber,
-                            const bool asSharps)
+String pitchToString (const int  midiNoteNumber,
+                      const bool asSharps)
 {
     jassert (midiNoteNumber >= 0 && midiNoteNumber <= 127);
 
@@ -44,13 +44,13 @@ juce::String pitchToString (const int  midiNoteNumber,
         "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
     static const char* const flatNoteNames[] = {
         "C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"};
-    auto noteName = asSharps ? juce::String (sharpNoteNames[pitchClass])
-                             : juce::String (flatNoteNames[pitchClass]);
+    auto noteName = asSharps ? String (sharpNoteNames[pitchClass])
+                             : String (flatNoteNames[pitchClass]);
 
-    return noteName + juce::String (octave);
+    return noteName + String (octave);
 }
 
-int pitchClassFromString (const juce::String& pitchClassName) noexcept
+int pitchClassFromString (const String& pitchClassName) noexcept
 {
     int        pitchClass = -1;
     const auto numChars   = pitchClassName.length();
@@ -94,7 +94,7 @@ int pitchClassFromString (const juce::String& pitchClassName) noexcept
     return pitchClass;
 }
 
-int stringToPitch (const juce::String& string)
+int stringToPitch (const String& string)
 {
     const auto octaveName = string.retainCharacters ("0123456789");
 

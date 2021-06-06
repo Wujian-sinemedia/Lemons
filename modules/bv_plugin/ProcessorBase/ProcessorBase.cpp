@@ -23,15 +23,15 @@ void ProcessorBase::setStateInformation (const void*, int) { }
 int                ProcessorBase::getNumPrograms() { return 1; }
 int                ProcessorBase::getCurrentProgram() { return 0; }
 void               ProcessorBase::setCurrentProgram (int) { }
-const juce::String ProcessorBase::getProgramName (int) { return {}; }
-void               ProcessorBase::changeProgramName (int, const juce::String&) { }
+const String ProcessorBase::getProgramName (int) { return {}; }
+void               ProcessorBase::changeProgramName (int, const String&) { }
 
 bool ProcessorBase::acceptsMidi() const { return true; }
 bool ProcessorBase::producesMidi() const { return true; }
 bool ProcessorBase::supportsMPE() const { return false; }
 bool ProcessorBase::isMidiEffect() const { return false; }
 
-const juce::String ProcessorBase::getName() const { return "ProcessorBase"; }
+const String ProcessorBase::getName() const { return "ProcessorBase"; }
 
 bool ProcessorBase::hasEditor() const { return false; }
 

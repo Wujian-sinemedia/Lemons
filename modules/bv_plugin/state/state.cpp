@@ -62,6 +62,18 @@ void StateBase::setUndoManager (juce::UndoManager& um)
         list->setUndoManager (um);
 }
 
+void StateBase::processMidi (const juce::MidiBuffer& midiMessages)
+{
+    for (auto meta : midiMessages)
+        processMidiMessage (meta.getMessage());
+}
+
+void StateBase::processMidiMessage (const juce::MidiMessage& message)
+{
+    for (auto* list : lists)
+        list->processMidiMessage (message);
+}
+
 void StateBase::toValueTree (ValueTree& tree)
 {
     lastSavedEditorSize.serialize (tree);
@@ -78,9 +90,9 @@ void StateBase::fromValueTree (const ValueTree& tree)
         list->deserialize (tree);
 }
 
-StateBase::LastSavedEditorSize::LastSavedEditorSize(StateBase& b)
-: SerializableData ("LastSavedEditorSize"),
-base (b)
+StateBase::LastSavedEditorSize::LastSavedEditorSize (StateBase& b)
+    : SerializableData ("LastSavedEditorSize"),
+      base (b)
 {
 }
 

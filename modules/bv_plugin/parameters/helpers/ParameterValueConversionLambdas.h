@@ -4,15 +4,15 @@
 namespace bav::ParameterValueConversionLambdas
 {
 /* Boolean toggles */
-static const std::function< juce::String (bool value, int maximumStringLength) >
+static const auto
     toggle_stringFromBool = [] (bool value, int maxLength)
 {
     return value ? TRANS ("On").substring (0, maxLength)
                  : TRANS ("Off").substring (0, maxLength);
 };
 
-static const std::function< bool (const juce::String& text) > toggle_boolFromString =
-    [] (const juce::String& text)
+static const auto toggle_boolFromString =
+    [] (const String& text)
 {
     return (text.containsIgnoreCase (TRANS ("On"))
             || text.containsIgnoreCase (TRANS ("Yes"))
@@ -20,14 +20,14 @@ static const std::function< bool (const juce::String& text) > toggle_boolFromStr
 };
 
 /* Float gain */
-static const std::function< juce::String (float value, int maximumStringLength) >
+static const auto
     gain_stringFromFloat = [] (float value, int maxLength)
 {
-    return (juce::String (value) + " " + TRANS ("dB")).substring (0, maxLength);
+    return (String (value) + " " + TRANS ("dB")).substring (0, maxLength);
 };
 
-static const std::function< float (const juce::String& text) > gain_floatFromString =
-    [] (const juce::String& text)
+static const auto gain_floatFromString =
+    [] (const String& text)
 {
     const auto token_location = text.indexOfWholeWordIgnoreCase (TRANS ("dB"));
 
@@ -38,14 +38,14 @@ static const std::function< float (const juce::String& text) > gain_floatFromStr
 };
 
 /* Integer percent */
-static const std::function< juce::String (int value, int maximumStringLength) >
+static const auto
     pcnt_stringFromInt = [] (int value, int maxLength)
 {
-    return (juce::String (value) + "%").substring (0, maxLength);
+    return (String (value) + "%").substring (0, maxLength);
 };
 
-static const std::function< int (const juce::String& text) > pcnt_intFromString =
-    [] (const juce::String& text)
+static const auto pcnt_intFromString =
+    [] (const String& text)
 {
     const auto token_location = text.indexOf ("%");
 
@@ -56,14 +56,14 @@ static const std::function< int (const juce::String& text) > pcnt_intFromString 
 };
 
 /* Seconds (as float) */
-static const std::function< juce::String (float value, int maximumStringLength) >
+static const auto
     sec_stringFromFloat = [] (float value, int maxLength)
 {
-    return (juce::String (value) + " " + TRANS ("sec")).substring (0, maxLength);
+    return (String (value) + " " + TRANS ("sec")).substring (0, maxLength);
 };
 
-static const std::function< float (const juce::String& text) > sec_floatFromString =
-    [] (const juce::String& text)
+static const auto sec_floatFromString =
+    [] (const String& text)
 {
     const auto token_location = text.indexOfWholeWordIgnoreCase (TRANS ("sec"));
 
@@ -74,18 +74,18 @@ static const std::function< float (const juce::String& text) > sec_floatFromStri
 };
 
 /* Hz - as float */
-static const std::function< juce::String (float value, int maximumStringLength) >
+static const auto
     hz_stringFromFloat = [] (float value, int maxLength)
 {
     auto string = (value < 1000.0f)
-                    ? juce::String (value) + " " + TRANS ("Hz")
-                    : juce::String (value * 0.001f) + " " + TRANS ("kHz");
+                    ? String (value) + " " + TRANS ("Hz")
+                    : String (value * 0.001f) + " " + TRANS ("kHz");
 
     return string.substring (0, maxLength);
 };
 
-static const std::function< float (const juce::String& text) > hz_floatFromString =
-    [] (juce::String text)
+static const auto hz_floatFromString =
+    [] (const String& text)
 {
     const auto kHz_token_location = text.indexOfWholeWordIgnoreCase (TRANS ("kHz"));
 
@@ -102,14 +102,14 @@ static const std::function< float (const juce::String& text) > hz_floatFromStrin
 };
 
 /* Semitones (as integer) */
-static const std::function< juce::String (int value, int maximumStringLength) >
+static const auto
     st_stringFromInt = [] (int value, int maxLength)
 {
-    return (juce::String (value) + " " + TRANS ("st")).substring (0, maxLength);
+    return (String (value) + " " + TRANS ("st")).substring (0, maxLength);
 };
 
-static const std::function< int (const juce::String& text) > st_intFromString =
-    [] (const juce::String& text)
+static auto st_intFromString =
+    [] (const String& text)
 {
     const auto token_location = text.indexOfWholeWordIgnoreCase (TRANS ("st"));
 
@@ -120,17 +120,17 @@ static const std::function< int (const juce::String& text) > st_intFromString =
 };
 
 /* Midipitch (as integer) */
-static const std::function< juce::String (int value, int maximumStringLength) >
+static const auto
     pitch_stringFromInt = [] (int value, int maxLength)
 {
     return pitchToString (value, true).substring (0, maxLength);
 };
 
-static const std::function< int (const juce::String& text) > pitch_intFromString =
-    [] (const juce::String& text)
+static const auto pitch_intFromString =
+    [] (const String& text)
 {
     static const auto pitchClassTokens =
-        juce::String ("AaBbCcDdEeFfGg#") + getSharpSymbol() + getFlatSymbol();
+        String ("AaBbCcDdEeFfGg#") + getSharpSymbol() + getFlatSymbol();
 
     if (text.containsAnyOf (pitchClassTokens)) return stringToPitch (text.trim());
 
@@ -138,14 +138,14 @@ static const std::function< int (const juce::String& text) > pitch_intFromString
 };
 
 /* Normalized percent as integer */
-static const std::function< juce::String (int value, int maximumStringLength) >
+static const auto
     normPcnt_stringFromInt = [] (int value, int maxLength)
 {
-    return (juce::String (value * 100.0f) + "%").substring (0, maxLength);
+    return (String (value * 100.0f) + "%").substring (0, maxLength);
 };
 
-static const std::function< int (const juce::String& text) > normPcnt_intFromString =
-    [] (const juce::String& text)
+static const auto normPcnt_intFromString =
+    [] (const String& text)
 {
     const auto token_location = text.indexOf ("%");
 
@@ -156,14 +156,14 @@ static const std::function< int (const juce::String& text) > normPcnt_intFromStr
 };
 
 /* MIDI pan -> string (eg, 127 = 50R, 64 = C, 0 = 50L) */
-static const std::function< juce::String (int value, int maxLength) >
+static const auto
     midiPan_stringFromInt = [] (int value, int maxLength)
 {
     return midiPanIntToString (value).substring (0, maxLength);
 };
 
-static const std::function< int (const juce::String& text) > midiPan_intFromString =
-    [] (const juce::String& text)
+static const auto midiPan_intFromString =
+    [] (const String& text)
 {
     return midiPanStringToInt (text);
 };

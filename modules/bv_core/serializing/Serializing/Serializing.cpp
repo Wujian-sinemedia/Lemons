@@ -59,12 +59,12 @@ void toXML (SerializableData& source, const juce::File& file)
     toXML (source)->writeTo (file);
 }
 
-void fromJSON (const juce::String& jsonText, SerializableData& dest)
+void fromJSON (const String& jsonText, SerializableData& dest)
 {
     dest.deserialize (valueTreeFromJSON (jsonText));
 }
 
-juce::String toJSON (SerializableData& source)
+String toJSON (SerializableData& source)
 {
     return valueTreeToJSON (source.serialize());
 }

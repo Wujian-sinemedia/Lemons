@@ -1,6 +1,6 @@
 namespace bav::network
 {
-OscManager::OscManager (const juce::String& targetHostName, int portNumber)
+OscManager::OscManager (const String& targetHostName, int portNumber)
 {
     connect (targetHostName, portNumber);
 }
@@ -10,7 +10,7 @@ OscManager::~OscManager()
     disconnect();
 }
 
-void OscManager::connect (const juce::String& targetHostName, int portNumber)
+void OscManager::connect (const String& targetHostName, int portNumber)
 {
     sender.connect (targetHostName, portNumber);
     receiver.connect (portNumber);

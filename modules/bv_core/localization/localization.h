@@ -3,7 +3,6 @@
 
 namespace bav
 {
-
 extern void initializeTranslations (const juce::File& translationFile,
                                     bool              ignoreCaseOfKeys = true);
 

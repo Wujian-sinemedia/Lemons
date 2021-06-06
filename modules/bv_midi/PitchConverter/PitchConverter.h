@@ -15,7 +15,7 @@ class PitchConverter
 public:
     PitchConverter();
     virtual ~PitchConverter();
-    
+
     /*
      MTS-ESP supports specific mappings for each midi channel; pass -1 for "unspecified" or "all channels". In the fallback version, the midi channel is ignored.
      */
@@ -30,7 +30,7 @@ public:
     bool isConnectedToMtsEsp() const;
 
     /* This returns an empty string if you are not using MTS-ESP, or if you are and there is no scale name specified. */
-    juce::String getScaleName() const;
+    String getScaleName() const;
 
     /* If you are not using MTS-ESP, you can call this method to alter the master tuning (the frequency of A4). If you are using MTS-ESP, calling this method does nothing.
        Returns true if this operation had any effect. */
@@ -45,4 +45,4 @@ private:
 };
 
 
-}  // namespace bav
+}  // namespace bav::midi

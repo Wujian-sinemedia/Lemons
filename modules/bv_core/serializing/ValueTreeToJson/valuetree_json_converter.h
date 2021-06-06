@@ -3,8 +3,8 @@
 
 namespace bav::serializing
 {
-extern juce::String valueTreeToJSON (const juce::ValueTree& v);
+extern String valueTreeToJSON (const juce::ValueTree& v);
 
-extern juce::ValueTree valueTreeFromJSON (const juce::String& jsonText);
+extern juce::ValueTree valueTreeFromJSON (const String& jsonText);
 
 }  // namespace bav::serializing

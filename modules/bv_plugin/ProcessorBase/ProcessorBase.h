@@ -24,15 +24,15 @@ public:
     int                getNumPrograms() override;
     int                getCurrentProgram() override;
     void               setCurrentProgram (int) override;
-    const juce::String getProgramName (int) override;
-    void               changeProgramName (int, const juce::String&) override;
+    const String getProgramName (int) override;
+    void               changeProgramName (int, const String&) override;
 
     bool acceptsMidi() const override;
     bool producesMidi() const override;
     bool supportsMPE() const override;
     bool isMidiEffect() const override;
 
-    const juce::String getName() const override;
+    const String getName() const override;
 
     bool                        hasEditor() const override;
     juce::AudioProcessorEditor* createEditor() override;

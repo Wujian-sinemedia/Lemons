@@ -19,7 +19,7 @@ struct PitchPipeline
         return tuning.midiToFrequency (bend.getAdjustedMidiPitch (midiPitch),
                                        midiChannel);
     }
-    
+
     void reset()
     {
         bend.newPitchbendRecieved (64);

@@ -22,7 +22,7 @@ extern void fromXML (const juce::XmlElement& xml, SerializableData& dest);
 extern void fromXML (std::unique_ptr< juce::XmlElement > xml, SerializableData& dest);
 extern void fromXML (const juce::File& xmlFile, SerializableData& dest);
 
-extern juce::String toJSON (SerializableData& source);
-extern void         fromJSON (const juce::String& jsonText, SerializableData& dest);
+extern String toJSON (SerializableData& source);
+extern void   fromJSON (const String& jsonText, SerializableData& dest);
 
 }  // namespace bav::serializing

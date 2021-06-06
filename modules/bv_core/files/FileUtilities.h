@@ -14,17 +14,17 @@ extern juce::File getPresetsFolder (std::string companyName,
 //==============================================================================
 
 
-extern juce::String addFileExtensionIfMissing (const juce::String& string,
-                                               const juce::String& extension);
+extern juce::String addFileExtensionIfMissing (const String& string,
+                                               const String& extension);
 
-extern juce::String removeFileExtensionIfThere (const juce::String& string,
-                                                const juce::String& extension);
+extern juce::String removeFileExtensionIfThere (const String& string,
+                                                const String& extension);
 
 
 //==============================================================================
 
 
-extern bool renameFile (const juce::File& f, const juce::String& newName);
+extern bool renameFile (const juce::File& f, const String& newName);
 
 extern void deleteFile (const juce::File& f);
 

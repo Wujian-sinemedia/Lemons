@@ -9,15 +9,21 @@ public:
     using RangedParam = juce::RangedAudioParameter;
 
     Parameter (RangedParam& p,
-               juce::String paramNameShort,
-               juce::String paramNameVerbose,
-               bool automatable = true,
-               bool metaParam = false);
+               String       paramNameShort,
+               String       paramNameVerbose,
+               bool         automatable = true,
+               bool         metaParam   = false);
 
     virtual ~Parameter() override = default;
 
     bool operator== (const Parameter& other);
-    
+
+    int  getMidiControllerNumber() const { return midiControllerNumber; }
+    bool isMidiControllerMapped() const { return midiControllerNumber > -1; }
+    void setMidiControllerNumber (int newControllerNumber) { midiControllerNumber = newControllerNumber; }
+    void resetMidiControllerMapping() { midiControllerNumber = -1; }
+    void processNewControllerMessage (int controllerNumber, int controllerValue);
+
     void  refreshDefault();  // sets the parameter's current value to be the default value
     void  resetToDefault();  // resets the parameter's value to the default
     float getNormalizedDefault() const;
@@ -42,14 +48,14 @@ public:
     void doAction (bool force = false);
 
     void sendListenerSyncCallback();  // sends a value update message immediately to all listeners
-    
+
     //==============================================================================
 
     RangedParam& rap;
 
-    const juce::String parameterNameShort;
-    const juce::String parameterNameVerbose;
-    
+    const String parameterNameShort;
+    const String parameterNameVerbose;
+
     const bool isAutomatable;
     const bool isMetaParameter;
 
@@ -84,8 +90,10 @@ private:
 
     juce::ListenerList< Listener > listeners;
 
-    const juce::String valueChangeTransactionName;
-    const juce::String defaultChangeTransactionName;
+    const String valueChangeTransactionName;
+    const String defaultChangeTransactionName;
+
+    int midiControllerNumber {-1};
 
     //==============================================================================
 

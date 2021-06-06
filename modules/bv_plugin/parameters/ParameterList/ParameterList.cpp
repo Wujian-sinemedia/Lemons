@@ -43,7 +43,7 @@ void ParameterList::addAllParametersAsInternal()
 {
     for (auto meta : params)
         meta.holder.addTo (dummyProcessor);
-    
+
     sendCallbackToAllListeners();
 }
 
@@ -92,6 +92,24 @@ void ParameterList::setUndoManager (juce::UndoManager& um)
 {
     for (auto meta : params)
         meta.holder.getParam()->setUndoManager (um);
+}
+
+void ParameterList::processMidi (const juce::MidiBuffer& midiMessages)
+{
+    for (auto meta : midiMessages)
+        processMidiMessage (meta.getMessage());
+}
+
+void ParameterList::processMidiMessage (const juce::MidiMessage& message)
+{
+    if (message.isController())
+        processNewControllerMessage (message.getControllerNumber(), message.getControllerValue());
+}
+
+void ParameterList::processNewControllerMessage (int controllerNumber, int controllerValue)
+{
+    for (auto meta : params)
+        meta.holder.getParam()->processNewControllerMessage (controllerNumber, controllerValue);
 }
 
 

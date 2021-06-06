@@ -170,6 +170,13 @@
 #include <juce_audio_utils/juce_audio_utils.h>
 
 
+namespace bav
+{
+using juce::String;
+
+}
+
+
 #include "misc/misc.h"
 #include "misc/LockFreeFifo.h"
 

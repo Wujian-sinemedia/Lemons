@@ -80,10 +80,10 @@ juce::UndoableAction* Parameter::DefaultChangeAction::createCoalescedAction (Und
  -----------------------------------------------------------------------------------------------------------------------*/
 
 Parameter::Parameter (RangedParam& p,
-                      juce::String paramNameShort,
-                      juce::String paramNameVerbose,
-                      bool automatable,
-                      bool metaParam)
+                      String       paramNameShort,
+                      String       paramNameVerbose,
+                      bool         automatable,
+                      bool         metaParam)
     : SerializableData (paramNameVerbose),
       rap (p),
       parameterNameShort (TRANS (paramNameShort)),
@@ -99,7 +99,18 @@ Parameter::Parameter (RangedParam& p,
 
 bool Parameter::operator== (const Parameter& other)
 {
-    return SerializableData::dataIdentifier == other.dataIdentifier;
+    return dataIdentifier == other.dataIdentifier;
+}
+
+void Parameter::processNewControllerMessage (int controllerNumber, int controllerValue)
+{
+    if (controllerNumber == midiControllerNumber)
+    {
+        const auto& range = rap.getNormalisableRange();
+        setDenormalizedValue (juce::jmap (static_cast< float > (controllerValue),
+                                          0.f, 127.f,
+                                          range.start, range.end));
+    }
 }
 
 void Parameter::beginGesture()
@@ -107,10 +118,10 @@ void Parameter::beginGesture()
     if (changing)
         return;
 
-    if (um != nullptr)
-    {
-        um->beginNewTransaction (valueChangeTransactionName);
-    }
+    //    if (um != nullptr)
+    //    {
+    //        um->beginNewTransaction (valueChangeTransactionName);
+    //    }
 
     changing = true;
     rap.beginChangeGesture();
@@ -151,19 +162,19 @@ void Parameter::setNormalizedDefault (float value)
     jassert (value >= 0.0f && value <= 1.0f);
 
     if (currentDefault == value) return;
-    
+
     setDefaultInternal (value);
 
-//    if (um != nullptr)
-//    {
-//        um->beginNewTransaction (defaultChangeTransactionName);
-//        um->perform (new DefaultChangeAction (*this, value, currentDefault),
-//                     defaultChangeTransactionName);
-//    }
-//    else
-//    {
-//        setDefaultInternal (value);
-//    }
+    //    if (um != nullptr)
+    //    {
+    //        um->beginNewTransaction (defaultChangeTransactionName);
+    //        um->perform (new DefaultChangeAction (*this, value, currentDefault),
+    //                     defaultChangeTransactionName);
+    //    }
+    //    else
+    //    {
+    //        setDefaultInternal (value);
+    //    }
 }
 
 void Parameter::setDefaultInternal (float newNormalizedDefault)
@@ -193,18 +204,18 @@ void Parameter::setNormalizedValue (float value)
     jassert (value >= 0.0f && value <= 1.0f);
 
     if (value == rap.getValue()) return;
-    
+
     setValueInternal (value);
 
-//    if (um != nullptr)
-//    {
-//        um->perform (new ValueChangeAction (*this, value, rap.getValue()),
-//                     valueChangeTransactionName);
-//    }
-//    else
-//    {
-//        setValueInternal (value);
-//    }
+    //    if (um != nullptr)
+    //    {
+    //        um->perform (new ValueChangeAction (*this, value, rap.getValue()),
+    //                     valueChangeTransactionName);
+    //    }
+    //    else
+    //    {
+    //        setValueInternal (value);
+    //    }
 }
 
 void Parameter::setValueInternal (float newNormalizedValue)

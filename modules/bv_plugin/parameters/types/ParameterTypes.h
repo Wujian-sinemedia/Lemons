@@ -9,19 +9,19 @@ public:
     using AudioParameterFloat = juce::AudioParameterFloat;
 
     FloatParameter (
-        juce::String paramNameShort,
-        juce::String paramNameVerbose,
+        String paramNameShort,
+        String paramNameVerbose,
         juce::NormalisableRange< float >
                                                 nRange,
         float                                   defaultVal,
         juce::AudioProcessorParameter::Category parameterCategory =
             juce::AudioProcessorParameter::genericParameter,
-        std::function< juce::String (float value, int maximumStringLength) >
-                                                          stringFromValue = nullptr,
-        std::function< float (const juce::String& text) > valueFromString = nullptr,
-        juce::String                                      parameterLabel  = juce::String(),
-                    bool automatable = true,
-                    bool metaParam = false);
+        std::function< String (float value, int maximumStringLength) >
+                                                    stringFromValue = nullptr,
+        std::function< float (const String& text) > valueFromString = nullptr,
+        String                                      parameterLabel  = String(),
+        bool                                        automatable     = true,
+        bool                                        metaParam       = false);
 
     virtual ~FloatParameter() override = default;
 
@@ -33,8 +33,8 @@ public:
 
     void setAction (std::function< void (float) > action);
 
-    const std::function< juce::String (float, int) >   floatToString;
-    const std::function< float (const juce::String&) > stringToFloat;
+    const std::function< String (float, int) >   floatToString;
+    const std::function< float (const String&) > stringToFloat;
 
     //==============================================================================
 
@@ -58,8 +58,9 @@ public:
 private:
     bool isAutomatable() const override final;
     bool isMetaParameter() const override final;
-    
-    events::Listener l {actionBroadcaster, [this](){ actionFunc (get()); }};
+
+    events::Listener l {actionBroadcaster, [this]()
+                        { actionFunc (get()); }};
 
     void toValueTree (juce::ValueTree& tree) override final;
     void fromValueTree (const juce::ValueTree& tree) override final;
@@ -78,17 +79,17 @@ public:
     using AudioParameterInt = juce::AudioParameterInt;
 
     IntParameter (
-        juce::String paramNameShort,
-        juce::String paramNameVerbose,
-        int          min,
-        int          max,
-        int          defaultVal,
-        std::function< juce::String (int value, int maximumStringLength) >
-                                                        stringFromInt  = nullptr,
-        std::function< int (const juce::String& text) > intFromString  = nullptr,
-        juce::String                                    parameterLabel = juce::String(),
-                  bool automatable = true,
-                  bool metaParam = false);
+        String paramNameShort,
+        String paramNameVerbose,
+        int    min,
+        int    max,
+        int    defaultVal,
+        std::function< String (int value, int maximumStringLength) >
+                                                  stringFromInt  = nullptr,
+        std::function< int (const String& text) > intFromString  = nullptr,
+        String                                    parameterLabel = juce::String(),
+        bool                                      automatable    = true,
+        bool                                      metaParam      = false);
 
     virtual ~IntParameter() override = default;
 
@@ -100,8 +101,8 @@ public:
 
     void setAction (std::function< void (int) > action);
 
-    const std::function< juce::String (int, int) >   intToString;
-    const std::function< int (const juce::String&) > stringToInt;
+    const std::function< String (int, int) >   intToString;
+    const std::function< int (const String&) > stringToInt;
 
     //==============================================================================
 
@@ -125,8 +126,9 @@ public:
 private:
     bool isAutomatable() const override final;
     bool isMetaParameter() const override final;
-    
-    events::Listener l {actionBroadcaster, [this](){ actionFunc (get()); }};
+
+    events::Listener l {actionBroadcaster, [this]()
+                        { actionFunc (get()); }};
 
     void toValueTree (juce::ValueTree& tree) override final;
     void fromValueTree (const juce::ValueTree& tree) override final;
@@ -145,14 +147,14 @@ public:
     using AudioParameterBool = juce::AudioParameterBool;
 
     BoolParameter (
-        juce::String paramNameShort,
-        juce::String paramNameVerbose,
-        bool         defaultVal,
-        std::function< juce::String (bool value, int maximumStringLength) >
-                                                         stringFromBool = nullptr,
-        std::function< bool (const juce::String& text) > boolFromString = nullptr,
-                   bool automatable = true,
-                   bool metaParam = false);
+        String paramNameShort,
+        String paramNameVerbose,
+        bool   defaultVal,
+        std::function< String (bool value, int maximumStringLength) >
+                                                   stringFromBool = nullptr,
+        std::function< bool (const String& text) > boolFromString = nullptr,
+        bool                                       automatable    = true,
+        bool                                       metaParam      = false);
 
     virtual ~BoolParameter() override = default;
 
@@ -164,8 +166,8 @@ public:
 
     void setAction (std::function< void (bool) > action);
 
-    std::function< juce::String (bool, int) >        boolToString;
-    std::function< bool (const juce::String& text) > stringToBool;
+    std::function< String (bool, int) >        boolToString;
+    std::function< bool (const String& text) > stringToBool;
 
     //==============================================================================
 
@@ -189,8 +191,9 @@ public:
 private:
     bool isAutomatable() const override final;
     bool isMetaParameter() const override final;
-    
-    events::Listener l {actionBroadcaster, [this](){ actionFunc (get()); }};
+
+    events::Listener l {actionBroadcaster, [this]()
+                        { actionFunc (get()); }};
 
     void toValueTree (juce::ValueTree& tree) override final;
     void fromValueTree (const juce::ValueTree& tree) override final;

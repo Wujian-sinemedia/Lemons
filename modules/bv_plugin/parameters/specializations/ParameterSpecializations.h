@@ -5,8 +5,8 @@ namespace bav
 {
 struct GainParameter : public FloatParameter
 {
-    GainParameter (juce::String                            paramNameShort,
-                   juce::String                            paramNameVerbose,
+    GainParameter (String                                  paramNameShort,
+                   String                                  paramNameVerbose,
                    float                                   defaultVal,
                    juce::AudioProcessorParameter::Category parameterCategory =
                        juce::AudioProcessorParameter::genericParameter);
@@ -21,9 +21,9 @@ struct GainParameter : public FloatParameter
 
 struct ToggleParameter : public BoolParameter
 {
-    ToggleParameter (juce::String paramNameShort,
-                     juce::String paramNameVerbose,
-                     bool         defaultVal);
+    ToggleParameter (String paramNameShort,
+                     String paramNameVerbose,
+                     bool   defaultVal);
 
     virtual ~ToggleParameter() override = default;
 
@@ -36,12 +36,12 @@ struct ToggleParameter : public BoolParameter
 /* This parameter is for a value in a normalized 0.0-1.0 range */
 struct FloatAmountParameter : public FloatParameter
 {
-    FloatAmountParameter (juce::String                            paramNameShort,
-                          juce::String                            paramNameVerbose,
+    FloatAmountParameter (String                                  paramNameShort,
+                          String                                  paramNameVerbose,
                           float                                   defaultVal,
                           juce::AudioProcessorParameter::Category parameterCategory =
                               juce::AudioProcessorParameter::genericParameter,
-                          juce::String parameterLabel = juce::String());
+                          String parameterLabel = String());
 
     virtual ~FloatAmountParameter() override = default;
 
@@ -54,9 +54,9 @@ struct FloatAmountParameter : public FloatParameter
 /* This parameter is for an integer value in the range 0 - 100 */
 struct PercentParameter : public IntParameter
 {
-    PercentParameter (juce::String paramNameShort,
-                      juce::String paramNameVerbose,
-                      int          defaultVal);
+    PercentParameter (String paramNameShort,
+                      String paramNameVerbose,
+                      int    defaultVal);
 
     virtual ~PercentParameter() override = default;
 
@@ -69,17 +69,17 @@ struct PercentParameter : public IntParameter
 struct MeterParameter : public FloatParameter
 {
     MeterParameter (
-        juce::String paramNameShort,
-        juce::String paramNameVerbose,
+        String paramNameShort,
+        String paramNameVerbose,
         juce::NormalisableRange< float >
                                                 nRange,
         float                                   defaultVal,
         juce::AudioProcessorParameter::Category parameterCategory =
             juce::AudioProcessorParameter::genericParameter,
-        std::function< juce::String (float value, int maximumStringLength) >
-                                                          stringFromValue = nullptr,
-        std::function< float (const juce::String& text) > valueFromString = nullptr,
-        juce::String                                      parameterLabel  = juce::String());
+        std::function< String (float value, int maximumStringLength) >
+                                                    stringFromValue = nullptr,
+        std::function< float (const String& text) > valueFromString = nullptr,
+        String                                      parameterLabel  = String());
 
     virtual ~MeterParameter() override = default;
 
@@ -93,8 +93,8 @@ struct MeterParameter : public FloatParameter
 
 struct GainMeterParameter : public MeterParameter
 {
-    GainMeterParameter (juce::String                            paramNameShort,
-                        juce::String                            paramNameVerbose,
+    GainMeterParameter (String                                  paramNameShort,
+                        String                                  paramNameVerbose,
                         juce::AudioProcessorParameter::Category parameterCategory =
                             juce::AudioProcessorParameter::genericParameter);
 

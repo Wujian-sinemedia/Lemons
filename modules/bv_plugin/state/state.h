@@ -29,22 +29,25 @@ public:
 
     void setUndoManager (juce::UndoManager& um);
 
+    void processMidi (const juce::MidiBuffer& midiMessages);
+    void processMidiMessage (const juce::MidiMessage& message);
+
 private:
     void toValueTree (ValueTree& tree) override final;
     void fromValueTree (const ValueTree& tree) override final;
 
     juce::Array< ParameterList* > lists;
-    dsp::ProcessorBase* pb = nullptr;
-    
+    dsp::ProcessorBase*           pb = nullptr;
+
     struct LastSavedEditorSize : SerializableData
     {
         LastSavedEditorSize (StateBase& b);
         void toValueTree (ValueTree& tree) final;
         void fromValueTree (const ValueTree& tree) final;
-        
+
         StateBase& base;
     };
-    
+
     LastSavedEditorSize lastSavedEditorSize {*this};
 };
 
