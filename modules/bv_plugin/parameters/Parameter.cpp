@@ -82,14 +82,14 @@ juce::UndoableAction* Parameter::DefaultChangeAction::createCoalescedAction (Und
 Parameter::Parameter (RangedParam& p,
                       String       paramNameShort,
                       String       paramNameVerbose,
-                      bool         automatable,
+                      bool         isAutomatable,
                       bool         metaParam)
     : SerializableData (paramNameVerbose),
       rap (p),
       parameterNameShort (TRANS (paramNameShort)),
       parameterNameVerbose (TRANS (paramNameVerbose)),
-      isAutomatable (automatable),
-      isMetaParameter (metaParam),
+      automatable (automatable),
+      metaParameter (metaParam),
       valueChangeTransactionName (TRANS ("Changed") + " " + parameterNameVerbose),
       defaultChangeTransactionName (TRANS ("Changed default value of") + " " + parameterNameVerbose)
 {
@@ -282,6 +282,21 @@ void Parameter::sendListenerSyncCallback()
     const auto value = getCurrentNormalizedValue();
     listeners.call ([&value] (Listener& l)
                     { l.parameterValueChanged (value); });
+}
+
+
+void Parameter::toValueTree (juce::ValueTree& tree)
+{
+    tree.setProperty ("ParameterValue", getCurrentNormalizedValue(), nullptr);
+    tree.setProperty ("ParameterDefaultValue", getNormalizedDefault(), nullptr);
+    tree.setProperty ("MappedMidiControllerNumber", getMidiControllerNumber(), nullptr);
+}
+
+void Parameter::fromValueTree (const juce::ValueTree& tree)
+{
+    setNormalizedValue (tree.getProperty ("ParameterValue"));
+    setNormalizedDefault (tree.getProperty ("ParameterDefaultValue"));
+    setMidiControllerNumber (tree.getProperty ("MappedMidiControllerNumber"));
 }
 
 

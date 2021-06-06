@@ -32,16 +32,6 @@ FloatParameter::FloatParameter (
 {
 }
 
-bool FloatParameter::isAutomatable() const
-{
-    return Parameter::isAutomatable;
-}
-
-bool FloatParameter::isMetaParameter() const
-{
-    return Parameter::isMetaParameter;
-}
-
 float FloatParameter::get() const
 {
     return Parameter::getCurrentDenormalizedValue();
@@ -65,20 +55,6 @@ void FloatParameter::setDefault (float newDefaultValue)
 void FloatParameter::setAction (std::function< void (float) > action)
 {
     actionFunc = std::move (action);
-}
-
-void FloatParameter::toValueTree (juce::ValueTree& tree)
-{
-    tree.setProperty ("ParameterValue", get(), nullptr);
-    tree.setProperty ("ParameterDefaultValue", getDefault(), nullptr);
-    tree.setProperty ("MappedMidiControllerNumber", getMidiControllerNumber(), nullptr);
-}
-
-void FloatParameter::fromValueTree (const juce::ValueTree& tree)
-{
-    set (tree.getProperty ("ParameterValue"));
-    setDefault (tree.getProperty ("ParameterDefaultValue"));
-    setMidiControllerNumber (tree.getProperty ("MappedMidiControllerNumber"));
 }
 
 FloatParameter::Listener::Listener (FloatParameter& toUse)
@@ -135,16 +111,6 @@ IntParameter::IntParameter (
 {
 }
 
-bool IntParameter::isAutomatable() const
-{
-    return Parameter::isAutomatable;
-}
-
-bool IntParameter::isMetaParameter() const
-{
-    return Parameter::isMetaParameter;
-}
-
 int IntParameter::get() const
 {
     return juce::roundToInt (Parameter::getCurrentDenormalizedValue());
@@ -168,20 +134,6 @@ void IntParameter::setDefault (int newDefaultValue)
 void IntParameter::setAction (std::function< void (int) > action)
 {
     actionFunc = std::move (action);
-}
-
-void IntParameter::toValueTree (juce::ValueTree& tree)
-{
-    tree.setProperty ("ParameterValue", get(), nullptr);
-    tree.setProperty ("ParameterDefaultValue", getDefault(), nullptr);
-    tree.setProperty ("MappedMidiControllerNumber", getMidiControllerNumber(), nullptr);
-}
-
-void IntParameter::fromValueTree (const juce::ValueTree& tree)
-{
-    set (tree.getProperty ("ParameterValue"));
-    setDefault (tree.getProperty ("ParameterDefaultValue"));
-    setMidiControllerNumber (tree.getProperty ("MappedMidiControllerNumber"));
 }
 
 IntParameter::Listener::Listener (IntParameter& toUse)
@@ -233,16 +185,6 @@ BoolParameter::BoolParameter (
 {
 }
 
-bool BoolParameter::isAutomatable() const
-{
-    return Parameter::isAutomatable;
-}
-
-bool BoolParameter::isMetaParameter() const
-{
-    return Parameter::isMetaParameter;
-}
-
 bool BoolParameter::get() const
 {
     return Parameter::getCurrentNormalizedValue() >= 0.5f;
@@ -272,20 +214,6 @@ void BoolParameter::setDefault (bool newDefaultValue)
 void BoolParameter::setAction (std::function< void (bool) > action)
 {
     actionFunc = std::move (action);
-}
-
-void BoolParameter::toValueTree (juce::ValueTree& tree)
-{
-    tree.setProperty ("ParameterValue", get(), nullptr);
-    tree.setProperty ("ParameterDefaultValue", getDefault(), nullptr);
-    tree.setProperty ("MappedMidiControllerNumber", getMidiControllerNumber(), nullptr);
-}
-
-void BoolParameter::fromValueTree (const juce::ValueTree& tree)
-{
-    set (tree.getProperty ("ParameterValue"));
-    setDefault (tree.getProperty ("ParameterDefaultValue"));
-    setMidiControllerNumber (tree.getProperty ("MappedMidiControllerNumber"));
 }
 
 BoolParameter::Listener::Listener (BoolParameter& toUse)

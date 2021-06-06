@@ -3,7 +3,7 @@
 
 namespace bav
 {
-class Parameter : public bav::SerializableData
+class Parameter : public SerializableData
 {
 public:
     using RangedParam = juce::RangedAudioParameter;
@@ -11,7 +11,7 @@ public:
     Parameter (RangedParam& p,
                String       paramNameShort,
                String       paramNameVerbose,
-               bool         automatable = true,
+               bool         isAutomatable = true,
                bool         metaParam   = false);
 
     virtual ~Parameter() override = default;
@@ -56,8 +56,8 @@ public:
     const String parameterNameShort;
     const String parameterNameVerbose;
 
-    const bool isAutomatable;
-    const bool isMetaParameter;
+    const bool automatable;
+    const bool metaParameter;
 
     //==============================================================================
 
@@ -82,6 +82,9 @@ private:
     void setValueInternal (float newNormalizedValue);
     void setDefaultInternal (float newNormalizedDefault);
 
+    void toValueTree (juce::ValueTree& tree) final;
+    void fromValueTree (const juce::ValueTree& tree) final;
+
     float currentDefault;
     float lastActionedValue;
     bool  changing = false;
@@ -102,10 +105,10 @@ private:
     public:
         ValueChangeAction (Parameter& p, float newValue, float prevVal);
 
-        bool perform() override final;
-        bool undo() override final;
+        bool perform() final;
+        bool undo() final;
 
-        UndoableAction* createCoalescedAction (UndoableAction* nextAction) override final;
+        UndoableAction* createCoalescedAction (UndoableAction* nextAction) final;
 
     private:
         Parameter&  param;
@@ -119,10 +122,10 @@ private:
     public:
         DefaultChangeAction (Parameter& p, float newNormalizedDefault, float prevNormDefault);
 
-        bool perform() override final;
-        bool undo() override final;
+        bool perform() final;
+        bool undo() final;
 
-        UndoableAction* createCoalescedAction (UndoableAction* nextAction) override final;
+        UndoableAction* createCoalescedAction (UndoableAction* nextAction) final;
 
     private:
         Parameter&  param;

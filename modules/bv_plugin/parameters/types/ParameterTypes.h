@@ -36,6 +36,9 @@ public:
     const std::function< String (float, int) >   floatToString;
     const std::function< float (const String&) > stringToFloat;
 
+    bool isAutomatable() const final { return Parameter::automatable; }
+    bool isMetaParameter() const final { return Parameter::metaParameter; }
+
     //==============================================================================
 
     struct Listener : public Parameter::Listener
@@ -47,8 +50,8 @@ public:
         virtual void paramDefaultChanged (float newDefault);
 
     private:
-        void parameterValueChanged (float newNormalizedValue) override final;
-        void parameterDefaultChanged (float newNormalizedDefault) override final;
+        void parameterValueChanged (float newNormalizedValue) final;
+        void parameterDefaultChanged (float newNormalizedDefault) final;
 
         FloatParameter& param;
     };
@@ -56,14 +59,8 @@ public:
     //==============================================================================
 
 private:
-    bool isAutomatable() const override final;
-    bool isMetaParameter() const override final;
-
     events::Listener l {actionBroadcaster, [this]()
                         { actionFunc (get()); }};
-
-    void toValueTree (juce::ValueTree& tree) override final;
-    void fromValueTree (const juce::ValueTree& tree) override final;
 
     std::function< void (float) > actionFunc = [] (float) {};
 };
@@ -104,6 +101,9 @@ public:
     const std::function< String (int, int) >   intToString;
     const std::function< int (const String&) > stringToInt;
 
+    bool isAutomatable() const final { return Parameter::automatable; }
+    bool isMetaParameter() const final { return Parameter::metaParameter; }
+
     //==============================================================================
 
     struct Listener : public Parameter::Listener
@@ -124,14 +124,8 @@ public:
     //==============================================================================
 
 private:
-    bool isAutomatable() const override final;
-    bool isMetaParameter() const override final;
-
     events::Listener l {actionBroadcaster, [this]()
                         { actionFunc (get()); }};
-
-    void toValueTree (juce::ValueTree& tree) override final;
-    void fromValueTree (const juce::ValueTree& tree) override final;
 
     std::function< void (int) > actionFunc = [] (int) {};
 };
@@ -169,6 +163,9 @@ public:
     std::function< String (bool, int) >        boolToString;
     std::function< bool (const String& text) > stringToBool;
 
+    bool isAutomatable() const final { return Parameter::automatable; }
+    bool isMetaParameter() const final { return Parameter::metaParameter; }
+
     //==============================================================================
 
     struct Listener : public Parameter::Listener
@@ -189,14 +186,8 @@ public:
     //==============================================================================
 
 private:
-    bool isAutomatable() const override final;
-    bool isMetaParameter() const override final;
-
     events::Listener l {actionBroadcaster, [this]()
                         { actionFunc (get()); }};
-
-    void toValueTree (juce::ValueTree& tree) override final;
-    void fromValueTree (const juce::ValueTree& tree) override final;
 
     std::function< void (bool) > actionFunc = [] (bool) {};
 };

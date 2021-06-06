@@ -33,8 +33,8 @@ public:
     void processMidiMessage (const juce::MidiMessage& message);
 
 private:
-    void toValueTree (ValueTree& tree) override final;
-    void fromValueTree (const ValueTree& tree) override final;
+    void toValueTree (ValueTree& tree) final;
+    void fromValueTree (const ValueTree& tree) final;
 
     juce::Array< ParameterList* > lists;
     dsp::ProcessorBase*           pb = nullptr;

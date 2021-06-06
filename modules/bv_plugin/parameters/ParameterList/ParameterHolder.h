@@ -43,7 +43,7 @@ public:
             delete param;
     }
 
-    Parameter*     getParam() const override final { return param; }
+    Parameter*     getParam() const final { return param; }
     ParameterType* get() const { return param; }
 
                    operator ParameterType&() { return *param; }
