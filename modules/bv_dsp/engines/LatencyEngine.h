@@ -10,6 +10,8 @@ public:
     using AudioBuffer = juce::AudioBuffer< SampleType >;
     using MidiBuffer  = juce::MidiBuffer;
 
+    virtual ~LatencyEngine() override = default;
+
     int  reportLatency() const final { return internalBlocksize; }
     void changeLatency (int newInternalBlocksize);
 
