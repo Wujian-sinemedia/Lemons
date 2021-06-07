@@ -56,6 +56,12 @@ void SynthBase< SampleType >::initialize (int initNumVoices, double initSamplera
     prepare (initBlocksize);
 }
 
+template < typename SampleType >
+bool SynthBase< SampleType >::isInitialized() const
+{
+    return getNumVoices() > 0 && getSamplerate() > 0;
+}
+
 
 /*
  Immediately clears all notes & resets the synth's internal state.

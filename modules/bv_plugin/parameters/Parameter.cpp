@@ -94,7 +94,6 @@ Parameter::Parameter (RangedParam& p,
       defaultChangeTransactionName (TRANS ("Changed default value of") + " " + parameterNameVerbose)
 {
     currentDefault.store (rap.getDefaultValue());
-    lastActionedValue = currentDefault;
 }
 
 bool Parameter::operator== (const Parameter& other)
@@ -122,7 +121,7 @@ void Parameter::resetMidiControllerMapping()
     setMidiControllerNumber (-1);
 }
 
-void Parameter::processNewControllerMessage (int controllerNumber, int controllerValue, bool triggerAction)
+void Parameter::processNewControllerMessage (int controllerNumber, int controllerValue)
 {
     if (controllerNumber == getMidiControllerNumber())
     {
@@ -130,9 +129,6 @@ void Parameter::processNewControllerMessage (int controllerNumber, int controlle
         setDenormalizedValue (juce::jmap (static_cast< float > (controllerValue),
                                           0.f, 127.f,
                                           range.start, range.end));
-        
-        if (triggerAction)
-            doAction();
     }
 }
 
@@ -288,17 +284,6 @@ float Parameter::denormalize (float input) const
 void Parameter::setUndoManager (juce::UndoManager& managerToUse)
 {
     um = &managerToUse;
-}
-
-void Parameter::doAction (bool force)
-{
-    const auto value = getCurrentNormalizedValue();
-
-    if (force || value != lastActionedValue)
-    {
-        lastActionedValue = value;
-        actionBroadcaster.trigger();
-    }
 }
 
 void Parameter::sendListenerSyncCallback()

@@ -75,12 +75,6 @@ void ParameterList::resetAllToDefault()
         meta.holder.getParam()->resetToDefault();
 }
 
-void ParameterList::doAllActions (bool force)
-{
-    for (auto meta : params)
-        meta.holder.getParam()->doAction (force);
-}
-
 void ParameterList::toValueTree (ValueTree& tree)
 {
     for (auto meta : params)
@@ -99,34 +93,31 @@ void ParameterList::setUndoManager (juce::UndoManager& um)
         meta.holder.getParam()->setUndoManager (um);
 }
 
-void ParameterList::processMidi (const juce::MidiBuffer& midiMessages, bool triggerActions)
+void ParameterList::processMidi (const juce::MidiBuffer& midiMessages)
 {
     for (auto meta : midiMessages)
-        processMidiMessage (meta.getMessage(), triggerActions);
+        processMidiMessage (meta.getMessage());
 }
 
-void ParameterList::processMidiMessage (const juce::MidiMessage& message, bool triggerAction)
+void ParameterList::processMidiMessage (const juce::MidiMessage& message)
 {
     if (message.isController())
-        processNewControllerMessage (message.getControllerNumber(), message.getControllerValue(), triggerAction);
+        processNewControllerMessage (message.getControllerNumber(), message.getControllerValue());
     else if (message.isPitchWheel())
-        processNewPitchwheelMessage (message.getPitchWheelValue(), triggerAction);
+        processNewPitchwheelMessage (message.getPitchWheelValue());
 }
 
-void ParameterList::processNewControllerMessage (int controllerNumber, int controllerValue, bool triggerAction)
+void ParameterList::processNewControllerMessage (int controllerNumber, int controllerValue)
 {
     for (auto meta : params)
-        meta.holder.getParam()->processNewControllerMessage (controllerNumber, controllerValue, triggerAction);
+        meta.holder.getParam()->processNewControllerMessage (controllerNumber, controllerValue);
 }
 
-void ParameterList::processNewPitchwheelMessage (int pitchwheelValue, bool triggerAction)
+void ParameterList::processNewPitchwheelMessage (int pitchwheelValue)
 {
     if (auto* param = pitchwheelParameter)
     {
         param->set (juce::jmap (pitchwheelValue, 0, 16383, 0, 127));
-        
-        if (triggerAction)
-            param->doAction();
     }
 }
 

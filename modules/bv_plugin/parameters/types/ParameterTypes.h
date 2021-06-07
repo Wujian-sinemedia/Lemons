@@ -31,8 +31,6 @@ public:
     void set (float newValue);
     void setDefault (float newDefaultValue);
 
-    void setAction (std::function< void (float) > action);
-
     const std::function< String (float, int) >   floatToString;
     const std::function< float (const String&) > stringToFloat;
 
@@ -55,14 +53,6 @@ public:
 
         FloatParameter& param;
     };
-
-    //==============================================================================
-
-private:
-    events::Listener l {actionBroadcaster, [this]()
-                        { actionFunc (get()); }};
-
-    std::function< void (float) > actionFunc = [] (float) {};
 };
 
 
@@ -96,8 +86,6 @@ public:
     void set (int newValue);
     void setDefault (int newDefaultValue);
 
-    void setAction (std::function< void (int) > action);
-
     const std::function< String (int, int) >   intToString;
     const std::function< int (const String&) > stringToInt;
 
@@ -120,14 +108,6 @@ public:
 
         IntParameter& param;
     };
-
-    //==============================================================================
-
-private:
-    events::Listener l {actionBroadcaster, [this]()
-                        { actionFunc (get()); }};
-
-    std::function< void (int) > actionFunc = [] (int) {};
 };
 
 
@@ -158,8 +138,6 @@ public:
     void set (bool newValue);
     void setDefault (bool newDefaultValue);
 
-    void setAction (std::function< void (bool) > action);
-
     std::function< String (bool, int) >        boolToString;
     std::function< bool (const String& text) > stringToBool;
 
@@ -182,14 +160,6 @@ public:
 
         BoolParameter& param;
     };
-
-    //==============================================================================
-
-private:
-    events::Listener l {actionBroadcaster, [this]()
-                        { actionFunc (get()); }};
-
-    std::function< void (bool) > actionFunc = [] (bool) {};
 };
 
 }  // namespace bav

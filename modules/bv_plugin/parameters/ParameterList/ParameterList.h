@@ -49,14 +49,12 @@ public:
     void refreshAllDefaults();
     void resetAllToDefault();
 
-    void doAllActions (bool force = true);
-
     void sendCallbackToAllListeners();
 
     void setUndoManager (juce::UndoManager& um);
 
-    void processMidi (const juce::MidiBuffer& midiMessages, bool triggerActions = false);
-    void processMidiMessage (const juce::MidiMessage& message, bool triggerAction = false);
+    void processMidi (const juce::MidiBuffer& midiMessages);
+    void processMidiMessage (const juce::MidiMessage& message);
 
 private:
     struct ParamHolderMetadata
@@ -70,8 +68,8 @@ private:
     virtual void toValueTree (ValueTree& tree) override;
     virtual void fromValueTree (const ValueTree& tree) override;
 
-    void processNewControllerMessage (int controllerNumber, int controllerValue, bool triggerAction);
-    void processNewPitchwheelMessage (int pitchwheelValue, bool triggerAction);
+    void processNewControllerMessage (int controllerNumber, int controllerValue);
+    void processNewPitchwheelMessage (int pitchwheelValue);
 
     juce::Array< ParamHolderMetadata > params;
     dsp::BasicProcessorBase            dummyProcessor;

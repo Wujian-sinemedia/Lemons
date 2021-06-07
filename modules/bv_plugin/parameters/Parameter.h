@@ -22,7 +22,7 @@ public:
     bool isMidiControllerMapped() const;
     void setMidiControllerNumber (int newControllerNumber);
     void resetMidiControllerMapping();
-    void processNewControllerMessage (int controllerNumber, int controllerValue, bool triggerAction = false);
+    void processNewControllerMessage (int controllerNumber, int controllerValue);
 
     void  refreshDefault();  // sets the parameter's current value to be the default value
     void  resetToDefault();  // resets the parameter's value to the default
@@ -44,8 +44,6 @@ public:
     float denormalize (float input) const;
 
     void setUndoManager (juce::UndoManager& managerToUse);
-
-    void doAction (bool force = false);
 
     void sendListenerSyncCallback();  // sends a value update message immediately to all listeners
 
@@ -75,8 +73,6 @@ public:
     };
 
     //==============================================================================
-protected:
-    events::Broadcaster actionBroadcaster;
 
 private:
     void setValueInternal (float newNormalizedValue);
@@ -88,7 +84,6 @@ private:
     std::atomic< float > currentDefault;
     std::atomic< bool >  changing {false};
     std::atomic< int >   midiControllerNumber {-1};
-    float                lastActionedValue;
 
     juce::UndoManager* um;
 

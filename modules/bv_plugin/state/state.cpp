@@ -44,12 +44,6 @@ void StateBase::resetAllToDefault()
         list->resetAllToDefault();
 }
 
-void StateBase::doAllActions (bool force)
-{
-    for (auto* list : lists)
-        list->doAllActions (force);
-}
-
 void StateBase::sendCallbackToAllListeners()
 {
     for (auto* list : lists)

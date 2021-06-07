@@ -12,8 +12,14 @@ template<typename SampleType>
 void ParameterProcessorBase::process (juce::AudioBuffer<SampleType>& audio, juce::MidiBuffer& midi)
 {
     auto samplesLeft = audio.getNumSamples();
-    auto midiIterator = midi.findNextSamplePosition (0);
     
+    if (samplesLeft == 0)
+    {
+        processInternal (audio, midi, 0, 0);
+        return;
+    }
+    
+    auto midiIterator = midi.findNextSamplePosition (0);
     int startSample = 0;
     
     for (; samplesLeft > 0; ++midiIterator)
@@ -58,7 +64,7 @@ template void ParameterProcessorBase::process (juce::AudioBuffer<double>&, juce:
 
 void ParameterProcessorBase::handleMidiMessage (const juce::MidiMessageMetadata& meta)
 {
-    list.processMidiMessage (meta.getMessage(), true);
+    list.processMidiMessage (meta.getMessage());
 }
 
 

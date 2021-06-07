@@ -26,13 +26,15 @@ public:
     virtual ~SynthBase();
 
     void initialize (int initNumVoices, double initSamplerate = 44100.0, int initBlocksize = 512);
+    bool isInitialized() const;
 
     void prepare (int blocksize);
 
     void reset();
     void resetRampedValues();
 
-    void setCurrentPlaybackSampleRate (double newRate);
+    void   setCurrentPlaybackSampleRate (double newRate);
+    double getSamplerate() const { return sampleRate; }
 
     void renderVoices (juce::MidiBuffer& midiMessages, juce::AudioBuffer< SampleType >& output);
 

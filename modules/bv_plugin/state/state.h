@@ -23,8 +23,6 @@ public:
     void refreshAllDefaults();
     void resetAllToDefault();
 
-    void doAllActions (bool force = true);
-
     void sendCallbackToAllListeners();
 
     void setUndoManager (juce::UndoManager& um);

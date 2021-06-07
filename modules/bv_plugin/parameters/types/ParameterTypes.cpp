@@ -52,11 +52,6 @@ void FloatParameter::setDefault (float newDefaultValue)
     Parameter::setDenormalizedDefault (newDefaultValue);
 }
 
-void FloatParameter::setAction (std::function< void (float) > action)
-{
-    actionFunc = std::move (action);
-}
-
 FloatParameter::Listener::Listener (FloatParameter& toUse)
     : Parameter::Listener (toUse),
       param (toUse)
@@ -129,11 +124,6 @@ void IntParameter::set (int newValue)
 void IntParameter::setDefault (int newDefaultValue)
 {
     Parameter::setDenormalizedDefault (static_cast< float > (newDefaultValue));
-}
-
-void IntParameter::setAction (std::function< void (int) > action)
-{
-    actionFunc = std::move (action);
 }
 
 IntParameter::Listener::Listener (IntParameter& toUse)
@@ -209,11 +199,6 @@ void BoolParameter::setDefault (bool newDefaultValue)
         Parameter::setNormalizedDefault (1.0f);
     else
         Parameter::setNormalizedDefault (0.0f);
-}
-
-void BoolParameter::setAction (std::function< void (bool) > action)
-{
-    actionFunc = std::move (action);
 }
 
 BoolParameter::Listener::Listener (BoolParameter& toUse)
