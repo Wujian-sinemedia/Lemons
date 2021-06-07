@@ -122,14 +122,21 @@ inline int getIndexOfFirstValidChannelSet (const juce::AudioProcessor::BusesLayo
     return 0;
 }
 
+template<typename SampleType>
+inline juce::AudioBuffer<SampleType> findSubBuffer (ProcessorBase& p,
+                                                    juce::AudioBuffer<SampleType>& origBuffer,
+                                                    bool isInput)
+{
+    return p.getBusBuffer (origBuffer, isInput,
+                           getIndexOfFirstValidChannelSet (p.getBusesLayout(), isInput));
+}
+
 
 template<typename SampleType>
 void ProcessorBase::renderChunk (Engine< SampleType >& engine, juce::AudioBuffer< SampleType >& audio, juce::MidiBuffer& midi)
 {
-    auto busesLayout = getBusesLayout();
-    
-    auto inBus  = BasicProcessorBase::getBusBuffer (audio, true,  getIndexOfFirstValidChannelSet (busesLayout, true));
-    auto outBus = BasicProcessorBase::getBusBuffer (audio, false, getIndexOfFirstValidChannelSet (busesLayout, false));
+    auto inBus  = findSubBuffer (*this, audio, true);
+    auto outBus = findSubBuffer (*this, audio, false);
     
     engine.process (inBus, outBus, midi, getMainBypass().get());
 }
