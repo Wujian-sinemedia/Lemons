@@ -29,7 +29,7 @@ END_JUCE_MODULE_DECLARATION
 #include "FIFOs/AudioAndMidiFIFO.h"
 
 #include "engines/AudioEngine.h"
-#include "engines/FIFOWrappedEngine/FIFOWrappedEngine.h"
+#include "engines/LatencyEngine.h"
 
 #include "PitchDetector/pitch-detector.h"
 #include "PSOLA/analysis/psola_analyzer.h"
