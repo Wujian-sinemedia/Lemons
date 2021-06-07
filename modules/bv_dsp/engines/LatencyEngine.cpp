@@ -52,10 +52,7 @@ void LatencyEngine< SampleType >::renderBlock (const AudioBuffer& input, AudioBu
 
     jassert (totalNumSamples == output.getNumSamples());
 
-    const auto numInChannels  = std::min (2, input.getNumChannels());
-    const auto numOutChannels = std::min (2, output.getNumChannels());
-
-    if (numInChannels == 0 || numOutChannels == 0)
+    if (input.getNumChannels() == 0 || output.getNumChannels() == 0)
     {
         renderChunk (input, output, midiMessages, isBypassed);
         return;
@@ -63,20 +60,30 @@ void LatencyEngine< SampleType >::renderBlock (const AudioBuffer& input, AudioBu
 
     if (totalNumSamples <= internalBlocksize)
     {
-        processWrapped (input, output, midiMessages, isBypassed);
+        processInternal (input, output, midiMessages, isBypassed);
         return;
     }
 
+    processInChunks (input, output, midiMessages, isBypassed);
+}
+
+template < typename SampleType >
+void LatencyEngine< SampleType >::processInChunks (const AudioBuffer& input, AudioBuffer& output, MidiBuffer& midiMessages, bool isBypassed)
+{
+    const auto numInChannels  = input.getNumChannels();
+    const auto numOutChannels = output.getNumChannels();
+    
+    int samplesLeft = input.getNumSamples();
+    
     for (int chan = 0; chan < numInChannels; ++chan)
-        inputStorage.copyFrom (chan, 0, input, chan, 0, totalNumSamples);
-
-    int samplesLeft = totalNumSamples;
+        inputStorage.copyFrom (chan, 0, input, chan, 0, samplesLeft);
+    
     int startSample = 0;
-
+    
     do
     {
         const auto chunkNumSamples = std::min (internalBlocksize, samplesLeft);
-
+        
         AudioBuffer inputProxy (inputStorage.getArrayOfWritePointers(),
                                 numInChannels,
                                 startSample,
@@ -85,21 +92,21 @@ void LatencyEngine< SampleType >::renderBlock (const AudioBuffer& input, AudioBu
                                  numOutChannels,
                                  startSample,
                                  chunkNumSamples);
-
+        
         midiChoppingBuffer.clear();
         bav::midi::copyRangeOfMidiBuffer (midiMessages, midiChoppingBuffer, startSample, 0, chunkNumSamples);
-
-        processWrapped (inputProxy, outputProxy, midiChoppingBuffer, isBypassed);
-
+        
+        processInternal (inputProxy, outputProxy, midiChoppingBuffer, isBypassed);
+        
         bav::midi::copyRangeOfMidiBuffer (midiChoppingBuffer, midiMessages, 0, startSample, chunkNumSamples);
-
+        
         startSample += chunkNumSamples;
         samplesLeft -= chunkNumSamples;
     } while (samplesLeft > 0);
 }
 
 template < typename SampleType >
-void LatencyEngine< SampleType >::processWrapped (const AudioBuffer& input, AudioBuffer& output, MidiBuffer& midiMessages, bool isBypassed)
+void LatencyEngine< SampleType >::processInternal (const AudioBuffer& input, AudioBuffer& output, MidiBuffer& midiMessages, bool isBypassed)
 {
     const auto numNewSamples = input.getNumSamples();
     jassert (numNewSamples <= internalBlocksize && numNewSamples > 0);
@@ -109,17 +116,14 @@ void LatencyEngine< SampleType >::processWrapped (const AudioBuffer& input, Audi
     if (inputFIFO.numStoredSamples() >= internalBlocksize)
     {
         inBuffer.clear();
+        outBuffer.clear();
         chunkMidiBuffer.clear();
 
         inputFIFO.pop (inBuffer, chunkMidiBuffer, internalBlocksize);
 
-        outBuffer.clear();
         renderChunk (inBuffer, outBuffer, chunkMidiBuffer, isBypassed);
-
-        if (isBypassed)
-            outputFIFO.push (inBuffer, chunkMidiBuffer, internalBlocksize);
-        else
-            outputFIFO.push (outBuffer, chunkMidiBuffer, internalBlocksize);
+        
+        outputFIFO.push (outBuffer, chunkMidiBuffer, internalBlocksize);
     }
 
     outputFIFO.pop (output, midiMessages, numNewSamples);

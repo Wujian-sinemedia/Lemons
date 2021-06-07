@@ -48,15 +48,15 @@ public:
 
     void setThresh (float newThresh_dB)
     {
-        gate.setThreshold (SampleType (newThresh_dB));
+        gate.setThreshold (newThresh_dB);
     }
 
 
-    // sets the de-essing amount, from 0.0 to 1.0
-    void setDeEssAmount (float newAmount)
+    void setDeEssAmount (int newAmount)
     {
-        jassert (newAmount >= 0.0f && newAmount <= 1.0f);
-        gate.setRatio (SampleType (juce::jmap (newAmount, 0.0f, 1.0f, 1.0f, 10.0f)));
+        jassert (newAmount >= 0 && newAmount <= 100);
+        auto a = float(newAmount) * 0.01f;
+        gate.setRatio (SampleType (juce::jmap (a, 0.0f, 1.0f, 1.0f, 10.0f)));
     }
 
 

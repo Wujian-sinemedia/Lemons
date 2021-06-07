@@ -1,6 +1,24 @@
 
 namespace bav::dsp
 {
+
+template < typename SampleType >
+void SynthBase< SampleType >::setPedalPitch (bool isOn, int newThresh, int newInterval)
+{
+    pedal.setThreshold (newThresh);
+    pedal.setInterval (newInterval);
+    pedal.setEnabled (isOn);
+}
+
+
+template < typename SampleType >
+void SynthBase< SampleType >::setDescant (bool isOn, int newThresh, int newInterval)
+{
+    descant.setThreshold (newThresh);
+    descant.setInterval (newInterval);
+    descant.setEnabled (isOn);
+}
+
 /*
  Sets the frequency in Hz corresponding to midi note 69 (A4). This will usually be 440.
  Setting this to values higher or lower than 440 will effective detune the entire synth.
@@ -37,11 +55,17 @@ void SynthBase< SampleType >::updateMidiVelocitySensitivity (int newSensitivity)
 }
 
 
+template < typename SampleType >
+void SynthBase< SampleType >::updatePitchbendRange (int rangeSemitones)
+{
+    updatePitchbendRange (rangeSemitones, rangeSemitones);
+}
+
 /*
  Sets the range of the pitch wheel up and down, in semitones.
  */
 template < typename SampleType >
-void SynthBase< SampleType >::updatePitchbendSettings (int rangeUp, int rangeDown)
+void SynthBase< SampleType >::updatePitchbendRange (int rangeUp, int rangeDown)
 {
     if ((pitch.bend.getRangeUp() == rangeUp) && (pitch.bend.getRangeDown() == rangeDown)) return;
 

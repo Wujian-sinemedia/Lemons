@@ -29,9 +29,9 @@ public:
     }
 
 
-    void setThreshold (SampleType newThreshold_dB)
+    void setThreshold (float newThreshold_dB)
     {
-        thresholddB = newThreshold_dB;
+        thresholddB = static_cast<SampleType> (newThreshold_dB);
         update();
     }
 

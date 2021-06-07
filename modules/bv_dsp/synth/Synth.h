@@ -62,16 +62,19 @@ public:
 
     void setNoteStealingEnabled (bool shouldSteal) noexcept { shouldStealNotes = shouldSteal; }
     void updateMidiVelocitySensitivity (int newSensitivity);
-    void updatePitchbendSettings (int rangeUp, int rangeDown);
+    void updatePitchbendRange (int rangeUp, int rangeDown);
+    void updatePitchbendRange (int rangeSemitones);
     void setAftertouchGainOnOff (bool shouldBeOn) { aftertouchGainIsOn = shouldBeOn; }
 
     void setPedalPitch (bool isOn) { pedal.setEnabled (isOn); }
     void setPedalPitchUpperThresh (int newThresh) { pedal.setThreshold (newThresh); }
     void setPedalPitchInterval (int newInterval) { pedal.setInterval (newInterval); }
+    void setPedalPitch (bool isOn, int newThresh, int newInterval);
 
     void setDescant (bool isOn) { descant.setEnabled (isOn); }
     void setDescantLowerThresh (int newThresh) { descant.setThreshold (newThresh); }
     void setDescantInterval (int newInterval) { descant.setInterval (newInterval); }
+    void setDescant (bool isOn, int newThresh, int newInterval);
 
     /* If you are not using MTS-ESP, you can call this method to alter the master tuning of your synth. If you are using MTS-ESP, calling this method does nothing. */
     void setConcertPitchHz (int newConcertPitchhz);

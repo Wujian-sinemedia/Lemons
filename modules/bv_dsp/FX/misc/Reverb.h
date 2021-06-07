@@ -90,11 +90,12 @@ public:
         dryGain.setGain (1.0f - wet);
     }
 
-    void setDuckAmount (float newDuckAmount)
+    void setDuckAmount (int newDuckAmount)
     {
-        isDucking = newDuckAmount > 0.0f;
-        compressor.setThreshold (juce::jmap (newDuckAmount, 0.0f, -20.0f));
-        compressor.setRatio (juce::jmap (newDuckAmount, 1.0f, 10.0f));
+        isDucking = newDuckAmount > 50;
+        auto duck = float(newDuckAmount) * 0.01f;
+        compressor.setThreshold (juce::jmap (duck, 0.0f, -20.0f));
+        compressor.setRatio (juce::jmap (duck, 1.0f, 10.0f));
     }
 
     void setLoCutFrequency (float freq)
