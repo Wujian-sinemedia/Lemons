@@ -32,6 +32,8 @@ void copyRangeOfMidiBuffer (const juce::MidiBuffer& readingBuffer,
                             const int               startSampleOfOutput,
                             const int               numSamples)
 {
+    if (numSamples == 0) return;
+    
     destBuffer.clear (startSampleOfOutput, numSamples);
     destBuffer.addEvents (readingBuffer,
                           startSampleOfInput,

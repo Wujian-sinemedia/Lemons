@@ -29,19 +29,19 @@ void ParameterProcessorBase::process (juce::AudioBuffer<SampleType>& audio, juce
         
         if (samplesToNextMidiMessage >= samplesLeft)
         {
+            handleMidiMessage (metadata);
             processInternal (audio, midi, startSample, samplesLeft);
-            list.processMidiMessage (metadata.getMessage(), true);
             break;
         }
         
         if (samplesToNextMidiMessage == 0)
         {
-            list.processMidiMessage (metadata.getMessage(), true);
+            handleMidiMessage (metadata);
             continue;
         }
         
+        handleMidiMessage (metadata);
         processInternal (audio, midi, startSample, samplesToNextMidiMessage);
-        list.processMidiMessage (metadata.getMessage(), true);
         
         startSample += samplesToNextMidiMessage;
         samplesLeft -= samplesToNextMidiMessage;
@@ -49,11 +49,17 @@ void ParameterProcessorBase::process (juce::AudioBuffer<SampleType>& audio, juce
     
     std::for_each (
                    midiIterator, midi.cend(), [&] (const juce::MidiMessageMetadata& meta)
-                   { list.processMidiMessage (meta.getMessage(), true); });
+                   { handleMidiMessage (meta); });
 }
 
 template void ParameterProcessorBase::process (juce::AudioBuffer<float>&, juce::MidiBuffer&);
 template void ParameterProcessorBase::process (juce::AudioBuffer<double>&, juce::MidiBuffer&);
+
+
+void ParameterProcessorBase::handleMidiMessage (const juce::MidiMessageMetadata& meta)
+{
+    list.processMidiMessage (meta.getMessage(), true);
+}
 
 
 template<typename SampleType>

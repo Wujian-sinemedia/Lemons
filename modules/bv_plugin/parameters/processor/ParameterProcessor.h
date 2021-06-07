@@ -17,6 +17,8 @@ private:
     virtual void renderChunk (juce::AudioBuffer<float>& audio, juce::MidiBuffer& midi) = 0;
     virtual void renderChunk (juce::AudioBuffer<double>& audio, juce::MidiBuffer& midi) = 0;
     
+    void handleMidiMessage (const juce::MidiMessageMetadata& meta);
+    
     template<typename SampleType>
     void processInternal (juce::AudioBuffer<SampleType>& audio, juce::MidiBuffer& midi,
                           int startSample, int numSamples);
