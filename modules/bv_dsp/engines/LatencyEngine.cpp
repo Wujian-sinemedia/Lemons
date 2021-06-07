@@ -44,14 +44,22 @@ void LatencyEngine< SampleType >::renderBlock (const AudioBuffer& input, AudioBu
 
     const auto totalNumSamples = input.getNumSamples();
 
-    if (totalNumSamples == 0) return;
+    if (totalNumSamples == 0)
+    {
+        renderChunk (input, output, midiMessages, isBypassed);
+        return;
+    }
 
     jassert (totalNumSamples == output.getNumSamples());
 
     const auto numInChannels  = std::min (2, input.getNumChannels());
     const auto numOutChannels = std::min (2, output.getNumChannels());
 
-    if (numInChannels == 0 || numOutChannels == 0) return;
+    if (numInChannels == 0 || numOutChannels == 0)
+    {
+        renderChunk (input, output, midiMessages, isBypassed);
+        return;
+    }
 
     if (totalNumSamples <= internalBlocksize)
     {

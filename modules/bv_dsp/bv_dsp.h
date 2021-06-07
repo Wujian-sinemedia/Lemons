@@ -30,6 +30,7 @@ END_JUCE_MODULE_DECLARATION
 
 #include "engines/AudioEngine.h"
 #include "engines/LatencyEngine.h"
+#include "engines/EngineManager.h"
 
 #include "PitchDetector/pitch-detector.h"
 #include "PSOLA/analysis/psola_analyzer.h"
@@ -61,5 +62,3 @@ END_JUCE_MODULE_DECLARATION
 #include "synth/SynthVoice/SynthVoice.h"
 #include "synth/Synth.h"
 #include "synth/sine_synth.h"
-
-#include "engines/EngineManager.h"
