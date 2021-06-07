@@ -41,6 +41,8 @@ public:
 
     void addParametersTo (juce::AudioProcessor& processor);
     void addAllParametersAsInternal();
+    
+    void setPitchbendParameter (IntParam& param);
 
     int getNumParameters() const;
 
@@ -69,9 +71,12 @@ private:
     virtual void fromValueTree (const ValueTree& tree) override;
 
     void processNewControllerMessage (int controllerNumber, int controllerValue, bool triggerAction);
+    void processNewPitchwheelMessage (int pitchwheelValue, bool triggerAction);
 
     juce::Array< ParamHolderMetadata > params;
     dsp::BasicProcessorBase            dummyProcessor;
+    
+    IntParameter* pitchwheelParameter;
 };
 
 

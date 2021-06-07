@@ -47,6 +47,11 @@ void ParameterList::addAllParametersAsInternal()
     sendCallbackToAllListeners();
 }
 
+void ParameterList::setPitchbendParameter (IntParam& param)
+{
+    pitchwheelParameter = param.get();
+}
+
 void ParameterList::sendCallbackToAllListeners()
 {
     for (auto meta : params)
@@ -104,12 +109,25 @@ void ParameterList::processMidiMessage (const juce::MidiMessage& message, bool t
 {
     if (message.isController())
         processNewControllerMessage (message.getControllerNumber(), message.getControllerValue(), triggerAction);
+    else if (message.isPitchWheel())
+        processNewPitchwheelMessage (message.getPitchWheelValue(), triggerAction);
 }
 
 void ParameterList::processNewControllerMessage (int controllerNumber, int controllerValue, bool triggerAction)
 {
     for (auto meta : params)
         meta.holder.getParam()->processNewControllerMessage (controllerNumber, controllerValue, triggerAction);
+}
+
+void ParameterList::processNewPitchwheelMessage (int pitchwheelValue, bool triggerAction)
+{
+    if (auto* param = pitchwheelParameter)
+    {
+        param->set (juce::jmap (pitchwheelValue, 0, 16383, 0, 127));
+        
+        if (triggerAction)
+            param->doAction();
+    }
 }
 
 
