@@ -1,14 +1,12 @@
 
 namespace bav::dsp
 {
-BasicProcessorBase::BasicProcessorBase()
-    : AudioProcessor (createBusProperties())
+BasicProcessorBase::BasicProcessorBase (juce::AudioProcessor::BusesProperties busesLayout)
+    : AudioProcessor (busesLayout)
 {
 }
 
 BasicProcessorBase::~BasicProcessorBase() { }
-
-/*=========================================================================================*/
 
 void BasicProcessorBase::prepareToPlay (double, int) { }
 void BasicProcessorBase::releaseResources() { }
@@ -42,13 +40,6 @@ bool BasicProcessorBase::isBusesLayoutSupported (const BusesLayout& layout) cons
     return isValid (layout.getMainInputChannelSet()) && isValid (layout.getMainOutputChannelSet());
 }
 
-juce::AudioProcessor::BusesProperties BasicProcessorBase::createBusProperties() const
-{
-    const auto stereo = juce::AudioChannelSet::stereo();
-
-    return BusesProperties().withInput (TRANS ("Input"), stereo, true).withOutput (TRANS ("Output"), stereo, true);
-}
-
 void BasicProcessorBase::saveEditorSize (int width, int height)
 {
     savedEditorSize.x = width;
@@ -71,9 +62,5 @@ void BasicProcessorBase::repaintEditor()
     if (auto* editor = getActiveEditor())
         editor->repaint();
 }
-
-
-/*-----------------------------------------------------------------------------------------------------------------------
- -----------------------------------------------------------------------------------------------------------------------*/
 
 }  // namespace bav::dsp

@@ -11,10 +11,10 @@
 #include "parameters/ParameterList/ParameterList.cpp"
 #include "parameters/processor/ParameterProcessor.cpp"
 
-#include "ProcessorBase/ProcessorBase.cpp"
-
 #include "state/state.cpp"
 #include "presets/PresetManager.cpp"
+
+#include "ProcessorBase/ProcessorBase.cpp"
 
 #include "transport/PluginTransport.cpp"
 

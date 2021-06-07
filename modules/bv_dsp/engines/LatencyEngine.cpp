@@ -72,18 +72,18 @@ void LatencyEngine< SampleType >::processInChunks (const AudioBuffer& input, Aud
 {
     const auto numInChannels  = input.getNumChannels();
     const auto numOutChannels = output.getNumChannels();
-    
+
     int samplesLeft = input.getNumSamples();
-    
+
     for (int chan = 0; chan < numInChannels; ++chan)
         inputStorage.copyFrom (chan, 0, input, chan, 0, samplesLeft);
-    
+
     int startSample = 0;
-    
+
     do
     {
         const auto chunkNumSamples = std::min (internalBlocksize, samplesLeft);
-        
+
         AudioBuffer inputProxy (inputStorage.getArrayOfWritePointers(),
                                 numInChannels,
                                 startSample,
@@ -92,14 +92,14 @@ void LatencyEngine< SampleType >::processInChunks (const AudioBuffer& input, Aud
                                  numOutChannels,
                                  startSample,
                                  chunkNumSamples);
-        
+
         midiChoppingBuffer.clear();
         bav::midi::copyRangeOfMidiBuffer (midiMessages, midiChoppingBuffer, startSample, 0, chunkNumSamples);
-        
+
         processInternal (inputProxy, outputProxy, midiChoppingBuffer, isBypassed);
-        
+
         bav::midi::copyRangeOfMidiBuffer (midiChoppingBuffer, midiMessages, 0, startSample, chunkNumSamples);
-        
+
         startSample += chunkNumSamples;
         samplesLeft -= chunkNumSamples;
     } while (samplesLeft > 0);
@@ -122,7 +122,7 @@ void LatencyEngine< SampleType >::processInternal (const AudioBuffer& input, Aud
         inputFIFO.pop (inBuffer, chunkMidiBuffer, internalBlocksize);
 
         renderChunk (inBuffer, outBuffer, chunkMidiBuffer, isBypassed);
-        
+
         outputFIFO.push (outBuffer, chunkMidiBuffer, internalBlocksize);
     }
 

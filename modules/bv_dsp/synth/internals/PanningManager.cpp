@@ -1,9 +1,8 @@
 
 namespace bav::dsp
 {
-
-template<typename SampleType>
-void SynthBase<SampleType>::PanningManager::prepare (int numVoices, bool clearArrays)
+template < typename SampleType >
+void SynthBase< SampleType >::PanningManager::prepare (int numVoices, bool clearArrays)
 {
     jassert (numVoices > 0);
 
@@ -30,25 +29,25 @@ void SynthBase<SampleType>::PanningManager::prepare (int numVoices, bool clearAr
     updateStereoWidth (stereoWidth);
 }
 
-template<typename SampleType>
-void SynthBase<SampleType>::PanningManager::updateStereoWidth (int newWidth)
+template < typename SampleType >
+void SynthBase< SampleType >::PanningManager::updateStereoWidth (int newWidth)
 {
     jassert (newWidth >= 0 && newWidth <= 100);
-    
+
     if (stereoWidth == newWidth) return;
-    
+
     stereoWidth = newWidth;
-    
+
     updatePanValueLookupTables (newWidth);
-    
+
     for (auto* voice : synth.voices)
     {
         if (! voice->isVoiceActive()) continue;
-        
+
         if (voice->getCurrentlyPlayingNote() < lowestPannedNote)
         {
             const auto currentPan = voice->getCurrentMidiPan();
-            
+
             if (currentPan != 64)
             {
                 panValTurnedOff (currentPan);
@@ -62,20 +61,20 @@ void SynthBase<SampleType>::PanningManager::updateStereoWidth (int newWidth)
     }
 }
 
-template<typename SampleType>
-void SynthBase<SampleType>::PanningManager::setLowestNote (int newLowestNote)
+template < typename SampleType >
+void SynthBase< SampleType >::PanningManager::setLowestNote (int newLowestNote)
 {
     jassert (newLowestNote >= 0 && newLowestNote <= 127);
-    
+
     if (lowestPannedNote == newLowestNote) return;
-    
+
     for (auto* voice : synth.voices)
     {
         if (! voice->isVoiceActive()) continue;
-        
+
         const auto note       = voice->getCurrentlyPlayingNote();
         const auto currentPan = voice->getCurrentMidiPan();
-        
+
         if (note < newLowestNote)
         {
             if (currentPan != 64)
@@ -90,16 +89,16 @@ void SynthBase<SampleType>::PanningManager::setLowestNote (int newLowestNote)
             if (currentPan == 64) voice->setPan (getNextPanVal());
         }
     }
-    
+
     lowestPannedNote = newLowestNote;
 }
 
-template<typename SampleType>
-void SynthBase<SampleType>::PanningManager::updatePanValueLookupTables (int newWidth)
+template < typename SampleType >
+void SynthBase< SampleType >::PanningManager::updatePanValueLookupTables (int newWidth)
 {
     const auto numVoices = synth.getNumVoices();
     jassert (numVoices > 0);
-    
+
     const auto rangeMultiplier = newWidth * 0.01f;
     const auto range_extent    = 63.5f * rangeMultiplier;
     const auto maxPan          = 63.5f + range_extent;
@@ -156,8 +155,8 @@ void SynthBase<SampleType>::PanningManager::updatePanValueLookupTables (int newW
     jassert (! unsentPanVals.isEmpty());
 }
 
-template<typename SampleType>
-int SynthBase<SampleType>::PanningManager::getNextPanVal()
+template < typename SampleType >
+int SynthBase< SampleType >::PanningManager::getNextPanVal()
 {
     if (unsentPanVals.isEmpty()) reset();
 
@@ -166,8 +165,8 @@ int SynthBase<SampleType>::PanningManager::getNextPanVal()
     return unsentPanVals.removeAndReturn (0);
 }
 
-template<typename SampleType>
-void SynthBase<SampleType>::PanningManager::panValTurnedOff (int panVal)
+template < typename SampleType >
+void SynthBase< SampleType >::PanningManager::panValTurnedOff (int panVal)
 {
     // this function is called when a pan value is turned off and is available again for assigning. This function attempts to reinsert the pan value into unsentPanVals with respect to the order the values are in in panValsInAssigningOrder
 
@@ -204,15 +203,15 @@ void SynthBase<SampleType>::PanningManager::panValTurnedOff (int panVal)
     if (! addedIt) unsentPanVals.add (panVal);
 }
 
-template<typename SampleType>
-int SynthBase<SampleType>::PanningManager::getClosestNewPanValFromOld (int oldPan)
+template < typename SampleType >
+int SynthBase< SampleType >::PanningManager::getClosestNewPanValFromOld (int oldPan)
 {
     if (unsentPanVals.size() < 2) return getNextPanVal();
     return findClosestValueInNewArray (oldPan, unsentPanVals);
 }
 
-template<typename SampleType>
-void SynthBase<SampleType>::PanningManager::reset()
+template < typename SampleType >
+void SynthBase< SampleType >::PanningManager::reset()
 {
     if (panValsInAssigningOrder.isEmpty()) return;
 
@@ -222,8 +221,8 @@ void SynthBase<SampleType>::PanningManager::reset()
         unsentPanVals.add (pan);
 }
 
-template<typename SampleType>
-void SynthBase<SampleType>::PanningManager::mapArrayIndexes()
+template < typename SampleType >
+void SynthBase< SampleType >::PanningManager::mapArrayIndexes()
 {
     /* In my updateStereoWidth() function, possible panning values are written to the possiblePanVals array in order from least to greatest absolute value. Index 0 will contain the smallest midiPan value, and the highest index will contain the largest midiPan value.
      
@@ -237,7 +236,7 @@ void SynthBase<SampleType>::PanningManager::mapArrayIndexes()
      */
 
     arrayIndexesMapped.clearQuick();
-    
+
     const auto numVoices = synth.getNumVoices();
     jassert (numVoices > 0);
 
@@ -273,8 +272,8 @@ void SynthBase<SampleType>::PanningManager::mapArrayIndexes()
     }
 }
 
-template<typename SampleType>
-int SynthBase<SampleType>::PanningManager::findClosestValueInNewArray (int targetValue, Array& newArray)
+template < typename SampleType >
+int SynthBase< SampleType >::PanningManager::findClosestValueInNewArray (int targetValue, Array& newArray)
 {
     if (newArray.isEmpty()) return -1;
 
@@ -290,4 +289,4 @@ int SynthBase<SampleType>::PanningManager::findClosestValueInNewArray (int targe
         static_cast< int > (std::distance (distances.begin(), std::min_element (distances.begin(), distances.end()))));
 }
 
-}  // namespace bav::synth_helpers
+}  // namespace bav::dsp

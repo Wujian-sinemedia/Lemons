@@ -8,7 +8,7 @@ namespace bav::dsp
 template < typename SampleType >
 void SynthBase< SampleType >::processMidiEvent (const MidiMessage& m)
 {
-    midiInputStorage.addEvent (m, static_cast<int> (m.getTimeStamp()));
+    midiInputStorage.addEvent (m, static_cast< int > (m.getTimeStamp()));
     midi.process (m);
 }
 
@@ -59,15 +59,15 @@ template < typename SampleType >
 void SynthBase< SampleType >::startVoice (Voice* voice, int midiPitch, float velocity, bool isKeyboard, int midiChannel)
 {
     if (voice == nullptr) return;
-    
+
     const auto prevNote = voice->getCurrentlyPlayingNote();
     const bool wasStolen =
-    voice->isVoiceActive();  // we know the voice is being "stolen" from another note if it was already on before getting this start command
+        voice->isVoiceActive();  // we know the voice is being "stolen" from another note if it was already on before getting this start command
     const bool sameNoteRetriggered = wasStolen && prevNote == midiPitch;
-    
+
     // aftertouch value based on how much the new velocity has changed from the voice's last recieved velocity (only used if applicable)
     const auto aftertouch = juce::jlimit (0, 127, juce::roundToInt ((velocity - voice->lastRecievedVelocity) * 127.0f));
-    
+
     if (! sameNoteRetriggered)  // only output note events if it's not the same note being retriggered
     {
         if (wasStolen)
@@ -75,17 +75,17 @@ void SynthBase< SampleType >::startVoice (Voice* voice, int midiPitch, float vel
             // output a note off for the voice's previous note
             aggregateMidiBuffer.addEvent (MidiMessage::noteOff (midiChannel, prevNote, velocity), midi.getLastMidiTimestamp());
         }
-        
+
         voice->aftertouchChanged (0);
-        
+
         aggregateMidiBuffer.addEvent (MidiMessage::noteOn (midiChannel, midiPitch, velocity), midi.getLastMidiTimestamp());
     }
     else if (aftertouch != voice->currentAftertouch)
     {
         // same note retriggered: output aftertouch / channel pressure
-        
+
         voice->aftertouchChanged (aftertouch);
-        
+
         if (aftertouchGainIsOn)
             aggregateMidiBuffer.addEvent (MidiMessage::aftertouchChange (midiChannel, midiPitch, aftertouch), midi.getLastMidiTimestamp());
         else
@@ -95,23 +95,23 @@ void SynthBase< SampleType >::startVoice (Voice* voice, int midiPitch, float vel
     {
         voice->aftertouchChanged (0);
     }
-    
+
     if (midiPitch < panner.getLowestNote())  // set pan to 64 if note is below panning threshold
     {
         if (wasStolen) panner.panValTurnedOff (voice->getCurrentMidiPan());
-        
+
         voice->setPan (64);
     }
     else if (! wasStolen)  // don't change pan if voice was stolen
     {
         voice->setPan (panner.getNextPanVal());
     }
-    
+
     const bool isPedal   = pedal.isAutomatedPitch (midiPitch);
     const bool isDescant = descant.isAutomatedPitch (midiPitch);
     const bool keydown   = isKeyboard ? true : voice->isKeyDown();
     const auto timestamp = sameNoteRetriggered ? voice->noteOnTime : uint32 (midi.getLastMidiTimestamp());
-    
+
     voice->startNote (midiPitch, velocity, timestamp, keydown, isPedal, isDescant, midiChannel);
 }
 

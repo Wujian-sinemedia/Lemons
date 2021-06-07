@@ -48,10 +48,10 @@ public:
 
     void allNotesOff (bool allowTailOff = false, float velocity = 1.0f);
 
-    void turnOffAllKeyupNotes (bool  allowTailOff = false,
+    void turnOffAllKeyupNotes (bool  allowTailOff                = false,
                                bool  includePedalPitchAndDescant = true,
-                               float velocity = 1.0f,
-                               bool  overrideSostenutoPedal = true);
+                               float velocity                    = 1.0f,
+                               bool  overrideSostenutoPedal      = true);
 
     bool isPitchActive (int midiPitch, bool countRingingButReleased = false, bool countKeyUpNotes = false) const;
     void reportActiveNotes (juce::Array< int >& outputArray, bool includePlayingButReleased = false, bool includeKeyUpNotes = true) const;
@@ -139,7 +139,7 @@ private:
     void turnOffList (const juce::Array< int >& toTurnOff, float velocity = 1.0f, bool allowTailOff = false, bool partOfChord = false);
 
     void pitchCollectionChanged();
-    
+
     void updateChannelPressure (int newIncomingAftertouch);
 
     Voice* findFreeVoice (bool stealIfNoneAvailable = true);
@@ -202,44 +202,44 @@ private:
     };
 
     MidiManager midi {*this};
-    
+
     //--------------------------------------------------
-    
+
     class PanningManager
     {
         using Array = juce::Array< int >;
-        
+
     public:
-        PanningManager (SynthBase& b): synth (b) { }
-        
+        PanningManager (SynthBase& b) : synth (b) { }
+
         void prepare (int numVoices, bool clearArrays = true);
         void reset();
-        
+
         void updateStereoWidth (int newWidth);
-        
+
         void setLowestNote (int newLowestNote);
         int  getLowestNote() const { return lowestPannedNote; }
-        
+
         int  getNextPanVal();
         void panValTurnedOff (int panVal);
-    
+
     private:
         void updatePanValueLookupTables (int newWidth);
         void mapArrayIndexes();
         int  getClosestNewPanValFromOld (int oldPan);
         int  findClosestValueInNewArray (int targetValue, Array& newArray);
-        
+
         SynthBase& synth;
-        
+
         int stereoWidth {100};
         int lowestPannedNote {0};
-        
+
         Array arrayIndexesMapped;
         Array possiblePanVals, panValsInAssigningOrder, unsentPanVals;
         Array newPanVals, newUnsentVals;
         Array distances;
     };
-    
+
     PanningManager panner {*this};
 
     //--------------------------------------------------

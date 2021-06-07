@@ -19,7 +19,7 @@ private:
     void renderBlock (const AudioBuffer& input, AudioBuffer& output, MidiBuffer& midiMessages, bool isBypassed) final;
     void processInChunks (const AudioBuffer& input, AudioBuffer& output, MidiBuffer& midiMessages, bool isBypassed);
     void processInternal (const AudioBuffer& input, AudioBuffer& output, MidiBuffer& midiMessages, bool isBypassed);
-    
+
     void prepared (int blocksize, double samplerate) final;
     void released() final;
 

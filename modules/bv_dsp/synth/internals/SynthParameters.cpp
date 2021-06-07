@@ -1,7 +1,6 @@
 
 namespace bav::dsp
 {
-
 template < typename SampleType >
 void SynthBase< SampleType >::setPedalPitch (bool isOn, int newThresh, int newInterval)
 {
