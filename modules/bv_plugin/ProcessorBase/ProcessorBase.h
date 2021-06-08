@@ -41,6 +41,10 @@ private:
     template < typename SampleType >
     void processBlockInternal (juce::AudioBuffer< SampleType >& audio, juce::MidiBuffer& midi);
     
+    template<typename SampleType>
+    juce::AudioBuffer<SampleType> findSubBuffer (const AudioProcessor::BusesLayout& busLayout,
+                                                 juce::AudioBuffer<SampleType>& origBuffer, bool isInput);
+    
     juce::AudioProcessorParameter* getBypassParameter() const final { return &getMainBypass(); }
 
     struct ParameterProcessor : ParameterProcessorBase

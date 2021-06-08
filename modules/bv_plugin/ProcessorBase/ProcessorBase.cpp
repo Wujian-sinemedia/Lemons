@@ -99,7 +99,6 @@ void ProcessorBase::processBlockInternal (juce::AudioBuffer< SampleType >& audio
     parameterProcessor.process (audio, midi);
 }
 
-
 void ProcessorBase::ParameterProcessor::renderChunk (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi)
 {
     processor.renderChunk (processor.floatEngine, audio, midi);
@@ -110,8 +109,18 @@ void ProcessorBase::ParameterProcessor::renderChunk (juce::AudioBuffer< double >
     processor.renderChunk (processor.doubleEngine, audio, midi);
 }
 
+template<typename SampleType>
+void ProcessorBase::renderChunk (Engine< SampleType >& engine, juce::AudioBuffer< SampleType >& audio, juce::MidiBuffer& midi)
+{
+    const auto busLayout = getBusesLayout();
+    const auto inBus     = findSubBuffer (busLayout, audio, true);
+    auto       outBus    = findSubBuffer (busLayout, audio, false);
+    
+    engine.process (inBus, outBus, midi, getMainBypass().get());
+}
 
-inline int getIndexOfFirstValidChannelSet (const juce::AudioProcessor::BusesLayout& busLayout, bool isInput)
+inline int getIndexOfFirstValidChannelSet (const juce::AudioProcessor::BusesLayout& busLayout,
+                                           bool isInput)
 {
     const auto numBuses = isInput ? busLayout.inputBuses.size() : busLayout.outputBuses.size();
     
@@ -123,22 +132,12 @@ inline int getIndexOfFirstValidChannelSet (const juce::AudioProcessor::BusesLayo
 }
 
 template<typename SampleType>
-inline juce::AudioBuffer<SampleType> findSubBuffer (ProcessorBase& p,
-                                                    juce::AudioBuffer<SampleType>& origBuffer,
-                                                    bool isInput)
+juce::AudioBuffer<SampleType> ProcessorBase::findSubBuffer (const AudioProcessor::BusesLayout& busLayout,
+                                                            juce::AudioBuffer<SampleType>& origBuffer,
+                                                            bool isInput)
 {
-    return p.getBusBuffer (origBuffer, isInput,
-                           getIndexOfFirstValidChannelSet (p.getBusesLayout(), isInput));
-}
-
-
-template<typename SampleType>
-void ProcessorBase::renderChunk (Engine< SampleType >& engine, juce::AudioBuffer< SampleType >& audio, juce::MidiBuffer& midi)
-{
-    auto inBus  = findSubBuffer (*this, audio, true);
-    auto outBus = findSubBuffer (*this, audio, false);
-    
-    engine.process (inBus, outBus, midi, getMainBypass().get());
+    return getBusBuffer (origBuffer, isInput,
+                         getIndexOfFirstValidChannelSet (busLayout, isInput));
 }
 
 }  // namespace bav::dsp

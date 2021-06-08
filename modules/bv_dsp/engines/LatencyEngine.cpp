@@ -96,11 +96,11 @@ void LatencyEngine< SampleType >::processInChunks (const AudioBuffer& input, Aud
                                  chunkNumSamples);
 
         midiChoppingBuffer.clear();
-        bav::midi::copyRangeOfMidiBuffer (midiMessages, midiChoppingBuffer, startSample, 0, chunkNumSamples);
+        midi::copyRangeOfMidiBuffer (midiMessages, midiChoppingBuffer, startSample, 0, chunkNumSamples);
 
         processInternal (inputProxy, outputProxy, midiChoppingBuffer, isBypassed);
 
-        bav::midi::copyRangeOfMidiBuffer (midiChoppingBuffer, midiMessages, 0, startSample, chunkNumSamples);
+        midi::copyRangeOfMidiBuffer (midiChoppingBuffer, midiMessages, 0, startSample, chunkNumSamples);
 
         startSample += chunkNumSamples;
         samplesLeft -= chunkNumSamples;
