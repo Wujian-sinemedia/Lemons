@@ -67,6 +67,7 @@ public:
         virtual void parameterValueChanged (float newNormalizedValue);
         virtual void parameterGestureStateChanged (bool gestureIsStarting);
         virtual void parameterDefaultChanged (float newNormalizedDefault);
+        virtual void parameterControllerNumberChanged (int newControllerNumber);
 
     private:
         Parameter& param;
@@ -77,6 +78,9 @@ public:
 private:
     void toValueTree (juce::ValueTree& tree) final;
     void fromValueTree (const juce::ValueTree& tree) final;
+
+    void setValueInternal (float value);
+    void setDefaultInternal (float value);
 
     std::atomic< float > currentDefault;
     std::atomic< bool >  changing {false};

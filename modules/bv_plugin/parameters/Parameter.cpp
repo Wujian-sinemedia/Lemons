@@ -36,6 +36,8 @@ bool Parameter::isMidiControllerMapped() const
 void Parameter::setMidiControllerNumber (int newControllerNumber)
 {
     midiControllerNumber.store (newControllerNumber);
+    listeners.call ([=] (Listener& l)
+                    { l.parameterControllerNumberChanged (newControllerNumber); });
 }
 
 void Parameter::resetMidiControllerMapping()
@@ -101,11 +103,16 @@ float Parameter::getDenormalizedDefault() const
 
 void Parameter::setNormalizedDefault (float value)
 {
-    jassert (value >= 0.0f && value <= 1.0f);
-
     if (value == getNormalizedDefault()) return;
 
     UndoManager::ScopedTransaction s {um, defaultChangeTransactionName};
+
+    setDefaultInternal (value);
+}
+
+void Parameter::setDefaultInternal (float value)
+{
+    jassert (value >= 0.0f && value <= 1.0f);
 
     currentDefault.store (value);
     listeners.call ([value] (Listener& l)
@@ -129,8 +136,6 @@ void Parameter::resetToDefault()
 
 void Parameter::setNormalizedValue (float value)
 {
-    jassert (value >= 0.0f && value <= 1.0f);
-
     if (value == getCurrentNormalizedValue()) return;
 
     bool needToEndGesture = false;
@@ -141,12 +146,19 @@ void Parameter::setNormalizedValue (float value)
         needToEndGesture = true;
     }
 
-    rap.setValueNotifyingHost (value);
-    listeners.call ([value] (Listener& l)
-                    { l.parameterValueChanged (value); });
+    setValueInternal (value);
 
     if (needToEndGesture)
         endGesture();
+}
+
+void Parameter::setValueInternal (float value)
+{
+    jassert (value >= 0.0f && value <= 1.0f);
+
+    rap.setValueNotifyingHost (value);
+    listeners.call ([value] (Listener& l)
+                    { l.parameterValueChanged (value); });
 }
 
 void Parameter::setDenormalizedValue (float value)
@@ -196,8 +208,8 @@ void Parameter::toValueTree (juce::ValueTree& tree)
 
 void Parameter::fromValueTree (const juce::ValueTree& tree)
 {
-    setNormalizedValue (tree.getProperty ("ParameterValue"));
-    setNormalizedDefault (tree.getProperty ("ParameterDefaultValue"));
+    setValueInternal (tree.getProperty ("ParameterValue"));
+    setDefaultInternal (tree.getProperty ("ParameterDefaultValue"));
     setMidiControllerNumber (tree.getProperty ("MappedMidiControllerNumber"));
 }
 
@@ -214,9 +226,8 @@ Parameter::Listener::~Listener()
 }
 
 void Parameter::Listener::parameterValueChanged (float) { }
-
 void Parameter::Listener::parameterGestureStateChanged (bool) { }
-
 void Parameter::Listener::parameterDefaultChanged (float) { }
+void Parameter::Listener::parameterControllerNumberChanged (int) { }
 
 }  // namespace bav
