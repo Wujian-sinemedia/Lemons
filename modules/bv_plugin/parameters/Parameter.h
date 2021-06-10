@@ -16,8 +16,6 @@ public:
 
     virtual ~Parameter() override = default;
 
-    bool operator== (const Parameter& other);
-
     int  getMidiControllerNumber() const;
     bool isMidiControllerMapped() const;
     void setMidiControllerNumber (int newControllerNumber);

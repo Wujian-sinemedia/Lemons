@@ -7,13 +7,15 @@ struct SerializableData
 {
     SerializableData (juce::Identifier identifier);
     virtual ~SerializableData() = default;
+    
+    bool operator== (const SerializableData& other) const;
 
     ValueTree  serialize();
     ValueTree& serialize (ValueTree& tree);
 
     void deserialize (const ValueTree& tree);
     
-    juce::Identifier getDataIdentifier() const { return dataIdentifier; }
+    const juce::Identifier& getDataIdentifier() const { return dataIdentifier; }
 
 private:
     virtual void toValueTree (ValueTree& t)         = 0;

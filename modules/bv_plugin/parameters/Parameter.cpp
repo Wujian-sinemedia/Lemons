@@ -18,11 +18,6 @@ Parameter::Parameter (RangedParam& p,
     currentDefault.store (rap.getDefaultValue());
 }
 
-bool Parameter::operator== (const Parameter& other)
-{
-    return getDataIdentifier() == other.getDataIdentifier();
-}
-
 int Parameter::getMidiControllerNumber() const
 {
     return midiControllerNumber.load();
