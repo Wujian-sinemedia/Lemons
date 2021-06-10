@@ -15,7 +15,7 @@ juce::OSCAddressPattern formatAddressPattern (const String& address)
 
 OscDataSynchronizer::OscDataSynchronizer (SerializableData& dataToUse, juce::OSCSender& s, juce::OSCReceiver& r)
     : DataSynchronizer (dataToUse),
-      addressPattern (formatAddressPattern (dataToUse.dataIdentifier.toString())),
+      addressPattern (formatAddressPattern (dataToUse.getDataIdentifier().toString())),
       oscSender (s),
       oscReceiver (r)
 {

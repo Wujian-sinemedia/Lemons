@@ -12,8 +12,8 @@ struct SerializableData
     ValueTree& serialize (ValueTree& tree);
 
     void deserialize (const ValueTree& tree);
-
-    const juce::Identifier dataIdentifier;
+    
+    juce::Identifier getDataIdentifier() const { return dataIdentifier; }
 
 private:
     virtual void toValueTree (ValueTree& t)         = 0;
@@ -21,6 +21,7 @@ private:
 
     void setTree (const ValueTree& newTree);
 
+    const juce::Identifier dataIdentifier;
     ValueTree tree {dataIdentifier};
 };
 

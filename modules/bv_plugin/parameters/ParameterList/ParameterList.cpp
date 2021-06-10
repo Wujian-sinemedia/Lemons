@@ -20,7 +20,7 @@ void ParameterList::addParameter (ParamHolderBase& param, bool isInternal)
 {
 #if JUCE_DEBUG
     for (auto meta : params)
-        jassert (meta.holder.getParam()->dataIdentifier != param.getParam()->dataIdentifier);
+        jassert (meta.holder.getParam()->getDataIdentifier() != param.getParam()->getDataIdentifier());
 #endif
 
     params.add ({param, isInternal});

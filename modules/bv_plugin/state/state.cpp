@@ -10,7 +10,7 @@ void StateBase::add (ParameterList& list)
 {
 #if JUCE_DEBUG
     for (auto* l : lists)
-        jassert (l->dataIdentifier != list.dataIdentifier);
+        jassert (l->getDataIdentifier() != list.getDataIdentifier());
 #endif
 
     lists.add (&list);

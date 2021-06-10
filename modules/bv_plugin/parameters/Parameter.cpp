@@ -20,7 +20,7 @@ Parameter::Parameter (RangedParam& p,
 
 bool Parameter::operator== (const Parameter& other)
 {
-    return dataIdentifier == other.dataIdentifier;
+    return getDataIdentifier() == other.getDataIdentifier();
 }
 
 int Parameter::getMidiControllerNumber() const
