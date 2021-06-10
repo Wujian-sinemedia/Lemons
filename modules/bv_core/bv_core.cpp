@@ -27,3 +27,5 @@
 #include "binary_data/BinaryDataHelpers.cpp"
 
 #include "localization/localization.cpp"
+
+#include "undo/UndoManager.cpp"

@@ -198,3 +198,5 @@ using juce::String;
 #include "math/mathHelpers.h"
 #include "math/vecops/vecops.h"
 #include "math/intops/intOps.h"
+
+#include "undo/UndoManager.h"
