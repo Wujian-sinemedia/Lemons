@@ -7,31 +7,36 @@ SerializableData::SerializableData (juce::Identifier identifier)
 }
 
 
-juce::ValueTree SerializableData::serialize()
+ValueTree SerializableData::serialize()
 {
-    ValueTree tree {dataIdentifier};
     toValueTree (tree);
     return tree;
 }
 
 
-juce::ValueTree& SerializableData::serialize (ValueTree& tree)
+ValueTree& SerializableData::serialize (ValueTree& t)
 {
-    tree.appendChild (serialize(), nullptr);
-    return tree;
+    t.appendChild (serialize(), nullptr);
+    return t;
 }
 
 
-void SerializableData::deserialize (const ValueTree& tree)
+void SerializableData::deserialize (const ValueTree& t)
 {
-    if (tree.hasType (dataIdentifier))
+    if (t.hasType (dataIdentifier))
     {
-        fromValueTree (tree);
+        setTree (t);
     }
     else
     {
-        fromValueTree (tree.getChildWithName (dataIdentifier));
+        setTree (t.getChildWithName (dataIdentifier));
     }
+}
+
+void SerializableData::setTree (const ValueTree& newTree)
+{
+    tree = newTree;
+    fromValueTree (newTree);
 }
 
 

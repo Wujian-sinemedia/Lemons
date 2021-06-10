@@ -1,6 +1,6 @@
 namespace bav::serializing
 {
-static inline juce::var valueTreeToVar (const juce::ValueTree& v)
+static inline juce::var valueTreeToVar (const ValueTree& v)
 {
     auto obj = new juce::DynamicObject();
 
@@ -36,7 +36,7 @@ static inline juce::var valueTreeToVar (const juce::ValueTree& v)
     return juce::var (obj);
 }
 
-String valueTreeToJSON (const juce::ValueTree& v)
+String valueTreeToJSON (const ValueTree& v)
 {
     auto obj = valueTreeToVar (v);
     return juce::JSON::toString (obj);
@@ -47,11 +47,11 @@ String valueTreeToJSON (const juce::ValueTree& v)
 //==============================================================================
 
 
-static inline juce::ValueTree valueTreefromVar (const juce::var& obj)
+static inline ValueTree valueTreefromVar (const juce::var& obj)
 {
     if (auto dobj = obj.getDynamicObject())
     {
-        juce::ValueTree v (dobj->getProperty ("_name").toString());
+        ValueTree v (dobj->getProperty ("_name").toString());
 
         auto c = dobj->getProperty ("_children");
 
@@ -84,7 +84,7 @@ static inline juce::ValueTree valueTreefromVar (const juce::var& obj)
     return {};
 }
 
-juce::ValueTree valueTreeFromJSON (const String& jsonText)
+ValueTree valueTreeFromJSON (const String& jsonText)
 {
     juce::var obj = juce::JSON::parse (jsonText);
 

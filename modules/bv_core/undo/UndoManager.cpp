@@ -3,6 +3,7 @@ namespace bav
 UndoManager::UndoManager (SerializableData& stateToManage)
     : state (stateToManage)
 {
+    storedStates.reserve (50);
     saveState();
 }
 
@@ -35,7 +36,7 @@ void UndoManager::undoToLastTransaction()
 
 bool UndoManager::hasUndo() const
 {
-    return currentStep - 1 >= 0 && ! storedStates.empty();
+    return currentStep > 0 && ! storedStates.empty();
 }
 
 bool UndoManager::hasRedo() const
@@ -45,11 +46,14 @@ bool UndoManager::hasRedo() const
 
 void UndoManager::beginNewTransaction (const String& name, bool force)
 {
-    if (force || ! changing)
+    if (force) endTransaction();
+
+    if (! changing && ! name.isEmpty())
     {
         transactionName = name;
-        changing        = true;
     }
+
+    changing = true;
 }
 
 void UndoManager::endTransaction()
@@ -72,6 +76,22 @@ void UndoManager::clearUndoHistory()
     transactionName.clear();
     currentStep = 0;
     saveState();
+}
+
+String UndoManager::getNextUndoTransactionName() const
+{
+    if (hasUndo())
+        return storedStates[currentStep - 1].transactionName;
+
+    return {};
+}
+
+String UndoManager::getNextRedoTransactionName() const
+{
+    if (hasRedo())
+        return storedStates[currentStep + 1].transactionName;
+
+    return {};
 }
 
 juce::StringArray UndoManager::getUndoTransactionNames() const
@@ -97,7 +117,7 @@ juce::StringArray UndoManager::getRedoTransactionNames() const
 void UndoManager::loadState (const State& stateToLoad)
 {
     state.deserialize (stateToLoad.state);
-    transactionName = stateToLoad.transactionName;
+    broadcaster.trigger();
 }
 
 UndoManager::State::State (const juce::ValueTree& tree, const String& name)

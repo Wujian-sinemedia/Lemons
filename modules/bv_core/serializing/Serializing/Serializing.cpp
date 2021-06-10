@@ -27,12 +27,12 @@ void fromBinary (juce::MemoryBlock& data, SerializableData& dest)
 
 void fromBinary (const void* data, size_t dataSizeInBytes, SerializableData& dest)
 {
-    dest.deserialize (juce::ValueTree::readFromData (data, dataSizeInBytes));
+    dest.deserialize (ValueTree::readFromData (data, dataSizeInBytes));
 }
 
 void fromXML (const juce::XmlElement& xml, SerializableData& dest)
 {
-    dest.deserialize (juce::ValueTree::fromXml (xml));
+    dest.deserialize (ValueTree::fromXml (xml));
 }
 
 void fromXML (std::unique_ptr< juce::XmlElement > xml, SerializableData& dest)

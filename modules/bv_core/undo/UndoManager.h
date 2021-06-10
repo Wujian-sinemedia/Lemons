@@ -17,13 +17,18 @@ public:
 
     void undoToLastTransaction();
 
-    void beginNewTransaction (const String& name, bool force = false);
+    void beginNewTransaction (const String& name = {}, bool force = false);
     void endTransaction();
 
+    String            getCurrentTransactionName() const { return transactionName; }
+    String            getNextUndoTransactionName() const;
+    String            getNextRedoTransactionName() const;
     juce::StringArray getUndoTransactionNames() const;
     juce::StringArray getRedoTransactionNames() const;
 
     void clearUndoHistory();
+
+    events::Broadcaster& getBroadcaster() { return broadcaster; }
 
     struct ScopedTransaction
     {
@@ -35,13 +40,6 @@ public:
     };
 
 private:
-    void saveState();
-
-    SerializableData& state;
-
-    String transactionName;
-    bool   changing {false};
-
     struct State
     {
         State (const juce::ValueTree& tree, const String& name);
@@ -50,10 +48,18 @@ private:
         String          transactionName;
     };
 
+    void saveState();
+    void loadState (const State& stateToLoad);
+
+    SerializableData& state;
+
+    String transactionName;
+    bool   changing {false};
+
     std::vector< State >            storedStates;
     std::vector< State >::size_type currentStep {0};
 
-    void loadState (const State& stateToLoad);
+    events::Broadcaster broadcaster;
 };
 
 }  // namespace bav
