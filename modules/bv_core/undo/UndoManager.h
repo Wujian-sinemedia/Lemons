@@ -22,6 +22,17 @@ public:
     juce::StringArray getUndoTransactionNames() const;
     juce::StringArray getRedoTransactionNames() const;
     
+    void clearUndoHistory();
+    
+    struct ScopedTransaction
+    {
+        ScopedTransaction (UndoManager* um, const String& name = {});
+        ~ScopedTransaction();
+        
+    private:
+        UndoManager* undo;
+    };
+    
 private:
     SerializableData& state;
     
@@ -29,17 +40,16 @@ private:
     
     struct State
     {
-        State (juce::ValueTree tree, const String& name);
+        State (const juce::ValueTree& tree, const String& name);
         
         juce::ValueTree state;
         String transactionName;
     };
     
     std::vector<State> storedStates;
+    std::vector<State>::size_type currentStep {0};
     
-    int currentStep {0};
-    
-    void loadState (State& stateToLoad);
+    void loadState (const State& stateToLoad);
 };
 
 }

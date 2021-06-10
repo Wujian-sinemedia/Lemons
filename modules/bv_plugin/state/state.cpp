@@ -50,7 +50,7 @@ void StateBase::sendCallbackToAllListeners()
         list->sendCallbackToAllListeners();
 }
 
-void StateBase::setUndoManager (juce::UndoManager& um)
+void StateBase::setUndoManager (UndoManager& um)
 {
     for (auto* list : lists)
         list->setUndoManager (um);

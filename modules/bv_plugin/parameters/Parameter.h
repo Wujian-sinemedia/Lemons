@@ -43,7 +43,7 @@ public:
     float normalize (float input) const;
     float denormalize (float input) const;
 
-    void setUndoManager (juce::UndoManager& managerToUse);
+    void setUndoManager (UndoManager& managerToUse);
 
     void sendListenerSyncCallback();  // sends a value update message immediately to all listeners
 
@@ -75,9 +75,6 @@ public:
     //==============================================================================
 
 private:
-    void setValueInternal (float newNormalizedValue);
-    void setDefaultInternal (float newNormalizedDefault);
-
     void toValueTree (juce::ValueTree& tree) final;
     void fromValueTree (const juce::ValueTree& tree) final;
 
@@ -85,47 +82,12 @@ private:
     std::atomic< bool >  changing {false};
     std::atomic< int >   midiControllerNumber {-1};
 
-    juce::UndoManager* um;
+    UndoManager* um = nullptr;
 
     juce::ListenerList< Listener > listeners;
 
     const String valueChangeTransactionName;
     const String defaultChangeTransactionName;
-
-    //==============================================================================
-
-    class ValueChangeAction : public juce::UndoableAction
-    {
-    public:
-        ValueChangeAction (Parameter& p, float newValue, float prevVal);
-
-        bool perform() final;
-        bool undo() final;
-
-        UndoableAction* createCoalescedAction (UndoableAction* nextAction) final;
-
-    private:
-        Parameter&  param;
-        const float targetValue;
-        const float prevValue;
-    };
-
-
-    class DefaultChangeAction : public juce::UndoableAction
-    {
-    public:
-        DefaultChangeAction (Parameter& p, float newNormalizedDefault, float prevNormDefault);
-
-        bool perform() final;
-        bool undo() final;
-
-        UndoableAction* createCoalescedAction (UndoableAction* nextAction) final;
-
-    private:
-        Parameter&  param;
-        const float targetDefault;
-        const float prevDefault;
-    };
 };
 
 

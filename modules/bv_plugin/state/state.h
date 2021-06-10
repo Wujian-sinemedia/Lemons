@@ -25,7 +25,7 @@ public:
 
     void sendCallbackToAllListeners();
 
-    void setUndoManager (juce::UndoManager& um);
+    void setUndoManager (UndoManager& um);
 
     void processMidi (const juce::MidiBuffer& midiMessages);
     void processMidiMessage (const juce::MidiMessage& message);

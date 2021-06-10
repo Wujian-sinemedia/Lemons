@@ -1,83 +1,6 @@
 
 namespace bav
 {
-Parameter::ValueChangeAction::ValueChangeAction (Parameter& p, float newValue, float prevVal)
-    : param (p), targetValue (newValue), prevValue (prevVal)
-{
-}
-
-bool Parameter::ValueChangeAction::perform()
-{
-    if (param.getCurrentNormalizedValue() == targetValue)
-        return false;
-
-    param.setValueInternal (targetValue);
-    return true;
-}
-
-bool Parameter::ValueChangeAction::undo()
-{
-    if (param.getCurrentNormalizedValue() == prevValue)
-        return false;
-
-    param.setValueInternal (prevValue);
-    return true;
-}
-
-juce::UndoableAction* Parameter::ValueChangeAction::createCoalescedAction (UndoableAction* nextAction)
-{
-    if (auto* other = dynamic_cast< ValueChangeAction* > (nextAction))
-    {
-        if (other->param == param)
-        {
-            return new ValueChangeAction (param, other->targetValue, prevValue);
-        }
-    }
-
-    return nullptr;
-}
-
-/*-----------------------------------------------------------------------------------------------------------------------
- -----------------------------------------------------------------------------------------------------------------------*/
-
-Parameter::DefaultChangeAction::DefaultChangeAction (Parameter& p, float newNormalizedDefault, float prevNormDefault)
-    : param (p), targetDefault (newNormalizedDefault), prevDefault (prevNormDefault)
-{
-}
-
-bool Parameter::DefaultChangeAction::perform()
-{
-    if (param.getNormalizedDefault() == targetDefault)
-        return false;
-
-    param.setDefaultInternal (targetDefault);
-    return true;
-}
-
-bool Parameter::DefaultChangeAction::undo()
-{
-    if (param.getNormalizedDefault() == prevDefault)
-        return false;
-
-    param.setDefaultInternal (prevDefault);
-    return true;
-}
-
-juce::UndoableAction* Parameter::DefaultChangeAction::createCoalescedAction (UndoableAction* nextAction)
-{
-    if (auto* other = dynamic_cast< DefaultChangeAction* > (nextAction))
-    {
-        if (other->param == param)
-        {
-            return new DefaultChangeAction (param, other->targetDefault, prevDefault);
-        }
-    }
-
-    return nullptr;
-}
-
-/*-----------------------------------------------------------------------------------------------------------------------
- -----------------------------------------------------------------------------------------------------------------------*/
 
 Parameter::Parameter (RangedParam& p,
                       String       paramNameShort,
@@ -137,10 +60,8 @@ void Parameter::beginGesture()
     if (isChanging())
         return;
 
-    //    if (um != nullptr)
-    //    {
-    //        um->beginNewTransaction (valueChangeTransactionName);
-    //    }
+    if (um != nullptr)
+        um->beginNewTransaction (valueChangeTransactionName);
 
     changing.store (true);
     rap.beginChangeGesture();
@@ -153,6 +74,9 @@ void Parameter::endGesture()
 {
     if (! isChanging())
         return;
+    
+    if (um != nullptr)
+        um->endTransaction();
 
     changing.store (false);
     rap.endChangeGesture();
@@ -181,27 +105,12 @@ void Parameter::setNormalizedDefault (float value)
     jassert (value >= 0.0f && value <= 1.0f);
 
     if (value == getNormalizedDefault()) return;
-
-    setDefaultInternal (value);
-
-    //    if (um != nullptr)
-    //    {
-    //        um->beginNewTransaction (defaultChangeTransactionName);
-    //        um->perform (new DefaultChangeAction (*this, value, currentDefault),
-    //                     defaultChangeTransactionName);
-    //    }
-    //    else
-    //    {
-    //        setDefaultInternal (value);
-    //    }
-}
-
-void Parameter::setDefaultInternal (float newNormalizedDefault)
-{
-    jassert (newNormalizedDefault >= 0.f && newNormalizedDefault <= 1.f);
-    currentDefault.store (newNormalizedDefault);
-    listeners.call ([&newNormalizedDefault] (Listener& l)
-                    { l.parameterDefaultChanged (newNormalizedDefault); });
+    
+    UndoManager::ScopedTransaction s {um, defaultChangeTransactionName};
+    
+    currentDefault.store (value);
+    listeners.call ([value] (Listener& l)
+                    { l.parameterDefaultChanged (value); });
 }
 
 void Parameter::setDenormalizedDefault (float value)
@@ -225,33 +134,18 @@ void Parameter::setNormalizedValue (float value)
 
     if (value == getCurrentNormalizedValue()) return;
 
-    setValueInternal (value);
-
-    //    if (um != nullptr)
-    //    {
-    //        um->perform (new ValueChangeAction (*this, value, rap.getValue()),
-    //                     valueChangeTransactionName);
-    //    }
-    //    else
-    //    {
-    //        setValueInternal (value);
-    //    }
-}
-
-void Parameter::setValueInternal (float newNormalizedValue)
-{
     bool needToEndGesture = false;
-
+    
     if (! isChanging())
     {
         beginGesture();
         needToEndGesture = true;
     }
-
-    rap.setValueNotifyingHost (newNormalizedValue);
-    listeners.call ([&newNormalizedValue] (Listener& l)
-                    { l.parameterValueChanged (newNormalizedValue); });
-
+    
+    rap.setValueNotifyingHost (value);
+    listeners.call ([value] (Listener& l)
+                    { l.parameterValueChanged (value); });
+    
     if (needToEndGesture)
         endGesture();
 }
@@ -281,7 +175,7 @@ float Parameter::denormalize (float input) const
     return rap.convertFrom0to1 (input);
 }
 
-void Parameter::setUndoManager (juce::UndoManager& managerToUse)
+void Parameter::setUndoManager (UndoManager& managerToUse)
 {
     um = &managerToUse;
 }
