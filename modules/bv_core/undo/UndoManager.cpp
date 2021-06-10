@@ -1,10 +1,9 @@
 namespace bav
 {
-
 UndoManager::UndoManager (SerializableData& stateToManage)
-: state (stateToManage)
+    : state (stateToManage)
 {
-    
+    saveState();
 }
 
 bool UndoManager::undo()
@@ -14,7 +13,7 @@ bool UndoManager::undo()
         loadState (storedStates[--currentStep]);
         return true;
     }
-    
+
     return false;
 }
 
@@ -25,7 +24,7 @@ bool UndoManager::redo()
         loadState (storedStates[++currentStep]);
         return true;
     }
-    
+
     return false;
 }
 
@@ -44,12 +43,25 @@ bool UndoManager::hasRedo() const
     return currentStep + 1 < storedStates.size();
 }
 
-void UndoManager::beginNewTransaction (const String& name)
+void UndoManager::beginNewTransaction (const String& name, bool force)
 {
-    transactionName = name;
+    if (force || ! changing)
+    {
+        transactionName = name;
+        changing        = true;
+    }
 }
 
 void UndoManager::endTransaction()
+{
+    if (changing)
+    {
+        saveState();
+        changing = false;
+    }
+}
+
+void UndoManager::saveState()
 {
     storedStates.emplace_back (state.serialize(), transactionName);
 }
@@ -59,25 +71,26 @@ void UndoManager::clearUndoHistory()
     storedStates.clear();
     transactionName.clear();
     currentStep = 0;
+    saveState();
 }
 
 juce::StringArray UndoManager::getUndoTransactionNames() const
 {
     juce::StringArray names;
-    
+
     for (auto i = currentStep - 1; i >= 0; --i)
         names.add (storedStates[i].transactionName);
-    
+
     return names;
 }
 
 juce::StringArray UndoManager::getRedoTransactionNames() const
 {
     juce::StringArray names;
-    
+
     for (auto i = currentStep + 1; i < storedStates.size(); ++i)
         names.add (storedStates[i].transactionName);
-    
+
     return names;
 }
 
@@ -89,12 +102,12 @@ void UndoManager::loadState (const State& stateToLoad)
 
 UndoManager::State::State (const juce::ValueTree& tree, const String& name)
 {
-    state = tree;
+    state           = tree;
     transactionName = name;
 }
 
 UndoManager::ScopedTransaction::ScopedTransaction (UndoManager* um, const String& name)
-: undo (um)
+    : undo (um)
 {
     if (undo != nullptr)
         undo->beginNewTransaction (name);
@@ -106,4 +119,4 @@ UndoManager::ScopedTransaction::~ScopedTransaction()
         undo->endTransaction();
 }
 
-}
+}  // namespace bav

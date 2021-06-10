@@ -1,7 +1,6 @@
 
 namespace bav
 {
-
 Parameter::Parameter (RangedParam& p,
                       String       paramNameShort,
                       String       paramNameVerbose,
@@ -74,7 +73,7 @@ void Parameter::endGesture()
 {
     if (! isChanging())
         return;
-    
+
     if (um != nullptr)
         um->endTransaction();
 
@@ -105,9 +104,9 @@ void Parameter::setNormalizedDefault (float value)
     jassert (value >= 0.0f && value <= 1.0f);
 
     if (value == getNormalizedDefault()) return;
-    
+
     UndoManager::ScopedTransaction s {um, defaultChangeTransactionName};
-    
+
     currentDefault.store (value);
     listeners.call ([value] (Listener& l)
                     { l.parameterDefaultChanged (value); });
@@ -135,17 +134,17 @@ void Parameter::setNormalizedValue (float value)
     if (value == getCurrentNormalizedValue()) return;
 
     bool needToEndGesture = false;
-    
+
     if (! isChanging())
     {
         beginGesture();
         needToEndGesture = true;
     }
-    
+
     rap.setValueNotifyingHost (value);
     listeners.call ([value] (Listener& l)
                     { l.parameterValueChanged (value); });
-    
+
     if (needToEndGesture)
         endGesture();
 }

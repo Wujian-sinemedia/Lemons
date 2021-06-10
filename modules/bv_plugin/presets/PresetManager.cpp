@@ -4,7 +4,12 @@ namespace bav
 PresetManagerBase::PresetManagerBase (StateBase& stateToUse)
     : state (stateToUse)
 {
-    rescanPresetsFolder();
+}
+
+PresetManagerBase::PresetManagerBase (StateBase& stateToUse, UndoManager& undoManagerToUse)
+    : state (stateToUse)
+{
+    undoManager = &undoManagerToUse;
 }
 
 juce::File PresetManagerBase::presetsFolder()
@@ -29,6 +34,9 @@ bool PresetManagerBase::loadPreset (const String& presetName)
 
     if (! file.existsAsFile())
         return false;
+
+    UndoManager::ScopedTransaction s {undoManager,
+                                      TRANS ("Loaded preset") + " " + removeFileExtensionIfThere (presetName, getPresetFileExtension())};
 
     serializing::fromBinary (file, state);
     state.refreshAllDefaults();
@@ -70,7 +78,7 @@ void PresetManagerBase::rescanPresetsFolder()
         if (filename.endsWith (xtn))
             namesOfAvailablePresets.addIfNotAlreadyThere (filename.dropLastCharacters (len));
     }
-    
+
     broadcaster.trigger();
 }
 

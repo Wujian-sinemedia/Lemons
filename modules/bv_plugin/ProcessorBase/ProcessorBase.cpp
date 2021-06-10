@@ -1,28 +1,28 @@
 
 namespace bav::dsp
 {
-ProcessorBase::ProcessorBase (ParameterList&  parameterList,
-                              Engine<float>&  floatEngineToUse,
-                              Engine<double>& doubleEngineToUse,
+ProcessorBase::ProcessorBase (ParameterList&                        parameterList,
+                              Engine< float >&                      floatEngineToUse,
+                              Engine< double >&                     doubleEngineToUse,
                               juce::AudioProcessor::BusesProperties busesLayout)
-: BasicProcessorBase (busesLayout),
-parameterProcessor (*this, parameterList),
-floatEngine (floatEngineToUse),
-doubleEngine (doubleEngineToUse)
+    : BasicProcessorBase (busesLayout),
+      parameterProcessor (*this, parameterList),
+      floatEngine (floatEngineToUse),
+      doubleEngine (doubleEngineToUse)
 {
     auto initSamplerate = getSampleRate();
     if (initSamplerate <= 0.0) initSamplerate = 44100.0;
-    
+
     auto initBlockSize = getBlockSize();
     if (initBlockSize <= 0) initBlockSize = 512;
-    
+
     prepareToPlay (initSamplerate, initBlockSize);
 }
 
 
 ProcessorBase::ParameterProcessor::ParameterProcessor (ProcessorBase& p, ParameterList& l)
-: ParameterProcessorBase (l),
-processor (p)
+    : ParameterProcessorBase (l),
+      processor (p)
 {
 }
 
@@ -37,15 +37,15 @@ void ProcessorBase::prepareToPlay (double sampleRate, int samplesPerBlock)
 
 template < typename SampleType1, typename SampleType2 >
 void ProcessorBase::prepareToPlayInternal (const double           sampleRate,
-                                          int                    samplesPerBlock,
-                                          Engine< SampleType1 >& activeEngine,
-                                          Engine< SampleType2 >& idleEngine)
+                                           int                    samplesPerBlock,
+                                           Engine< SampleType1 >& activeEngine,
+                                           Engine< SampleType2 >& idleEngine)
 {
     if (idleEngine.isInitialized())
         idleEngine.releaseResources();
-    
+
     activeEngine.prepare (sampleRate, samplesPerBlock);
-    
+
     setLatencySamples (activeEngine.reportLatency());
 }
 
@@ -109,32 +109,32 @@ void ProcessorBase::ParameterProcessor::renderChunk (juce::AudioBuffer< double >
     processor.renderChunk (processor.doubleEngine, audio, midi);
 }
 
-template<typename SampleType>
+template < typename SampleType >
 void ProcessorBase::renderChunk (Engine< SampleType >& engine, juce::AudioBuffer< SampleType >& audio, juce::MidiBuffer& midi)
 {
     const auto busLayout = getBusesLayout();
     const auto inBus     = findSubBuffer (busLayout, audio, true);
     auto       outBus    = findSubBuffer (busLayout, audio, false);
-    
+
     engine.process (inBus, outBus, midi, getMainBypass().get());
 }
 
 inline int getIndexOfFirstValidChannelSet (const juce::AudioProcessor::BusesLayout& busLayout,
-                                           bool isInput)
+                                           bool                                     isInput)
 {
     const auto numBuses = isInput ? busLayout.inputBuses.size() : busLayout.outputBuses.size();
-    
+
     for (int i = 0; i < numBuses; ++i)
         if (! busLayout.getChannelSet (isInput, i).isDisabled())
             return i;
-    
+
     return 0;
 }
 
-template<typename SampleType>
-juce::AudioBuffer<SampleType> ProcessorBase::findSubBuffer (const AudioProcessor::BusesLayout& busLayout,
-                                                            juce::AudioBuffer<SampleType>& origBuffer,
-                                                            bool isInput)
+template < typename SampleType >
+juce::AudioBuffer< SampleType > ProcessorBase::findSubBuffer (const AudioProcessor::BusesLayout& busLayout,
+                                                              juce::AudioBuffer< SampleType >&   origBuffer,
+                                                              bool                               isInput)
 {
     return getBusBuffer (origBuffer, isInput,
                          getIndexOfFirstValidChannelSet (busLayout, isInput));

@@ -6,6 +6,7 @@ class PresetManagerBase
 {
 public:
     PresetManagerBase (StateBase& stateToUse);
+    PresetManagerBase (StateBase& stateToUse, UndoManager& undoManagerToUse);
     virtual ~PresetManagerBase() = default;
 
     virtual std::string getCompanyName()         = 0;
@@ -22,7 +23,7 @@ public:
     void rescanPresetsFolder();
 
     const juce::StringArray& presetNames();
-    
+
     events::Broadcaster& getBroadcaster() { return broadcaster; }
 
 private:
@@ -31,6 +32,8 @@ private:
     StateBase&          state;
     juce::StringArray   namesOfAvailablePresets;
     events::Broadcaster broadcaster;
+
+    UndoManager* undoManager = nullptr;
 };
 
 }  // namespace bav
