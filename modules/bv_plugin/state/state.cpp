@@ -4,16 +4,13 @@ namespace bav
 StateBase::StateBase (juce::Identifier name)
     : SerializableData (name)
 {
+    addDataChild (lastSavedEditorSize);
 }
 
 void StateBase::add (ParameterList& list)
 {
-#if JUCE_DEBUG
-    for (auto* l : lists)
-        jassert (l->getDataIdentifier() != list.getDataIdentifier());
-#endif
-
     lists.add (&list);
+    addDataChild (list);
 }
 
 void StateBase::addTo (dsp::ProcessorBase& p)
@@ -22,6 +19,12 @@ void StateBase::addTo (dsp::ProcessorBase& p)
         list->addParametersTo (p);
 
     pb = &p;
+}
+
+void StateBase::addTo (dsp::ProcessorBase* p)
+{
+    if (p != nullptr)
+        addTo (*p);
 }
 
 void StateBase::addAllAsInternal()
@@ -68,21 +71,9 @@ void StateBase::processMidiMessage (const juce::MidiMessage& message)
         list->processMidiMessage (message);
 }
 
-void StateBase::toValueTree (ValueTree& tree)
-{
-    lastSavedEditorSize.serialize (tree);
+void StateBase::toValueTree (ValueTree&) { }
 
-    for (auto* list : lists)
-        list->serialize (tree);
-}
-
-void StateBase::fromValueTree (const ValueTree& tree)
-{
-    lastSavedEditorSize.deserialize (tree);
-
-    for (auto* list : lists)
-        list->deserialize (tree);
-}
+void StateBase::fromValueTree (const ValueTree&) { }
 
 StateBase::LastSavedEditorSize::LastSavedEditorSize (StateBase& b)
     : SerializableData ("LastSavedEditorSize"),

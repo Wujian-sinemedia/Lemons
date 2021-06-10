@@ -24,8 +24,7 @@ private:
 
 struct SelfOwnedOscDataSynchronizer : public OscManager
 {
-    SelfOwnedOscDataSynchronizer (SerializableData& dataToUse);
-    SelfOwnedOscDataSynchronizer (SerializableData& dataToUse, const String& targetHostName, int portNumber = 53100);
+    SelfOwnedOscDataSynchronizer (SerializableData& dataToUse, const String& targetHostName = "Host", int portNumber = 53100);
 
     virtual ~SelfOwnedOscDataSynchronizer() = default;
 

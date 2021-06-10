@@ -18,6 +18,7 @@ public:
     void add (ParameterList& list);
 
     void addTo (dsp::ProcessorBase& p);
+    void addTo (dsp::ProcessorBase* p);
     void addAllAsInternal();
 
     void refreshAllDefaults();

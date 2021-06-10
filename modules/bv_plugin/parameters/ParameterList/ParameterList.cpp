@@ -18,12 +18,8 @@ void ParameterList::addInternal (ParamHolderBase& param)
 
 void ParameterList::addParameter (ParamHolderBase& param, bool isInternal)
 {
-#if JUCE_DEBUG
-    for (auto meta : params)
-        jassert (meta.holder.getParam()->getDataIdentifier() != param.getParam()->getDataIdentifier());
-#endif
-
     params.add ({param, isInternal});
+    addDataChild (param.getParam());
 }
 
 void ParameterList::addParametersTo (juce::AudioProcessor& processor)
@@ -75,17 +71,9 @@ void ParameterList::resetAllToDefault()
         meta.holder.getParam()->resetToDefault();
 }
 
-void ParameterList::toValueTree (ValueTree& tree)
-{
-    for (auto meta : params)
-        meta.holder.getParam()->serialize (tree);
-}
+void ParameterList::toValueTree (ValueTree&) { }
 
-void ParameterList::fromValueTree (const ValueTree& tree)
-{
-    for (auto meta : params)
-        meta.holder.getParam()->deserialize (tree);
-}
+void ParameterList::fromValueTree (const ValueTree&) { }
 
 void ParameterList::setUndoManager (UndoManager& um)
 {

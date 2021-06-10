@@ -6,6 +6,15 @@ SerializableData::SerializableData (juce::Identifier identifier)
 {
 }
 
+SerializableData::~SerializableData()
+{
+    for (auto& pntr : children)
+        pntr->parent = nullptr;
+    
+    if (parent != nullptr)
+        parent->children.removeAllInstancesOf (this);
+}
+
 
 bool SerializableData::operator== (const SerializableData& other) const
 {
@@ -15,7 +24,13 @@ bool SerializableData::operator== (const SerializableData& other) const
 
 ValueTree SerializableData::serialize()
 {
+    ValueTree tree {dataIdentifier};
+    
     toValueTree (tree);
+    
+    for (auto& pntr : children)
+        pntr->serialize (tree);
+    
     return tree;
 }
 
@@ -39,10 +54,26 @@ void SerializableData::deserialize (const ValueTree& t)
     }
 }
 
+void SerializableData::addDataChild (SerializableData& child)
+{
+    jassert (&child != this);
+    
+    if (children.addIfNotAlreadyThere (&child))
+        child.parent = this;
+}
+
+void SerializableData::addDataChild (SerializableData* child)
+{
+    if (child != nullptr)
+        addDataChild (*child);
+}
+
 void SerializableData::setTree (const ValueTree& newTree)
 {
-    tree = newTree;
     fromValueTree (newTree);
+    
+    for (auto& pntr : children)
+        pntr->deserialize (newTree);
 }
 
 

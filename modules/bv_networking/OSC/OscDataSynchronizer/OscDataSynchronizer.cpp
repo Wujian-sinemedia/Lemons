@@ -48,11 +48,6 @@ void OscDataSynchronizer::oscMessageReceived (const juce::OSCMessage& message)
 }
 
 
-SelfOwnedOscDataSynchronizer::SelfOwnedOscDataSynchronizer (SerializableData& dataToUse)
-    : sync (dataToUse, sender, receiver)
-{
-}
-
 SelfOwnedOscDataSynchronizer::SelfOwnedOscDataSynchronizer (SerializableData&   dataToUse,
                                                             const String& targetHostName,
                                                             int                 portNumber)

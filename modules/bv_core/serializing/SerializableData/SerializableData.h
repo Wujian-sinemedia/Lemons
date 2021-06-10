@@ -6,7 +6,7 @@ namespace bav
 struct SerializableData
 {
     SerializableData (juce::Identifier identifier);
-    virtual ~SerializableData() = default;
+    virtual ~SerializableData();
     
     bool operator== (const SerializableData& other) const;
 
@@ -16,6 +16,9 @@ struct SerializableData
     void deserialize (const ValueTree& tree);
     
     const juce::Identifier& getDataIdentifier() const { return dataIdentifier; }
+    
+    void addDataChild (SerializableData& child);
+    void addDataChild (SerializableData* child);
 
 private:
     virtual void toValueTree (ValueTree& t)         = 0;
@@ -24,7 +27,9 @@ private:
     void setTree (const ValueTree& newTree);
 
     const juce::Identifier dataIdentifier;
-    ValueTree tree {dataIdentifier};
+    
+    juce::Array<SerializableData*> children;
+    SerializableData*              parent = nullptr;
 };
 
 
