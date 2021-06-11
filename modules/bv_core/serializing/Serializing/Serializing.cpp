@@ -1,15 +1,15 @@
 namespace bav::serializing
 {
-void toBinary (SerializableData& data, juce::File file)
+void toBinary (SerializableData& data, juce::File file, bool isPreset)
 {
     juce::FileOutputStream stream (file);
-    data.serialize().writeToStream (stream);
+    data.serialize (isPreset).writeToStream (stream);
 }
 
-void toBinary (SerializableData& data, juce::MemoryBlock& dest)
+void toBinary (SerializableData& data, juce::MemoryBlock& dest, bool isPreset)
 {
     juce::MemoryOutputStream stream (dest, false);
-    data.serialize().writeToStream (stream);
+    data.serialize (isPreset).writeToStream (stream);
 }
 
 void fromBinary (juce::File file, SerializableData& dest)
@@ -46,17 +46,17 @@ void fromXML (const juce::File& xmlFile, SerializableData& dest)
     fromXML (juce::XmlDocument::parse (xmlFile), dest);
 }
 
-std::unique_ptr< juce::XmlElement > toXML (SerializableData& source)
+std::unique_ptr< juce::XmlElement > toXML (SerializableData& source, bool isPreset)
 {
-    return source.serialize().createXml();
+    return source.serialize (isPreset).createXml();
 }
 
-void toXML (SerializableData& source, const juce::File& file)
+void toXML (SerializableData& source, const juce::File& file, bool isPreset)
 {
     if (! file.existsAsFile())
         file.create();
 
-    toXML (source)->writeTo (file);
+    toXML (source, isPreset)->writeTo (file);
 }
 
 void fromJSON (const String& jsonText, SerializableData& dest)
@@ -64,9 +64,9 @@ void fromJSON (const String& jsonText, SerializableData& dest)
     dest.deserialize (valueTreeFromJSON (jsonText));
 }
 
-String toJSON (SerializableData& source)
+String toJSON (SerializableData& source, bool isPreset)
 {
-    return valueTreeToJSON (source.serialize());
+    return valueTreeToJSON (source.serialize (isPreset));
 }
 
 }  // namespace bav::serializing

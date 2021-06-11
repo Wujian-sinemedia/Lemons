@@ -57,7 +57,7 @@ void ProcessorBase::releaseResources()
 
 void ProcessorBase::getStateInformation (juce::MemoryBlock& block)
 {
-    serializing::toBinary (getStateData(), block);
+    serializing::toBinary (getStateData(), block, true);
 }
 
 void ProcessorBase::setStateInformation (const void* data, int size)

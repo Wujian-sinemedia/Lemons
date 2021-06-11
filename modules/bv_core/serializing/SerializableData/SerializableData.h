@@ -10,15 +10,15 @@ struct SerializableData
     
     bool operator== (const SerializableData& other) const;
 
-    ValueTree  serialize();
-    ValueTree& serialize (ValueTree& tree);
+    ValueTree  serialize (bool isPreset = false);
+    ValueTree& serialize (ValueTree& tree, bool isPreset = false);
 
     void deserialize (const ValueTree& tree);
     
     const juce::Identifier& getDataIdentifier() const { return dataIdentifier; }
     
-    void addDataChild (SerializableData& child);
-    void addDataChild (SerializableData* child);
+    void addDataChild (SerializableData& child, bool excludedFromPresets = false);
+    void addDataChild (SerializableData* child, bool excludedFromPresets = false);
 
 private:
     virtual void toValueTree (ValueTree& t)         = 0;
@@ -28,8 +28,19 @@ private:
 
     const juce::Identifier dataIdentifier;
     
-    juce::Array<SerializableData*> children;
-    SerializableData*              parent = nullptr;
+    struct Child
+    {
+        Child (SerializableData& dataToUse, bool excludeFromPresets, SerializableData& parentData);
+        ~Child();
+        
+        bool operator== (const Child& other) const;
+        
+        SerializableData& data;
+        SerializableData& parent;
+        bool              excludedFromPresets {false};
+    };
+    
+    juce::Array<Child> children;
 };
 
 

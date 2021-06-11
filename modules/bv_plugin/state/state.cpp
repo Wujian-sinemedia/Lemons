@@ -9,8 +9,18 @@ StateBase::StateBase (juce::Identifier name)
 
 void StateBase::add (ParameterList& list)
 {
+    addList (list, false);
+}
+
+void StateBase::addInternal (ParameterList& list)
+{
+    addList (list, true);
+}
+
+void StateBase::addList (ParameterList& list, bool excludedFromPresets)
+{
     lists.add (&list);
-    addDataChild (list);
+    addDataChild (list, excludedFromPresets);
 }
 
 void StateBase::addTo (dsp::ProcessorBase& p)
