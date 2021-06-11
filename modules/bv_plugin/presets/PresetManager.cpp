@@ -24,7 +24,7 @@ juce::File PresetManagerBase::presetNameToFilePath (const String& presetName)
 
 void PresetManagerBase::savePreset (const String& presetName)
 {
-    serializing::toBinary (state, presetNameToFilePath (presetName), true);
+    serializing::toBinary (state, presetNameToFilePath (presetName));
     rescanPresetsFolder();
 }
 

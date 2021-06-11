@@ -33,10 +33,14 @@ void OscManager::toValueTree (ValueTree& t)
 
 void OscManager::fromValueTree (const ValueTree& t)
 {
-    disconnect();
+    const auto newHostName = t.getProperty ("HostName").toString();
+    const auto newPortNum  = int(t.getProperty ("PortNumber"));
     
-    connect (t.getProperty ("HostName"),
-             t.getProperty ("PortNumber"));
+    if (newHostName != hostName || newPortNum != portNum)
+    {
+        disconnect();
+        connect (newHostName, newPortNum);
+    }
 }
 
 }  // namespace bav::network

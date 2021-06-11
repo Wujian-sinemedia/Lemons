@@ -17,23 +17,22 @@ bool SerializableData::operator== (const SerializableData& other) const
 }
 
 
-ValueTree SerializableData::serialize (bool isPreset)
+ValueTree SerializableData::serialize()
 {
     ValueTree tree {dataIdentifier};
-    
+
     toValueTree (tree);
-    
+
     for (auto& child : children)
-        if (! isPreset || ! child.excludedFromPresets)
-            child.data.serialize (tree, isPreset);
-    
+        child.data.serialize (tree);
+
     return tree;
 }
 
 
-ValueTree& SerializableData::serialize (ValueTree& t, bool isPreset)
+ValueTree& SerializableData::serialize (ValueTree& t)
 {
-    t.appendChild (serialize (isPreset), nullptr);
+    t.appendChild (serialize(), nullptr);
     return t;
 }
 
@@ -50,36 +49,37 @@ void SerializableData::deserialize (const ValueTree& t)
     }
 }
 
-void SerializableData::addDataChild (SerializableData& child, bool excludedFromPresets)
+void SerializableData::addDataChild (SerializableData& child)
 {
     jassert (&child != this);
-    children.addIfNotAlreadyThere ({ child, excludedFromPresets, *this });
+    children.addIfNotAlreadyThere ({child, *this});
 }
 
-void SerializableData::addDataChild (SerializableData* child, bool excludedFromPresets)
+void SerializableData::addDataChild (SerializableData* child)
 {
     if (child != nullptr)
-        addDataChild (*child, excludedFromPresets);
+        addDataChild (*child);
 }
 
 void SerializableData::setTree (const ValueTree& newTree)
 {
     if (! newTree.isValid()) return;
-    
+
     fromValueTree (newTree);
-    
+
     for (auto& child : children)
         child.data.deserialize (newTree);
 }
 
-SerializableData::Child::Child (SerializableData& dataToUse, bool excludeFromPresets, SerializableData& parentData)
-: data(dataToUse), parent(parentData), excludedFromPresets(excludeFromPresets)
+SerializableData::Child::Child (SerializableData& dataToUse, SerializableData& parentData)
+    : data (dataToUse), parent (parentData)
 {
 }
 
 SerializableData::Child::~Child()
 {
-    parent.children.removeIf ([=](const Child& child){ return child == *this; });
+    parent.children.removeIf ([this] (const Child& child)
+                              { return child == *this; });
 }
 
 bool SerializableData::Child::operator== (const Child& other) const

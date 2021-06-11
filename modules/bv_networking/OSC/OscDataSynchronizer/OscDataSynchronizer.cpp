@@ -13,7 +13,7 @@ juce::OSCAddressPattern formatAddressPattern (const String& address)
     return String("/") + address;
 }
 
-OscDataSynchronizer::OscDataSynchronizer (SerializableData& dataToUse, juce::OSCSender& s, juce::OSCReceiver& r)
+OscDataSynchronizerBase::OscDataSynchronizerBase (SerializableData& dataToUse, juce::OSCSender& s, juce::OSCReceiver& r)
     : DataSynchronizer (dataToUse),
       addressPattern (formatAddressPattern (dataToUse.getDataIdentifier().toString())),
       oscSender (s),
@@ -22,18 +22,18 @@ OscDataSynchronizer::OscDataSynchronizer (SerializableData& dataToUse, juce::OSC
     oscReceiver.addListener (this);
 }
 
-OscDataSynchronizer::~OscDataSynchronizer()
+OscDataSynchronizerBase::~OscDataSynchronizerBase()
 {
     oscReceiver.removeListener (this);
 }
 
-void OscDataSynchronizer::sendChangeData (const void* data, size_t dataSize)
+void OscDataSynchronizerBase::sendChangeData (const void* data, size_t dataSize)
 {
     outgoingData.replaceWith (data, dataSize);
     oscSender.send (addressPattern, outgoingData);
 }
 
-void OscDataSynchronizer::oscMessageReceived (const juce::OSCMessage& message)
+void OscDataSynchronizerBase::oscMessageReceived (const juce::OSCMessage& message)
 {
     if (message.getAddressPattern() != addressPattern || message.isEmpty())
         return;
@@ -48,12 +48,13 @@ void OscDataSynchronizer::oscMessageReceived (const juce::OSCMessage& message)
 }
 
 
-SelfOwnedOscDataSynchronizer::SelfOwnedOscDataSynchronizer (SerializableData&   dataToUse,
+OscDataSynchronizer::OscDataSynchronizer (SerializableData&   dataToUse,
                                                             const String& targetHostName,
                                                             int                 portNumber)
     : OscManager (targetHostName, portNumber),
       sync (dataToUse, sender, receiver)
 {
+    dataToUse.addDataChild (*this);
 }
 
 }  // namespace bav::network
