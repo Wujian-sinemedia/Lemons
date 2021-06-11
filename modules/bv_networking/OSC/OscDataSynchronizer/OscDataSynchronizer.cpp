@@ -4,13 +4,13 @@ namespace bav::network
 juce::OSCAddressPattern formatAddressPattern (const String& address)
 {
     jassert (! address.isEmpty());
-    
+
     address.replaceCharacters (" ", "/");
-    
-    if (address.startsWith("/"))
+
+    if (address.startsWith ("/"))
         return address;
-    
-    return String("/") + address;
+
+    return String ("/") + address;
 }
 
 OscDataSynchronizerBase::OscDataSynchronizerBase (SerializableData& dataToUse, juce::OSCSender& s, juce::OSCReceiver& r)
@@ -48,9 +48,9 @@ void OscDataSynchronizerBase::oscMessageReceived (const juce::OSCMessage& messag
 }
 
 
-OscDataSynchronizer::OscDataSynchronizer (SerializableData&   dataToUse,
-                                                            const String& targetHostName,
-                                                            int                 portNumber)
+OscDataSynchronizer::OscDataSynchronizer (SerializableData& dataToUse,
+                                          const String&     targetHostName,
+                                          int               portNumber)
     : OscManager (targetHostName, portNumber),
       sync (dataToUse, sender, receiver)
 {

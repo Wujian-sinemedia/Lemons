@@ -14,11 +14,11 @@ public:
 
     juce::OSCSender   sender;
     juce::OSCReceiver receiver;
-    
+
 private:
     void toValueTree (ValueTree& t) final;
     void fromValueTree (const ValueTree& t) final;
-    
+
     int    portNum {53100};
     String hostName;
 };

@@ -1,7 +1,7 @@
 namespace bav::network
 {
 OscManager::OscManager (const String& targetHostName, int portNumber)
-: SerializableData (targetHostName + "_OSC")
+    : SerializableData (targetHostName + "_OSC")
 {
     connect (targetHostName, portNumber);
 }
@@ -34,8 +34,8 @@ void OscManager::toValueTree (ValueTree& t)
 void OscManager::fromValueTree (const ValueTree& t)
 {
     const auto newHostName = t.getProperty ("HostName").toString();
-    const auto newPortNum  = int(t.getProperty ("PortNumber"));
-    
+    const auto newPortNum  = int (t.getProperty ("PortNumber"));
+
     if (newHostName != hostName || newPortNum != portNum)
     {
         disconnect();
