@@ -4,7 +4,7 @@ namespace bav
 StateBase::StateBase (juce::Identifier name)
     : SerializableData (name)
 {
-    addDataChild (lastSavedEditorSize);
+    addDataChild (lastSavedEditorSize, true);
 }
 
 void StateBase::add (ParameterList& list)
