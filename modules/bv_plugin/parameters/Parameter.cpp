@@ -13,7 +13,8 @@ Parameter::Parameter (RangedParam& p,
       automatable (isAutomatable),
       metaParameter (metaParam),
       valueChangeTransactionName (TRANS ("Changed") + " " + parameterNameVerbose),
-      defaultChangeTransactionName (TRANS ("Changed default value of") + " " + parameterNameVerbose)
+      defaultChangeTransactionName (TRANS ("Changed default value of") + " " + parameterNameVerbose),
+      midiControllerChangeTransactionName (TRANS ("Changed MIDI controller number for") + " " + parameterNameVerbose)
 {
     currentDefault.store (rap.getDefaultValue());
 }
@@ -30,14 +31,22 @@ bool Parameter::isMidiControllerMapped() const
 
 void Parameter::setMidiControllerNumber (int newControllerNumber)
 {
-    midiControllerNumber.store (newControllerNumber);
-    listeners.call ([=] (Listener& l)
-                    { l.parameterControllerNumberChanged (newControllerNumber); });
+    if (newControllerNumber == getMidiControllerNumber()) return;
+
+    UndoManager::ScopedTransaction s {um, midiControllerChangeTransactionName};
+    setMidiControllerInternal (newControllerNumber);
+}
+
+void Parameter::setMidiControllerInternal (int controller)
+{
+    midiControllerNumber.store (controller);
+    listeners.call ([controller] (Listener& l)
+                    { l.parameterControllerNumberChanged (controller); });
 }
 
 void Parameter::resetMidiControllerMapping()
 {
-    setMidiControllerNumber (-1);
+    midiControllerNumber.store (-1);
 }
 
 void Parameter::processNewControllerMessage (int controllerNumber, int controllerValue)
@@ -205,7 +214,7 @@ void Parameter::fromValueTree (const juce::ValueTree& tree)
 {
     setValueInternal (tree.getProperty ("ParameterValue"));
     setDefaultInternal (tree.getProperty ("ParameterDefaultValue"));
-    setMidiControllerNumber (tree.getProperty ("MappedMidiControllerNumber"));
+    setMidiControllerInternal (tree.getProperty ("MappedMidiControllerNumber"));
 }
 
 

@@ -32,7 +32,6 @@
 #include "icons/icons.h"
 
 #include "components/parameter_connected/ParameterConnectedComponents.h"
-#include "components/LevelMeter/LevelMeter.h"
 
 #ifdef __clang__
 #    pragma clang diagnostic pop

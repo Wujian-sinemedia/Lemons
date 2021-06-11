@@ -79,6 +79,7 @@ private:
 
     void setValueInternal (float value);
     void setDefaultInternal (float value);
+    void setMidiControllerInternal (int controller);
 
     std::atomic< float > currentDefault;
     std::atomic< bool >  changing {false};
@@ -90,6 +91,7 @@ private:
 
     const String valueChangeTransactionName;
     const String defaultChangeTransactionName;
+    const String midiControllerChangeTransactionName;
 };
 
 
