@@ -13,7 +13,7 @@ void MidiChoppingProcessor<SampleType>::process (juce::AudioBuffer<SampleType>& 
 {
     auto samplesLeft = audio.getNumSamples();
     
-    if (samplesLeft == 0)
+    if (samplesLeft == 0 || audio.getNumChannels() == 0)
     {
         processInternal (audio, midi, 0, 0);
         return;
@@ -32,21 +32,22 @@ void MidiChoppingProcessor<SampleType>::process (juce::AudioBuffer<SampleType>& 
         
         const auto metadata                 = *midiIterator;
         const auto samplesToNextMidiMessage = metadata.samplePosition - startSample;
+        const auto nextMidiMessage          = metadata.getMessage();
         
         if (samplesToNextMidiMessage >= samplesLeft)
         {
-            handleMidiMessage (metadata.getMessage());
             processInternal (audio, midi, startSample, samplesLeft);
+            handleMidiMessage (nextMidiMessage);
             break;
         }
         
         if (samplesToNextMidiMessage == 0)
         {
-            handleMidiMessage (metadata.getMessage());
+            handleMidiMessage (nextMidiMessage);
             continue;
         }
         
-        handleMidiMessage (metadata.getMessage());
+        handleMidiMessage (nextMidiMessage);
         processInternal (audio, midi, startSample, samplesToNextMidiMessage);
         
         startSample += samplesToNextMidiMessage;

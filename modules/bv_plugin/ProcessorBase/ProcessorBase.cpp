@@ -6,8 +6,7 @@ ProcessorBase::ProcessorBase (ParameterList&                        parameterLis
                               Engine< double >&                     doubleEngineToUse,
                               juce::AudioProcessor::BusesProperties busesLayout)
     : BasicProcessorBase (busesLayout),
-      floatParameterProcessor (*this, parameterList),
-      doubleParameterProcessor (*this, parameterList),
+      parameters (parameterList),
       floatEngine (floatEngineToUse),
       doubleEngine (doubleEngineToUse)
 {
@@ -59,12 +58,12 @@ void ProcessorBase::releaseResources()
 
 void ProcessorBase::getStateInformation (juce::MemoryBlock& block)
 {
-    serializing::toBinary (getStateData(), block);
+    serializing::toBinary (parameters, block);
 }
 
 void ProcessorBase::setStateInformation (const void* data, int size)
 {
-    serializing::fromBinary (data, size, getStateData());
+    serializing::fromBinary (data, size, parameters);
     repaintEditor();
 }
 
@@ -80,16 +79,16 @@ void ProcessorBase::processBlock (juce::AudioBuffer< double >& audio, juce::Midi
 
 void ProcessorBase::processBlockBypassed (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi)
 {
-    if (! getMainBypass().get())
-        getMainBypass().set (true);
+    auto& bypass = getMainBypass();
+    if (! bypass.get()) bypass.set (true);
 
     processBlockInternal (audio, midi, floatParameterProcessor);
 }
 
 void ProcessorBase::processBlockBypassed (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi)
 {
-    if (! getMainBypass().get())
-        getMainBypass().set (true);
+    auto& bypass = getMainBypass();
+    if (! bypass.get()) bypass.set (true);
 
     processBlockInternal (audio, midi, doubleParameterProcessor);
 }

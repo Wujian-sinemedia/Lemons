@@ -187,8 +187,7 @@ private:
         
     private:
         void handleMidiMessage (const juce::MidiMessage& m) final;
-        
-        void renderChunk (juce::AudioBuffer<SampleType>& audio, juce::MidiBuffer& midi) final;
+        void renderChunk (juce::AudioBuffer<SampleType>& audio, juce::MidiBuffer&) final;
         
         SynthBase& synth;
     };

@@ -144,12 +144,11 @@ void SynthBase< SampleType >::renderVoices (juce::MidiBuffer& midiMessages, juce
     jassert (sampleRate > 0);
 
     output.clear();
-
     aggregateMidiBuffer.clear();
+    midiInputStorage.clear();
 
     const auto numSamples = output.getNumSamples();
 
-    midiInputStorage.clear();
     midiInputStorage.addEvents (midiMessages, 0, numSamples, 0);
 
     for (auto* voice : voices)
@@ -160,6 +159,8 @@ void SynthBase< SampleType >::renderVoices (juce::MidiBuffer& midiMessages, juce
     chopper.process (output, midiMessages);
 
     midiMessages.swapWith (aggregateMidiBuffer);
+    
+    aggregateMidiBuffer.clear();
     midiInputStorage.clear();
 }
 
