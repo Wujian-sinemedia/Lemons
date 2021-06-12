@@ -15,22 +15,6 @@ endfunction()
 
 #
 
-function (_configure_vecops_options target)
-    if (NOT DEFINED BV_IGNORE_VDSP)
-        set (BV_IGNORE_VDSP FALSE)
-    endif()
-
-    if (APPLE AND NOT ${BV_IGNORE_VDSP})
-        message (STATUS "Configuring vDSP for vecops...")
-        target_compile_definitions (${target} PUBLIC JUCE_USE_VDSP_FRAMEWORK=1 BV_USE_VDSP=1)
-    elseif (NOT ${BV_IGNORE_MIPP})
-        message (STATUS "Configuring MIPP for vecops...")
-        target_link_libraries (${target} PRIVATE MIPP)
-    endif()
-endfunction()
-
-#
-
 function (_adjustDefaultMacTarget target bundleName)
     if (APPLE)
         set_target_properties (${target} PROPERTIES JUCE_BUNDLE_ID "com.bv.${bundleName}")
@@ -72,8 +56,6 @@ function (_configure_juce_app target useBrowser)
             JUCE_EXECUTE_APP_SUSPEND_ON_BACKGROUND_TASK=1)
     
     _configure_juce_browser (${target} ${useBrowser})
-
-    _configure_vecops_options (${target})
 
     _adjustDefaultMacTarget (${target} ${target})
 

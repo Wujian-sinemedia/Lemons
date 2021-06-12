@@ -8,6 +8,7 @@ juce_add_modules (bv_core
 
 add_subdirectory (GUI)
 
+#
 
 if (${BV_USE_ABLETON_LINK})
 
@@ -25,6 +26,7 @@ if (${BV_USE_ABLETON_LINK})
 
 endif()
 
+#
 
 if (${BV_USE_MTS_ESP})
 
@@ -32,4 +34,20 @@ if (${BV_USE_MTS_ESP})
 
     target_link_libraries (bv_midi INTERFACE MTS-ESP)
 
+endif()
+
+#
+
+if (NOT DEFINED BV_IGNORE_VDSP)
+    set (BV_IGNORE_VDSP FALSE)
+endif()
+
+if (APPLE AND NOT ${BV_IGNORE_VDSP})
+    message (STATUS "Configuring vDSP for vecops...")
+    target_compile_definitions (bv_core INTERFACE JUCE_USE_VDSP_FRAMEWORK=1 BV_USE_VDSP=1)
+elseif (NOT ${BV_IGNORE_MIPP})
+    message (STATUS "Configuring MIPP for vecops...")
+    target_link_libraries (bv_core INTERFACE MIPP)
+else()
+    message (STATUS "Using fallback vecops implementations...")
 endif()
