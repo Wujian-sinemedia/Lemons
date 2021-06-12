@@ -41,7 +41,7 @@ public:
 
     void addParametersTo (juce::AudioProcessor& processor);
     void addAllParametersAsInternal();
-    
+
     void setPitchbendParameter (IntParam& param);
 
     int getNumParameters() const;
@@ -57,23 +57,15 @@ public:
     void processMidiMessage (const juce::MidiMessage& message);
 
 private:
-    struct ParamHolderMetadata
-    {
-        ParamHolderMetadata (ParamHolderBase& h, bool internal);
-
-        ParamHolderBase& holder;
-        bool             isInternal;
-    };
-
-    virtual void toValueTree (ValueTree& tree) override;
-    virtual void fromValueTree (const ValueTree& tree) override;
+    virtual void toValueTree (ValueTree&) final { }
+    virtual void fromValueTree (const ValueTree&) final { }
 
     void processNewControllerMessage (int controllerNumber, int controllerValue);
     void processNewPitchwheelMessage (int pitchwheelValue);
 
-    juce::Array< ParamHolderMetadata > params;
-    dsp::BasicProcessorBase            dummyProcessor;
-    
+    juce::Array< ParamHolderBase* > params;
+    dsp::BasicProcessorBase         dummyProcessor;
+
     IntParameter* pitchwheelParameter;
 };
 

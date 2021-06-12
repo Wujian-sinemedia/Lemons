@@ -21,7 +21,6 @@ END_JUCE_MODULE_DECLARATION
 
 #include <bv_midi/bv_midi.h>
 
-
 #include "Oscillators/oscillators.h"
 #include "Oscillators/LFO/LFO.h"
 

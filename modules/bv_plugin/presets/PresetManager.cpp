@@ -2,14 +2,13 @@
 namespace bav
 {
 PresetManagerBase::PresetManagerBase (StateBase& stateToUse)
-    : state (stateToUse)
+    : state (&stateToUse), list (nullptr)
 {
 }
 
-PresetManagerBase::PresetManagerBase (StateBase& stateToUse, UndoManager& undoManagerToUse)
-    : state (stateToUse)
+PresetManagerBase::PresetManagerBase (ParameterList& listToUse)
+    : state (nullptr), list (&listToUse)
 {
-    undoManager = &undoManagerToUse;
 }
 
 juce::File PresetManagerBase::presetsFolder()
@@ -24,7 +23,13 @@ juce::File PresetManagerBase::presetNameToFilePath (const String& presetName)
 
 void PresetManagerBase::savePreset (const String& presetName)
 {
-    serializing::toBinary (state, presetNameToFilePath (presetName));
+    if (state != nullptr)
+        serializing::toBinary (*state, presetNameToFilePath (presetName));
+    else if (list != nullptr)
+        serializing::toBinary (*list, presetNameToFilePath (presetName));
+    else
+        jassertfalse;
+
     rescanPresetsFolder();
 }
 
@@ -35,12 +40,22 @@ bool PresetManagerBase::loadPreset (const String& presetName)
     if (! file.existsAsFile())
         return false;
 
-    UndoManager::ScopedTransaction s {undoManager,
-                                      TRANS ("Loaded preset") + " " + removeFileExtensionIfThere (presetName, getPresetFileExtension())};
+    if (state != nullptr)
+    {
+        serializing::fromBinary (file, *state);
+        state->refreshAllDefaults();
+        return true;
+    }
 
-    serializing::fromBinary (file, state);
-    state.refreshAllDefaults();
-    return true;
+    if (list != nullptr)
+    {
+        serializing::fromBinary (file, *list);
+        list->refreshAllDefaults();
+        return true;
+    }
+
+    jassertfalse;
+    return false;
 }
 
 void PresetManagerBase::deletePreset (const String& presetName)
