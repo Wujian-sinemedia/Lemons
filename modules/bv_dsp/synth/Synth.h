@@ -288,7 +288,6 @@ private:
         int  thresh {0};
         int  interval {12};
 
-    private:
         SynthBase& synth;
     };
 
