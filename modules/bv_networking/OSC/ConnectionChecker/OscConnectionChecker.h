@@ -19,7 +19,6 @@ private:
     void        update();
     void        sendPing();
     juce::int64 getMsSinceLastPingRecieved() const;
-    juce::int64 getMsSinceLastConnectionLostUpdateSent() const;
 
     const juce::OSCAddressPattern addressPattern;
     juce::OSCSender&              sender;
