@@ -42,6 +42,16 @@ float FloatParameter::getDefault() const
     return Parameter::getDenormalizedDefault();
 }
 
+float FloatParameter::getMinimum() const
+{
+    return getNormalisableRange().start;
+}
+
+float FloatParameter::getMaximum() const
+{
+    return getNormalisableRange().end;
+}
+
 void FloatParameter::set (float newValue)
 {
     Parameter::setDenormalizedValue (newValue);
@@ -114,6 +124,16 @@ int IntParameter::get() const
 int IntParameter::getDefault() const
 {
     return juce::roundToInt (Parameter::getDenormalizedDefault());
+}
+
+int IntParameter::getMinimum() const
+{
+    return getRange().start;
+}
+
+int IntParameter::getMaximum() const
+{
+    return getRange().end();
 }
 
 void IntParameter::set (int newValue)

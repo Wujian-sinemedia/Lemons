@@ -105,7 +105,7 @@ void ParameterList::processNewPitchwheelMessage (int pitchwheelValue)
 {
     if (auto* param = pitchwheelParameter)
     {
-        param->set (juce::jmap (pitchwheelValue, 0, 16383, 0, 127));
+        param->set (juce::jmap (pitchwheelValue, 0, 16383, param->getMinimum(), param->getMaximum()));
     }
 }
 

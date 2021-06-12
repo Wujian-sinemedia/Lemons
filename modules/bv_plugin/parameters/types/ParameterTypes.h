@@ -30,6 +30,9 @@ public:
 
     void set (float newValue);
     void setDefault (float newDefaultValue);
+    
+    float getMinimum() const;
+    float getMaximum() const;
 
     const std::function< String (float, int) >   floatToString;
     const std::function< float (const String&) > stringToFloat;
@@ -85,6 +88,9 @@ public:
 
     void set (int newValue);
     void setDefault (int newDefaultValue);
+    
+    int getMinimum() const;
+    int getMaximum() const;
 
     const std::function< String (int, int) >   intToString;
     const std::function< int (const String&) > stringToInt;
