@@ -21,5 +21,7 @@ END_JUCE_MODULE_DECLARATION
 
 #include "DataSynchronizer/DataSynchronizer.h"
 
+#include "OSC/OscListener.h"
 #include "OSC/OscManager/OscManager.h"
+#include "OSC/ConnectionChecker/OscConnectionChecker.h"
 #include "OSC/OscDataSynchronizer/OscDataSynchronizer.h"

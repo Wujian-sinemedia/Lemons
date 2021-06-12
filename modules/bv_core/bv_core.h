@@ -182,6 +182,7 @@ using juce::ValueTree;
 
 #include "events/Broadcaster.h"
 #include "events/Listener.h"
+#include "events/Timers.h"
 
 #include "serializing/SerializableData/SerializableData.h"
 #include "serializing/ValueTreeToJson/valuetree_json_converter.h"

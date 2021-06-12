@@ -4,11 +4,13 @@
 namespace bav::network
 {
 class OscDataSynchronizerBase : public DataSynchronizer,
-                                private juce::OSCReceiver::Listener< juce::OSCReceiver::MessageLoopCallback >
+                                private OscListener
 {
 public:
-    OscDataSynchronizerBase (SerializableData& dataToUse, juce::OSCSender& s, juce::OSCReceiver& r);
-    virtual ~OscDataSynchronizerBase() override;
+    OscDataSynchronizerBase (SerializableData&       dataToUse,
+                             juce::OSCSender&        s,
+                             juce::OSCReceiver&      r,
+                             std::function< void() > onConnectionLost = {});
 
 private:
     void sendChangeData (const void* data, size_t dataSize) final;
@@ -16,15 +18,19 @@ private:
 
     const juce::OSCAddressPattern addressPattern;
     juce::OSCSender&              oscSender;
-    juce::OSCReceiver&            oscReceiver;
+    juce::MemoryBlock             outgoingData;
 
-    juce::MemoryBlock outgoingData;
+    OscConnectionChecker connectionChecker;
+    events::Listener     connectionListener;
 };
 
 
 struct OscDataSynchronizer : public OscManager
 {
-    OscDataSynchronizer (SerializableData& dataToUse, const String& targetHostName = "Host", int portNumber = 53100);
+    OscDataSynchronizer (SerializableData&       dataToUse,
+                         const String&           targetHostName   = "Host",
+                         int                     portNumber       = 53100,
+                         std::function< void() > onConnectionLost = {});
 
     virtual ~OscDataSynchronizer() = default;
 

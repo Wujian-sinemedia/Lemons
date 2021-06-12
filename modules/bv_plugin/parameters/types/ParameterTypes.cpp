@@ -128,12 +128,12 @@ int IntParameter::getDefault() const
 
 int IntParameter::getMinimum() const
 {
-    return getRange().start;
+    return getRange().getStart();
 }
 
 int IntParameter::getMaximum() const
 {
-    return getRange().end();
+    return getRange().getEnd();
 }
 
 void IntParameter::set (int newValue)

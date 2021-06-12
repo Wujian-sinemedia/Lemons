@@ -4,27 +4,19 @@ namespace bav::network
 juce::OSCAddressPattern formatAddressPattern (const String& address)
 {
     jassert (! address.isEmpty());
-
-    address.replaceCharacters (" ", "/");
-
-    if (address.startsWith ("/"))
-        return address;
-
-    return String ("/") + address;
+    return String ("/") + address.trim().replaceCharacters (" ", "/");
 }
 
-OscDataSynchronizerBase::OscDataSynchronizerBase (SerializableData& dataToUse, juce::OSCSender& s, juce::OSCReceiver& r)
+OscDataSynchronizerBase::OscDataSynchronizerBase (SerializableData&  dataToUse,
+                                                  juce::OSCSender&   s,
+                                                  juce::OSCReceiver& r,
+                                                  std::function< void() >
+                                                      onConnectionLost)
     : DataSynchronizer (dataToUse),
+      OscListener (r),
       addressPattern (formatAddressPattern (dataToUse.getDataIdentifier().toString())),
-      oscSender (s),
-      oscReceiver (r)
+      oscSender (s), connectionChecker (s, r), connectionListener (connectionChecker.getBroadcaster(), onConnectionLost)
 {
-    oscReceiver.addListener (this);
-}
-
-OscDataSynchronizerBase::~OscDataSynchronizerBase()
-{
-    oscReceiver.removeListener (this);
 }
 
 void OscDataSynchronizerBase::sendChangeData (const void* data, size_t dataSize)
@@ -50,9 +42,11 @@ void OscDataSynchronizerBase::oscMessageReceived (const juce::OSCMessage& messag
 
 OscDataSynchronizer::OscDataSynchronizer (SerializableData& dataToUse,
                                           const String&     targetHostName,
-                                          int               portNumber)
+                                          int               portNumber,
+                                          std::function< void() >
+                                              onConnectionLost)
     : OscManager (targetHostName, portNumber),
-      sync (dataToUse, sender, receiver)
+      sync (dataToUse, sender, receiver, onConnectionLost)
 {
     dataToUse.addDataChild (*this);
 }

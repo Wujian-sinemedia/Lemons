@@ -40,7 +40,7 @@ public:
 
     float normalize (float input) const;
     float denormalize (float input) const;
-
+    
     void setUndoManager (UndoManager& managerToUse);
 
     void sendListenerSyncCallback();  // sends a value update message immediately to all listeners
@@ -92,6 +92,21 @@ private:
     const String valueChangeTransactionName;
     const String defaultChangeTransactionName;
     const String midiControllerChangeTransactionName;
+};
+
+
+struct ParamUpdater : Parameter::Listener
+{
+    ParamUpdater (Parameter& param, std::function<void()> onValueChange)
+    : Listener (param), callback (std::move (onValueChange))
+    { }
+    
+    void parameterValueChanged (float) final
+    {
+        callback();
+    }
+    
+    std::function<void()> callback;
 };
 
 
