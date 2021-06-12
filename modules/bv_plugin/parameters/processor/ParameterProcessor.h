@@ -4,27 +4,17 @@
 namespace bav
 {
 
-class ParameterProcessorBase
+template<typename SampleType>
+class ParameterProcessorBase : public dsp::MidiChoppingProcessor<SampleType>
 {
 public:
     ParameterProcessorBase (ParameterList& listToUse);
     virtual ~ParameterProcessorBase() = default;
     
-    template<typename SampleType>
-    void process (juce::AudioBuffer<SampleType>& audio, juce::MidiBuffer& midi);
-    
 private:
-    virtual void renderChunk (juce::AudioBuffer<float>& audio, juce::MidiBuffer& midi) = 0;
-    virtual void renderChunk (juce::AudioBuffer<double>& audio, juce::MidiBuffer& midi) = 0;
-    
-    void handleMidiMessage (const juce::MidiMessageMetadata& meta);
-    
-    template<typename SampleType>
-    void processInternal (juce::AudioBuffer<SampleType>& audio, juce::MidiBuffer& midi,
-                          int startSample, int numSamples);
+    void handleMidiMessage (const juce::MidiMessage& m) final;
     
     ParameterList& list;
-    juce::MidiBuffer midiStorage;
 };
 
 }

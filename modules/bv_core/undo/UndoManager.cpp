@@ -1,5 +1,6 @@
 namespace bav
 {
+
 UndoManager::UndoManager (SerializableData& stateToManage)
     : state (stateToManage)
 {

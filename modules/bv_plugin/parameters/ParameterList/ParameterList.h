@@ -14,35 +14,11 @@ public:
     using PercentParam = bav::PercentParam;
     using GainMeter    = bav::ParameterHolder< bav::GainMeterParameter >;
 
-    //--------------------------------------------------
-
     ParameterList (juce::Identifier listName);
     virtual ~ParameterList() override = default;
 
-    //--------------------------------------------------
-    template < typename... Args >
-    void add (ParamHolderBase& param, Args&&... args)
-    {
-        add (param);
-        add (std::forward< Args > (args)...);
-    }
-    void add (ParamHolderBase& param);
-
-    template < typename... Args >
-    void addInternal (ParamHolderBase& param, Args&&... args)
-    {
-        addInternal (param);
-        addInternal (std::forward< Args > (args)...);
-    }
-    void addInternal (ParamHolderBase& param);
-
-    void addParameter (ParamHolderBase& param, bool isInternal);
-    //--------------------------------------------------
-
     void addParametersTo (juce::AudioProcessor& processor);
     void addAllParametersAsInternal();
-
-    void setPitchbendParameter (IntParam& param);
 
     int getNumParameters() const;
 
@@ -55,6 +31,29 @@ public:
 
     void processMidi (const juce::MidiBuffer& midiMessages);
     void processMidiMessage (const juce::MidiMessage& message);
+    
+protected:
+    template < typename... Args >
+    void add (ParamHolderBase& param, Args&&... args)
+    {
+        add (param);
+        add (std::forward< Args > (args)...);
+    }
+    void add (ParamHolderBase& param);
+    
+    template < typename... Args >
+    void addInternal (ParamHolderBase& param, Args&&... args)
+    {
+        addInternal (param);
+        addInternal (std::forward< Args > (args)...);
+    }
+    void addInternal (ParamHolderBase& param);
+    
+    void addParameter (ParamHolderBase& param, bool isInternal);
+    
+    void setPitchbendParameter (IntParam& param);
+    void setLastMovedMidiControllerNumberParameter (IntParam& param);
+    void setLastMovedMidiControllerValueParameter (IntParam& param);
 
 private:
     virtual void toValueTree (ValueTree&) final { }
@@ -67,6 +66,8 @@ private:
     dsp::BasicProcessorBase         dummyProcessor;
 
     IntParameter* pitchwheelParameter;
+    IntParameter* lastMovedControllerNumberParameter;
+    IntParameter* lastMovedControllerValueParameter;
 };
 
 

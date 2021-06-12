@@ -18,9 +18,35 @@ void ParameterList::addInternal (ParamHolderBase& param)
 
 void ParameterList::addParameter (ParamHolderBase& param, bool isInternal)
 {
+    jassert (! params.contains (&param));
+    
     param.isInternal = isInternal;
     params.add (&param);
     addDataChild (param.getParam());
+}
+
+void ParameterList::setPitchbendParameter (IntParam& param)
+{
+    pitchwheelParameter = param.get();
+    
+    if (! params.contains (&param))
+        addParameter (param, false);
+}
+
+void ParameterList::setLastMovedMidiControllerNumberParameter (IntParam& param)
+{
+    lastMovedControllerNumberParameter = param.get();
+    
+    if (! params.contains (&param))
+        addParameter (param, true);
+}
+
+void ParameterList::setLastMovedMidiControllerValueParameter (IntParam& param)
+{
+    lastMovedControllerValueParameter = param.get();
+    
+    if (! params.contains (&param))
+        addParameter (param, true);
 }
 
 void ParameterList::addParametersTo (juce::AudioProcessor& processor)
@@ -42,11 +68,6 @@ void ParameterList::addAllParametersAsInternal()
         holder->addTo (dummyProcessor);
 
     sendCallbackToAllListeners();
-}
-
-void ParameterList::setPitchbendParameter (IntParam& param)
-{
-    pitchwheelParameter = param.get();
 }
 
 void ParameterList::sendCallbackToAllListeners()
@@ -96,6 +117,16 @@ void ParameterList::processNewControllerMessage (int controllerNumber, int contr
 {
     for (auto* holder : params)
         holder->getParam()->processNewControllerMessage (controllerNumber, controllerValue);
+    
+    if (auto* num = lastMovedControllerNumberParameter)
+    {
+        num->set (controllerNumber);
+    }
+    
+    if (auto* val = lastMovedControllerValueParameter)
+    {
+        val->set (controllerValue);
+    }
 }
 
 void ParameterList::processNewPitchwheelMessage (int pitchwheelValue)

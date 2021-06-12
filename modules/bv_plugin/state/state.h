@@ -9,14 +9,6 @@ public:
     StateBase (juce::Identifier name);
     virtual ~StateBase() override = default;
 
-    template < typename... Args >
-    void add (ParameterList& list, Args&&... args)
-    {
-        add (list);
-        add (std::forward< Args > (args)...);
-    }
-    void add (ParameterList& list);
-    
     void addTo (dsp::ProcessorBase& p);
     void addTo (dsp::ProcessorBase* p);
     void addAllAsInternal();
@@ -30,6 +22,15 @@ public:
 
     void processMidi (const juce::MidiBuffer& midiMessages);
     void processMidiMessage (const juce::MidiMessage& message);
+    
+protected:
+    template < typename... Args >
+    void add (ParameterList& list, Args&&... args)
+    {
+        add (list);
+        add (std::forward< Args > (args)...);
+    }
+    void add (ParameterList& list);
     
 private:
     void toValueTree (ValueTree& tree) final;

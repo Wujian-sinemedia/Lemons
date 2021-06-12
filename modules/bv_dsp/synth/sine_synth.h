@@ -12,7 +12,7 @@ public:
     {
     }
 
-    void renderPlease (juce::AudioBuffer< SampleType >& output, float desiredFrequency, double currentSamplerate, int) final
+    void renderPlease (juce::AudioBuffer< SampleType >& output, float desiredFrequency, double currentSamplerate) final
     {
         sine.setFrequency (SampleType (desiredFrequency), SampleType (currentSamplerate));
         sine.getSamples (output.getWritePointer (0), output.getNumSamples());

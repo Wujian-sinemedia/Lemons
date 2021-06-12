@@ -147,81 +147,42 @@ void SynthBase< SampleType >::renderVoices (juce::MidiBuffer& midiMessages, juce
 
     aggregateMidiBuffer.clear();
 
-    auto samplesLeft = output.getNumSamples();
+    const auto numSamples = output.getNumSamples();
 
     midiInputStorage.clear();
-    midiInputStorage.addEvents (midiMessages, 0, samplesLeft, 0);
+    midiInputStorage.addEvents (midiMessages, 0, numSamples, 0);
 
     for (auto* voice : voices)
-        voice->newBlockComing (lastBlocksize, samplesLeft);
+        voice->newBlockComing (lastBlocksize, numSamples);
 
-    lastBlocksize = samplesLeft;
-
-    auto midiIterator = midiMessages.findNextSamplePosition (0);
-
-    int startSample = 0;
-
-    for (; samplesLeft > 0; ++midiIterator)
-    {
-        if (midiIterator == midiMessages.cend())
-        {
-            renderVoicesInternal (output, startSample, samplesLeft);
-            midiMessages.swapWith (aggregateMidiBuffer);
-            midiInputStorage.clear();
-            return;
-        }
-
-        const auto metadata                 = *midiIterator;
-        const auto samplesToNextMidiMessage = metadata.samplePosition - startSample;
-
-        if (samplesToNextMidiMessage >= samplesLeft)
-        {
-            renderVoicesInternal (output, startSample, samplesLeft);
-            midi.process (metadata);
-            break;
-        }
-
-        if (samplesToNextMidiMessage == 0)
-        {
-            midi.process (metadata);
-            continue;
-        }
-
-        renderVoicesInternal (output, startSample, samplesToNextMidiMessage);
-        midi.process (metadata);
-
-        startSample += samplesToNextMidiMessage;
-        samplesLeft -= samplesToNextMidiMessage;
-    }
-
-    std::for_each (
-        midiIterator, midiMessages.cend(), [&] (const juce::MidiMessageMetadata& meta)
-        { midi.process (meta); });
+    lastBlocksize = numSamples;
+    
+    chopper.process (output, midiMessages);
 
     midiMessages.swapWith (aggregateMidiBuffer);
     midiInputStorage.clear();
 }
 
 
-/*
- Renders all the synth's voices for the given range of the output buffer. (Not for public use.)
- */
 template < typename SampleType >
-void SynthBase< SampleType >::renderVoicesInternal (juce::AudioBuffer< SampleType >& output, int startSample, int numSamples)
+void SynthBase< SampleType >::MidiChopper::handleMidiMessage (const juce::MidiMessage& m)
 {
-#if JUCE_DEBUG
-    const auto totalNumSamples = output.getNumSamples();
-    jassert (numSamples <= totalNumSamples && startSample < totalNumSamples);
-#endif
-    for (auto* voice : voices)
+    synth.midi.process (m);
+}
+
+template < typename SampleType >
+void SynthBase< SampleType >::MidiChopper::renderChunk (juce::AudioBuffer<SampleType>& audio, juce::MidiBuffer&)
+{
+    const auto numSamples = audio.getNumSamples();
+    
+    for (auto* voice : synth.voices)
     {
         if (voice->isVoiceActive())
-            voice->renderBlock (output, startSample, numSamples);
+            voice->renderBlock (audio);
         else
             voice->bypassedBlock (numSamples);
     }
 }
-
 
 /*
  This should be called when a block is recieved while the processor is in bypassed mode.

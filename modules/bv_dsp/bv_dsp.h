@@ -29,6 +29,7 @@ END_JUCE_MODULE_DECLARATION
 
 #include "engines/AudioEngine.h"
 #include "engines/LatencyEngine.h"
+#include "MidiChoppingProcessor/MidiChoppingProcessor.h"
 
 #include "PitchDetector/pitch-detector.h"
 #include "PSOLA/analysis/psola_analyzer.h"

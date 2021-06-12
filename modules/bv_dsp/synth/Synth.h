@@ -125,8 +125,6 @@ protected:
     virtual Voice* createVoice() = 0;
 
 private:
-    void renderVoicesInternal (AudioBuffer& output, int startSample, int numSamples);
-
     void addNumVoices (int voicesToAdd);
     void removeNumVoices (int voicesToRemove);
     void numVoicesChanged();
@@ -179,6 +177,23 @@ private:
 
     MidiBuffer aggregateMidiBuffer;  // this midi buffer will be used to collect the harmonizer's aggregate MIDI output
     MidiBuffer midiInputStorage;     // each block of midi that comes in is stored in here so we can refer to it later
+    
+    //--------------------------------------------------
+    
+    class MidiChopper : public MidiChoppingProcessor<SampleType>
+    {
+    public:
+        MidiChopper (SynthBase& s): synth (s) { }
+        
+    private:
+        void handleMidiMessage (const juce::MidiMessage& m) final;
+        
+        void renderChunk (juce::AudioBuffer<SampleType>& audio, juce::MidiBuffer& midi) final;
+        
+        SynthBase& synth;
+    };
+    
+    MidiChopper chopper {*this};
 
     //--------------------------------------------------
 

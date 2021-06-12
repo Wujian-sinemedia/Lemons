@@ -6,6 +6,7 @@ class UndoManager
 {
 public:
     UndoManager (SerializableData& stateToManage);
+    virtual ~UndoManager() = default;
 
     bool undo();
     bool redo();

@@ -50,7 +50,7 @@ void SynthVoiceBase< SampleType >::prepare (const int blocksize)
         If you override this function, you should only modify the samples between startSample and (startSample + numSamples - 1) within the output buffer, and you should ADD!!! to the output buffer, as opposed to writing over its content.
     */
 template < typename SampleType >
-void SynthVoiceBase< SampleType >::renderBlock (AudioBuffer& output, const int startSample, const int numSamples)
+void SynthVoiceBase< SampleType >::renderBlock (AudioBuffer& output)
 {
     const bool voiceIsOnRightNow = isQuickFading ? quickRelease.isActive() : adsr.isActive();
 
@@ -59,6 +59,8 @@ void SynthVoiceBase< SampleType >::renderBlock (AudioBuffer& output, const int s
         clearCurrentNote();
         return;
     }
+    
+    const auto numSamples = output.getNumSamples();
 
     if (numSamples == 0) return;
 
@@ -68,7 +70,6 @@ void SynthVoiceBase< SampleType >::renderBlock (AudioBuffer& output, const int s
     else
         currentOutputFreq = parent->pitch.getFrequencyForMidi (currentlyPlayingNote, midiChannel);
 
-    jassert (output.getNumSamples() >= startSample + numSamples);
     jassert (parent->sampleRate > 0);
     jassert (renderingBuffer.getNumChannels() > 0);
     jassert (currentOutputFreq > 0);
@@ -80,7 +81,7 @@ void SynthVoiceBase< SampleType >::renderBlock (AudioBuffer& output, const int s
 
     //  generate some mono audio output at the frequency currentOutputFreq.....
     //  the subclass should write its output to "render" (which is an alias for renderingBuffer)
-    renderPlease (render, currentOutputFreq, parent->sampleRate, startSample);
+    renderPlease (render, currentOutputFreq, parent->sampleRate);
 
     //  smoothed gain modulations
     midiVelocityGain.process (render);
@@ -100,7 +101,7 @@ void SynthVoiceBase< SampleType >::renderBlock (AudioBuffer& output, const int s
     if (output.getNumChannels() == 1)
     {
         //  add (!) to output
-        vecops::addV (output.getWritePointer (0, startSample), render.getReadPointer (0), numSamples);
+        vecops::addV (output.getWritePointer (0), render.getReadPointer (0), numSamples);
     }
     else
     {
@@ -108,7 +109,7 @@ void SynthVoiceBase< SampleType >::renderBlock (AudioBuffer& output, const int s
 
         //  add (!) to output
         for (int chan = 0; chan < 2; ++chan)
-            vecops::addV (output.getWritePointer (chan, startSample), stereoBuffer.getReadPointer (chan), numSamples);
+            vecops::addV (output.getWritePointer (chan), stereoBuffer.getReadPointer (chan), numSamples);
     }
 
     const bool voiceIsStillOn = isQuickFading ? quickRelease.isActive() : adsr.isActive();

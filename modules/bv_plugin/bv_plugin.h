@@ -50,6 +50,7 @@
 #include "EditorBase/EditorBase.h"
 
 #include "state/state.h"
+#include "state/PluginUndo.h"
 #include "presets/PresetManager.h"
 
 

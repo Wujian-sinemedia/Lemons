@@ -8,6 +8,7 @@
 
 #include "engines/AudioEngine.cpp"
 #include "engines/LatencyEngine.cpp"
+#include "MidiChoppingProcessor/MidiChoppingProcessor.cpp"
 
 #include "PitchDetector/pitch-detector.cpp"
 #include "PSOLA/analysis/psola_analyzer.cpp"

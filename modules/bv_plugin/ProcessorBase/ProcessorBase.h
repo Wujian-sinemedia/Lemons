@@ -16,6 +16,27 @@ public:
 private:
     virtual BoolParameter&    getMainBypass() const = 0;
     virtual SerializableData& getStateData()        = 0;
+    
+    template<typename SampleType>
+    struct ParameterProcessor : ParameterProcessorBase<SampleType>
+    {
+        ParameterProcessor (ProcessorBase& p, ParameterList& l);
+        
+    private:
+        void renderChunk (juce::AudioBuffer< SampleType >& audio, juce::MidiBuffer& midi) final;
+        
+        ProcessorBase& processor;
+    };
+    
+    void processBlock (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi) final;
+    void processBlock (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi) final;
+    void processBlockBypassed (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi) final;
+    void processBlockBypassed (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi) final;
+    
+    template < typename SampleType >
+    void processBlockInternal (juce::AudioBuffer< SampleType >& audio,
+                               juce::MidiBuffer& midi,
+                               ParameterProcessor<SampleType>& parameterProcessor);
 
     template < typename SampleType >
     void renderChunk (Engine< SampleType >& engine, juce::AudioBuffer< SampleType >& audio, juce::MidiBuffer& midi);
@@ -31,34 +52,16 @@ private:
 
     void releaseResources() final;
 
-    void processBlock (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi) final;
-    void processBlock (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi) final;
-    void processBlockBypassed (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi) final;
-    void processBlockBypassed (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi) final;
-
     bool supportsDoublePrecisionProcessing() const final { return true; }
-
-    template < typename SampleType >
-    void processBlockInternal (juce::AudioBuffer< SampleType >& audio, juce::MidiBuffer& midi);
+    
+    juce::AudioProcessorParameter* getBypassParameter() const final { return &getMainBypass(); }
 
     template < typename SampleType >
     juce::AudioBuffer< SampleType > findSubBuffer (const AudioProcessor::BusesLayout& busLayout,
                                                    juce::AudioBuffer< SampleType >& origBuffer, bool isInput);
 
-    juce::AudioProcessorParameter* getBypassParameter() const final { return &getMainBypass(); }
-
-    struct ParameterProcessor : ParameterProcessorBase
-    {
-        ParameterProcessor (ProcessorBase& p, ParameterList& l);
-
-    private:
-        void renderChunk (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi) final;
-        void renderChunk (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi) final;
-
-        ProcessorBase& processor;
-    };
-
-    ParameterProcessor parameterProcessor;
+    ParameterProcessor<float>  floatParameterProcessor;
+    ParameterProcessor<double> doubleParameterProcessor;
 
     Engine< float >&  floatEngine;
     Engine< double >& doubleEngine;

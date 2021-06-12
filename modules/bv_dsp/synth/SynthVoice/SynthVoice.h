@@ -34,7 +34,7 @@ public:
     void release() { released(); }
     void resetRampedValues();
 
-    void renderBlock (AudioBuffer& output, const int startSample, const int numSamples);
+    void renderBlock (AudioBuffer& output);
 
     void bypassedBlock (const int numSamples);
 
@@ -66,9 +66,8 @@ protected:
     /*
             Called in the subclass to actually generate some audio at the desired frequency.
             The output buffer sent to this function will contain the number of samples desired for this frame, and your output samples should start at index 0.
-            If you need it, the start sample from the original larger buffer sent to the parent's renderVoices() is also provided. You can probably just ignore this argument.
         */
-    virtual void renderPlease (AudioBuffer& output, float desiredFrequency, double currentSamplerate, int startSampleOfOrigBuffer) = 0;
+    virtual void renderPlease (AudioBuffer& output, float desiredFrequency, double currentSamplerate) = 0;
 
     // if overridden, called in the subclass when the top-level call to prepare() is made
     virtual void prepared (int blocksize) { juce::ignoreUnused (blocksize); }
