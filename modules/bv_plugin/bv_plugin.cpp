@@ -8,6 +8,7 @@
 #include "parameters/Parameter.cpp"
 #include "parameters/types/ParameterTypes.cpp"
 #include "parameters/specializations/ParameterSpecializations.cpp"
+#include "parameters/StringProperty/StringProperty.cpp"
 #include "parameters/ParameterList/ParameterList.cpp"
 #include "parameters/processor/ParameterProcessor.cpp"
 

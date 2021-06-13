@@ -37,6 +37,7 @@
 #include "parameters/types/ParameterTypes.h"
 #include "parameters/specializations/ParameterSpecializations.h"
 #include "parameters/ParameterList/ParameterHolder.h"
+#include "parameters/StringProperty/StringProperty.h"
 
 #include "transport/PluginTransport.h"
 

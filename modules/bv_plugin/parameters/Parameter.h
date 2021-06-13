@@ -74,8 +74,8 @@ public:
     //==============================================================================
 
 private:
-    void toValueTree (juce::ValueTree& tree) final;
-    void fromValueTree (const juce::ValueTree& tree) final;
+    void toValueTree (ValueTree& tree) final;
+    void fromValueTree (const ValueTree& tree) final;
 
     void setValueInternal (float value);
     void setDefaultInternal (float value);

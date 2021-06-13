@@ -203,14 +203,14 @@ void Parameter::sendListenerSyncCallback()
 }
 
 
-void Parameter::toValueTree (juce::ValueTree& tree)
+void Parameter::toValueTree (ValueTree& tree)
 {
     tree.setProperty ("ParameterValue", getCurrentNormalizedValue(), nullptr);
     tree.setProperty ("ParameterDefaultValue", getNormalizedDefault(), nullptr);
     tree.setProperty ("MappedMidiControllerNumber", getMidiControllerNumber(), nullptr);
 }
 
-void Parameter::fromValueTree (const juce::ValueTree& tree)
+void Parameter::fromValueTree (const ValueTree& tree)
 {
     setValueInternal (tree.getProperty ("ParameterValue"));
     setDefaultInternal (tree.getProperty ("ParameterDefaultValue"));

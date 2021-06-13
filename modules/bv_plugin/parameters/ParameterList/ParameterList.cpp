@@ -11,24 +11,42 @@ void ParameterList::add (ParamHolderBase& param)
     addParameter (param, false);
 }
 
+void ParameterList::add (StringProperty& param)
+{
+    addStringProperty (param);
+}
+
 void ParameterList::addInternal (ParamHolderBase& param)
 {
     addParameter (param, true);
 }
 
+void ParameterList::addInternal (StringProperty& param)
+{
+    addStringProperty (param);
+}
+
 void ParameterList::addParameter (ParamHolderBase& param, bool isInternal)
 {
     jassert (! params.contains (&param));
-    
+
     param.isInternal = isInternal;
     params.add (&param);
     addDataChild (param.getParam());
 }
 
+void ParameterList::addStringProperty (StringProperty& property)
+{
+    jassert (! strings.contains (&property));
+
+    strings.add (&property);
+    addDataChild (property);
+}
+
 void ParameterList::setPitchbendParameter (IntParam& param)
 {
     pitchwheelParameter = param.get();
-    
+
     if (! params.contains (&param))
         addParameter (param, false);
 }
@@ -36,7 +54,7 @@ void ParameterList::setPitchbendParameter (IntParam& param)
 void ParameterList::setLastMovedMidiControllerNumberParameter (IntParam& param)
 {
     lastMovedControllerNumberParameter = param.get();
-    
+
     if (! params.contains (&param))
         addParameter (param, true);
 }
@@ -44,7 +62,7 @@ void ParameterList::setLastMovedMidiControllerNumberParameter (IntParam& param)
 void ParameterList::setLastMovedMidiControllerValueParameter (IntParam& param)
 {
     lastMovedControllerValueParameter = param.get();
-    
+
     if (! params.contains (&param))
         addParameter (param, true);
 }
@@ -76,27 +94,31 @@ void ParameterList::sendCallbackToAllListeners()
         holder->getParam()->sendListenerSyncCallback();
 }
 
-int ParameterList::getNumParameters() const
-{
-    return params.size();
-}
-
 void ParameterList::refreshAllDefaults()
 {
     for (auto* holder : params)
         holder->getParam()->refreshDefault();
+
+    for (auto& string : strings)
+        string->refreshDefault();
 }
 
 void ParameterList::resetAllToDefault()
 {
     for (auto* holder : params)
         holder->getParam()->resetToDefault();
+
+    for (auto& string : strings)
+        string->resetToDefault();
 }
 
 void ParameterList::setUndoManager (UndoManager& um)
 {
     for (auto* holder : params)
         holder->getParam()->setUndoManager (um);
+
+    for (auto& string : strings)
+        string->setUndoManager (um);
 }
 
 void ParameterList::processMidi (const juce::MidiBuffer& midiMessages)
@@ -117,12 +139,12 @@ void ParameterList::processNewControllerMessage (int controllerNumber, int contr
 {
     for (auto* holder : params)
         holder->getParam()->processNewControllerMessage (controllerNumber, controllerValue);
-    
+
     if (auto* num = lastMovedControllerNumberParameter)
     {
         num->set (controllerNumber);
     }
-    
+
     if (auto* val = lastMovedControllerValueParameter)
     {
         val->set (controllerValue);
