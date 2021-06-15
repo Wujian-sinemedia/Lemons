@@ -52,23 +52,20 @@ void SynthVoiceBase< SampleType >::prepare (const int blocksize)
 template < typename SampleType >
 void SynthVoiceBase< SampleType >::renderBlock (AudioBuffer& output)
 {
-    const bool voiceIsOnRightNow = isQuickFading ? quickRelease.isActive() : adsr.isActive();
-
-    if (! voiceIsOnRightNow)
+    if (! isVoiceOnRightNow())
     {
         clearCurrentNote();
         return;
     }
     
-    const auto numSamples = output.getNumSamples();
-
-    if (numSamples == 0) return;
-
     //  it's possible that the MTS-ESP master tuning table has changed since the last time this function was called...
     if (parent->pitch.tuning.shouldFilterNote (currentlyPlayingNote, midiChannel))
         stopNote (1.0f, false);
     else
         currentOutputFreq = parent->pitch.getFrequencyForMidi (currentlyPlayingNote, midiChannel);
+    
+    const auto numSamples = output.getNumSamples();
+    if (numSamples == 0) return;
 
     jassert (parent->sampleRate > 0);
     jassert (renderingBuffer.getNumChannels() > 0);
@@ -112,9 +109,16 @@ void SynthVoiceBase< SampleType >::renderBlock (AudioBuffer& output)
             vecops::addV (output.getWritePointer (chan), stereoBuffer.getReadPointer (chan), numSamples);
     }
 
-    const bool voiceIsStillOn = isQuickFading ? quickRelease.isActive() : adsr.isActive();
+    if (! isVoiceOnRightNow()) clearCurrentNote();
+}
 
-    if (! voiceIsStillOn) clearCurrentNote();
+template < typename SampleType >
+bool SynthVoiceBase< SampleType >::isVoiceOnRightNow() const
+{
+    if (isQuickFading)
+        return quickRelease.isActive();
+    
+    return adsr.isActive();
 }
 
 

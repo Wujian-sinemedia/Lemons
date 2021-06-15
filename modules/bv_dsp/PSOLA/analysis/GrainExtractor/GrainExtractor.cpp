@@ -6,18 +6,6 @@
 namespace bav
 {
 template < typename SampleType >
-GrainExtractor< SampleType >::GrainExtractor()
-{
-}
-
-
-template < typename SampleType >
-GrainExtractor< SampleType >::~GrainExtractor()
-{
-}
-
-
-template < typename SampleType >
 void GrainExtractor< SampleType >::releaseResources()
 {
     peakIndices.clear();
@@ -32,8 +20,6 @@ void GrainExtractor< SampleType >::releaseResources()
 template < typename SampleType >
 void GrainExtractor< SampleType >::prepare (const int maxBlocksize)
 {
-    // maxBlocksize = max period of input audio
-
     jassert (maxBlocksize > 0);
 
     peakIndices.ensureStorageAllocated (maxBlocksize);
@@ -75,9 +61,8 @@ void GrainExtractor< SampleType >::getGrainOnsetIndices (
     {
         const auto peakIndex = peakIndices.getUnchecked (i);
 
-        auto grainStart =
-            peakIndex
-            - period;  // offset the peak index by the period so that the peak index will be in the center of the grain (if grain is 2 periods long)
+        // offset the peak index by the period so that the peak index will be in the center of the grain (if grain is 2 periods long)
+        auto grainStart = peakIndex - period;
 
         if (grainStart < 0)
         {
@@ -97,7 +82,6 @@ void GrainExtractor< SampleType >::getGrainOnsetIndices (
             if (grainStart < 0)
             {
                 if (! targetArray.isEmpty()) continue;
-
                 grainStart = 0;
             }
         }

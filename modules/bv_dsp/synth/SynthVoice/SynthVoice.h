@@ -56,7 +56,7 @@ public:
     int getCurrentlyPlayingNote() const noexcept { return currentlyPlayingNote; }
 
     int getMidiChannel() const { return midiChannel > 0 ? midiChannel : parent->midi.getLastMidiChannel(); }
-
+    
     /*=================================================================================
          =================================================================================*/
 
@@ -117,6 +117,8 @@ private:
 
     void setAdsrParameters (const ADSRParams newParams) { adsr.setParameters (newParams); }
     void setQuickReleaseParameters (const ADSRParams newParams) { quickRelease.setParameters (newParams); }
+    
+    bool isVoiceOnRightNow() const;
 
     /*=================================================================================
          =================================================================================*/

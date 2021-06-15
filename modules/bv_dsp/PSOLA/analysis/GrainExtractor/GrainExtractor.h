@@ -10,17 +10,13 @@ class GrainExtractor
     using IArray = juce::Array< int >;
     using FArray = juce::Array< float >;
 
-
 public:
-    GrainExtractor();
-
-    ~GrainExtractor();
-
-
+    GrainExtractor() = default;
+    ~GrainExtractor() = default;
+    
     void prepare (const int maxBlocksize);
 
     void releaseResources();
-
 
     void getGrainOnsetIndices (IArray&           targetArray,
                                const SampleType* inputSamples,
@@ -29,18 +25,6 @@ public:
 
 
 private:
-    IArray
-        peakIndices;  // used by all the kinds of peak picking algorithms to store their output for transformation to grains
-
-    IArray peakCandidates;
-    IArray peakSearchingOrder;
-
-    FArray candidateDeltas;
-    IArray finalHandful;
-    FArray finalHandfulDeltas;
-
-    // functions used for finding of PSOLA peaks
-
     void findPsolaPeaks (IArray&           targetArray,
                          const SampleType* reading,
                          const int         totalNumSamples,
@@ -74,7 +58,13 @@ private:
     int choosePeakWithGreatestPower (const IArray&     candidates,
                                      const SampleType* reading);
 
-    //
+    IArray peakIndices;
+    IArray peakCandidates;
+    IArray peakSearchingOrder;
+    
+    FArray candidateDeltas;
+    IArray finalHandful;
+    FArray finalHandfulDeltas;
 
     static constexpr auto numPeaksToTest          = 10;
     static constexpr auto defaultFinalHandfulSize = 5;
