@@ -9,12 +9,6 @@ struct SerializableData::Child
     {
     }
     
-    ~Child()
-    {
-        parent.children.removeIf ([this] (const Child& child)
-                                  { return child == *this; });
-    }
-    
     bool operator== (const Child& other) const
     {
         return &data == &other.data;

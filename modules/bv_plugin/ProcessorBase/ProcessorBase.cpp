@@ -10,15 +10,7 @@ ProcessorBase::ProcessorBase (ParameterList&                        parameterLis
       floatEngine (floatEngineToUse),
       doubleEngine (doubleEngineToUse)
 {
-    auto initSamplerate = getSampleRate();
-    if (initSamplerate <= 0.0) initSamplerate = 44100.0;
-
-    auto initBlockSize = getBlockSize();
-    if (initBlockSize <= 0) initBlockSize = 512;
-
-    prepareToPlay (initSamplerate, initBlockSize);
 }
-
 
 template<typename SampleType>
 ProcessorBase::ParameterProcessor<SampleType>::ParameterProcessor (ProcessorBase& p, ParameterList& l)
