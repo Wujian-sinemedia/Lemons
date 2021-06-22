@@ -13,9 +13,15 @@ EditorBase::EditorBase (dsp::ProcessorBase& pbToUse)
     if (width > 0 && height > 0)
     {
         getConstrainer()->setMinimumSize (width / 2, height / 2);
+        getConstrainer()->setMaximumSize (width * 2, height * 2);
         getConstrainer()->setFixedAspectRatio ((float) width / (float) height);
         setSize (width, height);
     }
+}
+
+void EditorBase::paint (juce::Graphics& g)
+{
+    g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
 }
 
 void EditorBase::resized()

@@ -202,15 +202,15 @@ private:
         MidiManager (SynthBase& s) : synth (s) { }
 
     private:
-        void handleNoteOn (int midiPitch, float velocity);
-        void handleNoteOff (int midiPitch, float velocity);
-        void handlePitchwheel (int wheelValue);
-        void handleAftertouch (int noteNumber, int aftertouchValue);
-        void handleChannelPressure (int channelPressureValue);
-        void handleSustainPedal (int controllerValue);
-        void handleSostenutoPedal (int controllerValue);
-        void handleSoftPedal (int controllerValue);
-        void handleAllSoundOff() { synth.allNotesOff (false); }
+        void handleNoteOn (int midiPitch, float velocity) final;
+        void handleNoteOff (int midiPitch, float velocity) final;
+        void handlePitchwheel (int wheelValue) final;
+        void handleAftertouch (int noteNumber, int aftertouchValue) final;
+        void handleChannelPressure (int channelPressureValue) final;
+        void handleSustainPedal (int controllerValue) final;
+        void handleSostenutoPedal (int controllerValue) final;
+        void handleSoftPedal (int controllerValue) final;
+        void handleAllSoundOff() final { synth.allNotesOff (false); }
 
         SynthBase& synth;
     };

@@ -21,8 +21,6 @@ struct SerializableData
     void addDataChild (SerializableData* child);
 
 private:
-    struct Child;
-    
     virtual void toValueTree (ValueTree& t)         = 0;
     virtual void fromValueTree (const ValueTree& t) = 0;
 
@@ -30,7 +28,7 @@ private:
 
     const juce::Identifier dataIdentifier;
     
-    juce::Array< Child > children;
+    juce::Array<SerializableData*> children;
 };
 
 

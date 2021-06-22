@@ -10,7 +10,6 @@ ProcessorBase::ProcessorBase (ParameterList&                        parameterLis
       floatEngine (floatEngineToUse),
       doubleEngine (doubleEngineToUse)
 {
-    parameters.addDataChild (lastSavedEditorSize);
 }
 
 template < typename SampleType >
@@ -56,6 +55,7 @@ void ProcessorBase::releaseResources()
 
 void ProcessorBase::getStateInformation (juce::MemoryBlock& block)
 {
+    parameters.addDataChild (lastSavedEditorSize);
     serializing::toBinary (parameters, block);
 }
 

@@ -2,29 +2,6 @@
 namespace bav
 {
 
-struct SerializableData::Child
-{
-    Child (SerializableData& dataToUse, SerializableData& parentData)
-        : data (dataToUse), parent (parentData)
-    {
-    }
-    
-    bool operator== (const Child& other) const
-    {
-        return &data == &other.data;
-    }
-    
-    bool operator== (const SerializableData& dataToCompare) const
-    {
-        return &data == &dataToCompare;
-    }
-    
-    SerializableData& data;
-    SerializableData& parent;
-};
-
-/*-----------------------------------------------------------------------------------------*/
-
 SerializableData::SerializableData (juce::Identifier identifier)
     : dataIdentifier (identifier)
 {
@@ -47,8 +24,8 @@ ValueTree SerializableData::serialize()
 
     toValueTree (tree);
 
-    for (auto& child : children)
-        child.data.serialize (tree);
+    for (auto* child : children)
+        child->serialize (tree);
 
     return tree;
 }
@@ -76,7 +53,7 @@ void SerializableData::deserialize (const ValueTree& t)
 void SerializableData::addDataChild (SerializableData& child)
 {
     jassert (&child != this);
-    children.addIfNotAlreadyThere ({child, *this});
+    children.addIfNotAlreadyThere (&child);
 }
 
 void SerializableData::addDataChild (SerializableData* child)
@@ -92,7 +69,7 @@ void SerializableData::setTree (const ValueTree& newTree)
     fromValueTree (newTree);
 
     for (auto& child : children)
-        child.data.deserialize (newTree);
+        child->deserialize (newTree);
 }
 
 }  // namespace bav
