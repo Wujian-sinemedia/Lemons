@@ -1,11 +1,25 @@
 namespace bav
 {
-
 UndoManager::UndoManager (SerializableData& stateToManage)
     : state (stateToManage)
 {
     storedStates.reserve (50);
     saveState();
+}
+
+bool UndoManager::isInMiddleOfTransaction() const
+{
+    return changing;
+}
+
+String UndoManager::getCurrentTransactionName() const
+{
+    return transactionName;
+}
+
+events::Broadcaster& UndoManager::getBroadcaster()
+{
+    return broadcaster;
 }
 
 bool UndoManager::undo()

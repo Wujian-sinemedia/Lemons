@@ -4,19 +4,10 @@ namespace bav::events
 {
 struct Listener : Broadcaster::Reciever
 {
-    Listener (Broadcaster& b, std::function< void() > func)
-        : Reciever (b),
-          callbackFunc (std::move (func))
-    {
-    }
-
-    virtual ~Listener() = default;
+    Listener (Broadcaster& b, std::function< void() > func);
 
 private:
-    void callback() final
-    {
-        callbackFunc();
-    }
+    void callback() final;
 
     std::function< void() > callbackFunc;
 };

@@ -155,18 +155,6 @@
 /*=======================================================================*/
 
 
-#if BV_USE_VDSP
-#    include <Accelerate/Accelerate.h>
-#elif BV_USE_IPP
-#    include <ippversion.h>
-#    include <ipps.h>
-#elif BV_USE_NE10
-#    include <NE10.h>
-#elif BV_USE_MIPP
-#    include <mipp.h>
-#endif
-
-
 #include <juce_audio_utils/juce_audio_utils.h>
 
 
@@ -194,8 +182,6 @@ using juce::ValueTree;
 #include "binary_data/BinaryDataHelpers.h"
 
 #include "localization/localization.h"
-
-#include "misc/SystemInitializer.h"
 
 #include "math/mathHelpers.h"
 #include "math/vecops/vecops.h"

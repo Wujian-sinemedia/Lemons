@@ -28,7 +28,7 @@ bool PresetManagerBase::loadPreset (const String& presetName)
 
     if (! file.existsAsFile())
         return false;
-    
+
     UndoManager::ScopedTransaction s {undo, TRANS ("Loaded preset") + " " + presetName};
 
     serializing::fromBinary (file, state);
@@ -79,6 +79,16 @@ const juce::StringArray& PresetManagerBase::presetNames()
 {
     rescanPresetsFolder();
     return namesOfAvailablePresets;
+}
+
+events::Broadcaster& PresetManagerBase::getPresetsChangedBroadcaster()
+{
+    return availablePresetsChanged;
+}
+
+events::Broadcaster& PresetManagerBase::getPresetLoadedBroadcaster()
+{
+    return presetLoaded;
 }
 
 }  // namespace bav

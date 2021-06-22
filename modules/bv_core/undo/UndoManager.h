@@ -14,14 +14,14 @@ public:
     bool hasUndo() const;
     bool hasRedo() const;
 
-    bool isInMiddleOfTransaction() const { return changing; }
+    bool isInMiddleOfTransaction() const;
 
     void undoToLastTransaction();
 
     void beginNewTransaction (const String& name = {}, bool force = false);
     void endTransaction();
 
-    String            getCurrentTransactionName() const { return transactionName; }
+    String            getCurrentTransactionName() const;
     String            getNextUndoTransactionName() const;
     String            getNextRedoTransactionName() const;
     juce::StringArray getUndoTransactionNames() const;
@@ -29,7 +29,7 @@ public:
 
     void clearUndoHistory();
 
-    events::Broadcaster& getBroadcaster() { return broadcaster; }
+    events::Broadcaster& getBroadcaster();
 
     struct ScopedTransaction
     {

@@ -23,17 +23,17 @@ public:
 
     const juce::StringArray& presetNames();
 
-    events::Broadcaster& getPresetsChangedBroadcaster() { return availablePresetsChanged; }
-    events::Broadcaster& getPresetLoadedBroadcaster() { return presetLoaded; }
+    events::Broadcaster& getPresetsChangedBroadcaster();
+    events::Broadcaster& getPresetLoadedBroadcaster();
 
 private:
     juce::File presetNameToFilePath (const String& presetName);
-    
-    UndoManager* undo;
+
+    UndoManager*      undo;
     SerializableData& state;
 
     juce::StringArray namesOfAvailablePresets;
-    
+
     events::Broadcaster availablePresetsChanged;
     events::Broadcaster presetLoaded;
 };

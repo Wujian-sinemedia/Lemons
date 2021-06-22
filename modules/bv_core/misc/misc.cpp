@@ -1,6 +1,26 @@
 
 namespace bav
 {
+bool thisIsTheMessageThread() noexcept
+{
+    return juce::MessageManager::getInstance()->isThisTheMessageThread();
+}
+
+const juce::juce_wchar getSharpSymbol() noexcept
+{
+    return *juce::CharPointer_UTF8 ("\xe2\x99\xaf");
+}
+
+const juce::juce_wchar getFlatSymbol() noexcept
+{
+    return *juce::CharPointer_UTF8 ("\xe2\x99\xad");
+}
+
+const juce::juce_wchar getNaturalSymbol() noexcept
+{
+    return *juce::CharPointer_UTF8 ("\xe2\x99\xae");
+}
+
 int midiPanStringToInt (const String& string)
 {
     if (string.endsWithIgnoreCase (TRANS ("C"))) return 64;
@@ -108,6 +128,15 @@ int stringToPitch (const String& string)
     jassert (pitchClass > -1);
 
     return (octave * 12) + pitchClass;
+}
+
+SystemInitializer::SystemInitializer()
+{
+#if BV_USE_NE10
+    ne10_init();
+#endif
+
+    initializeDefaultTranslations();
 }
 
 }  // namespace bav
