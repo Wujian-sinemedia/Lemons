@@ -21,17 +21,12 @@
 #    pragma clang diagnostic ignored "-Wunused-function"
 #endif
 
-#include <bv_plugin/bv_plugin.h>
-
-#include "utilities/Scaling.h"
-#include "utilities/DarkModeSentinel.h"
-#include "utilities/ScopedCursor.h"
-#include "utilities/GuiInitializer.h"
 #include "utilities/GuiUtils.h"
 
 #include "icons/icons.h"
 
 #include "components/parameter_connected/ParameterConnectedComponents.h"
+#include "components/buttons/TextButton.h"
 
 #ifdef __clang__
 #    pragma clang diagnostic pop
