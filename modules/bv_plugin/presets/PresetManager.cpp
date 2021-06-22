@@ -1,13 +1,13 @@
 
 namespace bav
 {
-PresetManagerBase::PresetManagerBase (StateBase& stateToUse)
-    : state (&stateToUse), list (nullptr)
+PresetManagerBase::PresetManagerBase (StateBase& stateToUse, UndoManager* um)
+    : undo (um), state (&stateToUse), list (nullptr)
 {
 }
 
-PresetManagerBase::PresetManagerBase (ParameterList& listToUse)
-    : state (nullptr), list (&listToUse)
+PresetManagerBase::PresetManagerBase (ParameterList& listToUse, UndoManager* um)
+    : undo (um), state (nullptr), list (&listToUse)
 {
 }
 
@@ -39,6 +39,8 @@ bool PresetManagerBase::loadPreset (const String& presetName)
 
     if (! file.existsAsFile())
         return false;
+    
+    UndoManager::ScopedTransaction s {undo};
 
     if (state != nullptr)
     {

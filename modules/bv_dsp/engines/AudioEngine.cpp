@@ -4,6 +4,7 @@ namespace bav::dsp
 template < typename SampleType >
 void Engine< SampleType >::prepare (double samplerate, int blocksize)
 {
+    jassert (samplerate > 0 && blocksize > 0);
     dummyMidiBuffer.ensureSize (static_cast< size_t > (blocksize));
     hasBeenInitialized = true;
     sampleRate         = samplerate;

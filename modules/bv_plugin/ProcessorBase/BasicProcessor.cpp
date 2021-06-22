@@ -6,8 +6,6 @@ BasicProcessorBase::BasicProcessorBase (juce::AudioProcessor::BusesProperties bu
 {
 }
 
-BasicProcessorBase::~BasicProcessorBase() { }
-
 void BasicProcessorBase::prepareToPlay (double, int) { }
 void BasicProcessorBase::releaseResources() { }
 

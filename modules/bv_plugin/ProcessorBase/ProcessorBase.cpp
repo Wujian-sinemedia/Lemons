@@ -41,6 +41,8 @@ void ProcessorBase::prepareToPlayInternal (const double           sampleRate,
 {
     if (idleEngine.isInitialized())
         idleEngine.releaseResources();
+    
+    jassert (sampleRate > 0 && samplesPerBlock > 0);
 
     activeEngine.prepare (sampleRate, samplesPerBlock);
 

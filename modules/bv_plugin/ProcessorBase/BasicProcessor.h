@@ -12,8 +12,6 @@ public:
                                                                                 .withInput (TRANS ("Input"), juce::AudioChannelSet::stereo(), true)
                                                                                 .withOutput (TRANS ("Output"), juce::AudioChannelSet::stereo(), true));
 
-    virtual ~BasicProcessorBase() override;
-
     void               saveEditorSize (int width, int height);
     juce::Point< int > getSavedEditorSize() const;
 

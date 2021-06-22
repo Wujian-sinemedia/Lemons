@@ -11,9 +11,29 @@ public:
                    Engine< double >&                     doubleEngineToUse,
                    juce::AudioProcessor::BusesProperties busesLayout);
 
-    virtual ~ProcessorBase() override = default;
-
 private:
+    template < typename SampleType >
+    struct ParameterProcessor : ParameterProcessorBase< SampleType >
+    {
+        ParameterProcessor (ProcessorBase& p, ParameterList& l);
+        
+    private:
+        void renderChunk (juce::AudioBuffer< SampleType >& audio, juce::MidiBuffer& midi) final;
+        
+        ProcessorBase& processor;
+    };
+    
+    struct LastSavedEditorSize : SerializableData
+    {
+        LastSavedEditorSize (ProcessorBase& b);
+        
+    private:
+        void toValueTree (ValueTree& tree) final;
+        void fromValueTree (const ValueTree& tree) final;
+        
+        ProcessorBase& base;
+    };
+    
     virtual BoolParameter&         getMainBypass() const = 0;
     juce::AudioProcessorParameter* getBypassParameter() const final { return &getMainBypass(); }
 
@@ -36,17 +56,6 @@ private:
     void processBlockBypassed (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi) final;
 
     template < typename SampleType >
-    struct ParameterProcessor : ParameterProcessorBase< SampleType >
-    {
-        ParameterProcessor (ProcessorBase& p, ParameterList& l);
-
-    private:
-        void renderChunk (juce::AudioBuffer< SampleType >& audio, juce::MidiBuffer& midi) final;
-
-        ProcessorBase& processor;
-    };
-
-    template < typename SampleType >
     void processBlockInternal (juce::AudioBuffer< SampleType >&  audio,
                                juce::MidiBuffer&                 midi,
                                ParameterProcessor< SampleType >& parameterProcessor);
@@ -58,19 +67,7 @@ private:
     juce::AudioBuffer< SampleType > findSubBuffer (const AudioProcessor::BusesLayout& busLayout,
                                                    juce::AudioBuffer< SampleType >& origBuffer, bool isInput);
 
-    struct LastSavedEditorSize : SerializableData
-    {
-        LastSavedEditorSize (ProcessorBase& b);
-
-    private:
-        void toValueTree (ValueTree& tree) final;
-        void fromValueTree (const ValueTree& tree) final;
-
-        ProcessorBase& base;
-    };
-
-    LastSavedEditorSize lastSavedEditorSize {*this};
-
+    
     ParameterList& parameters;
 
     ParameterProcessor< float >  floatParameterProcessor {*this, parameters};
@@ -78,6 +75,8 @@ private:
 
     Engine< float >&  floatEngine;
     Engine< double >& doubleEngine;
+    
+    LastSavedEditorSize lastSavedEditorSize {*this};
 };
 
 }  // namespace bav::dsp

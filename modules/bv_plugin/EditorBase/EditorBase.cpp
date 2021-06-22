@@ -17,6 +17,10 @@ EditorBase::EditorBase (dsp::ProcessorBase& pbToUse)
         getConstrainer()->setFixedAspectRatio ((float) width / (float) height);
         setSize (width, height);
     }
+    else
+    {
+        jassertfalse;
+    }
 }
 
 void EditorBase::paint (juce::Graphics& g)

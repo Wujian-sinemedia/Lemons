@@ -5,8 +5,8 @@ namespace bav
 class PresetManagerBase
 {
 public:
-    PresetManagerBase (StateBase& stateToUse);
-    PresetManagerBase (ParameterList& listToUse);
+    PresetManagerBase (StateBase& stateToUse, UndoManager* um = nullptr);
+    PresetManagerBase (ParameterList& listToUse, UndoManager* um = nullptr);
 
     virtual ~PresetManagerBase() = default;
 
@@ -29,6 +29,8 @@ public:
 
 private:
     juce::File presetNameToFilePath (const String& presetName);
+    
+    UndoManager* undo;
 
     StateBase*     state;
     ParameterList* list;

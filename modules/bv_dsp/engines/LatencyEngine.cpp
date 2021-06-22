@@ -33,8 +33,8 @@ void LatencyEngine< SampleType >::changeLatency (int newInternalBlocksize)
 {
     using Engine = Engine< SampleType >;
     
-    if (internalBlocksize == newInternalBlocksize) return;
-
+    jassert (newInternalBlocksize > 0);
+    
     internalBlocksize = newInternalBlocksize;
     Engine::prepare (Engine::getSamplerate(), internalBlocksize);
 }
