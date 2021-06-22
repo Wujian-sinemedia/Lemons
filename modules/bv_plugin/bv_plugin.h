@@ -47,7 +47,6 @@
 #include "parameters/processor/ParameterProcessor.h"
 
 #include "ProcessorBase/ProcessorBase.h"
-
 #include "EditorBase/EditorBase.h"
 
 #include "state/state.h"

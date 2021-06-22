@@ -75,6 +75,7 @@ void ProcessorBase::LastSavedEditorSize::fromValueTree (const ValueTree& tree)
 {
     base.saveEditorSize (tree.getProperty ("editorSizeX"),
                          tree.getProperty ("editorSizeY"));
+    base.repaintEditor();
 }
 
 void ProcessorBase::processBlock (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi)

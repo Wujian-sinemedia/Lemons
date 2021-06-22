@@ -111,6 +111,14 @@ template < typename SampleType >
 void LatencyEngine< SampleType >::processInternal (const AudioBuffer& input, AudioBuffer& output, MidiBuffer& midiMessages, bool isBypassed)
 {
     const auto numNewSamples = input.getNumSamples();
+    
+    if (numNewSamples == 0)
+    {
+        chunkMidiBuffer.clear();
+        renderChunk (inBuffer, outBuffer, chunkMidiBuffer, isBypassed);
+        return;
+    }
+    
     jassert (numNewSamples <= internalBlocksize && numNewSamples > 0);
 
     inputFIFO.push (input, midiMessages, numNewSamples);
