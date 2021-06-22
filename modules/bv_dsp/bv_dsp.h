@@ -54,8 +54,6 @@ END_JUCE_MODULE_DECLARATION
 #include "FX/time/Delay.h"
 #include "FX/time/Freezer.h"
 #include "FX/time/Looper.h"
-#include "FX/pitch/PitchShifter.h"
-#include "FX/pitch/PitchCorrector.h"
 #include "FX/misc/DryWet.h"
 
 // synth
