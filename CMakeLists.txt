@@ -12,8 +12,12 @@ set_property (GLOBAL PROPERTY USE_FOLDERS YES)
 
 set (CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
-add_subdirectory (third_party)
+#
 
 add_subdirectory (CMake)
 
+add_subdirectory (third_party/JUCE)
+
 add_subdirectory (modules)
+
+add_subdirectory (third_party)
