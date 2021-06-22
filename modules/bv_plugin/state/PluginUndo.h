@@ -2,20 +2,19 @@
 
 namespace bav
 {
-
 struct PluginUndo : UndoManager
 {
     PluginUndo (ParameterList& listToManage)
-    : UndoManager(listToManage)
+        : UndoManager (listToManage)
     {
         listToManage.setUndoManager (*this);
     }
-    
+
     PluginUndo (StateBase& stateToManage)
-    : UndoManager(stateToManage)
+        : UndoManager (stateToManage)
     {
         stateToManage.setUndoManager (*this);
     }
 };
 
-}
+}  // namespace bav

@@ -4,10 +4,11 @@ namespace bav::gui
 EditorBase::EditorBase (dsp::ProcessorBase& pbToUse)
     : AudioProcessorEditor (pbToUse), pb (pbToUse)
 {
-    int width, height;
-    pb.getSavedEditorSize (width, height);
-
     setResizable (true, true);
+
+    const auto size   = pb.getSavedEditorSize();
+    const auto width  = size.x;
+    const auto height = size.y;
 
     if (width > 0 && height > 0)
     {

@@ -52,12 +52,6 @@ juce::Point< int > BasicProcessorBase::getSavedEditorSize() const
     return savedEditorSize;
 }
 
-void BasicProcessorBase::getSavedEditorSize (int& width, int& height) const
-{
-    width  = savedEditorSize.x;
-    height = savedEditorSize.y;
-}
-
 void BasicProcessorBase::repaintEditor()
 {
     if (auto* editor = getActiveEditor())

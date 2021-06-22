@@ -10,15 +10,21 @@ ProcessorBase::ProcessorBase (ParameterList&                        parameterLis
       floatEngine (floatEngineToUse),
       doubleEngine (doubleEngineToUse)
 {
+    parameters.addDataChild (lastSavedEditorSize);
 }
 
-template<typename SampleType>
-ProcessorBase::ParameterProcessor<SampleType>::ParameterProcessor (ProcessorBase& p, ParameterList& l)
-    : ParameterProcessorBase<SampleType> (l),
+template < typename SampleType >
+ProcessorBase::ParameterProcessor< SampleType >::ParameterProcessor (ProcessorBase& p, ParameterList& l)
+    : ParameterProcessorBase< SampleType > (l),
       processor (p)
 {
 }
 
+ProcessorBase::LastSavedEditorSize::LastSavedEditorSize (ProcessorBase& b)
+    : SerializableData ("LastSavedEditorSize"),
+      base (b)
+{
+}
 
 void ProcessorBase::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
@@ -53,10 +59,22 @@ void ProcessorBase::getStateInformation (juce::MemoryBlock& block)
     serializing::toBinary (parameters, block);
 }
 
+void ProcessorBase::LastSavedEditorSize::toValueTree (ValueTree& tree)
+{
+    const auto size = base.getSavedEditorSize();
+    tree.setProperty ("editorSizeX", size.x, nullptr);
+    tree.setProperty ("editorSizeY", size.y, nullptr);
+}
+
 void ProcessorBase::setStateInformation (const void* data, int size)
 {
     serializing::fromBinary (data, size, parameters);
-    repaintEditor();
+}
+
+void ProcessorBase::LastSavedEditorSize::fromValueTree (const ValueTree& tree)
+{
+    base.saveEditorSize (tree.getProperty ("editorSizeX"),
+                         tree.getProperty ("editorSizeY"));
 }
 
 void ProcessorBase::processBlock (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi)
@@ -71,37 +89,33 @@ void ProcessorBase::processBlock (juce::AudioBuffer< double >& audio, juce::Midi
 
 void ProcessorBase::processBlockBypassed (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi)
 {
-    auto& bypass = getMainBypass();
-    if (! bypass.get()) bypass.set (true);
-
+    getMainBypass().set (true);
     processBlockInternal (audio, midi, floatParameterProcessor);
 }
 
 void ProcessorBase::processBlockBypassed (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi)
 {
-    auto& bypass = getMainBypass();
-    if (! bypass.get()) bypass.set (true);
-
+    getMainBypass().set (true);
     processBlockInternal (audio, midi, doubleParameterProcessor);
 }
 
 template < typename SampleType >
-void ProcessorBase::processBlockInternal (juce::AudioBuffer< SampleType >& audio,
-                                          juce::MidiBuffer& midi,
+void ProcessorBase::processBlockInternal (juce::AudioBuffer< SampleType >&  audio,
+                                          juce::MidiBuffer&                 midi,
                                           ParameterProcessor< SampleType >& parameterProcessor)
 {
     juce::ScopedNoDenormals nodenorms;
     parameterProcessor.process (audio, midi);
 }
 
-template<>
-void ProcessorBase::ParameterProcessor<float>::renderChunk (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi)
+template <>
+void ProcessorBase::ParameterProcessor< float >::renderChunk (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi)
 {
     processor.renderChunk (processor.floatEngine, audio, midi);
 }
 
-template<>
-void ProcessorBase::ParameterProcessor<double>::renderChunk (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi)
+template <>
+void ProcessorBase::ParameterProcessor< double >::renderChunk (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi)
 {
     processor.renderChunk (processor.doubleEngine, audio, midi);
 }
@@ -137,7 +151,7 @@ juce::AudioBuffer< SampleType > ProcessorBase::findSubBuffer (const AudioProcess
                          getIndexOfFirstValidChannelSet (busLayout, isInput));
 }
 
-template struct ProcessorBase::ParameterProcessor<float>;
-template struct ProcessorBase::ParameterProcessor<double>;
+template struct ProcessorBase::ParameterProcessor< float >;
+template struct ProcessorBase::ParameterProcessor< double >;
 
 }  // namespace bav::dsp

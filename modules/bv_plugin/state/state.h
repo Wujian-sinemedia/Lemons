@@ -22,7 +22,7 @@ public:
 
     void processMidi (const juce::MidiBuffer& midiMessages);
     void processMidiMessage (const juce::MidiMessage& message);
-    
+
 protected:
     template < typename... Args >
     void add (ParameterList& list, Args&&... args)
@@ -31,24 +31,12 @@ protected:
         add (std::forward< Args > (args)...);
     }
     void add (ParameterList& list);
-    
+
 private:
     void toValueTree (ValueTree& tree) final;
     void fromValueTree (const ValueTree& tree) final;
 
     juce::Array< ParameterList* > lists;
-    dsp::ProcessorBase*           pb = nullptr;
-    
-    struct LastSavedEditorSize : SerializableData
-    {
-        LastSavedEditorSize (StateBase& b);
-        void toValueTree (ValueTree& tree) final;
-        void fromValueTree (const ValueTree& tree) final;
-
-        StateBase& base;
-    };
-
-    LastSavedEditorSize lastSavedEditorSize {*this};
 };
 
 }  // namespace bav

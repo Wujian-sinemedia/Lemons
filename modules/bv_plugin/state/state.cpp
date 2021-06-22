@@ -4,7 +4,6 @@ namespace bav
 StateBase::StateBase (juce::Identifier name)
     : SerializableData (name)
 {
-    addDataChild (lastSavedEditorSize);
 }
 
 void StateBase::add (ParameterList& list)
@@ -17,8 +16,6 @@ void StateBase::addTo (dsp::ProcessorBase& p)
 {
     for (auto* list : lists)
         list->addParametersTo (p);
-
-    pb = &p;
 }
 
 void StateBase::addTo (dsp::ProcessorBase* p)
@@ -31,8 +28,6 @@ void StateBase::addAllAsInternal()
 {
     for (auto* list : lists)
         list->addAllParametersAsInternal();
-
-    pb = nullptr;
 }
 
 void StateBase::refreshAllDefaults()
@@ -74,32 +69,5 @@ void StateBase::processMidiMessage (const juce::MidiMessage& message)
 void StateBase::toValueTree (ValueTree&) { }
 
 void StateBase::fromValueTree (const ValueTree&) { }
-
-StateBase::LastSavedEditorSize::LastSavedEditorSize (StateBase& b)
-    : SerializableData ("LastSavedEditorSize"),
-      base (b)
-{
-}
-
-void StateBase::LastSavedEditorSize::toValueTree (ValueTree& tree)
-{
-    if (auto* processor = base.pb)
-    {
-        int w, h;
-        processor->getSavedEditorSize (w, h);
-        tree.setProperty ("editorSizeX", w, nullptr);
-        tree.setProperty ("editorSizeY", h, nullptr);
-    }
-}
-
-void StateBase::LastSavedEditorSize::fromValueTree (const ValueTree& tree)
-{
-    if (auto* processor = base.pb)
-    {
-        processor->saveEditorSize (tree.getProperty ("editorSizeX"),
-                                   tree.getProperty ("editorSizeY"));
-    }
-}
-
 
 }  // namespace bav
