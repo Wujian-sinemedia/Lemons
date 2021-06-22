@@ -202,3 +202,5 @@ using juce::ValueTree;
 #include "math/intops/intOps.h"
 
 #include "undo/UndoManager.h"
+
+#include "presets/PresetManager.h"

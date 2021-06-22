@@ -51,7 +51,7 @@
 
 #include "state/state.h"
 #include "state/PluginUndo.h"
-#include "presets/PresetManager.h"
+#include "state/PluginPresetManager.h"
 
 
 #ifndef JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP

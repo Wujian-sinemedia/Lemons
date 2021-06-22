@@ -30,3 +30,5 @@
 #include "localization/localization.cpp"
 
 #include "undo/UndoManager.cpp"
+
+#include "presets/PresetManager.cpp"

@@ -13,7 +13,6 @@
 #include "parameters/processor/ParameterProcessor.cpp"
 
 #include "state/state.cpp"
-#include "presets/PresetManager.cpp"
 
 #include "ProcessorBase/ProcessorBase.cpp"
 

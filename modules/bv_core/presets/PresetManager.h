@@ -5,9 +5,7 @@ namespace bav
 class PresetManagerBase
 {
 public:
-    PresetManagerBase (StateBase& stateToUse, UndoManager* um = nullptr);
-    PresetManagerBase (ParameterList& listToUse, UndoManager* um = nullptr);
-
+    PresetManagerBase (SerializableData& stateToUse, UndoManager* um = nullptr);
     virtual ~PresetManagerBase() = default;
 
     virtual std::string getCompanyName()         = 0;
@@ -25,18 +23,19 @@ public:
 
     const juce::StringArray& presetNames();
 
-    events::Broadcaster& getBroadcaster() { return broadcaster; }
+    events::Broadcaster& getPresetsChangedBroadcaster() { return availablePresetsChanged; }
+    events::Broadcaster& getPresetLoadedBroadcaster() { return presetLoaded; }
 
 private:
     juce::File presetNameToFilePath (const String& presetName);
     
     UndoManager* undo;
+    SerializableData& state;
 
-    StateBase*     state;
-    ParameterList* list;
-
-    juce::StringArray   namesOfAvailablePresets;
-    events::Broadcaster broadcaster;
+    juce::StringArray namesOfAvailablePresets;
+    
+    events::Broadcaster availablePresetsChanged;
+    events::Broadcaster presetLoaded;
 };
 
 }  // namespace bav
