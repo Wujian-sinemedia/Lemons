@@ -13,6 +13,7 @@ endfunction()
 
 ###########
 
+
 function (configure_default_juce_plugin target)
 
 	_configure_juce_app (${target} TRUE)
@@ -22,22 +23,5 @@ endfunction()
 function (configure_default_juce_app target)
 
     _configure_juce_app (${target} TRUE)
-endfunction()
-
-
-###########
-
-
-function (add_subdirectories)
-
-    if (NOT DEFINED BuildAll)
-        set (BuildAll TRUE)
-    endif()
-
-    if (BuildAll)
-        _add_all_subdirs()
-    else()
-        _add_all_flagged_subdirs()
-    endif()
 endfunction()
 
