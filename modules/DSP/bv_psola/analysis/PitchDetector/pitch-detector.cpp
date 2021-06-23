@@ -18,6 +18,9 @@ void PitchDetector< SampleType >::initialize()
     asdfBuffer.setSize (1, 512);
 
     lastFrameWasPitched = false;
+    
+    hiCut.prepare();
+    loCut.prepare();
 }
 
 template < typename SampleType >
@@ -28,6 +31,9 @@ void PitchDetector< SampleType >::releaseResources()
     weightedCandidateConfidence.clear();
 
     asdfBuffer.setSize (0, 0, false, false, false);
+    
+    hiCut.reset();
+    loCut.reset();
 }
 
 
@@ -70,6 +76,21 @@ float PitchDetector< SampleType >::detectPitch (const SampleType* inputAudio, co
         minLag = std::min (maxLag - 1, minPeriod);
 
     jassert (maxLag > minLag);
+    
+    auto* reading = filteringBuffer.getWritePointer(0);
+    
+    // copy to filtering buffer
+    vecops::copy (inputAudio, reading, numSamples);
+    
+    // filter to our min and max possible frequencies
+    loCut.coefs.makeHighPass (samplerate,
+                              (SampleType) math::freqFromPeriod (samplerate, maxLag));
+    
+    hiCut.coefs.makeLowPass (samplerate,
+                             (SampleType) math::freqFromPeriod (samplerate, minLag));
+    
+    loCut.process (reading, numSamples);
+    hiCut.process (reading, numSamples);
 
     auto* asdfData = asdfBuffer.getWritePointer (0);
 
@@ -78,24 +99,26 @@ float PitchDetector< SampleType >::detectPitch (const SampleType* inputAudio, co
     // COMPUTE ASDF
 
     jassert (asdfBuffer.getNumSamples() >= maxLag - minLag + 1);
+    
+    const auto asdfDataSize = maxLag - minLag + 1;
 
     for (int k = minLag; k <= maxLag; ++k)  // k = lag = period
     {
         const auto index =
             k
             - minLag;  // the actual asdfBuffer index for this k value's data. offset = minPeriod
+        
+        jassert (index <= asdfDataSize);
 
         for (int s1 = 0, s2 = halfNumSamples; s1 < halfNumSamples && s2 < numSamples;
              ++s1, ++s2)
         {
             const auto difference =
-                ((inputAudio[s1] - inputAudio[s1 + k]) + (inputAudio[s2 - k] - inputAudio[s2]));
+                ((reading[s1] - reading[s1 + k]) + (reading[s2 - k] - reading[s2]));
 
             asdfData[index] += (difference * difference);
         }
     }
-
-    const auto asdfDataSize = maxLag - minLag + 1;
 
     vecops::normalize (asdfData, asdfDataSize);
 
@@ -249,6 +272,9 @@ void PitchDetector< SampleType >::setSamplerate (const double newSamplerate)
     samplerate = newSamplerate;
 
     if (minHz > 0 && maxHz > 0) setHzRange (minHz, maxHz);
+    
+    hiCut.prepare();
+    loCut.prepare();
 }
 
 
@@ -291,6 +317,20 @@ int PitchDetector< SampleType >::samplesToFirstZeroCrossing (
 #endif
 }
 
+template < typename SampleType >
+juce::Range< int > PitchDetector< SampleType >::getCurrentLegalPeriodRange() const
+{
+    return {minPeriod, maxPeriod};
+}
+
+template < typename SampleType >
+void PitchDetector< SampleType >::setConfidenceThresh (const SampleType newThresh)
+{
+    confidenceThresh = newThresh;
+}
+
+template < typename SampleType >
+int PitchDetector< SampleType >::getLatencySamples() const noexcept { return 2 * maxPeriod; }
 
 template class PitchDetector< float >;
 template class PitchDetector< double >;

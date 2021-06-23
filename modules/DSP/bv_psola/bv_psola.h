@@ -9,7 +9,7 @@ vendor:             Ben Vining
 version:            0.0.1
 name:               bv_psola
 description:        DSP/audio utilities and effects
-dependencies:       bv_core
+dependencies:       bv_dsp
 
 END_JUCE_MODULE_DECLARATION
 

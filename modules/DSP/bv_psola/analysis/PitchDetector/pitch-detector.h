@@ -5,7 +5,7 @@
 
 #pragma once
 
-#include <bv_core/bv_core.h>
+#include <bv_dsp/bv_dsp.h>
 
 namespace bav::dsp
 {
@@ -14,10 +14,8 @@ class PitchDetector
 {
     using AudioBuffer = juce::AudioBuffer< SampleType >;
 
-
 public:
     PitchDetector();
-
     ~PitchDetector() = default;
 
     void initialize();
@@ -25,28 +23,15 @@ public:
     void releaseResources();
 
     float detectPitch (const AudioBuffer& inputAudio);
-
     float detectPitch (const SampleType* inputAudio, const int numSamples);
 
-
-    int getLatencySamples() const noexcept { return 2 * maxPeriod; }
-
     void setHzRange (const int newMinHz, const int newMaxHz);
-
-    void setConfidenceThresh (const SampleType newThresh)
-    {
-        confidenceThresh = newThresh;
-    }
-
+    void setConfidenceThresh (const SampleType newThresh);
     void setSamplerate (const double newSamplerate);
 
-    juce::Range< int > getCurrentLegalPeriodRange() const
-    {
-        return {minPeriod, maxPeriod};
-    }
-
-    /*
-    */
+    int getLatencySamples() const noexcept;
+    
+    juce::Range< int > getCurrentLegalPeriodRange() const;
 
 private:
     int chooseIdealPeriodCandidate (const SampleType* asdfData,
@@ -79,6 +64,9 @@ private:
     juce::Array< int >        periodCandidates;
     juce::Array< int >        candidateDeltas;
     juce::Array< SampleType > weightedCandidateConfidence;
+    
+    AudioBuffer filteringBuffer;
+    filters::Filter<SampleType> loCut, hiCut;
 
     static constexpr int numPeriodCandidatesToTest = 10;
 
