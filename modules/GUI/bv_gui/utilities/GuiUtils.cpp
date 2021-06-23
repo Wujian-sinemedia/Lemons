@@ -72,8 +72,8 @@ bool buttonStateToBool (juce::Button::ButtonState state) noexcept
     return false;
 }
 
-static juce::Rectangle< float > scaleRect (const juce::Rectangle< float >& source,
-                                           const juce::Rectangle< float >& ratio)
+static inline juce::Rectangle< float > scaleRect (const juce::Rectangle< float >& source,
+                                                  const juce::Rectangle< float >& ratio)
 {
     auto newWidth  = source.getWidth() * ratio.getWidth();
     auto newHeight = source.getHeight() * ratio.getHeight();
@@ -83,8 +83,8 @@ static juce::Rectangle< float > scaleRect (const juce::Rectangle< float >& sourc
     return {newX, newY, newWidth, newHeight};
 }
 
-static juce::AffineTransform getRectTransformFor (const juce::Rectangle< float >& source,
-                                                  const juce::Rectangle< float >& target)
+static inline juce::AffineTransform getRectTransformFor (const juce::Rectangle< float >& source,
+                                                         const juce::Rectangle< float >& target)
 {
     auto newX = target.getX();
     auto newY = target.getY();
