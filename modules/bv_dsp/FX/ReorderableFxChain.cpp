@@ -6,9 +6,9 @@ template class ReorderableEffect< double >;
 
 
 template < typename SampleType >
-int ReorderableFxChain< SampleType >::addEffect (Effect*   effect,
-                                                 const int numberInChain,
-                                                 bool      addAsBypassed)
+int ReorderableFxChain< SampleType >::addEffect (Effect* effect,
+                                                 int     numberInChain,
+                                                 bool    addAsBypassed)
 {
     jassert (effect != nullptr);
 
@@ -66,7 +66,7 @@ void ReorderableFxChain< SampleType >::removeEffect (Effect* effect)
 }
 
 template < typename SampleType >
-void ReorderableFxChain< SampleType >::removeEffect (const int numberInChain)
+void ReorderableFxChain< SampleType >::removeEffect (int numberInChain)
 {
     removeEffect (getEffect (numberInChain));
 }
@@ -79,9 +79,9 @@ void ReorderableFxChain< SampleType >::removeAllEffects()
 
 
 template < typename SampleType >
-ReorderableEffect< SampleType >* ReorderableFxChain< SampleType >::getEffect (const int numberInChain)
+ReorderableEffect< SampleType >* ReorderableFxChain< SampleType >::getEffect (int numberInChain)
 {
-    jassert (numberInChain >= 0);
+    if (numberInChain < 0) return nullptr;
 
     for (auto* effect : effects)
         if (effect->effectNumber == numberInChain) return effect;
@@ -101,14 +101,40 @@ bool ReorderableFxChain< SampleType >::swapTwoEffects (Effect* first, Effect* se
 }
 
 template < typename SampleType >
-bool ReorderableFxChain< SampleType >::swapTwoEffects (const int firstNumInChain, const int secondNumInChain)
+bool ReorderableFxChain< SampleType >::swapTwoEffects (int firstNumInChain, int secondNumInChain)
 {
     return swapTwoEffects (getEffect (firstNumInChain),
                            getEffect (secondNumInChain));
 }
 
 template < typename SampleType >
-bool ReorderableFxChain< SampleType >::setEffectBypass (Effect* effect, const bool shouldBeBypassed)
+bool ReorderableFxChain< SampleType >::moveEffectForwardInChain (Effect* effect)
+{
+    if (effect == nullptr) return false;
+    return swapTwoEffects (effect, getEffect (effect->effectNumber - 1));
+}
+
+template < typename SampleType >
+bool ReorderableFxChain< SampleType >::moveEffectForwardInChain (int numInChain)
+{
+    return moveEffectForwardInChain (getEffect (numInChain));
+}
+
+template < typename SampleType >
+bool ReorderableFxChain< SampleType >::moveEffectBackwardInChain (Effect* effect)
+{
+    if (effect == nullptr) return false;
+    return swapTwoEffects (effect, getEffect (effect->effectNumber + 1));
+}
+
+template < typename SampleType >
+bool ReorderableFxChain< SampleType >::moveEffectBackwardInChain (int numInChain)
+{
+    return moveEffectBackwardInChain (getEffect (numInChain));
+}
+
+template < typename SampleType >
+bool ReorderableFxChain< SampleType >::setEffectBypass (Effect* effect, bool shouldBeBypassed)
 {
     if (effect == nullptr) return false;
 
@@ -117,9 +143,15 @@ bool ReorderableFxChain< SampleType >::setEffectBypass (Effect* effect, const bo
 }
 
 template < typename SampleType >
-bool ReorderableFxChain< SampleType >::setEffectBypass (const int numberInChain, const bool shouldBeBypassed)
+bool ReorderableFxChain< SampleType >::setEffectBypass (int numberInChain, bool shouldBeBypassed)
 {
     return setEffectBypass (getEffect (numberInChain), shouldBeBypassed);
+}
+
+template < typename SampleType >
+int ReorderableFxChain< SampleType >::numEffects() const noexcept
+{
+    return effects.size();
 }
 
 template < typename SampleType >
@@ -182,7 +214,7 @@ void ReorderableFxChain< SampleType >::process (AudioBuffer& audio)
 }
 
 template < typename SampleType >
-void ReorderableFxChain< SampleType >::bypassedBlock (const int numSamples)
+void ReorderableFxChain< SampleType >::bypassedBlock (int numSamples)
 {
     for (auto* effect : effects)
         effect->fxChain_bypassedBlock (numSamples);
@@ -215,7 +247,7 @@ int ReorderableFxChain< SampleType >::assignNewEffectNumber (int requestedNumber
 }
 
 template < typename SampleType >
-bool ReorderableFxChain< SampleType >::isEffectNumberAvailable (const int numberInChain)
+bool ReorderableFxChain< SampleType >::isEffectNumberAvailable (int numberInChain)
 {
     for (auto* effect : effects)
         if (effect->effectNumber == numberInChain) return false;

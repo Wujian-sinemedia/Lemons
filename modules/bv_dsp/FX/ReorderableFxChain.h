@@ -57,9 +57,9 @@ public:
     virtual ~ReorderableFxChain() = default;
 
     // adds an effect to the chain. Returns the actual number in the chain that the effect was placed in. (Doesn't move anything in the chain around.)
-    int addEffect (Effect*   effect,
-                   const int numberInChain,
-                   bool      addAsBypassed = false);
+    int addEffect (Effect* effect,
+                   int     numberInChain,
+                   bool    addAsBypassed = false);
 
     // adds an effect to the chain between two others in the chain. If it needs to, this function will move everything in the chain after the new node up by one position number to fit the new effect in.
     // -1 indicates an error, and that the new effect was not added to the chain.
@@ -70,17 +70,24 @@ public:
                                    bool    addEffectAsBypassed = false);
 
     void removeEffect (Effect* effect);
-    void removeEffect (const int numberInChain);
+    void removeEffect (int numberInChain);
     void removeAllEffects();
 
-    Effect* getEffect (const int numberInChain);
+    Effect* getEffect (int numberInChain);
 
     bool swapTwoEffects (Effect* first, Effect* second);
-    bool swapTwoEffects (const int firstNumInChain, const int secondNumInChain);
+    bool swapTwoEffects (int firstNumInChain, int secondNumInChain);
 
-    bool setEffectBypass (Effect* effect, const bool shouldBeBypassed);
-    bool setEffectBypass (const int numberInChain, const bool shouldBeBypassed);
+    bool moveEffectForwardInChain (Effect* effect);
+    bool moveEffectForwardInChain (int numInChain);
 
+    bool moveEffectBackwardInChain (Effect* effect);
+    bool moveEffectBackwardInChain (int numInChain);
+
+    bool setEffectBypass (Effect* effect, bool shouldBeBypassed);
+    bool setEffectBypass (int numberInChain, bool shouldBeBypassed);
+
+    int numEffects() const noexcept;
     int numActiveEffects() const noexcept;
 
     void bypassAll();
@@ -97,14 +104,14 @@ public:
     /*
             Call this function to inform the FX chain when a bypassed block is recieved.
          */
-    void bypassedBlock (const int numSamples);
+    void bypassedBlock (int numSamples);
 
 private:
     // if the current effect number is out of range or taken, attempts to return the closest availabe effect number to the passed number.
     int assignNewEffectNumber (int requestedNumber);
 
     // returns true if the effect number is not assigned to an effect currently in this chain.
-    bool isEffectNumberAvailable (const int numberInChain);
+    bool isEffectNumberAvailable (int numberInChain);
 
     void addEffectWithNumber (Effect* effect, int newNumber, bool addAsBypassed);
 
