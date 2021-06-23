@@ -18,6 +18,7 @@
 #include "math/intops/intOps.cpp"
 
 #include "misc/misc.cpp"
+#include "misc/ValueSmoother.cpp"
 
 #include "serializing/SerializableData/SerializableData.cpp"
 #include "serializing/SerializableData/Specializations.cpp"

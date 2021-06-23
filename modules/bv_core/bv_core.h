@@ -168,6 +168,7 @@ using juce::File;
 
 #include "misc/misc.h"
 #include "misc/LockFreeFifo.h"
+#include "misc/ValueSmoother.h"
 
 #include "events/Broadcaster.h"
 #include "events/Listener.h"

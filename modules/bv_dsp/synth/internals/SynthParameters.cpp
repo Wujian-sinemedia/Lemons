@@ -28,7 +28,7 @@ void SynthBase< SampleType >::setConcertPitchHz (int newConcertPitchhz)
     if (pitch.tuning.setConcertPitchHz (newConcertPitchhz))
         for (auto* voice : voices)
             if (voice->isVoiceActive())
-                voice->setCurrentOutputFreq (pitch.getFrequencyForMidi (voice->getCurrentlyPlayingNote()));
+                voice->setTargetOutputFrequency (pitch.getFrequencyForMidi (voice->getCurrentlyPlayingNote()));
 }
 
 
@@ -74,7 +74,7 @@ void SynthBase< SampleType >::updatePitchbendRange (int rangeUp, int rangeDown)
 
     for (auto* voice : voices)
         if (voice->isVoiceActive())
-            voice->setCurrentOutputFreq (pitch.getFrequencyForMidi (voice->getCurrentlyPlayingNote()));
+            voice->setTargetOutputFrequency (pitch.getFrequencyForMidi (voice->getCurrentlyPlayingNote()));
 }
 
 

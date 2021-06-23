@@ -5,16 +5,14 @@ template < typename SampleType, size_t channels >
 SmoothedGain< SampleType, channels >::SmoothedGain()
 {
     for (size_t i = 0; i < channels; ++i)
-        smoothers.add (new Smoother());
+        smoothers.add (new ValueSmoother<SampleType>());
 }
 
 template < typename SampleType, size_t channels >
 void SmoothedGain< SampleType, channels >::setGain (float gain)
 {
-    const auto newTarget = static_cast< SampleType > (std::max (gain, 0.0001f));
-
     for (auto* smoother : smoothers)
-        smoother->setTargetValue (newTarget);
+        smoother->set (gain);
 }
 
 template < typename SampleType, size_t channels >

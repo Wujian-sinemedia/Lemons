@@ -38,8 +38,6 @@ public:
 
     void bypassedBlock (const int numSamples);
 
-    void setCurrentOutputFreq (const float newFreq) { currentOutputFreq = newFreq; }
-
     bool isCurrentPedalVoice() const noexcept { return isPedalPitchVoice; }
     bool isCurrentDescantVoice() const noexcept { return isDescantVoice; }
 
@@ -56,7 +54,9 @@ public:
     int getCurrentlyPlayingNote() const noexcept { return currentlyPlayingNote; }
 
     int getMidiChannel() const { return midiChannel > 0 ? midiChannel : parent->midi.getLastMidiChannel(); }
-    
+
+    void setTargetOutputFrequency (float newFreq);
+
     /*=================================================================================
          =================================================================================*/
 
@@ -91,6 +91,8 @@ protected:
          =================================================================================*/
 
 private:
+    void renderInternal (int totalNumSamples);
+
     void startNote (const int    midiPitch,
                     const float  velocity,
                     const uint32 noteOnTimestamp,
@@ -117,7 +119,7 @@ private:
 
     void setAdsrParameters (const ADSRParams newParams) { adsr.setParameters (newParams); }
     void setQuickReleaseParameters (const ADSRParams newParams) { quickRelease.setParameters (newParams); }
-    
+
     bool isVoiceOnRightNow() const;
 
     /*=================================================================================
@@ -128,25 +130,27 @@ private:
     ADSR adsr;          // the main/primary ADSR driven by MIDI input to shape the voice's amplitude envelope. May be turned off by the user.
     ADSR quickRelease;  // used to quickly fade out signal when stopNote() is called with the allowTailOff argument set to false, instead of jumping signal to 0
 
-    bool keyIsDown, playingButReleased, sustainingFromSostenutoPedal, isQuickFading;
+    bool keyIsDown {false}, playingButReleased {false}, sustainingFromSostenutoPedal {false}, isQuickFading {false};
 
-    int   currentlyPlayingNote, currentAftertouch;
-    float currentOutputFreq, lastRecievedVelocity;
+    int   currentlyPlayingNote {-1}, currentAftertouch {0};
+    float lastRecievedVelocity {0};
 
-    uint32 noteOnTime;
+    uint32 noteOnTime {0};
 
-    bool isPedalPitchVoice, isDescantVoice;
+    bool isPedalPitchVoice {false}, isDescantVoice {false};
+    bool isDoubledByAutomatedVoice {false};
 
-    bool isDoubledByAutomatedVoice;
+    ValueSmoother< SampleType > outputFrequency;
 
     bav::dsp::FX::MonoToStereoPanner< SampleType > panner;
 
     FX::SmoothedGain< SampleType, 1 > midiVelocityGain, softPedalGain, playingButReleasedGain, aftertouchGain;
 
+    AudioBuffer scratchBuffer;
     AudioBuffer renderingBuffer;  // mono audio will be placed in here
     AudioBuffer stereoBuffer;     // stereo audio will be placed in here
 
-    int midiChannel;
+    int midiChannel {1};
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SynthVoiceBase)
 };

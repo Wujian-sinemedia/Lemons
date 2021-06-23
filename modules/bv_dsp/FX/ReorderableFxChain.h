@@ -100,10 +100,6 @@ public:
             Audio will be output in place.
          */
     void process (AudioBuffer& audio);
-
-    /*
-            Call this function to inform the FX chain when a bypassed block is recieved.
-         */
     void bypassedBlock (int numSamples);
 
 private:

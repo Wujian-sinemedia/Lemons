@@ -100,7 +100,7 @@ void SynthBase< SampleType >::MidiManager::handlePitchwheel (int wheelValue)
 
     for (auto* voice : synth.voices)
         if (voice->isVoiceActive())
-            voice->setCurrentOutputFreq (synth.pitch.getFrequencyForMidi (voice->getCurrentlyPlayingNote()));
+            voice->setTargetOutputFrequency (synth.pitch.getFrequencyForMidi (voice->getCurrentlyPlayingNote()));
 }
 
 }  // namespace bav::dsp

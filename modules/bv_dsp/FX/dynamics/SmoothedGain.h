@@ -6,9 +6,6 @@ namespace bav::dsp::FX
 template < typename SampleType, size_t channels = 1 >
 class SmoothedGain
 {
-    using Smoother =
-        juce::SmoothedValue< SampleType, juce::ValueSmoothingTypes::Multiplicative >;
-
 public:
     SmoothedGain();
     virtual ~SmoothedGain() = default;
@@ -25,7 +22,7 @@ public:
     void process (juce::AudioBuffer< SampleType >& audio);
 
 private:
-    juce::OwnedArray< Smoother > smoothers;
+    juce::OwnedArray< ValueSmoother<SampleType> > smoothers;
 
     int lastBlocksize = 0;
 };

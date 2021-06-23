@@ -7,7 +7,7 @@ namespace bav::dsp
     */
 template < typename SampleType >
 SynthVoiceBase< SampleType >::SynthVoiceBase (SynthBase< SampleType >* base, double initSamplerate)
-    : parent (base), keyIsDown (false), playingButReleased (false), sustainingFromSostenutoPedal (false), isQuickFading (false), currentlyPlayingNote (-1), currentAftertouch (0), currentOutputFreq (-1.0f), lastRecievedVelocity (0.0f), noteOnTime (0), isPedalPitchVoice (false), isDescantVoice (false), isDoubledByAutomatedVoice (false), renderingBuffer (0, 0), stereoBuffer (0, 0)
+    : parent (base), scratchBuffer (0, 0), renderingBuffer (0, 0), stereoBuffer (0, 0)
 {
     adsr.setSampleRate (initSamplerate);
     quickRelease.setSampleRate (initSamplerate);
@@ -22,6 +22,7 @@ SynthVoiceBase< SampleType >::SynthVoiceBase (SynthBase< SampleType >* base, dou
 template < typename SampleType >
 void SynthVoiceBase< SampleType >::prepare (const int blocksize)
 {
+    scratchBuffer.setSize (1, blocksize, true, true, true);
     renderingBuffer.setSize (1, blocksize, true, true, true);
     stereoBuffer.setSize (2, blocksize, true, true, true);
     midiVelocityGain.prepare (blocksize);
@@ -57,28 +58,27 @@ void SynthVoiceBase< SampleType >::renderBlock (AudioBuffer& output)
         clearCurrentNote();
         return;
     }
-    
+
     //  it's possible that the MTS-ESP master tuning table has changed since the last time this function was called...
     if (parent->pitch.tuning.shouldFilterNote (currentlyPlayingNote, midiChannel))
         stopNote (1.0f, false);
     else
-        currentOutputFreq = parent->pitch.getFrequencyForMidi (currentlyPlayingNote, midiChannel);
-    
+        setTargetOutputFrequency (parent->pitch.getFrequencyForMidi (currentlyPlayingNote, midiChannel));
+
     const auto numSamples = output.getNumSamples();
     if (numSamples == 0) return;
 
     jassert (parent->sampleRate > 0);
     jassert (renderingBuffer.getNumChannels() > 0);
-    jassert (currentOutputFreq > 0);
 
-    //  alias buffer containing exactly the # of samples we want this frame
-    AudioBuffer render (renderingBuffer.getArrayOfWritePointers(), 1, 0, numSamples);
+    vecops::fill (scratchBuffer.getWritePointer (0), SampleType (0), scratchBuffer.getNumSamples());
+    vecops::fill (renderingBuffer.getWritePointer (0), SampleType (0), renderingBuffer.getNumSamples());
 
-    vecops::fill (render.getWritePointer (0), SampleType (0), numSamples);
+    // puts generated audio samples into renderingBuffer
+    renderInternal (numSamples);
 
-    //  generate some mono audio output at the frequency currentOutputFreq.....
-    //  the subclass should write its output to "render" (which is an alias for renderingBuffer)
-    renderPlease (render, currentOutputFreq, parent->sampleRate);
+    // alias buffer containing the # of samples for this frame
+    AudioBuffer render {renderingBuffer.getArrayOfWritePointers(), 1, 0, numSamples};
 
     //  smoothed gain modulations
     midiVelocityGain.process (render);
@@ -113,11 +113,47 @@ void SynthVoiceBase< SampleType >::renderBlock (AudioBuffer& output)
 }
 
 template < typename SampleType >
+void SynthVoiceBase< SampleType >::renderInternal (int totalNumSamples)
+{
+    int samplesProcessed = 0;
+
+    while (samplesProcessed < totalNumSamples)
+    {
+        if (outputFrequency.isSmoothing())
+        {
+            // process a single sample
+            AudioBuffer alias {scratchBuffer.getArrayOfWritePointers(), 1, 0, 1};
+
+            renderPlease (alias, (float) outputFrequency.getNextValue(), parent->sampleRate);
+
+            renderingBuffer.setSample (0,
+                                       samplesProcessed++,
+                                       alias.getSample (0, 0));
+
+            continue;
+        }
+
+        // process the rest of the frame
+        const auto samplesLeft = totalNumSamples - samplesProcessed;
+
+        AudioBuffer alias {scratchBuffer.getArrayOfWritePointers(), 1, 0, samplesLeft};
+
+        renderPlease (alias, (float) outputFrequency.getNextValue(), parent->sampleRate);
+
+        vecops::copy (scratchBuffer.getReadPointer (0),
+                      renderingBuffer.getWritePointer (0, samplesProcessed),
+                      samplesLeft);
+
+        return;
+    }
+}
+
+template < typename SampleType >
 bool SynthVoiceBase< SampleType >::isVoiceOnRightNow() const
 {
     if (isQuickFading)
         return quickRelease.isActive();
-    
+
     return adsr.isActive();
 }
 
@@ -132,8 +168,9 @@ void SynthVoiceBase< SampleType >::bypassedBlock (const int numSamples)
     softPedalGain.skipSamples (numSamples);
     playingButReleasedGain.skipSamples (numSamples);
     aftertouchGain.skipSamples (numSamples);
-    
-    bypassedBlockRecieved (currentOutputFreq, parent->sampleRate, numSamples);
+
+    bypassedBlockRecieved ((float) outputFrequency.getTargetValue(), parent->sampleRate, numSamples);
+    outputFrequency.skip (numSamples);
 }
 
 
@@ -145,7 +182,7 @@ void SynthVoiceBase< SampleType >::updateSampleRate (const double newSamplerate)
 {
     adsr.setSampleRate (newSamplerate);
     quickRelease.setSampleRate (newSamplerate);
- 
+
     adsr.setParameters (parent->adsrParams);
     quickRelease.setParameters (parent->quickReleaseParams);
 }
@@ -175,10 +212,11 @@ void SynthVoiceBase< SampleType >::startNote (const int    midiPitch,
                                               const bool   isDescant,
                                               const int    midichannel)
 {
+    setTargetOutputFrequency (parent->pitch.getFrequencyForMidi (midiPitch, midichannel));
+
     noteOnTime           = noteOnTimestamp;
     currentlyPlayingNote = midiPitch;
     lastRecievedVelocity = velocity;
-    currentOutputFreq    = parent->pitch.getFrequencyForMidi (midiPitch, midichannel);
     isQuickFading        = false;
     isPedalPitchVoice    = isPedal;
     isDescantVoice       = isDescant;
@@ -189,12 +227,18 @@ void SynthVoiceBase< SampleType >::startNote (const int    midiPitch,
     quickRelease.noteOn();
 
     setKeyDown (keyboardKeyIsDown);
-    
+
     midiVelocityGain.setGain (parent->velocityConverter.getGainForVelocity (velocity));
     aftertouchGain.setGain (1.0f);
 
     if (isPedal || isDescant)
         isDoubledByAutomatedVoice = false;
+}
+
+template < typename SampleType >
+void SynthVoiceBase< SampleType >::setTargetOutputFrequency (float newFreq)
+{
+    outputFrequency.set (newFreq, ! isVoiceActive());
 }
 
 
@@ -337,7 +381,7 @@ void SynthVoiceBase< SampleType >::setKeyDown (bool isNowDown)
         else
             playingButReleased = isVoiceActive();
     }
-    
+
     const auto gain = playingButReleased ? parent->playingButReleasedMultiplier : 1.0f;
     playingButReleasedGain.setGain (gain);
 }

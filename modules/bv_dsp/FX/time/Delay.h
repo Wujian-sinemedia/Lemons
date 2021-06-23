@@ -29,18 +29,10 @@ public:
                   SampleType*                      delayLevel = nullptr);
 
 private:
-    template < typename Type >
-    inline SampleType smoothingZeroCheck (Type value)
-    {
-        constexpr auto minSmoothedGain = SampleType (0.0001);
-        return std::max (minSmoothedGain, SampleType (value));
-    }
-
     juce::dsp::DelayLine< SampleType > delay;
     juce::dsp::ProcessSpec             spec;
-
-    juce::SmoothedValue< SampleType, juce::ValueSmoothingTypes::Multiplicative >
-        dryGain, wetGain;
+    
+    ValueSmoother<SampleType> dryGain, wetGain;
 };
 
 

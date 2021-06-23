@@ -34,8 +34,8 @@ template < typename SampleType >
 void Delay< SampleType >::setDryWet (int wetMixPercent)
 {
     const auto wet = wetMixPercent * 0.01f;
-    wetGain.setTargetValue (smoothingZeroCheck (wet));
-    dryGain.setTargetValue (smoothingZeroCheck (1.0f - wet));
+    wetGain.set (wet);
+    dryGain.set (1.0f - wet);
 }
 
 
