@@ -25,8 +25,8 @@
 
 #include "icons/icons.h"
 
-#include "components/parameter_connected/ParameterConnectedComponents.h"
-#include "components/buttons/TextButton.h"
+#include "components/sliders/Sliders.h"
+#include "components/buttons/Buttons.h"
 
 #ifdef __clang__
 #    pragma clang diagnostic pop

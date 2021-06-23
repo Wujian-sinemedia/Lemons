@@ -5,5 +5,6 @@
 
 #include "utilities/GuiUtils.cpp"
 
-#include "components/parameter_connected/ParameterConnectedComponents.cpp"
-#include "components/buttons/TextButton.cpp"
+#include "components/sliders/SliderBase.cpp"
+#include "components/sliders/Sliders.cpp"
+#include "components/buttons/Buttons.cpp"
