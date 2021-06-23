@@ -7,64 +7,24 @@ template < typename SampleType >
 class StereoPanner : public PannerBase
 {
 public:
-    StereoPanner() { }
-
+    StereoPanner()          = default;
     virtual ~StereoPanner() = default;
 
-
-    void prepare (int blocksize)
-    {
-        left.prepare (blocksize);
-        right.prepare (blocksize);
-    }
-
-    void reset()
-    {
-        left.reset();
-        right.reset();
-    }
-
+    void prepare (int blocksize);
+    void reset();
 
     void process (const SampleType* leftIn,
                   const SampleType* rightIn,
                   SampleType*       leftOut,
                   SampleType*       rightOut,
-                  int               numSamples)
-    {
-        left.setGain (PannerBase::getLeftGain());
-        right.setGain (PannerBase::getRightGain());
-
-        vecops::copy (leftIn, leftOut, numSamples);
-        vecops::copy (rightIn, rightOut, numSamples);
-
-        left.process (leftOut, numSamples, 0);
-        right.process (rightOut, numSamples, 0);
-    }
-
+                  int               numSamples);
 
     void process (const juce::AudioBuffer< SampleType >& stereoInput,
-                  juce::AudioBuffer< SampleType >&       stereoOutput)
-    {
-        stereoOutput.clear();
-        jassert (stereoInput.getNumChannels() >= 2
-                 && stereoOutput.getNumChannels() >= 2);
-        jassert (stereoInput.getNumSamples() == stereoOutput.getNumSamples());
-
-        process (stereoInput.getReadPointer (0),
-                 stereoInput.getReadPointer (1),
-                 stereoOutput.getWritePointer (0),
-                 stereoOutput.getWritePointer (1),
-                 stereoOutput.getNumSamples());
-    }
-
+                  juce::AudioBuffer< SampleType >&       stereoOutput);
 
 private:
     SmoothedGain< SampleType, 1 > left, right;
 };
-
-
-template class StereoPanner< float >;
-template class StereoPanner< double >;
 
 
 /*
@@ -74,26 +34,10 @@ template < typename SampleType >
 class ReorderableStereoPanner : public StereoPanner< SampleType >,
                                 public ReorderableEffect< SampleType >
 {
-public:
-    ReorderableStereoPanner() { }
-
 protected:
-    void fxChain_process (juce::AudioBuffer< SampleType >& audio) override
-    {
-        StereoPanner< SampleType >::process (audio, audio);
-    }
+    void fxChain_process (juce::AudioBuffer< SampleType >& audio) final;
 
-    void fxChain_prepare (double, int blocksize) override
-    {
-        StereoPanner< SampleType >::prepare (blocksize);
-    }
-
-private:
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ReorderableStereoPanner)
+    void fxChain_prepare (double, int blocksize) final;
 };
-
-template class ReorderableStereoPanner< float >;
-template class ReorderableStereoPanner< double >;
-
 
 }  // namespace bav::dsp::FX

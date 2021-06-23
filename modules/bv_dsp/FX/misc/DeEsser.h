@@ -6,113 +6,40 @@
 
 namespace bav::dsp::FX
 {
-#define bvng_HI_PASS_FREQ 7600.0
-
-#define bvng_ATTACK_MS  20
-#define bvng_RELEASE_MS 30
-
-
 template < typename SampleType >
 class DeEsser
 {
 public:
-    DeEsser()
-    {
-        gate.setAttack (bvng_ATTACK_MS);
-        gate.setRelease (bvng_RELEASE_MS);
-        gate.setInverted (true);
-    }
-
+    DeEsser();
     virtual ~DeEsser() = default;
 
+    void prepare (int blocksize, double samplerate);
+    void reset();
 
-    void prepare (int blocksize, double samplerate)
-    {
-        hiPass.coefficients =
-            juce::dsp::IIR::Coefficients< SampleType >::makeHighPass (
-                samplerate, SampleType (bvng_HI_PASS_FREQ));
-        gate.prepare (2, blocksize, samplerate);
-    }
-
-#undef bvng_HI_PASS_FREQ
-#undef bvng_ATTACK_MS
-#undef bvng_RELEASE_MS
-
-
-    void reset()
-    {
-        hiPass.reset();
-        gate.reset();
-    }
-
-
-    void setThresh (float newThresh_dB)
-    {
-        gate.setThreshold (newThresh_dB);
-    }
-
-
-    void setDeEssAmount (int newAmount)
-    {
-        jassert (newAmount >= 0 && newAmount <= 100);
-        auto a = float(newAmount) * 0.01f;
-        gate.setRatio (SampleType (juce::jmap (a, 0.0f, 1.0f, 1.0f, 10.0f)));
-    }
-
+    void setThresh (float newThresh_dB);
+    void setDeEssAmount (int newAmount);
 
     void process (juce::AudioBuffer< SampleType >& audio,
-                  SampleType*                      gainReduction = nullptr)
-    {
-        const auto numSamples = audio.getNumSamples();
-
-        for (int chan = 0; chan < std::min (2, audio.getNumChannels()); ++chan)
-            process (chan, audio.getWritePointer (chan), numSamples, gainReduction);
-    }
-
+                  SampleType*                      gainReduction = nullptr);
 
     void process (const int   channel,
                   SampleType* signalToDeEss,
                   const int   numSamples,
-                  SampleType* gainReduction = nullptr)
-    {
-        SampleType avgGainReduction = 0;
-        SampleType gainRedux        = 0;
-
-        for (int s = 0; s < numSamples; ++s)
-        {
-            *(signalToDeEss + s) =
-                processSample (channel, signalToDeEss[s], &gainRedux);
-            avgGainReduction += gainRedux;
-        }
-
-        if (gainReduction != nullptr)
-        {
-            avgGainReduction *= (1 / numSamples);
-            *gainReduction = avgGainReduction;
-        }
-    }
-
+                  SampleType* gainReduction = nullptr);
 
     SampleType processSample (const int        channel,
                               const SampleType inputSample,
-                              SampleType*      gainReduction = nullptr)
-    {
-        return gate.processSample (
-            channel, inputSample, hiPass.processSample (inputSample), gainReduction);
-    }
-
+                              SampleType*      gainReduction = nullptr);
 
 private:
     juce::dsp::IIR::Filter< SampleType > hiPass;
 
     NoiseGate< SampleType > gate;
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DeEsser)
+    static constexpr double hiPassFreq = 7600.;
+    static constexpr int    attackMs   = 20;
+    static constexpr int    releaseMs  = 30;
 };
-
-
-template class DeEsser< float >;
-template class DeEsser< double >;
 
 
 /*
@@ -122,25 +49,10 @@ template < typename SampleType >
 class ReorderableDeEsser : public DeEsser< SampleType >,
                            public ReorderableEffect< SampleType >
 {
-public:
-    ReorderableDeEsser() { }
-
 protected:
-    void fxChain_process (juce::AudioBuffer< SampleType >& audio) override
-    {
-        DeEsser< SampleType >::process (audio, nullptr);
-    }
+    void fxChain_process (juce::AudioBuffer< SampleType >& audio) final;
 
-    void fxChain_prepare (double samplerate, int blocksize) override
-    {
-        DeEsser< SampleType >::prepare (blocksize, samplerate);
-    }
-
-private:
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ReorderableDeEsser)
+    void fxChain_prepare (double samplerate, int blocksize) final;
 };
-
-template class ReorderableDeEsser< float >;
-template class ReorderableDeEsser< double >;
 
 }  // namespace bav::dsp::FX

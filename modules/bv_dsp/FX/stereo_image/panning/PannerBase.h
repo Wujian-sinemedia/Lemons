@@ -14,75 +14,25 @@ namespace bav::dsp::FX
 class PannerBase
 {
 public:
-    PannerBase()
-        : lastRecievedMidiPan (64), leftGain (0.5f), rightGain (0.5f)
-    {
-    }
-
+    PannerBase();
     virtual ~PannerBase() = default;
 
-    void resetToCenter()
-    {
-        leftGain            = 0.5f;
-        rightGain           = 0.5f;
-        lastRecievedMidiPan = 64;
-    }
+    void resetToCenter();
 
-    int getLastMidiPan() const noexcept { return lastRecievedMidiPan; }
+    float getLeftGain() const noexcept;
+    float getRightGain() const noexcept;
+    float getGainMult (const int chan) const;
+    void  getGainMults (float& left, float& right);
 
-    float getLeftGain() const noexcept { return leftGain; }
-
-    float getRightGain() const noexcept { return rightGain; }
-
-    float getGainMult (const int chan) const
-    {
-        switch (chan)
-        {
-            case 0 : return leftGain;
-            case 1 : return rightGain;
-            default : return 1.0f;
-        }
-    }
-
-    void getGainMults (float& left, float& right)
-    {
-        left  = leftGain;
-        right = rightGain;
-    }
-
-    void setMidiPan (int newMidiPan)
-    {
-        jassert (newMidiPan >= 0 && newMidiPan <= 127);
-
-        if (lastRecievedMidiPan == newMidiPan) return;
-
-        const auto panningAngle = juce::jlimit (
-            0.0f,
-            90.0f,
-            (90.0f * newMidiPan / 127.0f * juce::MathConstants< float >::pi)
-                / 180.0f);
-
-        leftGain  = juce::jlimit (0.0f, 1.0f, std::sin (panningAngle));
-        rightGain = juce::jlimit (0.0f, 1.0f, std::cos (panningAngle));
-
-        lastRecievedMidiPan = newMidiPan;
-    }
-
-    void setMidiPan (int newMidiPan, float& leftGainOutput, float& rightGainOutput)
-    {
-        setMidiPan (newMidiPan);
-        leftGainOutput  = leftGain;
-        rightGainOutput = rightGain;
-    }
-
+    void setMidiPan (int newMidiPan);
+    void setMidiPan (int newMidiPan, float& leftGainOutput, float& rightGainOutput);
+    int  getLastMidiPan() const noexcept;
 
 private:
     int lastRecievedMidiPan;
 
     float leftGain;
     float rightGain;
-
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PannerBase)
 };
 
 
