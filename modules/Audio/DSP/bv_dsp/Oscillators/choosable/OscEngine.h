@@ -1,7 +1,6 @@
 
 #pragma once
 
-
 namespace bav::dsp::osc
 {
 template < typename SampleType, class OscType >

@@ -14,8 +14,6 @@ public:
                bool         isAutomatable = true,
                bool         metaParam     = false);
 
-    virtual ~Parameter() override = default;
-
     int  getMidiControllerNumber() const;
     bool isMidiControllerMapped() const;
     void setMidiControllerNumber (int newControllerNumber);

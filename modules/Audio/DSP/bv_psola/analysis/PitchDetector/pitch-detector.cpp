@@ -255,8 +255,8 @@ void PitchDetector< SampleType >::setHzRange (const int newMinHz, const int newM
 
     const auto numOfLagValues = maxPeriod - minPeriod + 1;
 
-    if (asdfBuffer.getNumSamples() != numOfLagValues)
-        asdfBuffer.setSize (1, numOfLagValues, true, true, true);
+    asdfBuffer.setSize (1, numOfLagValues, true, true, true);
+    filteringBuffer.setSize (1, numOfLagValues, true, true, true);
 }
 
 

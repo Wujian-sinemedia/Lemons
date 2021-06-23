@@ -11,8 +11,6 @@ struct GainParameter : public FloatParameter
                    juce::AudioProcessorParameter::Category parameterCategory =
                        juce::AudioProcessorParameter::genericParameter);
 
-    virtual ~GainParameter() override = default;
-
     using Listener = FloatParameter::Listener;
 };
 
@@ -24,8 +22,6 @@ struct ToggleParameter : public BoolParameter
     ToggleParameter (String paramNameShort,
                      String paramNameVerbose,
                      bool   defaultVal);
-
-    virtual ~ToggleParameter() override = default;
 
     using Listener = BoolParameter::Listener;
 };
@@ -43,8 +39,6 @@ struct FloatAmountParameter : public FloatParameter
                               juce::AudioProcessorParameter::genericParameter,
                           String parameterLabel = String());
 
-    virtual ~FloatAmountParameter() override = default;
-
     using Listener = FloatParameter::Listener;
 };
 
@@ -57,8 +51,6 @@ struct PercentParameter : public IntParameter
     PercentParameter (String paramNameShort,
                       String paramNameVerbose,
                       int    defaultVal);
-
-    virtual ~PercentParameter() override = default;
 
     using Listener = IntParameter::Listener;
 };
@@ -81,8 +73,6 @@ struct MeterParameter : public FloatParameter
         std::function< float (const String& text) > valueFromString = nullptr,
         String                                      parameterLabel  = String());
 
-    virtual ~MeterParameter() override = default;
-
     using Listener = FloatParameter::Listener;
 };
 
@@ -97,8 +87,6 @@ struct GainMeterParameter : public MeterParameter
                         String                                  paramNameVerbose,
                         juce::AudioProcessorParameter::Category parameterCategory =
                             juce::AudioProcessorParameter::genericParameter);
-
-    virtual ~GainMeterParameter() override = default;
 
     using Listener = MeterParameter::Listener;
 };

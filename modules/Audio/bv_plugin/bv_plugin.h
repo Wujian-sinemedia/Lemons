@@ -29,29 +29,29 @@
 
 
 
-#include "bv_dsp/bv_dsp.h"
-#include "bv_mobile_utils/bv_mobile_utils.h"
-
-#include "parameters/helpers/ParameterValueConversionLambdas.h"
-#include "parameters/Parameter.h"
-#include "parameters/types/ParameterTypes.h"
-#include "parameters/specializations/ParameterSpecializations.h"
-#include "parameters/ParameterList/ParameterHolder.h"
-#include "parameters/StringProperty/StringProperty.h"
+#include <bv_dsp/bv_dsp.h>
+#include <bv_mobile_utils/bv_mobile_utils.h>
 
 #include "transport/PluginTransport.h"
 
-#include "ProcessorBase/BasicProcessor.h"
+#include "processors/BasicProcessor.h"
 
-#include "parameters/ParameterList/ParameterList.h"
-#include "parameters/processor/ParameterProcessor.h"
+#include "plugin_parameters/parameters/helpers/ParameterValueConversionLambdas.h"
+#include "plugin_parameters/parameters/Parameter.h"
+#include "plugin_parameters/parameters/types/ParameterTypes.h"
+#include "plugin_parameters/parameters/specializations/ParameterSpecializations.h"
+#include "plugin_parameters/ParameterList/ParameterHolder.h"
+#include "plugin_parameters/StringProperty/StringProperty.h"
+#include "plugin_parameters/ParameterList/ParameterList.h"
+#include "plugin_parameters/processor/ParameterProcessor.h"
 
-#include "ProcessorBase/ProcessorBase.h"
+#include "processors/ProcessorBase.h"
+
 #include "EditorBase/EditorBase.h"
 
-#include "state/state.h"
-#include "state/PluginUndo.h"
-#include "state/PluginPresetManager.h"
+#include "plugin_parameters/state/state.h"
+#include "plugin_parameters/state/PluginUndo.h"
+#include "plugin_parameters/state/PluginPresetManager.h"
 
 
 #ifndef JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP

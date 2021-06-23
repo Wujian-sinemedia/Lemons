@@ -23,8 +23,6 @@ public:
         bool                                        isAutomatable   = true,
         bool                                        metaParam       = false);
 
-    virtual ~FloatParameter() override = default;
-
     float get() const;
     float getDefault() const;
 
@@ -45,8 +43,7 @@ public:
     struct Listener : public Parameter::Listener
     {
         Listener (FloatParameter& toUse);
-        virtual ~Listener() override = default;
-
+        
         virtual void paramValueChanged (float newValue);
         virtual void paramDefaultChanged (float newDefault);
 
@@ -81,8 +78,6 @@ public:
         bool                                      isAutomatable  = true,
         bool                                      metaParam      = false);
 
-    virtual ~IntParameter() override = default;
-
     int get() const;
     int getDefault() const;
 
@@ -103,8 +98,7 @@ public:
     struct Listener : public Parameter::Listener
     {
         Listener (IntParameter& toUse);
-        virtual ~Listener() override = default;
-
+        
         virtual void paramValueChanged (int newValue);
         virtual void paramDefaultChanged (int newDefault);
 
@@ -136,8 +130,6 @@ public:
         bool                                       isAutomatable  = true,
         bool                                       metaParam      = false);
 
-    virtual ~BoolParameter() override = default;
-
     bool get() const;
     bool getDefault() const;
 
@@ -155,8 +147,7 @@ public:
     struct Listener : public Parameter::Listener
     {
         Listener (BoolParameter& toUse);
-        virtual ~Listener() override = default;
-
+       
         virtual void paramValueChanged (bool newValue);
         virtual void paramDefaultChanged (bool newDefault);
 
