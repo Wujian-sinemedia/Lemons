@@ -11,9 +11,9 @@ class GrainExtractor
     using FArray = juce::Array< float >;
 
 public:
-    GrainExtractor() = default;
+    GrainExtractor()  = default;
     ~GrainExtractor() = default;
-    
+
     void prepare (const int maxBlocksize);
 
     void releaseResources();
@@ -61,7 +61,7 @@ private:
     IArray peakIndices;
     IArray peakCandidates;
     IArray peakSearchingOrder;
-    
+
     FArray candidateDeltas;
     IArray finalHandful;
     FArray finalHandfulDeltas;

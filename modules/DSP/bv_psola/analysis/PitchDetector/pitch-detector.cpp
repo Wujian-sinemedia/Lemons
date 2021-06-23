@@ -18,7 +18,7 @@ void PitchDetector< SampleType >::initialize()
     asdfBuffer.setSize (1, 512);
 
     lastFrameWasPitched = false;
-    
+
     hiCut.prepare();
     loCut.prepare();
 }
@@ -31,7 +31,7 @@ void PitchDetector< SampleType >::releaseResources()
     weightedCandidateConfidence.clear();
 
     asdfBuffer.setSize (0, 0, false, false, false);
-    
+
     hiCut.reset();
     loCut.reset();
 }
@@ -76,19 +76,19 @@ float PitchDetector< SampleType >::detectPitch (const SampleType* inputAudio, co
         minLag = std::min (maxLag - 1, minPeriod);
 
     jassert (maxLag > minLag);
-    
-    auto* reading = filteringBuffer.getWritePointer(0);
-    
+
+    auto* reading = filteringBuffer.getWritePointer (0);
+
     // copy to filtering buffer
     vecops::copy (inputAudio, reading, numSamples);
-    
+
     // filter to our min and max possible frequencies
     loCut.coefs.makeHighPass (samplerate,
                               (SampleType) math::freqFromPeriod (samplerate, maxLag));
-    
+
     hiCut.coefs.makeLowPass (samplerate,
                              (SampleType) math::freqFromPeriod (samplerate, minLag));
-    
+
     loCut.process (reading, numSamples);
     hiCut.process (reading, numSamples);
 
@@ -99,7 +99,7 @@ float PitchDetector< SampleType >::detectPitch (const SampleType* inputAudio, co
     // COMPUTE ASDF
 
     jassert (asdfBuffer.getNumSamples() >= maxLag - minLag + 1);
-    
+
     const auto asdfDataSize = maxLag - minLag + 1;
 
     for (int k = minLag; k <= maxLag; ++k)  // k = lag = period
@@ -107,7 +107,7 @@ float PitchDetector< SampleType >::detectPitch (const SampleType* inputAudio, co
         const auto index =
             k
             - minLag;  // the actual asdfBuffer index for this k value's data. offset = minPeriod
-        
+
         jassert (index <= asdfDataSize);
 
         for (int s1 = 0, s2 = halfNumSamples; s1 < halfNumSamples && s2 < numSamples;
@@ -272,7 +272,7 @@ void PitchDetector< SampleType >::setSamplerate (const double newSamplerate)
     samplerate = newSamplerate;
 
     if (minHz > 0 && maxHz > 0) setHzRange (minHz, maxHz);
-    
+
     hiCut.prepare();
     loCut.prepare();
 }
@@ -330,7 +330,10 @@ void PitchDetector< SampleType >::setConfidenceThresh (const SampleType newThres
 }
 
 template < typename SampleType >
-int PitchDetector< SampleType >::getLatencySamples() const noexcept { return 2 * maxPeriod; }
+int PitchDetector< SampleType >::getLatencySamples() const noexcept
+{
+    return 2 * maxPeriod;
+}
 
 template class PitchDetector< float >;
 template class PitchDetector< double >;

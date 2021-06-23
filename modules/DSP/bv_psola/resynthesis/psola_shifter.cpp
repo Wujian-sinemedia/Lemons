@@ -18,7 +18,7 @@ template < typename SampleType >
 SampleType PsolaShifter< SampleType >::getNextSample()
 {
     auto sample = SampleType (0);
-    
+
     return sample;
 }
 

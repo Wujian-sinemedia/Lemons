@@ -30,7 +30,7 @@ public:
     void setSamplerate (const double newSamplerate);
 
     int getLatencySamples() const noexcept;
-    
+
     juce::Range< int > getCurrentLegalPeriodRange() const;
 
 private:
@@ -64,9 +64,9 @@ private:
     juce::Array< int >        periodCandidates;
     juce::Array< int >        candidateDeltas;
     juce::Array< SampleType > weightedCandidateConfidence;
-    
-    AudioBuffer filteringBuffer;
-    filters::Filter<SampleType> loCut, hiCut;
+
+    AudioBuffer                   filteringBuffer;
+    filters::Filter< SampleType > loCut, hiCut;
 
     static constexpr int numPeriodCandidatesToTest = 10;
 
