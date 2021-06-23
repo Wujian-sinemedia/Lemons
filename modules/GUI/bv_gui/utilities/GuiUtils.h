@@ -1,7 +1,9 @@
 
 #pragma once
 
-#include <bv_plugin/bv_plugin.h>
+#include <bv_core/bv_core.h>
+#include <bv_mobile_utils/bv_mobile_utils.h>
+#include <juce_gui_extra/juce_gui_extra.h>
 
 namespace bav::gui
 {
@@ -18,23 +20,6 @@ void addAndMakeVisible (juce::Component* parent, juce::Component* child);
 
 juce::Button::ButtonState boolToButtonState (const bool isOn) noexcept;
 bool                      buttonStateToBool (juce::Button::ButtonState state) noexcept;
-
-
-struct DarkModeSentinel : private BoolParameter::Listener
-{
-    DarkModeSentinel (BoolParameter& paramToUse, juce::Component& componentToUse);
-
-private:
-    void paramValueChanged (bool) final;
-
-    BoolParameter&   darkModeParameter;
-    juce::Component& componentToRepaint;
-
-#if JUCE_MAC
-    events::TimerCallback t {[&]
-                             { darkModeParameter.set (juce::Desktop::isOSXDarkModeActive()); }};
-#endif
-};
 
 
 struct GUIInitializer

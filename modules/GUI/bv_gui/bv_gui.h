@@ -9,7 +9,7 @@
  version:            0.0.1
  name:               bv_gui
  description:        GUI utility classes and some basic components
- dependencies:       bv_plugin
+ dependencies:       bv_core bv_mobile_utils juce_gui_extra
 
  END_JUCE_MODULE_DECLARATION
  
@@ -24,9 +24,6 @@
 #include "utilities/GuiUtils.h"
 
 #include "icons/icons.h"
-
-#include "components/sliders/Sliders.h"
-#include "components/buttons/Buttons.h"
 
 #ifdef __clang__
 #    pragma clang diagnostic pop
