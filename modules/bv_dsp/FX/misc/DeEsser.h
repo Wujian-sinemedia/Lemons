@@ -22,17 +22,8 @@ public:
     void process (juce::AudioBuffer< SampleType >& audio,
                   SampleType*                      gainReduction = nullptr);
 
-    void process (const int   channel,
-                  SampleType* signalToDeEss,
-                  const int   numSamples,
-                  SampleType* gainReduction = nullptr);
-
-    SampleType processSample (const int        channel,
-                              const SampleType inputSample,
-                              SampleType*      gainReduction = nullptr);
-
 private:
-    juce::dsp::IIR::Filter< SampleType > hiPass;
+    dsp::filters::MultiFilter< SampleType, 2 > filter;
 
     NoiseGate< SampleType > gate;
 

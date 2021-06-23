@@ -12,16 +12,15 @@ DeEsser< SampleType >::DeEsser()
 template < typename SampleType >
 void DeEsser< SampleType >::prepare (int blocksize, double samplerate)
 {
-    hiPass.coefficients =
-        juce::dsp::IIR::Coefficients< SampleType >::makeHighPass (
-            samplerate, SampleType (hiPassFreq));
+    filter.coefs.makeHighPass (samplerate, SampleType (hiPassFreq));
+
     gate.prepare (2, blocksize, samplerate);
 }
 
 template < typename SampleType >
 void DeEsser< SampleType >::reset()
 {
-    hiPass.reset();
+    filter.reset();
     gate.reset();
 }
 
@@ -46,44 +45,8 @@ template < typename SampleType >
 void DeEsser< SampleType >::process (juce::AudioBuffer< SampleType >& audio,
                                      SampleType*                      gainReduction)
 {
-    const auto numSamples = audio.getNumSamples();
-
-    for (int chan = 0; chan < std::min (2, audio.getNumChannels()); ++chan)
-        process (chan, audio.getWritePointer (chan), numSamples, gainReduction);
-}
-
-
-template < typename SampleType >
-void DeEsser< SampleType >::process (const int   channel,
-                                     SampleType* signalToDeEss,
-                                     const int   numSamples,
-                                     SampleType* gainReduction)
-{
-    SampleType avgGainReduction = 0;
-    SampleType gainRedux        = 0;
-
-    for (int s = 0; s < numSamples; ++s)
-    {
-        *(signalToDeEss + s) =
-            processSample (channel, signalToDeEss[s], &gainRedux);
-        avgGainReduction += gainRedux;
-    }
-
-    if (gainReduction != nullptr)
-    {
-        avgGainReduction *= (1 / numSamples);
-        *gainReduction = avgGainReduction;
-    }
-}
-
-
-template < typename SampleType >
-SampleType DeEsser< SampleType >::processSample (const int        channel,
-                                                 const SampleType inputSample,
-                                                 SampleType*      gainReduction)
-{
-    return gate.processSample (
-        channel, inputSample, hiPass.processSample (inputSample), gainReduction);
+    filter.process (audio);
+    gate.process (audio, gainReduction);
 }
 
 template class DeEsser< float >;

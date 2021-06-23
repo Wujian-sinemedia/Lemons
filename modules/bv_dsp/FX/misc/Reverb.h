@@ -49,8 +49,8 @@ private:
     bool                isDucking;
     Compressor< float > compressor;
 
-    juce::dsp::IIR::Filter< float > loCut, hiCut;
-    float                           loCutFreq = 80.0f, hiCutFreq = 5500.0f;
+    dsp::filters::MultiFilter< float > loCut, hiCut;
+    float                              loCutFreq = 80.0f, hiCutFreq = 5500.0f;
 
     double sampleRate = 0.0;
 

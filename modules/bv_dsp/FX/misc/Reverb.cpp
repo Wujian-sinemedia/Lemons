@@ -26,11 +26,11 @@ void Reverb::prepare (int blocksize, double samplerate, int numChannels)
 
     sampleRate = samplerate;
 
-    loCut.coefficients = juce::dsp::IIR::Coefficients< float >::makeLowPass (
+    loCut.coefs.makeLowPass (
         samplerate, loCutFreq);
     loCut.reset();
 
-    hiCut.coefficients = juce::dsp::IIR::Coefficients< float >::makeHighPass (
+    hiCut.coefs.makeHighPass (
         samplerate, hiCutFreq);
     hiCut.reset();
 
@@ -89,16 +89,16 @@ void Reverb::setDuckAmount (int newDuckAmount)
 
 void Reverb::setLoCutFrequency (float freq)
 {
-    loCutFreq          = freq;
-    loCut.coefficients = juce::dsp::IIR::Coefficients< float >::makeLowPass (
+    loCutFreq = freq;
+    loCut.coefs.makeLowPass (
         sampleRate, loCutFreq);
     loCut.reset();
 }
 
 void Reverb::setHiCutFrequency (float freq)
 {
-    hiCutFreq          = freq;
-    hiCut.coefficients = juce::dsp::IIR::Coefficients< float >::makeHighPass (
+    hiCutFreq = freq;
+    hiCut.coefs.makeHighPass (
         sampleRate, hiCutFreq);
     hiCut.reset();
 }
@@ -163,14 +163,8 @@ void Reverb::process (juce::AudioBuffer< float >& input,
         *reverbLevel = workingBuffer.getMagnitude (0, numSamples);
 
     // filters
-    //            for (int chan = 0; chan < numChannels; ++chan)
-    //            {
-    //                juce::AudioBuffer<float> mono (workingBuffer.getArrayOfWritePointers() + chan, 1, 0, numSamples);
-    //                juce::dsp::AudioBlock<float> block (mono);
-    //                juce::dsp::ProcessContextReplacing<float> context (block);
-    //                loCut.process (context);
-    //                hiCut.process (context);
-    //            }
+    loCut.process (workingBuffer);
+    hiCut.process (workingBuffer);
 
     // sidechain compressor
     if (isDucking) compressor.process (sidechainBuffer, workingBuffer);
