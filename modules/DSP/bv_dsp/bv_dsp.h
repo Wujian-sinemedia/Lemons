@@ -21,13 +21,7 @@ END_JUCE_MODULE_DECLARATION
 #include "engines/AudioEngine.h"
 #include "engines/LatencyEngine.h"
 
-#include "MidiChoppingProcessor/MidiChoppingProcessor.h"
-
 #include "Oscillators/oscillators.h"
 #include "Oscillators/choosable/ChoosableOscillator.h"
-
-#include "PitchDetector/pitch-detector.h"
-#include "PSOLA/analysis/psola_analyzer.h"
-#include "PSOLA/resynthesis/psola_shifter.h"
 
 #include "filters/Filter.h"

@@ -1,8 +1,4 @@
 
-
-#include "GrainExtractor.h"
-
-
 namespace bav
 {
 template < typename SampleType >

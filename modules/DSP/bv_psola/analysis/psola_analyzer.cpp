@@ -1,7 +1,4 @@
 
-#include "GrainExtractor/GrainExtractor.cpp"
-
-
 namespace bav::dsp
 {
 template<typename SampleType>

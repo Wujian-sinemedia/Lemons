@@ -32,6 +32,7 @@
 #include "MidiUtilities/PitchbendTracker.h"
 
 #include "processors/MidiProcessor.h"
+#include "processors/MidiChoppingProcessor/MidiChoppingProcessor.h"
 
 #include "PitchConverter/PitchConverter.h"
 

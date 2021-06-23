@@ -1,7 +1,8 @@
 set (newmodules 
         bv_dsp
         bv_audio_effects
-        bv_synth)
+        bv_synth
+        bv_psola)
 
 juce_add_modules (${newmodules})
 
