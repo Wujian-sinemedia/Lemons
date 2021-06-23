@@ -18,6 +18,20 @@ void SynthBase< SampleType >::setDescant (bool isOn, int newThresh, int newInter
     descant.setEnabled (isOn);
 }
 
+template < typename SampleType >
+void SynthBase< SampleType >::setPitchGlideTime (double glideTimeSeconds)
+{
+    for (auto* voice : voices)
+        voice->setPitchGlideTime (glideTimeSeconds);
+}
+
+template < typename SampleType >
+void SynthBase< SampleType >::togglePitchGlide (bool shouldGlide)
+{
+    for (auto* voice : voices)
+        voice->togglePitchGlide (shouldGlide);
+}
+
 /*
  Sets the frequency in Hz corresponding to midi note 69 (A4). This will usually be 440.
  Setting this to values higher or lower than 440 will effective detune the entire synth.

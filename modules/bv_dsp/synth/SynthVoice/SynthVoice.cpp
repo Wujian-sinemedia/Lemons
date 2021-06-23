@@ -119,7 +119,7 @@ void SynthVoiceBase< SampleType >::renderInternal (int totalNumSamples)
 
     while (samplesProcessed < totalNumSamples)
     {
-        if (outputFrequency.isSmoothing())
+        if (pitchGlide && outputFrequency.isSmoothing())
         {
             // process a single sample
             AudioBuffer alias {scratchBuffer.getArrayOfWritePointers(), 1, 0, 1};
@@ -185,6 +185,8 @@ void SynthVoiceBase< SampleType >::updateSampleRate (const double newSamplerate)
 
     adsr.setParameters (parent->adsrParams);
     quickRelease.setParameters (parent->quickReleaseParams);
+    
+    setPitchGlideTime (pitchGlideTimeSecs);
 }
 
 
@@ -239,6 +241,19 @@ template < typename SampleType >
 void SynthVoiceBase< SampleType >::setTargetOutputFrequency (float newFreq)
 {
     outputFrequency.set (newFreq, ! isVoiceActive());
+}
+
+template < typename SampleType >
+void SynthVoiceBase< SampleType >::setPitchGlideTime (double glideTimeSeconds)
+{
+    pitchGlideTimeSecs = glideTimeSeconds;
+    outputFrequency.reset (parent->sampleRate, glideTimeSeconds);
+}
+
+template < typename SampleType >
+void SynthVoiceBase< SampleType >::togglePitchGlide (bool shouldGlide)
+{
+    pitchGlide = shouldGlide;
 }
 
 

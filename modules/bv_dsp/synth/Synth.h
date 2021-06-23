@@ -102,6 +102,9 @@ public:
     juce::String getScaleName() const { return pitch.tuning.getScaleName(); }
 
     auto getLastMovedControllerInfo() const { return midi.getLastMovedCCinfo(); }
+    
+    void setPitchGlideTime (double glideTimeSeconds);
+    void togglePitchGlide (bool shouldGlide);
 
 protected:
     friend class SynthVoiceBase< SampleType >;
