@@ -34,12 +34,14 @@ if (${BV_USE_MTS_ESP})
 
 	add_library (MTS-ESP INTERFACE)
 
-    target_sources (MTS-ESP INTERFACE 
-        ../third_party/MTS-ESP/Client/libMTSClient.h
-        ../third_party/MTS-ESP/Client/libMTSClient.cpp)
+    set (MTS_ESP_DIR "${CMAKE_CURRENT_LIST_DIR}/../third_party/MTS-ESP/Client")
+    set (MTS_ESP_SOURCES "${MTS_ESP_DIR}/libMTSClient.cpp")
 
-    target_include_directories (MTS-ESP INTERFACE "${CMAKE_CURRENT_LIST_DIR}/../third_party/MTS-ESP/Client")
+    target_sources             (MTS-ESP INTERFACE ${MTS_ESP_SOURCES})
+    target_include_directories (MTS-ESP INTERFACE ${MTS_ESP_DIR})
     target_compile_definitions (MTS-ESP INTERFACE BV_USE_MTS_ESP=1)
+
+    set_source_files_properties (${MTS_ESP_SOURCES} TARGET_DIRECTORY bv_midi PROPERTIES COMPILE_FLAGS "-w")
 
     target_link_libraries (bv_midi INTERFACE MTS-ESP)
 
@@ -74,16 +76,23 @@ elseif (NOT ${BV_IGNORE_MIPP})
 
 	add_library (MIPP INTERFACE)
 
-	target_sources (MIPP INTERFACE MIPP/src/mipp.h)
+    set (MIPP_DIR "MIPP/src")
+    set (MIPP_SOURCES "${MIPP_DIR}/mipp.h")
 
-	target_include_directories (MIPP INTERFACE "MIPP/src")
-
+	target_sources             (MIPP INTERFACE ${MIPP_SOURCES})
+	target_include_directories (MIPP INTERFACE ${MIPP_DIR})
 	target_compile_definitions (MIPP INTERFACE BV_USE_MIPP=1 MIPP_ENABLE_BACKTRACE=1)
+
+    set_source_files_properties (${MIPP_SOURCES} TARGET_DIRECTORY bv_core PROPERTIES COMPILE_FLAGS "-w")
 
     target_link_libraries (bv_core INTERFACE MIPP)
     
 else()
+
+    ### Fallback ###
+
     message (STATUS "Using fallback vecops implementations...")
+
 endif()
 
 
