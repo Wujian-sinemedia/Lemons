@@ -162,6 +162,7 @@ namespace bav
 {
 using juce::String;
 using juce::ValueTree;
+using juce::File;
 }
 
 

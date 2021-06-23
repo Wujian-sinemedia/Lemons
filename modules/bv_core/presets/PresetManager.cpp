@@ -6,12 +6,12 @@ PresetManagerBase::PresetManagerBase (SerializableData& stateToUse, UndoManager*
 {
 }
 
-juce::File PresetManagerBase::presetsFolder()
+File PresetManagerBase::presetsFolder()
 {
     return getPresetsFolder (getCompanyName(), getProductName());
 }
 
-juce::File PresetManagerBase::presetNameToFilePath (const String& presetName)
+File PresetManagerBase::presetNameToFilePath (const String& presetName)
 {
     return presetsFolder().getChildFile (addFileExtensionIfMissing (presetName, getPresetFileExtension()));
 }

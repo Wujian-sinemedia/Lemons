@@ -4,15 +4,15 @@
 namespace bav
 {
 
-struct SerializableFile : SerializableData
+struct FileSerializer : SerializableData
 {
-    SerializableFile (juce::File fileToUse, juce::Identifier dataID);
+    FileSerializer (File& fileToUse, juce::Identifier dataID);
     
 private:
     void toValueTree (ValueTree& t) final;
     void fromValueTree (const ValueTree& t) final;
     
-    juce::File file;
+    File& file;
     const juce::Identifier fileContentsPropertyName;
 };
 

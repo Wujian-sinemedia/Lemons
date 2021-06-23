@@ -3,8 +3,8 @@
 
 namespace bav
 {
-extern void initializeTranslations (const juce::File& translationFile,
-                                    bool              ignoreCaseOfKeys = true);
+extern void initializeTranslations (const File& translationFile,
+                                    bool        ignoreCaseOfKeys = true);
 
 
 extern void initializeTranslationsFromBinaryData (RawData data,

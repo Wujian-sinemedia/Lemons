@@ -2,23 +2,25 @@
 namespace bav
 {
 
-SerializableFile::SerializableFile (juce::File fileToUse, juce::Identifier dataID)
+FileSerializer::FileSerializer (File& fileToUse, juce::Identifier dataID)
 : SerializableData (dataID), file(fileToUse), fileContentsPropertyName(file.getFileName() + " file contents")
 {
     jassert (! file.isDirectory());
 }
 
-void SerializableFile::toValueTree (ValueTree& t)
+void FileSerializer::toValueTree (ValueTree& t)
 {
+    String data;
+    
     if (file.existsAsFile())
-    {
-        t.setProperty (fileContentsPropertyName,
-                       file.loadFileAsString(),
-                       nullptr);
-    }
+        data = file.loadFileAsString();
+    
+    t.setProperty (fileContentsPropertyName,
+                   data,
+                   nullptr);
 }
 
-void SerializableFile::fromValueTree (const ValueTree& t)
+void FileSerializer::fromValueTree (const ValueTree& t)
 {
     if (! file.existsAsFile())
         file.create();

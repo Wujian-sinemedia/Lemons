@@ -12,7 +12,7 @@ public:
     virtual std::string getProductName()         = 0;
     virtual std::string getPresetFileExtension() = 0;
 
-    juce::File presetsFolder();
+    File presetsFolder();
 
     bool loadPreset (const String& presetName);
     void savePreset (const String& presetName);
@@ -27,7 +27,7 @@ public:
     events::Broadcaster& getPresetLoadedBroadcaster();
 
 private:
-    juce::File presetNameToFilePath (const String& presetName);
+    File presetNameToFilePath (const String& presetName);
 
     UndoManager*      undo;
     SerializableData& state;

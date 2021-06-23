@@ -2,10 +2,10 @@
 
 namespace bav::serializing
 {
-void toBinary (SerializableData& data, juce::File file);
+void toBinary (SerializableData& data, File file);
 void toBinary (SerializableData& data, juce::MemoryBlock& dest);
 
-void fromBinary (juce::File file, SerializableData& dest);
+void fromBinary (File file, SerializableData& dest);
 void fromBinary (juce::MemoryBlock& data, SerializableData& dest);
 void fromBinary (const void* data, size_t dataSizeInBytes, SerializableData& dest);
 
@@ -16,13 +16,16 @@ void fromBinary (const void* data, IntegerType dataSizeInBytes, SerializableData
 }
 
 std::unique_ptr< juce::XmlElement > toXML (SerializableData& source);
-void                                toXML (SerializableData& source, const juce::File& file);
+void                                toXML (SerializableData& source, const File& file);
 
 void fromXML (const juce::XmlElement& xml, SerializableData& dest);
 void fromXML (std::unique_ptr< juce::XmlElement > xml, SerializableData& dest);
-void fromXML (const juce::File& xmlFile, SerializableData& dest);
+void fromXML (const File& xmlFile, SerializableData& dest);
 
 String toJSON (SerializableData& source);
-void   fromJSON (const String& jsonText, SerializableData& dest);
+void   toJSON (SerializableData& source, const File& file);
+
+void fromJSON (const String& jsonText, SerializableData& dest);
+void fromJSON (const File& file, SerializableData& dest);
 
 }  // namespace bav::serializing

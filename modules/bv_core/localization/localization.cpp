@@ -1,7 +1,7 @@
 
 namespace bav
 {
-juce::String getCountryCodeToUse()
+static String getCountryCodeToUse()
 {
     return juce::SystemStats::getDisplayLanguage().upToFirstOccurrenceOf ("-", false, false);
 }
@@ -27,8 +27,8 @@ RawData getDefaultTranslationFile (String defaultCountryCode = "en")
 }
 
 
-void initializeTranslations (const juce::File& translationFile,
-                             bool              ignoreCaseOfKeys)
+void initializeTranslations (const File& translationFile,
+                             bool        ignoreCaseOfKeys)
 {
     if (translationFile.existsAsFile())
         juce::LocalisedStrings::setCurrentMappings (

@@ -1,17 +1,17 @@
 
 namespace bav
 {
-juce::File getPresetsFolder (std::string companyName,
-                             std::string pluginName)
+File getPresetsFolder (const String& companyName,
+                       const String& pluginName)
 {
-    juce::File rootFolder;
+    File rootFolder;
 
 #if JUCE_WINDOWS
-    rootFolder = juce::File::getSpecialLocation (
-        juce::File::SpecialLocationType::userDocumentsDirectory);
+    rootFolder = File::getSpecialLocation (
+        File::SpecialLocationType::userDocumentsDirectory);
 #else
-    rootFolder = juce::File::getSpecialLocation (
-        juce::File::SpecialLocationType::userApplicationDataDirectory);
+    rootFolder = File::getSpecialLocation (
+        File::SpecialLocationType::userApplicationDataDirectory);
 
 #    if JUCE_MAC
     rootFolder = rootFolder.getChildFile ("Audio").getChildFile ("Presets");
@@ -27,19 +27,25 @@ juce::File getPresetsFolder (std::string companyName,
 }
 
 
+File getFileOnDesktop (const String& fileName)
+{
+    return File::getSpecialLocation (File::userDesktopDirectory).getChildFile (fileName);
+}
+
+
 //==============================================================================
 
 
-juce::String addFileExtensionIfMissing (const String& string,
-                                        const String& extension)
+String addFileExtensionIfMissing (const String& string,
+                                  const String& extension)
 {
-    return juce::File::createLegalFileName (
+    return File::createLegalFileName (
         string.endsWith (extension) ? string.trim() : (string + extension).trim());
 }
 
 
-juce::String removeFileExtensionIfThere (const String& string,
-                                         const String& extension)
+String removeFileExtensionIfThere (const String& string,
+                                   const String& extension)
 {
     return (string.endsWith (extension))
              ? string.dropLastCharacters (extension.length()).trim()
@@ -49,15 +55,17 @@ juce::String removeFileExtensionIfThere (const String& string,
 
 //==============================================================================
 
-bool renameFile (const juce::File& f, const String& newName)
+bool renameFile (const File& f, const String& newName)
 {
+    jassert (! newName.isEmpty());
+
     if (! f.existsAsFile())
         return false;
 
     return f.moveFileTo (f.getSiblingFile (newName));
 }
 
-void deleteFile (const juce::File& f)
+void deleteFile (const File& f)
 {
     if (f.existsAsFile())
         if (! f.moveToTrash())
