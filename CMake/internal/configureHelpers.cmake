@@ -79,16 +79,7 @@ function (_configure_juce_app target useBrowser)
     _configure_macos_version (${target})
 
     target_link_libraries (${target} PUBLIC
-        bv_dsp
-        bv_audio_effects
-        bv_synth
-        bv_gui
-        bv_midi
-        bv_mobile_utils
-        bv_core
-        bv_plugin
-        bv_networking
-        ableton_push_display
+        ${modules}
         juce::juce_recommended_config_flags
         juce::juce_recommended_lto_flags
         juce::juce_recommended_warning_flags)
