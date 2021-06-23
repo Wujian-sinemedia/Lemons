@@ -1,6 +1,12 @@
 namespace bav::dsp::osc
 {
 template < typename SampleType >
+ChoosableOscillator< SampleType >::ChoosableOscillator()
+{
+    setFrequency (440.f);
+}
+
+template < typename SampleType >
 void ChoosableOscillator< SampleType >::setOscType (OscType newType)
 {
     type = newType;
@@ -53,6 +59,17 @@ void ChoosableOscillator< SampleType >::prepare (int blocksize, double samplerat
     saw.prepare (samplerate, blocksize);
     square.prepare (samplerate, blocksize);
     triangle.prepare (samplerate, blocksize);
+}
+
+template < typename SampleType >
+void ChoosableOscillator< SampleType >::setFrequency (float freqHz)
+{
+    sine.setFrequency (freqHz);
+    saw.setFrequency (freqHz);
+    square.setFrequency (freqHz);
+    triangle.setFrequency (freqHz);
+
+    freq = freqHz;
 }
 
 template class ChoosableOscillator< float >;

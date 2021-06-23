@@ -33,6 +33,8 @@ struct Oscillator
     virtual SampleType getSample() = 0;
     
     void getSamples (SampleType* output, const int numSamples);
+    
+    using NumericType = SampleType;
 };
 
 /*--------------------------------------------------------------------------------------------*/

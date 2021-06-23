@@ -11,6 +11,8 @@ public:
     using AudioBuffer = juce::AudioBuffer< SampleType >;
     using MidiBuffer  = juce::MidiBuffer;
 
+    OscEngine();
+
     void setFrequency (float freqHz);
 
 private:

@@ -91,12 +91,6 @@ void Coefficients< NumericType >::makeFirstOrderAllPass (double      sampleRate,
 }
 
 template < typename NumericType >
-void Coefficients< NumericType >::makeLowPass (double sampleRate, NumericType frequency)
-{
-    return makeLowPass (sampleRate, frequency, inverseRootTwo);
-}
-
-template < typename NumericType >
 void Coefficients< NumericType >::makeLowPass (double      sampleRate,
                                                NumericType frequency,
                                                NumericType Q)
@@ -114,13 +108,6 @@ void Coefficients< NumericType >::makeLowPass (double      sampleRate,
 
 template < typename NumericType >
 void Coefficients< NumericType >::makeHighPass (double      sampleRate,
-                                                NumericType frequency)
-{
-    return makeHighPass (sampleRate, frequency, inverseRootTwo);
-}
-
-template < typename NumericType >
-void Coefficients< NumericType >::makeHighPass (double      sampleRate,
                                                 NumericType frequency,
                                                 NumericType Q)
 {
@@ -132,13 +119,6 @@ void Coefficients< NumericType >::makeHighPass (double      sampleRate,
 
     coefficients = {
         c1, c1 * -2, c1, 1, c1 * 2 * (nSquared - 1), c1 * (1 - invQ * n + nSquared)};
-}
-
-template < typename NumericType >
-void Coefficients< NumericType >::makeBandPass (double      sampleRate,
-                                                NumericType frequency)
-{
-    return makeBandPass (sampleRate, frequency, inverseRootTwo);
 }
 
 template < typename NumericType >
@@ -166,12 +146,6 @@ void Coefficients< NumericType >::makeBandPass (double      sampleRate,
 }
 
 template < typename NumericType >
-void Coefficients< NumericType >::makeNotch (double sampleRate, NumericType frequency)
-{
-    return makeNotch (sampleRate, frequency, inverseRootTwo);
-}
-
-template < typename NumericType >
 void Coefficients< NumericType >::makeNotch (double      sampleRate,
                                              NumericType frequency,
                                              NumericType Q)
@@ -190,12 +164,6 @@ void Coefficients< NumericType >::makeNotch (double      sampleRate,
     const auto b1       = 2 * c1 * (1 - nSquared);
 
     coefficients = {b0, b1, b0, 1, b1, c1 * (1 - n * invQ + nSquared)};
-}
-
-template < typename NumericType >
-void Coefficients< NumericType >::makeAllPass (double sampleRate, NumericType frequency)
-{
-    return makeAllPass (sampleRate, frequency, inverseRootTwo);
 }
 
 template < typename NumericType >

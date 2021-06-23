@@ -20,20 +20,11 @@ struct Coefficients
     void makeFirstOrderHighPass (double sampleRate, NumericType frequency);
     void makeFirstOrderAllPass (double sampleRate, NumericType frequency);
 
-    void makeLowPass (double sampleRate, NumericType frequency);
-    void makeLowPass (double sampleRate, NumericType frequency, NumericType Q);
-
-    void makeHighPass (double sampleRate, NumericType frequency);
-    void makeHighPass (double sampleRate, NumericType frequency, NumericType Q);
-
-    void makeBandPass (double sampleRate, NumericType frequency);
-    void makeBandPass (double sampleRate, NumericType frequency, NumericType Q);
-
-    void makeNotch (double sampleRate, NumericType frequency);
-    void makeNotch (double sampleRate, NumericType frequency, NumericType Q);
-
-    void makeAllPass (double sampleRate, NumericType frequency);
-    void makeAllPass (double sampleRate, NumericType frequency, NumericType Q);
+    void makeLowPass  (double sampleRate, NumericType frequency, NumericType Q = inverseRootTwo);
+    void makeHighPass (double sampleRate, NumericType frequency, NumericType Q = inverseRootTwo);
+    void makeBandPass (double sampleRate, NumericType frequency, NumericType Q = inverseRootTwo);
+    void makeNotch    (double sampleRate, NumericType frequency, NumericType Q = inverseRootTwo);
+    void makeAllPass  (double sampleRate, NumericType frequency, NumericType Q = inverseRootTwo);
 
     //==============================================================================
     /** Returns the coefficients for a low-pass shelf filter with variable Q and gain.
@@ -43,8 +34,8 @@ struct Coefficients
      */
     void makeLowShelf (double      sampleRate,
                        NumericType cutOffFrequency,
-                       NumericType Q,
-                       NumericType gainFactor);
+                       NumericType Q = inverseRootTwo,
+                       NumericType gainFactor = (NumericType) 1);
 
     /** Returns the coefficients for a high-pass shelf filter with variable Q and gain.
      The gain is a scale factor that the high frequencies are multiplied by, so values
@@ -53,8 +44,8 @@ struct Coefficients
      */
     void makeHighShelf (double      sampleRate,
                         NumericType cutOffFrequency,
-                        NumericType Q,
-                        NumericType gainFactor);
+                        NumericType Q = inverseRootTwo,
+                        NumericType gainFactor = (NumericType) 1);
 
     /** Returns the coefficients for a peak filter centred around a
      given frequency, with a variable Q and gain.
@@ -64,8 +55,8 @@ struct Coefficients
      */
     void makePeakFilter (double      sampleRate,
                          NumericType centreFrequency,
-                         NumericType Q,
-                         NumericType gainFactor);
+                         NumericType Q = inverseRootTwo,
+                         NumericType gainFactor = (NumericType) 1);
 
     //==============================================================================
     /** Returns the filter order associated with the coefficients */
@@ -98,10 +89,7 @@ struct Coefficients
                                     size_t  numSamples,
                                     double  sampleRate) const noexcept;
 
-    /** Returns a raw data pointer to the coefficients. */
-    NumericType* getRawCoefficients() noexcept;
-
-    /** Returns a raw data pointer to the coefficients. */
+    NumericType*       getRawCoefficients() noexcept;
     const NumericType* getRawCoefficients() const noexcept;
 
     //==============================================================================

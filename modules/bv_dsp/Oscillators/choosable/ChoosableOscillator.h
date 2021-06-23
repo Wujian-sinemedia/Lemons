@@ -19,8 +19,13 @@ public:
         TriangleOsc
     };
 
+    ChoosableOscillator();
+
     void    setOscType (OscType newType);
     OscType getOscType() const { return type; }
+
+    void  setFrequency (float freqHz);
+    float getFrequency() const { return freq; }
 
     void process (AudioBuffer& output);
 
@@ -33,6 +38,7 @@ private:
     OscEngine< SampleType, Triangle< SampleType > > triangle;
 
     OscType type;
+    float   freq {440.f};
 };
 
 }  // namespace bav::dsp::osc

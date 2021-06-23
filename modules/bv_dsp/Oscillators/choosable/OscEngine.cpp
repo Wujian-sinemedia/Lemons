@@ -2,6 +2,13 @@
 namespace bav::dsp::osc
 {
 template < typename SampleType, class OscType >
+OscEngine< SampleType, OscType >::OscEngine()
+{
+    static_assert (std::is_same< SampleType, typename OscType::NumericType >::value,
+                   "The oscillator engine's SampleType must match its oscillator's SampleType!");
+}
+
+template < typename SampleType, class OscType >
 void OscEngine< SampleType, OscType >::setFrequency (float freqHz)
 {
     frequency = freqHz;
