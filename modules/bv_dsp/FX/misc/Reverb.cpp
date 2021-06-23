@@ -28,11 +28,11 @@ void Reverb::prepare (int blocksize, double samplerate, int numChannels)
 
     loCut.coefs.makeLowPass (
         samplerate, loCutFreq);
-    loCut.reset();
+    loCut.prepare();
 
     hiCut.coefs.makeHighPass (
         samplerate, hiCutFreq);
-    hiCut.reset();
+    hiCut.prepare();
 
     sidechainBuffer.setSize (numChannels, blocksize, true, true, true);
     workingBuffer.setSize (numChannels, blocksize, true, true, true);

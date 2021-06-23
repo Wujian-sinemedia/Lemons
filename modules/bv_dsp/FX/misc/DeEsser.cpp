@@ -13,6 +13,7 @@ template < typename SampleType >
 void DeEsser< SampleType >::prepare (int blocksize, double samplerate)
 {
     filter.coefs.makeHighPass (samplerate, SampleType (hiPassFreq));
+    filter.prepare();
 
     gate.prepare (2, blocksize, samplerate);
 }
