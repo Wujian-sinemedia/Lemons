@@ -1,57 +1,27 @@
 
 #pragma once
 
+#include <bv_core/bv_core.h>
+
 namespace bav::midi
 {
 class MidiFIFO
 {
 public:
-    MidiFIFO() { }
+    MidiFIFO() = default;
+    MidiFIFO (int maxNumMessages);
 
-    MidiFIFO (int maxNumMessages) { setSize (maxNumMessages); }
+    ~MidiFIFO() = default;
 
-    ~MidiFIFO() { }
+    void setSize (int maxNumMessages);
 
+    void clear();
 
-    void setSize (int maxNumMessages)
-    {
-        const auto messages = size_t (maxNumMessages);
-        base.ensureSize (messages);
-        copying.ensureSize (messages);
-    }
+    int numStoredEvents() const;
 
+    void pushEvents (const juce::MidiBuffer& source, const int numSamples);
 
-    void clear()
-    {
-        base.clear();
-        copying.clear();
-        numStoredSamples = 0;
-    }
-
-
-    int numStoredEvents() const { return base.getNumEvents(); }
-
-
-    void pushEvents (const juce::MidiBuffer& source, const int numSamples)
-    {
-        base.addEvents (source, 0, numSamples, numStoredSamples);
-        numStoredSamples += numSamples;
-    }
-
-
-    void popEvents (juce::MidiBuffer& output, const int numSamples)
-    {
-        output.clear();
-        output.addEvents (base, 0, numSamples, 0);
-
-        // Move all the remaining events forward by the number of samples removed
-        copying.clear();
-        copying.addEvents (base, numSamples, numStoredSamples, -numSamples);
-
-        base.swapWith (copying);
-        numStoredSamples = std::max (0, numStoredSamples - numSamples);
-    }
-
+    void popEvents (juce::MidiBuffer& output, const int numSamples);
 
 private:
     int numStoredSamples {0};

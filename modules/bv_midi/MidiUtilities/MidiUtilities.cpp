@@ -33,7 +33,7 @@ void copyRangeOfMidiBuffer (const juce::MidiBuffer& readingBuffer,
                             const int               numSamples)
 {
     if (numSamples == 0) return;
-    
+
     destBuffer.clear (startSampleOfOutput, numSamples);
     destBuffer.addEvents (readingBuffer,
                           startSampleOfInput,
@@ -82,6 +82,87 @@ float VelocityHelper::getGainForVelocity (float midiVelocity)
 float VelocityHelper::getGainForVelocity (int midiVelocity)
 {
     return getGainMultFromMidiVelocity (midiVelocity, sensitivity);
+}
+
+
+MidiFIFO::MidiFIFO (int maxNumMessages) { setSize (maxNumMessages); }
+
+void MidiFIFO::setSize (int maxNumMessages)
+{
+    const auto messages = size_t (maxNumMessages);
+    base.ensureSize (messages);
+    copying.ensureSize (messages);
+}
+
+
+void MidiFIFO::clear()
+{
+    base.clear();
+    copying.clear();
+    numStoredSamples = 0;
+}
+
+
+int MidiFIFO::numStoredEvents() const { return base.getNumEvents(); }
+
+
+void MidiFIFO::pushEvents (const juce::MidiBuffer& source, const int numSamples)
+{
+    base.addEvents (source, 0, numSamples, numStoredSamples);
+    numStoredSamples += numSamples;
+}
+
+
+void MidiFIFO::popEvents (juce::MidiBuffer& output, const int numSamples)
+{
+    output.clear();
+    output.addEvents (base, 0, numSamples, 0);
+
+    // Move all the remaining events forward by the number of samples removed
+    copying.clear();
+    copying.addEvents (base, numSamples, numStoredSamples, -numSamples);
+
+    base.swapWith (copying);
+    numStoredSamples = std::max (0, numStoredSamples - numSamples);
+}
+
+
+float PitchPipeline::getFrequencyForMidi (int midiPitch, int midiChannel) const
+{
+    return getFrequencyForMidi (static_cast< float > (midiPitch), midiChannel);
+}
+
+float PitchPipeline::getFrequencyForMidi (float midiPitch, int midiChannel) const
+{
+    return tuning.midiToFrequency (bend.getAdjustedMidiPitch (midiPitch),
+                                   midiChannel);
+}
+
+void PitchPipeline::reset()
+{
+    bend.newPitchbendRecieved (64);
+    tuning.setConcertPitchHz (440.0f);
+}
+
+
+void PitchBendTracker::setRange (int newStUp, int newStDown) noexcept
+{
+    rangeUp   = newStUp;
+    rangeDown = newStDown;
+}
+
+int PitchBendTracker::getRangeUp() const noexcept { return rangeUp; }
+int PitchBendTracker::getRangeDown() const noexcept { return rangeDown; }
+
+int PitchBendTracker::getLastRecievedPitchbend() const noexcept
+{
+    return lastRecievedPitchbend;
+}
+
+void PitchBendTracker::newPitchbendRecieved (const int newPitchbend)
+{
+    jassert (newPitchbend >= 0 && newPitchbend <= 127);
+    lastRecievedPitchbend = newPitchbend;
 }
 
 }  // namespace bav::midi

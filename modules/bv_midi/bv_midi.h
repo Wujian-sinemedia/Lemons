@@ -27,8 +27,6 @@
 #endif
 
 
-#include <bv_core/bv_core.h>
-
 #include "MidiUtilities/MidiFIFO.h"
 #include "MidiUtilities/MidiUtilities.h"
 #include "MidiUtilities/PitchbendTracker.h"

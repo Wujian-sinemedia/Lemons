@@ -15,14 +15,7 @@ END_JUCE_MODULE_DECLARATION
 
 #endif
 
-
-#include <juce_audio_utils/juce_audio_utils.h>
-#include <juce_dsp/juce_dsp.h>
-
-#include <bv_midi/bv_midi.h>
-
 #include "Oscillators/oscillators.h"
-#include "Oscillators/LFO/LFO.h"
 
 #include "FIFOs/AudioFIFO.h"
 #include "FIFOs/AudioAndMidiFIFO.h"

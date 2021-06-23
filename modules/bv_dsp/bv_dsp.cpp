@@ -4,7 +4,6 @@
 #include "FIFOs/AudioFIFO.cpp"
 
 #include "Oscillators/oscillators.cpp"
-#include "Oscillators/LFO/LFO.cpp"
 
 #include "engines/AudioEngine.cpp"
 #include "engines/LatencyEngine.cpp"

@@ -1,6 +1,8 @@
 
 #pragma once
 
+#include <bv_midi/bv_midi.h>
+
 namespace bav::dsp
 {
 /* A FIFO that manages both audio samples and MIDI events */

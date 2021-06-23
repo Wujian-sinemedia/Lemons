@@ -7,25 +7,14 @@ namespace bav::midi
 class PitchBendTracker
 {
 public:
-    void setRange (int newStUp, int newStDown) noexcept
-    {
-        rangeUp   = newStUp;
-        rangeDown = newStDown;
-    }
+    void setRange (int newStUp, int newStDown) noexcept;
 
-    int getRangeUp() const noexcept { return rangeUp; }
-    int getRangeDown() const noexcept { return rangeDown; }
+    int getRangeUp() const noexcept;
+    int getRangeDown() const noexcept;
 
-    int getLastRecievedPitchbend() const noexcept
-    {
-        return lastRecievedPitchbend;
-    }
+    int getLastRecievedPitchbend() const noexcept;
 
-    void newPitchbendRecieved (const int newPitchbend)
-    {
-        jassert (newPitchbend >= 0 && newPitchbend <= 127);
-        lastRecievedPitchbend = newPitchbend;
-    }
+    void newPitchbendRecieved (const int newPitchbend);
 
     template < typename NoteType >
     float getAdjustedMidiPitch (NoteType recievedMidiPitch) const
