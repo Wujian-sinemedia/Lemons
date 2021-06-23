@@ -32,3 +32,6 @@
 #include "FX/stereo_image/panning/MonoToStereoPanner.cpp"
 #include "FX/stereo_image/panning/StereoPanner.cpp"
 #include "FX/time/Delay.cpp"
+
+#include "filters/Coeffecients.cpp"
+#include "filters/Filter.cpp"

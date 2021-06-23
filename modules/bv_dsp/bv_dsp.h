@@ -47,3 +47,5 @@ END_JUCE_MODULE_DECLARATION
 #include "synth/SynthVoice/SynthVoice.h"
 #include "synth/Synth.h"
 #include "synth/sine_synth.h"
+
+#include "filters/Filter.h"
