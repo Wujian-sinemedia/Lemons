@@ -15,6 +15,6 @@ END_JUCE_MODULE_DECLARATION
 
 #endif
 
-#include "PitchDetector/pitch-detector.h"
+#include "analysis/PitchDetector/pitch-detector.h"
 #include "analysis/psola_analyzer.h"
 #include "resynthesis/psola_shifter.h"
