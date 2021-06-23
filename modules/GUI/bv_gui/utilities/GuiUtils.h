@@ -30,8 +30,10 @@ private:
     BoolParameter&   darkModeParameter;
     juce::Component& componentToRepaint;
 
+#if JUCE_MAC
     events::TimerCallback t {[&]
                              { darkModeParameter.set (juce::Desktop::isOSXDarkModeActive()); }};
+#endif
 };
 
 
