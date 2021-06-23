@@ -1,3 +1,6 @@
+
+#include <juce_dsp/juce_dsp.h>
+
 namespace bav::dsp::filters
 {
 template < typename SampleType >

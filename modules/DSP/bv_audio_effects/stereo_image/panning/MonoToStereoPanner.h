@@ -1,6 +1,8 @@
 
 #pragma once
 
+#include "PannerBase.h"
+
 namespace bav::dsp::FX
 {
 template < typename SampleType >

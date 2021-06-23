@@ -80,6 +80,8 @@ function (_configure_juce_app target useBrowser)
 
     target_link_libraries (${target} PUBLIC
         bv_dsp
+        bv_audio_effects
+        bv_synth
         bv_gui
         bv_midi
         bv_mobile_utils

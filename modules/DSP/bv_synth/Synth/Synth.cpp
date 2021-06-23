@@ -1,9 +1,4 @@
 
-#include "internals/PanningManager.cpp"
-#include "internals/MidiManager.cpp"
-#include "internals/AutomatedHarmonyVoice.cpp"
-
-
 namespace bav::dsp
 {
 /*

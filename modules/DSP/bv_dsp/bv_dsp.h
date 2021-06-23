@@ -31,23 +31,3 @@ END_JUCE_MODULE_DECLARATION
 #include "PSOLA/resynthesis/psola_shifter.h"
 
 #include "filters/Filter.h"
-
-// FX
-#include "FX/ReorderableFxChain.h"
-#include "FX/dynamics/SmoothedGain.h"
-#include "FX/dynamics/NoiseGate.h"
-#include "FX/misc/DeEsser.h"
-#include "FX/dynamics/Compressor.h"
-#include "FX/misc/Reverb.h"
-#include "FX/dynamics/Limiter.h"
-#include "FX/stereo_image/MonoStereoConverter.h"
-#include "FX/stereo_image/panning/PannerBase.h"
-#include "FX/stereo_image/panning/MonoToStereoPanner.h"
-#include "FX/stereo_image/panning/StereoPanner.h"
-#include "FX/time/Delay.h"
-#include "FX/misc/DryWet.h"
-
-// synth
-#include "synth/SynthVoice/SynthVoice.h"
-#include "synth/Synth.h"
-#include "synth/sine_synth.h"
