@@ -15,14 +15,16 @@ END_JUCE_MODULE_DECLARATION
 
 #endif
 
-#include "Oscillators/oscillators.h"
-
 #include "FIFOs/AudioFIFO.h"
 #include "FIFOs/AudioAndMidiFIFO.h"
 
 #include "engines/AudioEngine.h"
 #include "engines/LatencyEngine.h"
+
 #include "MidiChoppingProcessor/MidiChoppingProcessor.h"
+
+#include "Oscillators/oscillators.h"
+#include "Oscillators/choosable/ChoosableOscillator.h"
 
 #include "PitchDetector/pitch-detector.h"
 #include "PSOLA/analysis/psola_analyzer.h"
