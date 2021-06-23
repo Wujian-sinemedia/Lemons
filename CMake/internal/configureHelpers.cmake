@@ -15,9 +15,9 @@ endfunction()
 
 #
 
-function (_adjustDefaultMacTarget target bundleName)
+function (_adjustDefaultMacTarget target)
     if (APPLE)
-        set_target_properties (${target} PROPERTIES JUCE_BUNDLE_ID "com.bv.${bundleName}")
+        set_target_properties (${target} PROPERTIES JUCE_BUNDLE_ID "com.bv.${target}")
 
         if (${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
             set_target_properties (${target} PROPERTIES
@@ -26,6 +26,24 @@ function (_adjustDefaultMacTarget target bundleName)
                     XCODE_ATTRIBUTE_SKIP_INSTALL "NO")
         endif ()
     endif ()
+endfunction()
+
+#
+
+function (_set_min_macos_version target version)
+    set_target_properties (${target} PROPERTIES XCODE_ATTRIBUTE_MACOSX_DEPLOYMENT_TARGET ${version})
+    target_compile_options (${target} PUBLIC "-mmacosx-version-min=${version}")
+    target_link_options (${target} PUBLIC "-mmacosx-version-min=${version}")
+endfunction()
+
+function (_configure_macos_version target)
+    if (APPLE)
+        if ("${CMAKE_SYSTEM_NAME}" STREQUAL "iOS")
+            _set_min_macos_version (${target} "9.3")
+        else()
+            _set_min_macos_version (${target} "10.9")
+        endif()
+    endif()
 endfunction()
 
 #
@@ -57,7 +75,8 @@ function (_configure_juce_app target useBrowser)
     
     _configure_juce_browser (${target} ${useBrowser})
 
-    _adjustDefaultMacTarget (${target} ${target})
+    _adjustDefaultMacTarget (${target})
+    _configure_macos_version (${target})
 
     target_link_libraries (${target} PUBLIC
         bv_dsp
