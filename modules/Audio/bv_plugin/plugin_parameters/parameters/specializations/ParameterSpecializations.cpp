@@ -53,6 +53,23 @@ FloatAmountParameter::FloatAmountParameter (String                              
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 
+FrequencyParameter::FrequencyParameter (String paramNameShort,
+                                        String paramNameVerbose,
+                                        float  defaultVal)
+    : FloatParameter (paramNameShort,
+                      paramNameVerbose,
+                      juce::NormalisableRange< float > (40.0f, 10000.0f, 1.0f),
+                      defaultVal,
+                      juce::AudioProcessorParameter::genericParameter,
+                      ParameterValueConversionLambdas::hz_stringFromFloat,
+                      ParameterValueConversionLambdas::hz_floatFromString,
+                      TRANS ("Hz"))
+{
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------------*/
+
 PercentParameter::PercentParameter (String paramNameShort,
                                     String paramNameVerbose,
                                     int    defaultVal)

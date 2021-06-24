@@ -2,12 +2,6 @@
 namespace bav::dsp::FX
 {
 template < typename SampleType >
-EQ< SampleType >::EQ (int initNumBands)
-{
-    setNumBands (initNumBands);
-}
-
-template < typename SampleType >
 void EQ< SampleType >::process (juce::AudioBuffer< SampleType >& audio)
 {
     jassert (getNumBands() > 0);
@@ -31,16 +25,6 @@ void EQ< SampleType >::addBand (Filter* newFilter)
 {
     filters.add (newFilter);
     newFilter->prepare (lastSamplerate, lastBlocksize);
-}
-
-template < typename SampleType >
-void EQ< SampleType >::setNumBands (int numFilters)
-{
-    while (filters.size() < numFilters)
-        addBand (new Filter);
-
-    while (filters.size() > numFilters)
-        filters.removeLast();
 }
 
 template < typename SampleType >

@@ -96,6 +96,7 @@ float Filter< SampleType >::getFilterFrequency() const
 template < typename SampleType >
 void Filter< SampleType >::setQfactor (float newQ)
 {
+    jassert (newQ > 0.f);
     Q = (SampleType) newQ;
 }
 

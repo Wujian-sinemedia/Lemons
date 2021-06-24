@@ -45,6 +45,19 @@ struct FloatAmountParameter : public FloatParameter
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 
+/* This parameter is for a frequency in Hz */
+struct FrequencyParameter : public FloatParameter
+{
+    FrequencyParameter (String paramNameShort,
+                        String paramNameVerbose,
+                        float  defaultVal);
+
+    using Listener = FloatParameter::Listener;
+};
+
+/*-----------------------------------------------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------------------------*/
+
 /* This parameter is for an integer value in the range 0 - 100 */
 struct PercentParameter : public IntParameter
 {

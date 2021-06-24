@@ -1,10 +1,6 @@
 
 namespace bav
 {
-ParameterList::ParameterList (juce::Identifier listName)
-    : SerializableData (listName)
-{
-}
 
 void ParameterList::add (ParamHolderBase& param)
 {
