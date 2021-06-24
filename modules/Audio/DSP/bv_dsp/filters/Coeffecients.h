@@ -62,33 +62,6 @@ struct Coefficients
     /** Returns the filter order associated with the coefficients */
     int getFilterOrder() const noexcept;
 
-    /** Returns the magnitude frequency response of the filter for a given frequency
-     and sample rate
-     */
-    double getMagnitudeForFrequency (double frequency,
-                                     double sampleRate) const noexcept;
-
-    /** Returns the magnitude frequency response of the filter for a given frequency array
-     and sample rate.
-     */
-    void getMagnitudeForFrequencyArray (const double* frequencies,
-                                        double*       magnitudes,
-                                        size_t        numSamples,
-                                        double        sampleRate) const noexcept;
-
-    /** Returns the phase frequency response of the filter for a given frequency and
-     sample rate
-     */
-    double getPhaseForFrequency (double frequency, double sampleRate) const noexcept;
-
-    /** Returns the phase frequency response of the filter for a given frequency array
-     and sample rate.
-     */
-    void getPhaseForFrequencyArray (double* frequencies,
-                                    double* phases,
-                                    size_t  numSamples,
-                                    double  sampleRate) const noexcept;
-
     NumericType*       getRawCoefficients() noexcept;
     const NumericType* getRawCoefficients() const noexcept;
 

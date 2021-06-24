@@ -48,6 +48,13 @@ void DryWetMixer< SampleType >::mixWetSamples (AudioBuffer& buffer)
     mixer.mixWetSamples (juce::dsp::AudioBlock< SampleType > (buffer));
 }
 
+template < typename SampleType >
+void DryWetMixer< SampleType >::process (AudioBuffer& dry, AudioBuffer& wet)
+{
+    pushDrySamples (dry);
+    mixWetSamples (wet);
+}
+
 template class DryWetMixer< float >;
 template class DryWetMixer< double >;
 

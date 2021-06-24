@@ -18,6 +18,8 @@ public:
 
     void pushDrySamples (AudioBuffer& buffer);
     void mixWetSamples (AudioBuffer& buffer);
+    
+    void process (AudioBuffer& dry, AudioBuffer& wet);
 
 private:
     juce::dsp::DryWetMixer< SampleType > mixer {512};
