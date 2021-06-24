@@ -39,14 +39,11 @@ void OscDataSynchronizerBase::oscMessageReceived (const juce::OSCMessage& messag
     }
 }
 
-
 OscDataSynchronizer::OscDataSynchronizer (SerializableData& dataToUse,
-                                          const String&     targetHostName,
-                                          int               portNumber,
                                           std::function< void() >
                                               onConnectionLost)
-    : OscManager (targetHostName, portNumber),
-      sync (dataToUse, sender, receiver, onConnectionLost)
+    : OscManager (dataToUse.getDataIdentifier().toString()),
+sync (dataToUse, sender, receiver, onConnectionLost)
 {
     dataToUse.addDataChild (*this);
 }

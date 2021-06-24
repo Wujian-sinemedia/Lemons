@@ -4,16 +4,9 @@ namespace bav::network
 {
 struct OscListener : public juce::OSCReceiver::Listener< juce::OSCReceiver::MessageLoopCallback >
 {
-    OscListener (juce::OSCReceiver& receiverToUse)
-        : receiver (receiverToUse)
-    {
-        receiver.addListener (this);
-    }
+    OscListener (juce::OSCReceiver& receiverToUse);
 
-    virtual ~OscListener() override
-    {
-        receiver.removeListener (this);
-    }
+    virtual ~OscListener() override;
 
 private:
     juce::OSCReceiver& receiver;

@@ -28,8 +28,6 @@ private:
 struct OscDataSynchronizer : public OscManager
 {
     OscDataSynchronizer (SerializableData&       dataToUse,
-                         const String&           targetHostName   = "Host",
-                         int                     portNumber       = 53100,
                          std::function< void() > onConnectionLost = {});
 
     virtual ~OscDataSynchronizer() = default;

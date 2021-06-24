@@ -1,10 +1,8 @@
 namespace bav::network
 {
-OscManager::OscManager (const String& targetHostName, int portNumber)
-    : SerializableData (targetHostName + "_OSC")
-{
-    connect (targetHostName, portNumber);
-}
+OscManager::OscManager (const String& dataName)
+: SerializableData (dataName + "_OSC")
+{ }
 
 OscManager::~OscManager()
 {

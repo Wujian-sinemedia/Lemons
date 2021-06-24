@@ -6,8 +6,8 @@ namespace bav::network
 struct OscManager : SerializableData
 {
 public:
-    OscManager (const String& targetHostName, int portNumber = 53100);
-    virtual ~OscManager();
+    OscManager (const String& dataName = "DataSync");
+    virtual ~OscManager() override;
 
     void connect (const String& targetHostName, int portNumber = 53100);
     void disconnect();

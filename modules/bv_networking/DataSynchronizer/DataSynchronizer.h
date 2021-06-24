@@ -3,20 +3,22 @@
 
 namespace bav
 {
-class DataSynchronizer : private juce::Timer
+class DataSynchronizer
 {
 public:
     explicit DataSynchronizer (SerializableData& dataToUse);
-    virtual ~DataSynchronizer() override;
 
     void applyChangeData (const void* data, size_t dataSize);
 
 private:
-    void timerCallback() final;
-
     virtual void sendChangeData (const void* data, size_t dataSize) = 0;
+    void         callback();
 
     SerializableData& sData;
+
+    events::TimerCallback t {[&]
+                             { callback(); },
+                             10};
 };
 
 }  // namespace bav
