@@ -191,6 +191,17 @@ void MultiFilter< SampleType, numChannels >::process (AudioBuffer& buffer) noexc
     }
 }
 
+template < typename SampleType, size_t numChannels >
+void MultiFilter< SampleType, numChannels >::processChannel (int channel, SampleType* audio, int numSamples) noexcept
+{
+    if (channel < filters.size())
+    {
+        filters[channel]->coefs = coefs;
+        
+        filters[channel]->process (audio, numSamples);
+    }
+}
+
 template struct MultiFilter< float, 1 >;
 template struct MultiFilter< float, 2 >;
 template struct MultiFilter< double, 1 >;

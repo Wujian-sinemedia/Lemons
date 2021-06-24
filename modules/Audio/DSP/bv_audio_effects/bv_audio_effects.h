@@ -15,6 +15,7 @@ END_JUCE_MODULE_DECLARATION
 
 #endif
 
+#include "AudioEffect.h"
 #include "ReorderableFxChain/ReorderableFxChain.h"
 #include "dynamics/SmoothedGain.h"
 #include "dynamics/NoiseGate.h"

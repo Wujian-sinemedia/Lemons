@@ -4,41 +4,26 @@
 namespace bav::dsp::FX
 {
 template < typename SampleType, size_t channels = 1 >
-class SmoothedGain
+class SmoothedGain : public AudioEffect< SampleType >
 {
 public:
+    using AudioBuffer = juce::AudioBuffer< SampleType >;
+
     SmoothedGain();
-    virtual ~SmoothedGain() = default;
+
+    void process (AudioBuffer& audio) final;
+
+    void prepare (double samplerate, int blocksize) final;
 
     void setGain (float gain);
 
-    void prepare (int blocksize);
     void reset();
     void skipSamples (int numSamples);
 
-    void process (SampleType* samples, int numSamples, int channel, float newGain);
-    void process (SampleType* samples, int numSamples, int channel);
-    void process (juce::AudioBuffer< SampleType >& audio, float newGain);
-    void process (juce::AudioBuffer< SampleType >& audio);
-
 private:
-    juce::OwnedArray< ValueSmoother<SampleType> > smoothers;
+    juce::OwnedArray< ValueSmoother< SampleType > > smoothers;
 
     int lastBlocksize = 0;
-};
-
-
-/*
- A version that implements the ReorderableEffect interface, for use with my ReorderableFxChain class.
- */
-template < typename SampleType >
-class ReorderableSmoothedGain : public SmoothedGain< SampleType >,
-                                public ReorderableEffect< SampleType >
-{
-protected:
-    void fxChain_process (juce::AudioBuffer< SampleType >& audio) final;
-
-    void fxChain_prepare (double, int blocksize) final;
 };
 
 }  // namespace bav::dsp::FX

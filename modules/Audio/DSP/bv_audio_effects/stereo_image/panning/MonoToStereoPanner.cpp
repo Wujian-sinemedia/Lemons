@@ -2,10 +2,10 @@
 namespace bav::dsp::FX
 {
 template < typename SampleType >
-void MonoToStereoPanner< SampleType >::prepare (int blocksize)
+void MonoToStereoPanner< SampleType >::prepare (double sr, int blocksize)
 {
-    left.prepare (blocksize);
-    right.prepare (blocksize);
+    left.prepare (sr, blocksize);
+    right.prepare (sr, blocksize);
 }
 
 template < typename SampleType >
@@ -17,34 +17,26 @@ void MonoToStereoPanner< SampleType >::reset()
 
 
 template < typename SampleType >
-void MonoToStereoPanner< SampleType >::process (const SampleType* input,
-                                                SampleType*       leftOut,
-                                                SampleType*       rightOut,
-                                                int               numSamples)
-{
-    left.setGain (PannerBase::getLeftGain());
-    right.setGain (PannerBase::getRightGain());
-
-    vecops::copy (input, leftOut, numSamples);
-    vecops::copy (input, rightOut, numSamples);
-
-    left.process (leftOut, numSamples, 0);
-    right.process (rightOut, numSamples, 0);
-}
-
-
-template < typename SampleType >
-void MonoToStereoPanner< SampleType >::process (const juce::AudioBuffer< SampleType >& monoInput,
-                                                juce::AudioBuffer< SampleType >&       stereoOutput)
+void MonoToStereoPanner< SampleType >::process (const AudioBuffer& monoInput,
+                                                AudioBuffer&       stereoOutput)
 {
     stereoOutput.clear();
     jassert (stereoOutput.getNumChannels() >= 2);
     jassert (monoInput.getNumSamples() == stereoOutput.getNumSamples());
 
-    process (monoInput.getReadPointer (0),
-             stereoOutput.getWritePointer (0),
-             stereoOutput.getWritePointer (1),
-             stereoOutput.getNumSamples());
+    left.setGain (PannerBase::getLeftGain());
+    right.setGain (PannerBase::getRightGain());
+
+    const auto numSamples = stereoOutput.getNumSamples();
+
+    vecops::copy (monoInput.getReadPointer (0), stereoOutput.getWritePointer (0), numSamples);
+    vecops::copy (monoInput.getReadPointer (0), stereoOutput.getWritePointer (1), numSamples);
+
+    AudioBuffer leftAlias {stereoOutput.getArrayOfWritePointers(), 1, numSamples};
+    AudioBuffer rightAlias {stereoOutput.getArrayOfWritePointers() + 1, 1, numSamples};
+
+    left.process (leftAlias);
+    right.process (rightAlias);
 }
 
 template class MonoToStereoPanner< float >;

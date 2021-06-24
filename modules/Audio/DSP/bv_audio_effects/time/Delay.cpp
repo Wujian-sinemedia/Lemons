@@ -7,13 +7,13 @@ void Delay< SampleType >::setDelay (int delayInSamples)
 }
 
 template < typename SampleType >
-void Delay< SampleType >::prepare (int blocksize, double samplerate, int numChannels)
+void Delay< SampleType >::prepare (double samplerate, int blocksize)
 {
     jassert (samplerate > 0);
 
     spec.sampleRate       = samplerate;
     spec.maximumBlockSize = juce::uint32 (blocksize);
-    spec.numChannels      = juce::uint32 (numChannels);
+    spec.numChannels      = 2;
 
     delay.prepare (spec);
 
@@ -61,78 +61,32 @@ SampleType Delay< SampleType >::popSample (int channel, SampleType* delayLevel)
     return drySample + wetSample;
 }
 
-
 template < typename SampleType >
-void Delay< SampleType >::process (int         channelNum,
-                                   SampleType* samples,
-                                   int         numSamples,
-                                   SampleType* delayLevel)
+SampleType Delay< SampleType >::processChannel (int         channel,
+                                                int         numSamples,
+                                                SampleType* signal,
+                                                const SampleType*)
 {
-    jassert (numSamples > 0);
+    if (numSamples == 0) return (SampleType) 0;
 
     for (int i = 0; i < numSamples; ++i)
-        pushSample (channelNum, samples[i]);
+        pushSample (channel, signal[i]);
 
     auto avgMag = SampleType (0.0);
 
     for (int i = 0; i < numSamples; ++i)
     {
         SampleType mag;
-        *(samples + i) = popSample (channelNum, &mag);
+        signal[i] = popSample (channel, &mag);
         avgMag += mag;
     }
 
-    if (delayLevel != nullptr)
-    {
-        avgMag /= numSamples;
-        *delayLevel = avgMag;
-    }
-}
-
-
-template < typename SampleType >
-void Delay< SampleType >::process (juce::AudioBuffer< SampleType >& audio,
-                                   SampleType*                      delayLevel)
-{
-    const auto numSamples  = audio.getNumSamples();
-    const auto numChannels = audio.getNumChannels();
-
-    jassert (numChannels > 0);
-
-    auto avgMag = SampleType (0.0);
-
-    for (int i = 0; i < numChannels; ++i)
-    {
-        SampleType mag;
-        process (i, audio.getWritePointer (i), numSamples, &mag);
-        avgMag += mag;
-    }
-
-    if (delayLevel != nullptr)
-    {
-        avgMag /= numChannels;
-        *delayLevel = avgMag;
-    }
+    avgMag /= (SampleType) numSamples;
+    return avgMag;
 }
 
 template class Delay< float >;
 template class Delay< double >;
 
-
-template < typename SampleType >
-void ReorderableDelay< SampleType >::fxChain_process (juce::AudioBuffer< SampleType >& audio)
-{
-    Delay< SampleType >::process (audio);
-}
-
-template < typename SampleType >
-void ReorderableDelay< SampleType >::fxChain_prepare (double samplerate, int blocksize)
-{
-    Delay< SampleType >::prepare (blocksize, samplerate, 2);
-}
-
-
-template class ReorderableDelay< float >;
-template class ReorderableDelay< double >;
 
 }  // namespace bav::dsp::FX

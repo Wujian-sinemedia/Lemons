@@ -36,6 +36,8 @@ struct MultiFilter
     void prepare() noexcept;
 
     void process (AudioBuffer& buffer) noexcept;
+    
+    void processChannel (int channel, SampleType* audio, int numSamples) noexcept;
 
     Coefficients< SampleType >               coefs;
     juce::OwnedArray< Filter< SampleType > > filters;

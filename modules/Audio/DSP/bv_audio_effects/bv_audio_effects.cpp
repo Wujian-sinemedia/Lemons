@@ -1,5 +1,6 @@
 #include "bv_audio_effects.h"
 
+#include "AudioEffect.cpp"
 #include "ReorderableFxChain/ReorderableFxChain.cpp"
 #include "dynamics/Compressor.cpp"
 #include "dynamics/Limiter.cpp"

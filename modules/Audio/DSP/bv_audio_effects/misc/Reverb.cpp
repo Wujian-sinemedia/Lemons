@@ -22,7 +22,7 @@ void Reverb::prepare (int blocksize, double samplerate, int numChannels)
     reverb.setSampleRate (samplerate);
     reverb.setParameters (params);
 
-    compressor.prepare (blocksize, samplerate, 2);
+    compressor.prepare (samplerate, blocksize);
 
     sampleRate = samplerate;
 
@@ -38,8 +38,8 @@ void Reverb::prepare (int blocksize, double samplerate, int numChannels)
     workingBuffer.setSize (numChannels, blocksize, true, true, true);
     conversionBuffer.setSize (numChannels, blocksize, true, true, true);
 
-    dryGain.prepare (blocksize);
-    wetGain.prepare (blocksize);
+    dryGain.prepare (samplerate, blocksize);
+    wetGain.prepare (samplerate, blocksize);
 }
 
 void Reverb::reset()
@@ -187,21 +187,5 @@ void Reverb::process (juce::AudioBuffer< float >& input,
                       numSamples);
     }
 }
-
-
-template < typename SampleType >
-void ReorderableReverb< SampleType >::fxChain_process (juce::AudioBuffer< SampleType >& audio)
-{
-    Reverb::process (audio);
-}
-
-template < typename SampleType >
-void ReorderableReverb< SampleType >::fxChain_prepare (double samplerate, int blocksize)
-{
-    Reverb::prepare (blocksize, samplerate, 2);
-}
-
-template class ReorderableReverb< float >;
-template class ReorderableReverb< double >;
 
 }  // namespace bav::dsp::FX

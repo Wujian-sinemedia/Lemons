@@ -5,13 +5,10 @@
 namespace bav::dsp::FX
 {
 template < typename SampleType >
-class Delay
+class Delay : public LevelReportingAudioEffect< SampleType >
 {
 public:
-    Delay()          = default;
-    virtual ~Delay() = default;
-
-    void prepare (int blocksize, double samplerate, int numChannels);
+    void prepare (double samplerate, int blocksize) final;
     void reset();
 
     void setDelay (int delayInSamples);
@@ -20,34 +17,17 @@ public:
     void       pushSample (int channel, SampleType sample);
     SampleType popSample (int channel, SampleType* delayLevel = nullptr);
 
-    void process (int         channelNum,
-                  SampleType* samples,
-                  int         numSamples,
-                  SampleType* delayLevel = nullptr);
-
-    void process (juce::AudioBuffer< SampleType >& audio,
-                  SampleType*                      delayLevel = nullptr);
+    /* returns the channel's average gain reduction */
+    SampleType processChannel (int         channel,
+                               int         numSamples,
+                               SampleType* signal,
+                               const SampleType*) final;
 
 private:
     juce::dsp::DelayLine< SampleType > delay;
     juce::dsp::ProcessSpec             spec;
-    
-    ValueSmoother<SampleType> dryGain, wetGain;
-};
 
-
-/*
-    A version that implements the ReorderableEffect interface, for use with my ReorderableFxChain class.
-*/
-
-template < typename SampleType >
-class ReorderableDelay : public Delay< SampleType >,
-                         public ReorderableEffect< SampleType >
-{
-protected:
-    void fxChain_process (juce::AudioBuffer< SampleType >& audio) final;
-
-    void fxChain_prepare (double samplerate, int blocksize) final;
+    ValueSmoother< SampleType > dryGain, wetGain;
 };
 
 }  // namespace bav::dsp::FX

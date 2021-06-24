@@ -9,19 +9,13 @@ template < typename SampleType >
 class MonoToStereoPanner : public PannerBase
 {
 public:
-    MonoToStereoPanner()          = default;
-    virtual ~MonoToStereoPanner() = default;
+    using AudioBuffer = juce::AudioBuffer< SampleType >;
 
-    void prepare (int blocksize);
+    void prepare (double sr, int blocksize);
     void reset();
 
-    void process (const SampleType* input,
-                  SampleType*       leftOut,
-                  SampleType*       rightOut,
-                  int               numSamples);
-
-    void process (const juce::AudioBuffer< SampleType >& monoInput,
-                  juce::AudioBuffer< SampleType >&       stereoOutput);
+    void process (const AudioBuffer& monoInput,
+                  AudioBuffer&       stereoOutput);
 
 private:
     SmoothedGain< SampleType, 1 > left, right;

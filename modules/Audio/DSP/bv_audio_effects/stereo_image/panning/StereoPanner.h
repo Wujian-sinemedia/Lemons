@@ -4,40 +4,21 @@
 namespace bav::dsp::FX
 {
 template < typename SampleType >
-class StereoPanner : public PannerBase
+class StereoPanner : public PannerBase, public AudioEffect< SampleType >
 {
 public:
-    StereoPanner()          = default;
-    virtual ~StereoPanner() = default;
+    using AudioBuffer = juce::AudioBuffer< SampleType >;
 
-    void prepare (int blocksize);
+    void prepare (double samplerate, int blocksize);
     void reset();
 
-    void process (const SampleType* leftIn,
-                  const SampleType* rightIn,
-                  SampleType*       leftOut,
-                  SampleType*       rightOut,
-                  int               numSamples);
+    void process (const AudioBuffer& stereoInput,
+                  AudioBuffer&       stereoOutput);
 
-    void process (const juce::AudioBuffer< SampleType >& stereoInput,
-                  juce::AudioBuffer< SampleType >&       stereoOutput);
+    void process (AudioBuffer& audio) final;
 
 private:
     SmoothedGain< SampleType, 1 > left, right;
-};
-
-
-/*
- A version that implements the ReorderableEffect interface, for use with my ReorderableFxChain class.
- */
-template < typename SampleType >
-class ReorderableStereoPanner : public StereoPanner< SampleType >,
-                                public ReorderableEffect< SampleType >
-{
-protected:
-    void fxChain_process (juce::AudioBuffer< SampleType >& audio) final;
-
-    void fxChain_prepare (double, int blocksize) final;
 };
 
 }  // namespace bav::dsp::FX

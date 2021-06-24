@@ -57,17 +57,4 @@ private:
     SmoothedGain< float, 2 > dryGain, wetGain;
 };
 
-
-/*
-        A version that implements the ReorderableEffect interface, for use with my ReorderableFxChain class.
-    */
-template < typename SampleType >
-class ReorderableReverb : public Reverb, public ReorderableEffect< SampleType >
-{
-protected:
-    void fxChain_process (juce::AudioBuffer< SampleType >& audio) final;
-
-    void fxChain_prepare (double samplerate, int blocksize) final;
-};
-
 }  // namespace bav::dsp::FX

@@ -7,20 +7,22 @@
 namespace bav::dsp::FX
 {
 template < typename SampleType >
-class DeEsser
+class DeEsser : public LevelReportingAudioEffect< SampleType >
 {
 public:
     DeEsser();
-    virtual ~DeEsser() = default;
 
-    void prepare (int blocksize, double samplerate);
+    void prepare (double samplerate, int blocksize) final;
     void reset();
+
+    /* returns the channel's average gain reduction */
+    SampleType processChannel (int               channel,
+                               int               numSamples,
+                               SampleType*       signalToDeEss,
+                               const SampleType* sidechain) final;
 
     void setThresh (float newThresh_dB);
     void setDeEssAmount (int newAmount);
-
-    void process (juce::AudioBuffer< SampleType >& audio,
-                  SampleType*                      gainReduction = nullptr);
 
 private:
     dsp::filters::MultiFilter< SampleType, 2 > filter;
@@ -30,20 +32,6 @@ private:
     static constexpr double hiPassFreq = 7600.;
     static constexpr int    attackMs   = 20;
     static constexpr int    releaseMs  = 30;
-};
-
-
-/*
-        A version that implements the ReorderableEffect interface, for use with my ReorderableFxChain class.
-    */
-template < typename SampleType >
-class ReorderableDeEsser : public DeEsser< SampleType >,
-                           public ReorderableEffect< SampleType >
-{
-protected:
-    void fxChain_process (juce::AudioBuffer< SampleType >& audio) final;
-
-    void fxChain_prepare (double samplerate, int blocksize) final;
 };
 
 }  // namespace bav::dsp::FX

@@ -10,12 +10,12 @@ DeEsser< SampleType >::DeEsser()
 }
 
 template < typename SampleType >
-void DeEsser< SampleType >::prepare (int blocksize, double samplerate)
+void DeEsser< SampleType >::prepare (double samplerate, int blocksize)
 {
     filter.coefs.makeHighPass (samplerate, SampleType (hiPassFreq));
     filter.prepare();
 
-    gate.prepare (2, blocksize, samplerate);
+    gate.prepare (samplerate, blocksize);
 }
 
 template < typename SampleType >
@@ -41,33 +41,18 @@ void DeEsser< SampleType >::setDeEssAmount (int newAmount)
     gate.setRatio (SampleType (juce::jmap (a, 0.0f, 1.0f, 1.0f, 10.0f)));
 }
 
-
 template < typename SampleType >
-void DeEsser< SampleType >::process (juce::AudioBuffer< SampleType >& audio,
-                                     SampleType*                      gainReduction)
+SampleType DeEsser< SampleType >::processChannel (int               channel,
+                                                  int               numSamples,
+                                                  SampleType*       signalToDeEss,
+                                                  const SampleType* sidechain)
 {
-    filter.process (audio);
-    gate.process (audio, gainReduction);
+    filter.processChannel (channel, signalToDeEss, numSamples);
+
+    return gate.processChannel (channel, numSamples, signalToDeEss, sidechain);
 }
 
 template class DeEsser< float >;
 template class DeEsser< double >;
-
-
-template < typename SampleType >
-void ReorderableDeEsser< SampleType >::fxChain_process (juce::AudioBuffer< SampleType >& audio)
-{
-    DeEsser< SampleType >::process (audio, nullptr);
-}
-
-template < typename SampleType >
-void ReorderableDeEsser< SampleType >::fxChain_prepare (double samplerate, int blocksize)
-{
-    DeEsser< SampleType >::prepare (blocksize, samplerate);
-}
-
-
-template class ReorderableDeEsser< float >;
-template class ReorderableDeEsser< double >;
 
 }  // namespace bav::dsp::FX

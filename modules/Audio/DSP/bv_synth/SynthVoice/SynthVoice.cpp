@@ -25,10 +25,10 @@ void SynthVoiceBase< SampleType >::prepare (const int blocksize)
     scratchBuffer.setSize (1, blocksize, true, true, true);
     renderingBuffer.setSize (1, blocksize, true, true, true);
     stereoBuffer.setSize (2, blocksize, true, true, true);
-    midiVelocityGain.prepare (blocksize);
-    softPedalGain.prepare (blocksize);
-    playingButReleasedGain.prepare (blocksize);
-    aftertouchGain.prepare (blocksize);
+    midiVelocityGain.prepare (parent->sampleRate, blocksize);
+    softPedalGain.prepare (parent->sampleRate, blocksize);
+    playingButReleasedGain.prepare (parent->sampleRate, blocksize);
+    aftertouchGain.prepare (parent->sampleRate, blocksize);
     prepared (blocksize);
 }
 
