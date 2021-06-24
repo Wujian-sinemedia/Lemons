@@ -2,6 +2,17 @@
 namespace bav::dsp::FX
 {
 template < typename SampleType >
+Filter< SampleType >::Filter (FilterType filterType, float frequency, float Qfactor, float gainMult)
+{
+    type = filterType;
+    freq = (SampleType) frequency;
+    Q = (SampleType) Qfactor;
+    gain = (SampleType) gainMult;
+    
+    filter.prepare();
+}
+
+template < typename SampleType >
 void Filter< SampleType >::process (juce::AudioBuffer< SampleType >& audio)
 {
     switch (type)
@@ -36,6 +47,11 @@ void Filter< SampleType >::process (juce::AudioBuffer< SampleType >& audio)
             filter.coefs.makeNotch (sampleRate, freq, Q);
             break;
         }
+        case (Peak) :
+        {
+            filter.coefs.makePeakFilter (sampleRate, freq, Q, gain);
+            break;
+        }
         case (AllPass) :
         {
             filter.coefs.makeAllPass (sampleRate, freq, Q);
@@ -57,6 +73,12 @@ template < typename SampleType >
 void Filter< SampleType >::setFilterType (FilterType newType)
 {
     type = newType;
+}
+
+template < typename SampleType >
+FilterType Filter< SampleType >::getFilterType() const
+{
+    return type;
 }
 
 template < typename SampleType >

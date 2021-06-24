@@ -17,7 +17,6 @@ public:
 
 private:
     void snapToZero() noexcept;
-    void check();
 
     juce::Array< SampleType > state;
     int                       order = 0;
@@ -36,7 +35,6 @@ struct MultiFilter
     void prepare() noexcept;
 
     void process (AudioBuffer& buffer) noexcept;
-    
     void processChannel (int channel, SampleType* audio, int numSamples) noexcept;
 
     Coefficients< SampleType >               coefs;

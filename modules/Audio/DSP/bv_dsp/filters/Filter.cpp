@@ -25,16 +25,10 @@ void Filter< SampleType >::snapToZero() noexcept
 }
 
 template < typename SampleType >
-void Filter< SampleType >::check()
+void Filter< SampleType >::process (SampleType* buffer, int numSamples)
 {
     if (order != coefs.getFilterOrder())
         reset();
-}
-
-template < typename SampleType >
-void Filter< SampleType >::process (SampleType* buffer, int numSamples)
-{
-    check();
 
     auto src    = buffer;
     auto dst    = buffer;
@@ -147,7 +141,6 @@ void Filter< SampleType >::process (SampleType* buffer, int numSamples)
         }
     }
 }
-
 
 template class Filter< float >;
 template class Filter< double >;

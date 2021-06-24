@@ -2,15 +2,15 @@
 namespace bav::dsp::FX
 {
 template < typename SampleType >
-EQ< SampleType >::EQ (int initNumFilters)
+EQ< SampleType >::EQ (int initNumBands)
 {
-    setNumFilters (initNumFilters);
+    setNumBands (initNumBands);
 }
 
 template < typename SampleType >
 void EQ< SampleType >::process (juce::AudioBuffer< SampleType >& audio)
 {
-    jassert (getNumFilters() > 0);
+    jassert (getNumBands() > 0);
 
     for (auto* filter : filters)
         filter->process (audio);
@@ -27,32 +27,37 @@ void EQ< SampleType >::prepare (double samplerate, int blocksize)
 }
 
 template < typename SampleType >
-void EQ< SampleType >::setNumFilters (int numFilters)
+void EQ< SampleType >::addBand (Filter* newFilter)
 {
-    while (filters.size() < numFilters)
-        filters.add (new Filter);
-
-    while (filters.size() > numFilters)
-        filters.removeLast();
-
-    prepare (lastSamplerate, lastBlocksize);
+    filters.add (newFilter);
+    newFilter->prepare (lastSamplerate, lastBlocksize);
 }
 
 template < typename SampleType >
-int EQ< SampleType >::getNumFilters() const
+void EQ< SampleType >::setNumBands (int numFilters)
+{
+    while (filters.size() < numFilters)
+        addBand (new Filter);
+
+    while (filters.size() > numFilters)
+        filters.removeLast();
+}
+
+template < typename SampleType >
+int EQ< SampleType >::getNumBands() const
 {
     return filters.size();
 }
 
 template < typename SampleType >
-Filter< SampleType >* EQ< SampleType >::getFilter (int index)
+Filter< SampleType >* EQ< SampleType >::getBand (int index)
 {
     if (index > filters.size()) return nullptr;
     return filters[index];
 }
 
 template < typename SampleType >
-Filter< SampleType >* EQ< SampleType >::getFilterOfType (typename Filter::FilterType type)
+Filter< SampleType >* EQ< SampleType >::getBandOfType (FilterType type)
 {
     for (auto* filter : filters)
         if (filter->getFilterType() == type)
