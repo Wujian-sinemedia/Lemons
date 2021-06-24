@@ -11,20 +11,20 @@ class DeEsser : public LevelReportingAudioEffect< SampleType >
 {
 public:
     DeEsser();
-
+    
     void prepare (double samplerate, int blocksize) final;
-    void reset();
 
-    /* returns the channel's average gain reduction */
-    SampleType processChannel (int               channel,
-                               int               numSamples,
-                               SampleType*       signalToDeEss,
-                               const SampleType* sidechain) final;
+    void reset();
 
     void setThresh (float newThresh_dB);
     void setDeEssAmount (int newAmount);
 
 private:
+    SampleType processChannel (int               channel,
+                               int               numSamples,
+                               SampleType*       signalToDeEss,
+                               const SampleType* sidechain) final;
+    
     dsp::filters::MultiFilter< SampleType, 2 > filter;
 
     NoiseGate< SampleType > gate;

@@ -14,15 +14,8 @@ class NoiseGate : public LevelReportingAudioEffect< SampleType >
 {
 public:
     NoiseGate();
-
+    
     void prepare (double samplerate, int blocksize) final;
-
-    /* returns the channel's average gain reduction */
-    SampleType processChannel (int               channel,
-                               int               numSamples,
-                               SampleType*       signalToGate,
-                               const SampleType* sidechain) final;
-
 
     void setInverted (bool gateBehaviorShouldBeInverted);
     void setThreshold (float newThreshold_dB);
@@ -31,13 +24,18 @@ public:
     void setRelease (SampleType newRelease_ms);
 
     void reset();
+    
+    SampleType processChannel (int               channel,
+                               int               numSamples,
+                               SampleType*       signalToGate,
+                               const SampleType* sidechain) final;
 
+private:
     SampleType processSample (const int        channel,
                               const SampleType sampleToGate,
                               const SampleType sidechainValue,
                               SampleType*      gainReduction);
-
-private:
+    
     void update();
 
     juce::dsp::ProcessSpec spec;

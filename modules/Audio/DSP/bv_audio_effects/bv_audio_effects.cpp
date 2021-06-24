@@ -14,3 +14,6 @@
 #include "stereo_image/panning/StereoPanner.cpp"
 #include "stereo_image/panning/PannerBase.cpp"
 #include "time/Delay.cpp"
+
+#include "EQ/Filter.cpp"
+#include "EQ/EQ.cpp"

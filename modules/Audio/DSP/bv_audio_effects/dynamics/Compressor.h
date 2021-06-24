@@ -12,14 +12,8 @@ class Compressor : public LevelReportingAudioEffect< SampleType >
 {
 public:
     Compressor();
-
+    
     void prepare (double samplerate, int blocksize) final;
-
-    /* returns the channel's average gain reduction */
-    SampleType processChannel (int               channel,
-                               int               numSamples,
-                               SampleType*       signalToCompress,
-                               const SampleType* sidechain) final;
 
     /* returns the output compressed sample */
     SampleType processSample (int         channel,
@@ -35,6 +29,11 @@ public:
     void reset();
 
 private:
+    SampleType processChannel (int               channel,
+                               int               numSamples,
+                               SampleType*       signalToCompress,
+                               const SampleType* sidechain) final;
+    
     void update();
 
     SampleType                                threshold, thresholdInverse, ratioInverse;

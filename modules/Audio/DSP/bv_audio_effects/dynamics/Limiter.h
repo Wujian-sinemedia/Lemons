@@ -12,19 +12,18 @@ class Limiter : public LevelReportingAudioEffect< SampleType >
 {
 public:
     void prepare (double samplerate, int blocksize) final;
-
-    /* returns the channel's average gain reduction */
-    SampleType processChannel (int               channel,
-                               int               numSamples,
-                               SampleType*       signalToLimit,
-                               const SampleType* sidechain) final;
-
+    
     void setThreshold (float thresh_dB);
     void setRelease (float release_ms);
 
     void reset();
 
 private:
+    SampleType processChannel (int               channel,
+                               int               numSamples,
+                               SampleType*       signalToLimit,
+                               const SampleType* sidechain) final;
+    
     void update();
 
     Compressor< SampleType > firstStageCompressor, secondStageCompressor;
