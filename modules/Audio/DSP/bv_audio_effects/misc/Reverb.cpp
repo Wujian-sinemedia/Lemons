@@ -121,13 +121,13 @@ void Reverb::process (juce::AudioBuffer< double >& input,
 {
     conversionBuffer.makeCopyOf (input, true);
     sidechainBuffer.makeCopyOf (compressorSidechain, true);
-
+    
     float level;
 
     process (conversionBuffer, sidechainBuffer, &level);
 
     input.makeCopyOf (conversionBuffer, true);
-
+    
     if (reverbLevel != nullptr) *reverbLevel = static_cast< double > (level);
 }
 
@@ -142,8 +142,8 @@ void Reverb::process (juce::AudioBuffer< float >& input,
     jassert (numSamples == compressorSidechain.getNumSamples());
     jassert (numChannels == compressorSidechain.getNumChannels());
 
-    sidechainBuffer.makeCopyOf (compressorSidechain, true);
-    workingBuffer.makeCopyOf (input);
+    dsp::buffers::copy (compressorSidechain, sidechainBuffer);
+    dsp::buffers::copy (input, workingBuffer);
 
     // reverb
     switch (numChannels)
@@ -181,10 +181,7 @@ void Reverb::process (juce::AudioBuffer< float >& input,
                       sidechainBuffer.getReadPointer (chan),
                       numSamples);
 
-        // copy to output
-        vecops::copy (workingBuffer.getReadPointer (chan),
-                      input.getWritePointer (chan),
-                      numSamples);
+        dsp::buffers::copy (workingBuffer, input);
     }
 }
 

@@ -25,3 +25,5 @@ END_JUCE_MODULE_DECLARATION
 #include "Oscillators/choosable/ChoosableOscillator.h"
 
 #include "filters/Filter.h"
+
+#include "BufferUtils/BufferUtils.h"

@@ -12,3 +12,5 @@
 
 #include "filters/Coeffecients.cpp"
 #include "filters/Filter.cpp"
+
+#include "BufferUtils/BufferUtils.cpp"

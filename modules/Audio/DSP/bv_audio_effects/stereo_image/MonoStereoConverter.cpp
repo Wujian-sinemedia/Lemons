@@ -54,9 +54,7 @@ void MonoStereoConverter< SampleType >::convertStereoToMono (const Buffer& input
 
     if (input.getNumChannels() == 1)
     {
-        vecops::copy (input.getReadPointer (0),
-                      output.getWritePointer (0),
-                      output.getNumSamples());
+        dsp::buffers::copy (input, output);
     }
     else
     {
