@@ -14,13 +14,20 @@ public:
     ~PsolaAnalyzer() = default;
 
     void prepare (double sampleRate, int blocksize);
-    
+
     int getLatencySamples() const;
 
     void analyzeInput (const juce::AudioBuffer< SampleType >& audio);
     void analyzeInput (const SampleType* samples, int numSamples);
 
+    int getStartOfClosestGrain (int sampleIndex) const;
+
     int getPeriod() const;
+    int getGrainLength() const;
+
+    const CircularBuffer< SampleType >& getStorage() const;
+
+    events::Broadcaster& getBroadcaster();
 
 private:
     int          getNextUnpitchedPeriod();
@@ -31,6 +38,8 @@ private:
 
     PitchDetector< SampleType >               pitchDetector;
     psola::AnalysisGrainManager< SampleType > grains;
+
+    events::Broadcaster broadcaster;
 };
 
 

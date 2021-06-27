@@ -29,12 +29,26 @@ void PsolaAnalyzer< SampleType >::analyzeInput (const SampleType* samples, int n
     grains.analyzeInput (samples, numSamples, period);
 
     currentPeriod = period;
+
+    broadcaster.trigger();
+}
+
+template < typename SampleType >
+int PsolaAnalyzer< SampleType >::getStartOfClosestGrain (int sampleIndex) const
+{
+    return grains.getStartOfClosestGrain (sampleIndex);
 }
 
 template < typename SampleType >
 int PsolaAnalyzer< SampleType >::getPeriod() const
 {
     return currentPeriod;
+}
+
+template < typename SampleType >
+int PsolaAnalyzer< SampleType >::getGrainLength() const
+{
+    return currentPeriod * 2;
 }
 
 template < typename SampleType >
@@ -47,6 +61,18 @@ template < typename SampleType >
 int PsolaAnalyzer< SampleType >::getNextUnpitchedPeriod()
 {
     return rand.nextInt (pitchDetector.getCurrentLegalPeriodRange());
+}
+
+template < typename SampleType >
+const CircularBuffer< SampleType >& PsolaAnalyzer< SampleType >::getStorage() const
+{
+    return grains.getBuffer();
+}
+
+template < typename SampleType >
+events::Broadcaster& PsolaAnalyzer< SampleType >::getBroadcaster()
+{
+    return broadcaster;
 }
 
 

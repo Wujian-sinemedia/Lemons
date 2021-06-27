@@ -10,7 +10,6 @@ void AnalysisGrainExtractor< SampleType >::releaseResources()
     candidateDeltas.clear();
     finalHandful.clear();
     finalHandfulDeltas.clear();
-    grainOnsetIndices.clear();
 }
 
 
@@ -21,8 +20,6 @@ void AnalysisGrainExtractor< SampleType >::prepare (int maxBlocksize)
 
     peakIndices.ensureStorageAllocated (maxBlocksize);
 
-    grainOnsetIndices.ensureStorageAllocated (numPeaksToTest + 1);
-    grainOnsetIndices.clearQuick();
     peakCandidates.ensureStorageAllocated (numPeaksToTest + 1);
     peakCandidates.clearQuick();
     peakSearchingOrder.ensureStorageAllocated (maxBlocksize);
@@ -37,13 +34,11 @@ void AnalysisGrainExtractor< SampleType >::prepare (int maxBlocksize)
 
 
 template < typename SampleType >
-void AnalysisGrainExtractor< SampleType >::analyzeInput (
-    const SampleType* inputSamples,
-    int               numSamples,
-    int               period)
+void AnalysisGrainExtractor< SampleType >::analyzeInput (IArray&           targetArray,
+                                                         const SampleType* inputSamples,
+                                                         int               numSamples,
+                                                         int               period)
 {
-    grainOnsetIndices.clearQuick();
-
     // identify  peak indices for each pitch period & places them in the peakIndices array
 
     findPsolaPeaks (peakIndices, inputSamples, numSamples, period);
@@ -64,7 +59,7 @@ void AnalysisGrainExtractor< SampleType >::analyzeInput (
 
         if (grainStart < 0)
         {
-            if (i < peakIndices.size() - 2 || grainOnsetIndices.size() > 1) continue;
+            if (i < peakIndices.size() - 2 || targetArray.size() > 1) continue;
 
             while (grainStart < 0)
                 grainStart += halfPeriod;
@@ -72,14 +67,14 @@ void AnalysisGrainExtractor< SampleType >::analyzeInput (
 
         if (grainStart + grainLength > numSamples)
         {
-            if (i < peakIndices.size() - 2 || grainOnsetIndices.size() > 1) continue;
+            if (i < peakIndices.size() - 2 || targetArray.size() > 1) continue;
 
             while (grainStart + grainLength > numSamples)
                 grainStart -= halfPeriod;
 
             if (grainStart < 0)
             {
-                if (! grainOnsetIndices.isEmpty()) continue;
+                if (! targetArray.isEmpty()) continue;
                 grainStart = 0;
             }
         }
@@ -87,10 +82,10 @@ void AnalysisGrainExtractor< SampleType >::analyzeInput (
         if (grainStart < 0 || grainStart + grainLength > numSamples)
             continue;
 
-        grainOnsetIndices.add (grainStart);
+        targetArray.add (grainStart);
     }
 
-    jassert (! grainOnsetIndices.isEmpty());
+    jassert (! targetArray.isEmpty());
 }
 
 

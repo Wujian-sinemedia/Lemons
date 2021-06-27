@@ -15,6 +15,8 @@ END_JUCE_MODULE_DECLARATION
 
 #endif
 
+#include "CircularBuffer/CircularBuffer.h"
+
 #include "FIFOs/AudioFIFO.h"
 #include "FIFOs/AudioAndMidiFIFO.h"
 

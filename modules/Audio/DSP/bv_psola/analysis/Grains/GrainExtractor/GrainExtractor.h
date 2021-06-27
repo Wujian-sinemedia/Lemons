@@ -14,11 +14,12 @@ public:
     AnalysisGrainExtractor()  = default;
     ~AnalysisGrainExtractor() = default;
 
-    void prepare (const int maxBlocksize);
+    void prepare (int maxBlocksize);
 
     void releaseResources();
 
-    void analyzeInput (const SampleType* inputSamples,
+    void analyzeInput (IArray&           targetArray,
+                       const SampleType* inputSamples,
                        int               numSamples,
                        int               period);
 
@@ -55,8 +56,6 @@ private:
 
     int choosePeakWithGreatestPower (const IArray&     candidates,
                                      const SampleType* reading);
-
-    IArray grainOnsetIndices;
 
     IArray peakIndices;
     IArray peakCandidates;
