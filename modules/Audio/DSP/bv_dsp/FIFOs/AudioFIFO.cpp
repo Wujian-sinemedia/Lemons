@@ -57,10 +57,10 @@ template class AudioFIFO< double >;
 
 
 template < typename SampleType >
-MultiAudioFIFO< SampleType >::MultiAudioFIFO (int numChannels, int capacity)
+MultiAudioFIFO< SampleType >::MultiAudioFIFO (int numChannels, int maxCapacity)
 {
     setNumChannels (numChannels);
-    setMaximumSize (capacity);
+    setMaximumSize (maxCapacity);
 }
 
 template < typename SampleType >

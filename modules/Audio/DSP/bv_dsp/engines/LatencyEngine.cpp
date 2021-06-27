@@ -50,8 +50,7 @@ void LatencyEngine< SampleType >::renderBlock (const AudioBuffer& input, AudioBu
 
     if (totalNumSamples == 0)
     {
-        chunkMidiBuffer.clear();
-        renderChunk (inBuffer, outBuffer, chunkMidiBuffer, isBypassed);
+        renderChunk (inBuffer, outBuffer, midiMessages, isBypassed);
         return;
     }
 

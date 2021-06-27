@@ -1,8 +1,7 @@
 
 #include "bv_dsp.h"
 
-#include "CircularBuffer/CircularBuffer.cpp"
-
+#include "FIFOs/CircularBuffer.cpp"
 #include "FIFOs/AudioFIFO.cpp"
 #include "FIFOs/AudioAndMidiFIFO.cpp"
 

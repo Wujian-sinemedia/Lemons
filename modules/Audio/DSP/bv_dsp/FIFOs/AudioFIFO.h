@@ -34,7 +34,7 @@ class MultiAudioFIFO
 public:
     using AudioBuffer = juce::AudioBuffer< SampleType >;
 
-    MultiAudioFIFO (int numChannels = 2, int capacity = 1024);
+    MultiAudioFIFO (int numChannels = 2, int maxCapacity = 1024);
 
     void setNumChannels (int numChannels);
 
