@@ -40,6 +40,7 @@
 #include "plugin_parameters/parameters/Parameter.h"
 #include "plugin_parameters/parameters/types/ParameterTypes.h"
 #include "plugin_parameters/parameters/specializations/ParameterSpecializations.h"
+#include "plugin_parameters/parameters/helpers/ParamUpdater.h"
 #include "plugin_parameters/ParameterList/ParameterHolder.h"
 #include "plugin_parameters/StringProperty/StringProperty.h"
 #include "plugin_parameters/ParameterList/ParameterList.h"

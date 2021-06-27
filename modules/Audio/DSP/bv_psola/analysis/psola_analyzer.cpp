@@ -2,8 +2,11 @@
 namespace bav::dsp
 {
 template < typename SampleType >
-PsolaAnalyzer< SampleType >::PsolaAnalyzer()
+void PsolaAnalyzer< SampleType >::prepare (double sampleRate, int blocksize)
 {
+    samplerate = sampleRate;
+    pitchDetector.setSamplerate (sampleRate);
+    grains.prepare (blocksize);
 }
 
 template < typename SampleType >
@@ -23,7 +26,7 @@ void PsolaAnalyzer< SampleType >::analyzeInput (const SampleType* samples, int n
     const auto period = frameIsPitched ? math::periodInSamples (samplerate, pitchInHz)
                                        : getNextUnpitchedPeriod();
 
-    grainExtractor.getGrainOnsetIndices (grainOnsetIndices, samples, numSamples, period);
+    grains.analyzeInput (samples, numSamples, period);
 
     currentPeriod = period;
 }
@@ -32,31 +35,6 @@ template < typename SampleType >
 int PsolaAnalyzer< SampleType >::getNextUnpitchedPeriod()
 {
     return rand.nextInt (pitchDetector.getCurrentLegalPeriodRange());
-}
-
-template < typename SampleType >
-int PsolaAnalyzer< SampleType >::getClosestGrainOnset (int sampleIndex) const
-{
-    jassert (! grainOnsetIndices.isEmpty());
-
-    auto leastDist  = std::numeric_limits< int >::max();
-    auto grainOnset = grainOnsetIndices.getUnchecked (0);
-
-    for (auto index : grainOnsetIndices)
-    {
-        const auto distance = std::abs (index - sampleIndex);
-
-        if (distance == 0)
-            return index;
-
-        if (distance < leastDist)
-        {
-            leastDist  = distance;
-            grainOnset = index;
-        }
-    }
-
-    return grainOnset;
 }
 
 

@@ -28,12 +28,11 @@ public:
     void initialize (int initNumVoices, double initSamplerate = 44100.0, int initBlocksize = 512);
     bool isInitialized() const;
 
-    void prepare (int blocksize);
+    void prepare (double samplerate, int blocksize);
 
     void reset();
     void resetRampedValues();
 
-    void   setCurrentPlaybackSampleRate (double newRate);
     double getSamplerate() const { return sampleRate; }
 
     void renderVoices (juce::MidiBuffer& midiMessages, juce::AudioBuffer< SampleType >& output);
@@ -113,13 +112,10 @@ protected:
     virtual void initialized (double initSamplerate, int initBlocksize) { juce::ignoreUnused (initSamplerate, initBlocksize); }
 
     // if overridden, called in the subclass when the top-level call to prepare() is made.
-    virtual void prepared (int blocksize) { juce::ignoreUnused (blocksize); }
+    virtual void prepared (double samplerate, int blocksize) { juce::ignoreUnused (samplerate, blocksize); }
 
     // if overridden, called in the subclass when the top-level call to reset() is made.
     virtual void resetTriggered() { }
-
-    // if overridden, called in the subclassed whenever the samplerate is changed.
-    virtual void samplerateChanged (double newSamplerate) { juce::ignoreUnused (newSamplerate); }
 
     // if overridden, called in the subclass when the top-level call to releaseResources() is made.
     virtual void release() { }

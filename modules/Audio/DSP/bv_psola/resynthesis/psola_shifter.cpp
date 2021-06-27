@@ -17,6 +17,8 @@ void PsolaShifter< SampleType >::getSamples (SampleType* outputSamples, int numS
 template < typename SampleType >
 SampleType PsolaShifter< SampleType >::getNextSample()
 {
+    jassert (desiredPeriod > 0);
+
     auto sample = SampleType (0);
 
     return sample;

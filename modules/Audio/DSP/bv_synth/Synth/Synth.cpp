@@ -18,8 +18,6 @@ SynthBase< SampleType >::SynthBase()
     quickReleaseParams.sustain = 1.0f;
     quickReleaseParams.release = 0.015f;
 
-    setCurrentPlaybackSampleRate (44100.0);
-
     setConcertPitchHz (440);
 }
 
@@ -44,11 +42,9 @@ void SynthBase< SampleType >::initialize (int initNumVoices, double initSamplera
 
     changeNumVoices (initNumVoices);
 
-    setCurrentPlaybackSampleRate (initSamplerate);
-
     initialized (initSamplerate, initBlocksize);
 
-    prepare (initBlocksize);
+    prepare (initSamplerate, initBlocksize);
 }
 
 template < typename SampleType >
@@ -77,22 +73,24 @@ void SynthBase< SampleType >::reset()
  Prepares the synth for a new expected maximum blocksize.
  */
 template < typename SampleType >
-void SynthBase< SampleType >::prepare (int blocksize)
+void SynthBase< SampleType >::prepare (double samplerate, int blocksize)
 {
-    jassert (blocksize > 0);
+    jassert (blocksize > 0 && samplerate > 0);
     jassert (! voices.isEmpty());
 
     aggregateMidiBuffer.ensureSize (size_t (blocksize * 2));
     aggregateMidiBuffer.clear();
 
     for (auto* voice : voices)
-        voice->prepare (blocksize);
+        voice->prepare (samplerate, blocksize);
 
     panner.prepare (voices.size(), false);
 
     resetRampedValues();
-
-    prepared (blocksize);
+    
+    sampleRate = samplerate;
+    
+    prepared (samplerate, blocksize);
 }
 
 
@@ -192,25 +190,6 @@ void SynthBase< SampleType >::bypassedBlock (int numSamples, MidiBuffer& midiMes
     for (auto* voice : voices)
         voice->bypassedBlock (numSamples);
 }
-
-
-/*
- Sets the synth's current playback samplerate.
- This MUST be called before you attempt to render any audio with the synth!
- */
-template < typename SampleType >
-void SynthBase< SampleType >::setCurrentPlaybackSampleRate (double newRate)
-{
-    jassert (newRate > 0);
-
-    sampleRate = newRate;
-
-    for (auto* voice : voices)
-        voice->updateSampleRate (newRate);
-
-    samplerateChanged (newRate);
-}
-
 
 /*
  Resets the voices' ramped gain values, and prepares them for a new blocksize.

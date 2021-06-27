@@ -20,7 +20,7 @@ SynthVoiceBase< SampleType >::SynthVoiceBase (SynthBase< SampleType >* base, dou
         Prepares the voice for a new expected maximum blocksize.
     */
 template < typename SampleType >
-void SynthVoiceBase< SampleType >::prepare (const int blocksize)
+void SynthVoiceBase< SampleType >::prepare (double samplerate, int blocksize)
 {
     scratchBuffer.setSize (1, blocksize, true, true, true);
     renderingBuffer.setSize (1, blocksize, true, true, true);
@@ -29,7 +29,8 @@ void SynthVoiceBase< SampleType >::prepare (const int blocksize)
     softPedalGain.prepare (parent->sampleRate, blocksize);
     playingButReleasedGain.prepare (parent->sampleRate, blocksize);
     aftertouchGain.prepare (parent->sampleRate, blocksize);
-    prepared (blocksize);
+    
+    prepared (samplerate, blocksize);
 }
 
 

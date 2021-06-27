@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include "GrainExtractor/GrainExtractor.h"
+#include "Grains/GrainManager.h"
 
 
 namespace bav::dsp
@@ -10,15 +10,15 @@ template < typename SampleType >
 class PsolaAnalyzer
 {
 public:
-    PsolaAnalyzer();
+    PsolaAnalyzer()  = default;
     ~PsolaAnalyzer() = default;
+
+    void prepare (double sampleRate, int blocksize);
 
     void analyzeInput (const juce::AudioBuffer< SampleType >& audio);
     void analyzeInput (const SampleType* samples, int numSamples);
 
     int getPeriod() const { return currentPeriod; }
-
-    int getClosestGrainOnset (int sampleIndex) const;
 
 private:
     int          getNextUnpitchedPeriod();
@@ -27,9 +27,8 @@ private:
     double samplerate {0.};
     int    currentPeriod {0};
 
-    PitchDetector< SampleType >  pitchDetector;
-    GrainExtractor< SampleType > grainExtractor;
-    juce::Array< int >           grainOnsetIndices;
+    PitchDetector< SampleType >               pitchDetector;
+    psola::AnalysisGrainManager< SampleType > grains;
 };
 
 

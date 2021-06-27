@@ -7,6 +7,7 @@
 #include "plugin_parameters/parameters/Parameter.cpp"
 #include "plugin_parameters/parameters/types/ParameterTypes.cpp"
 #include "plugin_parameters/parameters/specializations/ParameterSpecializations.cpp"
+#include "plugin_parameters/parameters/helpers/ParamUpdater.cpp"
 #include "plugin_parameters/StringProperty/StringProperty.cpp"
 #include "plugin_parameters/ParameterList/ParameterList.cpp"
 #include "plugin_parameters/processor/ParameterProcessor.cpp"

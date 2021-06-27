@@ -31,7 +31,7 @@ public:
 
     virtual ~SynthVoiceBase() = default;
 
-    void prepare (const int blocksize);
+    void prepare (double samplerate, int blocksize);
 
     void release() { released(); }
     void resetRampedValues();
@@ -75,7 +75,7 @@ protected:
     virtual void renderPlease (AudioBuffer& output, float desiredFrequency, double currentSamplerate) = 0;
 
     // if overridden, called in the subclass when the top-level call to prepare() is made
-    virtual void prepared (int blocksize) { juce::ignoreUnused (blocksize); }
+    virtual void prepared (double samplerate, int blocksize) { juce::ignoreUnused (samplerate, blocksize); }
 
     // if overridden, called in the subclass when the top-level call to release() is made
     virtual void released() { }

@@ -92,20 +92,4 @@ private:
     const String midiControllerChangeTransactionName;
 };
 
-
-struct ParamUpdater : Parameter::Listener
-{
-    ParamUpdater (Parameter& param, std::function<void()> onValueChange)
-    : Listener (param), callback (std::move (onValueChange))
-    { }
-    
-    void parameterValueChanged (float) final
-    {
-        callback();
-    }
-    
-    std::function<void()> callback;
-};
-
-
 }  // namespace bav

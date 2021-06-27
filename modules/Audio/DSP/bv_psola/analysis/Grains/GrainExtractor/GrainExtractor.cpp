@@ -1,8 +1,8 @@
 
-namespace bav
+namespace bav::dsp::psola
 {
 template < typename SampleType >
-void GrainExtractor< SampleType >::releaseResources()
+void AnalysisGrainExtractor< SampleType >::releaseResources()
 {
     peakIndices.clear();
     peakCandidates.clear();
@@ -10,16 +10,19 @@ void GrainExtractor< SampleType >::releaseResources()
     candidateDeltas.clear();
     finalHandful.clear();
     finalHandfulDeltas.clear();
+    grainOnsetIndices.clear();
 }
 
 
 template < typename SampleType >
-void GrainExtractor< SampleType >::prepare (const int maxBlocksize)
+void AnalysisGrainExtractor< SampleType >::prepare (int maxBlocksize)
 {
     jassert (maxBlocksize > 0);
 
     peakIndices.ensureStorageAllocated (maxBlocksize);
 
+    grainOnsetIndices.ensureStorageAllocated (numPeaksToTest + 1);
+    grainOnsetIndices.clearQuick();
     peakCandidates.ensureStorageAllocated (numPeaksToTest + 1);
     peakCandidates.clearQuick();
     peakSearchingOrder.ensureStorageAllocated (maxBlocksize);
@@ -34,13 +37,12 @@ void GrainExtractor< SampleType >::prepare (const int maxBlocksize)
 
 
 template < typename SampleType >
-void GrainExtractor< SampleType >::getGrainOnsetIndices (
-    IArray&           targetArray,
+void AnalysisGrainExtractor< SampleType >::analyzeInput (
     const SampleType* inputSamples,
-    const int         numSamples,
-    const int         period)
+    int               numSamples,
+    int               period)
 {
-    targetArray.clearQuick();
+    grainOnsetIndices.clearQuick();
 
     // identify  peak indices for each pitch period & places them in the peakIndices array
 
@@ -62,7 +64,7 @@ void GrainExtractor< SampleType >::getGrainOnsetIndices (
 
         if (grainStart < 0)
         {
-            if (i < peakIndices.size() - 2 || targetArray.size() > 1) continue;
+            if (i < peakIndices.size() - 2 || grainOnsetIndices.size() > 1) continue;
 
             while (grainStart < 0)
                 grainStart += halfPeriod;
@@ -70,36 +72,39 @@ void GrainExtractor< SampleType >::getGrainOnsetIndices (
 
         if (grainStart + grainLength > numSamples)
         {
-            if (i < peakIndices.size() - 2 || targetArray.size() > 1) continue;
+            if (i < peakIndices.size() - 2 || grainOnsetIndices.size() > 1) continue;
 
             while (grainStart + grainLength > numSamples)
                 grainStart -= halfPeriod;
 
             if (grainStart < 0)
             {
-                if (! targetArray.isEmpty()) continue;
+                if (! grainOnsetIndices.isEmpty()) continue;
                 grainStart = 0;
             }
         }
 
-        targetArray.add (grainStart);
+        if (grainStart < 0 || grainStart + grainLength > numSamples)
+            continue;
+
+        grainOnsetIndices.add (grainStart);
     }
 
-    jassert (! targetArray.isEmpty());
+    jassert (! grainOnsetIndices.isEmpty());
 }
 
 
 template < typename SampleType >
-inline void GrainExtractor< SampleType >::findPsolaPeaks (IArray&           targetArray,
-                                                          const SampleType* reading,
-                                                          const int         totalNumSamples,
-                                                          const int         period)
+inline void AnalysisGrainExtractor< SampleType >::findPsolaPeaks (IArray&           targetArray,
+                                                                  const SampleType* reading,
+                                                                  int               totalNumSamples,
+                                                                  int               period)
 {
     targetArray.clearQuick();
 
-    const auto grainSize =
-        2 * period;  // output grains are 2 periods long w/ 50% overlap
-    const auto halfPeriod = juce::roundToInt (period * 0.5f);
+    // output grains are 2 periods long w/ 50% overlap
+    const auto grainSize  = 2 * period;
+    const auto halfPeriod = juce::roundToInt ((float) period * 0.5f);
 
     jassert (totalNumSamples >= grainSize);
 
@@ -146,13 +151,13 @@ inline void GrainExtractor< SampleType >::findPsolaPeaks (IArray&           targ
 
 
 template < typename SampleType >
-inline int GrainExtractor< SampleType >::findNextPeak (const int         frameStart,
-                                                       const int         frameEnd,
-                                                       int               predictedPeak,
-                                                       const SampleType* reading,
-                                                       const IArray&     targetArray,
-                                                       const int         period,
-                                                       const int         grainSize)
+inline int AnalysisGrainExtractor< SampleType >::findNextPeak (int               frameStart,
+                                                               int               frameEnd,
+                                                               int               predictedPeak,
+                                                               const SampleType* reading,
+                                                               const IArray&     targetArray,
+                                                               int               period,
+                                                               int               grainSize)
 {
     jassert (frameEnd > frameStart);
     jassert (predictedPeak >= frameStart && predictedPeak <= frameEnd);
@@ -197,12 +202,12 @@ inline int GrainExtractor< SampleType >::findNextPeak (const int         frameSt
 
 
 template < typename SampleType >
-inline void GrainExtractor< SampleType >::getPeakCandidateInRange (
+inline void AnalysisGrainExtractor< SampleType >::getPeakCandidateInRange (
     IArray&           candidates,
     const SampleType* input,
-    const int         startSample,
-    const int         endSample,
-    const int         predictedPeak,
+    int               startSample,
+    int               endSample,
+    int               predictedPeak,
     const IArray&     searchingOrder)
 {
     jassert (! searchingOrder.isEmpty());
@@ -278,11 +283,11 @@ inline void GrainExtractor< SampleType >::getPeakCandidateInRange (
 
 
 template < typename SampleType >
-inline int GrainExtractor< SampleType >::chooseIdealPeakCandidate (
+inline int AnalysisGrainExtractor< SampleType >::chooseIdealPeakCandidate (
     const IArray&     candidates,
     const SampleType* reading,
-    const int         deltaTarget1,
-    const int         deltaTarget2)
+    int               deltaTarget1,
+    int               deltaTarget2)
 {
     candidateDeltas.clearQuick();
     finalHandful.clearQuick();
@@ -363,7 +368,7 @@ inline int GrainExtractor< SampleType >::chooseIdealPeakCandidate (
 
 
 template < typename SampleType >
-inline int GrainExtractor< SampleType >::choosePeakWithGreatestPower (
+inline int AnalysisGrainExtractor< SampleType >::choosePeakWithGreatestPower (
     const IArray& candidates, const SampleType* reading)
 {
     auto strongestPeakIndex = candidates.getUnchecked (0);
@@ -385,11 +390,11 @@ inline int GrainExtractor< SampleType >::choosePeakWithGreatestPower (
 
 
 template < typename SampleType >
-inline void GrainExtractor< SampleType >::sortSampleIndicesForPeakSearching (
-    IArray&   output,  // array to write the sorted sample indices to
-    const int startSample,
-    const int endSample,
-    const int predictedPeak)
+inline void AnalysisGrainExtractor< SampleType >::sortSampleIndicesForPeakSearching (
+    IArray& output,  // array to write the sorted sample indices to
+    int     startSample,
+    int     endSample,
+    int     predictedPeak)
 {
     jassert (predictedPeak >= startSample && predictedPeak <= endSample);
 
@@ -436,8 +441,8 @@ inline void GrainExtractor< SampleType >::sortSampleIndicesForPeakSearching (
 }
 
 
-template class GrainExtractor< float >;
-template class GrainExtractor< double >;
+template class AnalysisGrainExtractor< float >;
+template class AnalysisGrainExtractor< double >;
 
 
-}  // namespace bav
+}  // namespace bav::dsp::psola
