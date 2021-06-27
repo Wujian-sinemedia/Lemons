@@ -9,14 +9,18 @@ template < typename SampleType >
 class Shifter
 {
 public:
-    using Analyzer = Analyzer< SampleType >;
-    using Grain    = psola::SynthesisGrain< SampleType >;
+    using Analyzer    = Analyzer< SampleType >;
+    using Storage     = AnalysisGrainStorage< SampleType >;
+    using Grain       = psola::SynthesisGrain< SampleType >;
+    using AudioBuffer = juce::AudioBuffer< SampleType >;
 
     Shifter (Analyzer& parentAnalyzer);
 
     void setPitch (float desiredFrequency, double samplerate);
 
-    void       getSamples (SampleType* outputSamples, int numSamples);
+    void getSamples (AudioBuffer& output, int channel = 0);
+    void getSamples (SampleType* outputSamples, int numSamples);
+
     SampleType getNextSample();
 
 private:
@@ -24,7 +28,8 @@ private:
     Grain* getAvailableGrain() const;
     bool   areAnyGrainsActive() const;
 
-    Analyzer& analyzer;
+    Analyzer&      analyzer;
+    const Storage& storage {analyzer.getStorage()};
 
     juce::OwnedArray< Grain > grains;
 

@@ -8,8 +8,7 @@ namespace bav::midi
 class MidiFIFO
 {
 public:
-    MidiFIFO() = default;
-    MidiFIFO (int maxNumMessages);
+    MidiFIFO (int maxNumMessages = 512);
 
     ~MidiFIFO() = default;
 

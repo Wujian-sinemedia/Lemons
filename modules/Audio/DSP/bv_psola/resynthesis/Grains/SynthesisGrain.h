@@ -7,7 +7,9 @@ template < typename SampleType >
 class SynthesisGrain
 {
 public:
-    SynthesisGrain (const AnalysisGrainStorage< SampleType >& storageToUse);
+    using Storage = AnalysisGrainStorage< SampleType >;
+
+    SynthesisGrain (const Storage& storageToUse);
 
     bool isActive() const;
 
@@ -16,9 +18,7 @@ public:
     SampleType getNextSample();
 
 private:
-    SampleType getWindowValue (int index) const noexcept;
-
-    const AnalysisGrainStorage< SampleType >& storage;
+    const Storage& storage;
 
     bool active {false};
 

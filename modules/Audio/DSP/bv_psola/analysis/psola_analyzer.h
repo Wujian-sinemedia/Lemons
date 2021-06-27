@@ -10,6 +10,9 @@ template < typename SampleType >
 class Analyzer
 {
 public:
+    using AudioBuffer = juce::AudioBuffer< SampleType >;
+    using Storage     = AnalysisGrainStorage< SampleType >;
+
     Analyzer()  = default;
     ~Analyzer() = default;
 
@@ -17,17 +20,13 @@ public:
 
     int getLatencySamples() const;
 
-    void analyzeInput (const juce::AudioBuffer< SampleType >& audio);
+    void analyzeInput (const AudioBuffer& input, int channel = 0);
     void analyzeInput (const SampleType* samples, int numSamples);
 
-    int getStartOfClosestGrain (int sampleIndex) const;
-
-    int getPeriod() const;
     int getGrainLength() const;
 
     events::Broadcaster& getBroadcaster();
-
-    const AnalysisGrainStorage< SampleType >& getStorage() const;
+    const Storage&       getStorage() const;
 
 private:
     int          getNextUnpitchedPeriod();
@@ -36,10 +35,9 @@ private:
     double samplerate {0.};
     int    currentPeriod {0};
 
-    PitchDetector< SampleType > pitchDetector;
-
+    PitchDetector< SampleType >          pitchDetector;
     AnalysisGrainExtractor< SampleType > grainExtractor;
-    AnalysisGrainStorage< SampleType >   grainStorage;
+    Storage                              grainStorage;
 
     events::Broadcaster broadcaster;
 };

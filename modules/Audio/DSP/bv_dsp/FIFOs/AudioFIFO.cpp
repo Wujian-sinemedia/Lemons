@@ -8,10 +8,18 @@ void AudioFIFO< SampleType >::pushSamples (const SampleType* samples, int numSam
     numStored += numSamples;
 }
 
+static inline int getZeroesToOutput (int totalNumSamplesWanted, int numStoredSamples)
+{
+    if (totalNumSamplesWanted <= numStoredSamples)
+        return 0;
+    
+    return totalNumSamplesWanted - numStoredSamples;
+}
+
 template < typename SampleType >
 void AudioFIFO< SampleType >::popSamples (SampleType* output, int numSamples)
 {
-    const auto zeroes  = getZeroesToOutput (numSamples);
+    const auto zeroes  = getZeroesToOutput (numSamples, numStored);
     const auto samples = numSamples - zeroes;
 
     for (int i = 0; i < zeroes; ++i)
@@ -29,15 +37,6 @@ void AudioFIFO< SampleType >::popSamples (SampleType* output, int numSamples)
     }
 
     numStored = std::max (0, numStored - samples);
-}
-
-template < typename SampleType >
-int AudioFIFO< SampleType >::getZeroesToOutput (int totalNumSamplesWanted) const
-{
-    if (totalNumSamplesWanted <= numStored)
-        return 0;
-
-    return totalNumSamplesWanted - numStored;
 }
 
 template < typename SampleType >
@@ -122,6 +121,9 @@ void MultiAudioFIFO< SampleType >::popSamples (AudioBuffer& output)
 
     for (int i = 0; i < channels; ++i)
         fifos[i]->popSamples (output.getWritePointer (i), numSamples);
+    
+    for (int i = channels; i < output.getNumChannels(); ++i)
+        output.clear (i, 0, numSamples);
 }
 
 

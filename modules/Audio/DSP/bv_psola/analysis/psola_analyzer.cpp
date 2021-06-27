@@ -12,9 +12,9 @@ void Analyzer< SampleType >::prepare (double sampleRate, int blocksize)
 }
 
 template < typename SampleType >
-void Analyzer< SampleType >::analyzeInput (const juce::AudioBuffer< SampleType >& audio)
+void Analyzer< SampleType >::analyzeInput (const AudioBuffer& input, int channel)
 {
-    analyzeInput (audio.getReadPointer (0), audio.getNumSamples());
+    analyzeInput (input.getReadPointer (channel), input.getNumSamples());
 }
 
 template < typename SampleType >
@@ -33,18 +33,6 @@ void Analyzer< SampleType >::analyzeInput (const SampleType* samples, int numSam
     currentPeriod = period;
 
     broadcaster.trigger();
-}
-
-template < typename SampleType >
-int Analyzer< SampleType >::getStartOfClosestGrain (int sampleIndex) const
-{
-    return grainStorage.getStartOfClosestGrain (sampleIndex);
-}
-
-template < typename SampleType >
-int Analyzer< SampleType >::getPeriod() const
-{
-    return currentPeriod;
 }
 
 template < typename SampleType >

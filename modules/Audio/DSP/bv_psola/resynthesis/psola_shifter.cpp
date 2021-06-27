@@ -7,13 +7,19 @@ Shifter< SampleType >::Shifter (Analyzer& parentAnalyzer)
                                     { currentSample = 0; })
 {
     while (grains.size() < 40)
-        grains.add (new Grain (analyzer.getStorage()));
+        grains.add (new Grain (storage));
 }
 
 template < typename SampleType >
 void Shifter< SampleType >::setPitch (float desiredFrequency, double samplerate)
 {
     desiredPeriod = math::periodInSamples (samplerate, desiredFrequency);
+}
+
+template < typename SampleType >
+void Shifter< SampleType >::getSamples (AudioBuffer& output, int channel)
+{
+    getSamples (output.getWritePointer (channel), output.getNumSamples());
 }
 
 template < typename SampleType >
@@ -48,7 +54,7 @@ void Shifter< SampleType >::startNewGrain()
 {
     if (auto* grain = getAvailableGrain())
     {
-        grain->startNewGrain (analyzer.getStartOfClosestGrain (currentSample),
+        grain->startNewGrain (storage.getStartOfClosestGrain (currentSample),
                               analyzer.getGrainLength());
     }
     else

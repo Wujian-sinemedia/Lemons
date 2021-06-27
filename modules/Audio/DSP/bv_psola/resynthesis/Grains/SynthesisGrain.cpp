@@ -2,7 +2,7 @@
 namespace bav::dsp::psola
 {
 template < typename SampleType >
-SynthesisGrain< SampleType >::SynthesisGrain (const AnalysisGrainStorage< SampleType >& storageToUse)
+SynthesisGrain< SampleType >::SynthesisGrain (const Storage& storageToUse)
     : storage (storageToUse)
 {
 }
@@ -22,6 +22,28 @@ void SynthesisGrain< SampleType >::startNewGrain (int start, int length)
     currentTick = 0;
 }
 
+/*-------------------------------------------------------------*/
+/* Hann window function */
+
+template < typename FloatType >
+static inline FloatType ncos (int order, int i, int size) noexcept
+{
+    return std::cos (static_cast< FloatType > (order * i)
+                     * juce::MathConstants< FloatType >::pi / static_cast< FloatType > (size - 1));
+}
+template float  ncos (int, int, int) noexcept;
+template double ncos (int, int, int) noexcept;
+
+template < typename SampleType >
+static inline SampleType getWindowValue (int index, int windowLength) noexcept
+{
+    return static_cast< SampleType > (0.5 - 0.5 * ncos< SampleType > (2, index, windowLength));
+}
+template float  getWindowValue (int, int) noexcept;
+template double getWindowValue (int, int) noexcept;
+
+/*-------------------------------------------------------------*/
+
 template < typename SampleType >
 SampleType SynthesisGrain< SampleType >::getNextSample()
 {
@@ -37,23 +59,7 @@ SampleType SynthesisGrain< SampleType >::getNextSample()
         index  = grainLength;
     }
 
-    return storage.getSample (startIndex, index) * getWindowValue (index);
-}
-
-template < typename FloatType >
-static FloatType ncos (int order, int i, int size) noexcept
-{
-    return std::cos (static_cast< FloatType > (order * i)
-                     * juce::MathConstants< FloatType >::pi / static_cast< FloatType > (size - 1));
-}
-template float  ncos (int, int, int) noexcept;
-template double ncos (int, int, int) noexcept;
-
-template < typename SampleType >
-SampleType SynthesisGrain< SampleType >::getWindowValue (int index) const noexcept
-{
-    const auto cos2 = ncos< SampleType > (2, index, grainLength);
-    return static_cast< SampleType > (0.5 - 0.5 * cos2);
+    return storage.getSample (startIndex, index) * getWindowValue< SampleType > (index, grainLength);
 }
 
 template class SynthesisGrain< float >;

@@ -64,13 +64,9 @@ void LatencyEngine< SampleType >::renderBlock (const AudioBuffer& input, AudioBu
         AudioBuffer outAlias {outBuffer.getArrayOfWritePointers(),
                               output.getNumChannels(), internalBlocksize};
 
-        inAlias.clear();
-        outAlias.clear();
-        chunkMidiBuffer.clear();
-
         inputFIFO.pop (inAlias, chunkMidiBuffer);
 
-        renderChunk (inBuffer, outBuffer, chunkMidiBuffer, isBypassed);
+        renderChunk (inAlias, outAlias, chunkMidiBuffer, isBypassed);
 
         outputFIFO.push (outAlias, chunkMidiBuffer);
     }

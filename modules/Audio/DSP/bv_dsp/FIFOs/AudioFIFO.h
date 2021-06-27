@@ -18,8 +18,6 @@ public:
     void setMaximumSize (int maximumCapacitySamples);
 
 private:
-    int getZeroesToOutput (int totalNumSamplesWanted) const;
-
     CircularBuffer< SampleType > buffer;
 
     int writeHead {0};
