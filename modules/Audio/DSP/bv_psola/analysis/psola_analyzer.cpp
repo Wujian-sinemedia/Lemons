@@ -32,6 +32,18 @@ void PsolaAnalyzer< SampleType >::analyzeInput (const SampleType* samples, int n
 }
 
 template < typename SampleType >
+int PsolaAnalyzer< SampleType >::getPeriod() const
+{
+    return currentPeriod;
+}
+
+template < typename SampleType >
+int PsolaAnalyzer< SampleType >::getLatencySamples() const
+{
+    return pitchDetector.getLatencySamples();
+}
+
+template < typename SampleType >
 int PsolaAnalyzer< SampleType >::getNextUnpitchedPeriod()
 {
     return rand.nextInt (pitchDetector.getCurrentLegalPeriodRange());

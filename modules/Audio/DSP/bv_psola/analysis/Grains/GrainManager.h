@@ -13,8 +13,6 @@ public:
     AnalysisGrainManager()  = default;
     ~AnalysisGrainManager() = default;
 
-    void analyzeInput (const AudioBuffer& audio, int period);
-
     void analyzeInput (const SampleType* inputSamples,
                        int               numSamples,
                        int               period);

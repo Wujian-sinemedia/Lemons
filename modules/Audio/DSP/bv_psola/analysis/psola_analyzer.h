@@ -14,11 +14,13 @@ public:
     ~PsolaAnalyzer() = default;
 
     void prepare (double sampleRate, int blocksize);
+    
+    int getLatencySamples() const;
 
     void analyzeInput (const juce::AudioBuffer< SampleType >& audio);
     void analyzeInput (const SampleType* samples, int numSamples);
 
-    int getPeriod() const { return currentPeriod; }
+    int getPeriod() const;
 
 private:
     int          getNextUnpitchedPeriod();

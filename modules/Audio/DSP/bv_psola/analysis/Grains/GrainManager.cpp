@@ -1,11 +1,6 @@
 
 namespace bav::dsp::psola
 {
-template < typename SampleType >
-void AnalysisGrainManager< SampleType >::analyzeInput (const AudioBuffer& audio, int period)
-{
-    analyzeInput (audio.getReadPointer (0), audio.getNumSamples(), period);
-}
 
 template < typename SampleType >
 void AnalysisGrainManager< SampleType >::analyzeInput (const SampleType* inputSamples,
