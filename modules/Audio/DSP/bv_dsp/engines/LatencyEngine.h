@@ -15,7 +15,7 @@ public:
 
 private:
     void renderBlock (const AudioBuffer& input, AudioBuffer& output, MidiBuffer& midiMessages, bool isBypassed) final;
-    
+
     void prepared (int blocksize, double samplerate) final;
     void released() final;
 

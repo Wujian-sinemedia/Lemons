@@ -1,76 +1,29 @@
-
 #pragma once
 
 #include <bv_midi/bv_midi.h>
 
 namespace bav::dsp
 {
-/* A FIFO that manages both audio samples and MIDI events */
-
 template < typename SampleType >
 class AudioAndMidiFIFO
 {
 public:
-    AudioAndMidiFIFO() { }
+    using AudioBuffer = juce::AudioBuffer< SampleType >;
+    using MidiBuffer  = juce::MidiBuffer;
 
-    void initialize (const int numChannels, const int size)
-    {
-        audio.initialize (numChannels, size);
-        midi.setSize (size);
-    }
+    AudioAndMidiFIFO (int channels = 2, int samples = 1024);
 
-    void clear()
-    {
-        audio.clear();
-        midi.clear();
-    }
+    void setSize (int numChannels, int numSamples);
 
-    void changeSize (const int newNumChannels, int newSize)
-    {
-        audio.changeSize (newNumChannels, newSize);
-        midi.setSize (newSize);
-    }
+    void push (const AudioBuffer& audioIn, const MidiBuffer& midiIn);
 
+    void pop (AudioBuffer& audioOut, MidiBuffer& midiOut);
 
-    void push (const juce::AudioBuffer< SampleType >& inputAudio,
-               const juce::MidiBuffer&                inputMidi,
-               const int                              numSamples)
-    {
-        midi.pushEvents (inputMidi, numSamples);
-
-        for (int i = 0;
-             i < std::min (inputAudio.getNumChannels(), audio.getNumChannels());
-             ++i)
-            audio.pushSamples (inputAudio.getReadPointer (i), numSamples, i);
-    }
-
-
-    void pop (juce::AudioBuffer< SampleType >& outputAudio,
-              juce::MidiBuffer&                outputMidi,
-              const int                        numSamples)
-    {
-        midi.popEvents (outputMidi, numSamples);
-
-        for (int i = 0;
-             i < std::min (outputAudio.getNumChannels(), audio.getNumChannels());
-             ++i)
-            audio.popSamples (outputAudio.getWritePointer (i), numSamples, i);
-    }
-
-
-    int numStoredMidiEvents() const { return midi.numStoredEvents(); }
-
-    int numStoredSamples() const { return audio.numStoredSamples(); }
-
+    int numStoredSamples() const;
 
 private:
-    AudioFIFO< SampleType > audio;
-    midi::MidiFIFO          midi;
+    midi::MidiFIFO               midi;
+    MultiAudioFIFO< SampleType > audio;
 };
-
-
-template class AudioAndMidiFIFO< float >;
-template class AudioAndMidiFIFO< double >;
-
 
 }  // namespace bav::dsp

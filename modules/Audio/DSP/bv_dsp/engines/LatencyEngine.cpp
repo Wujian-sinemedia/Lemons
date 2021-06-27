@@ -5,8 +5,8 @@ template < typename SampleType >
 void LatencyEngine< SampleType >::prepared (int blocksize, double samplerate)
 {
     chunkMidiBuffer.ensureSize (static_cast< size_t > (blocksize));
-    inputFIFO.changeSize (2, blocksize);
-    outputFIFO.changeSize (2, blocksize);
+    inputFIFO.setSize (2, blocksize);
+    outputFIFO.setSize (2, blocksize);
     inBuffer.setSize (2, blocksize, true, true, true);
     outBuffer.setSize (2, blocksize, true, true, true);
     onPrepare (blocksize, samplerate);
@@ -16,8 +16,6 @@ template < typename SampleType >
 void LatencyEngine< SampleType >::released()
 {
     chunkMidiBuffer.clear();
-    inputFIFO.clear();
-    outputFIFO.clear();
     inBuffer.setSize (0, 0);
     outBuffer.setSize (0, 0);
     internalBlocksize = 0;
@@ -28,9 +26,9 @@ template < typename SampleType >
 void LatencyEngine< SampleType >::changeLatency (int newInternalBlocksize)
 {
     using Engine = Engine< SampleType >;
-    
+
     jassert (newInternalBlocksize > 0);
-    
+
     internalBlocksize = newInternalBlocksize;
     Engine::prepare (Engine::getSamplerate(), internalBlocksize);
 }
@@ -47,7 +45,7 @@ void LatencyEngine< SampleType >::renderBlock (const AudioBuffer& input, AudioBu
         renderChunk (input, output, midiMessages, isBypassed);
         return;
     }
-    
+
     jassert (totalNumSamples == output.getNumSamples());
 
     if (totalNumSamples == 0)
@@ -56,23 +54,29 @@ void LatencyEngine< SampleType >::renderBlock (const AudioBuffer& input, AudioBu
         renderChunk (inBuffer, outBuffer, chunkMidiBuffer, isBypassed);
         return;
     }
-    
-    inputFIFO.push (input, midiMessages, totalNumSamples);
-    
+
+    inputFIFO.push (input, midiMessages);
+
     while (inputFIFO.numStoredSamples() >= internalBlocksize)
     {
-        inBuffer.clear();
-        outBuffer.clear();
+        AudioBuffer inAlias {inBuffer.getArrayOfWritePointers(),
+                             input.getNumChannels(), internalBlocksize};
+
+        AudioBuffer outAlias {outBuffer.getArrayOfWritePointers(),
+                              output.getNumChannels(), internalBlocksize};
+
+        inAlias.clear();
+        outAlias.clear();
         chunkMidiBuffer.clear();
-        
-        inputFIFO.pop (inBuffer, chunkMidiBuffer, internalBlocksize);
-        
+
+        inputFIFO.pop (inAlias, chunkMidiBuffer);
+
         renderChunk (inBuffer, outBuffer, chunkMidiBuffer, isBypassed);
-        
-        outputFIFO.push (outBuffer, chunkMidiBuffer, internalBlocksize);
+
+        outputFIFO.push (outAlias, chunkMidiBuffer);
     }
-    
-    outputFIFO.pop (output, midiMessages, totalNumSamples);
+
+    outputFIFO.pop (output, midiMessages);
 }
 
 template < typename SampleType >

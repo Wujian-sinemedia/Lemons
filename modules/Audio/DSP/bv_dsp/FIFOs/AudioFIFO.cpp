@@ -2,200 +2,130 @@
 namespace bav::dsp
 {
 template < typename SampleType >
-AudioFIFO< SampleType >::AudioFIFO (const int numChannels, const int size)
+void AudioFIFO< SampleType >::pushSamples (const SampleType* samples, int numSamples)
 {
-    initialize (numChannels, size);
+    buffer.storeSamples (samples, numSamples);
+    numStored += numSamples;
 }
 
 template < typename SampleType >
-AudioFIFO< SampleType >::AudioFIFO()
+void AudioFIFO< SampleType >::popSamples (SampleType* output, int numSamples)
 {
-    writeIndex.add (0);
-    storedSamples.add (0);
-    base.setSize (0, 0);
-}
+    const auto zeroes  = getZeroesToOutput (numSamples);
+    const auto samples = numSamples - zeroes;
 
+    for (int i = 0; i < zeroes; ++i)
+        output[i] = SampleType (0);
 
-template < typename SampleType >
-void AudioFIFO< SampleType >::initialize (const int numChannels, const int size)
-{
-    base.setSize (numChannels, size * 2);
-    storedSamples.ensureStorageAllocated (numChannels);
+    const auto bufferCapacity = buffer.getCapacity();
 
-    constexpr auto zero = SampleType (0.0);
+    auto index = buffer.getLastFrameEndIndex() - samples;
+    if (index < 0) index += bufferCapacity;
 
-    for (int chan = 0; chan < numChannels; ++chan)
+    for (int i = 0; i < samples; ++i)
     {
-        juce::FloatVectorOperations::fill (
-            base.getWritePointer (chan), zero, base.getNumSamples());
-        storedSamples.set (chan, 0);
-        writeIndex.set (chan, 0);
-    }
-}
-
-
-template < typename SampleType >
-void AudioFIFO< SampleType >::clear()
-{
-    base.clear();
-
-    for (int i = 0; i < base.getNumChannels(); ++i)
-    {
-        storedSamples.set (i, 0);
-        writeIndex.set (1, 0);
-    }
-}
-
-
-template < typename SampleType >
-void AudioFIFO< SampleType >::releaseResources()
-{
-    base.setSize (0, 0);
-    storedSamples.clear();
-    writeIndex.clear();
-}
-
-
-template < typename SampleType >
-void AudioFIFO< SampleType >::changeSize (const int newNumChannels, int newSize)
-{
-    newSize += newSize;  // the real size is always blocksize * 2 under the hood
-
-    if (base.getNumSamples() == newSize && base.getNumChannels() == newNumChannels)
-        return;
-
-    base.setSize (newNumChannels, newSize, true, true, true);
-    storedSamples.ensureStorageAllocated (newNumChannels);
-
-    for (int chan = 0; chan < newNumChannels; ++chan)
-    {
-        if (storedSamples.isEmpty() || chan >= storedSamples.size())
-        {
-            storedSamples.add (0);
-        }
-        else
-        {
-            const auto prev = storedSamples.getUnchecked (chan);
-
-            if (prev > newSize) storedSamples.set (chan, newSize);
-        }
-
-        if (writeIndex.isEmpty() || chan >= writeIndex.size())
-        {
-            writeIndex.add (0);
-        }
-        else
-        {
-            const auto prevW = writeIndex.getUnchecked (chan);
-
-            if (prevW > newSize) writeIndex.set (chan, newSize);
-        }
-    }
-}
-
-
-template < typename SampleType >
-void AudioFIFO< SampleType >::pushSamples (
-    const juce::AudioBuffer< SampleType >& inputBuffer,
-    const int                              inputChannel,
-    const int                              inputStartSample,
-    const int                              numSamples,
-    const int                              destChannel)
-{
-    pushSamples (inputBuffer.getReadPointer (inputChannel) + inputStartSample,
-                 numSamples,
-                 destChannel);
-}
-
-
-template < typename SampleType >
-void AudioFIFO< SampleType >::pushSamples (const SampleType* inputSamples,
-                                           const int         numSamples,
-                                           const int         destChannel)
-{
-    jassert (destChannel >= 0 && destChannel < base.getNumChannels());
-
-    const auto length = base.getNumSamples();
-
-    jassert (length > 0 && base.getNumChannels() > 0);
-    jassert (numSamples + storedSamples.getUnchecked (destChannel) <= length);
-
-    auto* writing = base.getWritePointer (destChannel);
-
-    auto index = writeIndex.getUnchecked (destChannel);
-
-    for (int s = 0; s < numSamples; ++s, ++index)
-    {
-        if (index >= length) index = 0;
-        writing[index] = inputSamples[s];
+        output[i + zeroes] = buffer.getSample (index++);
+        if (index >= bufferCapacity) index = 0;
     }
 
-    writeIndex.set (destChannel, index);
-    storedSamples.set (destChannel,
-                       storedSamples.getUnchecked (destChannel) + numSamples);
+    numStored = std::max (0, numStored - samples);
 }
-
 
 template < typename SampleType >
-void AudioFIFO< SampleType >::popSamples (
-    juce::AudioBuffer< SampleType >& destBuffer,
-    const int                        destChannel,
-    const int                        destStartSample,
-    const int                        numSamples,
-    const int                        readingChannel)
+int AudioFIFO< SampleType >::getZeroesToOutput (int totalNumSamplesWanted) const
 {
-    popSamples (destBuffer.getWritePointer (destChannel) + destStartSample,
-                numSamples,
-                readingChannel);
+    if (totalNumSamplesWanted <= numStored)
+        return 0;
+
+    return totalNumSamplesWanted - numStored;
 }
-
-
-template < typename SampleType >
-void AudioFIFO< SampleType >::popSamples (SampleType* output,
-                                          const int   numSamples,
-                                          const int   readingChannel)
-{
-    jassert (readingChannel >= 0 && readingChannel < base.getNumChannels());
-
-    const auto length = base.getNumSamples();
-
-    jassert (length > 0 && base.getNumChannels() > 0);
-
-    const auto ns = storedSamples.getUnchecked (readingChannel);
-
-    auto readIndex = writeIndex.getUnchecked (readingChannel) - ns;
-    if (readIndex < 0) readIndex += length;
-
-    jassert (readIndex >= 0 && readIndex <= length);
-
-    auto* samples = base.getWritePointer (readingChannel);
-
-    for (int s = 0, index = readIndex; s < numSamples; ++s, ++index)
-    {
-        if (index >= length) index = 0;
-        output[s]      = samples[index];
-        samples[index] = SampleType (0.0);
-    }
-
-    storedSamples.set (readingChannel, std::max (0, ns - numSamples));
-}
-
 
 template < typename SampleType >
 int AudioFIFO< SampleType >::numStoredSamples() const
 {
-    jassert (! storedSamples.isEmpty());
-
-    auto minNumSamples = storedSamples.getUnchecked (0);
-
-    for (int stored : storedSamples)
-        if (stored < minNumSamples) minNumSamples = stored;
-
-    return minNumSamples;
+    return numStored;
 }
 
+template < typename SampleType >
+void AudioFIFO< SampleType >::setMaximumSize (int maximumCapacitySamples)
+{
+    buffer.resize (maximumCapacitySamples, 4);
+}
 
 template class AudioFIFO< float >;
 template class AudioFIFO< double >;
+
+
+template < typename SampleType >
+MultiAudioFIFO< SampleType >::MultiAudioFIFO (int numChannels, int capacity)
+{
+    setNumChannels (numChannels);
+    setMaximumSize (capacity);
+}
+
+template < typename SampleType >
+void MultiAudioFIFO< SampleType >::setNumChannels (int numChannels)
+{
+    while (fifos.size() < numChannels)
+    {
+        fifos.add (new AudioFIFO< SampleType >);
+    }
+
+    while (fifos.size() > numChannels)
+    {
+        fifos.removeLast();
+    }
+
+    setMaximumSize (capacity);
+}
+
+template < typename SampleType >
+void MultiAudioFIFO< SampleType >::setMaximumSize (int maximumCapacitySamples)
+{
+    for (auto* fifo : fifos)
+        fifo->setMaximumSize (maximumCapacitySamples);
+
+    capacity = maximumCapacitySamples;
+}
+
+template < typename SampleType >
+int MultiAudioFIFO< SampleType >::numStoredSamples() const
+{
+    if (fifos.isEmpty())
+        return 0;
+
+    int num = std::numeric_limits< int >::max();
+
+    for (auto* fifo : fifos)
+        if (auto stored = fifo->numStoredSamples(); stored < num)
+            num = stored;
+
+    jassert (num < std::numeric_limits< int >::max());
+    return num;
+}
+
+template < typename SampleType >
+void MultiAudioFIFO< SampleType >::pushSamples (const AudioBuffer& input)
+{
+    const auto numSamples = input.getNumSamples();
+    const auto channels   = std::min (input.getNumChannels(), fifos.size());
+
+    for (int i = 0; i < channels; ++i)
+        fifos[i]->pushSamples (input.getReadPointer (i), numSamples);
+}
+
+template < typename SampleType >
+void MultiAudioFIFO< SampleType >::popSamples (AudioBuffer& output)
+{
+    const auto numSamples = output.getNumSamples();
+    const auto channels   = std::min (output.getNumChannels(), fifos.size());
+
+    for (int i = 0; i < channels; ++i)
+        fifos[i]->popSamples (output.getWritePointer (i), numSamples);
+}
+
+
+template class MultiAudioFIFO< float >;
+template class MultiAudioFIFO< double >;
 
 }  // namespace bav::dsp
