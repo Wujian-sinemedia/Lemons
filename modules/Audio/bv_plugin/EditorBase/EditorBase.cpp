@@ -1,26 +1,29 @@
 
 namespace bav::gui
 {
-EditorBase::EditorBase (dsp::ProcessorBase& pbToUse)
+EditorBase::EditorBase (dsp::ProcessorBase& pbToUse, juce::Point<int> initialSize)
     : AudioProcessorEditor (pbToUse), pb (pbToUse)
 {
     setResizable (true, true);
 
-    const auto size   = pb.getSavedEditorSize();
-    const auto width  = size.x;
-    const auto height = size.y;
-
-    if (width > 0 && height > 0)
+    const auto size = pb.getSavedEditorSize();
+    
+    if (size.x > 0 && size.y > 0)
     {
-        getConstrainer()->setMinimumSize (width / 2, height / 2);
-        getConstrainer()->setMaximumSize (width * 2, height * 2);
-        getConstrainer()->setFixedAspectRatio ((float) width / (float) height);
-        setSize (width, height);
+        initializeSize (size.x, size.y);
     }
     else
     {
-        jassertfalse;
+        initializeSize (initialSize.x, initialSize.y);
     }
+}
+
+void EditorBase::initializeSize (int width, int height)
+{
+    getConstrainer()->setMinimumSize (width / 2, height / 2);
+    getConstrainer()->setMaximumSize (width * 2, height * 2);
+    getConstrainer()->setFixedAspectRatio ((float) width / (float) height);
+    setSize (width, height);
 }
 
 void EditorBase::paint (juce::Graphics& g)

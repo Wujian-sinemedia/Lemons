@@ -46,7 +46,7 @@ private:
 
     bool isBusesLayoutSupported (const BusesLayout& layout) const override;
 
-    juce::Point< int > savedEditorSize {450, 300};
+    juce::Point< int > savedEditorSize {0, 0};
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (BasicProcessorBase)
 };

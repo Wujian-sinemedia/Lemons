@@ -6,10 +6,12 @@ namespace bav::gui
 class EditorBase : public juce::AudioProcessorEditor
 {
 public:
-    EditorBase (dsp::ProcessorBase& pbToUse);
+    EditorBase (dsp::ProcessorBase& pbToUse, juce::Point<int> initialSize = {450, 300});
 
 private:
+    void initializeSize (int width, int height);
     void paint (juce::Graphics& g) final;
+    
     void resized() final;
     virtual void resizeTriggered() { }
 
@@ -22,8 +24,8 @@ class PluginEditor : public EditorBase
 {
 public:
     template<typename... Args>
-    PluginEditor (dsp::ProcessorBase& processorToUse, Args&&... args)
-    : EditorBase (processorToUse)
+    PluginEditor (dsp::ProcessorBase& processorToUse, juce::Point<int> initialSize, Args&&... args)
+    : EditorBase (processorToUse, initialSize)
     {
         content.reset (new ContentComponentType (std::forward<Args>(args)...));
         addAndMakeVisible (content.get());
