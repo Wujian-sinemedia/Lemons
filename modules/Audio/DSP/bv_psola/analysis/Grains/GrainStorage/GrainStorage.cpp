@@ -18,31 +18,37 @@ void AnalysisGrainStorage< SampleType >::storeNewFrame (const SampleType*       
 
     buffer.storeSamples (inputSamples, numSamples);
 
-    const auto lastFrameStart = buffer.getLastFrameStartIndex();
-
     grainIndices.clearQuick();
 
     for (auto index : grainOnsets)
-        grainIndices.add (buffer.clipValueToCapacity (index + lastFrameStart));
+        grainIndices.add (blockIndexToBufferIndex (index));
+}
+
+template < typename SampleType >
+SampleType AnalysisGrainStorage< SampleType >::getSample (int grainStartIndexInCircularBuffer, int grainTick) const
+{
+    return buffer.getSample (buffer.clipValueToCapacity (grainStartIndexInCircularBuffer + grainTick));
 }
 
 template < typename SampleType >
 int AnalysisGrainStorage< SampleType >::getStartOfClosestGrain (int sampleIndex) const
 {
-    const auto index = buffer.clipValueToCapacity (sampleIndex + buffer.getLastFrameStartIndex());
+    jassert (! grainIndices.isEmpty());
+
+    const auto index = blockIndexToBufferIndex (sampleIndex);
 
     distances.clearQuick();
 
     for (auto grain : grainIndices)
         distances.add (std::abs (grain - index));
 
-    return grainIndices[intops::findIndexOfMinElement (distances.getRawDataPointer(), distances.size())];
+    return grainIndices.getUnchecked (intops::findIndexOfMinElement (distances.getRawDataPointer(), distances.size()));
 }
 
 template < typename SampleType >
-const CircularBuffer< SampleType >& AnalysisGrainStorage< SampleType >::getBuffer() const
+int AnalysisGrainStorage< SampleType >::blockIndexToBufferIndex (int blockIndex) const
 {
-    return buffer;
+    return buffer.clipValueToCapacity (blockIndex + buffer.getLastFrameStartIndex());
 }
 
 template class AnalysisGrainStorage< float >;

@@ -3,27 +3,22 @@
 
 namespace bav::dsp::psola
 {
-/*
- This grain class plays an unadjusted stream of contiguous audio samples -- once it is started, it simply plays until it stops.
- */
-
 template < typename SampleType >
 class SynthesisGrain
 {
 public:
-    SynthesisGrain (const CircularBuffer< SampleType >& storageToUse);
+    SynthesisGrain (const AnalysisGrainStorage< SampleType >& storageToUse);
 
     bool isActive() const;
-    bool isHalfwayThrough() const;
 
     void startNewGrain (int start, int length);
 
     SampleType getNextSample();
 
 private:
-    SampleType getWindowValue (int index);
+    SampleType getWindowValue (int index) const noexcept;
 
-    const CircularBuffer< SampleType >& buffer;
+    const AnalysisGrainStorage< SampleType >& storage;
 
     bool active {false};
 

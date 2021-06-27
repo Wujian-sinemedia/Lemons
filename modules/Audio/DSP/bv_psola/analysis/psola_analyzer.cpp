@@ -20,11 +20,10 @@ void PsolaAnalyzer< SampleType >::analyzeInput (const SampleType* samples, int n
 {
     jassert (samplerate > 0);
 
-    const auto pitchInHz      = pitchDetector.detectPitch (samples, numSamples);
-    const auto frameIsPitched = pitchInHz > 0.f;
+    const auto pitchInHz = pitchDetector.detectPitch (samples, numSamples);
 
-    const auto period = frameIsPitched ? math::periodInSamples (samplerate, pitchInHz)
-                                       : getNextUnpitchedPeriod();
+    const auto period = pitchInHz > 0.f ? math::periodInSamples (samplerate, pitchInHz)
+                                        : getNextUnpitchedPeriod();
 
     grains.analyzeInput (samples, numSamples, period);
 
@@ -64,9 +63,9 @@ int PsolaAnalyzer< SampleType >::getNextUnpitchedPeriod()
 }
 
 template < typename SampleType >
-const CircularBuffer< SampleType >& PsolaAnalyzer< SampleType >::getStorage() const
+const psola::AnalysisGrainStorage< SampleType >& PsolaAnalyzer< SampleType >::getStorage() const
 {
-    return grains.getBuffer();
+    return grains.getStorage();
 }
 
 template < typename SampleType >

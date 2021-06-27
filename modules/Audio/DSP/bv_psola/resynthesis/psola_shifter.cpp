@@ -14,9 +14,6 @@ template < typename SampleType >
 void PsolaShifter< SampleType >::newBlockStarting()
 {
     currentSample = 0;
-
-    if (! areAnyGrainsActive())
-        startNewGrain();
 }
 
 template < typename SampleType >
@@ -31,23 +28,17 @@ SampleType PsolaShifter< SampleType >::getNextSample()
 {
     jassert (desiredPeriod > 0);
 
-    if (! areAnyGrainsActive())
+    if (samplesToNextGrain == 0 || ! areAnyGrainsActive())
         startNewGrain();
 
     auto sample = SampleType (0);
 
     for (auto* grain : grains)
-    {
         if (grain->isActive())
-        {
             sample += grain->getNextSample();
 
-            if (! grain->isActive() || grain->isHalfwayThrough())
-                startNewGrain();
-        }
-    }
-
     ++currentSample;
+    --samplesToNextGrain;
 
     return sample;
 }
@@ -63,16 +54,25 @@ void PsolaShifter< SampleType >::startNewGrain()
 {
     if (auto* grain = getAvailableGrain())
     {
-        const auto zeroes = 0;
-
         grain->startNewGrain (analyzer.getStartOfClosestGrain (currentSample),
-                              analyzer.getGrainLength(),
-                              zeroes);
+                              analyzer.getGrainLength());
     }
     else
     {
         jassertfalse;
     }
+
+    samplesToNextGrain = desiredPeriod;
+}
+
+template < typename SampleType >
+psola::SynthesisGrain< SampleType >* PsolaShifter< SampleType >::getAvailableGrain() const
+{
+    for (auto* grain : grains)
+        if (! grain->isActive())
+            return grain;
+
+    return nullptr;
 }
 
 template < typename SampleType >
@@ -81,18 +81,8 @@ bool PsolaShifter< SampleType >::areAnyGrainsActive() const
     for (auto* grain : grains)
         if (grain->isActive())
             return true;
-
+    
     return false;
-}
-
-template < typename SampleType >
-psola::RespacedGrain< SampleType >* PsolaShifter< SampleType >::getAvailableGrain() const
-{
-    for (auto* grain : grains)
-        if (! grain->isActive())
-            return grain;
-
-    return nullptr;
 }
 
 

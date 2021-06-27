@@ -3,7 +3,6 @@
 
 #include "Grains/GrainManager.h"
 
-
 namespace bav::dsp
 {
 template < typename SampleType >
@@ -25,9 +24,9 @@ public:
     int getPeriod() const;
     int getGrainLength() const;
 
-    const CircularBuffer< SampleType >& getStorage() const;
-
     events::Broadcaster& getBroadcaster();
+    
+    const psola::AnalysisGrainStorage< SampleType >& getStorage() const;
 
 private:
     int          getNextUnpitchedPeriod();

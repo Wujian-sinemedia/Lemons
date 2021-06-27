@@ -9,4 +9,3 @@
 
 #include "resynthesis/psola_shifter.cpp"
 #include "resynthesis/Grains/SynthesisGrain.cpp"
-#include "resynthesis/Grains/RespacedGrain.cpp"

@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include "Grains/RespacedGrain.h"
+#include "Grains/SynthesisGrain.h"
 
 namespace bav::dsp
 {
@@ -9,7 +9,7 @@ template < typename SampleType >
 class PsolaShifter
 {
     using Analyzer = PsolaAnalyzer< SampleType >;
-    using Grain    = psola::RespacedGrain< SampleType >;
+    using Grain    = psola::SynthesisGrain< SampleType >;
 
 public:
     PsolaShifter (Analyzer& parentAnalyzer);
@@ -20,20 +20,18 @@ public:
     SampleType getNextSample();
 
 private:
-    void newBlockStarting();
-
-    bool areAnyGrainsActive() const;
-    void startNewGrain();
-
+    void   newBlockStarting();
+    void   startNewGrain();
     Grain* getAvailableGrain() const;
+    bool   areAnyGrainsActive() const;
 
     Analyzer& analyzer;
 
-    int desiredPeriod {0};
-
     juce::OwnedArray< Grain > grains;
 
-    int currentSample {0};
+    int desiredPeriod {0};
+    int samplesToNextGrain {0};
+    int currentSample {0};  // the current sample in the frame
 
     events::Listener listener;
 };

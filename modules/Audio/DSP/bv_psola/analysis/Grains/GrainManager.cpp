@@ -26,9 +26,9 @@ void AnalysisGrainManager< SampleType >::prepare (int blocksize)
 }
 
 template < typename SampleType >
-const CircularBuffer< SampleType >& AnalysisGrainManager< SampleType >::getBuffer() const
+const AnalysisGrainStorage< SampleType >& AnalysisGrainManager< SampleType >::getStorage() const
 {
-    return storage.getBuffer();
+    return storage;
 }
 
 template class AnalysisGrainManager< float >;

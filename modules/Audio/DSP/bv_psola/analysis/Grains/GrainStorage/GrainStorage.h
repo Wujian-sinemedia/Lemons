@@ -19,10 +19,12 @@ public:
                         const juce::Array< int >& grainOnsets);
 
     int getStartOfClosestGrain (int sampleIndex) const;
-
-    const CircularBuffer< SampleType >& getBuffer() const;
+    
+    SampleType getSample (int grainStartIndexInCircularBuffer, int grainTick) const;
 
 private:
+    int blockIndexToBufferIndex (int blockIndex) const;
+
     CircularBuffer< SampleType > buffer;
 
     juce::Array< int >         grainIndices;  // sample indices in the circular buffer of grain onsets
