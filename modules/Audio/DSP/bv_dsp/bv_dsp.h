@@ -28,3 +28,5 @@ END_JUCE_MODULE_DECLARATION
 #include "filters/Filter.h"
 
 #include "BufferUtils/BufferUtils.h"
+
+#include "PitchDetector/PitchDetector.h"

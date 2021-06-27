@@ -1,8 +1,8 @@
 
-namespace bav::dsp
+namespace bav::dsp::psola
 {
 template < typename SampleType >
-void PsolaAnalyzer< SampleType >::prepare (double sampleRate, int blocksize)
+void Analyzer< SampleType >::prepare (double sampleRate, int blocksize)
 {
     samplerate = sampleRate;
     pitchDetector.setSamplerate (sampleRate);
@@ -10,13 +10,13 @@ void PsolaAnalyzer< SampleType >::prepare (double sampleRate, int blocksize)
 }
 
 template < typename SampleType >
-void PsolaAnalyzer< SampleType >::analyzeInput (const juce::AudioBuffer< SampleType >& audio)
+void Analyzer< SampleType >::analyzeInput (const juce::AudioBuffer< SampleType >& audio)
 {
     analyzeInput (audio.getReadPointer (0), audio.getNumSamples());
 }
 
 template < typename SampleType >
-void PsolaAnalyzer< SampleType >::analyzeInput (const SampleType* samples, int numSamples)
+void Analyzer< SampleType >::analyzeInput (const SampleType* samples, int numSamples)
 {
     jassert (samplerate > 0);
 
@@ -33,49 +33,49 @@ void PsolaAnalyzer< SampleType >::analyzeInput (const SampleType* samples, int n
 }
 
 template < typename SampleType >
-int PsolaAnalyzer< SampleType >::getStartOfClosestGrain (int sampleIndex) const
+int Analyzer< SampleType >::getStartOfClosestGrain (int sampleIndex) const
 {
     return grains.getStartOfClosestGrain (sampleIndex);
 }
 
 template < typename SampleType >
-int PsolaAnalyzer< SampleType >::getPeriod() const
+int Analyzer< SampleType >::getPeriod() const
 {
     return currentPeriod;
 }
 
 template < typename SampleType >
-int PsolaAnalyzer< SampleType >::getGrainLength() const
+int Analyzer< SampleType >::getGrainLength() const
 {
     return currentPeriod * 2;
 }
 
 template < typename SampleType >
-int PsolaAnalyzer< SampleType >::getLatencySamples() const
+int Analyzer< SampleType >::getLatencySamples() const
 {
     return pitchDetector.getLatencySamples();
 }
 
 template < typename SampleType >
-int PsolaAnalyzer< SampleType >::getNextUnpitchedPeriod()
+int Analyzer< SampleType >::getNextUnpitchedPeriod()
 {
     return rand.nextInt (pitchDetector.getCurrentLegalPeriodRange());
 }
 
 template < typename SampleType >
-const psola::AnalysisGrainStorage< SampleType >& PsolaAnalyzer< SampleType >::getStorage() const
+const AnalysisGrainStorage< SampleType >& Analyzer< SampleType >::getStorage() const
 {
     return grains.getStorage();
 }
 
 template < typename SampleType >
-events::Broadcaster& PsolaAnalyzer< SampleType >::getBroadcaster()
+events::Broadcaster& Analyzer< SampleType >::getBroadcaster()
 {
     return broadcaster;
 }
 
 
-template class PsolaAnalyzer< float >;
-template class PsolaAnalyzer< double >;
+template class Analyzer< float >;
+template class Analyzer< double >;
 
-}  // namespace bav::dsp
+}  // namespace bav::dsp::psola

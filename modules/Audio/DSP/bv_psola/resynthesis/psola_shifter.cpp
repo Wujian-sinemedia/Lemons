@@ -1,8 +1,8 @@
 
-namespace bav::dsp
+namespace bav::dsp::psola
 {
 template < typename SampleType >
-PsolaShifter< SampleType >::PsolaShifter (Analyzer& parentAnalyzer)
+Shifter< SampleType >::Shifter (Analyzer& parentAnalyzer)
     : analyzer (parentAnalyzer), listener (analyzer.getBroadcaster(), [&]
                                            { newBlockStarting(); })
 {
@@ -11,20 +11,20 @@ PsolaShifter< SampleType >::PsolaShifter (Analyzer& parentAnalyzer)
 }
 
 template < typename SampleType >
-void PsolaShifter< SampleType >::newBlockStarting()
+void Shifter< SampleType >::newBlockStarting()
 {
     currentSample = 0;
 }
 
 template < typename SampleType >
-void PsolaShifter< SampleType >::getSamples (SampleType* outputSamples, int numSamples)
+void Shifter< SampleType >::getSamples (SampleType* outputSamples, int numSamples)
 {
     for (int i = 0; i < numSamples; ++i)
         outputSamples[i] = getNextSample();
 }
 
 template < typename SampleType >
-SampleType PsolaShifter< SampleType >::getNextSample()
+SampleType Shifter< SampleType >::getNextSample()
 {
     jassert (desiredPeriod > 0);
 
@@ -44,13 +44,13 @@ SampleType PsolaShifter< SampleType >::getNextSample()
 }
 
 template < typename SampleType >
-void PsolaShifter< SampleType >::setPitch (float desiredFrequency, double samplerate)
+void Shifter< SampleType >::setPitch (float desiredFrequency, double samplerate)
 {
     desiredPeriod = math::periodInSamples (samplerate, desiredFrequency);
 }
 
 template < typename SampleType >
-void PsolaShifter< SampleType >::startNewGrain()
+void Shifter< SampleType >::startNewGrain()
 {
     if (auto* grain = getAvailableGrain())
     {
@@ -66,7 +66,7 @@ void PsolaShifter< SampleType >::startNewGrain()
 }
 
 template < typename SampleType >
-psola::SynthesisGrain< SampleType >* PsolaShifter< SampleType >::getAvailableGrain() const
+SynthesisGrain< SampleType >* Shifter< SampleType >::getAvailableGrain() const
 {
     for (auto* grain : grains)
         if (! grain->isActive())
@@ -76,17 +76,17 @@ psola::SynthesisGrain< SampleType >* PsolaShifter< SampleType >::getAvailableGra
 }
 
 template < typename SampleType >
-bool PsolaShifter< SampleType >::areAnyGrainsActive() const
+bool Shifter< SampleType >::areAnyGrainsActive() const
 {
     for (auto* grain : grains)
         if (grain->isActive())
             return true;
-    
+
     return false;
 }
 
 
-template class PsolaShifter< float >;
-template class PsolaShifter< double >;
+template class Shifter< float >;
+template class Shifter< double >;
 
-}  // namespace bav::dsp
+}  // namespace bav::dsp::psola

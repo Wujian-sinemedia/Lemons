@@ -3,14 +3,14 @@
 
 #include "Grains/GrainManager.h"
 
-namespace bav::dsp
+namespace bav::dsp::psola
 {
 template < typename SampleType >
-class PsolaAnalyzer
+class Analyzer
 {
 public:
-    PsolaAnalyzer()  = default;
-    ~PsolaAnalyzer() = default;
+    Analyzer()  = default;
+    ~Analyzer() = default;
 
     void prepare (double sampleRate, int blocksize);
 
@@ -25,8 +25,8 @@ public:
     int getGrainLength() const;
 
     events::Broadcaster& getBroadcaster();
-    
-    const psola::AnalysisGrainStorage< SampleType >& getStorage() const;
+
+    const AnalysisGrainStorage< SampleType >& getStorage() const;
 
 private:
     int          getNextUnpitchedPeriod();
@@ -42,4 +42,4 @@ private:
 };
 
 
-}  // namespace bav::dsp
+}  // namespace bav::dsp::psola

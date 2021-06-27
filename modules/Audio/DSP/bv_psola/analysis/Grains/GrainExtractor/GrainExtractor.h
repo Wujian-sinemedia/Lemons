@@ -1,72 +1,31 @@
 
 #pragma once
 
+#include "PeakFinder.h"
 
 namespace bav::dsp::psola
 {
 template < typename SampleType >
 class AnalysisGrainExtractor
 {
-    using IArray = juce::Array< int >;
-    using FArray = juce::Array< float >;
-
 public:
     AnalysisGrainExtractor()  = default;
     ~AnalysisGrainExtractor() = default;
 
-    void prepare (int maxBlocksize);
+    void prepare (int blocksize);
 
     void releaseResources();
 
-    void analyzeInput (IArray&           targetArray,
-                       const SampleType* inputSamples,
+    void analyzeInput (const SampleType* inputSamples,
                        int               numSamples,
                        int               period);
 
+    const juce::Array< int >& getIndices() const;
+
 private:
-    void findPsolaPeaks (IArray&           targetArray,
-                         const SampleType* reading,
-                         int               totalNumSamples,
-                         int               period);
+    PeakFinder< SampleType > peakFinder;
 
-    int findNextPeak (int               frameStart,
-                      int               frameEnd,
-                      int               predictedPeak,
-                      const SampleType* reading,
-                      const IArray&     targetArray,
-                      int               period,
-                      int               grainSize);
-
-    void sortSampleIndicesForPeakSearching (IArray& output,
-                                            int     startSample,
-                                            int     endSample,
-                                            int     predictedPeak);
-
-    void getPeakCandidateInRange (IArray&           candidates,
-                                  const SampleType* input,
-                                  int               startSample,
-                                  int               endSample,
-                                  int               predictedPeak,
-                                  const IArray&     searchingOrder);
-
-    int chooseIdealPeakCandidate (const IArray&     candidates,
-                                  const SampleType* reading,
-                                  int               deltaTarget1,
-                                  int               deltaTarget2);
-
-    int choosePeakWithGreatestPower (const IArray&     candidates,
-                                     const SampleType* reading);
-
-    IArray peakIndices;
-    IArray peakCandidates;
-    IArray peakSearchingOrder;
-
-    FArray candidateDeltas;
-    IArray finalHandful;
-    FArray finalHandfulDeltas;
-
-    static constexpr auto numPeaksToTest          = 10;
-    static constexpr auto defaultFinalHandfulSize = 5;
+    juce::Array< int > grainStartIndices;
 };
 
 

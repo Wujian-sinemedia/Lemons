@@ -16,3 +16,5 @@
 #include "filters/Filter.cpp"
 
 #include "BufferUtils/BufferUtils.cpp"
+
+#include "PitchDetector/PitchDetector.cpp"

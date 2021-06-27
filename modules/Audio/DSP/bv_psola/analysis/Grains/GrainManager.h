@@ -25,8 +25,6 @@ public:
     const AnalysisGrainStorage< SampleType >& getStorage() const;
 
 private:
-    juce::Array< int > grainIndices;  // the sample indices of the grain onsets, starting from sample 0 of the current frame
-
     AnalysisGrainExtractor< SampleType > extractor;
     AnalysisGrainStorage< SampleType >   storage;
 };

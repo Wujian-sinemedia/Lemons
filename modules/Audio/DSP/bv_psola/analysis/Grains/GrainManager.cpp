@@ -6,9 +6,8 @@ void AnalysisGrainManager< SampleType >::analyzeInput (const SampleType* inputSa
                                                        int               numSamples,
                                                        int               period)
 {
-    grainIndices.clearQuick();
-    extractor.analyzeInput (grainIndices, inputSamples, numSamples, period);
-    storage.storeNewFrame (inputSamples, numSamples, grainIndices);
+    extractor.analyzeInput (inputSamples, numSamples, period);
+    storage.storeNewFrame (inputSamples, numSamples, extractor.getIndices());
 }
 
 template < typename SampleType >
@@ -20,7 +19,6 @@ int AnalysisGrainManager< SampleType >::getStartOfClosestGrain (int sampleIndex)
 template < typename SampleType >
 void AnalysisGrainManager< SampleType >::prepare (int blocksize)
 {
-    grainIndices.ensureStorageAllocated (blocksize);
     extractor.prepare (blocksize);
     storage.prepare (blocksize);
 }

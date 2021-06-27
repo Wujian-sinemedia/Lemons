@@ -3,16 +3,16 @@
 
 #include "Grains/SynthesisGrain.h"
 
-namespace bav::dsp
+namespace bav::dsp::psola
 {
 template < typename SampleType >
-class PsolaShifter
+class Shifter
 {
-    using Analyzer = PsolaAnalyzer< SampleType >;
+    using Analyzer = Analyzer< SampleType >;
     using Grain    = psola::SynthesisGrain< SampleType >;
 
 public:
-    PsolaShifter (Analyzer& parentAnalyzer);
+    Shifter (Analyzer& parentAnalyzer);
 
     void setPitch (float desiredFrequency, double samplerate);
 
@@ -37,4 +37,4 @@ private:
 };
 
 
-}  // namespace bav::dsp
+}  // namespace bav::dsp::psola
