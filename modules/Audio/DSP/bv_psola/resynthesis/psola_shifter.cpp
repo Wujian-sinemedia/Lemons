@@ -3,17 +3,17 @@ namespace bav::dsp::psola
 {
 template < typename SampleType >
 Shifter< SampleType >::Shifter (Analyzer& parentAnalyzer)
-    : analyzer (parentAnalyzer), listener (analyzer.getBroadcaster(), [&]
-                                           { newBlockStarting(); })
+    : analyzer (parentAnalyzer), l (analyzer.getBroadcaster(), [&]
+                                    { currentSample = 0; })
 {
     while (grains.size() < 40)
         grains.add (new Grain (analyzer.getStorage()));
 }
 
 template < typename SampleType >
-void Shifter< SampleType >::newBlockStarting()
+void Shifter< SampleType >::setPitch (float desiredFrequency, double samplerate)
 {
-    currentSample = 0;
+    desiredPeriod = math::periodInSamples (samplerate, desiredFrequency);
 }
 
 template < typename SampleType >
@@ -41,12 +41,6 @@ SampleType Shifter< SampleType >::getNextSample()
     --samplesToNextGrain;
 
     return sample;
-}
-
-template < typename SampleType >
-void Shifter< SampleType >::setPitch (float desiredFrequency, double samplerate)
-{
-    desiredPeriod = math::periodInSamples (samplerate, desiredFrequency);
 }
 
 template < typename SampleType >

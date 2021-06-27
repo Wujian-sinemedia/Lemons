@@ -6,7 +6,9 @@ void Analyzer< SampleType >::prepare (double sampleRate, int blocksize)
 {
     samplerate = sampleRate;
     pitchDetector.setSamplerate (sampleRate);
-    grains.prepare (blocksize);
+
+    grainExtractor.prepare (blocksize);
+    grainStorage.prepare (blocksize);
 }
 
 template < typename SampleType >
@@ -25,7 +27,8 @@ void Analyzer< SampleType >::analyzeInput (const SampleType* samples, int numSam
     const auto period = pitchInHz > 0.f ? math::periodInSamples (samplerate, pitchInHz)
                                         : getNextUnpitchedPeriod();
 
-    grains.analyzeInput (samples, numSamples, period);
+    grainExtractor.analyzeInput (samples, numSamples, period);
+    grainStorage.storeNewFrame (samples, numSamples, grainExtractor.getIndices());
 
     currentPeriod = period;
 
@@ -35,7 +38,7 @@ void Analyzer< SampleType >::analyzeInput (const SampleType* samples, int numSam
 template < typename SampleType >
 int Analyzer< SampleType >::getStartOfClosestGrain (int sampleIndex) const
 {
-    return grains.getStartOfClosestGrain (sampleIndex);
+    return grainStorage.getStartOfClosestGrain (sampleIndex);
 }
 
 template < typename SampleType >
@@ -65,7 +68,7 @@ int Analyzer< SampleType >::getNextUnpitchedPeriod()
 template < typename SampleType >
 const AnalysisGrainStorage< SampleType >& Analyzer< SampleType >::getStorage() const
 {
-    return grains.getStorage();
+    return grainStorage;
 }
 
 template < typename SampleType >

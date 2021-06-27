@@ -8,10 +8,10 @@ namespace bav::dsp::psola
 template < typename SampleType >
 class Shifter
 {
+public:
     using Analyzer = Analyzer< SampleType >;
     using Grain    = psola::SynthesisGrain< SampleType >;
 
-public:
     Shifter (Analyzer& parentAnalyzer);
 
     void setPitch (float desiredFrequency, double samplerate);
@@ -20,7 +20,6 @@ public:
     SampleType getNextSample();
 
 private:
-    void   newBlockStarting();
     void   startNewGrain();
     Grain* getAvailableGrain() const;
     bool   areAnyGrainsActive() const;
@@ -33,7 +32,7 @@ private:
     int samplesToNextGrain {0};
     int currentSample {0};  // the current sample in the frame
 
-    events::Listener listener;
+    events::Listener l;
 };
 
 

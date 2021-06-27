@@ -1,7 +1,8 @@
 
 #pragma once
 
-#include "Grains/GrainManager.h"
+#include "Grains/GrainExtractor/GrainExtractor.h"
+#include "Grains/GrainStorage/GrainStorage.h"
 
 namespace bav::dsp::psola
 {
@@ -35,8 +36,10 @@ private:
     double samplerate {0.};
     int    currentPeriod {0};
 
-    PitchDetector< SampleType >               pitchDetector;
-    psola::AnalysisGrainManager< SampleType > grains;
+    PitchDetector< SampleType > pitchDetector;
+
+    AnalysisGrainExtractor< SampleType > grainExtractor;
+    AnalysisGrainStorage< SampleType >   grainStorage;
 
     events::Broadcaster broadcaster;
 };
