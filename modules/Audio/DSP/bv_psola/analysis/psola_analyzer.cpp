@@ -65,6 +65,18 @@ events::Broadcaster& Analyzer< SampleType >::getBroadcaster()
     return broadcaster;
 }
 
+template < typename SampleType >
+int Analyzer< SampleType >::getPeriod() const
+{
+    return currentPeriod;
+}
+
+template < typename SampleType >
+float Analyzer< SampleType >::getFrequency() const
+{
+    return math::freqFromPeriod (samplerate, currentPeriod);
+}
+
 
 template class Analyzer< float >;
 template class Analyzer< double >;

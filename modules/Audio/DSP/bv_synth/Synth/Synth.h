@@ -104,6 +104,18 @@ public:
     
     void setPitchGlideTime (double glideTimeSeconds);
     void togglePitchGlide (bool shouldGlide);
+    
+    template<typename NoteType>
+    float getFrequencyForMidi (NoteType midiPitch, int midiChannel = -1)
+    {
+        return pitch.getFrequencyForMidi (midiPitch, midiChannel);
+    }
+    
+    template<typename FreqType>
+    float getMidiForFrequency (FreqType freq, int midiChannel = -1)
+    {
+        return pitch.getMidiForFrequency (freq, midiChannel);
+    }
 
 protected:
     friend class SynthVoiceBase< SampleType >;
