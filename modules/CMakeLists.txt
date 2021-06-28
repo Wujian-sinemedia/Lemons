@@ -1,11 +1,4 @@
-set (newmodules 
-        bv_core
-        bv_mobile_utils
-        bv_networking)
-
-juce_add_modules (${newmodules})
-
-list (APPEND modules ${newmodules})
+add_subdirectory (Common)
 
 add_subdirectory (Audio)
 
