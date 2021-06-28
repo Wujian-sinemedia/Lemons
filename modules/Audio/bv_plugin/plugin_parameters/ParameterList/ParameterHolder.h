@@ -59,11 +59,11 @@ using FloatParam = ParameterHolder< FloatParameter >;
 using IntParam   = ParameterHolder< IntParameter >;
 using BoolParam  = ParameterHolder< BoolParameter >;
 
-using dbParam    = ParameterHolder< GainParameter >;
+using dbParam      = ParameterHolder< GainParameter >;
 using ToggleParam  = ParameterHolder< ToggleParameter >;
 using PercentParam = ParameterHolder< PercentParameter >;
-using HzParam = ParameterHolder< FrequencyParameter >;
+using HzParam      = ParameterHolder< FrequencyParameter >;
 
-using GainMeter    = bav::ParameterHolder< bav::GainMeterParameter >;
+using GainMeter = bav::ParameterHolder< bav::GainMeterParameter >;
 
 }  // namespace bav

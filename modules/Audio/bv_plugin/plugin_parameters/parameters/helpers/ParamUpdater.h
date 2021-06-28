@@ -5,12 +5,16 @@ namespace bav
 
 struct ParamUpdater : Parameter::Listener
 {
-    ParamUpdater (Parameter& param, std::function<void()> onValueChange);
-    
-    void parameterValueChanged (float) final;
+    ParamUpdater (Parameter& param,
+                  std::function<void()> onValueChange,
+                  std::function< void(bool) > onGestureChange = {});
     
 private:
-    std::function<void()> callback;
+    void parameterValueChanged (float) final;
+    void parameterGestureStateChanged (bool gestureIsStarting) final;
+    
+    std::function<void()> valueCallback;
+    std::function< void(bool) > gestureCallback;
 };
 
 }

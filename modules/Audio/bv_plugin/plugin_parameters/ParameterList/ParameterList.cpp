@@ -1,7 +1,6 @@
 
 namespace bav
 {
-
 void ParameterList::add (ParamHolderBase& param)
 {
     addParameter (param, false);
@@ -152,6 +151,30 @@ void ParameterList::processNewPitchwheelMessage (int pitchwheelValue)
     if (auto* param = pitchwheelParameter)
     {
         param->set (juce::jmap (pitchwheelValue, 0, 16383, param->getMinimum(), param->getMaximum()));
+    }
+}
+
+
+ParameterList::Listener::Listener (ParameterList& list,
+                                   std::function< void (Parameter&) >
+                                       onParamChange,
+                                   std::function< void (Parameter&, bool) >
+                                        onGestureGhange,
+                                   bool includeInternalParams)
+{
+    for (auto* base : list.params)
+    {
+        if (includeInternalParams || ! base->isInternal)
+        {
+            auto* param = base->getParam();
+
+            updaters.add (new ParamUpdater (
+                *param,
+                [=]
+                { onParamChange (*param); },
+                [=] (bool starting)
+                { onGestureGhange (*param, starting); }));
+        }
     }
 }
 

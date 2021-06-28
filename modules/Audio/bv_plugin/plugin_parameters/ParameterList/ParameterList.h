@@ -7,7 +7,7 @@ class ParameterList : public SerializableData
 {
 public:
     using SerializableData::SerializableData;
-    
+
     void addParametersTo (juce::AudioProcessor& processor);
     void addAllParametersAsInternal();
 
@@ -20,6 +20,19 @@ public:
 
     void processMidi (const juce::MidiBuffer& midiMessages);
     void processMidiMessage (const juce::MidiMessage& message);
+
+    /* recieves a callback when any of the list's parameters change */
+    struct Listener
+    {
+        Listener (ParameterList& list,
+                  std::function< void (Parameter&) >
+                                                           onParamChange,
+                  std::function< void (Parameter&, bool) > onGestureGhange       = {},
+                  bool                                     includeInternalParams = true);
+
+    private:
+        juce::OwnedArray< ParamUpdater > updaters;
+    };
 
 protected:
     template < typename... Args >
