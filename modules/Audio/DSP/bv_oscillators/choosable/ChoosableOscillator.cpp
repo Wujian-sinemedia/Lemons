@@ -23,6 +23,7 @@ void ChoosableOscillator< SampleType >::process (AudioBuffer& output)
             saw.process (output, true);
             square.process (output, true);
             triangle.process (output, true);
+            superSaw.process (output, true);
             return;
         }
         case (SawOsc) :
@@ -31,6 +32,7 @@ void ChoosableOscillator< SampleType >::process (AudioBuffer& output)
             saw.process (output, false);
             square.process (output, true);
             triangle.process (output, true);
+            superSaw.process (output, true);
             return;
         }
         case (SquareOsc) :
@@ -39,6 +41,7 @@ void ChoosableOscillator< SampleType >::process (AudioBuffer& output)
             saw.process (output, true);
             square.process (output, false);
             triangle.process (output, true);
+            superSaw.process (output, true);
             return;
         }
         case (TriangleOsc) :
@@ -47,6 +50,16 @@ void ChoosableOscillator< SampleType >::process (AudioBuffer& output)
             saw.process (output, true);
             square.process (output, true);
             triangle.process (output, false);
+            superSaw.process (output, true);
+            return;
+        }
+        case (SuperSawOsc) :
+        {
+            sine.process (output, true);
+            saw.process (output, true);
+            square.process (output, true);
+            triangle.process (output, true);
+            superSaw.process (output, false);
             return;
         }
     }
@@ -59,6 +72,7 @@ void ChoosableOscillator< SampleType >::prepare (int blocksize, double samplerat
     saw.prepare (samplerate, blocksize);
     square.prepare (samplerate, blocksize);
     triangle.prepare (samplerate, blocksize);
+    superSaw.prepare (samplerate, blocksize);
 }
 
 template < typename SampleType >
@@ -68,8 +82,15 @@ void ChoosableOscillator< SampleType >::setFrequency (float freqHz)
     saw.setFrequency (freqHz);
     square.setFrequency (freqHz);
     triangle.setFrequency (freqHz);
+    superSaw.setFrequency (freqHz);
 
     freq = freqHz;
+}
+
+template < typename SampleType >
+void ChoosableOscillator< SampleType >::setDetuneAmount (int pitchSpreadCents)
+{
+    superSaw->setDetuneAmount (pitchSpreadCents);
 }
 
 template class ChoosableOscillator< float >;

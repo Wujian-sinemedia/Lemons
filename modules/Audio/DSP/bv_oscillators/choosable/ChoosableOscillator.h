@@ -5,13 +5,13 @@
 
 namespace bav::dsp::osc
 {
-
 enum OscType
 {
     SineOsc,
     SawOsc,
     SquareOsc,
-    TriangleOsc
+    TriangleOsc,
+    SuperSawOsc
 };
 
 template < typename SampleType >
@@ -32,14 +32,27 @@ public:
 
     void prepare (int blocksize, double samplerate);
 
-private:
-    OscEngine< SampleType, Sine< SampleType > >     sine;
-    OscEngine< SampleType, Saw< SampleType > >      saw;
-    OscEngine< SampleType, Square< SampleType > >   square;
-    OscEngine< SampleType, Triangle< SampleType > > triangle;
+    /* only relevant to super saw mode */
+    void setDetuneAmount (int pitchSpreadCents);
 
-    OscType type;
+private:
+    OscType type {SineOsc};
     float   freq {440.f};
+
+#define BV_ADD_OSC_ENGINE(Class) OscEngine< SampleType, Class< SampleType > >
+
+    BV_ADD_OSC_ENGINE (Sine)
+    sine;
+    BV_ADD_OSC_ENGINE (Saw)
+    saw;
+    BV_ADD_OSC_ENGINE (Square)
+    square;
+    BV_ADD_OSC_ENGINE (Triangle)
+    triangle;
+    BV_ADD_OSC_ENGINE (SuperSaw)
+    superSaw;
+
+#undef BV_ADD_OSC_ENGINE
 };
 
 }  // namespace bav::dsp::osc

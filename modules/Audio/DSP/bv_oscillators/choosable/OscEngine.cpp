@@ -9,10 +9,16 @@ OscEngine< SampleType, OscType >::OscEngine()
 }
 
 template < typename SampleType, class OscType >
+OscType* OscEngine< SampleType, OscType >::operator->()
+{
+    return &osc;
+}
+
+template < typename SampleType, class OscType >
 void OscEngine< SampleType, OscType >::setFrequency (float freqHz)
 {
     frequency = freqHz;
-    osc.setFrequency (frequency, (SampleType) Engine< SampleType >::getSamplerate());
+    osc.setFrequency (frequency, (SampleType) this->getSamplerate());
 }
 
 template < typename SampleType, class OscType >
@@ -30,13 +36,17 @@ void OscEngine< SampleType, OscType >::prepared (int, double samplerate)
     osc.setFrequency (frequency, (SampleType) samplerate);
 }
 
-template class OscEngine< float, Sine< float > >;
-template class OscEngine< double, Sine< double > >;
-template class OscEngine< float, Saw< float > >;
-template class OscEngine< double, Saw< double > >;
-template class OscEngine< float, Square< float > >;
-template class OscEngine< double, Square< double > >;
-template class OscEngine< float, Triangle< float > >;
-template class OscEngine< double, Triangle< double > >;
+
+#define BV_DECLARE_OSC_ENGINE(Class)                   \
+    template class OscEngine< float, Class< float > >; \
+    template class OscEngine< double, Class< double > >;
+
+BV_DECLARE_OSC_ENGINE (Sine)
+BV_DECLARE_OSC_ENGINE (Saw)
+BV_DECLARE_OSC_ENGINE (Square)
+BV_DECLARE_OSC_ENGINE (Triangle)
+BV_DECLARE_OSC_ENGINE (SuperSaw)
+
+#undef BV_DECLARE_OSC_ENGINE
 
 }  // namespace bav::dsp::osc

@@ -12,6 +12,8 @@ public:
 
     OscEngine();
 
+    OscType* operator->();
+
     void setFrequency (float freqHz);
 
 private:

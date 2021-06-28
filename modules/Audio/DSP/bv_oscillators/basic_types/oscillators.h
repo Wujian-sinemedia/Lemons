@@ -5,15 +5,14 @@
 
 namespace bav::dsp::osc
 {
-
 template < typename SampleType >
 struct Phase
 {
-    void resetPhase() noexcept;
-    void setFrequency (SampleType frequency, SampleType sampleRate);
+    void       resetPhase() noexcept;
+    void       setFrequency (SampleType frequency, SampleType sampleRate);
     SampleType getIncrement() const;
     SampleType next (SampleType wrapLimit) noexcept;
-    
+
 private:
     SampleType phase = 0, increment = 0;
 };
@@ -24,25 +23,25 @@ template < typename SampleType >
 struct Oscillator
 {
     virtual ~Oscillator() = default;
-    
-    virtual void resetPhase() = 0;
-    virtual void setFrequency (SampleType frequency, SampleType sampleRate) = 0;
-    virtual SampleType getSample() = 0;
-    
+
+    virtual void       resetPhase()                                               = 0;
+    virtual void       setFrequency (SampleType frequency, SampleType sampleRate) = 0;
+    virtual SampleType getSample()                                                = 0;
+
     void getSamples (SampleType* output, int numSamples);
-    
+
     using NumericType = SampleType;
 };
 
 /*--------------------------------------------------------------------------------------------*/
 
 template < typename SampleType >
-struct Sine  :   public Oscillator<SampleType>
+struct Sine : public Oscillator< SampleType >
 {
     Sine();
-    
-    void resetPhase() final;
-    void setFrequency (SampleType frequency, SampleType sampleRate) final;
+
+    void       resetPhase() final;
+    void       setFrequency (SampleType frequency, SampleType sampleRate) final;
     SampleType getSample() final;
 
 private:
@@ -53,12 +52,12 @@ private:
 /*--------------------------------------------------------------------------------------------*/
 
 template < typename SampleType >
-struct Saw   :   public Oscillator<SampleType>
+struct Saw : public Oscillator< SampleType >
 {
     Saw();
 
-    void resetPhase();
-    void setFrequency (SampleType frequency, SampleType sampleRate) final;
+    void       resetPhase();
+    void       setFrequency (SampleType frequency, SampleType sampleRate) final;
     SampleType getSample() final;
 
 private:
@@ -68,12 +67,12 @@ private:
 /*--------------------------------------------------------------------------------------------*/
 
 template < typename SampleType >
-struct Square  :     public Oscillator<SampleType>
+struct Square : public Oscillator< SampleType >
 {
     Square();
-    
-    void resetPhase() final;
-    void setFrequency (SampleType frequency, SampleType sampleRate) final;
+
+    void       resetPhase() final;
+    void       setFrequency (SampleType frequency, SampleType sampleRate) final;
     SampleType getSample() final;
     SampleType getIncrement() const;
 
@@ -84,12 +83,12 @@ private:
 /*--------------------------------------------------------------------------------------------*/
 
 template < typename SampleType >
-struct Triangle  :   public Oscillator<SampleType>
+struct Triangle : public Oscillator< SampleType >
 {
     Triangle();
-    
-    void resetPhase() final;
-    void setFrequency (SampleType frequency, SampleType sampleRate) final;
+
+    void       resetPhase() final;
+    void       setFrequency (SampleType frequency, SampleType sampleRate) final;
     SampleType getSample() final;
 
 private:
