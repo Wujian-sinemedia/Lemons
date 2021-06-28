@@ -44,60 +44,12 @@
 #endif
 
 #if BV_USE_VDSP
-#    undef BV_USE_IPP
-#    undef BV_USE_NE10
 #    undef BV_USE_MIPP
-#    define BV_USE_IPP  0
-#    define BV_USE_NE10 0
 #    define BV_USE_MIPP 0
 #endif
 
 #undef JUCE_USE_VDSP_FRAMEWORK
 #define JUCE_USE_VDSP_FRAMEWORK BV_USE_VDSP
-
-
-//==============================================================================
-/** Config: BV_USE_IPP
- 
-    Set this to 1 to use Intel's Integrated Performance Primitives library for vecops SIMD.
-    (Setting this to 1 disables vDSP, Ne10 and MIPP.)
- */
-#if ! JUCE_INTEL
-#    undef BV_USE_IPP
-#    define BV_USE_IPP 0
-#endif
-
-#ifndef BV_USE_IPP
-#    define BV_USE_IPP 0
-#endif
-
-#if BV_USE_IPP
-#    undef BV_USE_NE10
-#    undef BV_USE_MIPP
-#    define BV_USE_NE10 0
-#    define BV_USE_MIPP 0
-#endif
-
-
-//==============================================================================
-/** Config: BV_USE_NE10
- 
-    Ne10 is an open-source SIMD intrinsics library for Arm NEON. Set this to 1 to use Ne10 for vecops SIMD.
-    (Setting this to 1 disables vDSP, IPP and MIPP.)
- */
-#ifndef __ARM_NEON__
-#    undef BV_USE_NE10
-#    define BV_USE_NE10 0
-#endif
-
-#ifndef BV_USE_NE10
-#    define BV_USE_NE10 0
-#endif
-
-#if BV_USE_NE10
-#    undef BV_USE_MIPP
-#    define BV_USE_MIPP 0
-#endif
 
 
 //==============================================================================

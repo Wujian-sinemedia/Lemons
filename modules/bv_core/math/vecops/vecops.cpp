@@ -78,9 +78,7 @@ void sdfAutocorrelate (const double* BV_R_ inputSamples,
 /* copies the contents of one vector to another. */
 void copy (const float* const BV_R_ source, float* const BV_R_ dest, const int count)
 {
-#if BV_USE_IPP
-    ippsMove_32f (source, dest, count);
-#elif BV_USE_MIPP
+#if BV_USE_MIPP
     const auto         vecLoopSize = (count / mipp::N< float >()) * mipp::N< float >();
     mipp::Reg< float > rin, rout;
     for (int i = 0; i < vecLoopSize; i += mipp::N< float >())
@@ -102,9 +100,7 @@ void copy (const double* const BV_R_ source,
            double* const BV_R_       dest,
            const int                 count)
 {
-#if BV_USE_IPP
-    ippsMove_64f (source, dest, count);
-#elif BV_USE_MIPP
+#if BV_USE_MIPP
     const auto          vecLoopSize = (count / mipp::N< double >()) * mipp::N< double >();
     mipp::Reg< double > rin, rout;
     for (int i = 0; i < vecLoopSize; i += mipp::N< double >())
@@ -161,19 +157,6 @@ void interleave (T* const BV_R_ dst,
             }
     }
 }
-#if BV_USE_IPP
-#    if (IPP_VERSION_MAJOR <= 7)  // Deprecated in v8, removed in v9
-template <>
-void interleave (float* const BV_R_ dst,
-                 const float* const BV_R_* const BV_R_ src,
-                 const int                             channels,
-                 const int                             count)
-{
-    ippsInterleave_32f ((const Ipp32f**) src, channels, count, dst);
-}
-// IPP does not (currently?) provide double-precision interleave
-#    endif
-#endif
 
 
 // deinterleave samples from dst into src
@@ -210,19 +193,6 @@ void deinterleave (T* const BV_R_* const BV_R_ dst,
             }
     }
 }
-#if BV_USE_IPP
-#    if (IPP_VERSION_MAJOR <= 7)  // Deprecated in v8, removed in v9
-template <>
-void deinterleave (float* const BV_R_* const BV_R_ dst,
-                   const float* const BV_R_        src,
-                   const int                       channels,
-                   const int                       count)
-{
-    ippsDeinterleave_32f ((const Ipp32f*) src, channels, count, (Ipp32f**) dst);
-}
-// IPP does not (currently?) provide double-precision deinterleave
-#    endif
-#endif
 
 
 void phasor (float* real, float* imag, float phase)
@@ -254,9 +224,7 @@ void cartesian_to_magnitudes (float* const BV_R_       mag,
                               const float* const BV_R_ imag,
                               const int                count)
 {
-#if BV_USE_IPP  // IPP is the only one of the auxillery libraries that supports this in one function call
-    ippsMagnitude_32f (real, imag, mag, count);
-#elif BV_USE_MIPP
+#if BV_USE_MIPP
     const auto vecLoopSize = (count / mipp::N< float >()) * mipp::N< float >();
 
     mipp::Reg< float > realIn, imagIn, magOut;
@@ -291,9 +259,7 @@ void cartesian_to_magnitudes (double* const BV_R_       mag,
                               const double* const BV_R_ imag,
                               const int                 count)
 {
-#if BV_USE_IPP
-    ippsMagnitude_64f (real, imag, mag, count);
-#elif BV_USE_MIPP
+#if BV_USE_MIPP
     const auto vecLoopSize = (count / mipp::N< double >()) * mipp::N< double >();
 
     mipp::Reg< double > realIn, imagIn, magOut;
@@ -325,9 +291,7 @@ void cartesian_to_magnitudes (double* const BV_R_       mag,
 void cartesian_interleaved_to_magnitudes (
     float* const BV_R_ mag, const float* const BV_R_ src, const int count)
 {
-#if BV_USE_IPP
-    ippsMagnitude_32fc (src, mag, count);
-#elif BV_USE_MIPP
+#if BV_USE_MIPP
     const auto vecLoopSize = (count / mipp::N< float >()) * mipp::N< float >();
 
     mipp::Reg< float > realIn, imagIn, magOut;
@@ -359,9 +323,7 @@ void cartesian_interleaved_to_magnitudes (
 void cartesian_interleaved_to_magnitudes (
     double* const BV_R_ mag, const double* const BV_R_ src, const int count)
 {
-#if BV_USE_IPP
-    ippsMagnitude_64fc (src, mag, count);
-#elif BV_USE_MIPP
+#if BV_USE_MIPP
     const auto vecLoopSize = (count / mipp::N< double >()) * mipp::N< double >();
 
     mipp::Reg< double > realIn, imagIn, magOut;
@@ -396,9 +358,6 @@ void cartesian_interleaved_to_polar (double* const BV_R_       mag,
                                      const double* const BV_R_ src,
                                      const int                 count)
 {
-#if BV_USE_IPP
-    ippsCartToPolar_64fc (src, mag, phase, count);
-#else
     for (int i = 0; i < count; ++i)
     {
         const auto real = src[i * 2];
@@ -406,7 +365,6 @@ void cartesian_interleaved_to_polar (double* const BV_R_       mag,
         *(mag + i)      = sqrt (real * real + imag * imag);
         *(phase + i)    = atan2 (imag, real);
     }
-#endif
 }
 
 void cartesian_interleaved_to_polar (float* const BV_R_       mag,
@@ -414,9 +372,6 @@ void cartesian_interleaved_to_polar (float* const BV_R_       mag,
                                      const float* const BV_R_ src,
                                      const int                count)
 {
-#if BV_USE_IPP
-    ippsCartToPolar_32fc (src, mag, phase, count);
-#else
     for (int i = 0; i < count; ++i)
     {
         const auto real = src[i * 2];
@@ -424,7 +379,6 @@ void cartesian_interleaved_to_polar (float* const BV_R_       mag,
         *(mag + i)      = sqrt (real * real + imag * imag);
         *(phase + i)    = atan2 (imag, real);
     }
-#endif
 }
 
 
@@ -433,9 +387,7 @@ void polar_to_cartesian_interleaved (float* const BV_R_       dst,
                                      const float* const BV_R_ phase,
                                      const int                count)
 {
-#if BV_USE_IPP
-    ippsPolarToCart_32fc (mag, phase, dst, count);
-#elif BV_USE_MIPP
+#if BV_USE_MIPP
     const auto vecLoopSize = (count / mipp::N< float >()) * mipp::N< float >();
 
     mipp::Reg< float > magIn, phaseIn, realOut, imagOut;
@@ -476,9 +428,7 @@ void polar_to_cartesian_interleaved (double* const BV_R_       dst,
                                      const double* const BV_R_ phase,
                                      const int                 count)
 {
-#if BV_USE_IPP
-    ippsPolarToCart_64fc (mag, phase, dst, count);
-#elif BV_USE_MIPP
+#if BV_USE_MIPP
     const auto vecLoopSize = (count / mipp::N< float >()) * mipp::N< float >();
 
     mipp::Reg< double > magIn, phaseIn, realOut, imagOut;
@@ -524,15 +474,6 @@ constexpr bool isUsingVDSP()
 #endif
 }
 
-constexpr bool isUsingIPP()
-{
-#if BV_USE_IPP
-    return true;
-#else
-    return false;
-#endif
-}
-
 constexpr bool isUsingMIPP()
 {
 #if BV_USE_MIPP
@@ -542,18 +483,9 @@ constexpr bool isUsingMIPP()
 #endif
 }
 
-constexpr bool isUsingNe10()
-{
-#if BV_USE_NE10
-    return true;
-#else
-    return false;
-#endif
-}
-
 constexpr bool isUsingFallback()
 {
-    return ! (isUsingVDSP() || isUsingIPP() || isUsingMIPP() || isUsingNe10());
+    return ! (isUsingVDSP() || isUsingMIPP());
 }
 
 }  // namespace bav::vecops

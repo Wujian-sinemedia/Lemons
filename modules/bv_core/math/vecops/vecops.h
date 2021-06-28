@@ -3,11 +3,6 @@
 
 #if BV_USE_VDSP
 #    include <Accelerate/Accelerate.h>
-#elif BV_USE_IPP
-#    include <ippversion.h>
-#    include <ipps.h>
-#elif BV_USE_NE10
-#    include <NE10.h>
 #elif BV_USE_MIPP
 #    include <mipp.h>
 #endif
