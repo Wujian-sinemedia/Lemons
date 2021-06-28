@@ -5,19 +5,20 @@
 
 namespace bav::dsp::osc
 {
+
+enum OscType
+{
+    SineOsc,
+    SawOsc,
+    SquareOsc,
+    TriangleOsc
+};
+
 template < typename SampleType >
 class ChoosableOscillator
 {
 public:
     using AudioBuffer = juce::AudioBuffer< SampleType >;
-
-    enum OscType
-    {
-        SineOsc,
-        SawOsc,
-        SquareOsc,
-        TriangleOsc
-    };
 
     ChoosableOscillator();
 

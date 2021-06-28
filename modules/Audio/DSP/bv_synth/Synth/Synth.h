@@ -4,10 +4,6 @@
 
 namespace bav::dsp
 {
-/*
- SynthBase: Base class for a polyphonic synthesiser-style instrument.
- This class owns, manages & manipulates a collection of SynthVoiceBase (or SynthVoiceBase-derived) objects.
- */
 
 template < typename SampleType >
 class SynthBase

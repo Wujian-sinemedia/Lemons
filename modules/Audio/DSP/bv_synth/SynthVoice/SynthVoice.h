@@ -5,14 +5,9 @@
 
 namespace bav::dsp
 {
-/// forward declaration...
+
 template < typename SampleType >
 class SynthBase;
-
-
-/*
-        SynthVoiceBase: Base class for one voice that can be used by the SynthBase to play polyphonically
-    */
 
 
 template < typename SampleType >

@@ -22,10 +22,6 @@ END_JUCE_MODULE_DECLARATION
 #include "engines/AudioEngine.h"
 #include "engines/LatencyEngine.h"
 
-#include "Oscillators/oscillators.h"
-#include "Oscillators/choosable/ChoosableOscillator.h"
-#include "Oscillators/SuperSaw/SuperSaw.h"
-
 #include "filters/Filter.h"
 
 #include "BufferUtils/BufferUtils.h"

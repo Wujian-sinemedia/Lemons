@@ -6,7 +6,7 @@ template<typename SampleType>
 SuperSaw<SampleType>::SuperSaw()
 {
     while (saws.size() < 7)
-        saws.add (new Node());
+        saws.add (new Saw<SampleType>());
 }
 
 template<typename SampleType>

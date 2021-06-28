@@ -1,6 +1,8 @@
 
 #pragma once
 
+#include <bv_oscillators/bv_oscillators.h>
+
 namespace bav::dsp
 {
 template < typename SampleType >
@@ -27,7 +29,7 @@ struct SineSynth : public SynthBase< SampleType >
     Voice* createVoice() final;
 };
 
-using TestSynth = SineSynth< float >;
+using Synth = SineSynth< float >;
 
 
 }  // namespace bav::dsp
