@@ -28,8 +28,8 @@ private:
     Grain* getAvailableGrain() const;
     bool   areAnyGrainsActive() const;
 
-    Analyzer&      analyzer;
-    const Storage& storage {analyzer.getStorage()};
+    Analyzer&       analyzer;
+    const Storage&  storage {analyzer.getStorage()};
 
     juce::OwnedArray< Grain > grains;
 
