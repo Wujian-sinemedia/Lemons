@@ -5,35 +5,54 @@ TextButton::TextButton (const String& buttonText, std::function< void() > whenCl
     : juce::TextButton (buttonText, tooltip)
 {
     onClick = std::move (whenClicked);
+    
+    this->setName (buttonText);
+    this->setComponentID (buttonText);
 }
+
+
+
+StringPropertyTextButton::StringPropertyTextButton (StringProperty& property, std::function< void() > whenClicked)
+: TextButton (property.get(), whenClicked, property.getPropertyName()), StringProperty::Listener (property)
+{
+}
+
+void StringPropertyTextButton::propertyValueChanged (const String& newValue)
+{
+    this->setButtonText (newValue);
+    this->setTooltip (newValue);
+    this->setName (newValue);
+    this->setComponentID (newValue);
+}
+
 
 
 ToggleButton::ToggleButton (BoolParameter& paramToUse, std::function< void (bool) > cb)
     : BoolParameter::Listener (paramToUse),
       param (paramToUse), callback (std::move (cb))
 {
-    TB::onClick = [&]()
+    this->onClick = [&]()
     { refresh(); };
-    TB::onStateChange = [&]()
+    this->onStateChange = [&]()
     { refresh(); };
 
-    TB::setButtonText (param.parameterNameVerbose);
-    TB::setTooltip (param.parameterNameShort);
+    this->setButtonText (param.parameterNameVerbose);
+    this->setTooltip (param.parameterNameShort);
 
-    TB::setName (param.parameterNameVerbose);
-    TB::setComponentID (param.parameterNameVerbose);
+    this->setName (param.parameterNameVerbose);
+    this->setComponentID (param.parameterNameVerbose);
 
     param.sendListenerSyncCallback();
 }
 
 void ToggleButton::refresh()
 {
-    param.set (TB::getToggleState());
+    param.set (this->getToggleState());
 }
 
 void ToggleButton::paramValueChanged (bool newValue)
 {
-    TB::setToggleState (newValue, juce::NotificationType::dontSendNotification);
+    this->setToggleState (newValue, juce::NotificationType::dontSendNotification);
     callback (newValue);
 }
 

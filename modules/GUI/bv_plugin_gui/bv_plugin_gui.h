@@ -17,6 +17,9 @@
 
 
 #include "sliders/Sliders.h"
+
 #include "buttons/Buttons.h"
+
+#include "labels/Labels.h"
 
 #include "DarkModeSentinel/DarkModeSentinel.h"

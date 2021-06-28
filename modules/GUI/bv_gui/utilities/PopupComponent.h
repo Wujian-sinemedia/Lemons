@@ -4,38 +4,21 @@
 namespace bav::gui
 {
 
-template<class ContentType>
 class PopupComponent : public juce::Component
 {
 public:
-    template<typename... Args>
-    PopupComponent (std::function<void()> toClose, Args&&... args)
-    : closeFunc (toClose), content(std::forward<Args>(args)...)
-    {
-        setWantsKeyboardFocus (true);
-    }
+    PopupComponent (std::function<void()> toClose);
+    
+    void close();
     
 private:
-    void resized() final
-    {
-        grabKeyboardFocus();
-        content.setBounds (getLocalBounds());
-    }
+    void resized() final;
+    bool keyPressed (const juce::KeyPress& key) final;
     
-    bool keyPressed (const juce::KeyPress& key) final
-    {
-        if (key.getKeyCode() == juce::KeyPress::escapeKey)
-        {
-            closeFunc();
-            return true;
-        }
-        
-        return false;
-    }
+    virtual void resizeTriggered();
+    virtual bool keyPressRecieved (const juce::KeyPress& key);
     
     std::function<void()> closeFunc;
-    
-    ContentType content;
 };
 
 
@@ -50,8 +33,8 @@ public:
     
     void resized() final
     {
-        if (auto* c = window.get())
-            c->setBounds (getLocalBounds());
+        if (window.get() != nullptr)
+            window->setBounds (getLocalBounds());
     }
     
     bool isVisible() const
@@ -62,18 +45,22 @@ public:
     template<typename... Args>
     void create (Args&&... args)
     {
-        window.reset (new PopupComponent<ContentType>([&]{ destroy(); }, std::forward<Args>(args)...));
+        window.reset (new ContentType(std::forward<Args>(args)...));
         getTopLevelComponent()->addAndMakeVisible (window);
         resized();
     }
     
     void destroy()
     {
-        window.reset();
+        if (window.get() != nullptr)
+        {
+            window.close();
+            window.reset();
+        }
     }
     
 private:
-    std::unique_ptr<PopupComponent<ContentType>> window;
+    std::unique_ptr<ContentType> window;
 };
 
 }

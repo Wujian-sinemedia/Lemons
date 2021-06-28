@@ -10,6 +10,11 @@ StringProperty::StringProperty (const String& propertyName, const String& defaul
     currentValue   = defaultValue;
 }
 
+String StringProperty::getPropertyName() const
+{
+    return this->getDataIdentifier().toString();
+}
+
 void StringProperty::refreshDefault()
 {
     setDefault (get());

@@ -18,6 +18,8 @@ public:
 
     String get() const;
     void   set (const String& newValue);
+    
+    String getPropertyName() const;
 
     void setUndoManager (UndoManager& managerToUse);
 

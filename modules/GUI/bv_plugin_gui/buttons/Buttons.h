@@ -2,9 +2,18 @@
 
 namespace bav::gui
 {
-struct TextButton : public juce::TextButton
+struct TextButton : juce::TextButton
 {
     TextButton (const String& buttonText, std::function< void() > whenClicked, const String& tooltip = {});
+};
+
+
+struct StringPropertyTextButton : TextButton, private StringProperty::Listener
+{
+    StringPropertyTextButton (StringProperty& property, std::function< void() > whenClicked);
+    
+private:
+    void propertyValueChanged (const String& newValue) final;
 };
 
 
@@ -21,8 +30,6 @@ private:
     void refresh();
 
     std::function< void (bool) > callback;
-
-    using TB = juce::ToggleButton;
 };
 
 }  // namespace bav::gui
