@@ -12,27 +12,55 @@ PitchCorrectorBase<SampleType>::PitchCorrectorBase (Analyzer& analyzerToUse, con
 template<typename SampleType>
 void PitchCorrectorBase<SampleType>::processNextFrame (AudioBuffer& output)
 {
-    shifter.setPitch (getTargetFrequency(), sampleRate);
+    shifter.setPitch (updateAndReturnFreq(), sampleRate);
     shifter.getSamples (output);
 }
 
 template<typename SampleType>
-void PitchCorrectorBase<SampleType>::prepare (double samplerate, int)
+void PitchCorrectorBase<SampleType>::prepare (double samplerate)
 {
     sampleRate = samplerate;
 }
 
 template<typename SampleType>
-float PitchCorrectorBase<SampleType>::getTargetFrequency()
+float PitchCorrectorBase<SampleType>::updateAndReturnFreq()
+{
+    const auto currentInput = getCurrentInputMidipitch();
+    
+    correctedNote = juce::roundToInt (currentInput);
+    centsSharp = juce::roundToInt ((currentInput - correctedNote) * 100.f);
+    
+    return getOutputFreq();
+}
+
+template<typename SampleType>
+float PitchCorrectorBase<SampleType>::getCurrentInputMidipitch() const
 {
     if (pitch != nullptr)
-    {
-        const auto inputPitch = pitch->getMidiForFrequency (analyzer.getFrequency());
-        return pitch->getFrequencyForMidi (juce::roundToInt (inputPitch));
-    }
+        return pitch->getMidiForFrequency (analyzer.getFrequency());
     
-    const auto inputPitch = math::freqToMidi (analyzer.getFrequency());
-    return math::midiToFreq (juce::roundToInt (inputPitch));
+    return math::freqToMidi (analyzer.getFrequency());
+}
+
+template<typename SampleType>
+int PitchCorrectorBase<SampleType>::getOutputMidiPitch() const
+{
+    return correctedNote;
+}
+
+template<typename SampleType>
+int PitchCorrectorBase<SampleType>::getCentsSharp() const
+{
+    return centsSharp;
+}
+
+template<typename SampleType>
+float PitchCorrectorBase<SampleType>::getOutputFreq() const
+{
+    if (pitch != nullptr)
+        return pitch->getFrequencyForMidi (correctedNote);
+    
+    return math::midiToFreq (correctedNote);
 }
 
 template class PitchCorrectorBase<float>;

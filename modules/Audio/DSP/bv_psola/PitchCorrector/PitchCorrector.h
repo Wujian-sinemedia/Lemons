@@ -19,10 +19,16 @@ public:
     
     void processNextFrame (AudioBuffer& output);
     
-    void prepare (double samplerate, int blocksize);
+    void prepare (double samplerate);
+    
+    int   getOutputMidiPitch() const;
+    float getOutputFreq() const;
+    
+    int getCentsSharp() const;
     
 private:
-    float getTargetFrequency();
+    float updateAndReturnFreq();
+    float getCurrentInputMidipitch() const;
     
     Analyzer&  analyzer;
     
@@ -31,6 +37,9 @@ private:
     dsp::psola::Shifter< SampleType > shifter {analyzer};
     
     double sampleRate {0.};
+    
+    int correctedNote {-1}; // the midi pitch that the input will be corrected to
+    int centsSharp {-1};
 };
 
 
