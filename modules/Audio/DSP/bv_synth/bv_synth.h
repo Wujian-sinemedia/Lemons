@@ -9,7 +9,7 @@ vendor:             Ben Vining
 version:            0.0.1
 name:               bv_synth
 description:        Infrastructure for a polyphonic synthesizer instrument
-dependencies:       bv_oscillators
+dependencies:       bv_audio_effects bv_oscillators
 
 END_JUCE_MODULE_DECLARATION
 
