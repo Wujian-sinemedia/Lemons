@@ -19,11 +19,6 @@ private:
 /*--------------------------------------------------------------------------------------------*/
 
 template < typename SampleType >
-static SampleType blep (SampleType phase, SampleType increment) noexcept;
-
-/*--------------------------------------------------------------------------------------------*/
-
-template < typename SampleType >
 struct Oscillator
 {
     virtual ~Oscillator() = default;
@@ -32,7 +27,7 @@ struct Oscillator
     virtual void setFrequency (SampleType frequency, SampleType sampleRate) = 0;
     virtual SampleType getSample() = 0;
     
-    void getSamples (SampleType* output, const int numSamples);
+    void getSamples (SampleType* output, int numSamples);
     
     using NumericType = SampleType;
 };

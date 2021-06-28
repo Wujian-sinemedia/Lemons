@@ -38,7 +38,7 @@ template struct Phase<double>;
 /*--------------------------------------------------------------------------------------------*/
 
 template < typename SampleType >
-static SampleType blep (SampleType phase, SampleType increment) noexcept
+static inline SampleType blep (SampleType phase, SampleType increment) noexcept
 {
     static constexpr SampleType one = 1;
     
@@ -63,7 +63,7 @@ template double blep (double phase, double increment) noexcept;
 /*--------------------------------------------------------------------------------------------*/
 
 template < typename SampleType >
-void Oscillator<SampleType>::getSamples (SampleType* output, const int numSamples)
+void Oscillator<SampleType>::getSamples (SampleType* output, int numSamples)
 {
     for (int i = 0; i < numSamples; ++i)
         output[i] = getSample();

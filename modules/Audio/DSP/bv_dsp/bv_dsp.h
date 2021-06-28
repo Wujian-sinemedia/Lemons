@@ -24,6 +24,7 @@ END_JUCE_MODULE_DECLARATION
 
 #include "Oscillators/oscillators.h"
 #include "Oscillators/choosable/ChoosableOscillator.h"
+#include "Oscillators/SuperSaw/SuperSaw.h"
 
 #include "filters/Filter.h"
 

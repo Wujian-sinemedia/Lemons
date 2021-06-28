@@ -11,6 +11,7 @@
 #include "Oscillators/oscillators.cpp"
 #include "Oscillators/choosable/ChoosableOscillator.cpp"
 #include "Oscillators/choosable/OscEngine.cpp"
+#include "Oscillators/SuperSaw/SuperSaw.cpp"
 
 #include "filters/Coeffecients.cpp"
 #include "filters/Filter.cpp"

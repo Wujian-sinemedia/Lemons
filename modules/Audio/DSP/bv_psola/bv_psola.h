@@ -8,7 +8,7 @@ ID:                 bv_psola
 vendor:             Ben Vining
 version:            0.0.1
 name:               bv_psola
-description:        DSP/audio utilities and effects
+description:        Classes for PSOLA pitch shifting of monophonic audio
 dependencies:       bv_dsp
 
 END_JUCE_MODULE_DECLARATION
