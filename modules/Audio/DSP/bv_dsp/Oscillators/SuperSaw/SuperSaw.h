@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Node.h"
+
 namespace bav::dsp::osc
 {
 
@@ -7,6 +9,8 @@ template<typename SampleType>
 class SuperSaw : public Oscillator<SampleType>
 {
 public:
+    using Node = supersaw::Node<SampleType>;
+    
     SuperSaw();
     
     void setDetuneAmount (int totalPitchSpreadInCents);
@@ -17,7 +21,7 @@ private:
     void setFrequency (SampleType frequency, SampleType sampleRate) final;
     void resetPhase() final;
     
-    juce::OwnedArray<Saw<SampleType>> saws;
+    juce::OwnedArray<Node> saws;
     
     int totalSpreadCents {0};
     
