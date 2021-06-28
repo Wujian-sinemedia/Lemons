@@ -64,7 +64,7 @@ void SynthVoiceBase< SampleType >::renderBlock (AudioBuffer& output)
     if (parent->pitch.tuning.shouldFilterNote (currentlyPlayingNote, midiChannel))
         stopNote (1.0f, false);
     else
-        setTargetOutputFrequency (parent->getFrequencyForMidi (currentlyPlayingNote, midiChannel));
+        setTargetOutputFrequency (parent->pitch.getFrequencyForMidi (currentlyPlayingNote, midiChannel));
 
     const auto numSamples = output.getNumSamples();
     if (numSamples == 0) return;
@@ -215,7 +215,7 @@ void SynthVoiceBase< SampleType >::startNote (const int    midiPitch,
                                               const bool   isDescant,
                                               const int    midichannel)
 {
-    setTargetOutputFrequency (parent->getFrequencyForMidi (midiPitch, midichannel));
+    setTargetOutputFrequency (parent->pitch.getFrequencyForMidi (midiPitch, midichannel));
 
     noteOnTime           = noteOnTimestamp;
     currentlyPlayingNote = midiPitch;

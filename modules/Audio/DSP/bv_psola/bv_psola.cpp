@@ -8,3 +8,5 @@
 
 #include "resynthesis/psola_shifter.cpp"
 #include "resynthesis/Grains/SynthesisGrain.cpp"
+
+#include "PitchCorrector/PitchCorrector.cpp"
