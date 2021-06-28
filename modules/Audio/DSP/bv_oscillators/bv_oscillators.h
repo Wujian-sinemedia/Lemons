@@ -18,4 +18,7 @@ END_JUCE_MODULE_DECLARATION
 
 #include "basic_types/oscillators.h"
 #include "SuperSaw/SuperSaw.h"
+
 #include "choosable/ChoosableOscillator.h"
+
+#include "LFO/LFO.h"

@@ -73,6 +73,13 @@ void ChoosableOscillator< SampleType >::prepare (int blocksize, double samplerat
     square.prepare (samplerate, blocksize);
     triangle.prepare (samplerate, blocksize);
     superSaw.prepare (samplerate, blocksize);
+    
+    prepared (blocksize);
+}
+
+template < typename SampleType >
+void ChoosableOscillator< SampleType >::prepared (int)
+{
 }
 
 template < typename SampleType >

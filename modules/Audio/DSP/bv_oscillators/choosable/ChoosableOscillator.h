@@ -36,21 +36,18 @@ public:
     void setDetuneAmount (int pitchSpreadCents);
 
 private:
+    virtual void prepared (int blocksize);
+    
     OscType type {SineOsc};
     float   freq {440.f};
 
-#define BV_ADD_OSC_ENGINE(Class) OscEngine< SampleType, Class< SampleType > >
+#define BV_ADD_OSC_ENGINE(Class, name) OscEngine< SampleType, Class< SampleType > > name
 
-    BV_ADD_OSC_ENGINE (Sine)
-    sine;
-    BV_ADD_OSC_ENGINE (Saw)
-    saw;
-    BV_ADD_OSC_ENGINE (Square)
-    square;
-    BV_ADD_OSC_ENGINE (Triangle)
-    triangle;
-    BV_ADD_OSC_ENGINE (SuperSaw)
-    superSaw;
+    BV_ADD_OSC_ENGINE (Sine, sine);
+    BV_ADD_OSC_ENGINE (Saw, saw);
+    BV_ADD_OSC_ENGINE (Square, square);
+    BV_ADD_OSC_ENGINE (Triangle, triangle);
+    BV_ADD_OSC_ENGINE (SuperSaw, superSaw);
 
 #undef BV_ADD_OSC_ENGINE
 };
