@@ -6,7 +6,7 @@ namespace bav::dsp
 class ProcessorBase : public BasicProcessorBase
 {
 public:
-    ProcessorBase (ParameterList&                        parameterList,
+    ProcessorBase (PluginState&                          stateToUse,
                    Engine< float >&                      floatEngineToUse,
                    Engine< double >&                     doubleEngineToUse,
                    juce::AudioProcessor::BusesProperties busesLayout);
@@ -16,24 +16,24 @@ private:
     struct ParameterProcessor : ParameterProcessorBase< SampleType >
     {
         ParameterProcessor (ProcessorBase& p, ParameterList& l);
-        
+
     private:
         void renderChunk (juce::AudioBuffer< SampleType >& audio, juce::MidiBuffer& midi) final;
-        
+
         ProcessorBase& processor;
     };
-    
+
     struct LastSavedEditorSize : SerializableData
     {
         LastSavedEditorSize (ProcessorBase& b);
-        
+
     private:
         void toValueTree (ValueTree& tree) final;
         void fromValueTree (const ValueTree& tree) final;
-        
+
         ProcessorBase& base;
     };
-    
+
     virtual BoolParameter&         getMainBypass() const = 0;
     juce::AudioProcessorParameter* getBypassParameter() const final { return &getMainBypass(); }
 
@@ -67,16 +67,34 @@ private:
     juce::AudioBuffer< SampleType > findSubBuffer (const AudioProcessor::BusesLayout& busLayout,
                                                    juce::AudioBuffer< SampleType >& origBuffer, bool isInput);
 
-    
-    ParameterList& parameters;
+    PluginState&   state;
+    ParameterList& parameters {state.getParameters()};
 
     ParameterProcessor< float >  floatParameterProcessor {*this, parameters};
     ParameterProcessor< double > doubleParameterProcessor {*this, parameters};
 
     Engine< float >&  floatEngine;
     Engine< double >& doubleEngine;
-    
+
     LastSavedEditorSize lastSavedEditorSize {*this};
+};
+
+
+template < class StateType, std::enable_if_t< std::is_base_of< PluginState, StateType >::value >* = nullptr >
+class Processor : public ProcessorBase
+{
+public:
+    Processor (Engine< float >& floatEngine, Engine< double >& doubleEngine,
+               juce::AudioProcessor::BusesProperties busesLayout)
+        : ProcessorBase (state, floatEngine, doubleEngine, busesLayout)
+    {
+        state.addTo (*this);
+    }
+
+    StateType& getState() { return state; }
+
+private:
+    StateType state;
 };
 
 }  // namespace bav::dsp

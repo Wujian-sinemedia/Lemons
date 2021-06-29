@@ -1,6 +1,22 @@
 
 namespace bav
 {
+ParameterList::ParameterList (juce::Identifier name, UndoManager* um)
+: SerializableData (name), undo(um)
+{
+}
+
+void ParameterList::setUndoManager (UndoManager& um)
+{
+    undo = &um;
+    
+    for (auto* holder : params)
+        holder->getParam()->setUndoManager (um);
+    
+    for (auto& string : strings)
+        string->setUndoManager (um);
+}
+
 void ParameterList::add (ParamHolderBase& param)
 {
     addParameter (param, false);
@@ -24,15 +40,21 @@ void ParameterList::addInternal (StringProperty& param)
 void ParameterList::addParameter (ParamHolderBase& param, bool isInternal)
 {
     jassert (! params.contains (&param));
+    
+    if (undo != nullptr)
+        param->setUndoManager (*undo);
 
     param.isInternal = isInternal;
     params.add (&param);
-    addDataChild (param.getParam());
+    addDataChild (*param.getParam());
 }
 
 void ParameterList::addStringProperty (StringProperty& property)
 {
     jassert (! strings.contains (&property));
+    
+    if (undo != nullptr)
+        property->setUndoManager (*undo);
 
     strings.add (&property);
     addDataChild (property);
@@ -101,15 +123,6 @@ void ParameterList::resetAllToDefault()
 
     for (auto& string : strings)
         string->resetToDefault();
-}
-
-void ParameterList::setUndoManager (UndoManager& um)
-{
-    for (auto* holder : params)
-        holder->getParam()->setUndoManager (um);
-
-    for (auto& string : strings)
-        string->setUndoManager (um);
 }
 
 void ParameterList::processMidi (const juce::MidiBuffer& midiMessages)

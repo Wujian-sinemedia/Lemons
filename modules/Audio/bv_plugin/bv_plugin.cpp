@@ -16,8 +16,6 @@
 
 #include "EditorBase/EditorBase.cpp"
 
-#include "plugin_parameters/state/state.cpp"
-
 #include "transport/PluginTransport.cpp"
 
 #if JucePlugin_Build_Standalone && JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP

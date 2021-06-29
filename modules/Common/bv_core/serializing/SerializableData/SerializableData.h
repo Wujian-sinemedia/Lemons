@@ -18,7 +18,13 @@ struct SerializableData
     const juce::Identifier& getDataIdentifier() const { return dataIdentifier; }
 
     void addDataChild (SerializableData& child);
-    void addDataChild (SerializableData* child);
+    
+    template<typename... Args>
+    void addDataChild (SerializableData& firstChild, Args&&... rest)
+    {
+        addDataChild (firstChild);
+        addDataChild (std::forward<Args>(rest)...);
+    }
 
 private:
     virtual void toValueTree (ValueTree& t)         = 0;

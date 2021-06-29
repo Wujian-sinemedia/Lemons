@@ -56,12 +56,6 @@ void SerializableData::addDataChild (SerializableData& child)
     children.addIfNotAlreadyThere (&child);
 }
 
-void SerializableData::addDataChild (SerializableData* child)
-{
-    if (child != nullptr)
-        addDataChild (*child);
-}
-
 void SerializableData::setTree (const ValueTree& newTree)
 {
     if (! newTree.isValid()) return;

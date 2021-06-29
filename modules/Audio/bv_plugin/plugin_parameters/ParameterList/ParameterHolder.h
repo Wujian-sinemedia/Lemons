@@ -6,6 +6,8 @@ namespace bav
 struct ParamHolderBase
 {
     ParamHolderBase (bool internal = false) : isInternal (internal) { }
+    
+    Parameter* operator->() { return getParam(); }
 
     virtual ~ParamHolderBase() = default;
 

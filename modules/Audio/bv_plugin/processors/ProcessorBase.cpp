@@ -1,15 +1,16 @@
 
 namespace bav::dsp
 {
-ProcessorBase::ProcessorBase (ParameterList&                        parameterList,
+ProcessorBase::ProcessorBase (PluginState&                          stateToUse,
                               Engine< float >&                      floatEngineToUse,
                               Engine< double >&                     doubleEngineToUse,
                               juce::AudioProcessor::BusesProperties busesLayout)
     : BasicProcessorBase (busesLayout),
-      parameters (parameterList),
+      state (stateToUse),
       floatEngine (floatEngineToUse),
       doubleEngine (doubleEngineToUse)
 {
+    state.addDataChild (lastSavedEditorSize);
 }
 
 template < typename SampleType >
@@ -41,7 +42,7 @@ void ProcessorBase::prepareToPlayInternal (const double           sampleRate,
 {
     if (idleEngine.isInitialized())
         idleEngine.releaseResources();
-    
+
     jassert (sampleRate > 0 && samplesPerBlock > 0);
 
     activeEngine.prepare (sampleRate, samplesPerBlock);
@@ -57,8 +58,7 @@ void ProcessorBase::releaseResources()
 
 void ProcessorBase::getStateInformation (juce::MemoryBlock& block)
 {
-    parameters.addDataChild (lastSavedEditorSize);
-    serializing::toBinary (parameters, block);
+    serializing::toBinary (state, block);
 }
 
 void ProcessorBase::LastSavedEditorSize::toValueTree (ValueTree& tree)
@@ -70,7 +70,7 @@ void ProcessorBase::LastSavedEditorSize::toValueTree (ValueTree& tree)
 
 void ProcessorBase::setStateInformation (const void* data, int size)
 {
-    serializing::fromBinary (data, size, parameters);
+    serializing::fromBinary (data, size, state);
 }
 
 void ProcessorBase::LastSavedEditorSize::fromValueTree (const ValueTree& tree)

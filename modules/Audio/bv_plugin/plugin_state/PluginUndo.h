@@ -10,10 +10,10 @@ struct PluginUndo : UndoManager
         listToManage.setUndoManager (*this);
     }
 
-    PluginUndo (StateBase& stateToManage)
+    PluginUndo (PluginState& stateToManage)
         : UndoManager (stateToManage)
     {
-        stateToManage.setUndoManager (*this);
+        stateToManage.getParameters().setUndoManager (*this);
     }
 };
 

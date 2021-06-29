@@ -6,7 +6,7 @@ namespace bav
 class ParameterList : public SerializableData
 {
 public:
-    using SerializableData::SerializableData;
+    ParameterList (juce::Identifier name, UndoManager* um = nullptr);
 
     void addParametersTo (juce::AudioProcessor& processor);
     void addAllParametersAsInternal();
@@ -15,7 +15,7 @@ public:
     void resetAllToDefault();
 
     void sendCallbackToAllListeners();
-
+    
     void setUndoManager (UndoManager& um);
 
     void processMidi (const juce::MidiBuffer& midiMessages);
@@ -89,6 +89,8 @@ private:
     IntParameter* pitchwheelParameter;
     IntParameter* lastMovedControllerNumberParameter;
     IntParameter* lastMovedControllerValueParameter;
+    
+    UndoManager* undo;
 };
 
 

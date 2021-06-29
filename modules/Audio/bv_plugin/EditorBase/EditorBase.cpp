@@ -1,6 +1,11 @@
 
 namespace bav::gui
 {
+static inline bool isValidSize (const juce::Point< int >& size)
+{
+    return size.x > 0 && size.y > 0;
+}
+
 EditorBase::EditorBase (dsp::ProcessorBase& pbToUse, juce::Point< int > initialSize)
     : AudioProcessorEditor (pbToUse), pb (pbToUse)
 {
@@ -8,12 +13,13 @@ EditorBase::EditorBase (dsp::ProcessorBase& pbToUse, juce::Point< int > initialS
 
     const auto size = pb.getSavedEditorSize();
 
-    if (size.x > 0 && size.y > 0)
+    if (isValidSize (size))
     {
         initializeSize (size.x, size.y);
     }
     else
     {
+        jassert (isValidSize (initialSize));
         initializeSize (initialSize.x, initialSize.y);
     }
 }

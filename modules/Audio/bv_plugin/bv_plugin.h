@@ -46,13 +46,15 @@
 #include "plugin_parameters/ParameterList/ParameterList.h"
 #include "plugin_parameters/processor/ParameterProcessor.h"
 
+#include "plugin_state/state.h"
+#include "plugin_state/PluginUndo.h"
+#include "plugin_state/PluginPresetManager.h"
+
 #include "processors/ProcessorBase.h"
 
 #include "EditorBase/EditorBase.h"
 
-#include "plugin_parameters/state/state.h"
-#include "plugin_parameters/state/PluginUndo.h"
-#include "plugin_parameters/state/PluginPresetManager.h"
+#include "processors/ProcessorWithEditor.h"
 
 
 #ifndef JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP
