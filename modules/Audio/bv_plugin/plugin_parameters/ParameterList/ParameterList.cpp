@@ -70,8 +70,6 @@ void ParameterList::addParametersTo (juce::AudioProcessor& processor)
             holder->addTo (processor);
         else
             holder->addTo (dummyProcessor);
-
-        holder->getParam()->sendListenerSyncCallback();
     }
 }
 
@@ -79,8 +77,6 @@ void ParameterList::addAllParametersAsInternal()
 {
     for (auto* holder : params)
         holder->addTo (dummyProcessor);
-
-    sendCallbackToAllListeners();
 }
 
 void ParameterList::sendCallbackToAllListeners()
