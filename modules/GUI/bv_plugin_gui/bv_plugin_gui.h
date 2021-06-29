@@ -9,7 +9,7 @@
  version:            0.0.1
  name:               bv_gui
  description:        GUI utility classes and some basic components
- dependencies:       bv_gui bv_plugin
+ dependencies:       bv_gui bv_plugin_parameters
 
  END_JUCE_MODULE_DECLARATION
  

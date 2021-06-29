@@ -9,7 +9,7 @@
  version:            0.0.1
  name:               bv_plugin
  description:        General plugin utilities & tools
- dependencies:       bv_dsp bv_mobile_utils
+ dependencies:       bv_plugin_parameters bv_mobile_utils
 
  END_JUCE_MODULE_DECLARATION
  
@@ -28,23 +28,10 @@
 #endif
 
 
-
-#include <bv_dsp/bv_dsp.h>
+#include <bv_plugin_parameters/bv_plugin_parameters.h>
 #include <bv_mobile_utils/bv_mobile_utils.h>
 
 #include "transport/PluginTransport.h"
-
-#include "processors/BasicProcessor.h"
-
-#include "plugin_parameters/parameters/helpers/ParameterValueConversionLambdas.h"
-#include "plugin_parameters/parameters/Parameter.h"
-#include "plugin_parameters/parameters/types/ParameterTypes.h"
-#include "plugin_parameters/parameters/specializations/ParameterSpecializations.h"
-#include "plugin_parameters/parameters/helpers/ParamUpdater.h"
-#include "plugin_parameters/ParameterList/ParameterHolder.h"
-#include "plugin_parameters/StringProperty/StringProperty.h"
-#include "plugin_parameters/ParameterList/ParameterList.h"
-#include "plugin_parameters/processor/ParameterProcessor.h"
 
 #include "plugin_state/state.h"
 #include "plugin_state/PluginUndo.h"

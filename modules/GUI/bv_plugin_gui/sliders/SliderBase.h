@@ -1,6 +1,6 @@
 #pragma once
 
-#include <bv_plugin/bv_plugin.h>
+#include <bv_plugin_parameters/bv_plugin_parameters.h>
 #include <bv_gui/bv_gui.h>
 
 namespace bav::gui

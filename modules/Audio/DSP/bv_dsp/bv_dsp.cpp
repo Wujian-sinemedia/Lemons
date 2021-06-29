@@ -14,3 +14,5 @@
 #include "BufferUtils/BufferUtils.cpp"
 
 #include "PitchDetector/PitchDetector.cpp"
+
+#include "BasicProcessor/BasicProcessor.cpp"
