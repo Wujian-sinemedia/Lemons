@@ -61,22 +61,4 @@ private:
     LastSavedEditorSize lastSavedEditorSize {*this};
 };
 
-
-template < class StateType, std::enable_if_t< std::is_base_of< PluginState, StateType >::value >* = nullptr >
-class Processor : public ProcessorBase
-{
-public:
-    Processor (Engine< float >& floatEngine, Engine< double >& doubleEngine,
-               juce::AudioProcessor::BusesProperties busesLayout)
-        : ProcessorBase (state, floatEngine, doubleEngine, busesLayout)
-    {
-        state.addTo (*this);
-    }
-
-    StateType& getState() { return state; }
-
-private:
-    StateType state;
-};
-
 }  // namespace bav::dsp
