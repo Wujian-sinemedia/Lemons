@@ -9,14 +9,14 @@ namespace bav::gui
 {
 void scale (juce::Component& component, const juce::Rectangle< float >& boundsRatio);
 
+void addAndMakeVisible (juce::Component* parent, juce::Component& child);
+
 template < typename... Args >
-static inline void addAndMakeVisible (juce::Component* parent, juce::Component* firstChild, Args... rest)
+static inline void addAndMakeVisible (juce::Component* parent, juce::Component& firstChild, Args&&... rest)
 {
     addAndMakeVisible (parent, firstChild);
     addAndMakeVisible (parent, std::forward< Args > (rest)...);
 }
-
-void addAndMakeVisible (juce::Component* parent, juce::Component* child);
 
 juce::Button::ButtonState boolToButtonState (const bool isOn) noexcept;
 bool                      buttonStateToBool (juce::Button::ButtonState state) noexcept;

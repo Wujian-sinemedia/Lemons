@@ -38,9 +38,9 @@ ScopedWaitCursor::ScopedWaitCursor()
 {
 }
 
-void addAndMakeVisible (juce::Component* parent, juce::Component* child)
+void addAndMakeVisible (juce::Component* parent, juce::Component& child)
 {
-    jassert (parent != nullptr && parent != nullptr);
+    jassert (parent != nullptr);
     parent->addAndMakeVisible (child);
 }
 
