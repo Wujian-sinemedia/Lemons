@@ -1,13 +1,13 @@
 
 namespace bav::gui
 {
-EditorBase::EditorBase (dsp::ProcessorBase& pbToUse, juce::Point<int> initialSize)
+EditorBase::EditorBase (dsp::ProcessorBase& pbToUse, juce::Point< int > initialSize)
     : AudioProcessorEditor (pbToUse), pb (pbToUse)
 {
     setResizable (true, true);
 
     const auto size = pb.getSavedEditorSize();
-    
+
     if (size.x > 0 && size.y > 0)
     {
         initializeSize (size.x, size.y);

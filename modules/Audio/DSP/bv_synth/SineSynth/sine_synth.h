@@ -20,16 +20,9 @@ private:
     osc::Sine< SampleType > sine;
 };
 
-
 template < typename SampleType >
-struct SineSynth : public SynthBase< SampleType >
+struct SineSynth : public Synth<SampleType, SineSynthVoice<SampleType>>
 {
-    using Voice = SineSynthVoice< SampleType >;
-
-    Voice* createVoice() final;
 };
-
-using Synth = SineSynth< float >;
-
 
 }  // namespace bav::dsp

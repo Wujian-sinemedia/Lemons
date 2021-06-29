@@ -23,15 +23,7 @@ void SineSynthVoice< SampleType >::noteCleared()
 template class SineSynthVoice< float >;
 template class SineSynthVoice< double >;
 
-
-template < typename SampleType >
-SineSynthVoice< SampleType >* SineSynth< SampleType >::createVoice()
-{
-    return new Voice (this);
-}
-
-
-template struct SineSynth< float >;
-template struct SineSynth< double >;
+template struct SineSynth<float>;
+template struct SineSynth<double>;
 
 }  // namespace bav::dsp
