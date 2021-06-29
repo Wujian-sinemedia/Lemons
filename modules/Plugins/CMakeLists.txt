@@ -1,6 +1,7 @@
 set (newmodules 
-        ableton_push_display
-        bv_gui)
+        bv_plugin_parameters
+        bv_plugin
+        bv_plugin_gui)
 
 juce_add_modules (${newmodules})
 

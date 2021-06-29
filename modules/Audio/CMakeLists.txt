@@ -1,7 +1,5 @@
 set (newmodules 
-        bv_midi
-        bv_plugin_parameters
-        bv_plugin)
+        bv_midi)
 
 juce_add_modules (${newmodules})
 

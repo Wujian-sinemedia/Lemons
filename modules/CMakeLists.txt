@@ -4,4 +4,6 @@ add_subdirectory (Audio)
 
 add_subdirectory (GUI)
 
+add_subdirectory (Plugins)
+
 set (modules "${modules}" PARENT_SCOPE)
