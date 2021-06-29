@@ -6,4 +6,5 @@
 
 #include "utilities/GuiUtils.cpp"
 
-#include "utilities/PopupComponent.cpp"
+#include "components/PopupComponent.cpp"
+#include "components/Buttons.cpp"

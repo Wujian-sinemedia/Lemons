@@ -20,4 +20,5 @@
 
 #include "icons/icons.h"
 
-#include "utilities/PopupComponent.h"
+#include "components/PopupComponent.h"
+#include "components/Buttons.h"

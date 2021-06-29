@@ -1,16 +1,6 @@
 
 namespace bav::gui
 {
-TextButton::TextButton (const String& buttonText, std::function< void() > whenClicked, const String& tooltip)
-    : juce::TextButton (buttonText, tooltip)
-{
-    onClick = std::move (whenClicked);
-    
-    this->setName (buttonText);
-    this->setComponentID (buttonText);
-}
-
-
 
 StringPropertyTextButton::StringPropertyTextButton (StringProperty& property, std::function< void() > whenClicked)
 : TextButton (property.get(), whenClicked, property.getPropertyName()), StringProperty::Listener (property)

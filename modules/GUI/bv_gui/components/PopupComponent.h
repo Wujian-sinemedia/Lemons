@@ -46,7 +46,7 @@ public:
     void create (Args&&... args)
     {
         window.reset (new ContentType(std::forward<Args>(args)...));
-        getTopLevelComponent()->addAndMakeVisible (window);
+        getTopLevelComponent()->addAndMakeVisible (window.get());
         resized();
     }
     
@@ -54,7 +54,6 @@ public:
     {
         if (window.get() != nullptr)
         {
-            window.close();
             window.reset();
         }
     }
