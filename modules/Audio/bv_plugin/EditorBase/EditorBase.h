@@ -25,19 +25,18 @@ class PluginEditor : public EditorBase
 public:
     template<typename... Args>
     PluginEditor (dsp::ProcessorBase& processorToUse, juce::Point<int> initialSize, Args&&... args)
-    : EditorBase (processorToUse, initialSize)
+    : EditorBase (processorToUse, initialSize), content (std::forward<Args>(args)...)
     {
-        content.reset (new ContentComponentType (std::forward<Args>(args)...));
-        addAndMakeVisible (content.get());
+        addAndMakeVisible (content);
     }
     
 private:
     void resizeTriggered() final
     {
-        content->setBounds (getLocalBounds());
+        content.setBounds (getLocalBounds());
     }
     
-    std::unique_ptr<ContentComponentType> content;
+    ContentComponentType content;
 };
 
 }  // namespace bav::gui
