@@ -41,7 +41,7 @@
 
 #include "EditorBase/EditorBase.h"
 
-#include "processors/TemplateMagic.h"
+#include "processors/Processors.h"
 
 
 #ifndef JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP
