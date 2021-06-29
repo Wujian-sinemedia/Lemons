@@ -12,17 +12,6 @@ public:
                    juce::AudioProcessor::BusesProperties busesLayout);
 
 private:
-    template < typename SampleType >
-    struct ParameterProcessor : ParameterProcessorBase< SampleType >
-    {
-        ParameterProcessor (ProcessorBase& p, ParameterList& l);
-
-    private:
-        void renderChunk (juce::AudioBuffer< SampleType >& audio, juce::MidiBuffer& midi) final;
-
-        ProcessorBase& processor;
-    };
-
     struct LastSavedEditorSize : SerializableData
     {
         LastSavedEditorSize (ProcessorBase& b);
@@ -56,22 +45,15 @@ private:
     void processBlockBypassed (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi) final;
 
     template < typename SampleType >
-    void processBlockInternal (juce::AudioBuffer< SampleType >&  audio,
-                               juce::MidiBuffer&                 midi,
-                               ParameterProcessor< SampleType >& parameterProcessor);
-
-    template < typename SampleType >
-    void renderChunk (Engine< SampleType >& engine, juce::AudioBuffer< SampleType >& audio, juce::MidiBuffer& midi);
+    void processBlockInternal (juce::AudioBuffer< SampleType >& audio,
+                               juce::MidiBuffer&                midi,
+                               Engine< SampleType >&            engine);
 
     template < typename SampleType >
     juce::AudioBuffer< SampleType > findSubBuffer (const AudioProcessor::BusesLayout& busLayout,
                                                    juce::AudioBuffer< SampleType >& origBuffer, bool isInput);
 
-    PluginState&   state;
-    ParameterList& parameters {state.getParameters()};
-
-    ParameterProcessor< float >  floatParameterProcessor {*this, parameters};
-    ParameterProcessor< double > doubleParameterProcessor {*this, parameters};
+    PluginState& state;
 
     Engine< float >&  floatEngine;
     Engine< double >& doubleEngine;
