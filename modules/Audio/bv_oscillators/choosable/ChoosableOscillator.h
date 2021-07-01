@@ -41,15 +41,11 @@ private:
     OscType type {SineOsc};
     float   freq {440.f};
 
-#define BV_ADD_OSC_ENGINE(Class, name) OscEngine< SampleType, Class< SampleType > > name
-
-    BV_ADD_OSC_ENGINE (Sine, sine);
-    BV_ADD_OSC_ENGINE (Saw, saw);
-    BV_ADD_OSC_ENGINE (Square, square);
-    BV_ADD_OSC_ENGINE (Triangle, triangle);
-    BV_ADD_OSC_ENGINE (SuperSaw, superSaw);
-
-#undef BV_ADD_OSC_ENGINE
+    OscEngine<SampleType, Sine> sine;
+    OscEngine<SampleType, Saw> saw;
+    OscEngine<SampleType, Square> square;
+    OscEngine<SampleType, Triangle> triangle;
+    OscEngine<SampleType, SuperSaw> superSaw;
 };
 
 }  // namespace bav::dsp::osc

@@ -29,8 +29,6 @@ struct Oscillator
     virtual SampleType getSample()                                                = 0;
 
     void getSamples (SampleType* output, int numSamples);
-
-    using NumericType = SampleType;
 };
 
 /*--------------------------------------------------------------------------------------------*/

@@ -1,27 +1,25 @@
 
 namespace bav::dsp::osc
 {
-template < typename SampleType, class OscType >
+template < typename SampleType, template<typename T> class OscType >
 OscEngine< SampleType, OscType >::OscEngine()
 {
-    static_assert (std::is_same< SampleType, typename OscType::NumericType >::value,
-                   "The oscillator engine's SampleType must match its oscillator's SampleType!");
 }
 
-template < typename SampleType, class OscType >
-OscType* OscEngine< SampleType, OscType >::operator->()
+template < typename SampleType, template<typename T> class OscType >
+OscType<SampleType>* OscEngine< SampleType, OscType >::operator->()
 {
     return &osc;
 }
 
-template < typename SampleType, class OscType >
+template < typename SampleType, template<typename T> class OscType >
 void OscEngine< SampleType, OscType >::setFrequency (float freqHz)
 {
     frequency = freqHz;
     osc.setFrequency (frequency, (SampleType) this->getSamplerate());
 }
 
-template < typename SampleType, class OscType >
+template < typename SampleType, template<typename T> class OscType >
 void OscEngine< SampleType, OscType >::renderBlock (const AudioBuffer&,
                                                     AudioBuffer& output,
                                                     MidiBuffer&, bool)
@@ -29,7 +27,7 @@ void OscEngine< SampleType, OscType >::renderBlock (const AudioBuffer&,
     osc.getSamples (output.getWritePointer (0), output.getNumSamples());
 }
 
-template < typename SampleType, class OscType >
+template < typename SampleType, template<typename T> class OscType >
 void OscEngine< SampleType, OscType >::prepared (int, double samplerate)
 {
     osc.resetPhase();
@@ -38,8 +36,8 @@ void OscEngine< SampleType, OscType >::prepared (int, double samplerate)
 
 
 #define BV_DECLARE_OSC_ENGINE(Class)                   \
-    template class OscEngine< float, Class< float > >; \
-    template class OscEngine< double, Class< double > >;
+    template class OscEngine< float, Class >; \
+    template class OscEngine< double, Class >;
 
 BV_DECLARE_OSC_ENGINE (Sine)
 BV_DECLARE_OSC_ENGINE (Saw)
