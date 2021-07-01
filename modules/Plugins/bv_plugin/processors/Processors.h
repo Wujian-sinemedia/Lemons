@@ -15,11 +15,9 @@ public:
     }
 
 protected:
-    StateType& getState() { return state; }
-
-private:
     StateType state;
 
+private:
     EngineType< float >  floatEngine {state};
     EngineType< double > doubleEngine {state};
 };
@@ -33,7 +31,7 @@ struct ProcessorWithEditor : ProcessorType
 
     juce::AudioProcessorEditor* createEditor() final
     {
-        return new gui::PluginEditor< ComponentType > (*this, {width, height}, this->getState());
+        return new gui::PluginEditor< ComponentType > (*this, {width, height}, this->state);
     }
 };
 
