@@ -1,23 +1,6 @@
 
 namespace bav::gui
 {
-GUIInitializer::GUIInitializer (juce::Component& componentToUse)
-{
-#if JUCE_OPENGL
-    openGLContext.attachTo (componentToUse);
-#else
-    juce::ignoreUnused (componentToUse);
-#endif
-
-    AutoLock::setEnabled (false);
-}
-
-GUIInitializer::~GUIInitializer()
-{
-#if JUCE_OPENGL
-    openGLContext.detach();
-#endif
-}
 
 ScopedCursor::ScopedCursor (
     const juce::MouseCursor& cursor,

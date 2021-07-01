@@ -22,19 +22,6 @@ juce::Button::ButtonState boolToButtonState (const bool isOn) noexcept;
 bool                      buttonStateToBool (juce::Button::ButtonState state) noexcept;
 
 
-struct GUIInitializer
-{
-    GUIInitializer (juce::Component& componentToUse);
-
-    virtual ~GUIInitializer();
-
-private:
-#if JUCE_OPENGL
-    OpenGLContext openGLContext;
-#endif
-};
-
-
 /* RAII mechanism for changing the cursor & resetting it later */
 struct ScopedCursor
 {

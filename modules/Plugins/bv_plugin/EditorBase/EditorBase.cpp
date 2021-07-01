@@ -22,6 +22,8 @@ EditorBase::EditorBase (dsp::ProcessorBase& pbToUse, juce::Point< int > initialS
         jassert (isValidSize (initialSize));
         initializeSize (initialSize.x, initialSize.y);
     }
+    
+    AutoLock::setEnabled (false);
 }
 
 void EditorBase::initializeSize (int width, int height)
