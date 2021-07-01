@@ -18,6 +18,5 @@ END_JUCE_MODULE_DECLARATION
 #include "SynthVoice/SynthVoice.h"
 
 #include "Synth/Synth.h"
-#include "Synth/SelfCreatingSynth.h"
 
 #include "SineSynth/sine_synth.h"

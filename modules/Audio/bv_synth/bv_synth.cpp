@@ -12,4 +12,3 @@
 
 #include "Synth/Synth.cpp"
 
-#include "SineSynth/sine_synth.cpp"

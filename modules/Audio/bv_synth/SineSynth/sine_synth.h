@@ -5,24 +5,42 @@
 
 namespace bav::dsp
 {
-template < typename SampleType >
-class SineSynthVoice : public SynthVoiceBase< SampleType >
+template < typename SampleType, template<typename NumericType> class OscType >
+class BasicSynthVoice : public SynthVoiceBase< SampleType >
 {
 public:
     using SynthVoiceBase< SampleType >::SynthVoiceBase;
 
-    void renderPlease (juce::AudioBuffer< SampleType >& output, float desiredFrequency, double currentSamplerate) final;
+    void renderPlease (juce::AudioBuffer< SampleType >& output, float desiredFrequency, double currentSamplerate) final
+    {
+        osc.setFrequency (SampleType (desiredFrequency), SampleType (currentSamplerate));
+        osc.getSamples (output.getWritePointer (0), output.getNumSamples());
+    }
 
-    void released() final;
-    void noteCleared() final;
+    void released() final
+    {
+        osc.resetPhase();
+    }
+    
+    void noteCleared() final
+    {
+        osc.resetPhase();
+    }
 
 private:
-    osc::Sine< SampleType > sine;
+    OscType< SampleType > osc;
 };
 
-template < typename SampleType >
-struct SineSynth : public Synth<SampleType, SineSynthVoice>
+template < typename SampleType, template<typename NumericType> class OscType >
+struct BasicSynth : public SynthBase< SampleType >
 {
+    SynthVoiceBase<SampleType>* createVoice() final
+    {
+        return new BasicSynthVoice<SampleType, OscType> (this);
+    }
 };
+
+template<typename SampleType>
+using SineSynth = BasicSynth<SampleType, osc::Sine>;
 
 }  // namespace bav::dsp
