@@ -16,7 +16,6 @@ Parameter::Parameter (RangedParam& p,
       defaultChangeTransactionName (TRANS ("Changed default value of") + " " + parameterNameVerbose),
       midiControllerChangeTransactionName (TRANS ("Changed MIDI controller number for") + " " + parameterNameVerbose)
 {
-  //  juce::MessageManager::getInstance()->callAsync ([&]{ currentDefault.store (rap.getDefaultValue()); });
 }
 
 int Parameter::getMidiControllerNumber() const

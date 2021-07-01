@@ -22,7 +22,7 @@ private:
 };
 
 
-template<typename ContentType>
+template<typename ContentType, std::enable_if_t< std::is_base_of< PopupComponent, ContentType >::value >* = nullptr >
 class Popup : public juce::Component
 {
 public:
