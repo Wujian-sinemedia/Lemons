@@ -23,16 +23,23 @@ private:
 };
 
 
-template < class ProcessorType, class ComponentType, int width = 450, int height = 300,
+template < class ProcessorType, class ComponentType,
            std::enable_if_t< std::is_base_of< ProcessorBase, ProcessorType >::value >* = nullptr >
 struct ProcessorWithEditor : ProcessorType
 {
+    ProcessorWithEditor (int width = 450, int height = 300)
+    : w(width), h(height)
+    { }
+    
     bool hasEditor() const final { return true; }
 
     juce::AudioProcessorEditor* createEditor() final
     {
-        return new gui::PluginEditor< ComponentType > (*this, {width, height}, this->state);
+        return new gui::PluginEditor< ComponentType > (*this, {w, h}, this->state);
     }
+    
+private:
+    int w, h;
 };
 
 }  // namespace bav::dsp
