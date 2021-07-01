@@ -21,7 +21,7 @@ private:
 };
 
 template < typename SampleType >
-struct SineSynth : public Synth<SampleType, SineSynthVoice<SampleType>>
+struct SineSynth : public Synth<SampleType, SineSynthVoice>
 {
 };
 
