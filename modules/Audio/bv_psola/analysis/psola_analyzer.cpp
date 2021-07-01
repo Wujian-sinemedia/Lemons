@@ -74,7 +74,7 @@ int Analyzer< SampleType >::getPeriod() const
 template < typename SampleType >
 float Analyzer< SampleType >::getFrequency() const
 {
-    return math::freqFromPeriod (samplerate, currentPeriod);
+    return (float) math::freqFromPeriod (samplerate, currentPeriod);
 }
 
 

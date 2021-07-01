@@ -2,7 +2,7 @@
 namespace bav::dsp::psola
 {
 template < typename SampleType >
-Shifter< SampleType >::Shifter (Analyzer& parentAnalyzer)
+Shifter< SampleType >::Shifter (Analyzer< SampleType >& parentAnalyzer)
 : analyzer (parentAnalyzer), l (analyzer.getBroadcaster(), [this]{ this->currentSample = 0; })
 {
     while (grains.size() < 40)

@@ -21,7 +21,7 @@ void EQ< SampleType >::prepare (double samplerate, int blocksize)
 }
 
 template < typename SampleType >
-void EQ< SampleType >::addBand (Filter* newFilter)
+void EQ< SampleType >::addBand (Band* newFilter)
 {
     filters.add (newFilter);
     newFilter->prepare (lastSamplerate, lastBlocksize);

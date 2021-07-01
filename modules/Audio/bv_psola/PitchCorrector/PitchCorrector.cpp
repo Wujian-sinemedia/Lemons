@@ -76,7 +76,7 @@ float PitchCorrectorBase<SampleType>::getOutputFreq() const
     if (pitch != nullptr)
         return pitch->getFrequencyForMidi (correctedNote);
     
-    return math::midiToFreq (correctedNote);
+    return (float) math::midiToFreq (correctedNote);
 }
 
 template class PitchCorrectorBase<float>;
