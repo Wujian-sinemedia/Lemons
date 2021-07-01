@@ -27,10 +27,26 @@ float PitchCorrectorBase<SampleType>::updateAndReturnFreq()
 {
     const auto currentInput = getCurrentInputMidipitch();
     
-    correctedNote = juce::roundToInt (currentInput);
+    correctedNote = getMidipitchToCorrectTo (currentInput);
     centsSharp = juce::roundToInt ((currentInput - correctedNote) * 100.f);
     
     return getOutputFreq();
+}
+
+template<typename SampleType>
+int PitchCorrectorBase<SampleType>::getMidipitchToCorrectTo (float inputMidipitch) const
+{
+    const auto closestNote = juce::roundToInt (inputMidipitch);
+    
+    if (pitch != nullptr)
+    {
+        if (pitch->tuning.shouldFilterNote (closestNote))
+        {
+            
+        }
+    }
+    
+    return closestNote;
 }
 
 template<typename SampleType>

@@ -29,6 +29,7 @@ public:
 private:
     float updateAndReturnFreq();
     float getCurrentInputMidipitch() const;
+    int   getMidipitchToCorrectTo (float inputMidipitch) const;
     
     Analyzer&  analyzer;
     
