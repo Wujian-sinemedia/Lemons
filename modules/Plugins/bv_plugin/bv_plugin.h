@@ -33,9 +33,9 @@
 
 #include "transport/PluginTransport.h"
 
-#include "plugin_state/state.h"
-#include "plugin_state/PluginUndo.h"
-#include "plugin_state/PluginPresetManager.h"
+#include "state/state.h"
+#include "state/PluginUndo.h"
+#include "state/PluginPresetManager.h"
 
 #include "processors/ProcessorBase.h"
 

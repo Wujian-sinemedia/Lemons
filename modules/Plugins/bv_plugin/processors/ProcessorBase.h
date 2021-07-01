@@ -3,7 +3,7 @@
 
 namespace bav::dsp
 {
-class ProcessorBase : public BasicProcessorBase
+class ProcessorBase : public BasicProcessorBase, private SystemInitializer
 {
 public:
     ProcessorBase (PluginState&                          stateToUse,

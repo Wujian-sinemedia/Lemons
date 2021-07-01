@@ -8,3 +8,4 @@
 
 #include "components/PopupComponent.cpp"
 #include "components/Buttons.cpp"
+#include "components/Label.cpp"

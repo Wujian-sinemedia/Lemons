@@ -4,8 +4,7 @@
 
 namespace bav::dsp
 {
-class BasicProcessorBase : private SystemInitializer,
-                           public juce::AudioProcessor
+class BasicProcessorBase : public juce::AudioProcessor
 {
 public:
     BasicProcessorBase (juce::AudioProcessor::BusesProperties busesLayout = BusesProperties()

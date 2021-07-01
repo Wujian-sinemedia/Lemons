@@ -1,6 +1,8 @@
 
 #include "bv_plugin.h"
 
+#include "state/state.cpp"
+
 #include "processors/ProcessorBase.cpp"
 
 #include "EditorBase/EditorBase.cpp"
