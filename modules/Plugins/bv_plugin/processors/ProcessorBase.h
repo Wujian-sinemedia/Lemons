@@ -1,6 +1,8 @@
 
 #pragma once
 
+#include "InternalEngine.h"
+
 namespace bav::dsp
 {
 class ProcessorBase : public BasicProcessorBase, private SystemInitializer
@@ -32,7 +34,8 @@ private:
 
     template < typename SampleType1, typename SampleType2 >
     void prepareToPlayInternal (const double sampleRate, int samplesPerBlock,
-                                Engine< SampleType1 >& activeEngine, Engine< SampleType2 >& idleEngine);
+                                ProcessorInternalEngine< SampleType1 >& activeEngine,
+                                ProcessorInternalEngine< SampleType2 >& idleEngine);
 
     void releaseResources() final;
 
@@ -43,19 +46,10 @@ private:
     void processBlockBypassed (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi) final;
     void processBlockBypassed (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi) final;
 
-    template < typename SampleType >
-    void processBlockInternal (juce::AudioBuffer< SampleType >& audio,
-                               juce::MidiBuffer&                midi,
-                               Engine< SampleType >&            engine);
-
-    template < typename SampleType >
-    juce::AudioBuffer< SampleType > findSubBuffer (const AudioProcessor::BusesLayout& busLayout,
-                                                   juce::AudioBuffer< SampleType >& origBuffer, bool isInput);
-
     PluginState& state;
 
-    Engine< float >&  floatEngine;
-    Engine< double >& doubleEngine;
+    ProcessorInternalEngine< float >  floatEngine;
+    ProcessorInternalEngine< double > doubleEngine;
 
     LastSavedEditorSize lastSavedEditorSize {*this};
 };

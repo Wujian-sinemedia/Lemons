@@ -28,16 +28,17 @@ template < class ProcessorType, class ComponentType,
 struct ProcessorWithEditor : ProcessorType
 {
     ProcessorWithEditor (int width = 450, int height = 300)
-    : w(width), h(height)
-    { }
-    
+        : w (width), h (height)
+    {
+    }
+
     bool hasEditor() const final { return true; }
 
     juce::AudioProcessorEditor* createEditor() final
     {
         return new gui::PluginEditor< ComponentType > (*this, {w, h}, this->state);
     }
-    
+
 private:
     int w, h;
 };
