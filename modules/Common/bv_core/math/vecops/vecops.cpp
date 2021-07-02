@@ -460,7 +460,7 @@ int findIndexOfMinElement (const Type* data, int dataSize)
 #if BV_USE_VDSP
     unsigned long index   = 0.0;
     Type          minimum = Type (0);
-    
+
     BV_VDSP_FUNC_SWITCH (vDSP_minvi, vDSP_minviD,
                          data, vDSP_Stride (1), &minimum, &index, vDSP_Length (dataSize))
 
@@ -485,7 +485,7 @@ int findIndexOfMaxElement (const Type* data, int dataSize)
 #if BV_USE_VDSP
     unsigned long index   = 0.0;
     Type          maximum = Type (0);
-    
+
     BV_VDSP_FUNC_SWITCH (vDSP_maxvi, vDSP_maxviD,
                          data, vDSP_Stride (1), &maximum, &index, vDSP_Length (dataSize))
 
@@ -511,7 +511,7 @@ void findMinAndMinIndex (const Type* data,
 {
 #if BV_USE_VDSP
     unsigned long index = 0.0;
-    
+
     BV_VDSP_FUNC_SWITCH (vDSP_minvi, vDSP_minviD,
                          data, vDSP_Stride (1), &minimum, &index, vDSP_Length (dataSize))
 
@@ -541,7 +541,7 @@ void findMaxAndMaxIndex (const Type* data,
 {
 #if BV_USE_VDSP
     unsigned long index = 0.0;
-    
+
     BV_VDSP_FUNC_SWITCH (vDSP_maxvi, vDSP_maxviD,
                          data, vDSP_Stride (1), &maximum, &index, vDSP_Length (dataSize))
 
@@ -571,7 +571,7 @@ void locateGreatestAbsMagnitude (const Type* data,
 {
 #if BV_USE_VDSP
     unsigned long i = 0.0;
-    
+
     BV_VDSP_FUNC_SWITCH (vDSP_maxmgvi, vDSP_maxmgviD,
                          data, vDSP_Stride (1), &greatestMagnitude, &i, vDSP_Length (dataSize))
 
@@ -627,7 +627,7 @@ void locateLeastAbsMagnitude (const Type* data,
 {
 #if BV_USE_VDSP
     unsigned long i = 0.0;
-    
+
     BV_VDSP_FUNC_SWITCH (vDSP_minmgvi, vDSP_minmgviD,
                          data, vDSP_Stride (1), &leastMagnitude, &i, vDSP_Length (dataSize))
 
@@ -679,10 +679,10 @@ template < typename Type >
 void findExtrema (const Type* data, int dataSize, Type& min, Type& max)
 {
 #if BV_USE_VDSP
-    
+
     BV_VDSP_FUNC_SWITCH (vDSP_minv, vDSP_minvD,
                          data, vDSP_Stride (1), &min, vDSP_Length (dataSize))
-    
+
     BV_VDSP_FUNC_SWITCH (vDSP_maxv, vDSP_maxvD,
                          data, vDSP_Stride (1), &max, vDSP_Length (dataSize))
 #else
@@ -729,7 +729,7 @@ void normalize (Type* vector, int size)
 #if BV_USE_VDSP
     Type          max = Type (0);
     unsigned long i   = 0.0;
-    
+
     BV_VDSP_FUNC_SWITCH (vDSP_maxmgvi, vDSP_maxmgviD,
                          vector, vDSP_Stride (1), &max, &i, vDSP_Length (size))
 
@@ -741,7 +741,7 @@ void normalize (Type* vector, int size)
     else
     {
         const auto oneOverMax = Type (1) / max;
-        
+
         BV_VDSP_FUNC_SWITCH (vDSP_vsmul, vDSP_vsmulD,
                              vector, vDSP_Stride (1), &oneOverMax, vector, vDSP_Stride (1), vDSP_Length (size))
     }
