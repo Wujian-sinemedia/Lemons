@@ -42,7 +42,7 @@ int AnalysisGrainStorage< SampleType >::getStartOfClosestGrain (int sampleIndex)
     for (auto grain : grainIndices)
         distances.add (std::abs (grain - index));
 
-    return grainIndices.getUnchecked (intops::findIndexOfMinElement (distances.getRawDataPointer(), distances.size()));
+    return grainIndices.getUnchecked (vecops::findIndexOfMinElement (distances.getRawDataPointer(), distances.size()));
 }
 
 template < typename SampleType >

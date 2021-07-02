@@ -1,17 +1,8 @@
 
 #include "bv_core.h"
 
-#if BV_USE_VDSP
-#    include "math/vecops/implementations/vecops_vdsp.cpp"
-#elif BV_USE_MIPP
-#    include "math/vecops/implementations/vecops_mipp.cpp"
-#else
-#    include "math/vecops/implementations/vecops_fallback.cpp"
-#endif
-
 #include "math/mathHelpers.cpp"
 #include "math/vecops/vecops.cpp"
-#include "math/intops/intOps.cpp"
 
 #include "misc/misc.cpp"
 #include "misc/ValueSmoother.cpp"

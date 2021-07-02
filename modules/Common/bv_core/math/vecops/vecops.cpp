@@ -1,467 +1,834 @@
 
 namespace bav::vecops
 {
-/* Finds the autocorrelation of a set of samples using a shrinking integration window */
-void autocorrelate (const float* BV_R_ inputSamples,
-                    int                numSamples,
-                    float* BV_R_       outputSamples)
+template < typename Type >
+void fill (Type* vector, Type value, int count)
 {
-    const auto oneOverNumSamples = 1.0f / numSamples;
+#if BV_USE_MIPP
+    const auto vecLoopSize = (count / mipp::N< Type >()) * mipp::N< Type >();
 
-    for (int i = 0; i < numSamples; i++)
+    mipp::Reg< Type > rout, val;
+
+    val.load (&value);
+
+    for (int i = 0; i < vecLoopSize; i += mipp::N< Type >())
     {
-        float sum = 0;
-
-        for (int j = 0; j < numSamples - i; j++)
-            sum += inputSamples[j] * inputSamples[j + i];
-
-        outputSamples[i] = sum * oneOverNumSamples;
+        rout = val;
+        rout.store (&vector[i]);
     }
+
+    for (int i = vecLoopSize; i < count; ++i)
+        vector[i] = value;
+#elif BV_USE_VDSP
+    if constexpr (std::is_same_v< Type, float >)
+        vDSP_vfill (&value, vector, vDSP_Stride (1), vDSP_Length (count));
+    else
+        vDSP_vfillD (&value, vector, vDSP_Stride (1), vDSP_Length (count));
+#else
+    juce::FloatVectorOperations::fill (vector, value, count);
+#endif
+}
+template void fill (float*, float, int);
+template void fill (double*, double, int);
+
+template <>
+void fill (int* vector, int value, int count)
+{
+    memset (vector, value, (size_t) count * sizeof (int));
 }
 
-void autocorrelate (const double* BV_R_ inputSamples,
-                    int                 numSamples,
-                    double* BV_R_       outputSamples)
+template < typename Type1, typename Type2 >
+void convert (Type1* const dst, const Type2* const src, int count)
 {
-    const auto oneOverNumSamples = 1.0 / numSamples;
-
-    for (int i = 0; i < numSamples; i++)
+#if BV_USE_VDSP
+    if constexpr (std::is_same_v< Type1, double >)
+        vDSP_vspdp (src, vDSP_Stride (1), dst, vDSP_Stride (1), vDSP_Length (count));
+    else
+        vDSP_vdpsp (src, vDSP_Stride (1), dst, vDSP_Stride (1), vDSP_Length (count));
+#else
+    for (int i = 0; i < count; ++i)
     {
-        double sum = 0;
-
-        for (int j = 0; j < numSamples - i; j++)
-            sum += inputSamples[j] * inputSamples[j + i];
-
-        outputSamples[i] = sum * oneOverNumSamples;
+        dst[i] = static_cast< Type1 > (src[i]);
     }
+#endif
+}
+template void convert (float* const, const double* const, int);
+template void convert (double* const, const float* const, int);
+
+template < typename Type >
+void addC (Type* vector, Type value, int count)
+{
+#if BV_USE_MIPP
+    const auto vecLoopSize = (count / mipp::N< Type >()) * mipp::N< Type >();
+
+    mipp::Reg< Type > rin, rout, val;
+
+    val.load (&value);
+
+    for (int i = 0; i < vecLoopSize; i += mipp::N< Type >())
+    {
+        rin.load (&vector[i]);
+        rout = rin + val;
+        rout.store (&vector[i]);
+    }
+
+    for (int i = vecLoopSize; i < count; ++i)
+        vector[i] = vector[i] + value;
+#elif BV_USE_VDSP
+    if constexpr (std::is_same_v< Type, float >)
+        vDSP_vsadd (vector, vDSP_Stride (1), &value, vector, vDSP_Stride (1), vDSP_Length (count));
+    else
+        vDSP_vsaddD (vector, vDSP_Stride (1), &value, vector, vDSP_Stride (1), vDSP_Length (count));
+#else
+    juce::FloatVectorOperations::add (vector, value, count);
+#endif
+}
+template void addC (float*, float, int);
+template void addC (double*, double, int);
+
+template <>
+void addC (int* vector, int value, int count)
+{
+    for (int i = 0; i < count; ++i)
+        vector[i] += value;
+}
+
+template < typename Type >
+void addV (Type* vecA, const Type* vecB, int count)
+{
+#if BV_USE_MIPP
+    const auto vecLoopSize = (count / mipp::N< Type >()) * mipp::N< Type >();
+
+    mipp::Reg< Type > rAin, rBin, rout;
+
+    for (int i = 0; i < vecLoopSize; i += mipp::N< Type >())
+    {
+        rAin.load (&vecA[i]);
+        rBin.load (&vecB[i]);
+        rout = rAin + rBin;
+        rout.store (&vecA[i]);
+    }
+
+    for (int i = vecLoopSize; i < count; ++i)
+        vecA[i] = vecA[i] + vecB[i];
+#elif BV_USE_VDSP
+    if constexpr (std::is_same_v< Type, float >)
+        vDSP_vadd (vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count));
+    else
+        vDSP_vaddD (vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count));
+#else
+    juce::FloatVectorOperations::add (vecA, vecB, count);
+#endif
+}
+template void addV (float*, const float*, int);
+template void addV (double*, const double*, int);
+
+template <>
+void addV (int* vecA, const int* vecB, int count)
+{
+    for (int i = 0; i < count; ++i)
+        vecA[i] += vecB[i];
+}
+
+template < typename Type >
+void subtractC (Type* vector, Type value, int count)
+{
+#if BV_USE_MIPP
+    const auto vecLoopSize = (count / mipp::N< Type >()) * mipp::N< Type >();
+
+    mipp::Reg< Type > rin, rout, val;
+
+    val.load (&value);
+
+    for (int i = 0; i < vecLoopSize; i += mipp::N< Type >())
+    {
+        rin.load (&vector[i]);
+        rout = rin - val;
+        rout.store (&vector[i]);
+    }
+
+    for (int i = vecLoopSize; i < count; ++i)
+        vector[i] = vector[i] - value;
+#elif BV_USE_VDSP
+    const auto val = -value;
+
+    if constexpr (std::is_same_v< Type, float >)
+        vDSP_vsadd (vector, vDSP_Stride (1), &val, vector, vDSP_Stride (1), vDSP_Length (count));
+    else
+        vDSP_vsaddD (vector, vDSP_Stride (1), &val, vector, vDSP_Stride (1), vDSP_Length (count));
+#else
+    juce::FloatVectorOperations::add (vector, -value, count);
+#endif
+}
+template void subtractC (float*, float, int);
+template void subtractC (double*, double, int);
+
+template <>
+void subtractC (int* vector, int value, int count)
+{
+    for (int i = 0; i < count; ++i)
+        vector[i] -= value;
+}
+
+template < typename Type >
+void subtractV (Type* vecA, const Type* vecB, int count)
+{
+#if BV_USE_MIPP
+    const auto vecLoopSize = (count / mipp::N< Type >()) * mipp::N< Type >();
+
+    mipp::Reg< Type > rAin, rBin, rout;
+
+    for (int i = 0; i < vecLoopSize; i += mipp::N< Type >())
+    {
+        rAin.load (&vecA[i]);
+        rBin.load (&vecB[i]);
+        rout = rAin - rBin;
+        rout.store (&vecA[i]);
+    }
+
+    for (int i = vecLoopSize; i < count; ++i)
+        vecA[i] = vecA[i] - vecB[i];
+#elif BV_USE_VDSP
+    if constexpr (std::is_same_v< Type, float >)
+        vDSP_vsub (vecA, vDSP_Stride (1), vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count));
+    else
+        vDSP_vsubD (vecA, vDSP_Stride (1), vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count));
+#else
+    for (int i = 0; i < count; ++i)
+        vecA[i] = vecA[i] - vecB[i];
+#endif
+}
+template void subtractV (float*, const float*, int);
+template void subtractV (double*, const double*, int);
+
+template <>
+void subtractV (int* vecA, const int* vecB, int count)
+{
+    for (int i = 0; i < count; ++i)
+        vecA[i] -= vecB[i];
+}
+
+template < typename Type >
+void multiplyC (Type* vector, Type value, int count)
+{
+#if BV_USE_MIPP
+    const auto vecLoopSize = (count / mipp::N< Type >()) * mipp::N< Type >();
+
+    mipp::Reg< Type > rin, rout, val;
+
+    val.load (&value);
+
+    for (int i = 0; i < vecLoopSize; i += mipp::N< Type >())
+    {
+        rin.load (&vector[i]);
+        rout = rin * val;
+        rout.store (&vector[i]);
+    }
+
+    for (int i = vecLoopSize; i < count; ++i)
+        vector[i] = vector[i] * value;
+#elif BV_USE_VDSP
+    if constexpr (std::is_same_v< Type, float >)
+        vDSP_vsmul (vector, vDSP_Stride (1), &value, vector, vDSP_Stride (1), vDSP_Length (count));
+    else
+        vDSP_vsmulD (vector, vDSP_Stride (1), &value, vector, vDSP_Stride (1), vDSP_Length (count));
+#else
+    juce::FloatVectorOperations::multiply (vector, value, count);
+#endif
+}
+template void multiplyC (float*, float, int);
+template void multiplyC (double*, double, int);
+
+template <>
+void multiplyC (int* vector, int value, int count)
+{
+    for (int i = 0; i < count; ++i)
+        vector[i] *= value;
 }
 
 
-/* Autocorrelates a signal with itself using a squared difference function. Uses a shrinking integration window. */
-void sdfAutocorrelate (const float* BV_R_ inputSamples,
-                       int                numSamples,
-                       float* BV_R_       outputSamples)
+template < typename Type >
+void multiplyV (Type* vecA, const Type* vecB, int count)
 {
-    for (int i = 0; i < numSamples; i++)
-    {
-        float sum = 0;
+#if BV_USE_MIPP
+    const auto vecLoopSize = (count / mipp::N< Type >()) * mipp::N< Type >();
 
-        for (int j = 0; j < numSamples - i; j++)
+    mipp::Reg< Type > rAin, rBin, rout;
+
+    for (int i = 0; i < vecLoopSize; i += mipp::N< Type >())
+    {
+        rAin.load (&vecA[i]);
+        rBin.load (&vecB[i]);
+        rout = rAin * rBin;
+        rout.store (&vecA[i]);
+    }
+
+    for (int i = vecLoopSize; i < count; ++i)
+        vecA[i] = vecA[i] * vecB[i];
+#elif BV_USE_VDSP
+    if constexpr (std::is_same_v< Type, float >)
+        vDSP_vmul (vecA, vDSP_Stride (1), vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count));
+    else
+        vDSP_vmulD (vecA, vDSP_Stride (1), vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count));
+#else
+    juce::FloatVectorOperations::multiply (vecA, vecB, count);
+#endif
+}
+template void multiplyV (float*, const float*, int);
+template void multiplyV (double*, const double*, int);
+
+template <>
+void multiplyV (int* vecA, const int* vecB, int count)
+{
+    for (int i = 0; i < count; ++i)
+        vecA[i] *= vecB[i];
+}
+
+template < typename Type >
+void divideC (Type* vector, Type value, int count)
+{
+#if BV_USE_MIPP
+    const auto vecLoopSize = (count / mipp::N< Type >()) * mipp::N< Type >();
+
+    mipp::Reg< Type > rin, rout, val;
+
+    val.load (&value);
+
+    for (int i = 0; i < vecLoopSize; i += mipp::N< Type >())
+    {
+        rin.load (&vector[i]);
+        rout = rin / val;
+        rout.store (&vector[i]);
+    }
+
+    for (int i = vecLoopSize; i < count; ++i)
+        vector[i] = vector[i] / value;
+#elif BV_USE_VDSP
+    if constexpr (std::is_same_v< Type, float >)
+        vDSP_vsdiv (vector, vDSP_Stride (1), &value, vector, vDSP_Stride (1), vDSP_Length (count));
+    else
+        vDSP_vsdivD (vector, vDSP_Stride (1), &value, vector, vDSP_Stride (1), vDSP_Length (count));
+#else
+    juce::FloatVectorOperations::multiply (vector, (Type) 1. / value, count);
+#endif
+}
+template void divideC (float*, float, int);
+template void divideC (double*, double, int);
+
+template <>
+void divideC (int* vector, int value, int count)
+{
+    auto val = (float) value;
+
+    for (int i = 0; i < count; ++i)
+        vector[i] = juce::roundToInt ((float) vector[i] / val);
+}
+
+
+template < typename Type >
+void divideV (Type* vecA, const Type* vecB, int count)
+{
+#if BV_USE_MIPP
+    const auto vecLoopSize = (count / mipp::N< Type >()) * mipp::N< Type >();
+
+    mipp::Reg< Type > rAin, rBin, rout;
+
+    for (int i = 0; i < vecLoopSize; i += mipp::N< Type >())
+    {
+        rAin.load (&vecA[i]);
+        rBin.load (&vecB[i]);
+        rout = rAin / rBin;
+        rout.store (&vecA[i]);
+    }
+
+    for (int i = vecLoopSize; i < count; ++i)
+        vecA[i] = vecA[i] / vecB[i];
+#elif BV_USE_VDSP
+    if constexpr (std::is_same_v< Type, float >)
+        vDSP_vdiv (vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count));
+    else
+        vDSP_vdivD (vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count));
+#else
+    for (int i = 0; i < count; ++i)
+        vecA[i] /= vecB[i];
+#endif
+}
+template void divideV (float*, const float*, int);
+template void divideV (double*, const double*, int);
+
+template <>
+void divideV (int* vecA, const int* vecB, int count)
+{
+    for (int i = 0; i < count; ++i)
+        vecA[i] = juce::roundToInt ((float) vecA[i] / (float) vecB[i]);
+}
+
+
+template < typename Type >
+void squareRoot (Type* data, int dataSize)
+{
+#if BV_USE_MIPP
+    const auto vecLoopSize = (dataSize / mipp::N< Type >()) * mipp::N< Type >();
+
+    mipp::Reg< Type > rin, rout;
+
+    for (int i = 0; i < vecLoopSize; i += mipp::N< Type >())
+    {
+        rin.load (&data[i]);
+        rout = mipp::sqrt (rin);
+        rout.store (&data[i]);
+    }
+
+    for (int i = vecLoopSize; i < dataSize; ++i)
+        data[i] = sqrt (data[i]);
+#elif BV_USE_VDSP
+    if constexpr (std::is_same_v< Type, float >)
+        vvsqrtf (data, data, &dataSize);
+    else
+        vvsqrt (data, data, &dataSize);
+#else
+    for (int i = 0; i < dataSize; ++i)
+        data[i] = std::sqrt (data[i]);
+#endif
+}
+template void squareRoot (float*, int);
+template void squareRoot (double*, int);
+
+template < typename Type >
+void square (Type* data, int dataSize)
+{
+#if BV_USE_MIPP
+    const auto vecLoopSize = (dataSize / mipp::N< Type >()) * mipp::N< Type >();
+
+    mipp::Reg< Type > rin, rout;
+
+    for (int i = 0; i < vecLoopSize; i += mipp::N< Type >())
+    {
+        rin.load (&data[i]);
+        rout = rin * rin;
+        rout.store (&data[i]);
+    }
+
+    for (int i = vecLoopSize; i < dataSize; ++i)
+        data[i] = data[i] * data[i];
+#elif BV_USE_VDSP
+    if constexpr (std::is_same_v< Type, float >)
+        vDSP_vsq (data, vDSP_Stride (1), data, vDSP_Stride (1), vDSP_Length (dataSize));
+    else
+        vDSP_vsqD (data, vDSP_Stride (1), data, vDSP_Stride (1), vDSP_Length (dataSize));
+#else
+    juce::FloatVectorOperations::multiply (data, data, dataSize);
+#endif
+}
+template void square (float*, int);
+template void square (double*, int);
+
+template <>
+void square (int* data, int size)
+{
+    for (int i = 0; i < size; ++i)
+        data[i] *= data[i];
+}
+
+
+template < typename Type >
+void absVal (Type* data, int dataSize)
+{
+#if BV_USE_MIPP
+    const auto vecLoopSize = (dataSize / mipp::N< Type >()) * mipp::N< Type >();
+
+    mipp::Reg< Type > rin, rout;
+
+    for (int i = 0; i < vecLoopSize; i += mipp::N< Type >())
+    {
+        rin.load (&data[i]);
+        rout = mipp::abs (rin);
+        rout.store (&data[i]);
+    }
+
+    for (int i = vecLoopSize; i < dataSize; ++i)
+        data[i] = abs (data[i]);
+#elif BV_USE_VDSP
+    if constexpr (std::is_same_v< Type, float >)
+        vvfabsf (data, data, &dataSize);
+    else
+        vvfabs (data, data, &dataSize);
+#else
+    juce::FloatVectorOperations::abs (data, data, dataSize);
+#endif
+}
+template void absVal (float*, int);
+template void absVal (double*, int);
+
+template <>
+void absVal (int* data, int size)
+{
+    for (int i = 0; i < size; ++i)
+        data[i] = abs (data[i]);
+}
+
+
+template < typename Type >
+int findIndexOfMinElement (const Type* data, int dataSize)
+{
+#if BV_USE_VDSP
+    unsigned long index   = 0.0;
+    Type          minimum = Type (0);
+
+    if constexpr (std::is_same_v< Type, float >)
+        vDSP_minvi (data, vDSP_Stride (1), &minimum, &index, vDSP_Length (dataSize));
+    else
+        vDSP_minviD (data, vDSP_Stride (1), &minimum, &index, vDSP_Length (dataSize));
+
+    return static_cast< int > (index);
+#else
+    return static_cast< int > (std::min_element (data, data + dataSize) - data);
+#endif
+}
+template int findIndexOfMinElement (const float*, int);
+template int findIndexOfMinElement (const double*, int);
+
+template <>
+int findIndexOfMinElement (const int* data, int size)
+{
+    return static_cast< int > (std::min_element (data, data + size) - data);
+}
+
+
+template < typename Type >
+int findIndexOfMaxElement (const Type* data, int dataSize)
+{
+#if BV_USE_VDSP
+    unsigned long index   = 0.0;
+    Type          maximum = Type (0);
+
+    if constexpr (std::is_same_v< Type, float >)
+        vDSP_maxvi (data, vDSP_Stride (1), &maximum, &index, vDSP_Length (dataSize));
+    else
+        vDSP_maxviD (data, vDSP_Stride (1), &maximum, &index, vDSP_Length (dataSize));
+
+    return static_cast< int > (index);
+#else
+    return static_cast< int > (std::max_element (data, data + dataSize) - data);
+#endif
+}
+template int findIndexOfMaxElement (const float*, int);
+template int findIndexOfMaxElement (const double*, int);
+
+template <>
+int findIndexOfMaxElement (const int* data, int size)
+{
+    return static_cast< int > (std::max_element (data, data + size) - data);
+}
+
+template < typename Type >
+void findMinAndMinIndex (const Type* data,
+                         int         dataSize,
+                         Type&       minimum,
+                         int&        minIndex)
+{
+#if BV_USE_VDSP
+    unsigned long index = 0.0;
+
+    if constexpr (std::is_same_v< Type, float >)
+        vDSP_minvi (data, vDSP_Stride (1), &minimum, &index, vDSP_Length (dataSize));
+    else
+        vDSP_minviD (data, vDSP_Stride (1), &minimum, &index, vDSP_Length (dataSize));
+
+    minIndex = static_cast< int > (index);
+#else
+    auto* lowestElement    = std::min_element (data, data + dataSize);
+    minimum                = *lowestElement;
+    minIndex               = static_cast< int > (lowestElement - data);
+#endif
+}
+template void findMinAndMinIndex (const float*, int, float&, int&);
+template void findMinAndMinIndex (const double*, int, double&, int&);
+
+template <>
+void findMinAndMinIndex (const int* data, int dataSize, int& minimum, int& minIndex)
+{
+    auto* lowestElement = std::min_element (data, data + dataSize);
+    minimum             = *lowestElement;
+    minIndex            = static_cast< int > (lowestElement - data);
+}
+
+template < typename Type >
+void findMaxAndMaxIndex (const Type* data,
+                         int         dataSize,
+                         Type&       maximum,
+                         int&        maxIndex)
+{
+#if BV_USE_VDSP
+    unsigned long index = 0.0;
+
+    if constexpr (std::is_same_v< Type, float >)
+        vDSP_maxvi (data, vDSP_Stride (1), &maximum, &index, vDSP_Length (dataSize));
+    else
+        vDSP_maxviD (data, vDSP_Stride (1), &maximum, &index, vDSP_Length (dataSize));
+
+    maxIndex = static_cast< int > (index);
+#else
+    auto* highestElement   = std::max_element (data, data + dataSize);
+    maximum                = *highestElement;
+    maxIndex               = static_cast< int > (highestElement - data);
+#endif
+}
+template void findMaxAndMaxIndex (const float*, int, float&, int&);
+template void findMaxAndMaxIndex (const double*, int, double&, int&);
+
+template <>
+void findMaxAndMaxIndex (const int* data, int dataSize, int& maximum, int& maxIndex)
+{
+    auto* highestElement = std::max_element (data, data + dataSize);
+    maximum              = *highestElement;
+    maxIndex             = static_cast< int > (highestElement - data);
+}
+
+template < typename Type >
+void locateGreatestAbsMagnitude (const Type* data,
+                                 int         dataSize,
+                                 Type&       greatestMagnitude,
+                                 int&        index)
+{
+#if BV_USE_VDSP
+    unsigned long i = 0.0;
+
+    if constexpr (std::is_same_v< Type, float >)
+        vDSP_maxmgvi (data, vDSP_Stride (1), &greatestMagnitude, &i, vDSP_Length (dataSize));
+    else
+        vDSP_maxmgviD (data, vDSP_Stride (1), &greatestMagnitude, &i, vDSP_Length (dataSize));
+
+    index = static_cast< int > (i);
+#else
+    int  strongestMagIndex = 0;
+    auto strongestMag      = abs (data[0]);
+
+    for (int i = 1; i < dataSize; ++i)
+    {
+        const auto current = abs (data[i]);
+
+        if (current > strongestMag)
         {
-            const auto difference = inputSamples[j] - inputSamples[j + i];
-            sum += difference * difference;
+            strongestMag      = current;
+            strongestMagIndex = i;
         }
-
-        outputSamples[i] = sum;
     }
-}
 
-void sdfAutocorrelate (const double* BV_R_ inputSamples,
-                       int                 numSamples,
-                       double* BV_R_       outputSamples)
+    greatestMagnitude    = strongestMag;
+    index                = strongestMagIndex;
+#endif
+}
+template void locateGreatestAbsMagnitude (const float*, int, float&, int&);
+template void locateGreatestAbsMagnitude (const double*, int, double&, int&);
+
+template <>
+void locateGreatestAbsMagnitude (const int* data, int dataSize, int& greatestMagnitude, int& index)
 {
-    for (int i = 0; i < numSamples; i++)
+    int  strongestMagIndex = 0;
+    auto strongestMag      = abs (data[0]);
+
+    for (int i = 1; i < dataSize; ++i)
     {
-        double sum = 0;
+        const auto current = abs (data[i]);
 
-        for (int j = 0; j < numSamples - i; j++)
+        if (current > strongestMag)
         {
-            const auto difference = inputSamples[j] - inputSamples[j + i];
-            sum += difference * difference;
+            strongestMag      = current;
+            strongestMagIndex = i;
         }
-
-        outputSamples[i] = sum;
     }
+
+    greatestMagnitude = strongestMag;
+    index             = strongestMagIndex;
 }
+
+template < typename Type >
+void locateLeastAbsMagnitude (const Type* data,
+                              int         dataSize,
+                              Type&       leastMagnitude,
+                              int&        index)
+{
+#if BV_USE_VDSP
+    unsigned long i = 0.0;
+
+    if constexpr (std::is_same_v< Type, float >)
+        vDSP_minmgvi (data, vDSP_Stride (1), &leastMagnitude, &i, vDSP_Length (dataSize));
+    else
+        vDSP_minmgviD (data, vDSP_Stride (1), &leastMagnitude, &i, vDSP_Length (dataSize));
+
+    index = static_cast< int > (i);
+#else
+    int  weakestMagIndex = 0;
+    auto weakestMag      = abs (data[0]);
+
+    for (int i = 1; i < dataSize; ++i)
+    {
+        const auto current = abs (data[i]);
+
+        if (current < weakestMag)
+        {
+            weakestMag      = current;
+            weakestMagIndex = i;
+        }
+    }
+
+    leastMagnitude = weakestMag;
+    index          = weakestMagIndex;
+#endif
+}
+template void locateLeastAbsMagnitude (const float*, int, float&, int&);
+template void locateLeastAbsMagnitude (const double*, int, double&, int&);
+
+template <>
+void locateLeastAbsMagnitude (const int* data, int dataSize, int& leastMagnitude, int& index)
+{
+    int  weakestMagIndex = 0;
+    auto weakestMag      = abs (data[0]);
+
+    for (int i = 1; i < dataSize; ++i)
+    {
+        const auto current = abs (data[i]);
+
+        if (current < weakestMag)
+        {
+            weakestMag      = current;
+            weakestMagIndex = i;
+        }
+    }
+
+    leastMagnitude = weakestMag;
+    index          = weakestMagIndex;
+}
+
+template < typename Type >
+void findExtrema (const Type* data, int dataSize, Type& min, Type& max)
+{
+#if BV_USE_VDSP
+    if constexpr (std::is_same_v< Type, float >)
+    {
+        vDSP_minv (data, vDSP_Stride (1), &min, vDSP_Length (dataSize));
+        vDSP_maxv (data, vDSP_Stride (1), &max, vDSP_Length (dataSize));
+    }
+    else
+    {
+        vDSP_minvD (data, vDSP_Stride (1), &min, vDSP_Length (dataSize));
+        vDSP_maxvD (data, vDSP_Stride (1), &max, vDSP_Length (dataSize));
+    }
+#else
+    auto range     = juce::FloatVectorOperations::findMinAndMax (data, dataSize);
+    min            = range.getStart();
+    max            = range.getEnd();
+#endif
+}
+template void findExtrema (const float*, int, float&, float&);
+template void findExtrema (const double*, int, double&, double&);
+
+template <>
+void findExtrema (const int* data, int dataSize, int& min, int& max)
+{
+    min = *(std::min_element (data, data + dataSize));
+    max = *(std::max_element (data, data + dataSize));
+}
+
+template < typename Type >
+Type findRangeOfExtrema (const Type* data,
+                         int         dataSize)
+{
+#if BV_USE_VDSP
+    Type min = 0.0f, max = 0.0f;
+    findExtrema (data, dataSize, min, max);
+    return max - min;
+#else
+    return juce::FloatVectorOperations::findMinAndMax (data, dataSize).getLength();
+#endif
+}
+template float  findRangeOfExtrema (const float*, int);
+template double findRangeOfExtrema (const double*, int);
+
+template <>
+int findRangeOfExtrema (const int* data, int dataSize)
+{
+    return *(std::max_element (data, data + dataSize))
+         - *(std::min_element (data, data + dataSize));
+}
+
+template < typename Type >
+void normalize (Type* vector, int size)
+{
+#if BV_USE_VDSP
+    Type          max = Type (0);
+    unsigned long i   = 0.0;
+
+    if constexpr (std::is_same_v< Type, float >)
+        vDSP_maxmgvi (vector, vDSP_Stride (1), &max, &i, vDSP_Length (size));
+    else
+        vDSP_maxmgviD (vector, vDSP_Stride (1), &max, &i, vDSP_Length (size));
+
+    if (max == Type (0))
+    {
+        if constexpr (std::is_same_v< Type, float >)
+            vDSP_vfill (&max, vector, vDSP_Stride (1), vDSP_Length (size));
+        else
+            vDSP_vfillD (&max, vector, vDSP_Stride (1), vDSP_Length (size));
+    }
+    else
+    {
+        const auto oneOverMax = Type (1) / max;
+
+        if constexpr (std::is_same_v< Type, float >)
+            vDSP_vsmul (vector, vDSP_Stride (1), &oneOverMax, vector, vDSP_Stride (1), vDSP_Length (size));
+        else
+            vDSP_vsmulD (vector, vDSP_Stride (1), &oneOverMax, vector, vDSP_Stride (1), vDSP_Length (size));
+    }
+#else
+    Type max = Type (0);
+    int  location;
+
+    locateGreatestAbsMagnitude (vector, numSamples, max, location);
+
+    if (max == Type (0))
+    {
+        fill (vector, Type (0), numSamples);
+    }
+    else
+    {
+        multiplyC (vector, Type (1) / max, numSamples);
+    }
+#endif
+}
+template void normalize (float*, int);
+template void normalize (double*, int);
 
 
 /* copies the contents of one vector to another. */
-void copy (const float* const BV_R_ source, float* const BV_R_ dest, const int count)
+template < typename Type >
+void copy (const Type* const source, Type* const dest, int count)
 {
 #if BV_USE_MIPP
-    const auto         vecLoopSize = (count / mipp::N< float >()) * mipp::N< float >();
-    mipp::Reg< float > rin, rout;
-    for (int i = 0; i < vecLoopSize; i += mipp::N< float >())
+    const auto        vecLoopSize = (count / mipp::N< Type >()) * mipp::N< Type >();
+    mipp::Reg< Type > rin, rout;
+
+    for (int i = 0; i < vecLoopSize; i += mipp::N< Type >())
     {
         rin.load (&source[i]);
         rout = rin;
         rout.store (&dest[i]);
     }
-    for (
-        int i = vecLoopSize; i < count;
-        ++i)  // Scalar tail loop: finish the remaining elements that can't be vectorized.
-        dest[i] = source[i];
-#else
-    memcpy (dest, source, (size_t) count * sizeof (float));
-#endif
-}
 
-void copy (const double* const BV_R_ source,
-           double* const BV_R_       dest,
-           const int                 count)
-{
-#if BV_USE_MIPP
-    const auto          vecLoopSize = (count / mipp::N< double >()) * mipp::N< double >();
-    mipp::Reg< double > rin, rout;
-    for (int i = 0; i < vecLoopSize; i += mipp::N< double >())
-    {
-        rin.load (&source[i]);
-        rout = rin;
-        rout.store (&dest[i]);
-    }
     for (int i = vecLoopSize; i < count; ++i)
         dest[i] = source[i];
 #else
-    memcpy (dest, source, (size_t) count * sizeof (double));
+    memcpy (dest, source, (size_t) count * sizeof (Type));
 #endif
 }
+template void copy (const float* const, float* const, int);
+template void copy (const double* const, double* const, int);
 
-
-/**
- * interleave
- *
- * Interleave (zip) the \arg channels vectors in \arg src, each of
- * length \arg count, into the single vector \arg dst of length \arg
- * channels * \arg count.
- *
- * Caller guarantees that the \arg src and \arg dst vectors are
- * non-overlapping.
- */
-template < typename T >
-void interleave (T* const BV_R_ dst,
-                 const T* const BV_R_* const BV_R_ src,
-                 const int                         channels,
-                 const int                         count)
+template <>
+void copy (const int* const source, int* const dest, int count)
 {
-    int idx = 0;
-    switch (channels)
-    {
-        case 2 :
-            // common case, may be vectorized by compiler if hardcoded
-            for (int i = 0; i < count; ++i)
-            {
-                for (int j = 0; j < 2; ++j)
-                {
-                    dst[idx++] = src[j][i];
-                }
-            }
-            return;
-        case 1 : copy (src[0], dst, count); return;
-        default :
-            for (int i = 0; i < count; ++i)
-            {
-                for (int j = 0; j < channels; ++j)
-                {
-                    dst[idx++] = src[j][i];
-                }
-            }
-    }
-}
-
-
-// deinterleave samples from dst into src
-template < typename T >
-void deinterleave (T* const BV_R_* const BV_R_ dst,
-                   const T* const BV_R_        src,
-                   const int                   channels,
-                   const int                   count)
-{
-    int idx = 0;
-
-    switch (channels)
-    {
-        case 2 :
-            // common case, may be vectorized by compiler if hardcoded
-            for (int i = 0; i < count; ++i)
-            {
-                for (int j = 0; j < 2; ++j)
-                {
-                    dst[j][i] = src[idx++];
-                }
-            }
-            return;
-
-        case 1 : copy (src, dst[0], count); return;
-
-        default :
-            for (int i = 0; i < count; ++i)
-            {
-                for (int j = 0; j < channels; ++j)
-                {
-                    dst[j][i] = src[idx++];
-                }
-            }
-    }
-}
-
-
-void phasor (float* real, float* imag, float phase)
-{
-#if BV_USE_VDSP
-    int one = 1;
-    vvsincosf (imag, real, &phase, &one);
-#else
-    *real                  = cosf (phase);
-    *imag                  = sinf (phase);
-#endif
-}
-
-void phasor (double* real, double* imag, double phase)
-{
-#if BV_USE_VDSP
-    int one = 1;
-    vvsincos (imag, real, &phase, &one);
-#else
-    *real                  = cos (phase);
-    *imag                  = sin (phase);
-#endif
-}
-
-
-/* converts cartesian coordinates to frequency bin magnitudes */
-void cartesian_to_magnitudes (float* const BV_R_       mag,
-                              const float* const BV_R_ real,
-                              const float* const BV_R_ imag,
-                              const int                count)
-{
-#if BV_USE_MIPP
-    const auto vecLoopSize = (count / mipp::N< float >()) * mipp::N< float >();
-
-    mipp::Reg< float > realIn, imagIn, magOut;
-
-    for (int i = 0; i < vecLoopSize; i += mipp::N< float >())
-    {
-        realIn.load (&real[i]);
-        imagIn.load (&imag[i]);
-        magOut = mipp::sqrt ((realIn * realIn) + (imagIn * imagIn));
-        magOut.store (&mag[i]);
-    }
-
-    for (int i = vecLoopSize; i < count; ++i)
-    {
-        const auto r = real[i];
-        const auto c = imag[i];
-        mag[i]       = sqrt (r * r + c * c);
-    }
-#else
-    for (int i = 0; i < count; ++i)
-    {
-        const auto r = real[i];
-        const auto c = imag[i];
-        mag[i]       = sqrt (r * r + c * c);
-    }
-#endif
-}
-
-
-void cartesian_to_magnitudes (double* const BV_R_       mag,
-                              const double* const BV_R_ real,
-                              const double* const BV_R_ imag,
-                              const int                 count)
-{
-#if BV_USE_MIPP
-    const auto vecLoopSize = (count / mipp::N< double >()) * mipp::N< double >();
-
-    mipp::Reg< double > realIn, imagIn, magOut;
-
-    for (int i = 0; i < vecLoopSize; i += mipp::N< double >())
-    {
-        realIn.load (&real[i]);
-        imagIn.load (&imag[i]);
-        magOut = mipp::sqrt ((realIn * realIn) + (imagIn * imagIn));
-        magOut.store (&mag[i]);
-    }
-
-    for (int i = vecLoopSize; i < count; ++i)
-    {
-        const auto r = real[i];
-        const auto c = imag[i];
-        mag[i]       = sqrt (r * r + c * c);
-    }
-#else
-    for (int i = 0; i < count; ++i)
-    {
-        const auto r = real[i];
-        const auto c = imag[i];
-        mag[i]       = sqrt (r * r + c * c);
-    }
-#endif
-}
-
-void cartesian_interleaved_to_magnitudes (
-    float* const BV_R_ mag, const float* const BV_R_ src, const int count)
-{
-#if BV_USE_MIPP
-    const auto vecLoopSize = (count / mipp::N< float >()) * mipp::N< float >();
-
-    mipp::Reg< float > realIn, imagIn, magOut;
-
-    for (int i = 0; i < vecLoopSize; i += mipp::N< float >())
-    {
-        realIn.load (&src[i * 2]);
-        imagIn.load (&src[i * 2 + 1]);
-        magOut = mipp::sqrt ((realIn * realIn) + (imagIn * imagIn));
-        magOut.store (&mag[i]);
-    }
-
-    for (int i = vecLoopSize; i < count; ++i)
-    {
-        const auto r = src[i * 2];
-        const auto c = src[i * 2 + 1];
-        mag[i]       = sqrt (r * r + c * c);
-    }
-#else
-    for (int i = 0; i < count; ++i)
-    {
-        const auto r = src[i * 2];
-        const auto c = src[i * 2 + 1];
-        mag[i]       = sqrt (r * r + c * c);
-    }
-#endif
-}
-
-void cartesian_interleaved_to_magnitudes (
-    double* const BV_R_ mag, const double* const BV_R_ src, const int count)
-{
-#if BV_USE_MIPP
-    const auto vecLoopSize = (count / mipp::N< double >()) * mipp::N< double >();
-
-    mipp::Reg< double > realIn, imagIn, magOut;
-
-    for (int i = 0; i < vecLoopSize; i += mipp::N< double >())
-    {
-        realIn.load (&src[i * 2]);
-        imagIn.load (&src[i * 2 + 1]);
-        magOut = mipp::sqrt ((realIn * realIn) + (imagIn * imagIn));
-        magOut.store (&mag[i]);
-    }
-
-    for (int i = vecLoopSize; i < count; ++i)
-    {
-        const auto r = src[i * 2];
-        const auto c = src[i * 2 + 1];
-        mag[i]       = sqrt (r * r + c * c);
-    }
-#else
-    for (int i = 0; i < count; ++i)
-    {
-        const auto r = src[i * 2];
-        const auto c = src[i * 2 + 1];
-        mag[i]       = sqrt (r * r + c * c);
-    }
-#endif
-}
-
-
-void cartesian_interleaved_to_polar (double* const BV_R_       mag,
-                                     double* const BV_R_       phase,
-                                     const double* const BV_R_ src,
-                                     const int                 count)
-{
-    for (int i = 0; i < count; ++i)
-    {
-        const auto real = src[i * 2];
-        const auto imag = src[i * 2 + 1];
-        *(mag + i)      = sqrt (real * real + imag * imag);
-        *(phase + i)    = atan2 (imag, real);
-    }
-}
-
-void cartesian_interleaved_to_polar (float* const BV_R_       mag,
-                                     float* const BV_R_       phase,
-                                     const float* const BV_R_ src,
-                                     const int                count)
-{
-    for (int i = 0; i < count; ++i)
-    {
-        const auto real = src[i * 2];
-        const auto imag = src[i * 2 + 1];
-        *(mag + i)      = sqrt (real * real + imag * imag);
-        *(phase + i)    = atan2 (imag, real);
-    }
-}
-
-
-void polar_to_cartesian_interleaved (float* const BV_R_       dst,
-                                     const float* const BV_R_ mag,
-                                     const float* const BV_R_ phase,
-                                     const int                count)
-{
-#if BV_USE_MIPP
-    const auto vecLoopSize = (count / mipp::N< float >()) * mipp::N< float >();
-
-    mipp::Reg< float > magIn, phaseIn, realOut, imagOut;
-
-    for (int i = 0; i < vecLoopSize; i += mipp::N< float >())
-    {
-        magIn.load (&mag[i]);
-        phaseIn.load (&phase[i]);
-        realOut = mipp::cos (phaseIn) * magIn;
-        imagOut = mipp::sin (phaseIn) * magIn;
-        realOut.store (&dst[i * 2]);
-        imagOut.store (&dst[i * 2 + 1]);
-    }
-
-    float real, imag;
-    for (int i = vecLoopSize; i < count; ++i)
-    {
-        phasor (&real, &imag, phase[i]);
-        const auto m_mag = mag[i];
-        dst[i * 2]       = real * m_mag;
-        dst[i * 2 + 1]   = imag * m_mag;
-    }
-#else
-    float real, imag;
-    for (int i = 0; i < count; ++i)
-    {
-        phasor (&real, &imag, phase[i]);
-        real *= mag[i];
-        imag *= mag[i];
-        dst[i * 2]     = real;
-        dst[i * 2 + 1] = imag;
-    }
-#endif
-}
-
-void polar_to_cartesian_interleaved (double* const BV_R_       dst,
-                                     const double* const BV_R_ mag,
-                                     const double* const BV_R_ phase,
-                                     const int                 count)
-{
-#if BV_USE_MIPP
-    const auto vecLoopSize = (count / mipp::N< float >()) * mipp::N< float >();
-
-    mipp::Reg< double > magIn, phaseIn, realOut, imagOut;
-
-    for (int i = 0; i < vecLoopSize; i += mipp::N< float >())
-    {
-        magIn.load (&mag[i]);
-        phaseIn.load (&phase[i]);
-        realOut = mipp::cos (phaseIn) * magIn;
-        imagOut = mipp::sin (phaseIn) * magIn;
-        realOut.store (&dst[i * 2]);
-        imagOut.store (&dst[i * 2 + 1]);
-    }
-
-    double real, imag;
-    for (int i = vecLoopSize; i < count; ++i)
-    {
-        phasor (&real, &imag, phase[i]);
-        const auto m_mag = mag[i];
-        dst[i * 2]       = real * m_mag;
-        dst[i * 2 + 1]   = imag * m_mag;
-    }
-#else
-    double real, imag;
-    for (int i = 0; i < count; ++i)
-    {
-        phasor (&real, &imag, phase[i]);
-        real *= mag[i];
-        imag *= mag[i];
-        dst[i * 2]     = real;
-        dst[i * 2 + 1] = imag;
-    }
-#endif
+    memcpy (dest, source, (size_t) count * sizeof (int));
 }
 
 

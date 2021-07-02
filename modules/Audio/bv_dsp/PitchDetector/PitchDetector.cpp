@@ -215,7 +215,7 @@ int PitchDetector< SampleType >::chooseIdealPeriodCandidate (
         candidateDeltas.add (abs (candidate + adding));
 
     // find the difference between the max & min delta values of the candidates
-    const auto deltaRange = intops::findRangeOfExtrema (
+    const auto deltaRange = vecops::findRangeOfExtrema (
         candidateDeltas.getRawDataPointer(), candidateDeltas.size());
 
     if (deltaRange < 2)  // prevent dividing by zero in the next step...

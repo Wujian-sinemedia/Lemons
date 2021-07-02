@@ -65,54 +65,6 @@
 
 
 /*=======================================================================*/
-/*
- Platform-independant restriction macro to reduce pointer aliasing, allowing for better optimizations. Use with care, this can result in UB!
- */
-
-#if defined __clang__ || defined __GNUC__
-#    define BV_R_ __restrict__
-#else
-#    if defined _MSC_VER || defined __MSVC__
-#        define BV_R_ __restrict
-#    endif
-#endif
-
-#ifndef BV_R_
-#    warning No pointer restriction available for your compiler
-#    define BV_R_
-#endif
-
-/*=======================================================================*/
-/*
- Cross-platform "force inline" macro
- */
-
-#if JUCE_WINDOWS
-#    define BV_FORCE_INLINE __forceinline
-#else
-#    define BV_FORCE_INLINE inline __attribute__ ((always_inline))
-#endif
-
-/*=======================================================================*/
-/*
- Cross-platform macro that creates a CPU wait/sleep inctruction
- */
-
-#if JUCE_INTEL
-#    define BV_WAIT_INSTRUCTION _mm_pause()
-#else
-#    define BV_WAIT_INSTRUCTION __asm__ __volatile__("yield")
-#endif
-
-/*=======================================================================*/
-/*
- An easy way to declare a recursive variadic extension for a function that takes a single argument, ie:
- 
- void doSomething (int data);  // must be defined elsewhere
- BV_DECLARE_RECURSIVE_VARIADIC_FUNCTION (doSomething, int);
- 
- you can now call doSomething() with as long a chain of ints as you like!
- */
 
 #define BV_DECLARE_RECURSIVE_VARIADIC_FUNCTION(funcName, Type) \
     void funcName (Type);                                      \
@@ -158,6 +110,5 @@ using juce::ValueTree;
 
 #include "math/mathHelpers.h"
 #include "math/vecops/vecops.h"
-#include "math/intops/intOps.h"
 
 #include "undo/UndoManager.h"
