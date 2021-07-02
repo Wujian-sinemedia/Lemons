@@ -753,7 +753,7 @@ void normalize (Type* vector, int size)
 
     if (max == Type (0))
     {
-        fill (vector, Type (0), numSamples);
+        fill (vector, Type (0), size);
     }
     else
     {
