@@ -35,13 +35,14 @@
 
 #include "state/state.h"
 #include "state/PluginUndo.h"
-#include "state/PluginPresetManager.h"
 
 #include "processors/ProcessorBase.h"
 
 #include "EditorBase/EditorBase.h"
 
 #include "processors/Processors.h"
+
+#include "presets/PresetManager.h"
 
 
 #ifndef JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP

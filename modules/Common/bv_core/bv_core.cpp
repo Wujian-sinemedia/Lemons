@@ -28,6 +28,4 @@
 
 #include "undo/UndoManager.cpp"
 
-#include "presets/PresetManager.cpp"
-
 #include "events/events.cpp"

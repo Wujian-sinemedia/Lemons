@@ -142,5 +142,3 @@ using juce::File;
 #include "math/intops/intOps.h"
 
 #include "undo/UndoManager.h"
-
-#include "presets/PresetManager.h"

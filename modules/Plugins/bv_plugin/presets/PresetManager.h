@@ -5,7 +5,7 @@ namespace bav
 class PresetManagerBase
 {
 public:
-    PresetManagerBase (SerializableData& stateToUse, UndoManager* um = nullptr);
+    PresetManagerBase (PluginState& stateToUse, UndoManager* um = nullptr);
     virtual ~PresetManagerBase() = default;
 
     virtual std::string getCompanyName()         = 0;
@@ -29,8 +29,8 @@ public:
 private:
     File presetNameToFilePath (const String& presetName);
 
-    UndoManager*      undo;
-    SerializableData& state;
+    UndoManager* undo;
+    PluginState& state;
 
     juce::StringArray namesOfAvailablePresets;
 

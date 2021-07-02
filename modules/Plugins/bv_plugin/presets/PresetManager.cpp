@@ -1,7 +1,7 @@
 
 namespace bav
 {
-PresetManagerBase::PresetManagerBase (SerializableData& stateToUse, UndoManager* um)
+PresetManagerBase::PresetManagerBase (PluginState& stateToUse, UndoManager* um)
     : undo (um), state (stateToUse)
 {
 }
@@ -32,6 +32,7 @@ bool PresetManagerBase::loadPreset (const String& presetName)
     UndoManager::ScopedTransaction s {undo, TRANS ("Loaded preset") + " " + presetName};
 
     serializing::fromBinary (file, state);
+    state.getParameters().refreshAllDefaults();
     presetLoaded.trigger();
     return true;
 }
