@@ -112,9 +112,9 @@ String UndoManager::getNextRedoTransactionName() const
 juce::StringArray UndoManager::getUndoTransactionNames() const
 {
     juce::StringArray names;
-
-    for (auto i = currentStep - 1; i >= 0; --i)
-        names.add (storedStates[i].transactionName);
+    
+    for (auto i = (int) (currentStep - 1); i >= 0; --i)
+        names.add (storedStates[(std::vector< State >::size_type) i].transactionName);
 
     return names;
 }

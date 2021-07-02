@@ -1,8 +1,12 @@
 
-#if BV_USE_VDSP
-#    include <Accelerate/Accelerate.h>
-#elif BV_USE_MIPP
+#if BV_USE_MIPP
 #    include <mipp.h>
+#elif BV_USE_VDSP
+#    include <Accelerate/Accelerate.h>
+#    define BV_VDSP_FUNC_SWITCH(FloatFuncName, DoubleFuncName, ...)               \
+        if constexpr (std::is_same_v< Type, float >) FloatFuncName (__VA_ARGS__); \
+        else                                                                      \
+            DoubleFuncName (__VA_ARGS__);
 #endif
 
 namespace bav::vecops
@@ -26,10 +30,8 @@ void fill (Type* vector, Type value, int count)
     for (int i = vecLoopSize; i < count; ++i)
         vector[i] = value;
 #elif BV_USE_VDSP
-    if constexpr (std::is_same_v< Type, float >)
-        vDSP_vfill (&value, vector, vDSP_Stride (1), vDSP_Length (count));
-    else
-        vDSP_vfillD (&value, vector, vDSP_Stride (1), vDSP_Length (count));
+    BV_VDSP_FUNC_SWITCH (vDSP_vfill, vDSP_vfillD,
+                         &value, vector, vDSP_Stride (1), vDSP_Length (count))
 #else
     juce::FloatVectorOperations::fill (vector, value, count);
 #endif
@@ -81,10 +83,8 @@ void addC (Type* vector, Type value, int count)
     for (int i = vecLoopSize; i < count; ++i)
         vector[i] = vector[i] + value;
 #elif BV_USE_VDSP
-    if constexpr (std::is_same_v< Type, float >)
-        vDSP_vsadd (vector, vDSP_Stride (1), &value, vector, vDSP_Stride (1), vDSP_Length (count));
-    else
-        vDSP_vsaddD (vector, vDSP_Stride (1), &value, vector, vDSP_Stride (1), vDSP_Length (count));
+    BV_VDSP_FUNC_SWITCH (vDSP_vsadd, vDSP_vsaddD,
+                         vector, vDSP_Stride (1), &value, vector, vDSP_Stride (1), vDSP_Length (count))
 #else
     juce::FloatVectorOperations::add (vector, value, count);
 #endif
@@ -118,10 +118,8 @@ void addV (Type* vecA, const Type* vecB, int count)
     for (int i = vecLoopSize; i < count; ++i)
         vecA[i] = vecA[i] + vecB[i];
 #elif BV_USE_VDSP
-    if constexpr (std::is_same_v< Type, float >)
-        vDSP_vadd (vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count));
-    else
-        vDSP_vaddD (vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count));
+    BV_VDSP_FUNC_SWITCH (vDSP_vadd, vDSP_vaddD,
+                         vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count))
 #else
     juce::FloatVectorOperations::add (vecA, vecB, count);
 #endif
@@ -158,10 +156,8 @@ void subtractC (Type* vector, Type value, int count)
 #elif BV_USE_VDSP
     const auto val = -value;
 
-    if constexpr (std::is_same_v< Type, float >)
-        vDSP_vsadd (vector, vDSP_Stride (1), &val, vector, vDSP_Stride (1), vDSP_Length (count));
-    else
-        vDSP_vsaddD (vector, vDSP_Stride (1), &val, vector, vDSP_Stride (1), vDSP_Length (count));
+    BV_VDSP_FUNC_SWITCH (vDSP_vsadd, vDSP_vsaddD,
+                         vector, vDSP_Stride (1), &val, vector, vDSP_Stride (1), vDSP_Length (count))
 #else
     juce::FloatVectorOperations::add (vector, -value, count);
 #endif
@@ -195,10 +191,8 @@ void subtractV (Type* vecA, const Type* vecB, int count)
     for (int i = vecLoopSize; i < count; ++i)
         vecA[i] = vecA[i] - vecB[i];
 #elif BV_USE_VDSP
-    if constexpr (std::is_same_v< Type, float >)
-        vDSP_vsub (vecA, vDSP_Stride (1), vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count));
-    else
-        vDSP_vsubD (vecA, vDSP_Stride (1), vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count));
+    BV_VDSP_FUNC_SWITCH (vDSP_vsub, vDSP_vsubD,
+                         vecA, vDSP_Stride (1), vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count))
 #else
     for (int i = 0; i < count; ++i)
         vecA[i] = vecA[i] - vecB[i];
@@ -234,10 +228,8 @@ void multiplyC (Type* vector, Type value, int count)
     for (int i = vecLoopSize; i < count; ++i)
         vector[i] = vector[i] * value;
 #elif BV_USE_VDSP
-    if constexpr (std::is_same_v< Type, float >)
-        vDSP_vsmul (vector, vDSP_Stride (1), &value, vector, vDSP_Stride (1), vDSP_Length (count));
-    else
-        vDSP_vsmulD (vector, vDSP_Stride (1), &value, vector, vDSP_Stride (1), vDSP_Length (count));
+    BV_VDSP_FUNC_SWITCH (vDSP_vsmul, vDSP_vsmulD,
+                         vector, vDSP_Stride (1), &value, vector, vDSP_Stride (1), vDSP_Length (count))
 #else
     juce::FloatVectorOperations::multiply (vector, value, count);
 #endif
@@ -272,10 +264,8 @@ void multiplyV (Type* vecA, const Type* vecB, int count)
     for (int i = vecLoopSize; i < count; ++i)
         vecA[i] = vecA[i] * vecB[i];
 #elif BV_USE_VDSP
-    if constexpr (std::is_same_v< Type, float >)
-        vDSP_vmul (vecA, vDSP_Stride (1), vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count));
-    else
-        vDSP_vmulD (vecA, vDSP_Stride (1), vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count));
+    BV_VDSP_FUNC_SWITCH (vDSP_vmul, vDSP_vmulD,
+                         vecA, vDSP_Stride (1), vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count))
 #else
     juce::FloatVectorOperations::multiply (vecA, vecB, count);
 #endif
@@ -310,10 +300,8 @@ void divideC (Type* vector, Type value, int count)
     for (int i = vecLoopSize; i < count; ++i)
         vector[i] = vector[i] / value;
 #elif BV_USE_VDSP
-    if constexpr (std::is_same_v< Type, float >)
-        vDSP_vsdiv (vector, vDSP_Stride (1), &value, vector, vDSP_Stride (1), vDSP_Length (count));
-    else
-        vDSP_vsdivD (vector, vDSP_Stride (1), &value, vector, vDSP_Stride (1), vDSP_Length (count));
+    BV_VDSP_FUNC_SWITCH (vDSP_vsdiv, vDSP_vsdivD,
+                         vector, vDSP_Stride (1), &value, vector, vDSP_Stride (1), vDSP_Length (count))
 #else
     juce::FloatVectorOperations::multiply (vector, (Type) 1. / value, count);
 #endif
@@ -350,10 +338,8 @@ void divideV (Type* vecA, const Type* vecB, int count)
     for (int i = vecLoopSize; i < count; ++i)
         vecA[i] = vecA[i] / vecB[i];
 #elif BV_USE_VDSP
-    if constexpr (std::is_same_v< Type, float >)
-        vDSP_vdiv (vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count));
-    else
-        vDSP_vdivD (vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count));
+    BV_VDSP_FUNC_SWITCH (vDSP_vdiv, vDSP_vdivD,
+                         vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count))
 #else
     for (int i = 0; i < count; ++i)
         vecA[i] /= vecB[i];
@@ -388,10 +374,8 @@ void squareRoot (Type* data, int dataSize)
     for (int i = vecLoopSize; i < dataSize; ++i)
         data[i] = sqrt (data[i]);
 #elif BV_USE_VDSP
-    if constexpr (std::is_same_v< Type, float >)
-        vvsqrtf (data, data, &dataSize);
-    else
-        vvsqrt (data, data, &dataSize);
+    BV_VDSP_FUNC_SWITCH (vvsqrtf, vvsqrt,
+                         data, data, &dataSize)
 #else
     for (int i = 0; i < dataSize; ++i)
         data[i] = std::sqrt (data[i]);
@@ -418,10 +402,8 @@ void square (Type* data, int dataSize)
     for (int i = vecLoopSize; i < dataSize; ++i)
         data[i] = data[i] * data[i];
 #elif BV_USE_VDSP
-    if constexpr (std::is_same_v< Type, float >)
-        vDSP_vsq (data, vDSP_Stride (1), data, vDSP_Stride (1), vDSP_Length (dataSize));
-    else
-        vDSP_vsqD (data, vDSP_Stride (1), data, vDSP_Stride (1), vDSP_Length (dataSize));
+    BV_VDSP_FUNC_SWITCH (vDSP_vsq, vDSP_vsqD,
+                         data, vDSP_Stride (1), data, vDSP_Stride (1), vDSP_Length (dataSize))
 #else
     juce::FloatVectorOperations::multiply (data, data, dataSize);
 #endif
@@ -455,10 +437,8 @@ void absVal (Type* data, int dataSize)
     for (int i = vecLoopSize; i < dataSize; ++i)
         data[i] = abs (data[i]);
 #elif BV_USE_VDSP
-    if constexpr (std::is_same_v< Type, float >)
-        vvfabsf (data, data, &dataSize);
-    else
-        vvfabs (data, data, &dataSize);
+    BV_VDSP_FUNC_SWITCH (vvfabsf, vvfabs,
+                         data, data, &dataSize)
 #else
     juce::FloatVectorOperations::abs (data, data, dataSize);
 #endif
@@ -480,11 +460,9 @@ int findIndexOfMinElement (const Type* data, int dataSize)
 #if BV_USE_VDSP
     unsigned long index   = 0.0;
     Type          minimum = Type (0);
-
-    if constexpr (std::is_same_v< Type, float >)
-        vDSP_minvi (data, vDSP_Stride (1), &minimum, &index, vDSP_Length (dataSize));
-    else
-        vDSP_minviD (data, vDSP_Stride (1), &minimum, &index, vDSP_Length (dataSize));
+    
+    BV_VDSP_FUNC_SWITCH (vDSP_minvi, vDSP_minviD,
+                         data, vDSP_Stride (1), &minimum, &index, vDSP_Length (dataSize))
 
     return static_cast< int > (index);
 #else
@@ -507,11 +485,9 @@ int findIndexOfMaxElement (const Type* data, int dataSize)
 #if BV_USE_VDSP
     unsigned long index   = 0.0;
     Type          maximum = Type (0);
-
-    if constexpr (std::is_same_v< Type, float >)
-        vDSP_maxvi (data, vDSP_Stride (1), &maximum, &index, vDSP_Length (dataSize));
-    else
-        vDSP_maxviD (data, vDSP_Stride (1), &maximum, &index, vDSP_Length (dataSize));
+    
+    BV_VDSP_FUNC_SWITCH (vDSP_maxvi, vDSP_maxviD,
+                         data, vDSP_Stride (1), &maximum, &index, vDSP_Length (dataSize))
 
     return static_cast< int > (index);
 #else
@@ -535,11 +511,9 @@ void findMinAndMinIndex (const Type* data,
 {
 #if BV_USE_VDSP
     unsigned long index = 0.0;
-
-    if constexpr (std::is_same_v< Type, float >)
-        vDSP_minvi (data, vDSP_Stride (1), &minimum, &index, vDSP_Length (dataSize));
-    else
-        vDSP_minviD (data, vDSP_Stride (1), &minimum, &index, vDSP_Length (dataSize));
+    
+    BV_VDSP_FUNC_SWITCH (vDSP_minvi, vDSP_minviD,
+                         data, vDSP_Stride (1), &minimum, &index, vDSP_Length (dataSize))
 
     minIndex = static_cast< int > (index);
 #else
@@ -567,11 +541,9 @@ void findMaxAndMaxIndex (const Type* data,
 {
 #if BV_USE_VDSP
     unsigned long index = 0.0;
-
-    if constexpr (std::is_same_v< Type, float >)
-        vDSP_maxvi (data, vDSP_Stride (1), &maximum, &index, vDSP_Length (dataSize));
-    else
-        vDSP_maxviD (data, vDSP_Stride (1), &maximum, &index, vDSP_Length (dataSize));
+    
+    BV_VDSP_FUNC_SWITCH (vDSP_maxvi, vDSP_maxviD,
+                         data, vDSP_Stride (1), &maximum, &index, vDSP_Length (dataSize))
 
     maxIndex = static_cast< int > (index);
 #else
@@ -599,11 +571,9 @@ void locateGreatestAbsMagnitude (const Type* data,
 {
 #if BV_USE_VDSP
     unsigned long i = 0.0;
-
-    if constexpr (std::is_same_v< Type, float >)
-        vDSP_maxmgvi (data, vDSP_Stride (1), &greatestMagnitude, &i, vDSP_Length (dataSize));
-    else
-        vDSP_maxmgviD (data, vDSP_Stride (1), &greatestMagnitude, &i, vDSP_Length (dataSize));
+    
+    BV_VDSP_FUNC_SWITCH (vDSP_maxmgvi, vDSP_maxmgviD,
+                         data, vDSP_Stride (1), &greatestMagnitude, &i, vDSP_Length (dataSize))
 
     index = static_cast< int > (i);
 #else
@@ -657,11 +627,9 @@ void locateLeastAbsMagnitude (const Type* data,
 {
 #if BV_USE_VDSP
     unsigned long i = 0.0;
-
-    if constexpr (std::is_same_v< Type, float >)
-        vDSP_minmgvi (data, vDSP_Stride (1), &leastMagnitude, &i, vDSP_Length (dataSize));
-    else
-        vDSP_minmgviD (data, vDSP_Stride (1), &leastMagnitude, &i, vDSP_Length (dataSize));
+    
+    BV_VDSP_FUNC_SWITCH (vDSP_minmgvi, vDSP_minmgviD,
+                         data, vDSP_Stride (1), &leastMagnitude, &i, vDSP_Length (dataSize))
 
     index = static_cast< int > (i);
 #else
@@ -711,16 +679,12 @@ template < typename Type >
 void findExtrema (const Type* data, int dataSize, Type& min, Type& max)
 {
 #if BV_USE_VDSP
-    if constexpr (std::is_same_v< Type, float >)
-    {
-        vDSP_minv (data, vDSP_Stride (1), &min, vDSP_Length (dataSize));
-        vDSP_maxv (data, vDSP_Stride (1), &max, vDSP_Length (dataSize));
-    }
-    else
-    {
-        vDSP_minvD (data, vDSP_Stride (1), &min, vDSP_Length (dataSize));
-        vDSP_maxvD (data, vDSP_Stride (1), &max, vDSP_Length (dataSize));
-    }
+    
+    BV_VDSP_FUNC_SWITCH (vDSP_minv, vDSP_minvD,
+                         data, vDSP_Stride (1), &min, vDSP_Length (dataSize))
+    
+    BV_VDSP_FUNC_SWITCH (vDSP_maxv, vDSP_maxvD,
+                         data, vDSP_Stride (1), &max, vDSP_Length (dataSize))
 #else
     auto range     = juce::FloatVectorOperations::findMinAndMax (data, dataSize);
     min            = range.getStart();
@@ -765,33 +729,27 @@ void normalize (Type* vector, int size)
 #if BV_USE_VDSP
     Type          max = Type (0);
     unsigned long i   = 0.0;
-
-    if constexpr (std::is_same_v< Type, float >)
-        vDSP_maxmgvi (vector, vDSP_Stride (1), &max, &i, vDSP_Length (size));
-    else
-        vDSP_maxmgviD (vector, vDSP_Stride (1), &max, &i, vDSP_Length (size));
+    
+    BV_VDSP_FUNC_SWITCH (vDSP_maxmgvi, vDSP_maxmgviD,
+                         vector, vDSP_Stride (1), &max, &i, vDSP_Length (size))
 
     if (max == Type (0))
     {
-        if constexpr (std::is_same_v< Type, float >)
-            vDSP_vfill (&max, vector, vDSP_Stride (1), vDSP_Length (size));
-        else
-            vDSP_vfillD (&max, vector, vDSP_Stride (1), vDSP_Length (size));
+        BV_VDSP_FUNC_SWITCH (vDSP_vfill, vDSP_vfillD,
+                             &max, vector, vDSP_Stride (1), vDSP_Length (size))
     }
     else
     {
         const auto oneOverMax = Type (1) / max;
-
-        if constexpr (std::is_same_v< Type, float >)
-            vDSP_vsmul (vector, vDSP_Stride (1), &oneOverMax, vector, vDSP_Stride (1), vDSP_Length (size));
-        else
-            vDSP_vsmulD (vector, vDSP_Stride (1), &oneOverMax, vector, vDSP_Stride (1), vDSP_Length (size));
+        
+        BV_VDSP_FUNC_SWITCH (vDSP_vsmul, vDSP_vsmulD,
+                             vector, vDSP_Stride (1), &oneOverMax, vector, vDSP_Stride (1), vDSP_Length (size))
     }
 #else
     Type max = Type (0);
     int  location;
 
-    locateGreatestAbsMagnitude (vector, numSamples, max, location);
+    locateGreatestAbsMagnitude (vector, size, max, location);
 
     if (max == Type (0))
     {
@@ -799,7 +757,7 @@ void normalize (Type* vector, int size)
     }
     else
     {
-        multiplyC (vector, Type (1) / max, numSamples);
+        multiplyC (vector, Type (1) / max, size);
     }
 #endif
 }
@@ -860,5 +818,8 @@ constexpr bool isUsingFallback()
 {
     return ! (isUsingVDSP() || isUsingMIPP());
 }
+
+
+#undef BV_VDSP_FUNC_SWITCH
 
 }  // namespace bav::vecops
