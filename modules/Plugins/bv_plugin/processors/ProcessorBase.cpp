@@ -10,7 +10,6 @@ ProcessorBase::ProcessorBase (PluginState&                          stateToUse,
       floatEngine (floatEngineToUse),
       doubleEngine (doubleEngineToUse)
 {
-    state.addDataChild (lastSavedEditorSize);
 }
 
 ProcessorBase::LastSavedEditorSize::LastSavedEditorSize (ProcessorBase& b)
