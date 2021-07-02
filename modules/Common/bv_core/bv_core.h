@@ -105,6 +105,24 @@
 #endif
 
 /*=======================================================================*/
+/*
+ An easy way to declare a recursive variadic extension for a function that takes a single argument, ie:
+ 
+ void doSomething (int data);  // must be defined elsewhere
+ BV_DECLARE_RECURSIVE_VARIADIC_FUNCTION (doSomething, int);
+ 
+ you can now call doSomething() with as long a chain of ints as you like!
+ */
+
+#define BV_DECLARE_RECURSIVE_VARIADIC_FUNCTION(funcName, Type) \
+    template < typename... Args >                    \
+    void funcName (Type first, Args&&... rest)         \
+    {                                                \
+        funcName (first);                            \
+        funcName (std::forward< Args > (rest)...);   \
+    }
+
+/*=======================================================================*/
 
 
 #include <juce_audio_utils/juce_audio_utils.h>
@@ -112,10 +130,10 @@
 
 namespace bav
 {
+using juce::File;
 using juce::String;
 using juce::ValueTree;
-using juce::File;
-}
+}  // namespace bav
 
 
 #include "misc/misc.h"

@@ -18,13 +18,7 @@ struct SerializableData
     const juce::Identifier& getDataIdentifier() const { return dataIdentifier; }
 
     void addDataChild (SerializableData& child);
-    
-    template<typename... Args>
-    void addDataChild (SerializableData& firstChild, Args&&... rest)
-    {
-        addDataChild (firstChild);
-        addDataChild (std::forward<Args>(rest)...);
-    }
+    BV_DECLARE_RECURSIVE_VARIADIC_FUNCTION (addDataChild, SerializableData&)
 
 private:
     virtual void toValueTree (ValueTree& t)         = 0;

@@ -34,37 +34,17 @@ public:
         juce::OwnedArray< ParamUpdater > updaters;
     };
 
-    template < typename... Args >
-    void add (ParamHolderBase& param, Args&&... args)
-    {
-        add (param);
-        add (std::forward< Args > (args)...);
-    }
     void add (ParamHolderBase& param);
+    BV_DECLARE_RECURSIVE_VARIADIC_FUNCTION (add, ParamHolderBase&)
 
-    template < typename... Args >
-    void add (StringProperty& param, Args&&... args)
-    {
-        add (param);
-        add (std::forward< Args > (args)...);
-    }
     void add (StringProperty& param);
+    BV_DECLARE_RECURSIVE_VARIADIC_FUNCTION (add, StringProperty&)
 
-    template < typename... Args >
-    void addInternal (StringProperty& param, Args&&... args)
-    {
-        addInternal (param);
-        addInternal (std::forward< Args > (args)...);
-    }
     void addInternal (StringProperty& param);
+    BV_DECLARE_RECURSIVE_VARIADIC_FUNCTION (addInternal, StringProperty&)
 
-    template < typename... Args >
-    void addInternal (ParamHolderBase& param, Args&&... args)
-    {
-        addInternal (param);
-        addInternal (std::forward< Args > (args)...);
-    }
     void addInternal (ParamHolderBase& param);
+    BV_DECLARE_RECURSIVE_VARIADIC_FUNCTION (addInternal, ParamHolderBase&)
 
     void setPitchbendParameter (IntParam& param);
     void setLastMovedMidiControllerNumberParameter (IntParam& param);
