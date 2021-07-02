@@ -1,4 +1,8 @@
 
+#if BV_USE_VDSP
+#    include <Accelerate/Accelerate.h>
+#endif
+
 namespace bav::dsp
 {
 template < typename SampleType >

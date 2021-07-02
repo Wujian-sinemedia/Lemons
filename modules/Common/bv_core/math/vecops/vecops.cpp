@@ -1,4 +1,10 @@
 
+#if BV_USE_VDSP
+#    include <Accelerate/Accelerate.h>
+#elif BV_USE_MIPP
+#    include <mipp.h>
+#endif
+
 namespace bav::vecops
 {
 template < typename Type >
