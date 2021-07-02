@@ -23,3 +23,4 @@
 #include "components/PopupComponent.h"
 #include "components/Buttons.h"
 #include "components/Label.h"
+#include "components/ImageComp.h"

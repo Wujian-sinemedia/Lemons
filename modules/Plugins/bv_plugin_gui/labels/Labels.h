@@ -3,7 +3,7 @@
 namespace bav::gui
 {
 
-struct StringPropertyLabel : juce::Label, private StringProperty::Listener
+struct StringPropertyLabel : Label, private StringProperty::Listener
 {
     StringPropertyLabel (StringProperty& propertyToUse);
     

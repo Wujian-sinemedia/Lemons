@@ -12,8 +12,7 @@ private:
 };
 
 
-class ToggleButton : public juce::ToggleButton,
-                     private BoolParameter::Listener
+class ToggleButton : public ToggleTextButton
 {
 public:
     ToggleButton (BoolParameter& paramToUse, std::function< void (bool) > cb = {});
@@ -21,8 +20,7 @@ public:
     BoolParameter& param;
 
 private:
-    void paramValueChanged (bool newValue) final;
-    void refresh();
+    void clicked_callback (bool state);
 
     std::function< void (bool) > callback;
 };
