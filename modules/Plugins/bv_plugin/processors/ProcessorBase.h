@@ -23,8 +23,7 @@ private:
         ProcessorBase& base;
     };
 
-    virtual BoolParameter&         getMainBypass() const = 0;
-    juce::AudioProcessorParameter* getBypassParameter() const final { return &getMainBypass(); }
+    juce::AudioProcessorParameter* getBypassParameter() const final;
 
     void getStateInformation (juce::MemoryBlock& block) final;
     void setStateInformation (const void* data, int size) final;

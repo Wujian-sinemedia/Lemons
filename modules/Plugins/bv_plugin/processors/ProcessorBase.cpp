@@ -19,6 +19,11 @@ ProcessorBase::LastSavedEditorSize::LastSavedEditorSize (ProcessorBase& b)
 {
 }
 
+juce::AudioProcessorParameter* ProcessorBase::getBypassParameter() const
+{
+    return state.mainBypass.get();
+}
+
 void ProcessorBase::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     if (isUsingDoublePrecision())
@@ -85,13 +90,13 @@ void ProcessorBase::processBlock (juce::AudioBuffer< double >& audio, juce::Midi
 
 void ProcessorBase::processBlockBypassed (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi)
 {
-    getMainBypass().set (true);
+    state.mainBypass->set (true);
     processBlockInternal (audio, midi, floatEngine);
 }
 
 void ProcessorBase::processBlockBypassed (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi)
 {
-    getMainBypass().set (true);
+    state.mainBypass->set (true);
     processBlockInternal (audio, midi, doubleEngine);
 }
 
@@ -106,7 +111,7 @@ void ProcessorBase::processBlockInternal (juce::AudioBuffer< SampleType >& audio
     const auto inBus     = findSubBuffer (busLayout, audio, true);
     auto       outBus    = findSubBuffer (busLayout, audio, false);
 
-    engine.process (inBus, outBus, midi, getMainBypass().get());
+    engine.process (inBus, outBus, midi, state.mainBypass->get());
 }
 
 inline int getIndexOfFirstValidChannelSet (const juce::AudioProcessor::BusesLayout& busLayout,

@@ -6,18 +6,20 @@ namespace bav
 class PluginState : public SerializableData
 {
 public:
-    using SerializableData::SerializableData;
+    PluginState (ParameterList& listToUse, String name = "State");
     
-    virtual ParameterList& getParameters() = 0;
+    ParameterList& getParameters();
     
-    virtual void addTo (juce::AudioProcessor& processor)
-    {
-        getParameters().addParametersTo (processor);
-    }
+    virtual void addTo (juce::AudioProcessor& processor);
+    
+    
+    ToggleParam mainBypass {"Main bypass", "Main bypass", false};
     
 private:
     void toValueTree (ValueTree&) override { }
     void fromValueTree (const ValueTree&) override { }
+    
+    ParameterList& list;
 };
 
 }  // namespace bav

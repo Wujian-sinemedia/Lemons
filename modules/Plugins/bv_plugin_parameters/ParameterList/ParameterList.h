@@ -34,7 +34,6 @@ public:
         juce::OwnedArray< ParamUpdater > updaters;
     };
 
-protected:
     template < typename... Args >
     void add (ParamHolderBase& param, Args&&... args)
     {
