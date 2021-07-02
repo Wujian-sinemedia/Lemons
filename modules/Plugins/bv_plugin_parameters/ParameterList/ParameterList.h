@@ -34,16 +34,10 @@ public:
         juce::OwnedArray< ParamUpdater > updaters;
     };
 
-    void add (ParamHolderBase& param);
     BV_DECLARE_RECURSIVE_VARIADIC_FUNCTION (add, ParamHolderBase&)
-
-    void add (StringProperty& param);
     BV_DECLARE_RECURSIVE_VARIADIC_FUNCTION (add, StringProperty&)
 
-    void addInternal (StringProperty& param);
     BV_DECLARE_RECURSIVE_VARIADIC_FUNCTION (addInternal, StringProperty&)
-
-    void addInternal (ParamHolderBase& param);
     BV_DECLARE_RECURSIVE_VARIADIC_FUNCTION (addInternal, ParamHolderBase&)
 
     void setPitchbendParameter (IntParam& param);

@@ -17,7 +17,6 @@ struct SerializableData
 
     const juce::Identifier& getDataIdentifier() const { return dataIdentifier; }
 
-    void addDataChild (SerializableData& child);
     BV_DECLARE_RECURSIVE_VARIADIC_FUNCTION (addDataChild, SerializableData&)
 
 private:

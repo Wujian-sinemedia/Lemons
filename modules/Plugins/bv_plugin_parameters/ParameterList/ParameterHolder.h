@@ -13,11 +13,7 @@ struct ParamHolderBase
 
     virtual Parameter* getParam() const = 0;
 
-    void addTo (juce::AudioProcessor& processor)
-    {
-        processor.addParameter (&getParam()->rap);
-        addedToProcessor = true;
-    }
+    void addTo (juce::AudioProcessor& processor);
 
     bool isInternal;
 

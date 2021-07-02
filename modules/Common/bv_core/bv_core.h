@@ -115,11 +115,12 @@
  */
 
 #define BV_DECLARE_RECURSIVE_VARIADIC_FUNCTION(funcName, Type) \
-    template < typename... Args >                    \
-    void funcName (Type first, Args&&... rest)         \
-    {                                                \
-        funcName (first);                            \
-        funcName (std::forward< Args > (rest)...);   \
+    void funcName (Type);                                      \
+    template < typename... Args >                              \
+    void funcName (Type first, Args&&... rest)                 \
+    {                                                          \
+        funcName (first);                                      \
+        funcName (std::forward< Args > (rest)...);             \
     }
 
 /*=======================================================================*/

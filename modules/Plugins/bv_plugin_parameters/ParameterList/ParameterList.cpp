@@ -1,6 +1,12 @@
 
 namespace bav
 {
+void ParamHolderBase::addTo (juce::AudioProcessor& processor)
+{
+    processor.addParameter (&getParam()->rap);
+    addedToProcessor = true;
+}
+
 ParameterList::ParameterList (juce::Identifier name, UndoManager* um)
 : SerializableData (name), undo(um)
 {
