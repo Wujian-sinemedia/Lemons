@@ -12,7 +12,7 @@ public:
     virtual ~ParameterProcessorBase() = default;
     
 private:
-    void handleMidiMessage (const juce::MidiMessage& m) final;
+    void handleMidiMessage (const MidiMessage& m) final;
     
     ParameterList& list;
 };

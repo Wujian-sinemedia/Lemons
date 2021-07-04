@@ -8,7 +8,6 @@ class Engine
 {
 public:
     using AudioBuffer = juce::AudioBuffer< SampleType >;
-    using MidiBuffer  = juce::MidiBuffer;
 
     Engine()          = default;
     virtual ~Engine() = default;

@@ -41,10 +41,10 @@ private:
 
     bool supportsDoublePrecisionProcessing() const final { return true; }
 
-    void processBlock (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi) final;
-    void processBlock (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi) final;
-    void processBlockBypassed (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi) final;
-    void processBlockBypassed (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi) final;
+    void processBlock (juce::AudioBuffer< float >& audio, MidiBuffer& midi) final;
+    void processBlock (juce::AudioBuffer< double >& audio, MidiBuffer& midi) final;
+    void processBlockBypassed (juce::AudioBuffer< float >& audio, MidiBuffer& midi) final;
+    void processBlockBypassed (juce::AudioBuffer< double >& audio, MidiBuffer& midi) final;
 
     PluginState& state;
 

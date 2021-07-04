@@ -18,8 +18,8 @@ public:
     
     void setUndoManager (UndoManager& um);
 
-    void processMidi (const juce::MidiBuffer& midiMessages);
-    void processMidiMessage (const juce::MidiMessage& message);
+    void processMidi (const MidiBuffer& midiMessages);
+    void processMidiMessage (const MidiMessage& message);
 
     /* recieves a callback when any of the list's parameters change */
     struct Listener

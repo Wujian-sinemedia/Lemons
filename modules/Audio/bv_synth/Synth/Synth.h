@@ -9,8 +9,6 @@ template < typename SampleType >
 class SynthBase
 {
     using AudioBuffer = juce::AudioBuffer< SampleType >;
-    using MidiBuffer  = juce::MidiBuffer;
-    using MidiMessage = juce::MidiMessage;
     using uint32      = juce::uint32;
     using Voice       = SynthVoiceBase< SampleType >;
     using ADSRParams  = juce::ADSR::Parameters;
@@ -31,7 +29,7 @@ public:
 
     double getSamplerate() const { return sampleRate; }
 
-    void renderVoices (juce::MidiBuffer& midiMessages, juce::AudioBuffer< SampleType >& output);
+    void renderVoices (MidiBuffer& midiMessages, juce::AudioBuffer< SampleType >& output);
 
     void releaseResources();
 
@@ -183,7 +181,7 @@ private:
         MidiChopper (SynthBase& s): synth (s) { }
         
     private:
-        void handleMidiMessage (const juce::MidiMessage& m) final;
+        void handleMidiMessage (const MidiMessage& m) final;
         void renderChunk (juce::AudioBuffer<SampleType>& audio, juce::MidiBuffer&) final;
         
         SynthBase& synth;
@@ -289,8 +287,6 @@ private:
 
     AutomatedHarmonyVoice pedal {*this, false};
     AutomatedHarmonyVoice descant {*this, true};
-
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SynthBase)
 };
 
 

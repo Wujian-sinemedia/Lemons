@@ -9,7 +9,7 @@ MidiChoppingProcessor<SampleType>::MidiChoppingProcessor()
 }
 
 template<typename SampleType>
-void MidiChoppingProcessor<SampleType>::process (juce::AudioBuffer<SampleType>& audio, juce::MidiBuffer& midi)
+void MidiChoppingProcessor<SampleType>::process (juce::AudioBuffer<SampleType>& audio, MidiBuffer& midi)
 {
     auto samplesLeft = audio.getNumSamples();
     
@@ -60,7 +60,7 @@ void MidiChoppingProcessor<SampleType>::process (juce::AudioBuffer<SampleType>& 
 }
 
 template<typename SampleType>
-void MidiChoppingProcessor<SampleType>::processInternal (juce::AudioBuffer<SampleType>& audio, juce::MidiBuffer& midi,
+void MidiChoppingProcessor<SampleType>::processInternal (juce::AudioBuffer<SampleType>& audio, MidiBuffer& midi,
                                                          int startSample, int numSamples)
 {
     juce::AudioBuffer<SampleType> alias {audio.getArrayOfWritePointers(),

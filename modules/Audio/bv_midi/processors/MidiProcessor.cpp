@@ -11,7 +11,7 @@ void MidiProcessor::reset()
     softPedalDown = false;
 }
 
-void MidiProcessor::process (const Buffer& buffer)
+void MidiProcessor::process (const MidiBuffer& buffer)
 {
     std::for_each (buffer.begin(), buffer.end(),
                    [this](const juce::MidiMessageMetadata& m) { process (m); });
@@ -22,7 +22,7 @@ void MidiProcessor::process (const Metadata& meta)
     process (meta.getMessage());
 }
 
-void MidiProcessor::process (const Message& m)
+void MidiProcessor::process (const MidiMessage& m)
 {
     lastMidiChannel = m.getChannel();
     lastMidiTimestamp = static_cast<int> (m.getTimeStamp());

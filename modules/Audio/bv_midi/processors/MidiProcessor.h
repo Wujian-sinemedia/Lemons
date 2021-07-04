@@ -7,15 +7,13 @@ namespace bav::midi
 class MidiProcessor
 {
 public:
-    using Message = juce::MidiMessage;
     using Metadata = juce::MidiMessageMetadata;
-    using Buffer  = juce::MidiBuffer;
     
     void reset();
     
-    void process (const Buffer& buffer);
+    void process (const MidiBuffer& buffer);
     void process (const Metadata& meta);
-    void process (const Message& m);
+    void process (const MidiMessage& m);
     
     int getLastPitchwheelValue() const { return lastPitchwheelValue; }
     int getLastMidiChannel() const { return lastMidiChannel; }

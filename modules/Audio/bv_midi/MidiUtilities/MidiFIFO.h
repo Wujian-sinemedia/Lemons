@@ -25,10 +25,9 @@ public:
 private:
     int numStoredSamples {0};
 
-    juce::MidiBuffer base;
+    MidiBuffer base;
 
-    juce::MidiBuffer
-        copying;  // pre-allocated memory for copying left-over events back to the front of the base buffer after popping events...
+    MidiBuffer copying;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MidiFIFO)
 };

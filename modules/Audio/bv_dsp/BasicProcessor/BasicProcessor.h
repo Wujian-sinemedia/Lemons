@@ -20,7 +20,7 @@ private:
     void prepareToPlay (double samplerate, int blocksize) override;
     void releaseResources() override;
 
-    void processBlock (juce::AudioBuffer< float >&, juce::MidiBuffer&) override { }
+    void processBlock (juce::AudioBuffer< float >&, MidiBuffer&) override { }
 
     double getTailLengthSeconds() const override;
 

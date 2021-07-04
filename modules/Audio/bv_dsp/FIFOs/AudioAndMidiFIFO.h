@@ -9,7 +9,6 @@ class AudioAndMidiFIFO
 {
 public:
     using AudioBuffer = juce::AudioBuffer< SampleType >;
-    using MidiBuffer  = juce::MidiBuffer;
 
     AudioAndMidiFIFO (int channels = 2, int samples = 1024);
 

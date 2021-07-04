@@ -9,7 +9,7 @@ ParameterProcessorBase<SampleType>::ParameterProcessorBase (ParameterList& listT
 }
 
 template<typename SampleType>
-void ParameterProcessorBase<SampleType>::handleMidiMessage (const juce::MidiMessage& m)
+void ParameterProcessorBase<SampleType>::handleMidiMessage (const MidiMessage& m)
 {
     list.processMidiMessage (m);
 }

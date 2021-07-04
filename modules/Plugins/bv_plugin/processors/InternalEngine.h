@@ -13,7 +13,7 @@ public:
     Engine< SampleType >* operator->() { return &engine; }
 
 private:
-    void renderChunk (juce::AudioBuffer< SampleType >& audio, juce::MidiBuffer& midi) final;
+    void renderChunk (juce::AudioBuffer< SampleType >& audio, MidiBuffer& midi) final;
 
     juce::AudioProcessor& processor;
     PluginState&          state;

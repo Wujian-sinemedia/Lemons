@@ -8,7 +8,6 @@ class LatencyEngine : public Engine< SampleType >
 {
 public:
     using AudioBuffer = juce::AudioBuffer< SampleType >;
-    using MidiBuffer  = juce::MidiBuffer;
 
     int  reportLatency() const final { return internalBlocksize; }
     void changeLatency (int newInternalBlocksize);

@@ -131,13 +131,13 @@ void ParameterList::resetAllToDefault()
         string->resetToDefault();
 }
 
-void ParameterList::processMidi (const juce::MidiBuffer& midiMessages)
+void ParameterList::processMidi (const MidiBuffer& midiMessages)
 {
     for (auto meta : midiMessages)
         processMidiMessage (meta.getMessage());
 }
 
-void ParameterList::processMidiMessage (const juce::MidiMessage& message)
+void ParameterList::processMidiMessage (const MidiMessage& message)
 {
     if (message.isController())
         processNewControllerMessage (message.getControllerNumber(), message.getControllerValue());

@@ -77,21 +77,21 @@ void ProcessorBase::LastSavedEditorSize::fromValueTree (const ValueTree& tree)
     base.repaintEditor();
 }
 
-void ProcessorBase::processBlock (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi)
+void ProcessorBase::processBlock (juce::AudioBuffer< float >& audio, MidiBuffer& midi)
 {
     juce::ScopedNoDenormals nodenorms;
 
     floatEngine.process (audio, midi);
 }
 
-void ProcessorBase::processBlock (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi)
+void ProcessorBase::processBlock (juce::AudioBuffer< double >& audio, MidiBuffer& midi)
 {
     juce::ScopedNoDenormals nodenorms;
 
     doubleEngine.process (audio, midi);
 }
 
-void ProcessorBase::processBlockBypassed (juce::AudioBuffer< float >& audio, juce::MidiBuffer& midi)
+void ProcessorBase::processBlockBypassed (juce::AudioBuffer< float >& audio, MidiBuffer& midi)
 {
     juce::ScopedNoDenormals nodenorms;
 
@@ -99,7 +99,7 @@ void ProcessorBase::processBlockBypassed (juce::AudioBuffer< float >& audio, juc
     floatEngine.process (audio, midi);
 }
 
-void ProcessorBase::processBlockBypassed (juce::AudioBuffer< double >& audio, juce::MidiBuffer& midi)
+void ProcessorBase::processBlockBypassed (juce::AudioBuffer< double >& audio, MidiBuffer& midi)
 {
     juce::ScopedNoDenormals nodenorms;
 

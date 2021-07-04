@@ -33,7 +33,7 @@ inline juce::AudioBuffer< SampleType > findSubBuffer (juce::AudioProcessor&     
 }
 
 template < typename SampleType >
-void ProcessorInternalEngine< SampleType >::renderChunk (juce::AudioBuffer< SampleType >& audio, juce::MidiBuffer& midi)
+void ProcessorInternalEngine< SampleType >::renderChunk (juce::AudioBuffer< SampleType >& audio, MidiBuffer& midi)
 {
     const auto busLayout = processor.getBusesLayout();
     const auto inBus     = findSubBuffer (processor, busLayout, audio, true);

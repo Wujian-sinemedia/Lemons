@@ -26,8 +26,8 @@ bool areNotesSamePitchClass (const noteType1 pitch1, const noteType2 pitch2)
 }
 
 
-void copyRangeOfMidiBuffer (const juce::MidiBuffer& readingBuffer,
-                            juce::MidiBuffer&       destBuffer,
+void copyRangeOfMidiBuffer (const MidiBuffer& readingBuffer,
+                            MidiBuffer&       destBuffer,
                             const int               startSampleOfInput,
                             const int               startSampleOfOutput,
                             const int               numSamples)
