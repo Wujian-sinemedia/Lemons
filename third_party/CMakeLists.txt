@@ -48,28 +48,13 @@ if (${BV_USE_MTS_ESP})
 endif()
 
 
-##################
-##### VECOPS #####
-##################
+### vDSP ###
 
-if (NOT DEFINED BV_IGNORE_VDSP)
-    set (BV_IGNORE_VDSP FALSE)
-endif()
-
-if (APPLE AND NOT ${BV_IGNORE_VDSP})
-
-	### vDSP ###
-
+if (DEFINED BV_IGNORE_VDSP)
+    target_compile_definitions (bv_core INTERFACE JUCE_USE_VDSP_FRAMEWORK=0 BV_USE_VDSP=0)
+elseif (APPLE)
     message (STATUS "Configuring vDSP for vecops...")
-
     target_compile_definitions (bv_core INTERFACE JUCE_USE_VDSP_FRAMEWORK=1 BV_USE_VDSP=1)
-
-else()
-
-    ### Fallback ###
-
-    message (STATUS "Using fallback vecops implementations...")
-
 endif()
 
 
