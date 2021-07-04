@@ -1,1 +1,1 @@
-_bv_add_modules (bv_app_utils)
+_bv_add_modules()

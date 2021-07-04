@@ -1,8 +1,10 @@
 macro (_bv_add_modules)
 
-	juce_add_modules (${ARGV})
+	_subdir_list (subdirs ${CMAKE_CURRENT_LIST_DIR})
 
-	list (APPEND modules ${ARGV})
+	juce_add_modules (${subdirs})
+
+	list (APPEND modules ${subdirs})
 
 	set (modules "${modules}" PARENT_SCOPE)
 
@@ -10,12 +12,4 @@ endmacro()
 
 #
 
-add_subdirectory (Common)
-
-add_subdirectory (Audio)
-
-add_subdirectory (GUI)
-
-add_subdirectory (Plugins)
-
-add_subdirectory (Apps)
+_add_all_subdirs()
