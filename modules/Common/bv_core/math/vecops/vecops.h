@@ -133,10 +133,6 @@ void normalize (Type* vector, int size);
 
 extern constexpr bool isUsingVDSP();
 
-extern constexpr bool isUsingIPP();
-
-extern constexpr bool isUsingMIPP();
-
 extern constexpr bool isUsingFallback();
 
 

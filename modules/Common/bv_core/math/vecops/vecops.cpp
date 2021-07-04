@@ -14,22 +14,7 @@ namespace bav::vecops
 template < typename Type >
 void fill (Type* vector, Type value, int count)
 {
-#if BV_USE_MIPP
-    const auto vecLoopSize = (count / mipp::N< Type >()) * mipp::N< Type >();
-
-    mipp::Reg< Type > rout, val;
-
-    val.load (&value);
-
-    for (int i = 0; i < vecLoopSize; i += mipp::N< Type >())
-    {
-        rout = val;
-        rout.store (&vector[i]);
-    }
-
-    for (int i = vecLoopSize; i < count; ++i)
-        vector[i] = value;
-#elif BV_USE_VDSP
+#if BV_USE_VDSP
     BV_VDSP_FUNC_SWITCH (vDSP_vfill, vDSP_vfillD,
                          &value, vector, vDSP_Stride (1), vDSP_Length (count))
 #else
@@ -66,23 +51,7 @@ template void convert (double* const, const float* const, int);
 template < typename Type >
 void addC (Type* vector, Type value, int count)
 {
-#if BV_USE_MIPP
-    const auto vecLoopSize = (count / mipp::N< Type >()) * mipp::N< Type >();
-
-    mipp::Reg< Type > rin, rout, val;
-
-    val.load (&value);
-
-    for (int i = 0; i < vecLoopSize; i += mipp::N< Type >())
-    {
-        rin.load (&vector[i]);
-        rout = rin + val;
-        rout.store (&vector[i]);
-    }
-
-    for (int i = vecLoopSize; i < count; ++i)
-        vector[i] = vector[i] + value;
-#elif BV_USE_VDSP
+#if BV_USE_VDSP
     BV_VDSP_FUNC_SWITCH (vDSP_vsadd, vDSP_vsaddD,
                          vector, vDSP_Stride (1), &value, vector, vDSP_Stride (1), vDSP_Length (count))
 #else
@@ -102,22 +71,7 @@ void addC (int* vector, int value, int count)
 template < typename Type >
 void addV (Type* vecA, const Type* vecB, int count)
 {
-#if BV_USE_MIPP
-    const auto vecLoopSize = (count / mipp::N< Type >()) * mipp::N< Type >();
-
-    mipp::Reg< Type > rAin, rBin, rout;
-
-    for (int i = 0; i < vecLoopSize; i += mipp::N< Type >())
-    {
-        rAin.load (&vecA[i]);
-        rBin.load (&vecB[i]);
-        rout = rAin + rBin;
-        rout.store (&vecA[i]);
-    }
-
-    for (int i = vecLoopSize; i < count; ++i)
-        vecA[i] = vecA[i] + vecB[i];
-#elif BV_USE_VDSP
+#if BV_USE_VDSP
     BV_VDSP_FUNC_SWITCH (vDSP_vadd, vDSP_vaddD,
                          vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count))
 #else
@@ -137,23 +91,7 @@ void addV (int* vecA, const int* vecB, int count)
 template < typename Type >
 void subtractC (Type* vector, Type value, int count)
 {
-#if BV_USE_MIPP
-    const auto vecLoopSize = (count / mipp::N< Type >()) * mipp::N< Type >();
-
-    mipp::Reg< Type > rin, rout, val;
-
-    val.load (&value);
-
-    for (int i = 0; i < vecLoopSize; i += mipp::N< Type >())
-    {
-        rin.load (&vector[i]);
-        rout = rin - val;
-        rout.store (&vector[i]);
-    }
-
-    for (int i = vecLoopSize; i < count; ++i)
-        vector[i] = vector[i] - value;
-#elif BV_USE_VDSP
+#if BV_USE_VDSP
     const auto val = -value;
 
     BV_VDSP_FUNC_SWITCH (vDSP_vsadd, vDSP_vsaddD,
@@ -175,22 +113,7 @@ void subtractC (int* vector, int value, int count)
 template < typename Type >
 void subtractV (Type* vecA, const Type* vecB, int count)
 {
-#if BV_USE_MIPP
-    const auto vecLoopSize = (count / mipp::N< Type >()) * mipp::N< Type >();
-
-    mipp::Reg< Type > rAin, rBin, rout;
-
-    for (int i = 0; i < vecLoopSize; i += mipp::N< Type >())
-    {
-        rAin.load (&vecA[i]);
-        rBin.load (&vecB[i]);
-        rout = rAin - rBin;
-        rout.store (&vecA[i]);
-    }
-
-    for (int i = vecLoopSize; i < count; ++i)
-        vecA[i] = vecA[i] - vecB[i];
-#elif BV_USE_VDSP
+#if BV_USE_VDSP
     BV_VDSP_FUNC_SWITCH (vDSP_vsub, vDSP_vsubD,
                          vecA, vDSP_Stride (1), vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count))
 #else
@@ -211,23 +134,7 @@ void subtractV (int* vecA, const int* vecB, int count)
 template < typename Type >
 void multiplyC (Type* vector, Type value, int count)
 {
-#if BV_USE_MIPP
-    const auto vecLoopSize = (count / mipp::N< Type >()) * mipp::N< Type >();
-
-    mipp::Reg< Type > rin, rout, val;
-
-    val.load (&value);
-
-    for (int i = 0; i < vecLoopSize; i += mipp::N< Type >())
-    {
-        rin.load (&vector[i]);
-        rout = rin * val;
-        rout.store (&vector[i]);
-    }
-
-    for (int i = vecLoopSize; i < count; ++i)
-        vector[i] = vector[i] * value;
-#elif BV_USE_VDSP
+#if BV_USE_VDSP
     BV_VDSP_FUNC_SWITCH (vDSP_vsmul, vDSP_vsmulD,
                          vector, vDSP_Stride (1), &value, vector, vDSP_Stride (1), vDSP_Length (count))
 #else
@@ -248,22 +155,7 @@ void multiplyC (int* vector, int value, int count)
 template < typename Type >
 void multiplyV (Type* vecA, const Type* vecB, int count)
 {
-#if BV_USE_MIPP
-    const auto vecLoopSize = (count / mipp::N< Type >()) * mipp::N< Type >();
-
-    mipp::Reg< Type > rAin, rBin, rout;
-
-    for (int i = 0; i < vecLoopSize; i += mipp::N< Type >())
-    {
-        rAin.load (&vecA[i]);
-        rBin.load (&vecB[i]);
-        rout = rAin * rBin;
-        rout.store (&vecA[i]);
-    }
-
-    for (int i = vecLoopSize; i < count; ++i)
-        vecA[i] = vecA[i] * vecB[i];
-#elif BV_USE_VDSP
+#if BV_USE_VDSP
     BV_VDSP_FUNC_SWITCH (vDSP_vmul, vDSP_vmulD,
                          vecA, vDSP_Stride (1), vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count))
 #else
@@ -283,23 +175,7 @@ void multiplyV (int* vecA, const int* vecB, int count)
 template < typename Type >
 void divideC (Type* vector, Type value, int count)
 {
-#if BV_USE_MIPP
-    const auto vecLoopSize = (count / mipp::N< Type >()) * mipp::N< Type >();
-
-    mipp::Reg< Type > rin, rout, val;
-
-    val.load (&value);
-
-    for (int i = 0; i < vecLoopSize; i += mipp::N< Type >())
-    {
-        rin.load (&vector[i]);
-        rout = rin / val;
-        rout.store (&vector[i]);
-    }
-
-    for (int i = vecLoopSize; i < count; ++i)
-        vector[i] = vector[i] / value;
-#elif BV_USE_VDSP
+#if BV_USE_VDSP
     BV_VDSP_FUNC_SWITCH (vDSP_vsdiv, vDSP_vsdivD,
                          vector, vDSP_Stride (1), &value, vector, vDSP_Stride (1), vDSP_Length (count))
 #else
@@ -322,22 +198,7 @@ void divideC (int* vector, int value, int count)
 template < typename Type >
 void divideV (Type* vecA, const Type* vecB, int count)
 {
-#if BV_USE_MIPP
-    const auto vecLoopSize = (count / mipp::N< Type >()) * mipp::N< Type >();
-
-    mipp::Reg< Type > rAin, rBin, rout;
-
-    for (int i = 0; i < vecLoopSize; i += mipp::N< Type >())
-    {
-        rAin.load (&vecA[i]);
-        rBin.load (&vecB[i]);
-        rout = rAin / rBin;
-        rout.store (&vecA[i]);
-    }
-
-    for (int i = vecLoopSize; i < count; ++i)
-        vecA[i] = vecA[i] / vecB[i];
-#elif BV_USE_VDSP
+#if BV_USE_VDSP
     BV_VDSP_FUNC_SWITCH (vDSP_vdiv, vDSP_vdivD,
                          vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count))
 #else
@@ -359,21 +220,7 @@ void divideV (int* vecA, const int* vecB, int count)
 template < typename Type >
 void squareRoot (Type* data, int dataSize)
 {
-#if BV_USE_MIPP
-    const auto vecLoopSize = (dataSize / mipp::N< Type >()) * mipp::N< Type >();
-
-    mipp::Reg< Type > rin, rout;
-
-    for (int i = 0; i < vecLoopSize; i += mipp::N< Type >())
-    {
-        rin.load (&data[i]);
-        rout = mipp::sqrt (rin);
-        rout.store (&data[i]);
-    }
-
-    for (int i = vecLoopSize; i < dataSize; ++i)
-        data[i] = sqrt (data[i]);
-#elif BV_USE_VDSP
+#if BV_USE_VDSP
     BV_VDSP_FUNC_SWITCH (vvsqrtf, vvsqrt,
                          data, data, &dataSize)
 #else
@@ -387,21 +234,7 @@ template void squareRoot (double*, int);
 template < typename Type >
 void square (Type* data, int dataSize)
 {
-#if BV_USE_MIPP
-    const auto vecLoopSize = (dataSize / mipp::N< Type >()) * mipp::N< Type >();
-
-    mipp::Reg< Type > rin, rout;
-
-    for (int i = 0; i < vecLoopSize; i += mipp::N< Type >())
-    {
-        rin.load (&data[i]);
-        rout = rin * rin;
-        rout.store (&data[i]);
-    }
-
-    for (int i = vecLoopSize; i < dataSize; ++i)
-        data[i] = data[i] * data[i];
-#elif BV_USE_VDSP
+#if BV_USE_VDSP
     BV_VDSP_FUNC_SWITCH (vDSP_vsq, vDSP_vsqD,
                          data, vDSP_Stride (1), data, vDSP_Stride (1), vDSP_Length (dataSize))
 #else
@@ -422,21 +255,7 @@ void square (int* data, int size)
 template < typename Type >
 void absVal (Type* data, int dataSize)
 {
-#if BV_USE_MIPP
-    const auto vecLoopSize = (dataSize / mipp::N< Type >()) * mipp::N< Type >();
-
-    mipp::Reg< Type > rin, rout;
-
-    for (int i = 0; i < vecLoopSize; i += mipp::N< Type >())
-    {
-        rin.load (&data[i]);
-        rout = mipp::abs (rin);
-        rout.store (&data[i]);
-    }
-
-    for (int i = vecLoopSize; i < dataSize; ++i)
-        data[i] = abs (data[i]);
-#elif BV_USE_VDSP
+#if BV_USE_VDSP
     BV_VDSP_FUNC_SWITCH (vvfabsf, vvfabs,
                          data, data, &dataSize)
 #else
@@ -769,31 +588,11 @@ template void normalize (double*, int);
 template < typename Type >
 void copy (const Type* const source, Type* const dest, int count)
 {
-#if BV_USE_MIPP
-    const auto        vecLoopSize = (count / mipp::N< Type >()) * mipp::N< Type >();
-    mipp::Reg< Type > rin, rout;
-
-    for (int i = 0; i < vecLoopSize; i += mipp::N< Type >())
-    {
-        rin.load (&source[i]);
-        rout = rin;
-        rout.store (&dest[i]);
-    }
-
-    for (int i = vecLoopSize; i < count; ++i)
-        dest[i] = source[i];
-#else
     memcpy (dest, source, (size_t) count * sizeof (Type));
-#endif
 }
 template void copy (const float* const, float* const, int);
 template void copy (const double* const, double* const, int);
-
-template <>
-void copy (const int* const source, int* const dest, int count)
-{
-    memcpy (dest, source, (size_t) count * sizeof (int));
-}
+template void copy (const int* const, int* const, int);
 
 
 constexpr bool isUsingVDSP()
@@ -805,18 +604,9 @@ constexpr bool isUsingVDSP()
 #endif
 }
 
-constexpr bool isUsingMIPP()
-{
-#if BV_USE_MIPP
-    return true;
-#else
-    return false;
-#endif
-}
-
 constexpr bool isUsingFallback()
 {
-    return ! (isUsingVDSP() || isUsingMIPP());
+    return ! isUsingVDSP();
 }
 
 

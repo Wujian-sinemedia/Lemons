@@ -43,25 +43,8 @@
 #    endif
 #endif
 
-#if BV_USE_VDSP
-#    undef BV_USE_MIPP
-#    define BV_USE_MIPP 0
-#endif
-
 #undef JUCE_USE_VDSP_FRAMEWORK
 #define JUCE_USE_VDSP_FRAMEWORK BV_USE_VDSP
-
-
-//==============================================================================
-/** Config: BV_USE_MIPP
- 
-    MIPP is a cross-platform SIMD intrinsics library that supports NEON, SSE, AVX and AVX-512.
-    Set this to 1 to use MIPP for vecops SIMD.
-    (Setting this to 1 disables vDSP, IPP and Ne10.)
- */
-#ifndef BV_USE_MIPP
-#    define BV_USE_MIPP 0
-#endif
 
 
 /*=======================================================================*/

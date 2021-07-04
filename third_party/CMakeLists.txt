@@ -56,10 +56,6 @@ if (NOT DEFINED BV_IGNORE_VDSP)
     set (BV_IGNORE_VDSP FALSE)
 endif()
 
-if (NOT DEFINED BV_IGNORE_MIPP)
-    set (BV_IGNORE_MIPP FALSE)
-endif()
-
 if (APPLE AND NOT ${BV_IGNORE_VDSP})
 
 	### vDSP ###
@@ -68,25 +64,6 @@ if (APPLE AND NOT ${BV_IGNORE_VDSP})
 
     target_compile_definitions (bv_core INTERFACE JUCE_USE_VDSP_FRAMEWORK=1 BV_USE_VDSP=1)
 
-elseif (NOT ${BV_IGNORE_MIPP})
-
-	### MIPP ###
-
-    message (STATUS "Configuring MIPP for vecops...")
-
-	add_library (MIPP INTERFACE)
-
-    set (MIPP_DIR "MIPP/src")
-    set (MIPP_SOURCES "${MIPP_DIR}/mipp.h")
-
-	target_sources             (MIPP INTERFACE ${MIPP_SOURCES})
-	target_include_directories (MIPP INTERFACE ${MIPP_DIR})
-	target_compile_definitions (MIPP INTERFACE BV_USE_MIPP=1 MIPP_ENABLE_BACKTRACE=1)
-
-    set_source_files_properties (${MIPP_SOURCES} TARGET_DIRECTORY bv_core PROPERTIES COMPILE_FLAGS "-w")
-
-    target_link_libraries (bv_core INTERFACE MIPP)
-    
 else()
 
     ### Fallback ###
