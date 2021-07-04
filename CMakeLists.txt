@@ -14,8 +14,6 @@ set (CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
 #
 
-set (modules "")
-
 add_subdirectory (CMake)
 
 add_subdirectory (third_party/JUCE)
