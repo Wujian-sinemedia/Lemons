@@ -1,9 +1,6 @@
 [submodule "JUCE"]
 	path = third_party/JUCE
 	url = https://github.com/juce-framework/JUCE.git
-[submodule "third_party/MIPP"]
-	path = third_party/MIPP
-	url = https://github.com/aff3ct/MIPP.git
 [submodule "third_party/MTS-ESP"]
 	path = third_party/MTS-ESP
 	url = https://github.com/ODDSound/MTS-ESP.git
