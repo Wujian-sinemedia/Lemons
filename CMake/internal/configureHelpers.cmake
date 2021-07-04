@@ -84,6 +84,6 @@ function (_configure_juce_app target useBrowser)
         juce::juce_recommended_lto_flags
         juce::juce_recommended_warning_flags)
 
-    target_compile_features (${target} PUBLIC cxx_std_17)
+    target_compile_features (${target} PUBLIC cxx_std_20)
 endfunction()
 

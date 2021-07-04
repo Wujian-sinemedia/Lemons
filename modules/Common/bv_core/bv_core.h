@@ -4,10 +4,10 @@
 
  BEGIN_JUCE_MODULE_DECLARATION
 
- ID:                bv_SharedCode
+ ID:                bv_core
  vendor:            Ben Vining
  version:           0.0.1
- name:              bv_SharedCode
+ name:              bv_core
  description:       General utilities useful for developing plugins.
  dependencies:      juce_audio_utils
  OSXFrameworks:     Accelerate
