@@ -3,6 +3,7 @@
 
 
 #include "SerializableData/TreeReflector/TreeReflector.cpp"
+#include "SerializableData/TreeReflector/detail/helpers.cpp"
 #include "SerializableData/SerializableData.cpp"
 
 #include "Serializing/Specializations/AudioBuffers.cpp"

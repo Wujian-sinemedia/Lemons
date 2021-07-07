@@ -1,5 +1,7 @@
 #pragma once
 
+#include "helpers.h"
+
 namespace bav
 {
 template < typename Type >
@@ -8,7 +10,8 @@ void TreeReflector::add (const String& propertyName, Type& object)
     if constexpr (std::is_pointer< Type >())
     {
         if constexpr (! std::is_null_pointer< Type >())
-            add (propertyName, *object);
+            if (object != nullptr)
+                add (propertyName, *object);
     }
     else
     {
@@ -57,24 +60,6 @@ void TreeReflector::saveObject (const String& propertyName, Type& object)
     tree.setProperty (propertyName, toVar< Type > (object), nullptr);
 }
 
-namespace TreeReflectorHelpers
-{
-template < typename ContainerType >
-void addContainer (TreeReflector& child, const String& propertyName, ContainerType& container)
-{
-    int index = 0;
-
-    const auto makePropertyNameForElement = [&]
-    {
-        return propertyName + "_" + String (index++);
-    };
-
-    for (auto& element : container)
-        child.add (makePropertyNameForElement(), element);
-}
-
-}  // namespace TreeReflectorHelpers
-
 template < class ContainerType >
 void TreeReflector::loadContainer (const String& propertyName, ContainerType& container)
 {
@@ -82,8 +67,11 @@ void TreeReflector::loadContainer (const String& propertyName, ContainerType& co
     if (! child.isValid()) return;
 
     TreeReflector ref {child, true};
-
-    TreeReflectorHelpers::addContainer (ref, propertyName, container);
+    
+    container.clear();
+    container.resize (TreeReflectorHelpers::getNumElementsOfType (propertyName, child));
+    
+    ref.addContainer (container, propertyName);
 }
 
 template < class ContainerType >
@@ -91,10 +79,20 @@ void TreeReflector::saveContainer (const String& propertyName, ContainerType& co
 {
     ValueTree     child {propertyName + "s"};
     TreeReflector ref {child, false};
-
-    TreeReflectorHelpers::addContainer (ref, propertyName, container);
+    
+    ref.addContainer (container, propertyName);
 
     tree.appendChild (ref.getRawDataTree(), nullptr);
+}
+
+template < class ContainerType >
+void TreeReflector::addContainer (ContainerType& container, const String& propertyName)
+{
+    int index = 0;
+    
+    for (auto& element : container)
+        add (TreeReflectorHelpers::makePropertyNameForElement (propertyName, index),
+             element);
 }
 
 }  // namespace bav

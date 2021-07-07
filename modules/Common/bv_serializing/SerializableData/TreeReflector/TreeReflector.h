@@ -32,6 +32,9 @@ private:
 
     template < class ContainerType >
     void saveContainer (const String& propertyName, ContainerType& container);
+    
+    template < class ContainerType >
+    void addContainer (ContainerType& container, const String& propertyName);
 
     void loadDataChild (const String& propertyName, SerializableData& data) const;
     void saveDataChild (const String& propertyName, SerializableData& data);
@@ -42,4 +45,4 @@ private:
 
 }  // namespace bav
 
-#include "detail.h"
+#include "detail/detail.h"

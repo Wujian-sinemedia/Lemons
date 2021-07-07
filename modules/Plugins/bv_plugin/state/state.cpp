@@ -12,6 +12,7 @@ void PluginDimensions::serialize (TreeReflector& ref)
 PluginState::PluginState (ParameterList& listToUse, String pluginName)
 : SerializableData (pluginName + "_State"), dimensions(pluginName + "_Dimensions"), list (listToUse)
 {
+    // list.add (mainBypass);
 }
 
 ParameterList& PluginState::getParameters()
@@ -27,7 +28,6 @@ void PluginState::setDimensions (int width, int height)
 
 void PluginState::addTo (juce::AudioProcessor& processor)
 {
-    list.add (mainBypass);
     list.addParametersTo (processor);
 }
 
