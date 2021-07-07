@@ -1,7 +1,6 @@
 
 namespace bav
 {
-
 juce::MemoryBlock toMemory (const juce::AudioBuffer< float >& buffer)
 {
     juce::MemoryBlock        block;

@@ -3,7 +3,6 @@
 
 namespace bav
 {
-
 template <>
 juce::var toVar (juce::AudioBuffer< float >& buffer);
 

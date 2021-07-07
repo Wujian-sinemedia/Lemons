@@ -4,7 +4,7 @@ UndoManager::UndoManager (SerializableData& stateToManage)
     : state (stateToManage)
 {
     storedStates.reserve (50);
-  //  saveState();
+    //  saveState();
 }
 
 bool UndoManager::isInMiddleOfTransaction() const
@@ -112,7 +112,7 @@ String UndoManager::getNextRedoTransactionName() const
 juce::StringArray UndoManager::getUndoTransactionNames() const
 {
     juce::StringArray names;
-    
+
     for (auto i = (int) (currentStep - 1); i >= 0; --i)
         names.add (storedStates[(std::vector< State >::size_type) i].transactionName);
 
@@ -135,10 +135,9 @@ void UndoManager::loadState (const State& stateToLoad)
     broadcaster.trigger();
 }
 
-UndoManager::State::State (const juce::ValueTree& tree, const String& name)
+UndoManager::State::State (const ValueTree& tree, const String& name)
+: state (tree), transactionName (name)
 {
-    state           = tree;
-    transactionName = name;
 }
 
 UndoManager::ScopedTransaction::ScopedTransaction (UndoManager* um, const String& name)

@@ -83,10 +83,6 @@ using juce::MidiMessage;
 #include "events/Listener.h"
 #include "events/Timers.h"
 
-#include "serializing/SerializableData/SerializableData.h"
-#include "serializing/Serializing/Specializations/AudioBuffers.h"
-#include "serializing/Serializing/Serializing.h"
-
 #include "files/FileUtilities.h"
 
 #include "binary_data/BinaryDataHelpers.h"
@@ -95,5 +91,3 @@ using juce::MidiMessage;
 
 #include "math/mathHelpers.h"
 #include "math/vecops/vecops.h"
-
-#include "undo/UndoManager.h"

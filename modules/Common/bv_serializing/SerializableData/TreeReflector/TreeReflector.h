@@ -1,5 +1,7 @@
 #pragma once
 
+#include <bv_core/bv_core.h>
+
 namespace bav
 {
 template < typename Type >

@@ -2,6 +2,8 @@
 
 #include "ValueTreeToJson/valuetree_json_converter.h"
 
+#include "Specializations/AudioBuffers.h"
+
 namespace bav::serializing
 {
 void toBinary (SerializableData& data, File file);

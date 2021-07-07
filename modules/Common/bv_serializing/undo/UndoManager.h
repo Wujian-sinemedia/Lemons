@@ -43,10 +43,10 @@ public:
 private:
     struct State
     {
-        State (const juce::ValueTree& tree, const String& name);
+        State (const ValueTree& tree, const String& name);
 
-        juce::ValueTree state;
-        String          transactionName;
+        ValueTree state;
+        String    transactionName;
     };
 
     void saveState();
