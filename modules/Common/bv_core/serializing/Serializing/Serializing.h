@@ -1,5 +1,7 @@
 #pragma once
 
+#include "ValueTreeToJson/valuetree_json_converter.h"
+
 namespace bav::serializing
 {
 void toBinary (SerializableData& data, File file);

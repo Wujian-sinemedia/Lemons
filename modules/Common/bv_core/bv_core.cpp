@@ -10,7 +10,7 @@
 #include "serializing/SerializableData/TreeReflector/TreeReflector.cpp"
 #include "serializing/SerializableData/SerializableData.cpp"
 #include "serializing/Serializing/Specializations/AudioBuffers.cpp"
-#include "serializing/ValueTreeToJson/valuetree_json_converter.cpp"
+#include "serializing/Serializing/ValueTreeToJson/valuetree_json_converter.cpp"
 #include "serializing/Serializing/Serializing.cpp"
 
 #include "files/FileUtilities.cpp"
