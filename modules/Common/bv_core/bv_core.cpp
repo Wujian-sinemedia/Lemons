@@ -7,7 +7,7 @@
 #include "misc/misc.cpp"
 #include "misc/ValueSmoother.cpp"
 
-#include "serializing/SerializableData/TreeReflector.cpp"
+#include "serializing/SerializableData/TreeReflector/TreeReflector.cpp"
 #include "serializing/SerializableData/SerializableData.cpp"
 #include "serializing/Serializing/Specializations/AudioBuffers.cpp"
 #include "serializing/ValueTreeToJson/valuetree_json_converter.cpp"

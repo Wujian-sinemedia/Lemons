@@ -208,9 +208,9 @@ void Parameter::serialize (TreeReflector& ref)
     
     if (ref.isLoading())
     {
-        setValueInternal (tree.getProperty ("ParameterValue"));
-        setDefaultInternal (tree.getProperty ("ParameterDefaultValue"));
-        setMidiControllerInternal (tree.getProperty ("MappedMidiControllerNumber"));
+        setValueInternal (tree.getProperty ("ParameterValue", getCurrentNormalizedValue()));
+        setDefaultInternal (tree.getProperty ("ParameterDefaultValue", getNormalizedDefault()));
+        setMidiControllerInternal (tree.getProperty ("MappedMidiControllerNumber", getMidiControllerNumber()));
     }
     else
     {

@@ -4,6 +4,7 @@ namespace bav
 TreeReflector::TreeReflector (ValueTree treeToUse, bool loading)
     : tree (treeToUse), loadingData (loading)
 {
+    jassert (tree.isValid());
 }
 
 bool TreeReflector::isLoading() const { return loadingData; }

@@ -18,7 +18,7 @@ Type fromVar (juce::var var)
 struct SerializableData;
 
 
-struct TreeReflector
+struct TreeReflector final
 {
     explicit TreeReflector (ValueTree treeToUse, bool loading);
 
@@ -37,23 +37,6 @@ struct TreeReflector
 
 private:
     template<typename Type>
-    void load (const String& propertyName, Type& object)
-    {
-        if constexpr (! std::is_const_v< Type >)
-        {
-            if constexpr (std::is_base_of_v< SerializableData, Type >)
-            {
-                loadDataChild (propertyName, object);
-            }
-            else
-            {
-                if (tree.hasProperty (propertyName))
-                    object = fromVar< Type > (tree.getProperty (propertyName));
-            }
-        }
-    }
-    
-    template<typename Type>
     void save (const String& propertyName, Type& object)
     {
         if constexpr (std::is_base_of_v< SerializableData, Type > && ! std::is_const_v< Type >)
@@ -64,6 +47,25 @@ private:
         {
             tree.setProperty (propertyName, toVar< Type > (object), nullptr);
         }
+    }
+    
+    template<typename Type>
+    void load (const String& propertyName, Type& object)
+    {
+        if constexpr (std::is_const_v< Type >)
+            return;
+        
+        if constexpr (std::is_base_of_v< SerializableData, Type >)
+            loadDataChild (propertyName, object);
+        else
+            replaceObjectFromTree (propertyName, object);
+    }
+    
+    template<typename Type>
+    void replaceObjectFromTree (const String& propertyName, Type& object)
+    {
+        if (tree.hasProperty (propertyName))
+            object = fromVar< Type > (tree.getProperty (propertyName));
     }
     
     void saveDataChild (const String& propertyName, SerializableData& data);
