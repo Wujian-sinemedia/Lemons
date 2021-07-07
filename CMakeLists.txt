@@ -20,8 +20,12 @@ set (CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
 add_subdirectory (CMake)
 
-add_subdirectory (third_party/JUCE)
+add_subdirectory (third_party)
 
 add_subdirectory (modules)
 
-add_subdirectory (third_party)
+#
+
+_configure_ableton_link()
+_configure_mts_esp()
+_configure_vecops()
