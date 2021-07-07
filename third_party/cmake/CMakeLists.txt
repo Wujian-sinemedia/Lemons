@@ -13,3 +13,11 @@ macro (_configure_vecops)
     endif()
 
 endmacro()
+
+macro (_configure_third_party_libs)
+
+    _configure_ableton_link()
+    _configure_mts_esp()
+    _configure_vecops()
+
+endmacro()
