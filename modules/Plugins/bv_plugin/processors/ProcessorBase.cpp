@@ -12,10 +12,15 @@ ProcessorBase::ProcessorBase (PluginState&                          stateToUse,
 {
 }
 
-ProcessorBase::LastSavedEditorSize::LastSavedEditorSize (ProcessorBase& b)
-    : SerializableData ("LastSavedEditorSize"),
-      base (b)
+void ProcessorBase::saveEditorSize (int width, int height)
 {
+    state.setDimensions (width, height);
+    repaintEditor();
+}
+
+juce::Point< int > ProcessorBase::getSavedEditorSize() const
+{
+    return {state.dimensions.width, state.dimensions.height};
 }
 
 juce::AudioProcessorParameter* ProcessorBase::getBypassParameter() const
@@ -58,23 +63,9 @@ void ProcessorBase::getStateInformation (juce::MemoryBlock& block)
     serializing::toBinary (state, block);
 }
 
-void ProcessorBase::LastSavedEditorSize::toValueTree (ValueTree& tree)
-{
-    const auto size = base.getSavedEditorSize();
-    tree.setProperty ("editorSizeX", size.x, nullptr);
-    tree.setProperty ("editorSizeY", size.y, nullptr);
-}
-
 void ProcessorBase::setStateInformation (const void* data, int size)
 {
     serializing::fromBinary (data, size, state);
-}
-
-void ProcessorBase::LastSavedEditorSize::fromValueTree (const ValueTree& tree)
-{
-    base.saveEditorSize (tree.getProperty ("editorSizeX"),
-                         tree.getProperty ("editorSizeY"));
-    base.repaintEditor();
 }
 
 void ProcessorBase::processBlock (juce::AudioBuffer< float >& audio, MidiBuffer& midi)

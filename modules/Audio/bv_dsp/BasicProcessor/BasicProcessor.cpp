@@ -38,18 +38,6 @@ bool BasicProcessorBase::isBusesLayoutSupported (const BusesLayout& layout) cons
     return isValid (layout.getMainInputChannelSet()) && isValid (layout.getMainOutputChannelSet());
 }
 
-void BasicProcessorBase::saveEditorSize (int width, int height)
-{
-    savedEditorSize.x = width;
-    savedEditorSize.y = height;
-    repaintEditor();
-}
-
-juce::Point< int > BasicProcessorBase::getSavedEditorSize() const
-{
-    return savedEditorSize;
-}
-
 void BasicProcessorBase::repaintEditor()
 {
     if (auto* editor = getActiveEditor())

@@ -12,19 +12,11 @@ public:
                    Engine< float >&                      floatEngineToUse,
                    Engine< double >&                     doubleEngineToUse,
                    juce::AudioProcessor::BusesProperties busesLayout);
+    
+    void               saveEditorSize (int width, int height);
+    juce::Point< int > getSavedEditorSize() const;
 
 private:
-    struct LastSavedEditorSize : SerializableData
-    {
-        LastSavedEditorSize (ProcessorBase& b);
-
-    private:
-        void toValueTree (ValueTree& tree) final;
-        void fromValueTree (const ValueTree& tree) final;
-
-        ProcessorBase& base;
-    };
-
     juce::AudioProcessorParameter* getBypassParameter() const final;
 
     void getStateInformation (juce::MemoryBlock& block) final;
@@ -50,8 +42,6 @@ private:
 
     ProcessorInternalEngine< float >  floatEngine;
     ProcessorInternalEngine< double > doubleEngine;
-
-    LastSavedEditorSize lastSavedEditorSize {*this};
 };
 
 }  // namespace bav::dsp

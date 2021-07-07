@@ -11,9 +11,6 @@ public:
                                                                                 .withInput (TRANS ("Input"), juce::AudioChannelSet::stereo(), true)
                                                                                 .withOutput (TRANS ("Output"), juce::AudioChannelSet::stereo(), true));
 
-    void               saveEditorSize (int width, int height);
-    juce::Point< int > getSavedEditorSize() const;
-
     void repaintEditor();
 
 private:
@@ -44,10 +41,6 @@ private:
     juce::AudioProcessorEditor* createEditor() override;
 
     bool isBusesLayoutSupported (const BusesLayout& layout) const override;
-
-    juce::Point< int > savedEditorSize {0, 0};
-
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (BasicProcessorBase)
 };
 
 
