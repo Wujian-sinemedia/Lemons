@@ -107,6 +107,7 @@ juce::AudioBuffer< float > fromVar (juce::var var)
 {
     juce::AudioBuffer< float > buffer;
     stringToBuffer (var.toString(), buffer);
+    return buffer;
 }
 
 template <>
@@ -114,6 +115,7 @@ juce::AudioBuffer< double > fromVar (juce::var var)
 {
     juce::AudioBuffer< double > buffer;
     stringToBuffer (var.toString(), buffer);
+    return buffer;
 }
 
 
