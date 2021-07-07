@@ -1,15 +1,24 @@
-macro (_bv_add_modules)
 
-	_subdir_list (subdirs ${CMAKE_CURRENT_LIST_DIR})
+macro (bv_add_modules dir)
 
-	juce_add_modules (${subdirs})
+	_subdir_list (moduleFolders ${dir})
 
-	list (APPEND modules ${subdirs})
+	foreach (folder ${moduleFolders})
+		juce_add_module (${dir}/${folder})
+	endforeach()
 
-	set (modules "${modules}" PARENT_SCOPE)
+	list (APPEND modules ${moduleFolders})
 
 endmacro()
 
 #
 
-_add_all_subdirs()
+_subdir_list (categories ${CMAKE_CURRENT_LIST_DIR})
+
+foreach (category ${categories})
+
+	bv_add_modules ("${CMAKE_CURRENT_LIST_DIR}/${category}")
+
+endforeach()
+
+set (modules "${modules}" PARENT_SCOPE)
