@@ -14,7 +14,7 @@ OscDataSynchronizerBase::OscDataSynchronizerBase (SerializableData&  dataToUse,
                                                       onConnectionLost)
     : DataSynchronizer (dataToUse),
       OscListener (r),
-      addressPattern (formatAddressPattern (dataToUse.getDataIdentifier().toString())),
+      addressPattern (formatAddressPattern ("DataSync"),
       oscSender (s), connectionChecker (s, r), connectionListener (connectionChecker.getBroadcaster(), onConnectionLost)
 {
 }
@@ -42,7 +42,7 @@ void OscDataSynchronizerBase::oscMessageReceived (const juce::OSCMessage& messag
 OscDataSynchronizer::OscDataSynchronizer (SerializableData& dataToUse,
                                           std::function< void() >
                                               onConnectionLost)
-    : OscManager (dataToUse.getDataIdentifier().toString()),
+    : OscManager ("OscDataSync"),
 sync (dataToUse, sender, receiver, onConnectionLost)
 {
 }

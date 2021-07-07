@@ -13,17 +13,15 @@ struct SerializableData
     SerializableData& operator= (SerializableData& other);
 
     ValueTree serialize();
-    void deserialize (const ValueTree& tree);
-
-    const juce::Identifier& getDataIdentifier() const { return dataIdentifier; }
+    void      deserialize (const ValueTree& tree);
 
 private:
     friend struct TreeReflector;
-    
+
     virtual void serialize (TreeReflector& ref) = 0;
-    
+
     ValueTree saveToTree (const String& treeName);
-    void restoreFromTree (const ValueTree& newTree);
+    void      restoreFromTree (const ValueTree& newTree);
 
     const juce::Identifier dataIdentifier;
 };

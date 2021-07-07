@@ -12,7 +12,7 @@ StringProperty::StringProperty (const String& propertyName, const String& defaul
 
 String StringProperty::getPropertyName() const
 {
-    return this->getDataIdentifier().toString();
+    return "StringProperty";
 }
 
 void StringProperty::refreshDefault()

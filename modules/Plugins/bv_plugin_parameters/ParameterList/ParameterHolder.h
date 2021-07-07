@@ -3,12 +3,12 @@
 
 namespace bav
 {
-struct ParamHolderBase
+struct ParamHolderBase : SerializableData
 {
     ParamHolderBase (bool internal = false) : isInternal (internal) { }
     
     Parameter* operator->() { return getParam(); }
-
+    
     virtual ~ParamHolderBase() = default;
 
     virtual Parameter* getParam() const = 0;
@@ -18,6 +18,12 @@ struct ParamHolderBase
     bool isInternal;
 
 protected:
+    void serialize (TreeReflector& ref)
+    {
+        ref.add ("Parameter", *getParam());
+        ref.add ("Internal", isInternal);
+    }
+    
     bool addedToProcessor = false;
 };
 

@@ -9,14 +9,16 @@ TreeReflector::TreeReflector (ValueTree treeToUse, bool loading)
 
 bool TreeReflector::isLoading() const { return loadingData; }
 
-void TreeReflector::saveDataChild (const String& propertyName, SerializableData& data)
-{
-    tree.appendChild (data.saveToTree (propertyName), nullptr);
-}
+bool TreeReflector::isSaving() const { return ! isLoading(); }
 
 void TreeReflector::loadDataChild (const String& propertyName, SerializableData& data) const
 {
     data.restoreFromTree (tree.getChildWithName (propertyName));
+}
+
+void TreeReflector::saveDataChild (const String& propertyName, SerializableData& data)
+{
+    tree.appendChild (data.saveToTree (propertyName), nullptr);
 }
 
 ValueTree& TreeReflector::getRawDataTree() { return tree; }

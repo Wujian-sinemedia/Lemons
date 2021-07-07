@@ -51,10 +51,10 @@ private:
     void processNewControllerMessage (int controllerNumber, int controllerValue);
     void processNewPitchwheelMessage (int pitchwheelValue);
 
-    juce::Array< ParamHolderBase* > params;
+    std::vector< ParamHolderBase* > params;
     dsp::BasicProcessorBase         dummyProcessor;
 
-    juce::Array< StringProperty* > strings;
+    std::vector< StringProperty* > strings;
 
     IntParameter* pitchwheelParameter;
     IntParameter* lastMovedControllerNumberParameter;

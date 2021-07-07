@@ -45,47 +45,43 @@ void ParameterList::addInternal (StringProperty& param)
 
 void ParameterList::addParameter (ParamHolderBase& param, bool isInternal)
 {
-    jassert (! params.contains (&param));
-    
     if (undo != nullptr)
         param->setUndoManager (*undo);
 
     param.isInternal = isInternal;
-    params.add (&param);
+    params.emplace_back (&param);
 }
 
 void ParameterList::addStringProperty (StringProperty& property)
 {
-    jassert (! strings.contains (&property));
-    
     if (undo != nullptr)
         property->setUndoManager (*undo);
 
-    strings.add (&property);
+    strings.emplace_back (&property);
 }
 
 void ParameterList::setPitchbendParameter (IntParam& param)
 {
     pitchwheelParameter = param.get();
 
-    if (! params.contains (&param))
-        addParameter (param, false);
+//    if (! params.contains (param))
+//        addParameter (param, false);
 }
 
 void ParameterList::setLastMovedMidiControllerNumberParameter (IntParam& param)
 {
     lastMovedControllerNumberParameter = param.get();
 
-    if (! params.contains (&param))
-        addParameter (param, true);
+//    if (! params.contains (param))
+//        addParameter (param, true);
 }
 
 void ParameterList::setLastMovedMidiControllerValueParameter (IntParam& param)
 {
     lastMovedControllerValueParameter = param.get();
 
-    if (! params.contains (&param))
-        addParameter (param, true);
+//    if (! params.contains (param))
+//        addParameter (param, true);
 }
 
 void ParameterList::addParametersTo (juce::AudioProcessor& processor)
@@ -107,11 +103,8 @@ void ParameterList::addAllParametersAsInternal()
 
 void ParameterList::serialize (TreeReflector& ref)
 {
-    for (auto* holder : params)
-    {
-        auto* param = holder->getParam();
-        ref.add (param->parameterNameVerbose, *param);
-    }
+    ref.add ("Parameter", params);
+    ref.add ("String", strings);
 }
 
 void ParameterList::refreshAllDefaults()

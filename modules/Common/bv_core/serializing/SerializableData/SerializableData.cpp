@@ -28,7 +28,7 @@ void SerializableData::deserialize (const ValueTree& t)
 
 ValueTree SerializableData::saveToTree (const String& treeName)
 {
-    ValueTree tree {treeName};
+    ValueTree     tree {treeName};
     TreeReflector ref {tree, false};
     serialize (ref);
     return tree;
