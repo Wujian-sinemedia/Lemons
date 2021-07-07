@@ -29,18 +29,17 @@ struct TreeReflector
     template < typename Type >
     void add (const String& propertyName, Type& object)
     {
-        if (! loadingData)
-        {
-            if constexpr (std::is_base_of_v< SerializableData, Type > && ! std::is_const_v< Type >)
-            {
-                saveDataChild (propertyName, object);
-            }
-            else
-            {
-                tree.setProperty (propertyName, toVar< Type > (object), nullptr);
-            }
-        }
-        else if constexpr (! std::is_const_v< Type >)
+        if (loadingData)
+            load (propertyName, object);
+        else
+            save (propertyName, object);
+    }
+
+private:
+    template<typename Type>
+    void load (const String& propertyName, Type& object)
+    {
+        if constexpr (! std::is_const_v< Type >)
         {
             if constexpr (std::is_base_of_v< SerializableData, Type >)
             {
@@ -53,8 +52,20 @@ struct TreeReflector
             }
         }
     }
-
-private:
+    
+    template<typename Type>
+    void save (const String& propertyName, Type& object)
+    {
+        if constexpr (std::is_base_of_v< SerializableData, Type > && ! std::is_const_v< Type >)
+        {
+            saveDataChild (propertyName, object);
+        }
+        else
+        {
+            tree.setProperty (propertyName, toVar< Type > (object), nullptr);
+        }
+    }
+    
     void saveDataChild (const String& propertyName, SerializableData& data);
     void loadDataChild (const String& propertyName, SerializableData& data) const;
 

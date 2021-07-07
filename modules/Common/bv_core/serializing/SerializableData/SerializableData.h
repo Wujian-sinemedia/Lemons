@@ -1,7 +1,7 @@
 
 #pragma once
 
-#include "TreeReflector.h"
+#include "Reflector.h"
 
 namespace bav
 {
@@ -13,16 +13,17 @@ struct SerializableData
     SerializableData& operator= (SerializableData& other);
 
     ValueTree serialize();
-    ValueTree serialize (juce::Identifier treeID);
-
     void deserialize (const ValueTree& tree);
 
     const juce::Identifier& getDataIdentifier() const { return dataIdentifier; }
 
 private:
+    friend struct TreeReflector;
+    
     virtual void serialize (TreeReflector& ref) = 0;
-
-    void setTree (const ValueTree& newTree);
+    
+    ValueTree saveToTree (const String& treeName);
+    void restoreFromTree (const ValueTree& newTree);
 
     const juce::Identifier dataIdentifier;
 };

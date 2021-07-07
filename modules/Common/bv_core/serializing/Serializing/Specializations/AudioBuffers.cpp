@@ -1,22 +1,6 @@
 
 namespace bav
 {
-template <>
-juce::var toVar (File& file)
-{
-    if (file.existsAsFile())
-        return file.loadFileAsString();
-
-    return {};
-}
-
-//template<>
-//File fromVar (juce::var var)
-//{
-//
-//}
-
-/*----------------------------------------------------------------------------*/
 
 juce::MemoryBlock toMemory (const juce::AudioBuffer< float >& buffer)
 {

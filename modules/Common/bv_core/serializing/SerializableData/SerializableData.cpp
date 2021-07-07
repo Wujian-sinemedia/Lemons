@@ -15,29 +15,26 @@ SerializableData& SerializableData::operator= (SerializableData& other)
 
 ValueTree SerializableData::serialize()
 {
-    return serialize (dataIdentifier);
+    return saveToTree (dataIdentifier.toString());
 }
-
-ValueTree SerializableData::serialize (juce::Identifier treeID)
-{
-    ValueTree tree {treeID};
-
-    TreeReflector ref {tree, false};
-    serialize (ref);
-
-    return tree;
-}
-
 
 void SerializableData::deserialize (const ValueTree& t)
 {
     if (t.hasType (dataIdentifier))
-        setTree (t);
+        restoreFromTree (t);
     else
-        setTree (t.getChildWithName (dataIdentifier));
+        restoreFromTree (t.getChildWithName (dataIdentifier));
 }
 
-void SerializableData::setTree (const ValueTree& newTree)
+ValueTree SerializableData::saveToTree (const String& treeName)
+{
+    ValueTree tree {treeName};
+    TreeReflector ref {tree, false};
+    serialize (ref);
+    return tree;
+}
+
+void SerializableData::restoreFromTree (const ValueTree& newTree)
 {
     if (! newTree.isValid()) return;
 

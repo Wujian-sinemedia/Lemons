@@ -10,15 +10,12 @@ bool TreeReflector::isLoading() const { return loadingData; }
 
 void TreeReflector::saveDataChild (const String& propertyName, SerializableData& data)
 {
-    tree.appendChild (data.serialize (juce::Identifier (propertyName)), nullptr);
+    tree.appendChild (data.saveToTree (propertyName), nullptr);
 }
 
 void TreeReflector::loadDataChild (const String& propertyName, SerializableData& data) const
 {
-    const auto child = tree.getChildWithName (juce::Identifier (propertyName));
-
-    if (child.isValid())
-        data.deserialize (child);
+    data.restoreFromTree (tree.getChildWithName (propertyName));
 }
 
 ValueTree& TreeReflector::getRawDataTree() { return tree; }
