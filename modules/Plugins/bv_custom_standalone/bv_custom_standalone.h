@@ -9,7 +9,7 @@
  version:            0.0.1
  name:               bv_custom_standalone
  description:        Custom standalone wrapper for juce plugins
- dependencies:       bv_plugin
+ dependencies:       bv_plugin bv_app_utils
 
  END_JUCE_MODULE_DECLARATION
  
@@ -28,6 +28,7 @@
 #if JucePlugin_Build_Standalone && JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP
 
 #    include <bv_plugin/bv_plugin.h>
+#    include <bv_app_utils/bv_app_utils.h>
 
 #    include "Window/StandaloneFilterWindow.h"
 #    include "App/StandaloneFilterApp.h"
