@@ -1,7 +1,7 @@
 
 namespace bav
 {
-TreeReflector::TreeReflector (ValueTree treeToUse, bool loading)
+TreeReflector::TreeReflector (const ValueTree& treeToUse, bool loading)
     : tree (treeToUse), loadingData (loading)
 {
     jassert (tree.isValid());

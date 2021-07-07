@@ -15,6 +15,35 @@
 
 #endif
 
+#include <bv_core/bv_core.h>
+
+namespace bav
+{
+
+template < typename Type >
+juce::var toVar (Type& object)
+{
+    return {object};
+}
+
+template < typename Type >
+Type fromVar (juce::var var)
+{
+    return {var};
+}
+
+
+struct SerializableData;
+
+
+template < typename Type >
+constexpr bool isSerializable()
+{
+    return std::is_base_of< SerializableData, Type >() && ! std::is_const< Type >();
+}
+
+}
+
 
 #include "SerializableData/SerializableData.h"
 #include "Serializing/Serializing.h"
