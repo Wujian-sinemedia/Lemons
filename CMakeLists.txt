@@ -26,6 +26,4 @@ add_subdirectory (modules)
 
 #
 
-_configure_ableton_link()
-_configure_mts_esp()
-_configure_vecops()
+_configure_third_party_libs()
