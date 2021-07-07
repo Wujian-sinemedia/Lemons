@@ -43,17 +43,3 @@
 #include "processors/Processors.h"
 
 #include "presets/PresetManager.h"
-
-
-#ifndef JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP
-#    define JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP 0
-#endif
-
-#ifndef JucePlugin_Build_Standalone
-#    define JucePlugin_Build_Standalone 0
-#endif
-
-#if JucePlugin_Build_Standalone && JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP
-#    include "StandaloneWrapper/Window/StandaloneFilterWindow.h"
-#    include "StandaloneWrapper/App/StandaloneFilterApp.h"
-#endif

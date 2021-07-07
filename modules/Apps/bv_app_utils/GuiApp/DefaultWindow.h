@@ -1,6 +1,6 @@
 #pragma once
 
-#include <bv_core/bv_core.h>
+#include <bv_serializing/bv_serializing.h>
 #include <bv_mobile_utils/bv_mobile_utils.h>
 
 namespace bav
