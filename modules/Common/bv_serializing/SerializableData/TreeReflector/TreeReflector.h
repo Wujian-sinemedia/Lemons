@@ -2,7 +2,6 @@
 
 namespace bav
 {
-
 struct TreeReflector final
 {
     explicit TreeReflector (const ValueTree& treeToUse, bool loading);

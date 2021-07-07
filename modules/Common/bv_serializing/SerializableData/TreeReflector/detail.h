@@ -2,7 +2,6 @@
 
 namespace bav
 {
-
 template < typename Type >
 void TreeReflector::add (const String& propertyName, Type& object)
 {
@@ -60,33 +59,30 @@ void TreeReflector::saveObject (const String& propertyName, Type& object)
 
 namespace TreeReflectorHelpers
 {
-
 template < typename ContainerType >
 void addContainer (TreeReflector& child, const String& propertyName, ContainerType& container)
 {
     int index = 0;
-    
+
     const auto makePropertyNameForElement = [&]
     {
-        const auto name = propertyName + "_" + String (index);
-        ++index;
-        return name;
+        return propertyName + "_" + String (index++);
     };
-    
+
     for (auto& element : container)
         child.add (makePropertyNameForElement(), element);
 }
 
-}
+}  // namespace TreeReflectorHelpers
 
 template < class ContainerType >
 void TreeReflector::loadContainer (const String& propertyName, ContainerType& container)
 {
     const auto child = tree.getChildWithName (propertyName + "s");
     if (! child.isValid()) return;
-    
+
     TreeReflector ref {child, true};
-    
+
     TreeReflectorHelpers::addContainer (ref, propertyName, container);
 }
 
@@ -95,10 +91,10 @@ void TreeReflector::saveContainer (const String& propertyName, ContainerType& co
 {
     ValueTree     child {propertyName + "s"};
     TreeReflector ref {child, false};
-    
+
     TreeReflectorHelpers::addContainer (ref, propertyName, container);
-    
+
     tree.appendChild (ref.getRawDataTree(), nullptr);
 }
 
-}
+}  // namespace bav
