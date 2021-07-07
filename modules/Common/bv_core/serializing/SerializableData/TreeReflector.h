@@ -23,6 +23,8 @@ struct TreeReflector
     explicit TreeReflector (ValueTree treeToUse, bool loading);
 
     bool isLoading() const;
+    
+    ValueTree& getRawDataTree();
 
     template < typename Type >
     void add (const String& propertyName, Type& object)
@@ -52,11 +54,8 @@ struct TreeReflector
         }
     }
 
-    ValueTree& getRawDataTree();
-
 private:
     void saveDataChild (const String& propertyName, SerializableData& data);
-
     void loadDataChild (const String& propertyName, SerializableData& data) const;
 
     ValueTree  tree;

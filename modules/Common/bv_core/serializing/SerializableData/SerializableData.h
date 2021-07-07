@@ -12,11 +12,7 @@ struct SerializableData
 
     SerializableData& operator= (SerializableData& other);
 
-    ValueTree serialize()
-    {
-        return serialize (dataIdentifier);
-    }
-
+    ValueTree serialize();
     ValueTree serialize (juce::Identifier treeID);
 
     void deserialize (const ValueTree& tree);

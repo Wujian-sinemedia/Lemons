@@ -83,7 +83,7 @@ using juce::MidiMessage;
 #include "events/Timers.h"
 
 #include "serializing/SerializableData/SerializableData.h"
-#include "serializing/SerializableData/Specializations.h"
+#include "serializing/Serializing/Specializations/AudioBuffers.h"
 #include "serializing/ValueTreeToJson/valuetree_json_converter.h"
 #include "serializing/Serializing/Serializing.h"
 

@@ -13,6 +13,11 @@ SerializableData& SerializableData::operator= (SerializableData& other)
     return *this;
 }
 
+ValueTree SerializableData::serialize()
+{
+    return serialize (dataIdentifier);
+}
+
 ValueTree SerializableData::serialize (juce::Identifier treeID)
 {
     ValueTree tree {treeID};
