@@ -52,7 +52,6 @@ void ParameterList::addParameter (ParamHolderBase& param, bool isInternal)
 
     param.isInternal = isInternal;
     params.add (&param);
-    addDataChild (*param.getParam());
 }
 
 void ParameterList::addStringProperty (StringProperty& property)
@@ -63,7 +62,6 @@ void ParameterList::addStringProperty (StringProperty& property)
         property->setUndoManager (*undo);
 
     strings.add (&property);
-    addDataChild (property);
 }
 
 void ParameterList::setPitchbendParameter (IntParam& param)
@@ -107,10 +105,13 @@ void ParameterList::addAllParametersAsInternal()
         holder->addTo (dummyProcessor);
 }
 
-void ParameterList::sendCallbackToAllListeners()
+void ParameterList::serialize (TreeReflector& ref)
 {
     for (auto* holder : params)
-        holder->getParam()->sendListenerSyncCallback();
+    {
+        auto* param = holder->getParam();
+        ref.add (param->parameterNameVerbose, *param);
+    }
 }
 
 void ParameterList::refreshAllDefaults()

@@ -23,21 +23,16 @@ void OscManager::disconnect()
     receiver.disconnect();
 }
 
-void OscManager::toValueTree (ValueTree& t)
-{
-    t.setProperty ("PortNumber", portNum, nullptr);
-    t.setProperty ("HostName", hostName, nullptr);
-}
 
-void OscManager::fromValueTree (const ValueTree& t)
+void OscManager::serialize (TreeReflector& ref)
 {
-    const auto newHostName = t.getProperty ("HostName").toString();
-    const auto newPortNum  = int (t.getProperty ("PortNumber"));
-
-    if (newHostName != hostName || newPortNum != portNum)
+    ref.add ("PortNumber", portNum);
+    ref.add ("HostName", hostName);
+    
+    if (ref.isLoading())
     {
         disconnect();
-        connect (newHostName, newPortNum);
+        connect (hostName, portNum);
     }
 }
 

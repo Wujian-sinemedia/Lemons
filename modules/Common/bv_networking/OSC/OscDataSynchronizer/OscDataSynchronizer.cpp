@@ -45,7 +45,6 @@ OscDataSynchronizer::OscDataSynchronizer (SerializableData& dataToUse,
     : OscManager (dataToUse.getDataIdentifier().toString()),
 sync (dataToUse, sender, receiver, onConnectionLost)
 {
-    dataToUse.addDataChild (*this);
 }
 
 }  // namespace bav::network

@@ -56,16 +56,20 @@ void StringProperty::setUndoManager (UndoManager& managerToUse)
     um = &managerToUse;
 }
 
-void StringProperty::toValueTree (ValueTree& tree)
+void StringProperty::serialize (TreeReflector& ref)
 {
-    tree.setProperty ("PropertyValue", get(), nullptr);
-    tree.setProperty ("DefaultValue", getDefault(), nullptr);
-}
-
-void StringProperty::fromValueTree (const ValueTree& tree)
-{
-    setInternal (tree.getProperty ("PropertyValue"));
-    setDefaultInternal (tree.getProperty ("DefaultValue"));
+    auto& tree = ref.getRawDataTree();
+    
+    if (ref.isLoading())
+    {
+        setInternal (tree.getProperty ("PropertyValue"));
+        setDefaultInternal (tree.getProperty ("DefaultValue"));
+    }
+    else
+    {
+        tree.setProperty ("PropertyValue", get(), nullptr);
+        tree.setProperty ("DefaultValue", getDefault(), nullptr);
+    }
 }
 
 void StringProperty::setInternal (const String& newValue)

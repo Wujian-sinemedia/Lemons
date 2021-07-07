@@ -36,8 +36,7 @@ public:
     };
 
 private:
-    void toValueTree (ValueTree& tree) final;
-    void fromValueTree (const ValueTree& tree) final;
+    void serialize (TreeReflector& ref) final;
 
     void setInternal (const String& newValue);
     void setDefaultInternal (const String& newDefault);

@@ -1,127 +1,120 @@
 
 namespace bav
 {
-
-FileSerializer::FileSerializer (File& fileToUse, juce::Identifier dataID)
-: SerializableData (dataID), file(fileToUse), fileContentsPropertyName(file.getFileName() + " file contents")
+template <>
+juce::var toVar (File& file)
 {
-    jassert (! file.isDirectory());
-}
-
-void FileSerializer::toValueTree (ValueTree& t)
-{
-    String data;
-    
     if (file.existsAsFile())
-        data = file.loadFileAsString();
-    
-    t.setProperty (fileContentsPropertyName,
-                   data,
-                   nullptr);
+        return file.loadFileAsString();
+
+    return {};
 }
 
-void FileSerializer::fromValueTree (const ValueTree& t)
-{
-    if (! file.existsAsFile())
-        file.create();
-    
-    file.replaceWithText (t.getProperty (fileContentsPropertyName));
-}
+//template<>
+//File fromVar (juce::var var)
+//{
+//
+//}
 
 /*----------------------------------------------------------------------------*/
 
-template<typename SampleType>
-AudioBufferSerializer<SampleType>::AudioBufferSerializer (juce::AudioBuffer<SampleType>& bufferToSerialize,
-                                                          juce::Identifier dataID)
-: SerializableData(dataID), buffer(bufferToSerialize)
+juce::MemoryBlock toMemory (const juce::AudioBuffer< float >& buffer)
 {
-}
-
-juce::MemoryBlock toMemory (juce::AudioBuffer<float>& buffer)
-{
-    juce::MemoryBlock block;
+    juce::MemoryBlock        block;
     juce::MemoryOutputStream stream {block, false};
-    juce::FlacAudioFormat format;
-    auto writer = format.createWriterFor (&stream, 48000, (unsigned) buffer.getNumChannels(), 24, {}, 0);
-    writer->writeFromAudioSampleBuffer (buffer, 0, buffer.getNumSamples());
-    
+    juce::FlacAudioFormat    format;
+
+    if (auto* writer = format.createWriterFor (&stream, 48000, (unsigned) buffer.getNumChannels(), 24, {}, 0))
+        writer->writeFromAudioSampleBuffer (buffer, 0, buffer.getNumSamples());
+
     return block;
 }
 
-juce::MemoryBlock toMemory (juce::AudioBuffer<double>& buffer)
+juce::MemoryBlock toMemory (const juce::AudioBuffer< double >& buffer)
 {
-    const auto numSamples = buffer.getNumSamples();
+    const auto numSamples  = buffer.getNumSamples();
     const auto numChannels = buffer.getNumChannels();
-    
-    juce::AudioBuffer<float> temp {numSamples, numChannels};
-    
+
+    juce::AudioBuffer< float > temp {numSamples, numChannels};
+
     for (int chan = 0; chan < numChannels; ++chan)
         vecops::convert (temp.getWritePointer (chan), buffer.getReadPointer (chan), numSamples);
-    
+
     return toMemory (temp);
 }
 
-template<typename SampleType>
-String bufferToString (juce::AudioBuffer<SampleType>& buffer)
+template < typename SampleType >
+String bufferToString (const juce::AudioBuffer< SampleType >& buffer)
 {
     return toMemory (buffer).toBase64Encoding();
 }
-template String bufferToString (juce::AudioBuffer<float>&);
-template String bufferToString (juce::AudioBuffer<double>&);
+template String bufferToString (const juce::AudioBuffer< float >&);
+template String bufferToString (const juce::AudioBuffer< double >&);
 
-template<typename SampleType>
-void AudioBufferSerializer<SampleType>::toValueTree (ValueTree& t)
+
+template <>
+juce::var toVar (juce::AudioBuffer< float >& buffer)
 {
-    t.setProperty ("Audio buffer contents",
-                   bufferToString (buffer),
-                   nullptr);
+    return bufferToString (buffer);
 }
 
-void stringToBuffer (const String& string, juce::AudioBuffer<float>& buffer)
+template <>
+juce::var toVar (juce::AudioBuffer< double >& buffer)
+{
+    return bufferToString (buffer);
+}
+
+
+void stringToBuffer (const String& string, juce::AudioBuffer< float >& buffer)
 {
     juce::MemoryBlock mem;
-    
+
     if (mem.fromBase64Encoding (string))
     {
         juce::MemoryInputStream in {mem.getData(), mem.getSize(), false};
-        juce::FlacAudioFormat format;
-        auto reader = format.createReaderFor (&in, false);
-        
-        if (reader != nullptr)
+        juce::FlacAudioFormat   format;
+
+        if (auto* reader = format.createReaderFor (&in, false))
         {
-            auto numChannels = (int) reader->numChannels;
-            auto numSamples = (int) reader->lengthInSamples;
+            const auto numChannels = (int) reader->numChannels;
+            const auto numSamples  = (int) reader->lengthInSamples;
+
             buffer.setSize (numChannels, numSamples);
-            
             reader->read (&buffer, 0, numSamples, 0, true, numChannels > 1);
         }
     }
 }
 
-void stringToBuffer (const String& string, juce::AudioBuffer<double>& buffer)
+void stringToBuffer (const String& string, juce::AudioBuffer< double >& buffer)
 {
-    const auto numSamples = buffer.getNumSamples();
+    const auto numSamples  = buffer.getNumSamples();
     const auto numChannels = buffer.getNumChannels();
-    
-    juce::AudioBuffer<float> temp {numSamples, numChannels};
-    
+
+    juce::AudioBuffer< float > temp {numSamples, numChannels};
+
     for (int chan = 0; chan < numChannels; ++chan)
         vecops::convert (temp.getWritePointer (chan), buffer.getReadPointer (chan), numSamples);
-    
+
     stringToBuffer (string, temp);
-    
+
     for (int chan = 0; chan < numChannels; ++chan)
         vecops::convert (buffer.getWritePointer (chan), temp.getReadPointer (chan), numSamples);
 }
 
-template<typename SampleType>
-void AudioBufferSerializer<SampleType>::fromValueTree (const ValueTree& t)
+
+template <>
+juce::AudioBuffer< float > fromVar (juce::var var)
 {
-    stringToBuffer (t.getProperty ("Audio buffer contents"),
-                    buffer);
+    juce::AudioBuffer< float > buffer;
+    stringToBuffer (var.toString(), buffer);
 }
 
-template struct AudioBufferSerializer<float>;
-template struct AudioBufferSerializer<double>;
-
+template <>
+juce::AudioBuffer< double > fromVar (juce::var var)
+{
+    juce::AudioBuffer< double > buffer;
+    stringToBuffer (var.toString(), buffer);
 }
+
+
+}  // namespace bav

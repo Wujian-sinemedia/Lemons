@@ -202,18 +202,22 @@ void Parameter::sendListenerSyncCallback()
 }
 
 
-void Parameter::toValueTree (ValueTree& tree)
+void Parameter::serialize (TreeReflector& ref)
 {
-    tree.setProperty ("ParameterValue", getCurrentNormalizedValue(), nullptr);
-    tree.setProperty ("ParameterDefaultValue", getNormalizedDefault(), nullptr);
-    tree.setProperty ("MappedMidiControllerNumber", getMidiControllerNumber(), nullptr);
-}
-
-void Parameter::fromValueTree (const ValueTree& tree)
-{
-    setValueInternal (tree.getProperty ("ParameterValue"));
-    setDefaultInternal (tree.getProperty ("ParameterDefaultValue"));
-    setMidiControllerInternal (tree.getProperty ("MappedMidiControllerNumber"));
+    auto& tree = ref.getRawDataTree();
+    
+    if (ref.isLoading())
+    {
+        setValueInternal (tree.getProperty ("ParameterValue"));
+        setDefaultInternal (tree.getProperty ("ParameterDefaultValue"));
+        setMidiControllerInternal (tree.getProperty ("MappedMidiControllerNumber"));
+    }
+    else
+    {
+        tree.setProperty ("ParameterValue", getCurrentNormalizedValue(), nullptr);
+        tree.setProperty ("ParameterDefaultValue", getNormalizedDefault(), nullptr);
+        tree.setProperty ("MappedMidiControllerNumber", getMidiControllerNumber(), nullptr);
+    }
 }
 
 

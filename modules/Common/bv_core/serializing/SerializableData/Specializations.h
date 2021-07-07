@@ -3,32 +3,25 @@
 
 namespace bav
 {
+template <>
+juce::var toVar (File& file);
 
-struct FileSerializer : SerializableData
-{
-    FileSerializer (File& fileToUse, juce::Identifier dataID);
-    
-private:
-    void toValueTree (ValueTree& t) final;
-    void fromValueTree (const ValueTree& t) final;
-    
-    File& file;
-    const juce::Identifier fileContentsPropertyName;
-};
+//template<>
+//File fromVar (juce::var var);
 
 /*----------------------------------------------------------------------------*/
 
-template<typename SampleType>
-struct AudioBufferSerializer : SerializableData
-{
-public:
-    AudioBufferSerializer (juce::AudioBuffer<SampleType>& bufferToSerialize, juce::Identifier dataID);
-    
-private:
-    void toValueTree (ValueTree& t) final;
-    void fromValueTree (const ValueTree& t) final;
-    
-    juce::AudioBuffer<SampleType>& buffer;
-};
 
-}
+template <>
+juce::var toVar (juce::AudioBuffer< float >& buffer);
+
+template <>
+juce::var toVar (juce::AudioBuffer< double >& buffer);
+
+template <>
+juce::AudioBuffer< float > fromVar (juce::var var);
+
+template <>
+juce::AudioBuffer< double > fromVar (juce::var var);
+
+}  // namespace bav

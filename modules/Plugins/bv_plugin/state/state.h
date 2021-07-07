@@ -8,8 +8,7 @@ struct PluginDimensions : SerializableData
 {
     using SerializableData::SerializableData;
     
-    void toValueTree (ValueTree& tree);
-    void fromValueTree (const ValueTree& tree);
+    void serialize (TreeReflector& ref) final;
     
     int width, height;
 };
@@ -30,10 +29,10 @@ public:
     
     PluginDimensions dimensions;
     
-private:
-    void toValueTree (ValueTree&) override { }
-    void fromValueTree (const ValueTree&) override { }
+protected:
+    void serialize (TreeReflector& ref) override;
     
+private:
     ParameterList& list;
 };
 

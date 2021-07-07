@@ -72,8 +72,7 @@ public:
     //==============================================================================
 
 private:
-    void toValueTree (ValueTree& tree) final;
-    void fromValueTree (const ValueTree& tree) final;
+    void serialize (TreeReflector& ref) final;
 
     void setValueInternal (float value);
     void setDefaultInternal (float value);

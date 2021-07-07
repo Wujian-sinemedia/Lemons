@@ -14,8 +14,6 @@ public:
     void refreshAllDefaults();
     void resetAllToDefault();
 
-    void sendCallbackToAllListeners();
-    
     void setUndoManager (UndoManager& um);
 
     void processMidi (const MidiBuffer& midiMessages);
@@ -45,8 +43,7 @@ public:
     void setLastMovedMidiControllerValueParameter (IntParam& param);
 
 private:
-    virtual void toValueTree (ValueTree&) final { }
-    virtual void fromValueTree (const ValueTree&) final { }
+    void serialize (TreeReflector& ref) final;
 
     void addParameter (ParamHolderBase& param, bool isInternal);
     void addStringProperty (StringProperty& property);
