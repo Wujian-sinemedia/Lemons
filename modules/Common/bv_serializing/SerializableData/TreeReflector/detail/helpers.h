@@ -2,6 +2,8 @@
 
 namespace bav::TreeReflectorHelpers
 {
+String propertyNameToContainerName (const String& propertyName);
+
 template < typename Type, std::enable_if_t< std::is_enum_v< Type > > = nullptr >
 Type toEnum (const juce::var& var)
 {
@@ -20,10 +22,8 @@ String makePropertyNameForElement (const String& propertyName, int& index);
 int getNumElementsOfType (const String& propertyName, const ValueTree& tree);
 
 template < class ContainerType >
-void resizeContainer (ContainerType& container, const String& propertyName, const ValueTree& tree)
+void resizeContainer (ContainerType& container, int newSize)
 {
-    const auto newSize = TreeReflectorHelpers::getNumElementsOfType (propertyName, tree);
-
     container.clear();
 
     if constexpr (is_specialization< ContainerType, std::vector >())
@@ -34,6 +34,22 @@ void resizeContainer (ContainerType& container, const String& propertyName, cons
     {
         container.resize (newSize);
     }
+}
+
+template < class ContainerType >
+void addContainer (TreeReflector& ref, ContainerType& container, const String& propertyName)
+{
+    if (ref.isLoading())
+    {
+        resizeContainer (container,
+                         getNumElementsOfType (propertyName, ref.getRawDataTree()));
+    }
+    
+    int index = 0;
+    
+    for (auto& element : container)
+        ref.add (makePropertyNameForElement (propertyName, index),
+                 element);
 }
 
 }  // namespace bav::TreeReflectorHelpers

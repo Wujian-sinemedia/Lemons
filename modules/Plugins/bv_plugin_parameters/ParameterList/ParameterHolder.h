@@ -63,8 +63,8 @@ private:
 namespace bav
 {
 
-using FloatParam = plugin::ParameterHolder< plugin::TypedParameter<float> >;
-using IntParam   = plugin::ParameterHolder< plugin::TypedParameter<int> >;
+using FloatParam = plugin::ParameterHolder< plugin::FloatParameter >;
+using IntParam   = plugin::ParameterHolder< plugin::IntParameter >;
 using BoolParam  = plugin::ParameterHolder< plugin::BoolParameter >;
 
 using dbParam      = plugin::ParameterHolder< plugin::GainParameter >;

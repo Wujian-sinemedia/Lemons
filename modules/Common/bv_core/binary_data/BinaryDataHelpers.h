@@ -1,10 +1,6 @@
 
 #pragma once
 
-#ifndef BV_HAS_BINARY_DATA
-#    define BV_HAS_BINARY_DATA 0
-#endif
-
 #if BV_HAS_BINARY_DATA
 #    include "BinaryData.h"
 #endif
@@ -21,7 +17,7 @@ struct RawData
     bool isValid() const;
 
     const char* data = nullptr;
-    int         size = 0;
+    int         size {0};
 };
 
 /** To easily access some binary data:

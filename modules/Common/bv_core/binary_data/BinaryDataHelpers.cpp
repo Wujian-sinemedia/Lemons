@@ -15,13 +15,12 @@ RawData::RawData (const char* fileToFind)
 
     for (int index = 0; index < namedResourceListSize; ++index)
     {
-        auto binaryName = namedResourceList[index];
-        auto fileName   = getNamedResourceOriginalFilename (binaryName);
-
-        if (fileName == fileToFind)
+        const auto binaryName = namedResourceList[index];
+        
+        if (getNamedResourceOriginalFilename (binaryName) == fileToFind)
         {
             data = BinaryData::getNamedResource (binaryName, size);
-            break;
+            return;
         }
     }
 }

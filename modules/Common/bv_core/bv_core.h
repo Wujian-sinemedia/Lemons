@@ -75,7 +75,6 @@ using juce::MidiMessage;
 
 
 #include "misc/misc.h"
-#include "misc/LockFreeFifo.h"
 #include "misc/ValueSmoother.h"
 #include "misc/TypeTraits.h"
 

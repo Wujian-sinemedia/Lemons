@@ -1,6 +1,11 @@
 
 namespace bav::TreeReflectorHelpers
 {
+String propertyNameToContainerName (const String& propertyName)
+{
+    return propertyName + "s";
+}
+
 String makePropertyNameForElement (const String& propertyName, int& index)
 {
     return propertyName + "_" + String (index++);

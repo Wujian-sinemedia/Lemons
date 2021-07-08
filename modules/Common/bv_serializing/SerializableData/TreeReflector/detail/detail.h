@@ -77,35 +77,23 @@ void TreeReflector::saveObject (const String& propertyName, Type& object)
 template < class ContainerType >
 void TreeReflector::loadContainer (const String& propertyName, ContainerType& container)
 {
-    const auto child = tree.getChildWithName (propertyName + "s");
+    const auto child = tree.getChildWithName (TreeReflectorHelpers::propertyNameToContainerName (propertyName));
     if (! child.isValid()) return;
 
-    TreeReflectorHelpers::resizeContainer (container, propertyName, child);
-
     TreeReflector ref {child, true};
-
-    ref.addContainer (container, propertyName);
+    
+    TreeReflectorHelpers::addContainer (ref, container, propertyName);
 }
 
 template < class ContainerType >
 void TreeReflector::saveContainer (const String& propertyName, ContainerType& container)
 {
-    ValueTree     child {propertyName + "s"};
+    ValueTree     child {TreeReflectorHelpers::propertyNameToContainerName (propertyName)};
     TreeReflector ref {child, false};
-
-    ref.addContainer (container, propertyName);
+    
+    TreeReflectorHelpers::addContainer (ref, container, propertyName);
 
     tree.appendChild (ref.getRawDataTree(), nullptr);
-}
-
-template < class ContainerType >
-void TreeReflector::addContainer (ContainerType& container, const String& propertyName)
-{
-    int index = 0;
-
-    for (auto& element : container)
-        add (TreeReflectorHelpers::makePropertyNameForElement (propertyName, index),
-             element);
 }
 
 }  // namespace bav
