@@ -1,5 +1,5 @@
 
-namespace bav
+namespace bav::plugin
 {
 Parameter::Parameter (RangedParam& p,
                       String       paramNameShort,

@@ -1,5 +1,5 @@
 
-namespace bav
+namespace bav::plugin
 {
 
 template<typename SampleType>

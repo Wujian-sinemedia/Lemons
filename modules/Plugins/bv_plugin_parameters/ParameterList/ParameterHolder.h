@@ -1,7 +1,7 @@
 
 #pragma once
 
-namespace bav
+namespace bav::plugin
 {
 struct ParamHolderBase : SerializableData
 {
@@ -58,16 +58,20 @@ private:
     ParameterType* param;
 };
 
+}  // namespace bav::plugin
 
-using FloatParam = ParameterHolder< FloatParameter >;
-using IntParam   = ParameterHolder< IntParameter >;
-using BoolParam  = ParameterHolder< BoolParameter >;
+namespace bav
+{
 
-using dbParam      = ParameterHolder< GainParameter >;
-using ToggleParam  = ParameterHolder< ToggleParameter >;
-using PercentParam = ParameterHolder< PercentParameter >;
-using HzParam      = ParameterHolder< FrequencyParameter >;
+using FloatParam = plugin::ParameterHolder< plugin::FloatParameter >;
+using IntParam   = plugin::ParameterHolder< plugin::IntParameter >;
+using BoolParam  = plugin::ParameterHolder< plugin::BoolParameter >;
 
-using GainMeter = bav::ParameterHolder< bav::GainMeterParameter >;
+using dbParam      = plugin::ParameterHolder< plugin::GainParameter >;
+using ToggleParam  = plugin::ParameterHolder< plugin::ToggleParameter >;
+using PercentParam = plugin::ParameterHolder< plugin::PercentParameter >;
+using HzParam      = plugin::ParameterHolder< plugin::FrequencyParameter >;
 
-}  // namespace bav
+using GainMeter = plugin::ParameterHolder< plugin::GainMeterParameter >;
+
+}

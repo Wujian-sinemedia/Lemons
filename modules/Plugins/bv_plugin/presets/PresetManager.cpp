@@ -1,7 +1,7 @@
 
-namespace bav
+namespace bav::plugin
 {
-PresetManagerBase::PresetManagerBase (PluginState& stateToUse, UndoManager* um)
+PresetManagerBase::PresetManagerBase (State& stateToUse, UndoManager* um)
     : undo (um), state (stateToUse)
 {
 }

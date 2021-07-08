@@ -1,23 +1,23 @@
 #pragma once
 
-namespace bav::dsp
+namespace bav::plugin
 {
 template < typename SampleType >
 class ProcessorInternalEngine : public ParameterProcessorBase< SampleType >
 {
 public:
-    ProcessorInternalEngine (juce::AudioProcessor& processorToUse,
-                             PluginState&          stateToUse,
-                             Engine< SampleType >& engineToUse);
+    ProcessorInternalEngine (juce::AudioProcessor&      processorToUse,
+                             State&                     stateToUse,
+                             dsp::Engine< SampleType >& engineToUse);
 
-    Engine< SampleType >* operator->() { return &engine; }
+    dsp::Engine< SampleType >* operator->() { return &engine; }
 
 private:
     void renderChunk (juce::AudioBuffer< SampleType >& audio, MidiBuffer& midi) final;
 
-    juce::AudioProcessor& processor;
-    PluginState&          state;
-    Engine< SampleType >& engine;
+    juce::AudioProcessor&      processor;
+    State&                     state;
+    dsp::Engine< SampleType >& engine;
 };
 
 }  // namespace bav::dsp

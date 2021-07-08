@@ -41,24 +41,24 @@ public:
     };
 
 private:
-    struct State
+    struct SavedState
     {
-        State (const ValueTree& tree, const String& name);
+        SavedState (const ValueTree& tree, const String& name);
 
         ValueTree state;
         String    transactionName;
     };
 
     void saveState();
-    void loadState (const State& stateToLoad);
+    void loadState (const SavedState& stateToLoad);
 
     SerializableData& state;
 
     String transactionName;
     bool   changing {false};
 
-    std::vector< State >            storedStates;
-    std::vector< State >::size_type currentStep {0};
+    std::vector< SavedState >            storedStates;
+    std::vector< SavedState >::size_type currentStep {0};
 
     events::Broadcaster broadcaster;
 };

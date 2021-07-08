@@ -1,5 +1,5 @@
 
-namespace bav
+namespace bav::plugin
 {
 StringProperty::StringProperty (const String& propertyName, const String& defaultValue)
     : SerializableData (propertyName),

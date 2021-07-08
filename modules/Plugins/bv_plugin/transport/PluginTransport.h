@@ -6,19 +6,19 @@
 #endif
 
 
-namespace bav
+namespace bav::plugin
 {
 /*
  - metronome for usage in realtime callbacks (tempo syncing FX, LFOs, etc)
  - callbacks on msg thread approx on beats (listeners? -- async updater)
  */
 
-class PluginTransport
+class Transport
 {
 public:
-    PluginTransport() = default;
+    Transport() = default;
 
-    ~PluginTransport() = default;
+    ~Transport() = default;
 
     struct TimeInfo
     {

@@ -1,5 +1,5 @@
 
-namespace bav
+namespace bav::plugin
 {
 
 ParamUpdater::ParamUpdater (Parameter& param, std::function<void()> onValueChange, std::function< void(bool) > onGestureChange)

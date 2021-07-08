@@ -4,14 +4,14 @@
 namespace bav::gui
 {
 
-struct DarkModeSentinel : private BoolParameter::Listener
+struct DarkModeSentinel : private plugin::BoolParameter::Listener
 {
-    DarkModeSentinel (BoolParameter& paramToUse, juce::Component& componentToUse);
+    DarkModeSentinel (plugin::BoolParameter& paramToUse, juce::Component& componentToUse);
     
 private:
     void paramValueChanged (bool) final;
     
-    BoolParameter&   darkModeParameter;
+    plugin::BoolParameter&   darkModeParameter;
     juce::Component& componentToRepaint;
     
 #if JUCE_MAC

@@ -1,12 +1,12 @@
 
 #pragma once
 
-namespace bav::gui
+namespace bav::plugin
 {
 class EditorBase : public juce::AudioProcessorEditor
 {
 public:
-    EditorBase (dsp::ProcessorBase& pbToUse, juce::Point< int > initialSize = {450, 300});
+    EditorBase (ProcessorBase& pbToUse, juce::Point< int > initialSize = {450, 300});
 
 private:
     void initializeSize (int width, int height);
@@ -15,7 +15,7 @@ private:
     void         resized() final;
     virtual void resizeTriggered() { }
 
-    dsp::ProcessorBase& pb;
+    ProcessorBase& pb;
 };
 
 
@@ -25,7 +25,7 @@ class PluginEditor : public EditorBase
 {
 public:
     template < typename... Args >
-    PluginEditor (dsp::ProcessorBase& processorToUse, juce::Point< int > initialSize, Args&&... args)
+    PluginEditor (ProcessorBase& processorToUse, juce::Point< int > initialSize, Args&&... args)
         : EditorBase (processorToUse, initialSize), content (std::forward< Args > (args)...)
     {
         addAndMakeVisible (content);

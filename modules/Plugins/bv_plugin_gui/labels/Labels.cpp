@@ -2,8 +2,8 @@
 namespace bav::gui
 {
 
-StringPropertyLabel::StringPropertyLabel (StringProperty& propertyToUse)
-: Label (propertyToUse.getPropertyName()), StringProperty::Listener (propertyToUse), property (propertyToUse)
+StringPropertyLabel::StringPropertyLabel (plugin::StringProperty& propertyToUse)
+: Label (propertyToUse.getPropertyName()), plugin::StringProperty::Listener (propertyToUse), property (propertyToUse)
 {
     this->onTextChange = [&]{ property->set (getText()); };
 }

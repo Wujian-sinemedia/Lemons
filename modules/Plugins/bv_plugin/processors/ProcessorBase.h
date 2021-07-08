@@ -3,14 +3,14 @@
 
 #include "InternalEngine.h"
 
-namespace bav::dsp
+namespace bav::plugin
 {
-class ProcessorBase : public BasicProcessorBase, private SystemInitializer
+class ProcessorBase : public dsp::BasicProcessorBase, private SystemInitializer
 {
 public:
-    ProcessorBase (PluginState&                          stateToUse,
-                   Engine< float >&                      floatEngineToUse,
-                   Engine< double >&                     doubleEngineToUse,
+    ProcessorBase (State&                          stateToUse,
+                   dsp::Engine< float >&                      floatEngineToUse,
+                   dsp::Engine< double >&                     doubleEngineToUse,
                    juce::AudioProcessor::BusesProperties busesLayout);
     
     void               saveEditorSize (int width, int height);
@@ -38,7 +38,7 @@ private:
     void processBlockBypassed (juce::AudioBuffer< float >& audio, MidiBuffer& midi) final;
     void processBlockBypassed (juce::AudioBuffer< double >& audio, MidiBuffer& midi) final;
 
-    PluginState& state;
+    State& state;
 
     ProcessorInternalEngine< float >  floatEngine;
     ProcessorInternalEngine< double > doubleEngine;

@@ -1,10 +1,10 @@
 #pragma once
 
-namespace bav::dsp
+namespace bav::plugin
 {
 template < class StateType, template < typename SampleType > class EngineType,
-           std::enable_if_t< std::is_base_of< PluginState, StateType >::value >*               = nullptr,
-           std::enable_if_t< std::is_base_of< Engine< float >, EngineType< float > >::value >* = nullptr >
+           std::enable_if_t< std::is_base_of< State, StateType >::value >*               = nullptr,
+           std::enable_if_t< std::is_base_of< dsp::Engine< float >, EngineType< float > >::value >* = nullptr >
 class Processor : public ProcessorBase
 {
 public:
@@ -36,7 +36,7 @@ struct ProcessorWithEditor : ProcessorType
 
     juce::AudioProcessorEditor* createEditor() final
     {
-        return new gui::PluginEditor< ComponentType > (*this, {w, h}, this->state);
+        return new PluginEditor< ComponentType > (*this, {w, h}, this->state);
     }
 
 private:

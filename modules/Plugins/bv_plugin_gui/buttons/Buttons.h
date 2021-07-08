@@ -3,9 +3,9 @@
 namespace bav::gui
 {
 
-struct StringPropertyTextButton : TextButton, private StringProperty::Listener
+struct StringPropertyTextButton : TextButton, private plugin::StringProperty::Listener
 {
-    StringPropertyTextButton (StringProperty& property, std::function< void() > whenClicked);
+    StringPropertyTextButton (plugin::StringProperty& property, std::function< void() > whenClicked);
     
 private:
     void propertyValueChanged (const String& newValue) final;
@@ -15,9 +15,9 @@ private:
 class ToggleButton : public ToggleTextButton
 {
 public:
-    ToggleButton (BoolParameter& paramToUse, std::function< void (bool) > cb = {});
+    ToggleButton (plugin::BoolParameter& paramToUse, std::function< void (bool) > cb = {});
 
-    BoolParameter& param;
+    plugin::BoolParameter& param;
 
 private:
     void clicked_callback (bool state);

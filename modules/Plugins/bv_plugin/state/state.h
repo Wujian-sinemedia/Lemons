@@ -1,10 +1,10 @@
 
 #pragma once
 
-namespace bav
+namespace bav::plugin
 {
 
-struct PluginDimensions : SerializableData
+struct Dimensions : SerializableData
 {
     using SerializableData::SerializableData;
     
@@ -13,10 +13,10 @@ struct PluginDimensions : SerializableData
     int width, height;
 };
 
-class PluginState : public SerializableData
+class State : public SerializableData
 {
 public:
-    PluginState (ParameterList& listToUse, String pluginName = "");
+    State (ParameterList& listToUse, String pluginName = "");
     
     ParameterList& getParameters();
     
@@ -27,7 +27,7 @@ public:
     
     ToggleParam mainBypass {"Main bypass", "Main bypass", false};
     
-    PluginDimensions dimensions;
+    Dimensions dimensions;
     
 protected:
     void serialize (TreeReflector& ref) override;

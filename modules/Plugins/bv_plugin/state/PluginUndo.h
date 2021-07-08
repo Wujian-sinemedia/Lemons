@@ -1,16 +1,16 @@
 #pragma once
 
-namespace bav
+namespace bav::plugin
 {
-struct PluginUndo : UndoManager
+struct Undo : UndoManager
 {
-    PluginUndo (ParameterList& listToManage)
+    Undo (ParameterList& listToManage)
         : UndoManager (listToManage)
     {
         listToManage.setUndoManager (*this);
     }
 
-    PluginUndo (PluginState& stateToManage)
+    Undo (State& stateToManage)
         : UndoManager (stateToManage)
     {
         stateToManage.getParameters().setUndoManager (*this);

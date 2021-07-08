@@ -8,10 +8,10 @@ namespace bav::gui
 class SliderBase : public juce::Slider
 {
 public:
-    SliderBase (Parameter& paramToUse);
+    SliderBase (plugin::Parameter& paramToUse);
 
 private:
-    Parameter& param;
+    plugin::Parameter& param;
 
     void startedDragging() final;
     void stoppedDragging() final;

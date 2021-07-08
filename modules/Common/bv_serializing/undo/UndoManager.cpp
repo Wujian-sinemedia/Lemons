@@ -114,7 +114,7 @@ juce::StringArray UndoManager::getUndoTransactionNames() const
     juce::StringArray names;
 
     for (auto i = (int) (currentStep - 1); i >= 0; --i)
-        names.add (storedStates[(std::vector< State >::size_type) i].transactionName);
+        names.add (storedStates[(std::vector< SavedState >::size_type) i].transactionName);
 
     return names;
 }
@@ -129,13 +129,13 @@ juce::StringArray UndoManager::getRedoTransactionNames() const
     return names;
 }
 
-void UndoManager::loadState (const State& stateToLoad)
+void UndoManager::loadState (const SavedState& stateToLoad)
 {
     state.deserialize (stateToLoad.state);
     broadcaster.trigger();
 }
 
-UndoManager::State::State (const ValueTree& tree, const String& name)
+UndoManager::SavedState::SavedState (const ValueTree& tree, const String& name)
 : state (tree), transactionName (name)
 {
 }

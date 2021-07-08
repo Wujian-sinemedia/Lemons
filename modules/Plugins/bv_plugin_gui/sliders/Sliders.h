@@ -6,12 +6,12 @@
 namespace bav::gui
 {
 class FloatSlider : public SliderBase,
-                    private FloatParameter::Listener
+private plugin::FloatParameter::Listener
 {
 public:
-    FloatSlider (FloatParameter& paramToUse, SliderStyle style = SliderStyle::LinearVertical);
+    FloatSlider (plugin::FloatParameter& paramToUse, SliderStyle style = SliderStyle::LinearVertical);
 
-    FloatParameter& param;
+    plugin::FloatParameter& param;
 
 private:
     void paramValueChanged (float newValue) final;
@@ -26,12 +26,12 @@ private:
 
 
 class IntSlider : public SliderBase,
-                  private IntParameter::Listener
+private plugin::IntParameter::Listener
 {
 public:
-    IntSlider (IntParameter& paramToUse, SliderStyle style = SliderStyle::LinearVertical);
+    IntSlider (plugin::IntParameter& paramToUse, SliderStyle style = SliderStyle::LinearVertical);
 
-    IntParameter& param;
+    plugin::IntParameter& param;
 
 private:
     void paramValueChanged (int newValue) final;

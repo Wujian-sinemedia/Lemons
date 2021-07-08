@@ -1,5 +1,5 @@
 
-namespace bav
+namespace bav::plugin
 {
 void ParamHolderBase::addTo (juce::AudioProcessor& processor)
 {

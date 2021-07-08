@@ -1,7 +1,7 @@
 
 #pragma once
 
-namespace bav
+namespace bav::plugin
 {
 class ParameterList : public SerializableData
 {

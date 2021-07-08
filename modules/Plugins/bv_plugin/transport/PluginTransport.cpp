@@ -1,7 +1,7 @@
 
-namespace bav
+namespace bav::plugin
 {
-PluginTransport::TimeInfo PluginTransport::processNextBlock (juce::AudioPlayHead* playHead)
+Transport::TimeInfo Transport::processNextBlock (juce::AudioPlayHead* playHead)
 {
     if (playHead != nullptr)
         if (playHead->getCurrentPosition (playheadInfo))
@@ -13,7 +13,7 @@ PluginTransport::TimeInfo PluginTransport::processNextBlock (juce::AudioPlayHead
     return fromInternalMetronome();
 }
 
-PluginTransport::TimeInfo PluginTransport::fromPlayheadInfo() const
+Transport::TimeInfo Transport::fromPlayheadInfo() const
 {
     TimeInfo info;
 
@@ -27,7 +27,7 @@ PluginTransport::TimeInfo PluginTransport::fromPlayheadInfo() const
     return info;
 }
 
-PluginTransport::TimeInfo PluginTransport::fromInternalMetronome() const
+Transport::TimeInfo Transport::fromInternalMetronome() const
 {
     TimeInfo info;
 
@@ -39,7 +39,7 @@ PluginTransport::TimeInfo PluginTransport::fromInternalMetronome() const
     return info;
 }
 
-PluginTransport::TimeInfo PluginTransport::fromAbletonLink() const
+Transport::TimeInfo Transport::fromAbletonLink() const
 {
 #if BV_USE_ABLETON_LINK
     TimeInfo info;
@@ -59,7 +59,7 @@ PluginTransport::TimeInfo PluginTransport::fromAbletonLink() const
 #endif
 }
 
-bool PluginTransport::isAbletonLinkEnabled() const
+bool Transport::isAbletonLinkEnabled() const
 {
 #if BV_USE_ABLETON_LINK
     return abletonLink.isEnabled();
@@ -68,7 +68,7 @@ bool PluginTransport::isAbletonLinkEnabled() const
 #endif
 }
 
-int PluginTransport::getNumAbletonLinkSessionPeers() const
+int Transport::getNumAbletonLinkSessionPeers() const
 {
 #if BV_USE_ABLETON_LINK
     return static_cast< int > (abletonLink.numPeers());

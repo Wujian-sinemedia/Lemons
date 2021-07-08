@@ -1,10 +1,10 @@
 
-namespace bav::dsp
+namespace bav::plugin
 {
 template < typename SampleType >
-ProcessorInternalEngine< SampleType >::ProcessorInternalEngine (juce::AudioProcessor& processorToUse,
-                                                                PluginState&          stateToUse,
-                                                                Engine< SampleType >& engineToUse)
+ProcessorInternalEngine< SampleType >::ProcessorInternalEngine (juce::AudioProcessor&      processorToUse,
+                                                                State&                     stateToUse,
+                                                                dsp::Engine< SampleType >& engineToUse)
     : ParameterProcessorBase< SampleType > (stateToUse.getParameters()),
       processor (processorToUse), state (stateToUse), engine (engineToUse)
 {

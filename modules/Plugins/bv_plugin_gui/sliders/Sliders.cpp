@@ -1,9 +1,9 @@
 
 namespace bav::gui
 {
-FloatSlider::FloatSlider (FloatParameter& paramToUse, SliderStyle style)
+FloatSlider::FloatSlider (plugin::FloatParameter& paramToUse, SliderStyle style)
     : SliderBase (paramToUse),
-      FloatParameter::Listener (paramToUse),
+      plugin::FloatParameter::Listener (paramToUse),
       param (paramToUse)
 {
     Slider::valueFromTextFunction = [this] (const juce::String& text)
@@ -37,9 +37,9 @@ void FloatSlider::valueChanged()
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 
-IntSlider::IntSlider (IntParameter& paramToUse, SliderStyle style)
+IntSlider::IntSlider (plugin::IntParameter& paramToUse, SliderStyle style)
     : SliderBase (paramToUse),
-      IntParameter::Listener (paramToUse),
+      plugin::IntParameter::Listener (paramToUse),
       param (paramToUse)
 {
     Slider::valueFromTextFunction = [this] (const juce::String& text)

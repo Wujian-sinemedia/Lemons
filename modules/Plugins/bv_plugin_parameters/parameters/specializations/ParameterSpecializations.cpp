@@ -1,5 +1,5 @@
 
-namespace bav
+namespace bav::plugin
 {
 GainParameter::GainParameter (String                                  paramNameShort,
                               String                                  paramNameVerbose,

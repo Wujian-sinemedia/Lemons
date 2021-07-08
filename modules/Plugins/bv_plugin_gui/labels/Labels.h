@@ -3,14 +3,14 @@
 namespace bav::gui
 {
 
-struct StringPropertyLabel : Label, private StringProperty::Listener
+struct StringPropertyLabel : Label, private plugin::StringProperty::Listener
 {
-    StringPropertyLabel (StringProperty& propertyToUse);
+    StringPropertyLabel (plugin::StringProperty& propertyToUse);
     
 private:
     void propertyValueChanged (const String& newValue) final;
     
-    StringProperty& property;
+    plugin::StringProperty& property;
 };
 
 }

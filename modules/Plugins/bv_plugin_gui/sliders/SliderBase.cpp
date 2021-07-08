@@ -1,7 +1,7 @@
 
 namespace bav::gui
 {
-SliderBase::SliderBase (Parameter& paramToUse)
+SliderBase::SliderBase (plugin::Parameter& paramToUse)
     : param (paramToUse)
 {
     Slider::setName (param.parameterNameVerbose);

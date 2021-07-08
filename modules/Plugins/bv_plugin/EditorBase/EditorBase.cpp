@@ -1,12 +1,12 @@
 
-namespace bav::gui
+namespace bav::plugin
 {
 static inline bool isValidSize (const juce::Point< int >& size)
 {
     return size.x > 0 && size.y > 0;
 }
 
-EditorBase::EditorBase (dsp::ProcessorBase& pbToUse, juce::Point< int > initialSize)
+EditorBase::EditorBase (ProcessorBase& pbToUse, juce::Point< int > initialSize)
     : AudioProcessorEditor (pbToUse), pb (pbToUse)
 {
     setResizable (true, true);

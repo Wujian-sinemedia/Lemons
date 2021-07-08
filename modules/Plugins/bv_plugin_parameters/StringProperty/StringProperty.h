@@ -1,6 +1,6 @@
 #pragma once
 
-namespace bav
+namespace bav::plugin
 {
 class StringProperty : public SerializableData
 {

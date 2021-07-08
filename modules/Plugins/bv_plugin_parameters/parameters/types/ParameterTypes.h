@@ -1,9 +1,9 @@
 
 #pragma once
 
-namespace bav
+namespace bav::plugin
 {
-class FloatParameter : public juce::AudioParameterFloat, public bav::Parameter
+class FloatParameter : public juce::AudioParameterFloat, public Parameter
 {
 public:
     using AudioParameterFloat = juce::AudioParameterFloat;
@@ -60,7 +60,7 @@ public:
  -----------------------------------------------------------------------------------------------------------------------*/
 
 
-class IntParameter : public juce::AudioParameterInt, public bav::Parameter
+class IntParameter : public juce::AudioParameterInt, public Parameter
 {
 public:
     using AudioParameterInt = juce::AudioParameterInt;
@@ -115,7 +115,7 @@ public:
  -----------------------------------------------------------------------------------------------------------------------*/
 
 
-class BoolParameter : public juce::AudioParameterBool, public bav::Parameter
+class BoolParameter : public juce::AudioParameterBool, public Parameter
 {
 public:
     using AudioParameterBool = juce::AudioParameterBool;

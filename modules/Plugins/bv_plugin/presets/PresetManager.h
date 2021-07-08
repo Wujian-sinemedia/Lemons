@@ -1,11 +1,11 @@
 #pragma once
 
-namespace bav
+namespace bav::plugin
 {
 class PresetManagerBase
 {
 public:
-    PresetManagerBase (PluginState& stateToUse, UndoManager* um = nullptr);
+    PresetManagerBase (State& stateToUse, UndoManager* um = nullptr);
     virtual ~PresetManagerBase() = default;
 
     virtual std::string getCompanyName()         = 0;
@@ -30,7 +30,7 @@ private:
     File presetNameToFilePath (const String& presetName);
 
     UndoManager* undo;
-    PluginState& state;
+    State& state;
 
     juce::StringArray namesOfAvailablePresets;
 

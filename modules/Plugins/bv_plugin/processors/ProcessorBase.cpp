@@ -1,9 +1,9 @@
 
-namespace bav::dsp
+namespace bav::plugin
 {
-ProcessorBase::ProcessorBase (PluginState&                          stateToUse,
-                              Engine< float >&                      floatEngineToUse,
-                              Engine< double >&                     doubleEngineToUse,
+ProcessorBase::ProcessorBase (State&                          stateToUse,
+                              dsp::Engine< float >&                      floatEngineToUse,
+                              dsp::Engine< double >&                     doubleEngineToUse,
                               juce::AudioProcessor::BusesProperties busesLayout)
     : BasicProcessorBase (busesLayout),
       state (stateToUse),
