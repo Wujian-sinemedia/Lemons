@@ -51,13 +51,27 @@ template < typename Type >
 void TreeReflector::loadObject (const String& propertyName, Type& object) const
 {
     if (tree.hasProperty (propertyName))
-        object = fromVar< Type > (tree.getProperty (propertyName));
+    {
+        const juce::var& var = tree.getProperty (propertyName);
+
+        if constexpr (std::is_enum< Type >())
+            object = TreeReflectorHelpers::toEnum< Type > (var);
+        else
+            object = fromVar< Type > (var);
+    }
 }
 
 template < typename Type >
 void TreeReflector::saveObject (const String& propertyName, Type& object)
 {
-    tree.setProperty (propertyName, toVar< Type > (object), nullptr);
+    juce::var var;
+
+    if constexpr (std::is_enum< Type >())
+        var = TreeReflectorHelpers::fromEnum (object);
+    else
+        var = toVar (object);
+
+    tree.setProperty (propertyName, var, nullptr);
 }
 
 template < class ContainerType >
@@ -65,11 +79,11 @@ void TreeReflector::loadContainer (const String& propertyName, ContainerType& co
 {
     const auto child = tree.getChildWithName (propertyName + "s");
     if (! child.isValid()) return;
-    
+
     TreeReflectorHelpers::resizeContainer (container, propertyName, child);
-    
+
     TreeReflector ref {child, true};
-    
+
     ref.addContainer (container, propertyName);
 }
 
@@ -78,7 +92,7 @@ void TreeReflector::saveContainer (const String& propertyName, ContainerType& co
 {
     ValueTree     child {propertyName + "s"};
     TreeReflector ref {child, false};
-    
+
     ref.addContainer (container, propertyName);
 
     tree.appendChild (ref.getRawDataTree(), nullptr);
@@ -88,7 +102,7 @@ template < class ContainerType >
 void TreeReflector::addContainer (ContainerType& container, const String& propertyName)
 {
     int index = 0;
-    
+
     for (auto& element : container)
         add (TreeReflectorHelpers::makePropertyNameForElement (propertyName, index),
              element);
