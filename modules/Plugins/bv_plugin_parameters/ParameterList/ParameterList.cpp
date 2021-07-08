@@ -3,7 +3,7 @@ namespace bav::plugin
 {
 void ParamHolderBase::addTo (juce::AudioProcessor& processor)
 {
-    processor.addParameter (&getParam()->rap);
+    processor.addParameter (getParam());
     addedToProcessor = true;
 }
 

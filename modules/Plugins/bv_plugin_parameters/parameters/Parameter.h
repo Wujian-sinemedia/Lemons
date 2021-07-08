@@ -3,16 +3,18 @@
 
 namespace bav::plugin
 {
-class Parameter : public SerializableData
+class Parameter : public juce::RangedAudioParameter, public SerializableData
 {
 public:
-    using RangedParam = juce::RangedAudioParameter;
+    Parameter (String                                  paramNameShort,
+               String                                  paramNameVerbose,
+               String                                  paramLabel        = {},
+               bool                                    isAutomatable     = true,
+               bool                                    metaParam         = false,
+               juce::AudioProcessorParameter::Category parameterCategory = AudioProcessorParameter::genericParameter);
 
-    Parameter (RangedParam& p,
-               String       paramNameShort,
-               String       paramNameVerbose,
-               bool         isAutomatable = true,
-               bool         metaParam     = false);
+    float getParameterMax() const;
+    float getParameterMin() const;
 
     int  getMidiControllerNumber() const;
     bool isMidiControllerMapped() const;
@@ -27,8 +29,8 @@ public:
     void  setNormalizedDefault (float value);
     void  setDenormalizedDefault (float value);
 
-    float getCurrentNormalizedValue() const;
-    float getCurrentDenormalizedValue() const;
+    float getNormalizedValue() const;
+    float getDenormalizedValue() const;
     void  setNormalizedValue (float value);
     void  setDenormalizedValue (float value);
 
@@ -38,20 +40,18 @@ public:
 
     float normalize (float input) const;
     float denormalize (float input) const;
-    
+
     void setUndoManager (UndoManager& managerToUse);
 
-    void sendListenerSyncCallback();  // sends a value update message immediately to all listeners
+    bool isAutomatable() const final;
+    bool isMetaParameter() const final;
+
+    float getValueForText (const String& text) const final;
 
     //==============================================================================
 
-    RangedParam& rap;
-
     const String parameterNameShort;
     const String parameterNameVerbose;
-
-    const bool automatable;
-    const bool metaParameter;
 
     //==============================================================================
 
@@ -61,9 +61,9 @@ public:
         virtual ~Listener();
 
         virtual void parameterValueChanged (float newNormalizedValue);
-        virtual void parameterGestureStateChanged (bool gestureIsStarting);
+        virtual void gestureStateChanged (bool gestureIsStarting);
         virtual void parameterDefaultChanged (float newNormalizedDefault);
-        virtual void parameterControllerNumberChanged (int newControllerNumber);
+        virtual void controllerNumberChanged (int newControllerNumber);
 
     private:
         Parameter& param;
@@ -71,13 +71,21 @@ public:
 
     //==============================================================================
 
-private:
-    void serialize (TreeReflector& ref) final;
-
+protected:
     void setValueInternal (float value);
     void setDefaultInternal (float value);
     void setMidiControllerInternal (int controller);
 
+private:
+    float getValue() const final;
+    void  setValue (float newValue) final;
+
+    float getDefaultValue() const final;
+
+    const bool automatable;
+    const bool metaParameter;
+
+    std::atomic< float > currentValue;
     std::atomic< float > currentDefault;
     std::atomic< bool >  changing {false};
     std::atomic< int >   midiControllerNumber {-1};
@@ -91,4 +99,4 @@ private:
     const String midiControllerChangeTransactionName;
 };
 
-}  // namespace bav
+}  // namespace bav::plugin

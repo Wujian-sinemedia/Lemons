@@ -11,7 +11,7 @@ void ParamUpdater::parameterValueChanged (float)
     valueCallback();
 }
 
-void ParamUpdater::parameterGestureStateChanged (bool gestureIsStarting)
+void ParamUpdater::gestureStateChanged (bool gestureIsStarting)
 {
     gestureCallback (gestureIsStarting);
 }

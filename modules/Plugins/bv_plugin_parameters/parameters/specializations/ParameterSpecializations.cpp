@@ -5,14 +5,12 @@ GainParameter::GainParameter (String                                  paramNameS
                               String                                  paramNameVerbose,
                               float                                   defaultVal,
                               juce::AudioProcessorParameter::Category parameterCategory)
-    : FloatParameter (paramNameShort,
+    : FloatParameter (-60.f, 0.f, defaultVal,
+                      paramNameShort,
                       paramNameVerbose,
-                      juce::NormalisableRange< float > (-60.0f, 0.0f, 0.01f),
-                      defaultVal,
-                      parameterCategory,
                       ParameterValueConversionLambdas::gain_stringFromFloat,
                       ParameterValueConversionLambdas::gain_floatFromString,
-                      TRANS ("dB"))
+                      TRANS ("dB"), true, false, parameterCategory)
 {
 }
 
@@ -23,9 +21,9 @@ GainParameter::GainParameter (String                                  paramNameS
 ToggleParameter::ToggleParameter (String paramNameShort,
                                   String paramNameVerbose,
                                   bool   defaultVal)
-    : BoolParameter (paramNameShort,
+    : BoolParameter (defaultVal,
+                     paramNameShort,
                      paramNameVerbose,
-                     defaultVal,
                      ParameterValueConversionLambdas::toggle_stringFromBool,
                      ParameterValueConversionLambdas::toggle_boolFromString)
 {
@@ -39,14 +37,12 @@ FloatAmountParameter::FloatAmountParameter (String                              
                                             float                                   defaultVal,
                                             juce::AudioProcessorParameter::Category parameterCategory,
                                             String                                  parameterLabel)
-    : FloatParameter (paramNameShort,
+    : FloatParameter (0.f, 1.f, defaultVal,
+                      paramNameShort,
                       paramNameVerbose,
-                      juce::NormalisableRange< float > (0.0f, 1.0f, 0.01f),
-                      defaultVal,
-                      parameterCategory,
                       ParameterValueConversionLambdas::normPcnt_stringFromInt,
                       ParameterValueConversionLambdas::normPcnt_intFromString,
-                      parameterLabel)
+                      parameterLabel, true, false, parameterCategory)
 {
 }
 
@@ -56,11 +52,9 @@ FloatAmountParameter::FloatAmountParameter (String                              
 FrequencyParameter::FrequencyParameter (String paramNameShort,
                                         String paramNameVerbose,
                                         float  defaultVal)
-    : FloatParameter (paramNameShort,
+    : FloatParameter (40.f, 10000.f, defaultVal,
+                      paramNameShort,
                       paramNameVerbose,
-                      juce::NormalisableRange< float > (40.0f, 10000.0f, 1.0f),
-                      defaultVal,
-                      juce::AudioProcessorParameter::genericParameter,
                       ParameterValueConversionLambdas::hz_stringFromFloat,
                       ParameterValueConversionLambdas::hz_floatFromString,
                       TRANS ("Hz"))
@@ -73,11 +67,9 @@ FrequencyParameter::FrequencyParameter (String paramNameShort,
 PercentParameter::PercentParameter (String paramNameShort,
                                     String paramNameVerbose,
                                     int    defaultVal)
-    : IntParameter (paramNameShort,
+    : IntParameter (0, 100, defaultVal,
+                    paramNameShort,
                     paramNameVerbose,
-                    0,
-                    100,
-                    defaultVal,
                     ParameterValueConversionLambdas::pcnt_stringFromInt,
                     ParameterValueConversionLambdas::pcnt_intFromString,
                     "%")
@@ -87,28 +79,20 @@ PercentParameter::PercentParameter (String paramNameShort,
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 
-MeterParameter::MeterParameter (
-    String paramNameShort,
-    String paramNameVerbose,
-    juce::NormalisableRange< float >
-                                            nRange,
-    float                                   defaultVal,
-    juce::AudioProcessorParameter::Category parameterCategory,
-    std::function< String (float value, int maximumStringLength) >
-        stringFromValue,
-    std::function< float (const String& text) >
-           valueFromString,
-    String parameterLabel)
+MeterParameter::MeterParameter (float min, float max, float defaultVal,
+                                String paramNameShort, String paramNameVerbose,
+                                std::function< String (float, int) >    stringFromValue,
+                                std::function< float (String) >         valueFromString,
+                                String                                  parameterLabel,
+                                juce::AudioProcessorParameter::Category parameterCategory)
 
-    : FloatParameter (paramNameShort,
+    : FloatParameter (min, max, defaultVal,
+                      paramNameShort,
                       paramNameVerbose,
-                      nRange,
-                      defaultVal,
-                      parameterCategory,
                       stringFromValue,
                       valueFromString,
                       parameterLabel,
-                      false)
+                      false, false, parameterCategory)
 {
 }
 
@@ -121,15 +105,13 @@ GainMeterParameter::GainMeterParameter (String                                  
                                         String                                  paramNameVerbose,
                                         juce::AudioProcessorParameter::Category parameterCategory)
 
-    : MeterParameter (paramNameShort,
+    : MeterParameter (-60.f, 0.f, -60.f,
+                      paramNameShort,
                       paramNameVerbose,
-                      juce::NormalisableRange< float > (-60.0f, 0.0f, 0.01f),
-                      -60.0f,
-                      parameterCategory,
                       ParameterValueConversionLambdas::gain_stringFromFloat,
                       ParameterValueConversionLambdas::gain_floatFromString,
-                      TRANS ("dB"))
+                      TRANS ("dB"), parameterCategory)
 {
 }
 
-}  // namespace bav
+}  // namespace bav::plugin

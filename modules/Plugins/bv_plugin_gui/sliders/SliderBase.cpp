@@ -7,7 +7,7 @@ SliderBase::SliderBase (plugin::Parameter& paramToUse)
     Slider::setName (param.parameterNameVerbose);
     Slider::setComponentID (param.parameterNameVerbose);
 
-    auto range = param.rap.getNormalisableRange();
+    auto range = param.getNormalisableRange();
 
     auto convertFrom0To1Function = [range] (double currentRangeStart,
                                             double currentRangeEnd,
@@ -49,14 +49,12 @@ SliderBase::SliderBase (plugin::Parameter& paramToUse)
     Slider::setNormalisableRange (newRange);
 
     Slider::setTextBoxIsEditable (true);
-    Slider::setTextValueSuffix (param.rap.getLabel());
+    Slider::setTextValueSuffix (param.getLabel());
 
     Slider::setTooltip (param.parameterNameShort);
 
     Slider::setPopupDisplayEnabled (true, false, this);
     Slider::setPopupMenuEnabled (true);
-
-    param.sendListenerSyncCallback();
 }
 
 void SliderBase::startedDragging()

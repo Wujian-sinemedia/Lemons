@@ -8,4 +8,3 @@
 
 #include "labels/Labels.cpp"
 
-#include "DarkModeSentinel/DarkModeSentinel.cpp"

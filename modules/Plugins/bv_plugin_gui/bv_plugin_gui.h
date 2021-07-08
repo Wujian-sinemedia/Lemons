@@ -22,4 +22,3 @@
 
 #include "labels/Labels.h"
 
-#include "DarkModeSentinel/DarkModeSentinel.h"

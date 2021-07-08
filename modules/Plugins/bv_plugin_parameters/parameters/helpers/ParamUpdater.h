@@ -11,7 +11,7 @@ struct ParamUpdater : Parameter::Listener
     
 private:
     void parameterValueChanged (float) final;
-    void parameterGestureStateChanged (bool gestureIsStarting) final;
+    void gestureStateChanged (bool gestureIsStarting) final;
     
     std::function<void()> valueCallback;
     std::function< void(bool) > gestureCallback;

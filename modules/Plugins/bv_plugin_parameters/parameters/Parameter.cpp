@@ -1,13 +1,14 @@
 
 namespace bav::plugin
 {
-Parameter::Parameter (RangedParam& p,
-                      String       paramNameShort,
-                      String       paramNameVerbose,
-                      bool         isAutomatable,
-                      bool         metaParam)
-    : SerializableData (paramNameVerbose),
-      rap (p),
+Parameter::Parameter (String                                  paramNameShort,
+                      String                                  paramNameVerbose,
+                      String                                  paramLabel,
+                      bool                                    isAutomatable,
+                      bool                                    metaParam,
+                      juce::AudioProcessorParameter::Category parameterCategory)
+    : juce::RangedAudioParameter (paramNameShort, paramNameVerbose, paramLabel, parameterCategory),
+      SerializableData (paramNameVerbose),
       parameterNameShort (TRANS (paramNameShort)),
       parameterNameVerbose (TRANS (paramNameVerbose)),
       automatable (isAutomatable),
@@ -16,6 +17,35 @@ Parameter::Parameter (RangedParam& p,
       defaultChangeTransactionName (TRANS ("Changed default value of") + " " + parameterNameVerbose),
       midiControllerChangeTransactionName (TRANS ("Changed MIDI controller number for") + " " + parameterNameVerbose)
 {
+}
+
+float Parameter::getValueForText (const String& text) const
+{
+}
+
+float Parameter::getValue() const
+{
+    return convertTo0to1 (currentValue.load());
+}
+
+void Parameter::setValue (float newValue)
+{
+    currentValue.store (convertFrom0to1 (newValue));
+}
+
+float Parameter::getDefaultValue() const
+{
+    return currentDefault.load();
+}
+
+float Parameter::getParameterMax() const
+{
+    return getNormalisableRange().start;
+}
+
+float Parameter::getParameterMin() const
+{
+    return getNormalisableRange().end;
 }
 
 int Parameter::getMidiControllerNumber() const
@@ -40,7 +70,7 @@ void Parameter::setMidiControllerInternal (int controller)
 {
     midiControllerNumber.store (controller);
     listeners.call ([controller] (Listener& l)
-                    { l.parameterControllerNumberChanged (controller); });
+                    { l.controllerNumberChanged (controller); });
 }
 
 void Parameter::resetMidiControllerMapping()
@@ -52,7 +82,7 @@ void Parameter::processNewControllerMessage (int controllerNumber, int controlle
 {
     if (controllerNumber == getMidiControllerNumber())
     {
-        const auto& range = rap.getNormalisableRange();
+        const auto& range = getNormalisableRange();
         setDenormalizedValue (juce::jmap (static_cast< float > (controllerValue),
                                           0.f, 127.f,
                                           range.start, range.end));
@@ -68,10 +98,10 @@ void Parameter::beginGesture()
         um->beginNewTransaction (valueChangeTransactionName);
 
     changing.store (true);
-    rap.beginChangeGesture();
+    this->beginChangeGesture();
 
     listeners.call ([] (Listener& l)
-                    { l.parameterGestureStateChanged (true); });
+                    { l.gestureStateChanged (true); });
 }
 
 void Parameter::endGesture()
@@ -83,10 +113,10 @@ void Parameter::endGesture()
         um->endTransaction();
 
     changing.store (false);
-    rap.endChangeGesture();
+    this->endChangeGesture();
 
     listeners.call ([] (Listener& l)
-                    { l.parameterGestureStateChanged (false); });
+                    { l.gestureStateChanged (false); });
 }
 
 bool Parameter::isChanging() const
@@ -139,7 +169,7 @@ void Parameter::resetToDefault()
 
 void Parameter::setNormalizedValue (float value)
 {
-    if (value == getCurrentNormalizedValue()) return;
+    if (value == getNormalizedValue()) return;
 
     bool needToEndGesture = false;
 
@@ -159,7 +189,7 @@ void Parameter::setValueInternal (float value)
 {
     jassert (value >= 0.0f && value <= 1.0f);
 
-    rap.setValueNotifyingHost (value);
+    setValueNotifyingHost (value);
     listeners.call ([value] (Listener& l)
                     { l.parameterValueChanged (value); });
 }
@@ -169,24 +199,24 @@ void Parameter::setDenormalizedValue (float value)
     setNormalizedValue (normalize (value));
 }
 
-float Parameter::getCurrentNormalizedValue() const
+float Parameter::getNormalizedValue() const
 {
-    return rap.getValue();
+    return this->getValue();
 }
 
-float Parameter::getCurrentDenormalizedValue() const
+float Parameter::getDenormalizedValue() const
 {
-    return denormalize (getCurrentNormalizedValue());
+    return denormalize (getNormalizedValue());
 }
 
 float Parameter::normalize (float input) const
 {
-    return rap.convertTo0to1 (input);
+    return this->convertTo0to1 (input);
 }
 
 float Parameter::denormalize (float input) const
 {
-    return rap.convertFrom0to1 (input);
+    return this->convertFrom0to1 (input);
 }
 
 void Parameter::setUndoManager (UndoManager& managerToUse)
@@ -194,30 +224,14 @@ void Parameter::setUndoManager (UndoManager& managerToUse)
     um = &managerToUse;
 }
 
-void Parameter::sendListenerSyncCallback()
+bool Parameter::isAutomatable() const
 {
-    const auto value = getCurrentNormalizedValue();
-    listeners.call ([&value] (Listener& l)
-                    { l.parameterValueChanged (value); });
+    return automatable;
 }
 
-
-void Parameter::serialize (TreeReflector& ref)
+bool Parameter::isMetaParameter() const
 {
-    auto& tree = ref.getRawDataTree();
-    
-    if (ref.isLoading())
-    {
-        setValueInternal (tree.getProperty ("ParameterValue", getCurrentNormalizedValue()));
-        setDefaultInternal (tree.getProperty ("ParameterDefaultValue", getNormalizedDefault()));
-        setMidiControllerInternal (tree.getProperty ("MappedMidiControllerNumber", getMidiControllerNumber()));
-    }
-    else
-    {
-        tree.setProperty ("ParameterValue", getCurrentNormalizedValue(), nullptr);
-        tree.setProperty ("ParameterDefaultValue", getNormalizedDefault(), nullptr);
-        tree.setProperty ("MappedMidiControllerNumber", getMidiControllerNumber(), nullptr);
-    }
+    return metaParameter;
 }
 
 
@@ -233,8 +247,8 @@ Parameter::Listener::~Listener()
 }
 
 void Parameter::Listener::parameterValueChanged (float) { }
-void Parameter::Listener::parameterGestureStateChanged (bool) { }
+void Parameter::Listener::gestureStateChanged (bool) { }
 void Parameter::Listener::parameterDefaultChanged (float) { }
-void Parameter::Listener::parameterControllerNumberChanged (int) { }
+void Parameter::Listener::controllerNumberChanged (int) { }
 
-}  // namespace bav
+}  // namespace bav::plugin

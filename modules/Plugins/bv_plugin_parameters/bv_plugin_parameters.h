@@ -20,7 +20,7 @@
 
 #include "parameters/helpers/ParameterValueConversionLambdas.h"
 #include "parameters/Parameter.h"
-#include "parameters/types/ParameterTypes.h"
+#include "parameters/ParameterTypes.h"
 #include "parameters/specializations/ParameterSpecializations.h"
 #include "parameters/helpers/ParamUpdater.h"
 

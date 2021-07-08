@@ -73,18 +73,12 @@ struct PercentParameter : public IntParameter
 
 struct MeterParameter : public FloatParameter
 {
-    MeterParameter (
-        String paramNameShort,
-        String paramNameVerbose,
-        juce::NormalisableRange< float >
-                                                nRange,
-        float                                   defaultVal,
-        juce::AudioProcessorParameter::Category parameterCategory =
-            juce::AudioProcessorParameter::genericParameter,
-        std::function< String (float value, int maximumStringLength) >
-                                                    stringFromValue = nullptr,
-        std::function< float (const String& text) > valueFromString = nullptr,
-        String                                      parameterLabel  = String());
+    MeterParameter (float min, float max, float defaultVal,
+                    String paramNameShort, String paramNameVerbose,
+                    std::function< String (float, int) >    stringFromValue   = nullptr,
+                    std::function< float (String) >         valueFromString   = nullptr,
+                    String                                  parameterLabel    = {},
+                    juce::AudioProcessorParameter::Category parameterCategory = juce::AudioProcessorParameter::genericParameter);
 
     using Listener = FloatParameter::Listener;
 };
@@ -104,4 +98,4 @@ struct GainMeterParameter : public MeterParameter
     using Listener = MeterParameter::Listener;
 };
 
-}  // namespace bav
+}  // namespace bav::plugin
