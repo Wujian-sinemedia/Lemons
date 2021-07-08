@@ -65,11 +65,10 @@ void TreeReflector::loadContainer (const String& propertyName, ContainerType& co
 {
     const auto child = tree.getChildWithName (propertyName + "s");
     if (! child.isValid()) return;
-
-    TreeReflector ref {child, true};
     
-    container.clear();
-    container.resize (TreeReflectorHelpers::getNumElementsOfType (propertyName, child));
+    TreeReflectorHelpers::resizeContainer (container, propertyName, child);
+    
+    TreeReflector ref {child, true};
     
     ref.addContainer (container, propertyName);
 }
