@@ -49,17 +49,14 @@ SampleType SynthesisGrain< SampleType >::getNextSample()
 {
     jassert (grainLength > 0);
 
+    const auto sample = storage.getSample (startIndex, currentTick) * getWindowValue< SampleType > (currentTick, grainLength);
+    
     currentTick++;
-
-    auto index = currentTick;
-
+    
     if (currentTick > grainLength)
-    {
         active = false;
-        index  = grainLength;
-    }
-
-    return storage.getSample (startIndex, index) * getWindowValue< SampleType > (index, grainLength);
+    
+    return sample;
 }
 
 template class SynthesisGrain< float >;
