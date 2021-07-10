@@ -17,8 +17,9 @@ int getNumElementsOfType (const String& propertyName, const ValueTree& tree)
 
     do
     {
+        const auto i = index;
         if (! tree.hasProperty (makePropertyNameForElement (propertyName, index)))
-            return index;
+            return i;
     } while (index < tree.getNumProperties());
 
     return index;
