@@ -1,5 +1,15 @@
 namespace bav::serializing
 {
+ValueTree toTree (SerializableData& data)
+{
+    return data.serialize();
+}
+
+void fromTree (const ValueTree& tree, SerializableData& data)
+{
+    data.deserialize (tree);
+}
+
 void toBinary (SerializableData& data, File file)
 {
     juce::FileOutputStream stream (file);
@@ -20,7 +30,7 @@ void fromBinary (File file, SerializableData& dest)
     fromBinary (data.getData(), data.getSize(), dest);
 }
 
-void fromBinary (juce::MemoryBlock& data, SerializableData& dest)
+void fromBinary (const juce::MemoryBlock& data, SerializableData& dest)
 {
     fromBinary (data.getData(), data.getSize(), dest);
 }

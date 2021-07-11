@@ -6,11 +6,14 @@
 
 namespace bav::serializing
 {
+ValueTree toTree (SerializableData& data);
+void      fromTree (const ValueTree& tree, SerializableData& data);
+
 void toBinary (SerializableData& data, File file);
 void toBinary (SerializableData& data, juce::MemoryBlock& dest);
 
 void fromBinary (File file, SerializableData& dest);
-void fromBinary (juce::MemoryBlock& data, SerializableData& dest);
+void fromBinary (const juce::MemoryBlock& data, SerializableData& dest);
 void fromBinary (const void* data, size_t dataSizeInBytes, SerializableData& dest);
 
 template < typename IntegerType >

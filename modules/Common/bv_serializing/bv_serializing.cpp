@@ -11,3 +11,5 @@
 #include "Serializing/Serializing.cpp"
 
 #include "undo/UndoManager.cpp"
+
+#include "DataSynchronizer/DataSynchronizer.cpp"

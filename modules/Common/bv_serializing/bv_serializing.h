@@ -49,3 +49,5 @@ constexpr bool isSerializable()
 #include "Serializing/Serializing.h"
 
 #include "undo/UndoManager.h"
+
+#include "DataSynchronizer/DataSynchronizer.h"
