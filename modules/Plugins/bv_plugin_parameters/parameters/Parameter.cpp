@@ -21,6 +21,7 @@ Parameter::Parameter (String                                  paramNameShort,
 
 float Parameter::getValueForText (const String& text) const
 {
+    return 0.f;
 }
 
 float Parameter::getValue() const
