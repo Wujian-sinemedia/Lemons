@@ -10,6 +10,18 @@ CPMAddPackage (
         GIT_REPOSITORY https://github.com/juce-framework/JUCE.git
         GIT_TAG origin/develop)
 
-set (BV_THIRD_PARTY_DIR "${CMAKE_CURRENT_LIST_DIR}" CACHE INTERNAL "Directory of third-party submodules")
+CPMAddPackage (
+        NAME MTS-ESP
+        GIT_REPOSITORY https://github.com/ODDSound/MTS-ESP.git
+        GIT_TAG origin/main)
+
+set (bv_mts_esp_dir ${MTS-ESP_SOURCE_DIR} CACHE INTERNAL "Path to MTS-ESP sources")
+
+CPMAddPackage (
+        NAME AbletonLink
+        GIT_REPOSITORY https://github.com/Ableton/link.git
+        GIT_TAG origin/master)
+
+set (bv_ableton_link_dir ${AbletonLink_SOURCE_DIR} CACHE INTERNAL "Path to Ableton Link sources")
 
 add_subdirectory (cmake)
