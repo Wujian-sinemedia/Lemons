@@ -15,8 +15,6 @@ set (CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
 #
 
-add_subdirectory (third_party)
-
 add_subdirectory (CMake)
 
 add_subdirectory (modules)

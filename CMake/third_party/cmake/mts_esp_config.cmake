@@ -10,7 +10,7 @@ macro (_configure_mts_esp)
 
 		add_library (MTS-ESP INTERFACE)
 
-	    set (MTS_ESP_DIR "bv_mts_esp_dir/Client")
+	    set (MTS_ESP_DIR "${bv_mts_esp_dir}/Client")
 	    set (MTS_ESP_SOURCES "${MTS_ESP_DIR}/libMTSClient.cpp")
 
 	    target_sources             (MTS-ESP INTERFACE ${MTS_ESP_SOURCES})
