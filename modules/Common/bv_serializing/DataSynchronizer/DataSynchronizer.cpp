@@ -13,9 +13,7 @@ void DataSynchronizer::applyRecievedData (const juce::MemoryBlock& recievedData)
 
 void DataSynchronizer::callback()
 {
-    juce::MemoryOutputStream os (cachedData, false);
-    
-    managedState.serialize().writeToStream (os);
+    serializing::toBinary (managedState, cachedData);
     
     sendData (cachedData);
 }
