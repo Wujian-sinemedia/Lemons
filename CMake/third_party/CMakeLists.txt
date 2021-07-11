@@ -1,5 +1,8 @@
 
-include (get_cpm.cmake)
+include (CPM.cmake)
+set (BV_CPM_PATH ${CMAKE_CURRENT_LIST_DIR}/CPM.cmake CACHE INTERNAL "Path to the CPM.cmake script")
+
+#
 
 include (juce_config.cmake)
 
