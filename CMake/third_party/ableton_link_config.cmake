@@ -1,3 +1,12 @@
+CPMAddPackage (
+        NAME AbletonLink
+        GIT_REPOSITORY https://github.com/Ableton/link.git
+        GIT_TAG origin/master)
+
+set (bv_ableton_link_dir ${AbletonLink_SOURCE_DIR} CACHE INTERNAL "Path to Ableton Link sources")
+
+#
+
 macro (_configure_ableton_link)
 
 	if (NOT DEFINED BV_USE_ABLETON_LINK)

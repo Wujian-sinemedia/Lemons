@@ -4,8 +4,6 @@ include (directoryHelpers.cmake)
 
 if (APPLE)
 	include (native/Apple.cmake)
-	setDefaultAppleSettings()
 elseif (WIN32)
 	include (native/Windows.cmake)
-	setDefaultWindowsSettings()
 endif()

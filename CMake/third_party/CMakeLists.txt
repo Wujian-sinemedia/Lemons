@@ -1,27 +1,32 @@
 
-include (cmake/get_cpm.cmake)
+include (get_cpm.cmake)
 
-option (JUCE_ENABLE_MODULE_SOURCE_GROUPS "Use JUCE source groups" ON)
-option (JUCE_BUILD_EXAMPLES "Build JUCE Examples" OFF)
-option (JUCE_BUILD_EXTRAS "Build JUCE Extras" OFF)
+include (juce_config.cmake)
 
-CPMAddPackage (
-        NAME JUCE
-        GIT_REPOSITORY https://github.com/juce-framework/JUCE.git
-        GIT_TAG origin/develop)
+include (mts_esp_config.cmake)
 
-CPMAddPackage (
-        NAME MTS-ESP
-        GIT_REPOSITORY https://github.com/ODDSound/MTS-ESP.git
-        GIT_TAG origin/main)
+include (ableton_link_config.cmake)
 
-set (bv_mts_esp_dir ${MTS-ESP_SOURCE_DIR} CACHE INTERNAL "Path to MTS-ESP sources")
+#
 
-CPMAddPackage (
-        NAME AbletonLink
-        GIT_REPOSITORY https://github.com/Ableton/link.git
-        GIT_TAG origin/master)
+macro (_configure_vecops)
 
-set (bv_ableton_link_dir ${AbletonLink_SOURCE_DIR} CACHE INTERNAL "Path to Ableton Link sources")
+    if (DEFINED BV_IGNORE_VDSP)
+        target_compile_definitions (bv_core INTERFACE JUCE_USE_VDSP_FRAMEWORK=0 BV_USE_VDSP=0)
+    elseif (APPLE)
+        message (STATUS "Configuring vDSP for vecops...")
+        target_compile_definitions (bv_core INTERFACE JUCE_USE_VDSP_FRAMEWORK=1 BV_USE_VDSP=1)
+    endif()
 
-add_subdirectory (cmake)
+endmacro()
+
+#
+
+macro (_configure_third_party_libs)
+
+    _configure_ableton_link()
+    _configure_mts_esp()
+    _configure_vecops()
+
+endmacro()
+

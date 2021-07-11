@@ -1,3 +1,13 @@
+
+CPMAddPackage (
+        NAME MTS-ESP
+        GIT_REPOSITORY https://github.com/ODDSound/MTS-ESP.git
+        GIT_TAG origin/main)
+
+set (bv_mts_esp_dir ${MTS-ESP_SOURCE_DIR}/Client CACHE INTERNAL "Path to MTS-ESP sources")
+
+#
+
 macro (_configure_mts_esp)
 
 	if (NOT DEFINED BV_USE_MTS_ESP)
@@ -10,11 +20,10 @@ macro (_configure_mts_esp)
 
 		add_library (MTS-ESP INTERFACE)
 
-	    set (MTS_ESP_DIR "${bv_mts_esp_dir}/Client")
-	    set (MTS_ESP_SOURCES "${MTS_ESP_DIR}/libMTSClient.cpp")
+	    set (MTS_ESP_SOURCES "${bv_mts_esp_dir}/libMTSClient.cpp")
 
 	    target_sources             (MTS-ESP INTERFACE ${MTS_ESP_SOURCES})
-	    target_include_directories (MTS-ESP INTERFACE ${MTS_ESP_DIR})
+	    target_include_directories (MTS-ESP INTERFACE ${bv_mts_esp_dir})
 	    target_compile_definitions (MTS-ESP INTERFACE BV_USE_MTS_ESP=1)
 
 	    set_source_files_properties (${MTS_ESP_SOURCES} TARGET_DIRECTORY bv_midi PROPERTIES COMPILE_FLAGS "-w")
