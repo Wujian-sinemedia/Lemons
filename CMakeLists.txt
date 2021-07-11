@@ -7,14 +7,6 @@ set (BV_CXX_VERSION 20 CACHE INTERNAL "C++ standard version")
 
 #
 
-set (CMAKE_CXX_STANDARD ${BV_CXX_VERSION})
-
-set_property (GLOBAL PROPERTY USE_FOLDERS YES)
-
-set (CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
-
-#
-
 add_subdirectory (CMake)
 
 add_subdirectory (modules)
