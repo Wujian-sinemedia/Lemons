@@ -5,16 +5,14 @@ CPMAddPackage (
 
 set (bv_ableton_link_dir ${AbletonLink_SOURCE_DIR} CACHE INTERNAL "Path to Ableton Link sources")
 
-if (NOT DEFINED BV_USE_ABLETON_LINK)
-    set (BV_USE_ABLETON_LINK FALSE)
-endif()
+option (BV_USE_ABLETON_LINK "Use Ableton Link" OFF)
 
 #
 
 function (_configure_ableton_link)
 
     if (NOT ${BV_USE_ABLETON_LINK})
-	return()
+	   return()
     endif()
 
     message (STATUS "Configuring Ableton Link...")

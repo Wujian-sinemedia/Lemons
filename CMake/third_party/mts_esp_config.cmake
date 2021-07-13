@@ -5,16 +5,14 @@ CPMAddPackage (
 
 set (bv_mts_esp_dir ${MTS-ESP_SOURCE_DIR}/Client CACHE INTERNAL "Path to MTS-ESP sources")
 
-if (NOT DEFINED BV_USE_MTS_ESP)
-    set (BV_USE_MTS_ESP FALSE)
-endif()
+option (BV_USE_MTS_ESP "Use MTS-ESP" OFF)
 
 #
 
 function (_configure_mts_esp)
 
     if (NOT ${BV_USE_MTS_ESP})
-	return()
+	   return()
     endif()
 
     message (STATUS "Configuring MTS-ESP...")
