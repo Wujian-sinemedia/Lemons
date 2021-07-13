@@ -1,4 +1,4 @@
-if (NOT APPLE AND NOT WIN32 AND EXISTS ${JUCE_SOURCE_DIR}/modules/juce_audio_plugin_client/juce_audio_plugin_client_LV2.cpp)
+if (NOT WIN32 AND EXISTS ${JUCE_SOURCE_DIR}/modules/juce_audio_plugin_client/juce_audio_plugin_client_LV2.cpp)
 	set (BV_LV2_AVAILABLE TRUE CACHE INTERNAL "Availability of LV2 plugin format")
 	message (STATUS "LV2 plugin format capability detected :-D")
 else()
@@ -34,9 +34,31 @@ endfunction()
 
 #
 
-function (_bv_make_plugin_format_list outvar)
+function (_bv_create_default_format_list_for_platform outlist)
 
-	set (formatlist "")
+	set (formatlist Standalone)
+
+	if (NOT "${CMAKE_SYSTEM_NAME}" STREQUAL "iOS")
+
+		list (APPEND formatlist Unity VST3)
+
+		if (APPLE)
+			list (APPEND formatlist AU)  # TODO: add AUv3 support...
+		endif()
+
+		if (${BV_LV2_AVAILABLE})
+			list (APPEND formatlist LV2)
+		endif()
+
+	endif()
+
+	set (${outlist} ${formatlist} PARENT_SCOPE)
+
+endfunction()
+
+#
+
+function (_bv_make_plugin_format_list outvar)
 
 	if (DEFINED Formats)
 		_bv_parse_plugin_format_list (formatlist "${Formats}")
@@ -58,15 +80,7 @@ function (_bv_make_plugin_format_list outvar)
 		endif()
 	endif()
 
-	if ("${CMAKE_SYSTEM_NAME}" STREQUAL "iOS")
-        set (formatlist Standalone)
-    elseif (APPLE)
-        set (formatlist Standalone Unity VST3 AU)  # TODO: add AUv3
-    elseif (${BV_LV2_AVAILABLE})
-		set (formatlist Standalone Unity VST3 LV2)
-    else()
-        set (formatlist Standalone Unity VST3)
-    endif()
+	_bv_create_default_format_list_for_platform (formatlist)
 
     message (STATUS "Using default format list for platform: ${formatlist}")
     set (${outvar} ${formatlist} PARENT_SCOPE)
