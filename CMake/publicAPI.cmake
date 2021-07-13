@@ -20,6 +20,6 @@ endfunction()
 ###########
 
 
-macro (bv_detect_default_plugin_formats outvar)
+macro (bv_detect_plugin_formats outvar)
     _bv_make_plugin_format_list (${outvar})
 endmacro()
