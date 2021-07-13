@@ -1,11 +1,14 @@
 #[[
-  A simple way to fetch the CPM.cmake script from GitHub if it can't be found locally.
-  I usually commit this file into a project repo's source tree.
-  If multiple project targets using this script are configured consecutively, CPM.cmake will not be redownloaded.
-  If you've specified a location for CPM to cache downloaded source files, the CPM script itself will be downloaded to that directory.
+  A default "find package" CMake script for Shared-code.
+  I usually commit a copy of this file to a project repo's source tree.
 ]]
 
 macro (_bv_download_cpm)
+  #[[
+    A simple way to fetch the CPM.cmake script from GitHub if it can't be found locally.
+    If multiple project targets using this script are configured consecutively, CPM.cmake will not be redownloaded.
+    If you've specified a location for CPM to cache downloaded source files, the CPM script itself will be downloaded to that directory.
+  ]]
 
   if (DEFINED ENV{CPM_SOURCE_CACHE})
     set (BV_CPM_PATH $ENV{CPM_SOURCE_CACHE}/CPM.cmake CACHE INTERNAL "Path to the CPM.cmake script")
