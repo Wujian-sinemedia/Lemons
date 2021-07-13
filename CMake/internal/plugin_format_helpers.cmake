@@ -2,7 +2,7 @@ function (_bv_parse_plugin_format_list outlist)
 
 	set (formatlist "")
 
-	set (valid_formats Standalone Unity VST3 AU AUv3)
+	set (valid_formats Standalone Unity VST3 AU AUv3 LV2)
 
 	foreach (format ${Formats})
 		if ("${format}" IN_LIST valid_formats)
