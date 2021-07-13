@@ -1,6 +1,7 @@
-include (resourcesHelpers.cmake)
-include (configureHelpers.cmake)
-include (directoryHelpers.cmake)
+include (resources_helpers.cmake)
+include (configure_helpers.cmake)
+include (directory_helpers.cmake)
+include (plugin_format_helpers.cmake)
 
 if (APPLE)
 	include (native/Apple.cmake)
