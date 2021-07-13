@@ -7,33 +7,6 @@ endif()
 
 #
 
-function (_bv_parse_plugin_format_list outlist inlist)
-
-	if ("${inlist}" STREQUAL "")
-		set (outlist "" PARENT_SCOPE)
-		return()
-	endif()
-
-	set (valid_formats Standalone Unity VST3 AU AUv3)
-
-	if (${BV_LV2_AVAILABLE})
-		list (APPEND valid_formats LV2)
-	endif()
-
-	set (formatlist "")
-
-	foreach (format ${inlist})
-		if ("${format}" IN_LIST valid_formats)
-			list (APPEND formatlist ${format})
-		endif()
-	endforeach()
-
-	set (${outlist} ${formatlist} PARENT_SCOPE)
-
-endfunction()
-
-#
-
 function (_bv_create_default_format_list_for_platform outlist)
 
 	set (formatlist Standalone)
@@ -51,6 +24,29 @@ function (_bv_create_default_format_list_for_platform outlist)
 		endif()
 
 	endif()
+
+	set (${outlist} ${formatlist} PARENT_SCOPE)
+
+endfunction()
+
+#
+
+function (_bv_parse_plugin_format_list outlist inlist)
+
+	if ("${inlist}" STREQUAL "")
+		set (${outlist} "" PARENT_SCOPE)
+		return()
+	endif()
+
+	_bv_create_default_format_list_for_platform (valid_formats)
+
+	set (formatlist "")
+
+	foreach (format ${inlist})
+		if ("${format}" IN_LIST valid_formats)
+			list (APPEND formatlist ${format})
+		endif()
+	endforeach()
 
 	set (${outlist} ${formatlist} PARENT_SCOPE)
 
