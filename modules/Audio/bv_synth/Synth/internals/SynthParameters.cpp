@@ -39,7 +39,7 @@ void SynthBase< SampleType >::togglePitchGlide (bool shouldGlide)
 template < typename SampleType >
 void SynthBase< SampleType >::setConcertPitchHz (int newConcertPitchhz)
 {
-    if (pitch.tuning.setConcertPitchHz (newConcertPitchhz))
+    if (pitch.tuning.setConcertPitchHz ((float) newConcertPitchhz))
         for (auto* voice : voices)
             if (voice->isVoiceActive())
                 voice->setTargetOutputFrequency (pitch.getFrequencyForMidi (voice->getCurrentlyPlayingNote()));
