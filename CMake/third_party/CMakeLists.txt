@@ -7,8 +7,6 @@ include (juce_config.cmake)
 
 include (mts_esp_config.cmake)
 
-include (ableton_link_config.cmake)
-
 #
 
 macro (_configure_vecops)
@@ -26,7 +24,6 @@ endmacro()
 
 macro (_configure_third_party_libs)
 
-    _configure_ableton_link()
     _configure_mts_esp()
     _configure_vecops()
 

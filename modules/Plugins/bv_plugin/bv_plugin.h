@@ -16,18 +16,6 @@
 #endif
 
 
-//==============================================================================
-/** Config: BV_USE_ABLETON_LINK
- 
-    Set this to 1 if your project is using the Ableton Link library.
-    If this is 1, the transport class will sync with Ableton Link.
-    If this is 0, only the host transport interface and the built-in fallback implementations will be used.
- */
-#ifndef BV_USE_ABLETON_LINK
-#    define BV_USE_ABLETON_LINK 0
-#endif
-
-
 #include <bv_plugin_parameters/bv_plugin_parameters.h>
 #include <bv_mobile_utils/bv_mobile_utils.h>
 
