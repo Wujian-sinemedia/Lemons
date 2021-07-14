@@ -7,7 +7,7 @@ set (BV_CXX_VERSION 20 CACHE INTERNAL "C++ standard version")
 
 #
 
-add_subdirectory (CMake)
+add_subdirectory (cmake)
 
 add_subdirectory (modules)
 
