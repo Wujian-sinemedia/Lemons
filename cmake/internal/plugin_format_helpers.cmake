@@ -45,6 +45,8 @@ function (_bv_parse_plugin_format_list outlist inlist)
 	foreach (format ${inlist})
 		if ("${format}" IN_LIST valid_formats)
 			list (APPEND formatlist ${format})
+		else()
+			message (STATUS "Unsupported format removed from list: ${format}")
 		endif()
 	endforeach()
 
