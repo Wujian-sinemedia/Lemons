@@ -1,25 +1,18 @@
 
 namespace bav::midi
 {
-PitchConverter::PitchConverter()
-{
-#if BV_USE_MTS_ESP
-    client = MTS_RegisterClient();
-    jassert (client != nullptr);
-#endif
-}
 
-PitchConverter::~PitchConverter()
-{
 #if BV_USE_MTS_ESP
-    MTS_DeregisterClient (client);
-#endif
+void PitchConverter::Deleter::operator()(MTSClient* c)
+{
+    MTS_DeregisterClient(c);
 }
+#endif
 
 float PitchConverter::midiToFrequency (int midiNote, int midiChannel) const
 {
 #if BV_USE_MTS_ESP
-    return static_cast< float > (MTS_NoteToFrequency (client, char (midiNote), char (midiChannel)));
+    return static_cast< float > (MTS_NoteToFrequency (client.get(), char (midiNote), char (midiChannel)));
 #else
     juce::ignoreUnused (midiChannel);
     return static_cast< float > (concertPitchHz
@@ -31,7 +24,7 @@ float PitchConverter::midiToFrequency (int midiNote, int midiChannel) const
 float PitchConverter::midiToFrequency (float midiNote, int midiChannel) const
 {
 #if BV_USE_MTS_ESP
-    return static_cast< float > (MTS_NoteToFrequency (client, char (midiNote), char (midiChannel)));
+    return static_cast< float > (MTS_NoteToFrequency (client.get(), char (midiNote), char (midiChannel)));
 #else
     juce::ignoreUnused (midiChannel);
     return static_cast< float > (concertPitchHz
@@ -43,7 +36,7 @@ float PitchConverter::midiToFrequency (float midiNote, int midiChannel) const
 int PitchConverter::frequencyToMidi (float frequency, int midiChannel) const
 {
 #if BV_USE_MTS_ESP
-    return juce::roundToInt (MTS_FrequencyToNote (client, static_cast< double > (frequency), char (midiChannel)));
+    return juce::roundToInt (MTS_FrequencyToNote (client.get(), static_cast< double > (frequency), char (midiChannel)));
 #else
     juce::ignoreUnused (midiChannel);
     return juce::roundToInt (12.0f
@@ -55,7 +48,7 @@ int PitchConverter::frequencyToMidi (float frequency, int midiChannel) const
 bool PitchConverter::shouldFilterNote (int midiPitch, int midiChannel) const
 {
 #if BV_USE_MTS_ESP
-    return MTS_ShouldFilterNote (client, char (midiPitch), char (midiChannel));
+    return MTS_ShouldFilterNote (client.get(), char (midiPitch), char (midiChannel));
 #else
     juce::ignoreUnused (midiPitch, midiChannel);
     return false;
@@ -65,7 +58,7 @@ bool PitchConverter::shouldFilterNote (int midiPitch, int midiChannel) const
 bool PitchConverter::isConnectedToMtsEsp() const
 {
 #if BV_USE_MTS_ESP
-    return MTS_HasMaster (client);
+    return MTS_HasMaster (client.get());
 #else
     return false;
 #endif
@@ -74,7 +67,7 @@ bool PitchConverter::isConnectedToMtsEsp() const
 String PitchConverter::getScaleName() const
 {
 #if BV_USE_MTS_ESP
-    return {MTS_GetScaleName (client)};
+    return {MTS_GetScaleName (client.get())};
 #else
     return {};
 #endif
