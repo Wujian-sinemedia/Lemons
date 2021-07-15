@@ -5,6 +5,9 @@ else()
 	set (BV_LV2_AVAILABLE FALSE CACHE INTERNAL "Availability of LV2 plugin format")
 endif()
 
+set (BV_AAX_AVAILABLE FALSE CACHE INTERNAL "Availability of the AAX plugin SDK")
+set (BV_VST2_AVAILABLE FALSE CACHE INTERNAL "Availability of the VST2 plugin SDK")
+
 #
 
 function (_bv_create_default_format_list_for_platform outlist)
@@ -21,6 +24,14 @@ function (_bv_create_default_format_list_for_platform outlist)
 
 		if (${BV_LV2_AVAILABLE})
 			list (APPEND formatlist LV2)
+		endif()
+
+		if (${BV_AAX_AVAILABLE})
+			list (APPEND formatlist AAX)
+		endif()
+
+		if (${BV_VST2_AVAILABLE})
+			list (APPEND formatlist VST)
 		endif()
 
 	endif()
