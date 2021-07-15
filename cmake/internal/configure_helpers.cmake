@@ -4,6 +4,10 @@ function (_bv_configure_juce_browser target shouldUseBrowser)
             JUCE_WEB_BROWSER=1
             JUCE_USE_CURL=1
             JUCE_LOAD_CURL_SYMBOLS_LAZILY=1)
+
+        if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
+            target_link_libraries (${target} PRIVATE juce::pkgconfig_JUCE_CURL_LINUX_DEPS)
+        endif()
     else()
         target_compile_definitions (${target} PUBLIC 
             JUCE_WEB_BROWSER=0
@@ -13,16 +17,28 @@ endfunction()
 
 #
 
-function (_bv_configure_macos_version target version)
-    set_target_properties  (${target} PROPERTIES XCODE_ATTRIBUTE_MACOSX_DEPLOYMENT_TARGET ${version})
-    target_compile_options (${target} PUBLIC "-mmacosx-version-min=${version}")
-    target_link_options    (${target} PUBLIC "-mmacosx-version-min=${version}")
+function (_bv_configure_LV2_URI target)
+
+    if (NOT TARGET ${target}_LV2)
+        return()
+    endif()
+
+    set_target_properties (${target} PROPERTIES JUCE_LV2_URI https://github.com/benthevining/${CMAKE_PROJECT_NAME})
+
 endfunction()
+
+#
 
 function (_bv_set_default_macos_options target)
     if (NOT APPLE)
         return()
     endif()
+
+    macro (_bv_configure_macos_version target version)
+        set_target_properties  (${target} PROPERTIES XCODE_ATTRIBUTE_MACOSX_DEPLOYMENT_TARGET ${version})
+        target_compile_options (${target} PUBLIC "-mmacosx-version-min=${version}")
+        target_link_options    (${target} PUBLIC "-mmacosx-version-min=${version}")
+    endmacro()
 
     set_target_properties (${target} PROPERTIES JUCE_BUNDLE_ID "com.bv.${target}")
 
@@ -48,9 +64,7 @@ function (_bv_configure_juce_target target useBrowser)
         set_target_properties (${target}_AAX PROPERTIES OSX_ARCHITECTURES x86_64)
     endif()
 
-    if (TARGET ${target}_LV2)
-        set_target_properties (${target}_LV2 PROPERTIES JUCE_LV2_URI https://github.com/benthevining/${CMAKE_PROJECT_NAME})
-    endif()
+    _bv_configure_LV2_URI (${target})
 
     target_compile_definitions (${target} PUBLIC
             JUCE_VST3_CAN_REPLACE_VST2=0
@@ -58,10 +72,8 @@ function (_bv_configure_juce_target target useBrowser)
             JUCE_APPLICATION_VERSION_STRING="$<TARGET_PROPERTY:${target},JUCE_VERSION>"
             JUCE_COREGRAPHICS_DRAW_ASYNC=1
             _CRT_SECURE_NO_WARNINGS=1
-            JUCE_MICROPHONE_PERMISSION_ENABLED=1
             JUCE_STRICT_REFCOUNTEDPTR=1
             JUCE_MODAL_LOOPS_PERMITTED=0
-            JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=0
             JUCE_JACK=1
             JUCE_DISABLE_AUDIO_MIXING_WITH_OTHER_APPS=1
             JUCE_EXECUTE_APP_SUSPEND_ON_BACKGROUND_TASK=1)
@@ -78,9 +90,24 @@ function (_bv_configure_juce_target target useBrowser)
 
     target_compile_features (${target} PUBLIC cxx_std_${BV_CXX_VERSION})
 
-    if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
-        target_link_libraries (${target} PRIVATE juce::pkgconfig_JUCE_CURL_LINUX_DEPS)
-    endif()
+endfunction()
+
+#
+
+function (_bv_finish_plugin_config target)
+
+    target_link_libraries (${target} PUBLIC ${BV_PLUGIN_ONLY_MODULES})
+
+    target_compile_definitions (${target} PUBLIC
+            JUCE_MICROPHONE_PERMISSION_ENABLED=1
+            JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=0)
+
+endfunction()
+
+
+function (_bv_finish_app_config target)
+
+    target_link_libraries (${target} PUBLIC ${BV_APP_ONLY_MODULES})
 
 endfunction()
 

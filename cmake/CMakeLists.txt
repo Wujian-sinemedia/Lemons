@@ -21,13 +21,13 @@ endmacro()
 
 function (bv_configure_juce_plugin target)
 	_bv_configure_juce_target (${target} TRUE)
-    target_link_libraries (${target} PUBLIC ${BV_PLUGIN_ONLY_MODULES})
+    _bv_finish_plugin_config (${target})
 endfunction()
 
 
 function (bv_configure_juce_app target)
     _bv_configure_juce_target (${target} TRUE)
-    target_link_libraries (${target} PUBLIC ${BV_APP_ONLY_MODULES})
+    _bv_finish_app_config (${target})
 endfunction()
 
 
