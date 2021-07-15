@@ -2,6 +2,7 @@ include (configure_helpers.cmake)
 include (resources_helpers.cmake)
 include (directory_helpers.cmake)
 include (plugin_format_helpers.cmake)
+include (juce_module_helpers.cmake)
 
 if (APPLE)
 	include (native/Apple.cmake)

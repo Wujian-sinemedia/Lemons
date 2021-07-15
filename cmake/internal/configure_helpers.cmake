@@ -71,7 +71,7 @@ function (_bv_configure_juce_target target useBrowser)
     _bv_set_default_macos_options (${target})
 
     target_link_libraries (${target} PUBLIC
-        ${modules}
+        ${BV_JUCE_MODULES}
         juce::juce_recommended_config_flags
         juce::juce_recommended_lto_flags
         juce::juce_recommended_warning_flags)

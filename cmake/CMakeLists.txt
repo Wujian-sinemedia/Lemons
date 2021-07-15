@@ -24,11 +24,13 @@ endmacro()
 
 macro (bv_configure_juce_plugin target)
 	_bv_configure_juce_target (${target} TRUE)
+    target_link_libraries (${target} PUBLIC ${BV_PLUGIN_ONLY_MODULES})
 endmacro()
 
 
 macro (bv_configure_juce_app target)
     _bv_configure_juce_target (${target} TRUE)
+    target_link_libraries (${target} PUBLIC ${BV_APP_ONLY_MODULES})
 endmacro()
 
 
@@ -38,13 +40,5 @@ endmacro()
 
 
 macro (bv_add_juce_modules dir)
-
-    _bv_subdir_list (moduleFolders ${dir})
-
-    foreach (folder ${moduleFolders})
-        juce_add_module (${dir}/${folder})
-    endforeach()
-
-    list (APPEND modules ${moduleFolders})
-
+    _bv_add_juce_modules_internal (${dir} bvdummyjucemodulelist)
 endmacro()
