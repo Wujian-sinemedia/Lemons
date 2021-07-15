@@ -1,4 +1,4 @@
-macro (_subdir_list result curdir)
+macro (_bv_subdir_list result curdir)
 
   file (GLOB children RELATIVE ${curdir} ${curdir}/*)
 
@@ -11,18 +11,5 @@ macro (_subdir_list result curdir)
   endforeach()
 
   set (${result} ${dirlist})
-
-endmacro()
-
-#
-
-macro (_add_all_subdirs)
-
-  set (subdirs "")
-  _subdir_list (subdirs ${CMAKE_CURRENT_LIST_DIR})
-
-  foreach (subdir ${subdirs})
-    add_subdirectory (${subdir})
-  endforeach()
 
 endmacro()

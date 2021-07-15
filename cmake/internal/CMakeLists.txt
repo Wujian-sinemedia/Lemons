@@ -1,5 +1,5 @@
-include (resources_helpers.cmake)
 include (configure_helpers.cmake)
+include (resources_helpers.cmake)
 include (directory_helpers.cmake)
 include (plugin_format_helpers.cmake)
 

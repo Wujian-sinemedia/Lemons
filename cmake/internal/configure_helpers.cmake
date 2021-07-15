@@ -1,7 +1,5 @@
-function (_configure_juce_browser target shouldUseBrowser)
+function (_bv_configure_juce_browser target shouldUseBrowser)
     if (${shouldUseBrowser})
-        message (STATUS "Configuring JUCE web browser...")
-
         target_compile_definitions (${target} PUBLIC 
             JUCE_WEB_BROWSER=1
             JUCE_USE_CURL=1
@@ -15,45 +13,36 @@ endfunction()
 
 #
 
-function (_adjustDefaultMacTarget target)
-    if (APPLE)
-        set_target_properties (${target} PROPERTIES JUCE_BUNDLE_ID "com.bv.${target}")
-
-        if (${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
-            set_target_properties (${target} PROPERTIES
-                    ARCHIVE_OUTPUT_DIRECTORY "./"
-                    XCODE_ATTRIBUTE_INSTALL_PATH "$(LOCAL_APPS_DIR)"
-                    XCODE_ATTRIBUTE_SKIP_INSTALL "NO")
-        endif ()
-    endif ()
-endfunction()
-
-#
-
-function (_set_min_macos_version target version)
-    set_target_properties (${target} PROPERTIES XCODE_ATTRIBUTE_MACOSX_DEPLOYMENT_TARGET ${version})
+function (_bv_configure_macos_version target version)
+    set_target_properties  (${target} PROPERTIES XCODE_ATTRIBUTE_MACOSX_DEPLOYMENT_TARGET ${version})
     target_compile_options (${target} PUBLIC "-mmacosx-version-min=${version}")
-    target_link_options (${target} PUBLIC "-mmacosx-version-min=${version}")
+    target_link_options    (${target} PUBLIC "-mmacosx-version-min=${version}")
 endfunction()
 
-function (_configure_macos_version target)
-    if (APPLE)
-        if ("${CMAKE_SYSTEM_NAME}" STREQUAL "iOS")
-            _set_min_macos_version (${target} "9.3")
-        else()
-            if (TARGET ${target}_AUv3)
-                _set_min_macos_version (${target} "10.11")
-            else()
-                _set_min_macos_version (${target} "10.9")
-            endif()
-        endif()
+function (_bv_set_default_macos_options target)
+    if (NOT APPLE)
+        return()
+    endif()
+
+    set_target_properties (${target} PROPERTIES JUCE_BUNDLE_ID "com.bv.${target}")
+
+    if (${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
+        set_target_properties (${target} PROPERTIES
+                ARCHIVE_OUTPUT_DIRECTORY "./"
+                XCODE_ATTRIBUTE_INSTALL_PATH "$(LOCAL_APPS_DIR)"
+                XCODE_ATTRIBUTE_SKIP_INSTALL "NO")
+
+        _bv_configure_macos_version (${target} "9.3")
+    elseif (TARGET ${target}_AUv3)
+        _bv_configure_macos_version (${target} "10.11")
+    else()
+        _bv_configure_macos_version (${target} "10.9")
     endif()
 endfunction()
 
 #
 
-function (_configure_juce_app target useBrowser)
-    message (STATUS "Configuring ${target}")
+function (_bv_configure_juce_target target useBrowser)
 
     if (TARGET ${target}_AAX)
         set_target_properties (${target}_AAX PROPERTIES OSX_ARCHITECTURES x86_64)
@@ -77,10 +66,9 @@ function (_configure_juce_app target useBrowser)
             JUCE_DISABLE_AUDIO_MIXING_WITH_OTHER_APPS=1
             JUCE_EXECUTE_APP_SUSPEND_ON_BACKGROUND_TASK=1)
     
-    _configure_juce_browser (${target} ${useBrowser})
+    _bv_configure_juce_browser (${target} ${useBrowser})
 
-    _adjustDefaultMacTarget (${target})
-    _configure_macos_version (${target})
+    _bv_set_default_macos_options (${target})
 
     target_link_libraries (${target} PUBLIC
         ${modules}
@@ -89,5 +77,10 @@ function (_configure_juce_app target useBrowser)
         juce::juce_recommended_warning_flags)
 
     target_compile_features (${target} PUBLIC cxx_std_${BV_CXX_VERSION})
+
+    if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
+        target_link_libraries (${target} PRIVATE juce::pkgconfig_JUCE_CURL_LINUX_DEPS)
+    endif()
+
 endfunction()
 
