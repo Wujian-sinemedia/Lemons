@@ -32,7 +32,7 @@ private:
 
     template < class ContainerType >
     void saveContainer (const String& propertyName, ContainerType& container);
-    
+
     void loadDataChild (const String& propertyName, SerializableData& data) const;
     void saveDataChild (const String& propertyName, SerializableData& data);
 

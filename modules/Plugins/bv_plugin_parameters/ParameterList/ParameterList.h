@@ -59,9 +59,9 @@ private:
     IntParameter* pitchwheelParameter;
     IntParameter* lastMovedControllerNumberParameter;
     IntParameter* lastMovedControllerValueParameter;
-    
+
     UndoManager* undo;
 };
 
 
-}  // namespace bav
+}  // namespace bav::plugin

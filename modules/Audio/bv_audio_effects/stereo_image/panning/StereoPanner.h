@@ -8,7 +8,7 @@ class StereoPanner : public PannerBase, public AudioEffect< SampleType >
 {
 public:
     using AudioBuffer = juce::AudioBuffer< SampleType >;
-    
+
     void prepare (double samplerate, int blocksize) final;
     void process (AudioBuffer& audio) final;
 

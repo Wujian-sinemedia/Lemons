@@ -22,7 +22,7 @@ EditorBase::EditorBase (ProcessorBase& pbToUse, juce::Point< int > initialSize)
         jassert (isValidSize (initialSize));
         initializeSize (initialSize.x, initialSize.y);
     }
-    
+
     AutoLock::setEnabled (false);
 }
 
@@ -45,4 +45,4 @@ void EditorBase::resized()
     resizeTriggered();
 }
 
-}  // namespace bav::gui
+}  // namespace bav::plugin

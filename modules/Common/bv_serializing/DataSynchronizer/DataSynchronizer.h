@@ -12,11 +12,11 @@ public:
 
 private:
     virtual void sendData (const juce::MemoryBlock& outgoingData) = 0;
-    
+
     void callback();
 
     SerializableData& managedState;
-    
+
     juce::MemoryBlock cachedData;
 
     events::TimerCallback t {[&]
@@ -24,4 +24,4 @@ private:
                              10};
 };
 
-}  // namespace bav
+}  // namespace bav::serializing

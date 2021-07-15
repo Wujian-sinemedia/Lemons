@@ -17,4 +17,4 @@ struct Undo : UndoManager
     }
 };
 
-}  // namespace bav
+}  // namespace bav::plugin

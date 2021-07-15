@@ -21,7 +21,7 @@ class Filter : public AudioEffect< SampleType >
 public:
     Filter() = default;
     Filter (FilterType filterType, float frequency = 440.f, float Qfactor = 0.70710678118654752440f, float gainMult = 1.f);
-    
+
     void       setFilterType (FilterType newType);
     FilterType getFilterType() const;
 
@@ -37,7 +37,7 @@ public:
 
     void process (juce::AudioBuffer< SampleType >& audio) final;
     void prepare (double samplerate, int blocksize) final;
-    
+
 private:
     filters::MultiFilter< SampleType, 2 > filter;
 

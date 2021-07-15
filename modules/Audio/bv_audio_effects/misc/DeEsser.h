@@ -11,7 +11,7 @@ class DeEsser : public LevelReportingAudioEffect< SampleType >
 {
 public:
     DeEsser();
-    
+
     void prepare (double samplerate, int blocksize) final;
 
     void reset();
@@ -24,7 +24,7 @@ private:
                                int               numSamples,
                                SampleType*       signalToDeEss,
                                const SampleType* sidechain) final;
-    
+
     dsp::filters::MultiFilter< SampleType, 2 > filter;
 
     NoiseGate< SampleType > gate;

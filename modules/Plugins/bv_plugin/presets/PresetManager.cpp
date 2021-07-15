@@ -92,4 +92,4 @@ events::Broadcaster& PresetManagerBase::getPresetLoadedBroadcaster()
     return presetLoaded;
 }
 
-}  // namespace bav
+}  // namespace bav::plugin

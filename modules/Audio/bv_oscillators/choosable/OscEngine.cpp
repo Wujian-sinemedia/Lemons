@@ -1,25 +1,25 @@
 
 namespace bav::dsp::osc
 {
-template < typename SampleType, template<typename T> class OscType >
+template < typename SampleType, template < typename T > class OscType >
 OscEngine< SampleType, OscType >::OscEngine()
 {
 }
 
-template < typename SampleType, template<typename T> class OscType >
-OscType<SampleType>* OscEngine< SampleType, OscType >::operator->()
+template < typename SampleType, template < typename T > class OscType >
+OscType< SampleType >* OscEngine< SampleType, OscType >::operator->()
 {
     return &osc;
 }
 
-template < typename SampleType, template<typename T> class OscType >
+template < typename SampleType, template < typename T > class OscType >
 void OscEngine< SampleType, OscType >::setFrequency (float freqHz)
 {
     frequency = freqHz;
     osc.setFrequency (frequency, (SampleType) this->getSamplerate());
 }
 
-template < typename SampleType, template<typename T> class OscType >
+template < typename SampleType, template < typename T > class OscType >
 void OscEngine< SampleType, OscType >::renderBlock (const AudioBuffer&,
                                                     AudioBuffer& output,
                                                     MidiBuffer&, bool)
@@ -27,7 +27,7 @@ void OscEngine< SampleType, OscType >::renderBlock (const AudioBuffer&,
     osc.getSamples (output.getWritePointer (0), output.getNumSamples());
 }
 
-template < typename SampleType, template<typename T> class OscType >
+template < typename SampleType, template < typename T > class OscType >
 void OscEngine< SampleType, OscType >::prepared (int, double samplerate)
 {
     osc.resetPhase();
@@ -35,7 +35,7 @@ void OscEngine< SampleType, OscType >::prepared (int, double samplerate)
 }
 
 
-#define BV_DECLARE_OSC_ENGINE(Class)                   \
+#define BV_DECLARE_OSC_ENGINE(Class)          \
     template class OscEngine< float, Class >; \
     template class OscEngine< double, Class >;
 

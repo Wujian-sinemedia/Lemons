@@ -23,7 +23,7 @@ public:
 
 private:
     void timerCallback() final;
-    
+
     bool running;
 
     const int LOOPER_ID_USER           = 3;

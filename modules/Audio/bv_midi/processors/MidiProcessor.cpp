@@ -1,20 +1,20 @@
 
 namespace bav::midi
 {
-
 void MidiProcessor::reset()
 {
-    lastMidiTimestamp = 0;
+    lastMidiTimestamp   = 0;
     lastPitchwheelValue = 64;
-    sustainPedalDown = false;
-    sostenutoPedalDown = false;
-    softPedalDown = false;
+    sustainPedalDown    = false;
+    sostenutoPedalDown  = false;
+    softPedalDown       = false;
 }
 
 void MidiProcessor::process (const MidiBuffer& buffer)
 {
     std::for_each (buffer.begin(), buffer.end(),
-                   [this](const juce::MidiMessageMetadata& m) { process (m); });
+                   [this] (const juce::MidiMessageMetadata& m)
+                   { process (m); });
 }
 
 void MidiProcessor::process (const Metadata& meta)
@@ -24,9 +24,9 @@ void MidiProcessor::process (const Metadata& meta)
 
 void MidiProcessor::process (const MidiMessage& m)
 {
-    lastMidiChannel = m.getChannel();
-    lastMidiTimestamp = static_cast<int> (m.getTimeStamp());
-    
+    lastMidiChannel   = m.getChannel();
+    lastMidiTimestamp = static_cast< int > (m.getTimeStamp());
+
     if (m.isNoteOn())
         handleNoteOn (m.getNoteNumber(), m.getFloatVelocity());
     else if (m.isNoteOff())
@@ -53,7 +53,7 @@ void MidiProcessor::processControllerMessage (int controllerNumber, int controll
 {
     lastMovedController = controllerNumber;
     lastControllerValue = controllerValue;
-    
+
     switch (controllerNumber)
     {
         case 0x40 : processSustainPedal (controllerValue); return;
@@ -89,7 +89,7 @@ MidiProcessor::LastMovedControllerInfo MidiProcessor::getLastMovedCCinfo() const
     return info;
 }
 
-void MidiProcessor::handleNoteOn  (int, float) { }
+void MidiProcessor::handleNoteOn (int, float) { }
 void MidiProcessor::handleNoteOff (int, float) { }
 void MidiProcessor::handlePitchwheel (int) { }
 void MidiProcessor::handleAftertouch (int, int) { }
@@ -99,4 +99,4 @@ void MidiProcessor::handleSostenutoPedal (int) { }
 void MidiProcessor::handleSoftPedal (int) { }
 void MidiProcessor::handleController (int, int) { }
 
-}  // namespace
+}  // namespace bav::midi

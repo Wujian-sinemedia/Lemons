@@ -9,7 +9,7 @@ class Delay : public LevelReportingAudioEffect< SampleType >
 {
 public:
     void prepare (double samplerate, int blocksize) final;
-    
+
     void reset();
 
     void setDelay (int delayInSamples);
@@ -23,7 +23,7 @@ private:
                                int         numSamples,
                                SampleType* signal,
                                const SampleType*) final;
-    
+
     juce::dsp::DelayLine< SampleType > delay;
     juce::dsp::ProcessSpec             spec;
 

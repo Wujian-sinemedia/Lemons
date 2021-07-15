@@ -33,7 +33,7 @@ String StringProperty::getDefault() const
 void StringProperty::setDefault (const String& newDefault)
 {
     if (newDefault == getDefault()) return;
-    
+
     UndoManager::ScopedTransaction s {um, defaultChangeTransactionName};
     setDefaultInternal (newDefault);
 }
@@ -46,7 +46,7 @@ String StringProperty::get() const
 void StringProperty::set (const String& newValue)
 {
     if (newValue == get()) return;
-    
+
     UndoManager::ScopedTransaction s {um, valueChangeTransactionName};
     setInternal (newValue);
 }
@@ -59,7 +59,7 @@ void StringProperty::setUndoManager (UndoManager& managerToUse)
 void StringProperty::serialize (TreeReflector& ref)
 {
     auto& tree = ref.getRawDataTree();
-    
+
     if (ref.isLoading())
     {
         setInternal (tree.getProperty ("PropertyValue"));
@@ -97,4 +97,4 @@ StringProperty::Listener::~Listener()
     property.listeners.remove (this);
 }
 
-}  // namespace bav
+}  // namespace bav::plugin

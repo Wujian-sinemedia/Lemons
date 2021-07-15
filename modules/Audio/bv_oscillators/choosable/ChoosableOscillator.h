@@ -37,15 +37,15 @@ public:
 
 private:
     virtual void prepared (int blocksize);
-    
+
     OscType type {SineOsc};
     float   freq {440.f};
 
-    OscEngine<SampleType, Sine> sine;
-    OscEngine<SampleType, Saw> saw;
-    OscEngine<SampleType, Square> square;
-    OscEngine<SampleType, Triangle> triangle;
-    OscEngine<SampleType, SuperSaw> superSaw;
+    OscEngine< SampleType, Sine >     sine;
+    OscEngine< SampleType, Saw >      saw;
+    OscEngine< SampleType, Square >   square;
+    OscEngine< SampleType, Triangle > triangle;
+    OscEngine< SampleType, SuperSaw > superSaw;
 };
 
 }  // namespace bav::dsp::osc

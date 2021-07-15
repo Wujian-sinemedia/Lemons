@@ -121,13 +121,13 @@ void Reverb::process (juce::AudioBuffer< double >& input,
 {
     conversionBuffer.makeCopyOf (input, true);
     sidechainBuffer.makeCopyOf (compressorSidechain, true);
-    
+
     float level;
 
     process (conversionBuffer, sidechainBuffer, &level);
 
     input.makeCopyOf (conversionBuffer, true);
-    
+
     if (reverbLevel != nullptr) *reverbLevel = static_cast< double > (level);
 }
 

@@ -1,8 +1,7 @@
 namespace bav::gui
 {
-
-PopupComponent::PopupComponent (std::function<void()> toClose)
-: closeFunc (toClose)
+PopupComponent::PopupComponent (std::function< void() > toClose)
+    : closeFunc (toClose)
 {
     setWantsKeyboardFocus (true);
 }
@@ -24,10 +23,10 @@ bool PopupComponent::keyPressed (const juce::KeyPress& key)
         closeFunc();
         return true;
     }
-    
+
     return keyPressRecieved (key);
 }
 
 bool PopupComponent::keyPressRecieved (const juce::KeyPress&) { return false; }
 
-}
+}  // namespace bav::gui

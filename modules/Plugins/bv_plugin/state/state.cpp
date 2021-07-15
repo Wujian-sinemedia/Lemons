@@ -1,7 +1,6 @@
 
 namespace bav::plugin
 {
-
 void Dimensions::serialize (TreeReflector& ref)
 {
     ref.add ("Width", width);
@@ -10,7 +9,7 @@ void Dimensions::serialize (TreeReflector& ref)
 
 
 State::State (ParameterList& listToUse, String pluginName)
-: SerializableData (pluginName + "_State"), dimensions(pluginName + "_Dimensions"), list (listToUse)
+    : SerializableData (pluginName + "_State"), dimensions (pluginName + "_Dimensions"), list (listToUse)
 {
     // list.add (mainBypass);
 }
@@ -37,4 +36,4 @@ void State::serialize (TreeReflector& ref)
     ref.add ("Parameters", getParameters());
 }
 
-}
+}  // namespace bav::plugin

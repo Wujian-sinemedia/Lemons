@@ -6,7 +6,7 @@
 namespace bav::gui
 {
 class FloatSlider : public SliderBase,
-private plugin::FloatParameter::Listener
+                    private plugin::FloatParameter::Listener
 {
 public:
     FloatSlider (plugin::FloatParameter& paramToUse, SliderStyle style = SliderStyle::LinearVertical);
@@ -26,7 +26,7 @@ private:
 
 
 class IntSlider : public SliderBase,
-private plugin::IntParameter::Listener
+                  private plugin::IntParameter::Listener
 {
 public:
     IntSlider (plugin::IntParameter& paramToUse, SliderStyle style = SliderStyle::LinearVertical);

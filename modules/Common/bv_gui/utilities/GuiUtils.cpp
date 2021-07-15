@@ -1,7 +1,6 @@
 
 namespace bav::gui
 {
-
 ScopedCursor::ScopedCursor (
     const juce::MouseCursor& cursor,
     juce::MouseCursor        cursorToResetTo)

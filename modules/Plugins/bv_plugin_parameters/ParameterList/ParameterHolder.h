@@ -6,9 +6,9 @@ namespace bav::plugin
 struct ParamHolderBase : SerializableData
 {
     ParamHolderBase (bool internal = false) : isInternal (internal) { }
-    
+
     Parameter* operator->() { return getParam(); }
-    
+
     virtual ~ParamHolderBase() = default;
 
     virtual Parameter* getParam() const = 0;
@@ -23,7 +23,7 @@ protected:
         ref.add ("Parameter", *getParam());
         ref.add ("Internal", isInternal);
     }
-    
+
     bool addedToProcessor = false;
 };
 
@@ -62,7 +62,6 @@ private:
 
 namespace bav
 {
-
 using FloatParam = plugin::ParameterHolder< plugin::FloatParameter >;
 using IntParam   = plugin::ParameterHolder< plugin::IntParameter >;
 using BoolParam  = plugin::ParameterHolder< plugin::BoolParameter >;
@@ -74,4 +73,4 @@ using HzParam      = plugin::ParameterHolder< plugin::FrequencyParameter >;
 
 using GainMeter = plugin::ParameterHolder< plugin::GainMeterParameter >;
 
-}
+}  // namespace bav

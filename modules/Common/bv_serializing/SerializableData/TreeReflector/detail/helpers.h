@@ -44,9 +44,9 @@ void addContainer (TreeReflector& ref, ContainerType& container, const String& p
         resizeContainer (container,
                          getNumElementsOfType (propertyName, ref.getRawDataTree()));
     }
-    
+
     int index = 0;
-    
+
     for (auto& element : container)
         ref.add (makePropertyNameForElement (propertyName, index),
                  element);

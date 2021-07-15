@@ -14,13 +14,13 @@ public:
     void prepare (double samplerate, int blocksize) final;
 
     void addBand (Band* newFilter);
-    
-    template<typename... Args>
+
+    template < typename... Args >
     void addBand (Args&&... args)
     {
-        addBand (new Band (std::forward<Args>(args)...));
+        addBand (new Band (std::forward< Args > (args)...));
     }
-    
+
     int getNumBands() const;
 
     Band* getBand (int index);

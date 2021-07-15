@@ -190,7 +190,7 @@ void MultiFilter< SampleType, numChannels >::processChannel (int channel, Sample
     if (channel < filters.size())
     {
         filters[channel]->coefs = coefs;
-        
+
         filters[channel]->process (audio, numSamples);
     }
 }

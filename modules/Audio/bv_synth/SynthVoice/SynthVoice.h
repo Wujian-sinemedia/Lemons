@@ -5,7 +5,6 @@
 
 namespace bav::dsp
 {
-
 template < typename SampleType >
 class SynthBase;
 
@@ -53,7 +52,7 @@ public:
     int getMidiChannel() const { return midiChannel > 0 ? midiChannel : parent->midi.getLastMidiChannel(); }
 
     void setTargetOutputFrequency (float newFreq);
-    
+
     void setPitchGlideTime (double glideTimeSeconds);
     void togglePitchGlide (bool shouldGlide);
 
@@ -141,8 +140,8 @@ private:
     bool isDoubledByAutomatedVoice {false};
 
     ValueSmoother< SampleType > outputFrequency;
-    double pitchGlideTimeSecs {0.4};
-    bool   pitchGlide {false};
+    double                      pitchGlideTimeSecs {0.4};
+    bool                        pitchGlide {false};
 
     bav::dsp::FX::MonoToStereoPanner< SampleType > panner;
 

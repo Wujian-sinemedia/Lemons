@@ -87,9 +87,9 @@ void SynthBase< SampleType >::prepare (double samplerate, int blocksize)
     panner.prepare (voices.size(), false);
 
     resetRampedValues();
-    
+
     sampleRate = samplerate;
-    
+
     prepared (samplerate, blocksize);
 }
 
@@ -148,11 +148,11 @@ void SynthBase< SampleType >::renderVoices (juce::MidiBuffer& midiMessages, juce
         voice->newBlockComing (lastBlocksize, numSamples);
 
     lastBlocksize = numSamples;
-    
+
     chopper.process (output, midiMessages);
 
     midiMessages.swapWith (aggregateMidiBuffer);
-    
+
     aggregateMidiBuffer.clear();
     midiInputStorage.clear();
 }
@@ -165,10 +165,10 @@ void SynthBase< SampleType >::MidiChopper::handleMidiMessage (const juce::MidiMe
 }
 
 template < typename SampleType >
-void SynthBase< SampleType >::MidiChopper::renderChunk (juce::AudioBuffer<SampleType>& audio, juce::MidiBuffer&)
+void SynthBase< SampleType >::MidiChopper::renderChunk (juce::AudioBuffer< SampleType >& audio, juce::MidiBuffer&)
 {
     const auto numSamples = audio.getNumSamples();
-    
+
     for (auto* voice : synth.voices)
     {
         if (voice->isVoiceActive())

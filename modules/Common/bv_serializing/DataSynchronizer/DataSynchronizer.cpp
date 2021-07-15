@@ -14,8 +14,8 @@ void DataSynchronizer::applyRecievedData (const juce::MemoryBlock& recievedData)
 void DataSynchronizer::callback()
 {
     serializing::toBinary (managedState, cachedData);
-    
+
     sendData (cachedData);
 }
 
-}  // namespace bav
+}  // namespace bav::serializing

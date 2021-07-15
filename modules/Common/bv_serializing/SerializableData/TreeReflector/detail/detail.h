@@ -81,7 +81,7 @@ void TreeReflector::loadContainer (const String& propertyName, ContainerType& co
     if (! child.isValid()) return;
 
     TreeReflector ref {child, true};
-    
+
     TreeReflectorHelpers::addContainer (ref, container, propertyName);
 }
 
@@ -90,7 +90,7 @@ void TreeReflector::saveContainer (const String& propertyName, ContainerType& co
 {
     ValueTree     child {TreeReflectorHelpers::propertyNameToContainerName (propertyName)};
     TreeReflector ref {child, false};
-    
+
     TreeReflectorHelpers::addContainer (ref, container, propertyName);
 
     tree.appendChild (ref.getRawDataTree(), nullptr);

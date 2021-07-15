@@ -3,7 +3,8 @@ namespace bav::dsp::psola
 {
 template < typename SampleType >
 Shifter< SampleType >::Shifter (Analyzer< SampleType >& parentAnalyzer)
-: analyzer (parentAnalyzer), l (analyzer.getBroadcaster(), [this]{ this->currentSample = 0; })
+    : analyzer (parentAnalyzer), l (analyzer.getBroadcaster(), [this]
+                                    { this->currentSample = 0; })
 {
     while (grains.size() < 40)
         grains.add (new Grain (storage));

@@ -40,4 +40,4 @@ private:
     ContentComponentType content;
 };
 
-}  // namespace bav::gui
+}  // namespace bav::plugin

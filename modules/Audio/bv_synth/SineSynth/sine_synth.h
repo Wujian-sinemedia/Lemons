@@ -5,7 +5,7 @@
 
 namespace bav::dsp
 {
-template < typename SampleType, template<typename NumericType> class OscType >
+template < typename SampleType, template < typename NumericType > class OscType >
 class BasicSynthVoice : public SynthVoiceBase< SampleType >
 {
 public:
@@ -21,7 +21,7 @@ public:
     {
         osc.resetPhase();
     }
-    
+
     void noteCleared() final
     {
         osc.resetPhase();
@@ -31,16 +31,16 @@ private:
     OscType< SampleType > osc;
 };
 
-template < typename SampleType, template<typename NumericType> class OscType >
+template < typename SampleType, template < typename NumericType > class OscType >
 struct BasicSynth : public SynthBase< SampleType >
 {
-    SynthVoiceBase<SampleType>* createVoice() final
+    SynthVoiceBase< SampleType >* createVoice() final
     {
-        return new BasicSynthVoice<SampleType, OscType> (this);
+        return new BasicSynthVoice< SampleType, OscType > (this);
     }
 };
 
-template<typename SampleType>
-using SineSynth = BasicSynth<SampleType, osc::Sine>;
+template < typename SampleType >
+using SineSynth = BasicSynth< SampleType, osc::Sine >;
 
 }  // namespace bav::dsp

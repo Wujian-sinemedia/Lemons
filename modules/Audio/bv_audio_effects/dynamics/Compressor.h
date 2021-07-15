@@ -12,7 +12,7 @@ class Compressor : public LevelReportingAudioEffect< SampleType >
 {
 public:
     Compressor();
-    
+
     void prepare (double samplerate, int blocksize) final;
 
     /* returns the output compressed sample */
@@ -33,7 +33,7 @@ private:
                                int               numSamples,
                                SampleType*       signalToCompress,
                                const SampleType* sidechain) final;
-    
+
     void update();
 
     SampleType                                threshold, thresholdInverse, ratioInverse;

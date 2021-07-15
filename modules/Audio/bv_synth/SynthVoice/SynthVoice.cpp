@@ -29,7 +29,7 @@ void SynthVoiceBase< SampleType >::prepare (double samplerate, int blocksize)
     softPedalGain.prepare (parent->sampleRate, blocksize);
     playingButReleasedGain.prepare (parent->sampleRate, blocksize);
     aftertouchGain.prepare (parent->sampleRate, blocksize);
-    
+
     prepared (samplerate, blocksize);
 }
 
@@ -186,7 +186,7 @@ void SynthVoiceBase< SampleType >::updateSampleRate (const double newSamplerate)
 
     adsr.setParameters (parent->adsrParams);
     quickRelease.setParameters (parent->quickReleaseParams);
-    
+
     setPitchGlideTime (pitchGlideTimeSecs);
 }
 

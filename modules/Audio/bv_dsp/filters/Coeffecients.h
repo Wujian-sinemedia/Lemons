@@ -20,11 +20,11 @@ struct Coefficients
     void makeFirstOrderHighPass (double sampleRate, NumericType frequency);
     void makeFirstOrderAllPass (double sampleRate, NumericType frequency);
 
-    void makeLowPass  (double sampleRate, NumericType frequency, NumericType Q = inverseRootTwo);
+    void makeLowPass (double sampleRate, NumericType frequency, NumericType Q = inverseRootTwo);
     void makeHighPass (double sampleRate, NumericType frequency, NumericType Q = inverseRootTwo);
     void makeBandPass (double sampleRate, NumericType frequency, NumericType Q = inverseRootTwo);
-    void makeNotch    (double sampleRate, NumericType frequency, NumericType Q = inverseRootTwo);
-    void makeAllPass  (double sampleRate, NumericType frequency, NumericType Q = inverseRootTwo);
+    void makeNotch (double sampleRate, NumericType frequency, NumericType Q = inverseRootTwo);
+    void makeAllPass (double sampleRate, NumericType frequency, NumericType Q = inverseRootTwo);
 
     //==============================================================================
     /** Returns the coefficients for a low-pass shelf filter with variable Q and gain.
@@ -34,7 +34,7 @@ struct Coefficients
      */
     void makeLowShelf (double      sampleRate,
                        NumericType cutOffFrequency,
-                       NumericType Q = inverseRootTwo,
+                       NumericType Q          = inverseRootTwo,
                        NumericType gainFactor = (NumericType) 1);
 
     /** Returns the coefficients for a high-pass shelf filter with variable Q and gain.
@@ -44,7 +44,7 @@ struct Coefficients
      */
     void makeHighShelf (double      sampleRate,
                         NumericType cutOffFrequency,
-                        NumericType Q = inverseRootTwo,
+                        NumericType Q          = inverseRootTwo,
                         NumericType gainFactor = (NumericType) 1);
 
     /** Returns the coefficients for a peak filter centred around a
@@ -55,7 +55,7 @@ struct Coefficients
      */
     void makePeakFilter (double      sampleRate,
                          NumericType centreFrequency,
-                         NumericType Q = inverseRootTwo,
+                         NumericType Q          = inverseRootTwo,
                          NumericType gainFactor = (NumericType) 1);
 
     //==============================================================================

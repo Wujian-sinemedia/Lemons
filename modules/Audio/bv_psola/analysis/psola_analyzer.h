@@ -27,7 +27,7 @@ public:
 
     events::Broadcaster& getBroadcaster();
     const Storage&       getStorage() const;
-    
+
     int   getPeriod() const;
     float getFrequency() const;
 

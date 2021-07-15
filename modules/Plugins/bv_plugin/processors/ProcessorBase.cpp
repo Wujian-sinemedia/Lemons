@@ -1,9 +1,9 @@
 
 namespace bav::plugin
 {
-ProcessorBase::ProcessorBase (State&                          stateToUse,
-                              dsp::Engine< float >&                      floatEngineToUse,
-                              dsp::Engine< double >&                     doubleEngineToUse,
+ProcessorBase::ProcessorBase (State&                                stateToUse,
+                              dsp::Engine< float >&                 floatEngineToUse,
+                              dsp::Engine< double >&                doubleEngineToUse,
                               juce::AudioProcessor::BusesProperties busesLayout)
     : BasicProcessorBase (busesLayout),
       state (stateToUse),
@@ -98,4 +98,4 @@ void ProcessorBase::processBlockBypassed (juce::AudioBuffer< double >& audio, Mi
     doubleEngine.process (audio, midi);
 }
 
-}  // namespace bav::dsp
+}  // namespace bav::plugin

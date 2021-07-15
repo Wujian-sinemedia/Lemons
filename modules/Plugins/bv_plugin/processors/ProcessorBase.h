@@ -8,11 +8,11 @@ namespace bav::plugin
 class ProcessorBase : public dsp::BasicProcessorBase, private SystemInitializer
 {
 public:
-    ProcessorBase (State&                          stateToUse,
-                   dsp::Engine< float >&                      floatEngineToUse,
-                   dsp::Engine< double >&                     doubleEngineToUse,
+    ProcessorBase (State&                                stateToUse,
+                   dsp::Engine< float >&                 floatEngineToUse,
+                   dsp::Engine< double >&                doubleEngineToUse,
                    juce::AudioProcessor::BusesProperties busesLayout);
-    
+
     void               saveEditorSize (int width, int height);
     juce::Point< int > getSavedEditorSize() const;
 
@@ -44,4 +44,4 @@ private:
     ProcessorInternalEngine< double > doubleEngine;
 };
 
-}  // namespace bav::dsp
+}  // namespace bav::plugin

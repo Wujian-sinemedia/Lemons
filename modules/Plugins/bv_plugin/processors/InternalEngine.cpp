@@ -45,4 +45,4 @@ void ProcessorInternalEngine< SampleType >::renderChunk (juce::AudioBuffer< Samp
 template class ProcessorInternalEngine< float >;
 template class ProcessorInternalEngine< double >;
 
-}  // namespace bav::dsp
+}  // namespace bav::plugin

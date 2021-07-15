@@ -10,7 +10,7 @@ public:
     using AudioBuffer = juce::AudioBuffer< SampleType >;
 
     SmoothedGain();
-    
+
     void prepare (double samplerate, int blocksize) final;
     void process (AudioBuffer& audio) final;
 

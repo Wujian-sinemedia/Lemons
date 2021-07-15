@@ -50,12 +50,12 @@ SampleType SynthesisGrain< SampleType >::getNextSample()
     jassert (grainLength > 0);
 
     const auto sample = storage.getSample (startIndex, currentTick) * getWindowValue< SampleType > (currentTick, grainLength);
-    
+
     currentTick++;
-    
+
     if (currentTick > grainLength)
         active = false;
-    
+
     return sample;
 }
 

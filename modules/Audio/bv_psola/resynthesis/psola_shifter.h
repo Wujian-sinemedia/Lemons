@@ -26,7 +26,7 @@ private:
     Grain* getAvailableGrain() const;
     bool   areAnyGrainsActive() const;
 
-    Analyzer< SampleType >& analyzer;
+    Analyzer< SampleType >&                   analyzer;
     const AnalysisGrainStorage< SampleType >& storage {analyzer.getStorage()};
 
     juce::OwnedArray< Grain > grains;

@@ -20,4 +20,4 @@ private:
     dsp::Engine< SampleType >& engine;
 };
 
-}  // namespace bav::dsp
+}  // namespace bav::plugin

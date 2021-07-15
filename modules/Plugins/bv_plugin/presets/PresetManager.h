@@ -30,7 +30,7 @@ private:
     File presetNameToFilePath (const String& presetName);
 
     UndoManager* undo;
-    State& state;
+    State&       state;
 
     juce::StringArray namesOfAvailablePresets;
 
@@ -38,4 +38,4 @@ private:
     events::Broadcaster presetLoaded;
 };
 
-}  // namespace bav
+}  // namespace bav::plugin

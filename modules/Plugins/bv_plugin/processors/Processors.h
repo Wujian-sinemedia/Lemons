@@ -3,7 +3,7 @@
 namespace bav::plugin
 {
 template < class StateType, template < typename SampleType > class EngineType,
-           std::enable_if_t< std::is_base_of< State, StateType >::value >*               = nullptr,
+           std::enable_if_t< std::is_base_of< State, StateType >::value >*                          = nullptr,
            std::enable_if_t< std::is_base_of< dsp::Engine< float >, EngineType< float > >::value >* = nullptr >
 class Processor : public ProcessorBase
 {
@@ -43,4 +43,4 @@ private:
     int w, h;
 };
 
-}  // namespace bav::dsp
+}  // namespace bav::plugin

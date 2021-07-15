@@ -6,9 +6,9 @@ Filter< SampleType >::Filter (FilterType filterType, float frequency, float Qfac
 {
     type = filterType;
     freq = (SampleType) frequency;
-    Q = (SampleType) Qfactor;
+    Q    = (SampleType) Qfactor;
     gain = (SampleType) gainMult;
-    
+
     filter.prepare();
 }
 

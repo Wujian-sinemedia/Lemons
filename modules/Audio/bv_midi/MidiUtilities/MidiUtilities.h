@@ -16,9 +16,9 @@ bool areNotesSamePitchClass (const noteType1 pitch1, const noteType2 pitch2);
 // copies a range of events from one juce::MidiBuffer to another, optionally providing a sample offset
 void copyRangeOfMidiBuffer (const MidiBuffer& readingBuffer,
                             MidiBuffer&       destBuffer,
-                            const int               startSampleOfInput,
-                            const int               startSampleOfOutput,
-                            const int               numSamples);
+                            const int         startSampleOfInput,
+                            const int         startSampleOfOutput,
+                            const int         numSamples);
 
 // returns true if the passed int is between 0 and 127
 bool isValidMidiPitch (int note);

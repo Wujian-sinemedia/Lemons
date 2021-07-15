@@ -1,16 +1,15 @@
 
 namespace bav
 {
-
 DefaultWindowBase::DefaultWindowBase (const String& appName)
-: DocumentWindow(appName, getBackgroundColour(), allButtons)
+    : DocumentWindow (appName, getBackgroundColour(), allButtons)
 {
     setUsingNativeTitleBar (true);
 }
 
 juce::Colour DefaultWindowBase::getBackgroundColour()
 {
-    return juce::Desktop::getInstance().getDefaultLookAndFeel().findColour(juce::ResizableWindow::backgroundColourId);
+    return juce::Desktop::getInstance().getDefaultLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId);
 }
 
 void DefaultWindowBase::closeButtonPressed()
@@ -29,8 +28,8 @@ void DefaultWindowBase::init()
         setResizable (true, true);
         centreWithSize (getWidth(), getHeight());
     }
-    
+
     setVisible (true);
 }
 
-}
+}  // namespace bav

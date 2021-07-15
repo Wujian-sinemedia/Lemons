@@ -20,7 +20,7 @@ class MotionManager : public MotionManagerInterface
     virtual void start() final;
     virtual void stop() final;
     virtual bool isRunning() final { return running; }
-    
+
 private:
     void* motionManagerWrapper;
     bool  running;

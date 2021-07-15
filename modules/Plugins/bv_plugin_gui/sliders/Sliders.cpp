@@ -6,10 +6,10 @@ FloatSlider::FloatSlider (plugin::FloatParameter& paramToUse, SliderStyle style)
       plugin::FloatParameter::Listener (paramToUse),
       param (paramToUse)
 {
-//    Slider::valueFromTextFunction = [this] (const juce::String& text)
-//    { return (double) param.stringToFloat (text); };
-//    Slider::textFromValueFunction = [this] (double value)
-//    { return param.floatToString (float (value), 50); };
+    //    Slider::valueFromTextFunction = [this] (const juce::String& text)
+    //    { return (double) param.stringToFloat (text); };
+    //    Slider::textFromValueFunction = [this] (double value)
+    //    { return param.floatToString (float (value), 50); };
     Slider::setDoubleClickReturnValue (true, double (param.getDefault()));
 
     Slider::setNumDecimalPlacesToDisplay (2);
@@ -42,10 +42,10 @@ IntSlider::IntSlider (plugin::IntParameter& paramToUse, SliderStyle style)
       plugin::IntParameter::Listener (paramToUse),
       param (paramToUse)
 {
-//    Slider::valueFromTextFunction = [this] (const juce::String& text)
-//    { return (double) param.stringToInt (text); };
-//    Slider::textFromValueFunction = [this] (double value)
-//    { return param.intToString (juce::roundToInt (value), 50); };
+    //    Slider::valueFromTextFunction = [this] (const juce::String& text)
+    //    { return (double) param.stringToInt (text); };
+    //    Slider::textFromValueFunction = [this] (double value)
+    //    { return param.intToString (juce::roundToInt (value), 50); };
     Slider::setDoubleClickReturnValue (true, double (param.getDefault()));
 
     Slider::setNumDecimalPlacesToDisplay (0);

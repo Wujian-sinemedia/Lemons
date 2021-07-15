@@ -18,7 +18,7 @@ public:
 
     String get() const;
     void   set (const String& newValue);
-    
+
     String getPropertyName() const;
 
     void setUndoManager (UndoManager& managerToUse);
@@ -52,4 +52,4 @@ private:
     const String defaultChangeTransactionName;
 };
 
-}  // namespace bav
+}  // namespace bav::plugin

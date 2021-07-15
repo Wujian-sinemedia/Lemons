@@ -19,7 +19,7 @@ public:
                         const juce::Array< int >& grainOnsets);
 
     int getStartOfClosestGrain (int sampleIndex) const;
-    
+
     SampleType getSample (int grainStartIndexInCircularBuffer, int grainTick) const;
 
 private:

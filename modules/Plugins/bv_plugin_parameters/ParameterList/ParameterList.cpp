@@ -8,17 +8,17 @@ void ParamHolderBase::addTo (juce::AudioProcessor& processor)
 }
 
 ParameterList::ParameterList (juce::Identifier name, UndoManager* um)
-: SerializableData (name), undo(um)
+    : SerializableData (name), undo (um)
 {
 }
 
 void ParameterList::setUndoManager (UndoManager& um)
 {
     undo = &um;
-    
+
     for (auto* holder : params)
         holder->getParam()->setUndoManager (um);
-    
+
     for (auto& string : strings)
         string->setUndoManager (um);
 }
@@ -64,24 +64,24 @@ void ParameterList::setPitchbendParameter (IntParam& param)
 {
     pitchwheelParameter = param.get();
 
-//    if (! params.contains (param))
-//        addParameter (param, false);
+    //    if (! params.contains (param))
+    //        addParameter (param, false);
 }
 
 void ParameterList::setLastMovedMidiControllerNumberParameter (IntParam& param)
 {
     lastMovedControllerNumberParameter = param.get();
 
-//    if (! params.contains (param))
-//        addParameter (param, true);
+    //    if (! params.contains (param))
+    //        addParameter (param, true);
 }
 
 void ParameterList::setLastMovedMidiControllerValueParameter (IntParam& param)
 {
     lastMovedControllerValueParameter = param.get();
 
-//    if (! params.contains (param))
-//        addParameter (param, true);
+    //    if (! params.contains (param))
+    //        addParameter (param, true);
 }
 
 void ParameterList::addParametersTo (juce::AudioProcessor& processor)
@@ -187,4 +187,4 @@ ParameterList::Listener::Listener (ParameterList& list,
     }
 }
 
-}  // namespace bav
+}  // namespace bav::plugin

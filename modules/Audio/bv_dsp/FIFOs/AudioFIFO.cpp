@@ -12,7 +12,7 @@ static inline int getZeroesToOutput (int totalNumSamplesWanted, int numStoredSam
 {
     if (totalNumSamplesWanted <= numStoredSamples)
         return 0;
-    
+
     return totalNumSamplesWanted - numStoredSamples;
 }
 
@@ -121,7 +121,7 @@ void MultiAudioFIFO< SampleType >::popSamples (AudioBuffer& output)
 
     for (int i = 0; i < channels; ++i)
         fifos[i]->popSamples (output.getWritePointer (i), numSamples);
-    
+
     for (int i = channels; i < output.getNumChannels(); ++i)
         output.clear (i, 0, numSamples);
 }

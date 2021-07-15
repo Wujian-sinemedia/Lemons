@@ -4,7 +4,6 @@
 
 namespace bav::dsp
 {
-
 template < typename SampleType >
 class SynthBase
 {
@@ -95,10 +94,10 @@ public:
     juce::String getScaleName() const { return pitch.tuning.getScaleName(); }
 
     auto getLastMovedControllerInfo() const { return midi.getLastMovedCCinfo(); }
-    
+
     void setPitchGlideTime (double glideTimeSeconds);
     void togglePitchGlide (bool shouldGlide);
-    
+
     const midi::PitchPipeline* getPitchAdjuster() { return &pitch; }
 
 protected:
@@ -172,21 +171,21 @@ private:
 
     MidiBuffer aggregateMidiBuffer;  // this midi buffer will be used to collect the harmonizer's aggregate MIDI output
     MidiBuffer midiInputStorage;     // each block of midi that comes in is stored in here so we can refer to it later
-    
+
     //--------------------------------------------------
-    
-    class MidiChopper : public MidiChoppingProcessor<SampleType>
+
+    class MidiChopper : public MidiChoppingProcessor< SampleType >
     {
     public:
-        MidiChopper (SynthBase& s): synth (s) { }
-        
+        MidiChopper (SynthBase& s) : synth (s) { }
+
     private:
         void handleMidiMessage (const MidiMessage& m) final;
-        void renderChunk (juce::AudioBuffer<SampleType>& audio, juce::MidiBuffer&) final;
-        
+        void renderChunk (juce::AudioBuffer< SampleType >& audio, juce::MidiBuffer&) final;
+
         SynthBase& synth;
     };
-    
+
     MidiChopper chopper {*this};
 
     //--------------------------------------------------

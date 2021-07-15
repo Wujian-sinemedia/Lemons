@@ -5,30 +5,29 @@
 
 namespace bav
 {
-
 struct DefaultWindowBase : public juce::DocumentWindow
 {
 public:
     DefaultWindowBase (const String& appName);
-    
+
 protected:
     void init();
-    
+
 private:
-    void closeButtonPressed() final;
+    void         closeButtonPressed() final;
     juce::Colour getBackgroundColour();
 };
 
 
-template <typename ComponentType>
+template < typename ComponentType >
 struct DefaultWindow : public DefaultWindowBase
 {
     DefaultWindow (const String& appName)
-    : DefaultWindowBase (appName)
+        : DefaultWindowBase (appName)
     {
         setContentOwned (new ComponentType(), true);
         init();
     }
 };
 
-}
+}  // namespace bav

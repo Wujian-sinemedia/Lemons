@@ -12,7 +12,7 @@ class Limiter : public LevelReportingAudioEffect< SampleType >
 {
 public:
     void prepare (double samplerate, int blocksize) final;
-    
+
     void setThreshold (float thresh_dB);
     void setRelease (float release_ms);
 
@@ -23,7 +23,7 @@ private:
                                int               numSamples,
                                SampleType*       signalToLimit,
                                const SampleType* sidechain) final;
-    
+
     void update();
 
     Compressor< SampleType > firstStageCompressor, secondStageCompressor;

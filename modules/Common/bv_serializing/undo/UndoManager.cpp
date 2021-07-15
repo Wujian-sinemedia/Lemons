@@ -136,7 +136,7 @@ void UndoManager::loadState (const SavedState& stateToLoad)
 }
 
 UndoManager::SavedState::SavedState (const ValueTree& tree, const String& name)
-: state (tree), transactionName (name)
+    : state (tree), transactionName (name)
 {
 }
 
