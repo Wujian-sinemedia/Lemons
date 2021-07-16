@@ -1,22 +1,13 @@
 _bv_add_juce_modules_internal ("${CMAKE_CURRENT_LIST_DIR}/Plugins" plugin_only_modules)
+_bv_add_juce_modules_internal ("${CMAKE_CURRENT_LIST_DIR}/Audio"   plugin_only_modules)
 
 _bv_add_juce_modules_internal ("${CMAKE_CURRENT_LIST_DIR}/Apps" app_only_modules)
 
-#
-
-_bv_subdir_list (categories ${CMAKE_CURRENT_LIST_DIR})
-
-foreach (category ${categories})
-    if (${category} STREQUAL "" OR ${category} STREQUAL "Plugins" OR ${category} STREQUAL "Apps")
-        continue()
-    endif()
-
-	_bv_add_juce_modules_internal ("${CMAKE_CURRENT_LIST_DIR}/${category}" modules)
-endforeach()
+_bv_add_juce_modules_internal ("${CMAKE_CURRENT_LIST_DIR}/Common" common_modules)
 
 #
 
-set (BV_JUCE_MODULES "${modules}" PARENT_SCOPE)
+set (BV_JUCE_MODULES "${common_modules}" PARENT_SCOPE)
 
 set (BV_PLUGIN_ONLY_MODULES "${plugin_only_modules}" PARENT_SCOPE)
 
