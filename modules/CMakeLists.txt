@@ -1,3 +1,13 @@
+function (_bv_add_juce_modules_internal dir list)
+    bv_subdir_list (moduleFolders ${dir})
+
+    foreach (folder ${moduleFolders})
+        juce_add_module (${dir}/${folder})
+    endforeach()
+
+    list (APPEND ${list} ${moduleFolders} PARENT_SCOPE)
+endfunction()
+
 macro (_bv_add_module_subcategory folder list)
     _bv_add_juce_modules_internal ("${CMAKE_CURRENT_LIST_DIR}/${folder}" ${list})
     set (${list} ${${list}} PARENT_SCOPE)
