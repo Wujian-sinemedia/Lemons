@@ -1,19 +1,33 @@
 ###  CMAKE PUBLIC API  ###
 
-macro (bv_add_resources_folder target folder)
-    _bv_add_resources_folder (${target} ${CMAKE_CURRENT_LIST_DIR}/${folder})
-endmacro()
+function (bv_add_resources_folder target folder)
+    set (resourcesTarget ${target}-Assets)
+
+    if (NOT TARGET ${resourcesTarget})
+        file (GLOB_RECURSE files "${folder}/*.*")
+        juce_add_binary_data (${resourcesTarget} SOURCES ${files})
+        set_target_properties (${resourcesTarget} PROPERTIES POSITION_INDEPENDENT_CODE TRUE)
+        target_compile_definitions (${resourcesTarget} INTERFACE BV_HAS_BINARY_DATA=1)
+    endif()
+
+    target_link_libraries (${target} PRIVATE ${resourcesTarget})
+endfunction()
 
 
 function (bv_configure_juce_plugin target)
 	_bv_configure_juce_target (${target} TRUE)
-    _bv_finish_plugin_config (${target})
+
+    target_link_libraries (${target} PUBLIC ${BV_PLUGIN_ONLY_MODULES})
+
+    target_compile_definitions (${target} PUBLIC
+            JUCE_MICROPHONE_PERMISSION_ENABLED=1
+            JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=0)
 endfunction()
 
 
 function (bv_configure_juce_app target)
     _bv_configure_juce_target (${target} TRUE)
-    _bv_finish_app_config (${target})
+    target_link_libraries (${target} PUBLIC ${BV_APP_ONLY_MODULES})
 endfunction()
 
 
