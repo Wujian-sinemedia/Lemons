@@ -1,17 +1,12 @@
-_bv_add_juce_modules_internal ("${CMAKE_CURRENT_LIST_DIR}/Plugins" plugin_only_modules)
-_bv_add_juce_modules_internal ("${CMAKE_CURRENT_LIST_DIR}/Audio"   plugin_only_modules)
+macro (_bv_add_module_subcategory folder list)
+    _bv_add_juce_modules_internal ("${CMAKE_CURRENT_LIST_DIR}/${folder}" ${list})
+    set (${list} ${${list}} PARENT_SCOPE)
+endmacro()
 
-_bv_add_juce_modules_internal ("${CMAKE_CURRENT_LIST_DIR}/Apps" app_only_modules)
-
-_bv_add_juce_modules_internal ("${CMAKE_CURRENT_LIST_DIR}/Common" common_modules)
-
-#
-
-set (BV_JUCE_MODULES "${common_modules}" PARENT_SCOPE)
-
-set (BV_PLUGIN_ONLY_MODULES "${plugin_only_modules}" PARENT_SCOPE)
-
-set (BV_APP_ONLY_MODULES "${app_only_modules}" PARENT_SCOPE)
+_bv_add_module_subcategory (Plugins BV_PLUGIN_ONLY_MODULES)
+_bv_add_module_subcategory (Audio   BV_PLUGIN_ONLY_MODULES)
+_bv_add_module_subcategory (Apps    BV_APP_ONLY_MODULES)
+_bv_add_module_subcategory (Common  BV_JUCE_MODULES)
 
 #
 
