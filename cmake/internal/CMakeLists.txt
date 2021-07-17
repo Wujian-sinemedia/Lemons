@@ -26,24 +26,8 @@ endfunction()
 
 #
 
-function (_bv_subdir_list result curdir)
-  	file (GLOB children RELATIVE ${curdir} ${curdir}/*)
-
-  	set (dirlist "")
-
-  	foreach (child ${children})
-    	if (IS_DIRECTORY ${curdir}/${child})
-      		list (APPEND dirlist ${child})
-    	endif()
-  	endforeach()
-
-  	set (${result} ${dirlist} PARENT_SCOPE)
-endfunction()
-
-#
-
 function (_bv_add_juce_modules_internal dir list)
-	_bv_subdir_list (moduleFolders ${dir})
+	bv_subdir_list (moduleFolders ${dir})
 
     foreach (folder ${moduleFolders})
         juce_add_module (${dir}/${folder})

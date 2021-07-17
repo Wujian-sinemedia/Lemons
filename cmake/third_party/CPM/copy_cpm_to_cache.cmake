@@ -8,5 +8,4 @@ if (EXISTS ${cpm_cache_path})
     return()
 endif()
 
-file (READ ${BV_CPM_PATH} CPMscriptText)
-file (WRITE ${cpm_cache_path} ${CPMscriptText})
+bv_copy_file (${BV_CPM_PATH} ${cpm_cache_path})
