@@ -1,3 +1,14 @@
+set (cpm_local_path ${CMAKE_CURRENT_LIST_DIR}/CPM.cmake)
+
+if (DEFINED ENV{CPM_SOURCE_CACHE})
+    set (cpm_cache_path $ENV{CPM_SOURCE_CACHE}/CPM.cmake)
+
+    if (NOT EXISTS ${cpm_cache_path})
+        file (READ ${cpm_local_path} CPMscriptText)
+        file (WRITE ${cpm_cache_path} ${CPMscriptText})
+    endif()
+endif()
+
 if (DEFINED BV_CPM_INCLUDED)
     if (${BV_CPM_INCLUDED})
         return()
@@ -16,19 +27,6 @@ if (DEFINED BV_CPM_PATH)
     endif()
 endif()
 
-set (BV_CPM_PATH ${CMAKE_CURRENT_LIST_DIR}/CPM.cmake CACHE INTERNAL "Path to the CPM.cmake script")
-
-if (DEFINED ENV{CPM_SOURCE_CACHE})
-    set (cpm_cache_path $ENV{CPM_SOURCE_CACHE}/CPM.cmake)
-
-    if (EXISTS ${cpm_cache_path})
-        set (BV_CPM_PATH ${cpm_cache_path} CACHE INTERNAL "Path to the CPM.cmake script")
-        _bv_include_cpm()
-        return()
-    else()
-        file (READ ${BV_CPM_PATH} CPMscriptText)
-        file (WRITE ${cpm_cache_path} ${CPMscriptText})
-    endif()
-endif()
+set (BV_CPM_PATH ${cpm_local_path} CACHE INTERNAL "Path to the CPM.cmake script")
 
 _bv_include_cpm()
