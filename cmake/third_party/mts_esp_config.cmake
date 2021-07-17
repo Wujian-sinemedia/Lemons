@@ -7,9 +7,7 @@ set (bv_mts_esp_dir ${MTS-ESP_SOURCE_DIR}/Client CACHE INTERNAL "Path to MTS-ESP
 
 add_library (MTS-ESP INTERFACE)
 
-set (MTS_ESP_SOURCES "${bv_mts_esp_dir}/libMTSClient.cpp")
-
-target_sources             (MTS-ESP INTERFACE ${MTS_ESP_SOURCES})
+target_sources             (MTS-ESP INTERFACE "${bv_mts_esp_dir}/libMTSClient.cpp")
 target_include_directories (MTS-ESP INTERFACE ${bv_mts_esp_dir})
 target_compile_definitions (MTS-ESP INTERFACE BV_USE_MTS_ESP=1)
 
@@ -17,16 +15,8 @@ option (BV_USE_MTS_ESP "Use MTS-ESP" OFF)
 
 #
 
-function (_configure_mts_esp)
-
-    if (NOT ${BV_USE_MTS_ESP})
-	   return()
+macro (_configure_mts_esp)
+    if (${BV_USE_MTS_ESP})
+	   target_link_libraries (bv_midi INTERFACE MTS-ESP)
     endif()
-
-    message (STATUS "Configuring MTS-ESP...")
-
-    set_source_files_properties (${MTS_ESP_SOURCES} TARGET_DIRECTORY bv_midi PROPERTIES COMPILE_FLAGS "-w")
-
-    target_link_libraries (bv_midi INTERFACE MTS-ESP)
-
-endfunction()
+endmacro()
