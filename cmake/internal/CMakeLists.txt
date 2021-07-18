@@ -1,5 +1,7 @@
 add_subdirectory (third_party)
 
+include (concepts.cmake)
+
 include (configure_helpers.cmake)
 include (plugin_format_helpers.cmake)
 
