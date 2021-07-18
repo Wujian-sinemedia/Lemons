@@ -11,5 +11,4 @@ endif()
 
 include (public/utilities.cmake)
 
-add_subdirectory (third_party)
 add_subdirectory (internal)
