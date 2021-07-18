@@ -73,7 +73,7 @@ SampleType LevelReportingAudioEffect< SampleType >::getAverageGainReduction() co
     for (int i = 0; i < numChannels; ++i)
         avg += gainReductions.getUnchecked (i);
 
-    avg /= (SampleType) numChannels;
+    avg /= static_cast< SampleType > (numChannels);
 
     return avg;
 }

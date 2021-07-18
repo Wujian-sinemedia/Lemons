@@ -42,13 +42,50 @@ void PitchDetector< SampleType >::releaseResources()
 
 
 template < typename SampleType >
+static inline int samplesToFirstZeroCrossing (const SampleType* inputAudio, int numSamples)
+{
+#if BV_USE_VDSP
+    unsigned long index =
+        0;  // in Apple's vDSP, the type vDSP_Length is an alias for unsigned long
+    unsigned long totalcrossings = 0;
+
+    if constexpr (std::is_same_v< SampleType, float >)
+        vDSP_nzcros (inputAudio,
+                     vDSP_Stride (1),
+                     vDSP_Length (1),
+                     &index,
+                     &totalcrossings,
+                     vDSP_Length (numSamples));
+    else
+        vDSP_nzcrosD (inputAudio,
+                      vDSP_Stride (1),
+                      vDSP_Length (1),
+                      &index,
+                      &totalcrossings,
+                      vDSP_Length (numSamples));
+    return static_cast< int > (index);
+#else
+    const bool startedPositive = inputAudio[0] > SampleType (0);
+
+    for (int s = 1; s < numSamples; ++s)
+        if (startedPositive != (inputAudio[s] > SampleType (0))) return s;
+
+    return 0;
+#endif
+}
+
+template int samplesToFirstZeroCrossing (const float*, int);
+template int samplesToFirstZeroCrossing (const double*, int);
+
+
+template < typename SampleType >
 float PitchDetector< SampleType >::detectPitch (const AudioBuffer& inputAudio)
 {
     return detectPitch (inputAudio.getReadPointer (0), inputAudio.getNumSamples());
 }
 
 template < typename SampleType >
-float PitchDetector< SampleType >::detectPitch (const SampleType* inputAudio, const int numSamples)
+float PitchDetector< SampleType >::detectPitch (const SampleType* inputAudio, int numSamples)
 {
     // this function returns the pitch in Hz, or 0.0f if the frame of audio is determined to be unpitched
 
@@ -88,10 +125,10 @@ float PitchDetector< SampleType >::detectPitch (const SampleType* inputAudio, co
 
     // filter to our min and max possible frequencies
     loCut.coefs.makeHighPass (samplerate,
-                              (SampleType) math::freqFromPeriod (samplerate, maxLag));
+                              static_cast< SampleType > (math::freqFromPeriod (samplerate, maxLag)));
 
     hiCut.coefs.makeLowPass (samplerate,
-                             (SampleType) math::freqFromPeriod (samplerate, minLag));
+                             static_cast< SampleType > (math::freqFromPeriod (samplerate, minLag)));
 
     loCut.process (reading, numSamples);
     hiCut.process (reading, numSamples);
@@ -161,7 +198,7 @@ float PitchDetector< SampleType >::detectPitch (const SampleType* inputAudio, co
 
 template < typename SampleType >
 void PitchDetector< SampleType >::getNextBestPeriodCandidate (
-    juce::Array< int >& candidates, const SampleType* asdfData, const int dataSize)
+    juce::Array< int >& candidates, const SampleType* asdfData, int dataSize)
 {
     int index = -1;
 
@@ -197,7 +234,7 @@ void PitchDetector< SampleType >::getNextBestPeriodCandidate (
 
 template < typename SampleType >
 int PitchDetector< SampleType >::chooseIdealPeriodCandidate (
-    const SampleType* asdfData, const int asdfDataSize, const int minIndex)
+    const SampleType* asdfData, int asdfDataSize, int minIndex)
 {
     periodCandidates.clearQuick();
     candidateDeltas.clearQuick();
@@ -240,7 +277,7 @@ int PitchDetector< SampleType >::chooseIdealPeriodCandidate (
 
 
 template < typename SampleType >
-void PitchDetector< SampleType >::setHzRange (const int newMinHz, const int newMaxHz)
+void PitchDetector< SampleType >::setHzRange (int newMinHz, int newMaxHz)
 {
     jassert (newMaxHz > newMinHz);
     jassert (newMinHz > 0 && newMaxHz > 0);
@@ -250,8 +287,8 @@ void PitchDetector< SampleType >::setHzRange (const int newMinHz, const int newM
 
     if (samplerate == 0) return;
 
-    maxPeriod = juce::roundToInt (samplerate / minHz);
-    minPeriod = juce::roundToInt (samplerate / maxHz);
+    maxPeriod = juce::roundToInt (samplerate / static_cast< double > (minHz));
+    minPeriod = juce::roundToInt (samplerate / static_cast< double > (maxHz));
 
     if (minPeriod < 1) minPeriod = 1;
 
@@ -265,7 +302,7 @@ void PitchDetector< SampleType >::setHzRange (const int newMinHz, const int newM
 
 
 template < typename SampleType >
-void PitchDetector< SampleType >::setSamplerate (const double newSamplerate)
+void PitchDetector< SampleType >::setSamplerate (double newSamplerate)
 {
     jassert (newSamplerate > 0);
 
@@ -281,46 +318,6 @@ void PitchDetector< SampleType >::setSamplerate (const double newSamplerate)
     loCut.prepare();
 }
 
-
-template < typename SampleType >
-int PitchDetector< SampleType >::samplesToFirstZeroCrossing (
-    const SampleType* inputAudio, const int numSamples)
-{
-#if BV_USE_VDSP
-    unsigned long index =
-        0;  // in Apple's vDSP, the type vDSP_Length is an alias for unsigned long
-    unsigned long totalcrossings = 0;
-
-    if constexpr (std::is_same_v< SampleType, float >)
-        vDSP_nzcros (inputAudio,
-                     vDSP_Stride (1),
-                     vDSP_Length (1),
-                     &index,
-                     &totalcrossings,
-                     vDSP_Length (numSamples));
-    else
-        vDSP_nzcrosD (inputAudio,
-                      vDSP_Stride (1),
-                      vDSP_Length (1),
-                      &index,
-                      &totalcrossings,
-                      vDSP_Length (numSamples));
-
-    return int (index);
-#else
-    const bool startedPositive = inputAudio[0] > SampleType (0);
-
-    for (int s = 1; s < numSamples; ++s)
-    {
-        const auto currentSample = inputAudio[s];
-
-        if (startedPositive != (currentSample > SampleType (0))) return s;
-    }
-
-    return 0;
-#endif
-}
-
 template < typename SampleType >
 juce::Range< int > PitchDetector< SampleType >::getCurrentLegalPeriodRange() const
 {
@@ -328,7 +325,7 @@ juce::Range< int > PitchDetector< SampleType >::getCurrentLegalPeriodRange() con
 }
 
 template < typename SampleType >
-void PitchDetector< SampleType >::setConfidenceThresh (const SampleType newThresh)
+void PitchDetector< SampleType >::setConfidenceThresh (SampleType newThresh)
 {
     confidenceThresh = newThresh;
 }

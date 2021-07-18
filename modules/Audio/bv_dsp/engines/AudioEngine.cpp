@@ -60,32 +60,19 @@ void Engine< SampleType >::processInternal (const AudioBuffer& input, AudioBuffe
 {
     jassert (isInitialized() && sampleRate > 0);
 
-    bool processingBypassedThisFrame, applyFadeIn, applyFadeOut;
-
-    if (isBypassed)
-    {
-        processingBypassedThisFrame = wasBypassedLastCallback;
-        applyFadeIn                 = false;
-        applyFadeOut                = ! wasBypassedLastCallback;
-    }
-    else
-    {
-        processingBypassedThisFrame = false;
-        applyFadeIn                 = wasBypassedLastCallback;
-        applyFadeOut                = false;
-    }
+    const bool applyFadeIn                 = wasBypassedLastCallback;
+    const bool applyFadeOut                = isBypassed ? ! wasBypassedLastCallback : false;
+    const bool processingBypassedThisFrame = isBypassed ? wasBypassedLastCallback : false;
 
     wasBypassedLastCallback = isBypassed;
 
     renderBlock (input, output, midiMessages, processingBypassedThisFrame);
 
-    const auto numSamples = output.getNumSamples();
-
     if (applyFadeIn)
-        output.applyGainRamp (0, numSamples, SampleType (0.), SampleType (1.));
+        output.applyGainRamp (0, output.getNumSamples(), SampleType (0.), SampleType (1.));
 
     if (applyFadeOut)
-        output.applyGainRamp (0, numSamples, SampleType (1.), SampleType (0.));
+        output.applyGainRamp (0, output.getNumSamples(), SampleType (1.), SampleType (0.));
 }
 
 template < typename SampleType >

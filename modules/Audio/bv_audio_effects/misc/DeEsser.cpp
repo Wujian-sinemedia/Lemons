@@ -12,7 +12,7 @@ DeEsser< SampleType >::DeEsser()
 template < typename SampleType >
 void DeEsser< SampleType >::prepare (double samplerate, int blocksize)
 {
-    filter.coefs.makeHighPass (samplerate, SampleType (hiPassFreq));
+    filter.coefs.makeHighPass (samplerate, static_cast< SampleType > (hiPassFreq));
     filter.prepare();
 
     gate.prepare (samplerate, blocksize);
@@ -37,8 +37,9 @@ template < typename SampleType >
 void DeEsser< SampleType >::setDeEssAmount (int newAmount)
 {
     jassert (newAmount >= 0 && newAmount <= 100);
-    auto a = float (newAmount) * 0.01f;
-    gate.setRatio (SampleType (juce::jmap (a, 0.0f, 1.0f, 1.0f, 10.0f)));
+
+    const auto a = static_cast< float > (newAmount) * 0.01f;
+    gate.setRatio (static_cast< SampleType > (juce::jmap (a, 0.0f, 1.0f, 1.0f, 10.0f)));
 }
 
 template < typename SampleType >

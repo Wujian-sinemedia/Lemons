@@ -5,9 +5,9 @@ template < typename SampleType >
 Filter< SampleType >::Filter (FilterType filterType, float frequency, float Qfactor, float gainMult)
 {
     type = filterType;
-    freq = (SampleType) frequency;
-    Q    = (SampleType) Qfactor;
-    gain = (SampleType) gainMult;
+    freq = static_cast< SampleType > (frequency);
+    Q    = static_cast< SampleType > (Qfactor);
+    gain = static_cast< SampleType > (gainMult);
 
     filter.prepare();
 }
@@ -84,38 +84,38 @@ FilterType Filter< SampleType >::getFilterType() const
 template < typename SampleType >
 void Filter< SampleType >::setFilterFrequency (float newFreqHz)
 {
-    freq = (SampleType) newFreqHz;
+    freq = static_cast< SampleType > (newFreqHz);
 }
 
 template < typename SampleType >
 float Filter< SampleType >::getFilterFrequency() const
 {
-    return (float) freq;
+    return static_cast< float > (freq);
 }
 
 template < typename SampleType >
 void Filter< SampleType >::setQfactor (float newQ)
 {
     jassert (newQ > 0.f);
-    Q = (SampleType) newQ;
+    Q = static_cast< SampleType > (newQ);
 }
 
 template < typename SampleType >
 float Filter< SampleType >::getQfactor() const
 {
-    return (float) Q;
+    return static_cast< float > (Q);
 }
 
 template < typename SampleType >
 void Filter< SampleType >::setGain (float newGain)
 {
-    gain = (SampleType) newGain;
+    gain = static_cast< SampleType > (newGain);
 }
 
 template < typename SampleType >
 float Filter< SampleType >::getGain() const
 {
-    return (float) gain;
+    return static_cast< float > (gain);
 }
 
 template class Filter< float >;

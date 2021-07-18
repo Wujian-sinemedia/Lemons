@@ -12,7 +12,7 @@ void Delay< SampleType >::prepare (double samplerate, int blocksize)
     jassert (samplerate > 0);
 
     spec.sampleRate       = samplerate;
-    spec.maximumBlockSize = juce::uint32 (blocksize);
+    spec.maximumBlockSize = static_cast< juce::uint32 > (blocksize);
     spec.numChannels      = 2;
 
     delay.prepare (spec);
@@ -25,15 +25,14 @@ template < typename SampleType >
 void Delay< SampleType >::reset()
 {
     delay.reset();
-    const auto blocksize = int (spec.maximumBlockSize);
-    dryGain.reset (blocksize);
-    wetGain.reset (blocksize);
+    dryGain.reset (static_cast< int > (spec.maximumBlockSize));
+    wetGain.reset (static_cast< int > (spec.maximumBlockSize));
 }
 
 template < typename SampleType >
 void Delay< SampleType >::setDryWet (int wetMixPercent)
 {
-    const auto wet = wetMixPercent * 0.01f;
+    const auto wet = static_cast< float > (wetMixPercent) * 0.01f;
     wetGain.set (wet);
     dryGain.set (1.0f - wet);
 }
@@ -81,7 +80,7 @@ SampleType Delay< SampleType >::processChannel (int         channel,
         avgMag += mag;
     }
 
-    avgMag /= (SampleType) numSamples;
+    avgMag /= static_cast< SampleType > (numSamples);
     return avgMag;
 }
 

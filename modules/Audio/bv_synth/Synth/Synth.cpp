@@ -78,7 +78,7 @@ void SynthBase< SampleType >::prepare (double samplerate, int blocksize)
     jassert (blocksize > 0 && samplerate > 0);
     jassert (! voices.isEmpty());
 
-    aggregateMidiBuffer.ensureSize (size_t (blocksize * 2));
+    aggregateMidiBuffer.ensureSize (static_cast< size_t > (blocksize * 2));
     aggregateMidiBuffer.clear();
 
     for (auto* voice : voices)

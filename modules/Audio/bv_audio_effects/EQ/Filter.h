@@ -42,9 +42,9 @@ private:
     filters::MultiFilter< SampleType, 2 > filter;
 
     FilterType type {HighPass};
-    SampleType freq {(SampleType) 440.};
+    SampleType freq {static_cast< SampleType > (440.)};
     SampleType Q {static_cast< SampleType > (0.70710678118654752440L)};
-    SampleType gain {(SampleType) 1.};
+    SampleType gain {static_cast< SampleType > (1.)};
 
     double sampleRate {44100.};
 };

@@ -39,9 +39,8 @@ void MonoStereoConverter< SampleType >::convertStereoToMono (const SampleType* l
         }
         case (mixToMono) :
         {
-            const auto pnt5 = static_cast< SampleType > (0.5);
-            monoStorage.copyFrom (0, 0, leftIn, numSamples, pnt5);
-            monoStorage.addFrom (0, 0, rightIn, numSamples, pnt5);
+            monoStorage.copyFrom (0, 0, leftIn, numSamples, SampleType (0.5));
+            monoStorage.addFrom (0, 0, rightIn, numSamples, SampleType (0.5));
             vecops::copy (monoStorage.getReadPointer (0), monoOut, numSamples);
         }
     }

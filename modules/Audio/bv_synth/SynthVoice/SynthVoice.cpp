@@ -125,7 +125,7 @@ void SynthVoiceBase< SampleType >::renderInternal (int totalNumSamples)
             // process a single sample
             AudioBuffer alias {scratchBuffer.getArrayOfWritePointers(), 1, 0, 1};
 
-            renderPlease (alias, (float) outputFrequency.getNextValue(), parent->sampleRate);
+            renderPlease (alias, static_cast< float > (outputFrequency.getNextValue()), parent->sampleRate);
 
             renderingBuffer.setSample (0,
                                        samplesProcessed++,
@@ -139,7 +139,7 @@ void SynthVoiceBase< SampleType >::renderInternal (int totalNumSamples)
 
         AudioBuffer alias {scratchBuffer.getArrayOfWritePointers(), 1, 0, samplesLeft};
 
-        renderPlease (alias, (float) outputFrequency.getNextValue(), parent->sampleRate);
+        renderPlease (alias, static_cast< float > (outputFrequency.getNextValue()), parent->sampleRate);
 
         vecops::copy (scratchBuffer.getReadPointer (0),
                       renderingBuffer.getWritePointer (0, samplesProcessed),
@@ -170,7 +170,7 @@ void SynthVoiceBase< SampleType >::bypassedBlock (const int numSamples)
     playingButReleasedGain.skipSamples (numSamples);
     aftertouchGain.skipSamples (numSamples);
 
-    bypassedBlockRecieved ((float) outputFrequency.getTargetValue(), parent->sampleRate, numSamples);
+    bypassedBlockRecieved (static_cast< float > (outputFrequency.getTargetValue()), parent->sampleRate, numSamples);
     outputFrequency.skip (numSamples);
 }
 

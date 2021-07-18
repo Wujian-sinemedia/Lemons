@@ -28,14 +28,14 @@ bool BasicProcessorBase::hasEditor() const { return false; }
 
 juce::AudioProcessorEditor* BasicProcessorBase::createEditor() { return nullptr; }
 
+static inline bool isChannelsetValid (const juce::AudioChannelSet& set)
+{
+    return set != juce::AudioChannelSet::disabled();
+}
+
 bool BasicProcessorBase::isBusesLayoutSupported (const BusesLayout& layout) const
 {
-    using Set = juce::AudioChannelSet;
-
-    auto isValid = [] (const Set& set)
-    { return set != Set::disabled(); };
-
-    return isValid (layout.getMainInputChannelSet()) && isValid (layout.getMainOutputChannelSet());
+    return isChannelsetValid (layout.getMainInputChannelSet()) && isChannelsetValid (layout.getMainOutputChannelSet());
 }
 
 void BasicProcessorBase::repaintEditor()

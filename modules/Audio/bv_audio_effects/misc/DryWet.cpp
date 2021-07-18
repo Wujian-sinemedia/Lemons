@@ -11,20 +11,20 @@ DryWetMixer< SampleType >::DryWetMixer()
 template < typename SampleType >
 void DryWetMixer< SampleType >::setWetMix (int wetPercent)
 {
-    mixer.setWetMixProportion (SampleType (wetPercent) * SampleType (0.01));
+    mixer.setWetMixProportion (static_cast< SampleType > (wetPercent) * SampleType (0.01));
 }
 
 template < typename SampleType >
 void DryWetMixer< SampleType >::setWetLatency (int latencySamples)
 {
-    mixer.setWetLatency (SampleType (latencySamples));
+    mixer.setWetLatency (static_cast< SampleType > (latencySamples));
 }
 
 template < typename SampleType >
 void DryWetMixer< SampleType >::prepare (int numChannels, int blocksize, double samplerate)
 {
-    spec.numChannels      = juce::uint32 (numChannels);
-    spec.maximumBlockSize = juce::uint32 (blocksize);
+    spec.numChannels      = static_cast< juce::uint32 > (numChannels);
+    spec.maximumBlockSize = static_cast< juce::uint32 > (blocksize);
     spec.sampleRate       = samplerate;
 
     mixer.prepare (spec);

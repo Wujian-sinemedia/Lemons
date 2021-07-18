@@ -19,7 +19,6 @@ template < typename SampleType, size_t channels >
 void SmoothedGain< SampleType, channels >::prepare (double, int blocksize)
 {
     lastBlocksize = blocksize;
-
     reset();
 }
 

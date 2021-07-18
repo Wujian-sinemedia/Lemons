@@ -60,7 +60,7 @@ void NoiseGate< SampleType >::prepare (double samplerate, int blocksize)
     jassert (samplerate > 0);
 
     spec.sampleRate       = samplerate;
-    spec.maximumBlockSize = juce::uint32 (blocksize);
+    spec.maximumBlockSize = static_cast< juce::uint32 > (blocksize);
 
     RMSFilter.prepare (spec);
     envelopeFilter.prepare (spec);

@@ -82,7 +82,8 @@ void Reverb::setDryWet (int wetMixPercent)
 void Reverb::setDuckAmount (int newDuckAmount)
 {
     isDucking = newDuckAmount > 50;
-    auto duck = float (newDuckAmount) * 0.01f;
+
+    const auto duck = static_cast< float > (newDuckAmount) * 0.01f;
     compressor.setThreshold (juce::jmap (duck, 0.0f, -20.0f));
     compressor.setRatio (juce::jmap (duck, 1.0f, 10.0f));
 }

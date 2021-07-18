@@ -21,11 +21,11 @@ public:
     void releaseResources();
 
     float detectPitch (const AudioBuffer& inputAudio);
-    float detectPitch (const SampleType* inputAudio, const int numSamples);
+    float detectPitch (const SampleType* inputAudio, int numSamples);
 
-    void setHzRange (const int newMinHz, const int newMaxHz);
-    void setConfidenceThresh (const SampleType newThresh);
-    void setSamplerate (const double newSamplerate);
+    void setHzRange (int newMinHz, int newMaxHz);
+    void setConfidenceThresh (SampleType newThresh);
+    void setSamplerate (double newSamplerate);
 
     int getLatencySamples() const noexcept;
 
@@ -33,18 +33,13 @@ public:
 
 private:
     int chooseIdealPeriodCandidate (const SampleType* asdfData,
-                                    const int         asdfDataSize,
-                                    const int         minIndex);
+                                    int               asdfDataSize,
+                                    int               minIndex);
 
     void getNextBestPeriodCandidate (juce::Array< int >& candidates,
                                      const SampleType*   asdfData,
-                                     const int           dataSize);
+                                     int                 dataSize);
 
-    int samplesToFirstZeroCrossing (const SampleType* inputAudio,
-                                    const int         numSamples);
-
-    /*
-    */
 
     int minHz, maxHz;
     int minPeriod, maxPeriod;

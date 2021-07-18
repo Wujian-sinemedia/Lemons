@@ -14,7 +14,7 @@ void Compressor< SampleType >::prepare (double samplerate, int blocksize)
     jassert (samplerate > 0);
 
     spec.sampleRate       = samplerate;
-    spec.maximumBlockSize = juce::uint32 (blocksize);
+    spec.maximumBlockSize = static_cast< juce::uint32 > (blocksize);
 
     envelopeFilter.prepare (spec);
 
@@ -28,7 +28,7 @@ SampleType Compressor< SampleType >::processChannel (int               channel,
                                                      SampleType*       signalToCompress,
                                                      const SampleType* sidechain)
 {
-    if (numSamples == 0) return (SampleType) 0;
+    if (numSamples == 0) return static_cast< SampleType > (0);
 
     SampleType avgGainReduction = 0;
     SampleType gainRedux        = 0;
@@ -67,7 +67,7 @@ SampleType Compressor< SampleType >::processSample (int         channel,
 template < typename SampleType >
 void Compressor< SampleType >::setThreshold (float newThresh_dB)
 {
-    thresholddB = SampleType (newThresh_dB);
+    thresholddB = static_cast< SampleType > (newThresh_dB);
     update();
 }
 
@@ -76,21 +76,21 @@ void Compressor< SampleType >::setRatio (float newRatio)
 {
     jassert (newRatio >= 1.0f);
 
-    ratio = SampleType (newRatio);
+    ratio = static_cast< SampleType > (newRatio);
     update();
 }
 
 template < typename SampleType >
 void Compressor< SampleType >::setAttack (float attackMs)
 {
-    attackTime = SampleType (attackMs);
+    attackTime = static_cast< SampleType > (attackMs);
     update();
 }
 
 template < typename SampleType >
 void Compressor< SampleType >::setRelease (float releaseMs)
 {
-    releaseTime = SampleType (releaseMs);
+    releaseTime = static_cast< SampleType > (releaseMs);
     update();
 }
 

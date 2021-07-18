@@ -92,10 +92,10 @@ void Limiter< SampleType >::update()
     secondStageCompressor.setAttack (0.001f);
     secondStageCompressor.setRelease (releaseTime);
 
-    auto ratioInverse = (SampleType) (1.0 / 4.0);
+    auto ratioInverse = static_cast< SampleType > (1.0 / 4.0);
 
-    auto gain = (SampleType) std::pow (10.0, 10.0 * (1.0 - ratioInverse) / 40.0);
-    gain *= juce::Decibels::decibelsToGain (-thresholddB, -100.0f);
+    auto gain = static_cast< SampleType > (std::pow (10.0, 10.0 * (1.0 - ratioInverse) / 40.0));
+    gain *= static_cast< SampleType > (juce::Decibels::decibelsToGain (-thresholddB, -100.0f));
 
     outputVolume.setTargetValue (gain);
 }

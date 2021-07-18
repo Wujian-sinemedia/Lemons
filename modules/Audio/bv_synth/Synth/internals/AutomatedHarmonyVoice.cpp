@@ -7,6 +7,14 @@ SynthBase< SampleType >::AutomatedHarmonyVoice::AutomatedHarmonyVoice (SynthBase
 {
 }
 
+static inline bool compareNotes (bool shiftingUp, int a, int b)
+{
+    if (shiftingUp)
+        return a > b;
+
+    return a < b;
+}
+
 template < typename SampleType >
 void SynthBase< SampleType >::AutomatedHarmonyVoice::apply()
 {
@@ -19,14 +27,6 @@ void SynthBase< SampleType >::AutomatedHarmonyVoice::apply()
     int    currentExtreme = 128;
     Voice* extremeVoice   = nullptr;
 
-    auto compare = [=] (int a, int b)
-    {
-        if (shiftingUp)
-            return a > b;
-
-        return a < b;
-    };
-
     // find the current lowest/highest note being played by a keyboard key
     for (auto* voice : synth.voices)
     {
@@ -34,7 +34,7 @@ void SynthBase< SampleType >::AutomatedHarmonyVoice::apply()
         {
             const int note = voice->getCurrentlyPlayingNote();
 
-            if (compare (note, currentExtreme))
+            if (compareNotes (shiftingUp, note, currentExtreme))
             {
                 currentExtreme = note;
                 extremeVoice   = voice;
@@ -42,7 +42,7 @@ void SynthBase< SampleType >::AutomatedHarmonyVoice::apply()
         }
     }
 
-    if (! compare (currentExtreme, thresh))
+    if (! compareNotes (shiftingUp, currentExtreme, thresh))
     {
         turnNoteOffIfOn();
         return;

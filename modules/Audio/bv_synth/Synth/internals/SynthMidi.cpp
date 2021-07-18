@@ -110,7 +110,7 @@ void SynthBase< SampleType >::startVoice (Voice* voice, int midiPitch, float vel
     const bool isPedal   = pedal.isAutomatedPitch (midiPitch);
     const bool isDescant = descant.isAutomatedPitch (midiPitch);
     const bool keydown   = isKeyboard ? true : voice->isKeyDown();
-    const auto timestamp = sameNoteRetriggered ? voice->noteOnTime : uint32 (midi.getLastMidiTimestamp());
+    const auto timestamp = sameNoteRetriggered ? voice->noteOnTime : static_cast< uint32 > (midi.getLastMidiTimestamp());
 
     voice->startNote (midiPitch, velocity, timestamp, keydown, isPedal, isDescant, midiChannel);
 }
@@ -239,13 +239,8 @@ void SynthBase< SampleType >::updateChannelPressure (int newIncomingAftertouch)
     int highestAftertouch = -1;
 
     for (auto* voice : voices)
-    {
-        if (! voice->isVoiceActive()) continue;
-
-        const auto at = voice->currentAftertouch;
-
-        if (at > highestAftertouch) highestAftertouch = at;
-    }
+        if (voice->isVoiceActive())
+            highestAftertouch = std::max (highestAftertouch, voice->currentAftertouch);
 
     if (newIncomingAftertouch > highestAftertouch)
         midi.process (MidiMessage::channelPressureChange (midi.getLastMidiChannel(),
