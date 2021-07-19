@@ -17,8 +17,6 @@ function (bv_configure_precommit_git_hook projectDir)
         return()
     endif()
 
-    message (STATUS "Configuring pre-commit git hook in dir: ${projectDir}")
-
     configure_file (${BV_GITHOOKS_DIR}/pre_commit_script.in
                     ${projectDir}/.git/hooks/pre-commit)
 endfunction()
