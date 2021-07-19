@@ -12,3 +12,11 @@ endfunction()
 function (bv_update_repo_clangformat repodir)
 	bv_copy_file (${Shared-code_SOURCE_DIR}/_clang-format ${repodir}/_clang-format)
 endfunction()
+
+
+function (bv_update_git_repo repodir)
+	bv_update_repo_clangformat      (${repodir})
+	bv_update_repo_gitignore        (${repodir})
+	bv_configure_precommit_git_hook (${repodir})
+	bv_update_all_github_scripts    (${repodir})
+endfunction()
