@@ -9,6 +9,4 @@ set (BV_CXX_VERSION 20 CACHE INTERNAL "C++ standard version")
 add_subdirectory (cmake)
 add_subdirectory (modules)
 
-include (cmake/public/public_api.cmake)
-
 bv_configure_precommit_git_hook (${CMAKE_CURRENT_LIST_DIR})
