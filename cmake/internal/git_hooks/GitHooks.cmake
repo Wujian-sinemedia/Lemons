@@ -1,3 +1,5 @@
+set (BV_GITHOOKS_DIR ${CMAKE_CURRENT_LIST_DIR} CACHE INTERNAL "Path to githook scripts")
+
 function (bv_configure_precommit_git_hook projectDir)
     if (NOT EXISTS ${projectDir}/.git)
         return()
