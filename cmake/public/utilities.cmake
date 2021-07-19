@@ -44,4 +44,4 @@ function (bv_apply_git_patch gitdir patch_path)
 
     execute_process (COMMAND ${GIT_EXECUTABLE} apply ${patch_path}
             		 WORKING_DIRECTORY ${gitdir})
-endfucntion()
+endfunction()
