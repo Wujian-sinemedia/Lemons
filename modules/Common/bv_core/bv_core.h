@@ -46,22 +46,11 @@
 #undef JUCE_USE_VDSP_FRAMEWORK
 #define JUCE_USE_VDSP_FRAMEWORK BV_USE_VDSP
 
-
 /*=======================================================================*/
-
-#define BV_DECLARE_RECURSIVE_VARIADIC_FUNCTION(funcName, Type) \
-    void funcName (Type);                                      \
-    template < typename... Args >                              \
-    void funcName (Type first, Args&&... rest)                 \
-    {                                                          \
-        funcName (first);                                      \
-        funcName (std::forward< Args > (rest)...);             \
-    }
-
-/*=======================================================================*/
-
 
 #include <juce_audio_utils/juce_audio_utils.h>
+
+#include "misc/Preprocessor.h"
 
 
 namespace bav

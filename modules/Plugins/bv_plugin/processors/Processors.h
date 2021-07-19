@@ -3,8 +3,8 @@
 namespace bav::plugin
 {
 template < class StateType, template < typename SampleType > class EngineType,
-           std::enable_if_t< std::is_base_of< State, StateType >::value >*                          = nullptr,
-           std::enable_if_t< std::is_base_of< dsp::Engine< float >, EngineType< float > >::value >* = nullptr >
+           BV_MUST_INHERIT_FROM (StateType, State),
+           BV_MUST_INHERIT_FROM (EngineType< float >, dsp::Engine< float >) >
 class Processor : public ProcessorBase
 {
 public:
@@ -24,7 +24,7 @@ private:
 
 
 template < class ProcessorType, class ComponentType,
-           std::enable_if_t< std::is_base_of< ProcessorBase, ProcessorType >::value >* = nullptr >
+           BV_MUST_INHERIT_FROM (ProcessorType, ProcessorBase) >
 struct ProcessorWithEditor : ProcessorType
 {
     ProcessorWithEditor (int width = 450, int height = 300)

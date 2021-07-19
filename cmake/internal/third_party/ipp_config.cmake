@@ -12,7 +12,7 @@
 #   IPP_INCLUDE_DIRS: set when IPP_INCLUDE_DIR found
 #   IPP_LIBRARIES   : the library to link against.
 
-find_path (IPP_INCLUDE_DIR ipp.h PATHS /opt/intel/ipp/include)
+find_path (IPP_INCLUDE_DIR ipp.h PATHS /opt/intel/oneapi/ipp/latest/include)
 
 set (_IPP_ORIG_CMAKE_FIND_LIBRARY_SUFFIXES ${CMAKE_FIND_LIBRARY_SUFFIXES})
 

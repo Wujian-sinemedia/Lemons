@@ -20,7 +20,7 @@ private:
 
 
 template < typename ContentComponentType,
-           std::enable_if_t< std::is_base_of< juce::Component, ContentComponentType >::value >* = nullptr >
+           BV_MUST_INHERIT_FROM (ContentComponentType, juce::Component) >
 class PluginEditor : public EditorBase
 {
 public:
