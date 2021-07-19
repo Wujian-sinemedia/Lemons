@@ -6,6 +6,10 @@ endif()
 
 
 function (bv_configure_precommit_git_hook projectDir)
+    if (NOT UNIX)
+        return()
+    endif()
+
     if (NOT GIT_FOUND OR NOT EXISTS ${projectDir}/.git)
         return()
     endif()
@@ -18,13 +22,16 @@ function (bv_configure_precommit_git_hook projectDir)
         return()
     endif()
 
-    set (TEMP_DIR ${CMAKE_CURRENT_BINARY_DIR}/CMakeFiles/CMakeTmp/pre-commit)
+    set (DEST_DIR ${projectDir}/.git/hooks/pre-commit)
+    
+    if (EXISTS ${DEST_DIR})
+        file (REMOVE ${DEST_DIR})
+    endif()
 
     configure_file (${BV_GITHOOKS_DIR}/pre_commit_script.in
-                    ${TEMP_DIR})
+                    ${DEST_DIR})
 
-    file (COPY ${TEMP_DIR}
-          DESTINATION ${projectDir}/.git/hooks/pre-commit
-          FILE_PERMISSIONS OWNER_EXECUTE GROUP_EXECUTE WORLD_EXECUTE)
+    file (CHMOD ${DEST_DIR} 
+          PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_WRITE GROUP_EXECUTE WORLD_READ WORLD_WRITE WORLD_EXECUTE SETUID SETGID)
 
 endfunction()
