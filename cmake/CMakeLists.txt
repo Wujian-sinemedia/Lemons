@@ -12,3 +12,5 @@ endif()
 include (public/utilities.cmake)
 
 add_subdirectory (internal)
+
+add_subdirectory (project_repo_config)
