@@ -4,6 +4,12 @@ if (NOT GIT_FOUND)
     find_package (Git QUIET)
 endif()
 
+
+function (bv_make_all_repo_githooks_executable repodir)
+    execute_process (COMMAND ${BV_GITHOOKS_DIR}/make_all_hooks_executable.sh ${repodir})
+endfunction()
+
+
 function (bv_configure_precommit_git_hook projectDir)
     if (NOT GIT_FOUND OR NOT EXISTS ${projectDir}/.git)
         return()
