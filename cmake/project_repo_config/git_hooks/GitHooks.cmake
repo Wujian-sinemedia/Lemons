@@ -5,11 +5,6 @@ if (NOT GIT_FOUND)
 endif()
 
 
-function (bv_make_all_repo_githooks_executable repodir)
-    execute_process (COMMAND ${BV_GITHOOKS_DIR}/make_all_hooks_executable.sh ${repodir})
-endfunction()
-
-
 function (bv_configure_precommit_git_hook projectDir)
     if (NOT GIT_FOUND OR NOT EXISTS ${projectDir}/.git)
         return()
@@ -23,6 +18,13 @@ function (bv_configure_precommit_git_hook projectDir)
         return()
     endif()
 
+    set (TEMP_DIR ${CMAKE_CURRENT_BINARY_DIR}/CMakeFiles/CMakeTmp/pre-commit)
+
     configure_file (${BV_GITHOOKS_DIR}/pre_commit_script.in
-                    ${projectDir}/.git/hooks/pre-commit)
+                    ${TEMP_DIR})
+
+    file (COPY ${TEMP_DIR}
+          DESTINATION ${projectDir}/.git/hooks/pre-commit
+          FILE_PERMISSIONS OWNER_EXECUTE GROUP_EXECUTE WORLD_EXECUTE)
+
 endfunction()

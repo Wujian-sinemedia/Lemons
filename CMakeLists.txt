@@ -10,4 +10,3 @@ add_subdirectory (cmake)
 add_subdirectory (modules)
 
 bv_configure_precommit_git_hook (${CMAKE_CURRENT_LIST_DIR})
-bv_make_all_repo_githooks_executable (${CMAKE_CURRENT_LIST_DIR})
