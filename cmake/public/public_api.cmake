@@ -1,3 +1,5 @@
+include_guard (GLOBAL)
+
 ###  CMAKE PUBLIC API  ###
 
 function (bv_add_resources_folder target folder)
