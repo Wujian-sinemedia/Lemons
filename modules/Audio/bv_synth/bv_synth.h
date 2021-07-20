@@ -20,3 +20,5 @@ END_JUCE_MODULE_DECLARATION
 #include "Synth/Synth.h"
 
 #include "SineSynth/sine_synth.h"
+
+#include "SynthState/SynthState.h"

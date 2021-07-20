@@ -17,6 +17,7 @@ _bv_add_module_subcategory (Plugins BV_PLUGIN_ONLY_MODULES)
 _bv_add_module_subcategory (Audio   BV_PLUGIN_ONLY_MODULES)
 _bv_add_module_subcategory (Apps    BV_APP_ONLY_MODULES)
 _bv_add_module_subcategory (Common  BV_JUCE_MODULES)
+_bv_add_module_subcategory (GUI     BV_JUCE_MODULES)
 
 if (DEFINED BV_IGNORE_VDSP)
     target_compile_definitions (bv_core INTERFACE JUCE_USE_VDSP_FRAMEWORK=0 BV_USE_VDSP=0)
