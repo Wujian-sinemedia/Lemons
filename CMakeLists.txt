@@ -11,3 +11,4 @@ add_subdirectory (modules)
 
 bv_configure_precommit_git_hook (${CMAKE_CURRENT_LIST_DIR})
 bv_update_github_scripts (${CMAKE_CURRENT_LIST_DIR} FALSE)
+_bv_update_clangformat_recursive_script (${CMAKE_CURRENT_LIST_DIR}/modules ${CMAKE_CURRENT_LIST_DIR})

@@ -14,28 +14,32 @@ if (NOT CLANG_FORMAT)
     return()
 endif()
 
-function (bv_update_repo_clangformat repodir)
-    _bv_update_repo_clangformat_config_file (${repodir})
+#
 
-	# configure a shell script in the project repo to run clang-format recursively over its source tree #
-
-	if (NOT UNIX)
+function (_bv_update_clangformat_recursive_script sourcedir repodir)
+    if (NOT UNIX)
         return()
     endif()
 
-    set (BV_PROJECT_SOURCE_DIR ${repodir}/Source)
+    set (BV_PROJECT_SOURCE_DIR ${sourcedir})
 
     if (NOT EXISTS ${BV_PROJECT_SOURCE_DIR})
-    	return()
+        return()
     endif()
 
-	set (DEST_DIR ${repodir}/scripts/shell/run_clang_format.sh)
+    set (DEST_DIR ${repodir}/run_clang_format.sh)
 
-	if (EXISTS ${DEST_DIR})
+    if (EXISTS ${DEST_DIR})
         file (REMOVE ${DEST_DIR})
     endif()
 
-	configure_file (${BV_REPO_CONFIG_FILES_DIR}/run_clang_format.sh ${DEST_DIR})
+    configure_file (${BV_REPO_CONFIG_FILES_DIR}/run_clang_format.sh ${DEST_DIR})
 
     bv_enable_all_file_permissions (${DEST_DIR})
+endfunction()
+
+
+function (bv_update_repo_clangformat repodir)
+    _bv_update_repo_clangformat_config_file (${repodir})
+	_bv_update_clangformat_recursive_script (${repodir}/Source ${repodir})
 endfunction()
