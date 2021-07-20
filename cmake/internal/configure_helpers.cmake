@@ -67,8 +67,6 @@ function (_bv_add_prebuild_clangformat_step target)
             return()
         endif()
 
-        message (STATUS "Configuring pre-build clang-format step...")
-
         add_custom_command (TARGET ${target} PRE_BUILD
                             COMMAND bash ${script_path})
     endfunction()
