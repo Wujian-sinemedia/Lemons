@@ -1,3 +1,5 @@
+set (BV_CLANG_FORMAT_FILETYPES "*.h *.hpp *.c *.cpp" CACHE INTERNAL "Filetypes clang-format will be used on")
+
 macro (_bv_update_repo_clangformat_config_file _repo_dir)
     bv_copy_file (${Shared-code_SOURCE_DIR}/_clang-format ${_repo_dir}/_clang-format)
 endmacro()
@@ -25,12 +27,6 @@ function (_bv_update_clangformat_recursive_script sourcedir repodir)
 
     if (NOT EXISTS ${BV_PROJECT_SOURCE_DIR})
         return()
-    endif()
-
-    if ("${repodir}" STREQUAL "${Shared-code_SOURCE_DIR}")
-        set (BV_RUN_CLANG_FORMAT_IN_SOURCE_DIR 0)
-    else()
-        set (BV_RUN_CLANG_FORMAT_IN_SOURCE_DIR 1)
     endif()
 
     set (DEST_DIR ${repodir}/run_clang_format.sh)
