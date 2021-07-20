@@ -66,7 +66,7 @@ endfunction()
 
 #
 
-function (_bv_make_plugin_format_list outvar)
+function (bv_detect_plugin_formats outvar)
 
 	if (DEFINED Formats)
 		_bv_parse_plugin_format_list (formatlist "${Formats}")

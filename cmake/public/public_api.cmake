@@ -1,7 +1,3 @@
-include_guard (GLOBAL)
-
-###  CMAKE PUBLIC API  ###
-
 function (bv_add_resources_folder target folder)
     set (resourcesTarget ${target}-Assets)
 
@@ -33,11 +29,6 @@ function (bv_configure_juce_app target)
 endfunction()
 
 
-macro (bv_detect_plugin_formats outvar)
-    _bv_make_plugin_format_list (${outvar})
-endmacro()
-
-
-macro (bv_add_juce_modules dir)
-    _bv_add_juce_modules_internal (${dir} bvdummyjucemodulelist)
-endmacro()
+function (bv_add_juce_modules dir)
+    _bv_add_juce_modules_internal (${dir} dummylist)
+endfunction()
