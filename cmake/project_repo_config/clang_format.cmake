@@ -13,6 +13,14 @@ if (NOT CLANG_FORMAT)
         _bv_update_repo_clangformat_config_file (${repodir})
     endfunction()
 
+    function (_bv_update_clangformat_recursive_script sourcedir repodir)
+    endfunction()
+
+    function (bv_update_repo_clangformat repodir)
+        _bv_update_repo_clangformat_config_file (${repodir})
+        _bv_update_clangformat_recursive_script (${repodir}/Source ${repodir})
+    endfunction()
+
     return()
 endif()
 
