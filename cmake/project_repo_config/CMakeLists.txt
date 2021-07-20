@@ -1,5 +1,4 @@
 include (git_hooks/GitHooks.cmake)
-include (GitHub_scripts.cmake)
 include (github_scripts/GitHub_scripts.cmake)
 
 set (BV_REPO_CONFIG_FILES_DIR "${CMAKE_CURRENT_LIST_DIR}" CACHE INTERNAL "Path to the project repo config files")
