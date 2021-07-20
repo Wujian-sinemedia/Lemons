@@ -9,7 +9,7 @@ PROJECT_SOURCE_DIR=${BV_PROJECT_SOURCE_DIR}
 DIRS=$(find $PROJECT_SOURCE_DIR -type d)
 
 for dir in $DIRS; do
-	cd $dir && $CLANG_FORMAT -i ${BV_CLANG_FORMAT_FILETYPES}
+	cd $dir && $CLANG_FORMAT -i ${BV_CLANG_FORMAT_FILETYPES} >/dev/null 2>&1
 done
 
 exit 0;
