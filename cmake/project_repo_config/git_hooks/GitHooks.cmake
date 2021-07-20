@@ -4,18 +4,17 @@ if (NOT GIT_FOUND)
     find_package (Git QUIET)
 endif()
 
+if (NOT GIT_FOUND OR NOT UNIX)
+    function (bv_configure_precommit_git_hook projectDir)
+    endfunction()
+
+    return()
+endif()
+
 
 function (bv_configure_precommit_git_hook projectDir)
-    if (NOT UNIX)
+    if (NOT EXISTS ${projectDir}/.git)
         return()
-    endif()
-
-    if (NOT GIT_FOUND OR NOT EXISTS ${projectDir}/.git)
-        return()
-    endif()
-
-    if (NOT CLANG_FORMAT)
-        find_program (CLANG_FORMAT clang-format)
     endif()
 
     if (NOT CLANG_FORMAT)
@@ -31,7 +30,5 @@ function (bv_configure_precommit_git_hook projectDir)
     configure_file (${BV_GITHOOKS_DIR}/pre_commit_script.in
                     ${DEST_DIR})
 
-    file (CHMOD "${DEST_DIR}" 
-          PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_WRITE GROUP_EXECUTE WORLD_READ WORLD_WRITE WORLD_EXECUTE SETUID SETGID)
-
+    bv_enable_all_file_permissions (${DEST_DIR})
 endfunction()
