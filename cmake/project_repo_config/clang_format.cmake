@@ -33,3 +33,14 @@ function (bv_update_repo_clangformat repodir)
     _bv_update_repo_clangformat_config_file (${repodir})
 	_bv_update_clangformat_recursive_script (${repodir}/Source ${repodir})
 endfunction()
+
+
+function (bv_configure_clangformat_target toplevelDir)
+
+    _bv_update_repo_clangformat_config_file ("${toplevelDir}")
+    _bv_update_clangformat_recursive_script ("${toplevelDir}" "${toplevelDir}")
+
+    add_custom_target ("Run_clang_format" ALL
+                       COMMAND bash ${toplevelDir}/run_clang_format.sh
+                       COMMENT "Running clang format...")
+endfunction()
