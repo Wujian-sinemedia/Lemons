@@ -14,3 +14,7 @@
  END_JUCE_MODULE_DECLARATION
 
 #endif
+
+
+#include "processor/SplineProcessor.h"
+#include "editor/SplineEditor.h"
