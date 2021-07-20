@@ -19,7 +19,7 @@ function (_bv_configure_vdsp force_use force_ignore outvar)
 		_bv_set_vdsp_state_for_target (1)
 	endif()
 
-	if ($CACHE{BV_IGNORE_VDSP} OR ${force_ignore})
+	if (${force_ignore} OR $CACHE{BV_IGNORE_VDSP})
 		_bv_set_vdsp_state_for_target (0)
 	endif()
 
@@ -33,6 +33,7 @@ function (_bv_configure_vecops target forceUseVDSP forceIgnoreVDSP)
 	target_compile_definitions (${target} PUBLIC JUCE_USE_VDSP_FRAMEWORK=${useVDSP} BV_USE_VDSP=${useVDSP})
 
 	if (${useVDSP})
+		message (STATUS "Using vDSP for target ${target}")
 		return()
 	endif()
 
