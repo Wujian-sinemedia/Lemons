@@ -7,7 +7,7 @@ include (github_scripts/GitHub_scripts.cmake)
 
 
 function (bv_update_repo_gitignore repodir)
-	bv_copy_file (${BV_REPO_CONFIG_FILES_DIR}/default_gitignore.txt ${repodir}/.gitignore)
+	bv_copy_file (SOURCE ${BV_REPO_CONFIG_FILES_DIR}/default_gitignore.txt DEST ${repodir}/.gitignore)
 endfunction()
 
 

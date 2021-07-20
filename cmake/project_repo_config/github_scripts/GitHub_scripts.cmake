@@ -14,7 +14,7 @@ function (_bv_update_github_script repodir script)
 
 	_bv_script_path_from_repo_dir (dest_dir ${script} ${repodir})
 
-	bv_copy_file (${BV_GITHUB_SCRIPTS_DIR}/${script}.yml ${dest_dir})
+	bv_copy_file (SOURCE ${BV_GITHUB_SCRIPTS_DIR}/${script}.yml DEST ${dest_dir})
 
 endfunction()
 

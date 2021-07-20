@@ -1,5 +1,5 @@
 function (_bv_add_juce_modules_internal dir list)
-    bv_subdir_list (moduleFolders ${dir})
+    bv_subdir_list (RESULT moduleFolders DIR ${dir})
 
     foreach (folder ${moduleFolders})
         juce_add_module (${dir}/${folder})

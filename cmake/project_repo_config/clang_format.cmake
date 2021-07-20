@@ -6,7 +6,7 @@ endif()
 
 
 macro (_bv_update_repo_clangformat_config_file _repo_dir)
-    bv_copy_file (${Shared-code_SOURCE_DIR}/_clang-format ${_repo_dir}/_clang-format)
+    bv_copy_file (SOURCE ${Shared-code_SOURCE_DIR}/_clang-format DEST ${_repo_dir}/_clang-format)
 endmacro()
 
 
