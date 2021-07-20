@@ -58,29 +58,6 @@ endfunction()
 
 #
 
-function (_bv_add_prebuild_clangformat_step target)
-
-    function (_bv_add_internal_clangformat_command target sourcedir)
-        set (script_path ${sourcedir}/run_clang_format.sh)
-
-        if (NOT EXISTS ${script_path})
-            return()
-        endif()
-
-        add_custom_command (TARGET ${target} PRE_BUILD
-                            COMMAND bash ${script_path})
-    endfunction()
-
-
-    get_target_property (sourcedir ${target} SOURCE_DIR)
-    _bv_add_internal_clangformat_command ("${target}" "${sourcedir}")
-
-    _bv_add_internal_clangformat_command ("${target}" "${Shared-code_SOURCE_DIR}")
-
-endfunction()
-
-#
-
 function (_bv_configure_juce_target target useBrowser)
 
     if (TARGET ${target}_AAX)
@@ -112,8 +89,6 @@ function (_bv_configure_juce_target target useBrowser)
         juce::juce_recommended_warning_flags)
 
     target_compile_features (${target} PUBLIC cxx_std_${BV_CXX_VERSION})
-
-    _bv_add_prebuild_clangformat_step (${target})
 
 endfunction()
 
