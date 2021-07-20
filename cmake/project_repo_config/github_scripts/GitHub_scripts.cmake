@@ -1,3 +1,7 @@
+set (BV_GITHUB_SCRIPTS_DIR ${CMAKE_CURRENT_LIST_DIR} CACHE INTERNAL "Path to the GitHub scripts")
+
+#
+
 function (_bv_update_github_script repodir script)
 
 	macro (_bv_script_path_from_repo_dir _scriptpath_out _scriptname _repodir)
@@ -8,19 +12,21 @@ function (_bv_update_github_script repodir script)
 		endif()
 	endmacro()
 
-	_bv_script_path_from_repo_dir (SOURCE ${script} $CACHE{BV_SHAREDCODE_DIR})
-	_bv_script_path_from_repo_dir (DEST   ${script} ${repodir})
+	_bv_script_path_from_repo_dir (dest_dir ${script} ${repodir})
 
-	bv_copy_file (${SOURCE} ${DEST})
+	bv_copy_file (${BV_GITHUB_SCRIPTS_DIR}/${script}.yml ${dest_dir})
 
 endfunction()
 
 #
 
-function (bv_update_all_github_scripts repodir)
+function (bv_update_github_scripts repodir includeBuildScript)
 
 	_bv_update_github_script (${repodir} "FUNDING")
 	_bv_update_github_script (${repodir} "RepoMaintenance")
 	_bv_update_github_script (${repodir} "UpdateGitSubmodules")
-	
+
+	if (${includeBuildScript})
+		_bv_update_github_script (${repodir} "Build")
+	endif()
 endfunction()
