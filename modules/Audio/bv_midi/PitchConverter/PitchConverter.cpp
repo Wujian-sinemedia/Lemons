@@ -1,11 +1,10 @@
 
 namespace bav::midi
 {
-
 #if BV_USE_MTS_ESP
-void PitchConverter::Deleter::operator()(MTSClient* c)
+void PitchConverter::Deleter::operator() (MTSClient* c)
 {
-    MTS_DeregisterClient(c);
+    MTS_DeregisterClient (c);
 }
 #endif
 

@@ -12,7 +12,7 @@
  dependencies:       bv_plugin_parameters bv_mobile_utils
 
  END_JUCE_MODULE_DECLARATION
- 
+
 #endif
 
 

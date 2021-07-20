@@ -14,7 +14,6 @@
 
 namespace bav
 {
-
 #if ! JUCE_ANDROID /* this impl works for iOS and desktop */
 
 void AutoLock::setEnabled (bool shouldBeEnabled)

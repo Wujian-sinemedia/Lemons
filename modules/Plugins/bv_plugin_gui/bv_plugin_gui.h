@@ -12,7 +12,7 @@
  dependencies:       bv_gui bv_plugin_parameters
 
  END_JUCE_MODULE_DECLARATION
- 
+
 #endif
 
 
@@ -21,4 +21,3 @@
 #include "buttons/Buttons.h"
 
 #include "labels/Labels.h"
-

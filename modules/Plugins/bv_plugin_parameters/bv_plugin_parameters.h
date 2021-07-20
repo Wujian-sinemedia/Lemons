@@ -12,7 +12,7 @@
  dependencies:       bv_dsp bv_serializing
 
  END_JUCE_MODULE_DECLARATION
- 
+
 #endif
 
 #include <bv_dsp/bv_dsp.h>

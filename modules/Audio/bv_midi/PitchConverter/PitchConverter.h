@@ -13,7 +13,7 @@ namespace bav::midi
 class PitchConverter
 {
 public:
-     /*
+    /*
      MTS-ESP supports specific mappings for each midi channel; pass -1 for "unspecified" or "all channels". In the fallback version, the midi channel is ignored.
      */
     float midiToFrequency (int midiNote, int midiChannel = -1) const;
@@ -37,10 +37,10 @@ private:
 #if BV_USE_MTS_ESP
     struct Deleter
     {
-        void operator()(MTSClient* c);
+        void operator() (MTSClient* c);
     };
-    
-    std::unique_ptr<MTSClient, Deleter> client {MTS_RegisterClient()};
+
+    std::unique_ptr< MTSClient, Deleter > client {MTS_RegisterClient()};
 #else
     float concertPitchHz {440.0f};
 #endif

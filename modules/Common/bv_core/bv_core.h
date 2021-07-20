@@ -56,10 +56,10 @@
 namespace bav
 {
 using juce::File;
-using juce::String;
-using juce::ValueTree;
 using juce::MidiBuffer;
 using juce::MidiMessage;
+using juce::String;
+using juce::ValueTree;
 }  // namespace bav
 
 

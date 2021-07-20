@@ -19,7 +19,6 @@
 
 namespace bav
 {
-
 template < typename Type >
 juce::var toVar (Type& object)
 {
@@ -42,7 +41,7 @@ constexpr bool isSerializable()
     return std::is_base_of< SerializableData, Type >() && ! std::is_const< Type >();
 }
 
-}
+}  // namespace bav
 
 
 #include "SerializableData/SerializableData.h"

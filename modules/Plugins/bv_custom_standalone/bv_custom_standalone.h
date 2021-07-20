@@ -12,9 +12,8 @@
  dependencies:       bv_plugin bv_app_utils
 
  END_JUCE_MODULE_DECLARATION
- 
-#endif
 
+#endif
 
 
 #ifndef JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP

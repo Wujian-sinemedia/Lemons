@@ -12,7 +12,7 @@
  dependencies:       bv_core
 
  END_JUCE_MODULE_DECLARATION
- 
+
 #endif
 
 

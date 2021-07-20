@@ -12,7 +12,7 @@
  dependencies:       bv_core bv_mobile_utils juce_gui_extra
 
  END_JUCE_MODULE_DECLARATION
- 
+
 #endif
 
 

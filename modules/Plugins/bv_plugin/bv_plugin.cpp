@@ -9,4 +9,3 @@
 #include "EditorBase/EditorBase.cpp"
 
 #include "presets/PresetManager.cpp"
-
