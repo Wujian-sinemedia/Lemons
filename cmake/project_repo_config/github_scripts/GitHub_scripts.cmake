@@ -22,6 +22,10 @@ endfunction()
 
 function (bv_update_github_scripts repodir includeBuildScript)
 
+	if (NOT EXISTS ${repodir}/.github)
+		return()
+	endif()
+
 	_bv_update_github_script (${repodir} "FUNDING")
 	_bv_update_github_script (${repodir} "RepoMaintenance")
 	_bv_update_github_script (${repodir} "UpdateGitSubmodules")
