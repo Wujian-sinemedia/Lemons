@@ -58,8 +58,7 @@ endfunction()
 
 #
 
-function (_bv_configure_juce_target target useBrowser)
-
+function (_bv_configure_juce_target target useBrowser use_MTS-ESP forceUseVDSP forceIgnoreVDSP)
     if (TARGET ${target}_AAX)
         set_target_properties (${target}_AAX PROPERTIES OSX_ARCHITECTURES x86_64)
     endif()
@@ -90,5 +89,10 @@ function (_bv_configure_juce_target target useBrowser)
 
     target_compile_features (${target} PUBLIC cxx_std_${BV_CXX_VERSION})
 
+    _bv_configure_vecops (${target} ${forceUseVDSP} ${forceIgnoreVDSP})
+
+    if (${use_MTS-ESP})
+        _bv_configure_mts_esp (${target})
+    endif()
 endfunction()
 

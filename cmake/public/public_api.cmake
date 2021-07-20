@@ -32,7 +32,7 @@ endfunction()
 
 function (bv_configure_juce_plugin)
 
-    set (options BROWSER)
+    set (options BROWSER MTS-ESP ALWAYS_VDSP NEVER_VDSP)
     set (oneValueArgs TARGET)
     set (multiValueArgs "")
 
@@ -43,7 +43,11 @@ function (bv_configure_juce_plugin)
         return()
     endif()
 
-	_bv_configure_juce_target (${BV_PLUGINTARGETCONFIG_TARGET} ${BV_PLUGINTARGETCONFIG_BROWSER})
+	_bv_configure_juce_target (${BV_PLUGINTARGETCONFIG_TARGET} 
+                               ${BV_PLUGINTARGETCONFIG_BROWSER}
+                               ${BV_PLUGINTARGETCONFIG_MTS-ESP}
+                               ${BV_PLUGINTARGETCONFIG_ALWAYS_VDSP}
+                               ${BV_PLUGINTARGETCONFIG_NEVER_VDSP})
 
     target_link_libraries (${BV_PLUGINTARGETCONFIG_TARGET} PUBLIC ${BV_PLUGIN_ONLY_MODULES})
 
@@ -56,7 +60,7 @@ endfunction()
 
 function (bv_configure_juce_app)
 
-    set (options BROWSER)
+    set (options BROWSER MTS-ESP ALWAYS_VDSP NEVER_VDSP)
     set (oneValueArgs TARGET)
     set (multiValueArgs "")
 
@@ -67,7 +71,12 @@ function (bv_configure_juce_app)
         return()
     endif()
 
-    _bv_configure_juce_target (${BV_APPTARGETCONFIG_TARGET} ${BV_APPTARGETCONFIG_BROWSER})
+    _bv_configure_juce_target (${BV_APPTARGETCONFIG_TARGET} 
+                               ${BV_APPTARGETCONFIG_BROWSER}
+                               ${BV_APPTARGETCONFIG_MTS-ESP}
+                               ${BV_APPTARGETCONFIG_ALWAYS_VDSP}
+                               ${BV_APPTARGETCONFIG_NEVER_VDSP})
+
     target_link_libraries (${BV_APPTARGETCONFIG_TARGET} PUBLIC ${BV_APP_ONLY_MODULES})
 endfunction()
 

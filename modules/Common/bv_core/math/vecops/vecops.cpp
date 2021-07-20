@@ -1,7 +1,5 @@
 
-#if BV_USE_MIPP
-#    include <mipp.h>
-#elif BV_USE_VDSP
+#if BV_USE_VDSP
 #    include <Accelerate/Accelerate.h>
 #    define BV_VDSP_FUNC_SWITCH(FloatFuncName, DoubleFuncName, ...)               \
         if constexpr (std::is_same_v< Type, float >) FloatFuncName (__VA_ARGS__); \

@@ -11,12 +11,9 @@ target_sources             (MTS-ESP INTERFACE "${bv_mts_esp_dir}/libMTSClient.cp
 target_include_directories (MTS-ESP INTERFACE ${bv_mts_esp_dir})
 target_compile_definitions (MTS-ESP INTERFACE BV_USE_MTS_ESP=1)
 
-option (BV_USE_MTS_ESP "Use MTS-ESP" OFF)
-
 #
 
-macro (_configure_mts_esp)
-    if (${BV_USE_MTS_ESP})
-	   target_link_libraries (bv_midi INTERFACE MTS-ESP)
-    endif()
-endmacro()
+function (_bv_configure_mts_esp target)
+    target_link_libraries (${target} PUBLIC MTS-ESP)
+    target_compile_definitions (${target} PUBLIC BV_USE_MTS_ESP=1)
+endfunction()
