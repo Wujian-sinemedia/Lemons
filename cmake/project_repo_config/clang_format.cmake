@@ -27,6 +27,12 @@ function (_bv_update_clangformat_recursive_script sourcedir repodir)
         return()
     endif()
 
+    if ("${repodir}" STREQUAL "${Shared-code_SOURCE_DIR}")
+        set (BV_RUN_CLANG_FORMAT_IN_SOURCE_DIR 0)
+    else()
+        set (BV_RUN_CLANG_FORMAT_IN_SOURCE_DIR 1)
+    endif()
+
     set (DEST_DIR ${repodir}/run_clang_format.sh)
 
     if (EXISTS ${DEST_DIR})

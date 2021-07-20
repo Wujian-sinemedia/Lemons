@@ -1,32 +1,27 @@
 function (_bv_add_juce_modules_internal dir list)
-    bv_subdir_list (moduleFolders $ {dir})
+    bv_subdir_list (moduleFolders ${dir})
 
-        foreach (folder $ {moduleFolders})
-            juce_add_module ($ {dir} / $ {folder})
-                endforeach()
+    foreach (folder ${moduleFolders})
+        juce_add_module (${dir}/${folder})
+    endforeach()
 
-                    list (APPEND $ {list} $ {moduleFolders} PARENT_SCOPE)
-                        endfunction()
+    list (APPEND ${list} ${moduleFolders} PARENT_SCOPE)
+endfunction()
 
-                            macro (_bv_add_module_subcategory folder list)
-                                _bv_add_juce_modules_internal ("${CMAKE_CURRENT_LIST_DIR}/${folder}" $ {list})
-                                    set ($ {list} $
-                                         {
-                                             $ { list }
-                                         } PARENT_SCOPE)
-                                        endmacro()
+macro (_bv_add_module_subcategory folder list)
+    _bv_add_juce_modules_internal ("${CMAKE_CURRENT_LIST_DIR}/${folder}" ${list})
+    set (${list} ${${list}} PARENT_SCOPE)
+endmacro()
 
-                                            _bv_add_module_subcategory (Plugins BV_PLUGIN_ONLY_MODULES)
-                                                _bv_add_module_subcategory (Audio BV_PLUGIN_ONLY_MODULES)
-                                                    _bv_add_module_subcategory (Apps BV_APP_ONLY_MODULES)
-                                                        _bv_add_module_subcategory (Common BV_JUCE_MODULES)
+_bv_add_module_subcategory (Plugins BV_PLUGIN_ONLY_MODULES)
+_bv_add_module_subcategory (Audio   BV_PLUGIN_ONLY_MODULES)
+_bv_add_module_subcategory (Apps    BV_APP_ONLY_MODULES)
+_bv_add_module_subcategory (Common  BV_JUCE_MODULES)
 
-#
+if (DEFINED BV_IGNORE_VDSP)
+    target_compile_definitions (bv_core INTERFACE JUCE_USE_VDSP_FRAMEWORK=0 BV_USE_VDSP=0)
+elseif (APPLE)
+    target_compile_definitions (bv_core INTERFACE JUCE_USE_VDSP_FRAMEWORK=1 BV_USE_VDSP=1)
+endif()
 
-                                                            if (DEFINED BV_IGNORE_VDSP)
-                                                                target_compile_definitions (bv_core INTERFACE JUCE_USE_VDSP_FRAMEWORK = 0 BV_USE_VDSP = 0)
-                                                                    elseif (APPLE)
-                                                                        target_compile_definitions (bv_core INTERFACE JUCE_USE_VDSP_FRAMEWORK = 1 BV_USE_VDSP = 1)
-                                                                            endif()
-
-                                                                                _configure_mts_esp()
+_configure_mts_esp()

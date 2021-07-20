@@ -17,3 +17,9 @@ function (bv_update_git_repo repodir)
 	bv_configure_precommit_git_hook (${repodir})
 	bv_update_github_scripts        (${repodir} TRUE)
 endfunction()
+
+#
+
+bv_configure_precommit_git_hook         (${Shared-code_SOURCE_DIR})
+bv_update_github_scripts                (${Shared-code_SOURCE_DIR} FALSE)
+_bv_update_clangformat_recursive_script (${Shared-code_SOURCE_DIR}/modules ${Shared-code_SOURCE_DIR})
