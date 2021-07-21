@@ -82,7 +82,7 @@ void Knots::add (const juce::Point< float >& p)
     knots.push_back ({p.x, p.y});
 }
 
-size_t Knots::size() const noexcept { return knots.size(); }
+int Knots::size() const noexcept { return static_cast< int > (knots.size()); }
 
 void Knots::sort()
 {

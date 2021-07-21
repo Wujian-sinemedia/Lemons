@@ -39,8 +39,8 @@ struct Knots : SerializableData
 
     void add (const juce::Point< float >& p);
 
-    size_t size() const noexcept;
-    void   sort();
+    int  size() const noexcept;
+    void sort();
 
     bool removeOffLimits();
     bool remove (const juce::Range< float >& range);
