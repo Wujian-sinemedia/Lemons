@@ -4,32 +4,28 @@
 namespace bav::spline
 {
 Knot::Knot (float xToUse, float yToUse)
-    : x (xToUse), y (yToUse),
-      dragStartX (0), dragStartY (0),
-      selected (false)
+    : x (xToUse), y (yToUse)
 {
 }
 
-Knot::Knot (const juce::Point< float >& p)
-    : x (p.x), y (p.y),
-      dragStartX (0), dragStartY (0),
-      selected (false)
+Knot& Knot::operator= (const Knot& other)
 {
+    x          = other.x;
+    y          = other.y;
+    dragStartX = other.dragStartX;
+    dragStartY = other.dragStartY;
+    selected   = other.selected;
+
+    return *this;
 }
 
-Knot Knot::operator- (const Knot& other) const noexcept
+void Knot::serialize (TreeReflector& ref)
 {
-    return {x - other.x, y - other.y};
-}
-
-Knot Knot::operator+ (const Knot& other) const noexcept
-{
-    return {x + other.x, y + other.y};
-}
-
-Knot Knot::operator* (const Knot& other) const noexcept
-{
-    return {x * other.x, y * other.y};
+    ref.add ("X", x);
+    ref.add ("Y", y);
+    ref.add ("DragStartX", dragStartX);
+    ref.add ("DragStartY", dragStartY);
+    ref.add ("Selected", selected);
 }
 
 void Knot::select() noexcept
@@ -37,6 +33,16 @@ void Knot::select() noexcept
     dragStartX = x;
     dragStartY = y;
     selected   = true;
+}
+
+void Knot::deselect()
+{
+    selected = false;
+}
+
+bool Knot::isSelected() const
+{
+    return selected;
 }
 
 bool Knot::drag (juce::Point< float > p) noexcept
@@ -60,9 +66,23 @@ const Knot& Knots::operator[] (int k) const noexcept { return knots[static_cast<
 
 Knot& Knots::operator[] (int k) noexcept { return knots[static_cast< size_t > (k)]; }
 
-void Knots::operator+= (const juce::Point< float >& p) { knots.push_back (p); }
+Knots& Knots::operator= (const Knots& other)
+{
+    knots = other.knots;
+    return *this;
+}
 
-const size_t Knots::size() const noexcept { return knots.size(); }
+void Knots::serialize (TreeReflector& ref)
+{
+    ref.add ("Knot", knots);
+}
+
+void Knots::add (const juce::Point< float >& p)
+{
+    knots.push_back ({p.x, p.y});
+}
+
+size_t Knots::size() const noexcept { return knots.size(); }
 
 void Knots::sort()
 {
@@ -82,7 +102,7 @@ bool Knots::removeOffLimits()
     {
         bool operator() (const Knot& knot) const noexcept
         {
-            if (! knot.selected) return false;
+            if (! knot.isSelected()) return false;
             return knot.x <= 0.f || knot.x >= 1.f || knot.y <= 0.f || knot.y >= 1.f;
         }
     };
@@ -135,7 +155,7 @@ bool Knots::drag (const juce::Point< float >& drag) noexcept
 void Knots::deselect()
 {
     for (auto& knot : knots)
-        knot.selected = false;
+        knot.deselect();
 }
 
 void Knots::clear() noexcept { knots.clear(); }

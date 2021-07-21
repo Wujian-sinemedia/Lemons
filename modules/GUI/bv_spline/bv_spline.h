@@ -9,7 +9,7 @@
  version:            0.0.1
  name:               bv_spline
  description:        Module for creating, editing, and interpolating B-splines as real-time audio paramters
- dependencies:       bv_gui
+ dependencies:       bv_serializing, juce_graphics
 
  END_JUCE_MODULE_DECLARATION
 
