@@ -1,7 +1,7 @@
 
 namespace bav::spline::interpolation
 {
-juce::Point< float > lin (const juce::Point< float >& a, const juce::Point< float >& b, float x) noexcept
+Point lin (const Point& a, const Point& b, float x) noexcept
 {
     return {
         a.x + x * (b.x - a.x),
@@ -10,7 +10,7 @@ juce::Point< float > lin (const juce::Point< float >& a, const juce::Point< floa
 
 inline auto nurbs_to_size_k (int idx)
 {
-    return static_cast< std::vector< juce::Point< float > >::size_type > (idx);
+    return static_cast< std::vector< Point >::size_type > (idx);
 }
 
 inline float nurbs_CalcPoint (float t, float val1, float val2, float val3)
@@ -18,7 +18,7 @@ inline float nurbs_CalcPoint (float t, float val1, float val2, float val3)
     return std::pow (1.f - t, 2.f) * val1 + (1.f - t) * 2.f * t * val2 + t * t * val3;
 }
 
-juce::Point< float > nurbs (const std::vector< juce::Point< float > >& knots, float t, const int* k) noexcept
+Point nurbs (const std::vector< Point >& knots, float t, const int* k) noexcept
 {
     const auto& knot0 = knots[nurbs_to_size_k (k[0])];
     const auto& knot1 = knots[nurbs_to_size_k (k[1])];

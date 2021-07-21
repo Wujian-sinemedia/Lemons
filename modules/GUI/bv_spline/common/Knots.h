@@ -1,9 +1,5 @@
 #pragma once
 
-#include <juce_graphics/juce_graphics.h>
-
-#include <bv_serializing/bv_serializing.h>
-
 namespace bav::spline
 {
 struct Knot : SerializableData
@@ -16,7 +12,7 @@ struct Knot : SerializableData
     void deselect();
     bool isSelected() const;
 
-    bool drag (juce::Point< float > p) noexcept;
+    bool drag (const Point& p) noexcept;
 
     float x, y;
     float dragStartX {0.f};
@@ -37,7 +33,7 @@ struct Knots : SerializableData
     Knot&       operator[] (int k) noexcept;
     Knots&      operator= (const Knots& other);
 
-    void add (const juce::Point< float >& p);
+    void add (const Point& p);
 
     int  size() const noexcept;
     void sort();
@@ -49,7 +45,7 @@ struct Knots : SerializableData
     void select (const juce::Range< float >& range) noexcept;
     void deselect();
 
-    bool drag (const juce::Point< float >& drag) noexcept;
+    bool drag (const Point& drag) noexcept;
 
     void makeSpline (std::vector< float >& spline) const;
 

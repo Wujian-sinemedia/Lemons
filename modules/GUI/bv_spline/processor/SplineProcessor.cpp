@@ -6,10 +6,7 @@ void Processor::serialize (TreeReflector& ref)
     ref.add ("SplineKnots", knots);
 
     if (ref.isLoading())
-    {
-        updated.set (true);
         updateSpline();
-    }
 }
 
 void Processor::resizeSpline (int newSize)

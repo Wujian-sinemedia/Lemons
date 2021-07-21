@@ -2,9 +2,9 @@
 
 namespace bav::spline::interpolation
 {
-juce::Point< float > lin (const juce::Point< float >& a, const juce::Point< float >& b, float x) noexcept;
+Point lin (const Point& a, const Point& b, float x) noexcept;
 
-juce::Point< float > nurbs (const std::vector< juce::Point< float > >& knots, float t, const int* k) noexcept;
+Point nurbs (const std::vector< Point >& knots, float t, const int* k) noexcept;
 
 float hermitCubic (const Knots& data, float x) noexcept;
 

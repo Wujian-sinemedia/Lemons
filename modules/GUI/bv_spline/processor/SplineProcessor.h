@@ -1,7 +1,6 @@
 #pragma once
 
-#include <bv_spline/common/Knots.h>
-#include <bv_spline/common/Interpolation.h>
+#include <bv_spline/common/Common.h>
 
 
 namespace bav::spline
@@ -17,8 +16,7 @@ public:
 
     const std::vector< float >& getSpline() const noexcept;
 
-    Knots                knots;
-    juce::Atomic< bool > updated {false};
+    Knots knots;
 
 private:
     void serialize (TreeReflector& ref) final;

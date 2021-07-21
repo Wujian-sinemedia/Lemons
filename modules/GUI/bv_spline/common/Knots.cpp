@@ -45,7 +45,7 @@ bool Knot::isSelected() const
     return selected;
 }
 
-bool Knot::drag (juce::Point< float > p) noexcept
+bool Knot::drag (const Point& p) noexcept
 {
     if (! selected) return false;
     x = dragStartX + p.x;
@@ -77,7 +77,7 @@ void Knots::serialize (TreeReflector& ref)
     ref.add ("Knot", knots);
 }
 
-void Knots::add (const juce::Point< float >& p)
+void Knots::add (const Point& p)
 {
     knots.push_back ({p.x, p.y});
 }
@@ -141,7 +141,7 @@ void Knots::select (const juce::Range< float >& range) noexcept
     }
 }
 
-bool Knots::drag (const juce::Point< float >& drag) noexcept
+bool Knots::drag (const Point& drag) noexcept
 {
     bool changed = false;
 

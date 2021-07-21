@@ -1,7 +1,6 @@
 #pragma once
 
-#include <bv_spline/common/Knots.h>
-#include <bv_spline/common/Interpolation.h>
+#include <bv_spline/common/Common.h>
 
 
 namespace bav::spline
@@ -34,7 +33,7 @@ private:
 
         void setX (float xP) noexcept;
 
-        bool                 move (juce::Point< float > drag) noexcept;
+        bool                 move (const Point& drag) noexcept;
         void                 deselect() noexcept;
         void                 addWidth (float w);
         juce::Range< float > getRange() const noexcept;
@@ -73,16 +72,16 @@ private:
     void mouseExit (const juce::MouseEvent&) final;
 
     void paint (juce::Graphics& g) final;
-    void drawPoint (const juce::Point< float >& knot, const Attribute& attribute, juce::Graphics& g);
+    void drawPoint (const Point& knot, const Attribute& attribute, juce::Graphics& g);
 
     void resized() final;
 
     void timerCallback();
 
-    juce::Point< float > denormalizeKnot (const Knot&                     knot,
-                                          const juce::Rectangle< float >& bounds) const noexcept;
+    Point denormalizeKnot (const Knot&                     knot,
+                           const juce::Rectangle< float >& bounds) const noexcept;
 
-    juce::Point< float > normalizeKnot (juce::Point< float > position) const noexcept;
+    Point normalizeKnot (const Point& position) const noexcept;
 
     void updateCurve();
 
@@ -90,8 +89,7 @@ private:
     Knots                knots;
     std::vector< float > points;
     Select               select {*this};
-    float                fps {24.f}, addTolerance {0.1f}, scrollSensitivity {0.2f};
-    bool                 wannaUpdate {false};
+    float                addTolerance {0.1f}, scrollSensitivity {0.2f};
 
     Attributes attributes;
 

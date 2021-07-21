@@ -13,7 +13,7 @@ void Editor::Select::setX (float xP) noexcept
 
 void Editor::Select::operator()() { editor.knots.select (getRange()); }
 
-bool Editor::Select::move (juce::Point< float > drag) noexcept
+bool Editor::Select::move (const Point& drag) noexcept
 {
     return editor.knots.drag (drag);
 }
@@ -190,17 +190,17 @@ void Editor::paint (juce::Graphics& g)
     }
 }
 
-juce::Point< float > Editor::denormalizeKnot (const Knot&                     knot,
-                                              const juce::Rectangle< float >& bounds) const noexcept
+Point Editor::denormalizeKnot (const Knot&                     knot,
+                               const juce::Rectangle< float >& bounds) const noexcept
 {
     return {
         bounds.getX() + bounds.getWidth() * knot.x,
         bounds.getY() + bounds.getHeight() * knot.y};
 }
 
-void Editor::drawPoint (const juce::Point< float >& knot,
-                        const Attribute&            attribute,
-                        juce::Graphics&             g)
+void Editor::drawPoint (const Point&     knot,
+                        const Attribute& attribute,
+                        juce::Graphics&  g)
 {
     const auto width = attribute.thickness * 2.f + 1.f;
 
@@ -209,7 +209,7 @@ void Editor::drawPoint (const juce::Point< float >& knot,
                    width, width);
 }
 
-juce::Point< float > Editor::normalizeKnot (juce::Point< float > position) const noexcept
+Point Editor::normalizeKnot (const Point& position) const noexcept
 {
     const auto bounds = getAdjustedBounds();
 
@@ -226,27 +226,13 @@ juce::Rectangle< float > Editor::getAdjustedBounds() const
 void Editor::resized()
 {
     points.resize (to_size_f (static_cast< int > (getAdjustedBounds().getWidth())));
-    wannaUpdate = true;
 }
 
 void Editor::timerCallback()
 {
-    //    const bool stateUpdated = spline->updated.get();
-    //    if (stateUpdated)
-    //    {
-    //        knots = spline->knots;
-    //        spline->updated.set (false);
-    //    }
-    //    if (wannaUpdate)
-    //    {
-    //        knots.sort();
-    //        updateCurve();
-    //        repaint();
-    //        auto tmp = spline.getCopyOfUpdatedPtr();
-    //        tmp->replaceKnots (knots);
-    //        spline.replaceUpdatedPtrWith (tmp);
-    //        wannaUpdate = false;
-    //    }
+    knots.sort();
+    updateCurve();
+    repaint();
 }
 
 void Editor::mouseWheelMove (const juce::MouseEvent&, const juce::MouseWheelDetails& wheel)
@@ -271,7 +257,7 @@ void Editor::mouseDown (const juce::MouseEvent&)
 void Editor::mouseDrag (const juce::MouseEvent& evt)
 {
     select.setX (evt.position.x);
-    wannaUpdate = select.move (normalizeKnot (evt.getOffsetFromDragStart().toFloat()));
+    select.move (normalizeKnot (evt.getOffsetFromDragStart().toFloat()));
 }
 
 void Editor::mouseUp (const juce::MouseEvent& evt)
@@ -301,7 +287,6 @@ void Editor::mouseUp (const juce::MouseEvent& evt)
 
     select.deselect();
     if (! wu) repaint();
-    wannaUpdate = wu;
 }
 
 void Editor::mouseExit (const juce::MouseEvent&)
