@@ -10,8 +10,6 @@ class Editor : public juce::Component
 public:
     using Color = juce::Colour;
 
-    Editor (Processor& splineProcessor);
-
     juce::Rectangle< float > getAdjustedBounds() const;
 
     void setBorderColour (Color c);
@@ -80,11 +78,9 @@ private:
 
     void updateCurve();
 
-    Processor&           spline;
-    Knots                knots;
-    std::vector< float > points;
-    Select               select {*this};
-    float                addTolerance {0.1f};
+    Spline spline;
+    Select select {*this};
+    float  addTolerance {0.1f};
 
     Attributes attributes;
 

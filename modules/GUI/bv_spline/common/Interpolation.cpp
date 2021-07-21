@@ -8,30 +8,20 @@ Point lin (const Point& a, const Point& b, float x) noexcept
         a.y + x * (b.y - a.y)};
 }
 
-inline auto nurbs_to_size_p (int idx)
-{
-    return static_cast< std::vector< Point >::size_type > (idx);
-}
-
 inline float nurbs_CalcPoint (float t, float val1, float val2, float val3)
 {
     return std::pow (1.f - t, 2.f) * val1 + (1.f - t) * 2.f * t * val2 + t * t * val3;
 }
 
-Point nurbs (const std::vector< Point >& knots, float t, const int* k) noexcept
+Point nurbs (const Knots& data, float t, const int* k) noexcept
 {
-    const auto& knot0 = knots[nurbs_to_size_p (k[0])];
-    const auto& knot1 = knots[nurbs_to_size_p (k[1])];
-    const auto& knot2 = knots[nurbs_to_size_p (k[2])];
+    const auto& knot0 = data.getKnot (k[0]);
+    const auto& knot1 = data.getKnot (k[1]);
+    const auto& knot2 = data.getKnot (k[2]);
 
     return {
-        nurbs_CalcPoint (t, knot0.x, knot1.x, knot2.x),
-        nurbs_CalcPoint (t, knot0.y, knot1.y, knot2.y)};
-}
-
-inline auto hermitCubic_to_size_k (int idx)
-{
-    return static_cast< std::vector< Knot >::size_type > (idx);
+        nurbs_CalcPoint (t, knot0.location.x, knot1.location.x, knot2.location.x),
+        nurbs_CalcPoint (t, knot0.location.y, knot1.location.y, knot2.location.y)};
 }
 
 float hermitCubic (const Knots& data, float x) noexcept
@@ -46,10 +36,10 @@ float hermitCubic (const Knots& data, float x) noexcept
     const auto i2 = (i1 + 1) % size;
     const auto i3 = (i1 + 2) % size;
 
-    const auto y0 = data[hermitCubic_to_size_k (i0)].location.y;
-    const auto y1 = data[hermitCubic_to_size_k (i1)].location.y;
-    const auto y2 = data[hermitCubic_to_size_k (i2)].location.y;
-    const auto y3 = data[hermitCubic_to_size_k (i3)].location.y;
+    const auto y0 = data.getKnot (i0).location.y;
+    const auto y1 = data.getKnot (i1).location.y;
+    const auto y2 = data.getKnot (i2).location.y;
+    const auto y3 = data.getKnot (i3).location.y;
 
     const auto c1 = .5f * (y2 - y0);
     const auto c2 = y0 - 2.5f * y1 + 2.f * y2 - .5f * y3;
@@ -79,10 +69,10 @@ float hermitCubic2 (const Knots& data, float x, float tolerance, int i1) noexcep
     const auto i2 = hermitCubic2_ClipValToSize (i1 + 1, size);
     const auto i3 = hermitCubic2_ClipValToSize (i1 + 2, size);
 
-    const auto& knoti0 = data[hermitCubic_to_size_k (i0)];
-    const auto& knoti1 = data[hermitCubic_to_size_k (i1)];
-    const auto& knoti2 = data[hermitCubic_to_size_k (i2)];
-    const auto& knoti3 = data[hermitCubic_to_size_k (i3)];
+    const auto& knoti0 = data.getKnot (i0);
+    const auto& knoti1 = data.getKnot (i1);
+    const auto& knoti2 = data.getKnot (i2);
+    const auto& knoti3 = data.getKnot (i3);
 
     const auto x21 = knoti2.location.x - knoti1.location.x;
 

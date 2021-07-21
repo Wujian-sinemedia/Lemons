@@ -30,6 +30,8 @@ struct Knots : SerializableData, std::vector< Knot >
 {
     Knots();
 
+    const Knot& getKnot (int index) const;
+
     void add (const Point& p);
 
     void sort();
@@ -42,7 +44,23 @@ struct Knots : SerializableData, std::vector< Knot >
 
     bool drag (const Point& drag) noexcept;
 
-    void makeSpline (std::vector< float >& spline) const;
+    void makeSpline (Points& spline) const;
+
+private:
+    void serialize (TreeReflector& ref) final;
+};
+
+
+struct Spline : SerializableData
+{
+    void updatePoints (const juce::Rectangle< float >& bounds);
+
+    float getPoint (int index) const;
+
+    void resize (int newNumPoints);
+
+    Knots  knots;
+    Points points;
 
 private:
     void serialize (TreeReflector& ref) final;

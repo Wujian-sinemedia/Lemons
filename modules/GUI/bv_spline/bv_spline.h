@@ -16,5 +16,4 @@
 #endif
 
 
-#include "processor/SplineProcessor.h"
 #include "editor/SplineEditor.h"

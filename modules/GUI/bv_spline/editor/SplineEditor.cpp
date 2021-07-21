@@ -80,10 +80,6 @@ float Editor::Attributes::getThickestThickness() const
     return max;
 }
 
-Editor::Editor (Processor& splineProcessor)
-    : spline (splineProcessor)
-{
-}
 
 void Editor::setBorderColour (Color c)
 {
@@ -139,11 +135,6 @@ void Editor::setSelectionThickness (float pxl)
     resized();
 }
 
-inline auto to_size_f (int idx)
-{
-    return static_cast< std::vector< float >::size_type > (idx);
-}
-
 void Editor::paint (juce::Graphics& g)
 {
     g.setImageResamplingQuality (juce::Graphics::lowResamplingQuality);
@@ -158,27 +149,34 @@ void Editor::paint (juce::Graphics& g)
 
     g.setColour (attributes.curve.color);
 
-    auto yStart = points[0];
+    const auto x = bounds.getX();
 
-    for (auto i = 1; i < static_cast< decltype (i) > (points.size()); ++i)
+    auto yStart = spline.getPoint (0);
+
+    for (auto i = 1; i < static_cast< decltype (i) > (spline.points.size()); ++i)
     {
-        const auto          xEnd   = i + bounds.getX();
-        const auto          xStart = i + bounds.getX() - 1;
-        const auto          yEnd   = points[to_size_f (i)];
-        juce::Line< float > cLine (xStart, yStart, xEnd, yEnd);
+        const auto yEnd   = spline.getPoint (i);
+        const auto xEnd   = i + x;
+        const auto xStart = xEnd - 1;
+
+        juce::Line< float > cLine (xStart,
+                                   yStart,
+                                   xEnd,
+                                   yEnd);
+
         g.drawLine (cLine, attributes.curve.thickness);
-        yStart = points[to_size_f (i)];
+        yStart = yEnd;
     }
 
     select.paint (g);
 
     g.setColour (attributes.point.color);
 
-    for (auto& k : knots)
+    for (const auto& knot : spline.knots)
     {
-        const auto point = k.getDenormalizedPoint (bounds);
+        const auto point = knot.getDenormalizedPoint (bounds);
 
-        const auto& attribute = k.isSelected() ? attributes.selection : attributes.point;
+        const auto& attribute = knot.isSelected() ? attributes.selection : attributes.point;
 
         drawPoint (point, attribute, g);
     }
@@ -211,14 +209,14 @@ juce::Rectangle< float > Editor::getAdjustedBounds() const
 
 void Editor::resized()
 {
-    points.resize (to_size_f (static_cast< int > (getAdjustedBounds().getWidth())));
+    spline.resize (juce::roundToInt (getAdjustedBounds().getWidth()));
+    updateCurve();
 }
 
 void Editor::timerCallback()
 {
-    knots.sort();
+    spline.knots.sort();
     updateCurve();
-    repaint();
 }
 
 void Editor::mouseWheelMove (const juce::MouseEvent&, const juce::MouseWheelDetails& wheel)
@@ -236,7 +234,7 @@ void Editor::mouseMove (const juce::MouseEvent& evt)
 
 void Editor::mouseDown (const juce::MouseEvent&)
 {
-    knots.select (select.getRange());
+    spline.knots.select (select.getRange());
     repaint();
 }
 
@@ -244,7 +242,7 @@ void Editor::mouseDrag (const juce::MouseEvent& evt)
 {
     select.setX (evt.position.x);
 
-    if (knots.drag (normalizePoint (evt.getOffsetFromDragStart().toFloat())))
+    if (spline.knots.drag (normalizePoint (evt.getOffsetFromDragStart().toFloat())))
         updateCurve();
 }
 
@@ -252,7 +250,7 @@ void Editor::mouseUp (const juce::MouseEvent& evt)
 {
     if (evt.mouseWasDraggedSinceMouseDown())
     {
-        knots.removeOffLimits();
+        spline.knots.removeOffLimits();
     }
     else
     {
@@ -261,17 +259,16 @@ void Editor::mouseUp (const juce::MouseEvent& evt)
         if (evt.mods.isLeftButtonDown())
         {
             if (pos.x > 0.f && pos.x < 1.f)
-                knots.add (pos);
+                spline.knots.add (pos);
         }
         else
         {
-            knots.remove (select.getRange());
+            spline.knots.remove (select.getRange());
         }
     }
 
-    knots.deselect();
+    spline.knots.deselect();
     updateCurve();
-    repaint();
 }
 
 void Editor::mouseExit (const juce::MouseEvent&)
@@ -282,14 +279,8 @@ void Editor::mouseExit (const juce::MouseEvent&)
 
 void Editor::updateCurve()
 {
-    knots.makeSpline (points);
-
-    const auto bounds = getAdjustedBounds();
-    const auto height = bounds.getHeight();
-    const auto y      = bounds.getY();
-
-    for (auto& point : points)
-        point = point * height + y;
+    spline.updatePoints (getAdjustedBounds());
+    repaint();
 }
 
 }  // namespace bav::spline

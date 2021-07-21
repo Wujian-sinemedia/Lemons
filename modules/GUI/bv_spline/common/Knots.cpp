@@ -64,6 +64,12 @@ Knots::Knots()
     add ({1, 1});
 }
 
+const Knot& Knots::getKnot (int index) const
+{
+    jassert (index >= 0 && index < static_cast< int > (size()));
+    return (*this)[static_cast< size_type > (index)];
+}
+
 void Knots::serialize (TreeReflector& ref)
 {
     ref.add ("Knot", *(static_cast< std::vector< Knot >* > (this)));
@@ -137,18 +143,17 @@ void Knots::deselect()
         knot.deselect();
 }
 
-void Knots::makeSpline (std::vector< float >& spline) const
+void Knots::makeSpline (Points& spline) const
 {
     auto       x                = 0.f;
     const auto inc              = 1.f / static_cast< float > (spline.size());
     const auto smallestDistance = inc * 2.f;
     int        kIdx             = 1;
 
-    for (size_t i = 0;
-         i < spline.size();
+    for (size_t i = 0; i < spline.size();
          ++i, x += inc)
     {
-        if (x >= at (static_cast< std::vector< Knot >::size_type > (kIdx)).location.x)
+        if (x >= getKnot (kIdx).location.x)
         {
             ++kIdx;
             kIdx %= size();
@@ -157,6 +162,34 @@ void Knots::makeSpline (std::vector< float >& spline) const
         spline[i] = juce::jlimit (0.f, 1.f,
                                   interpolation::hermitCubic2 (*this, x, smallestDistance, kIdx - 1));
     }
+}
+
+
+void Spline::serialize (TreeReflector& ref)
+{
+    ref.add ("Knots", knots);
+    ref.add ("Point", points);
+}
+
+void Spline::updatePoints (const juce::Rectangle< float >& bounds)
+{
+    knots.makeSpline (points);
+
+    const auto height = bounds.getHeight();
+    const auto y      = bounds.getY();
+
+    for (auto& point : points)
+        point = point * height + y;
+}
+
+void Spline::resize (int newNumPoints)
+{
+    points.resize (static_cast< Points::size_type > (newNumPoints));
+}
+
+float Spline::getPoint (int index) const
+{
+    return points[static_cast< Points::size_type > (index)];
 }
 
 }  // namespace bav::spline

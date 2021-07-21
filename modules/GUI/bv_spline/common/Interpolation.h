@@ -4,7 +4,7 @@ namespace bav::spline::interpolation
 {
 Point lin (const Point& a, const Point& b, float x) noexcept;
 
-Point nurbs (const std::vector< Point >& knots, float t, const int* k) noexcept;
+Point nurbs (const Knots& data, float t, const int* k) noexcept;
 
 float hermitCubic (const Knots& data, float x) noexcept;
 
