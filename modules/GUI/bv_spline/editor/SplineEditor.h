@@ -29,15 +29,16 @@ private:
     {
         Select (Editor& e);
 
-        void operator()();
-
         void setX (float xP) noexcept;
 
-        bool                 move (const Point& drag) noexcept;
-        void                 deselect() noexcept;
-        void                 addWidth (float w);
+        bool move (const Point& drag) noexcept;
+
+        void deselect() noexcept;
+        void addWidth (float w, float scrollSensitivity = 0.2f);
+
+        void paint (juce::Graphics& g);
+
         juce::Range< float > getRange() const noexcept;
-        void                 paint (juce::Graphics& g);
 
         void mouseExited();
 
@@ -89,7 +90,7 @@ private:
     Knots                knots;
     std::vector< float > points;
     Select               select {*this};
-    float                addTolerance {0.1f}, scrollSensitivity {0.2f};
+    float                addTolerance {0.1f};
 
     Attributes attributes;
 

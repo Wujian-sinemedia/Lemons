@@ -25,22 +25,16 @@ private:
 };
 
 
-struct Knots : SerializableData
+struct Knots : SerializableData, std::vector< Knot >
 {
     Knots();
 
-    const Knot& operator[] (int k) const noexcept;
-    Knot&       operator[] (int k) noexcept;
-    Knots&      operator= (const Knots& other);
-
     void add (const Point& p);
 
-    int  size() const noexcept;
     void sort();
 
-    bool removeOffLimits();
-    bool remove (const juce::Range< float >& range);
-    void clear() noexcept;
+    void removeOffLimits();
+    void remove (const juce::Range< float >& range);
 
     void select (const juce::Range< float >& range) noexcept;
     void deselect();
@@ -48,8 +42,6 @@ struct Knots : SerializableData
     bool drag (const Point& drag) noexcept;
 
     void makeSpline (std::vector< float >& spline) const;
-
-    std::vector< Knot > knots;
 
 private:
     void serialize (TreeReflector& ref) final;

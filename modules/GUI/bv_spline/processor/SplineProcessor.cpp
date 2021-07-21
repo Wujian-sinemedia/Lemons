@@ -23,28 +23,6 @@ bool Processor::updateSpline()
     return true;
 }
 
-void Processor::replaceKnots (const Knots& otherKnots)
-{
-    knots = otherKnots;
-    updateSpline();
-}
-
 const std::vector< float >& Processor::getSpline() const noexcept { return spline; }
-
-void Processor::dbg()
-{
-#if JUCE_DEBUG
-    juce::String str;
-    int          i = 0;
-
-    for (auto& knot : knots.knots)
-    {
-        str += juce::String (i) + ": " + juce::String (knot.x) + ", " + juce::String (knot.y) + "\n";
-        ++i;
-    }
-
-    DBG (str + "\n");
-#endif
-}
 
 }  // namespace bav::spline

@@ -11,8 +11,6 @@ void Editor::Select::setX (float xP) noexcept
     x                 = (xP - bounds.getX()) / bounds.getWidth();
 }
 
-void Editor::Select::operator()() { editor.knots.select (getRange()); }
-
 bool Editor::Select::move (const Point& drag) noexcept
 {
     return editor.knots.drag (drag);
@@ -25,7 +23,10 @@ void Editor::Select::mouseExited()
     x = -1;
 }
 
-void Editor::Select::addWidth (float w) { width = juce::jlimit (editor.scrollSensitivity, 1.f, width + w); }
+void Editor::Select::addWidth (float w, float scrollSensitivity)
+{
+    width = juce::jlimit (scrollSensitivity, 1.f, width + (w * scrollSensitivity));
+}
 
 juce::Range< float > Editor::Select::getRange() const noexcept
 {
@@ -180,7 +181,7 @@ void Editor::paint (juce::Graphics& g)
 
     g.setColour (attributes.point.color);
 
-    for (auto& k : knots.knots)
+    for (auto& k : knots)
     {
         const auto knot = denormalizeKnot (k, bounds);
 
@@ -238,7 +239,7 @@ void Editor::timerCallback()
 void Editor::mouseWheelMove (const juce::MouseEvent&, const juce::MouseWheelDetails& wheel)
 {
     const auto direc = wheel.deltaY > 0 ? 1.f : -1.f;
-    select.addWidth (direc * scrollSensitivity);
+    select.addWidth (direc);
     repaint();
 }
 
@@ -250,43 +251,42 @@ void Editor::mouseMove (const juce::MouseEvent& evt)
 
 void Editor::mouseDown (const juce::MouseEvent&)
 {
-    select();
+    knots.select (select.getRange());
     repaint();
 }
 
 void Editor::mouseDrag (const juce::MouseEvent& evt)
 {
     select.setX (evt.position.x);
-    select.move (normalizeKnot (evt.getOffsetFromDragStart().toFloat()));
+
+    if (select.move (normalizeKnot (evt.getOffsetFromDragStart().toFloat())))
+        updateCurve();
 }
 
 void Editor::mouseUp (const juce::MouseEvent& evt)
 {
-    bool wu = false;
-
     if (evt.mouseWasDraggedSinceMouseDown())
     {
-        wu = knots.removeOffLimits();
+        knots.removeOffLimits();
     }
     else
     {
         const auto pos = normalizeKnot (evt.position);
+
         if (evt.mods.isLeftButtonDown())
         {
             if (pos.x > 0.f && pos.x < 1.f)
-            {
                 knots.add (pos);
-                wu = true;
-            }
         }
         else
         {
-            wu = knots.remove (select.getRange());
+            knots.remove (select.getRange());
         }
     }
 
     select.deselect();
-    if (! wu) repaint();
+    updateCurve();
+    repaint();
 }
 
 void Editor::mouseExit (const juce::MouseEvent&)

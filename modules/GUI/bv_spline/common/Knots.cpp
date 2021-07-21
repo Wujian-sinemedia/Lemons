@@ -55,34 +55,20 @@ bool Knot::drag (const Point& p) noexcept
 
 
 Knots::Knots()
-    : knots ({
-        {0, 0},
-        {1, 1},
-    })
 {
-}
-
-const Knot& Knots::operator[] (int k) const noexcept { return knots[static_cast< size_t > (k)]; }
-
-Knot& Knots::operator[] (int k) noexcept { return knots[static_cast< size_t > (k)]; }
-
-Knots& Knots::operator= (const Knots& other)
-{
-    knots = other.knots;
-    return *this;
+    add ({0, 0});
+    add ({1, 1});
 }
 
 void Knots::serialize (TreeReflector& ref)
 {
-    ref.add ("Knot", knots);
+    ref.add ("Knot", *(static_cast< std::vector< Knot >* > (this)));
 }
 
 void Knots::add (const Point& p)
 {
-    knots.push_back ({p.x, p.y});
+    push_back ({p.x, p.y});
 }
-
-int Knots::size() const noexcept { return static_cast< int > (knots.size()); }
 
 void Knots::sort()
 {
@@ -91,13 +77,11 @@ void Knots::sort()
         bool operator() (const Knot& a, const Knot& b) const noexcept { return a.x < b.x; }
     };
 
-    std::sort (knots.begin(), knots.end(), Sorter());
+    std::sort (begin(), end(), Sorter());
 }
 
-bool Knots::removeOffLimits()
+void Knots::removeOffLimits()
 {
-    const auto sizeBefore = size();
-
     struct Remover
     {
         bool operator() (const Knot& knot) const noexcept
@@ -107,32 +91,23 @@ bool Knots::removeOffLimits()
         }
     };
 
-    std::remove_if (knots.begin(), knots.end(), Remover());
-
-    return size() != sizeBefore;
+    std::remove_if (begin(), end(), Remover());
 }
 
-bool Knots::remove (const juce::Range< float >& range)
+void Knots::remove (const juce::Range< float >& range)
 {
-    bool changed = false;
-
-    for (auto knot = knots.begin(); knot != knots.end(); ++knot)
+    for (auto knot = begin(); knot != end(); ++knot)
     {
         if (range.getEnd() < knot->x) break;
 
         if (range.getStart() < knot->x)
-        {
-            knots.erase (knot);
-            changed = true;
-        }
+            erase (knot);
     }
-
-    return changed;
 }
 
 void Knots::select (const juce::Range< float >& range) noexcept
 {
-    for (auto& knot : knots)
+    for (auto& knot : *this)
     {
         if (knot.x > range.getEnd()) return;
 
@@ -145,7 +120,7 @@ bool Knots::drag (const Point& drag) noexcept
 {
     bool changed = false;
 
-    for (auto& knot : knots)
+    for (auto& knot : *this)
         if (knot.drag (drag))
             changed = true;
 
@@ -154,11 +129,9 @@ bool Knots::drag (const Point& drag) noexcept
 
 void Knots::deselect()
 {
-    for (auto& knot : knots)
+    for (auto& knot : *this)
         knot.deselect();
 }
-
-void Knots::clear() noexcept { knots.clear(); }
 
 void Knots::makeSpline (std::vector< float >& spline) const
 {
@@ -171,10 +144,10 @@ void Knots::makeSpline (std::vector< float >& spline) const
          i < spline.size();
          ++i, x += inc)
     {
-        if (x >= knots[static_cast< std::vector< Knot >::size_type > (kIdx)].x)
+        if (x >= at (static_cast< std::vector< Knot >::size_type > (kIdx)).x)
         {
             ++kIdx;
-            kIdx %= knots.size();
+            kIdx %= size();
         }
 
         spline[i] = juce::jlimit (0.f, 1.f,
