@@ -45,6 +45,7 @@ constexpr bool isSerializable()
 
 
 #include "SerializableData/SerializableData.h"
+
 #include "Serializing/Serializing.h"
 
 #include "undo/UndoManager.h"

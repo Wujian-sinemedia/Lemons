@@ -31,9 +31,6 @@ private:
 
         void setX (float xP) noexcept;
 
-        bool move (const Point& drag) noexcept;
-
-        void deselect() noexcept;
         void addWidth (float w, float scrollSensitivity = 0.2f);
 
         void paint (juce::Graphics& g);
@@ -79,10 +76,7 @@ private:
 
     void timerCallback();
 
-    Point denormalizeKnot (const Knot&                     knot,
-                           const juce::Rectangle< float >& bounds) const noexcept;
-
-    Point normalizeKnot (const Point& position) const noexcept;
+    Point normalizePoint (const Point& position) const noexcept;
 
     void updateCurve();
 

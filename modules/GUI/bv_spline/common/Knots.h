@@ -14,9 +14,10 @@ struct Knot : SerializableData
 
     bool drag (const Point& p) noexcept;
 
-    float x, y;
-    float dragStartX {0.f};
-    float dragStartY {0.f};
+    Point getDenormalizedPoint (const juce::Rectangle< float >& bounds) const;
+
+    Point location;
+    Point dragStart;
 
 private:
     void serialize (TreeReflector& ref) final;

@@ -11,13 +11,6 @@ void Editor::Select::setX (float xP) noexcept
     x                 = (xP - bounds.getX()) / bounds.getWidth();
 }
 
-bool Editor::Select::move (const Point& drag) noexcept
-{
-    return editor.knots.drag (drag);
-}
-
-void Editor::Select::deselect() noexcept { editor.knots.deselect(); }
-
 void Editor::Select::mouseExited()
 {
     x = -1;
@@ -183,20 +176,12 @@ void Editor::paint (juce::Graphics& g)
 
     for (auto& k : knots)
     {
-        const auto knot = denormalizeKnot (k, bounds);
+        const auto point = k.getDenormalizedPoint (bounds);
 
         const auto& attribute = k.isSelected() ? attributes.selection : attributes.point;
 
-        drawPoint (knot, attribute, g);
+        drawPoint (point, attribute, g);
     }
-}
-
-Point Editor::denormalizeKnot (const Knot&                     knot,
-                               const juce::Rectangle< float >& bounds) const noexcept
-{
-    return {
-        bounds.getX() + bounds.getWidth() * knot.x,
-        bounds.getY() + bounds.getHeight() * knot.y};
 }
 
 void Editor::drawPoint (const Point&     knot,
@@ -210,7 +195,7 @@ void Editor::drawPoint (const Point&     knot,
                    width, width);
 }
 
-Point Editor::normalizeKnot (const Point& position) const noexcept
+Point Editor::normalizePoint (const Point& position) const noexcept
 {
     const auto bounds = getAdjustedBounds();
 
@@ -259,7 +244,7 @@ void Editor::mouseDrag (const juce::MouseEvent& evt)
 {
     select.setX (evt.position.x);
 
-    if (select.move (normalizeKnot (evt.getOffsetFromDragStart().toFloat())))
+    if (knots.drag (normalizePoint (evt.getOffsetFromDragStart().toFloat())))
         updateCurve();
 }
 
@@ -271,7 +256,7 @@ void Editor::mouseUp (const juce::MouseEvent& evt)
     }
     else
     {
-        const auto pos = normalizeKnot (evt.position);
+        const auto pos = normalizePoint (evt.position);
 
         if (evt.mods.isLeftButtonDown())
         {
@@ -284,7 +269,7 @@ void Editor::mouseUp (const juce::MouseEvent& evt)
         }
     }
 
-    select.deselect();
+    knots.deselect();
     updateCurve();
     repaint();
 }

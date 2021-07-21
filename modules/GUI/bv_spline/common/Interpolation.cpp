@@ -46,10 +46,10 @@ float hermitCubic (const Knots& data, float x) noexcept
     const auto i2 = (i1 + 1) % size;
     const auto i3 = (i1 + 2) % size;
 
-    const auto y0 = data[hermitCubic_to_size_k (i0)].y;
-    const auto y1 = data[hermitCubic_to_size_k (i1)].y;
-    const auto y2 = data[hermitCubic_to_size_k (i2)].y;
-    const auto y3 = data[hermitCubic_to_size_k (i3)].y;
+    const auto y0 = data[hermitCubic_to_size_k (i0)].location.y;
+    const auto y1 = data[hermitCubic_to_size_k (i1)].location.y;
+    const auto y2 = data[hermitCubic_to_size_k (i2)].location.y;
+    const auto y3 = data[hermitCubic_to_size_k (i3)].location.y;
 
     const auto c1 = .5f * (y2 - y0);
     const auto c2 = y0 - 2.5f * y1 + 2.f * y2 - .5f * y3;
@@ -68,7 +68,7 @@ inline int hermitCubic2_ClipValToSize (int val, int size)
 
 inline float hermitCubic2_StepOne (const Knot& knot1, const Knot& knot2, float x21)
 {
-    return (knot1.y - knot2.y) / (knot1.x - knot2.x) * x21;
+    return (knot1.location.y - knot2.location.y) / (knot1.location.x - knot2.location.x) * x21;
 }
 
 float hermitCubic2 (const Knots& data, float x, float tolerance, int i1) noexcept
@@ -84,19 +84,19 @@ float hermitCubic2 (const Knots& data, float x, float tolerance, int i1) noexcep
     const auto& knoti2 = data[hermitCubic_to_size_k (i2)];
     const auto& knoti3 = data[hermitCubic_to_size_k (i3)];
 
-    const auto x21 = knoti2.x - knoti1.x;
+    const auto x21 = knoti2.location.x - knoti1.location.x;
 
     if (x21 < tolerance)
-        return knoti2.y;
+        return knoti2.location.y;
 
     const auto m0 = hermitCubic2_StepOne (knoti2, knoti0, x21);
     const auto m1 = hermitCubic2_StepOne (knoti3, knoti1, x21);
 
-    const auto a = 2.f * (knoti1.y - knoti2.y) + m0 + m1;
-    const auto b = 3.f * (knoti2.y - knoti1.y) - 2.f * m0 - m1;
+    const auto a = 2.f * (knoti1.location.y - knoti2.location.y) + m0 + m1;
+    const auto b = 3.f * (knoti2.location.y - knoti1.location.y) - 2.f * m0 - m1;
 
-    const auto t = (x - knoti1.x) / x21;
-    return knoti1.y + t * (m0 + t * (b + t * a));
+    const auto t = (x - knoti1.location.x) / x21;
+    return knoti1.location.y + t * (m0 + t * (b + t * a));
 }
 
 }  // namespace bav::spline::interpolation

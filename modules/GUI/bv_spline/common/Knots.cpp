@@ -4,35 +4,30 @@
 namespace bav::spline
 {
 Knot::Knot (float xToUse, float yToUse)
-    : x (xToUse), y (yToUse)
+    : location (xToUse, yToUse)
 {
 }
 
 Knot& Knot::operator= (const Knot& other)
 {
-    x          = other.x;
-    y          = other.y;
-    dragStartX = other.dragStartX;
-    dragStartY = other.dragStartY;
-    selected   = other.selected;
+    location  = other.location;
+    dragStart = other.dragStart;
+    selected  = other.selected;
 
     return *this;
 }
 
 void Knot::serialize (TreeReflector& ref)
 {
-    ref.add ("X", x);
-    ref.add ("Y", y);
-    ref.add ("DragStartX", dragStartX);
-    ref.add ("DragStartY", dragStartY);
+    ref.add ("Location", location);
+    ref.add ("DragStart", dragStart);
     ref.add ("Selected", selected);
 }
 
 void Knot::select() noexcept
 {
-    dragStartX = x;
-    dragStartY = y;
-    selected   = true;
+    dragStart = location;
+    selected  = true;
 }
 
 void Knot::deselect()
@@ -48,9 +43,18 @@ bool Knot::isSelected() const
 bool Knot::drag (const Point& p) noexcept
 {
     if (! selected) return false;
-    x = dragStartX + p.x;
-    y = dragStartY + p.y;
+
+    location.x = dragStart.x + p.x;
+    location.y = dragStart.y + p.y;
+
     return true;
+}
+
+Point Knot::getDenormalizedPoint (const juce::Rectangle< float >& bounds) const
+{
+    return {
+        bounds.getX() + bounds.getWidth() * location.x,
+        bounds.getY() + bounds.getHeight() * location.y};
 }
 
 
@@ -74,7 +78,7 @@ void Knots::sort()
 {
     struct Sorter
     {
-        bool operator() (const Knot& a, const Knot& b) const noexcept { return a.x < b.x; }
+        bool operator() (const Knot& a, const Knot& b) const noexcept { return a.location.x < b.location.x; }
     };
 
     std::sort (begin(), end(), Sorter());
@@ -87,7 +91,7 @@ void Knots::removeOffLimits()
         bool operator() (const Knot& knot) const noexcept
         {
             if (! knot.isSelected()) return false;
-            return knot.x <= 0.f || knot.x >= 1.f || knot.y <= 0.f || knot.y >= 1.f;
+            return knot.location.x <= 0.f || knot.location.x >= 1.f || knot.location.y <= 0.f || knot.location.y >= 1.f;
         }
     };
 
@@ -98,9 +102,9 @@ void Knots::remove (const juce::Range< float >& range)
 {
     for (auto knot = begin(); knot != end(); ++knot)
     {
-        if (range.getEnd() < knot->x) break;
+        if (range.getEnd() < knot->location.x) break;
 
-        if (range.getStart() < knot->x)
+        if (range.getStart() < knot->location.x)
             erase (knot);
     }
 }
@@ -109,9 +113,9 @@ void Knots::select (const juce::Range< float >& range) noexcept
 {
     for (auto& knot : *this)
     {
-        if (knot.x > range.getEnd()) return;
+        if (knot.location.x > range.getEnd()) return;
 
-        if (knot.x >= range.getStart())
+        if (knot.location.x >= range.getStart())
             knot.select();
     }
 }
@@ -144,7 +148,7 @@ void Knots::makeSpline (std::vector< float >& spline) const
          i < spline.size();
          ++i, x += inc)
     {
-        if (x >= at (static_cast< std::vector< Knot >::size_type > (kIdx)).x)
+        if (x >= at (static_cast< std::vector< Knot >::size_type > (kIdx)).location.x)
         {
             ++kIdx;
             kIdx %= size();
