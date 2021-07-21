@@ -12,6 +12,12 @@ else()
     set (Shared-code_SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/.. CACHE INTERNAL "Path to the Shared-code repo")
 endif()
 
+if (DEFINED IgnoreVDSP)
+    set (BV_IGNORE_VDSP ${IgnoreVDSP} CACHE INTERNAL "Ignore Apple vDSP for this build?")
+else()
+    set (BV_IGNORE_VDSP FALSE CACHE INTERNAL "Ignore Apple vDSP for this build?")
+endif()
+
 add_subdirectory (public)
 add_subdirectory (internal)
 add_subdirectory (project_repo_config)

@@ -13,5 +13,3 @@ if (APPLE)
 elseif (WIN32)
 	include (native/Windows.cmake)
 endif()
-
-include (CommandLineArgs.cmake)
