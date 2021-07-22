@@ -15,5 +15,6 @@
 
 #endif
 
+#include "spline/Spline.h"
 
 #include "editor/SplineEditor.h"
