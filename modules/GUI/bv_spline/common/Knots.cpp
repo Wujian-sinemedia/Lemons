@@ -83,26 +83,19 @@ void Knots::add (const Point& p)
 
 void Knots::sort()
 {
-    struct Sorter
-    {
-        bool operator() (const Knot& a, const Knot& b) const noexcept { return a.location.x < b.location.x; }
-    };
-
-    std::sort (begin(), end(), Sorter());
+    std::sort (begin(), end(),
+               [] (const Knot& a, const Knot& b)
+               { return a.location.x < b.location.x; });
 }
 
 void Knots::removeOffLimits()
 {
-    struct Remover
-    {
-        bool operator() (const Knot& knot) const noexcept
-        {
-            if (! knot.isSelected()) return false;
-            return knot.location.x <= 0.f || knot.location.x >= 1.f || knot.location.y <= 0.f || knot.location.y >= 1.f;
-        }
-    };
-
-    std::remove_if (begin(), end(), Remover());
+    std::remove_if (begin(), end(),
+                    [] (const Knot& knot)
+                    {
+                        if (! knot.isSelected()) return false;
+                        return knot.location.x <= 0.f || knot.location.x >= 1.f || knot.location.y <= 0.f || knot.location.y >= 1.f;
+                    });
 }
 
 void Knots::remove (const juce::Range< float >& range)
