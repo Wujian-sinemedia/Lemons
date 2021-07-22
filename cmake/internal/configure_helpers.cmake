@@ -100,15 +100,11 @@ function (_bv_configure_juce_target)
 
     target_compile_features (${BV_TARGETCONFIG_TARGET} PUBLIC cxx_std_${BV_CXX_VERSION})
 
-    _bv_configure_vecops (${BV_TARGETCONFIG_TARGET} ${BV_TARGETCONFIG_ALWAYS_VDSP} ${BV_TARGETCONFIG_NEVER_VDSP})
-
-    if (${BV_TARGETCONFIG_MTS-ESP})
-        _bv_configure_mts_esp (${BV_TARGETCONFIG_TARGET})
-    endif()
-
-    if (${BV_TARGETCONFIG_ABLETON_LINK})
-        _bv_configure_ableton_link (${BV_TARGETCONFIG_TARGET})
-    endif()
+    _bv_configure_third_party_libs (${BV_TARGETCONFIG_TARGET} 
+                                    ${BV_TARGETCONFIG_ALWAYS_VDSP} 
+                                    ${BV_TARGETCONFIG_NEVER_VDSP} 
+                                    ${BV_TARGETCONFIG_MTS-ESP} 
+                                    ${BV_TARGETCONFIG_ABLETON_LINK})
 
     set (bv_targetname ${BV_TARGETCONFIG_TARGET} PARENT_SCOPE)
 endfunction()

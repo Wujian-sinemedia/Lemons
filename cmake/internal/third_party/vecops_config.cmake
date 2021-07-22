@@ -33,8 +33,9 @@ function (_bv_configure_vecops target forceUseVDSP forceIgnoreVDSP)
 	target_compile_definitions (${target} PUBLIC JUCE_USE_VDSP_FRAMEWORK=${useVDSP} BV_USE_VDSP=${useVDSP})
 
 	if (${useVDSP})
-		message (STATUS "Using vDSP for target ${target}")
 		return()
 	endif()
+
+	# IPP, etc...
 
 endfunction()
