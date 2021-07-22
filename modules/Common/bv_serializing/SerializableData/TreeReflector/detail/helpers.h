@@ -24,15 +24,25 @@ int getNumElementsOfType (const String& propertyName, const ValueTree& tree);
 template < class ContainerType >
 void resizeContainer (ContainerType& container, int newSize)
 {
-    container.clear();
-
     if constexpr (is_specialization< ContainerType, std::vector >())
     {
         container.resize (static_cast< typename ContainerType::size_type > (newSize));
     }
-    else
+    else if constexpr (is_specialization< ContainerType, juce::OwnedArray >())
     {
-        container.resize (newSize);
+        if (auto* first = container.getFirst())
+        {
+            using ElementType = std::remove_reference_t< decltype (*container.getFirst()) >;
+
+            container.clear();
+
+            for (auto i = 0; i < newSize; ++i)
+                container.add (new ElementType());
+        }
+        else
+        {
+            container.ensureStorageAllocated (newSize);
+        }
     }
 }
 
@@ -48,8 +58,10 @@ void addContainer (TreeReflector& ref, ContainerType& container, const String& p
     int index = 0;
 
     for (auto& element : container)
+    {
         ref.add (makePropertyNameForElement (propertyName, index),
                  element);
+    }
 }
 
 }  // namespace bav::TreeReflectorHelpers
