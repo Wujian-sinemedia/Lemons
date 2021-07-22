@@ -60,7 +60,7 @@ endfunction()
 
 function (_bv_configure_juce_target)
 
-    set (options BROWSER MTS-ESP ALWAYS_VDSP NEVER_VDSP)
+    set (options BROWSER MTS-ESP ABLETON_LINK ALWAYS_VDSP NEVER_VDSP)
     set (oneValueArgs TARGET)
     set (multiValueArgs "")
 
@@ -104,6 +104,10 @@ function (_bv_configure_juce_target)
 
     if (${BV_TARGETCONFIG_MTS-ESP})
         _bv_configure_mts_esp (${BV_TARGETCONFIG_TARGET})
+    endif()
+
+    if (${BV_TARGETCONFIG_ABLETON_LINK})
+        _bv_configure_ableton_link (${BV_TARGETCONFIG_TARGET})
     endif()
 
     set (bv_targetname ${BV_TARGETCONFIG_TARGET} PARENT_SCOPE)
