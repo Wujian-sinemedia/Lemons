@@ -66,8 +66,9 @@ Knots::Knots()
 
 const Knot& Knots::getKnot (int index) const
 {
-    jassert (index >= 0 && index < static_cast< int > (size()));
-    return (*this)[static_cast< size_type > (index)];
+    const auto idx = static_cast< size_type > (index);
+    jassert (index >= 0 && idx < size());
+    return (*this)[idx];
 }
 
 void Knots::serialize (TreeReflector& ref)
@@ -145,13 +146,12 @@ void Knots::deselect()
 
 void Knots::makeSpline (Points& spline) const
 {
-    auto       x                = 0.f;
     const auto inc              = 1.f / static_cast< float > (spline.size());
     const auto smallestDistance = inc * 2.f;
+    auto       x                = 0.f;
     int        kIdx             = 1;
 
-    for (size_t i = 0; i < spline.size();
-         ++i, x += inc)
+    for (auto& point : spline)
     {
         if (x >= getKnot (kIdx).location.x)
         {
@@ -159,8 +159,10 @@ void Knots::makeSpline (Points& spline) const
             kIdx %= size();
         }
 
-        spline[i] = juce::jlimit (0.f, 1.f,
-                                  interpolation::hermitCubic2 (*this, x, smallestDistance, kIdx - 1));
+        point = juce::jlimit (0.f, 1.f,
+                              interpolation::hermitCubic2 (*this, x, smallestDistance, kIdx - 1));
+
+        x += inc;
     }
 }
 

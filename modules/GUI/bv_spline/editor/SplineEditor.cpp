@@ -159,10 +159,7 @@ void Editor::paint (juce::Graphics& g)
         const auto xEnd   = i + x;
         const auto xStart = xEnd - 1;
 
-        juce::Line< float > cLine (xStart,
-                                   yStart,
-                                   xEnd,
-                                   yEnd);
+        juce::Line< float > cLine (xStart, yStart, xEnd, yEnd);
 
         g.drawLine (cLine, attributes.curve.thickness);
         yStart = yEnd;
@@ -174,8 +171,7 @@ void Editor::paint (juce::Graphics& g)
 
     for (const auto& knot : spline.knots)
     {
-        const auto point = knot.getDenormalizedPoint (bounds);
-
+        const auto  point     = knot.getDenormalizedPoint (bounds);
         const auto& attribute = knot.isSelected() ? attributes.selection : attributes.point;
 
         drawPoint (point, attribute, g);
