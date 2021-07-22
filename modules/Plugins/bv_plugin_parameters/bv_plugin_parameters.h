@@ -28,6 +28,8 @@
 
 #include "StringProperty/StringProperty.h"
 
+#include "RealtimeStateObject/RealtimeStateObject.h"
+
 #include "ParameterList/ParameterList.h"
 
 #include "processor/ParameterProcessor.h"
