@@ -37,6 +37,11 @@ private:
     OwnedObjectType&     object;
 };
 
+template < typename OwnedObjectType >
+typename RealtimeStateObject< OwnedObjectType >::RealtimeScopedWrite RealtimeStateObject< OwnedObjectType >::realtimeWrite()
+{
+    return {*this};
+}
 
 /*--- realtime read ---*/
 
@@ -72,6 +77,12 @@ private:
     RealtimeStateObject&   owner;
     const OwnedObjectType& object;
 };
+
+template < typename OwnedObjectType >
+typename RealtimeStateObject< OwnedObjectType >::RealtimeScopedRead RealtimeStateObject< OwnedObjectType >::realtimeRead()
+{
+    return {*this};
+}
 
 
 /*--- non realtime write ---*/
@@ -109,6 +120,12 @@ private:
     OwnedObjectType&     object;
 };
 
+template < typename OwnedObjectType >
+typename RealtimeStateObject< OwnedObjectType >::NonrealtimeScopedWrite RealtimeStateObject< OwnedObjectType >::nonrealtimeWrite()
+{
+    return {*this};
+}
+
 
 /*--- non realtime read ---*/
 
@@ -145,5 +162,10 @@ private:
     const OwnedObjectType& object;
 };
 
+template < typename OwnedObjectType >
+typename RealtimeStateObject< OwnedObjectType >::NonrealtimeScopedRead RealtimeStateObject< OwnedObjectType >::nonrealtimeRead()
+{
+    return {*this};
+}
 
 }  // namespace bav::plugin

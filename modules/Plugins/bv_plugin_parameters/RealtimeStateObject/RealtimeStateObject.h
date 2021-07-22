@@ -13,7 +13,7 @@ public:
 
     struct RealtimeScopedWrite;
 
-    RealtimeScopedWrite realtimeWrite() { return {*this}; }
+    RealtimeScopedWrite realtimeWrite();
 
 
     /*--- realtime read ---*/
@@ -23,7 +23,7 @@ public:
 
     struct RealtimeScopedRead;
 
-    RealtimeScopedRead realtimeRead() { return {*this}; }
+    RealtimeScopedRead realtimeRead();
 
 
     /*--- non realtime write ---*/
@@ -33,7 +33,7 @@ public:
 
     struct NonrealtimeScopedWrite;
 
-    NonrealtimeScopedWrite nonrealtimeWrite() { return {*this}; }
+    NonrealtimeScopedWrite nonrealtimeWrite();
 
 
     /*--- non realtime read ---*/
@@ -43,7 +43,7 @@ public:
 
     struct NonrealtimeScopedRead;
 
-    NonrealtimeScopedRead nonrealtimeRead() { return {*this}; }
+    NonrealtimeScopedRead nonrealtimeRead();
 
 private:
     OwnedObjectType object;
