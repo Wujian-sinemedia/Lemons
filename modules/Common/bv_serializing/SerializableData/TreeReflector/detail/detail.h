@@ -15,7 +15,7 @@ void TreeReflector::add (const String& propertyName, Type& object)
     }
     else
     {
-        if (loadingData)
+        if (isLoading())
             load (propertyName, object);
         else
             save (propertyName, object);
@@ -80,7 +80,7 @@ void TreeReflector::loadContainer (const String& propertyName, ContainerType& co
     const auto child = tree.getChildWithName (TreeReflectorHelpers::propertyNameToContainerName (propertyName));
     if (! child.isValid()) return;
 
-    TreeReflector ref {child, true};
+    TreeLoader ref {child};
 
     TreeReflectorHelpers::addContainer (ref, container, propertyName);
 }
@@ -88,8 +88,9 @@ void TreeReflector::loadContainer (const String& propertyName, ContainerType& co
 template < class ContainerType >
 void TreeReflector::saveContainer (const String& propertyName, ContainerType& container)
 {
-    ValueTree     child {TreeReflectorHelpers::propertyNameToContainerName (propertyName)};
-    TreeReflector ref {child, false};
+    ValueTree child {TreeReflectorHelpers::propertyNameToContainerName (propertyName)};
+
+    TreeSaver ref {child};
 
     TreeReflectorHelpers::addContainer (ref, container, propertyName);
 

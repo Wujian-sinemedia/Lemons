@@ -28,8 +28,9 @@ void SerializableData::deserialize (const ValueTree& t)
 
 ValueTree SerializableData::saveToTree (const String& treeName)
 {
-    ValueTree     tree {treeName};
-    TreeReflector ref {tree, false};
+    ValueTree tree {treeName};
+    TreeSaver ref {tree};
+
     serialize (ref);
     return tree;
 }
@@ -38,7 +39,8 @@ void SerializableData::restoreFromTree (const ValueTree& newTree)
 {
     if (! newTree.isValid()) return;
 
-    TreeReflector ref {newTree, true};
+    TreeLoader ref {newTree};
+
     serialize (ref);
 }
 

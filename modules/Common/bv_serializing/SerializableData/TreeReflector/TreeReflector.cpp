@@ -1,13 +1,11 @@
 
 namespace bav
 {
-TreeReflector::TreeReflector (const ValueTree& treeToUse, bool loading)
-    : tree (treeToUse), loadingData (loading)
+TreeReflector::TreeReflector (const ValueTree& treeToUse)
+    : tree (treeToUse)
 {
     jassert (tree.isValid());
 }
-
-bool TreeReflector::isLoading() const { return loadingData; }
 
 bool TreeReflector::isSaving() const { return ! isLoading(); }
 
@@ -22,5 +20,9 @@ void TreeReflector::saveDataChild (const String& propertyName, SerializableData&
 }
 
 ValueTree& TreeReflector::getRawDataTree() { return tree; }
+
+bool TreeLoader::isLoading() const { return true; }
+
+bool TreeSaver::isLoading() const { return false; }
 
 }  // namespace bav

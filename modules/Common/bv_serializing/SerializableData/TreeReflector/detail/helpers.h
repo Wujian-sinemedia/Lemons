@@ -46,9 +46,7 @@ template < class ContainerType >
 void addContainer (TreeReflector& ref, ContainerType& container, const String& propertyName)
 {
     if (ref.isLoading())
-    {
         resizeContainer (container, getNumElementsOfType (propertyName, ref.getRawDataTree()));
-    }
 
     int index = 0;
 

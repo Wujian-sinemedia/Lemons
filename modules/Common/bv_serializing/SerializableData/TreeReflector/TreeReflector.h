@@ -2,12 +2,12 @@
 
 namespace bav
 {
-struct TreeReflector final
+struct TreeReflector
 {
-    explicit TreeReflector (const ValueTree& treeToUse, bool loading);
+    explicit TreeReflector (const ValueTree& treeToUse);
 
-    bool isLoading() const;
-    bool isSaving() const;
+    virtual bool isLoading() const = 0;
+    bool         isSaving() const;
 
     ValueTree& getRawDataTree();
 
@@ -36,8 +36,21 @@ private:
     void loadDataChild (const String& propertyName, SerializableData& data) const;
     void saveDataChild (const String& propertyName, SerializableData& data);
 
-    ValueTree  tree;
-    const bool loadingData;
+    ValueTree tree;
+};
+
+struct TreeLoader : TreeReflector
+{
+    using TreeReflector::TreeReflector;
+
+    bool isLoading() const final;
+};
+
+struct TreeSaver : TreeReflector
+{
+    using TreeReflector::TreeReflector;
+
+    bool isLoading() const final;
 };
 
 }  // namespace bav
