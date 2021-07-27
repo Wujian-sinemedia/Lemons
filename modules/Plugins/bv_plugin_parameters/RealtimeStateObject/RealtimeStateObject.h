@@ -6,17 +6,21 @@ template < typename OwnedObjectType >
 class RealtimeStateObject
 {
 public:
-    struct ScopedWrite;
-    struct ScopedRead;
+    struct RealtimeScopedWrite;
+    struct RealtimeScopedRead;
+    struct NonrealtimeScopedWrite;
+    struct NonrealtimeScopedRead;
 
-    ScopedWrite realtimeWrite();
-    ScopedRead  realtimeRead();
-    ScopedWrite nonrealtimeWrite();
-    ScopedRead  nonrealtimeRead();
+    RealtimeScopedWrite    realtimeWrite();
+    RealtimeScopedRead     realtimeRead();
+    NonrealtimeScopedWrite nonrealtimeWrite();
+    NonrealtimeScopedRead  nonrealtimeRead();
 
 private:
-    friend struct ScopedWrite;
-    friend struct ScopedRead;
+    friend struct RealtimeScopedWrite;
+    friend struct RealtimeScopedRead;
+    friend struct NonrealtimeScopedWrite;
+    friend struct NonrealtimeScopedRead;
 
     OwnedObjectType& realtime_beginWrite();
     void             realtime_endWrite();
