@@ -7,11 +7,13 @@ namespace bav::plugin
 template < typename OwnedObjectType >
 OwnedObjectType& RealtimeStateObject< OwnedObjectType >::realtime_beginWrite()
 {
+    return manager.realtimeAcquire();
 }
 
 template < typename OwnedObjectType >
 void RealtimeStateObject< OwnedObjectType >::realtime_endWrite()
 {
+    manager.realtimeRelease();
 }
 
 template < typename OwnedObjectType >
@@ -48,11 +50,13 @@ typename RealtimeStateObject< OwnedObjectType >::RealtimeScopedWrite RealtimeSta
 template < typename OwnedObjectType >
 const OwnedObjectType& RealtimeStateObject< OwnedObjectType >::realtime_beginRead()
 {
+    return manager.realtimeAcquire();
 }
 
 template < typename OwnedObjectType >
 void RealtimeStateObject< OwnedObjectType >::realtime_endRead()
 {
+    manager.realtimeRelease();
 }
 
 template < typename OwnedObjectType >
@@ -90,11 +94,13 @@ typename RealtimeStateObject< OwnedObjectType >::RealtimeScopedRead RealtimeStat
 template < typename OwnedObjectType >
 OwnedObjectType& RealtimeStateObject< OwnedObjectType >::nonRealtime_beginWrite()
 {
+    return manager.nonrealtimeAcquire();
 }
 
 template < typename OwnedObjectType >
 void RealtimeStateObject< OwnedObjectType >::nonRealtime_endWrite()
 {
+    manager.nonrealtimeRelease();
 }
 
 template < typename OwnedObjectType >
@@ -132,11 +138,13 @@ typename RealtimeStateObject< OwnedObjectType >::NonrealtimeScopedWrite Realtime
 template < typename OwnedObjectType >
 const OwnedObjectType& RealtimeStateObject< OwnedObjectType >::nonrealtime_beginRead()
 {
+    return manager.nonrealtimeAcquire();
 }
 
 template < typename OwnedObjectType >
 void RealtimeStateObject< OwnedObjectType >::nonrealtime_endRead()
 {
+    manager.nonrealtimeRelease();
 }
 
 template < typename OwnedObjectType >

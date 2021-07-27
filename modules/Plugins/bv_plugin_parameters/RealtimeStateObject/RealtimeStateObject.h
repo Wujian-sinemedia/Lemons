@@ -1,5 +1,7 @@
 #pragma once
 
+#include "CASLoop.h"
+
 namespace bav::plugin
 {
 template < typename OwnedObjectType >
@@ -35,6 +37,8 @@ private:
     void                   nonrealtime_endRead();
 
     OwnedObjectType object;
+
+    CASManager< OwnedObjectType > manager {object};
 };
 
 }  // namespace bav::plugin
