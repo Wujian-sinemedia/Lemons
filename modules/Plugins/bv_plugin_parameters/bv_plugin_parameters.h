@@ -26,8 +26,6 @@
 
 #include "ParameterList/ParameterHolder.h"
 
-#include "StringProperty/StringProperty.h"
-
 #include "RealtimeStateObject/RealtimeStateObject.h"
 
 #include "ParameterList/ParameterList.h"

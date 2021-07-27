@@ -33,9 +33,6 @@ public:
     };
 
     BV_DECLARE_RECURSIVE_VARIADIC_FUNCTION (add, ParamHolderBase&)
-    BV_DECLARE_RECURSIVE_VARIADIC_FUNCTION (add, StringProperty&)
-
-    BV_DECLARE_RECURSIVE_VARIADIC_FUNCTION (addInternal, StringProperty&)
     BV_DECLARE_RECURSIVE_VARIADIC_FUNCTION (addInternal, ParamHolderBase&)
 
     void setPitchbendParameter (IntParam& param);
@@ -46,15 +43,12 @@ private:
     void serialize (TreeReflector& ref) final;
 
     void addParameter (ParamHolderBase& param, bool isInternal);
-    void addStringProperty (StringProperty& property);
 
     void processNewControllerMessage (int controllerNumber, int controllerValue);
     void processNewPitchwheelMessage (int pitchwheelValue);
 
     std::vector< ParamHolderBase* > params;
     dsp::BasicProcessorBase         dummyProcessor;
-
-    std::vector< StringProperty* > strings;
 
     IntParameter* pitchwheelParameter;
     IntParameter* lastMovedControllerNumberParameter;
