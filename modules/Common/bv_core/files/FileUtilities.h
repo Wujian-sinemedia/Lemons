@@ -24,4 +24,11 @@ bool renameFile (const File& f, const String& newName);
 void deleteFile (const File& f);
 
 
+//==============================================================================
+/*
+ Opens a file in its default application.
+ */
+bool openFile (File file);
+
+
 }  // namespace bav

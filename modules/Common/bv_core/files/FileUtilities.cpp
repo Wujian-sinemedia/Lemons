@@ -46,4 +46,15 @@ void deleteFile (const File& f)
             f.deleteFile();
 }
 
+//==============================================================================
+
+bool openFile (File file)
+{
+    if (! file.existsAsFile())
+        return false;
+
+    juce::Process::openDocument ("file:" + file.getFullPathName(), {});
+    return true;
+}
+
 }  // namespace bav
