@@ -7,3 +7,6 @@
 #include "buttons/Buttons.cpp"
 
 #include "labels/Labels.cpp"
+
+#include "PresetBar/StateToggleButtons.cpp"
+#include "PresetBar/PresetBar.cpp"

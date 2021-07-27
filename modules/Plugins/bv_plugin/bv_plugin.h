@@ -22,6 +22,7 @@
 
 #include "state/state.h"
 #include "state/PluginUndo.h"
+#include "state/StateToggler.h"
 
 #include "processors/ProcessorBase.h"
 

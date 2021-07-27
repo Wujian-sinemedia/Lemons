@@ -1,28 +1,49 @@
 
 namespace bav::plugin
 {
-PresetManagerBase::PresetManagerBase (State& stateToUse, UndoManager* um)
-    : undo (um), state (stateToUse)
+PresetManager::PresetManager (State&        stateToUse,
+                              const String& companyNameToUse,
+                              const String& productNameToUse,
+                              const String& presetFileExtensionToUse,
+                              UndoManager*  um)
+    : companyName (companyNameToUse), productName (productNameToUse), presetFileExtension (presetFileExtensionToUse), undo (um), state (stateToUse)
 {
 }
 
-File PresetManagerBase::presetsFolder()
+File PresetManager::presetsFolder()
 {
-    return getPresetsFolder (getCompanyName(), getProductName());
+    File rootFolder;
+
+#if JUCE_WINDOWS
+    rootFolder = File::getSpecialLocation (File::SpecialLocationType::userDocumentsDirectory);
+#else
+    rootFolder = File::getSpecialLocation (File::SpecialLocationType::userApplicationDataDirectory);
+
+#    if JUCE_MAC
+    rootFolder = rootFolder.getChildFile ("Audio").getChildFile ("Presets");
+#    endif
+#endif
+
+    rootFolder = rootFolder.getChildFile (companyName).getChildFile (productName);
+
+    if (! rootFolder.isDirectory())
+        rootFolder.createDirectory();
+
+    return rootFolder;
 }
 
-File PresetManagerBase::presetNameToFilePath (const String& presetName)
+File PresetManager::presetNameToFilePath (const String& presetName)
 {
-    return presetsFolder().getChildFile (addFileExtensionIfMissing (presetName, getPresetFileExtension()));
+    return presetsFolder().getChildFile (addFileExtensionIfMissing (presetName, presetFileExtension));
 }
 
-void PresetManagerBase::savePreset (const String& presetName)
+void PresetManager::savePreset (const String& presetName)
 {
     serializing::toBinary (state, presetNameToFilePath (presetName));
     rescanPresetsFolder();
 }
 
-bool PresetManagerBase::loadPreset (const String& presetName)
+bool PresetManager::loadPreset (const String& presetName)
 {
     auto file = presetNameToFilePath (presetName);
 
@@ -37,13 +58,13 @@ bool PresetManagerBase::loadPreset (const String& presetName)
     return true;
 }
 
-void PresetManagerBase::deletePreset (const String& presetName)
+void PresetManager::deletePreset (const String& presetName)
 {
     deleteFile (presetNameToFilePath (presetName));
     rescanPresetsFolder();
 }
 
-bool PresetManagerBase::renamePreset (const String& previousName, const String& newName)
+bool PresetManager::renamePreset (const String& previousName, const String& newName)
 {
     auto file = presetNameToFilePath (previousName);
 
@@ -51,43 +72,42 @@ bool PresetManagerBase::renamePreset (const String& previousName, const String& 
         return false;
 
     renameFile (file,
-                addFileExtensionIfMissing (newName, getPresetFileExtension()));
+                addFileExtensionIfMissing (newName, presetFileExtension));
 
     rescanPresetsFolder();
 
     return true;
 }
 
-void PresetManagerBase::rescanPresetsFolder()
+void PresetManager::rescanPresetsFolder()
 {
     namesOfAvailablePresets.clearQuick();
 
-    const auto xtn = getPresetFileExtension();
-    const auto len = static_cast< int > (xtn.length());
+    const auto len = static_cast< int > (presetFileExtension.length());
 
     for (auto entry : juce::RangedDirectoryIterator (presetsFolder(), true))
     {
         const auto filename = entry.getFile().getFileName();
 
-        if (filename.endsWith (xtn))
+        if (filename.endsWith (presetFileExtension))
             namesOfAvailablePresets.addIfNotAlreadyThere (filename.dropLastCharacters (len));
     }
 
     availablePresetsChanged.trigger();
 }
 
-const juce::StringArray& PresetManagerBase::presetNames()
+const juce::StringArray& PresetManager::presetNames()
 {
     rescanPresetsFolder();
     return namesOfAvailablePresets;
 }
 
-events::Broadcaster& PresetManagerBase::getPresetsChangedBroadcaster()
+events::Broadcaster& PresetManager::getPresetsChangedBroadcaster()
 {
     return availablePresetsChanged;
 }
 
-events::Broadcaster& PresetManagerBase::getPresetLoadedBroadcaster()
+events::Broadcaster& PresetManager::getPresetLoadedBroadcaster()
 {
     return presetLoaded;
 }

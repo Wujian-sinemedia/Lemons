@@ -31,6 +31,8 @@ void TreeReflector::load (const String& propertyName, Type& object)
             loadDataChild (propertyName, object);
         else if constexpr (is_container< Type >())
             loadContainer (propertyName, object);
+        else if constexpr (std::is_same< ValueTree, Type >())
+            loadValueTree (propertyName, object);
         else
             loadObject (propertyName, object);
     }
@@ -43,6 +45,8 @@ void TreeReflector::save (const String& propertyName, Type& object)
         saveDataChild (propertyName, object);
     else if constexpr (is_container< Type >())
         saveContainer (propertyName, object);
+    else if constexpr (std::is_same< ValueTree, Type >())
+        saveValueTree (propertyName, object);
     else
         saveObject (propertyName, object);
 }

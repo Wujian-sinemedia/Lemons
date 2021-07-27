@@ -36,6 +36,9 @@ private:
     void loadDataChild (const String& propertyName, SerializableData& data) const;
     void saveDataChild (const String& propertyName, SerializableData& data);
 
+    void loadValueTree (const String& propertyName, ValueTree& data) const;
+    void saveValueTree (const String& propertyName, ValueTree& data);
+
     ValueTree tree;
 };
 

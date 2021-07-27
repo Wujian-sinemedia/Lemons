@@ -2,15 +2,16 @@
 
 namespace bav::plugin
 {
-class PresetManagerBase
+class PresetManager
 {
 public:
-    PresetManagerBase (State& stateToUse, UndoManager* um = nullptr);
-    virtual ~PresetManagerBase() = default;
+    PresetManager (State&        stateToUse,
+                   const String& companyNameToUse,
+                   const String& productNameToUse,
+                   const String& presetFileExtensionToUse = ".xml",
+                   UndoManager*  um                       = nullptr);
 
-    virtual std::string getCompanyName()         = 0;
-    virtual std::string getProductName()         = 0;
-    virtual std::string getPresetFileExtension() = 0;
+    virtual ~PresetManager() = default;
 
     File presetsFolder();
 
@@ -28,6 +29,10 @@ public:
 
 private:
     File presetNameToFilePath (const String& presetName);
+
+    const String companyName;
+    const String productName;
+    const String presetFileExtension;
 
     UndoManager* undo;
     State&       state;

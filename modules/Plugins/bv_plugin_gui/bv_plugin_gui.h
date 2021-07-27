@@ -9,7 +9,7 @@
  version:            0.0.1
  name:               bv_gui
  description:        GUI utility classes and some basic components
- dependencies:       bv_gui bv_plugin_parameters
+ dependencies:       bv_gui bv_plugin
 
  END_JUCE_MODULE_DECLARATION
 
@@ -21,3 +21,5 @@
 #include "buttons/Buttons.h"
 
 #include "labels/Labels.h"
+
+#include "PresetBar/PresetBar.h"
