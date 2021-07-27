@@ -30,4 +30,5 @@
 
 #include "processors/Processors.h"
 
+#include "presets/Preset.h"
 #include "presets/PresetManager.h"
