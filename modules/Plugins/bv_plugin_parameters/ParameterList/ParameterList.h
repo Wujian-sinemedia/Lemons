@@ -29,7 +29,7 @@ public:
                   bool                                     includeInternalParams = true);
 
     private:
-        juce::OwnedArray< ParamUpdater > updaters;
+        OwnedArray< ParamUpdater > updaters;
     };
 
     BV_DECLARE_RECURSIVE_VARIADIC_FUNCTION (add, ParamHolderBase&)

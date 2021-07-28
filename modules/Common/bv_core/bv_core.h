@@ -64,6 +64,12 @@ using juce::ValueTree;
 template < typename T >
 using AudioBuffer = juce::AudioBuffer< T >;
 
+template < typename T >
+using Array = juce::Array< T >;
+
+template < typename T >
+using OwnedArray = juce::OwnedArray< T >;
+
 }  // namespace bav
 
 

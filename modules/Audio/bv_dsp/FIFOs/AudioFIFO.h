@@ -41,7 +41,7 @@ public:
     void popSamples (AudioBuffer< SampleType >& output);
 
 private:
-    juce::OwnedArray< AudioFIFO< SampleType > > fifos;
+    OwnedArray< AudioFIFO< SampleType > > fifos;
 
     int capacity {512};
 };

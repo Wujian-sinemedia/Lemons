@@ -18,8 +18,8 @@ public:
 private:
     void snapToZero() noexcept;
 
-    juce::Array< SampleType > state;
-    int                       order = 0;
+    Array< SampleType > state;
+    int                 order = 0;
 };
 
 /*--------------------------------------------------------------------------------------------------------------*/
@@ -37,8 +37,8 @@ struct MultiFilter
     void process (AudioBuffer& buffer) noexcept;
     void processChannel (int channel, SampleType* audio, int numSamples) noexcept;
 
-    Coefficients< SampleType >               coefs;
-    juce::OwnedArray< Filter< SampleType > > filters;
+    Coefficients< SampleType >         coefs;
+    OwnedArray< Filter< SampleType > > filters;
 };
 
 }  // namespace bav::dsp::filters

@@ -27,7 +27,7 @@ public:
     Band* getBandOfType (FilterType type);  // returns the first filter found with the given type, else nullptr
 
 private:
-    juce::OwnedArray< Band > filters;
+    OwnedArray< Band > filters;
 
     double lastSamplerate {44100.};
     int    lastBlocksize {512};

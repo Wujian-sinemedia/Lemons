@@ -30,7 +30,7 @@ private:
     AudioBuffer storage;
     AudioBuffer storageAlias;
 
-    juce::Array< AudioEffect< SampleType >* > effects;
+    Array< AudioEffect< SampleType >* > effects;
 
     int lastBlocksize {0};
 };

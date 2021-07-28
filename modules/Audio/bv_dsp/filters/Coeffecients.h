@@ -3,7 +3,7 @@
 namespace bav::dsp::filters
 {
 template < typename T >
-struct Coefs : juce::Array< T >
+struct Coefs : Array< T >
 {
     Coefs();
     Coefs& operator= (std::initializer_list< T > list);

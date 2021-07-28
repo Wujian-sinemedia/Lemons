@@ -88,8 +88,8 @@ public:
 
     int getLastBlocksize() const noexcept { return lastBlocksize; }
 
-    bool         isConnectedToMtsEsp() const { return pitch.tuning.isConnectedToMtsEsp(); }
-    juce::String getScaleName() const { return pitch.tuning.getScaleName(); }
+    bool   isConnectedToMtsEsp() const { return pitch.tuning.isConnectedToMtsEsp(); }
+    String getScaleName() const { return pitch.tuning.getScaleName(); }
 
     auto getLastMovedControllerInfo() const { return midi.getLastMovedCCinfo(); }
 
@@ -140,12 +140,12 @@ private:
     /*==============================================================================================================
      ===============================================================================================================*/
 
-    juce::OwnedArray< Voice > voices;
+    OwnedArray< Voice > voices;
 
     bool latchIsOn {false};
 
-    juce::Array< int > currentNotes;
-    juce::Array< int > desiredNotes;
+    Array< int > currentNotes;
+    Array< int > desiredNotes;
 
     ADSRParams adsrParams;
     ADSRParams quickReleaseParams;
@@ -163,7 +163,7 @@ private:
 
     float softPedalMultiplier;  // the multiplier by which each voice's output will be multiplied when the soft pedal is down
 
-    juce::Array< Voice* > usableVoices;  // this array is used to sort the voices when a 'steal' is requested
+    Array< Voice* > usableVoices;  // this array is used to sort the voices when a 'steal' is requested
 
     int lastBlocksize;
 
@@ -213,8 +213,6 @@ private:
 
     class PanningManager
     {
-        using Array = juce::Array< int >;
-
     public:
         PanningManager (SynthBase& b) : synth (b) { }
 
@@ -233,17 +231,17 @@ private:
         void updatePanValueLookupTables (int newWidth);
         void mapArrayIndexes();
         int  getClosestNewPanValFromOld (int oldPan);
-        int  findClosestValueInNewArray (int targetValue, Array& newArray);
+        int  findClosestValueInNewArray (int targetValue, Array< int >& newArray);
 
         SynthBase& synth;
 
         int stereoWidth {100};
         int lowestPannedNote {0};
 
-        Array arrayIndexesMapped;
-        Array possiblePanVals, panValsInAssigningOrder, unsentPanVals;
-        Array newPanVals, newUnsentVals;
-        Array distances;
+        Array< int > arrayIndexesMapped;
+        Array< int > possiblePanVals, panValsInAssigningOrder, unsentPanVals;
+        Array< int > newPanVals, newUnsentVals;
+        Array< int > distances;
     };
 
     PanningManager panner {*this};

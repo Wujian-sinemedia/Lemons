@@ -273,7 +273,7 @@ void SynthBase< SampleType >::PanningManager::mapArrayIndexes()
 }
 
 template < typename SampleType >
-int SynthBase< SampleType >::PanningManager::findClosestValueInNewArray (int targetValue, Array& newArray)
+int SynthBase< SampleType >::PanningManager::findClosestValueInNewArray (int targetValue, Array< int >& newArray)
 {
     if (newArray.isEmpty()) return -1;
 
