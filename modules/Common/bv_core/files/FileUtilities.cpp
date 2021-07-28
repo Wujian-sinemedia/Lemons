@@ -53,8 +53,7 @@ bool openFile (File file)
     if (! file.existsAsFile())
         return false;
 
-    juce::Process::openDocument ("file:" + file.getFullPathName(), {});
-    return true;
+    return file.startAsProcess();
 }
 
 }  // namespace bav
