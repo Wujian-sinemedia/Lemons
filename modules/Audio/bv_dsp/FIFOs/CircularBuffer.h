@@ -2,6 +2,7 @@
 #pragma once
 
 #include <juce_audio_utils/juce_audio_utils.h>
+#include <bv_core/bv_core.h>
 
 namespace bav::dsp
 {
@@ -9,11 +10,9 @@ template < typename SampleType >
 class CircularBuffer
 {
 public:
-    using AudioBuffer = juce::AudioBuffer< SampleType >;
-
     void resize (int blocksize, int blocksizeMultipleToAllocate = 4);
 
-    void storeSamples (const AudioBuffer& samples, int channel = 0);
+    void storeSamples (const AudioBuffer< SampleType >& samples, int channel = 0);
     void storeSamples (const SampleType* samples, int numSamples);
 
     int getCapacity() const;
@@ -25,7 +24,7 @@ public:
     SampleType getSample (int index) const;
 
 private:
-    AudioBuffer buffer;
+    AudioBuffer< SampleType > buffer;
 
     int lastFrameStart {0};  // the sample index in the buffer where the first sample of the last frame is stored
     int lastFrameEnd {0};    // the sample index in the buffer where the last sample of the last frame is stored

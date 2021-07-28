@@ -131,7 +131,7 @@ void SynthBase< SampleType >::releaseResources()
  Internally, the synth will render smaller chunks of audio in between each midi message timestamp, to keep midi events synchronous with the audio output. If you are implementing a class that derives from this class or the SynthVoiceBase class, note that the SynthVoiceBase's renderPlease() method may recieve blocksizes as small as 1 sample (but never 0 samples).
  */
 template < typename SampleType >
-void SynthBase< SampleType >::renderVoices (juce::MidiBuffer& midiMessages, juce::AudioBuffer< SampleType >& output)
+void SynthBase< SampleType >::renderVoices (MidiBuffer& midiMessages, AudioBuffer< SampleType >& output)
 {
     jassert (! voices.isEmpty());
     jassert (sampleRate > 0);

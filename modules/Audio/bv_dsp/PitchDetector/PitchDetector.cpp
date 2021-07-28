@@ -79,7 +79,7 @@ template int samplesToFirstZeroCrossing (const double*, int);
 
 
 template < typename SampleType >
-float PitchDetector< SampleType >::detectPitch (const AudioBuffer& inputAudio)
+float PitchDetector< SampleType >::detectPitch (const AudioBuffer< SampleType >& inputAudio)
 {
     return detectPitch (inputAudio.getReadPointer (0), inputAudio.getNumSamples());
 }

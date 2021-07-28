@@ -7,11 +7,9 @@ namespace bav::dsp
 template < typename SampleType >
 class SynthBase
 {
-    using AudioBuffer = juce::AudioBuffer< SampleType >;
-    using uint32      = juce::uint32;
-    using Voice       = SynthVoiceBase< SampleType >;
-    using ADSRParams  = juce::ADSR::Parameters;
-
+    using uint32     = juce::uint32;
+    using Voice      = SynthVoiceBase< SampleType >;
+    using ADSRParams = juce::ADSR::Parameters;
 
 public:
     SynthBase();
@@ -28,7 +26,7 @@ public:
 
     double getSamplerate() const { return sampleRate; }
 
-    void renderVoices (MidiBuffer& midiMessages, juce::AudioBuffer< SampleType >& output);
+    void renderVoices (MidiBuffer& midiMessages, AudioBuffer< SampleType >& output);
 
     void releaseResources();
 

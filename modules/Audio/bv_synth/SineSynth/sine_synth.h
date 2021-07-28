@@ -11,7 +11,7 @@ class BasicSynthVoice : public SynthVoiceBase< SampleType >
 public:
     using SynthVoiceBase< SampleType >::SynthVoiceBase;
 
-    void renderPlease (juce::AudioBuffer< SampleType >& output, float desiredFrequency, double currentSamplerate) final
+    void renderPlease (AudioBuffer< SampleType >& output, float desiredFrequency, double currentSamplerate) final
     {
         osc.setFrequency (SampleType (desiredFrequency), SampleType (currentSamplerate));
         osc.getSamples (output.getWritePointer (0), output.getNumSamples());

@@ -18,8 +18,6 @@ template < typename SampleType >
 class ChoosableOscillator
 {
 public:
-    using AudioBuffer = juce::AudioBuffer< SampleType >;
-
     ChoosableOscillator();
 
     void    setOscType (OscType newType);
@@ -28,7 +26,7 @@ public:
     void  setFrequency (float freqHz);
     float getFrequency() const { return freq; }
 
-    void process (AudioBuffer& output);
+    void process (AudioBuffer< SampleType >& output);
 
     void prepare (int blocksize, double samplerate);
 

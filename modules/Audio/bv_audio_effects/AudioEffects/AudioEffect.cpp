@@ -15,7 +15,7 @@ template struct AudioEffect< double >;
 
 
 template < typename SampleType >
-void SidechainableAudioEffect< SampleType >::process (AudioBuffer& audio)
+void SidechainableAudioEffect< SampleType >::process (AudioBuffer< SampleType >& audio)
 {
     process (audio, audio);
 }
@@ -25,7 +25,7 @@ template struct SidechainableAudioEffect< double >;
 
 
 template < typename SampleType >
-void LevelReportingAudioEffect< SampleType >::process (AudioBuffer& inOut, const AudioBuffer& sidechain)
+void LevelReportingAudioEffect< SampleType >::process (AudioBuffer< SampleType >& inOut, const AudioBuffer< SampleType >& sidechain)
 {
     const auto numChannels = inOut.getNumChannels();
 
@@ -47,7 +47,7 @@ void LevelReportingAudioEffect< SampleType >::process (AudioBuffer& inOut, const
 }
 
 template < typename SampleType >
-void LevelReportingAudioEffect< SampleType >::process (AudioBuffer& audio)
+void LevelReportingAudioEffect< SampleType >::process (AudioBuffer< SampleType >& audio)
 {
     process (audio, audio);
 }

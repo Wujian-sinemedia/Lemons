@@ -8,15 +8,13 @@ template < typename SampleType >
 class AudioAndMidiFIFO
 {
 public:
-    using AudioBuffer = juce::AudioBuffer< SampleType >;
-
     AudioAndMidiFIFO (int channels = 2, int samples = 1024);
 
     void setSize (int numChannels, int numSamples);
 
-    void push (const AudioBuffer& audioIn, const MidiBuffer& midiIn);
+    void push (const AudioBuffer< SampleType >& audioIn, const MidiBuffer& midiIn);
 
-    void pop (AudioBuffer& audioOut, MidiBuffer& midiOut);
+    void pop (AudioBuffer< SampleType >& audioOut, MidiBuffer& midiOut);
 
     int numStoredSamples() const;
 

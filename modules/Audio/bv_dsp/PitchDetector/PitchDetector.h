@@ -10,8 +10,6 @@ namespace bav::dsp
 template < typename SampleType >
 class PitchDetector
 {
-    using AudioBuffer = juce::AudioBuffer< SampleType >;
-
 public:
     PitchDetector();
     ~PitchDetector() = default;
@@ -20,7 +18,7 @@ public:
 
     void releaseResources();
 
-    float detectPitch (const AudioBuffer& inputAudio);
+    float detectPitch (const AudioBuffer< SampleType >& inputAudio);
     float detectPitch (const SampleType* inputAudio, int numSamples);
 
     void setHzRange (int newMinHz, int newMaxHz);
@@ -52,13 +50,13 @@ private:
     SampleType
         confidenceThresh;  // if the lowest asdf data value is above this thresh, the frame of audio is determined to be unpitched
 
-    AudioBuffer asdfBuffer;  // calculated ASDF values will be placed in this buffer
+    AudioBuffer< SampleType > asdfBuffer;  // calculated ASDF values will be placed in this buffer
 
     juce::Array< int >        periodCandidates;
     juce::Array< int >        candidateDeltas;
     juce::Array< SampleType > weightedCandidateConfidence;
 
-    AudioBuffer                   filteringBuffer;
+    AudioBuffer< SampleType >     filteringBuffer;
     filters::Filter< SampleType > loCut, hiCut;
 
     static constexpr int numPeriodCandidatesToTest = 10;

@@ -22,41 +22,41 @@ void Engine< SampleType >::releaseResources()
 }
 
 template < typename SampleType >
-void Engine< SampleType >::process (AudioBuffer& inplaceInAndOut,
-                                    MidiBuffer&  midiMessages,
-                                    bool         isBypassed)
+void Engine< SampleType >::process (AudioBuffer< SampleType >& inplaceInAndOut,
+                                    MidiBuffer&                midiMessages,
+                                    bool                       isBypassed)
 {
     processInternal (inplaceInAndOut, inplaceInAndOut, midiMessages, isBypassed);
 }
 
 template < typename SampleType >
-void Engine< SampleType >::process (const AudioBuffer& input,
-                                    AudioBuffer&       output,
-                                    MidiBuffer&        midiMessages,
-                                    bool               isBypassed)
+void Engine< SampleType >::process (const AudioBuffer< SampleType >& input,
+                                    AudioBuffer< SampleType >&       output,
+                                    MidiBuffer&                      midiMessages,
+                                    bool                             isBypassed)
 {
     processInternal (input, output, midiMessages, isBypassed);
 }
 
 template < typename SampleType >
-void Engine< SampleType >::process (AudioBuffer& inplaceInAndOut,
-                                    bool         isBypassed)
+void Engine< SampleType >::process (AudioBuffer< SampleType >& inplaceInAndOut,
+                                    bool                       isBypassed)
 {
     dummyMidiBuffer.clear();
     processInternal (inplaceInAndOut, inplaceInAndOut, dummyMidiBuffer, isBypassed);
 }
 
 template < typename SampleType >
-void Engine< SampleType >::process (const AudioBuffer& input,
-                                    AudioBuffer&       output,
-                                    bool               isBypassed)
+void Engine< SampleType >::process (const AudioBuffer< SampleType >& input,
+                                    AudioBuffer< SampleType >&       output,
+                                    bool                             isBypassed)
 {
     dummyMidiBuffer.clear();
     processInternal (input, output, dummyMidiBuffer, isBypassed);
 }
 
 template < typename SampleType >
-void Engine< SampleType >::processInternal (const AudioBuffer& input, AudioBuffer& output, MidiBuffer& midiMessages, bool isBypassed)
+void Engine< SampleType >::processInternal (const AudioBuffer< SampleType >& input, AudioBuffer< SampleType >& output, MidiBuffer& midiMessages, bool isBypassed)
 {
     jassert (isInitialized() && sampleRate > 0);
 

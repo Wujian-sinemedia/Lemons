@@ -12,7 +12,7 @@ void CircularBuffer< SampleType >::resize (int blocksize, int blocksizeMultipleT
 }
 
 template < typename SampleType >
-void CircularBuffer< SampleType >::storeSamples (const AudioBuffer& samples, int channel)
+void CircularBuffer< SampleType >::storeSamples (const AudioBuffer< SampleType >& samples, int channel)
 {
     storeSamples (samples.getReadPointer (channel), samples.getNumSamples());
 }

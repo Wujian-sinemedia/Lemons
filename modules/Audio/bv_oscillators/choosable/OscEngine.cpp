@@ -20,8 +20,8 @@ void OscEngine< SampleType, OscType >::setFrequency (float freqHz)
 }
 
 template < typename SampleType, template < typename T > class OscType >
-void OscEngine< SampleType, OscType >::renderBlock (const AudioBuffer&,
-                                                    AudioBuffer& output,
+void OscEngine< SampleType, OscType >::renderBlock (const AudioBuffer< SampleType >&,
+                                                    AudioBuffer< SampleType >& output,
                                                     MidiBuffer&, bool)
 {
     osc.getSamples (output.getWritePointer (0), output.getNumSamples());

@@ -16,14 +16,14 @@ void AudioAndMidiFIFO< SampleType >::setSize (int numChannels, int numSamples)
 }
 
 template < typename SampleType >
-void AudioAndMidiFIFO< SampleType >::push (const AudioBuffer& audioIn, const MidiBuffer& midiIn)
+void AudioAndMidiFIFO< SampleType >::push (const AudioBuffer< SampleType >& audioIn, const MidiBuffer& midiIn)
 {
     audio.pushSamples (audioIn);
     midi.pushEvents (midiIn, audioIn.getNumSamples());
 }
 
 template < typename SampleType >
-void AudioAndMidiFIFO< SampleType >::pop (AudioBuffer& audioOut, MidiBuffer& midiOut)
+void AudioAndMidiFIFO< SampleType >::pop (AudioBuffer< SampleType >& audioOut, MidiBuffer& midiOut)
 {
     audio.popSamples (audioOut);
     midi.popEvents (midiOut, audioOut.getNumSamples());

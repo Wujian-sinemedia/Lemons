@@ -52,7 +52,7 @@ void SynthVoiceBase< SampleType >::prepare (double samplerate, int blocksize)
         If you override this function, you should only modify the samples between startSample and (startSample + numSamples - 1) within the output buffer, and you should ADD!!! to the output buffer, as opposed to writing over its content.
     */
 template < typename SampleType >
-void SynthVoiceBase< SampleType >::renderBlock (AudioBuffer& output)
+void SynthVoiceBase< SampleType >::renderBlock (AudioBuffer< SampleType >& output)
 {
     if (! isVoiceOnRightNow())
     {
@@ -79,7 +79,7 @@ void SynthVoiceBase< SampleType >::renderBlock (AudioBuffer& output)
     renderInternal (numSamples);
 
     // alias buffer containing the # of samples for this frame
-    AudioBuffer render {renderingBuffer.getArrayOfWritePointers(), 1, 0, numSamples};
+    AudioBuffer< SampleType > render {renderingBuffer.getArrayOfWritePointers(), 1, 0, numSamples};
 
     //  smoothed gain modulations
     midiVelocityGain.process (render);
@@ -123,7 +123,7 @@ void SynthVoiceBase< SampleType >::renderInternal (int totalNumSamples)
         if (pitchGlide && outputFrequency.isSmoothing())
         {
             // process a single sample
-            AudioBuffer alias {scratchBuffer.getArrayOfWritePointers(), 1, 0, 1};
+            AudioBuffer< SampleType > alias {scratchBuffer.getArrayOfWritePointers(), 1, 0, 1};
 
             renderPlease (alias, static_cast< float > (outputFrequency.getNextValue()), parent->sampleRate);
 
@@ -137,7 +137,7 @@ void SynthVoiceBase< SampleType >::renderInternal (int totalNumSamples)
         // process the rest of the frame
         const auto samplesLeft = totalNumSamples - samplesProcessed;
 
-        AudioBuffer alias {scratchBuffer.getArrayOfWritePointers(), 1, 0, samplesLeft};
+        AudioBuffer< SampleType > alias {scratchBuffer.getArrayOfWritePointers(), 1, 0, samplesLeft};
 
         renderPlease (alias, static_cast< float > (outputFrequency.getNextValue()), parent->sampleRate);
 

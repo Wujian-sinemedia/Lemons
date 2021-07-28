@@ -18,9 +18,9 @@ public:
 
     int numStoredEvents() const;
 
-    void pushEvents (const juce::MidiBuffer& source, const int numSamples);
+    void pushEvents (const MidiBuffer& source, int numSamples);
 
-    void popEvents (juce::MidiBuffer& output, const int numSamples);
+    void popEvents (MidiBuffer& output, int numSamples);
 
 private:
     int numStoredSamples {0};

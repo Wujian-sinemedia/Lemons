@@ -34,7 +34,7 @@ void LatencyEngine< SampleType >::changeLatency (int newInternalBlocksize)
 }
 
 template < typename SampleType >
-void LatencyEngine< SampleType >::renderBlock (const AudioBuffer& input, AudioBuffer& output, MidiBuffer& midiMessages, bool isBypassed)
+void LatencyEngine< SampleType >::renderBlock (const AudioBuffer< SampleType >& input, AudioBuffer< SampleType >& output, MidiBuffer& midiMessages, bool isBypassed)
 {
     jassert (internalBlocksize > 0);
 
@@ -58,11 +58,11 @@ void LatencyEngine< SampleType >::renderBlock (const AudioBuffer& input, AudioBu
 
     while (inputFIFO.numStoredSamples() >= internalBlocksize)
     {
-        AudioBuffer inAlias {inBuffer.getArrayOfWritePointers(),
-                             input.getNumChannels(), internalBlocksize};
+        AudioBuffer< SampleType > inAlias {inBuffer.getArrayOfWritePointers(),
+                                           input.getNumChannels(), internalBlocksize};
 
-        AudioBuffer outAlias {outBuffer.getArrayOfWritePointers(),
-                              output.getNumChannels(), internalBlocksize};
+        AudioBuffer< SampleType > outAlias {outBuffer.getArrayOfWritePointers(),
+                                            output.getNumChannels(), internalBlocksize};
 
         inputFIFO.pop (inAlias, chunkMidiBuffer);
 

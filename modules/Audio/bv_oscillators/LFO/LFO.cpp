@@ -10,7 +10,7 @@ void LFO< SampleType >::prepared (int blocksize)
 template < typename SampleType >
 void LFO< SampleType >::process (int numSamples)
 {
-    AudioBuffer alias {storage.getArrayOfWritePointers(), 1, numSamples};
+    AudioBuffer< SampleType > alias {storage.getArrayOfWritePointers(), 1, numSamples};
     osc::ChoosableOscillator< SampleType >::process (alias);
 }
 

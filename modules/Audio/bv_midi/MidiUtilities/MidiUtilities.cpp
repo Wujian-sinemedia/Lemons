@@ -106,14 +106,14 @@ void MidiFIFO::clear()
 int MidiFIFO::numStoredEvents() const { return base.getNumEvents(); }
 
 
-void MidiFIFO::pushEvents (const juce::MidiBuffer& source, const int numSamples)
+void MidiFIFO::pushEvents (const MidiBuffer& source, int numSamples)
 {
     base.addEvents (source, 0, numSamples, numStoredSamples);
     numStoredSamples += numSamples;
 }
 
 
-void MidiFIFO::popEvents (juce::MidiBuffer& output, const int numSamples)
+void MidiFIFO::popEvents (MidiBuffer& output, int numSamples)
 {
     output.clear();
     output.addEvents (base, 0, numSamples, 0);

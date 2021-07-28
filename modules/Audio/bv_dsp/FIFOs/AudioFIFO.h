@@ -7,8 +7,6 @@ template < typename SampleType >
 class AudioFIFO
 {
 public:
-    using AudioBuffer = juce::AudioBuffer< SampleType >;
-
     void pushSamples (const SampleType* samples, int numSamples);
 
     void popSamples (SampleType* output, int numSamples);
@@ -30,8 +28,6 @@ template < typename SampleType >
 class MultiAudioFIFO
 {
 public:
-    using AudioBuffer = juce::AudioBuffer< SampleType >;
-
     MultiAudioFIFO (int numChannels = 2, int maxCapacity = 1024);
 
     void setNumChannels (int numChannels);
@@ -40,9 +36,9 @@ public:
 
     int numStoredSamples() const;
 
-    void pushSamples (const AudioBuffer& input);
+    void pushSamples (const AudioBuffer< SampleType >& input);
 
-    void popSamples (AudioBuffer& output);
+    void popSamples (AudioBuffer< SampleType >& output);
 
 private:
     juce::OwnedArray< AudioFIFO< SampleType > > fifos;

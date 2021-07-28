@@ -2,7 +2,7 @@
 namespace bav::dsp::FX
 {
 template < typename SampleType >
-void EQ< SampleType >::process (juce::AudioBuffer< SampleType >& audio)
+void EQ< SampleType >::process (AudioBuffer< SampleType >& audio)
 {
     jassert (getNumBands() > 0);
 

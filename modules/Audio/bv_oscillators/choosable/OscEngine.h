@@ -7,9 +7,6 @@ template < typename SampleType, template < typename T > class OscType >
 class OscEngine : public dsp::Engine< SampleType >
 {
 public:
-    using AudioBuffer = juce::AudioBuffer< SampleType >;
-    using MidiBuffer  = juce::MidiBuffer;
-
     OscEngine();
 
     OscType< SampleType >* operator->();
@@ -17,7 +14,7 @@ public:
     void setFrequency (float freqHz);
 
 private:
-    void renderBlock (const AudioBuffer& input, AudioBuffer& output, MidiBuffer& midiMessages, bool isBypassed) final;
+    void renderBlock (const AudioBuffer< SampleType >& input, AudioBuffer< SampleType >& output, MidiBuffer& midiMessages, bool isBypassed) final;
     void prepared (int blocksize, double samplerate) final;
 
     OscType< SampleType > osc;

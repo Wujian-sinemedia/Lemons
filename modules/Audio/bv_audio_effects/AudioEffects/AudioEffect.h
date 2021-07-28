@@ -9,7 +9,7 @@ struct AudioEffect
 {
     virtual ~AudioEffect() = default;
 
-    virtual void process (juce::AudioBuffer< SampleType >& audio) = 0;
+    virtual void process (AudioBuffer< SampleType >& audio) = 0;
 
     virtual void prepare (double samplerate, int blocksize);
     virtual void bypassedBlock (int numSamples);
@@ -19,12 +19,10 @@ struct AudioEffect
 template < typename SampleType >
 struct SidechainableAudioEffect : AudioEffect< SampleType >
 {
-    using AudioBuffer = juce::AudioBuffer< SampleType >;
-
-    virtual void process (AudioBuffer& inOut, const AudioBuffer& sidechain) = 0;
+    virtual void process (AudioBuffer< SampleType >& inOut, const AudioBuffer< SampleType >& sidechain) = 0;
 
     /* Sidechains the signal to itself. */
-    void process (AudioBuffer& audio) override;
+    void process (AudioBuffer< SampleType >& audio) override;
 };
 
 
@@ -32,12 +30,10 @@ struct SidechainableAudioEffect : AudioEffect< SampleType >
 template < typename SampleType >
 struct LevelReportingAudioEffect : SidechainableAudioEffect< SampleType >
 {
-    using AudioBuffer = juce::AudioBuffer< SampleType >;
-
-    void process (AudioBuffer& inOut, const AudioBuffer& sidechain) final;
+    void process (AudioBuffer< SampleType >& inOut, const AudioBuffer< SampleType >& sidechain) final;
 
     /* Sidechains the signal to itself. */
-    void process (AudioBuffer& audio) final;
+    void process (AudioBuffer< SampleType >& audio) final;
 
     /* Should return the channel's average level / gain reduction for this frame */
     virtual SampleType processChannel (int               channel,

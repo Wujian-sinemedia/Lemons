@@ -68,21 +68,21 @@ void ProcessorBase::setStateInformation (const void* data, int size)
     serializing::fromBinary (data, size, state);
 }
 
-void ProcessorBase::processBlock (juce::AudioBuffer< float >& audio, MidiBuffer& midi)
+void ProcessorBase::processBlock (AudioBuffer< float >& audio, MidiBuffer& midi)
 {
     juce::ScopedNoDenormals nodenorms;
 
     floatEngine.process (audio, midi);
 }
 
-void ProcessorBase::processBlock (juce::AudioBuffer< double >& audio, MidiBuffer& midi)
+void ProcessorBase::processBlock (AudioBuffer< double >& audio, MidiBuffer& midi)
 {
     juce::ScopedNoDenormals nodenorms;
 
     doubleEngine.process (audio, midi);
 }
 
-void ProcessorBase::processBlockBypassed (juce::AudioBuffer< float >& audio, MidiBuffer& midi)
+void ProcessorBase::processBlockBypassed (AudioBuffer< float >& audio, MidiBuffer& midi)
 {
     juce::ScopedNoDenormals nodenorms;
 
@@ -90,7 +90,7 @@ void ProcessorBase::processBlockBypassed (juce::AudioBuffer< float >& audio, Mid
     floatEngine.process (audio, midi);
 }
 
-void ProcessorBase::processBlockBypassed (juce::AudioBuffer< double >& audio, MidiBuffer& midi)
+void ProcessorBase::processBlockBypassed (AudioBuffer< double >& audio, MidiBuffer& midi)
 {
     juce::ScopedNoDenormals nodenorms;
 

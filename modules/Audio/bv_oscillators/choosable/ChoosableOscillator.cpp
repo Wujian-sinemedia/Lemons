@@ -13,7 +13,7 @@ void ChoosableOscillator< SampleType >::setOscType (OscType newType)
 }
 
 template < typename SampleType >
-void ChoosableOscillator< SampleType >::process (AudioBuffer& output)
+void ChoosableOscillator< SampleType >::process (AudioBuffer< SampleType >& output)
 {
     switch (type)
     {

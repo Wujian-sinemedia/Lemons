@@ -12,10 +12,9 @@ class SynthBase;
 template < typename SampleType >
 class SynthVoiceBase
 {
-    using uint32      = juce::uint32;
-    using ADSR        = juce::ADSR;
-    using ADSRParams  = juce::ADSR::Parameters;
-    using AudioBuffer = juce::AudioBuffer< SampleType >;
+    using uint32     = juce::uint32;
+    using ADSR       = juce::ADSR;
+    using ADSRParams = juce::ADSR::Parameters;
 
     /*=================================================================================
          =================================================================================*/
@@ -30,7 +29,7 @@ public:
     void release() { released(); }
     void resetRampedValues();
 
-    void renderBlock (AudioBuffer& output);
+    void renderBlock (AudioBuffer< SampleType >& output);
 
     void bypassedBlock (const int numSamples);
 
@@ -66,7 +65,7 @@ protected:
             Called in the subclass to actually generate some audio at the desired frequency.
             The output buffer sent to this function will contain the number of samples desired for this frame, and your output samples should start at index 0.
         */
-    virtual void renderPlease (AudioBuffer& output, float desiredFrequency, double currentSamplerate) = 0;
+    virtual void renderPlease (AudioBuffer< SampleType >& output, float desiredFrequency, double currentSamplerate) = 0;
 
     // if overridden, called in the subclass when the top-level call to prepare() is made
     virtual void prepared (double samplerate, int blocksize) { juce::ignoreUnused (samplerate, blocksize); }
@@ -147,9 +146,9 @@ private:
 
     FX::SmoothedGain< SampleType, 1 > midiVelocityGain, softPedalGain, playingButReleasedGain, aftertouchGain;
 
-    AudioBuffer scratchBuffer;
-    AudioBuffer renderingBuffer;  // mono audio will be placed in here
-    AudioBuffer stereoBuffer;     // stereo audio will be placed in here
+    AudioBuffer< SampleType > scratchBuffer;
+    AudioBuffer< SampleType > renderingBuffer;  // mono audio will be placed in here
+    AudioBuffer< SampleType > stereoBuffer;     // stereo audio will be placed in here
 
     int midiChannel {1};
 

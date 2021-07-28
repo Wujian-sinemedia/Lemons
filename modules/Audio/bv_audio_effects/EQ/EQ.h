@@ -9,7 +9,7 @@ class EQ : public AudioEffect< SampleType >
 public:
     using Band = Filter< SampleType >;
 
-    void process (juce::AudioBuffer< SampleType >& audio) final;
+    void process (AudioBuffer< SampleType >& audio) final;
 
     void prepare (double samplerate, int blocksize) final;
 

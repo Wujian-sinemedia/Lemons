@@ -104,7 +104,7 @@ int MultiAudioFIFO< SampleType >::numStoredSamples() const
 }
 
 template < typename SampleType >
-void MultiAudioFIFO< SampleType >::pushSamples (const AudioBuffer& input)
+void MultiAudioFIFO< SampleType >::pushSamples (const AudioBuffer< SampleType >& input)
 {
     const auto numSamples = input.getNumSamples();
     const auto channels   = std::min (input.getNumChannels(), fifos.size());
@@ -114,7 +114,7 @@ void MultiAudioFIFO< SampleType >::pushSamples (const AudioBuffer& input)
 }
 
 template < typename SampleType >
-void MultiAudioFIFO< SampleType >::popSamples (AudioBuffer& output)
+void MultiAudioFIFO< SampleType >::popSamples (AudioBuffer< SampleType >& output)
 {
     const auto numSamples = output.getNumSamples();
     const auto channels   = std::min (output.getNumChannels(), fifos.size());
