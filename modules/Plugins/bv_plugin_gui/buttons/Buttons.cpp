@@ -16,7 +16,7 @@ namespace bav::gui
 
 
 ToggleButton::ToggleButton (plugin::BoolParameter& paramToUse, std::function< void (bool) > cb)
-    : ToggleTextButton (paramToUse.parameterNameVerbose, [&] (bool state)
+    : ToggleTextButton (paramToUse.getName(), [&] (bool state)
                         { clicked_callback (state); }),
       param (paramToUse), callback (std::move (cb))
 {

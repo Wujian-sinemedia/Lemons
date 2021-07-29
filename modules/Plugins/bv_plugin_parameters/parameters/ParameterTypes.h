@@ -9,8 +9,7 @@ public:
     TypedParameter (ValueType                                  minimum,
                     ValueType                                  maximum,
                     ValueType                                  defaultValue,
-                    String                                     paramNameShort,
-                    String                                     paramNameVerbose,
+                    String                                     paramName,
                     std::function< String (ValueType, int) >   stringFromValue   = nullptr,
                     std::function< ValueType (const String&) > valueFromString   = nullptr,
                     String                                     paramLabel        = {},
@@ -58,8 +57,6 @@ private:
     std::function< String (ValueType, int) >   createDefaultStringFromValueFunc() const;
     std::function< ValueType (const String&) > createDefaultValueFromStringFunc() const;
 
-    void serialize (TreeReflector& ref) final;
-
     const juce::NormalisableRange< float > range;
 
     std::function< String (ValueType, int) >   stringFromValueFunction;
@@ -74,8 +71,7 @@ using IntParameter   = TypedParameter< int >;
 struct BoolParameter : TypedParameter< bool >
 {
     BoolParameter (bool                                    defaultValue,
-                   String                                  paramNameShort,
-                   String                                  paramNameVerbose,
+                   String                                  paramName,
                    std::function< String (bool, int) >     stringFromValue   = nullptr,
                    std::function< bool (const String&) >   valueFromString   = nullptr,
                    String                                  paramLabel        = {},

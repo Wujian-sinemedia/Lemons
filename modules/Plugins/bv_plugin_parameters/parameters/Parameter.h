@@ -6,20 +6,21 @@ namespace bav::plugin
 class Parameter : public juce::RangedAudioParameter, public SerializableData
 {
 public:
-    Parameter (String                                  paramNameShort,
-               String                                  paramNameVerbose,
-               String                                  paramLabel        = {},
-               bool                                    isAutomatable     = true,
-               bool                                    metaParam         = false,
-               juce::AudioProcessorParameter::Category parameterCategory = AudioProcessorParameter::genericParameter);
+    Parameter (String                                  paramName,
+               std::function< String (float) >         valueToTextFuncToUse = nullptr,
+               std::function< float (const String&) >  textToValueFuncToUse = nullptr,
+               String                                  paramLabel           = {},
+               bool                                    isAutomatable        = true,
+               bool                                    metaParam            = false,
+               juce::AudioProcessorParameter::Category parameterCategory    = AudioProcessorParameter::genericParameter);
 
-    float getParameterMax() const;
-    float getParameterMin() const;
+    float getMax() const;
+    float getMin() const;
 
     int  getMidiControllerNumber() const;
     bool isMidiControllerMapped() const;
     void setMidiControllerNumber (int newControllerNumber);
-    void resetMidiControllerMapping();
+    void removeMidiControllerMapping();
     void processNewControllerMessage (int controllerNumber, int controllerValue);
 
     void  refreshDefault();  // sets the parameter's current value to be the default value
@@ -48,10 +49,12 @@ public:
 
     float getValueForText (const String& text) const final;
 
-    //==============================================================================
+    String getTextForNormalizedValue (float value) const;
+    String getTextForDenormalizedValue (float value) const;
+    String getTextForMax() const;
+    String getTextForMin() const;
 
-    const String parameterNameShort;
-    const String parameterNameVerbose;
+    String getName (int maxLength = 0) const final;
 
     //==============================================================================
 
@@ -71,28 +74,33 @@ public:
 
     //==============================================================================
 
-protected:
+private:
+    void serialize (TreeReflector& ref) final;
+
+    float getValue() const final;
+    void  setValue (float newValue) final;
+    float getDefaultValue() const final;
+
     void setValueInternal (float value);
     void setDefaultInternal (float value);
     void setMidiControllerInternal (int controller);
 
-private:
-    float getValue() const final;
-    void  setValue (float newValue) final;
-
-    float getDefaultValue() const final;
-
     const bool automatable;
     const bool metaParameter;
 
-    std::atomic< float > currentValue;
-    std::atomic< float > currentDefault;
+    std::atomic< float > currentValue {1.f};
+    std::atomic< float > currentDefault {1.f};
     std::atomic< bool >  changing {false};
     std::atomic< int >   midiControllerNumber {-1};
+
+    std::function< String (float) >        valueToTextFunc;
+    std::function< float (const String&) > textToValueFunc;
 
     UndoManager* um = nullptr;
 
     juce::ListenerList< Listener > listeners;
+
+    const String parameterName;
 
     const String valueChangeTransactionName;
     const String defaultChangeTransactionName;

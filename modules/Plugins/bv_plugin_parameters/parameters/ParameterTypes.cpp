@@ -4,8 +4,7 @@ template < typename ValueType >
 TypedParameter< ValueType >::TypedParameter (ValueType minimum,
                                              ValueType maximum,
                                              ValueType defaultValue,
-                                             String    paramNameShort,
-                                             String    paramNameVerbose,
+                                             String    paramName,
                                              std::function< String (ValueType, int) >
                                                  stringFromValue,
                                              std::function< ValueType (const String&) >
@@ -14,7 +13,13 @@ TypedParameter< ValueType >::TypedParameter (ValueType minimum,
                                              bool                                    isAutomatable,
                                              bool                                    metaParam,
                                              juce::AudioProcessorParameter::Category parameterCategory)
-    : Parameter (paramNameShort, paramNameVerbose, paramLabel, isAutomatable, metaParam, parameterCategory),
+    : Parameter (
+        paramName,
+        [=] (float value)
+        { return stringFromValue (static_cast< ValueType > (value), 0); },
+        [=] (const String& string)
+        { return static_cast< float > (valueFromString (string)); },
+        paramLabel, isAutomatable, metaParam, parameterCategory),
       range (createRange (minimum, maximum)),
       stringFromValueFunction (stringFromValue),
       valueFromStringFunction (valueFromString)
@@ -228,25 +233,6 @@ ValueType TypedParameter< ValueType >::getMaximum() const
 }
 
 template < typename ValueType >
-void TypedParameter< ValueType >::serialize (TreeReflector& ref)
-{
-    auto& tree = ref.getRawDataTree();
-
-    if (ref.isLoading())
-    {
-        setValueInternal (tree.getProperty ("Value", get()));
-        setDefaultInternal (tree.getProperty ("DefaultValue", getDefault()));
-        setMidiControllerInternal (tree.getProperty ("MidiControllerNumber", getMidiControllerNumber()));
-    }
-    else
-    {
-        tree.setProperty ("Value", get(), nullptr);
-        tree.setProperty ("DefaultValue", getDefault(), nullptr);
-        tree.setProperty ("MidiControllerNumber", getMidiControllerNumber(), nullptr);
-    }
-}
-
-template < typename ValueType >
 TypedParameter< ValueType >::Listener::Listener (TypedParameter< ValueType >& param)
     : Parameter::Listener (param), parameter (param)
 {
@@ -271,8 +257,7 @@ template class TypedParameter< bool >;
 
 
 BoolParameter::BoolParameter (bool   defaultValue,
-                              String paramNameShort,
-                              String paramNameVerbose,
+                              String paramName,
                               std::function< String (bool, int) >
                                   stringFromValue,
                               std::function< bool (const String&) >
@@ -281,7 +266,7 @@ BoolParameter::BoolParameter (bool   defaultValue,
                               bool                                    isAutomatable,
                               bool                                    metaParam,
                               juce::AudioProcessorParameter::Category parameterCategory)
-    : TypedParameter< bool > (false, true, defaultValue, paramNameShort, paramNameVerbose, stringFromValue, valueFromString, paramLabel, isAutomatable, metaParam, parameterCategory)
+    : TypedParameter< bool > (false, true, defaultValue, paramName, stringFromValue, valueFromString, paramLabel, isAutomatable, metaParam, parameterCategory)
 {
 }
 

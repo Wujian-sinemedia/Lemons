@@ -24,7 +24,7 @@ public:
     virtual void addTo (juce::AudioProcessor& processor);
 
 
-    ToggleParam mainBypass {"Main bypass", "Main bypass", false};
+    ToggleParam mainBypass {"Main bypass", false};
 
     Dimensions dimensions;
 

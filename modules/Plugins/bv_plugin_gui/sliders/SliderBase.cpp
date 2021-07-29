@@ -4,8 +4,8 @@ namespace bav::gui
 SliderBase::SliderBase (plugin::Parameter& paramToUse)
     : param (paramToUse)
 {
-    Slider::setName (param.parameterNameVerbose);
-    Slider::setComponentID (param.parameterNameVerbose);
+    Slider::setName (param.getName());
+    Slider::setComponentID (param.getName());
 
     auto range = param.getNormalisableRange();
 
@@ -51,7 +51,7 @@ SliderBase::SliderBase (plugin::Parameter& paramToUse)
     Slider::setTextBoxIsEditable (true);
     Slider::setTextValueSuffix (param.getLabel());
 
-    Slider::setTooltip (param.parameterNameShort);
+    Slider::setTooltip (param.getName());
 
     Slider::setPopupDisplayEnabled (true, false, this);
     Slider::setPopupMenuEnabled (true);

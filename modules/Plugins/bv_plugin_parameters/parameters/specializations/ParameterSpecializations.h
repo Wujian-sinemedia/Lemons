@@ -5,8 +5,7 @@ namespace bav::plugin
 {
 struct GainParameter : public FloatParameter
 {
-    GainParameter (String                                  paramNameShort,
-                   String                                  paramNameVerbose,
+    GainParameter (String                                  paramName,
                    float                                   defaultVal,
                    juce::AudioProcessorParameter::Category parameterCategory =
                        juce::AudioProcessorParameter::genericParameter);
@@ -19,8 +18,7 @@ struct GainParameter : public FloatParameter
 
 struct ToggleParameter : public BoolParameter
 {
-    ToggleParameter (String paramNameShort,
-                     String paramNameVerbose,
+    ToggleParameter (String paramName,
                      bool   defaultVal);
 
     using Listener = BoolParameter::Listener;
@@ -32,8 +30,7 @@ struct ToggleParameter : public BoolParameter
 /* This parameter is for a value in a normalized 0.0-1.0 range */
 struct FloatAmountParameter : public FloatParameter
 {
-    FloatAmountParameter (String                                  paramNameShort,
-                          String                                  paramNameVerbose,
+    FloatAmountParameter (String                                  paramName,
                           float                                   defaultVal,
                           juce::AudioProcessorParameter::Category parameterCategory =
                               juce::AudioProcessorParameter::genericParameter,
@@ -48,8 +45,7 @@ struct FloatAmountParameter : public FloatParameter
 /* This parameter is for a frequency in Hz */
 struct FrequencyParameter : public FloatParameter
 {
-    FrequencyParameter (String paramNameShort,
-                        String paramNameVerbose,
+    FrequencyParameter (String paramName,
                         float  defaultVal);
 
     using Listener = FloatParameter::Listener;
@@ -61,8 +57,7 @@ struct FrequencyParameter : public FloatParameter
 /* This parameter is for an integer value in the range 0 - 100 */
 struct PercentParameter : public IntParameter
 {
-    PercentParameter (String paramNameShort,
-                      String paramNameVerbose,
+    PercentParameter (String paramName,
                       int    defaultVal);
 
     using Listener = IntParameter::Listener;
@@ -73,8 +68,7 @@ struct PercentParameter : public IntParameter
 
 struct MeterParameter : public FloatParameter
 {
-    MeterParameter (float min, float max, float defaultVal,
-                    String paramNameShort, String paramNameVerbose,
+    MeterParameter (float min, float max, float defaultVal, String paramName,
                     std::function< String (float, int) >    stringFromValue   = nullptr,
                     std::function< float (String) >         valueFromString   = nullptr,
                     String                                  parameterLabel    = {},
@@ -90,8 +84,7 @@ struct MeterParameter : public FloatParameter
 
 struct GainMeterParameter : public MeterParameter
 {
-    GainMeterParameter (String                                  paramNameShort,
-                        String                                  paramNameVerbose,
+    GainMeterParameter (String                                  paramName,
                         juce::AudioProcessorParameter::Category parameterCategory =
                             juce::AudioProcessorParameter::genericParameter);
 

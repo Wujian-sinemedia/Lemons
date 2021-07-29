@@ -1,27 +1,67 @@
 
 namespace bav::plugin
 {
-Parameter::Parameter (String                                  paramNameShort,
-                      String                                  paramNameVerbose,
+inline String paramNameToID (const String& name)
+{
+    return name.removeCharacters (" ");
+}
+
+Parameter::Parameter (String paramName,
+                      std::function< String (float) >
+                          valueToTextFuncToUse,
+                      std::function< float (const String&) >
+                                                              textToValueFuncToUse,
                       String                                  paramLabel,
                       bool                                    isAutomatable,
                       bool                                    metaParam,
                       juce::AudioProcessorParameter::Category parameterCategory)
-    : juce::RangedAudioParameter (paramNameShort, paramNameVerbose, paramLabel, parameterCategory),
-      SerializableData (paramNameVerbose),
-      parameterNameShort (TRANS (paramNameShort)),
-      parameterNameVerbose (TRANS (paramNameVerbose)),
+    : juce::RangedAudioParameter (paramNameToID (TRANS (paramName)), TRANS (paramName), paramLabel, parameterCategory),
+      SerializableData (paramName),
       automatable (isAutomatable),
       metaParameter (metaParam),
-      valueChangeTransactionName (TRANS ("Changed") + " " + parameterNameVerbose),
-      defaultChangeTransactionName (TRANS ("Changed default value of") + " " + parameterNameVerbose),
-      midiControllerChangeTransactionName (TRANS ("Changed MIDI controller number for") + " " + parameterNameVerbose)
+      valueToTextFunc (valueToTextFuncToUse),
+      textToValueFunc (textToValueFuncToUse),
+      parameterName (paramName),
+      valueChangeTransactionName (TRANS ("Changed") + " " + getName()),
+      defaultChangeTransactionName (TRANS ("Changed default value of") + " " + getName()),
+      midiControllerChangeTransactionName (TRANS ("Changed MIDI controller number for") + " " + getName())
 {
+    if (valueToTextFunc == nullptr)
+    {
+        valueToTextFunc = [] (float)
+        { return String(); };
+    }
+
+    if (textToValueFunc == nullptr)
+    {
+        textToValueFunc = [] (const String&)
+        { return 1.f; };
+    }
 }
 
 float Parameter::getValueForText (const String& text) const
 {
-    return 0.f;
+    return textToValueFunc (text);
+}
+
+String Parameter::getTextForNormalizedValue (float value) const
+{
+    return valueToTextFunc (value);
+}
+
+String Parameter::getTextForDenormalizedValue (float value) const
+{
+    return getTextForNormalizedValue (normalize (value));
+}
+
+String Parameter::getTextForMax() const
+{
+    return getTextForDenormalizedValue (getMax());
+}
+
+String Parameter::getTextForMin() const
+{
+    return getTextForDenormalizedValue (getMin());
 }
 
 float Parameter::getValue() const
@@ -34,17 +74,12 @@ void Parameter::setValue (float newValue)
     currentValue.store (convertFrom0to1 (newValue));
 }
 
-float Parameter::getDefaultValue() const
-{
-    return currentDefault.load();
-}
-
-float Parameter::getParameterMax() const
+float Parameter::getMax() const
 {
     return getNormalisableRange().start;
 }
 
-float Parameter::getParameterMin() const
+float Parameter::getMin() const
 {
     return getNormalisableRange().end;
 }
@@ -74,7 +109,7 @@ void Parameter::setMidiControllerInternal (int controller)
                     { l.controllerNumberChanged (controller); });
 }
 
-void Parameter::resetMidiControllerMapping()
+void Parameter::removeMidiControllerMapping()
 {
     midiControllerNumber.store (-1);
 }
@@ -128,6 +163,11 @@ bool Parameter::isChanging() const
 float Parameter::getNormalizedDefault() const
 {
     return currentDefault.load();
+}
+
+float Parameter::getDefaultValue() const
+{
+    return getNormalizedDefault();
 }
 
 float Parameter::getDenormalizedDefault() const
@@ -233,6 +273,33 @@ bool Parameter::isAutomatable() const
 bool Parameter::isMetaParameter() const
 {
     return metaParameter;
+}
+
+void Parameter::serialize (TreeReflector& ref)
+{
+    auto& tree = ref.getRawDataTree();
+
+    if (ref.isLoading())
+    {
+        setValueInternal (tree.getProperty ("Value", getDenormalizedValue()));
+        setDefaultInternal (tree.getProperty ("DefaultValue", getDenormalizedDefault()));
+        setMidiControllerInternal (tree.getProperty ("MidiControllerNumber", getMidiControllerNumber()));
+    }
+    else
+    {
+        tree.setProperty ("Value", getDenormalizedValue(), nullptr);
+        tree.setProperty ("DefaultValue", getDenormalizedDefault(), nullptr);
+        tree.setProperty ("MidiControllerNumber", getMidiControllerNumber(), nullptr);
+    }
+}
+
+String Parameter::getName (int maxLength) const
+{
+    const auto trans = TRANS (parameterName);
+
+    if (maxLength < 1) return trans;
+
+    return trans.substring (0, maxLength);
 }
 
 
