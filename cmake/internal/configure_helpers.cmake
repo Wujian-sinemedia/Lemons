@@ -106,6 +106,10 @@ function (_bv_configure_juce_target)
                                     ${BV_TARGETCONFIG_MTS-ESP} 
                                     ${BV_TARGETCONFIG_ABLETON_LINK})
 
+    if (DEFINED BV_TARGETCONFIG_ASSET_FOLDER)
+        bv_add_resources_folder (TARGET ${BV_TARGETCONFIG_TARGET} FOLDER ${BV_TARGETCONFIG_ASSET_FOLDER})
+    endif()
+
     set (bv_targetname ${BV_TARGETCONFIG_TARGET} PARENT_SCOPE)
 endfunction()
 
