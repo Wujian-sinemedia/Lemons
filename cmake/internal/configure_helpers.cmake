@@ -61,7 +61,7 @@ endfunction()
 function (_bv_configure_juce_target)
 
     set (options BROWSER MTS-ESP ABLETON_LINK ALWAYS_VDSP NEVER_VDSP)
-    set (oneValueArgs TARGET)
+    set (oneValueArgs TARGET ASSET_FOLDER)
     set (multiValueArgs "")
 
     cmake_parse_arguments (BV_TARGETCONFIG "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
