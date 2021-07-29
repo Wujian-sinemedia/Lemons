@@ -17,18 +17,6 @@ endfunction()
 
 #
 
-function (_bv_configure_LV2_URI target)
-
-    if (NOT TARGET ${target}_LV2)
-        return()
-    endif()
-
-    set_target_properties (${target} PROPERTIES JUCE_LV2_URI https://github.com/benthevining/${CMAKE_PROJECT_NAME})
-
-endfunction()
-
-#
-
 function (_bv_set_default_macos_options target)
     if (NOT APPLE)
         return()
@@ -61,7 +49,7 @@ endfunction()
 function (_bv_configure_juce_target)
 
     set (options BROWSER MTS-ESP ABLETON_LINK ALWAYS_VDSP NEVER_VDSP)
-    set (oneValueArgs TARGET ASSET_FOLDER)
+    set (oneValueArgs TARGET ASSET_FOLDER AAX_PAGETABLE_FILE)
     set (multiValueArgs "")
 
     cmake_parse_arguments (BV_TARGETCONFIG "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
@@ -70,11 +58,24 @@ function (_bv_configure_juce_target)
         message (FATAL_ERROR "Target name not specified in call to _bv_configure_juce_target")
     endif()
 
+    # AAX settings
     if (TARGET ${BV_TARGETCONFIG_TARGET}_AAX)
         set_target_properties (${BV_TARGETCONFIG_TARGET}_AAX PROPERTIES OSX_ARCHITECTURES x86_64)
+
+        if (DEFINED BV_TARGETCONFIG_AAX_PAGETABLE_FILE)
+            target_compile_definitions (${BV_TARGETCONFIG_TARGET}_AAX PUBLIC 
+                JucePlugin_AAXPageTableFile="${BV_TARGETCONFIG_AAX_PAGETABLE_FILE}")
+
+            if (NOT DEFINED BV_TARGETCONFIG_ASSET_FOLDER)
+                message (WARNING "Warning - AAX pagetable file must be embedded in plugin's binary data!")
+            endif()
+        endif()
     endif()
 
-    _bv_configure_LV2_URI (${BV_TARGETCONFIG_TARGET})
+    # LV2 settings
+    if (TARGET ${BV_TARGETCONFIG_TARGET}_LV2)
+        set_target_properties (${BV_TARGETCONFIG_TARGET}_LV2 PROPERTIES JUCE_LV2_URI https://github.com/benthevining/${CMAKE_PROJECT_NAME})
+    endif()
 
     target_compile_definitions (${BV_TARGETCONFIG_TARGET} PUBLIC
             JUCE_VST3_CAN_REPLACE_VST2=0
