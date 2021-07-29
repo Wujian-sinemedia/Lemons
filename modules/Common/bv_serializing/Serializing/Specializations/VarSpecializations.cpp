@@ -2,6 +2,12 @@
 namespace bav
 {
 template <>
+String fromVar (juce::var var)
+{
+    return var.toString();
+}
+
+template <>
 juce::var toVar (juce::Point< float >& point)
 {
     return String (point.x) + "_" + String (point.y);

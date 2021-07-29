@@ -3,6 +3,9 @@
 namespace bav
 {
 template <>
+String fromVar (juce::var var);
+
+template <>
 juce::var toVar (juce::Point< float >& point);
 
 template <>
