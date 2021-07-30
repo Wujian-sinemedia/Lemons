@@ -7,6 +7,9 @@ inline String paramNameToID (const String& name)
 }
 
 Parameter::Parameter (String paramName,
+                      juce::NormalisableRange< float >
+                            paramRange,
+                      float paramDefaultValue,
                       std::function< String (float) >
                           valueToTextFuncToUse,
                       std::function< float (const String&) >
@@ -19,6 +22,8 @@ Parameter::Parameter (String paramName,
       SerializableData (paramName),
       automatable (isAutomatable),
       metaParameter (metaParam),
+      range (paramRange),
+      currentValue (paramDefaultValue), currentDefault (paramDefaultValue),
       valueToTextFunc (valueToTextFuncToUse),
       textToValueFunc (textToValueFuncToUse),
       parameterName (paramName),
@@ -28,14 +33,14 @@ Parameter::Parameter (String paramName,
 {
     if (valueToTextFunc == nullptr)
     {
-        valueToTextFunc = [] (float)
-        { return String(); };
+        valueToTextFunc = [&] (float value)
+        { return String (value) + label; };
     }
 
     if (textToValueFunc == nullptr)
     {
-        textToValueFunc = [] (const String&)
-        { return 1.f; };
+        textToValueFunc = [] (const String& text)
+        { return text.getFloatValue(); };
     }
 }
 
@@ -64,6 +69,7 @@ String Parameter::getTextForMin() const
     return getTextForDenormalizedValue (getMin());
 }
 
+/* returns the normalized value */
 float Parameter::getValue() const
 {
     return convertTo0to1 (currentValue.load());
@@ -76,12 +82,12 @@ void Parameter::setValue (float newValue)
 
 float Parameter::getMax() const
 {
-    return getNormalisableRange().start;
+    return range.start;
 }
 
 float Parameter::getMin() const
 {
-    return getNormalisableRange().end;
+    return range.end;
 }
 
 int Parameter::getMidiControllerNumber() const
@@ -118,7 +124,6 @@ void Parameter::processNewControllerMessage (int controllerNumber, int controlle
 {
     if (controllerNumber == getMidiControllerNumber())
     {
-        const auto& range = getNormalisableRange();
         setDenormalizedValue (juce::jmap (static_cast< float > (controllerValue),
                                           0.f, 127.f,
                                           range.start, range.end));
@@ -300,6 +305,11 @@ String Parameter::getName (int maxLength) const
     if (maxLength < 1) return trans;
 
     return trans.substring (0, maxLength);
+}
+
+const juce::NormalisableRange< float >& Parameter::getNormalisableRange() const
+{
+    return range;
 }
 
 

@@ -17,8 +17,6 @@ public:
                     bool                                       metaParam         = false,
                     juce::AudioProcessorParameter::Category    parameterCategory = AudioProcessorParameter::genericParameter);
 
-    const juce::NormalisableRange< float >& getNormalisableRange() const;
-
     ValueType get() const;
     void      set (ValueType newValue);
 
@@ -52,13 +50,6 @@ public:
     //--------------------------------------
 
 private:
-    juce::NormalisableRange< float > createRange (ValueType minimum, ValueType maximum) const;
-
-    std::function< String (ValueType, int) >   createDefaultStringFromValueFunc() const;
-    std::function< ValueType (const String&) > createDefaultValueFromStringFunc() const;
-
-    const juce::NormalisableRange< float > range;
-
     std::function< String (ValueType, int) >   stringFromValueFunction;
     std::function< ValueType (const String&) > valueFromStringFunction;
 };

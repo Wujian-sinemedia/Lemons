@@ -1,45 +1,16 @@
 namespace bav::plugin
 {
 template < typename ValueType >
-TypedParameter< ValueType >::TypedParameter (ValueType minimum,
-                                             ValueType maximum,
-                                             ValueType defaultValue,
-                                             String    paramName,
-                                             std::function< String (ValueType, int) >
-                                                 stringFromValue,
-                                             std::function< ValueType (const String&) >
-                                                                                     valueFromString,
-                                             String                                  paramLabel,
-                                             bool                                    isAutomatable,
-                                             bool                                    metaParam,
-                                             juce::AudioProcessorParameter::Category parameterCategory)
-    : Parameter (
-        paramName,
-        [=] (float value)
-        { return stringFromValue (static_cast< ValueType > (value), 0); },
-        [=] (const String& string)
-        { return static_cast< float > (valueFromString (string)); },
-        paramLabel, isAutomatable, metaParam, parameterCategory),
-      range (createRange (minimum, maximum)),
-      stringFromValueFunction (stringFromValue),
-      valueFromStringFunction (valueFromString)
-{
-    if (stringFromValueFunction == nullptr)
-        stringFromValueFunction = createDefaultStringFromValueFunc();
-
-    if (valueFromStringFunction == nullptr)
-        valueFromStringFunction = createDefaultValueFromStringFunc();
-}
-
+juce::NormalisableRange< float > createRange (ValueType minimum, ValueType maximum);
 
 template <>
-juce::NormalisableRange< float > TypedParameter< float >::createRange (float minimum, float maximum) const
+juce::NormalisableRange< float > createRange (float minimum, float maximum)
 {
     return {minimum, maximum, 0.01f};
 }
 
 template <>
-juce::NormalisableRange< float > TypedParameter< int >::createRange (int minimum, int maximum) const
+juce::NormalisableRange< float > createRange (int minimum, int maximum)
 {
     juce::NormalisableRange< float > rangeWithInterval {(float) minimum, (float) maximum,
                                                         [] (float start, float end, float v)
@@ -53,25 +24,29 @@ juce::NormalisableRange< float > TypedParameter< int >::createRange (int minimum
 }
 
 template <>
-juce::NormalisableRange< float > TypedParameter< bool >::createRange (bool, bool) const
+juce::NormalisableRange< float > createRange (bool, bool)
 {
     return {0.f, 1.f, 1.f};
 }
 
+/*----------------------------------------------------------------------*/
+
+template < typename ValueType >
+std::function< String (ValueType, int) > createDefaultStringFromValueFunc (float rangeInterval);
 
 template <>
-std::function< String (float, int) > TypedParameter< float >::createDefaultStringFromValueFunc() const
+std::function< String (float, int) > createDefaultStringFromValueFunc (float rangeInterval)
 {
-    auto numDecimalPlacesToDisplay = [this]
+    const auto numDecimalPlacesToDisplay = [rangeInterval]
     {
         int numDecimalPlaces = 7;
 
-        if (range.interval != 0.0f)
+        if (rangeInterval != 0.0f)
         {
-            if (juce::approximatelyEqual (std::abs (range.interval - std::floor (range.interval)), 0.0f))
+            if (juce::approximatelyEqual (std::abs (rangeInterval - std::floor (rangeInterval)), 0.0f))
                 return 0;
 
-            auto v = std::abs (juce::roundToInt (range.interval * pow (10, numDecimalPlaces)));
+            auto v = std::abs (juce::roundToInt (rangeInterval * pow (10, numDecimalPlaces)));
 
             while ((v % 10) == 0 && numDecimalPlaces > 0)
             {
@@ -91,35 +66,40 @@ std::function< String (float, int) > TypedParameter< float >::createDefaultStrin
 }
 
 template <>
-std::function< float (const String&) > TypedParameter< float >::createDefaultValueFromStringFunc() const
-{
-    return [] (const String& text)
-    { return text.getFloatValue(); };
-}
-
-template <>
-std::function< String (int, int) > TypedParameter< int >::createDefaultStringFromValueFunc() const
+std::function< String (int, int) > createDefaultStringFromValueFunc (float)
 {
     return [] (int v, int num)
     { return num > 0 ? String (v).substring (0, num) : String (v); };
 }
 
 template <>
-std::function< int (const String&) > TypedParameter< int >::createDefaultValueFromStringFunc() const
+std::function< String (bool, int) > createDefaultStringFromValueFunc (float)
+{
+    return [] (bool v, int)
+    { return v ? TRANS ("On") : TRANS ("Off"); };
+}
+
+/*-----*/
+
+template < typename ValueType >
+std::function< ValueType (const String&) > createDefaultValueFromStringFunc();
+
+template <>
+std::function< float (const String&) > createDefaultValueFromStringFunc()
+{
+    return [] (const String& text)
+    { return text.getFloatValue(); };
+}
+
+template <>
+std::function< int (const String&) > createDefaultValueFromStringFunc()
 {
     return [] (const String& text)
     { return text.getIntValue(); };
 }
 
 template <>
-std::function< String (bool, int) > TypedParameter< bool >::createDefaultStringFromValueFunc() const
-{
-    return [] (bool v, int)
-    { return v ? TRANS ("On") : TRANS ("Off"); };
-}
-
-template <>
-std::function< bool (const String&) > TypedParameter< bool >::createDefaultValueFromStringFunc() const
+std::function< bool (const String&) > createDefaultValueFromStringFunc()
 {
     juce::StringArray onStrings;
     onStrings.add (TRANS ("on"));
@@ -147,11 +127,38 @@ std::function< bool (const String&) > TypedParameter< bool >::createDefaultValue
     };
 }
 
+/*----------------------------------------------------------------------*/
 
 template < typename ValueType >
-const juce::NormalisableRange< float >& TypedParameter< ValueType >::getNormalisableRange() const
+TypedParameter< ValueType >::TypedParameter (ValueType minimum,
+                                             ValueType maximum,
+                                             ValueType defaultValue,
+                                             String    paramName,
+                                             std::function< String (ValueType, int) >
+                                                 stringFromValue,
+                                             std::function< ValueType (const String&) >
+                                                                                     valueFromString,
+                                             String                                  paramLabel,
+                                             bool                                    isAutomatable,
+                                             bool                                    metaParam,
+                                             juce::AudioProcessorParameter::Category parameterCategory)
+    : Parameter (
+        paramName,
+        createRange (minimum, maximum),
+        static_cast< float > (defaultValue),
+        [=] (float value)
+        { return stringFromValue (static_cast< ValueType > (value), 0); },
+        [=] (const String& string)
+        { return static_cast< float > (valueFromString (string)); },
+        paramLabel, isAutomatable, metaParam, parameterCategory),
+      stringFromValueFunction (stringFromValue),
+      valueFromStringFunction (valueFromString)
 {
-    return range;
+    if (stringFromValueFunction == nullptr)
+        stringFromValueFunction = createDefaultStringFromValueFunc< ValueType > (getNormalisableRange().interval);
+
+    if (valueFromStringFunction == nullptr)
+        valueFromStringFunction = createDefaultValueFromStringFunc< ValueType >();
 }
 
 template <>
@@ -223,13 +230,13 @@ ValueType TypedParameter< ValueType >::getValueForString (const String& string) 
 template < typename ValueType >
 ValueType TypedParameter< ValueType >::getMinimum() const
 {
-    return static_cast< ValueType > (range.start);
+    return static_cast< ValueType > (this->getMin());
 }
 
 template < typename ValueType >
 ValueType TypedParameter< ValueType >::getMaximum() const
 {
-    return static_cast< ValueType > (range.end);
+    return static_cast< ValueType > (this->getMax());
 }
 
 template < typename ValueType >

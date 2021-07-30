@@ -6,7 +6,10 @@ namespace bav::plugin
 class Parameter : public juce::RangedAudioParameter, public SerializableData
 {
 public:
-    Parameter (String                                  paramName,
+    Parameter (String paramName,
+               juce::NormalisableRange< float >
+                                                       paramRange,
+               float                                   paramDefaultValue    = 1.f,
                std::function< String (float) >         valueToTextFuncToUse = nullptr,
                std::function< float (const String&) >  textToValueFuncToUse = nullptr,
                String                                  paramLabel           = {},
@@ -16,6 +19,8 @@ public:
 
     float getMax() const;
     float getMin() const;
+
+    const juce::NormalisableRange< float >& getNormalisableRange() const final;
 
     int  getMidiControllerNumber() const;
     bool isMidiControllerMapped() const;
@@ -88,8 +93,9 @@ private:
     const bool automatable;
     const bool metaParameter;
 
-    std::atomic< float > currentValue {1.f};
-    std::atomic< float > currentDefault {1.f};
+    const juce::NormalisableRange< float > range;
+
+    std::atomic< float > currentValue {1.f}, currentDefault {1.f};
     std::atomic< bool >  changing {false};
     std::atomic< int >   midiControllerNumber {-1};
 
