@@ -127,6 +127,50 @@ std::function< bool (const String&) > createDefaultValueFromStringFunc()
     };
 }
 
+/*-----*/
+
+template < typename ValueType >
+std::function< String (float) > convertValToStringFunc (std::function< String (ValueType, int) > origFunc)
+{
+    if (origFunc == nullptr)
+        origFunc = [] (ValueType value, int maxLength)
+        {
+            const auto str = [value]()
+            {
+                if constexpr (std::is_same_v< ValueType, bool >)
+                {
+                    if (value)
+                        return TRANS ("ON");
+
+                    return TRANS ("OFF");
+                }
+                else
+                    return String (value);
+            }();
+
+            return (maxLength < 1) ? str : str.substring (0, maxLength);
+        };
+
+    return [origFunc] (float value)
+    { return origFunc (static_cast< ValueType > (value), 0); };
+}
+
+template < typename ValueType >
+std::function< float (const String&) > convertStringToValFunc (std::function< ValueType (const String&) > origFunc)
+{
+    if (origFunc == nullptr)
+        origFunc = [] (const String& text)
+        {
+            if constexpr (std::is_same_v< ValueType, int >)
+                return text.getIntValue();
+            else
+                return text.getFloatValue();
+        };
+
+    return [origFunc] (const String& text)
+    { return static_cast< float > (origFunc (text)); };
+}
+
 /*----------------------------------------------------------------------*/
 
 template < typename ValueType >
@@ -146,10 +190,8 @@ TypedParameter< ValueType >::TypedParameter (ValueType minimum,
         paramName,
         createRange (minimum, maximum),
         static_cast< float > (defaultValue),
-        [=] (float value)
-        { return stringFromValue (static_cast< ValueType > (value), 0); },
-        [=] (const String& string)
-        { return static_cast< float > (valueFromString (string)); },
+        convertValToStringFunc (stringFromValue),
+        convertStringToValFunc (valueFromString),
         paramLabel, isAutomatable, metaParam, parameterCategory),
       stringFromValueFunction (stringFromValue),
       valueFromStringFunction (valueFromString)
