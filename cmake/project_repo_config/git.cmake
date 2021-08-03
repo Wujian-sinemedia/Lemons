@@ -16,15 +16,7 @@ endfunction()
 
 function (bv_update_repo_git_submodules repodir)
 
-    message (STATUS "Updating git submodules in ${repodir}")
-
-    set (git_command ${GIT_EXECUTABLE})
-
-    set (submodule_command "git fetch && git checkout origin/HEAD && git submodule update && git pull")
-
-    set (git_args "submodule foreach ${submodule_command}")
-
-    execute_process (COMMAND ${git_command} ${git_args}
-                     WORKING_DIRECTORY ${repodir})
-
+    execute_process (COMMAND ${GIT_EXECUTABLE} submodule foreach --recursive "git fetch && git checkout origin/HEAD && git submodule update"
+                     WORKING_DIRECTORY ${repodir}
+                     OUTPUT_QUIET ERROR_QUIET)
 endfunction()

@@ -8,7 +8,8 @@ function (bv_configure_precommit_git_hook projectDir)
         file (REMOVE ${DEST_DIR})
     endif()
 
-    if (NOT GIT_FOUND OR NOT CLANG_FORMAT OR NOT UNIX OR NOT EXISTS ${projectDir}/.git)
+    # the pre-commit hook is a bash script, so unix only
+    if (NOT GIT_FOUND OR NOT CLANG_FORMAT OR NOT UNIX)
         return()
     endif()
 
