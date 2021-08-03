@@ -14,8 +14,6 @@ public:
     PitchDetector (int minFreqHz = 60, int maxFreqHz = 2500);
     ~PitchDetector() = default;
 
-    void initialize();
-
     void releaseResources();
 
     float detectPitch (const AudioBuffer< SampleType >& inputAudio);
@@ -46,13 +44,13 @@ private:
     // 0. = nothing is unpitched
     SampleType confidenceThresh {static_cast< SampleType > (0.15)};
 
-    AudioBuffer< SampleType > asdfBuffer {0, 0};  // calculated ASDF values will be placed in this buffer
+    AudioBuffer< SampleType > asdfBuffer {1, 512};  // calculated ASDF values will be placed in this buffer
 
     Array< int >        periodCandidates;
     Array< int >        candidateDeltas;
     Array< SampleType > weightedCandidateConfidence;
 
-    AudioBuffer< SampleType >     filteringBuffer {0, 0};
+    AudioBuffer< SampleType >     filteringBuffer {1, 512};
     filters::Filter< SampleType > loCut, hiCut;
 
     static constexpr int numPeriodCandidatesToTest = 10;

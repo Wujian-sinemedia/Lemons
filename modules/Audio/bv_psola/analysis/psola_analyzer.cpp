@@ -12,7 +12,7 @@ void Analyzer< SampleType >::prepare (double sampleRate, int blocksize)
 }
 
 template < typename SampleType >
-void Analyzer< SampleType >::analyzeInput (const AudioBuffer& input, int channel)
+void Analyzer< SampleType >::analyzeInput (const AudioBuffer< SampleType >& input, int channel)
 {
     analyzeInput (input.getReadPointer (channel), input.getNumSamples());
 }
@@ -74,7 +74,7 @@ int Analyzer< SampleType >::getPeriod() const
 template < typename SampleType >
 float Analyzer< SampleType >::getFrequency() const
 {
-    return (float) math::freqFromPeriod (samplerate, currentPeriod);
+    return static_cast< float > (math::freqFromPeriod (samplerate, currentPeriod));
 }
 
 

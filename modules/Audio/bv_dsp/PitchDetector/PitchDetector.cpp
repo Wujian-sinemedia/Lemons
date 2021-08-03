@@ -18,18 +18,10 @@ PitchDetector< SampleType >::PitchDetector (int minFreqHz, int maxFreqHz)
     : minHz (minFreqHz), maxHz (getMaxHzToUse (minFreqHz, maxFreqHz))
 {
     jassert (minHz > 0 && maxHz > 0);
-}
 
-template < typename SampleType >
-void PitchDetector< SampleType >::initialize()
-{
     periodCandidates.ensureStorageAllocated (numPeriodCandidatesToTest);
     candidateDeltas.ensureStorageAllocated (numPeriodCandidatesToTest);
     weightedCandidateConfidence.ensureStorageAllocated (numPeriodCandidatesToTest);
-
-    asdfBuffer.setSize (1, 512);
-
-    lastFrameWasPitched = false;
 
     hiCut.prepare();
     loCut.prepare();

@@ -10,8 +10,7 @@ template < typename SampleType >
 class Analyzer
 {
 public:
-    using AudioBuffer = juce::AudioBuffer< SampleType >;
-    using Storage     = AnalysisGrainStorage< SampleType >;
+    using Storage = AnalysisGrainStorage< SampleType >;
 
     Analyzer()  = default;
     ~Analyzer() = default;
@@ -20,7 +19,7 @@ public:
 
     int getLatencySamples() const;
 
-    void analyzeInput (const AudioBuffer& input, int channel = 0);
+    void analyzeInput (const AudioBuffer< SampleType >& input, int channel = 0);
     void analyzeInput (const SampleType* samples, int numSamples);
 
     int getGrainLength() const;
