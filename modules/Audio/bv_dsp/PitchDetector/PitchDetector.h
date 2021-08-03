@@ -11,7 +11,7 @@ template < typename SampleType >
 class PitchDetector
 {
 public:
-    PitchDetector();
+    PitchDetector (int minFreqHz = 60, int maxFreqHz = 2500);
     ~PitchDetector() = default;
 
     void initialize();
@@ -21,7 +21,6 @@ public:
     float detectPitch (const AudioBuffer< SampleType >& inputAudio);
     float detectPitch (const SampleType* inputAudio, int numSamples);
 
-    void setHzRange (int newMinHz, int newMaxHz);
     void setConfidenceThresh (SampleType newThresh);
     void setSamplerate (double newSamplerate);
 
@@ -34,29 +33,26 @@ private:
                                     int               asdfDataSize,
                                     int               minIndex);
 
-    void getNextBestPeriodCandidate (juce::Array< int >& candidates,
-                                     const SampleType*   asdfData,
-                                     int                 dataSize);
+    const int minHz, maxHz;
+    int       minPeriod {0}, maxPeriod {0};
 
+    int  lastEstimatedPeriod {0};
+    bool lastFrameWasPitched {false};
 
-    int minHz, maxHz;
-    int minPeriod, maxPeriod;
+    double samplerate {0.0};
 
-    int  lastEstimatedPeriod;
-    bool lastFrameWasPitched;
+    // if the highest periodicity value is below this thresh, the frame of audio is determined to be unpitched
+    // 1. = only perfect sine waves are pitched
+    // 0. = nothing is unpitched
+    SampleType confidenceThresh {static_cast< SampleType > (0.15)};
 
-    double samplerate;
-
-    SampleType
-        confidenceThresh;  // if the lowest asdf data value is above this thresh, the frame of audio is determined to be unpitched
-
-    AudioBuffer< SampleType > asdfBuffer;  // calculated ASDF values will be placed in this buffer
+    AudioBuffer< SampleType > asdfBuffer {0, 0};  // calculated ASDF values will be placed in this buffer
 
     Array< int >        periodCandidates;
     Array< int >        candidateDeltas;
     Array< SampleType > weightedCandidateConfidence;
 
-    AudioBuffer< SampleType >     filteringBuffer;
+    AudioBuffer< SampleType >     filteringBuffer {0, 0};
     filters::Filter< SampleType > loCut, hiCut;
 
     static constexpr int numPeriodCandidatesToTest = 10;

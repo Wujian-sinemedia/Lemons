@@ -5,12 +5,20 @@
 
 namespace bav::dsp
 {
-template < typename SampleType >
-PitchDetector< SampleType >::PitchDetector()
-    : minHz (0), maxHz (0), lastEstimatedPeriod (0), lastFrameWasPitched (false), samplerate (0.0), confidenceThresh (static_cast< SampleType > (0.15)), asdfBuffer (0, 0)
+inline int getMaxHzToUse (int min, int inputMax)
 {
+    if (inputMax <= min)
+        return min + 1;
+
+    return inputMax;
 }
 
+template < typename SampleType >
+PitchDetector< SampleType >::PitchDetector (int minFreqHz, int maxFreqHz)
+    : minHz (minFreqHz), maxHz (getMaxHzToUse (minFreqHz, maxFreqHz))
+{
+    jassert (minHz > 0 && maxHz > 0);
+}
 
 template < typename SampleType >
 void PitchDetector< SampleType >::initialize()
@@ -39,7 +47,6 @@ void PitchDetector< SampleType >::releaseResources()
     hiCut.reset();
     loCut.reset();
 }
-
 
 template < typename SampleType >
 static inline int samplesToFirstZeroCrossing (const SampleType* inputAudio, int numSamples)
@@ -77,6 +84,42 @@ static inline int samplesToFirstZeroCrossing (const SampleType* inputAudio, int 
 template int samplesToFirstZeroCrossing (const float*, int);
 template int samplesToFirstZeroCrossing (const double*, int);
 
+template < typename SampleType >
+void getNextBestPeriodCandidate (juce::Array< int >& candidates, const SampleType* asdfData, int dataSize)
+{
+    int index = -1;
+
+    for (int i = 0; i < dataSize; ++i)
+    {
+        if (! candidates.contains (i))
+        {
+            index = i;
+            break;
+        }
+    }
+
+    if (index == -1) return;
+
+    auto min = asdfData[index];
+
+    for (int i = 0; i < dataSize; ++i)
+    {
+        if (candidates.contains (i)) continue;
+
+        const auto current = asdfData[i];
+
+        if (current < min)
+        {
+            min   = current;
+            index = i;
+        }
+    }
+
+    candidates.add (index);
+}
+
+template void getNextBestPeriodCandidate (juce::Array< int >&, const float*, int);
+template void getNextBestPeriodCandidate (juce::Array< int >&, const double*, int);
 
 template < typename SampleType >
 float PitchDetector< SampleType >::detectPitch (const AudioBuffer< SampleType >& inputAudio)
@@ -84,11 +127,10 @@ float PitchDetector< SampleType >::detectPitch (const AudioBuffer< SampleType >&
     return detectPitch (inputAudio.getReadPointer (0), inputAudio.getNumSamples());
 }
 
+// this function returns the pitch in Hz, or 0.0f if the frame of audio is determined to be unpitched
 template < typename SampleType >
 float PitchDetector< SampleType >::detectPitch (const SampleType* inputAudio, int numSamples)
 {
-    // this function returns the pitch in Hz, or 0.0f if the frame of audio is determined to be unpitched
-
     jassert (samplerate > 0);
 
     const auto halfNumSamples = juce::roundToInt (floor (numSamples * 0.5f));
@@ -145,9 +187,7 @@ float PitchDetector< SampleType >::detectPitch (const SampleType* inputAudio, in
 
     for (int k = minLag; k <= maxLag; ++k)  // k = lag = period
     {
-        const auto index =
-            k
-            - minLag;  // the actual asdfBuffer index for this k value's data. offset = minPeriod
+        const auto index = k - minLag;
 
         jassert (index <= asdfDataSize);
 
@@ -181,9 +221,7 @@ float PitchDetector< SampleType >::detectPitch (const SampleType* inputAudio, in
     if (lastFrameWasPitched)
         minIndex = chooseIdealPeriodCandidate (asdfData, asdfDataSize, minIndex);
 
-    const auto realPeriod =
-        minIndex
-        + minLag;  // account for offset in asdf data (index 0 stored data for lag of minPeriod)
+    const auto realPeriod = minIndex + minLag;
 
     jassert (realPeriod <= maxPeriod && realPeriod >= minPeriod);
 
@@ -193,42 +231,6 @@ float PitchDetector< SampleType >::detectPitch (const SampleType* inputAudio, in
     // return pitch in hz as a float
     return static_cast< float > (static_cast< float > (samplerate)
                                  / static_cast< float > (realPeriod));
-}
-
-
-template < typename SampleType >
-void PitchDetector< SampleType >::getNextBestPeriodCandidate (
-    juce::Array< int >& candidates, const SampleType* asdfData, int dataSize)
-{
-    int index = -1;
-
-    for (int i = 0; i < dataSize; ++i)
-    {
-        if (! candidates.contains (i))
-        {
-            index = i;
-            break;
-        }
-    }
-
-    if (index == -1) return;
-
-    auto min = asdfData[index];
-
-    for (int i = 0; i < dataSize; ++i)
-    {
-        if (candidates.contains (i)) continue;
-
-        const auto current = asdfData[i];
-
-        if (current < min)
-        {
-            min   = current;
-            index = i;
-        }
-    }
-
-    candidates.add (index);
 }
 
 
@@ -275,17 +277,16 @@ int PitchDetector< SampleType >::chooseIdealPeriodCandidate (
         weightedCandidateConfidence.size()));
 }
 
-
 template < typename SampleType >
-void PitchDetector< SampleType >::setHzRange (int newMinHz, int newMaxHz)
+void PitchDetector< SampleType >::setSamplerate (double newSamplerate)
 {
-    jassert (newMaxHz > newMinHz);
-    jassert (newMinHz > 0 && newMaxHz > 0);
+    jassert (newSamplerate > 0);
 
-    minHz = newMinHz;
-    maxHz = newMaxHz;
+    if (lastFrameWasPitched)
+        lastEstimatedPeriod =
+            juce::roundToInt (newSamplerate / (samplerate / lastEstimatedPeriod));
 
-    if (samplerate == 0) return;
+    samplerate = newSamplerate;
 
     maxPeriod = juce::roundToInt (samplerate / static_cast< double > (minHz));
     minPeriod = juce::roundToInt (samplerate / static_cast< double > (maxHz));
@@ -298,21 +299,6 @@ void PitchDetector< SampleType >::setHzRange (int newMinHz, int newMaxHz)
 
     asdfBuffer.setSize (1, numOfLagValues, true, true, true);
     filteringBuffer.setSize (1, numOfLagValues, true, true, true);
-}
-
-
-template < typename SampleType >
-void PitchDetector< SampleType >::setSamplerate (double newSamplerate)
-{
-    jassert (newSamplerate > 0);
-
-    if (lastFrameWasPitched)
-        lastEstimatedPeriod =
-            juce::roundToInt (newSamplerate / (samplerate / lastEstimatedPeriod));
-
-    samplerate = newSamplerate;
-
-    if (minHz > 0 && maxHz > 0) setHzRange (minHz, maxHz);
 
     hiCut.prepare();
     loCut.prepare();
@@ -333,6 +319,7 @@ void PitchDetector< SampleType >::setConfidenceThresh (SampleType newThresh)
 template < typename SampleType >
 int PitchDetector< SampleType >::getLatencySamples() const noexcept
 {
+    jassert (maxPeriod > 0);
     return 2 * maxPeriod;
 }
 
