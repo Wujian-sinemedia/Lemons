@@ -1,9 +1,5 @@
 set (BV_GITHOOKS_DIR ${CMAKE_CURRENT_LIST_DIR} CACHE INTERNAL "Path to githook scripts")
 
-if (NOT GIT_FOUND)
-    find_package (Git QUIET)
-endif()
-
 
 function (bv_configure_precommit_git_hook projectDir)
     set (DEST_DIR ${projectDir}/.git/hooks/pre-commit)
