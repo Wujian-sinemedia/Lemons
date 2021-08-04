@@ -1,7 +1,7 @@
 
 namespace bav::plugin
 {
-StateToggler::StateToggler (StateBase& stateToUse)
+StateToggler::StateToggler (SerializableData& stateToUse)
     : state (stateToUse)
 {
 }

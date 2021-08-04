@@ -17,24 +17,30 @@ private:
     int width, height;
 };
 
+
 class StateBase : public SerializableData
 {
 public:
     StateBase (String pluginName, ParameterList& paramsToUse);
 
-    virtual void addTo (juce::AudioProcessor& processor);
+    void addTo (juce::AudioProcessor& processor);
+    void addAllAsInternal();
 
     ParameterList& getParameters();
+
 
     ToggleParam mainBypass {"Main bypass", false};
 
     Dimensions dimensions;
 
+    StateToggler toggler {getParameters()};
+
 protected:
-    void serialize (TreeReflector& ref) override;
+    void serialize (TreeReflector& ref) final;
 
     ParameterList& params;
 };
+
 
 template < typename ParamListType,
            BV_MUST_INHERIT_FROM (ParamListType, ParameterList) >

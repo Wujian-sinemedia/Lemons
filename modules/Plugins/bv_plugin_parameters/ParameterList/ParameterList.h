@@ -48,7 +48,8 @@ private:
     void processNewPitchwheelMessage (int pitchwheelValue);
 
     std::vector< ParamHolderBase* > params;
-    dsp::BasicProcessorBase         dummyProcessor;
+
+    dsp::BasicProcessorBase dummyProcessor;
 
     IntParameter* pitchwheelParameter;
     IntParameter* lastMovedControllerNumberParameter;

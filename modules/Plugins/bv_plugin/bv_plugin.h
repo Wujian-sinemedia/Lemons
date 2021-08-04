@@ -19,10 +19,9 @@
 #include <bv_plugin_parameters/bv_plugin_parameters.h>
 #include <bv_mobile_utils/bv_mobile_utils.h>
 
-
+#include "state/StateToggler.h"
 #include "state/state.h"
 #include "state/PluginUndo.h"
-#include "state/StateToggler.h"
 
 #include "processors/ProcessorBase.h"
 

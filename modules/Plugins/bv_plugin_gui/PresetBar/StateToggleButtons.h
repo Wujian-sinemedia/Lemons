@@ -12,7 +12,7 @@ private:
     void B_ButtonPressed();
     void C_ButtonPressed();
 
-    StateToggler toggler;
+    StateToggler& toggler;
 };
 
 }  // namespace bav::plugin
