@@ -17,38 +17,9 @@ endfunction()
 
 #
 
-function (_bv_set_default_macos_options target)
-    if (NOT APPLE)
-        return()
-    endif()
-
-    macro (_bv_configure_macos_version target version)
-        set_target_properties  (${target} PROPERTIES XCODE_ATTRIBUTE_MACOSX_DEPLOYMENT_TARGET ${version})
-        target_compile_options (${target} PUBLIC "-mmacosx-version-min=${version}")
-        target_link_options    (${target} PUBLIC "-mmacosx-version-min=${version}")
-    endmacro()
-
-    set_target_properties (${target} PROPERTIES JUCE_BUNDLE_ID "com.bv.${target}")
-
-    if (${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
-        set_target_properties (${target} PROPERTIES
-                ARCHIVE_OUTPUT_DIRECTORY "./"
-                XCODE_ATTRIBUTE_INSTALL_PATH "$(LOCAL_APPS_DIR)"
-                XCODE_ATTRIBUTE_SKIP_INSTALL "NO")
-
-        _bv_configure_macos_version (${target} "9.3")
-    elseif (TARGET ${target}_AUv3)
-        _bv_configure_macos_version (${target} "10.11")
-    else()
-        _bv_configure_macos_version (${target} "10.9")
-    endif()
-endfunction()
-
-#
-
 function (_bv_configure_juce_target)
 
-    set (options BROWSER MTS-ESP ABLETON_LINK ALWAYS_VDSP NEVER_VDSP)
+    set (options BROWSER MTS-ESP ABLETON_LINK ALWAYS_VDSP NEVER_VDSP PLUGIN_HOST)
     set (oneValueArgs TARGET ASSET_FOLDER AAX_PAGETABLE_FILE)
     set (multiValueArgs "")
 
@@ -58,24 +29,9 @@ function (_bv_configure_juce_target)
         message (FATAL_ERROR "Target name not specified in call to _bv_configure_juce_target")
     endif()
 
-    # AAX settings
-    if (TARGET ${BV_TARGETCONFIG_TARGET}_AAX)
-        set_target_properties (${BV_TARGETCONFIG_TARGET}_AAX PROPERTIES OSX_ARCHITECTURES x86_64)
+    _bv_configure_juce_aax (${BV_TARGETCONFIG_TARGET} "${BV_TARGETCONFIG_AAX_PAGETABLE_FILE}")
 
-        if (DEFINED BV_TARGETCONFIG_AAX_PAGETABLE_FILE)
-            target_compile_definitions (${BV_TARGETCONFIG_TARGET}_AAX PUBLIC 
-                JucePlugin_AAXPageTableFile="${BV_TARGETCONFIG_AAX_PAGETABLE_FILE}")
-
-            if (NOT DEFINED BV_TARGETCONFIG_ASSET_FOLDER)
-                message (WARNING "Warning - AAX pagetable file must be embedded in plugin's binary data!")
-            endif()
-        endif()
-    endif()
-
-    # LV2 settings
-    if (TARGET ${BV_TARGETCONFIG_TARGET}_LV2)
-        set_target_properties (${BV_TARGETCONFIG_TARGET}_LV2 PROPERTIES JUCE_LV2_URI https://github.com/benthevining/${CMAKE_PROJECT_NAME})
-    endif()
+    _bv_configure_juce_lv2 (${BV_TARGETCONFIG_TARGET})
 
     target_compile_definitions (${BV_TARGETCONFIG_TARGET} PUBLIC
             JUCE_VST3_CAN_REPLACE_VST2=0
@@ -91,7 +47,9 @@ function (_bv_configure_juce_target)
     
     _bv_configure_juce_browser (${BV_TARGETCONFIG_TARGET} ${BV_TARGETCONFIG_BROWSER})
 
-    _bv_set_default_macos_options (${BV_TARGETCONFIG_TARGET})
+    if (APPLE)
+        _bv_set_default_macos_options (${BV_TARGETCONFIG_TARGET})
+    endif()
 
     target_link_libraries (${BV_TARGETCONFIG_TARGET} PUBLIC
         ${BV_JUCE_MODULES}
@@ -109,6 +67,10 @@ function (_bv_configure_juce_target)
 
     if (DEFINED BV_TARGETCONFIG_ASSET_FOLDER)
         bv_add_resources_folder (TARGET ${BV_TARGETCONFIG_TARGET} FOLDER ${BV_TARGETCONFIG_ASSET_FOLDER})
+    endif()
+
+    if (${BV_TARGETCONFIG_PLUGIN_HOST})
+        _bv_configure_plugin_hosting (${BV_TARGETCONFIG_TARGET})
     endif()
 
     set (bv_targetname ${BV_TARGETCONFIG_TARGET} PARENT_SCOPE)

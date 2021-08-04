@@ -22,3 +22,34 @@ endif()
 if ("${CMAKE_GENERATOR}" STREQUAL "Xcode")
      set (CMAKE_SUPPRESS_REGENERATION FALSE)
 endif()
+
+
+#####
+
+
+function (_bv_set_default_macos_options target)
+    
+    macro (_bv_configure_macos_version target version)
+        set_target_properties  (${target} PROPERTIES XCODE_ATTRIBUTE_MACOSX_DEPLOYMENT_TARGET ${version})
+        target_compile_options (${target} PUBLIC "-mmacosx-version-min=${version}")
+        target_link_options    (${target} PUBLIC "-mmacosx-version-min=${version}")
+    endmacro()
+
+    #
+
+    set_target_properties (${target} PROPERTIES JUCE_BUNDLE_ID "com.bv.${target}")
+
+    if (${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
+        set_target_properties (${target} PROPERTIES
+                ARCHIVE_OUTPUT_DIRECTORY "./"
+                XCODE_ATTRIBUTE_INSTALL_PATH "$(LOCAL_APPS_DIR)"
+                XCODE_ATTRIBUTE_SKIP_INSTALL "NO")
+
+        _bv_configure_macos_version (${target} "9.3")
+    elseif (TARGET ${target}_AUv3)
+        _bv_configure_macos_version (${target} "10.11")
+    else()
+        _bv_configure_macos_version (${target} "10.9")
+    endif()
+
+endfunction()
