@@ -19,7 +19,7 @@ endfunction()
 
 function (_bv_configure_juce_target)
 
-    set (options BROWSER ABLETON_LINK ALWAYS_VDSP NEVER_VDSP PLUGIN_HOST)
+    set (options BROWSER PLUGIN_HOST)
     set (oneValueArgs TARGET ASSET_FOLDER AAX_PAGETABLE_FILE)
     set (multiValueArgs "")
 
@@ -59,10 +59,7 @@ function (_bv_configure_juce_target)
 
     target_compile_features (${BV_TARGETCONFIG_TARGET} PUBLIC cxx_std_${BV_CXX_VERSION})
 
-    _bv_configure_third_party_libs (${BV_TARGETCONFIG_TARGET} 
-                                    ${BV_TARGETCONFIG_ALWAYS_VDSP} 
-                                    ${BV_TARGETCONFIG_NEVER_VDSP} 
-                                    ${BV_TARGETCONFIG_ABLETON_LINK})
+    _bv_configure_vecops (${BV_TARGETCONFIG_TARGET})
 
     if (DEFINED BV_TARGETCONFIG_ASSET_FOLDER)
         bv_add_resources_folder (TARGET ${BV_TARGETCONFIG_TARGET} FOLDER ${BV_TARGETCONFIG_ASSET_FOLDER})
