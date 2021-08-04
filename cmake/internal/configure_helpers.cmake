@@ -19,7 +19,7 @@ endfunction()
 
 function (_bv_configure_juce_target)
 
-    set (options BROWSER MTS-ESP ABLETON_LINK ALWAYS_VDSP NEVER_VDSP PLUGIN_HOST)
+    set (options BROWSER ABLETON_LINK ALWAYS_VDSP NEVER_VDSP PLUGIN_HOST)
     set (oneValueArgs TARGET ASSET_FOLDER AAX_PAGETABLE_FILE)
     set (multiValueArgs "")
 
@@ -62,7 +62,6 @@ function (_bv_configure_juce_target)
     _bv_configure_third_party_libs (${BV_TARGETCONFIG_TARGET} 
                                     ${BV_TARGETCONFIG_ALWAYS_VDSP} 
                                     ${BV_TARGETCONFIG_NEVER_VDSP} 
-                                    ${BV_TARGETCONFIG_MTS-ESP} 
                                     ${BV_TARGETCONFIG_ABLETON_LINK})
 
     if (DEFINED BV_TARGETCONFIG_ASSET_FOLDER)
