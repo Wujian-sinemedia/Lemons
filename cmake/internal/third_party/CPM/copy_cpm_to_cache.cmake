@@ -8,4 +8,4 @@ if (EXISTS ${cpm_cache_path})
     return()
 endif()
 
-bv_copy_file (${BV_CPM_PATH} ${cpm_cache_path})
+bv_copy_file (SOURCE ${BV_CPM_PATH} DEST ${cpm_cache_path})
