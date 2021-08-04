@@ -33,7 +33,7 @@ public:
 
     Dimensions dimensions;
 
-    StateToggler toggler {getParameters()};
+    StateToggler toggler {*this};
 
 protected:
     void serialize (TreeReflector& ref) final;

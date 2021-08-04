@@ -89,11 +89,6 @@ void StateToggler::serialize (TreeReflector& ref)
     ref.add ("StateB", stateB);
     ref.add ("StateC", stateC);
     ref.add ("LastLoadedState", lastLoadedState);
-
-    if (ref.isLoading())
-    {
-        loadLastSelectedState();
-    }
 }
 
 }  // namespace bav::plugin
