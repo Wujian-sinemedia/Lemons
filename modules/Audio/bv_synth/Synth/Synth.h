@@ -66,9 +66,6 @@ public:
     void setDescantInterval (int newInterval) { descant.setInterval (newInterval); }
     void setDescant (bool isOn, int newThresh, int newInterval);
 
-    /* If you are not using MTS-ESP, you can call this method to alter the master tuning of your synth. If you are using MTS-ESP, calling this method does nothing. */
-    void setConcertPitchHz (int newConcertPitchhz);
-
     void updateStereoWidth (int newWidth) { panner.updateStereoWidth (newWidth); }
     void updateLowestPannedNote (int newPitchThresh) { panner.setLowestNote (newPitchThresh); }
 

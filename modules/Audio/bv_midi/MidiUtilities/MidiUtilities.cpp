@@ -152,7 +152,6 @@ float PitchPipeline::getMidiForFrequency (float midiPitch, int midiChannel) cons
 void PitchPipeline::reset()
 {
     bend.newPitchbendRecieved (64);
-    tuning.setConcertPitchHz (440.0f);
 }
 
 

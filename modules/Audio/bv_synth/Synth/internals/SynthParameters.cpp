@@ -32,19 +32,6 @@ void SynthBase< SampleType >::togglePitchGlide (bool shouldGlide)
         voice->togglePitchGlide (shouldGlide);
 }
 
-/*
- Sets the frequency in Hz corresponding to midi note 69 (A4). This will usually be 440.
- Setting this to values higher or lower than 440 will effective detune the entire synth.
- */
-template < typename SampleType >
-void SynthBase< SampleType >::setConcertPitchHz (int newConcertPitchhz)
-{
-    if (pitch.tuning.setConcertPitchHz (static_cast< float > (newConcertPitchhz)))
-        for (auto* voice : voices)
-            if (voice->isVoiceActive())
-                voice->setTargetOutputFrequency (pitch.getFrequencyForMidi (voice->getCurrentlyPlayingNote()));
-}
-
 
 /*
  Sets the synth's sensitivity to midi velocity.

@@ -17,8 +17,6 @@ SynthBase< SampleType >::SynthBase()
     quickReleaseParams.decay   = 0.005f;
     quickReleaseParams.sustain = 1.0f;
     quickReleaseParams.release = 0.015f;
-
-    setConcertPitchHz (440);
 }
 
 
