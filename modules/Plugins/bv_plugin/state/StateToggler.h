@@ -4,7 +4,7 @@ namespace bav::plugin
 {
 struct StateToggler : SerializableData
 {
-    StateToggler (State& stateToUse);
+    StateToggler (StateBase& stateToUse);
 
     void loadStateA();
     void saveStateA();
@@ -21,7 +21,7 @@ struct StateToggler : SerializableData
 private:
     void serialize (TreeReflector& ref) final;
 
-    State& state;
+    StateBase& state;
 
     ValueTree stateA {"StateA"}, stateB {"StateB"}, stateC {"StateC"};
 

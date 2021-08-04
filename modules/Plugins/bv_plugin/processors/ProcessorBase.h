@@ -8,7 +8,7 @@ namespace bav::plugin
 class ProcessorBase : public dsp::BasicProcessorBase, private SystemInitializer
 {
 public:
-    ProcessorBase (State&                                stateToUse,
+    ProcessorBase (StateBase&                            stateToUse,
                    dsp::Engine< float >&                 floatEngineToUse,
                    dsp::Engine< double >&                doubleEngineToUse,
                    juce::AudioProcessor::BusesProperties busesLayout);
@@ -38,7 +38,7 @@ private:
     void processBlockBypassed (AudioBuffer< float >& audio, MidiBuffer& midi) final;
     void processBlockBypassed (AudioBuffer< double >& audio, MidiBuffer& midi) final;
 
-    State& state;
+    StateBase& state;
 
     ProcessorInternalEngine< float >  floatEngine;
     ProcessorInternalEngine< double > doubleEngine;

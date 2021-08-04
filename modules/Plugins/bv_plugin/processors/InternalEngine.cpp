@@ -3,7 +3,7 @@ namespace bav::plugin
 {
 template < typename SampleType >
 ProcessorInternalEngine< SampleType >::ProcessorInternalEngine (juce::AudioProcessor&      processorToUse,
-                                                                State&                     stateToUse,
+                                                                StateBase&                 stateToUse,
                                                                 dsp::Engine< SampleType >& engineToUse)
     : ParameterProcessorBase< SampleType > (stateToUse.getParameters()),
       processor (processorToUse), state (stateToUse), engine (engineToUse)

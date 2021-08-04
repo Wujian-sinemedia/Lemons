@@ -5,7 +5,7 @@ namespace bav::plugin
 class PresetManager
 {
 public:
-    PresetManager (State&        stateToUse,
+    PresetManager (StateBase&    stateToUse,
                    const String& companyNameToUse,
                    const String& productNameToUse,
                    const String& presetFileExtensionToUse = ".xml",
@@ -35,7 +35,7 @@ private:
     const String presetFileExtension;
 
     UndoManager* undo;
-    State&       state;
+    StateBase&   state;
 
     juce::StringArray namesOfAvailablePresets;
 

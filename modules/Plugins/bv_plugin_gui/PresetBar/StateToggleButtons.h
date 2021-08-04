@@ -5,7 +5,7 @@ namespace bav::plugin
 class StateToggleButtons : public juce::Component
 {
 public:
-    StateToggleButtons (State& stateToUse);
+    StateToggleButtons (StateBase& stateToUse);
 
 private:
     void A_ButtonPressed();

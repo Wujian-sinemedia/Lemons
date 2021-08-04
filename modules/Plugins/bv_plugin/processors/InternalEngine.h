@@ -7,7 +7,7 @@ class ProcessorInternalEngine : public ParameterProcessorBase< SampleType >
 {
 public:
     ProcessorInternalEngine (juce::AudioProcessor&      processorToUse,
-                             State&                     stateToUse,
+                             StateBase&                 stateToUse,
                              dsp::Engine< SampleType >& engineToUse);
 
     dsp::Engine< SampleType >* operator->() { return &engine; }
@@ -16,7 +16,7 @@ private:
     void renderChunk (juce::AudioBuffer< SampleType >& audio, MidiBuffer& midi) final;
 
     juce::AudioProcessor&      processor;
-    State&                     state;
+    StateBase&                 state;
     dsp::Engine< SampleType >& engine;
 };
 

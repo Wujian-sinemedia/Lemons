@@ -1,7 +1,7 @@
 
 namespace bav::plugin
 {
-ProcessorBase::ProcessorBase (State&                                stateToUse,
+ProcessorBase::ProcessorBase (StateBase&                            stateToUse,
                               dsp::Engine< float >&                 floatEngineToUse,
                               dsp::Engine< double >&                doubleEngineToUse,
                               juce::AudioProcessor::BusesProperties busesLayout)
@@ -14,13 +14,12 @@ ProcessorBase::ProcessorBase (State&                                stateToUse,
 
 void ProcessorBase::saveEditorSize (int width, int height)
 {
-    state.setDimensions (width, height);
-    repaintEditor();
+    state.dimensions = {width, height};
 }
 
 juce::Point< int > ProcessorBase::getSavedEditorSize() const
 {
-    return {state.dimensions.width, state.dimensions.height};
+    return state.dimensions.get();
 }
 
 juce::AudioProcessorParameter* ProcessorBase::getBypassParameter() const

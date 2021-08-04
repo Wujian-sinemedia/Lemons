@@ -7,28 +7,40 @@ void Dimensions::serialize (TreeReflector& ref)
     ref.add ("Height", height);
 }
 
-
-State::State (String pluginName)
-    : SerializableData (pluginName + "_State"), dimensions (pluginName + "_Dimensions")
+Dimensions& Dimensions::operator= (const juce::Point< int >& newSize) noexcept
 {
-    // list.add (mainBypass);
+    width  = newSize.x;
+    height = newSize.y;
+
+    return *this;
 }
 
-void State::setDimensions (int width, int height)
+juce::Point< int > Dimensions::get() const
 {
-    dimensions.width  = width;
-    dimensions.height = height;
+    return {width, height};
 }
 
-void State::addTo (juce::AudioProcessor& processor)
+
+StateBase::StateBase (String pluginName, ParameterList& paramsToUse)
+    : SerializableData (pluginName + "_State"), dimensions (pluginName + "_Dimensions"), params (paramsToUse)
 {
-    getParameters().addParametersTo (processor);
+    params.add (mainBypass);
 }
 
-void State::serialize (TreeReflector& ref)
+ParameterList& StateBase::getParameters()
+{
+    return params;
+}
+
+void StateBase::addTo (juce::AudioProcessor& processor)
+{
+    params.addParametersTo (processor);
+}
+
+void StateBase::serialize (TreeReflector& ref)
 {
     ref.add ("EditorDimensions", dimensions);
-    ref.add ("Parameters", getParameters());
+    ref.add ("Parameters", params);
 }
 
 }  // namespace bav::plugin

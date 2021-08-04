@@ -10,7 +10,7 @@ struct Undo : UndoManager
         listToManage.setUndoManager (*this);
     }
 
-    Undo (State& stateToManage)
+    Undo (StateBase& stateToManage)
         : UndoManager (stateToManage)
     {
         stateToManage.getParameters().setUndoManager (*this);

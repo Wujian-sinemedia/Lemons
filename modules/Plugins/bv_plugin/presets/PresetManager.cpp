@@ -1,7 +1,7 @@
 
 namespace bav::plugin
 {
-PresetManager::PresetManager (State&        stateToUse,
+PresetManager::PresetManager (StateBase&    stateToUse,
                               const String& companyNameToUse,
                               const String& productNameToUse,
                               const String& presetFileExtensionToUse,

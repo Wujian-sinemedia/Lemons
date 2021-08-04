@@ -1,7 +1,7 @@
 
 namespace bav::plugin
 {
-StateToggleButtons::StateToggleButtons (State& stateToUse)
+StateToggleButtons::StateToggleButtons (StateBase& stateToUse)
     : toggler (stateToUse)
 {
 }
