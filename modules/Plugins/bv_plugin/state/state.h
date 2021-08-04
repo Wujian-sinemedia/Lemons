@@ -15,13 +15,13 @@ struct Dimensions : SerializableData
 class State : public SerializableData
 {
 public:
-    State (ParameterList& listToUse, String pluginName = "");
+    State (String pluginName);
 
-    ParameterList& getParameters();
-
-    void setDimensions (int width, int height);
+    virtual ParameterList& getParameters() = 0;
 
     virtual void addTo (juce::AudioProcessor& processor);
+
+    void setDimensions (int width, int height);
 
 
     ToggleParam mainBypass {"Main bypass", false};
@@ -30,9 +30,6 @@ public:
 
 protected:
     void serialize (TreeReflector& ref) override;
-
-private:
-    ParameterList& list;
 };
 
 }  // namespace bav::plugin
