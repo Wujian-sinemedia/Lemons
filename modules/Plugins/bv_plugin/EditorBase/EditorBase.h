@@ -16,6 +16,8 @@ private:
     virtual void resizeTriggered() { }
 
     ProcessorBase& pb;
+
+    juce::TooltipWindow tooltipWindow {this, 700};
 };
 
 

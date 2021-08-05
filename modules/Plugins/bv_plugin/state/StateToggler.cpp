@@ -52,6 +52,8 @@ void StateToggler::saveLastSelectedState()
 
 void StateToggler::loadStateA()
 {
+    UndoManager::ScopedTransaction t {undo};
+
     serializing::fromTree (stateA, state);
     lastLoadedState = 1;
 }
@@ -63,6 +65,8 @@ void StateToggler::saveStateA()
 
 void StateToggler::loadStateB()
 {
+    UndoManager::ScopedTransaction t {undo};
+
     serializing::fromTree (stateB, state);
     lastLoadedState = 2;
 }
@@ -74,6 +78,8 @@ void StateToggler::saveStateB()
 
 void StateToggler::loadStateC()
 {
+    UndoManager::ScopedTransaction t {undo};
+
     serializing::fromTree (stateC, state);
     lastLoadedState = 3;
 }
@@ -89,6 +95,11 @@ void StateToggler::serialize (TreeReflector& ref)
     ref.add ("StateB", stateB);
     ref.add ("StateC", stateC);
     ref.add ("LastLoadedState", lastLoadedState);
+}
+
+void StateToggler::setUndoManager (UndoManager& undoManager)
+{
+    undo = &undoManager;
 }
 
 }  // namespace bav::plugin

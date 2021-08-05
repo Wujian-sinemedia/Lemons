@@ -50,4 +50,10 @@ void StateBase::serialize (TreeReflector& ref)
     ref.add ("StateToggles", toggler);
 }
 
+void StateBase::setUndoManager (UndoManager& undo)
+{
+    params.setUndoManager (undo);
+    toggler.setUndoManager (undo);
+}
+
 }  // namespace bav::plugin

@@ -16,7 +16,7 @@ public:
 private:
     StateBase& state;
 
-    Undo undoManager {state.getParameters()};
+    Undo undoManager {state};
 
     PresetManager presetManager;
 

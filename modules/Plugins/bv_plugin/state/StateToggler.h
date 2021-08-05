@@ -18,6 +18,8 @@ struct StateToggler : SerializableData
     void loadLastSelectedState();
     void saveLastSelectedState();
 
+    void setUndoManager (UndoManager& undoManager);
+
 private:
     void serialize (TreeReflector& ref) final;
 
@@ -26,6 +28,8 @@ private:
     ValueTree stateA {"StateA"}, stateB {"StateB"}, stateC {"StateC"};
 
     int lastLoadedState {1};
+
+    UndoManager* undo {nullptr};
 };
 
 }  // namespace bav::plugin

@@ -26,6 +26,8 @@ public:
     void addTo (juce::AudioProcessor& processor);
     void addAllAsInternal();
 
+    void setUndoManager (UndoManager& undo);
+
     ParameterList& getParameters();
 
 

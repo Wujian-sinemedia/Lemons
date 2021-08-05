@@ -4,16 +4,10 @@ namespace bav::plugin
 {
 struct Undo : UndoManager
 {
-    Undo (ParameterList& listToManage)
-        : UndoManager (listToManage)
-    {
-        listToManage.setUndoManager (*this);
-    }
-
     Undo (StateBase& stateToManage)
         : UndoManager (stateToManage)
     {
-        stateToManage.getParameters().setUndoManager (*this);
+        stateToManage.setUndoManager (*this);
     }
 };
 
