@@ -16,19 +16,18 @@ private:
     virtual void resizeTriggered() { }
 
     ProcessorBase& pb;
-
-    juce::TooltipWindow tooltipWindow {this, 700};
 };
 
 
 template < typename ContentComponentType,
-           BV_MUST_INHERIT_FROM (ContentComponentType, juce::Component) >
+           BV_MUST_INHERIT_FROM (ContentComponentType, GUI) >
 class PluginEditor : public EditorBase
 {
 public:
-    template < typename... Args >
-    PluginEditor (ProcessorBase& processorToUse, juce::Point< int > initialSize, Args&&... args)
-        : EditorBase (processorToUse, initialSize), content (std::forward< Args > (args)...)
+    template < typename StateType, BV_MUST_INHERIT_FROM (StateType, StateBase) >
+    PluginEditor (ProcessorBase& processorToUse, StateType& state, StateToggler& toggler, UndoManager& undo)
+        : EditorBase (processorToUse, state.dimensions.get()),
+          content (state, toggler, undo)
     {
         addAndMakeVisible (content);
     }

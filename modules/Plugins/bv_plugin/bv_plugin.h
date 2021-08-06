@@ -27,6 +27,7 @@
 
 #include "processors/ProcessorBase.h"
 
+#include "EditorBase/PluginGUIBase.h"
 #include "EditorBase/EditorBase.h"
 
 #include "processors/Processors.h"

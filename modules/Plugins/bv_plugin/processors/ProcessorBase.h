@@ -19,8 +19,8 @@ public:
 private:
     juce::AudioProcessorParameter* getBypassParameter() const final;
 
-    void getStateInformation (juce::MemoryBlock& block) final;
-    void setStateInformation (const void* data, int size) final;
+    void getStateInformation (juce::MemoryBlock& block) override;
+    void setStateInformation (const void* data, int size) override;
 
     void prepareToPlay (double sampleRate, int samplesPerBlock) final;
 

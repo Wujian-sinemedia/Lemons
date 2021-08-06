@@ -1,23 +1,9 @@
-
 #pragma once
+#include "PluginDimensions.h"
+
 
 namespace bav::plugin
 {
-struct Dimensions : SerializableData
-{
-    using SerializableData::SerializableData;
-
-    Dimensions& operator= (const juce::Point< int >& newSize) noexcept;
-
-    void serialize (TreeReflector& ref) final;
-
-    juce::Point< int > get() const;
-
-private:
-    int width, height;
-};
-
-
 class StateBase : public SerializableData
 {
 public:
@@ -35,11 +21,9 @@ public:
     Dimensions dimensions;
 
 protected:
-    void serialize (TreeReflector& ref) final;
+    void serialize (TreeReflector& ref) override;
 
     ParameterList& params;
-
-    UndoManager undo {*this};
 };
 
 
@@ -53,6 +37,18 @@ struct State : StateBase
     }
 
     ParamListType parameters;
+};
+
+
+struct StateSerializer : SerializableData
+{
+    StateSerializer (StateBase& stateToUse, StateToggler& togglerToUse);
+
+private:
+    void serialize (TreeReflector& ref) final;
+
+    StateBase&    state;
+    StateToggler& toggler;
 };
 
 }  // namespace bav::plugin

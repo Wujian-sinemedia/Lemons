@@ -10,16 +10,30 @@ public:
         : ProcessorBase (state, floatEngine, doubleEngine, busesLayout)
     {
         state.addTo (*this);
+        state.getParameters().setUndoManager (undo);
+        toggler.setUndoManager (undo);
     }
 
 protected:
-    StateType state;
+    StateType    state;
+    StateToggler toggler {state};
+    UndoManager  undo {state};
 
 private:
+    void getStateInformation (juce::MemoryBlock& block) final
+    {
+        serializing::toBinary (serializer, block);
+    }
+
+    void setStateInformation (const void* data, int size) final
+    {
+        serializing::fromBinary (data, size, serializer);
+    }
+
     EngineType< float >  floatEngine {state};
     EngineType< double > doubleEngine {state};
 
-    StateToggler toggler {state};
+    StateSerializer serializer {state, toggler};
 };
 
 
@@ -37,9 +51,7 @@ struct ProcessorWithEditor : ProcessorType
 
     juce::AudioProcessorEditor* createEditor() final
     {
-        return new PluginEditor< ComponentType > (*this,
-                                                  this->state.dimensions.get(),
-                                                  this->state);
+        return new PluginEditor< ComponentType > (*this, this->state, this->toggler, this->undo);
     }
 
 private:
