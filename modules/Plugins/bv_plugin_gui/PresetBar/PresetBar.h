@@ -8,19 +8,15 @@ namespace bav::plugin
 class PresetBar : public juce::Component
 {
 public:
-    PresetBar (StateBase&    stateToUse,
+    PresetBar (StatePackage& stateToUse,
                const String& productName,
                const String& presetFileExtension = ".xml",
                const String& companyName         = "BenViningMusicSoftware");
 
 private:
-    StateBase& state;
-
-    Undo undoManager {state};
-
     PresetManager presetManager;
 
-    StateToggleButtons toggleButtons {state};
+    StateToggleButtons toggleButtons;
 };
 
 }  // namespace bav::plugin

@@ -7,17 +7,20 @@ class Processor : public ProcessorBase
 {
 public:
     Processor (juce::AudioProcessor::BusesProperties busesLayout)
-        : ProcessorBase (state, floatEngine, doubleEngine, busesLayout)
+        : ProcessorBase (state.state, floatEngine, doubleEngine, busesLayout)
     {
-        state.addTo (*this);
+        state.state.addTo (*this);
     }
 
-protected:
-    StateType state;
+    StateType&    getState() { return state.state; }
+    StateToggler& getToggler() { return state.getToggler(); }
+    UndoManager&  getUndoManager() { return state.getUndo(); }
 
 private:
-    EngineType< float >  floatEngine {state};
-    EngineType< double > doubleEngine {state};
+    PluginState< StateType > state;
+
+    EngineType< float >  floatEngine {state.state};
+    EngineType< double > doubleEngine {state.state};
 };
 
 
@@ -28,7 +31,7 @@ struct ProcessorWithEditor : ProcessorType
         : w (width), h (height)
     {
         jassert (w > 0 && h > 0);
-        this->state.dimensions = {w, h};
+        this->getState().dimensions = {w, h};
     }
 
     bool hasEditor() const final { return true; }
@@ -36,8 +39,8 @@ struct ProcessorWithEditor : ProcessorType
     juce::AudioProcessorEditor* createEditor() final
     {
         return new PluginEditor< ComponentType > (*this,
-                                                  this->state.dimensions.get(),
-                                                  this->state);
+                                                  this->getState().dimensions.get(),
+                                                  this->getState());
     }
 
 private:

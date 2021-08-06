@@ -1,8 +1,8 @@
 
 namespace bav::plugin
 {
-PresetBar::PresetBar (StateBase& stateToUse, const String& productName, const String& presetFileExtension, const String& companyName)
-    : state (stateToUse), presetManager (state, companyName, productName, presetFileExtension)
+PresetBar::PresetBar (StatePackage& stateToUse, const String& productName, const String& presetFileExtension, const String& companyName)
+    : presetManager (stateToUse.get(), companyName, productName, presetFileExtension), toggleButtons (stateToUse.getToggler())
 {
     gui::addAndMakeVisible (this, toggleButtons);
 }
