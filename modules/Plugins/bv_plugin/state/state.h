@@ -13,7 +13,6 @@ public:
     void addAllAsInternal();
 
     ParameterList& getParameters();
-    UndoManager&   getUndoManager();
 
 
     ToggleParam mainBypass {"Main bypass", false};
