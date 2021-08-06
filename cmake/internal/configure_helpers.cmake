@@ -19,7 +19,7 @@ endfunction()
 
 function (_bv_configure_juce_target)
 
-    set (options BROWSER PLUGIN_HOST)
+    set (options BROWSER PLUGIN_HOST CAMERA)
     set (oneValueArgs TARGET ASSET_FOLDER AAX_PAGETABLE_FILE)
     set (multiValueArgs "")
 
@@ -43,7 +43,8 @@ function (_bv_configure_juce_target)
             JUCE_MODAL_LOOPS_PERMITTED=0
             JUCE_JACK=1
             JUCE_DISABLE_AUDIO_MIXING_WITH_OTHER_APPS=1
-            JUCE_EXECUTE_APP_SUSPEND_ON_BACKGROUND_TASK=1)
+            JUCE_EXECUTE_APP_SUSPEND_ON_BACKGROUND_TASK=1
+            )
     
     _bv_configure_juce_browser (${BV_TARGETCONFIG_TARGET} ${BV_TARGETCONFIG_BROWSER})
 
@@ -67,6 +68,11 @@ function (_bv_configure_juce_target)
 
     if (${BV_TARGETCONFIG_PLUGIN_HOST})
         _bv_configure_plugin_hosting (${BV_TARGETCONFIG_TARGET})
+    endif()
+
+    if (${BV_TARGETCONFIG_CAMERA})
+        target_compile_definitions (${BV_TARGETCONFIG_TARGET} PUBLIC JUCE_USE_CAMERA=1)
+        target_link_libraries (${BV_TARGETCONFIG_TARGET} PUBLIC juce_video)
     endif()
 
     set (bv_targetname ${BV_TARGETCONFIG_TARGET} PARENT_SCOPE)
