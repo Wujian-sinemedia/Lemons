@@ -8,7 +8,8 @@ namespace bav::plugin
 class PresetBar : public juce::Component
 {
 public:
-    PresetBar (StatePackage& stateToUse,
+    PresetBar (StateBase&    stateToUse,
+               StateToggler& toggler,
                const String& productName,
                const String& presetFileExtension = ".xml",
                const String& companyName         = "BenViningMusicSoftware");

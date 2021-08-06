@@ -24,11 +24,17 @@ juce::Point< int > Dimensions::get() const
 StateBase::StateBase (String pluginName, ParameterList& paramsToUse)
     : SerializableData (pluginName + "_State"), dimensions (pluginName + "_Dimensions"), params (paramsToUse)
 {
+    params.setUndoManager (undo);
 }
 
 ParameterList& StateBase::getParameters()
 {
     return params;
+}
+
+UndoManager& StateBase::getUndoManager()
+{
+    return undo;
 }
 
 void StateBase::addTo (juce::AudioProcessor& processor)
@@ -47,11 +53,6 @@ void StateBase::serialize (TreeReflector& ref)
 {
     ref.add ("EditorDimensions", dimensions);
     ref.add ("Parameters", params);
-}
-
-void StateBase::setUndoManager (UndoManager& undo)
-{
-    params.setUndoManager (undo);
 }
 
 }  // namespace bav::plugin
