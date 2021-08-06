@@ -8,7 +8,7 @@ namespace bav
 struct DefaultWindowBase : public juce::DocumentWindow
 {
 public:
-    DefaultWindowBase (const String& appName);
+    DefaultWindowBase (const String& appName, const juce::Point< int >& initSize);
 
 protected:
     void init();
@@ -22,10 +22,11 @@ private:
 template < typename ComponentType >
 struct DefaultWindow : public DefaultWindowBase
 {
-    DefaultWindow (const String& appName)
-        : DefaultWindowBase (appName)
+    DefaultWindow (const String& appName, const juce::Point< int >& initSize)
+        : DefaultWindowBase (appName, initSize)
     {
-        setContentOwned (new ComponentType(), true);
+        setSize (initSize.x, initSize.y);
+        setContentOwned (new ComponentType(), false);
         init();
     }
 };

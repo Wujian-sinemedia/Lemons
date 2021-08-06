@@ -10,6 +10,11 @@ void fromTree (const ValueTree& tree, SerializableData& data)
     data.deserialize (tree);
 }
 
+void copy (SerializableData& dest, SerializableData& source)
+{
+    dest.deserialize (source.serialize());
+}
+
 void toBinary (SerializableData& data, File file)
 {
     juce::FileOutputStream stream (file);

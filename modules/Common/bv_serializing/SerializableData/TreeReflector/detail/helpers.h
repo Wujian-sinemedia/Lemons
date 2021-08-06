@@ -4,13 +4,13 @@ namespace bav::TreeReflectorHelpers
 {
 String propertyNameToContainerName (const String& propertyName);
 
-template < typename Type, std::enable_if_t< std::is_enum_v< Type > > = nullptr >
+template < typename Type >
 Type toEnum (const juce::var& var)
 {
     return static_cast< Type > (static_cast< std::underlying_type_t< Type > > ((int) var));
 }
 
-template < typename Type, std::enable_if_t< std::is_enum_v< Type > > = nullptr >
+template < typename Type >
 juce::var fromEnum (Type value)
 {
     return static_cast< int > (static_cast< std::underlying_type_t< Type > > (value));

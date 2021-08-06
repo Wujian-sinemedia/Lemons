@@ -1,10 +1,11 @@
 
 namespace bav
 {
-DefaultWindowBase::DefaultWindowBase (const String& appName)
+DefaultWindowBase::DefaultWindowBase (const String& appName, const juce::Point< int >& initSize)
     : DocumentWindow (appName, getBackgroundColour(), allButtons)
 {
     setUsingNativeTitleBar (true);
+    setSize (initSize.x, initSize.y);
 }
 
 juce::Colour DefaultWindowBase::getBackgroundColour()

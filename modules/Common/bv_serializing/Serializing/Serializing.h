@@ -10,6 +10,8 @@ namespace bav::serializing
 ValueTree toTree (SerializableData& data);
 void      fromTree (const ValueTree& tree, SerializableData& data);
 
+void copy (SerializableData& dest, SerializableData& source);
+
 void toBinary (SerializableData& data, File file);
 void toBinary (SerializableData& data, juce::MemoryBlock& dest);
 
