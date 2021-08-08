@@ -2,19 +2,105 @@
 
 namespace bav::plugin
 {
+template < typename OwnedObjectType >
+class RealtimeStateObject< OwnedObjectType >::ThreadState
+{
+public:
+    template < typename... Args >
+    ThreadState (Args&&... args)
+    {
+        objectCopy = std::make_unique< OwnedObjectType > (std::forward< Args > (args)...);
+    }
+
+    OwnedObjectType& acquire()
+    {
+        casLoop.hot_acquire();
+    }
+
+    void release()
+    {
+        casLoop.hot_release();
+    }
+
+    void copyFrom (OwnedObjectType& source)
+    {
+        copyObject (source, *objectCopy);
+    }
+
+private:
+    std::unique_ptr< OwnedObjectType > objectCopy;
+
+    CASLoop< OwnedObjectType > casLoop {*objectCopy};
+};
+
+
 /*--- realtime write ---*/
 
 template < typename OwnedObjectType >
 OwnedObjectType& RealtimeStateObject< OwnedObjectType >::realtime_beginWrite()
 {
-    return manager.realtimeAcquire();
+    return realtime.acquire();
 }
 
 template < typename OwnedObjectType >
 void RealtimeStateObject< OwnedObjectType >::realtime_endWrite()
 {
-    manager.realtimeRelease();
+    realtime.release();
+    nonrealtime.copyFrom (realtime.acquire());
+    realtime.release();
 }
+
+
+/*--- non realtime write ---*/
+
+template < typename OwnedObjectType >
+OwnedObjectType& RealtimeStateObject< OwnedObjectType >::nonRealtime_beginWrite()
+{
+    return nonrealtime.acquire();
+}
+
+template < typename OwnedObjectType >
+void RealtimeStateObject< OwnedObjectType >::nonRealtime_endWrite()
+{
+    nonrealtime.release();
+    realtime.copyFrom (nonrealtime.acquire());
+    nonrealtime.release();
+}
+
+
+/*--- realtime read ---*/
+
+template < typename OwnedObjectType >
+const OwnedObjectType& RealtimeStateObject< OwnedObjectType >::realtime_beginRead()
+{
+    return realtime.acquire();
+}
+
+template < typename OwnedObjectType >
+void RealtimeStateObject< OwnedObjectType >::realtime_endRead()
+{
+    realtime.release();
+}
+
+
+/*--- non realtime read ---*/
+
+template < typename OwnedObjectType >
+const OwnedObjectType& RealtimeStateObject< OwnedObjectType >::nonrealtime_beginRead()
+{
+    return nonrealtime.acquire();
+}
+
+template < typename OwnedObjectType >
+void RealtimeStateObject< OwnedObjectType >::nonrealtime_endRead()
+{
+    nonrealtime.release();
+}
+
+
+/*--------------------------------------------------------------------------
+    RAII OBJECTS
+ --------------------------------------------------------------------------*/
 
 template < typename OwnedObjectType >
 struct RealtimeStateObject< OwnedObjectType >::RealtimeScopedWrite
@@ -45,19 +131,6 @@ typename RealtimeStateObject< OwnedObjectType >::RealtimeScopedWrite RealtimeSta
     return {*this};
 }
 
-/*--- realtime read ---*/
-
-template < typename OwnedObjectType >
-const OwnedObjectType& RealtimeStateObject< OwnedObjectType >::realtime_beginRead()
-{
-    return manager.realtimeAcquire();
-}
-
-template < typename OwnedObjectType >
-void RealtimeStateObject< OwnedObjectType >::realtime_endRead()
-{
-    manager.realtimeRelease();
-}
 
 template < typename OwnedObjectType >
 struct RealtimeStateObject< OwnedObjectType >::RealtimeScopedRead
@@ -89,20 +162,6 @@ typename RealtimeStateObject< OwnedObjectType >::RealtimeScopedRead RealtimeStat
 }
 
 
-/*--- non realtime write ---*/
-
-template < typename OwnedObjectType >
-OwnedObjectType& RealtimeStateObject< OwnedObjectType >::nonRealtime_beginWrite()
-{
-    return manager.nonrealtimeAcquire();
-}
-
-template < typename OwnedObjectType >
-void RealtimeStateObject< OwnedObjectType >::nonRealtime_endWrite()
-{
-    manager.nonrealtimeRelease();
-}
-
 template < typename OwnedObjectType >
 struct RealtimeStateObject< OwnedObjectType >::NonrealtimeScopedWrite
 {
@@ -132,20 +191,6 @@ typename RealtimeStateObject< OwnedObjectType >::NonrealtimeScopedWrite Realtime
     return {*this};
 }
 
-
-/*--- non realtime read ---*/
-
-template < typename OwnedObjectType >
-const OwnedObjectType& RealtimeStateObject< OwnedObjectType >::nonrealtime_beginRead()
-{
-    return manager.nonrealtimeAcquire();
-}
-
-template < typename OwnedObjectType >
-void RealtimeStateObject< OwnedObjectType >::nonrealtime_endRead()
-{
-    manager.nonrealtimeRelease();
-}
 
 template < typename OwnedObjectType >
 struct RealtimeStateObject< OwnedObjectType >::NonrealtimeScopedRead

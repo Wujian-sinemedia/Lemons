@@ -39,3 +39,20 @@ void fromJSON (const String& jsonText, SerializableData& dest);
 void fromJSON (const File& file, SerializableData& dest);
 
 }  // namespace bav::serializing
+
+namespace bav
+{
+template < typename ObjectType >
+void copyObject (ObjectType& source, ObjectType& dest)
+{
+    if constexpr (std::is_base_of_v< SerializableData, ObjectType >)
+    {
+        serializing::copy (dest, source);
+    }
+    else
+    {
+        dest = source;
+    }
+}
+
+}  // namespace bav

@@ -5,87 +5,37 @@ namespace bav
 template < typename OwnedObjectType >
 struct CASLoop
 {
-    CASLoop (OwnedObjectType& object)
-        : sharedObject (object)
+    CASLoop (OwnedObjectType& objectToReference)
+        : pointer (&objectToReference)
     {
     }
 
     OwnedObjectType& hot_acquire()
     {
         localPntr = pointer.exchange (nullptr);
+        jassert (localPntr != nullptr);
         return *localPntr;
     }
 
     void hot_release()
     {
+        jassert (localPntr != nullptr);
         pointer.store (localPntr);
+        localPntr = nullptr;
     }
 
     void cool_swap (OwnedObjectType& newObject)
     {
-        for (auto* expected = &sharedObject;
+        for (auto* expected = localPntr;
              ! pointer.compare_exchange_strong (expected, &newObject);
-             expected = &sharedObject)
+             expected = localPntr)
             ;
-
-        sharedObject = newObject;
     }
 
-    OwnedObjectType& sharedObject;
-
-    std::atomic< OwnedObjectType* > pointer {&sharedObject};
-
 private:
+    std::atomic< OwnedObjectType* > pointer;
+
     OwnedObjectType* localPntr {nullptr};
-};
-
-
-template < typename OwnedObjectType >
-class CASManager
-{
-public:
-    CASManager (OwnedObjectType& object)
-        : sharedObject (object)
-    {
-    }
-
-    OwnedObjectType& realtimeAcquire()
-    {
-        return rtCAS.hot_acquire();
-    }
-
-    void realtimeRelease()
-    {
-        rtCAS.hot_release();
-
-        // not safe here...
-        nrtCAS.cool_swap (realtimeCopy);
-        sharedObject = realtimeCopy;
-    }
-
-    OwnedObjectType& nonrealtimeAcquire()
-    {
-        // protect access to realtime copy...
-        nrtCAS.cool_swap (realtimeCopy);
-
-        return nrtCAS.hot_acquire();
-    }
-
-    void nonrealtimeRelease()
-    {
-        nrtCAS.hot_release();
-        rtCAS.cool_swap (nonrealtimeCopy);
-        sharedObject = nonrealtimeCopy;
-    }
-
-private:
-    OwnedObjectType& sharedObject;
-
-    OwnedObjectType realtimeCopy {sharedObject};
-    OwnedObjectType nonrealtimeCopy {sharedObject};
-
-    CASLoop< OwnedObjectType > rtCAS {realtimeCopy};
-    CASLoop< OwnedObjectType > nrtCAS {nonrealtimeCopy};
 };
 
 }  // namespace bav

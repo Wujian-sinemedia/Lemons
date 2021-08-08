@@ -8,6 +8,14 @@ template < typename OwnedObjectType >
 class RealtimeStateObject
 {
 public:
+    template < typename... Args >
+    RealtimeStateObject (Args&&... args)
+        : realtime (std::forward< Args > (args)...), nonrealtime (std::forward< Args > (args)...)
+    {
+    }
+
+    virtual ~RealtimeStateObject() = default;
+
     struct RealtimeScopedWrite;
     struct RealtimeScopedRead;
     struct NonrealtimeScopedWrite;
@@ -19,6 +27,8 @@ public:
     NonrealtimeScopedRead  nonrealtimeRead();
 
 private:
+    class ThreadState;
+
     friend struct RealtimeScopedWrite;
     friend struct RealtimeScopedRead;
     friend struct NonrealtimeScopedWrite;
@@ -36,9 +46,7 @@ private:
     const OwnedObjectType& nonrealtime_beginRead();
     void                   nonrealtime_endRead();
 
-    OwnedObjectType object;
-
-    CASManager< OwnedObjectType > manager {object};
+    ThreadState realtime, nonrealtime;
 };
 
 }  // namespace bav::plugin
