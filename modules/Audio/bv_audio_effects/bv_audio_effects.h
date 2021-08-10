@@ -34,5 +34,7 @@ END_JUCE_MODULE_DECLARATION
 
 #include "time/Delay.h"
 
+#include "AudioEffectEngine.h"
+
 #include "EQ/Filter.h"
 #include "EQ/EQ.h"

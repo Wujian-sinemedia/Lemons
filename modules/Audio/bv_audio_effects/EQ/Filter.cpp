@@ -121,4 +121,8 @@ float Filter< SampleType >::getGain() const
 template class Filter< float >;
 template class Filter< double >;
 
+
+template class FilterEngine< float >;
+template class FilterEngine< double >;
+
 }  // namespace bav::dsp::FX

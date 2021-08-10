@@ -6,14 +6,14 @@ void EQ< SampleType >::process (AudioBuffer< SampleType >& audio)
 {
     jassert (getNumBands() > 0);
 
-    for (auto* filter : filters)
+    for (auto* filter : bands)
         filter->process (audio);
 }
 
 template < typename SampleType >
 void EQ< SampleType >::prepare (double samplerate, int blocksize)
 {
-    for (auto* filter : filters)
+    for (auto* filter : bands)
         filter->prepare (samplerate, blocksize);
 
     lastSamplerate = samplerate;
@@ -23,29 +23,33 @@ void EQ< SampleType >::prepare (double samplerate, int blocksize)
 template < typename SampleType >
 void EQ< SampleType >::addBand (Band* newFilter)
 {
-    filters.add (newFilter);
+    bands.add (newFilter);
     newFilter->prepare (lastSamplerate, lastBlocksize);
 }
 
 template < typename SampleType >
 int EQ< SampleType >::getNumBands() const
 {
-    return filters.size();
+    return bands.size();
 }
 
 template < typename SampleType >
 Filter< SampleType >* EQ< SampleType >::getBand (int index)
 {
-    if (index > filters.size()) return nullptr;
-    return filters[index];
+    if (index > bands.size()) return nullptr;
+    return &bands[index]->getFilter();
 }
 
 template < typename SampleType >
 Filter< SampleType >* EQ< SampleType >::getBandOfType (FilterType type)
 {
-    for (auto* filter : filters)
-        if (filter->getFilterType() == type)
-            return filter;
+    for (auto* band : bands)
+    {
+        auto& filter = band->getFilter();
+
+        if (filter.getFilterType() == type)
+            return &filter;
+    }
 
     return nullptr;
 }

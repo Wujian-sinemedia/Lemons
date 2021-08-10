@@ -49,4 +49,16 @@ private:
     double sampleRate {44100.};
 };
 
+
+template < typename SampleType >
+struct FilterEngine : EffectEngine< Filter, SampleType >
+{
+    using EffectEngine< Filter, SampleType >::EffectEngine;
+
+    Filter< SampleType >& getFilter()
+    {
+        return (*this) ();
+    }
+};
+
 }  // namespace bav::dsp::FX
