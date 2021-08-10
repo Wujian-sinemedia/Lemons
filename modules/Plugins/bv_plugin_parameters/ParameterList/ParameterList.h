@@ -39,6 +39,8 @@ public:
     void setLastMovedMidiControllerNumberParameter (IntParam& param);
     void setLastMovedMidiControllerValueParameter (IntParam& param);
 
+    ModulationManager mod;
+
 private:
     void serialize (TreeReflector& ref) final;
 

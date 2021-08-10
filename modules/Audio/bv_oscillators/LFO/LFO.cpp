@@ -1,20 +1,15 @@
 
 namespace bav::dsp
 {
-template < typename SampleType >
-void LFO< SampleType >::prepared (int blocksize)
+void LFO::prepared (int blocksize)
 {
     storage.setSize (1, blocksize, true, true, true);
 }
 
-template < typename SampleType >
-void LFO< SampleType >::process (int numSamples)
+void LFO::process (int numSamples)
 {
-    AudioBuffer< SampleType > alias {storage.getArrayOfWritePointers(), 1, numSamples};
-    osc::ChoosableOscillator< SampleType >::process (alias);
+    AudioBuffer< float > alias {storage.getArrayOfWritePointers(), 1, numSamples};
+    osc::ChoosableOscillator< float >::process (alias);
 }
-
-template class LFO< float >;
-template class LFO< double >;
 
 }  // namespace bav::dsp

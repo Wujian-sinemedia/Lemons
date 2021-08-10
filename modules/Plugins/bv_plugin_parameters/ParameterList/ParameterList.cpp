@@ -83,6 +83,7 @@ void ParameterList::addAllParametersAsInternal()
 void ParameterList::serialize (TreeReflector& ref)
 {
     ref.add ("Parameter", params);
+    ref.add ("Modulations", mod);
 }
 
 void ParameterList::refreshAllDefaults()

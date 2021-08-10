@@ -3,8 +3,7 @@
 
 namespace bav::dsp
 {
-template < typename SampleType >
-class LFO : public osc::ChoosableOscillator< SampleType >
+class LFO : public osc::ChoosableOscillator< float >
 {
 public:
     void process (int numSamples);
@@ -12,7 +11,7 @@ public:
 private:
     void prepared (int blocksize) final;
 
-    AudioBuffer< SampleType > storage;
+    AudioBuffer< float > storage;
 };
 
 }  // namespace bav::dsp
