@@ -26,30 +26,15 @@ constexpr bool isContainer (std::array< ElementType, size >&)
 }
 
 
-template < typename ElementType >
-struct StdVectorInterface : ContainerInterface
-{
-    using VectorType = std::vector< ElementType >;
+#define BV_TRF_DECLARE_STL_INTERFACE(STLClass, InterfaceClassName)    \
+    BV_TRF_DECLARE_CONTAINER_INTERFACE (STLClass, InterfaceClassName, \
+                                        container.resize (static_cast< typename STLClass< ElementType >::size_type > (newSize)))
 
-    StdVectorInterface (VectorType& vecToUse)
-        : vector (vecToUse)
-    {
-    }
 
-private:
-    void resize (int newSize) final
-    {
-        vector.resize (static_cast< typename VectorType::size_type > (newSize));
-    }
+BV_TRF_DECLARE_STL_INTERFACE (std::vector, StdVectorInterface)
+BV_TRF_DECLARE_STL_INTERFACE (std::list, StdListInterface)
 
-    VectorType& vector;
-};
-
-template < typename ElementType >
-std::unique_ptr< ContainerInterface > getInterfaceForContainer (std::vector< ElementType >& container)
-{
-    return std::make_unique< StdVectorInterface< ElementType > > (container);
-}
+#undef BV_TRF_DECLARE_STL_INTERFACE
 
 template < typename ElementType >
 constexpr bool isContainer (std::vector< ElementType >&)
