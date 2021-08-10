@@ -1,9 +1,9 @@
 #pragma once
 
+#include "containers/ContainerInterface.h"
+
 namespace bav::TreeReflectorHelpers
 {
-String propertyNameToContainerName (const String& propertyName);
-
 template < typename Type >
 Type toEnum (const juce::var& var)
 {
@@ -16,37 +16,23 @@ juce::var fromEnum (Type value)
     return static_cast< int > (static_cast< std::underlying_type_t< Type > > (value));
 }
 
+/*-------------------------------- CONTAINERS -----------------------------*/
+
+String propertyNameToContainerName (const String& propertyName);
 
 String makePropertyNameForElement (const String& propertyName, int& index);
 
 int getNumElementsOfType (const String& propertyName, const ValueTree& tree);
 
-template < typename ElementType >
-void resizeContainer (std::vector< ElementType >& container, int newSize)
-{
-    container.resize (static_cast< typename std::vector< ElementType >::size_type > (newSize));
-}
-
-template < typename ElementType >
-void resizeContainer (juce::OwnedArray< ElementType >& container, int newSize)
-{
-    container.clear();
-
-    for (auto i = 0; i < newSize; ++i)
-        container.add (new ElementType());
-}
-
-// This catches all container types w/o resizing specializations...
-template < typename ContainerType >
-void resizeContainer (ContainerType&, int)
-{
-}
-
 template < class ContainerType >
 void addContainer (TreeReflector& ref, ContainerType& container, const String& propertyName)
 {
     if (ref.isLoading())
-        resizeContainer (container, getNumElementsOfType (propertyName, ref.getRawDataTree()));
+    {
+        auto interface = getInterfaceForContainer (container);
+
+        interface->resize (getNumElementsOfType (propertyName, ref.getRawDataTree()));
+    }
 
     int index = 0;
 

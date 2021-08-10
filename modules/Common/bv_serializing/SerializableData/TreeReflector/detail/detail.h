@@ -98,7 +98,7 @@ void TreeReflector::saveContainer (const String& propertyName, ContainerType& co
 
     TreeReflectorHelpers::addContainer (ref, container, propertyName);
 
-    tree.appendChild (ref.getRawDataTree(), nullptr);
+    getRawDataTree().appendChild (ref.getRawDataTree(), nullptr);
 }
 
 }  // namespace bav
