@@ -19,6 +19,12 @@ std::unique_ptr< ContainerInterface > getInterfaceForContainer (std::array< Elem
     return std::make_unique< StdArrayInterface< ElementType, size > > (container);
 }
 
+template < typename ElementType, size_t size >
+constexpr bool isContainer (std::array< ElementType, size >&)
+{
+    return true;
+}
+
 
 template < typename ElementType >
 struct StdVectorInterface : ContainerInterface
@@ -43,6 +49,12 @@ template < typename ElementType >
 std::unique_ptr< ContainerInterface > getInterfaceForContainer (std::vector< ElementType >& container)
 {
     return std::make_unique< StdVectorInterface< ElementType > > (container);
+}
+
+template < typename ElementType >
+constexpr bool isContainer (std::vector< ElementType >&)
+{
+    return true;
 }
 
 }  // namespace bav::TreeReflectorHelpers

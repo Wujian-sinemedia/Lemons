@@ -19,24 +19,6 @@ void TreeReflector::saveDataChild (const String& propertyName, SerializableData&
     tree.appendChild (data.saveToTree (propertyName), nullptr);
 }
 
-void TreeReflector::loadValueTree (const String& propertyName, ValueTree& data) const
-{
-    const auto child = tree.getChildWithName (propertyName);
-
-    if (! child.isValid()) return;
-
-    data.copyPropertiesAndChildrenFrom (child, nullptr);
-}
-
-void TreeReflector::saveValueTree (const String& propertyName, ValueTree& data)
-{
-    ValueTree child {propertyName};
-
-    child.copyPropertiesAndChildrenFrom (data, nullptr);
-
-    tree.appendChild (child, nullptr);
-}
-
 ValueTree& TreeReflector::getRawDataTree() { return tree; }
 
 bool TreeLoader::isLoading() const { return true; }

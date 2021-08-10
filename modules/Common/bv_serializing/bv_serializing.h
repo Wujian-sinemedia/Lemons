@@ -31,16 +31,6 @@ Type fromVar (juce::var var)
     return {var};
 }
 
-
-struct SerializableData;
-
-
-template < typename Type >
-constexpr bool isSerializable()
-{
-    return std::is_base_of< SerializableData, Type >() && ! std::is_const< Type >();
-}
-
 }  // namespace bav
 
 

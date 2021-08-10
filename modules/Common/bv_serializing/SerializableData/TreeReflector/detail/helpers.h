@@ -5,6 +5,14 @@
 namespace bav::TreeReflectorHelpers
 {
 template < typename Type >
+constexpr bool isSerializable()
+{
+    return std::is_base_of< SerializableData, Type >() && ! std::is_const< Type >();
+}
+
+/*--------------------------------  OBJECTS -------------------------------*/
+
+template < typename Type >
 Type toEnum (const juce::var& var)
 {
     return static_cast< Type > (static_cast< std::underlying_type_t< Type > > ((int) var));
@@ -15,6 +23,38 @@ juce::var fromEnum (Type value)
 {
     return static_cast< int > (static_cast< std::underlying_type_t< Type > > (value));
 }
+
+template < typename Type >
+void loadObject (const ValueTree& tree, const String& propertyName, Type& object)
+{
+    if (! tree.hasProperty (propertyName))
+        return;
+
+    const juce::var& var = tree.getProperty (propertyName);
+
+    if constexpr (std::is_enum< Type >())
+        object = toEnum< Type > (var);
+    else
+        object = fromVar< Type > (var);
+}
+
+template < typename Type >
+void saveObject (ValueTree& tree, const String& propertyName, Type& object)
+{
+    juce::var var;
+
+    if constexpr (std::is_enum< Type >())
+        var = TreeReflectorHelpers::fromEnum (object);
+    else
+        var = toVar (object);
+
+    tree.setProperty (propertyName, var, nullptr);
+}
+
+/*------------------------------- VALUE TREES -----------------------------*/
+
+void loadValueTree (const ValueTree& tree, const String& propertyName, ValueTree& data);
+void saveValueTree (ValueTree& tree, const String& propertyName, ValueTree& data);
 
 /*-------------------------------- CONTAINERS -----------------------------*/
 
