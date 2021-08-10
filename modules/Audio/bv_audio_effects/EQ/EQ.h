@@ -7,8 +7,7 @@ template < typename SampleType >
 class EQ : public AudioEffect< SampleType >
 {
 public:
-    using Band   = FilterEngine< SampleType >;
-    using Filter = Filter< SampleType >;
+    using Band = FilterEngine< SampleType >;
 
     void process (AudioBuffer< SampleType >& audio) final;
 
@@ -24,8 +23,8 @@ public:
 
     int getNumBands() const;
 
-    Filter* getBand (int index);
-    Filter* getBandOfType (FilterType type);  // returns the first filter found with the given type, else nullptr
+    Filter< SampleType >* getBand (int index);
+    Filter< SampleType >* getBandOfType (FilterType type);  // returns the first filter found with the given type, else nullptr
 
 private:
     OwnedArray< Band > bands;
