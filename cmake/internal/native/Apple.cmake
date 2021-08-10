@@ -37,7 +37,9 @@ function (_bv_set_default_macos_options target)
 
     #
 
-    set_target_properties (${target} PROPERTIES JUCE_BUNDLE_ID "com.bv.${target}")
+    set_target_properties (${target} PROPERTIES 
+                            JUCE_BUNDLE_ID "com.bv.${target}" 
+                            XCODE_ATTRIBUTE_ENABLE_HARDENED_RUNTIME YES)
 
     if (${CMAKE_SYSTEM_NAME} STREQUAL "iOS")
         set_target_properties (${target} PROPERTIES

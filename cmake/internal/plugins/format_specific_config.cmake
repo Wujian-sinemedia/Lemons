@@ -23,6 +23,20 @@ function (_bv_configure_juce_lv2 origTarget)
         return()
     endif()
 
-    set_target_properties (${LV2target} PROPERTIES JUCE_LV2_URI https://github.com/benthevining/${CMAKE_PROJECT_NAME})
+    get_target_property (Company ${LV2target} JUCE_COMPANY_NAME)
+
+    if ("${Company}" STREQUAL "Company-NOTFOUND")
+        message (WARNING "Unspecified company for LV2 target!")
+        set (Company "YourCompany")
+    endif()
+
+    get_target_property (Product ${LV2target} JUCE_PRODUCT_NAME)
+
+    if ("${Product}" STREQUAL "Product-NOTFOUND")
+        message (WARNING "Unspecified product name for LV2 target!")
+        set (Product "YourProduct")
+    endif()
+
+    set_target_properties (${LV2target} PROPERTIES JUCE_LV2_URI "${Company}.${Product}")
 
 endfunction()
