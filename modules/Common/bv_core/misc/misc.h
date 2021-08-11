@@ -6,6 +6,16 @@ namespace bav
 {
 bool thisIsTheMessageThread() noexcept;
 
+template < typename T >
+inline void atomic_swap (std::atomic< T >& atomic, const T& newValue)
+{
+    const auto before = atomic.load();
+
+    while (! atomic.compare_exchange_weak (before, newValue))
+    {
+    }
+}
+
 /* Returns a unicode sharp symbol.
  */
 const juce::juce_wchar getSharpSymbol() noexcept;

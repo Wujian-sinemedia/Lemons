@@ -34,18 +34,6 @@ private:
     friend struct NonrealtimeScopedWrite;
     friend struct NonrealtimeScopedRead;
 
-    OwnedObjectType& realtime_beginWrite();
-    void             realtime_endWrite();
-
-    const OwnedObjectType& realtime_beginRead();
-    void                   realtime_endRead();
-
-    OwnedObjectType& nonRealtime_beginWrite();
-    void             nonRealtime_endWrite();
-
-    const OwnedObjectType& nonrealtime_beginRead();
-    void                   nonrealtime_endRead();
-
     ThreadState realtime, nonrealtime;
 };
 

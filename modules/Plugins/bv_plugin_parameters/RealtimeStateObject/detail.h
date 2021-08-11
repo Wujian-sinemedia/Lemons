@@ -34,91 +34,32 @@ private:
 };
 
 
-/*--- realtime write ---*/
-
-template < typename OwnedObjectType >
-OwnedObjectType& RealtimeStateObject< OwnedObjectType >::realtime_beginWrite()
-{
-    return realtime.acquire();
-}
-
-template < typename OwnedObjectType >
-void RealtimeStateObject< OwnedObjectType >::realtime_endWrite()
-{
-    realtime.release();
-    nonrealtime.copyFrom (realtime.acquire());
-    realtime.release();
-}
-
-
-/*--- non realtime write ---*/
-
-template < typename OwnedObjectType >
-OwnedObjectType& RealtimeStateObject< OwnedObjectType >::nonRealtime_beginWrite()
-{
-    return nonrealtime.acquire();
-}
-
-template < typename OwnedObjectType >
-void RealtimeStateObject< OwnedObjectType >::nonRealtime_endWrite()
-{
-    nonrealtime.release();
-    realtime.copyFrom (nonrealtime.acquire());
-    nonrealtime.release();
-}
-
-
-/*--- realtime read ---*/
-
-template < typename OwnedObjectType >
-const OwnedObjectType& RealtimeStateObject< OwnedObjectType >::realtime_beginRead()
-{
-    return realtime.acquire();
-}
-
-template < typename OwnedObjectType >
-void RealtimeStateObject< OwnedObjectType >::realtime_endRead()
-{
-    realtime.release();
-}
-
-
-/*--- non realtime read ---*/
-
-template < typename OwnedObjectType >
-const OwnedObjectType& RealtimeStateObject< OwnedObjectType >::nonrealtime_beginRead()
-{
-    return nonrealtime.acquire();
-}
-
-template < typename OwnedObjectType >
-void RealtimeStateObject< OwnedObjectType >::nonrealtime_endRead()
-{
-    nonrealtime.release();
-}
-
-
 /*--------------------------------------------------------------------------
     RAII OBJECTS
  --------------------------------------------------------------------------*/
+
+#define BV_RTSO_IMPLEMENT_RAII_HELPER(Class) \
+    Class& get() { return object; }          \
+    Class& operator()() { return object; }   \
+    Class& operator*() { return object; }    \
+    Class* operator->() { return &object; }
 
 template < typename OwnedObjectType >
 struct RealtimeStateObject< OwnedObjectType >::RealtimeScopedWrite
 {
     RealtimeScopedWrite (RealtimeStateObject& state)
-        : owner (state), object (owner.realtime_beginWrite())
+        : owner (state), object (owner.realtime.acquire())
     {
     }
 
     ~RealtimeScopedWrite()
     {
-        owner.realtime_endWrite();
+        owner.realtime.release();
+        owner.nonrealtime.copyFrom (owner.realtime.acquire());
+        owner.realtime.release();
     }
 
-    OwnedObjectType& get() { return object; }
-    OwnedObjectType& operator()() { return object; }
-    OwnedObjectType& operator*() { return object; }
-    OwnedObjectType* operator->() { return &object; }
+    BV_RTSO_IMPLEMENT_RAII_HELPER (OwnedObjectType)
 
 private:
     RealtimeStateObject& owner;
@@ -136,19 +77,16 @@ template < typename OwnedObjectType >
 struct RealtimeStateObject< OwnedObjectType >::RealtimeScopedRead
 {
     RealtimeScopedRead (RealtimeStateObject& state)
-        : owner (state), object (owner.realtime_beginRead())
+        : owner (state), object (owner.realtime.acquire())
     {
     }
 
     ~RealtimeScopedRead()
     {
-        owner.realtime_endRead();
+        owner.realtime.release();
     }
 
-    const OwnedObjectType& get() const { return object; }
-    const OwnedObjectType& operator()() const { return object; }
-    const OwnedObjectType& operator*() const { return object; }
-    const OwnedObjectType* operator->() const { return &object; }
+    BV_RTSO_IMPLEMENT_RAII_HELPER (const OwnedObjectType)
 
 private:
     RealtimeStateObject&   owner;
@@ -166,19 +104,18 @@ template < typename OwnedObjectType >
 struct RealtimeStateObject< OwnedObjectType >::NonrealtimeScopedWrite
 {
     NonrealtimeScopedWrite (RealtimeStateObject& state)
-        : owner (state), object (owner.nonRealtime_beginWrite())
+        : owner (state), object (owner.nonrealtime.acquire())
     {
     }
 
     ~NonrealtimeScopedWrite()
     {
-        owner.nonRealtime_endWrite();
+        owner.nonrealtime.release();
+        owner.realtime.copyFrom (owner.nonrealtime.acquire());
+        owner.nonrealtime.release();
     }
 
-    OwnedObjectType& get() { return object; }
-    OwnedObjectType& operator()() { return object; }
-    OwnedObjectType& operator*() { return object; }
-    OwnedObjectType* operator->() { return &object; }
+    BV_RTSO_IMPLEMENT_RAII_HELPER (OwnedObjectType)
 
 private:
     RealtimeStateObject& owner;
@@ -196,19 +133,16 @@ template < typename OwnedObjectType >
 struct RealtimeStateObject< OwnedObjectType >::NonrealtimeScopedRead
 {
     NonrealtimeScopedRead (RealtimeStateObject& state)
-        : owner (state), object (owner.nonrealtime_beginRead())
+        : owner (state), object (owner.nonrealtime.acquire())
     {
     }
 
     ~NonrealtimeScopedRead()
     {
-        owner.nonrealtime_endRead();
+        owner.nonrealtime.release();
     }
 
-    const OwnedObjectType& get() const { return object; }
-    const OwnedObjectType& operator()() const { return object; }
-    const OwnedObjectType& operator*() const { return object; }
-    const OwnedObjectType* operator->() const { return &object; }
+    BV_RTSO_IMPLEMENT_RAII_HELPER (const OwnedObjectType)
 
 private:
     RealtimeStateObject&   owner;
@@ -222,3 +156,5 @@ typename RealtimeStateObject< OwnedObjectType >::NonrealtimeScopedRead RealtimeS
 }
 
 }  // namespace bav::plugin
+
+#undef BV_RTSO_IMPLEMENT_RAII_HELPER
