@@ -38,6 +38,8 @@ Type fromVar (juce::var var)
 
 #include "Serializing/Serializing.h"
 
+#include "version/Version.h"
+
 #include "undo/UndoManager.h"
 
 #include "DataSynchronizer/DataSynchronizer.h"

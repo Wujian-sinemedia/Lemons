@@ -14,3 +14,5 @@
 #include "undo/UndoManager.cpp"
 
 #include "DataSynchronizer/DataSynchronizer.cpp"
+
+#include "version/Version.cpp"

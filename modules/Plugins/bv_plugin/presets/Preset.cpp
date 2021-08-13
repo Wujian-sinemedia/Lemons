@@ -8,6 +8,7 @@ void Preset::serialize (TreeReflector& ref)
     ref.add ("Category", category);
     ref.add ("Author", author);
     ref.add ("Description", description);
+    ref.add ("Version", version);
 }
 
 }  // namespace bav::plugin

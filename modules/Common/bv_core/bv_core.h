@@ -76,7 +76,6 @@ using OwnedArray = juce::OwnedArray< T >;
 #include "misc/misc.h"
 #include "misc/ValueSmoother.h"
 #include "misc/TypeTraits.h"
-#include "misc/Version.h"
 
 #include "events/Broadcaster.h"
 #include "events/Listener.h"

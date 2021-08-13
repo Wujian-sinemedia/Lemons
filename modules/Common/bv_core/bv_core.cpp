@@ -6,7 +6,6 @@
 
 #include "misc/misc.cpp"
 #include "misc/ValueSmoother.cpp"
-#include "misc/Version.cpp"
 
 #include "files/FileUtilities.cpp"
 #include "binary_data/BinaryDataHelpers.cpp"

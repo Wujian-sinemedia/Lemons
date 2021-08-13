@@ -9,6 +9,8 @@ struct Preset : SerializableData
     String name, category, author, description;
 
     ValueTree state {name};
+
+    Version version;
 };
 
 }  // namespace bav::plugin
