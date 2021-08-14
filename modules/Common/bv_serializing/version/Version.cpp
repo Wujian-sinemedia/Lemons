@@ -39,6 +39,45 @@ String Version::getAsString() const noexcept
     return String (major) + "." + String (minor) + "." + String (patch);
 }
 
+void Version::bumpMajor() noexcept
+{
+    ++major;
+    minor = 0;
+    patch = 0;
+}
+
+void Version::bumpMinor() noexcept
+{
+    ++minor;
+    patch = 0;
+}
+
+void Version::bumpPatch() noexcept
+{
+    ++patch;
+}
+
+Version Version::withMajorBump() const
+{
+    return {major + 1,
+            0,
+            0};
+}
+
+Version Version::withMinorBump() const
+{
+    return {major,
+            minor + 1,
+            0};
+}
+
+Version Version::withPatchBump() const
+{
+    return {major,
+            minor,
+            patch + 1};
+}
+
 void Version::serialize (TreeReflector& ref)
 {
     ref.add ("Major", major);

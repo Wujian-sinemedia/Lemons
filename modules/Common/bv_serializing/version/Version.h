@@ -15,6 +15,14 @@ struct Version : SerializableData
 
     String getAsString() const noexcept;
 
+    void bumpMajor() noexcept;
+    void bumpMinor() noexcept;
+    void bumpPatch() noexcept;
+
+    Version withMajorBump() const;
+    Version withMinorBump() const;
+    Version withPatchBump() const;
+
 private:
     void serialize (TreeReflector& ref) final;
 
