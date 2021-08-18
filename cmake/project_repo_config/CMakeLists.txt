@@ -13,7 +13,6 @@ function (bv_update_git_repo repodir)
 	bv_update_repo_gitignore        (${repodir})
 	# bv_configure_precommit_git_hook (${repodir})
 	bv_update_github_scripts        (${repodir} TRUE)
-	bv_update_repo_git_submodules   (${repodir})
 endfunction()
 
 #
