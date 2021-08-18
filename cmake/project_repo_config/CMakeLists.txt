@@ -10,7 +10,6 @@ include (github_scripts/GitHub_scripts.cmake)
 
 function (bv_update_git_repo repodir)
 	bv_update_repo_clangformat      (${repodir})
-	bv_update_repo_gitignore        (${repodir})
 	# bv_configure_precommit_git_hook (${repodir})
 	bv_update_github_scripts        (${repodir} TRUE)
 endfunction()
