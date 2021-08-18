@@ -1,6 +1,5 @@
 set (BV_REPO_CONFIG_FILES_DIR "${CMAKE_CURRENT_LIST_DIR}/other" CACHE INTERNAL "Path to the project repo config files")
 
-include (git.cmake)
 include (clang_format.cmake)
 
 include (git_hooks/GitHooks.cmake)
