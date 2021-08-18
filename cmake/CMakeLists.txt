@@ -20,7 +20,6 @@ endif()
 
 add_subdirectory (public)
 add_subdirectory (internal)
-add_subdirectory (project_repo_config)
 
 set (BV_BRAND_FILE "${CMAKE_CURRENT_LIST_DIR}/BrandSpecific.cmake" CACHE INTERNAL "Path to the BenViningMusicSoftware brand-specific config file.")
 
