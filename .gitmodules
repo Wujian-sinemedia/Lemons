@@ -1,0 +1,3 @@
+[submodule "cmake/internal/UsefulScripts"]
+	path = cmake/internal/UsefulScripts
+	url = https://github.com/BenViningMusicSoftware/UsefulScripts.git
