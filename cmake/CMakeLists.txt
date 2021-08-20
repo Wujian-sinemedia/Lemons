@@ -1,6 +1,8 @@
 set_property (GLOBAL PROPERTY USE_FOLDERS YES)
 
 set (CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
+set (CMAKE_CXX_STANDARD            ${BV_CXX_VERSION})
+set (CMAKE_CXX_STANDARD_REQUIRED   ON)
 
 if (NOT DEFINED ENV{CPM_SOURCE_CACHE})
     set (ENV{CPM_SOURCE_CACHE} ${CMAKE_CURRENT_LIST_DIR}/../Cache)
@@ -20,6 +22,13 @@ endif()
 
 add_subdirectory (public)
 add_subdirectory (internal)
+
+add_subdirectory (third_party)
+add_subdirectory (plugins)
+
+add_subdirectory (native)
+
+include (configure_helpers.cmake)
 
 set (BV_BRAND_FILE "${CMAKE_CURRENT_LIST_DIR}/BrandSpecific.cmake" CACHE INTERNAL "Path to the BenViningMusicSoftware brand-specific config file.")
 

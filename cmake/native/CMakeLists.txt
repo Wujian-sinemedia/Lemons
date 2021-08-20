@@ -1,0 +1,5 @@
+if (APPLE)
+    include (Apple.cmake)
+elseif (WIN32)
+    include (Windows.cmake)
+endif()
