@@ -26,7 +26,6 @@ include (UsefulScripts/get_cpm.cmake)
 add_subdirectory (third_party)
 
 add_subdirectory (public)
-add_subdirectory (internal)
 add_subdirectory (plugins)
 
 include (configure_helpers.cmake)
