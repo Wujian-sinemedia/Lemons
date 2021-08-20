@@ -1,3 +1,5 @@
+include (ConfigVars.cmake)
+
 set_property (GLOBAL PROPERTY USE_FOLDERS YES)
 
 set (CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
