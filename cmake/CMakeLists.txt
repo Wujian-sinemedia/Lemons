@@ -20,13 +20,14 @@ else()
     set (BV_IGNORE_VDSP FALSE CACHE INTERNAL "Ignore Apple vDSP for this build?")
 endif()
 
+add_subdirectory (native)
+
+include (UsefulScripts/get_cpm.cmake)
+add_subdirectory (third_party)
+
 add_subdirectory (public)
 add_subdirectory (internal)
-
-add_subdirectory (third_party)
 add_subdirectory (plugins)
-
-add_subdirectory (native)
 
 include (configure_helpers.cmake)
 
