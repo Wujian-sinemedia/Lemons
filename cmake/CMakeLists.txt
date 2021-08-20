@@ -25,10 +25,13 @@ add_subdirectory (native)
 include (UsefulScripts/get_cpm.cmake)
 add_subdirectory (third_party)
 
-add_subdirectory (public)
 add_subdirectory (plugins)
 
+include (utilities.cmake)
+include (FileUtilities.cmake)
+include (assets.cmake)
 include (configure_helpers.cmake)
 
-set (BV_BRAND_FILE "${CMAKE_CURRENT_LIST_DIR}/BrandSpecific.cmake" CACHE INTERNAL "Path to the BenViningMusicSoftware brand-specific config file.")
+include (public_api.cmake)
 
+set (BV_BRAND_FILE "${CMAKE_CURRENT_LIST_DIR}/BrandSpecific.cmake" CACHE INTERNAL "Path to the BenViningMusicSoftware brand-specific config file.")
