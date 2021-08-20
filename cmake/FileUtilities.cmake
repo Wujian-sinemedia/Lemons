@@ -7,12 +7,12 @@ function (bv_subdir_list)
 	cmake_parse_arguments (BV_SUBDIR "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
 	if (NOT DEFINED BV_SUBDIR_RESULT)
-		bv_print_warning ("Result variable not defined in call to bv_subdir_list")
+		message (WARNING "Result variable not defined in call to bv_subdir_list")
 		return()
 	endif()
 
 	if (NOT DEFINED BV_SUBDIR_DIR)
-		bv_print_warning ("Directory to search not defined in call to bv_subdir_list")
+		message (WARNING "Directory to search not defined in call to bv_subdir_list")
 		return()
 	endif()
 
@@ -39,12 +39,12 @@ function (bv_copy_file)
 	cmake_parse_arguments (BV_FILECOPY "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
 	if (NOT DEFINED BV_FILECOPY_SOURCE)
-		bv_print_warning ("Source path not defined in call to bv_copy_file")
+		message (WARNING "Source path not defined in call to bv_copy_file")
 		return()
 	endif()
 
 	if (NOT DEFINED BV_FILECOPY_DEST)
-		bv_print_warning ("Destination path not defined in call to bv_copy_file")
+		message (WARNING "Destination path not defined in call to bv_copy_file")
 		return()
 	endif()
 

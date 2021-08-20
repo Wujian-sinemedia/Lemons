@@ -7,12 +7,12 @@ function (bv_add_resources_folder)
     cmake_parse_arguments (BV_RSRC_FLDR "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
     if (NOT DEFINED BV_RSRC_FLDR_TARGET)
-        bv_print_warning ("Target name not specified in call to bv_add_resources_folder")
+        message (WARNING "Target name not specified in call to bv_add_resources_folder")
         return()
     endif()
 
     if (NOT DEFINED BV_RSRC_FLDR_FOLDER)
-        bv_print_warning ("Folder name not specified in call to bv_add_resources_folder")
+        message (WARNING "Folder name not specified in call to bv_add_resources_folder")
         return()
     endif()
 

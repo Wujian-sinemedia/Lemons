@@ -67,25 +67,7 @@ endfunction()
 #
 
 function (bv_detect_plugin_formats outvar)
-	if (DEFINED Formats)
-		_bv_parse_plugin_format_list (formatlist "${Formats}")
-
-		if (NOT "${formatlist}" STREQUAL "")
-			set (${outvar} ${formatlist} PARENT_SCOPE)
-			return()
-		endif()
-	endif()
-
-	if (DEFINED bv_default_formats)
-		_bv_parse_plugin_format_list (formatlist "${bv_default_formats}")
-
-		if (NOT "${formatlist}" STREQUAL "")
-			set (${outvar} ${formatlist} PARENT_SCOPE)
-			return()
-		endif()
-	endif()
-
 	_bv_create_default_format_list_for_platform (formatlist)
-    set (${outvar} ${formatlist} PARENT_SCOPE)
+	set (${outvar} ${formatlist} PARENT_SCOPE)
 endfunction()
 
