@@ -24,6 +24,7 @@ add_subdirectory (plugins)
 include (FileUtilities.cmake)
 include (assets.cmake)
 include (configure_helpers.cmake)
+include (install.cmake)
 
 include (public_api.cmake)
 
