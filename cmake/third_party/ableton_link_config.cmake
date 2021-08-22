@@ -1,7 +1,8 @@
 CPMAddPackage (
         NAME AbletonLink
         GIT_REPOSITORY https://github.com/Ableton/link.git
-        GIT_TAG origin/master)
+        GIT_TAG origin/master
+        EXCLUDE_FROM_ALL TRUE)
 
 include (${AbletonLink_SOURCE_DIR}/AbletonLinkConfig.cmake)
 
