@@ -26,4 +26,4 @@ include (assets.cmake)
 include (configure_helpers.cmake)
 include (install.cmake)
 
-include (BrandSpecific.cmake)
+set (BV_BRAND_FLAGS_FILEPATH ${CMAKE_CURRENT_LIST_DIR}/BrandSpecific.cmake CACHE INTERNAL "Path to the brand-specific config file")
