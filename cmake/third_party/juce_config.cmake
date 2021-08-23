@@ -3,7 +3,6 @@ option (JUCE_BUILD_EXAMPLES "Build JUCE Examples" OFF)
 option (JUCE_BUILD_EXTRAS "Build JUCE Extras" OFF)
 
 if (NOT APPLE AND NOT WIN32)
-        message (STATUS "Using the LV2 Porting Project fork of JUCE.")
         set (bv_juce_repo https://github.com/lv2-porting-project/JUCE)
         set (bv_juce_tag origin/lv2)
 else()

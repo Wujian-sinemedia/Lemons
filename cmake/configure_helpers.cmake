@@ -85,8 +85,6 @@ function (bv_configure_juce_plugin)
     _bv_configure_juce_target (${ARGN})
 
     _bv_plugin_target_postconfig (${bv_targetname})
-
-    set (bv_targetname ${bv_targetname} PARENT_SCOPE)
 endfunction()
 
 #
@@ -98,6 +96,4 @@ function (bv_configure_juce_app)
     target_link_libraries (${bv_targetname} PUBLIC ${BV_APP_ONLY_MODULES})
 
     _bv_configure_target_install (${bv_targetname} true)
-
-    set (bv_targetname ${bv_targetname} PARENT_SCOPE)
 endfunction()
