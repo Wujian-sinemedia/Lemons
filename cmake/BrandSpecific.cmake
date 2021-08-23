@@ -1,10 +1,3 @@
-include_guard (GLOBAL)
-
-#[[
-	This file sets some flags that are specific to my brand's plugins and apps.
-	Author: Ben Vining
-]]
-
 
 set (BV_DEFAULT_BRAND_FLAGS
 	BUNDLE_ID                   com.BenViningMusicSoftware.${CMAKE_PROJECT_NAME}

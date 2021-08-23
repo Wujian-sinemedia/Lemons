@@ -25,3 +25,9 @@ _bv_add_module_subcategory (GUI          BV_JUCE_MODULES)
 target_link_libraries (bv_midi INTERFACE MTS-ESP)
 
 #target_link_libraries (bv_plugin INTERFACE Ableton::Link)
+
+#
+
+function (bv_add_juce_modules dir)
+    _bv_add_juce_modules_internal (${dir} dummylist)
+endfunction()

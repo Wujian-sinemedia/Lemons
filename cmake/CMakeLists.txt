@@ -26,6 +26,4 @@ include (assets.cmake)
 include (configure_helpers.cmake)
 include (install.cmake)
 
-include (public_api.cmake)
-
-set (BV_BRAND_FILE "${CMAKE_CURRENT_LIST_DIR}/BrandSpecific.cmake" CACHE INTERNAL "Path to the BenViningMusicSoftware brand-specific config file.")
+include (BrandSpecific.cmake)
