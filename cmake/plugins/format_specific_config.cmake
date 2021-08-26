@@ -25,14 +25,14 @@ function (_bv_configure_juce_lv2 origTarget)
 
     get_target_property (Company ${LV2target} JUCE_COMPANY_NAME)
 
-    if ("${Company}" STREQUAL "Company-NOTFOUND")
+    if (NOT Company)
         message (WARNING "Unspecified company for LV2 target!")
         set (Company "YourCompany")
     endif()
 
     get_target_property (Product ${LV2target} JUCE_PRODUCT_NAME)
 
-    if ("${Product}" STREQUAL "Product-NOTFOUND")
+    if (NOT Product)
         message (WARNING "Unspecified product name for LV2 target!")
         set (Product "YourProduct")
     endif()
