@@ -11,7 +11,7 @@ function (_bv_plugin_target_postconfig targetName)
             JUCE_MICROPHONE_PERMISSION_ENABLED=1
             JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=0)
 
-    get_target_property (formats ${targetName} JUCE_FORMATS)\
+    get_target_property (formats ${targetName} JUCE_FORMATS)
 
     if (NOT formats)
         return()
