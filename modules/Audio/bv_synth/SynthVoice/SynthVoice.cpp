@@ -2,9 +2,6 @@
 
 namespace bav::dsp
 {
-/*
-        Constructor.
-    */
 template < typename SampleType >
 SynthVoiceBase< SampleType >::SynthVoiceBase (SynthBase< SampleType >* base, double initSamplerate)
     : parent (base), scratchBuffer (0, 0), renderingBuffer (0, 0), stereoBuffer (0, 0)
@@ -16,9 +13,6 @@ SynthVoiceBase< SampleType >::SynthVoiceBase (SynthBase< SampleType >* base, dou
 }
 
 
-/*
-        Prepares the voice for a new expected maximum blocksize.
-    */
 template < typename SampleType >
 void SynthVoiceBase< SampleType >::prepare (double samplerate, int blocksize)
 {
@@ -46,11 +40,6 @@ void SynthVoiceBase< SampleType >::prepare (double samplerate, int blocksize)
      
      ==========================================================================================================*/
 
-/*
-        Renders the next block of output.
-        Note that startSample may not correspond to sample 0 of the output buffer!
-        If you override this function, you should only modify the samples between startSample and (startSample + numSamples - 1) within the output buffer, and you should ADD!!! to the output buffer, as opposed to writing over its content.
-    */
 template < typename SampleType >
 void SynthVoiceBase< SampleType >::renderBlock (AudioBuffer< SampleType >& output)
 {
@@ -159,9 +148,6 @@ bool SynthVoiceBase< SampleType >::isVoiceOnRightNow() const
 }
 
 
-/*
-        Should be called when a block is recieved but the voice is not active, or is in a bypassed state.
-    */
 template < typename SampleType >
 void SynthVoiceBase< SampleType >::bypassedBlock (const int numSamples)
 {
@@ -175,9 +161,6 @@ void SynthVoiceBase< SampleType >::bypassedBlock (const int numSamples)
 }
 
 
-/*
-        Called when the samplerate of the parent changes.
-    */
 template < typename SampleType >
 void SynthVoiceBase< SampleType >::updateSampleRate (const double newSamplerate)
 {
@@ -203,9 +186,6 @@ void SynthVoiceBase< SampleType >::updateSampleRate (const double newSamplerate)
      
      ==========================================================================================================*/
 
-/*
-        Starts the desired note.
-    */
 template < typename SampleType >
 void SynthVoiceBase< SampleType >::startNote (const int    midiPitch,
                                               const float  velocity,
@@ -258,9 +238,6 @@ void SynthVoiceBase< SampleType >::togglePitchGlide (bool shouldGlide)
 }
 
 
-/*
-        Stops the voice's currently active note.
-    */
 template < typename SampleType >
 void SynthVoiceBase< SampleType >::stopNote (const float velocity, const bool allowTailOff)
 {
@@ -277,9 +254,6 @@ void SynthVoiceBase< SampleType >::stopNote (const float velocity, const bool al
 }
 
 
-/*
-        Returns the voice to its initial/neutral state.
-    */
 template < typename SampleType >
 void SynthVoiceBase< SampleType >::clearCurrentNote()
 {
@@ -309,9 +283,6 @@ void SynthVoiceBase< SampleType >::clearCurrentNote()
 }
 
 
-/*
-        Sets the voice's midi velocity multiplier.
-    */
 template < typename SampleType >
 void SynthVoiceBase< SampleType >::setVelocityMultiplier (const float newMultiplier)
 {
@@ -319,9 +290,6 @@ void SynthVoiceBase< SampleType >::setVelocityMultiplier (const float newMultipl
 }
 
 
-/*
-        Called by the parent synth object when the soft pedal is depressed or raised.
-    */
 template < typename SampleType >
 void SynthVoiceBase< SampleType >::softPedalChanged (bool isDown)
 {
@@ -330,9 +298,6 @@ void SynthVoiceBase< SampleType >::softPedalChanged (bool isDown)
 }
 
 
-/*
-        Called by the parent object when the voice's assigned aftertouch value changes.
-    */
 template < typename SampleType >
 void SynthVoiceBase< SampleType >::aftertouchChanged (const int newAftertouchValue)
 {
@@ -364,9 +329,6 @@ void SynthVoiceBase< SampleType >::aftertouchChanged (const int newAftertouchVal
      
      ==========================================================================================================*/
 
-/*
-        Resets the voice's ramped gain values.
-    */
 template < typename SampleType >
 void SynthVoiceBase< SampleType >::resetRampedValues()
 {
@@ -378,9 +340,6 @@ void SynthVoiceBase< SampleType >::resetRampedValues()
 }
 
 
-/*
-        Resets the voice's internal tracking of the state of the midi keyboard key for the note it's currently playing
-    */
 template < typename SampleType >
 void SynthVoiceBase< SampleType >::setKeyDown (bool isNowDown)
 {
@@ -403,9 +362,6 @@ void SynthVoiceBase< SampleType >::setKeyDown (bool isNowDown)
 }
 
 
-/*
-        Sets the voice's pan
-    */
 template < typename SampleType >
 void SynthVoiceBase< SampleType >::setPan (int newPan)
 {

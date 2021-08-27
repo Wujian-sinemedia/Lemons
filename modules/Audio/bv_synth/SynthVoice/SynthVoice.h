@@ -67,23 +67,16 @@ protected:
         */
     virtual void renderPlease (AudioBuffer< SampleType >& output, float desiredFrequency, double currentSamplerate) = 0;
 
-    // if overridden, called in the subclass when the top-level call to prepare() is made
-    virtual void prepared (double samplerate, int blocksize) { juce::ignoreUnused (samplerate, blocksize); }
+    virtual void prepared (double /*samplerate*/, int /*blocksize*/) { }
 
-    // if overridden, called in the subclass when the top-level call to release() is made
     virtual void released() { }
 
-    // if overridden, called in the subclass any time clearCurrentNote() is called
     virtual void noteCleared() { }
 
-    // if overridden, called in the subclass when the top-level call to bypassedBlock() is made.
-    virtual void bypassedBlockRecieved (float voicesLastOutputFreq, double currentSamplerate, int numSamples)
-    {
-        juce::ignoreUnused (voicesLastOutputFreq, currentSamplerate, numSamples);
-    }
+    virtual void bypassedBlockRecieved (float /*voicesLastOutputFreq*/, double /*currentSamplerate*/, int /*numSamples*/) { }
 
     /* called each time the parent recieves a new block in renderVoices(), before any calls to renderPlease() are made. This function may be called even if the voice is not currently active. */
-    virtual void newBlockComing (int previousBlocksize, int upcomingBlocksize) { juce::ignoreUnused (previousBlocksize, upcomingBlocksize); }
+    virtual void newBlockComing (int /*previousBlocksize*/, int /*upcomingBlocksize*/) { }
 
     /*=================================================================================
          =================================================================================*/
@@ -125,8 +118,7 @@ private:
 
     SynthBase< SampleType >* parent;
 
-    ADSR adsr;          // the main/primary ADSR driven by MIDI input to shape the voice's amplitude envelope. May be turned off by the user.
-    ADSR quickRelease;  // used to quickly fade out signal when stopNote() is called with the allowTailOff argument set to false, instead of jumping signal to 0
+    ADSR adsr, quickRelease;
 
     bool keyIsDown {false}, playingButReleased {false}, sustainingFromSostenutoPedal {false}, isQuickFading {false};
 
@@ -135,20 +127,17 @@ private:
 
     uint32 noteOnTime {0};
 
-    bool isPedalPitchVoice {false}, isDescantVoice {false};
-    bool isDoubledByAutomatedVoice {false};
+    bool isPedalPitchVoice {false}, isDescantVoice {false}, isDoubledByAutomatedVoice {false};
 
     ValueSmoother< SampleType > outputFrequency;
     double                      pitchGlideTimeSecs {0.4};
     bool                        pitchGlide {false};
 
-    bav::dsp::FX::MonoToStereoPanner< SampleType > panner;
+    FX::MonoToStereoPanner< SampleType > panner;
 
     FX::SmoothedGain< SampleType, 1 > midiVelocityGain, softPedalGain, playingButReleasedGain, aftertouchGain;
 
-    AudioBuffer< SampleType > scratchBuffer;
-    AudioBuffer< SampleType > renderingBuffer;  // mono audio will be placed in here
-    AudioBuffer< SampleType > stereoBuffer;     // stereo audio will be placed in here
+    AudioBuffer< SampleType > scratchBuffer, renderingBuffer, stereoBuffer;
 
     int midiChannel {1};
 
