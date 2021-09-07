@@ -8,4 +8,5 @@ function (_bv_configure_plugin_hosting target)
     if (APPLE)
         target_compile_definitions (${target} PRIVATE JUCE_PLUGINHOST_AU=1)
     endif()
+    
 endfunction()
