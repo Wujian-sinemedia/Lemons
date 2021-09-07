@@ -4,7 +4,7 @@
 
 namespace bav
 {
-template < typename ContentComponentType, std::enable_if_t< std::is_base_of< juce::Component, ContentComponentType >::value >* = nullptr >
+template < typename ContentComponentType, BV_MUST_INHERIT_FROM (ContentComponentType, juce::Component) >
 class GuiApp : public juce::JUCEApplication, private SystemInitializer
 {
 public:
