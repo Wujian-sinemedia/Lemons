@@ -1,14 +1,13 @@
 
-namespace bav::plugin
+namespace bav::plugin::presets
 {
 LocalPresetsManager::LocalPresetsManager (StateBase&    stateToUse,
                                           const String& companyNameToUse,
                                           const String& productNameToUse,
-                                          const String& presetFileExtensionToUse,
-                                          UndoManager*  um)
-    : companyName (companyNameToUse), productName (productNameToUse), presetFileExtension (presetFileExtensionToUse), undo (um), state (stateToUse)
+                                          const String& presetFileExtensionToUse)
+    : SubLibrary (stateToUse, companyNameToUse, productNameToUse, presetFileExtensionToUse)
 {
-    rescanPresetsFolder();
+    refreshPresetList();
 }
 
 static inline File get_preset_root_folder()
@@ -36,7 +35,7 @@ File LocalPresetsManager::presetsFolder()
     return rootFolder;
 }
 
-void LocalPresetsManager::rescanPresetsFolder()
+void LocalPresetsManager::refreshPresetList()
 {
     presets.clearQuick();
 
@@ -49,10 +48,4 @@ void LocalPresetsManager::rescanPresetsFolder()
     }
 }
 
-const juce::Array< Preset >& LocalPresetsManager::getPresets()
-{
-    rescanPresetsFolder();
-    return presets;
-}
-
-}  // namespace bav::plugin
+}  // namespace bav::plugin::presets

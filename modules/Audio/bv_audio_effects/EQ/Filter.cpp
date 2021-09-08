@@ -122,7 +122,7 @@ template class Filter< float >;
 template class Filter< double >;
 
 
-template class FilterEngine< float >;
-template class FilterEngine< double >;
+template struct FilterEngine< float >;
+template struct FilterEngine< double >;
 
 }  // namespace bav::dsp::FX

@@ -1,6 +1,5 @@
 #pragma once
 
-#include <bv_plugin/bv_plugin.h>
 #include "StateToggleButtons.h"
 
 namespace bav::plugin
