@@ -34,9 +34,9 @@ bool Version::operator< (const Version& other) const noexcept
     return patch < other.patch;
 }
 
-String Version::getAsString() const noexcept
+String Version::getAsString (const String& separator) const noexcept
 {
-    return String (major) + "." + String (minor) + "." + String (patch);
+    return String (major) + separator + String (minor) + separator + String (patch);
 }
 
 void Version::bumpMajor() noexcept

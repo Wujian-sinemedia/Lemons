@@ -13,7 +13,7 @@ struct Version : SerializableData
     bool operator> (const Version& other) const noexcept;
     bool operator< (const Version& other) const noexcept;
 
-    String getAsString() const noexcept;
+    String getAsString (const String& separator = ".") const noexcept;
 
     void bumpMajor() noexcept;
     void bumpMinor() noexcept;

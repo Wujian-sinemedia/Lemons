@@ -21,7 +21,7 @@ private:
 };
 
 
-template < typename ContentType, std::enable_if_t< std::is_base_of< PopupComponent, ContentType >::value >* = nullptr >
+template < typename ContentType, BV_MUST_INHERIT_FROM (ContentType, PopupComponent) >
 class Popup : public juce::Component
 {
 public:

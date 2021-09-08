@@ -12,6 +12,8 @@ void      fromTree (const ValueTree& tree, SerializableData& data);
 
 void copy (SerializableData& dest, SerializableData& source);
 
+/*---------------------------------------------------------------------*/
+
 void toBinary (SerializableData& data, File file);
 void toBinary (SerializableData& data, juce::MemoryBlock& dest);
 
@@ -55,6 +57,8 @@ ObjectType fromBinaryCreate (const void* data, IntegerType dataSizeInBytes)
     return fromBinaryCreate< ObjectType > (data, static_cast< size_t > (dataSizeInBytes));
 }
 
+/*---------------------------------------------------------------------*/
+
 std::unique_ptr< juce::XmlElement > toXML (SerializableData& source);
 void                                toXML (SerializableData& source, const File& file);
 
@@ -85,6 +89,8 @@ ObjectType fromXMLCreate (const File& xmlFile)
     fromXML (xmlFile, newObject);
     return newObject;
 }
+
+/*---------------------------------------------------------------------*/
 
 String toJSON (SerializableData& source);
 void   toJSON (SerializableData& source, const File& file);
