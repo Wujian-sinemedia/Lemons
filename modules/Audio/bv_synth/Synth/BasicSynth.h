@@ -6,38 +6,22 @@
 namespace bav::dsp
 {
 template < typename SampleType, template < typename NumericType > class OscType >
-class BasicSynthVoice : public SynthVoiceBase< SampleType >
+struct BasicSynthVoice : public SynthVoiceBase< SampleType >
 {
-public:
     using SynthVoiceBase< SampleType >::SynthVoiceBase;
 
-    void renderPlease (AudioBuffer< SampleType >& output, float desiredFrequency, double currentSamplerate) final
-    {
-        osc.setFrequency (SampleType (desiredFrequency), SampleType (currentSamplerate));
-        osc.getSamples (output.getWritePointer (0), output.getNumSamples());
-    }
+    void renderPlease (AudioBuffer< SampleType >& output, float desiredFrequency, double currentSamplerate) final;
 
-    void released() final
-    {
-        osc.resetPhase();
-    }
+    void released() final;
+    void noteCleared() final;
 
-    void noteCleared() final
-    {
-        osc.resetPhase();
-    }
-
-private:
     OscType< SampleType > osc;
 };
 
 template < typename SampleType, template < typename NumericType > class OscType >
 struct BasicSynth : public SynthBase< SampleType >
 {
-    SynthVoiceBase< SampleType >* createVoice() final
-    {
-        return new BasicSynthVoice< SampleType, OscType > (this);
-    }
+    SynthVoiceBase< SampleType >* createVoice() final;
 };
 
 template < typename SampleType >
