@@ -30,9 +30,15 @@ function (_bv_plugin_target_postconfig targetName)
     endif()
 
     foreach (format ${formats})
-        _bv_configure_target_install ("${targetName}_${format}")
+        set (format_target_name "${targetName}_${format}")
+
+        _bv_configure_target_install (${format_target_name})
+        _bv_configure_target_workspace_deploy (${format_target_name} ${targetName})
+        _bv_add_target_install_command (${format_target_name})
     endforeach()
 
-    _bv_configure_target_workspace_deploy (${targetName})
+    _bv_configure_target_install (${targetName})
+    _bv_configure_target_workspace_deploy (${targetName} ${targetName})
+    _bv_add_target_install_command (${targetName})    
 
 endfunction()
