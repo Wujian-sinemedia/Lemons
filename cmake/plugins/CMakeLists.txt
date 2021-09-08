@@ -30,13 +30,9 @@ function (_bv_plugin_target_postconfig targetName)
     endif()
 
     foreach (format ${formats})
-    	set (target_name "${targetName}_${format}")
-
-    	if ("${format}" STREQUAL "Standalone")
-    		_bv_configure_target_install (${target_name} true)
-    	else()
-    		_bv_configure_target_install (${target_name} false)
-    	endif()
+        _bv_configure_target_install ("${targetName}_${format}")
     endforeach()
+
+    _bv_configure_target_workspace_deploy (${targetName})
 
 endfunction()

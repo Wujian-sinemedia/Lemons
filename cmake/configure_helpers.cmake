@@ -95,5 +95,6 @@ function (bv_configure_juce_app)
 
     target_link_libraries (${bv_targetname} PUBLIC ${BV_APP_ONLY_MODULES})
 
-    _bv_configure_target_install (${bv_targetname} true)
+    _bv_configure_target_install (${bv_targetname})
+    _bv_configure_target_workspace_deploy (${bv_targetname})
 endfunction()
