@@ -11,24 +11,87 @@ class SynthBase
     using Voice      = SynthVoiceBase< SampleType >;
     using ADSRParams = juce::ADSR::Parameters;
 
-public:
-    SynthBase();
+    class AutomatedHarmonyVoice
+    {
+    public:
+        AutomatedHarmonyVoice (SynthBase& synthToUse, bool shiftUp);
 
-    virtual ~SynthBase();
+        void setEnabled (bool shouldBeEnabled);
+        void setThreshold (int newThresh);
+        void setInterval (int newInterval);
+
+        void turnNoteOffIfOn();
+
+        bool isAutomatedPitch (int midiNote) { return isOn && lastPitch == midiNote; }
+
+        Voice* getVoice();
+
+    private:
+        friend class SynthBase;
+
+        void apply();
+        void setNoteToOff() { lastPitch = -1; }
+
+        // call this function when processing an automated note-off and the voice's keyboard key is still being held
+        void autoNoteOffKeyboardKeyHeld (int midiNote);
+
+        const bool shiftingUp;
+
+        bool isOn {false};
+        int  lastPitch {-1};
+        int  thresh {0};
+        int  interval {12};
+
+        SynthBase& synth;
+    };
+
+    class PanningManager
+    {
+    public:
+        PanningManager (SynthBase& b) : synth (b) { }
+
+        void updateStereoWidth (int newWidth);
+
+        void setLowestNote (int newLowestNote);
+        int  getLowestNote() const { return lowestPannedNote; }
+
+    private:
+        friend class SynthBase;
+
+        void prepare (int numVoices, bool clearArrays = true);
+        void reset();
+
+        int  getNextPanVal();
+        void panValTurnedOff (int panVal);
+
+        void updatePanValueLookupTables (int newWidth);
+        void mapArrayIndexes();
+        int  getClosestNewPanValFromOld (int oldPan);
+        int  findClosestValueInNewArray (int targetValue, Array< int >& newArray);
+
+        SynthBase& synth;
+
+        int stereoWidth {100};
+        int lowestPannedNote {0};
+
+        Array< int > arrayIndexesMapped;
+        Array< int > possiblePanVals, panValsInAssigningOrder, unsentPanVals;
+        Array< int > newPanVals, newUnsentVals;
+        Array< int > distances;
+    };
+
+public:
+    virtual ~SynthBase() = default;
 
     void initialize (int initNumVoices, double initSamplerate = 44100.0, int initBlocksize = 512);
     bool isInitialized() const;
 
     void prepare (double samplerate, int blocksize);
 
+    void releaseResources();
     void reset();
-    void resetRampedValues();
-
-    double getSamplerate() const { return sampleRate; }
 
     void renderVoices (MidiBuffer& midiMessages, AudioBuffer< SampleType >& output);
-
-    void releaseResources();
 
     void bypassedBlock (int numSamples, MidiBuffer& midiMessages);
 
@@ -56,18 +119,8 @@ public:
     void updatePitchbendRange (int rangeSemitones);
     void setAftertouchGainOnOff (bool shouldBeOn) { aftertouchGainIsOn = shouldBeOn; }
 
-    void setPedalPitch (bool isOn) { pedal.setEnabled (isOn); }
-    void setPedalPitchUpperThresh (int newThresh) { pedal.setThreshold (newThresh); }
-    void setPedalPitchInterval (int newInterval) { pedal.setInterval (newInterval); }
     void setPedalPitch (bool isOn, int newThresh, int newInterval);
-
-    void setDescant (bool isOn) { descant.setEnabled (isOn); }
-    void setDescantLowerThresh (int newThresh) { descant.setThreshold (newThresh); }
-    void setDescantInterval (int newInterval) { descant.setInterval (newInterval); }
     void setDescant (bool isOn, int newThresh, int newInterval);
-
-    void updateStereoWidth (int newWidth) { panner.updateStereoWidth (newWidth); }
-    void updateLowestPannedNote (int newPitchThresh) { panner.setLowestNote (newPitchThresh); }
 
     void setMidiLatch (bool shouldBeOn, const bool allowTailOff = false);
     bool isLatched() const noexcept { return latchIsOn; }
@@ -83,8 +136,6 @@ public:
     void setPlayingButReleasedMultiplier (float newGain) { playingButReleasedMultiplier = newGain; }
     void setSoftPedalMultiplier (float newGain) { softPedalMultiplier = newGain; }
 
-    int getLastBlocksize() const noexcept { return lastBlocksize; }
-
     bool   isConnectedToMtsEsp() const { return pitch.tuning.isConnectedToMtsEsp(); }
     String getScaleName() const { return pitch.tuning.getScaleName(); }
 
@@ -94,6 +145,11 @@ public:
     void togglePitchGlide (bool shouldGlide);
 
     const midi::PitchPipeline* getPitchAdjuster() { return &pitch; }
+
+    PanningManager panner {*this};
+
+    AutomatedHarmonyVoice pedal {*this, false};
+    AutomatedHarmonyVoice descant {*this, true};
 
 protected:
     friend class SynthVoiceBase< SampleType >;
@@ -139,33 +195,25 @@ private:
 
     OwnedArray< Voice > voices;
 
-    bool latchIsOn {false};
+    bool latchIsOn {false}, shouldStealNotes {true}, aftertouchGainIsOn {true};
 
-    Array< int > currentNotes;
-    Array< int > desiredNotes;
+    Array< int > currentNotes, desiredNotes;
 
-    ADSRParams adsrParams;
-    ADSRParams quickReleaseParams;
+    ADSRParams adsrParams {0.035f, 0.06f, 0.8f, 0.01f};
+    ADSRParams quickReleaseParams {0.01f, 0.005f, 1.0f, 0.015f};
 
     double sampleRate {0.0};
-
-    bool shouldStealNotes {true};
 
     midi::VelocityHelper velocityConverter;
     midi::PitchPipeline  pitch;
 
-    bool aftertouchGainIsOn {true};
-
-    float playingButReleasedMultiplier;
-
-    float softPedalMultiplier;  // the multiplier by which each voice's output will be multiplied when the soft pedal is down
+    float playingButReleasedMultiplier {1.f}, softPedalMultiplier {1.f};
 
     Array< Voice* > usableVoices;  // this array is used to sort the voices when a 'steal' is requested
 
-    int lastBlocksize;
+    int lastBlocksize {0};
 
-    MidiBuffer aggregateMidiBuffer;  // this midi buffer will be used to collect the harmonizer's aggregate MIDI output
-    MidiBuffer midiInputStorage;     // each block of midi that comes in is stored in here so we can refer to it later
+    MidiBuffer aggregateMidiBuffer, midiInputStorage;
 
     //--------------------------------------------------
 
@@ -205,80 +253,6 @@ private:
     };
 
     MidiManager midi {*this};
-
-    //--------------------------------------------------
-
-    class PanningManager
-    {
-    public:
-        PanningManager (SynthBase& b) : synth (b) { }
-
-        void prepare (int numVoices, bool clearArrays = true);
-        void reset();
-
-        void updateStereoWidth (int newWidth);
-
-        void setLowestNote (int newLowestNote);
-        int  getLowestNote() const { return lowestPannedNote; }
-
-        int  getNextPanVal();
-        void panValTurnedOff (int panVal);
-
-    private:
-        void updatePanValueLookupTables (int newWidth);
-        void mapArrayIndexes();
-        int  getClosestNewPanValFromOld (int oldPan);
-        int  findClosestValueInNewArray (int targetValue, Array< int >& newArray);
-
-        SynthBase& synth;
-
-        int stereoWidth {100};
-        int lowestPannedNote {0};
-
-        Array< int > arrayIndexesMapped;
-        Array< int > possiblePanVals, panValsInAssigningOrder, unsentPanVals;
-        Array< int > newPanVals, newUnsentVals;
-        Array< int > distances;
-    };
-
-    PanningManager panner {*this};
-
-    //--------------------------------------------------
-
-    class AutomatedHarmonyVoice
-    {
-    public:
-        AutomatedHarmonyVoice (SynthBase& synthToUse, bool shiftUp);
-
-        void apply();
-
-        void setEnabled (bool shouldBeEnabled);
-        void setThreshold (int newThresh);
-        void setInterval (int newInterval);
-
-        void turnNoteOffIfOn();
-        void setNoteToOff() { lastPitch = -1; }
-
-        bool isAutomatedPitch (int midiNote) { return isOn && lastPitch == midiNote; }
-
-        // call this function when processing an automated note-off and the voice's keyboard key is still being held
-        void autoNoteOffKeyboardKeyHeld (int midiNote);
-
-        Voice* getVoice();
-
-    private:
-        const bool shiftingUp;
-
-        bool isOn {false};
-        int  lastPitch {-1};
-        int  thresh {0};
-        int  interval {12};
-
-        SynthBase& synth;
-    };
-
-    AutomatedHarmonyVoice pedal {*this, false};
-    AutomatedHarmonyVoice descant {*this, true};
 };
 
 

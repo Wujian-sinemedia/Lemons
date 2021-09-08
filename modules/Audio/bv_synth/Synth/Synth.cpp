@@ -1,38 +1,6 @@
 
 namespace bav::dsp
 {
-/*
- Constructor.
- */
-template < typename SampleType >
-SynthBase< SampleType >::SynthBase()
-    : lastBlocksize (0)
-{
-    adsrParams.attack  = 0.035f;
-    adsrParams.decay   = 0.06f;
-    adsrParams.sustain = 0.8f;
-    adsrParams.release = 0.01f;
-
-    quickReleaseParams.attack  = 0.01f;
-    quickReleaseParams.decay   = 0.005f;
-    quickReleaseParams.sustain = 1.0f;
-    quickReleaseParams.release = 0.015f;
-}
-
-
-/*
- Destructor.
- */
-template < typename SampleType >
-SynthBase< SampleType >::~SynthBase()
-{
-    voices.clear();
-}
-
-
-/*
- Initializes the synth.
- */
 template < typename SampleType >
 void SynthBase< SampleType >::initialize (int initNumVoices, double initSamplerate, int initBlocksize)
 {
@@ -48,7 +16,7 @@ void SynthBase< SampleType >::initialize (int initNumVoices, double initSamplera
 template < typename SampleType >
 bool SynthBase< SampleType >::isInitialized() const
 {
-    return getNumVoices() > 0 && getSamplerate() > 0;
+    return getNumVoices() > 0 && sampleRate > 0;
 }
 
 
@@ -59,7 +27,10 @@ template < typename SampleType >
 void SynthBase< SampleType >::reset()
 {
     for (auto* voice : voices)
+    {
         voice->clearCurrentNote();
+        voice->resetRampedValues();
+    }
 
     panner.reset();
 
@@ -84,8 +55,6 @@ void SynthBase< SampleType >::prepare (double samplerate, int blocksize)
 
     panner.prepare (voices.size(), false);
 
-    resetRampedValues();
-
     sampleRate = samplerate;
 
     prepared (samplerate, blocksize);
@@ -105,7 +74,7 @@ void SynthBase< SampleType >::releaseResources()
     desiredNotes.clear();
 
     for (auto* voice : voices)
-        voice->release();
+        voice->released();
 
     release();
 }
@@ -187,17 +156,6 @@ void SynthBase< SampleType >::bypassedBlock (int numSamples, MidiBuffer& midiMes
 
     for (auto* voice : voices)
         voice->bypassedBlock (numSamples);
-}
-
-/*
- Resets the voices' ramped gain values, and prepares them for a new blocksize.
- This should be called with/by prepare().
- */
-template < typename SampleType >
-void SynthBase< SampleType >::resetRampedValues()
-{
-    for (auto* voice : voices)
-        voice->resetRampedValues();
 }
 
 

@@ -16,9 +16,6 @@ class SynthVoiceBase
     using ADSR       = juce::ADSR;
     using ADSRParams = juce::ADSR::Parameters;
 
-    /*=================================================================================
-         =================================================================================*/
-
 public:
     SynthVoiceBase (SynthBase< SampleType >* base, double initSamplerate = 44100.0);
 
@@ -26,12 +23,9 @@ public:
 
     void prepare (double samplerate, int blocksize);
 
-    void release() { released(); }
-    void resetRampedValues();
-
     void renderBlock (AudioBuffer< SampleType >& output);
 
-    void bypassedBlock (const int numSamples);
+    void bypassedBlock (int numSamples);
 
     bool isCurrentPedalVoice() const noexcept { return isPedalPitchVoice; }
     bool isCurrentDescantVoice() const noexcept { return isDescantVoice; }
@@ -54,9 +48,6 @@ public:
 
     void setPitchGlideTime (double glideTimeSeconds);
     void togglePitchGlide (bool shouldGlide);
-
-    /*=================================================================================
-         =================================================================================*/
 
 protected:
     friend class SynthBase< SampleType >;
@@ -113,33 +104,30 @@ private:
 
     bool isVoiceOnRightNow() const;
 
-    /*=================================================================================
-         =================================================================================*/
+    void resetRampedValues();
+
 
     SynthBase< SampleType >* parent;
 
     ADSR adsr, quickRelease;
 
-    bool keyIsDown {false}, playingButReleased {false}, sustainingFromSostenutoPedal {false}, isQuickFading {false};
-
-    int   currentlyPlayingNote {-1}, currentAftertouch {0};
-    float lastRecievedVelocity {0};
-
-    uint32 noteOnTime {0};
+    bool keyIsDown {false}, playingButReleased {false}, sustainingFromSostenutoPedal {false}, isQuickFading {false}, pitchGlide {false};
 
     bool isPedalPitchVoice {false}, isDescantVoice {false}, isDoubledByAutomatedVoice {false};
 
+    int    currentlyPlayingNote {-1}, currentAftertouch {0}, midiChannel {1};
+    float  lastRecievedVelocity {0};
+    double pitchGlideTimeSecs {0.4};
+
+    uint32 noteOnTime {0};
+
     ValueSmoother< SampleType > outputFrequency;
-    double                      pitchGlideTimeSecs {0.4};
-    bool                        pitchGlide {false};
 
     FX::MonoToStereoPanner< SampleType > panner;
 
     FX::SmoothedGain< SampleType, 1 > midiVelocityGain, softPedalGain, playingButReleasedGain, aftertouchGain;
 
     AudioBuffer< SampleType > scratchBuffer, renderingBuffer, stereoBuffer;
-
-    int midiChannel {1};
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SynthVoiceBase)
 };

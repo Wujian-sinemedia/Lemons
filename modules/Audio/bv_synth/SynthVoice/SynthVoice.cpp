@@ -4,7 +4,7 @@ namespace bav::dsp
 {
 template < typename SampleType >
 SynthVoiceBase< SampleType >::SynthVoiceBase (SynthBase< SampleType >* base, double initSamplerate)
-    : parent (base), scratchBuffer (0, 0), renderingBuffer (0, 0), stereoBuffer (0, 0)
+    : parent (base)
 {
     adsr.setSampleRate (initSamplerate);
     quickRelease.setSampleRate (initSamplerate);
@@ -149,7 +149,7 @@ bool SynthVoiceBase< SampleType >::isVoiceOnRightNow() const
 
 
 template < typename SampleType >
-void SynthVoiceBase< SampleType >::bypassedBlock (const int numSamples)
+void SynthVoiceBase< SampleType >::bypassedBlock (int numSamples)
 {
     midiVelocityGain.skipSamples (numSamples);
     softPedalGain.skipSamples (numSamples);
