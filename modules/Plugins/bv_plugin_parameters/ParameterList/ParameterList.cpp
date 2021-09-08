@@ -1,12 +1,6 @@
 
 namespace bav::plugin
 {
-void ParamHolderBase::addTo (juce::AudioProcessor& processor)
-{
-    processor.addParameter (getParam());
-    addedToProcessor = true;
-}
-
 ParameterList::ParameterList (juce::Identifier name, UndoManager* um)
     : SerializableData (name), undo (um)
 {
@@ -83,7 +77,6 @@ void ParameterList::addAllParametersAsInternal()
 void ParameterList::serialize (TreeReflector& ref)
 {
     ref.add ("Parameter", params);
-    ref.add ("Modulations", mod);
 }
 
 void ParameterList::refreshAllDefaults()
@@ -136,6 +129,7 @@ void ParameterList::processNewPitchwheelMessage (int pitchwheelValue)
     }
 }
 
+//==============================================================================
 
 ParameterList::Listener::Listener (ParameterList& list,
                                    std::function< void (Parameter&) >

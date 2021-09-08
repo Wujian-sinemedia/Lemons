@@ -5,11 +5,11 @@ namespace bav::plugin
 {
 struct ParamHolderBase : SerializableData
 {
-    ParamHolderBase (bool internal = false) : isInternal (internal) { }
-
-    Parameter* operator->() { return getParam(); }
+    ParamHolderBase (bool internal = false);
 
     virtual ~ParamHolderBase() = default;
+
+    Parameter* operator->();
 
     virtual Parameter* getParam() const = 0;
 
@@ -18,13 +18,9 @@ struct ParamHolderBase : SerializableData
     bool isInternal;
 
 protected:
-    void serialize (TreeReflector& ref)
-    {
-        ref.add ("Parameter", *getParam());
-        ref.add ("Internal", isInternal);
-    }
+    void serialize (TreeReflector& ref) final;
 
-    bool addedToProcessor = false;
+    bool addedToProcessor {false};
 };
 
 
@@ -43,7 +39,7 @@ public:
 
     ~ParameterHolder() override
     {
-        if (! ParamHolderBase::addedToProcessor)
+        if (! addedToProcessor)
             delete param;
     }
 

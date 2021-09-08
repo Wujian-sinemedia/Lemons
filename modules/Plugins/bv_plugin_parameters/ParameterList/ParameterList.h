@@ -1,6 +1,8 @@
 
 #pragma once
 
+#include "ParameterHolder.h"
+
 namespace bav::plugin
 {
 class ParameterList : public SerializableData
@@ -19,6 +21,13 @@ public:
     void processMidi (const MidiBuffer& midiMessages);
     void processMidiMessage (const MidiMessage& message);
 
+    BV_DECLARE_RECURSIVE_VARIADIC_FUNCTION (add, ParamHolderBase&)
+    BV_DECLARE_RECURSIVE_VARIADIC_FUNCTION (addInternal, ParamHolderBase&)
+
+    void setPitchbendParameter (IntParam& param);
+    void setLastMovedMidiControllerNumberParameter (IntParam& param);
+    void setLastMovedMidiControllerValueParameter (IntParam& param);
+
     /* recieves a callback when any of the list's parameters change */
     struct Listener
     {
@@ -28,18 +37,11 @@ public:
                   std::function< void (Parameter&, bool) > onGestureGhange       = {},
                   bool                                     includeInternalParams = true);
 
+        virtual ~Listener() = default;
+
     private:
         OwnedArray< ParamUpdater > updaters;
     };
-
-    BV_DECLARE_RECURSIVE_VARIADIC_FUNCTION (add, ParamHolderBase&)
-    BV_DECLARE_RECURSIVE_VARIADIC_FUNCTION (addInternal, ParamHolderBase&)
-
-    void setPitchbendParameter (IntParam& param);
-    void setLastMovedMidiControllerNumberParameter (IntParam& param);
-    void setLastMovedMidiControllerValueParameter (IntParam& param);
-
-    ModulationManager mod;
 
 private:
     void serialize (TreeReflector& ref) final;
@@ -53,11 +55,11 @@ private:
 
     dsp::BasicProcessorBase dummyProcessor;
 
-    IntParameter* pitchwheelParameter;
-    IntParameter* lastMovedControllerNumberParameter;
-    IntParameter* lastMovedControllerValueParameter;
+    IntParameter* pitchwheelParameter {nullptr};
+    IntParameter* lastMovedControllerNumberParameter {nullptr};
+    IntParameter* lastMovedControllerValueParameter {nullptr};
 
-    UndoManager* undo;
+    UndoManager* undo {nullptr};
 };
 
 

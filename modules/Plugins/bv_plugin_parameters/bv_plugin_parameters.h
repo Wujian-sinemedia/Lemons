@@ -26,9 +26,6 @@
 
 #include "RealtimeStateObject/RealtimeStateObject.h"
 
-#include "ModulationManager/ModulationManager.h"
-
-#include "ParameterList/ParameterHolder.h"
 #include "ParameterList/ParameterList.h"
 
 #include "processor/ParameterProcessor.h"

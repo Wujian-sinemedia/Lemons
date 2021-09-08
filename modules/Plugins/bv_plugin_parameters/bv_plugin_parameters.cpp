@@ -6,8 +6,7 @@
 #include "parameters/specializations/ParameterSpecializations.cpp"
 #include "parameters/helpers/ParamUpdater.cpp"
 
-#include "ModulationManager/ModulationManager.cpp"
-
+#include "ParameterList/ParameterHolder.cpp"
 #include "ParameterList/ParameterList.cpp"
 
 #include "processor/ParameterProcessor.cpp"
