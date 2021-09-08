@@ -23,22 +23,6 @@ function (_bv_plugin_target_postconfig targetName)
             JUCE_MICROPHONE_PERMISSION_ENABLED=1
             JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=0)
 
-    get_target_property (formats ${targetName} JUCE_FORMATS)
-
-    if (NOT formats)
-        return()
-    endif()
-
-    foreach (format ${formats})
-        set (format_target_name "${targetName}_${format}")
-
-        _bv_configure_target_install (${format_target_name})
-        _bv_configure_target_workspace_deploy (${format_target_name} ${targetName})
-        _bv_add_target_install_command (${format_target_name})
-    endforeach()
-
-    _bv_configure_target_install (${targetName})
-    _bv_configure_target_workspace_deploy (${targetName} ${targetName})
-    _bv_add_target_install_command (${targetName})    
+    _bv_configure_product_install (${targetName} TRUE)
 
 endfunction()
