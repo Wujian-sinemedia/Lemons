@@ -2,7 +2,7 @@
 namespace bav::gui
 {
 TextButton::TextButton (const String& buttonText, std::function< void() > whenClicked)
-    : juce::TextButton (buttonText, buttonText)
+    : juce::TextButton (TRANS (buttonText), buttonText)
 {
     onClick = std::move (whenClicked);
 

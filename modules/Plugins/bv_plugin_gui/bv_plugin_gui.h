@@ -20,6 +20,4 @@
 
 #include "buttons/Buttons.h"
 
-#include "labels/Labels.h"
-
 #include "PresetBar/PresetBar.h"

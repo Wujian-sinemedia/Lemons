@@ -12,19 +12,19 @@ void StateToggler::loadLastSelectedState()
     {
         case 1 :
             loadStateA();
-            break;
+            return;
 
         case 2 :
             loadStateB();
-            break;
+            return;
 
         case 3 :
             loadStateC();
-            break;
+            return;
 
         default :
             lastLoadedState = 1;
-            break;
+            return;
     }
 }
 
@@ -34,54 +34,53 @@ void StateToggler::saveLastSelectedState()
     {
         case 1 :
             saveStateA();
-            break;
+            return;
 
         case 2 :
             saveStateB();
-            break;
+            return;
 
         case 3 :
             saveStateC();
-            break;
+            return;
 
         default :
             lastLoadedState = 1;
-            break;
+            return;
     }
 }
 
+#define bvst_implement_load_state_func(valueTreeName, number) \
+    UndoManager::ScopedTransaction t {undo};                  \
+    serializing::fromTree (valueTreeName, state);             \
+    lastLoadedState = number
+
 void StateToggler::loadStateA()
 {
-    UndoManager::ScopedTransaction t {undo};
-
-    serializing::fromTree (stateA, state);
-    lastLoadedState = 1;
+    bvst_implement_load_state_func (stateA, 1);
 }
+
+void StateToggler::loadStateB()
+{
+    bvst_implement_load_state_func (stateB, 2);
+}
+
+void StateToggler::loadStateC()
+{
+    bvst_implement_load_state_func (stateC, 3);
+}
+
+#undef bvst_implement_load_state_func
+
 
 void StateToggler::saveStateA()
 {
     stateA = serializing::toTree (state);
 }
 
-void StateToggler::loadStateB()
-{
-    UndoManager::ScopedTransaction t {undo};
-
-    serializing::fromTree (stateB, state);
-    lastLoadedState = 2;
-}
-
 void StateToggler::saveStateB()
 {
     stateB = serializing::toTree (state);
-}
-
-void StateToggler::loadStateC()
-{
-    UndoManager::ScopedTransaction t {undo};
-
-    serializing::fromTree (stateC, state);
-    lastLoadedState = 3;
 }
 
 void StateToggler::saveStateC()
