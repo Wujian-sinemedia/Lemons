@@ -6,7 +6,8 @@ PresetBar::PresetBar (StateBase&    stateToUse,
                       const String& productName,
                       const String& presetFileExtension,
                       const String& companyName)
-    : presetManager (stateToUse, companyName, productName, presetFileExtension), toggleButtons (toggler)
+    : presetLibrary (stateToUse, companyName, productName, presetFileExtension),
+      toggleButtons (toggler)
 {
     gui::addAndMakeVisible (this, toggleButtons);
 }

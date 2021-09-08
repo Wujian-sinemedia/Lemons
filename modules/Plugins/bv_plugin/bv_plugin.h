@@ -23,7 +23,7 @@
 #include "state/state.h"
 
 #include "presets/Preset.h"
-#include "presets/PresetManager.h"
+#include "presets/preset_library/PresetsLibrary.h"
 
 #include "processors/ProcessorBase.h"
 

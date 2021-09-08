@@ -15,7 +15,7 @@ public:
                const String& companyName         = "BenViningMusicSoftware");
 
 private:
-    PresetManager presetManager;
+    PresetsLibrary presetLibrary;
 
     StateToggleButtons toggleButtons;
 };

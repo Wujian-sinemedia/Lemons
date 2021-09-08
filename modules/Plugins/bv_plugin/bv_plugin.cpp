@@ -12,4 +12,7 @@
 #include "EditorBase/EditorBase.cpp"
 
 #include "presets/Preset.cpp"
-#include "presets/PresetManager.cpp"
+#include "presets/preset_library/DatabasePresetsManager.cpp"
+#include "presets/preset_library/FactoryPresetsManager.cpp"
+#include "presets/preset_library/LocalPresetsManager.cpp"
+#include "presets/preset_library/PresetsLibrary.cpp"

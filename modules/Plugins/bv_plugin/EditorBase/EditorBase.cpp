@@ -11,9 +11,7 @@ EditorBase::EditorBase (ProcessorBase& pbToUse, juce::Point< int > initialSize)
 {
     setResizable (true, true);
 
-    const auto size = pb.getSavedEditorSize();
-
-    if (isValidSize (size))
+    if (const auto size = pb.getSavedEditorSize(); isValidSize (size))
     {
         initializeSize (size.x, size.y);
     }
@@ -28,9 +26,12 @@ EditorBase::EditorBase (ProcessorBase& pbToUse, juce::Point< int > initialSize)
 
 void EditorBase::initializeSize (int width, int height)
 {
-    getConstrainer()->setMinimumSize (width / 2, height / 2);
-    getConstrainer()->setMaximumSize (width * 2, height * 2);
-    getConstrainer()->setFixedAspectRatio ((float) width / (float) height);
+    auto* constrainer = getConstrainer();
+
+    constrainer->setMinimumSize (width / 2, height / 2);
+    constrainer->setMaximumSize (width * 2, height * 2);
+    constrainer->setFixedAspectRatio (static_cast< float > (width) / static_cast< float > (height));
+
     setSize (width, height);
 }
 
