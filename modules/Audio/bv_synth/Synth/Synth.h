@@ -1,9 +1,9 @@
 
 #pragma once
 
-#include "internals/AutomatedHarmonyVoice.h"
-#include "internals/PanningManager.h"
-#include "internals/MidiManager.h"
+#include "helpers/AutomatedHarmonyVoice.h"
+#include "helpers/PanningManager.h"
+#include "helpers/MidiManager.h"
 
 
 namespace bav::dsp

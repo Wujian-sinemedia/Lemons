@@ -3,12 +3,13 @@
 
 #include "SynthVoice/SynthVoice.cpp"
 
-#include "Synth/internals/AutomatedHarmonyVoice.cpp"
-#include "Synth/internals/MidiManager.cpp"
-#include "Synth/internals/PanningManager.cpp"
-#include "Synth/internals/SynthMidi.cpp"
-#include "Synth/internals/SynthParameters.cpp"
-#include "Synth/internals/SynthVoiceAllocation.cpp"
+#include "Synth/helpers/AutomatedHarmonyVoice.cpp"
+#include "Synth/helpers/MidiManager.cpp"
+#include "Synth/helpers/PanningManager.cpp"
+
+#include "Synth/synth_impl/SynthMidi.cpp"
+#include "Synth/synth_impl/SynthParameters.cpp"
+#include "Synth/synth_impl/SynthVoiceAllocation.cpp"
 
 #include "Synth/Synth.cpp"
 #include "Synth/BasicSynth.cpp"
