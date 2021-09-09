@@ -12,4 +12,5 @@
 #include "Synth/synth_impl/SynthVoiceAllocation.cpp"
 
 #include "Synth/Synth.cpp"
-#include "Synth/BasicSynth.cpp"
+
+#include "BasicSynth/BasicSynth.cpp"

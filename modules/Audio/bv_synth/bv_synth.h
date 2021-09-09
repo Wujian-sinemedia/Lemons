@@ -15,7 +15,7 @@ END_JUCE_MODULE_DECLARATION
 
 #endif
 
-#include "SynthVoice/SynthVoice.h"
 
+#include "SynthVoice/SynthVoice.h"
 #include "Synth/Synth.h"
-#include "Synth/BasicSynth.h"
+#include "BasicSynth/BasicSynth.h"
