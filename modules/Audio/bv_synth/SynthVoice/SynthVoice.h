@@ -15,6 +15,9 @@ class AutomatedHarmonyVoice;
 
 template < typename SampleType >
 class PanningManager;
+
+template < typename SampleType >
+class MidiManager;
 }  // namespace synth
 
 template < typename SampleType >
@@ -50,7 +53,7 @@ public:
 
     int getCurrentlyPlayingNote() const noexcept { return currentlyPlayingNote; }
 
-    int getMidiChannel() const { return midiChannel > 0 ? midiChannel : parent->midi.getLastMidiChannel(); }
+    int getMidiChannel() const { return midiChannel > 0 ? midiChannel : parent->midi.router.getLastMidiChannel(); }
 
     void setTargetOutputFrequency (float newFreq);
 
@@ -61,6 +64,7 @@ protected:
     friend class SynthBase< SampleType >;
     friend class synth::AutomatedHarmonyVoice< SampleType >;
     friend class synth::PanningManager< SampleType >;
+    friend class synth::MidiManager< SampleType >;
 
     /*
             Called in the subclass to actually generate some audio at the desired frequency.

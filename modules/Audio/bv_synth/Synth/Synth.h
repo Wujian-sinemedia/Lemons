@@ -3,6 +3,7 @@
 
 #include "internals/AutomatedHarmonyVoice.h"
 #include "internals/PanningManager.h"
+#include "internals/MidiManager.h"
 
 
 namespace bav::dsp
@@ -62,9 +63,9 @@ public:
     void updateADSRsettings (float attack, float decay, float sustain, float release);
     void updateQuickReleaseMs (int newMs);
 
-    bool isSustainPedalDown() const noexcept { return midi.isSustainPedalDown(); }
-    bool isSostenutoPedalDown() const noexcept { return midi.isSostenutoPedalDown(); }
-    bool isSoftPedalDown() const noexcept { return midi.isSoftPedalDown(); }
+    bool isSustainPedalDown() const noexcept { return midi.router.isSustainPedalDown(); }
+    bool isSostenutoPedalDown() const noexcept { return midi.router.isSostenutoPedalDown(); }
+    bool isSoftPedalDown() const noexcept { return midi.router.isSoftPedalDown(); }
     bool isAftertouchGainOn() const noexcept { return aftertouchGainIsOn; }
 
     void setPlayingButReleasedMultiplier (float newGain) { playingButReleasedMultiplier = newGain; }
@@ -73,7 +74,7 @@ public:
     bool   isConnectedToMtsEsp() const { return pitch.tuning.isConnectedToMtsEsp(); }
     String getScaleName() const { return pitch.tuning.getScaleName(); }
 
-    auto getLastMovedControllerInfo() const { return midi.getLastMovedCCinfo(); }
+    auto getLastMovedControllerInfo() const { return midi.router.getLastMovedCCinfo(); }
 
     void setPitchGlideTime (double glideTimeSeconds);
     void togglePitchGlide (bool shouldGlide);
@@ -91,6 +92,7 @@ protected:
     friend class SynthVoiceBase< SampleType >;
     friend class synth::AutomatedHarmonyVoice< SampleType >;
     friend class synth::PanningManager< SampleType >;
+    friend class synth::MidiManager< SampleType >;
 
     // if overridden, called in the subclass when the top-level call to initialize() is made.
     virtual void initialized (double initSamplerate, int initBlocksize) { juce::ignoreUnused (initSamplerate, initBlocksize); }
@@ -153,44 +155,7 @@ private:
 
     MidiBuffer aggregateMidiBuffer, midiInputStorage;
 
-    //--------------------------------------------------
-
-    class MidiChopper : public MidiChoppingProcessor< SampleType >
-    {
-    public:
-        MidiChopper (SynthBase& s) : synth (s) { }
-
-    private:
-        void handleMidiMessage (const MidiMessage& m) final;
-        void renderChunk (AudioBuffer< SampleType >& audio, MidiBuffer&) final;
-
-        SynthBase& synth;
-    };
-
-    MidiChopper chopper {*this};
-
-    //--------------------------------------------------
-
-    class MidiManager : public midi::MidiProcessor
-    {
-    public:
-        MidiManager (SynthBase& s) : synth (s) { }
-
-    private:
-        void handleNoteOn (int midiPitch, float velocity) final;
-        void handleNoteOff (int midiPitch, float velocity) final;
-        void handlePitchwheel (int wheelValue) final;
-        void handleAftertouch (int noteNumber, int aftertouchValue) final;
-        void handleChannelPressure (int channelPressureValue) final;
-        void handleSustainPedal (int controllerValue) final;
-        void handleSostenutoPedal (int controllerValue) final;
-        void handleSoftPedal (int controllerValue) final;
-        void handleAllSoundOff() final { synth.allNotesOff (false); }
-
-        SynthBase& synth;
-    };
-
-    MidiManager midi {*this};
+    synth::MidiManager< SampleType > midi {*this};
 };
 
 

@@ -54,13 +54,6 @@ void SynthBase< SampleType >::updateMidiVelocitySensitivity (int newSensitivity)
             voice->setVelocityMultiplier (velocityConverter.getGainForVelocity (voice->lastRecievedVelocity));
 }
 
-
-template < typename SampleType >
-void SynthBase< SampleType >::updatePitchbendRange (int rangeSemitones)
-{
-    updatePitchbendRange (rangeSemitones, rangeSemitones);
-}
-
 /*
  Sets the range of the pitch wheel up and down, in semitones.
  */
@@ -71,11 +64,17 @@ void SynthBase< SampleType >::updatePitchbendRange (int rangeUp, int rangeDown)
 
     pitch.bend.setRange (rangeUp, rangeDown);
 
-    if (midi.getLastPitchwheelValue() == 64) return;
+    if (midi.router.getLastPitchwheelValue() == 64) return;
 
     for (auto* voice : voices)
         if (voice->isVoiceActive())
             voice->setTargetOutputFrequency (pitch.getFrequencyForMidi (voice->getCurrentlyPlayingNote()));
+}
+
+template < typename SampleType >
+void SynthBase< SampleType >::updatePitchbendRange (int rangeSemitones)
+{
+    updatePitchbendRange (rangeSemitones, rangeSemitones);
 }
 
 

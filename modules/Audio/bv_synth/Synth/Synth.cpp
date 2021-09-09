@@ -54,6 +54,7 @@ void SynthBase< SampleType >::prepare (double samplerate, int blocksize)
         voice->prepare (samplerate, blocksize);
 
     panner.prepare (voices.size(), false);
+    midi.prepare (blocksize);
 
     sampleRate = samplerate;
 
@@ -105,7 +106,6 @@ void SynthBase< SampleType >::renderVoices (MidiBuffer& midiMessages, AudioBuffe
 
     output.clear();
     aggregateMidiBuffer.clear();
-    midiInputStorage.clear();
 
     const auto numSamples = output.getNumSamples();
 
@@ -116,34 +116,13 @@ void SynthBase< SampleType >::renderVoices (MidiBuffer& midiMessages, AudioBuffe
 
     lastBlocksize = numSamples;
 
-    chopper.process (output, midiMessages);
+    midi.process (output, midiMessages);
 
     midiMessages.swapWith (aggregateMidiBuffer);
     keyboardState.processNextMidiBuffer (aggregateMidiBuffer, 0, numSamples, false);
 
     aggregateMidiBuffer.clear();
     midiInputStorage.clear();
-}
-
-
-template < typename SampleType >
-void SynthBase< SampleType >::MidiChopper::handleMidiMessage (const juce::MidiMessage& m)
-{
-    synth.midi.process (m);
-}
-
-template < typename SampleType >
-void SynthBase< SampleType >::MidiChopper::renderChunk (AudioBuffer< SampleType >& audio, MidiBuffer&)
-{
-    const auto numSamples = audio.getNumSamples();
-
-    for (auto* voice : synth.voices)
-    {
-        if (voice->isVoiceActive())
-            voice->renderBlock (audio);
-        else
-            voice->bypassedBlock (numSamples);
-    }
 }
 
 /*
@@ -153,7 +132,7 @@ void SynthBase< SampleType >::MidiChopper::renderChunk (AudioBuffer< SampleType 
 template < typename SampleType >
 void SynthBase< SampleType >::bypassedBlock (int numSamples, MidiBuffer& midiMessages)
 {
-    midi.process (midiMessages);
+    midi.processBypassed (numSamples, midiMessages);
 
     for (auto* voice : voices)
         voice->bypassedBlock (numSamples);

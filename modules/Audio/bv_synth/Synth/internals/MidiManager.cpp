@@ -1,27 +1,49 @@
 
-namespace bav::dsp
+namespace bav::dsp::synth
 {
 template < typename SampleType >
-void SynthBase< SampleType >::MidiManager::handleNoteOn (int midiPitch, float velocity)
+void MidiManager< SampleType >::handleMidiMessage (const MidiMessage& m)
+{
+    router.process (m);
+}
+
+template < typename SampleType >
+void MidiManager< SampleType >::renderChunk (AudioBuffer< SampleType >& audio, MidiBuffer&)
+{
+    const auto numSamples = audio.getNumSamples();
+
+    for (auto* voice : synth.voices)
+    {
+        if (voice->isVoiceActive())
+            voice->renderBlock (audio);
+        else
+            voice->bypassedBlock (numSamples);
+    }
+}
+
+/*---------------------------------------------------------------------------------------------------*/
+
+template < typename SampleType >
+void MidiManager< SampleType >::MidiRouter::handleNoteOn (int midiPitch, float velocity)
 {
     synth.noteOn (midiPitch, velocity, true, getLastMidiChannel());
 }
 
 template < typename SampleType >
-void SynthBase< SampleType >::MidiManager::handleNoteOff (int midiPitch, float velocity)
+void MidiManager< SampleType >::MidiRouter::handleNoteOff (int midiPitch, float velocity)
 {
     synth.noteOff (midiPitch, velocity, true, getLastMidiChannel());
 }
 
 template < typename SampleType >
-void SynthBase< SampleType >::MidiManager::handleAftertouch (int noteNumber, int aftertouchValue)
+void MidiManager< SampleType >::MidiRouter::handleAftertouch (int noteNumber, int aftertouchValue)
 {
     jassert (noteNumber >= 0 && noteNumber <= 127);
     jassert (aftertouchValue >= 0 && aftertouchValue <= 127);
 
-    synth.aggregateMidiBuffer.addEvent (MidiMessage::aftertouchChange (synth.midi.getLastMidiChannel(),
+    synth.aggregateMidiBuffer.addEvent (MidiMessage::aftertouchChange (getLastMidiChannel(),
                                                                        noteNumber, aftertouchValue),
-                                        synth.midi.getLastMidiTimestamp());
+                                        getLastMidiTimestamp());
 
     for (auto* voice : synth.voices)
         if (voice->isVoiceActive() && voice->getCurrentlyPlayingNote() == noteNumber)
@@ -29,38 +51,38 @@ void SynthBase< SampleType >::MidiManager::handleAftertouch (int noteNumber, int
 }
 
 template < typename SampleType >
-void SynthBase< SampleType >::MidiManager::handleChannelPressure (int channelPressureValue)
+void MidiManager< SampleType >::MidiRouter::handleChannelPressure (int channelPressureValue)
 {
     jassert (channelPressureValue >= 0 && channelPressureValue <= 127);
 
-    synth.aggregateMidiBuffer.addEvent (MidiMessage::channelPressureChange (synth.midi.getLastMidiChannel(),
+    synth.aggregateMidiBuffer.addEvent (MidiMessage::channelPressureChange (getLastMidiChannel(),
                                                                             channelPressureValue),
-                                        synth.midi.getLastMidiTimestamp());
+                                        getLastMidiTimestamp());
 
     for (auto* voice : synth.voices)
         voice->aftertouchChanged (channelPressureValue);
 }
 
 template < typename SampleType >
-void SynthBase< SampleType >::MidiManager::handleSustainPedal (int controllerValue)
+void MidiManager< SampleType >::MidiRouter::handleSustainPedal (int controllerValue)
 {
     const bool isDown = (controllerValue >= 64);
 
-    synth.aggregateMidiBuffer.addEvent (MidiMessage::controllerEvent (synth.midi.getLastMidiChannel(), 0x40, controllerValue),
-                                        synth.midi.getLastMidiTimestamp());
+    synth.aggregateMidiBuffer.addEvent (MidiMessage::controllerEvent (getLastMidiChannel(), 0x40, controllerValue),
+                                        getLastMidiTimestamp());
 
     if (! isDown && ! synth.latchIsOn)
         synth.turnOffAllKeyupNotes (false, false, 0.0f, false);
 }
 
 template < typename SampleType >
-void SynthBase< SampleType >::MidiManager::handleSostenutoPedal (int controllerValue)
+void MidiManager< SampleType >::MidiRouter::handleSostenutoPedal (int controllerValue)
 {
     const bool isDown = (controllerValue >= 64);
 
-    synth.aggregateMidiBuffer.addEvent (MidiMessage::controllerEvent (synth.midi.getLastMidiChannel(),
+    synth.aggregateMidiBuffer.addEvent (MidiMessage::controllerEvent (getLastMidiChannel(),
                                                                       0x42, controllerValue),
-                                        synth.midi.getLastMidiTimestamp());
+                                        getLastMidiTimestamp());
 
     if (isDown && ! synth.latchIsOn)
     {
@@ -75,26 +97,26 @@ void SynthBase< SampleType >::MidiManager::handleSostenutoPedal (int controllerV
 }
 
 template < typename SampleType >
-void SynthBase< SampleType >::MidiManager::handleSoftPedal (int controllerValue)
+void MidiManager< SampleType >::MidiRouter::handleSoftPedal (int controllerValue)
 {
     const bool isDown = controllerValue >= 64;
 
-    synth.aggregateMidiBuffer.addEvent (MidiMessage::controllerEvent (synth.midi.getLastMidiChannel(),
+    synth.aggregateMidiBuffer.addEvent (MidiMessage::controllerEvent (getLastMidiChannel(),
                                                                       0x43, controllerValue),
-                                        synth.midi.getLastMidiTimestamp());
+                                        getLastMidiTimestamp());
 
     for (auto* voice : synth.voices)
         voice->softPedalChanged (isDown);
 }
 
 template < typename SampleType >
-void SynthBase< SampleType >::MidiManager::handlePitchwheel (int wheelValue)
+void MidiManager< SampleType >::MidiRouter::handlePitchwheel (int wheelValue)
 {
     jassert (wheelValue >= 0 && wheelValue <= 127);
 
-    synth.aggregateMidiBuffer.addEvent (MidiMessage::pitchWheel (synth.midi.getLastMidiChannel(),
+    synth.aggregateMidiBuffer.addEvent (MidiMessage::pitchWheel (getLastMidiChannel(),
                                                                  wheelValue),
-                                        synth.midi.getLastMidiTimestamp());
+                                        getLastMidiTimestamp());
 
     synth.pitch.bend.newPitchbendRecieved (wheelValue);
 
@@ -103,4 +125,8 @@ void SynthBase< SampleType >::MidiManager::handlePitchwheel (int wheelValue)
             voice->setTargetOutputFrequency (synth.pitch.getFrequencyForMidi (voice->getCurrentlyPlayingNote()));
 }
 
-}  // namespace bav::dsp
+
+template class MidiManager< float >;
+template class MidiManager< double >;
+
+}  // namespace bav::dsp::synth

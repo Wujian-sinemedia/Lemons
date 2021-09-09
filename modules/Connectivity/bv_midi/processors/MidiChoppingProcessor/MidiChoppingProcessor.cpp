@@ -2,9 +2,20 @@
 namespace bav::dsp
 {
 template < typename SampleType >
-MidiChoppingProcessor< SampleType >::MidiChoppingProcessor()
+void MidiChoppingProcessor< SampleType >::prepare (int maxBlocksize)
 {
-    midiStorage.ensureSize (size_t (512));
+    midiStorage.ensureSize (static_cast< size_t > (maxBlocksize));
+    dummyBuffer.setSize (1, maxBlocksize, true, true, true);
+}
+
+template < typename SampleType >
+void MidiChoppingProcessor< SampleType >::processBypassed (int numSamples, MidiBuffer& midi)
+{
+    dummyBuffer.clear();
+
+    AudioBuffer< SampleType > alias {dummyBuffer.getArrayOfWritePointers(), 1, 0, numSamples};
+
+    process (alias, midi);
 }
 
 template < typename SampleType >

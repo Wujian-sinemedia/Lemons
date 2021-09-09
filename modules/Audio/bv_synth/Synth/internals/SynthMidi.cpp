@@ -2,14 +2,11 @@
 
 namespace bav::dsp
 {
-/*
- Processes a single MIDI event at a time (for public use of this class).
- */
 template < typename SampleType >
 void SynthBase< SampleType >::processMidiEvent (const MidiMessage& m)
 {
     midiInputStorage.addEvent (m, static_cast< int > (m.getTimeStamp()));
-    midi.process (m);
+    midi.router.process (m);
 }
 
 
@@ -73,12 +70,12 @@ void SynthBase< SampleType >::startVoice (Voice* voice, int midiPitch, float vel
         if (wasStolen)
         {
             // output a note off for the voice's previous note
-            aggregateMidiBuffer.addEvent (MidiMessage::noteOff (midiChannel, prevNote, velocity), midi.getLastMidiTimestamp());
+            aggregateMidiBuffer.addEvent (MidiMessage::noteOff (midiChannel, prevNote, velocity), midi.router.getLastMidiTimestamp());
         }
 
         voice->aftertouchChanged (0);
 
-        aggregateMidiBuffer.addEvent (MidiMessage::noteOn (midiChannel, midiPitch, velocity), midi.getLastMidiTimestamp());
+        aggregateMidiBuffer.addEvent (MidiMessage::noteOn (midiChannel, midiPitch, velocity), midi.router.getLastMidiTimestamp());
     }
     else if (aftertouch != voice->currentAftertouch)
     {
@@ -87,7 +84,7 @@ void SynthBase< SampleType >::startVoice (Voice* voice, int midiPitch, float vel
         voice->aftertouchChanged (aftertouch);
 
         if (aftertouchGainIsOn)
-            aggregateMidiBuffer.addEvent (MidiMessage::aftertouchChange (midiChannel, midiPitch, aftertouch), midi.getLastMidiTimestamp());
+            aggregateMidiBuffer.addEvent (MidiMessage::aftertouchChange (midiChannel, midiPitch, aftertouch), midi.router.getLastMidiTimestamp());
         else
             updateChannelPressure (aftertouch);
     }
@@ -110,7 +107,7 @@ void SynthBase< SampleType >::startVoice (Voice* voice, int midiPitch, float vel
     const bool isPedal   = pedal.isAutomatedPitch (midiPitch);
     const bool isDescant = descant.isAutomatedPitch (midiPitch);
     const bool keydown   = isKeyboard ? true : voice->isKeyDown();
-    const auto timestamp = sameNoteRetriggered ? voice->noteOnTime : static_cast< uint32 > (midi.getLastMidiTimestamp());
+    const auto timestamp = sameNoteRetriggered ? voice->noteOnTime : static_cast< uint32 > (midi.router.getLastMidiTimestamp());
 
     voice->startNote (midiPitch, velocity, timestamp, keydown, isPedal, isDescant, midiChannel);
 }
@@ -139,7 +136,7 @@ void SynthBase< SampleType >::noteOff (int midiNoteNumber, float velocity, bool 
         }
         else
         {
-            if (! (midi.isSustainPedalDown() || voice->sustainingFromSostenutoPedal))
+            if (! (midi.router.isSustainPedalDown() || voice->sustainingFromSostenutoPedal))
                 stopVoice (voice, velocity, allowTailOff);
             else
                 voice->setKeyDown (false);
@@ -169,11 +166,11 @@ void SynthBase< SampleType >::stopVoice (Voice* voice, float velocity, bool allo
 {
     if (voice == nullptr) return;
 
-    if (midi.isSustainPedalDown() || voice->sustainingFromSostenutoPedal) return;
+    if (midi.router.isSustainPedalDown() || voice->sustainingFromSostenutoPedal) return;
 
     const auto note = voice->getCurrentlyPlayingNote();
 
-    aggregateMidiBuffer.addEvent (MidiMessage::noteOff (voice->getMidiChannel(), note, velocity), midi.getLastMidiTimestamp());
+    aggregateMidiBuffer.addEvent (MidiMessage::noteOff (voice->getMidiChannel(), note, velocity), midi.router.getLastMidiTimestamp());
 
     const bool isPedal   = voice->isCurrentPedalVoice();
     const bool isDescant = voice->isCurrentDescantVoice();
@@ -243,8 +240,8 @@ void SynthBase< SampleType >::updateChannelPressure (int newIncomingAftertouch)
             highestAftertouch = std::max (highestAftertouch, voice->currentAftertouch);
 
     if (newIncomingAftertouch > highestAftertouch)
-        midi.process (MidiMessage::channelPressureChange (midi.getLastMidiChannel(),
-                                                          highestAftertouch));
+        midi.router.process (MidiMessage::channelPressureChange (midi.router.getLastMidiChannel(),
+                                                                 highestAftertouch));
 }
 
 
