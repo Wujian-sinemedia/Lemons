@@ -9,7 +9,7 @@ vendor:             Ben Vining
 version:            0.0.1
 name:               bv_oscillators
 description:        Oscillators for building synths
-dependencies:       bv_dsp
+dependencies:       bv_dsp bv_serializing
 
 END_JUCE_MODULE_DECLARATION
 

@@ -10,3 +10,5 @@
 #include "ParameterList/ParameterList.cpp"
 
 #include "processor/ParameterProcessor.cpp"
+
+#include "ModulationManager/ModulationManager.cpp"

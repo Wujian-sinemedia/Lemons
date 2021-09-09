@@ -32,7 +32,7 @@ public:
 
     bool isInitialized() const { return hasBeenInitialized; }
 
-    void prepare (double samplerate, int blocksize);
+    void prepare (double samplerate, int blocksize, int numChannels = 2);
 
     void releaseResources();
 
@@ -49,6 +49,8 @@ private:
     bool       wasBypassedLastCallback {true};
     bool       hasBeenInitialized {false};
     double     sampleRate {0.};
+    
+    AudioBuffer<SampleType> outputStorage;
 };
 
 }  // namespace bav::dsp

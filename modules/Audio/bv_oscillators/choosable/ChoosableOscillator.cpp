@@ -15,6 +15,8 @@ void ChoosableOscillator< SampleType >::setOscType (OscType newType)
 template < typename SampleType >
 void ChoosableOscillator< SampleType >::process (AudioBuffer< SampleType >& output)
 {
+    output.clear();
+    
     switch (type)
     {
         case (SineOsc) :
@@ -78,11 +80,6 @@ void ChoosableOscillator< SampleType >::prepare (int blocksize, double samplerat
 }
 
 template < typename SampleType >
-void ChoosableOscillator< SampleType >::prepared (int)
-{
-}
-
-template < typename SampleType >
 void ChoosableOscillator< SampleType >::setFrequency (float freqHz)
 {
     sine.setFrequency (freqHz);
@@ -98,6 +95,31 @@ template < typename SampleType >
 void ChoosableOscillator< SampleType >::setDetuneAmount (int pitchSpreadCents)
 {
     superSaw->setDetuneAmount (pitchSpreadCents);
+}
+
+template < typename SampleType >
+void ChoosableOscillator< SampleType >::serialize (TreeReflector& ref)
+{
+    ref.add ("OscillatorType", type);
+    
+    const String freqProp = "Frequency";
+    const String detuneProp = "DetuneAmount";
+
+    auto& tree = ref.getRawDataTree();
+    
+    if (ref.isSaving())
+    {
+        tree.setProperty (freqProp, freq, nullptr);
+        tree.setProperty (detuneProp, superSaw->getPitchSpreadCents(), nullptr);
+    }
+    else
+    {
+        if (tree.hasProperty (freqProp))
+            setFrequency (tree.getProperty (freqProp));
+        
+        if (tree.hasProperty (detuneProp))
+            setDetuneAmount (tree.getProperty (detuneProp));
+    }
 }
 
 template class ChoosableOscillator< float >;

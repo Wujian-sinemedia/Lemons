@@ -29,3 +29,5 @@
 #include "ParameterList/ParameterList.h"
 
 #include "processor/ParameterProcessor.h"
+
+#include "ModulationManager/ModulationManager.h"

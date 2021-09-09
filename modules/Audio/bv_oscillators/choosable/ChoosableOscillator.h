@@ -2,6 +2,7 @@
 #pragma once
 
 #include "OscEngine.h"
+#include <bv_serializing/bv_serializing.h>
 
 namespace bav::dsp::osc
 {
@@ -15,7 +16,7 @@ enum OscType
 };
 
 template < typename SampleType >
-class ChoosableOscillator
+class ChoosableOscillator : public SerializableData
 {
 public:
     ChoosableOscillator();
@@ -34,7 +35,9 @@ public:
     void setDetuneAmount (int pitchSpreadCents);
 
 private:
-    virtual void prepared (int blocksize);
+    virtual void prepared (int /*blocksize*/) { }
+    
+    void serialize (TreeReflector& ref) final;
 
     OscType type {SineOsc};
     float   freq {440.f};

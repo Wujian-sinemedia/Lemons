@@ -2,10 +2,11 @@
 namespace bav::dsp
 {
 template < typename SampleType >
-void Engine< SampleType >::prepare (double samplerate, int blocksize)
+void Engine< SampleType >::prepare (double samplerate, int blocksize, int numChannels)
 {
     jassert (samplerate > 0 && blocksize > 0);
     dummyMidiBuffer.ensureSize (static_cast< size_t > (blocksize));
+    outputStorage.setSize (numChannels, blocksize);
     hasBeenInitialized = true;
     sampleRate         = samplerate;
     prepared (blocksize, samplerate);
@@ -65,14 +66,20 @@ void Engine< SampleType >::processInternal (const AudioBuffer< SampleType >& inp
     const bool processingBypassedThisFrame = isBypassed ? wasBypassedLastCallback : false;
 
     wasBypassedLastCallback = isBypassed;
+    
+    AudioBuffer<SampleType> alias {outputStorage.getArrayOfWritePointers(), outputStorage.getNumChannels(), 0, output.getNumSamples()};
+    
+    alias.clear();
 
-    renderBlock (input, output, midiMessages, processingBypassedThisFrame);
+    renderBlock (input, alias, midiMessages, processingBypassedThisFrame);
 
     if (applyFadeIn)
-        output.applyGainRamp (0, output.getNumSamples(), SampleType (0.), SampleType (1.));
+        alias.applyGainRamp (0, output.getNumSamples(), SampleType (0.), SampleType (1.));
 
     if (applyFadeOut)
-        output.applyGainRamp (0, output.getNumSamples(), SampleType (1.), SampleType (0.));
+        alias.applyGainRamp (0, output.getNumSamples(), SampleType (1.), SampleType (0.));
+    
+    buffers::copy (alias, output);
 }
 
 template < typename SampleType >
