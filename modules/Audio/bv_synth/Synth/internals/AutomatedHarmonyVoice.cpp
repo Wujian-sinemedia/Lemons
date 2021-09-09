@@ -1,8 +1,8 @@
 
-namespace bav::dsp
+namespace bav::dsp::synth
 {
 template < typename SampleType >
-SynthBase< SampleType >::AutomatedHarmonyVoice::AutomatedHarmonyVoice (SynthBase& synthToUse, bool shiftUp)
+AutomatedHarmonyVoice< SampleType >::AutomatedHarmonyVoice (SynthBase< SampleType >& synthToUse, bool shiftUp)
     : shiftingUp (shiftUp), synth (synthToUse)
 {
 }
@@ -16,7 +16,7 @@ static inline bool compareNotes (bool shiftingUp, int a, int b)
 }
 
 template < typename SampleType >
-void SynthBase< SampleType >::AutomatedHarmonyVoice::apply()
+void AutomatedHarmonyVoice< SampleType >::apply()
 {
     if (! isOn)
     {
@@ -81,7 +81,7 @@ void SynthBase< SampleType >::AutomatedHarmonyVoice::apply()
 }
 
 template < typename SampleType >
-void SynthBase< SampleType >::AutomatedHarmonyVoice::setEnabled (bool shouldBeEnabled)
+void AutomatedHarmonyVoice< SampleType >::setEnabled (bool shouldBeEnabled)
 {
     if (isOn == shouldBeEnabled) return;
 
@@ -94,7 +94,7 @@ void SynthBase< SampleType >::AutomatedHarmonyVoice::setEnabled (bool shouldBeEn
 }
 
 template < typename SampleType >
-void SynthBase< SampleType >::AutomatedHarmonyVoice::setThreshold (int newThresh)
+void AutomatedHarmonyVoice< SampleType >::setThreshold (int newThresh)
 {
     if (thresh == newThresh) return;
 
@@ -104,7 +104,7 @@ void SynthBase< SampleType >::AutomatedHarmonyVoice::setThreshold (int newThresh
 }
 
 template < typename SampleType >
-void SynthBase< SampleType >::AutomatedHarmonyVoice::setInterval (int newInterval)
+void AutomatedHarmonyVoice< SampleType >::setInterval (int newInterval)
 {
     if (interval == newInterval) return;
 
@@ -114,7 +114,7 @@ void SynthBase< SampleType >::AutomatedHarmonyVoice::setInterval (int newInterva
 }
 
 template < typename SampleType >
-void SynthBase< SampleType >::AutomatedHarmonyVoice::turnNoteOffIfOn()
+void AutomatedHarmonyVoice< SampleType >::turnNoteOffIfOn()
 {
     if (lastPitch > -1)
     {
@@ -124,7 +124,7 @@ void SynthBase< SampleType >::AutomatedHarmonyVoice::turnNoteOffIfOn()
 }
 
 template < typename SampleType >
-void SynthBase< SampleType >::AutomatedHarmonyVoice::autoNoteOffKeyboardKeyHeld (int midiNote)
+void AutomatedHarmonyVoice< SampleType >::AutomatedHarmonyVoice::autoNoteOffKeyboardKeyHeld (int midiNote)
 {
     if (isAutomatedPitch (midiNote))
     {
@@ -139,7 +139,7 @@ void SynthBase< SampleType >::AutomatedHarmonyVoice::autoNoteOffKeyboardKeyHeld 
 }
 
 template < typename SampleType >
-SynthVoiceBase< SampleType >* SynthBase< SampleType >::AutomatedHarmonyVoice::getVoice()
+SynthVoiceBase< SampleType >* AutomatedHarmonyVoice< SampleType >::AutomatedHarmonyVoice::getVoice()
 {
     if (! isOn || lastPitch < 0)
         return nullptr;
@@ -147,4 +147,8 @@ SynthVoiceBase< SampleType >* SynthBase< SampleType >::AutomatedHarmonyVoice::ge
     return synth.getVoicePlayingNote (lastPitch);
 }
 
-}  // namespace bav::dsp
+
+template class AutomatedHarmonyVoice< float >;
+template class AutomatedHarmonyVoice< double >;
+
+}  // namespace bav::dsp::synth

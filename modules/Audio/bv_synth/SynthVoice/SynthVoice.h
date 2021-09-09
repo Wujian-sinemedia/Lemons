@@ -8,6 +8,14 @@ namespace bav::dsp
 template < typename SampleType >
 class SynthBase;
 
+namespace synth
+{
+template < typename SampleType >
+class AutomatedHarmonyVoice;
+
+template < typename SampleType >
+class PanningManager;
+}  // namespace synth
 
 template < typename SampleType >
 class SynthVoiceBase
@@ -51,6 +59,8 @@ public:
 
 protected:
     friend class SynthBase< SampleType >;
+    friend class synth::AutomatedHarmonyVoice< SampleType >;
+    friend class synth::PanningManager< SampleType >;
 
     /*
             Called in the subclass to actually generate some audio at the desired frequency.

@@ -19,5 +19,3 @@ END_JUCE_MODULE_DECLARATION
 
 #include "Synth/Synth.h"
 #include "Synth/BasicSynth.h"
-
-#include "SynthState/SynthState.h"

@@ -119,6 +119,7 @@ void SynthBase< SampleType >::renderVoices (MidiBuffer& midiMessages, AudioBuffe
     chopper.process (output, midiMessages);
 
     midiMessages.swapWith (aggregateMidiBuffer);
+    keyboardState.processNextMidiBuffer (aggregateMidiBuffer, 0, numSamples, false);
 
     aggregateMidiBuffer.clear();
     midiInputStorage.clear();
@@ -132,7 +133,7 @@ void SynthBase< SampleType >::MidiChopper::handleMidiMessage (const juce::MidiMe
 }
 
 template < typename SampleType >
-void SynthBase< SampleType >::MidiChopper::renderChunk (juce::AudioBuffer< SampleType >& audio, juce::MidiBuffer&)
+void SynthBase< SampleType >::MidiChopper::renderChunk (AudioBuffer< SampleType >& audio, MidiBuffer&)
 {
     const auto numSamples = audio.getNumSamples();
 

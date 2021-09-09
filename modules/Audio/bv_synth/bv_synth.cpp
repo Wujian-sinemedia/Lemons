@@ -12,5 +12,3 @@
 
 #include "Synth/Synth.cpp"
 #include "Synth/BasicSynth.cpp"
-
-#include "SynthState/SynthState.cpp"

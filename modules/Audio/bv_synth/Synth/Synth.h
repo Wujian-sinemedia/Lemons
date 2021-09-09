@@ -1,6 +1,9 @@
 
 #pragma once
 
+#include "internals/AutomatedHarmonyVoice.h"
+#include "internals/PanningManager.h"
+
 
 namespace bav::dsp
 {
@@ -10,75 +13,6 @@ class SynthBase
     using uint32     = juce::uint32;
     using Voice      = SynthVoiceBase< SampleType >;
     using ADSRParams = juce::ADSR::Parameters;
-
-    class AutomatedHarmonyVoice
-    {
-    public:
-        AutomatedHarmonyVoice (SynthBase& synthToUse, bool shiftUp);
-
-        void setEnabled (bool shouldBeEnabled);
-        void setThreshold (int newThresh);
-        void setInterval (int newInterval);
-
-        void turnNoteOffIfOn();
-
-        bool isAutomatedPitch (int midiNote) { return isOn && lastPitch == midiNote; }
-
-        Voice* getVoice();
-
-    private:
-        friend class SynthBase;
-
-        void apply();
-        void setNoteToOff() { lastPitch = -1; }
-
-        // call this function when processing an automated note-off and the voice's keyboard key is still being held
-        void autoNoteOffKeyboardKeyHeld (int midiNote);
-
-        const bool shiftingUp;
-
-        bool isOn {false};
-        int  lastPitch {-1};
-        int  thresh {0};
-        int  interval {12};
-
-        SynthBase& synth;
-    };
-
-    class PanningManager
-    {
-    public:
-        PanningManager (SynthBase& b) : synth (b) { }
-
-        void updateStereoWidth (int newWidth);
-
-        void setLowestNote (int newLowestNote);
-        int  getLowestNote() const { return lowestPannedNote; }
-
-    private:
-        friend class SynthBase;
-
-        void prepare (int numVoices, bool clearArrays = true);
-        void reset();
-
-        int  getNextPanVal();
-        void panValTurnedOff (int panVal);
-
-        void updatePanValueLookupTables (int newWidth);
-        void mapArrayIndexes();
-        int  getClosestNewPanValFromOld (int oldPan);
-        int  findClosestValueInNewArray (int targetValue, Array< int >& newArray);
-
-        SynthBase& synth;
-
-        int stereoWidth {100};
-        int lowestPannedNote {0};
-
-        Array< int > arrayIndexesMapped;
-        Array< int > possiblePanVals, panValsInAssigningOrder, unsentPanVals;
-        Array< int > newPanVals, newUnsentVals;
-        Array< int > distances;
-    };
 
 public:
     virtual ~SynthBase() = default;
@@ -146,13 +80,17 @@ public:
 
     const midi::PitchPipeline* getPitchAdjuster() { return &pitch; }
 
-    PanningManager panner {*this};
+    juce::MidiKeyboardState keyboardState;
 
-    AutomatedHarmonyVoice pedal {*this, false};
-    AutomatedHarmonyVoice descant {*this, true};
+    synth::PanningManager< SampleType > panner {*this};
+
+    synth::AutomatedHarmonyVoice< SampleType > pedal {*this, false};
+    synth::AutomatedHarmonyVoice< SampleType > descant {*this, true};
 
 protected:
     friend class SynthVoiceBase< SampleType >;
+    friend class synth::AutomatedHarmonyVoice< SampleType >;
+    friend class synth::PanningManager< SampleType >;
 
     // if overridden, called in the subclass when the top-level call to initialize() is made.
     virtual void initialized (double initSamplerate, int initBlocksize) { juce::ignoreUnused (initSamplerate, initBlocksize); }
@@ -224,7 +162,7 @@ private:
 
     private:
         void handleMidiMessage (const MidiMessage& m) final;
-        void renderChunk (juce::AudioBuffer< SampleType >& audio, juce::MidiBuffer&) final;
+        void renderChunk (AudioBuffer< SampleType >& audio, MidiBuffer&) final;
 
         SynthBase& synth;
     };
