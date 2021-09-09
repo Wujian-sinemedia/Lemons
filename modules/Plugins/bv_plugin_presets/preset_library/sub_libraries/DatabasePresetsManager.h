@@ -1,6 +1,8 @@
 #pragma once
 
 #include "SubLibrary.h"
+#include "database/UserProfile.h"
+#include "database/PresetDatabase.h"
 
 namespace bav::plugin::presets
 {
