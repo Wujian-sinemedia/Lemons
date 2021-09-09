@@ -12,6 +12,8 @@ public:
 
     dsp::Engine< SampleType >* operator->() { return &engine; }
 
+    void prepareToPlay (double samplerate, int maxBlocksize);
+
 private:
     void renderChunk (juce::AudioBuffer< SampleType >& audio, MidiBuffer& midi) final;
 

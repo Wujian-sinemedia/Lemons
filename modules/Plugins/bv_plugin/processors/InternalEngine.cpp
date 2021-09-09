@@ -10,6 +10,13 @@ ProcessorInternalEngine< SampleType >::ProcessorInternalEngine (juce::AudioProce
 {
 }
 
+template < typename SampleType >
+void ProcessorInternalEngine< SampleType >::prepareToPlay (double samplerate, int maxBlocksize)
+{
+    engine.prepare (samplerate, maxBlocksize);
+    this->prepare (maxBlocksize);
+}
+
 inline int getIndexOfFirstValidChannelSet (const juce::AudioProcessor::BusesLayout& busLayout,
                                            bool                                     isInput)
 {

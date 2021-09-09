@@ -46,7 +46,7 @@ void ProcessorBase::prepareToPlayInternal (const double                         
 
     jassert (sampleRate > 0 && samplesPerBlock > 0);
 
-    activeEngine->prepare (sampleRate, samplesPerBlock);
+    activeEngine.prepareToPlay (sampleRate, samplesPerBlock);
 
     setLatencySamples (activeEngine->reportLatency());
 }
