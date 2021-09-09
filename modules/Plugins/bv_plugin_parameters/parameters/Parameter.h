@@ -90,8 +90,7 @@ private:
     void setDefaultInternal (float value);
     void setMidiControllerInternal (int controller);
 
-    const bool automatable;
-    const bool metaParameter;
+    const bool automatable, metaParameter;
 
     const juce::NormalisableRange< float > range;
 
@@ -106,11 +105,7 @@ private:
 
     juce::ListenerList< Listener > listeners;
 
-    const String parameterName;
-
-    const String valueChangeTransactionName;
-    const String defaultChangeTransactionName;
-    const String midiControllerChangeTransactionName;
+    const String parameterName, valueChangeTransactionName, defaultChangeTransactionName, midiControllerChangeTransactionName;
 };
 
 }  // namespace bav::plugin

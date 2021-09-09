@@ -8,5 +8,3 @@
 
 #include "choosable/OscEngine.cpp"
 #include "choosable/ChoosableOscillator.cpp"
-
-#include "LFO/LFO.cpp"
