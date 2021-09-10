@@ -4,34 +4,43 @@
 
 namespace bav::plugin
 {
+template < typename SampleType >
+class ModulationManagerProcessor;
 
-template<typename SampleType>
+
 class ModulationManager : public SerializableData
 {
 public:
-    
-    
+    virtual ~ModulationManager() = default;
+
+
 private:
-    /*------------------------------*/
-    struct LFO : dsp::osc::ChoosableOscillator<SampleType>
+    friend class ModulationManagerProcessor< float >;
+    friend class ModulationManagerProcessor< double >;
+
+    struct LFO : dsp::osc::ChoosableOscillator< float >
     {
         void prepareToPlay (int numSamples, double samplerate);
-        
+
         void processNextBlock (int numSamples);
-        
-        SampleType getAndDontAdvance() const;
-        SampleType getAndAdvance();
-        
+
+        float getAndDontAdvance() const;
+        float getAndAdvance();
+        void  advance();
+
     private:
         int currentTick {0};
-        
-        AudioBuffer<SampleType> storage;
+
+        AudioBuffer< float > storage;
     };
+
     /*------------------------------*/
-    
+
     void serialize (TreeReflector& ref);
-    
-    OwnedArray<LFO> lfos;
+
+    /*------------------------------*/
+
+    OwnedArray< LFO > lfos;
 };
 
-}
+}  // namespace bav::plugin

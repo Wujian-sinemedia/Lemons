@@ -36,7 +36,7 @@ public:
 
 private:
     virtual void prepared (int /*blocksize*/) { }
-    
+
     void serialize (TreeReflector& ref) final;
 
     OscType type {SineOsc};

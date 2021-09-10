@@ -31,3 +31,4 @@
 #include "processor/ParameterProcessor.h"
 
 #include "ModulationManager/ModulationManager.h"
+#include "ModulationManager/processor.h"

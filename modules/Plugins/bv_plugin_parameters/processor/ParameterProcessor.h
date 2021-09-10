@@ -13,8 +13,6 @@ public:
 private:
     void handleMidiMessage (const MidiMessage& m) final;
 
-    virtual void midiMessageCallback (const MidiMessage&) { }
-
     ParameterList& list;
 };
 

@@ -49,8 +49,8 @@ private:
     bool       wasBypassedLastCallback {true};
     bool       hasBeenInitialized {false};
     double     sampleRate {0.};
-    
-    AudioBuffer<SampleType> outputStorage;
+
+    AudioBuffer< SampleType > outputStorage;
 };
 
 }  // namespace bav::dsp

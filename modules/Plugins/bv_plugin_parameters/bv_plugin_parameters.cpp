@@ -12,3 +12,4 @@
 #include "processor/ParameterProcessor.cpp"
 
 #include "ModulationManager/ModulationManager.cpp"
+#include "ModulationManager/processor.cpp"

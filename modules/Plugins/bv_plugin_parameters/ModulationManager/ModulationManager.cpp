@@ -1,49 +1,44 @@
 
 namespace bav::plugin
 {
-
-template<typename SampleType>
-void ModulationManager<SampleType>::LFO::prepareToPlay (int numSamples, double samplerate)
+void ModulationManager::LFO::prepareToPlay (int numSamples, double samplerate)
 {
     storage.setSize (1, numSamples);
     this->prepare (numSamples, samplerate);
 }
 
-template<typename SampleType>
-void ModulationManager<SampleType>::LFO::processNextBlock (int numSamples)
+void ModulationManager::LFO::processNextBlock (int numSamples)
 {
     currentTick = 0;
-    
+
     storage.clear();
-    
-    AudioBuffer<SampleType> alias {storage.getArrayOfWritePointers(), 1, 0, numSamples};
-    
+
+    AudioBuffer< float > alias {storage.getArrayOfWritePointers(), 1, 0, numSamples};
+
     this->process (alias);
 }
 
-template<typename SampleType>
-SampleType ModulationManager<SampleType>::LFO::getAndDontAdvance() const
+float ModulationManager::LFO::getAndDontAdvance() const
 {
     return storage.getSample (0, currentTick);
 }
 
-template<typename SampleType>
-SampleType ModulationManager<SampleType>::LFO::getAndAdvance()
+float ModulationManager::LFO::getAndAdvance()
 {
     return storage.getSample (0, currentTick++);
+}
+
+void ModulationManager::LFO::advance()
+{
+    ++currentTick;
 }
 
 
 /*---------------------------------------------------------------------------------------------------*/
 
-template<typename SampleType>
-void ModulationManager<SampleType>::serialize (TreeReflector& ref)
+void ModulationManager::serialize (TreeReflector& ref)
 {
     ref.add ("LFO", lfos);
 }
 
-
-template class ModulationManager<float>;
-template class ModulationManager<double>;
-
-}
+}  // namespace bav::plugin

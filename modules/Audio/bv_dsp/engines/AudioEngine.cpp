@@ -66,9 +66,9 @@ void Engine< SampleType >::processInternal (const AudioBuffer< SampleType >& inp
     const bool processingBypassedThisFrame = isBypassed ? wasBypassedLastCallback : false;
 
     wasBypassedLastCallback = isBypassed;
-    
-    AudioBuffer<SampleType> alias {outputStorage.getArrayOfWritePointers(), outputStorage.getNumChannels(), 0, output.getNumSamples()};
-    
+
+    AudioBuffer< SampleType > alias {outputStorage.getArrayOfWritePointers(), outputStorage.getNumChannels(), 0, output.getNumSamples()};
+
     alias.clear();
 
     renderBlock (input, alias, midiMessages, processingBypassedThisFrame);
@@ -78,7 +78,7 @@ void Engine< SampleType >::processInternal (const AudioBuffer< SampleType >& inp
 
     if (applyFadeOut)
         alias.applyGainRamp (0, output.getNumSamples(), SampleType (1.), SampleType (0.));
-    
+
     buffers::copy (alias, output);
 }
 

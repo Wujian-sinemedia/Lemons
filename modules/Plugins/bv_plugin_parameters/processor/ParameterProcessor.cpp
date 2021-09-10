@@ -11,7 +11,6 @@ template < typename SampleType >
 void ParameterProcessorBase< SampleType >::handleMidiMessage (const MidiMessage& m)
 {
     list.processMidiMessage (m);
-    midiMessageCallback (m);
 }
 
 template class ParameterProcessorBase< float >;

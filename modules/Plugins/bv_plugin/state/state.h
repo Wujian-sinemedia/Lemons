@@ -19,8 +19,10 @@ public:
 
     Dimensions dimensions;
 
+    ModulationManager modManager;
+
 protected:
-    void serialize (TreeReflector& ref) override;
+    void serialize (TreeReflector& ref) final;
 
     ParameterList& params;
 };

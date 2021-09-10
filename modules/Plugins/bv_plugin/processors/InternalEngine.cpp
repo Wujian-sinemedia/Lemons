@@ -2,11 +2,34 @@
 namespace bav::plugin
 {
 template < typename SampleType >
+ProcessorInternalEngine< SampleType >::ParameterProcessor::ParameterProcessor (ProcessorInternalEngine& parent)
+    : ParameterProcessorBase< SampleType > (parent.state.getParameters()),
+      parentEngine (parent)
+{
+}
+
+template < typename SampleType >
+void ProcessorInternalEngine< SampleType >::ParameterProcessor::renderChunk (juce::AudioBuffer< SampleType >& audio, MidiBuffer& midi)
+{
+    parentEngine.renderNextAudioSegment (audio, midi);
+}
+
+/*------------------------------------------------------------------------------------------------------------*/
+
+template < typename SampleType >
+ProcessorInternalEngine< SampleType >::ModulationProcessor::ModulationProcessor (ProcessorInternalEngine& parent)
+    : ModulationManagerProcessor< SampleType > (parent.state.modManager),
+      parentEngine (parent)
+{
+}
+
+/*------------------------------------------------------------------------------------------------------------*/
+
+template < typename SampleType >
 ProcessorInternalEngine< SampleType >::ProcessorInternalEngine (juce::AudioProcessor&      processorToUse,
                                                                 StateBase&                 stateToUse,
                                                                 dsp::Engine< SampleType >& engineToUse)
-    : ParameterProcessorBase< SampleType > (stateToUse.getParameters()),
-      processor (processorToUse), state (stateToUse), engine (engineToUse)
+    : processor (processorToUse), state (stateToUse), engine (engineToUse)
 {
 }
 
@@ -14,7 +37,13 @@ template < typename SampleType >
 void ProcessorInternalEngine< SampleType >::prepareToPlay (double samplerate, int maxBlocksize)
 {
     engine.prepare (samplerate, maxBlocksize);
-    this->prepare (maxBlocksize);
+    parameterProcessor.prepare (maxBlocksize);
+}
+
+template < typename SampleType >
+void ProcessorInternalEngine< SampleType >::process (AudioBuffer< SampleType >& audio, MidiBuffer& midi)
+{
+    parameterProcessor.process (audio, midi);
 }
 
 inline int getIndexOfFirstValidChannelSet (const juce::AudioProcessor::BusesLayout& busLayout,
@@ -30,17 +59,17 @@ inline int getIndexOfFirstValidChannelSet (const juce::AudioProcessor::BusesLayo
 }
 
 template < typename SampleType >
-inline juce::AudioBuffer< SampleType > findSubBuffer (juce::AudioProcessor&                    processor,
-                                                      const juce::AudioProcessor::BusesLayout& busLayout,
-                                                      juce::AudioBuffer< SampleType >&         origBuffer,
-                                                      bool                                     isInput)
+inline AudioBuffer< SampleType > findSubBuffer (juce::AudioProcessor&                    processor,
+                                                const juce::AudioProcessor::BusesLayout& busLayout,
+                                                juce::AudioBuffer< SampleType >&         origBuffer,
+                                                bool                                     isInput)
 {
     return processor.getBusBuffer (origBuffer, isInput,
                                    getIndexOfFirstValidChannelSet (busLayout, isInput));
 }
 
 template < typename SampleType >
-void ProcessorInternalEngine< SampleType >::renderChunk (juce::AudioBuffer< SampleType >& audio, MidiBuffer& midi)
+void ProcessorInternalEngine< SampleType >::renderNextAudioSegment (AudioBuffer< SampleType >& audio, MidiBuffer& midi)
 {
     const auto busLayout = processor.getBusesLayout();
     const auto inBus     = findSubBuffer (processor, busLayout, audio, true);
@@ -48,6 +77,7 @@ void ProcessorInternalEngine< SampleType >::renderChunk (juce::AudioBuffer< Samp
 
     engine.process (inBus, outBus, midi, state.mainBypass->get());
 }
+
 
 template class ProcessorInternalEngine< float >;
 template class ProcessorInternalEngine< double >;

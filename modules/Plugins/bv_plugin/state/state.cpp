@@ -27,6 +27,7 @@ void StateBase::serialize (TreeReflector& ref)
 {
     ref.add ("EditorDimensions", dimensions);
     ref.add ("Parameters", params);
+    ref.add ("ModMatrix", modManager);
 }
 
 StateSerializer::StateSerializer (StateBase& stateToUse, StateToggler& togglerToUse)

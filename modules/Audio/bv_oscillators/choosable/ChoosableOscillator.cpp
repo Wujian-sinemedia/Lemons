@@ -16,7 +16,7 @@ template < typename SampleType >
 void ChoosableOscillator< SampleType >::process (AudioBuffer< SampleType >& output)
 {
     output.clear();
-    
+
     switch (type)
     {
         case (SineOsc) :
@@ -101,12 +101,12 @@ template < typename SampleType >
 void ChoosableOscillator< SampleType >::serialize (TreeReflector& ref)
 {
     ref.add ("OscillatorType", type);
-    
-    const String freqProp = "Frequency";
+
+    const String freqProp   = "Frequency";
     const String detuneProp = "DetuneAmount";
 
     auto& tree = ref.getRawDataTree();
-    
+
     if (ref.isSaving())
     {
         tree.setProperty (freqProp, freq, nullptr);
@@ -116,7 +116,7 @@ void ChoosableOscillator< SampleType >::serialize (TreeReflector& ref)
     {
         if (tree.hasProperty (freqProp))
             setFrequency (tree.getProperty (freqProp));
-        
+
         if (tree.hasProperty (detuneProp))
             setDetuneAmount (tree.getProperty (detuneProp));
     }
