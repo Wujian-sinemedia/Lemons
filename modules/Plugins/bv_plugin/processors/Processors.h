@@ -17,6 +17,8 @@ protected:
 
     PluginState< StateType > state;
 
+    using State_Type_t = StateType;
+
 private:
     void getStateInformation (juce::MemoryBlock& block) final
     {
@@ -59,7 +61,7 @@ struct ProcessorWithEditor : ProcessorType
 
     juce::AudioProcessorEditor* createEditor() final
     {
-        return new PluginEditor< ComponentType > (*this, this->state);
+        return new PluginEditor< ComponentType, typename ProcessorType::State_Type_t > (*this, this->state);
     }
 
 private:

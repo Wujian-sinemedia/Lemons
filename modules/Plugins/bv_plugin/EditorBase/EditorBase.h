@@ -19,12 +19,11 @@ private:
 };
 
 
-template < typename ContentComponentType,
-           BV_MUST_INHERIT_FROM (ContentComponentType, GUIBase) >
+template < typename ContentComponentType, typename StateType,
+           BV_MUST_INHERIT_FROM (ContentComponentType, GUIBase), BV_MUST_INHERIT_FROM (StateType, StateBase) >
 class PluginEditor : public EditorBase
 {
 public:
-    template < typename StateType >
     PluginEditor (ProcessorBase& processorToUse, plugin::PluginState< StateType >& state)
         : EditorBase (processorToUse, state.state.dimensions.get()), content (state)
     {
