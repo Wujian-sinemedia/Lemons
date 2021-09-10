@@ -11,7 +11,7 @@ ProcessorInternalEngine< SampleType >::ParameterProcessor::ParameterProcessor (P
 template < typename SampleType >
 void ProcessorInternalEngine< SampleType >::ParameterProcessor::renderChunk (juce::AudioBuffer< SampleType >& audio, MidiBuffer& midi)
 {
-    parentEngine.renderNextAudioSegment (audio, midi);
+    parentEngine.modulationProcessor.processBlock (audio, midi);
 }
 
 /*------------------------------------------------------------------------------------------------------------*/
@@ -21,6 +21,12 @@ ProcessorInternalEngine< SampleType >::ModulationProcessor::ModulationProcessor 
     : ModulationManagerProcessor< SampleType > (parent.state.modManager),
       parentEngine (parent)
 {
+}
+
+template < typename SampleType >
+void ProcessorInternalEngine< SampleType >::ModulationProcessor::renderChunk (juce::AudioBuffer< SampleType >& audio, MidiBuffer& midi)
+{
+    parentEngine.renderNextAudioSegment (audio, midi);
 }
 
 /*------------------------------------------------------------------------------------------------------------*/

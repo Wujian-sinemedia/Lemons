@@ -28,17 +28,23 @@ float ModulationManager::LFO::getAndAdvance()
     return storage.getSample (0, currentTick++);
 }
 
-void ModulationManager::LFO::advance()
+void ModulationManager::LFO::advance (int numTicks)
 {
-    ++currentTick;
+    currentTick += numTicks;
 }
 
 
 /*---------------------------------------------------------------------------------------------------*/
 
+void ModulationManager::setBlocksize (int newBlocksize)
+{
+    blocksize = newBlocksize;
+}
+
 void ModulationManager::serialize (TreeReflector& ref)
 {
     ref.add ("LFO", lfos);
+    ref.add ("Blocksize", blocksize);
 }
 
 }  // namespace bav::plugin

@@ -34,6 +34,8 @@ private:
         ModulationProcessor (ProcessorInternalEngine& parent);
 
     private:
+        void renderChunk (juce::AudioBuffer< SampleType >& audio, MidiBuffer& midi) final;
+
         ProcessorInternalEngine& parentEngine;
     };
 

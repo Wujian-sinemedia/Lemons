@@ -11,8 +11,7 @@ class ModulationManagerProcessor;
 class ModulationManager : public SerializableData
 {
 public:
-    virtual ~ModulationManager() = default;
-
+    void setBlocksize (int newBlocksize);
 
 private:
     friend class ModulationManagerProcessor< float >;
@@ -26,7 +25,7 @@ private:
 
         float getAndDontAdvance() const;
         float getAndAdvance();
-        void  advance();
+        void  advance (int numTicks = 1);
 
     private:
         int currentTick {0};
@@ -41,6 +40,8 @@ private:
     /*------------------------------*/
 
     OwnedArray< LFO > lfos;
+
+    int blocksize {50};
 };
 
 }  // namespace bav::plugin
