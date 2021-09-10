@@ -34,7 +34,7 @@ void SynthBase< SampleType >::noteOn (int midiPitch, float velocity, bool isKeyb
         const bool isStealing =
             isKeyboard ? shouldStealNotes : false;  // never steal voices for automated note events, only for keyboard triggered events
 
-        if (auto* newVoice = findFreeVoice (isStealing))
+        if (auto* newVoice = voiceAllocator.findFreeVoice (isStealing))
         {
             voice = newVoice;
         }
@@ -63,7 +63,8 @@ void SynthBase< SampleType >::startVoice (Voice* voice, int midiPitch, float vel
     const bool sameNoteRetriggered = wasStolen && prevNote == midiPitch;
 
     // aftertouch value based on how much the new velocity has changed from the voice's last recieved velocity (only used if applicable)
-    const auto aftertouch = juce::jlimit (0, 127, juce::roundToInt ((velocity - voice->lastRecievedVelocity) * 127.0f));
+    const auto aftertouch = juce::jlimit (0, 127,
+                                          juce::roundToInt ((velocity - voice->lastRecievedVelocity) * 127.0f));
 
     if (! sameNoteRetriggered)  // only output note events if it's not the same note being retriggered
     {

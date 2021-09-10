@@ -23,13 +23,13 @@ void TimbreMod< SampleType >::prepare (int blocksize, double samplerate)
 template < typename SampleType >
 void TimbreMod< SampleType >::process (AudioBuffer< SampleType >& audio)
 {
-    gain.process (audio);
-
     if (filterToggle)
     {
         filter->setParams (filterParams);
         filter.process (audio, toggle);
     }
+
+    gain.process (audio);
 }
 
 template < typename SampleType >

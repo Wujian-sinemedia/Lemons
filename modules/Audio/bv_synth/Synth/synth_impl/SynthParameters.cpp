@@ -1,7 +1,6 @@
 
 namespace bav::dsp
 {
-
 template < typename SampleType >
 void SynthBase< SampleType >::setPitchGlideTime (double glideTimeSeconds)
 {
@@ -86,7 +85,7 @@ void SynthBase< SampleType >::updateADSRsettings (float attack, float decay, flo
 
     for (auto* voice : voices)
         voice->setAdsrParameters (adsrParams);
-    
+
     if (quickReleaseParams.release > adsrParams.release)
         updateQuickReleaseMs (juce::roundToInt (adsrParams.release * 1000.f));
 }
@@ -99,7 +98,7 @@ void SynthBase< SampleType >::updateADSRsettings (float attack, float decay, flo
 template < typename SampleType >
 void SynthBase< SampleType >::updateQuickReleaseMs (int newMs)
 {
-    quickReleaseParams = adsrParams;
+    quickReleaseParams         = adsrParams;
     quickReleaseParams.release = newMs * 0.001f;
 
     for (auto* voice : voices)

@@ -116,9 +116,9 @@ void AutomatedHarmonyVoice< SampleType >::setInterval (int newInterval)
 template < typename SampleType >
 void AutomatedHarmonyVoice< SampleType >::setParams (bool shouldBeOn, int newThresh, int newInterval)
 {
-    thresh = newThresh;
+    thresh   = newThresh;
     interval = newInterval;
-    
+
     setEnabled (shouldBeOn);
 }
 

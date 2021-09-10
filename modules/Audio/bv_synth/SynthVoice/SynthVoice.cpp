@@ -306,7 +306,9 @@ void SynthVoiceBase< SampleType >::aftertouchChanged (const int newAftertouchVal
     {
         constexpr auto inv127 = 1.0f / 127.0f;
 
-        const auto newWeightedGain = juce::jlimit (0.0f, 1.0f, lastRecievedVelocity + newAftertouchValue * inv127);
+        const auto newWeightedGain = juce::jlimit (0.0f, 1.0f,
+                                                   lastRecievedVelocity + newAftertouchValue * inv127);
+
         aftertouchGain.setGain (parent->velocityConverter.getGainForVelocity (newWeightedGain));
     }
     else

@@ -4,6 +4,7 @@
 #include "helpers/AutomatedHarmonyVoice.h"
 #include "helpers/PanningManager.h"
 #include "helpers/MidiManager.h"
+#include "helpers/VoiceAllocator.h"
 
 
 namespace bav::dsp
@@ -103,6 +104,7 @@ protected:
     friend class synth::AutomatedHarmonyVoice< SampleType >;
     friend class synth::PanningManager< SampleType >;
     friend class synth::MidiManager< SampleType >;
+    friend class synth::VoiceAllocator< SampleType >;
 
     virtual void initialized (double initSamplerate, int initBlocksize) { juce::ignoreUnused (initSamplerate, initBlocksize); }
 
@@ -131,9 +133,6 @@ private:
 
     void updateChannelPressure (int newIncomingAftertouch);
 
-    Voice* findFreeVoice (bool stealIfNoneAvailable = true);
-    Voice* findVoiceToSteal();
-
     Voice* getVoicePlayingNote (int midiPitch) const;
 
     /*==============================================================================================================
@@ -153,13 +152,13 @@ private:
     midi::VelocityHelper velocityConverter;
     midi::PitchPipeline  pitch;
 
-    Array< Voice* > usableVoices;  // this array is used to sort the voices when a 'steal' is requested
-
     int lastBlocksize {0};
 
     MidiBuffer aggregateMidiBuffer, midiInputStorage;
 
     synth::MidiManager< SampleType > midi {*this};
+
+    synth::VoiceAllocator< SampleType > voiceAllocator {*this};
 };
 
 
