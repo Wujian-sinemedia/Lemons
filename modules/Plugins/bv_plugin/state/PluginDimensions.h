@@ -12,8 +12,11 @@ struct Dimensions : SerializableData
 
     juce::Point< int > get() const;
 
+    int w() const;
+    int h() const;
+
 private:
-    int width, height;
+    int width {0}, height {0};
 };
 
 }  // namespace bav::plugin

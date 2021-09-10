@@ -35,14 +35,24 @@ private:
 };
 
 
-template < class ProcessorType, class ComponentType, BV_MUST_INHERIT_FROM (ProcessorType, ProcessorBase) >
+template < template < typename SampleType > class EngineType, BV_MUST_INHERIT_FROM (EngineType< float >, dsp::Engine< float >) >
+using StatelessProcessor = Processor< StateBase, EngineType >;
+
+
+class GUIBase;
+
+template < class ProcessorType, class ComponentType, BV_MUST_INHERIT_FROM (ProcessorType, ProcessorBase), BV_MUST_INHERIT_FROM (ComponentType, GUIBase) >
 struct ProcessorWithEditor : ProcessorType
 {
     ProcessorWithEditor (int width = 450, int height = 300)
         : w (width), h (height)
     {
-        jassert (w > 0 && h > 0);
-        this->getState().dimensions = {w, h};
+        jassert (isValidGuiSize (w, h));
+
+        auto& size = this->getState().dimensions;
+
+        if (! isValidGuiSize (size.w(), size.h()))
+            size = {w, h};
     }
 
     bool hasEditor() const final { return true; }
@@ -53,6 +63,11 @@ struct ProcessorWithEditor : ProcessorType
     }
 
 private:
+    constexpr bool isValidGuiSize (int width, int height)
+    {
+        return width > 0 && height > 0;
+    }
+
     int w, h;
 };
 

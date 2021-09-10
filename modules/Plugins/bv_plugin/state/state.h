@@ -49,7 +49,7 @@ template < typename ParamListType, typename CustomDataType,
 struct CustomState : StateBase
 {
     CustomState (String pluginName)
-        : StateBase (pluginName, parameters, customData)
+        : StateBase (pluginName, parameters, &customData)
     {
     }
 
