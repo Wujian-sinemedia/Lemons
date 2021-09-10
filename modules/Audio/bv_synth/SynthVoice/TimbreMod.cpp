@@ -2,8 +2,14 @@
 namespace bav::dsp::synth
 {
 template < typename SampleType >
-TimbreMod< SampleType >::TimbreMod (FX::FilterParams& filterParamsToUse, const float& gainValueToUse)
-    : filterParams (filterParamsToUse), gainValue (gainValueToUse)
+TimbreMod< SampleType >::TimbreMod (const FX::FilterParams& filterParamsToUse, const float& gainValueToUse, const bool& filterToggleToUse)
+    : filterParams (filterParamsToUse), gainValue (gainValueToUse), filterToggle (filterToggleToUse)
+{
+}
+
+template < typename SampleType >
+TimbreMod< SampleType >::TimbreMod (const typename SynthBase< SampleType >::TimbreModParams& modSource)
+    : TimbreMod (modSource.filterParams, modSource.gain, modSource.filterToggle)
 {
 }
 
@@ -47,12 +53,6 @@ void TimbreMod< SampleType >::setToggle (bool shouldModBeOn)
         gain.setGain (gainValue);
     else
         gain.setGain (1.f);
-}
-
-template < typename SampleType >
-void TimbreMod< SampleType >::setFilterToggle (bool shouldUseFilter)
-{
-    filterToggle = shouldUseFilter;
 }
 
 template class TimbreMod< float >;

@@ -128,8 +128,8 @@ private:
 
     AudioBuffer< SampleType > scratchBuffer, renderingBuffer, stereoBuffer;
 
-    synth::TimbreMod< SampleType > playingButReleasedMod {parent->playingButReleasedFilterParams, parent->playingButReleasedMultiplier};
-    synth::TimbreMod< SampleType > softPedalMod {parent->softPedalFilterParams, parent->softPedalMultiplier};
+    synth::TimbreMod< SampleType > playingButReleasedMod {parent->playingButReleased};
+    synth::TimbreMod< SampleType > softPedalMod {parent->softPedal};
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SynthVoiceBase)
 };

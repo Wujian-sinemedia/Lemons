@@ -85,17 +85,21 @@ public:
     synth::AutomatedHarmonyVoice< SampleType > pedal {*this, false};
     synth::AutomatedHarmonyVoice< SampleType > descant {*this, true};
 
-    void setPlayingButReleasedMultiplier (float newGain) { playingButReleasedMultiplier = newGain; }
-    void togglePlayingButReleasedFilter (bool shouldUseFilter);
+    /*-----------------------------------------------------*/
 
-    FX::FilterParams playingButReleasedFilterParams {FX::FilterType::Notch,
-                                                     2600.f, 1.3f, 1.7f};
+    struct TimbreModParams
+    {
+        FX::FilterParams filterParams {FX::FilterType::Notch,
+                                       2600.f, 1.3f, 1.7f};
 
-    void setSoftPedalMultiplier (float newGain) { softPedalMultiplier = newGain; }
-    void toggleSoftPedalFilter (bool shouldUseFilter);
+        float gain {1.f};
 
-    FX::FilterParams softPedalFilterParams {FX::FilterType::Notch,
-                                            2600.f, 1.3f, 1.7f};
+        bool filterToggle {false};
+    };
+
+    TimbreModParams playingButReleased, softPedal;
+
+    /*-----------------------------------------------------*/
 
 protected:
     friend class SynthVoiceBase< SampleType >;
@@ -103,16 +107,12 @@ protected:
     friend class synth::PanningManager< SampleType >;
     friend class synth::MidiManager< SampleType >;
 
-    // if overridden, called in the subclass when the top-level call to initialize() is made.
     virtual void initialized (double initSamplerate, int initBlocksize) { juce::ignoreUnused (initSamplerate, initBlocksize); }
 
-    // if overridden, called in the subclass when the top-level call to prepare() is made.
     virtual void prepared (double samplerate, int blocksize) { juce::ignoreUnused (samplerate, blocksize); }
 
-    // if overridden, called in the subclass when the top-level call to reset() is made.
     virtual void resetTriggered() { }
 
-    // if overridden, called in the subclass when the top-level call to releaseResources() is made.
     virtual void release() { }
 
     // this method should return an instance of your synth's voice subclass
@@ -155,8 +155,6 @@ private:
 
     midi::VelocityHelper velocityConverter;
     midi::PitchPipeline  pitch;
-
-    float playingButReleasedMultiplier {1.f}, softPedalMultiplier {1.f};
 
     Array< Voice* > usableVoices;  // this array is used to sort the voices when a 'steal' is requested
 

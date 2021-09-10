@@ -78,21 +78,6 @@ void SynthBase< SampleType >::updatePitchbendRange (int rangeSemitones)
 }
 
 
-template < typename SampleType >
-void SynthBase< SampleType >::togglePlayingButReleasedFilter (bool shouldUseFilter)
-{
-    for (auto* voice : voices)
-        voice->playingButReleasedMod.setFilterToggle (shouldUseFilter);
-}
-
-template < typename SampleType >
-void SynthBase< SampleType >::toggleSoftPedalFilter (bool shouldUseFilter)
-{
-    for (auto* voice : voices)
-        voice->softPedalMod.setFilterToggle (shouldUseFilter);
-}
-
-
 /*
     _   ___  ___ ___ _ ___
    /_\ |   \/ __| _ ( ) __|

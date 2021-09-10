@@ -1,12 +1,14 @@
 #pragma once
 
+
 namespace bav::dsp::synth
 {
 template < typename SampleType >
 class TimbreMod
 {
 public:
-    TimbreMod (FX::FilterParams& filterParamsToUse, const float& gainValueToUse);
+    TimbreMod (const FX::FilterParams& filterParamsToUse, const float& gainValueToUse, const bool& filterToggleToUse);
+    TimbreMod (const typename SynthBase< SampleType >::TimbreModParams& modSource);
 
     void prepare (int blocksize, double samplerate);
 
@@ -17,18 +19,19 @@ public:
     void reset();
 
     void setToggle (bool shouldModBeOn);
-    void setFilterToggle (bool shouldUseFilter);
 
 private:
-    FX::FilterParams& filterParams;
+    const FX::FilterParams& filterParams;
 
     const float& gainValue;
+
+    const bool& filterToggle;
 
     FX::FilterEngine< SampleType > filter {filterParams};
 
     FX::SmoothedGain< SampleType, 1 > gain;
 
-    bool filterToggle {true}, toggle {false};
+    bool toggle {false};
 };
 
 }  // namespace bav::dsp::synth
