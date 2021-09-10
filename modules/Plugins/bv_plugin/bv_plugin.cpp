@@ -8,5 +8,4 @@
 #include "processors/InternalEngine.cpp"
 #include "processors/ProcessorBase.cpp"
 
-#include "EditorBase/PluginGUIBase.cpp"
 #include "EditorBase/EditorBase.cpp"

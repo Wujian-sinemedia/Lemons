@@ -5,11 +5,9 @@ namespace bav::plugin
 class GUIBase : public juce::Component
 {
 public:
-    GUIBase (StateToggler& toggler, UndoManager& undo);
-
     template < typename StateType >
     GUIBase (plugin::PluginState< StateType >& state)
-        : GUIBase (state.toggles, state.undo)
+        : stateToggler (state.toggles), undoManager (state.undo)
     {
     }
 
