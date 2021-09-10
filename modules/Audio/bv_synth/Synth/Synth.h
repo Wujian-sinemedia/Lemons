@@ -79,6 +79,8 @@ public:
     void setPitchGlideTime (double glideTimeSeconds);
     void togglePitchGlide (bool shouldGlide);
 
+    void togglePlayingButReleasedFilter (bool shouldUseFilter);
+
     const midi::PitchPipeline* getPitchAdjuster() { return &pitch; }
 
     juce::MidiKeyboardState keyboardState;
@@ -87,6 +89,12 @@ public:
 
     synth::AutomatedHarmonyVoice< SampleType > pedal {*this, false};
     synth::AutomatedHarmonyVoice< SampleType > descant {*this, true};
+
+    FX::FilterParams playingButReleasedFilterParams {FX::FilterType::Notch,
+                                                     2600.f, 1.3f, 1.7f};
+
+    FX::FilterParams softPedalFilterParams {FX::FilterType::Notch,
+                                            2600.f, 1.3f, 1.7f};
 
 protected:
     friend class SynthVoiceBase< SampleType >;

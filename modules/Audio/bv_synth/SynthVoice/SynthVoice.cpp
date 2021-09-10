@@ -20,9 +20,10 @@ void SynthVoiceBase< SampleType >::prepare (double samplerate, int blocksize)
     renderingBuffer.setSize (1, blocksize, true, true, true);
     stereoBuffer.setSize (2, blocksize, true, true, true);
     midiVelocityGain.prepare (parent->sampleRate, blocksize);
-    softPedalGain.prepare (parent->sampleRate, blocksize);
-    playingButReleasedGain.prepare (parent->sampleRate, blocksize);
     aftertouchGain.prepare (parent->sampleRate, blocksize);
+
+    playingButReleasedMod.prepare (blocksize, samplerate);
+    softPedalMod.prepare (blocksize, samplerate);
 
     prepared (samplerate, blocksize);
 }
@@ -73,8 +74,9 @@ void SynthVoiceBase< SampleType >::renderBlock (AudioBuffer< SampleType >& outpu
     //  smoothed gain modulations
     midiVelocityGain.process (render);
     aftertouchGain.process (render);
-    softPedalGain.process (render);
-    playingButReleasedGain.process (render);
+
+    playingButReleasedMod.process (render);
+    softPedalMod.process (render);
 
     adsr.applyEnvelopeToBuffer (render, 0, numSamples);  // midi-triggered adsr envelope
 
@@ -130,6 +132,7 @@ void SynthVoiceBase< SampleType >::renderInternal (int totalNumSamples)
 
         renderPlease (alias, static_cast< float > (outputFrequency.getNextValue()), parent->sampleRate);
 
+        // copy to output (rendering buffer)
         vecops::copy (scratchBuffer.getReadPointer (0),
                       renderingBuffer.getWritePointer (0, samplesProcessed),
                       samplesLeft);
@@ -152,9 +155,10 @@ template < typename SampleType >
 void SynthVoiceBase< SampleType >::bypassedBlock (int numSamples)
 {
     midiVelocityGain.skipSamples (numSamples);
-    softPedalGain.skipSamples (numSamples);
-    playingButReleasedGain.skipSamples (numSamples);
     aftertouchGain.skipSamples (numSamples);
+
+    playingButReleasedMod.skipSamples (numSamples);
+    softPedalMod.skipSamples (numSamples);
 
     bypassedBlockRecieved (static_cast< float > (outputFrequency.getTargetValue()), parent->sampleRate, numSamples);
     outputFrequency.skip (numSamples);
@@ -293,8 +297,7 @@ void SynthVoiceBase< SampleType >::setVelocityMultiplier (const float newMultipl
 template < typename SampleType >
 void SynthVoiceBase< SampleType >::softPedalChanged (bool isDown)
 {
-    const auto gain = isDown ? parent->softPedalMultiplier : 1.0f;
-    softPedalGain.setGain (gain);
+    softPedalMod.setToggle (isDown);
 }
 
 
@@ -333,8 +336,8 @@ template < typename SampleType >
 void SynthVoiceBase< SampleType >::resetRampedValues()
 {
     midiVelocityGain.reset();
-    softPedalGain.reset();
-    playingButReleasedGain.reset();
+    softPedalMod.reset();
+    playingButReleasedMod.reset();
     aftertouchGain.reset();
     panner.reset();
 }
@@ -357,8 +360,7 @@ void SynthVoiceBase< SampleType >::setKeyDown (bool isNowDown)
             playingButReleased = isVoiceActive();
     }
 
-    const auto gain = playingButReleased ? parent->playingButReleasedMultiplier : 1.0f;
-    playingButReleasedGain.setGain (gain);
+    playingButReleasedMod.setToggle (playingButReleased);
 }
 
 

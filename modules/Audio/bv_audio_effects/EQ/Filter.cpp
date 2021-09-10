@@ -1,6 +1,23 @@
 
 namespace bav::dsp::FX
 {
+FilterParams::FilterParams (FilterType typeToUse, float freqToUse, float QToUse, float gainToUse)
+    : type (typeToUse), freq (freqToUse), Q (QToUse), gain (gainToUse)
+{
+}
+
+FilterParams::FilterParams (FilterType typeToUse, double freqToUse, double QToUse, double gainToUse)
+    : FilterParams (typeToUse, static_cast< float > (freqToUse), static_cast< float > (QToUse), static_cast< float > (gainToUse))
+{
+}
+
+template < typename SampleType >
+Filter< SampleType >::Filter (FilterParams params)
+{
+    setParams (params);
+    filter.prepare();
+}
+
 template < typename SampleType >
 Filter< SampleType >::Filter (FilterType filterType, float frequency, float Qfactor, float gainMult)
 {
@@ -116,6 +133,21 @@ template < typename SampleType >
 float Filter< SampleType >::getGain() const
 {
     return static_cast< float > (gain);
+}
+
+template < typename SampleType >
+FilterParams Filter< SampleType >::getParams() const
+{
+    return {type, freq, Q, gain};
+}
+
+template < typename SampleType >
+void Filter< SampleType >::setParams (FilterParams params)
+{
+    type = params.type;
+    setFilterFrequency (params.freq);
+    setQfactor (params.Q);
+    setGain (params.gain);
 }
 
 template class Filter< float >;

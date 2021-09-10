@@ -3,23 +3,10 @@
 
 #include <bv_audio_effects/bv_audio_effects.h>
 
+#include "TimbreMod.h"
+
 namespace bav::dsp
 {
-template < typename SampleType >
-class SynthBase;
-
-namespace synth
-{
-template < typename SampleType >
-class AutomatedHarmonyVoice;
-
-template < typename SampleType >
-class PanningManager;
-
-template < typename SampleType >
-class MidiManager;
-}  // namespace synth
-
 template < typename SampleType >
 class SynthVoiceBase
 {
@@ -125,7 +112,7 @@ private:
 
     ADSR adsr, quickRelease;
 
-    bool keyIsDown {false}, playingButReleased {false}, sustainingFromSostenutoPedal {false}, isQuickFading {false}, pitchGlide {false};
+    bool keyIsDown {false}, playingButReleased {false}, sustainingFromSostenutoPedal {false}, isQuickFading {false}, pitchGlide {false}, playingButReleasedFilterToggle {true};
 
     bool isPedalPitchVoice {false}, isDescantVoice {false}, isDoubledByAutomatedVoice {false};
 
@@ -139,9 +126,12 @@ private:
 
     FX::MonoToStereoPanner< SampleType > panner;
 
-    FX::SmoothedGain< SampleType, 1 > midiVelocityGain, softPedalGain, playingButReleasedGain, aftertouchGain;
+    FX::SmoothedGain< SampleType, 1 > midiVelocityGain, aftertouchGain;
 
     AudioBuffer< SampleType > scratchBuffer, renderingBuffer, stereoBuffer;
+
+    synth::TimbreMod< SampleType > playingButReleasedMod {parent->playingButReleasedFilterParams};
+    synth::TimbreMod< SampleType > softPedalMod {parent->softPedalFilterParams};
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SynthVoiceBase)
 };

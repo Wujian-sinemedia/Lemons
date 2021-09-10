@@ -1,6 +1,7 @@
 
 #include "bv_synth.h"
 
+#include "SynthVoice/TimbreMod.cpp"
 #include "SynthVoice/SynthVoice.cpp"
 
 #include "Synth/helpers/AutomatedHarmonyVoice.cpp"

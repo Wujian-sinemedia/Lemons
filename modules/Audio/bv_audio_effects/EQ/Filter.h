@@ -15,12 +15,23 @@ enum FilterType
     AllPass
 };
 
+struct FilterParams
+{
+    FilterParams (FilterType typeToUse, float freqToUse, float QToUse, float gainToUse);
+
+    FilterParams (FilterType typeToUse, double freqToUse, double QToUse, double gainToUse);
+
+    FilterType type;
+    float      freq, Q, gain;
+};
+
 template < typename SampleType >
 class Filter : public AudioEffect< SampleType >
 {
 public:
     Filter() = default;
     Filter (FilterType filterType, float frequency = 440.f, float Qfactor = 0.70710678118654752440f, float gainMult = 1.f);
+    Filter (FilterParams params);
 
     void       setFilterType (FilterType newType);
     FilterType getFilterType() const;
@@ -37,6 +48,9 @@ public:
 
     void process (juce::AudioBuffer< SampleType >& audio) final;
     void prepare (double samplerate, int blocksize) final;
+
+    FilterParams getParams() const;
+    void         setParams (FilterParams params);
 
 private:
     filters::MultiFilter< SampleType, 2 > filter;

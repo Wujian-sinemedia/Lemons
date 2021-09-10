@@ -16,6 +16,26 @@ END_JUCE_MODULE_DECLARATION
 #endif
 
 
+namespace bav::dsp
+{
+template < typename SampleType >
+class SynthBase;
+
+namespace synth
+{
+template < typename SampleType >
+class AutomatedHarmonyVoice;
+
+template < typename SampleType >
+class PanningManager;
+
+template < typename SampleType >
+class MidiManager;
+}  // namespace synth
+
+}  // namespace bav::dsp
+
+
 #include "SynthVoice/SynthVoice.h"
 #include "Synth/Synth.h"
 #include "BasicSynth/BasicSynth.h"
