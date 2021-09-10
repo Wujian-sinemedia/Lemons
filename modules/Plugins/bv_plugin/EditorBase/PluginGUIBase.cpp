@@ -1,7 +1,7 @@
 
 namespace bav::plugin
 {
-GUI::GUI (StateToggler& toggler, UndoManager& undo)
+GUIBase::GUIBase (StateToggler& toggler, UndoManager& undo)
     : stateToggler (toggler), undoManager (undo)
 {
 }

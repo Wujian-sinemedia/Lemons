@@ -20,14 +20,13 @@ private:
 
 
 template < typename ContentComponentType,
-           BV_MUST_INHERIT_FROM (ContentComponentType, GUI) >
+           BV_MUST_INHERIT_FROM (ContentComponentType, GUIBase) >
 class PluginEditor : public EditorBase
 {
 public:
     template < typename StateType, BV_MUST_INHERIT_FROM (StateType, StateBase) >
-    PluginEditor (ProcessorBase& processorToUse, StateType& state, StateToggler& toggler, UndoManager& undo)
-        : EditorBase (processorToUse, state.dimensions.get()),
-          content (state, toggler, undo)
+    PluginEditor (ProcessorBase& processorToUse, plugin::PluginState< StateType >& state)
+        : EditorBase (processorToUse, state.state.dimensions.get()), content (state)
     {
         addAndMakeVisible (content);
     }

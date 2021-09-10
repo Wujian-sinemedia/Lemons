@@ -49,7 +49,7 @@ struct ProcessorWithEditor : ProcessorType
 
     juce::AudioProcessorEditor* createEditor() final
     {
-        return new PluginEditor< ComponentType > (*this, this->state.state, this->state.toggles, this->state.undo);
+        return new PluginEditor< ComponentType > (*this, this->state);
     }
 
 private:

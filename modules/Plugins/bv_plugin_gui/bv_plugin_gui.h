@@ -16,6 +16,7 @@
 #endif
 
 #include <bv_plugin_presets/bv_plugin_presets.h>
+#include <bv_plugin/state/state.h>
 
 #include "sliders/Sliders.h"
 

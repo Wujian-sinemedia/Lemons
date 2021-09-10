@@ -2,10 +2,16 @@
 
 namespace bav::plugin
 {
-class GUI : public juce::Component
+class GUIBase : public juce::Component
 {
 public:
-    GUI (StateToggler& toggler, UndoManager& undo);
+    GUIBase (StateToggler& toggler, UndoManager& undo);
+
+    template < typename StateType >
+    GUIBase (plugin::PluginState< StateType >& state)
+        : GUIBase (state.toggles, state.undo)
+    {
+    }
 
 protected:
     StateToggler& stateToggler;
@@ -15,13 +21,18 @@ private:
     juce::TooltipWindow tooltipWindow {this, 700};
 };
 
+
+template < typename StateType >
+class GUI : public GUIBase
+{
+public:
+    GUI (plugin::PluginState< StateType >& stateToUse)
+        : GUIBase (stateToUse), state (stateToUse.state)
+    {
+    }
+
+protected:
+    StateType& state;
+};
+
 }  // namespace bav::plugin
-
-
-#define BV_DECLARE_PLUGIN_GUI_CONSTRUCTOR(Class, StateType) \
-    Class (StateType& stateToUse, plugin::StateToggler& toggler, UndoManager& undo)
-
-
-#define BV_IMPLEMENT_PLUGIN_GUI_CONSTRUCTOR(Class, StateType)                              \
-    Class::Class (StateType& stateToUse, plugin::StateToggler& toggler, UndoManager& undo) \
-        : plugin::GUI (toggler, undo), state (stateToUse)
