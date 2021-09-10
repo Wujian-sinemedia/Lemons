@@ -1,6 +1,8 @@
 #pragma once
 
 #include "StateToggleButtons.h"
+#include "PresetSavingComponent/PresetSavingComponent.h"
+#include "PresetBrowserComponent/PresetBrowserComponent.h"
 
 namespace bav::plugin
 {
