@@ -19,11 +19,13 @@ add_subdirectory (native)
 include (UsefulScripts/get_cpm.cmake)
 add_subdirectory (third_party)
 
-add_subdirectory (plugins)
-
 include (FileUtilities.cmake)
 include (assets.cmake)
 include (configure_helpers.cmake)
+
+add_subdirectory (plugins)
+include (apps.cmake)
+
 include (install.cmake)
 
 set (BV_BRAND_FLAGS_FILEPATH ${CMAKE_CURRENT_LIST_DIR}/BrandSpecific.cmake CACHE INTERNAL "Path to the brand-specific config file")
