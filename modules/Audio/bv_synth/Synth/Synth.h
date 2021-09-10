@@ -68,9 +68,6 @@ public:
     bool isSoftPedalDown() const noexcept { return midi.router.isSoftPedalDown(); }
     bool isAftertouchGainOn() const noexcept { return aftertouchGainIsOn; }
 
-    void setPlayingButReleasedMultiplier (float newGain) { playingButReleasedMultiplier = newGain; }
-    void setSoftPedalMultiplier (float newGain) { softPedalMultiplier = newGain; }
-
     bool   isConnectedToMtsEsp() const { return pitch.tuning.isConnectedToMtsEsp(); }
     String getScaleName() const { return pitch.tuning.getScaleName(); }
 
@@ -78,8 +75,6 @@ public:
 
     void setPitchGlideTime (double glideTimeSeconds);
     void togglePitchGlide (bool shouldGlide);
-
-    void togglePlayingButReleasedFilter (bool shouldUseFilter);
 
     const midi::PitchPipeline* getPitchAdjuster() { return &pitch; }
 
@@ -90,8 +85,14 @@ public:
     synth::AutomatedHarmonyVoice< SampleType > pedal {*this, false};
     synth::AutomatedHarmonyVoice< SampleType > descant {*this, true};
 
+    void setPlayingButReleasedMultiplier (float newGain) { playingButReleasedMultiplier = newGain; }
+    void togglePlayingButReleasedFilter (bool shouldUseFilter);
+
     FX::FilterParams playingButReleasedFilterParams {FX::FilterType::Notch,
                                                      2600.f, 1.3f, 1.7f};
+
+    void setSoftPedalMultiplier (float newGain) { softPedalMultiplier = newGain; }
+    void toggleSoftPedalFilter (bool shouldUseFilter);
 
     FX::FilterParams softPedalFilterParams {FX::FilterType::Notch,
                                             2600.f, 1.3f, 1.7f};

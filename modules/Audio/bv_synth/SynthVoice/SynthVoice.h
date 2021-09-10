@@ -88,8 +88,6 @@ private:
 
     void clearCurrentNote();
 
-    void updateSampleRate (const double newSamplerate);
-
     void setKeyDown (bool isNowDown);
 
     void setPan (int newPan);
@@ -112,7 +110,7 @@ private:
 
     ADSR adsr, quickRelease;
 
-    bool keyIsDown {false}, playingButReleased {false}, sustainingFromSostenutoPedal {false}, isQuickFading {false}, pitchGlide {false}, playingButReleasedFilterToggle {true};
+    bool keyIsDown {false}, playingButReleased {false}, sustainingFromSostenutoPedal {false}, isQuickFading {false}, pitchGlide {false};
 
     bool isPedalPitchVoice {false}, isDescantVoice {false}, isDoubledByAutomatedVoice {false};
 
@@ -130,8 +128,8 @@ private:
 
     AudioBuffer< SampleType > scratchBuffer, renderingBuffer, stereoBuffer;
 
-    synth::TimbreMod< SampleType > playingButReleasedMod {parent->playingButReleasedFilterParams};
-    synth::TimbreMod< SampleType > softPedalMod {parent->softPedalFilterParams};
+    synth::TimbreMod< SampleType > playingButReleasedMod {parent->playingButReleasedFilterParams, parent->playingButReleasedMultiplier};
+    synth::TimbreMod< SampleType > softPedalMod {parent->softPedalFilterParams, parent->softPedalMultiplier};
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SynthVoiceBase)
 };

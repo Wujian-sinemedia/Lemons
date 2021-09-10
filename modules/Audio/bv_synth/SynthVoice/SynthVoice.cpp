@@ -19,11 +19,20 @@ void SynthVoiceBase< SampleType >::prepare (double samplerate, int blocksize)
     scratchBuffer.setSize (1, blocksize, true, true, true);
     renderingBuffer.setSize (1, blocksize, true, true, true);
     stereoBuffer.setSize (2, blocksize, true, true, true);
+
     midiVelocityGain.prepare (parent->sampleRate, blocksize);
     aftertouchGain.prepare (parent->sampleRate, blocksize);
 
     playingButReleasedMod.prepare (blocksize, samplerate);
     softPedalMod.prepare (blocksize, samplerate);
+
+    adsr.setSampleRate (samplerate);
+    quickRelease.setSampleRate (samplerate);
+
+    adsr.setParameters (parent->adsrParams);
+    quickRelease.setParameters (parent->quickReleaseParams);
+
+    setPitchGlideTime (pitchGlideTimeSecs);
 
     prepared (samplerate, blocksize);
 }
@@ -165,19 +174,6 @@ void SynthVoiceBase< SampleType >::bypassedBlock (int numSamples)
 }
 
 
-template < typename SampleType >
-void SynthVoiceBase< SampleType >::updateSampleRate (const double newSamplerate)
-{
-    adsr.setSampleRate (newSamplerate);
-    quickRelease.setSampleRate (newSamplerate);
-
-    adsr.setParameters (parent->adsrParams);
-    quickRelease.setParameters (parent->quickReleaseParams);
-
-    setPitchGlideTime (pitchGlideTimeSecs);
-}
-
-
 /*=========================================================================================================
       __  __ _____ _____ _____
      |  \/  |_   _|  __ \_   _|
@@ -306,10 +302,10 @@ void SynthVoiceBase< SampleType >::aftertouchChanged (const int newAftertouchVal
 {
     currentAftertouch = newAftertouchValue;
 
-    constexpr auto inv127 = 1.0f / 127.0f;
-
     if (parent->isAftertouchGainOn())
     {
+        constexpr auto inv127 = 1.0f / 127.0f;
+
         const auto newWeightedGain = juce::jlimit (0.0f, 1.0f, lastRecievedVelocity + newAftertouchValue * inv127);
         aftertouchGain.setGain (parent->velocityConverter.getGainForVelocity (newWeightedGain));
     }

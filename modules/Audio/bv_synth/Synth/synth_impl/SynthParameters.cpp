@@ -82,7 +82,14 @@ template < typename SampleType >
 void SynthBase< SampleType >::togglePlayingButReleasedFilter (bool shouldUseFilter)
 {
     for (auto* voice : voices)
-        voice->playingButReleasedFilterToggle = shouldUseFilter;
+        voice->playingButReleasedMod.setFilterToggle (shouldUseFilter);
+}
+
+template < typename SampleType >
+void SynthBase< SampleType >::toggleSoftPedalFilter (bool shouldUseFilter)
+{
+    for (auto* voice : voices)
+        voice->softPedalMod.setFilterToggle (shouldUseFilter);
 }
 
 

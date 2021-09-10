@@ -6,7 +6,7 @@ template < typename SampleType >
 class TimbreMod
 {
 public:
-    TimbreMod (FX::FilterParams& filterParamsToUse);
+    TimbreMod (FX::FilterParams& filterParamsToUse, const float& gainValueToUse);
 
     void prepare (int blocksize, double samplerate);
 
@@ -16,17 +16,19 @@ public:
 
     void reset();
 
-    void setGain (float newGain);
     void setToggle (bool shouldModBeOn);
+    void setFilterToggle (bool shouldUseFilter);
 
 private:
     FX::FilterParams& filterParams;
+
+    const float& gainValue;
 
     FX::FilterEngine< SampleType > filter {filterParams};
 
     FX::SmoothedGain< SampleType, 1 > gain;
 
-    bool toggle;
+    bool filterToggle {true}, toggle {false};
 };
 
 }  // namespace bav::dsp::synth
