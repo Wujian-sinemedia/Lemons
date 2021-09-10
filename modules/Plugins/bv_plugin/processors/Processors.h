@@ -7,33 +7,31 @@ class Processor : public ProcessorBase
 {
 public:
     Processor (juce::AudioProcessor::BusesProperties busesLayout)
-        : ProcessorBase (state, floatEngine, doubleEngine, busesLayout)
+        : ProcessorBase (getState(), floatEngine, doubleEngine, busesLayout)
     {
-        state.addTo (*this);
-        state.getParameters().setUndoManager (undo);
-        toggler.setUndoManager (undo);
+        stateData.addTo (*this);
     }
 
 protected:
-    StateType    state;
-    StateToggler toggler {state};
-    UndoManager  undo {state};
+    StateType& getState() { return state.state; }
+
+    PluginState< StateType > state;
 
 private:
     void getStateInformation (juce::MemoryBlock& block) final
     {
-        serializing::toBinary (serializer, block);
+        serializing::toBinary (state, block);
     }
 
     void setStateInformation (const void* data, int size) final
     {
-        serializing::fromBinary (data, size, serializer);
+        serializing::fromBinary (data, size, state);
     }
 
-    EngineType< float >  floatEngine {state};
-    EngineType< double > doubleEngine {state};
+    StateType& stateData {getState()};
 
-    StateSerializer serializer {state, toggler};
+    EngineType< float >  floatEngine {stateData};
+    EngineType< double > doubleEngine {stateData};
 };
 
 
@@ -44,14 +42,14 @@ struct ProcessorWithEditor : ProcessorType
         : w (width), h (height)
     {
         jassert (w > 0 && h > 0);
-        this->state.dimensions = {w, h};
+        this->getState().dimensions = {w, h};
     }
 
     bool hasEditor() const final { return true; }
 
     juce::AudioProcessorEditor* createEditor() final
     {
-        return new PluginEditor< ComponentType > (*this, this->state, this->toggler, this->undo);
+        return new PluginEditor< ComponentType > (*this, this->state.state, this->state.toggles, this->state.undo);
     }
 
 private:

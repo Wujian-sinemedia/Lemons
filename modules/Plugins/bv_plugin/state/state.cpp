@@ -1,8 +1,8 @@
 
 namespace bav::plugin
 {
-StateBase::StateBase (String pluginName, ParameterList& paramsToUse)
-    : SerializableData (pluginName + "_State"), dimensions (pluginName + "_Dimensions"), params (paramsToUse)
+StateBase::StateBase (String pluginName, ParameterList& paramsToUse, SerializableData* customStateDataToUse)
+    : SerializableData (pluginName + "_State"), dimensions (pluginName + "_Dimensions"), params (paramsToUse), customStateData (customStateDataToUse)
 {
 }
 
@@ -28,17 +28,9 @@ void StateBase::serialize (TreeReflector& ref)
     ref.add ("EditorDimensions", dimensions);
     ref.add ("Parameters", params);
     ref.add ("ModMatrix", modManager);
-}
 
-StateSerializer::StateSerializer (StateBase& stateToUse, StateToggler& togglerToUse)
-    : state (stateToUse), toggler (togglerToUse)
-{
-}
-
-void StateSerializer::serialize (TreeReflector& ref)
-{
-    ref.add ("State", state);
-    ref.add ("Toggles", toggler);
+    if (customStateData != nullptr)
+        ref.add ("StateData", *customStateData);
 }
 
 }  // namespace bav::plugin

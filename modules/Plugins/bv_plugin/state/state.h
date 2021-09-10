@@ -7,7 +7,7 @@ namespace bav::plugin
 class StateBase : public SerializableData
 {
 public:
-    StateBase (String pluginName, ParameterList& paramsToUse);
+    StateBase (String pluginName, ParameterList& paramsToUse, SerializableData* customStateDataToUse = nullptr);
 
     void addTo (juce::AudioProcessor& processor);
     void addAllAsInternal();
@@ -25,6 +25,8 @@ protected:
     void serialize (TreeReflector& ref) final;
 
     ParameterList& params;
+
+    SerializableData* customStateData;
 };
 
 
@@ -41,15 +43,39 @@ struct State : StateBase
 };
 
 
-struct StateSerializer : SerializableData
+template < typename ParamListType, typename CustomDataType,
+           BV_MUST_INHERIT_FROM (ParamListType, ParameterList),
+           BV_MUST_INHERIT_FROM (CustomDataType, SerializableData) >
+struct CustomState : StateBase
 {
-    StateSerializer (StateBase& stateToUse, StateToggler& togglerToUse);
+    CustomState (String pluginName)
+        : StateBase (pluginName, parameters, customData)
+    {
+    }
 
-private:
-    void serialize (TreeReflector& ref) final;
+    ParamListType  parameters;
+    CustomDataType customData;
+};
 
-    StateBase&    state;
-    StateToggler& toggler;
+
+template < typename StateType, BV_MUST_INHERIT_FROM (StateType, StateBase) >
+struct PluginState : SerializableData
+{
+    PluginState()
+    {
+        state.getParameters().setUndoManager (undo);
+        toggles.setUndoManager (undo);
+    }
+
+    void serialize (TreeReflector& ref) final
+    {
+        ref.add ("State", state);
+        ref.add ("Toggles", toggles);
+    }
+
+    StateType    state;
+    StateToggler toggles {state};
+    UndoManager  undo {state};
 };
 
 }  // namespace bav::plugin
