@@ -54,9 +54,6 @@ public:
     void updatePitchbendRange (int rangeSemitones);
     void setAftertouchGainOnOff (bool shouldBeOn) { aftertouchGainIsOn = shouldBeOn; }
 
-    void setPedalPitch (bool isOn, int newThresh, int newInterval);
-    void setDescant (bool isOn, int newThresh, int newInterval);
-
     void setMidiLatch (bool shouldBeOn, const bool allowTailOff = false);
     bool isLatched() const noexcept { return latchIsOn; }
 

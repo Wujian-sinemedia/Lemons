@@ -9,6 +9,8 @@ public:
     using Voice = SynthVoiceBase< SampleType >;
 
     AutomatedHarmonyVoice (SynthBase< SampleType >& synthToUse, bool shiftUp);
+    
+    void setParams (bool shouldBeOn, int newThresh, int newInterval);
 
     void setEnabled (bool shouldBeEnabled);
     void setThreshold (int newThresh);

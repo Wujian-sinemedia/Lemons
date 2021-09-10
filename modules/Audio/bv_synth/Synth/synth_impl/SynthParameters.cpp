@@ -1,22 +1,6 @@
 
 namespace bav::dsp
 {
-template < typename SampleType >
-void SynthBase< SampleType >::setPedalPitch (bool isOn, int newThresh, int newInterval)
-{
-    pedal.setThreshold (newThresh);
-    pedal.setInterval (newInterval);
-    pedal.setEnabled (isOn);
-}
-
-
-template < typename SampleType >
-void SynthBase< SampleType >::setDescant (bool isOn, int newThresh, int newInterval)
-{
-    descant.setThreshold (newThresh);
-    descant.setInterval (newInterval);
-    descant.setEnabled (isOn);
-}
 
 template < typename SampleType >
 void SynthBase< SampleType >::setPitchGlideTime (double glideTimeSeconds)
@@ -102,6 +86,9 @@ void SynthBase< SampleType >::updateADSRsettings (float attack, float decay, flo
 
     for (auto* voice : voices)
         voice->setAdsrParameters (adsrParams);
+    
+    if (quickReleaseParams.release > adsrParams.release)
+        updateQuickReleaseMs (juce::roundToInt (adsrParams.release * 1000.f));
 }
 
 
@@ -112,9 +99,8 @@ void SynthBase< SampleType >::updateADSRsettings (float attack, float decay, flo
 template < typename SampleType >
 void SynthBase< SampleType >::updateQuickReleaseMs (int newMs)
 {
-    const auto desiredR = newMs * 0.001f;
-
-    quickReleaseParams.release = desiredR;
+    quickReleaseParams = adsrParams;
+    quickReleaseParams.release = newMs * 0.001f;
 
     for (auto* voice : voices)
         voice->setQuickReleaseParameters (quickReleaseParams);

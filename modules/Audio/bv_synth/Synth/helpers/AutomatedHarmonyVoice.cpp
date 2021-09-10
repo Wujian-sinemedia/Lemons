@@ -114,6 +114,15 @@ void AutomatedHarmonyVoice< SampleType >::setInterval (int newInterval)
 }
 
 template < typename SampleType >
+void AutomatedHarmonyVoice< SampleType >::setParams (bool shouldBeOn, int newThresh, int newInterval)
+{
+    thresh = newThresh;
+    interval = newInterval;
+    
+    setEnabled (shouldBeOn);
+}
+
+template < typename SampleType >
 void AutomatedHarmonyVoice< SampleType >::turnNoteOffIfOn()
 {
     if (lastPitch > -1)
