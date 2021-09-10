@@ -25,7 +25,7 @@ void TimbreMod< SampleType >::process (AudioBuffer< SampleType >& audio)
 {
     gain.process (audio);
 
-    if (toggle && filterToggle)
+    if (filterToggle)
     {
         filter->setParams (filterParams);
         filter.process (audio, toggle);
