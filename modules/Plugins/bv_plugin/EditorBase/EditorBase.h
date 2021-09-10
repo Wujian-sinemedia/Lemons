@@ -24,7 +24,7 @@ template < typename ContentComponentType,
 class PluginEditor : public EditorBase
 {
 public:
-    template < typename StateType, BV_MUST_INHERIT_FROM (StateType, StateBase) >
+    template < typename StateType >
     PluginEditor (ProcessorBase& processorToUse, plugin::PluginState< StateType >& state)
         : EditorBase (processorToUse, state.state.dimensions.get()), content (state)
     {

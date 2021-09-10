@@ -35,13 +35,13 @@ private:
 };
 
 
-template < template < typename SampleType > class EngineType, BV_MUST_INHERIT_FROM (EngineType< float >, dsp::Engine< float >) >
+template < template < typename SampleType > class EngineType >
 using StatelessProcessor = Processor< StateBase, EngineType >;
 
 
 class GUIBase;
 
-template < class ProcessorType, class ComponentType, BV_MUST_INHERIT_FROM (ProcessorType, ProcessorBase), BV_MUST_INHERIT_FROM (ComponentType, GUIBase) >
+template < class ProcessorType, class ComponentType, BV_MUST_INHERIT_FROM (ComponentType, GUIBase) >
 struct ProcessorWithEditor : ProcessorType
 {
     ProcessorWithEditor (int width = 450, int height = 300)
