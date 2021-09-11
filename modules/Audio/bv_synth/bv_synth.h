@@ -37,5 +37,8 @@ class MidiManager;
 
 
 #include "SynthVoice/SynthVoice.h"
+
 #include "Synth/Synth.h"
+#include "Synth/LambdaSynth.h"
+
 #include "BasicSynth/BasicSynth.h"

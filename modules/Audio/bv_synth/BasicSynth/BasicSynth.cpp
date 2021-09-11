@@ -2,27 +2,27 @@
 namespace bav::dsp
 {
 template < typename SampleType, template < typename NumericType > class OscType >
-void BasicSynthVoice< SampleType, OscType >::renderPlease (AudioBuffer< SampleType >& output, float desiredFrequency, double currentSamplerate)
+void OscSynthVoice< SampleType, OscType >::renderPlease (AudioBuffer< SampleType >& output, float desiredFrequency, double currentSamplerate)
 {
     osc.setFrequency (SampleType (desiredFrequency), SampleType (currentSamplerate));
     osc.getSamples (output.getWritePointer (0), output.getNumSamples());
 }
 
 template < typename SampleType, template < typename NumericType > class OscType >
-void BasicSynthVoice< SampleType, OscType >::released()
+void OscSynthVoice< SampleType, OscType >::released()
 {
     osc.resetPhase();
 }
 
 template < typename SampleType, template < typename NumericType > class OscType >
-void BasicSynthVoice< SampleType, OscType >::noteCleared()
+void OscSynthVoice< SampleType, OscType >::noteCleared()
 {
     osc.resetPhase();
 }
 
-#define bvbs_DECLARE_BASIC_SYNTH_VOICE(OscillatorType)             \
-    template struct BasicSynthVoice< float, osc::OscillatorType >; \
-    template struct BasicSynthVoice< double, osc::OscillatorType >
+#define bvbs_DECLARE_BASIC_SYNTH_VOICE(OscillatorType)           \
+    template struct OscSynthVoice< float, osc::OscillatorType >; \
+    template struct OscSynthVoice< double, osc::OscillatorType >
 
 bvbs_DECLARE_BASIC_SYNTH_VOICE (Sine);
 bvbs_DECLARE_BASIC_SYNTH_VOICE (Saw);
@@ -33,15 +33,9 @@ bvbs_DECLARE_BASIC_SYNTH_VOICE (SuperSaw);
 #undef bvbs_DECLARE_BASIC_SYNTH_VOICE
 
 
-template < typename SampleType, template < typename NumericType > class OscType >
-SynthVoiceBase< SampleType >* BasicSynth< SampleType, OscType >::createVoice()
-{
-    return new BasicSynthVoice< SampleType, OscType > (this);
-}
-
-#define bvbs_DECLARE_BASIC_SYNTH(OscillatorType)              \
-    template struct BasicSynth< float, osc::OscillatorType >; \
-    template struct BasicSynth< double, osc::OscillatorType >
+#define bvbs_DECLARE_BASIC_SYNTH(OscillatorType)            \
+    template struct OscSynth< float, osc::OscillatorType >; \
+    template struct OscSynth< double, osc::OscillatorType >
 
 bvbs_DECLARE_BASIC_SYNTH (Sine);
 bvbs_DECLARE_BASIC_SYNTH (Saw);

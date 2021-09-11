@@ -6,10 +6,11 @@
 namespace bav::dsp
 {
 template < typename SampleType, template < typename NumericType > class OscType >
-struct BasicSynthVoice : public SynthVoiceBase< SampleType >
+struct OscSynthVoice : public SynthVoiceBase< SampleType >
 {
     using SynthVoiceBase< SampleType >::SynthVoiceBase;
 
+private:
     void renderPlease (AudioBuffer< SampleType >& output, float desiredFrequency, double currentSamplerate) final;
 
     void released() final;
@@ -18,13 +19,31 @@ struct BasicSynthVoice : public SynthVoiceBase< SampleType >
     OscType< SampleType > osc;
 };
 
+
 template < typename SampleType, template < typename NumericType > class OscType >
-struct BasicSynth : public SynthBase< SampleType >
+struct OscSynth : public TemplateSynth< SampleType, OscSynthVoice< SampleType, OscType > >
 {
-    SynthVoiceBase< SampleType >* createVoice() final;
 };
 
+
+namespace synth
+{
 template < typename SampleType >
-using SineSynth = BasicSynth< SampleType, osc::Sine >;
+using Sine = OscSynth< SampleType, osc::Sine >;
+
+template < typename SampleType >
+using Saw = OscSynth< SampleType, osc::Saw >;
+
+template < typename SampleType >
+using Square = OscSynth< SampleType, osc::Square >;
+
+template < typename SampleType >
+using Triangle = OscSynth< SampleType, osc::Triangle >;
+
+template < typename SampleType >
+using SuperSaw = OscSynth< SampleType, osc::SuperSaw >;
+
+}  // namespace synth
+
 
 }  // namespace bav::dsp

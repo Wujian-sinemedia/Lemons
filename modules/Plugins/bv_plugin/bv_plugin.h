@@ -21,6 +21,7 @@
 
 #include "state/StateToggler.h"
 #include "state/state.h"
+#include "state/PluginState.h"
 
 #include "processors/ProcessorBase.h"
 
