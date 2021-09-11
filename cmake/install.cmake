@@ -4,7 +4,7 @@ function (_bv_configure_target_install target productName)
         return()
     endif()
 
-    if (ENV{BV_WORKSPACE_BUILD})
+    if (${BV_WORKSPACE_BUILD})
         set (dest_dir ${CMAKE_CURRENT_BINARY_DIR}/../deploy/${productName})
     else()
         set (dest_dir ${CMAKE_CURRENT_BINARY_DIR}/deploy)
