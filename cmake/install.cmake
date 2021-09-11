@@ -1,6 +1,3 @@
-include (CPack)
-
-
 function (_bv_configure_target_install target productName)
 
     if (NOT TARGET ${target})
