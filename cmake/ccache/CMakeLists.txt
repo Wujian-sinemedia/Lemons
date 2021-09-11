@@ -1,10 +1,18 @@
+#[[
+    The code in this file is based on:
+        - this blog post: https://cristianadam.eu/20200113/speeding-up-c-plus-plus-github-actions-using-ccache/
+        - and this repository: https://github.com/TheLartians/Ccache.cmake
+]]
+
+
 option (BV_USE_CCACHE "" OFF)
 
 if (NOT ${BV_USE_CCACHE})
 	return()
 endif()
 
-find_program (CCACHE_PROGRAM ccache)
+find_program (CCACHE_PROGRAM ccache
+              PATHS $ENV{CPM_SOURCE_CACHE}/ccache) # this may break outside of Workspace builds, but the ccache support is really only designed for top-level Workspace use, at least for now...
 
 if (NOT CCACHE_PROGRAM)
     message (WARNING "Could not enable Ccache: could not find program")
