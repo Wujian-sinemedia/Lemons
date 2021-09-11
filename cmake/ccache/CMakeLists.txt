@@ -5,6 +5,13 @@ if (NOT ${USE_CCACHE})
 	return()
 endif()
 
+find_program (CCACHE_PROGRAM ccache)
+
+if (NOT CCACHE_PROGRAM)
+    message (WARNING "Could not enable Ccache: could not find program")
+    return()
+endif()
+
 #
 
 file (TO_CMAKE_PATH "$ENV{GITHUB_WORKSPACE}" ccache_basedir)
@@ -17,14 +24,6 @@ set (ENV{CCACHE_COMPRESSLEVEL} "6")
 
 set (ENV{CCACHE_MAXSIZE} "400M")
 
-#
-
-find_program (CCACHE_PROGRAM ccache)
-
-if (NOT CCACHE_PROGRAM)
-	message (WARNING "Could not enable Ccache: could not find program")
-	return()
-endif()
 
 # Set up wrapper scripts
 set (C_LAUNCHER   "${CCACHE_PROGRAM}")
@@ -43,15 +42,13 @@ execute_process (COMMAND chmod a+rx
                 "${CMAKE_CURRENT_BINARY_DIR}/launch-cxx")
 
 if (CMAKE_GENERATOR STREQUAL "Xcode")
-    # Set Xcode project attributes to route compilation and linking through our scripts
     set(CMAKE_XCODE_ATTRIBUTE_CC         "${CMAKE_CURRENT_BINARY_DIR}/launch-c" CACHE INTERNAL "")
     set(CMAKE_XCODE_ATTRIBUTE_CXX        "${CMAKE_CURRENT_BINARY_DIR}/launch-cxx" CACHE INTERNAL "")
     set(CMAKE_XCODE_ATTRIBUTE_LD         "${CMAKE_CURRENT_BINARY_DIR}/launch-c" CACHE INTERNAL "")
     set(CMAKE_XCODE_ATTRIBUTE_LDPLUSPLUS "${CMAKE_CURRENT_BINARY_DIR}/launch-cxx" CACHE INTERNAL "")
 else()
-    # Support Unix Makefiles and Ninja
     set(CMAKE_C_COMPILER_LAUNCHER   "${CMAKE_CURRENT_BINARY_DIR}/launch-c" CACHE INTERNAL "")
     set(CMAKE_CXX_COMPILER_LAUNCHER "${CMAKE_CURRENT_BINARY_DIR}/launch-cxx" CACHE INTERNAL "")
 endif()
 
-message (STATUS "Using ccache")
+message (STATUS "-- Using ccache! --")
