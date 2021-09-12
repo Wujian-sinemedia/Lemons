@@ -5,12 +5,6 @@
 ]]
 
 
-option (BV_USE_CCACHE "" OFF)
-
-if (NOT ${BV_USE_CCACHE})
-	return()
-endif()
-
 find_program (CCACHE_PROGRAM ccache
               PATHS $ENV{CPM_SOURCE_CACHE}/ccache)
 
@@ -20,10 +14,9 @@ if (NOT CCACHE_PROGRAM)
 endif()
 
 
-# Set up wrapper scripts
-
 set (C_LAUNCHER   "${CCACHE_PROGRAM}")
 set (CXX_LAUNCHER "${CCACHE_PROGRAM}")
+
 
 if (NOT DEFINED BV_CCACHE_OPTIONS)
     set (BV_CCACHE_OPTIONS "")
