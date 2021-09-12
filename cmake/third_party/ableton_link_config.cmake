@@ -6,5 +6,8 @@ CPMAddPackage (
 
 include (${AbletonLink_SOURCE_DIR}/AbletonLinkConfig.cmake)
 
-target_include_directories (Ableton::Link INTERFACE ${AbletonLink_SOURCE_DIR}/include/ableton)
-target_compile_definitions (Ableton::Link INTERFACE BV_USE_ABLETON_LINK=1)
+add_library (AbletonLink INTERFACE)
+add_dependencies (AbletonLink Ableton::Link)
+
+target_include_directories (AbletonLink INTERFACE ${AbletonLink_SOURCE_DIR}/include/ableton)
+target_compile_definitions (AbletonLink INTERFACE BV_USE_ABLETON_LINK=1)

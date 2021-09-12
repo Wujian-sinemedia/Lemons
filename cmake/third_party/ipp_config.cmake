@@ -1,19 +1,10 @@
-# - Find Intel IPP
-# Find the IPP libraries
-# Options:
-#
-#   IPP_STATIC: true if using static linking
-#   IPP_MULTI_THREADED: true if using multi-threaded static linking
-#
-# This module defines the following variables:
-#
-#   IPP_FOUND       : True if IPP_INCLUDE_DIR are found
-#   IPP_INCLUDE_DIR : where to find ipp.h, etc.
-#   IPP_INCLUDE_DIRS: set when IPP_INCLUDE_DIR found
-#   IPP_LIBRARIES   : the library to link against.
+
+option (IPP_STATIC "" FALSE)
+option (IPP_MULTI_THREADED "" FALSE)
 
 find_path (IPP_INCLUDE_DIR ipp.h PATHS /opt/intel/oneapi/ipp/latest/include)
 
+# so we can restore these later, after changing them...
 set (_IPP_ORIG_CMAKE_FIND_LIBRARY_SUFFIXES ${CMAKE_FIND_LIBRARY_SUFFIXES})
 
 if (WIN32)
@@ -73,7 +64,14 @@ set (CMAKE_FIND_LIBRARY_SUFFIXES ${_IPP_ORIG_CMAKE_FIND_LIBRARY_SUFFIXES})
 
 find_package_handle_standard_args (IPP DEFAULT_MSG IPP_INCLUDE_DIR IPP_LIBRARY)
 
-if (IPP_FOUND)
-    set (IPP_INCLUDE_DIRS ${IPP_INCLUDE_DIR})
-    set (IPP_LIBRARIES ${IPP_LIBRARY})
+if (NOT IPP_FOUND)
+    return()
 endif()
+
+add_library (IntelIPP INTERFACE)
+add_dependencies (IntelIPP ${IPP_LIBRARY})
+
+target_include_directories (IntelIPP INTERFACE ${IPP_INCLUDE_DIR})
+target_compile_definitions (IntelIPP INTERFACE BV_USE_IPP=1)
+
+message (STATUS " -- IPP found! -- ")
