@@ -21,6 +21,10 @@ endif()
 
 #
 
+if (NOT DEFINED ENV{CCACHE_DIR})
+    set (ENV{CCACHE_DIR} ${Shared-code_SOURCE_DIR}/Cache/ccache)
+endif()
+
 set (ENV{CCACHE_COMPRESS} "true")
 set (ENV{CCACHE_COMPRESSLEVEL} "6")
 
