@@ -54,13 +54,12 @@ function (_bv_configure_juce_target)
 
     target_link_libraries (${BV_TARGETCONFIG_TARGET} PUBLIC
         ${BV_JUCE_MODULES}
+        Vecops
         juce::juce_recommended_config_flags
         juce::juce_recommended_lto_flags
         juce::juce_recommended_warning_flags)
 
     target_compile_features (${BV_TARGETCONFIG_TARGET} PUBLIC cxx_std_${BV_CXX_VERSION})
-
-    _bv_configure_vecops (${BV_TARGETCONFIG_TARGET})
 
     if (DEFINED BV_TARGETCONFIG_ASSET_FOLDER)
         bv_add_resources_folder (TARGET ${BV_TARGETCONFIG_TARGET} FOLDER ${BV_TARGETCONFIG_ASSET_FOLDER})

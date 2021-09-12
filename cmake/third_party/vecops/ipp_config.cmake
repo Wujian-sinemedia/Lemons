@@ -72,8 +72,8 @@ if (NOT IPP_FOUND)
 endif()
 
 add_library (IntelIPP INTERFACE)
-add_dependencies (IntelIPP ${IPP_LIBRARY})
 
+target_link_libraries (IntelIPP INTERFACE ${IPP_LIBRARY})
 target_include_directories (IntelIPP INTERFACE ${IPP_INCLUDE_DIR})
 target_compile_definitions (IntelIPP INTERFACE BV_USE_IPP=1)
 
