@@ -12,35 +12,33 @@ if (NOT ${BV_USE_CCACHE})
 endif()
 
 find_program (CCACHE_PROGRAM ccache
-              PATHS $ENV{CPM_SOURCE_CACHE}/ccache) # this may break outside of Workspace builds, but the ccache support is really only designed for top-level Workspace use, at least for now...
+              PATHS $ENV{CPM_SOURCE_CACHE}/ccache)
 
 if (NOT CCACHE_PROGRAM)
-    message (WARNING "Could not enable Ccache: could not find program")
+    message (WARNING "Could not enable ccache: could not find program")
     return()
 endif()
 
-#
-
-if (NOT DEFINED ENV{CCACHE_DIR})
-    set (ENV{CCACHE_DIR} ${Shared-code_SOURCE_DIR}/Cache/ccache)
-endif()
-
-set (ENV{CCACHE_COMPRESS} "true")
-set (ENV{CCACHE_COMPRESSLEVEL} "6")
-
-set (ENV{CCACHE_MAXSIZE} "400M")
-
 
 # Set up wrapper scripts
+
 set (C_LAUNCHER   "${CCACHE_PROGRAM}")
 set (CXX_LAUNCHER "${CCACHE_PROGRAM}")
+
+if (NOT DEFINED BV_CCACHE_OPTIONS)
+    message(STATUS " -- no ccache options passed...")
+    set (BV_CCACHE_OPTIONS "")
+endif()
+
+list (APPEND BV_CCACHE_OPTIONS "CCACHE_COMPRESS=true")
+list (APPEND BV_CCACHE_OPTIONS "CCACHE_COMPRESSLEVEL=6")
+list (APPEND BV_CCACHE_OPTIONS "CCACHE_MAXSIZE=800M")
+
 set (CCCACHE_EXPORTS "")
 
-if (DEFINED CCACHE_OPTIONS)
-    foreach (option ${CCACHE_OPTIONS})
-        set (CCCACHE_EXPORTS "${CCCACHE_EXPORTS}\nexport ${option}")
-    endforeach()
-endif()
+foreach (option ${BV_CCACHE_OPTIONS})
+    set (CCCACHE_EXPORTS "${CCCACHE_EXPORTS}\nexport ${option}")
+endforeach()
 
 configure_file (${CMAKE_CURRENT_LIST_DIR}/launch-c.in   launch-c)
 configure_file (${CMAKE_CURRENT_LIST_DIR}/launch-cxx.in launch-cxx)
