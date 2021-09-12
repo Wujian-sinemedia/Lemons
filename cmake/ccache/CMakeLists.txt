@@ -26,7 +26,6 @@ set (C_LAUNCHER   "${CCACHE_PROGRAM}")
 set (CXX_LAUNCHER "${CCACHE_PROGRAM}")
 
 if (NOT DEFINED BV_CCACHE_OPTIONS)
-    message(STATUS " -- no ccache options passed...")
     set (BV_CCACHE_OPTIONS "")
 endif()
 
@@ -40,6 +39,7 @@ foreach (option ${BV_CCACHE_OPTIONS})
     set (CCCACHE_EXPORTS "${CCCACHE_EXPORTS}\nexport ${option}")
 endforeach()
 
+# the configured scripts are placed in the current binary dir 
 configure_file (${CMAKE_CURRENT_LIST_DIR}/launch-c.in   launch-c)
 configure_file (${CMAKE_CURRENT_LIST_DIR}/launch-cxx.in launch-cxx)
 
@@ -57,4 +57,4 @@ else()
     set (CMAKE_CXX_COMPILER_LAUNCHER "${CMAKE_CURRENT_BINARY_DIR}/launch-cxx" CACHE INTERNAL "")
 endif()
 
-message (STATUS "-- Using ccache! --")
+message (STATUS " -- Using ccache! -- ")
