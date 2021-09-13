@@ -1,11 +1,12 @@
 option (BV_WORKSPACE_BUILD "" OFF)
 
 set_property (GLOBAL PROPERTY USE_FOLDERS YES)
+set_property (GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER "Targets")
 
-set (CMAKE_SUPPRESS_REGENERATION   TRUE)
-set (CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
-set (CMAKE_CXX_STANDARD            ${BV_CXX_VERSION})
-set (CMAKE_CXX_STANDARD_REQUIRED   ON)
+set (CMAKE_SUPPRESS_REGENERATION        TRUE)
+set (CMAKE_EXPORT_COMPILE_COMMANDS      TRUE)
+set (CMAKE_CXX_STANDARD                 ${BV_CXX_VERSION})
+set (CMAKE_CXX_STANDARD_REQUIRED        ON)
 set (CMAKE_INTERPROCEDURAL_OPTIMIZATION ON)
 
 if (DEFINED Shared-code_SOURCE_DIR)
@@ -19,7 +20,6 @@ if (NOT DEFINED ENV{CPM_SOURCE_CACHE})
 endif()
 
 add_subdirectory (native)
-add_subdirectory (integrations)
 
 include (UsefulScripts/get_cpm.cmake)
 add_subdirectory (third_party)

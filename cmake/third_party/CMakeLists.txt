@@ -5,3 +5,4 @@ include (ableton_link_config.cmake)
 
 add_subdirectory (vecops)
 
+add_subdirectory (integrations)
