@@ -1,7 +1,5 @@
 find_program (CLANGTIDY clang-tidy)
 
-if (NOT CLANGTIDY)
-    return()
+if (CLANGTIDY)
+    set (CMAKE_CXX_CLANG_TIDY ${CLANGTIDY})
 endif()
-
-set (CMAKE_CXX_CLANG_TIDY ${CLANGTIDY})

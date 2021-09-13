@@ -11,7 +11,7 @@ set (CMAKE_CXX_CPPCHECK
     -q
     --enable=all
     --force
-    --std=c++14
+    --std=c++20
     -I ${CMAKE_SOURCE_DIR}
-    --template="cppcheck: warning: {id}:{file}:{line}: {message}"
+    #--template="cppcheck: warning: {id}:{file}:{line}: {message}"
     -i src/third_party)
