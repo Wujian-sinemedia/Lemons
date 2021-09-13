@@ -13,7 +13,7 @@ endif()
 
 # Linux
 
-include (LSBInfo)
+include (LSBInfo.cmake)
 
 if (LSB_DISTRIBUTOR_ID MATCHES "Ubuntu")
     set (CPACK_GENERATOR "DEB")

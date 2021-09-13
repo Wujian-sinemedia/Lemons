@@ -4,8 +4,6 @@
 # when re-releasing.
 # Note: the ~codename is not part of any standard and could be omitted.
 if (NOT CPACK_DEBIAN_PACKAGE_VERSION)
-    include (LSBInfo)
-
     if (${LSB_CODENAME} STREQUAL "bionic")
         set (CPACK_DEBIAN_PACKAGE_VERSION "${CPACK_PACKAGE_VERSION}")
     else()
