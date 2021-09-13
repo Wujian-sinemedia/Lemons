@@ -1,22 +1,3 @@
-function (_bv_configure_juce_browser target shouldUseBrowser)
-    if (${shouldUseBrowser})
-        target_compile_definitions (${target} PUBLIC 
-            JUCE_WEB_BROWSER=1
-            JUCE_USE_CURL=1
-            JUCE_LOAD_CURL_SYMBOLS_LAZILY=1)
-
-        if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
-            target_link_libraries (${target} PRIVATE juce::pkgconfig_JUCE_CURL_LINUX_DEPS)
-        endif()
-    else()
-        target_compile_definitions (${target} PUBLIC 
-            JUCE_WEB_BROWSER=0
-            JUCE_USE_CURL=0)
-    endif()
-endfunction()
-
-#
-
 function (_bv_configure_juce_target)
 
     set (options BROWSER PLUGIN_HOST CAMERA)
@@ -30,7 +11,6 @@ function (_bv_configure_juce_target)
     endif()
 
     _bv_configure_juce_aax (${BV_TARGETCONFIG_TARGET} "${BV_TARGETCONFIG_AAX_PAGETABLE_FILE}")
-
     _bv_configure_juce_lv2 (${BV_TARGETCONFIG_TARGET})
 
     target_compile_definitions (${BV_TARGETCONFIG_TARGET} PUBLIC
@@ -46,7 +26,20 @@ function (_bv_configure_juce_target)
             JUCE_EXECUTE_APP_SUSPEND_ON_BACKGROUND_TASK=1
             )
     
-    _bv_configure_juce_browser (${BV_TARGETCONFIG_TARGET} ${BV_TARGETCONFIG_BROWSER})
+    if (${BV_TARGETCONFIG_BROWSER})
+        target_compile_definitions (${BV_TARGETCONFIG_TARGET} PUBLIC 
+            JUCE_WEB_BROWSER=1
+            JUCE_USE_CURL=1
+            JUCE_LOAD_CURL_SYMBOLS_LAZILY=1)
+
+        if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
+            target_link_libraries (${BV_TARGETCONFIG_TARGET} PRIVATE juce::pkgconfig_JUCE_CURL_LINUX_DEPS)
+        endif()
+    else()
+        target_compile_definitions (${BV_TARGETCONFIG_TARGET} PUBLIC 
+            JUCE_WEB_BROWSER=0
+            JUCE_USE_CURL=0)
+    endif()
 
     if (APPLE)
         _bv_set_default_macos_options (${BV_TARGETCONFIG_TARGET})
@@ -75,4 +68,5 @@ function (_bv_configure_juce_target)
     endif()
 
     set (bv_targetname ${BV_TARGETCONFIG_TARGET} PARENT_SCOPE)
+
 endfunction()
