@@ -8,6 +8,8 @@ set (CMAKE_EXPORT_COMPILE_COMMANDS      TRUE)
 set (CMAKE_CXX_STANDARD                 ${BV_CXX_VERSION})
 set (CMAKE_CXX_STANDARD_REQUIRED        ON)
 set (CMAKE_INTERPROCEDURAL_OPTIMIZATION ON)
+set (CMAKE_INCLUDE_CURRENT_DIR          ON)
+set (CMAKE_LINK_DEPENDS_NO_SHARED       ON)
 
 if (DEFINED Shared-code_SOURCE_DIR)
     set (Shared-code_SOURCE_DIR ${Shared-code_SOURCE_DIR} CACHE INTERNAL "Path to the Shared-code repo")
@@ -24,13 +26,15 @@ add_subdirectory (native)
 include (UsefulScripts/get_cpm.cmake)
 add_subdirectory (third_party)
 
-include (FileUtilities.cmake)
+add_subdirectory (utils)
+
 include (assets.cmake)
 include (configure_helpers.cmake)
 
 add_subdirectory (plugins)
 include (apps.cmake)
 
+add_subdirectory (cpack)
 include (install.cmake)
 
 set (BV_BRAND_FLAGS_FILEPATH ${CMAKE_CURRENT_LIST_DIR}/BrandSpecific.cmake CACHE INTERNAL "Path to the brand-specific config file")

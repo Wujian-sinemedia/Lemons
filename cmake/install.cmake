@@ -1,10 +1,3 @@
-if (WIN32)
-  set (CPACK_GENERATOR "ZIP")
-else()
-  set (CPACK_GENERATOR "TXZ")
-endif()
-
-#
 
 function (_bv_configure_target_install target productName)
 
