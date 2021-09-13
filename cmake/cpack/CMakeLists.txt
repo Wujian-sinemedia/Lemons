@@ -1,5 +1,8 @@
 include (set_default_generator.cmake)
 
+message (STATUS "Using CPack generator: ${CPACK_GENERATOR}")
+
+
 set (CPACK_STRIP_FILES TRUE) 
 
 
