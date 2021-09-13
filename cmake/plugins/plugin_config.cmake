@@ -9,7 +9,7 @@ function (_bv_configure_juce_aax origTarget pagetableFile)
     set_target_properties (${aaxTarget} PROPERTIES OSX_ARCHITECTURES x86_64)
 
     if (NOT "${pagetableFile}" STREQUAL "")
-        target_compile_definitions (${aaxTarget} PUBLIC JucePlugin_AAXPageTableFile="${pagetableFile}")
+        target_compile_definitions (${aaxTarget} PUBLIC JucePlugin_AAXPageTableFile=${pagetableFile})
     endif()
 endfunction()
 
@@ -23,21 +23,14 @@ function (_bv_configure_juce_lv2 origTarget)
         return()
     endif()
 
-    get_target_property (Company ${LV2target} JUCE_COMPANY_NAME)
+    get_target_property (BundleID ${origTarget} JUCE_BUNDLE_ID)
 
-    if (NOT Company)
-        message (WARNING "Unspecified company for LV2 target!")
-        set (Company "YourCompany")
+    if (NOT BundleID)
+        message (WARNING "Unspecified bundle ID for ${origTarget}!")
+        return()
     endif()
 
-    get_target_property (Product ${LV2target} JUCE_PRODUCT_NAME)
-
-    if (NOT Product)
-        message (WARNING "Unspecified product name for LV2 target!")
-        set (Product "YourProduct")
-    endif()
-
-    set_target_properties (${LV2target} PROPERTIES JUCE_LV2_URI "${Company}.${Product}")
+    set_target_properties (${LV2target} PROPERTIES JUCE_LV2_URI ${BundleID})
 
 endfunction()
 
