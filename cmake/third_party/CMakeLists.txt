@@ -1,3 +1,5 @@
+add_subdirectory (ccache)
+
 include (juce_config.cmake)
 
 include (mts_esp_config.cmake)
@@ -5,4 +7,4 @@ include (ableton_link_config.cmake)
 
 add_subdirectory (vecops)
 
-add_subdirectory (integrations)
+include (static_analysis.cmake)
