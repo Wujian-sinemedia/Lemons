@@ -1,30 +1,30 @@
 
-function (_bv_configure_target_install target productName)
+function (_bv_configure_product_deploy target isPlugin)
 
-    if (NOT TARGET ${target})
-        return()
-    endif()
+    function (_bv_configure_target_deploy target productName)
 
-    if (${BV_WORKSPACE_BUILD})
-        set (dest_dir ${CMAKE_CURRENT_BINARY_DIR}/../deploy/${productName})
-    else()
-        set (dest_dir ${CMAKE_CURRENT_BINARY_DIR}/deploy)
-    endif()
+        if (NOT TARGET ${target})
+            return()
+        endif()
 
-    install (TARGETS ${target}
-             DESTINATION ${dest_dir}
-             COMPONENT ${target})
+        if (${BV_WORKSPACE_BUILD})
+            set (dest_dir ${CMAKE_CURRENT_BINARY_DIR}/../deploy/${productName})
+        else()
+            set (dest_dir ${CMAKE_CURRENT_BINARY_DIR}/deploy)
+        endif()
 
-    add_custom_command (TARGET ${target} POST_BUILD
-            COMMAND "${CMAKE_COMMAND}"
-            "-DCMAKE_INSTALL_CONFIG_NAME=$<CONFIG>"
-            "-DCMAKE_INSTALL_COMPONENT=${target}"
-            "-P" "${CMAKE_CURRENT_BINARY_DIR}/cmake_install.cmake")
-endfunction()
+        install (TARGETS ${target}
+                 DESTINATION ${dest_dir}
+                 COMPONENT ${target})
 
-#
+        add_custom_command (TARGET ${target} POST_BUILD
+                COMMAND "${CMAKE_COMMAND}"
+                "-DCMAKE_INSTALL_CONFIG_NAME=$<CONFIG>"
+                "-DCMAKE_INSTALL_COMPONENT=${target}"
+                "-P" "${CMAKE_CURRENT_BINARY_DIR}/cmake_install.cmake")
+    endfunction()
 
-function (_bv_configure_product_install target isPlugin)
+    #
 
     if (NOT TARGET ${target})
         return()
@@ -35,11 +35,11 @@ function (_bv_configure_product_install target isPlugin)
 
         if (formats)
             foreach (format ${formats})
-                _bv_configure_target_install ("${target}_${format}" ${target})
+                _bv_configure_target_deploy ("${target}_${format}" ${target})
             endforeach()
         endif()
     endif()
 
-    _bv_configure_target_install (${target} ${target})
+    _bv_configure_target_deploy (${target} ${target})
 
 endfunction()

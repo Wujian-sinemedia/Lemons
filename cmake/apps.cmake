@@ -4,7 +4,7 @@ function (bv_configure_juce_app)
 
     target_link_libraries (${bv_targetname} PUBLIC ${BV_APP_ONLY_MODULES})
 
-    _bv_configure_product_install (${bv_targetname} FALSE)
+    _bv_configure_product_deploy (${bv_targetname} FALSE)
 
     set (app_target "ALL_APPS")
 

@@ -46,7 +46,7 @@ function (bv_configure_juce_plugin)
             JUCE_MICROPHONE_PERMISSION_ENABLED=1
             JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=0)
 
-    _bv_configure_product_install (${bv_targetname} TRUE)
+    _bv_configure_product_deploy (${bv_targetname} TRUE)
 
     set (plugins_target "ALL_PLUGINS")
 
