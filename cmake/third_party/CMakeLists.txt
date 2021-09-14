@@ -8,5 +8,3 @@ include (mts_esp_config.cmake)
 include (ableton_link_config.cmake)
 
 add_subdirectory (vecops)
-
-include (static_analysis.cmake)

@@ -37,6 +37,6 @@ include (apps.cmake)
 add_subdirectory (cpack)
 include (deploy.cmake)
 
-include (sanitizers.cmake)
+add_subdirectory (tooling)
 
 set (BV_BRAND_FLAGS_FILEPATH ${CMAKE_CURRENT_LIST_DIR}/BrandSpecific.cmake CACHE INTERNAL "Path to the brand-specific config file" FORCE)
