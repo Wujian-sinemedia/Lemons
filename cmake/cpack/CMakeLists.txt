@@ -1,6 +1,4 @@
-include (set_default_generator.cmake)
-
-message (STATUS "Using CPack generator: ${CPACK_GENERATOR}")
+add_subdirectory (generators)
 
 
 set (CPACK_STRIP_FILES TRUE) 
@@ -34,13 +32,4 @@ endif()
 
 if (NOT CPACK_PACKAGE_DESCRIPTION_SUMMARY)
 	#set (CPACK_PACKAGE_DESCRIPTION_SUMMARY ${${UPPER_PROJECT_NAME}_DESCRIPTION})
-endif()
-
-
-if (CPACK_GENERATOR STREQUAL "DEB")
-	include (deb_settings.cmake)
-elseif (CPACK_GENERATOR STREQUAL "RPM")
-	include (rpm_settings.cmake)
-else()
-	include (gen_settings.cmake)
 endif()
