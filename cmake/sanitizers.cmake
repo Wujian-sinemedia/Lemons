@@ -25,9 +25,9 @@ endif()
 
 macro (check_compiler_version gcc_required_version clang_required_version msvc_required_version)
 
-	if (CMAKE_CXX_COMPILER_ID MATCHES "GNU" AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS ${gcc_required_version}
-		OR CMAKE_CXX_COMPILER_ID MATCHES "Clang" AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS ${clang_required_version}
-		OR CMAKE_CXX_COMPILER_ID MATCHES "MSVC" AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS ${msvc_required_version})
+	if ( (CMAKE_CXX_COMPILER_ID MATCHES "GNU" AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS ${gcc_required_version})
+		OR (CMAKE_CXX_COMPILER_ID MATCHES "Clang" AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS ${clang_required_version})
+		OR (CMAKE_CXX_COMPILER_ID MATCHES "MSVC" AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS ${msvc_required_version}) )
 
 		message (FATAL_ERROR "${sanitizer} could not be enabled, because your compiler (${CMAKE_CXX_COMPILER_ID} version ${CMAKE_CXX_COMPILER_VERSION}) does not support it!")
 	endif()
