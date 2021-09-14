@@ -39,4 +39,4 @@ include (deploy.cmake)
 
 add_subdirectory (tooling)
 
-set (BV_BRAND_FLAGS_FILEPATH ${CMAKE_CURRENT_LIST_DIR}/BrandSpecific.cmake CACHE INTERNAL "Path to the brand-specific config file" FORCE)
+include (BrandSpecific.cmake)
