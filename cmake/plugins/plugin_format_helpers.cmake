@@ -2,7 +2,7 @@ function (_bv_create_default_format_list_for_platform outlist)
 
 	set (formatlist Standalone)
 
-	if (NOT "${CMAKE_SYSTEM_NAME}" STREQUAL "iOS")
+	if (NOT "${CMAKE_SYSTEM_NAME}" MATCHES "iOS")
 
 		list (APPEND formatlist Unity VST3)
 

@@ -8,6 +8,7 @@ function (_bv_configure_juce_target)
 
     if (NOT DEFINED BV_TARGETCONFIG_TARGET)
         message (FATAL_ERROR "Target name not specified in call to _bv_configure_juce_target")
+        return()
     endif()
 
     _bv_configure_juce_aax (${BV_TARGETCONFIG_TARGET} "${BV_TARGETCONFIG_AAX_PAGETABLE_FILE}")
@@ -32,13 +33,11 @@ function (_bv_configure_juce_target)
             JUCE_USE_CURL=1
             JUCE_LOAD_CURL_SYMBOLS_LAZILY=1)
 
-        if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
+        if (CMAKE_SYSTEM_NAME MATCHES "Linux")
             target_link_libraries (${BV_TARGETCONFIG_TARGET} PRIVATE juce::pkgconfig_JUCE_CURL_LINUX_DEPS)
         endif()
     else()
-        target_compile_definitions (${BV_TARGETCONFIG_TARGET} PUBLIC 
-            JUCE_WEB_BROWSER=0
-            JUCE_USE_CURL=0)
+        target_compile_definitions (${BV_TARGETCONFIG_TARGET} PUBLIC JUCE_WEB_BROWSER=0 JUCE_USE_CURL=0)
     endif()
 
     if (APPLE)

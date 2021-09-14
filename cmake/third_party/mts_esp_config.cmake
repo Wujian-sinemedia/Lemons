@@ -3,7 +3,7 @@ CPMAddPackage (
         GIT_REPOSITORY https://github.com/ODDSound/MTS-ESP.git
         GIT_TAG origin/main)
 
-set (bv_mts_esp_dir ${MTS-ESP_SOURCE_DIR}/Client CACHE INTERNAL "Path to MTS-ESP sources")
+set (bv_mts_esp_dir ${MTS-ESP_SOURCE_DIR}/Client)
 
 add_library (MTS-ESP INTERFACE)
 

@@ -12,7 +12,7 @@ set (CMAKE_INCLUDE_CURRENT_DIR          ON)
 set (CMAKE_LINK_DEPENDS_NO_SHARED       ON)
 
 if (DEFINED Shared-code_SOURCE_DIR)
-    set (Shared-code_SOURCE_DIR ${Shared-code_SOURCE_DIR} CACHE INTERNAL "Path to the Shared-code repo")
+    set (Shared-code_SOURCE_DIR ${Shared-code_SOURCE_DIR} CACHE INTERNAL "Path to the Shared-code repo" FORCE)
 else()
     set (Shared-code_SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/.. CACHE INTERNAL "Path to the Shared-code repo")
 endif()
@@ -35,6 +35,6 @@ add_subdirectory (plugins)
 include (apps.cmake)
 
 add_subdirectory (cpack)
-include (install.cmake)
+include (deploy.cmake)
 
-set (BV_BRAND_FLAGS_FILEPATH ${CMAKE_CURRENT_LIST_DIR}/BrandSpecific.cmake CACHE INTERNAL "Path to the brand-specific config file")
+set (BV_BRAND_FLAGS_FILEPATH ${CMAKE_CURRENT_LIST_DIR}/BrandSpecific.cmake CACHE INTERNAL "Path to the brand-specific config file" FORCE)

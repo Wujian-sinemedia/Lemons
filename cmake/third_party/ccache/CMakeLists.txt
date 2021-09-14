@@ -4,7 +4,6 @@
         - and this repository: https://github.com/TheLartians/Ccache.cmake
 ]]
 
-
 find_program (CCACHE_PROGRAM ccache
               PATHS $ENV{CPM_SOURCE_CACHE}/ccache)
 
@@ -13,10 +12,8 @@ if (NOT CCACHE_PROGRAM)
     return()
 endif()
 
-
 set (C_LAUNCHER   "${CCACHE_PROGRAM}")
 set (CXX_LAUNCHER "${CCACHE_PROGRAM}")
-
 
 if (NOT DEFINED BV_CCACHE_OPTIONS)
     set (BV_CCACHE_OPTIONS "")
@@ -32,7 +29,6 @@ foreach (option ${BV_CCACHE_OPTIONS})
     set (CCCACHE_EXPORTS "${CCCACHE_EXPORTS}\nexport ${option}")
 endforeach()
 
-# the configured scripts are placed in the current binary dir 
 configure_file (${CMAKE_CURRENT_LIST_DIR}/launch-c.in   launch-c)
 configure_file (${CMAKE_CURRENT_LIST_DIR}/launch-cxx.in launch-cxx)
 
