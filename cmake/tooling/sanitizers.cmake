@@ -26,7 +26,7 @@ endif()
 
 
 if (NOT DEFINED BV_SANITIZERS_TO_ENABLE)
-	set (BV_SANITIZERS_TO_ENABLE "")
+	return()
 endif()
 
 
