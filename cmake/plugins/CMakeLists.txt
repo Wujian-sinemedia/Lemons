@@ -4,7 +4,20 @@ else()
     set (BV_LV2_AVAILABLE FALSE CACHE INTERNAL "Availability of LV2 plugin format" FORCE)
 endif()
 
-set (BV_AAX_AVAILABLE FALSE CACHE INTERNAL "Availability of the AAX plugin SDK")
+#
+
+if (NOT DEFINED BV_AAX_SDK_PATH OR NOT EXISTS ${BV_AAX_SDK_PATH})
+    set (BV_AAX_AVAILABLE FALSE CACHE INTERNAL "Availability of the AAX plugin SDK" FORCE)
+else()
+    set (BV_AAX_AVAILABLE TRUE CACHE INTERNAL "Availability of the AAX plugin SDK" FORCE)
+endif()
+
+if (${BV_AAX_AVAILABLE})
+    juce_set_aax_sdk_path (${BV_AAX_SDK_PATH})
+endif()
+
+#
+
 set (BV_VST2_AVAILABLE FALSE CACHE INTERNAL "Availability of the VST2 plugin SDK")
 
 #
