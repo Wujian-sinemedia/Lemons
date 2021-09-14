@@ -8,7 +8,7 @@ function (_bv_configure_product_deploy target isPlugin)
         endif()
 
         if (${BV_WORKSPACE_BUILD})
-            set (dest_dir ${CMAKE_CURRENT_BINARY_DIR}/../deploy/${productName})
+            set (dest_dir ${CMAKE_CURRENT_BINARY_DIR}/../../deploy/${productName})
         else()
             set (dest_dir ${CMAKE_CURRENT_BINARY_DIR}/deploy)
         endif()

@@ -7,7 +7,7 @@ function (_bv_create_default_format_list_for_platform outlist)
 		list (APPEND formatlist Unity VST3)
 
 		if (APPLE)
-			list (APPEND formatlist AU)  # TODO: add AUv3 support...
+			list (APPEND formatlist AU AUv3)
 		endif()
 
 		if (${BV_LV2_AVAILABLE})
