@@ -46,7 +46,6 @@ function (_bv_configure_juce_target)
 
     target_link_libraries (${BV_TARGETCONFIG_TARGET} PUBLIC
         ${BV_JUCE_MODULES}
-        Vecops
         juce::juce_recommended_config_flags
         juce::juce_recommended_lto_flags
         juce::juce_recommended_warning_flags)
