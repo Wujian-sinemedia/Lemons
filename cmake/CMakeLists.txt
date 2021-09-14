@@ -23,6 +23,8 @@ endif()
 
 add_subdirectory (native)
 
+add_subdirectory (ccache)
+
 include (UsefulScripts/get_cpm.cmake)
 add_subdirectory (third_party)
 
