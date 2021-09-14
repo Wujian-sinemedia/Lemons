@@ -1,7 +1,7 @@
 if (NOT WIN32 AND EXISTS ${JUCE_SOURCE_DIR}/modules/juce_audio_plugin_client/juce_audio_plugin_client_LV2.cpp)
-    set (BV_LV2_AVAILABLE TRUE CACHE INTERNAL "Availability of LV2 plugin format")
+    set (BV_LV2_AVAILABLE TRUE CACHE INTERNAL "Availability of LV2 plugin format" FORCE)
 else()
-    set (BV_LV2_AVAILABLE FALSE CACHE INTERNAL "Availability of LV2 plugin format")
+    set (BV_LV2_AVAILABLE FALSE CACHE INTERNAL "Availability of LV2 plugin format" FORCE)
 endif()
 
 set (BV_AAX_AVAILABLE FALSE CACHE INTERNAL "Availability of the AAX plugin SDK")
