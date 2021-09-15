@@ -7,6 +7,8 @@ else()
 endif()
 
 
+include (CheckIPOSupported)
+
 check_ipo_supported (RESULT result OUTPUT output)
 
 if (result)
