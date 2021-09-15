@@ -21,6 +21,8 @@ if (NOT DEFINED ENV{CPM_SOURCE_CACHE})
     set (ENV{CPM_SOURCE_CACHE} ${CMAKE_CURRENT_LIST_DIR}/../Cache)
 endif()
 
+include (env.cmake)
+
 add_subdirectory (native)
 
 add_subdirectory (ccache)

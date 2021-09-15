@@ -77,12 +77,16 @@ macro (enable_sanitizer_flags sanitize_option)
     if (${sanitize_option} MATCHES "undefined")
         check_compiler_version ("4.9" "3.1" "99.99")
         set (XSAN_COMPILE_FLAGS "-fsanitize=undefined -fno-omit-frame-pointer -fno-optimize-sibling-calls")
+        return()
     endif()
 
     if (${sanitize_option} MATCHES "fuzzer")
         check_compiler_version ("99.99" "6.0" "99.99")
         set (XSAN_COMPILE_FLAGS "-fsanitize=fuzzer")
+        return()
     endif()
+
+    message (WARNING "Unknown sanitizer requested: ${sanitize_option}")
 endmacro()
 
      
