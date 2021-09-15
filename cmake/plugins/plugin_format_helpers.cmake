@@ -1,34 +1,4 @@
-function (_bv_create_default_format_list_for_platform outlist)
 
-	set (formatlist Standalone)
-
-	if (NOT ("${CMAKE_SYSTEM_NAME}" MATCHES "iOS"))
-
-		list (APPEND formatlist Unity VST3)
-
-		if (APPLE)
-			list (APPEND formatlist AU AUv3)
-		endif()
-
-		if (${BV_LV2_AVAILABLE})
-			list (APPEND formatlist LV2)
-		endif()
-
-		if (${BV_AAX_AVAILABLE})
-			list (APPEND formatlist AAX)
-		endif()
-
-		if (${BV_VST2_AVAILABLE})
-			list (APPEND formatlist VST)
-		endif()
-
-	endif()
-
-	set (${outlist} ${formatlist} PARENT_SCOPE)
-
-endfunction()
-
-#
 
 function (_bv_parse_plugin_format_list outlist inlist)
 

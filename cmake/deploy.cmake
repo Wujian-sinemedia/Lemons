@@ -4,6 +4,8 @@ option (BV_COPY_TO_DEPLOY_FOLDER "Copies each product's install components to /B
 
 function (_bv_configure_product_deploy target isPlugin)
 
+    return()
+
     if (NOT ${BV_COPY_TO_DEPLOY_FOLDER})
         return()
     endif()
@@ -24,7 +26,9 @@ function (_bv_configure_product_deploy target isPlugin)
 
         install (TARGETS ${target}
                  DESTINATION ${dest_dir}
-                 COMPONENT ${target})
+                 COMPONENT ${target}
+                 INCLUDES DESTINATION ${dest_dir}
+                 RESOURCE ${dest_dir})
 
         add_custom_command (TARGET ${target} POST_BUILD
                 COMMAND "${CMAKE_COMMAND}"
