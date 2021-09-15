@@ -13,8 +13,6 @@ endif()
 
 # Linux
 
-include (linux/LSBInfo.cmake)
-
 if (LSB_DISTRIBUTOR_ID MATCHES "Ubuntu")
     set (CPACK_GENERATOR "DEB")
     return()
