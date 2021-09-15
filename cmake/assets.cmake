@@ -28,8 +28,13 @@ function (bv_add_resources_folder)
         endif()
     endif()
 
-    target_link_libraries (${BV_RSRC_FLDR_TARGET} PRIVATE ${resourcesTarget})
-
     juce_add_bundle_resources_directory (${BV_RSRC_FLDR_TARGET} ${BV_RSRC_FLDR_FOLDER})
+
+    if (NOT TARGET ${resourcesTarget})
+        message (WARNING "Error -- resources target not found, or could not be created for ${BV_RSRC_FLDR_TARGET}")
+        return()
+    endif()
+
+    target_link_libraries (${BV_RSRC_FLDR_TARGET} PRIVATE ${resourcesTarget})
     
 endfunction()
