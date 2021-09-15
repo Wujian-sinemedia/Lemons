@@ -5,3 +5,12 @@ elseif (WIN32)
 else()
     include (Linux.cmake)
 endif()
+
+
+check_ipo_supported (RESULT result OUTPUT output)
+
+if (result)
+    set (CMAKE_INTERPROCEDURAL_OPTIMIZATION ON)
+else()
+    set (CMAKE_INTERPROCEDURAL_OPTIMIZATION OFF)
+endif()
