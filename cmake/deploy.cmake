@@ -1,5 +1,14 @@
+option (BV_COPY_TO_DEPLOY_FOLDER "Copies each product's install components to /Builds/deploy/<ProductName>" ON)
+
+#
 
 function (_bv_configure_product_deploy target isPlugin)
+
+    if (NOT ${BV_COPY_TO_DEPLOY_FOLDER})
+        return()
+    endif()
+
+    #
 
     function (_bv_configure_target_deploy target productName)
 

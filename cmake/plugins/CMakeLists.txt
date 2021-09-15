@@ -4,6 +4,10 @@ else()
     set (BV_LV2_AVAILABLE FALSE CACHE INTERNAL "Availability of LV2 plugin format" FORCE)
 endif()
 
+if (${BV_LV2_AVAILABLE})
+    message (STATUS " --- enabling LV2 plugin format --- ")
+endif()
+
 #
 
 if (NOT DEFINED BV_AAX_SDK_PATH OR NOT IS_DIRECTORY ${BV_AAX_SDK_PATH})
@@ -14,6 +18,7 @@ endif()
 
 if (${BV_AAX_AVAILABLE})
     juce_set_aax_sdk_path (${BV_AAX_SDK_PATH})
+    message (STATUS " --- enabling AAX plugin format --- ")
 endif()
 
 #

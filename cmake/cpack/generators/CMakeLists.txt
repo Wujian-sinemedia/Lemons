@@ -1,4 +1,6 @@
-include (set_default_generator.cmake)
+if (NOT CPACK_GENERATOR)
+	include (set_default_generator.cmake)
+endif()
 
 message (STATUS "Using CPack generator: ${CPACK_GENERATOR}")
 

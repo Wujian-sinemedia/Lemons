@@ -4,6 +4,13 @@
         - and this repository: https://github.com/TheLartians/Ccache.cmake
 ]]
 
+option (IgnoreCcache "Ignore ccache" OFF)
+
+if (${IgnoreCcache})
+    return()
+endif()
+
+
 find_program (CCACHE_PROGRAM ccache
               PATHS $ENV{CPM_SOURCE_CACHE}/ccache)
 

@@ -19,14 +19,14 @@ cannot enable two of them in the same build.
 ]]
 
 
-if (NOT (CMAKE_CXX_COMPILER_ID MATCHES "GNU" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "MSVC"))
-    message (WARNING "Your compiler (${CMAKE_CXX_COMPILER_ID}) does not have sanitizer support :(")
-    return()
+if (NOT DEFINED BV_SANITIZERS_TO_ENABLE)
+	return()
 endif()
 
 
-if (NOT DEFINED BV_SANITIZERS_TO_ENABLE)
-	return()
+if (NOT (CMAKE_CXX_COMPILER_ID MATCHES "GNU" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "MSVC"))
+    message (WARNING "Your compiler (${CMAKE_CXX_COMPILER_ID}) does not have sanitizer support :(")
+    return()
 endif()
 
 
