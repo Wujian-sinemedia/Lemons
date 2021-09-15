@@ -8,7 +8,6 @@ set (CMAKE_EXPORT_COMPILE_COMMANDS      TRUE)
 set (CMAKE_CXX_STANDARD                 ${BV_CXX_VERSION})
 set (CMAKE_CXX_STANDARD_REQUIRED        ON)
 set (CMAKE_INCLUDE_CURRENT_DIR          ON)
-#set (CMAKE_LINK_DEPENDS_NO_SHARED       ON)
 
 if (DEFINED Shared-code_SOURCE_DIR)
     set (Shared-code_SOURCE_DIR ${Shared-code_SOURCE_DIR} CACHE INTERNAL "Path to the Shared-code repo" FORCE)

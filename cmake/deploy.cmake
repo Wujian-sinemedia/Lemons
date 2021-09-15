@@ -4,9 +4,7 @@ option (BV_COPY_TO_DEPLOY_FOLDER "Copies each product's install components to /B
 
 function (_bv_configure_product_deploy target isPlugin)
 
-    return()
-
-    if (NOT ${BV_COPY_TO_DEPLOY_FOLDER})
+    if (NOT BV_COPY_TO_DEPLOY_FOLDER)
         return()
     endif()
 
@@ -18,23 +16,15 @@ function (_bv_configure_product_deploy target isPlugin)
             return()
         endif()
 
-        if (${BV_WORKSPACE_BUILD})
+        if (BV_WORKSPACE_BUILD)
             set (dest_dir ${CMAKE_CURRENT_BINARY_DIR}/../../deploy/${productName})
         else()
             set (dest_dir ${CMAKE_CURRENT_BINARY_DIR}/deploy)
         endif()
 
-        install (TARGETS ${target}
-                 DESTINATION ${dest_dir}
-                 COMPONENT ${target}
-                 INCLUDES DESTINATION ${dest_dir}
-                 RESOURCE ${dest_dir})
-
         add_custom_command (TARGET ${target} POST_BUILD
-                COMMAND "${CMAKE_COMMAND}"
-                "-DCMAKE_INSTALL_CONFIG_NAME=$<CONFIG>"
-                "-DCMAKE_INSTALL_COMPONENT=${target}"
-                "-P" "${CMAKE_CURRENT_BINARY_DIR}/cmake_install.cmake")
+                            COMMAND "${CMAKE_COMMAND}"
+                            "-E" "copy" "$<TARGET_FILE:${target}>" "${dest_dir}/$<TARGET_FILE_NAME:${target}>")
     endfunction()
 
     #
@@ -43,7 +33,7 @@ function (_bv_configure_product_deploy target isPlugin)
         return()
     endif()
 
-    if (${isPlugin})
+    if (isPlugin)
         get_target_property (formats ${target} JUCE_FORMATS)
 
         if (formats)

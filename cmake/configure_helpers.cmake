@@ -27,7 +27,7 @@ function (_bv_configure_juce_target)
             JUCE_EXECUTE_APP_SUSPEND_ON_BACKGROUND_TASK=1
             )
     
-    if (${BV_TARGETCONFIG_BROWSER})
+    if (BV_TARGETCONFIG_BROWSER)
         target_compile_definitions (${BV_TARGETCONFIG_TARGET} PUBLIC 
             JUCE_WEB_BROWSER=1
             JUCE_USE_CURL=1
@@ -56,11 +56,11 @@ function (_bv_configure_juce_target)
         bv_add_resources_folder (TARGET ${BV_TARGETCONFIG_TARGET} FOLDER ${BV_TARGETCONFIG_ASSET_FOLDER})
     endif()
 
-    if (${BV_TARGETCONFIG_PLUGIN_HOST})
+    if (BV_TARGETCONFIG_PLUGIN_HOST)
         _bv_configure_plugin_hosting (${BV_TARGETCONFIG_TARGET})
     endif()
 
-    if (${BV_TARGETCONFIG_CAMERA})
+    if (BV_TARGETCONFIG_CAMERA)
         target_compile_definitions (${BV_TARGETCONFIG_TARGET} PUBLIC JUCE_USE_CAMERA=1)
         target_link_libraries (${BV_TARGETCONFIG_TARGET} PUBLIC juce_video)
     endif()

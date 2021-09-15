@@ -6,7 +6,7 @@
 
 option (IgnoreCcache "Ignore ccache" OFF)
 
-if (${IgnoreCcache})
+if (IgnoreCcache)
     return()
 endif()
 
