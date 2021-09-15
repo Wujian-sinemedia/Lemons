@@ -43,7 +43,7 @@ execute_process (COMMAND chmod a+rx
                 "${CMAKE_CURRENT_BINARY_DIR}/launch-c"
                 "${CMAKE_CURRENT_BINARY_DIR}/launch-cxx")
 
-if (CMAKE_GENERATOR STREQUAL "Xcode")
+if (CMAKE_GENERATOR MATCHES "Xcode")
     set (CMAKE_XCODE_ATTRIBUTE_CC         "${CMAKE_CURRENT_BINARY_DIR}/launch-c" CACHE INTERNAL "" FORCE)
     set (CMAKE_XCODE_ATTRIBUTE_CXX        "${CMAKE_CURRENT_BINARY_DIR}/launch-cxx" CACHE INTERNAL "" FORCE)
     set (CMAKE_XCODE_ATTRIBUTE_LD         "${CMAKE_CURRENT_BINARY_DIR}/launch-c" CACHE INTERNAL "" FORCE)
