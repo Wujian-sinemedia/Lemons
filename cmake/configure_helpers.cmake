@@ -12,8 +12,8 @@ function (_lemons_configure_juce_target)
     endif()
 
     # do these here bc it's a pain to pass these arguments back up to the wrapping plugin-specific function....  :/
-    _bv_configure_juce_aax (${LEMONS_TARGETCONFIG_TARGET} "${LEMONS_TARGETCONFIG_AAX_PAGETABLE_FILE}")
-    _bv_configure_juce_lv2 (${LEMONS_TARGETCONFIG_TARGET})
+    _lemons_configure_juce_aax (${LEMONS_TARGETCONFIG_TARGET} "${LEMONS_TARGETCONFIG_AAX_PAGETABLE_FILE}")
+    _lemons_configure_juce_lv2 (${LEMONS_TARGETCONFIG_TARGET})
 
     target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET} PUBLIC
             JUCE_VST3_CAN_REPLACE_VST2=0
