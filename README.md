@@ -1,5 +1,9 @@
 # Lemons
 
+<p align="center">
+  <img src="https://github.com/benthevining/Lemons/blob/main/assets/lemons.jpg" alt="Watercolor painting of some lemons" width="1191" height="585"/>
+</p>
+
 I used to work full time in live theatre. Then, COVID happened. 
 I lost my career overnight, and I wasn't really sure what to do. I drifted for a while -- I made some [angsty experimental electronic music](https://soundcloud.com/benvining/american-dream), and then I made some [calmer experimental electronic music](https://soundcloud.com/benvining/sets/introspectralism) -- and eventually, I started dabbling in creating my own electronic instruments in Max MSP. That eventually led me to the JUCE framework, which was my introduction to C++ more generally. 
 
