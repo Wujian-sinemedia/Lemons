@@ -1,7 +1,26 @@
-# Shared-code
+# Lemons
+
+I used to work full time in live theatre. Then, COVID happened. 
+I lost my career overnight, and I wasn't really sure what to do. I drifted for a while -- I made some [angsty experimental electronic music](https://soundcloud.com/benvining/american-dream), and then I made some [calmer experimental electronic music](https://soundcloud.com/benvining/sets/introspectralism) -- and eventually, I started dabbling in creating my own electronic instruments in Max MSP. That eventually led me to the JUCE framework, which was my introduction to C++ more generally. 
+
+I quickly learned to love JUCE, but I also quickly learned that there was quite a lot of overhead involved in just getting a simple project up and running *(reliably)*. I realized I needed to abstract that overhead into a single repo. Here it is.
+
+Life handed me a bunch of lemons...
+
+wait, damn it, perhaps I should've gone with *Lemonade*, now that I think about it... But, I've already changed all the variable names, and I don't want to step on Beyonce's toes, so, lemons it is.
+
+Here are my lemons, go make lemonade of your own.
+
+<p align="center">
+  <img src="https://github.com/benthevining/Lemons/blob/main/assets/deke.png" alt="Deke Shaw, from Agents of Shield, saying, 'it's lemons then'." width="409" height="311"/>
+</p>
+
+---
+
+
 ### *A library of utilities and building blocks for JUCE-based apps and plugins*
 
-This library is what I use to build my own projects, so hopefully you find it useful as well.
+This library is what I use to build my own projects, so hopefully you'll find it useful as well.
 
 Contributing is welcome and appreciated! *(Or feel free to just make feature suggestions/requests.)* You may fork this repo, file issues, make pull requests, send me hate mail -- whatever floats your git boat.
 
