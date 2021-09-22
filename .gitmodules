@@ -1,0 +1,3 @@
+[submodule "cmake/GetLemons"]
+	path = cmake/GetLemons
+	url = https://github.com/benthevining/GetLemons.git

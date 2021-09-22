@@ -20,7 +20,7 @@ add_subdirectory (native)
 
 add_subdirectory (ccache)
 
-include (UsefulScripts/get_cpm.cmake)
+include (GetLemons/get_cpm.cmake)
 add_subdirectory (third_party)
 
 include (FileUtilities.cmake)
