@@ -1,0 +1,3 @@
+[submodule "cmake/UsefulScripts"]
+	path = cmake/UsefulScripts
+	url = https://github.com/benthevining/UsefulScripts.git
