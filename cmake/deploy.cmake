@@ -1,22 +1,22 @@
-option (BV_COPY_TO_DEPLOY_FOLDER "Copies each product's install components to /Builds/deploy/<ProductName>" ON)
+option (LEMIONS_COPY_TO_DEPLOY_FOLDER "Copies each product's install components to /Builds/deploy/<ProductName>" ON)
 
 #
 
-function (_bv_configure_product_deploy target isPlugin)
+function (_lemons_configure_product_deploy target isPlugin)
 
-    if (NOT BV_COPY_TO_DEPLOY_FOLDER)
+    if (NOT LEMONS_COPY_TO_DEPLOY_FOLDER)
         return()
     endif()
 
     #
 
-    function (_bv_configure_target_deploy target productName)
+    function (_lemons_configure_target_deploy target productName)
 
         if (NOT TARGET ${target})
             return()
         endif()
 
-        if (BV_WORKSPACE_BUILD)
+        if (LEMONS_WORKSPACE_BUILD)
             set (dest_dir ${CMAKE_CURRENT_BINARY_DIR}/../../deploy/${productName})
         else()
             set (dest_dir ${CMAKE_CURRENT_BINARY_DIR}/deploy)
@@ -38,11 +38,11 @@ function (_bv_configure_product_deploy target isPlugin)
 
         if (formats)
             foreach (format ${formats})
-                _bv_configure_target_deploy ("${target}_${format}" ${target})
+                _lemons_configure_target_deploy ("${target}_${format}" ${target})
             endforeach()
         endif()
     endif()
 
-    _bv_configure_target_deploy (${target} ${target})
+    _lemons_configure_target_deploy (${target} ${target})
 
 endfunction()

@@ -2,20 +2,19 @@
     The code in this file is based on:
         - this blog post: https://cristianadam.eu/20200113/speeding-up-c-plus-plus-github-actions-using-ccache/
         - and this repository: https://github.com/TheLartians/Ccache.cmake
+
+    Configures ccache support for all builds in this source tree. 
+    (Specifically, works by configuring a shell script that invokes ccache with the correct arguments for each build, then sets that shell script as the C and C++ launcher for these builds.)
+    
+    Ccache can drastically improve build time, and there's not really a good reason NOT to use it if it's installed on your system.
 ]]
-
-option (IgnoreCcache "Ignore ccache" OFF)
-
-if (IgnoreCcache)
-    return()
-endif()
 
 
 find_program (CCACHE_PROGRAM ccache
               PATHS $ENV{CPM_SOURCE_CACHE}/ccache)
 
 if (NOT CCACHE_PROGRAM)
-    message (WARNING "Could not enable ccache: could not find program")
+    message (STATUS "Could not enable ccache: could not find program")
     return()
 endif()
 

@@ -10,4 +10,4 @@ add_library (AbletonLink INTERFACE)
 add_dependencies (AbletonLink Ableton::Link)
 
 target_include_directories (AbletonLink INTERFACE ${AbletonLink_SOURCE_DIR}/include/ableton)
-target_compile_definitions (AbletonLink INTERFACE BV_USE_ABLETON_LINK=1)
+target_compile_definitions (AbletonLink INTERFACE LEMONS_USE_ABLETON_LINK=1)

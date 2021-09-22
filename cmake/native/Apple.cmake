@@ -22,7 +22,7 @@ endif()
 #####
 
 
-function (_bv_set_default_macos_options target)
+function (_lemons_set_default_macos_options target)
     
     set_target_properties (${target} PROPERTIES XCODE_ATTRIBUTE_ENABLE_HARDENED_RUNTIME YES)
 

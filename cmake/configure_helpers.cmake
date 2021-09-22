@@ -1,23 +1,24 @@
-function (_bv_configure_juce_target)
+function (_lemons_configure_juce_target)
 
     set (options BROWSER PLUGIN_HOST CAMERA)
     set (oneValueArgs TARGET ASSET_FOLDER AAX_PAGETABLE_FILE)
     set (multiValueArgs "")
 
-    cmake_parse_arguments (BV_TARGETCONFIG "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
+    cmake_parse_arguments (LEMONS_TARGETCONFIG "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
-    if (NOT DEFINED BV_TARGETCONFIG_TARGET)
-        message (FATAL_ERROR "Target name not specified in call to _bv_configure_juce_target")
+    if (NOT LEMONS_TARGETCONFIG_TARGET)
+        message (WARNING "Target name not specified in call to _lemons_configure_juce_target!")
         return()
     endif()
 
-    _bv_configure_juce_aax (${BV_TARGETCONFIG_TARGET} "${BV_TARGETCONFIG_AAX_PAGETABLE_FILE}")
-    _bv_configure_juce_lv2 (${BV_TARGETCONFIG_TARGET})
+    # do these here bc it's a pain to pass these arguments back up to the wrapping plugin-specific function....  :/
+    _bv_configure_juce_aax (${LEMONS_TARGETCONFIG_TARGET} "${LEMONS_TARGETCONFIG_AAX_PAGETABLE_FILE}")
+    _bv_configure_juce_lv2 (${LEMONS_TARGETCONFIG_TARGET})
 
-    target_compile_definitions (${BV_TARGETCONFIG_TARGET} PUBLIC
+    target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET} PUBLIC
             JUCE_VST3_CAN_REPLACE_VST2=0
-            JUCE_APPLICATION_NAME_STRING="$<TARGET_PROPERTY:${BV_TARGETCONFIG_TARGET},JUCE_PRODUCT_NAME>"
-            JUCE_APPLICATION_VERSION_STRING="$<TARGET_PROPERTY:${BV_TARGETCONFIG_TARGET},JUCE_VERSION>"
+            JUCE_APPLICATION_NAME_STRING="$<TARGET_PROPERTY:${LEMONS_TARGETCONFIG_TARGET},JUCE_PRODUCT_NAME>"
+            JUCE_APPLICATION_VERSION_STRING="$<TARGET_PROPERTY:${LEMONS_TARGETCONFIG_TARGET},JUCE_VERSION>"
             JUCE_COREGRAPHICS_DRAW_ASYNC=1
             _CRT_SECURE_NO_WARNINGS=1
             JUCE_STRICT_REFCOUNTEDPTR=1
@@ -27,44 +28,44 @@ function (_bv_configure_juce_target)
             JUCE_EXECUTE_APP_SUSPEND_ON_BACKGROUND_TASK=1
             )
     
-    if (BV_TARGETCONFIG_BROWSER)
-        target_compile_definitions (${BV_TARGETCONFIG_TARGET} PUBLIC 
+    if (LEMONS_TARGETCONFIG_BROWSER)
+        target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET} PUBLIC 
             JUCE_WEB_BROWSER=1
             JUCE_USE_CURL=1
             JUCE_LOAD_CURL_SYMBOLS_LAZILY=1)
 
         if (CMAKE_SYSTEM_NAME MATCHES "Linux")
-            target_link_libraries (${BV_TARGETCONFIG_TARGET} PRIVATE juce::pkgconfig_JUCE_CURL_LINUX_DEPS)
+            target_link_libraries (${LEMONS_TARGETCONFIG_TARGET} PRIVATE juce::pkgconfig_JUCE_CURL_LINUX_DEPS)
         endif()
     else()
-        target_compile_definitions (${BV_TARGETCONFIG_TARGET} PUBLIC JUCE_WEB_BROWSER=0 JUCE_USE_CURL=0)
+        target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET} PUBLIC JUCE_WEB_BROWSER=0 JUCE_USE_CURL=0)
     endif()
 
     if (APPLE)
-        _bv_set_default_macos_options (${BV_TARGETCONFIG_TARGET})
+        _lemons_set_default_macos_options (${LEMONS_TARGETCONFIG_TARGET})
     endif()
 
-    target_link_libraries (${BV_TARGETCONFIG_TARGET} PUBLIC
-        ${BV_JUCE_MODULES}
+    target_link_libraries (${LEMONS_TARGETCONFIG_TARGET} PUBLIC
+        ${LEMONS_JUCE_MODULES}
         juce::juce_recommended_config_flags
         juce::juce_recommended_lto_flags
         juce::juce_recommended_warning_flags)
 
-    target_compile_features (${BV_TARGETCONFIG_TARGET} PUBLIC cxx_std_${BV_CXX_VERSION})
+    target_compile_features (${LEMONS_TARGETCONFIG_TARGET} PUBLIC cxx_std_${LEMONS_CXX_VERSION})
 
-    if (DEFINED BV_TARGETCONFIG_ASSET_FOLDER)
-        bv_add_resources_folder (TARGET ${BV_TARGETCONFIG_TARGET} FOLDER ${BV_TARGETCONFIG_ASSET_FOLDER})
+    if (LEMONS_TARGETCONFIG_ASSET_FOLDER)
+        lemons_add_resources_folder (TARGET ${LEMONS_TARGETCONFIG_TARGET} FOLDER ${LEMONS_TARGETCONFIG_ASSET_FOLDER})
     endif()
 
-    if (BV_TARGETCONFIG_PLUGIN_HOST)
-        _bv_configure_plugin_hosting (${BV_TARGETCONFIG_TARGET})
+    if (LEMONS_TARGETCONFIG_PLUGIN_HOST)
+        _lemons_configure_plugin_hosting (${LEMONS_TARGETCONFIG_TARGET})
     endif()
 
-    if (BV_TARGETCONFIG_CAMERA)
-        target_compile_definitions (${BV_TARGETCONFIG_TARGET} PUBLIC JUCE_USE_CAMERA=1)
-        target_link_libraries (${BV_TARGETCONFIG_TARGET} PUBLIC juce_video)
+    if (LEMONS_TARGETCONFIG_CAMERA)
+        target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET} PUBLIC JUCE_USE_CAMERA=1)
+        target_link_libraries (${LEMONS_TARGETCONFIG_TARGET} PUBLIC juce_video)
     endif()
 
-    set (bv_targetname ${BV_TARGETCONFIG_TARGET} PARENT_SCOPE)
+    set (lemons_targetname ${LEMONS_TARGETCONFIG_TARGET} PARENT_SCOPE)
 
 endfunction()

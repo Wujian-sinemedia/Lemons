@@ -1,4 +1,4 @@
-function (_bv_configure_plugin_hosting target)
+function (_lemons_configure_plugin_hosting target)
 
     target_compile_definitions (${target} PRIVATE 
             JUCE_PLUGINHOST_VST=0

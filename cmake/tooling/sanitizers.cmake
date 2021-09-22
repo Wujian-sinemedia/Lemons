@@ -19,20 +19,22 @@ cannot enable two of them in the same build.
 ]]
 
 
-if (NOT DEFINED BV_SANITIZERS_TO_ENABLE)
+if (NOT DEFINED LEMONS_SANITIZERS_TO_ENABLE)
 	return()
 endif()
 
 
-if (NOT (CMAKE_CXX_COMPILER_ID MATCHES "GNU" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "MSVC"))
+if (NOT (CMAKE_CXX_COMPILER_ID MATCHES "GNU" 
+      OR CMAKE_CXX_COMPILER_ID MATCHES "Clang" 
+      OR CMAKE_CXX_COMPILER_ID MATCHES "MSVC"))
     message (WARNING "Your compiler (${CMAKE_CXX_COMPILER_ID}) does not have sanitizer support :(")
     return()
 endif()
 
 
-macro (enable_sanitizer_flags sanitize_option)
+macro (_lemons_enable_sanitizer_flags sanitize_option)
 
-    macro (check_compiler_version gcc_required_version clang_required_version msvc_required_version)
+    macro (_lemons_check_compiler_version gcc_required_version clang_required_version msvc_required_version)
 
         if ( (CMAKE_CXX_COMPILER_ID MATCHES "GNU" AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS ${gcc_required_version})
             OR (CMAKE_CXX_COMPILER_ID MATCHES "Clang" AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS ${clang_required_version})
@@ -44,7 +46,7 @@ macro (enable_sanitizer_flags sanitize_option)
 
 
     if (${sanitize_option} MATCHES "address")
-        check_compiler_version ("4.8" "3.1" "19.28")
+        _lemons_check_compiler_version ("4.8" "3.1" "19.28")
         if (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
             set (XSAN_COMPILE_FLAGS "-fsanitize=address")
         else()
@@ -55,33 +57,33 @@ macro (enable_sanitizer_flags sanitize_option)
     endif()
 
     if (${sanitize_option} MATCHES "thread")
-        check_compiler_version ("4.8" "3.1" "99.99")
+        _lemons_check_compiler_version ("4.8" "3.1" "99.99")
         set (XSAN_COMPILE_FLAGS "-fsanitize=thread")
         set (XSAN_LINKER_FLAGS "tsan")
         return()
     endif()
 
     if (${sanitize_option} MATCHES "memory")
-        check_compiler_version ("99.99" "3.1" "99.99")
+        _lemons_check_compiler_version ("99.99" "3.1" "99.99")
         set (XSAN_COMPILE_FLAGS "-fsanitize=memory")
         return()
     endif()
 
     if (${sanitize_option} MATCHES "leak")
-        check_compiler_version ("4.9" "3.4" "99.99")
+        _lemons_check_compiler_version ("4.9" "3.4" "99.99")
         set (XSAN_COMPILE_FLAGS "-fsanitize=leak")
         set (XSAN_LINKER_FLAGS "lsan")
         return()
     endif()
 
     if (${sanitize_option} MATCHES "undefined")
-        check_compiler_version ("4.9" "3.1" "99.99")
+        _lemons_check_compiler_version ("4.9" "3.1" "99.99")
         set (XSAN_COMPILE_FLAGS "-fsanitize=undefined -fno-omit-frame-pointer -fno-optimize-sibling-calls")
         return()
     endif()
 
     if (${sanitize_option} MATCHES "fuzzer")
-        check_compiler_version ("99.99" "6.0" "99.99")
+        _lemons_check_compiler_version ("99.99" "6.0" "99.99")
         set (XSAN_COMPILE_FLAGS "-fsanitize=fuzzer")
         return()
     endif()
@@ -89,12 +91,13 @@ macro (enable_sanitizer_flags sanitize_option)
     message (WARNING "Unknown sanitizer requested: ${sanitize_option}")
 endmacro()
 
+#
      
 foreach (sanitizer ${BV_SANITIZERS_TO_ENABLE})
 
     string (TOLOWER ${sanitizer} sanitizer)
 
-    enable_sanitizer_flags (${sanitizer})
+    _lemons_enable_sanitizer_flags (${sanitizer})
 
     if (CMAKE_C_COMPILER_ID MATCHES "Clang")
         set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${XSAN_COMPILE_FLAGS}")

@@ -1,30 +1,39 @@
-function (bv_subdir_list)
+#
+# lemons_subdir_list
+# returns a list of subdirectories found in the specified parent directory.
+# 
+# INPUTS:
+# DIR : the parent directory to search 
+# RESULT : the name of the variable to which the output list will be written in the calling scope
+#
+function (lemons_subdir_list)
 
 	set (options "")
 	set (oneValueArgs RESULT DIR)
 	set (multiValueArgs "")
 
-	cmake_parse_arguments (BV_SUBDIR "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
+	cmake_parse_arguments (LEMONS_SUBDIR "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
-	if (NOT DEFINED BV_SUBDIR_RESULT)
-		message (WARNING "Result variable not defined in call to bv_subdir_list")
+	if (NOT LEMONS_SUBDIR_RESULT)
+		message (WARNING "Result variable not defined in call to lemons_subdir_list!")
 		return()
 	endif()
 
-	if (NOT DEFINED BV_SUBDIR_DIR)
-		message (WARNING "Directory to search not defined in call to bv_subdir_list")
+	if (NOT LEMONS_SUBDIR_DIR)
+		message (WARNING "Directory to search not defined in call to lemons_subdir_list!")
 		return()
 	endif()
 
-  	file (GLOB children RELATIVE ${BV_SUBDIR_DIR} ${BV_SUBDIR_DIR}/*)
+  	file (GLOB children RELATIVE ${LEMONS_SUBDIR_DIR} ${LEMONS_SUBDIR_DIR}/*)
 
   	set (dirlist "")
 
   	foreach (child ${children})
-    	if (IS_DIRECTORY ${BV_SUBDIR_DIR}/${child})
+    	if (IS_DIRECTORY ${LEMONS_SUBDIR_DIR}/${child})
       		list (APPEND dirlist ${child})
     	endif()
   	endforeach()
 
-  	set (${BV_SUBDIR_RESULT} ${dirlist} PARENT_SCOPE)
+  	set (${LEMONS_SUBDIR_RESULT} ${dirlist} PARENT_SCOPE)
+
 endfunction()
