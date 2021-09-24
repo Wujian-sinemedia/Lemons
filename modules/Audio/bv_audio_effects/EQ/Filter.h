@@ -71,7 +71,7 @@ struct FilterEngine : EffectEngine< Filter, SampleType >
 
     Filter< SampleType >& getFilter()
     {
-        return (*this) ();
+        return (*this)();
     }
 };
 
