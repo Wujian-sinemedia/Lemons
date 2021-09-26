@@ -1,5 +1,5 @@
+#include "lemons_spline.h"
 
-#include "bv_spline.h"
 
 #include "common/Knots.cpp"
 #include "common/Interpolation.cpp"

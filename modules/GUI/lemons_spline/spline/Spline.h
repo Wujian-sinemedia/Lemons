@@ -1,6 +1,6 @@
 #pragma once
 
-#include <bv_spline/common/Common.h>
+#include <lemons_spline/common/Common.h>
 
 namespace bav::spline
 {
