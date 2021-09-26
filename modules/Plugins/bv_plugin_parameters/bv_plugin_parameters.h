@@ -1,6 +1,6 @@
 #pragma once
 
-#if 0
+/*-------------------------------------------------------------------------------------
 
  BEGIN_JUCE_MODULE_DECLARATION
 
@@ -13,10 +13,8 @@
 
  END_JUCE_MODULE_DECLARATION
 
-#endif
+ -------------------------------------------------------------------------------------*/
 
-#include <bv_dsp/bv_dsp.h>
-#include <bv_serializing/bv_serializing.h>
 
 #include "parameters/helpers/ParameterValueConversionLambdas.h"
 #include "parameters/Parameter.h"

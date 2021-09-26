@@ -1,5 +1,7 @@
 #pragma once
 
+#include <bv_serializing/bv_serializing.h>
+
 namespace bav::plugin
 {
 struct StateToggler : SerializableData

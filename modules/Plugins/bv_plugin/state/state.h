@@ -1,6 +1,7 @@
 #pragma once
-#include "PluginDimensions.h"
 
+#include "PluginDimensions.h"
+#include <bv_plugin_parameters/bv_plugin_parameters.h>
 
 namespace bav::plugin
 {

@@ -1,6 +1,6 @@
 #pragma once
 
-#if 0
+/*-------------------------------------------------------------------------------------
 
 BEGIN_JUCE_MODULE_DECLARATION
 
@@ -12,10 +12,12 @@ description:        DSP effects for plugin development
 dependencies:       bv_dsp
 
 END_JUCE_MODULE_DECLARATION
+ 
+-------------------------------------------------------------------------------------*/
 
-#endif
 
 #include "AudioEffects/AudioEffect.h"
+#include "AudioEffects/AudioEffectEngine.h"
 
 #include "dynamics/SmoothedGain.h"
 #include "dynamics/NoiseGate.h"
@@ -31,8 +33,6 @@ END_JUCE_MODULE_DECLARATION
 #include "stereo_image/panning/StereoPanner.h"
 
 #include "time/Delay.h"
-
-#include "AudioEffectEngine.h"
 
 #include "EQ/Filter.h"
 #include "EQ/EQ.h"

@@ -1,6 +1,6 @@
 #pragma once
 
-#if 0
+/*-------------------------------------------------------------------------------------
 
  BEGIN_JUCE_MODULE_DECLARATION
 
@@ -13,7 +13,8 @@
 
  END_JUCE_MODULE_DECLARATION
 
-#endif
+ -------------------------------------------------------------------------------------*/
+
 
 #include "presets/Preset.h"
 #include "preset_library/PresetsLibrary.h"

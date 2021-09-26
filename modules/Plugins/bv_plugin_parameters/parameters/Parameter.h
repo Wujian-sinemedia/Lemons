@@ -1,6 +1,9 @@
 
 #pragma once
 
+#include <bv_serializing/bv_serializing.h>
+
+
 namespace bav::plugin
 {
 class Parameter : public juce::RangedAudioParameter, public SerializableData

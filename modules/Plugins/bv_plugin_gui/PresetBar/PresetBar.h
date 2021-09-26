@@ -1,5 +1,7 @@
 #pragma once
 
+#include <bv_plugin_presets/bv_plugin_presets.h>
+
 #include "StateToggleButtons.h"
 #include "PresetSavingComponent/PresetSavingComponent.h"
 #include "PresetBrowserComponent/PresetBrowserComponent.h"

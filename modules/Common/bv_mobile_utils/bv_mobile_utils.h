@@ -1,6 +1,6 @@
 #pragma once
 
-#if 0
+/*-------------------------------------------------------------------------------------
 
  BEGIN_JUCE_MODULE_DECLARATION
 
@@ -14,10 +14,8 @@
 
  END_JUCE_MODULE_DECLARATION
 
-#endif
+ -------------------------------------------------------------------------------------*/
 
-
-#include <juce_gui_basics/juce_gui_basics.h>
 
 #include "all_platforms/motion.h"
 #include "all_platforms/rotation.h"

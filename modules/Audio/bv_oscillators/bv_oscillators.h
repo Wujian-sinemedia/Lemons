@@ -1,6 +1,6 @@
 #pragma once
 
-#if 0
+/*-------------------------------------------------------------------------------------
 
 BEGIN_JUCE_MODULE_DECLARATION
 
@@ -13,7 +13,7 @@ dependencies:       bv_dsp bv_serializing
 
 END_JUCE_MODULE_DECLARATION
 
-#endif
+-------------------------------------------------------------------------------------*/
 
 
 #include "basic_types/oscillators.h"

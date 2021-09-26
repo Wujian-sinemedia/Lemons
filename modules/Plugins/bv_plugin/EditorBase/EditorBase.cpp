@@ -1,4 +1,6 @@
 
+#include <bv_mobile_utils/bv_mobile_utils.h>
+
 namespace bav::plugin
 {
 static inline bool isValidSize (const juce::Point< int >& size)

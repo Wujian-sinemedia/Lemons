@@ -1,6 +1,6 @@
 #pragma once
 
-#if 0
+/*-------------------------------------------------------------------------------------
 
  BEGIN_JUCE_MODULE_DECLARATION
 
@@ -13,7 +13,7 @@
 
  END_JUCE_MODULE_DECLARATION
 
-#endif
+-------------------------------------------------------------------------------------*/
 
 
 #include "MidiUtilities/MidiFIFO.h"

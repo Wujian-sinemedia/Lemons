@@ -1,6 +1,6 @@
 #pragma once
 
-#if 0
+/*-------------------------------------------------------------------------------------
 
 BEGIN_JUCE_MODULE_DECLARATION
 
@@ -13,7 +13,8 @@ dependencies:       juce_audio_utils juce_dsp bv_midi
 
 END_JUCE_MODULE_DECLARATION
 
-#endif
+ -------------------------------------------------------------------------------------*/
+
 
 #include "FIFOs/CircularBuffer.h"
 #include "FIFOs/AudioFIFO.h"

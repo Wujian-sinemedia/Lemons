@@ -1,5 +1,8 @@
 #pragma once
 
+#include <bv_plugin/bv_plugin.h>
+
+
 namespace bav::plugin
 {
 class StateToggleButtons : public juce::Component

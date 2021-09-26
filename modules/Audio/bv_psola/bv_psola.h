@@ -1,6 +1,6 @@
 #pragma once
 
-#if 0
+/*-------------------------------------------------------------------------------------
 
 BEGIN_JUCE_MODULE_DECLARATION
 
@@ -13,7 +13,8 @@ dependencies:       bv_dsp
 
 END_JUCE_MODULE_DECLARATION
 
-#endif
+ -------------------------------------------------------------------------------------*/
+
 
 #include "analysis/psola_analyzer.h"
 #include "resynthesis/psola_shifter.h"

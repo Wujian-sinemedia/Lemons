@@ -1,8 +1,6 @@
 
 #pragma once
 
-#include <bv_audio_effects/bv_audio_effects.h>
-
 #include "TimbreMod.h"
 
 namespace bav::dsp

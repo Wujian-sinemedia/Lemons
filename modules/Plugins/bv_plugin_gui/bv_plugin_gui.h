@@ -1,6 +1,6 @@
 #pragma once
 
-#if 0
+/*-------------------------------------------------------------------------------------
 
  BEGIN_JUCE_MODULE_DECLARATION
 
@@ -13,10 +13,8 @@
 
  END_JUCE_MODULE_DECLARATION
 
-#endif
+ -------------------------------------------------------------------------------------*/
 
-#include <bv_plugin_presets/bv_plugin_presets.h>
-#include <bv_plugin/state/state.h>
 
 #include "sliders/Sliders.h"
 

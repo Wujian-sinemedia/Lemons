@@ -1,6 +1,6 @@
 #pragma once
 
-#if 0
+/*-------------------------------------------------------------------------------------
 
  BEGIN_JUCE_MODULE_DECLARATION
 
@@ -13,10 +13,13 @@
 
  END_JUCE_MODULE_DECLARATION
 
-#endif
+ -------------------------------------------------------------------------------------*/
 
-#include <bv_core/bv_core.h>
+#include <juce_core/juce_core.h>
 
+/*
+ For any type you want to be able to serialize with treeReflector.add(YourType), simply implement these two functions within the bav namespace.
+ */
 namespace bav
 {
 template < typename Type >

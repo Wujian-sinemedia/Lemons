@@ -1,6 +1,6 @@
 #pragma once
 
-#if 0
+/*-------------------------------------------------------------------------------------
 
 BEGIN_JUCE_MODULE_DECLARATION
 
@@ -12,8 +12,8 @@ description:        Infrastructure for a polyphonic synthesizer instrument
 dependencies:       bv_audio_effects bv_oscillators
 
 END_JUCE_MODULE_DECLARATION
-
-#endif
+ 
+ -------------------------------------------------------------------------------------*/
 
 
 namespace bav::dsp
@@ -37,8 +37,8 @@ class MidiManager;
 
 
 #include "SynthVoice/SynthVoice.h"
-
 #include "Synth/Synth.h"
-#include "Synth/LambdaSynth.h"
 
-#include "BasicSynth/BasicSynth.h"
+#include "BasicSynths/LambdaSynth.h"
+#include "BasicSynths/TemplateSynth.h"
+#include "BasicSynths/OscSynth.h"

@@ -14,4 +14,4 @@
 
 #include "Synth/Synth.cpp"
 
-#include "BasicSynth/BasicSynth.cpp"
+#include "BasicSynths/OscSynth.cpp"

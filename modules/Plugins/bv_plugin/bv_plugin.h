@@ -1,6 +1,6 @@
 #pragma once
 
-#if 0
+/*-------------------------------------------------------------------------------------
 
  BEGIN_JUCE_MODULE_DECLARATION
 
@@ -13,11 +13,8 @@
 
  END_JUCE_MODULE_DECLARATION
 
-#endif
+-------------------------------------------------------------------------------------*/
 
-
-#include <bv_plugin_parameters/bv_plugin_parameters.h>
-#include <bv_mobile_utils/bv_mobile_utils.h>
 
 #include "state/StateToggler.h"
 #include "state/state.h"
