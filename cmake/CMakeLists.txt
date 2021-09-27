@@ -15,25 +15,14 @@ endif()
 
 
 include (env.cmake)
+include (FileUtilities.cmake)
+include (plugin_formats.cmake)
 
 add_subdirectory (native)
-
-add_subdirectory (ccache)
-
 add_subdirectory (third_party)
-
-include (FileUtilities.cmake)
-
-include (assets.cmake)
-
-include (plugins.cmake)
-
 add_subdirectory (config)
-
+add_subdirectory (integrations)
 add_subdirectory (cpack)
-include (deploy.cmake)
-
-add_subdirectory (tooling)
 
 #
 

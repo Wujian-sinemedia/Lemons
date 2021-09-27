@@ -93,7 +93,7 @@ endmacro()
 
 #
      
-foreach (sanitizer ${BV_SANITIZERS_TO_ENABLE})
+foreach (sanitizer ${LEMONS_SANITIZERS_TO_ENABLE})
 
     string (TOLOWER ${sanitizer} sanitizer)
 

@@ -1,4 +1,4 @@
-option (LEMIONS_COPY_TO_DEPLOY_FOLDER "Copies each product's install components to /Builds/deploy/<ProductName>" ON)
+option (LEMONS_COPY_TO_DEPLOY_FOLDER "Copies each product's install components to /Builds/deploy/<ProductName>" ON)
 
 #
 

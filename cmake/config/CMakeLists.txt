@@ -1,3 +1,5 @@
+include (assets.cmake)
+
 function (_lemons_configure_juce_target)
 
     set (options BROWSER PLUGIN_HOST CAMERA)
@@ -53,7 +55,14 @@ function (_lemons_configure_juce_target)
     endif()
 
     if (LEMONS_TARGETCONFIG_PLUGIN_HOST)
-        _lemons_configure_plugin_hosting (${LEMONS_TARGETCONFIG_TARGET})
+        target_compile_definitions (${target} PRIVATE 
+            JUCE_PLUGINHOST_VST=0
+            JUCE_PLUGINHOST_VST3=1
+            JUCE_PLUGINHOST_LADSPA=1)
+
+        if (APPLE)
+            target_compile_definitions (${target} PRIVATE JUCE_PLUGINHOST_AU=1)
+        endif()
     endif()
 
     if (LEMONS_TARGETCONFIG_CAMERA)
@@ -68,5 +77,6 @@ endfunction()
 
 #
 
+include (deploy.cmake)
 include (apps.cmake)
 include (plugins.cmake)
