@@ -19,6 +19,9 @@ function (lemons_configure_juce_app)
 
     _lemons_configure_product_deploy (${lemons_targetname} FALSE)
 
+
+    # add this app to the `ALL_APPS` target...
+
     set (app_target "ALL_APPS")
 
     if (NOT TARGET ${app_target})

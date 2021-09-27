@@ -7,13 +7,9 @@ function (_lemons_configure_juce_target)
     cmake_parse_arguments (LEMONS_TARGETCONFIG "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
     if (NOT LEMONS_TARGETCONFIG_TARGET)
-        message (WARNING "Target name not specified in call to _lemons_configure_juce_target!")
+        message (FATAL_ERROR "Target name not specified in call to _lemons_configure_juce_target!")
         return()
     endif()
-
-    # do these here bc it's a pain to pass these arguments back up to the wrapping plugin-specific function....  :/
-    _lemons_configure_juce_aax (${LEMONS_TARGETCONFIG_TARGET} "${LEMONS_TARGETCONFIG_AAX_PAGETABLE_FILE}")
-    _lemons_configure_juce_lv2 (${LEMONS_TARGETCONFIG_TARGET})
 
     target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET} PUBLIC
             JUCE_VST3_CAN_REPLACE_VST2=0
@@ -25,8 +21,7 @@ function (_lemons_configure_juce_target)
             JUCE_MODAL_LOOPS_PERMITTED=0
             JUCE_JACK=1
             JUCE_DISABLE_AUDIO_MIXING_WITH_OTHER_APPS=1
-            JUCE_EXECUTE_APP_SUSPEND_ON_BACKGROUND_TASK=1
-            )
+            JUCE_EXECUTE_APP_SUSPEND_ON_BACKGROUND_TASK=1)
     
     if (LEMONS_TARGETCONFIG_BROWSER)
         target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET} PUBLIC 
@@ -66,6 +61,12 @@ function (_lemons_configure_juce_target)
         target_link_libraries (${LEMONS_TARGETCONFIG_TARGET} PUBLIC juce_video)
     endif()
 
-    set (lemons_targetname ${LEMONS_TARGETCONFIG_TARGET} PARENT_SCOPE)
+    set (lemons_targetname "${LEMONS_TARGETCONFIG_TARGET}" PARENT_SCOPE)
+    set (lemons_aax_pagetable_file "${LEMONS_TARGETCONFIG_AAX_PAGETABLE_FILE}" PARENT_SCOPE)
 
 endfunction()
+
+#
+
+include (apps.cmake)
+include (plugins.cmake)

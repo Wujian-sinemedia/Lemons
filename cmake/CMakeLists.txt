@@ -20,16 +20,15 @@ add_subdirectory (native)
 
 add_subdirectory (ccache)
 
-include (GetLemons/get_cpm.cmake)
 add_subdirectory (third_party)
 
 include (FileUtilities.cmake)
 
 include (assets.cmake)
-include (configure_helpers.cmake)
 
-add_subdirectory (plugins)
-include (apps.cmake)
+include (plugins.cmake)
+
+add_subdirectory (config)
 
 add_subdirectory (cpack)
 include (deploy.cmake)
