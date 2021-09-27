@@ -19,7 +19,7 @@ cannot enable two of them in the same build.
 ]]
 
 
-if (NOT DEFINED LEMONS_SANITIZERS_TO_ENABLE)
+if (NOT LEMONS_SANITIZERS_TO_ENABLE)
 	return()
 endif()
 
@@ -41,6 +41,7 @@ macro (_lemons_enable_sanitizer_flags sanitize_option)
             OR (CMAKE_CXX_COMPILER_ID MATCHES "MSVC" AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS ${msvc_required_version}) )
 
             message (FATAL_ERROR "${sanitizer} could not be enabled, because your compiler (${CMAKE_CXX_COMPILER_ID} version ${CMAKE_CXX_COMPILER_VERSION}) does not support it!")
+            return()
         endif()
     endmacro()
 
