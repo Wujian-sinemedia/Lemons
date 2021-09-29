@@ -10,11 +10,7 @@ PROJECT_NAME           = Lemons
 
 PROJECT_NUMBER         =
 
-# Using the PROJECT_BRIEF tag one can provide an optional one line description
-# for a project that appears at the top of each page and should give viewer a
-# quick idea about the purpose of the project. Keep the description short.
-
-PROJECT_BRIEF          =
+PROJECT_BRIEF          = Utilities and building blocks for JUCE-based apps and plugins
 
 # With the PROJECT_LOGO tag one can specify a logo or an icon that is included
 # in the documentation. The maximum height of the logo should not exceed 55
@@ -37,13 +33,6 @@ PROJECT_LOGO           =
 # The default value is: English.
 
 OUTPUT_LANGUAGE        = English
-
-# If the BRIEF_MEMBER_DESC tag is set to YES, doxygen will include brief member
-# descriptions after the members that are listed in the file and class
-# documentation (similar to Javadoc). Set to NO to disable this.
-# The default value is: YES.
-
-BRIEF_MEMBER_DESC      = YES
 
 # If the REPEAT_BRIEF tag is set to YES, doxygen will prepend the brief
 # description of a member or function before the detailed description
@@ -178,14 +167,6 @@ EXTENSION_MAPPING      = txt=md
 
 TOC_INCLUDE_HEADINGS   = 0
 
-# If you use STL classes (i.e. std::string, std::vector, etc.) but do not want
-# to include (a tag file for) the STL sources as input, then you should set this
-# tag to YES in order to let doxygen match functions declarations and
-# definitions whose arguments contain STL classes (e.g. func(std::string);
-# versus func(std::string) {}). This also make the inheritance and collaboration
-# diagrams that involve STL classes more complete and accurate.
-# The default value is: NO.
-
 BUILTIN_STL_SUPPORT    = YES
 
 # If one adds a struct or class to a group and this option is enabled, then also
@@ -229,10 +210,6 @@ INLINE_GROUPED_CLASSES = NO
 
 EXTRACT_ALL            = YES
 
-# If the EXTRACT_PRIV_VIRTUAL tag is set to YES, documented private virtual
-# methods of a class will be included in the documentation.
-# The default value is: NO.
-
 EXTRACT_PRIV_VIRTUAL   = YES
 
 # If the EXTRACT_STATIC tag is set to YES, all static members of a file will be
@@ -240,12 +217,6 @@ EXTRACT_PRIV_VIRTUAL   = YES
 # The default value is: NO.
 
 EXTRACT_STATIC         = NO
-
-# If the EXTRACT_LOCAL_CLASSES tag is set to YES, classes (and structs) defined
-# locally in source files will be included in the documentation. If set to NO,
-# only classes defined in header files are included. Does not have any effect
-# for Java sources.
-# The default value is: YES.
 
 EXTRACT_LOCAL_CLASSES  = NO
 
@@ -860,7 +831,7 @@ GROUP_GRAPHS           = NO
 # The default value is: NO.
 # This tag requires that the tag HAVE_DOT is set to YES.
 
-TEMPLATE_RELATIONS     = NO
+TEMPLATE_RELATIONS     = YES
 
 INCLUDE_GRAPH          = NO
 
