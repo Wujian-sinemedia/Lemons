@@ -17040,6 +17040,13 @@
       <anchor>aa0c4f2b619acd9a3287a1f27d4c23883</anchor>
       <arglist>(const String &amp;propertyName, Type &amp;object)</arglist>
     </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addLambdaSet</name>
+      <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
+      <anchor>a3ea2cd3e9bb6c6d3dcc493211e72af1b</anchor>
+      <arglist>(const String &amp;propertyName, std::function&lt; Type() &gt; saveToTree, std::function&lt; void(Type &amp;) &gt; loadFromTree)</arglist>
+    </member>
   </compound>
   <compound kind="struct">
     <name>lemons::TreeReflector</name>
@@ -17078,6 +17085,13 @@
       <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
       <anchor>aa0c4f2b619acd9a3287a1f27d4c23883</anchor>
       <arglist>(const String &amp;propertyName, Type &amp;object)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addLambdaSet</name>
+      <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
+      <anchor>a3ea2cd3e9bb6c6d3dcc493211e72af1b</anchor>
+      <arglist>(const String &amp;propertyName, std::function&lt; Type() &gt; saveToTree, std::function&lt; void(Type &amp;) &gt; loadFromTree)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -17118,6 +17132,13 @@
       <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
       <anchor>aa0c4f2b619acd9a3287a1f27d4c23883</anchor>
       <arglist>(const String &amp;propertyName, Type &amp;object)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addLambdaSet</name>
+      <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
+      <anchor>a3ea2cd3e9bb6c6d3dcc493211e72af1b</anchor>
+      <arglist>(const String &amp;propertyName, std::function&lt; Type() &gt; saveToTree, std::function&lt; void(Type &amp;) &gt; loadFromTree)</arglist>
     </member>
   </compound>
   <compound kind="struct">

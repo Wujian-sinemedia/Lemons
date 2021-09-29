@@ -94,6 +94,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa0c4f2b619acd9a3287a1f27d4c23883"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
 <tr class="memitem:aa0c4f2b619acd9a3287a1f27d4c23883"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883">add</a> (const String &amp;propertyName, Type &amp;object)</td></tr>
 <tr class="separator:aa0c4f2b619acd9a3287a1f27d4c23883"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ea2cd3e9bb6c6d3dcc493211e72af1b"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
+<tr class="memitem:a3ea2cd3e9bb6c6d3dcc493211e72af1b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structlemons_1_1TreeReflector.html#a3ea2cd3e9bb6c6d3dcc493211e72af1b">addLambdaSet</a> (const String &amp;propertyName, std::function&lt; Type() &gt; saveToTree, std::function&lt; void(Type &amp;) &gt; loadFromTree)</td></tr>
+<tr class="separator:a3ea2cd3e9bb6c6d3dcc493211e72af1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a66a2d90ba451bf95c2492781f0c0fdbe"></a>
@@ -239,13 +242,59 @@ template&lt;typename Type &gt; </div>
 
 </div>
 </div>
+<a id="a3ea2cd3e9bb6c6d3dcc493211e72af1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ea2cd3e9bb6c6d3dcc493211e72af1b">&#9670;&nbsp;</a></span>addLambdaSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lemons::TreeReflector::addLambdaSet </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>propertyName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; Type() &gt;&#160;</td>
+          <td class="paramname"><em>saveToTree</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(Type &amp;) &gt;&#160;</td>
+          <td class="paramname"><em>loadFromTree</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="structlemons_1_1TreeReflector.html#ad8d42bdfb2093716fe60ba2196d54ac3">lemons::TreeReflector::isLoading()</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="TreeReflector_8h.html">TreeReflector.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Sep 29 2021 19:08:09 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Sep 29 2021 20:23:11 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
