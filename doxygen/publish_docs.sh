@@ -8,7 +8,7 @@
 set -euo pipefail
 
 # install deps
-apt-get install -y --no-install-recommends doxygen graphviz
+sudo apt-get install -y --no-install-recommends doxygen graphviz
 
 readonly script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
