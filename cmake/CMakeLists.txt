@@ -16,10 +16,12 @@ endif()
 
 include (env.cmake)
 include (FileUtilities.cmake)
-include (plugin_formats.cmake)
 
 add_subdirectory (native)
 add_subdirectory (third_party)
+
+include (plugin_formats.cmake)
+
 add_subdirectory (config)
 add_subdirectory (integrations)
 add_subdirectory (cpack)
