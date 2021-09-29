@@ -1,0 +1,6 @@
+<map id="lemons::gui::IntSlider" name="lemons::gui::IntSlider">
+<area shape="rect" id="node1" title=" " alt="" coords="126,184,286,211"/>
+<area shape="rect" id="node2" href="$classlemons_1_1gui_1_1SliderBase.html" title=" " alt="" coords="5,102,180,129"/>
+<area shape="rect" id="node3" href="$structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html" title=" " alt="" coords="204,95,435,136"/>
+<area shape="rect" id="node4" href="$structlemons_1_1plugin_1_1Parameter_1_1Listener.html" title=" " alt="" coords="223,5,416,47"/>
+</map>

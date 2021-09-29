@@ -1,0 +1,10 @@
+<map id="lemons::dsp::FX::LevelReportingAudioEffect&lt; SampleType &gt;" name="lemons::dsp::FX::LevelReportingAudioEffect&lt; SampleType &gt;">
+<area shape="rect" id="node1" title=" " alt="" coords="535,136,767,177"/>
+<area shape="rect" id="node4" href="$classlemons_1_1dsp_1_1FX_1_1Compressor.html" title=" " alt="" coords="815,5,1027,47"/>
+<area shape="rect" id="node5" href="$classlemons_1_1dsp_1_1FX_1_1DeEsser.html" title=" " alt="" coords="827,71,1014,112"/>
+<area shape="rect" id="node6" href="$classlemons_1_1dsp_1_1FX_1_1Delay.html" title=" " alt="" coords="835,136,1007,177"/>
+<area shape="rect" id="node7" href="$classlemons_1_1dsp_1_1FX_1_1Limiter.html" title=" " alt="" coords="831,201,1011,243"/>
+<area shape="rect" id="node8" href="$classlemons_1_1dsp_1_1FX_1_1NoiseGate.html" title=" " alt="" coords="819,267,1022,308"/>
+<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html" title=" " alt="" coords="261,136,487,177"/>
+<area shape="rect" id="node3" href="$structlemons_1_1dsp_1_1FX_1_1AudioEffect.html" title=" " alt="" coords="5,136,213,177"/>
+</map>
