@@ -26,6 +26,8 @@ Here are my lemons, go make lemonade of your own.
 
 This library is what I use to build my own projects, so hopefully you'll find it useful as well.
 
+The online documentation can be found [here](https://benthevining.github.io/Lemons/); you can also find instructions for building an offline copy in the `doxygen` directory.
+
 Contributing is welcome and appreciated! *(Or feel free to just make feature suggestions/requests.)* You may fork this repo, file issues, make pull requests, send me hate mail -- whatever floats your git boat.
 
 ---
