@@ -45,4 +45,4 @@ bvbs_DECLARE_BASIC_SYNTH (SuperSaw);
 
 #undef bvbs_DECLARE_BASIC_SYNTH
 
-}  // namespace bav::dsp
+}  // namespace lemons::dsp

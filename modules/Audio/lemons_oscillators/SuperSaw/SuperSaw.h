@@ -24,4 +24,4 @@ private:
     SampleType lastFrequency {440.}, samplerate {44100.};
 };
 
-}  // namespace bav::dsp::osc
+}  // namespace lemons::dsp::osc

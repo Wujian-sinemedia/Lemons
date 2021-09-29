@@ -136,4 +136,4 @@ extern constexpr bool isUsingVDSP();
 extern constexpr bool isUsingFallback();
 
 
-}  // namespace bav::vecops
+}  // namespace lemons::vecops

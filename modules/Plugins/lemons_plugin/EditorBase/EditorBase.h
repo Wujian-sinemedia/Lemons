@@ -39,4 +39,4 @@ private:
     ContentComponentType content;
 };
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

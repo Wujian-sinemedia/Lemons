@@ -54,7 +54,7 @@ private:
     ParameterType* param;
 };
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin
 
 namespace lemons
 {
@@ -69,4 +69,4 @@ using HzParam      = plugin::ParameterHolder< plugin::FrequencyParameter >;
 
 using GainMeter = plugin::ParameterHolder< plugin::GainMeterParameter >;
 
-}  // namespace bav
+}  // namespace lemons

@@ -58,4 +58,4 @@ void DryWetMixer< SampleType >::process (AudioBuffer& dry, AudioBuffer& wet)
 template class DryWetMixer< float >;
 template class DryWetMixer< double >;
 
-}  // namespace bav::dsp::FX
+}  // namespace lemons::dsp::FX

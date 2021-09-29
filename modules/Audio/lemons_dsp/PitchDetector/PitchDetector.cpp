@@ -318,4 +318,4 @@ int PitchDetector< SampleType >::getLatencySamples() const noexcept
 template class PitchDetector< float >;
 template class PitchDetector< double >;
 
-}  // namespace bav::dsp
+}  // namespace lemons::dsp

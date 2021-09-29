@@ -93,4 +93,4 @@ private:
     SampleType           sum = 1;
 };
 
-}  // namespace bav::dsp::osc
+}  // namespace lemons::dsp::osc

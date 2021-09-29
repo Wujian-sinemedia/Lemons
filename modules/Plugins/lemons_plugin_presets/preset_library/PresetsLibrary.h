@@ -28,4 +28,4 @@ private:
     juce::Array< Preset > presets;
 };
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

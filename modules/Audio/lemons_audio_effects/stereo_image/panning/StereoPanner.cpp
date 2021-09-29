@@ -50,4 +50,4 @@ template class StereoPanner< float >;
 template class StereoPanner< double >;
 
 
-}  // namespace bav::dsp::FX
+}  // namespace lemons::dsp::FX

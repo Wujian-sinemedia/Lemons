@@ -85,4 +85,4 @@ void scale (juce::Component& component, const juce::Rectangle< float >& boundsRa
     }
 }
 
-}  // namespace bav::gui
+}  // namespace lemons::gui

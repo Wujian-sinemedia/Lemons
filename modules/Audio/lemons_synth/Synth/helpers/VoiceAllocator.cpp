@@ -120,4 +120,4 @@ SynthVoiceBase< SampleType >* VoiceAllocator< SampleType >::findVoiceToSteal()
 template class VoiceAllocator< float >;
 template class VoiceAllocator< double >;
 
-}  // namespace bav::dsp::synth
+}  // namespace lemons::dsp::synth

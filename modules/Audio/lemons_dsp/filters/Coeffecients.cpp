@@ -290,4 +290,4 @@ const NumericType* Coefficients< NumericType >::getRawCoefficients() const noexc
 template struct Coefficients< float >;
 template struct Coefficients< double >;
 
-}  // namespace bav::dsp::filters
+}  // namespace lemons::dsp::filters

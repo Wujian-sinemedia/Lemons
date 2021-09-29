@@ -34,4 +34,4 @@ void convert (const AudioBuffer< Type1 >& source, AudioBuffer< Type2 >& dest)
 template void convert (const AudioBuffer< float >&, AudioBuffer< double >&);
 template void convert (const AudioBuffer< double >&, AudioBuffer< float >&);
 
-}  // namespace bav::dsp::buffers
+}  // namespace lemons::dsp::buffers

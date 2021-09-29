@@ -154,4 +154,4 @@ ParameterList::Listener::Listener (ParameterList& list,
     }
 }
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

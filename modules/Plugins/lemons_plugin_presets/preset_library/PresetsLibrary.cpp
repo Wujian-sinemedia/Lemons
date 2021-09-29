@@ -26,4 +26,4 @@ void PresetsLibrary::rescanPresets()
         presets.addArray (library->getPresets());
 }
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

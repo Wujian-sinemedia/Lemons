@@ -11,4 +11,4 @@ struct TemplateSynth : public SynthBase< SampleType >
     }
 };
 
-}  // namespace bav::dsp
+}  // namespace lemons::dsp

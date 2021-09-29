@@ -17,4 +17,4 @@ private:
     void stoppedDragging() final;
 };
 
-}  // namespace bav::gui
+}  // namespace lemons::gui

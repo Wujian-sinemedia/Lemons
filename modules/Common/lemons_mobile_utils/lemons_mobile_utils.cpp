@@ -24,4 +24,4 @@ void AutoLock::setEnabled (bool shouldBeEnabled)
 #endif /* if ! JUCE_ANDROID */
 
 
-}  // namespace bav
+}  // namespace lemons

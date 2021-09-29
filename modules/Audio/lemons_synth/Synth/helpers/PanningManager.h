@@ -38,4 +38,4 @@ private:
     Array< int > distances;
 };
 
-}  // namespace bav::dsp::synth
+}  // namespace lemons::dsp::synth

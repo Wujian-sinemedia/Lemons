@@ -391,4 +391,4 @@ void SynthBase< SampleType >::pitchCollectionChanged()
     if (getNumActiveVoices() == 0) panner.reset();
 }
 
-}  // namespace bav::dsp
+}  // namespace lemons::dsp

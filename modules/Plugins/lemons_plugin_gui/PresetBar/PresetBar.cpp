@@ -12,4 +12,4 @@ PresetBar::PresetBar (StateBase&    stateToUse,
     gui::addAndMakeVisible (this, toggleButtons);
 }
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

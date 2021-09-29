@@ -25,4 +25,4 @@ private:
     AudioBuffer< SampleType > dummyBuffer;
 };
 
-}  // namespace bav::dsp
+}  // namespace lemons::dsp

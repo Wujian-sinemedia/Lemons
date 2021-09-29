@@ -130,4 +130,4 @@ void MultiAudioFIFO< SampleType >::popSamples (AudioBuffer< SampleType >& output
 template class MultiAudioFIFO< float >;
 template class MultiAudioFIFO< double >;
 
-}  // namespace bav::dsp
+}  // namespace lemons::dsp

@@ -33,7 +33,7 @@ template < typename SampleType >
 class MidiManager;
 }  // namespace synth
 
-}  // namespace bav::dsp
+}  // namespace lemons::dsp
 
 
 #include "SynthVoice/SynthVoice.h"

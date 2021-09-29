@@ -44,4 +44,4 @@ private:
     T object;
 };
 
-}  // namespace bav
+}  // namespace lemons

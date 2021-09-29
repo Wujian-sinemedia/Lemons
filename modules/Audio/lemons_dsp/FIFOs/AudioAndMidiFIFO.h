@@ -23,4 +23,4 @@ private:
     MultiAudioFIFO< SampleType > audio;
 };
 
-}  // namespace bav::dsp
+}  // namespace lemons::dsp

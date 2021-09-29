@@ -16,4 +16,4 @@ void ParamUpdater::gestureStateChanged (bool gestureIsStarting)
     gestureCallback (gestureIsStarting);
 }
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

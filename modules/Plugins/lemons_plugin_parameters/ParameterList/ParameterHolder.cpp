@@ -23,4 +23,4 @@ void ParamHolderBase::serialize (TreeReflector& ref)
     ref.add ("Internal", isInternal);
 }
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

@@ -21,4 +21,4 @@ private:
     SmoothedGain< SampleType, 1 > left, right;
 };
 
-}  // namespace bav::dsp::FX
+}  // namespace lemons::dsp::FX

@@ -60,4 +60,4 @@ private:
     bool softPedalDown {false};
 };
 
-}  // namespace bav::midi
+}  // namespace lemons::midi

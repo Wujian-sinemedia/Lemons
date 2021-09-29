@@ -48,4 +48,4 @@ private:
     OscEngine< SampleType, SuperSaw > superSaw;
 };
 
-}  // namespace bav::dsp::osc
+}  // namespace lemons::dsp::osc

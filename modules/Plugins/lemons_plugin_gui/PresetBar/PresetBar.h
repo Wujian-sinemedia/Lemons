@@ -23,4 +23,4 @@ private:
     StateToggleButtons toggleButtons;
 };
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

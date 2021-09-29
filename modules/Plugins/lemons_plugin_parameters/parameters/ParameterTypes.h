@@ -71,4 +71,4 @@ struct BoolParameter : TypedParameter< bool >
                    juce::AudioProcessorParameter::Category parameterCategory = AudioProcessorParameter::genericParameter);
 };
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

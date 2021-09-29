@@ -57,4 +57,4 @@ private:
     SmoothedGain< float, 2 > dryGain, wetGain;
 };
 
-}  // namespace bav::dsp::FX
+}  // namespace lemons::dsp::FX

@@ -36,4 +36,4 @@ String PitchConverter::getScaleName() const
     return {MTS_GetScaleName (client.get())};
 }
 
-}  // namespace bav::midi
+}  // namespace lemons::midi

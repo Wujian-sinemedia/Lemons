@@ -53,6 +53,6 @@ struct TreeSaver : TreeReflector
     bool isLoading() const final;
 };
 
-}  // namespace bav
+}  // namespace lemons
 
 #include "detail/detail.h"

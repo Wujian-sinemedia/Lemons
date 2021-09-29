@@ -15,4 +15,4 @@ const juce::Array< Preset >& SubLibrary::getPresets()
     return presets;
 }
 
-}  // namespace bav::plugin::presets
+}  // namespace lemons::plugin::presets

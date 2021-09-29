@@ -37,6 +37,6 @@ private:
     ThreadState realtime, nonrealtime;
 };
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin
 
 #include "detail.h"

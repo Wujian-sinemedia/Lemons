@@ -44,4 +44,4 @@ private:
 };
 
 
-}  // namespace bav::dsp
+}  // namespace lemons::dsp

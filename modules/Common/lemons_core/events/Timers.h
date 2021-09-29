@@ -15,4 +15,4 @@ private:
     std::function< void() > callback;
 };
 
-}  // namespace bav::events
+}  // namespace lemons::events

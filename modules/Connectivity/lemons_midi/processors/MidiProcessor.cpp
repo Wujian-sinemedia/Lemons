@@ -99,4 +99,4 @@ void MidiProcessor::handleSostenutoPedal (int) { }
 void MidiProcessor::handleSoftPedal (int) { }
 void MidiProcessor::handleController (int, int) { }
 
-}  // namespace bav::midi
+}  // namespace lemons::midi

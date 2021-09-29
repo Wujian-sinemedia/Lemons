@@ -292,4 +292,4 @@ int PanningManager< SampleType >::findClosestValueInNewArray (int targetValue, A
 template class PanningManager< float >;
 template class PanningManager< double >;
 
-}  // namespace bav::dsp::synth
+}  // namespace lemons::dsp::synth

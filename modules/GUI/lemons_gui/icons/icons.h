@@ -33,4 +33,4 @@ enum IconType
 extern juce::DrawablePath createIcon (IconType icon, juce::Colour colour = juce::Colours::black);
 
 
-}  // namespace bav::gui
+}  // namespace lemons::gui

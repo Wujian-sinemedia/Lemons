@@ -22,4 +22,4 @@ struct PluginState : SerializableData
     UndoManager  undo {state};
 };
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

@@ -16,4 +16,4 @@ void ParameterProcessorBase< SampleType >::handleMidiMessage (const MidiMessage&
 template class ParameterProcessorBase< float >;
 template class ParameterProcessorBase< double >;
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

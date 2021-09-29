@@ -76,4 +76,4 @@ private:
         static_cast< NumericType > (0.70710678118654752440L);
 };
 
-}  // namespace bav::dsp::filters
+}  // namespace lemons::dsp::filters

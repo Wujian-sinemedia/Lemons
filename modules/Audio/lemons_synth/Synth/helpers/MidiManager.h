@@ -40,4 +40,4 @@ private:
     SynthBase< SampleType >& synth;
 };
 
-}  // namespace bav::dsp::synth
+}  // namespace lemons::dsp::synth

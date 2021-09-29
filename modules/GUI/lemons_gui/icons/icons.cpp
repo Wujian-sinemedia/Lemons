@@ -283,4 +283,4 @@ juce::DrawablePath createIcon (IconType icon, juce::Colour colour)
     }
 }
 
-}  // namespace bav::gui
+}  // namespace lemons::gui

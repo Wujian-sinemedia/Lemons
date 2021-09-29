@@ -85,4 +85,4 @@ void Version::serialize (TreeReflector& ref)
     ref.add ("Patch", patch);
 }
 
-}  // namespace bav
+}  // namespace lemons

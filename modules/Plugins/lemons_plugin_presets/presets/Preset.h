@@ -16,4 +16,4 @@ private:
     void serialize (TreeReflector& ref) final;
 };
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

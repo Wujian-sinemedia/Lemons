@@ -157,4 +157,4 @@ template class Filter< double >;
 template struct FilterEngine< float >;
 template struct FilterEngine< double >;
 
-}  // namespace bav::dsp::FX
+}  // namespace lemons::dsp::FX

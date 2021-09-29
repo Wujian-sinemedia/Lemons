@@ -47,4 +47,4 @@ BV_DECLARE_OSC_ENGINE (SuperSaw)
 
 #undef BV_DECLARE_OSC_ENGINE
 
-}  // namespace bav::dsp::osc
+}  // namespace lemons::dsp::osc

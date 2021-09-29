@@ -63,4 +63,4 @@ constexpr noteType freqToMidi (noteType freqHz) noexcept
 }
 
 
-}  // namespace bav::math
+}  // namespace lemons::math

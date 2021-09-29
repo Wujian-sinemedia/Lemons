@@ -7,4 +7,4 @@ struct ImageComp : juce::ImageComponent
     ImageComp (const juce::Image& image);
 };
 
-}  // namespace bav::gui
+}  // namespace lemons::gui

@@ -279,4 +279,4 @@ void Editor::updateCurve()
     repaint();
 }
 
-}  // namespace bav::spline
+}  // namespace lemons::spline

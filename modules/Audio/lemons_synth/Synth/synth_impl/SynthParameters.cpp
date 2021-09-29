@@ -106,4 +106,4 @@ void SynthBase< SampleType >::updateQuickReleaseMs (int newMs)
 }
 
 
-}  // namespace bav::dsp
+}  // namespace lemons::dsp

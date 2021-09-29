@@ -3,7 +3,8 @@
 #    include <Accelerate/Accelerate.h>
 #    define BV_VDSP_FUNC_SWITCH(FloatFuncName, DoubleFuncName, ...)               \
         if constexpr (std::is_same_v< Type, float >) FloatFuncName (__VA_ARGS__); \
-        else DoubleFuncName (__VA_ARGS__);
+        else                                                                      \
+            DoubleFuncName (__VA_ARGS__);
 #endif
 
 namespace lemons::vecops
@@ -609,4 +610,4 @@ constexpr bool isUsingFallback()
 
 #undef BV_VDSP_FUNC_SWITCH
 
-}  // namespace bav::vecops
+}  // namespace lemons::vecops

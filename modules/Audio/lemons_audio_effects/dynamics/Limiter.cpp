@@ -105,4 +105,4 @@ template class Limiter< float >;
 template class Limiter< double >;
 
 
-}  // namespace bav::dsp::FX
+}  // namespace lemons::dsp::FX

@@ -33,4 +33,4 @@ private:
     int    lastBlocksize {512};
 };
 
-}  // namespace bav::dsp::FX
+}  // namespace lemons::dsp::FX

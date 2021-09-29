@@ -53,4 +53,4 @@ void initializeDefaultTranslations()
     initializeTranslationsFromBinaryData (getDefaultTranslationFile());
 }
 
-}  // namespace bav
+}  // namespace lemons

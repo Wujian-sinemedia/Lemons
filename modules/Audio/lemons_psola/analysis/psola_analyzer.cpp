@@ -81,4 +81,4 @@ float Analyzer< SampleType >::getFrequency() const
 template class Analyzer< float >;
 template class Analyzer< double >;
 
-}  // namespace bav::dsp::psola
+}  // namespace lemons::dsp::psola

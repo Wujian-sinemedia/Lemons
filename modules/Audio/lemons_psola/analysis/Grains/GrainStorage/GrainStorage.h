@@ -31,4 +31,4 @@ private:
     mutable juce::Array< int > distances;     // array for sorting distances of grain onsets
 };
 
-}  // namespace bav::dsp::psola
+}  // namespace lemons::dsp::psola

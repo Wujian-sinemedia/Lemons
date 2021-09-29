@@ -9,4 +9,4 @@ struct Label : juce::Label
     void set (const String& newText);
 };
 
-}  // namespace bav::gui
+}  // namespace lemons::gui

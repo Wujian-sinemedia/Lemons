@@ -159,4 +159,4 @@ void Knots::makeSpline (Points& spline) const
     }
 }
 
-}  // namespace bav::spline
+}  // namespace lemons::spline

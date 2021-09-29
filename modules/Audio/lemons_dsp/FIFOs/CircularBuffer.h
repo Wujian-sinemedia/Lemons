@@ -32,4 +32,4 @@ private:
     int lastFrameSize {0};
 };
 
-}  // namespace bav::dsp
+}  // namespace lemons::dsp

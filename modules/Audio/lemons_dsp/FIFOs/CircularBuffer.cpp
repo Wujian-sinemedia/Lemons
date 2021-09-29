@@ -95,4 +95,4 @@ SampleType CircularBuffer< SampleType >::getSample (int index) const
 template class CircularBuffer< float >;
 template class CircularBuffer< double >;
 
-}  // namespace bav::dsp
+}  // namespace lemons::dsp

@@ -155,6 +155,6 @@ typename RealtimeStateObject< OwnedObjectType >::NonrealtimeScopedRead RealtimeS
     return {*this};
 }
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin
 
 #undef BV_RTSO_IMPLEMENT_RAII_HELPER

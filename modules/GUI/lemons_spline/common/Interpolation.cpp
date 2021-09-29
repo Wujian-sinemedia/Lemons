@@ -89,4 +89,4 @@ float hermitCubic2 (const Knots& data, float x, float tolerance, int i1) noexcep
     return knoti1.location.y + t * (m0 + t * (b + t * a));
 }
 
-}  // namespace bav::spline::interpolation
+}  // namespace lemons::spline::interpolation

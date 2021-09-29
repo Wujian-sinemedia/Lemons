@@ -160,4 +160,4 @@ SynthVoiceBase< SampleType >* AutomatedHarmonyVoice< SampleType >::AutomatedHarm
 template class AutomatedHarmonyVoice< float >;
 template class AutomatedHarmonyVoice< double >;
 
-}  // namespace bav::dsp::synth
+}  // namespace lemons::dsp::synth

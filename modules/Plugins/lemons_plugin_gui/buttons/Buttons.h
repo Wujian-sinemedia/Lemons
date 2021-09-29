@@ -17,4 +17,4 @@ private:
     std::function< void (bool) > callback;
 };
 
-}  // namespace bav::gui
+}  // namespace lemons::gui

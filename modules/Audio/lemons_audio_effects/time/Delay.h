@@ -30,4 +30,4 @@ private:
     ValueSmoother< SampleType > dryGain, wetGain;
 };
 
-}  // namespace bav::dsp::FX
+}  // namespace lemons::dsp::FX

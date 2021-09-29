@@ -61,4 +61,4 @@ private:
     std::unique_ptr< ContentType > window;
 };
 
-}  // namespace bav::gui
+}  // namespace lemons::gui

@@ -53,4 +53,4 @@ private:
     dsp::psola::Analyzer< SampleType > analyzer;
 };
 
-}  // namespace bav::dsp::psola
+}  // namespace lemons::dsp::psola

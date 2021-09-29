@@ -51,4 +51,4 @@ private:
     AudioBuffer< SampleType > storage;
 };
 
-}  // namespace bav::dsp::FX
+}  // namespace lemons::dsp::FX

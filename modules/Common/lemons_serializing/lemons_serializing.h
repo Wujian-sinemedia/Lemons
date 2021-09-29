@@ -34,7 +34,7 @@ Type fromVar (juce::var var)
     return {var};
 }
 
-}  // namespace bav
+}  // namespace lemons
 
 
 #include "SerializableData/SerializableData.h"

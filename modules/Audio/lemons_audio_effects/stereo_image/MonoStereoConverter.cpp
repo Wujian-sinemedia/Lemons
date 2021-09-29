@@ -90,4 +90,4 @@ void MonoStereoConverter< SampleType >::convertMonoToStereo (const Buffer& input
 template class MonoStereoConverter< float >;
 template class MonoStereoConverter< double >;
 
-}  // namespace bav::dsp::FX
+}  // namespace lemons::dsp::FX

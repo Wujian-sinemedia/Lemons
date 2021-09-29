@@ -62,4 +62,4 @@ private:
     static constexpr auto defaultFinalHandfulSize = 5;
 };
 
-}  // namespace bav::dsp::psola
+}  // namespace lemons::dsp::psola

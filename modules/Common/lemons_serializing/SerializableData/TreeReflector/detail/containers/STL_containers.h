@@ -42,4 +42,4 @@ constexpr bool isContainer (std::vector< ElementType >&)
     return true;
 }
 
-}  // namespace bav::TreeReflectorHelpers
+}  // namespace lemons::TreeReflectorHelpers

@@ -73,4 +73,4 @@ private:
     int w, h;
 };
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

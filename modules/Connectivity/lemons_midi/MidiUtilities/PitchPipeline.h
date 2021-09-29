@@ -17,4 +17,4 @@ struct PitchPipeline
     PitchConverter   tuning;
 };
 
-}  // namespace bav::midi
+}  // namespace lemons::midi

@@ -24,4 +24,4 @@ private:
     VoiceCreationFunc createVoiceFunc;
 };
 
-}  // namespace bav::dsp
+}  // namespace lemons::dsp

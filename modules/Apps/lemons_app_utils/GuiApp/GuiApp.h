@@ -31,4 +31,4 @@ private:
     const String version;
 };
 
-}  // namespace bav
+}  // namespace lemons

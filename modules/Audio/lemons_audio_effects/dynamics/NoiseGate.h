@@ -49,4 +49,4 @@ private:
     bool inverted = false;
 };
 
-}  // namespace bav::dsp::FX
+}  // namespace lemons::dsp::FX

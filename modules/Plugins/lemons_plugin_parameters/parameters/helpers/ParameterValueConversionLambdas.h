@@ -169,4 +169,4 @@ static const auto midiPan_intFromString =
     return midiPanStringToInt (text);
 };
 
-}  // namespace bav::ParameterValueConversionLambdas
+}  // namespace lemons::ParameterValueConversionLambdas

@@ -75,4 +75,4 @@ void SliderBase::stoppedDragging()
     param.endGesture();
 }
 
-}  // namespace bav::gui
+}  // namespace lemons::gui

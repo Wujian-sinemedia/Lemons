@@ -14,4 +14,4 @@ void ToggleButton::clicked_callback (bool state)
     callback (state);
 }
 
-}  // namespace bav::gui
+}  // namespace lemons::gui

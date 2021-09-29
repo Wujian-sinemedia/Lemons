@@ -88,4 +88,4 @@ template class Delay< float >;
 template class Delay< double >;
 
 
-}  // namespace bav::dsp::FX
+}  // namespace lemons::dsp::FX

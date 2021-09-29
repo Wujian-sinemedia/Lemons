@@ -46,4 +46,4 @@ private:
     int capacity {512};
 };
 
-}  // namespace bav::dsp
+}  // namespace lemons::dsp

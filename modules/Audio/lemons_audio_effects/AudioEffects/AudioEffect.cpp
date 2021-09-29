@@ -94,4 +94,4 @@ SampleType LevelReportingAudioEffect< SampleType >::getAverageLevel() const
 template struct LevelReportingAudioEffect< float >;
 template struct LevelReportingAudioEffect< double >;
 
-}  // namespace bav::dsp::FX
+}  // namespace lemons::dsp::FX

@@ -44,4 +44,4 @@ void BasicProcessorBase::repaintEditor()
         editor->repaint();
 }
 
-}  // namespace bav::dsp
+}  // namespace lemons::dsp

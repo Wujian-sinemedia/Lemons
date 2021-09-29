@@ -91,4 +91,4 @@ struct GainMeterParameter : public MeterParameter
     using Listener = MeterParameter::Listener;
 };
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

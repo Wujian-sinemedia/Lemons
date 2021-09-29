@@ -41,4 +41,4 @@ struct MultiFilter
     OwnedArray< Filter< SampleType > > filters;
 };
 
-}  // namespace bav::dsp::filters
+}  // namespace lemons::dsp::filters

@@ -26,4 +26,4 @@ private:
     juce::dsp::ProcessSpec               spec;
 };
 
-}  // namespace bav::dsp::FX
+}  // namespace lemons::dsp::FX

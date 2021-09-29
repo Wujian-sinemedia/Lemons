@@ -29,4 +29,4 @@ bool PopupComponent::keyPressed (const juce::KeyPress& key)
 
 bool PopupComponent::keyPressRecieved (const juce::KeyPress&) { return false; }
 
-}  // namespace bav::gui
+}  // namespace lemons::gui

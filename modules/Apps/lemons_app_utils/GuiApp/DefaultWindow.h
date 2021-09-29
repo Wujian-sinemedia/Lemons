@@ -31,4 +31,4 @@ struct DefaultWindow : public DefaultWindowBase
     }
 };
 
-}  // namespace bav
+}  // namespace lemons

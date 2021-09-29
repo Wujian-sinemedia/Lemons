@@ -102,4 +102,4 @@ juce::AudioBuffer< double > fromVar (juce::var var)
 }
 
 
-}  // namespace bav
+}  // namespace lemons

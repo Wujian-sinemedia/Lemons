@@ -62,4 +62,4 @@ SampleType SynthesisGrain< SampleType >::getNextSample()
 template class SynthesisGrain< float >;
 template class SynthesisGrain< double >;
 
-}  // namespace bav::dsp::psola
+}  // namespace lemons::dsp::psola

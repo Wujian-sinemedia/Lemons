@@ -30,4 +30,4 @@ int Dimensions::h() const
     return height;
 }
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

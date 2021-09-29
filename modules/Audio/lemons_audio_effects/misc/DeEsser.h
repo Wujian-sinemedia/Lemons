@@ -34,4 +34,4 @@ private:
     static constexpr int    releaseMs  = 30;
 };
 
-}  // namespace bav::dsp::FX
+}  // namespace lemons::dsp::FX

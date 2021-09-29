@@ -110,4 +110,4 @@ private:
     const String parameterName, valueChangeTransactionName, defaultChangeTransactionName, midiControllerChangeTransactionName;
 };
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

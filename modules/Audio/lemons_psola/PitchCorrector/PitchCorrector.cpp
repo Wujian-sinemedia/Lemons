@@ -89,4 +89,4 @@ PitchCorrector< SampleType >::PitchCorrector (const midi::PitchPipeline* pitchCo
 template class PitchCorrector< float >;
 template class PitchCorrector< double >;
 
-}  // namespace bav::dsp::psola
+}  // namespace lemons::dsp::psola

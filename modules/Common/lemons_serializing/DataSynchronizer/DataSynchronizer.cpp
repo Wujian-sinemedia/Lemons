@@ -18,4 +18,4 @@ void DataSynchronizer::callback()
     sendData (cachedData);
 }
 
-}  // namespace bav::serializing
+}  // namespace lemons::serializing

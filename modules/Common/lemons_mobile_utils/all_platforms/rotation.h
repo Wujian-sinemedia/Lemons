@@ -35,4 +35,4 @@ struct DeviceRotation
     static void enableOnlyLandscapeRotations();
 };
 
-}  // namespace bav
+}  // namespace lemons

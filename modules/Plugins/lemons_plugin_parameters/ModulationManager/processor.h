@@ -23,4 +23,4 @@ private:
     MidiBuffer midiStorage;
 };
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

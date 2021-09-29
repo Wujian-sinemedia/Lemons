@@ -200,4 +200,4 @@ template struct MultiFilter< float, 2 >;
 template struct MultiFilter< double, 1 >;
 template struct MultiFilter< double, 2 >;
 
-}  // namespace bav::dsp::filters
+}  // namespace lemons::dsp::filters

@@ -45,4 +45,4 @@ private:
     SampleType thresholddB = 0.0, ratio = 1.0, attackTime = 1.0, releaseTime = 100.0;
 };
 
-}  // namespace bav::dsp::FX
+}  // namespace lemons::dsp::FX

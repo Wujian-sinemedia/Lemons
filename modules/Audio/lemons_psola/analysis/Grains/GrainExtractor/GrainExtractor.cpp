@@ -82,4 +82,4 @@ template class AnalysisGrainExtractor< float >;
 template class AnalysisGrainExtractor< double >;
 
 
-}  // namespace bav::dsp::psola
+}  // namespace lemons::dsp::psola

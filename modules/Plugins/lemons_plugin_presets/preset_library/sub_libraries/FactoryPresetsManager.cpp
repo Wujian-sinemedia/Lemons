@@ -13,4 +13,4 @@ void FactoryPresetsManager::refreshPresetList()
 {
 }
 
-}  // namespace bav::plugin::presets
+}  // namespace lemons::plugin::presets

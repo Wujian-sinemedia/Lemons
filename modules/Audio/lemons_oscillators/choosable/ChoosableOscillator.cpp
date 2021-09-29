@@ -125,4 +125,4 @@ void ChoosableOscillator< SampleType >::serialize (TreeReflector& ref)
 template class ChoosableOscillator< float >;
 template class ChoosableOscillator< double >;
 
-}  // namespace bav::dsp::osc
+}  // namespace lemons::dsp::osc

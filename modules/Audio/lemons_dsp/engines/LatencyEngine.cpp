@@ -82,4 +82,4 @@ void LatencyEngine< SampleType >::onPrepare (int, double)
 template class LatencyEngine< float >;
 template class LatencyEngine< double >;
 
-}  // namespace bav::dsp
+}  // namespace lemons::dsp

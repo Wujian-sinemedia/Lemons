@@ -53,4 +53,4 @@ private:
     ModulationProcessor modulationProcessor {*this};
 };
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

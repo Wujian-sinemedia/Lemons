@@ -40,4 +40,4 @@ private:
     void valueChanged() final;
 };
 
-}  // namespace bav::gui
+}  // namespace lemons::gui

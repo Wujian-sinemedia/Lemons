@@ -61,4 +61,4 @@ SampleType SuperSaw< SampleType >::getSample()
 template class SuperSaw< float >;
 template class SuperSaw< double >;
 
-}  // namespace bav::dsp::osc
+}  // namespace lemons::dsp::osc

@@ -56,4 +56,4 @@ SampleType DeEsser< SampleType >::processChannel (int               channel,
 template class DeEsser< float >;
 template class DeEsser< double >;
 
-}  // namespace bav::dsp::FX
+}  // namespace lemons::dsp::FX

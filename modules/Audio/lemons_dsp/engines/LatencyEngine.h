@@ -27,4 +27,4 @@ private:
     MidiBuffer                     chunkMidiBuffer;
 };
 
-}  // namespace bav::dsp
+}  // namespace lemons::dsp

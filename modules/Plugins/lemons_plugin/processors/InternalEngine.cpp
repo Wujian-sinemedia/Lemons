@@ -88,4 +88,4 @@ void ProcessorInternalEngine< SampleType >::renderNextAudioSegment (AudioBuffer<
 template class ProcessorInternalEngine< float >;
 template class ProcessorInternalEngine< double >;
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

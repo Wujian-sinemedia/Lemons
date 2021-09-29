@@ -17,4 +17,4 @@ void ValueSmoother< SampleType >::set (SampleType newGain, bool snapImmediately)
 template struct ValueSmoother< float >;
 template struct ValueSmoother< double >;
 
-}  // namespace bav
+}  // namespace lemons

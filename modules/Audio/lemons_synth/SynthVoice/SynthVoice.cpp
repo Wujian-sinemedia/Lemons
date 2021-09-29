@@ -372,4 +372,4 @@ void SynthVoiceBase< SampleType >::setPan (int newPan)
 template class SynthVoiceBase< float >;
 template class SynthVoiceBase< double >;
 
-}  // namespace bav::dsp
+}  // namespace lemons::dsp

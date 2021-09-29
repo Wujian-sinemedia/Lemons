@@ -70,4 +70,4 @@ void ModulationManagerProcessor< SampleType >::processInternal (AudioBuffer< Sam
 template class ModulationManagerProcessor< float >;
 template class ModulationManagerProcessor< double >;
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

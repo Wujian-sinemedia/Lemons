@@ -10,4 +10,4 @@ void Label::set (const String& newText)
 {
     setText (newText, juce::NotificationType::dontSendNotification);
 }
-}  // namespace bav::gui
+}  // namespace lemons::gui

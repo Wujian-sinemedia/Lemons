@@ -42,4 +42,4 @@ struct ScopedWaitCursor : ScopedCursor
 };
 
 
-}  // namespace bav::gui
+}  // namespace lemons::gui

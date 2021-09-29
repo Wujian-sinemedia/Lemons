@@ -48,4 +48,4 @@ void DeviceRotation::enableOnlyLandscapeRotations()
     Desktop::getInstance().setOrientationsEnabled (Desktop::rotatedClockwise | Desktop::rotatedAntiClockwise);
 }
 
-}  // namespace bav
+}  // namespace lemons

@@ -16,4 +16,4 @@ private:
     ParameterList& list;
 };
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

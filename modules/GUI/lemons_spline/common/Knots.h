@@ -50,4 +50,4 @@ private:
     void serialize (TreeReflector& ref) final;
 };
 
-}  // namespace bav::spline
+}  // namespace lemons::spline

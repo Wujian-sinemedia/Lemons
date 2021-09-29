@@ -38,4 +38,4 @@ int AudioAndMidiFIFO< SampleType >::numStoredSamples() const
 template class AudioAndMidiFIFO< float >;
 template class AudioAndMidiFIFO< double >;
 
-}  // namespace bav::dsp
+}  // namespace lemons::dsp

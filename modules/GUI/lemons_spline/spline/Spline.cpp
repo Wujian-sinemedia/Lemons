@@ -28,4 +28,4 @@ float Spline::getPoint (int index) const
     return points[static_cast< Points::size_type > (index)];
 }
 
-}  // namespace bav::spline
+}  // namespace lemons::spline

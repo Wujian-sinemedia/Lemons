@@ -42,4 +42,4 @@ void MonoToStereoPanner< SampleType >::process (const AudioBuffer& monoInput,
 template class MonoToStereoPanner< float >;
 template class MonoToStereoPanner< double >;
 
-}  // namespace bav::dsp::FX
+}  // namespace lemons::dsp::FX

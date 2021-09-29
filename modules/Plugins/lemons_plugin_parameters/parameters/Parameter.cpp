@@ -329,4 +329,4 @@ void Parameter::Listener::gestureStateChanged (bool) { }
 void Parameter::Listener::parameterDefaultChanged (float) { }
 void Parameter::Listener::controllerNumberChanged (int) { }
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

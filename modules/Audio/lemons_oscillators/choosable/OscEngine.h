@@ -22,4 +22,4 @@ private:
     float frequency {440.f};
 };
 
-}  // namespace bav::dsp::osc
+}  // namespace lemons::dsp::osc

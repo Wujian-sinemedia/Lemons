@@ -55,4 +55,4 @@ template class SmoothedGain< double, 1 >;
 template class SmoothedGain< float, 2 >;
 template class SmoothedGain< double, 2 >;
 
-}  // namespace bav::dsp::FX
+}  // namespace lemons::dsp::FX

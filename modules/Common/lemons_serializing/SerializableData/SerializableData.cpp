@@ -44,4 +44,4 @@ void SerializableData::restoreFromTree (const ValueTree& newTree)
     serialize (ref);
 }
 
-}  // namespace bav
+}  // namespace lemons

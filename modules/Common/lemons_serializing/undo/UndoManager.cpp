@@ -153,4 +153,4 @@ UndoManager::ScopedTransaction::~ScopedTransaction()
         undo->endTransaction();
 }
 
-}  // namespace bav
+}  // namespace lemons

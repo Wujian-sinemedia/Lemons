@@ -38,4 +38,4 @@ private:
     OwnedObjectType* localPntr {nullptr};
 };
 
-}  // namespace bav
+}  // namespace lemons

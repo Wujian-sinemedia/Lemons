@@ -89,4 +89,4 @@ void MidiChoppingProcessor< SampleType >::processInternal (AudioBuffer< SampleTy
 template class MidiChoppingProcessor< float >;
 template class MidiChoppingProcessor< double >;
 
-}  // namespace bav::dsp
+}  // namespace lemons::dsp

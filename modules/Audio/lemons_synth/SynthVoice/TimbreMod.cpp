@@ -58,4 +58,4 @@ void TimbreMod< SampleType >::setToggle (bool shouldModBeOn)
 template class TimbreMod< float >;
 template class TimbreMod< double >;
 
-}  // namespace bav::dsp::synth
+}  // namespace lemons::dsp::synth

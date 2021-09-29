@@ -129,4 +129,4 @@ void MidiManager< SampleType >::MidiRouter::handlePitchwheel (int wheelValue)
 template class MidiManager< float >;
 template class MidiManager< double >;
 
-}  // namespace bav::dsp::synth
+}  // namespace lemons::dsp::synth

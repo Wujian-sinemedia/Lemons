@@ -149,4 +149,4 @@ void NoiseGate< SampleType >::update()
 template class NoiseGate< float >;
 template class NoiseGate< double >;
 
-}  // namespace bav::dsp::FX
+}  // namespace lemons::dsp::FX

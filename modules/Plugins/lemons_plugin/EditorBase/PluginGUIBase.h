@@ -32,4 +32,4 @@ protected:
     StateType& state;
 };
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

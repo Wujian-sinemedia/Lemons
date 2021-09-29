@@ -97,4 +97,4 @@ void toJSON (SerializableData& source, const File& file)
     file.replaceWithText (toJSON (source));
 }
 
-}  // namespace bav::serializing
+}  // namespace lemons::serializing

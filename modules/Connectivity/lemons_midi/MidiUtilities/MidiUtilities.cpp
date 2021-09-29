@@ -175,4 +175,4 @@ void PitchBendTracker::newPitchbendRecieved (const int newPitchbend)
     lastRecievedPitchbend = newPitchbend;
 }
 
-}  // namespace bav::midi
+}  // namespace lemons::midi

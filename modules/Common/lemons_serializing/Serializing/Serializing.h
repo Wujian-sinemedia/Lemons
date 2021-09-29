@@ -114,4 +114,4 @@ ObjectType fromJSONCreate (const File& file)
     return newObject;
 }
 
-}  // namespace bav::serializing
+}  // namespace lemons::serializing

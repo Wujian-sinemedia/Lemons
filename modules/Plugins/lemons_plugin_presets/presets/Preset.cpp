@@ -11,4 +11,4 @@ void Preset::serialize (TreeReflector& ref)
     ref.add ("Version", version);
 }
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

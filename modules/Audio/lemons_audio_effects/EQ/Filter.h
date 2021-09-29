@@ -75,4 +75,4 @@ struct FilterEngine : EffectEngine< Filter, SampleType >
     }
 };
 
-}  // namespace bav::dsp::FX
+}  // namespace lemons::dsp::FX

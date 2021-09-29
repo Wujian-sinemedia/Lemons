@@ -12,4 +12,4 @@ int sampsToMs (double samplerate, int numSamples) noexcept
     return juce::roundToInt ((numSamples / samplerate) * 1000.0f);
 }
 
-}  // namespace bav::math
+}  // namespace lemons::math

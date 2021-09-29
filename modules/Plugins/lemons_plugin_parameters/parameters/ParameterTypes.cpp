@@ -319,4 +319,4 @@ BoolParameter::BoolParameter (bool   defaultValue,
 {
 }
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

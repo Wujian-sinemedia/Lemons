@@ -22,4 +22,4 @@ private:
     Array< Voice* > usableVoices;  // this array is used to sort the voices when a 'steal' is requested
 };
 
-}  // namespace bav::dsp::synth
+}  // namespace lemons::dsp::synth

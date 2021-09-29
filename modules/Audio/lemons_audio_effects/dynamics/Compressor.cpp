@@ -117,4 +117,4 @@ template class Compressor< float >;
 template class Compressor< double >;
 
 
-}  // namespace bav::dsp::FX
+}  // namespace lemons::dsp::FX

@@ -57,4 +57,4 @@ Filter< SampleType >* EQ< SampleType >::getBandOfType (FilterType type)
 template class EQ< float >;
 template class EQ< double >;
 
-}  // namespace bav::dsp::FX
+}  // namespace lemons::dsp::FX

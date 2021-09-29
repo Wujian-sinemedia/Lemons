@@ -41,4 +41,4 @@ void MotionManagerInterface::attitudeChanged (double x, double y, double z)
                     { l.attitudeChanged (attitude.x, attitude.y, attitude.z); });
 }
 
-}  // namespace bav
+}  // namespace lemons

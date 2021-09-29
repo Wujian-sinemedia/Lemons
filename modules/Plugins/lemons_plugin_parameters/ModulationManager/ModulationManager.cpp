@@ -47,4 +47,4 @@ void ModulationManager::serialize (TreeReflector& ref)
     ref.add ("Blocksize", blocksize);
 }
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

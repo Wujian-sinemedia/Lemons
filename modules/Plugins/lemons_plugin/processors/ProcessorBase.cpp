@@ -97,4 +97,4 @@ void ProcessorBase::processBlockBypassed (AudioBuffer< double >& audio, MidiBuff
     doubleEngine.process (audio, midi);
 }
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

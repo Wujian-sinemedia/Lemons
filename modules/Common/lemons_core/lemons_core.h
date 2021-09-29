@@ -69,7 +69,7 @@ using Array = juce::Array< T >;
 template < typename T >
 using OwnedArray = juce::OwnedArray< T >;
 
-}  // namespace bav
+}  // namespace lemons
 
 
 #include "misc/misc.h"

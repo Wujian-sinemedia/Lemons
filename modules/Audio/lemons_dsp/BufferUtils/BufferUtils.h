@@ -8,4 +8,4 @@ void copy (const AudioBuffer< SampleType >& source, AudioBuffer< SampleType >& d
 template < typename Type1, typename Type2 >
 void convert (const AudioBuffer< Type1 >& source, AudioBuffer< Type2 >& dest);
 
-}  // namespace bav::dsp::buffers
+}  // namespace lemons::dsp::buffers

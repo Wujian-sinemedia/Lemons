@@ -104,4 +104,4 @@ void StateToggler::setUndoManager (UndoManager& undoManager)
     undo = &undoManager;
 }
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

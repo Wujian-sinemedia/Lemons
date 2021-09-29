@@ -19,4 +19,4 @@ private:
     int width {0}, height {0};
 };
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

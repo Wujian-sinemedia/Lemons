@@ -33,4 +33,4 @@ void DefaultWindowBase::init()
     setVisible (true);
 }
 
-}  // namespace bav
+}  // namespace lemons

@@ -89,4 +89,4 @@ bool Shifter< SampleType >::areAnyGrainsActive() const
 template class Shifter< float >;
 template class Shifter< double >;
 
-}  // namespace bav::dsp::psola
+}  // namespace lemons::dsp::psola

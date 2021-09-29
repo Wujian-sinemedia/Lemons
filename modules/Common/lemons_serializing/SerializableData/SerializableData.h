@@ -26,4 +26,4 @@ private:
     const juce::Identifier dataIdentifier;
 };
 
-}  // namespace bav
+}  // namespace lemons

@@ -33,4 +33,4 @@ std::unique_ptr< ContainerInterface > getInterfaceForContainer (juce::OwnedArray
     return std::make_unique< JuceOwnedArrayInterface< ElementType > > (container);
 }
 
-}  // namespace bav::TreeReflectorHelpers
+}  // namespace lemons::TreeReflectorHelpers

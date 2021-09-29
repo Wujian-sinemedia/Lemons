@@ -57,4 +57,4 @@ struct SystemInitializer
     virtual ~SystemInitializer() = default;
 };
 
-}  // namespace bav
+}  // namespace lemons

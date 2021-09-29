@@ -60,4 +60,4 @@ void PannerBase::setMidiPan (int newMidiPan, float& leftGainOutput, float& right
     rightGainOutput = rightGain;
 }
 
-}  // namespace bav::dsp::FX
+}  // namespace lemons::dsp::FX

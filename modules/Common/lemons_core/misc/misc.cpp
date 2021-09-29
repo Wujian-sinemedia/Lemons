@@ -139,4 +139,4 @@ SystemInitializer::SystemInitializer()
     initializeDefaultTranslations();
 }
 
-}  // namespace bav
+}  // namespace lemons

@@ -48,4 +48,4 @@ void EditorBase::resized()
     resizeTriggered();
 }
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

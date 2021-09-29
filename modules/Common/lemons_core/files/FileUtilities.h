@@ -31,4 +31,4 @@ void deleteFile (const File& f);
 bool openFile (File file);
 
 
-}  // namespace bav
+}  // namespace lemons

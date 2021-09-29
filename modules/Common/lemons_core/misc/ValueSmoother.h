@@ -15,4 +15,4 @@ struct ValueSmoother : juce::SmoothedValue< SampleType, juce::ValueSmoothingType
     }
 };
 
-}  // namespace bav
+}  // namespace lemons

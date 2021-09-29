@@ -186,4 +186,4 @@ void Reverb::process (juce::AudioBuffer< float >& input,
     }
 }
 
-}  // namespace bav::dsp::FX
+}  // namespace lemons::dsp::FX

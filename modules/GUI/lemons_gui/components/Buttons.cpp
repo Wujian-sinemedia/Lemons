@@ -35,4 +35,4 @@ ImageButton::ImageButton (const juce::Image& image, std::function< void() > when
 }
 
 
-}  // namespace bav::gui
+}  // namespace lemons::gui

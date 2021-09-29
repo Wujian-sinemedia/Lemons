@@ -44,4 +44,4 @@ private:
     ProcessorInternalEngine< double > doubleEngine;
 };
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

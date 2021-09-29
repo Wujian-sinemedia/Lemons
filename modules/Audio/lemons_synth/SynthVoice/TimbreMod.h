@@ -36,4 +36,4 @@ private:
     bool toggle {false};
 };
 
-}  // namespace bav::dsp::synth
+}  // namespace lemons::dsp::synth

@@ -54,4 +54,4 @@ int AnalysisGrainStorage< SampleType >::blockIndexToBufferIndex (int blockIndex)
 template class AnalysisGrainStorage< float >;
 template class AnalysisGrainStorage< double >;
 
-}  // namespace bav::dsp::psola
+}  // namespace lemons::dsp::psola

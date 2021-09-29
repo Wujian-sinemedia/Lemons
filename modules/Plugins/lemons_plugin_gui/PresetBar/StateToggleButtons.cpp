@@ -58,4 +58,4 @@ void StateToggleButtons::setVertical (bool shouldBeVertical)
     repaint();
 }
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

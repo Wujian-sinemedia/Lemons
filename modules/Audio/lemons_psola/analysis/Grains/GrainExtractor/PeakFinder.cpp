@@ -380,4 +380,4 @@ void PeakFinder< SampleType >::sortSampleIndicesForPeakSearching (
 template class PeakFinder< float >;
 template class PeakFinder< double >;
 
-}  // namespace bav::dsp::psola
+}  // namespace lemons::dsp::psola

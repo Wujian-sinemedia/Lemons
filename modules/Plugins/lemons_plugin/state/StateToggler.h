@@ -34,4 +34,4 @@ private:
     UndoManager* undo {nullptr};
 };
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

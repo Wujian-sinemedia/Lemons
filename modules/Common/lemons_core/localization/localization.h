@@ -14,4 +14,4 @@ extern void initializeTranslationsFromBinaryData (RawData data,
 extern void initializeDefaultTranslations();
 
 
-}  // namespace bav
+}  // namespace lemons

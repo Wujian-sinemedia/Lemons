@@ -12,4 +12,4 @@ private:
     std::function< void() > callbackFunc;
 };
 
-}  // namespace bav::events
+}  // namespace lemons::events

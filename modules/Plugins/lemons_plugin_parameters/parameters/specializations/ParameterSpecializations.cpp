@@ -101,4 +101,4 @@ GainMeterParameter::GainMeterParameter (String                                  
 {
 }
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

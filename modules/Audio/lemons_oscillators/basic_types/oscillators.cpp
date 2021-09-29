@@ -202,4 +202,4 @@ SampleType Triangle< SampleType >::getSample()
 template struct Triangle< float >;
 template struct Triangle< double >;
 
-}  // namespace bav::dsp::osc
+}  // namespace lemons::dsp::osc

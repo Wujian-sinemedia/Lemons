@@ -17,4 +17,4 @@ private:
     std::function< void (bool) > gestureCallback;
 };
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

@@ -29,4 +29,4 @@ private:
     virtual void refreshPresetList() = 0;
 };
 
-}  // namespace bav::plugin::presets
+}  // namespace lemons::plugin::presets

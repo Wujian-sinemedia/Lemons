@@ -10,4 +10,4 @@ float hermitCubic (const Knots& data, float x) noexcept;
 
 float hermitCubic2 (const Knots& data, float x, float tolerance, int i1) noexcept;
 
-}  // namespace bav::spline::interpolation
+}  // namespace lemons::spline::interpolation

@@ -45,4 +45,4 @@ private:
     juce::AudioBuffer< SampleType > monoStorage;
 };
 
-}  // namespace bav::dsp::FX
+}  // namespace lemons::dsp::FX

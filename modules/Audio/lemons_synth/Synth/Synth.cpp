@@ -264,4 +264,4 @@ template class SynthBase< float >;
 template class SynthBase< double >;
 
 
-}  // namespace bav::dsp
+}  // namespace lemons::dsp

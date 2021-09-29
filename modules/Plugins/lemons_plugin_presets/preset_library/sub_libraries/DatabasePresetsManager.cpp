@@ -13,4 +13,4 @@ void DatabasePresetsManager::refreshPresetList()
 {
 }
 
-}  // namespace bav::plugin::presets
+}  // namespace lemons::plugin::presets

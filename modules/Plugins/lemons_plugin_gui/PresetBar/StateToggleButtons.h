@@ -32,4 +32,4 @@ private:
     bool vertical {false};
 };
 
-}  // namespace bav::plugin
+}  // namespace lemons::plugin

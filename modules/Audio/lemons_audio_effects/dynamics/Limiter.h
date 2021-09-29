@@ -35,4 +35,4 @@ private:
     float  thresholddB = -10.0, releaseTime = 100.0;
 };
 
-}  // namespace bav::dsp::FX
+}  // namespace lemons::dsp::FX
