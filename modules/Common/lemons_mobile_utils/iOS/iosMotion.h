@@ -9,7 +9,7 @@
 #include <CoreMotion/CoreMotion.h>
 
 
-namespace bav
+namespace lemons
 {
 class MotionManager : public MotionManagerInterface
 {
@@ -27,4 +27,4 @@ private:
 };
 
 
-}  // namespace bav
+}  // namespace lemons

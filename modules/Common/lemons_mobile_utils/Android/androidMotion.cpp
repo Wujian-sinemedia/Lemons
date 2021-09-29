@@ -1,5 +1,5 @@
 
-namespace bav
+namespace lemons
 {
 MotionManager::MotionManager()
 {
@@ -93,4 +93,4 @@ void MotionManager::update()
     }
 }
 
-}  // namespace bav
+}  // namespace lemons

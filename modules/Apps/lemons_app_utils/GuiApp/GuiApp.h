@@ -2,12 +2,11 @@
 
 namespace lemons
 {
-
 //==============================================================================
 /**
     Represents the base for a generic GUI app.
     Templated on the type of component it owns.
-    @see DefaultWindow, SystemInitializer, juce::JUCEApplication
+    @see DefaultWindow, SystemInitializer
     @tags{Apps}
  */
 template < typename ContentComponentType, BV_MUST_INHERIT_FROM (ContentComponentType, juce::Component) >
@@ -15,7 +14,7 @@ class GuiApp : public juce::JUCEApplication, private SystemInitializer
 {
 public:
     using WindowType = DefaultWindow< ContentComponentType >;
-    using Size = juce::Point< int >;
+    using Size       = juce::Point< int >;
 
     //==============================================================================
     /** Creates a default GuiApp. */
@@ -30,13 +29,12 @@ public:
     void initialise (const String&) final { window.reset (new WindowType (name, initialSize)); }
 
     /** Called to allow the application to clear up before exiting.
-        @see juce::DeletedAtShutdown
      */
     void shutdown() final { window.reset(); }
 
     /** Returns the application's name. */
     const String getApplicationName() final { return name; }
-    
+
     /** Returns the application's version number. */
     const String getApplicationVersion() final { return version; }
 

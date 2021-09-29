@@ -8,7 +8,7 @@
 #include <android/sensor.h>
 
 
-namespace bav
+namespace lemons
 {
 class MotionManager : public MotionManagerInterface,
                       private juce::Timer
@@ -42,4 +42,4 @@ private:
     void update();
 };
 
-}  // namespace bav
+}  // namespace lemons

@@ -9,7 +9,7 @@
 #include <CoreMotion/CoreMotion.h>
 
 
-namespace bav
+namespace lemons
 {
 
 

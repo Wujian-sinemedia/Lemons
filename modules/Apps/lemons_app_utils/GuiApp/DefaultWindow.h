@@ -5,11 +5,9 @@
 
 namespace lemons
 {
-
 //==============================================================================
 /**
     Base class for a GUI app's main window.
-    @see juce::DocumentWindow
     @tags{Apps}
  */
 struct DefaultWindowBase : public juce::DocumentWindow

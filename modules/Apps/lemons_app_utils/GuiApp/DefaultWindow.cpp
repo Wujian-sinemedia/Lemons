@@ -1,7 +1,6 @@
 
 namespace lemons
 {
-
 static inline juce::Colour getDefaultWindowBackgroundColor()
 {
     return juce::Desktop::getInstance().getDefaultLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId);
