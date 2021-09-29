@@ -1,16 +1,17 @@
 
 namespace lemons
 {
+
+static inline juce::Colour getDefaultWindowBackgroundColor()
+{
+    return juce::Desktop::getInstance().getDefaultLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId);
+}
+
 DefaultWindowBase::DefaultWindowBase (const String& appName, const juce::Point< int >& initSize)
-    : DocumentWindow (appName, getBackgroundColour(), allButtons)
+    : DocumentWindow (appName, getDefaultWindowBackgroundColor(), allButtons)
 {
     setUsingNativeTitleBar (true);
     setSize (initSize.x, initSize.y);
-}
-
-juce::Colour DefaultWindowBase::getBackgroundColour()
-{
-    return juce::Desktop::getInstance().getDefaultLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId);
 }
 
 void DefaultWindowBase::closeButtonPressed()

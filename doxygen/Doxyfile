@@ -32,7 +32,7 @@ DOXYFILE_ENCODING      = UTF-8
 # title of most generated pages and in a few other places.
 # The default value is: My Project.
 
-PROJECT_NAME           = JUCE
+PROJECT_NAME           = Lemons
 
 # The PROJECT_NUMBER tag can be used to enter a project or revision number. This
 # could be handy for archiving the generated documentation or if some version
@@ -801,9 +801,7 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = build \
-                         "../JUCE Module Format.md" \
-                         "../CMake API.md"
+INPUT                  = build
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
@@ -828,8 +826,7 @@ INPUT_ENCODING         = UTF-8
 # *.m, *.markdown, *.md, *.mm, *.dox, *.py, *.pyw, *.f90, *.f95, *.f03, *.f08,
 # *.f, *.for, *.tcl, *.vhd, *.vhdl, *.ucf and *.qsf.
 
-FILE_PATTERNS          = juce_*.h \
-                         juce_*.dox
+FILE_PATTERNS          = *.h
 
 # The RECURSIVE tag can be used to specify whether or not subdirectories should
 # be searched for input files as well.
@@ -844,21 +841,7 @@ RECURSIVE              = YES
 # Note that relative paths are relative to the directory from which doxygen is
 # run.
 
-EXCLUDE                = build/juce_graphics/image_formats \
-                         build/juce_core/zip/zlib \
-                         build/juce_audio_formats/codecs/flac \
-                         build/juce_audio_formats/codecs/oggvorbis \
-                         build/juce_audio_devices/native \
-                         build/juce_audio_plugin_client/AU/CoreAudioUtilityClasses \
-                         build/juce_browser_plugin_client/juce_browser_plugin.h \
-                         build/juce_core/native \
-                         build/juce_events/native \
-                         build/juce_graphics/native \
-                         build/juce_gui_basics/native \
-                         build/juce_gui_extra/native \
-                         build/juce_opengl/native \
-                         build/juce_video/native \
-                         build/juce_dsp/native
+EXCLUDE                = 
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or
 # directories that are symbolic links (a Unix file system feature) are excluded
@@ -874,10 +857,7 @@ EXCLUDE_SYMLINKS       = YES
 # Note that the wildcards are matched against the file with absolute path, so to
 # exclude all test directories for example use the pattern */test/*
 
-EXCLUDE_PATTERNS       = juce_GIFLoader* \
-                         juce_JPEGLoader* \
-                         juce_PNGLoader* \
-                         juce_FlacHeader.h
+EXCLUDE_PATTERNS       = 
 
 # The EXCLUDE_SYMBOLS tag can be used to specify one or more symbol names
 # (namespaces, classes, functions, etc.) that should be excluded from the
@@ -2126,7 +2106,7 @@ TAGFILES               =
 # tag file that is based on the input files it reads. See section "Linking to
 # external documentation" for more information about the usage of tag files.
 
-GENERATE_TAGFILE       = doc/juce.tag
+GENERATE_TAGFILE       = doc/lemons.tag
 
 # If the ALLEXTERNALS tag is set to YES, all external class will be listed in
 # the class index. If set to NO, only the inherited external classes will be
