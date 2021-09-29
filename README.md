@@ -91,7 +91,7 @@ For an example of how you can integrate several project repos of this nature sid
 
 ## *Licensing*
 
-This repository is licensed with the GNU Public License. This means that any projects using this repository's code ***must also themselves be open-source and licensed under the GPL.***
+This repository is licensed with the GNU General Public License. This means that any projects using this repository's code ***must also themselves be open-source and licensed under the GPL.***
 
 For inquiries about exemptions for commercial usage, please email me at ben.the.vining@gmail.com.
 
