@@ -1,7 +1,7 @@
 
 #pragma once
 
-namespace lemons
+namespace lemons::serializing
 {
 template <>
 juce::var toVar (juce::AudioBuffer< float >& buffer);

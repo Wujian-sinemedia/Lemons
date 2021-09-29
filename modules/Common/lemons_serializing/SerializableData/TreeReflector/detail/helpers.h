@@ -35,7 +35,7 @@ void loadObject (const ValueTree& tree, const String& propertyName, Type& object
     if constexpr (std::is_enum< Type >())
         object = toEnum< Type > (var);
     else
-        object = fromVar< Type > (var);
+        object = serializing::fromVar< Type > (var);
 }
 
 template < typename Type >
@@ -44,9 +44,9 @@ void saveObject (ValueTree& tree, const String& propertyName, Type& object)
     juce::var var;
 
     if constexpr (std::is_enum< Type >())
-        var = TreeReflectorHelpers::fromEnum (object);
+        var = fromEnum (object);
     else
-        var = toVar (object);
+        var = serializing::toVar (object);
 
     tree.setProperty (propertyName, var, nullptr);
 }

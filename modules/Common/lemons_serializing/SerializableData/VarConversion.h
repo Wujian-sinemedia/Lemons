@@ -1,7 +1,7 @@
 #pragma once
 
 
-namespace lemons
+namespace lemons::serializing
 {
 //==============================================================================
 /**
@@ -9,7 +9,7 @@ namespace lemons
     This function must save the complete state of your object either directly to a juce::var or to a type that is implicitly convertable to juce::var (ie, float, int, juce::String, etc.).
     This function must do the exact opposite of what your implementation of fromVar for your type does.
     Usually what this boils down to is converting your object into a juce::String, which can then be implicitly converted to a juce::var.
-    Several examples of implementations of this function can be found in Serializing/Specializations/VarSpecializations.cpp.
+    Several examples of implementations of this function can be found in lemons_serializing/Serializing/Specializations/VarSpecializations.cpp.
     @code
     // example implementation:
     namespace lemons
@@ -33,7 +33,7 @@ namespace lemons
         void serialize (TreeReflector& ref) final
         {
             // TreeReflector will internally call toVar to save your object and fromVar to load your object
-        ref.add ("MyCustomData", data);
+            ref.add ("MyCustomData", data);
         }
  
         MyCustomType data;
@@ -41,7 +41,6 @@ namespace lemons
     @endcode
  
     @see fromVar, SerializableData, TreeReflector
-    @tags{Serializing}
  */
 template < typename Type >
 juce::var toVar (Type& object)
@@ -56,7 +55,7 @@ juce::var toVar (Type& object)
     This function must load the complete state of your object from a juce::var.
     This function must do the exact opposite of what your implementation of toVar for your type does.
     Usually what this boils down to is creating a default-constructed instance of your object, then setting properties or relevant data members programmatically based on parsing the String form of the var.
-    Several examples of implementations of this function can be found in Serializing/Specializations/VarSpecializations.cpp.
+    Several examples of implementations of this function can be found in lemons_serializing/Serializing/Specializations/VarSpecializations.cpp.
     @code
     // example implementation:
     namespace lemons
@@ -88,7 +87,6 @@ juce::var toVar (Type& object)
     @endcode
  
     @see toVar, SerializableData, TreeReflector
-    @tags{Serializing}
  */
 template < typename Type >
 Type fromVar (juce::var var)

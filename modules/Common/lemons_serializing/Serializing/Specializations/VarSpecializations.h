@@ -1,6 +1,6 @@
 #pragma once
 
-namespace lemons
+namespace lemons::serializing
 {
 template <>
 String fromVar (juce::var var);

@@ -1,5 +1,5 @@
 
-namespace lemons
+namespace lemons::serializing
 {
 juce::MemoryBlock toMemory (const juce::AudioBuffer< float >& buffer)
 {
