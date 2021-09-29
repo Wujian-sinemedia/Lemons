@@ -17,25 +17,8 @@
 
 #include <juce_core/juce_core.h>
 
-/*
- For any type you want to be able to serialize with treeReflector.add(YourType), simply implement these two functions within the lemons namespace.
- */
-namespace lemons
-{
-template < typename Type >
-juce::var toVar (Type& object)
-{
-    return {object};
-}
 
-template < typename Type >
-Type fromVar (juce::var var)
-{
-    return {var};
-}
-
-}  // namespace lemons
-
+#include "SerializableData/VarConversion.h"
 
 #include "SerializableData/SerializableData.h"
 
