@@ -1,8 +1,14 @@
 <map id="lemons::dsp::osc::Oscillator&lt; SampleType &gt;" name="lemons::dsp::osc::Oscillator&lt; SampleType &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="5,136,207,177"/>
-<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1osc_1_1Saw.html" title=" " alt="" coords="273,5,439,47"/>
-<area shape="rect" id="node3" href="$structlemons_1_1dsp_1_1osc_1_1Sine.html" title=" " alt="" coords="273,71,439,112"/>
-<area shape="rect" id="node4" href="$structlemons_1_1dsp_1_1osc_1_1Square.html" title=" " alt="" coords="264,136,448,177"/>
-<area shape="rect" id="node5" href="$classlemons_1_1dsp_1_1osc_1_1SuperSaw.html" title=" " alt="" coords="255,201,457,243"/>
-<area shape="rect" id="node6" href="$structlemons_1_1dsp_1_1osc_1_1Triangle.html" title=" " alt="" coords="261,267,451,308"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,187,207,228"/>
+<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1osc_1_1Saw.html" title=" " alt="" coords="337,76,503,117"/>
+<area shape="rect" id="node4" href="$structlemons_1_1dsp_1_1osc_1_1Sine.html" title=" " alt="" coords="337,5,503,47"/>
+<area shape="rect" id="node6" href="$structlemons_1_1dsp_1_1osc_1_1Square.html" title=" " alt="" coords="328,284,512,325"/>
+<area shape="rect" id="node8" href="$classlemons_1_1dsp_1_1osc_1_1SuperSaw.html" title=" " alt="" coords="319,349,521,391"/>
+<area shape="rect" id="node10" href="$structlemons_1_1dsp_1_1osc_1_1Triangle.html" title=" " alt="" coords="325,219,515,260"/>
+<area shape="rect" id="node12" href="$structlemons_1_1dsp_1_1osc_1_1Oscillator.html" title=" " alt="" coords="319,153,521,195"/>
+<area shape="rect" id="node3" href="$structlemons_1_1dsp_1_1osc_1_1Saw.html" title=" " alt="" coords="651,104,818,145"/>
+<area shape="rect" id="node5" href="$structlemons_1_1dsp_1_1osc_1_1Sine.html" title=" " alt="" coords="651,19,818,60"/>
+<area shape="rect" id="node7" href="$structlemons_1_1dsp_1_1osc_1_1Square.html" title=" " alt="" coords="643,245,827,287"/>
+<area shape="rect" id="node9" href="$classlemons_1_1dsp_1_1osc_1_1SuperSaw.html" title=" " alt="" coords="633,325,836,367"/>
+<area shape="rect" id="node11" href="$structlemons_1_1dsp_1_1osc_1_1Triangle.html" title=" " alt="" coords="639,173,830,215"/>
 </map>

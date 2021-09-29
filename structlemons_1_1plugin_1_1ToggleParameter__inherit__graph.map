@@ -1,7 +1,8 @@
 <map id="lemons::plugin::ToggleParameter" name="lemons::plugin::ToggleParameter">
-<area shape="rect" id="node1" title=" " alt="" coords="5,319,240,345"/>
-<area shape="rect" id="node2" href="$structlemons_1_1plugin_1_1BoolParameter.html" title=" " alt="" coords="11,244,234,271"/>
-<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1TypedParameter.html" title=" " alt="" coords="7,155,238,196"/>
-<area shape="rect" id="node4" href="$classlemons_1_1plugin_1_1Parameter.html" title=" " alt="" coords="26,80,219,107"/>
-<area shape="rect" id="node5" href="$structlemons_1_1SerializableData.html" title=" " alt="" coords="30,5,215,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,428,240,455"/>
+<area shape="rect" id="node2" href="$structlemons_1_1plugin_1_1BoolParameter.html" title=" " alt="" coords="11,352,234,379"/>
+<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1TypedParameter.html" title=" " alt="" coords="7,261,238,303"/>
+<area shape="rect" id="node4" href="$classlemons_1_1plugin_1_1Parameter.html" title=" " alt="" coords="21,81,214,108"/>
+<area shape="rect" id="node6" href="$classlemons_1_1plugin_1_1TypedParameter.html" title=" " alt="" coords="139,157,370,199"/>
+<area shape="rect" id="node5" href="$structlemons_1_1SerializableData.html" title=" " alt="" coords="25,5,210,32"/>
 </map>

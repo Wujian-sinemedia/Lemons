@@ -1,6 +1,6 @@
 <map id="lemons::plugin::ParamHolderBase" name="lemons::plugin::ParamHolderBase">
-<area shape="rect" id="node1" title=" " alt="" coords="239,46,481,73"/>
-<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1ParameterHolder.html" title=" " alt="" coords="559,5,752,47"/>
-<area shape="rect" id="node4" href="$classlemons_1_1plugin_1_1ParameterHolder.html" title=" " alt="" coords="529,71,781,112"/>
-<area shape="rect" id="node2" href="$structlemons_1_1SerializableData.html" title=" " alt="" coords="5,46,191,73"/>
+<area shape="rect" id="node1" title=" " alt="" coords="240,55,483,82"/>
+<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1ParameterHolder.html" title=" " alt="" coords="532,5,725,47"/>
+<area shape="rect" id="node4" href="$classlemons_1_1plugin_1_1ParameterHolder.html" title=" " alt="" coords="965,43,1217,84"/>
+<area shape="rect" id="node2" href="$structlemons_1_1SerializableData.html" title=" " alt="" coords="5,55,191,82"/>
 </map>

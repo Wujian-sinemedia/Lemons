@@ -1,10 +1,13 @@
 <map id="lemons::dsp::FX::SidechainableAudioEffect&lt; SampleType &gt;" name="lemons::dsp::FX::SidechainableAudioEffect&lt; SampleType &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="261,136,487,177"/>
-<area shape="rect" id="node3" href="$structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html" title=" " alt="" coords="535,136,767,177"/>
-<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1FX_1_1AudioEffect.html" title=" " alt="" coords="5,136,213,177"/>
-<area shape="rect" id="node4" href="$classlemons_1_1dsp_1_1FX_1_1Compressor.html" title=" " alt="" coords="815,5,1027,47"/>
-<area shape="rect" id="node5" href="$classlemons_1_1dsp_1_1FX_1_1DeEsser.html" title=" " alt="" coords="827,71,1014,112"/>
-<area shape="rect" id="node6" href="$classlemons_1_1dsp_1_1FX_1_1Delay.html" title=" " alt="" coords="835,136,1007,177"/>
-<area shape="rect" id="node7" href="$classlemons_1_1dsp_1_1FX_1_1Limiter.html" title=" " alt="" coords="831,201,1011,243"/>
-<area shape="rect" id="node8" href="$classlemons_1_1dsp_1_1FX_1_1NoiseGate.html" title=" " alt="" coords="819,267,1022,308"/>
+<area shape="rect" id="node1" title=" " alt="" coords="263,267,488,308"/>
+<area shape="rect" id="node3" href="$structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html" title=" " alt="" coords="600,201,832,243"/>
+<area shape="rect" id="node11" href="$structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html" title=" " alt="" coords="603,299,829,340"/>
+<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1FX_1_1AudioEffect.html" title=" " alt="" coords="5,267,213,308"/>
+<area shape="rect" id="node4" href="$classlemons_1_1dsp_1_1FX_1_1Compressor.html" title=" " alt="" coords="954,5,1166,47"/>
+<area shape="rect" id="node6" href="$classlemons_1_1dsp_1_1FX_1_1DeEsser.html" title=" " alt="" coords="967,71,1153,112"/>
+<area shape="rect" id="node7" href="$classlemons_1_1dsp_1_1FX_1_1Delay.html" title=" " alt="" coords="974,136,1146,177"/>
+<area shape="rect" id="node8" href="$classlemons_1_1dsp_1_1FX_1_1Limiter.html" title=" " alt="" coords="970,201,1150,243"/>
+<area shape="rect" id="node9" href="$classlemons_1_1dsp_1_1FX_1_1NoiseGate.html" title=" " alt="" coords="959,267,1161,308"/>
+<area shape="rect" id="node10" href="$structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html" title=" " alt="" coords="944,332,1176,373"/>
+<area shape="rect" id="node5" href="$classlemons_1_1dsp_1_1FX_1_1Compressor.html" title=" " alt="" coords="1288,169,1500,211"/>
 </map>
