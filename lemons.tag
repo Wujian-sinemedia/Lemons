@@ -4,8 +4,8 @@
     <name>androidMotion.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_mobile_utils/Android/</path>
     <filename>androidMotion_8h.html</filename>
-    <class kind="class">bav::MotionManager</class>
-    <namespace>bav</namespace>
+    <class kind="class">lemons::MotionManager</class>
+    <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
     <name>AudioAndMidiFIFO.h</name>
@@ -847,8 +847,8 @@
     <name>iosMotion.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_mobile_utils/iOS/</path>
     <filename>iosMotion_8h.html</filename>
-    <class kind="class">bav::MotionManager</class>
-    <namespace>bav</namespace>
+    <class kind="class">lemons::MotionManager</class>
+    <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
     <name>Juce_containers.h</name>
@@ -1692,10 +1692,10 @@
     <name>Saturation.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_audio_effects/misc/</path>
     <filename>Saturation_8h.html</filename>
-    <class kind="class">bav::dsp::FX::Saturator</class>
-    <namespace>bav</namespace>
-    <namespace>bav::dsp</namespace>
-    <namespace>bav::dsp::FX</namespace>
+    <class kind="class">lemons::dsp::FX::Saturator</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::FX</namespace>
   </compound>
   <compound kind="file">
     <name>SerializableData.h</name>
@@ -9290,76 +9290,44 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>bav::MotionManager</name>
-    <filename>classbav_1_1MotionManager.html</filename>
+    <name>lemons::MotionManager</name>
+    <filename>classlemons_1_1MotionManager.html</filename>
+    <base>lemons::MotionManagerInterface</base>
     <member kind="function">
       <type></type>
       <name>MotionManager</name>
-      <anchorfile>classbav_1_1MotionManager.html</anchorfile>
-      <anchor>ab533c3a44584ccb2ccace9f59594cf4a</anchor>
+      <anchorfile>classlemons_1_1MotionManager.html</anchorfile>
+      <anchor>a364744f4f010bea85b4d77605b28f5b0</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
       <name>~MotionManager</name>
-      <anchorfile>classbav_1_1MotionManager.html</anchorfile>
-      <anchor>a3aa66dd52c600ccffc6f88d5d2f0df0b</anchor>
+      <anchorfile>classlemons_1_1MotionManager.html</anchorfile>
+      <anchor>a256c1bac90b17f749eaabab8e906ebe8</anchor>
       <arglist>() override</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
       <name>start</name>
-      <anchorfile>classbav_1_1MotionManager.html</anchorfile>
-      <anchor>a9f441deea398cb6855872db58778cdd2</anchor>
+      <anchorfile>classlemons_1_1MotionManager.html</anchorfile>
+      <anchor>a2fae5061c73ad073f646807997b610d9</anchor>
       <arglist>() final</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
       <name>stop</name>
-      <anchorfile>classbav_1_1MotionManager.html</anchorfile>
-      <anchor>ab58fa2283e9c4b19ea6e3e64ae243ef3</anchor>
+      <anchorfile>classlemons_1_1MotionManager.html</anchorfile>
+      <anchor>a928848daeb216b49cca1952e319be88b</anchor>
       <arglist>() final</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual bool</type>
       <name>isRunning</name>
-      <anchorfile>classbav_1_1MotionManager.html</anchorfile>
-      <anchor>ab38419d22a853b421da1aaa7b5737085</anchor>
+      <anchorfile>classlemons_1_1MotionManager.html</anchorfile>
+      <anchor>a9ed2bfa1073180cb79dd39744713f355</anchor>
       <arglist>() final</arglist>
     </member>
-    <member kind="function" protection="private" virtualness="virtual">
-      <type>virtual</type>
-      <name>~MotionManager</name>
-      <anchorfile>classbav_1_1MotionManager.html</anchorfile>
-      <anchor>a3aa66dd52c600ccffc6f88d5d2f0df0b</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="virtual">
-      <type>virtual void</type>
-      <name>start</name>
-      <anchorfile>classbav_1_1MotionManager.html</anchorfile>
-      <anchor>a9f441deea398cb6855872db58778cdd2</anchor>
-      <arglist>() final</arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="virtual">
-      <type>virtual void</type>
-      <name>stop</name>
-      <anchorfile>classbav_1_1MotionManager.html</anchorfile>
-      <anchor>ab58fa2283e9c4b19ea6e3e64ae243ef3</anchor>
-      <arglist>() final</arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="virtual">
-      <type>virtual bool</type>
-      <name>isRunning</name>
-      <anchorfile>classbav_1_1MotionManager.html</anchorfile>
-      <anchor>ab38419d22a853b421da1aaa7b5737085</anchor>
-      <arglist>() final</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>lemons::MotionManager</name>
-    <filename>classlemons_1_1MotionManager.html</filename>
-    <base>lemons::MotionManagerInterface</base>
     <member kind="function">
       <type></type>
       <name>MotionManager</name>
@@ -9466,32 +9434,39 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>Coords</type>
-      <name>gravity</name>
-      <anchorfile>classlemons_1_1MotionManagerInterface.html</anchorfile>
-      <anchor>a45508bcbcf83a89004f9f389f2be2f8f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>Coords</type>
-      <name>rotation</name>
-      <anchorfile>classlemons_1_1MotionManagerInterface.html</anchorfile>
-      <anchor>afbb4ab4e2a2c3e9a68b168b5487878df</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>Coords</type>
-      <name>attitude</name>
-      <anchorfile>classlemons_1_1MotionManagerInterface.html</anchorfile>
-      <anchor>a6fd77219d8ba802abcd9a4bf79f29bac</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
       <type>juce::ListenerList&lt; MotionListener &gt;</type>
       <name>listeners</name>
       <anchorfile>classlemons_1_1MotionManagerInterface.html</anchorfile>
       <anchor>a43a3e02f07a62652749444cdca169f26</anchor>
       <arglist></arglist>
+    </member>
+    <member kind="function" protection="private" virtualness="virtual">
+      <type>virtual</type>
+      <name>~MotionManager</name>
+      <anchorfile>classlemons_1_1MotionManager.html</anchorfile>
+      <anchor>a256c1bac90b17f749eaabab8e906ebe8</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function" protection="private" virtualness="virtual">
+      <type>virtual void</type>
+      <name>start</name>
+      <anchorfile>classlemons_1_1MotionManager.html</anchorfile>
+      <anchor>a2fae5061c73ad073f646807997b610d9</anchor>
+      <arglist>() final</arglist>
+    </member>
+    <member kind="function" protection="private" virtualness="virtual">
+      <type>virtual void</type>
+      <name>stop</name>
+      <anchorfile>classlemons_1_1MotionManager.html</anchorfile>
+      <anchor>a928848daeb216b49cca1952e319be88b</anchor>
+      <arglist>() final</arglist>
+    </member>
+    <member kind="function" protection="private" virtualness="virtual">
+      <type>virtual bool</type>
+      <name>isRunning</name>
+      <anchorfile>classlemons_1_1MotionManager.html</anchorfile>
+      <anchor>a9ed2bfa1073180cb79dd39744713f355</anchor>
+      <arglist>() final</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -13870,15 +13845,23 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>bav::dsp::FX::Saturator</name>
-    <filename>classbav_1_1dsp_1_1FX_1_1Saturator.html</filename>
+    <name>lemons::dsp::FX::Saturator</name>
+    <filename>classlemons_1_1dsp_1_1FX_1_1Saturator.html</filename>
     <templarg></templarg>
+    <base protection="private">lemons::dsp::FX::AudioEffect</base>
     <member kind="function">
       <type>void</type>
       <name>setHardness</name>
-      <anchorfile>classbav_1_1dsp_1_1FX_1_1Saturator.html</anchorfile>
-      <anchor>a62385febc35aeb434ced32978bc33722</anchor>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Saturator.html</anchorfile>
+      <anchor>a4f786f4b632ff0e279d06f87e5087a7e</anchor>
       <arglist>(float newHardness)</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>process</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1AudioEffect.html</anchorfile>
+      <anchor>a5979cff40fec5864fb6a45bba0b01911</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;audio)=0</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -18268,22 +18251,6 @@
     </member>
   </compound>
   <compound kind="namespace">
-    <name>bav</name>
-    <filename>namespacebav.html</filename>
-    <namespace>bav::dsp</namespace>
-    <class kind="class">bav::MotionManager</class>
-  </compound>
-  <compound kind="namespace">
-    <name>bav::dsp</name>
-    <filename>namespacebav_1_1dsp.html</filename>
-    <namespace>bav::dsp::FX</namespace>
-  </compound>
-  <compound kind="namespace">
-    <name>bav::dsp::FX</name>
-    <filename>namespacebav_1_1dsp_1_1FX.html</filename>
-    <class kind="class">bav::dsp::FX::Saturator</class>
-  </compound>
-  <compound kind="namespace">
     <name>lemons</name>
     <filename>namespacelemons.html</filename>
     <namespace>lemons::dsp</namespace>
@@ -18606,6 +18573,7 @@
     <class kind="class">lemons::dsp::FX::NoiseGate</class>
     <class kind="class">lemons::dsp::FX::PannerBase</class>
     <class kind="class">lemons::dsp::FX::Reverb</class>
+    <class kind="class">lemons::dsp::FX::Saturator</class>
     <class kind="struct">lemons::dsp::FX::SidechainableAudioEffect</class>
     <class kind="class">lemons::dsp::FX::SmoothedGain</class>
     <class kind="class">lemons::dsp::FX::StereoPanner</class>

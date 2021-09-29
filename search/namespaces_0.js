@@ -1,6 +1,23 @@
 var searchData=
 [
-  ['bav_1213',['bav',['../namespacebav.html',1,'']]],
-  ['dsp_1214',['dsp',['../namespacebav_1_1dsp.html',1,'bav']]],
-  ['fx_1215',['FX',['../namespacebav_1_1dsp_1_1FX.html',1,'bav::dsp']]]
+  ['buffers_1210',['buffers',['../namespacelemons_1_1dsp_1_1buffers.html',1,'lemons::dsp']]],
+  ['dsp_1211',['dsp',['../namespacelemons_1_1dsp.html',1,'lemons']]],
+  ['events_1212',['events',['../namespacelemons_1_1events.html',1,'lemons']]],
+  ['filters_1213',['filters',['../namespacelemons_1_1dsp_1_1filters.html',1,'lemons::dsp']]],
+  ['fx_1214',['FX',['../namespacelemons_1_1dsp_1_1FX.html',1,'lemons::dsp']]],
+  ['gui_1215',['gui',['../namespacelemons_1_1gui.html',1,'lemons']]],
+  ['interpolation_1216',['interpolation',['../namespacelemons_1_1spline_1_1interpolation.html',1,'lemons::spline']]],
+  ['lemons_1217',['lemons',['../namespacelemons.html',1,'']]],
+  ['math_1218',['math',['../namespacelemons_1_1math.html',1,'lemons']]],
+  ['midi_1219',['midi',['../namespacelemons_1_1midi.html',1,'lemons']]],
+  ['osc_1220',['osc',['../namespacelemons_1_1dsp_1_1osc.html',1,'lemons::dsp']]],
+  ['parametervalueconversionlambdas_1221',['ParameterValueConversionLambdas',['../namespacelemons_1_1ParameterValueConversionLambdas.html',1,'lemons']]],
+  ['plugin_1222',['plugin',['../namespacelemons_1_1plugin.html',1,'lemons']]],
+  ['presets_1223',['presets',['../namespacelemons_1_1plugin_1_1presets.html',1,'lemons::plugin']]],
+  ['psola_1224',['psola',['../namespacelemons_1_1dsp_1_1psola.html',1,'lemons::dsp']]],
+  ['serializing_1225',['serializing',['../namespacelemons_1_1serializing.html',1,'lemons']]],
+  ['spline_1226',['spline',['../namespacelemons_1_1spline.html',1,'lemons']]],
+  ['synth_1227',['synth',['../namespacelemons_1_1dsp_1_1synth.html',1,'lemons::dsp']]],
+  ['treereflectorhelpers_1228',['TreeReflectorHelpers',['../namespacelemons_1_1TreeReflectorHelpers.html',1,'lemons']]],
+  ['vecops_1229',['vecops',['../namespacelemons_1_1vecops.html',1,'lemons']]]
 ];
