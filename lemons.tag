@@ -20,25 +20,26 @@
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/Serializing/Specializations/</path>
     <filename>AudioBuffers_8h.html</filename>
     <namespace>lemons</namespace>
+    <namespace>lemons::serializing</namespace>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a1b10ef11e648da5273c4337f0a7f721f</anchor>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a649c8f2bc41506fd655298cdf41de430</anchor>
       <arglist>(juce::AudioBuffer&lt; float &gt; &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>ad8f0ad063ffbf8137183ade2965fd056</anchor>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a359990fb1af99d70295d10a13ddb2810</anchor>
       <arglist>(juce::AudioBuffer&lt; double &gt; &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>juce::AudioBuffer&lt; float &gt;</type>
       <name>fromVar</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>af6b87223ebe2dfd0c4989385282266bd</anchor>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a5567aa3f5c4e6da70b5c3aa2b936a059</anchor>
       <arglist>(juce::var var)</arglist>
     </member>
   </compound>
@@ -2158,18 +2159,19 @@
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/</path>
     <filename>VarConversion_8h.html</filename>
     <namespace>lemons</namespace>
+    <namespace>lemons::serializing</namespace>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a4464a75068903c199363a4cd06f3e9d5</anchor>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a713bb9525856a131f6897cdd045d5bc4</anchor>
       <arglist>(Type &amp;object)</arglist>
     </member>
     <member kind="function">
       <type>Type</type>
       <name>fromVar</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a5c8faffc1976522d5e6ba6f7270ba1ef</anchor>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>abd30f255b2b10402a940e2260f7ede3b</anchor>
       <arglist>(juce::var var)</arglist>
     </member>
   </compound>
@@ -2178,18 +2180,19 @@
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/Serializing/Specializations/</path>
     <filename>VarSpecializations_8h.html</filename>
     <namespace>lemons</namespace>
+    <namespace>lemons::serializing</namespace>
     <member kind="function">
       <type>juce::AudioBuffer&lt; float &gt;</type>
       <name>fromVar</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>af6b87223ebe2dfd0c4989385282266bd</anchor>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a5567aa3f5c4e6da70b5c3aa2b936a059</anchor>
       <arglist>(juce::var var)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a7d4f5400710a07fd3f97f764126da9a7</anchor>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a5b32b87aef2397cb2c1930541106a9db</anchor>
       <arglist>(juce::Point&lt; float &gt; &amp;point)</arglist>
     </member>
   </compound>
@@ -18514,48 +18517,6 @@
       <anchor>ad9c18a64dc09b2dafd886e3a8c0c275b</anchor>
       <arglist>(const String &amp;string)</arglist>
     </member>
-    <member kind="function">
-      <type>juce::var</type>
-      <name>toVar</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a4464a75068903c199363a4cd06f3e9d5</anchor>
-      <arglist>(Type &amp;object)</arglist>
-    </member>
-    <member kind="function">
-      <type>Type</type>
-      <name>fromVar</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a5c8faffc1976522d5e6ba6f7270ba1ef</anchor>
-      <arglist>(juce::var var)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::var</type>
-      <name>toVar</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a1b10ef11e648da5273c4337f0a7f721f</anchor>
-      <arglist>(juce::AudioBuffer&lt; float &gt; &amp;buffer)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::var</type>
-      <name>toVar</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>ad8f0ad063ffbf8137183ade2965fd056</anchor>
-      <arglist>(juce::AudioBuffer&lt; double &gt; &amp;buffer)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::AudioBuffer&lt; float &gt;</type>
-      <name>fromVar</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>af6b87223ebe2dfd0c4989385282266bd</anchor>
-      <arglist>(juce::var var)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::var</type>
-      <name>toVar</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a7d4f5400710a07fd3f97f764126da9a7</anchor>
-      <arglist>(juce::Point&lt; float &gt; &amp;point)</arglist>
-    </member>
   </compound>
   <compound kind="namespace">
     <name>lemons::dsp</name>
@@ -19140,6 +19101,20 @@
     <filename>namespacelemons_1_1serializing.html</filename>
     <class kind="class">lemons::serializing::DataSynchronizer</class>
     <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a713bb9525856a131f6897cdd045d5bc4</anchor>
+      <arglist>(Type &amp;object)</arglist>
+    </member>
+    <member kind="function">
+      <type>Type</type>
+      <name>fromVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>abd30f255b2b10402a940e2260f7ede3b</anchor>
+      <arglist>(juce::var var)</arglist>
+    </member>
+    <member kind="function">
       <type>ValueTree</type>
       <name>toTree</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
@@ -19327,6 +19302,34 @@
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
       <anchor>adbc84bfe67d82766e8ed1db9c40b6ad2</anchor>
       <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a649c8f2bc41506fd655298cdf41de430</anchor>
+      <arglist>(juce::AudioBuffer&lt; float &gt; &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a359990fb1af99d70295d10a13ddb2810</anchor>
+      <arglist>(juce::AudioBuffer&lt; double &gt; &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::AudioBuffer&lt; float &gt;</type>
+      <name>fromVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a5567aa3f5c4e6da70b5c3aa2b936a059</anchor>
+      <arglist>(juce::var var)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a5b32b87aef2397cb2c1930541106a9db</anchor>
+      <arglist>(juce::Point&lt; float &gt; &amp;point)</arglist>
     </member>
     <member kind="function">
       <type>String</type>
