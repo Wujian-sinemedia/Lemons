@@ -20,6 +20,13 @@ struct TreeReflector
     template < typename Type >
     void add (const String& propertyName, Type& object);
 
+    template < typename Type >
+    void addLambdaSet (const String& propertyName,
+                       std::function< Type() >
+                           saveToTree,
+                       std::function< void (Type&) >
+                           loadFromTree);
+
 private:
     template < typename Type >
     void load (const String& propertyName, Type& object);

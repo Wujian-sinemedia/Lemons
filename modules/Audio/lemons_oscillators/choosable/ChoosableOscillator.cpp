@@ -102,24 +102,19 @@ void ChoosableOscillator< SampleType >::serialize (TreeReflector& ref)
 {
     ref.add ("OscillatorType", type);
 
-    const String freqProp   = "Frequency";
-    const String detuneProp = "DetuneAmount";
+    ref.addLambdaSet< float > (
+        "Frequency",
+        [&]
+        { return freq; },
+        [&] (float& f)
+        { setFrequency (f); });
 
-    auto& tree = ref.getRawDataTree();
-
-    if (ref.isSaving())
-    {
-        tree.setProperty (freqProp, freq, nullptr);
-        tree.setProperty (detuneProp, superSaw->getPitchSpreadCents(), nullptr);
-    }
-    else
-    {
-        if (tree.hasProperty (freqProp))
-            setFrequency (tree.getProperty (freqProp));
-
-        if (tree.hasProperty (detuneProp))
-            setDetuneAmount (tree.getProperty (detuneProp));
-    }
+    ref.addLambdaSet< int > (
+        "DetuneAmount",
+        [&]
+        { return superSaw->getPitchSpreadCents(); },
+        [&] (int& c)
+        { setDetuneAmount (c); });
 }
 
 template class ChoosableOscillator< float >;

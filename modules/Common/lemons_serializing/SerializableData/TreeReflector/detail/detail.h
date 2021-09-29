@@ -22,6 +22,26 @@ void TreeReflector::add (const String& propertyName, Type& object)
 }
 
 template < typename Type >
+void TreeReflector::addLambdaSet (const String& propertyName,
+                                  std::function< Type() >
+                                      saveToTree,
+                                  std::function< void (Type&) >
+                                      loadFromTree)
+{
+    if (isLoading())
+    {
+        Type object;
+        load (propertyName, object);
+        loadFromTree (object);
+    }
+    else
+    {
+        auto object = saveToTree();
+        save (propertyName, object);
+    }
+}
+
+template < typename Type >
 void TreeReflector::load (const String& propertyName, Type& object)
 {
     using namespace TreeReflectorHelpers;
