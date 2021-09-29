@@ -42,9 +42,7 @@ echo "" > .nojekyll
 echo "Publishing documentation..."
 
 git add --all
-
 git commit -m "Updating documentation"
-
 git push --force "https://${GH_REPO_TOKEN}@github.com/benthevining/Lemons.git" > /dev/null 2>&1
 
 exit 0
