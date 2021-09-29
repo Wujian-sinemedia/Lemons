@@ -953,6 +953,11 @@
     <namespace>lemons::plugin::presets</namespace>
   </compound>
   <compound kind="file">
+    <name>main_page.md</name>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/</path>
+    <filename>main__page_8md.html</filename>
+  </compound>
+  <compound kind="file">
     <name>mathHelpers.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_core/math/</path>
     <filename>mathHelpers_8h.html</filename>
@@ -19674,5 +19679,10 @@
       <anchor>ae1c5df4348af2db72ad43e54102097bb</anchor>
       <arglist>()</arglist>
     </member>
+  </compound>
+  <compound kind="page">
+    <name>index</name>
+    <title></title>
+    <filename>index</filename>
   </compound>
 </tagfile>
