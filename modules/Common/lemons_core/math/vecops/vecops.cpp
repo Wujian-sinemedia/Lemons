@@ -12,7 +12,7 @@ namespace bav::vecops
 template < typename Type >
 void fill (Type* vector, Type value, int count)
 {
-#if BV_USE_VDSP
+#if LEMONS_USE_VDSP
     BV_VDSP_FUNC_SWITCH (vDSP_vfill, vDSP_vfillD,
                          &value, vector, vDSP_Stride (1), vDSP_Length (count))
 #else
@@ -31,7 +31,7 @@ void fill (int* vector, int value, int count)
 template < typename Type1, typename Type2 >
 void convert (Type1* const dst, const Type2* const src, int count)
 {
-#if BV_USE_VDSP
+#if LEMONS_USE_VDSP
     if constexpr (std::is_same_v< Type1, double >)
         vDSP_vspdp (src, vDSP_Stride (1), dst, vDSP_Stride (1), vDSP_Length (count));
     else
@@ -49,7 +49,7 @@ template void convert (double* const, const float* const, int);
 template < typename Type >
 void addC (Type* vector, Type value, int count)
 {
-#if BV_USE_VDSP
+#if LEMONS_USE_VDSP
     BV_VDSP_FUNC_SWITCH (vDSP_vsadd, vDSP_vsaddD,
                          vector, vDSP_Stride (1), &value, vector, vDSP_Stride (1), vDSP_Length (count))
 #else
@@ -69,7 +69,7 @@ void addC (int* vector, int value, int count)
 template < typename Type >
 void addV (Type* vecA, const Type* vecB, int count)
 {
-#if BV_USE_VDSP
+#if LEMONS_USE_VDSP
     BV_VDSP_FUNC_SWITCH (vDSP_vadd, vDSP_vaddD,
                          vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count))
 #else
@@ -89,7 +89,7 @@ void addV (int* vecA, const int* vecB, int count)
 template < typename Type >
 void subtractC (Type* vector, Type value, int count)
 {
-#if BV_USE_VDSP
+#if LEMONS_USE_VDSP
     const auto val = -value;
 
     BV_VDSP_FUNC_SWITCH (vDSP_vsadd, vDSP_vsaddD,
@@ -111,7 +111,7 @@ void subtractC (int* vector, int value, int count)
 template < typename Type >
 void subtractV (Type* vecA, const Type* vecB, int count)
 {
-#if BV_USE_VDSP
+#if LEMONS_USE_VDSP
     BV_VDSP_FUNC_SWITCH (vDSP_vsub, vDSP_vsubD,
                          vecA, vDSP_Stride (1), vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count))
 #else
@@ -132,7 +132,7 @@ void subtractV (int* vecA, const int* vecB, int count)
 template < typename Type >
 void multiplyC (Type* vector, Type value, int count)
 {
-#if BV_USE_VDSP
+#if LEMONS_USE_VDSP
     BV_VDSP_FUNC_SWITCH (vDSP_vsmul, vDSP_vsmulD,
                          vector, vDSP_Stride (1), &value, vector, vDSP_Stride (1), vDSP_Length (count))
 #else
@@ -153,7 +153,7 @@ void multiplyC (int* vector, int value, int count)
 template < typename Type >
 void multiplyV (Type* vecA, const Type* vecB, int count)
 {
-#if BV_USE_VDSP
+#if LEMONS_USE_VDSP
     BV_VDSP_FUNC_SWITCH (vDSP_vmul, vDSP_vmulD,
                          vecA, vDSP_Stride (1), vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count))
 #else
@@ -173,7 +173,7 @@ void multiplyV (int* vecA, const int* vecB, int count)
 template < typename Type >
 void divideC (Type* vector, Type value, int count)
 {
-#if BV_USE_VDSP
+#if LEMONS_USE_VDSP
     BV_VDSP_FUNC_SWITCH (vDSP_vsdiv, vDSP_vsdivD,
                          vector, vDSP_Stride (1), &value, vector, vDSP_Stride (1), vDSP_Length (count))
 #else
@@ -196,7 +196,7 @@ void divideC (int* vector, int value, int count)
 template < typename Type >
 void divideV (Type* vecA, const Type* vecB, int count)
 {
-#if BV_USE_VDSP
+#if LEMONS_USE_VDSP
     BV_VDSP_FUNC_SWITCH (vDSP_vdiv, vDSP_vdivD,
                          vecB, vDSP_Stride (1), vecA, vDSP_Stride (1), vecA, vDSP_Stride (1), vDSP_Length (count))
 #else
@@ -218,7 +218,7 @@ void divideV (int* vecA, const int* vecB, int count)
 template < typename Type >
 void squareRoot (Type* data, int dataSize)
 {
-#if BV_USE_VDSP
+#if LEMONS_USE_VDSP
     BV_VDSP_FUNC_SWITCH (vvsqrtf, vvsqrt,
                          data, data, &dataSize)
 #else
@@ -232,7 +232,7 @@ template void squareRoot (double*, int);
 template < typename Type >
 void square (Type* data, int dataSize)
 {
-#if BV_USE_VDSP
+#if LEMONS_USE_VDSP
     BV_VDSP_FUNC_SWITCH (vDSP_vsq, vDSP_vsqD,
                          data, vDSP_Stride (1), data, vDSP_Stride (1), vDSP_Length (dataSize))
 #else
@@ -253,7 +253,7 @@ void square (int* data, int size)
 template < typename Type >
 void absVal (Type* data, int dataSize)
 {
-#if BV_USE_VDSP
+#if LEMONS_USE_VDSP
     BV_VDSP_FUNC_SWITCH (vvfabsf, vvfabs,
                          data, data, &dataSize)
 #else
@@ -274,7 +274,7 @@ void absVal (int* data, int size)
 template < typename Type >
 int findIndexOfMinElement (const Type* data, int dataSize)
 {
-#if BV_USE_VDSP
+#if LEMONS_USE_VDSP
     unsigned long index   = 0.0;
     Type          minimum = Type (0);
 
@@ -299,7 +299,7 @@ int findIndexOfMinElement (const int* data, int size)
 template < typename Type >
 int findIndexOfMaxElement (const Type* data, int dataSize)
 {
-#if BV_USE_VDSP
+#if LEMONS_USE_VDSP
     unsigned long index   = 0.0;
     Type          maximum = Type (0);
 
@@ -326,7 +326,7 @@ void findMinAndMinIndex (const Type* data,
                          Type&       minimum,
                          int&        minIndex)
 {
-#if BV_USE_VDSP
+#if LEMONS_USE_VDSP
     unsigned long index = 0.0;
 
     BV_VDSP_FUNC_SWITCH (vDSP_minvi, vDSP_minviD,
@@ -356,7 +356,7 @@ void findMaxAndMaxIndex (const Type* data,
                          Type&       maximum,
                          int&        maxIndex)
 {
-#if BV_USE_VDSP
+#if LEMONS_USE_VDSP
     unsigned long index = 0.0;
 
     BV_VDSP_FUNC_SWITCH (vDSP_maxvi, vDSP_maxviD,
@@ -386,7 +386,7 @@ void locateGreatestAbsMagnitude (const Type* data,
                                  Type&       greatestMagnitude,
                                  int&        index)
 {
-#if BV_USE_VDSP
+#if LEMONS_USE_VDSP
     unsigned long i = 0.0;
 
     BV_VDSP_FUNC_SWITCH (vDSP_maxmgvi, vDSP_maxmgviD,
@@ -442,7 +442,7 @@ void locateLeastAbsMagnitude (const Type* data,
                               Type&       leastMagnitude,
                               int&        index)
 {
-#if BV_USE_VDSP
+#if LEMONS_USE_VDSP
     unsigned long i = 0.0;
 
     BV_VDSP_FUNC_SWITCH (vDSP_minmgvi, vDSP_minmgviD,
@@ -495,7 +495,7 @@ void locateLeastAbsMagnitude (const int* data, int dataSize, int& leastMagnitude
 template < typename Type >
 void findExtrema (const Type* data, int dataSize, Type& min, Type& max)
 {
-#if BV_USE_VDSP
+#if LEMONS_USE_VDSP
 
     BV_VDSP_FUNC_SWITCH (vDSP_minv, vDSP_minvD,
                          data, vDSP_Stride (1), &min, vDSP_Length (dataSize))
@@ -522,7 +522,7 @@ template < typename Type >
 Type findRangeOfExtrema (const Type* data,
                          int         dataSize)
 {
-#if BV_USE_VDSP
+#if LEMONS_USE_VDSP
     Type min = 0.0f, max = 0.0f;
     findExtrema (data, dataSize, min, max);
     return max - min;
@@ -543,7 +543,7 @@ int findRangeOfExtrema (const int* data, int dataSize)
 template < typename Type >
 void normalize (Type* vector, int size)
 {
-#if BV_USE_VDSP
+#if LEMONS_USE_VDSP
     Type          max = Type (0);
     unsigned long i   = 0.0;
 
@@ -595,7 +595,7 @@ template void copy (const int* const, int* const, int);
 
 constexpr bool isUsingVDSP()
 {
-#if BV_USE_VDSP
+#if LEMONS_USE_VDSP
     return true;
 #else
     return false;

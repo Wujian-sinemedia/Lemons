@@ -1,7 +1,7 @@
 
 #pragma once
 
-#if BV_HAS_BINARY_DATA
+#if LEMONS_HAS_BINARY_DATA
 #    include "BinaryData.h"
 #endif
 

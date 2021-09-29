@@ -19,32 +19,31 @@
 
 
 //==============================================================================
-/** Config: BV_HAS_BINARY_DATA
+/** Config: LEMONS_HAS_BINARY_DATA
  
     Set this to 1 if your project has a juce binary data target.
+    The Lemons repo's cmake scripts set this automatically for you; if that's how you added the Lemons package, then you don't need to worry about setting this manually.
  */
-#ifndef BV_HAS_BINARY_DATA
-#    define BV_HAS_BINARY_DATA 0
+#ifndef LEMONS_HAS_BINARY_DATA
+#    define LEMONS_HAS_BINARY_DATA 0
 #endif
 
 
 //==============================================================================
-/** Config: BV_USE_VDSP
+/** Config: LEMONS_USE_VDSP
  
     Set this to 1 to use Apple's vDSP library for vecops SIMD.
     vDSP ships with the OS on Mac and iOS, which is why it's the default on Apple platforms.
-    (Setting this to 1 disables IPP, Ne10 and MIPP.)
+    The Lemons repo's cmake scripts set this automatically for you; if that's how you added the Lemons package, then you don't need to worry about setting this manually.
  */
-#ifndef BV_USE_VDSP
+#ifndef LEMONS_USE_VDSP
 #    if JUCE_IOS || JUCE_MAC
-#        define BV_USE_VDSP 1
+#        define LEMONS_USE_VDSP 1
 #    else
-#        define BV_USE_VDSP 0
+#        define LEMONS_USE_VDSP 0
 #    endif
 #endif
 
-#undef JUCE_USE_VDSP_FRAMEWORK
-#define JUCE_USE_VDSP_FRAMEWORK BV_USE_VDSP
 
 /*=======================================================================*/
 

@@ -34,20 +34,20 @@ function (lemons_add_resources_folder)
         if (files)
             juce_add_binary_data (${resourcesTarget} SOURCES ${files})
             set_target_properties (${resourcesTarget} PROPERTIES POSITION_INDEPENDENT_CODE TRUE)
-            target_compile_definitions (${resourcesTarget} INTERFACE BV_HAS_BINARY_DATA=1)
+            target_compile_definitions (${resourcesTarget} INTERFACE LEMONS_HAS_BINARY_DATA=1)
         else()
             message (WARNING "No files found for inclusion in resources target!")
+            return()
+        endif()
+
+        if (NOT TARGET ${resourcesTarget})
+            message (WARNING "Error creating resources target.")
             return()
         endif()
 
     endif()
 
     juce_add_bundle_resources_directory (${LEMONS_RSRC_FLDR_TARGET} ${LEMONS_RSRC_FLDR_FOLDER})
-
-    if (NOT TARGET ${resourcesTarget})
-        message (WARNING "Error -- resources target not found, or could not be created for ${LEMONS_RSRC_FLDR_TARGET}")
-        return()
-    endif()
 
     target_link_libraries (${LEMONS_RSRC_FLDR_TARGET} PRIVATE ${resourcesTarget})
     

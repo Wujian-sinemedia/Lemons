@@ -2,7 +2,7 @@
 
 namespace bav
 {
-#if BV_HAS_BINARY_DATA
+#if LEMONS_HAS_BINARY_DATA
 
 RawData::RawData (const String& fileToFind)
     : RawData (fileToFind.toRawUTF8())
@@ -32,7 +32,7 @@ bool RawData::isValid() const
 }
 
 
-#else /* if BV_HAS_BINARY_DATA */
+#else /* if LEMONS_HAS_BINARY_DATA */
 
 RawData::RawData (const String&)
 {

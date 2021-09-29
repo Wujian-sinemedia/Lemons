@@ -3,7 +3,7 @@ add_library (Vecops INTERFACE)
 #
 
 if (APPLE)
-	target_compile_definitions (Vecops INTERFACE JUCE_USE_VDSP_FRAMEWORK=1 BV_USE_VDSP=1)
+	target_compile_definitions (Vecops INTERFACE JUCE_USE_VDSP_FRAMEWORK=1 LEMONS_USE_VDSP=1)
 	message (STATUS " -- using vDSP for vecops -- ")
 	return()
 endif()
