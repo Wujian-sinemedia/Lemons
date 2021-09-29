@@ -1,7 +1,7 @@
 
 #pragma once
 
-namespace bav
+namespace lemons
 {
 template < typename SampleType >
 struct ValueSmoother : juce::SmoothedValue< SampleType, juce::ValueSmoothingTypes::Multiplicative >

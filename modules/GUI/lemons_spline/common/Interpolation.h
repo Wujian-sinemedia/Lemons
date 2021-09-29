@@ -1,6 +1,6 @@
 #pragma once
 
-namespace bav::spline::interpolation
+namespace lemons::spline::interpolation
 {
 Point lin (const Point& a, const Point& b, float x) noexcept;
 

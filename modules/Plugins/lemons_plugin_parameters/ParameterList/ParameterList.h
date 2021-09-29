@@ -3,7 +3,7 @@
 
 #include "ParameterHolder.h"
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 class ParameterList : public SerializableData
 {

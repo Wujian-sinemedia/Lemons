@@ -1,5 +1,5 @@
 
-namespace bav::dsp
+namespace lemons::dsp
 {
 template < typename SampleType >
 void AudioFIFO< SampleType >::pushSamples (const SampleType* samples, int numSamples)

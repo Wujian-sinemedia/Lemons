@@ -1,5 +1,5 @@
 
-namespace bav
+namespace lemons
 {
 template < typename SampleType >
 void ValueSmoother< SampleType >::set (SampleType newGain, bool snapImmediately)

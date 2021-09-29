@@ -4,7 +4,7 @@
     Simple de-esser that works by sending the input signal through an inverted noise gate sidechained by a hi-passed version of the original signal.
 */
 
-namespace bav::dsp::FX
+namespace lemons::dsp::FX
 {
 template < typename SampleType >
 class DeEsser : public LevelReportingAudioEffect< SampleType >

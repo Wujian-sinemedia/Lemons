@@ -1,7 +1,7 @@
 
 #pragma once
 
-namespace bav::serializing
+namespace lemons::serializing
 {
 class DataSynchronizer
 {

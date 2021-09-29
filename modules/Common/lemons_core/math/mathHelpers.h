@@ -1,7 +1,7 @@
 
 #pragma once
 
-namespace bav::math
+namespace lemons::math
 {
 //  returns true a specified percent of the time
 bool probability (int percentOfTheTime) noexcept;

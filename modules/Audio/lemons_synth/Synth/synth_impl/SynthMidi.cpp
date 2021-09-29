@@ -1,6 +1,6 @@
 
 
-namespace bav::dsp
+namespace lemons::dsp
 {
 template < typename SampleType >
 void SynthBase< SampleType >::processMidiEvent (const MidiMessage& m)

@@ -1,4 +1,4 @@
-namespace bav::plugin::presets
+namespace lemons::plugin::presets
 {
 FactoryPresetsManager::FactoryPresetsManager (StateBase&    stateToUse,
                                               const String& companyNameToUse,

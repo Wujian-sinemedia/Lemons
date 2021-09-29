@@ -1,7 +1,7 @@
 #pragma once
 
 
-namespace bav::spline
+namespace lemons::spline
 {
 class Editor : public juce::Component
 {

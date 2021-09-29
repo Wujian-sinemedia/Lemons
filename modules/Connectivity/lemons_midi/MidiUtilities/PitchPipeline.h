@@ -1,7 +1,7 @@
 
 #pragma once
 
-namespace bav::midi
+namespace lemons::midi
 {
 struct PitchPipeline
 {

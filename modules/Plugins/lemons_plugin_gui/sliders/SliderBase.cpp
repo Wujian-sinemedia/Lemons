@@ -1,5 +1,5 @@
 
-namespace bav::gui
+namespace lemons::gui
 {
 SliderBase::SliderBase (plugin::Parameter& paramToUse)
     : param (paramToUse)

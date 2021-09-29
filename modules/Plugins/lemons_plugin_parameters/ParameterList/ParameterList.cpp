@@ -1,5 +1,5 @@
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 ParameterList::ParameterList (juce::Identifier name, UndoManager* um)
     : SerializableData (name), undo (um)

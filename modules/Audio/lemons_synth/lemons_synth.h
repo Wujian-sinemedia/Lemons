@@ -16,7 +16,7 @@ END_JUCE_MODULE_DECLARATION
  -------------------------------------------------------------------------------------*/
 
 
-namespace bav::dsp
+namespace lemons::dsp
 {
 template < typename SampleType >
 class SynthBase;

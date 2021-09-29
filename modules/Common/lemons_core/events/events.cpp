@@ -1,5 +1,5 @@
 
-namespace bav::events
+namespace lemons::events
 {
 void Broadcaster::trigger()
 {

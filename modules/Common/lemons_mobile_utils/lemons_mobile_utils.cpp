@@ -12,7 +12,7 @@
 #endif
 
 
-namespace bav
+namespace lemons
 {
 #if ! JUCE_ANDROID /* this impl works for iOS and desktop */
 

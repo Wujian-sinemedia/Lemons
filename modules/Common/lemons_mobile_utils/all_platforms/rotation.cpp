@@ -1,5 +1,5 @@
 
-namespace bav
+namespace lemons
 {
 DeviceRotationListener::DeviceRotationListener (std::function< void() > callbackToUse)
     : callback (std::move (callbackToUse))

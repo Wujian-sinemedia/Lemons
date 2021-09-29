@@ -1,6 +1,6 @@
 #pragma once
 
-namespace bav::dsp::filters
+namespace lemons::dsp::filters
 {
 template < typename T >
 struct Coefs : Array< T >

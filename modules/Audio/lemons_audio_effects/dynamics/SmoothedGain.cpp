@@ -1,5 +1,5 @@
 
-namespace bav::dsp::FX
+namespace lemons::dsp::FX
 {
 template < typename SampleType, size_t channels >
 SmoothedGain< SampleType, channels >::SmoothedGain()

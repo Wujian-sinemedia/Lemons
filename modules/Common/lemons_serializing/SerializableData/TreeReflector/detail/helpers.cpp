@@ -1,5 +1,5 @@
 
-namespace bav::TreeReflectorHelpers
+namespace lemons::TreeReflectorHelpers
 {
 String propertyNameToContainerName (const String& propertyName)
 {

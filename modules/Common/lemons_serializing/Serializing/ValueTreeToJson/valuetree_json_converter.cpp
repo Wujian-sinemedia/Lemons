@@ -1,4 +1,4 @@
-namespace bav::serializing
+namespace lemons::serializing
 {
 static inline juce::var valueTreeToVar (const ValueTree& v)
 {

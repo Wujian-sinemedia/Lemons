@@ -1,7 +1,7 @@
 #pragma once
 
 
-namespace bav::dsp::FX
+namespace lemons::dsp::FX
 {
 /*
     handy little class that calculates right and left gain values that should be applied to a mono signal in order to place at a desired stereo location.

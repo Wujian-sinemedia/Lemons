@@ -1,5 +1,5 @@
 
-namespace bav
+namespace lemons
 {
 DefaultWindowBase::DefaultWindowBase (const String& appName, const juce::Point< int >& initSize)
     : DocumentWindow (appName, getBackgroundColour(), allButtons)

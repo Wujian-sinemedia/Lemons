@@ -1,6 +1,6 @@
 #pragma once
 
-namespace bav::TreeReflectorHelpers
+namespace lemons::TreeReflectorHelpers
 {
 template < typename ElementType, size_t size >
 struct StdArrayInterface : ContainerInterface

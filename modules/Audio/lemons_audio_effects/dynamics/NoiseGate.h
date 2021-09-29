@@ -3,7 +3,7 @@
 
 #include <juce_dsp/juce_dsp.h>
 
-namespace bav::dsp::FX
+namespace lemons::dsp::FX
 {
 /*
         Simple noise gate that allows you to sidechain the signal.

@@ -1,4 +1,4 @@
-namespace bav::gui
+namespace lemons::gui
 {
 PopupComponent::PopupComponent (std::function< void() > toClose)
     : closeFunc (toClose)

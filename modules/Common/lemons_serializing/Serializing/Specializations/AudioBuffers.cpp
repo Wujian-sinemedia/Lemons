@@ -1,5 +1,5 @@
 
-namespace bav
+namespace lemons
 {
 juce::MemoryBlock toMemory (const juce::AudioBuffer< float >& buffer)
 {

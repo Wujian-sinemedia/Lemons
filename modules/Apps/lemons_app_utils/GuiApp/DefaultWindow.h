@@ -3,7 +3,7 @@
 #include <lemons_serializing/lemons_serializing.h>
 #include <lemons_mobile_utils/lemons_mobile_utils.h>
 
-namespace bav
+namespace lemons
 {
 struct DefaultWindowBase : public juce::DocumentWindow
 {

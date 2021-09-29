@@ -1,5 +1,5 @@
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 template < typename SampleType >
 ParameterProcessorBase< SampleType >::ParameterProcessorBase (ParameterList& listToUse)

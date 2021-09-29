@@ -1,5 +1,5 @@
 
-namespace bav::midi
+namespace lemons::midi
 {
 void PitchConverter::Deleter::operator() (MTSClient* c)
 {

@@ -4,7 +4,7 @@
 #include "Grains/GrainExtractor/GrainExtractor.h"
 #include "Grains/GrainStorage/GrainStorage.h"
 
-namespace bav::dsp::psola
+namespace lemons::dsp::psola
 {
 template < typename SampleType >
 class Analyzer

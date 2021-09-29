@@ -1,5 +1,5 @@
 
-namespace bav::dsp::psola
+namespace lemons::dsp::psola
 {
 template < typename SampleType >
 void PeakFinder< SampleType >::releaseResources()
@@ -251,7 +251,7 @@ int PeakFinder< SampleType >::chooseIdealPeakCandidate (
 
     for (int i = 0; i < finalHandfulSize; ++i)
     {
-        bav::vecops::findMinAndMinIndex (
+        lemons::vecops::findMinAndMinIndex (
             candidateDeltas.getRawDataPointer(), dataSize, minimum, minimumIndex);
 
         finalHandfulDeltas.add (minimum);
@@ -267,7 +267,7 @@ int PeakFinder< SampleType >::chooseIdealPeakCandidate (
 
     // 3. choose the strongest overall peak from these final candidates, with peaks weighted by their delta values
 
-    const auto deltaRange = bav::vecops::findRangeOfExtrema (
+    const auto deltaRange = lemons::vecops::findRangeOfExtrema (
         finalHandfulDeltas.getRawDataPointer(), finalHandfulDeltas.size());
 
     if (deltaRange < 0.05f)  // prevent dividing by 0 in the next step...

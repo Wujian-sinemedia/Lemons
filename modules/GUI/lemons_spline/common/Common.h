@@ -4,7 +4,7 @@
 #include <lemons_serializing/lemons_serializing.h>
 
 
-namespace bav::spline
+namespace lemons::spline
 {
 using Point = juce::Point< float >;
 

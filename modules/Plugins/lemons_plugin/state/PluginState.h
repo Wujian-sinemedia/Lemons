@@ -1,6 +1,6 @@
 #pragma once
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 template < typename StateType, BV_MUST_INHERIT_FROM (StateType, StateBase) >
 struct PluginState : SerializableData

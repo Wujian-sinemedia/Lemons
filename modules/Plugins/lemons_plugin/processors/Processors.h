@@ -1,6 +1,6 @@
 #pragma once
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 template < class StateType, template < typename SampleType > class EngineType, BV_MUST_INHERIT_FROM (StateType, StateBase), BV_MUST_INHERIT_FROM (EngineType< float >, dsp::Engine< float >) >
 class Processor : public ProcessorBase

@@ -1,7 +1,7 @@
 
 #pragma once
 
-namespace bav::midi
+namespace lemons::midi
 {
 // returns true if the given midinote is a black key
 template < typename noteType >

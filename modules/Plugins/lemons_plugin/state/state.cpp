@@ -1,5 +1,5 @@
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 StateBase::StateBase (String pluginName, ParameterList& paramsToUse, SerializableData* customStateDataToUse)
     : SerializableData (pluginName + "_State"), dimensions (pluginName + "_Dimensions"), params (paramsToUse), customStateData (customStateDataToUse)

@@ -2,7 +2,7 @@
 
 #include <lemons_spline/common/Common.h>
 
-namespace bav::spline
+namespace lemons::spline
 {
 struct Spline : SerializableData
 {

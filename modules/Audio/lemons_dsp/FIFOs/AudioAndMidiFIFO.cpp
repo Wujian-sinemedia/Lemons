@@ -1,5 +1,5 @@
 
-namespace bav::dsp
+namespace lemons::dsp
 {
 template < typename SampleType >
 AudioAndMidiFIFO< SampleType >::AudioAndMidiFIFO (int channels, int samples)

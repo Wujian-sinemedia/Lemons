@@ -1,7 +1,7 @@
 
 #include "Interpolation.h"
 
-namespace bav::spline
+namespace lemons::spline
 {
 Knot::Knot (float xToUse, float yToUse)
     : location (xToUse, yToUse)

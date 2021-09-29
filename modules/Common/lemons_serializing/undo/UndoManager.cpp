@@ -1,4 +1,4 @@
-namespace bav
+namespace lemons
 {
 UndoManager::UndoManager (SerializableData& stateToManage)
     : state (stateToManage)

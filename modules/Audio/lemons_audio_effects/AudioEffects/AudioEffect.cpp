@@ -1,4 +1,4 @@
-namespace bav::dsp::FX
+namespace lemons::dsp::FX
 {
 template < typename SampleType >
 void AudioEffect< SampleType >::prepare (double, int)

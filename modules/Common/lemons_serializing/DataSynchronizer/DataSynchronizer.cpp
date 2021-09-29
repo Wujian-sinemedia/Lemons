@@ -1,5 +1,5 @@
 
-namespace bav::serializing
+namespace lemons::serializing
 {
 DataSynchronizer::DataSynchronizer (SerializableData& dataToUse)
     : managedState (dataToUse)

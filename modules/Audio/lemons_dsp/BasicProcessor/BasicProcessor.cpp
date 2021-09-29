@@ -1,5 +1,5 @@
 
-namespace bav::dsp
+namespace lemons::dsp
 {
 BasicProcessorBase::BasicProcessorBase (juce::AudioProcessor::BusesProperties busesLayout)
     : AudioProcessor (busesLayout)

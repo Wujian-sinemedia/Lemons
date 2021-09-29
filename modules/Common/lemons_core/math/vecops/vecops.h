@@ -1,7 +1,7 @@
 
 #pragma once
 
-namespace bav::vecops
+namespace lemons::vecops
 {
 /* fills a vector with the specified value. */
 template < typename Type >

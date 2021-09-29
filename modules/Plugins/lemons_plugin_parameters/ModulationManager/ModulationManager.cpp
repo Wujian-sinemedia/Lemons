@@ -1,5 +1,5 @@
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 void ModulationManager::LFO::prepareToPlay (int numSamples, double samplerate)
 {

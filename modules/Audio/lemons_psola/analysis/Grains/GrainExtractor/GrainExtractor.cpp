@@ -1,5 +1,5 @@
 
-namespace bav::dsp::psola
+namespace lemons::dsp::psola
 {
 template < typename SampleType >
 void AnalysisGrainExtractor< SampleType >::releaseResources()

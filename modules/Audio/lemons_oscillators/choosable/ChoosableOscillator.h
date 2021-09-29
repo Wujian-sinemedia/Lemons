@@ -3,7 +3,7 @@
 #include "OscEngine.h"
 #include <lemons_serializing/lemons_serializing.h>
 
-namespace bav::dsp::osc
+namespace lemons::dsp::osc
 {
 enum OscType
 {

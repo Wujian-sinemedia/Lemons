@@ -1,6 +1,6 @@
 #pragma once
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 template < typename ValueType >
 class TypedParameter : public Parameter

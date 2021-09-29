@@ -1,6 +1,6 @@
 #pragma once
 
-namespace bav::gui
+namespace lemons::gui
 {
 struct Label : juce::Label
 {

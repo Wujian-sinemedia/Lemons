@@ -4,7 +4,7 @@
 #include <juce_audio_utils/juce_audio_utils.h>
 #include <lemons_core/lemons_core.h>
 
-namespace bav::dsp
+namespace lemons::dsp
 {
 template < typename SampleType >
 class CircularBuffer

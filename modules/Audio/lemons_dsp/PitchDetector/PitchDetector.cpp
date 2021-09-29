@@ -3,7 +3,7 @@
 #    include <Accelerate/Accelerate.h>
 #endif
 
-namespace bav::dsp
+namespace lemons::dsp
 {
 inline int getMaxHzToUse (int min, int inputMax)
 {

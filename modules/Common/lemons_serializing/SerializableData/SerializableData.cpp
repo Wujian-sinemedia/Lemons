@@ -1,5 +1,5 @@
 
-namespace bav
+namespace lemons
 {
 SerializableData::SerializableData (juce::Identifier identifier)
     : dataIdentifier (identifier)

@@ -1,5 +1,5 @@
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 inline String paramNameToID (const String& name)
 {

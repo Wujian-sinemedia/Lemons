@@ -3,7 +3,7 @@
 #include <juce_data_structures/juce_data_structures.h>
 #include <lemons_core/lemons_core.h>
 
-namespace bav
+namespace lemons
 {
 struct SerializableData;
 

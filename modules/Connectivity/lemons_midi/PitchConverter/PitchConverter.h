@@ -3,7 +3,7 @@
 #include <libMTSClient.h>
 
 
-namespace bav::midi
+namespace lemons::midi
 {
 class PitchConverter
 {

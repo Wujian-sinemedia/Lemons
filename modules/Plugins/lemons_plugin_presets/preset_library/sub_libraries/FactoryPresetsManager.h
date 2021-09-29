@@ -2,7 +2,7 @@
 
 #include "SubLibrary.h"
 
-namespace bav::plugin::presets
+namespace lemons::plugin::presets
 {
 class FactoryPresetsManager : public SubLibrary
 /*

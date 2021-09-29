@@ -1,5 +1,5 @@
 
-namespace bav::midi
+namespace lemons::midi
 {
 template < typename noteType >
 bool isMidiNoteBlackKey (noteType midipitch)

@@ -1,4 +1,4 @@
-namespace bav::plugin::presets
+namespace lemons::plugin::presets
 {
 DatabasePresetsManager::DatabasePresetsManager (StateBase&    stateToUse,
                                                 const String& companyNameToUse,

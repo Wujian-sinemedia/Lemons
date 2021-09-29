@@ -1,5 +1,5 @@
 
-namespace bav::dsp::FX
+namespace lemons::dsp::FX
 {
 PannerBase::PannerBase()
     : lastRecievedMidiPan (64), leftGain (0.5f), rightGain (0.5f)

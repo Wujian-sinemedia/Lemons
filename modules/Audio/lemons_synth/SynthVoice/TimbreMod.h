@@ -3,7 +3,7 @@
 #include <lemons_audio_effects/lemons_audio_effects.h>
 
 
-namespace bav::dsp::synth
+namespace lemons::dsp::synth
 {
 template < typename SampleType >
 class TimbreMod

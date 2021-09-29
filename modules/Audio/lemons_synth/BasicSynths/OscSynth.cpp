@@ -1,5 +1,5 @@
 
-namespace bav::dsp
+namespace lemons::dsp
 {
 template < typename SampleType, template < typename NumericType > class OscType >
 void OscSynthVoice< SampleType, OscType >::renderPlease (AudioBuffer< SampleType >& output, float desiredFrequency, double currentSamplerate)

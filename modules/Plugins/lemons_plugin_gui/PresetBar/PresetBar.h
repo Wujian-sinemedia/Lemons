@@ -6,7 +6,7 @@
 #include "PresetSavingComponent/PresetSavingComponent.h"
 #include "PresetBrowserComponent/PresetBrowserComponent.h"
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 class PresetBar : public juce::Component
 {

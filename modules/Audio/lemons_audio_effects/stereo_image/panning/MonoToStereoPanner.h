@@ -3,7 +3,7 @@
 
 #include "PannerBase.h"
 
-namespace bav::dsp::FX
+namespace lemons::dsp::FX
 {
 template < typename SampleType >
 class MonoToStereoPanner : public PannerBase

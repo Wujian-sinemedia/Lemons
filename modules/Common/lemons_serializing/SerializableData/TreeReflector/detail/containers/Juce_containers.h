@@ -1,6 +1,6 @@
 #pragma once
 
-namespace bav::TreeReflectorHelpers
+namespace lemons::TreeReflectorHelpers
 {
 BV_TRF_DECLARE_CONTAINER_INTERFACE (juce::Array, JuceArrayInterface, container.ensureStorageAllocated (newSize))
 

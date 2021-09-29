@@ -2,7 +2,7 @@
 
 #include <lemons_plugin/lemons_plugin.h>
 
-namespace bav::plugin::presets
+namespace lemons::plugin::presets
 {
 class SubLibrary
 {

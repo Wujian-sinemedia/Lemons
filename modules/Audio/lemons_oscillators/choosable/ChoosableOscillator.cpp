@@ -1,4 +1,4 @@
-namespace bav::dsp::osc
+namespace lemons::dsp::osc
 {
 template < typename SampleType >
 ChoosableOscillator< SampleType >::ChoosableOscillator()

@@ -1,5 +1,5 @@
 
-namespace bav::dsp::buffers
+namespace lemons::dsp::buffers
 {
 template < typename SampleType >
 void copy (const AudioBuffer< SampleType >& source, AudioBuffer< SampleType >& dest)

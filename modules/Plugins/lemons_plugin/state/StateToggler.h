@@ -2,7 +2,7 @@
 
 #include <lemons_serializing/lemons_serializing.h>
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 struct StateToggler : SerializableData
 {

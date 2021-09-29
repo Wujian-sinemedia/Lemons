@@ -4,7 +4,7 @@
 #include "sub_libraries/FactoryPresetsManager.h"
 #include "sub_libraries/DatabasePresetsManager.h"
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 class PresetsLibrary
 {

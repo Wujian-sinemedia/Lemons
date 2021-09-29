@@ -1,7 +1,7 @@
 
 #pragma once
 
-namespace bav
+namespace lemons
 {
 template <>
 juce::var toVar (juce::AudioBuffer< float >& buffer);

@@ -3,7 +3,7 @@
 
 #include <juce_core/juce_core.h>
 
-namespace bav
+namespace lemons
 {
 /*=====================================================================================================
  Classes dealing with motion & movement sensors

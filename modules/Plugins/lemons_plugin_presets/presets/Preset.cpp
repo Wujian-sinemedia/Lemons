@@ -1,5 +1,5 @@
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 void Preset::serialize (TreeReflector& ref)
 {

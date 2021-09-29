@@ -1,7 +1,7 @@
 
 #pragma once
 
-namespace bav::gui
+namespace lemons::gui
 {
 class PopupComponent : public juce::Component
 {

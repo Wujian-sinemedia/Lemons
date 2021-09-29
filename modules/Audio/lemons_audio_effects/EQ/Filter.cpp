@@ -1,5 +1,5 @@
 
-namespace bav::dsp::FX
+namespace lemons::dsp::FX
 {
 FilterParams::FilterParams (FilterType typeToUse, float freqToUse, float QToUse, float gainToUse)
     : type (typeToUse), freq (freqToUse), Q (QToUse), gain (gainToUse)

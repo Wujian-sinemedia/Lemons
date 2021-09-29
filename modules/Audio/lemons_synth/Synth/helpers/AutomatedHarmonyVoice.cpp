@@ -1,5 +1,5 @@
 
-namespace bav::dsp::synth
+namespace lemons::dsp::synth
 {
 template < typename SampleType >
 AutomatedHarmonyVoice< SampleType >::AutomatedHarmonyVoice (SynthBase< SampleType >& synthToUse, bool shiftUp)

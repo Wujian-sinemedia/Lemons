@@ -1,5 +1,5 @@
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 template < typename SampleType >
 ProcessorInternalEngine< SampleType >::ParameterProcessor::ParameterProcessor (ProcessorInternalEngine& parent)

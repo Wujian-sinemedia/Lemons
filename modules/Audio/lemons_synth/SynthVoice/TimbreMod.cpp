@@ -1,5 +1,5 @@
 
-namespace bav::dsp::synth
+namespace lemons::dsp::synth
 {
 template < typename SampleType >
 TimbreMod< SampleType >::TimbreMod (const FX::FilterParams& filterParamsToUse, const float& gainValueToUse, const bool& filterToggleToUse)

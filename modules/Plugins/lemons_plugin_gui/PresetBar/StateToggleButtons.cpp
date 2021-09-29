@@ -1,5 +1,5 @@
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 StateToggleButtons::StateToggleButtons (StateToggler& togglerToUse)
     : toggler (togglerToUse)

@@ -3,7 +3,7 @@
 
 #include <juce_gui_basics/juce_gui_basics.h>
 
-namespace bav
+namespace lemons
 {
 /*=====================================================================================================
  Classes dealing with screen rotation

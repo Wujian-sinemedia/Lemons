@@ -1,5 +1,5 @@
 
-namespace bav::gui
+namespace lemons::gui
 {
 Label::Label (const String& textToUse)
     : juce::Label (textToUse, textToUse)

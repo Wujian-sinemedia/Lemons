@@ -1,7 +1,7 @@
 
 #pragma once
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 struct GainParameter : public FloatParameter
 {

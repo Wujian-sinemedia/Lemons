@@ -1,5 +1,5 @@
 
-namespace bav
+namespace lemons
 {
 static String getCountryCodeToUse()
 {

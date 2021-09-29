@@ -1,6 +1,6 @@
 
 
-namespace bav
+namespace lemons
 {
 #if LEMONS_HAS_BINARY_DATA
 

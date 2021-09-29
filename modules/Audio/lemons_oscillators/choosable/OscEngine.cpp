@@ -1,5 +1,5 @@
 
-namespace bav::dsp::osc
+namespace lemons::dsp::osc
 {
 template < typename SampleType, template < typename T > class OscType >
 OscEngine< SampleType, OscType >::OscEngine()

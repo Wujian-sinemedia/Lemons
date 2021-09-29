@@ -2,7 +2,7 @@
 
 #include <lemons_dsp/lemons_dsp.h>
 
-namespace bav::ParameterValueConversionLambdas
+namespace lemons::ParameterValueConversionLambdas
 {
 /* Boolean toggles */
 static const auto

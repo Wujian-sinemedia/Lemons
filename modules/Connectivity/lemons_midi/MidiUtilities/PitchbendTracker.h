@@ -1,7 +1,7 @@
 
 #pragma once
 
-namespace bav::midi
+namespace lemons::midi
 {
 // helper class for outputting midifloat values based on input midiPitch, pitchbend, and pitchbend range controls
 class PitchBendTracker

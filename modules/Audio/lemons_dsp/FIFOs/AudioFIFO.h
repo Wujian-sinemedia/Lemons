@@ -1,6 +1,6 @@
 #pragma once
 
-namespace bav::dsp
+namespace lemons::dsp
 {
 /* FIFO for a single channel of audio samples */
 template < typename SampleType >

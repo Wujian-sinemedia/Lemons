@@ -2,7 +2,7 @@
 
 #include <lemons_oscillators/lemons_oscillators.h>
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 template < typename SampleType >
 class ModulationManagerProcessor;

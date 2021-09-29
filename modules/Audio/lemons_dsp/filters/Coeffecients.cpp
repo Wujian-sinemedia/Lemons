@@ -1,5 +1,5 @@
 
-namespace bav::dsp::filters
+namespace lemons::dsp::filters
 {
 template < typename T >
 Coefs< T >::Coefs()

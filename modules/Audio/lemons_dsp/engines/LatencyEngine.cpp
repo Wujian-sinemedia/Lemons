@@ -1,5 +1,5 @@
 
-namespace bav::dsp
+namespace lemons::dsp
 {
 template < typename SampleType >
 void LatencyEngine< SampleType >::prepared (int blocksize, double samplerate)

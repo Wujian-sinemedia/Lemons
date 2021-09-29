@@ -1,7 +1,7 @@
 
 #pragma once
 
-namespace bav::dsp::FX
+namespace lemons::dsp::FX
 {
 /*
         Class that wraps juce::Reverb into a usable interface, and includes some other functionality as well: hi- and lo-pass filters, and a sidechain-able compressor.

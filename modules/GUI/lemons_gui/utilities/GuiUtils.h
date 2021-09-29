@@ -4,7 +4,7 @@
 #include <lemons_mobile_utils/lemons_mobile_utils.h>
 #include <juce_gui_extra/juce_gui_extra.h>
 
-namespace bav::gui
+namespace lemons::gui
 {
 void scale (juce::Component& component, const juce::Rectangle< float >& boundsRatio);
 

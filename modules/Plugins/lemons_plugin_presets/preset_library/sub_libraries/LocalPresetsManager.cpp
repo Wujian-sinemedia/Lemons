@@ -1,5 +1,5 @@
 
-namespace bav::plugin::presets
+namespace lemons::plugin::presets
 {
 LocalPresetsManager::LocalPresetsManager (StateBase&    stateToUse,
                                           const String& companyNameToUse,

@@ -1,5 +1,5 @@
 
-namespace bav
+namespace lemons
 {
 template <>
 String fromVar (juce::var var)

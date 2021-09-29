@@ -1,5 +1,5 @@
 
-namespace bav
+namespace lemons
 {
 void MotionManagerInterface::accelerationChanged (double x, double y, double z)
 {

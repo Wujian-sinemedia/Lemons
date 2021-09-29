@@ -1,6 +1,6 @@
 #pragma once
 
-namespace bav
+namespace lemons
 {
 template < class Test, template < typename... > class Ref >
 struct is_specialization : std::false_type

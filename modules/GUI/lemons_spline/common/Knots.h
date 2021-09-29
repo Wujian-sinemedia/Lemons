@@ -1,6 +1,6 @@
 #pragma once
 
-namespace bav::spline
+namespace lemons::spline
 {
 struct Knot : SerializableData
 {

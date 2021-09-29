@@ -1,5 +1,5 @@
 
-namespace bav::dsp
+namespace lemons::dsp
 {
 template < typename SampleType >
 void Engine< SampleType >::prepare (double samplerate, int blocksize, int numChannels)

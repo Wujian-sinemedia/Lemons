@@ -5,7 +5,7 @@
  Intended for monophonic audio only.
  */
 
-namespace bav::dsp::psola
+namespace lemons::dsp::psola
 {
 template < typename SampleType >
 class PitchCorrectorBase

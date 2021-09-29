@@ -1,5 +1,5 @@
 
-namespace bav
+namespace lemons
 {
 TreeReflector::TreeReflector (const ValueTree& treeToUse)
     : tree (treeToUse)

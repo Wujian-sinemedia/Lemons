@@ -6,7 +6,7 @@
 #endif
 
 
-namespace bav
+namespace lemons
 {
 /* This dummy Motionmanager class can be instantiated on non-mobile devices */
 class MotionManager : public MotionManagerInterface

@@ -1,5 +1,5 @@
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 void Dimensions::serialize (TreeReflector& ref)
 {

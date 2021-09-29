@@ -1,7 +1,7 @@
 
 #pragma once
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 struct ParamHolderBase : SerializableData
 {
@@ -56,7 +56,7 @@ private:
 
 }  // namespace bav::plugin
 
-namespace bav
+namespace lemons
 {
 using FloatParam = plugin::ParameterHolder< plugin::FloatParameter >;
 using IntParam   = plugin::ParameterHolder< plugin::IntParameter >;

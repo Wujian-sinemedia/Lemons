@@ -3,7 +3,7 @@
 
 #include "Grains/SynthesisGrain.h"
 
-namespace bav::dsp::psola
+namespace lemons::dsp::psola
 {
 template < typename SampleType >
 class Shifter

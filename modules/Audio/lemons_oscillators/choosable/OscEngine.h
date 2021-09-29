@@ -1,7 +1,7 @@
 
 #pragma once
 
-namespace bav::dsp::osc
+namespace lemons::dsp::osc
 {
 template < typename SampleType, template < typename T > class OscType >
 class OscEngine : public dsp::Engine< SampleType >

@@ -1,7 +1,7 @@
 
 #include <lemons_mobile_utils/lemons_mobile_utils.h>
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 static inline bool isValidSize (const juce::Point< int >& size)
 {

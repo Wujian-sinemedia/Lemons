@@ -2,7 +2,7 @@
 
 #include <lemons_core/lemons_core.h>
 
-namespace bav::midi
+namespace lemons::midi
 {
 class MidiFIFO
 {

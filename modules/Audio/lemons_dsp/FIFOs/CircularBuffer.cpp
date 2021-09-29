@@ -1,5 +1,5 @@
 
-namespace bav::dsp
+namespace lemons::dsp
 {
 template < typename SampleType >
 void CircularBuffer< SampleType >::resize (int blocksize, int blocksizeMultipleToAllocate)

@@ -1,7 +1,7 @@
 
 #include <juce_dsp/juce_dsp.h>
 
-namespace bav::dsp::filters
+namespace lemons::dsp::filters
 {
 template < typename SampleType >
 void Filter< SampleType >::reset (SampleType resetToValue)

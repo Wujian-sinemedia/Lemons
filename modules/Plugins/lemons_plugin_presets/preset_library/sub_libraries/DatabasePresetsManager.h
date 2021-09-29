@@ -4,7 +4,7 @@
 #include "database/UserProfile.h"
 #include "database/PresetDatabase.h"
 
-namespace bav::plugin::presets
+namespace lemons::plugin::presets
 {
 class DatabasePresetsManager : public SubLibrary
 {

@@ -1,5 +1,5 @@
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 GainParameter::GainParameter (String                                  paramName,
                               float                                   defaultVal,

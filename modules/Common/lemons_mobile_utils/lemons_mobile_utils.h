@@ -29,7 +29,7 @@
 #endif
 
 
-namespace bav
+namespace lemons
 {
 // Control the auto-locking of the screen on mobile devices. On desktop, this disables the computer's screensaver.
 struct AutoLock

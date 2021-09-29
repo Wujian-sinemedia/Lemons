@@ -1,5 +1,5 @@
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 PresetBar::PresetBar (StateBase&    stateToUse,
                       StateToggler& toggler,

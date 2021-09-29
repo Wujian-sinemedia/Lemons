@@ -1,5 +1,5 @@
 
-namespace bav::math
+namespace lemons::math
 {
 bool probability (int percentOfTheTime) noexcept
 {

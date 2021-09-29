@@ -1,7 +1,7 @@
 
 #pragma once
 
-namespace bav::gui
+namespace lemons::gui
 {
 /*
  List of icons to be used with the createIcon method.

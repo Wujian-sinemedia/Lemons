@@ -1,6 +1,6 @@
 #pragma once
 
-namespace bav::dsp::synth
+namespace lemons::dsp::synth
 {
 template < typename SampleType >
 class VoiceAllocator

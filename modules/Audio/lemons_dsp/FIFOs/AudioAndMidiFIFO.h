@@ -2,7 +2,7 @@
 
 #include <lemons_midi/lemons_midi.h>
 
-namespace bav::dsp
+namespace lemons::dsp
 {
 template < typename SampleType >
 class AudioAndMidiFIFO

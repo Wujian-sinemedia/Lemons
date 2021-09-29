@@ -1,6 +1,6 @@
 #pragma once
 
-namespace bav::dsp::FX
+namespace lemons::dsp::FX
 {
 template < template < typename FloatType > class EffectType, typename SampleType, BV_MUST_INHERIT_FROM (EffectType< SampleType >, AudioEffect< SampleType >) >
 class EffectEngine : public dsp::Engine< SampleType >

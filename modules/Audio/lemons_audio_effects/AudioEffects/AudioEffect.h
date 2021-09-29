@@ -2,7 +2,7 @@
 
 #include <lemons_dsp/lemons_dsp.h>
 
-namespace bav::dsp::FX
+namespace lemons::dsp::FX
 {
 template < typename SampleType >
 struct AudioEffect

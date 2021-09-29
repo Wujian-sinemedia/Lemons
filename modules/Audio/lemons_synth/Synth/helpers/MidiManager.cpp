@@ -1,5 +1,5 @@
 
-namespace bav::dsp::synth
+namespace lemons::dsp::synth
 {
 template < typename SampleType >
 void MidiManager< SampleType >::handleMidiMessage (const MidiMessage& m)

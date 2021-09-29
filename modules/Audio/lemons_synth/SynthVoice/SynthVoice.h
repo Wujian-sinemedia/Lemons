@@ -3,7 +3,7 @@
 
 #include "TimbreMod.h"
 
-namespace bav::dsp
+namespace lemons::dsp
 {
 template < typename SampleType >
 class SynthVoiceBase

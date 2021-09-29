@@ -2,7 +2,7 @@
 
 #include <lemons_oscillators/lemons_oscillators.h>
 
-namespace bav::dsp
+namespace lemons::dsp
 {
 template < typename SampleType, template < typename NumericType > class OscType >
 struct OscSynthVoice : public SynthVoiceBase< SampleType >

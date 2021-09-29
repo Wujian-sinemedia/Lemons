@@ -3,7 +3,7 @@
 #include <lemons_plugin/lemons_plugin.h>
 
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 class StateToggleButtons : public juce::Component
 {

@@ -1,7 +1,7 @@
 
 #pragma once
 
-namespace bav::dsp::FX
+namespace lemons::dsp::FX
 {
 /*
     Simple compressor that allows you to sidechain the signal.

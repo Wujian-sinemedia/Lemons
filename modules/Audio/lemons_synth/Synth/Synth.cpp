@@ -1,5 +1,5 @@
 
-namespace bav::dsp
+namespace lemons::dsp
 {
 template < typename SampleType >
 void SynthBase< SampleType >::initialize (int initNumVoices, double initSamplerate, int initBlocksize)

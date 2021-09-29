@@ -2,7 +2,7 @@
 
 #include "CASLoop.h"
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 template < typename OwnedObjectType >
 class RealtimeStateObject

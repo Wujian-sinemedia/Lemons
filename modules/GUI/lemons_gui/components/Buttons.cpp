@@ -1,5 +1,5 @@
 
-namespace bav::gui
+namespace lemons::gui
 {
 TextButton::TextButton (const String& buttonText, std::function< void() > whenClicked)
     : juce::TextButton (TRANS (buttonText), buttonText)

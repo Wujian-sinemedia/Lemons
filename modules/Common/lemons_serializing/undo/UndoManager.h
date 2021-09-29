@@ -1,6 +1,6 @@
 #pragma once
 
-namespace bav
+namespace lemons
 {
 class UndoManager
 {

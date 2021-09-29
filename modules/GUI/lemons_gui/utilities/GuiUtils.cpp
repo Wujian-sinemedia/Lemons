@@ -1,5 +1,5 @@
 
-namespace bav::gui
+namespace lemons::gui
 {
 ScopedCursor::ScopedCursor (
     const juce::MouseCursor& cursor,

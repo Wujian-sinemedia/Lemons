@@ -1,5 +1,5 @@
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 ParamHolderBase::ParamHolderBase (bool internal)
     : isInternal (internal)

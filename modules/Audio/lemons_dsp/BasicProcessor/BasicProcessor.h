@@ -2,7 +2,7 @@
 #pragma once
 
 
-namespace bav::dsp
+namespace lemons::dsp
 {
 class BasicProcessorBase : public juce::AudioProcessor
 {

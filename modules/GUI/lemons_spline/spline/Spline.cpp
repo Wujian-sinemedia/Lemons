@@ -1,5 +1,5 @@
 
-namespace bav::spline
+namespace lemons::spline
 {
 void Spline::serialize (TreeReflector& ref)
 {

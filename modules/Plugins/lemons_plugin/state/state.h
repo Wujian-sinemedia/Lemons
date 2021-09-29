@@ -3,7 +3,7 @@
 #include "PluginDimensions.h"
 #include <lemons_plugin_parameters/lemons_plugin_parameters.h>
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 class StateBase : public SerializableData
 {

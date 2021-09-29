@@ -3,7 +3,7 @@
 #include <lemons_dsp/lemons_dsp.h>
 
 
-namespace bav::dsp::psola
+namespace lemons::dsp::psola
 {
 template < typename SampleType >
 class PeakFinder

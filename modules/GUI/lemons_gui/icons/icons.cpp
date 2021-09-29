@@ -1,6 +1,6 @@
 
 
-namespace bav::gui
+namespace lemons::gui
 {
 static inline juce::DrawablePath createStopIcon (juce::Colour colour)
 {

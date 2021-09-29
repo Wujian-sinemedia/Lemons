@@ -1,5 +1,5 @@
 
-namespace bav::dsp::FX
+namespace lemons::dsp::FX
 {
 template < typename SampleType >
 void StereoPanner< SampleType >::prepare (double samplerate, int blocksize)

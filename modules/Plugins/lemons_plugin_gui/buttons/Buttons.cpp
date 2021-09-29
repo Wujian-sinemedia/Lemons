@@ -1,5 +1,5 @@
 
-namespace bav::gui
+namespace lemons::gui
 {
 ToggleButton::ToggleButton (plugin::BoolParameter& paramToUse, std::function< void (bool) > cb)
     : ToggleTextButton (paramToUse.getName(), [&] (bool state)

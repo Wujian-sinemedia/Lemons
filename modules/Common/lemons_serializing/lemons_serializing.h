@@ -20,7 +20,7 @@
 /*
  For any type you want to be able to serialize with treeReflector.add(YourType), simply implement these two functions within the bav namespace.
  */
-namespace bav
+namespace lemons
 {
 template < typename Type >
 juce::var toVar (Type& object)

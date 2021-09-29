@@ -3,7 +3,7 @@
 #include <lemons_serializing/lemons_serializing.h>
 
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 class Parameter : public juce::RangedAudioParameter, public SerializableData
 {

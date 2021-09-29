@@ -3,7 +3,7 @@
 
 #include "TreeReflector/TreeReflector.h"
 
-namespace bav
+namespace lemons
 {
 struct SerializableData
 {

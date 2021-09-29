@@ -2,7 +2,7 @@
 #pragma once
 
 
-namespace bav
+namespace lemons
 {
 bool thisIsTheMessageThread() noexcept;
 

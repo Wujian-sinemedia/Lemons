@@ -3,7 +3,7 @@
 
 #include "SliderBase.h"
 
-namespace bav::gui
+namespace lemons::gui
 {
 class FloatSlider : public SliderBase,
                     private plugin::FloatParameter::Listener

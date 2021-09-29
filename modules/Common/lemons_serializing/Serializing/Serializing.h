@@ -5,7 +5,7 @@
 #include "Specializations/AudioBuffers.h"
 #include "Specializations/VarSpecializations.h"
 
-namespace bav::serializing
+namespace lemons::serializing
 {
 ValueTree toTree (SerializableData& data);
 void      fromTree (const ValueTree& tree, SerializableData& data);

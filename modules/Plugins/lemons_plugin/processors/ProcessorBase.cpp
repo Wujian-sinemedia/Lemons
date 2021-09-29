@@ -1,5 +1,5 @@
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 ProcessorBase::ProcessorBase (StateBase&                            stateToUse,
                               dsp::Engine< float >&                 floatEngineToUse,

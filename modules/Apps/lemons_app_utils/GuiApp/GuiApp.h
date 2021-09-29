@@ -2,7 +2,7 @@
 
 #include "DefaultWindow.h"
 
-namespace bav
+namespace lemons
 {
 template < typename ContentComponentType, BV_MUST_INHERIT_FROM (ContentComponentType, juce::Component) >
 class GuiApp : public juce::JUCEApplication, private SystemInitializer

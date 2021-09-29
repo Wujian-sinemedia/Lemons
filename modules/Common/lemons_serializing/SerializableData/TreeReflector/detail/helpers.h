@@ -2,7 +2,7 @@
 
 #include "containers/ContainerInterface.h"
 
-namespace bav::TreeReflectorHelpers
+namespace lemons::TreeReflectorHelpers
 {
 template < typename Type >
 constexpr bool isSerializable()

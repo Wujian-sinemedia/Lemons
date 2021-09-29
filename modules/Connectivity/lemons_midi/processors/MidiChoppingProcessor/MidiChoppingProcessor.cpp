@@ -1,5 +1,5 @@
 
-namespace bav::dsp
+namespace lemons::dsp
 {
 template < typename SampleType >
 void MidiChoppingProcessor< SampleType >::prepare (int maxBlocksize)

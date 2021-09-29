@@ -2,7 +2,7 @@
 
 #include <lemons_dsp/lemons_dsp.h>
 
-namespace bav::dsp::osc
+namespace lemons::dsp::osc
 {
 template < typename SampleType >
 struct Phase

@@ -1,7 +1,7 @@
 
 #pragma once
 
-namespace bav
+namespace lemons
 {
 extern void initializeTranslations (const File& translationFile,
                                     bool        ignoreCaseOfKeys = true);

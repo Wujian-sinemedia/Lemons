@@ -2,7 +2,7 @@
 
 #include "helpers.h"
 
-namespace bav
+namespace lemons
 {
 template < typename Type >
 void TreeReflector::add (const String& propertyName, Type& object)

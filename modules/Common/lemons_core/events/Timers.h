@@ -1,6 +1,6 @@
 #pragma once
 
-namespace bav::events
+namespace lemons::events
 {
 struct TimerCallback : private juce::Timer
 {

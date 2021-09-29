@@ -1,7 +1,7 @@
 
 #pragma once
 
-namespace bav::dsp::FX
+namespace lemons::dsp::FX
 {
 template < typename SampleType >
 class StereoPanner : public PannerBase, public AudioEffect< SampleType >

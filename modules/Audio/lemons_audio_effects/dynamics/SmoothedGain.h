@@ -1,7 +1,7 @@
 
 #pragma once
 
-namespace bav::dsp::FX
+namespace lemons::dsp::FX
 {
 template < typename SampleType, size_t channels = 1 >
 class SmoothedGain : public AudioEffect< SampleType >

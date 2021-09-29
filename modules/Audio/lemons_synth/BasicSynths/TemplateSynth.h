@@ -1,6 +1,6 @@
 #pragma once
 
-namespace bav::dsp
+namespace lemons::dsp
 {
 template < typename SampleType, typename VoiceType >
 struct TemplateSynth : public SynthBase< SampleType >

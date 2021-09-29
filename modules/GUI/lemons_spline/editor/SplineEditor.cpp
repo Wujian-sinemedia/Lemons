@@ -1,5 +1,5 @@
 
-namespace bav::spline
+namespace lemons::spline
 {
 Editor::Select::Select (Editor& e) : editor (e)
 {

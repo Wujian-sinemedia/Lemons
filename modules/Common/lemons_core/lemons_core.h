@@ -52,7 +52,7 @@
 #include "misc/Preprocessor.h"
 
 
-namespace bav
+namespace lemons
 {
 using juce::File;
 using juce::MidiBuffer;

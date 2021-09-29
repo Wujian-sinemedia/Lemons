@@ -3,7 +3,7 @@
 
 #include "InternalEngine.h"
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 class ProcessorBase : public dsp::BasicProcessorBase, private SystemInitializer
 {

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 template < typename OwnedObjectType >
 class RealtimeStateObject< OwnedObjectType >::ThreadState

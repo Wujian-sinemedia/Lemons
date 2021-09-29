@@ -1,5 +1,5 @@
 
-namespace bav::dsp::FX
+namespace lemons::dsp::FX
 {
 template < typename SampleType >
 void Limiter< SampleType >::setThreshold (float thresh_dB)

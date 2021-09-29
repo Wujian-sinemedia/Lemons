@@ -1,7 +1,7 @@
 
 #pragma once
 
-namespace bav
+namespace lemons
 {
 File getFileOnDesktop (const String& fileName);
 

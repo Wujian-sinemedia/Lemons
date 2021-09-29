@@ -1,5 +1,5 @@
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 PresetsLibrary::PresetsLibrary (StateBase&    stateToUse,
                                 const String& companyNameToUse,

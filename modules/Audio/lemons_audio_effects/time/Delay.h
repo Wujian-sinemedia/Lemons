@@ -2,7 +2,7 @@
 #pragma once
 
 
-namespace bav::dsp::FX
+namespace lemons::dsp::FX
 {
 template < typename SampleType >
 class Delay : public LevelReportingAudioEffect< SampleType >

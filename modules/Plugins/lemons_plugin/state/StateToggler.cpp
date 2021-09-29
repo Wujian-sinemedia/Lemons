@@ -1,5 +1,5 @@
 
-namespace bav::plugin
+namespace lemons::plugin
 {
 StateToggler::StateToggler (SerializableData& stateToUse)
     : state (stateToUse)

@@ -1,6 +1,6 @@
 
 
-namespace bav::dsp
+namespace lemons::dsp
 {
 template < typename SampleType >
 SynthVoiceBase< SampleType >::SynthVoiceBase (SynthBase< SampleType >* base, double initSamplerate)

@@ -1,4 +1,4 @@
-namespace bav::plugin
+namespace lemons::plugin
 {
 template < typename ValueType >
 juce::NormalisableRange< float > createRange (ValueType minimum, ValueType maximum);

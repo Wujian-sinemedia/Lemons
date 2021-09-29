@@ -1,6 +1,6 @@
 #pragma once
 
-namespace bav
+namespace lemons
 {
 template < typename OwnedObjectType >
 struct CASLoop

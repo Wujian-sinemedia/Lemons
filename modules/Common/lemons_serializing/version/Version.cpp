@@ -1,5 +1,5 @@
 
-namespace bav
+namespace lemons
 {
 Version::Version (int maj, int min, int p)
     : major (maj), minor (min), patch (p)

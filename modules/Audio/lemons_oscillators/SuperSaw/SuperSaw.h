@@ -1,6 +1,6 @@
 #pragma once
 
-namespace bav::dsp::osc
+namespace lemons::dsp::osc
 {
 template < typename SampleType >
 class SuperSaw : public Oscillator< SampleType >
