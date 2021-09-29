@@ -67,6 +67,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="classlemons_1_1serializing_1_1DataSynchronizer-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">lemons::serializing::DataSynchronizer Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -79,6 +80,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5f4b193ad6d069a9259a7324ddfbfd0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b236001a8ba73e918e4137f27cc3dd4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1serializing_1_1DataSynchronizer.html#a7b236001a8ba73e918e4137f27cc3dd4">applyRecievedData</a> (const juce::MemoryBlock &amp;recievedData)</td></tr>
 <tr class="separator:a7b236001a8ba73e918e4137f27cc3dd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a44278b081df9a06a68b855451d238a15"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1serializing_1_1DataSynchronizer.html#a44278b081df9a06a68b855451d238a15">sendData</a> (const juce::MemoryBlock &amp;outgoingData)=0</td></tr>
+<tr class="separator:a44278b081df9a06a68b855451d238a15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5f4b193ad6d069a9259a7324ddfbfd0a"></a>
@@ -126,13 +132,39 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a44278b081df9a06a68b855451d238a15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44278b081df9a06a68b855451d238a15">&#9670;&nbsp;</a></span>sendData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void lemons::serializing::DataSynchronizer::sendData </td>
+          <td>(</td>
+          <td class="paramtype">const juce::MemoryBlock &amp;&#160;</td>
+          <td class="paramname"><em>outgoingData</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="DataSynchronizer_8h.html">DataSynchronizer.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Sep 29 2021 08:15:02 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Sep 29 2021 09:31:12 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

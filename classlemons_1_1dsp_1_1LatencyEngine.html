@@ -67,17 +67,20 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="classlemons_1_1dsp_1_1LatencyEngine-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">lemons::dsp::LatencyEngine&lt; SampleType &gt; Class Template Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="dynheader">
-Inheritance diagram for lemons::dsp::LatencyEngine&lt; SampleType &gt;:</div>
-<div class="dyncontent">
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::dsp::LatencyEngine&lt; SampleType &gt;:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classlemons_1_1dsp_1_1LatencyEngine__inherit__graph.svg" width="215" height="142"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
-</div>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -85,27 +88,31 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a13fce9c2a64647375473f7df8b33db35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0419e5fefcb2a16b836cb18ab8cf023"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1LatencyEngine.html#af0419e5fefcb2a16b836cb18ab8cf023">changeLatency</a> (int newInternalBlocksize)</td></tr>
 <tr class="separator:af0419e5fefcb2a16b836cb18ab8cf023"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_classlemons_1_1dsp_1_1Engine"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classlemons_1_1dsp_1_1Engine')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classlemons_1_1dsp_1_1Engine.html">lemons::dsp::Engine&lt; SampleType &gt;</a></td></tr>
-<tr class="memitem:aff2070d0265ee64b3377e7551525efa6 inherit pub_methods_classlemons_1_1dsp_1_1Engine"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#aff2070d0265ee64b3377e7551525efa6">Engine</a> ()=default</td></tr>
-<tr class="separator:aff2070d0265ee64b3377e7551525efa6 inherit pub_methods_classlemons_1_1dsp_1_1Engine"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47b57c00f1986dd60c0c620f9d404e70 inherit pub_methods_classlemons_1_1dsp_1_1Engine"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#a47b57c00f1986dd60c0c620f9d404e70">~Engine</a> ()=default</td></tr>
-<tr class="separator:a47b57c00f1986dd60c0c620f9d404e70 inherit pub_methods_classlemons_1_1dsp_1_1Engine"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48b37b72835d34fc060a1010a1fe2499 inherit pub_methods_classlemons_1_1dsp_1_1Engine"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#a48b37b72835d34fc060a1010a1fe2499">process</a> (AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, MidiBuffer &amp;midiMessages, bool isBypassed=false)</td></tr>
-<tr class="separator:a48b37b72835d34fc060a1010a1fe2499 inherit pub_methods_classlemons_1_1dsp_1_1Engine"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3668be93e3cc7b9a4340c5872be9b45 inherit pub_methods_classlemons_1_1dsp_1_1Engine"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#aa3668be93e3cc7b9a4340c5872be9b45">process</a> (const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed=false)</td></tr>
-<tr class="separator:aa3668be93e3cc7b9a4340c5872be9b45 inherit pub_methods_classlemons_1_1dsp_1_1Engine"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f813b9e44ed7518183da4afe405f44e inherit pub_methods_classlemons_1_1dsp_1_1Engine"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#a3f813b9e44ed7518183da4afe405f44e">process</a> (AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, bool isBypassed=false)</td></tr>
-<tr class="separator:a3f813b9e44ed7518183da4afe405f44e inherit pub_methods_classlemons_1_1dsp_1_1Engine"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfb2f088baaa0e07efa7bf794918d831 inherit pub_methods_classlemons_1_1dsp_1_1Engine"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#adfb2f088baaa0e07efa7bf794918d831">process</a> (const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, bool isBypassed=false)</td></tr>
-<tr class="separator:adfb2f088baaa0e07efa7bf794918d831 inherit pub_methods_classlemons_1_1dsp_1_1Engine"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a090f7c4344b0aee17162e841c255b57d inherit pub_methods_classlemons_1_1dsp_1_1Engine"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#a090f7c4344b0aee17162e841c255b57d">isInitialized</a> () const</td></tr>
-<tr class="separator:a090f7c4344b0aee17162e841c255b57d inherit pub_methods_classlemons_1_1dsp_1_1Engine"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92fe69356c54445d91e70586cc9cdf73 inherit pub_methods_classlemons_1_1dsp_1_1Engine"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#a92fe69356c54445d91e70586cc9cdf73">prepare</a> (double samplerate, int blocksize, int numChannels=2)</td></tr>
-<tr class="separator:a92fe69356c54445d91e70586cc9cdf73 inherit pub_methods_classlemons_1_1dsp_1_1Engine"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a144323b4488420dcf49b89cee7837f8c inherit pub_methods_classlemons_1_1dsp_1_1Engine"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#a144323b4488420dcf49b89cee7837f8c">releaseResources</a> ()</td></tr>
-<tr class="separator:a144323b4488420dcf49b89cee7837f8c inherit pub_methods_classlemons_1_1dsp_1_1Engine"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afde19f6980e44ccaf99d168bb1f0f95f inherit pub_methods_classlemons_1_1dsp_1_1Engine"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#afde19f6980e44ccaf99d168bb1f0f95f">getSamplerate</a> () const</td></tr>
-<tr class="separator:afde19f6980e44ccaf99d168bb1f0f95f inherit pub_methods_classlemons_1_1dsp_1_1Engine"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48b37b72835d34fc060a1010a1fe2499"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#a48b37b72835d34fc060a1010a1fe2499">process</a> (AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, MidiBuffer &amp;midiMessages, bool isBypassed=false)</td></tr>
+<tr class="separator:a48b37b72835d34fc060a1010a1fe2499"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3668be93e3cc7b9a4340c5872be9b45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#aa3668be93e3cc7b9a4340c5872be9b45">process</a> (const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed=false)</td></tr>
+<tr class="separator:aa3668be93e3cc7b9a4340c5872be9b45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f813b9e44ed7518183da4afe405f44e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#a3f813b9e44ed7518183da4afe405f44e">process</a> (AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, bool isBypassed=false)</td></tr>
+<tr class="separator:a3f813b9e44ed7518183da4afe405f44e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfb2f088baaa0e07efa7bf794918d831"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#adfb2f088baaa0e07efa7bf794918d831">process</a> (const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, bool isBypassed=false)</td></tr>
+<tr class="separator:adfb2f088baaa0e07efa7bf794918d831"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a090f7c4344b0aee17162e841c255b57d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#a090f7c4344b0aee17162e841c255b57d">isInitialized</a> () const</td></tr>
+<tr class="separator:a090f7c4344b0aee17162e841c255b57d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92fe69356c54445d91e70586cc9cdf73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#a92fe69356c54445d91e70586cc9cdf73">prepare</a> (double samplerate, int blocksize, int numChannels=2)</td></tr>
+<tr class="separator:a92fe69356c54445d91e70586cc9cdf73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a144323b4488420dcf49b89cee7837f8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#a144323b4488420dcf49b89cee7837f8c">releaseResources</a> ()</td></tr>
+<tr class="separator:a144323b4488420dcf49b89cee7837f8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afde19f6980e44ccaf99d168bb1f0f95f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#afde19f6980e44ccaf99d168bb1f0f95f">getSamplerate</a> () const</td></tr>
+<tr class="separator:afde19f6980e44ccaf99d168bb1f0f95f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a123f297f0cd76d580f4d1b9e0021901d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1LatencyEngine.html#a123f297f0cd76d580f4d1b9e0021901d">renderChunk</a> (const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed)=0</td></tr>
+<tr class="separator:a123f297f0cd76d580f4d1b9e0021901d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af171ed2c410e7e03dd8e583b27f81903"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1LatencyEngine.html#af171ed2c410e7e03dd8e583b27f81903">onPrepare</a> (int blocksize, double samplerate)</td></tr>
+<tr class="separator:af171ed2c410e7e03dd8e583b27f81903"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a836d66a52283875ec29eab8cbe1eea4a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1LatencyEngine.html#a836d66a52283875ec29eab8cbe1eea4a">onRelease</a> ()</td></tr>
+<tr class="separator:a836d66a52283875ec29eab8cbe1eea4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a13fce9c2a64647375473f7df8b33db35"></a>
@@ -157,13 +164,429 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
+<a id="a123f297f0cd76d580f4d1b9e0021901d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a123f297f0cd76d580f4d1b9e0021901d">&#9670;&nbsp;</a></span>renderChunk()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="classlemons_1_1dsp_1_1LatencyEngine.html">lemons::dsp::LatencyEngine</a>&lt; SampleType &gt;::renderChunk </td>
+          <td>(</td>
+          <td class="paramtype">const AudioBuffer&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AudioBuffer&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>output</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MidiBuffer &amp;&#160;</td>
+          <td class="paramname"><em>midiMessages</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isBypassed</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af171ed2c410e7e03dd8e583b27f81903"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af171ed2c410e7e03dd8e583b27f81903">&#9670;&nbsp;</a></span>onPrepare()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="classlemons_1_1dsp_1_1LatencyEngine.html">lemons::dsp::LatencyEngine</a>&lt; SampleType &gt;::onPrepare </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>blocksize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>samplerate</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a836d66a52283875ec29eab8cbe1eea4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a836d66a52283875ec29eab8cbe1eea4a">&#9670;&nbsp;</a></span>onRelease()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="classlemons_1_1dsp_1_1LatencyEngine.html">lemons::dsp::LatencyEngine</a>&lt; SampleType &gt;::onRelease </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a48b37b72835d34fc060a1010a1fe2499"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48b37b72835d34fc060a1010a1fe2499">&#9670;&nbsp;</a></span>process() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1Engine.html">lemons::dsp::Engine</a>&lt; SampleType &gt;::process </td>
+          <td>(</td>
+          <td class="paramtype">AudioBuffer&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inplaceInAndOut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MidiBuffer &amp;&#160;</td>
+          <td class="paramname"><em>midiMessages</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isBypassed</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa3668be93e3cc7b9a4340c5872be9b45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3668be93e3cc7b9a4340c5872be9b45">&#9670;&nbsp;</a></span>process() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1Engine.html">lemons::dsp::Engine</a>&lt; SampleType &gt;::process </td>
+          <td>(</td>
+          <td class="paramtype">const AudioBuffer&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AudioBuffer&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>output</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MidiBuffer &amp;&#160;</td>
+          <td class="paramname"><em>midiMessages</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isBypassed</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3f813b9e44ed7518183da4afe405f44e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f813b9e44ed7518183da4afe405f44e">&#9670;&nbsp;</a></span>process() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1Engine.html">lemons::dsp::Engine</a>&lt; SampleType &gt;::process </td>
+          <td>(</td>
+          <td class="paramtype">AudioBuffer&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inplaceInAndOut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isBypassed</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adfb2f088baaa0e07efa7bf794918d831"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfb2f088baaa0e07efa7bf794918d831">&#9670;&nbsp;</a></span>process() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1Engine.html">lemons::dsp::Engine</a>&lt; SampleType &gt;::process </td>
+          <td>(</td>
+          <td class="paramtype">const AudioBuffer&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AudioBuffer&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>output</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isBypassed</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a090f7c4344b0aee17162e841c255b57d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a090f7c4344b0aee17162e841c255b57d">&#9670;&nbsp;</a></span>isInitialized()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classlemons_1_1dsp_1_1Engine.html">lemons::dsp::Engine</a>&lt; SampleType &gt;::isInitialized </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a92fe69356c54445d91e70586cc9cdf73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92fe69356c54445d91e70586cc9cdf73">&#9670;&nbsp;</a></span>prepare()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1Engine.html">lemons::dsp::Engine</a>&lt; SampleType &gt;::prepare </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>samplerate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>blocksize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numChannels</em> = <code>2</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a144323b4488420dcf49b89cee7837f8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a144323b4488420dcf49b89cee7837f8c">&#9670;&nbsp;</a></span>releaseResources()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1Engine.html">lemons::dsp::Engine</a>&lt; SampleType &gt;::releaseResources </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afde19f6980e44ccaf99d168bb1f0f95f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afde19f6980e44ccaf99d168bb1f0f95f">&#9670;&nbsp;</a></span>getSamplerate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="classlemons_1_1dsp_1_1Engine.html">lemons::dsp::Engine</a>&lt; SampleType &gt;::getSamplerate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="LatencyEngine_8h.html">LatencyEngine.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Sep 29 2021 08:15:02 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Sep 29 2021 09:31:12 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

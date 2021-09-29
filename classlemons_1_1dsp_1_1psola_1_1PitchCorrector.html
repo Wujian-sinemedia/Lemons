@@ -66,45 +66,93 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classlemons_1_1dsp_1_1psola_1_1PitchCorrector-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">lemons::dsp::psola::PitchCorrector&lt; SampleType &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="dynheader">
-Inheritance diagram for lemons::dsp::psola::PitchCorrector&lt; SampleType &gt;:</div>
-<div class="dyncontent">
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::dsp::psola::PitchCorrector&lt; SampleType &gt;:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="classlemons_1_1dsp_1_1psola_1_1PitchCorrector__inherit__graph.svg" width="242" height="156"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
-</div>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a94fbc5cbcb9c87c844df3124547cbd26"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#a94fbc5cbcb9c87c844df3124547cbd26">AudioBuffer</a> = juce::AudioBuffer&lt; SampleType &gt;</td></tr>
+<tr class="separator:a94fbc5cbcb9c87c844df3124547cbd26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a632a34043dd135ef53ad32c2b058bb88"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#a632a34043dd135ef53ad32c2b058bb88">Analyzer</a> = <a class="el" href="classlemons_1_1dsp_1_1psola_1_1Analyzer.html">dsp::psola::Analyzer</a>&lt; SampleType &gt;</td></tr>
+<tr class="separator:a632a34043dd135ef53ad32c2b058bb88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a46dc0d11aae1525574e0ef16a5a34375"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrector.html#a46dc0d11aae1525574e0ef16a5a34375">PitchCorrector</a> (const <a class="el" href="structlemons_1_1midi_1_1PitchPipeline.html">midi::PitchPipeline</a> *pitchConverterToUse=nullptr)</td></tr>
 <tr class="separator:a46dc0d11aae1525574e0ef16a5a34375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html">lemons::dsp::psola::PitchCorrectorBase&lt; SampleType &gt;</a></td></tr>
-<tr class="memitem:a2fb20184a466a57d18456c78f202bfc9 inherit pub_methods_classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#a2fb20184a466a57d18456c78f202bfc9">PitchCorrectorBase</a> (<a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#a632a34043dd135ef53ad32c2b058bb88">Analyzer</a> &amp;analyzerToUse, const <a class="el" href="structlemons_1_1midi_1_1PitchPipeline.html">midi::PitchPipeline</a> *pitchConverterToUse=nullptr)</td></tr>
-<tr class="separator:a2fb20184a466a57d18456c78f202bfc9 inherit pub_methods_classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb31d3eae7a4c1acfcc9abb22b9a3c4f inherit pub_methods_classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#adb31d3eae7a4c1acfcc9abb22b9a3c4f">processNextFrame</a> (<a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#a94fbc5cbcb9c87c844df3124547cbd26">AudioBuffer</a> &amp;output)</td></tr>
-<tr class="separator:adb31d3eae7a4c1acfcc9abb22b9a3c4f inherit pub_methods_classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabc78484d6aad0613293d50a5703c8cd inherit pub_methods_classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#aabc78484d6aad0613293d50a5703c8cd">prepare</a> (double samplerate)</td></tr>
-<tr class="separator:aabc78484d6aad0613293d50a5703c8cd inherit pub_methods_classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec5dc4f898fc89741d384ecef61ffb8e inherit pub_methods_classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#aec5dc4f898fc89741d384ecef61ffb8e">getOutputMidiPitch</a> () const</td></tr>
-<tr class="separator:aec5dc4f898fc89741d384ecef61ffb8e inherit pub_methods_classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68fb9c1a9de0191cc2c1c272c6e5f56e inherit pub_methods_classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#a68fb9c1a9de0191cc2c1c272c6e5f56e">getOutputFreq</a> () const</td></tr>
-<tr class="separator:a68fb9c1a9de0191cc2c1c272c6e5f56e inherit pub_methods_classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab01ad2a6fab1dd7ed56c33b6c8236dfe inherit pub_methods_classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#ab01ad2a6fab1dd7ed56c33b6c8236dfe">getCentsSharp</a> () const</td></tr>
-<tr class="separator:ab01ad2a6fab1dd7ed56c33b6c8236dfe inherit pub_methods_classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_types_classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase"><td colspan="2" onclick="javascript:toggleInherit('pub_types_classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html">lemons::dsp::psola::PitchCorrectorBase&lt; SampleType &gt;</a></td></tr>
-<tr class="memitem:a94fbc5cbcb9c87c844df3124547cbd26 inherit pub_types_classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#a94fbc5cbcb9c87c844df3124547cbd26">AudioBuffer</a> = juce::AudioBuffer&lt; SampleType &gt;</td></tr>
-<tr class="separator:a94fbc5cbcb9c87c844df3124547cbd26 inherit pub_types_classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a632a34043dd135ef53ad32c2b058bb88 inherit pub_types_classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#a632a34043dd135ef53ad32c2b058bb88">Analyzer</a> = <a class="el" href="classlemons_1_1dsp_1_1psola_1_1Analyzer.html">dsp::psola::Analyzer</a>&lt; SampleType &gt;</td></tr>
-<tr class="separator:a632a34043dd135ef53ad32c2b058bb88 inherit pub_types_classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb31d3eae7a4c1acfcc9abb22b9a3c4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#adb31d3eae7a4c1acfcc9abb22b9a3c4f">processNextFrame</a> (<a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#a94fbc5cbcb9c87c844df3124547cbd26">AudioBuffer</a> &amp;output)</td></tr>
+<tr class="separator:adb31d3eae7a4c1acfcc9abb22b9a3c4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabc78484d6aad0613293d50a5703c8cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#aabc78484d6aad0613293d50a5703c8cd">prepare</a> (double samplerate)</td></tr>
+<tr class="separator:aabc78484d6aad0613293d50a5703c8cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec5dc4f898fc89741d384ecef61ffb8e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#aec5dc4f898fc89741d384ecef61ffb8e">getOutputMidiPitch</a> () const</td></tr>
+<tr class="separator:aec5dc4f898fc89741d384ecef61ffb8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68fb9c1a9de0191cc2c1c272c6e5f56e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#a68fb9c1a9de0191cc2c1c272c6e5f56e">getOutputFreq</a> () const</td></tr>
+<tr class="separator:a68fb9c1a9de0191cc2c1c272c6e5f56e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab01ad2a6fab1dd7ed56c33b6c8236dfe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#ab01ad2a6fab1dd7ed56c33b6c8236dfe">getCentsSharp</a> () const</td></tr>
+<tr class="separator:ab01ad2a6fab1dd7ed56c33b6c8236dfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a94fbc5cbcb9c87c844df3124547cbd26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94fbc5cbcb9c87c844df3124547cbd26">&#9670;&nbsp;</a></span>AudioBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html">lemons::dsp::psola::PitchCorrectorBase</a>&lt; SampleType &gt;::<a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#a94fbc5cbcb9c87c844df3124547cbd26">AudioBuffer</a> =  juce::AudioBuffer&lt; SampleType &gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a632a34043dd135ef53ad32c2b058bb88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a632a34043dd135ef53ad32c2b058bb88">&#9670;&nbsp;</a></span>Analyzer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html">lemons::dsp::psola::PitchCorrectorBase</a>&lt; SampleType &gt;::<a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#a632a34043dd135ef53ad32c2b058bb88">Analyzer</a> =  <a class="el" href="classlemons_1_1dsp_1_1psola_1_1Analyzer.html">dsp::psola::Analyzer</a>&lt; SampleType &gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a46dc0d11aae1525574e0ef16a5a34375"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a46dc0d11aae1525574e0ef16a5a34375">&#9670;&nbsp;</a></span>PitchCorrector()</h2>
@@ -126,13 +174,151 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="adb31d3eae7a4c1acfcc9abb22b9a3c4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb31d3eae7a4c1acfcc9abb22b9a3c4f">&#9670;&nbsp;</a></span>processNextFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html">lemons::dsp::psola::PitchCorrectorBase</a>&lt; SampleType &gt;::processNextFrame </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#a94fbc5cbcb9c87c844df3124547cbd26">AudioBuffer</a> &amp;&#160;</td>
+          <td class="paramname"><em>output</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aabc78484d6aad0613293d50a5703c8cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabc78484d6aad0613293d50a5703c8cd">&#9670;&nbsp;</a></span>prepare()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html">lemons::dsp::psola::PitchCorrectorBase</a>&lt; SampleType &gt;::prepare </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>samplerate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aec5dc4f898fc89741d384ecef61ffb8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec5dc4f898fc89741d384ecef61ffb8e">&#9670;&nbsp;</a></span>getOutputMidiPitch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html">lemons::dsp::psola::PitchCorrectorBase</a>&lt; SampleType &gt;::getOutputMidiPitch </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a68fb9c1a9de0191cc2c1c272c6e5f56e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68fb9c1a9de0191cc2c1c272c6e5f56e">&#9670;&nbsp;</a></span>getOutputFreq()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float <a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html">lemons::dsp::psola::PitchCorrectorBase</a>&lt; SampleType &gt;::getOutputFreq </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab01ad2a6fab1dd7ed56c33b6c8236dfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab01ad2a6fab1dd7ed56c33b6c8236dfe">&#9670;&nbsp;</a></span>getCentsSharp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html">lemons::dsp::psola::PitchCorrectorBase</a>&lt; SampleType &gt;::getCentsSharp </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="PitchCorrector_8h.html">PitchCorrector.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Sep 29 2021 08:15:02 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Sep 29 2021 09:31:12 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

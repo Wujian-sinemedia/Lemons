@@ -1,14 +1,10 @@
 python process_source_files.py ../modules build
 doxygen
-warning: ignoring unsupported tag 'PYTHON_DOCSTRING' at line 218, file Doxyfile
-warning: ignoring unsupported tag 'NUM_PROC_THREADS' at line 477, file Doxyfile
-warning: ignoring unsupported tag 'RESOLVE_UNNAMED_PARAMS' at line 547, file Doxyfile
-warning: ignoring unsupported tag 'SHOW_HEADERFILE' at line 620, file Doxyfile
-warning: ignoring unsupported tag 'WARN_IF_INCOMPLETE_DOC' at line 838, file Doxyfile
-warning: ignoring unsupported tag 'FULL_SIDEBAR' at line 1537, file Doxyfile
-warning: ignoring unsupported tag 'HTML_FORMULA_FORMAT' at line 1572, file Doxyfile
-warning: ignoring unsupported tag 'MATHJAX_VERSION' at line 1620, file Doxyfile
-warning: ignoring unsupported tag 'DOT_UML_DETAILS' at line 2411, file Doxyfile
-warning: ignoring unsupported tag 'DOT_WRAP_THRESHOLD' at line 2420, file Doxyfile
+warning: ignoring unsupported tag 'NUM_PROC_THREADS' at line 324, file Doxyfile
+warning: ignoring unsupported tag 'WARN_IF_INCOMPLETE_DOC' at line 579, file Doxyfile
+warning: ignoring unsupported tag 'HTML_FORMULA_FORMAT' at line 1043, file Doxyfile
+warning: ignoring unsupported tag 'MATHJAX_VERSION' at line 1091, file Doxyfile
+warning: ignoring unsupported tag 'DOT_UML_DETAILS' at line 1597, file Doxyfile
+warning: ignoring unsupported tag 'DOT_WRAP_THRESHOLD' at line 1606, file Doxyfile
 /home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_core/binary_data/BinaryDataHelpers.h:31: warning: Reached end of file while still inside a (nested) comment. Nesting level 1 (probable line reference: 23)
 /home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_core/binary_data/BinaryDataHelpers.h:31: warning: File ended in the middle of a comment block! Perhaps a missing \endcode?
