@@ -13,6 +13,7 @@ def get_curly_brace_scope_end(string, start_pos):
     start_pos += 1
     string_end = len(string)
     bracket_counter = 1
+
     while start_pos < string_end:
         if string[start_pos] == "{":
             bracket_counter += 1
@@ -27,8 +28,8 @@ def get_curly_brace_scope_end(string, start_pos):
 def add_doxygen_group(path, group_name):
     """Add a Doxygen group to the file at 'path'.
     """
-
     filename = os.path.basename(path)
+
     if re.match(r"^lemons_.*\.(h|dox)", filename):
         with open(path, "r") as f:
             content = f.read()
@@ -112,21 +113,25 @@ if __name__ == "__main__":
 
         # Create a list of the directories in the module that we can use as subgroups and create the Doxygen group hierarchy string
         dir_contents = os.listdir(dest_module_dir)
-        # Ignore "native" folders as these are excluded by doxygen
+
+        # Ignore "native" folders
         try:
             dir_contents.remove("native")
         except ValueError:
             pass
+
         subdirs = []
         for item in dir_contents:
             if (os.path.isdir(os.path.join(dest_module_dir, item))):
                 subdirs.append(item)
+
         module_groups = {}
         for subdir in subdirs:
             subgroup_name = "{n}-{s}".format(n=module_name, s=subdir)
             module_groups[subgroup_name] = os.path.join(dest_module_dir, subdir)
             module_definiton.append("")
             module_definiton.append("/** @defgroup {tag} {n} */".format(tag=subgroup_name, n=subdir))
+            
         module_definiton.append("")
         module_definiton.append("/** @} */")
 
