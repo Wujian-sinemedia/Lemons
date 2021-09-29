@@ -18,7 +18,7 @@
 #include <juce_core/juce_core.h>
 
 /*
- For any type you want to be able to serialize with treeReflector.add(YourType), simply implement these two functions within the bav namespace.
+ For any type you want to be able to serialize with treeReflector.add(YourType), simply implement these two functions within the lemons namespace.
  */
 namespace lemons
 {
