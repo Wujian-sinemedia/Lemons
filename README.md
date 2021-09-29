@@ -22,23 +22,77 @@ Here are my lemons, go make lemonade of your own.
 ---
 
 
-### *A library of utilities and building blocks for JUCE-based apps and plugins*
+## *A library of utilities and building blocks for JUCE-based apps and plugins*
 
 This library is what I use to build my own projects, so hopefully you'll find it useful as well.
 
 Contributing is welcome and appreciated! *(Or feel free to just make feature suggestions/requests.)* You may fork this repo, file issues, make pull requests, send me hate mail -- whatever floats your git boat.
 
-It's recommended to build with CMake. You could manually add the desired modules to a Projucer project, but CMake is a better build system anyway. 
+---
 
-When you add the Shared-code subdir in your CMake, this repo's cmake scripts will automatically configure your build to use [ccache](https://ccache.dev/) as the compiler launcher, if the ccache program can be located on your machine. To install it, grab a release from [this repo](https://github.com/cristianadam/ccache).
+## *Building*
 
-I also recommend that within your CMake, you add Shared-code by using [CPM.cmake](https://github.com/cpm-cmake/CPM.cmake), which is a single-script CMake package manager that allows you lots of flexibility in project configuration, such as specifying that a local directory contains the source for a certain package (ie, so that not every project repository has to contain Shared-code as a submodule. This also means that, for your entire machine, you only need **one** copy of JUCE, no matter how many repositories want to refer to it).
+It's recommended to build with CMake. You could manually add the desired modules to a Projucer project, but CMake is a much better build system. Lemons contains several useful CMake scripts that should make getting things running fairly painless...
 
-What I usually do in project repos is make my [GetLemons](https://github.com/benthevining/GetLemons) repo a git submodule, then from the project's main CMakeLists.txt, simply `addSubdirectory(GetLemons)`. What this will do is:
+### *Adding with CPM.cmake*
+
+I recommend that within your CMake, you add Lemons by using [CPM.cmake](https://github.com/cpm-cmake/CPM.cmake), which is a single-script CMake package manager that allows you lots of flexibility in project configuration. One particularly important feature is the ability to specify that a local directory contains the source code for a certain package -- so that not every project repository on your machine has to contain a copy of Lemons as a submodule. This makes your cmake perfectly modular: simply add the Lemons package with CPM.cmake in each project, and then if that project is cloned and built in isolation, CPM will download the Lemons package at configure time, but you also have the ability to tell CPM to reference a local copy of Lemons on your machine, so you can work on all your projects while only having one copy of Lemons on your machine.
+
+Adding Lemons with CPM.cmake looks like this:
+```
+include (CPM.cmake)
+
+CPMAddPackage (
+        NAME Lemons
+        GIT_REPOSITORY https://github.com/benthevining/Lemons.git
+        GIT_TAG origin/main)
+```
+
+### *A note about adding JUCE*
+
+Internally, Lemons's cmake scripts [add JUCE like this](https://github.com/benthevining/Lemons/blob/main/cmake/third_party/juce_config.cmake), using CPM.cmake. JUCE will automatically be fetched for you at configure time -- but, if you'd like to reference another local copy of JUCE, you can set this variable before adding the Lemons package:
+```
+set (CPM_JUCE_SOURCE /absolute/path/to/your/copy/of/juce)
+```
+Note that this is optional, and if you omit the above line, adding the Lemons package will automatically also add the latest copy of JUCE for you.
+
+### *What I actually do in my projects' CMake*
+
+I noticed myself duplicating several lines of CMake code in every project, so I encapsulated the *adding of Lemons* into [its own little repository](https://github.com/benthevining/GetLemons).
+
+What I usually do in my project repos is make my [GetLemons](https://github.com/benthevining/GetLemons) repo a git submodule, then from the project's main CMakeLists.txt, simply 
+```
+addSubdirectory (GetLemons)
+```
+What this will do is:
 * Either fetch the CPM.cmake script from the github repository and cache it for future use; ***or*** include the previously-cached version if it can be found
 * Include the Lemons repository using CPM.cmake
-and a couple other boilerplate things that are useful for my own usage in my projects...
+
+You can check out the GetLemons repo's ReadMe for more details.
 
 For an example of a project repo that uses this configuration, see [Imogen's CMakeLists.txt](https://github.com/benthevining/imogen/blob/main/CMakeLists.txt).
 
-For an example of how you can integrate several project repos of this nature side-by-side in a "super-repo", check out my [dev_workspace repo](https://github.com/benthevining/dev_workspace) -- this is the only repo I have to clone onto a dev machine in order to work on all my projects!
+## *Ccache*
+
+When you add the Lemons subdir, my cmake scripts will automatically configure your build to use [ccache](https://ccache.dev/) as the compiler launcher, if the ccache program can be located on your machine. This will drastically speed up consecutive builds.
+
+Running CMake configuration will *not* install ccache. To install it:
+* Mac: `bundle install ccache` 
+* Linux: `apt-get install ccache`
+* Windows: grab a release from [this repo](https://github.com/cristianadam/ccache)
+
+## *Example dev environment*
+
+For an example of how you can integrate several project repos of this nature side-by-side in a "super-repo", check out my [dev_workspace repo](https://github.com/benthevining/dev_workspace) -- this is the only repo I have to clone onto a dev machine in order to work on all my projects, and I only have to have one copy of Lemons and JUCE on my machine, which every project repo will reference. 
+
+---
+
+## *Licensing*
+
+This repository is licensed with the GNU Public License. This means that any projects using this repository's code ***must also themselves be open-source and licensed under the GPL.***
+
+For inquiries about exemptions for commercial usage, please email me at ben.the.vining@gmail.com.
+
+---
+
+**Happy lemonade making!**
