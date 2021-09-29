@@ -2154,6 +2154,26 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>VarConversion.h</name>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/</path>
+    <filename>VarConversion_8h.html</filename>
+    <namespace>lemons</namespace>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>a4464a75068903c199363a4cd06f3e9d5</anchor>
+      <arglist>(Type &amp;object)</arglist>
+    </member>
+    <member kind="function">
+      <type>Type</type>
+      <name>fromVar</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>a5c8faffc1976522d5e6ba6f7270ba1ef</anchor>
+      <arglist>(juce::var var)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>VarSpecializations.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/Serializing/Specializations/</path>
     <filename>VarSpecializations_8h.html</filename>
@@ -18493,6 +18513,20 @@
       <anchorfile>namespacelemons.html</anchorfile>
       <anchor>ad9c18a64dc09b2dafd886e3a8c0c275b</anchor>
       <arglist>(const String &amp;string)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>a4464a75068903c199363a4cd06f3e9d5</anchor>
+      <arglist>(Type &amp;object)</arglist>
+    </member>
+    <member kind="function">
+      <type>Type</type>
+      <name>fromVar</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>a5c8faffc1976522d5e6ba6f7270ba1ef</anchor>
+      <arglist>(juce::var var)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>

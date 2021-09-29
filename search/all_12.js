@@ -116,7 +116,7 @@ var searchData=
   ['spline_851',['Spline',['../structlemons_1_1spline_1_1Spline.html',1,'lemons::spline']]],
   ['spline_2eh_852',['Spline.h',['../Spline_8h.html',1,'']]],
   ['splineeditor_2eh_853',['SplineEditor.h',['../SplineEditor_8h.html',1,'']]],
-  ['square_854',['Square',['../structlemons_1_1dsp_1_1osc_1_1Square.html',1,'lemons::dsp::osc::Square&lt; SampleType &gt;'],['../structlemons_1_1dsp_1_1osc_1_1Square.html#a405fd123c99b7455bd56b3f18af2cc99',1,'lemons::dsp::osc::Square::Square()'],['../namespacelemons_1_1dsp_1_1synth.html#af80648fe5e5df3b31d06e9c2aab3862b',1,'lemons::dsp::synth::Square()'],['../namespacelemons_1_1vecops.html#a6639e01ff961e2a1254d3546de1d7cc3',1,'lemons::vecops::square()']]],
+  ['square_854',['Square',['../structlemons_1_1dsp_1_1osc_1_1Square.html',1,'lemons::dsp::osc::Square&lt; SampleType &gt;'],['../structlemons_1_1dsp_1_1osc_1_1Square.html#a405fd123c99b7455bd56b3f18af2cc99',1,'lemons::dsp::osc::Square::Square()'],['../namespacelemons_1_1vecops.html#a6639e01ff961e2a1254d3546de1d7cc3',1,'lemons::vecops::square()'],['../namespacelemons_1_1dsp_1_1synth.html#af80648fe5e5df3b31d06e9c2aab3862b',1,'lemons::dsp::synth::Square()']]],
   ['square_3c_20float_20_3e_855',['Square&lt; float &gt;',['../structlemons_1_1dsp_1_1osc_1_1Square.html',1,'lemons::dsp::osc']]],
   ['squareosc_856',['SquareOsc',['../namespacelemons_1_1dsp_1_1osc.html#a1771007d411d4f6426cc3773961dfa5da5c9244b5ce7e54377dac7d70d1cbea99',1,'lemons::dsp::osc']]],
   ['squareroot_857',['squareRoot',['../namespacelemons_1_1vecops.html#a7a55da3f049b74035b114eb01dddc614',1,'lemons::vecops']]],
