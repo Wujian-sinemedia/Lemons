@@ -11,8 +11,7 @@ class Reverb
 {
 public:
     Reverb();
-    virtual ~Reverb() = default;
-
+    
     void prepare (int blocksize, double samplerate, int numChannels);
     void reset();
 
@@ -40,11 +39,9 @@ public:
 private:
     juce::Reverb reverb;
 
-    juce::Reverb::Parameters params;
+    juce::Reverb::Parameters juceReverbParams;
 
-    juce::AudioBuffer< float > conversionBuffer;
-    juce::AudioBuffer< float > workingBuffer;
-    juce::AudioBuffer< float > sidechainBuffer;
+    AudioBuffer< float > conversionBuffer, workingBuffer, sidechainBuffer;
 
     bool                isDucking;
     Compressor< float > compressor;

@@ -3,12 +3,12 @@ namespace lemons::dsp::FX
 {
 Reverb::Reverb()
 {
-    params.roomSize   = 0.5f;
-    params.damping    = 0.35f;
-    params.wetLevel   = 1.0f;
-    params.dryLevel   = 0.0f;
-    params.width      = 1.0f;
-    params.freezeMode = 0.2f;
+    juceReverbParams.roomSize   = 0.5f;
+    juceReverbParams.damping    = 0.35f;
+    juceReverbParams.wetLevel   = 1.0f;
+    juceReverbParams.dryLevel   = 0.0f;
+    juceReverbParams.width      = 1.0f;
+    juceReverbParams.freezeMode = 0.2f;
 
     compressor.setAttack (15.0f);
     compressor.setRelease (35.0f);
@@ -20,7 +20,7 @@ void Reverb::prepare (int blocksize, double samplerate, int numChannels)
     jassert (samplerate > 0 && blocksize > 0 && numChannels > 0);
 
     reverb.setSampleRate (samplerate);
-    reverb.setParameters (params);
+    reverb.setParameters (juceReverbParams);
 
     compressor.prepare (samplerate, blocksize);
 
@@ -56,20 +56,20 @@ void Reverb::reset()
 
 void Reverb::setRoomSize (float newRoomSize)
 {
-    params.roomSize = newRoomSize;
-    reverb.setParameters (params);
+    juceReverbParams.roomSize = newRoomSize;
+    reverb.setParameters (juceReverbParams);
 }
 
 void Reverb::setDamping (float newDampingAmount)
 {
-    params.damping = newDampingAmount;
-    reverb.setParameters (params);
+    juceReverbParams.damping = newDampingAmount;
+    reverb.setParameters (juceReverbParams);
 }
 
 void Reverb::setWidth (float newWidth)
 {
-    params.width = newWidth;
-    reverb.setParameters (params);
+    juceReverbParams.width = newWidth;
+    reverb.setParameters (juceReverbParams);
 }
 
 void Reverb::setDryWet (int wetMixPercent)

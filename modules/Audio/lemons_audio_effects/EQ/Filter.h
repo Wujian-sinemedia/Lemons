@@ -38,7 +38,7 @@ struct FilterParams
 
 /**
     A filter audio effect class that wraps the more low-level filters::Filter.
-    @see FilterParams, FilterType, filters::Filter, filters::Multifilter
+    @see FilterParams, FilterType, filters::Filter, filters::MultiFilter
  */
 template < typename SampleType >
 class Filter : public AudioEffect< SampleType >
@@ -107,6 +107,7 @@ private:
 
 /**
     A class that represents an audio engine holding a filter effect.
+    @see FX::Filter
  */
 template < typename SampleType >
 struct FilterEngine : EffectEngine< Filter, SampleType >
