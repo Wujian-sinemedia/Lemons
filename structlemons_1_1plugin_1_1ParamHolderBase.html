@@ -98,8 +98,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a11d61d765d9c8a318a6f8dadfcf4b9cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1ParamHolderBase.html#a11d61d765d9c8a318a6f8dadfcf4b9cb">addTo</a> (juce::AudioProcessor &amp;processor)</td></tr>
 <tr class="separator:a11d61d765d9c8a318a6f8dadfcf4b9cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4e10eefa677226e7927d204b33edbdb"><td class="memItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">serialize</a> ()</td></tr>
+<tr class="memdesc:af4e10eefa677226e7927d204b33edbdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the state of this object and returns a ValueTree.  <a href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">More...</a><br /></td></tr>
 <tr class="separator:af4e10eefa677226e7927d204b33edbdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace1758cc9344ae03a6d01c3c218226de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1SerializableData.html#ace1758cc9344ae03a6d01c3c218226de">deserialize</a> (const ValueTree &amp;tree)</td></tr>
+<tr class="memdesc:ace1758cc9344ae03a6d01c3c218226de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores a previously saved state.  <a href="structlemons_1_1SerializableData.html#ace1758cc9344ae03a6d01c3c218226de">More...</a><br /></td></tr>
 <tr class="separator:ace1758cc9344ae03a6d01c3c218226de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -110,6 +112,7 @@ Public Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a4ab97c4fac55246598fec66b3da5c501"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1ParamHolderBase.html#a4ab97c4fac55246598fec66b3da5c501">serialize</a> (<a class="el" href="structlemons_1_1TreeReflector.html">TreeReflector</a> &amp;ref) final</td></tr>
+<tr class="memdesc:a4ab97c4fac55246598fec66b3da5c501"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implement this function for your derived type's custom serializing logic.  <a href="structlemons_1_1plugin_1_1ParamHolderBase.html#a4ab97c4fac55246598fec66b3da5c501">More...</a><br /></td></tr>
 <tr class="separator:a4ab97c4fac55246598fec66b3da5c501"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -248,6 +251,37 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Implement this function for your derived type's custom serializing logic. </p>
+<p>This function will be called for both loading and saving. If your object is being loaded, the <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a> passed to this function will be a <a class="el" href="structlemons_1_1TreeLoader.html" title="Subclass of TreeReflector used for loading state.">TreeLoader</a>; otherwise, it will be a <a class="el" href="structlemons_1_1TreeSaver.html" title="Subclass of TreeReflector used for saving state.">TreeSaver</a>. There are two main ways of implementing <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a> serialization logic. You can use <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">TreeReflector::add()</a> with normal data members: </p><div class="fragment"><div class="line"><span class="keyword">struct </span>SomethingSerializable : <a class="code" href="structlemons_1_1SerializableData.html">lemons::SerializableData</a></div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// we want to save this integer with our program&#39;s state</span></div>
+<div class="line">    <span class="keywordtype">int</span> data;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> <a class="code" href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">serialize</a> (<a class="code" href="structlemons_1_1SerializableData.html#a89ec326c9a71dce7572d8a1b50d827a5">TreeReflector</a>&amp; ref) <span class="keyword">final</span></div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// simpy choose a property name -- and that&#39;s it!</span></div>
+<div class="line">        ref.add (<span class="stringliteral">&quot;MyData&quot;</span>, data);</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+</div><!-- fragment --><p> And you can use <a class="el" href="structlemons_1_1TreeReflector.html#a3ea2cd3e9bb6c6d3dcc493211e72af1b" title="Binds lambda functions for saving and loading a certain value to and from a named ValueTree property.">TreeReflector::addLambdaSet()</a> if you need to call functions of your object to save or load attributes: </p><div class="fragment"><div class="line"><span class="keyword">struct </span>SomethingSerializable : <a class="code" href="structlemons_1_1SerializableData.html">lemons::SerializableData</a></div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// maybe this function has side effects?</span></div>
+<div class="line">    <span class="keywordtype">void</span> setData (<span class="keywordtype">int</span> newData);</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line">    <span class="comment">// we still want to save this integer with our program&#39;s state, but I want to call setData() when it&#39;s being loaded...</span></div>
+<div class="line">    <span class="keywordtype">int</span> data;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> <a class="code" href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">serialize</a> (<a class="code" href="structlemons_1_1SerializableData.html#a89ec326c9a71dce7572d8a1b50d827a5">TreeReflector</a>&amp; ref) <span class="keyword">final</span></div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// you can specify lambdas for retrieving and saving a property&#39;s value as a specified type (int)</span></div>
+<div class="line">        ref.addLambdaSet&lt;<span class="keywordtype">int</span>&gt; (<span class="stringliteral">&quot;MyData&quot;</span>,</div>
+<div class="line">                               [&amp;]{ <span class="keywordflow">return</span> data; },</div>
+<div class="line">                               [&amp;](<span class="keywordtype">int</span> newData){ setData (newData); });</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+</div><!-- fragment --><p> If your object requires more low-level control or complex logic, you can also use <a class="el" href="structlemons_1_1TreeReflector.html#a7a88f53e45239d0b8d11cb2ce4dbefd0" title="Returns a reference to this reflector&#39;s root ValueTree.">TreeReflector::getRawDataTree()</a>, and you can query <a class="el" href="structlemons_1_1TreeReflector.html#ad8d42bdfb2093716fe60ba2196d54ac3" title="Returns true if this reflector is loading state.">TreeReflector::isLoading()</a> or <a class="el" href="structlemons_1_1TreeReflector.html#a4e47667a86f8e0eb7baaa53681191da3" title="Returns true if this reflector is saving state.">TreeReflector::isSaving()</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a> </dd></dl>
+
 <p>Implements <a class="el" href="structlemons_1_1SerializableData.html#a352b32cbb061cea5d4ca2ab99bf07529">lemons::SerializableData</a>.</p>
 
 </div>
@@ -275,6 +309,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Serializes the state of this object and returns a ValueTree. </p>
+<p>Internally, this will create a <a class="el" href="structlemons_1_1TreeSaver.html" title="Subclass of TreeReflector used for saving state.">TreeSaver</a> object and call the virtual <a class="el" href="structlemons_1_1plugin_1_1ParamHolderBase.html#a4ab97c4fac55246598fec66b3da5c501" title="Implement this function for your derived type&#39;s custom serializing logic.">serialize(TreeReflector&amp;)</a> function. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1TreeSaver.html" title="Subclass of TreeReflector used for saving state.">TreeSaver</a>, <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a> </dd></dl>
+
 </div>
 </div>
 <a id="ace1758cc9344ae03a6d01c3c218226de"></a>
@@ -300,6 +337,15 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Restores a previously saved state. </p>
+<p>Internally, this will create a <a class="el" href="structlemons_1_1TreeLoader.html" title="Subclass of TreeReflector used for loading state.">TreeLoader</a> object and call the virtual <a class="el" href="structlemons_1_1plugin_1_1ParamHolderBase.html#a4ab97c4fac55246598fec66b3da5c501" title="Implement this function for your derived type&#39;s custom serializing logic.">serialize(TreeReflector&amp;)</a> function. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tree</td><td>The saved state you wish to restore. This should usually be a ValueTree you got from a previous call to <a class="el" href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb" title="Serializes the state of this object and returns a ValueTree.">serialize()</a>. If the state is incomplete, for a different kind of object, or otherwise corrupted, this function will only change the properties that it can successfully parse from the passed state. For example, if your serializable object uses properties named "apple", "orange", and "grape", and you pass a ValueTree with entries for "apple", "grapefruit", and "mango", then the "grapefruit" and "mango" properties will be ignored, and only the "apple" property will actually be loaded. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1TreeLoader.html" title="Subclass of TreeReflector used for loading state.">TreeLoader</a>, <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a> </dd></dl>
 
 </div>
 </div>
@@ -346,9 +392,12 @@ Protected Attributes</h2></td></tr>
 <li><a class="el" href="ParameterHolder_8h.html">ParameterHolder.h</a></li>
 </ul>
 </div><!-- contents -->
+<div class="ttc" id="astructlemons_1_1SerializableData_html_af4e10eefa677226e7927d204b33edbdb"><div class="ttname"><a href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">lemons::SerializableData::serialize</a></div><div class="ttdeci">ValueTree serialize()</div><div class="ttdoc">Serializes the state of this object and returns a ValueTree.</div></div>
+<div class="ttc" id="astructlemons_1_1SerializableData_html_a89ec326c9a71dce7572d8a1b50d827a5"><div class="ttname"><a href="structlemons_1_1SerializableData.html#a89ec326c9a71dce7572d8a1b50d827a5">lemons::SerializableData::TreeReflector</a></div><div class="ttdeci">friend struct TreeReflector</div><div class="ttdef"><b>Definition:</b> SerializableData.h:44</div></div>
+<div class="ttc" id="astructlemons_1_1SerializableData_html"><div class="ttname"><a href="structlemons_1_1SerializableData.html">lemons::SerializableData</a></div><div class="ttdoc">Base class for any C++ object that needs to be serialized to binary and back.</div><div class="ttdef"><b>Definition:</b> SerializableData.h:13</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 30 2021 02:25:07 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 30 2021 04:08:18 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

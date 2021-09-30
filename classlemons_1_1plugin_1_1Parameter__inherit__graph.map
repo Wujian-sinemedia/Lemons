@@ -2,7 +2,7 @@
 <area shape="rect" id="node1" title=" " alt="" coords="240,323,433,350"/>
 <area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1TypedParameter.html" title=" " alt="" coords="483,201,713,243"/>
 <area shape="rect" id="node10" href="$classlemons_1_1plugin_1_1TypedParameter.html" title=" " alt="" coords="830,332,1061,373"/>
-<area shape="rect" id="node2" href="$structlemons_1_1SerializableData.html" title=" " alt="" coords="5,323,191,350"/>
+<area shape="rect" id="node2" href="$structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="5,323,191,350"/>
 <area shape="rect" id="node4" href="$structlemons_1_1plugin_1_1FloatAmountParameter.html" title=" " alt="" coords="840,5,1051,47"/>
 <area shape="rect" id="node5" href="$structlemons_1_1plugin_1_1FrequencyParameter.html" title=" " alt="" coords="849,71,1042,112"/>
 <area shape="rect" id="node6" href="$structlemons_1_1plugin_1_1GainParameter.html" title=" " alt="" coords="834,136,1057,177"/>

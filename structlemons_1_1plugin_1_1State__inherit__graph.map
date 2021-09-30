@@ -1,5 +1,5 @@
 <map id="lemons::plugin::State&lt; ParamListType, &gt;" name="lemons::plugin::State&lt; ParamListType, &gt;">
 <area shape="rect" id="node1" title=" " alt="" coords="21,155,181,196"/>
 <area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1StateBase.html" title=" " alt="" coords="5,80,197,107"/>
-<area shape="rect" id="node3" href="$structlemons_1_1SerializableData.html" title=" " alt="" coords="9,5,194,32"/>
+<area shape="rect" id="node3" href="$structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="9,5,194,32"/>
 </map>

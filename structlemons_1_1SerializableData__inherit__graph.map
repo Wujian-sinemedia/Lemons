@@ -1,5 +1,5 @@
 <map id="lemons::SerializableData" name="lemons::SerializableData">
-<area shape="rect" id="node1" title=" " alt="" coords="5,519,191,546"/>
+<area shape="rect" id="node1" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="5,519,191,546"/>
 <area shape="rect" id="node2" href="$classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html" title=" " alt="" coords="663,107,869,148"/>
 <area shape="rect" id="node3" href="$classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html" title=" " alt="" coords="258,147,465,188"/>
 <area shape="rect" id="node4" href="$structlemons_1_1plugin_1_1Dimensions.html" title=" " alt="" coords="260,213,463,239"/>

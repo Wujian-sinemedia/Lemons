@@ -74,20 +74,32 @@ $(function() {
 <div class="title">lemons::serializing::DataSynchronizer Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Keeps two copies of an object inheriting from <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> in sync.  
+ <a href="classlemons_1_1serializing_1_1DataSynchronizer.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5f4b193ad6d069a9259a7324ddfbfd0a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1serializing_1_1DataSynchronizer.html#a5f4b193ad6d069a9259a7324ddfbfd0a">DataSynchronizer</a> (<a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;dataToUse)</td></tr>
+<tr class="memdesc:a5f4b193ad6d069a9259a7324ddfbfd0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="classlemons_1_1serializing_1_1DataSynchronizer.html" title="Keeps two copies of an object inheriting from SerializableData in sync.">DataSynchronizer</a>.  <a href="classlemons_1_1serializing_1_1DataSynchronizer.html#a5f4b193ad6d069a9259a7324ddfbfd0a">More...</a><br /></td></tr>
 <tr class="separator:a5f4b193ad6d069a9259a7324ddfbfd0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30c305899383dfe669a80d4d66f503c3"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1serializing_1_1DataSynchronizer.html#a30c305899383dfe669a80d4d66f503c3">~DataSynchronizer</a> ()=default</td></tr>
+<tr class="separator:a30c305899383dfe669a80d4d66f503c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b236001a8ba73e918e4137f27cc3dd4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1serializing_1_1DataSynchronizer.html#a7b236001a8ba73e918e4137f27cc3dd4">applyRecievedData</a> (const juce::MemoryBlock &amp;recievedData)</td></tr>
+<tr class="memdesc:a7b236001a8ba73e918e4137f27cc3dd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">When recieving a change message from another data synchronizer, call this function to apply the latest recieved state to the managed object.  <a href="classlemons_1_1serializing_1_1DataSynchronizer.html#a7b236001a8ba73e918e4137f27cc3dd4">More...</a><br /></td></tr>
 <tr class="separator:a7b236001a8ba73e918e4137f27cc3dd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a44278b081df9a06a68b855451d238a15"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1serializing_1_1DataSynchronizer.html#a44278b081df9a06a68b855451d238a15">sendData</a> (const juce::MemoryBlock &amp;outgoingData)=0</td></tr>
+<tr class="memdesc:a44278b081df9a06a68b855451d238a15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Your subclass of DataSynchroniser should implement this function to send binary blobs of encoded state information to the destination.  <a href="classlemons_1_1serializing_1_1DataSynchronizer.html#a44278b081df9a06a68b855451d238a15">More...</a><br /></td></tr>
 <tr class="separator:a44278b081df9a06a68b855451d238a15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Keeps two copies of an object inheriting from <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> in sync. </p>
+<p>This is akin to juce's ValueTreeSynchronizer, but for working with my <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> class. Because <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> does not have any means for detecting changes, this class simply sends a consistent stream of updates on a timer callback. At first glance this may seem excessive, but I have found it to be the most robust way of ensuring that two remote objects stay in sync, and I haven't encountered any major performance issues.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5f4b193ad6d069a9259a7324ddfbfd0a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5f4b193ad6d069a9259a7324ddfbfd0a">&#9670;&nbsp;</a></span>DataSynchronizer()</h2>
 
@@ -112,6 +124,34 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Creates a <a class="el" href="classlemons_1_1serializing_1_1DataSynchronizer.html" title="Keeps two copies of an object inheriting from SerializableData in sync.">DataSynchronizer</a>. </p>
+<p>Make sure that you don't delete the referenced data object before the synchronizer object! </p>
+
+</div>
+</div>
+<a id="a30c305899383dfe669a80d4d66f503c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30c305899383dfe669a80d4d66f503c3">&#9670;&nbsp;</a></span>~DataSynchronizer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual lemons::serializing::DataSynchronizer::~DataSynchronizer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -130,6 +170,15 @@ Private Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>When recieving a change message from another data synchronizer, call this function to apply the latest recieved state to the managed object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">recievedData</td><td>The binary blob you recieved from another <a class="el" href="classlemons_1_1serializing_1_1DataSynchronizer.html" title="Keeps two copies of an object inheriting from SerializableData in sync.">DataSynchronizer</a>'s sendData function. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1serializing_1_1DataSynchronizer.html#a44278b081df9a06a68b855451d238a15" title="Your subclass of DataSynchroniser should implement this function to send binary blobs of encoded stat...">sendData</a> </dd></dl>
 
 </div>
 </div>
@@ -157,6 +206,15 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Your subclass of DataSynchroniser should implement this function to send binary blobs of encoded state information to the destination. </p>
+<p>You can use this function to send OSC messages, UDP packets, HTTP requests, MIDI, DMX packets, etc. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">outgoingData</td><td>The encoded binary blob of state data that should be fed to the recieving <a class="el" href="classlemons_1_1serializing_1_1DataSynchronizer.html" title="Keeps two copies of an object inheriting from SerializableData in sync.">DataSynchronizer</a>'s applyRecievedData function. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1serializing_1_1DataSynchronizer.html#a7b236001a8ba73e918e4137f27cc3dd4" title="When recieving a change message from another data synchronizer, call this function to apply the lates...">applyRecievedData</a> </dd></dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -165,7 +223,7 @@ Private Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 30 2021 02:25:07 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 30 2021 04:08:18 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

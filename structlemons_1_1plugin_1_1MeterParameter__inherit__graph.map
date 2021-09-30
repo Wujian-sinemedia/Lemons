@@ -3,5 +3,5 @@
 <area shape="rect" id="node5" href="$structlemons_1_1plugin_1_1GainMeterParameter.html" title=" " alt="" coords="23,304,218,345"/>
 <area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1TypedParameter.html" title=" " alt="" coords="59,155,182,181"/>
 <area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1Parameter.html" title=" " alt="" coords="24,80,217,107"/>
-<area shape="rect" id="node4" href="$structlemons_1_1SerializableData.html" title=" " alt="" coords="28,5,213,32"/>
+<area shape="rect" id="node4" href="$structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="28,5,213,32"/>
 </map>

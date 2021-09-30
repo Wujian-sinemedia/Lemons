@@ -82,7 +82,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="structlemons_1_1SerializableData.html" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="structlemons_1_1SerializableData.html" target="_top" xlink:title="Base class for any C++ object that needs to be serialized to binary and back.">
 <polygon fill="none" stroke="black" points="14.5,-317.5 14.5,-336.5 153.5,-336.5 153.5,-317.5 14.5,-317.5"/>
 <text text-anchor="middle" x="84" y="-324.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::SerializableData</text>
 </a>

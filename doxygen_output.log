@@ -1,4 +1,2 @@
 python process_source_files.py ../modules build
 doxygen
-/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_core/binary_data/BinaryDataHelpers.h:31: warning: Reached end of file while still inside a (nested) comment. Nesting level 1 (probable line reference: 23)
-/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_core/binary_data/BinaryDataHelpers.h:31: warning: File ended in the middle of a comment block! Perhaps a missing \endcode?

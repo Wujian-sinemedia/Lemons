@@ -101,6 +101,8 @@
     <name>BinaryDataHelpers.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_core/binary_data/</path>
     <filename>BinaryDataHelpers_8h.html</filename>
+    <class kind="struct">lemons::RawData</class>
+    <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
     <name>Broadcaster.h</name>
@@ -261,9 +263,10 @@
     <filename>ContainerInterface_8h.html</filename>
     <includes id="STL__containers_8h" name="STL_containers.h" local="yes" imported="no">STL_containers.h</includes>
     <includes id="Juce__containers_8h" name="Juce_containers.h" local="yes" imported="no">Juce_containers.h</includes>
-    <class kind="struct">lemons::TreeReflectorHelpers::ContainerInterface</class>
+    <class kind="struct">lemons::serializing::TreeReflectorHelpers::ContainerInterface</class>
     <namespace>lemons</namespace>
-    <namespace>lemons::TreeReflectorHelpers</namespace>
+    <namespace>lemons::serializing</namespace>
+    <namespace>lemons::serializing::TreeReflectorHelpers</namespace>
     <member kind="define">
       <type>#define</type>
       <name>BV_TRF_DECLARE_CONTAINER_INTERFACE</name>
@@ -274,15 +277,15 @@
     <member kind="function">
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a10b53c2789b12e84675bd2eb471494e1</anchor>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>a3f37175ae049f68025e6a6bc1c0096db</anchor>
       <arglist>(ContainerType &amp;)</arglist>
     </member>
     <member kind="function">
       <type>constexpr bool</type>
       <name>isContainer</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a6ab7f4849ab720965fd3404f6fbd4dd0</anchor>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>ae732f3d1e1ed355bbe9d463bfbfc71bc</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
@@ -596,82 +599,83 @@
     <filename>helpers_8h.html</filename>
     <includes id="ContainerInterface_8h" name="ContainerInterface.h" local="yes" imported="no">containers/ContainerInterface.h</includes>
     <namespace>lemons</namespace>
-    <namespace>lemons::TreeReflectorHelpers</namespace>
+    <namespace>lemons::serializing</namespace>
+    <namespace>lemons::serializing::TreeReflectorHelpers</namespace>
     <member kind="function">
       <type>constexpr bool</type>
       <name>isSerializable</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>ad20a46a35ef1a1978ce5a292efa673c5</anchor>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>ab7e81ced14bbe881c6a95f9fa201b3a0</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>Type</type>
       <name>toEnum</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>aa1f7ae462dd55838c2a747e43283a4cd</anchor>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>a2e8405392c21e97b1e8700f89eb2e153</anchor>
       <arglist>(const juce::var &amp;var)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>fromEnum</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>abe976f9aff4489573f7d7a167b3a948c</anchor>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>a99ca350e49b33d16cda5192499dcbbba</anchor>
       <arglist>(Type value)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>loadObject</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>ab06725416ae1548489aece4fda9d974d</anchor>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>a47d2bc99dfbb4967cc83c15984bbc483</anchor>
       <arglist>(const ValueTree &amp;tree, const String &amp;propertyName, Type &amp;object)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>saveObject</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a432e93a6a1b0dca781a6a9686cb1edaa</anchor>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>aaa8764612b1138f1743496ae85380324</anchor>
       <arglist>(ValueTree &amp;tree, const String &amp;propertyName, Type &amp;object)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>loadValueTree</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>ac61330a4776b9871328b92ad3be3dfe5</anchor>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>a78c3142c99783b1055c4f23e4124a607</anchor>
       <arglist>(const ValueTree &amp;tree, const String &amp;propertyName, ValueTree &amp;data)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>saveValueTree</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a7844e3b1c6c60d1d1fc58e2f6dbe6b76</anchor>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>aedb97075ee17bd5f2d061c1f4a6fe9bf</anchor>
       <arglist>(ValueTree &amp;tree, const String &amp;propertyName, ValueTree &amp;data)</arglist>
     </member>
     <member kind="function">
       <type>String</type>
       <name>propertyNameToContainerName</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a131f614d6aa793b56f0014db3ebfd490</anchor>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>a74fbae7ad15a8c2708942fa0169527af</anchor>
       <arglist>(const String &amp;propertyName)</arglist>
     </member>
     <member kind="function">
       <type>String</type>
       <name>makePropertyNameForElement</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>ac627535faf30f672a4512ed3a5f2e320</anchor>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>a34b31179d6af762e8129fba7be43c130</anchor>
       <arglist>(const String &amp;propertyName, int &amp;index)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>getNumElementsOfType</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a8e77b657a1165a655bc32c586a4198d4</anchor>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>a3cf377cb04beb02fcba0ada837b67bbc</anchor>
       <arglist>(const String &amp;propertyName, const ValueTree &amp;tree)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>addContainer</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a2f53fa8a107de3dce45d987231525d6f</anchor>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>a336cf06a7997c2af3f7b8e17b0c6bcf1</anchor>
       <arglist>(TreeReflector &amp;ref, ContainerType &amp;container, const String &amp;propertyName)</arglist>
     </member>
   </compound>
@@ -855,14 +859,15 @@
     <name>Juce_containers.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/detail/containers/</path>
     <filename>Juce__containers_8h.html</filename>
-    <class kind="struct">lemons::TreeReflectorHelpers::JuceOwnedArrayInterface</class>
+    <class kind="struct">lemons::serializing::TreeReflectorHelpers::JuceOwnedArrayInterface</class>
     <namespace>lemons</namespace>
-    <namespace>lemons::TreeReflectorHelpers</namespace>
+    <namespace>lemons::serializing</namespace>
+    <namespace>lemons::serializing::TreeReflectorHelpers</namespace>
     <member kind="function">
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>ad0e89527e744ac9746197c3b2a0b8f1f</anchor>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>a806b6c63ad73096eb87bc63ee7755f1f</anchor>
       <arglist>(juce::OwnedArray&lt; ElementType &gt; &amp;container)</arglist>
     </member>
   </compound>
@@ -1994,9 +1999,10 @@
     <name>STL_containers.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/detail/containers/</path>
     <filename>STL__containers_8h.html</filename>
-    <class kind="struct">lemons::TreeReflectorHelpers::StdArrayInterface</class>
+    <class kind="struct">lemons::serializing::TreeReflectorHelpers::StdArrayInterface</class>
     <namespace>lemons</namespace>
-    <namespace>lemons::TreeReflectorHelpers</namespace>
+    <namespace>lemons::serializing</namespace>
+    <namespace>lemons::serializing::TreeReflectorHelpers</namespace>
     <member kind="define">
       <type>#define</type>
       <name>BV_TRF_DECLARE_STL_INTERFACE</name>
@@ -2007,22 +2013,22 @@
     <member kind="function">
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a7b8c65a56ba2864b11f5e66be56d6588</anchor>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>a5eb0df1c90aecd4192948111d6051ba5</anchor>
       <arglist>(std::array&lt; ElementType, size &gt; &amp;container)</arglist>
     </member>
     <member kind="function">
       <type>constexpr bool</type>
       <name>isContainer</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a963aef554d9f9750fd8b47fe6068529a</anchor>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>a5dfa18943d61ac7933a6a3fc8f66ccb5</anchor>
       <arglist>(std::array&lt; ElementType, size &gt; &amp;)</arglist>
     </member>
     <member kind="function">
       <type>constexpr bool</type>
       <name>isContainer</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a80043099ffd04495f661108d2da085c3</anchor>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>af312216aa634ce1edfb826a3156acef6</anchor>
       <arglist>(std::vector&lt; ElementType &gt; &amp;)</arglist>
     </member>
   </compound>
@@ -4055,20 +4061,20 @@
     </member>
   </compound>
   <compound kind="struct">
-    <name>lemons::TreeReflectorHelpers::ContainerInterface</name>
-    <filename>structlemons_1_1TreeReflectorHelpers_1_1ContainerInterface.html</filename>
+    <name>lemons::serializing::TreeReflectorHelpers::ContainerInterface</name>
+    <filename>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1ContainerInterface.html</filename>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
       <name>~ContainerInterface</name>
-      <anchorfile>structlemons_1_1TreeReflectorHelpers_1_1ContainerInterface.html</anchorfile>
-      <anchor>a4c7d459e5d9d99c1a0993af9503f619b</anchor>
+      <anchorfile>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1ContainerInterface.html</anchorfile>
+      <anchor>a9378f09e4ca4b4891d3151017da4aebe</anchor>
       <arglist>()=default</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual void</type>
       <name>resize</name>
-      <anchorfile>structlemons_1_1TreeReflectorHelpers_1_1ContainerInterface.html</anchorfile>
-      <anchor>a0f90bed145f850f638e54ff96d49a7c4</anchor>
+      <anchorfile>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1ContainerInterface.html</anchorfile>
+      <anchor>a1ee2bb3913d1309b27fcd20391419ac4</anchor>
       <arglist>(int newSize)=0</arglist>
     </member>
   </compound>
@@ -4267,6 +4273,13 @@
       <anchorfile>classlemons_1_1serializing_1_1DataSynchronizer.html</anchorfile>
       <anchor>a5f4b193ad6d069a9259a7324ddfbfd0a</anchor>
       <arglist>(SerializableData &amp;dataToUse)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~DataSynchronizer</name>
+      <anchorfile>classlemons_1_1serializing_1_1DataSynchronizer.html</anchorfile>
+      <anchor>a30c305899383dfe669a80d4d66f503c3</anchor>
+      <arglist>()=default</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -7211,22 +7224,22 @@
     <templarg>Args</templarg>
   </compound>
   <compound kind="struct">
-    <name>lemons::TreeReflectorHelpers::JuceOwnedArrayInterface</name>
-    <filename>structlemons_1_1TreeReflectorHelpers_1_1JuceOwnedArrayInterface.html</filename>
+    <name>lemons::serializing::TreeReflectorHelpers::JuceOwnedArrayInterface</name>
+    <filename>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1JuceOwnedArrayInterface.html</filename>
     <templarg></templarg>
-    <base>lemons::TreeReflectorHelpers::ContainerInterface</base>
+    <base>lemons::serializing::TreeReflectorHelpers::ContainerInterface</base>
     <member kind="typedef">
       <type>juce::OwnedArray&lt; ElementType &gt;</type>
       <name>Type</name>
-      <anchorfile>structlemons_1_1TreeReflectorHelpers_1_1JuceOwnedArrayInterface.html</anchorfile>
-      <anchor>a4dfc9cdaecbc3cd9df2d2134fc380ae7</anchor>
+      <anchorfile>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1JuceOwnedArrayInterface.html</anchorfile>
+      <anchor>adc1c52b4b05e944d613846870d801bd6</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>JuceOwnedArrayInterface</name>
-      <anchorfile>structlemons_1_1TreeReflectorHelpers_1_1JuceOwnedArrayInterface.html</anchorfile>
-      <anchor>a210b447e2e205520176769743117166f</anchor>
+      <anchorfile>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1JuceOwnedArrayInterface.html</anchorfile>
+      <anchor>aed550867689eba1bc75ae73929eb2ccd</anchor>
       <arglist>(Type &amp;containerToUse)</arglist>
     </member>
   </compound>
@@ -13621,6 +13634,52 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>lemons::RawData</name>
+    <filename>structlemons_1_1RawData.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>RawData</name>
+      <anchorfile>structlemons_1_1RawData.html</anchorfile>
+      <anchor>a08a4b11ec4c596faf48456a827c6a1bd</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>RawData</name>
+      <anchorfile>structlemons_1_1RawData.html</anchorfile>
+      <anchor>a4d08bca6526b43a29384d923bf4aa64a</anchor>
+      <arglist>(const String &amp;fileToFind)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>RawData</name>
+      <anchorfile>structlemons_1_1RawData.html</anchorfile>
+      <anchor>a2ca1b44539cc549428aea0651669ace7</anchor>
+      <arglist>(const char *fileToFind)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isValid</name>
+      <anchorfile>structlemons_1_1RawData.html</anchorfile>
+      <anchor>a563b6d9ae41079b4e3a1cfa0cdcad822</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="variable">
+      <type>const char *</type>
+      <name>data</name>
+      <anchorfile>structlemons_1_1RawData.html</anchorfile>
+      <anchor>a022333d14194d6ba19fb597f8feeb3a4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>size</name>
+      <anchorfile>structlemons_1_1RawData.html</anchorfile>
+      <anchor>a1e3947effbb3ce48387ffcac890cffb3</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>lemons::plugin::RealtimeStateObject::RealtimeScopedRead</name>
     <filename>structlemons_1_1plugin_1_1RealtimeStateObject_1_1RealtimeScopedRead.html</filename>
     <templarg></templarg>
@@ -14944,23 +15003,23 @@
     </member>
   </compound>
   <compound kind="struct">
-    <name>lemons::TreeReflectorHelpers::StdArrayInterface</name>
-    <filename>structlemons_1_1TreeReflectorHelpers_1_1StdArrayInterface.html</filename>
+    <name>lemons::serializing::TreeReflectorHelpers::StdArrayInterface</name>
+    <filename>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1StdArrayInterface.html</filename>
     <templarg></templarg>
     <templarg>size</templarg>
-    <base>lemons::TreeReflectorHelpers::ContainerInterface</base>
+    <base>lemons::serializing::TreeReflectorHelpers::ContainerInterface</base>
     <member kind="typedef">
       <type>std::array&lt; ElementType, size &gt;</type>
       <name>ArrayType</name>
-      <anchorfile>structlemons_1_1TreeReflectorHelpers_1_1StdArrayInterface.html</anchorfile>
-      <anchor>a2ae9b38b17808e7da48248fc36c00472</anchor>
+      <anchorfile>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1StdArrayInterface.html</anchorfile>
+      <anchor>a36ce34a591bdf4f506a122661d2508d0</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>StdArrayInterface</name>
-      <anchorfile>structlemons_1_1TreeReflectorHelpers_1_1StdArrayInterface.html</anchorfile>
-      <anchor>aa7530923fd0e22b285889ed2e1bbddd0</anchor>
+      <anchorfile>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1StdArrayInterface.html</anchorfile>
+      <anchor>ae7af939255e31d6a7dcdf6844854cc4c</anchor>
       <arglist>(ArrayType &amp;)</arglist>
     </member>
   </compound>
@@ -17055,13 +17114,6 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>ValueTree &amp;</type>
-      <name>getRawDataTree</name>
-      <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
-      <anchor>a7a88f53e45239d0b8d11cb2ce4dbefd0</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
       <type>void</type>
       <name>add</name>
       <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
@@ -17075,6 +17127,13 @@
       <anchor>a3ea2cd3e9bb6c6d3dcc493211e72af1b</anchor>
       <arglist>(const String &amp;propertyName, std::function&lt; Type() &gt; saveToTree, std::function&lt; void(Type &amp;) &gt; loadFromTree)</arglist>
     </member>
+    <member kind="function">
+      <type>ValueTree &amp;</type>
+      <name>getRawDataTree</name>
+      <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
+      <anchor>a7a88f53e45239d0b8d11cb2ce4dbefd0</anchor>
+      <arglist>()</arglist>
+    </member>
   </compound>
   <compound kind="struct">
     <name>lemons::TreeReflector</name>
@@ -17085,6 +17144,13 @@
       <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
       <anchor>a0d351fe3d4087291fe84c745a5edfcf4</anchor>
       <arglist>(const ValueTree &amp;treeToUse)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~TreeReflector</name>
+      <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
+      <anchor>a4a6a2419ad7c90d842c48a58cc5643e9</anchor>
+      <arglist>()=default</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual bool</type>
@@ -17101,13 +17167,6 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>ValueTree &amp;</type>
-      <name>getRawDataTree</name>
-      <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
-      <anchor>a7a88f53e45239d0b8d11cb2ce4dbefd0</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
       <type>void</type>
       <name>add</name>
       <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
@@ -17120,6 +17179,13 @@
       <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
       <anchor>a3ea2cd3e9bb6c6d3dcc493211e72af1b</anchor>
       <arglist>(const String &amp;propertyName, std::function&lt; Type() &gt; saveToTree, std::function&lt; void(Type &amp;) &gt; loadFromTree)</arglist>
+    </member>
+    <member kind="function">
+      <type>ValueTree &amp;</type>
+      <name>getRawDataTree</name>
+      <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
+      <anchor>a7a88f53e45239d0b8d11cb2ce4dbefd0</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -17148,13 +17214,6 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>ValueTree &amp;</type>
-      <name>getRawDataTree</name>
-      <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
-      <anchor>a7a88f53e45239d0b8d11cb2ce4dbefd0</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
       <type>void</type>
       <name>add</name>
       <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
@@ -17167,6 +17226,13 @@
       <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
       <anchor>a3ea2cd3e9bb6c6d3dcc493211e72af1b</anchor>
       <arglist>(const String &amp;propertyName, std::function&lt; Type() &gt; saveToTree, std::function&lt; void(Type &amp;) &gt; loadFromTree)</arglist>
+    </member>
+    <member kind="function">
+      <type>ValueTree &amp;</type>
+      <name>getRawDataTree</name>
+      <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
+      <anchor>a7a88f53e45239d0b8d11cb2ce4dbefd0</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -18311,7 +18377,6 @@
     <namespace>lemons::plugin</namespace>
     <namespace>lemons::serializing</namespace>
     <namespace>lemons::spline</namespace>
-    <namespace>lemons::TreeReflectorHelpers</namespace>
     <namespace>lemons::vecops</namespace>
     <class kind="struct">lemons::CASLoop</class>
     <class kind="struct">lemons::DefaultWindow</class>
@@ -18324,6 +18389,7 @@
     <class kind="struct">lemons::MotionListener</class>
     <class kind="class">lemons::MotionManager</class>
     <class kind="class">lemons::MotionManagerInterface</class>
+    <class kind="struct">lemons::RawData</class>
     <class kind="struct">lemons::SerializableData</class>
     <class kind="struct">lemons::SystemInitializer</class>
     <class kind="struct">lemons::TreeLoader</class>
@@ -19104,6 +19170,7 @@
   <compound kind="namespace">
     <name>lemons::serializing</name>
     <filename>namespacelemons_1_1serializing.html</filename>
+    <namespace>lemons::serializing::TreeReflectorHelpers</namespace>
     <class kind="class">lemons::serializing::DataSynchronizer</class>
     <member kind="function">
       <type>juce::var</type>
@@ -19352,6 +19419,132 @@
     </member>
   </compound>
   <compound kind="namespace">
+    <name>lemons::serializing::TreeReflectorHelpers</name>
+    <filename>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</filename>
+    <class kind="struct">lemons::serializing::TreeReflectorHelpers::ContainerInterface</class>
+    <class kind="struct">lemons::serializing::TreeReflectorHelpers::JuceOwnedArrayInterface</class>
+    <class kind="struct">lemons::serializing::TreeReflectorHelpers::StdArrayInterface</class>
+    <member kind="function">
+      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
+      <name>getInterfaceForContainer</name>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>a3f37175ae049f68025e6a6bc1c0096db</anchor>
+      <arglist>(ContainerType &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>isContainer</name>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>ae732f3d1e1ed355bbe9d463bfbfc71bc</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
+      <name>getInterfaceForContainer</name>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>a806b6c63ad73096eb87bc63ee7755f1f</anchor>
+      <arglist>(juce::OwnedArray&lt; ElementType &gt; &amp;container)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
+      <name>getInterfaceForContainer</name>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>a5eb0df1c90aecd4192948111d6051ba5</anchor>
+      <arglist>(std::array&lt; ElementType, size &gt; &amp;container)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>isContainer</name>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>a5dfa18943d61ac7933a6a3fc8f66ccb5</anchor>
+      <arglist>(std::array&lt; ElementType, size &gt; &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>isContainer</name>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>af312216aa634ce1edfb826a3156acef6</anchor>
+      <arglist>(std::vector&lt; ElementType &gt; &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>isSerializable</name>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>ab7e81ced14bbe881c6a95f9fa201b3a0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>Type</type>
+      <name>toEnum</name>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>a2e8405392c21e97b1e8700f89eb2e153</anchor>
+      <arglist>(const juce::var &amp;var)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>fromEnum</name>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>a99ca350e49b33d16cda5192499dcbbba</anchor>
+      <arglist>(Type value)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>loadObject</name>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>a47d2bc99dfbb4967cc83c15984bbc483</anchor>
+      <arglist>(const ValueTree &amp;tree, const String &amp;propertyName, Type &amp;object)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>saveObject</name>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>aaa8764612b1138f1743496ae85380324</anchor>
+      <arglist>(ValueTree &amp;tree, const String &amp;propertyName, Type &amp;object)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>loadValueTree</name>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>a78c3142c99783b1055c4f23e4124a607</anchor>
+      <arglist>(const ValueTree &amp;tree, const String &amp;propertyName, ValueTree &amp;data)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>saveValueTree</name>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>aedb97075ee17bd5f2d061c1f4a6fe9bf</anchor>
+      <arglist>(ValueTree &amp;tree, const String &amp;propertyName, ValueTree &amp;data)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>propertyNameToContainerName</name>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>a74fbae7ad15a8c2708942fa0169527af</anchor>
+      <arglist>(const String &amp;propertyName)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>makePropertyNameForElement</name>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>a34b31179d6af762e8129fba7be43c130</anchor>
+      <arglist>(const String &amp;propertyName, int &amp;index)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumElementsOfType</name>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>a3cf377cb04beb02fcba0ada837b67bbc</anchor>
+      <arglist>(const String &amp;propertyName, const ValueTree &amp;tree)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addContainer</name>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>a336cf06a7997c2af3f7b8e17b0c6bcf1</anchor>
+      <arglist>(TreeReflector &amp;ref, ContainerType &amp;container, const String &amp;propertyName)</arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
     <name>lemons::spline</name>
     <filename>namespacelemons_1_1spline.html</filename>
     <namespace>lemons::spline::interpolation</namespace>
@@ -19404,132 +19597,6 @@
       <anchorfile>namespacelemons_1_1spline_1_1interpolation.html</anchorfile>
       <anchor>a300030ec6a47046a739e4032c20c2c78</anchor>
       <arglist>(const Knots &amp;data, float x, float tolerance, int i1) noexcept</arglist>
-    </member>
-  </compound>
-  <compound kind="namespace">
-    <name>lemons::TreeReflectorHelpers</name>
-    <filename>namespacelemons_1_1TreeReflectorHelpers.html</filename>
-    <class kind="struct">lemons::TreeReflectorHelpers::ContainerInterface</class>
-    <class kind="struct">lemons::TreeReflectorHelpers::JuceOwnedArrayInterface</class>
-    <class kind="struct">lemons::TreeReflectorHelpers::StdArrayInterface</class>
-    <member kind="function">
-      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
-      <name>getInterfaceForContainer</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a10b53c2789b12e84675bd2eb471494e1</anchor>
-      <arglist>(ContainerType &amp;)</arglist>
-    </member>
-    <member kind="function">
-      <type>constexpr bool</type>
-      <name>isContainer</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a6ab7f4849ab720965fd3404f6fbd4dd0</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
-      <name>getInterfaceForContainer</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>ad0e89527e744ac9746197c3b2a0b8f1f</anchor>
-      <arglist>(juce::OwnedArray&lt; ElementType &gt; &amp;container)</arglist>
-    </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
-      <name>getInterfaceForContainer</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a7b8c65a56ba2864b11f5e66be56d6588</anchor>
-      <arglist>(std::array&lt; ElementType, size &gt; &amp;container)</arglist>
-    </member>
-    <member kind="function">
-      <type>constexpr bool</type>
-      <name>isContainer</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a963aef554d9f9750fd8b47fe6068529a</anchor>
-      <arglist>(std::array&lt; ElementType, size &gt; &amp;)</arglist>
-    </member>
-    <member kind="function">
-      <type>constexpr bool</type>
-      <name>isContainer</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a80043099ffd04495f661108d2da085c3</anchor>
-      <arglist>(std::vector&lt; ElementType &gt; &amp;)</arglist>
-    </member>
-    <member kind="function">
-      <type>constexpr bool</type>
-      <name>isSerializable</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>ad20a46a35ef1a1978ce5a292efa673c5</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>Type</type>
-      <name>toEnum</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>aa1f7ae462dd55838c2a747e43283a4cd</anchor>
-      <arglist>(const juce::var &amp;var)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::var</type>
-      <name>fromEnum</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>abe976f9aff4489573f7d7a167b3a948c</anchor>
-      <arglist>(Type value)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>loadObject</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>ab06725416ae1548489aece4fda9d974d</anchor>
-      <arglist>(const ValueTree &amp;tree, const String &amp;propertyName, Type &amp;object)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>saveObject</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a432e93a6a1b0dca781a6a9686cb1edaa</anchor>
-      <arglist>(ValueTree &amp;tree, const String &amp;propertyName, Type &amp;object)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>loadValueTree</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>ac61330a4776b9871328b92ad3be3dfe5</anchor>
-      <arglist>(const ValueTree &amp;tree, const String &amp;propertyName, ValueTree &amp;data)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>saveValueTree</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a7844e3b1c6c60d1d1fc58e2f6dbe6b76</anchor>
-      <arglist>(ValueTree &amp;tree, const String &amp;propertyName, ValueTree &amp;data)</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>propertyNameToContainerName</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a131f614d6aa793b56f0014db3ebfd490</anchor>
-      <arglist>(const String &amp;propertyName)</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>makePropertyNameForElement</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>ac627535faf30f672a4512ed3a5f2e320</anchor>
-      <arglist>(const String &amp;propertyName, int &amp;index)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getNumElementsOfType</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a8e77b657a1165a655bc32c586a4198d4</anchor>
-      <arglist>(const String &amp;propertyName, const ValueTree &amp;tree)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>addContainer</name>
-      <anchorfile>namespacelemons_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a2f53fa8a107de3dce45d987231525d6f</anchor>
-      <arglist>(TreeReflector &amp;ref, ContainerType &amp;container, const String &amp;propertyName)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
