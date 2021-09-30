@@ -4,7 +4,6 @@ UndoManager::UndoManager (SerializableData& stateToManage)
     : state (stateToManage)
 {
     storedStates.reserve (50);
-    //  saveState();
 }
 
 bool UndoManager::isInMiddleOfTransaction() const
