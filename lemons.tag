@@ -20218,9 +20218,9 @@
     <filename>group__lemons__serializing-version.html</filename>
   </compound>
   <compound kind="page">
-    <name>md_cmake_api</name>
+    <name>cmake_api</name>
     <title>Lemons CMake API</title>
-    <filename>md_cmake_api</filename>
+    <filename>cmake_api</filename>
   </compound>
   <compound kind="page">
     <name>index</name>
