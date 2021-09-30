@@ -216,6 +216,11 @@
     <namespace>lemons::dsp</namespace>
   </compound>
   <compound kind="file">
+    <name>cmake_api.md</name>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/</path>
+    <filename>cmake__api_8md.html</filename>
+  </compound>
+  <compound kind="file">
     <name>Coeffecients.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_dsp/filters/</path>
     <filename>Coeffecients_8h.html</filename>
@@ -20211,6 +20216,11 @@
     <name>lemons_serializing-version</name>
     <title>version</title>
     <filename>group__lemons__serializing-version.html</filename>
+  </compound>
+  <compound kind="page">
+    <name>md_cmake_api</name>
+    <title>Lemons CMake API</title>
+    <filename>md_cmake_api</filename>
   </compound>
   <compound kind="page">
     <name>index</name>
