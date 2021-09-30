@@ -1,4 +1,4 @@
-# Lemons CMake API
+# Lemons CMake API      {#cmake_api}     
 
 ---
 
