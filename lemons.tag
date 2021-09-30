@@ -900,6 +900,11 @@
     <namespace>lemons::dsp</namespace>
   </compound>
   <compound kind="file">
+    <name>lemons_modules.dox</name>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/</path>
+    <filename>lemons__modules_8dox.html</filename>
+  </compound>
+  <compound kind="file">
     <name>Limiter.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_audio_effects/dynamics/</path>
     <filename>Limiter_8h.html</filename>
@@ -19705,6 +19710,440 @@
       <anchor>ae1c5df4348af2db72ad43e54102097bb</anchor>
       <arglist>()</arglist>
     </member>
+  </compound>
+  <compound kind="group">
+    <name>lemons_mobile_utils-Android</name>
+    <title>Android</title>
+    <filename>group__lemons__mobile__utils-Android.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_audio_effects-AudioEffects</name>
+    <title>AudioEffects</title>
+    <filename>group__lemons__audio__effects-AudioEffects.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_dsp-BasicProcessor</name>
+    <title>BasicProcessor</title>
+    <filename>group__lemons__dsp-BasicProcessor.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_synth-BasicSynths</name>
+    <title>BasicSynths</title>
+    <filename>group__lemons__synth-BasicSynths.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_dsp-BufferUtils</name>
+    <title>BufferUtils</title>
+    <filename>group__lemons__dsp-BufferUtils.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_serializing-DataSynchronizer</name>
+    <title>DataSynchronizer</title>
+    <filename>group__lemons__serializing-DataSynchronizer.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_audio_effects-EQ</name>
+    <title>EQ</title>
+    <filename>group__lemons__audio__effects-EQ.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_plugin-EditorBase</name>
+    <title>EditorBase</title>
+    <filename>group__lemons__plugin-EditorBase.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_dsp-FIFOs</name>
+    <title>FIFOs</title>
+    <filename>group__lemons__dsp-FIFOs.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_app_utils-GuiApp</name>
+    <title>GuiApp</title>
+    <filename>group__lemons__app__utils-GuiApp.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_midi-MidiUtilities</name>
+    <title>MidiUtilities</title>
+    <filename>group__lemons__midi-MidiUtilities.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_plugin_parameters-ModulationManager</name>
+    <title>ModulationManager</title>
+    <filename>group__lemons__plugin__parameters-ModulationManager.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_plugin_parameters-ParameterList</name>
+    <title>ParameterList</title>
+    <filename>group__lemons__plugin__parameters-ParameterList.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_midi-PitchConverter</name>
+    <title>PitchConverter</title>
+    <filename>group__lemons__midi-PitchConverter.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_psola-PitchCorrector</name>
+    <title>PitchCorrector</title>
+    <filename>group__lemons__psola-PitchCorrector.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_dsp-PitchDetector</name>
+    <title>PitchDetector</title>
+    <filename>group__lemons__dsp-PitchDetector.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_plugin_gui-PresetBar</name>
+    <title>PresetBar</title>
+    <filename>group__lemons__plugin__gui-PresetBar.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_plugin_parameters-RealtimeStateObject</name>
+    <title>RealtimeStateObject</title>
+    <filename>group__lemons__plugin__parameters-RealtimeStateObject.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_serializing-SerializableData</name>
+    <title>SerializableData</title>
+    <filename>group__lemons__serializing-SerializableData.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_serializing-Serializing</name>
+    <title>Serializing</title>
+    <filename>group__lemons__serializing-Serializing.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_oscillators-SuperSaw</name>
+    <title>SuperSaw</title>
+    <filename>group__lemons__oscillators-SuperSaw.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_synth-Synth</name>
+    <title>Synth</title>
+    <filename>group__lemons__synth-Synth.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_synth-SynthVoice</name>
+    <title>SynthVoice</title>
+    <filename>group__lemons__synth-SynthVoice.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_mobile_utils-all_platforms</name>
+    <title>all_platforms</title>
+    <filename>group__lemons__mobile__utils-all__platforms.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_psola-analysis</name>
+    <title>analysis</title>
+    <filename>group__lemons__psola-analysis.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_oscillators-basic_types</name>
+    <title>basic_types</title>
+    <filename>group__lemons__oscillators-basic__types.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_core-binary_data</name>
+    <title>binary_data</title>
+    <filename>group__lemons__core-binary__data.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_plugin_gui-buttons</name>
+    <title>buttons</title>
+    <filename>group__lemons__plugin__gui-buttons.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_oscillators-choosable</name>
+    <title>choosable</title>
+    <filename>group__lemons__oscillators-choosable.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_spline-common</name>
+    <title>common</title>
+    <filename>group__lemons__spline-common.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_gui-components</name>
+    <title>components</title>
+    <filename>group__lemons__gui-components.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_mobile_utils-dummy_desktop_versions</name>
+    <title>dummy_desktop_versions</title>
+    <filename>group__lemons__mobile__utils-dummy__desktop__versions.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_audio_effects-dynamics</name>
+    <title>dynamics</title>
+    <filename>group__lemons__audio__effects-dynamics.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_spline-editor</name>
+    <title>editor</title>
+    <filename>group__lemons__spline-editor.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_dsp-engines</name>
+    <title>engines</title>
+    <filename>group__lemons__dsp-engines.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_core-events</name>
+    <title>events</title>
+    <filename>group__lemons__core-events.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_core-files</name>
+    <title>files</title>
+    <filename>group__lemons__core-files.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_dsp-filters</name>
+    <title>filters</title>
+    <filename>group__lemons__dsp-filters.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_mobile_utils-iOS</name>
+    <title>iOS</title>
+    <filename>group__lemons__mobile__utils-iOS.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_gui-icons</name>
+    <title>icons</title>
+    <filename>group__lemons__gui-icons.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_app_utils</name>
+    <title>lemons_app_utils</title>
+    <filename>group__lemons__app__utils.html</filename>
+    <subgroup>lemons_app_utils-GuiApp</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>lemons_audio_effects</name>
+    <title>lemons_audio_effects</title>
+    <filename>group__lemons__audio__effects.html</filename>
+    <subgroup>lemons_audio_effects-AudioEffects</subgroup>
+    <subgroup>lemons_audio_effects-EQ</subgroup>
+    <subgroup>lemons_audio_effects-dynamics</subgroup>
+    <subgroup>lemons_audio_effects-misc</subgroup>
+    <subgroup>lemons_audio_effects-stereo_image</subgroup>
+    <subgroup>lemons_audio_effects-time</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>lemons_core</name>
+    <title>lemons_core</title>
+    <filename>group__lemons__core.html</filename>
+    <subgroup>lemons_core-binary_data</subgroup>
+    <subgroup>lemons_core-events</subgroup>
+    <subgroup>lemons_core-files</subgroup>
+    <subgroup>lemons_core-localization</subgroup>
+    <subgroup>lemons_core-math</subgroup>
+    <subgroup>lemons_core-misc</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>lemons_dsp</name>
+    <title>lemons_dsp</title>
+    <filename>group__lemons__dsp.html</filename>
+    <subgroup>lemons_dsp-BasicProcessor</subgroup>
+    <subgroup>lemons_dsp-BufferUtils</subgroup>
+    <subgroup>lemons_dsp-FIFOs</subgroup>
+    <subgroup>lemons_dsp-PitchDetector</subgroup>
+    <subgroup>lemons_dsp-engines</subgroup>
+    <subgroup>lemons_dsp-filters</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>lemons_gui</name>
+    <title>lemons_gui</title>
+    <filename>group__lemons__gui.html</filename>
+    <subgroup>lemons_gui-components</subgroup>
+    <subgroup>lemons_gui-icons</subgroup>
+    <subgroup>lemons_gui-utilities</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>lemons_midi</name>
+    <title>lemons_midi</title>
+    <filename>group__lemons__midi.html</filename>
+    <subgroup>lemons_midi-MidiUtilities</subgroup>
+    <subgroup>lemons_midi-PitchConverter</subgroup>
+    <subgroup>lemons_midi-processors</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>lemons_mobile_utils</name>
+    <title>lemons_mobile_utils</title>
+    <filename>group__lemons__mobile__utils.html</filename>
+    <subgroup>lemons_mobile_utils-Android</subgroup>
+    <subgroup>lemons_mobile_utils-all_platforms</subgroup>
+    <subgroup>lemons_mobile_utils-dummy_desktop_versions</subgroup>
+    <subgroup>lemons_mobile_utils-iOS</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>lemons_oscillators</name>
+    <title>lemons_oscillators</title>
+    <filename>group__lemons__oscillators.html</filename>
+    <subgroup>lemons_oscillators-SuperSaw</subgroup>
+    <subgroup>lemons_oscillators-basic_types</subgroup>
+    <subgroup>lemons_oscillators-choosable</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>lemons_plugin</name>
+    <title>lemons_plugin</title>
+    <filename>group__lemons__plugin.html</filename>
+    <subgroup>lemons_plugin-EditorBase</subgroup>
+    <subgroup>lemons_plugin-processors</subgroup>
+    <subgroup>lemons_plugin-state</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>lemons_plugin_gui</name>
+    <title>lemons_plugin_gui</title>
+    <filename>group__lemons__plugin__gui.html</filename>
+    <subgroup>lemons_plugin_gui-PresetBar</subgroup>
+    <subgroup>lemons_plugin_gui-buttons</subgroup>
+    <subgroup>lemons_plugin_gui-sliders</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>lemons_plugin_parameters</name>
+    <title>lemons_plugin_parameters</title>
+    <filename>group__lemons__plugin__parameters.html</filename>
+    <subgroup>lemons_plugin_parameters-ModulationManager</subgroup>
+    <subgroup>lemons_plugin_parameters-ParameterList</subgroup>
+    <subgroup>lemons_plugin_parameters-RealtimeStateObject</subgroup>
+    <subgroup>lemons_plugin_parameters-parameters</subgroup>
+    <subgroup>lemons_plugin_parameters-processor</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>lemons_plugin_presets</name>
+    <title>lemons_plugin_presets</title>
+    <filename>group__lemons__plugin__presets.html</filename>
+    <subgroup>lemons_plugin_presets-preset_library</subgroup>
+    <subgroup>lemons_plugin_presets-presets</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>lemons_psola</name>
+    <title>lemons_psola</title>
+    <filename>group__lemons__psola.html</filename>
+    <subgroup>lemons_psola-PitchCorrector</subgroup>
+    <subgroup>lemons_psola-analysis</subgroup>
+    <subgroup>lemons_psola-resynthesis</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>lemons_serializing</name>
+    <title>lemons_serializing</title>
+    <filename>group__lemons__serializing.html</filename>
+    <subgroup>lemons_serializing-DataSynchronizer</subgroup>
+    <subgroup>lemons_serializing-SerializableData</subgroup>
+    <subgroup>lemons_serializing-Serializing</subgroup>
+    <subgroup>lemons_serializing-undo</subgroup>
+    <subgroup>lemons_serializing-version</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>lemons_spline</name>
+    <title>lemons_spline</title>
+    <filename>group__lemons__spline.html</filename>
+    <subgroup>lemons_spline-common</subgroup>
+    <subgroup>lemons_spline-editor</subgroup>
+    <subgroup>lemons_spline-spline</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>lemons_synth</name>
+    <title>lemons_synth</title>
+    <filename>group__lemons__synth.html</filename>
+    <subgroup>lemons_synth-BasicSynths</subgroup>
+    <subgroup>lemons_synth-Synth</subgroup>
+    <subgroup>lemons_synth-SynthVoice</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>lemons_core-localization</name>
+    <title>localization</title>
+    <filename>group__lemons__core-localization.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_core-math</name>
+    <title>math</title>
+    <filename>group__lemons__core-math.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_core-misc</name>
+    <title>misc</title>
+    <filename>group__lemons__core-misc.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_audio_effects-misc</name>
+    <title>misc</title>
+    <filename>group__lemons__audio__effects-misc.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_plugin_parameters-parameters</name>
+    <title>parameters</title>
+    <filename>group__lemons__plugin__parameters-parameters.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_plugin_presets-preset_library</name>
+    <title>preset_library</title>
+    <filename>group__lemons__plugin__presets-preset__library.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_plugin_presets-presets</name>
+    <title>presets</title>
+    <filename>group__lemons__plugin__presets-presets.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_plugin_parameters-processor</name>
+    <title>processor</title>
+    <filename>group__lemons__plugin__parameters-processor.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_midi-processors</name>
+    <title>processors</title>
+    <filename>group__lemons__midi-processors.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_plugin-processors</name>
+    <title>processors</title>
+    <filename>group__lemons__plugin-processors.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_psola-resynthesis</name>
+    <title>resynthesis</title>
+    <filename>group__lemons__psola-resynthesis.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_plugin_gui-sliders</name>
+    <title>sliders</title>
+    <filename>group__lemons__plugin__gui-sliders.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_spline-spline</name>
+    <title>spline</title>
+    <filename>group__lemons__spline-spline.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_plugin-state</name>
+    <title>state</title>
+    <filename>group__lemons__plugin-state.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_audio_effects-stereo_image</name>
+    <title>stereo_image</title>
+    <filename>group__lemons__audio__effects-stereo__image.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_audio_effects-time</name>
+    <title>time</title>
+    <filename>group__lemons__audio__effects-time.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_serializing-undo</name>
+    <title>undo</title>
+    <filename>group__lemons__serializing-undo.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_gui-utilities</name>
+    <title>utilities</title>
+    <filename>group__lemons__gui-utilities.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_serializing-version</name>
+    <title>version</title>
+    <filename>group__lemons__serializing-version.html</filename>
   </compound>
   <compound kind="page">
     <name>index</name>

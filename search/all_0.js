@@ -44,5 +44,9 @@ var searchData=
   ['audiofifo_2eh_41',['AudioFIFO.h',['../AudioFIFO_8h.html',1,'']]],
   ['author_42',['author',['../structlemons_1_1plugin_1_1Preset.html#a5fcac1454983fa5d0c8f933c9372a0bc',1,'lemons::plugin::Preset']]],
   ['automatedharmonyvoice_43',['AutomatedHarmonyVoice',['../classlemons_1_1dsp_1_1synth_1_1AutomatedHarmonyVoice.html',1,'lemons::dsp::synth::AutomatedHarmonyVoice&lt; SampleType &gt;'],['../classlemons_1_1dsp_1_1synth_1_1AutomatedHarmonyVoice.html#a442214b60ee6d403a3e2e0f71e14ed2d',1,'lemons::dsp::synth::AutomatedHarmonyVoice::AutomatedHarmonyVoice()']]],
-  ['automatedharmonyvoice_2eh_44',['AutomatedHarmonyVoice.h',['../AutomatedHarmonyVoice_8h.html',1,'']]]
+  ['automatedharmonyvoice_2eh_44',['AutomatedHarmonyVoice.h',['../AutomatedHarmonyVoice_8h.html',1,'']]],
+  ['audioeffects_45',['AudioEffects',['../group__lemons__audio__effects-AudioEffects.html',1,'']]],
+  ['all_5fplatforms_46',['all_platforms',['../group__lemons__mobile__utils-all__platforms.html',1,'']]],
+  ['android_47',['Android',['../group__lemons__mobile__utils-Android.html',1,'']]],
+  ['analysis_48',['analysis',['../group__lemons__psola-analysis.html',1,'']]]
 ];
