@@ -44,7 +44,7 @@ void TreeReflector::addLambdaSet (const String& propertyName,
 template < typename Type >
 void TreeReflector::load (const String& propertyName, Type& object)
 {
-    using namespace TreeReflectorHelpers;
+    using namespace serializing::TreeReflectorHelpers;
 
     if constexpr (! std::is_const< Type >())
     {
@@ -62,7 +62,7 @@ void TreeReflector::load (const String& propertyName, Type& object)
 template < typename Type >
 void TreeReflector::save (const String& propertyName, Type& object)
 {
-    using namespace TreeReflectorHelpers;
+    using namespace serializing::TreeReflectorHelpers;
 
     if constexpr (isSerializable< Type >())
         saveDataChild (propertyName, object);
@@ -77,22 +77,26 @@ void TreeReflector::save (const String& propertyName, Type& object)
 template < class ContainerType >
 void TreeReflector::loadContainer (const String& propertyName, ContainerType& container)
 {
-    const auto child = tree.getChildWithName (TreeReflectorHelpers::propertyNameToContainerName (propertyName));
+    using namespace serializing::TreeReflectorHelpers;
+
+    const auto child = tree.getChildWithName (propertyNameToContainerName (propertyName));
     if (! child.isValid()) return;
 
     TreeLoader ref {child};
 
-    TreeReflectorHelpers::addContainer (ref, container, propertyName);
+    addContainer (ref, container, propertyName);
 }
 
 template < class ContainerType >
 void TreeReflector::saveContainer (const String& propertyName, ContainerType& container)
 {
-    ValueTree child {TreeReflectorHelpers::propertyNameToContainerName (propertyName)};
+    using namespace serializing::TreeReflectorHelpers;
+
+    ValueTree child {propertyNameToContainerName (propertyName)};
 
     TreeSaver ref {child};
 
-    TreeReflectorHelpers::addContainer (ref, container, propertyName);
+    addContainer (ref, container, propertyName);
 
     tree.appendChild (ref.getRawDataTree(), nullptr);
 }

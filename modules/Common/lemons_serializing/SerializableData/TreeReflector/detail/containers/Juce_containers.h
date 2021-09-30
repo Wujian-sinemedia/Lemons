@@ -1,6 +1,6 @@
 #pragma once
 
-namespace lemons::TreeReflectorHelpers
+namespace lemons::serializing::TreeReflectorHelpers
 {
 BV_TRF_DECLARE_CONTAINER_INTERFACE (juce::Array, JuceArrayInterface, container.ensureStorageAllocated (newSize))
 
@@ -33,4 +33,4 @@ std::unique_ptr< ContainerInterface > getInterfaceForContainer (juce::OwnedArray
     return std::make_unique< JuceOwnedArrayInterface< ElementType > > (container);
 }
 
-}  // namespace lemons::TreeReflectorHelpers
+}  // namespace lemons::serializing::TreeReflectorHelpers

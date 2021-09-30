@@ -3,7 +3,6 @@
 
 namespace lemons::serializing
 {
-//==============================================================================
 /**
     Implement this function and fromVar for any custom type to allow easily serialization using TreeReflector::add().
     This function must save the complete state of your object either directly to a juce::var or to a type that is implicitly convertable to juce::var (ie, float, int, juce::String, etc.).
@@ -49,7 +48,6 @@ juce::var toVar (Type& object)
 }
 
 
-//==============================================================================
 /**
     Implement this function and toVar for any custom type to allow easily serialization using TreeReflector::add().
     This function must load the complete state of your object from a juce::var.
@@ -94,4 +92,4 @@ Type fromVar (juce::var var)
     return {var};
 }
 
-}  // namespace lemons
+}  // namespace lemons::serializing

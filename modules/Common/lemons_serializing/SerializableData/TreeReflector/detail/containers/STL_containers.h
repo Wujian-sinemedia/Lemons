@@ -1,6 +1,6 @@
 #pragma once
 
-namespace lemons::TreeReflectorHelpers
+namespace lemons::serializing::TreeReflectorHelpers
 {
 template < typename ElementType, size_t size >
 struct StdArrayInterface : ContainerInterface
@@ -42,4 +42,4 @@ constexpr bool isContainer (std::vector< ElementType >&)
     return true;
 }
 
-}  // namespace lemons::TreeReflectorHelpers
+}  // namespace lemons::serializing::TreeReflectorHelpers

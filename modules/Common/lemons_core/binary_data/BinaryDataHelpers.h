@@ -24,7 +24,7 @@ struct RawData
  @code
  RawData binary {"File.wav"};
  doSomethingWithData (binary.data, binary.size);
- @end-code
+ @endcode
  */
 
 }  // namespace lemons

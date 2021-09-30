@@ -26,4 +26,4 @@ juce::Point< float > fromVar (juce::var var)
     return point;
 }
 
-}  // namespace lemons
+}  // namespace lemons::serializing

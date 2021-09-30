@@ -5,7 +5,6 @@
 
 namespace lemons
 {
-//==============================================================================
 /**
     Base class for a GUI app's main window.
     @tags{Apps}
@@ -21,12 +20,10 @@ protected:
     void init();
 
 private:
-    /** This method is called when the user tries to close the window. */
     void closeButtonPressed() final;
 };
 
 
-//==============================================================================
 /**
     A class representing a GUI app's main window, templated on the type of main component it displays.
     @see DefaultWindowBase, GuiApp

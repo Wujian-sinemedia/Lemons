@@ -8,24 +8,102 @@ namespace lemons
 struct SerializableData;
 
 
+/**
+    Utility class that provides a convenient API for assigning data members or lambdas to ValueTree properties for use in serializing logic.
+    You should never have to create one of these, the SerializableData class will internally create and use TreeLoaders and TreeSavers when you call its top-level load and save functions.
+    Internally, this class uses the toVar() and fromVar() functions to encode various C++ types into ValueTree properties. Implement those two functions within the lemons::serializing namespace for any custom type you wish to easily serialize.
+    @see SerializableData, serializing::toVar, serializing::fromVar
+ */
 struct TreeReflector
 {
+    /** Creates a TreeReflector.
+        Whether this reflector is loading or saving, it must be given a ValueTree to reference.
+     */
     explicit TreeReflector (const ValueTree& treeToUse);
 
+    /** Destructor. */
+    virtual ~TreeReflector() = default;
+
+    /** Returns true if this reflector is loading state. */
     virtual bool isLoading() const = 0;
-    bool         isSaving() const;
 
-    ValueTree& getRawDataTree();
+    /** Returns true if this reflector is saving state. */
+    bool isSaving() const;
 
+
+    /** Binds a named ValueTree property to a data member of your object.
+        Uses serializing::toVar() to save to the tree, and serializing::fromVar() to restore from the tree.
+        Be careful not to use duplicate property names in the serialization logic for a single object!
+        For example:
+        @code
+        struct SomethingSerializable : lemons::SerializableData
+        {
+            // we want to save this integer with our program's state
+            int data;
+     
+            void serialize (TreeReflector& ref) final
+            {
+                // simpy choose a property name -- and that's it!
+                ref.add ("MyData", data);
+            }
+        };
+        @endcode
+     
+        @param propertyName The name of the ValueTree property that this data member corresponds to. When saving, the juce::var-encoded version of the data member will be written to the tree using this property name. When loading, if the tree has a property with this name, it will be converted from juce::var back into your type and assigned to the data member.
+     
+        @param object Reference to the data member you wish to load/save.
+     
+        @see serializing::toVar(), serializing::fromVar()
+     */
     template < typename Type >
     void add (const String& propertyName, Type& object);
 
+
+    /** Binds lambda functions for saving and loading a certain value to and from a named ValueTree property.
+        This works similarly to add(), but provides the ability to fetch the value using a lambda, and call a lambda with the value retrieved from the tree.
+        Internally, uses serializing::toVar() to save to the tree, and serializing::fromVar() to restore from the tree.
+        Be careful not to use duplicate property names in the serialization logic for a single object!
+        For example:
+         @code
+         struct SomethingSerializable : lemons::SerializableData
+         {
+            // maybe this function has side effects?
+            void setData (int newData);
+         
+        private:
+            // we still want to save this integer with our program's state, but I want to call setData() when it's being loaded...
+            int data;
+         
+            void serialize (TreeReflector& ref) final
+            {
+                // you can specify lambdas for retrieving and saving a property's value as a specified type (int)
+                ref.addLambdaSet<int> ("MyData",
+                                        [&]{ return data; },
+                                        [&](int newData){ setData (newData); });
+            }
+         };
+         @endcode
+     
+        @param propertyName The name of the ValueTree property that this data corresponds to. When saving, the juce::var-encoded version of the object returned from the saveToTree function will be written to the tree using this property name. When loading, if the tree has a property with this name, it will be converted from juce::var back into your type and passed to the loadFromTree function.
+     
+        @param saveToTree This lambda should return the current value of the data you wish to save.
+     
+        @param loadFromTree This lambda will be called with the new value for this data when a new state is loaded.
+     
+        @see serializing::toVar(), serializing::fromVar()
+     */
     template < typename Type >
     void addLambdaSet (const String& propertyName,
                        std::function< Type() >
                            saveToTree,
                        std::function< void (Type&) >
                            loadFromTree);
+
+
+    /** Returns a reference to this reflector's root ValueTree.
+        Handle with care! The tree this function returns may already contain sub-nodes representing other serialized children of whatever object is serializing you at the moment...
+    */
+    ValueTree& getRawDataTree();
 
 private:
     template < typename Type >
@@ -46,6 +124,11 @@ private:
     ValueTree tree;
 };
 
+
+/**
+    Subclass of TreeReflector used for loading state.
+    @see TreeReflector
+ */
 struct TreeLoader : TreeReflector
 {
     using TreeReflector::TreeReflector;
@@ -53,6 +136,11 @@ struct TreeLoader : TreeReflector
     bool isLoading() const final;
 };
 
+
+/**
+    Subclass of TreeReflector used for saving state.
+    @see TreeReflector
+ */
 struct TreeSaver : TreeReflector
 {
     using TreeReflector::TreeReflector;

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace lemons::TreeReflectorHelpers
+namespace lemons::serializing::TreeReflectorHelpers
 {
 struct ContainerInterface
 {
@@ -18,7 +18,7 @@ constexpr bool isContainer()
     return std::is_array< Type >() || is_specialization< Type, std::vector >() || is_specialization< Type, juce::OwnedArray >();
 }
 
-}  // namespace lemons::TreeReflectorHelpers
+}  // namespace lemons::serializing::TreeReflectorHelpers
 
 #define BV_TRF_DECLARE_CONTAINER_INTERFACE(ContainerClass, InterfaceClassName, operationToResize)             \
     template < typename ElementType >                                                                         \

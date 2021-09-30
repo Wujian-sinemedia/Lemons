@@ -2,7 +2,6 @@
 
 namespace lemons
 {
-//==============================================================================
 /**
     Represents the base for a generic GUI app.
     Templated on the type of component it owns.
@@ -16,7 +15,6 @@ public:
     using WindowType = DefaultWindow< ContentComponentType >;
     using Size       = juce::Point< int >;
 
-    //==============================================================================
     /** Creates a default GuiApp. */
     GuiApp (const String& appName, const String& appVersion, const Size& initSize)
         : initialSize (initSize), name (appName), version (appVersion)

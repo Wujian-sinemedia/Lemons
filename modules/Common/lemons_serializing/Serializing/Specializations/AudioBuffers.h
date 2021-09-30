@@ -15,4 +15,4 @@ juce::AudioBuffer< float > fromVar (juce::var var);
 template <>
 juce::AudioBuffer< double > fromVar (juce::var var);
 
-}  // namespace lemons
+}  // namespace lemons::serializing

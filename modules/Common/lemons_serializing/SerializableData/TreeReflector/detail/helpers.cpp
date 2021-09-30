@@ -1,5 +1,5 @@
 
-namespace lemons::TreeReflectorHelpers
+namespace lemons::serializing::TreeReflectorHelpers
 {
 String propertyNameToContainerName (const String& propertyName)
 {
@@ -43,4 +43,4 @@ void saveValueTree (ValueTree& tree, const String& propertyName, ValueTree& data
     tree.appendChild (child, nullptr);
 }
 
-}  // namespace lemons::TreeReflectorHelpers
+}  // namespace lemons::serializing::TreeReflectorHelpers

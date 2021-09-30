@@ -2,7 +2,7 @@
 
 #include "containers/ContainerInterface.h"
 
-namespace lemons::TreeReflectorHelpers
+namespace lemons::serializing::TreeReflectorHelpers
 {
 template < typename Type >
 constexpr bool isSerializable()
@@ -83,4 +83,4 @@ void addContainer (TreeReflector& ref, ContainerType& container, const String& p
     }
 }
 
-}  // namespace lemons::TreeReflectorHelpers
+}  // namespace lemons::serializing::TreeReflectorHelpers
