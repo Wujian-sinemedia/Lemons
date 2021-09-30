@@ -67,6 +67,27 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><hr  />
+<h1>Options</h1>
+<h2>LEMONS_CXX_VERSION</h2>
+<p>Defines the C++ language standard used for all targets configured using the Lemons CMake API. Defaults to 20.</p>
+<h2>LEMONS_AAX_SDK_PATH</h2>
+<p>If you are an Avid developer, you can set this variable to the absolute path of the AAX SDK repo root to enable using the AAX plugin format. If this is set, the Lemons CMake scripts will attempt to build the AAX SDK when you add the Lemons package (note that this is currently only supported with the XCode and MSVC generators).</p>
+<h2>LEMONS_SANITIZERS_TO_ENABLE</h2>
+<p>An optional list of sanitizers to enable. Currently only supported with GNU, Clang, or MSVC compilers. The options are:</p><ul>
+<li>address</li>
+<li>memory</li>
+<li>thread</li>
+<li>leak</li>
+<li>undefined</li>
+<li>fuzzer</li>
+</ul>
+<p>The sanitizers "address", "memory" and "thread" are mutually exclusive. You cannot enable two of them in the same build.</p>
+<p>"leak" requires the "address" sanitizer.</p>
+<h2>LEMONS_USE_LV2_JUCE</h2>
+<p>If enabled, uses <a href="https://github.com/lv2-porting-project/JUCE/tree/lv2">the fork of JUCE that enables compiling to LV2 on Linux</a>. Note that this option changes nothing if you're not on Linux.</p>
+<h2>LEMONS_COPY_TO_DEPLOY_FOLDER</h2>
+<p>If enabled, copies each product's binaries to /Builds/deploy/&lt;ProductName&gt;. Convenient for CI.</p>
+<hr  />
 <h1>Functions</h1>
 <h2>lemons_configure_juce_plugin &amp; lemons_configure_juce_app</h2>
 <p>Performs a default configuration of a juce app or plugin. These two functions have the same arguments except where differences are noted:</p>
@@ -118,7 +139,7 @@ $(function() {
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 30 2021 05:36:53 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 30 2021 05:56:26 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
