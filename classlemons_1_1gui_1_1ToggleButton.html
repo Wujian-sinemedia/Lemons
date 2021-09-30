@@ -75,6 +75,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A stateful on/off button attached to a boolean plugin parameter.  
+ <a href="classlemons_1_1gui_1_1ToggleButton.html#details">More...</a></p>
+
 <p><code>#include &lt;Buttons.h&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::gui::ToggleButton:</div>
@@ -88,8 +91,10 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a13c2d7cae83cb8b3a653ac60a08e5128"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1gui_1_1ToggleButton.html#a13c2d7cae83cb8b3a653ac60a08e5128">ToggleButton</a> (<a class="el" href="structlemons_1_1plugin_1_1BoolParameter.html">plugin::BoolParameter</a> &amp;paramToUse, std::function&lt; void(bool) &gt; cb={})</td></tr>
+<tr class="memdesc:a13c2d7cae83cb8b3a653ac60a08e5128"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="classlemons_1_1gui_1_1ToggleButton.html" title="A stateful on/off button attached to a boolean plugin parameter.">ToggleButton</a> linked to a boolean parameter.  <a href="classlemons_1_1gui_1_1ToggleButton.html#a13c2d7cae83cb8b3a653ac60a08e5128">More...</a><br /></td></tr>
 <tr class="separator:a13c2d7cae83cb8b3a653ac60a08e5128"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafe0e0cbb1115f922e38f607cb88b6d5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1gui_1_1ToggleButton.html#aafe0e0cbb1115f922e38f607cb88b6d5">~ToggleButton</a> ()=default</td></tr>
+<tr class="memdesc:aafe0e0cbb1115f922e38f607cb88b6d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="classlemons_1_1gui_1_1ToggleButton.html#aafe0e0cbb1115f922e38f607cb88b6d5">More...</a><br /></td></tr>
 <tr class="separator:aafe0e0cbb1115f922e38f607cb88b6d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -97,7 +102,10 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a894d737728d6aaaa39e0c484438c3059"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1BoolParameter.html">plugin::BoolParameter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1gui_1_1ToggleButton.html#a894d737728d6aaaa39e0c484438c3059">param</a></td></tr>
 <tr class="separator:a894d737728d6aaaa39e0c484438c3059"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A stateful on/off button attached to a boolean plugin parameter. </p>
+<p>For a simple press-button that triggers a lambda function, use <a class="el" href="structlemons_1_1gui_1_1TextButton.html">TextButton</a> or <a class="el" href="structlemons_1_1gui_1_1ImageButton.html">ImageButton</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1plugin_1_1BoolParameter.html">plugin::BoolParameter</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a13c2d7cae83cb8b3a653ac60a08e5128"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a13c2d7cae83cb8b3a653ac60a08e5128">&#9670;&nbsp;</a></span>ToggleButton()</h2>
 
@@ -124,6 +132,15 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Creates a <a class="el" href="classlemons_1_1gui_1_1ToggleButton.html" title="A stateful on/off button attached to a boolean plugin parameter.">ToggleButton</a> linked to a boolean parameter. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">paramToUse</td><td>The parameter to attach to. </td></tr>
+    <tr><td class="paramname">cb</td><td>A lambda function that will be called when the state of the button/parameter changes. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="aafe0e0cbb1115f922e38f607cb88b6d5"></a>
@@ -149,6 +166,8 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Destructor. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -172,7 +191,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 30 2021 07:42:09 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 30 2021 19:26:59 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

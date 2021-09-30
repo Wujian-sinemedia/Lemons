@@ -88,7 +88,7 @@ var searchData=
   ['preprocessor_2eh_716',['Preprocessor.h',['../Preprocessor_8h.html',1,'']]],
   ['preset_717',['Preset',['../structlemons_1_1plugin_1_1Preset.html',1,'lemons::plugin']]],
   ['preset_2eh_718',['Preset.h',['../Preset_8h.html',1,'']]],
-  ['presetbar_719',['PresetBar',['../classlemons_1_1plugin_1_1PresetBar.html',1,'lemons::plugin::PresetBar'],['../classlemons_1_1plugin_1_1PresetBar.html#aea3254533c619b1d04c153a7796d4a24',1,'lemons::plugin::PresetBar::PresetBar()']]],
+  ['presetbar_719',['PresetBar',['../classlemons_1_1plugin_1_1PresetBar.html',1,'lemons::plugin::PresetBar'],['../classlemons_1_1plugin_1_1PresetBar.html#a1de0a7f8128904cd11491d66796fe9e5',1,'lemons::plugin::PresetBar::PresetBar()']]],
   ['presetbar_2eh_720',['PresetBar.h',['../PresetBar_8h.html',1,'']]],
   ['presetbrowsercomponent_2eh_721',['PresetBrowserComponent.h',['../PresetBrowserComponent_8h.html',1,'']]],
   ['presetdatabase_2eh_722',['PresetDatabase.h',['../PresetDatabase_8h.html',1,'']]],

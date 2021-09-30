@@ -74,6 +74,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Base class for plugin sliders that handles some logic common to both int and float parameter sliders.  
+ <a href="classlemons_1_1gui_1_1SliderBase.html#details">More...</a></p>
+
 <p><code>#include &lt;SliderBase.h&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::gui::SliderBase:</div>
@@ -87,9 +90,13 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:adf590f6a1d1c75ed0e8dbc67d6284724"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1gui_1_1SliderBase.html#adf590f6a1d1c75ed0e8dbc67d6284724">SliderBase</a> (<a class="el" href="classlemons_1_1plugin_1_1Parameter.html">plugin::Parameter</a> &amp;paramToUse)</td></tr>
+<tr class="memdesc:adf590f6a1d1c75ed0e8dbc67d6284724"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a slider that references a plugin parameter.  <a href="classlemons_1_1gui_1_1SliderBase.html#adf590f6a1d1c75ed0e8dbc67d6284724">More...</a><br /></td></tr>
 <tr class="separator:adf590f6a1d1c75ed0e8dbc67d6284724"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Base class for plugin sliders that handles some logic common to both int and float parameter sliders. </p>
+<p>You should never have to use this class directly, you should use <a class="el" href="classlemons_1_1gui_1_1FloatSlider.html" title="Plugin slider that attaches to a float parameter.">FloatSlider</a> or <a class="el" href="classlemons_1_1gui_1_1IntSlider.html" title="Plugin slider that attaches to an integer parameter.">IntSlider</a> in your project code. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1gui_1_1FloatSlider.html" title="Plugin slider that attaches to a float parameter.">FloatSlider</a>, <a class="el" href="classlemons_1_1gui_1_1IntSlider.html" title="Plugin slider that attaches to an integer parameter.">IntSlider</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="adf590f6a1d1c75ed0e8dbc67d6284724"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adf590f6a1d1c75ed0e8dbc67d6284724">&#9670;&nbsp;</a></span>SliderBase()</h2>
 
@@ -106,6 +113,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Creates a slider that references a plugin parameter. </p>
+<p>The slider will map its range, default value, name, label, and some other properties to the parameter's settings. Your parameter should be fully constructed and configured before you attach it to a slider. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1plugin_1_1Parameter.html">plugin::Parameter</a> </dd></dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -114,7 +124,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 30 2021 07:42:09 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 30 2021 19:26:59 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -210,13 +210,23 @@ template&lt;typename Type &gt; </div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordtype">void</span> serialize (<a class="code" href="structlemons_1_1TreeReflector.html#a0d351fe3d4087291fe84c745a5edfcf4">TreeReflector</a>&amp; ref) <span class="keyword">final</span></div>
 <div class="line">    {</div>
-<div class="line">        <span class="comment">// simpy choose a property name -- and that&#39;s it!</span></div>
+<div class="line">        <span class="comment">// simply choose a property name -- and that&#39;s it!</span></div>
 <div class="line">        ref.add (<span class="stringliteral">&quot;MyData&quot;</span>, data);</div>
 <div class="line">    }</div>
 <div class="line">};</div>
-</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+</div><!-- fragment --><p> This also works for containers that have begin() and end() functions; for containers, the property name you pass should be the name of a single element in the container. For example: </p><div class="fragment"><div class="line"><span class="keyword">struct </span>SomethingSerializable : <a class="code" href="structlemons_1_1SerializableData.html">lemons::SerializableData</a></div>
+<div class="line">{</div>
+<div class="line">    std::vector&lt;int&gt; data;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> serialize (<a class="code" href="structlemons_1_1TreeReflector.html#a0d351fe3d4087291fe84c745a5edfcf4">TreeReflector</a>&amp; ref) <span class="keyword">final</span></div>
+<div class="line">    {</div>
+<div class="line">        ref.add (<span class="stringliteral">&quot;Int&quot;</span>, data);</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+</div><!-- fragment --><p> This will create a sub-tree in your object's ValueTree named "Ints", with properties "Int_1", "Int_2", "Int_3", etc. This works by iterating through each element of your container and calling <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">add()</a> on each of them &ndash; so the type of the elements of your container must have <a class="el" href="namespacelemons_1_1serializing.html#a713bb9525856a131f6897cdd045d5bc4" title="Implement this function and fromVar for any custom type to allow easily serialization using TreeRefle...">toVar()</a> and <a class="el" href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b" title="Implement this function and toVar for any custom type to allow easily serialization using TreeReflect...">fromVar()</a> implemented.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">propertyName</td><td>The name of the ValueTree property that this data member corresponds to. When saving, the juce::var-encoded version of the data member will be written to the tree using this property name. When loading, if the tree has a property with this name, it will be converted from juce::var back into your type and assigned to the data member.</td></tr>
+    <tr><td class="paramname">propertyName</td><td>The name of the ValueTree property that this data member corresponds to. When saving, the juce::var-encoded version of the data member will be written to the tree using this property name. When loading, if the tree has a property with this name, it will be converted from juce::var back into your type and assigned to the data member. When adding a container, this should be the name of a single container element.</td></tr>
     <tr><td class="paramname">object</td><td>Reference to the data member you wish to load/save.</td></tr>
   </table>
   </dd>
@@ -281,7 +291,8 @@ template&lt;typename Type &gt; </div>
 <div class="line">                                [&amp;](<span class="keywordtype">int</span> newData){ setData (newData); });</div>
 <div class="line">    }</div>
 <div class="line"> };</div>
-</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+</div><!-- fragment --><p> If you use this function with a container type, your lambdas must return/recieve the entire container by value. I recommend sticking to <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">add()</a> (or implementing custom logic) for containers.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">propertyName</td><td>The name of the ValueTree property that this data corresponds to. When saving, the juce::var-encoded version of the object returned from the saveToTree function will be written to the tree using this property name. When loading, if the tree has a property with this name, it will be converted from juce::var back into your type and passed to the loadFromTree function.</td></tr>
     <tr><td class="paramname">saveToTree</td><td>This lambda should return the current value of the data you wish to save.</td></tr>
@@ -376,7 +387,7 @@ template&lt;typename Type &gt; </div>
 <div class="ttc" id="astructlemons_1_1TreeReflector_html_a0d351fe3d4087291fe84c745a5edfcf4"><div class="ttname"><a href="structlemons_1_1TreeReflector.html#a0d351fe3d4087291fe84c745a5edfcf4">lemons::TreeReflector::TreeReflector</a></div><div class="ttdeci">TreeReflector(const ValueTree &amp;treeToUse)</div><div class="ttdoc">Creates a TreeReflector.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 30 2021 07:42:09 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 30 2021 19:26:59 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

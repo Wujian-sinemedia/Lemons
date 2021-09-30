@@ -13399,8 +13399,8 @@
       <type></type>
       <name>PresetBar</name>
       <anchorfile>classlemons_1_1plugin_1_1PresetBar.html</anchorfile>
-      <anchor>aea3254533c619b1d04c153a7796d4a24</anchor>
-      <arglist>(StateBase &amp;stateToUse, StateToggler &amp;toggler, const String &amp;productName, const String &amp;presetFileExtension=&quot;.xml&quot;, const String &amp;companyName=&quot;BenViningMusicSoftware&quot;)</arglist>
+      <anchor>a1de0a7f8128904cd11491d66796fe9e5</anchor>
+      <arglist>(StateBase &amp;stateToUse, StateToggler &amp;toggler, const String &amp;productName, const String &amp;presetFileExtension=&quot;.bvpreset&quot;, const String &amp;companyName=&quot;BenViningMusicSoftware&quot;)</arglist>
     </member>
   </compound>
   <compound kind="class">
