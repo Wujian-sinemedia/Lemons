@@ -97,85 +97,117 @@ Functions</h2></td></tr>
 <tr class="memdesc:abd30f255b2b10402a940e2260f7ede3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implement this function and toVar for any custom type to allow easily serialization using <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">TreeReflector::add()</a>.  <a href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b">More...</a><br /></td></tr>
 <tr class="separator:abd30f255b2b10402a940e2260f7ede3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24582179ee786ad4ff22a82b3070d388"><td class="memItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a24582179ee786ad4ff22a82b3070d388">toTree</a> (<a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;data)</td></tr>
+<tr class="memdesc:a24582179ee786ad4ff22a82b3070d388"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes an object to a ValueTree.  <a href="namespacelemons_1_1serializing.html#a24582179ee786ad4ff22a82b3070d388">More...</a><br /></td></tr>
 <tr class="separator:a24582179ee786ad4ff22a82b3070d388"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7eb10991a286ec6cedc990a98a587def"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a7eb10991a286ec6cedc990a98a587def">fromTree</a> (const ValueTree &amp;tree, <a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;data)</td></tr>
+<tr class="memdesc:a7eb10991a286ec6cedc990a98a587def"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserializes an object from a ValueTree.  <a href="namespacelemons_1_1serializing.html#a7eb10991a286ec6cedc990a98a587def">More...</a><br /></td></tr>
 <tr class="separator:a7eb10991a286ec6cedc990a98a587def"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb42fe5922320e46884fd018dda44844"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#afb42fe5922320e46884fd018dda44844">copy</a> (<a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;dest, <a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;source)</td></tr>
+<tr class="memdesc:afb42fe5922320e46884fd018dda44844"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies from one serializable object to another by serializing the source object to a ValueTree, then deserializing the dest object from that tree.  <a href="namespacelemons_1_1serializing.html#afb42fe5922320e46884fd018dda44844">More...</a><br /></td></tr>
 <tr class="separator:afb42fe5922320e46884fd018dda44844"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8faf0f6fcf3b46ecf735100cd0ec1ab9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a8faf0f6fcf3b46ecf735100cd0ec1ab9">toBinary</a> (<a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;data, File file)</td></tr>
+<tr class="memdesc:a8faf0f6fcf3b46ecf735100cd0ec1ab9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the state of an object to a file.  <a href="namespacelemons_1_1serializing.html#a8faf0f6fcf3b46ecf735100cd0ec1ab9">More...</a><br /></td></tr>
 <tr class="separator:a8faf0f6fcf3b46ecf735100cd0ec1ab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6bc185517e15eeeaac3e5695a07993f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#ac6bc185517e15eeeaac3e5695a07993f">toBinary</a> (<a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;data, juce::MemoryBlock &amp;dest)</td></tr>
+<tr class="memdesc:ac6bc185517e15eeeaac3e5695a07993f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the state of an object to a juce::MemoryBlock.  <a href="namespacelemons_1_1serializing.html#ac6bc185517e15eeeaac3e5695a07993f">More...</a><br /></td></tr>
 <tr class="separator:ac6bc185517e15eeeaac3e5695a07993f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47707d97df8e371fd661c3cf03ed1490"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a47707d97df8e371fd661c3cf03ed1490">fromBinary</a> (File file, <a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;dest)</td></tr>
+<tr class="memdesc:a47707d97df8e371fd661c3cf03ed1490"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserializes an object from a file.  <a href="namespacelemons_1_1serializing.html#a47707d97df8e371fd661c3cf03ed1490">More...</a><br /></td></tr>
 <tr class="separator:a47707d97df8e371fd661c3cf03ed1490"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acad0f4cabd407e51b0a9f3d57512a3be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#acad0f4cabd407e51b0a9f3d57512a3be">fromBinary</a> (const juce::MemoryBlock &amp;data, <a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;dest)</td></tr>
+<tr class="memdesc:acad0f4cabd407e51b0a9f3d57512a3be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserializes an object from a juce::MemoryBlock.  <a href="namespacelemons_1_1serializing.html#acad0f4cabd407e51b0a9f3d57512a3be">More...</a><br /></td></tr>
 <tr class="separator:acad0f4cabd407e51b0a9f3d57512a3be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84997a7ac9a18b678f39168ba81eafdc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a84997a7ac9a18b678f39168ba81eafdc">fromBinary</a> (const void *data, size_t dataSizeInBytes, <a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;dest)</td></tr>
+<tr class="memdesc:a84997a7ac9a18b678f39168ba81eafdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserializes an object from some arbitrary opaque binary data.  <a href="namespacelemons_1_1serializing.html#a84997a7ac9a18b678f39168ba81eafdc">More...</a><br /></td></tr>
 <tr class="separator:a84997a7ac9a18b678f39168ba81eafdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ffdb3b15a1380f98483a7b6bb3066bd"><td class="memTemplParams" colspan="2">template&lt;typename IntegerType &gt; </td></tr>
 <tr class="memitem:a9ffdb3b15a1380f98483a7b6bb3066bd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a9ffdb3b15a1380f98483a7b6bb3066bd">fromBinary</a> (const void *data, IntegerType dataSizeInBytes, <a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;dest)</td></tr>
+<tr class="memdesc:a9ffdb3b15a1380f98483a7b6bb3066bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserializes an object from some arbitrary opaque binary data.  <a href="namespacelemons_1_1serializing.html#a9ffdb3b15a1380f98483a7b6bb3066bd">More...</a><br /></td></tr>
 <tr class="separator:a9ffdb3b15a1380f98483a7b6bb3066bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2487acb4af683b23c36066e5d8caca34"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableData) &gt; </td></tr>
 <tr class="memitem:a2487acb4af683b23c36066e5d8caca34"><td class="memTemplItemLeft" align="right" valign="top">ObjectType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a2487acb4af683b23c36066e5d8caca34">fromBinaryCreate</a> (File file)</td></tr>
+<tr class="memdesc:a2487acb4af683b23c36066e5d8caca34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new object from the state saved in the file.  <a href="namespacelemons_1_1serializing.html#a2487acb4af683b23c36066e5d8caca34">More...</a><br /></td></tr>
 <tr class="separator:a2487acb4af683b23c36066e5d8caca34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0004a5eeed7ab3e5e3826c74e094025e"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableData) &gt; </td></tr>
 <tr class="memitem:a0004a5eeed7ab3e5e3826c74e094025e"><td class="memTemplItemLeft" align="right" valign="top">ObjectType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a0004a5eeed7ab3e5e3826c74e094025e">fromBinaryCreate</a> (const juce::MemoryBlock &amp;data)</td></tr>
+<tr class="memdesc:a0004a5eeed7ab3e5e3826c74e094025e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new object from the state saved in the MemoryBlock.  <a href="namespacelemons_1_1serializing.html#a0004a5eeed7ab3e5e3826c74e094025e">More...</a><br /></td></tr>
 <tr class="separator:a0004a5eeed7ab3e5e3826c74e094025e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a354e5c3379aab3b3d5daa98339bd2376"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableData) &gt; </td></tr>
 <tr class="memitem:a354e5c3379aab3b3d5daa98339bd2376"><td class="memTemplItemLeft" align="right" valign="top">ObjectType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a354e5c3379aab3b3d5daa98339bd2376">fromBinaryCreate</a> (const void *data, size_t dataSizeInBytes)</td></tr>
+<tr class="memdesc:a354e5c3379aab3b3d5daa98339bd2376"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new object from the state saved in the opaque binary data.  <a href="namespacelemons_1_1serializing.html#a354e5c3379aab3b3d5daa98339bd2376">More...</a><br /></td></tr>
 <tr class="separator:a354e5c3379aab3b3d5daa98339bd2376"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c211f61be5553bd45adc7db3b82b159"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType , typename IntegerType , BV_MUST_INHERIT_FROM(ObjectType, SerializableData) &gt; </td></tr>
 <tr class="memitem:a2c211f61be5553bd45adc7db3b82b159"><td class="memTemplItemLeft" align="right" valign="top">ObjectType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a2c211f61be5553bd45adc7db3b82b159">fromBinaryCreate</a> (const void *data, IntegerType dataSizeInBytes)</td></tr>
+<tr class="memdesc:a2c211f61be5553bd45adc7db3b82b159"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new object from the state saved in the opaque binary data.  <a href="namespacelemons_1_1serializing.html#a2c211f61be5553bd45adc7db3b82b159">More...</a><br /></td></tr>
 <tr class="separator:a2c211f61be5553bd45adc7db3b82b159"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19051971222b714020a7e957034bcd1a"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; juce::XmlElement &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a19051971222b714020a7e957034bcd1a">toXML</a> (<a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;source)</td></tr>
+<tr class="memdesc:a19051971222b714020a7e957034bcd1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes an object to an XML element.  <a href="namespacelemons_1_1serializing.html#a19051971222b714020a7e957034bcd1a">More...</a><br /></td></tr>
 <tr class="separator:a19051971222b714020a7e957034bcd1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe15521d50b5b08e071c2de702d7d3b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#afe15521d50b5b08e071c2de702d7d3b7">toXML</a> (<a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;source, const File &amp;file)</td></tr>
+<tr class="memdesc:afe15521d50b5b08e071c2de702d7d3b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes an object to an XML file.  <a href="namespacelemons_1_1serializing.html#afe15521d50b5b08e071c2de702d7d3b7">More...</a><br /></td></tr>
 <tr class="separator:afe15521d50b5b08e071c2de702d7d3b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfacae1d4cf28387b0b128aa39addc51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#abfacae1d4cf28387b0b128aa39addc51">fromXML</a> (const juce::XmlElement &amp;xml, <a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;dest)</td></tr>
+<tr class="memdesc:abfacae1d4cf28387b0b128aa39addc51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserializes an object from an XML element.  <a href="namespacelemons_1_1serializing.html#abfacae1d4cf28387b0b128aa39addc51">More...</a><br /></td></tr>
 <tr class="separator:abfacae1d4cf28387b0b128aa39addc51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aead8fccdf0fa475eee8d5277a1c7267d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#aead8fccdf0fa475eee8d5277a1c7267d">fromXML</a> (std::unique_ptr&lt; juce::XmlElement &gt; xml, <a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;dest)</td></tr>
+<tr class="memdesc:aead8fccdf0fa475eee8d5277a1c7267d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserializes an object from an XML element.  <a href="namespacelemons_1_1serializing.html#aead8fccdf0fa475eee8d5277a1c7267d">More...</a><br /></td></tr>
 <tr class="separator:aead8fccdf0fa475eee8d5277a1c7267d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6351ecfc79867a4cf7a66df393babd61"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a6351ecfc79867a4cf7a66df393babd61">fromXML</a> (const File &amp;xmlFile, <a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;dest)</td></tr>
+<tr class="memdesc:a6351ecfc79867a4cf7a66df393babd61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserializes an object from an XML file.  <a href="namespacelemons_1_1serializing.html#a6351ecfc79867a4cf7a66df393babd61">More...</a><br /></td></tr>
 <tr class="separator:a6351ecfc79867a4cf7a66df393babd61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4632b6fdd6053f46aea6ca54e5601481"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableData) &gt; </td></tr>
 <tr class="memitem:a4632b6fdd6053f46aea6ca54e5601481"><td class="memTemplItemLeft" align="right" valign="top">ObjectType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a4632b6fdd6053f46aea6ca54e5601481">fromXMLCreate</a> (const juce::XmlElement &amp;xml)</td></tr>
+<tr class="memdesc:a4632b6fdd6053f46aea6ca54e5601481"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new object from the state saved in the XML element.  <a href="namespacelemons_1_1serializing.html#a4632b6fdd6053f46aea6ca54e5601481">More...</a><br /></td></tr>
 <tr class="separator:a4632b6fdd6053f46aea6ca54e5601481"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48182b6e883c283d2cdf15bd1bd360ec"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableData) &gt; </td></tr>
 <tr class="memitem:a48182b6e883c283d2cdf15bd1bd360ec"><td class="memTemplItemLeft" align="right" valign="top">ObjectType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a48182b6e883c283d2cdf15bd1bd360ec">fromXMLCreate</a> (std::unique_ptr&lt; juce::XmlElement &gt; xml)</td></tr>
+<tr class="memdesc:a48182b6e883c283d2cdf15bd1bd360ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new object from the state saved in the XML element.  <a href="namespacelemons_1_1serializing.html#a48182b6e883c283d2cdf15bd1bd360ec">More...</a><br /></td></tr>
 <tr class="separator:a48182b6e883c283d2cdf15bd1bd360ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe32c3104102c45dfde9bc5cd313b5de"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableData) &gt; </td></tr>
 <tr class="memitem:abe32c3104102c45dfde9bc5cd313b5de"><td class="memTemplItemLeft" align="right" valign="top">ObjectType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#abe32c3104102c45dfde9bc5cd313b5de">fromXMLCreate</a> (const File &amp;xmlFile)</td></tr>
+<tr class="memdesc:abe32c3104102c45dfde9bc5cd313b5de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new object from the state saved in the XML file.  <a href="namespacelemons_1_1serializing.html#abe32c3104102c45dfde9bc5cd313b5de">More...</a><br /></td></tr>
 <tr class="separator:abe32c3104102c45dfde9bc5cd313b5de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56277361c7ff673091449ef6626be988"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a56277361c7ff673091449ef6626be988">toJSON</a> (<a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;source)</td></tr>
+<tr class="memdesc:a56277361c7ff673091449ef6626be988"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes an object to a JSON string.  <a href="namespacelemons_1_1serializing.html#a56277361c7ff673091449ef6626be988">More...</a><br /></td></tr>
 <tr class="separator:a56277361c7ff673091449ef6626be988"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9dd61f7eebbc83f0b49aeb0c9733327"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#af9dd61f7eebbc83f0b49aeb0c9733327">toJSON</a> (<a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;source, const File &amp;file)</td></tr>
+<tr class="memdesc:af9dd61f7eebbc83f0b49aeb0c9733327"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes an object to a JSON file.  <a href="namespacelemons_1_1serializing.html#af9dd61f7eebbc83f0b49aeb0c9733327">More...</a><br /></td></tr>
 <tr class="separator:af9dd61f7eebbc83f0b49aeb0c9733327"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4200231299743257683b69fbd3303e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#ac4200231299743257683b69fbd3303e8">fromJSON</a> (const String &amp;jsonText, <a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;dest)</td></tr>
+<tr class="memdesc:ac4200231299743257683b69fbd3303e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserializes an object from a JSON string.  <a href="namespacelemons_1_1serializing.html#ac4200231299743257683b69fbd3303e8">More...</a><br /></td></tr>
 <tr class="separator:ac4200231299743257683b69fbd3303e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2913994bf9e1138ac4f7b70ddaa7b632"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a2913994bf9e1138ac4f7b70ddaa7b632">fromJSON</a> (const File &amp;file, <a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;dest)</td></tr>
+<tr class="memdesc:a2913994bf9e1138ac4f7b70ddaa7b632"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserializes an object from a JSON file.  <a href="namespacelemons_1_1serializing.html#a2913994bf9e1138ac4f7b70ddaa7b632">More...</a><br /></td></tr>
 <tr class="separator:a2913994bf9e1138ac4f7b70ddaa7b632"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a353856dc5625616d6d75fb7ab7b2845b"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableData) &gt; </td></tr>
 <tr class="memitem:a353856dc5625616d6d75fb7ab7b2845b"><td class="memTemplItemLeft" align="right" valign="top">ObjectType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a353856dc5625616d6d75fb7ab7b2845b">fromJSONCreate</a> (const String &amp;jsonText)</td></tr>
+<tr class="memdesc:a353856dc5625616d6d75fb7ab7b2845b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new object from the state saved in the JSON string.  <a href="namespacelemons_1_1serializing.html#a353856dc5625616d6d75fb7ab7b2845b">More...</a><br /></td></tr>
 <tr class="separator:a353856dc5625616d6d75fb7ab7b2845b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbc84bfe67d82766e8ed1db9c40b6ad2"><td class="memTemplParams" colspan="2">template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableData) &gt; </td></tr>
 <tr class="memitem:adbc84bfe67d82766e8ed1db9c40b6ad2"><td class="memTemplItemLeft" align="right" valign="top">ObjectType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#adbc84bfe67d82766e8ed1db9c40b6ad2">fromJSONCreate</a> (const File &amp;file)</td></tr>
+<tr class="memdesc:adbc84bfe67d82766e8ed1db9c40b6ad2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new object from the state saved in the JSON file.  <a href="namespacelemons_1_1serializing.html#adbc84bfe67d82766e8ed1db9c40b6ad2">More...</a><br /></td></tr>
 <tr class="separator:adbc84bfe67d82766e8ed1db9c40b6ad2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a649c8f2bc41506fd655298cdf41de430"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
 <tr class="memitem:a649c8f2bc41506fd655298cdf41de430"><td class="memTemplItemLeft" align="right" valign="top">juce::var&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a649c8f2bc41506fd655298cdf41de430">toVar</a> (juce::AudioBuffer&lt; float &gt; &amp;buffer)</td></tr>
+<tr class="memdesc:a649c8f2bc41506fd655298cdf41de430"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes an AudioBuffer to a var.  <a href="namespacelemons_1_1serializing.html#a649c8f2bc41506fd655298cdf41de430">More...</a><br /></td></tr>
 <tr class="separator:a649c8f2bc41506fd655298cdf41de430"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a359990fb1af99d70295d10a13ddb2810"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
 <tr class="memitem:a359990fb1af99d70295d10a13ddb2810"><td class="memTemplItemLeft" align="right" valign="top">juce::var&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a359990fb1af99d70295d10a13ddb2810">toVar</a> (juce::AudioBuffer&lt; double &gt; &amp;buffer)</td></tr>
+<tr class="memdesc:a359990fb1af99d70295d10a13ddb2810"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes an AudioBuffer to a var.  <a href="namespacelemons_1_1serializing.html#a359990fb1af99d70295d10a13ddb2810">More...</a><br /></td></tr>
 <tr class="separator:a359990fb1af99d70295d10a13ddb2810"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5567aa3f5c4e6da70b5c3aa2b936a059"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
 <tr class="memitem:a5567aa3f5c4e6da70b5c3aa2b936a059"><td class="memTemplItemLeft" align="right" valign="top">juce::AudioBuffer&lt; float &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a5567aa3f5c4e6da70b5c3aa2b936a059">fromVar</a> (juce::var var)</td></tr>
-<tr class="memdesc:a5567aa3f5c4e6da70b5c3aa2b936a059"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implement this function and toVar for any custom type to allow easily serialization using <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">TreeReflector::add()</a>.  <a href="namespacelemons_1_1serializing.html#a5567aa3f5c4e6da70b5c3aa2b936a059">More...</a><br /></td></tr>
+<tr class="memdesc:a5567aa3f5c4e6da70b5c3aa2b936a059"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserializes an AudioBuffer from a var.  <a href="namespacelemons_1_1serializing.html#a5567aa3f5c4e6da70b5c3aa2b936a059">More...</a><br /></td></tr>
 <tr class="separator:a5567aa3f5c4e6da70b5c3aa2b936a059"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b32b87aef2397cb2c1930541106a9db"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
 <tr class="memitem:a5b32b87aef2397cb2c1930541106a9db"><td class="memTemplItemLeft" align="right" valign="top">juce::var&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a5b32b87aef2397cb2c1930541106a9db">toVar</a> (juce::Point&lt; float &gt; &amp;point)</td></tr>
+<tr class="memdesc:a5b32b87aef2397cb2c1930541106a9db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes a Point.  <a href="namespacelemons_1_1serializing.html#a5b32b87aef2397cb2c1930541106a9db">More...</a><br /></td></tr>
 <tr class="separator:a5b32b87aef2397cb2c1930541106a9db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44dc62981a244f674a7b47738595d0ac"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a44dc62981a244f674a7b47738595d0ac">valueTreeToJSON</a> (const ValueTree &amp;v)</td></tr>
+<tr class="memdesc:a44dc62981a244f674a7b47738595d0ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a ValueTree to a JSON string.  <a href="namespacelemons_1_1serializing.html#a44dc62981a244f674a7b47738595d0ac">More...</a><br /></td></tr>
 <tr class="separator:a44dc62981a244f674a7b47738595d0ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a28001c151ae9a72cee950b7b0c5fe0"><td class="memItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a3a28001c151ae9a72cee950b7b0c5fe0">valueTreeFromJSON</a> (const String &amp;jsonText)</td></tr>
+<tr class="memdesc:a3a28001c151ae9a72cee950b7b0c5fe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a JSON string to a ValueTree.  <a href="namespacelemons_1_1serializing.html#a3a28001c151ae9a72cee950b7b0c5fe0">More...</a><br /></td></tr>
 <tr class="separator:a3a28001c151ae9a72cee950b7b0c5fe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -250,6 +282,7 @@ template&lt;typename Type &gt; </div>
 </div><div class="memdoc">
 
 <p>Implement this function and toVar for any custom type to allow easily serialization using <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">TreeReflector::add()</a>. </p>
+<p>Deserializes an AudioBuffer from a var.</p>
 <p>This function must load the complete state of your object from a juce::var. This function must do the exact opposite of what your implementation of toVar for your type does. Usually what this boils down to is creating a default-constructed instance of your object, then setting properties or relevant data members programmatically based on parsing the String form of the var. Several examples of implementations of this function can be found in lemons_serializing/Serializing/Specializations/VarSpecializations.cpp. </p><div class="fragment"><div class="line"><span class="comment">// example implementation:</span></div>
 <div class="line"><span class="keyword">namespace </span><a class="code" href="namespacelemons.html">lemons</a></div>
 <div class="line">{</div>
@@ -297,6 +330,8 @@ template&lt;typename Type &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Serializes an object to a ValueTree. </p>
+
 </div>
 </div>
 <a id="a7eb10991a286ec6cedc990a98a587def"></a>
@@ -324,6 +359,8 @@ template&lt;typename Type &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Deserializes an object from a ValueTree. </p>
 
 </div>
 </div>
@@ -353,6 +390,8 @@ template&lt;typename Type &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Copies from one serializable object to another by serializing the source object to a ValueTree, then deserializing the dest object from that tree. </p>
+
 </div>
 </div>
 <a id="a8faf0f6fcf3b46ecf735100cd0ec1ab9"></a>
@@ -380,6 +419,9 @@ template&lt;typename Type &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Saves the state of an object to a file. </p>
+<p>Internally, this method calls juce::ValueTree::writeToStream(), so the data is stored as an arbitrary binary encoding of a ValueTree, not necessarily a common format like XML or JSON. Use the XML- and JSON-specific functions in this namespace to explicitly use either format. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#a19051971222b714020a7e957034bcd1a" title="Serializes an object to an XML element.">toXML()</a>, <a class="el" href="namespacelemons_1_1serializing.html#a56277361c7ff673091449ef6626be988" title="Serializes an object to a JSON string.">toJSON()</a> </dd></dl>
 
 </div>
 </div>
@@ -409,6 +451,8 @@ template&lt;typename Type &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Saves the state of an object to a juce::MemoryBlock. </p>
+
 </div>
 </div>
 <a id="a47707d97df8e371fd661c3cf03ed1490"></a>
@@ -436,6 +480,8 @@ template&lt;typename Type &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Deserializes an object from a file. </p>
 
 <p class="reference">Referenced by <a class="el" href="namespacelemons_1_1serializing.html#a9ffdb3b15a1380f98483a7b6bb3066bd">fromBinary()</a>, and <a class="el" href="namespacelemons_1_1serializing.html#a2487acb4af683b23c36066e5d8caca34">fromBinaryCreate()</a>.</p>
 
@@ -466,6 +512,8 @@ template&lt;typename Type &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Deserializes an object from a juce::MemoryBlock. </p>
 
 </div>
 </div>
@@ -500,6 +548,8 @@ template&lt;typename Type &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Deserializes an object from some arbitrary opaque binary data. </p>
 
 </div>
 </div>
@@ -537,6 +587,8 @@ template&lt;typename IntegerType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Deserializes an object from some arbitrary opaque binary data. </p>
+
 <p class="reference">References <a class="el" href="namespacelemons_1_1serializing.html#a47707d97df8e371fd661c3cf03ed1490">fromBinary()</a>.</p>
 
 </div>
@@ -559,6 +611,9 @@ template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableD
       </table>
 </div><div class="memdoc">
 
+<p>Creates a new object from the state saved in the file. </p>
+<p>ObjectType must be default-constructable. </p>
+
 <p class="reference">References <a class="el" href="namespacelemons_1_1serializing.html#a47707d97df8e371fd661c3cf03ed1490">fromBinary()</a>.</p>
 
 </div>
@@ -580,6 +635,9 @@ template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableD
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates a new object from the state saved in the MemoryBlock. </p>
+<p>ObjectType must be default-constructable. </p>
 
 <p class="reference">References <a class="el" href="namespacelemons_1_1serializing.html#a47707d97df8e371fd661c3cf03ed1490">fromBinary()</a>.</p>
 
@@ -613,6 +671,9 @@ template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableD
       </table>
 </div><div class="memdoc">
 
+<p>Creates a new object from the state saved in the opaque binary data. </p>
+<p>ObjectType must be default-constructable. </p>
+
 <p class="reference">References <a class="el" href="namespacelemons_1_1serializing.html#a47707d97df8e371fd661c3cf03ed1490">fromBinary()</a>.</p>
 
 </div>
@@ -645,6 +706,9 @@ template&lt;typename ObjectType , typename IntegerType , BV_MUST_INHERIT_FROM(Ob
       </table>
 </div><div class="memdoc">
 
+<p>Creates a new object from the state saved in the opaque binary data. </p>
+<p>ObjectType must be default-constructable. </p>
+
 </div>
 </div>
 <a id="a19051971222b714020a7e957034bcd1a"></a>
@@ -662,6 +726,8 @@ template&lt;typename ObjectType , typename IntegerType , BV_MUST_INHERIT_FROM(Ob
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Serializes an object to an XML element. </p>
 
 </div>
 </div>
@@ -691,6 +757,8 @@ template&lt;typename ObjectType , typename IntegerType , BV_MUST_INHERIT_FROM(Ob
       </table>
 </div><div class="memdoc">
 
+<p>Serializes an object to an XML file. </p>
+
 </div>
 </div>
 <a id="abfacae1d4cf28387b0b128aa39addc51"></a>
@@ -718,6 +786,8 @@ template&lt;typename ObjectType , typename IntegerType , BV_MUST_INHERIT_FROM(Ob
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Deserializes an object from an XML element. </p>
 
 <p class="reference">Referenced by <a class="el" href="namespacelemons_1_1serializing.html#a4632b6fdd6053f46aea6ca54e5601481">fromXMLCreate()</a>.</p>
 
@@ -749,6 +819,8 @@ template&lt;typename ObjectType , typename IntegerType , BV_MUST_INHERIT_FROM(Ob
       </table>
 </div><div class="memdoc">
 
+<p>Deserializes an object from an XML element. </p>
+
 </div>
 </div>
 <a id="a6351ecfc79867a4cf7a66df393babd61"></a>
@@ -777,6 +849,8 @@ template&lt;typename ObjectType , typename IntegerType , BV_MUST_INHERIT_FROM(Ob
       </table>
 </div><div class="memdoc">
 
+<p>Deserializes an object from an XML file. </p>
+
 </div>
 </div>
 <a id="a4632b6fdd6053f46aea6ca54e5601481"></a>
@@ -796,6 +870,9 @@ template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableD
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates a new object from the state saved in the XML element. </p>
+<p>ObjectType must be default-constructable. </p>
 
 <p class="reference">References <a class="el" href="namespacelemons_1_1serializing.html#abfacae1d4cf28387b0b128aa39addc51">fromXML()</a>.</p>
 
@@ -819,6 +896,9 @@ template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableD
       </table>
 </div><div class="memdoc">
 
+<p>Creates a new object from the state saved in the XML element. </p>
+<p>ObjectType must be default-constructable. </p>
+
 <p class="reference">References <a class="el" href="namespacelemons_1_1serializing.html#abfacae1d4cf28387b0b128aa39addc51">fromXML()</a>.</p>
 
 </div>
@@ -841,6 +921,9 @@ template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableD
       </table>
 </div><div class="memdoc">
 
+<p>Creates a new object from the state saved in the XML file. </p>
+<p>ObjectType must be default-constructable. </p>
+
 <p class="reference">References <a class="el" href="namespacelemons_1_1serializing.html#abfacae1d4cf28387b0b128aa39addc51">fromXML()</a>.</p>
 
 </div>
@@ -860,6 +943,8 @@ template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableD
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Serializes an object to a JSON string. </p>
 
 </div>
 </div>
@@ -889,6 +974,8 @@ template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableD
       </table>
 </div><div class="memdoc">
 
+<p>Serializes an object to a JSON file. </p>
+
 </div>
 </div>
 <a id="ac4200231299743257683b69fbd3303e8"></a>
@@ -916,6 +1003,8 @@ template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableD
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Deserializes an object from a JSON string. </p>
 
 <p class="reference">Referenced by <a class="el" href="namespacelemons_1_1serializing.html#a353856dc5625616d6d75fb7ab7b2845b">fromJSONCreate()</a>.</p>
 
@@ -947,6 +1036,8 @@ template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableD
       </table>
 </div><div class="memdoc">
 
+<p>Deserializes an object from a JSON file. </p>
+
 </div>
 </div>
 <a id="a353856dc5625616d6d75fb7ab7b2845b"></a>
@@ -966,6 +1057,9 @@ template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableD
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates a new object from the state saved in the JSON string. </p>
+<p>ObjectType must be default-constructable. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#a3a28001c151ae9a72cee950b7b0c5fe0" title="Converts a JSON string to a ValueTree.">valueTreeFromJSON()</a> </dd></dl>
 
 <p class="reference">References <a class="el" href="namespacelemons_1_1serializing.html#ac4200231299743257683b69fbd3303e8">fromJSON()</a>.</p>
 
@@ -989,6 +1083,9 @@ template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableD
       </table>
 </div><div class="memdoc">
 
+<p>Creates a new object from the state saved in the JSON file. </p>
+<p>ObjectType must be default-constructable. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#a44dc62981a244f674a7b47738595d0ac" title="Converts a ValueTree to a JSON string.">valueTreeToJSON()</a> </dd></dl>
+
 <p class="reference">References <a class="el" href="namespacelemons_1_1serializing.html#ac4200231299743257683b69fbd3303e8">fromJSON()</a>.</p>
 
 </div>
@@ -1011,6 +1108,9 @@ template&lt;&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Serializes an AudioBuffer to a var. </p>
+<p>Internally, this uses juce's FlacAudioFormat to write the buffer's contents into a String. </p>
+
 </div>
 </div>
 <a id="a359990fb1af99d70295d10a13ddb2810"></a>
@@ -1030,6 +1130,9 @@ template&lt;&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Serializes an AudioBuffer to a var. </p>
+<p>Since juce's FlacAudioFormat is only available for float samples, this first converts the buffer to floats and then uses juce::FlacAudioFormat to write the buffer's contents to a String. </p>
 
 </div>
 </div>
@@ -1051,7 +1154,12 @@ template&lt;&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Implement this function and toVar for any custom type to allow easily serialization using <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">TreeReflector::add()</a>. </p>
+<p>Deserializes an AudioBuffer from a var. </p>
+<p>Serializes a Point.</p>
+<p>Explicitly calls juce::var::toString().</p>
+<p>Internally, this converts the var to a String, then uses juce's FlacAudioFormat to decode the String back into audio samples.</p>
+<p>Internally, this converts the var to a String, then uses juce's FlacAudioFormat to decode the String back into audio samples. Since juce's FlacAudioFormat is only available for float samples, the buffer is first decoded with float samples and then converted to double samples for the final result.</p>
+<p>Deserializes an AudioBuffer from a var.</p>
 <p>This function must load the complete state of your object from a juce::var. This function must do the exact opposite of what your implementation of toVar for your type does. Usually what this boils down to is creating a default-constructed instance of your object, then setting properties or relevant data members programmatically based on parsing the String form of the var. Several examples of implementations of this function can be found in lemons_serializing/Serializing/Specializations/VarSpecializations.cpp. </p><div class="fragment"><div class="line"><span class="comment">// example implementation:</span></div>
 <div class="line"><span class="keyword">namespace </span><a class="code" href="namespacelemons.html">lemons</a></div>
 <div class="line">{</div>
@@ -1101,6 +1209,8 @@ template&lt;&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Serializes a Point. </p>
+
 </div>
 </div>
 <a id="a44dc62981a244f674a7b47738595d0ac"></a>
@@ -1118,6 +1228,8 @@ template&lt;&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Converts a ValueTree to a JSON string. </p>
 
 </div>
 </div>
@@ -1137,6 +1249,8 @@ template&lt;&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Converts a JSON string to a ValueTree. </p>
+
 </div>
 </div>
 </div><!-- contents -->
@@ -1146,7 +1260,7 @@ template&lt;&gt; </div>
 <div class="ttc" id="anamespacelemons_1_1serializing_html_abd30f255b2b10402a940e2260f7ede3b"><div class="ttname"><a href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b">lemons::serializing::fromVar</a></div><div class="ttdeci">Type fromVar(juce::var var)</div><div class="ttdoc">Implement this function and toVar for any custom type to allow easily serialization using TreeReflect...</div><div class="ttdef"><b>Definition:</b> VarConversion.h:90</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 30 2021 05:56:26 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 30 2021 06:35:38 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
