@@ -399,7 +399,7 @@ WARN_NO_PARAMDOC       = NO
 
 INPUT                  = build main_page.md
 
-FILE_PATTERNS          = *.h
+FILE_PATTERNS          = *.h *.dox
 
 RECURSIVE              = YES
 
