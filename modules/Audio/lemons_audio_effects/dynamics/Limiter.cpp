@@ -1,6 +1,34 @@
 
 namespace lemons::dsp::FX
 {
+LimiterParams::LimiterParams (float threshToUse, float releaseTime)
+    : threshDB (threshToUse), releaseMs (releaseTime)
+{
+}
+
+template < typename SampleType >
+Limiter< SampleType >::Limiter()
+{
+    reset();
+    update();
+}
+
+template < typename SampleType >
+Limiter< SampleType >::Limiter (float threshDB, float releaseMs)
+{
+    thresholddB = threshDB;
+    releaseTime = releaseMs;
+
+    reset();
+    update();
+}
+
+template < typename SampleType >
+Limiter< SampleType >::Limiter (LimiterParams params)
+    : Limiter (params.threshDB, params.releaseMs)
+{
+}
+
 template < typename SampleType >
 void Limiter< SampleType >::setThreshold (float thresh_dB)
 {
@@ -98,6 +126,20 @@ void Limiter< SampleType >::update()
     gain *= static_cast< SampleType > (juce::Decibels::decibelsToGain (-thresholddB, -100.0f));
 
     outputVolume.setTargetValue (gain);
+}
+
+template < typename SampleType >
+LimiterParams Limiter< SampleType >::getParams() const
+{
+    return {thresholddB, releaseTime};
+}
+
+template < typename SampleType >
+void Limiter< SampleType >::setParams (LimiterParams params)
+{
+    thresholddB = params.threshDB;
+    releaseTime = params.releaseMs;
+    update();
 }
 
 

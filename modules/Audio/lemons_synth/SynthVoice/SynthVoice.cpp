@@ -163,8 +163,8 @@ bool SynthVoiceBase< SampleType >::isVoiceOnRightNow() const
 template < typename SampleType >
 void SynthVoiceBase< SampleType >::bypassedBlock (int numSamples)
 {
-    midiVelocityGain.skipSamples (numSamples);
-    aftertouchGain.skipSamples (numSamples);
+    midiVelocityGain.bypassedBlock (numSamples);
+    aftertouchGain.bypassedBlock (numSamples);
 
     playingButReleasedMod.skipSamples (numSamples);
     softPedalMod.skipSamples (numSamples);

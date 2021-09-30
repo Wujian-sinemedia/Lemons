@@ -4,9 +4,9 @@
 namespace lemons::dsp::FX
 {
 /**
-    An enum that represents the type of filter topology to be used by a Filter effect.
+    An enum class that represents the type of filter topology to be used by a Filter effect.
  */
-enum FilterType
+enum class FilterType
 {
     LowPass,
     HighPass,
@@ -21,6 +21,7 @@ enum FilterType
 
 /**
     A struct that holds the parameters for a Filter effect.
+    @see Filter, FilterType
  */
 struct FilterParams
 {
@@ -36,8 +37,8 @@ struct FilterParams
 
 
 /**
-    A filter audio effect class.
-    @see filters::Filter, filters::Multifilter
+    A filter audio effect class that wraps the more low-level filters::Filter.
+    @see FilterParams, FilterType, filters::Filter, filters::Multifilter
  */
 template < typename SampleType >
 class Filter : public AudioEffect< SampleType >
@@ -95,7 +96,7 @@ public:
 private:
     filters::MultiFilter< SampleType, 2 > filter;
 
-    FilterType type {HighPass};
+    FilterType type {FilterType::HighPass};
     SampleType freq {static_cast< SampleType > (440.)};
     SampleType Q {static_cast< SampleType > (0.70710678118654752440L)};
     SampleType gain {static_cast< SampleType > (1.)};

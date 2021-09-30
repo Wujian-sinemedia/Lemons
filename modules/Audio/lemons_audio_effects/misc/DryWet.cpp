@@ -9,6 +9,14 @@ DryWetMixer< SampleType >::DryWetMixer()
 }
 
 template < typename SampleType >
+DryWetMixer< SampleType >::DryWetMixer (int wetPercentMix, int wetLatencySamples)
+{
+    mixer.setMixingRule (juce::dsp::DryWetMixingRule::balanced);
+    setWetMix (wetPercentMix);
+    setWetLatency (wetLatencySamples);
+}
+
+template < typename SampleType >
 void DryWetMixer< SampleType >::setWetMix (int wetPercent)
 {
     mixer.setWetMixProportion (static_cast< SampleType > (wetPercent) * SampleType (0.01));

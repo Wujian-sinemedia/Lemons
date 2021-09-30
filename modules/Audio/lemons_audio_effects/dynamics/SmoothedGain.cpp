@@ -9,8 +9,17 @@ SmoothedGain< SampleType, channels >::SmoothedGain()
 }
 
 template < typename SampleType, size_t channels >
+SmoothedGain< SampleType, channels >::SmoothedGain (float gain)
+    : SmoothedGain()
+{
+    setGain (gain);
+}
+
+template < typename SampleType, size_t channels >
 void SmoothedGain< SampleType, channels >::setGain (float gain)
 {
+    gainVal = gain;
+
     for (auto* smoother : smoothers)
         smoother->set (gain);
 }
@@ -43,11 +52,17 @@ void SmoothedGain< SampleType, channels >::reset()
 }
 
 template < typename SampleType, size_t channels >
-void SmoothedGain< SampleType, channels >::skipSamples (int numSamples)
+void SmoothedGain< SampleType, channels >::bypassedBlock (int numSamples)
 {
     for (auto* smoother : smoothers)
         for (int s = 0; s < numSamples; ++s)
             smoother->getNextValue();
+}
+
+template < typename SampleType, size_t channels >
+float SmoothedGain< SampleType, channels >::getGain() const
+{
+    return gainVal;
 }
 
 template class SmoothedGain< float, 1 >;

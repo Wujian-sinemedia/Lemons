@@ -1,11 +1,35 @@
 
 namespace lemons::dsp::FX
 {
+CompressorParams::CompressorParams (float threshToUse, float ratioToUse, float attackTime, float releaseTime)
+    : thresholdDB (threshToUse), ratio (ratioToUse), attackMs (attackTime), releaseMs (releaseTime)
+{
+}
+
 template < typename SampleType >
 Compressor< SampleType >::Compressor()
 {
     spec.numChannels = 2;
+    reset();
     update();
+}
+
+template < typename SampleType >
+Compressor< SampleType >::Compressor (float thresh, float ratioToUse, float attackMs, float releaseMs)
+{
+    thresholddB = static_cast< SampleType > (thresh);
+    ratio       = static_cast< SampleType > (ratioToUse);
+    attackTime  = static_cast< SampleType > (attackMs);
+    releaseTime = static_cast< SampleType > (releaseMs);
+
+    spec.numChannels = 2;
+    update();
+}
+
+template < typename SampleType >
+Compressor< SampleType >::Compressor (CompressorParams params)
+    : Compressor (params.thresholdDB, params.ratio, params.attackMs, params.releaseMs)
+{
 }
 
 template < typename SampleType >
@@ -110,6 +134,26 @@ void Compressor< SampleType >::update()
 
     envelopeFilter.setAttackTime (attackTime);
     envelopeFilter.setReleaseTime (releaseTime);
+}
+
+template < typename SampleType >
+CompressorParams Compressor< SampleType >::getParams() const
+{
+    return {static_cast< float > (thresholddB),
+            static_cast< float > (ratio),
+            static_cast< float > (attackTime),
+            static_cast< float > (releaseTime)};
+}
+
+template < typename SampleType >
+void Compressor< SampleType >::setParams (CompressorParams params)
+{
+    thresholddB = static_cast< SampleType > (params.thresholdDB);
+    ratio       = static_cast< SampleType > (params.ratio);
+    attackTime  = static_cast< SampleType > (params.attackMs);
+    releaseTime = static_cast< SampleType > (params.releaseMs);
+
+    update();
 }
 
 

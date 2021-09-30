@@ -1,17 +1,42 @@
 
 namespace lemons::dsp::FX
 {
+NoiseGateParams::NoiseGateParams (float threshToUse, float ratioToUse, float attackTime, float releaseTime, bool shouldBeInverted)
+    : threshDB (threshToUse), ratio (ratioToUse), attackMs (attackTime), releaseMs (releaseTime), inverted (shouldBeInverted)
+{
+}
+
 template < typename SampleType >
 NoiseGate< SampleType >::NoiseGate()
 {
-    spec.numChannels = 2;
-
-    update();
-
-    RMSFilter.setLevelCalculationType (
-        juce::dsp::BallisticsFilterLevelCalculationType::RMS);
+    RMSFilter.setLevelCalculationType (juce::dsp::BallisticsFilterLevelCalculationType::RMS);
     RMSFilter.setAttackTime (static_cast< SampleType > (0.0));
     RMSFilter.setReleaseTime (static_cast< SampleType > (50.0));
+
+    spec.numChannels = 2;
+    update();
+}
+
+template < typename SampleType >
+NoiseGate< SampleType >::NoiseGate (float threshDB, float ratioToUse, float attackMs, float releaseMs, bool shouldBeInverted)
+{
+    RMSFilter.setLevelCalculationType (juce::dsp::BallisticsFilterLevelCalculationType::RMS);
+    RMSFilter.setAttackTime (static_cast< SampleType > (0.0));
+    RMSFilter.setReleaseTime (static_cast< SampleType > (50.0));
+
+    thresholddB = static_cast< SampleType > (threshDB);
+    ratio       = static_cast< SampleType > (ratioToUse);
+    attackTime  = static_cast< SampleType > (attackMs);
+    releaseTime = static_cast< SampleType > (releaseMs);
+
+    spec.numChannels = 2;
+    update();
+}
+
+template < typename SampleType >
+NoiseGate< SampleType >::NoiseGate (NoiseGateParams params)
+    : NoiseGate (params.threshDB, params.ratio, params.attackMs, params.releaseMs, params.inverted)
+{
 }
 
 template < typename SampleType >
@@ -29,27 +54,27 @@ void NoiseGate< SampleType >::setThreshold (float newThreshold_dB)
 }
 
 template < typename SampleType >
-void NoiseGate< SampleType >::setRatio (SampleType newRatio)
+void NoiseGate< SampleType >::setRatio (float newRatio)
 {
-    jassert (newRatio >= static_cast< SampleType > (1.0));
+    jassert (newRatio >= 0.f);
 
-    ratio = newRatio;
+    ratio = static_cast< SampleType > (newRatio);
     update();
 }
 
 
 template < typename SampleType >
-void NoiseGate< SampleType >::setAttack (SampleType newAttack_ms)
+void NoiseGate< SampleType >::setAttack (float newAttack_ms)
 {
-    attackTime = newAttack_ms;
+    attackTime = static_cast< SampleType > (newAttack_ms);
     update();
 }
 
 
 template < typename SampleType >
-void NoiseGate< SampleType >::setRelease (SampleType newRelease_ms)
+void NoiseGate< SampleType >::setRelease (float newRelease_ms)
 {
-    releaseTime = newRelease_ms;
+    releaseTime = static_cast< SampleType > (newRelease_ms);
     update();
 }
 
@@ -99,10 +124,10 @@ SampleType NoiseGate< SampleType >::processChannel (int               channel,
 
 
 template < typename SampleType >
-SampleType NoiseGate< SampleType >::processSample (const int        channel,
-                                                   const SampleType sampleToGate,
-                                                   const SampleType sidechainValue,
-                                                   SampleType*      gainReduction)
+SampleType NoiseGate< SampleType >::processSample (int         channel,
+                                                   SampleType  sampleToGate,
+                                                   SampleType  sidechainValue,
+                                                   SampleType* gainReduction)
 {
     auto env = RMSFilter.processSample (channel,
                                         sidechainValue);  // RMS ballistics filter
@@ -143,6 +168,27 @@ void NoiseGate< SampleType >::update()
 
     envelopeFilter.setAttackTime (attackTime);
     envelopeFilter.setReleaseTime (releaseTime);
+}
+
+template < typename SampleType >
+NoiseGateParams NoiseGate< SampleType >::getParams() const
+{
+    return {static_cast< float > (thresholddB),
+            static_cast< float > (ratio),
+            static_cast< float > (attackTime),
+            static_cast< float > (releaseTime),
+            inverted};
+}
+
+template < typename SampleType >
+void NoiseGate< SampleType >::setParams (NoiseGateParams params)
+{
+    inverted    = params.inverted;
+    thresholddB = static_cast< SampleType > (params.threshDB);
+    ratio       = static_cast< SampleType > (params.ratio);
+    attackTime  = static_cast< SampleType > (params.attackMs);
+    releaseTime = static_cast< SampleType > (params.releaseMs);
+    update();
 }
 
 

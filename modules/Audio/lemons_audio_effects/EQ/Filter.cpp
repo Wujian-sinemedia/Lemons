@@ -34,42 +34,42 @@ void Filter< SampleType >::process (juce::AudioBuffer< SampleType >& audio)
 {
     switch (type)
     {
-        case (LowPass) :
+        case (FilterType::LowPass) :
         {
             filter.coefs.makeLowPass (sampleRate, freq, Q);
             break;
         }
-        case (HighPass) :
+        case (FilterType::HighPass) :
         {
             filter.coefs.makeHighPass (sampleRate, freq, Q);
             break;
         }
-        case (LowShelf) :
+        case (FilterType::LowShelf) :
         {
             filter.coefs.makeLowShelf (sampleRate, freq, Q, gain);
             break;
         }
-        case (HighShelf) :
+        case (FilterType::HighShelf) :
         {
             filter.coefs.makeHighShelf (sampleRate, freq, Q, gain);
             break;
         }
-        case (BandPass) :
+        case (FilterType::BandPass) :
         {
             filter.coefs.makeBandPass (sampleRate, freq, Q);
             break;
         }
-        case (Notch) :
+        case (FilterType::Notch) :
         {
             filter.coefs.makeNotch (sampleRate, freq, Q);
             break;
         }
-        case (Peak) :
+        case (FilterType::Peak) :
         {
             filter.coefs.makePeakFilter (sampleRate, freq, Q, gain);
             break;
         }
-        case (AllPass) :
+        case (FilterType::AllPass) :
         {
             filter.coefs.makeAllPass (sampleRate, freq, Q);
             break;

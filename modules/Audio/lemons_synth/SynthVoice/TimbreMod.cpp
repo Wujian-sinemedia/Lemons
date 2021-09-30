@@ -35,7 +35,7 @@ void TimbreMod< SampleType >::process (AudioBuffer< SampleType >& audio)
 template < typename SampleType >
 void TimbreMod< SampleType >::skipSamples (int numSamples)
 {
-    gain.skipSamples (numSamples);
+    gain.bypassedBlock (numSamples);
 }
 
 template < typename SampleType >
