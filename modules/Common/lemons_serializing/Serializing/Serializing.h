@@ -7,26 +7,46 @@
 
 namespace lemons::serializing
 {
+/** Serializes an object to a ValueTree. */
 ValueTree toTree (SerializableData& data);
-void      fromTree (const ValueTree& tree, SerializableData& data);
 
+/** Deserializes an object from a ValueTree. */
+void fromTree (const ValueTree& tree, SerializableData& data);
+
+/** Copies from one serializable object to another by serializing the source object to a ValueTree, then deserializing the dest object from that tree. */
 void copy (SerializableData& dest, SerializableData& source);
 
 /*---------------------------------------------------------------------*/
 
+/** Saves the state of an object to a file.
+    Internally, this method calls juce::ValueTree::writeToStream(), so the data is stored as an arbitrary binary encoding of a ValueTree, not necessarily a common format like XML or JSON.
+    Use the XML- and JSON-specific functions in this namespace to explicitly use either format.
+    @see toXML(), toJSON()
+ */
 void toBinary (SerializableData& data, File file);
+
+/** Saves the state of an object to a juce::MemoryBlock. */
 void toBinary (SerializableData& data, juce::MemoryBlock& dest);
 
+/** Deserializes an object from a file. */
 void fromBinary (File file, SerializableData& dest);
+
+/** Deserializes an object from a juce::MemoryBlock. */
 void fromBinary (const juce::MemoryBlock& data, SerializableData& dest);
+
+/** Deserializes an object from some arbitrary opaque binary data. */
 void fromBinary (const void* data, size_t dataSizeInBytes, SerializableData& dest);
 
+/** Deserializes an object from some arbitrary opaque binary data. */
 template < typename IntegerType >
 void fromBinary (const void* data, IntegerType dataSizeInBytes, SerializableData& dest)
 {
     fromBinary (data, static_cast< size_t > (dataSizeInBytes), dest);
 }
 
+/** Creates a new object from the state saved in the file.
+    ObjectType must be default-constructable.
+ */
 template < typename ObjectType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
 ObjectType fromBinaryCreate (File file)
 {
@@ -35,6 +55,9 @@ ObjectType fromBinaryCreate (File file)
     return newObject;
 }
 
+/** Creates a new object from the state saved in the MemoryBlock.
+    ObjectType must be default-constructable.
+ */
 template < typename ObjectType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
 ObjectType fromBinaryCreate (const juce::MemoryBlock& data)
 {
@@ -43,6 +66,9 @@ ObjectType fromBinaryCreate (const juce::MemoryBlock& data)
     return newObject;
 }
 
+/** Creates a new object from the state saved in the opaque binary data.
+    ObjectType must be default-constructable.
+ */
 template < typename ObjectType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
 ObjectType fromBinaryCreate (const void* data, size_t dataSizeInBytes)
 {
@@ -51,6 +77,9 @@ ObjectType fromBinaryCreate (const void* data, size_t dataSizeInBytes)
     return newObject;
 }
 
+/** Creates a new object from the state saved in the opaque binary data.
+    ObjectType must be default-constructable.
+ */
 template < typename ObjectType, typename IntegerType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
 ObjectType fromBinaryCreate (const void* data, IntegerType dataSizeInBytes)
 {
@@ -59,13 +88,24 @@ ObjectType fromBinaryCreate (const void* data, IntegerType dataSizeInBytes)
 
 /*---------------------------------------------------------------------*/
 
+/** Serializes an object to an XML element. */
 std::unique_ptr< juce::XmlElement > toXML (SerializableData& source);
-void                                toXML (SerializableData& source, const File& file);
 
+/** Serializes an object to an XML file. */
+void toXML (SerializableData& source, const File& file);
+
+/** Deserializes an object from an XML element. */
 void fromXML (const juce::XmlElement& xml, SerializableData& dest);
+
+/** Deserializes an object from an XML element. */
 void fromXML (std::unique_ptr< juce::XmlElement > xml, SerializableData& dest);
+
+/** Deserializes an object from an XML file. */
 void fromXML (const File& xmlFile, SerializableData& dest);
 
+/** Creates a new object from the state saved in the XML element.
+    ObjectType must be default-constructable.
+ */
 template < typename ObjectType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
 ObjectType fromXMLCreate (const juce::XmlElement& xml)
 {
@@ -74,6 +114,9 @@ ObjectType fromXMLCreate (const juce::XmlElement& xml)
     return newObject;
 }
 
+/** Creates a new object from the state saved in the XML element.
+    ObjectType must be default-constructable.
+ */
 template < typename ObjectType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
 ObjectType fromXMLCreate (std::unique_ptr< juce::XmlElement > xml)
 {
@@ -82,6 +125,9 @@ ObjectType fromXMLCreate (std::unique_ptr< juce::XmlElement > xml)
     return newObject;
 }
 
+/** Creates a new object from the state saved in the XML file.
+    ObjectType must be default-constructable.
+ */
 template < typename ObjectType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
 ObjectType fromXMLCreate (const File& xmlFile)
 {
@@ -92,12 +138,22 @@ ObjectType fromXMLCreate (const File& xmlFile)
 
 /*---------------------------------------------------------------------*/
 
+/** Serializes an object to a JSON string. */
 String toJSON (SerializableData& source);
-void   toJSON (SerializableData& source, const File& file);
 
+/** Serializes an object to a JSON file. */
+void toJSON (SerializableData& source, const File& file);
+
+/** Deserializes an object from a JSON string. */
 void fromJSON (const String& jsonText, SerializableData& dest);
+
+/** Deserializes an object from a JSON file. */
 void fromJSON (const File& file, SerializableData& dest);
 
+/** Creates a new object from the state saved in the JSON string.
+    ObjectType must be default-constructable.
+    @see valueTreeFromJSON()
+ */
 template < typename ObjectType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
 ObjectType fromJSONCreate (const String& jsonText)
 {
@@ -106,6 +162,10 @@ ObjectType fromJSONCreate (const String& jsonText)
     return newObject;
 }
 
+/** Creates a new object from the state saved in the JSON file.
+    ObjectType must be default-constructable.
+    @see valueTreeToJSON()
+ */
 template < typename ObjectType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
 ObjectType fromJSONCreate (const File& file)
 {
