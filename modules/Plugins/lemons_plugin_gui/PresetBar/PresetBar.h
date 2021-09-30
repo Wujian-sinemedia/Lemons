@@ -8,7 +8,6 @@
 
 namespace lemons::plugin
 {
-
 class PresetBar : public juce::Component
 {
 public:

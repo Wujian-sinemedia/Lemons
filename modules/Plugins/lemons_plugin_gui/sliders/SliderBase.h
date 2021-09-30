@@ -5,7 +5,6 @@
 
 namespace lemons::gui
 {
-
 /**
     Base class for plugin sliders that handles some logic common to both int and float parameter sliders.
     You should never have to use this class directly, you should use FloatSlider or IntSlider in your project code.

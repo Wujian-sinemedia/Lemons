@@ -5,7 +5,6 @@
 
 namespace lemons::gui
 {
-
 /**
     Plugin slider that attaches to a float parameter
     @see plugin::FloatParameter

@@ -54,6 +54,20 @@ Filter< SampleType >* EQ< SampleType >::getBandOfType (FilterType type)
     return nullptr;
 }
 
+template < typename SampleType >
+Filter< SampleType >* EQ< SampleType >::getBandAtFrequency (float freq)
+{
+    for (auto* band : bands)
+    {
+        auto& filter = band->getFilter();
+
+        if (filter.getFilterFrequency() == freq)
+            return &filter;
+    }
+
+    return nullptr;
+}
+
 template class EQ< float >;
 template class EQ< double >;
 

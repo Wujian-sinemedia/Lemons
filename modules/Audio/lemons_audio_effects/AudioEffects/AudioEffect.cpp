@@ -31,6 +31,8 @@ void LevelReportingAudioEffect< SampleType >::process (AudioBuffer< SampleType >
 
     if (numChannels == 0) return;
 
+    gainReductions.ensureStorageAllocated (numChannels);
+
     const auto numSamples = inOut.getNumSamples();
 
     jassert (sidechain.getNumChannels() == numChannels);

@@ -2,7 +2,6 @@
 
 namespace lemons::gui
 {
-
 /**
     A stateful on/off button attached to a boolean plugin parameter.
     For a simple press-button that triggers a lambda function, use TextButton or ImageButton.
