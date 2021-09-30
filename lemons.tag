@@ -17960,13 +17960,6 @@
       <anchor>a3e2212028182bb4be4e8cefc4cec0d00</anchor>
       <arglist>(SerializableData &amp;stateToManage)</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~UndoManager</name>
-      <anchorfile>classlemons_1_1UndoManager.html</anchorfile>
-      <anchor>a28bc274c65d5e50fae9c1be87ca8e668</anchor>
-      <arglist>()=default</arglist>
-    </member>
     <member kind="function">
       <type>bool</type>
       <name>undo</name>

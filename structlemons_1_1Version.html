@@ -74,6 +74,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A class that represents a version of something, with major, minor, and patch numbers.  
+ <a href="structlemons_1_1Version.html#details">More...</a></p>
+
 <p><code>#include &lt;Version.h&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::Version:</div>
@@ -87,30 +90,41 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a27e4ef58f9a1502a4ce105ff771638ff"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1Version.html#a27e4ef58f9a1502a4ce105ff771638ff">Version</a> ()=default</td></tr>
+<tr class="memdesc:a27e4ef58f9a1502a4ce105ff771638ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a default <a class="el" href="structlemons_1_1Version.html" title="A class that represents a version of something, with major, minor, and patch numbers.">Version</a> object with the value 0.0.1.  <a href="structlemons_1_1Version.html#a27e4ef58f9a1502a4ce105ff771638ff">More...</a><br /></td></tr>
 <tr class="separator:a27e4ef58f9a1502a4ce105ff771638ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13c58f684675e2a5ec266607cba9da83"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1Version.html#a13c58f684675e2a5ec266607cba9da83">Version</a> (int maj, int min, int p)</td></tr>
+<tr class="memdesc:a13c58f684675e2a5ec266607cba9da83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="structlemons_1_1Version.html" title="A class that represents a version of something, with major, minor, and patch numbers.">Version</a> object with a specified value.  <a href="structlemons_1_1Version.html#a13c58f684675e2a5ec266607cba9da83">More...</a><br /></td></tr>
 <tr class="separator:a13c58f684675e2a5ec266607cba9da83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01d57790a965f1d8a7a11a0861bf7a4e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1Version.html#a01d57790a965f1d8a7a11a0861bf7a4e">operator==</a> (const <a class="el" href="structlemons_1_1Version.html">Version</a> &amp;other) const noexcept</td></tr>
 <tr class="separator:a01d57790a965f1d8a7a11a0861bf7a4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b1dcad08a3a75cbab2236c4a418b9bb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1Version.html#a9b1dcad08a3a75cbab2236c4a418b9bb">operator!=</a> (const <a class="el" href="structlemons_1_1Version.html">Version</a> &amp;other) const noexcept</td></tr>
 <tr class="separator:a9b1dcad08a3a75cbab2236c4a418b9bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76c0c58ed2c3e89a83d79f83a8df4ee6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1Version.html#a76c0c58ed2c3e89a83d79f83a8df4ee6">operator&gt;</a> (const <a class="el" href="structlemons_1_1Version.html">Version</a> &amp;other) const noexcept</td></tr>
+<tr class="memdesc:a76c0c58ed2c3e89a83d79f83a8df4ee6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this version is newer than the other one.  <a href="structlemons_1_1Version.html#a76c0c58ed2c3e89a83d79f83a8df4ee6">More...</a><br /></td></tr>
 <tr class="separator:a76c0c58ed2c3e89a83d79f83a8df4ee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a717f1f2d61b2fc207ce822d138cc4f86"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1Version.html#a717f1f2d61b2fc207ce822d138cc4f86">operator&lt;</a> (const <a class="el" href="structlemons_1_1Version.html">Version</a> &amp;other) const noexcept</td></tr>
+<tr class="memdesc:a717f1f2d61b2fc207ce822d138cc4f86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this version is older than the other one.  <a href="structlemons_1_1Version.html#a717f1f2d61b2fc207ce822d138cc4f86">More...</a><br /></td></tr>
 <tr class="separator:a717f1f2d61b2fc207ce822d138cc4f86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79517de58676a595437d09815c6d8df7"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1Version.html#a79517de58676a595437d09815c6d8df7">getAsString</a> (const String &amp;separator=&quot;.&quot;) const noexcept</td></tr>
+<tr class="memdesc:a79517de58676a595437d09815c6d8df7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a String representation of this <a class="el" href="structlemons_1_1Version.html" title="A class that represents a version of something, with major, minor, and patch numbers.">Version</a>.  <a href="structlemons_1_1Version.html#a79517de58676a595437d09815c6d8df7">More...</a><br /></td></tr>
 <tr class="separator:a79517de58676a595437d09815c6d8df7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b906ed4d93957ad4e93e4c712236081"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1Version.html#a2b906ed4d93957ad4e93e4c712236081">bumpMajor</a> () noexcept</td></tr>
+<tr class="memdesc:a2b906ed4d93957ad4e93e4c712236081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increments the major value and sets minor and patch to 0.  <a href="structlemons_1_1Version.html#a2b906ed4d93957ad4e93e4c712236081">More...</a><br /></td></tr>
 <tr class="separator:a2b906ed4d93957ad4e93e4c712236081"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc6b9609562d8f6ea37b71bdc1d6b366"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1Version.html#abc6b9609562d8f6ea37b71bdc1d6b366">bumpMinor</a> () noexcept</td></tr>
+<tr class="memdesc:abc6b9609562d8f6ea37b71bdc1d6b366"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increments the minor value and sets patch to 0.  <a href="structlemons_1_1Version.html#abc6b9609562d8f6ea37b71bdc1d6b366">More...</a><br /></td></tr>
 <tr class="separator:abc6b9609562d8f6ea37b71bdc1d6b366"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab01ffcc37bd2c9e5cc355d891afc32d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1Version.html#ab01ffcc37bd2c9e5cc355d891afc32d3">bumpPatch</a> () noexcept</td></tr>
+<tr class="memdesc:ab01ffcc37bd2c9e5cc355d891afc32d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increments the patch value.  <a href="structlemons_1_1Version.html#ab01ffcc37bd2c9e5cc355d891afc32d3">More...</a><br /></td></tr>
 <tr class="separator:ab01ffcc37bd2c9e5cc355d891afc32d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae770a3c144130dd30939b29788edadeb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1Version.html">Version</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1Version.html#ae770a3c144130dd30939b29788edadeb">withMajorBump</a> () const</td></tr>
+<tr class="memdesc:ae770a3c144130dd30939b29788edadeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new <a class="el" href="structlemons_1_1Version.html" title="A class that represents a version of something, with major, minor, and patch numbers.">Version</a> object with <a class="el" href="structlemons_1_1Version.html#a2b906ed4d93957ad4e93e4c712236081" title="Increments the major value and sets minor and patch to 0.">bumpMajor()</a> applied.  <a href="structlemons_1_1Version.html#ae770a3c144130dd30939b29788edadeb">More...</a><br /></td></tr>
 <tr class="separator:ae770a3c144130dd30939b29788edadeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93ff0cefe206eeb12aaea8651ddc30f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1Version.html">Version</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1Version.html#a93ff0cefe206eeb12aaea8651ddc30f8">withMinorBump</a> () const</td></tr>
+<tr class="memdesc:a93ff0cefe206eeb12aaea8651ddc30f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new <a class="el" href="structlemons_1_1Version.html" title="A class that represents a version of something, with major, minor, and patch numbers.">Version</a> object with <a class="el" href="structlemons_1_1Version.html#abc6b9609562d8f6ea37b71bdc1d6b366" title="Increments the minor value and sets patch to 0.">bumpMinor()</a> applied.  <a href="structlemons_1_1Version.html#a93ff0cefe206eeb12aaea8651ddc30f8">More...</a><br /></td></tr>
 <tr class="separator:a93ff0cefe206eeb12aaea8651ddc30f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7e4074b4ce4a6a47c2c146c9cc88625"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1Version.html">Version</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1Version.html#aa7e4074b4ce4a6a47c2c146c9cc88625">withPatchBump</a> () const</td></tr>
+<tr class="memdesc:aa7e4074b4ce4a6a47c2c146c9cc88625"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new <a class="el" href="structlemons_1_1Version.html" title="A class that represents a version of something, with major, minor, and patch numbers.">Version</a> object with <a class="el" href="structlemons_1_1Version.html#ab01ffcc37bd2c9e5cc355d891afc32d3" title="Increments the patch value.">bumpPatch()</a> applied.  <a href="structlemons_1_1Version.html#aa7e4074b4ce4a6a47c2c146c9cc88625">More...</a><br /></td></tr>
 <tr class="separator:aa7e4074b4ce4a6a47c2c146c9cc88625"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4e10eefa677226e7927d204b33edbdb"><td class="memItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">serialize</a> ()</td></tr>
 <tr class="memdesc:af4e10eefa677226e7927d204b33edbdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the state of this object and returns a ValueTree.  <a href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">More...</a><br /></td></tr>
@@ -119,7 +133,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ace1758cc9344ae03a6d01c3c218226de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores a previously saved state.  <a href="structlemons_1_1SerializableData.html#ace1758cc9344ae03a6d01c3c218226de">More...</a><br /></td></tr>
 <tr class="separator:ace1758cc9344ae03a6d01c3c218226de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A class that represents a version of something, with major, minor, and patch numbers. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a27e4ef58f9a1502a4ce105ff771638ff"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a27e4ef58f9a1502a4ce105ff771638ff">&#9670;&nbsp;</a></span>Version() <span class="overload">[1/2]</span></h2>
 
@@ -142,6 +159,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates a default <a class="el" href="structlemons_1_1Version.html" title="A class that represents a version of something, with major, minor, and patch numbers.">Version</a> object with the value 0.0.1. </p>
 
 </div>
 </div>
@@ -176,6 +195,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates a <a class="el" href="structlemons_1_1Version.html" title="A class that represents a version of something, with major, minor, and patch numbers.">Version</a> object with a specified value. </p>
 
 </div>
 </div>
@@ -256,6 +277,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true if this version is newer than the other one. </p>
+
 </div>
 </div>
 <a id="a717f1f2d61b2fc207ce822d138cc4f86"></a>
@@ -281,6 +304,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns true if this version is older than the other one. </p>
 
 </div>
 </div>
@@ -308,6 +333,14 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns a String representation of this <a class="el" href="structlemons_1_1Version.html" title="A class that represents a version of something, with major, minor, and patch numbers.">Version</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">separator</td><td>A character that will be placed between the major, minor, and patch values. Defaults to ".". </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a2b906ed4d93957ad4e93e4c712236081"></a>
@@ -332,6 +365,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Increments the major value and sets minor and patch to 0. </p>
 
 </div>
 </div>
@@ -358,6 +393,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Increments the minor value and sets patch to 0. </p>
+
 </div>
 </div>
 <a id="ab01ffcc37bd2c9e5cc355d891afc32d3"></a>
@@ -383,6 +420,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Increments the patch value. </p>
+
 </div>
 </div>
 <a id="ae770a3c144130dd30939b29788edadeb"></a>
@@ -399,6 +438,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a new <a class="el" href="structlemons_1_1Version.html" title="A class that represents a version of something, with major, minor, and patch numbers.">Version</a> object with <a class="el" href="structlemons_1_1Version.html#a2b906ed4d93957ad4e93e4c712236081" title="Increments the major value and sets minor and patch to 0.">bumpMajor()</a> applied. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1Version.html#a2b906ed4d93957ad4e93e4c712236081" title="Increments the major value and sets minor and patch to 0.">bumpMajor()</a> </dd></dl>
 
 </div>
 </div>
@@ -417,6 +459,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a new <a class="el" href="structlemons_1_1Version.html" title="A class that represents a version of something, with major, minor, and patch numbers.">Version</a> object with <a class="el" href="structlemons_1_1Version.html#abc6b9609562d8f6ea37b71bdc1d6b366" title="Increments the minor value and sets patch to 0.">bumpMinor()</a> applied. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1Version.html#abc6b9609562d8f6ea37b71bdc1d6b366" title="Increments the minor value and sets patch to 0.">bumpMinor()</a> </dd></dl>
+
 </div>
 </div>
 <a id="aa7e4074b4ce4a6a47c2c146c9cc88625"></a>
@@ -433,6 +478,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a new <a class="el" href="structlemons_1_1Version.html" title="A class that represents a version of something, with major, minor, and patch numbers.">Version</a> object with <a class="el" href="structlemons_1_1Version.html#ab01ffcc37bd2c9e5cc355d891afc32d3" title="Increments the patch value.">bumpPatch()</a> applied. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1Version.html#ab01ffcc37bd2c9e5cc355d891afc32d3" title="Increments the patch value.">bumpPatch()</a> </dd></dl>
 
 </div>
 </div>
@@ -505,7 +553,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 30 2021 06:35:38 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 30 2021 07:07:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

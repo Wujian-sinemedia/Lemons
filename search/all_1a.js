@@ -40,6 +40,5 @@ var searchData=
   ['_7etimercallback_1088',['~TimerCallback',['../structlemons_1_1events_1_1TimerCallback.html#a9c62644f39fdc3264b06ff8a155b2285',1,'lemons::events::TimerCallback']]],
   ['_7etogglebutton_1089',['~ToggleButton',['../classlemons_1_1gui_1_1ToggleButton.html#aafe0e0cbb1115f922e38f607cb88b6d5',1,'lemons::gui::ToggleButton']]],
   ['_7etreereflector_1090',['~TreeReflector',['../structlemons_1_1TreeReflector.html#a4a6a2419ad7c90d842c48a58cc5643e9',1,'lemons::TreeReflector']]],
-  ['_7eundomanager_1091',['~UndoManager',['../classlemons_1_1UndoManager.html#a28bc274c65d5e50fae9c1be87ca8e668',1,'lemons::UndoManager']]],
-  ['_7ewrappertype_1092',['~WrapperType',['../structlemons_1_1WrapperType.html#a3c49547eaa942cc22de298154c123393',1,'lemons::WrapperType']]]
+  ['_7ewrappertype_1091',['~WrapperType',['../structlemons_1_1WrapperType.html#a3c49547eaa942cc22de298154c123393',1,'lemons::WrapperType']]]
 ];

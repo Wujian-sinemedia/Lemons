@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['noisegate_1184',['NoiseGate',['../classlemons_1_1dsp_1_1FX_1_1NoiseGate.html',1,'lemons::dsp::FX']]],
-  ['nonrealtimescopedread_1185',['NonrealtimeScopedRead',['../structlemons_1_1plugin_1_1RealtimeStateObject_1_1NonrealtimeScopedRead.html',1,'lemons::plugin::RealtimeStateObject']]],
-  ['nonrealtimescopedwrite_1186',['NonrealtimeScopedWrite',['../structlemons_1_1plugin_1_1RealtimeStateObject_1_1NonrealtimeScopedWrite.html',1,'lemons::plugin::RealtimeStateObject']]]
+  ['noisegate_1183',['NoiseGate',['../classlemons_1_1dsp_1_1FX_1_1NoiseGate.html',1,'lemons::dsp::FX']]],
+  ['nonrealtimescopedread_1184',['NonrealtimeScopedRead',['../structlemons_1_1plugin_1_1RealtimeStateObject_1_1NonrealtimeScopedRead.html',1,'lemons::plugin::RealtimeStateObject']]],
+  ['nonrealtimescopedwrite_1185',['NonrealtimeScopedWrite',['../structlemons_1_1plugin_1_1RealtimeStateObject_1_1NonrealtimeScopedWrite.html',1,'lemons::plugin::RealtimeStateObject']]]
 ];

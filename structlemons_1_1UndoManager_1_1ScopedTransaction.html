@@ -74,16 +74,31 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>An RAII class for beginning and ending a transaction in a scoped manner.  
+ <a href="structlemons_1_1UndoManager_1_1ScopedTransaction.html#details">More...</a></p>
+
 <p><code>#include &lt;UndoManager.h&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2e22dc1a8b538fa45ccb1e061ac473b5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1UndoManager_1_1ScopedTransaction.html#a2e22dc1a8b538fa45ccb1e061ac473b5">ScopedTransaction</a> (<a class="el" href="classlemons_1_1UndoManager.html">UndoManager</a> *um, const String &amp;name={})</td></tr>
+<tr class="memdesc:a2e22dc1a8b538fa45ccb1e061ac473b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="structlemons_1_1UndoManager_1_1ScopedTransaction.html" title="An RAII class for beginning and ending a transaction in a scoped manner.">ScopedTransaction</a>.  <a href="structlemons_1_1UndoManager_1_1ScopedTransaction.html#a2e22dc1a8b538fa45ccb1e061ac473b5">More...</a><br /></td></tr>
 <tr class="separator:a2e22dc1a8b538fa45ccb1e061ac473b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d10ac33bab8e3e9a2b1981ab1b5207a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1UndoManager_1_1ScopedTransaction.html#a0d10ac33bab8e3e9a2b1981ab1b5207a">~ScopedTransaction</a> ()</td></tr>
+<tr class="memdesc:a0d10ac33bab8e3e9a2b1981ab1b5207a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="structlemons_1_1UndoManager_1_1ScopedTransaction.html#a0d10ac33bab8e3e9a2b1981ab1b5207a">More...</a><br /></td></tr>
 <tr class="separator:a0d10ac33bab8e3e9a2b1981ab1b5207a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>An RAII class for beginning and ending a transaction in a scoped manner. </p>
+<p>Example usage: </p><div class="fragment"><div class="line"><a class="code" href="classlemons_1_1UndoManager.html">lemons::UndoManager</a> undo;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> someFunction()</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="structlemons_1_1UndoManager_1_1ScopedTransaction.html">lemons::UndoManager::ScopedTransaction</a> s {&amp;undo, <span class="stringliteral">&quot;MyTransaction&quot;</span>};</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// do something with side-effects...</span></div>
+<div class="line">}</div>
+</div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2e22dc1a8b538fa45ccb1e061ac473b5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2e22dc1a8b538fa45ccb1e061ac473b5">&#9670;&nbsp;</a></span>ScopedTransaction()</h2>
 
@@ -110,6 +125,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Creates a <a class="el" href="structlemons_1_1UndoManager_1_1ScopedTransaction.html" title="An RAII class for beginning and ending a transaction in a scoped manner.">ScopedTransaction</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">um</td><td>A pointer to the <a class="el" href="classlemons_1_1UndoManager.html" title="A class that keeps a history of states and can step backward and forward through them.">UndoManager</a> that this <a class="el" href="structlemons_1_1UndoManager_1_1ScopedTransaction.html" title="An RAII class for beginning and ending a transaction in a scoped manner.">ScopedTransaction</a> should reference. This pointer is allowed to be null; I found myself writing several classes throughout the Lemons API that have functions to allow you to set the <a class="el" href="classlemons_1_1UndoManager.html" title="A class that keeps a history of states and can step backward and forward through them.">UndoManager</a> after the creation of the class &ndash; meaning that said class stores a pointer to an <a class="el" href="classlemons_1_1UndoManager.html" title="A class that keeps a history of states and can step backward and forward through them.">UndoManager</a>, not a reference. So, instead of trying to conditionally create an RAII object, I put the null-pointer-checking logic inside the RAII object itself. </td></tr>
+    <tr><td class="paramname">name</td><td>The name of the transaction that this object will create. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a0d10ac33bab8e3e9a2b1981ab1b5207a"></a>
@@ -127,15 +151,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Destructor. </p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="UndoManager_8h.html">UndoManager.h</a></li>
 </ul>
 </div><!-- contents -->
+<div class="ttc" id="aclasslemons_1_1UndoManager_html"><div class="ttname"><a href="classlemons_1_1UndoManager.html">lemons::UndoManager</a></div><div class="ttdoc">A class that keeps a history of states and can step backward and forward through them.</div><div class="ttdef"><b>Definition:</b> UndoManager.h:13</div></div>
+<div class="ttc" id="astructlemons_1_1UndoManager_1_1ScopedTransaction_html"><div class="ttname"><a href="structlemons_1_1UndoManager_1_1ScopedTransaction.html">lemons::UndoManager::ScopedTransaction</a></div><div class="ttdoc">An RAII class for beginning and ending a transaction in a scoped manner.</div><div class="ttdef"><b>Definition:</b> UndoManager.h:88</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 30 2021 06:35:38 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 30 2021 07:07:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
