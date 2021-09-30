@@ -2,17 +2,17 @@
 namespace lemons::gui
 {
 SliderBase::SliderBase (plugin::Parameter& paramToUse)
-    : param (paramToUse)
+    : param_ (paramToUse)
 {
-    const auto paramName = param.getName();
+    const auto paramName = param_.getName();
     Slider::setName (paramName);
     Slider::setComponentID (paramName);
     Slider::setTooltip (paramName);
 
     Slider::setTextBoxIsEditable (true);
-    Slider::setTextValueSuffix (param.getLabel());
+    Slider::setTextValueSuffix (param_.getLabel());
 
-    auto range = param.getNormalisableRange();
+    auto range = param_.getNormalisableRange();
 
     auto convertFrom0To1Function = [=] (double currentRangeStart,
                                         double currentRangeEnd,
@@ -58,7 +58,7 @@ SliderBase::SliderBase (plugin::Parameter& paramToUse)
 
     Slider::textFromValueFunction = [this] (double value)
     {
-        return param.getTextForDenormalizedValue (static_cast< float > (value));
+        return param_.getTextForDenormalizedValue (static_cast< float > (value));
     };
 
     Slider::setPopupDisplayEnabled (true, false, this);
@@ -67,12 +67,12 @@ SliderBase::SliderBase (plugin::Parameter& paramToUse)
 
 void SliderBase::startedDragging()
 {
-    param.beginGesture();
+    param_.beginGesture();
 }
 
 void SliderBase::stoppedDragging()
 {
-    param.endGesture();
+    param_.endGesture();
 }
 
 }  // namespace lemons::gui

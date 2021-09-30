@@ -56,7 +56,7 @@ private:
      
             void serialize (TreeReflector& ref) final
             {
-                // simpy choose a property name -- and that's it!
+                // simply choose a property name -- and that's it!
                 ref.add ("MyData", data);
             }
         };

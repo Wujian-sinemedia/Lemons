@@ -43,13 +43,27 @@ struct TreeReflector
      
             void serialize (TreeReflector& ref) final
             {
-                // simpy choose a property name -- and that's it!
+                // simply choose a property name -- and that's it!
                 ref.add ("MyData", data);
             }
         };
         @endcode
+        This also works for containers that have begin() and end() functions; for containers, the property name you pass should be the name of a single element in the container.
+        For example:
+        @code
+        struct SomethingSerializable : lemons::SerializableData
+        {
+            std::vector<int> data;
      
-        @param propertyName The name of the ValueTree property that this data member corresponds to. When saving, the juce::var-encoded version of the data member will be written to the tree using this property name. When loading, if the tree has a property with this name, it will be converted from juce::var back into your type and assigned to the data member.
+            void serialize (TreeReflector& ref) final
+            {
+                ref.add ("Int", data);
+            }
+        };
+        @endcode
+        This will create a sub-tree in your object's ValueTree named "Ints", with properties "Int_1", "Int_2", "Int_3", etc. This works by iterating through each element of your container and calling add() on each of them -- so the type of the elements of your container must have toVar() and fromVar() implemented.
+     
+        @param propertyName The name of the ValueTree property that this data member corresponds to. When saving, the juce::var-encoded version of the data member will be written to the tree using this property name. When loading, if the tree has a property with this name, it will be converted from juce::var back into your type and assigned to the data member. When adding a container, this should be the name of a single container element.
      
         @param object Reference to the data member you wish to load/save.
      
@@ -83,6 +97,7 @@ struct TreeReflector
             }
          };
          @endcode
+        If you use this function with a container type, your lambdas must return/recieve the entire container by value. I recommend sticking to add() (or implementing custom logic) for containers.
      
         @param propertyName The name of the ValueTree property that this data corresponds to. When saving, the juce::var-encoded version of the object returned from the saveToTree function will be written to the tree using this property name. When loading, if the tree has a property with this name, it will be converted from juce::var back into your type and passed to the loadFromTree function.
      

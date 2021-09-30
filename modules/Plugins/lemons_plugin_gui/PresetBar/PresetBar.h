@@ -8,13 +8,14 @@
 
 namespace lemons::plugin
 {
+
 class PresetBar : public juce::Component
 {
 public:
     PresetBar (StateBase&    stateToUse,
                StateToggler& toggler,
                const String& productName,
-               const String& presetFileExtension = ".xml",
+               const String& presetFileExtension = ".bvpreset",
                const String& companyName         = "BenViningMusicSoftware");
 
 private:
