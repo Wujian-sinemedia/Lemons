@@ -5349,6 +5349,13 @@
     </member>
     <member kind="function">
       <type>Filter&lt; SampleType &gt; *</type>
+      <name>getBandAtFrequency</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1EQ.html</anchorfile>
+      <anchor>ac15a0db71bda56f38eb8cf3f89695a41</anchor>
+      <arglist>(float freq)</arglist>
+    </member>
+    <member kind="function">
+      <type>Filter&lt; SampleType &gt; *</type>
       <name>getBandOfType</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EQ.html</anchorfile>
       <anchor>a2ada180fca59922063a373ef7e55a6ef</anchor>

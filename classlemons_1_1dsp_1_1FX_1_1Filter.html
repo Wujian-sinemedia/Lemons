@@ -74,6 +74,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A filter audio effect class.  
+ <a href="classlemons_1_1dsp_1_1FX_1_1Filter.html#details">More...</a></p>
+
 <p><code>#include &lt;Filter.h&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::dsp::FX::Filter&lt; SampleType &gt;:</div>
@@ -87,41 +90,64 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a143721a8c22cc42b6fd6fe19de880b94"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html#a143721a8c22cc42b6fd6fe19de880b94">Filter</a> ()=default</td></tr>
+<tr class="memdesc:a143721a8c22cc42b6fd6fe19de880b94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a default filter.  <a href="classlemons_1_1dsp_1_1FX_1_1Filter.html#a143721a8c22cc42b6fd6fe19de880b94">More...</a><br /></td></tr>
 <tr class="separator:a143721a8c22cc42b6fd6fe19de880b94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0aa9a1e70bb96b56aafb71b49196372d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html#a0aa9a1e70bb96b56aafb71b49196372d">Filter</a> (<a class="el" href="structlemons_1_1dsp_1_1FX_1_1FilterParams.html">FilterParams</a> params)</td></tr>
+<tr class="memdesc:a0aa9a1e70bb96b56aafb71b49196372d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a filter from a <a class="el" href="structlemons_1_1dsp_1_1FX_1_1FilterParams.html" title="A struct that holds the parameters for a Filter effect.">FilterParams</a> object.  <a href="classlemons_1_1dsp_1_1FX_1_1Filter.html#a0aa9a1e70bb96b56aafb71b49196372d">More...</a><br /></td></tr>
 <tr class="separator:a0aa9a1e70bb96b56aafb71b49196372d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c075466d10a461bb9f77c1828df3166"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html#a0c075466d10a461bb9f77c1828df3166">Filter</a> (<a class="el" href="namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14">FilterType</a> filterType, float frequency=440.f, float Qfactor=0.70710678118654752440f, float gainMult=1.f)</td></tr>
+<tr class="memdesc:a0c075466d10a461bb9f77c1828df3166"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a filter with specified parameters.  <a href="classlemons_1_1dsp_1_1FX_1_1Filter.html#a0c075466d10a461bb9f77c1828df3166">More...</a><br /></td></tr>
 <tr class="separator:a0c075466d10a461bb9f77c1828df3166"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e2734ec1b7a89c566cbd2fe9b3592c8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html#a0e2734ec1b7a89c566cbd2fe9b3592c8">bypassedBlock</a> (int numSamples)</td></tr>
+<tr class="memdesc:a0e2734ec1b7a89c566cbd2fe9b3592c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies the effect when a bypassed block is recieved.  <a href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html#a0e2734ec1b7a89c566cbd2fe9b3592c8">More...</a><br /></td></tr>
 <tr class="separator:a0e2734ec1b7a89c566cbd2fe9b3592c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66865f43cba49f2efb0762e9bcc9289c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html#a66865f43cba49f2efb0762e9bcc9289c">getFilterFrequency</a> () const</td></tr>
+<tr class="memdesc:a66865f43cba49f2efb0762e9bcc9289c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current frequency of this filter.  <a href="classlemons_1_1dsp_1_1FX_1_1Filter.html#a66865f43cba49f2efb0762e9bcc9289c">More...</a><br /></td></tr>
 <tr class="separator:a66865f43cba49f2efb0762e9bcc9289c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb1506705e06457cfb10ce0272c66c04"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14">FilterType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html#adb1506705e06457cfb10ce0272c66c04">getFilterType</a> () const</td></tr>
+<tr class="memdesc:adb1506705e06457cfb10ce0272c66c04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current type of this filter.  <a href="classlemons_1_1dsp_1_1FX_1_1Filter.html#adb1506705e06457cfb10ce0272c66c04">More...</a><br /></td></tr>
 <tr class="separator:adb1506705e06457cfb10ce0272c66c04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d22025f280c6150a2af03022daf0107"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html#a7d22025f280c6150a2af03022daf0107">getGain</a> () const</td></tr>
+<tr class="memdesc:a7d22025f280c6150a2af03022daf0107"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current gain of this filter.  <a href="classlemons_1_1dsp_1_1FX_1_1Filter.html#a7d22025f280c6150a2af03022daf0107">More...</a><br /></td></tr>
 <tr class="separator:a7d22025f280c6150a2af03022daf0107"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb5122fbfbfcebd16826f7951dce6851"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1FilterParams.html">FilterParams</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html#afb5122fbfbfcebd16826f7951dce6851">getParams</a> () const</td></tr>
+<tr class="memdesc:afb5122fbfbfcebd16826f7951dce6851"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="structlemons_1_1dsp_1_1FX_1_1FilterParams.html" title="A struct that holds the parameters for a Filter effect.">FilterParams</a> object representing the state of this filter.  <a href="classlemons_1_1dsp_1_1FX_1_1Filter.html#afb5122fbfbfcebd16826f7951dce6851">More...</a><br /></td></tr>
 <tr class="separator:afb5122fbfbfcebd16826f7951dce6851"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98f641fb1885238a60432d8ecb26fb34"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html#a98f641fb1885238a60432d8ecb26fb34">getQfactor</a> () const</td></tr>
+<tr class="memdesc:a98f641fb1885238a60432d8ecb26fb34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current Q factor of this filter.  <a href="classlemons_1_1dsp_1_1FX_1_1Filter.html#a98f641fb1885238a60432d8ecb26fb34">More...</a><br /></td></tr>
 <tr class="separator:a98f641fb1885238a60432d8ecb26fb34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25c2dd76f5e1298d8ac8a5aebed48780"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html#a25c2dd76f5e1298d8ac8a5aebed48780">prepare</a> (double samplerate, int blocksize) final</td></tr>
+<tr class="memdesc:a25c2dd76f5e1298d8ac8a5aebed48780"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the filter.  <a href="classlemons_1_1dsp_1_1FX_1_1Filter.html#a25c2dd76f5e1298d8ac8a5aebed48780">More...</a><br /></td></tr>
 <tr class="separator:a25c2dd76f5e1298d8ac8a5aebed48780"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5979cff40fec5864fb6a45bba0b01911"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html#a5979cff40fec5864fb6a45bba0b01911">process</a> (AudioBuffer&lt; SampleType &gt; &amp;audio)=0</td></tr>
+<tr class="memdesc:a5979cff40fec5864fb6a45bba0b01911"><td class="mdescLeft">&#160;</td><td class="mdescRight">Your subclass must implement this function with its custom processing logic.  <a href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html#a5979cff40fec5864fb6a45bba0b01911">More...</a><br /></td></tr>
 <tr class="separator:a5979cff40fec5864fb6a45bba0b01911"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27a162745b38ce7082c9d2b42f6b552b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html#a27a162745b38ce7082c9d2b42f6b552b">process</a> (juce::AudioBuffer&lt; SampleType &gt; &amp;audio) final</td></tr>
+<tr class="memdesc:a27a162745b38ce7082c9d2b42f6b552b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the filter to a stream of audio.  <a href="classlemons_1_1dsp_1_1FX_1_1Filter.html#a27a162745b38ce7082c9d2b42f6b552b">More...</a><br /></td></tr>
 <tr class="separator:a27a162745b38ce7082c9d2b42f6b552b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a535c436ec9ff594c5f04ed68602e4ddd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html#a535c436ec9ff594c5f04ed68602e4ddd">setFilterFrequency</a> (float newFreqHz)</td></tr>
+<tr class="memdesc:a535c436ec9ff594c5f04ed68602e4ddd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the frequency of this filter.  <a href="classlemons_1_1dsp_1_1FX_1_1Filter.html#a535c436ec9ff594c5f04ed68602e4ddd">More...</a><br /></td></tr>
 <tr class="separator:a535c436ec9ff594c5f04ed68602e4ddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af169e3977e20174ae581b23560748f16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html#af169e3977e20174ae581b23560748f16">setFilterType</a> (<a class="el" href="namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14">FilterType</a> newType)</td></tr>
+<tr class="memdesc:af169e3977e20174ae581b23560748f16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the type of this filter.  <a href="classlemons_1_1dsp_1_1FX_1_1Filter.html#af169e3977e20174ae581b23560748f16">More...</a><br /></td></tr>
 <tr class="separator:af169e3977e20174ae581b23560748f16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d2f3fbc1ecd254bf6e3cfa3822d5742"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html#a6d2f3fbc1ecd254bf6e3cfa3822d5742">setGain</a> (float newGain)</td></tr>
+<tr class="memdesc:a6d2f3fbc1ecd254bf6e3cfa3822d5742"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the gain of this filter.  <a href="classlemons_1_1dsp_1_1FX_1_1Filter.html#a6d2f3fbc1ecd254bf6e3cfa3822d5742">More...</a><br /></td></tr>
 <tr class="separator:a6d2f3fbc1ecd254bf6e3cfa3822d5742"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5eb2b1a52cf507986b025fe15f265453"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html#a5eb2b1a52cf507986b025fe15f265453">setParams</a> (<a class="el" href="structlemons_1_1dsp_1_1FX_1_1FilterParams.html">FilterParams</a> params)</td></tr>
+<tr class="memdesc:a5eb2b1a52cf507986b025fe15f265453"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a <a class="el" href="structlemons_1_1dsp_1_1FX_1_1FilterParams.html" title="A struct that holds the parameters for a Filter effect.">FilterParams</a> object to the state of this filter.  <a href="classlemons_1_1dsp_1_1FX_1_1Filter.html#a5eb2b1a52cf507986b025fe15f265453">More...</a><br /></td></tr>
 <tr class="separator:a5eb2b1a52cf507986b025fe15f265453"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc6df900e5c38eb40841ae62dd759d0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html#adc6df900e5c38eb40841ae62dd759d0f">setQfactor</a> (float newQ)</td></tr>
+<tr class="memdesc:adc6df900e5c38eb40841ae62dd759d0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the Q factor of this filter.  <a href="classlemons_1_1dsp_1_1FX_1_1Filter.html#adc6df900e5c38eb40841ae62dd759d0f">More...</a><br /></td></tr>
 <tr class="separator:adc6df900e5c38eb40841ae62dd759d0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename SampleType&gt;<br />
+class lemons::dsp::FX::Filter&lt; SampleType &gt;</h3>
+
+<p>A filter audio effect class. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1filters_1_1Filter.html">filters::Filter</a>, filters::Multifilter </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a143721a8c22cc42b6fd6fe19de880b94"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a143721a8c22cc42b6fd6fe19de880b94">&#9670;&nbsp;</a></span>Filter() <span class="overload">[1/3]</span></h2>
 
@@ -146,6 +172,8 @@ template&lt;typename SampleType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates a default filter. </p>
 
 </div>
 </div>
@@ -189,6 +217,8 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Creates a filter with specified parameters. </p>
+
 </div>
 </div>
 <a id="a0aa9a1e70bb96b56aafb71b49196372d"></a>
@@ -208,6 +238,8 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates a filter from a <a class="el" href="structlemons_1_1dsp_1_1FX_1_1FilterParams.html" title="A struct that holds the parameters for a Filter effect.">FilterParams</a> object. </p>
 
 </div>
 </div>
@@ -238,6 +270,9 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Notifies the effect when a bypassed block is recieved. </p>
+<p>Implementing this is optional. </p>
+
 </div>
 </div>
 <a id="a66865f43cba49f2efb0762e9bcc9289c"></a>
@@ -256,6 +291,8 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the current frequency of this filter. </p>
 
 </div>
 </div>
@@ -276,6 +313,8 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the current type of this filter. </p>
+
 </div>
 </div>
 <a id="a7d22025f280c6150a2af03022daf0107"></a>
@@ -294,6 +333,9 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the current gain of this filter. </p>
+<p>Note that gain is only relevant for shelf and peak filter types. </p>
 
 </div>
 </div>
@@ -314,6 +356,8 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a <a class="el" href="structlemons_1_1dsp_1_1FX_1_1FilterParams.html" title="A struct that holds the parameters for a Filter effect.">FilterParams</a> object representing the state of this filter. </p>
+
 </div>
 </div>
 <a id="a98f641fb1885238a60432d8ecb26fb34"></a>
@@ -332,6 +376,8 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the current Q factor of this filter. </p>
 
 </div>
 </div>
@@ -371,6 +417,8 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Prepares the filter. </p>
+
 <p>Reimplemented from <a class="el" href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html#a97b60e3696ef3e25e4fe24b4448ec4f1">lemons::dsp::FX::AudioEffect&lt; SampleType &gt;</a>.</p>
 
 </div>
@@ -400,6 +448,8 @@ template&lt;typename SampleType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Your subclass must implement this function with its custom processing logic. </p>
 
 <p>Implemented in <a class="el" href="structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html#a72cd2a03ab39a2d605b1eda5693d26e4">lemons::dsp::FX::SidechainableAudioEffect&lt; SampleType &gt;</a>, <a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#af83eabef85b031658c1963012544609b">lemons::dsp::FX::LevelReportingAudioEffect&lt; SampleType &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html#ab13ccfe5a8942bd8dca20d784355c721">lemons::dsp::FX::EQ&lt; SampleType &gt;</a>, <a class="el" href="structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html#a72cd2a03ab39a2d605b1eda5693d26e4">lemons::dsp::FX::SidechainableAudioEffect&lt; float &gt;</a>, and <a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#af83eabef85b031658c1963012544609b">lemons::dsp::FX::LevelReportingAudioEffect&lt; float &gt;</a>.</p>
 
@@ -431,6 +481,8 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Applies the filter to a stream of audio. </p>
+
 </div>
 </div>
 <a id="a535c436ec9ff594c5f04ed68602e4ddd"></a>
@@ -450,6 +502,8 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the frequency of this filter. </p>
 
 </div>
 </div>
@@ -471,6 +525,8 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the type of this filter. </p>
+
 </div>
 </div>
 <a id="a6d2f3fbc1ecd254bf6e3cfa3822d5742"></a>
@@ -490,6 +546,9 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the gain of this filter. </p>
+<p>Note that gain is only relevant for shelf and peak filter types. </p>
 
 </div>
 </div>
@@ -511,6 +570,8 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Applies a <a class="el" href="structlemons_1_1dsp_1_1FX_1_1FilterParams.html" title="A struct that holds the parameters for a Filter effect.">FilterParams</a> object to the state of this filter. </p>
+
 </div>
 </div>
 <a id="adc6df900e5c38eb40841ae62dd759d0f"></a>
@@ -531,6 +592,8 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the Q factor of this filter. </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -539,7 +602,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 30 2021 19:26:59 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 30 2021 20:06:22 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

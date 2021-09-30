@@ -36,7 +36,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html" target="_top" xlink:title="Base class for any kind of audio effect.">
 <polygon fill="none" stroke="black" points="176,-67.5 176,-97.5 332,-97.5 332,-67.5 176,-67.5"/>
 <text text-anchor="start" x="184" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::AudioEffect</text>
 <text text-anchor="middle" x="254" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>

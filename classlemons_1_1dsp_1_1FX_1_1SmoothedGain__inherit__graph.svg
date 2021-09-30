@@ -101,7 +101,7 @@ var sectionId = 'dynsection-0';
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html" target="_top" xlink:title="Base class for any kind of audio effect.">
 <polygon fill="none" stroke="black" points="0,-24.5 0,-54.5 156,-54.5 156,-24.5 0,-24.5"/>
 <text text-anchor="start" x="8" y="-42.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::AudioEffect</text>
 <text text-anchor="middle" x="78" y="-31.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>

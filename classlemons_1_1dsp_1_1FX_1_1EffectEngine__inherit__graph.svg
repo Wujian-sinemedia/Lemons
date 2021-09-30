@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="A class that wraps an AudioEffect into a dsp::Engine.">
 <polygon fill="#bfbfbf" stroke="black" points="0,-146.5 0,-176.5 161,-176.5 161,-146.5 0,-146.5"/>
 <text text-anchor="start" x="8" y="-164.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::EffectEngine</text>
 <text text-anchor="middle" x="80.5" y="-153.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; EffectType, SampleType, &gt;</text>
@@ -54,7 +54,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="structlemons_1_1dsp_1_1FX_1_1FilterEngine.html" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="structlemons_1_1dsp_1_1FX_1_1FilterEngine.html" target="_top" xlink:title="A class that represents an audio engine holding a filter effect.">
 <polygon fill="none" stroke="black" points="1.5,-0.5 1.5,-30.5 159.5,-30.5 159.5,-0.5 1.5,-0.5"/>
 <text text-anchor="start" x="9.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::FilterEngine</text>
 <text text-anchor="middle" x="80.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>

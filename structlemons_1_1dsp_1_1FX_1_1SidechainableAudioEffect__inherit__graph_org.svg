@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="Base class for audio effects that accept a sidechain signal.">
 <polygon fill="#bfbfbf" stroke="black" points="193,-49.5 193,-79.5 362,-79.5 362,-49.5 193,-49.5"/>
 <text text-anchor="start" x="201" y="-67.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::Sidechainable</text>
 <text text-anchor="middle" x="277.5" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">AudioEffect&lt; SampleType &gt;</text>
@@ -21,7 +21,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html" target="_top" xlink:title="Base class for audio effects that can report their level or gain reduction.">
 <polygon fill="none" stroke="black" points="446,-98.5 446,-128.5 620,-128.5 620,-98.5 446,-98.5"/>
 <text text-anchor="start" x="454" y="-116.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::LevelReporting</text>
 <text text-anchor="middle" x="533" y="-105.5" font-family="Helvetica,sans-Serif" font-size="10.00">AudioEffect&lt; SampleType &gt;</text>
@@ -54,7 +54,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html" target="_top" xlink:title="Base class for any kind of audio effect.">
 <polygon fill="none" stroke="black" points="0,-49.5 0,-79.5 156,-79.5 156,-49.5 0,-49.5"/>
 <text text-anchor="start" x="8" y="-67.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::AudioEffect</text>
 <text text-anchor="middle" x="78" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>

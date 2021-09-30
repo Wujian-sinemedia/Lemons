@@ -93,6 +93,7 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0e2734ec1b7a89c566cbd2fe9b3592c8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html#a0e2734ec1b7a89c566cbd2fe9b3592c8">bypassedBlock</a> (int numSamples)</td></tr>
+<tr class="memdesc:a0e2734ec1b7a89c566cbd2fe9b3592c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies the effect when a bypassed block is recieved.  <a href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html#a0e2734ec1b7a89c566cbd2fe9b3592c8">More...</a><br /></td></tr>
 <tr class="separator:a0e2734ec1b7a89c566cbd2fe9b3592c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb2114923bea1517c201a14e803b68c2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1PannerBase.html#acb2114923bea1517c201a14e803b68c2">getGainMult</a> (const int chan) const</td></tr>
 <tr class="separator:acb2114923bea1517c201a14e803b68c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -105,10 +106,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7b74c1c9ad8780a9c0a46e84e20bb730"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1PannerBase.html#a7b74c1c9ad8780a9c0a46e84e20bb730">getRightGain</a> () const noexcept</td></tr>
 <tr class="separator:a7b74c1c9ad8780a9c0a46e84e20bb730"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af202fda394532731b9445717099931c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1StereoPanner.html#af202fda394532731b9445717099931c5">prepare</a> (double samplerate, int blocksize) final</td></tr>
+<tr class="memdesc:af202fda394532731b9445717099931c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives the effect a chance to prepare itself.  <a href="classlemons_1_1dsp_1_1FX_1_1StereoPanner.html#af202fda394532731b9445717099931c5">More...</a><br /></td></tr>
 <tr class="separator:af202fda394532731b9445717099931c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abda83b5bece218a9d09deac3813e6cce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1StereoPanner.html#abda83b5bece218a9d09deac3813e6cce">process</a> (<a class="el" href="classlemons_1_1dsp_1_1FX_1_1StereoPanner.html#affd6a05de0e5572269895455b2483948">AudioBuffer</a> &amp;audio) final</td></tr>
 <tr class="separator:abda83b5bece218a9d09deac3813e6cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5979cff40fec5864fb6a45bba0b01911"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html#a5979cff40fec5864fb6a45bba0b01911">process</a> (<a class="el" href="classlemons_1_1dsp_1_1FX_1_1StereoPanner.html#affd6a05de0e5572269895455b2483948">AudioBuffer</a>&lt; SampleType &gt; &amp;audio)=0</td></tr>
+<tr class="memdesc:a5979cff40fec5864fb6a45bba0b01911"><td class="mdescLeft">&#160;</td><td class="mdescRight">Your subclass must implement this function with its custom processing logic.  <a href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html#a5979cff40fec5864fb6a45bba0b01911">More...</a><br /></td></tr>
 <tr class="separator:a5979cff40fec5864fb6a45bba0b01911"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a300c80405e1c94b53e232c2c4da772aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1StereoPanner.html#a300c80405e1c94b53e232c2c4da772aa">process</a> (const <a class="el" href="classlemons_1_1dsp_1_1FX_1_1StereoPanner.html#affd6a05de0e5572269895455b2483948">AudioBuffer</a> &amp;stereoInput, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1StereoPanner.html#affd6a05de0e5572269895455b2483948">AudioBuffer</a> &amp;stereoOutput)</td></tr>
 <tr class="separator:a300c80405e1c94b53e232c2c4da772aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,6 +167,9 @@ template&lt;typename SampleType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Notifies the effect when a bypassed block is recieved. </p>
+<p>Implementing this is optional. </p>
 
 </div>
 </div>
@@ -340,6 +346,9 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Gives the effect a chance to prepare itself. </p>
+<p>Implementing this is optional. </p>
+
 <p>Reimplemented from <a class="el" href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html#a97b60e3696ef3e25e4fe24b4448ec4f1">lemons::dsp::FX::AudioEffect&lt; SampleType &gt;</a>.</p>
 
 </div>
@@ -397,6 +406,8 @@ template&lt;typename SampleType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Your subclass must implement this function with its custom processing logic. </p>
 
 <p>Implemented in <a class="el" href="structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html#a72cd2a03ab39a2d605b1eda5693d26e4">lemons::dsp::FX::SidechainableAudioEffect&lt; SampleType &gt;</a>, <a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#af83eabef85b031658c1963012544609b">lemons::dsp::FX::LevelReportingAudioEffect&lt; SampleType &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html#ab13ccfe5a8942bd8dca20d784355c721">lemons::dsp::FX::EQ&lt; SampleType &gt;</a>, <a class="el" href="structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html#a72cd2a03ab39a2d605b1eda5693d26e4">lemons::dsp::FX::SidechainableAudioEffect&lt; float &gt;</a>, and <a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#af83eabef85b031658c1963012544609b">lemons::dsp::FX::LevelReportingAudioEffect&lt; float &gt;</a>.</p>
 
@@ -550,7 +561,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 30 2021 19:26:59 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 30 2021 20:06:22 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

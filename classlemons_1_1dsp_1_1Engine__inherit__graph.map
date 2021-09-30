@@ -1,7 +1,7 @@
 <map id="lemons::dsp::Engine&lt; SampleType &gt;" name="lemons::dsp::Engine&lt; SampleType &gt;">
 <area shape="rect" id="node1" title=" " alt="" coords="5,500,159,541"/>
 <area shape="rect" id="node2" href="$classlemons_1_1dsp_1_1FX_1_1EffectEngine.html" title=" " alt="" coords="532,5,687,47"/>
-<area shape="rect" id="node4" href="$classlemons_1_1dsp_1_1FX_1_1EffectEngine.html" title=" " alt="" coords="289,131,504,172"/>
+<area shape="rect" id="node4" href="$classlemons_1_1dsp_1_1FX_1_1EffectEngine.html" title="A class that wraps an AudioEffect into a dsp::Engine." alt="" coords="289,131,504,172"/>
 <area shape="rect" id="node6" href="$classlemons_1_1dsp_1_1LatencyEngine.html" title=" " alt="" coords="295,255,499,296"/>
 <area shape="rect" id="node7" href="$classlemons_1_1dsp_1_1osc_1_1OscEngine.html" title=" " alt="" coords="293,435,500,476"/>
 <area shape="rect" id="node18" href="$classlemons_1_1dsp_1_1osc_1_1OscEngine.html" title=" " alt="" coords="303,500,491,541"/>
@@ -11,7 +11,7 @@
 <area shape="rect" id="node22" href="$classlemons_1_1dsp_1_1osc_1_1OscEngine.html" title=" " alt="" coords="292,761,501,803"/>
 <area shape="rect" id="node23" href="$classlemons_1_1dsp_1_1Engine.html" title=" " alt="" coords="320,827,473,868"/>
 <area shape="rect" id="node24" href="$classlemons_1_1dsp_1_1Engine.html" title=" " alt="" coords="320,320,473,361"/>
-<area shape="rect" id="node3" href="$structlemons_1_1dsp_1_1FX_1_1FilterEngine.html" title=" " alt="" coords="993,28,1204,69"/>
+<area shape="rect" id="node3" href="$structlemons_1_1dsp_1_1FX_1_1FilterEngine.html" title="A class that represents an audio engine holding a filter effect." alt="" coords="993,28,1204,69"/>
 <area shape="rect" id="node5" href="$classlemons_1_1dsp_1_1FX_1_1EffectEngine.html" title=" " alt="" coords="720,57,935,99"/>
 <area shape="rect" id="node8" href="$classlemons_1_1dsp_1_1osc_1_1OscEngine.html" title=" " alt="" coords="724,635,931,691"/>
 <area shape="rect" id="node9" href="$classlemons_1_1dsp_1_1osc_1_1OscEngine.html" title=" " alt="" coords="711,208,944,249"/>

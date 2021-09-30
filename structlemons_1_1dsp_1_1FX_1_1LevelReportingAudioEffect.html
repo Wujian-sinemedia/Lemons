@@ -74,6 +74,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Base class for audio effects that can report their level or gain reduction.  
+ <a href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#details">More...</a></p>
+
 <p><code>#include &lt;AudioEffect.h&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::dsp::FX::LevelReportingAudioEffect&lt; SampleType &gt;:</div>
@@ -87,25 +90,40 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0e2734ec1b7a89c566cbd2fe9b3592c8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html#a0e2734ec1b7a89c566cbd2fe9b3592c8">bypassedBlock</a> (int numSamples)</td></tr>
+<tr class="memdesc:a0e2734ec1b7a89c566cbd2fe9b3592c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies the effect when a bypassed block is recieved.  <a href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html#a0e2734ec1b7a89c566cbd2fe9b3592c8">More...</a><br /></td></tr>
 <tr class="separator:a0e2734ec1b7a89c566cbd2fe9b3592c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14cf647f18c204aafc0433069ae685e3"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#a14cf647f18c204aafc0433069ae685e3">getAverageGainReduction</a> () const</td></tr>
+<tr class="memdesc:a14cf647f18c204aafc0433069ae685e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the average gain reduction for all channels.  <a href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#a14cf647f18c204aafc0433069ae685e3">More...</a><br /></td></tr>
 <tr class="separator:a14cf647f18c204aafc0433069ae685e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3597cf522549d6bcbd0777bb6926dfd"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#af3597cf522549d6bcbd0777bb6926dfd">getAverageLevel</a> () const</td></tr>
+<tr class="memdesc:af3597cf522549d6bcbd0777bb6926dfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the average level for all channels.  <a href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#af3597cf522549d6bcbd0777bb6926dfd">More...</a><br /></td></tr>
 <tr class="separator:af3597cf522549d6bcbd0777bb6926dfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a845aafe7263a138250b02bd383f509d3"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#a845aafe7263a138250b02bd383f509d3">getGainReduction</a> (int channel) const</td></tr>
+<tr class="memdesc:a845aafe7263a138250b02bd383f509d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a gain reduction value for a certain channel.  <a href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#a845aafe7263a138250b02bd383f509d3">More...</a><br /></td></tr>
 <tr class="separator:a845aafe7263a138250b02bd383f509d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93a089c0564fa043b74c78ad2c8311cc"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#a93a089c0564fa043b74c78ad2c8311cc">getLevel</a> (int channel) const</td></tr>
+<tr class="memdesc:a93a089c0564fa043b74c78ad2c8311cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a level value for a certain channel.  <a href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#a93a089c0564fa043b74c78ad2c8311cc">More...</a><br /></td></tr>
 <tr class="separator:a93a089c0564fa043b74c78ad2c8311cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97b60e3696ef3e25e4fe24b4448ec4f1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html#a97b60e3696ef3e25e4fe24b4448ec4f1">prepare</a> (double samplerate, int blocksize)</td></tr>
+<tr class="memdesc:a97b60e3696ef3e25e4fe24b4448ec4f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives the effect a chance to prepare itself.  <a href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html#a97b60e3696ef3e25e4fe24b4448ec4f1">More...</a><br /></td></tr>
 <tr class="separator:a97b60e3696ef3e25e4fe24b4448ec4f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af83eabef85b031658c1963012544609b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#af83eabef85b031658c1963012544609b">process</a> (AudioBuffer&lt; SampleType &gt; &amp;audio) final</td></tr>
+<tr class="memdesc:af83eabef85b031658c1963012544609b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the effect with the signal sidechained to itself.  <a href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#af83eabef85b031658c1963012544609b">More...</a><br /></td></tr>
 <tr class="separator:af83eabef85b031658c1963012544609b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86b4201e9da1bc16b9498adf879d2256"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#a86b4201e9da1bc16b9498adf879d2256">process</a> (AudioBuffer&lt; SampleType &gt; &amp;inOut, const AudioBuffer&lt; SampleType &gt; &amp;sidechain) final</td></tr>
+<tr class="memdesc:a86b4201e9da1bc16b9498adf879d2256"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the effect with a sidechain signal.  <a href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#a86b4201e9da1bc16b9498adf879d2256">More...</a><br /></td></tr>
 <tr class="separator:a86b4201e9da1bc16b9498adf879d2256"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a741af352762825c91302203d89257c64"><td class="memItemLeft" align="right" valign="top">virtual SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#a741af352762825c91302203d89257c64">processChannel</a> (int channel, int numSamples, SampleType *signal, const SampleType *sidechain)=0</td></tr>
+<tr class="memdesc:a741af352762825c91302203d89257c64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Your subclass must implement this function to process a single channel of audio and return the level or gain reduction for this channel.  <a href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#a741af352762825c91302203d89257c64">More...</a><br /></td></tr>
 <tr class="separator:a741af352762825c91302203d89257c64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename SampleType&gt;<br />
+struct lemons::dsp::FX::LevelReportingAudioEffect&lt; SampleType &gt;</h3>
+
+<p>Base class for audio effects that can report their level or gain reduction. </p>
+<p>This is designed so that subclasses process a single channel at a time, report the level or gain reduction for each channel, and then the user can query a level for a certain channel or the average level of all channels. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a0e2734ec1b7a89c566cbd2fe9b3592c8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0e2734ec1b7a89c566cbd2fe9b3592c8">&#9670;&nbsp;</a></span>bypassedBlock()</h2>
 
@@ -132,6 +150,9 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Notifies the effect when a bypassed block is recieved. </p>
+<p>Implementing this is optional. </p>
+
 </div>
 </div>
 <a id="a14cf647f18c204aafc0433069ae685e3"></a>
@@ -151,6 +172,9 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the average gain reduction for all channels. </p>
+<p>This is identical to <a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#af3597cf522549d6bcbd0777bb6926dfd" title="Returns the average level for all channels.">getAverageLevel()</a>. </p>
+
 </div>
 </div>
 <a id="af3597cf522549d6bcbd0777bb6926dfd"></a>
@@ -169,6 +193,9 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the average level for all channels. </p>
+<p>This is identical to <a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#a14cf647f18c204aafc0433069ae685e3" title="Returns the average gain reduction for all channels.">getAverageGainReduction()</a>. </p>
 
 </div>
 </div>
@@ -190,6 +217,9 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a gain reduction value for a certain channel. </p>
+<p>This is identical to <a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#a93a089c0564fa043b74c78ad2c8311cc" title="Returns a level value for a certain channel.">getLevel()</a>. </p>
+
 </div>
 </div>
 <a id="a93a089c0564fa043b74c78ad2c8311cc"></a>
@@ -209,6 +239,9 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a level value for a certain channel. </p>
+<p>This is identical to <a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#a845aafe7263a138250b02bd383f509d3" title="Returns a gain reduction value for a certain channel.">getGainReduction()</a>. </p>
 
 </div>
 </div>
@@ -248,7 +281,10 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html#a25c2dd76f5e1298d8ac8a5aebed48780">lemons::dsp::FX::Filter&lt; SampleType &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1NoiseGate.html#a90b2a7ea2ec2586c7d792acdd7c34450">lemons::dsp::FX::NoiseGate&lt; SampleType &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#ac39f2f984f9d38eaad3d99ab1f7b0a7a">lemons::dsp::FX::Compressor&lt; SampleType &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#ac39f2f984f9d38eaad3d99ab1f7b0a7a">lemons::dsp::FX::Compressor&lt; float &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1DeEsser.html#aef643333fe0b6527cc1e9d9225fd780d">lemons::dsp::FX::DeEsser&lt; SampleType &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Limiter.html#ad6972f230a62149a5e65f59e28ae1bb6">lemons::dsp::FX::Limiter&lt; SampleType &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html#a44dfa473241c6b66568fdd7ed3af4fd2">lemons::dsp::FX::SmoothedGain&lt; SampleType, channels &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html#a4531658c83d3845b5910e3e23892d6c0">lemons::dsp::FX::EQ&lt; SampleType &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html#a44dfa473241c6b66568fdd7ed3af4fd2">lemons::dsp::FX::SmoothedGain&lt; SampleType, 1 &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html#a44dfa473241c6b66568fdd7ed3af4fd2">lemons::dsp::FX::SmoothedGain&lt; float, 2 &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1StereoPanner.html#af202fda394532731b9445717099931c5">lemons::dsp::FX::StereoPanner&lt; SampleType &gt;</a>, and <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Delay.html#a95e54923d642bfc47a114ebc8695c7a4">lemons::dsp::FX::Delay&lt; SampleType &gt;</a>.</p>
+<p>Gives the effect a chance to prepare itself. </p>
+<p>Implementing this is optional. </p>
+
+<p>Reimplemented in <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html#a25c2dd76f5e1298d8ac8a5aebed48780">lemons::dsp::FX::Filter&lt; SampleType &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html#a4531658c83d3845b5910e3e23892d6c0">lemons::dsp::FX::EQ&lt; SampleType &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1NoiseGate.html#a90b2a7ea2ec2586c7d792acdd7c34450">lemons::dsp::FX::NoiseGate&lt; SampleType &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#ac39f2f984f9d38eaad3d99ab1f7b0a7a">lemons::dsp::FX::Compressor&lt; SampleType &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#ac39f2f984f9d38eaad3d99ab1f7b0a7a">lemons::dsp::FX::Compressor&lt; float &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1DeEsser.html#aef643333fe0b6527cc1e9d9225fd780d">lemons::dsp::FX::DeEsser&lt; SampleType &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Limiter.html#ad6972f230a62149a5e65f59e28ae1bb6">lemons::dsp::FX::Limiter&lt; SampleType &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html#a44dfa473241c6b66568fdd7ed3af4fd2">lemons::dsp::FX::SmoothedGain&lt; SampleType, channels &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html#a44dfa473241c6b66568fdd7ed3af4fd2">lemons::dsp::FX::SmoothedGain&lt; SampleType, 1 &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html#a44dfa473241c6b66568fdd7ed3af4fd2">lemons::dsp::FX::SmoothedGain&lt; float, 2 &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1StereoPanner.html#af202fda394532731b9445717099931c5">lemons::dsp::FX::StereoPanner&lt; SampleType &gt;</a>, and <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Delay.html#a95e54923d642bfc47a114ebc8695c7a4">lemons::dsp::FX::Delay&lt; SampleType &gt;</a>.</p>
 
 </div>
 </div>
@@ -277,6 +313,8 @@ template&lt;typename SampleType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Processes the effect with the signal sidechained to itself. </p>
 
 <p>Reimplemented from <a class="el" href="structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html#a72cd2a03ab39a2d605b1eda5693d26e4">lemons::dsp::FX::SidechainableAudioEffect&lt; SampleType &gt;</a>.</p>
 
@@ -317,6 +355,8 @@ template&lt;typename SampleType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Processes the effect with a sidechain signal. </p>
 
 <p>Implements <a class="el" href="structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html#a44a8b2b00d00c72900bb24105c45909c">lemons::dsp::FX::SidechainableAudioEffect&lt; SampleType &gt;</a>.</p>
 
@@ -370,6 +410,18 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Your subclass must implement this function to process a single channel of audio and return the level or gain reduction for this channel. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>The index in the original buffer of the channel currently being processed </td></tr>
+    <tr><td class="paramname">numSamples</td><td>The total number of samples to process. </td></tr>
+    <tr><td class="paramname">signal</td><td>Pointer to contiguous audio samples, used for in and out. </td></tr>
+    <tr><td class="paramname">sidechain</td><td>Pointer to contiguous sidechain signal samples.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The level or gain reduction for this frame of audio for this channel. </dd></dl>
+
 <p>Implemented in <a class="el" href="classlemons_1_1dsp_1_1FX_1_1NoiseGate.html#adf3a850bcb21aa654ad3822b0ac04b8a">lemons::dsp::FX::NoiseGate&lt; SampleType &gt;</a>.</p>
 
 </div>
@@ -380,7 +432,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 30 2021 19:26:59 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 30 2021 20:06:22 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -38,7 +38,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html" target="_top" xlink:title="Base class for audio effects that can report their level or gain reduction.">
 <polygon fill="none" stroke="black" points="0,-146.5 0,-176.5 174,-176.5 174,-146.5 0,-146.5"/>
 <text text-anchor="start" x="8" y="-164.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::LevelReporting</text>
 <text text-anchor="middle" x="87" y="-153.5" font-family="Helvetica,sans-Serif" font-size="10.00">AudioEffect&lt; SampleType &gt;</text>
@@ -54,7 +54,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html" target="_top" xlink:title="Base class for audio effects that accept a sidechain signal.">
 <polygon fill="none" stroke="black" points="2.5,-214.5 2.5,-244.5 171.5,-244.5 171.5,-214.5 2.5,-214.5"/>
 <text text-anchor="start" x="10.5" y="-232.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::Sidechainable</text>
 <text text-anchor="middle" x="87" y="-221.5" font-family="Helvetica,sans-Serif" font-size="10.00">AudioEffect&lt; SampleType &gt;</text>
@@ -70,7 +70,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html" target="_top" xlink:title="Base class for any kind of audio effect.">
 <polygon fill="none" stroke="black" points="9,-282.5 9,-312.5 165,-312.5 165,-282.5 9,-282.5"/>
 <text text-anchor="start" x="17" y="-300.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::AudioEffect</text>
 <text text-anchor="middle" x="87" y="-289.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>
