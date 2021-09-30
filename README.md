@@ -36,6 +36,8 @@ Contributing is welcome and appreciated! *(Or feel free to just make feature sug
 
 It's recommended to build with CMake. You could manually add the desired modules to a Projucer project, but CMake is a much better build system. Lemons contains several useful CMake scripts that should make getting things running fairly painless...
 
+The full CMake API reference can be found [here](https://github.com/benthevining/Lemons/blob/main/doxygen/cmake_api.md).
+
 ### *Adding with CPM.cmake*
 
 I recommend that within your CMake, you add Lemons by using [CPM.cmake](https://github.com/cpm-cmake/CPM.cmake), which is a single-script CMake package manager that allows you lots of flexibility in project configuration. One particularly important feature is the ability to specify that a local directory contains the source code for a certain package -- so that not every project repository on your machine has to contain a copy of Lemons as a submodule. This makes your cmake perfectly modular: simply add the Lemons package with CPM.cmake in each project, and then if that project is cloned and built in isolation, CPM will download the Lemons package at configure time, but you also have the ability to tell CPM to reference a local copy of Lemons on your machine, so you can work on all your projects while only having one copy of Lemons on your machine.
