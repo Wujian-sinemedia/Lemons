@@ -88,14 +88,14 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a94994114fd355af5caf403b57037de1f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html#a94994114fd355af5caf403b57037de1f">Listener</a> (<a class="el" href="classlemons_1_1plugin_1_1TypedParameter.html">TypedParameter</a>&lt; ValueType &gt; &amp;param)</td></tr>
 <tr class="separator:a94994114fd355af5caf403b57037de1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b091945117c5ffccf7d42e4ba1ae20a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html#a6b091945117c5ffccf7d42e4ba1ae20a">paramValueChanged</a> (ValueType)</td></tr>
-<tr class="separator:a6b091945117c5ffccf7d42e4ba1ae20a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27517e2ae5e97edfa25dbef712e54347"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html#a27517e2ae5e97edfa25dbef712e54347">paramDefaultChanged</a> (ValueType)</td></tr>
-<tr class="separator:a27517e2ae5e97edfa25dbef712e54347"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0db7beb485e9164070104f5da7e7b40"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1Parameter_1_1Listener.html#ac0db7beb485e9164070104f5da7e7b40">gestureStateChanged</a> (bool gestureIsStarting)</td></tr>
-<tr class="separator:ac0db7beb485e9164070104f5da7e7b40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82971aee6ae16d04100949930233e34c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1Parameter_1_1Listener.html#a82971aee6ae16d04100949930233e34c">controllerNumberChanged</a> (int newControllerNumber)</td></tr>
 <tr class="separator:a82971aee6ae16d04100949930233e34c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0db7beb485e9164070104f5da7e7b40"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1Parameter_1_1Listener.html#ac0db7beb485e9164070104f5da7e7b40">gestureStateChanged</a> (bool gestureIsStarting)</td></tr>
+<tr class="separator:ac0db7beb485e9164070104f5da7e7b40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27517e2ae5e97edfa25dbef712e54347"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html#a27517e2ae5e97edfa25dbef712e54347">paramDefaultChanged</a> (ValueType)</td></tr>
+<tr class="separator:a27517e2ae5e97edfa25dbef712e54347"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b091945117c5ffccf7d42e4ba1ae20a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html#a6b091945117c5ffccf7d42e4ba1ae20a">paramValueChanged</a> (ValueType)</td></tr>
+<tr class="separator:a6b091945117c5ffccf7d42e4ba1ae20a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a94994114fd355af5caf403b57037de1f"></a>
@@ -119,28 +119,52 @@ template&lt;typename ValueType &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a6b091945117c5ffccf7d42e4ba1ae20a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b091945117c5ffccf7d42e4ba1ae20a">&#9670;&nbsp;</a></span>paramValueChanged()</h2>
+<a id="a82971aee6ae16d04100949930233e34c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82971aee6ae16d04100949930233e34c">&#9670;&nbsp;</a></span>controllerNumberChanged()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename ValueType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classlemons_1_1plugin_1_1TypedParameter.html">lemons::plugin::TypedParameter</a>&lt; ValueType &gt;::Listener::paramValueChanged </td>
+          <td class="memname">virtual void lemons::plugin::Parameter::Listener::controllerNumberChanged </td>
           <td>(</td>
-          <td class="paramtype">ValueType&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>newControllerNumber</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac0db7beb485e9164070104f5da7e7b40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0db7beb485e9164070104f5da7e7b40">&#9670;&nbsp;</a></span>gestureStateChanged()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void lemons::plugin::Parameter::Listener::gestureStateChanged </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>gestureIsStarting</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -175,52 +199,28 @@ template&lt;typename ValueType &gt; </div>
 
 </div>
 </div>
-<a id="ac0db7beb485e9164070104f5da7e7b40"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0db7beb485e9164070104f5da7e7b40">&#9670;&nbsp;</a></span>gestureStateChanged()</h2>
+<a id="a6b091945117c5ffccf7d42e4ba1ae20a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b091945117c5ffccf7d42e4ba1ae20a">&#9670;&nbsp;</a></span>paramValueChanged()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void lemons::plugin::Parameter::Listener::gestureStateChanged </td>
+          <td class="memname">virtual void <a class="el" href="classlemons_1_1plugin_1_1TypedParameter.html">lemons::plugin::TypedParameter</a>&lt; ValueType &gt;::Listener::paramValueChanged </td>
           <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>gestureIsStarting</em></td><td>)</td>
+          <td class="paramtype">ValueType&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a82971aee6ae16d04100949930233e34c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82971aee6ae16d04100949930233e34c">&#9670;&nbsp;</a></span>controllerNumberChanged()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void lemons::plugin::Parameter::Listener::controllerNumberChanged </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>newControllerNumber</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -233,7 +233,7 @@ template&lt;typename ValueType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 30 2021 07:07:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 30 2021 07:33:07 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

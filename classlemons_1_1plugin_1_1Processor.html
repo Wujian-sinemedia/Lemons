@@ -91,12 +91,12 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5021ae97187079f08e4954ac83f7a75c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1Processor.html#a5021ae97187079f08e4954ac83f7a75c">Processor</a> (juce::AudioProcessor::BusesProperties busesLayout)</td></tr>
 <tr class="separator:a5021ae97187079f08e4954ac83f7a75c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace19860eb53c8057f2bed4b7e819fd41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ProcessorBase.html#ace19860eb53c8057f2bed4b7e819fd41">saveEditorSize</a> (int width, int height)</td></tr>
-<tr class="separator:ace19860eb53c8057f2bed4b7e819fd41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa31fab30093c40c1d0a8bc931a944a18"><td class="memItemLeft" align="right" valign="top">juce::Point&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ProcessorBase.html#aa31fab30093c40c1d0a8bc931a944a18">getSavedEditorSize</a> () const</td></tr>
 <tr class="separator:aa31fab30093c40c1d0a8bc931a944a18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57640651bbac3970c117f2a7f03890f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1BasicProcessorBase.html#a57640651bbac3970c117f2a7f03890f4">repaintEditor</a> ()</td></tr>
 <tr class="separator:a57640651bbac3970c117f2a7f03890f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace19860eb53c8057f2bed4b7e819fd41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ProcessorBase.html#ace19860eb53c8057f2bed4b7e819fd41">saveEditorSize</a> (int width, int height)</td></tr>
+<tr class="separator:ace19860eb53c8057f2bed4b7e819fd41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
 Protected Types</h2></td></tr>
@@ -160,6 +160,31 @@ template&lt;class StateType , template&lt; typename SampleType &gt; class Engine
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa31fab30093c40c1d0a8bc931a944a18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa31fab30093c40c1d0a8bc931a944a18">&#9670;&nbsp;</a></span>getSavedEditorSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::Point&lt; int &gt; lemons::plugin::ProcessorBase::getSavedEditorSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="af9126dcd369dba88d15b6f59f1206210"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af9126dcd369dba88d15b6f59f1206210">&#9670;&nbsp;</a></span>getState()</h2>
 
@@ -189,6 +214,31 @@ template&lt;class StateType , template&lt; typename SampleType &gt; class Engine
 
 </div>
 </div>
+<a id="a57640651bbac3970c117f2a7f03890f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57640651bbac3970c117f2a7f03890f4">&#9670;&nbsp;</a></span>repaintEditor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lemons::dsp::BasicProcessorBase::repaintEditor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ace19860eb53c8057f2bed4b7e819fd41"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ace19860eb53c8057f2bed4b7e819fd41">&#9670;&nbsp;</a></span>saveEditorSize()</h2>
 
@@ -214,56 +264,6 @@ template&lt;class StateType , template&lt; typename SampleType &gt; class Engine
           <td></td>
           <td>)</td>
           <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa31fab30093c40c1d0a8bc931a944a18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa31fab30093c40c1d0a8bc931a944a18">&#9670;&nbsp;</a></span>getSavedEditorSize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">juce::Point&lt; int &gt; lemons::plugin::ProcessorBase::getSavedEditorSize </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a57640651bbac3970c117f2a7f03890f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57640651bbac3970c117f2a7f03890f4">&#9670;&nbsp;</a></span>repaintEditor()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void lemons::dsp::BasicProcessorBase::repaintEditor </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
         </tr>
       </table>
   </td>
@@ -308,7 +308,7 @@ template&lt;class StateType , template&lt; typename SampleType &gt; class Engine
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 30 2021 07:07:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 30 2021 07:33:07 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

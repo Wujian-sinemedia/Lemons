@@ -80,14 +80,14 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa8312ae82e2f8cac17c02e3a40b92ca5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1AudioAndMidiFIFO.html#aa8312ae82e2f8cac17c02e3a40b92ca5">AudioAndMidiFIFO</a> (int channels=2, int samples=1024)</td></tr>
 <tr class="separator:aa8312ae82e2f8cac17c02e3a40b92ca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2866c0de7e3db2a107f0ea344474b01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1AudioAndMidiFIFO.html#ab2866c0de7e3db2a107f0ea344474b01">setSize</a> (int numChannels, int numSamples)</td></tr>
-<tr class="separator:ab2866c0de7e3db2a107f0ea344474b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a283043170f786b3f477801919d2f0114"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1AudioAndMidiFIFO.html#a283043170f786b3f477801919d2f0114">push</a> (const AudioBuffer&lt; SampleType &gt; &amp;audioIn, const MidiBuffer &amp;midiIn)</td></tr>
-<tr class="separator:a283043170f786b3f477801919d2f0114"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99e577b199955f15932995b9559ae84e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1AudioAndMidiFIFO.html#a99e577b199955f15932995b9559ae84e">pop</a> (AudioBuffer&lt; SampleType &gt; &amp;audioOut, MidiBuffer &amp;midiOut)</td></tr>
-<tr class="separator:a99e577b199955f15932995b9559ae84e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9797d995165a0a81daa5698cfd9d2de"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1AudioAndMidiFIFO.html#aa9797d995165a0a81daa5698cfd9d2de">numStoredSamples</a> () const</td></tr>
 <tr class="separator:aa9797d995165a0a81daa5698cfd9d2de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99e577b199955f15932995b9559ae84e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1AudioAndMidiFIFO.html#a99e577b199955f15932995b9559ae84e">pop</a> (AudioBuffer&lt; SampleType &gt; &amp;audioOut, MidiBuffer &amp;midiOut)</td></tr>
+<tr class="separator:a99e577b199955f15932995b9559ae84e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a283043170f786b3f477801919d2f0114"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1AudioAndMidiFIFO.html#a283043170f786b3f477801919d2f0114">push</a> (const AudioBuffer&lt; SampleType &gt; &amp;audioIn, const MidiBuffer &amp;midiIn)</td></tr>
+<tr class="separator:a283043170f786b3f477801919d2f0114"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2866c0de7e3db2a107f0ea344474b01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1AudioAndMidiFIFO.html#ab2866c0de7e3db2a107f0ea344474b01">setSize</a> (int numChannels, int numSamples)</td></tr>
+<tr class="separator:ab2866c0de7e3db2a107f0ea344474b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa8312ae82e2f8cac17c02e3a40b92ca5"></a>
@@ -121,8 +121,8 @@ template&lt;typename SampleType &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab2866c0de7e3db2a107f0ea344474b01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2866c0de7e3db2a107f0ea344474b01">&#9670;&nbsp;</a></span>setSize()</h2>
+<a id="aa9797d995165a0a81daa5698cfd9d2de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9797d995165a0a81daa5698cfd9d2de">&#9670;&nbsp;</a></span>numStoredSamples()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -130,16 +130,35 @@ template&lt;typename SampleType &gt; </div>
 template&lt;typename SampleType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1AudioAndMidiFIFO.html">lemons::dsp::AudioAndMidiFIFO</a>&lt; SampleType &gt;::setSize </td>
+          <td class="memname">int <a class="el" href="classlemons_1_1dsp_1_1AudioAndMidiFIFO.html">lemons::dsp::AudioAndMidiFIFO</a>&lt; SampleType &gt;::numStoredSamples </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>numChannels</em>, </td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a99e577b199955f15932995b9559ae84e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99e577b199955f15932995b9559ae84e">&#9670;&nbsp;</a></span>pop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1AudioAndMidiFIFO.html">lemons::dsp::AudioAndMidiFIFO</a>&lt; SampleType &gt;::pop </td>
+          <td>(</td>
+          <td class="paramtype">AudioBuffer&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>audioOut</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>numSamples</em>&#160;</td>
+          <td class="paramtype">MidiBuffer &amp;&#160;</td>
+          <td class="paramname"><em>midiOut</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -181,8 +200,8 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
-<a id="a99e577b199955f15932995b9559ae84e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99e577b199955f15932995b9559ae84e">&#9670;&nbsp;</a></span>pop()</h2>
+<a id="ab2866c0de7e3db2a107f0ea344474b01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2866c0de7e3db2a107f0ea344474b01">&#9670;&nbsp;</a></span>setSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -190,40 +209,21 @@ template&lt;typename SampleType &gt; </div>
 template&lt;typename SampleType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1AudioAndMidiFIFO.html">lemons::dsp::AudioAndMidiFIFO</a>&lt; SampleType &gt;::pop </td>
+          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1AudioAndMidiFIFO.html">lemons::dsp::AudioAndMidiFIFO</a>&lt; SampleType &gt;::setSize </td>
           <td>(</td>
-          <td class="paramtype">AudioBuffer&lt; SampleType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>audioOut</em>, </td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numChannels</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">MidiBuffer &amp;&#160;</td>
-          <td class="paramname"><em>midiOut</em>&#160;</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numSamples</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
           <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa9797d995165a0a81daa5698cfd9d2de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9797d995165a0a81daa5698cfd9d2de">&#9670;&nbsp;</a></span>numStoredSamples()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="classlemons_1_1dsp_1_1AudioAndMidiFIFO.html">lemons::dsp::AudioAndMidiFIFO</a>&lt; SampleType &gt;::numStoredSamples </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -236,7 +236,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 30 2021 07:07:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 30 2021 07:33:07 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

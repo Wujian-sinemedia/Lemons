@@ -88,12 +88,12 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4022812ed63599216d3d943f4c1295d0"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html#a4022812ed63599216d3d943f4c1295d0">~AudioEffect</a> ()=default</td></tr>
 <tr class="separator:a4022812ed63599216d3d943f4c1295d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5979cff40fec5864fb6a45bba0b01911"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html#a5979cff40fec5864fb6a45bba0b01911">process</a> (AudioBuffer&lt; SampleType &gt; &amp;audio)=0</td></tr>
-<tr class="separator:a5979cff40fec5864fb6a45bba0b01911"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97b60e3696ef3e25e4fe24b4448ec4f1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html#a97b60e3696ef3e25e4fe24b4448ec4f1">prepare</a> (double samplerate, int blocksize)</td></tr>
-<tr class="separator:a97b60e3696ef3e25e4fe24b4448ec4f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e2734ec1b7a89c566cbd2fe9b3592c8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html#a0e2734ec1b7a89c566cbd2fe9b3592c8">bypassedBlock</a> (int numSamples)</td></tr>
 <tr class="separator:a0e2734ec1b7a89c566cbd2fe9b3592c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97b60e3696ef3e25e4fe24b4448ec4f1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html#a97b60e3696ef3e25e4fe24b4448ec4f1">prepare</a> (double samplerate, int blocksize)</td></tr>
+<tr class="separator:a97b60e3696ef3e25e4fe24b4448ec4f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5979cff40fec5864fb6a45bba0b01911"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html#a5979cff40fec5864fb6a45bba0b01911">process</a> (AudioBuffer&lt; SampleType &gt; &amp;audio)=0</td></tr>
+<tr class="separator:a5979cff40fec5864fb6a45bba0b01911"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4022812ed63599216d3d943f4c1295d0"></a>
@@ -124,8 +124,8 @@ template&lt;typename SampleType &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a5979cff40fec5864fb6a45bba0b01911"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5979cff40fec5864fb6a45bba0b01911">&#9670;&nbsp;</a></span>process()</h2>
+<a id="a0e2734ec1b7a89c566cbd2fe9b3592c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e2734ec1b7a89c566cbd2fe9b3592c8">&#9670;&nbsp;</a></span>bypassedBlock()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -136,21 +136,19 @@ template&lt;typename SampleType &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html">lemons::dsp::FX::AudioEffect</a>&lt; SampleType &gt;::process </td>
+          <td class="memname">virtual void <a class="el" href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html">lemons::dsp::FX::AudioEffect</a>&lt; SampleType &gt;::bypassedBlock </td>
           <td>(</td>
-          <td class="paramtype">AudioBuffer&lt; SampleType &gt; &amp;&#160;</td>
-          <td class="paramname"><em>audio</em></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numSamples</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html#a72cd2a03ab39a2d605b1eda5693d26e4">lemons::dsp::FX::SidechainableAudioEffect&lt; SampleType &gt;</a>, <a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#af83eabef85b031658c1963012544609b">lemons::dsp::FX::LevelReportingAudioEffect&lt; SampleType &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html#ab13ccfe5a8942bd8dca20d784355c721">lemons::dsp::FX::EQ&lt; SampleType &gt;</a>, <a class="el" href="structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html#a72cd2a03ab39a2d605b1eda5693d26e4">lemons::dsp::FX::SidechainableAudioEffect&lt; float &gt;</a>, and <a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#af83eabef85b031658c1963012544609b">lemons::dsp::FX::LevelReportingAudioEffect&lt; float &gt;</a>.</p>
 
 </div>
 </div>
@@ -194,8 +192,8 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
-<a id="a0e2734ec1b7a89c566cbd2fe9b3592c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e2734ec1b7a89c566cbd2fe9b3592c8">&#9670;&nbsp;</a></span>bypassedBlock()</h2>
+<a id="a5979cff40fec5864fb6a45bba0b01911"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5979cff40fec5864fb6a45bba0b01911">&#9670;&nbsp;</a></span>process()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -206,19 +204,21 @@ template&lt;typename SampleType &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html">lemons::dsp::FX::AudioEffect</a>&lt; SampleType &gt;::bypassedBlock </td>
+          <td class="memname">virtual void <a class="el" href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html">lemons::dsp::FX::AudioEffect</a>&lt; SampleType &gt;::process </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>numSamples</em></td><td>)</td>
+          <td class="paramtype">AudioBuffer&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>audio</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html#a72cd2a03ab39a2d605b1eda5693d26e4">lemons::dsp::FX::SidechainableAudioEffect&lt; SampleType &gt;</a>, <a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#af83eabef85b031658c1963012544609b">lemons::dsp::FX::LevelReportingAudioEffect&lt; SampleType &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html#ab13ccfe5a8942bd8dca20d784355c721">lemons::dsp::FX::EQ&lt; SampleType &gt;</a>, <a class="el" href="structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html#a72cd2a03ab39a2d605b1eda5693d26e4">lemons::dsp::FX::SidechainableAudioEffect&lt; float &gt;</a>, and <a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#af83eabef85b031658c1963012544609b">lemons::dsp::FX::LevelReportingAudioEffect&lt; float &gt;</a>.</p>
 
 </div>
 </div>
@@ -228,7 +228,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 30 2021 07:07:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 30 2021 07:33:07 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

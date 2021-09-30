@@ -88,14 +88,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aff4e7a306c7bb2b631a8289befb60315"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac1f044c89a6af347885e5adbe3f1550"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html#aac1f044c89a6af347885e5adbe3f1550">~AnalysisGrainStorage</a> ()=default</td></tr>
 <tr class="separator:aac1f044c89a6af347885e5adbe3f1550"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8adf19fc5e5bff5cb5995d5914fc5cd"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html#aa8adf19fc5e5bff5cb5995d5914fc5cd">getSample</a> (int grainStartIndexInCircularBuffer, int grainTick) const</td></tr>
+<tr class="separator:aa8adf19fc5e5bff5cb5995d5914fc5cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a492149d9c33d2eed9f5c7c7cb2b70f8e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html#a492149d9c33d2eed9f5c7c7cb2b70f8e">getStartOfClosestGrain</a> (int sampleIndex) const</td></tr>
+<tr class="separator:a492149d9c33d2eed9f5c7c7cb2b70f8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ad522e1e8f0fdf4e69d8211d9ab8b16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html#a7ad522e1e8f0fdf4e69d8211d9ab8b16">prepare</a> (int blocksize)</td></tr>
 <tr class="separator:a7ad522e1e8f0fdf4e69d8211d9ab8b16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84f57524dee3657a1c2b1cd2c141d359"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html#a84f57524dee3657a1c2b1cd2c141d359">storeNewFrame</a> (const SampleType *inputSamples, int numSamples, const juce::Array&lt; int &gt; &amp;grainOnsets)</td></tr>
 <tr class="separator:a84f57524dee3657a1c2b1cd2c141d359"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a492149d9c33d2eed9f5c7c7cb2b70f8e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html#a492149d9c33d2eed9f5c7c7cb2b70f8e">getStartOfClosestGrain</a> (int sampleIndex) const</td></tr>
-<tr class="separator:a492149d9c33d2eed9f5c7c7cb2b70f8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8adf19fc5e5bff5cb5995d5914fc5cd"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html#aa8adf19fc5e5bff5cb5995d5914fc5cd">getSample</a> (int grainStartIndexInCircularBuffer, int grainTick) const</td></tr>
-<tr class="separator:aa8adf19fc5e5bff5cb5995d5914fc5cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a8269055f0e17d050f30c9b2290d3cda9"></a>
@@ -170,6 +170,56 @@ template&lt;typename SampleType &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aa8adf19fc5e5bff5cb5995d5914fc5cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8adf19fc5e5bff5cb5995d5914fc5cd">&#9670;&nbsp;</a></span>getSample()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">SampleType <a class="el" href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html">lemons::dsp::psola::AnalysisGrainStorage</a>&lt; SampleType &gt;::getSample </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>grainStartIndexInCircularBuffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>grainTick</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a492149d9c33d2eed9f5c7c7cb2b70f8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a492149d9c33d2eed9f5c7c7cb2b70f8e">&#9670;&nbsp;</a></span>getStartOfClosestGrain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html">lemons::dsp::psola::AnalysisGrainStorage</a>&lt; SampleType &gt;::getStartOfClosestGrain </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sampleIndex</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a7ad522e1e8f0fdf4e69d8211d9ab8b16"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7ad522e1e8f0fdf4e69d8211d9ab8b16">&#9670;&nbsp;</a></span>prepare()</h2>
 
@@ -226,63 +276,13 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
-<a id="a492149d9c33d2eed9f5c7c7cb2b70f8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a492149d9c33d2eed9f5c7c7cb2b70f8e">&#9670;&nbsp;</a></span>getStartOfClosestGrain()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html">lemons::dsp::psola::AnalysisGrainStorage</a>&lt; SampleType &gt;::getStartOfClosestGrain </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>sampleIndex</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa8adf19fc5e5bff5cb5995d5914fc5cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8adf19fc5e5bff5cb5995d5914fc5cd">&#9670;&nbsp;</a></span>getSample()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">SampleType <a class="el" href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html">lemons::dsp::psola::AnalysisGrainStorage</a>&lt; SampleType &gt;::getSample </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>grainStartIndexInCircularBuffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>grainTick</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="GrainStorage_8h.html">GrainStorage.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 30 2021 07:07:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 30 2021 07:33:07 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -1,5 +1,6 @@
 python process_source_files.py ../modules build
 doxygen
+warning: ignoring unsupported tag 'SHOW_HEADERFILE' at line 279, file Doxyfile
 error: the type 'concepts' is not supported for the entry tag within a navindex! Check your layout file!
 error: found unsupported value $SHOW_HEADERFILE for visible attribute in layout file
 error: Unexpected start tag 'concepts' found in scope='namespace/memberdecl/'!
@@ -11,4 +12,3 @@ error: Unexpected start tag 'detaileddescription' found in scope='(null)'!
 error: Unexpected start tag 'authorsection' found in scope='(null)'!
 error: Unexpected start tag 'concepts' found in scope='file/memberdecl/'!
 error: Unexpected start tag 'concepts' found in scope='group/memberdecl/'!
-/home/runner/work/Lemons/Lemons/doxygen/cmake_api.md:31: warning: Unsupported xml/html tag <ProductName> found

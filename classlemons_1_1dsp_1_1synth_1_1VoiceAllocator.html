@@ -86,12 +86,12 @@ Public Types</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a354c89a201e5b49eade21dcc6d636e60"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1synth_1_1VoiceAllocator.html#a354c89a201e5b49eade21dcc6d636e60">VoiceAllocator</a> (<a class="el" href="classlemons_1_1dsp_1_1SynthBase.html">SynthBase</a>&lt; SampleType &gt; &amp;s)</td></tr>
 <tr class="separator:a354c89a201e5b49eade21dcc6d636e60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4528f4154529b4224a65ca7be810ac8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1synth_1_1VoiceAllocator.html#a4528f4154529b4224a65ca7be810ac8f">prepare</a> (int maxNumVoices)</td></tr>
-<tr class="separator:a4528f4154529b4224a65ca7be810ac8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d4a3b701958b11af574bb8203bad7d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1dsp_1_1synth_1_1VoiceAllocator.html#aa6c84c2a35ec716096dc18bb681c9406">Voice</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1synth_1_1VoiceAllocator.html#a2d4a3b701958b11af574bb8203bad7d9">findFreeVoice</a> (bool stealIfNoneAvailable)</td></tr>
 <tr class="separator:a2d4a3b701958b11af574bb8203bad7d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa34b3073081e7bf0ef208ec573cee0b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1dsp_1_1synth_1_1VoiceAllocator.html#aa6c84c2a35ec716096dc18bb681c9406">Voice</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1synth_1_1VoiceAllocator.html#aa34b3073081e7bf0ef208ec573cee0b1">findVoiceToSteal</a> ()</td></tr>
 <tr class="separator:aa34b3073081e7bf0ef208ec573cee0b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4528f4154529b4224a65ca7be810ac8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1synth_1_1VoiceAllocator.html#a4528f4154529b4224a65ca7be810ac8f">prepare</a> (int maxNumVoices)</td></tr>
+<tr class="separator:a4528f4154529b4224a65ca7be810ac8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="aa6c84c2a35ec716096dc18bb681c9406"></a>
@@ -132,26 +132,6 @@ template&lt;typename SampleType &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4528f4154529b4224a65ca7be810ac8f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4528f4154529b4224a65ca7be810ac8f">&#9670;&nbsp;</a></span>prepare()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1synth_1_1VoiceAllocator.html">lemons::dsp::synth::VoiceAllocator</a>&lt; SampleType &gt;::prepare </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>maxNumVoices</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a2d4a3b701958b11af574bb8203bad7d9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2d4a3b701958b11af574bb8203bad7d9">&#9670;&nbsp;</a></span>findFreeVoice()</h2>
 
@@ -191,13 +171,33 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
+<a id="a4528f4154529b4224a65ca7be810ac8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4528f4154529b4224a65ca7be810ac8f">&#9670;&nbsp;</a></span>prepare()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1synth_1_1VoiceAllocator.html">lemons::dsp::synth::VoiceAllocator</a>&lt; SampleType &gt;::prepare </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxNumVoices</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="VoiceAllocator_8h.html">VoiceAllocator.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 30 2021 07:07:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 30 2021 07:33:07 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

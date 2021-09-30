@@ -88,14 +88,14 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af87960ad0b6bdd0235f8a6efcf956b4a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1Triangle.html#af87960ad0b6bdd0235f8a6efcf956b4a">Triangle</a> ()</td></tr>
 <tr class="separator:af87960ad0b6bdd0235f8a6efcf956b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58e11fd6ce2733815fd528f4bce17a0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1Triangle.html#a58e11fd6ce2733815fd528f4bce17a0f">resetPhase</a> () final</td></tr>
-<tr class="separator:a58e11fd6ce2733815fd528f4bce17a0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae558e62ec53f88ca35bf65f9cc40c7ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1Triangle.html#ae558e62ec53f88ca35bf65f9cc40c7ad">setFrequency</a> (SampleType frequency, SampleType sampleRate) final</td></tr>
-<tr class="separator:ae558e62ec53f88ca35bf65f9cc40c7ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bc186fc90983db3536a09ad4fbb23f5"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1Triangle.html#a2bc186fc90983db3536a09ad4fbb23f5">getSample</a> () final</td></tr>
 <tr class="separator:a2bc186fc90983db3536a09ad4fbb23f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d4e7108f8cb508f01efeb7e7d423c84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html#a0d4e7108f8cb508f01efeb7e7d423c84">getSamples</a> (SampleType *output, int numSamples)</td></tr>
 <tr class="separator:a0d4e7108f8cb508f01efeb7e7d423c84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58e11fd6ce2733815fd528f4bce17a0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1Triangle.html#a58e11fd6ce2733815fd528f4bce17a0f">resetPhase</a> () final</td></tr>
+<tr class="separator:a58e11fd6ce2733815fd528f4bce17a0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae558e62ec53f88ca35bf65f9cc40c7ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1Triangle.html#ae558e62ec53f88ca35bf65f9cc40c7ad">setFrequency</a> (SampleType frequency, SampleType sampleRate) final</td></tr>
+<tr class="separator:ae558e62ec53f88ca35bf65f9cc40c7ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af87960ad0b6bdd0235f8a6efcf956b4a"></a>
@@ -118,6 +118,73 @@ template&lt;typename SampleType &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2bc186fc90983db3536a09ad4fbb23f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bc186fc90983db3536a09ad4fbb23f5">&#9670;&nbsp;</a></span>getSample()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SampleType <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Triangle.html">lemons::dsp::osc::Triangle</a>&lt; SampleType &gt;::getSample </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html#ac7dbd9538f446278698dbfed3f39a90f">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a0d4e7108f8cb508f01efeb7e7d423c84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d4e7108f8cb508f01efeb7e7d423c84">&#9670;&nbsp;</a></span>getSamples()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html">lemons::dsp::osc::Oscillator</a>&lt; SampleType &gt;::getSamples </td>
+          <td>(</td>
+          <td class="paramtype">SampleType *&#160;</td>
+          <td class="paramname"><em>output</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numSamples</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a58e11fd6ce2733815fd528f4bce17a0f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a58e11fd6ce2733815fd528f4bce17a0f">&#9670;&nbsp;</a></span>resetPhase()</h2>
 
@@ -187,80 +254,13 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
-<a id="a2bc186fc90983db3536a09ad4fbb23f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2bc186fc90983db3536a09ad4fbb23f5">&#9670;&nbsp;</a></span>getSample()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">SampleType <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Triangle.html">lemons::dsp::osc::Triangle</a>&lt; SampleType &gt;::getSample </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html#ac7dbd9538f446278698dbfed3f39a90f">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>.</p>
-
-</div>
-</div>
-<a id="a0d4e7108f8cb508f01efeb7e7d423c84"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d4e7108f8cb508f01efeb7e7d423c84">&#9670;&nbsp;</a></span>getSamples()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html">lemons::dsp::osc::Oscillator</a>&lt; SampleType &gt;::getSamples </td>
-          <td>(</td>
-          <td class="paramtype">SampleType *&#160;</td>
-          <td class="paramname"><em>output</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>numSamples</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="oscillators_8h.html">oscillators.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 30 2021 07:07:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 30 2021 07:33:07 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

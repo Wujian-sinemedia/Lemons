@@ -86,12 +86,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1b538556e6eff85df0c7c6da1417e757"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6275368982283ac8229f23971fd89404"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1synth_1_1TimbreMod.html#a6275368982283ac8229f23971fd89404">process</a> (AudioBuffer&lt; SampleType &gt; &amp;audio)</td></tr>
 <tr class="separator:a6275368982283ac8229f23971fd89404"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af916d1d7e007570c17a517260bd00a5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1synth_1_1TimbreMod.html#af916d1d7e007570c17a517260bd00a5b">skipSamples</a> (int numSamples)</td></tr>
-<tr class="separator:af916d1d7e007570c17a517260bd00a5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a0b1cb7c0942a2447f78de7c7e6de46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1synth_1_1TimbreMod.html#a5a0b1cb7c0942a2447f78de7c7e6de46">reset</a> ()</td></tr>
 <tr class="separator:a5a0b1cb7c0942a2447f78de7c7e6de46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79a8e1c1d4d55f2bb9082671d10b82a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1synth_1_1TimbreMod.html#a79a8e1c1d4d55f2bb9082671d10b82a4">setToggle</a> (bool shouldModBeOn)</td></tr>
 <tr class="separator:a79a8e1c1d4d55f2bb9082671d10b82a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af916d1d7e007570c17a517260bd00a5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1synth_1_1TimbreMod.html#af916d1d7e007570c17a517260bd00a5b">skipSamples</a> (int numSamples)</td></tr>
+<tr class="separator:af916d1d7e007570c17a517260bd00a5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a626ce8e54f1cbecbb00d57055d0704fd"></a>
@@ -201,26 +201,6 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
-<a id="af916d1d7e007570c17a517260bd00a5b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af916d1d7e007570c17a517260bd00a5b">&#9670;&nbsp;</a></span>skipSamples()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1synth_1_1TimbreMod.html">lemons::dsp::synth::TimbreMod</a>&lt; SampleType &gt;::skipSamples </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>numSamples</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a5a0b1cb7c0942a2447f78de7c7e6de46"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5a0b1cb7c0942a2447f78de7c7e6de46">&#9670;&nbsp;</a></span>reset()</h2>
 
@@ -260,13 +240,33 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
+<a id="af916d1d7e007570c17a517260bd00a5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af916d1d7e007570c17a517260bd00a5b">&#9670;&nbsp;</a></span>skipSamples()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1synth_1_1TimbreMod.html">lemons::dsp::synth::TimbreMod</a>&lt; SampleType &gt;::skipSamples </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numSamples</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="TimbreMod_8h.html">TimbreMod.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 30 2021 07:07:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 30 2021 07:33:07 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
