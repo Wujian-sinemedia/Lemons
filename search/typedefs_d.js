@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['voice_2207',['Voice',['../classlemons_1_1dsp_1_1LambdaSynth.html#aeeaca36b3c632d446402337908603810',1,'lemons::dsp::LambdaSynth::Voice()'],['../classlemons_1_1dsp_1_1synth_1_1AutomatedHarmonyVoice.html#a72b612cdf3c53f4a0a97c6deb1fe8910',1,'lemons::dsp::synth::AutomatedHarmonyVoice::Voice()'],['../classlemons_1_1dsp_1_1synth_1_1VoiceAllocator.html#aa6c84c2a35ec716096dc18bb681c9406',1,'lemons::dsp::synth::VoiceAllocator::Voice()']]],
-  ['voicecreationfunc_2208',['VoiceCreationFunc',['../classlemons_1_1dsp_1_1LambdaSynth.html#a05f22470ae54059b9da75895ab4e6106',1,'lemons::dsp::LambdaSynth']]]
+  ['toggleparam_2234',['ToggleParam',['../namespacelemons.html#a6610ae87b54c2e3df80cd9dd74481f1f',1,'lemons']]],
+  ['triangle_2235',['Triangle',['../namespacelemons_1_1dsp_1_1synth.html#aa9c8040151c167d0e462405162fdd107',1,'lemons::dsp::synth']]],
+  ['type_2236',['Type',['../structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1JuceOwnedArrayInterface.html#adc1c52b4b05e944d613846870d801bd6',1,'lemons::serializing::TreeReflectorHelpers::JuceOwnedArrayInterface']]]
 ];

@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="A basic &quot;de&#45;esser&quot; effect class.">
 <polygon fill="#bfbfbf" stroke="black" points="17,-0.5 17,-30.5 157,-30.5 157,-0.5 17,-0.5"/>
 <text text-anchor="start" x="25" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::DeEsser</text>
 <text text-anchor="middle" x="87" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>

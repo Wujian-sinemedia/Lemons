@@ -1,5 +1,5 @@
 <map id="lemons::dsp::FX::Limiter&lt; SampleType &gt;" name="lemons::dsp::FX::Limiter&lt; SampleType &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="31,273,211,315"/>
+<area shape="rect" id="node1" title="A simple limiter effect class that allows you to optionally sidechain the signal." alt="" coords="31,273,211,315"/>
 <area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html" title="Base class for audio effects that can report their level or gain reduction." alt="" coords="5,184,237,225"/>
 <area shape="rect" id="node3" href="$structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html" title="Base class for audio effects that accept a sidechain signal." alt="" coords="9,95,234,136"/>
 <area shape="rect" id="node4" href="$structlemons_1_1dsp_1_1FX_1_1AudioEffect.html" title="Base class for any kind of audio effect." alt="" coords="17,5,225,47"/>

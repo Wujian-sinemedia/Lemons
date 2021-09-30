@@ -68,6 +68,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
 <div class="title">lemons::dsp::FX Namespace Reference</div>  </div>
@@ -80,12 +81,21 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for any kind of audio effect.  <a href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Compressor.html">Compressor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple compressor effect class that allows you to optionally sidechain the signal.  <a href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1CompressorParams.html">CompressorParams</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct containing all parameters for a <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Compressor.html" title="A simple compressor effect class that allows you to optionally sidechain the signal.">Compressor</a> object.  <a href="structlemons_1_1dsp_1_1FX_1_1CompressorParams.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1DeEsser.html">DeEsser</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A basic "de-esser" effect class.  <a href="classlemons_1_1dsp_1_1FX_1_1DeEsser.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1DeEsserParams.html">DeEsserParams</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct representing the state of a <a class="el" href="classlemons_1_1dsp_1_1FX_1_1DeEsser.html" title="A basic &quot;de-esser&quot; effect class.">DeEsser</a>.  <a href="structlemons_1_1dsp_1_1FX_1_1DeEsserParams.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Delay.html">Delay</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html">DryWetMixer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A basic dry/wet mixer class for combining and mixing together two streams of audio.  <a href="classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1EffectEngine.html">EffectEngine</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class that wraps an <a class="el" href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html" title="Base class for any kind of audio effect.">AudioEffect</a> into a <a class="el" href="classlemons_1_1dsp_1_1Engine.html">dsp::Engine</a>.  <a href="classlemons_1_1dsp_1_1FX_1_1EffectEngine.html#details">More...</a><br /></td></tr>
@@ -94,24 +104,32 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An equalizer effect class.  <a href="classlemons_1_1dsp_1_1FX_1_1EQ.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html">Filter</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A filter audio effect class.  <a href="classlemons_1_1dsp_1_1FX_1_1Filter.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A filter audio effect class that wraps the more low-level <a class="el" href="classlemons_1_1dsp_1_1filters_1_1Filter.html">filters::Filter</a>.  <a href="classlemons_1_1dsp_1_1FX_1_1Filter.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1FilterEngine.html">FilterEngine</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class that represents an audio engine holding a filter effect.  <a href="structlemons_1_1dsp_1_1FX_1_1FilterEngine.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1FilterParams.html">FilterParams</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A struct that holds the parameters for a <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html" title="A filter audio effect class.">Filter</a> effect.  <a href="structlemons_1_1dsp_1_1FX_1_1FilterParams.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A struct that holds the parameters for a <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html" title="A filter audio effect class that wraps the more low-level filters::Filter.">Filter</a> effect.  <a href="structlemons_1_1dsp_1_1FX_1_1FilterParams.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html">LevelReportingAudioEffect</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for audio effects that can report their level or gain reduction.  <a href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Limiter.html">Limiter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple limiter effect class that allows you to optionally sidechain the signal.  <a href="classlemons_1_1dsp_1_1FX_1_1Limiter.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1LimiterParams.html">LimiterParams</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct representing the state of a <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Limiter.html" title="A simple limiter effect class that allows you to optionally sidechain the signal.">Limiter</a>.  <a href="structlemons_1_1dsp_1_1FX_1_1LimiterParams.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1MonoStereoConverter.html">MonoStereoConverter</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1MonoToStereoPanner.html">MonoToStereoPanner</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1NoiseGate.html">NoiseGate</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple noise gate effect class that allows you to optionally sidechain the signal.  <a href="classlemons_1_1dsp_1_1FX_1_1NoiseGate.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1NoiseGateParams.html">NoiseGateParams</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct representing the state of a <a class="el" href="classlemons_1_1dsp_1_1FX_1_1NoiseGate.html" title="A simple noise gate effect class that allows you to optionally sidechain the signal.">NoiseGate</a>.  <a href="structlemons_1_1dsp_1_1FX_1_1NoiseGateParams.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1PannerBase.html">PannerBase</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,50 +141,79 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for audio effects that accept a sidechain signal.  <a href="structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html">SmoothedGain</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A handy effect class that allows you to change the gain of a stream of audio, and will smooth the changes.  <a href="classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1StereoPanner.html">StereoPanner</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:af677b69672b943321404fc8bc88ff795"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1dsp_1_1FX.html#af677b69672b943321404fc8bc88ff795">EQParams</a> = juce::Array&lt; <a class="el" href="structlemons_1_1dsp_1_1FX_1_1FilterParams.html">FilterParams</a> &gt;</td></tr>
+<tr class="separator:af677b69672b943321404fc8bc88ff795"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:a2a75c0c88cd8cbd576add3c0d4db1d14"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14">FilterType</a> { <br />
-&#160;&#160;<a class="el" href="namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14a93e33aeb42afb41902cf06b64d52c94a">LowPass</a>, 
-<a class="el" href="namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14a24858664cc1487b9a4a13012a8470923">HighPass</a>, 
-<a class="el" href="namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14a9bdfa2b7643f2df9ffbac8e303544094">LowShelf</a>, 
-<a class="el" href="namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14aeb1a724fc7264a82083a0911ec96f128">HighShelf</a>, 
+&#160;&#160;<a class="el" href="namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14a835f2dc4fd545ddcd275198d9fbadf63">FilterType::LowPass</a>, 
+<a class="el" href="namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14ae9456dc865a19e434997ea20bb5373f6">FilterType::HighPass</a>, 
+<a class="el" href="namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14a04efcd6f392567e252822d1247d8c875">FilterType::LowShelf</a>, 
+<a class="el" href="namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14aaafe3de5c829706a2fda73dd43fd740e">FilterType::HighShelf</a>, 
 <br />
-&#160;&#160;<a class="el" href="namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14ab26b3aeec2b1112b4e05d55a2107a790">BandPass</a>, 
-<a class="el" href="namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14a032660a5efb625e6f86d2d8f85983f5f">Notch</a>, 
-<a class="el" href="namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14ac3f2f489094f1b92d5fc0d3e251db521">Peak</a>, 
-<a class="el" href="namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14ad2579aba88d277d651a6ccc09b057ae2">AllPass</a>
+&#160;&#160;<a class="el" href="namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14a39c9e9c45a479147bf5f74156421c744">FilterType::BandPass</a>, 
+<a class="el" href="namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14aa70ec028ca3f03d3bf0f8016f8c072a3">FilterType::Notch</a>, 
+<a class="el" href="namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14aa21e600ebbe2eab6697e3087ee1fdb9f">FilterType::Peak</a>, 
+<a class="el" href="namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14a3f1176ed061437aff6d76b860d5969f6">FilterType::AllPass</a>
 <br />
  }</td></tr>
-<tr class="memdesc:a2a75c0c88cd8cbd576add3c0d4db1d14"><td class="mdescLeft">&#160;</td><td class="mdescRight">An enum that represents the type of filter topology to be used by a Filter effect.  <a href="namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14">More...</a><br /></td></tr>
+<tr class="memdesc:a2a75c0c88cd8cbd576add3c0d4db1d14"><td class="mdescLeft">&#160;</td><td class="mdescRight">An enum class that represents the type of filter topology to be used by a Filter effect.  <a href="namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14">More...</a><br /></td></tr>
 <tr class="separator:a2a75c0c88cd8cbd576add3c0d4db1d14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="af677b69672b943321404fc8bc88ff795"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af677b69672b943321404fc8bc88ff795">&#9670;&nbsp;</a></span>EQParams</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacelemons_1_1dsp_1_1FX.html#af677b69672b943321404fc8bc88ff795">lemons::dsp::FX::EQParams</a> = typedef juce::Array&lt; <a class="el" href="structlemons_1_1dsp_1_1FX_1_1FilterParams.html">FilterParams</a> &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="a2a75c0c88cd8cbd576add3c0d4db1d14"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2a75c0c88cd8cbd576add3c0d4db1d14">&#9670;&nbsp;</a></span>FilterType</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">enum <a class="el" href="namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14">lemons::dsp::FX::FilterType</a></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>An enum that represents the type of filter topology to be used by a <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html" title="A filter audio effect class.">Filter</a> effect. </p>
+<p>An enum class that represents the type of filter topology to be used by a <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html" title="A filter audio effect class that wraps the more low-level filters::Filter.">Filter</a> effect. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2a75c0c88cd8cbd576add3c0d4db1d14a93e33aeb42afb41902cf06b64d52c94a"></a>LowPass&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a2a75c0c88cd8cbd576add3c0d4db1d14a24858664cc1487b9a4a13012a8470923"></a>HighPass&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a2a75c0c88cd8cbd576add3c0d4db1d14a9bdfa2b7643f2df9ffbac8e303544094"></a>LowShelf&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a2a75c0c88cd8cbd576add3c0d4db1d14aeb1a724fc7264a82083a0911ec96f128"></a>HighShelf&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a2a75c0c88cd8cbd576add3c0d4db1d14ab26b3aeec2b1112b4e05d55a2107a790"></a>BandPass&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a2a75c0c88cd8cbd576add3c0d4db1d14a032660a5efb625e6f86d2d8f85983f5f"></a>Notch&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a2a75c0c88cd8cbd576add3c0d4db1d14ac3f2f489094f1b92d5fc0d3e251db521"></a>Peak&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a2a75c0c88cd8cbd576add3c0d4db1d14ad2579aba88d277d651a6ccc09b057ae2"></a>AllPass&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2a75c0c88cd8cbd576add3c0d4db1d14a835f2dc4fd545ddcd275198d9fbadf63"></a>LowPass&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2a75c0c88cd8cbd576add3c0d4db1d14ae9456dc865a19e434997ea20bb5373f6"></a>HighPass&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2a75c0c88cd8cbd576add3c0d4db1d14a04efcd6f392567e252822d1247d8c875"></a>LowShelf&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2a75c0c88cd8cbd576add3c0d4db1d14aaafe3de5c829706a2fda73dd43fd740e"></a>HighShelf&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2a75c0c88cd8cbd576add3c0d4db1d14a39c9e9c45a479147bf5f74156421c744"></a>BandPass&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2a75c0c88cd8cbd576add3c0d4db1d14aa70ec028ca3f03d3bf0f8016f8c072a3"></a>Notch&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2a75c0c88cd8cbd576add3c0d4db1d14aa21e600ebbe2eab6697e3087ee1fdb9f"></a>Peak&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a2a75c0c88cd8cbd576add3c0d4db1d14a3f1176ed061437aff6d76b860d5969f6"></a>AllPass&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -174,7 +221,7 @@ Enumerations</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 30 2021 20:06:22 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 30 2021 23:14:12 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

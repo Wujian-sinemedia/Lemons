@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="A simple limiter effect class that allows you to optionally sidechain the signal.">
 <polygon fill="#bfbfbf" stroke="black" points="19.5,-0.5 19.5,-30.5 154.5,-30.5 154.5,-0.5 19.5,-0.5"/>
 <text text-anchor="start" x="27.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::Limiter</text>
 <text text-anchor="middle" x="87" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>

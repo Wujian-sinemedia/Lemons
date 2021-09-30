@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['highpass_2220',['HighPass',['../namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14a24858664cc1487b9a4a13012a8470923',1,'lemons::dsp::FX']]],
-  ['highshelf_2221',['HighShelf',['../namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14aeb1a724fc7264a82083a0911ec96f128',1,'lemons::dsp::FX']]]
+  ['highpass_2250',['HighPass',['../namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14ae9456dc865a19e434997ea20bb5373f6',1,'lemons::dsp::FX']]],
+  ['highshelf_2251',['HighShelf',['../namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14aaafe3de5c829706a2fda73dd43fd740e',1,'lemons::dsp::FX']]]
 ];

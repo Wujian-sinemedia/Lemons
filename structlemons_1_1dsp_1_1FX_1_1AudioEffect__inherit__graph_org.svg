@@ -37,7 +37,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="classlemons_1_1dsp_1_1FX_1_1Filter.html" target="_top" xlink:title="A filter audio effect class.">
+<g id="a_node3"><a xlink:href="classlemons_1_1dsp_1_1FX_1_1Filter.html" target="_top" xlink:title="A filter audio effect class that wraps the more low&#45;level filters::Filter.">
 <polygon fill="none" stroke="black" points="268.5,-284 268.5,-314 393.5,-314 393.5,-284 268.5,-284"/>
 <text text-anchor="start" x="276.5" y="-302" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::Filter</text>
 <text text-anchor="middle" x="331" y="-291" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>
@@ -85,7 +85,7 @@
 <!-- Node15 -->
 <g id="node15" class="node">
 <title>Node15</title>
-<g id="a_node15"><a xlink:href="classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html" target="_top" xlink:title=" ">
+<g id="a_node15"><a xlink:href="classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html" target="_top" xlink:title="A handy effect class that allows you to change the gain of a stream of audio, and will smooth the cha...">
 <polygon fill="none" stroke="black" points="256,-88 256,-118 406,-118 406,-88 256,-88"/>
 <text text-anchor="start" x="264" y="-106" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::Smoothed</text>
 <text text-anchor="middle" x="331" y="-95" font-family="Helvetica,sans-Serif" font-size="10.00">Gain&lt; SampleType &gt;</text>
@@ -182,7 +182,7 @@
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="classlemons_1_1dsp_1_1FX_1_1Compressor.html" target="_top" xlink:title=" ">
+<g id="a_node7"><a xlink:href="classlemons_1_1dsp_1_1FX_1_1Compressor.html" target="_top" xlink:title="A simple compressor effect class that allows you to optionally sidechain the signal.">
 <polygon fill="none" stroke="black" points="820.5,-328 820.5,-358 979.5,-358 979.5,-328 820.5,-328"/>
 <text text-anchor="start" x="828.5" y="-346" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::Compressor</text>
 <text text-anchor="middle" x="900" y="-335" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>
@@ -198,7 +198,7 @@
 <!-- Node9 -->
 <g id="node9" class="node">
 <title>Node9</title>
-<g id="a_node9"><a xlink:href="classlemons_1_1dsp_1_1FX_1_1DeEsser.html" target="_top" xlink:title=" ">
+<g id="a_node9"><a xlink:href="classlemons_1_1dsp_1_1FX_1_1DeEsser.html" target="_top" xlink:title="A basic &quot;de&#45;esser&quot; effect class.">
 <polygon fill="none" stroke="black" points="830,-279 830,-309 970,-309 970,-279 830,-279"/>
 <text text-anchor="start" x="838" y="-297" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::DeEsser</text>
 <text text-anchor="middle" x="900" y="-286" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>
@@ -230,7 +230,7 @@
 <!-- Node11 -->
 <g id="node11" class="node">
 <title>Node11</title>
-<g id="a_node11"><a xlink:href="classlemons_1_1dsp_1_1FX_1_1Limiter.html" target="_top" xlink:title=" ">
+<g id="a_node11"><a xlink:href="classlemons_1_1dsp_1_1FX_1_1Limiter.html" target="_top" xlink:title="A simple limiter effect class that allows you to optionally sidechain the signal.">
 <polygon fill="none" stroke="black" points="832.5,-181 832.5,-211 967.5,-211 967.5,-181 832.5,-181"/>
 <text text-anchor="start" x="840.5" y="-199" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::Limiter</text>
 <text text-anchor="middle" x="900" y="-188" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>
@@ -246,7 +246,7 @@
 <!-- Node12 -->
 <g id="node12" class="node">
 <title>Node12</title>
-<g id="a_node12"><a xlink:href="classlemons_1_1dsp_1_1FX_1_1NoiseGate.html" target="_top" xlink:title=" ">
+<g id="a_node12"><a xlink:href="classlemons_1_1dsp_1_1FX_1_1NoiseGate.html" target="_top" xlink:title="A simple noise gate effect class that allows you to optionally sidechain the signal.">
 <polygon fill="none" stroke="black" points="824,-377 824,-407 976,-407 976,-377 824,-377"/>
 <text text-anchor="start" x="832" y="-395" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::NoiseGate</text>
 <text text-anchor="middle" x="900" y="-384" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>

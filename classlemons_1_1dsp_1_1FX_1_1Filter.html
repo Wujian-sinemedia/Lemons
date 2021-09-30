@@ -74,7 +74,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>A filter audio effect class.  
+<p>A filter audio effect class that wraps the more low-level <a class="el" href="classlemons_1_1dsp_1_1filters_1_1Filter.html">filters::Filter</a>.  
  <a href="classlemons_1_1dsp_1_1FX_1_1Filter.html#details">More...</a></p>
 
 <p><code>#include &lt;Filter.h&gt;</code></p>
@@ -145,8 +145,8 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename SampleType&gt;<br />
 class lemons::dsp::FX::Filter&lt; SampleType &gt;</h3>
 
-<p>A filter audio effect class. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1filters_1_1Filter.html">filters::Filter</a>, filters::Multifilter </dd></dl>
+<p>A filter audio effect class that wraps the more low-level <a class="el" href="classlemons_1_1dsp_1_1filters_1_1Filter.html">filters::Filter</a>. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1dsp_1_1FX_1_1FilterParams.html" title="A struct that holds the parameters for a Filter effect.">FilterParams</a>, <a class="el" href="namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14" title="An enum class that represents the type of filter topology to be used by a Filter effect.">FilterType</a>, <a class="el" href="classlemons_1_1dsp_1_1filters_1_1Filter.html">filters::Filter</a>, filters::Multifilter </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a143721a8c22cc42b6fd6fe19de880b94"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a143721a8c22cc42b6fd6fe19de880b94">&#9670;&nbsp;</a></span>Filter() <span class="overload">[1/3]</span></h2>
@@ -272,6 +272,8 @@ template&lt;typename SampleType &gt; </div>
 
 <p>Notifies the effect when a bypassed block is recieved. </p>
 <p>Implementing this is optional. </p>
+
+<p>Reimplemented in <a class="el" href="classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html#a8335b506c3444b98f063652352100d65">lemons::dsp::FX::SmoothedGain&lt; SampleType, channels &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html#a8335b506c3444b98f063652352100d65">lemons::dsp::FX::SmoothedGain&lt; SampleType, 1 &gt;</a>, and <a class="el" href="classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html#a8335b506c3444b98f063652352100d65">lemons::dsp::FX::SmoothedGain&lt; float, 2 &gt;</a>.</p>
 
 </div>
 </div>
@@ -451,7 +453,7 @@ template&lt;typename SampleType &gt; </div>
 
 <p>Your subclass must implement this function with its custom processing logic. </p>
 
-<p>Implemented in <a class="el" href="structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html#a72cd2a03ab39a2d605b1eda5693d26e4">lemons::dsp::FX::SidechainableAudioEffect&lt; SampleType &gt;</a>, <a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#af83eabef85b031658c1963012544609b">lemons::dsp::FX::LevelReportingAudioEffect&lt; SampleType &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html#ab13ccfe5a8942bd8dca20d784355c721">lemons::dsp::FX::EQ&lt; SampleType &gt;</a>, <a class="el" href="structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html#a72cd2a03ab39a2d605b1eda5693d26e4">lemons::dsp::FX::SidechainableAudioEffect&lt; float &gt;</a>, and <a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#af83eabef85b031658c1963012544609b">lemons::dsp::FX::LevelReportingAudioEffect&lt; float &gt;</a>.</p>
+<p>Implemented in <a class="el" href="structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html#a72cd2a03ab39a2d605b1eda5693d26e4">lemons::dsp::FX::SidechainableAudioEffect&lt; SampleType &gt;</a>, <a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#af83eabef85b031658c1963012544609b">lemons::dsp::FX::LevelReportingAudioEffect&lt; SampleType &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html#ab13ccfe5a8942bd8dca20d784355c721">lemons::dsp::FX::EQ&lt; SampleType &gt;</a>, <a class="el" href="structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html#a72cd2a03ab39a2d605b1eda5693d26e4">lemons::dsp::FX::SidechainableAudioEffect&lt; float &gt;</a>, <a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#af83eabef85b031658c1963012544609b">lemons::dsp::FX::LevelReportingAudioEffect&lt; float &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html#a4264ff4250d908d9b867b3393f8e8096">lemons::dsp::FX::SmoothedGain&lt; SampleType, channels &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html#a4264ff4250d908d9b867b3393f8e8096">lemons::dsp::FX::SmoothedGain&lt; SampleType, 1 &gt;</a>, and <a class="el" href="classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html#a4264ff4250d908d9b867b3393f8e8096">lemons::dsp::FX::SmoothedGain&lt; float, 2 &gt;</a>.</p>
 
 </div>
 </div>
@@ -602,7 +604,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 30 2021 20:06:22 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 30 2021 23:14:12 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

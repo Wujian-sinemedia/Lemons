@@ -258,6 +258,7 @@
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_audio_effects/dynamics/</path>
     <filename>Compressor_8h.html</filename>
     <class kind="class">lemons::dsp::FX::Compressor</class>
+    <class kind="struct">lemons::dsp::FX::CompressorParams</class>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::FX</namespace>
@@ -319,6 +320,7 @@
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_audio_effects/misc/</path>
     <filename>DeEsser_8h.html</filename>
     <class kind="class">lemons::dsp::FX::DeEsser</class>
+    <class kind="struct">lemons::dsp::FX::DeEsserParams</class>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::FX</namespace>
@@ -399,6 +401,13 @@
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::FX</namespace>
+    <member kind="typedef">
+      <type>juce::Array&lt; FilterParams &gt;</type>
+      <name>EQParams</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1FX.html</anchorfile>
+      <anchor>af677b69672b943321404fc8bc88ff795</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>FactoryPresetsManager.h</name>
@@ -474,54 +483,14 @@
       <anchorfile>namespacelemons_1_1dsp_1_1FX.html</anchorfile>
       <anchor>a2a75c0c88cd8cbd576add3c0d4db1d14</anchor>
       <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>LowPass</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1FX.html</anchorfile>
-      <anchor>a2a75c0c88cd8cbd576add3c0d4db1d14a93e33aeb42afb41902cf06b64d52c94a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>HighPass</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1FX.html</anchorfile>
-      <anchor>a2a75c0c88cd8cbd576add3c0d4db1d14a24858664cc1487b9a4a13012a8470923</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>LowShelf</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1FX.html</anchorfile>
-      <anchor>a2a75c0c88cd8cbd576add3c0d4db1d14a9bdfa2b7643f2df9ffbac8e303544094</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>HighShelf</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1FX.html</anchorfile>
-      <anchor>a2a75c0c88cd8cbd576add3c0d4db1d14aeb1a724fc7264a82083a0911ec96f128</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>BandPass</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1FX.html</anchorfile>
-      <anchor>a2a75c0c88cd8cbd576add3c0d4db1d14ab26b3aeec2b1112b4e05d55a2107a790</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Notch</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1FX.html</anchorfile>
-      <anchor>a2a75c0c88cd8cbd576add3c0d4db1d14a032660a5efb625e6f86d2d8f85983f5f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Peak</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1FX.html</anchorfile>
-      <anchor>a2a75c0c88cd8cbd576add3c0d4db1d14ac3f2f489094f1b92d5fc0d3e251db521</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>AllPass</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1FX.html</anchorfile>
-      <anchor>a2a75c0c88cd8cbd576add3c0d4db1d14ad2579aba88d277d651a6ccc09b057ae2</anchor>
-      <arglist></arglist>
+      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14a835f2dc4fd545ddcd275198d9fbadf63">LowPass</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14ae9456dc865a19e434997ea20bb5373f6">HighPass</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14a04efcd6f392567e252822d1247d8c875">LowShelf</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14aaafe3de5c829706a2fda73dd43fd740e">HighShelf</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14a39c9e9c45a479147bf5f74156421c744">BandPass</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14aa70ec028ca3f03d3bf0f8016f8c072a3">Notch</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14aa21e600ebbe2eab6697e3087ee1fdb9f">Peak</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14a3f1176ed061437aff6d76b860d5969f6">AllPass</enumvalue>
     </member>
   </compound>
   <compound kind="file">
@@ -919,6 +888,7 @@
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_audio_effects/dynamics/</path>
     <filename>Limiter_8h.html</filename>
     <class kind="class">lemons::dsp::FX::Limiter</class>
+    <class kind="struct">lemons::dsp::FX::LimiterParams</class>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::FX</namespace>
@@ -1238,6 +1208,7 @@
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_audio_effects/dynamics/</path>
     <filename>NoiseGate_8h.html</filename>
     <class kind="class">lemons::dsp::FX::NoiseGate</class>
+    <class kind="struct">lemons::dsp::FX::NoiseGateParams</class>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::FX</namespace>
@@ -3856,6 +3827,20 @@
       <anchor>a04d8d8563014eeb6c8a990df1a55b22e</anchor>
       <arglist>()</arglist>
     </member>
+    <member kind="function">
+      <type></type>
+      <name>Compressor</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Compressor.html</anchorfile>
+      <anchor>a17a1b091245ca9188d24d5bdd2810f40</anchor>
+      <arglist>(CompressorParams params)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Compressor</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Compressor.html</anchorfile>
+      <anchor>aa4c204cd9aaa6714bfb88614ea91de9e</anchor>
+      <arglist>(float thresh, float ratioToUse, float attackMs, float releaseMs)</arglist>
+    </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
       <name>bypassedBlock</name>
@@ -3892,6 +3877,13 @@
       <arglist>(int channel) const</arglist>
     </member>
     <member kind="function">
+      <type>CompressorParams</type>
+      <name>getParams</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Compressor.html</anchorfile>
+      <anchor>a28f4b67bba441fc92c67fda527bebef5</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>prepare</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1Compressor.html</anchorfile>
@@ -3914,6 +3906,13 @@
     </member>
     <member kind="function">
       <type>SampleType</type>
+      <name>processChannel</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Compressor.html</anchorfile>
+      <anchor>af328eee8e0467199bf2a416358379a1d</anchor>
+      <arglist>(int channel, int numSamples, SampleType *signalToCompress, const SampleType *sidechain) final</arglist>
+    </member>
+    <member kind="function">
+      <type>SampleType</type>
       <name>processSample</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1Compressor.html</anchorfile>
       <anchor>a9caa8d522fb54d8a5621a79a23e9da77</anchor>
@@ -3932,6 +3931,13 @@
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1Compressor.html</anchorfile>
       <anchor>adfa2f022270f9f3bc9e5ec7731c4e2e9</anchor>
       <arglist>(float attackMs)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setParams</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Compressor.html</anchorfile>
+      <anchor>a025f2f452bc56c52d9930c7259b5d5d1</anchor>
+      <arglist>(CompressorParams params)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -3966,6 +3972,20 @@
       <anchor>a04d8d8563014eeb6c8a990df1a55b22e</anchor>
       <arglist>()</arglist>
     </member>
+    <member kind="function">
+      <type></type>
+      <name>Compressor</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Compressor.html</anchorfile>
+      <anchor>a17a1b091245ca9188d24d5bdd2810f40</anchor>
+      <arglist>(CompressorParams params)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Compressor</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Compressor.html</anchorfile>
+      <anchor>aa4c204cd9aaa6714bfb88614ea91de9e</anchor>
+      <arglist>(float thresh, float ratioToUse, float attackMs, float releaseMs)</arglist>
+    </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
       <name>bypassedBlock</name>
@@ -4002,6 +4022,13 @@
       <arglist>(int channel) const</arglist>
     </member>
     <member kind="function">
+      <type>CompressorParams</type>
+      <name>getParams</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Compressor.html</anchorfile>
+      <anchor>a28f4b67bba441fc92c67fda527bebef5</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>prepare</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1Compressor.html</anchorfile>
@@ -4021,6 +4048,13 @@
       <anchorfile>structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html</anchorfile>
       <anchor>a86b4201e9da1bc16b9498adf879d2256</anchor>
       <arglist>(AudioBuffer&lt; float &gt; &amp;inOut, const AudioBuffer&lt; float &gt; &amp;sidechain) final</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>processChannel</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Compressor.html</anchorfile>
+      <anchor>af328eee8e0467199bf2a416358379a1d</anchor>
+      <arglist>(int channel, int numSamples, float *signalToCompress, const float *sidechain) final</arglist>
     </member>
     <member kind="function">
       <type>float</type>
@@ -4045,6 +4079,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>setParams</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Compressor.html</anchorfile>
+      <anchor>a025f2f452bc56c52d9930c7259b5d5d1</anchor>
+      <arglist>(CompressorParams params)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>setRatio</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1Compressor.html</anchorfile>
       <anchor>a7985c29151ff171797f73d7768b9716e</anchor>
@@ -4063,6 +4104,52 @@
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1Compressor.html</anchorfile>
       <anchor>a401f36fcf010190dfdb74e6a707c3e7c</anchor>
       <arglist>(float newThresh_dB)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::dsp::FX::CompressorParams</name>
+    <filename>structlemons_1_1dsp_1_1FX_1_1CompressorParams.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>CompressorParams</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1CompressorParams.html</anchorfile>
+      <anchor>a6b0f22ea5c01a5166afd6cb278de6b86</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>CompressorParams</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1CompressorParams.html</anchorfile>
+      <anchor>a57794aece71227c49ad71a227013cc65</anchor>
+      <arglist>(float threshToUse, float ratioToUse, float attackTime, float releaseTime)</arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>attackMs</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1CompressorParams.html</anchorfile>
+      <anchor>ab2a9a63f2ccb7c0ccf379165eebecdd3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>ratio</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1CompressorParams.html</anchorfile>
+      <anchor>a1ab93612b580cbb6f296e3cd7dea527b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>releaseMs</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1CompressorParams.html</anchorfile>
+      <anchor>aefca97f7be2c70195530bdce7110e449</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>thresholdDB</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1CompressorParams.html</anchorfile>
+      <anchor>ae7712f857c29221388bab184d32b9da3</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -4313,6 +4400,20 @@
       <anchor>a7450b544c31f184e1a4f86a3e95e9077</anchor>
       <arglist>()</arglist>
     </member>
+    <member kind="function">
+      <type></type>
+      <name>DeEsser</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1DeEsser.html</anchorfile>
+      <anchor>a90cb13c119e248cc620851517f62edb6</anchor>
+      <arglist>(DeEsserParams params)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>DeEsser</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1DeEsser.html</anchorfile>
+      <anchor>afd07d59db330843c370f0080fa4f25a1</anchor>
+      <arglist>(float threshDB, int deEssAmount)</arglist>
+    </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
       <name>bypassedBlock</name>
@@ -4349,6 +4450,13 @@
       <arglist>(int channel) const</arglist>
     </member>
     <member kind="function">
+      <type>DeEsserParams</type>
+      <name>getParams</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1DeEsser.html</anchorfile>
+      <anchor>a429d0aedaa4355fc096f3fa091b978c7</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>prepare</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1DeEsser.html</anchorfile>
@@ -4370,6 +4478,13 @@
       <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inOut, const AudioBuffer&lt; SampleType &gt; &amp;sidechain) final</arglist>
     </member>
     <member kind="function">
+      <type>SampleType</type>
+      <name>processChannel</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1DeEsser.html</anchorfile>
+      <anchor>a262655098e9737ca3a25a932d1c71f4b</anchor>
+      <arglist>(int channel, int numSamples, SampleType *signalToDeEss, const SampleType *sidechain) final</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>reset</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1DeEsser.html</anchorfile>
@@ -4385,10 +4500,49 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>setParams</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1DeEsser.html</anchorfile>
+      <anchor>a2d14a84b3831bb30451b8c2586cbd75b</anchor>
+      <arglist>(DeEsserParams params)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>setThresh</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1DeEsser.html</anchorfile>
       <anchor>a854f9f01f2bbd7e6afda78a5ba2a7483</anchor>
       <arglist>(float newThresh_dB)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::dsp::FX::DeEsserParams</name>
+    <filename>structlemons_1_1dsp_1_1FX_1_1DeEsserParams.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>DeEsserParams</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1DeEsserParams.html</anchorfile>
+      <anchor>ad642e1b5186b491ceeb2d68a422d369b</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>DeEsserParams</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1DeEsserParams.html</anchorfile>
+      <anchor>a947a0177e432bc3daecf986f2dd5545e</anchor>
+      <arglist>(float threshToUse, int amount)</arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>deEssAmount</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1DeEsserParams.html</anchorfile>
+      <anchor>a2d1540c15aed9d18e2d6912075d5c140</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>threshDb</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1DeEsserParams.html</anchorfile>
+      <anchor>a40ccd91c55afe193583c3709bd824bbf</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -4643,10 +4797,10 @@
     <filename>classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html</filename>
     <templarg></templarg>
     <member kind="typedef">
-      <type>juce::AudioBuffer&lt; SampleType &gt;</type>
+      <type>AudioBuffer&lt; SampleType &gt;</type>
       <name>AudioBuffer</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html</anchorfile>
-      <anchor>a31b40e68e29121cc35192dfbeef6467a</anchor>
+      <anchor>a65752af6406801172e5544628c1f2314</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -4655,6 +4809,13 @@
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html</anchorfile>
       <anchor>a21cda0dd28393401b26a3215d2826c25</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>DryWetMixer</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html</anchorfile>
+      <anchor>a98f5a785665430b3547c2edbc0c70c81</anchor>
+      <arglist>(int wetPercentMix, int wetLatencySamples=0)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -5320,6 +5481,20 @@
       <arglist></arglist>
     </member>
     <member kind="function">
+      <type></type>
+      <name>EQ</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1EQ.html</anchorfile>
+      <anchor>a2dcdb60a42bb68a1f447336ee6127d1e</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>EQ</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1EQ.html</anchorfile>
+      <anchor>ad06d3b36761c46769761ca01e71c3c3b</anchor>
+      <arglist>(const EQParams &amp;params)</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>addBand</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EQ.html</anchorfile>
@@ -5369,6 +5544,13 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
+      <type>EQParams</type>
+      <name>getParams</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1EQ.html</anchorfile>
+      <anchor>a0f4622860b9dbc9695902b03b621b45d</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>prepare</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EQ.html</anchorfile>
@@ -5381,6 +5563,13 @@
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EQ.html</anchorfile>
       <anchor>ab13ccfe5a8942bd8dca20d784355c721</anchor>
       <arglist>(AudioBuffer&lt; SampleType &gt; &amp;audio) final</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setParams</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1EQ.html</anchorfile>
+      <anchor>a5e4ceb5beb451ea72a81f1894567b8a4</anchor>
+      <arglist>(const EQParams &amp;params)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -5434,39 +5623,6 @@
       <name>state</name>
       <anchorfile>classlemons_1_1plugin_1_1presets_1_1SubLibrary.html</anchorfile>
       <anchor>aae0e4b6fd8a4080165afae4d47c0be2b</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>lemons::dsp::filters::Filter</name>
-    <filename>classlemons_1_1dsp_1_1filters_1_1Filter.html</filename>
-    <templarg></templarg>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1filters_1_1Filter.html</anchorfile>
-      <anchor>adb8982b06bdc99e8b8b544318ca9e02a</anchor>
-      <arglist>() noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1filters_1_1Filter.html</anchorfile>
-      <anchor>a5fbb9f92bd17682d554077cc3a8c08c5</anchor>
-      <arglist>(SampleType *buffer, int numSamples)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>reset</name>
-      <anchorfile>classlemons_1_1dsp_1_1filters_1_1Filter.html</anchorfile>
-      <anchor>a072e405ea503f6e2a1fc15d3a2818e4f</anchor>
-      <arglist>(SampleType resetToValue=SampleType(0))</arglist>
-    </member>
-    <member kind="variable">
-      <type>Coefficients&lt; SampleType &gt;</type>
-      <name>coefs</name>
-      <anchorfile>classlemons_1_1dsp_1_1filters_1_1Filter.html</anchorfile>
-      <anchor>a7ad358b8fde87138aff590f7724fd941</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -5593,6 +5749,39 @@
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1Filter.html</anchorfile>
       <anchor>adc6df900e5c38eb40841ae62dd759d0f</anchor>
       <arglist>(float newQ)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lemons::dsp::filters::Filter</name>
+    <filename>classlemons_1_1dsp_1_1filters_1_1Filter.html</filename>
+    <templarg></templarg>
+    <member kind="function">
+      <type>void</type>
+      <name>prepare</name>
+      <anchorfile>classlemons_1_1dsp_1_1filters_1_1Filter.html</anchorfile>
+      <anchor>adb8982b06bdc99e8b8b544318ca9e02a</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1filters_1_1Filter.html</anchorfile>
+      <anchor>a5fbb9f92bd17682d554077cc3a8c08c5</anchor>
+      <arglist>(SampleType *buffer, int numSamples)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classlemons_1_1dsp_1_1filters_1_1Filter.html</anchorfile>
+      <anchor>a072e405ea503f6e2a1fc15d3a2818e4f</anchor>
+      <arglist>(SampleType resetToValue=SampleType(0))</arglist>
+    </member>
+    <member kind="variable">
+      <type>Coefficients&lt; SampleType &gt;</type>
+      <name>coefs</name>
+      <anchorfile>classlemons_1_1dsp_1_1filters_1_1Filter.html</anchorfile>
+      <anchor>a7ad358b8fde87138aff590f7724fd941</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -8043,6 +8232,27 @@
     <filename>classlemons_1_1dsp_1_1FX_1_1Limiter.html</filename>
     <templarg></templarg>
     <base>lemons::dsp::FX::LevelReportingAudioEffect</base>
+    <member kind="function">
+      <type></type>
+      <name>Limiter</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Limiter.html</anchorfile>
+      <anchor>a376d80473d74f6623447e1bb467572e0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Limiter</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Limiter.html</anchorfile>
+      <anchor>a033338b4de2c2619c7f56bea09d69eab</anchor>
+      <arglist>(float threshDB, float releaseMs)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Limiter</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Limiter.html</anchorfile>
+      <anchor>a063be644796503511eebc9539cf32335</anchor>
+      <arglist>(LimiterParams params)</arglist>
+    </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
       <name>bypassedBlock</name>
@@ -8079,6 +8289,13 @@
       <arglist>(int channel) const</arglist>
     </member>
     <member kind="function">
+      <type>LimiterParams</type>
+      <name>getParams</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Limiter.html</anchorfile>
+      <anchor>a0d132a0aee3fc7edc7f2b5a29af17fc4</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>prepare</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1Limiter.html</anchorfile>
@@ -8100,11 +8317,25 @@
       <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inOut, const AudioBuffer&lt; SampleType &gt; &amp;sidechain) final</arglist>
     </member>
     <member kind="function">
+      <type>SampleType</type>
+      <name>processChannel</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Limiter.html</anchorfile>
+      <anchor>aa8050d77d09040777671c67366a1b7ed</anchor>
+      <arglist>(int channel, int numSamples, SampleType *signalToLimit, const SampleType *sidechain) final</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>reset</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1Limiter.html</anchorfile>
       <anchor>aba82a3b30e36d75ee97f1e2bdafdb5ad</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setParams</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Limiter.html</anchorfile>
+      <anchor>a26ddde3c2c2fe84939b0da36829b2eaf</anchor>
+      <arglist>(LimiterParams params)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -8122,6 +8353,38 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>lemons::dsp::FX::LimiterParams</name>
+    <filename>structlemons_1_1dsp_1_1FX_1_1LimiterParams.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>LimiterParams</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1LimiterParams.html</anchorfile>
+      <anchor>a869cab9ca557bed576562aae68425f75</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>LimiterParams</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1LimiterParams.html</anchorfile>
+      <anchor>aa09084212fc32a93d94840d99ec54ff2</anchor>
+      <arglist>(float threshToUse, float releaseTime)</arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>releaseMs</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1LimiterParams.html</anchorfile>
+      <anchor>ac4080845ccfb1480710deaf9a0d12607</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>threshDB</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1LimiterParams.html</anchorfile>
+      <anchor>aea31bf367f83be2f032f8cfd91b1974c</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>lemons::events::Listener</name>
     <filename>structlemons_1_1events_1_1Listener.html</filename>
     <base>lemons::events::Broadcaster::Reciever</base>
@@ -8131,6 +8394,46 @@
       <anchorfile>structlemons_1_1events_1_1Listener.html</anchorfile>
       <anchor>a6c44b0355614d5ba119df5ed2f9f1509</anchor>
       <arglist>(Broadcaster &amp;b, std::function&lt; void() &gt; func)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::plugin::TypedParameter::Listener</name>
+    <filename>structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html</filename>
+    <base>lemons::plugin::Parameter::Listener</base>
+    <member kind="function">
+      <type></type>
+      <name>Listener</name>
+      <anchorfile>structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html</anchorfile>
+      <anchor>a94994114fd355af5caf403b57037de1f</anchor>
+      <arglist>(TypedParameter&lt; ValueType &gt; &amp;param)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>controllerNumberChanged</name>
+      <anchorfile>structlemons_1_1plugin_1_1Parameter_1_1Listener.html</anchorfile>
+      <anchor>a82971aee6ae16d04100949930233e34c</anchor>
+      <arglist>(int newControllerNumber)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>gestureStateChanged</name>
+      <anchorfile>structlemons_1_1plugin_1_1Parameter_1_1Listener.html</anchorfile>
+      <anchor>ac0db7beb485e9164070104f5da7e7b40</anchor>
+      <arglist>(bool gestureIsStarting)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>paramDefaultChanged</name>
+      <anchorfile>structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html</anchorfile>
+      <anchor>a27517e2ae5e97edfa25dbef712e54347</anchor>
+      <arglist>(ValueType)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>paramValueChanged</name>
+      <anchorfile>structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html</anchorfile>
+      <anchor>a6b091945117c5ffccf7d42e4ba1ae20a</anchor>
+      <arglist>(ValueType)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -8195,46 +8498,6 @@
       <anchorfile>structlemons_1_1plugin_1_1Parameter_1_1Listener.html</anchorfile>
       <anchor>ac230d1860fb4068115e7d10285b27669</anchor>
       <arglist>(float newNormalizedValue)</arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
-    <name>lemons::plugin::TypedParameter::Listener</name>
-    <filename>structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html</filename>
-    <base>lemons::plugin::Parameter::Listener</base>
-    <member kind="function">
-      <type></type>
-      <name>Listener</name>
-      <anchorfile>structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html</anchorfile>
-      <anchor>a94994114fd355af5caf403b57037de1f</anchor>
-      <arglist>(TypedParameter&lt; ValueType &gt; &amp;param)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>controllerNumberChanged</name>
-      <anchorfile>structlemons_1_1plugin_1_1Parameter_1_1Listener.html</anchorfile>
-      <anchor>a82971aee6ae16d04100949930233e34c</anchor>
-      <arglist>(int newControllerNumber)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>gestureStateChanged</name>
-      <anchorfile>structlemons_1_1plugin_1_1Parameter_1_1Listener.html</anchorfile>
-      <anchor>ac0db7beb485e9164070104f5da7e7b40</anchor>
-      <arglist>(bool gestureIsStarting)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>paramDefaultChanged</name>
-      <anchorfile>structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html</anchorfile>
-      <anchor>a27517e2ae5e97edfa25dbef712e54347</anchor>
-      <arglist>(ValueType)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>paramValueChanged</name>
-      <anchorfile>structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html</anchorfile>
-      <anchor>a6b091945117c5ffccf7d42e4ba1ae20a</anchor>
-      <arglist>(ValueType)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -9908,6 +10171,20 @@
       <anchor>ab3e228df0aaef4d9e2a132132c07eb46</anchor>
       <arglist>()</arglist>
     </member>
+    <member kind="function">
+      <type></type>
+      <name>NoiseGate</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1NoiseGate.html</anchorfile>
+      <anchor>a2d85157fc7cbdb8321210f14ec4ddad4</anchor>
+      <arglist>(float threshDB, float ratioToUse, float attackMs, float releaseMs, bool shouldBeInverted=false)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>NoiseGate</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1NoiseGate.html</anchorfile>
+      <anchor>a917552be39292f58f9d40c5439a9f855</anchor>
+      <arglist>(NoiseGateParams params)</arglist>
+    </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
       <name>bypassedBlock</name>
@@ -9944,6 +10221,13 @@
       <arglist>(int channel) const</arglist>
     </member>
     <member kind="function">
+      <type>NoiseGateParams</type>
+      <name>getParams</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1NoiseGate.html</anchorfile>
+      <anchor>a79d9c742f562fafffa675614e4151ffc</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>prepare</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1NoiseGate.html</anchorfile>
@@ -9972,6 +10256,13 @@
       <arglist>(int channel, int numSamples, SampleType *signalToGate, const SampleType *sidechain) final</arglist>
     </member>
     <member kind="function">
+      <type>SampleType</type>
+      <name>processSample</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1NoiseGate.html</anchorfile>
+      <anchor>a04e6138920fa9e173f608bbb1c779251</anchor>
+      <arglist>(int channel, SampleType sampleToGate, SampleType sidechainValue, SampleType *gainReduction)</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>reset</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1NoiseGate.html</anchorfile>
@@ -9982,8 +10273,8 @@
       <type>void</type>
       <name>setAttack</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1NoiseGate.html</anchorfile>
-      <anchor>afab118a8e7eedea9b91dea4776c30913</anchor>
-      <arglist>(SampleType newAttack_ms)</arglist>
+      <anchor>a604b67b9ee62d5ca40f670dc7b1cdcbf</anchor>
+      <arglist>(float newAttack_ms)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -9994,17 +10285,24 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>setParams</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1NoiseGate.html</anchorfile>
+      <anchor>a60299c7e1d5d4dfc1c3a448ac5470bbb</anchor>
+      <arglist>(NoiseGateParams params)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>setRatio</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1NoiseGate.html</anchorfile>
-      <anchor>ab0d9dbc0cc6dca6b14456f60342be5f0</anchor>
-      <arglist>(SampleType newRatio)</arglist>
+      <anchor>a424f80b563b11c1549ddcc672354ba68</anchor>
+      <arglist>(float newRatio)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setRelease</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1NoiseGate.html</anchorfile>
-      <anchor>a58fa04fb4b6ec349d2ca093797db9877</anchor>
-      <arglist>(SampleType newRelease_ms)</arglist>
+      <anchor>a0abf6fc10f7feebfc8af9353ea277609</anchor>
+      <arglist>(float newRelease_ms)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -10012,6 +10310,59 @@
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1NoiseGate.html</anchorfile>
       <anchor>aa54a1eff131c0b0a6196104667145eee</anchor>
       <arglist>(float newThreshold_dB)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::dsp::FX::NoiseGateParams</name>
+    <filename>structlemons_1_1dsp_1_1FX_1_1NoiseGateParams.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>NoiseGateParams</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1NoiseGateParams.html</anchorfile>
+      <anchor>af140026ab02495bc54c4563c873660c0</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>NoiseGateParams</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1NoiseGateParams.html</anchorfile>
+      <anchor>a64779b4a0b3829f8fb4285e369da9799</anchor>
+      <arglist>(float threshToUse, float ratioToUse, float attackTime, float releaseTime, bool shouldBeInverted)</arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>attackMs</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1NoiseGateParams.html</anchorfile>
+      <anchor>a0c42d5fd7d80226e06a1f0f9ef01e106</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>inverted</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1NoiseGateParams.html</anchorfile>
+      <anchor>aadb94d16e7b54026671c3533f46b1834</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>ratio</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1NoiseGateParams.html</anchorfile>
+      <anchor>a8fc64b33b3d26b9a060c45264689f100</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>releaseMs</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1NoiseGateParams.html</anchorfile>
+      <anchor>a855ac0f864e8ef2eb94cee570f65a436</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>threshDB</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1NoiseGateParams.html</anchorfile>
+      <anchor>ad21e6a9c649a4ba951980854edeea3ec</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -14365,10 +14716,10 @@
     <templarg>channels</templarg>
     <base>lemons::dsp::FX::AudioEffect</base>
     <member kind="typedef">
-      <type>juce::AudioBuffer&lt; SampleType &gt;</type>
+      <type>AudioBuffer&lt; SampleType &gt;</type>
       <name>AudioBuffer</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>acb2a0d55fa620c9744135bcf5d2a6a89</anchor>
+      <anchor>a4a693ff5741c6ad91652e6e9be5e69b1</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -14378,12 +14729,26 @@
       <anchor>af47c7b82ba55f1eebe16eb7c5f94bf5c</anchor>
       <arglist>()</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
+    <member kind="function">
+      <type></type>
+      <name>SmoothedGain</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
+      <anchor>a793fe0ab3a62e6cb9e81d5af115bf507</anchor>
+      <arglist>(float gain)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>bypassedBlock</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1AudioEffect.html</anchorfile>
-      <anchor>a0e2734ec1b7a89c566cbd2fe9b3592c8</anchor>
-      <arglist>(int numSamples)</arglist>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
+      <anchor>a8335b506c3444b98f063652352100d65</anchor>
+      <arglist>(int numSamples) final</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getGain</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
+      <anchor>a392fa413f8b7d1a0e6469a5a35f80424</anchor>
+      <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -14399,13 +14764,6 @@
       <anchor>a4264ff4250d908d9b867b3393f8e8096</anchor>
       <arglist>(AudioBuffer &amp;audio) final</arglist>
     </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>process</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1AudioEffect.html</anchorfile>
-      <anchor>a5979cff40fec5864fb6a45bba0b01911</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;audio)=0</arglist>
-    </member>
     <member kind="function">
       <type>void</type>
       <name>reset</name>
@@ -14419,13 +14777,6 @@
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
       <anchor>a90d461bd16bad378a7ab00e7672fccbd</anchor>
       <arglist>(float gain)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>skipSamples</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>a71b781278b69169d19487312b12dd41e</anchor>
-      <arglist>(int numSamples)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -14433,10 +14784,10 @@
     <filename>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</filename>
     <base>AudioEffect&lt; float &gt;</base>
     <member kind="typedef">
-      <type>juce::AudioBuffer&lt; float &gt;</type>
+      <type>AudioBuffer&lt; float &gt;</type>
       <name>AudioBuffer</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>acb2a0d55fa620c9744135bcf5d2a6a89</anchor>
+      <anchor>a4a693ff5741c6ad91652e6e9be5e69b1</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -14446,12 +14797,26 @@
       <anchor>af47c7b82ba55f1eebe16eb7c5f94bf5c</anchor>
       <arglist>()</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
+    <member kind="function">
+      <type></type>
+      <name>SmoothedGain</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
+      <anchor>a793fe0ab3a62e6cb9e81d5af115bf507</anchor>
+      <arglist>(float gain)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>bypassedBlock</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1AudioEffect.html</anchorfile>
-      <anchor>a0e2734ec1b7a89c566cbd2fe9b3592c8</anchor>
-      <arglist>(int numSamples)</arglist>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
+      <anchor>a8335b506c3444b98f063652352100d65</anchor>
+      <arglist>(int numSamples) final</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getGain</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
+      <anchor>a392fa413f8b7d1a0e6469a5a35f80424</anchor>
+      <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -14467,13 +14832,6 @@
       <anchor>a4264ff4250d908d9b867b3393f8e8096</anchor>
       <arglist>(AudioBuffer &amp;audio) final</arglist>
     </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>process</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1AudioEffect.html</anchorfile>
-      <anchor>a5979cff40fec5864fb6a45bba0b01911</anchor>
-      <arglist>(AudioBuffer&lt; float &gt; &amp;audio)=0</arglist>
-    </member>
     <member kind="function">
       <type>void</type>
       <name>reset</name>
@@ -14487,13 +14845,6 @@
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
       <anchor>a90d461bd16bad378a7ab00e7672fccbd</anchor>
       <arglist>(float gain)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>skipSamples</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>a71b781278b69169d19487312b12dd41e</anchor>
-      <arglist>(int numSamples)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -14501,10 +14852,10 @@
     <filename>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</filename>
     <base>lemons::dsp::FX::AudioEffect</base>
     <member kind="typedef">
-      <type>juce::AudioBuffer&lt; SampleType &gt;</type>
+      <type>AudioBuffer&lt; SampleType &gt;</type>
       <name>AudioBuffer</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>acb2a0d55fa620c9744135bcf5d2a6a89</anchor>
+      <anchor>a4a693ff5741c6ad91652e6e9be5e69b1</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -14514,12 +14865,26 @@
       <anchor>af47c7b82ba55f1eebe16eb7c5f94bf5c</anchor>
       <arglist>()</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
+    <member kind="function">
+      <type></type>
+      <name>SmoothedGain</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
+      <anchor>a793fe0ab3a62e6cb9e81d5af115bf507</anchor>
+      <arglist>(float gain)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>bypassedBlock</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1AudioEffect.html</anchorfile>
-      <anchor>a0e2734ec1b7a89c566cbd2fe9b3592c8</anchor>
-      <arglist>(int numSamples)</arglist>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
+      <anchor>a8335b506c3444b98f063652352100d65</anchor>
+      <arglist>(int numSamples) final</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getGain</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
+      <anchor>a392fa413f8b7d1a0e6469a5a35f80424</anchor>
+      <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -14535,13 +14900,6 @@
       <anchor>a4264ff4250d908d9b867b3393f8e8096</anchor>
       <arglist>(AudioBuffer &amp;audio) final</arglist>
     </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>process</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1AudioEffect.html</anchorfile>
-      <anchor>a5979cff40fec5864fb6a45bba0b01911</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;audio)=0</arglist>
-    </member>
     <member kind="function">
       <type>void</type>
       <name>reset</name>
@@ -14555,13 +14913,6 @@
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
       <anchor>a90d461bd16bad378a7ab00e7672fccbd</anchor>
       <arglist>(float gain)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>skipSamples</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>a71b781278b69169d19487312b12dd41e</anchor>
-      <arglist>(int numSamples)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -18650,7 +19001,9 @@
     <filename>namespacelemons_1_1dsp_1_1FX.html</filename>
     <class kind="struct">lemons::dsp::FX::AudioEffect</class>
     <class kind="class">lemons::dsp::FX::Compressor</class>
+    <class kind="struct">lemons::dsp::FX::CompressorParams</class>
     <class kind="class">lemons::dsp::FX::DeEsser</class>
+    <class kind="struct">lemons::dsp::FX::DeEsserParams</class>
     <class kind="class">lemons::dsp::FX::Delay</class>
     <class kind="class">lemons::dsp::FX::DryWetMixer</class>
     <class kind="class">lemons::dsp::FX::EffectEngine</class>
@@ -18660,69 +19013,38 @@
     <class kind="struct">lemons::dsp::FX::FilterParams</class>
     <class kind="struct">lemons::dsp::FX::LevelReportingAudioEffect</class>
     <class kind="class">lemons::dsp::FX::Limiter</class>
+    <class kind="struct">lemons::dsp::FX::LimiterParams</class>
     <class kind="class">lemons::dsp::FX::MonoStereoConverter</class>
     <class kind="class">lemons::dsp::FX::MonoToStereoPanner</class>
     <class kind="class">lemons::dsp::FX::NoiseGate</class>
+    <class kind="struct">lemons::dsp::FX::NoiseGateParams</class>
     <class kind="class">lemons::dsp::FX::PannerBase</class>
     <class kind="class">lemons::dsp::FX::Reverb</class>
     <class kind="class">lemons::dsp::FX::Saturator</class>
     <class kind="struct">lemons::dsp::FX::SidechainableAudioEffect</class>
     <class kind="class">lemons::dsp::FX::SmoothedGain</class>
     <class kind="class">lemons::dsp::FX::StereoPanner</class>
+    <member kind="typedef">
+      <type>juce::Array&lt; FilterParams &gt;</type>
+      <name>EQParams</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1FX.html</anchorfile>
+      <anchor>af677b69672b943321404fc8bc88ff795</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="enumeration">
       <type></type>
       <name>FilterType</name>
       <anchorfile>namespacelemons_1_1dsp_1_1FX.html</anchorfile>
       <anchor>a2a75c0c88cd8cbd576add3c0d4db1d14</anchor>
       <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>LowPass</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1FX.html</anchorfile>
-      <anchor>a2a75c0c88cd8cbd576add3c0d4db1d14a93e33aeb42afb41902cf06b64d52c94a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>HighPass</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1FX.html</anchorfile>
-      <anchor>a2a75c0c88cd8cbd576add3c0d4db1d14a24858664cc1487b9a4a13012a8470923</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>LowShelf</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1FX.html</anchorfile>
-      <anchor>a2a75c0c88cd8cbd576add3c0d4db1d14a9bdfa2b7643f2df9ffbac8e303544094</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>HighShelf</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1FX.html</anchorfile>
-      <anchor>a2a75c0c88cd8cbd576add3c0d4db1d14aeb1a724fc7264a82083a0911ec96f128</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>BandPass</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1FX.html</anchorfile>
-      <anchor>a2a75c0c88cd8cbd576add3c0d4db1d14ab26b3aeec2b1112b4e05d55a2107a790</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Notch</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1FX.html</anchorfile>
-      <anchor>a2a75c0c88cd8cbd576add3c0d4db1d14a032660a5efb625e6f86d2d8f85983f5f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Peak</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1FX.html</anchorfile>
-      <anchor>a2a75c0c88cd8cbd576add3c0d4db1d14ac3f2f489094f1b92d5fc0d3e251db521</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>AllPass</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1FX.html</anchorfile>
-      <anchor>a2a75c0c88cd8cbd576add3c0d4db1d14ad2579aba88d277d651a6ccc09b057ae2</anchor>
-      <arglist></arglist>
+      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14a835f2dc4fd545ddcd275198d9fbadf63">LowPass</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14ae9456dc865a19e434997ea20bb5373f6">HighPass</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14a04efcd6f392567e252822d1247d8c875">LowShelf</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14aaafe3de5c829706a2fda73dd43fd740e">HighShelf</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14a39c9e9c45a479147bf5f74156421c744">BandPass</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14aa70ec028ca3f03d3bf0f8016f8c072a3">Notch</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14aa21e600ebbe2eab6697e3087ee1fdb9f">Peak</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14a3f1176ed061437aff6d76b860d5969f6">AllPass</enumvalue>
     </member>
   </compound>
   <compound kind="namespace">

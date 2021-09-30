@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['gainmeter_2185',['GainMeter',['../namespacelemons.html#af5510b4c822b3b9afc862b3ae5ab39c5',1,'lemons']]],
-  ['grain_2186',['Grain',['../classlemons_1_1dsp_1_1psola_1_1Shifter.html#a73eb48ba33dd7ff828ca5186374fd4d8',1,'lemons::dsp::psola::Shifter']]]
+  ['farray_2212',['FArray',['../classlemons_1_1dsp_1_1psola_1_1PeakFinder.html#ab3775f0d17d840f92e0b6e74121a6b15',1,'lemons::dsp::psola::PeakFinder']]],
+  ['floatparam_2213',['FloatParam',['../namespacelemons.html#ae8cc701522c1070e134c9312b0641300',1,'lemons']]],
+  ['floatparameter_2214',['FloatParameter',['../namespacelemons_1_1plugin.html#aa77c4923225c9ae40394bfc8d1e19536',1,'lemons::plugin']]]
 ];

@@ -95,6 +95,12 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a2dcdb60a42bb68a1f447336ee6127d1e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html#a2dcdb60a42bb68a1f447336ee6127d1e">EQ</a> ()=default</td></tr>
+<tr class="memdesc:a2dcdb60a42bb68a1f447336ee6127d1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a default <a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html" title="An equalizer effect class.">EQ</a> object.  <a href="classlemons_1_1dsp_1_1FX_1_1EQ.html#a2dcdb60a42bb68a1f447336ee6127d1e">More...</a><br /></td></tr>
+<tr class="separator:a2dcdb60a42bb68a1f447336ee6127d1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad06d3b36761c46769761ca01e71c3c3b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html#ad06d3b36761c46769761ca01e71c3c3b">EQ</a> (const <a class="el" href="namespacelemons_1_1dsp_1_1FX.html#af677b69672b943321404fc8bc88ff795">EQParams</a> &amp;params)</td></tr>
+<tr class="memdesc:ad06d3b36761c46769761ca01e71c3c3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an <a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html" title="An equalizer effect class.">EQ</a> from an EQParams object.  <a href="classlemons_1_1dsp_1_1FX_1_1EQ.html#ad06d3b36761c46769761ca01e71c3c3b">More...</a><br /></td></tr>
+<tr class="separator:ad06d3b36761c46769761ca01e71c3c3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdf9e081da88914e8c415e54fcd95b9c"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
 <tr class="memitem:acdf9e081da88914e8c415e54fcd95b9c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html#acdf9e081da88914e8c415e54fcd95b9c">addBand</a> (Args &amp;&amp;... args)</td></tr>
 <tr class="memdesc:acdf9e081da88914e8c415e54fcd95b9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and adds a new band to the <a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html" title="An equalizer effect class.">EQ</a>.  <a href="classlemons_1_1dsp_1_1FX_1_1EQ.html#acdf9e081da88914e8c415e54fcd95b9c">More...</a><br /></td></tr>
@@ -117,19 +123,25 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5cf898f49312c0c29e30030c08202341"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html#a5cf898f49312c0c29e30030c08202341">getNumBands</a> () const</td></tr>
 <tr class="memdesc:a5cf898f49312c0c29e30030c08202341"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the total number of bands this <a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html" title="An equalizer effect class.">EQ</a> owns.  <a href="classlemons_1_1dsp_1_1FX_1_1EQ.html#a5cf898f49312c0c29e30030c08202341">More...</a><br /></td></tr>
 <tr class="separator:a5cf898f49312c0c29e30030c08202341"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f4622860b9dbc9695902b03b621b45d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelemons_1_1dsp_1_1FX.html#af677b69672b943321404fc8bc88ff795">EQParams</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html#a0f4622860b9dbc9695902b03b621b45d">getParams</a> () const</td></tr>
+<tr class="memdesc:a0f4622860b9dbc9695902b03b621b45d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an EQParams object representing the state of this <a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html" title="An equalizer effect class.">EQ</a>.  <a href="classlemons_1_1dsp_1_1FX_1_1EQ.html#a0f4622860b9dbc9695902b03b621b45d">More...</a><br /></td></tr>
+<tr class="separator:a0f4622860b9dbc9695902b03b621b45d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4531658c83d3845b5910e3e23892d6c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html#a4531658c83d3845b5910e3e23892d6c0">prepare</a> (double samplerate, int blocksize) final</td></tr>
 <tr class="memdesc:a4531658c83d3845b5910e3e23892d6c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the <a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html" title="An equalizer effect class.">EQ</a>.  <a href="classlemons_1_1dsp_1_1FX_1_1EQ.html#a4531658c83d3845b5910e3e23892d6c0">More...</a><br /></td></tr>
 <tr class="separator:a4531658c83d3845b5910e3e23892d6c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab13ccfe5a8942bd8dca20d784355c721"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html#ab13ccfe5a8942bd8dca20d784355c721">process</a> (AudioBuffer&lt; SampleType &gt; &amp;audio) final</td></tr>
 <tr class="memdesc:ab13ccfe5a8942bd8dca20d784355c721"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the <a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html" title="An equalizer effect class.">EQ</a>.  <a href="classlemons_1_1dsp_1_1FX_1_1EQ.html#ab13ccfe5a8942bd8dca20d784355c721">More...</a><br /></td></tr>
 <tr class="separator:ab13ccfe5a8942bd8dca20d784355c721"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e4ceb5beb451ea72a81f1894567b8a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html#a5e4ceb5beb451ea72a81f1894567b8a4">setParams</a> (const <a class="el" href="namespacelemons_1_1dsp_1_1FX.html#af677b69672b943321404fc8bc88ff795">EQParams</a> &amp;params)</td></tr>
+<tr class="memdesc:a5e4ceb5beb451ea72a81f1894567b8a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores the state of an EQParams object.  <a href="classlemons_1_1dsp_1_1FX_1_1EQ.html#a5e4ceb5beb451ea72a81f1894567b8a4">More...</a><br /></td></tr>
+<tr class="separator:a5e4ceb5beb451ea72a81f1894567b8a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename SampleType&gt;<br />
 class lemons::dsp::FX::EQ&lt; SampleType &gt;</h3>
 
 <p>An equalizer effect class. </p>
-<p>This class holds a collection of <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html" title="A filter audio effect class.">Filter</a> effect objects and processes them in serial. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html" title="A filter audio effect class.">FX::Filter</a> </dd></dl>
+<p>This class holds a collection of <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html" title="A filter audio effect class that wraps the more low-level filters::Filter.">Filter</a> effect objects and processes them in serial. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html" title="A filter audio effect class that wraps the more low-level filters::Filter.">FX::Filter</a>, <a class="el" href="namespacelemons_1_1dsp_1_1FX.html#af677b69672b943321404fc8bc88ff795">EQParams</a>, <a class="el" href="structlemons_1_1dsp_1_1FX_1_1FilterParams.html" title="A struct that holds the parameters for a Filter effect.">FilterParams</a> </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a709af9303aa13d983fe6887f9ef5b521"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a709af9303aa13d983fe6887f9ef5b521">&#9670;&nbsp;</a></span>Band</h2>
@@ -144,6 +156,59 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a2dcdb60a42bb68a1f447336ee6127d1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dcdb60a42bb68a1f447336ee6127d1e">&#9670;&nbsp;</a></span>EQ() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html">lemons::dsp::FX::EQ</a>&lt; SampleType &gt;::<a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html">EQ</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a default <a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html" title="An equalizer effect class.">EQ</a> object. </p>
+<p>It will initially have no bands. </p>
+
+</div>
+</div>
+<a id="ad06d3b36761c46769761ca01e71c3c3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad06d3b36761c46769761ca01e71c3c3b">&#9670;&nbsp;</a></span>EQ() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html">lemons::dsp::FX::EQ</a>&lt; SampleType &gt;::<a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html">EQ</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1dsp_1_1FX.html#af677b69672b943321404fc8bc88ff795">EQParams</a> &amp;&#160;</td>
+          <td class="paramname"><em>params</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates an <a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html" title="An equalizer effect class.">EQ</a> from an EQParams object. </p>
 
 </div>
 </div>
@@ -169,7 +234,7 @@ template&lt;typename... Args&gt; </div>
 </div><div class="memdoc">
 
 <p>Creates and adds a new band to the <a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html" title="An equalizer effect class.">EQ</a>. </p>
-<p>The arguments are all passed to the constructor of <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html" title="A filter audio effect class.">FX::Filter</a>. </p>
+<p>The arguments are all passed to the constructor of <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html" title="A filter audio effect class that wraps the more low-level filters::Filter.">FX::Filter</a>. </p>
 
 <p class="reference">References <a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html#a0ee108b89a0976558ee529c4f240a81e">lemons::dsp::FX::EQ&lt; SampleType &gt;::addBand()</a>.</p>
 
@@ -228,6 +293,8 @@ template&lt;typename SampleType &gt; </div>
 
 <p>Notifies the effect when a bypassed block is recieved. </p>
 <p>Implementing this is optional. </p>
+
+<p>Reimplemented in <a class="el" href="classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html#a8335b506c3444b98f063652352100d65">lemons::dsp::FX::SmoothedGain&lt; SampleType, channels &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html#a8335b506c3444b98f063652352100d65">lemons::dsp::FX::SmoothedGain&lt; SampleType, 1 &gt;</a>, and <a class="el" href="classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html#a8335b506c3444b98f063652352100d65">lemons::dsp::FX::SmoothedGain&lt; float, 2 &gt;</a>.</p>
 
 </div>
 </div>
@@ -321,6 +388,27 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
+<a id="a0f4622860b9dbc9695902b03b621b45d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f4622860b9dbc9695902b03b621b45d">&#9670;&nbsp;</a></span>getParams()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacelemons_1_1dsp_1_1FX.html#af677b69672b943321404fc8bc88ff795">EQParams</a> <a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html">lemons::dsp::FX::EQ</a>&lt; SampleType &gt;::getParams </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns an EQParams object representing the state of this <a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html" title="An equalizer effect class.">EQ</a>. </p>
+
+</div>
+</div>
 <a id="a4531658c83d3845b5910e3e23892d6c0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4531658c83d3845b5910e3e23892d6c0">&#9670;&nbsp;</a></span>prepare()</h2>
 
@@ -396,13 +484,36 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
+<a id="a5e4ceb5beb451ea72a81f1894567b8a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e4ceb5beb451ea72a81f1894567b8a4">&#9670;&nbsp;</a></span>setParams()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html">lemons::dsp::FX::EQ</a>&lt; SampleType &gt;::setParams </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1dsp_1_1FX.html#af677b69672b943321404fc8bc88ff795">EQParams</a> &amp;&#160;</td>
+          <td class="paramname"><em>params</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Restores the state of an EQParams object. </p>
+<p>This may add or remove <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html" title="A filter audio effect class that wraps the more low-level filters::Filter.">Filter</a> objects owned by this <a class="el" href="classlemons_1_1dsp_1_1FX_1_1EQ.html" title="An equalizer effect class.">EQ</a>. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="EQ_8h.html">EQ.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 30 2021 20:06:22 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 30 2021 23:14:12 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -74,6 +74,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A simple compressor effect class that allows you to optionally sidechain the signal.  
+ <a href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#details">More...</a></p>
+
 <p><code>#include &lt;Compressor.h&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::dsp::FX::Compressor&lt; SampleType &gt;:</div>
@@ -87,7 +90,14 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a04d8d8563014eeb6c8a990df1a55b22e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#a04d8d8563014eeb6c8a990df1a55b22e">Compressor</a> ()</td></tr>
+<tr class="memdesc:a04d8d8563014eeb6c8a990df1a55b22e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a compressor with some default initial settings.  <a href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#a04d8d8563014eeb6c8a990df1a55b22e">More...</a><br /></td></tr>
 <tr class="separator:a04d8d8563014eeb6c8a990df1a55b22e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17a1b091245ca9188d24d5bdd2810f40"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#a17a1b091245ca9188d24d5bdd2810f40">Compressor</a> (<a class="el" href="structlemons_1_1dsp_1_1FX_1_1CompressorParams.html">CompressorParams</a> params)</td></tr>
+<tr class="memdesc:a17a1b091245ca9188d24d5bdd2810f40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a compressor from a <a class="el" href="structlemons_1_1dsp_1_1FX_1_1CompressorParams.html" title="Struct containing all parameters for a Compressor object.">CompressorParams</a> object.  <a href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#a17a1b091245ca9188d24d5bdd2810f40">More...</a><br /></td></tr>
+<tr class="separator:a17a1b091245ca9188d24d5bdd2810f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4c204cd9aaa6714bfb88614ea91de9e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#aa4c204cd9aaa6714bfb88614ea91de9e">Compressor</a> (float thresh, float ratioToUse, float attackMs, float releaseMs)</td></tr>
+<tr class="memdesc:aa4c204cd9aaa6714bfb88614ea91de9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a compressor with some initial settings.  <a href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#aa4c204cd9aaa6714bfb88614ea91de9e">More...</a><br /></td></tr>
+<tr class="separator:aa4c204cd9aaa6714bfb88614ea91de9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e2734ec1b7a89c566cbd2fe9b3592c8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html#a0e2734ec1b7a89c566cbd2fe9b3592c8">bypassedBlock</a> (int numSamples)</td></tr>
 <tr class="memdesc:a0e2734ec1b7a89c566cbd2fe9b3592c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies the effect when a bypassed block is recieved.  <a href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html#a0e2734ec1b7a89c566cbd2fe9b3592c8">More...</a><br /></td></tr>
 <tr class="separator:a0e2734ec1b7a89c566cbd2fe9b3592c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -103,8 +113,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a93a089c0564fa043b74c78ad2c8311cc"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#a93a089c0564fa043b74c78ad2c8311cc">getLevel</a> (int channel) const</td></tr>
 <tr class="memdesc:a93a089c0564fa043b74c78ad2c8311cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a level value for a certain channel.  <a href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#a93a089c0564fa043b74c78ad2c8311cc">More...</a><br /></td></tr>
 <tr class="separator:a93a089c0564fa043b74c78ad2c8311cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28f4b67bba441fc92c67fda527bebef5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1CompressorParams.html">CompressorParams</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#a28f4b67bba441fc92c67fda527bebef5">getParams</a> () const</td></tr>
+<tr class="memdesc:a28f4b67bba441fc92c67fda527bebef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="structlemons_1_1dsp_1_1FX_1_1CompressorParams.html" title="Struct containing all parameters for a Compressor object.">CompressorParams</a> object representing the state of this compressor.  <a href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#a28f4b67bba441fc92c67fda527bebef5">More...</a><br /></td></tr>
+<tr class="separator:a28f4b67bba441fc92c67fda527bebef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac39f2f984f9d38eaad3d99ab1f7b0a7a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#ac39f2f984f9d38eaad3d99ab1f7b0a7a">prepare</a> (double samplerate, int blocksize) final</td></tr>
-<tr class="memdesc:ac39f2f984f9d38eaad3d99ab1f7b0a7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives the effect a chance to prepare itself.  <a href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#ac39f2f984f9d38eaad3d99ab1f7b0a7a">More...</a><br /></td></tr>
+<tr class="memdesc:ac39f2f984f9d38eaad3d99ab1f7b0a7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the compressor.  <a href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#ac39f2f984f9d38eaad3d99ab1f7b0a7a">More...</a><br /></td></tr>
 <tr class="separator:ac39f2f984f9d38eaad3d99ab1f7b0a7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af83eabef85b031658c1963012544609b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#af83eabef85b031658c1963012544609b">process</a> (AudioBuffer&lt; SampleType &gt; &amp;audio) final</td></tr>
 <tr class="memdesc:af83eabef85b031658c1963012544609b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the effect with the signal sidechained to itself.  <a href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#af83eabef85b031658c1963012544609b">More...</a><br /></td></tr>
@@ -112,22 +125,40 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a86b4201e9da1bc16b9498adf879d2256"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#a86b4201e9da1bc16b9498adf879d2256">process</a> (AudioBuffer&lt; SampleType &gt; &amp;inOut, const AudioBuffer&lt; SampleType &gt; &amp;sidechain) final</td></tr>
 <tr class="memdesc:a86b4201e9da1bc16b9498adf879d2256"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the effect with a sidechain signal.  <a href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#a86b4201e9da1bc16b9498adf879d2256">More...</a><br /></td></tr>
 <tr class="separator:a86b4201e9da1bc16b9498adf879d2256"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af328eee8e0467199bf2a416358379a1d"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#af328eee8e0467199bf2a416358379a1d">processChannel</a> (int channel, int numSamples, SampleType *signalToCompress, const SampleType *sidechain) final</td></tr>
+<tr class="memdesc:af328eee8e0467199bf2a416358379a1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes a single channel of audio.  <a href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#af328eee8e0467199bf2a416358379a1d">More...</a><br /></td></tr>
+<tr class="separator:af328eee8e0467199bf2a416358379a1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9caa8d522fb54d8a5621a79a23e9da77"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#a9caa8d522fb54d8a5621a79a23e9da77">processSample</a> (int channel, SampleType inputSample, SampleType sidechainSample, SampleType *gainReduction)</td></tr>
+<tr class="memdesc:a9caa8d522fb54d8a5621a79a23e9da77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes a single sample.  <a href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#a9caa8d522fb54d8a5621a79a23e9da77">More...</a><br /></td></tr>
 <tr class="separator:a9caa8d522fb54d8a5621a79a23e9da77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a951a48cf35955cfb272877193ddf783d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#a951a48cf35955cfb272877193ddf783d">reset</a> ()</td></tr>
+<tr class="memdesc:a951a48cf35955cfb272877193ddf783d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the compressor's internal state to a neutral one.  <a href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#a951a48cf35955cfb272877193ddf783d">More...</a><br /></td></tr>
 <tr class="separator:a951a48cf35955cfb272877193ddf783d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adfa2f022270f9f3bc9e5ec7731c4e2e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#adfa2f022270f9f3bc9e5ec7731c4e2e9">setAttack</a> (float attackMs)</td></tr>
+<tr class="memdesc:adfa2f022270f9f3bc9e5ec7731c4e2e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the compressor's attack time in milliseconds.  <a href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#adfa2f022270f9f3bc9e5ec7731c4e2e9">More...</a><br /></td></tr>
 <tr class="separator:adfa2f022270f9f3bc9e5ec7731c4e2e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a025f2f452bc56c52d9930c7259b5d5d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#a025f2f452bc56c52d9930c7259b5d5d1">setParams</a> (<a class="el" href="structlemons_1_1dsp_1_1FX_1_1CompressorParams.html">CompressorParams</a> params)</td></tr>
+<tr class="memdesc:a025f2f452bc56c52d9930c7259b5d5d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores the state of a <a class="el" href="structlemons_1_1dsp_1_1FX_1_1CompressorParams.html" title="Struct containing all parameters for a Compressor object.">CompressorParams</a> object.  <a href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#a025f2f452bc56c52d9930c7259b5d5d1">More...</a><br /></td></tr>
+<tr class="separator:a025f2f452bc56c52d9930c7259b5d5d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7985c29151ff171797f73d7768b9716e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#a7985c29151ff171797f73d7768b9716e">setRatio</a> (float newRatio)</td></tr>
+<tr class="memdesc:a7985c29151ff171797f73d7768b9716e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the compression ratio.  <a href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#a7985c29151ff171797f73d7768b9716e">More...</a><br /></td></tr>
 <tr class="separator:a7985c29151ff171797f73d7768b9716e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07029a42eab5af1698331acd714fa533"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#a07029a42eab5af1698331acd714fa533">setRelease</a> (float releaseMs)</td></tr>
+<tr class="memdesc:a07029a42eab5af1698331acd714fa533"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the compressor's release time in milliseconds.  <a href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#a07029a42eab5af1698331acd714fa533">More...</a><br /></td></tr>
 <tr class="separator:a07029a42eab5af1698331acd714fa533"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a401f36fcf010190dfdb74e6a707c3e7c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#a401f36fcf010190dfdb74e6a707c3e7c">setThreshold</a> (float newThresh_dB)</td></tr>
+<tr class="memdesc:a401f36fcf010190dfdb74e6a707c3e7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the threshold, in decidebls, of the compressor.  <a href="classlemons_1_1dsp_1_1FX_1_1Compressor.html#a401f36fcf010190dfdb74e6a707c3e7c">More...</a><br /></td></tr>
 <tr class="separator:a401f36fcf010190dfdb74e6a707c3e7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename SampleType&gt;<br />
+class lemons::dsp::FX::Compressor&lt; SampleType &gt;</h3>
+
+<p>A simple compressor effect class that allows you to optionally sidechain the signal. </p>
+<p>This class is essentially a refactor of the compressor class from the juce dsp module, with the sidechaining capabilities added. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1dsp_1_1FX_1_1CompressorParams.html" title="Struct containing all parameters for a Compressor object.">CompressorParams</a>, <a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html" title="Base class for audio effects that can report their level or gain reduction.">LevelReportingAudioEffect</a>, <a class="el" href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html" title="Base class for any kind of audio effect.">AudioEffect</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a04d8d8563014eeb6c8a990df1a55b22e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04d8d8563014eeb6c8a990df1a55b22e">&#9670;&nbsp;</a></span>Compressor()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a04d8d8563014eeb6c8a990df1a55b22e">&#9670;&nbsp;</a></span>Compressor() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -142,6 +173,74 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates a compressor with some default initial settings. </p>
+
+</div>
+</div>
+<a id="aa4c204cd9aaa6714bfb88614ea91de9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4c204cd9aaa6714bfb88614ea91de9e">&#9670;&nbsp;</a></span>Compressor() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Compressor.html">lemons::dsp::FX::Compressor</a>&lt; SampleType &gt;::<a class="el" href="classlemons_1_1dsp_1_1FX_1_1Compressor.html">Compressor</a> </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>thresh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>ratioToUse</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>attackMs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>releaseMs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a compressor with some initial settings. </p>
+
+</div>
+</div>
+<a id="a17a1b091245ca9188d24d5bdd2810f40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17a1b091245ca9188d24d5bdd2810f40">&#9670;&nbsp;</a></span>Compressor() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Compressor.html">lemons::dsp::FX::Compressor</a>&lt; SampleType &gt;::<a class="el" href="classlemons_1_1dsp_1_1FX_1_1Compressor.html">Compressor</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1CompressorParams.html">CompressorParams</a>&#160;</td>
+          <td class="paramname"><em>params</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a compressor from a <a class="el" href="structlemons_1_1dsp_1_1FX_1_1CompressorParams.html" title="Struct containing all parameters for a Compressor object.">CompressorParams</a> object. </p>
 
 </div>
 </div>
@@ -174,6 +273,8 @@ template&lt;typename SampleType &gt; </div>
 
 <p>Notifies the effect when a bypassed block is recieved. </p>
 <p>Implementing this is optional. </p>
+
+<p>Reimplemented in <a class="el" href="classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html#a8335b506c3444b98f063652352100d65">lemons::dsp::FX::SmoothedGain&lt; SampleType, channels &gt;</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html#a8335b506c3444b98f063652352100d65">lemons::dsp::FX::SmoothedGain&lt; SampleType, 1 &gt;</a>, and <a class="el" href="classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html#a8335b506c3444b98f063652352100d65">lemons::dsp::FX::SmoothedGain&lt; float, 2 &gt;</a>.</p>
 
 </div>
 </div>
@@ -299,6 +400,27 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
+<a id="a28f4b67bba441fc92c67fda527bebef5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28f4b67bba441fc92c67fda527bebef5">&#9670;&nbsp;</a></span>getParams()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1CompressorParams.html">CompressorParams</a> <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Compressor.html">lemons::dsp::FX::Compressor</a>&lt; SampleType &gt;::getParams </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a <a class="el" href="structlemons_1_1dsp_1_1FX_1_1CompressorParams.html" title="Struct containing all parameters for a Compressor object.">CompressorParams</a> object representing the state of this compressor. </p>
+
+</div>
+</div>
 <a id="ac39f2f984f9d38eaad3d99ab1f7b0a7a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac39f2f984f9d38eaad3d99ab1f7b0a7a">&#9670;&nbsp;</a></span>prepare()</h2>
 
@@ -335,8 +457,7 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Gives the effect a chance to prepare itself. </p>
-<p>Implementing this is optional. </p>
+<p>Prepares the compressor. </p>
 
 <p>Reimplemented from <a class="el" href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html#a97b60e3696ef3e25e4fe24b4448ec4f1">lemons::dsp::FX::AudioEffect&lt; SampleType &gt;</a>.</p>
 
@@ -416,6 +537,70 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
+<a id="af328eee8e0467199bf2a416358379a1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af328eee8e0467199bf2a416358379a1d">&#9670;&nbsp;</a></span>processChannel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SampleType <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Compressor.html">lemons::dsp::FX::Compressor</a>&lt; SampleType &gt;::processChannel </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numSamples</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SampleType *&#160;</td>
+          <td class="paramname"><em>signalToCompress</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const SampleType *&#160;</td>
+          <td class="paramname"><em>sidechain</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Processes a single channel of audio. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>The channel number that this input sample is from, in the original buffer. </td></tr>
+    <tr><td class="paramname">numSamples</td><td>The number of samples to process. </td></tr>
+    <tr><td class="paramname">signalToCompress</td><td>Pointer to contiguous uncompressed input sample values. </td></tr>
+    <tr><td class="paramname">sidechain</td><td>Pointer to contiguous sidechain signal values. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The gain reduction amount for this frame of this channel's audio. </dd></dl>
+
+<p>Implements <a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#a741af352762825c91302203d89257c64">lemons::dsp::FX::LevelReportingAudioEffect&lt; SampleType &gt;</a>.</p>
+
+</div>
+</div>
 <a id="a9caa8d522fb54d8a5621a79a23e9da77"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9caa8d522fb54d8a5621a79a23e9da77">&#9670;&nbsp;</a></span>processSample()</h2>
 
@@ -456,6 +641,18 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Processes a single sample. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>The channel number that this input sample is from, in the original buffer. </td></tr>
+    <tr><td class="paramname">inputSample</td><td>The value of the uncompressed input sample. </td></tr>
+    <tr><td class="paramname">sidechainSample</td><td>The value of the sidechain sample. </td></tr>
+    <tr><td class="paramname">gainReduction</td><td>Pointer to where to write the gain reduction value for this sample. This may be null. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The output compressed sample. </dd></dl>
+
 </div>
 </div>
 <a id="a951a48cf35955cfb272877193ddf783d"></a>
@@ -474,6 +671,8 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Resets the compressor's internal state to a neutral one. </p>
 
 </div>
 </div>
@@ -495,6 +694,30 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the compressor's attack time in milliseconds. </p>
+
+</div>
+</div>
+<a id="a025f2f452bc56c52d9930c7259b5d5d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a025f2f452bc56c52d9930c7259b5d5d1">&#9670;&nbsp;</a></span>setParams()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Compressor.html">lemons::dsp::FX::Compressor</a>&lt; SampleType &gt;::setParams </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1CompressorParams.html">CompressorParams</a>&#160;</td>
+          <td class="paramname"><em>params</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Restores the state of a <a class="el" href="structlemons_1_1dsp_1_1FX_1_1CompressorParams.html" title="Struct containing all parameters for a Compressor object.">CompressorParams</a> object. </p>
+
 </div>
 </div>
 <a id="a7985c29151ff171797f73d7768b9716e"></a>
@@ -514,6 +737,8 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the compression ratio. </p>
 
 </div>
 </div>
@@ -535,6 +760,8 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the compressor's release time in milliseconds. </p>
+
 </div>
 </div>
 <a id="a401f36fcf010190dfdb74e6a707c3e7c"></a>
@@ -555,6 +782,8 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the threshold, in decidebls, of the compressor. </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -563,7 +792,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Sep 30 2021 20:06:22 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 30 2021 23:14:12 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

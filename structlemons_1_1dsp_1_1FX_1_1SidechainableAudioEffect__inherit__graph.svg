@@ -116,7 +116,7 @@ var sectionId = 'dynsection-0';
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="classlemons_1_1dsp_1_1FX_1_1Compressor.html" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="classlemons_1_1dsp_1_1FX_1_1Compressor.html" target="_top" xlink:title="A simple compressor effect class that allows you to optionally sidechain the signal.">
 <polygon fill="none" stroke="black" points="711.5,-245.5 711.5,-275.5 870.5,-275.5 870.5,-245.5 711.5,-245.5"/>
 <text text-anchor="start" x="719.5" y="-263.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::Compressor</text>
 <text text-anchor="middle" x="791" y="-252.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>
@@ -132,7 +132,7 @@ var sectionId = 'dynsection-0';
 <!-- Node6 -->
 <g id="node6" class="node">
 <title>Node6</title>
-<g id="a_node6"><a xlink:href="classlemons_1_1dsp_1_1FX_1_1DeEsser.html" target="_top" xlink:title=" ">
+<g id="a_node6"><a xlink:href="classlemons_1_1dsp_1_1FX_1_1DeEsser.html" target="_top" xlink:title="A basic &quot;de&#45;esser&quot; effect class.">
 <polygon fill="none" stroke="black" points="721,-196.5 721,-226.5 861,-226.5 861,-196.5 721,-196.5"/>
 <text text-anchor="start" x="729" y="-214.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::DeEsser</text>
 <text text-anchor="middle" x="791" y="-203.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>
@@ -164,7 +164,7 @@ var sectionId = 'dynsection-0';
 <!-- Node8 -->
 <g id="node8" class="node">
 <title>Node8</title>
-<g id="a_node8"><a xlink:href="classlemons_1_1dsp_1_1FX_1_1Limiter.html" target="_top" xlink:title=" ">
+<g id="a_node8"><a xlink:href="classlemons_1_1dsp_1_1FX_1_1Limiter.html" target="_top" xlink:title="A simple limiter effect class that allows you to optionally sidechain the signal.">
 <polygon fill="none" stroke="black" points="723.5,-98.5 723.5,-128.5 858.5,-128.5 858.5,-98.5 723.5,-98.5"/>
 <text text-anchor="start" x="731.5" y="-116.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::Limiter</text>
 <text text-anchor="middle" x="791" y="-105.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>
@@ -180,7 +180,7 @@ var sectionId = 'dynsection-0';
 <!-- Node9 -->
 <g id="node9" class="node">
 <title>Node9</title>
-<g id="a_node9"><a xlink:href="classlemons_1_1dsp_1_1FX_1_1NoiseGate.html" target="_top" xlink:title=" ">
+<g id="a_node9"><a xlink:href="classlemons_1_1dsp_1_1FX_1_1NoiseGate.html" target="_top" xlink:title="A simple noise gate effect class that allows you to optionally sidechain the signal.">
 <polygon fill="none" stroke="black" points="715,-49.5 715,-79.5 867,-79.5 867,-49.5 715,-49.5"/>
 <text text-anchor="start" x="723" y="-67.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::NoiseGate</text>
 <text text-anchor="middle" x="791" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>
