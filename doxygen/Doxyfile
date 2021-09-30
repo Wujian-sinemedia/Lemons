@@ -272,24 +272,11 @@ HIDE_SCOPE_NAMES       = NO
 
 HIDE_COMPOUND_REFERENCE= NO
 
-# If the SHOW_INCLUDE_FILES tag is set to YES then doxygen will put a list of
-# the files that are included by a file in the documentation of that file.
-# The default value is: YES.
-
 SHOW_INCLUDE_FILES     = NO
-
-# If the INLINE_INFO tag is set to YES then a tag [inline] is inserted in the
-# documentation for inline members.
-# The default value is: YES.
 
 INLINE_INFO            = NO
 
-# If the SORT_MEMBER_DOCS tag is set to YES then doxygen will sort the
-# (detailed) documentation of file and class members alphabetically by member
-# name. If set to NO, the members will appear in declaration order.
-# The default value is: YES.
-
-SORT_MEMBER_DOCS       = NO
+SHOW_HEADERFILE        = NO
 
 # If the SORT_BRIEF_DOCS tag is set to YES then doxygen will sort the brief
 # descriptions of file, namespace and class members alphabetically by member
@@ -297,19 +284,9 @@ SORT_MEMBER_DOCS       = NO
 # this will also influence the order of the classes in the class list.
 # The default value is: NO.
 
-SORT_BRIEF_DOCS        = NO
+SORT_BRIEF_DOCS        = YES
 
-# If the SORT_MEMBERS_CTORS_1ST tag is set to YES then doxygen will sort the
-# (brief and detailed) documentation of class members so that constructors and
-# destructors are listed first. If set to NO the constructors will appear in the
-# respective orders defined by SORT_BRIEF_DOCS and SORT_MEMBER_DOCS.
-# Note: If SORT_BRIEF_DOCS is set to NO this option is ignored for sorting brief
-# member documentation.
-# Note: If SORT_MEMBER_DOCS is set to NO this option is ignored for sorting
-# detailed member documentation.
-# The default value is: NO.
-
-SORT_MEMBERS_CTORS_1ST = NO
+SORT_MEMBERS_CTORS_1ST = YES
 
 # If the SORT_GROUP_NAMES tag is set to YES then doxygen will sort the hierarchy
 # of group names into alphabetical order. If set to NO the group names will

@@ -28,7 +28,7 @@ The sanitizers "address", "memory" and "thread" are mutually exclusive.  You can
 If enabled, uses [the fork of JUCE that enables compiling to LV2 on Linux](https://github.com/lv2-porting-project/JUCE/tree/lv2). Note that this option changes nothing if you're not on Linux.
 
 ### LEMONS_COPY_TO_DEPLOY_FOLDER 
-If enabled, copies each product's binaries to /Builds/deploy/<ProductName>. Convenient for CI.
+If enabled, copies each product's binaries to /Builds/deploy/{ProductName}. Convenient for CI.
 
 ---
 
