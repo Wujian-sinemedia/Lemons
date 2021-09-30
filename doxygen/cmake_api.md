@@ -2,6 +2,36 @@
 
 ---
 
+## Options
+
+### LEMONS_CXX_VERSION
+Defines the C++ language standard used for all targets configured using the Lemons CMake API. Defaults to 20.
+
+### LEMONS_AAX_SDK_PATH
+If you are an Avid developer, you can set this variable to the absolute path of the AAX SDK repo root to enable using the AAX plugin format. If this is set, the Lemons CMake scripts will attempt to build the AAX SDK when you add the Lemons package (note that this is currently only supported with the XCode and MSVC generators).
+
+### LEMONS_SANITIZERS_TO_ENABLE
+An optional list of sanitizers to enable. Currently only supported with GNU, Clang, or MSVC compilers.
+The options are:
+- address
+- memory
+- thread
+- leak
+- undefined
+- fuzzer
+
+The sanitizers "address", "memory" and "thread" are mutually exclusive.  You cannot enable two of them in the same build.
+
+"leak" requires the  "address" sanitizer.
+
+### LEMONS_USE_LV2_JUCE
+If enabled, uses [the fork of JUCE that enables compiling to LV2 on Linux](https://github.com/lv2-porting-project/JUCE/tree/lv2). Note that this option changes nothing if you're not on Linux.
+
+### LEMONS_COPY_TO_DEPLOY_FOLDER 
+If enabled, copies each product's binaries to /Builds/deploy/<ProductName>. Convenient for CI.
+
+---
+
 ## Functions
 
 ### lemons_configure_juce_plugin & lemons_configure_juce_app
