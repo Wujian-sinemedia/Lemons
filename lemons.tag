@@ -14195,13 +14195,6 @@
       <anchor>a1f6fef37d0aeadce5a8835915667626b</anchor>
       <arglist>()</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~Reverb</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Reverb.html</anchorfile>
-      <anchor>ad40ee5bccbe4910d9eb05259a086fb6d</anchor>
-      <arglist>()=default</arglist>
-    </member>
     <member kind="function">
       <type>void</type>
       <name>prepare</name>
