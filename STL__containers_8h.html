@@ -69,7 +69,6 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">STL_containers.h File Reference</div>  </div>
@@ -78,7 +77,17 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1isContainer_3_01std_1_1array_3_01ElementType_00_01size_01_4_01_4.html">lemons::serializing::TreeReflectorHelpers::isContainer&lt; std::array&lt; ElementType, size &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1isContainer_3_01std_1_1list_3_01ElementType_01_4_01_4.html">lemons::serializing::TreeReflectorHelpers::isContainer&lt; std::list&lt; ElementType &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1isContainer_3_01std_1_1vector_3_01ElementType_01_4_01_4.html">lemons::serializing::TreeReflectorHelpers::isContainer&lt; std::vector&lt; ElementType &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1StdArrayInterface.html">lemons::serializing::TreeReflectorHelpers::StdArrayInterface&lt; ElementType, size &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1StdListInterface.html">lemons::serializing::TreeReflectorHelpers::StdListInterface&lt; ElementType &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1StdVectorInterface.html">lemons::serializing::TreeReflectorHelpers::StdVectorInterface&lt; ElementType &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -90,59 +99,22 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacelemons_1_1serializing_1_1TreeReflectorHelpers"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html">lemons::serializing::TreeReflectorHelpers</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a69f33a103c8140bfa98ee46807d415a2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="STL__containers_8h.html#a69f33a103c8140bfa98ee46807d415a2">BV_TRF_DECLARE_STL_INTERFACE</a>(STLClass,  InterfaceClassName)</td></tr>
-<tr class="separator:a69f33a103c8140bfa98ee46807d415a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a5eb0df1c90aecd4192948111d6051ba5"><td class="memTemplParams" colspan="2">template&lt;typename ElementType , size_t size&gt; </td></tr>
 <tr class="memitem:a5eb0df1c90aecd4192948111d6051ba5"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; ContainerInterface &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a5eb0df1c90aecd4192948111d6051ba5">lemons::serializing::TreeReflectorHelpers::getInterfaceForContainer</a> (std::array&lt; ElementType, size &gt; &amp;container)</td></tr>
 <tr class="separator:a5eb0df1c90aecd4192948111d6051ba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5dfa18943d61ac7933a6a3fc8f66ccb5"><td class="memTemplParams" colspan="2">template&lt;typename ElementType , size_t size&gt; </td></tr>
-<tr class="memitem:a5dfa18943d61ac7933a6a3fc8f66ccb5"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a5dfa18943d61ac7933a6a3fc8f66ccb5">lemons::serializing::TreeReflectorHelpers::isContainer</a> (std::array&lt; ElementType, size &gt; &amp;)</td></tr>
-<tr class="separator:a5dfa18943d61ac7933a6a3fc8f66ccb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af312216aa634ce1edfb826a3156acef6"><td class="memTemplParams" colspan="2">template&lt;typename ElementType &gt; </td></tr>
-<tr class="memitem:af312216aa634ce1edfb826a3156acef6"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#af312216aa634ce1edfb826a3156acef6">lemons::serializing::TreeReflectorHelpers::isContainer</a> (std::vector&lt; ElementType &gt; &amp;)</td></tr>
-<tr class="separator:af312216aa634ce1edfb826a3156acef6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc3f4b997aa389f9867dd0a825ac2fe9"><td class="memTemplParams" colspan="2">template&lt;typename ElementType &gt; </td></tr>
+<tr class="memitem:abc3f4b997aa389f9867dd0a825ac2fe9"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; ContainerInterface &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#abc3f4b997aa389f9867dd0a825ac2fe9">lemons::serializing::TreeReflectorHelpers::getInterfaceForContainer</a> (std::list&lt; ElementType &gt; &amp;container)</td></tr>
+<tr class="separator:abc3f4b997aa389f9867dd0a825ac2fe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d38f88b10d9e6707d06ae52ae8d5095"><td class="memTemplParams" colspan="2">template&lt;typename ElementType &gt; </td></tr>
+<tr class="memitem:a2d38f88b10d9e6707d06ae52ae8d5095"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; ContainerInterface &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a2d38f88b10d9e6707d06ae52ae8d5095">lemons::serializing::TreeReflectorHelpers::getInterfaceForContainer</a> (std::vector&lt; ElementType &gt; &amp;container)</td></tr>
+<tr class="separator:a2d38f88b10d9e6707d06ae52ae8d5095"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a69f33a103c8140bfa98ee46807d415a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69f33a103c8140bfa98ee46807d415a2">&#9670;&nbsp;</a></span>BV_TRF_DECLARE_STL_INTERFACE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define BV_TRF_DECLARE_STL_INTERFACE</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">STLClass, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">InterfaceClassName&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    <a class="code" href="ContainerInterface_8h.html#a1bf9f381f2df9057e43441127d5acdb5">BV_TRF_DECLARE_CONTAINER_INTERFACE</a> (STLClass, InterfaceClassName, \</div>
-<div class="line">                                        container.resize (<span class="keyword">static_cast&lt;</span> typename STLClass&lt; ElementType &gt;::size_type <span class="keyword">&gt;</span> (newSize)))</div>
-</div><!-- fragment -->
-</div>
-</div>
 </div><!-- contents -->
-<div class="ttc" id="aContainerInterface_8h_html_a1bf9f381f2df9057e43441127d5acdb5"><div class="ttname"><a href="ContainerInterface_8h.html#a1bf9f381f2df9057e43441127d5acdb5">BV_TRF_DECLARE_CONTAINER_INTERFACE</a></div><div class="ttdeci">#define BV_TRF_DECLARE_CONTAINER_INTERFACE(ContainerClass, InterfaceClassName, operationToResize)</div><div class="ttdef"><b>Definition:</b> ContainerInterface.h:23</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 1 2021 17:54:02 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 1 2021 19:34:22 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

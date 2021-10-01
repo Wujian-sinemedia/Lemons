@@ -1,5 +1,8 @@
 <map id="lemons::serializing::TreeReflectorHelpers::ContainerInterface" name="lemons::serializing::TreeReflectorHelpers::ContainerInterface">
-<area shape="rect" id="node1" title=" " alt="" coords="5,61,171,117"/>
-<area shape="rect" id="node2" href="$structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1JuceOwnedArrayInterface.html" title=" " alt="" coords="228,5,423,76"/>
-<area shape="rect" id="node3" href="$structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1StdArrayInterface.html" title=" " alt="" coords="219,100,432,171"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,202,171,258"/>
+<area shape="rect" id="node2" href="$structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1JuceArrayInterface.html" title=" " alt="" coords="259,5,425,76"/>
+<area shape="rect" id="node3" href="$structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1JuceOwnedArrayInterface.html" title=" " alt="" coords="245,100,439,171"/>
+<area shape="rect" id="node4" href="$structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1StdArrayInterface.html" title=" " alt="" coords="235,195,449,265"/>
+<area shape="rect" id="node5" href="$structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1StdListInterface.html" title=" " alt="" coords="219,290,465,346"/>
+<area shape="rect" id="node6" href="$structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1StdVectorInterface.html" title=" " alt="" coords="259,371,425,441"/>
 </map>

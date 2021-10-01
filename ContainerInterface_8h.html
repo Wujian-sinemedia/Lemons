@@ -69,7 +69,6 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">ContainerInterface.h File Reference</div>  </div>
@@ -79,6 +78,8 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1ContainerInterface.html">lemons::serializing::TreeReflectorHelpers::ContainerInterface</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1isContainer.html">lemons::serializing::TreeReflectorHelpers::isContainer&lt; Type &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -90,84 +91,16 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacelemons_1_1serializing_1_1TreeReflectorHelpers"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html">lemons::serializing::TreeReflectorHelpers</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a1bf9f381f2df9057e43441127d5acdb5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ContainerInterface_8h.html#a1bf9f381f2df9057e43441127d5acdb5">BV_TRF_DECLARE_CONTAINER_INTERFACE</a>(ContainerClass,  InterfaceClassName,  operationToResize)</td></tr>
-<tr class="separator:a1bf9f381f2df9057e43441127d5acdb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a3f37175ae049f68025e6a6bc1c0096db"><td class="memTemplParams" colspan="2">template&lt;typename ContainerType &gt; </td></tr>
 <tr class="memitem:a3f37175ae049f68025e6a6bc1c0096db"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; ContainerInterface &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a3f37175ae049f68025e6a6bc1c0096db">lemons::serializing::TreeReflectorHelpers::getInterfaceForContainer</a> (ContainerType &amp;)</td></tr>
 <tr class="separator:a3f37175ae049f68025e6a6bc1c0096db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae732f3d1e1ed355bbe9d463bfbfc71bc"><td class="memTemplParams" colspan="2">template&lt;class Type &gt; </td></tr>
-<tr class="memitem:ae732f3d1e1ed355bbe9d463bfbfc71bc"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#ae732f3d1e1ed355bbe9d463bfbfc71bc">lemons::serializing::TreeReflectorHelpers::isContainer</a> ()</td></tr>
-<tr class="separator:ae732f3d1e1ed355bbe9d463bfbfc71bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a1bf9f381f2df9057e43441127d5acdb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1bf9f381f2df9057e43441127d5acdb5">&#9670;&nbsp;</a></span>BV_TRF_DECLARE_CONTAINER_INTERFACE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define BV_TRF_DECLARE_CONTAINER_INTERFACE</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">ContainerClass, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">InterfaceClassName, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">operationToResize&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">template</span> &lt; <span class="keyword">typename</span> ElementType &gt;                                                                         \</div>
-<div class="line">    struct InterfaceClassName : ContainerInterface                                                            \</div>
-<div class="line">    {                                                                                                         \</div>
-<div class="line">        using Type = ContainerClass&lt; ElementType &gt;;                                                           \</div>
-<div class="line">                                                                                                              \</div>
-<div class="line">        InterfaceClassName (Type&amp; containerToUse)                                                             \</div>
-<div class="line">            : container (containerToUse)                                                                      \</div>
-<div class="line">        {                                                                                                     \</div>
-<div class="line">        }                                                                                                     \</div>
-<div class="line">                                                                                                              \</div>
-<div class="line">    private:                                                                                                  \</div>
-<div class="line">        void resize (<span class="keywordtype">int</span> newSize) <span class="keyword">final</span>                                                                       \</div>
-<div class="line">        {                                                                                                     \</div>
-<div class="line">            operationToResize;                                                                                \</div>
-<div class="line">        }                                                                                                     \</div>
-<div class="line">                                                                                                              \</div>
-<div class="line">        Type&amp; container;                                                                                      \</div>
-<div class="line">    };                                                                                                        \</div>
-<div class="line">                                                                                                              \</div>
-<div class="line">    template &lt; typename ElementType &gt;                                                                         \</div>
-<div class="line">    std::unique_ptr&lt; ContainerInterface &gt; <a class="code" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a3f37175ae049f68025e6a6bc1c0096db">getInterfaceForContainer</a> (ContainerClass&lt; ElementType &gt;&amp; container) \</div>
-<div class="line">    {                                                                                                         \</div>
-<div class="line">        return std::make_unique&lt; InterfaceClassName&lt; ElementType &gt; &gt; (container);                             \</div>
-<div class="line">    }</div>
-</div><!-- fragment -->
-</div>
-</div>
 </div><!-- contents -->
-<div class="ttc" id="anamespacelemons_1_1serializing_1_1TreeReflectorHelpers_html_a3f37175ae049f68025e6a6bc1c0096db"><div class="ttname"><a href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a3f37175ae049f68025e6a6bc1c0096db">lemons::serializing::TreeReflectorHelpers::getInterfaceForContainer</a></div><div class="ttdeci">std::unique_ptr&lt; ContainerInterface &gt; getInterfaceForContainer(ContainerType &amp;)</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 1 2021 17:54:02 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 1 2021 19:34:22 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
