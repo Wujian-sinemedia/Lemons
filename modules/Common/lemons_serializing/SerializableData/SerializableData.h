@@ -13,7 +13,7 @@ struct SerializableData
 {
     /**
         Creates a serializable object.
-        The identifier argument is optional, and really only needed for an app/plugin's top-level state object; usually, when building a heirarchy of serializable objects that include other serializable objects, you'll use the TreeReflector::add() API, and the property name you pass to that function call will override the child serializable object's identifier.
+        The identifier argument is optional, and really only needed for an app/plugin's top-level state object; usually, when building a heirarchy of serializable objects that include other serializable objects, you'll use the TreeReflector::add() API, and the property name you pass to that function call will override the child serializable object's identifier. \n
         The only time this class uses the identifier passed at construction time is when you call serialize() with no parameters -- this will give you a ValueTree whose top-level type is the identifier passed to the serializable object's constructor.
      */
     SerializableData (juce::Identifier identifier = "Data");
@@ -44,8 +44,8 @@ private:
 
     /**
         Implement this function for your derived type's custom serializing logic.
-        This function will be called for both loading and saving. If your object is being loaded, the TreeReflector passed to this function will be a TreeLoader; otherwise, it will be a TreeSaver.
-        There are two main ways of implementing TreeReflector serialization logic.
+        This function will be called for both loading and saving. If your object is being loaded, the TreeReflector passed to this function will be a TreeLoader; otherwise, it will be a TreeSaver. \n
+        There are two main ways of implementing TreeReflector serialization logic. \n
         You can use TreeReflector::add() with normal data members:
         @code
         struct SomethingSerializable : lemons::SerializableData
@@ -60,7 +60,7 @@ private:
             }
         };
         @endcode
-        The add method also works for containers -- if it's a standard type or if you've implemented ContainerInterface, getInterfaceForContainer(), and isContainer, then calling TreeReflector::add() will create a sub-tree in your object's main ValueTree that represents this container, then it will step through the container using a range-based for loop, calling TreeReflector::add() on each element sequentially.
+        The add method also works for containers -- if it's a standard type or if you've implemented ContainerInterface, getInterfaceForContainer(), and isContainer, then calling TreeReflector::add() will create a sub-tree in your object's main ValueTree that represents this container, then it will step through the container using a range-based for loop, calling TreeReflector::add() on each element sequentially. \n
      
         You can also use TreeReflector::addLambdaSet() if you need to call functions of your object to save or load attributes:
         @code
@@ -86,7 +86,7 @@ private:
         };
         @endcode
         If your object requires more low-level control or complex logic, you can also use TreeReflector::getRawDataTree(), and you can query TreeReflector::isLoading() or TreeReflector::isSaving().
-        @see TreeReflector
+        @see TreeReflector serializing::toVar(), serializing::fromVar(), serializing::ContainerInterface, serializing::getInterfaceForContainer(), serializing::isContainer
      */
     virtual void serialize (TreeReflector& ref) = 0;
 

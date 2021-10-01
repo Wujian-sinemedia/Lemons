@@ -3,22 +3,15 @@
 namespace lemons::serializing
 {
 template < typename ElementType >
-struct JuceArrayInterface : ContainerInterface
+struct JuceArrayInterface : LambdaContainerInterface< juce::Array< ElementType > >
 {
-    using Type = juce::Array< ElementType >;
+    using Container = juce::Array< ElementType >;
 
-    JuceArrayInterface (Type& containerToUse)
-        : container (containerToUse)
+    JuceArrayInterface (Container& container)
+        : LambdaContainerInterface< Container > (container, [] (Container& c, int newSize)
+                                                 { c.resize (newSize); })
     {
     }
-
-private:
-    void resize (int newSize) final
-    {
-        container.resize (newSize);
-    }
-
-    Type& container;
 };
 
 template < typename ElementType >
@@ -38,28 +31,23 @@ struct isContainer< juce::Array< ElementType > > : std::true_type
 
 
 template < typename ElementType >
-struct JuceOwnedArrayInterface : ContainerInterface
+struct JuceOwnedArrayInterface : LambdaContainerInterface< juce::OwnedArray< ElementType > >
 {
-    using Type = juce::OwnedArray< ElementType >;
+    using Container = juce::OwnedArray< ElementType >;
 
-    JuceOwnedArrayInterface (Type& containerToUse)
-        : container (containerToUse)
+    JuceOwnedArrayInterface (Container& container)
+        : LambdaContainerInterface< Container > (container, [] (Container& c, int newSize)
+                                                 {
+                                                     const auto prevSize = c.size();
+
+                                                     for (int i = newSize; i < prevSize; ++i)
+                                                         c.remove (i, true);
+
+                                                     for (int i = prevSize; i < newSize; ++i)
+                                                         c.add (new ElementType());
+                                                 })
     {
     }
-
-private:
-    void resize (int newSize) final
-    {
-        const auto prevSize = container.size();
-
-        for (int i = newSize; i < prevSize; ++i)
-            container.remove (i, true);
-
-        for (int i = prevSize; i < newSize; ++i)
-            container.add (new ElementType());
-    }
-
-    Type& container;
 };
 
 template < typename ElementType >

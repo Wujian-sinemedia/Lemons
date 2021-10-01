@@ -4,7 +4,7 @@ namespace lemons::dsp::FX
 {
 /**
     A basic dry/wet mixer class for combining and mixing together two streams of audio.
-    This class doesn't inherit from AudioEffect, because its API had to be slightly different, but I also figure that its use cases are slightly different than those of the effect classes.
+    This class doesn't inherit from AudioEffect, because its API had to be slightly different, but I also figure that its use cases are slightly different than those of the effect classes. \n
     This class is essentially a wrapper around juce::dsp::DryWetMixer.
     @see SmoothedGain
  */
@@ -36,7 +36,7 @@ public:
 
 
     /** Pushes dry samples into the DryWetMixer's internal buffers.
-        This should be called before calling mixWetSamples.
+        This should be called before calling mixWetSamples. \n
         The contents of the passed buffer are not altered, but the buffer itself can't be const due to juce::dsp::AudioBlock's constructor. Take it up with Jules  ¯\_(ツ)_/¯
         @see mixWetSamples(), process()
      */
@@ -44,7 +44,7 @@ public:
 
 
     /** Mixes wet samples with the previously pushed dry samples.
-        This should be called after calling pushDrySamples.
+        This should be called after calling pushDrySamples. \n
         The mixed output signal will be written back to the passed buffer.
         @see pushDrySamples(), process()
      */
@@ -52,8 +52,8 @@ public:
 
 
     /** Mixes together a stream of dry and wet samples with one function call.
-        This is the same as calling pushDrySamples and then mixWetSamples.
-        The contents of the dry buffer are not altered, but the buffer itself can't be const due to juce::dsp::AudioBlock's constructor.
+        This is the same as calling pushDrySamples and then mixWetSamples. \n
+        The contents of the dry buffer are not altered, but the buffer itself can't be const due to juce::dsp::AudioBlock's constructor. \n
         The mixed output signal will be written to the wet buffer.
         @see pushDrySamples(), mixWetSamples()
      */

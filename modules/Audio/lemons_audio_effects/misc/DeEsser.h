@@ -33,7 +33,7 @@ public:
 
 
     /** Sets the de-essing amount (think of it like a percentage knob).
-        This should be an integer in the range 0-100 (inclusive).
+        This should be an integer in the range 0-100 (inclusive). \n
         Internally, this controls the ratio of the de-esser's internal noise gate that is sidechained by the filtered signal.
         @see NoiseGate::setRatio()
      */

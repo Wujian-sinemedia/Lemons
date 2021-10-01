@@ -22,7 +22,7 @@ template <>
 juce::AudioBuffer< float > fromVar (juce::var var);
 
 /** Deserializes an AudioBuffer from a var.
-    Internally, this converts the var to a String, then uses juce's FlacAudioFormat to decode the String back into audio samples.
+    Internally, this converts the var to a String, then uses juce's FlacAudioFormat to decode the String back into audio samples. \n
     Since juce's FlacAudioFormat is only available for float samples, the buffer is first decoded with float samples and then converted to double samples for the final result.
  */
 template <>

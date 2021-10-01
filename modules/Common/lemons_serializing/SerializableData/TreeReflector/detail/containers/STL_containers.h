@@ -3,14 +3,14 @@
 namespace lemons::serializing
 {
 template < typename ElementType, size_t size >
-struct StdArrayInterface : ContainerInterface
+struct StdArrayInterface : LambdaContainerInterface< std::array< ElementType, size > >
 {
-    using ArrayType = std::array< ElementType, size >;
+    using Container = std::array< ElementType, size >;
 
-    StdArrayInterface (ArrayType&);
-
-private:
-    void resize (int) final { }
+    StdArrayInterface (Container& container)
+        : LambdaContainerInterface< Container > (container, [] (Container&, int) {})
+    {
+    }
 };
 
 template < typename ElementType, size_t size >
@@ -28,29 +28,21 @@ struct isContainer< std::array< ElementType, size > > : std::true_type
 
 /*------------------------------------------------------------------------------------*/
 
-template < typename ElementType >
-struct StdVectorInterface : ContainerInterface
+template < class ContainerType >
+struct STLContainerInterface : LambdaContainerInterface< ContainerType >
 {
-    using Type = std::vector< ElementType >;
-
-    StdVectorInterface (Type& containerToUse)
-        : container (containerToUse)
+    STLContainerInterface (ContainerType& container)
+        : LambdaContainerInterface< ContainerType > (container, [] (ContainerType& c, int newSize)
+                                                     { c.resize (static_cast< typename ContainerType::size_type > (newSize)); })
     {
     }
-
-private:
-    void resize (int newSize) final
-    {
-        container.resize (static_cast< typename Type::size_type > (newSize));
-    }
-
-    Type& container;
 };
+
 
 template < typename ElementType >
 std::unique_ptr< ContainerInterface > getInterfaceForContainer (std::vector< ElementType >& container)
 {
-    return std::make_unique< StdVectorInterface< ElementType > > (container);
+    return std::make_unique< STLContainerInterface< std::vector< ElementType > > > (container);
 }
 
 template < typename ElementType >
@@ -58,31 +50,11 @@ struct isContainer< std::vector< ElementType > > : std::true_type
 {
 };
 
-/*------------------------------------------------------------------------------------*/
-
-template < typename ElementType >
-struct StdListInterface : ContainerInterface
-{
-    using Type = std::list< ElementType >;
-
-    StdListInterface (Type& containerToUse)
-        : container (containerToUse)
-    {
-    }
-
-private:
-    void resize (int newSize) final
-    {
-        container.resize (static_cast< typename Type::size_type > (newSize));
-    }
-
-    Type& container;
-};
 
 template < typename ElementType >
 std::unique_ptr< ContainerInterface > getInterfaceForContainer (std::list< ElementType >& container)
 {
-    return std::make_unique< StdListInterface< ElementType > > (container);
+    return std::make_unique< STLContainerInterface< std::list< ElementType > > > (container);
 }
 
 template < typename ElementType >
