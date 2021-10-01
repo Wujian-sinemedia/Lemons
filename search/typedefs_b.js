@@ -1,6 +1,11 @@
 var searchData=
 [
-  ['percentparam_2238',['PercentParam',['../namespacelemons.html#a023a7b4e1d3ee7e6ea8783ecf63f4975',1,'lemons']]],
-  ['point_2239',['Point',['../namespacelemons_1_1spline.html#a832ddba7a7244525784ee6d0644dd27e',1,'lemons::spline']]],
-  ['points_2240',['Points',['../namespacelemons_1_1spline.html#ae2dbcb02271768847771957183931530',1,'lemons::spline']]]
+  ['saw_2192',['Saw',['../namespacelemons_1_1dsp_1_1synth.html#a7269b6280f2b51716e797bf2c0dca7d1',1,'lemons::dsp::synth']]],
+  ['sine_2193',['Sine',['../namespacelemons_1_1dsp_1_1synth.html#a430ae7ada908a2f8a52973e98167f807',1,'lemons::dsp::synth']]],
+  ['size_2194',['Size',['../classlemons_1_1GuiApp.html#a0595ae328e8bbcb8898cdefbc9125afa',1,'lemons::GuiApp']]],
+  ['square_2195',['Square',['../namespacelemons_1_1dsp_1_1synth.html#af80648fe5e5df3b31d06e9c2aab3862b',1,'lemons::dsp::synth']]],
+  ['state_5ftype_5ft_2196',['State_Type_t',['../classlemons_1_1plugin_1_1Processor.html#ab81dd6fd31a40605ab4e5b68ae05f7dc',1,'lemons::plugin::Processor']]],
+  ['statelessprocessor_2197',['StatelessProcessor',['../namespacelemons_1_1plugin.html#ab118f684c798a14db3ac1a3f8417caea',1,'lemons::plugin']]],
+  ['storage_2198',['Storage',['../classlemons_1_1dsp_1_1psola_1_1Analyzer.html#a0ee5d389ef145b3f2b60a9066549f546',1,'lemons::dsp::psola::Analyzer::Storage()'],['../classlemons_1_1dsp_1_1psola_1_1SynthesisGrain.html#a3ec9063907ad88aaba1712f0b0ff436b',1,'lemons::dsp::psola::SynthesisGrain::Storage()']]],
+  ['supersaw_2199',['SuperSaw',['../namespacelemons_1_1dsp_1_1synth.html#a712a47f2ffcf27c4f87b9429543dffe9',1,'lemons::dsp::synth']]]
 ];

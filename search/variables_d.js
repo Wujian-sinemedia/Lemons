@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['q_2196',['Q',['../structlemons_1_1dsp_1_1FX_1_1FilterParams.html#a09c9cd695a610d1aa3c976f971b144a4',1,'lemons::dsp::FX::FilterParams']]]
+  ['rotation_2156',['rotation',['../classlemons_1_1MotionManagerInterface.html#afbb4ab4e2a2c3e9a68b168b5487878df',1,'lemons::MotionManagerInterface']]],
+  ['router_2157',['router',['../classlemons_1_1dsp_1_1synth_1_1MidiManager.html#a1efb522546be99a0b0c0ec95d1ffbec5',1,'lemons::dsp::synth::MidiManager']]]
 ];

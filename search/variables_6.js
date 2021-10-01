@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hicut_2175',['hiCut',['../structlemons_1_1dsp_1_1FX_1_1ReverbParams.html#aba18b367d3ba7e265460fbf4618b9e91',1,'lemons::dsp::FX::ReverbParams']]]
+  ['isinternal_2137',['isInternal',['../structlemons_1_1plugin_1_1ParamHolderBase.html#adfadd47309422ecf2bdc5d4b54828ecf',1,'lemons::plugin::ParamHolderBase']]]
 ];
