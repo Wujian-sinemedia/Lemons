@@ -3,7 +3,7 @@ namespace lemons::dsp::FX
 {
 template < typename SampleType >
 MonoStereoConverter< SampleType >::MonoStereoConverter()
-    : toMonoMode (leftOnly), monoStorage (1, 0)
+    : toMonoMode (StereoReductionMode::leftOnly), monoStorage (1, 0)
 {
 }
 
@@ -29,15 +29,15 @@ void MonoStereoConverter< SampleType >::convertStereoToMono (const SampleType* l
 {
     switch (toMonoMode)
     {
-        case (leftOnly) :
+        case (StereoReductionMode::leftOnly) :
         {
             vecops::copy (leftIn, monoOut, numSamples);
         }
-        case (rightOnly) :
+        case (StereoReductionMode::rightOnly) :
         {
             vecops::copy (rightIn, monoOut, numSamples);
         }
-        case (mixToMono) :
+        case (StereoReductionMode::mixToMono) :
         {
             monoStorage.copyFrom (0, 0, leftIn, numSamples, SampleType (0.5));
             monoStorage.addFrom (0, 0, rightIn, numSamples, SampleType (0.5));

@@ -6,13 +6,13 @@ namespace lemons::dsp::FX
 template < typename SampleType >
 class MonoStereoConverter
 {
-    using Buffer = juce::AudioBuffer< SampleType >;
+    using Buffer = AudioBuffer< SampleType >;
 
 public:
     MonoStereoConverter();
     virtual ~MonoStereoConverter() = default;
 
-    enum StereoReductionMode
+    enum class StereoReductionMode
     {
         leftOnly,
         rightOnly,

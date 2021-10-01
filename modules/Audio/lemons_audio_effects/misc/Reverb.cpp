@@ -1,6 +1,12 @@
 
 namespace lemons::dsp::FX
 {
+
+ReverbParams::ReverbParams (float roomSizeToUse, float dampingAmt, float widthToUse, int wetAmt, int duckAmt, float loCutFreq, float hiCutFreq)
+: roomSize(roomSizeToUse), damping(dampingAmt), width(widthToUse), wetPcnt(wetAmt), duck(duckAmt), loCut(loCutFreq), hiCut(hiCutFreq)
+{
+}
+
 Reverb::Reverb()
 {
     juceReverbParams.roomSize   = 0.5f;
@@ -12,6 +18,27 @@ Reverb::Reverb()
 
     compressor.setAttack (15.0f);
     compressor.setRelease (35.0f);
+}
+
+Reverb::Reverb (float roomSizeToUse, float dampingAmountToUse, float widthToUse, int wetPcnt, int duckAmountToUse, float loCutF, float hiCutF)
+: Reverb()
+{
+    juceReverbParams.roomSize = roomSizeToUse;
+    juceReverbParams.damping = dampingAmountToUse;
+    juceReverbParams.width = widthToUse;
+    
+    reverb.setParameters (juceReverbParams);
+    
+    setDryWet (wetPcnt);
+    setDuckAmount (duckAmountToUse);
+    
+    setLoCutFrequency (loCutF);
+    setHiCutFrequency (hiCutF);
+}
+
+Reverb::Reverb (ReverbParams params)
+: Reverb (params.roomSize, params.damping, params.width, params.wetPcnt, params.duck, params.loCut, params.hiCut)
+{
 }
 
 void Reverb::prepare (int blocksize, double samplerate, int numChannels)
@@ -74,6 +101,7 @@ void Reverb::setWidth (float newWidth)
 
 void Reverb::setDryWet (int wetMixPercent)
 {
+    dryWet_val = wetMixPercent;
     const auto wet = static_cast< float > (wetMixPercent) * 0.01f;
     wetGain.setGain (wet);
     dryGain.setGain (1.0f - wet);
@@ -81,6 +109,7 @@ void Reverb::setDryWet (int wetMixPercent)
 
 void Reverb::setDuckAmount (int newDuckAmount)
 {
+    duck_val = newDuckAmount;
     isDucking = newDuckAmount > 50;
 
     const auto duck = static_cast< float > (newDuckAmount) * 0.01f;
@@ -184,6 +213,28 @@ void Reverb::process (juce::AudioBuffer< float >& input,
 
         dsp::buffers::copy (workingBuffer, input);
     }
+}
+
+ReverbParams Reverb::getParams() const
+{
+    return {juceReverbParams.roomSize,
+            juceReverbParams.damping,
+            juceReverbParams.width,
+            dryWet_val, duck_val, loCutFreq, hiCutFreq};
+}
+
+void Reverb::setParams (ReverbParams params)
+{
+    juceReverbParams.roomSize = params.roomSize;
+    juceReverbParams.damping = params.damping;
+    juceReverbParams.width = params.width;
+    
+    reverb.setParameters (juceReverbParams);
+    
+    setDryWet (params.wetPcnt);
+    setDuckAmount (params.duck);
+    setLoCutFrequency (params.loCut);
+    setHiCutFrequency (params.hiCut);
 }
 
 }  // namespace lemons::dsp::FX
