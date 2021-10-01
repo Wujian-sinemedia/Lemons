@@ -19,6 +19,3 @@ struct isContainer : std::false_type
 
 }  // namespace lemons::serializing::TreeReflectorHelpers
 
-
-#include "STL_containers.h"
-#include "Juce_containers.h"

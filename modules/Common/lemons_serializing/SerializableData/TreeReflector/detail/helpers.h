@@ -1,6 +1,7 @@
 #pragma once
 
-#include "containers/ContainerInterface.h"
+#include "containers/Juce_containers.h"
+#include "containers/STL_containers.h"
 
 namespace lemons::serializing::TreeReflectorHelpers
 {

@@ -18,7 +18,10 @@
 #include <juce_core/juce_core.h>
 
 
+#include "SerializableData/ContainerInterface.h"
 #include "SerializableData/VarConversion.h"
+
+#include "SerializableData/TreeReflector/TreeReflector.h"
 
 #include "SerializableData/SerializableData.h"
 
