@@ -19,27 +19,75 @@ std::unique_ptr< ContainerInterface > getInterfaceForContainer (std::array< Elem
     return std::make_unique< StdArrayInterface< ElementType, size > > (container);
 }
 
+
 template < typename ElementType, size_t size >
-constexpr bool isContainer (std::array< ElementType, size >&)
+struct isContainer< std::array< ElementType, size > > : std::true_type
 {
-    return true;
-}
+};
 
 
-#define BV_TRF_DECLARE_STL_INTERFACE(STLClass, InterfaceClassName)    \
-    BV_TRF_DECLARE_CONTAINER_INTERFACE (STLClass, InterfaceClassName, \
-                                        container.resize (static_cast< typename STLClass< ElementType >::size_type > (newSize)))
-
-
-BV_TRF_DECLARE_STL_INTERFACE (std::vector, StdVectorInterface)
-BV_TRF_DECLARE_STL_INTERFACE (std::list, StdListInterface)
-
-#undef BV_TRF_DECLARE_STL_INTERFACE
+/*------------------------------------------------------------------------------------*/
 
 template < typename ElementType >
-constexpr bool isContainer (std::vector< ElementType >&)
+struct StdVectorInterface : ContainerInterface
 {
-    return true;
+    using Type = std::vector< ElementType >;
+
+    StdVectorInterface (Type& containerToUse)
+        : container (containerToUse)
+    {
+    }
+
+private:
+    void resize (int newSize) final
+    {
+        container.resize (static_cast< typename Type::size_type > (newSize));
+    }
+
+    Type& container;
+};
+
+template < typename ElementType >
+std::unique_ptr< ContainerInterface > getInterfaceForContainer (std::vector< ElementType >& container)
+{
+    return std::make_unique< StdVectorInterface< ElementType > > (container);
 }
+
+template < typename ElementType >
+struct isContainer< std::vector< ElementType > > : std::true_type
+{
+};
+
+/*------------------------------------------------------------------------------------*/
+
+template < typename ElementType >
+struct StdListInterface : ContainerInterface
+{
+    using Type = std::list< ElementType >;
+
+    StdListInterface (Type& containerToUse)
+        : container (containerToUse)
+    {
+    }
+
+private:
+    void resize (int newSize) final
+    {
+        container.resize (static_cast< typename Type::size_type > (newSize));
+    }
+
+    Type& container;
+};
+
+template < typename ElementType >
+std::unique_ptr< ContainerInterface > getInterfaceForContainer (std::list< ElementType >& container)
+{
+    return std::make_unique< StdListInterface< ElementType > > (container);
+}
+
+template < typename ElementType >
+struct isContainer< std::list< ElementType > > : std::true_type
+{
+};
 
 }  // namespace lemons::serializing::TreeReflectorHelpers

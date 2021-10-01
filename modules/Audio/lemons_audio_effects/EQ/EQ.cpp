@@ -71,7 +71,46 @@ Filter< SampleType >* EQ< SampleType >::getBandAtFrequency (float freq)
 template < typename SampleType >
 void EQ< SampleType >::serialize (TreeReflector& ref)
 {
-    // ref.add ("Band", bands);
+    using Params = juce::Array< ValueTree >;
+
+    auto getParams = [&]
+    {
+        Params params;
+
+        for (auto* band : bands)
+            params.add (serializing::toTree (band->getFilter()));
+
+        return params;
+    };
+
+    auto setParams = [&] (Params& params)
+    {
+        const auto numParams    = params.size();
+        const auto prevNumBands = bands.size();
+
+        for (int i = numParams; i < prevNumBands; ++i)
+            bands.remove (i, true);
+
+        for (int i = 0; i < numParams; ++i)
+        {
+            const auto filterParams = params.getUnchecked (i);
+
+            if (i < prevNumBands)
+            {
+                serializing::fromTree (filterParams, bands[i]->getFilter());
+            }
+            else
+            {
+                auto* band = new Band();
+                serializing::fromTree (filterParams, band->getFilter());
+                addBand (band);
+            }
+        }
+
+        jassert (bands.size() == numParams);
+    };
+
+    ref.addLambdaSet< Params > ("Bands", getParams, setParams);
 }
 
 template class EQ< float >;

@@ -211,7 +211,7 @@ void Reverb::serialize (TreeReflector& ref)
     ref.add ("RoomSize", juceReverbParams.roomSize);
     ref.add ("Damping", juceReverbParams.damping);
     ref.add ("Width", juceReverbParams.width);
-    
+
     if (ref.isLoading())
         reverb.setParameters (juceReverbParams);
 

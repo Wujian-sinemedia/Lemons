@@ -2,7 +2,39 @@
 
 namespace lemons::serializing::TreeReflectorHelpers
 {
-BV_TRF_DECLARE_CONTAINER_INTERFACE (juce::Array, JuceArrayInterface, container.ensureStorageAllocated (newSize))
+template < typename ElementType >
+struct JuceArrayInterface : ContainerInterface
+{
+    using Type = juce::Array< ElementType >;
+
+    JuceArrayInterface (Type& containerToUse)
+        : container (containerToUse)
+    {
+    }
+
+private:
+    void resize (int newSize) final
+    {
+        container.resize (newSize);
+    }
+
+    Type& container;
+};
+
+template < typename ElementType >
+std::unique_ptr< ContainerInterface > getInterfaceForContainer (juce::Array< ElementType >& container)
+{
+    return std::make_unique< JuceArrayInterface< ElementType > > (container);
+}
+
+
+template < typename ElementType >
+struct isContainer< juce::Array< ElementType > > : std::true_type
+{
+};
+
+
+/*------------------------------------------------------------------------------------*/
 
 
 template < typename ElementType >
@@ -18,9 +50,12 @@ struct JuceOwnedArrayInterface : ContainerInterface
 private:
     void resize (int newSize) final
     {
-        container.clear();
+        const auto prevSize = container.size();
 
-        for (int i = 0; i < newSize; ++i)
+        for (int i = newSize; i < prevSize; ++i)
+            container.remove (i, true);
+
+        for (int i = prevSize; i < newSize; ++i)
             container.add (new ElementType());
     }
 
@@ -32,5 +67,10 @@ std::unique_ptr< ContainerInterface > getInterfaceForContainer (juce::OwnedArray
 {
     return std::make_unique< JuceOwnedArrayInterface< ElementType > > (container);
 }
+
+template < typename ElementType >
+struct isContainer< juce::OwnedArray< ElementType > > : std::true_type
+{
+};
 
 }  // namespace lemons::serializing::TreeReflectorHelpers
