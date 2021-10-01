@@ -264,10 +264,8 @@
   </compound>
   <compound kind="file">
     <name>ContainerInterface.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/detail/containers/</path>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/</path>
     <filename>ContainerInterface_8h.html</filename>
-    <includes id="STL__containers_8h" name="STL_containers.h" local="yes" imported="no">STL_containers.h</includes>
-    <includes id="Juce__containers_8h" name="Juce_containers.h" local="yes" imported="no">Juce_containers.h</includes>
     <class kind="struct">lemons::serializing::TreeReflectorHelpers::ContainerInterface</class>
     <class kind="struct">lemons::serializing::TreeReflectorHelpers::isContainer</class>
     <namespace>lemons</namespace>
@@ -548,7 +546,8 @@
     <name>helpers.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/detail/</path>
     <filename>helpers_8h.html</filename>
-    <includes id="ContainerInterface_8h" name="ContainerInterface.h" local="yes" imported="no">containers/ContainerInterface.h</includes>
+    <includes id="Juce__containers_8h" name="Juce_containers.h" local="yes" imported="no">containers/Juce_containers.h</includes>
+    <includes id="STL__containers_8h" name="STL_containers.h" local="yes" imported="no">containers/STL_containers.h</includes>
     <namespace>lemons</namespace>
     <namespace>lemons::serializing</namespace>
     <namespace>lemons::serializing::TreeReflectorHelpers</namespace>
@@ -1673,7 +1672,6 @@
     <name>SerializableData.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/</path>
     <filename>SerializableData_8h.html</filename>
-    <includes id="TreeReflector_8h" name="TreeReflector.h" local="yes" imported="no">TreeReflector/TreeReflector.h</includes>
     <class kind="struct">lemons::SerializableData</class>
     <namespace>lemons</namespace>
   </compound>
