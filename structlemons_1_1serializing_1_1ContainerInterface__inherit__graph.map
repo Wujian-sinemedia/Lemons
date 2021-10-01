@@ -1,0 +1,8 @@
+<map id="lemons::serializing::ContainerInterface" name="lemons::serializing::ContainerInterface">
+<area shape="rect" id="node1" title="Interface that defines how a TreeReflector can resize a given container during deserialization." alt="" coords="5,173,156,214"/>
+<area shape="rect" id="node2" href="$structlemons_1_1serializing_1_1JuceArrayInterface.html" title=" " alt="" coords="226,5,377,61"/>
+<area shape="rect" id="node3" href="$structlemons_1_1serializing_1_1JuceOwnedArrayInterface.html" title=" " alt="" coords="204,85,399,141"/>
+<area shape="rect" id="node4" href="$structlemons_1_1serializing_1_1StdArrayInterface.html" title=" " alt="" coords="216,165,387,221"/>
+<area shape="rect" id="node5" href="$structlemons_1_1serializing_1_1StdListInterface.html" title=" " alt="" coords="229,245,374,301"/>
+<area shape="rect" id="node6" href="$structlemons_1_1serializing_1_1StdVectorInterface.html" title=" " alt="" coords="226,325,377,381"/>
+</map>

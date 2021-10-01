@@ -266,16 +266,15 @@
     <name>ContainerInterface.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/</path>
     <filename>ContainerInterface_8h.html</filename>
-    <class kind="struct">lemons::serializing::TreeReflectorHelpers::ContainerInterface</class>
-    <class kind="struct">lemons::serializing::TreeReflectorHelpers::isContainer</class>
+    <class kind="struct">lemons::serializing::ContainerInterface</class>
+    <class kind="struct">lemons::serializing::isContainer</class>
     <namespace>lemons</namespace>
     <namespace>lemons::serializing</namespace>
-    <namespace>lemons::serializing::TreeReflectorHelpers</namespace>
     <member kind="function">
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a3f37175ae049f68025e6a6bc1c0096db</anchor>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a947d1fd48af7f4413f461f6c741d5fc2</anchor>
       <arglist>(ContainerType &amp;)</arglist>
     </member>
   </compound>
@@ -809,25 +808,24 @@
     <name>Juce_containers.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/detail/containers/</path>
     <filename>Juce__containers_8h.html</filename>
-    <class kind="struct">lemons::serializing::TreeReflectorHelpers::isContainer&lt; juce::Array&lt; ElementType &gt; &gt;</class>
-    <class kind="struct">lemons::serializing::TreeReflectorHelpers::isContainer&lt; juce::OwnedArray&lt; ElementType &gt; &gt;</class>
-    <class kind="struct">lemons::serializing::TreeReflectorHelpers::JuceArrayInterface</class>
-    <class kind="struct">lemons::serializing::TreeReflectorHelpers::JuceOwnedArrayInterface</class>
+    <class kind="struct">lemons::serializing::isContainer&lt; juce::Array&lt; ElementType &gt; &gt;</class>
+    <class kind="struct">lemons::serializing::isContainer&lt; juce::OwnedArray&lt; ElementType &gt; &gt;</class>
+    <class kind="struct">lemons::serializing::JuceArrayInterface</class>
+    <class kind="struct">lemons::serializing::JuceOwnedArrayInterface</class>
     <namespace>lemons</namespace>
     <namespace>lemons::serializing</namespace>
-    <namespace>lemons::serializing::TreeReflectorHelpers</namespace>
     <member kind="function">
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a6025060ed2c084294ee75fe908505030</anchor>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>acaa9bcf94a6a18b321714a7425ff0a83</anchor>
       <arglist>(juce::Array&lt; ElementType &gt; &amp;container)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a806b6c63ad73096eb87bc63ee7755f1f</anchor>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a62bdd53db8c515549f20b1f0835052b7</anchor>
       <arglist>(juce::OwnedArray&lt; ElementType &gt; &amp;container)</arglist>
     </member>
   </compound>
@@ -1958,34 +1956,33 @@
     <name>STL_containers.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/detail/containers/</path>
     <filename>STL__containers_8h.html</filename>
-    <class kind="struct">lemons::serializing::TreeReflectorHelpers::isContainer&lt; std::array&lt; ElementType, size &gt; &gt;</class>
-    <class kind="struct">lemons::serializing::TreeReflectorHelpers::isContainer&lt; std::list&lt; ElementType &gt; &gt;</class>
-    <class kind="struct">lemons::serializing::TreeReflectorHelpers::isContainer&lt; std::vector&lt; ElementType &gt; &gt;</class>
-    <class kind="struct">lemons::serializing::TreeReflectorHelpers::StdArrayInterface</class>
-    <class kind="struct">lemons::serializing::TreeReflectorHelpers::StdListInterface</class>
-    <class kind="struct">lemons::serializing::TreeReflectorHelpers::StdVectorInterface</class>
+    <class kind="struct">lemons::serializing::isContainer&lt; std::array&lt; ElementType, size &gt; &gt;</class>
+    <class kind="struct">lemons::serializing::isContainer&lt; std::list&lt; ElementType &gt; &gt;</class>
+    <class kind="struct">lemons::serializing::isContainer&lt; std::vector&lt; ElementType &gt; &gt;</class>
+    <class kind="struct">lemons::serializing::StdArrayInterface</class>
+    <class kind="struct">lemons::serializing::StdListInterface</class>
+    <class kind="struct">lemons::serializing::StdVectorInterface</class>
     <namespace>lemons</namespace>
     <namespace>lemons::serializing</namespace>
-    <namespace>lemons::serializing::TreeReflectorHelpers</namespace>
     <member kind="function">
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a5eb0df1c90aecd4192948111d6051ba5</anchor>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>aee820d761ae553c8ad6c5ce1a1ebe269</anchor>
       <arglist>(std::array&lt; ElementType, size &gt; &amp;container)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>abc3f4b997aa389f9867dd0a825ac2fe9</anchor>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a75f40fa5baf10eca39436e00057d601b</anchor>
       <arglist>(std::list&lt; ElementType &gt; &amp;container)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a2d38f88b10d9e6707d06ae52ae8d5095</anchor>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>ae61433549df459186ab1bf2c3597d00c</anchor>
       <arglist>(std::vector&lt; ElementType &gt; &amp;container)</arglist>
     </member>
   </compound>
@@ -4104,20 +4101,20 @@
     </member>
   </compound>
   <compound kind="struct">
-    <name>lemons::serializing::TreeReflectorHelpers::ContainerInterface</name>
-    <filename>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1ContainerInterface.html</filename>
+    <name>lemons::serializing::ContainerInterface</name>
+    <filename>structlemons_1_1serializing_1_1ContainerInterface.html</filename>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
       <name>~ContainerInterface</name>
-      <anchorfile>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1ContainerInterface.html</anchorfile>
-      <anchor>a9378f09e4ca4b4891d3151017da4aebe</anchor>
+      <anchorfile>structlemons_1_1serializing_1_1ContainerInterface.html</anchorfile>
+      <anchor>ae88317e6d142cc5985cf8234e80e61dd</anchor>
       <arglist>()=default</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual void</type>
       <name>resize</name>
-      <anchorfile>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1ContainerInterface.html</anchorfile>
-      <anchor>a1ee2bb3913d1309b27fcd20391419ac4</anchor>
+      <anchorfile>structlemons_1_1serializing_1_1ContainerInterface.html</anchorfile>
+      <anchor>a85d1977c9d97f103449df253760dc1e8</anchor>
       <arglist>(int newSize)=0</arglist>
     </member>
   </compound>
@@ -7291,73 +7288,73 @@
     <templarg>Args</templarg>
   </compound>
   <compound kind="struct">
-    <name>lemons::serializing::TreeReflectorHelpers::isContainer</name>
-    <filename>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1isContainer.html</filename>
+    <name>lemons::serializing::isContainer</name>
+    <filename>structlemons_1_1serializing_1_1isContainer.html</filename>
     <templarg></templarg>
   </compound>
   <compound kind="struct">
-    <name>lemons::serializing::TreeReflectorHelpers::isContainer&lt; juce::Array&lt; ElementType &gt; &gt;</name>
-    <filename>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1isContainer_3_01juce_1_1Array_3_01ElementType_01_4_01_4.html</filename>
+    <name>lemons::serializing::isContainer&lt; juce::Array&lt; ElementType &gt; &gt;</name>
+    <filename>structlemons_1_1serializing_1_1isContainer_3_01juce_1_1Array_3_01ElementType_01_4_01_4.html</filename>
     <templarg></templarg>
   </compound>
   <compound kind="struct">
-    <name>lemons::serializing::TreeReflectorHelpers::isContainer&lt; juce::OwnedArray&lt; ElementType &gt; &gt;</name>
-    <filename>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1isContainer_3_01juce_1_1OwnedArray_3_01ElementType_01_4_01_4.html</filename>
+    <name>lemons::serializing::isContainer&lt; juce::OwnedArray&lt; ElementType &gt; &gt;</name>
+    <filename>structlemons_1_1serializing_1_1isContainer_3_01juce_1_1OwnedArray_3_01ElementType_01_4_01_4.html</filename>
     <templarg></templarg>
   </compound>
   <compound kind="struct">
-    <name>lemons::serializing::TreeReflectorHelpers::isContainer&lt; std::array&lt; ElementType, size &gt; &gt;</name>
-    <filename>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1isContainer_3_01std_1_1array_3_01ElementType_00_01size_01_4_01_4.html</filename>
+    <name>lemons::serializing::isContainer&lt; std::array&lt; ElementType, size &gt; &gt;</name>
+    <filename>structlemons_1_1serializing_1_1isContainer_3_01std_1_1array_3_01ElementType_00_01size_01_4_01_4.html</filename>
     <templarg></templarg>
     <templarg>size</templarg>
   </compound>
   <compound kind="struct">
-    <name>lemons::serializing::TreeReflectorHelpers::isContainer&lt; std::list&lt; ElementType &gt; &gt;</name>
-    <filename>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1isContainer_3_01std_1_1list_3_01ElementType_01_4_01_4.html</filename>
+    <name>lemons::serializing::isContainer&lt; std::list&lt; ElementType &gt; &gt;</name>
+    <filename>structlemons_1_1serializing_1_1isContainer_3_01std_1_1list_3_01ElementType_01_4_01_4.html</filename>
     <templarg></templarg>
   </compound>
   <compound kind="struct">
-    <name>lemons::serializing::TreeReflectorHelpers::isContainer&lt; std::vector&lt; ElementType &gt; &gt;</name>
-    <filename>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1isContainer_3_01std_1_1vector_3_01ElementType_01_4_01_4.html</filename>
+    <name>lemons::serializing::isContainer&lt; std::vector&lt; ElementType &gt; &gt;</name>
+    <filename>structlemons_1_1serializing_1_1isContainer_3_01std_1_1vector_3_01ElementType_01_4_01_4.html</filename>
     <templarg></templarg>
   </compound>
   <compound kind="struct">
-    <name>lemons::serializing::TreeReflectorHelpers::JuceArrayInterface</name>
-    <filename>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1JuceArrayInterface.html</filename>
+    <name>lemons::serializing::JuceArrayInterface</name>
+    <filename>structlemons_1_1serializing_1_1JuceArrayInterface.html</filename>
     <templarg></templarg>
-    <base>lemons::serializing::TreeReflectorHelpers::ContainerInterface</base>
+    <base>lemons::serializing::ContainerInterface</base>
     <member kind="typedef">
       <type>juce::Array&lt; ElementType &gt;</type>
       <name>Type</name>
-      <anchorfile>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1JuceArrayInterface.html</anchorfile>
-      <anchor>aaed7fcf3dfce7c32d1b9bcd2da29dd11</anchor>
+      <anchorfile>structlemons_1_1serializing_1_1JuceArrayInterface.html</anchorfile>
+      <anchor>a5361d17edf962288256a99d8663cc5e7</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>JuceArrayInterface</name>
-      <anchorfile>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1JuceArrayInterface.html</anchorfile>
-      <anchor>a0e6d3bbb13c8e748a3854ba359b2b0b7</anchor>
+      <anchorfile>structlemons_1_1serializing_1_1JuceArrayInterface.html</anchorfile>
+      <anchor>a9afb09d8cf7487c7500064b400aaa36c</anchor>
       <arglist>(Type &amp;containerToUse)</arglist>
     </member>
   </compound>
   <compound kind="struct">
-    <name>lemons::serializing::TreeReflectorHelpers::JuceOwnedArrayInterface</name>
-    <filename>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1JuceOwnedArrayInterface.html</filename>
+    <name>lemons::serializing::JuceOwnedArrayInterface</name>
+    <filename>structlemons_1_1serializing_1_1JuceOwnedArrayInterface.html</filename>
     <templarg></templarg>
-    <base>lemons::serializing::TreeReflectorHelpers::ContainerInterface</base>
+    <base>lemons::serializing::ContainerInterface</base>
     <member kind="typedef">
       <type>juce::OwnedArray&lt; ElementType &gt;</type>
       <name>Type</name>
-      <anchorfile>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1JuceOwnedArrayInterface.html</anchorfile>
-      <anchor>adc1c52b4b05e944d613846870d801bd6</anchor>
+      <anchorfile>structlemons_1_1serializing_1_1JuceOwnedArrayInterface.html</anchorfile>
+      <anchor>afde2dd18fdfdfc24cf97b6b75466f014</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>JuceOwnedArrayInterface</name>
-      <anchorfile>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1JuceOwnedArrayInterface.html</anchorfile>
-      <anchor>aed550867689eba1bc75ae73929eb2ccd</anchor>
+      <anchorfile>structlemons_1_1serializing_1_1JuceOwnedArrayInterface.html</anchorfile>
+      <anchor>a6e1e5c313aa4aaeaae283c2109258d34</anchor>
       <arglist>(Type &amp;containerToUse)</arglist>
     </member>
   </compound>
@@ -15271,63 +15268,63 @@
     </member>
   </compound>
   <compound kind="struct">
-    <name>lemons::serializing::TreeReflectorHelpers::StdArrayInterface</name>
-    <filename>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1StdArrayInterface.html</filename>
+    <name>lemons::serializing::StdArrayInterface</name>
+    <filename>structlemons_1_1serializing_1_1StdArrayInterface.html</filename>
     <templarg></templarg>
     <templarg>size</templarg>
-    <base>lemons::serializing::TreeReflectorHelpers::ContainerInterface</base>
+    <base>lemons::serializing::ContainerInterface</base>
     <member kind="typedef">
       <type>std::array&lt; ElementType, size &gt;</type>
       <name>ArrayType</name>
-      <anchorfile>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1StdArrayInterface.html</anchorfile>
-      <anchor>a36ce34a591bdf4f506a122661d2508d0</anchor>
+      <anchorfile>structlemons_1_1serializing_1_1StdArrayInterface.html</anchorfile>
+      <anchor>a4c9ae2c0f9975a6f1f23c2093dfad059</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>StdArrayInterface</name>
-      <anchorfile>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1StdArrayInterface.html</anchorfile>
-      <anchor>ae7af939255e31d6a7dcdf6844854cc4c</anchor>
+      <anchorfile>structlemons_1_1serializing_1_1StdArrayInterface.html</anchorfile>
+      <anchor>ad9e83dd136cfba8693d546376d45215a</anchor>
       <arglist>(ArrayType &amp;)</arglist>
     </member>
   </compound>
   <compound kind="struct">
-    <name>lemons::serializing::TreeReflectorHelpers::StdListInterface</name>
-    <filename>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1StdListInterface.html</filename>
+    <name>lemons::serializing::StdListInterface</name>
+    <filename>structlemons_1_1serializing_1_1StdListInterface.html</filename>
     <templarg></templarg>
-    <base>lemons::serializing::TreeReflectorHelpers::ContainerInterface</base>
+    <base>lemons::serializing::ContainerInterface</base>
     <member kind="typedef">
       <type>std::list&lt; ElementType &gt;</type>
       <name>Type</name>
-      <anchorfile>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1StdListInterface.html</anchorfile>
-      <anchor>a432833a9edfe72d0f8d7913c0f20c5a7</anchor>
+      <anchorfile>structlemons_1_1serializing_1_1StdListInterface.html</anchorfile>
+      <anchor>a5728732dffcfce5177a10e129ee0b7ee</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>StdListInterface</name>
-      <anchorfile>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1StdListInterface.html</anchorfile>
-      <anchor>af2289b1cbc80d388c63ac3fd48111bf8</anchor>
+      <anchorfile>structlemons_1_1serializing_1_1StdListInterface.html</anchorfile>
+      <anchor>a2a010899ce3164a3e928ff161b69a63a</anchor>
       <arglist>(Type &amp;containerToUse)</arglist>
     </member>
   </compound>
   <compound kind="struct">
-    <name>lemons::serializing::TreeReflectorHelpers::StdVectorInterface</name>
-    <filename>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1StdVectorInterface.html</filename>
+    <name>lemons::serializing::StdVectorInterface</name>
+    <filename>structlemons_1_1serializing_1_1StdVectorInterface.html</filename>
     <templarg></templarg>
-    <base>lemons::serializing::TreeReflectorHelpers::ContainerInterface</base>
+    <base>lemons::serializing::ContainerInterface</base>
     <member kind="typedef">
       <type>std::vector&lt; ElementType &gt;</type>
       <name>Type</name>
-      <anchorfile>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1StdVectorInterface.html</anchorfile>
-      <anchor>ab88a57f8e02d8f96ce8de87a2d189a67</anchor>
+      <anchorfile>structlemons_1_1serializing_1_1StdVectorInterface.html</anchorfile>
+      <anchor>a713387f10ad031246277b18f088a7019</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>StdVectorInterface</name>
-      <anchorfile>structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1StdVectorInterface.html</anchorfile>
-      <anchor>a8069ef519aaff1eca875fbb4d4772467</anchor>
+      <anchorfile>structlemons_1_1serializing_1_1StdVectorInterface.html</anchorfile>
+      <anchor>a95416ee71772da8a043e266e4fe3a289</anchor>
       <arglist>(Type &amp;containerToUse)</arglist>
     </member>
   </compound>
@@ -19459,7 +19456,19 @@
     <name>lemons::serializing</name>
     <filename>namespacelemons_1_1serializing.html</filename>
     <namespace>lemons::serializing::TreeReflectorHelpers</namespace>
+    <class kind="struct">lemons::serializing::ContainerInterface</class>
     <class kind="class">lemons::serializing::DataSynchronizer</class>
+    <class kind="struct">lemons::serializing::isContainer</class>
+    <class kind="struct">lemons::serializing::isContainer&lt; juce::Array&lt; ElementType &gt; &gt;</class>
+    <class kind="struct">lemons::serializing::isContainer&lt; juce::OwnedArray&lt; ElementType &gt; &gt;</class>
+    <class kind="struct">lemons::serializing::isContainer&lt; std::array&lt; ElementType, size &gt; &gt;</class>
+    <class kind="struct">lemons::serializing::isContainer&lt; std::list&lt; ElementType &gt; &gt;</class>
+    <class kind="struct">lemons::serializing::isContainer&lt; std::vector&lt; ElementType &gt; &gt;</class>
+    <class kind="struct">lemons::serializing::JuceArrayInterface</class>
+    <class kind="struct">lemons::serializing::JuceOwnedArrayInterface</class>
+    <class kind="struct">lemons::serializing::StdArrayInterface</class>
+    <class kind="struct">lemons::serializing::StdListInterface</class>
+    <class kind="struct">lemons::serializing::StdVectorInterface</class>
     <member kind="function">
       <type>void</type>
       <name>copy</name>
@@ -19615,6 +19624,48 @@
       <arglist>(std::unique_ptr&lt; juce::XmlElement &gt; xml)</arglist>
     </member>
     <member kind="function">
+      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
+      <name>getInterfaceForContainer</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a947d1fd48af7f4413f461f6c741d5fc2</anchor>
+      <arglist>(ContainerType &amp;)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
+      <name>getInterfaceForContainer</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>acaa9bcf94a6a18b321714a7425ff0a83</anchor>
+      <arglist>(juce::Array&lt; ElementType &gt; &amp;container)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
+      <name>getInterfaceForContainer</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a62bdd53db8c515549f20b1f0835052b7</anchor>
+      <arglist>(juce::OwnedArray&lt; ElementType &gt; &amp;container)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
+      <name>getInterfaceForContainer</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>aee820d761ae553c8ad6c5ce1a1ebe269</anchor>
+      <arglist>(std::array&lt; ElementType, size &gt; &amp;container)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
+      <name>getInterfaceForContainer</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a75f40fa5baf10eca39436e00057d601b</anchor>
+      <arglist>(std::list&lt; ElementType &gt; &amp;container)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
+      <name>getInterfaceForContainer</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>ae61433549df459186ab1bf2c3597d00c</anchor>
+      <arglist>(std::vector&lt; ElementType &gt; &amp;container)</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>toBinary</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
@@ -19709,18 +19760,6 @@
   <compound kind="namespace">
     <name>lemons::serializing::TreeReflectorHelpers</name>
     <filename>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</filename>
-    <class kind="struct">lemons::serializing::TreeReflectorHelpers::ContainerInterface</class>
-    <class kind="struct">lemons::serializing::TreeReflectorHelpers::isContainer</class>
-    <class kind="struct">lemons::serializing::TreeReflectorHelpers::isContainer&lt; juce::Array&lt; ElementType &gt; &gt;</class>
-    <class kind="struct">lemons::serializing::TreeReflectorHelpers::isContainer&lt; juce::OwnedArray&lt; ElementType &gt; &gt;</class>
-    <class kind="struct">lemons::serializing::TreeReflectorHelpers::isContainer&lt; std::array&lt; ElementType, size &gt; &gt;</class>
-    <class kind="struct">lemons::serializing::TreeReflectorHelpers::isContainer&lt; std::list&lt; ElementType &gt; &gt;</class>
-    <class kind="struct">lemons::serializing::TreeReflectorHelpers::isContainer&lt; std::vector&lt; ElementType &gt; &gt;</class>
-    <class kind="struct">lemons::serializing::TreeReflectorHelpers::JuceArrayInterface</class>
-    <class kind="struct">lemons::serializing::TreeReflectorHelpers::JuceOwnedArrayInterface</class>
-    <class kind="struct">lemons::serializing::TreeReflectorHelpers::StdArrayInterface</class>
-    <class kind="struct">lemons::serializing::TreeReflectorHelpers::StdListInterface</class>
-    <class kind="struct">lemons::serializing::TreeReflectorHelpers::StdVectorInterface</class>
     <member kind="function">
       <type>void</type>
       <name>addContainer</name>
@@ -19734,48 +19773,6 @@
       <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
       <anchor>a99ca350e49b33d16cda5192499dcbbba</anchor>
       <arglist>(Type value)</arglist>
-    </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
-      <name>getInterfaceForContainer</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a3f37175ae049f68025e6a6bc1c0096db</anchor>
-      <arglist>(ContainerType &amp;)</arglist>
-    </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
-      <name>getInterfaceForContainer</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a6025060ed2c084294ee75fe908505030</anchor>
-      <arglist>(juce::Array&lt; ElementType &gt; &amp;container)</arglist>
-    </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
-      <name>getInterfaceForContainer</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a806b6c63ad73096eb87bc63ee7755f1f</anchor>
-      <arglist>(juce::OwnedArray&lt; ElementType &gt; &amp;container)</arglist>
-    </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
-      <name>getInterfaceForContainer</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a5eb0df1c90aecd4192948111d6051ba5</anchor>
-      <arglist>(std::array&lt; ElementType, size &gt; &amp;container)</arglist>
-    </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
-      <name>getInterfaceForContainer</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>abc3f4b997aa389f9867dd0a825ac2fe9</anchor>
-      <arglist>(std::list&lt; ElementType &gt; &amp;container)</arglist>
-    </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
-      <name>getInterfaceForContainer</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a2d38f88b10d9e6707d06ae52ae8d5095</anchor>
-      <arglist>(std::vector&lt; ElementType &gt; &amp;container)</arglist>
     </member>
     <member kind="function">
       <type>int</type>

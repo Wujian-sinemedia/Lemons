@@ -4,7 +4,7 @@ var searchData=
   ['_7eanalysisgrainstorage_2091',['~AnalysisGrainStorage',['../classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html#aac1f044c89a6af347885e5adbe3f1550',1,'lemons::dsp::psola::AnalysisGrainStorage']]],
   ['_7eanalyzer_2092',['~Analyzer',['../classlemons_1_1dsp_1_1psola_1_1Analyzer.html#af1f355188bce74a4a29153b0c7c2831e',1,'lemons::dsp::psola::Analyzer']]],
   ['_7eaudioeffect_2093',['~AudioEffect',['../structlemons_1_1dsp_1_1FX_1_1AudioEffect.html#a4022812ed63599216d3d943f4c1295d0',1,'lemons::dsp::FX::AudioEffect']]],
-  ['_7econtainerinterface_2094',['~ContainerInterface',['../structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1ContainerInterface.html#a9378f09e4ca4b4891d3151017da4aebe',1,'lemons::serializing::TreeReflectorHelpers::ContainerInterface']]],
+  ['_7econtainerinterface_2094',['~ContainerInterface',['../structlemons_1_1serializing_1_1ContainerInterface.html#ae88317e6d142cc5985cf8234e80e61dd',1,'lemons::serializing::ContainerInterface']]],
   ['_7edatasynchronizer_2095',['~DataSynchronizer',['../classlemons_1_1serializing_1_1DataSynchronizer.html#a30c305899383dfe669a80d4d66f503c3',1,'lemons::serializing::DataSynchronizer']]],
   ['_7edevicerotationlistener_2096',['~DeviceRotationListener',['../structlemons_1_1DeviceRotationListener.html#ae800e3e167ef9810bf1ad2ce273d32e3',1,'lemons::DeviceRotationListener']]],
   ['_7eengine_2097',['~Engine',['../classlemons_1_1dsp_1_1Engine.html#a47b57c00f1986dd60c0c620f9d404e70',1,'lemons::dsp::Engine']]],

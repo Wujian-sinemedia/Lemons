@@ -27,7 +27,7 @@ var searchData=
   ['androidmotion_2eh_24',['androidMotion.h',['../androidMotion_8h.html',1,'']]],
   ['applyrecieveddata_25',['applyRecievedData',['../classlemons_1_1serializing_1_1DataSynchronizer.html#a7b236001a8ba73e918e4137f27cc3dd4',1,'lemons::serializing::DataSynchronizer']]],
   ['arenotessamepitchclass_26',['areNotesSamePitchClass',['../namespacelemons_1_1midi.html#a17296da211c2aa8456b9865b913187c8',1,'lemons::midi']]],
-  ['arraytype_27',['ArrayType',['../structlemons_1_1serializing_1_1TreeReflectorHelpers_1_1StdArrayInterface.html#a36ce34a591bdf4f506a122661d2508d0',1,'lemons::serializing::TreeReflectorHelpers::StdArrayInterface']]],
+  ['arraytype_27',['ArrayType',['../structlemons_1_1serializing_1_1StdArrayInterface.html#a4c9ae2c0f9975a6f1f23c2093dfad059',1,'lemons::serializing::StdArrayInterface']]],
   ['atomic_5fswap_28',['atomic_swap',['../namespacelemons.html#a481e40a750af3498832af2d58115d1aa',1,'lemons']]],
   ['attitude_29',['attitude',['../classlemons_1_1MotionManagerInterface.html#a6fd77219d8ba802abcd9a4bf79f29bac',1,'lemons::MotionManagerInterface']]],
   ['attitudechanged_30',['attitudeChanged',['../structlemons_1_1MotionListener.html#aca395deb2bc876592f2f38ca4528308b',1,'lemons::MotionListener::attitudeChanged()'],['../classlemons_1_1MotionManagerInterface.html#a6cef6f6aaf3be61033bc8ac5595d6bdd',1,'lemons::MotionManagerInterface::attitudeChanged()']]],
