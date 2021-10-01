@@ -1,11 +1,6 @@
 
 namespace lemons::dsp::FX
 {
-LimiterParams::LimiterParams (float threshToUse, float releaseTime)
-    : threshDB (threshToUse), releaseMs (releaseTime)
-{
-}
-
 template < typename SampleType >
 Limiter< SampleType >::Limiter()
 {
@@ -23,11 +18,6 @@ Limiter< SampleType >::Limiter (float threshDB, float releaseMs)
     update();
 }
 
-template < typename SampleType >
-Limiter< SampleType >::Limiter (LimiterParams params)
-    : Limiter (params.threshDB, params.releaseMs)
-{
-}
 
 template < typename SampleType >
 void Limiter< SampleType >::setThreshold (float thresh_dB)
@@ -128,18 +118,15 @@ void Limiter< SampleType >::update()
     outputVolume.setTargetValue (gain);
 }
 
-template < typename SampleType >
-LimiterParams Limiter< SampleType >::getParams() const
-{
-    return {thresholddB, releaseTime};
-}
 
 template < typename SampleType >
-void Limiter< SampleType >::setParams (LimiterParams params)
+void Limiter< SampleType >::serialize (TreeReflector& ref)
 {
-    thresholddB = params.threshDB;
-    releaseTime = params.releaseMs;
-    update();
+    ref.add ("Threshold", thresholddB);
+    ref.add ("ReleaseMs", releaseTime);
+
+    if (ref.isLoading())
+        update();
 }
 
 

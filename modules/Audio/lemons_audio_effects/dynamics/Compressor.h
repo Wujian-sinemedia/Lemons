@@ -3,28 +3,10 @@
 
 namespace lemons::dsp::FX
 {
-/** Struct containing all parameters for a Compressor object.
-    @see Compressor
- */
-struct CompressorParams
-{
-    /** Creates a default CompressorParams object. */
-    CompressorParams() = default;
-
-    /** Creates a CompressorParams object with specified initial values. */
-    CompressorParams (float threshToUse, float ratioToUse, float attackTime, float releaseTime);
-
-    float thresholdDB {0.f};
-    float ratio {2.f};
-    float attackMs {10.f};
-    float releaseMs {25.f};
-};
-
-
 /**
     A simple compressor effect class that allows you to optionally sidechain the signal.
     This class is essentially a refactor of the compressor class from the juce dsp module, with the sidechaining capabilities added.
-    @see CompressorParams, LevelReportingAudioEffect, AudioEffect
+    @see LevelReportingAudioEffect, AudioEffect
  */
 template < typename SampleType >
 class Compressor : public LevelReportingAudioEffect< SampleType >
@@ -35,9 +17,6 @@ public:
 
     /** Creates a compressor with some initial settings. */
     Compressor (float thresh, float ratioToUse, float attackMs, float releaseMs);
-
-    /** Creates a compressor from a CompressorParams object. */
-    Compressor (CompressorParams params);
 
     /** Prepares the compressor. */
     void prepare (double samplerate, int blocksize) final;
@@ -83,13 +62,10 @@ public:
     /** Resets the compressor's internal state to a neutral one. */
     void reset();
 
-    /** Returns a CompressorParams object representing the state of this compressor. */
-    CompressorParams getParams() const;
-
-    /** Restores the state of a CompressorParams object. */
-    void setParams (CompressorParams params);
 
 private:
+    void serialize (TreeReflector& ref) final;
+
     void update();
 
     SampleType                                threshold {0.}, thresholdInverse {0.}, ratioInverse {0.};

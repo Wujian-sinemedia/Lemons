@@ -32,6 +32,7 @@ void Delay< SampleType >::reset()
 template < typename SampleType >
 void Delay< SampleType >::setDryWet (int wetMixPercent)
 {
+    wetPcnt        = wetMixPercent;
     const auto wet = static_cast< float > (wetMixPercent) * 0.01f;
     wetGain.set (wet);
     dryGain.set (1.0f - wet);
@@ -82,6 +83,24 @@ SampleType Delay< SampleType >::processChannel (int         channel,
 
     avgMag /= static_cast< SampleType > (numSamples);
     return avgMag;
+}
+
+template < typename SampleType >
+void Delay< SampleType >::serialize (TreeReflector& ref)
+{
+    ref.addLambdaSet< int > (
+        "DelayTime",
+        [&]
+        { return juce::roundToInt (delay.getDelay()); },
+        [&] (int& d)
+        { setDelay (d); });
+
+    ref.addLambdaSet< int > (
+        "DryWet",
+        [&]
+        { return wetPcnt; },
+        [&] (int& w)
+        { setDryWet (w); });
 }
 
 template class Delay< float >;

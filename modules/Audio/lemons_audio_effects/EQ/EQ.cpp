@@ -2,12 +2,6 @@
 namespace lemons::dsp::FX
 {
 template < typename SampleType >
-EQ< SampleType >::EQ (const EQParams& params)
-{
-    setParams (params);
-}
-
-template < typename SampleType >
 void EQ< SampleType >::process (AudioBuffer< SampleType >& audio)
 {
     jassert (getNumBands() > 0);
@@ -75,40 +69,9 @@ Filter< SampleType >* EQ< SampleType >::getBandAtFrequency (float freq)
 }
 
 template < typename SampleType >
-EQParams EQ< SampleType >::getParams() const
+void EQ< SampleType >::serialize (TreeReflector& ref)
 {
-    EQParams params;
-
-    for (auto* band : bands)
-        params.add (band->getFilter().getParams());
-
-    return params;
-}
-
-template < typename SampleType >
-void EQ< SampleType >::setParams (const EQParams& params)
-{
-    const auto numParams    = params.size();
-    const auto prevNumBands = bands.size();
-
-    for (int i = numParams; i < prevNumBands; ++i)
-        bands.remove (i, true);
-
-    for (int i = 0; i < numParams; ++i)
-    {
-        const auto filterParams = params.getUnchecked (i);
-
-        if (i < prevNumBands)
-        {
-            bands[i]->getFilter().setParams (filterParams);
-        }
-        else
-        {
-            addBand (filterParams);
-        }
-    }
-
-    jassert (bands.size() == numParams);
+    // ref.add ("Band", bands);
 }
 
 template class EQ< float >;

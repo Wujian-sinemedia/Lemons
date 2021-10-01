@@ -3,12 +3,10 @@
 
 namespace lemons::dsp::FX
 {
-using EQParams = juce::Array< FilterParams >;
-
 /**
     An equalizer effect class.
     This class holds a collection of Filter effect objects and processes them in serial.
-    @see FX::Filter, EQParams, FilterParams
+    @see Filter
  */
 template < typename SampleType >
 class EQ : public AudioEffect< SampleType >
@@ -18,9 +16,6 @@ public:
 
     /** Creates a default EQ object. It will initially have no bands. */
     EQ() = default;
-
-    /** Creates an EQ from an EQParams object. */
-    EQ (const EQParams& params);
 
     /** Processes the EQ.
         Internally, this calls process() on each of the EQ's filters in serial.
@@ -63,15 +58,10 @@ public:
      */
     Filter< SampleType >* getBandAtFrequency (float freq);
 
-    /** Returns an EQParams object representing the state of this EQ. */
-    EQParams getParams() const;
-
-    /** Restores the state of an EQParams object.
-        This may add or remove Filter objects owned by this EQ.
-     */
-    void setParams (const EQParams& params);
 
 private:
+    void serialize (TreeReflector& ref) final;
+
     juce::OwnedArray< Band > bands;
 
     double lastSamplerate {44100.};

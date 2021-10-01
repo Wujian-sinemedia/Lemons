@@ -3,26 +3,10 @@
 
 namespace lemons::dsp::FX
 {
-/** Struct representing the state of a Limiter.
-    @see Limiter
- */
-struct LimiterParams
-{
-    /** Creates a default LimiterParams object. */
-    LimiterParams() = default;
-
-    /** Creates a LimiterParams object with specified initial values. */
-    LimiterParams (float threshToUse, float releaseTime);
-
-    float threshDB {0.f};
-    float releaseMs {20.f};
-};
-
-
 /**
     A simple limiter effect class that allows you to optionally sidechain the signal.
     This class is essentially a refactor of the limiter class from the juce dsp module, with the sidechaining capabilities added.
-    @see LimiterParams, LevelReportingAudioEffect, AudioEffect
+    @see LevelReportingAudioEffect, AudioEffect
  */
 template < typename SampleType >
 class Limiter : public LevelReportingAudioEffect< SampleType >
@@ -33,9 +17,6 @@ public:
 
     /** Creates a limiter with some initial settings. */
     Limiter (float threshDB, float releaseMs);
-
-    /** Creates a limiter from a LimiterParams object. */
-    Limiter (LimiterParams params);
 
     /** Prepares the limiter. */
     void prepare (double samplerate, int blocksize) final;
@@ -62,13 +43,10 @@ public:
                                SampleType*       signalToLimit,
                                const SampleType* sidechain) final;
 
-    /** Returns a LimiterParams object representing the state of this limiter. */
-    LimiterParams getParams() const;
-
-    /** Restores the state of a LimiterParams object. */
-    void setParams (LimiterParams params);
 
 private:
+    void serialize (TreeReflector& ref) final;
+
     void update();
 
     Compressor< SampleType > firstStageCompressor, secondStageCompressor;

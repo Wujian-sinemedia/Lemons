@@ -3,22 +3,6 @@
 
 namespace lemons::dsp::FX
 {
-/** Struct representing the state of a DeEsser.
-    @see DeEsser
- */
-struct DeEsserParams
-{
-    /** Creates a default DeEsserParams object. */
-    DeEsserParams() = default;
-
-    /** Creates a DeEsserParams object with specified initial values. */
-    DeEsserParams (float threshToUse, int amount);
-
-    float threshDb {0.f};
-    int   deEssAmount {35};
-};
-
-
 /**
  A basic "de-esser" effect class.
  Mainly intended for removing sibilances from a vocal signal, this works by sending the input signal through an inverted noise gate sidechained by a hi-passed version of the original signal.
@@ -33,9 +17,6 @@ public:
 
     /** Creates a DeEsser with some specified initial settings. */
     DeEsser (float threshDB, int deEssAmount);
-
-    /** Creates a DeEsser from a DeEsserParams object. */
-    DeEsser (DeEsserParams params);
 
     /** Prepares the DeEsser. */
     void prepare (double samplerate, int blocksize) final;
@@ -71,18 +52,16 @@ public:
                                SampleType*       signalToDeEss,
                                const SampleType* sidechain) final;
 
-    /** Returns a DeEsserParams object representing the state of this DeEsser. */
-    DeEsserParams getParams() const;
-
-    /** Restores the state of a DeEsserParams object. */
-    void setParams (DeEsserParams params);
 
 private:
+    void serialize (TreeReflector& ref) final;
+
     dsp::filters::MultiFilter< SampleType, 2 > filter;
 
     NoiseGate< SampleType > gate;
 
-    DeEsserParams params_;
+    int   amt {50};
+    float thresh {-3.f};
 
     static constexpr double hiPassFreq {7600.};
     static constexpr int    attackMs {20};

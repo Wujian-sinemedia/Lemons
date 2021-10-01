@@ -46,6 +46,17 @@ void StereoPanner< SampleType >::process (AudioBuffer& audio)
     process (audio, audio);
 }
 
+template < typename SampleType >
+void StereoPanner< SampleType >::serialize (TreeReflector& ref)
+{
+    ref.addLambdaSet< int > (
+        "MidiPan",
+        [&]
+        { return this->getLastMidiPan(); },
+        [&] (int& p)
+        { this->setMidiPan (p); });
+}
+
 template class StereoPanner< float >;
 template class StereoPanner< double >;
 

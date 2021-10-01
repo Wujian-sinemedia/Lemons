@@ -19,6 +19,8 @@ public:
     SampleType popSample (int channel, SampleType* delayLevel = nullptr);
 
 private:
+    void serialize (TreeReflector& ref) final;
+
     SampleType processChannel (int         channel,
                                int         numSamples,
                                SampleType* signal,
@@ -28,6 +30,8 @@ private:
     juce::dsp::ProcessSpec             spec;
 
     ValueSmoother< SampleType > dryGain, wetGain;
+
+    int wetPcnt {50};
 };
 
 }  // namespace lemons::dsp::FX

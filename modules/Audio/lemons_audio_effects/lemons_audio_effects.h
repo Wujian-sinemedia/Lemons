@@ -9,7 +9,7 @@ vendor:             Ben Vining
 version:            0.0.1
 name:               lemons_audio_effects
 description:        Audio effects
-dependencies:       lemons_dsp
+dependencies:       lemons_dsp lemons_serializing
 
 END_JUCE_MODULE_DECLARATION
  

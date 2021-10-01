@@ -9,7 +9,6 @@ template < typename SampleType >
 class TimbreMod
 {
 public:
-    TimbreMod (const FX::FilterParams& filterParamsToUse, const float& gainValueToUse, const bool& filterToggleToUse);
     TimbreMod (const typename SynthBase< SampleType >::TimbreModParams& modSource);
 
     void prepare (int blocksize, double samplerate);
@@ -23,13 +22,9 @@ public:
     void setToggle (bool shouldModBeOn);
 
 private:
-    const FX::FilterParams& filterParams;
+    const typename SynthBase< SampleType >::TimbreModParams& params;
 
-    const float& gainValue;
-
-    const bool& filterToggle;
-
-    FX::FilterEngine< SampleType > filter {filterParams};
+    // FX::FilterEngine< SampleType > filter {filterParams};
 
     FX::SmoothedGain< SampleType, 1 > gain;
 

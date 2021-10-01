@@ -20,25 +20,8 @@ enum class FilterType
 
 
 /**
-    A struct that holds the parameters for a Filter effect.
-    @see Filter, FilterType
- */
-struct FilterParams
-{
-    /** Constructs a FilterParams object using floats. */
-    FilterParams (FilterType typeToUse, float freqToUse, float QToUse, float gainToUse);
-
-    /** Constructs a FilterParams object using doubles. */
-    FilterParams (FilterType typeToUse, double freqToUse, double QToUse, double gainToUse);
-
-    FilterType type;
-    float      freq, Q, gain;
-};
-
-
-/**
     A filter audio effect class that wraps the more low-level filters::Filter.
-    @see FilterParams, FilterType, filters::Filter, filters::MultiFilter
+    @see FilterType, filters::Filter, filters::MultiFilter
  */
 template < typename SampleType >
 class Filter : public AudioEffect< SampleType >
@@ -49,9 +32,6 @@ public:
 
     /** Creates a filter with specified parameters. */
     Filter (FilterType filterType, float frequency = 440.f, float Qfactor = 0.70710678118654752440f, float gainMult = 1.f);
-
-    /** Creates a filter from a FilterParams object. */
-    Filter (FilterParams params);
 
     /** Sets the type of this filter. */
     void setFilterType (FilterType newType);
@@ -87,13 +67,10 @@ public:
     /** Prepares the filter. */
     void prepare (double samplerate, int blocksize) final;
 
-    /** Returns a FilterParams object representing the state of this filter. */
-    FilterParams getParams() const;
-
-    /** Applies a FilterParams object to the state of this filter. */
-    void setParams (FilterParams params);
 
 private:
+    void serialize (TreeReflector& ref) final;
+
     filters::MultiFilter< SampleType, 2 > filter;
 
     FilterType type {FilterType::HighPass};

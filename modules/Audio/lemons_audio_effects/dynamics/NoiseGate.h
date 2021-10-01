@@ -5,29 +5,10 @@
 
 namespace lemons::dsp::FX
 {
-/** Struct representing the state of a NoiseGate.
-    @see NoiseGate
- */
-struct NoiseGateParams
-{
-    /** Creates a default NoiseGateParams object. */
-    NoiseGateParams() = default;
-
-    /** Creates a NoiseGateParams object with specified initial values. */
-    NoiseGateParams (float threshToUse, float ratioToUse, float attackTime, float releaseTime, bool shouldBeInverted);
-
-    float threshDB {0.f};
-    float ratio {1.f};
-    float attackMs {5.f};
-    float releaseMs {20.f};
-    bool  inverted {false};
-};
-
-
 /**
     A simple noise gate effect class that allows you to optionally sidechain the signal.
     This class is essentially a refactor of the noise gate class from the juce dsp module, with the sidechaining capabilities added.
-    @see NoiseGateParams, LevelReportingAudioEffect, AudioEffect
+    @see LevelReportingAudioEffect, AudioEffect
  */
 template < typename SampleType >
 class NoiseGate : public LevelReportingAudioEffect< SampleType >
@@ -38,9 +19,6 @@ public:
 
     /** Creates a noise gate with some initial settings. */
     NoiseGate (float threshDB, float ratioToUse, float attackMs, float releaseMs, bool shouldBeInverted = false);
-
-    /** Creates a noise gate from a NoiseGateParams object. */
-    NoiseGate (NoiseGateParams params);
 
     /** Prepares the noise gate. */
     void prepare (double samplerate, int blocksize) final;
@@ -91,13 +69,10 @@ public:
                               SampleType  sidechainValue,
                               SampleType* gainReduction);
 
-    /** Returns a NoiseGateParams object representing the state of this noise gate. */
-    NoiseGateParams getParams() const;
-
-    /** Restores the state of a NoiseGateParams object. */
-    void setParams (NoiseGateParams params);
 
 private:
+    void serialize (TreeReflector& ref) final;
+
     void update();
 
     juce::dsp::ProcessSpec spec;

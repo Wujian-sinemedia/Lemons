@@ -87,8 +87,9 @@ public:
 
     struct TimbreModParams
     {
-        FX::FilterParams filterParams {FX::FilterType::Notch,
-                                       2600.f, 1.3f, 1.7f};
+        FX::FilterType type {FX::FilterType::Notch};
+
+        float freq {2600.f}, Q {1.3f}, filterGain {1.7f};
 
         float gain {1.f};
 

@@ -1,14 +1,16 @@
 #pragma once
 
 #include <lemons_dsp/lemons_dsp.h>
+#include <lemons_serializing/lemons_serializing.h>
 
 namespace lemons::dsp::FX
 {
 /**
     Base class for any kind of audio effect.
+    Note that AudioEffect does not implement SerializableData::serialize(), your subclass must implement this to save and restore its state!
  */
 template < typename SampleType >
-struct AudioEffect
+struct AudioEffect : SerializableData
 {
     /** Destructor. */
     virtual ~AudioEffect() = default;

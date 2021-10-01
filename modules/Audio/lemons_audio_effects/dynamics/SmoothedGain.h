@@ -1,5 +1,5 @@
-
 #pragma once
+
 
 namespace lemons::dsp::FX
 {
@@ -43,6 +43,8 @@ public:
     void reset();
 
 private:
+    void serialize (TreeReflector& ref) final;
+
     juce::OwnedArray< ValueSmoother< SampleType > > smoothers;
 
     int   lastBlocksize {0};

@@ -1,11 +1,6 @@
 
 namespace lemons::dsp::FX
 {
-NoiseGateParams::NoiseGateParams (float threshToUse, float ratioToUse, float attackTime, float releaseTime, bool shouldBeInverted)
-    : threshDB (threshToUse), ratio (ratioToUse), attackMs (attackTime), releaseMs (releaseTime), inverted (shouldBeInverted)
-{
-}
-
 template < typename SampleType >
 NoiseGate< SampleType >::NoiseGate()
 {
@@ -33,11 +28,6 @@ NoiseGate< SampleType >::NoiseGate (float threshDB, float ratioToUse, float atta
     update();
 }
 
-template < typename SampleType >
-NoiseGate< SampleType >::NoiseGate (NoiseGateParams params)
-    : NoiseGate (params.threshDB, params.ratio, params.attackMs, params.releaseMs, params.inverted)
-{
-}
 
 template < typename SampleType >
 void NoiseGate< SampleType >::setInverted (bool gateBehaviorShouldBeInverted)
@@ -171,24 +161,16 @@ void NoiseGate< SampleType >::update()
 }
 
 template < typename SampleType >
-NoiseGateParams NoiseGate< SampleType >::getParams() const
+void NoiseGate< SampleType >::serialize (TreeReflector& ref)
 {
-    return {static_cast< float > (thresholddB),
-            static_cast< float > (ratio),
-            static_cast< float > (attackTime),
-            static_cast< float > (releaseTime),
-            inverted};
-}
+    ref.add ("Threshold", thresholddB);
+    ref.add ("Ratio", ratio);
+    ref.add ("Attack", attackTime);
+    ref.add ("Release", releaseTime);
+    ref.add ("Inverted", inverted);
 
-template < typename SampleType >
-void NoiseGate< SampleType >::setParams (NoiseGateParams params)
-{
-    inverted    = params.inverted;
-    thresholddB = static_cast< SampleType > (params.threshDB);
-    ratio       = static_cast< SampleType > (params.ratio);
-    attackTime  = static_cast< SampleType > (params.attackMs);
-    releaseTime = static_cast< SampleType > (params.releaseMs);
-    update();
+    if (ref.isLoading())
+        update();
 }
 
 

@@ -68,6 +68,12 @@ void Saturator< SampleType >::bypassedBlock (int numSamples)
 {
 }
 
+template < typename SampleType >
+void Saturator< SampleType >::serialize (TreeReflector& ref)
+{
+    ref.add ("Hardness", hardness);
+}
+
 template class Saturator< float >;
 template class Saturator< double >;
 

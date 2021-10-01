@@ -18,6 +18,8 @@ public:
                   AudioBuffer&       stereoOutput);
 
 private:
+    void serialize (TreeReflector& ref) final;
+
     SmoothedGain< SampleType, 1 > left, right;
 };
 
