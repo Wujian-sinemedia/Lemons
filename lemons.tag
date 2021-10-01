@@ -1663,6 +1663,7 @@
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_audio_effects/misc/</path>
     <filename>Reverb_8h.html</filename>
     <class kind="class">lemons::dsp::FX::Reverb</class>
+    <class kind="struct">lemons::dsp::FX::ReverbParams</class>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::FX</namespace>
@@ -8397,46 +8398,6 @@
     </member>
   </compound>
   <compound kind="struct">
-    <name>lemons::plugin::TypedParameter::Listener</name>
-    <filename>structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html</filename>
-    <base>lemons::plugin::Parameter::Listener</base>
-    <member kind="function">
-      <type></type>
-      <name>Listener</name>
-      <anchorfile>structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html</anchorfile>
-      <anchor>a94994114fd355af5caf403b57037de1f</anchor>
-      <arglist>(TypedParameter&lt; ValueType &gt; &amp;param)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>controllerNumberChanged</name>
-      <anchorfile>structlemons_1_1plugin_1_1Parameter_1_1Listener.html</anchorfile>
-      <anchor>a82971aee6ae16d04100949930233e34c</anchor>
-      <arglist>(int newControllerNumber)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>gestureStateChanged</name>
-      <anchorfile>structlemons_1_1plugin_1_1Parameter_1_1Listener.html</anchorfile>
-      <anchor>ac0db7beb485e9164070104f5da7e7b40</anchor>
-      <arglist>(bool gestureIsStarting)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>paramDefaultChanged</name>
-      <anchorfile>structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html</anchorfile>
-      <anchor>a27517e2ae5e97edfa25dbef712e54347</anchor>
-      <arglist>(ValueType)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>paramValueChanged</name>
-      <anchorfile>structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html</anchorfile>
-      <anchor>a6b091945117c5ffccf7d42e4ba1ae20a</anchor>
-      <arglist>(ValueType)</arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
     <name>lemons::plugin::ParameterList::Listener</name>
     <filename>structlemons_1_1plugin_1_1ParameterList_1_1Listener.html</filename>
     <member kind="function">
@@ -8498,6 +8459,46 @@
       <anchorfile>structlemons_1_1plugin_1_1Parameter_1_1Listener.html</anchorfile>
       <anchor>ac230d1860fb4068115e7d10285b27669</anchor>
       <arglist>(float newNormalizedValue)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::plugin::TypedParameter::Listener</name>
+    <filename>structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html</filename>
+    <base>lemons::plugin::Parameter::Listener</base>
+    <member kind="function">
+      <type></type>
+      <name>Listener</name>
+      <anchorfile>structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html</anchorfile>
+      <anchor>a94994114fd355af5caf403b57037de1f</anchor>
+      <arglist>(TypedParameter&lt; ValueType &gt; &amp;param)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>controllerNumberChanged</name>
+      <anchorfile>structlemons_1_1plugin_1_1Parameter_1_1Listener.html</anchorfile>
+      <anchor>a82971aee6ae16d04100949930233e34c</anchor>
+      <arglist>(int newControllerNumber)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>gestureStateChanged</name>
+      <anchorfile>structlemons_1_1plugin_1_1Parameter_1_1Listener.html</anchorfile>
+      <anchor>ac0db7beb485e9164070104f5da7e7b40</anchor>
+      <arglist>(bool gestureIsStarting)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>paramDefaultChanged</name>
+      <anchorfile>structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html</anchorfile>
+      <anchor>a27517e2ae5e97edfa25dbef712e54347</anchor>
+      <arglist>(ValueType)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>paramValueChanged</name>
+      <anchorfile>structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html</anchorfile>
+      <anchor>a6b091945117c5ffccf7d42e4ba1ae20a</anchor>
+      <arglist>(ValueType)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -9369,48 +9370,15 @@
     <name>lemons::dsp::FX::MonoStereoConverter</name>
     <filename>classlemons_1_1dsp_1_1FX_1_1MonoStereoConverter.html</filename>
     <templarg></templarg>
-    <member kind="enumvalue">
-      <name>leftOnly</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1MonoStereoConverter.html</anchorfile>
-      <anchor>ade2abf33ee96d0bb7bfdc43c3336c3acace52336ad2f30b2b16c5e3fe4a00201c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>mixToMono</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1MonoStereoConverter.html</anchorfile>
-      <anchor>ade2abf33ee96d0bb7bfdc43c3336c3aca934884fdcc58d2e037fe857e768f3749</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>rightOnly</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1MonoStereoConverter.html</anchorfile>
-      <anchor>ade2abf33ee96d0bb7bfdc43c3336c3aca0600b02e05f461439482cb53b7f4b86d</anchor>
-      <arglist></arglist>
-    </member>
     <member kind="enumeration">
       <type></type>
       <name>StereoReductionMode</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1MonoStereoConverter.html</anchorfile>
       <anchor>ade2abf33ee96d0bb7bfdc43c3336c3ac</anchor>
       <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>leftOnly</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1MonoStereoConverter.html</anchorfile>
-      <anchor>ade2abf33ee96d0bb7bfdc43c3336c3acace52336ad2f30b2b16c5e3fe4a00201c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>rightOnly</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1MonoStereoConverter.html</anchorfile>
-      <anchor>ade2abf33ee96d0bb7bfdc43c3336c3aca0600b02e05f461439482cb53b7f4b86d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>mixToMono</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1MonoStereoConverter.html</anchorfile>
-      <anchor>ade2abf33ee96d0bb7bfdc43c3336c3aca934884fdcc58d2e037fe857e768f3749</anchor>
-      <arglist></arglist>
+      <enumvalue file="classlemons_1_1dsp_1_1FX_1_1MonoStereoConverter.html" anchor="ade2abf33ee96d0bb7bfdc43c3336c3aca1551df77400b2edbe1682fef8b4ee182">leftOnly</enumvalue>
+      <enumvalue file="classlemons_1_1dsp_1_1FX_1_1MonoStereoConverter.html" anchor="ade2abf33ee96d0bb7bfdc43c3336c3aca97ed31f67756738d6c8d74a1ee8c565d">rightOnly</enumvalue>
+      <enumvalue file="classlemons_1_1dsp_1_1FX_1_1MonoStereoConverter.html" anchor="ade2abf33ee96d0bb7bfdc43c3336c3aca0d2a8602a2cd80a62be55f9bc60e1f22">mixToMono</enumvalue>
     </member>
     <member kind="function">
       <type></type>
@@ -14196,11 +14164,32 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
+      <type></type>
+      <name>Reverb</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Reverb.html</anchorfile>
+      <anchor>a8f602690ffee054b1f4a805fbd8f72ed</anchor>
+      <arglist>(float roomSizeToUse, float dampingAmountToUse, float widthToUse, int wetPcnt, int duckAmountToUse, float loCutFreq, float hiCutFreq)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Reverb</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Reverb.html</anchorfile>
+      <anchor>aa2946ef45501d1ae50293b301589a509</anchor>
+      <arglist>(ReverbParams params)</arglist>
+    </member>
+    <member kind="function">
+      <type>ReverbParams</type>
+      <name>getParams</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Reverb.html</anchorfile>
+      <anchor>a9156582a2d4980a4b6a2b2ff6c4c9521</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>prepare</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1Reverb.html</anchorfile>
-      <anchor>a535c1ec95de300b607b2abf9b82cb12f</anchor>
-      <arglist>(int blocksize, double samplerate, int numChannels)</arglist>
+      <anchor>a3f9e3fcb3afac89a3fc308ed8d06abbe</anchor>
+      <arglist>(int blocksize, double samplerate, int numChannels=2)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -14274,6 +14263,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>setParams</name>
+      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Reverb.html</anchorfile>
+      <anchor>ae9b9bb490ca52b6396001f5c349da7e1</anchor>
+      <arglist>(ReverbParams params)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>setRoomSize</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1Reverb.html</anchorfile>
       <anchor>a214d1129144eb203120f131b9d130dd2</anchor>
@@ -14285,6 +14281,73 @@
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1Reverb.html</anchorfile>
       <anchor>a719c5c050c525579ecb986157ec2e7eb</anchor>
       <arglist>(float newWidth)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::dsp::FX::ReverbParams</name>
+    <filename>structlemons_1_1dsp_1_1FX_1_1ReverbParams.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ReverbParams</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1ReverbParams.html</anchorfile>
+      <anchor>a8dea4a3d2198386743697b09beeb85ff</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>ReverbParams</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1ReverbParams.html</anchorfile>
+      <anchor>aed474592774a3aaeef2f6e58d503e75d</anchor>
+      <arglist>(float roomSizeToUse, float dampingAmt, float widthToUse, int wetAmt, int duckAmt, float loCutFreq, float hiCutFreq)</arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>damping</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1ReverbParams.html</anchorfile>
+      <anchor>a0c3d8b2b3721ca957db3033ce52832eb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>duck</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1ReverbParams.html</anchorfile>
+      <anchor>a1e8de34b807697f6d89e58274352d3ad</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>hiCut</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1ReverbParams.html</anchorfile>
+      <anchor>aba18b367d3ba7e265460fbf4618b9e91</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>loCut</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1ReverbParams.html</anchorfile>
+      <anchor>ae5dd302a43822e1a6eafff52e1a9b7fd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>roomSize</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1ReverbParams.html</anchorfile>
+      <anchor>a8307e0449ee9a2d2d8c8aba7507bb9d3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>wetPcnt</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1ReverbParams.html</anchorfile>
+      <anchor>af93d26064d2f28e9d86b5a5221ca91c1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>width</name>
+      <anchorfile>structlemons_1_1dsp_1_1FX_1_1ReverbParams.html</anchorfile>
+      <anchor>a481c38ae330183e701b6c066bbf231a1</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -19013,6 +19076,7 @@
     <class kind="struct">lemons::dsp::FX::NoiseGateParams</class>
     <class kind="class">lemons::dsp::FX::PannerBase</class>
     <class kind="class">lemons::dsp::FX::Reverb</class>
+    <class kind="struct">lemons::dsp::FX::ReverbParams</class>
     <class kind="class">lemons::dsp::FX::Saturator</class>
     <class kind="struct">lemons::dsp::FX::SidechainableAudioEffect</class>
     <class kind="class">lemons::dsp::FX::SmoothedGain</class>

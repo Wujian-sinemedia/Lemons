@@ -74,42 +74,74 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Reverb.html" title="Reverb effect class that wraps juce::Reverb with some other useful bells and whistles,...">Reverb</a> effect class that wraps juce::Reverb with some other useful bells and whistles, like hi- and lo-pass filters for the wet signal, a built-in dry/wet mixer, etc.  
+ <a href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#details">More...</a></p>
+
 <p><code>#include &lt;Reverb.h&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a1f6fef37d0aeadce5a8835915667626b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#a1f6fef37d0aeadce5a8835915667626b">Reverb</a> ()</td></tr>
+<tr class="memdesc:a1f6fef37d0aeadce5a8835915667626b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a default <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Reverb.html" title="Reverb effect class that wraps juce::Reverb with some other useful bells and whistles,...">Reverb</a> object.  <a href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#a1f6fef37d0aeadce5a8835915667626b">More...</a><br /></td></tr>
 <tr class="separator:a1f6fef37d0aeadce5a8835915667626b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a535c1ec95de300b607b2abf9b82cb12f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#a535c1ec95de300b607b2abf9b82cb12f">prepare</a> (int blocksize, double samplerate, int numChannels)</td></tr>
-<tr class="separator:a535c1ec95de300b607b2abf9b82cb12f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f602690ffee054b1f4a805fbd8f72ed"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#a8f602690ffee054b1f4a805fbd8f72ed">Reverb</a> (float roomSizeToUse, float dampingAmountToUse, float widthToUse, int wetPcnt, int duckAmountToUse, float loCutFreq, float hiCutFreq)</td></tr>
+<tr class="memdesc:a8f602690ffee054b1f4a805fbd8f72ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Reverb.html" title="Reverb effect class that wraps juce::Reverb with some other useful bells and whistles,...">Reverb</a> object with some specified initial parameters.  <a href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#a8f602690ffee054b1f4a805fbd8f72ed">More...</a><br /></td></tr>
+<tr class="separator:a8f602690ffee054b1f4a805fbd8f72ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2946ef45501d1ae50293b301589a509"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#aa2946ef45501d1ae50293b301589a509">Reverb</a> (<a class="el" href="structlemons_1_1dsp_1_1FX_1_1ReverbParams.html">ReverbParams</a> params)</td></tr>
+<tr class="memdesc:aa2946ef45501d1ae50293b301589a509"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Reverb.html" title="Reverb effect class that wraps juce::Reverb with some other useful bells and whistles,...">Reverb</a> object from a <a class="el" href="structlemons_1_1dsp_1_1FX_1_1ReverbParams.html" title="Struct representing the state of a Reverb object.">ReverbParams</a> object.  <a href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#aa2946ef45501d1ae50293b301589a509">More...</a><br /></td></tr>
+<tr class="separator:aa2946ef45501d1ae50293b301589a509"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9156582a2d4980a4b6a2b2ff6c4c9521"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1ReverbParams.html">ReverbParams</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#a9156582a2d4980a4b6a2b2ff6c4c9521">getParams</a> () const</td></tr>
+<tr class="memdesc:a9156582a2d4980a4b6a2b2ff6c4c9521"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="structlemons_1_1dsp_1_1FX_1_1ReverbParams.html" title="Struct representing the state of a Reverb object.">ReverbParams</a> object representing the state of this reverb.  <a href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#a9156582a2d4980a4b6a2b2ff6c4c9521">More...</a><br /></td></tr>
+<tr class="separator:a9156582a2d4980a4b6a2b2ff6c4c9521"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f9e3fcb3afac89a3fc308ed8d06abbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#a3f9e3fcb3afac89a3fc308ed8d06abbe">prepare</a> (int blocksize, double samplerate, int numChannels=2)</td></tr>
+<tr class="memdesc:a3f9e3fcb3afac89a3fc308ed8d06abbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the reverb.  <a href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#a3f9e3fcb3afac89a3fc308ed8d06abbe">More...</a><br /></td></tr>
+<tr class="separator:a3f9e3fcb3afac89a3fc308ed8d06abbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c4cb0f2b294fa40ebbac0fd7a1a0276"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#a6c4cb0f2b294fa40ebbac0fd7a1a0276">process</a> (juce::AudioBuffer&lt; double &gt; &amp;input, double *reverbLevel=nullptr)</td></tr>
+<tr class="memdesc:a6c4cb0f2b294fa40ebbac0fd7a1a0276"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes a stream of double samples with no external sidechain.  <a href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#a6c4cb0f2b294fa40ebbac0fd7a1a0276">More...</a><br /></td></tr>
 <tr class="separator:a6c4cb0f2b294fa40ebbac0fd7a1a0276"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad14d4373532a8cb1d58120be4524fe11"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#ad14d4373532a8cb1d58120be4524fe11">process</a> (juce::AudioBuffer&lt; double &gt; &amp;input, juce::AudioBuffer&lt; double &gt; &amp;compressorSidechain, double *reverbLevel=nullptr)</td></tr>
+<tr class="memdesc:ad14d4373532a8cb1d58120be4524fe11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes a stream of double samples with an external signal sidechaining the reverb signal.  <a href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#ad14d4373532a8cb1d58120be4524fe11">More...</a><br /></td></tr>
 <tr class="separator:ad14d4373532a8cb1d58120be4524fe11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6d90cd6099ebeb90bf38fcc0147b36d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#ab6d90cd6099ebeb90bf38fcc0147b36d">process</a> (juce::AudioBuffer&lt; float &gt; &amp;input, float *reverbLevel=nullptr)</td></tr>
+<tr class="memdesc:ab6d90cd6099ebeb90bf38fcc0147b36d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes a stream of float samples with no external sidechain.  <a href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#ab6d90cd6099ebeb90bf38fcc0147b36d">More...</a><br /></td></tr>
 <tr class="separator:ab6d90cd6099ebeb90bf38fcc0147b36d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7818b1abf1869f16a20cbee429909cdf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#a7818b1abf1869f16a20cbee429909cdf">process</a> (juce::AudioBuffer&lt; float &gt; &amp;input, juce::AudioBuffer&lt; float &gt; &amp;compressorSidechain, float *reverbLevel=nullptr)</td></tr>
+<tr class="memdesc:a7818b1abf1869f16a20cbee429909cdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes a stream of float samples with an external signal sidechaining the reverb signal.  <a href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#a7818b1abf1869f16a20cbee429909cdf">More...</a><br /></td></tr>
 <tr class="separator:a7818b1abf1869f16a20cbee429909cdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a349cd9f2113608ad28d49dc1e0c93cc3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#a349cd9f2113608ad28d49dc1e0c93cc3">reset</a> ()</td></tr>
+<tr class="memdesc:a349cd9f2113608ad28d49dc1e0c93cc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the reverb's internal state to a neutral one.  <a href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#a349cd9f2113608ad28d49dc1e0c93cc3">More...</a><br /></td></tr>
 <tr class="separator:a349cd9f2113608ad28d49dc1e0c93cc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8a7dd8183ce552513fdb2344e54fe60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#ab8a7dd8183ce552513fdb2344e54fe60">setDamping</a> (float newDampingAmount)</td></tr>
+<tr class="memdesc:ab8a7dd8183ce552513fdb2344e54fe60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the damping amount for the reverb.  <a href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#ab8a7dd8183ce552513fdb2344e54fe60">More...</a><br /></td></tr>
 <tr class="separator:ab8a7dd8183ce552513fdb2344e54fe60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a474359ccb196d310692ee4e76c40ee7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#a474359ccb196d310692ee4e76c40ee7e">setDryWet</a> (int wetMixPercent)</td></tr>
+<tr class="memdesc:a474359ccb196d310692ee4e76c40ee7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the dry/wet ratio.  <a href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#a474359ccb196d310692ee4e76c40ee7e">More...</a><br /></td></tr>
 <tr class="separator:a474359ccb196d310692ee4e76c40ee7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ae1b2fbd81c9b6de3a99ac49831da58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#a3ae1b2fbd81c9b6de3a99ac49831da58">setDuckAmount</a> (int newDuckAmount)</td></tr>
+<tr class="memdesc:a3ae1b2fbd81c9b6de3a99ac49831da58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the ducking amount.  <a href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#a3ae1b2fbd81c9b6de3a99ac49831da58">More...</a><br /></td></tr>
 <tr class="separator:a3ae1b2fbd81c9b6de3a99ac49831da58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80df12f8cd04ccfaf4997b0aac3fedea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#a80df12f8cd04ccfaf4997b0aac3fedea">setHiCutFrequency</a> (float freq)</td></tr>
+<tr class="memdesc:a80df12f8cd04ccfaf4997b0aac3fedea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the frequency of the high cut filter applied to the wet signal.  <a href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#a80df12f8cd04ccfaf4997b0aac3fedea">More...</a><br /></td></tr>
 <tr class="separator:a80df12f8cd04ccfaf4997b0aac3fedea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf39f1cf98c92c029edacec44dc4d0f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#adf39f1cf98c92c029edacec44dc4d0f2">setLoCutFrequency</a> (float freq)</td></tr>
+<tr class="memdesc:adf39f1cf98c92c029edacec44dc4d0f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the frequency of the lo cut filter applied to the wet signal.  <a href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#adf39f1cf98c92c029edacec44dc4d0f2">More...</a><br /></td></tr>
 <tr class="separator:adf39f1cf98c92c029edacec44dc4d0f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9b9bb490ca52b6396001f5c349da7e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#ae9b9bb490ca52b6396001f5c349da7e1">setParams</a> (<a class="el" href="structlemons_1_1dsp_1_1FX_1_1ReverbParams.html">ReverbParams</a> params)</td></tr>
+<tr class="memdesc:ae9b9bb490ca52b6396001f5c349da7e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores the state of a <a class="el" href="structlemons_1_1dsp_1_1FX_1_1ReverbParams.html" title="Struct representing the state of a Reverb object.">ReverbParams</a> object.  <a href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#ae9b9bb490ca52b6396001f5c349da7e1">More...</a><br /></td></tr>
+<tr class="separator:ae9b9bb490ca52b6396001f5c349da7e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a214d1129144eb203120f131b9d130dd2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#a214d1129144eb203120f131b9d130dd2">setRoomSize</a> (float newRoomSize)</td></tr>
+<tr class="memdesc:a214d1129144eb203120f131b9d130dd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the room size of the reverb.  <a href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#a214d1129144eb203120f131b9d130dd2">More...</a><br /></td></tr>
 <tr class="separator:a214d1129144eb203120f131b9d130dd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a719c5c050c525579ecb986157ec2e7eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#a719c5c050c525579ecb986157ec2e7eb">setWidth</a> (float newWidth)</td></tr>
+<tr class="memdesc:a719c5c050c525579ecb986157ec2e7eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the stereo width of the reverb.  <a href="classlemons_1_1dsp_1_1FX_1_1Reverb.html#a719c5c050c525579ecb986157ec2e7eb">More...</a><br /></td></tr>
 <tr class="separator:a719c5c050c525579ecb986157ec2e7eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Reverb.html" title="Reverb effect class that wraps juce::Reverb with some other useful bells and whistles,...">Reverb</a> effect class that wraps juce::Reverb with some other useful bells and whistles, like hi- and lo-pass filters for the wet signal, a built-in dry/wet mixer, etc. </p>
+<p>Note that this class is NOT templated, it contains functions for both float and double AudioBuffers. This is because juce::Reverb only processes in floats. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1dsp_1_1FX_1_1ReverbParams.html" title="Struct representing the state of a Reverb object.">ReverbParams</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1f6fef37d0aeadce5a8835915667626b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f6fef37d0aeadce5a8835915667626b">&#9670;&nbsp;</a></span>Reverb()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f6fef37d0aeadce5a8835915667626b">&#9670;&nbsp;</a></span>Reverb() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -123,11 +155,112 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Creates a default <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Reverb.html" title="Reverb effect class that wraps juce::Reverb with some other useful bells and whistles,...">Reverb</a> object. </p>
+
+</div>
+</div>
+<a id="a8f602690ffee054b1f4a805fbd8f72ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f602690ffee054b1f4a805fbd8f72ed">&#9670;&nbsp;</a></span>Reverb() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">lemons::dsp::FX::Reverb::Reverb </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>roomSizeToUse</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>dampingAmountToUse</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>widthToUse</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>wetPcnt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>duckAmountToUse</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>loCutFreq</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>hiCutFreq</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Reverb.html" title="Reverb effect class that wraps juce::Reverb with some other useful bells and whistles,...">Reverb</a> object with some specified initial parameters. </p>
+
+</div>
+</div>
+<a id="aa2946ef45501d1ae50293b301589a509"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2946ef45501d1ae50293b301589a509">&#9670;&nbsp;</a></span>Reverb() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">lemons::dsp::FX::Reverb::Reverb </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1ReverbParams.html">ReverbParams</a>&#160;</td>
+          <td class="paramname"><em>params</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a <a class="el" href="classlemons_1_1dsp_1_1FX_1_1Reverb.html" title="Reverb effect class that wraps juce::Reverb with some other useful bells and whistles,...">Reverb</a> object from a <a class="el" href="structlemons_1_1dsp_1_1FX_1_1ReverbParams.html" title="Struct representing the state of a Reverb object.">ReverbParams</a> object. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a535c1ec95de300b607b2abf9b82cb12f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a535c1ec95de300b607b2abf9b82cb12f">&#9670;&nbsp;</a></span>prepare()</h2>
+<a id="a9156582a2d4980a4b6a2b2ff6c4c9521"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9156582a2d4980a4b6a2b2ff6c4c9521">&#9670;&nbsp;</a></span>getParams()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1ReverbParams.html">ReverbParams</a> lemons::dsp::FX::Reverb::getParams </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a <a class="el" href="structlemons_1_1dsp_1_1FX_1_1ReverbParams.html" title="Struct representing the state of a Reverb object.">ReverbParams</a> object representing the state of this reverb. </p>
+
+</div>
+</div>
+<a id="a3f9e3fcb3afac89a3fc308ed8d06abbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f9e3fcb3afac89a3fc308ed8d06abbe">&#9670;&nbsp;</a></span>prepare()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -148,7 +281,7 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>numChannels</em>&#160;</td>
+          <td class="paramname"><em>numChannels</em> = <code>2</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -157,6 +290,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Prepares the reverb. </p>
 
 </div>
 </div>
@@ -185,6 +320,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Processes a stream of double samples with no external sidechain. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>The audio to apply the reverb to. </td></tr>
+    <tr><td class="paramname">reverbLevel</td><td>Pointer to which to report the reverb level. This may be null. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -220,6 +364,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Processes a stream of double samples with an external signal sidechaining the reverb signal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>The signal to which to apply reverb. </td></tr>
+    <tr><td class="paramname">compressorSidechain</td><td>The signal to use as the sidechain for the wet signal's compressor. </td></tr>
+    <tr><td class="paramname">reverbLevel</td><td>Pointer to which to report the reverb level. This may be null. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ab6d90cd6099ebeb90bf38fcc0147b36d"></a>
@@ -247,6 +401,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Processes a stream of float samples with no external sidechain. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>The audio to apply the reverb to. </td></tr>
+    <tr><td class="paramname">reverbLevel</td><td>Pointer to which to report the reverb level. This may be null. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -282,6 +445,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Processes a stream of float samples with an external signal sidechaining the reverb signal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>The signal to which to apply reverb. </td></tr>
+    <tr><td class="paramname">compressorSidechain</td><td>The signal to use as the sidechain for the wet signal's compressor. </td></tr>
+    <tr><td class="paramname">reverbLevel</td><td>Pointer to which to report the reverb level. This may be null. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a349cd9f2113608ad28d49dc1e0c93cc3"></a>
@@ -298,6 +471,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Resets the reverb's internal state to a neutral one. </p>
 
 </div>
 </div>
@@ -317,6 +492,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the damping amount for the reverb. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newDampingAmount</td><td>The damping amount to use. Between 0.f and 1.f, where 0 is no damping and 1 is complete damping. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a474359ccb196d310692ee4e76c40ee7e"></a>
@@ -334,6 +517,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the dry/wet ratio. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">wetMixPercent</td><td>The percent wet signal that will be present in the output. Between 0 and 100, where 0 is completely dry and 100 is completely wet. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -353,6 +544,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the ducking amount. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newDuckAmount</td><td>The amount of ducking to apply to the wet signal. Between 0 and 100, where 0 is no ducking and 100 is complete ducking. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a80df12f8cd04ccfaf4997b0aac3fedea"></a>
@@ -370,6 +569,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the frequency of the high cut filter applied to the wet signal. </p>
 
 </div>
 </div>
@@ -389,6 +590,28 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the frequency of the lo cut filter applied to the wet signal. </p>
+
+</div>
+</div>
+<a id="ae9b9bb490ca52b6396001f5c349da7e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9b9bb490ca52b6396001f5c349da7e1">&#9670;&nbsp;</a></span>setParams()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lemons::dsp::FX::Reverb::setParams </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlemons_1_1dsp_1_1FX_1_1ReverbParams.html">ReverbParams</a>&#160;</td>
+          <td class="paramname"><em>params</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Restores the state of a <a class="el" href="structlemons_1_1dsp_1_1FX_1_1ReverbParams.html" title="Struct representing the state of a Reverb object.">ReverbParams</a> object. </p>
+
 </div>
 </div>
 <a id="a214d1129144eb203120f131b9d130dd2"></a>
@@ -406,6 +629,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the room size of the reverb. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newRoomSize</td><td>The room size to use. Between 0.f and 1.f, where 0 is a small space and 1 is a large space. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -425,6 +656,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the stereo width of the reverb. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newWidth</td><td>The width to use. Between 0.1 and 1.f, where 0 is narrow and 1 is wide. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -433,7 +672,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 1 2021 00:56:33 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 1 2021 04:09:18 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

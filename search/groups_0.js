@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['audioeffects_2280',['AudioEffects',['../group__lemons__audio__effects-AudioEffects.html',1,'']]],
-  ['all_5fplatforms_2281',['all_platforms',['../group__lemons__mobile__utils-all__platforms.html',1,'']]],
-  ['android_2282',['Android',['../group__lemons__mobile__utils-Android.html',1,'']]],
-  ['analysis_2283',['analysis',['../group__lemons__psola-analysis.html',1,'']]]
+  ['audioeffects_2297',['AudioEffects',['../group__lemons__audio__effects-AudioEffects.html',1,'']]],
+  ['all_5fplatforms_2298',['all_platforms',['../group__lemons__mobile__utils-all__platforms.html',1,'']]],
+  ['android_2299',['Android',['../group__lemons__mobile__utils-Android.html',1,'']]],
+  ['analysis_2300',['analysis',['../group__lemons__psola-analysis.html',1,'']]]
 ];

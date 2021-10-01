@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['filtertype_2239',['FilterType',['../namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14',1,'lemons::dsp::FX']]]
+  ['filtertype_2256',['FilterType',['../namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14',1,'lemons::dsp::FX']]]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['inverted_2163',['inverted',['../structlemons_1_1dsp_1_1FX_1_1NoiseGateParams.html#aadb94d16e7b54026671c3533f46b1834',1,'lemons::dsp::FX::NoiseGateParams']]],
-  ['isinternal_2164',['isInternal',['../structlemons_1_1plugin_1_1ParamHolderBase.html#adfadd47309422ecf2bdc5d4b54828ecf',1,'lemons::plugin::ParamHolderBase']]]
+  ['hicut_2175',['hiCut',['../structlemons_1_1dsp_1_1FX_1_1ReverbParams.html#aba18b367d3ba7e265460fbf4618b9e91',1,'lemons::dsp::FX::ReverbParams']]]
 ];
