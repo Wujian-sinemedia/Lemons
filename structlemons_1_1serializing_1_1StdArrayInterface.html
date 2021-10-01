@@ -81,23 +81,25 @@ $(function() {
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structlemons_1_1serializing_1_1StdArrayInterface__inherit__graph.svg" width="182" height="156"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structlemons_1_1serializing_1_1StdArrayInterface__inherit__graph.svg" width="100%" height="383"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a4c9ae2c0f9975a6f1f23c2093dfad059"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html#a4c9ae2c0f9975a6f1f23c2093dfad059">ArrayType</a> = std::array&lt; ElementType, size &gt;</td></tr>
-<tr class="separator:a4c9ae2c0f9975a6f1f23c2093dfad059"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a689a1f246b3351f0f210819f49f861c5"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html#a689a1f246b3351f0f210819f49f861c5">Container</a> = std::array&lt; ElementType, size &gt;</td></tr>
+<tr class="separator:a689a1f246b3351f0f210819f49f861c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32d76526cd79b1430dd90251f242d821"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1LambdaContainerInterface.html#a32d76526cd79b1430dd90251f242d821">ResizeCallback</a> = std::function&lt; void(std::array&lt; ElementType, size &gt; &amp;, int) &gt;</td></tr>
+<tr class="separator:a32d76526cd79b1430dd90251f242d821"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad9e83dd136cfba8693d546376d45215a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html#ad9e83dd136cfba8693d546376d45215a">StdArrayInterface</a> (<a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html#a4c9ae2c0f9975a6f1f23c2093dfad059">ArrayType</a> &amp;)</td></tr>
-<tr class="separator:ad9e83dd136cfba8693d546376d45215a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dbf642c458e2a374553197db957c241"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html#a5dbf642c458e2a374553197db957c241">StdArrayInterface</a> (<a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html#a689a1f246b3351f0f210819f49f861c5">Container</a> &amp;container)</td></tr>
+<tr class="separator:a5dbf642c458e2a374553197db957c241"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a4c9ae2c0f9975a6f1f23c2093dfad059"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c9ae2c0f9975a6f1f23c2093dfad059">&#9670;&nbsp;</a></span>ArrayType</h2>
+<a id="a689a1f246b3351f0f210819f49f861c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a689a1f246b3351f0f210819f49f861c5">&#9670;&nbsp;</a></span>Container</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -105,16 +107,38 @@ Public Member Functions</h2></td></tr>
 template&lt;typename ElementType , size_t size&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html">lemons::serializing::StdArrayInterface</a>&lt; ElementType, size &gt;::<a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html#a4c9ae2c0f9975a6f1f23c2093dfad059">ArrayType</a> =  std::array&lt; ElementType, size &gt;</td>
+          <td class="memname">using <a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html">lemons::serializing::StdArrayInterface</a>&lt; ElementType, size &gt;::<a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html#a689a1f246b3351f0f210819f49f861c5">Container</a> =  std::array&lt; ElementType, size &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
+<a id="a32d76526cd79b1430dd90251f242d821"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32d76526cd79b1430dd90251f242d821">&#9670;&nbsp;</a></span>ResizeCallback</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="structlemons_1_1serializing_1_1LambdaContainerInterface.html">lemons::serializing::LambdaContainerInterface</a>&lt; std::array&lt; ElementType, size &gt;  &gt;::<a class="el" href="structlemons_1_1serializing_1_1LambdaContainerInterface.html#a32d76526cd79b1430dd90251f242d821">ResizeCallback</a> =  std::function&lt; void (std::array&lt; ElementType, size &gt; &amp;, int) &gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad9e83dd136cfba8693d546376d45215a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9e83dd136cfba8693d546376d45215a">&#9670;&nbsp;</a></span>StdArrayInterface()</h2>
+<a id="a5dbf642c458e2a374553197db957c241"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dbf642c458e2a374553197db957c241">&#9670;&nbsp;</a></span>StdArrayInterface()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -124,8 +148,8 @@ template&lt;typename ElementType , size_t size&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html">lemons::serializing::StdArrayInterface</a>&lt; ElementType, size &gt;::<a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html">StdArrayInterface</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html#a4c9ae2c0f9975a6f1f23c2093dfad059">ArrayType</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html#a689a1f246b3351f0f210819f49f861c5">Container</a> &amp;&#160;</td>
+          <td class="paramname"><em>container</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -139,7 +163,7 @@ template&lt;typename ElementType , size_t size&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 1 2021 20:52:49 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 1 2021 22:41:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

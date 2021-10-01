@@ -99,7 +99,9 @@ Private Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Keeps two copies of an object inheriting from <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> in sync. </p>
-<p>This is akin to juce's ValueTreeSynchronizer, but for working with my <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> class. Because <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> does not have any means for detecting changes, this class simply sends a consistent stream of updates on a timer callback. At first glance this may seem excessive, but I have found it to be the most robust way of ensuring that two remote objects stay in sync, and I haven't encountered any major performance issues.</p>
+<p>This is akin to juce's ValueTreeSynchronizer, but for working with my <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> class. <br  />
+Because <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> does not have any means for detecting changes, this class simply sends a consistent stream of updates on a timer callback. <br  />
+At first glance this may seem excessive, but I have found it to be the most robust way of ensuring that two remote objects stay in sync, and I haven't encountered any major performance issues.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5f4b193ad6d069a9259a7324ddfbfd0a"></a>
@@ -225,7 +227,7 @@ Private Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 1 2021 20:52:49 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 1 2021 22:41:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

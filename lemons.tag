@@ -268,6 +268,7 @@
     <filename>ContainerInterface_8h.html</filename>
     <class kind="struct">lemons::serializing::ContainerInterface</class>
     <class kind="struct">lemons::serializing::isContainer</class>
+    <class kind="struct">lemons::serializing::LambdaContainerInterface</class>
     <namespace>lemons</namespace>
     <namespace>lemons::serializing</namespace>
     <member kind="function">
@@ -1960,8 +1961,7 @@
     <class kind="struct">lemons::serializing::isContainer&lt; std::list&lt; ElementType &gt; &gt;</class>
     <class kind="struct">lemons::serializing::isContainer&lt; std::vector&lt; ElementType &gt; &gt;</class>
     <class kind="struct">lemons::serializing::StdArrayInterface</class>
-    <class kind="struct">lemons::serializing::StdListInterface</class>
-    <class kind="struct">lemons::serializing::StdVectorInterface</class>
+    <class kind="struct">lemons::serializing::STLContainerInterface</class>
     <namespace>lemons</namespace>
     <namespace>lemons::serializing</namespace>
     <member kind="function">
@@ -7322,40 +7322,54 @@
     <name>lemons::serializing::JuceArrayInterface</name>
     <filename>structlemons_1_1serializing_1_1JuceArrayInterface.html</filename>
     <templarg></templarg>
-    <base>lemons::serializing::ContainerInterface</base>
+    <base>LambdaContainerInterface&lt; juce::Array&lt; ElementType &gt; &gt;</base>
     <member kind="typedef">
       <type>juce::Array&lt; ElementType &gt;</type>
-      <name>Type</name>
+      <name>Container</name>
       <anchorfile>structlemons_1_1serializing_1_1JuceArrayInterface.html</anchorfile>
-      <anchor>a5361d17edf962288256a99d8663cc5e7</anchor>
+      <anchor>a2135faa45e24142fcde586eb6ae89daf</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>std::function&lt; void(juce::Array&lt; ElementType &gt; &amp;, int) &gt;</type>
+      <name>ResizeCallback</name>
+      <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
+      <anchor>a32d76526cd79b1430dd90251f242d821</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>JuceArrayInterface</name>
       <anchorfile>structlemons_1_1serializing_1_1JuceArrayInterface.html</anchorfile>
-      <anchor>a9afb09d8cf7487c7500064b400aaa36c</anchor>
-      <arglist>(Type &amp;containerToUse)</arglist>
+      <anchor>a92444a4093f2b11956127c1548682a2f</anchor>
+      <arglist>(Container &amp;container)</arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>lemons::serializing::JuceOwnedArrayInterface</name>
     <filename>structlemons_1_1serializing_1_1JuceOwnedArrayInterface.html</filename>
     <templarg></templarg>
-    <base>lemons::serializing::ContainerInterface</base>
+    <base>LambdaContainerInterface&lt; juce::OwnedArray&lt; ElementType &gt; &gt;</base>
     <member kind="typedef">
       <type>juce::OwnedArray&lt; ElementType &gt;</type>
-      <name>Type</name>
+      <name>Container</name>
       <anchorfile>structlemons_1_1serializing_1_1JuceOwnedArrayInterface.html</anchorfile>
-      <anchor>afde2dd18fdfdfc24cf97b6b75466f014</anchor>
+      <anchor>a5f13472f2522d347814be463fae57510</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>std::function&lt; void(juce::OwnedArray&lt; ElementType &gt; &amp;, int) &gt;</type>
+      <name>ResizeCallback</name>
+      <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
+      <anchor>a32d76526cd79b1430dd90251f242d821</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>JuceOwnedArrayInterface</name>
       <anchorfile>structlemons_1_1serializing_1_1JuceOwnedArrayInterface.html</anchorfile>
-      <anchor>a6e1e5c313aa4aaeaae283c2109258d34</anchor>
-      <arglist>(Type &amp;containerToUse)</arglist>
+      <anchor>ab1b2307af7a2e090f03a7a5a7705fa9e</anchor>
+      <arglist>(Container &amp;container)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -7545,6 +7559,83 @@
       <anchorfile>structlemons_1_1gui_1_1Label.html</anchorfile>
       <anchor>a2af3ab895996e32dcbb004d8800bf5bb</anchor>
       <arglist>(const String &amp;newText)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::serializing::LambdaContainerInterface</name>
+    <filename>structlemons_1_1serializing_1_1LambdaContainerInterface.html</filename>
+    <templarg></templarg>
+    <base>lemons::serializing::ContainerInterface</base>
+    <member kind="typedef">
+      <type>std::function&lt; void(ContainerType &amp;, int) &gt;</type>
+      <name>ResizeCallback</name>
+      <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
+      <anchor>a32d76526cd79b1430dd90251f242d821</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>LambdaContainerInterface</name>
+      <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
+      <anchor>ae7169782ade1798d043e301000b79790</anchor>
+      <arglist>(ContainerType &amp;containerToUse, ResizeCallback resizeFuncToUse)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>LambdaContainerInterface&lt; juce::Array&lt; ElementType &gt; &gt;</name>
+    <filename>structlemons_1_1serializing_1_1LambdaContainerInterface.html</filename>
+    <base>lemons::serializing::ContainerInterface</base>
+    <member kind="typedef">
+      <type>std::function&lt; void(juce::Array&lt; ElementType &gt; &amp;, int) &gt;</type>
+      <name>ResizeCallback</name>
+      <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
+      <anchor>a32d76526cd79b1430dd90251f242d821</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>LambdaContainerInterface</name>
+      <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
+      <anchor>ae7169782ade1798d043e301000b79790</anchor>
+      <arglist>(juce::Array&lt; ElementType &gt; &amp;containerToUse, ResizeCallback resizeFuncToUse)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>LambdaContainerInterface&lt; juce::OwnedArray&lt; ElementType &gt; &gt;</name>
+    <filename>structlemons_1_1serializing_1_1LambdaContainerInterface.html</filename>
+    <base>lemons::serializing::ContainerInterface</base>
+    <member kind="typedef">
+      <type>std::function&lt; void(juce::OwnedArray&lt; ElementType &gt; &amp;, int) &gt;</type>
+      <name>ResizeCallback</name>
+      <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
+      <anchor>a32d76526cd79b1430dd90251f242d821</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>LambdaContainerInterface</name>
+      <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
+      <anchor>ae7169782ade1798d043e301000b79790</anchor>
+      <arglist>(juce::OwnedArray&lt; ElementType &gt; &amp;containerToUse, ResizeCallback resizeFuncToUse)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>LambdaContainerInterface&lt; std::array&lt; ElementType, size &gt; &gt;</name>
+    <filename>structlemons_1_1serializing_1_1LambdaContainerInterface.html</filename>
+    <base>lemons::serializing::ContainerInterface</base>
+    <member kind="typedef">
+      <type>std::function&lt; void(std::array&lt; ElementType, size &gt; &amp;, int) &gt;</type>
+      <name>ResizeCallback</name>
+      <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
+      <anchor>a32d76526cd79b1430dd90251f242d821</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>LambdaContainerInterface</name>
+      <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
+      <anchor>ae7169782ade1798d043e301000b79790</anchor>
+      <arglist>(std::array&lt; ElementType, size &gt; &amp;containerToUse, ResizeCallback resizeFuncToUse)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -15272,60 +15363,27 @@
     <filename>structlemons_1_1serializing_1_1StdArrayInterface.html</filename>
     <templarg></templarg>
     <templarg>size</templarg>
-    <base>lemons::serializing::ContainerInterface</base>
+    <base>LambdaContainerInterface&lt; std::array&lt; ElementType, size &gt; &gt;</base>
     <member kind="typedef">
       <type>std::array&lt; ElementType, size &gt;</type>
-      <name>ArrayType</name>
+      <name>Container</name>
       <anchorfile>structlemons_1_1serializing_1_1StdArrayInterface.html</anchorfile>
-      <anchor>a4c9ae2c0f9975a6f1f23c2093dfad059</anchor>
+      <anchor>a689a1f246b3351f0f210819f49f861c5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>std::function&lt; void(std::array&lt; ElementType, size &gt; &amp;, int) &gt;</type>
+      <name>ResizeCallback</name>
+      <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
+      <anchor>a32d76526cd79b1430dd90251f242d821</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>StdArrayInterface</name>
       <anchorfile>structlemons_1_1serializing_1_1StdArrayInterface.html</anchorfile>
-      <anchor>ad9e83dd136cfba8693d546376d45215a</anchor>
-      <arglist>(ArrayType &amp;)</arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
-    <name>lemons::serializing::StdListInterface</name>
-    <filename>structlemons_1_1serializing_1_1StdListInterface.html</filename>
-    <templarg></templarg>
-    <base>lemons::serializing::ContainerInterface</base>
-    <member kind="typedef">
-      <type>std::list&lt; ElementType &gt;</type>
-      <name>Type</name>
-      <anchorfile>structlemons_1_1serializing_1_1StdListInterface.html</anchorfile>
-      <anchor>a5728732dffcfce5177a10e129ee0b7ee</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>StdListInterface</name>
-      <anchorfile>structlemons_1_1serializing_1_1StdListInterface.html</anchorfile>
-      <anchor>a2a010899ce3164a3e928ff161b69a63a</anchor>
-      <arglist>(Type &amp;containerToUse)</arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
-    <name>lemons::serializing::StdVectorInterface</name>
-    <filename>structlemons_1_1serializing_1_1StdVectorInterface.html</filename>
-    <templarg></templarg>
-    <base>lemons::serializing::ContainerInterface</base>
-    <member kind="typedef">
-      <type>std::vector&lt; ElementType &gt;</type>
-      <name>Type</name>
-      <anchorfile>structlemons_1_1serializing_1_1StdVectorInterface.html</anchorfile>
-      <anchor>a713387f10ad031246277b18f088a7019</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>StdVectorInterface</name>
-      <anchorfile>structlemons_1_1serializing_1_1StdVectorInterface.html</anchorfile>
-      <anchor>a95416ee71772da8a043e266e4fe3a289</anchor>
-      <arglist>(Type &amp;containerToUse)</arglist>
+      <anchor>a5dbf642c458e2a374553197db957c241</anchor>
+      <arglist>(Container &amp;container)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -15452,6 +15510,26 @@
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1PannerBase.html</anchorfile>
       <anchor>aced99c46979cbddd980c241cb476a55a</anchor>
       <arglist>(int newMidiPan, float &amp;leftGainOutput, float &amp;rightGainOutput)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::serializing::STLContainerInterface</name>
+    <filename>structlemons_1_1serializing_1_1STLContainerInterface.html</filename>
+    <templarg></templarg>
+    <base>lemons::serializing::LambdaContainerInterface</base>
+    <member kind="typedef">
+      <type>std::function&lt; void(ContainerType &amp;, int) &gt;</type>
+      <name>ResizeCallback</name>
+      <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
+      <anchor>a32d76526cd79b1430dd90251f242d821</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>STLContainerInterface</name>
+      <anchorfile>structlemons_1_1serializing_1_1STLContainerInterface.html</anchorfile>
+      <anchor>af8c94137fe709cc9516af2d92972a52c</anchor>
+      <arglist>(ContainerType &amp;container)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -19466,9 +19544,9 @@
     <class kind="struct">lemons::serializing::isContainer&lt; std::vector&lt; ElementType &gt; &gt;</class>
     <class kind="struct">lemons::serializing::JuceArrayInterface</class>
     <class kind="struct">lemons::serializing::JuceOwnedArrayInterface</class>
+    <class kind="struct">lemons::serializing::LambdaContainerInterface</class>
     <class kind="struct">lemons::serializing::StdArrayInterface</class>
-    <class kind="struct">lemons::serializing::StdListInterface</class>
-    <class kind="struct">lemons::serializing::StdVectorInterface</class>
+    <class kind="struct">lemons::serializing::STLContainerInterface</class>
     <member kind="function">
       <type>void</type>
       <name>copy</name>

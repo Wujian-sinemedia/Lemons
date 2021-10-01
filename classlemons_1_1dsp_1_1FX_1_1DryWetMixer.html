@@ -120,7 +120,8 @@ Public Member Functions</h2></td></tr>
 class lemons::dsp::FX::DryWetMixer&lt; SampleType &gt;</h3>
 
 <p>A basic dry/wet mixer class for combining and mixing together two streams of audio. </p>
-<p>This class doesn't inherit from <a class="el" href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html" title="Base class for any kind of audio effect.">AudioEffect</a>, because its API had to be slightly different, but I also figure that its use cases are slightly different than those of the effect classes. This class is essentially a wrapper around juce::dsp::DryWetMixer. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html" title="A handy effect class that allows you to change the gain of a stream of audio, and will smooth the cha...">SmoothedGain</a> </dd></dl>
+<p>This class doesn't inherit from <a class="el" href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html" title="Base class for any kind of audio effect.">AudioEffect</a>, because its API had to be slightly different, but I also figure that its use cases are slightly different than those of the effect classes. <br  />
+This class is essentially a wrapper around juce::dsp::DryWetMixer. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html" title="A handy effect class that allows you to change the gain of a stream of audio, and will smooth the cha...">SmoothedGain</a> </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a65752af6406801172e5544628c1f2314"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a65752af6406801172e5544628c1f2314">&#9670;&nbsp;</a></span>AudioBuffer</h2>
@@ -212,7 +213,8 @@ template&lt;typename SampleType &gt; </div>
 </div><div class="memdoc">
 
 <p>Mixes wet samples with the previously pushed dry samples. </p>
-<p>This should be called after calling pushDrySamples. The mixed output signal will be written back to the passed buffer. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html#aaa4014b8663e0915bc8681d7b58e11f9" title="Pushes dry samples into the DryWetMixer&#39;s internal buffers.">pushDrySamples()</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html#a924dca99c6c8872667375ff6cb0c7dab" title="Mixes together a stream of dry and wet samples with one function call.">process()</a> </dd></dl>
+<p>This should be called after calling pushDrySamples. <br  />
+The mixed output signal will be written back to the passed buffer. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html#aaa4014b8663e0915bc8681d7b58e11f9" title="Pushes dry samples into the DryWetMixer&#39;s internal buffers.">pushDrySamples()</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html#a924dca99c6c8872667375ff6cb0c7dab" title="Mixes together a stream of dry and wet samples with one function call.">process()</a> </dd></dl>
 
 </div>
 </div>
@@ -283,7 +285,9 @@ template&lt;typename SampleType &gt; </div>
 </div><div class="memdoc">
 
 <p>Mixes together a stream of dry and wet samples with one function call. </p>
-<p>This is the same as calling pushDrySamples and then mixWetSamples. The contents of the dry buffer are not altered, but the buffer itself can't be const due to juce::dsp::AudioBlock's constructor. The mixed output signal will be written to the wet buffer. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html#aaa4014b8663e0915bc8681d7b58e11f9" title="Pushes dry samples into the DryWetMixer&#39;s internal buffers.">pushDrySamples()</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html#a9d31be501cb4b66b8fb81f1da95afe4a" title="Mixes wet samples with the previously pushed dry samples.">mixWetSamples()</a> </dd></dl>
+<p>This is the same as calling pushDrySamples and then mixWetSamples. <br  />
+The contents of the dry buffer are not altered, but the buffer itself can't be const due to juce::dsp::AudioBlock's constructor. <br  />
+The mixed output signal will be written to the wet buffer. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html#aaa4014b8663e0915bc8681d7b58e11f9" title="Pushes dry samples into the DryWetMixer&#39;s internal buffers.">pushDrySamples()</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html#a9d31be501cb4b66b8fb81f1da95afe4a" title="Mixes wet samples with the previously pushed dry samples.">mixWetSamples()</a> </dd></dl>
 
 </div>
 </div>
@@ -306,7 +310,8 @@ template&lt;typename SampleType &gt; </div>
 </div><div class="memdoc">
 
 <p>Pushes dry samples into the <a class="el" href="classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html" title="A basic dry/wet mixer class for combining and mixing together two streams of audio.">DryWetMixer</a>'s internal buffers. </p>
-<p>This should be called before calling mixWetSamples. The contents of the passed buffer are not altered, but the buffer itself can't be const due to juce::dsp::AudioBlock's constructor. Take it up with Jules ¯_(ツ)_/¯ </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html#a9d31be501cb4b66b8fb81f1da95afe4a" title="Mixes wet samples with the previously pushed dry samples.">mixWetSamples()</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html#a924dca99c6c8872667375ff6cb0c7dab" title="Mixes together a stream of dry and wet samples with one function call.">process()</a> </dd></dl>
+<p>This should be called before calling mixWetSamples. <br  />
+The contents of the passed buffer are not altered, but the buffer itself can't be const due to juce::dsp::AudioBlock's constructor. Take it up with Jules ¯_(ツ)_/¯ </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html#a9d31be501cb4b66b8fb81f1da95afe4a" title="Mixes wet samples with the previously pushed dry samples.">mixWetSamples()</a>, <a class="el" href="classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html#a924dca99c6c8872667375ff6cb0c7dab" title="Mixes together a stream of dry and wet samples with one function call.">process()</a> </dd></dl>
 
 </div>
 </div>
@@ -382,7 +387,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 1 2021 20:52:48 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 1 2021 22:41:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

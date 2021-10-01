@@ -83,7 +83,7 @@ $(function() {
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structlemons_1_1serializing_1_1ContainerInterface__inherit__graph.svg" width="404" height="387"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="structlemons_1_1serializing_1_1ContainerInterface__inherit__graph.svg" width="100%" height="559"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -96,13 +96,13 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface that defines how a <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a> can resize a given container during deserialization. </p>
-<p>To add support for a custom container type to <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">TreeReflector::add()</a>:</p><ul>
+<p>To add support for a custom container type to <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">TreeReflector::add()</a>: <br  />
+</p><ul>
 <li>Implement a subclass of this interface with the correct resizing logic for your cotainer;</li>
 <li>Implement the <a class="el" href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2" title="Template function that returns an instance of the correct ContainerInterface for the given container.">getInterfaceForContainer()</a> function, specialized for your container type, returning an instance of the container interface for your custom type;</li>
-<li>Specialize the <a class="el" href="structlemons_1_1serializing_1_1isContainer.html" title="Template struct that determines if a given type is a container.">isContainer</a> struct for your type and make the specialization inherit from std::true_type.</li>
-</ul>
-<p>In addition, your custom container type must have begin() and end() functions &ndash; ie, it must be compatable with range-based for loops.</p>
-<p>Here is an example implementation for a custom type: </p><div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> ElementType&gt;</div>
+<li>Specialize the <a class="el" href="structlemons_1_1serializing_1_1isContainer.html" title="Template struct that determines if a given type is a container.">isContainer</a> struct for your type and make the specialization inherit from std::true_type. <br  />
+ In addition, your custom container type must have begin() and end() functions &ndash; ie, it must be compatable with range-based for loops. <br  />
+ Here is an example implementation for a custom type: <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> ElementType&gt;</div>
 <div class="line"><span class="keyword">struct </span>MyContainerType</div>
 <div class="line">{</div>
 <div class="line">    ElementType* begin();</div>
@@ -146,7 +146,9 @@ Public Member Functions</h2></td></tr>
 <div class="line"><span class="keyword">struct </span>isContainer&lt; MyContainerType&lt; ElementType &gt; &gt; : std::true_type</div>
 <div class="line">{</div>
 <div class="line">};</div>
-</div><!-- fragment --> <dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a>, <a class="el" href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2" title="Template function that returns an instance of the correct ContainerInterface for the given container.">getInterfaceForContainer()</a>, <a class="el" href="structlemons_1_1serializing_1_1isContainer.html" title="Template struct that determines if a given type is a container.">isContainer</a> </dd></dl>
+</div><!-- fragment --> For a slicker interface that allows you to supply a lambda, see <a class="el" href="structlemons_1_1serializing_1_1LambdaContainerInterface.html" title="Provides a slightly slicker interface to ContainerInterface, allowing you to supply a lambda function...">LambdaContainerInterface</a> <dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1serializing_1_1LambdaContainerInterface.html" title="Provides a slightly slicker interface to ContainerInterface, allowing you to supply a lambda function...">LambdaContainerInterface</a>, <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a>, <a class="el" href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2" title="Template function that returns an instance of the correct ContainerInterface for the given container.">getInterfaceForContainer()</a>, <a class="el" href="structlemons_1_1serializing_1_1isContainer.html" title="Template struct that determines if a given type is a container.">isContainer</a> </dd></dl>
+</li>
+</ul>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae88317e6d142cc5985cf8234e80e61dd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae88317e6d142cc5985cf8234e80e61dd">&#9670;&nbsp;</a></span>~ContainerInterface()</h2>
@@ -204,12 +206,12 @@ Public Member Functions</h2></td></tr>
 <li><a class="el" href="ContainerInterface_8h.html">ContainerInterface.h</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="astructlemons_1_1serializing_1_1ContainerInterface_html"><div class="ttname"><a href="structlemons_1_1serializing_1_1ContainerInterface.html">lemons::serializing::ContainerInterface</a></div><div class="ttdoc">Interface that defines how a TreeReflector can resize a given container during deserialization.</div><div class="ttdef"><b>Definition:</b> ContainerInterface.h:63</div></div>
+<div class="ttc" id="astructlemons_1_1serializing_1_1ContainerInterface_html"><div class="ttname"><a href="structlemons_1_1serializing_1_1ContainerInterface.html">lemons::serializing::ContainerInterface</a></div><div class="ttdoc">Interface that defines how a TreeReflector can resize a given container during deserialization.</div><div class="ttdef"><b>Definition:</b> ContainerInterface.h:64</div></div>
 <div class="ttc" id="anamespacelemons_1_1serializing_html_a947d1fd48af7f4413f461f6c741d5fc2"><div class="ttname"><a href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2">lemons::serializing::getInterfaceForContainer</a></div><div class="ttdeci">std::unique_ptr&lt; ContainerInterface &gt; getInterfaceForContainer(ContainerType &amp;)</div><div class="ttdoc">Template function that returns an instance of the correct ContainerInterface for the given container.</div></div>
 <div class="ttc" id="astructlemons_1_1serializing_1_1ContainerInterface_html_a85d1977c9d97f103449df253760dc1e8"><div class="ttname"><a href="structlemons_1_1serializing_1_1ContainerInterface.html#a85d1977c9d97f103449df253760dc1e8">lemons::serializing::ContainerInterface::resize</a></div><div class="ttdeci">virtual void resize(int newSize)=0</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 1 2021 20:52:49 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 1 2021 22:41:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
