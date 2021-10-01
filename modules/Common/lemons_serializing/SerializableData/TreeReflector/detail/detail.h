@@ -50,7 +50,7 @@ void TreeReflector::load (const String& propertyName, Type& object)
     {
         if constexpr (isSerializable< Type >())
             loadDataChild (propertyName, object);
-        else if constexpr (isContainer< Type >())
+        else if constexpr (serializing::isContainer< Type >())
             loadContainer (propertyName, object);
         else if constexpr (std::is_same< ValueTree, Type >())
             loadValueTree (tree, propertyName, object);
@@ -66,7 +66,7 @@ void TreeReflector::save (const String& propertyName, Type& object)
 
     if constexpr (isSerializable< Type >())
         saveDataChild (propertyName, object);
-    else if constexpr (isContainer< Type >())
+    else if constexpr (serializing::isContainer< Type >())
         saveContainer (propertyName, object);
     else if constexpr (std::is_same< ValueTree, Type >())
         saveValueTree (tree, propertyName, object);

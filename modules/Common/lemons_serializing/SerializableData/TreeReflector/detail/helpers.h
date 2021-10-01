@@ -70,8 +70,7 @@ void addContainer (TreeReflector& ref, ContainerType& container, const String& p
 {
     if (ref.isLoading())
     {
-        auto interface = getInterfaceForContainer (container);
-
+        auto interface = serializing::getInterfaceForContainer (container);
         interface->resize (getNumElementsOfType (propertyName, ref.getRawDataTree()));
     }
 

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace lemons::serializing::TreeReflectorHelpers
+namespace lemons::serializing
 {
 template < typename ElementType >
 struct JuceArrayInterface : ContainerInterface
@@ -73,4 +73,4 @@ struct isContainer< juce::OwnedArray< ElementType > > : std::true_type
 {
 };
 
-}  // namespace lemons::serializing::TreeReflectorHelpers
+}  // namespace lemons::serializing

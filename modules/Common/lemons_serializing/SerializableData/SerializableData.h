@@ -60,12 +60,17 @@ private:
             }
         };
         @endcode
-        And you can use TreeReflector::addLambdaSet() if you need to call functions of your object to save or load attributes:
+        The add method also works for containers -- if it's a standard type or if you've implemented ContainerInterface, getInterfaceForContainer(), and isContainer, then calling TreeReflector::add() will create a sub-tree in your object's main ValueTree that represents this container, then it will step through the container using a range-based for loop, calling TreeReflector::add() on each element sequentially.
+     
+        You can also use TreeReflector::addLambdaSet() if you need to call functions of your object to save or load attributes:
         @code
         struct SomethingSerializable : lemons::SerializableData
         {
-            // maybe this function has side effects?
-            void setData (int newData);
+            void setData (int newData)
+            {
+                data = newData;
+                // do something else with side effects...
+            }
      
         private:
             // we still want to save this integer with our program's state, but I want to call setData() when it's being loaded...

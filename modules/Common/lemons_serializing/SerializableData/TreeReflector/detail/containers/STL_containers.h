@@ -1,6 +1,6 @@
 #pragma once
 
-namespace lemons::serializing::TreeReflectorHelpers
+namespace lemons::serializing
 {
 template < typename ElementType, size_t size >
 struct StdArrayInterface : ContainerInterface
@@ -90,4 +90,4 @@ struct isContainer< std::list< ElementType > > : std::true_type
 {
 };
 
-}  // namespace lemons::serializing::TreeReflectorHelpers
+}  // namespace lemons::serializing
