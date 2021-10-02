@@ -2,6 +2,7 @@
 
 namespace lemons::serializing
 {
+/** Container interface that provides support for serializing juce::Arrays with TreeReflector. */
 template < typename ElementType >
 struct JuceArrayInterface : LambdaContainerInterface< juce::Array< ElementType > >
 {
@@ -14,6 +15,8 @@ struct JuceArrayInterface : LambdaContainerInterface< juce::Array< ElementType >
     }
 };
 
+
+/** Returns an instance of JuceArrayInterface for the given juce::Array. */
 template < typename ElementType >
 std::unique_ptr< ContainerInterface > getInterfaceForContainer (juce::Array< ElementType >& container)
 {
@@ -21,6 +24,7 @@ std::unique_ptr< ContainerInterface > getInterfaceForContainer (juce::Array< Ele
 }
 
 
+/** Specifies that any specialization of juce::Array is a serializable container. */
 template < typename ElementType >
 struct isContainer< juce::Array< ElementType > > : std::true_type
 {
@@ -30,6 +34,7 @@ struct isContainer< juce::Array< ElementType > > : std::true_type
 /*------------------------------------------------------------------------------------*/
 
 
+/** Container interface that provides support for serializing juce::OwnedArrays with TreeReflector. */
 template < typename ElementType >
 struct JuceOwnedArrayInterface : LambdaContainerInterface< juce::OwnedArray< ElementType > >
 {
@@ -50,12 +55,16 @@ struct JuceOwnedArrayInterface : LambdaContainerInterface< juce::OwnedArray< Ele
     }
 };
 
+
+/** Returns an instance of JuceOwnedArrayInterface for the given juce::OwnedArray. */
 template < typename ElementType >
 std::unique_ptr< ContainerInterface > getInterfaceForContainer (juce::OwnedArray< ElementType >& container)
 {
     return std::make_unique< JuceOwnedArrayInterface< ElementType > > (container);
 }
 
+
+/** Specifies that any specialization of juce::OwnedArray is a serializable container. */
 template < typename ElementType >
 struct isContainer< juce::OwnedArray< ElementType > > : std::true_type
 {

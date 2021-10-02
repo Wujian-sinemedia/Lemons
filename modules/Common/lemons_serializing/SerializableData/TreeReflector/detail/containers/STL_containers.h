@@ -2,6 +2,9 @@
 
 namespace lemons::serializing
 {
+/** Container interface that provides support for serializing std::arrays with TreeReflector.
+    std::array cannot actually be resized, so this interface does nothing when its resize() function is called.
+ */
 template < typename ElementType, size_t size >
 struct StdArrayInterface : LambdaContainerInterface< std::array< ElementType, size > >
 {
@@ -13,6 +16,8 @@ struct StdArrayInterface : LambdaContainerInterface< std::array< ElementType, si
     }
 };
 
+
+/** Returns an instance of StdArrayInterface for the given std::array. */
 template < typename ElementType, size_t size >
 std::unique_ptr< ContainerInterface > getInterfaceForContainer (std::array< ElementType, size >& container)
 {
@@ -20,6 +25,7 @@ std::unique_ptr< ContainerInterface > getInterfaceForContainer (std::array< Elem
 }
 
 
+/** Specifies that any specialization of std::array is a serializable container. */
 template < typename ElementType, size_t size >
 struct isContainer< std::array< ElementType, size > > : std::true_type
 {
@@ -28,6 +34,8 @@ struct isContainer< std::array< ElementType, size > > : std::true_type
 
 /*------------------------------------------------------------------------------------*/
 
+
+/** Container interface that provides support for serializing most STL containers with TreeReflector. */
 template < class ContainerType >
 struct STLContainerInterface : LambdaContainerInterface< ContainerType >
 {
@@ -39,24 +47,30 @@ struct STLContainerInterface : LambdaContainerInterface< ContainerType >
 };
 
 
+/** Returns an instance of STLContainerInterface for the given std::vector. */
 template < typename ElementType >
 std::unique_ptr< ContainerInterface > getInterfaceForContainer (std::vector< ElementType >& container)
 {
     return std::make_unique< STLContainerInterface< std::vector< ElementType > > > (container);
 }
 
+
+/** Specifies that any specialization of std::vector is a serializable container. */
 template < typename ElementType >
 struct isContainer< std::vector< ElementType > > : std::true_type
 {
 };
 
 
+/** Returns an instance of STLContainerInterface for the given std::list. */
 template < typename ElementType >
 std::unique_ptr< ContainerInterface > getInterfaceForContainer (std::list< ElementType >& container)
 {
     return std::make_unique< STLContainerInterface< std::list< ElementType > > > (container);
 }
 
+
+/** Specifies that any specialization of std::list is a serializable container. */
 template < typename ElementType >
 struct isContainer< std::list< ElementType > > : std::true_type
 {
