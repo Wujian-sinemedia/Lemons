@@ -76,6 +76,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A class that holds an array of filters and keeps their coefficients in sync, for processing multichannel audio.  
+ <a href="structlemons_1_1dsp_1_1filters_1_1MultiFilter.html#details">More...</a></p>
+
 <p><code>#include &lt;Filter.h&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::dsp::filters::MultiFilter&lt; SampleType, numChannels &gt;:</div>
@@ -94,24 +97,37 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3744cd8fb6f34f6993f545a61ff9c83f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1filters_1_1MultiFilter.html#a3744cd8fb6f34f6993f545a61ff9c83f">MultiFilter</a> ()</td></tr>
+<tr class="memdesc:a3744cd8fb6f34f6993f545a61ff9c83f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a default <a class="el" href="structlemons_1_1dsp_1_1filters_1_1MultiFilter.html" title="A class that holds an array of filters and keeps their coefficients in sync, for processing multichan...">MultiFilter</a>.  <a href="structlemons_1_1dsp_1_1filters_1_1MultiFilter.html#a3744cd8fb6f34f6993f545a61ff9c83f">More...</a><br /></td></tr>
 <tr class="separator:a3744cd8fb6f34f6993f545a61ff9c83f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b38c43ba38e4bf37c2eb4c67c10065f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1filters_1_1MultiFilter.html#a5b38c43ba38e4bf37c2eb4c67c10065f">prepare</a> () noexcept</td></tr>
+<tr class="memdesc:a5b38c43ba38e4bf37c2eb4c67c10065f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the filters for processing.  <a href="structlemons_1_1dsp_1_1filters_1_1MultiFilter.html#a5b38c43ba38e4bf37c2eb4c67c10065f">More...</a><br /></td></tr>
 <tr class="separator:a5b38c43ba38e4bf37c2eb4c67c10065f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1235890b5bba3b3653253f3f948afe9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1filters_1_1MultiFilter.html#a1235890b5bba3b3653253f3f948afe9f">process</a> (<a class="el" href="structlemons_1_1dsp_1_1filters_1_1MultiFilter.html#afe195bc5a21579d6ba3ffd275059d5c5">AudioBuffer</a> &amp;buffer) noexcept</td></tr>
+<tr class="memdesc:a1235890b5bba3b3653253f3f948afe9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes multichannel audio.  <a href="structlemons_1_1dsp_1_1filters_1_1MultiFilter.html#a1235890b5bba3b3653253f3f948afe9f">More...</a><br /></td></tr>
 <tr class="separator:a1235890b5bba3b3653253f3f948afe9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e248c03bb32569c4c9a031302f464a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1filters_1_1MultiFilter.html#a1e248c03bb32569c4c9a031302f464a7">processChannel</a> (int channel, SampleType *audio, int numSamples) noexcept</td></tr>
+<tr class="memdesc:a1e248c03bb32569c4c9a031302f464a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes a single channel of audio in isolation.  <a href="structlemons_1_1dsp_1_1filters_1_1MultiFilter.html#a1e248c03bb32569c4c9a031302f464a7">More...</a><br /></td></tr>
 <tr class="separator:a1e248c03bb32569c4c9a031302f464a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10465dacccba2118358ee7759b2089d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1filters_1_1MultiFilter.html#a10465dacccba2118358ee7759b2089d0">reset</a> (SampleType resetToValue=SampleType(0))</td></tr>
+<tr class="memdesc:a10465dacccba2118358ee7759b2089d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the internal state of the filters.  <a href="structlemons_1_1dsp_1_1filters_1_1MultiFilter.html#a10465dacccba2118358ee7759b2089d0">More...</a><br /></td></tr>
 <tr class="separator:a10465dacccba2118358ee7759b2089d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ae8604e9be4d98949a84d784a51d29b7f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1dsp_1_1filters_1_1Coefficients.html">Coefficients</a>&lt; SampleType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1filters_1_1MultiFilter.html#ae8604e9be4d98949a84d784a51d29b7f">coefs</a></td></tr>
+<tr class="memdesc:ae8604e9be4d98949a84d784a51d29b7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The raw coefficients.  <a href="structlemons_1_1dsp_1_1filters_1_1MultiFilter.html#ae8604e9be4d98949a84d784a51d29b7f">More...</a><br /></td></tr>
 <tr class="separator:ae8604e9be4d98949a84d784a51d29b7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48aea2dd107906c55605e5e39d88bd0f"><td class="memItemLeft" align="right" valign="top">OwnedArray&lt; <a class="el" href="classlemons_1_1dsp_1_1filters_1_1Filter.html">Filter</a>&lt; SampleType &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1filters_1_1MultiFilter.html#a48aea2dd107906c55605e5e39d88bd0f">filters</a></td></tr>
+<tr class="memdesc:a48aea2dd107906c55605e5e39d88bd0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The array of filters.  <a href="structlemons_1_1dsp_1_1filters_1_1MultiFilter.html#a48aea2dd107906c55605e5e39d88bd0f">More...</a><br /></td></tr>
 <tr class="separator:a48aea2dd107906c55605e5e39d88bd0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename SampleType, size_t numChannels = 2&gt;<br />
+struct lemons::dsp::filters::MultiFilter&lt; SampleType, numChannels &gt;</h3>
+
+<p>A class that holds an array of filters and keeps their coefficients in sync, for processing multichannel audio. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1filters_1_1Filter.html" title="A basic IIR filter with coefficients that can be reassigned during realtime playback.">Filter</a> </dd></dl>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="afe195bc5a21579d6ba3ffd275059d5c5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afe195bc5a21579d6ba3ffd275059d5c5">&#9670;&nbsp;</a></span>AudioBuffer</h2>
 
@@ -146,6 +162,8 @@ template&lt;typename SampleType , size_t numChannels = 2&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Creates a default <a class="el" href="structlemons_1_1dsp_1_1filters_1_1MultiFilter.html" title="A class that holds an array of filters and keeps their coefficients in sync, for processing multichan...">MultiFilter</a>. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -174,6 +192,8 @@ template&lt;typename SampleType , size_t numChannels = 2&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Prepares the filters for processing. </p>
+
 </div>
 </div>
 <a id="a1235890b5bba3b3653253f3f948afe9f"></a>
@@ -201,6 +221,9 @@ template&lt;typename SampleType , size_t numChannels = 2&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Processes multichannel audio. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1dsp_1_1filters_1_1MultiFilter.html#a1e248c03bb32569c4c9a031302f464a7" title="Processes a single channel of audio in isolation.">processChannel()</a> </dd></dl>
 
 </div>
 </div>
@@ -246,6 +269,9 @@ template&lt;typename SampleType , size_t numChannels = 2&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Processes a single channel of audio in isolation. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1dsp_1_1filters_1_1MultiFilter.html#a1235890b5bba3b3653253f3f948afe9f" title="Processes multichannel audio.">process()</a> </dd></dl>
+
 </div>
 </div>
 <a id="a10465dacccba2118358ee7759b2089d0"></a>
@@ -266,6 +292,8 @@ template&lt;typename SampleType , size_t numChannels = 2&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Resets the internal state of the filters. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -283,6 +311,9 @@ template&lt;typename SampleType , size_t numChannels = 2&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>The raw coefficients. </p>
+<p>You can call methods of this object to create various filter topologies. </p>
+
 </div>
 </div>
 <a id="a48aea2dd107906c55605e5e39d88bd0f"></a>
@@ -299,6 +330,8 @@ template&lt;typename SampleType , size_t numChannels = 2&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>The array of filters. </p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
@@ -307,7 +340,7 @@ template&lt;typename SampleType , size_t numChannels = 2&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Oct 2 2021 05:22:14 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Oct 2 2021 07:02:45 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

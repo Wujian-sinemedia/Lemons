@@ -225,7 +225,7 @@
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_dsp/filters/</path>
     <filename>Coeffecients_8h.html</filename>
     <class kind="struct">lemons::dsp::filters::Coefficients</class>
-    <class kind="struct">lemons::dsp::filters::Coefs</class>
+    <class kind="struct">lemons::dsp::filters::Coefficients::Storage</class>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::filters</namespace>
@@ -3405,6 +3405,7 @@
     <name>lemons::dsp::filters::Coefficients</name>
     <filename>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</filename>
     <templarg></templarg>
+    <class kind="struct">lemons::dsp::filters::Coefficients::Storage</class>
     <member kind="function">
       <type></type>
       <name>Coefficients</name>
@@ -3511,10 +3512,10 @@
       <arglist>(double sampleRate, NumericType centreFrequency, NumericType Q=inverseRootTwo, NumericType gainFactor=(NumericType) 1)</arglist>
     </member>
     <member kind="variable">
-      <type>Coefs&lt; NumericType &gt;</type>
+      <type>Storage</type>
       <name>coefficients</name>
       <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>a28aecb823a6b2e1072478049f5a7a564</anchor>
+      <anchor>aa2956ada5f78984a5ef47f28cde1b8c0</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -3627,10 +3628,10 @@
       <arglist>(double sampleRate, float centreFrequency, float Q=inverseRootTwo, float gainFactor=(float) 1)</arglist>
     </member>
     <member kind="variable">
-      <type>Coefs&lt; float &gt;</type>
+      <type>Storage</type>
       <name>coefficients</name>
       <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>a28aecb823a6b2e1072478049f5a7a564</anchor>
+      <anchor>aa2956ada5f78984a5ef47f28cde1b8c0</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -3743,84 +3744,11 @@
       <arglist>(double sampleRate, SampleType centreFrequency, SampleType Q=inverseRootTwo, SampleType gainFactor=(SampleType) 1)</arglist>
     </member>
     <member kind="variable">
-      <type>Coefs&lt; SampleType &gt;</type>
+      <type>Storage</type>
       <name>coefficients</name>
       <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>a28aecb823a6b2e1072478049f5a7a564</anchor>
+      <anchor>aa2956ada5f78984a5ef47f28cde1b8c0</anchor>
       <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
-    <name>lemons::dsp::filters::Coefs</name>
-    <filename>structlemons_1_1dsp_1_1filters_1_1Coefs.html</filename>
-    <templarg></templarg>
-    <member kind="function">
-      <type></type>
-      <name>Coefs</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefs.html</anchorfile>
-      <anchor>ae5954482a895997a6c75807e46109552</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>Coefs &amp;</type>
-      <name>operator=</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefs.html</anchorfile>
-      <anchor>a6544ca97124ef10cde4ef5a43c709a6a</anchor>
-      <arglist>(std::initializer_list&lt; T &gt; list)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>Coefs&lt; float &gt;</name>
-    <filename>structlemons_1_1dsp_1_1filters_1_1Coefs.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>Coefs</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefs.html</anchorfile>
-      <anchor>ae5954482a895997a6c75807e46109552</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>Coefs &amp;</type>
-      <name>operator=</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefs.html</anchorfile>
-      <anchor>a6544ca97124ef10cde4ef5a43c709a6a</anchor>
-      <arglist>(std::initializer_list&lt; float &gt; list)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>Coefs&lt; NumericType &gt;</name>
-    <filename>structlemons_1_1dsp_1_1filters_1_1Coefs.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>Coefs</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefs.html</anchorfile>
-      <anchor>ae5954482a895997a6c75807e46109552</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>Coefs &amp;</type>
-      <name>operator=</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefs.html</anchorfile>
-      <anchor>a6544ca97124ef10cde4ef5a43c709a6a</anchor>
-      <arglist>(std::initializer_list&lt; NumericType &gt; list)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>Coefs&lt; SampleType &gt;</name>
-    <filename>structlemons_1_1dsp_1_1filters_1_1Coefs.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>Coefs</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefs.html</anchorfile>
-      <anchor>ae5954482a895997a6c75807e46109552</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>Coefs &amp;</type>
-      <name>operator=</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefs.html</anchorfile>
-      <anchor>a6544ca97124ef10cde4ef5a43c709a6a</anchor>
-      <arglist>(std::initializer_list&lt; SampleType &gt; list)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -15525,6 +15453,24 @@
       <arglist>(ContainerType &amp;container)</arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>lemons::dsp::filters::Coefficients::Storage</name>
+    <filename>structlemons_1_1dsp_1_1filters_1_1Coefficients_1_1Storage.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Storage</name>
+      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients_1_1Storage.html</anchorfile>
+      <anchor>a6f29c40ffdcf28f2b8b4ec08b05b6f40</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>Storage &amp;</type>
+      <name>operator=</name>
+      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients_1_1Storage.html</anchorfile>
+      <anchor>aad4d25d98e77db409adc6ced77bc5bc9</anchor>
+      <arglist>(std::initializer_list&lt; NumericType &gt; list)</arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>lemons::plugin::presets::SubLibrary</name>
     <filename>classlemons_1_1plugin_1_1presets_1_1SubLibrary.html</filename>
@@ -19033,7 +18979,6 @@
     <name>lemons::dsp::filters</name>
     <filename>namespacelemons_1_1dsp_1_1filters.html</filename>
     <class kind="struct">lemons::dsp::filters::Coefficients</class>
-    <class kind="struct">lemons::dsp::filters::Coefs</class>
     <class kind="class">lemons::dsp::filters::Filter</class>
     <class kind="struct">lemons::dsp::filters::MultiFilter</class>
   </compound>

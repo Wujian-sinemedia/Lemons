@@ -75,23 +75,36 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A basic IIR filter with coefficients that can be reassigned during realtime playback.  
+ <a href="classlemons_1_1dsp_1_1filters_1_1Filter.html#details">More...</a></p>
+
 <p><code>#include &lt;Filter.h&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:adb8982b06bdc99e8b8b544318ca9e02a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1filters_1_1Filter.html#adb8982b06bdc99e8b8b544318ca9e02a">prepare</a> () noexcept</td></tr>
+<tr class="memdesc:adb8982b06bdc99e8b8b544318ca9e02a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the filter to process audio.  <a href="classlemons_1_1dsp_1_1filters_1_1Filter.html#adb8982b06bdc99e8b8b544318ca9e02a">More...</a><br /></td></tr>
 <tr class="separator:adb8982b06bdc99e8b8b544318ca9e02a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fbb9f92bd17682d554077cc3a8c08c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1filters_1_1Filter.html#a5fbb9f92bd17682d554077cc3a8c08c5">process</a> (SampleType *buffer, int numSamples)</td></tr>
+<tr class="memdesc:a5fbb9f92bd17682d554077cc3a8c08c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the filter to a stream of audio samples.  <a href="classlemons_1_1dsp_1_1filters_1_1Filter.html#a5fbb9f92bd17682d554077cc3a8c08c5">More...</a><br /></td></tr>
 <tr class="separator:a5fbb9f92bd17682d554077cc3a8c08c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a072e405ea503f6e2a1fc15d3a2818e4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1filters_1_1Filter.html#a072e405ea503f6e2a1fc15d3a2818e4f">reset</a> (SampleType resetToValue=SampleType(0))</td></tr>
+<tr class="memdesc:a072e405ea503f6e2a1fc15d3a2818e4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the internal state of the filter.  <a href="classlemons_1_1dsp_1_1filters_1_1Filter.html#a072e405ea503f6e2a1fc15d3a2818e4f">More...</a><br /></td></tr>
 <tr class="separator:a072e405ea503f6e2a1fc15d3a2818e4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a7ad358b8fde87138aff590f7724fd941"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1dsp_1_1filters_1_1Coefficients.html">Coefficients</a>&lt; SampleType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1filters_1_1Filter.html#a7ad358b8fde87138aff590f7724fd941">coefs</a></td></tr>
+<tr class="memdesc:a7ad358b8fde87138aff590f7724fd941"><td class="mdescLeft">&#160;</td><td class="mdescRight">The filter's coefficients.  <a href="classlemons_1_1dsp_1_1filters_1_1Filter.html#a7ad358b8fde87138aff590f7724fd941">More...</a><br /></td></tr>
 <tr class="separator:a7ad358b8fde87138aff590f7724fd941"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename SampleType&gt;<br />
+class lemons::dsp::filters::Filter&lt; SampleType &gt;</h3>
+
+<p>A basic IIR filter with coefficients that can be reassigned during realtime playback. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1FX_1_1Filter.html" title="A filter audio effect class that wraps the more low-level filters::Filter.">FX::Filter</a>, <a class="el" href="structlemons_1_1dsp_1_1filters_1_1MultiFilter.html" title="A class that holds an array of filters and keeps their coefficients in sync, for processing multichan...">MultiFilter</a> </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="adb8982b06bdc99e8b8b544318ca9e02a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adb8982b06bdc99e8b8b544318ca9e02a">&#9670;&nbsp;</a></span>prepare()</h2>
 
@@ -116,6 +129,8 @@ template&lt;typename SampleType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Prepares the filter to process audio. </p>
 
 </div>
 </div>
@@ -147,6 +162,8 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Applies the filter to a stream of audio samples. </p>
+
 </div>
 </div>
 <a id="a072e405ea503f6e2a1fc15d3a2818e4f"></a>
@@ -167,6 +184,8 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Resets the internal state of the filter. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -184,6 +203,9 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>The filter's coefficients. </p>
+<p>You can call various methods of this object to create different kinds of filters. </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -192,7 +214,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Oct 2 2021 05:22:14 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Oct 2 2021 07:02:45 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
