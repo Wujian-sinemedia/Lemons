@@ -1782,6 +1782,13 @@
       <arglist>(const ValueTree &amp;tree, SerializableData &amp;data)</arglist>
     </member>
     <member kind="function">
+      <type>ObjectType</type>
+      <name>fromTreeCreate</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a449fb4b02e490125b488a21ea568d0cb</anchor>
+      <arglist>(const ValueTree &amp;tree)</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>fromXML</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
@@ -19582,6 +19589,13 @@
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
       <anchor>a7eb10991a286ec6cedc990a98a587def</anchor>
       <arglist>(const ValueTree &amp;tree, SerializableData &amp;data)</arglist>
+    </member>
+    <member kind="function">
+      <type>ObjectType</type>
+      <name>fromTreeCreate</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a449fb4b02e490125b488a21ea568d0cb</anchor>
+      <arglist>(const ValueTree &amp;tree)</arglist>
     </member>
     <member kind="function">
       <type>juce::AudioBuffer&lt; float &gt;</type>

@@ -100,63 +100,62 @@ Public Member Functions</h2></td></tr>
 <p><br  />
 Implement this if you want to be able to serialize a custom container type with a single <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">TreeReflector::add()</a> call. <br  />
 <br  />
-To add support for a custom container type to <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">TreeReflector::add()</a>: <br  />
-</p><ul>
-<li>Implement a subclass of this interface with the correct resizing logic for your cotainer;</li>
-<li>Implement the <a class="el" href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2" title="Template function that returns an instance of the correct ContainerInterface for the given container.">getInterfaceForContainer()</a> function, specialized for your container type, returning an instance of the container interface for your custom type;</li>
-<li>Specialize the <a class="el" href="structlemons_1_1serializing_1_1isContainer.html" title="Template struct that determines if a given type is a container.">isContainer</a> struct for your type and make the specialization inherit from std::true_type. <br  />
-<br  />
-In addition, your custom container type must have begin() and end() functions &ndash; ie, it must be compatable with range-based for loops. <br  />
-<br  />
-The elements of your container must also be valid <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">TreeReflector::add()</a> calls &ndash; ie, if they don't inherit <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a>, you must implement <a class="el" href="namespacelemons_1_1serializing.html#a713bb9525856a131f6897cdd045d5bc4" title="Implement this function and fromVar for any custom type to allow easily serialization using TreeRefle...">toVar()</a> and <a class="el" href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b" title="Implement this function and toVar for any custom type to allow easily serialization using TreeReflect...">fromVar()</a> for the container's element type as well. <br  />
-<br  />
-Here is an example implementation for a custom type: <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> ElementType&gt;</div>
-<div class="line"><span class="keyword">struct </span>MyContainerType</div>
-<div class="line">{</div>
-<div class="line">    ElementType* begin();</div>
-<div class="line">    ElementType* end();</div>
+</p><div class="fragment"><div class="line">    To add support <span class="keywordflow">for</span> a custom container type to <a class="code" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883">TreeReflector::add</a>():</div>
+<div class="line">    - Implement a subclass of serializing::ContainerInterface with the correct resizing logic for your cotainer;</div>
+<div class="line">    - Implement a specialization ofserializing::getContainerForInterface() that returns an instance of your custom interface;</div>
+<div class="line">    - Specialize the serializing::isContainer struct for your type and make the specialization inherit from std::true_type.</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> setSize (<span class="keywordtype">int</span>);</div>
-<div class="line">}</div>
+<div class="line">    In addition, your custom container type must have begin() and end() functions -- ie, it must be compatable with range-based for loops.</div>
+<div class="line">    </div>
+<div class="line">    The elements of your container must also be valid TreeReflector::add() calls -- ie, if they don&#39;t inherit SerializableData, you must implement <a class="code" href="namespacelemons_1_1serializing.html#a713bb9525856a131f6897cdd045d5bc4">toVar</a>() and <a class="code" href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b">fromVar</a>() for the container&#39;s element type as well.</div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// Step 1: implement container interface</span></div>
-<div class="line"><span class="comment">// This tells the TreeReflector how to resize your container</span></div>
+<div class="line">    Here is an example implementation for a custom type:</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> ElementType&gt;</div>
-<div class="line"><span class="keyword">struct </span>MyContainerInterface : <a class="code" href="structlemons_1_1serializing_1_1ContainerInterface.html">lemons::serializing::ContainerInterface</a></div>
-<div class="line">{</div>
-<div class="line">    <span class="keyword">using</span> Container = MyContainerType&lt;ElementType&gt;;</div>
+<div class="line">    template&lt;typename ElementType&gt;</div>
+<div class="line">    struct MyContainerType</div>
+<div class="line">    {</div>
+<div class="line">        ElementType* begin();</div>
+<div class="line">        ElementType* end();</div>
 <div class="line"> </div>
-<div class="line">    MyContainerInterface (Container&amp; c) : container (c) { }</div>
+<div class="line">        <span class="keywordtype">void</span> setSize (<span class="keywordtype">int</span>);</div>
+<div class="line">    };</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
-<div class="line">    <span class="keywordtype">void</span> <a class="code" href="structlemons_1_1serializing_1_1ContainerInterface.html#a85d1977c9d97f103449df253760dc1e8">resize</a> (<span class="keywordtype">int</span> newSize) <span class="keyword">final</span></div>
+<div class="line">    <span class="comment">// Step 1: implement container interface</span></div>
+<div class="line">    <span class="comment">// This tells the TreeReflector how to resize your container</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ElementType&gt;</div>
+<div class="line">    <span class="keyword">struct </span>MyContainerInterface : <a class="code" href="structlemons_1_1serializing_1_1ContainerInterface.html">lemons::serializing::ContainerInterface</a></div>
+<div class="line">    {</div>
+<div class="line">        <span class="keyword">using</span> Container = MyContainerType&lt;ElementType&gt;;</div>
+<div class="line"> </div>
+<div class="line">        MyContainerInterface (Container&amp; c) : container (c) { }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">private</span>:</div>
+<div class="line">        <span class="keywordtype">void</span> <a class="code" href="structlemons_1_1serializing_1_1ContainerInterface.html#a85d1977c9d97f103449df253760dc1e8">resize</a> (<span class="keywordtype">int</span> newSize) <span class="keyword">final</span></div>
 <div class="line">    {</div>
 <div class="line">        container.setSize (newSize);</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    Container&amp; container;</div>
-<div class="line">};</div>
+<div class="line">        Container&amp; container;</div>
+<div class="line">    };</div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// Step 2: implement getInterfaceForContainer()</span></div>
-<div class="line"><span class="comment">// This creates an instance of your container interface for the TreeReflector to use</span></div>
+<div class="line">    <span class="comment">// Step 2: implement getInterfaceForContainer()</span></div>
+<div class="line">    <span class="comment">// This creates an instance of your container interface for the TreeReflector to use</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">template</span> &lt; <span class="keyword">typename</span> ElementType &gt;</div>
-<div class="line">std::unique_ptr&lt; ContainerInterface &gt; <a class="code" href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2">getInterfaceForContainer</a> (MyContainerType&lt; ElementType &gt;&amp; container)</div>
-<div class="line">{</div>
-<div class="line">    <span class="keywordflow">return</span> std::make_unique&lt; MyContainerInterface&lt; ElementType &gt; &gt; (container);</div>
-<div class="line">}</div>
+<div class="line">    <span class="keyword">template</span> &lt; <span class="keyword">typename</span> ElementType &gt;</div>
+<div class="line">    std::unique_ptr&lt; ContainerInterface &gt; <a class="code" href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2">getInterfaceForContainer</a> (MyContainerType&lt; ElementType &gt;&amp; container)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> std::make_unique&lt; MyContainerInterface&lt; ElementType &gt; &gt; (container);</div>
+<div class="line">    }</div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// Step 3: implement isContainer</span></div>
-<div class="line"><span class="comment">// This tells TreeReflector that any specialization of your container type is a kind of container</span></div>
+<div class="line">    <span class="comment">// Step 3: implement isContainer</span></div>
+<div class="line">    <span class="comment">// This tells TreeReflector that any specialization of your container type is a kind of container</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">template</span> &lt; <span class="keyword">typename</span> ElementType &gt;</div>
-<div class="line"><span class="keyword">struct </span>isContainer&lt; MyContainerType&lt; ElementType &gt; &gt; : std::true_type</div>
-<div class="line">{</div>
-<div class="line">};</div>
-</div><!-- fragment --> For a slicker interface that allows you to supply a lambda, see <a class="el" href="structlemons_1_1serializing_1_1LambdaContainerInterface.html" title="Provides a slightly slicker interface to ContainerInterface, allowing you to supply a lambda function...">LambdaContainerInterface</a> <dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1serializing_1_1LambdaContainerInterface.html" title="Provides a slightly slicker interface to ContainerInterface, allowing you to supply a lambda function...">LambdaContainerInterface</a>, <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a>, <a class="el" href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2" title="Template function that returns an instance of the correct ContainerInterface for the given container.">getInterfaceForContainer()</a>, <a class="el" href="structlemons_1_1serializing_1_1isContainer.html" title="Template struct that determines if a given type is a container.">isContainer</a> </dd></dl>
-</li>
-</ul>
+<div class="line">    <span class="keyword">template</span> &lt; <span class="keyword">typename</span> ElementType &gt;</div>
+<div class="line">    <span class="keyword">struct </span>isContainer&lt; MyContainerType&lt; ElementType &gt; &gt; : std::true_type</div>
+<div class="line">    {</div>
+<div class="line">    };</div>
+</div><!-- fragment --><p>For a slicker interface that allows you to supply a lambda, see <a class="el" href="structlemons_1_1serializing_1_1LambdaContainerInterface.html" title="Provides a slightly slicker interface to ContainerInterface, allowing you to supply a lambda function...">LambdaContainerInterface</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1serializing_1_1LambdaContainerInterface.html" title="Provides a slightly slicker interface to ContainerInterface, allowing you to supply a lambda function...">LambdaContainerInterface</a>, <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a>, <a class="el" href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2" title="Template function that returns an instance of the correct ContainerInterface for the given container.">getInterfaceForContainer()</a>, <a class="el" href="structlemons_1_1serializing_1_1isContainer.html" title="Template struct that determines if a given type is a container.">isContainer</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae88317e6d142cc5985cf8234e80e61dd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae88317e6d142cc5985cf8234e80e61dd">&#9670;&nbsp;</a></span>~ContainerInterface()</h2>
@@ -217,12 +216,15 @@ Here is an example implementation for a custom type: <div class="fragment"><div 
 <li><a class="el" href="ContainerInterface_8h.html">ContainerInterface.h</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="astructlemons_1_1serializing_1_1ContainerInterface_html"><div class="ttname"><a href="structlemons_1_1serializing_1_1ContainerInterface.html">lemons::serializing::ContainerInterface</a></div><div class="ttdoc">Interface that defines how a TreeReflector can resize a given container during deserialization.</div><div class="ttdef"><b>Definition:</b> ContainerInterface.h:68</div></div>
+<div class="ttc" id="anamespacelemons_1_1serializing_html_a713bb9525856a131f6897cdd045d5bc4"><div class="ttname"><a href="namespacelemons_1_1serializing.html#a713bb9525856a131f6897cdd045d5bc4">lemons::serializing::toVar</a></div><div class="ttdeci">juce::var toVar(Type &amp;object)</div><div class="ttdoc">Implement this function and fromVar() for any custom type to allow easily serialization using TreeRef...</div><div class="ttdef"><b>Definition:</b> VarConversion.h:46</div></div>
+<div class="ttc" id="astructlemons_1_1serializing_1_1ContainerInterface_html"><div class="ttname"><a href="structlemons_1_1serializing_1_1ContainerInterface.html">lemons::serializing::ContainerInterface</a></div><div class="ttdoc">Interface that defines how a TreeReflector can resize a given container during deserialization.</div><div class="ttdef"><b>Definition:</b> ContainerInterface.h:13</div></div>
+<div class="ttc" id="astructlemons_1_1TreeReflector_html_aa0c4f2b619acd9a3287a1f27d4c23883"><div class="ttname"><a href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883">lemons::TreeReflector::add</a></div><div class="ttdeci">void add(const String &amp;propertyName, Type &amp;object)</div><div class="ttdoc">Binds a named ValueTree property to a data member of your object.</div><div class="ttdef"><b>Definition:</b> Common/lemons_serializing/SerializableData/TreeReflector/detail/detail.h:8</div></div>
 <div class="ttc" id="anamespacelemons_1_1serializing_html_a947d1fd48af7f4413f461f6c741d5fc2"><div class="ttname"><a href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2">lemons::serializing::getInterfaceForContainer</a></div><div class="ttdeci">std::unique_ptr&lt; ContainerInterface &gt; getInterfaceForContainer(ContainerType &amp;)</div><div class="ttdoc">Template function that returns an instance of the correct ContainerInterface for the given container.</div></div>
+<div class="ttc" id="anamespacelemons_1_1serializing_html_abd30f255b2b10402a940e2260f7ede3b"><div class="ttname"><a href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b">lemons::serializing::fromVar</a></div><div class="ttdeci">Type fromVar(juce::var var)</div><div class="ttdoc">Implement this function and toVar() for any custom type to allow easily serialization using TreeRefle...</div><div class="ttdef"><b>Definition:</b> VarConversion.h:92</div></div>
 <div class="ttc" id="astructlemons_1_1serializing_1_1ContainerInterface_html_a85d1977c9d97f103449df253760dc1e8"><div class="ttname"><a href="structlemons_1_1serializing_1_1ContainerInterface.html#a85d1977c9d97f103449df253760dc1e8">lemons::serializing::ContainerInterface::resize</a></div><div class="ttdeci">virtual void resize(int newSize)=0</div><div class="ttdoc">Your subclass must implement this to change the total number of items in the container.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Oct 2 2021 07:02:45 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Oct 2 2021 22:17:05 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
