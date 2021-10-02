@@ -89,8 +89,7 @@ String propertyNameToContainerName (const String& propertyName);
     @verbatim
     {propertyName}_{index}
     @endverbatim
-    For example, passing "Item" with an index of 3 will return "Item_3". \n \n
-    This function also increments the referenced index each time it's called.
+    For example, passing "Item" with an index of 3 will return "Item_3".
  */
 String makePropertyNameForElement (const String& propertyName, int& index);
 
@@ -112,11 +111,11 @@ void addContainer (TreeReflector& ref, ContainerType& container, const String& p
                                                                                          ref.getRawDataTree()));
     }
 
-    int index = 0;
+    int index = 1;
 
     for (auto& element : container)
     {
-        ref.add (makePropertyNameForElement (propertyName, index),
+        ref.add (makePropertyNameForElement (propertyName, index++),
                  element);
     }
 }

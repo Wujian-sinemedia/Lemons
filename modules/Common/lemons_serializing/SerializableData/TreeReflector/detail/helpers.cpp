@@ -8,21 +8,31 @@ String propertyNameToContainerName (const String& propertyName)
 
 String makePropertyNameForElement (const String& propertyName, int& index)
 {
-    return propertyName + "_" + String (index++);
+    return propertyName + "_" + String (index);
 }
 
 int getNumElementsOfType (const String& propertyName, const ValueTree& tree)
 {
-    int index = 0;
+    const auto num = tree.getNumProperties();
 
-    do
+    juce::Array< String > names;
+
+    for (int i = 1, i <= num; ++i)
     {
-        const auto i = index;
-        if (! tree.hasProperty (makePropertyNameForElement (propertyName, index)))
-            return i;
-    } while (index < tree.getNumProperties());
+        names.add (makePropertyNameForElement (propertyName, i));
+    }
 
-    return index;
+    auto actualNum = num;
+
+    for (int i = 0; i < num; ++i)
+    {
+        if (! names.contains (tree.getPropertyName (i).toString()))
+        {
+            --actualNum;
+        }
+    }
+
+    return actualNum;
 }
 
 void loadValueTree (const ValueTree& tree, const String& propertyName, ValueTree& data)

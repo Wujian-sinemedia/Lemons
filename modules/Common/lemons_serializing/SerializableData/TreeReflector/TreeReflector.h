@@ -59,11 +59,11 @@ struct TreeReflector
         \n
         Container types you wish to serialize with a single call to add() must fulfill the following: \n
         - have begin() and end() functions -- ie, are compatable with range-based for loops
-        - have an implementation of ContainerInterface
-        - have a specialization of getInterfaceForContainer()
-        - have a specialization of isContainer that inherits std::true_type. \n
+        - have an implementation of serializing::ContainerInterface
+        - have a specialization of serializing::getInterfaceForContainer()
+        - have a specialization of serializing::isContainer that inherits std::true_type. \n
         \n
-        Provided in Lemons are implementations for common STL containers, as well as juce::Array and juce::OwnedArray. You can implement the above requirements for this to work with any other custom type you create. This should work recursively for multidimensional containers as well. \n
+        Provided in Lemons are implementations for common STL containers, as well as juce::Array and juce::OwnedArray. You can implement the above requirements for this to work with any other custom type you create. \n
         \n
         When calling add() with a container, the property name you pass should be the name of a single element in the container. \n
         \n

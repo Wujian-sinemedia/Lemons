@@ -4,7 +4,7 @@
 namespace lemons::serializing
 {
 /**
-    Implement this function and fromVar for any custom type to allow easily serialization using TreeReflector::add().
+    Implement this function and fromVar() for any custom type to allow easily serialization using TreeReflector::add().
     This function must save the complete state of your object either directly to a juce::var or to a type that is implicitly convertable to juce::var (ie, float, int, juce::String, etc.). \n \n
     This function must do the exact opposite of what your implementation of fromVar() for your type does. \n \n
     Usually what this boils down to is encoding your object into a juce::String in some way, which can then be implicitly converted to a juce::var. \n \n
@@ -50,7 +50,7 @@ juce::var toVar (Type& object)
 
 
 /**
-    Implement this function and toVar for any custom type to allow easily serialization using TreeReflector::add().
+    Implement this function and toVar() for any custom type to allow easily serialization using TreeReflector::add().
     This function must load the complete state of your object from a juce::var. Your object type must be default-constructable. \n \n
     This function must do the exact opposite of what your implementation of toVar() for your type does. \n \n
     Usually what this boils down to is creating a default-constructed instance of your object, then setting properties or relevant data members programmatically based on parsing the encoded String returned from the var. \n \n
