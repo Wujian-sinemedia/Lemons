@@ -1,8 +1,8 @@
 
 namespace lemons::dsp::filters
 {
-template < typename T >
-Coefs< T >::Coefs()
+template < typename NumericType >
+Coefficients< NumericType >::Storage::Storage()
 {
     this->ensureStorageAllocated (8);
 }
@@ -20,8 +20,8 @@ static inline int get_a0Index (size_t size)
     }
 }
 
-template < typename T >
-Coefs< T >& Coefs< T >::operator= (std::initializer_list< T > list)
+template < typename NumericType >
+typename Coefficients< NumericType >::Storage& Coefficients< NumericType >::Storage::operator= (std::initializer_list< NumericType > list)
 {
     this->clearQuick();
 
@@ -29,12 +29,12 @@ Coefs< T >& Coefs< T >::operator= (std::initializer_list< T > list)
 
     int index = 0;
 
-    T a0inv = (T) 0;
+    NumericType a0inv = (NumericType) 0;
 
     for (auto& element : list)
     {
         if (index == a0Index)
-            a0inv = static_cast< T > ((T) 1. / element);
+            a0inv = static_cast< NumericType > ((NumericType) 1. / element);
         else
             this->add (element);
 
@@ -46,9 +46,6 @@ Coefs< T >& Coefs< T >::operator= (std::initializer_list< T > list)
 
     return *this;
 }
-
-template struct Coefs< float >;
-template struct Coefs< double >;
 
 /*--------------------------------------------------------------------------------------------------------------*/
 
