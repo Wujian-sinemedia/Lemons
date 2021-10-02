@@ -13282,13 +13282,6 @@
       <arglist>(int minFreqHz=60, int maxFreqHz=2500)</arglist>
     </member>
     <member kind="function">
-      <type></type>
-      <name>~PitchDetector</name>
-      <anchorfile>classlemons_1_1dsp_1_1PitchDetector.html</anchorfile>
-      <anchor>a155dddb62c84f8c3634b2f8432cc0e7a</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
       <type>float</type>
       <name>detectPitch</name>
       <anchorfile>classlemons_1_1dsp_1_1PitchDetector.html</anchorfile>

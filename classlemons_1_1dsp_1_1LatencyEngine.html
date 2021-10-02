@@ -75,6 +75,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Base class for audio engines that require latency (ie, a consistent block size) for their processing.  
+ <a href="classlemons_1_1dsp_1_1LatencyEngine.html#details">More...</a></p>
+
 <p><code>#include &lt;LatencyEngine.h&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::dsp::LatencyEngine&lt; SampleType &gt;:</div>
@@ -88,36 +91,55 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af0419e5fefcb2a16b836cb18ab8cf023"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1LatencyEngine.html#af0419e5fefcb2a16b836cb18ab8cf023">changeLatency</a> (int newInternalBlocksize)</td></tr>
+<tr class="memdesc:af0419e5fefcb2a16b836cb18ab8cf023"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the latency in samples of the engine.  <a href="classlemons_1_1dsp_1_1LatencyEngine.html#af0419e5fefcb2a16b836cb18ab8cf023">More...</a><br /></td></tr>
 <tr class="separator:af0419e5fefcb2a16b836cb18ab8cf023"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afde19f6980e44ccaf99d168bb1f0f95f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#afde19f6980e44ccaf99d168bb1f0f95f">getSamplerate</a> () const</td></tr>
+<tr class="memdesc:afde19f6980e44ccaf99d168bb1f0f95f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the engine's samplerate.  <a href="classlemons_1_1dsp_1_1Engine.html#afde19f6980e44ccaf99d168bb1f0f95f">More...</a><br /></td></tr>
 <tr class="separator:afde19f6980e44ccaf99d168bb1f0f95f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a090f7c4344b0aee17162e841c255b57d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#a090f7c4344b0aee17162e841c255b57d">isInitialized</a> () const</td></tr>
+<tr class="memdesc:a090f7c4344b0aee17162e841c255b57d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if <a class="el" href="classlemons_1_1dsp_1_1Engine.html#a92fe69356c54445d91e70586cc9cdf73" title="Prepares the engine.">prepare()</a> has been called at least once since the object's construction or the last <a class="el" href="classlemons_1_1dsp_1_1Engine.html#a144323b4488420dcf49b89cee7837f8c" title="Releases all of the engine&#39;s internal resources.">releaseResources()</a> call.  <a href="classlemons_1_1dsp_1_1Engine.html#a090f7c4344b0aee17162e841c255b57d">More...</a><br /></td></tr>
 <tr class="separator:a090f7c4344b0aee17162e841c255b57d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92fe69356c54445d91e70586cc9cdf73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#a92fe69356c54445d91e70586cc9cdf73">prepare</a> (double samplerate, int blocksize, int numChannels=2)</td></tr>
+<tr class="memdesc:a92fe69356c54445d91e70586cc9cdf73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the engine.  <a href="classlemons_1_1dsp_1_1Engine.html#a92fe69356c54445d91e70586cc9cdf73">More...</a><br /></td></tr>
 <tr class="separator:a92fe69356c54445d91e70586cc9cdf73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f813b9e44ed7518183da4afe405f44e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#a3f813b9e44ed7518183da4afe405f44e">process</a> (AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, bool isBypassed=false)</td></tr>
+<tr class="memdesc:a3f813b9e44ed7518183da4afe405f44e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the audio engine with in-place audio I/O and no MIDI.  <a href="classlemons_1_1dsp_1_1Engine.html#a3f813b9e44ed7518183da4afe405f44e">More...</a><br /></td></tr>
 <tr class="separator:a3f813b9e44ed7518183da4afe405f44e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48b37b72835d34fc060a1010a1fe2499"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#a48b37b72835d34fc060a1010a1fe2499">process</a> (AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, MidiBuffer &amp;midiMessages, bool isBypassed=false)</td></tr>
+<tr class="memdesc:a48b37b72835d34fc060a1010a1fe2499"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the audio engine with in-place audio I/O and MIDI.  <a href="classlemons_1_1dsp_1_1Engine.html#a48b37b72835d34fc060a1010a1fe2499">More...</a><br /></td></tr>
 <tr class="separator:a48b37b72835d34fc060a1010a1fe2499"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adfb2f088baaa0e07efa7bf794918d831"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#adfb2f088baaa0e07efa7bf794918d831">process</a> (const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, bool isBypassed=false)</td></tr>
+<tr class="memdesc:adfb2f088baaa0e07efa7bf794918d831"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the audio engine with separate audio in and out and no MIDI.  <a href="classlemons_1_1dsp_1_1Engine.html#adfb2f088baaa0e07efa7bf794918d831">More...</a><br /></td></tr>
 <tr class="separator:adfb2f088baaa0e07efa7bf794918d831"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3668be93e3cc7b9a4340c5872be9b45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#aa3668be93e3cc7b9a4340c5872be9b45">process</a> (const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed=false)</td></tr>
+<tr class="memdesc:aa3668be93e3cc7b9a4340c5872be9b45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the audio engine with separate audio in and out, and MIDI.  <a href="classlemons_1_1dsp_1_1Engine.html#aa3668be93e3cc7b9a4340c5872be9b45">More...</a><br /></td></tr>
 <tr class="separator:aa3668be93e3cc7b9a4340c5872be9b45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a144323b4488420dcf49b89cee7837f8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#a144323b4488420dcf49b89cee7837f8c">releaseResources</a> ()</td></tr>
+<tr class="memdesc:a144323b4488420dcf49b89cee7837f8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases all of the engine's internal resources.  <a href="classlemons_1_1dsp_1_1Engine.html#a144323b4488420dcf49b89cee7837f8c">More...</a><br /></td></tr>
 <tr class="separator:a144323b4488420dcf49b89cee7837f8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13fce9c2a64647375473f7df8b33db35"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1LatencyEngine.html#a13fce9c2a64647375473f7df8b33db35">reportLatency</a> () const final</td></tr>
+<tr class="memdesc:a13fce9c2a64647375473f7df8b33db35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the latency in samples of the engine.  <a href="classlemons_1_1dsp_1_1LatencyEngine.html#a13fce9c2a64647375473f7df8b33db35">More...</a><br /></td></tr>
 <tr class="separator:a13fce9c2a64647375473f7df8b33db35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:af171ed2c410e7e03dd8e583b27f81903"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1LatencyEngine.html#af171ed2c410e7e03dd8e583b27f81903">onPrepare</a> (int blocksize, double samplerate)</td></tr>
+<tr class="memdesc:af171ed2c410e7e03dd8e583b27f81903"><td class="mdescLeft">&#160;</td><td class="mdescRight">Your subclass may implement this to be informed when the engine is prepared.  <a href="classlemons_1_1dsp_1_1LatencyEngine.html#af171ed2c410e7e03dd8e583b27f81903">More...</a><br /></td></tr>
 <tr class="separator:af171ed2c410e7e03dd8e583b27f81903"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a836d66a52283875ec29eab8cbe1eea4a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1LatencyEngine.html#a836d66a52283875ec29eab8cbe1eea4a">onRelease</a> ()</td></tr>
+<tr class="memdesc:a836d66a52283875ec29eab8cbe1eea4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Your subclass may implement this to be informed when the engine is released.  <a href="classlemons_1_1dsp_1_1LatencyEngine.html#a836d66a52283875ec29eab8cbe1eea4a">More...</a><br /></td></tr>
 <tr class="separator:a836d66a52283875ec29eab8cbe1eea4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a123f297f0cd76d580f4d1b9e0021901d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1LatencyEngine.html#a123f297f0cd76d580f4d1b9e0021901d">renderChunk</a> (const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed)=0</td></tr>
+<tr class="memdesc:a123f297f0cd76d580f4d1b9e0021901d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Your subclass should implement this function with your audio algorithm's rendering logic.  <a href="classlemons_1_1dsp_1_1LatencyEngine.html#a123f297f0cd76d580f4d1b9e0021901d">More...</a><br /></td></tr>
 <tr class="separator:a123f297f0cd76d580f4d1b9e0021901d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename SampleType&gt;<br />
+class lemons::dsp::LatencyEngine&lt; SampleType &gt;</h3>
+
+<p>Base class for audio engines that require latency (ie, a consistent block size) for their processing. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1Engine.html" title="Base class for an audio engine.">Engine</a> </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="af0419e5fefcb2a16b836cb18ab8cf023"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af0419e5fefcb2a16b836cb18ab8cf023">&#9670;&nbsp;</a></span>changeLatency()</h2>
 
@@ -135,6 +157,8 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the latency in samples of the engine. </p>
 
 </div>
 </div>
@@ -163,6 +187,8 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the engine's samplerate. </p>
+
 </div>
 </div>
 <a id="a090f7c4344b0aee17162e841c255b57d"></a>
@@ -189,6 +215,9 @@ template&lt;typename SampleType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns true if <a class="el" href="classlemons_1_1dsp_1_1Engine.html#a92fe69356c54445d91e70586cc9cdf73" title="Prepares the engine.">prepare()</a> has been called at least once since the object's construction or the last <a class="el" href="classlemons_1_1dsp_1_1Engine.html#a144323b4488420dcf49b89cee7837f8c" title="Releases all of the engine&#39;s internal resources.">releaseResources()</a> call. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1Engine.html#a92fe69356c54445d91e70586cc9cdf73" title="Prepares the engine.">prepare()</a>, <a class="el" href="classlemons_1_1dsp_1_1Engine.html#a144323b4488420dcf49b89cee7837f8c" title="Releases all of the engine&#39;s internal resources.">releaseResources()</a> </dd></dl>
 
 </div>
 </div>
@@ -228,6 +257,8 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Your subclass may implement this to be informed when the engine is prepared. </p>
+
 </div>
 </div>
 <a id="a836d66a52283875ec29eab8cbe1eea4a"></a>
@@ -254,6 +285,8 @@ template&lt;typename SampleType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Your subclass may implement this to be informed when the engine is released. </p>
 
 </div>
 </div>
@@ -299,6 +332,8 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Prepares the engine. </p>
+
 </div>
 </div>
 <a id="a3f813b9e44ed7518183da4afe405f44e"></a>
@@ -336,6 +371,15 @@ template&lt;typename SampleType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Processes the audio engine with in-place audio I/O and no MIDI. </p>
+<p>The internal renderBlock() function will be called with an empty dummy MidiBuffer. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inplaceInAndOut</td><td>The audio buffer that the input will be read from and the output will be written to. </td></tr>
+    <tr><td class="paramname">isBypassed</td><td>Should be true if the engine is bypassed this frame. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -381,6 +425,16 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Processes the audio engine with in-place audio I/O and MIDI. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inplaceInAndOut</td><td>The audio buffer that the input will be read from and the output will be written to. </td></tr>
+    <tr><td class="paramname">midiMessages</td><td>MIDI I/O buffer. The engine's MIDI output will be returned in-place. </td></tr>
+    <tr><td class="paramname">isBypassed</td><td>Should be true if the engine is bypassed this frame. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="adfb2f088baaa0e07efa7bf794918d831"></a>
@@ -424,6 +478,16 @@ template&lt;typename SampleType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Processes the audio engine with separate audio in and out and no MIDI. </p>
+<p>The internal renderBlock() function will be called with an empty dummy MidiBuffer. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>The audio input. </td></tr>
+    <tr><td class="paramname">output</td><td>The audio output. </td></tr>
+    <tr><td class="paramname">isBypassed</td><td>Should be true if the engine is bypassed this frame. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -475,6 +539,17 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Processes the audio engine with separate audio in and out, and MIDI. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>The audio input. </td></tr>
+    <tr><td class="paramname">output</td><td>The audio output. </td></tr>
+    <tr><td class="paramname">midiMessages</td><td>MIDI I/O buffer. The engine's MIDI output will be returned in-place. </td></tr>
+    <tr><td class="paramname">isBypassed</td><td>Should be true if the engine is bypassed this frame. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a144323b4488420dcf49b89cee7837f8c"></a>
@@ -501,6 +576,8 @@ template&lt;typename SampleType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Releases all of the engine's internal resources. </p>
 
 </div>
 </div>
@@ -552,6 +629,9 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Your subclass should implement this function with your audio algorithm's rendering logic. </p>
+<p>This function will always be called with blocks that are <a class="el" href="classlemons_1_1dsp_1_1LatencyEngine.html#a13fce9c2a64647375473f7df8b33db35" title="Returns the latency in samples of the engine.">reportLatency()</a> samples long. </p>
+
 </div>
 </div>
 <a id="a13fce9c2a64647375473f7df8b33db35"></a>
@@ -579,6 +659,8 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the latency in samples of the engine. </p>
+
 <p>Reimplemented from <a class="el" href="classlemons_1_1dsp_1_1Engine.html#a8cf8a2dd9e6cded85b3762f9db805310">lemons::dsp::Engine&lt; SampleType &gt;</a>.</p>
 
 </div>
@@ -589,7 +671,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Oct 2 2021 02:05:36 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Oct 2 2021 03:00:49 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

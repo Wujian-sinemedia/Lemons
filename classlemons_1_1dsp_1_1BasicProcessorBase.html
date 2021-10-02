@@ -74,6 +74,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A default implementation of a basic, generic juce AudioProcessor.  
+ <a href="classlemons_1_1dsp_1_1BasicProcessorBase.html#details">More...</a></p>
+
 <p><code>#include &lt;BasicProcessor.h&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::dsp::BasicProcessorBase:</div>
@@ -87,11 +90,16 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab3ee880d17a012786ae04d863f7c6dca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1BasicProcessorBase.html#ab3ee880d17a012786ae04d863f7c6dca">BasicProcessorBase</a> (juce::AudioProcessor::BusesProperties busesLayout=BusesProperties() .withInput(TRANS(&quot;Input&quot;), juce::AudioChannelSet::stereo(), true) .withOutput(TRANS(&quot;Output&quot;), juce::AudioChannelSet::stereo(), true))</td></tr>
+<tr class="memdesc:ab3ee880d17a012786ae04d863f7c6dca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a basic processor.  <a href="classlemons_1_1dsp_1_1BasicProcessorBase.html#ab3ee880d17a012786ae04d863f7c6dca">More...</a><br /></td></tr>
 <tr class="separator:ab3ee880d17a012786ae04d863f7c6dca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57640651bbac3970c117f2a7f03890f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1BasicProcessorBase.html#a57640651bbac3970c117f2a7f03890f4">repaintEditor</a> ()</td></tr>
+<tr class="memdesc:a57640651bbac3970c117f2a7f03890f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Repaints the editor, if one exists.  <a href="classlemons_1_1dsp_1_1BasicProcessorBase.html#a57640651bbac3970c117f2a7f03890f4">More...</a><br /></td></tr>
 <tr class="separator:a57640651bbac3970c117f2a7f03890f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A default implementation of a basic, generic juce AudioProcessor. </p>
+<p>The purpose of this class is to provide sensible default implementations for all of AudioProcessor's pure virtual functions, to make it easy to inherit from this class, override only what you need, and get working. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1plugin_1_1ProcessorBase.html">plugin::ProcessorBase</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab3ee880d17a012786ae04d863f7c6dca"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab3ee880d17a012786ae04d863f7c6dca">&#9670;&nbsp;</a></span>BasicProcessorBase()</h2>
 
@@ -107,6 +115,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates a basic processor. </p>
+<p>The default constructor initializes an audio processor with stereo in and out buses. </p>
 
 </div>
 </div>
@@ -126,6 +137,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Repaints the editor, if one exists. </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -134,7 +147,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Oct 2 2021 02:05:36 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Oct 2 2021 03:00:49 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

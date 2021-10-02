@@ -36,7 +36,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classlemons_1_1dsp_1_1BasicProcessorBase.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="classlemons_1_1dsp_1_1BasicProcessorBase.html" target="_top" xlink:title="A default implementation of a basic, generic juce AudioProcessor.">
 <polygon fill="none" stroke="black" points="0,-123.5 0,-142.5 179,-142.5 179,-123.5 0,-123.5"/>
 <text text-anchor="middle" x="89.5" y="-130.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::BasicProcessorBase</text>
 </a>

@@ -210,7 +210,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classlemons_1_1dsp_1_1Engine.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="classlemons_1_1dsp_1_1Engine.html" target="_top" xlink:title="Base class for an audio engine.">
 <polygon fill="none" stroke="black" points="0,-276 0,-306 115,-306 115,-276 0,-276"/>
 <text text-anchor="start" x="8" y="-294" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::Engine</text>
 <text text-anchor="middle" x="57.5" y="-283" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>
