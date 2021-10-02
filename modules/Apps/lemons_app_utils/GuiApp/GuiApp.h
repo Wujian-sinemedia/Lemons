@@ -5,8 +5,8 @@ namespace lemons
 /**
     Represents the base for a generic GUI app.
     Templated on the type of component it owns.
+    @tparam ContentComponentType The type of top-level main component for this app's GUI. This must inherit from juce::Component and must be default-constructable.
     @see DefaultWindow, SystemInitializer
-    @tags{Apps}
  */
 template < typename ContentComponentType, BV_MUST_INHERIT_FROM (ContentComponentType, juce::Component) >
 class GuiApp : public juce::JUCEApplication, private SystemInitializer

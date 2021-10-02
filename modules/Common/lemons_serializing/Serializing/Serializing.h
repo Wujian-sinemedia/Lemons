@@ -45,7 +45,7 @@ void fromBinary (const void* data, IntegerType dataSizeInBytes, SerializableData
 }
 
 /** Creates a new object from the state saved in the file.
-    ObjectType must be default-constructable.
+    @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
  */
 template < typename ObjectType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
 ObjectType fromBinaryCreate (File file)
@@ -56,7 +56,7 @@ ObjectType fromBinaryCreate (File file)
 }
 
 /** Creates a new object from the state saved in the MemoryBlock.
-    ObjectType must be default-constructable.
+    @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
  */
 template < typename ObjectType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
 ObjectType fromBinaryCreate (const juce::MemoryBlock& data)
@@ -67,7 +67,7 @@ ObjectType fromBinaryCreate (const juce::MemoryBlock& data)
 }
 
 /** Creates a new object from the state saved in the opaque binary data.
-    ObjectType must be default-constructable.
+    @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
  */
 template < typename ObjectType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
 ObjectType fromBinaryCreate (const void* data, size_t dataSizeInBytes)
@@ -78,7 +78,7 @@ ObjectType fromBinaryCreate (const void* data, size_t dataSizeInBytes)
 }
 
 /** Creates a new object from the state saved in the opaque binary data.
-    ObjectType must be default-constructable.
+    @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
  */
 template < typename ObjectType, typename IntegerType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
 ObjectType fromBinaryCreate (const void* data, IntegerType dataSizeInBytes)
@@ -104,7 +104,7 @@ void fromXML (std::unique_ptr< juce::XmlElement > xml, SerializableData& dest);
 void fromXML (const File& xmlFile, SerializableData& dest);
 
 /** Creates a new object from the state saved in the XML element.
-    ObjectType must be default-constructable.
+    @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
  */
 template < typename ObjectType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
 ObjectType fromXMLCreate (const juce::XmlElement& xml)
@@ -115,7 +115,7 @@ ObjectType fromXMLCreate (const juce::XmlElement& xml)
 }
 
 /** Creates a new object from the state saved in the XML element.
-    ObjectType must be default-constructable.
+    @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
  */
 template < typename ObjectType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
 ObjectType fromXMLCreate (std::unique_ptr< juce::XmlElement > xml)
@@ -126,7 +126,7 @@ ObjectType fromXMLCreate (std::unique_ptr< juce::XmlElement > xml)
 }
 
 /** Creates a new object from the state saved in the XML file.
-    ObjectType must be default-constructable.
+    @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
  */
 template < typename ObjectType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
 ObjectType fromXMLCreate (const File& xmlFile)
@@ -151,7 +151,7 @@ void fromJSON (const String& jsonText, SerializableData& dest);
 void fromJSON (const File& file, SerializableData& dest);
 
 /** Creates a new object from the state saved in the JSON string.
-    ObjectType must be default-constructable.
+    @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
     @see valueTreeFromJSON()
  */
 template < typename ObjectType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
@@ -163,7 +163,7 @@ ObjectType fromJSONCreate (const String& jsonText)
 }
 
 /** Creates a new object from the state saved in the JSON file.
-    ObjectType must be default-constructable.
+    @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
     @see valueTreeToJSON()
  */
 template < typename ObjectType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >

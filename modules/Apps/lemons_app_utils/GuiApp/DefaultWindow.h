@@ -7,7 +7,6 @@ namespace lemons
 {
 /**
     Base class for a GUI app's main window.
-    @tags{Apps}
  */
 struct DefaultWindowBase : public juce::DocumentWindow
 {
@@ -25,9 +24,9 @@ private:
 
 
 /**
-    A class representing a GUI app's main window, templated on the type of main component it displays.
+    A class representing a GUI app's main window.
+    @tparam ComponentType The type of top-level main component that this window owns and displays. This must inherit from juce::Component and must be default-constructable.
     @see DefaultWindowBase, GuiApp
-    @tags{Apps}
  */
 template < typename ComponentType, BV_MUST_INHERIT_FROM (ComponentType, juce::Component) >
 struct DefaultWindow : public DefaultWindowBase

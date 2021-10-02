@@ -86,7 +86,7 @@ private:
         };
         @endcode
         If your object requires more low-level control or complex logic, you can also use TreeReflector::getRawDataTree(), and you can query TreeReflector::isLoading() or TreeReflector::isSaving().
-        @see TreeReflector serializing::toVar(), serializing::fromVar(), serializing::ContainerInterface, serializing::getInterfaceForContainer(), serializing::isContainer
+        @see TreeReflector, TreeReflector::add(), serializing::toVar(), serializing::fromVar(), serializing::ContainerInterface, serializing::getInterfaceForContainer(), serializing::isContainer
      */
     virtual void serialize (TreeReflector& ref) = 0;
 

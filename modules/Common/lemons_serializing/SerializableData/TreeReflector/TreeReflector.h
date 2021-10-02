@@ -10,8 +10,9 @@ struct SerializableData;
 
 /**
     Utility class that provides a convenient API for assigning data members or lambdas to ValueTree properties for use in serializing logic.
-    You should never have to create one of these, the SerializableData class will internally create and use TreeLoaders and TreeSavers when you call its top-level load and save functions. \n
-    Internally, this class uses the toVar() and fromVar() functions to encode various C++ types into ValueTree properties. Implement those two functions within the lemons::serializing namespace for any custom type you wish to easily serialize.
+    You should never have to create one of these; the SerializableData class will internally create and use TreeLoaders and TreeSavers when you call its top-level load and save functions. \n
+    Internally, this class uses the toVar() and fromVar() functions to encode various C++ types into ValueTree properties. Implement those two functions within the lemons::serializing namespace for any custom type you wish to easily serialize. \n
+    As a general rule, you shouldn't need to implement toVar() and fromVar() for a type if that type inherits from SerializableData; and, conversely, you should implement toVar() and fromVar() for a type if it needs to be serialized and doesn't inherit from SerializableData. You should rarely, if ever, need both for a single type.
     @see SerializableData, serializing::toVar(), serializing::fromVar()
  */
 struct TreeReflector
@@ -72,9 +73,30 @@ struct TreeReflector
         @endcode
         This will create a sub-tree in your object's ValueTree named "Ints", with properties "Int_1", "Int_2", "Int_3", etc. This works by iterating through each element of your container and calling add() on each of them.
      
-        @param propertyName The name of the ValueTree property that this data member corresponds to. When saving, the juce::var-encoded version of the data member will be written to the tree using this property name. When loading, if the tree has a property with this name, it will be converted from juce::var back into your type and assigned to the data member. When adding a container, this should be the name of a single container element.
+        @param propertyName The property name associated with the piece of data this function call represents. \n
+        When adding a reference to a member encoded with toVar() and fromVar(), this is the name of the ValueTree property the encoded object will be saved to and restored from in the reflector's internal ValueTree. \n
+        When adding a sub-tree object (such as when passing a child ValueTree, a child object that inherits from SerializableData, or a container), this is the name of the sub-tree that will be added to the reflector's internal tree, and will be populated with the child object's properties. \n
+        When adding a container, this should be the name of a single container element. Container element names and the container's subtree name are generated as following:
+        @code
+            std::vector<int> data {23, 16, 7};
      
-        @param object Reference to the data member you wish to load/save.
+            ref.add ("Point", data);
+        @endcode
+        This will create the following sub-tree object:
+        @code
+            //  Points
+                //  Point_1 = 23
+                //  Point_2 = 16
+                // Point_3 = 7
+        @endcode
+        I do not recommend attempting to internationalize property names.
+     
+        @param object Reference to the data member you wish to load/save. \n
+        This can be: \n
+        - Any C++ object for which toVar() and fromVar() are implemented;
+        - A juce::ValueTree;
+        - Another object that inherits from SerializableData;
+        - A container that has serializing::ContainerInterface, serializing::getInterfaceForContainer(), and serializing::isContainer implemented and whose elements are also valid calls to add()
      
         @see serializing::ContainerInterface, serializing::getInterfaceForContainer(), serializing::isContainer, serializing::toVar(), serializing::fromVar(), addLambdaSet()
      */
@@ -110,7 +132,7 @@ struct TreeReflector
          @endcode
         If you use this function with a container type, your lambdas must return/recieve the entire container by value. I recommend sticking to add() (or implementing completely custom logic) for containers.
      
-        @param propertyName The name of the ValueTree property that this data corresponds to. When saving, the juce::var-encoded version of the object returned from the saveToTree function will be written to the tree using this property name. When loading, if the tree has a property with this name, it will be converted from juce::var back into your type and passed to the loadFromTree function.
+        @param propertyName The name of the ValueTree property that this data corresponds to. See the docs for add().
      
         @param saveToTree This lambda should return the current value of the data you wish to save.
      
