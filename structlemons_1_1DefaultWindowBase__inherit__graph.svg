@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="structlemons_1_1DefaultWindow.html" target="_top" xlink:title="A class representing a GUI app&#39;s main window, templated on the type of main component it displays.">
+<g id="a_node2"><a xlink:href="structlemons_1_1DefaultWindow.html" target="_top" xlink:title="A class representing a GUI app&#39;s main window.">
 <polygon fill="none" stroke="black" points="12,-0.5 12,-30.5 146,-30.5 146,-0.5 12,-0.5"/>
 <text text-anchor="start" x="20" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::DefaultWindow</text>
 <text text-anchor="middle" x="79" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; ComponentType, &gt;</text>

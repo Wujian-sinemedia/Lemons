@@ -444,7 +444,12 @@ template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableD
 </div><div class="memdoc">
 
 <p>Creates a new object from the state saved in the MemoryBlock. </p>
-<p>ObjectType must be default-constructable. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ObjectType</td><td>The type of object to create. This type must inherit from <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> and must be default-constructable. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="reference">References <a class="el" href="namespacelemons_1_1serializing.html#a47707d97df8e371fd661c3cf03ed1490">fromBinary()</a>.</p>
 
@@ -479,7 +484,12 @@ template&lt;typename ObjectType , typename IntegerType , BV_MUST_INHERIT_FROM(Ob
 </div><div class="memdoc">
 
 <p>Creates a new object from the state saved in the opaque binary data. </p>
-<p>ObjectType must be default-constructable. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ObjectType</td><td>The type of object to create. This type must inherit from <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> and must be default-constructable. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -512,7 +522,12 @@ template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableD
 </div><div class="memdoc">
 
 <p>Creates a new object from the state saved in the opaque binary data. </p>
-<p>ObjectType must be default-constructable. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ObjectType</td><td>The type of object to create. This type must inherit from <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> and must be default-constructable. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="reference">References <a class="el" href="namespacelemons_1_1serializing.html#a47707d97df8e371fd661c3cf03ed1490">fromBinary()</a>.</p>
 
@@ -537,7 +552,12 @@ template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableD
 </div><div class="memdoc">
 
 <p>Creates a new object from the state saved in the file. </p>
-<p>ObjectType must be default-constructable. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ObjectType</td><td>The type of object to create. This type must inherit from <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> and must be default-constructable. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="reference">References <a class="el" href="namespacelemons_1_1serializing.html#a47707d97df8e371fd661c3cf03ed1490">fromBinary()</a>.</p>
 
@@ -624,7 +644,13 @@ template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableD
 </div><div class="memdoc">
 
 <p>Creates a new object from the state saved in the JSON file. </p>
-<p>ObjectType must be default-constructable. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#a44dc62981a244f674a7b47738595d0ac" title="Converts a ValueTree to a JSON string.">valueTreeToJSON()</a> </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ObjectType</td><td>The type of object to create. This type must inherit from <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> and must be default-constructable. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#a44dc62981a244f674a7b47738595d0ac" title="Converts a ValueTree to a JSON string.">valueTreeToJSON()</a> </dd></dl>
 
 <p class="reference">References <a class="el" href="namespacelemons_1_1serializing.html#ac4200231299743257683b69fbd3303e8">fromJSON()</a>.</p>
 
@@ -649,7 +675,13 @@ template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableD
 </div><div class="memdoc">
 
 <p>Creates a new object from the state saved in the JSON string. </p>
-<p>ObjectType must be default-constructable. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#a3a28001c151ae9a72cee950b7b0c5fe0" title="Converts a JSON string to a ValueTree.">valueTreeFromJSON()</a> </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ObjectType</td><td>The type of object to create. This type must inherit from <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> and must be default-constructable. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#a3a28001c151ae9a72cee950b7b0c5fe0" title="Converts a JSON string to a ValueTree.">valueTreeFromJSON()</a> </dd></dl>
 
 <p class="reference">References <a class="el" href="namespacelemons_1_1serializing.html#ac4200231299743257683b69fbd3303e8">fromJSON()</a>.</p>
 
@@ -710,10 +742,12 @@ template&lt;&gt; </div>
 <p>Internally, this converts the var to a String, then uses juce's FlacAudioFormat to decode the String back into audio samples. <br  />
 Since juce's FlacAudioFormat is only available for float samples, the buffer is first decoded with float samples and then converted to double samples for the final result.</p>
 <p>Deserializes an AudioBuffer from a var.</p>
-<p>This function must load the complete state of your object from a juce::var. <br  />
+<p>This function must load the complete state of your object from a juce::var. Your object type must be default-constructable. <br  />
 This function must do the exact opposite of what your implementation of <a class="el" href="namespacelemons_1_1serializing.html#a713bb9525856a131f6897cdd045d5bc4" title="Implement this function and fromVar for any custom type to allow easily serialization using TreeRefle...">toVar()</a> for your type does. <br  />
-Usually what this boils down to is creating a default-constructed instance of your object, then setting properties or relevant data members programmatically based on parsing the String form of the var. <br  />
-Several examples of implementations of this function can be found in lemons_serializing/Serializing/Specializations/VarSpecializations.cpp. </p><div class="fragment"><div class="line"><span class="comment">// example implementation:</span></div>
+Usually what this boils down to is creating a default-constructed instance of your object, then setting properties or relevant data members programmatically based on parsing the encoded String returned from the var. <br  />
+Several examples of implementations of this function can be found in lemons_serializing/Serializing/Specializations/VarSpecializations.cpp. <br  />
+ <br  />
+As a general rule, you shouldn't need to implement <a class="el" href="namespacelemons_1_1serializing.html#a713bb9525856a131f6897cdd045d5bc4" title="Implement this function and fromVar for any custom type to allow easily serialization using TreeRefle...">toVar()</a> and <a class="el" href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b" title="Implement this function and toVar for any custom type to allow easily serialization using TreeReflect...">fromVar()</a> for a type if that type inherits from <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a>; and, conversely, you should implement <a class="el" href="namespacelemons_1_1serializing.html#a713bb9525856a131f6897cdd045d5bc4" title="Implement this function and fromVar for any custom type to allow easily serialization using TreeRefle...">toVar()</a> and <a class="el" href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b" title="Implement this function and toVar for any custom type to allow easily serialization using TreeReflect...">fromVar()</a> for a type if it needs to be serialized and doesn't inherit from <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a>. You should rarely, if ever, need both for a single type. </p><div class="fragment"><div class="line"><span class="comment">// example implementation:</span></div>
 <div class="line"><span class="keyword">namespace </span><a class="code" href="namespacelemons.html">lemons</a></div>
 <div class="line">{</div>
 <div class="line">    <span class="keyword">template</span>&lt;&gt;</div>
@@ -764,10 +798,12 @@ template&lt;typename Type &gt; </div>
 
 <p>Implement this function and toVar for any custom type to allow easily serialization using <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">TreeReflector::add()</a>. </p>
 <p>Deserializes an AudioBuffer from a var.</p>
-<p>This function must load the complete state of your object from a juce::var. <br  />
+<p>This function must load the complete state of your object from a juce::var. Your object type must be default-constructable. <br  />
 This function must do the exact opposite of what your implementation of <a class="el" href="namespacelemons_1_1serializing.html#a713bb9525856a131f6897cdd045d5bc4" title="Implement this function and fromVar for any custom type to allow easily serialization using TreeRefle...">toVar()</a> for your type does. <br  />
-Usually what this boils down to is creating a default-constructed instance of your object, then setting properties or relevant data members programmatically based on parsing the String form of the var. <br  />
-Several examples of implementations of this function can be found in lemons_serializing/Serializing/Specializations/VarSpecializations.cpp. </p><div class="fragment"><div class="line"><span class="comment">// example implementation:</span></div>
+Usually what this boils down to is creating a default-constructed instance of your object, then setting properties or relevant data members programmatically based on parsing the encoded String returned from the var. <br  />
+Several examples of implementations of this function can be found in lemons_serializing/Serializing/Specializations/VarSpecializations.cpp. <br  />
+ <br  />
+As a general rule, you shouldn't need to implement <a class="el" href="namespacelemons_1_1serializing.html#a713bb9525856a131f6897cdd045d5bc4" title="Implement this function and fromVar for any custom type to allow easily serialization using TreeRefle...">toVar()</a> and <a class="el" href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b" title="Implement this function and toVar for any custom type to allow easily serialization using TreeReflect...">fromVar()</a> for a type if that type inherits from <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a>; and, conversely, you should implement <a class="el" href="namespacelemons_1_1serializing.html#a713bb9525856a131f6897cdd045d5bc4" title="Implement this function and fromVar for any custom type to allow easily serialization using TreeRefle...">toVar()</a> and <a class="el" href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b" title="Implement this function and toVar for any custom type to allow easily serialization using TreeReflect...">fromVar()</a> for a type if it needs to be serialized and doesn't inherit from <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a>. You should rarely, if ever, need both for a single type. </p><div class="fragment"><div class="line"><span class="comment">// example implementation:</span></div>
 <div class="line"><span class="keyword">namespace </span><a class="code" href="namespacelemons.html">lemons</a></div>
 <div class="line">{</div>
 <div class="line">    <span class="keyword">template</span>&lt;&gt;</div>
@@ -909,7 +945,12 @@ template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableD
 </div><div class="memdoc">
 
 <p>Creates a new object from the state saved in the XML file. </p>
-<p>ObjectType must be default-constructable. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ObjectType</td><td>The type of object to create. This type must inherit from <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> and must be default-constructable. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="reference">References <a class="el" href="namespacelemons_1_1serializing.html#abfacae1d4cf28387b0b128aa39addc51">fromXML()</a>.</p>
 
@@ -934,7 +975,12 @@ template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableD
 </div><div class="memdoc">
 
 <p>Creates a new object from the state saved in the XML element. </p>
-<p>ObjectType must be default-constructable. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ObjectType</td><td>The type of object to create. This type must inherit from <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> and must be default-constructable. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="reference">References <a class="el" href="namespacelemons_1_1serializing.html#abfacae1d4cf28387b0b128aa39addc51">fromXML()</a>.</p>
 
@@ -959,7 +1005,12 @@ template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableD
 </div><div class="memdoc">
 
 <p>Creates a new object from the state saved in the XML element. </p>
-<p>ObjectType must be default-constructable. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ObjectType</td><td>The type of object to create. This type must inherit from <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> and must be default-constructable. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="reference">References <a class="el" href="namespacelemons_1_1serializing.html#abfacae1d4cf28387b0b128aa39addc51">fromXML()</a>.</p>
 
@@ -984,12 +1035,14 @@ template&lt;typename ContainerType &gt; </div>
 </div><div class="memdoc">
 
 <p>Template function that returns an instance of the correct <a class="el" href="structlemons_1_1serializing_1_1ContainerInterface.html" title="Interface that defines how a TreeReflector can resize a given container during deserialization.">ContainerInterface</a> for the given container. </p>
-<p>To add support for a custom container type to <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">TreeReflector::add()</a>: <br  />
+<p>Implement this if you want to be able to serialize a custom container type with a single <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">TreeReflector::add()</a> call. <br  />
+To add support for a custom container type to <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">TreeReflector::add()</a>: <br  />
 </p><ul>
 <li>Implement a subclass of <a class="el" href="structlemons_1_1serializing_1_1ContainerInterface.html" title="Interface that defines how a TreeReflector can resize a given container during deserialization.">ContainerInterface</a> with the correct resizing logic for your cotainer;</li>
 <li>Implement a specialization of this function that returns an instance of your custom interface;</li>
 <li>Specialize the <a class="el" href="structlemons_1_1serializing_1_1isContainer.html" title="Template struct that determines if a given type is a container.">isContainer</a> struct for your type and make the specialization inherit from std::true_type. <br  />
  In addition, your custom container type must have begin() and end() functions &ndash; ie, it must be compatable with range-based for loops. <br  />
+The elements of your container must also be valid <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">TreeReflector::add()</a> calls &ndash; ie, if they don't inherit <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a>, you must implement <a class="el" href="namespacelemons_1_1serializing.html#a713bb9525856a131f6897cdd045d5bc4" title="Implement this function and fromVar for any custom type to allow easily serialization using TreeRefle...">toVar()</a> and <a class="el" href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b" title="Implement this function and toVar for any custom type to allow easily serialization using TreeReflect...">fromVar()</a> for the container's element type as well. <br  />
  Here is an example implementation for a custom type: <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> ElementType&gt;</div>
 <div class="line"><span class="keyword">struct </span>MyContainerType</div>
 <div class="line">{</div>
@@ -1034,7 +1087,13 @@ template&lt;typename ContainerType &gt; </div>
 <div class="line"><span class="keyword">struct </span>isContainer&lt; MyContainerType&lt; ElementType &gt; &gt; : std::true_type</div>
 <div class="line">{</div>
 <div class="line">};</div>
-</div><!-- fragment --> <dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a>, <a class="el" href="structlemons_1_1serializing_1_1ContainerInterface.html" title="Interface that defines how a TreeReflector can resize a given container during deserialization.">ContainerInterface</a>, <a class="el" href="structlemons_1_1serializing_1_1isContainer.html" title="Template struct that determines if a given type is a container.">isContainer</a> </dd></dl>
+</div><!-- fragment --> <dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ContainerType</td><td>The fully specialized container type &ndash; for example, std::vector&lt;int&gt; or juce::Array&lt;float&gt;. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a>, <a class="el" href="structlemons_1_1serializing_1_1ContainerInterface.html" title="Interface that defines how a TreeReflector can resize a given container during deserialization.">ContainerInterface</a>, <a class="el" href="structlemons_1_1serializing_1_1isContainer.html" title="Template struct that determines if a given type is a container.">isContainer</a> </dd></dl>
 </li>
 </ul>
 
@@ -1363,8 +1422,10 @@ template&lt;typename Type &gt; </div>
 <p>Implement this function and fromVar for any custom type to allow easily serialization using <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">TreeReflector::add()</a>. </p>
 <p>This function must save the complete state of your object either directly to a juce::var or to a type that is implicitly convertable to juce::var (ie, float, int, juce::String, etc.). <br  />
 This function must do the exact opposite of what your implementation of <a class="el" href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b" title="Implement this function and toVar for any custom type to allow easily serialization using TreeReflect...">fromVar()</a> for your type does. <br  />
-Usually what this boils down to is converting your object into a juce::String, which can then be implicitly converted to a juce::var. <br  />
-Several examples of implementations of this function can be found in lemons_serializing/Serializing/Specializations/VarSpecializations.cpp. </p><div class="fragment"><div class="line"><span class="comment">// example implementation:</span></div>
+Usually what this boils down to is encoding your object into a juce::String in some way, which can then be implicitly converted to a juce::var. <br  />
+Several examples of implementations of this function can be found in lemons_serializing/Serializing/Specializations/VarSpecializations.cpp. <br  />
+ <br  />
+As a general rule, you shouldn't need to implement <a class="el" href="namespacelemons_1_1serializing.html#a713bb9525856a131f6897cdd045d5bc4" title="Implement this function and fromVar for any custom type to allow easily serialization using TreeRefle...">toVar()</a> and <a class="el" href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b" title="Implement this function and toVar for any custom type to allow easily serialization using TreeReflect...">fromVar()</a> for a type if that type inherits from <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a>; and, conversely, you should implement <a class="el" href="namespacelemons_1_1serializing.html#a713bb9525856a131f6897cdd045d5bc4" title="Implement this function and fromVar for any custom type to allow easily serialization using TreeRefle...">toVar()</a> and <a class="el" href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b" title="Implement this function and toVar for any custom type to allow easily serialization using TreeReflect...">fromVar()</a> for a type if it needs to be serialized and doesn't inherit from <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a>. You should rarely, if ever, need both for a single type. </p><div class="fragment"><div class="line"><span class="comment">// example implementation:</span></div>
 <div class="line"><span class="keyword">namespace </span><a class="code" href="namespacelemons.html">lemons</a></div>
 <div class="line">{</div>
 <div class="line">    <span class="keyword">template</span>&lt;&gt;</div>
@@ -1488,15 +1549,15 @@ Several examples of implementations of this function can be found in lemons_seri
 </div>
 </div>
 </div><!-- contents -->
-<div class="ttc" id="anamespacelemons_1_1serializing_html_a713bb9525856a131f6897cdd045d5bc4"><div class="ttname"><a href="namespacelemons_1_1serializing.html#a713bb9525856a131f6897cdd045d5bc4">lemons::serializing::toVar</a></div><div class="ttdeci">juce::var toVar(Type &amp;object)</div><div class="ttdoc">Implement this function and fromVar for any custom type to allow easily serialization using TreeRefle...</div><div class="ttdef"><b>Definition:</b> VarConversion.h:45</div></div>
+<div class="ttc" id="anamespacelemons_1_1serializing_html_a713bb9525856a131f6897cdd045d5bc4"><div class="ttname"><a href="namespacelemons_1_1serializing.html#a713bb9525856a131f6897cdd045d5bc4">lemons::serializing::toVar</a></div><div class="ttdeci">juce::var toVar(Type &amp;object)</div><div class="ttdoc">Implement this function and fromVar for any custom type to allow easily serialization using TreeRefle...</div><div class="ttdef"><b>Definition:</b> VarConversion.h:46</div></div>
 <div class="ttc" id="astructlemons_1_1SerializableData_html"><div class="ttname"><a href="structlemons_1_1SerializableData.html">lemons::SerializableData</a></div><div class="ttdoc">Base class for any C++ object that needs to be serialized to binary and back.</div><div class="ttdef"><b>Definition:</b> SerializableData.h:12</div></div>
-<div class="ttc" id="astructlemons_1_1serializing_1_1ContainerInterface_html"><div class="ttname"><a href="structlemons_1_1serializing_1_1ContainerInterface.html">lemons::serializing::ContainerInterface</a></div><div class="ttdoc">Interface that defines how a TreeReflector can resize a given container during deserialization.</div><div class="ttdef"><b>Definition:</b> ContainerInterface.h:64</div></div>
+<div class="ttc" id="astructlemons_1_1serializing_1_1ContainerInterface_html"><div class="ttname"><a href="structlemons_1_1serializing_1_1ContainerInterface.html">lemons::serializing::ContainerInterface</a></div><div class="ttdoc">Interface that defines how a TreeReflector can resize a given container during deserialization.</div><div class="ttdef"><b>Definition:</b> ContainerInterface.h:66</div></div>
 <div class="ttc" id="anamespacelemons_html"><div class="ttname"><a href="namespacelemons.html">lemons</a></div><div class="ttdef"><b>Definition:</b> DefaultWindow.h:6</div></div>
 <div class="ttc" id="anamespacelemons_1_1serializing_html_a947d1fd48af7f4413f461f6c741d5fc2"><div class="ttname"><a href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2">lemons::serializing::getInterfaceForContainer</a></div><div class="ttdeci">std::unique_ptr&lt; ContainerInterface &gt; getInterfaceForContainer(ContainerType &amp;)</div><div class="ttdoc">Template function that returns an instance of the correct ContainerInterface for the given container.</div></div>
-<div class="ttc" id="anamespacelemons_1_1serializing_html_abd30f255b2b10402a940e2260f7ede3b"><div class="ttname"><a href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b">lemons::serializing::fromVar</a></div><div class="ttdeci">Type fromVar(juce::var var)</div><div class="ttdoc">Implement this function and toVar for any custom type to allow easily serialization using TreeReflect...</div><div class="ttdef"><b>Definition:</b> VarConversion.h:90</div></div>
+<div class="ttc" id="anamespacelemons_1_1serializing_html_abd30f255b2b10402a940e2260f7ede3b"><div class="ttname"><a href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b">lemons::serializing::fromVar</a></div><div class="ttdeci">Type fromVar(juce::var var)</div><div class="ttdoc">Implement this function and toVar for any custom type to allow easily serialization using TreeReflect...</div><div class="ttdef"><b>Definition:</b> VarConversion.h:92</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 1 2021 22:41:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Oct 2 2021 01:49:03 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

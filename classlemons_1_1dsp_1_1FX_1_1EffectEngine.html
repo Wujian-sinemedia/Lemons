@@ -126,6 +126,13 @@ Public Member Functions</h2></td></tr>
 class lemons::dsp::FX::EffectEngine&lt; EffectType, SampleType, &gt;</h3>
 
 <p>A class that wraps an <a class="el" href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html" title="Base class for any kind of audio effect.">AudioEffect</a> into a <a class="el" href="classlemons_1_1dsp_1_1Engine.html">dsp::Engine</a>. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">EffectType</td><td>A template class representing the type of effect this engine will manage &ndash; for example, EQ&lt;SampleType&gt; or Compressor&lt;SampleType&gt;. </td></tr>
+    <tr><td class="paramname">SampleType</td><td>The specialization of EffectType that this engine will instantiate. Must be float or double. </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1dsp_1_1FX_1_1AudioEffect.html" title="Base class for any kind of audio effect.">AudioEffect</a>, <a class="el" href="classlemons_1_1dsp_1_1Engine.html">dsp::Engine</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3543298599048f1a8d3a471a67ae9eff"></a>
@@ -553,7 +560,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 1 2021 22:41:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Oct 2 2021 01:49:03 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

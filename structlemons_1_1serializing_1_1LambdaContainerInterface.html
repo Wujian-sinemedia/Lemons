@@ -122,7 +122,13 @@ Example usage: </p><div class="fragment"><div class="line"><span class="keyword"
 <div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span> std::make_unique&lt; JuceArrayInterface&lt; ElementType &gt; &gt; (container);</div>
 <div class="line">}</div>
-</div><!-- fragment --> <dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1serializing_1_1ContainerInterface.html" title="Interface that defines how a TreeReflector can resize a given container during deserialization.">ContainerInterface</a> </dd></dl>
+</div><!-- fragment --> <dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ContainerType</td><td>The fully specialized container type &ndash; for example, std::vector&lt;int&gt; or juce::Array&lt;std::vector&lt;float&gt;&gt;. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1serializing_1_1ContainerInterface.html" title="Interface that defines how a TreeReflector can resize a given container during deserialization.">ContainerInterface</a>, <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a>, <a class="el" href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2" title="Template function that returns an instance of the correct ContainerInterface for the given container.">getInterfaceForContainer()</a>, <a class="el" href="structlemons_1_1serializing_1_1isContainer.html" title="Template struct that determines if a given type is a container.">isContainer</a> </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a32d76526cd79b1430dd90251f242d821"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a32d76526cd79b1430dd90251f242d821">&#9670;&nbsp;</a></span>ResizeCallback</h2>
@@ -175,11 +181,11 @@ template&lt;class ContainerType &gt; </div>
 <li><a class="el" href="ContainerInterface_8h.html">ContainerInterface.h</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="astructlemons_1_1serializing_1_1LambdaContainerInterface_html_ae7169782ade1798d043e301000b79790"><div class="ttname"><a href="structlemons_1_1serializing_1_1LambdaContainerInterface.html#ae7169782ade1798d043e301000b79790">lemons::serializing::LambdaContainerInterface::LambdaContainerInterface</a></div><div class="ttdeci">LambdaContainerInterface(ContainerType &amp;containerToUse, ResizeCallback resizeFuncToUse)</div><div class="ttdef"><b>Definition:</b> ContainerInterface.h:101</div></div>
+<div class="ttc" id="astructlemons_1_1serializing_1_1LambdaContainerInterface_html_ae7169782ade1798d043e301000b79790"><div class="ttname"><a href="structlemons_1_1serializing_1_1LambdaContainerInterface.html#ae7169782ade1798d043e301000b79790">lemons::serializing::LambdaContainerInterface::LambdaContainerInterface</a></div><div class="ttdeci">LambdaContainerInterface(ContainerType &amp;containerToUse, ResizeCallback resizeFuncToUse)</div><div class="ttdef"><b>Definition:</b> ContainerInterface.h:107</div></div>
 <div class="ttc" id="anamespacelemons_1_1serializing_html_a947d1fd48af7f4413f461f6c741d5fc2"><div class="ttname"><a href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2">lemons::serializing::getInterfaceForContainer</a></div><div class="ttdeci">std::unique_ptr&lt; ContainerInterface &gt; getInterfaceForContainer(ContainerType &amp;)</div><div class="ttdoc">Template function that returns an instance of the correct ContainerInterface for the given container.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 1 2021 22:41:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Oct 2 2021 01:49:03 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

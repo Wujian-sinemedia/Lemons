@@ -118,7 +118,13 @@ Public Member Functions</h2></td></tr>
 class lemons::GuiApp&lt; ContentComponentType, &gt;</h3>
 
 <p>Represents the base for a generic GUI app. </p>
-<p>Templated on the type of component it owns. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1DefaultWindow.html" title="A class representing a GUI app&#39;s main window, templated on the type of main component it displays.">DefaultWindow</a>, <a class="el" href="structlemons_1_1SystemInitializer.html">SystemInitializer</a> </dd></dl>
+<p>Templated on the type of component it owns. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ContentComponentType</td><td>The type of top-level main component for this app's GUI. This must inherit from juce::Component and must be default-constructable. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1DefaultWindow.html" title="A class representing a GUI app&#39;s main window.">DefaultWindow</a>, <a class="el" href="structlemons_1_1SystemInitializer.html">SystemInitializer</a> </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a0595ae328e8bbcb8898cdefbc9125afa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0595ae328e8bbcb8898cdefbc9125afa">&#9670;&nbsp;</a></span>Size</h2>
@@ -316,7 +322,7 @@ template&lt;typename ContentComponentType , BV_MUST_INHERIT_FROM(ContentComponen
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 1 2021 22:41:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Oct 2 2021 01:49:03 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
