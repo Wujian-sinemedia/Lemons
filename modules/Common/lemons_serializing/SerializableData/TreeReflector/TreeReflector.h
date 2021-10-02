@@ -11,7 +11,9 @@ struct SerializableData;
 /**
     Utility class that provides a convenient API for assigning data members or lambdas to ValueTree properties for use in serializing logic.
     You should never have to create one of these; the SerializableData class will internally create and use TreeLoaders and TreeSavers when you call its top-level load and save functions. \n
+    \n
     Internally, this class uses the toVar() and fromVar() functions to encode various C++ types into ValueTree properties. Implement those two functions within the lemons::serializing namespace for any custom type you wish to easily serialize. \n
+    \n
     As a general rule, you shouldn't need to implement toVar() and fromVar() for a type if that type inherits from SerializableData; and, conversely, you should implement toVar() and fromVar() for a type if it needs to be serialized and doesn't inherit from SerializableData. You should rarely, if ever, need both for a single type.
     @see SerializableData, serializing::toVar(), serializing::fromVar()
  */
@@ -33,11 +35,13 @@ struct TreeReflector
 
 
     /** Binds a named ValueTree property to a data member of your object.
-        If the passed object is a ValueTree, it will be appended to this reflector's internal ValueTree using normal ValueTree methods. \n
-        If the passed object inherits from SerializableData, this will call serialize() on it and append the resulting ValueTree to the reflector's internal tree. \n
-        If the passed object is a container, this will create a subtree for the container and populate it by calling add() on each element of the container. This works recursively for multidimensional containers as well. \n
-        If the passed object is any other kind of C++ object, this will call serializing::toVar() to save the object to the ValueTree, or serializing::fromVar() to restore from the tree. \n
+        - If the passed object is a ValueTree, it will be appended to this reflector's internal ValueTree using normal ValueTree methods. \n
+        - If the passed object inherits from SerializableData, this will call serialize() on it and append the resulting ValueTree to the reflector's internal tree. \n
+        - If the passed object is a container, this will create a subtree for the container and populate it by calling add() on each element of the container. This works recursively for multidimensional containers as well. \n
+        - If the passed object is any other kind of C++ object, this will call serializing::toVar() to save the object to the ValueTree, or serializing::fromVar() to restore from the tree. \n
+        \n
         Be careful not to use duplicate property names in the serialization logic for a single object! \n
+        \n
         For example:
         @code
         struct SomethingSerializable : lemons::SerializableData
@@ -52,13 +56,17 @@ struct TreeReflector
             }
         };
         @endcode
+        \n
         Container types you wish to serialize with a single call to add() must fulfill the following: \n
         - have begin() and end() functions -- ie, are compatable with range-based for loops
         - have an implementation of ContainerInterface
         - have a specialization of getInterfaceForContainer()
         - have a specialization of isContainer that inherits std::true_type. \n
+        \n
         Provided in Lemons are implementations for common STL containers, as well as juce::Array and juce::OwnedArray. You can implement the above requirements for this to work with any other custom type you create. This should work recursively for multidimensional containers as well. \n
+        \n
         When calling add() with a container, the property name you pass should be the name of a single element in the container. \n
+        \n
         For example:
         @code
         struct SomethingSerializable : lemons::SerializableData
@@ -71,24 +79,24 @@ struct TreeReflector
             }
         };
         @endcode
-        This will create a sub-tree in your object's ValueTree named "Ints", with properties "Int_1", "Int_2", "Int_3", etc. This works by iterating through each element of your container and calling add() on each of them.
+        This will create a sub-tree in your object's ValueTree named "Ints", with properties "Int_1", "Int_2", "Int_3"... etc. This works by iterating through each element of your container and calling add() on each of them.
      
         @param propertyName The property name associated with the piece of data this function call represents. \n
-        When adding a reference to a member encoded with toVar() and fromVar(), this is the name of the ValueTree property the encoded object will be saved to and restored from in the reflector's internal ValueTree. \n
-        When adding a sub-tree object (such as when passing a child ValueTree, a child object that inherits from SerializableData, or a container), this is the name of the sub-tree that will be added to the reflector's internal tree, and will be populated with the child object's properties. \n
-        When adding a container, this should be the name of a single container element. Container element names and the container's subtree name are generated as following:
+        - When adding a reference to a member encoded with toVar() and fromVar(), this is the name of the ValueTree property the encoded object will be saved to and restored from in the reflector's internal ValueTree. \n
+        - When adding a sub-tree object (such as when passing a child ValueTree, a child object that inherits from SerializableData, or a container), this is the name of the sub-tree that will be added to the reflector's internal tree, and will be populated with the child object's properties. \n
+        - When adding a container, this should be the name of a single container element. Container element names and the container's subtree name are generated as following:
         @code
             std::vector<int> data {23, 16, 7};
      
             ref.add ("Point", data);
         @endcode
         This will create the following sub-tree object:
-        @code
-            //  Points
-                //  Point_1 = 23
-                //  Point_2 = 16
-                // Point_3 = 7
-        @endcode
+        @verbatim
+            <Points>
+                <Point_1 = 23>
+                <Point_2 = 16>
+                <Point_3 = 7>
+        @endverbatim
         I do not recommend attempting to internationalize property names.
      
         @param object Reference to the data member you wish to load/save. \n
@@ -106,7 +114,9 @@ struct TreeReflector
 
     /** Binds lambda functions for saving and loading a certain value to and from a named ValueTree property.
         This follows the same semantics as add(), but provides the ability to fetch the value using a lambda, and call a lambda with the value retrieved from the tree, instead of providing a reference to an object. \n
+        \n
         Be careful not to use duplicate property names in the serialization logic for a single object! \n
+        \n
         For example:
          @code
          struct SomethingSerializable : lemons::SerializableData

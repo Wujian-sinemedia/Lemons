@@ -5,14 +5,16 @@ namespace lemons::serializing
 /**
     Interface that defines how a TreeReflector can resize a given container during deserialization. \n
     Implement this if you want to be able to serialize a custom container type with a single TreeReflector::add() call. \n
+    \n
     To add support for a custom container type to TreeReflector::add(): \n
     - Implement a subclass of this interface with the correct resizing logic for your cotainer;
     - Implement the getInterfaceForContainer() function, specialized for your container type, returning an instance of the container interface for your custom type;
     - Specialize the isContainer struct for your type and make the specialization inherit from std::true_type. \n
- 
+    \n
     In addition, your custom container type must have begin() and end() functions -- ie, it must be compatable with range-based for loops. \n
+    \n
     The elements of your container must also be valid TreeReflector::add() calls -- ie, if they don't inherit SerializableData, you must implement toVar() and fromVar() for the container's element type as well. \n
- 
+    \n
     Here is an example implementation for a custom type:
     @code
     template<typename ElementType>
@@ -123,14 +125,16 @@ private:
 /**
     Template function that returns an instance of the correct ContainerInterface for the given container.
     Implement this if you want to be able to serialize a custom container type with a single TreeReflector::add() call. \n
+    \n
     To add support for a custom container type to TreeReflector::add(): \n
     - Implement a subclass of ContainerInterface with the correct resizing logic for your cotainer;
     - Implement a specialization of this function that returns an instance of your custom interface;
     - Specialize the isContainer struct for your type and make the specialization inherit from std::true_type. \n
- 
+    \n
     In addition, your custom container type must have begin() and end() functions -- ie, it must be compatable with range-based for loops. \n
+    \n
     The elements of your container must also be valid TreeReflector::add() calls -- ie, if they don't inherit SerializableData, you must implement toVar() and fromVar() for the container's element type as well. \n
- 
+    \n
     Here is an example implementation for a custom type:
     @code
     template<typename ElementType>
@@ -188,14 +192,16 @@ std::unique_ptr< ContainerInterface > getInterfaceForContainer (ContainerType&);
 /**
     Template struct that determines if a given type is a container.
     Implement this if you want to be able to serialize a custom container type with a single TreeReflector::add() call. \n
+    \n
     To add support for a custom container type to TreeReflector::add(): \n
     - Implement a subclass of ContainerInterface with the correct resizing logic for your cotainer;
     - Implement a specialization of this function that returns an instance of your custom interface;
     - Specialize the isContainer struct for your type and make the specialization inherit from std::true_type. \n
- 
+    \n
     In addition, your custom container type must have begin() and end() functions -- ie, it must be compatable with range-based for loops. \n
+    \n
     The elements of your container must also be valid TreeReflector::add() calls -- ie, if they don't inherit SerializableData, you must implement toVar() and fromVar() for the container's element type as well. \n
- 
+    \n
     Here is an example implementation for a custom type:
     @code
     template<typename ElementType>

@@ -5,7 +5,7 @@ namespace lemons
 /**
     A class that keeps a history of states and can step backward and forward through them.
     This class is similar to juce's undo manager, but the major difference is that juce's implementation focuses on tracking individual actions, while this class simply saves a new copy of the entire state each time something changes. I have found this to be more robust, and easier to work with in other areas of the API. \n
- 
+    \n
     This object has a concept of grouping smaller actions into larger named transactions, similar to the API of the juce UndoManager.
  
     @see SerializableData
@@ -88,7 +88,8 @@ public:
     struct ScopedTransaction
     {
         /** Creates a ScopedTransaction.
-            @param um A pointer to the UndoManager that this ScopedTransaction should reference. This pointer is allowed to be null; I found myself writing several classes throughout the Lemons API that have functions to allow you to set the UndoManager after the creation of the class -- meaning that said class stores a pointer to an UndoManager, not a reference. So, instead of trying to conditionally create an RAII object, I put the null-pointer-checking logic inside the RAII object itself. 
+            @param um A pointer to the UndoManager that this ScopedTransaction should reference.
+            This pointer is allowed to be null; I found myself writing several classes throughout the Lemons API that have functions to allow you to set the UndoManager after the creation of the class -- meaning that said class stores a pointer to an UndoManager, not a reference. So, instead of trying to conditionally create an RAII object, I put the null-pointer-checking logic inside the RAII object itself.
             @param name The name of the transaction that this object will create.
          */
         ScopedTransaction (UndoManager* um, const String& name = {});

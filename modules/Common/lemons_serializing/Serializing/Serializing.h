@@ -19,7 +19,7 @@ void copy (SerializableData& dest, SerializableData& source);
 /*---------------------------------------------------------------------*/
 
 /** Saves the state of an object to a file.
-    Internally, this method calls juce::ValueTree::writeToStream(), so the data is stored as an arbitrary binary encoding of a ValueTree, not necessarily a common format like XML or JSON. \n
+    Internally, this method calls juce::ValueTree::writeToStream(), so the data is stored as an arbitrary binary encoding of a ValueTree, not necessarily a common format like XML or JSON. \n \n
     Use the XML- and JSON-specific functions in this namespace to explicitly use either format.
     @see toXML(), toJSON()
  */

@@ -36,7 +36,7 @@ public:
 
 
     /** Pushes dry samples into the DryWetMixer's internal buffers.
-        This should be called before calling mixWetSamples. \n
+        This should be called before calling mixWetSamples. \n \n
         The contents of the passed buffer are not altered, but the buffer itself can't be const due to juce::dsp::AudioBlock's constructor. Take it up with Jules  ¯\_(ツ)_/¯
         @see mixWetSamples(), process()
      */
@@ -44,7 +44,7 @@ public:
 
 
     /** Mixes wet samples with the previously pushed dry samples.
-        This should be called after calling pushDrySamples. \n
+        This should be called after calling pushDrySamples. \n \n
         The mixed output signal will be written back to the passed buffer.
         @see pushDrySamples(), process()
      */
@@ -52,8 +52,8 @@ public:
 
 
     /** Mixes together a stream of dry and wet samples with one function call.
-        This is the same as calling pushDrySamples and then mixWetSamples. \n
-        The contents of the dry buffer are not altered, but the buffer itself can't be const due to juce::dsp::AudioBlock's constructor. \n
+        This is the same as calling pushDrySamples and then mixWetSamples. \n \n
+        The contents of the dry buffer are not altered, but the buffer itself can't be const due to juce::dsp::AudioBlock's constructor. \n \n
         The mixed output signal will be written to the wet buffer.
         @see pushDrySamples(), mixWetSamples()
      */

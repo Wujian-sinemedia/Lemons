@@ -4,9 +4,9 @@
 namespace lemons::dsp::FX
 {
 /**
- A basic "de-esser" effect class.
- Mainly intended for removing sibilances from a vocal signal, this works by sending the input signal through an inverted noise gate sidechained by a hi-passed version of the original signal.
- @see DeEsserParams, filters::MultiFilter, NoiseGate, LevelReportingAudioEffect, AudioEffect
+    A basic "de-esser" effect class.
+    Mainly intended for removing sibilances from a vocal signal, this works by sending the input signal through an inverted noise gate sidechained by a hi-passed version of the original signal.
+    @see DeEsserParams, filters::MultiFilter, NoiseGate, LevelReportingAudioEffect, AudioEffect
  */
 template < typename SampleType >
 class DeEsser : public LevelReportingAudioEffect< SampleType >
@@ -33,7 +33,7 @@ public:
 
 
     /** Sets the de-essing amount (think of it like a percentage knob).
-        This should be an integer in the range 0-100 (inclusive). \n
+        This should be an integer in the range 0-100 (inclusive). \n \n
         Internally, this controls the ratio of the de-esser's internal noise gate that is sidechained by the filtered signal.
         @see NoiseGate::setRatio()
      */
