@@ -78,14 +78,19 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1isContainer_3_01std_1_1array_3_01ElementType_00_01size_01_4_01_4.html">lemons::serializing::isContainer&lt; std::array&lt; ElementType, size &gt; &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies that any specialization of std::array is a serializable container.  <a href="structlemons_1_1serializing_1_1isContainer_3_01std_1_1array_3_01ElementType_00_01size_01_4_01_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1isContainer_3_01std_1_1list_3_01ElementType_01_4_01_4.html">lemons::serializing::isContainer&lt; std::list&lt; ElementType &gt; &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies that any specialization of std::list is a serializable container.  <a href="structlemons_1_1serializing_1_1isContainer_3_01std_1_1list_3_01ElementType_01_4_01_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1isContainer_3_01std_1_1vector_3_01ElementType_01_4_01_4.html">lemons::serializing::isContainer&lt; std::vector&lt; ElementType &gt; &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies that any specialization of std::vector is a serializable container.  <a href="structlemons_1_1serializing_1_1isContainer_3_01std_1_1vector_3_01ElementType_01_4_01_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html">lemons::serializing::StdArrayInterface&lt; ElementType, size &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container interface that provides support for serializing std::arrays with <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a>.  <a href="structlemons_1_1serializing_1_1StdArrayInterface.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1STLContainerInterface.html">lemons::serializing::STLContainerInterface&lt; ContainerType &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container interface that provides support for serializing most STL containers with <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a>.  <a href="structlemons_1_1serializing_1_1STLContainerInterface.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -99,18 +104,21 @@ Namespaces</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:aee820d761ae553c8ad6c5ce1a1ebe269"><td class="memTemplParams" colspan="2">template&lt;typename ElementType , size_t size&gt; </td></tr>
 <tr class="memitem:aee820d761ae553c8ad6c5ce1a1ebe269"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; ContainerInterface &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#aee820d761ae553c8ad6c5ce1a1ebe269">lemons::serializing::getInterfaceForContainer</a> (std::array&lt; ElementType, size &gt; &amp;container)</td></tr>
+<tr class="memdesc:aee820d761ae553c8ad6c5ce1a1ebe269"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an instance of <a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html" title="Container interface that provides support for serializing std::arrays with TreeReflector.">StdArrayInterface</a> for the given std::array.  <a href="namespacelemons_1_1serializing.html#aee820d761ae553c8ad6c5ce1a1ebe269">More...</a><br /></td></tr>
 <tr class="separator:aee820d761ae553c8ad6c5ce1a1ebe269"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75f40fa5baf10eca39436e00057d601b"><td class="memTemplParams" colspan="2">template&lt;typename ElementType &gt; </td></tr>
 <tr class="memitem:a75f40fa5baf10eca39436e00057d601b"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; ContainerInterface &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a75f40fa5baf10eca39436e00057d601b">lemons::serializing::getInterfaceForContainer</a> (std::list&lt; ElementType &gt; &amp;container)</td></tr>
+<tr class="memdesc:a75f40fa5baf10eca39436e00057d601b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an instance of <a class="el" href="structlemons_1_1serializing_1_1STLContainerInterface.html" title="Container interface that provides support for serializing most STL containers with TreeReflector.">STLContainerInterface</a> for the given std::list.  <a href="namespacelemons_1_1serializing.html#a75f40fa5baf10eca39436e00057d601b">More...</a><br /></td></tr>
 <tr class="separator:a75f40fa5baf10eca39436e00057d601b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae61433549df459186ab1bf2c3597d00c"><td class="memTemplParams" colspan="2">template&lt;typename ElementType &gt; </td></tr>
 <tr class="memitem:ae61433549df459186ab1bf2c3597d00c"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; ContainerInterface &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#ae61433549df459186ab1bf2c3597d00c">lemons::serializing::getInterfaceForContainer</a> (std::vector&lt; ElementType &gt; &amp;container)</td></tr>
+<tr class="memdesc:ae61433549df459186ab1bf2c3597d00c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an instance of <a class="el" href="structlemons_1_1serializing_1_1STLContainerInterface.html" title="Container interface that provides support for serializing most STL containers with TreeReflector.">STLContainerInterface</a> for the given std::vector.  <a href="namespacelemons_1_1serializing.html#ae61433549df459186ab1bf2c3597d00c">More...</a><br /></td></tr>
 <tr class="separator:ae61433549df459186ab1bf2c3597d00c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Oct 2 2021 03:00:49 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Oct 2 2021 05:22:14 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

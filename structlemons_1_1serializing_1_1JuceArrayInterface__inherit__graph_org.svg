@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="Container interface that provides support for serializing juce::Arrays with TreeReflector.">
 <polygon fill="#bfbfbf" stroke="black" points="716,-30.5 716,-71.5 829,-71.5 829,-30.5 716,-30.5"/>
 <text text-anchor="start" x="724" y="-59.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::serializing</text>
 <text text-anchor="start" x="724" y="-48.5" font-family="Helvetica,sans-Serif" font-size="10.00">::JuceArrayInterface</text>

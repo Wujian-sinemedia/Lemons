@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="Container interface that provides support for serializing std::arrays with TreeReflector.">
 <polygon fill="#bfbfbf" stroke="black" points="666,-27.5 666,-68.5 794,-68.5 794,-27.5 666,-27.5"/>
 <text text-anchor="start" x="674" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::serializing</text>
 <text text-anchor="start" x="674" y="-45.5" font-family="Helvetica,sans-Serif" font-size="10.00">::StdArrayInterface</text>

@@ -78,12 +78,16 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1isContainer_3_01juce_1_1Array_3_01ElementType_01_4_01_4.html">lemons::serializing::isContainer&lt; juce::Array&lt; ElementType &gt; &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies that any specialization of juce::Array is a serializable container.  <a href="structlemons_1_1serializing_1_1isContainer_3_01juce_1_1Array_3_01ElementType_01_4_01_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1isContainer_3_01juce_1_1OwnedArray_3_01ElementType_01_4_01_4.html">lemons::serializing::isContainer&lt; juce::OwnedArray&lt; ElementType &gt; &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies that any specialization of juce::OwnedArray is a serializable container.  <a href="structlemons_1_1serializing_1_1isContainer_3_01juce_1_1OwnedArray_3_01ElementType_01_4_01_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1JuceArrayInterface.html">lemons::serializing::JuceArrayInterface&lt; ElementType &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container interface that provides support for serializing juce::Arrays with <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a>.  <a href="structlemons_1_1serializing_1_1JuceArrayInterface.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1JuceOwnedArrayInterface.html">lemons::serializing::JuceOwnedArrayInterface&lt; ElementType &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container interface that provides support for serializing juce::OwnedArrays with <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a>.  <a href="structlemons_1_1serializing_1_1JuceOwnedArrayInterface.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -97,15 +101,17 @@ Namespaces</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:acaa9bcf94a6a18b321714a7425ff0a83"><td class="memTemplParams" colspan="2">template&lt;typename ElementType &gt; </td></tr>
 <tr class="memitem:acaa9bcf94a6a18b321714a7425ff0a83"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; ContainerInterface &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#acaa9bcf94a6a18b321714a7425ff0a83">lemons::serializing::getInterfaceForContainer</a> (juce::Array&lt; ElementType &gt; &amp;container)</td></tr>
+<tr class="memdesc:acaa9bcf94a6a18b321714a7425ff0a83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an instance of <a class="el" href="structlemons_1_1serializing_1_1JuceArrayInterface.html" title="Container interface that provides support for serializing juce::Arrays with TreeReflector.">JuceArrayInterface</a> for the given juce::Array.  <a href="namespacelemons_1_1serializing.html#acaa9bcf94a6a18b321714a7425ff0a83">More...</a><br /></td></tr>
 <tr class="separator:acaa9bcf94a6a18b321714a7425ff0a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62bdd53db8c515549f20b1f0835052b7"><td class="memTemplParams" colspan="2">template&lt;typename ElementType &gt; </td></tr>
 <tr class="memitem:a62bdd53db8c515549f20b1f0835052b7"><td class="memTemplItemLeft" align="right" valign="top">std::unique_ptr&lt; ContainerInterface &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a62bdd53db8c515549f20b1f0835052b7">lemons::serializing::getInterfaceForContainer</a> (juce::OwnedArray&lt; ElementType &gt; &amp;container)</td></tr>
+<tr class="memdesc:a62bdd53db8c515549f20b1f0835052b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an instance of <a class="el" href="structlemons_1_1serializing_1_1JuceOwnedArrayInterface.html" title="Container interface that provides support for serializing juce::OwnedArrays with TreeReflector.">JuceOwnedArrayInterface</a> for the given juce::OwnedArray.  <a href="namespacelemons_1_1serializing.html#a62bdd53db8c515549f20b1f0835052b7">More...</a><br /></td></tr>
 <tr class="separator:a62bdd53db8c515549f20b1f0835052b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Oct 2 2021 03:00:49 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Oct 2 2021 05:22:14 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

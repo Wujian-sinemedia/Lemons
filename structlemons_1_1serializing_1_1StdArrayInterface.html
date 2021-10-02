@@ -75,6 +75,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Container interface that provides support for serializing std::arrays with <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a>.  
+ <a href="structlemons_1_1serializing_1_1StdArrayInterface.html#details">More...</a></p>
+
 <p><code>#include &lt;STL_containers.h&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::serializing::StdArrayInterface&lt; ElementType, size &gt;:</div>
@@ -97,7 +100,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5dbf642c458e2a374553197db957c241"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html#a5dbf642c458e2a374553197db957c241">StdArrayInterface</a> (<a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html#a689a1f246b3351f0f210819f49f861c5">Container</a> &amp;container)</td></tr>
 <tr class="separator:a5dbf642c458e2a374553197db957c241"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename ElementType, size_t size&gt;<br />
+struct lemons::serializing::StdArrayInterface&lt; ElementType, size &gt;</h3>
+
+<p>Container interface that provides support for serializing std::arrays with <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a>. </p>
+<p>std::array cannot actually be resized, so this interface does nothing when its resize() function is called. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a689a1f246b3351f0f210819f49f861c5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a689a1f246b3351f0f210819f49f861c5">&#9670;&nbsp;</a></span>Container</h2>
 
@@ -163,7 +172,7 @@ template&lt;typename ElementType , size_t size&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Oct 2 2021 03:00:50 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Oct 2 2021 05:22:14 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

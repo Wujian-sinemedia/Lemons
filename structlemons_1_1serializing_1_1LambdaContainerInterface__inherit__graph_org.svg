@@ -22,7 +22,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="structlemons_1_1serializing_1_1STLContainerInterface.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="structlemons_1_1serializing_1_1STLContainerInterface.html" target="_top" xlink:title="Container interface that provides support for serializing most STL containers with TreeReflector.">
 <polygon fill="none" stroke="black" points="542,-192 542,-233 673,-233 673,-192 542,-192"/>
 <text text-anchor="start" x="550" y="-221" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::serializing</text>
 <text text-anchor="start" x="550" y="-210" font-family="Helvetica,sans-Serif" font-size="10.00">::STLContainerInterface</text>
@@ -112,7 +112,7 @@
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="structlemons_1_1serializing_1_1JuceOwnedArrayInterface.html" target="_top" xlink:title=" ">
+<g id="a_node5"><a xlink:href="structlemons_1_1serializing_1_1JuceOwnedArrayInterface.html" target="_top" xlink:title="Container interface that provides support for serializing juce::OwnedArrays with TreeReflector.">
 <polygon fill="none" stroke="black" points="750,-132 750,-173 896,-173 896,-132 750,-132"/>
 <text text-anchor="start" x="758" y="-161" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::serializing</text>
 <text text-anchor="start" x="758" y="-150" font-family="Helvetica,sans-Serif" font-size="10.00">::JuceOwnedArrayInterface</text>
@@ -129,7 +129,7 @@
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="structlemons_1_1serializing_1_1JuceArrayInterface.html" target="_top" xlink:title=" ">
+<g id="a_node7"><a xlink:href="structlemons_1_1serializing_1_1JuceArrayInterface.html" target="_top" xlink:title="Container interface that provides support for serializing juce::Arrays with TreeReflector.">
 <polygon fill="none" stroke="black" points="766.5,-72 766.5,-113 879.5,-113 879.5,-72 766.5,-72"/>
 <text text-anchor="start" x="774.5" y="-101" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::serializing</text>
 <text text-anchor="start" x="774.5" y="-90" font-family="Helvetica,sans-Serif" font-size="10.00">::JuceArrayInterface</text>
@@ -146,7 +146,7 @@
 <!-- Node9 -->
 <g id="node9" class="node">
 <title>Node9</title>
-<g id="a_node9"><a xlink:href="structlemons_1_1serializing_1_1StdArrayInterface.html" target="_top" xlink:title=" ">
+<g id="a_node9"><a xlink:href="structlemons_1_1serializing_1_1StdArrayInterface.html" target="_top" xlink:title="Container interface that provides support for serializing std::arrays with TreeReflector.">
 <polygon fill="none" stroke="black" points="759,-6 759,-47 887,-47 887,-6 759,-6"/>
 <text text-anchor="start" x="767" y="-35" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::serializing</text>
 <text text-anchor="start" x="767" y="-24" font-family="Helvetica,sans-Serif" font-size="10.00">::StdArrayInterface</text>
