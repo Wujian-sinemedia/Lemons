@@ -2,9 +2,11 @@
 
 namespace lemons::dsp::buffers
 {
+/** Copies all channels from the source buffer to the destination buffer. */
 template < typename SampleType >
 void copy (const AudioBuffer< SampleType >& source, AudioBuffer< SampleType >& dest);
 
+/** Converts all channels from the source buffer to the other numeric type for the destination buffer. */
 template < typename Type1, typename Type2 >
 void convert (const AudioBuffer< Type1 >& source, AudioBuffer< Type2 >& dest);
 

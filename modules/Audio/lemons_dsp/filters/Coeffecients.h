@@ -72,8 +72,7 @@ struct Coefficients
     Coefs< NumericType > coefficients;
 
 private:
-    static constexpr NumericType inverseRootTwo =
-        static_cast< NumericType > (0.70710678118654752440L);
+    static constexpr NumericType inverseRootTwo {static_cast< NumericType > (0.70710678118654752440L)};
 };
 
 }  // namespace lemons::dsp::filters

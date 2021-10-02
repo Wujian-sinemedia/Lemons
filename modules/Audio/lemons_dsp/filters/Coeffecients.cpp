@@ -7,17 +7,25 @@ Coefs< T >::Coefs()
     this->ensureStorageAllocated (8);
 }
 
+static inline int get_a0Index (size_t size)
+{
+    switch (size)
+    {
+        case (6) :
+            return 3;
+        case (8) :
+            return 4;
+        default :
+            return 2;
+    }
+}
+
 template < typename T >
 Coefs< T >& Coefs< T >::operator= (std::initializer_list< T > list)
 {
-    int a0Index = 2;
-
-    if (list.size() == 6)
-        a0Index = 3;
-    else if (list.size() == 8)
-        a0Index = 4;
-
     this->clearQuick();
+
+    const auto a0Index = get_a0Index (list.size());
 
     int index = 0;
 
@@ -25,10 +33,10 @@ Coefs< T >& Coefs< T >::operator= (std::initializer_list< T > list)
 
     for (auto& element : list)
     {
-        if (index != a0Index)
-            this->add (element);
+        if (index == a0Index)
+            a0inv = static_cast< T > ((T) 1. / element);
         else
-            a0inv = (T) 1 / element;
+            this->add (element);
 
         ++index;
     }

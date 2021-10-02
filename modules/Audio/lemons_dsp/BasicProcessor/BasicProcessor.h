@@ -4,13 +4,21 @@
 
 namespace lemons::dsp
 {
+/** A default implementation of a basic, generic juce AudioProcessor.
+    The purpose of this class is to provide sensible default implementations for all of AudioProcessor's pure virtual functions, to make it easy to inherit from this class, override only what you need, and get working.
+    @see plugin::ProcessorBase
+ */
 class BasicProcessorBase : public juce::AudioProcessor
 {
 public:
+    /** Creates a basic processor.
+        The default constructor initializes an audio processor with stereo in and out buses.
+     */
     BasicProcessorBase (juce::AudioProcessor::BusesProperties busesLayout = BusesProperties()
                                                                                 .withInput (TRANS ("Input"), juce::AudioChannelSet::stereo(), true)
                                                                                 .withOutput (TRANS ("Output"), juce::AudioChannelSet::stereo(), true));
 
+    /** Repaints the editor, if one exists. */
     void repaintEditor();
 
 private:
