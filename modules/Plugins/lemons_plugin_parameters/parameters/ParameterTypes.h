@@ -2,7 +2,6 @@
 
 namespace lemons::plugin
 {
-
 /** A parameter that can be stored as a type other than a float, but still inherits from my Parameter base class.
     @tparam ValueType The type as which the parameter's value is stored. Can be float, int, or bool.
     @see Parameter
@@ -37,25 +36,25 @@ public:
 
     /** Returns the parameter's current value. */
     ValueType get() const;
-    
+
     /** Sets the parameter's value. */
-    void      set (ValueType newValue);
+    void set (ValueType newValue);
 
     /** Returns the parameter's current default value. */
     ValueType getDefault() const;
-    
+
     /** Sets the parameter's default value. */
-    void      setDefault (ValueType newDefault);
+    void setDefault (ValueType newDefault);
 
     /** Returns the minimum possible value for this parameter. */
     ValueType getMinimum() const;
-    
+
     /** Returns the maximum possible value for this parameter. */
     ValueType getMaximum() const;
 
     /** Returns a textual description for a parameter value. */
     String getStringForValue (ValueType value, int maxLength = 50) const;
-    
+
     /** Returns a textual description of the parameter;'s current value. */
     String getStringForCurrentValue (int maxLength = 50) const;
 
@@ -75,7 +74,7 @@ public:
 
         /** Called when the parameter's value is changed. */
         virtual void paramValueChanged (ValueType) { }
-        
+
         /** Called when the parameter's default value is changed. */
         virtual void paramDefaultChanged (ValueType) { }
 
@@ -98,7 +97,7 @@ private:
 using FloatParameter = TypedParameter< float >;
 
 /** Represents a parameter with an integer value. */
-using IntParameter   = TypedParameter< int >;
+using IntParameter = TypedParameter< int >;
 
 
 /** Helper struct that simplifies the constructor for boolean parameters.

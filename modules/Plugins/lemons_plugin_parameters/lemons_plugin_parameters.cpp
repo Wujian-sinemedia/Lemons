@@ -3,8 +3,9 @@
 
 #include "parameters/Parameter.cpp"
 #include "parameters/ParameterTypes.cpp"
-#include "parameters/specializations/ParameterSpecializations.cpp"
-#include "parameters/helpers/ParamUpdater.cpp"
+#include "parameters/Specializations.cpp"
+
+#include "utils/ParamUpdater.cpp"
 
 #include "ParameterList/ParameterHolder.cpp"
 #include "ParameterList/ParameterList.cpp"

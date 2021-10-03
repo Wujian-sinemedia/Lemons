@@ -14,7 +14,7 @@ struct SerializableData
     /**
         Creates a serializable object.
         The identifier argument is optional, and really only needed for an app/plugin's top-level state object; usually, when building a heirarchy of serializable objects that include other serializable objects, you'll use the TreeReflector::add() API, and the property name you pass to that function call will override the child serializable object's identifier. \n \n
-        The only time this class uses the identifier passed at construction time is when you call serialize() with no parameters -- this will give you a ValueTree whose top-level type is the identifier passed to the serializable object's constructor.
+        The only time this class uses the identifier passed at construction time is when you call the top-level serialize() -- this will give you a ValueTree whose top-level type is the identifier passed to the serializable object's constructor.
      */
     SerializableData (juce::Identifier identifier = "Data");
 
@@ -61,7 +61,7 @@ private:
             }
         };
         @endcode
-        The add method also works for containers -- if it's a standard type or if you've implemented ContainerInterface, getInterfaceForContainer(), and isContainer, then calling TreeReflector::add() will create a sub-tree in your object's main ValueTree that represents this container, then it will step through the container using a range-based for loop, calling TreeReflector::add() on each element sequentially. \n \n
+        The add method also works for containers -- if it's a standard type or if you've implemented serializing::ContainerInterface, serializing::getInterfaceForContainer(), and serializing::isContainer, then calling TreeReflector::add() will create a sub-tree in your object's main ValueTree that represents this container, then it will step through the container using a range-based for loop, calling TreeReflector::add() on each element sequentially. \n \n
      
         You can also use TreeReflector::addLambdaSet() if you need to call functions of your object to save or load attributes:
         @code
@@ -82,7 +82,7 @@ private:
                 // you can specify lambdas for retrieving and saving a property's value as a specified type (int)
                 ref.addLambdaSet<int> ("MyData",
                                        [&]{ return data; },
-                                       [&](int newData){ setData (newData); });
+                                       [&](int& newData){ setData (newData); });
             }
         };
         @endcode

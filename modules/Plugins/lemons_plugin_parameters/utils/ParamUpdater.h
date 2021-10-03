@@ -4,9 +4,11 @@ namespace lemons::plugin
 {
 struct ParamUpdater : Parameter::Listener
 {
-    ParamUpdater (Parameter& param,
-                  std::function< void() >  onValueChange,
-                  std::function< void (bool) > onGestureChange = [](bool){});
+    ParamUpdater (
+        Parameter& param,
+        std::function< void() >
+                                     onValueChange,
+        std::function< void (bool) > onGestureChange = [] (bool) {});
 
 private:
     void parameterValueChanged (float) final;

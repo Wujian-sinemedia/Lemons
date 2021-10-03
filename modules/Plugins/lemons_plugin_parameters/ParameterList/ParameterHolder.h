@@ -62,10 +62,14 @@ using FloatParam = plugin::ParameterHolder< plugin::FloatParameter >;
 using IntParam   = plugin::ParameterHolder< plugin::IntParameter >;
 using BoolParam  = plugin::ParameterHolder< plugin::BoolParameter >;
 
-using dbParam      = plugin::ParameterHolder< plugin::GainParameter >;
-using ToggleParam  = plugin::ParameterHolder< plugin::ToggleParameter >;
-using PercentParam = plugin::ParameterHolder< plugin::PercentParameter >;
-using HzParam      = plugin::ParameterHolder< plugin::FrequencyParameter >;
+using dbParam        = plugin::ParameterHolder< plugin::GainParameter >;
+using ToggleParam    = plugin::ParameterHolder< plugin::ToggleParameter >;
+using PercentParam   = plugin::ParameterHolder< plugin::PercentParameter >;
+using HzParam        = plugin::ParameterHolder< plugin::FrequencyParameter >;
+using PitchParam     = plugin::ParameterHolder< plugin::MidiPitchParameter >;
+using PanParam       = plugin::ParameterHolder< plugin::MidiPanParameter >;
+using SemitonesParam = plugin::ParameterHolder< plugin::SemitonesParameter >;
+using SecParam       = plugin::ParameterHolder< plugin::SecondsParameter >;
 
 using GainMeter = plugin::ParameterHolder< plugin::GainMeterParameter >;
 

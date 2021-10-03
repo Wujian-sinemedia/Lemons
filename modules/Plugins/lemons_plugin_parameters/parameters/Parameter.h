@@ -6,7 +6,8 @@
 namespace lemons::plugin
 {
 /** A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells and whistles.
-    @see ParameterList, TypedParameter
+    To actually use one, I recommend you stick it inside a ParameterHolder, to make your life easier accessing it once you've added it to your AudioProcessor.
+    @see ParameterHolder, ParameterList, TypedParameter
  */
 class Parameter : public juce::RangedAudioParameter, public SerializableData
 {

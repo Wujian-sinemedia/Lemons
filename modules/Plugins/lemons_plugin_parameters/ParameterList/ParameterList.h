@@ -2,6 +2,7 @@
 #pragma once
 
 #include "ParameterHolder.h"
+#include <lemons_dsp/lemons_dsp.h>
 
 namespace lemons::plugin
 {

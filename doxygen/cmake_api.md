@@ -102,3 +102,15 @@ foreach (folder ${subdirs})
      # do something with "folder"...
 endforeach()
 ```
+
+---
+
+## Targets
+
+Lemons will automatically generate and add a couple of targets to your project:
+
+### ALL_PLUGINS 
+Builds all formats of all plugin targets.
+
+### ALL_APPS
+Builds all app targets, including any Standalone formats of plugin targets.

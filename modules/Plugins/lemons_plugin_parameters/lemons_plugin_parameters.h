@@ -16,11 +16,11 @@
  -------------------------------------------------------------------------------------*/
 
 
-#include "parameters/helpers/ParameterValueConversionLambdas.h"
 #include "parameters/Parameter.h"
 #include "parameters/ParameterTypes.h"
-#include "parameters/specializations/ParameterSpecializations.h"
-#include "parameters/helpers/ParamUpdater.h"
+#include "parameters/Specializations.h"
+
+#include "utils/ParamUpdater.h"
 
 #include "RealtimeStateObject/RealtimeStateObject.h"
 
