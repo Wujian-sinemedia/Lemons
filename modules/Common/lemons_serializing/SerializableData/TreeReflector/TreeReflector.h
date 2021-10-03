@@ -40,8 +40,6 @@ struct TreeReflector
         - If the passed object is a container, this will create a subtree for the container and populate it by calling add() on each element of the container. This works recursively for multidimensional containers as well. \n
         - If the passed object is any other kind of C++ object, this will call serializing::toVar() to save the object to the ValueTree, or serializing::fromVar() to restore from the tree. \n
         \n
-        Be careful not to use duplicate property names in the serialization logic for a single object! \n
-        \n
         For example:
         @code
         struct SomethingSerializable : lemons::SerializableData
@@ -57,13 +55,31 @@ struct TreeReflector
         };
         @endcode
         \n
+        @attention Be careful not to use duplicate property names in the serialization logic for a single object! \n
+        Example -- what NOT to do:
+        @code
+        struct SomethingSerializable : lemons::SerializableData
+        {
+            int number;
+            String string;
+     
+            void serialize (TreeReflector& ref) final
+            {
+                ref.add ("ThisWillBreak!", number);
+                ref.add ("ThisWillBreak!", string);
+            }
+        };
+        @endcode
+        In the above example, the 'string' data will overwrite the 'number' data, because the programmer has chosen duplicate property names. \n
+        \n
         Container types you wish to serialize with a single call to add() must fulfill the following: \n
         - have begin() and end() functions -- ie, are compatable with range-based for loops
         - have an implementation of serializing::ContainerInterface
         - have a specialization of serializing::getInterfaceForContainer()
-        - have a specialization of serializing::isContainer that inherits std::true_type. \n
+        - have a specialization of serializing::isContainer that inherits std::true_type
+        - The container's elements must themselves be valid calls to add() -- ie, either inherit from SerializableData or have serializing::toVar() and serializing::fromVar() implemented. \n
         \n
-        Provided in Lemons are implementations for common STL containers, as well as juce::Array and juce::OwnedArray. You can implement the above requirements for this to work with any other custom type you create. \n
+        Provided in Lemons are implementations for common STL containers and JUCE containers. You can implement the above requirements for this to work with any other custom type you create. \n
         \n
         When calling add() with a container, the property name you pass should be the name of a single element in the container. \n
         \n
@@ -97,7 +113,8 @@ struct TreeReflector
                 <Point_2 = 16>
                 <Point_3 = 7>
         @endverbatim
-        I do not recommend attempting to internationalize property names.
+        I do not recommend attempting to internationalize property names. \n \n
+        Take care to avoid duplicating property names for multiple data members of the same serializable object!
      
         @param object Reference to the data member you wish to load/save. \n
         This can be: \n
@@ -114,8 +131,6 @@ struct TreeReflector
 
     /** Binds lambda functions for saving and loading a certain value to and from a named ValueTree property.
         This follows the same semantics as add(), but provides the ability to fetch the value using a lambda, and call a lambda with the value retrieved from the tree, instead of providing a reference to an object. \n
-        \n
-        Be careful not to use duplicate property names in the serialization logic for a single object! \n
         \n
         For example:
          @code
@@ -159,7 +174,7 @@ struct TreeReflector
 
 
     /** Returns a reference to this reflector's root ValueTree.
-        Handle with care! The tree this function returns may already contain sub-nodes representing other serialized children of whatever object is serializing you at the moment...
+        @attention Handle with care! The tree this function returns may already contain sub-nodes representing other serialized children of whatever object is serializing you at the moment...
     */
     ValueTree& getRawDataTree();
 

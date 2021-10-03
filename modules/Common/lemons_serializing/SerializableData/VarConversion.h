@@ -40,7 +40,7 @@ namespace lemons::serializing
     };
     @endcode
  
-    @see fromVar, SerializableData, TreeReflector
+    @see fromVar(), SerializableData, TreeReflector
  */
 template < typename Type >
 juce::var toVar (Type& object)
@@ -67,7 +67,7 @@ juce::var toVar (Type& object)
         }
  
         template<>
-        MyCustomType fromVar (juce::var var) final
+        MyCustomType fromVar (juce::var var)
         {
             // implement your conversion logic here...
         }
@@ -76,7 +76,7 @@ juce::var toVar (Type& object)
     // example usage:
     struct SomethingSerializable : lemons::SerializableData
     {
-        void serialize (TreeReflector& ref)
+        void serialize (TreeReflector& ref) final
         {
             // TreeReflector will internally call toVar to save your object and fromVar to load your object
             ref.add ("MyCustomData", data);
@@ -86,7 +86,7 @@ juce::var toVar (Type& object)
     };
     @endcode
  
-    @see toVar, SerializableData, TreeReflector
+    @see toVar(), SerializableData, TreeReflector
  */
 template < typename Type >
 Type fromVar (juce::var var)
