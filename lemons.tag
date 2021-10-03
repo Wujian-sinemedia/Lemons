@@ -13056,13 +13056,6 @@
       <anchor>abbda9442584f349e2840d73d109cf0a1</anchor>
       <arglist>(ParameterList &amp;listToUse)</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~ParameterProcessorBase</name>
-      <anchorfile>classlemons_1_1plugin_1_1ParameterProcessorBase.html</anchorfile>
-      <anchor>af36533815b317f4f03d69c0c1ed0da94</anchor>
-      <arglist>()=default</arglist>
-    </member>
     <member kind="function">
       <type>void</type>
       <name>prepare</name>

@@ -37,7 +37,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="classlemons_1_1plugin_1_1ParameterProcessorBase.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="classlemons_1_1plugin_1_1ParameterProcessorBase.html" target="_top" xlink:title="This class processes incoming MIDI messages and quantizes the audio output with any MIDI CC messages ...">
 <polygon fill="none" stroke="black" points="185,-0.5 185,-30.5 355,-30.5 355,-0.5 185,-0.5"/>
 <text text-anchor="start" x="193" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::Parameter</text>
 <text text-anchor="middle" x="270" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">ProcessorBase&lt; SampleType &gt;</text>

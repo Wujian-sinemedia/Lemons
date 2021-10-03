@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['binary_5fdata_2244',['binary_data',['../group__lemons__core-binary__data.html',1,'']]],
-  ['basicprocessor_2245',['BasicProcessor',['../group__lemons__dsp-BasicProcessor.html',1,'']]],
-  ['bufferutils_2246',['BufferUtils',['../group__lemons__dsp-BufferUtils.html',1,'']]],
-  ['basic_5ftypes_2247',['basic_types',['../group__lemons__oscillators-basic__types.html',1,'']]],
-  ['buttons_2248',['buttons',['../group__lemons__plugin__gui-buttons.html',1,'']]],
-  ['basicsynths_2249',['BasicSynths',['../group__lemons__synth-BasicSynths.html',1,'']]]
+  ['binary_5fdata_2242',['binary_data',['../group__lemons__core-binary__data.html',1,'']]],
+  ['basicprocessor_2243',['BasicProcessor',['../group__lemons__dsp-BasicProcessor.html',1,'']]],
+  ['bufferutils_2244',['BufferUtils',['../group__lemons__dsp-BufferUtils.html',1,'']]],
+  ['basic_5ftypes_2245',['basic_types',['../group__lemons__oscillators-basic__types.html',1,'']]],
+  ['buttons_2246',['buttons',['../group__lemons__plugin__gui-buttons.html',1,'']]],
+  ['basicsynths_2247',['BasicSynths',['../group__lemons__synth-BasicSynths.html',1,'']]]
 ];

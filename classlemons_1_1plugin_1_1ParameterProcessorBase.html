@@ -74,6 +74,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>This class processes incoming MIDI messages and quantizes the audio output with any MIDI CC messages mapped to parameters.  
+ <a href="classlemons_1_1plugin_1_1ParameterProcessorBase.html#details">More...</a></p>
+
 <p><code>#include &lt;ParameterProcessor.h&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::plugin::ParameterProcessorBase&lt; SampleType &gt;:</div>
@@ -87,9 +90,8 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:abbda9442584f349e2840d73d109cf0a1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ParameterProcessorBase.html#abbda9442584f349e2840d73d109cf0a1">ParameterProcessorBase</a> (<a class="el" href="classlemons_1_1plugin_1_1ParameterList.html">ParameterList</a> &amp;listToUse)</td></tr>
+<tr class="memdesc:abbda9442584f349e2840d73d109cf0a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a parameter processor.  <a href="classlemons_1_1plugin_1_1ParameterProcessorBase.html#abbda9442584f349e2840d73d109cf0a1">More...</a><br /></td></tr>
 <tr class="separator:abbda9442584f349e2840d73d109cf0a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af36533815b317f4f03d69c0c1ed0da94"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ParameterProcessorBase.html#af36533815b317f4f03d69c0c1ed0da94">~ParameterProcessorBase</a> ()=default</td></tr>
-<tr class="separator:af36533815b317f4f03d69c0c1ed0da94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45808b9a9eebcc339dacdd63cccd61b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1MidiChoppingProcessor.html#a45808b9a9eebcc339dacdd63cccd61b9">prepare</a> (int maxBlocksize)</td></tr>
 <tr class="separator:a45808b9a9eebcc339dacdd63cccd61b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a849f6d6f2cb2851f12b0169c7b9fa293"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1MidiChoppingProcessor.html#a849f6d6f2cb2851f12b0169c7b9fa293">process</a> (AudioBuffer&lt; SampleType &gt; &amp;audio, MidiBuffer &amp;midi)</td></tr>
@@ -97,7 +99,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afe12d93088472dcb07ba5fd0520084ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1MidiChoppingProcessor.html#afe12d93088472dcb07ba5fd0520084ea">processBypassed</a> (int numSamples, MidiBuffer &amp;midi)</td></tr>
 <tr class="separator:afe12d93088472dcb07ba5fd0520084ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename SampleType&gt;<br />
+class lemons::plugin::ParameterProcessorBase&lt; SampleType &gt;</h3>
+
+<p>This class processes incoming MIDI messages and quantizes the audio output with any MIDI CC messages mapped to parameters. </p>
+<p>This works by processing the audio in chunks in between each MIDI message, so that the MIDI message processing is sample-accurate and synchronous. <br  />
+ <br  />
+In order for this to work nicely, your parameter changes must be realtime safe, and your audio processing algorithm must be able to process as little as 1 sample at a time. <br  />
+ <br  />
+This class inherits <a class="el" href="classlemons_1_1dsp_1_1MidiChoppingProcessor.html">dsp::MidiChoppingProcessor</a> but does not implement <a class="el" href="classlemons_1_1dsp_1_1MidiChoppingProcessor.html#a199ab584f491a6202baa314db04babc2">dsp::MidiChoppingProcessor::renderChunk()</a> &ndash; you should subclass this and implement that function to do your actual processing. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1MidiChoppingProcessor.html">dsp::MidiChoppingProcessor</a> <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="abbda9442584f349e2840d73d109cf0a1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abbda9442584f349e2840d73d109cf0a1">&#9670;&nbsp;</a></span>ParameterProcessorBase()</h2>
 
@@ -116,32 +128,13 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="af36533815b317f4f03d69c0c1ed0da94"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af36533815b317f4f03d69c0c1ed0da94">&#9670;&nbsp;</a></span>~ParameterProcessorBase()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="classlemons_1_1plugin_1_1ParameterProcessorBase.html">lemons::plugin::ParameterProcessorBase</a>&lt; SampleType &gt;::~<a class="el" href="classlemons_1_1plugin_1_1ParameterProcessorBase.html">ParameterProcessorBase</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Creates a parameter processor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">listToUse</td><td>The <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a> to reference. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -256,7 +249,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 3 2021 22:16:06 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 3 2021 22:39:27 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
