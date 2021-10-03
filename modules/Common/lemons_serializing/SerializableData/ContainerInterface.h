@@ -80,7 +80,7 @@ std::unique_ptr< ContainerInterface > getInterfaceForContainer (ContainerType&);
 
 
 /**
-    Template struct that determines if a given type is a container.
+    Template struct that that indicates to TreeReflector whether a given type is a container.
     Implement this if you want to be able to serialize a custom container type with a single TreeReflector::add() call. \n
     \n
     @snippet[doc] this Adding a custom container

@@ -44,16 +44,17 @@ void TreeReflector::addLambdaSet (const String& propertyName,
 template < typename Type >
 void TreeReflector::load (const String& propertyName, Type& object)
 {
+    using namespace serializing;
     using namespace serializing::TreeReflectorHelpers;
 
     if constexpr (! std::is_const< Type >())
     {
         if constexpr (isSerializable< Type >())
             loadDataChild (propertyName, object);
-        else if constexpr (serializing::isContainer< Type >())
-            loadContainer (propertyName, object);
         else if constexpr (std::is_same< ValueTree, Type >())
             loadValueTree (tree, propertyName, object);
+        else if constexpr (isContainer< Type >() || isMap< Type >())
+            loadContainer (propertyName, object);
         else
             loadObject (tree, propertyName, object);
     }
@@ -62,14 +63,15 @@ void TreeReflector::load (const String& propertyName, Type& object)
 template < typename Type >
 void TreeReflector::save (const String& propertyName, Type& object)
 {
+    using namespace serializing;
     using namespace serializing::TreeReflectorHelpers;
 
     if constexpr (isSerializable< Type >())
         saveDataChild (propertyName, object);
-    else if constexpr (serializing::isContainer< Type >())
-        saveContainer (propertyName, object);
     else if constexpr (std::is_same< ValueTree, Type >())
         saveValueTree (tree, propertyName, object);
+    else if constexpr (isContainer< Type >() || isMap< Type >())
+        saveContainer (propertyName, object);
     else
         saveObject (tree, propertyName, object);
 }
@@ -84,7 +86,10 @@ void TreeReflector::loadContainer (const String& propertyName, ContainerType& co
 
     TreeLoader ref {child};
 
-    addContainer (ref, container, propertyName);
+    if constexpr (serializing::isMap< ContainerType >())
+        addMap (ref, container, propertyName);
+    else
+        addContainer (ref, container, propertyName);
 }
 
 template < class ContainerType >
@@ -96,7 +101,10 @@ void TreeReflector::saveContainer (const String& propertyName, ContainerType& co
 
     TreeSaver ref {child};
 
-    addContainer (ref, container, propertyName);
+    if constexpr (serializing::isMap< ContainerType >())
+        addMap (ref, container, propertyName);
+    else
+        addContainer (ref, container, propertyName);
 
     tree.appendChild (ref.getRawDataTree(), nullptr);
 }

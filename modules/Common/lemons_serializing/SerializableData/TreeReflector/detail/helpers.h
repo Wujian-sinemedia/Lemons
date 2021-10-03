@@ -120,4 +120,13 @@ void addContainer (TreeReflector& ref, ContainerType& container, const String& p
     }
 }
 
+
+/*-------------------------------- MAPS --------------------------------*/
+
+/** Adds a key-pair map to the given TreeReflector. Used for both loading and saving. */
+template < class MapType >
+void addMap (TreeReflector& ref, MapType& map, const String& propertyName)
+{
+}
+
 }  // namespace lemons::serializing::TreeReflectorHelpers
