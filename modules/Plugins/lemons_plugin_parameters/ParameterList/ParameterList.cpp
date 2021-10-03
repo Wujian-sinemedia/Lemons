@@ -144,12 +144,20 @@ ParameterList::Listener::Listener (ParameterList& list,
         {
             auto* param = base->getParam();
 
-            updaters.add (new ParamUpdater (
-                *param,
-                [=]
-                { onParamChange (*param); },
-                [=] (bool starting)
-                { onGestureGhange (*param, starting); }));
+            auto change = [=]
+            {
+                if (onParamChange)
+                    onParamChange (*param);
+                ;
+            };
+
+            auto gesture = [=] (bool starting)
+            {
+                if (onGestureGhange)
+                    onGestureGhange (*param, starting);
+            };
+
+            updaters.add (new ParamUpdater (*param, change, gesture));
         }
     }
 }

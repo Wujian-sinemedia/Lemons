@@ -41,8 +41,6 @@ struct SerializableData
     void deserialize (const ValueTree& tree);
 
 private:
-    friend struct TreeReflector;
-
     /**
         Implement this function for your derived type's custom serializing logic.
         This function will be called for both loading and saving. If your object is being loaded, the TreeReflector passed to this function will be a TreeLoader; otherwise, it will be a TreeSaver. \n \n
@@ -91,6 +89,8 @@ private:
         @see TreeReflector, TreeReflector::add(), serializing::toVar(), serializing::fromVar(), serializing::ContainerInterface, serializing::getInterfaceForContainer(), serializing::isContainer
      */
     virtual void serialize (TreeReflector& ref) = 0;
+
+    friend struct TreeReflector;
 
     ValueTree saveToTree (const String& treeName);
     void      restoreFromTree (const ValueTree& newTree);
