@@ -19,7 +19,7 @@ void ChoosableOscillator< SampleType >::process (AudioBuffer< SampleType >& outp
 
     switch (type)
     {
-        case (SineOsc) :
+        case (OscType::Sine) :
         {
             sine.process (output, false);
             saw.process (output, true);
@@ -28,7 +28,7 @@ void ChoosableOscillator< SampleType >::process (AudioBuffer< SampleType >& outp
             superSaw.process (output, true);
             return;
         }
-        case (SawOsc) :
+        case (OscType::Saw) :
         {
             sine.process (output, true);
             saw.process (output, false);
@@ -37,7 +37,7 @@ void ChoosableOscillator< SampleType >::process (AudioBuffer< SampleType >& outp
             superSaw.process (output, true);
             return;
         }
-        case (SquareOsc) :
+        case (OscType::Square) :
         {
             sine.process (output, true);
             saw.process (output, true);
@@ -46,7 +46,7 @@ void ChoosableOscillator< SampleType >::process (AudioBuffer< SampleType >& outp
             superSaw.process (output, true);
             return;
         }
-        case (TriangleOsc) :
+        case (OscType::Triangle) :
         {
             sine.process (output, true);
             saw.process (output, true);
@@ -55,7 +55,7 @@ void ChoosableOscillator< SampleType >::process (AudioBuffer< SampleType >& outp
             superSaw.process (output, true);
             return;
         }
-        case (SuperSawOsc) :
+        case (OscType::SuperSaw) :
         {
             sine.process (output, true);
             saw.process (output, true);

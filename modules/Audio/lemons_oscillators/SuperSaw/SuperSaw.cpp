@@ -42,7 +42,7 @@ void SuperSaw< SampleType >::setDetuneAmount (int totalPitchSpreadInCents)
 }
 
 template < typename SampleType >
-int SuperSaw< SampleType >::getPitchSpreadCents() const
+int SuperSaw< SampleType >::getPitchSpreadCents() const noexcept
 {
     return totalSpreadCents;
 }

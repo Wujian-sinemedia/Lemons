@@ -6,7 +6,7 @@ String propertyNameToContainerName (const String& propertyName)
     return propertyName + "s";
 }
 
-String makePropertyNameForElement (const String& propertyName, int& index)
+String makePropertyNameForElement (const String& propertyName, int index)
 {
     return propertyName + "_" + String (index);
 }
@@ -17,7 +17,7 @@ int getNumElementsOfType (const String& propertyName, const ValueTree& tree)
 
     juce::Array< String > names;
 
-    for (int i = 1, i <= num; ++i)
+    for (int i = 1; i <= num; ++i)
     {
         names.add (makePropertyNameForElement (propertyName, i));
     }

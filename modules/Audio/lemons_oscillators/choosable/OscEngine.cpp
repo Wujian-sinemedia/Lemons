@@ -1,34 +1,30 @@
+#include "OscEngine.h"
 
 namespace lemons::dsp::osc
 {
-template < typename SampleType, template < typename T > class OscType >
-OscEngine< SampleType, OscType >::OscEngine()
-{
-}
-
-template < typename SampleType, template < typename T > class OscType >
-OscType< SampleType >* OscEngine< SampleType, OscType >::operator->()
+template < typename SampleType, template < typename T > class Osctype >
+Osctype< SampleType >* OscEngine< SampleType, Osctype >::operator->()
 {
     return &osc;
 }
 
-template < typename SampleType, template < typename T > class OscType >
-void OscEngine< SampleType, OscType >::setFrequency (float freqHz)
+template < typename SampleType, template < typename T > class Osctype >
+void OscEngine< SampleType, Osctype >::setFrequency (float freqHz)
 {
     frequency = freqHz;
     osc.setFrequency (frequency, (SampleType) this->getSamplerate());
 }
 
-template < typename SampleType, template < typename T > class OscType >
-void OscEngine< SampleType, OscType >::renderBlock (const AudioBuffer< SampleType >&,
+template < typename SampleType, template < typename T > class Osctype >
+void OscEngine< SampleType, Osctype >::renderBlock (const AudioBuffer< SampleType >&,
                                                     AudioBuffer< SampleType >& output,
                                                     MidiBuffer&, bool)
 {
     osc.getSamples (output.getWritePointer (0), output.getNumSamples());
 }
 
-template < typename SampleType, template < typename T > class OscType >
-void OscEngine< SampleType, OscType >::prepared (int, double samplerate)
+template < typename SampleType, template < typename T > class Osctype >
+void OscEngine< SampleType, Osctype >::prepared (int, double samplerate)
 {
     osc.resetPhase();
     osc.setFrequency (frequency, (SampleType) samplerate);

@@ -5,6 +5,7 @@ namespace lemons::dsp::FX
 {
 /**
     An enum class that represents the type of filter topology to be used by a Filter effect.
+    @see Filter
  */
 enum class FilterType
 {

@@ -91,7 +91,7 @@ String propertyNameToContainerName (const String& propertyName);
     @endverbatim
     For example, passing "Item" with an index of 3 will return "Item_3".
  */
-String makePropertyNameForElement (const String& propertyName, int& index);
+String makePropertyNameForElement (const String& propertyName, int index);
 
 
 /** Detects how many elements a given container contains.

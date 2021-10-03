@@ -27,7 +27,7 @@ SampleType Phase< SampleType >::next (SampleType wrapLimit) noexcept
 }
 
 template < typename SampleType >
-SampleType Phase< SampleType >::getIncrement() const
+SampleType Phase< SampleType >::getIncrement() const noexcept
 {
     return increment;
 }
@@ -162,12 +162,6 @@ SampleType Square< SampleType >::getSample()
          + blep (std::fmod (p + SampleType (0.5), SampleType (1)), inc);
 }
 
-template < typename SampleType >
-SampleType Square< SampleType >::getIncrement() const
-{
-    return phase.getIncrement();
-}
-
 template struct Square< float >;
 template struct Square< double >;
 
@@ -195,7 +189,7 @@ void Triangle< SampleType >::setFrequency (SampleType frequency, SampleType samp
 template < typename SampleType >
 SampleType Triangle< SampleType >::getSample()
 {
-    sum += SampleType (4) * square.getIncrement() * square.getSample();
+    sum += SampleType (4) * square.phase.getIncrement() * square.getSample();
     return sum;
 }
 
