@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="A parameter that represents a general kind of meter, used for reporting things like level or gain red...">
 <polygon fill="#bfbfbf" stroke="black" points="0,-67.5 0,-86.5 173,-86.5 173,-67.5 0,-67.5"/>
 <text text-anchor="middle" x="86.5" y="-74.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::MeterParameter</text>
 </a>
@@ -20,7 +20,7 @@
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="structlemons_1_1plugin_1_1GainMeterParameter.html" target="_top" xlink:title=" ">
+<g id="a_node5"><a xlink:href="structlemons_1_1plugin_1_1GainMeterParameter.html" target="_top" xlink:title="A parameter that represents a meter displaying values in decibels.">
 <polygon fill="none" stroke="black" points="13.5,-0.5 13.5,-30.5 159.5,-30.5 159.5,-0.5 13.5,-0.5"/>
 <text text-anchor="start" x="21.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::GainMeter</text>
 <text text-anchor="middle" x="86.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">Parameter</text>

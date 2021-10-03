@@ -317,7 +317,7 @@ You can use <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619ac
 <div class="line">        ref.add (<span class="stringliteral">&quot;MyData&quot;</span>, data);</div>
 <div class="line">    }</div>
 <div class="line">};</div>
-</div><!-- fragment --><p> The add method also works for containers &ndash; if it's a standard type or if you've implemented ContainerInterface, <a class="el" href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2" title="Template function that returns an instance of the correct ContainerInterface for the given container.">getInterfaceForContainer()</a>, and isContainer, then calling <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">TreeReflector::add()</a> will create a sub-tree in your object's main ValueTree that represents this container, then it will step through the container using a range-based for loop, calling <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">TreeReflector::add()</a> on each element sequentially. <br  />
+</div><!-- fragment --><p> The add method also works for containers &ndash; if it's a standard type or if you've implemented <a class="el" href="structlemons_1_1serializing_1_1ContainerInterface.html" title="Interface that defines how a TreeReflector can resize a given container during deserialization.">serializing::ContainerInterface</a>, <a class="el" href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2" title="Template function that returns an instance of the correct ContainerInterface for the given container.">serializing::getInterfaceForContainer()</a>, and <a class="el" href="structlemons_1_1serializing_1_1isContainer.html" title="Template struct that that indicates to TreeReflector whether a given type is a container.">serializing::isContainer</a>, then calling <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">TreeReflector::add()</a> will create a sub-tree in your object's main ValueTree that represents this container, then it will step through the container using a range-based for loop, calling <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">TreeReflector::add()</a> on each element sequentially. <br  />
  <br  />
  You can also use <a class="el" href="structlemons_1_1TreeReflector.html#a3ea2cd3e9bb6c6d3dcc493211e72af1b" title="Binds lambda functions for saving and loading a certain value to and from a named ValueTree property.">TreeReflector::addLambdaSet()</a> if you need to call functions of your object to save or load attributes: </p><div class="fragment"><div class="line"><span class="keyword">struct </span>SomethingSerializable : <a class="code" href="structlemons_1_1SerializableData.html">lemons::SerializableData</a></div>
 <div class="line">{</div>
@@ -336,7 +336,7 @@ You can use <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619ac
 <div class="line">        <span class="comment">// you can specify lambdas for retrieving and saving a property&#39;s value as a specified type (int)</span></div>
 <div class="line">        ref.addLambdaSet&lt;<span class="keywordtype">int</span>&gt; (<span class="stringliteral">&quot;MyData&quot;</span>,</div>
 <div class="line">                               [&amp;]{ <span class="keywordflow">return</span> data; },</div>
-<div class="line">                               [&amp;](<span class="keywordtype">int</span> newData){ setData (newData); });</div>
+<div class="line">                               [&amp;](<span class="keywordtype">int</span>&amp; newData){ setData (newData); });</div>
 <div class="line">    }</div>
 <div class="line">};</div>
 </div><!-- fragment --><p> <br  />
@@ -442,7 +442,7 @@ If your object requires more low-level control or complex logic, you can also us
 <div class="ttc" id="astructlemons_1_1SerializableData_html"><div class="ttname"><a href="structlemons_1_1SerializableData.html">lemons::SerializableData</a></div><div class="ttdoc">Base class for any C++ object that needs to be serialized to binary and back.</div><div class="ttdef"><b>Definition:</b> SerializableData.h:12</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 3 2021 07:53:12 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 3 2021 19:53:24 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

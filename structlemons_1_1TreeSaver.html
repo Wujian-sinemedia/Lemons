@@ -185,8 +185,7 @@ Example &ndash; what NOT to do: <div class="fragment"><div class="line"><span cl
 <div class="line">    }</div>
 <div class="line">};</div>
 </div><!-- fragment --> In the above example, the 'string' data will overwrite the 'number' data, because the programmer has chosen duplicate property names. <br  />
-<br  />
-Container types you wish to serialize with a single call to <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">add()</a> must fulfill the following: <br  />
+ Container types you wish to serialize with a single call to <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">add()</a> must fulfill the following: <br  />
 </dd></dl>
 </li>
 <li>have begin() and end() functions &ndash; ie, are compatable with range-based for loops</li>
@@ -312,7 +311,7 @@ For example: </p><div class="fragment"><div class="line"> <span class="keyword">
 <div class="line">        <span class="comment">// you can specify lambdas for retrieving and saving a property&#39;s value as a specified type (int)</span></div>
 <div class="line">        ref.addLambdaSet&lt;<span class="keywordtype">int</span>&gt; (<span class="stringliteral">&quot;MyData&quot;</span>,</div>
 <div class="line">                                [&amp;]{ <span class="keywordflow">return</span> data; },</div>
-<div class="line">                                [&amp;](<span class="keywordtype">int</span> newData){ setData (newData); });</div>
+<div class="line">                                [&amp;](<span class="keywordtype">int</span>&amp; newData){ setData (newData); });</div>
 <div class="line">    }</div>
 <div class="line"> };</div>
 </div><!-- fragment --><p> If you use this function with a container type, your lambdas must return/recieve the entire container by value. I recommend sticking to <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">add()</a> (or implementing completely custom logic) for containers.</p>
@@ -449,7 +448,7 @@ For example: </p><div class="fragment"><div class="line"> <span class="keyword">
 <div class="ttc" id="astructlemons_1_1TreeReflector_html_a0d351fe3d4087291fe84c745a5edfcf4"><div class="ttname"><a href="structlemons_1_1TreeReflector.html#a0d351fe3d4087291fe84c745a5edfcf4">lemons::TreeReflector::TreeReflector</a></div><div class="ttdeci">TreeReflector(const ValueTree &amp;treeToUse)</div><div class="ttdoc">Creates a TreeReflector.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 3 2021 07:53:12 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 3 2021 19:53:23 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -12,3 +12,5 @@ error: Unexpected start tag 'detaileddescription' found in scope='(null)'!
 error: Unexpected start tag 'authorsection' found in scope='(null)'!
 error: Unexpected start tag 'concepts' found in scope='file/memberdecl/'!
 error: Unexpected start tag 'concepts' found in scope='group/memberdecl/'!
+/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_parameters/parameters/Specializations.h:55: warning: The following parameter of lemons::plugin::FloatAmountParameter::FloatAmountParameter(String paramName, float defaultVal, juce::AudioProcessorParameter::Category parameterCategory=juce::AudioProcessorParameter::genericParameter, String parameterLabel=String()) is not documented:
+  parameter 'parameterLabel'
