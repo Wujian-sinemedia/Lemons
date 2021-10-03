@@ -42,7 +42,7 @@ struct ToggleParameter : public BoolParameter
 /*-----------------------------------------------------------------------------------------------------------------------
  -----------------------------------------------------------------------------------------------------------------------*/
 
-/** A parameter that represents a value in a normalized 0.-1. range.
+/** A parameter that represents a value in a normalized 0-1 range.
     @see PercentParameter, FloatParameter, Parameter
  */
 struct FloatAmountParameter : public FloatParameter
