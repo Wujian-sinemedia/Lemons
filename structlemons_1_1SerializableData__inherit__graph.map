@@ -8,7 +8,7 @@
 <area shape="rect" id="node20" href="$structlemons_1_1plugin_1_1Dimensions.html" title=" " alt="" coords="260,648,463,675"/>
 <area shape="rect" id="node21" href="$classlemons_1_1plugin_1_1ModulationManager.html" title=" " alt="" coords="262,699,461,741"/>
 <area shape="rect" id="node22" href="$classlemons_1_1plugin_1_1Parameter.html" title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an..." alt="" coords="265,765,458,792"/>
-<area shape="rect" id="node35" href="$classlemons_1_1plugin_1_1ParameterList.html" title=" " alt="" coords="253,816,469,843"/>
+<area shape="rect" id="node35" href="$classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters." alt="" coords="253,816,469,843"/>
 <area shape="rect" id="node36" href="$structlemons_1_1plugin_1_1ParamHolderBase.html" title="Base class for ParameterHolder that allows any kind of parameter to be accessed without knowing the f..." alt="" coords="240,867,483,893"/>
 <area shape="rect" id="node39" href="$structlemons_1_1plugin_1_1PluginState.html" title=" " alt="" coords="261,918,461,959"/>
 <area shape="rect" id="node40" href="$structlemons_1_1plugin_1_1PluginState.html" title=" " alt="" coords="666,989,866,1030"/>

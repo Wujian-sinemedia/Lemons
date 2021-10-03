@@ -1,4 +1,4 @@
 <map id="lemons::plugin::ParamUpdater" name="lemons::plugin::ParamUpdater">
-<area shape="rect" id="node1" title=" " alt="" coords="5,95,224,121"/>
+<area shape="rect" id="node1" title="A listener class that calls lambda functions when a parameter&#39;s value or gesture state changes." alt="" coords="5,95,224,121"/>
 <area shape="rect" id="node2" href="$structlemons_1_1plugin_1_1Parameter_1_1Listener.html" title="A Listener class that will be notified when aspects of a Parameter change." alt="" coords="18,5,211,47"/>
 </map>

@@ -12928,8 +12928,22 @@
       <type></type>
       <name>ParameterList</name>
       <anchorfile>classlemons_1_1plugin_1_1ParameterList.html</anchorfile>
-      <anchor>ae8b450d54dff5f890ac3b648227b3a82</anchor>
-      <arglist>(juce::Identifier name, UndoManager *um=nullptr)</arglist>
+      <anchor>ab5846455fe76367a4adf5d12b9e86e61</anchor>
+      <arglist>(juce::Identifier name=&quot;Parameters&quot;, UndoManager *um=nullptr)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>add</name>
+      <anchorfile>classlemons_1_1plugin_1_1ParameterList.html</anchorfile>
+      <anchor>a35182b53a362f3c9dd225a01c45de0e2</anchor>
+      <arglist>(ParamHolderBase &amp;first, Args &amp;&amp;... rest)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>add</name>
+      <anchorfile>classlemons_1_1plugin_1_1ParameterList.html</anchorfile>
+      <anchor>a43bb1c17db49e91c5a77225f690b8102</anchor>
+      <arglist>(ParamHolderBase &amp;param)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -12937,6 +12951,20 @@
       <anchorfile>classlemons_1_1plugin_1_1ParameterList.html</anchorfile>
       <anchor>a8b61a32045249c1aa8f8a25bc5473c4e</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addInternal</name>
+      <anchorfile>classlemons_1_1plugin_1_1ParameterList.html</anchorfile>
+      <anchor>ae9a69a9642f9d2337018dbdeb66b84f7</anchor>
+      <arglist>(ParamHolderBase &amp;first, Args &amp;&amp;... rest)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addInternal</name>
+      <anchorfile>classlemons_1_1plugin_1_1ParameterList.html</anchorfile>
+      <anchor>aab1387ff02ed050351c80b368a832db4</anchor>
+      <arglist>(ParamHolderBase &amp;param)</arglist>
     </member>
     <member kind="function">
       <type>void</type>

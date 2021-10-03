@@ -191,7 +191,7 @@ var sectionId = 'dynsection-0';
 <!-- Node42 -->
 <g id="node35" class="node">
 <title>Node42</title>
-<g id="a_node35"><a xlink:href="classlemons_1_1plugin_1_1ParameterList.html" target="_top" xlink:title=" ">
+<g id="a_node35"><a xlink:href="classlemons_1_1plugin_1_1ParameterList.html" target="_top" xlink:title="This class manages a list of a plugin&#39;s parameters.">
 <polygon fill="none" stroke="black" points="186,-392.5 186,-411.5 348,-411.5 348,-392.5 186,-392.5"/>
 <text text-anchor="middle" x="267" y="-399.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::ParameterList</text>
 </a>

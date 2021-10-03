@@ -75,6 +75,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>This class manages a list of a plugin's parameters.  
+ <a href="classlemons_1_1plugin_1_1ParameterList.html#details">More...</a></p>
+
 <p><code>#include &lt;ParameterList.h&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::plugin::ParameterList:</div>
@@ -88,42 +91,101 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1ParameterList_1_1Listener.html">Listener</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that fires a lambda callback each time any of its <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a>'s parameters change.  <a href="structlemons_1_1plugin_1_1ParameterList_1_1Listener.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae8b450d54dff5f890ac3b648227b3a82"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#ae8b450d54dff5f890ac3b648227b3a82">ParameterList</a> (juce::Identifier name, <a class="el" href="classlemons_1_1UndoManager.html">UndoManager</a> *um=nullptr)</td></tr>
-<tr class="separator:ae8b450d54dff5f890ac3b648227b3a82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5846455fe76367a4adf5d12b9e86e61"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#ab5846455fe76367a4adf5d12b9e86e61">ParameterList</a> (juce::Identifier name=&quot;Parameters&quot;, UndoManager *um=nullptr)</td></tr>
+<tr class="memdesc:ab5846455fe76367a4adf5d12b9e86e61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a parameter list.  <a href="classlemons_1_1plugin_1_1ParameterList.html#ab5846455fe76367a4adf5d12b9e86e61">More...</a><br /></td></tr>
+<tr class="separator:ab5846455fe76367a4adf5d12b9e86e61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35182b53a362f3c9dd225a01c45de0e2"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a35182b53a362f3c9dd225a01c45de0e2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#a35182b53a362f3c9dd225a01c45de0e2">add</a> (<a class="el" href="structlemons_1_1plugin_1_1ParamHolderBase.html">ParamHolderBase</a> &amp;first, Args &amp;&amp;... rest)</td></tr>
+<tr class="memdesc:a35182b53a362f3c9dd225a01c45de0e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a list of parameters to the list.  <a href="classlemons_1_1plugin_1_1ParameterList.html#a35182b53a362f3c9dd225a01c45de0e2">More...</a><br /></td></tr>
+<tr class="separator:a35182b53a362f3c9dd225a01c45de0e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43bb1c17db49e91c5a77225f690b8102"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#a43bb1c17db49e91c5a77225f690b8102">add</a> (<a class="el" href="structlemons_1_1plugin_1_1ParamHolderBase.html">ParamHolderBase</a> &amp;param)</td></tr>
+<tr class="memdesc:a43bb1c17db49e91c5a77225f690b8102"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a single parameter to the list.  <a href="classlemons_1_1plugin_1_1ParameterList.html#a43bb1c17db49e91c5a77225f690b8102">More...</a><br /></td></tr>
+<tr class="separator:a43bb1c17db49e91c5a77225f690b8102"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b61a32045249c1aa8f8a25bc5473c4e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#a8b61a32045249c1aa8f8a25bc5473c4e">addAllParametersAsInternal</a> ()</td></tr>
+<tr class="memdesc:a8b61a32045249c1aa8f8a25bc5473c4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds all the list's parameters to the <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a>'s dummy internal AudioProcessor.  <a href="classlemons_1_1plugin_1_1ParameterList.html#a8b61a32045249c1aa8f8a25bc5473c4e">More...</a><br /></td></tr>
 <tr class="separator:a8b61a32045249c1aa8f8a25bc5473c4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9a69a9642f9d2337018dbdeb66b84f7"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:ae9a69a9642f9d2337018dbdeb66b84f7"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#ae9a69a9642f9d2337018dbdeb66b84f7">addInternal</a> (<a class="el" href="structlemons_1_1plugin_1_1ParamHolderBase.html">ParamHolderBase</a> &amp;first, Args &amp;&amp;... rest)</td></tr>
+<tr class="memdesc:ae9a69a9642f9d2337018dbdeb66b84f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a list of parameters to the list as "internal" parameters.  <a href="classlemons_1_1plugin_1_1ParameterList.html#ae9a69a9642f9d2337018dbdeb66b84f7">More...</a><br /></td></tr>
+<tr class="separator:ae9a69a9642f9d2337018dbdeb66b84f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab1387ff02ed050351c80b368a832db4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#aab1387ff02ed050351c80b368a832db4">addInternal</a> (<a class="el" href="structlemons_1_1plugin_1_1ParamHolderBase.html">ParamHolderBase</a> &amp;param)</td></tr>
+<tr class="memdesc:aab1387ff02ed050351c80b368a832db4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a single parameter to the list as an "internal" parameter.  <a href="classlemons_1_1plugin_1_1ParameterList.html#aab1387ff02ed050351c80b368a832db4">More...</a><br /></td></tr>
+<tr class="separator:aab1387ff02ed050351c80b368a832db4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e6f4818d052a192fed6142afcfed62f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#a7e6f4818d052a192fed6142afcfed62f">addParametersTo</a> (juce::AudioProcessor &amp;processor)</td></tr>
+<tr class="memdesc:a7e6f4818d052a192fed6142afcfed62f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the list's managed parameters to a juce::AudioProcessor.  <a href="classlemons_1_1plugin_1_1ParameterList.html#a7e6f4818d052a192fed6142afcfed62f">More...</a><br /></td></tr>
 <tr class="separator:a7e6f4818d052a192fed6142afcfed62f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace1758cc9344ae03a6d01c3c218226de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1SerializableData.html#ace1758cc9344ae03a6d01c3c218226de">deserialize</a> (const ValueTree &amp;tree)</td></tr>
 <tr class="memdesc:ace1758cc9344ae03a6d01c3c218226de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores a previously saved state.  <a href="structlemons_1_1SerializableData.html#ace1758cc9344ae03a6d01c3c218226de">More...</a><br /></td></tr>
 <tr class="separator:ace1758cc9344ae03a6d01c3c218226de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6176f4bed72d95db6e3f7eb6a884c949"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#a6176f4bed72d95db6e3f7eb6a884c949">processMidi</a> (const MidiBuffer &amp;midiMessages)</td></tr>
+<tr class="memdesc:a6176f4bed72d95db6e3f7eb6a884c949"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the next block of MIDI for your plugin.  <a href="classlemons_1_1plugin_1_1ParameterList.html#a6176f4bed72d95db6e3f7eb6a884c949">More...</a><br /></td></tr>
 <tr class="separator:a6176f4bed72d95db6e3f7eb6a884c949"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1dc02a93a99abc746f3efc991ca95f14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#a1dc02a93a99abc746f3efc991ca95f14">processMidiMessage</a> (const MidiMessage &amp;message)</td></tr>
+<tr class="memdesc:a1dc02a93a99abc746f3efc991ca95f14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes a single incoming MIDI message.  <a href="classlemons_1_1plugin_1_1ParameterList.html#a1dc02a93a99abc746f3efc991ca95f14">More...</a><br /></td></tr>
 <tr class="separator:a1dc02a93a99abc746f3efc991ca95f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a980e8b7e12f526a252aa86b01979007f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#a980e8b7e12f526a252aa86b01979007f">refreshAllDefaults</a> ()</td></tr>
+<tr class="memdesc:a980e8b7e12f526a252aa86b01979007f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <a class="el" href="classlemons_1_1plugin_1_1Parameter.html#a06ee7850537979ed797fbe016f8700b5" title="Sets the parameter&#39;s current value as the default value.">Parameter::refreshDefault()</a> on all the list's parameters.  <a href="classlemons_1_1plugin_1_1ParameterList.html#a980e8b7e12f526a252aa86b01979007f">More...</a><br /></td></tr>
 <tr class="separator:a980e8b7e12f526a252aa86b01979007f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc8eee19101b9a24416fa18d845b6641"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#adc8eee19101b9a24416fa18d845b6641">resetAllToDefault</a> ()</td></tr>
+<tr class="memdesc:adc8eee19101b9a24416fa18d845b6641"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <a class="el" href="classlemons_1_1plugin_1_1Parameter.html#aa22078ebf664fe42bfc16e0a73faf09b" title="Resets the parameter to the saved default value.">Parameter::resetToDefault()</a> on all the list's parameters.  <a href="classlemons_1_1plugin_1_1ParameterList.html#adc8eee19101b9a24416fa18d845b6641">More...</a><br /></td></tr>
 <tr class="separator:adc8eee19101b9a24416fa18d845b6641"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4e10eefa677226e7927d204b33edbdb"><td class="memItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">serialize</a> ()</td></tr>
 <tr class="memdesc:af4e10eefa677226e7927d204b33edbdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the state of this object and returns a ValueTree.  <a href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">More...</a><br /></td></tr>
 <tr class="separator:af4e10eefa677226e7927d204b33edbdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87ce83011f9dd1a1840e725734e91e4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#a87ce83011f9dd1a1840e725734e91e4b">setLastMovedMidiControllerNumberParameter</a> (<a class="el" href="namespacelemons.html#a88962e62201aedb2ed503c7485768cc4">IntParam</a> &amp;param)</td></tr>
+<tr class="memdesc:a87ce83011f9dd1a1840e725734e91e4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a parameter to use to report the last moved MIDI CC number.  <a href="classlemons_1_1plugin_1_1ParameterList.html#a87ce83011f9dd1a1840e725734e91e4b">More...</a><br /></td></tr>
 <tr class="separator:a87ce83011f9dd1a1840e725734e91e4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afea63296628e2bd2ceec73498a650358"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#afea63296628e2bd2ceec73498a650358">setLastMovedMidiControllerValueParameter</a> (<a class="el" href="namespacelemons.html#a88962e62201aedb2ed503c7485768cc4">IntParam</a> &amp;param)</td></tr>
+<tr class="memdesc:afea63296628e2bd2ceec73498a650358"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a parameter to use to report the last moved MIDI CC value.  <a href="classlemons_1_1plugin_1_1ParameterList.html#afea63296628e2bd2ceec73498a650358">More...</a><br /></td></tr>
 <tr class="separator:afea63296628e2bd2ceec73498a650358"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f2b66d9eb73bf045a43e7cd564f7713"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#a9f2b66d9eb73bf045a43e7cd564f7713">setPitchbendParameter</a> (<a class="el" href="namespacelemons.html#a88962e62201aedb2ed503c7485768cc4">IntParam</a> &amp;param)</td></tr>
+<tr class="memdesc:a9f2b66d9eb73bf045a43e7cd564f7713"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a parameter to use to report the pitch wheel's current value.  <a href="classlemons_1_1plugin_1_1ParameterList.html#a9f2b66d9eb73bf045a43e7cd564f7713">More...</a><br /></td></tr>
 <tr class="separator:a9f2b66d9eb73bf045a43e7cd564f7713"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa27b20a1b37f5f05579f649ac08a1cef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#aa27b20a1b37f5f05579f649ac08a1cef">setUndoManager</a> (<a class="el" href="classlemons_1_1UndoManager.html">UndoManager</a> &amp;um)</td></tr>
+<tr class="memdesc:aa27b20a1b37f5f05579f649ac08a1cef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the <a class="el" href="classlemons_1_1UndoManager.html" title="A class that keeps a history of states and can step backward and forward through them.">UndoManager</a> to be used by all the list's parameters.  <a href="classlemons_1_1plugin_1_1ParameterList.html#aa27b20a1b37f5f05579f649ac08a1cef">More...</a><br /></td></tr>
 <tr class="separator:aa27b20a1b37f5f05579f649ac08a1cef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ae8b450d54dff5f890ac3b648227b3a82"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8b450d54dff5f890ac3b648227b3a82">&#9670;&nbsp;</a></span>ParameterList()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class manages a list of a plugin's parameters. </p>
+<p>This class allows you to mark some parameters as "internal", not to be shown in the DAW's list of automatable parameters. Parameters marked "internal" (ie, not automatable), will be added to a dummy internal audio processor inside the <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a>. The benefit of this is that these internal parameters will not show up in your DAW's list of parameters for your plugin under any circumstances, but they will still function as if they were added in the normal manner. <br  />
+<br  />
+This class also allows you to easily serialize all of your parameters using my <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> API. <br  />
+<br  />
+I usually recommend creating a subclass of <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a> for your product. For example: </p><div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="namespacelemons.html">lemons</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">struct </span>MyParameters : <a class="code" href="classlemons_1_1plugin_1_1ParameterList.html">plugin::ParameterList</a></div>
+<div class="line">{</div>
+<div class="line">    MyParameters() : <a class="code" href="classlemons_1_1plugin_1_1ParameterList.html#ab5846455fe76367a4adf5d12b9e86e61">ParameterList</a> (<span class="stringliteral">&quot;MyParameters&quot;</span>)</div>
+<div class="line">    {</div>
+<div class="line">        <a class="code" href="classlemons_1_1plugin_1_1ParameterList.html#a43bb1c17db49e91c5a77225f690b8102">add</a> (reverbToggle, delayToggle);</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// maybe this is just for communication with the GUI?</span></div>
+<div class="line">        <a class="code" href="classlemons_1_1plugin_1_1ParameterList.html#aab1387ff02ed050351c80b368a832db4">addInternal</a> (feedbackLevel);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <a class="code" href="classlemons_1_1plugin_1_1ParameterHolder.html">ToggleParam</a> reverbToggle {<span class="stringliteral">&quot;Reverb toggle&quot;</span>, <span class="keyword">true</span>};</div>
+<div class="line">    <a class="code" href="classlemons_1_1plugin_1_1ParameterHolder.html">ToggleParam</a> delayToggle {<span class="stringliteral">&quot;Delay toggle&quot;</span>, <span class="keyword">false</span>};</div>
+<div class="line"> </div>
+<div class="line">    <a class="code" href="classlemons_1_1plugin_1_1ParameterHolder.html">dbParam</a> feedbackLevel {<span class="stringliteral">&quot;Feedback&quot;</span>, -6.f};</div>
+<div class="line">};</div>
+</div><!-- fragment --><p> Then, in your processor, you can simply do: </p><div class="fragment"><div class="line"><span class="keyword">struct </span>MyProcessor : juce::AudioProcessor</div>
+<div class="line">{</div>
+<div class="line">    MyProcessor()</div>
+<div class="line">    {</div>
+<div class="line">        params.addParametersTo (*<span class="keyword">this</span>);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    MyParameters params;</div>
+<div class="line">};</div>
+</div><!-- fragment --><p> You should usually only need one <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a> for your plugin. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1plugin_1_1Parameter.html" title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an...">Parameter</a>, <a class="el" href="classlemons_1_1plugin_1_1ParameterHolder.html" title="Class that holds a parameter object, and can retain a reference to it after it has been added to an A...">ParameterHolder</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ab5846455fe76367a4adf5d12b9e86e61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5846455fe76367a4adf5d12b9e86e61">&#9670;&nbsp;</a></span>ParameterList()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -132,7 +194,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">lemons::plugin::ParameterList::ParameterList </td>
           <td>(</td>
           <td class="paramtype">juce::Identifier&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
+          <td class="paramname"><em>name</em> = <code>&quot;Parameters&quot;</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -148,9 +210,76 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Creates a parameter list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The identifier used for the list of parameters as a whole in serialization. </td></tr>
+    <tr><td class="paramname">um</td><td>Optional pointer to an <a class="el" href="classlemons_1_1UndoManager.html" title="A class that keeps a history of states and can step backward and forward through them.">UndoManager</a> to use with all of your parameters. This can also be set after construction with <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#aa27b20a1b37f5f05579f649ac08a1cef" title="Sets the UndoManager to be used by all the list&#39;s parameters.">setUndoManager()</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a35182b53a362f3c9dd225a01c45de0e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35182b53a362f3c9dd225a01c45de0e2">&#9670;&nbsp;</a></span>add() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void lemons::plugin::ParameterList::add </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlemons_1_1plugin_1_1ParamHolderBase.html">ParamHolderBase</a> &amp;&#160;</td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>rest</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a list of parameters to the list. </p>
+<p>You can call this function with any number of <a class="el" href="classlemons_1_1plugin_1_1ParameterHolder.html" title="Class that holds a parameter object, and can retain a reference to it after it has been added to an A...">ParameterHolder</a> objects with any parameter types. </p>
+
+<p class="reference">References <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#a43bb1c17db49e91c5a77225f690b8102">add()</a>.</p>
+
+</div>
+</div>
+<a id="a43bb1c17db49e91c5a77225f690b8102"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43bb1c17db49e91c5a77225f690b8102">&#9670;&nbsp;</a></span>add() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lemons::plugin::ParameterList::add </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlemons_1_1plugin_1_1ParamHolderBase.html">ParamHolderBase</a> &amp;&#160;</td>
+          <td class="paramname"><em>param</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a single parameter to the list. </p>
+<p>The parameter must live inside a <a class="el" href="classlemons_1_1plugin_1_1ParameterHolder.html" title="Class that holds a parameter object, and can retain a reference to it after it has been added to an A...">ParameterHolder</a> object, and will be added as a normal (ie, NOT "internal") parameter. </p>
+
+<p class="reference">Referenced by <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#a35182b53a362f3c9dd225a01c45de0e2">add()</a>.</p>
+
+</div>
+</div>
 <a id="a8b61a32045249c1aa8f8a25bc5473c4e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8b61a32045249c1aa8f8a25bc5473c4e">&#9670;&nbsp;</a></span>addAllParametersAsInternal()</h2>
 
@@ -165,6 +294,67 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Adds all the list's parameters to the <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a>'s dummy internal AudioProcessor. </p>
+<p>This is useful for situations where you may want to instantiate the state of your plugin without creating the rest of your processor &ndash; perhaps, in a GUI-only app version, or something like that. Simply call this function in the constructor of your app's main component and your plugin's state will be ready to use normally, as if it's living inside your processor. </p>
+
+</div>
+</div>
+<a id="ae9a69a9642f9d2337018dbdeb66b84f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9a69a9642f9d2337018dbdeb66b84f7">&#9670;&nbsp;</a></span>addInternal() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Args&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void lemons::plugin::ParameterList::addInternal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlemons_1_1plugin_1_1ParamHolderBase.html">ParamHolderBase</a> &amp;&#160;</td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>rest</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a list of parameters to the list as "internal" parameters. </p>
+<p>You can call this function with any number of <a class="el" href="classlemons_1_1plugin_1_1ParameterHolder.html" title="Class that holds a parameter object, and can retain a reference to it after it has been added to an A...">ParameterHolder</a> objects with any parameter types. </p>
+
+<p class="reference">References <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#aab1387ff02ed050351c80b368a832db4">addInternal()</a>.</p>
+
+</div>
+</div>
+<a id="aab1387ff02ed050351c80b368a832db4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab1387ff02ed050351c80b368a832db4">&#9670;&nbsp;</a></span>addInternal() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lemons::plugin::ParameterList::addInternal </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlemons_1_1plugin_1_1ParamHolderBase.html">ParamHolderBase</a> &amp;&#160;</td>
+          <td class="paramname"><em>param</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a single parameter to the list as an "internal" parameter. </p>
+<p>The parameter must live inside a <a class="el" href="classlemons_1_1plugin_1_1ParameterHolder.html" title="Class that holds a parameter object, and can retain a reference to it after it has been added to an A...">ParameterHolder</a> object. </p>
+
+<p class="reference">Referenced by <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#ae9a69a9642f9d2337018dbdeb66b84f7">addInternal()</a>.</p>
 
 </div>
 </div>
@@ -183,6 +373,11 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Adds the list's managed parameters to a juce::AudioProcessor. </p>
+<p>You should first add all your parameters to the list using <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#a43bb1c17db49e91c5a77225f690b8102" title="Adds a single parameter to the list.">add()</a> or <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#aab1387ff02ed050351c80b368a832db4" title="Adds a single parameter to the list as an &quot;internal&quot; parameter.">addInternal()</a>, then call this to add all the parameters to your processor. <br  />
+<br  />
+Internal parameters will be added to a dummy internal AudioProcessor inside the <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a>, so that they will not show up in your AudioProcessor's parameter list under any circumstances. </p>
 
 </div>
 </div>
@@ -238,6 +433,11 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
       </table>
 </div><div class="memdoc">
 
+<p>Processes the next block of MIDI for your plugin. </p>
+<p>You must call this every processBlock() in order for the pitchbend and MIDI CC reporting parameters to work properly. <br  />
+ <br  />
+This function processes all of the messages in the buffer at once; to get sample-accurate processing with smaller blocks rendered in between each MIDI message, use the <a class="el" href="classlemons_1_1plugin_1_1ParameterProcessorBase.html">ParameterProcessorBase</a> class. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1plugin_1_1ParameterProcessorBase.html">ParameterProcessorBase</a> </dd></dl>
+
 </div>
 </div>
 <a id="a1dc02a93a99abc746f3efc991ca95f14"></a>
@@ -256,6 +456,9 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
       </table>
 </div><div class="memdoc">
 
+<p>Processes a single incoming MIDI message. </p>
+<p>You must call this every processBlock() in order for the pitchbend and MIDI CC reporting parameters to work properly. </p>
+
 </div>
 </div>
 <a id="a980e8b7e12f526a252aa86b01979007f"></a>
@@ -273,6 +476,11 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
       </table>
 </div><div class="memdoc">
 
+<p>Calls <a class="el" href="classlemons_1_1plugin_1_1Parameter.html#a06ee7850537979ed797fbe016f8700b5" title="Sets the parameter&#39;s current value as the default value.">Parameter::refreshDefault()</a> on all the list's parameters. </p>
+<p>This sets all the parameters' default values to be their current values. <br  />
+<br  />
+This is useful, for example, after loading a preset: load the new state, then call this function, then any calls to <a class="el" href="classlemons_1_1plugin_1_1Parameter.html#aa22078ebf664fe42bfc16e0a73faf09b" title="Resets the parameter to the saved default value.">Parameter::resetToDefault()</a> will set the parameter to its value from the last loaded preset. </p>
+
 </div>
 </div>
 <a id="adc8eee19101b9a24416fa18d845b6641"></a>
@@ -289,6 +497,9 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Calls <a class="el" href="classlemons_1_1plugin_1_1Parameter.html#aa22078ebf664fe42bfc16e0a73faf09b" title="Resets the parameter to the saved default value.">Parameter::resetToDefault()</a> on all the list's parameters. </p>
+<p>This sets all the parameters back to their saved default values. </p>
 
 </div>
 </div>
@@ -336,6 +547,11 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
       </table>
 </div><div class="memdoc">
 
+<p>Sets a parameter to use to report the last moved MIDI CC number. </p>
+<p>Calling this is optional, and mainly provided for convenience. <br  />
+ <br  />
+After calling this, the IntParameter specified will always have the same value as the last changed MIDI controller number. Any listners of this parameter will recieve appropriate callbacks each time the MIDI CC number changes. </p>
+
 </div>
 </div>
 <a id="afea63296628e2bd2ceec73498a650358"></a>
@@ -353,6 +569,11 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets a parameter to use to report the last moved MIDI CC value. </p>
+<p>Calling this is optional, and mainly provided for convenience. <br  />
+ <br  />
+After calling this, the IntParameter specified will always have the same value as the last changed MIDI CC value. Any listners of this parameter will recieve appropriate callbacks each time the MIDI CC value changes. </p>
 
 </div>
 </div>
@@ -372,6 +593,11 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
       </table>
 </div><div class="memdoc">
 
+<p>Sets a parameter to use to report the pitch wheel's current value. </p>
+<p>Calling this is optional, and mainly provided for convenience. <br  />
+ <br  />
+After calling this, the IntParameter specified will always have the same value as the MIDI pitchwheel data coming into your plugin, and any listeners of that parameter will recieve appropriate callbacks when the pitchwheel is moved. </p>
+
 </div>
 </div>
 <a id="aa27b20a1b37f5f05579f649ac08a1cef"></a>
@@ -390,15 +616,23 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
       </table>
 </div><div class="memdoc">
 
+<p>Sets the <a class="el" href="classlemons_1_1UndoManager.html" title="A class that keeps a history of states and can step backward and forward through them.">UndoManager</a> to be used by all the list's parameters. </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="ParameterList_8h.html">ParameterList.h</a></li>
 </ul>
 </div><!-- contents -->
+<div class="ttc" id="aclasslemons_1_1plugin_1_1ParameterList_html"><div class="ttname"><a href="classlemons_1_1plugin_1_1ParameterList.html">lemons::plugin::ParameterList</a></div><div class="ttdoc">This class manages a list of a plugin's parameters.</div><div class="ttdef"><b>Definition:</b> ParameterList.h:49</div></div>
+<div class="ttc" id="aclasslemons_1_1plugin_1_1ParameterHolder_html"><div class="ttname"><a href="classlemons_1_1plugin_1_1ParameterHolder.html">lemons::plugin::ParameterHolder&lt; plugin::ToggleParameter &gt;</a></div></div>
+<div class="ttc" id="aclasslemons_1_1plugin_1_1ParameterList_html_ab5846455fe76367a4adf5d12b9e86e61"><div class="ttname"><a href="classlemons_1_1plugin_1_1ParameterList.html#ab5846455fe76367a4adf5d12b9e86e61">lemons::plugin::ParameterList::ParameterList</a></div><div class="ttdeci">ParameterList(juce::Identifier name=&quot;Parameters&quot;, UndoManager *um=nullptr)</div><div class="ttdoc">Creates a parameter list.</div></div>
+<div class="ttc" id="aclasslemons_1_1plugin_1_1ParameterList_html_aab1387ff02ed050351c80b368a832db4"><div class="ttname"><a href="classlemons_1_1plugin_1_1ParameterList.html#aab1387ff02ed050351c80b368a832db4">lemons::plugin::ParameterList::addInternal</a></div><div class="ttdeci">void addInternal(ParamHolderBase &amp;param)</div><div class="ttdoc">Adds a single parameter to the list as an &quot;internal&quot; parameter.</div></div>
+<div class="ttc" id="anamespacelemons_html"><div class="ttname"><a href="namespacelemons.html">lemons</a></div><div class="ttdef"><b>Definition:</b> DefaultWindow.h:6</div></div>
+<div class="ttc" id="aclasslemons_1_1plugin_1_1ParameterList_html_a43bb1c17db49e91c5a77225f690b8102"><div class="ttname"><a href="classlemons_1_1plugin_1_1ParameterList.html#a43bb1c17db49e91c5a77225f690b8102">lemons::plugin::ParameterList::add</a></div><div class="ttdeci">void add(ParamHolderBase &amp;param)</div><div class="ttdoc">Adds a single parameter to the list.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 3 2021 20:43:59 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 3 2021 22:16:06 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

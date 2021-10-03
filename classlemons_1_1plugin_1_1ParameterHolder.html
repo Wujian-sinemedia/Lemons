@@ -160,13 +160,13 @@ class lemons::plugin::ParameterHolder&lt; ParameterType &gt;</h3>
 <div class="line"><a class="code" href="classlemons_1_1plugin_1_1ParameterHolder.html">ToggleParam</a> myParam {<span class="stringliteral">&quot;MyToggleParameter&quot;</span>, <span class="keyword">true</span>};</div>
 <div class="line"> </div>
 <div class="line">myParam.<a class="code" href="structlemons_1_1plugin_1_1ParamHolderBase.html#a11d61d765d9c8a318a6f8dadfcf4b9cb">addTo</a> (myProcessor);</div>
-</div><!-- fragment --><p> Implementing your own <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html">ParameterList</a> makes this even easier to manage; see the docs for <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html">ParameterList</a> to learn more. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+</div><!-- fragment --><p> Implementing your own <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a> makes this even easier to manage; see the docs for <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a> to learn more. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">ParameterType</td><td>The fully specialized type of parameter the holder will hold. This must inherit from my <a class="el" href="classlemons_1_1plugin_1_1Parameter.html" title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an...">Parameter</a> class. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html">ParameterList</a>, <a class="el" href="classlemons_1_1plugin_1_1Parameter.html" title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an...">Parameter</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a>, <a class="el" href="classlemons_1_1plugin_1_1Parameter.html" title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an...">Parameter</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7d5493b060034137efe56b84f168f543"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7d5493b060034137efe56b84f168f543">&#9670;&nbsp;</a></span>ParameterHolder()</h2>
@@ -563,13 +563,13 @@ If your object requires more low-level control or complex logic, you can also us
 <div class="ttc" id="astructlemons_1_1SerializableData_html_af4e10eefa677226e7927d204b33edbdb"><div class="ttname"><a href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">lemons::SerializableData::serialize</a></div><div class="ttdeci">ValueTree serialize()</div><div class="ttdoc">Serializes the state of this object and returns a ValueTree.</div></div>
 <div class="ttc" id="astructlemons_1_1plugin_1_1ParamHolderBase_html_a11d61d765d9c8a318a6f8dadfcf4b9cb"><div class="ttname"><a href="structlemons_1_1plugin_1_1ParamHolderBase.html#a11d61d765d9c8a318a6f8dadfcf4b9cb">lemons::plugin::ParamHolderBase::addTo</a></div><div class="ttdeci">void addTo(juce::AudioProcessor &amp;processor)</div><div class="ttdoc">Adds the managed parameter object to the specified AudioProcessor.</div></div>
 <div class="ttc" id="aclasslemons_1_1plugin_1_1ParameterHolder_html"><div class="ttname"><a href="classlemons_1_1plugin_1_1ParameterHolder.html">lemons::plugin::ParameterHolder</a></div><div class="ttdoc">Class that holds a parameter object, and can retain a reference to it after it has been added to an A...</div><div class="ttdef"><b>Definition:</b> ParameterHolder.h:67</div></div>
-<div class="ttc" id="astructlemons_1_1SerializableData_html_a89ec326c9a71dce7572d8a1b50d827a5"><div class="ttname"><a href="structlemons_1_1SerializableData.html#a89ec326c9a71dce7572d8a1b50d827a5">lemons::SerializableData::TreeReflector</a></div><div class="ttdeci">friend struct TreeReflector</div><div class="ttdef"><b>Definition:</b> SerializableData.h:44</div></div>
+<div class="ttc" id="astructlemons_1_1SerializableData_html_a89ec326c9a71dce7572d8a1b50d827a5"><div class="ttname"><a href="structlemons_1_1SerializableData.html#a89ec326c9a71dce7572d8a1b50d827a5">lemons::SerializableData::TreeReflector</a></div><div class="ttdeci">friend struct TreeReflector</div><div class="ttdef"><b>Definition:</b> SerializableData.h:93</div></div>
 <div class="ttc" id="astructlemons_1_1SerializableData_html"><div class="ttname"><a href="structlemons_1_1SerializableData.html">lemons::SerializableData</a></div><div class="ttdoc">Base class for any C++ object that needs to be serialized to binary and back.</div><div class="ttdef"><b>Definition:</b> SerializableData.h:12</div></div>
 <div class="ttc" id="anamespacelemons_1_1plugin_html"><div class="ttname"><a href="namespacelemons_1_1plugin.html">lemons::plugin</a></div><div class="ttdef"><b>Definition:</b> EditorBase.h:4</div></div>
 <div class="ttc" id="anamespacelemons_html"><div class="ttname"><a href="namespacelemons.html">lemons</a></div><div class="ttdef"><b>Definition:</b> DefaultWindow.h:6</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 3 2021 20:43:59 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 3 2021 22:16:06 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
