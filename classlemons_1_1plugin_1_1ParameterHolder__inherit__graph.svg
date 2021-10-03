@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="Class that holds a parameter object, and can retain a reference to it after it has been added to an A...">
 <polygon fill="#bfbfbf" stroke="black" points="22,-78.5 22,-108.5 167,-108.5 167,-78.5 22,-78.5"/>
 <text text-anchor="start" x="30" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::Parameter</text>
 <text text-anchor="middle" x="94.5" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">Holder&lt; ParameterType &gt;</text>
@@ -38,7 +38,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="structlemons_1_1plugin_1_1ParamHolderBase.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="structlemons_1_1plugin_1_1ParamHolderBase.html" target="_top" xlink:title="Base class for ParameterHolder that allows any kind of parameter to be accessed without knowing the f...">
 <polygon fill="none" stroke="black" points="3.5,-146.5 3.5,-165.5 185.5,-165.5 185.5,-146.5 3.5,-146.5"/>
 <text text-anchor="middle" x="94.5" y="-153.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::ParamHolderBase</text>
 </a>

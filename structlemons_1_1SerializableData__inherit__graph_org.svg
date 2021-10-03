@@ -160,7 +160,7 @@
 <!-- Node43 -->
 <g id="node36" class="node">
 <title>Node43</title>
-<g id="a_node36"><a xlink:href="structlemons_1_1plugin_1_1ParamHolderBase.html" target="_top" xlink:title=" ">
+<g id="a_node36"><a xlink:href="structlemons_1_1plugin_1_1ParamHolderBase.html" target="_top" xlink:title="Base class for ParameterHolder that allows any kind of parameter to be accessed without knowing the f...">
 <polygon fill="none" stroke="black" points="176,-354.5 176,-373.5 358,-373.5 358,-354.5 176,-354.5"/>
 <text text-anchor="middle" x="267" y="-361.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::ParamHolderBase</text>
 </a>
@@ -587,7 +587,7 @@
 <!-- Node29 -->
 <g id="node24" class="node">
 <title>Node29</title>
-<g id="a_node24"><a xlink:href="structlemons_1_1plugin_1_1FloatAmountParameter.html" target="_top" xlink:title="A parameter that represents a value in a normalized 0.">
+<g id="a_node24"><a xlink:href="structlemons_1_1plugin_1_1FloatAmountParameter.html" target="_top" xlink:title="A parameter that represents a value in a normalized 0&#45;1 range.">
 <polygon fill="none" stroke="black" points="868.5,-394 868.5,-424 1026.5,-424 1026.5,-394 868.5,-394"/>
 <text text-anchor="start" x="876.5" y="-412" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::FloatAmount</text>
 <text text-anchor="middle" x="947.5" y="-401" font-family="Helvetica,sans-Serif" font-size="10.00">Parameter&lt; float &gt;</text>
@@ -753,7 +753,7 @@
 <!-- Node44 -->
 <g id="node37" class="node">
 <title>Node44</title>
-<g id="a_node37"><a xlink:href="classlemons_1_1plugin_1_1ParameterHolder.html" target="_top" xlink:title=" ">
+<g id="a_node37"><a xlink:href="classlemons_1_1plugin_1_1ParameterHolder.html" target="_top" xlink:title="Class that holds a parameter object, and can retain a reference to it after it has been added to an A...">
 <polygon fill="none" stroke="black" points="498,-301 498,-331 643,-331 643,-301 498,-301"/>
 <text text-anchor="start" x="506" y="-319" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::Parameter</text>
 <text text-anchor="middle" x="570.5" y="-308" font-family="Helvetica,sans-Serif" font-size="10.00">Holder&lt; ParameterType &gt;</text>

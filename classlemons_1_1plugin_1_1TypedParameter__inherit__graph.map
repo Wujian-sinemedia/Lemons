@@ -1,6 +1,6 @@
 <map id="lemons::plugin::TypedParameter&lt; ValueType &gt;" name="lemons::plugin::TypedParameter&lt; ValueType &gt;">
 <area shape="rect" id="node1" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="483,300,713,341"/>
-<area shape="rect" id="node4" href="$structlemons_1_1plugin_1_1FloatAmountParameter.html" title="A parameter that represents a value in a normalized 0." alt="" coords="842,5,1053,47"/>
+<area shape="rect" id="node4" href="$structlemons_1_1plugin_1_1FloatAmountParameter.html" title="A parameter that represents a value in a normalized 0&#45;1 range." alt="" coords="842,5,1053,47"/>
 <area shape="rect" id="node5" href="$structlemons_1_1plugin_1_1FrequencyParameter.html" title="A parameter that represents a frequency in Hz." alt="" coords="851,71,1044,112"/>
 <area shape="rect" id="node6" href="$structlemons_1_1plugin_1_1GainParameter.html" title="A parameter that represents a gain value in decibels." alt="" coords="836,136,1059,177"/>
 <area shape="rect" id="node7" href="$structlemons_1_1plugin_1_1MeterParameter.html" title="A parameter that represents a general kind of meter, used for reporting things like level or gain red..." alt="" coords="832,201,1063,243"/>

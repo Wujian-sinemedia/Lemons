@@ -77,6 +77,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Base class for <a class="el" href="classlemons_1_1plugin_1_1ParameterHolder.html" title="Class that holds a parameter object, and can retain a reference to it after it has been added to an A...">ParameterHolder</a> that allows any kind of parameter to be accessed without knowing the full type.  
+ <a href="structlemons_1_1plugin_1_1ParamHolderBase.html#details">More...</a></p>
+
 <p><code>#include &lt;ParameterHolder.h&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::plugin::ParamHolderBase:</div>
@@ -90,17 +93,22 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0ac01ab68114e96f02f2635591f432c4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1ParamHolderBase.html#a0ac01ab68114e96f02f2635591f432c4">ParamHolderBase</a> (bool internal=false)</td></tr>
+<tr class="memdesc:a0ac01ab68114e96f02f2635591f432c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="structlemons_1_1plugin_1_1ParamHolderBase.html#a0ac01ab68114e96f02f2635591f432c4">More...</a><br /></td></tr>
 <tr class="separator:a0ac01ab68114e96f02f2635591f432c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6feecc67eca313a9ffb8d35ef194137"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1ParamHolderBase.html#aa6feecc67eca313a9ffb8d35ef194137">~ParamHolderBase</a> ()=default</td></tr>
+<tr class="memdesc:aa6feecc67eca313a9ffb8d35ef194137"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="structlemons_1_1plugin_1_1ParamHolderBase.html#aa6feecc67eca313a9ffb8d35ef194137">More...</a><br /></td></tr>
 <tr class="separator:aa6feecc67eca313a9ffb8d35ef194137"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11d61d765d9c8a318a6f8dadfcf4b9cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1ParamHolderBase.html#a11d61d765d9c8a318a6f8dadfcf4b9cb">addTo</a> (juce::AudioProcessor &amp;processor)</td></tr>
+<tr class="memdesc:a11d61d765d9c8a318a6f8dadfcf4b9cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the managed parameter object to the specified AudioProcessor.  <a href="structlemons_1_1plugin_1_1ParamHolderBase.html#a11d61d765d9c8a318a6f8dadfcf4b9cb">More...</a><br /></td></tr>
 <tr class="separator:a11d61d765d9c8a318a6f8dadfcf4b9cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace1758cc9344ae03a6d01c3c218226de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1SerializableData.html#ace1758cc9344ae03a6d01c3c218226de">deserialize</a> (const ValueTree &amp;tree)</td></tr>
 <tr class="memdesc:ace1758cc9344ae03a6d01c3c218226de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores a previously saved state.  <a href="structlemons_1_1SerializableData.html#ace1758cc9344ae03a6d01c3c218226de">More...</a><br /></td></tr>
 <tr class="separator:ace1758cc9344ae03a6d01c3c218226de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2faabbcdd9698d7f72fb24d643107d6d"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classlemons_1_1plugin_1_1Parameter.html">Parameter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1ParamHolderBase.html#a2faabbcdd9698d7f72fb24d643107d6d">getParam</a> () const =0</td></tr>
+<tr class="memdesc:a2faabbcdd9698d7f72fb24d643107d6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The superclass <a class="el" href="classlemons_1_1plugin_1_1ParameterHolder.html" title="Class that holds a parameter object, and can retain a reference to it after it has been added to an A...">ParameterHolder</a> implements this to return a pointer to the managed parameter object.  <a href="structlemons_1_1plugin_1_1ParamHolderBase.html#a2faabbcdd9698d7f72fb24d643107d6d">More...</a><br /></td></tr>
 <tr class="separator:a2faabbcdd9698d7f72fb24d643107d6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a979e35738448d8f15702584dbafc736f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1plugin_1_1Parameter.html">Parameter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1ParamHolderBase.html#a979e35738448d8f15702584dbafc736f">operator-&gt;</a> ()</td></tr>
+<tr class="memdesc:a979e35738448d8f15702584dbafc736f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the managed parameter object.  <a href="structlemons_1_1plugin_1_1ParamHolderBase.html#a979e35738448d8f15702584dbafc736f">More...</a><br /></td></tr>
 <tr class="separator:a979e35738448d8f15702584dbafc736f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4e10eefa677226e7927d204b33edbdb"><td class="memItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">serialize</a> ()</td></tr>
 <tr class="memdesc:af4e10eefa677226e7927d204b33edbdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the state of this object and returns a ValueTree.  <a href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">More...</a><br /></td></tr>
@@ -109,6 +117,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:adfadd47309422ecf2bdc5d4b54828ecf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1ParamHolderBase.html#adfadd47309422ecf2bdc5d4b54828ecf">isInternal</a></td></tr>
+<tr class="memdesc:adfadd47309422ecf2bdc5d4b54828ecf"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if this parameter is "internal", IE, not automatable.  <a href="structlemons_1_1plugin_1_1ParamHolderBase.html#adfadd47309422ecf2bdc5d4b54828ecf">More...</a><br /></td></tr>
 <tr class="separator:adfadd47309422ecf2bdc5d4b54828ecf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
@@ -122,7 +131,10 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a9709276e5627852ac2be0c9e628ddbb6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1ParamHolderBase.html#a9709276e5627852ac2be0c9e628ddbb6">addedToProcessor</a> {false}</td></tr>
 <tr class="separator:a9709276e5627852ac2be0c9e628ddbb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Base class for <a class="el" href="classlemons_1_1plugin_1_1ParameterHolder.html" title="Class that holds a parameter object, and can retain a reference to it after it has been added to an A...">ParameterHolder</a> that allows any kind of parameter to be accessed without knowing the full type. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1plugin_1_1ParameterHolder.html" title="Class that holds a parameter object, and can retain a reference to it after it has been added to an A...">ParameterHolder</a>, <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html">ParameterList</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0ac01ab68114e96f02f2635591f432c4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0ac01ab68114e96f02f2635591f432c4">&#9670;&nbsp;</a></span>ParamHolderBase()</h2>
 
@@ -138,6 +150,14 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">internal</td><td>True if this parameter is "internal", IE, not automatable. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -164,6 +184,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Destructor. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -182,6 +204,8 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Adds the managed parameter object to the specified AudioProcessor. </p>
 
 </div>
 </div>
@@ -244,6 +268,8 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
 </table>
 </div><div class="memdoc">
 
+<p>The superclass <a class="el" href="classlemons_1_1plugin_1_1ParameterHolder.html" title="Class that holds a parameter object, and can retain a reference to it after it has been added to an A...">ParameterHolder</a> implements this to return a pointer to the managed parameter object. </p>
+
 <p>Implemented in <a class="el" href="classlemons_1_1plugin_1_1ParameterHolder.html#a257ffd5598fdc91b616250372dfb0728">lemons::plugin::ParameterHolder&lt; ParameterType &gt;</a>.</p>
 
 </div>
@@ -262,6 +288,8 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a pointer to the managed parameter object. </p>
 
 </div>
 </div>
@@ -398,6 +426,8 @@ If your object requires more low-level control or complex logic, you can also us
       </table>
 </div><div class="memdoc">
 
+<p>True if this parameter is "internal", IE, not automatable. </p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
@@ -409,7 +439,7 @@ If your object requires more low-level control or complex logic, you can also us
 <div class="ttc" id="astructlemons_1_1SerializableData_html"><div class="ttname"><a href="structlemons_1_1SerializableData.html">lemons::SerializableData</a></div><div class="ttdoc">Base class for any C++ object that needs to be serialized to binary and back.</div><div class="ttdef"><b>Definition:</b> SerializableData.h:12</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 3 2021 19:53:24 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 3 2021 20:43:59 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

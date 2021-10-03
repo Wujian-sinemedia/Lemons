@@ -113,7 +113,7 @@ var sectionId = 'dynsection-0';
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="structlemons_1_1plugin_1_1FloatAmountParameter.html" target="_top" xlink:title="A parameter that represents a value in a normalized 0.">
+<g id="a_node4"><a xlink:href="structlemons_1_1plugin_1_1FloatAmountParameter.html" target="_top" xlink:title="A parameter that represents a value in a normalized 0&#45;1 range.">
 <polygon fill="none" stroke="black" points="627.5,-441.5 627.5,-471.5 785.5,-471.5 785.5,-441.5 627.5,-441.5"/>
 <text text-anchor="start" x="635.5" y="-459.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::FloatAmount</text>
 <text text-anchor="middle" x="706.5" y="-448.5" font-family="Helvetica,sans-Serif" font-size="10.00">Parameter&lt; float &gt;</text>
