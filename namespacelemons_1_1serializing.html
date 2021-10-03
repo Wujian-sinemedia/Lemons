@@ -89,7 +89,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Keeps two copies of an object inheriting from <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> in sync.  <a href="classlemons_1_1serializing_1_1DataSynchronizer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1isContainer.html">isContainer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template struct that determines if a given type is a container.  <a href="structlemons_1_1serializing_1_1isContainer.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template struct that that indicates to <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a> whether a given type is a container.  <a href="structlemons_1_1serializing_1_1isContainer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1isContainer_3_01juce_1_1Array_3_01ElementType_01_4_01_4.html">isContainer&lt; juce::Array&lt; ElementType &gt; &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies that any specialization of juce::Array is a serializable container.  <a href="structlemons_1_1serializing_1_1isContainer_3_01juce_1_1Array_3_01ElementType_01_4_01_4.html#details">More...</a><br /></td></tr>
@@ -105,6 +105,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1isContainer_3_01std_1_1vector_3_01ElementType_01_4_01_4.html">isContainer&lt; std::vector&lt; ElementType &gt; &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specifies that any specialization of std::vector is a serializable container.  <a href="structlemons_1_1serializing_1_1isContainer_3_01std_1_1vector_3_01ElementType_01_4_01_4.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1isMap.html">isMap</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template struct that indicates to <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a> whether a given type is a map.  <a href="structlemons_1_1serializing_1_1isMap.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1JuceArrayInterface.html">JuceArrayInterface</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container interface that provides support for serializing juce::Arrays with <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a>.  <a href="structlemons_1_1serializing_1_1JuceArrayInterface.html#details">More...</a><br /></td></tr>
@@ -1154,7 +1157,7 @@ template&lt;typename ContainerType &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a>, <a class="el" href="structlemons_1_1serializing_1_1ContainerInterface.html" title="Interface that defines how a TreeReflector can resize a given container during deserialization.">ContainerInterface</a>, <a class="el" href="structlemons_1_1serializing_1_1isContainer.html" title="Template struct that determines if a given type is a container.">isContainer</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a>, <a class="el" href="structlemons_1_1serializing_1_1ContainerInterface.html" title="Interface that defines how a TreeReflector can resize a given container during deserialization.">ContainerInterface</a>, <a class="el" href="structlemons_1_1serializing_1_1isContainer.html" title="Template struct that that indicates to TreeReflector whether a given type is a container.">isContainer</a> </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a336cf06a7997c2af3f7b8e17b0c6bcf1">lemons::serializing::TreeReflectorHelpers::addContainer()</a>.</p>
 
@@ -1631,7 +1634,7 @@ As a general rule, you shouldn't need to implement <a class="el" href="namespace
 <div class="ttc" id="anamespacelemons_1_1serializing_html_abd30f255b2b10402a940e2260f7ede3b"><div class="ttname"><a href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b">lemons::serializing::fromVar</a></div><div class="ttdeci">Type fromVar(juce::var var)</div><div class="ttdoc">Implement this function and toVar() for any custom type to allow easily serialization using TreeRefle...</div><div class="ttdef"><b>Definition:</b> VarConversion.h:92</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 3 2021 06:27:00 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 3 2021 06:56:46 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

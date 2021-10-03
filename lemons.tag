@@ -524,6 +524,13 @@
       <arglist>(TreeReflector &amp;ref, ContainerType &amp;container, const String &amp;propertyName)</arglist>
     </member>
     <member kind="function">
+      <type>void</type>
+      <name>addMap</name>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>a749bdabf7794fa9d17a6873ecbde9c63</anchor>
+      <arglist>(TreeReflector &amp;ref, MapType &amp;map, const String &amp;propertyName)</arglist>
+    </member>
+    <member kind="function">
       <type>juce::var</type>
       <name>fromEnum</name>
       <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
@@ -891,6 +898,14 @@
     <name>main_page.md</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/</path>
     <filename>main__page_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>MapInterface.h</name>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/</path>
+    <filename>MapInterface_8h.html</filename>
+    <class kind="struct">lemons::serializing::isMap</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::serializing</namespace>
   </compound>
   <compound kind="file">
     <name>mathHelpers.h</name>
@@ -7116,6 +7131,11 @@
   <compound kind="struct">
     <name>lemons::serializing::isContainer&lt; std::vector&lt; ElementType &gt; &gt;</name>
     <filename>structlemons_1_1serializing_1_1isContainer_3_01std_1_1vector_3_01ElementType_01_4_01_4.html</filename>
+    <templarg></templarg>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::serializing::isMap</name>
+    <filename>structlemons_1_1serializing_1_1isMap.html</filename>
     <templarg></templarg>
   </compound>
   <compound kind="struct">
@@ -19298,6 +19318,7 @@
     <class kind="struct">lemons::serializing::isContainer&lt; std::array&lt; ElementType, size &gt; &gt;</class>
     <class kind="struct">lemons::serializing::isContainer&lt; std::list&lt; ElementType &gt; &gt;</class>
     <class kind="struct">lemons::serializing::isContainer&lt; std::vector&lt; ElementType &gt; &gt;</class>
+    <class kind="struct">lemons::serializing::isMap</class>
     <class kind="struct">lemons::serializing::JuceArrayInterface</class>
     <class kind="struct">lemons::serializing::JuceOwnedArrayInterface</class>
     <class kind="struct">lemons::serializing::LambdaContainerInterface</class>
@@ -19607,6 +19628,13 @@
       <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
       <anchor>a336cf06a7997c2af3f7b8e17b0c6bcf1</anchor>
       <arglist>(TreeReflector &amp;ref, ContainerType &amp;container, const String &amp;propertyName)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addMap</name>
+      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
+      <anchor>a749bdabf7794fa9d17a6873ecbde9c63</anchor>
+      <arglist>(TreeReflector &amp;ref, MapType &amp;map, const String &amp;propertyName)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>

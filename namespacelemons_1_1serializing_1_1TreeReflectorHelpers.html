@@ -79,6 +79,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a336cf06a7997c2af3f7b8e17b0c6bcf1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a336cf06a7997c2af3f7b8e17b0c6bcf1">addContainer</a> (<a class="el" href="structlemons_1_1TreeReflector.html">TreeReflector</a> &amp;ref, ContainerType &amp;container, const String &amp;propertyName)</td></tr>
 <tr class="memdesc:a336cf06a7997c2af3f7b8e17b0c6bcf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a container to the given <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a>.  <a href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a336cf06a7997c2af3f7b8e17b0c6bcf1">More...</a><br /></td></tr>
 <tr class="separator:a336cf06a7997c2af3f7b8e17b0c6bcf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a749bdabf7794fa9d17a6873ecbde9c63"><td class="memTemplParams" colspan="2">template&lt;class MapType &gt; </td></tr>
+<tr class="memitem:a749bdabf7794fa9d17a6873ecbde9c63"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a749bdabf7794fa9d17a6873ecbde9c63">addMap</a> (<a class="el" href="structlemons_1_1TreeReflector.html">TreeReflector</a> &amp;ref, MapType &amp;map, const String &amp;propertyName)</td></tr>
+<tr class="memdesc:a749bdabf7794fa9d17a6873ecbde9c63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a key-pair map to the given <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a>.  <a href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a749bdabf7794fa9d17a6873ecbde9c63">More...</a><br /></td></tr>
+<tr class="separator:a749bdabf7794fa9d17a6873ecbde9c63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99ca350e49b33d16cda5192499dcbbba"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
 <tr class="memitem:a99ca350e49b33d16cda5192499dcbbba"><td class="memTemplItemLeft" align="right" valign="top">juce::var&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a99ca350e49b33d16cda5192499dcbbba">fromEnum</a> (Type value)</td></tr>
 <tr class="memdesc:a99ca350e49b33d16cda5192499dcbbba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an enum type to a juce::var.  <a href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a99ca350e49b33d16cda5192499dcbbba">More...</a><br /></td></tr>
@@ -154,6 +158,45 @@ template&lt;class ContainerType &gt; </div>
 <p>Used for both loading and saving. </p>
 
 <p class="reference">References <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883">lemons::TreeReflector::add()</a>, <a class="el" href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2">lemons::serializing::getInterfaceForContainer()</a>, <a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a3cf377cb04beb02fcba0ada837b67bbc">getNumElementsOfType()</a>, <a class="el" href="structlemons_1_1TreeReflector.html#a7a88f53e45239d0b8d11cb2ce4dbefd0">lemons::TreeReflector::getRawDataTree()</a>, <a class="el" href="structlemons_1_1TreeReflector.html#ad8d42bdfb2093716fe60ba2196d54ac3">lemons::TreeReflector::isLoading()</a>, and <a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#ac6585e687d1ccbcbb445bfc3f69d345a">makePropertyNameForElement()</a>.</p>
+
+</div>
+</div>
+<a id="a749bdabf7794fa9d17a6873ecbde9c63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a749bdabf7794fa9d17a6873ecbde9c63">&#9670;&nbsp;</a></span>addMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class MapType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void lemons::serializing::TreeReflectorHelpers::addMap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlemons_1_1TreeReflector.html">TreeReflector</a> &amp;&#160;</td>
+          <td class="paramname"><em>ref</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MapType &amp;&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>propertyName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a key-pair map to the given <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a>. </p>
+<p>Used for both loading and saving. </p>
 
 </div>
 </div>
@@ -477,7 +520,7 @@ template&lt;typename Type &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 3 2021 06:27:00 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 3 2021 06:56:46 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
