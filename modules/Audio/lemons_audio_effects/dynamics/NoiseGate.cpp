@@ -15,6 +15,8 @@ NoiseGate< SampleType >::NoiseGate()
 template < typename SampleType >
 NoiseGate< SampleType >::NoiseGate (float threshDB, float ratioToUse, float attackMs, float releaseMs, bool shouldBeInverted)
 {
+    inverted = shouldBeInverted;
+
     RMSFilter.setLevelCalculationType (juce::dsp::BallisticsFilterLevelCalculationType::RMS);
     RMSFilter.setAttackTime (static_cast< SampleType > (0.0));
     RMSFilter.setReleaseTime (static_cast< SampleType > (50.0));

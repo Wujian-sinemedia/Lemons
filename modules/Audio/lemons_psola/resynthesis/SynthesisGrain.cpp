@@ -2,19 +2,19 @@
 namespace lemons::dsp::psola
 {
 template < typename SampleType >
-SynthesisGrain< SampleType >::SynthesisGrain (const Storage& storageToUse)
+Shifter< SampleType >::Grain::Grain (const Storage& storageToUse)
     : storage (storageToUse)
 {
 }
 
 template < typename SampleType >
-bool SynthesisGrain< SampleType >::isActive() const
+bool Shifter< SampleType >::Grain::isActive() const
 {
     return active;
 }
 
 template < typename SampleType >
-void SynthesisGrain< SampleType >::startNewGrain (int start, int length)
+void Shifter< SampleType >::Grain::startNewGrain (int start, int length)
 {
     active      = true;
     startIndex  = start;
@@ -45,7 +45,7 @@ template double getWindowValue (int, int) noexcept;
 /*-------------------------------------------------------------*/
 
 template < typename SampleType >
-SampleType SynthesisGrain< SampleType >::getNextSample()
+SampleType Shifter< SampleType >::Grain::getNextSample()
 {
     jassert (grainLength > 0);
 
@@ -58,8 +58,5 @@ SampleType SynthesisGrain< SampleType >::getNextSample()
 
     return sample;
 }
-
-template class SynthesisGrain< float >;
-template class SynthesisGrain< double >;
 
 }  // namespace lemons::dsp::psola

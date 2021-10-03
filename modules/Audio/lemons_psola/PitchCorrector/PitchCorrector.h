@@ -7,6 +7,10 @@
 
 namespace lemons::dsp::psola
 {
+/** This class attempts to guess the correct pitch for a given input signal, and performs PSOLA pitch shifting to provide a pitch corrected output.
+    This base class references an external Analyzer object. The PitchCorrector class holds its own Analyzer.
+    @see Analyzer, Shifter, PitchCorrector
+ */
 template < typename SampleType >
 class PitchCorrectorBase
 {
@@ -14,15 +18,25 @@ public:
     using AudioBuffer = juce::AudioBuffer< SampleType >;
     using Analyzer    = dsp::psola::Analyzer< SampleType >;
 
+    /** Creates a pitch corrector. */
     PitchCorrectorBase (Analyzer& analyzerToUse, const midi::PitchPipeline* pitchConverterToUse = nullptr);
 
+    /** Destructor. */
+    virtual ~PitchCorrectorBase() = default;
+
+    /** Processes the next frame of audio. */
     void processNextFrame (AudioBuffer& output);
 
+    /** Prepares the pitch corrector. */
     void prepare (double samplerate);
 
-    int   getOutputMidiPitch() const;
+    /** Returns the pitch that the output is being corrected to, as a MIDI pitch. */
+    int getOutputMidiPitch() const;
+
+    /** Returns the pitch that the output is being corrected to, as a frequency in Hz. */
     float getOutputFreq() const;
 
+    /** Returns the number of cents sharp that the input signal is from the pitch it's being corrected to. */
     int getCentsSharp() const;
 
 private:
@@ -43,6 +57,9 @@ private:
 };
 
 
+/** This class attempts to guess the correct pitch for a given input signal, and performs PSOLA pitch shifting to provide a pitch corrected output.
+    @see Analyzer, Shifter, PitchCorrector
+ */
 template < typename SampleType >
 class PitchCorrector : public PitchCorrectorBase< SampleType >
 {

@@ -1,8 +1,65 @@
 
 namespace lemons::dsp::psola
 {
+static inline void sortSampleIndicesForPeakSearching (
+    juce::Array< int >& output,
+    int                 startSample,
+    int                 endSample,
+    int                 predictedPeak)
+{
+    jassert (predictedPeak >= startSample && predictedPeak <= endSample);
+
+    output.clearQuick();
+
+    output.set (0, predictedPeak);
+
+    int p = 1, m = -1;
+
+    for (int n = 1; n < (endSample - startSample); ++n)
+    {
+        const auto pos = predictedPeak + p;
+        const auto neg = predictedPeak + m;
+
+        if (n % 2 == 0)  // n is even
+        {
+            if (neg >= startSample)
+            {
+                output.set (n, neg);
+                --m;
+            }
+            else
+            {
+                jassert (pos <= endSample);
+                output.set (n, pos);
+                ++p;
+            }
+        }
+        else
+        {
+            if (pos <= endSample)
+            {
+                output.set (n, pos);
+                ++p;
+            }
+            else
+            {
+                jassert (neg >= startSample);
+                output.set (n, neg);
+                --m;
+            }
+        }
+    }
+}
+
+
+static inline double weighting_func (int index, int predicted, int numSamples)
+{
+    return 1.0 - ((double) (std::abs (index - predicted) / (double) numSamples) * 0.5);
+}
+
+
 template < typename SampleType >
-void PeakFinder< SampleType >::releaseResources()
+void Analyzer< SampleType >::PeakFinder::releaseResources()
 {
     peakIndices.clear();
     peakCandidates.clear();
@@ -13,7 +70,7 @@ void PeakFinder< SampleType >::releaseResources()
 }
 
 template < typename SampleType >
-void PeakFinder< SampleType >::prepare (int maxBlocksize)
+void Analyzer< SampleType >::PeakFinder::prepare (int maxBlocksize)
 {
     jassert (maxBlocksize > 0);
 
@@ -32,10 +89,10 @@ void PeakFinder< SampleType >::prepare (int maxBlocksize)
 }
 
 template < typename SampleType >
-void PeakFinder< SampleType >::findPeaks (IArray&           targetArray,
-                                          const SampleType* reading,
-                                          int               totalNumSamples,
-                                          int               period)
+void Analyzer< SampleType >::PeakFinder::findPeaks (IArray&           targetArray,
+                                                    const SampleType* reading,
+                                                    int               totalNumSamples,
+                                                    int               period)
 {
     targetArray.clearQuick();
 
@@ -88,13 +145,13 @@ void PeakFinder< SampleType >::findPeaks (IArray&           targetArray,
 
 
 template < typename SampleType >
-int PeakFinder< SampleType >::findNextPeak (int               frameStart,
-                                            int               frameEnd,
-                                            int               predictedPeak,
-                                            const SampleType* reading,
-                                            const IArray&     targetArray,
-                                            int               period,
-                                            int               grainSize)
+int Analyzer< SampleType >::PeakFinder::findNextPeak (int               frameStart,
+                                                      int               frameEnd,
+                                                      int               predictedPeak,
+                                                      const SampleType* reading,
+                                                      const IArray&     targetArray,
+                                                      int               period,
+                                                      int               grainSize)
 {
     jassert (frameEnd > frameStart);
     jassert (predictedPeak >= frameStart && predictedPeak <= frameEnd);
@@ -139,88 +196,7 @@ int PeakFinder< SampleType >::findNextPeak (int               frameStart,
 
 
 template < typename SampleType >
-void PeakFinder< SampleType >::getPeakCandidateInRange (
-    IArray&           candidates,
-    const SampleType* input,
-    int               startSample,
-    int               endSample,
-    int               predictedPeak,
-    const IArray&     searchingOrder)
-{
-    jassert (! searchingOrder.isEmpty());
-
-    int starting = -1;
-
-    for (int poss : searchingOrder)
-    {
-        if (! candidates.contains (poss))
-        {
-            starting = poss;
-            break;
-        }
-    }
-
-    if (starting == -1) return;
-
-    jassert (starting >= startSample && starting <= endSample);
-
-    const auto weight = [] (int index, int predicted, int numSamples)
-    {
-        return static_cast< SampleType > (
-            1.0 - ((abs (index - predicted) / numSamples) * 0.5));
-    };
-
-    const auto numSamples = endSample - startSample;
-
-    auto localMin        = input[starting] * weight (starting, predictedPeak, numSamples);
-    auto localMax        = localMin;
-    auto indexOfLocalMin = starting;
-    auto indexOfLocalMax = starting;
-
-    for (int index : searchingOrder)
-    {
-        if (index == starting || candidates.contains (index)) continue;
-
-        jassert (index >= startSample && index <= endSample);
-
-        const auto currentSample =
-            input[index] * weight (index, predictedPeak, numSamples);
-
-        if (currentSample < localMin)
-        {
-            localMin        = currentSample;
-            indexOfLocalMin = index;
-        }
-
-        if (currentSample > localMax)
-        {
-            localMax        = currentSample;
-            indexOfLocalMax = index;
-        }
-    }
-
-    if (indexOfLocalMax == indexOfLocalMin)
-    {
-        candidates.add (indexOfLocalMax);
-    }
-    else if (localMax < SampleType (0.0))
-    {
-        candidates.add (indexOfLocalMin);
-    }
-    else if (localMin > SampleType (0.0))
-    {
-        candidates.add (indexOfLocalMax);
-    }
-    else
-    {
-        candidates.add (std::min (indexOfLocalMax, indexOfLocalMin));
-        candidates.add (std::max (indexOfLocalMax, indexOfLocalMin));
-    }
-}
-
-
-template < typename SampleType >
-int PeakFinder< SampleType >::chooseIdealPeakCandidate (
+int Analyzer< SampleType >::PeakFinder::chooseIdealPeakCandidate (
     const IArray&     candidates,
     const SampleType* reading,
     int               deltaTarget1,
@@ -303,10 +279,83 @@ int PeakFinder< SampleType >::chooseIdealPeakCandidate (
     return chosenPeak;
 }
 
+template < typename SampleType >
+void Analyzer< SampleType >::PeakFinder::getPeakCandidateInRange (
+    juce::Array< int >&       candidates,
+    const SampleType*         input,
+    int                       startSample,
+    int                       endSample,
+    int                       predictedPeak,
+    const juce::Array< int >& searchingOrder)
+{
+    jassert (! searchingOrder.isEmpty());
+
+    int starting = -1;
+
+    for (int poss : searchingOrder)
+    {
+        if (! candidates.contains (poss))
+        {
+            starting = poss;
+            break;
+        }
+    }
+
+    if (starting == -1) return;
+
+    jassert (starting >= startSample && starting <= endSample);
+
+    const auto numSamples = endSample - startSample;
+
+    auto localMin        = input[starting] * static_cast< SampleType > (weighting_func (starting, predictedPeak, numSamples));
+    auto localMax        = localMin;
+    auto indexOfLocalMin = starting;
+    auto indexOfLocalMax = starting;
+
+    for (int index : searchingOrder)
+    {
+        if (index == starting || candidates.contains (index)) continue;
+
+        jassert (index >= startSample && index <= endSample);
+
+        const auto currentSample =
+            input[index] * static_cast< SampleType > (weighting_func (index, predictedPeak, numSamples));
+
+        if (currentSample < localMin)
+        {
+            localMin        = currentSample;
+            indexOfLocalMin = index;
+        }
+
+        if (currentSample > localMax)
+        {
+            localMax        = currentSample;
+            indexOfLocalMax = index;
+        }
+    }
+
+    if (indexOfLocalMax == indexOfLocalMin)
+    {
+        candidates.add (indexOfLocalMax);
+    }
+    else if (localMax < SampleType (0.0))
+    {
+        candidates.add (indexOfLocalMin);
+    }
+    else if (localMin > SampleType (0.0))
+    {
+        candidates.add (indexOfLocalMax);
+    }
+    else
+    {
+        candidates.add (std::min (indexOfLocalMax, indexOfLocalMin));
+        candidates.add (std::max (indexOfLocalMax, indexOfLocalMin));
+    }
+}
 
 template < typename SampleType >
-int PeakFinder< SampleType >::choosePeakWithGreatestPower (
-    const IArray& candidates, const SampleType* reading)
+int Analyzer< SampleType >::PeakFinder::choosePeakWithGreatestPower (
+    const juce::Array< int >& candidates, const SampleType* reading)
 {
     auto strongestPeakIndex = candidates.getUnchecked (0);
     auto strongestPeak      = abs (reading[strongestPeakIndex]);
@@ -325,59 +374,5 @@ int PeakFinder< SampleType >::choosePeakWithGreatestPower (
     return strongestPeakIndex;
 }
 
-
-template < typename SampleType >
-void PeakFinder< SampleType >::sortSampleIndicesForPeakSearching (
-    IArray& output,  // array to write the sorted sample indices to
-    int     startSample,
-    int     endSample,
-    int     predictedPeak)
-{
-    jassert (predictedPeak >= startSample && predictedPeak <= endSample);
-
-    output.clearQuick();
-
-    output.set (0, predictedPeak);
-
-    int p = 1, m = -1;
-
-    for (int n = 1; n < (endSample - startSample); ++n)
-    {
-        const auto pos = predictedPeak + p;
-        const auto neg = predictedPeak + m;
-
-        if (n % 2 == 0)  // n is even
-        {
-            if (neg >= startSample)
-            {
-                output.set (n, neg);
-                --m;
-            }
-            else
-            {
-                jassert (pos <= endSample);
-                output.set (n, pos);
-                ++p;
-            }
-        }
-        else
-        {
-            if (pos <= endSample)
-            {
-                output.set (n, pos);
-                ++p;
-            }
-            else
-            {
-                jassert (neg >= startSample);
-                output.set (n, neg);
-                --m;
-            }
-        }
-    }
-}
-
-template class PeakFinder< float >;
-template class PeakFinder< double >;
 
 }  // namespace lemons::dsp::psola

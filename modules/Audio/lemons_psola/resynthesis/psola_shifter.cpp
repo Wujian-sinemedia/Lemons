@@ -3,7 +3,7 @@ namespace lemons::dsp::psola
 {
 template < typename SampleType >
 Shifter< SampleType >::Shifter (Analyzer< SampleType >& parentAnalyzer)
-    : analyzer (parentAnalyzer), l (analyzer.getBroadcaster(), [this]
+    : analyzer (parentAnalyzer), l (analyzer.broadcaster, [this]
                                     { this->currentSample = 0; })
 {
     while (grains.size() < 40)
@@ -66,7 +66,7 @@ void Shifter< SampleType >::startNewGrain()
 }
 
 template < typename SampleType >
-SynthesisGrain< SampleType >* Shifter< SampleType >::getAvailableGrain() const
+typename Shifter< SampleType >::Grain* Shifter< SampleType >::getAvailableGrain() const
 {
     for (auto* grain : grains)
         if (! grain->isActive())

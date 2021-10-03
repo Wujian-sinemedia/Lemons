@@ -54,18 +54,6 @@ int Analyzer< SampleType >::getNextUnpitchedPeriod()
 }
 
 template < typename SampleType >
-const AnalysisGrainStorage< SampleType >& Analyzer< SampleType >::getStorage() const
-{
-    return grainStorage;
-}
-
-template < typename SampleType >
-events::Broadcaster& Analyzer< SampleType >::getBroadcaster()
-{
-    return broadcaster;
-}
-
-template < typename SampleType >
 int Analyzer< SampleType >::getPeriod() const
 {
     return currentPeriod;

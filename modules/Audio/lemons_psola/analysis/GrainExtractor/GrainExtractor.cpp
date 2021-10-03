@@ -2,14 +2,14 @@
 namespace lemons::dsp::psola
 {
 template < typename SampleType >
-void AnalysisGrainExtractor< SampleType >::releaseResources()
+void Analyzer< SampleType >::GrainExtractor::releaseResources()
 {
     peakFinder.releaseResources();
 }
 
 
 template < typename SampleType >
-void AnalysisGrainExtractor< SampleType >::prepare (int blocksize)
+void Analyzer< SampleType >::GrainExtractor::prepare (int blocksize)
 {
     grainStartIndices.ensureStorageAllocated (blocksize);
     peakFinder.prepare (blocksize);
@@ -17,9 +17,9 @@ void AnalysisGrainExtractor< SampleType >::prepare (int blocksize)
 
 
 template < typename SampleType >
-void AnalysisGrainExtractor< SampleType >::analyzeInput (const SampleType* inputSamples,
-                                                         int               numSamples,
-                                                         int               period)
+void Analyzer< SampleType >::GrainExtractor::analyzeInput (const SampleType* inputSamples,
+                                                           int               numSamples,
+                                                           int               period)
 {
     // identify  peak indices for each pitch period & places them in the peakIndices array
 
@@ -72,14 +72,9 @@ void AnalysisGrainExtractor< SampleType >::analyzeInput (const SampleType* input
 }
 
 template < typename SampleType >
-const juce::Array< int >& AnalysisGrainExtractor< SampleType >::getIndices() const
+const juce::Array< int >& Analyzer< SampleType >::GrainExtractor::getIndices() const
 {
     return grainStartIndices;
 }
-
-
-template class AnalysisGrainExtractor< float >;
-template class AnalysisGrainExtractor< double >;
-
 
 }  // namespace lemons::dsp::psola

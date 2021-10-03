@@ -2,11 +2,11 @@
 
 
 #include "analysis/psola_analyzer.cpp"
-#include "analysis/Grains/GrainExtractor/GrainExtractor.cpp"
-#include "analysis/Grains/GrainExtractor/PeakFinder.cpp"
-#include "analysis/Grains/GrainStorage/GrainStorage.cpp"
+#include "analysis/GrainExtractor/GrainExtractor.cpp"
+#include "analysis/GrainExtractor/PeakFinder.cpp"
+#include "analysis/GrainStorage/GrainStorage.cpp"
 
 #include "resynthesis/psola_shifter.cpp"
-#include "resynthesis/Grains/SynthesisGrain.cpp"
+#include "resynthesis/SynthesisGrain.cpp"
 
 #include "PitchCorrector/PitchCorrector.cpp"
