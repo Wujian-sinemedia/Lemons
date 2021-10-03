@@ -70,7 +70,8 @@ private:
         return width > 0 && height > 0;
     }
 
-    int w, h;
+    const int w;
+    const int h;
 };
 
 }  // namespace lemons::plugin
