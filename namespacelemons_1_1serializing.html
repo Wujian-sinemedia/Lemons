@@ -159,6 +159,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a2487acb4af683b23c36066e5d8caca34"><td class="memTemplItemLeft" align="right" valign="top">ObjectType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a2487acb4af683b23c36066e5d8caca34">fromBinaryCreate</a> (File file)</td></tr>
 <tr class="memdesc:a2487acb4af683b23c36066e5d8caca34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new object from the state saved in the file.  <a href="namespacelemons_1_1serializing.html#a2487acb4af683b23c36066e5d8caca34">More...</a><br /></td></tr>
 <tr class="separator:a2487acb4af683b23c36066e5d8caca34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf189c69d03ade2de6bf05bdfc1ad6e8"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
+<tr class="memitem:acf189c69d03ade2de6bf05bdfc1ad6e8"><td class="memTemplItemLeft" align="right" valign="top">juce::var&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#acf189c69d03ade2de6bf05bdfc1ad6e8">fromEnum</a> (Type value)</td></tr>
+<tr class="memdesc:acf189c69d03ade2de6bf05bdfc1ad6e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an enum type to a juce::var.  <a href="namespacelemons_1_1serializing.html#acf189c69d03ade2de6bf05bdfc1ad6e8">More...</a><br /></td></tr>
+<tr class="separator:acf189c69d03ade2de6bf05bdfc1ad6e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2913994bf9e1138ac4f7b70ddaa7b632"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a2913994bf9e1138ac4f7b70ddaa7b632">fromJSON</a> (const File &amp;file, <a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;dest)</td></tr>
 <tr class="memdesc:a2913994bf9e1138ac4f7b70ddaa7b632"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deserializes an object from a JSON file.  <a href="namespacelemons_1_1serializing.html#a2913994bf9e1138ac4f7b70ddaa7b632">More...</a><br /></td></tr>
 <tr class="separator:a2913994bf9e1138ac4f7b70ddaa7b632"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -239,6 +243,10 @@ Functions</h2></td></tr>
 <tr class="memitem:ac6bc185517e15eeeaac3e5695a07993f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#ac6bc185517e15eeeaac3e5695a07993f">toBinary</a> (<a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;data, juce::MemoryBlock &amp;dest)</td></tr>
 <tr class="memdesc:ac6bc185517e15eeeaac3e5695a07993f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the state of an object to a juce::MemoryBlock.  <a href="namespacelemons_1_1serializing.html#ac6bc185517e15eeeaac3e5695a07993f">More...</a><br /></td></tr>
 <tr class="separator:ac6bc185517e15eeeaac3e5695a07993f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42f4186dc5701be7dccc2f892e4209e1"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
+<tr class="memitem:a42f4186dc5701be7dccc2f892e4209e1"><td class="memTemplItemLeft" align="right" valign="top">Type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a42f4186dc5701be7dccc2f892e4209e1">toEnum</a> (const juce::var &amp;var)</td></tr>
+<tr class="memdesc:a42f4186dc5701be7dccc2f892e4209e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a juce::var to a specified enum type.  <a href="namespacelemons_1_1serializing.html#a42f4186dc5701be7dccc2f892e4209e1">More...</a><br /></td></tr>
+<tr class="separator:a42f4186dc5701be7dccc2f892e4209e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56277361c7ff673091449ef6626be988"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a56277361c7ff673091449ef6626be988">toJSON</a> (<a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;source)</td></tr>
 <tr class="memdesc:a56277361c7ff673091449ef6626be988"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes an object to a JSON string.  <a href="namespacelemons_1_1serializing.html#a56277361c7ff673091449ef6626be988">More...</a><br /></td></tr>
 <tr class="separator:a56277361c7ff673091449ef6626be988"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -581,6 +589,28 @@ template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableD
 </dl>
 
 <p class="reference">References <a class="el" href="namespacelemons_1_1serializing.html#a47707d97df8e371fd661c3cf03ed1490">fromBinary()</a>.</p>
+
+</div>
+</div>
+<a id="acf189c69d03ade2de6bf05bdfc1ad6e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf189c69d03ade2de6bf05bdfc1ad6e8">&#9670;&nbsp;</a></span>fromEnum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::var lemons::serializing::fromEnum </td>
+          <td>(</td>
+          <td class="paramtype">Type&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts an enum type to a juce::var. </p>
 
 </div>
 </div>
@@ -1336,6 +1366,28 @@ Use the XML- and JSON-specific functions in this namespace to explicitly use eit
 
 </div>
 </div>
+<a id="a42f4186dc5701be7dccc2f892e4209e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42f4186dc5701be7dccc2f892e4209e1">&#9670;&nbsp;</a></span>toEnum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Type lemons::serializing::toEnum </td>
+          <td>(</td>
+          <td class="paramtype">const juce::var &amp;&#160;</td>
+          <td class="paramname"><em>var</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts a juce::var to a specified enum type. </p>
+
+</div>
+</div>
 <a id="a56277361c7ff673091449ef6626be988"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a56277361c7ff673091449ef6626be988">&#9670;&nbsp;</a></span>toJSON() <span class="overload">[1/2]</span></h2>
 
@@ -1530,8 +1582,6 @@ As a general rule, you shouldn't need to implement <a class="el" href="namespace
 <div class="line">};</div>
 </div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b" title="Implement this function and toVar() for any custom type to allow easily serialization using TreeRefle...">fromVar()</a>, <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a>, <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a> </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#aaa8764612b1138f1743496ae85380324">lemons::serializing::TreeReflectorHelpers::saveObject()</a>.</p>
-
 </div>
 </div>
 <a id="a19051971222b714020a7e957034bcd1a"></a>
@@ -1628,13 +1678,13 @@ As a general rule, you shouldn't need to implement <a class="el" href="namespace
 <div class="ttc" id="anamespacelemons_1_1serializing_html_a713bb9525856a131f6897cdd045d5bc4"><div class="ttname"><a href="namespacelemons_1_1serializing.html#a713bb9525856a131f6897cdd045d5bc4">lemons::serializing::toVar</a></div><div class="ttdeci">juce::var toVar(Type &amp;object)</div><div class="ttdoc">Implement this function and fromVar() for any custom type to allow easily serialization using TreeRef...</div><div class="ttdef"><b>Definition:</b> VarConversion.h:46</div></div>
 <div class="ttc" id="astructlemons_1_1SerializableData_html"><div class="ttname"><a href="structlemons_1_1SerializableData.html">lemons::SerializableData</a></div><div class="ttdoc">Base class for any C++ object that needs to be serialized to binary and back.</div><div class="ttdef"><b>Definition:</b> SerializableData.h:12</div></div>
 <div class="ttc" id="astructlemons_1_1serializing_1_1ContainerInterface_html"><div class="ttname"><a href="structlemons_1_1serializing_1_1ContainerInterface.html">lemons::serializing::ContainerInterface</a></div><div class="ttdoc">Interface that defines how a TreeReflector can resize a given container during deserialization.</div><div class="ttdef"><b>Definition:</b> ContainerInterface.h:13</div></div>
-<div class="ttc" id="astructlemons_1_1TreeReflector_html_aa0c4f2b619acd9a3287a1f27d4c23883"><div class="ttname"><a href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883">lemons::TreeReflector::add</a></div><div class="ttdeci">void add(const String &amp;propertyName, Type &amp;object)</div><div class="ttdoc">Binds a named ValueTree property to a data member of your object.</div><div class="ttdef"><b>Definition:</b> Common/lemons_serializing/SerializableData/TreeReflector/detail/detail.h:8</div></div>
+<div class="ttc" id="astructlemons_1_1TreeReflector_html_aa0c4f2b619acd9a3287a1f27d4c23883"><div class="ttname"><a href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883">lemons::TreeReflector::add</a></div><div class="ttdeci">void add(const String &amp;propertyName, Type &amp;object)</div><div class="ttdoc">Binds a named ValueTree property to a data member of your object.</div><div class="ttdef"><b>Definition:</b> Common/lemons_serializing/SerializableData/TreeReflector/detail/detail.h:28</div></div>
 <div class="ttc" id="anamespacelemons_html"><div class="ttname"><a href="namespacelemons.html">lemons</a></div><div class="ttdef"><b>Definition:</b> DefaultWindow.h:6</div></div>
 <div class="ttc" id="anamespacelemons_1_1serializing_html_a947d1fd48af7f4413f461f6c741d5fc2"><div class="ttname"><a href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2">lemons::serializing::getInterfaceForContainer</a></div><div class="ttdeci">std::unique_ptr&lt; ContainerInterface &gt; getInterfaceForContainer(ContainerType &amp;)</div><div class="ttdoc">Template function that returns an instance of the correct ContainerInterface for the given container.</div></div>
 <div class="ttc" id="anamespacelemons_1_1serializing_html_abd30f255b2b10402a940e2260f7ede3b"><div class="ttname"><a href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b">lemons::serializing::fromVar</a></div><div class="ttdeci">Type fromVar(juce::var var)</div><div class="ttdoc">Implement this function and toVar() for any custom type to allow easily serialization using TreeRefle...</div><div class="ttdef"><b>Definition:</b> VarConversion.h:92</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 3 2021 06:56:46 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 3 2021 07:36:11 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

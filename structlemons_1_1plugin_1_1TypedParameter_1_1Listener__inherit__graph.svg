@@ -51,7 +51,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="structlemons_1_1plugin_1_1Parameter_1_1Listener.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="structlemons_1_1plugin_1_1Parameter_1_1Listener.html" target="_top" xlink:title="A Listener class that will be notified when aspects of a Parameter change.">
 <polygon fill="none" stroke="black" points="65.5,-123.5 65.5,-153.5 210.5,-153.5 210.5,-123.5 65.5,-123.5"/>
 <text text-anchor="start" x="73.5" y="-141.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::Parameter</text>
 <text text-anchor="middle" x="138" y="-130.5" font-family="Helvetica,sans-Serif" font-size="10.00">::Listener</text>

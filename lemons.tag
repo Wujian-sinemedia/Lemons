@@ -306,6 +306,21 @@
     <filename>Common_2lemons__serializing_2SerializableData_2TreeReflector_2detail_2detail_8h.html</filename>
     <includes id="helpers_8h" name="helpers.h" local="yes" imported="no">helpers.h</includes>
     <namespace>lemons</namespace>
+    <namespace>lemons::serializing</namespace>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>fromEnum</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>acf189c69d03ade2de6bf05bdfc1ad6e8</anchor>
+      <arglist>(Type value)</arglist>
+    </member>
+    <member kind="function">
+      <type>Type</type>
+      <name>toEnum</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a42f4186dc5701be7dccc2f892e4209e1</anchor>
+      <arglist>(const juce::var &amp;var)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>Plugins/lemons_plugin_parameters/RealtimeStateObject/detail.h</name>
@@ -531,39 +546,11 @@
       <arglist>(TreeReflector &amp;ref, MapType &amp;map, const String &amp;propertyName)</arglist>
     </member>
     <member kind="function">
-      <type>juce::var</type>
-      <name>fromEnum</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a99ca350e49b33d16cda5192499dcbbba</anchor>
-      <arglist>(Type value)</arglist>
-    </member>
-    <member kind="function">
       <type>int</type>
       <name>getNumElementsOfType</name>
       <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
       <anchor>a3cf377cb04beb02fcba0ada837b67bbc</anchor>
       <arglist>(const String &amp;propertyName, const ValueTree &amp;tree)</arglist>
-    </member>
-    <member kind="function">
-      <type>constexpr bool</type>
-      <name>isSerializable</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>ab7e81ced14bbe881c6a95f9fa201b3a0</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>loadObject</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a47d2bc99dfbb4967cc83c15984bbc483</anchor>
-      <arglist>(const ValueTree &amp;tree, const String &amp;propertyName, Type &amp;object)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>loadValueTree</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a78c3142c99783b1055c4f23e4124a607</anchor>
-      <arglist>(const ValueTree &amp;tree, const String &amp;propertyName, ValueTree &amp;data)</arglist>
     </member>
     <member kind="function">
       <type>String</type>
@@ -578,27 +565,6 @@
       <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
       <anchor>a74fbae7ad15a8c2708942fa0169527af</anchor>
       <arglist>(const String &amp;propertyName)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>saveObject</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>aaa8764612b1138f1743496ae85380324</anchor>
-      <arglist>(ValueTree &amp;tree, const String &amp;propertyName, Type &amp;object)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>saveValueTree</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>aedb97075ee17bd5f2d061c1f4a6fe9bf</anchor>
-      <arglist>(ValueTree &amp;tree, const String &amp;propertyName, ValueTree &amp;data)</arglist>
-    </member>
-    <member kind="function">
-      <type>Type</type>
-      <name>toEnum</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a2e8405392c21e97b1e8700f89eb2e153</anchor>
-      <arglist>(const juce::var &amp;var)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -19388,6 +19354,13 @@
       <arglist>(File file)</arglist>
     </member>
     <member kind="function">
+      <type>juce::var</type>
+      <name>fromEnum</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>acf189c69d03ade2de6bf05bdfc1ad6e8</anchor>
+      <arglist>(Type value)</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>fromJSON</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
@@ -19542,6 +19515,13 @@
       <arglist>(SerializableData &amp;data, juce::MemoryBlock &amp;dest)</arglist>
     </member>
     <member kind="function">
+      <type>Type</type>
+      <name>toEnum</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a42f4186dc5701be7dccc2f892e4209e1</anchor>
+      <arglist>(const juce::var &amp;var)</arglist>
+    </member>
+    <member kind="function">
       <type>String</type>
       <name>toJSON</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
@@ -19637,39 +19617,11 @@
       <arglist>(TreeReflector &amp;ref, MapType &amp;map, const String &amp;propertyName)</arglist>
     </member>
     <member kind="function">
-      <type>juce::var</type>
-      <name>fromEnum</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a99ca350e49b33d16cda5192499dcbbba</anchor>
-      <arglist>(Type value)</arglist>
-    </member>
-    <member kind="function">
       <type>int</type>
       <name>getNumElementsOfType</name>
       <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
       <anchor>a3cf377cb04beb02fcba0ada837b67bbc</anchor>
       <arglist>(const String &amp;propertyName, const ValueTree &amp;tree)</arglist>
-    </member>
-    <member kind="function">
-      <type>constexpr bool</type>
-      <name>isSerializable</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>ab7e81ced14bbe881c6a95f9fa201b3a0</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>loadObject</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a47d2bc99dfbb4967cc83c15984bbc483</anchor>
-      <arglist>(const ValueTree &amp;tree, const String &amp;propertyName, Type &amp;object)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>loadValueTree</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a78c3142c99783b1055c4f23e4124a607</anchor>
-      <arglist>(const ValueTree &amp;tree, const String &amp;propertyName, ValueTree &amp;data)</arglist>
     </member>
     <member kind="function">
       <type>String</type>
@@ -19684,27 +19636,6 @@
       <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
       <anchor>a74fbae7ad15a8c2708942fa0169527af</anchor>
       <arglist>(const String &amp;propertyName)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>saveObject</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>aaa8764612b1138f1743496ae85380324</anchor>
-      <arglist>(ValueTree &amp;tree, const String &amp;propertyName, Type &amp;object)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>saveValueTree</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>aedb97075ee17bd5f2d061c1f4a6fe9bf</anchor>
-      <arglist>(ValueTree &amp;tree, const String &amp;propertyName, ValueTree &amp;data)</arglist>
-    </member>
-    <member kind="function">
-      <type>Type</type>
-      <name>toEnum</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a2e8405392c21e97b1e8700f89eb2e153</anchor>
-      <arglist>(const juce::var &amp;var)</arglist>
     </member>
   </compound>
   <compound kind="namespace">

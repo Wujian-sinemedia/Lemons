@@ -7,7 +7,7 @@
 <area shape="rect" id="node23" href="$classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html" title="A class that encapsulates together all the kinds of oscillators, and allows you to seamlessly switch ..." alt="" coords="258,501,465,543"/>
 <area shape="rect" id="node24" href="$structlemons_1_1plugin_1_1Dimensions.html" title=" " alt="" coords="260,669,463,695"/>
 <area shape="rect" id="node25" href="$classlemons_1_1plugin_1_1ModulationManager.html" title=" " alt="" coords="262,720,461,761"/>
-<area shape="rect" id="node26" href="$classlemons_1_1plugin_1_1Parameter.html" title=" " alt="" coords="265,786,458,813"/>
+<area shape="rect" id="node26" href="$classlemons_1_1plugin_1_1Parameter.html" title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an..." alt="" coords="265,786,458,813"/>
 <area shape="rect" id="node35" href="$classlemons_1_1plugin_1_1ParameterList.html" title=" " alt="" coords="253,837,469,863"/>
 <area shape="rect" id="node36" href="$structlemons_1_1plugin_1_1ParamHolderBase.html" title=" " alt="" coords="240,887,483,914"/>
 <area shape="rect" id="node39" href="$structlemons_1_1plugin_1_1PluginState.html" title=" " alt="" coords="261,939,461,980"/>

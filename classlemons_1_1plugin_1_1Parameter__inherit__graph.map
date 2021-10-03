@@ -1,5 +1,5 @@
 <map id="lemons::plugin::Parameter" name="lemons::plugin::Parameter">
-<area shape="rect" id="node1" title=" " alt="" coords="240,323,433,350"/>
+<area shape="rect" id="node1" title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an..." alt="" coords="240,323,433,350"/>
 <area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1TypedParameter.html" title=" " alt="" coords="483,201,713,243"/>
 <area shape="rect" id="node10" href="$classlemons_1_1plugin_1_1TypedParameter.html" title=" " alt="" coords="830,332,1061,373"/>
 <area shape="rect" id="node2" href="$structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="5,323,191,350"/>

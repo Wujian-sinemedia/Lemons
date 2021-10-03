@@ -1,6 +1,6 @@
 <map id="lemons::plugin::FloatAmountParameter" name="lemons::plugin::FloatAmountParameter">
 <area shape="rect" id="node1" title=" " alt="" coords="5,229,216,271"/>
 <area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1TypedParameter.html" title=" " alt="" coords="49,155,172,181"/>
-<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1Parameter.html" title=" " alt="" coords="14,80,207,107"/>
+<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1Parameter.html" title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an..." alt="" coords="14,80,207,107"/>
 <area shape="rect" id="node4" href="$structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="18,5,203,32"/>
 </map>

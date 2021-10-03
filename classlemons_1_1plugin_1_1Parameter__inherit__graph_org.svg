@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an...">
 <polygon fill="#bfbfbf" stroke="black" points="176,-18 176,-37 321,-37 321,-18 176,-18"/>
 <text text-anchor="middle" x="248.5" y="-25" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::Parameter</text>
 </a>

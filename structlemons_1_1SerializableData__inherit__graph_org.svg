@@ -130,7 +130,7 @@
 <!-- Node27 -->
 <g id="node26" class="node">
 <title>Node27</title>
-<g id="a_node26"><a xlink:href="classlemons_1_1plugin_1_1Parameter.html" target="_top" xlink:title=" ">
+<g id="a_node26"><a xlink:href="classlemons_1_1plugin_1_1Parameter.html" target="_top" xlink:title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an...">
 <polygon fill="none" stroke="black" points="194.5,-430.5 194.5,-449.5 339.5,-449.5 339.5,-430.5 194.5,-430.5"/>
 <text text-anchor="middle" x="267" y="-437.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::Parameter</text>
 </a>

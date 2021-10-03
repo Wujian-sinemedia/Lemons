@@ -83,41 +83,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a749bdabf7794fa9d17a6873ecbde9c63"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a749bdabf7794fa9d17a6873ecbde9c63">addMap</a> (<a class="el" href="structlemons_1_1TreeReflector.html">TreeReflector</a> &amp;ref, MapType &amp;map, const String &amp;propertyName)</td></tr>
 <tr class="memdesc:a749bdabf7794fa9d17a6873ecbde9c63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a key-pair map to the given <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a>.  <a href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a749bdabf7794fa9d17a6873ecbde9c63">More...</a><br /></td></tr>
 <tr class="separator:a749bdabf7794fa9d17a6873ecbde9c63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99ca350e49b33d16cda5192499dcbbba"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
-<tr class="memitem:a99ca350e49b33d16cda5192499dcbbba"><td class="memTemplItemLeft" align="right" valign="top">juce::var&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a99ca350e49b33d16cda5192499dcbbba">fromEnum</a> (Type value)</td></tr>
-<tr class="memdesc:a99ca350e49b33d16cda5192499dcbbba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an enum type to a juce::var.  <a href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a99ca350e49b33d16cda5192499dcbbba">More...</a><br /></td></tr>
-<tr class="separator:a99ca350e49b33d16cda5192499dcbbba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3cf377cb04beb02fcba0ada837b67bbc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a3cf377cb04beb02fcba0ada837b67bbc">getNumElementsOfType</a> (const String &amp;propertyName, const ValueTree &amp;tree)</td></tr>
 <tr class="memdesc:a3cf377cb04beb02fcba0ada837b67bbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detects how many elements a given container contains.  <a href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a3cf377cb04beb02fcba0ada837b67bbc">More...</a><br /></td></tr>
 <tr class="separator:a3cf377cb04beb02fcba0ada837b67bbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7e81ced14bbe881c6a95f9fa201b3a0"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
-<tr class="memitem:ab7e81ced14bbe881c6a95f9fa201b3a0"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#ab7e81ced14bbe881c6a95f9fa201b3a0">isSerializable</a> ()</td></tr>
-<tr class="memdesc:ab7e81ced14bbe881c6a95f9fa201b3a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the given object inherits from <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> and is not const.  <a href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#ab7e81ced14bbe881c6a95f9fa201b3a0">More...</a><br /></td></tr>
-<tr class="separator:ab7e81ced14bbe881c6a95f9fa201b3a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47d2bc99dfbb4967cc83c15984bbc483"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
-<tr class="memitem:a47d2bc99dfbb4967cc83c15984bbc483"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a47d2bc99dfbb4967cc83c15984bbc483">loadObject</a> (const ValueTree &amp;tree, const String &amp;propertyName, Type &amp;object)</td></tr>
-<tr class="memdesc:a47d2bc99dfbb4967cc83c15984bbc483"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores the state of an object by retrieving the specified named property from the ValueTree, if it exists.  <a href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a47d2bc99dfbb4967cc83c15984bbc483">More...</a><br /></td></tr>
-<tr class="separator:a47d2bc99dfbb4967cc83c15984bbc483"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78c3142c99783b1055c4f23e4124a607"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a78c3142c99783b1055c4f23e4124a607">loadValueTree</a> (const ValueTree &amp;tree, const String &amp;propertyName, ValueTree &amp;data)</td></tr>
-<tr class="memdesc:a78c3142c99783b1055c4f23e4124a607"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores the state of a child ValueTree with the specified name.  <a href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a78c3142c99783b1055c4f23e4124a607">More...</a><br /></td></tr>
-<tr class="separator:a78c3142c99783b1055c4f23e4124a607"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6585e687d1ccbcbb445bfc3f69d345a"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#ac6585e687d1ccbcbb445bfc3f69d345a">makePropertyNameForElement</a> (const String &amp;propertyName, int index)</td></tr>
 <tr class="memdesc:ac6585e687d1ccbcbb445bfc3f69d345a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms a passed generic container element name and container index into a unique name for a given object.  <a href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#ac6585e687d1ccbcbb445bfc3f69d345a">More...</a><br /></td></tr>
 <tr class="separator:ac6585e687d1ccbcbb445bfc3f69d345a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74fbae7ad15a8c2708942fa0169527af"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a74fbae7ad15a8c2708942fa0169527af">propertyNameToContainerName</a> (const String &amp;propertyName)</td></tr>
 <tr class="memdesc:a74fbae7ad15a8c2708942fa0169527af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms the name of a single container element to a name for the container's sub-node.  <a href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a74fbae7ad15a8c2708942fa0169527af">More...</a><br /></td></tr>
 <tr class="separator:a74fbae7ad15a8c2708942fa0169527af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa8764612b1138f1743496ae85380324"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
-<tr class="memitem:aaa8764612b1138f1743496ae85380324"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#aaa8764612b1138f1743496ae85380324">saveObject</a> (ValueTree &amp;tree, const String &amp;propertyName, Type &amp;object)</td></tr>
-<tr class="memdesc:aaa8764612b1138f1743496ae85380324"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the state of an object by writing its juce::var representation to the ValueTree with the specified property name.  <a href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#aaa8764612b1138f1743496ae85380324">More...</a><br /></td></tr>
-<tr class="separator:aaa8764612b1138f1743496ae85380324"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedb97075ee17bd5f2d061c1f4a6fe9bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#aedb97075ee17bd5f2d061c1f4a6fe9bf">saveValueTree</a> (ValueTree &amp;tree, const String &amp;propertyName, ValueTree &amp;data)</td></tr>
-<tr class="memdesc:aedb97075ee17bd5f2d061c1f4a6fe9bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the state of a child ValueTree to a sub-node in the parent tree with the specified name.  <a href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#aedb97075ee17bd5f2d061c1f4a6fe9bf">More...</a><br /></td></tr>
-<tr class="separator:aedb97075ee17bd5f2d061c1f4a6fe9bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e8405392c21e97b1e8700f89eb2e153"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
-<tr class="memitem:a2e8405392c21e97b1e8700f89eb2e153"><td class="memTemplItemLeft" align="right" valign="top">Type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a2e8405392c21e97b1e8700f89eb2e153">toEnum</a> (const juce::var &amp;var)</td></tr>
-<tr class="memdesc:a2e8405392c21e97b1e8700f89eb2e153"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a juce::var to a specified enum type.  <a href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a2e8405392c21e97b1e8700f89eb2e153">More...</a><br /></td></tr>
-<tr class="separator:a2e8405392c21e97b1e8700f89eb2e153"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a336cf06a7997c2af3f7b8e17b0c6bcf1"></a>
@@ -200,30 +174,6 @@ template&lt;class MapType &gt; </div>
 
 </div>
 </div>
-<a id="a99ca350e49b33d16cda5192499dcbbba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99ca350e49b33d16cda5192499dcbbba">&#9670;&nbsp;</a></span>fromEnum()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Type &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">juce::var lemons::serializing::TreeReflectorHelpers::fromEnum </td>
-          <td>(</td>
-          <td class="paramtype">Type&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Converts an enum type to a juce::var. </p>
-
-<p class="reference">Referenced by <a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#aaa8764612b1138f1743496ae85380324">saveObject()</a>.</p>
-
-</div>
-</div>
 <a id="a3cf377cb04beb02fcba0ada837b67bbc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3cf377cb04beb02fcba0ada837b67bbc">&#9670;&nbsp;</a></span>getNumElementsOfType()</h2>
 
@@ -254,111 +204,6 @@ template&lt;typename Type &gt; </div>
 <p>Uses the same transformation as <a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#ac6585e687d1ccbcbb445bfc3f69d345a" title="Transforms a passed generic container element name and container index into a unique name for a given...">makePropertyNameForElement()</a> and counts how many valid indices it can find corresponding to existing property names. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#ac6585e687d1ccbcbb445bfc3f69d345a" title="Transforms a passed generic container element name and container index into a unique name for a given...">makePropertyNameForElement()</a> </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a336cf06a7997c2af3f7b8e17b0c6bcf1">addContainer()</a>.</p>
-
-</div>
-</div>
-<a id="ab7e81ced14bbe881c6a95f9fa201b3a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7e81ced14bbe881c6a95f9fa201b3a0">&#9670;&nbsp;</a></span>isSerializable()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Type &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool lemons::serializing::TreeReflectorHelpers::isSerializable </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns true if the given object inherits from <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> and is not const. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> </dd></dl>
-
-</div>
-</div>
-<a id="a47d2bc99dfbb4967cc83c15984bbc483"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47d2bc99dfbb4967cc83c15984bbc483">&#9670;&nbsp;</a></span>loadObject()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Type &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void lemons::serializing::TreeReflectorHelpers::loadObject </td>
-          <td>(</td>
-          <td class="paramtype">const ValueTree &amp;&#160;</td>
-          <td class="paramname"><em>tree</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const String &amp;&#160;</td>
-          <td class="paramname"><em>propertyName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Type &amp;&#160;</td>
-          <td class="paramname"><em>object</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Restores the state of an object by retrieving the specified named property from the ValueTree, if it exists. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b" title="Implement this function and toVar() for any custom type to allow easily serialization using TreeRefle...">serializing::fromVar()</a>, <a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a2e8405392c21e97b1e8700f89eb2e153" title="Converts a juce::var to a specified enum type.">toEnum()</a> </dd></dl>
-
-</div>
-</div>
-<a id="a78c3142c99783b1055c4f23e4124a607"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78c3142c99783b1055c4f23e4124a607">&#9670;&nbsp;</a></span>loadValueTree()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void lemons::serializing::TreeReflectorHelpers::loadValueTree </td>
-          <td>(</td>
-          <td class="paramtype">const ValueTree &amp;&#160;</td>
-          <td class="paramname"><em>tree</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const String &amp;&#160;</td>
-          <td class="paramname"><em>propertyName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">ValueTree &amp;&#160;</td>
-          <td class="paramname"><em>data</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Restores the state of a child ValueTree with the specified name. </p>
 
 </div>
 </div>
@@ -418,109 +263,10 @@ For example, passing "Item" will return "Items". </p>
 
 </div>
 </div>
-<a id="aaa8764612b1138f1743496ae85380324"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa8764612b1138f1743496ae85380324">&#9670;&nbsp;</a></span>saveObject()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Type &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void lemons::serializing::TreeReflectorHelpers::saveObject </td>
-          <td>(</td>
-          <td class="paramtype">ValueTree &amp;&#160;</td>
-          <td class="paramname"><em>tree</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const String &amp;&#160;</td>
-          <td class="paramname"><em>propertyName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Type &amp;&#160;</td>
-          <td class="paramname"><em>object</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Saves the state of an object by writing its juce::var representation to the ValueTree with the specified property name. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#a713bb9525856a131f6897cdd045d5bc4" title="Implement this function and fromVar() for any custom type to allow easily serialization using TreeRef...">serializing::toVar()</a>, <a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a99ca350e49b33d16cda5192499dcbbba" title="Converts an enum type to a juce::var.">fromEnum()</a> </dd></dl>
-
-<p class="reference">References <a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a99ca350e49b33d16cda5192499dcbbba">fromEnum()</a>, and <a class="el" href="namespacelemons_1_1serializing.html#a713bb9525856a131f6897cdd045d5bc4">lemons::serializing::toVar()</a>.</p>
-
-</div>
-</div>
-<a id="aedb97075ee17bd5f2d061c1f4a6fe9bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aedb97075ee17bd5f2d061c1f4a6fe9bf">&#9670;&nbsp;</a></span>saveValueTree()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void lemons::serializing::TreeReflectorHelpers::saveValueTree </td>
-          <td>(</td>
-          <td class="paramtype">ValueTree &amp;&#160;</td>
-          <td class="paramname"><em>tree</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const String &amp;&#160;</td>
-          <td class="paramname"><em>propertyName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">ValueTree &amp;&#160;</td>
-          <td class="paramname"><em>data</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Saves the state of a child ValueTree to a sub-node in the parent tree with the specified name. </p>
-
-</div>
-</div>
-<a id="a2e8405392c21e97b1e8700f89eb2e153"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e8405392c21e97b1e8700f89eb2e153">&#9670;&nbsp;</a></span>toEnum()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Type &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">Type lemons::serializing::TreeReflectorHelpers::toEnum </td>
-          <td>(</td>
-          <td class="paramtype">const juce::var &amp;&#160;</td>
-          <td class="paramname"><em>var</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Converts a juce::var to a specified enum type. </p>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 3 2021 06:56:46 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 3 2021 07:36:11 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

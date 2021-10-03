@@ -89,8 +89,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9fea8d69a8af84e38315c5d219784bb5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1ParamUpdater.html#a9fea8d69a8af84e38315c5d219784bb5">ParamUpdater</a> (<a class="el" href="classlemons_1_1plugin_1_1Parameter.html">Parameter</a> &amp;param, std::function&lt; void() &gt; onValueChange, std::function&lt; void(bool) &gt; onGestureChange={})</td></tr>
 <tr class="separator:a9fea8d69a8af84e38315c5d219784bb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82971aee6ae16d04100949930233e34c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1Parameter_1_1Listener.html#a82971aee6ae16d04100949930233e34c">controllerNumberChanged</a> (int newControllerNumber)</td></tr>
+<tr class="memdesc:a82971aee6ae16d04100949930233e34c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the MIDI controller that the parameter is mapped to changes.  <a href="structlemons_1_1plugin_1_1Parameter_1_1Listener.html#a82971aee6ae16d04100949930233e34c">More...</a><br /></td></tr>
 <tr class="separator:a82971aee6ae16d04100949930233e34c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac85d5f99aa0598753447d60ca98b0756"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1Parameter_1_1Listener.html#ac85d5f99aa0598753447d60ca98b0756">parameterDefaultChanged</a> (float newNormalizedDefault)</td></tr>
+<tr class="memdesc:ac85d5f99aa0598753447d60ca98b0756"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the default value of the parameter is changed.  <a href="structlemons_1_1plugin_1_1Parameter_1_1Listener.html#ac85d5f99aa0598753447d60ca98b0756">More...</a><br /></td></tr>
 <tr class="separator:ac85d5f99aa0598753447d60ca98b0756"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -153,6 +155,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Called when the MIDI controller that the parameter is mapped to changes. </p>
+<p>Note that when the parameter's MIDI CC mapping is removed, this function will be called in the listeners with a value of -1 for the controller number. </p>
+
 </div>
 </div>
 <a id="ac85d5f99aa0598753447d60ca98b0756"></a>
@@ -179,6 +184,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Called when the default value of the parameter is changed. </p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
@@ -187,7 +194,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 3 2021 06:56:46 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 3 2021 07:36:11 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

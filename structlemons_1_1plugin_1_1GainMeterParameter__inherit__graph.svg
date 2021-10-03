@@ -51,7 +51,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="classlemons_1_1plugin_1_1Parameter.html" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="classlemons_1_1plugin_1_1Parameter.html" target="_top" xlink:title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an...">
 <polygon fill="none" stroke="black" points="14,-179.5 14,-198.5 159,-198.5 159,-179.5 14,-179.5"/>
 <text text-anchor="middle" x="86.5" y="-186.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::Parameter</text>
 </a>
