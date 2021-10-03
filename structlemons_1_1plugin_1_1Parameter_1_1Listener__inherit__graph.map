@@ -1,7 +1,7 @@
 <map id="lemons::plugin::Parameter::Listener" name="lemons::plugin::Parameter::Listener">
 <area shape="rect" id="node1" title="A Listener class that will be notified when aspects of a Parameter change." alt="" coords="5,27,199,69"/>
 <area shape="rect" id="node2" href="$structlemons_1_1plugin_1_1ParamUpdater.html" title=" " alt="" coords="253,5,471,32"/>
-<area shape="rect" id="node3" href="$structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html" title=" " alt="" coords="247,57,477,98"/>
+<area shape="rect" id="node3" href="$structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html" title="A class that will recieve updates when aspects of a TypedParameter change." alt="" coords="247,57,477,98"/>
 <area shape="rect" id="node4" href="$classlemons_1_1gui_1_1FloatSlider.html" title="Plugin slider that attaches to a float parameter." alt="" coords="525,39,701,65"/>
 <area shape="rect" id="node5" href="$classlemons_1_1gui_1_1IntSlider.html" title="Plugin slider that attaches to an integer parameter." alt="" coords="533,89,693,116"/>
 </map>

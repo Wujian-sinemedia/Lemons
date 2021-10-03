@@ -20,7 +20,7 @@
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="classlemons_1_1plugin_1_1TypedParameter.html" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="classlemons_1_1plugin_1_1TypedParameter.html" target="_top" xlink:title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas...">
 <polygon fill="none" stroke="black" points="51,-56.5 51,-75.5 131,-75.5 131,-56.5 51,-56.5"/>
 <text text-anchor="middle" x="91" y="-63.5" font-family="Helvetica,sans-Serif" font-size="10.00">IntParameter</text>
 </a>

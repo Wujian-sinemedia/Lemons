@@ -626,7 +626,7 @@
 <!-- Node28 -->
 <g id="node27" class="node">
 <title>Node28</title>
-<g id="a_node27"><a xlink:href="classlemons_1_1plugin_1_1TypedParameter.html" target="_top" xlink:title=" ">
+<g id="a_node27"><a xlink:href="classlemons_1_1plugin_1_1TypedParameter.html" target="_top" xlink:title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas...">
 <polygon fill="none" stroke="black" points="484,-442 484,-472 657,-472 657,-442 484,-442"/>
 <text text-anchor="start" x="492" y="-460" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::TypedParameter</text>
 <text text-anchor="middle" x="570.5" y="-449" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; ValueType &gt;</text>
@@ -745,7 +745,7 @@
 <!-- Node36 -->
 <g id="node34" class="node">
 <title>Node36</title>
-<g id="a_node34"><a xlink:href="structlemons_1_1plugin_1_1BoolParameter.html" target="_top" xlink:title=" ">
+<g id="a_node34"><a xlink:href="structlemons_1_1plugin_1_1BoolParameter.html" target="_top" xlink:title="Helper struct that simplifies the constructor for boolean parameters.">
 <polygon fill="none" stroke="red" points="1129.5,-594.5 1129.5,-613.5 1296.5,-613.5 1296.5,-594.5 1129.5,-594.5"/>
 <text text-anchor="middle" x="1213" y="-601.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::BoolParameter</text>
 </a>

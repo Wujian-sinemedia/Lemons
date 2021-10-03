@@ -74,6 +74,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A class that will recieve updates when aspects of a <a class="el" href="classlemons_1_1plugin_1_1TypedParameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas...">TypedParameter</a> change.  
+ <a href="structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html#details">More...</a></p>
+
 <p><code>#include &lt;ParameterTypes.h&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::plugin::TypedParameter&lt; ValueType &gt;::Listener:</div>
@@ -87,6 +90,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a94994114fd355af5caf403b57037de1f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html#a94994114fd355af5caf403b57037de1f">Listener</a> (<a class="el" href="classlemons_1_1plugin_1_1TypedParameter.html">TypedParameter</a>&lt; ValueType &gt; &amp;param)</td></tr>
+<tr class="memdesc:a94994114fd355af5caf403b57037de1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a listener that listens to a specified parameter.  <a href="structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html#a94994114fd355af5caf403b57037de1f">More...</a><br /></td></tr>
 <tr class="separator:a94994114fd355af5caf403b57037de1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82971aee6ae16d04100949930233e34c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1Parameter_1_1Listener.html#a82971aee6ae16d04100949930233e34c">controllerNumberChanged</a> (int newControllerNumber)</td></tr>
 <tr class="memdesc:a82971aee6ae16d04100949930233e34c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the MIDI controller that the parameter is mapped to changes.  <a href="structlemons_1_1plugin_1_1Parameter_1_1Listener.html#a82971aee6ae16d04100949930233e34c">More...</a><br /></td></tr>
@@ -95,11 +99,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ac0db7beb485e9164070104f5da7e7b40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the parameter's gesture state changes.  <a href="structlemons_1_1plugin_1_1Parameter_1_1Listener.html#ac0db7beb485e9164070104f5da7e7b40">More...</a><br /></td></tr>
 <tr class="separator:ac0db7beb485e9164070104f5da7e7b40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27517e2ae5e97edfa25dbef712e54347"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html#a27517e2ae5e97edfa25dbef712e54347">paramDefaultChanged</a> (ValueType)</td></tr>
+<tr class="memdesc:a27517e2ae5e97edfa25dbef712e54347"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the parameter's default value is changed.  <a href="structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html#a27517e2ae5e97edfa25dbef712e54347">More...</a><br /></td></tr>
 <tr class="separator:a27517e2ae5e97edfa25dbef712e54347"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b091945117c5ffccf7d42e4ba1ae20a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html#a6b091945117c5ffccf7d42e4ba1ae20a">paramValueChanged</a> (ValueType)</td></tr>
+<tr class="memdesc:a6b091945117c5ffccf7d42e4ba1ae20a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when the parameter's value is changed.  <a href="structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html#a6b091945117c5ffccf7d42e4ba1ae20a">More...</a><br /></td></tr>
 <tr class="separator:a6b091945117c5ffccf7d42e4ba1ae20a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename ValueType&gt;<br />
+struct lemons::plugin::TypedParameter&lt; ValueType &gt;::Listener</h3>
+
+<p>A class that will recieve updates when aspects of a <a class="el" href="classlemons_1_1plugin_1_1TypedParameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas...">TypedParameter</a> change. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a94994114fd355af5caf403b57037de1f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a94994114fd355af5caf403b57037de1f">&#9670;&nbsp;</a></span>Listener()</h2>
 
@@ -117,6 +128,9 @@ template&lt;typename ValueType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructs a listener that listens to a specified parameter. </p>
+<p>Unlike the JUCE listeners' API, this class handles its own RAII with registering and deregistering itself for updates from the parameter. </p>
 
 </div>
 </div>
@@ -205,6 +219,8 @@ template&lt;typename ValueType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Called when the parameter's default value is changed. </p>
+
 </div>
 </div>
 <a id="a6b091945117c5ffccf7d42e4ba1ae20a"></a>
@@ -233,6 +249,8 @@ template&lt;typename ValueType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Called when the parameter's value is changed. </p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
@@ -241,7 +259,7 @@ template&lt;typename ValueType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 3 2021 07:36:11 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 3 2021 07:53:12 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

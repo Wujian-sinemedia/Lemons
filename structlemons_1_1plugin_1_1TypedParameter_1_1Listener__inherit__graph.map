@@ -1,5 +1,5 @@
 <map id="lemons::plugin::TypedParameter&lt; ValueType &gt;::Listener" name="lemons::plugin::TypedParameter&lt; ValueType &gt;::Listener">
-<area shape="rect" id="node1" title=" " alt="" coords="74,95,305,136"/>
+<area shape="rect" id="node1" title="A class that will recieve updates when aspects of a TypedParameter change." alt="" coords="74,95,305,136"/>
 <area shape="rect" id="node3" href="$classlemons_1_1gui_1_1FloatSlider.html" title="Plugin slider that attaches to a float parameter." alt="" coords="5,184,181,211"/>
 <area shape="rect" id="node4" href="$classlemons_1_1gui_1_1IntSlider.html" title="Plugin slider that attaches to an integer parameter." alt="" coords="205,184,365,211"/>
 <area shape="rect" id="node2" href="$structlemons_1_1plugin_1_1Parameter_1_1Listener.html" title="A Listener class that will be notified when aspects of a Parameter change." alt="" coords="93,5,286,47"/>

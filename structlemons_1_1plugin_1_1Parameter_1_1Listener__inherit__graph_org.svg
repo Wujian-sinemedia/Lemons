@@ -36,7 +36,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html" target="_top" xlink:title="A class that will recieve updates when aspects of a TypedParameter change.">
 <polygon fill="none" stroke="black" points="181,-14 181,-44 354,-44 354,-14 181,-14"/>
 <text text-anchor="start" x="189" y="-32" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::TypedParameter</text>
 <text text-anchor="middle" x="267.5" y="-21" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; ValueType &gt;::Listener</text>

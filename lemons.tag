@@ -12475,8 +12475,8 @@
       <type></type>
       <name>ParamUpdater</name>
       <anchorfile>structlemons_1_1plugin_1_1ParamUpdater.html</anchorfile>
-      <anchor>a9fea8d69a8af84e38315c5d219784bb5</anchor>
-      <arglist>(Parameter &amp;param, std::function&lt; void() &gt; onValueChange, std::function&lt; void(bool) &gt; onGestureChange={})</arglist>
+      <anchor>ace670a91ec8e865193c498d2cc2c1e07</anchor>
+      <arglist>(Parameter &amp;param, std::function&lt; void() &gt; onValueChange, std::function&lt; void(bool) &gt; onGestureChange=[](bool){})</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
