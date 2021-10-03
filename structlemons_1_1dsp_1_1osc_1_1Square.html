@@ -74,6 +74,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A basic square wave oscillator.  
+ <a href="structlemons_1_1dsp_1_1osc_1_1Square.html#details">More...</a></p>
+
 <p><code>#include &lt;oscillators.h&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::dsp::osc::Square&lt; SampleType &gt;:</div>
@@ -87,19 +90,28 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a405fd123c99b7455bd56b3f18af2cc99"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1Square.html#a405fd123c99b7455bd56b3f18af2cc99">Square</a> ()</td></tr>
+<tr class="memdesc:a405fd123c99b7455bd56b3f18af2cc99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consructs a default square wave oscillator.  <a href="structlemons_1_1dsp_1_1osc_1_1Square.html#a405fd123c99b7455bd56b3f18af2cc99">More...</a><br /></td></tr>
 <tr class="separator:a405fd123c99b7455bd56b3f18af2cc99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4bb1d2f6721d8730436a0ec05db0fe9"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1Square.html#af4bb1d2f6721d8730436a0ec05db0fe9">getIncrement</a> () const</td></tr>
-<tr class="separator:af4bb1d2f6721d8730436a0ec05db0fe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8cc0ad63ab8fbf08ecf9a3c77b29277"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1Square.html#af8cc0ad63ab8fbf08ecf9a3c77b29277">getSample</a> () final</td></tr>
+<tr class="memdesc:af8cc0ad63ab8fbf08ecf9a3c77b29277"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next sample of the square wave.  <a href="structlemons_1_1dsp_1_1osc_1_1Square.html#af8cc0ad63ab8fbf08ecf9a3c77b29277">More...</a><br /></td></tr>
 <tr class="separator:af8cc0ad63ab8fbf08ecf9a3c77b29277"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d4e7108f8cb508f01efeb7e7d423c84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html#a0d4e7108f8cb508f01efeb7e7d423c84">getSamples</a> (SampleType *output, int numSamples)</td></tr>
+<tr class="memdesc:a0d4e7108f8cb508f01efeb7e7d423c84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a stream of samples from the oscillator.  <a href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html#a0d4e7108f8cb508f01efeb7e7d423c84">More...</a><br /></td></tr>
 <tr class="separator:a0d4e7108f8cb508f01efeb7e7d423c84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa90412a6f665b0bab29e8688970abbeb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1Square.html#aa90412a6f665b0bab29e8688970abbeb">resetPhase</a> () final</td></tr>
+<tr class="memdesc:aa90412a6f665b0bab29e8688970abbeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the square wave's phase.  <a href="structlemons_1_1dsp_1_1osc_1_1Square.html#aa90412a6f665b0bab29e8688970abbeb">More...</a><br /></td></tr>
 <tr class="separator:aa90412a6f665b0bab29e8688970abbeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f9f7288f85f8699a4b15f6041de2632"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1Square.html#a2f9f7288f85f8699a4b15f6041de2632">setFrequency</a> (SampleType frequency, SampleType sampleRate) final</td></tr>
+<tr class="memdesc:a2f9f7288f85f8699a4b15f6041de2632"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the square wave's output frequency and samplerate.  <a href="structlemons_1_1dsp_1_1osc_1_1Square.html#a2f9f7288f85f8699a4b15f6041de2632">More...</a><br /></td></tr>
 <tr class="separator:a2f9f7288f85f8699a4b15f6041de2632"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename SampleType&gt;<br />
+struct lemons::dsp::osc::Square&lt; SampleType &gt;</h3>
+
+<p>A basic square wave oscillator. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html" title="Base class for any kind of oscillator.">Oscillator</a>, <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Phase.html" title="Represents the phase of an oscillator.">Phase</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a405fd123c99b7455bd56b3f18af2cc99"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a405fd123c99b7455bd56b3f18af2cc99">&#9670;&nbsp;</a></span>Square()</h2>
 
@@ -117,28 +129,11 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Consructs a default square wave oscillator. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="af4bb1d2f6721d8730436a0ec05db0fe9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4bb1d2f6721d8730436a0ec05db0fe9">&#9670;&nbsp;</a></span>getIncrement()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">SampleType <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Square.html">lemons::dsp::osc::Square</a>&lt; SampleType &gt;::getIncrement </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="af8cc0ad63ab8fbf08ecf9a3c77b29277"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af8cc0ad63ab8fbf08ecf9a3c77b29277">&#9670;&nbsp;</a></span>getSample()</h2>
 
@@ -163,6 +158,8 @@ template&lt;typename SampleType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the next sample of the square wave. </p>
 
 <p>Implements <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html#ac7dbd9538f446278698dbfed3f39a90f">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>.</p>
 
@@ -204,6 +201,8 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns a stream of samples from the oscillator. </p>
+
 </div>
 </div>
 <a id="aa90412a6f665b0bab29e8688970abbeb"></a>
@@ -230,6 +229,8 @@ template&lt;typename SampleType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Resets the square wave's phase. </p>
 
 <p>Implements <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html#af0337e1ba93847789802aef01ccff72f">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>.</p>
 
@@ -271,6 +272,8 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Sets the square wave's output frequency and samplerate. </p>
+
 <p>Implements <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html#a85e60c81999d18bfc2c363b89acd8ba1">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>.</p>
 
 </div>
@@ -281,7 +284,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Oct 2 2021 22:17:05 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 3 2021 01:04:55 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

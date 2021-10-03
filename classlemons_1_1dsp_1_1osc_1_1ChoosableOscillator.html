@@ -75,6 +75,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A class that encapsulates together all the kinds of oscillators, and allows you to seamlessly switch between them during playback.  
+ <a href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html#details">More...</a></p>
+
 <p><code>#include &lt;ChoosableOscillator.h&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::dsp::osc::ChoosableOscillator&lt; SampleType &gt;:</div>
@@ -88,34 +91,49 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a50d1c7a2bb5c56c9ef910d1d2d24255d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html#a50d1c7a2bb5c56c9ef910d1d2d24255d">ChoosableOscillator</a> ()</td></tr>
+<tr class="memdesc:a50d1c7a2bb5c56c9ef910d1d2d24255d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a default choosable oscillator.  <a href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html#a50d1c7a2bb5c56c9ef910d1d2d24255d">More...</a><br /></td></tr>
 <tr class="separator:a50d1c7a2bb5c56c9ef910d1d2d24255d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace1758cc9344ae03a6d01c3c218226de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1SerializableData.html#ace1758cc9344ae03a6d01c3c218226de">deserialize</a> (const ValueTree &amp;tree)</td></tr>
 <tr class="memdesc:ace1758cc9344ae03a6d01c3c218226de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores a previously saved state.  <a href="structlemons_1_1SerializableData.html#ace1758cc9344ae03a6d01c3c218226de">More...</a><br /></td></tr>
 <tr class="separator:ace1758cc9344ae03a6d01c3c218226de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d3ec8b57408773a24a0f96b1c5ca24e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html#a2d3ec8b57408773a24a0f96b1c5ca24e">getFrequency</a> () const</td></tr>
+<tr class="memdesc:a2d3ec8b57408773a24a0f96b1c5ca24e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the frequency of the oscillator.  <a href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html#a2d3ec8b57408773a24a0f96b1c5ca24e">More...</a><br /></td></tr>
 <tr class="separator:a2d3ec8b57408773a24a0f96b1c5ca24e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5705f7719f4f0ce5a7d4be38d9fc5a3b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelemons_1_1dsp_1_1osc.html#a1771007d411d4f6426cc3773961dfa5d">OscType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html#a5705f7719f4f0ce5a7d4be38d9fc5a3b">getOscType</a> () const</td></tr>
+<tr class="memdesc:a5705f7719f4f0ce5a7d4be38d9fc5a3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the type of oscillator that is currently chosen.  <a href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html#a5705f7719f4f0ce5a7d4be38d9fc5a3b">More...</a><br /></td></tr>
 <tr class="separator:a5705f7719f4f0ce5a7d4be38d9fc5a3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af12518b5cd5e5ea13bf599ddbfccbf7b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html#af12518b5cd5e5ea13bf599ddbfccbf7b">prepare</a> (int blocksize, double samplerate)</td></tr>
+<tr class="memdesc:af12518b5cd5e5ea13bf599ddbfccbf7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the choosable oscillator for playback.  <a href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html#af12518b5cd5e5ea13bf599ddbfccbf7b">More...</a><br /></td></tr>
 <tr class="separator:af12518b5cd5e5ea13bf599ddbfccbf7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ef0ce63df807f5dd3d63062ebe43d2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html#a4ef0ce63df807f5dd3d63062ebe43d2b">process</a> (AudioBuffer&lt; SampleType &gt; &amp;output)</td></tr>
+<tr class="memdesc:a4ef0ce63df807f5dd3d63062ebe43d2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes a stream of audio.  <a href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html#a4ef0ce63df807f5dd3d63062ebe43d2b">More...</a><br /></td></tr>
 <tr class="separator:a4ef0ce63df807f5dd3d63062ebe43d2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4e10eefa677226e7927d204b33edbdb"><td class="memItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">serialize</a> ()</td></tr>
 <tr class="memdesc:af4e10eefa677226e7927d204b33edbdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the state of this object and returns a ValueTree.  <a href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">More...</a><br /></td></tr>
 <tr class="separator:af4e10eefa677226e7927d204b33edbdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abae65b1d4b749b074aaec6082eadc89c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html#abae65b1d4b749b074aaec6082eadc89c">setDetuneAmount</a> (int pitchSpreadCents)</td></tr>
+<tr class="memdesc:abae65b1d4b749b074aaec6082eadc89c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the detune amount for the super saw oscillator.  <a href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html#abae65b1d4b749b074aaec6082eadc89c">More...</a><br /></td></tr>
 <tr class="separator:abae65b1d4b749b074aaec6082eadc89c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ed30db2672c60de56d8858abfadc7ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html#a6ed30db2672c60de56d8858abfadc7ee">setFrequency</a> (float freqHz)</td></tr>
+<tr class="memdesc:a6ed30db2672c60de56d8858abfadc7ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the oscillator's frequency.  <a href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html#a6ed30db2672c60de56d8858abfadc7ee">More...</a><br /></td></tr>
 <tr class="separator:a6ed30db2672c60de56d8858abfadc7ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39f887a0d50e01b72f1f862d20e43069"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html#a39f887a0d50e01b72f1f862d20e43069">setOscType</a> (<a class="el" href="namespacelemons_1_1dsp_1_1osc.html#a1771007d411d4f6426cc3773961dfa5d">OscType</a> newType)</td></tr>
+<tr class="memdesc:a39f887a0d50e01b72f1f862d20e43069"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the type of oscillator that will be used to generate the output.  <a href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html#a39f887a0d50e01b72f1f862d20e43069">More...</a><br /></td></tr>
 <tr class="separator:a39f887a0d50e01b72f1f862d20e43069"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:aa0ea229ad02704d516c727b10b69504b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html#aa0ea229ad02704d516c727b10b69504b">prepared</a> (int)</td></tr>
+<tr class="memdesc:aa0ea229ad02704d516c727b10b69504b"><td class="mdescLeft">&#160;</td><td class="mdescRight">If you're implementing a subclass of <a class="el" href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html" title="A class that encapsulates together all the kinds of oscillators, and allows you to seamlessly switch ...">ChoosableOscillator</a>, this will be called after the main call to <a class="el" href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html#af12518b5cd5e5ea13bf599ddbfccbf7b" title="Prepares the choosable oscillator for playback.">prepare()</a> is made.  <a href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html#aa0ea229ad02704d516c727b10b69504b">More...</a><br /></td></tr>
 <tr class="separator:aa0ea229ad02704d516c727b10b69504b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename SampleType&gt;<br />
+class lemons::dsp::osc::ChoosableOscillator&lt; SampleType &gt;</h3>
+
+<p>A class that encapsulates together all the kinds of oscillators, and allows you to seamlessly switch between them during playback. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1dsp_1_1osc.html#a1771007d411d4f6426cc3773961dfa5d" title="An enum class that represents the kinds of oscillator that ChoosableOscillator encapsulates.">OscType</a>, <a class="el" href="classlemons_1_1dsp_1_1osc_1_1OscEngine.html" title="A utility class that wraps an Oscillator into a self-contained dsp::Engine.">OscEngine</a>, <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html" title="Base class for any kind of oscillator.">Oscillator</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a50d1c7a2bb5c56c9ef910d1d2d24255d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a50d1c7a2bb5c56c9ef910d1d2d24255d">&#9670;&nbsp;</a></span>ChoosableOscillator()</h2>
 
@@ -132,6 +150,8 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructs a default choosable oscillator. </p>
 
 </div>
 </div>
@@ -189,6 +209,8 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the frequency of the oscillator. </p>
+
 </div>
 </div>
 <a id="a5705f7719f4f0ce5a7d4be38d9fc5a3b"></a>
@@ -207,6 +229,8 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the type of oscillator that is currently chosen. </p>
 
 </div>
 </div>
@@ -238,6 +262,8 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Prepares the choosable oscillator for playback. </p>
+
 </div>
 </div>
 <a id="aa0ea229ad02704d516c727b10b69504b"></a>
@@ -266,6 +292,8 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>If you're implementing a subclass of <a class="el" href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html" title="A class that encapsulates together all the kinds of oscillators, and allows you to seamlessly switch ...">ChoosableOscillator</a>, this will be called after the main call to <a class="el" href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html#af12518b5cd5e5ea13bf599ddbfccbf7b" title="Prepares the choosable oscillator for playback.">prepare()</a> is made. </p>
+
 </div>
 </div>
 <a id="a4ef0ce63df807f5dd3d63062ebe43d2b"></a>
@@ -285,6 +313,8 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Processes a stream of audio. </p>
 
 </div>
 </div>
@@ -334,6 +364,9 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the detune amount for the super saw oscillator. </p>
+<p>This has no effect on the other oscillator types. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1osc_1_1SuperSaw.html#a4990ad07773cbb3fae93582e33064bcc" title="Controls the total amount of pitch spread between the voices, in cents.">SuperSaw::setDetuneAmount()</a> </dd></dl>
+
 </div>
 </div>
 <a id="a6ed30db2672c60de56d8858abfadc7ee"></a>
@@ -353,6 +386,8 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the oscillator's frequency. </p>
 
 </div>
 </div>
@@ -374,6 +409,9 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the type of oscillator that will be used to generate the output. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1dsp_1_1osc.html#a1771007d411d4f6426cc3773961dfa5d" title="An enum class that represents the kinds of oscillator that ChoosableOscillator encapsulates.">OscType</a> </dd></dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -382,7 +420,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Oct 2 2021 22:17:05 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 3 2021 01:04:55 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

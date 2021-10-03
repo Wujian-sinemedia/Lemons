@@ -129,7 +129,7 @@ var sectionId = 'dynsection-0';
 <!-- Node24 -->
 <g id="node23" class="node">
 <title>Node24</title>
-<g id="a_node23"><a xlink:href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html" target="_top" xlink:title=" ">
+<g id="a_node23"><a xlink:href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html" target="_top" xlink:title="A class that encapsulates together all the kinds of oscillators, and allows you to seamlessly switch ...">
 <polygon fill="none" stroke="black" points="189.5,-633 189.5,-663 344.5,-663 344.5,-633 189.5,-633"/>
 <text text-anchor="start" x="197.5" y="-651" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::osc::Choosable</text>
 <text text-anchor="middle" x="267" y="-640" font-family="Helvetica,sans-Serif" font-size="10.00">Oscillator&lt; SampleType &gt;</text>

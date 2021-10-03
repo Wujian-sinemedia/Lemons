@@ -1,5 +1,5 @@
 <map id="lemons::dsp::osc::Sine&lt; SampleType &gt;" name="lemons::dsp::osc::Sine&lt; SampleType &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="23,96,189,137"/>
+<area shape="rect" id="node1" title="A basic sine wave oscillator." alt="" coords="23,96,189,137"/>
 <area shape="rect" id="node3" href="$structlemons_1_1dsp_1_1osc_1_1Sine.html" title=" " alt="" coords="23,200,189,241"/>
-<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1osc_1_1Oscillator.html" title=" " alt="" coords="5,5,207,47"/>
+<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1osc_1_1Oscillator.html" title="Base class for any kind of oscillator." alt="" coords="5,5,207,47"/>
 </map>

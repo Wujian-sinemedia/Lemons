@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lemons: lemons::dsp::osc::OscEngine&lt; SampleType, OscType &gt; Class Template Reference</title>
+<title>Lemons: lemons::dsp::osc::OscEngine&lt; SampleType, Osctype &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -67,16 +67,20 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classlemons_1_1dsp_1_1osc_1_1OscEngine-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">lemons::dsp::osc::OscEngine&lt; SampleType, OscType &gt; Class Template Reference</div>  </div>
+<div class="title">lemons::dsp::osc::OscEngine&lt; SampleType, Osctype &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p>A utility class that wraps an <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html" title="Base class for any kind of oscillator.">Oscillator</a> into a self-contained <a class="el" href="classlemons_1_1dsp_1_1Engine.html" title="Base class for an audio engine.">dsp::Engine</a>.  
+ <a href="classlemons_1_1dsp_1_1osc_1_1OscEngine.html#details">More...</a></p>
+
 <p><code>#include &lt;OscEngine.h&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::dsp::osc::OscEngine&lt; SampleType, OscType &gt;:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::dsp::osc::OscEngine&lt; SampleType, Osctype &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
@@ -84,18 +88,25 @@ $(function() {
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a6e5ba0677e79787704d8ebd81f9e9d38"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1OscEngine.html#a6e5ba0677e79787704d8ebd81f9e9d38">Osc</a> = Osctype&lt; SampleType &gt;</td></tr>
+<tr class="separator:a6e5ba0677e79787704d8ebd81f9e9d38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acfa08810e9033c6a0cd408907dbe71e4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1OscEngine.html#acfa08810e9033c6a0cd408907dbe71e4">OscEngine</a> ()</td></tr>
-<tr class="separator:acfa08810e9033c6a0cd408907dbe71e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0226b1f2b27b06600174a858360459a2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1OscEngine.html#a0226b1f2b27b06600174a858360459a2">OscEngine</a> ()=default</td></tr>
+<tr class="memdesc:a0226b1f2b27b06600174a858360459a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a default oscillator engine.  <a href="classlemons_1_1dsp_1_1osc_1_1OscEngine.html#a0226b1f2b27b06600174a858360459a2">More...</a><br /></td></tr>
+<tr class="separator:a0226b1f2b27b06600174a858360459a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afde19f6980e44ccaf99d168bb1f0f95f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#afde19f6980e44ccaf99d168bb1f0f95f">getSamplerate</a> () const</td></tr>
 <tr class="memdesc:afde19f6980e44ccaf99d168bb1f0f95f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the engine's samplerate.  <a href="classlemons_1_1dsp_1_1Engine.html#afde19f6980e44ccaf99d168bb1f0f95f">More...</a><br /></td></tr>
 <tr class="separator:afde19f6980e44ccaf99d168bb1f0f95f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a090f7c4344b0aee17162e841c255b57d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#a090f7c4344b0aee17162e841c255b57d">isInitialized</a> () const</td></tr>
 <tr class="memdesc:a090f7c4344b0aee17162e841c255b57d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if <a class="el" href="classlemons_1_1dsp_1_1Engine.html#a92fe69356c54445d91e70586cc9cdf73" title="Prepares the engine.">prepare()</a> has been called at least once since the object's construction or the last <a class="el" href="classlemons_1_1dsp_1_1Engine.html#a144323b4488420dcf49b89cee7837f8c" title="Releases all of the engine&#39;s internal resources.">releaseResources()</a> call.  <a href="classlemons_1_1dsp_1_1Engine.html#a090f7c4344b0aee17162e841c255b57d">More...</a><br /></td></tr>
 <tr class="separator:a090f7c4344b0aee17162e841c255b57d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a933a0e6c0e4e0b36f1c64218b237c934"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelemons_1_1dsp_1_1osc.html#a1771007d411d4f6426cc3773961dfa5d">OscType</a>&lt; SampleType &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1OscEngine.html#a933a0e6c0e4e0b36f1c64218b237c934">operator-&gt;</a> ()</td></tr>
-<tr class="separator:a933a0e6c0e4e0b36f1c64218b237c934"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab464771e675722a7f8a86fc1da96237f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1OscEngine.html#a6e5ba0677e79787704d8ebd81f9e9d38">Osc</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1OscEngine.html#ab464771e675722a7f8a86fc1da96237f">operator-&gt;</a> ()</td></tr>
+<tr class="memdesc:ab464771e675722a7f8a86fc1da96237f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the owned <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html" title="Base class for any kind of oscillator.">Oscillator</a> object.  <a href="classlemons_1_1dsp_1_1osc_1_1OscEngine.html#ab464771e675722a7f8a86fc1da96237f">More...</a><br /></td></tr>
+<tr class="separator:ab464771e675722a7f8a86fc1da96237f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92fe69356c54445d91e70586cc9cdf73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#a92fe69356c54445d91e70586cc9cdf73">prepare</a> (double samplerate, int blocksize, int numChannels=2)</td></tr>
 <tr class="memdesc:a92fe69356c54445d91e70586cc9cdf73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the engine.  <a href="classlemons_1_1dsp_1_1Engine.html#a92fe69356c54445d91e70586cc9cdf73">More...</a><br /></td></tr>
 <tr class="separator:a92fe69356c54445d91e70586cc9cdf73"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -117,26 +128,71 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8cf8a2dd9e6cded85b3762f9db805310"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1Engine.html#a8cf8a2dd9e6cded85b3762f9db805310">reportLatency</a> () const</td></tr>
 <tr class="memdesc:a8cf8a2dd9e6cded85b3762f9db805310"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the latency in samples of this engine.  <a href="classlemons_1_1dsp_1_1Engine.html#a8cf8a2dd9e6cded85b3762f9db805310">More...</a><br /></td></tr>
 <tr class="separator:a8cf8a2dd9e6cded85b3762f9db805310"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad96e5e2d52b876b18231e843dd96b28b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1OscEngine.html#ad96e5e2d52b876b18231e843dd96b28b">setFrequency</a> (float freqHz)</td></tr>
-<tr class="separator:ad96e5e2d52b876b18231e843dd96b28b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad82e240a6f60fff4de0c688f303de4a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1OscEngine.html#ad82e240a6f60fff4de0c688f303de4a9">setFrequency</a> (float freqHz)</td></tr>
+<tr class="memdesc:ad82e240a6f60fff4de0c688f303de4a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the frequency of the owned oscillator object.  <a href="classlemons_1_1dsp_1_1osc_1_1OscEngine.html#ad82e240a6f60fff4de0c688f303de4a9">More...</a><br /></td></tr>
+<tr class="separator:ad82e240a6f60fff4de0c688f303de4a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="acfa08810e9033c6a0cd408907dbe71e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acfa08810e9033c6a0cd408907dbe71e4">&#9670;&nbsp;</a></span>OscEngine()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename SampleType, template&lt; typename T &gt; class Osctype&gt;<br />
+class lemons::dsp::osc::OscEngine&lt; SampleType, Osctype &gt;</h3>
+
+<p>A utility class that wraps an <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html" title="Base class for any kind of oscillator.">Oscillator</a> into a self-contained <a class="el" href="classlemons_1_1dsp_1_1Engine.html" title="Base class for an audio engine.">dsp::Engine</a>. </p>
+<p>This will instantiate and manage the appropriate oscillator type for you. <br  />
+Example usage: </p><div class="fragment"><div class="line"><span class="keyword">using</span> namspace <a class="code" href="namespacelemons_1_1dsp_1_1osc.html">lemons::dsp::osc</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">auto</span> sineEngine = OscEngine&lt;float, Sine&gt;;</div>
+</div><!-- fragment --> <dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">SampleType</td><td>The floating point type to be used for samples. Must be either float or double. </td></tr>
+    <tr><td class="paramname">Osctype</td><td>A template class representing the kind of oscillator you want this engine to use; for example, <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Sine.html" title="A basic sine wave oscillator.">osc::Sine</a>. This should be un-specialized. This type must inherit from <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html" title="Base class for any kind of oscillator.">Oscillator</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html" title="Base class for any kind of oscillator.">Oscillator</a>, <a class="el" href="classlemons_1_1dsp_1_1Engine.html" title="Base class for an audio engine.">dsp::Engine</a> </dd></dl>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a6e5ba0677e79787704d8ebd81f9e9d38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e5ba0677e79787704d8ebd81f9e9d38">&#9670;&nbsp;</a></span>Osc</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename SampleType , template&lt; typename T &gt; class OscType&gt; </div>
+template&lt;typename SampleType , template&lt; typename T &gt; class Osctype&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1OscEngine.html">lemons::dsp::osc::OscEngine</a>&lt; SampleType, <a class="el" href="namespacelemons_1_1dsp_1_1osc.html#a1771007d411d4f6426cc3773961dfa5d">OscType</a> &gt;::<a class="el" href="classlemons_1_1dsp_1_1osc_1_1OscEngine.html">OscEngine</a> </td>
+          <td class="memname">using <a class="el" href="classlemons_1_1dsp_1_1osc_1_1OscEngine.html">lemons::dsp::osc::OscEngine</a>&lt; SampleType, Osctype &gt;::<a class="el" href="classlemons_1_1dsp_1_1osc_1_1OscEngine.html#a6e5ba0677e79787704d8ebd81f9e9d38">Osc</a> =  Osctype&lt; SampleType &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a0226b1f2b27b06600174a858360459a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0226b1f2b27b06600174a858360459a2">&#9670;&nbsp;</a></span>OscEngine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType , template&lt; typename T &gt; class Osctype&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1OscEngine.html">lemons::dsp::osc::OscEngine</a>&lt; SampleType, Osctype &gt;::<a class="el" href="classlemons_1_1dsp_1_1osc_1_1OscEngine.html">OscEngine</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>Constructs a default oscillator engine. </p>
 
 </div>
 </div>
@@ -200,22 +256,24 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
-<a id="a933a0e6c0e4e0b36f1c64218b237c934"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a933a0e6c0e4e0b36f1c64218b237c934">&#9670;&nbsp;</a></span>operator-&gt;()</h2>
+<a id="ab464771e675722a7f8a86fc1da96237f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab464771e675722a7f8a86fc1da96237f">&#9670;&nbsp;</a></span>operator-&gt;()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename SampleType , template&lt; typename T &gt; class OscType&gt; </div>
+template&lt;typename SampleType , template&lt; typename T &gt; class Osctype&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacelemons_1_1dsp_1_1osc.html#a1771007d411d4f6426cc3773961dfa5d">OscType</a>&lt; SampleType &gt;* <a class="el" href="classlemons_1_1dsp_1_1osc_1_1OscEngine.html">lemons::dsp::osc::OscEngine</a>&lt; SampleType, <a class="el" href="namespacelemons_1_1dsp_1_1osc.html#a1771007d411d4f6426cc3773961dfa5d">OscType</a> &gt;::operator-&gt; </td>
+          <td class="memname"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1OscEngine.html#a6e5ba0677e79787704d8ebd81f9e9d38">Osc</a>* <a class="el" href="classlemons_1_1dsp_1_1osc_1_1OscEngine.html">lemons::dsp::osc::OscEngine</a>&lt; SampleType, Osctype &gt;::operator-&gt; </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a pointer to the owned <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html" title="Base class for any kind of oscillator.">Oscillator</a> object. </p>
 
 </div>
 </div>
@@ -541,16 +599,16 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
-<a id="ad96e5e2d52b876b18231e843dd96b28b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad96e5e2d52b876b18231e843dd96b28b">&#9670;&nbsp;</a></span>setFrequency()</h2>
+<a id="ad82e240a6f60fff4de0c688f303de4a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad82e240a6f60fff4de0c688f303de4a9">&#9670;&nbsp;</a></span>setFrequency()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename SampleType , template&lt; typename T &gt; class OscType&gt; </div>
+template&lt;typename SampleType , template&lt; typename T &gt; class Osctype&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1osc_1_1OscEngine.html">lemons::dsp::osc::OscEngine</a>&lt; SampleType, <a class="el" href="namespacelemons_1_1dsp_1_1osc.html#a1771007d411d4f6426cc3773961dfa5d">OscType</a> &gt;::setFrequency </td>
+          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1osc_1_1OscEngine.html">lemons::dsp::osc::OscEngine</a>&lt; SampleType, Osctype &gt;::setFrequency </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>freqHz</em></td><td>)</td>
@@ -559,15 +617,18 @@ template&lt;typename SampleType , template&lt; typename T &gt; class OscType&gt;
       </table>
 </div><div class="memdoc">
 
+<p>Updates the frequency of the owned oscillator object. </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="OscEngine_8h.html">OscEngine.h</a></li>
 </ul>
 </div><!-- contents -->
+<div class="ttc" id="anamespacelemons_1_1dsp_1_1osc_html"><div class="ttname"><a href="namespacelemons_1_1dsp_1_1osc.html">lemons::dsp::osc</a></div><div class="ttdef"><b>Definition:</b> oscillators.h:5</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Oct 2 2021 22:17:05 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 3 2021 01:04:55 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

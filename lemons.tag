@@ -175,36 +175,11 @@
       <anchorfile>namespacelemons_1_1dsp_1_1osc.html</anchorfile>
       <anchor>a1771007d411d4f6426cc3773961dfa5d</anchor>
       <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>SineOsc</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1osc.html</anchorfile>
-      <anchor>a1771007d411d4f6426cc3773961dfa5da4887a1cf0941070c1f3f81ae98074a59</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>SawOsc</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1osc.html</anchorfile>
-      <anchor>a1771007d411d4f6426cc3773961dfa5da649f7decc541400a70a84aea635b3c7d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>SquareOsc</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1osc.html</anchorfile>
-      <anchor>a1771007d411d4f6426cc3773961dfa5da5c9244b5ce7e54377dac7d70d1cbea99</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>TriangleOsc</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1osc.html</anchorfile>
-      <anchor>a1771007d411d4f6426cc3773961dfa5da428c96031c2dcc6f4593c541fe7e1192</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>SuperSawOsc</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1osc.html</anchorfile>
-      <anchor>a1771007d411d4f6426cc3773961dfa5da1ee0db0553945048857df7476c1768e8</anchor>
-      <arglist></arglist>
+      <enumvalue file="namespacelemons_1_1dsp_1_1osc.html" anchor="a1771007d411d4f6426cc3773961dfa5da6ca9e2d793f678aba7c1b19526592a46">Sine</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1osc.html" anchor="a1771007d411d4f6426cc3773961dfa5dac551a26a97a7440529e861dff6933722">Saw</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1osc.html" anchor="a1771007d411d4f6426cc3773961dfa5daceb46ca115d05c51aa5a16a8867c3304">Square</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1osc.html" anchor="a1771007d411d4f6426cc3773961dfa5da5e5500cb2b82eb72d550de644bd1b64b">Triangle</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1osc.html" anchor="a1771007d411d4f6426cc3773961dfa5dae9bf866a0336b772631bb909f722ab23">SuperSaw</enumvalue>
     </member>
   </compound>
   <compound kind="file">
@@ -597,8 +572,8 @@
       <type>String</type>
       <name>makePropertyNameForElement</name>
       <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a34b31179d6af762e8129fba7be43c130</anchor>
-      <arglist>(const String &amp;propertyName, int &amp;index)</arglist>
+      <anchor>ac6585e687d1ccbcbb445bfc3f69d345a</anchor>
+      <arglist>(const String &amp;propertyName, int index)</arglist>
     </member>
     <member kind="function">
       <type>String</type>
@@ -1214,6 +1189,7 @@
     <class kind="struct">lemons::dsp::osc::Saw</class>
     <class kind="struct">lemons::dsp::osc::Sine</class>
     <class kind="struct">lemons::dsp::osc::Square</class>
+    <class kind="struct">lemons::dsp::osc::Triangle</class>
     <class kind="struct">lemons::dsp::osc::Triangle</class>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
@@ -10243,14 +10219,21 @@
     <name>lemons::dsp::osc::OscEngine</name>
     <filename>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</filename>
     <templarg></templarg>
-    <templarg>OscType</templarg>
+    <templarg>Osctype</templarg>
     <base>lemons::dsp::Engine</base>
+    <member kind="typedef">
+      <type>Osctype&lt; SampleType &gt;</type>
+      <name>Osc</name>
+      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
+      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>OscEngine</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>acfa08810e9033c6a0cd408907dbe71e4</anchor>
-      <arglist>()</arglist>
+      <anchor>a0226b1f2b27b06600174a858360459a2</anchor>
+      <arglist>()=default</arglist>
     </member>
     <member kind="function">
       <type>double</type>
@@ -10267,10 +10250,10 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>OscType&lt; SampleType &gt; *</type>
+      <type>Osc *</type>
       <name>operator-&gt;</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a933a0e6c0e4e0b36f1c64218b237c934</anchor>
+      <anchor>ab464771e675722a7f8a86fc1da96237f</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -10326,7 +10309,7 @@
       <type>void</type>
       <name>setFrequency</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ad96e5e2d52b876b18231e843dd96b28b</anchor>
+      <anchor>ad82e240a6f60fff4de0c688f303de4a9</anchor>
       <arglist>(float freqHz)</arglist>
     </member>
   </compound>
@@ -10334,12 +10317,19 @@
     <name>OscEngine&lt; float, lemons::dsp::osc::Saw &gt;</name>
     <filename>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</filename>
     <base>Engine&lt; float &gt;</base>
+    <member kind="typedef">
+      <type>lemons::dsp::osc::Saw&lt; float &gt;</type>
+      <name>Osc</name>
+      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
+      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>OscEngine</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>acfa08810e9033c6a0cd408907dbe71e4</anchor>
-      <arglist>()</arglist>
+      <anchor>a0226b1f2b27b06600174a858360459a2</anchor>
+      <arglist>()=default</arglist>
     </member>
     <member kind="function">
       <type>double</type>
@@ -10356,10 +10346,10 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>lemons::dsp::osc::Saw&lt; float &gt; *</type>
+      <type>Osc *</type>
       <name>operator-&gt;</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a933a0e6c0e4e0b36f1c64218b237c934</anchor>
+      <anchor>ab464771e675722a7f8a86fc1da96237f</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -10415,7 +10405,7 @@
       <type>void</type>
       <name>setFrequency</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ad96e5e2d52b876b18231e843dd96b28b</anchor>
+      <anchor>ad82e240a6f60fff4de0c688f303de4a9</anchor>
       <arglist>(float freqHz)</arglist>
     </member>
   </compound>
@@ -10423,12 +10413,19 @@
     <name>OscEngine&lt; float, lemons::dsp::osc::Sine &gt;</name>
     <filename>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</filename>
     <base>Engine&lt; float &gt;</base>
+    <member kind="typedef">
+      <type>lemons::dsp::osc::Sine&lt; float &gt;</type>
+      <name>Osc</name>
+      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
+      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>OscEngine</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>acfa08810e9033c6a0cd408907dbe71e4</anchor>
-      <arglist>()</arglist>
+      <anchor>a0226b1f2b27b06600174a858360459a2</anchor>
+      <arglist>()=default</arglist>
     </member>
     <member kind="function">
       <type>double</type>
@@ -10445,10 +10442,10 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>lemons::dsp::osc::Sine&lt; float &gt; *</type>
+      <type>Osc *</type>
       <name>operator-&gt;</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a933a0e6c0e4e0b36f1c64218b237c934</anchor>
+      <anchor>ab464771e675722a7f8a86fc1da96237f</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -10504,7 +10501,7 @@
       <type>void</type>
       <name>setFrequency</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ad96e5e2d52b876b18231e843dd96b28b</anchor>
+      <anchor>ad82e240a6f60fff4de0c688f303de4a9</anchor>
       <arglist>(float freqHz)</arglist>
     </member>
   </compound>
@@ -10512,12 +10509,19 @@
     <name>OscEngine&lt; float, lemons::dsp::osc::Square &gt;</name>
     <filename>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</filename>
     <base>Engine&lt; float &gt;</base>
+    <member kind="typedef">
+      <type>lemons::dsp::osc::Square&lt; float &gt;</type>
+      <name>Osc</name>
+      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
+      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>OscEngine</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>acfa08810e9033c6a0cd408907dbe71e4</anchor>
-      <arglist>()</arglist>
+      <anchor>a0226b1f2b27b06600174a858360459a2</anchor>
+      <arglist>()=default</arglist>
     </member>
     <member kind="function">
       <type>double</type>
@@ -10534,10 +10538,10 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>lemons::dsp::osc::Square&lt; float &gt; *</type>
+      <type>Osc *</type>
       <name>operator-&gt;</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a933a0e6c0e4e0b36f1c64218b237c934</anchor>
+      <anchor>ab464771e675722a7f8a86fc1da96237f</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -10593,7 +10597,7 @@
       <type>void</type>
       <name>setFrequency</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ad96e5e2d52b876b18231e843dd96b28b</anchor>
+      <anchor>ad82e240a6f60fff4de0c688f303de4a9</anchor>
       <arglist>(float freqHz)</arglist>
     </member>
   </compound>
@@ -10601,12 +10605,19 @@
     <name>OscEngine&lt; float, lemons::dsp::osc::SuperSaw &gt;</name>
     <filename>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</filename>
     <base>Engine&lt; float &gt;</base>
+    <member kind="typedef">
+      <type>lemons::dsp::osc::SuperSaw&lt; float &gt;</type>
+      <name>Osc</name>
+      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
+      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>OscEngine</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>acfa08810e9033c6a0cd408907dbe71e4</anchor>
-      <arglist>()</arglist>
+      <anchor>a0226b1f2b27b06600174a858360459a2</anchor>
+      <arglist>()=default</arglist>
     </member>
     <member kind="function">
       <type>double</type>
@@ -10623,10 +10634,10 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>lemons::dsp::osc::SuperSaw&lt; float &gt; *</type>
+      <type>Osc *</type>
       <name>operator-&gt;</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a933a0e6c0e4e0b36f1c64218b237c934</anchor>
+      <anchor>ab464771e675722a7f8a86fc1da96237f</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -10682,7 +10693,7 @@
       <type>void</type>
       <name>setFrequency</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ad96e5e2d52b876b18231e843dd96b28b</anchor>
+      <anchor>ad82e240a6f60fff4de0c688f303de4a9</anchor>
       <arglist>(float freqHz)</arglist>
     </member>
   </compound>
@@ -10690,12 +10701,19 @@
     <name>OscEngine&lt; float, lemons::dsp::osc::Triangle &gt;</name>
     <filename>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</filename>
     <base>Engine&lt; float &gt;</base>
+    <member kind="typedef">
+      <type>lemons::dsp::osc::Triangle&lt; float &gt;</type>
+      <name>Osc</name>
+      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
+      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>OscEngine</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>acfa08810e9033c6a0cd408907dbe71e4</anchor>
-      <arglist>()</arglist>
+      <anchor>a0226b1f2b27b06600174a858360459a2</anchor>
+      <arglist>()=default</arglist>
     </member>
     <member kind="function">
       <type>double</type>
@@ -10712,10 +10730,10 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>lemons::dsp::osc::Triangle&lt; float &gt; *</type>
+      <type>Osc *</type>
       <name>operator-&gt;</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a933a0e6c0e4e0b36f1c64218b237c934</anchor>
+      <anchor>ab464771e675722a7f8a86fc1da96237f</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -10771,7 +10789,7 @@
       <type>void</type>
       <name>setFrequency</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ad96e5e2d52b876b18231e843dd96b28b</anchor>
+      <anchor>ad82e240a6f60fff4de0c688f303de4a9</anchor>
       <arglist>(float freqHz)</arglist>
     </member>
   </compound>
@@ -10779,12 +10797,19 @@
     <name>OscEngine&lt; SampleType, lemons::dsp::osc::Saw &gt;</name>
     <filename>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</filename>
     <base>lemons::dsp::Engine</base>
+    <member kind="typedef">
+      <type>lemons::dsp::osc::Saw&lt; SampleType &gt;</type>
+      <name>Osc</name>
+      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
+      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>OscEngine</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>acfa08810e9033c6a0cd408907dbe71e4</anchor>
-      <arglist>()</arglist>
+      <anchor>a0226b1f2b27b06600174a858360459a2</anchor>
+      <arglist>()=default</arglist>
     </member>
     <member kind="function">
       <type>double</type>
@@ -10801,10 +10826,10 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>lemons::dsp::osc::Saw&lt; SampleType &gt; *</type>
+      <type>Osc *</type>
       <name>operator-&gt;</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a933a0e6c0e4e0b36f1c64218b237c934</anchor>
+      <anchor>ab464771e675722a7f8a86fc1da96237f</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -10860,7 +10885,7 @@
       <type>void</type>
       <name>setFrequency</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ad96e5e2d52b876b18231e843dd96b28b</anchor>
+      <anchor>ad82e240a6f60fff4de0c688f303de4a9</anchor>
       <arglist>(float freqHz)</arglist>
     </member>
   </compound>
@@ -10868,12 +10893,19 @@
     <name>OscEngine&lt; SampleType, lemons::dsp::osc::Sine &gt;</name>
     <filename>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</filename>
     <base>lemons::dsp::Engine</base>
+    <member kind="typedef">
+      <type>lemons::dsp::osc::Sine&lt; SampleType &gt;</type>
+      <name>Osc</name>
+      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
+      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>OscEngine</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>acfa08810e9033c6a0cd408907dbe71e4</anchor>
-      <arglist>()</arglist>
+      <anchor>a0226b1f2b27b06600174a858360459a2</anchor>
+      <arglist>()=default</arglist>
     </member>
     <member kind="function">
       <type>double</type>
@@ -10890,10 +10922,10 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>lemons::dsp::osc::Sine&lt; SampleType &gt; *</type>
+      <type>Osc *</type>
       <name>operator-&gt;</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a933a0e6c0e4e0b36f1c64218b237c934</anchor>
+      <anchor>ab464771e675722a7f8a86fc1da96237f</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -10949,7 +10981,7 @@
       <type>void</type>
       <name>setFrequency</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ad96e5e2d52b876b18231e843dd96b28b</anchor>
+      <anchor>ad82e240a6f60fff4de0c688f303de4a9</anchor>
       <arglist>(float freqHz)</arglist>
     </member>
   </compound>
@@ -10957,12 +10989,19 @@
     <name>OscEngine&lt; SampleType, lemons::dsp::osc::Square &gt;</name>
     <filename>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</filename>
     <base>lemons::dsp::Engine</base>
+    <member kind="typedef">
+      <type>lemons::dsp::osc::Square&lt; SampleType &gt;</type>
+      <name>Osc</name>
+      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
+      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>OscEngine</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>acfa08810e9033c6a0cd408907dbe71e4</anchor>
-      <arglist>()</arglist>
+      <anchor>a0226b1f2b27b06600174a858360459a2</anchor>
+      <arglist>()=default</arglist>
     </member>
     <member kind="function">
       <type>double</type>
@@ -10979,10 +11018,10 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>lemons::dsp::osc::Square&lt; SampleType &gt; *</type>
+      <type>Osc *</type>
       <name>operator-&gt;</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a933a0e6c0e4e0b36f1c64218b237c934</anchor>
+      <anchor>ab464771e675722a7f8a86fc1da96237f</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -11038,7 +11077,7 @@
       <type>void</type>
       <name>setFrequency</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ad96e5e2d52b876b18231e843dd96b28b</anchor>
+      <anchor>ad82e240a6f60fff4de0c688f303de4a9</anchor>
       <arglist>(float freqHz)</arglist>
     </member>
   </compound>
@@ -11046,12 +11085,19 @@
     <name>OscEngine&lt; SampleType, lemons::dsp::osc::SuperSaw &gt;</name>
     <filename>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</filename>
     <base>lemons::dsp::Engine</base>
+    <member kind="typedef">
+      <type>lemons::dsp::osc::SuperSaw&lt; SampleType &gt;</type>
+      <name>Osc</name>
+      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
+      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>OscEngine</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>acfa08810e9033c6a0cd408907dbe71e4</anchor>
-      <arglist>()</arglist>
+      <anchor>a0226b1f2b27b06600174a858360459a2</anchor>
+      <arglist>()=default</arglist>
     </member>
     <member kind="function">
       <type>double</type>
@@ -11068,10 +11114,10 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>lemons::dsp::osc::SuperSaw&lt; SampleType &gt; *</type>
+      <type>Osc *</type>
       <name>operator-&gt;</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a933a0e6c0e4e0b36f1c64218b237c934</anchor>
+      <anchor>ab464771e675722a7f8a86fc1da96237f</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -11127,7 +11173,7 @@
       <type>void</type>
       <name>setFrequency</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ad96e5e2d52b876b18231e843dd96b28b</anchor>
+      <anchor>ad82e240a6f60fff4de0c688f303de4a9</anchor>
       <arglist>(float freqHz)</arglist>
     </member>
   </compound>
@@ -11135,12 +11181,19 @@
     <name>OscEngine&lt; SampleType, lemons::dsp::osc::Triangle &gt;</name>
     <filename>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</filename>
     <base>lemons::dsp::Engine</base>
+    <member kind="typedef">
+      <type>lemons::dsp::osc::Triangle&lt; SampleType &gt;</type>
+      <name>Osc</name>
+      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
+      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>OscEngine</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>acfa08810e9033c6a0cd408907dbe71e4</anchor>
-      <arglist>()</arglist>
+      <anchor>a0226b1f2b27b06600174a858360459a2</anchor>
+      <arglist>()=default</arglist>
     </member>
     <member kind="function">
       <type>double</type>
@@ -11157,10 +11210,10 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>lemons::dsp::osc::Triangle&lt; SampleType &gt; *</type>
+      <type>Osc *</type>
       <name>operator-&gt;</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a933a0e6c0e4e0b36f1c64218b237c934</anchor>
+      <anchor>ab464771e675722a7f8a86fc1da96237f</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -11216,7 +11269,7 @@
       <type>void</type>
       <name>setFrequency</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ad96e5e2d52b876b18231e843dd96b28b</anchor>
+      <anchor>ad82e240a6f60fff4de0c688f303de4a9</anchor>
       <arglist>(float freqHz)</arglist>
     </member>
   </compound>
@@ -12933,8 +12986,8 @@
       <type>SampleType</type>
       <name>getIncrement</name>
       <anchorfile>structlemons_1_1dsp_1_1osc_1_1Phase.html</anchorfile>
-      <anchor>ac6d5a4de42eb19230779dd345d0dd7d7</anchor>
-      <arglist>() const</arglist>
+      <anchor>acb6dee2858f02f252733532bdcf5ed69</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>SampleType</type>
@@ -12965,8 +13018,8 @@
       <type>float</type>
       <name>getIncrement</name>
       <anchorfile>structlemons_1_1dsp_1_1osc_1_1Phase.html</anchorfile>
-      <anchor>ac6d5a4de42eb19230779dd345d0dd7d7</anchor>
-      <arglist>() const</arglist>
+      <anchor>acb6dee2858f02f252733532bdcf5ed69</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>float</type>
@@ -14904,13 +14957,6 @@
     </member>
     <member kind="function">
       <type>SampleType</type>
-      <name>getIncrement</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Square.html</anchorfile>
-      <anchor>af4bb1d2f6721d8730436a0ec05db0fe9</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>SampleType</type>
       <name>getSample</name>
       <anchorfile>structlemons_1_1dsp_1_1osc_1_1Square.html</anchorfile>
       <anchor>af8cc0ad63ab8fbf08ecf9a3c77b29277</anchor>
@@ -14937,6 +14983,13 @@
       <anchor>a2f9f7288f85f8699a4b15f6041de2632</anchor>
       <arglist>(SampleType frequency, SampleType sampleRate) final</arglist>
     </member>
+    <member kind="friend" protection="private">
+      <type>friend struct</type>
+      <name>Triangle&lt; SampleType &gt;</name>
+      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Square.html</anchorfile>
+      <anchor>aa097fa88ccabac97b5fdd8498653f4f0</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>Square&lt; float &gt;</name>
@@ -14948,13 +15001,6 @@
       <anchorfile>structlemons_1_1dsp_1_1osc_1_1Square.html</anchorfile>
       <anchor>a405fd123c99b7455bd56b3f18af2cc99</anchor>
       <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getIncrement</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Square.html</anchorfile>
-      <anchor>af4bb1d2f6721d8730436a0ec05db0fe9</anchor>
-      <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>float</type>
@@ -15561,8 +15607,8 @@
       <type>int</type>
       <name>getPitchSpreadCents</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1SuperSaw.html</anchorfile>
-      <anchor>a94e4b1baa006bb60922b701b401753ab</anchor>
-      <arglist>() const</arglist>
+      <anchor>ab147bbae63bba206564d52a837b930ec</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>SampleType</type>
@@ -15615,8 +15661,8 @@
       <type>int</type>
       <name>getPitchSpreadCents</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1SuperSaw.html</anchorfile>
-      <anchor>a94e4b1baa006bb60922b701b401753ab</anchor>
-      <arglist>() const</arglist>
+      <anchor>ab147bbae63bba206564d52a837b930ec</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>float</type>
@@ -17596,7 +17642,6 @@
     <name>lemons::dsp::osc::Triangle</name>
     <filename>structlemons_1_1dsp_1_1osc_1_1Triangle.html</filename>
     <templarg></templarg>
-    <base>lemons::dsp::osc::Oscillator</base>
     <member kind="function">
       <type></type>
       <name>Triangle</name>
@@ -17610,13 +17655,6 @@
       <anchorfile>structlemons_1_1dsp_1_1osc_1_1Triangle.html</anchorfile>
       <anchor>a2bc186fc90983db3536a09ad4fbb23f5</anchor>
       <arglist>() final</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>getSamples</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Oscillator.html</anchorfile>
-      <anchor>a0d4e7108f8cb508f01efeb7e7d423c84</anchor>
-      <arglist>(SampleType *output, int numSamples)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -17636,7 +17674,6 @@
   <compound kind="class">
     <name>Triangle&lt; float &gt;</name>
     <filename>structlemons_1_1dsp_1_1osc_1_1Triangle.html</filename>
-    <base>Oscillator&lt; float &gt;</base>
     <member kind="function">
       <type></type>
       <name>Triangle</name>
@@ -17650,13 +17687,6 @@
       <anchorfile>structlemons_1_1dsp_1_1osc_1_1Triangle.html</anchorfile>
       <anchor>a2bc186fc90983db3536a09ad4fbb23f5</anchor>
       <arglist>() final</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>getSamples</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Oscillator.html</anchorfile>
-      <anchor>a0d4e7108f8cb508f01efeb7e7d423c84</anchor>
-      <arglist>(float *output, int numSamples)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -19046,36 +19076,11 @@
       <anchorfile>namespacelemons_1_1dsp_1_1osc.html</anchorfile>
       <anchor>a1771007d411d4f6426cc3773961dfa5d</anchor>
       <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>SineOsc</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1osc.html</anchorfile>
-      <anchor>a1771007d411d4f6426cc3773961dfa5da4887a1cf0941070c1f3f81ae98074a59</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>SawOsc</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1osc.html</anchorfile>
-      <anchor>a1771007d411d4f6426cc3773961dfa5da649f7decc541400a70a84aea635b3c7d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>SquareOsc</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1osc.html</anchorfile>
-      <anchor>a1771007d411d4f6426cc3773961dfa5da5c9244b5ce7e54377dac7d70d1cbea99</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>TriangleOsc</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1osc.html</anchorfile>
-      <anchor>a1771007d411d4f6426cc3773961dfa5da428c96031c2dcc6f4593c541fe7e1192</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>SuperSawOsc</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1osc.html</anchorfile>
-      <anchor>a1771007d411d4f6426cc3773961dfa5da1ee0db0553945048857df7476c1768e8</anchor>
-      <arglist></arglist>
+      <enumvalue file="namespacelemons_1_1dsp_1_1osc.html" anchor="a1771007d411d4f6426cc3773961dfa5da6ca9e2d793f678aba7c1b19526592a46">Sine</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1osc.html" anchor="a1771007d411d4f6426cc3773961dfa5dac551a26a97a7440529e861dff6933722">Saw</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1osc.html" anchor="a1771007d411d4f6426cc3773961dfa5daceb46ca115d05c51aa5a16a8867c3304">Square</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1osc.html" anchor="a1771007d411d4f6426cc3773961dfa5da5e5500cb2b82eb72d550de644bd1b64b">Triangle</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1osc.html" anchor="a1771007d411d4f6426cc3773961dfa5dae9bf866a0336b772631bb909f722ab23">SuperSaw</enumvalue>
     </member>
   </compound>
   <compound kind="namespace">
@@ -19836,8 +19841,8 @@
       <type>String</type>
       <name>makePropertyNameForElement</name>
       <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a34b31179d6af762e8129fba7be43c130</anchor>
-      <arglist>(const String &amp;propertyName, int &amp;index)</arglist>
+      <anchor>ac6585e687d1ccbcbb445bfc3f69d345a</anchor>
+      <arglist>(const String &amp;propertyName, int index)</arglist>
     </member>
     <member kind="function">
       <type>String</type>

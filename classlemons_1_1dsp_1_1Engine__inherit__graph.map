@@ -3,7 +3,7 @@
 <area shape="rect" id="node2" href="$classlemons_1_1dsp_1_1FX_1_1EffectEngine.html" title=" " alt="" coords="532,5,687,47"/>
 <area shape="rect" id="node4" href="$classlemons_1_1dsp_1_1FX_1_1EffectEngine.html" title="A class that wraps an AudioEffect into a dsp::Engine." alt="" coords="289,131,504,172"/>
 <area shape="rect" id="node6" href="$classlemons_1_1dsp_1_1LatencyEngine.html" title="Base class for audio engines that require latency (ie, a consistent block size) for their processing." alt="" coords="295,255,499,296"/>
-<area shape="rect" id="node7" href="$classlemons_1_1dsp_1_1osc_1_1OscEngine.html" title=" " alt="" coords="293,435,500,476"/>
+<area shape="rect" id="node7" href="$classlemons_1_1dsp_1_1osc_1_1OscEngine.html" title="A utility class that wraps an Oscillator into a self&#45;contained dsp::Engine." alt="" coords="293,435,500,476"/>
 <area shape="rect" id="node18" href="$classlemons_1_1dsp_1_1osc_1_1OscEngine.html" title=" " alt="" coords="303,500,491,541"/>
 <area shape="rect" id="node19" href="$classlemons_1_1dsp_1_1osc_1_1OscEngine.html" title=" " alt="" coords="303,565,491,607"/>
 <area shape="rect" id="node20" href="$classlemons_1_1dsp_1_1osc_1_1OscEngine.html" title=" " alt="" coords="295,631,498,672"/>

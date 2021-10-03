@@ -115,7 +115,7 @@ var sectionId = 'dynsection-0';
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="classlemons_1_1dsp_1_1osc_1_1OscEngine.html" target="_top" xlink:title=" ">
+<g id="a_node7"><a xlink:href="classlemons_1_1dsp_1_1osc_1_1OscEngine.html" target="_top" xlink:title="A utility class that wraps an Oscillator into a self&#45;contained dsp::Engine.">
 <polygon fill="none" stroke="black" points="216,-345.35 216,-375.35 371,-375.35 371,-345.35 216,-345.35"/>
 <text text-anchor="start" x="224" y="-363.35" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::osc::OscEngine</text>
 <text text-anchor="middle" x="293.5" y="-352.35" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>

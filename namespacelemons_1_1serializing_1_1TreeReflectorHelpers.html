@@ -97,9 +97,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a78c3142c99783b1055c4f23e4124a607"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a78c3142c99783b1055c4f23e4124a607">loadValueTree</a> (const ValueTree &amp;tree, const String &amp;propertyName, ValueTree &amp;data)</td></tr>
 <tr class="memdesc:a78c3142c99783b1055c4f23e4124a607"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores the state of a child ValueTree with the specified name.  <a href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a78c3142c99783b1055c4f23e4124a607">More...</a><br /></td></tr>
 <tr class="separator:a78c3142c99783b1055c4f23e4124a607"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34b31179d6af762e8129fba7be43c130"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a34b31179d6af762e8129fba7be43c130">makePropertyNameForElement</a> (const String &amp;propertyName, int &amp;index)</td></tr>
-<tr class="memdesc:a34b31179d6af762e8129fba7be43c130"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms a passed generic container element name and container index into a unique name for a given object.  <a href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a34b31179d6af762e8129fba7be43c130">More...</a><br /></td></tr>
-<tr class="separator:a34b31179d6af762e8129fba7be43c130"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6585e687d1ccbcbb445bfc3f69d345a"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#ac6585e687d1ccbcbb445bfc3f69d345a">makePropertyNameForElement</a> (const String &amp;propertyName, int index)</td></tr>
+<tr class="memdesc:ac6585e687d1ccbcbb445bfc3f69d345a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms a passed generic container element name and container index into a unique name for a given object.  <a href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#ac6585e687d1ccbcbb445bfc3f69d345a">More...</a><br /></td></tr>
+<tr class="separator:ac6585e687d1ccbcbb445bfc3f69d345a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74fbae7ad15a8c2708942fa0169527af"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a74fbae7ad15a8c2708942fa0169527af">propertyNameToContainerName</a> (const String &amp;propertyName)</td></tr>
 <tr class="memdesc:a74fbae7ad15a8c2708942fa0169527af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms the name of a single container element to a name for the container's sub-node.  <a href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a74fbae7ad15a8c2708942fa0169527af">More...</a><br /></td></tr>
 <tr class="separator:a74fbae7ad15a8c2708942fa0169527af"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -153,7 +153,7 @@ template&lt;class ContainerType &gt; </div>
 <p>Adds a container to the given <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a>. </p>
 <p>Used for both loading and saving. </p>
 
-<p class="reference">References <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883">lemons::TreeReflector::add()</a>, <a class="el" href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2">lemons::serializing::getInterfaceForContainer()</a>, <a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a3cf377cb04beb02fcba0ada837b67bbc">getNumElementsOfType()</a>, <a class="el" href="structlemons_1_1TreeReflector.html#a7a88f53e45239d0b8d11cb2ce4dbefd0">lemons::TreeReflector::getRawDataTree()</a>, <a class="el" href="structlemons_1_1TreeReflector.html#ad8d42bdfb2093716fe60ba2196d54ac3">lemons::TreeReflector::isLoading()</a>, and <a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a34b31179d6af762e8129fba7be43c130">makePropertyNameForElement()</a>.</p>
+<p class="reference">References <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883">lemons::TreeReflector::add()</a>, <a class="el" href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2">lemons::serializing::getInterfaceForContainer()</a>, <a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a3cf377cb04beb02fcba0ada837b67bbc">getNumElementsOfType()</a>, <a class="el" href="structlemons_1_1TreeReflector.html#a7a88f53e45239d0b8d11cb2ce4dbefd0">lemons::TreeReflector::getRawDataTree()</a>, <a class="el" href="structlemons_1_1TreeReflector.html#ad8d42bdfb2093716fe60ba2196d54ac3">lemons::TreeReflector::isLoading()</a>, and <a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#ac6585e687d1ccbcbb445bfc3f69d345a">makePropertyNameForElement()</a>.</p>
 
 </div>
 </div>
@@ -208,7 +208,7 @@ template&lt;typename Type &gt; </div>
 </div><div class="memdoc">
 
 <p>Detects how many elements a given container contains. </p>
-<p>Uses the same transformation as <a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a34b31179d6af762e8129fba7be43c130" title="Transforms a passed generic container element name and container index into a unique name for a given...">makePropertyNameForElement()</a> and counts how many valid indices it can find corresponding to existing property names. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a34b31179d6af762e8129fba7be43c130" title="Transforms a passed generic container element name and container index into a unique name for a given...">makePropertyNameForElement()</a> </dd></dl>
+<p>Uses the same transformation as <a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#ac6585e687d1ccbcbb445bfc3f69d345a" title="Transforms a passed generic container element name and container index into a unique name for a given...">makePropertyNameForElement()</a> and counts how many valid indices it can find corresponding to existing property names. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#ac6585e687d1ccbcbb445bfc3f69d345a" title="Transforms a passed generic container element name and container index into a unique name for a given...">makePropertyNameForElement()</a> </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a336cf06a7997c2af3f7b8e17b0c6bcf1">addContainer()</a>.</p>
 
@@ -319,8 +319,8 @@ template&lt;typename Type &gt; </div>
 
 </div>
 </div>
-<a id="a34b31179d6af762e8129fba7be43c130"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34b31179d6af762e8129fba7be43c130">&#9670;&nbsp;</a></span>makePropertyNameForElement()</h2>
+<a id="ac6585e687d1ccbcbb445bfc3f69d345a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6585e687d1ccbcbb445bfc3f69d345a">&#9670;&nbsp;</a></span>makePropertyNameForElement()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -334,7 +334,7 @@ template&lt;typename Type &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>index</em>&#160;</td>
         </tr>
         <tr>
@@ -477,7 +477,7 @@ template&lt;typename Type &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Oct 2 2021 22:17:05 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 3 2021 01:04:56 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

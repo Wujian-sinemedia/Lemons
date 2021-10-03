@@ -1,5 +1,5 @@
-<map id="lemons::dsp::osc::OscEngine&lt; SampleType, OscType &gt;" name="lemons::dsp::osc::OscEngine&lt; SampleType, OscType &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="208,369,415,410"/>
+<map id="lemons::dsp::osc::OscEngine&lt; SampleType, Osctype &gt;" name="lemons::dsp::osc::OscEngine&lt; SampleType, Osctype &gt;">
+<area shape="rect" id="node1" title="A utility class that wraps an Oscillator into a self&#45;contained dsp::Engine." alt="" coords="208,369,415,410"/>
 <area shape="rect" id="node3" href="$classlemons_1_1dsp_1_1osc_1_1OscEngine.html" title=" " alt="" coords="631,15,837,71"/>
 <area shape="rect" id="node4" href="$classlemons_1_1dsp_1_1osc_1_1OscEngine.html" title=" " alt="" coords="617,95,851,137"/>
 <area shape="rect" id="node5" href="$classlemons_1_1dsp_1_1osc_1_1OscEngine.html" title=" " alt="" coords="631,161,837,217"/>

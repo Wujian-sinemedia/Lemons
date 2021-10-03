@@ -18,7 +18,7 @@ var searchData=
   ['makelowshelf_544',['makeLowShelf',['../structlemons_1_1dsp_1_1filters_1_1Coefficients.html#a0fd8aaf0e0d6189d1c3ff1f9bf78be12',1,'lemons::dsp::filters::Coefficients']]],
   ['makenotch_545',['makeNotch',['../structlemons_1_1dsp_1_1filters_1_1Coefficients.html#a4a0f375675947372c3f7ef75da70a1b8',1,'lemons::dsp::filters::Coefficients']]],
   ['makepeakfilter_546',['makePeakFilter',['../structlemons_1_1dsp_1_1filters_1_1Coefficients.html#ab22e8f58053dcba63671e20961a71e6a',1,'lemons::dsp::filters::Coefficients']]],
-  ['makepropertynameforelement_547',['makePropertyNameForElement',['../namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a34b31179d6af762e8129fba7be43c130',1,'lemons::serializing::TreeReflectorHelpers']]],
+  ['makepropertynameforelement_547',['makePropertyNameForElement',['../namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#ac6585e687d1ccbcbb445bfc3f69d345a',1,'lemons::serializing::TreeReflectorHelpers']]],
   ['makespline_548',['makeSpline',['../structlemons_1_1spline_1_1Knots.html#a5b302eff91b1c3c9d36b85a5b624993b',1,'lemons::spline::Knots']]],
   ['mathhelpers_2eh_549',['mathHelpers.h',['../mathHelpers_8h.html',1,'']]],
   ['metadata_550',['Metadata',['../classlemons_1_1midi_1_1MidiProcessor.html#a1cdd16fd3a492c230214a2acb4dab49d',1,'lemons::midi::MidiProcessor']]],

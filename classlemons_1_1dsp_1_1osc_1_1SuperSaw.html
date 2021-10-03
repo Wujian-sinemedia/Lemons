@@ -74,6 +74,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A basic "super saw" oscillator.  
+ <a href="classlemons_1_1dsp_1_1osc_1_1SuperSaw.html#details">More...</a></p>
+
 <p><code>#include &lt;SuperSaw.h&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::dsp::osc::SuperSaw&lt; SampleType &gt;:</div>
@@ -87,21 +90,35 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a394f803e344df738e0a3da085bfc6792"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1SuperSaw.html#a394f803e344df738e0a3da085bfc6792">SuperSaw</a> ()</td></tr>
+<tr class="memdesc:a394f803e344df738e0a3da085bfc6792"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a default <a class="el" href="classlemons_1_1dsp_1_1osc_1_1SuperSaw.html" title="A basic &quot;super saw&quot; oscillator.">SuperSaw</a>.  <a href="classlemons_1_1dsp_1_1osc_1_1SuperSaw.html#a394f803e344df738e0a3da085bfc6792">More...</a><br /></td></tr>
 <tr class="separator:a394f803e344df738e0a3da085bfc6792"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94e4b1baa006bb60922b701b401753ab"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1SuperSaw.html#a94e4b1baa006bb60922b701b401753ab">getPitchSpreadCents</a> () const</td></tr>
-<tr class="separator:a94e4b1baa006bb60922b701b401753ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab147bbae63bba206564d52a837b930ec"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1SuperSaw.html#ab147bbae63bba206564d52a837b930ec">getPitchSpreadCents</a> () const noexcept</td></tr>
+<tr class="memdesc:ab147bbae63bba206564d52a837b930ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the total pitch spread of the voices in cents.  <a href="classlemons_1_1dsp_1_1osc_1_1SuperSaw.html#ab147bbae63bba206564d52a837b930ec">More...</a><br /></td></tr>
+<tr class="separator:ab147bbae63bba206564d52a837b930ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac265c02f42dac755b6b2114a887aec44"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1SuperSaw.html#ac265c02f42dac755b6b2114a887aec44">getSample</a> () final</td></tr>
+<tr class="memdesc:ac265c02f42dac755b6b2114a887aec44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next sample of the super saw's output.  <a href="classlemons_1_1dsp_1_1osc_1_1SuperSaw.html#ac265c02f42dac755b6b2114a887aec44">More...</a><br /></td></tr>
 <tr class="separator:ac265c02f42dac755b6b2114a887aec44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d4e7108f8cb508f01efeb7e7d423c84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html#a0d4e7108f8cb508f01efeb7e7d423c84">getSamples</a> (SampleType *output, int numSamples)</td></tr>
+<tr class="memdesc:a0d4e7108f8cb508f01efeb7e7d423c84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a stream of samples from the oscillator.  <a href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html#a0d4e7108f8cb508f01efeb7e7d423c84">More...</a><br /></td></tr>
 <tr class="separator:a0d4e7108f8cb508f01efeb7e7d423c84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80528ee05c8ada9460bc49cd435e8ae3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1SuperSaw.html#a80528ee05c8ada9460bc49cd435e8ae3">resetPhase</a> () final</td></tr>
+<tr class="memdesc:a80528ee05c8ada9460bc49cd435e8ae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the super saw's phase.  <a href="classlemons_1_1dsp_1_1osc_1_1SuperSaw.html#a80528ee05c8ada9460bc49cd435e8ae3">More...</a><br /></td></tr>
 <tr class="separator:a80528ee05c8ada9460bc49cd435e8ae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4990ad07773cbb3fae93582e33064bcc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1SuperSaw.html#a4990ad07773cbb3fae93582e33064bcc">setDetuneAmount</a> (int totalPitchSpreadInCents)</td></tr>
+<tr class="memdesc:a4990ad07773cbb3fae93582e33064bcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Controls the total amount of pitch spread between the voices, in cents.  <a href="classlemons_1_1dsp_1_1osc_1_1SuperSaw.html#a4990ad07773cbb3fae93582e33064bcc">More...</a><br /></td></tr>
 <tr class="separator:a4990ad07773cbb3fae93582e33064bcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebb73235f424cd217b88523dfdc35bab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1SuperSaw.html#aebb73235f424cd217b88523dfdc35bab">setFrequency</a> (SampleType frequency, SampleType sampleRate) final</td></tr>
+<tr class="memdesc:aebb73235f424cd217b88523dfdc35bab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the output frequency and samplerate of the super saw.  <a href="classlemons_1_1dsp_1_1osc_1_1SuperSaw.html#aebb73235f424cd217b88523dfdc35bab">More...</a><br /></td></tr>
 <tr class="separator:aebb73235f424cd217b88523dfdc35bab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename SampleType&gt;<br />
+class lemons::dsp::osc::SuperSaw&lt; SampleType &gt;</h3>
+
+<p>A basic "super saw" oscillator. </p>
+<p>This oscillator contains 7 slightly detuned saw oscillators and returns their aggregate output. <br  />
+You can set the detuning amount in cents with <a class="el" href="classlemons_1_1dsp_1_1osc_1_1SuperSaw.html#a4990ad07773cbb3fae93582e33064bcc" title="Controls the total amount of pitch spread between the voices, in cents.">setDetuneAmount()</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1dsp_1_1osc_1_1Saw.html" title="A basic sawtooth wave oscillator.">Saw</a>, <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html" title="Base class for any kind of oscillator.">Oscillator</a>, <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Phase.html" title="Represents the phase of an oscillator.">Phase</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a394f803e344df738e0a3da085bfc6792"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a394f803e344df738e0a3da085bfc6792">&#9670;&nbsp;</a></span>SuperSaw()</h2>
 
@@ -119,16 +136,21 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Constructs a default <a class="el" href="classlemons_1_1dsp_1_1osc_1_1SuperSaw.html" title="A basic &quot;super saw&quot; oscillator.">SuperSaw</a>. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a94e4b1baa006bb60922b701b401753ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94e4b1baa006bb60922b701b401753ab">&#9670;&nbsp;</a></span>getPitchSpreadCents()</h2>
+<a id="ab147bbae63bba206564d52a837b930ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab147bbae63bba206564d52a837b930ec">&#9670;&nbsp;</a></span>getPitchSpreadCents()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int <a class="el" href="classlemons_1_1dsp_1_1osc_1_1SuperSaw.html">lemons::dsp::osc::SuperSaw</a>&lt; SampleType &gt;::getPitchSpreadCents </td>
@@ -137,7 +159,14 @@ template&lt;typename SampleType &gt; </div>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>Returns the total pitch spread of the voices in cents. </p>
 
 </div>
 </div>
@@ -165,6 +194,8 @@ template&lt;typename SampleType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the next sample of the super saw's output. </p>
 
 <p>Implements <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html#ac7dbd9538f446278698dbfed3f39a90f">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>.</p>
 
@@ -206,6 +237,8 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns a stream of samples from the oscillator. </p>
+
 </div>
 </div>
 <a id="a80528ee05c8ada9460bc49cd435e8ae3"></a>
@@ -233,6 +266,8 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Resets the super saw's phase. </p>
+
 <p>Implements <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html#af0337e1ba93847789802aef01ccff72f">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>.</p>
 
 </div>
@@ -254,6 +289,14 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Controls the total amount of pitch spread between the voices, in cents. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">totalPitchSpreadInCents</td><td>The total pitch spread of all the voices. The 7 voices will be spread evenly around the super saw's center frequency, with the highest and lowest voices being this far apart in cents. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -293,6 +336,9 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Sets the output frequency and samplerate of the super saw. </p>
+<p>The frequency set here will be the center frequency that the detuned voices are spread around. </p>
+
 <p>Implements <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html#a85e60c81999d18bfc2c363b89acd8ba1">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>.</p>
 
 </div>
@@ -303,7 +349,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Oct 2 2021 22:17:05 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 3 2021 01:04:55 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

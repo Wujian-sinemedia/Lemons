@@ -4,7 +4,7 @@
 <area shape="rect" id="node7" href="$classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html" title=" " alt="" coords="663,539,869,580"/>
 <area shape="rect" id="node8" href="$structlemons_1_1dsp_1_1FX_1_1AudioEffect.html" title="Base class for any kind of audio effect." alt="" coords="257,277,465,319"/>
 <area shape="rect" id="node22" href="$classlemons_1_1dsp_1_1FX_1_1Reverb.html" title="Reverb effect class that wraps juce::Reverb with some other useful bells and whistles,..." alt="" coords="271,618,451,645"/>
-<area shape="rect" id="node23" href="$classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html" title=" " alt="" coords="258,501,465,543"/>
+<area shape="rect" id="node23" href="$classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html" title="A class that encapsulates together all the kinds of oscillators, and allows you to seamlessly switch ..." alt="" coords="258,501,465,543"/>
 <area shape="rect" id="node24" href="$structlemons_1_1plugin_1_1Dimensions.html" title=" " alt="" coords="260,669,463,695"/>
 <area shape="rect" id="node25" href="$classlemons_1_1plugin_1_1ModulationManager.html" title=" " alt="" coords="262,720,461,761"/>
 <area shape="rect" id="node26" href="$classlemons_1_1plugin_1_1Parameter.html" title=" " alt="" coords="265,786,458,813"/>

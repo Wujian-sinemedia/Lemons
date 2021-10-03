@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="A class that encapsulates together all the kinds of oscillators, and allows you to seamlessly switch ...">
 <polygon fill="#bfbfbf" stroke="black" points="0,-78.5 0,-108.5 155,-108.5 155,-78.5 0,-78.5"/>
 <text text-anchor="start" x="8" y="-96.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::osc::Choosable</text>
 <text text-anchor="middle" x="77.5" y="-85.5" font-family="Helvetica,sans-Serif" font-size="10.00">Oscillator&lt; SampleType &gt;</text>

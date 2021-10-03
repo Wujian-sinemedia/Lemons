@@ -74,6 +74,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A basic sine wave oscillator.  
+ <a href="structlemons_1_1dsp_1_1osc_1_1Sine.html#details">More...</a></p>
+
 <p><code>#include &lt;oscillators.h&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::dsp::osc::Sine&lt; SampleType &gt;:</div>
@@ -87,17 +90,28 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aea160e6cbd0caf65fcc163bb476c5f97"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1Sine.html#aea160e6cbd0caf65fcc163bb476c5f97">Sine</a> ()</td></tr>
+<tr class="memdesc:aea160e6cbd0caf65fcc163bb476c5f97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a default sine oscillator.  <a href="structlemons_1_1dsp_1_1osc_1_1Sine.html#aea160e6cbd0caf65fcc163bb476c5f97">More...</a><br /></td></tr>
 <tr class="separator:aea160e6cbd0caf65fcc163bb476c5f97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4a826b1fd62beb3255ae4a8965fdc62"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1Sine.html#af4a826b1fd62beb3255ae4a8965fdc62">getSample</a> () final</td></tr>
+<tr class="memdesc:af4a826b1fd62beb3255ae4a8965fdc62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next sample of the sine wave.  <a href="structlemons_1_1dsp_1_1osc_1_1Sine.html#af4a826b1fd62beb3255ae4a8965fdc62">More...</a><br /></td></tr>
 <tr class="separator:af4a826b1fd62beb3255ae4a8965fdc62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d4e7108f8cb508f01efeb7e7d423c84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html#a0d4e7108f8cb508f01efeb7e7d423c84">getSamples</a> (SampleType *output, int numSamples)</td></tr>
+<tr class="memdesc:a0d4e7108f8cb508f01efeb7e7d423c84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a stream of samples from the oscillator.  <a href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html#a0d4e7108f8cb508f01efeb7e7d423c84">More...</a><br /></td></tr>
 <tr class="separator:a0d4e7108f8cb508f01efeb7e7d423c84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b1a66de3b0cfc53a9c811536bcba5ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1Sine.html#a4b1a66de3b0cfc53a9c811536bcba5ad">resetPhase</a> () final</td></tr>
+<tr class="memdesc:a4b1a66de3b0cfc53a9c811536bcba5ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the sine wave's phase.  <a href="structlemons_1_1dsp_1_1osc_1_1Sine.html#a4b1a66de3b0cfc53a9c811536bcba5ad">More...</a><br /></td></tr>
 <tr class="separator:a4b1a66de3b0cfc53a9c811536bcba5ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9a250d4a8800c416635bb9ba8ae4b64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1Sine.html#ab9a250d4a8800c416635bb9ba8ae4b64">setFrequency</a> (SampleType frequency, SampleType sampleRate) final</td></tr>
+<tr class="memdesc:ab9a250d4a8800c416635bb9ba8ae4b64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the output frequency and samplerate of the sine wave.  <a href="structlemons_1_1dsp_1_1osc_1_1Sine.html#ab9a250d4a8800c416635bb9ba8ae4b64">More...</a><br /></td></tr>
 <tr class="separator:ab9a250d4a8800c416635bb9ba8ae4b64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename SampleType&gt;<br />
+struct lemons::dsp::osc::Sine&lt; SampleType &gt;</h3>
+
+<p>A basic sine wave oscillator. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html" title="Base class for any kind of oscillator.">Oscillator</a>, <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Phase.html" title="Represents the phase of an oscillator.">Phase</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aea160e6cbd0caf65fcc163bb476c5f97"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aea160e6cbd0caf65fcc163bb476c5f97">&#9670;&nbsp;</a></span>Sine()</h2>
 
@@ -114,6 +128,8 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructs a default sine oscillator. </p>
 
 </div>
 </div>
@@ -142,6 +158,8 @@ template&lt;typename SampleType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the next sample of the sine wave. </p>
 
 <p>Implements <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html#ac7dbd9538f446278698dbfed3f39a90f">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>.</p>
 
@@ -183,6 +201,8 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns a stream of samples from the oscillator. </p>
+
 </div>
 </div>
 <a id="a4b1a66de3b0cfc53a9c811536bcba5ad"></a>
@@ -209,6 +229,8 @@ template&lt;typename SampleType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Resets the sine wave's phase. </p>
 
 <p>Implements <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html#af0337e1ba93847789802aef01ccff72f">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>.</p>
 
@@ -250,6 +272,8 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Sets the output frequency and samplerate of the sine wave. </p>
+
 <p>Implements <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html#a85e60c81999d18bfc2c363b89acd8ba1">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>.</p>
 
 </div>
@@ -260,7 +284,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Oct 2 2021 22:17:05 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 3 2021 01:04:55 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
