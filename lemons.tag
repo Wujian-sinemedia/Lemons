@@ -455,18 +455,8 @@
     <namespace>lemons::dsp::filters</namespace>
   </compound>
   <compound kind="file">
-    <name>GrainExtractor.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_psola/analysis/Grains/GrainExtractor/</path>
-    <filename>GrainExtractor_8h.html</filename>
-    <includes id="PeakFinder_8h" name="PeakFinder.h" local="yes" imported="no">PeakFinder.h</includes>
-    <class kind="class">lemons::dsp::psola::AnalysisGrainExtractor</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::psola</namespace>
-  </compound>
-  <compound kind="file">
     <name>GrainStorage.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_psola/analysis/Grains/GrainStorage/</path>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_psola/analysis/GrainStorage/</path>
     <filename>GrainStorage_8h.html</filename>
     <class kind="class">lemons::dsp::psola::AnalysisGrainStorage</class>
     <namespace>lemons</namespace>
@@ -1404,15 +1394,6 @@
     <namespace>lemons::plugin</namespace>
   </compound>
   <compound kind="file">
-    <name>PeakFinder.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_psola/analysis/Grains/GrainExtractor/</path>
-    <filename>PeakFinder_8h.html</filename>
-    <class kind="class">lemons::dsp::psola::PeakFinder</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::psola</namespace>
-  </compound>
-  <compound kind="file">
     <name>PitchbendTracker.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Connectivity/lemons_midi/MidiUtilities/</path>
     <filename>PitchbendTracker_8h.html</filename>
@@ -1590,9 +1571,9 @@
     <name>psola_analyzer.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_psola/analysis/</path>
     <filename>psola__analyzer_8h.html</filename>
-    <includes id="GrainExtractor_8h" name="GrainExtractor.h" local="yes" imported="no">Grains/GrainExtractor/GrainExtractor.h</includes>
-    <includes id="GrainStorage_8h" name="GrainStorage.h" local="yes" imported="no">Grains/GrainStorage/GrainStorage.h</includes>
+    <includes id="GrainStorage_8h" name="GrainStorage.h" local="yes" imported="no">GrainStorage/GrainStorage.h</includes>
     <class kind="class">lemons::dsp::psola::Analyzer</class>
+    <class kind="class">lemons::dsp::psola::Shifter</class>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::psola</namespace>
@@ -1601,7 +1582,6 @@
     <name>psola_shifter.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_psola/resynthesis/</path>
     <filename>psola__shifter_8h.html</filename>
-    <includes id="SynthesisGrain_8h" name="SynthesisGrain.h" local="yes" imported="no">Grains/SynthesisGrain.h</includes>
     <class kind="class">lemons::dsp::psola::Shifter</class>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
@@ -2001,15 +1981,6 @@
     <namespace>lemons::dsp</namespace>
   </compound>
   <compound kind="file">
-    <name>SynthesisGrain.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_psola/resynthesis/Grains/</path>
-    <filename>SynthesisGrain_8h.html</filename>
-    <class kind="class">lemons::dsp::psola::SynthesisGrain</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::psola</namespace>
-  </compound>
-  <compound kind="file">
     <name>SynthVoice.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_synth/SynthVoice/</path>
     <filename>SynthVoice_8h.html</filename>
@@ -2350,53 +2321,6 @@
     <namespace>lemons</namespace>
   </compound>
   <compound kind="class">
-    <name>lemons::dsp::psola::AnalysisGrainExtractor</name>
-    <filename>classlemons_1_1dsp_1_1psola_1_1AnalysisGrainExtractor.html</filename>
-    <templarg></templarg>
-    <member kind="function">
-      <type></type>
-      <name>AnalysisGrainExtractor</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1AnalysisGrainExtractor.html</anchorfile>
-      <anchor>aa483948dc456256d118aa686c9379a17</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>~AnalysisGrainExtractor</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1AnalysisGrainExtractor.html</anchorfile>
-      <anchor>ae856fb287747f23c1d319462a2b8fbbd</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>analyzeInput</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1AnalysisGrainExtractor.html</anchorfile>
-      <anchor>a5742b13f27b44056393ffc9c7cab5d1a</anchor>
-      <arglist>(const SampleType *inputSamples, int numSamples, int period)</arglist>
-    </member>
-    <member kind="function">
-      <type>const juce::Array&lt; int &gt; &amp;</type>
-      <name>getIndices</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1AnalysisGrainExtractor.html</anchorfile>
-      <anchor>a59f9797dff9e29f3f85425c1e7b94641</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1AnalysisGrainExtractor.html</anchorfile>
-      <anchor>a2ab808d5a158ce555b20b5636896ef78</anchor>
-      <arglist>(int blocksize)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>releaseResources</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1AnalysisGrainExtractor.html</anchorfile>
-      <anchor>ac8c8b35211aa251324b8102cc3e13bf5</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>lemons::dsp::psola::AnalysisGrainStorage</name>
     <filename>classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html</filename>
     <templarg></templarg>
@@ -2406,20 +2330,6 @@
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html</anchorfile>
       <anchor>a8269055f0e17d050f30c9b2290d3cda9</anchor>
       <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>AnalysisGrainStorage</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html</anchorfile>
-      <anchor>aff4e7a306c7bb2b631a8289befb60315</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>~AnalysisGrainStorage</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html</anchorfile>
-      <anchor>aac1f044c89a6af347885e5adbe3f1550</anchor>
-      <arglist>()=default</arglist>
     </member>
     <member kind="function">
       <type>SampleType</type>
@@ -2462,20 +2372,6 @@
       <arglist></arglist>
     </member>
     <member kind="function">
-      <type></type>
-      <name>Analyzer</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1Analyzer.html</anchorfile>
-      <anchor>aae0c65479f441a25399035ad0192447f</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>~Analyzer</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1Analyzer.html</anchorfile>
-      <anchor>af1f355188bce74a4a29153b0c7c2831e</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
       <type>void</type>
       <name>analyzeInput</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1Analyzer.html</anchorfile>
@@ -2488,13 +2384,6 @@
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1Analyzer.html</anchorfile>
       <anchor>ab8a13de76a68eef7162c6b56cc998f5a</anchor>
       <arglist>(const SampleType *samples, int numSamples)</arglist>
-    </member>
-    <member kind="function">
-      <type>events::Broadcaster &amp;</type>
-      <name>getBroadcaster</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1Analyzer.html</anchorfile>
-      <anchor>ac6ea3a0918bd3432da2b806c6cc136d9</anchor>
-      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>float</type>
@@ -2525,18 +2414,18 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>const Storage &amp;</type>
-      <name>getStorage</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1Analyzer.html</anchorfile>
-      <anchor>a572f1765ea270cb53d6b934099a51980</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
       <type>void</type>
       <name>prepare</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1Analyzer.html</anchorfile>
       <anchor>ab6b686b1dda490a086e2772f2e1fe739</anchor>
       <arglist>(double sampleRate, int blocksize)</arglist>
+    </member>
+    <member kind="friend" protection="private">
+      <type>friend class</type>
+      <name>Shifter&lt; SampleType &gt;</name>
+      <anchorfile>classlemons_1_1dsp_1_1psola_1_1Analyzer.html</anchorfile>
+      <anchor>ab0c6bf0dc83509d935bf350d9dace989</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -12618,46 +12507,6 @@
       <arglist>(float newNormalizedDefault)</arglist>
     </member>
   </compound>
-  <compound kind="class">
-    <name>lemons::dsp::psola::PeakFinder</name>
-    <filename>classlemons_1_1dsp_1_1psola_1_1PeakFinder.html</filename>
-    <templarg></templarg>
-    <member kind="typedef">
-      <type>juce::Array&lt; float &gt;</type>
-      <name>FArray</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1PeakFinder.html</anchorfile>
-      <anchor>ab3775f0d17d840f92e0b6e74121a6b15</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>juce::Array&lt; int &gt;</type>
-      <name>IArray</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1PeakFinder.html</anchorfile>
-      <anchor>ac8326a9280d3fecbe46ee91fe56fe009</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>findPeaks</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1PeakFinder.html</anchorfile>
-      <anchor>a462426dfb838f562bea67ed01d826fd2</anchor>
-      <arglist>(IArray &amp;targetArray, const SampleType *reading, int totalNumSamples, int period)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1PeakFinder.html</anchorfile>
-      <anchor>af3578c5a2abf5b1e06ff33194ac39750</anchor>
-      <arglist>(int blocksize)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>releaseResources</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1PeakFinder.html</anchorfile>
-      <anchor>a7e094e334ac553f624732849d8821360</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
   <compound kind="struct">
     <name>lemons::plugin::PercentParameter</name>
     <filename>structlemons_1_1plugin_1_1PercentParameter.html</filename>
@@ -13221,6 +13070,13 @@
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html</anchorfile>
       <anchor>a2fb20184a466a57d18456c78f202bfc9</anchor>
       <arglist>(Analyzer &amp;analyzerToUse, const midi::PitchPipeline *pitchConverterToUse=nullptr)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~PitchCorrectorBase</name>
+      <anchorfile>classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html</anchorfile>
+      <anchor>ad1798494d67f7511d537c0498f9c4720</anchor>
+      <arglist>()=default</arglist>
     </member>
     <member kind="function">
       <type>int</type>
@@ -14409,13 +14265,6 @@
       <name>AudioBuffer</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1Shifter.html</anchorfile>
       <anchor>ab48b93accb65bf3295ceda63442e5665</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>psola::SynthesisGrain&lt; SampleType &gt;</type>
-      <name>Grain</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1Shifter.html</anchorfile>
-      <anchor>a73eb48ba33dd7ff828ca5186374fd4d8</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -16068,46 +15917,6 @@
       <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
       <anchor>a66315199dfd530287824aea97529af95</anchor>
       <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>lemons::dsp::psola::SynthesisGrain</name>
-    <filename>classlemons_1_1dsp_1_1psola_1_1SynthesisGrain.html</filename>
-    <templarg></templarg>
-    <member kind="typedef">
-      <type>AnalysisGrainStorage&lt; SampleType &gt;</type>
-      <name>Storage</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1SynthesisGrain.html</anchorfile>
-      <anchor>a3ec9063907ad88aaba1712f0b0ff436b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>SynthesisGrain</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1SynthesisGrain.html</anchorfile>
-      <anchor>aa7c672989dc099115e60797e30841ade</anchor>
-      <arglist>(const Storage &amp;storageToUse)</arglist>
-    </member>
-    <member kind="function">
-      <type>SampleType</type>
-      <name>getNextSample</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1SynthesisGrain.html</anchorfile>
-      <anchor>acfef40a8b0b3c0db609206eb68346f3c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isActive</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1SynthesisGrain.html</anchorfile>
-      <anchor>aced931406b2c46d06b29fe232334dedd</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>startNewGrain</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1SynthesisGrain.html</anchorfile>
-      <anchor>a587f542e562f36fea913ba85bec30cd2</anchor>
-      <arglist>(int start, int length)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -19086,14 +18895,11 @@
   <compound kind="namespace">
     <name>lemons::dsp::psola</name>
     <filename>namespacelemons_1_1dsp_1_1psola.html</filename>
-    <class kind="class">lemons::dsp::psola::AnalysisGrainExtractor</class>
     <class kind="class">lemons::dsp::psola::AnalysisGrainStorage</class>
     <class kind="class">lemons::dsp::psola::Analyzer</class>
-    <class kind="class">lemons::dsp::psola::PeakFinder</class>
     <class kind="class">lemons::dsp::psola::PitchCorrector</class>
     <class kind="class">lemons::dsp::psola::PitchCorrectorBase</class>
     <class kind="class">lemons::dsp::psola::Shifter</class>
-    <class kind="class">lemons::dsp::psola::SynthesisGrain</class>
   </compound>
   <compound kind="namespace">
     <name>lemons::dsp::synth</name>

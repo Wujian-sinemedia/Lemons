@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['factorypresetsmanager_1135',['FactoryPresetsManager',['../classlemons_1_1plugin_1_1presets_1_1FactoryPresetsManager.html',1,'lemons::plugin::presets']]],
-  ['filter_1136',['Filter',['../classlemons_1_1dsp_1_1FX_1_1Filter.html',1,'lemons::dsp::FX::Filter&lt; SampleType &gt;'],['../classlemons_1_1dsp_1_1filters_1_1Filter.html',1,'lemons::dsp::filters::Filter&lt; SampleType &gt;']]],
-  ['filterengine_1137',['FilterEngine',['../structlemons_1_1dsp_1_1FX_1_1FilterEngine.html',1,'lemons::dsp::FX']]],
-  ['floatamountparameter_1138',['FloatAmountParameter',['../structlemons_1_1plugin_1_1FloatAmountParameter.html',1,'lemons::plugin']]],
-  ['floatslider_1139',['FloatSlider',['../classlemons_1_1gui_1_1FloatSlider.html',1,'lemons::gui']]],
-  ['frequencyparameter_1140',['FrequencyParameter',['../structlemons_1_1plugin_1_1FrequencyParameter.html',1,'lemons::plugin']]]
+  ['factorypresetsmanager_1118',['FactoryPresetsManager',['../classlemons_1_1plugin_1_1presets_1_1FactoryPresetsManager.html',1,'lemons::plugin::presets']]],
+  ['filter_1119',['Filter',['../classlemons_1_1dsp_1_1FX_1_1Filter.html',1,'lemons::dsp::FX::Filter&lt; SampleType &gt;'],['../classlemons_1_1dsp_1_1filters_1_1Filter.html',1,'lemons::dsp::filters::Filter&lt; SampleType &gt;']]],
+  ['filterengine_1120',['FilterEngine',['../structlemons_1_1dsp_1_1FX_1_1FilterEngine.html',1,'lemons::dsp::FX']]],
+  ['floatamountparameter_1121',['FloatAmountParameter',['../structlemons_1_1plugin_1_1FloatAmountParameter.html',1,'lemons::plugin']]],
+  ['floatslider_1122',['FloatSlider',['../classlemons_1_1gui_1_1FloatSlider.html',1,'lemons::gui']]],
+  ['frequencyparameter_1123',['FrequencyParameter',['../structlemons_1_1plugin_1_1FrequencyParameter.html',1,'lemons::plugin']]]
 ];

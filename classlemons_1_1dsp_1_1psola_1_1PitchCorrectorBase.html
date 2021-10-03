@@ -75,6 +75,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>This class attempts to guess the correct pitch for a given input signal, and performs PSOLA pitch shifting to provide a pitch corrected output.  
+ <a href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#details">More...</a></p>
+
 <p><code>#include &lt;PitchCorrector.h&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::dsp::psola::PitchCorrectorBase&lt; SampleType &gt;:</div>
@@ -95,19 +98,34 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a2fb20184a466a57d18456c78f202bfc9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#a2fb20184a466a57d18456c78f202bfc9">PitchCorrectorBase</a> (<a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#a632a34043dd135ef53ad32c2b058bb88">Analyzer</a> &amp;analyzerToUse, const <a class="el" href="structlemons_1_1midi_1_1PitchPipeline.html">midi::PitchPipeline</a> *pitchConverterToUse=nullptr)</td></tr>
+<tr class="memdesc:a2fb20184a466a57d18456c78f202bfc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a pitch corrector.  <a href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#a2fb20184a466a57d18456c78f202bfc9">More...</a><br /></td></tr>
 <tr class="separator:a2fb20184a466a57d18456c78f202bfc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1798494d67f7511d537c0498f9c4720"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#ad1798494d67f7511d537c0498f9c4720">~PitchCorrectorBase</a> ()=default</td></tr>
+<tr class="memdesc:ad1798494d67f7511d537c0498f9c4720"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#ad1798494d67f7511d537c0498f9c4720">More...</a><br /></td></tr>
+<tr class="separator:ad1798494d67f7511d537c0498f9c4720"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab01ad2a6fab1dd7ed56c33b6c8236dfe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#ab01ad2a6fab1dd7ed56c33b6c8236dfe">getCentsSharp</a> () const</td></tr>
+<tr class="memdesc:ab01ad2a6fab1dd7ed56c33b6c8236dfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of cents sharp that the input signal is from the pitch it's being corrected to.  <a href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#ab01ad2a6fab1dd7ed56c33b6c8236dfe">More...</a><br /></td></tr>
 <tr class="separator:ab01ad2a6fab1dd7ed56c33b6c8236dfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68fb9c1a9de0191cc2c1c272c6e5f56e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#a68fb9c1a9de0191cc2c1c272c6e5f56e">getOutputFreq</a> () const</td></tr>
+<tr class="memdesc:a68fb9c1a9de0191cc2c1c272c6e5f56e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the pitch that the output is being corrected to, as a frequency in Hz.  <a href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#a68fb9c1a9de0191cc2c1c272c6e5f56e">More...</a><br /></td></tr>
 <tr class="separator:a68fb9c1a9de0191cc2c1c272c6e5f56e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec5dc4f898fc89741d384ecef61ffb8e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#aec5dc4f898fc89741d384ecef61ffb8e">getOutputMidiPitch</a> () const</td></tr>
+<tr class="memdesc:aec5dc4f898fc89741d384ecef61ffb8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the pitch that the output is being corrected to, as a MIDI pitch.  <a href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#aec5dc4f898fc89741d384ecef61ffb8e">More...</a><br /></td></tr>
 <tr class="separator:aec5dc4f898fc89741d384ecef61ffb8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabc78484d6aad0613293d50a5703c8cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#aabc78484d6aad0613293d50a5703c8cd">prepare</a> (double samplerate)</td></tr>
+<tr class="memdesc:aabc78484d6aad0613293d50a5703c8cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the pitch corrector.  <a href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#aabc78484d6aad0613293d50a5703c8cd">More...</a><br /></td></tr>
 <tr class="separator:aabc78484d6aad0613293d50a5703c8cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb31d3eae7a4c1acfcc9abb22b9a3c4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#adb31d3eae7a4c1acfcc9abb22b9a3c4f">processNextFrame</a> (<a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#a94fbc5cbcb9c87c844df3124547cbd26">AudioBuffer</a> &amp;output)</td></tr>
+<tr class="memdesc:adb31d3eae7a4c1acfcc9abb22b9a3c4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the next frame of audio.  <a href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html#adb31d3eae7a4c1acfcc9abb22b9a3c4f">More...</a><br /></td></tr>
 <tr class="separator:adb31d3eae7a4c1acfcc9abb22b9a3c4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename SampleType&gt;<br />
+class lemons::dsp::psola::PitchCorrectorBase&lt; SampleType &gt;</h3>
+
+<p>This class attempts to guess the correct pitch for a given input signal, and performs PSOLA pitch shifting to provide a pitch corrected output. </p>
+<p>This base class references an external <a class="el" href="classlemons_1_1dsp_1_1psola_1_1Analyzer.html" title="Performs analysis of the incoming signal, to prepare for the Shifter&#39;s resynthesis.">Analyzer</a> object. The <a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrector.html" title="This class attempts to guess the correct pitch for a given input signal, and performs PSOLA pitch shi...">PitchCorrector</a> class holds its own <a class="el" href="classlemons_1_1dsp_1_1psola_1_1Analyzer.html" title="Performs analysis of the incoming signal, to prepare for the Shifter&#39;s resynthesis.">Analyzer</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1psola_1_1Analyzer.html" title="Performs analysis of the incoming signal, to prepare for the Shifter&#39;s resynthesis.">Analyzer</a>, <a class="el" href="classlemons_1_1dsp_1_1psola_1_1Shifter.html" title="Respaces a stream of analysis grains identified by an Analyzer object into a repitched stream of audi...">Shifter</a>, <a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrector.html" title="This class attempts to guess the correct pitch for a given input signal, and performs PSOLA pitch shi...">PitchCorrector</a> </dd></dl>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a632a34043dd135ef53ad32c2b058bb88"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a632a34043dd135ef53ad32c2b058bb88">&#9670;&nbsp;</a></span>Analyzer</h2>
 
@@ -169,6 +187,37 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Creates a pitch corrector. </p>
+
+</div>
+</div>
+<a id="ad1798494d67f7511d537c0498f9c4720"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1798494d67f7511d537c0498f9c4720">&#9670;&nbsp;</a></span>~PitchCorrectorBase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html">lemons::dsp::psola::PitchCorrectorBase</a>&lt; SampleType &gt;::~<a class="el" href="classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html">PitchCorrectorBase</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -189,6 +238,8 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the number of cents sharp that the input signal is from the pitch it's being corrected to. </p>
+
 </div>
 </div>
 <a id="a68fb9c1a9de0191cc2c1c272c6e5f56e"></a>
@@ -208,6 +259,8 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the pitch that the output is being corrected to, as a frequency in Hz. </p>
+
 </div>
 </div>
 <a id="aec5dc4f898fc89741d384ecef61ffb8e"></a>
@@ -226,6 +279,8 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the pitch that the output is being corrected to, as a MIDI pitch. </p>
 
 </div>
 </div>
@@ -247,6 +302,8 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Prepares the pitch corrector. </p>
+
 </div>
 </div>
 <a id="adb31d3eae7a4c1acfcc9abb22b9a3c4f"></a>
@@ -267,6 +324,8 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Processes the next frame of audio. </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -275,7 +334,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 3 2021 01:04:55 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 3 2021 05:23:26 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -75,6 +75,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Stores the analysis grains identified by the <a class="el" href="classlemons_1_1dsp_1_1psola_1_1Analyzer.html" title="Performs analysis of the incoming signal, to prepare for the Shifter&#39;s resynthesis.">Analyzer</a> so they can be resynthesized by <a class="el" href="classlemons_1_1dsp_1_1psola_1_1Shifter.html" title="Respaces a stream of analysis grains identified by an Analyzer object into a repitched stream of audi...">Shifter</a> objects.  
+ <a href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html#details">More...</a></p>
+
 <p><code>#include &lt;GrainStorage.h&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
@@ -84,20 +87,26 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aff4e7a306c7bb2b631a8289befb60315"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html#aff4e7a306c7bb2b631a8289befb60315">AnalysisGrainStorage</a> ()=default</td></tr>
-<tr class="separator:aff4e7a306c7bb2b631a8289befb60315"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac1f044c89a6af347885e5adbe3f1550"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html#aac1f044c89a6af347885e5adbe3f1550">~AnalysisGrainStorage</a> ()=default</td></tr>
-<tr class="separator:aac1f044c89a6af347885e5adbe3f1550"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8adf19fc5e5bff5cb5995d5914fc5cd"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html#aa8adf19fc5e5bff5cb5995d5914fc5cd">getSample</a> (int grainStartIndexInCircularBuffer, int grainTick) const</td></tr>
+<tr class="memdesc:aa8adf19fc5e5bff5cb5995d5914fc5cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a sample value.  <a href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html#aa8adf19fc5e5bff5cb5995d5914fc5cd">More...</a><br /></td></tr>
 <tr class="separator:aa8adf19fc5e5bff5cb5995d5914fc5cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a492149d9c33d2eed9f5c7c7cb2b70f8e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html#a492149d9c33d2eed9f5c7c7cb2b70f8e">getStartOfClosestGrain</a> (int sampleIndex) const</td></tr>
+<tr class="memdesc:a492149d9c33d2eed9f5c7c7cb2b70f8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the start of the closest grain to the requested sample index for this frame.  <a href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html#a492149d9c33d2eed9f5c7c7cb2b70f8e">More...</a><br /></td></tr>
 <tr class="separator:a492149d9c33d2eed9f5c7c7cb2b70f8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ad522e1e8f0fdf4e69d8211d9ab8b16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html#a7ad522e1e8f0fdf4e69d8211d9ab8b16">prepare</a> (int blocksize)</td></tr>
+<tr class="memdesc:a7ad522e1e8f0fdf4e69d8211d9ab8b16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the storage for a new maximum blocksize.  <a href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html#a7ad522e1e8f0fdf4e69d8211d9ab8b16">More...</a><br /></td></tr>
 <tr class="separator:a7ad522e1e8f0fdf4e69d8211d9ab8b16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84f57524dee3657a1c2b1cd2c141d359"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html#a84f57524dee3657a1c2b1cd2c141d359">storeNewFrame</a> (const SampleType *inputSamples, int numSamples, const juce::Array&lt; int &gt; &amp;grainOnsets)</td></tr>
+<tr class="memdesc:a84f57524dee3657a1c2b1cd2c141d359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores a new frame of analyzed samples.  <a href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html#a84f57524dee3657a1c2b1cd2c141d359">More...</a><br /></td></tr>
 <tr class="separator:a84f57524dee3657a1c2b1cd2c141d359"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename SampleType&gt;<br />
+class lemons::dsp::psola::AnalysisGrainStorage&lt; SampleType &gt;</h3>
+
+<p>Stores the analysis grains identified by the <a class="el" href="classlemons_1_1dsp_1_1psola_1_1Analyzer.html" title="Performs analysis of the incoming signal, to prepare for the Shifter&#39;s resynthesis.">Analyzer</a> so they can be resynthesized by <a class="el" href="classlemons_1_1dsp_1_1psola_1_1Shifter.html" title="Respaces a stream of analysis grains identified by an Analyzer object into a repitched stream of audi...">Shifter</a> objects. </p>
+<p>This class isn't really meant for public use; it's more of a support class for <a class="el" href="classlemons_1_1dsp_1_1psola_1_1Analyzer.html" title="Performs analysis of the incoming signal, to prepare for the Shifter&#39;s resynthesis.">Analyzer</a> and <a class="el" href="classlemons_1_1dsp_1_1psola_1_1Shifter.html" title="Respaces a stream of analysis grains identified by an Analyzer object into a repitched stream of audi...">Shifter</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1psola_1_1Analyzer.html" title="Performs analysis of the incoming signal, to prepare for the Shifter&#39;s resynthesis.">Analyzer</a>, <a class="el" href="classlemons_1_1dsp_1_1psola_1_1Shifter.html" title="Respaces a stream of analysis grains identified by an Analyzer object into a repitched stream of audi...">Shifter</a> </dd></dl>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a8269055f0e17d050f30c9b2290d3cda9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8269055f0e17d050f30c9b2290d3cda9">&#9670;&nbsp;</a></span>AudioBuffer</h2>
 
@@ -110,61 +119,6 @@ template&lt;typename SampleType &gt; </div>
           <td class="memname">using <a class="el" href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html">lemons::dsp::psola::AnalysisGrainStorage</a>&lt; SampleType &gt;::<a class="el" href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html#a8269055f0e17d050f30c9b2290d3cda9">AudioBuffer</a> =  juce::AudioBuffer&lt; SampleType &gt;</td>
         </tr>
       </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aff4e7a306c7bb2b631a8289befb60315"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff4e7a306c7bb2b631a8289befb60315">&#9670;&nbsp;</a></span>AnalysisGrainStorage()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html">lemons::dsp::psola::AnalysisGrainStorage</a>&lt; SampleType &gt;::<a class="el" href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html">AnalysisGrainStorage</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aac1f044c89a6af347885e5adbe3f1550"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac1f044c89a6af347885e5adbe3f1550">&#9670;&nbsp;</a></span>~AnalysisGrainStorage()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html">lemons::dsp::psola::AnalysisGrainStorage</a>&lt; SampleType &gt;::~<a class="el" href="classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html">AnalysisGrainStorage</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -198,6 +152,8 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Returns a sample value. </p>
+
 </div>
 </div>
 <a id="a492149d9c33d2eed9f5c7c7cb2b70f8e"></a>
@@ -218,6 +174,8 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the start of the closest grain to the requested sample index for this frame. </p>
+
 </div>
 </div>
 <a id="a7ad522e1e8f0fdf4e69d8211d9ab8b16"></a>
@@ -237,6 +195,8 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Prepares the storage for a new maximum blocksize. </p>
 
 </div>
 </div>
@@ -274,6 +234,8 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Stores a new frame of analyzed samples. </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -282,7 +244,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 3 2021 01:04:55 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 3 2021 05:23:26 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

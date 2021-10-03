@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['dynamics_2274',['dynamics',['../group__lemons__audio__effects-dynamics.html',1,'']]],
-  ['dummy_5fdesktop_5fversions_2275',['dummy_desktop_versions',['../group__lemons__mobile__utils-dummy__desktop__versions.html',1,'']]],
-  ['datasynchronizer_2276',['DataSynchronizer',['../group__lemons__serializing-DataSynchronizer.html',1,'']]]
+  ['dynamics_2238',['dynamics',['../group__lemons__audio__effects-dynamics.html',1,'']]],
+  ['dummy_5fdesktop_5fversions_2239',['dummy_desktop_versions',['../group__lemons__mobile__utils-dummy__desktop__versions.html',1,'']]],
+  ['datasynchronizer_2240',['DataSynchronizer',['../group__lemons__serializing-DataSynchronizer.html',1,'']]]
 ];
