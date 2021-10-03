@@ -35,22 +35,4 @@ int getNumElementsOfType (const String& propertyName, const ValueTree& tree)
     return actualNum;
 }
 
-void loadValueTree (const ValueTree& tree, const String& propertyName, ValueTree& data)
-{
-    const auto child = tree.getChildWithName (propertyName);
-
-    if (! child.isValid()) return;
-
-    data.copyPropertiesAndChildrenFrom (child, nullptr);
-}
-
-void saveValueTree (ValueTree& tree, const String& propertyName, ValueTree& data)
-{
-    ValueTree child {propertyName};
-
-    child.copyPropertiesAndChildrenFrom (data, nullptr);
-
-    tree.appendChild (child, nullptr);
-}
-
 }  // namespace lemons::serializing::TreeReflectorHelpers

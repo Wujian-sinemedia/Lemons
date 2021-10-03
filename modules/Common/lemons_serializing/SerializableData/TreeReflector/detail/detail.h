@@ -4,6 +4,26 @@
 
 namespace lemons
 {
+namespace serializing
+{
+/** Converts a juce::var to a specified enum type. */
+template < typename Type >
+Type toEnum (const juce::var& var)
+{
+    return static_cast< Type > (static_cast< std::underlying_type_t< Type > > ((int) var));
+}
+
+
+/** Converts an enum type to a juce::var. */
+template < typename Type >
+juce::var fromEnum (Type value)
+{
+    return static_cast< int > (static_cast< std::underlying_type_t< Type > > (value));
+}
+
+
+}  // namespace serializing
+
 template < typename Type >
 void TreeReflector::add (const String& propertyName, Type& object)
 {
@@ -49,14 +69,14 @@ void TreeReflector::load (const String& propertyName, Type& object)
 
     if constexpr (! std::is_const< Type >())
     {
-        if constexpr (isSerializable< Type >())
+        if constexpr (std::is_base_of< SerializableData, Type >())
             loadDataChild (propertyName, object);
         else if constexpr (std::is_same< ValueTree, Type >())
-            loadValueTree (tree, propertyName, object);
+            loadValueTree (propertyName, object);
         else if constexpr (isContainer< Type >() || isMap< Type >())
             loadContainer (propertyName, object);
         else
-            loadObject (tree, propertyName, object);
+            loadObject (propertyName, object);
     }
 }
 
@@ -66,14 +86,41 @@ void TreeReflector::save (const String& propertyName, Type& object)
     using namespace serializing;
     using namespace serializing::TreeReflectorHelpers;
 
-    if constexpr (isSerializable< Type >())
+    if constexpr (std::is_base_of< SerializableData, Type >())
         saveDataChild (propertyName, object);
     else if constexpr (std::is_same< ValueTree, Type >())
-        saveValueTree (tree, propertyName, object);
+        saveValueTree (propertyName, object);
     else if constexpr (isContainer< Type >() || isMap< Type >())
         saveContainer (propertyName, object);
     else
-        saveObject (tree, propertyName, object);
+        saveObject (propertyName, object);
+}
+
+template < typename Type >
+void TreeReflector::loadObject (const String& propertyName, Type& object)
+{
+    if (! tree.hasProperty (propertyName))
+        return;
+
+    const juce::var& var = tree.getProperty (propertyName);
+
+    if constexpr (std::is_enum< Type >())
+        object = serializing::toEnum< Type > (var);
+    else
+        object = serializing::fromVar< Type > (var);
+}
+
+template < typename Type >
+void TreeReflector::saveObject (const String& propertyName, Type& object)
+{
+    juce::var var;
+
+    if constexpr (std::is_enum< Type >())
+        var = serializing::fromEnum (object);
+    else
+        var = serializing::toVar (object);
+
+    tree.setProperty (propertyName, var, nullptr);
 }
 
 template < class ContainerType >

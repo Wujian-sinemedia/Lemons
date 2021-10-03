@@ -185,6 +185,15 @@ private:
     template < typename Type >
     void save (const String& propertyName, Type& object);
 
+    template < typename Type >
+    void loadObject (const String& propertyName, Type& object);
+
+    template < typename Type >
+    void saveObject (const String& propertyName, Type& object);
+
+    void loadValueTree (const String& propertyName, ValueTree& data) const;
+    void saveValueTree (const String& propertyName, ValueTree& data);
+
     template < class ContainerType >
     void loadContainer (const String& propertyName, ContainerType& container);
 
