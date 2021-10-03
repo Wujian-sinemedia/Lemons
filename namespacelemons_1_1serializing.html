@@ -810,7 +810,7 @@ As a general rule, you shouldn't need to implement <a class="el" href="namespace
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">template</span>&lt;&gt;</div>
-<div class="line">    MyCustomType <a class="code" href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b">fromVar</a> (juce::var var) <span class="keyword">final</span></div>
+<div class="line">    MyCustomType <a class="code" href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b">fromVar</a> (juce::var var)</div>
 <div class="line">    {</div>
 <div class="line">        <span class="comment">// implement your conversion logic here...</span></div>
 <div class="line">    }</div>
@@ -819,7 +819,7 @@ As a general rule, you shouldn't need to implement <a class="el" href="namespace
 <div class="line"><span class="comment">// example usage:</span></div>
 <div class="line"><span class="keyword">struct </span>SomethingSerializable : <a class="code" href="structlemons_1_1SerializableData.html">lemons::SerializableData</a></div>
 <div class="line">{</div>
-<div class="line">    <span class="keywordtype">void</span> serialize (TreeReflector&amp; ref)</div>
+<div class="line">    <span class="keywordtype">void</span> serialize (TreeReflector&amp; ref) <span class="keyword">final</span></div>
 <div class="line">    {</div>
 <div class="line">        <span class="comment">// TreeReflector will internally call toVar to save your object and fromVar to load your object</span></div>
 <div class="line">        ref.add (<span class="stringliteral">&quot;MyCustomData&quot;</span>, data);</div>
@@ -827,7 +827,7 @@ As a general rule, you shouldn't need to implement <a class="el" href="namespace
 <div class="line"> </div>
 <div class="line">    MyCustomType data;</div>
 <div class="line">};</div>
-</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#a713bb9525856a131f6897cdd045d5bc4" title="Implement this function and fromVar() for any custom type to allow easily serialization using TreeRef...">toVar</a>, <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a>, <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a> </dd></dl>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#a713bb9525856a131f6897cdd045d5bc4" title="Implement this function and fromVar() for any custom type to allow easily serialization using TreeRef...">toVar()</a>, <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a>, <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a> </dd></dl>
 
 </div>
 </div>
@@ -869,7 +869,7 @@ As a general rule, you shouldn't need to implement <a class="el" href="namespace
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">template</span>&lt;&gt;</div>
-<div class="line">    MyCustomType <a class="code" href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b">fromVar</a> (juce::var var) <span class="keyword">final</span></div>
+<div class="line">    MyCustomType <a class="code" href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b">fromVar</a> (juce::var var)</div>
 <div class="line">    {</div>
 <div class="line">        <span class="comment">// implement your conversion logic here...</span></div>
 <div class="line">    }</div>
@@ -878,7 +878,7 @@ As a general rule, you shouldn't need to implement <a class="el" href="namespace
 <div class="line"><span class="comment">// example usage:</span></div>
 <div class="line"><span class="keyword">struct </span>SomethingSerializable : <a class="code" href="structlemons_1_1SerializableData.html">lemons::SerializableData</a></div>
 <div class="line">{</div>
-<div class="line">    <span class="keywordtype">void</span> serialize (TreeReflector&amp; ref)</div>
+<div class="line">    <span class="keywordtype">void</span> serialize (TreeReflector&amp; ref) <span class="keyword">final</span></div>
 <div class="line">    {</div>
 <div class="line">        <span class="comment">// TreeReflector will internally call toVar to save your object and fromVar to load your object</span></div>
 <div class="line">        ref.add (<span class="stringliteral">&quot;MyCustomData&quot;</span>, data);</div>
@@ -886,7 +886,7 @@ As a general rule, you shouldn't need to implement <a class="el" href="namespace
 <div class="line"> </div>
 <div class="line">    MyCustomType data;</div>
 <div class="line">};</div>
-</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#a713bb9525856a131f6897cdd045d5bc4" title="Implement this function and fromVar() for any custom type to allow easily serialization using TreeRef...">toVar</a>, <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a>, <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a> </dd></dl>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#a713bb9525856a131f6897cdd045d5bc4" title="Implement this function and fromVar() for any custom type to allow easily serialization using TreeRef...">toVar()</a>, <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a>, <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a> </dd></dl>
 
 </div>
 </div>
@@ -1525,7 +1525,7 @@ As a general rule, you shouldn't need to implement <a class="el" href="namespace
 <div class="line"> </div>
 <div class="line">    MyCustomType data;</div>
 <div class="line">};</div>
-</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b" title="Implement this function and toVar() for any custom type to allow easily serialization using TreeRefle...">fromVar</a>, <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a>, <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a> </dd></dl>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b" title="Implement this function and toVar() for any custom type to allow easily serialization using TreeRefle...">fromVar()</a>, <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a>, <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a> </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#aaa8764612b1138f1743496ae85380324">lemons::serializing::TreeReflectorHelpers::saveObject()</a>.</p>
 
@@ -1631,7 +1631,7 @@ As a general rule, you shouldn't need to implement <a class="el" href="namespace
 <div class="ttc" id="anamespacelemons_1_1serializing_html_abd30f255b2b10402a940e2260f7ede3b"><div class="ttname"><a href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b">lemons::serializing::fromVar</a></div><div class="ttdeci">Type fromVar(juce::var var)</div><div class="ttdoc">Implement this function and toVar() for any custom type to allow easily serialization using TreeRefle...</div><div class="ttdef"><b>Definition:</b> VarConversion.h:92</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 3 2021 05:23:26 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 3 2021 06:27:00 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

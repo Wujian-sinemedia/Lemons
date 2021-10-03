@@ -216,8 +216,6 @@ template&lt;typename Type &gt; </div>
 </li>
 <li>If the passed object is any other kind of C++ object, this will call <a class="el" href="namespacelemons_1_1serializing.html#a713bb9525856a131f6897cdd045d5bc4" title="Implement this function and fromVar() for any custom type to allow easily serialization using TreeRef...">serializing::toVar()</a> to save the object to the ValueTree, or <a class="el" href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b" title="Implement this function and toVar() for any custom type to allow easily serialization using TreeRefle...">serializing::fromVar()</a> to restore from the tree. <br  />
 <br  />
-Be careful not to use duplicate property names in the serialization logic for a single object! <br  />
-<br  />
 For example: <div class="fragment"><div class="line"><span class="keyword">struct </span>SomethingSerializable : <a class="code" href="structlemons_1_1SerializableData.html">lemons::SerializableData</a></div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">// we want to save this integer with our program&#39;s state</span></div>
@@ -230,14 +228,30 @@ For example: <div class="fragment"><div class="line"><span class="keyword">struc
 <div class="line">    }</div>
 <div class="line">};</div>
 </div><!-- fragment --> <br  />
+<dl class="section attention"><dt>Attention</dt><dd>Be careful not to use duplicate property names in the serialization logic for a single object! <br  />
+Example &ndash; what NOT to do: <div class="fragment"><div class="line"><span class="keyword">struct </span>SomethingSerializable : <a class="code" href="structlemons_1_1SerializableData.html">lemons::SerializableData</a></div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordtype">int</span> number;</div>
+<div class="line">    String string;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> serialize (<a class="code" href="structlemons_1_1TreeReflector.html#a0d351fe3d4087291fe84c745a5edfcf4">TreeReflector</a>&amp; ref) <span class="keyword">final</span></div>
+<div class="line">    {</div>
+<div class="line">        ref.add (<span class="stringliteral">&quot;ThisWillBreak!&quot;</span>, number);</div>
+<div class="line">        ref.add (<span class="stringliteral">&quot;ThisWillBreak!&quot;</span>, <span class="keywordtype">string</span>);</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+</div><!-- fragment --> In the above example, the 'string' data will overwrite the 'number' data, because the programmer has chosen duplicate property names. <br  />
+<br  />
 Container types you wish to serialize with a single call to <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">add()</a> must fulfill the following: <br  />
+</dd></dl>
 </li>
 <li>have begin() and end() functions &ndash; ie, are compatable with range-based for loops</li>
 <li>have an implementation of <a class="el" href="structlemons_1_1serializing_1_1ContainerInterface.html" title="Interface that defines how a TreeReflector can resize a given container during deserialization.">serializing::ContainerInterface</a></li>
 <li>have a specialization of <a class="el" href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2" title="Template function that returns an instance of the correct ContainerInterface for the given container.">serializing::getInterfaceForContainer()</a></li>
-<li>have a specialization of <a class="el" href="structlemons_1_1serializing_1_1isContainer.html" title="Template struct that determines if a given type is a container.">serializing::isContainer</a> that inherits std::true_type. <br  />
+<li>have a specialization of <a class="el" href="structlemons_1_1serializing_1_1isContainer.html" title="Template struct that determines if a given type is a container.">serializing::isContainer</a> that inherits std::true_type</li>
+<li>The container's elements must themselves be valid calls to <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">add()</a> &ndash; ie, either inherit from <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> or have <a class="el" href="namespacelemons_1_1serializing.html#a713bb9525856a131f6897cdd045d5bc4" title="Implement this function and fromVar() for any custom type to allow easily serialization using TreeRef...">serializing::toVar()</a> and <a class="el" href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b" title="Implement this function and toVar() for any custom type to allow easily serialization using TreeRefle...">serializing::fromVar()</a> implemented. <br  />
 <br  />
-Provided in Lemons are implementations for common STL containers, as well as juce::Array and juce::OwnedArray. You can implement the above requirements for this to work with any other custom type you create. <br  />
+Provided in Lemons are implementations for common STL containers and JUCE containers. You can implement the above requirements for this to work with any other custom type you create. <br  />
 <br  />
 When calling <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">add()</a> with a container, the property name you pass should be the name of a single element in the container. <br  />
 <br  />
@@ -267,7 +281,9 @@ For example: <div class="fragment"><div class="line"><span class="keyword">struc
         &lt;Point_1 = 23&gt;
         &lt;Point_2 = 16&gt;
         &lt;Point_3 = 7&gt;
-</pre> I do not recommend attempting to internationalize property names.</li>
+</pre> I do not recommend attempting to internationalize property names. <br  />
+ <br  />
+Take care to avoid duplicating property names for multiple data members of the same serializable object!</li>
 </ul>
 </td></tr>
     <tr><td class="paramname">object</td><td>Reference to the data member you wish to load/save. <br  />
@@ -327,8 +343,6 @@ template&lt;typename Type &gt; </div>
 <p>Binds lambda functions for saving and loading a certain value to and from a named ValueTree property. </p>
 <p>This follows the same semantics as <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">add()</a>, but provides the ability to fetch the value using a lambda, and call a lambda with the value retrieved from the tree, instead of providing a reference to an object. <br  />
 <br  />
-Be careful not to use duplicate property names in the serialization logic for a single object! <br  />
-<br  />
 For example: </p><div class="fragment"><div class="line"> <span class="keyword">struct </span>SomethingSerializable : <a class="code" href="structlemons_1_1SerializableData.html">lemons::SerializableData</a></div>
 <div class="line"> {</div>
 <div class="line">    <span class="keywordtype">void</span> setData (<span class="keywordtype">int</span> newData)</div>
@@ -380,7 +394,7 @@ For example: </p><div class="fragment"><div class="line"> <span class="keyword">
 </div><div class="memdoc">
 
 <p>Returns a reference to this reflector's root ValueTree. </p>
-<p>Handle with care! The tree this function returns may already contain sub-nodes representing other serialized children of whatever object is serializing you at the moment... </p>
+<dl class="section attention"><dt>Attention</dt><dd>Handle with care! The tree this function returns may already contain sub-nodes representing other serialized children of whatever object is serializing you at the moment... </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html#a336cf06a7997c2af3f7b8e17b0c6bcf1">lemons::serializing::TreeReflectorHelpers::addContainer()</a>.</p>
 
@@ -445,7 +459,7 @@ For example: </p><div class="fragment"><div class="line"> <span class="keyword">
 <div class="ttc" id="astructlemons_1_1TreeReflector_html_a0d351fe3d4087291fe84c745a5edfcf4"><div class="ttname"><a href="structlemons_1_1TreeReflector.html#a0d351fe3d4087291fe84c745a5edfcf4">lemons::TreeReflector::TreeReflector</a></div><div class="ttdeci">TreeReflector(const ValueTree &amp;treeToUse)</div><div class="ttdoc">Creates a TreeReflector.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 3 2021 05:23:26 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 3 2021 06:27:00 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
