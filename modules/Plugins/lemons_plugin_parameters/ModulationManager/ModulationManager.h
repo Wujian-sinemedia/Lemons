@@ -7,11 +7,13 @@ namespace lemons::plugin
 class ModulationManager : public SerializableData
 {
 public:
-    //ModulationManager (ParameterList& listToUse);
+    ModulationManager (ParameterList& listToUse);
 
     void prepare (int blocksize, double samplerate);
 
     void processNextChunk (int numSamples);
+
+    void removeAllInvalidConnections();
 
 
     struct LFO : SerializableData
@@ -22,10 +24,6 @@ public:
         void prepareToPlay (int numSamples, double samplerate);
 
         void prepareNextBlock (int numSamples);
-
-        float getAndDontAdvance() const;
-        float getAndAdvance();
-        void  advance (int numTicks = 1);
 
         void processNextSample (bool advance = true);
 
@@ -39,6 +37,13 @@ public:
 
         void removeInvalidConnections();
 
+    private:
+        friend class ModulationManager;
+
+        void setParamList (ParameterList& listToUse);
+
+        void serialize (TreeReflector& ref) final;
+
         struct Connection : SerializableData
         {
             Connection() = default;
@@ -49,14 +54,11 @@ public:
             Parameter* param {nullptr};
             int        percentEffect {100};
 
+            ParameterList* paramList;
+
         private:
             void serialize (TreeReflector& ref) final;
-
-            ParameterList* paramList;
         };
-
-    private:
-        void serialize (TreeReflector& ref) final;
 
         ParameterList* paramList;
 
@@ -79,7 +81,7 @@ private:
 
     /*------------------------------*/
 
-    //ParameterList& paramList;
+    ParameterList& paramList;
 
     OwnedArray< LFO > lfos;
 };

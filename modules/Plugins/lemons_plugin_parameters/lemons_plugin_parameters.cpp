@@ -12,4 +12,5 @@
 
 #include "processor/ParameterProcessor.cpp"
 
+#include "ModulationManager/LFO.cpp"
 #include "ModulationManager/ModulationManager.cpp"

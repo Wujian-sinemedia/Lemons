@@ -36,10 +36,10 @@ void ProcessorBase::prepareToPlay (double sampleRate, int samplesPerBlock)
 }
 
 template < typename SampleType1, typename SampleType2 >
-void ProcessorBase::prepareToPlayInternal (const double                            sampleRate,
-                                           int                                     samplesPerBlock,
-                                           ProcessorInternalEngine< SampleType1 >& activeEngine,
-                                           ProcessorInternalEngine< SampleType2 >& idleEngine)
+void ProcessorBase::prepareToPlayInternal (const double                   sampleRate,
+                                           int                            samplesPerBlock,
+                                           InternalEngine< SampleType1 >& activeEngine,
+                                           InternalEngine< SampleType2 >& idleEngine)
 {
     if (idleEngine->isInitialized())
         idleEngine->releaseResources();

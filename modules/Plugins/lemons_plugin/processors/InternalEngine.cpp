@@ -1,44 +1,26 @@
-
 namespace lemons::plugin
 {
 template < typename SampleType >
-ProcessorInternalEngine< SampleType >::ParameterProcessor::ParameterProcessor (ProcessorInternalEngine& parent)
-    : ParameterProcessorBase< SampleType > (parent.state.getParameters()),
-      parentEngine (parent)
+ProcessorBase::InternalEngine< SampleType >::InternalEngine (juce::AudioProcessor& processorToUse, StateBase& stateToUse, dsp::Engine< SampleType >& engineToUse)
+    : ParameterProcessor< SampleType > (stateToUse.getParameters()), processor (processorToUse), state (stateToUse), engine (engineToUse)
 {
 }
 
 template < typename SampleType >
-void ProcessorInternalEngine< SampleType >::ParameterProcessor::renderChunk (juce::AudioBuffer< SampleType >& audio, MidiBuffer& midi)
+dsp::Engine< SampleType >* ProcessorBase::InternalEngine< SampleType >::operator->()
 {
-    parentEngine.renderNextAudioSegment (audio, midi);
-}
-
-/*------------------------------------------------------------------------------------------------------------*/
-
-template < typename SampleType >
-ProcessorInternalEngine< SampleType >::ProcessorInternalEngine (juce::AudioProcessor&      processorToUse,
-                                                                StateBase&                 stateToUse,
-                                                                dsp::Engine< SampleType >& engineToUse)
-    : processor (processorToUse), state (stateToUse), engine (engineToUse)
-{
+    return &engine;
 }
 
 template < typename SampleType >
-void ProcessorInternalEngine< SampleType >::prepareToPlay (double samplerate, int maxBlocksize)
+void ProcessorBase::InternalEngine< SampleType >::prepareToPlay (double samplerate, int maxBlocksize)
 {
+    ParameterProcessor< SampleType >::prepare (maxBlocksize);
     engine.prepare (samplerate, maxBlocksize);
-    parameterProcessor.prepare (maxBlocksize);
 }
 
-template < typename SampleType >
-void ProcessorInternalEngine< SampleType >::process (AudioBuffer< SampleType >& audio, MidiBuffer& midi)
-{
-    parameterProcessor.process (audio, midi);
-}
-
-inline int getIndexOfFirstValidChannelSet (const juce::AudioProcessor::BusesLayout& busLayout,
-                                           bool                                     isInput)
+static inline int getIndexOfFirstValidChannelSet (const juce::AudioProcessor::BusesLayout& busLayout,
+                                                  bool                                     isInput)
 {
     const auto numBuses = isInput ? busLayout.inputBuses.size() : busLayout.outputBuses.size();
 
@@ -58,9 +40,12 @@ inline AudioBuffer< SampleType > findSubBuffer (juce::AudioProcessor&           
     return processor.getBusBuffer (origBuffer, isInput,
                                    getIndexOfFirstValidChannelSet (busLayout, isInput));
 }
+template AudioBuffer< float >  findSubBuffer (juce::AudioProcessor&, const juce::AudioProcessor::BusesLayout&, juce::AudioBuffer< float >&, bool);
+template AudioBuffer< double > findSubBuffer (juce::AudioProcessor&, const juce::AudioProcessor::BusesLayout&, juce::AudioBuffer< double >&, bool);
+
 
 template < typename SampleType >
-void ProcessorInternalEngine< SampleType >::renderNextAudioSegment (AudioBuffer< SampleType >& audio, MidiBuffer& midi)
+void ProcessorBase::InternalEngine< SampleType >::renderChunk (juce::AudioBuffer< SampleType >& audio, MidiBuffer& midi)
 {
     const auto busLayout = processor.getBusesLayout();
     const auto inBus     = findSubBuffer (processor, busLayout, audio, true);
@@ -69,8 +54,7 @@ void ProcessorInternalEngine< SampleType >::renderNextAudioSegment (AudioBuffer<
     engine.process (inBus, outBus, midi, state.mainBypass->get());
 }
 
-
-template class ProcessorInternalEngine< float >;
-template class ProcessorInternalEngine< double >;
+template class ProcessorBase::InternalEngine< float >;
+template class ProcessorBase::InternalEngine< double >;
 
 }  // namespace lemons::plugin

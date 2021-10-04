@@ -1,7 +1,4 @@
-
 #pragma once
-
-#include "InternalEngine.h"
 
 namespace lemons::plugin
 {
@@ -24,11 +21,6 @@ private:
 
     void prepareToPlay (double sampleRate, int samplesPerBlock) final;
 
-    template < typename SampleType1, typename SampleType2 >
-    void prepareToPlayInternal (const double sampleRate, int samplesPerBlock,
-                                ProcessorInternalEngine< SampleType1 >& activeEngine,
-                                ProcessorInternalEngine< SampleType2 >& idleEngine);
-
     void releaseResources() final;
 
     bool supportsDoublePrecisionProcessing() const final { return true; }
@@ -38,10 +30,39 @@ private:
     void processBlockBypassed (AudioBuffer< float >& audio, MidiBuffer& midi) final;
     void processBlockBypassed (AudioBuffer< double >& audio, MidiBuffer& midi) final;
 
+    /*-------------------------------------------------------*/
+
+    template < typename SampleType >
+    class InternalEngine : public ParameterProcessor< SampleType >
+    {
+    public:
+        InternalEngine (juce::AudioProcessor& processorToUse, StateBase& stateToUse, dsp::Engine< SampleType >& engineToUse);
+
+        void prepareToPlay (double samplerate, int maxBlocksize);
+
+        dsp::Engine< SampleType >* operator->();
+
+    private:
+        void renderChunk (juce::AudioBuffer< SampleType >& audio, MidiBuffer& midi) final;
+
+        juce::AudioProcessor&      processor;
+        StateBase&                 state;
+        dsp::Engine< SampleType >& engine;
+    };
+
+    /*-------------------------------------------------------*/
+
+    template < typename SampleType1, typename SampleType2 >
+    void prepareToPlayInternal (const double sampleRate, int samplesPerBlock,
+                                InternalEngine< SampleType1 >& activeEngine,
+                                InternalEngine< SampleType2 >& idleEngine);
+
+    /*-------------------------------------------------------*/
+
     StateBase& state;
 
-    ProcessorInternalEngine< float >  floatEngine;
-    ProcessorInternalEngine< double > doubleEngine;
+    InternalEngine< float >  floatEngine;
+    InternalEngine< double > doubleEngine;
 };
 
 }  // namespace lemons::plugin

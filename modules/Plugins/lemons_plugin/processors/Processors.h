@@ -9,7 +9,7 @@ public:
     Processor (juce::AudioProcessor::BusesProperties busesLayout)
         : ProcessorBase (getState(), floatEngine, doubleEngine, busesLayout)
     {
-        stateData.addTo (*this);
+        getState().addTo (*this);
     }
 
 protected:
@@ -30,10 +30,8 @@ private:
         serializing::fromBinary (data, size, state);
     }
 
-    StateType& stateData {getState()};
-
-    EngineType< float >  floatEngine {stateData};
-    EngineType< double > doubleEngine {stateData};
+    EngineType< float >  floatEngine {getState()};
+    EngineType< double > doubleEngine {getState()};
 };
 
 

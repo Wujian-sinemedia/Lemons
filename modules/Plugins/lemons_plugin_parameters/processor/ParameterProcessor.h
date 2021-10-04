@@ -9,13 +9,13 @@ namespace lemons::plugin
     @see dsp::MidiChoppingProcessor ParameterList
  */
 template < typename SampleType >
-class ParameterProcessorBase : public dsp::MidiChoppingProcessor< SampleType >
+class ParameterProcessor : public dsp::MidiChoppingProcessor< SampleType >
 {
 public:
     /** Creates a parameter processor.
         @param listToUse The ParameterList to reference.
      */
-    ParameterProcessorBase (ParameterList& listToUse);
+    ParameterProcessor (ParameterList& listToUse);
 
 private:
     void handleMidiMessage (const MidiMessage& m) final;

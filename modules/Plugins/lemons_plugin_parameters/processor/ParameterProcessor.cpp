@@ -2,18 +2,18 @@
 namespace lemons::plugin
 {
 template < typename SampleType >
-ParameterProcessorBase< SampleType >::ParameterProcessorBase (ParameterList& listToUse)
+ParameterProcessor< SampleType >::ParameterProcessor (ParameterList& listToUse)
     : list (listToUse)
 {
 }
 
 template < typename SampleType >
-void ParameterProcessorBase< SampleType >::handleMidiMessage (const MidiMessage& m)
+void ParameterProcessor< SampleType >::handleMidiMessage (const MidiMessage& m)
 {
     list.processMidiMessage (m);
 }
 
-template class ParameterProcessorBase< float >;
-template class ParameterProcessorBase< double >;
+template class ParameterProcessor< float >;
+template class ParameterProcessor< double >;
 
 }  // namespace lemons::plugin
