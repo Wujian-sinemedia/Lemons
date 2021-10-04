@@ -25,7 +25,7 @@
       <type>juce::AudioBuffer&lt; float &gt;</type>
       <name>fromVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a5567aa3f5c4e6da70b5c3aa2b936a059</anchor>
+      <anchor>a79d688bf8375c25448b045fd7a9a1286</anchor>
       <arglist>(juce::var var)</arglist>
     </member>
     <member kind="function">
@@ -749,8 +749,10 @@
     <filename>Juce__containers_8h.html</filename>
     <class kind="struct">lemons::serializing::isContainer&lt; juce::Array&lt; ElementType &gt; &gt;</class>
     <class kind="struct">lemons::serializing::isContainer&lt; juce::OwnedArray&lt; ElementType &gt; &gt;</class>
+    <class kind="struct">lemons::serializing::isContainer&lt; juce::StringArray &gt;</class>
     <class kind="struct">lemons::serializing::JuceArrayInterface</class>
     <class kind="struct">lemons::serializing::JuceOwnedArrayInterface</class>
+    <class kind="struct">lemons::serializing::StringArrayInterface</class>
     <namespace>lemons</namespace>
     <namespace>lemons::serializing</namespace>
     <member kind="function">
@@ -766,6 +768,13 @@
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
       <anchor>a62bdd53db8c515549f20b1f0835052b7</anchor>
       <arglist>(juce::OwnedArray&lt; ElementType &gt; &amp;container)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
+      <name>getInterfaceForContainer</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a5451726fdfd9955d7017ac2b529f44eb</anchor>
+      <arglist>(juce::StringArray &amp;container)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -1098,7 +1107,6 @@
     <class kind="struct">lemons::plugin::ModulationManager::LFO::Connection</class>
     <class kind="struct">lemons::plugin::ModulationManager::LFO</class>
     <class kind="class">lemons::plugin::ModulationManager</class>
-    <class kind="class">lemons::plugin::ModulationManagerProcessor</class>
     <namespace>lemons</namespace>
     <namespace>lemons::plugin</namespace>
   </compound>
@@ -1629,6 +1637,13 @@
       <arglist>(SerializableData &amp;dest, SerializableData &amp;source)</arglist>
     </member>
     <member kind="function">
+      <type>ObjectType</type>
+      <name>createCopy</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>aa047dfa3783a67d4d6690647dd45b43b</anchor>
+      <arglist>(ObjectType &amp;objectToCopy)</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>fromBinary</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
@@ -1921,6 +1936,8 @@
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/detail/containers/</path>
     <filename>STL__containers_8h.html</filename>
     <class kind="struct">lemons::serializing::isContainer&lt; std::array&lt; ElementType, size &gt; &gt;</class>
+    <class kind="struct">lemons::serializing::isContainer&lt; std::deque&lt; ElementType &gt; &gt;</class>
+    <class kind="struct">lemons::serializing::isContainer&lt; std::forward_list&lt; ElementType &gt; &gt;</class>
     <class kind="struct">lemons::serializing::isContainer&lt; std::list&lt; ElementType &gt; &gt;</class>
     <class kind="struct">lemons::serializing::isContainer&lt; std::vector&lt; ElementType &gt; &gt;</class>
     <class kind="struct">lemons::serializing::StdArrayInterface</class>
@@ -1933,6 +1950,20 @@
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
       <anchor>aee820d761ae553c8ad6c5ce1a1ebe269</anchor>
       <arglist>(std::array&lt; ElementType, size &gt; &amp;container)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
+      <name>getInterfaceForContainer</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a07f5a5656f4beb02e6db2e232c28ae67</anchor>
+      <arglist>(std::deque&lt; ElementType &gt; &amp;container)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
+      <name>getInterfaceForContainer</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>aebc3ef91761c11e3aa8f01e29e07f132</anchor>
+      <arglist>(std::forward_list&lt; ElementType &gt; &amp;container)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
@@ -2104,8 +2135,15 @@
       <type>juce::AudioBuffer&lt; float &gt;</type>
       <name>fromVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a5567aa3f5c4e6da70b5c3aa2b936a059</anchor>
+      <anchor>a79d688bf8375c25448b045fd7a9a1286</anchor>
       <arglist>(juce::var var)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a4002e6e67a670bb92651456865776534</anchor>
+      <arglist>(juce::MemoryBlock &amp;block)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
@@ -2113,6 +2151,20 @@
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
       <anchor>a5b32b87aef2397cb2c1930541106a9db</anchor>
       <arglist>(juce::Point&lt; float &gt; &amp;point)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a77778b6f43a5a52acb50655157a79145</anchor>
+      <arglist>(juce::URL &amp;url)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a2ae3657bad4740b539073b21e55d2212</anchor>
+      <arglist>(std::string &amp;string)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -7157,10 +7209,24 @@
     <templarg></templarg>
   </compound>
   <compound kind="struct">
+    <name>lemons::serializing::isContainer&lt; juce::StringArray &gt;</name>
+    <filename>structlemons_1_1serializing_1_1isContainer_3_01juce_1_1StringArray_01_4.html</filename>
+  </compound>
+  <compound kind="struct">
     <name>lemons::serializing::isContainer&lt; std::array&lt; ElementType, size &gt; &gt;</name>
     <filename>structlemons_1_1serializing_1_1isContainer_3_01std_1_1array_3_01ElementType_00_01size_01_4_01_4.html</filename>
     <templarg></templarg>
     <templarg>size</templarg>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::serializing::isContainer&lt; std::deque&lt; ElementType &gt; &gt;</name>
+    <filename>structlemons_1_1serializing_1_1isContainer_3_01std_1_1deque_3_01ElementType_01_4_01_4.html</filename>
+    <templarg></templarg>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::serializing::isContainer&lt; std::forward_list&lt; ElementType &gt; &gt;</name>
+    <filename>structlemons_1_1serializing_1_1isContainer_3_01std_1_1forward__list_3_01ElementType_01_4_01_4.html</filename>
+    <templarg></templarg>
   </compound>
   <compound kind="struct">
     <name>lemons::serializing::isContainer&lt; std::list&lt; ElementType &gt; &gt;</name>
@@ -7476,6 +7542,25 @@
       <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
       <anchor>ae7169782ade1798d043e301000b79790</anchor>
       <arglist>(juce::OwnedArray&lt; ElementType &gt; &amp;containerToUse, ResizeCallback resizeFuncToUse)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>LambdaContainerInterface&lt; juce::StringArray &gt;</name>
+    <filename>structlemons_1_1serializing_1_1LambdaContainerInterface.html</filename>
+    <base>lemons::serializing::ContainerInterface</base>
+    <member kind="typedef">
+      <type>std::function&lt; void(juce::StringArray &amp;, int) &gt;</type>
+      <name>ResizeCallback</name>
+      <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
+      <anchor>a32d76526cd79b1430dd90251f242d821</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>LambdaContainerInterface</name>
+      <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
+      <anchor>ae7169782ade1798d043e301000b79790</anchor>
+      <arglist>(juce::StringArray &amp;containerToUse, ResizeCallback resizeFuncToUse)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -9950,11 +10035,6 @@
       <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
       <arglist>()</arglist>
     </member>
-  </compound>
-  <compound kind="class">
-    <name>lemons::plugin::ModulationManagerProcessor</name>
-    <filename>classlemons_1_1plugin_1_1ModulationManagerProcessor.html</filename>
-    <templarg></templarg>
   </compound>
   <compound kind="class">
     <name>lemons::dsp::FX::MonoStereoConverter</name>
@@ -16838,6 +16918,25 @@
       <arglist>(std::initializer_list&lt; NumericType &gt; list)</arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>lemons::serializing::StringArrayInterface</name>
+    <filename>structlemons_1_1serializing_1_1StringArrayInterface.html</filename>
+    <base>LambdaContainerInterface&lt; juce::StringArray &gt;</base>
+    <member kind="typedef">
+      <type>std::function&lt; void(juce::StringArray &amp;, int) &gt;</type>
+      <name>ResizeCallback</name>
+      <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
+      <anchor>a32d76526cd79b1430dd90251f242d821</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>StringArrayInterface</name>
+      <anchorfile>structlemons_1_1serializing_1_1StringArrayInterface.html</anchorfile>
+      <anchor>ab99e4706a38b2faa664d1a162e007236</anchor>
+      <arglist>(juce::StringArray &amp;array)</arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>lemons::plugin::presets::SubLibrary</name>
     <filename>classlemons_1_1plugin_1_1presets_1_1SubLibrary.html</filename>
@@ -20722,7 +20821,6 @@
     <class kind="struct">lemons::plugin::MidiPanParameter</class>
     <class kind="struct">lemons::plugin::MidiPitchParameter</class>
     <class kind="class">lemons::plugin::ModulationManager</class>
-    <class kind="class">lemons::plugin::ModulationManagerProcessor</class>
     <class kind="class">lemons::plugin::Parameter</class>
     <class kind="class">lemons::plugin::ParameterHolder</class>
     <class kind="class">lemons::plugin::ParameterList</class>
@@ -20787,7 +20885,10 @@
     <class kind="struct">lemons::serializing::isContainer</class>
     <class kind="struct">lemons::serializing::isContainer&lt; juce::Array&lt; ElementType &gt; &gt;</class>
     <class kind="struct">lemons::serializing::isContainer&lt; juce::OwnedArray&lt; ElementType &gt; &gt;</class>
+    <class kind="struct">lemons::serializing::isContainer&lt; juce::StringArray &gt;</class>
     <class kind="struct">lemons::serializing::isContainer&lt; std::array&lt; ElementType, size &gt; &gt;</class>
+    <class kind="struct">lemons::serializing::isContainer&lt; std::deque&lt; ElementType &gt; &gt;</class>
+    <class kind="struct">lemons::serializing::isContainer&lt; std::forward_list&lt; ElementType &gt; &gt;</class>
     <class kind="struct">lemons::serializing::isContainer&lt; std::list&lt; ElementType &gt; &gt;</class>
     <class kind="struct">lemons::serializing::isContainer&lt; std::vector&lt; ElementType &gt; &gt;</class>
     <class kind="struct">lemons::serializing::isMap</class>
@@ -20796,12 +20897,20 @@
     <class kind="struct">lemons::serializing::LambdaContainerInterface</class>
     <class kind="struct">lemons::serializing::StdArrayInterface</class>
     <class kind="struct">lemons::serializing::STLContainerInterface</class>
+    <class kind="struct">lemons::serializing::StringArrayInterface</class>
     <member kind="function">
       <type>void</type>
       <name>copy</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
       <anchor>afb42fe5922320e46884fd018dda44844</anchor>
       <arglist>(SerializableData &amp;dest, SerializableData &amp;source)</arglist>
+    </member>
+    <member kind="function">
+      <type>ObjectType</type>
+      <name>createCopy</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>aa047dfa3783a67d4d6690647dd45b43b</anchor>
+      <arglist>(ObjectType &amp;objectToCopy)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -20912,7 +21021,7 @@
       <type>juce::AudioBuffer&lt; float &gt;</type>
       <name>fromVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a5567aa3f5c4e6da70b5c3aa2b936a059</anchor>
+      <anchor>a79d688bf8375c25448b045fd7a9a1286</anchor>
       <arglist>(juce::var var)</arglist>
     </member>
     <member kind="function">
@@ -20989,8 +21098,29 @@
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a5451726fdfd9955d7017ac2b529f44eb</anchor>
+      <arglist>(juce::StringArray &amp;container)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
+      <name>getInterfaceForContainer</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
       <anchor>aee820d761ae553c8ad6c5ce1a1ebe269</anchor>
       <arglist>(std::array&lt; ElementType, size &gt; &amp;container)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
+      <name>getInterfaceForContainer</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a07f5a5656f4beb02e6db2e232c28ae67</anchor>
+      <arglist>(std::deque&lt; ElementType &gt; &amp;container)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
+      <name>getInterfaceForContainer</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>aebc3ef91761c11e3aa8f01e29e07f132</anchor>
+      <arglist>(std::forward_list&lt; ElementType &gt; &amp;container)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
@@ -21066,8 +21196,29 @@
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a4002e6e67a670bb92651456865776534</anchor>
+      <arglist>(juce::MemoryBlock &amp;block)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
       <anchor>a5b32b87aef2397cb2c1930541106a9db</anchor>
       <arglist>(juce::Point&lt; float &gt; &amp;point)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a77778b6f43a5a52acb50655157a79145</anchor>
+      <arglist>(juce::URL &amp;url)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a2ae3657bad4740b539073b21e55d2212</anchor>
+      <arglist>(std::string &amp;string)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>

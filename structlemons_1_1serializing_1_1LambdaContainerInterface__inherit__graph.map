@@ -1,11 +1,13 @@
 <map id="lemons::serializing::LambdaContainerInterface&lt; ContainerType &gt;" name="lemons::serializing::LambdaContainerInterface&lt; ContainerType &gt;">
-<area shape="rect" id="node1" title="Provides a slightly slicker interface to ContainerInterface, allowing you to supply a lambda function..." alt="" coords="205,117,408,173"/>
+<area shape="rect" id="node1" title="Provides a slightly slicker interface to ContainerInterface, allowing you to supply a lambda function..." alt="" coords="205,165,408,221"/>
 <area shape="rect" id="node3" href="$structlemons_1_1serializing_1_1STLContainerInterface.html" title="Container interface that provides support for serializing most STL containers with TreeReflector." alt="" coords="728,5,903,61"/>
 <area shape="rect" id="node4" href="$structlemons_1_1serializing_1_1LambdaContainerInterface.html" title=" " alt="" coords="675,85,956,141"/>
 <area shape="rect" id="node6" href="$structlemons_1_1serializing_1_1LambdaContainerInterface.html" title=" " alt="" coords="697,165,933,221"/>
 <area shape="rect" id="node8" href="$structlemons_1_1serializing_1_1LambdaContainerInterface.html" title=" " alt="" coords="714,246,917,317"/>
-<area shape="rect" id="node2" href="$structlemons_1_1serializing_1_1ContainerInterface.html" title="Interface that defines how a TreeReflector can resize a given container during deserialization." alt="" coords="5,125,156,166"/>
+<area shape="rect" id="node10" href="$structlemons_1_1serializing_1_1LambdaContainerInterface.html" title=" " alt="" coords="714,341,917,397"/>
+<area shape="rect" id="node2" href="$structlemons_1_1serializing_1_1ContainerInterface.html" title="Interface that defines how a TreeReflector can resize a given container during deserialization." alt="" coords="5,173,156,214"/>
 <area shape="rect" id="node5" href="$structlemons_1_1serializing_1_1JuceOwnedArrayInterface.html" title="Container interface that provides support for serializing juce::OwnedArrays with TreeReflector." alt="" coords="1005,85,1200,141"/>
 <area shape="rect" id="node7" href="$structlemons_1_1serializing_1_1JuceArrayInterface.html" title="Container interface that provides support for serializing juce::Arrays with TreeReflector." alt="" coords="1027,165,1178,221"/>
 <area shape="rect" id="node9" href="$structlemons_1_1serializing_1_1StdArrayInterface.html" title="Container interface that provides support for serializing std::arrays with TreeReflector." alt="" coords="1017,253,1188,309"/>
+<area shape="rect" id="node11" href="$structlemons_1_1serializing_1_1StringArrayInterface.html" title="Container interface that provides support for serializing juce::StringArrays with TreeReflector." alt="" coords="1022,349,1183,390"/>
 </map>
