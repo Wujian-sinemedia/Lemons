@@ -1,7 +1,7 @@
 
 namespace lemons::plugin
 {
-inline String paramNameToID (const String& name)
+static inline String paramNameToID (const String& name)
 {
     return name.removeCharacters (" ");
 }
@@ -27,9 +27,9 @@ Parameter::Parameter (String paramName,
       valueToTextFunc (valueToTextFuncToUse),
       textToValueFunc (textToValueFuncToUse),
       parameterName (paramName),
-      valueChangeTransactionName (TRANS ("Changed") + " " + getName()),
-      defaultChangeTransactionName (TRANS ("Changed default value of") + " " + getName()),
-      midiControllerChangeTransactionName (TRANS ("Changed MIDI controller number for") + " " + getName())
+      valueChangeTransactionName (TRANS ("Changed") + " " + getParameterName()),
+      defaultChangeTransactionName (TRANS ("Changed default value of") + " " + getParameterName()),
+      midiControllerChangeTransactionName (TRANS ("Changed MIDI controller number for") + " " + getParameterName())
 {
     if (valueToTextFunc == nullptr)
     {
@@ -298,13 +298,13 @@ void Parameter::serialize (TreeReflector& ref)
     }
 }
 
-String Parameter::getName (int maxLength) const
+String Parameter::getParameterName (int maxLength, bool internationalize) const
 {
-    const auto trans = TRANS (parameterName);
+    const auto str = internationalize ? TRANS (parameterName) : parameterName;
 
-    if (maxLength < 1) return trans;
+    if (maxLength < 1) return str;
 
-    return trans.substring (0, maxLength);
+    return str.substring (0, maxLength);
 }
 
 const juce::NormalisableRange< float >& Parameter::getNormalisableRange() const

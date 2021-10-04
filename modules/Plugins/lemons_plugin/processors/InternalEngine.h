@@ -28,17 +28,6 @@ private:
         ProcessorInternalEngine& parentEngine;
     };
 
-    class ModulationProcessor : public ModulationManagerProcessor< SampleType >
-    {
-    public:
-        ModulationProcessor (ProcessorInternalEngine& parent);
-
-    private:
-        void renderChunk (juce::AudioBuffer< SampleType >& audio, MidiBuffer& midi) final;
-
-        ProcessorInternalEngine& parentEngine;
-    };
-
     /*-----------------------------------------------*/
 
     void renderNextAudioSegment (AudioBuffer< SampleType >& audio, MidiBuffer& midi);
@@ -49,8 +38,7 @@ private:
     StateBase&                 state;
     dsp::Engine< SampleType >& engine;
 
-    ParameterProcessor  parameterProcessor {*this};
-    ModulationProcessor modulationProcessor {*this};
+    ParameterProcessor parameterProcessor {*this};
 };
 
 }  // namespace lemons::plugin

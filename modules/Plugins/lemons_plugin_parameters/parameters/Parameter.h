@@ -156,8 +156,11 @@ public:
     /** Returns a textual description of the parameter's minimum value. */
     String getTextForMin() const;
 
-    /** Returns the name of the parameter. */
-    String getName (int maxLength = 0) const final;
+    /** Returns the name of the parameter.
+        @param maxLength The maximum length of the string to return, in characters. If this is less than 1, the max length will be unlimited.
+        @param internationalize If this is true, the returned string will be translated using the juce::LocalisedStrings class. Setting this to false is useful for serialization logic that relies on parameter names.
+     */
+    String getParameterName (int maxLength = 0, bool internationalize = true) const;
 
     //==============================================================================
 

@@ -129,6 +129,21 @@ void ParameterList::processNewPitchwheelMessage (int pitchwheelValue)
     }
 }
 
+Parameter* ParameterList::getParameterWithName (const String name, bool internationalizeName)
+{
+    const auto test = internationalizeName ? TRANS (name) : name;
+
+    for (auto* holder : params)
+    {
+        auto* param = holder->getParam();
+
+        if (param->getParameterName (0, internationalizeName) == test)
+            return param;
+    }
+
+    return nullptr;
+}
+
 //==============================================================================
 
 ParameterList::Listener::Listener (ParameterList& list,

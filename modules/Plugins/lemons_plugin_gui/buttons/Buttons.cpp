@@ -2,7 +2,7 @@
 namespace lemons::gui
 {
 ToggleButton::ToggleButton (plugin::BoolParameter& paramToUse, std::function< void (bool) > cb)
-    : ToggleTextButton (paramToUse.getName(), [&] (bool state)
+    : ToggleTextButton (paramToUse.getParameterName(), [&] (bool state)
                         { clicked_callback (state); }),
       param (paramToUse), callback (std::move (cb))
 {

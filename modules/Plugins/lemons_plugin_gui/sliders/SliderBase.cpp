@@ -4,7 +4,7 @@ namespace lemons::gui
 SliderBase::SliderBase (plugin::Parameter& paramToUse)
     : param_ (paramToUse)
 {
-    const auto paramName = param_.getName();
+    const auto paramName = param_.getParameterName();
     Slider::setName (paramName);
     Slider::setComponentID (paramName);
     Slider::setTooltip (paramName);
