@@ -1,21 +1,8 @@
 var searchData=
 [
-  ['saturation_2eh_1446',['Saturation.h',['../Saturation_8h.html',1,'']]],
-  ['serializabledata_2eh_1447',['SerializableData.h',['../SerializableData_8h.html',1,'']]],
-  ['serializing_2eh_1448',['Serializing.h',['../Serializing_8h.html',1,'']]],
-  ['sliderbase_2eh_1449',['SliderBase.h',['../SliderBase_8h.html',1,'']]],
-  ['sliders_2eh_1450',['Sliders.h',['../Sliders_8h.html',1,'']]],
-  ['smoothedgain_2eh_1451',['SmoothedGain.h',['../SmoothedGain_8h.html',1,'']]],
-  ['specializations_2eh_1452',['Specializations.h',['../Specializations_8h.html',1,'']]],
-  ['spline_2eh_1453',['Spline.h',['../Spline_8h.html',1,'']]],
-  ['splineeditor_2eh_1454',['SplineEditor.h',['../SplineEditor_8h.html',1,'']]],
-  ['state_2eh_1455',['state.h',['../state_8h.html',1,'']]],
-  ['statetogglebuttons_2eh_1456',['StateToggleButtons.h',['../StateToggleButtons_8h.html',1,'']]],
-  ['statetoggler_2eh_1457',['StateToggler.h',['../StateToggler_8h.html',1,'']]],
-  ['stereopanner_2eh_1458',['StereoPanner.h',['../StereoPanner_8h.html',1,'']]],
-  ['stl_5fcontainers_2eh_1459',['STL_containers.h',['../STL__containers_8h.html',1,'']]],
-  ['sublibrary_2eh_1460',['SubLibrary.h',['../SubLibrary_8h.html',1,'']]],
-  ['supersaw_2eh_1461',['SuperSaw.h',['../SuperSaw_8h.html',1,'']]],
-  ['synth_2eh_1462',['Synth.h',['../Synth_8h.html',1,'']]],
-  ['synthvoice_2eh_1463',['SynthVoice.h',['../SynthVoice_8h.html',1,'']]]
+  ['templatesynth_2eh_1453',['TemplateSynth.h',['../TemplateSynth_8h.html',1,'']]],
+  ['timbremod_2eh_1454',['TimbreMod.h',['../TimbreMod_8h.html',1,'']]],
+  ['timers_2eh_1455',['Timers.h',['../Timers_8h.html',1,'']]],
+  ['treereflector_2eh_1456',['TreeReflector.h',['../TreeReflector_8h.html',1,'']]],
+  ['typetraits_2eh_1457',['TypeTraits.h',['../TypeTraits_8h.html',1,'']]]
 ];

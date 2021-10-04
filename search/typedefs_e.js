@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['toggleparam_2237',['ToggleParam',['../namespacelemons.html#a6610ae87b54c2e3df80cd9dd74481f1f',1,'lemons']]],
-  ['triangle_2238',['Triangle',['../namespacelemons_1_1dsp_1_1synth.html#aa9c8040151c167d0e462405162fdd107',1,'lemons::dsp::synth']]]
+  ['toggleparam_2219',['ToggleParam',['../namespacelemons.html#a6610ae87b54c2e3df80cd9dd74481f1f',1,'lemons']]],
+  ['triangle_2220',['Triangle',['../namespacelemons_1_1dsp_1_1synth.html#aa9c8040151c167d0e462405162fdd107',1,'lemons::dsp::synth']]]
 ];

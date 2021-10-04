@@ -1,12 +1,16 @@
 var searchData=
 [
-  ['filter_2eh_1386',['Filter.h',['../lemons__audio__effects_2EQ_2Filter_8h.html',1,'(Global Namespace)'],['../lemons__dsp_2filters_2Filter_8h.html',1,'(Global Namespace)']]],
-  ['label_2eh_1387',['Label.h',['../Label_8h.html',1,'']]],
-  ['lambdasynth_2eh_1388',['LambdaSynth.h',['../LambdaSynth_8h.html',1,'']]],
-  ['latencyengine_2eh_1389',['LatencyEngine.h',['../LatencyEngine_8h.html',1,'']]],
-  ['lemons_5fmodules_2edox_1390',['lemons_modules.dox',['../lemons__modules_8dox.html',1,'']]],
-  ['limiter_2eh_1391',['Limiter.h',['../Limiter_8h.html',1,'']]],
-  ['listener_2eh_1392',['Listener.h',['../Listener_8h.html',1,'']]],
-  ['localization_2eh_1393',['localization.h',['../localization_8h.html',1,'']]],
-  ['localpresetsmanager_2eh_1394',['LocalPresetsManager.h',['../LocalPresetsManager_8h.html',1,'']]]
+  ['main_5fpage_2emd_1384',['main_page.md',['../main__page_8md.html',1,'']]],
+  ['mapinterface_2eh_1385',['MapInterface.h',['../MapInterface_8h.html',1,'']]],
+  ['mathhelpers_2eh_1386',['mathHelpers.h',['../mathHelpers_8h.html',1,'']]],
+  ['midichoppingprocessor_2eh_1387',['MidiChoppingProcessor.h',['../MidiChoppingProcessor_8h.html',1,'']]],
+  ['midififo_2eh_1388',['MidiFIFO.h',['../MidiFIFO_8h.html',1,'']]],
+  ['midimanager_2eh_1389',['MidiManager.h',['../MidiManager_8h.html',1,'']]],
+  ['midiprocessor_2eh_1390',['MidiProcessor.h',['../MidiProcessor_8h.html',1,'']]],
+  ['midiutilities_2eh_1391',['MidiUtilities.h',['../MidiUtilities_8h.html',1,'']]],
+  ['misc_2eh_1392',['misc.h',['../misc_8h.html',1,'']]],
+  ['modulationmanager_2eh_1393',['ModulationManager.h',['../ModulationManager_8h.html',1,'']]],
+  ['monostereoconverter_2eh_1394',['MonoStereoConverter.h',['../MonoStereoConverter_8h.html',1,'']]],
+  ['monotostereopanner_2eh_1395',['MonoToStereoPanner.h',['../MonoToStereoPanner_8h.html',1,'']]],
+  ['motion_2eh_1396',['motion.h',['../motion_8h.html',1,'']]]
 ];

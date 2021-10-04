@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['namepopup_2eh_1408',['NamePopup.h',['../NamePopup_8h.html',1,'']]],
-  ['noisegate_2eh_1409',['NoiseGate.h',['../NoiseGate_8h.html',1,'']]]
+  ['oscengine_2eh_1399',['OscEngine.h',['../OscEngine_8h.html',1,'']]],
+  ['oscillators_2eh_1400',['oscillators.h',['../oscillators_8h.html',1,'']]],
+  ['oscsynth_2eh_1401',['OscSynth.h',['../OscSynth_8h.html',1,'']]]
 ];

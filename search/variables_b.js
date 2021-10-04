@@ -1,14 +1,14 @@
 var searchData=
 [
-  ['panner_2178',['panner',['../classlemons_1_1dsp_1_1SynthBase.html#a6385f1208d58a1d37918d4ac708db3a4',1,'lemons::dsp::SynthBase']]],
-  ['param_2179',['param',['../classlemons_1_1gui_1_1ToggleButton.html#a894d737728d6aaaa39e0c484438c3059',1,'lemons::gui::ToggleButton::param()'],['../classlemons_1_1gui_1_1FloatSlider.html#a0f77529a32cb43b5d5ce17cad158ffe6',1,'lemons::gui::FloatSlider::param()'],['../classlemons_1_1gui_1_1IntSlider.html#adc30e60ba8a41f3e84e927e26085f1fb',1,'lemons::gui::IntSlider::param()'],['../structlemons_1_1plugin_1_1ModulationManager_1_1LFO_1_1Connection.html#a0908a976aad0cbaa846c45c3840fe963',1,'lemons::plugin::ModulationManager::LFO::Connection::param()']]],
-  ['parameters_2180',['parameters',['../structlemons_1_1plugin_1_1State.html#a477c1768671733e7ac56aec26de9e9dc',1,'lemons::plugin::State::parameters()'],['../structlemons_1_1plugin_1_1CustomState.html#add2341b6f48d2d885cb449daef9fe39c',1,'lemons::plugin::CustomState::parameters()']]],
-  ['params_2181',['params',['../classlemons_1_1plugin_1_1StateBase.html#a8a7f0d732e9783ddb91bb35296a2d00f',1,'lemons::plugin::StateBase']]],
-  ['pedal_2182',['pedal',['../classlemons_1_1dsp_1_1SynthBase.html#aece7c55fee9fdcead4677fcf1f441641',1,'lemons::dsp::SynthBase']]],
-  ['percenteffect_2183',['percentEffect',['../structlemons_1_1plugin_1_1ModulationManager_1_1LFO_1_1Connection.html#aec0fd9fb9e352828da2c798a6af60659',1,'lemons::plugin::ModulationManager::LFO::Connection']]],
-  ['playingbutreleased_2184',['playingButReleased',['../classlemons_1_1dsp_1_1SynthBase.html#a95fc35cbfdd2c70f665faa1a565ce888',1,'lemons::dsp::SynthBase']]],
-  ['points_2185',['points',['../structlemons_1_1spline_1_1Spline.html#a19e04b8203f38adc5c515b9f8d9001d7',1,'lemons::spline::Spline']]],
-  ['presetfileextension_2186',['presetFileExtension',['../classlemons_1_1plugin_1_1presets_1_1SubLibrary.html#ad420e48a7882ca7ff2a5e6199c61d6a2',1,'lemons::plugin::presets::SubLibrary']]],
-  ['presets_2187',['presets',['../classlemons_1_1plugin_1_1presets_1_1SubLibrary.html#abac8bd0a2f974e389250d1d6c1cdb32b',1,'lemons::plugin::presets::SubLibrary']]],
-  ['productname_2188',['productName',['../classlemons_1_1plugin_1_1presets_1_1SubLibrary.html#a86723eb54bf028c19d48e50f4108bd69',1,'lemons::plugin::presets::SubLibrary']]]
+  ['panner_2160',['panner',['../classlemons_1_1dsp_1_1SynthBase.html#a6385f1208d58a1d37918d4ac708db3a4',1,'lemons::dsp::SynthBase']]],
+  ['param_2161',['param',['../classlemons_1_1gui_1_1ToggleButton.html#a894d737728d6aaaa39e0c484438c3059',1,'lemons::gui::ToggleButton::param()'],['../classlemons_1_1gui_1_1FloatSlider.html#a0f77529a32cb43b5d5ce17cad158ffe6',1,'lemons::gui::FloatSlider::param()'],['../classlemons_1_1gui_1_1IntSlider.html#adc30e60ba8a41f3e84e927e26085f1fb',1,'lemons::gui::IntSlider::param()'],['../structlemons_1_1plugin_1_1ModulationManager_1_1LFO_1_1Connection.html#a0908a976aad0cbaa846c45c3840fe963',1,'lemons::plugin::ModulationManager::LFO::Connection::param()']]],
+  ['parameters_2162',['parameters',['../structlemons_1_1plugin_1_1State.html#a477c1768671733e7ac56aec26de9e9dc',1,'lemons::plugin::State::parameters()'],['../structlemons_1_1plugin_1_1CustomState.html#add2341b6f48d2d885cb449daef9fe39c',1,'lemons::plugin::CustomState::parameters()']]],
+  ['params_2163',['params',['../classlemons_1_1plugin_1_1StateBase.html#a8a7f0d732e9783ddb91bb35296a2d00f',1,'lemons::plugin::StateBase']]],
+  ['pedal_2164',['pedal',['../classlemons_1_1dsp_1_1SynthBase.html#aece7c55fee9fdcead4677fcf1f441641',1,'lemons::dsp::SynthBase']]],
+  ['percenteffect_2165',['percentEffect',['../structlemons_1_1plugin_1_1ModulationManager_1_1LFO_1_1Connection.html#aec0fd9fb9e352828da2c798a6af60659',1,'lemons::plugin::ModulationManager::LFO::Connection']]],
+  ['playingbutreleased_2166',['playingButReleased',['../classlemons_1_1dsp_1_1SynthBase.html#a95fc35cbfdd2c70f665faa1a565ce888',1,'lemons::dsp::SynthBase']]],
+  ['points_2167',['points',['../structlemons_1_1spline_1_1Spline.html#a19e04b8203f38adc5c515b9f8d9001d7',1,'lemons::spline::Spline']]],
+  ['presetfileextension_2168',['presetFileExtension',['../classlemons_1_1plugin_1_1presets_1_1SubLibrary.html#ad420e48a7882ca7ff2a5e6199c61d6a2',1,'lemons::plugin::presets::SubLibrary']]],
+  ['presets_2169',['presets',['../classlemons_1_1plugin_1_1presets_1_1SubLibrary.html#abac8bd0a2f974e389250d1d6c1cdb32b',1,'lemons::plugin::presets::SubLibrary']]],
+  ['productname_2170',['productName',['../classlemons_1_1plugin_1_1presets_1_1SubLibrary.html#a86723eb54bf028c19d48e50f4108bd69',1,'lemons::plugin::presets::SubLibrary']]]
 ];

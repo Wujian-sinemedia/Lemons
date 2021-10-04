@@ -25,7 +25,7 @@
       <type>juce::AudioBuffer&lt; float &gt;</type>
       <name>fromVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a7e6983d58a97978bc29cd65fdb3408bd</anchor>
+      <anchor>aeff235d9553fa3ebf08d80086b25c41e</anchor>
       <arglist>(juce::var var)</arglist>
     </member>
     <member kind="function">
@@ -301,26 +301,12 @@
     <namespace>lemons::dsp::FX</namespace>
   </compound>
   <compound kind="file">
-    <name>Common/lemons_serializing/SerializableData/TreeReflector/detail/detail.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/detail/</path>
-    <filename>Common_2lemons__serializing_2SerializableData_2TreeReflector_2detail_2detail_8h.html</filename>
-    <includes id="helpers_8h" name="helpers.h" local="yes" imported="no">helpers.h</includes>
+    <name>Common/lemons_serializing/SerializableData/TreeReflector/detail.h</name>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/</path>
+    <filename>Common_2lemons__serializing_2SerializableData_2TreeReflector_2detail_8h.html</filename>
+    <includes id="Juce__containers_8h" name="Juce_containers.h" local="no" imported="no">lemons_serializing/Serializing/Specializations/containers/Juce_containers.h</includes>
+    <includes id="STL__containers_8h" name="STL_containers.h" local="no" imported="no">lemons_serializing/Serializing/Specializations/containers/STL_containers.h</includes>
     <namespace>lemons</namespace>
-    <namespace>lemons::serializing</namespace>
-    <member kind="function">
-      <type>juce::var</type>
-      <name>fromEnum</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>acf189c69d03ade2de6bf05bdfc1ad6e8</anchor>
-      <arglist>(Type value)</arglist>
-    </member>
-    <member kind="function">
-      <type>Type</type>
-      <name>toEnum</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a42f4186dc5701be7dccc2f892e4209e1</anchor>
-      <arglist>(const juce::var &amp;var)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>Plugins/lemons_plugin_parameters/RealtimeStateObject/detail.h</name>
@@ -523,51 +509,6 @@
     </member>
   </compound>
   <compound kind="file">
-    <name>helpers.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/detail/</path>
-    <filename>helpers_8h.html</filename>
-    <includes id="Juce__containers_8h" name="Juce_containers.h" local="yes" imported="no">containers/Juce_containers.h</includes>
-    <includes id="STL__containers_8h" name="STL_containers.h" local="yes" imported="no">containers/STL_containers.h</includes>
-    <namespace>lemons</namespace>
-    <namespace>lemons::serializing</namespace>
-    <namespace>lemons::serializing::TreeReflectorHelpers</namespace>
-    <member kind="function">
-      <type>void</type>
-      <name>addContainer</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a336cf06a7997c2af3f7b8e17b0c6bcf1</anchor>
-      <arglist>(TreeReflector &amp;ref, ContainerType &amp;container, const String &amp;propertyName)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>addMap</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a749bdabf7794fa9d17a6873ecbde9c63</anchor>
-      <arglist>(TreeReflector &amp;ref, MapType &amp;map, const String &amp;propertyName)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getNumElementsOfType</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a3cf377cb04beb02fcba0ada837b67bbc</anchor>
-      <arglist>(const String &amp;propertyName, const ValueTree &amp;tree)</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>makePropertyNameForElement</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>ac6585e687d1ccbcbb445bfc3f69d345a</anchor>
-      <arglist>(const String &amp;propertyName, int index)</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>propertyNameToContainerName</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a74fbae7ad15a8c2708942fa0169527af</anchor>
-      <arglist>(const String &amp;propertyName)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
     <name>icons.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/GUI/lemons_gui/icons/</path>
     <filename>icons_8h.html</filename>
@@ -745,7 +686,7 @@
   </compound>
   <compound kind="file">
     <name>Juce_containers.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/detail/containers/</path>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/Serializing/Specializations/containers/</path>
     <filename>Juce__containers_8h.html</filename>
     <class kind="struct">lemons::serializing::isContainer&lt; juce::Array&lt; ElementType &gt; &gt;</class>
     <class kind="struct">lemons::serializing::isContainer&lt; juce::OwnedArray&lt; ElementType &gt; &gt;</class>
@@ -1933,7 +1874,7 @@
   </compound>
   <compound kind="file">
     <name>STL_containers.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/detail/containers/</path>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/Serializing/Specializations/containers/</path>
     <filename>STL__containers_8h.html</filename>
     <class kind="struct">lemons::serializing::isContainer&lt; std::array&lt; ElementType, size &gt; &gt;</class>
     <class kind="struct">lemons::serializing::isContainer&lt; std::deque&lt; ElementType &gt; &gt;</class>
@@ -2049,7 +1990,7 @@
     <name>TreeReflector.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/</path>
     <filename>TreeReflector_8h.html</filename>
-    <includes id="Common_2lemons__serializing_2SerializableData_2TreeReflector_2detail_2detail_8h" name="Common/lemons_serializing/SerializableData/TreeReflector/detail/detail.h" local="yes" imported="no">detail/detail.h</includes>
+    <includes id="Common_2lemons__serializing_2SerializableData_2TreeReflector_2detail_8h" name="Common/lemons_serializing/SerializableData/TreeReflector/detail.h" local="yes" imported="no">detail.h</includes>
     <class kind="struct">lemons::TreeLoader</class>
     <class kind="struct">lemons::TreeReflector</class>
     <class kind="struct">lemons::TreeSaver</class>
@@ -2135,8 +2076,15 @@
       <type>juce::AudioBuffer&lt; float &gt;</type>
       <name>fromVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a7e6983d58a97978bc29cd65fdb3408bd</anchor>
+      <anchor>aeff235d9553fa3ebf08d80086b25c41e</anchor>
       <arglist>(juce::var var)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a8d788139f4116211d8426cf9bfd6aa7b</anchor>
+      <arglist>(juce::Image &amp;image)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
@@ -2144,6 +2092,13 @@
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
       <anchor>a4002e6e67a670bb92651456865776534</anchor>
       <arglist>(juce::MemoryBlock &amp;block)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a54ecbed7b2fd709bf3a77251b6262ebd</anchor>
+      <arglist>(juce::MidiBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
@@ -20907,7 +20862,6 @@
   <compound kind="namespace">
     <name>lemons::serializing</name>
     <filename>namespacelemons_1_1serializing.html</filename>
-    <namespace>lemons::serializing::TreeReflectorHelpers</namespace>
     <class kind="struct">lemons::serializing::ContainerInterface</class>
     <class kind="class">lemons::serializing::DataSynchronizer</class>
     <class kind="struct">lemons::serializing::isContainer</class>
@@ -20997,13 +20951,6 @@
       <arglist>(File file)</arglist>
     </member>
     <member kind="function">
-      <type>juce::var</type>
-      <name>fromEnum</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>acf189c69d03ade2de6bf05bdfc1ad6e8</anchor>
-      <arglist>(Type value)</arglist>
-    </member>
-    <member kind="function">
       <type>void</type>
       <name>fromJSON</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
@@ -21049,7 +20996,7 @@
       <type>juce::AudioBuffer&lt; float &gt;</type>
       <name>fromVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a7e6983d58a97978bc29cd65fdb3408bd</anchor>
+      <anchor>aeff235d9553fa3ebf08d80086b25c41e</anchor>
       <arglist>(juce::var var)</arglist>
     </member>
     <member kind="function">
@@ -21179,13 +21126,6 @@
       <arglist>(SerializableData &amp;data, juce::MemoryBlock &amp;dest)</arglist>
     </member>
     <member kind="function">
-      <type>Type</type>
-      <name>toEnum</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a42f4186dc5701be7dccc2f892e4209e1</anchor>
-      <arglist>(const juce::var &amp;var)</arglist>
-    </member>
-    <member kind="function">
       <type>String</type>
       <name>toJSON</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
@@ -21224,8 +21164,22 @@
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a8d788139f4116211d8426cf9bfd6aa7b</anchor>
+      <arglist>(juce::Image &amp;image)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
       <anchor>a4002e6e67a670bb92651456865776534</anchor>
       <arglist>(juce::MemoryBlock &amp;block)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a54ecbed7b2fd709bf3a77251b6262ebd</anchor>
+      <arglist>(juce::MidiBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
@@ -21310,45 +21264,6 @@
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
       <anchor>a44dc62981a244f674a7b47738595d0ac</anchor>
       <arglist>(const ValueTree &amp;v)</arglist>
-    </member>
-  </compound>
-  <compound kind="namespace">
-    <name>lemons::serializing::TreeReflectorHelpers</name>
-    <filename>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</filename>
-    <member kind="function">
-      <type>void</type>
-      <name>addContainer</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a336cf06a7997c2af3f7b8e17b0c6bcf1</anchor>
-      <arglist>(TreeReflector &amp;ref, ContainerType &amp;container, const String &amp;propertyName)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>addMap</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a749bdabf7794fa9d17a6873ecbde9c63</anchor>
-      <arglist>(TreeReflector &amp;ref, MapType &amp;map, const String &amp;propertyName)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getNumElementsOfType</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a3cf377cb04beb02fcba0ada837b67bbc</anchor>
-      <arglist>(const String &amp;propertyName, const ValueTree &amp;tree)</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>makePropertyNameForElement</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>ac6585e687d1ccbcbb445bfc3f69d345a</anchor>
-      <arglist>(const String &amp;propertyName, int index)</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>propertyNameToContainerName</name>
-      <anchorfile>namespacelemons_1_1serializing_1_1TreeReflectorHelpers.html</anchorfile>
-      <anchor>a74fbae7ad15a8c2708942fa0169527af</anchor>
-      <arglist>(const String &amp;propertyName)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
