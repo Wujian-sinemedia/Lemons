@@ -9,7 +9,7 @@ namespace lemons::serializing
     This function must do the exact opposite of what your implementation of fromVar() for your type does. \n \n
     Usually what this boils down to is encoding your object into a juce::String in some way, which can then be implicitly converted to a juce::var. \n \n
     Several examples of implementations of this function can be found in lemons_serializing/Serializing/Specializations/VarSpecializations.cpp. \n \n
-    As a general rule, you shouldn't need to implement toVar() and fromVar() for a type if that type inherits from SerializableData; and, conversely, you should implement toVar() and fromVar() for a type if it needs to be serialized and doesn't inherit from SerializableData. You should rarely, if ever, need both for a single type.
+    As a general rule, you shouldn't need to implement toVar() and fromVar() for a type if that type inherits from SerializableData; and, conversely, you should implement toVar() and fromVar() for a type if it needs to be serialized and doesn't inherit from SerializableData. You should rarely, if ever, need both for a single type. If your type has multiple distinct pieces of data or steps to its serialization logic, it is usually preferable to have your type inherit from SerializableData.
     @code
     // example implementation:
     namespace lemons
@@ -55,7 +55,7 @@ juce::var toVar (Type& object)
     This function must do the exact opposite of what your implementation of toVar() for your type does. \n \n
     Usually what this boils down to is creating a default-constructed instance of your object, then setting properties or relevant data members programmatically based on parsing the encoded String returned from the var. \n \n
     Several examples of implementations of this function can be found in lemons_serializing/Serializing/Specializations/VarSpecializations.cpp. \n \n
-    As a general rule, you shouldn't need to implement toVar() and fromVar() for a type if that type inherits from SerializableData; and, conversely, you should implement toVar() and fromVar() for a type if it needs to be serialized and doesn't inherit from SerializableData. You should rarely, if ever, need both for a single type.
+    As a general rule, you shouldn't need to implement toVar() and fromVar() for a type if that type inherits from SerializableData; and, conversely, you should implement toVar() and fromVar() for a type if it needs to be serialized and doesn't inherit from SerializableData. You should rarely, if ever, need both for a single type. If your type has multiple distinct pieces of data or steps to its serialization logic, it is usually preferable to have your type inherit from SerializableData.
     @code
     // example implementation:
     namespace lemons
