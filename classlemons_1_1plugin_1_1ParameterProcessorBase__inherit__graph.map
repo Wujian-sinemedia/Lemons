@@ -1,4 +1,0 @@
-<map id="lemons::plugin::ParameterProcessorBase&lt; SampleType &gt;" name="lemons::plugin::ParameterProcessorBase&lt; SampleType &gt;">
-<area shape="rect" id="node1" title="This class processes incoming MIDI messages and quantizes the audio output with any MIDI CC messages ..." alt="" coords="5,95,232,136"/>
-<area shape="rect" id="node2" href="$classlemons_1_1dsp_1_1MidiChoppingProcessor.html" title=" " alt="" coords="19,5,218,47"/>
-</map>
