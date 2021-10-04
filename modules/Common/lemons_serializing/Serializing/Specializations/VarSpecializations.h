@@ -74,4 +74,20 @@ juce::var toVar (juce::RelativeTime& time);
 template <>
 juce::RelativeTime fromVar (juce::var var);
 
+/** Serializes a juce::Image object using the PNG image format. */
+template <>
+juce::var toVar (juce::Image& image);
+
+/** Serializes a juce::Image object using the PNG image format. */
+template <>
+juce::Image fromVar (juce::var var);
+
+/** Serializes a juce::MidiBuffer. */
+template <>
+juce::var toVar (juce::MidiBuffer& buffer);
+
+/** Serializes a juce::MidiBuffer. */
+template <>
+juce::MidiBuffer fromVar (juce::var var);
+
 }  // namespace lemons::serializing

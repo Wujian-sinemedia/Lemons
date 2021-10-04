@@ -39,6 +39,44 @@ void TreeReflector::saveDataChild (const String& propertyName, SerializableData&
 
 ValueTree& TreeReflector::getRawDataTree() { return tree; }
 
+/*-------------------------------- Misc helper funcs ------------------------------*/
+
+String TreeReflector::propertyNameToContainerName (const String& propertyName) const
+{
+    return propertyName + "s";
+}
+
+String TreeReflector::makePropertyNameForElement (const String& propertyName, int index) const
+{
+    return propertyName + "_" + String (index);
+}
+
+int TreeReflector::getNumElementsOfType (const String& propertyName, const ValueTree& tree) const
+{
+    const auto num = tree.getNumProperties();
+
+    juce::Array< String > names;
+
+    for (int i = 1; i <= num; ++i)
+    {
+        names.add (makePropertyNameForElement (propertyName, i));
+    }
+
+    auto actualNum = num;
+
+    for (int i = 0; i < num; ++i)
+    {
+        if (! names.contains (tree.getPropertyName (i).toString()))
+        {
+            --actualNum;
+        }
+    }
+
+    return actualNum;
+}
+
+/*------------------------------------------------------------------------------------------------------*/
+
 bool TreeLoader::isLoading() const { return true; }
 
 bool TreeSaver::isLoading() const { return false; }

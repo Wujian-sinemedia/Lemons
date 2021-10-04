@@ -194,14 +194,35 @@ private:
     void loadValueTree (const String& propertyName, ValueTree& data) const;
     void saveValueTree (const String& propertyName, ValueTree& data);
 
+    void loadDataChild (const String& propertyName, SerializableData& data) const;
+    void saveDataChild (const String& propertyName, SerializableData& data);
+
     template < class ContainerType >
     void loadContainer (const String& propertyName, ContainerType& container);
 
     template < class ContainerType >
     void saveContainer (const String& propertyName, ContainerType& container);
 
-    void loadDataChild (const String& propertyName, SerializableData& data) const;
-    void saveDataChild (const String& propertyName, SerializableData& data);
+    template < class ContainerType >
+    void addContainer (ContainerType& container, const String& propertyName);
+
+    template < class MapType >
+    void addMap (MapType& map, const String& propertyName);
+
+    /*----------------------*/
+    // Helper funcs
+
+    String propertyNameToContainerName (const String& propertyName) const;
+
+    String makePropertyNameForElement (const String& propertyName, int index) const;
+
+    int getNumElementsOfType (const String& propertyName, const ValueTree& tree) const;
+
+    template < typename Type >
+    Type toEnum (const juce::var& var) const;
+
+    template < typename Type >
+    juce::var fromEnum (Type value) const;
 
     ValueTree tree;
 };
@@ -232,4 +253,4 @@ struct TreeSaver : TreeReflector
 
 }  // namespace lemons
 
-#include "detail/detail.h"
+#include "detail.h"
