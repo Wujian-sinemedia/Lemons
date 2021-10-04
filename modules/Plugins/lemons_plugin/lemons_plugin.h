@@ -8,7 +8,7 @@
  vendor:             Ben Vining
  version:            0.0.1
  name:               lemons_plugin
- description:        General plugin utilities & tools
+ description:        Abstractions and building blocks for plugins
  dependencies:       lemons_plugin_parameters lemons_mobile_utils
 
  END_JUCE_MODULE_DECLARATION
