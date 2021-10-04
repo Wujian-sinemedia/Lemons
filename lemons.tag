@@ -25,7 +25,7 @@
       <type>juce::AudioBuffer&lt; float &gt;</type>
       <name>fromVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a79d688bf8375c25448b045fd7a9a1286</anchor>
+      <anchor>a7e6983d58a97978bc29cd65fdb3408bd</anchor>
       <arglist>(juce::var var)</arglist>
     </member>
     <member kind="function">
@@ -2135,7 +2135,7 @@
       <type>juce::AudioBuffer&lt; float &gt;</type>
       <name>fromVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a79d688bf8375c25448b045fd7a9a1286</anchor>
+      <anchor>a7e6983d58a97978bc29cd65fdb3408bd</anchor>
       <arglist>(juce::var var)</arglist>
     </member>
     <member kind="function">
@@ -2156,8 +2156,36 @@
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>ae10e604289c026559886af5c9bf1ff91</anchor>
+      <arglist>(juce::Point&lt; int &gt; &amp;point)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a6a245e4f55875b6ac8fd9f2700ac791a</anchor>
+      <arglist>(juce::RelativeTime &amp;time)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a335a1e1d369f0916e2267cfb6e1f8171</anchor>
+      <arglist>(juce::Time &amp;time)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
       <anchor>a77778b6f43a5a52acb50655157a79145</anchor>
       <arglist>(juce::URL &amp;url)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>abda7ea751365cf15132fc3afa328dada</anchor>
+      <arglist>(juce::Uuid &amp;uuid)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
@@ -21021,7 +21049,7 @@
       <type>juce::AudioBuffer&lt; float &gt;</type>
       <name>fromVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a79d688bf8375c25448b045fd7a9a1286</anchor>
+      <anchor>a7e6983d58a97978bc29cd65fdb3408bd</anchor>
       <arglist>(juce::var var)</arglist>
     </member>
     <member kind="function">
@@ -21210,8 +21238,36 @@
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>ae10e604289c026559886af5c9bf1ff91</anchor>
+      <arglist>(juce::Point&lt; int &gt; &amp;point)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a6a245e4f55875b6ac8fd9f2700ac791a</anchor>
+      <arglist>(juce::RelativeTime &amp;time)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a335a1e1d369f0916e2267cfb6e1f8171</anchor>
+      <arglist>(juce::Time &amp;time)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
       <anchor>a77778b6f43a5a52acb50655157a79145</anchor>
       <arglist>(juce::URL &amp;url)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>abda7ea751365cf15132fc3afa328dada</anchor>
+      <arglist>(juce::Uuid &amp;uuid)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
