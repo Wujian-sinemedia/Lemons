@@ -137,9 +137,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3f385a1ada429e1f7cd8e16d3f5a7635"><td class="memItemLeft" align="right" valign="top">ValueType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1TypedParameter.html#a3f385a1ada429e1f7cd8e16d3f5a7635">getMinimum</a> () const</td></tr>
 <tr class="memdesc:a3f385a1ada429e1f7cd8e16d3f5a7635"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the minimum possible value for this parameter.  <a href="classlemons_1_1plugin_1_1TypedParameter.html#a3f385a1ada429e1f7cd8e16d3f5a7635">More...</a><br /></td></tr>
 <tr class="separator:a3f385a1ada429e1f7cd8e16d3f5a7635"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10f7e99c27afeaab86d3e01e2b8f87d2"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1Parameter.html#a10f7e99c27afeaab86d3e01e2b8f87d2">getName</a> (int maxLength=0) const final</td></tr>
-<tr class="memdesc:a10f7e99c27afeaab86d3e01e2b8f87d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of the parameter.  <a href="classlemons_1_1plugin_1_1Parameter.html#a10f7e99c27afeaab86d3e01e2b8f87d2">More...</a><br /></td></tr>
-<tr class="separator:a10f7e99c27afeaab86d3e01e2b8f87d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab37bf0ccb1632c22af0ead8992b744e9"><td class="memItemLeft" align="right" valign="top">const juce::NormalisableRange&lt; float &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1Parameter.html#ab37bf0ccb1632c22af0ead8992b744e9">getNormalisableRange</a> () const final</td></tr>
 <tr class="memdesc:ab37bf0ccb1632c22af0ead8992b744e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns this parameter's range object.  <a href="classlemons_1_1plugin_1_1Parameter.html#ab37bf0ccb1632c22af0ead8992b744e9">More...</a><br /></td></tr>
 <tr class="separator:ab37bf0ccb1632c22af0ead8992b744e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,6 +146,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac624ce0059aa3c873b2e0920ff973332"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1Parameter.html#ac624ce0059aa3c873b2e0920ff973332">getNormalizedValue</a> () const</td></tr>
 <tr class="memdesc:ac624ce0059aa3c873b2e0920ff973332"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the parameter's current value, in a normalized 0-1 range.  <a href="classlemons_1_1plugin_1_1Parameter.html#ac624ce0059aa3c873b2e0920ff973332">More...</a><br /></td></tr>
 <tr class="separator:ac624ce0059aa3c873b2e0920ff973332"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34250cac555b1d3a3ab04e31ca2f310e"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1Parameter.html#a34250cac555b1d3a3ab04e31ca2f310e">getParameterName</a> (int maxLength=0, bool internationalize=true) const</td></tr>
+<tr class="memdesc:a34250cac555b1d3a3ab04e31ca2f310e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of the parameter.  <a href="classlemons_1_1plugin_1_1Parameter.html#a34250cac555b1d3a3ab04e31ca2f310e">More...</a><br /></td></tr>
+<tr class="separator:a34250cac555b1d3a3ab04e31ca2f310e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3607d98e258cd3a0b0330af8d70b8be"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1TypedParameter.html#ad3607d98e258cd3a0b0330af8d70b8be">getStringForCurrentValue</a> (int maxLength=50) const</td></tr>
 <tr class="memdesc:ad3607d98e258cd3a0b0330af8d70b8be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a textual description of the parameter;'s current value.  <a href="classlemons_1_1plugin_1_1TypedParameter.html#ad3607d98e258cd3a0b0330af8d70b8be">More...</a><br /></td></tr>
 <tr class="separator:ad3607d98e258cd3a0b0330af8d70b8be"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -663,34 +663,6 @@ template&lt;typename ValueType &gt; </div>
 
 </div>
 </div>
-<a id="a10f7e99c27afeaab86d3e01e2b8f87d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10f7e99c27afeaab86d3e01e2b8f87d2">&#9670;&nbsp;</a></span>getName()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">String lemons::plugin::Parameter::getName </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>maxLength</em> = <code>0</code></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the name of the parameter. </p>
-
-</div>
-</div>
 <a id="ab37bf0ccb1632c22af0ead8992b744e9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab37bf0ccb1632c22af0ead8992b744e9">&#9670;&nbsp;</a></span>getNormalisableRange()</h2>
 
@@ -771,6 +743,51 @@ template&lt;typename ValueType &gt; </div>
 
 <p>Returns the parameter's current value, in a normalized 0-1 range. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1plugin_1_1Parameter.html#a1ad216ffc9c5b688b21d2896165de0d3" title="Returns the parameter&#39;s current value, in the parameter&#39;s denormalized range.">getDenormalizedValue()</a> </dd></dl>
+
+</div>
+</div>
+<a id="a34250cac555b1d3a3ab04e31ca2f310e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34250cac555b1d3a3ab04e31ca2f310e">&#9670;&nbsp;</a></span>getParameterName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">String lemons::plugin::Parameter::getParameterName </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxLength</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>internationalize</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the name of the parameter. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">maxLength</td><td>The maximum length of the string to return, in characters. If this is less than 1, the max length will be unlimited. </td></tr>
+    <tr><td class="paramname">internationalize</td><td>If this is true, the returned string will be translated using the juce::LocalisedStrings class. Setting this to false is useful for serialization logic that relies on parameter names. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1543,7 +1560,7 @@ template&lt;typename ValueType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 3 2021 22:39:27 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Oct 4 2021 01:13:04 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

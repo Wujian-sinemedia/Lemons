@@ -1095,6 +1095,8 @@
     <name>ModulationManager.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_parameters/ModulationManager/</path>
     <filename>ModulationManager_8h.html</filename>
+    <class kind="struct">lemons::plugin::ModulationManager::LFO::Connection</class>
+    <class kind="struct">lemons::plugin::ModulationManager::LFO</class>
     <class kind="class">lemons::plugin::ModulationManager</class>
     <class kind="class">lemons::plugin::ModulationManagerProcessor</class>
     <namespace>lemons</namespace>
@@ -1519,14 +1521,6 @@
     <includes id="FactoryPresetsManager_8h" name="FactoryPresetsManager.h" local="yes" imported="no">sub_libraries/FactoryPresetsManager.h</includes>
     <includes id="DatabasePresetsManager_8h" name="DatabasePresetsManager.h" local="yes" imported="no">sub_libraries/DatabasePresetsManager.h</includes>
     <class kind="class">lemons::plugin::PresetsLibrary</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-  </compound>
-  <compound kind="file">
-    <name>processor.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_parameters/ModulationManager/</path>
-    <filename>processor_8h.html</filename>
-    <class kind="class">lemons::plugin::ModulationManagerProcessor</class>
     <namespace>lemons</namespace>
     <namespace>lemons::plugin</namespace>
   </compound>
@@ -2798,13 +2792,6 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
-      <name>getName</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a10f7e99c27afeaab86d3e01e2b8f87d2</anchor>
-      <arglist>(int maxLength=0) const final</arglist>
-    </member>
-    <member kind="function">
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
@@ -2824,6 +2811,13 @@
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
       <anchor>ac624ce0059aa3c873b2e0920ff973332</anchor>
       <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>getParameterName</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a34250cac555b1d3a3ab04e31ca2f310e</anchor>
+      <arglist>(int maxLength=0, bool internationalize=true) const</arglist>
     </member>
     <member kind="function">
       <type>String</type>
@@ -3904,6 +3898,60 @@
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1Compressor.html</anchorfile>
       <anchor>a401f36fcf010190dfdb74e6a707c3e7c</anchor>
       <arglist>(float newThresh_dB)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::plugin::ModulationManager::LFO::Connection</name>
+    <filename>structlemons_1_1plugin_1_1ModulationManager_1_1LFO_1_1Connection.html</filename>
+    <base>lemons::SerializableData</base>
+    <member kind="function">
+      <type></type>
+      <name>Connection</name>
+      <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO_1_1Connection.html</anchorfile>
+      <anchor>a505281e0efc939561f02c6f81f46c1f0</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Connection</name>
+      <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO_1_1Connection.html</anchorfile>
+      <anchor>a75ad215f88b651437fb8f11af5348d4d</anchor>
+      <arglist>(ParameterList &amp;listToUse, Parameter &amp;parameter, int amount=100)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>apply</name>
+      <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO_1_1Connection.html</anchorfile>
+      <anchor>a78b476af8fcc7f50dead7a0eaad39974</anchor>
+      <arglist>(float newLFOsample) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>deserialize</name>
+      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
+      <anchor>ace1758cc9344ae03a6d01c3c218226de</anchor>
+      <arglist>(const ValueTree &amp;tree)</arglist>
+    </member>
+    <member kind="function">
+      <type>ValueTree</type>
+      <name>serialize</name>
+      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
+      <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>Parameter *</type>
+      <name>param</name>
+      <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO_1_1Connection.html</anchorfile>
+      <anchor>a0908a976aad0cbaa846c45c3840fe963</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>percentEffect</name>
+      <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO_1_1Connection.html</anchorfile>
+      <anchor>aec0fd9fb9e352828da2c798a6af60659</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -5706,13 +5754,6 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
-      <name>getName</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a10f7e99c27afeaab86d3e01e2b8f87d2</anchor>
-      <arglist>(int maxLength=0) const final</arglist>
-    </member>
-    <member kind="function">
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
@@ -5732,6 +5773,13 @@
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
       <anchor>ac624ce0059aa3c873b2e0920ff973332</anchor>
       <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>getParameterName</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a34250cac555b1d3a3ab04e31ca2f310e</anchor>
+      <arglist>(int maxLength=0, bool internationalize=true) const</arglist>
     </member>
     <member kind="function">
       <type>String</type>
@@ -6060,13 +6108,6 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
-      <name>getName</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a10f7e99c27afeaab86d3e01e2b8f87d2</anchor>
-      <arglist>(int maxLength=0) const final</arglist>
-    </member>
-    <member kind="function">
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
@@ -6086,6 +6127,13 @@
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
       <anchor>ac624ce0059aa3c873b2e0920ff973332</anchor>
       <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>getParameterName</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a34250cac555b1d3a3ab04e31ca2f310e</anchor>
+      <arglist>(int maxLength=0, bool internationalize=true) const</arglist>
     </member>
     <member kind="function">
       <type>String</type>
@@ -6380,13 +6428,6 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
-      <name>getName</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a10f7e99c27afeaab86d3e01e2b8f87d2</anchor>
-      <arglist>(int maxLength=0) const final</arglist>
-    </member>
-    <member kind="function">
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
@@ -6406,6 +6447,13 @@
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
       <anchor>ac624ce0059aa3c873b2e0920ff973332</anchor>
       <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>getParameterName</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a34250cac555b1d3a3ab04e31ca2f310e</anchor>
+      <arglist>(int maxLength=0, bool internationalize=true) const</arglist>
     </member>
     <member kind="function">
       <type>String</type>
@@ -6700,13 +6748,6 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
-      <name>getName</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a10f7e99c27afeaab86d3e01e2b8f87d2</anchor>
-      <arglist>(int maxLength=0) const final</arglist>
-    </member>
-    <member kind="function">
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
@@ -6726,6 +6767,13 @@
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
       <anchor>ac624ce0059aa3c873b2e0920ff973332</anchor>
       <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>getParameterName</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a34250cac555b1d3a3ab04e31ca2f310e</anchor>
+      <arglist>(int maxLength=0, bool internationalize=true) const</arglist>
     </member>
     <member kind="function">
       <type>String</type>
@@ -8071,6 +8119,117 @@
       <arglist>()</arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>lemons::plugin::ModulationManager::LFO</name>
+    <filename>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</filename>
+    <base>lemons::SerializableData</base>
+    <class kind="struct">lemons::plugin::ModulationManager::LFO::Connection</class>
+    <member kind="function">
+      <type></type>
+      <name>LFO</name>
+      <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
+      <anchor>a454ed97c712e1db3f82cf301493d355e</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>LFO</name>
+      <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
+      <anchor>ac58b28f4e9814e49491ea0cd71f5eaa6</anchor>
+      <arglist>(ParameterList &amp;listToUse)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>advance</name>
+      <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
+      <anchor>a1c70a79a37c8fa7b60bd0e6240385e94</anchor>
+      <arglist>(int numTicks=1)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>createOrEditConnection</name>
+      <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
+      <anchor>a0dfb75a04070beef87878e531fee3481</anchor>
+      <arglist>(Parameter &amp;parameter, int amount)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>deserialize</name>
+      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
+      <anchor>ace1758cc9344ae03a6d01c3c218226de</anchor>
+      <arglist>(const ValueTree &amp;tree)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getAndAdvance</name>
+      <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
+      <anchor>a39fb7048f940adc9c02adb0458f03d04</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getAndDontAdvance</name>
+      <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
+      <anchor>a6f01125e241b96d7b91c98127a5b0182</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>dsp::osc::ChoosableOscillator&lt; float &gt; &amp;</type>
+      <name>getOscillator</name>
+      <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
+      <anchor>acec194eb73b4560b188d4d87a5711c01</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>hasConnection</name>
+      <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
+      <anchor>af25a13aaa9840c6d0911400cf0e985ad</anchor>
+      <arglist>(Parameter &amp;parameter) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>prepareNextBlock</name>
+      <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
+      <anchor>ab97e4108497c55f645fed784dce1b217</anchor>
+      <arglist>(int numSamples)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>prepareToPlay</name>
+      <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
+      <anchor>a17499286d1b4d1e12a0883e4df211d68</anchor>
+      <arglist>(int numSamples, double samplerate)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>processNextSample</name>
+      <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
+      <anchor>a960fc656caebec4f70c601b07bfd1dce</anchor>
+      <arglist>(bool advance=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>removeConnection</name>
+      <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
+      <anchor>a7faee7a83d718178c91bd434b1b0d584</anchor>
+      <arglist>(Parameter &amp;parameter)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>removeInvalidConnections</name>
+      <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
+      <anchor>a724bad76df91b30e4d771e37524ff2b8</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>ValueTree</type>
+      <name>serialize</name>
+      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
+      <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>lemons::dsp::FX::Limiter</name>
     <filename>classlemons_1_1dsp_1_1FX_1_1Limiter.html</filename>
@@ -8483,13 +8642,6 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
-      <name>getName</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a10f7e99c27afeaab86d3e01e2b8f87d2</anchor>
-      <arglist>(int maxLength=0) const final</arglist>
-    </member>
-    <member kind="function">
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
@@ -8509,6 +8661,13 @@
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
       <anchor>ac624ce0059aa3c873b2e0920ff973332</anchor>
       <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>getParameterName</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a34250cac555b1d3a3ab04e31ca2f310e</anchor>
+      <arglist>(int maxLength=0, bool internationalize=true) const</arglist>
     </member>
     <member kind="function">
       <type>String</type>
@@ -8945,13 +9104,6 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
-      <name>getName</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a10f7e99c27afeaab86d3e01e2b8f87d2</anchor>
-      <arglist>(int maxLength=0) const final</arglist>
-    </member>
-    <member kind="function">
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
@@ -8971,6 +9123,13 @@
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
       <anchor>ac624ce0059aa3c873b2e0920ff973332</anchor>
       <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>getParameterName</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a34250cac555b1d3a3ab04e31ca2f310e</anchor>
+      <arglist>(int maxLength=0, bool internationalize=true) const</arglist>
     </member>
     <member kind="function">
       <type>String</type>
@@ -9265,13 +9424,6 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
-      <name>getName</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a10f7e99c27afeaab86d3e01e2b8f87d2</anchor>
-      <arglist>(int maxLength=0) const final</arglist>
-    </member>
-    <member kind="function">
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
@@ -9291,6 +9443,13 @@
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
       <anchor>ac624ce0059aa3c873b2e0920ff973332</anchor>
       <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>getParameterName</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a34250cac555b1d3a3ab04e31ca2f310e</anchor>
+      <arglist>(int maxLength=0, bool internationalize=true) const</arglist>
     </member>
     <member kind="function">
       <type>String</type>
@@ -9734,6 +9893,7 @@
     <name>lemons::plugin::ModulationManager</name>
     <filename>classlemons_1_1plugin_1_1ModulationManager.html</filename>
     <base>lemons::SerializableData</base>
+    <class kind="struct">lemons::plugin::ModulationManager::LFO</class>
     <member kind="function">
       <type>void</type>
       <name>deserialize</name>
@@ -9742,73 +9902,59 @@
       <arglist>(const ValueTree &amp;tree)</arglist>
     </member>
     <member kind="function">
+      <type>LFO *</type>
+      <name>getLFO</name>
+      <anchorfile>classlemons_1_1plugin_1_1ModulationManager.html</anchorfile>
+      <anchor>abd3f4f0bdb5327aae2ab002130041fe7</anchor>
+      <arglist>(int index)</arglist>
+    </member>
+    <member kind="function">
+      <type>LFO *</type>
+      <name>getLFOatFrequency</name>
+      <anchorfile>classlemons_1_1plugin_1_1ModulationManager.html</anchorfile>
+      <anchor>ad6177da7043874ffeefbf6c93477250d</anchor>
+      <arglist>(float freq)</arglist>
+    </member>
+    <member kind="function">
+      <type>LFO *</type>
+      <name>getLFOofType</name>
+      <anchorfile>classlemons_1_1plugin_1_1ModulationManager.html</anchorfile>
+      <anchor>ae6c7491da976c2b1f24473add9fffb55</anchor>
+      <arglist>(dsp::osc::OscType type)</arglist>
+    </member>
+    <member kind="function">
+      <type>LFO *</type>
+      <name>getLFOwithConnection</name>
+      <anchorfile>classlemons_1_1plugin_1_1ModulationManager.html</anchorfile>
+      <anchor>a2bf2f41443680711a8a2be570106b3bb</anchor>
+      <arglist>(Parameter &amp;param)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>prepare</name>
+      <anchorfile>classlemons_1_1plugin_1_1ModulationManager.html</anchorfile>
+      <anchor>a5abff866158ac0ac335800cb945946d2</anchor>
+      <arglist>(int blocksize, double samplerate)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>processNextChunk</name>
+      <anchorfile>classlemons_1_1plugin_1_1ModulationManager.html</anchorfile>
+      <anchor>a79e22c279a6c7d79a774dbcbaeaf7e8e</anchor>
+      <arglist>(int numSamples)</arglist>
+    </member>
+    <member kind="function">
       <type>ValueTree</type>
       <name>serialize</name>
       <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
       <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
       <arglist>()</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setBlocksize</name>
-      <anchorfile>classlemons_1_1plugin_1_1ModulationManager.html</anchorfile>
-      <anchor>a191d570ad51798ca1f43a454757e6f50</anchor>
-      <arglist>(int newBlocksize)</arglist>
-    </member>
-    <member kind="friend" protection="private">
-      <type>friend class</type>
-      <name>ModulationManagerProcessor&lt; double &gt;</name>
-      <anchorfile>classlemons_1_1plugin_1_1ModulationManager.html</anchorfile>
-      <anchor>a586ef404838ae1c831d36b233bc67b88</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="friend" protection="private">
-      <type>friend class</type>
-      <name>ModulationManagerProcessor&lt; float &gt;</name>
-      <anchorfile>classlemons_1_1plugin_1_1ModulationManager.html</anchorfile>
-      <anchor>a87d374eef8a7e18257d680d5138aca8a</anchor>
-      <arglist></arglist>
-    </member>
   </compound>
   <compound kind="class">
     <name>lemons::plugin::ModulationManagerProcessor</name>
     <filename>classlemons_1_1plugin_1_1ModulationManagerProcessor.html</filename>
     <templarg></templarg>
-    <member kind="function">
-      <type></type>
-      <name>ModulationManagerProcessor</name>
-      <anchorfile>classlemons_1_1plugin_1_1ModulationManagerProcessor.html</anchorfile>
-      <anchor>a85909f7eb19d31e99e78abdce0350f4c</anchor>
-      <arglist>(ModulationManager &amp;managerToUse)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~ModulationManagerProcessor</name>
-      <anchorfile>classlemons_1_1plugin_1_1ModulationManagerProcessor.html</anchorfile>
-      <anchor>a0e7064850d9ae069517de4f4e72af9c1</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepareToPlay</name>
-      <anchorfile>classlemons_1_1plugin_1_1ModulationManagerProcessor.html</anchorfile>
-      <anchor>a6152d24f1cb8436f7f321e78d3e18966</anchor>
-      <arglist>(double samplerate, int blocksize)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>processBlock</name>
-      <anchorfile>classlemons_1_1plugin_1_1ModulationManagerProcessor.html</anchorfile>
-      <anchor>adef4903386ffa45b1b71202cbd38d5db</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;audio, MidiBuffer &amp;midi)</arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="pure">
-      <type>virtual void</type>
-      <name>renderChunk</name>
-      <anchorfile>classlemons_1_1plugin_1_1ModulationManagerProcessor.html</anchorfile>
-      <anchor>a9290e76494413f48100b9f79094db28d</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;audio, MidiBuffer &amp;midi)=0</arglist>
-    </member>
   </compound>
   <compound kind="class">
     <name>lemons::dsp::FX::MonoStereoConverter</name>
@@ -12544,13 +12690,6 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
-      <name>getName</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a10f7e99c27afeaab86d3e01e2b8f87d2</anchor>
-      <arglist>(int maxLength=0) const final</arglist>
-    </member>
-    <member kind="function">
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
@@ -12570,6 +12709,13 @@
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
       <anchor>ac624ce0059aa3c873b2e0920ff973332</anchor>
       <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>getParameterName</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a34250cac555b1d3a3ab04e31ca2f310e</anchor>
+      <arglist>(int maxLength=0, bool internationalize=true) const</arglist>
     </member>
     <member kind="function">
       <type>String</type>
@@ -12981,6 +13127,13 @@
       <arglist>(const ValueTree &amp;tree)</arglist>
     </member>
     <member kind="function">
+      <type>Parameter *</type>
+      <name>getParameterWithName</name>
+      <anchorfile>classlemons_1_1plugin_1_1ParameterList.html</anchorfile>
+      <anchor>aaf60b283ea9c384267f2d26b865e58e5</anchor>
+      <arglist>(const String name, bool internationalizeName=false)</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>processMidi</name>
       <anchorfile>classlemons_1_1plugin_1_1ParameterList.html</anchorfile>
@@ -13289,13 +13442,6 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
-      <name>getName</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a10f7e99c27afeaab86d3e01e2b8f87d2</anchor>
-      <arglist>(int maxLength=0) const final</arglist>
-    </member>
-    <member kind="function">
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
@@ -13315,6 +13461,13 @@
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
       <anchor>ac624ce0059aa3c873b2e0920ff973332</anchor>
       <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>getParameterName</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a34250cac555b1d3a3ab04e31ca2f310e</anchor>
+      <arglist>(int maxLength=0, bool internationalize=true) const</arglist>
     </member>
     <member kind="function">
       <type>String</type>
@@ -14985,13 +15138,6 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
-      <name>getName</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a10f7e99c27afeaab86d3e01e2b8f87d2</anchor>
-      <arglist>(int maxLength=0) const final</arglist>
-    </member>
-    <member kind="function">
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
@@ -15011,6 +15157,13 @@
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
       <anchor>ac624ce0059aa3c873b2e0920ff973332</anchor>
       <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>getParameterName</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a34250cac555b1d3a3ab04e31ca2f310e</anchor>
+      <arglist>(int maxLength=0, bool internationalize=true) const</arglist>
     </member>
     <member kind="function">
       <type>String</type>
@@ -15305,13 +15458,6 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
-      <name>getName</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a10f7e99c27afeaab86d3e01e2b8f87d2</anchor>
-      <arglist>(int maxLength=0) const final</arglist>
-    </member>
-    <member kind="function">
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
@@ -15331,6 +15477,13 @@
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
       <anchor>ac624ce0059aa3c873b2e0920ff973332</anchor>
       <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>getParameterName</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a34250cac555b1d3a3ab04e31ca2f310e</anchor>
+      <arglist>(int maxLength=0, bool internationalize=true) const</arglist>
     </member>
     <member kind="function">
       <type>String</type>
@@ -18390,13 +18543,6 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
-      <name>getName</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a10f7e99c27afeaab86d3e01e2b8f87d2</anchor>
-      <arglist>(int maxLength=0) const final</arglist>
-    </member>
-    <member kind="function">
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
@@ -18416,6 +18562,13 @@
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
       <anchor>ac624ce0059aa3c873b2e0920ff973332</anchor>
       <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>getParameterName</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a34250cac555b1d3a3ab04e31ca2f310e</anchor>
+      <arglist>(int maxLength=0, bool internationalize=true) const</arglist>
     </member>
     <member kind="function">
       <type>String</type>
@@ -18929,13 +19082,6 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
-      <name>getName</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a10f7e99c27afeaab86d3e01e2b8f87d2</anchor>
-      <arglist>(int maxLength=0) const final</arglist>
-    </member>
-    <member kind="function">
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
@@ -18955,6 +19101,13 @@
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
       <anchor>ac624ce0059aa3c873b2e0920ff973332</anchor>
       <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>getParameterName</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a34250cac555b1d3a3ab04e31ca2f310e</anchor>
+      <arglist>(int maxLength=0, bool internationalize=true) const</arglist>
     </member>
     <member kind="function">
       <type>String</type>
@@ -19242,13 +19395,6 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
-      <name>getName</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a10f7e99c27afeaab86d3e01e2b8f87d2</anchor>
-      <arglist>(int maxLength=0) const final</arglist>
-    </member>
-    <member kind="function">
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
@@ -19268,6 +19414,13 @@
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
       <anchor>ac624ce0059aa3c873b2e0920ff973332</anchor>
       <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>getParameterName</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a34250cac555b1d3a3ab04e31ca2f310e</anchor>
+      <arglist>(int maxLength=0, bool internationalize=true) const</arglist>
     </member>
     <member kind="function">
       <type>String</type>

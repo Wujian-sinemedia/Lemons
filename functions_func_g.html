@@ -88,6 +88,12 @@ $(function() {
 <li>getAdjustedMidiPitch()
 : <a class="el" href="classlemons_1_1midi_1_1PitchBendTracker.html#adbf0cd75ee5ed788ee9083a98e4309b1">lemons::midi::PitchBendTracker</a>
 </li>
+<li>getAndAdvance()
+: <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#a39fb7048f940adc9c02adb0458f03d04">lemons::plugin::ModulationManager::LFO</a>
+</li>
+<li>getAndDontAdvance()
+: <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#a6f01125e241b96d7b91c98127a5b0182">lemons::plugin::ModulationManager::LFO</a>
+</li>
 <li>getApplicationName()
 : <a class="el" href="classlemons_1_1GuiApp.html#ae1f7bb5fa912591541efd6165176676c">lemons::GuiApp&lt; ContentComponentType, &gt;</a>
 </li>
@@ -232,6 +238,18 @@ $(function() {
 <li>getLevel()
 : <a class="el" href="structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html#a93a089c0564fa043b74c78ad2c8311cc">lemons::dsp::FX::LevelReportingAudioEffect&lt; SampleType &gt;</a>
 </li>
+<li>getLFO()
+: <a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#abd3f4f0bdb5327aae2ab002130041fe7">lemons::plugin::ModulationManager</a>
+</li>
+<li>getLFOatFrequency()
+: <a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#ad6177da7043874ffeefbf6c93477250d">lemons::plugin::ModulationManager</a>
+</li>
+<li>getLFOofType()
+: <a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#ae6c7491da976c2b1f24473add9fffb55">lemons::plugin::ModulationManager</a>
+</li>
+<li>getLFOwithConnection()
+: <a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#a2bf2f41443680711a8a2be570106b3bb">lemons::plugin::ModulationManager</a>
+</li>
 <li>getLowestNote()
 : <a class="el" href="classlemons_1_1dsp_1_1synth_1_1PanningManager.html#abc8d2d2af3b2a1a57982161f0f8047b2">lemons::dsp::synth::PanningManager&lt; SampleType &gt;</a>
 </li>
@@ -255,9 +273,6 @@ $(function() {
 </li>
 <li>getMinimum()
 : <a class="el" href="classlemons_1_1plugin_1_1TypedParameter.html#a3f385a1ada429e1f7cd8e16d3f5a7635">lemons::plugin::TypedParameter&lt; ValueType &gt;</a>
-</li>
-<li>getName()
-: <a class="el" href="classlemons_1_1plugin_1_1Parameter.html#a10f7e99c27afeaab86d3e01e2b8f87d2">lemons::plugin::Parameter</a>
 </li>
 <li>getNextRedoTransactionName()
 : <a class="el" href="classlemons_1_1UndoManager.html#ad277e45fcc53b7b9dfde0923e6c6a98e">lemons::UndoManager</a>
@@ -286,6 +301,9 @@ $(function() {
 <li>getNumVoices()
 : <a class="el" href="classlemons_1_1dsp_1_1SynthBase.html#a22a13afada1f072993befdbf3197d47c">lemons::dsp::SynthBase&lt; SampleType &gt;</a>
 </li>
+<li>getOscillator()
+: <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#acec194eb73b4560b188d4d87a5711c01">lemons::plugin::ModulationManager::LFO</a>
+</li>
 <li>getOscType()
 : <a class="el" href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html#a5705f7719f4f0ce5a7d4be38d9fc5a3b">lemons::dsp::osc::ChoosableOscillator&lt; SampleType &gt;</a>
 </li>
@@ -299,8 +317,14 @@ $(function() {
 : <a class="el" href="classlemons_1_1plugin_1_1ParameterHolder.html#a257ffd5598fdc91b616250372dfb0728">lemons::plugin::ParameterHolder&lt; ParameterType &gt;</a>
 , <a class="el" href="structlemons_1_1plugin_1_1ParamHolderBase.html#a2faabbcdd9698d7f72fb24d643107d6d">lemons::plugin::ParamHolderBase</a>
 </li>
+<li>getParameterName()
+: <a class="el" href="classlemons_1_1plugin_1_1Parameter.html#a34250cac555b1d3a3ab04e31ca2f310e">lemons::plugin::Parameter</a>
+</li>
 <li>getParameters()
 : <a class="el" href="classlemons_1_1plugin_1_1StateBase.html#ac6509bdb427c634a0e09fe50c6752e52">lemons::plugin::StateBase</a>
+</li>
+<li>getParameterWithName()
+: <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#aaf60b283ea9c384267f2d26b865e58e5">lemons::plugin::ParameterList</a>
 </li>
 <li>getPeriod()
 : <a class="el" href="classlemons_1_1dsp_1_1psola_1_1Analyzer.html#a0aebedcc5d7a0c18cbe936680bd5780f">lemons::dsp::psola::Analyzer&lt; SampleType &gt;</a>
@@ -328,7 +352,7 @@ $(function() {
 : <a class="el" href="classlemons_1_1midi_1_1PitchBendTracker.html#a4b70bed3bd56b977599c954fa900417d">lemons::midi::PitchBendTracker</a>
 </li>
 <li>getRawCoefficients()
-: <a class="el" href="structlemons_1_1dsp_1_1filters_1_1Coefficients.html#aad5889503f4df7e24ca5f94d7dfaecc3">lemons::dsp::filters::Coefficients&lt; NumericType &gt;</a>
+: <a class="el" href="structlemons_1_1dsp_1_1filters_1_1Coefficients.html#a9eb2d24f7562e3562ec08a39ddbcb2f9">lemons::dsp::filters::Coefficients&lt; NumericType &gt;</a>
 </li>
 <li>getRawDataTree()
 : <a class="el" href="structlemons_1_1TreeReflector.html#a7a88f53e45239d0b8d11cb2ce4dbefd0">lemons::TreeReflector</a>
@@ -357,7 +381,7 @@ $(function() {
 </li>
 <li>getSamples()
 : <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Oscillator.html#a0d4e7108f8cb508f01efeb7e7d423c84">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>
-, <a class="el" href="classlemons_1_1dsp_1_1psola_1_1Shifter.html#a3b1a581ddc397e478eeaf4fbe9faea9f">lemons::dsp::psola::Shifter&lt; SampleType &gt;</a>
+, <a class="el" href="classlemons_1_1dsp_1_1psola_1_1Shifter.html#acd548e53f2b869723a5283d1875c6aed">lemons::dsp::psola::Shifter&lt; SampleType &gt;</a>
 </li>
 <li>getSavedEditorSize()
 : <a class="el" href="classlemons_1_1plugin_1_1ProcessorBase.html#aa31fab30093c40c1d0a8bc931a944a18">lemons::plugin::ProcessorBase</a>
@@ -428,7 +452,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 3 2021 22:39:27 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Oct 4 2021 01:13:04 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -122,6 +122,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ace1758cc9344ae03a6d01c3c218226de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1SerializableData.html#ace1758cc9344ae03a6d01c3c218226de">deserialize</a> (const ValueTree &amp;tree)</td></tr>
 <tr class="memdesc:ace1758cc9344ae03a6d01c3c218226de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores a previously saved state.  <a href="structlemons_1_1SerializableData.html#ace1758cc9344ae03a6d01c3c218226de">More...</a><br /></td></tr>
 <tr class="separator:ace1758cc9344ae03a6d01c3c218226de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf60b283ea9c384267f2d26b865e58e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1plugin_1_1Parameter.html">Parameter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#aaf60b283ea9c384267f2d26b865e58e5">getParameterWithName</a> (const String name, bool internationalizeName=false)</td></tr>
+<tr class="memdesc:aaf60b283ea9c384267f2d26b865e58e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Searches for a parameter in the list with a specified name.  <a href="classlemons_1_1plugin_1_1ParameterList.html#aaf60b283ea9c384267f2d26b865e58e5">More...</a><br /></td></tr>
+<tr class="separator:aaf60b283ea9c384267f2d26b865e58e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6176f4bed72d95db6e3f7eb6a884c949"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#a6176f4bed72d95db6e3f7eb6a884c949">processMidi</a> (const MidiBuffer &amp;midiMessages)</td></tr>
 <tr class="memdesc:a6176f4bed72d95db6e3f7eb6a884c949"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the next block of MIDI for your plugin.  <a href="classlemons_1_1plugin_1_1ParameterList.html#a6176f4bed72d95db6e3f7eb6a884c949">More...</a><br /></td></tr>
 <tr class="separator:a6176f4bed72d95db6e3f7eb6a884c949"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -417,6 +420,37 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
 
 </div>
 </div>
+<a id="aaf60b283ea9c384267f2d26b865e58e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf60b283ea9c384267f2d26b865e58e5">&#9670;&nbsp;</a></span>getParameterWithName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlemons_1_1plugin_1_1Parameter.html">Parameter</a>* lemons::plugin::ParameterList::getParameterWithName </td>
+          <td>(</td>
+          <td class="paramtype">const String&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>internationalizeName</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Searches for a parameter in the list with a specified name. </p>
+<p>This may return nullptr if a parameter with the specified name can't be found. </p>
+
+</div>
+</div>
 <a id="a6176f4bed72d95db6e3f7eb6a884c949"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6176f4bed72d95db6e3f7eb6a884c949">&#9670;&nbsp;</a></span>processMidi()</h2>
 
@@ -632,7 +666,7 @@ After calling this, the IntParameter specified will always have the same value a
 <div class="ttc" id="aclasslemons_1_1plugin_1_1ParameterList_html_a43bb1c17db49e91c5a77225f690b8102"><div class="ttname"><a href="classlemons_1_1plugin_1_1ParameterList.html#a43bb1c17db49e91c5a77225f690b8102">lemons::plugin::ParameterList::add</a></div><div class="ttdeci">void add(ParamHolderBase &amp;param)</div><div class="ttdoc">Adds a single parameter to the list.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 3 2021 22:39:27 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Oct 4 2021 01:13:04 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
