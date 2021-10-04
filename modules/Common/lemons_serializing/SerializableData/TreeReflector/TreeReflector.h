@@ -216,7 +216,7 @@ private:
 
     String makePropertyNameForElement (const String& propertyName, int index) const;
 
-    int getNumElementsOfType (const String& propertyName, const ValueTree& tree) const;
+    int getNumContainerElements (const String& propertyName) const;
 
     template < typename Type >
     Type toEnum (const juce::var& var) const;

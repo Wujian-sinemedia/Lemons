@@ -148,8 +148,7 @@ void TreeReflector::addContainer (ContainerType& container, const String& proper
 {
     if (isLoading())
     {
-        serializing::getInterfaceForContainer (container)->resize (getNumElementsOfType (propertyName,
-                                                                                         getRawDataTree()));
+        serializing::getInterfaceForContainer (container)->resize (getNumContainerElements (propertyName));
     }
 
     int index = 1;

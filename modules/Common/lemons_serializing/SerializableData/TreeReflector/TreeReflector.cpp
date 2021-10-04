@@ -51,22 +51,32 @@ String TreeReflector::makePropertyNameForElement (const String& propertyName, in
     return propertyName + "_" + String (index);
 }
 
-int TreeReflector::getNumElementsOfType (const String& propertyName, const ValueTree& tree) const
+int TreeReflector::getNumContainerElements (const String& propertyName) const
 {
-    const auto num = tree.getNumProperties();
+    const auto properties = tree.getNumProperties();
+    const auto children   = tree.getNumChildren();
+    const auto total      = properties + children;
 
     juce::Array< String > names;
 
-    for (int i = 1; i <= num; ++i)
+    for (int i = 1; i <= total; ++i)
     {
         names.add (makePropertyNameForElement (propertyName, i));
     }
 
-    auto actualNum = num;
+    auto actualNum = total;
 
-    for (int i = 0; i < num; ++i)
+    for (int i = 0; i < properties; ++i)
     {
         if (! names.contains (tree.getPropertyName (i).toString()))
+        {
+            --actualNum;
+        }
+    }
+
+    for (int i = 0; i < children; ++i)
+    {
+        if (! names.contains (tree.getChild (i).getType().toString()))
         {
             --actualNum;
         }
