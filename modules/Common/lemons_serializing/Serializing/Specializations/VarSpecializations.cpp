@@ -26,4 +26,43 @@ juce::Point< float > fromVar (juce::var var)
     return point;
 }
 
+template <>
+juce::var toVar (juce::MemoryBlock& block)
+{
+    return block.toBase64Encoding();
+}
+
+template <>
+juce::MemoryBlock fromVar (juce::var var)
+{
+    juce::MemoryBlock block;
+    block.fromBase64Encoding (var.toString());
+    return block;
+}
+
+template <>
+juce::var toVar (juce::URL& url)
+{
+    return url.toString (false);
+}
+
+template <>
+juce::URL fromVar (juce::var var)
+{
+    return {var.toString()};
+}
+
+template <>
+juce::var toVar (std::string& string)
+{
+    String juceString {string};
+    return {juceString};
+}
+
+template <>
+std::string fromVar (juce::var var)
+{
+    return var.toString().toStdString();
+}
+
 }  // namespace lemons::serializing

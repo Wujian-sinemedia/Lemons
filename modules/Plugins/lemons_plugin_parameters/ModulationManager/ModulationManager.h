@@ -4,10 +4,6 @@
 
 namespace lemons::plugin
 {
-template < typename SampleType >
-class ModulationManagerProcessor;
-
-
 class ModulationManager : public SerializableData
 {
 public:

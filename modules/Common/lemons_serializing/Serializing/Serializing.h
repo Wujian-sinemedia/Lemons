@@ -10,6 +10,17 @@ namespace lemons::serializing
 /** Copies from one serializable object to another by serializing the source object to a ValueTree, then deserializing the dest object from that tree. */
 void copy (SerializableData& dest, SerializableData& source);
 
+/** Creates a copy of a serializable object by deserializing from the state of the source object.
+    @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
+ */
+template < typename ObjectType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
+ObjectType createCopy (ObjectType& objectToCopy)
+{
+    ObjectType newObject;
+    copy (newObject, objectToCopy);
+    return newObject;
+}
+
 /*---------------------------------------------------------------------*/
 
 /** Serializes an object to a ValueTree. */

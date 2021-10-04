@@ -70,4 +70,25 @@ struct isContainer< juce::OwnedArray< ElementType > > : std::true_type
 {
 };
 
+
+/*------------------------------------------------------------------------------------*/
+
+
+/** Container interface that provides support for serializing juce::StringArrays with TreeReflector. */
+struct StringArrayInterface : LambdaContainerInterface< juce::StringArray >
+{
+    StringArrayInterface (juce::StringArray& array);
+};
+
+
+/** Returns an instance of StringArrayInterface for the given juce::StringArray. */
+std::unique_ptr< ContainerInterface > getInterfaceForContainer (juce::StringArray& container);
+
+
+/** Specifies that juce::StringArray is a serializable container. */
+template <>
+struct isContainer< juce::StringArray > : std::true_type
+{
+};
+
 }  // namespace lemons::serializing
