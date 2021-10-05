@@ -100,7 +100,8 @@ class lemons::plugin::PluginEditor&lt; ContentComponentType, StateType,, &gt;</h
 <p>Base class for a plugin editor that instantiates the owned content for you. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">ContentComponentType</td><td>The type of your plugin's main component. This must inherit from <a class="el" href="classlemons_1_1plugin_1_1GUIBase.html" title="Base class for all plugin GUI&#39;s.">GUIBase</a>, but should preferably inherit from GUI&lt;StateType&gt;. </td></tr>
+    <tr><td class="paramname">ContentComponentType</td><td>The type of your plugin's main component. This must inherit from <a class="el" href="classlemons_1_1plugin_1_1GUIBase.html" title="Base class for all plugin GUI&#39;s.">GUIBase</a>, but should preferably inherit from GUI&lt;StateType&gt;. <br  />
+This type's constructor signature must be ContentComponentType (<a class="el" href="structlemons_1_1plugin_1_1PluginState.html">PluginState&lt; StateType &gt;</a>&amp;). </td></tr>
     <tr><td class="paramname">StateType</td><td>The type of your plugin's main state object. </td></tr>
   </table>
   </dd>
@@ -146,7 +147,7 @@ template&lt;typename ContentComponentType , typename StateType , BV_MUST_INHERIT
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 5 2021 21:48:57 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 5 2021 23:09:10 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

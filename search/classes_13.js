@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['valuesmoother_1264',['ValueSmoother',['../structlemons_1_1ValueSmoother.html',1,'lemons']]],
-  ['velocityhelper_1265',['VelocityHelper',['../structlemons_1_1midi_1_1VelocityHelper.html',1,'lemons::midi']]],
-  ['version_1266',['Version',['../structlemons_1_1Version.html',1,'lemons']]],
-  ['voiceallocator_1267',['VoiceAllocator',['../classlemons_1_1dsp_1_1synth_1_1VoiceAllocator.html',1,'lemons::dsp::synth']]]
+  ['valuesmoother_1266',['ValueSmoother',['../structlemons_1_1ValueSmoother.html',1,'lemons']]],
+  ['velocityhelper_1267',['VelocityHelper',['../structlemons_1_1midi_1_1VelocityHelper.html',1,'lemons::midi']]],
+  ['version_1268',['Version',['../structlemons_1_1Version.html',1,'lemons']]],
+  ['voiceallocator_1269',['VoiceAllocator',['../classlemons_1_1dsp_1_1synth_1_1VoiceAllocator.html',1,'lemons::dsp::synth']]]
 ];

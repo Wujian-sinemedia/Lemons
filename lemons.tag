@@ -8058,19 +8058,19 @@
     <name>lemons::plugin::ModulationManager::LFO</name>
     <filename>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</filename>
     <base>lemons::SerializableData</base>
+    <member kind="typedef">
+      <type>dsp::osc::ChoosableOscillator&lt; float &gt;</type>
+      <name>Osc</name>
+      <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
+      <anchor>a1a71f2bc39080d4b34851b7dac6f516e</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>LFO</name>
       <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
       <anchor>a454ed97c712e1db3f82cf301493d355e</anchor>
       <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>LFO</name>
-      <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
-      <anchor>ac58b28f4e9814e49491ea0cd71f5eaa6</anchor>
-      <arglist>(ParameterList &amp;listToUse)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -8087,10 +8087,17 @@
       <arglist>(const ValueTree &amp;tree)</arglist>
     </member>
     <member kind="function">
-      <type>dsp::osc::ChoosableOscillator&lt; float &gt; &amp;</type>
+      <type>int</type>
+      <name>getConnectionAmount</name>
+      <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
+      <anchor>a9a441caddd8fa41fd4caf76cbf9e36ea</anchor>
+      <arglist>(Parameter &amp;parameter) const</arglist>
+    </member>
+    <member kind="function">
+      <type>Osc &amp;</type>
       <name>getOscillator</name>
       <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
-      <anchor>acec194eb73b4560b188d4d87a5711c01</anchor>
+      <anchor>a205b8664820cf7b2257c8d71c5bea710</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -9905,6 +9912,20 @@
       <anchorfile>classlemons_1_1plugin_1_1ModulationManager.html</anchorfile>
       <anchor>a793a5b4b22a21eb088ab5e238b689cf1</anchor>
       <arglist>(ParameterList &amp;listToUse)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addLFO</name>
+      <anchorfile>classlemons_1_1plugin_1_1ModulationManager.html</anchorfile>
+      <anchor>a82d9a73bdbda8511a7133f9a1812d5e1</anchor>
+      <arglist>(Args &amp;&amp;... args)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addLFO</name>
+      <anchorfile>classlemons_1_1plugin_1_1ModulationManager.html</anchorfile>
+      <anchor>a3cb727e2d89c312187ade0252cd689ba</anchor>
+      <arglist>(LFO *newLFO)</arglist>
     </member>
     <member kind="function">
       <type>void</type>

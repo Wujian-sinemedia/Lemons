@@ -67,6 +67,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -84,36 +85,66 @@ $(function() {
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a1a71f2bc39080d4b34851b7dac6f516e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#a1a71f2bc39080d4b34851b7dac6f516e">Osc</a> = <a class="el" href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html">dsp::osc::ChoosableOscillator</a>&lt; float &gt;</td></tr>
+<tr class="memdesc:a1a71f2bc39080d4b34851b7dac6f516e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internally, LFOs use ChoosableOscillator to generate their values.  <a href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#a1a71f2bc39080d4b34851b7dac6f516e">More...</a><br /></td></tr>
+<tr class="separator:a1a71f2bc39080d4b34851b7dac6f516e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a454ed97c712e1db3f82cf301493d355e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#a454ed97c712e1db3f82cf301493d355e">LFO</a> ()=default</td></tr>
+<tr class="memdesc:a454ed97c712e1db3f82cf301493d355e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html">LFO</a>.  <a href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#a454ed97c712e1db3f82cf301493d355e">More...</a><br /></td></tr>
 <tr class="separator:a454ed97c712e1db3f82cf301493d355e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac58b28f4e9814e49491ea0cd71f5eaa6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#ac58b28f4e9814e49491ea0cd71f5eaa6">LFO</a> (<a class="el" href="classlemons_1_1plugin_1_1ParameterList.html">ParameterList</a> &amp;listToUse)</td></tr>
-<tr class="separator:ac58b28f4e9814e49491ea0cd71f5eaa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0dfb75a04070beef87878e531fee3481"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#a0dfb75a04070beef87878e531fee3481">createOrEditConnection</a> (<a class="el" href="classlemons_1_1plugin_1_1Parameter.html">Parameter</a> &amp;parameter, int amount)</td></tr>
+<tr class="memdesc:a0dfb75a04070beef87878e531fee3481"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates or edits a parameter connection.  <a href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#a0dfb75a04070beef87878e531fee3481">More...</a><br /></td></tr>
 <tr class="separator:a0dfb75a04070beef87878e531fee3481"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace1758cc9344ae03a6d01c3c218226de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1SerializableData.html#ace1758cc9344ae03a6d01c3c218226de">deserialize</a> (const ValueTree &amp;tree)</td></tr>
 <tr class="memdesc:ace1758cc9344ae03a6d01c3c218226de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores a previously saved state.  <a href="structlemons_1_1SerializableData.html#ace1758cc9344ae03a6d01c3c218226de">More...</a><br /></td></tr>
 <tr class="separator:ace1758cc9344ae03a6d01c3c218226de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acec194eb73b4560b188d4d87a5711c01"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html">dsp::osc::ChoosableOscillator</a>&lt; float &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#acec194eb73b4560b188d4d87a5711c01">getOscillator</a> ()</td></tr>
-<tr class="separator:acec194eb73b4560b188d4d87a5711c01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a441caddd8fa41fd4caf76cbf9e36ea"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#a9a441caddd8fa41fd4caf76cbf9e36ea">getConnectionAmount</a> (<a class="el" href="classlemons_1_1plugin_1_1Parameter.html">Parameter</a> &amp;parameter) const</td></tr>
+<tr class="memdesc:a9a441caddd8fa41fd4caf76cbf9e36ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the "amount" set for the connection to the given parameter.  <a href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#a9a441caddd8fa41fd4caf76cbf9e36ea">More...</a><br /></td></tr>
+<tr class="separator:a9a441caddd8fa41fd4caf76cbf9e36ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a205b8664820cf7b2257c8d71c5bea710"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#a1a71f2bc39080d4b34851b7dac6f516e">Osc</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#a205b8664820cf7b2257c8d71c5bea710">getOscillator</a> ()</td></tr>
+<tr class="memdesc:a205b8664820cf7b2257c8d71c5bea710"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html">LFO</a>'s internal ChoosableOscillator object.  <a href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#a205b8664820cf7b2257c8d71c5bea710">More...</a><br /></td></tr>
+<tr class="separator:a205b8664820cf7b2257c8d71c5bea710"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af25a13aaa9840c6d0911400cf0e985ad"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#af25a13aaa9840c6d0911400cf0e985ad">hasConnection</a> (<a class="el" href="classlemons_1_1plugin_1_1Parameter.html">Parameter</a> &amp;parameter) const</td></tr>
+<tr class="memdesc:af25a13aaa9840c6d0911400cf0e985ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if any of the <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html">LFO</a>'s connections are connected to the given <a class="el" href="classlemons_1_1plugin_1_1Parameter.html" title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an...">Parameter</a>.  <a href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#af25a13aaa9840c6d0911400cf0e985ad">More...</a><br /></td></tr>
 <tr class="separator:af25a13aaa9840c6d0911400cf0e985ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab97e4108497c55f645fed784dce1b217"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#ab97e4108497c55f645fed784dce1b217">prepareNextBlock</a> (int numSamples)</td></tr>
 <tr class="separator:ab97e4108497c55f645fed784dce1b217"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17499286d1b4d1e12a0883e4df211d68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#a17499286d1b4d1e12a0883e4df211d68">prepareToPlay</a> (int numSamples, double samplerate)</td></tr>
+<tr class="memdesc:a17499286d1b4d1e12a0883e4df211d68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html">LFO</a> for processing.  <a href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#a17499286d1b4d1e12a0883e4df211d68">More...</a><br /></td></tr>
 <tr class="separator:a17499286d1b4d1e12a0883e4df211d68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a960fc656caebec4f70c601b07bfd1dce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#a960fc656caebec4f70c601b07bfd1dce">processNextSample</a> (bool advance=true)</td></tr>
 <tr class="separator:a960fc656caebec4f70c601b07bfd1dce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7faee7a83d718178c91bd434b1b0d584"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#a7faee7a83d718178c91bd434b1b0d584">removeConnection</a> (<a class="el" href="classlemons_1_1plugin_1_1Parameter.html">Parameter</a> &amp;parameter)</td></tr>
+<tr class="memdesc:a7faee7a83d718178c91bd434b1b0d584"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the connection to the specified parameter, if one exists.  <a href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#a7faee7a83d718178c91bd434b1b0d584">More...</a><br /></td></tr>
 <tr class="separator:a7faee7a83d718178c91bd434b1b0d584"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4e10eefa677226e7927d204b33edbdb"><td class="memItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">serialize</a> ()</td></tr>
 <tr class="memdesc:af4e10eefa677226e7927d204b33edbdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the state of this object and returns a ValueTree.  <a href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">More...</a><br /></td></tr>
 <tr class="separator:af4e10eefa677226e7927d204b33edbdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a1a71f2bc39080d4b34851b7dac6f516e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a71f2bc39080d4b34851b7dac6f516e">&#9670;&nbsp;</a></span>Osc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#a1a71f2bc39080d4b34851b7dac6f516e">lemons::plugin::ModulationManager::LFO::Osc</a> =  <a class="el" href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html">dsp::osc::ChoosableOscillator</a>&lt; float &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Internally, LFOs use ChoosableOscillator to generate their values. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a454ed97c712e1db3f82cf301493d355e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a454ed97c712e1db3f82cf301493d355e">&#9670;&nbsp;</a></span>LFO() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a454ed97c712e1db3f82cf301493d355e">&#9670;&nbsp;</a></span>LFO()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -135,23 +166,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="ac58b28f4e9814e49491ea0cd71f5eaa6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac58b28f4e9814e49491ea0cd71f5eaa6">&#9670;&nbsp;</a></span>LFO() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">lemons::plugin::ModulationManager::LFO::LFO </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html">ParameterList</a> &amp;&#160;</td>
-          <td class="paramname"><em>listToUse</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Creates an <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html">LFO</a>. </p>
 
 </div>
 </div>
@@ -181,6 +196,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates or edits a parameter connection. </p>
+<p>If a connection to the specified parameter already exists, the connection's amount will be set to the new amount supplied here. Otherwise, a new connection will be added to this parameter. </p>
 
 </div>
 </div>
@@ -220,20 +238,44 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
 
 </div>
 </div>
-<a id="acec194eb73b4560b188d4d87a5711c01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acec194eb73b4560b188d4d87a5711c01">&#9670;&nbsp;</a></span>getOscillator()</h2>
+<a id="a9a441caddd8fa41fd4caf76cbf9e36ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a441caddd8fa41fd4caf76cbf9e36ea">&#9670;&nbsp;</a></span>getConnectionAmount()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html">dsp::osc::ChoosableOscillator</a>&lt; float &gt;&amp; lemons::plugin::ModulationManager::LFO::getOscillator </td>
+          <td class="memname">int lemons::plugin::ModulationManager::LFO::getConnectionAmount </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classlemons_1_1plugin_1_1Parameter.html">Parameter</a> &amp;&#160;</td>
+          <td class="paramname"><em>parameter</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the "amount" set for the connection to the given parameter. </p>
+<p>If no connection to the given parameter exists, returns -1. </p>
+
+</div>
+</div>
+<a id="a205b8664820cf7b2257c8d71c5bea710"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a205b8664820cf7b2257c8d71c5bea710">&#9670;&nbsp;</a></span>getOscillator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#a1a71f2bc39080d4b34851b7dac6f516e">Osc</a>&amp; lemons::plugin::ModulationManager::LFO::getOscillator </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a reference to the <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html">LFO</a>'s internal ChoosableOscillator object. </p>
+<p>You can then call methods on the oscillator to, for example, set its frequency, change the type, etc. </p>
 
 </div>
 </div>
@@ -252,6 +294,8 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns true if any of the <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html">LFO</a>'s connections are connected to the given <a class="el" href="classlemons_1_1plugin_1_1Parameter.html" title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an...">Parameter</a>. </p>
 
 </div>
 </div>
@@ -299,6 +343,8 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
       </table>
 </div><div class="memdoc">
 
+<p>Prepares the <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html">LFO</a> for processing. </p>
+
 </div>
 </div>
 <a id="a960fc656caebec4f70c601b07bfd1dce"></a>
@@ -334,6 +380,8 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Removes the connection to the specified parameter, if one exists. </p>
 
 </div>
 </div>
@@ -371,7 +419,7 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 5 2021 21:48:57 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 5 2021 23:09:10 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
