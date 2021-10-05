@@ -131,7 +131,7 @@ var searchData=
   ['gui_353',['GUI',['../classlemons_1_1plugin_1_1GUI.html',1,'lemons::plugin::GUI&lt; StateType &gt;'],['../classlemons_1_1plugin_1_1GUI.html#a81845aaba82a9a0e970fe99472e905f6',1,'lemons::plugin::GUI::GUI()']]],
   ['guiapp_354',['GuiApp',['../classlemons_1_1GuiApp.html',1,'lemons::GuiApp&lt; ContentComponentType, &gt;'],['../classlemons_1_1GuiApp.html#a0e423fe991e7c2f7caadc39d4000f8d7',1,'lemons::GuiApp::GuiApp()']]],
   ['guiapp_2eh_355',['GuiApp.h',['../GuiApp_8h.html',1,'']]],
-  ['guibase_356',['GUIBase',['../classlemons_1_1plugin_1_1GUIBase.html',1,'lemons::plugin::GUIBase'],['../classlemons_1_1plugin_1_1GUIBase.html#a6039368dcdffec0365a4ff49597dd477',1,'lemons::plugin::GUIBase::GUIBase()']]],
+  ['guibase_356',['GUIBase',['../classlemons_1_1plugin_1_1GUIBase.html',1,'lemons::plugin::GUIBase'],['../classlemons_1_1plugin_1_1GUIBase.html#ab1e9e2a8ecaeed463b99cb500fd83c25',1,'lemons::plugin::GUIBase::GUIBase()']]],
   ['guiutils_2eh_357',['GuiUtils.h',['../GuiUtils_8h.html',1,'']]],
   ['guiapp_358',['GuiApp',['../group__lemons__app__utils-GuiApp.html',1,'']]]
 ];

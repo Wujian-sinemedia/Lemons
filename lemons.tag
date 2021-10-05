@@ -1834,20 +1834,19 @@
       <anchor>a8fea260dc594cf530c3ffb3bf1f5b1e9</anchor>
       <arglist></arglist>
     </member>
+    <member kind="typedef">
+      <type>serializing::Toggler&lt; 3 &gt;</type>
+      <name>StateToggles</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>abcfc580033c4f7a4e5242dbb4c3089b0</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>StateToggleButtons.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_gui/PresetBar/</path>
     <filename>StateToggleButtons_8h.html</filename>
     <class kind="class">lemons::plugin::StateToggleButtons</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-  </compound>
-  <compound kind="file">
-    <name>StateToggler.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/state/</path>
-    <filename>StateToggler_8h.html</filename>
-    <class kind="struct">lemons::plugin::StateToggler</class>
     <namespace>lemons</namespace>
     <namespace>lemons::plugin</namespace>
   </compound>
@@ -1973,6 +1972,14 @@
     <class kind="struct">lemons::events::TimerCallback</class>
     <namespace>lemons</namespace>
     <namespace>lemons::events</namespace>
+  </compound>
+  <compound kind="file">
+    <name>Toggler.h</name>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/toggler/</path>
+    <filename>Toggler_8h.html</filename>
+    <class kind="struct">lemons::serializing::Toggler</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::serializing</namespace>
   </compound>
   <compound kind="file">
     <name>TreeReflector.h</name>
@@ -2129,6 +2136,13 @@
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
       <anchor>abda7ea751365cf15132fc3afa328dada</anchor>
       <arglist>(juce::Uuid &amp;uuid)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>ae77d37863d4dc2de7a2a5dc89de6e211</anchor>
+      <arglist>(size_t &amp;data)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
@@ -6886,13 +6900,6 @@
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
-      <type>StateToggler &amp;</type>
-      <name>stateToggler</name>
-      <anchorfile>classlemons_1_1plugin_1_1GUIBase.html</anchorfile>
-      <anchor>a203a301eddd88f6b08efd17dffaff65a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
       <type>UndoManager &amp;</type>
       <name>undoManager</name>
       <anchorfile>classlemons_1_1plugin_1_1GUIBase.html</anchorfile>
@@ -6963,15 +6970,8 @@
       <type></type>
       <name>GUIBase</name>
       <anchorfile>classlemons_1_1plugin_1_1GUIBase.html</anchorfile>
-      <anchor>a6039368dcdffec0365a4ff49597dd477</anchor>
-      <arglist>(StateToggler &amp;togglerToUse, UndoManager &amp;undoToUse)</arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>StateToggler &amp;</type>
-      <name>stateToggler</name>
-      <anchorfile>classlemons_1_1plugin_1_1GUIBase.html</anchorfile>
-      <anchor>a203a301eddd88f6b08efd17dffaff65a</anchor>
-      <arglist></arglist>
+      <anchor>ab1e9e2a8ecaeed463b99cb500fd83c25</anchor>
+      <arglist>(UndoManager &amp;undoToUse)</arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>UndoManager &amp;</type>
@@ -14189,13 +14189,6 @@
       <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
       <arglist>()</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>serialize</name>
-      <anchorfile>structlemons_1_1plugin_1_1PluginState.html</anchorfile>
-      <anchor>a896454b910678586347151e9d0656971</anchor>
-      <arglist>(TreeReflector &amp;ref) final</arglist>
-    </member>
     <member kind="variable">
       <type>StateType</type>
       <name>state</name>
@@ -14204,10 +14197,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>StateToggler</type>
+      <type>StateToggles</type>
       <name>toggles</name>
       <anchorfile>structlemons_1_1plugin_1_1PluginState.html</anchorfile>
-      <anchor>ad004bc8c9e821719fd07ebd47779e78a</anchor>
+      <anchor>aa40e75834f1455e11a29294cbd06ece7</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -14243,13 +14236,6 @@
       <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
       <arglist>()</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>serialize</name>
-      <anchorfile>structlemons_1_1plugin_1_1PluginState.html</anchorfile>
-      <anchor>a896454b910678586347151e9d0656971</anchor>
-      <arglist>(TreeReflector &amp;ref) final</arglist>
-    </member>
     <member kind="variable">
       <type>StateType</type>
       <name>state</name>
@@ -14258,10 +14244,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>StateToggler</type>
+      <type>StateToggles</type>
       <name>toggles</name>
       <anchorfile>structlemons_1_1plugin_1_1PluginState.html</anchorfile>
-      <anchor>ad004bc8c9e821719fd07ebd47779e78a</anchor>
+      <anchor>aa40e75834f1455e11a29294cbd06ece7</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -14413,8 +14399,8 @@
       <type></type>
       <name>PresetBar</name>
       <anchorfile>classlemons_1_1plugin_1_1PresetBar.html</anchorfile>
-      <anchor>a1de0a7f8128904cd11491d66796fe9e5</anchor>
-      <arglist>(StateBase &amp;stateToUse, StateToggler &amp;toggler, const String &amp;productName, const String &amp;presetFileExtension=&quot;.bvpreset&quot;, const String &amp;companyName=&quot;BenViningMusicSoftware&quot;)</arglist>
+      <anchor>af97a9e8fe84cc03dc462c3a914898110</anchor>
+      <arglist>(StateBase &amp;stateToUse, StateToggles &amp;toggler, const String &amp;productName, const String &amp;presetFileExtension=&quot;.bvpreset&quot;, const String &amp;companyName=&quot;BenViningMusicSoftware&quot;)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -16535,8 +16521,8 @@
       <type></type>
       <name>StateToggleButtons</name>
       <anchorfile>classlemons_1_1plugin_1_1StateToggleButtons.html</anchorfile>
-      <anchor>a58da85b9310af7bc6f749cb8e2c3b568</anchor>
-      <arglist>(StateToggler &amp;togglerToUse)</arglist>
+      <anchor>ad66ded2c9ad0e50f1bde9327e802f518</anchor>
+      <arglist>(StateToggles &amp;togglerToUse)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -16551,95 +16537,6 @@
       <anchorfile>classlemons_1_1plugin_1_1StateToggleButtons.html</anchorfile>
       <anchor>a3b29e9d51273ccd2e9598b9a5d8cf5dd</anchor>
       <arglist>(bool shouldBeVertical)</arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
-    <name>lemons::plugin::StateToggler</name>
-    <filename>structlemons_1_1plugin_1_1StateToggler.html</filename>
-    <base>lemons::SerializableData</base>
-    <member kind="function">
-      <type></type>
-      <name>StateToggler</name>
-      <anchorfile>structlemons_1_1plugin_1_1StateToggler.html</anchorfile>
-      <anchor>ad15f50083b17522023d2aeedd00788bd</anchor>
-      <arglist>(SerializableData &amp;stateToUse)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>deserialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>ace1758cc9344ae03a6d01c3c218226de</anchor>
-      <arglist>(const ValueTree &amp;tree)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>loadLastSelectedState</name>
-      <anchorfile>structlemons_1_1plugin_1_1StateToggler.html</anchorfile>
-      <anchor>a7704fbe40071aea45a29fcb750c31967</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>loadStateA</name>
-      <anchorfile>structlemons_1_1plugin_1_1StateToggler.html</anchorfile>
-      <anchor>a46f1ac313ba0495463962459f81761ba</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>loadStateB</name>
-      <anchorfile>structlemons_1_1plugin_1_1StateToggler.html</anchorfile>
-      <anchor>a2db612f177ab6aec4febc6dbe7ac1641</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>loadStateC</name>
-      <anchorfile>structlemons_1_1plugin_1_1StateToggler.html</anchorfile>
-      <anchor>a6b739f2420f8267d65185b5e2d718f30</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>saveLastSelectedState</name>
-      <anchorfile>structlemons_1_1plugin_1_1StateToggler.html</anchorfile>
-      <anchor>abfa98d2504d051ca7f48ecfca1f7c8d1</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>saveStateA</name>
-      <anchorfile>structlemons_1_1plugin_1_1StateToggler.html</anchorfile>
-      <anchor>a7ed237a4567c63cbf18fa3b2b33b9e39</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>saveStateB</name>
-      <anchorfile>structlemons_1_1plugin_1_1StateToggler.html</anchorfile>
-      <anchor>a90a07378fe610f90fc55bdad1abed1b5</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>saveStateC</name>
-      <anchorfile>structlemons_1_1plugin_1_1StateToggler.html</anchorfile>
-      <anchor>ab329d49f76c715a23d7a16fef2c90fa7</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>ValueTree</type>
-      <name>serialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setUndoManager</name>
-      <anchorfile>structlemons_1_1plugin_1_1StateToggler.html</anchorfile>
-      <anchor>a9783b5bcfd4357438167743d79bc4d49</anchor>
-      <arglist>(UndoManager &amp;undoManager)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -18769,6 +18666,101 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>lemons::serializing::Toggler</name>
+    <filename>structlemons_1_1serializing_1_1Toggler.html</filename>
+    <templarg>numStates</templarg>
+    <base>lemons::SerializableData</base>
+    <member kind="function">
+      <type></type>
+      <name>Toggler</name>
+      <anchorfile>structlemons_1_1serializing_1_1Toggler.html</anchorfile>
+      <anchor>a9db23f7bade002167235a653074fca1c</anchor>
+      <arglist>(SerializableData &amp;stateToUse)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>deserialize</name>
+      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
+      <anchor>ace1758cc9344ae03a6d01c3c218226de</anchor>
+      <arglist>(const ValueTree &amp;tree)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>loadState</name>
+      <anchorfile>structlemons_1_1serializing_1_1Toggler.html</anchorfile>
+      <anchor>a3d93c33b004891371de96c167c1ef30c</anchor>
+      <arglist>(size_t num)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>saveState</name>
+      <anchorfile>structlemons_1_1serializing_1_1Toggler.html</anchorfile>
+      <anchor>a4f80d8bf1fef8568bee78ace27b26f59</anchor>
+      <arglist>(size_t num)</arglist>
+    </member>
+    <member kind="function">
+      <type>ValueTree</type>
+      <name>serialize</name>
+      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
+      <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setUndoManager</name>
+      <anchorfile>structlemons_1_1serializing_1_1Toggler.html</anchorfile>
+      <anchor>ab9ce11ec0120c1e9a21caba99889806b</anchor>
+      <arglist>(UndoManager &amp;undoManager)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Toggler&lt; 3 &gt;</name>
+    <filename>structlemons_1_1serializing_1_1Toggler.html</filename>
+    <base>lemons::SerializableData</base>
+    <member kind="function">
+      <type></type>
+      <name>Toggler</name>
+      <anchorfile>structlemons_1_1serializing_1_1Toggler.html</anchorfile>
+      <anchor>a9db23f7bade002167235a653074fca1c</anchor>
+      <arglist>(SerializableData &amp;stateToUse)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>deserialize</name>
+      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
+      <anchor>ace1758cc9344ae03a6d01c3c218226de</anchor>
+      <arglist>(const ValueTree &amp;tree)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>loadState</name>
+      <anchorfile>structlemons_1_1serializing_1_1Toggler.html</anchorfile>
+      <anchor>a3d93c33b004891371de96c167c1ef30c</anchor>
+      <arglist>(size_t num)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>saveState</name>
+      <anchorfile>structlemons_1_1serializing_1_1Toggler.html</anchorfile>
+      <anchor>a4f80d8bf1fef8568bee78ace27b26f59</anchor>
+      <arglist>(size_t num)</arglist>
+    </member>
+    <member kind="function">
+      <type>ValueTree</type>
+      <name>serialize</name>
+      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
+      <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setUndoManager</name>
+      <anchorfile>structlemons_1_1serializing_1_1Toggler.html</anchorfile>
+      <anchor>ab9ce11ec0120c1e9a21caba99889806b</anchor>
+      <arglist>(UndoManager &amp;undoManager)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>lemons::gui::ToggleTextButton</name>
     <filename>structlemons_1_1gui_1_1ToggleTextButton.html</filename>
     <base>lemons::gui::TextButton</base>
@@ -20757,7 +20749,6 @@
     <class kind="struct">lemons::plugin::State</class>
     <class kind="class">lemons::plugin::StateBase</class>
     <class kind="class">lemons::plugin::StateToggleButtons</class>
-    <class kind="struct">lemons::plugin::StateToggler</class>
     <class kind="struct">lemons::plugin::ToggleParameter</class>
     <class kind="class">lemons::plugin::TypedParameter</class>
     <member kind="typedef">
@@ -20786,6 +20777,13 @@
       <name>StatelessProcessor</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
       <anchor>ab118f684c798a14db3ac1a3f8417caea</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>serializing::Toggler&lt; 3 &gt;</type>
+      <name>StateToggles</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>abcfc580033c4f7a4e5242dbb4c3089b0</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -20818,6 +20816,7 @@
     <class kind="struct">lemons::serializing::StdArrayInterface</class>
     <class kind="struct">lemons::serializing::STLContainerInterface</class>
     <class kind="struct">lemons::serializing::StringArrayInterface</class>
+    <class kind="struct">lemons::serializing::Toggler</class>
     <member kind="function">
       <type>void</type>
       <name>copy</name>
@@ -21160,6 +21159,13 @@
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
       <anchor>abda7ea751365cf15132fc3afa328dada</anchor>
       <arglist>(juce::Uuid &amp;uuid)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>ae77d37863d4dc2de7a2a5dc89de6e211</anchor>
+      <arglist>(size_t &amp;data)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
@@ -21759,6 +21765,7 @@
     <subgroup>lemons_serializing-DataSynchronizer</subgroup>
     <subgroup>lemons_serializing-SerializableData</subgroup>
     <subgroup>lemons_serializing-Serializing</subgroup>
+    <subgroup>lemons_serializing-toggler</subgroup>
     <subgroup>lemons_serializing-undo</subgroup>
     <subgroup>lemons_serializing-version</subgroup>
   </compound>
@@ -21857,6 +21864,11 @@
     <name>lemons_audio_effects-time</name>
     <title>time</title>
     <filename>group__lemons__audio__effects-time.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_serializing-toggler</name>
+    <title>toggler</title>
+    <filename>group__lemons__serializing-toggler.html</filename>
   </compound>
   <compound kind="group">
     <name>lemons_serializing-undo</name>

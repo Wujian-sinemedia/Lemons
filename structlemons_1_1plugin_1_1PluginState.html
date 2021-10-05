@@ -75,6 +75,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Represents the top-level state of a plugin as a whole.  
+ <a href="structlemons_1_1plugin_1_1PluginState.html#details">More...</a></p>
+
 <p><code>#include &lt;PluginState.h&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::plugin::PluginState&lt; StateType, &gt;:</div>
@@ -88,6 +91,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0ad419ac90896c8d489a4a6731479640"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1PluginState.html#a0ad419ac90896c8d489a4a6731479640">PluginState</a> ()</td></tr>
+<tr class="memdesc:a0ad419ac90896c8d489a4a6731479640"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new plugin state.  <a href="structlemons_1_1plugin_1_1PluginState.html#a0ad419ac90896c8d489a4a6731479640">More...</a><br /></td></tr>
 <tr class="separator:a0ad419ac90896c8d489a4a6731479640"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace1758cc9344ae03a6d01c3c218226de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1SerializableData.html#ace1758cc9344ae03a6d01c3c218226de">deserialize</a> (const ValueTree &amp;tree)</td></tr>
 <tr class="memdesc:ace1758cc9344ae03a6d01c3c218226de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores a previously saved state.  <a href="structlemons_1_1SerializableData.html#ace1758cc9344ae03a6d01c3c218226de">More...</a><br /></td></tr>
@@ -95,20 +99,33 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af4e10eefa677226e7927d204b33edbdb"><td class="memItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">serialize</a> ()</td></tr>
 <tr class="memdesc:af4e10eefa677226e7927d204b33edbdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the state of this object and returns a ValueTree.  <a href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">More...</a><br /></td></tr>
 <tr class="separator:af4e10eefa677226e7927d204b33edbdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a896454b910678586347151e9d0656971"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1PluginState.html#a896454b910678586347151e9d0656971">serialize</a> (<a class="el" href="structlemons_1_1TreeReflector.html">TreeReflector</a> &amp;ref) final</td></tr>
-<tr class="memdesc:a896454b910678586347151e9d0656971"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implement this function for your derived type's custom serializing logic.  <a href="structlemons_1_1plugin_1_1PluginState.html#a896454b910678586347151e9d0656971">More...</a><br /></td></tr>
-<tr class="separator:a896454b910678586347151e9d0656971"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a2b29ea43c8e780bce47082ad73ab2bc6"><td class="memItemLeft" align="right" valign="top">StateType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1PluginState.html#a2b29ea43c8e780bce47082ad73ab2bc6">state</a></td></tr>
+<tr class="memdesc:a2b29ea43c8e780bce47082ad73ab2bc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The plugin's main state object.  <a href="structlemons_1_1plugin_1_1PluginState.html#a2b29ea43c8e780bce47082ad73ab2bc6">More...</a><br /></td></tr>
 <tr class="separator:a2b29ea43c8e780bce47082ad73ab2bc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad004bc8c9e821719fd07ebd47779e78a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1StateToggler.html">StateToggler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1PluginState.html#ad004bc8c9e821719fd07ebd47779e78a">toggles</a> {<a class="el" href="structlemons_1_1plugin_1_1PluginState.html#a2b29ea43c8e780bce47082ad73ab2bc6">state</a>}</td></tr>
-<tr class="separator:ad004bc8c9e821719fd07ebd47779e78a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa40e75834f1455e11a29294cbd06ece7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelemons_1_1plugin.html#abcfc580033c4f7a4e5242dbb4c3089b0">StateToggles</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1PluginState.html#aa40e75834f1455e11a29294cbd06ece7">toggles</a> {<a class="el" href="structlemons_1_1plugin_1_1PluginState.html#a2b29ea43c8e780bce47082ad73ab2bc6">state</a>}</td></tr>
+<tr class="memdesc:aa40e75834f1455e11a29294cbd06ece7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The plugin's A/B/C state toggler.  <a href="structlemons_1_1plugin_1_1PluginState.html#aa40e75834f1455e11a29294cbd06ece7">More...</a><br /></td></tr>
+<tr class="separator:aa40e75834f1455e11a29294cbd06ece7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9baef8928515047ae943e5b5af3f0ae4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1UndoManager.html">UndoManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1PluginState.html#a9baef8928515047ae943e5b5af3f0ae4">undo</a> {<a class="el" href="structlemons_1_1plugin_1_1PluginState.html#a2b29ea43c8e780bce47082ad73ab2bc6">state</a>}</td></tr>
+<tr class="memdesc:a9baef8928515047ae943e5b5af3f0ae4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The plugin's undo manager.  <a href="structlemons_1_1plugin_1_1PluginState.html#a9baef8928515047ae943e5b5af3f0ae4">More...</a><br /></td></tr>
 <tr class="separator:a9baef8928515047ae943e5b5af3f0ae4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename StateType, BV_MUST_INHERIT_FROM(StateType, StateBase)&gt;<br />
+struct lemons::plugin::PluginState&lt; StateType, &gt;</h3>
+
+<p>Represents the top-level state of a plugin as a whole. </p>
+<p>This encapsulates your <a class="el" href="classlemons_1_1plugin_1_1StateBase.html" title="Base class for a plugin&#39;s state.">StateBase</a>, <a class="el" href="structlemons_1_1plugin_1_1State.html" title="A plugin state class that instantiates the appropriate ParameterList and passes it to the StateBase c...">State</a>, or <a class="el" href="structlemons_1_1plugin_1_1CustomState.html" title="A plugin state class that instantiates the appropriate ParameterList and custom serializable object a...">CustomState</a> object along with a StateToggler and an <a class="el" href="classlemons_1_1UndoManager.html" title="A class that keeps a history of states and can step backward and forward through them.">UndoManager</a>. <br  />
+If you use my <a class="el" href="classlemons_1_1plugin_1_1Processor.html" title="A processor class for a plugin that can simply be told the state type and engine type,...">Processor</a> class, it will instantiate one of these objects with the state type you passed to the processor class's template. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">StateType</td><td>The type of state object to use to represent the plugin's state. This type must inherit from <a class="el" href="classlemons_1_1plugin_1_1StateBase.html" title="Base class for a plugin&#39;s state.">StateBase</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1plugin_1_1Processor.html" title="A processor class for a plugin that can simply be told the state type and engine type,...">Processor</a>, <a class="el" href="classlemons_1_1plugin_1_1StateBase.html" title="Base class for a plugin&#39;s state.">StateBase</a>, StateToggler, <a class="el" href="classlemons_1_1UndoManager.html" title="A class that keeps a history of states and can step backward and forward through them.">UndoManager</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0ad419ac90896c8d489a4a6731479640"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0ad419ac90896c8d489a4a6731479640">&#9670;&nbsp;</a></span>PluginState()</h2>
 
@@ -125,6 +142,8 @@ template&lt;typename StateType , BV_MUST_INHERIT_FROM(StateType, StateBase) &gt;
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates a new plugin state. </p>
 
 </div>
 </div>
@@ -154,7 +173,7 @@ template&lt;typename StateType , BV_MUST_INHERIT_FROM(StateType, StateBase) &gt;
 </div><div class="memdoc">
 
 <p>Restores a previously saved state. </p>
-<p>Internally, this will create a <a class="el" href="structlemons_1_1TreeLoader.html" title="Subclass of TreeReflector used for loading state.">TreeLoader</a> object and call the virtual <a class="el" href="structlemons_1_1plugin_1_1PluginState.html#a896454b910678586347151e9d0656971" title="Implement this function for your derived type&#39;s custom serializing logic.">serialize(TreeReflector&amp;)</a> function. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Internally, this will create a <a class="el" href="structlemons_1_1TreeLoader.html" title="Subclass of TreeReflector used for loading state.">TreeLoader</a> object and call the virtual serialize(TreeReflector&amp;) function. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">tree</td><td>The saved state you wish to restore. This should usually be a ValueTree you got from a previous call to <a class="el" href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb" title="Serializes the state of this object and returns a ValueTree.">serialize()</a>. <br  />
 If the state is incomplete, for a different kind of object, or otherwise corrupted, this function will only change the properties that it can successfully parse from the passed state. For example, if your serializable object uses properties named "apple", "orange", and "grape", and you pass a ValueTree with entries for "apple", "grapefruit", and "mango", then the "grapefruit" and "mango" properties will be ignored, and only the "apple" property will actually be loaded. </td></tr>
@@ -166,7 +185,7 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
 </div>
 </div>
 <a id="af4e10eefa677226e7927d204b33edbdb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4e10eefa677226e7927d204b33edbdb">&#9670;&nbsp;</a></span>serialize() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af4e10eefa677226e7927d204b33edbdb">&#9670;&nbsp;</a></span>serialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -189,77 +208,7 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
 </div><div class="memdoc">
 
 <p>Serializes the state of this object and returns a ValueTree. </p>
-<p>Internally, this will create a <a class="el" href="structlemons_1_1TreeSaver.html" title="Subclass of TreeReflector used for saving state.">TreeSaver</a> object and call the virtual <a class="el" href="structlemons_1_1plugin_1_1PluginState.html#a896454b910678586347151e9d0656971" title="Implement this function for your derived type&#39;s custom serializing logic.">serialize(TreeReflector&amp;)</a> function. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1TreeSaver.html" title="Subclass of TreeReflector used for saving state.">TreeSaver</a>, <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a> </dd></dl>
-
-</div>
-</div>
-<a id="a896454b910678586347151e9d0656971"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a896454b910678586347151e9d0656971">&#9670;&nbsp;</a></span>serialize() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename StateType , BV_MUST_INHERIT_FROM(StateType, StateBase) &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="structlemons_1_1plugin_1_1PluginState.html">lemons::plugin::PluginState</a>&lt; StateType, &gt;::serialize </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structlemons_1_1TreeReflector.html">TreeReflector</a> &amp;&#160;</td>
-          <td class="paramname"><em>ref</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implement this function for your derived type's custom serializing logic. </p>
-<p>This function will be called for both loading and saving. If your object is being loaded, the <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a> passed to this function will be a <a class="el" href="structlemons_1_1TreeLoader.html" title="Subclass of TreeReflector used for loading state.">TreeLoader</a>; otherwise, it will be a <a class="el" href="structlemons_1_1TreeSaver.html" title="Subclass of TreeReflector used for saving state.">TreeSaver</a>. <br  />
- <br  />
-There are two main ways of implementing <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a> serialization logic. <br  />
-You can use <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">TreeReflector::add()</a> with normal data members: </p><div class="fragment"><div class="line"><span class="keyword">struct </span>SomethingSerializable : <a class="code" href="structlemons_1_1SerializableData.html">lemons::SerializableData</a></div>
-<div class="line">{</div>
-<div class="line">    <span class="comment">// we want to save this integer with our program&#39;s state</span></div>
-<div class="line">    <span class="keywordtype">int</span> data;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> <a class="code" href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">serialize</a> (<a class="code" href="structlemons_1_1SerializableData.html#a89ec326c9a71dce7572d8a1b50d827a5">TreeReflector</a>&amp; ref) <span class="keyword">final</span></div>
-<div class="line">    {</div>
-<div class="line">        <span class="comment">// simply choose a property name -- and that&#39;s it!</span></div>
-<div class="line">        ref.add (<span class="stringliteral">&quot;MyData&quot;</span>, data);</div>
-<div class="line">    }</div>
-<div class="line">};</div>
-</div><!-- fragment --><p> The add method also works for containers &ndash; if it's a standard type or if you've implemented <a class="el" href="structlemons_1_1serializing_1_1ContainerInterface.html" title="Interface that defines how a TreeReflector can resize a given container during deserialization.">serializing::ContainerInterface</a>, <a class="el" href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2" title="Template function that returns an instance of the correct ContainerInterface for the given container.">serializing::getInterfaceForContainer()</a>, and <a class="el" href="structlemons_1_1serializing_1_1isContainer.html" title="Template struct that that indicates to TreeReflector whether a given type is a container.">serializing::isContainer</a>, then calling <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">TreeReflector::add()</a> will create a sub-tree in your object's main ValueTree that represents this container, then it will step through the container using a range-based for loop, calling <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">TreeReflector::add()</a> on each element sequentially. <br  />
- <br  />
- You can also use <a class="el" href="structlemons_1_1TreeReflector.html#a3ea2cd3e9bb6c6d3dcc493211e72af1b" title="Binds lambda functions for saving and loading a certain value to and from a named ValueTree property.">TreeReflector::addLambdaSet()</a> if you need to call functions of your object to save or load attributes: </p><div class="fragment"><div class="line"><span class="keyword">struct </span>SomethingSerializable : <a class="code" href="structlemons_1_1SerializableData.html">lemons::SerializableData</a></div>
-<div class="line">{</div>
-<div class="line">    <span class="keywordtype">void</span> setData (<span class="keywordtype">int</span> newData)</div>
-<div class="line">    {</div>
-<div class="line">        data = newData;</div>
-<div class="line">        <span class="comment">// do something else with side effects...</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
-<div class="line">    <span class="comment">// we still want to save this integer with our program&#39;s state, but I want to call setData() when it&#39;s being loaded...</span></div>
-<div class="line">    <span class="keywordtype">int</span> data;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> <a class="code" href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">serialize</a> (<a class="code" href="structlemons_1_1SerializableData.html#a89ec326c9a71dce7572d8a1b50d827a5">TreeReflector</a>&amp; ref) <span class="keyword">final</span></div>
-<div class="line">    {</div>
-<div class="line">        <span class="comment">// you can specify lambdas for retrieving and saving a property&#39;s value as a specified type (int)</span></div>
-<div class="line">        ref.addLambdaSet&lt;<span class="keywordtype">int</span>&gt; (<span class="stringliteral">&quot;MyData&quot;</span>,</div>
-<div class="line">                               [&amp;]{ <span class="keywordflow">return</span> data; },</div>
-<div class="line">                               [&amp;](<span class="keywordtype">int</span>&amp; newData){ setData (newData); });</div>
-<div class="line">    }</div>
-<div class="line">};</div>
-</div><!-- fragment --><p> <br  />
-If your object requires more low-level control or complex logic, you can also use <a class="el" href="structlemons_1_1TreeReflector.html#a7a88f53e45239d0b8d11cb2ce4dbefd0" title="Returns a reference to this reflector&#39;s root ValueTree.">TreeReflector::getRawDataTree()</a>, and you can query <a class="el" href="structlemons_1_1TreeReflector.html#ad8d42bdfb2093716fe60ba2196d54ac3" title="Returns true if this reflector is loading state.">TreeReflector::isLoading()</a> or <a class="el" href="structlemons_1_1TreeReflector.html#a4e47667a86f8e0eb7baaa53681191da3" title="Returns true if this reflector is saving state.">TreeReflector::isSaving()</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a>, <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">TreeReflector::add()</a>, <a class="el" href="namespacelemons_1_1serializing.html#a713bb9525856a131f6897cdd045d5bc4" title="Implement this function and fromVar() for any custom type to allow easily serialization using TreeRef...">serializing::toVar()</a>, <a class="el" href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b" title="Implement this function and toVar() for any custom type to allow easily serialization using TreeRefle...">serializing::fromVar()</a>, <a class="el" href="structlemons_1_1serializing_1_1ContainerInterface.html" title="Interface that defines how a TreeReflector can resize a given container during deserialization.">serializing::ContainerInterface</a>, <a class="el" href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2" title="Template function that returns an instance of the correct ContainerInterface for the given container.">serializing::getInterfaceForContainer()</a>, <a class="el" href="structlemons_1_1serializing_1_1isContainer.html" title="Template struct that that indicates to TreeReflector whether a given type is a container.">serializing::isContainer</a> </dd></dl>
-
-<p>Implements <a class="el" href="structlemons_1_1SerializableData.html#a352b32cbb061cea5d4ca2ab99bf07529">lemons::SerializableData</a>.</p>
+<p>Internally, this will create a <a class="el" href="structlemons_1_1TreeSaver.html" title="Subclass of TreeReflector used for saving state.">TreeSaver</a> object and call the virtual serialize(TreeReflector&amp;) function. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1TreeSaver.html" title="Subclass of TreeReflector used for saving state.">TreeSaver</a>, <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a> </dd></dl>
 
 </div>
 </div>
@@ -278,12 +227,14 @@ template&lt;typename StateType , BV_MUST_INHERIT_FROM(StateType, StateBase) &gt;
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="classlemons_1_1plugin_1_1Processor.html#af9126dcd369dba88d15b6f59f1206210">lemons::plugin::Processor&lt; StateType, EngineType,, &gt;::getState()</a>, <a class="el" href="structlemons_1_1plugin_1_1PluginState.html#a0ad419ac90896c8d489a4a6731479640">lemons::plugin::PluginState&lt; StateType &gt;::PluginState()</a>, and <a class="el" href="structlemons_1_1plugin_1_1PluginState.html#a896454b910678586347151e9d0656971">lemons::plugin::PluginState&lt; StateType &gt;::serialize()</a>.</p>
+<p>The plugin's main state object. </p>
+
+<p class="reference">Referenced by <a class="el" href="classlemons_1_1plugin_1_1Processor.html#af9126dcd369dba88d15b6f59f1206210">lemons::plugin::Processor&lt; StateType, EngineType,, &gt;::getState()</a>, and <a class="el" href="structlemons_1_1plugin_1_1PluginState.html#a0ad419ac90896c8d489a4a6731479640">lemons::plugin::PluginState&lt; StateType &gt;::PluginState()</a>.</p>
 
 </div>
 </div>
-<a id="ad004bc8c9e821719fd07ebd47779e78a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad004bc8c9e821719fd07ebd47779e78a">&#9670;&nbsp;</a></span>toggles</h2>
+<a id="aa40e75834f1455e11a29294cbd06ece7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa40e75834f1455e11a29294cbd06ece7">&#9670;&nbsp;</a></span>toggles</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -291,12 +242,15 @@ template&lt;typename StateType , BV_MUST_INHERIT_FROM(StateType, StateBase) &gt;
 template&lt;typename StateType , BV_MUST_INHERIT_FROM(StateType, StateBase) &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structlemons_1_1plugin_1_1StateToggler.html">StateToggler</a> <a class="el" href="structlemons_1_1plugin_1_1PluginState.html">lemons::plugin::PluginState</a>&lt; StateType, &gt;::toggles {<a class="el" href="structlemons_1_1plugin_1_1PluginState.html#a2b29ea43c8e780bce47082ad73ab2bc6">state</a>}</td>
+          <td class="memname"><a class="el" href="namespacelemons_1_1plugin.html#abcfc580033c4f7a4e5242dbb4c3089b0">StateToggles</a> <a class="el" href="structlemons_1_1plugin_1_1PluginState.html">lemons::plugin::PluginState</a>&lt; StateType, &gt;::toggles {<a class="el" href="structlemons_1_1plugin_1_1PluginState.html#a2b29ea43c8e780bce47082ad73ab2bc6">state</a>}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="structlemons_1_1plugin_1_1PluginState.html#a0ad419ac90896c8d489a4a6731479640">lemons::plugin::PluginState&lt; StateType &gt;::PluginState()</a>, and <a class="el" href="structlemons_1_1plugin_1_1PluginState.html#a896454b910678586347151e9d0656971">lemons::plugin::PluginState&lt; StateType &gt;::serialize()</a>.</p>
+<p>The plugin's A/B/C state toggler. </p>
+<p>By default, it has 3 state slots. </p>
+
+<p class="reference">Referenced by <a class="el" href="structlemons_1_1plugin_1_1PluginState.html#a0ad419ac90896c8d489a4a6731479640">lemons::plugin::PluginState&lt; StateType &gt;::PluginState()</a>.</p>
 
 </div>
 </div>
@@ -314,6 +268,8 @@ template&lt;typename StateType , BV_MUST_INHERIT_FROM(StateType, StateBase) &gt;
       </table>
 </div><div class="memdoc">
 
+<p>The plugin's undo manager. </p>
+
 <p class="reference">Referenced by <a class="el" href="structlemons_1_1plugin_1_1PluginState.html#a0ad419ac90896c8d489a4a6731479640">lemons::plugin::PluginState&lt; StateType &gt;::PluginState()</a>.</p>
 
 </div>
@@ -322,12 +278,9 @@ template&lt;typename StateType , BV_MUST_INHERIT_FROM(StateType, StateBase) &gt;
 <li><a class="el" href="PluginState_8h.html">PluginState.h</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="astructlemons_1_1SerializableData_html_af4e10eefa677226e7927d204b33edbdb"><div class="ttname"><a href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">lemons::SerializableData::serialize</a></div><div class="ttdeci">ValueTree serialize()</div><div class="ttdoc">Serializes the state of this object and returns a ValueTree.</div></div>
-<div class="ttc" id="astructlemons_1_1SerializableData_html_a89ec326c9a71dce7572d8a1b50d827a5"><div class="ttname"><a href="structlemons_1_1SerializableData.html#a89ec326c9a71dce7572d8a1b50d827a5">lemons::SerializableData::TreeReflector</a></div><div class="ttdeci">friend struct TreeReflector</div><div class="ttdef"><b>Definition:</b> SerializableData.h:93</div></div>
-<div class="ttc" id="astructlemons_1_1SerializableData_html"><div class="ttname"><a href="structlemons_1_1SerializableData.html">lemons::SerializableData</a></div><div class="ttdoc">Base class for any C++ object that needs to be serialized to binary and back.</div><div class="ttdef"><b>Definition:</b> SerializableData.h:12</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 5 2021 20:16:32 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 5 2021 20:59:37 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

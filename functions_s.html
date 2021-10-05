@@ -68,17 +68,8 @@ $(function() {
 <li>saveEditorSize()
 : <a class="el" href="classlemons_1_1plugin_1_1ProcessorBase.html#ace19860eb53c8057f2bed4b7e819fd41">lemons::plugin::ProcessorBase</a>
 </li>
-<li>saveLastSelectedState()
-: <a class="el" href="structlemons_1_1plugin_1_1StateToggler.html#abfa98d2504d051ca7f48ecfca1f7c8d1">lemons::plugin::StateToggler</a>
-</li>
-<li>saveStateA()
-: <a class="el" href="structlemons_1_1plugin_1_1StateToggler.html#a7ed237a4567c63cbf18fa3b2b33b9e39">lemons::plugin::StateToggler</a>
-</li>
-<li>saveStateB()
-: <a class="el" href="structlemons_1_1plugin_1_1StateToggler.html#a90a07378fe610f90fc55bdad1abed1b5">lemons::plugin::StateToggler</a>
-</li>
-<li>saveStateC()
-: <a class="el" href="structlemons_1_1plugin_1_1StateToggler.html#ab329d49f76c715a23d7a16fef2c90fa7">lemons::plugin::StateToggler</a>
+<li>saveState()
+: <a class="el" href="structlemons_1_1serializing_1_1Toggler.html#a4f80d8bf1fef8568bee78ace27b26f59">lemons::serializing::Toggler&lt; numStates &gt;</a>
 </li>
 <li>Saw()
 : <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Saw.html#a158a37dab3759be9e39f00ab1a72663f">lemons::dsp::osc::Saw&lt; SampleType &gt;</a>
@@ -110,7 +101,6 @@ $(function() {
 </li>
 <li>serialize()
 : <a class="el" href="structlemons_1_1plugin_1_1ParamHolderBase.html#a4ab97c4fac55246598fec66b3da5c501">lemons::plugin::ParamHolderBase</a>
-, <a class="el" href="structlemons_1_1plugin_1_1PluginState.html#a896454b910678586347151e9d0656971">lemons::plugin::PluginState&lt; StateType, &gt;</a>
 , <a class="el" href="classlemons_1_1plugin_1_1StateBase.html#a30db7069c3333b6e630acd156a8194af">lemons::plugin::StateBase</a>
 , <a class="el" href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">lemons::SerializableData</a>
 </li>
@@ -323,7 +313,7 @@ $(function() {
 <li>setUndoManager()
 : <a class="el" href="classlemons_1_1plugin_1_1Parameter.html#ac98947f4590133e0d997ebddbcc9b707">lemons::plugin::Parameter</a>
 , <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#aa27b20a1b37f5f05579f649ac08a1cef">lemons::plugin::ParameterList</a>
-, <a class="el" href="structlemons_1_1plugin_1_1StateToggler.html#a9783b5bcfd4357438167743d79bc4d49">lemons::plugin::StateToggler</a>
+, <a class="el" href="structlemons_1_1serializing_1_1Toggler.html#ab9ce11ec0120c1e9a21caba99889806b">lemons::serializing::Toggler&lt; numStates &gt;</a>
 </li>
 <li>setVertical()
 : <a class="el" href="classlemons_1_1plugin_1_1StateToggleButtons.html#a3b29e9d51273ccd2e9598b9a5d8cf5dd">lemons::plugin::StateToggleButtons</a>
@@ -374,7 +364,7 @@ $(function() {
 : <a class="el" href="structlemons_1_1dsp_1_1osc_1_1Square.html#a405fd123c99b7455bd56b3f18af2cc99">lemons::dsp::osc::Square&lt; SampleType &gt;</a>
 </li>
 <li>start()
-: <a class="el" href="classlemons_1_1MotionManager.html#a2fae5061c73ad073f646807997b610d9">lemons::MotionManager</a>
+: <a class="el" href="classlemons_1_1MotionManager.html#a48fa105dbde61444436d2acddd74cdd3">lemons::MotionManager</a>
 , <a class="el" href="classlemons_1_1MotionManagerInterface.html#a74602d8bf6dc0862b5da36ed08e6368b">lemons::MotionManagerInterface</a>
 </li>
 <li>state
@@ -394,13 +384,7 @@ $(function() {
 : <a class="el" href="classlemons_1_1plugin_1_1StateBase.html#ab65fb10342fa691eaf6cac603197c818">lemons::plugin::StateBase</a>
 </li>
 <li>StateToggleButtons()
-: <a class="el" href="classlemons_1_1plugin_1_1StateToggleButtons.html#a58da85b9310af7bc6f749cb8e2c3b568">lemons::plugin::StateToggleButtons</a>
-</li>
-<li>stateToggler
-: <a class="el" href="classlemons_1_1plugin_1_1GUIBase.html#a203a301eddd88f6b08efd17dffaff65a">lemons::plugin::GUIBase</a>
-</li>
-<li>StateToggler()
-: <a class="el" href="structlemons_1_1plugin_1_1StateToggler.html#ad15f50083b17522023d2aeedd00788bd">lemons::plugin::StateToggler</a>
+: <a class="el" href="classlemons_1_1plugin_1_1StateToggleButtons.html#ad66ded2c9ad0e50f1bde9327e802f518">lemons::plugin::StateToggleButtons</a>
 </li>
 <li>StdArrayInterface()
 : <a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html#a5dbf642c458e2a374553197db957c241">lemons::serializing::StdArrayInterface&lt; ElementType, size &gt;</a>
@@ -412,7 +396,7 @@ $(function() {
 : <a class="el" href="structlemons_1_1serializing_1_1STLContainerInterface.html#af8c94137fe709cc9516af2d92972a52c">lemons::serializing::STLContainerInterface&lt; ContainerType &gt;</a>
 </li>
 <li>stop()
-: <a class="el" href="classlemons_1_1MotionManager.html#a928848daeb216b49cca1952e319be88b">lemons::MotionManager</a>
+: <a class="el" href="classlemons_1_1MotionManager.html#aa0634a026dc505ea830148dbafa0ede5">lemons::MotionManager</a>
 , <a class="el" href="classlemons_1_1MotionManagerInterface.html#a38c81e48e63ed6a5f6bfa087e47d62e4">lemons::MotionManagerInterface</a>
 </li>
 <li>Storage()
@@ -444,7 +428,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 5 2021 20:16:32 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 5 2021 20:59:37 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

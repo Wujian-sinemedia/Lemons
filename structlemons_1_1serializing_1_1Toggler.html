@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lemons: lemons::plugin::StateToggler Struct Reference</title>
+<title>Lemons: lemons::serializing::Toggler&lt; numStates &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,66 +62,74 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacelemons.html">lemons</a></li><li class="navelem"><a class="el" href="namespacelemons_1_1plugin.html">plugin</a></li><li class="navelem"><a class="el" href="structlemons_1_1plugin_1_1StateToggler.html">StateToggler</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacelemons.html">lemons</a></li><li class="navelem"><a class="el" href="namespacelemons_1_1serializing.html">serializing</a></li><li class="navelem"><a class="el" href="structlemons_1_1serializing_1_1Toggler.html">Toggler</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="structlemons_1_1plugin_1_1StateToggler-members.html">List of all members</a>  </div>
+<a href="structlemons_1_1serializing_1_1Toggler-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">lemons::plugin::StateToggler Struct Reference</div>  </div>
+<div class="title">lemons::serializing::Toggler&lt; numStates &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;StateToggler.h&gt;</code></p>
+<p>Class that manages several versions of the state of a serializable object and allows you to switch between them.  
+ <a href="structlemons_1_1serializing_1_1Toggler.html#details">More...</a></p>
+
+<p><code>#include &lt;Toggler.h&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::plugin::StateToggler:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::serializing::Toggler&lt; numStates &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structlemons_1_1plugin_1_1StateToggler__inherit__graph.svg" width="218" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structlemons_1_1serializing_1_1Toggler__inherit__graph.svg" width="196" height="232"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad15f50083b17522023d2aeedd00788bd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1StateToggler.html#ad15f50083b17522023d2aeedd00788bd">StateToggler</a> (<a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;stateToUse)</td></tr>
-<tr class="separator:ad15f50083b17522023d2aeedd00788bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9db23f7bade002167235a653074fca1c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1Toggler.html#a9db23f7bade002167235a653074fca1c">Toggler</a> (<a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;stateToUse)</td></tr>
+<tr class="memdesc:a9db23f7bade002167235a653074fca1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a StateToggler.  <a href="structlemons_1_1serializing_1_1Toggler.html#a9db23f7bade002167235a653074fca1c">More...</a><br /></td></tr>
+<tr class="separator:a9db23f7bade002167235a653074fca1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace1758cc9344ae03a6d01c3c218226de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1SerializableData.html#ace1758cc9344ae03a6d01c3c218226de">deserialize</a> (const ValueTree &amp;tree)</td></tr>
 <tr class="memdesc:ace1758cc9344ae03a6d01c3c218226de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores a previously saved state.  <a href="structlemons_1_1SerializableData.html#ace1758cc9344ae03a6d01c3c218226de">More...</a><br /></td></tr>
 <tr class="separator:ace1758cc9344ae03a6d01c3c218226de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7704fbe40071aea45a29fcb750c31967"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1StateToggler.html#a7704fbe40071aea45a29fcb750c31967">loadLastSelectedState</a> ()</td></tr>
-<tr class="separator:a7704fbe40071aea45a29fcb750c31967"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46f1ac313ba0495463962459f81761ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1StateToggler.html#a46f1ac313ba0495463962459f81761ba">loadStateA</a> ()</td></tr>
-<tr class="separator:a46f1ac313ba0495463962459f81761ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2db612f177ab6aec4febc6dbe7ac1641"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1StateToggler.html#a2db612f177ab6aec4febc6dbe7ac1641">loadStateB</a> ()</td></tr>
-<tr class="separator:a2db612f177ab6aec4febc6dbe7ac1641"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b739f2420f8267d65185b5e2d718f30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1StateToggler.html#a6b739f2420f8267d65185b5e2d718f30">loadStateC</a> ()</td></tr>
-<tr class="separator:a6b739f2420f8267d65185b5e2d718f30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfa98d2504d051ca7f48ecfca1f7c8d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1StateToggler.html#abfa98d2504d051ca7f48ecfca1f7c8d1">saveLastSelectedState</a> ()</td></tr>
-<tr class="separator:abfa98d2504d051ca7f48ecfca1f7c8d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ed237a4567c63cbf18fa3b2b33b9e39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1StateToggler.html#a7ed237a4567c63cbf18fa3b2b33b9e39">saveStateA</a> ()</td></tr>
-<tr class="separator:a7ed237a4567c63cbf18fa3b2b33b9e39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90a07378fe610f90fc55bdad1abed1b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1StateToggler.html#a90a07378fe610f90fc55bdad1abed1b5">saveStateB</a> ()</td></tr>
-<tr class="separator:a90a07378fe610f90fc55bdad1abed1b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab329d49f76c715a23d7a16fef2c90fa7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1StateToggler.html#ab329d49f76c715a23d7a16fef2c90fa7">saveStateC</a> ()</td></tr>
-<tr class="separator:ab329d49f76c715a23d7a16fef2c90fa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d93c33b004891371de96c167c1ef30c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1Toggler.html#a3d93c33b004891371de96c167c1ef30c">loadState</a> (size_t num)</td></tr>
+<tr class="memdesc:a3d93c33b004891371de96c167c1ef30c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the state at the specified index.  <a href="structlemons_1_1serializing_1_1Toggler.html#a3d93c33b004891371de96c167c1ef30c">More...</a><br /></td></tr>
+<tr class="separator:a3d93c33b004891371de96c167c1ef30c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f80d8bf1fef8568bee78ace27b26f59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1Toggler.html#a4f80d8bf1fef8568bee78ace27b26f59">saveState</a> (size_t num)</td></tr>
+<tr class="memdesc:a4f80d8bf1fef8568bee78ace27b26f59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the current state of the managed object to the specified index.  <a href="structlemons_1_1serializing_1_1Toggler.html#a4f80d8bf1fef8568bee78ace27b26f59">More...</a><br /></td></tr>
+<tr class="separator:a4f80d8bf1fef8568bee78ace27b26f59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4e10eefa677226e7927d204b33edbdb"><td class="memItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">serialize</a> ()</td></tr>
 <tr class="memdesc:af4e10eefa677226e7927d204b33edbdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the state of this object and returns a ValueTree.  <a href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">More...</a><br /></td></tr>
 <tr class="separator:af4e10eefa677226e7927d204b33edbdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9783b5bcfd4357438167743d79bc4d49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1StateToggler.html#a9783b5bcfd4357438167743d79bc4d49">setUndoManager</a> (<a class="el" href="classlemons_1_1UndoManager.html">UndoManager</a> &amp;undoManager)</td></tr>
-<tr class="separator:a9783b5bcfd4357438167743d79bc4d49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9ce11ec0120c1e9a21caba99889806b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1Toggler.html#ab9ce11ec0120c1e9a21caba99889806b">setUndoManager</a> (<a class="el" href="classlemons_1_1UndoManager.html">UndoManager</a> &amp;undoManager)</td></tr>
+<tr class="memdesc:ab9ce11ec0120c1e9a21caba99889806b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the <a class="el" href="classlemons_1_1UndoManager.html" title="A class that keeps a history of states and can step backward and forward through them.">UndoManager</a> to use.  <a href="structlemons_1_1serializing_1_1Toggler.html#ab9ce11ec0120c1e9a21caba99889806b">More...</a><br /></td></tr>
+<tr class="separator:ab9ce11ec0120c1e9a21caba99889806b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad15f50083b17522023d2aeedd00788bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad15f50083b17522023d2aeedd00788bd">&#9670;&nbsp;</a></span>StateToggler()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;size_t numStates&gt;<br />
+struct lemons::serializing::Toggler&lt; numStates &gt;</h3>
+
+<p>Class that manages several versions of the state of a serializable object and allows you to switch between them. </p>
+<p>This is useful for A/B'ing plugin states, for example. <br  />
+ <br  />
+For a GUI component that controls one of these, use the StateToggleButtons class. <br  />
+ <br  />
+Note that this class is itself serializable; you can also save the state of your StateToggler with your plugin state. <br  />
+This class can also be used with an <a class="el" href="classlemons_1_1UndoManager.html" title="A class that keeps a history of states and can step backward and forward through them.">UndoManager</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a>, StateToggleButtons, <a class="el" href="classlemons_1_1UndoManager.html" title="A class that keeps a history of states and can step backward and forward through them.">UndoManager</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a9db23f7bade002167235a653074fca1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9db23f7bade002167235a653074fca1c">&#9670;&nbsp;</a></span>Toggler()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;size_t numStates&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">lemons::plugin::StateToggler::StateToggler </td>
+          <td class="memname"><a class="el" href="structlemons_1_1serializing_1_1Toggler.html">lemons::serializing::Toggler</a>&lt; numStates &gt;::<a class="el" href="structlemons_1_1serializing_1_1Toggler.html">Toggler</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;&#160;</td>
           <td class="paramname"><em>stateToUse</em></td><td>)</td>
@@ -129,6 +137,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates a StateToggler. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stateToUse</td><td>The serializable object to manage the state of. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -169,139 +185,49 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
 
 </div>
 </div>
-<a id="a7704fbe40071aea45a29fcb750c31967"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7704fbe40071aea45a29fcb750c31967">&#9670;&nbsp;</a></span>loadLastSelectedState()</h2>
+<a id="a3d93c33b004891371de96c167c1ef30c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d93c33b004891371de96c167c1ef30c">&#9670;&nbsp;</a></span>loadState()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;size_t numStates&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void lemons::plugin::StateToggler::loadLastSelectedState </td>
+          <td class="memname">void <a class="el" href="structlemons_1_1serializing_1_1Toggler.html">lemons::serializing::Toggler</a>&lt; numStates &gt;::loadState </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>num</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Loads the state at the specified index. </p>
+<p>This will deserialize the managed object from the state saved in the slot you've indicated. Indices start from 0. </p>
+
 </div>
 </div>
-<a id="a46f1ac313ba0495463962459f81761ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a46f1ac313ba0495463962459f81761ba">&#9670;&nbsp;</a></span>loadStateA()</h2>
+<a id="a4f80d8bf1fef8568bee78ace27b26f59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f80d8bf1fef8568bee78ace27b26f59">&#9670;&nbsp;</a></span>saveState()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;size_t numStates&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void lemons::plugin::StateToggler::loadStateA </td>
+          <td class="memname">void <a class="el" href="structlemons_1_1serializing_1_1Toggler.html">lemons::serializing::Toggler</a>&lt; numStates &gt;::saveState </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>num</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a2db612f177ab6aec4febc6dbe7ac1641"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2db612f177ab6aec4febc6dbe7ac1641">&#9670;&nbsp;</a></span>loadStateB()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void lemons::plugin::StateToggler::loadStateB </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6b739f2420f8267d65185b5e2d718f30"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b739f2420f8267d65185b5e2d718f30">&#9670;&nbsp;</a></span>loadStateC()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void lemons::plugin::StateToggler::loadStateC </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="abfa98d2504d051ca7f48ecfca1f7c8d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abfa98d2504d051ca7f48ecfca1f7c8d1">&#9670;&nbsp;</a></span>saveLastSelectedState()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void lemons::plugin::StateToggler::saveLastSelectedState </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7ed237a4567c63cbf18fa3b2b33b9e39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ed237a4567c63cbf18fa3b2b33b9e39">&#9670;&nbsp;</a></span>saveStateA()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void lemons::plugin::StateToggler::saveStateA </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a90a07378fe610f90fc55bdad1abed1b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90a07378fe610f90fc55bdad1abed1b5">&#9670;&nbsp;</a></span>saveStateB()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void lemons::plugin::StateToggler::saveStateB </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab329d49f76c715a23d7a16fef2c90fa7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab329d49f76c715a23d7a16fef2c90fa7">&#9670;&nbsp;</a></span>saveStateC()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void lemons::plugin::StateToggler::saveStateC </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Saves the current state of the managed object to the specified index. </p>
+<p>This will serialize the managed object and save the result in the slot you've indicated. Indices start from 0. </p>
 
 </div>
 </div>
@@ -333,14 +259,16 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
 
 </div>
 </div>
-<a id="a9783b5bcfd4357438167743d79bc4d49"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9783b5bcfd4357438167743d79bc4d49">&#9670;&nbsp;</a></span>setUndoManager()</h2>
+<a id="ab9ce11ec0120c1e9a21caba99889806b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9ce11ec0120c1e9a21caba99889806b">&#9670;&nbsp;</a></span>setUndoManager()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;size_t numStates&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void lemons::plugin::StateToggler::setUndoManager </td>
+          <td class="memname">void <a class="el" href="structlemons_1_1serializing_1_1Toggler.html">lemons::serializing::Toggler</a>&lt; numStates &gt;::setUndoManager </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classlemons_1_1UndoManager.html">UndoManager</a> &amp;&#160;</td>
           <td class="paramname"><em>undoManager</em></td><td>)</td>
@@ -349,17 +277,20 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
       </table>
 </div><div class="memdoc">
 
+<p>Sets the <a class="el" href="classlemons_1_1UndoManager.html" title="A class that keeps a history of states and can step backward and forward through them.">UndoManager</a> to use. </p>
+<p>If an <a class="el" href="classlemons_1_1UndoManager.html" title="A class that keeps a history of states and can step backward and forward through them.">UndoManager</a> is assigned, then calling any of the loadState functions will create an undoable transaction. </p>
+
 <p class="reference">Referenced by <a class="el" href="structlemons_1_1plugin_1_1PluginState.html#a0ad419ac90896c8d489a4a6731479640">lemons::plugin::PluginState&lt; StateType &gt;::PluginState()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="StateToggler_8h.html">StateToggler.h</a></li>
+<li><a class="el" href="Toggler_8h.html">Toggler.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 5 2021 20:16:32 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 5 2021 20:59:37 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

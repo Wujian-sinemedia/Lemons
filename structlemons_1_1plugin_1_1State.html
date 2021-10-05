@@ -93,6 +93,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aae2b72eea418e304680cf301f41d1218"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1State.html#aae2b72eea418e304680cf301f41d1218">State</a> (String pluginName)</td></tr>
+<tr class="memdesc:aae2b72eea418e304680cf301f41d1218"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new plugin state.  <a href="structlemons_1_1plugin_1_1State.html#aae2b72eea418e304680cf301f41d1218">More...</a><br /></td></tr>
 <tr class="separator:aae2b72eea418e304680cf301f41d1218"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7c186d21688b88e9cfe67e97bd60beb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1StateBase.html#af7c186d21688b88e9cfe67e97bd60beb">addAllAsInternal</a> ()</td></tr>
 <tr class="memdesc:af7c186d21688b88e9cfe67e97bd60beb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds all the state's parameters to a dummy internal processor.  <a href="classlemons_1_1plugin_1_1StateBase.html#af7c186d21688b88e9cfe67e97bd60beb">More...</a><br /></td></tr>
@@ -165,7 +166,7 @@ Example usage: </p><div class="fragment"><div class="line"><span class="keyword"
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1plugin_1_1CustomState.html" title="A plugin state class that instantiates the appropriate ParameterList and custom serializable object a...">CustomState</a>, <a class="el" href="classlemons_1_1plugin_1_1StateBase.html" title="Base class for a plugin&#39;s state.">StateBase</a>, <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1plugin_1_1CustomState.html" title="A plugin state class that instantiates the appropriate ParameterList and custom serializable object a...">CustomState</a>, <a class="el" href="structlemons_1_1plugin_1_1PluginState.html" title="Represents the top-level state of a plugin as a whole.">PluginState</a>, <a class="el" href="classlemons_1_1plugin_1_1StateBase.html" title="Base class for a plugin&#39;s state.">StateBase</a>, <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aae2b72eea418e304680cf301f41d1218"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aae2b72eea418e304680cf301f41d1218">&#9670;&nbsp;</a></span>State()</h2>
@@ -184,6 +185,14 @@ template&lt;typename ParamListType , BV_MUST_INHERIT_FROM(ParamListType, Paramet
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates a new plugin state. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pluginName</td><td>The name of this plugin. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -545,14 +554,14 @@ template&lt;typename ParamListType , BV_MUST_INHERIT_FROM(ParamListType, Paramet
 </div><!-- contents -->
 <div class="ttc" id="astructlemons_1_1SerializableData_html_af4e10eefa677226e7927d204b33edbdb"><div class="ttname"><a href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">lemons::SerializableData::serialize</a></div><div class="ttdeci">ValueTree serialize()</div><div class="ttdoc">Serializes the state of this object and returns a ValueTree.</div></div>
 <div class="ttc" id="aclasslemons_1_1plugin_1_1ParameterList_html"><div class="ttname"><a href="classlemons_1_1plugin_1_1ParameterList.html">lemons::plugin::ParameterList</a></div><div class="ttdoc">This class manages a list of a plugin's parameters.</div><div class="ttdef"><b>Definition:</b> ParameterList.h:49</div></div>
-<div class="ttc" id="astructlemons_1_1plugin_1_1State_html"><div class="ttname"><a href="structlemons_1_1plugin_1_1State.html">lemons::plugin::State</a></div><div class="ttdoc">A plugin state class that instantiates the appropriate ParameterList and passes it to the StateBase c...</div><div class="ttdef"><b>Definition:</b> state.h:86</div></div>
+<div class="ttc" id="astructlemons_1_1plugin_1_1State_html"><div class="ttname"><a href="structlemons_1_1plugin_1_1State.html">lemons::plugin::State</a></div><div class="ttdoc">A plugin state class that instantiates the appropriate ParameterList and passes it to the StateBase c...</div><div class="ttdef"><b>Definition:</b> state.h:90</div></div>
 <div class="ttc" id="aclasslemons_1_1plugin_1_1ParameterHolder_html"><div class="ttname"><a href="classlemons_1_1plugin_1_1ParameterHolder.html">lemons::plugin::ParameterHolder&lt; plugin::ToggleParameter &gt;</a></div></div>
 <div class="ttc" id="astructlemons_1_1SerializableData_html_a89ec326c9a71dce7572d8a1b50d827a5"><div class="ttname"><a href="structlemons_1_1SerializableData.html#a89ec326c9a71dce7572d8a1b50d827a5">lemons::SerializableData::TreeReflector</a></div><div class="ttdeci">friend struct TreeReflector</div><div class="ttdef"><b>Definition:</b> SerializableData.h:93</div></div>
 <div class="ttc" id="astructlemons_1_1SerializableData_html"><div class="ttname"><a href="structlemons_1_1SerializableData.html">lemons::SerializableData</a></div><div class="ttdoc">Base class for any C++ object that needs to be serialized to binary and back.</div><div class="ttdef"><b>Definition:</b> SerializableData.h:12</div></div>
 <div class="ttc" id="anamespacelemons_html"><div class="ttname"><a href="namespacelemons.html">lemons</a></div><div class="ttdef"><b>Definition:</b> DefaultWindow.h:6</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 5 2021 20:16:32 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 5 2021 20:59:37 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
