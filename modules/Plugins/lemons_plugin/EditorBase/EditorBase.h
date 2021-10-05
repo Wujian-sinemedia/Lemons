@@ -3,9 +3,12 @@
 
 namespace lemons::plugin
 {
+/** Base class for plugin editors.
+ */
 class EditorBase : public juce::AudioProcessorEditor
 {
 public:
+    /** Creates a plugin editor with an initial size. */
     EditorBase (ProcessorBase& pbToUse, juce::Point< int > initialSize = {450, 300});
 
 private:
@@ -19,11 +22,16 @@ private:
 };
 
 
+/** Base class for a plugin editor that instantiates the owned content for you.
+    @tparam ContentComponentType The type of your plugin's main component. This must inherit from GUIBase, but should preferably inherit from GUI<StateType>.
+    @tparam StateType The type of your plugin's main state object.
+ */
 template < typename ContentComponentType, typename StateType,
            BV_MUST_INHERIT_FROM (ContentComponentType, GUIBase), BV_MUST_INHERIT_FROM (StateType, StateBase) >
 class PluginEditor : public EditorBase
 {
 public:
+    /** Creates a plugin editor. */
     PluginEditor (ProcessorBase& processorToUse, PluginState< StateType >& state)
         : EditorBase (processorToUse, state.state.dimensions), content (state)
     {

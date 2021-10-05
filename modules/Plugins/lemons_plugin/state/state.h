@@ -1,6 +1,5 @@
 #pragma once
 
-#include <lemons_plugin_parameters/lemons_plugin_parameters.h>
 
 namespace lemons::plugin
 {

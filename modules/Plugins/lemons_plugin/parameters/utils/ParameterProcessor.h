@@ -1,5 +1,6 @@
 #pragma once
 
+
 namespace lemons::plugin
 {
 /** This class processes incoming MIDI messages and quantizes the audio output with any MIDI CC messages mapped to parameters.

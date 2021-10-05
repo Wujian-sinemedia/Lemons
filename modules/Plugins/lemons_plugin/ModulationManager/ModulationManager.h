@@ -13,8 +13,6 @@ public:
 
     void processNextChunk (int numSamples);
 
-    void removeAllInvalidConnections();
-
 
     struct LFO : SerializableData
     {
@@ -35,10 +33,10 @@ public:
 
         void removeConnection (Parameter& parameter);
 
-        void removeInvalidConnections();
-
     private:
         friend class ModulationManager;
+
+        void removeInvalidConnections();
 
         void setParamList (ParameterList& listToUse);
 
@@ -78,6 +76,8 @@ public:
 
 private:
     void serialize (TreeReflector& ref) final;
+
+    void removeAllInvalidConnections();
 
     /*------------------------------*/
 

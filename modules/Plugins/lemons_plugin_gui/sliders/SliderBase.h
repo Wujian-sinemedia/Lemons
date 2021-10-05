@@ -1,6 +1,6 @@
 #pragma once
 
-#include <lemons_plugin_parameters/lemons_plugin_parameters.h>
+#include <lemons_plugin/lemons_plugin.h>
 #include <lemons_gui/lemons_gui.h>
 
 namespace lemons::gui
