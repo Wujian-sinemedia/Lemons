@@ -58,14 +58,19 @@ void ModulationManager::LFO::serialize (TreeReflector& ref)
 bool ModulationManager::LFO::hasConnection (Parameter& parameter) const
 {
     for (const auto* con : connections)
-    {
-        if (con->param == nullptr) continue;
-
         if (con->param == &parameter)
             return true;
-    }
 
     return false;
+}
+
+int ModulationManager::LFO::getConnectionAmount (Parameter& parameter) const
+{
+    for (const auto* con : connections)
+        if (con->param == &parameter)
+            return con->percentEffect;
+
+    return -1;
 }
 
 void ModulationManager::LFO::createOrEditConnection (Parameter& parameter, int amount)
@@ -74,28 +79,26 @@ void ModulationManager::LFO::createOrEditConnection (Parameter& parameter, int a
 
     for (auto* con : connections)
     {
-        if (con->param == nullptr)
-        {
-            toUse = con;
-            continue;
-        }
-
         if (con->param == &parameter)
         {
             con->percentEffect = amount;
             return;
         }
+
+        if (con->param == nullptr)
+            toUse = con;
     }
 
     if (toUse != nullptr)
     {
         toUse->param         = &parameter;
         toUse->percentEffect = amount;
-        return;
     }
-
-    jassert (paramList != nullptr);
-    connections.add (new Connection (*paramList, parameter, amount));
+    else
+    {
+        jassert (paramList != nullptr);
+        connections.add (new Connection (*paramList, parameter, amount));
+    }
 }
 
 void ModulationManager::LFO::removeConnection (Parameter& parameter)

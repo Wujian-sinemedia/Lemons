@@ -69,4 +69,9 @@ void ModulationManager::removeAllInvalidConnections()
         lfo->removeInvalidConnections();
 }
 
+void ModulationManager::addLFO (LFO* newLFO)
+{
+    lfos.add (newLFO);
+}
+
 }  // namespace lemons::plugin

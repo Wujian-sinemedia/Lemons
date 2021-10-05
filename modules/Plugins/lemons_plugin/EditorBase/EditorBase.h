@@ -15,8 +15,8 @@ private:
     void initializeSize (int width, int height);
     void paint (juce::Graphics& g) final;
 
-    void         resized() final;
-    
+    void resized() final;
+
     /** Called when the editor is resized. */
     virtual void resizeTriggered() { }
 
