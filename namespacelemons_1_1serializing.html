@@ -133,6 +133,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1Toggler.html">Toggler</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class that manages several versions of the state of a serializable object and allows you to switch between them.  <a href="structlemons_1_1serializing_1_1Toggler.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1TogglerInterface.html">TogglerInterface</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface that all Togglers implement to be able to access one without knowing its template arguments.  <a href="structlemons_1_1serializing_1_1TogglerInterface.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -832,7 +835,7 @@ template&lt;typename ObjectType , BV_MUST_INHERIT_FROM(ObjectType, SerializableD
 
 <p>Deserializes an object from a ValueTree. </p>
 
-<p class="reference">Referenced by <a class="el" href="namespacelemons_1_1serializing.html#a449fb4b02e490125b488a21ea568d0cb">fromTreeCreate()</a>, and <a class="el" href="structlemons_1_1serializing_1_1Toggler.html#a3d93c33b004891371de96c167c1ef30c">lemons::serializing::Toggler&lt; 3 &gt;::loadState()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="namespacelemons_1_1serializing.html#a449fb4b02e490125b488a21ea568d0cb">fromTreeCreate()</a>, and <a class="el" href="structlemons_1_1serializing_1_1Toggler.html#af7d7fe1120dc768c0f4ad45f72a0452f">lemons::serializing::Toggler&lt; 3 &gt;::loadState()</a>.</p>
 
 </div>
 </div>
@@ -1573,7 +1576,7 @@ Use the XML- and JSON-specific functions in this namespace to explicitly use eit
 
 <p>Serializes an object to a ValueTree. </p>
 
-<p class="reference">Referenced by <a class="el" href="structlemons_1_1serializing_1_1Toggler.html#a4f80d8bf1fef8568bee78ace27b26f59">lemons::serializing::Toggler&lt; 3 &gt;::saveState()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="structlemons_1_1serializing_1_1Toggler.html#a6f5aac64ca3f8b96371c4168096cf446">lemons::serializing::Toggler&lt; 3 &gt;::saveState()</a>.</p>
 
 </div>
 </div>
@@ -2018,13 +2021,13 @@ As a general rule, you shouldn't need to implement <a class="el" href="namespace
 <div class="ttc" id="anamespacelemons_1_1serializing_html_a713bb9525856a131f6897cdd045d5bc4"><div class="ttname"><a href="namespacelemons_1_1serializing.html#a713bb9525856a131f6897cdd045d5bc4">lemons::serializing::toVar</a></div><div class="ttdeci">juce::var toVar(Type &amp;object)</div><div class="ttdoc">Implement this function and fromVar() for any custom type to allow easily serialization using TreeRef...</div><div class="ttdef"><b>Definition:</b> VarConversion.h:46</div></div>
 <div class="ttc" id="astructlemons_1_1SerializableData_html"><div class="ttname"><a href="structlemons_1_1SerializableData.html">lemons::SerializableData</a></div><div class="ttdoc">Base class for any C++ object that needs to be serialized to binary and back.</div><div class="ttdef"><b>Definition:</b> SerializableData.h:12</div></div>
 <div class="ttc" id="astructlemons_1_1serializing_1_1ContainerInterface_html"><div class="ttname"><a href="structlemons_1_1serializing_1_1ContainerInterface.html">lemons::serializing::ContainerInterface</a></div><div class="ttdoc">Interface that defines how a TreeReflector can resize a given container during deserialization.</div><div class="ttdef"><b>Definition:</b> ContainerInterface.h:13</div></div>
-<div class="ttc" id="astructlemons_1_1TreeReflector_html_aa0c4f2b619acd9a3287a1f27d4c23883"><div class="ttname"><a href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883">lemons::TreeReflector::add</a></div><div class="ttdeci">void add(const String &amp;propertyName, Type &amp;object)</div><div class="ttdoc">Binds a named ValueTree property to a data member of your object.</div><div class="ttdef"><b>Definition:</b> Common/lemons_serializing/SerializableData/TreeReflector/detail.h:9</div></div>
+<div class="ttc" id="astructlemons_1_1TreeReflector_html_aa0c4f2b619acd9a3287a1f27d4c23883"><div class="ttname"><a href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883">lemons::TreeReflector::add</a></div><div class="ttdeci">void add(const String &amp;propertyName, Type &amp;object)</div><div class="ttdoc">Binds a named ValueTree property to a data member of your object.</div><div class="ttdef"><b>Definition:</b> detail.h:9</div></div>
 <div class="ttc" id="anamespacelemons_html"><div class="ttname"><a href="namespacelemons.html">lemons</a></div><div class="ttdef"><b>Definition:</b> DefaultWindow.h:6</div></div>
 <div class="ttc" id="anamespacelemons_1_1serializing_html_a947d1fd48af7f4413f461f6c741d5fc2"><div class="ttname"><a href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2">lemons::serializing::getInterfaceForContainer</a></div><div class="ttdeci">std::unique_ptr&lt; ContainerInterface &gt; getInterfaceForContainer(ContainerType &amp;)</div><div class="ttdoc">Template function that returns an instance of the correct ContainerInterface for the given container.</div></div>
 <div class="ttc" id="anamespacelemons_1_1serializing_html_abd30f255b2b10402a940e2260f7ede3b"><div class="ttname"><a href="namespacelemons_1_1serializing.html#abd30f255b2b10402a940e2260f7ede3b">lemons::serializing::fromVar</a></div><div class="ttdeci">Type fromVar(juce::var var)</div><div class="ttdoc">Implement this function and toVar() for any custom type to allow easily serialization using TreeRefle...</div><div class="ttdef"><b>Definition:</b> VarConversion.h:92</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 5 2021 20:59:37 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 5 2021 21:48:57 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

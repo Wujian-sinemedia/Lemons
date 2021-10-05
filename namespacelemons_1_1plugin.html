@@ -89,6 +89,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A plugin state class that instantiates the appropriate <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a> and custom serializable object and passes them to the <a class="el" href="classlemons_1_1plugin_1_1StateBase.html" title="Base class for a plugin&#39;s state.">StateBase</a> class for you.  <a href="structlemons_1_1plugin_1_1CustomState.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1EditorBase.html">EditorBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for plugin editors.  <a href="classlemons_1_1plugin_1_1EditorBase.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1FloatAmountParameter.html">FloatAmountParameter</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A parameter that represents a value in a normalized 0-1 range.  <a href="structlemons_1_1plugin_1_1FloatAmountParameter.html#details">More...</a><br /></td></tr>
@@ -103,8 +104,10 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A parameter that represents a gain value in decibels.  <a href="structlemons_1_1plugin_1_1GainParameter.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1GUI.html">GUI</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for plugin <a class="el" href="classlemons_1_1plugin_1_1GUI.html" title="Base class for plugin GUI&#39;s.">GUI</a>'s.  <a href="classlemons_1_1plugin_1_1GUI.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1GUIBase.html">GUIBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for all plugin <a class="el" href="classlemons_1_1plugin_1_1GUI.html" title="Base class for plugin GUI&#39;s.">GUI</a>'s.  <a href="classlemons_1_1plugin_1_1GUIBase.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1MeterParameter.html">MeterParameter</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A parameter that represents a general kind of meter, used for reporting things like level or gain reduction back to the DAW.  <a href="structlemons_1_1plugin_1_1MeterParameter.html#details">More...</a><br /></td></tr>
@@ -139,6 +142,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A parameter that represents an integer value in the range 0-100.  <a href="structlemons_1_1plugin_1_1PercentParameter.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1PluginEditor.html">PluginEditor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for a plugin editor that instantiates the owned content for you.  <a href="classlemons_1_1plugin_1_1PluginEditor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1PluginState.html">PluginState</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the top-level state of a plugin as a whole.  <a href="structlemons_1_1plugin_1_1PluginState.html#details">More...</a><br /></td></tr>
@@ -156,9 +160,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for a plugin processor.  <a href="classlemons_1_1plugin_1_1ProcessorBase.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1ProcessorWithEditor.html">ProcessorWithEditor</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A processor class that has a <a class="el" href="classlemons_1_1plugin_1_1GUI.html">GUI</a> editor.  <a href="structlemons_1_1plugin_1_1ProcessorWithEditor.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1RealtimeStateObject.html">RealtimeStateObject</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A processor class that has a <a class="el" href="classlemons_1_1plugin_1_1GUI.html" title="Base class for plugin GUI&#39;s.">GUI</a> editor.  <a href="structlemons_1_1plugin_1_1ProcessorWithEditor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1SecondsParameter.html">SecondsParameter</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A parameter that represents a time value in seconds, expressed as a float.  <a href="structlemons_1_1plugin_1_1SecondsParameter.html#details">More...</a><br /></td></tr>
@@ -296,12 +298,12 @@ template&lt;template&lt; typename SampleType &gt; class EngineType&gt; </div>
 </div>
 </div><!-- contents -->
 <div class="ttc" id="aclasslemons_1_1plugin_1_1Processor_html"><div class="ttname"><a href="classlemons_1_1plugin_1_1Processor.html">lemons::plugin::Processor</a></div><div class="ttdoc">A processor class for a plugin that can simply be told the state type and engine type,...</div><div class="ttdef"><b>Definition:</b> Processors.h:41</div></div>
-<div class="ttc" id="aclasslemons_1_1plugin_1_1StateBase_html"><div class="ttname"><a href="classlemons_1_1plugin_1_1StateBase.html">lemons::plugin::StateBase</a></div><div class="ttdoc">Base class for a plugin's state.</div><div class="ttdef"><b>Definition:</b> state.h:23</div></div>
+<div class="ttc" id="aclasslemons_1_1plugin_1_1StateBase_html"><div class="ttname"><a href="classlemons_1_1plugin_1_1StateBase.html">lemons::plugin::StateBase</a></div><div class="ttdoc">Base class for a plugin's state.</div><div class="ttdef"><b>Definition:</b> state.h:22</div></div>
 <div class="ttc" id="aclasslemons_1_1dsp_1_1Engine_html"><div class="ttname"><a href="classlemons_1_1dsp_1_1Engine.html">lemons::dsp::Engine</a></div><div class="ttdoc">Base class for an audio engine.</div><div class="ttdef"><b>Definition:</b> AudioEngine.h:11</div></div>
 <div class="ttc" id="anamespacelemons_html"><div class="ttname"><a href="namespacelemons.html">lemons</a></div><div class="ttdef"><b>Definition:</b> DefaultWindow.h:6</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 5 2021 20:59:37 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 5 2021 21:48:57 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

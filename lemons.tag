@@ -154,13 +154,6 @@
     <namespace>lemons::gui</namespace>
   </compound>
   <compound kind="file">
-    <name>CASLoop.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_parameters/RealtimeStateObject/</path>
-    <filename>CASLoop_8h.html</filename>
-    <class kind="struct">lemons::CASLoop</class>
-    <namespace>lemons</namespace>
-  </compound>
-  <compound kind="file">
     <name>ChoosableOscillator.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_oscillators/choosable/</path>
     <filename>ChoosableOscillator_8h.html</filename>
@@ -301,31 +294,12 @@
     <namespace>lemons::dsp::FX</namespace>
   </compound>
   <compound kind="file">
-    <name>Common/lemons_serializing/SerializableData/TreeReflector/detail.h</name>
+    <name>detail.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/</path>
-    <filename>Common_2lemons__serializing_2SerializableData_2TreeReflector_2detail_8h.html</filename>
+    <filename>detail_8h.html</filename>
     <includes id="Juce__containers_8h" name="Juce_containers.h" local="no" imported="no">lemons_serializing/Serializing/Specializations/containers/Juce_containers.h</includes>
     <includes id="STL__containers_8h" name="STL_containers.h" local="no" imported="no">lemons_serializing/Serializing/Specializations/containers/STL_containers.h</includes>
     <namespace>lemons</namespace>
-  </compound>
-  <compound kind="file">
-    <name>Plugins/lemons_plugin_parameters/RealtimeStateObject/detail.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_parameters/RealtimeStateObject/</path>
-    <filename>Plugins_2lemons__plugin__parameters_2RealtimeStateObject_2detail_8h.html</filename>
-    <class kind="struct">lemons::plugin::RealtimeStateObject::NonrealtimeScopedRead</class>
-    <class kind="struct">lemons::plugin::RealtimeStateObject::NonrealtimeScopedWrite</class>
-    <class kind="struct">lemons::plugin::RealtimeStateObject::RealtimeScopedRead</class>
-    <class kind="struct">lemons::plugin::RealtimeStateObject::RealtimeScopedWrite</class>
-    <class kind="class">lemons::plugin::RealtimeStateObject::ThreadState</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-    <member kind="define">
-      <type>#define</type>
-      <name>BV_RTSO_IMPLEMENT_RAII_HELPER</name>
-      <anchorfile>Plugins_2lemons__plugin__parameters_2RealtimeStateObject_2detail_8h.html</anchorfile>
-      <anchor>a9ab9b777421abb0a8224fe240907f961</anchor>
-      <arglist>(Class)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>DryWet.h</name>
@@ -1035,7 +1009,7 @@
   </compound>
   <compound kind="file">
     <name>ModulationManager.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_parameters/ModulationManager/</path>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/ModulationManager/</path>
     <filename>ModulationManager_8h.html</filename>
     <class kind="struct">lemons::plugin::ModulationManager::LFO</class>
     <class kind="class">lemons::plugin::ModulationManager</class>
@@ -1173,7 +1147,7 @@
   </compound>
   <compound kind="file">
     <name>Parameter.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_parameters/parameters/</path>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/parameters/</path>
     <filename>Parameter_8h.html</filename>
     <class kind="struct">lemons::plugin::Parameter::Listener</class>
     <class kind="class">lemons::plugin::Parameter</class>
@@ -1182,7 +1156,7 @@
   </compound>
   <compound kind="file">
     <name>ParameterHolder.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_parameters/ParameterList/</path>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/parameters/utils/</path>
     <filename>ParameterHolder_8h.html</filename>
     <class kind="class">lemons::plugin::ParameterHolder</class>
     <class kind="struct">lemons::plugin::ParamHolderBase</class>
@@ -1275,9 +1249,8 @@
   </compound>
   <compound kind="file">
     <name>ParameterList.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_parameters/ParameterList/</path>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/parameters/</path>
     <filename>ParameterList_8h.html</filename>
-    <includes id="ParameterHolder_8h" name="ParameterHolder.h" local="yes" imported="no">ParameterHolder.h</includes>
     <class kind="struct">lemons::plugin::ParameterList::Listener</class>
     <class kind="class">lemons::plugin::ParameterList</class>
     <namespace>lemons</namespace>
@@ -1285,7 +1258,7 @@
   </compound>
   <compound kind="file">
     <name>ParameterProcessor.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_parameters/processor/</path>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/parameters/utils/</path>
     <filename>ParameterProcessor_8h.html</filename>
     <class kind="class">lemons::plugin::ParameterProcessor</class>
     <namespace>lemons</namespace>
@@ -1293,7 +1266,7 @@
   </compound>
   <compound kind="file">
     <name>ParameterTypes.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_parameters/parameters/</path>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/parameters/</path>
     <filename>ParameterTypes_8h.html</filename>
     <class kind="struct">lemons::plugin::BoolParameter</class>
     <class kind="struct">lemons::plugin::TypedParameter::Listener</class>
@@ -1317,7 +1290,7 @@
   </compound>
   <compound kind="file">
     <name>ParamUpdater.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_parameters/utils/</path>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/parameters/utils/</path>
     <filename>ParamUpdater_8h.html</filename>
     <class kind="struct">lemons::plugin::ParamUpdater</class>
     <namespace>lemons</namespace>
@@ -1499,16 +1472,6 @@
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::psola</namespace>
-  </compound>
-  <compound kind="file">
-    <name>RealtimeStateObject.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_parameters/RealtimeStateObject/</path>
-    <filename>RealtimeStateObject_8h.html</filename>
-    <includes id="CASLoop_8h" name="CASLoop.h" local="yes" imported="no">CASLoop.h</includes>
-    <includes id="Plugins_2lemons__plugin__parameters_2RealtimeStateObject_2detail_8h" name="Plugins/lemons_plugin_parameters/RealtimeStateObject/detail.h" local="yes" imported="no">detail.h</includes>
-    <class kind="class">lemons::plugin::RealtimeStateObject</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
   </compound>
   <compound kind="file">
     <name>Reverb.h</name>
@@ -1785,7 +1748,7 @@
   </compound>
   <compound kind="file">
     <name>Specializations.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_parameters/parameters/</path>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/parameters/</path>
     <filename>Specializations_8h.html</filename>
     <class kind="struct">lemons::plugin::FloatAmountParameter</class>
     <class kind="struct">lemons::plugin::FrequencyParameter</class>
@@ -1978,6 +1941,7 @@
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/toggler/</path>
     <filename>Toggler_8h.html</filename>
     <class kind="struct">lemons::serializing::Toggler</class>
+    <class kind="struct">lemons::serializing::TogglerInterface</class>
     <namespace>lemons</namespace>
     <namespace>lemons::serializing</namespace>
   </compound>
@@ -1985,7 +1949,7 @@
     <name>TreeReflector.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/</path>
     <filename>TreeReflector_8h.html</filename>
-    <includes id="Common_2lemons__serializing_2SerializableData_2TreeReflector_2detail_8h" name="Common/lemons_serializing/SerializableData/TreeReflector/detail.h" local="yes" imported="no">detail.h</includes>
+    <includes id="detail_8h" name="detail.h" local="yes" imported="no">detail.h</includes>
     <class kind="struct">lemons::TreeLoader</class>
     <class kind="struct">lemons::TreeReflector</class>
     <class kind="struct">lemons::TreeSaver</class>
@@ -3048,39 +3012,6 @@
       <name>trigger</name>
       <anchorfile>classlemons_1_1events_1_1Broadcaster.html</anchorfile>
       <anchor>a18e757d8b68175557b8fec8a2c918947</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
-    <name>lemons::CASLoop</name>
-    <filename>structlemons_1_1CASLoop.html</filename>
-    <templarg></templarg>
-    <member kind="function">
-      <type></type>
-      <name>CASLoop</name>
-      <anchorfile>structlemons_1_1CASLoop.html</anchorfile>
-      <anchor>abc467789e6d448e7e1cc43f28cc116c0</anchor>
-      <arglist>(OwnedObjectType &amp;objectToReference)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>cool_swap</name>
-      <anchorfile>structlemons_1_1CASLoop.html</anchorfile>
-      <anchor>a606418b9091ed8e5bd0a0fd6a3913620</anchor>
-      <arglist>(OwnedObjectType &amp;newObject)</arglist>
-    </member>
-    <member kind="function">
-      <type>OwnedObjectType &amp;</type>
-      <name>hot_acquire</name>
-      <anchorfile>structlemons_1_1CASLoop.html</anchorfile>
-      <anchor>a75c85e6ac794f038ffbfdffa2a80cfe2</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>hot_release</name>
-      <anchorfile>structlemons_1_1CASLoop.html</anchorfile>
-      <anchor>a08a28c64a5833a026038bd4898a88042</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
@@ -6885,6 +6816,13 @@
     <filename>classlemons_1_1plugin_1_1GUI.html</filename>
     <templarg></templarg>
     <base>lemons::plugin::GUIBase</base>
+    <member kind="typedef">
+      <type>serializing::TogglerInterface</type>
+      <name>Toggle</name>
+      <anchorfile>classlemons_1_1plugin_1_1GUIBase.html</anchorfile>
+      <anchor>a17b324db523918e374ef27e2941532d9</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>GUI</name>
@@ -6897,6 +6835,34 @@
       <name>state</name>
       <anchorfile>classlemons_1_1plugin_1_1GUI.html</anchorfile>
       <anchor>ab3aa4183884b14a9f09d0a99373576ae</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>StateBase &amp;</type>
+      <name>stateBase</name>
+      <anchorfile>classlemons_1_1plugin_1_1GUIBase.html</anchorfile>
+      <anchor>a282b917402312585cff6316028b9f5a8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>Toggle &amp;</type>
+      <name>toggleInterface</name>
+      <anchorfile>classlemons_1_1plugin_1_1GUIBase.html</anchorfile>
+      <anchor>a97a9230b68c4c1b831376c23f511047b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>StateToggles &amp;</type>
+      <name>toggles</name>
+      <anchorfile>classlemons_1_1plugin_1_1GUI.html</anchorfile>
+      <anchor>a13961f3701f21f144ca5e7a4cdb23034</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::TooltipWindow</type>
+      <name>tooltipWindow</name>
+      <anchorfile>classlemons_1_1plugin_1_1GUIBase.html</anchorfile>
+      <anchor>ad2e032dba9ae1e80997bd38a2fc87561</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -6966,12 +6932,40 @@
   <compound kind="class">
     <name>lemons::plugin::GUIBase</name>
     <filename>classlemons_1_1plugin_1_1GUIBase.html</filename>
+    <member kind="typedef">
+      <type>serializing::TogglerInterface</type>
+      <name>Toggle</name>
+      <anchorfile>classlemons_1_1plugin_1_1GUIBase.html</anchorfile>
+      <anchor>a17b324db523918e374ef27e2941532d9</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>GUIBase</name>
       <anchorfile>classlemons_1_1plugin_1_1GUIBase.html</anchorfile>
-      <anchor>ab1e9e2a8ecaeed463b99cb500fd83c25</anchor>
-      <arglist>(UndoManager &amp;undoToUse)</arglist>
+      <anchor>a799d3172c166fabd0af9a237b5a5540f</anchor>
+      <arglist>(UndoManager &amp;undoToUse, StateBase &amp;stateBaseToUse, Toggle &amp;toggleInterfaceToUse)</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>StateBase &amp;</type>
+      <name>stateBase</name>
+      <anchorfile>classlemons_1_1plugin_1_1GUIBase.html</anchorfile>
+      <anchor>a282b917402312585cff6316028b9f5a8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>Toggle &amp;</type>
+      <name>toggleInterface</name>
+      <anchorfile>classlemons_1_1plugin_1_1GUIBase.html</anchorfile>
+      <anchor>a97a9230b68c4c1b831376c23f511047b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>juce::TooltipWindow</type>
+      <name>tooltipWindow</name>
+      <anchorfile>classlemons_1_1plugin_1_1GUIBase.html</anchorfile>
+      <anchor>ad2e032dba9ae1e80997bd38a2fc87561</anchor>
+      <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>UndoManager &amp;</type>
@@ -8135,13 +8129,6 @@
       <arglist>(Parameter &amp;parameter)</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
-      <name>removeInvalidConnections</name>
-      <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
-      <anchor>a724bad76df91b30e4d771e37524ff2b8</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
       <type>ValueTree</type>
       <name>serialize</name>
       <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
@@ -8287,24 +8274,6 @@
     </member>
   </compound>
   <compound kind="struct">
-    <name>lemons::plugin::ParameterList::Listener</name>
-    <filename>structlemons_1_1plugin_1_1ParameterList_1_1Listener.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>Listener</name>
-      <anchorfile>structlemons_1_1plugin_1_1ParameterList_1_1Listener.html</anchorfile>
-      <anchor>a0e86dfe60459f8e220cd618332447bea</anchor>
-      <arglist>(ParameterList &amp;list, std::function&lt; void(Parameter &amp;) &gt; onParamChange, std::function&lt; void(Parameter &amp;, bool) &gt; onGestureGhange={}, bool includeInternalParams=true)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~Listener</name>
-      <anchorfile>structlemons_1_1plugin_1_1ParameterList_1_1Listener.html</anchorfile>
-      <anchor>a99b184f24e28c6542a1998153ef3479c</anchor>
-      <arglist>()=default</arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
     <name>lemons::plugin::Parameter::Listener</name>
     <filename>structlemons_1_1plugin_1_1Parameter_1_1Listener.html</filename>
     <member kind="function">
@@ -8348,6 +8317,24 @@
       <anchorfile>structlemons_1_1plugin_1_1Parameter_1_1Listener.html</anchorfile>
       <anchor>ac230d1860fb4068115e7d10285b27669</anchor>
       <arglist>(float newNormalizedValue)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::plugin::ParameterList::Listener</name>
+    <filename>structlemons_1_1plugin_1_1ParameterList_1_1Listener.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Listener</name>
+      <anchorfile>structlemons_1_1plugin_1_1ParameterList_1_1Listener.html</anchorfile>
+      <anchor>a0e86dfe60459f8e220cd618332447bea</anchor>
+      <arglist>(ParameterList &amp;list, std::function&lt; void(Parameter &amp;) &gt; onParamChange, std::function&lt; void(Parameter &amp;, bool) &gt; onGestureGhange={}, bool includeInternalParams=true)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~Listener</name>
+      <anchorfile>structlemons_1_1plugin_1_1ParameterList_1_1Listener.html</anchorfile>
+      <anchor>a99b184f24e28c6542a1998153ef3479c</anchor>
+      <arglist>()=default</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -9969,13 +9956,6 @@
       <arglist>(int numSamples)</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
-      <name>removeAllInvalidConnections</name>
-      <anchorfile>classlemons_1_1plugin_1_1ModulationManager.html</anchorfile>
-      <anchor>a11ad2d045a25400e070ef9effc8f09eb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
       <type>ValueTree</type>
       <name>serialize</name>
       <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
@@ -10888,44 +10868,6 @@
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1NoiseGate.html</anchorfile>
       <anchor>aa54a1eff131c0b0a6196104667145eee</anchor>
       <arglist>(float newThreshold_dB)</arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
-    <name>lemons::plugin::RealtimeStateObject::NonrealtimeScopedRead</name>
-    <filename>structlemons_1_1plugin_1_1RealtimeStateObject_1_1NonrealtimeScopedRead.html</filename>
-    <templarg></templarg>
-    <member kind="function">
-      <type></type>
-      <name>NonrealtimeScopedRead</name>
-      <anchorfile>structlemons_1_1plugin_1_1RealtimeStateObject_1_1NonrealtimeScopedRead.html</anchorfile>
-      <anchor>a5494a3bc5dce8bd522165a540ae58d42</anchor>
-      <arglist>(RealtimeStateObject &amp;state)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>~NonrealtimeScopedRead</name>
-      <anchorfile>structlemons_1_1plugin_1_1RealtimeStateObject_1_1NonrealtimeScopedRead.html</anchorfile>
-      <anchor>ae87e745ec4c2c6e4240d2399ec13b07e</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
-    <name>lemons::plugin::RealtimeStateObject::NonrealtimeScopedWrite</name>
-    <filename>structlemons_1_1plugin_1_1RealtimeStateObject_1_1NonrealtimeScopedWrite.html</filename>
-    <templarg></templarg>
-    <member kind="function">
-      <type></type>
-      <name>NonrealtimeScopedWrite</name>
-      <anchorfile>structlemons_1_1plugin_1_1RealtimeStateObject_1_1NonrealtimeScopedWrite.html</anchorfile>
-      <anchor>a0df8e067d2e7e6d62af1ad6cb60965d0</anchor>
-      <arglist>(RealtimeStateObject &amp;state)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>~NonrealtimeScopedWrite</name>
-      <anchorfile>structlemons_1_1plugin_1_1RealtimeStateObject_1_1NonrealtimeScopedWrite.html</anchorfile>
-      <anchor>a26336ad61ca17d1c489b9e3cb797a25e</anchor>
-      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -14588,124 +14530,6 @@
     </member>
   </compound>
   <compound kind="struct">
-    <name>lemons::plugin::RealtimeStateObject::RealtimeScopedRead</name>
-    <filename>structlemons_1_1plugin_1_1RealtimeStateObject_1_1RealtimeScopedRead.html</filename>
-    <templarg></templarg>
-    <member kind="function">
-      <type></type>
-      <name>RealtimeScopedRead</name>
-      <anchorfile>structlemons_1_1plugin_1_1RealtimeStateObject_1_1RealtimeScopedRead.html</anchorfile>
-      <anchor>a97de94245c451926af3ba8ba6b1acd1f</anchor>
-      <arglist>(RealtimeStateObject &amp;state)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>~RealtimeScopedRead</name>
-      <anchorfile>structlemons_1_1plugin_1_1RealtimeStateObject_1_1RealtimeScopedRead.html</anchorfile>
-      <anchor>a148f52035cac72bfd4ec74417ff5cde0</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
-    <name>lemons::plugin::RealtimeStateObject::RealtimeScopedWrite</name>
-    <filename>structlemons_1_1plugin_1_1RealtimeStateObject_1_1RealtimeScopedWrite.html</filename>
-    <templarg></templarg>
-    <member kind="function">
-      <type></type>
-      <name>RealtimeScopedWrite</name>
-      <anchorfile>structlemons_1_1plugin_1_1RealtimeStateObject_1_1RealtimeScopedWrite.html</anchorfile>
-      <anchor>a6013c3026eca213176aac6ef43592348</anchor>
-      <arglist>(RealtimeStateObject &amp;state)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>~RealtimeScopedWrite</name>
-      <anchorfile>structlemons_1_1plugin_1_1RealtimeStateObject_1_1RealtimeScopedWrite.html</anchorfile>
-      <anchor>af3a6a5ebe2d0c96fe25d9c097514d292</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>lemons::plugin::RealtimeStateObject</name>
-    <filename>classlemons_1_1plugin_1_1RealtimeStateObject.html</filename>
-    <templarg></templarg>
-    <class kind="struct">lemons::plugin::RealtimeStateObject::NonrealtimeScopedRead</class>
-    <class kind="struct">lemons::plugin::RealtimeStateObject::NonrealtimeScopedWrite</class>
-    <class kind="struct">lemons::plugin::RealtimeStateObject::RealtimeScopedRead</class>
-    <class kind="struct">lemons::plugin::RealtimeStateObject::RealtimeScopedWrite</class>
-    <class kind="class">lemons::plugin::RealtimeStateObject::ThreadState</class>
-    <member kind="function">
-      <type></type>
-      <name>RealtimeStateObject</name>
-      <anchorfile>classlemons_1_1plugin_1_1RealtimeStateObject.html</anchorfile>
-      <anchor>a64a0c7425088104d3f190903b5a2ea10</anchor>
-      <arglist>(Args &amp;&amp;... args)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~RealtimeStateObject</name>
-      <anchorfile>classlemons_1_1plugin_1_1RealtimeStateObject.html</anchorfile>
-      <anchor>a0f91b2f5593c9c0dd6d17137bf3f86aa</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type>NonrealtimeScopedRead</type>
-      <name>nonrealtimeRead</name>
-      <anchorfile>classlemons_1_1plugin_1_1RealtimeStateObject.html</anchorfile>
-      <anchor>a862f87bd9ebf895cd17b945195298558</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>NonrealtimeScopedWrite</type>
-      <name>nonrealtimeWrite</name>
-      <anchorfile>classlemons_1_1plugin_1_1RealtimeStateObject.html</anchorfile>
-      <anchor>a03448aa9c7cead2d1a35549272912f5a</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>RealtimeScopedRead</type>
-      <name>realtimeRead</name>
-      <anchorfile>classlemons_1_1plugin_1_1RealtimeStateObject.html</anchorfile>
-      <anchor>aee5fe33278ba259110cd74c91caf4812</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>RealtimeScopedWrite</type>
-      <name>realtimeWrite</name>
-      <anchorfile>classlemons_1_1plugin_1_1RealtimeStateObject.html</anchorfile>
-      <anchor>aa000d353a31a6f5d15821df666be28ec</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="friend" protection="private">
-      <type>friend struct</type>
-      <name>NonrealtimeScopedRead</name>
-      <anchorfile>classlemons_1_1plugin_1_1RealtimeStateObject.html</anchorfile>
-      <anchor>acbda82eddf7eb4aad1857b5dfa6e1330</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="friend" protection="private">
-      <type>friend struct</type>
-      <name>NonrealtimeScopedWrite</name>
-      <anchorfile>classlemons_1_1plugin_1_1RealtimeStateObject.html</anchorfile>
-      <anchor>a2caab23b070cfc689344dbd2ca931ae0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="friend" protection="private">
-      <type>friend struct</type>
-      <name>RealtimeScopedRead</name>
-      <anchorfile>classlemons_1_1plugin_1_1RealtimeStateObject.html</anchorfile>
-      <anchor>ad24018bcf91ab6bc0aef109c7cbb2927</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="friend" protection="private">
-      <type>friend struct</type>
-      <name>RealtimeScopedWrite</name>
-      <anchorfile>classlemons_1_1plugin_1_1RealtimeStateObject.html</anchorfile>
-      <anchor>a945392623dd2065dddfa0bddfa375960</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
     <name>lemons::events::Broadcaster::Reciever</name>
     <filename>structlemons_1_1events_1_1Broadcaster_1_1Reciever.html</filename>
     <member kind="function">
@@ -18176,39 +18000,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>lemons::plugin::RealtimeStateObject::ThreadState</name>
-    <filename>classlemons_1_1plugin_1_1RealtimeStateObject_1_1ThreadState.html</filename>
-    <templarg></templarg>
-    <member kind="function">
-      <type></type>
-      <name>ThreadState</name>
-      <anchorfile>classlemons_1_1plugin_1_1RealtimeStateObject_1_1ThreadState.html</anchorfile>
-      <anchor>a401ac90fdf0b8e47ccd4d5193066d467</anchor>
-      <arglist>(Args &amp;&amp;... args)</arglist>
-    </member>
-    <member kind="function">
-      <type>OwnedObjectType &amp;</type>
-      <name>acquire</name>
-      <anchorfile>classlemons_1_1plugin_1_1RealtimeStateObject_1_1ThreadState.html</anchorfile>
-      <anchor>af5129cd485710abbd256d2aefc300306</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>copyFrom</name>
-      <anchorfile>classlemons_1_1plugin_1_1RealtimeStateObject_1_1ThreadState.html</anchorfile>
-      <anchor>a84ff2d35006858a415972b1f01131eb3</anchor>
-      <arglist>(OwnedObjectType &amp;source)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>release</name>
-      <anchorfile>classlemons_1_1plugin_1_1RealtimeStateObject_1_1ThreadState.html</anchorfile>
-      <anchor>a79d142ea2a2401e153366c1060552f0f</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>lemons::dsp::synth::TimbreMod</name>
     <filename>classlemons_1_1dsp_1_1synth_1_1TimbreMod.html</filename>
     <templarg></templarg>
@@ -18669,7 +18460,7 @@
     <name>lemons::serializing::Toggler</name>
     <filename>structlemons_1_1serializing_1_1Toggler.html</filename>
     <templarg>numStates</templarg>
-    <base>lemons::SerializableData</base>
+    <base>lemons::serializing::TogglerInterface</base>
     <member kind="function">
       <type></type>
       <name>Toggler</name>
@@ -18685,18 +18476,18 @@
       <arglist>(const ValueTree &amp;tree)</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
+      <type>bool</type>
       <name>loadState</name>
       <anchorfile>structlemons_1_1serializing_1_1Toggler.html</anchorfile>
-      <anchor>a3d93c33b004891371de96c167c1ef30c</anchor>
-      <arglist>(size_t num)</arglist>
+      <anchor>af7d7fe1120dc768c0f4ad45f72a0452f</anchor>
+      <arglist>(size_t num) final</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
+      <type>bool</type>
       <name>saveState</name>
       <anchorfile>structlemons_1_1serializing_1_1Toggler.html</anchorfile>
-      <anchor>a4f80d8bf1fef8568bee78ace27b26f59</anchor>
-      <arglist>(size_t num)</arglist>
+      <anchor>a6f5aac64ca3f8b96371c4168096cf446</anchor>
+      <arglist>(size_t num) final</arglist>
     </member>
     <member kind="function">
       <type>ValueTree</type>
@@ -18716,7 +18507,7 @@
   <compound kind="class">
     <name>Toggler&lt; 3 &gt;</name>
     <filename>structlemons_1_1serializing_1_1Toggler.html</filename>
-    <base>lemons::SerializableData</base>
+    <base>lemons::serializing::TogglerInterface</base>
     <member kind="function">
       <type></type>
       <name>Toggler</name>
@@ -18732,18 +18523,18 @@
       <arglist>(const ValueTree &amp;tree)</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
+      <type>bool</type>
       <name>loadState</name>
       <anchorfile>structlemons_1_1serializing_1_1Toggler.html</anchorfile>
-      <anchor>a3d93c33b004891371de96c167c1ef30c</anchor>
-      <arglist>(size_t num)</arglist>
+      <anchor>af7d7fe1120dc768c0f4ad45f72a0452f</anchor>
+      <arglist>(size_t num) final</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
+      <type>bool</type>
       <name>saveState</name>
       <anchorfile>structlemons_1_1serializing_1_1Toggler.html</anchorfile>
-      <anchor>a4f80d8bf1fef8568bee78ace27b26f59</anchor>
-      <arglist>(size_t num)</arglist>
+      <anchor>a6f5aac64ca3f8b96371c4168096cf446</anchor>
+      <arglist>(size_t num) final</arglist>
     </member>
     <member kind="function">
       <type>ValueTree</type>
@@ -18758,6 +18549,39 @@
       <anchorfile>structlemons_1_1serializing_1_1Toggler.html</anchorfile>
       <anchor>ab9ce11ec0120c1e9a21caba99889806b</anchor>
       <arglist>(UndoManager &amp;undoManager)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::serializing::TogglerInterface</name>
+    <filename>structlemons_1_1serializing_1_1TogglerInterface.html</filename>
+    <base>lemons::SerializableData</base>
+    <member kind="function">
+      <type>void</type>
+      <name>deserialize</name>
+      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
+      <anchor>ace1758cc9344ae03a6d01c3c218226de</anchor>
+      <arglist>(const ValueTree &amp;tree)</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual bool</type>
+      <name>loadState</name>
+      <anchorfile>structlemons_1_1serializing_1_1TogglerInterface.html</anchorfile>
+      <anchor>aabe7dc2034dcc9e1c8af72c83bd509ca</anchor>
+      <arglist>(size_t num)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual bool</type>
+      <name>saveState</name>
+      <anchorfile>structlemons_1_1serializing_1_1TogglerInterface.html</anchorfile>
+      <anchor>ab42d2137fde92ac7e01492734174707d</anchor>
+      <arglist>(size_t num)=0</arglist>
+    </member>
+    <member kind="function">
+      <type>ValueTree</type>
+      <name>serialize</name>
+      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
+      <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -20038,7 +19862,6 @@
     <namespace>lemons::serializing</namespace>
     <namespace>lemons::spline</namespace>
     <namespace>lemons::vecops</namespace>
-    <class kind="struct">lemons::CASLoop</class>
     <class kind="struct">lemons::DefaultWindow</class>
     <class kind="struct">lemons::DefaultWindowBase</class>
     <class kind="struct">lemons::DeviceRotation</class>
@@ -20743,7 +20566,6 @@
     <class kind="class">lemons::plugin::Processor</class>
     <class kind="class">lemons::plugin::ProcessorBase</class>
     <class kind="struct">lemons::plugin::ProcessorWithEditor</class>
-    <class kind="class">lemons::plugin::RealtimeStateObject</class>
     <class kind="struct">lemons::plugin::SecondsParameter</class>
     <class kind="struct">lemons::plugin::SemitonesParameter</class>
     <class kind="struct">lemons::plugin::State</class>
@@ -20817,6 +20639,7 @@
     <class kind="struct">lemons::serializing::STLContainerInterface</class>
     <class kind="struct">lemons::serializing::StringArrayInterface</class>
     <class kind="struct">lemons::serializing::Toggler</class>
+    <class kind="struct">lemons::serializing::TogglerInterface</class>
     <member kind="function">
       <type>void</type>
       <name>copy</name>
@@ -21500,14 +21323,9 @@
     <filename>group__lemons__midi-MidiUtilities.html</filename>
   </compound>
   <compound kind="group">
-    <name>lemons_plugin_parameters-ModulationManager</name>
+    <name>lemons_plugin-ModulationManager</name>
     <title>ModulationManager</title>
-    <filename>group__lemons__plugin__parameters-ModulationManager.html</filename>
-  </compound>
-  <compound kind="group">
-    <name>lemons_plugin_parameters-ParameterList</name>
-    <title>ParameterList</title>
-    <filename>group__lemons__plugin__parameters-ParameterList.html</filename>
+    <filename>group__lemons__plugin-ModulationManager.html</filename>
   </compound>
   <compound kind="group">
     <name>lemons_midi-PitchConverter</name>
@@ -21528,11 +21346,6 @@
     <name>lemons_plugin_gui-PresetBar</name>
     <title>PresetBar</title>
     <filename>group__lemons__plugin__gui-PresetBar.html</filename>
-  </compound>
-  <compound kind="group">
-    <name>lemons_plugin_parameters-RealtimeStateObject</name>
-    <title>RealtimeStateObject</title>
-    <filename>group__lemons__plugin__parameters-RealtimeStateObject.html</filename>
   </compound>
   <compound kind="group">
     <name>lemons_serializing-SerializableData</name>
@@ -21721,6 +21534,8 @@
     <title>lemons_plugin</title>
     <filename>group__lemons__plugin.html</filename>
     <subgroup>lemons_plugin-EditorBase</subgroup>
+    <subgroup>lemons_plugin-ModulationManager</subgroup>
+    <subgroup>lemons_plugin-parameters</subgroup>
     <subgroup>lemons_plugin-processors</subgroup>
     <subgroup>lemons_plugin-state</subgroup>
   </compound>
@@ -21731,17 +21546,6 @@
     <subgroup>lemons_plugin_gui-PresetBar</subgroup>
     <subgroup>lemons_plugin_gui-buttons</subgroup>
     <subgroup>lemons_plugin_gui-sliders</subgroup>
-  </compound>
-  <compound kind="group">
-    <name>lemons_plugin_parameters</name>
-    <title>lemons_plugin_parameters</title>
-    <filename>group__lemons__plugin__parameters.html</filename>
-    <subgroup>lemons_plugin_parameters-ModulationManager</subgroup>
-    <subgroup>lemons_plugin_parameters-ParameterList</subgroup>
-    <subgroup>lemons_plugin_parameters-RealtimeStateObject</subgroup>
-    <subgroup>lemons_plugin_parameters-parameters</subgroup>
-    <subgroup>lemons_plugin_parameters-processor</subgroup>
-    <subgroup>lemons_plugin_parameters-utils</subgroup>
   </compound>
   <compound kind="group">
     <name>lemons_plugin_presets</name>
@@ -21796,19 +21600,19 @@
     <filename>group__lemons__core-math.html</filename>
   </compound>
   <compound kind="group">
-    <name>lemons_core-misc</name>
-    <title>misc</title>
-    <filename>group__lemons__core-misc.html</filename>
-  </compound>
-  <compound kind="group">
     <name>lemons_audio_effects-misc</name>
     <title>misc</title>
     <filename>group__lemons__audio__effects-misc.html</filename>
   </compound>
   <compound kind="group">
-    <name>lemons_plugin_parameters-parameters</name>
+    <name>lemons_core-misc</name>
+    <title>misc</title>
+    <filename>group__lemons__core-misc.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_plugin-parameters</name>
     <title>parameters</title>
-    <filename>group__lemons__plugin__parameters-parameters.html</filename>
+    <filename>group__lemons__plugin-parameters.html</filename>
   </compound>
   <compound kind="group">
     <name>lemons_plugin_presets-preset_library</name>
@@ -21819,11 +21623,6 @@
     <name>lemons_plugin_presets-presets</name>
     <title>presets</title>
     <filename>group__lemons__plugin__presets-presets.html</filename>
-  </compound>
-  <compound kind="group">
-    <name>lemons_plugin_parameters-processor</name>
-    <title>processor</title>
-    <filename>group__lemons__plugin__parameters-processor.html</filename>
   </compound>
   <compound kind="group">
     <name>lemons_plugin-processors</name>
@@ -21879,11 +21678,6 @@
     <name>lemons_gui-utilities</name>
     <title>utilities</title>
     <filename>group__lemons__gui-utilities.html</filename>
-  </compound>
-  <compound kind="group">
-    <name>lemons_plugin_parameters-utils</name>
-    <title>utils</title>
-    <filename>group__lemons__plugin__parameters-utils.html</filename>
   </compound>
   <compound kind="group">
     <name>lemons_serializing-version</name>
