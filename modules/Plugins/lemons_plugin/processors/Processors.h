@@ -35,7 +35,7 @@ namespace lemons::plugin
         YourEngine (YourStateType&);
     };
     @endcode
-    @see ProcessorWithEditor, ProcessorBase, StateBase, dsp::Engine
+    @see ProcessorWithEditor, ProcessorBase, PluginState, StateBase, dsp::Engine
  */
 template < class StateType, template < typename SampleType > class EngineType, BV_MUST_INHERIT_FROM (StateType, StateBase), BV_MUST_INHERIT_FROM (EngineType< float >, dsp::Engine< float >) >
 class Processor : public ProcessorBase

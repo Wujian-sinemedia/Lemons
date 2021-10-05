@@ -32,4 +32,6 @@
 
 #include "undo/UndoManager.h"
 
+#include "toggler/Toggler.h"
+
 #include "DataSynchronizer/DataSynchronizer.h"

@@ -2,7 +2,7 @@
 namespace lemons::plugin
 {
 PresetBar::PresetBar (StateBase&    stateToUse,
-                      StateToggler& toggler,
+                      StateToggles& toggler,
                       const String& productName,
                       const String& presetFileExtension,
                       const String& companyName)

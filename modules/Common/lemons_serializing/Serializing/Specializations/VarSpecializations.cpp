@@ -20,6 +20,18 @@ std::string fromVar (juce::var var)
     return var.toString().toStdString();
 }
 
+template <>
+juce::var toVar (size_t& data)
+{
+    return {static_cast< int > (data)};
+}
+
+template <>
+size_t fromVar (juce::var var)
+{
+    return static_cast< size_t > ((int) var);
+}
+
 /*--------------------------------------- Memory blocks -------------------------------------------*/
 
 static inline String memoryBlockToString (const juce::MemoryBlock& block)

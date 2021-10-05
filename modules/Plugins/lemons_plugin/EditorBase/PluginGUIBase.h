@@ -5,14 +5,13 @@ namespace lemons::plugin
 class GUIBase : public juce::Component
 {
 public:
-    GUIBase (StateToggler& togglerToUse, UndoManager& undoToUse)
-        : stateToggler (togglerToUse), undoManager (undoToUse)
+    GUIBase (UndoManager& undoToUse)
+        : undoManager (undoToUse)
     {
     }
 
 protected:
-    StateToggler& stateToggler;
-    UndoManager&  undoManager;
+    UndoManager& undoManager;
 
 private:
     juce::TooltipWindow tooltipWindow {this, 700};
@@ -24,7 +23,7 @@ class GUI : public GUIBase
 {
 public:
     GUI (plugin::PluginState< StateType >& stateToUse)
-        : GUIBase (stateToUse.toggles, stateToUse.undo), state (stateToUse.state)
+        : GUIBase (stateToUse.undo), state (stateToUse.state)
     {
     }
 

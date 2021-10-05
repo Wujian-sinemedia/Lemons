@@ -1,7 +1,7 @@
 
 namespace lemons::plugin
 {
-StateToggleButtons::StateToggleButtons (StateToggler& togglerToUse)
+StateToggleButtons::StateToggleButtons (StateToggles& togglerToUse)
     : toggler (togglerToUse)
 {
     gui::addAndMakeVisible (this, a_button, b_button, c_button);
@@ -28,23 +28,6 @@ void StateToggleButtons::resized()
     }
 }
 
-void StateToggleButtons::A_ButtonPressed()
-{
-    toggler.saveLastSelectedState();
-    toggler.loadStateA();
-}
-
-void StateToggleButtons::B_ButtonPressed()
-{
-    toggler.saveLastSelectedState();
-    toggler.loadStateB();
-}
-
-void StateToggleButtons::C_ButtonPressed()
-{
-    toggler.saveLastSelectedState();
-    toggler.loadStateC();
-}
 
 bool StateToggleButtons::isVertical() const
 {

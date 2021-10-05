@@ -12,7 +12,7 @@ class PresetBar : public juce::Component
 {
 public:
     PresetBar (StateBase&    stateToUse,
-               StateToggler& toggler,
+               StateToggles& toggler,
                const String& productName,
                const String& presetFileExtension = ".bvpreset",
                const String& companyName         = "BenViningMusicSoftware");

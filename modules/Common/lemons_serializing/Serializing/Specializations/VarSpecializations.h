@@ -6,6 +6,14 @@ namespace lemons::serializing
 template <>
 String fromVar (juce::var var);
 
+/** Serializes a size_t. */
+template <>
+juce::var toVar (size_t& data);
+
+/** Serializes a size_t. */
+template <>
+size_t fromVar (juce::var var);
+
 /** Serializes a float Point. */
 template <>
 juce::var toVar (juce::Point< float >& point);

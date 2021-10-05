@@ -8,13 +8,17 @@ namespace lemons::plugin
 using Dimensions = juce::Point< int >;
 
 
+/** The default plugin state toggler has 3 states, A/B/C. */
+using StateToggles = serializing::Toggler< 3 >;
+
+
 /** Base class for a plugin's state.
     This class references a ParameterList that you give it; you can also specify another SerializableData object to be serialized with your plugin state. This class internally holds a Dimensions (juce::Point representing the plugin editor's size), and a ModulationManager object that will reference the plugin's ParameterList. \n
     \n
     This class will automatically add a master bypass ToggleParam to your parameter list.
     \n
     I recommed using the templated State or CustomState classes; they handle creating your parameter list and custom serializable data objects and passing them to the base class.
-    @see State, CustomState, ParameterList, ModulationManager, Dimensions, StateToggler
+    @see State, CustomState, PluginState, ParameterList, ModulationManager, Dimensions, StateToggler
  */
 class StateBase : public SerializableData
 {
@@ -79,12 +83,15 @@ protected:
     using MyPluginState = plugin::State< MyParams >;
     @endcode
     @tparam ParamListType The type of parameter list to use for your plugin. This type must inherit from ParameterList and must be default-constructable.
-    @see CustomState, StateBase, ParameterList
+    @see CustomState, PluginState, StateBase, ParameterList
  */
 template < typename ParamListType,
            BV_MUST_INHERIT_FROM (ParamListType, ParameterList) >
 struct State : StateBase
 {
+    /** Creates a new plugin state.
+        @param pluginName The name of this plugin.
+     */
     State (String pluginName)
         : StateBase (pluginName, parameters)
     {
@@ -131,12 +138,16 @@ struct State : StateBase
     @endcode
     @tparam ParamListType The type of parameter list to use for your plugin. This type must inherit from ParameterList and must be default-constructable.
     @tparam CustomDataType The type of custom serializable object to use for your plugin. This type must inherit from SerializableData and must be default-constructable.
+    @see State, PluginState, StateBase, ParameterList
  */
 template < typename ParamListType, typename CustomDataType,
            BV_MUST_INHERIT_FROM (ParamListType, ParameterList),
            BV_MUST_INHERIT_FROM (CustomDataType, SerializableData) >
 struct CustomState : StateBase
 {
+    /** Creates a new plugin state.
+        @param pluginName The name of this plugin.
+     */
     CustomState (String pluginName)
         : StateBase (pluginName, parameters, &customData)
     {
