@@ -64,7 +64,7 @@ void UndoManager::beginNewTransaction (const String& name, bool force)
 
     if (! changing && ! name.isEmpty())
     {
-        transactionName = name;
+        transactionName = TRANS (name);
     }
 
     changing = true;

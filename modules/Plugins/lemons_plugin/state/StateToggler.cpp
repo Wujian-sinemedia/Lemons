@@ -50,24 +50,24 @@ void StateToggler::saveLastSelectedState()
     }
 }
 
-#define bvst_implement_load_state_func(valueTreeName, number) \
-    UndoManager::ScopedTransaction t {undo};                  \
-    serializing::fromTree (valueTreeName, state);             \
+#define bvst_implement_load_state_func(valueTreeName, number, actionName) \
+    UndoManager::ScopedTransaction t {undo, actionName};                  \
+    serializing::fromTree (valueTreeName, state);                         \
     lastLoadedState = number
 
 void StateToggler::loadStateA()
 {
-    bvst_implement_load_state_func (stateA, 1);
+    bvst_implement_load_state_func (stateA, 1, "Load state A");
 }
 
 void StateToggler::loadStateB()
 {
-    bvst_implement_load_state_func (stateB, 2);
+    bvst_implement_load_state_func (stateB, 2, "Load state B");
 }
 
 void StateToggler::loadStateC()
 {
-    bvst_implement_load_state_func (stateC, 3);
+    bvst_implement_load_state_func (stateC, 3, "Load state C");
 }
 
 #undef bvst_implement_load_state_func

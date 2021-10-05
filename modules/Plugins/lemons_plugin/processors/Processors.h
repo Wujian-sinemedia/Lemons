@@ -64,10 +64,13 @@ private:
     void setStateInformation (const void* data, int size) final
     {
         serializing::fromBinary (data, size, state);
+
+        if (auto* e = getActiveEditor())
+            e->setSize (state.state.dimensions.x, state.state.dimensions.y);
     }
 
-    EngineType< float >  floatEngine {getState()};
-    EngineType< double > doubleEngine {getState()};
+    EngineType< float >  floatEngine {state.state};
+    EngineType< double > doubleEngine {state.state};
 };
 
 
@@ -83,6 +86,8 @@ private:
         // but this constructor signature is required.
         MyEngine (plugin::StateBase&);
     };
+ 
+    using MyProcessor = plugin::StatelessProcessor< MyEngine >;
     @endcode
  */
 template < template < typename SampleType > class EngineType >
@@ -119,10 +124,9 @@ class GUIBase;
     };
  
     // now, let's define our processor's GUI:
-    struct MyEditor : plugin::GUIBase
+    struct MyEditor : plugin::GUI< State >
     {
-        // this constructor signature is required for your editor type!
-        MyEditor (plugin::PluginState< MyPluginState >& pluginState);
+        MyEditor (plugin::PluginState< YourStateType >& pluginState);
     };
  
     // and now we can declare the processor with editor:
@@ -155,7 +159,7 @@ struct ProcessorWithEditor : ProcessorType
 
         auto& size = this->getState().dimensions;
 
-        if (! isValidGuiSize (size.w(), size.h()))
+        if (! isValidGuiSize (size.x, size.y))
             size = {w, h};
     }
 

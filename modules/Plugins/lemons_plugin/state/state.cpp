@@ -3,7 +3,6 @@ namespace lemons::plugin
 {
 StateBase::StateBase (String pluginName, ParameterList& paramsToUse, SerializableData* customStateDataToUse)
     : SerializableData (pluginName + "_State"),
-      dimensions (pluginName + "_Dimensions"),
       modManager (paramsToUse),
       params (paramsToUse), customStateData (customStateDataToUse)
 {

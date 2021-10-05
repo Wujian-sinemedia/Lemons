@@ -19,7 +19,7 @@ void ProcessorBase::saveEditorSize (int width, int height)
 
 juce::Point< int > ProcessorBase::getSavedEditorSize() const
 {
-    return state.dimensions.get();
+    return state.dimensions;
 }
 
 juce::AudioProcessorParameter* ProcessorBase::getBypassParameter() const
@@ -65,6 +65,9 @@ void ProcessorBase::getStateInformation (juce::MemoryBlock& block)
 void ProcessorBase::setStateInformation (const void* data, int size)
 {
     serializing::fromBinary (data, size, state);
+
+    if (auto* e = getActiveEditor())
+        e->setSize (state.dimensions.x, state.dimensions.y);
 }
 
 void ProcessorBase::processBlock (AudioBuffer< float >& audio, MidiBuffer& midi)

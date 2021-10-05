@@ -25,7 +25,7 @@ class PluginEditor : public EditorBase
 {
 public:
     PluginEditor (ProcessorBase& processorToUse, PluginState< StateType >& state)
-        : EditorBase (processorToUse, state.state.dimensions.get()), content (state)
+        : EditorBase (processorToUse, state.state.dimensions), content (state)
     {
         addAndMakeVisible (content);
     }
