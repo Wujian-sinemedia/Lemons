@@ -23,7 +23,7 @@ var searchData=
   ['detectpitch_151',['detectPitch',['../classlemons_1_1dsp_1_1PitchDetector.html#afb22af48c499eaec4a2242c822a6c68e',1,'lemons::dsp::PitchDetector::detectPitch(const AudioBuffer&lt; SampleType &gt; &amp;inputAudio)'],['../classlemons_1_1dsp_1_1PitchDetector.html#a8af34401237e6d01ef0034d33fc3cb9a',1,'lemons::dsp::PitchDetector::detectPitch(const SampleType *inputAudio, int numSamples)']]],
   ['devicerotation_152',['DeviceRotation',['../structlemons_1_1DeviceRotation.html',1,'lemons']]],
   ['devicerotationlistener_153',['DeviceRotationListener',['../structlemons_1_1DeviceRotationListener.html',1,'lemons::DeviceRotationListener'],['../structlemons_1_1DeviceRotationListener.html#a3383e952f1286618e6f51310009f9d41',1,'lemons::DeviceRotationListener::DeviceRotationListener()']]],
-  ['dimensions_154',['Dimensions',['../structlemons_1_1plugin_1_1Dimensions.html',1,'lemons::plugin::Dimensions'],['../classlemons_1_1plugin_1_1StateBase.html#af61d909bb4b2fbc6a101a389f87a3ae3',1,'lemons::plugin::StateBase::dimensions()']]],
+  ['dimensions_154',['dimensions',['../classlemons_1_1plugin_1_1StateBase.html#af61d909bb4b2fbc6a101a389f87a3ae3',1,'lemons::plugin::StateBase::dimensions()'],['../namespacelemons_1_1plugin.html#a8fea260dc594cf530c3ffb3bf1f5b1e9',1,'lemons::plugin::Dimensions()']]],
   ['disablerotation_155',['disableRotation',['../structlemons_1_1DeviceRotation.html#a8101dc114e574beefa5e0ea935279d5f',1,'lemons::DeviceRotation']]],
   ['dividec_156',['divideC',['../namespacelemons_1_1vecops.html#a0b14583eca10081ede8555007f5d6bb8',1,'lemons::vecops']]],
   ['dividev_157',['divideV',['../namespacelemons_1_1vecops.html#a8822dcd57c640e788cddb95ce195af72',1,'lemons::vecops']]],

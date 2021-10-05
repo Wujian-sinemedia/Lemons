@@ -77,6 +77,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A plugin state class that instantiates the appropriate <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a> and custom serializable object and passes them to the <a class="el" href="classlemons_1_1plugin_1_1StateBase.html" title="Base class for a plugin&#39;s state.">StateBase</a> class for you.  
+ <a href="structlemons_1_1plugin_1_1CustomState.html#details">More...</a></p>
+
 <p><code>#include &lt;state.h&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::plugin::CustomState&lt; ParamListType, CustomDataType,, &gt;:</div>
@@ -92,13 +95,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acac176a1178a3f3d4a2bd36227ddb688"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1CustomState.html#acac176a1178a3f3d4a2bd36227ddb688">CustomState</a> (String pluginName)</td></tr>
 <tr class="separator:acac176a1178a3f3d4a2bd36227ddb688"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7c186d21688b88e9cfe67e97bd60beb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1StateBase.html#af7c186d21688b88e9cfe67e97bd60beb">addAllAsInternal</a> ()</td></tr>
+<tr class="memdesc:af7c186d21688b88e9cfe67e97bd60beb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds all the state's parameters to a dummy internal processor.  <a href="classlemons_1_1plugin_1_1StateBase.html#af7c186d21688b88e9cfe67e97bd60beb">More...</a><br /></td></tr>
 <tr class="separator:af7c186d21688b88e9cfe67e97bd60beb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e2c15469404d7c8f3d78630d23e95fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1StateBase.html#a6e2c15469404d7c8f3d78630d23e95fd">addTo</a> (juce::AudioProcessor &amp;processor)</td></tr>
+<tr class="memdesc:a6e2c15469404d7c8f3d78630d23e95fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the state's parameters to the specified AudioProcessor.  <a href="classlemons_1_1plugin_1_1StateBase.html#a6e2c15469404d7c8f3d78630d23e95fd">More...</a><br /></td></tr>
 <tr class="separator:a6e2c15469404d7c8f3d78630d23e95fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace1758cc9344ae03a6d01c3c218226de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1SerializableData.html#ace1758cc9344ae03a6d01c3c218226de">deserialize</a> (const ValueTree &amp;tree)</td></tr>
 <tr class="memdesc:ace1758cc9344ae03a6d01c3c218226de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores a previously saved state.  <a href="structlemons_1_1SerializableData.html#ace1758cc9344ae03a6d01c3c218226de">More...</a><br /></td></tr>
 <tr class="separator:ace1758cc9344ae03a6d01c3c218226de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6509bdb427c634a0e09fe50c6752e52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html">ParameterList</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1StateBase.html#ac6509bdb427c634a0e09fe50c6752e52">getParameters</a> ()</td></tr>
+<tr class="memdesc:ac6509bdb427c634a0e09fe50c6752e52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the plugin's <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a>.  <a href="classlemons_1_1plugin_1_1StateBase.html#ac6509bdb427c634a0e09fe50c6752e52">More...</a><br /></td></tr>
 <tr class="separator:ac6509bdb427c634a0e09fe50c6752e52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4e10eefa677226e7927d204b33edbdb"><td class="memItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">serialize</a> ()</td></tr>
 <tr class="memdesc:af4e10eefa677226e7927d204b33edbdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the state of this object and returns a ValueTree.  <a href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">More...</a><br /></td></tr>
@@ -107,14 +113,19 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ac6376c8ba34815cc4d079c69349d9a7e"><td class="memItemLeft" align="right" valign="top">CustomDataType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1CustomState.html#ac6376c8ba34815cc4d079c69349d9a7e">customData</a></td></tr>
+<tr class="memdesc:ac6376c8ba34815cc4d079c69349d9a7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The plugin's custom <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> object.  <a href="structlemons_1_1plugin_1_1CustomState.html#ac6376c8ba34815cc4d079c69349d9a7e">More...</a><br /></td></tr>
 <tr class="separator:ac6376c8ba34815cc4d079c69349d9a7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af61d909bb4b2fbc6a101a389f87a3ae3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1Dimensions.html">Dimensions</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1StateBase.html#af61d909bb4b2fbc6a101a389f87a3ae3">dimensions</a></td></tr>
+<tr class="memitem:af61d909bb4b2fbc6a101a389f87a3ae3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelemons_1_1plugin.html#a8fea260dc594cf530c3ffb3bf1f5b1e9">Dimensions</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1StateBase.html#af61d909bb4b2fbc6a101a389f87a3ae3">dimensions</a></td></tr>
+<tr class="memdesc:af61d909bb4b2fbc6a101a389f87a3ae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The plugin editor's dimensions.  <a href="classlemons_1_1plugin_1_1StateBase.html#af61d909bb4b2fbc6a101a389f87a3ae3">More...</a><br /></td></tr>
 <tr class="separator:af61d909bb4b2fbc6a101a389f87a3ae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb826035e1976ec685c8bf3232d3bdc0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelemons.html#a6610ae87b54c2e3df80cd9dd74481f1f">ToggleParam</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1StateBase.html#aeb826035e1976ec685c8bf3232d3bdc0">mainBypass</a> {&quot;Main bypass&quot;, false}</td></tr>
+<tr class="memdesc:aeb826035e1976ec685c8bf3232d3bdc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The plugin's main bypass parameter.  <a href="classlemons_1_1plugin_1_1StateBase.html#aeb826035e1976ec685c8bf3232d3bdc0">More...</a><br /></td></tr>
 <tr class="separator:aeb826035e1976ec685c8bf3232d3bdc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae139e1bc96f05db7e27391c6d1241340"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html">ModulationManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1StateBase.html#ae139e1bc96f05db7e27391c6d1241340">modManager</a></td></tr>
+<tr class="memdesc:ae139e1bc96f05db7e27391c6d1241340"><td class="mdescLeft">&#160;</td><td class="mdescRight">The plugin's modulation manager.  <a href="classlemons_1_1plugin_1_1StateBase.html#ae139e1bc96f05db7e27391c6d1241340">More...</a><br /></td></tr>
 <tr class="separator:ae139e1bc96f05db7e27391c6d1241340"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add2341b6f48d2d885cb449daef9fe39c"><td class="memItemLeft" align="right" valign="top">ParamListType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1CustomState.html#add2341b6f48d2d885cb449daef9fe39c">parameters</a></td></tr>
+<tr class="memdesc:add2341b6f48d2d885cb449daef9fe39c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The plugin's <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a>.  <a href="structlemons_1_1plugin_1_1CustomState.html#add2341b6f48d2d885cb449daef9fe39c">More...</a><br /></td></tr>
 <tr class="separator:add2341b6f48d2d885cb449daef9fe39c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
@@ -130,7 +141,49 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a8a7f0d732e9783ddb91bb35296a2d00f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html">ParameterList</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1StateBase.html#a8a7f0d732e9783ddb91bb35296a2d00f">params</a></td></tr>
 <tr class="separator:a8a7f0d732e9783ddb91bb35296a2d00f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename ParamListType, typename CustomDataType, BV_MUST_INHERIT_FROM(ParamListType, ParameterList), BV_MUST_INHERIT_FROM(CustomDataType, SerializableData)&gt;<br />
+struct lemons::plugin::CustomState&lt; ParamListType, CustomDataType,, &gt;</h3>
+
+<p>A plugin state class that instantiates the appropriate <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a> and custom serializable object and passes them to the <a class="el" href="classlemons_1_1plugin_1_1StateBase.html" title="Base class for a plugin&#39;s state.">StateBase</a> class for you. </p>
+<p>If you don't need a custom serializable object, see the <a class="el" href="structlemons_1_1plugin_1_1State.html" title="A plugin state class that instantiates the appropriate ParameterList and passes it to the StateBase c...">State</a> class. <br  />
+Example usage: </p><div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="namespacelemons.html">lemons</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// define our parameter list type for our plugin:</span></div>
+<div class="line"><span class="keyword">struct </span>MyParams : <a class="code" href="classlemons_1_1plugin_1_1ParameterList.html">plugin::ParameterList</a></div>
+<div class="line">{</div>
+<div class="line">    MyParams()</div>
+<div class="line">    {</div>
+<div class="line">        add (reverbToggle);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <a class="code" href="classlemons_1_1plugin_1_1ParameterHolder.html">ToggleParam</a> reverbToggle {<span class="stringliteral">&quot;Reverb toggle&quot;</span>, <span class="keyword">true</span>};</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// define our custom serializable data for our plugin:</span></div>
+<div class="line"><span class="keyword">struct </span>MyCustomData : <a class="code" href="structlemons_1_1SerializableData.html">SerializableData</a></div>
+<div class="line">{</div>
+<div class="line">    String username;</div>
+<div class="line">    std::vector&lt;int&gt; points;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line">    <span class="keywordtype">void</span> <a class="code" href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">serialize</a> (<a class="code" href="structlemons_1_1TreeReflector.html">TreeReflector</a>&amp; ref) <span class="keyword">final</span></div>
+<div class="line">    {</div>
+<div class="line">        ref.add (<span class="stringliteral">&quot;Username&quot;</span>, username);</div>
+<div class="line">        ref.add (<span class="stringliteral">&quot;Point&quot;</span>, points);</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// now, this is our plugin&#39;s full state object:</span></div>
+<div class="line"><span class="keyword">using</span> MyPluginState = <a class="code" href="structlemons_1_1plugin_1_1CustomState.html">plugin::CustomState&lt; MyParams, MyCustomData &gt;</a>;</div>
+</div><!-- fragment --> <dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ParamListType</td><td>The type of parameter list to use for your plugin. This type must inherit from <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a> and must be default-constructable. </td></tr>
+    <tr><td class="paramname">CustomDataType</td><td>The type of custom serializable object to use for your plugin. This type must inherit from <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> and must be default-constructable. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="acac176a1178a3f3d4a2bd36227ddb688"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acac176a1178a3f3d4a2bd36227ddb688">&#9670;&nbsp;</a></span>CustomState()</h2>
 
@@ -175,6 +228,9 @@ template&lt;typename ParamListType , typename CustomDataType , BV_MUST_INHERIT_F
 </table>
 </div><div class="memdoc">
 
+<p>Adds all the state's parameters to a dummy internal processor. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#a8b61a32045249c1aa8f8a25bc5473c4e" title="Adds all the list&#39;s parameters to the ParameterList&#39;s dummy internal AudioProcessor.">ParameterList::addAllParametersAsInternal()</a> </dd></dl>
+
 </div>
 </div>
 <a id="a6e2c15469404d7c8f3d78630d23e95fd"></a>
@@ -200,6 +256,9 @@ template&lt;typename ParamListType , typename CustomDataType , BV_MUST_INHERIT_F
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Adds the state's parameters to the specified AudioProcessor. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#a7e6f4818d052a192fed6142afcfed62f" title="Adds the list&#39;s managed parameters to a juce::AudioProcessor.">ParameterList::addParametersTo()</a> </dd></dl>
 
 </div>
 </div>
@@ -261,6 +320,8 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns a reference to the plugin's <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a>. </p>
 
 </div>
 </div>
@@ -375,6 +436,8 @@ template&lt;typename ParamListType , typename CustomDataType , BV_MUST_INHERIT_F
       </table>
 </div><div class="memdoc">
 
+<p>The plugin's custom <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> object. </p>
+
 </div>
 </div>
 <a id="a4474e8d9a0164146f7f746eb60156e84"></a>
@@ -409,7 +472,7 @@ template&lt;typename ParamListType , typename CustomDataType , BV_MUST_INHERIT_F
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structlemons_1_1plugin_1_1Dimensions.html">Dimensions</a> lemons::plugin::StateBase::dimensions</td>
+          <td class="memname"><a class="el" href="namespacelemons_1_1plugin.html#a8fea260dc594cf530c3ffb3bf1f5b1e9">Dimensions</a> lemons::plugin::StateBase::dimensions</td>
         </tr>
       </table>
   </td>
@@ -418,6 +481,8 @@ template&lt;typename ParamListType , typename CustomDataType , BV_MUST_INHERIT_F
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>The plugin editor's dimensions. </p>
 
 </div>
 </div>
@@ -441,6 +506,8 @@ template&lt;typename ParamListType , typename CustomDataType , BV_MUST_INHERIT_F
 </table>
 </div><div class="memdoc">
 
+<p>The plugin's main bypass parameter. </p>
+
 </div>
 </div>
 <a id="ae139e1bc96f05db7e27391c6d1241340"></a>
@@ -463,6 +530,8 @@ template&lt;typename ParamListType , typename CustomDataType , BV_MUST_INHERIT_F
 </table>
 </div><div class="memdoc">
 
+<p>The plugin's modulation manager. </p>
+
 </div>
 </div>
 <a id="add2341b6f48d2d885cb449daef9fe39c"></a>
@@ -478,6 +547,8 @@ template&lt;typename ParamListType , typename CustomDataType , BV_MUST_INHERIT_F
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The plugin's <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a>. </p>
 
 </div>
 </div>
@@ -507,12 +578,17 @@ template&lt;typename ParamListType , typename CustomDataType , BV_MUST_INHERIT_F
 <li><a class="el" href="state_8h.html">state.h</a></li>
 </ul>
 </div><!-- contents -->
+<div class="ttc" id="astructlemons_1_1TreeReflector_html"><div class="ttname"><a href="structlemons_1_1TreeReflector.html">lemons::TreeReflector</a></div><div class="ttdoc">Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...</div><div class="ttdef"><b>Definition:</b> TreeReflector.h:20</div></div>
 <div class="ttc" id="astructlemons_1_1SerializableData_html_af4e10eefa677226e7927d204b33edbdb"><div class="ttname"><a href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">lemons::SerializableData::serialize</a></div><div class="ttdeci">ValueTree serialize()</div><div class="ttdoc">Serializes the state of this object and returns a ValueTree.</div></div>
+<div class="ttc" id="astructlemons_1_1plugin_1_1CustomState_html"><div class="ttname"><a href="structlemons_1_1plugin_1_1CustomState.html">lemons::plugin::CustomState</a></div><div class="ttdoc">A plugin state class that instantiates the appropriate ParameterList and custom serializable object a...</div><div class="ttdef"><b>Definition:</b> state.h:138</div></div>
+<div class="ttc" id="aclasslemons_1_1plugin_1_1ParameterList_html"><div class="ttname"><a href="classlemons_1_1plugin_1_1ParameterList.html">lemons::plugin::ParameterList</a></div><div class="ttdoc">This class manages a list of a plugin's parameters.</div><div class="ttdef"><b>Definition:</b> ParameterList.h:49</div></div>
+<div class="ttc" id="aclasslemons_1_1plugin_1_1ParameterHolder_html"><div class="ttname"><a href="classlemons_1_1plugin_1_1ParameterHolder.html">lemons::plugin::ParameterHolder&lt; plugin::ToggleParameter &gt;</a></div></div>
 <div class="ttc" id="astructlemons_1_1SerializableData_html_a89ec326c9a71dce7572d8a1b50d827a5"><div class="ttname"><a href="structlemons_1_1SerializableData.html#a89ec326c9a71dce7572d8a1b50d827a5">lemons::SerializableData::TreeReflector</a></div><div class="ttdeci">friend struct TreeReflector</div><div class="ttdef"><b>Definition:</b> SerializableData.h:93</div></div>
 <div class="ttc" id="astructlemons_1_1SerializableData_html"><div class="ttname"><a href="structlemons_1_1SerializableData.html">lemons::SerializableData</a></div><div class="ttdoc">Base class for any C++ object that needs to be serialized to binary and back.</div><div class="ttdef"><b>Definition:</b> SerializableData.h:12</div></div>
+<div class="ttc" id="anamespacelemons_html"><div class="ttname"><a href="namespacelemons.html">lemons</a></div><div class="ttdef"><b>Definition:</b> DefaultWindow.h:6</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 5 2021 20:15:04 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 5 2021 20:16:32 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

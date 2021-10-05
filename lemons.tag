@@ -1366,14 +1366,6 @@
     <namespace>lemons::midi</namespace>
   </compound>
   <compound kind="file">
-    <name>PluginDimensions.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/state/</path>
-    <filename>PluginDimensions_8h.html</filename>
-    <class kind="struct">lemons::plugin::Dimensions</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-  </compound>
-  <compound kind="file">
     <name>PluginGUIBase.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/EditorBase/</path>
     <filename>PluginGUIBase_8h.html</filename>
@@ -1830,12 +1822,18 @@
     <name>state.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/state/</path>
     <filename>state_8h.html</filename>
-    <includes id="PluginDimensions_8h" name="PluginDimensions.h" local="yes" imported="no">PluginDimensions.h</includes>
     <class kind="struct">lemons::plugin::CustomState</class>
     <class kind="struct">lemons::plugin::State</class>
     <class kind="class">lemons::plugin::StateBase</class>
     <namespace>lemons</namespace>
     <namespace>lemons::plugin</namespace>
+    <member kind="typedef">
+      <type>juce::Point&lt; int &gt;</type>
+      <name>Dimensions</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>a8fea260dc594cf530c3ffb3bf1f5b1e9</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>StateToggleButtons.h</name>
@@ -4477,67 +4475,6 @@
       <anchorfile>structlemons_1_1DeviceRotationListener.html</anchorfile>
       <anchor>a1f47f683ebe2c7269ed642946221f3c8</anchor>
       <arglist>() final</arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
-    <name>lemons::plugin::Dimensions</name>
-    <filename>structlemons_1_1plugin_1_1Dimensions.html</filename>
-    <base>lemons::SerializableData</base>
-    <member kind="function">
-      <type>void</type>
-      <name>deserialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>ace1758cc9344ae03a6d01c3c218226de</anchor>
-      <arglist>(const ValueTree &amp;tree)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Point&lt; int &gt;</type>
-      <name>get</name>
-      <anchorfile>structlemons_1_1plugin_1_1Dimensions.html</anchorfile>
-      <anchor>ae306ca8f71a6faaf1054b05a1942cad3</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>h</name>
-      <anchorfile>structlemons_1_1plugin_1_1Dimensions.html</anchorfile>
-      <anchor>a9a9b6ac8b6be8d66fa8efc64840c3c35</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>Dimensions &amp;</type>
-      <name>operator=</name>
-      <anchorfile>structlemons_1_1plugin_1_1Dimensions.html</anchorfile>
-      <anchor>a891edeca3801be08546dfb38df9eb2d2</anchor>
-      <arglist>(const juce::Point&lt; int &gt; &amp;newSize) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>SerializableData</name>
-      <anchorfile>structlemons_1_1plugin_1_1Dimensions.html</anchorfile>
-      <anchor>a2b74e9a988991a16cc08f3eee24f1748</anchor>
-      <arglist>(juce::Identifier identifier=&quot;Data&quot;)</arglist>
-    </member>
-    <member kind="function">
-      <type>ValueTree</type>
-      <name>serialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>serialize</name>
-      <anchorfile>structlemons_1_1plugin_1_1Dimensions.html</anchorfile>
-      <anchor>af3639831722ec6735875c349d2010a63</anchor>
-      <arglist>(TreeReflector &amp;ref) final</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>w</name>
-      <anchorfile>structlemons_1_1plugin_1_1Dimensions.html</anchorfile>
-      <anchor>ae4f294a02f36d3af449082014b2bfa5f</anchor>
-      <arglist>() const</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -20788,7 +20725,6 @@
     <namespace>lemons::plugin::presets</namespace>
     <class kind="struct">lemons::plugin::BoolParameter</class>
     <class kind="struct">lemons::plugin::CustomState</class>
-    <class kind="struct">lemons::plugin::Dimensions</class>
     <class kind="class">lemons::plugin::EditorBase</class>
     <class kind="struct">lemons::plugin::FloatAmountParameter</class>
     <class kind="struct">lemons::plugin::FrequencyParameter</class>
@@ -20824,6 +20760,13 @@
     <class kind="struct">lemons::plugin::StateToggler</class>
     <class kind="struct">lemons::plugin::ToggleParameter</class>
     <class kind="class">lemons::plugin::TypedParameter</class>
+    <member kind="typedef">
+      <type>juce::Point&lt; int &gt;</type>
+      <name>Dimensions</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>a8fea260dc594cf530c3ffb3bf1f5b1e9</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="typedef">
       <type>TypedParameter&lt; float &gt;</type>
       <name>FloatParameter</name>

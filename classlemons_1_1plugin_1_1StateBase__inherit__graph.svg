@@ -57,7 +57,7 @@ var sectionId = 'dynsection-0';
 <!-- Node1 -->
 <g id="node1" class="node">
 <title>Node1</title>
-<g id="a_node1"><a xlink:title=" ">
+<g id="a_node1"><a xlink:title="Base class for a plugin&#39;s state.">
 <polygon fill="#bfbfbf" stroke="black" points="175,-30 175,-49 319,-49 319,-30 175,-30"/>
 <text text-anchor="middle" x="247" y="-37" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::StateBase</text>
 </a>
@@ -66,7 +66,7 @@ var sectionId = 'dynsection-0';
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="structlemons_1_1plugin_1_1CustomState.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="structlemons_1_1plugin_1_1CustomState.html" target="_top" xlink:title="A plugin state class that instantiates the appropriate ParameterList and custom serializable object a...">
 <polygon fill="none" stroke="black" points="355,-49.5 355,-79.5 560,-79.5 560,-49.5 355,-49.5"/>
 <text text-anchor="start" x="363" y="-67.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::CustomState</text>
 <text text-anchor="middle" x="457.5" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; ParamListType, CustomDataType,, &gt;</text>
@@ -82,7 +82,7 @@ var sectionId = 'dynsection-0';
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="structlemons_1_1plugin_1_1State.html" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="structlemons_1_1plugin_1_1State.html" target="_top" xlink:title="A plugin state class that instantiates the appropriate ParameterList and passes it to the StateBase c...">
 <polygon fill="none" stroke="black" points="397.5,-0.5 397.5,-30.5 517.5,-30.5 517.5,-0.5 397.5,-0.5"/>
 <text text-anchor="start" x="405.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::State</text>
 <text text-anchor="middle" x="457.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; ParamListType, &gt;</text>

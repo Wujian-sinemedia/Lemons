@@ -86,8 +86,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper struct that simplifies the constructor for boolean parameters.  <a href="structlemons_1_1plugin_1_1BoolParameter.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1CustomState.html">CustomState</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1Dimensions.html">Dimensions</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A plugin state class that instantiates the appropriate <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a> and custom serializable object and passes them to the <a class="el" href="classlemons_1_1plugin_1_1StateBase.html" title="Base class for a plugin&#39;s state.">StateBase</a> class for you.  <a href="structlemons_1_1plugin_1_1CustomState.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1EditorBase.html">EditorBase</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -167,8 +166,10 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A parameter that represents a number of semitones, as an integer.  <a href="structlemons_1_1plugin_1_1SemitonesParameter.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1State.html">State</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A plugin state class that instantiates the appropriate <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a> and passes it to the <a class="el" href="classlemons_1_1plugin_1_1StateBase.html" title="Base class for a plugin&#39;s state.">StateBase</a> class for you.  <a href="structlemons_1_1plugin_1_1State.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1StateBase.html">StateBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for a plugin's state.  <a href="classlemons_1_1plugin_1_1StateBase.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1StateToggleButtons.html">StateToggleButtons</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -183,6 +184,9 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:a8fea260dc594cf530c3ffb3bf1f5b1e9"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1plugin.html#a8fea260dc594cf530c3ffb3bf1f5b1e9">Dimensions</a> = juce::Point&lt; int &gt;</td></tr>
+<tr class="memdesc:a8fea260dc594cf530c3ffb3bf1f5b1e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represent the dimensions of a plugin editor using a juce::Point&lt;int&gt;.  <a href="namespacelemons_1_1plugin.html#a8fea260dc594cf530c3ffb3bf1f5b1e9">More...</a><br /></td></tr>
+<tr class="separator:a8fea260dc594cf530c3ffb3bf1f5b1e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa77c4923225c9ae40394bfc8d1e19536"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1plugin.html#aa77c4923225c9ae40394bfc8d1e19536">FloatParameter</a> = <a class="el" href="classlemons_1_1plugin_1_1TypedParameter.html">TypedParameter</a>&lt; float &gt;</td></tr>
 <tr class="memdesc:aa77c4923225c9ae40394bfc8d1e19536"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a parameter with a float value.  <a href="namespacelemons_1_1plugin.html#aa77c4923225c9ae40394bfc8d1e19536">More...</a><br /></td></tr>
 <tr class="separator:aa77c4923225c9ae40394bfc8d1e19536"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -195,6 +199,22 @@ Typedefs</h2></td></tr>
 <tr class="separator:ab118f684c798a14db3ac1a3f8417caea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
+<a id="a8fea260dc594cf530c3ffb3bf1f5b1e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fea260dc594cf530c3ffb3bf1f5b1e9">&#9670;&nbsp;</a></span>Dimensions</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacelemons_1_1plugin.html#a8fea260dc594cf530c3ffb3bf1f5b1e9">lemons::plugin::Dimensions</a> = typedef juce::Point&lt; int &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Represent the dimensions of a plugin editor using a juce::Point&lt;int&gt;. </p>
+
+</div>
+</div>
 <a id="aa77c4923225c9ae40394bfc8d1e19536"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa77c4923225c9ae40394bfc8d1e19536">&#9670;&nbsp;</a></span>FloatParameter</h2>
 
@@ -251,16 +271,19 @@ template&lt;template&lt; typename SampleType &gt; class EngineType&gt; </div>
 <div class="line">    <span class="comment">// but this constructor signature is required.</span></div>
 <div class="line">    MyEngine (<a class="code" href="classlemons_1_1plugin_1_1StateBase.html">plugin::StateBase</a>&amp;);</div>
 <div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using</span> MyProcessor = <a class="code" href="classlemons_1_1plugin_1_1Processor.html">plugin::StatelessProcessor&lt; MyEngine &gt;</a>;</div>
 </div><!-- fragment --> 
 </div>
 </div>
 </div><!-- contents -->
-<div class="ttc" id="aclasslemons_1_1plugin_1_1StateBase_html"><div class="ttname"><a href="classlemons_1_1plugin_1_1StateBase.html">lemons::plugin::StateBase</a></div><div class="ttdef"><b>Definition:</b> state.h:8</div></div>
+<div class="ttc" id="aclasslemons_1_1plugin_1_1Processor_html"><div class="ttname"><a href="classlemons_1_1plugin_1_1Processor.html">lemons::plugin::Processor</a></div><div class="ttdoc">A processor class for a plugin that can simply be told the state type and engine type,...</div><div class="ttdef"><b>Definition:</b> Processors.h:41</div></div>
+<div class="ttc" id="aclasslemons_1_1plugin_1_1StateBase_html"><div class="ttname"><a href="classlemons_1_1plugin_1_1StateBase.html">lemons::plugin::StateBase</a></div><div class="ttdoc">Base class for a plugin's state.</div><div class="ttdef"><b>Definition:</b> state.h:19</div></div>
 <div class="ttc" id="aclasslemons_1_1dsp_1_1Engine_html"><div class="ttname"><a href="classlemons_1_1dsp_1_1Engine.html">lemons::dsp::Engine</a></div><div class="ttdoc">Base class for an audio engine.</div><div class="ttdef"><b>Definition:</b> AudioEngine.h:11</div></div>
 <div class="ttc" id="anamespacelemons_html"><div class="ttname"><a href="namespacelemons.html">lemons</a></div><div class="ttdef"><b>Definition:</b> DefaultWindow.h:6</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 5 2021 20:15:04 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 5 2021 20:16:32 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
