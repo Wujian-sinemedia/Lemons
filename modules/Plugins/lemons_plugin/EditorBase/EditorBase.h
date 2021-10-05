@@ -16,6 +16,8 @@ private:
     void paint (juce::Graphics& g) final;
 
     void         resized() final;
+    
+    /** Called when the editor is resized. */
     virtual void resizeTriggered() { }
 
     ProcessorBase& pb;
@@ -23,7 +25,8 @@ private:
 
 
 /** Base class for a plugin editor that instantiates the owned content for you.
-    @tparam ContentComponentType The type of your plugin's main component. This must inherit from GUIBase, but should preferably inherit from GUI<StateType>.
+    @tparam ContentComponentType The type of your plugin's main component. This must inherit from GUIBase, but should preferably inherit from GUI<StateType>. \n
+    This type's constructor signature must be ContentComponentType (PluginState< StateType >&).
     @tparam StateType The type of your plugin's main state object.
  */
 template < typename ContentComponentType, typename StateType,
