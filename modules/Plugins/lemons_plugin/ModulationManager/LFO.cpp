@@ -1,5 +1,7 @@
+
 namespace lemons::plugin
 {
+
 ModulationManager::LFO::LFO (ParameterList& listToUse)
     : paramList (&listToUse)
 {
@@ -24,8 +26,8 @@ void ModulationManager::LFO::prepareNextBlock (int numSamples)
     currentTick = 0;
 
     storage.clear();
-
-    AudioBuffer< float > alias {storage.getArrayOfWritePointers(), 1, 0, numSamples};
+    
+    auto alias = dsp::buffers::getAliasBuffer (storage, 0, numSamples, 1);
 
     osc.process (alias);
 }

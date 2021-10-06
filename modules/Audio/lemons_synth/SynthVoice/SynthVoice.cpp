@@ -78,7 +78,7 @@ void SynthVoiceBase< SampleType >::renderBlock (AudioBuffer< SampleType >& outpu
     renderInternal (numSamples);
 
     // alias buffer containing the # of samples for this frame
-    AudioBuffer< SampleType > render {renderingBuffer.getArrayOfWritePointers(), 1, 0, numSamples};
+    auto render = buffers::getAliasBuffer (renderingBuffer, 0, numSamples, 1);
 
     //  smoothed gain modulations
     midiVelocityGain.process (render);
@@ -123,7 +123,7 @@ void SynthVoiceBase< SampleType >::renderInternal (int totalNumSamples)
         if (pitchGlide && outputFrequency.isSmoothing())
         {
             // process a single sample
-            AudioBuffer< SampleType > alias {scratchBuffer.getArrayOfWritePointers(), 1, 0, 1};
+            auto alias = buffers::getAliasBuffer (scratchBuffer, 0, 1, 1);
 
             renderPlease (alias, static_cast< float > (outputFrequency.getNextValue()), parent->sampleRate);
 
@@ -137,7 +137,7 @@ void SynthVoiceBase< SampleType >::renderInternal (int totalNumSamples)
         // process the rest of the frame
         const auto samplesLeft = totalNumSamples - samplesProcessed;
 
-        AudioBuffer< SampleType > alias {scratchBuffer.getArrayOfWritePointers(), 1, 0, samplesLeft};
+        auto alias = buffers::getAliasBuffer (scratchBuffer, 0, samplesLeft, 1);
 
         renderPlease (alias, static_cast< float > (outputFrequency.getNextValue()), parent->sampleRate);
 

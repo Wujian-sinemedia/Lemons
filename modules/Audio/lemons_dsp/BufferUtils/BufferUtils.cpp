@@ -34,4 +34,17 @@ void convert (const AudioBuffer< Type1 >& source, AudioBuffer< Type2 >& dest)
 template void convert (const AudioBuffer< float >&, AudioBuffer< double >&);
 template void convert (const AudioBuffer< double >&, AudioBuffer< float >&);
 
+
+template < typename SampleType >
+AudioBuffer< SampleType > getAliasBuffer (AudioBuffer< SampleType >& bufferToAlias,
+                                          int startSample,
+                                          int numSamples,
+                                          int numChannels,
+                                          int channelOffset)
+{
+    return {bufferToAlias.getArrayOfWritePointers() + channelOffset, numChannels, startSample, numSamples};
+}
+template AudioBuffer< float > getAliasBuffer (AudioBuffer< float >&, int, int, int, int);
+template AudioBuffer< double > getAliasBuffer (AudioBuffer< double >&, int, int, int, int);
+
 }  // namespace lemons::dsp::buffers
