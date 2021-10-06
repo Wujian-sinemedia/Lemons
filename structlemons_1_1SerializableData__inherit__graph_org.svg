@@ -99,7 +99,7 @@
 <!-- Node25 -->
 <g id="node19" class="node">
 <title>Node25</title>
-<g id="a_node19"><a xlink:href="classlemons_1_1plugin_1_1ModulationManager.html" target="_top" xlink:title=" ">
+<g id="a_node19"><a xlink:href="classlemons_1_1plugin_1_1ModulationManager.html" target="_top" xlink:title="A modulation manager for a plugin.">
 <polygon fill="none" stroke="black" points="192.5,-530 192.5,-560 341.5,-560 341.5,-530 192.5,-530"/>
 <text text-anchor="start" x="200.5" y="-548" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::Modulation</text>
 <text text-anchor="middle" x="267" y="-537" font-family="Helvetica,sans-Serif" font-size="10.00">Manager</text>
@@ -115,7 +115,7 @@
 <!-- Node26 -->
 <g id="node20" class="node">
 <title>Node26</title>
-<g id="a_node20"><a xlink:href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html" target="_top" xlink:title=" ">
+<g id="a_node20"><a xlink:href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html" target="_top" xlink:title="An LFO, to be used by a ModulationManager object.">
 <polygon fill="none" stroke="black" points="192.5,-481 192.5,-511 341.5,-511 341.5,-481 192.5,-481"/>
 <text text-anchor="start" x="200.5" y="-499" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::plugin::Modulation</text>
 <text text-anchor="middle" x="267" y="-488" font-family="Helvetica,sans-Serif" font-size="10.00">Manager::LFO</text>

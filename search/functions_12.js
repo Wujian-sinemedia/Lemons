@@ -3,7 +3,7 @@ var searchData=
   ['textbutton_1980',['TextButton',['../structlemons_1_1gui_1_1TextButton.html#af7d03db23b45d1c4fd01a9a824a7a31b',1,'lemons::gui::TextButton']]],
   ['thisisthemessagethread_1981',['thisIsTheMessageThread',['../namespacelemons.html#a1c9c3ab359bcc3e92a98e61992c01972',1,'lemons']]],
   ['timbremod_1982',['TimbreMod',['../classlemons_1_1dsp_1_1synth_1_1TimbreMod.html#a3541d5eaf4ec0a69a5d3b417bb610905',1,'lemons::dsp::synth::TimbreMod']]],
-  ['timercallback_1983',['TimerCallback',['../structlemons_1_1events_1_1TimerCallback.html#aa944d6182b98591664c5872c925407b3',1,'lemons::events::TimerCallback::TimerCallback()'],['../structlemons_1_1DeviceRotationListener.html#a1f47f683ebe2c7269ed642946221f3c8',1,'lemons::DeviceRotationListener::timerCallback()']]],
+  ['timercallback_1983',['timerCallback',['../structlemons_1_1DeviceRotationListener.html#a1f47f683ebe2c7269ed642946221f3c8',1,'lemons::DeviceRotationListener::timerCallback()'],['../structlemons_1_1events_1_1TimerCallback.html#aa944d6182b98591664c5872c925407b3',1,'lemons::events::TimerCallback::TimerCallback()']]],
   ['tobinary_1984',['toBinary',['../namespacelemons_1_1serializing.html#a8faf0f6fcf3b46ecf735100cd0ec1ab9',1,'lemons::serializing::toBinary(SerializableData &amp;data, File file)'],['../namespacelemons_1_1serializing.html#ac6bc185517e15eeeaac3e5695a07993f',1,'lemons::serializing::toBinary(SerializableData &amp;data, juce::MemoryBlock &amp;dest)']]],
   ['togglebutton_1985',['ToggleButton',['../classlemons_1_1gui_1_1ToggleButton.html#a13c2d7cae83cb8b3a653ac60a08e5128',1,'lemons::gui::ToggleButton']]],
   ['toggleparameter_1986',['ToggleParameter',['../structlemons_1_1plugin_1_1ToggleParameter.html#aac12d0b37183714fffc8f7cdf9b4db52',1,'lemons::plugin::ToggleParameter']]],
