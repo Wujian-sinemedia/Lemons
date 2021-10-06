@@ -51,35 +51,23 @@ String TreeReflector::makePropertyNameForElement (const String& propertyName, in
     return propertyName + "_" + String (index);
 }
 
-int TreeReflector::getNumContainerElements (const String& propertyName) const
+int TreeReflector::getNumContainerElements (const String& propertyName, bool elementsAreContainers) const
 {
-    const auto properties = tree.getNumProperties();
-    const auto children   = tree.getNumChildren();
-    const auto total      = properties + children;
+    const auto total = elementsAreContainers ? tree.getNumChildren() : tree.getNumProperties();
 
     juce::Array< String > names;
 
     for (int i = 1; i <= total; ++i)
-    {
         names.add (makePropertyNameForElement (propertyName, i));
-    }
 
     auto actualNum = total;
 
-    for (int i = 0; i < properties; ++i)
+    for (int i = 0; i < total; ++i)
     {
-        if (! names.contains (tree.getPropertyName (i).toString()))
-        {
+        const auto test = elementsAreContainers ? tree.getChild (i).getType() : tree.getPropertyName (i);
+        
+        if (! names.contains (test.toString()))
             --actualNum;
-        }
-    }
-
-    for (int i = 0; i < children; ++i)
-    {
-        if (! names.contains (tree.getChild (i).getType().toString()))
-        {
-            --actualNum;
-        }
     }
 
     return actualNum;

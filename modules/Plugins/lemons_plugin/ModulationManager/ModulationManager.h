@@ -4,6 +4,11 @@
 
 namespace lemons::plugin
 {
+
+/** A modulation manager for a plugin.
+    This class holds a collection of LFOs that can be mapped to any number of Parameter objects. \n
+    This class is also serializable; the saving and loading of parameter connections works by using the ParameterList::getParameterWithName() function.
+ */
 class ModulationManager : public SerializableData
 {
 public:
@@ -16,6 +21,9 @@ public:
 
     /*----------------------------------------------------------------------------------------------------------*/
 
+    /** An LFO, to be used by a ModulationManager object.
+        Internally, this class uses a dsp::osc::ChoosableOscillator to generate its values.
+     */
     struct LFO : SerializableData
     {
         /** Internally, LFOs use ChoosableOscillator to generate their values. */
