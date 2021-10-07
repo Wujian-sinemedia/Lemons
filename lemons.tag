@@ -18719,6 +18719,13 @@
       <arglist>(const String &amp;propertyName, std::function&lt; Type() &gt; saveToTree, std::function&lt; void(Type &amp;) &gt; loadFromTree)</arglist>
     </member>
     <member kind="function">
+      <type>void</type>
+      <name>as</name>
+      <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
+      <anchor>a9f602bcade7f2f41bd103d40d935c33c</anchor>
+      <arglist>(SerializableData &amp;data)</arglist>
+    </member>
+    <member kind="function">
       <type>ValueTree &amp;</type>
       <name>getRawDataTree</name>
       <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
@@ -18779,6 +18786,13 @@
       <arglist>(const String &amp;propertyName, std::function&lt; Type() &gt; saveToTree, std::function&lt; void(Type &amp;) &gt; loadFromTree)</arglist>
     </member>
     <member kind="function">
+      <type>void</type>
+      <name>as</name>
+      <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
+      <anchor>a9f602bcade7f2f41bd103d40d935c33c</anchor>
+      <arglist>(SerializableData &amp;data)</arglist>
+    </member>
+    <member kind="function">
       <type>ValueTree &amp;</type>
       <name>getRawDataTree</name>
       <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
@@ -18817,6 +18831,13 @@
       <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
       <anchor>a3ea2cd3e9bb6c6d3dcc493211e72af1b</anchor>
       <arglist>(const String &amp;propertyName, std::function&lt; Type() &gt; saveToTree, std::function&lt; void(Type &amp;) &gt; loadFromTree)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>as</name>
+      <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
+      <anchor>a9f602bcade7f2f41bd103d40d935c33c</anchor>
+      <arglist>(SerializableData &amp;data)</arglist>
     </member>
     <member kind="function">
       <type>ValueTree &amp;</type>

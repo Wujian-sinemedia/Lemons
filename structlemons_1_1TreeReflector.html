@@ -103,6 +103,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3ea2cd3e9bb6c6d3dcc493211e72af1b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structlemons_1_1TreeReflector.html#a3ea2cd3e9bb6c6d3dcc493211e72af1b">addLambdaSet</a> (const String &amp;propertyName, std::function&lt; Type() &gt; saveToTree, std::function&lt; void(Type &amp;) &gt; loadFromTree)</td></tr>
 <tr class="memdesc:a3ea2cd3e9bb6c6d3dcc493211e72af1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds lambda functions for saving and loading a certain value to and from a named ValueTree property.  <a href="structlemons_1_1TreeReflector.html#a3ea2cd3e9bb6c6d3dcc493211e72af1b">More...</a><br /></td></tr>
 <tr class="separator:a3ea2cd3e9bb6c6d3dcc493211e72af1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f602bcade7f2f41bd103d40d935c33c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1TreeReflector.html#a9f602bcade7f2f41bd103d40d935c33c">as</a> (<a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;data)</td></tr>
+<tr class="memdesc:a9f602bcade7f2f41bd103d40d935c33c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delegates another object to be serialized as this object's data.  <a href="structlemons_1_1TreeReflector.html#a9f602bcade7f2f41bd103d40d935c33c">More...</a><br /></td></tr>
+<tr class="separator:a9f602bcade7f2f41bd103d40d935c33c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a88f53e45239d0b8d11cb2ce4dbefd0"><td class="memItemLeft" align="right" valign="top">ValueTree &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1TreeReflector.html#a7a88f53e45239d0b8d11cb2ce4dbefd0">getRawDataTree</a> ()</td></tr>
 <tr class="memdesc:a7a88f53e45239d0b8d11cb2ce4dbefd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to this reflector's root ValueTree.  <a href="structlemons_1_1TreeReflector.html#a7a88f53e45239d0b8d11cb2ce4dbefd0">More...</a><br /></td></tr>
 <tr class="separator:a7a88f53e45239d0b8d11cb2ce4dbefd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -374,6 +377,73 @@ For example: </p><div class="fragment"><div class="line"> <span class="keyword">
 
 </div>
 </div>
+<a id="a9f602bcade7f2f41bd103d40d935c33c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f602bcade7f2f41bd103d40d935c33c">&#9670;&nbsp;</a></span>as()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lemons::TreeReflector::as </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Delegates another object to be serialized as this object's data. </p>
+<p>The use case for this is if you're implementing a wrapper type that adds functionality to another serializable type, but has no stateful data of its own, and you want to serialize the state data without it being in a subtree of your object's node in the parent tree. <br  />
+For example, say you've got the following types: </p><div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="namespacelemons.html">lemons</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">struct </span>StateData : <a class="code" href="structlemons_1_1SerializableData.html">SerializableData</a></div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordtype">int</span> x {12}, y {48};</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> serialize (<a class="code" href="structlemons_1_1TreeReflector.html">TreeReflector</a>&amp; ref) <span class="keyword">final</span></div>
+<div class="line">    {</div>
+<div class="line">        ref.add (<span class="stringliteral">&quot;X&quot;</span>, x);</div>
+<div class="line">        ref.add (<span class="stringliteral">&quot;Y&quot;</span>, y);</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">struct </span>Wrapper : <a class="code" href="structlemons_1_1SerializableData.html">SerializableData</a></div>
+<div class="line">{</div>
+<div class="line">    StateData data;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// add some more functionality to &quot;data&quot;...</span></div>
+<div class="line">};</div>
+</div><!-- fragment --><p> How would you write Wrapper's serialize() function? <br  />
+You could do this: </p><div class="fragment"><div class="line"><span class="keyword">struct </span>Wrapper : SerializableData</div>
+<div class="line">{</div>
+<div class="line">    StateData data;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> serialize (<a class="code" href="structlemons_1_1TreeReflector.html#a0d351fe3d4087291fe84c745a5edfcf4">TreeReflector</a>&amp; ref) <span class="keyword">final</span></div>
+<div class="line">    {</div>
+<div class="line">        ref.add (<span class="stringliteral">&quot;Data&quot;</span>, data);</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+</div><!-- fragment --><p> The above code will produce the following tree when Wrapper is serialized: </p><pre class="fragment">&lt;Wrapper&gt;
+    &lt;Data&gt;
+        &lt;X = 12&gt;
+        &lt;Y = 48&gt;
+</pre><p> But, if you do this: </p><div class="fragment"><div class="line"><span class="keyword">struct </span>Wrapper : SerializableData</div>
+<div class="line">{</div>
+<div class="line">    StateData data;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> serialize (<a class="code" href="structlemons_1_1TreeReflector.html#a0d351fe3d4087291fe84c745a5edfcf4">TreeReflector</a>&amp; ref) <span class="keyword">final</span></div>
+<div class="line">    {</div>
+<div class="line">        ref.add (<span class="stringliteral">&quot;Data&quot;</span>, data);</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+</div><!-- fragment --><p> Then you'll get this tree: </p><pre class="fragment">&lt;Wrapper&gt;
+    &lt;X = 12&gt;
+    &lt;Y = 48&gt;
+</pre><p> See the <a class="el" href="classlemons_1_1plugin_1_1ParameterHolder.html" title="Class that holds a parameter object, and can retain a reference to it after it has been added to an A...">plugin::ParameterHolder</a> class for an example of when this is useful. </p><dl class="section attention"><dt>Attention</dt><dd>If you use <a class="el" href="structlemons_1_1TreeReflector.html#a9f602bcade7f2f41bd103d40d935c33c" title="Delegates another object to be serialized as this object&#39;s data.">as()</a> in your object's serializing logic, then it should be the only line of code in your serializing function! </dd></dl>
+
+</div>
+</div>
 <a id="a7a88f53e45239d0b8d11cb2ce4dbefd0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7a88f53e45239d0b8d11cb2ce4dbefd0">&#9670;&nbsp;</a></span>getRawDataTree()</h2>
 
@@ -449,11 +519,13 @@ For example: </p><div class="fragment"><div class="line"> <span class="keyword">
 <li><a class="el" href="detail_8h.html">detail.h</a></li>
 </ul>
 </div><!-- contents -->
+<div class="ttc" id="astructlemons_1_1TreeReflector_html"><div class="ttname"><a href="structlemons_1_1TreeReflector.html">lemons::TreeReflector</a></div><div class="ttdoc">Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...</div><div class="ttdef"><b>Definition:</b> TreeReflector.h:20</div></div>
 <div class="ttc" id="astructlemons_1_1SerializableData_html"><div class="ttname"><a href="structlemons_1_1SerializableData.html">lemons::SerializableData</a></div><div class="ttdoc">Base class for any C++ object that needs to be serialized to binary and back.</div><div class="ttdef"><b>Definition:</b> SerializableData.h:12</div></div>
 <div class="ttc" id="astructlemons_1_1TreeReflector_html_a0d351fe3d4087291fe84c745a5edfcf4"><div class="ttname"><a href="structlemons_1_1TreeReflector.html#a0d351fe3d4087291fe84c745a5edfcf4">lemons::TreeReflector::TreeReflector</a></div><div class="ttdeci">TreeReflector(const ValueTree &amp;treeToUse)</div><div class="ttdoc">Creates a TreeReflector.</div></div>
+<div class="ttc" id="anamespacelemons_html"><div class="ttname"><a href="namespacelemons.html">lemons</a></div><div class="ttdef"><b>Definition:</b> DefaultWindow.h:6</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 7 2021 05:28:26 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 7 2021 06:06:34 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
