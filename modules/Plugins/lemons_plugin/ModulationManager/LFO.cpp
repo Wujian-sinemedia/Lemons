@@ -1,7 +1,6 @@
 
 namespace lemons::plugin
 {
-
 ModulationManager::LFO::LFO (ParameterList& listToUse)
     : paramList (&listToUse)
 {
@@ -26,7 +25,7 @@ void ModulationManager::LFO::prepareNextBlock (int numSamples)
     currentTick = 0;
 
     storage.clear();
-    
+
     auto alias = dsp::buffers::getAliasBuffer (storage, 0, numSamples, 1);
 
     osc.process (alias);
@@ -54,7 +53,7 @@ void ModulationManager::LFO::serialize (TreeReflector& ref)
         removeInvalidConnections();
 
     ref.add ("Oscillator", osc);
-    ref.add ("Connection", connections);
+    ref.add ("Connections", connections);
 }
 
 bool ModulationManager::LFO::hasConnection (Parameter& parameter) const

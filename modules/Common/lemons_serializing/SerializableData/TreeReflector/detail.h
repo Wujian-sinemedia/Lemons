@@ -29,9 +29,12 @@ void TreeReflector::addLambdaSet (const String& propertyName,
                                   std::function< void (Type&) >
                                       loadFromTree)
 {
-    static_assert (std::is_default_constructible<Type>(),
+    static_assert (std::is_default_constructible< Type >(),
                    "Your type must be default constructable to use TreeReflector::addLambdaSet()!");
-    
+
+    static_assert (! std::is_pointer< Type >(),
+                   "You can use add() with pointer types, but not the lambda version!");
+
     if (isLoading())
     {
         Type object;
@@ -45,19 +48,15 @@ void TreeReflector::addLambdaSet (const String& propertyName,
     }
 }
 
+/*----------------------------------------------------------------------------------------------------------------------------------*/
+
 template < typename Type >
 void TreeReflector::load (const String& propertyName, Type& object)
 {
     if constexpr (! std::is_const< Type >())
     {
-        using namespace serializing;
-        
-        if constexpr (std::is_base_of< SerializableData, Type >())
-            loadDataChild (propertyName, object);
-        else if constexpr (std::is_same< ValueTree, Type >())
-            loadValueTree (propertyName, object);
-        else if constexpr (isContainer< Type >() || isMap< Type >())
-            loadContainer (propertyName, object);
+        if constexpr (isSubtree< Type >())
+            loadSubtree (propertyName, object);
         else
             loadObject (propertyName, object);
     }
@@ -66,102 +65,159 @@ void TreeReflector::load (const String& propertyName, Type& object)
 template < typename Type >
 void TreeReflector::save (const String& propertyName, Type& object)
 {
-    using namespace serializing;
-
-    if constexpr (std::is_base_of< SerializableData, Type >())
-        saveDataChild (propertyName, object);
-    else if constexpr (std::is_same< ValueTree, Type >())
-        saveValueTree (propertyName, object);
-    else if constexpr (isContainer< Type >() || isMap< Type >())
-        saveContainer (propertyName, object);
+    if constexpr (isSubtree< Type >())
+        saveSubtree (propertyName, object);
     else
         saveObject (propertyName, object);
 }
 
+/*----------------------------------------------------------------------------------------------------------------------------------*/
+
 template < typename Type >
 void TreeReflector::loadObject (const String& propertyName, Type& object)
 {
-    static_assert (std::is_assignable<Type&, Type>(),
+    static_assert (std::is_assignable< Type&, Type >(),
                    "Your type must be assignable to add with TreeReflector!");
-    
+
     if (! tree.hasProperty (propertyName))
         return;
 
     const juce::var& var = tree.getProperty (propertyName);
-    
-    if constexpr (std::is_enum< Type >())
-        object = static_cast< Type > (static_cast< std::underlying_type_t< Type > > ((int) var));
-    else
-        object = serializing::fromVar< Type > (var);
+
+    auto convertFromVar = [&]() -> Type
+    {
+        if constexpr (std::is_enum< Type >())
+            return static_cast< Type > (static_cast< std::underlying_type_t< Type > > ((int) var));
+        else
+            return serializing::fromVar< Type > (var);
+    };
+
+    object = convertFromVar();
 }
 
 template < typename Type >
-void TreeReflector::saveObject (const String& propertyName, Type& object)
+void TreeReflector::saveObject (const String& propertyName, const Type& object)
 {
-    juce::var var;
-    
-    if constexpr (std::is_enum< Type >())
-        var = static_cast< int > (static_cast< std::underlying_type_t< Type > > (object));
-    else
-        var = serializing::toVar (object);
+    auto convertToVar = [&]() -> juce::var
+    {
+        if constexpr (std::is_enum< Type >())
+            return static_cast< int > (static_cast< std::underlying_type_t< Type > > (object));
+        else
+            return serializing::toVar (object);
+    };
 
-    tree.setProperty (propertyName, var, nullptr);
+    tree.setProperty (propertyName, convertToVar(), nullptr);
 }
 
-template < class ContainerType >
-void TreeReflector::loadContainer (const String& propertyName, ContainerType& container)
+/*----------------------------------------------------------------------------------------------------------------------------------*/
+
+template < class Type >
+void TreeReflector::loadSubtree (const String& propertyName, Type& object)
 {
-    const auto child = tree.getChildWithName (propertyNameToContainerName (propertyName));
+    const auto child = tree.getChildWithName (propertyName);
     if (! child.isValid()) return;
 
     TreeLoader ref {child};
 
-    if constexpr (serializing::isMap< ContainerType >())
-        ref.addMap (container, propertyName);
-    else
-        ref.addContainer (container, propertyName);
+    ref.addSubtree (object);
 }
 
-template < class ContainerType >
-void TreeReflector::saveContainer (const String& propertyName, ContainerType& container)
+template < class Type >
+void TreeReflector::saveSubtree (const String& propertyName, Type& object)
 {
-    ValueTree child {propertyNameToContainerName (propertyName)};
+    ValueTree child {propertyName};
 
     TreeSaver ref {child};
 
-    if constexpr (serializing::isMap< ContainerType >())
-        ref.addMap (container, propertyName);
-    else
-        ref.addContainer (container, propertyName);
+    ref.addSubtree (object);
 
     tree.appendChild (ref.getRawDataTree(), nullptr);
 }
 
-template < class ContainerType >
-void TreeReflector::addContainer (ContainerType& container, const String& propertyName)
+template < class Type >
+void TreeReflector::addSubtree (Type& object)
 {
+    if constexpr (std::is_same< ValueTree, Type >())
+        addValueTree (object);
+    else if constexpr (std::is_base_of< SerializableData, Type >())
+        addSerializableData (object);
+    else if constexpr (serializing::isMap< Type >())
+        addMap (object);
+    else
+        addContainer (object);
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------------*/
+
+template < class ContainerType >
+void TreeReflector::addContainer (ContainerType& container)
+{
+    const auto singlePropertyName = [&]() -> String
+    {
+        const auto str = tree.getType().toString();
+
+        if (str.endsWith ("s"))
+            str.dropLastCharacters (1);
+
+        return str + "_";
+    }();
+
+    auto makePropertyNameForContainerElement = [&] (int index) -> String
+    {
+        return singlePropertyName + String (index);
+    };
+
+    auto getNumContainerElements = [&] (bool elementsAreContainers) -> int
+    {
+        const auto total = elementsAreContainers ? tree.getNumChildren() : tree.getNumProperties();
+
+        juce::Array< String > names;
+
+        for (int i = 1; i <= total; ++i)
+            names.add (makePropertyNameForContainerElement (i));
+
+        auto actualNum = total;
+
+        for (int i = 0; i < total; ++i)
+        {
+            const auto test = elementsAreContainers ? tree.getChild (i).getType() : tree.getPropertyName (i);
+
+            if (! names.contains (test.toString()))
+                --actualNum;
+        }
+
+        return actualNum;
+    };
+
     if (isLoading())
     {
+        using ElementType = typename std::decay_t< decltype (container.begin()) >;
+
         using namespace serializing;
-    
-        using ElementType = typename std::remove_pointer<decltype(container.begin())>::type;
-        
-        getInterfaceForContainer (container)->resize (getNumContainerElements (propertyName,
-                                                                               isContainer<ElementType>()));
+
+        getInterfaceForContainer (container)->resize (getNumContainerElements (isContainer< ElementType >()));
     }
 
     int index = 1;
 
     for (auto& element : container)
-    {
-        add (makePropertyNameForElement (propertyName, index++),
+        add (makePropertyNameForContainerElement (index++),
              element);
-    }
 }
 
 template < class MapType >
-void TreeReflector::addMap (MapType& map, const String& propertyName)
+void TreeReflector::addMap (MapType& map)
 {
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------------*/
+
+template < typename Type >
+constexpr bool TreeReflector::isSubtree()
+{
+    using namespace serializing;
+
+    return isContainer< Type >() || isMap< Type >() || std::is_same< ValueTree, Type >() || std::is_base_of< SerializableData, Type >();
 }
 
 }  // namespace lemons

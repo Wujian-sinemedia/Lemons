@@ -23,7 +23,7 @@ void ModulationManager::processNextChunk (int numSamples)
 
 void ModulationManager::serialize (TreeReflector& ref)
 {
-    ref.add ("LFO", lfos);
+    ref.add ("LFOs", lfos);
 
     if (ref.isLoading())
         for (auto* lfo : lfos)

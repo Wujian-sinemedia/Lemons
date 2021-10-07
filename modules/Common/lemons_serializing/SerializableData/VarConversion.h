@@ -43,7 +43,7 @@ namespace lemons::serializing
     @see fromVar(), SerializableData, TreeReflector
  */
 template < typename Type >
-juce::var toVar (Type& object)
+juce::var toVar (const Type& object)
 {
     return {object};
 }
@@ -89,7 +89,7 @@ juce::var toVar (Type& object)
     @see toVar(), SerializableData, TreeReflector
  */
 template < typename Type >
-Type fromVar (juce::var var)
+Type fromVar (const juce::var& var)
 {
     return {var};
 }

@@ -15,7 +15,8 @@ SerializableData& SerializableData::operator= (SerializableData& other)
 
 ValueTree SerializableData::serialize()
 {
-    return saveToTree (dataIdentifier.toString());
+    ValueTree tree {dataIdentifier};
+    return saveToTree (tree);
 }
 
 void SerializableData::deserialize (const ValueTree& t)
@@ -26,12 +27,14 @@ void SerializableData::deserialize (const ValueTree& t)
         restoreFromTree (t.getChildWithName (dataIdentifier));
 }
 
-ValueTree SerializableData::saveToTree (const String& treeName)
+ValueTree SerializableData::saveToTree (ValueTree& tree)
 {
-    ValueTree tree {treeName};
+    jassert (tree.isValid());
+
     TreeSaver ref {tree};
 
     serialize (ref);
+
     return tree;
 }
 

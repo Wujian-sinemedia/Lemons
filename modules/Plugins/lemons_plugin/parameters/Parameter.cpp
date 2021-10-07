@@ -282,20 +282,26 @@ bool Parameter::isMetaParameter() const
 
 void Parameter::serialize (TreeReflector& ref)
 {
-    auto& tree = ref.getRawDataTree();
+    ref.addLambdaSet< float > (
+        "Value",
+        [&]
+        { return getDenormalizedValue(); },
+        [&] (float& f)
+        { setValueInternal (f); });
 
-    if (ref.isLoading())
-    {
-        setValueInternal (tree.getProperty ("Value", getDenormalizedValue()));
-        setDefaultInternal (tree.getProperty ("DefaultValue", getDenormalizedDefault()));
-        setMidiControllerInternal (tree.getProperty ("MidiControllerNumber", getMidiControllerNumber()));
-    }
-    else
-    {
-        tree.setProperty ("Value", getDenormalizedValue(), nullptr);
-        tree.setProperty ("DefaultValue", getDenormalizedDefault(), nullptr);
-        tree.setProperty ("MidiControllerNumber", getMidiControllerNumber(), nullptr);
-    }
+    ref.addLambdaSet< float > (
+        "Default",
+        [&]
+        { return getDenormalizedDefault(); },
+        [&] (float& f)
+        { setDefaultInternal (f); });
+
+    ref.addLambdaSet< int > (
+        "MidiControllerNumber",
+        [&]
+        { return getMidiControllerNumber(); },
+        [&] (int& i)
+        { setMidiControllerInternal (i); });
 }
 
 String Parameter::getParameterName (int maxLength, bool internationalize) const

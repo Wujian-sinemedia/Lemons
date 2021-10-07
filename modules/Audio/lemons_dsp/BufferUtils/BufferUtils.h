@@ -13,9 +13,9 @@ void convert (const AudioBuffer< Type1 >& source, AudioBuffer< Type2 >& dest);
 /** Returns an alias buffer referring to the memory region owned by the original passed buffer. */
 template < typename SampleType >
 AudioBuffer< SampleType > getAliasBuffer (AudioBuffer< SampleType >& bufferToAlias,
-                                          int startSample,
-                                          int numSamples,
-                                          int numChannels,
-                                          int channelOffset = 0);
+                                          int                        startSample,
+                                          int                        numSamples,
+                                          int                        numChannels,
+                                          int                        channelOffset = 0);
 
 }  // namespace lemons::dsp::buffers

@@ -2,32 +2,32 @@
 namespace lemons::serializing
 {
 template <>
-String fromVar (juce::var var)
+String fromVar (const juce::var& var)
 {
     return var.toString();
 }
 
 template <>
-juce::var toVar (std::string& string)
+juce::var toVar (const std::string& string)
 {
     String juceString {string};
     return {juceString};
 }
 
 template <>
-std::string fromVar (juce::var var)
+std::string fromVar (const juce::var& var)
 {
     return var.toString().toStdString();
 }
 
 template <>
-juce::var toVar (size_t& data)
+juce::var toVar (const size_t& data)
 {
     return {static_cast< int > (data)};
 }
 
 template <>
-size_t fromVar (juce::var var)
+size_t fromVar (const juce::var& var)
 {
     return static_cast< size_t > ((int) var);
 }
@@ -47,13 +47,13 @@ static inline juce::MemoryBlock memoryBlockFromString (const juce::String& strin
 }
 
 template <>
-juce::var toVar (juce::MemoryBlock& block)
+juce::var toVar (const juce::MemoryBlock& block)
 {
     return {memoryBlockToString (block)};
 }
 
 template <>
-juce::MemoryBlock fromVar (juce::var var)
+juce::MemoryBlock fromVar (const juce::var& var)
 {
     return memoryBlockFromString (var.toString());
 }
@@ -61,50 +61,50 @@ juce::MemoryBlock fromVar (juce::var var)
 /*-------------------------------------------------------------------------------------------*/
 
 template <>
-juce::var toVar (juce::URL& url)
+juce::var toVar (const juce::URL& url)
 {
     return url.toString (false);
 }
 
 template <>
-juce::URL fromVar (juce::var var)
+juce::URL fromVar (const juce::var& var)
 {
     return {var.toString()};
 }
 
 template <>
-juce::var toVar (juce::Uuid& uuid)
+juce::var toVar (const juce::Uuid& uuid)
 {
     return {uuid.toString()};
 }
 
 template <>
-juce::Uuid fromVar (juce::var var)
+juce::Uuid fromVar (const juce::var& var)
 {
     return {var.toString()};
 }
 
 template <>
-juce::var toVar (juce::Time& time)
+juce::var toVar (const juce::Time& time)
 {
     return {time.toMilliseconds()};
 }
 
 template <>
-juce::Time fromVar (juce::var var)
+juce::Time fromVar (const juce::var& var)
 {
     juce::Time time {(juce::int64) var};
     return time;
 }
 
 template <>
-juce::var toVar (juce::RelativeTime& time)
+juce::var toVar (const juce::RelativeTime& time)
 {
     return {time.inSeconds()};
 }
 
 template <>
-juce::RelativeTime fromVar (juce::var var)
+juce::RelativeTime fromVar (const juce::var& var)
 {
     juce::RelativeTime time {(double) var};
     return time;
@@ -114,7 +114,7 @@ juce::RelativeTime fromVar (juce::var var)
 /*--------------------------------------- Images -------------------------------------------*/
 
 template <>
-juce::var toVar (juce::Image& image)
+juce::var toVar (const juce::Image& image)
 {
     juce::MemoryBlock        block;
     juce::MemoryOutputStream stream {block, false};
@@ -126,7 +126,7 @@ juce::var toVar (juce::Image& image)
 }
 
 template <>
-juce::Image fromVar (juce::var var)
+juce::Image fromVar (const juce::var& var)
 {
     auto                    block = memoryBlockFromString (var.toString());
     juce::MemoryInputStream stream {block, false};
@@ -165,13 +165,13 @@ inline juce::Point< Type > pointFromString (const String& string)
 }
 
 template <>
-juce::var toVar (juce::Point< float >& point)
+juce::var toVar (const juce::Point< float >& point)
 {
     return pointToString (point);
 }
 
 template <>
-juce::Point< float > fromVar (juce::var var)
+juce::Point< float > fromVar (const juce::var& var)
 {
     const auto string = var.toString();
 
@@ -179,17 +179,115 @@ juce::Point< float > fromVar (juce::var var)
 }
 
 template <>
-juce::var toVar (juce::Point< int >& point)
+juce::var toVar (const juce::Point< int >& point)
 {
     return pointToString (point);
 }
 
 template <>
-juce::Point< int > fromVar (juce::var var)
+juce::Point< int > fromVar (const juce::var& var)
 {
     const auto string = var.toString();
 
     return pointFromString< int > (string);
+}
+
+
+/*--------------------------------------- Audio buffers -------------------------------------------*/
+
+static inline juce::MemoryBlock bufferToMemoryBlock (const AudioBuffer< float >& buffer)
+{
+    juce::MemoryBlock        block;
+    juce::MemoryOutputStream stream {block, false};
+    juce::FlacAudioFormat    format;
+
+    if (auto* writer = format.createWriterFor (&stream, 48000, (unsigned) buffer.getNumChannels(), 24, {}, 0))
+        writer->writeFromAudioSampleBuffer (buffer, 0, buffer.getNumSamples());
+
+    return block;
+}
+
+static inline juce::MemoryBlock bufferToMemoryBlock (const AudioBuffer< double >& buffer)
+{
+    const auto numSamples  = buffer.getNumSamples();
+    const auto numChannels = buffer.getNumChannels();
+
+    AudioBuffer< float > temp {numSamples, numChannels};
+
+    for (int chan = 0; chan < numChannels; ++chan)
+        vecops::convert (temp.getWritePointer (chan), buffer.getReadPointer (chan), numSamples);
+
+    return bufferToMemoryBlock (temp);
+}
+
+
+template <>
+juce::var toVar (const AudioBuffer< float >& buffer)
+{
+    return memoryBlockToString (bufferToMemoryBlock (buffer));
+}
+
+template <>
+juce::var toVar (const AudioBuffer< double >& buffer)
+{
+    return memoryBlockToString (bufferToMemoryBlock (buffer));
+}
+
+
+static inline void memoryBlockToBuffer (const juce::MemoryBlock& mem, AudioBuffer< float >& buffer)
+{
+    buffer.clear();
+
+    juce::MemoryInputStream in {mem.getData(), mem.getSize(), false};
+    juce::FlacAudioFormat   format;
+
+    if (auto* reader = format.createReaderFor (&in, false))
+    {
+        const auto numChannels = static_cast< int > (reader->numChannels);
+        const auto numSamples  = static_cast< int > (reader->lengthInSamples);
+
+        buffer.setSize (numChannels, numSamples);
+        reader->read (&buffer, 0, numSamples, 0, true, numChannels > 1);
+    }
+}
+
+static inline void memoryBlockToBuffer (const juce::MemoryBlock& mem, AudioBuffer< double >& buffer)
+{
+    const auto numSamples  = buffer.getNumSamples();
+    const auto numChannels = buffer.getNumChannels();
+
+    AudioBuffer< float > temp {numSamples, numChannels};
+
+    for (int chan = 0; chan < numChannels; ++chan)
+        vecops::convert (temp.getWritePointer (chan), buffer.getReadPointer (chan), numSamples);
+
+    memoryBlockToBuffer (mem, temp);
+
+    for (int chan = 0; chan < numChannels; ++chan)
+        vecops::convert (buffer.getWritePointer (chan), temp.getReadPointer (chan), numSamples);
+}
+
+template < typename SampleType >
+inline AudioBuffer< SampleType > varToBuffer (const juce::var& var)
+{
+    AudioBuffer< SampleType > buffer;
+
+    memoryBlockToBuffer (memoryBlockFromString (var.toString()),
+                         buffer);
+
+    return buffer;
+}
+
+template <>
+AudioBuffer< float > fromVar (const juce::var& var)
+{
+    return varToBuffer< float > (var);
+}
+
+template <>
+AudioBuffer< double > fromVar (const juce::var& var)
+{
+    return varToBuffer< double > (var);
 }
 
 
@@ -221,7 +319,7 @@ static inline juce::MidiBuffer midiSequenceToBuffer (const juce::MidiMessageSequ
 }
 
 template <>
-juce::var toVar (juce::MidiBuffer& buffer)
+juce::var toVar (const juce::MidiBuffer& buffer)
 {
     juce::MidiFile file;
 
@@ -237,7 +335,7 @@ juce::var toVar (juce::MidiBuffer& buffer)
 
 
 template <>
-juce::MidiBuffer fromVar (juce::var var)
+juce::MidiBuffer fromVar (const juce::var& var)
 {
     auto                    block = memoryBlockFromString (var.toString());
     juce::MemoryInputStream stream {block, false};

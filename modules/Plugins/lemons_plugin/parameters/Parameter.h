@@ -196,8 +196,11 @@ public:
 
     //==============================================================================
 
+protected:
+    void setMidiControllerInternal (int controller);
+
 private:
-    void serialize (TreeReflector& ref) final;
+    void serialize (TreeReflector& ref) override;
 
     float getValue() const final;
     void  setValue (float newValue) final;
@@ -205,9 +208,9 @@ private:
 
     void setValueInternal (float value);
     void setDefaultInternal (float value);
-    void setMidiControllerInternal (int controller);
 
-    const bool automatable, metaParameter;
+    const bool automatable;
+    const bool metaParameter;
 
     const juce::NormalisableRange< float > range;
 

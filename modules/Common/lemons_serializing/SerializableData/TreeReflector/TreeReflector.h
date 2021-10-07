@@ -71,7 +71,7 @@ struct TreeReflector
         };
         @endcode
         In the above example, the 'string' data will overwrite the 'number' data, because the programmer has chosen duplicate property names. \n
-    
+        \n
         Container types you wish to serialize with a single call to add() must fulfill the following: \n
         - have begin() and end() functions -- ie, are compatable with range-based for loops
         - have an implementation of serializing::ContainerInterface
@@ -81,8 +81,6 @@ struct TreeReflector
         \n
         Provided in Lemons are implementations for common STL containers and JUCE containers. You can implement the above requirements for this to work with any other custom type you create. \n
         \n
-        When calling add() with a container, the property name you pass should be the name of a single element in the container. \n
-        \n
         For example:
         @code
         struct SomethingSerializable : lemons::SerializableData
@@ -91,7 +89,7 @@ struct TreeReflector
      
             void serialize (TreeReflector& ref) final
             {
-                ref.add ("Int", data);
+                ref.add ("Ints", data);
             }
         };
         @endcode
@@ -100,11 +98,11 @@ struct TreeReflector
         @param propertyName The property name associated with the piece of data this function call represents. \n
         - When adding a reference to a member encoded with toVar() and fromVar(), this is the name of the ValueTree property the encoded object will be saved to and restored from in the reflector's internal ValueTree. \n
         - When adding a sub-tree object (such as when passing a child ValueTree, a child object that inherits from SerializableData, or a container), this is the name of the sub-tree that will be added to the reflector's internal tree, and will be populated with the child object's properties. \n
-        - When adding a container, this should be the name of a single container element. Container element names and the container's subtree name are generated as following:
+        - When adding a container, the container's individual element names are generated as following:
         @code
             std::vector<int> data {23, 16, 7};
      
-            ref.add ("Point", data);
+            ref.add ("Points", data);
         @endcode
         This will create the following sub-tree object:
         @verbatim
@@ -185,38 +183,43 @@ private:
     template < typename Type >
     void save (const String& propertyName, Type& object);
 
+    /*------------------------------------------*/
+
     template < typename Type >
     void loadObject (const String& propertyName, Type& object);
 
     template < typename Type >
-    void saveObject (const String& propertyName, Type& object);
+    void saveObject (const String& propertyName, const Type& object);
 
-    void loadValueTree (const String& propertyName, ValueTree& data) const;
-    void saveValueTree (const String& propertyName, ValueTree& data);
+    /*------------------------------------------*/
 
-    void loadDataChild (const String& propertyName, SerializableData& data) const;
-    void saveDataChild (const String& propertyName, SerializableData& data);
+    template < class Type >
+    void loadSubtree (const String& propertyName, Type& object);
+
+    template < class Type >
+    void saveSubtree (const String& propertyName, Type& object);
+
+    /*------------------------------------------*/
+
+    template < class Type >
+    void addSubtree (Type& object);
+
+    void addValueTree (ValueTree& data);
+
+    void addSerializableData (SerializableData& data);
 
     template < class ContainerType >
-    void loadContainer (const String& propertyName, ContainerType& container);
-
-    template < class ContainerType >
-    void saveContainer (const String& propertyName, ContainerType& container);
-
-    template < class ContainerType >
-    void addContainer (ContainerType& container, const String& propertyName);
+    void addContainer (ContainerType& container);
 
     template < class MapType >
-    void addMap (MapType& map, const String& propertyName);
+    void addMap (MapType& map);
 
-    /*----------------------*/
-    // Helper funcs
+    /*------------------------------------------*/
 
-    String propertyNameToContainerName (const String& propertyName) const;
+    template < typename Type >
+    static constexpr bool isSubtree();
 
-    String makePropertyNameForElement (const String& propertyName, int index) const;
-
-    int getNumContainerElements (const String& propertyName, bool elementsAreContainers) const;
+    /*------------------------------------------*/
 
     ValueTree tree;
 };

@@ -282,6 +282,31 @@ ValueType TypedParameter< ValueType >::getMaximum() const
 }
 
 template < typename ValueType >
+void TypedParameter< ValueType >::serialize (TreeReflector& ref)
+{
+    ref.addLambdaSet< ValueType > (
+        "Value",
+        [&]
+        { return get(); },
+        [&] (ValueType& f)
+        { set (f); });
+
+    ref.addLambdaSet< ValueType > (
+        "Default",
+        [&]
+        { return getDefault(); },
+        [&] (ValueType& f)
+        { setDefault (f); });
+
+    ref.addLambdaSet< int > (
+        "MidiControllerNumber",
+        [&]
+        { return getMidiControllerNumber(); },
+        [&] (int& i)
+        { setMidiControllerInternal (i); });
+}
+
+template < typename ValueType >
 TypedParameter< ValueType >::Listener::Listener (TypedParameter< ValueType >& param)
     : Parameter::Listener (param), parameter (param)
 {

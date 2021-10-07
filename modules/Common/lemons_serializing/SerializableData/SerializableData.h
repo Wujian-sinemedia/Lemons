@@ -92,7 +92,7 @@ private:
 
     friend struct TreeReflector;
 
-    ValueTree saveToTree (const String& treeName);
+    ValueTree saveToTree (ValueTree& tree);
     void      restoreFromTree (const ValueTree& newTree);
 
     const juce::Identifier dataIdentifier;
