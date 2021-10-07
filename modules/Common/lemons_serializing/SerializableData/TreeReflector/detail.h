@@ -167,35 +167,37 @@ void TreeReflector::addContainer (ContainerType& container)
         return singlePropertyName + String (index);
     };
 
-    auto getNumContainerElements = [&] (bool elementsAreContainers) -> int
-    {
-        const auto total = elementsAreContainers ? tree.getNumChildren() : tree.getNumProperties();
-
-        juce::Array< String > names;
-
-        for (int i = 1; i <= total; ++i)
-            names.add (makePropertyNameForContainerElement (i));
-
-        auto actualNum = total;
-
-        for (int i = 0; i < total; ++i)
-        {
-            const auto test = elementsAreContainers ? tree.getChild (i).getType() : tree.getPropertyName (i);
-
-            if (! names.contains (test.toString()))
-                --actualNum;
-        }
-
-        return actualNum;
-    };
-
     if (isLoading())
     {
-        using ElementType = typename std::decay_t< decltype (container.begin()) >;
-
         using namespace serializing;
 
-        getInterfaceForContainer (container)->resize (getNumContainerElements (isContainer< ElementType >()));
+        const auto numElements = [&]() -> int
+        {
+            using ElementType = typename std::decay_t< decltype (container.begin()) >;
+
+            constexpr bool elementsAreContainers = isContainer< ElementType >();
+
+            const auto total = elementsAreContainers ? tree.getNumChildren() : tree.getNumProperties();
+
+            juce::Array< String > names;
+
+            for (int i = 1; i <= total; ++i)
+                names.add (makePropertyNameForContainerElement (i));
+
+            auto actualNum = total;
+
+            for (int i = 0; i < total; ++i)
+            {
+                const auto test = elementsAreContainers ? tree.getChild (i).getType() : tree.getPropertyName (i);
+
+                if (! names.contains (test.toString()))
+                    --actualNum;
+            }
+
+            return actualNum;
+        }();
+
+        getInterfaceForContainer (container)->resize (numElements);
     }
 
     int index = 1;

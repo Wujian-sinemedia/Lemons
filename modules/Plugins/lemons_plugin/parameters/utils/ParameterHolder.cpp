@@ -19,7 +19,7 @@ void ParamHolderBase::addTo (juce::AudioProcessor& processor)
 
 void ParamHolderBase::serialize (TreeReflector& ref)
 {
-    ref.add ("Parameter", *getParam());
+    ref.as (*getParam());
 }
 
 }  // namespace lemons::plugin

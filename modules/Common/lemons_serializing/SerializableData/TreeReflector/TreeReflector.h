@@ -171,6 +171,74 @@ struct TreeReflector
                            loadFromTree);
 
 
+    /** Delegates another object to be serialized as this object's data.
+        The use case for this is if you're implementing a wrapper type that adds functionality to another serializable type, but has no stateful data of its own, and you want to serialize the state data without it being in a subtree of your object's node in the parent tree. \n
+        For example, say you've got the following types:
+        @code
+        using namespace lemons;
+     
+        struct StateData : SerializableData
+        {
+            int x {12}, y {48};
+     
+            void serialize (TreeReflector& ref) final
+            {
+                ref.add ("X", x);
+                ref.add ("Y", y);
+            }
+        };
+     
+        struct Wrapper : SerializableData
+        {
+            StateData data;
+     
+            // add some more functionality to "data"...
+        };
+        @endcode
+        How would you write Wrapper's serialize() function? \n
+        You could do this:
+        @code
+        struct Wrapper : SerializableData
+        {
+            StateData data;
+     
+            void serialize (TreeReflector& ref) final
+            {
+                ref.add ("Data", data);
+            }
+        };
+        @endcode
+        The above code will produce the following tree when Wrapper is serialized:
+        @verbatim
+        <Wrapper>
+            <Data>
+                <X = 12>
+                <Y = 48>
+        @endverbatim
+        But, if you do this:
+        @code
+        struct Wrapper : SerializableData
+        {
+            StateData data;
+     
+            void serialize (TreeReflector& ref) final
+            {
+                ref.add ("Data", data);
+            }
+        };
+        @endcode
+        Then you'll get this tree:
+        @verbatim
+        <Wrapper>
+            <X = 12>
+            <Y = 48>
+        @endverbatim
+        See the plugin::ParameterHolder class for an example of when this is useful.
+        @attention If you use as() in your object's serializing logic, then it should be the only line of code in your serializing function!
+     */
+    void as (SerializableData& data);
+
+
     /** Returns a reference to this reflector's root ValueTree.
         @attention Handle with care! The tree this function returns may already contain sub-nodes representing other serialized children of whatever object is serializing you at the moment...
     */

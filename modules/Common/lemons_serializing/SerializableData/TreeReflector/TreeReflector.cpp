@@ -12,9 +12,9 @@ bool TreeReflector::isSaving() const { return ! isLoading(); }
 void TreeReflector::addValueTree (ValueTree& data)
 {
     if (isLoading())
-        tree.copyPropertiesFrom (data, nullptr);
+        tree.copyPropertiesAndChildrenFrom (data, nullptr);
     else
-        data.copyPropertiesFrom (tree, nullptr);
+        data.copyPropertiesAndChildrenFrom (tree, nullptr);
 }
 
 void TreeReflector::addSerializableData (SerializableData& data)
@@ -23,6 +23,11 @@ void TreeReflector::addSerializableData (SerializableData& data)
         data.restoreFromTree (tree);
     else
         data.saveToTree (tree);
+}
+
+void TreeReflector::as (SerializableData& data)
+{
+    data.serialize (*this);
 }
 
 ValueTree& TreeReflector::getRawDataTree() { return tree; }
