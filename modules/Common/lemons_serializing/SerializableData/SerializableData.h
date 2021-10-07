@@ -21,8 +21,6 @@ struct SerializableData
     /** Destructor. */
     virtual ~SerializableData() = default;
 
-    /** Default assignment operator that uses the serialize/deserialize API internally. */
-    SerializableData& operator= (SerializableData& other);
 
     /**
         Serializes the state of this object and returns a ValueTree.
@@ -91,9 +89,6 @@ private:
     virtual void serialize (TreeReflector& ref) = 0;
 
     friend struct TreeReflector;
-
-    ValueTree saveToTree (ValueTree& tree);
-    void      restoreFromTree (const ValueTree& newTree);
 
     const juce::Identifier dataIdentifier;
 };

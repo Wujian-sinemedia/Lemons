@@ -6,30 +6,9 @@ SerializableData::SerializableData (juce::Identifier identifier)
 {
 }
 
-
-SerializableData& SerializableData::operator= (SerializableData& other)
-{
-    deserialize (other.serialize());
-    return *this;
-}
-
 ValueTree SerializableData::serialize()
 {
     ValueTree tree {dataIdentifier};
-    return saveToTree (tree);
-}
-
-void SerializableData::deserialize (const ValueTree& t)
-{
-    if (t.hasType (dataIdentifier))
-        restoreFromTree (t);
-    else
-        restoreFromTree (t.getChildWithName (dataIdentifier));
-}
-
-ValueTree SerializableData::saveToTree (ValueTree& tree)
-{
-    jassert (tree.isValid());
 
     TreeSaver ref {tree};
 
@@ -38,11 +17,19 @@ ValueTree SerializableData::saveToTree (ValueTree& tree)
     return tree;
 }
 
-void SerializableData::restoreFromTree (const ValueTree& newTree)
+void SerializableData::deserialize (const ValueTree& t)
 {
-    if (! newTree.isValid()) return;
+    const auto tree = [&]() -> ValueTree
+    {
+        if (t.hasType (dataIdentifier))
+            return t;
+        else
+            return t.getChildWithName (dataIdentifier);
+    }();
 
-    TreeLoader ref {newTree};
+    if (! tree.isValid()) return;
+
+    TreeLoader ref {tree};
 
     serialize (ref);
 }

@@ -131,7 +131,7 @@ void TreeReflector::saveSubtree (const String& propertyName, Type& object)
 
     ref.addSubtree (object);
 
-    tree.appendChild (ref.getRawDataTree(), nullptr);
+    tree.appendChild (ref.tree, nullptr);
 }
 
 template < class Type >
@@ -140,7 +140,7 @@ void TreeReflector::addSubtree (Type& object)
     if constexpr (std::is_same< ValueTree, Type >())
         addValueTree (object);
     else if constexpr (std::is_base_of< SerializableData, Type >())
-        addSerializableData (object);
+        as (object);
     else if constexpr (serializing::isMap< Type >())
         addMap (object);
     else

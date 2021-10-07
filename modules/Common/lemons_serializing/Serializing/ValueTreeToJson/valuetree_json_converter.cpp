@@ -1,26 +1,31 @@
 namespace lemons::serializing
 {
+static constexpr auto NAME_PROP     = "_name";
+static constexpr auto CHILDREN_PROP = "_children";
+static constexpr auto BASE64_PROP   = "_base64:";
+
 static inline juce::var valueTreeToVar (const ValueTree& v)
 {
-    auto obj = new juce::DynamicObject();
+    juce::DynamicObject obj;
 
-    obj->setProperty ("_name", v.getType().toString());
+    obj.setProperty (NAME_PROP, v.getType().toString());
 
     juce::Array< juce::var > children;
 
     for (auto c : v)
         children.add (valueTreeToVar (c));
 
-    if (children.size() > 0) obj->setProperty ("_children", children);
+    if (! children.isEmpty())
+        obj.setProperty (CHILDREN_PROP, children);
 
     for (int i = 0; i < v.getNumProperties(); i++)
     {
-        auto name = v.getPropertyName (i).toString();
-        auto val  = v.getProperty (name, {});
+        const auto name = v.getPropertyName (i).toString();
+        const auto val  = v.getProperty (name, {});
 
-        if (auto mb = val.getBinaryData())
+        if (const auto mb = val.getBinaryData())
         {
-            obj->setProperty ("base64:" + name, mb->toBase64Encoding());
+            obj.setProperty (BASE64_PROP + name, mb->toBase64Encoding());
         }
         else
         {
@@ -29,17 +34,16 @@ static inline juce::var valueTreeToVar (const ValueTree& v)
             jassert (! val.isMethod());
             jassert (! val.isArray());
 
-            obj->setProperty (name, val.toString());
+            obj.setProperty (name, val.toString());
         }
     }
 
-    return juce::var (obj);
+    return juce::var (&obj);
 }
 
 String valueTreeToJSON (const ValueTree& v)
 {
-    auto obj = valueTreeToVar (v);
-    return juce::JSON::toString (obj);
+    return juce::JSON::toString (valueTreeToVar (v));
 }
 
 
@@ -51,27 +55,35 @@ static inline ValueTree valueTreefromVar (const juce::var& obj)
 {
     if (auto dobj = obj.getDynamicObject())
     {
-        ValueTree v (dobj->getProperty ("_name").toString());
+        if (! dobj->hasProperty (NAME_PROP))
+            return {};
 
-        auto c = dobj->getProperty ("_children");
+        ValueTree v (dobj->getProperty (NAME_PROP).toString());
 
-        if (c.isArray())
-            for (auto& child : *c.getArray())
-                v.addChild (valueTreefromVar (child), -1, nullptr);
-
-        auto properties = dobj->getProperties();
-
-        for (auto itr : properties)
+        if (const auto c = dobj->getProperty (CHILDREN_PROP); c.isArray())
         {
-            auto name = itr.name.toString();
+            for (const auto& child : *c.getArray())
+            {
+                const auto childTree = valueTreefromVar (child);
 
-            if (name == "_name" || name == "_children") continue;
+                if (childTree.isValid())
+                    v.appendChild (childTree, nullptr);
+            }
+        }
 
-            if (name.startsWith ("base64:"))
+        for (auto itr : dobj->getProperties())
+        {
+            const auto name = itr.name.toString();
+
+            if (name == NAME_PROP || name == CHILDREN_PROP) continue;
+
+            if (name.startsWith (BASE64_PROP))
             {
                 juce::MemoryBlock mb;
+
                 if (mb.fromBase64Encoding (itr.value.toString()))
-                    v.setProperty (name.substring (7), juce::var (mb), nullptr);
+                    v.setProperty (name.substring (std::strlen (BASE64_PROP)),
+                                   juce::var (mb), nullptr);
             }
             else
             {
@@ -81,14 +93,16 @@ static inline ValueTree valueTreefromVar (const juce::var& obj)
 
         return v;
     }
+
     return {};
 }
 
 ValueTree valueTreeFromJSON (const String& jsonText)
 {
-    juce::var obj = juce::JSON::parse (jsonText);
+    auto obj = juce::JSON::parse (jsonText);
 
-    if (obj.isObject()) return valueTreefromVar (obj);
+    if (obj.isObject())
+        return valueTreefromVar (obj);
 
     return {};
 }

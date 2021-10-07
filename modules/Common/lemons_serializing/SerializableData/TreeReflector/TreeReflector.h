@@ -274,8 +274,6 @@ private:
 
     void addValueTree (ValueTree& data);
 
-    void addSerializableData (SerializableData& data);
-
     template < class ContainerType >
     void addContainer (ContainerType& container);
 
