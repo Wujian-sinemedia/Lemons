@@ -32,7 +32,7 @@ void SynthVoiceBase< SampleType >::prepare (double samplerate, int blocksize)
     adsr.setParameters (parent->adsrParams);
     quickRelease.setParameters (parent->quickReleaseParams);
 
-    setPitchGlideTime (pitchGlideTimeSecs);
+    // setPitchGlideTime (pitchGlideTimeSecs);
 
     prepared (samplerate, blocksize);
 }

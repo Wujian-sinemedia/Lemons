@@ -19,13 +19,7 @@ ValueTree SerializableData::serialize()
 
 void SerializableData::deserialize (const ValueTree& t)
 {
-    const auto tree = [&]() -> ValueTree
-    {
-        if (t.hasType (dataIdentifier))
-            return t;
-        else
-            return t.getChildWithName (dataIdentifier);
-    }();
+    const auto tree = t.hasType (dataIdentifier) ? t : t.getChildWithName (dataIdentifier);
 
     if (! tree.isValid()) return;
 
