@@ -16,34 +16,6 @@
     <namespace>lemons::dsp</namespace>
   </compound>
   <compound kind="file">
-    <name>AudioBuffers.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/Serializing/Specializations/</path>
-    <filename>AudioBuffers_8h.html</filename>
-    <namespace>lemons</namespace>
-    <namespace>lemons::serializing</namespace>
-    <member kind="function">
-      <type>juce::AudioBuffer&lt; float &gt;</type>
-      <name>fromVar</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>aeff235d9553fa3ebf08d80086b25c41e</anchor>
-      <arglist>(juce::var var)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::var</type>
-      <name>toVar</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a359990fb1af99d70295d10a13ddb2810</anchor>
-      <arglist>(juce::AudioBuffer&lt; double &gt; &amp;buffer)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::var</type>
-      <name>toVar</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a649c8f2bc41506fd655298cdf41de430</anchor>
-      <arglist>(juce::AudioBuffer&lt; float &gt; &amp;buffer)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
     <name>AudioEffect.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_audio_effects/AudioEffects/</path>
     <filename>AudioEffect_8h.html</filename>
@@ -133,6 +105,13 @@
       <anchorfile>namespacelemons_1_1dsp_1_1buffers.html</anchorfile>
       <anchor>aa8f6c7a0fdfc0981f44b3dfa291cc2ee</anchor>
       <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;source, AudioBuffer&lt; SampleType &gt; &amp;dest)</arglist>
+    </member>
+    <member kind="function">
+      <type>AudioBuffer&lt; SampleType &gt;</type>
+      <name>getAliasBuffer</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1buffers.html</anchorfile>
+      <anchor>ae7a58230672837db81f1fbd9b5ea3805</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;bufferToAlias, int startSample, int numSamples, int numChannels, int channelOffset=0)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -1511,7 +1490,6 @@
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/Serializing/</path>
     <filename>Serializing_8h.html</filename>
     <includes id="valuetree__json__converter_8h" name="valuetree_json_converter.h" local="yes" imported="no">ValueTreeToJson/valuetree_json_converter.h</includes>
-    <includes id="AudioBuffers_8h" name="AudioBuffers.h" local="yes" imported="no">Specializations/AudioBuffers.h</includes>
     <includes id="VarSpecializations_8h" name="VarSpecializations.h" local="yes" imported="no">Specializations/VarSpecializations.h</includes>
     <namespace>lemons</namespace>
     <namespace>lemons::serializing</namespace>
@@ -2014,15 +1992,15 @@
       <type>Type</type>
       <name>fromVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>abd30f255b2b10402a940e2260f7ede3b</anchor>
-      <arglist>(juce::var var)</arglist>
+      <anchor>ab1f2f10c7b4aaf9489cc1ee43c450464</anchor>
+      <arglist>(const juce::var &amp;var)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a713bb9525856a131f6897cdd045d5bc4</anchor>
-      <arglist>(Type &amp;object)</arglist>
+      <anchor>ae8ee0e682cb966523ed9d443e76789a2</anchor>
+      <arglist>(const Type &amp;object)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -2032,88 +2010,102 @@
     <namespace>lemons</namespace>
     <namespace>lemons::serializing</namespace>
     <member kind="function">
-      <type>juce::AudioBuffer&lt; float &gt;</type>
+      <type>String</type>
       <name>fromVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>aeff235d9553fa3ebf08d80086b25c41e</anchor>
-      <arglist>(juce::var var)</arglist>
+      <anchor>a1f61f3d63eccd58003af4d3f80dbb74c</anchor>
+      <arglist>(const juce::var &amp;var)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a8d788139f4116211d8426cf9bfd6aa7b</anchor>
-      <arglist>(juce::Image &amp;image)</arglist>
+      <anchor>a995e9b485ca6b3b7ce540d96ec74e6a2</anchor>
+      <arglist>(const AudioBuffer&lt; double &gt; &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a4002e6e67a670bb92651456865776534</anchor>
-      <arglist>(juce::MemoryBlock &amp;block)</arglist>
+      <anchor>a24125b298d1fb471bbbdd149093dce51</anchor>
+      <arglist>(const AudioBuffer&lt; float &gt; &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a54ecbed7b2fd709bf3a77251b6262ebd</anchor>
-      <arglist>(juce::MidiBuffer &amp;buffer)</arglist>
+      <anchor>adc3bfc8f01116f4667d90f34c0e3d8c4</anchor>
+      <arglist>(const juce::Image &amp;image)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a5b32b87aef2397cb2c1930541106a9db</anchor>
-      <arglist>(juce::Point&lt; float &gt; &amp;point)</arglist>
+      <anchor>a0b086889965f50d7dc83930d085de325</anchor>
+      <arglist>(const juce::MemoryBlock &amp;block)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>ae10e604289c026559886af5c9bf1ff91</anchor>
-      <arglist>(juce::Point&lt; int &gt; &amp;point)</arglist>
+      <anchor>a4faac5d9f8e68faafea91e27ceccc7c5</anchor>
+      <arglist>(const juce::MidiBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a6a245e4f55875b6ac8fd9f2700ac791a</anchor>
-      <arglist>(juce::RelativeTime &amp;time)</arglist>
+      <anchor>a0ff1227990759f0b34182e43aae0680d</anchor>
+      <arglist>(const juce::Point&lt; float &gt; &amp;point)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a335a1e1d369f0916e2267cfb6e1f8171</anchor>
-      <arglist>(juce::Time &amp;time)</arglist>
+      <anchor>a15aac9d86072af03ffe8bfb8f8d4605c</anchor>
+      <arglist>(const juce::Point&lt; int &gt; &amp;point)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a77778b6f43a5a52acb50655157a79145</anchor>
-      <arglist>(juce::URL &amp;url)</arglist>
+      <anchor>a14a5d01ead6cd547224b26dbe905ba41</anchor>
+      <arglist>(const juce::RelativeTime &amp;time)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>abda7ea751365cf15132fc3afa328dada</anchor>
-      <arglist>(juce::Uuid &amp;uuid)</arglist>
+      <anchor>a1c6587c822504cd6cd5320fa4f752371</anchor>
+      <arglist>(const juce::Time &amp;time)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>ae77d37863d4dc2de7a2a5dc89de6e211</anchor>
-      <arglist>(size_t &amp;data)</arglist>
+      <anchor>a3474b867dfb3bfa6d9a6e8f8122db43f</anchor>
+      <arglist>(const juce::URL &amp;url)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a2ae3657bad4740b539073b21e55d2212</anchor>
-      <arglist>(std::string &amp;string)</arglist>
+      <anchor>a589c4da13a83569ebfdc1e42a9c40c21</anchor>
+      <arglist>(const juce::Uuid &amp;uuid)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a87f2d83a5e4631fc440c00a39a8f3dac</anchor>
+      <arglist>(const size_t &amp;data)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a3b5374fbfd620b723a9320be08047ad6</anchor>
+      <arglist>(const std::string &amp;string)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -3001,6 +2993,13 @@
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
       <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
       <arglist>(UndoManager &amp;managerToUse)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>setMidiControllerInternal</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a01f6abc488d0130e83ee7aa664c139c8</anchor>
+      <arglist>(int controller)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -5816,6 +5815,13 @@
       <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
       <arglist>(UndoManager &amp;managerToUse)</arglist>
     </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>setMidiControllerInternal</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a01f6abc488d0130e83ee7aa664c139c8</anchor>
+      <arglist>(int controller)</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>lemons::gui::FloatSlider</name>
@@ -6170,6 +6176,13 @@
       <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
       <arglist>(UndoManager &amp;managerToUse)</arglist>
     </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>setMidiControllerInternal</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a01f6abc488d0130e83ee7aa664c139c8</anchor>
+      <arglist>(int controller)</arglist>
+    </member>
   </compound>
   <compound kind="struct">
     <name>lemons::plugin::GainMeterParameter</name>
@@ -6490,6 +6503,13 @@
       <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
       <arglist>(UndoManager &amp;managerToUse)</arglist>
     </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>setMidiControllerInternal</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a01f6abc488d0130e83ee7aa664c139c8</anchor>
+      <arglist>(int controller)</arglist>
+    </member>
   </compound>
   <compound kind="struct">
     <name>lemons::plugin::GainParameter</name>
@@ -6809,6 +6829,13 @@
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
       <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
       <arglist>(UndoManager &amp;managerToUse)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>setMidiControllerInternal</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a01f6abc488d0130e83ee7aa664c139c8</anchor>
+      <arglist>(int controller)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -8771,6 +8798,13 @@
       <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
       <arglist>(UndoManager &amp;managerToUse)</arglist>
     </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>setMidiControllerInternal</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a01f6abc488d0130e83ee7aa664c139c8</anchor>
+      <arglist>(int controller)</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>lemons::dsp::MidiChoppingProcessor</name>
@@ -9325,6 +9359,13 @@
       <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
       <arglist>(UndoManager &amp;managerToUse)</arglist>
     </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>setMidiControllerInternal</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a01f6abc488d0130e83ee7aa664c139c8</anchor>
+      <arglist>(int controller)</arglist>
+    </member>
   </compound>
   <compound kind="struct">
     <name>lemons::plugin::MidiPitchParameter</name>
@@ -9644,6 +9685,13 @@
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
       <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
       <arglist>(UndoManager &amp;managerToUse)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>setMidiControllerInternal</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a01f6abc488d0130e83ee7aa664c139c8</anchor>
+      <arglist>(int controller)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -12854,6 +12902,13 @@
       <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
       <arglist>(UndoManager &amp;managerToUse)</arglist>
     </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>setMidiControllerInternal</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a01f6abc488d0130e83ee7aa664c139c8</anchor>
+      <arglist>(int controller)</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>lemons::plugin::ParameterHolder</name>
@@ -13706,6 +13761,13 @@
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
       <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
       <arglist>(UndoManager &amp;managerToUse)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>setMidiControllerInternal</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a01f6abc488d0130e83ee7aa664c139c8</anchor>
+      <arglist>(int controller)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -15174,6 +15236,13 @@
       <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
       <arglist>(UndoManager &amp;managerToUse)</arglist>
     </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>setMidiControllerInternal</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a01f6abc488d0130e83ee7aa664c139c8</anchor>
+      <arglist>(int controller)</arglist>
+    </member>
   </compound>
   <compound kind="struct">
     <name>lemons::plugin::SemitonesParameter</name>
@@ -15493,6 +15562,13 @@
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
       <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
       <arglist>(UndoManager &amp;managerToUse)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>setMidiControllerInternal</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a01f6abc488d0130e83ee7aa664c139c8</anchor>
+      <arglist>(int controller)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -18476,6 +18552,13 @@
       <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
       <arglist>(UndoManager &amp;managerToUse)</arglist>
     </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>setMidiControllerInternal</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a01f6abc488d0130e83ee7aa664c139c8</anchor>
+      <arglist>(int controller)</arglist>
+    </member>
   </compound>
   <compound kind="struct">
     <name>lemons::serializing::Toggler</name>
@@ -19143,6 +19226,13 @@
       <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
       <arglist>(UndoManager &amp;managerToUse)</arglist>
     </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>setMidiControllerInternal</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a01f6abc488d0130e83ee7aa664c139c8</anchor>
+      <arglist>(int controller)</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>TypedParameter&lt; bool &gt;</name>
@@ -19455,6 +19545,13 @@
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
       <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
       <arglist>(UndoManager &amp;managerToUse)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>setMidiControllerInternal</name>
+      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
+      <anchor>a01f6abc488d0130e83ee7aa664c139c8</anchor>
+      <arglist>(int controller)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -20163,6 +20260,13 @@
       <anchor>aa8f6c7a0fdfc0981f44b3dfa291cc2ee</anchor>
       <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;source, AudioBuffer&lt; SampleType &gt; &amp;dest)</arglist>
     </member>
+    <member kind="function">
+      <type>AudioBuffer&lt; SampleType &gt;</type>
+      <name>getAliasBuffer</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1buffers.html</anchorfile>
+      <anchor>ae7a58230672837db81f1fbd9b5ea3805</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;bufferToAlias, int startSample, int numSamples, int numChannels, int channelOffset=0)</arglist>
+    </member>
   </compound>
   <compound kind="namespace">
     <name>lemons::dsp::filters</name>
@@ -20774,18 +20878,18 @@
       <arglist>(const ValueTree &amp;tree)</arglist>
     </member>
     <member kind="function">
-      <type>juce::AudioBuffer&lt; float &gt;</type>
+      <type>String</type>
       <name>fromVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>aeff235d9553fa3ebf08d80086b25c41e</anchor>
-      <arglist>(juce::var var)</arglist>
+      <anchor>a1f61f3d63eccd58003af4d3f80dbb74c</anchor>
+      <arglist>(const juce::var &amp;var)</arglist>
     </member>
     <member kind="function">
       <type>Type</type>
       <name>fromVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>abd30f255b2b10402a940e2260f7ede3b</anchor>
-      <arglist>(juce::var var)</arglist>
+      <anchor>ab1f2f10c7b4aaf9489cc1ee43c450464</anchor>
+      <arglist>(const juce::var &amp;var)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -20931,99 +21035,99 @@
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a359990fb1af99d70295d10a13ddb2810</anchor>
-      <arglist>(juce::AudioBuffer&lt; double &gt; &amp;buffer)</arglist>
+      <anchor>a995e9b485ca6b3b7ce540d96ec74e6a2</anchor>
+      <arglist>(const AudioBuffer&lt; double &gt; &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a649c8f2bc41506fd655298cdf41de430</anchor>
-      <arglist>(juce::AudioBuffer&lt; float &gt; &amp;buffer)</arglist>
+      <anchor>a24125b298d1fb471bbbdd149093dce51</anchor>
+      <arglist>(const AudioBuffer&lt; float &gt; &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a8d788139f4116211d8426cf9bfd6aa7b</anchor>
-      <arglist>(juce::Image &amp;image)</arglist>
+      <anchor>adc3bfc8f01116f4667d90f34c0e3d8c4</anchor>
+      <arglist>(const juce::Image &amp;image)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a4002e6e67a670bb92651456865776534</anchor>
-      <arglist>(juce::MemoryBlock &amp;block)</arglist>
+      <anchor>a0b086889965f50d7dc83930d085de325</anchor>
+      <arglist>(const juce::MemoryBlock &amp;block)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a54ecbed7b2fd709bf3a77251b6262ebd</anchor>
-      <arglist>(juce::MidiBuffer &amp;buffer)</arglist>
+      <anchor>a4faac5d9f8e68faafea91e27ceccc7c5</anchor>
+      <arglist>(const juce::MidiBuffer &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a5b32b87aef2397cb2c1930541106a9db</anchor>
-      <arglist>(juce::Point&lt; float &gt; &amp;point)</arglist>
+      <anchor>a0ff1227990759f0b34182e43aae0680d</anchor>
+      <arglist>(const juce::Point&lt; float &gt; &amp;point)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>ae10e604289c026559886af5c9bf1ff91</anchor>
-      <arglist>(juce::Point&lt; int &gt; &amp;point)</arglist>
+      <anchor>a15aac9d86072af03ffe8bfb8f8d4605c</anchor>
+      <arglist>(const juce::Point&lt; int &gt; &amp;point)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a6a245e4f55875b6ac8fd9f2700ac791a</anchor>
-      <arglist>(juce::RelativeTime &amp;time)</arglist>
+      <anchor>a14a5d01ead6cd547224b26dbe905ba41</anchor>
+      <arglist>(const juce::RelativeTime &amp;time)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a335a1e1d369f0916e2267cfb6e1f8171</anchor>
-      <arglist>(juce::Time &amp;time)</arglist>
+      <anchor>a1c6587c822504cd6cd5320fa4f752371</anchor>
+      <arglist>(const juce::Time &amp;time)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a77778b6f43a5a52acb50655157a79145</anchor>
-      <arglist>(juce::URL &amp;url)</arglist>
+      <anchor>a3474b867dfb3bfa6d9a6e8f8122db43f</anchor>
+      <arglist>(const juce::URL &amp;url)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>abda7ea751365cf15132fc3afa328dada</anchor>
-      <arglist>(juce::Uuid &amp;uuid)</arglist>
+      <anchor>a589c4da13a83569ebfdc1e42a9c40c21</anchor>
+      <arglist>(const juce::Uuid &amp;uuid)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>ae77d37863d4dc2de7a2a5dc89de6e211</anchor>
-      <arglist>(size_t &amp;data)</arglist>
+      <anchor>a87f2d83a5e4631fc440c00a39a8f3dac</anchor>
+      <arglist>(const size_t &amp;data)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a2ae3657bad4740b539073b21e55d2212</anchor>
-      <arglist>(std::string &amp;string)</arglist>
+      <anchor>a3b5374fbfd620b723a9320be08047ad6</anchor>
+      <arglist>(const std::string &amp;string)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a713bb9525856a131f6897cdd045d5bc4</anchor>
-      <arglist>(Type &amp;object)</arglist>
+      <anchor>ae8ee0e682cb966523ed9d443e76789a2</anchor>
+      <arglist>(const Type &amp;object)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; juce::XmlElement &gt;</type>
