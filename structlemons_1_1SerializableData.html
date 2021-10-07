@@ -99,9 +99,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ace1758cc9344ae03a6d01c3c218226de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1SerializableData.html#ace1758cc9344ae03a6d01c3c218226de">deserialize</a> (const ValueTree &amp;tree)</td></tr>
 <tr class="memdesc:ace1758cc9344ae03a6d01c3c218226de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores a previously saved state.  <a href="structlemons_1_1SerializableData.html#ace1758cc9344ae03a6d01c3c218226de">More...</a><br /></td></tr>
 <tr class="separator:ace1758cc9344ae03a6d01c3c218226de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7dd815ffd3c00cb0b2e072d5e2ac750"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1SerializableData.html#ad7dd815ffd3c00cb0b2e072d5e2ac750">operator=</a> (<a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;other)</td></tr>
-<tr class="memdesc:ad7dd815ffd3c00cb0b2e072d5e2ac750"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default assignment operator that uses the serialize/deserialize API internally.  <a href="structlemons_1_1SerializableData.html#ad7dd815ffd3c00cb0b2e072d5e2ac750">More...</a><br /></td></tr>
-<tr class="separator:ad7dd815ffd3c00cb0b2e072d5e2ac750"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4e10eefa677226e7927d204b33edbdb"><td class="memItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">serialize</a> ()</td></tr>
 <tr class="memdesc:af4e10eefa677226e7927d204b33edbdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the state of this object and returns a ValueTree.  <a href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">More...</a><br /></td></tr>
 <tr class="separator:af4e10eefa677226e7927d204b33edbdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -192,26 +189,6 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
   </dd>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1TreeLoader.html" title="Subclass of TreeReflector used for loading state.">TreeLoader</a>, <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a> </dd></dl>
-
-</div>
-</div>
-<a id="ad7dd815ffd3c00cb0b2e072d5e2ac750"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7dd815ffd3c00cb0b2e072d5e2ac750">&#9670;&nbsp;</a></span>operator=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a>&amp; lemons::SerializableData::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Default assignment operator that uses the serialize/deserialize API internally. </p>
 
 </div>
 </div>
@@ -308,11 +285,11 @@ If your object requires more low-level control or complex logic, you can also us
 </ul>
 </div><!-- contents -->
 <div class="ttc" id="astructlemons_1_1SerializableData_html_af4e10eefa677226e7927d204b33edbdb"><div class="ttname"><a href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">lemons::SerializableData::serialize</a></div><div class="ttdeci">ValueTree serialize()</div><div class="ttdoc">Serializes the state of this object and returns a ValueTree.</div></div>
-<div class="ttc" id="astructlemons_1_1SerializableData_html_a89ec326c9a71dce7572d8a1b50d827a5"><div class="ttname"><a href="structlemons_1_1SerializableData.html#a89ec326c9a71dce7572d8a1b50d827a5">lemons::SerializableData::TreeReflector</a></div><div class="ttdeci">friend struct TreeReflector</div><div class="ttdef"><b>Definition:</b> SerializableData.h:93</div></div>
+<div class="ttc" id="astructlemons_1_1SerializableData_html_a89ec326c9a71dce7572d8a1b50d827a5"><div class="ttname"><a href="structlemons_1_1SerializableData.html#a89ec326c9a71dce7572d8a1b50d827a5">lemons::SerializableData::TreeReflector</a></div><div class="ttdeci">friend struct TreeReflector</div><div class="ttdef"><b>Definition:</b> SerializableData.h:91</div></div>
 <div class="ttc" id="astructlemons_1_1SerializableData_html"><div class="ttname"><a href="structlemons_1_1SerializableData.html">lemons::SerializableData</a></div><div class="ttdoc">Base class for any C++ object that needs to be serialized to binary and back.</div><div class="ttdef"><b>Definition:</b> SerializableData.h:12</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 7 2021 06:06:34 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 7 2021 07:37:40 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

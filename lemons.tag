@@ -15596,13 +15596,6 @@
       <arglist>(const ValueTree &amp;tree)</arglist>
     </member>
     <member kind="function">
-      <type>SerializableData &amp;</type>
-      <name>operator=</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>ad7dd815ffd3c00cb0b2e072d5e2ac750</anchor>
-      <arglist>(SerializableData &amp;other)</arglist>
-    </member>
-    <member kind="function">
       <type>ValueTree</type>
       <name>serialize</name>
       <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
@@ -21771,14 +21764,14 @@
     <filename>group__lemons__plugin__presets-presets.html</filename>
   </compound>
   <compound kind="group">
-    <name>lemons_plugin-processors</name>
-    <title>processors</title>
-    <filename>group__lemons__plugin-processors.html</filename>
-  </compound>
-  <compound kind="group">
     <name>lemons_midi-processors</name>
     <title>processors</title>
     <filename>group__lemons__midi-processors.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_plugin-processors</name>
+    <title>processors</title>
+    <filename>group__lemons__plugin-processors.html</filename>
   </compound>
   <compound kind="group">
     <name>lemons_psola-resynthesis</name>
