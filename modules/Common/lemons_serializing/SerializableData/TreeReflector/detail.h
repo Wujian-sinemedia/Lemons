@@ -29,6 +29,9 @@ void TreeReflector::addLambdaSet (const String& propertyName,
                                   std::function< void (Type&) >
                                       loadFromTree)
 {
+    static_assert (std::is_default_constructible<Type>(),
+                   "Your type must be default constructable to use TreeReflector::addLambdaSet()!");
+    
     if (isLoading())
     {
         Type object;
@@ -45,10 +48,10 @@ void TreeReflector::addLambdaSet (const String& propertyName,
 template < typename Type >
 void TreeReflector::load (const String& propertyName, Type& object)
 {
-    using namespace serializing;
-
     if constexpr (! std::is_const< Type >())
     {
+        using namespace serializing;
+        
         if constexpr (std::is_base_of< SerializableData, Type >())
             loadDataChild (propertyName, object);
         else if constexpr (std::is_same< ValueTree, Type >())
@@ -78,6 +81,9 @@ void TreeReflector::save (const String& propertyName, Type& object)
 template < typename Type >
 void TreeReflector::loadObject (const String& propertyName, Type& object)
 {
+    static_assert (std::is_assignable<Type&, Type>(),
+                   "Your type must be assignable to add with TreeReflector!");
+    
     if (! tree.hasProperty (propertyName))
         return;
 
@@ -137,10 +143,11 @@ void TreeReflector::addContainer (ContainerType& container, const String& proper
     if (isLoading())
     {
         using namespace serializing;
+    
+        using ElementType = typename std::remove_pointer<decltype(container.begin())>::type;
         
-        using ElementType = decltype(*container.begin());
-        
-        getInterfaceForContainer (container)->resize (getNumContainerElements (propertyName, isContainer<ElementType>()));
+        getInterfaceForContainer (container)->resize (getNumContainerElements (propertyName,
+                                                                               isContainer<ElementType>()));
     }
 
     int index = 1;
