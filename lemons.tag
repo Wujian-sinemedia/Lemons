@@ -278,6 +278,7 @@
     <filename>detail_8h.html</filename>
     <includes id="Juce__containers_8h" name="Juce_containers.h" local="no" imported="no">lemons_serializing/Serializing/Specializations/containers/Juce_containers.h</includes>
     <includes id="STL__containers_8h" name="STL_containers.h" local="no" imported="no">lemons_serializing/Serializing/Specializations/containers/STL_containers.h</includes>
+    <includes id="Juce__maps_8h" name="Juce_maps.h" local="no" imported="no">lemons_serializing/Serializing/Specializations/maps/Juce_maps.h</includes>
     <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
@@ -664,6 +665,22 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>Juce_maps.h</name>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/Serializing/Specializations/maps/</path>
+    <filename>Juce__maps_8h.html</filename>
+    <class kind="struct">lemons::serializing::isMap&lt; juce::StringPairArray &gt;</class>
+    <class kind="struct">lemons::serializing::StringPairArrayInterface</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::serializing</namespace>
+    <member kind="function">
+      <type>std::unique_ptr&lt; MapInterfaceBase &gt;</type>
+      <name>getInterfaceForMap</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>aadcc7b394e1615b592c383f767236f7b</anchor>
+      <arglist>(juce::StringPairArray &amp;array)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>Knots.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/GUI/lemons_spline/common/</path>
     <filename>Knots_8h.html</filename>
@@ -765,8 +782,17 @@
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/</path>
     <filename>MapInterface_8h.html</filename>
     <class kind="struct">lemons::serializing::isMap</class>
+    <class kind="struct">lemons::serializing::MapInterface</class>
+    <class kind="struct">lemons::serializing::MapInterfaceBase</class>
     <namespace>lemons</namespace>
     <namespace>lemons::serializing</namespace>
+    <member kind="function">
+      <type>std::unique_ptr&lt; MapInterfaceBase &gt;</type>
+      <name>getInterfaceForMap</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>ad9fd2901d3d0fcf54fda8c043ee0d89f</anchor>
+      <arglist>(MapType &amp;)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>mathHelpers.h</name>
@@ -7121,6 +7147,10 @@
     <templarg></templarg>
   </compound>
   <compound kind="struct">
+    <name>lemons::serializing::isMap&lt; juce::StringPairArray &gt;</name>
+    <filename>structlemons_1_1serializing_1_1isMap_3_01juce_1_1StringPairArray_01_4.html</filename>
+  </compound>
+  <compound kind="struct">
     <name>lemons::serializing::JuceArrayInterface</name>
     <filename>structlemons_1_1serializing_1_1JuceArrayInterface.html</filename>
     <templarg></templarg>
@@ -8477,6 +8507,113 @@
       <anchorfile>classlemons_1_1plugin_1_1presets_1_1SubLibrary.html</anchorfile>
       <anchor>aae0e4b6fd8a4080165afae4d47c0be2b</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::serializing::MapInterface</name>
+    <filename>structlemons_1_1serializing_1_1MapInterface.html</filename>
+    <templarg></templarg>
+    <templarg></templarg>
+    <base>lemons::serializing::MapInterfaceBase</base>
+    <member kind="typedef">
+      <type>KeyType</type>
+      <name>key_type</name>
+      <anchorfile>structlemons_1_1serializing_1_1MapInterface.html</anchorfile>
+      <anchor>a285a70955beb2debfba8b3cde089df50</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>ValueType</type>
+      <name>value_type</name>
+      <anchorfile>structlemons_1_1serializing_1_1MapInterface.html</anchorfile>
+      <anchor>a5303f4905cf96ec08611c2e950e15b4c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual KeyType</type>
+      <name>getKey</name>
+      <anchorfile>structlemons_1_1serializing_1_1MapInterface.html</anchorfile>
+      <anchor>a8bdd21c6df599c93dc55b794284574e2</anchor>
+      <arglist>(int index)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual int</type>
+      <name>getSize</name>
+      <anchorfile>structlemons_1_1serializing_1_1MapInterface.html</anchorfile>
+      <anchor>a566a74257baddc3e15c9d7440291d076</anchor>
+      <arglist>()=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual ValueType</type>
+      <name>getValue</name>
+      <anchorfile>structlemons_1_1serializing_1_1MapInterface.html</anchorfile>
+      <anchor>a951902d8b528623950ca450b9a53668a</anchor>
+      <arglist>(const KeyType &amp;key)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>setValue</name>
+      <anchorfile>structlemons_1_1serializing_1_1MapInterface.html</anchorfile>
+      <anchor>aef3bcb8e0cdf6264a7c11b8fe5ec8a19</anchor>
+      <arglist>(const KeyType &amp;key, const ValueType &amp;value)=0</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>MapInterface&lt; String, String &gt;</name>
+    <filename>structlemons_1_1serializing_1_1MapInterface.html</filename>
+    <base>lemons::serializing::MapInterfaceBase</base>
+    <member kind="typedef">
+      <type>String</type>
+      <name>key_type</name>
+      <anchorfile>structlemons_1_1serializing_1_1MapInterface.html</anchorfile>
+      <anchor>a285a70955beb2debfba8b3cde089df50</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>String</type>
+      <name>value_type</name>
+      <anchorfile>structlemons_1_1serializing_1_1MapInterface.html</anchorfile>
+      <anchor>a5303f4905cf96ec08611c2e950e15b4c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual String</type>
+      <name>getKey</name>
+      <anchorfile>structlemons_1_1serializing_1_1MapInterface.html</anchorfile>
+      <anchor>a8bdd21c6df599c93dc55b794284574e2</anchor>
+      <arglist>(int index)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual int</type>
+      <name>getSize</name>
+      <anchorfile>structlemons_1_1serializing_1_1MapInterface.html</anchorfile>
+      <anchor>a566a74257baddc3e15c9d7440291d076</anchor>
+      <arglist>()=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual String</type>
+      <name>getValue</name>
+      <anchorfile>structlemons_1_1serializing_1_1MapInterface.html</anchorfile>
+      <anchor>a951902d8b528623950ca450b9a53668a</anchor>
+      <arglist>(const String &amp;key)=0</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual void</type>
+      <name>setValue</name>
+      <anchorfile>structlemons_1_1serializing_1_1MapInterface.html</anchorfile>
+      <anchor>aef3bcb8e0cdf6264a7c11b8fe5ec8a19</anchor>
+      <arglist>(const String &amp;key, const String &amp;value)=0</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::serializing::MapInterfaceBase</name>
+    <filename>structlemons_1_1serializing_1_1MapInterfaceBase.html</filename>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~MapInterfaceBase</name>
+      <anchorfile>structlemons_1_1serializing_1_1MapInterfaceBase.html</anchorfile>
+      <anchor>af422d00a5814518189a35c1f2af9257d</anchor>
+      <arglist>()=default</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -16664,6 +16801,60 @@
       <arglist>(juce::StringArray &amp;array)</arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>lemons::serializing::StringPairArrayInterface</name>
+    <filename>structlemons_1_1serializing_1_1StringPairArrayInterface.html</filename>
+    <base>MapInterface&lt; String, String &gt;</base>
+    <member kind="typedef">
+      <type>String</type>
+      <name>key_type</name>
+      <anchorfile>structlemons_1_1serializing_1_1MapInterface.html</anchorfile>
+      <anchor>a285a70955beb2debfba8b3cde089df50</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>String</type>
+      <name>value_type</name>
+      <anchorfile>structlemons_1_1serializing_1_1MapInterface.html</anchorfile>
+      <anchor>a5303f4905cf96ec08611c2e950e15b4c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>StringPairArrayInterface</name>
+      <anchorfile>structlemons_1_1serializing_1_1StringPairArrayInterface.html</anchorfile>
+      <anchor>a3f1be9fd42560e33b39b5ac9090eca43</anchor>
+      <arglist>(juce::StringPairArray &amp;a)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>getKey</name>
+      <anchorfile>structlemons_1_1serializing_1_1StringPairArrayInterface.html</anchorfile>
+      <anchor>a94ab72b3b98f53d16269dbbc75bea41d</anchor>
+      <arglist>(int index) final</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getSize</name>
+      <anchorfile>structlemons_1_1serializing_1_1StringPairArrayInterface.html</anchorfile>
+      <anchor>a713f51f5f8e1d029676b24db840058d4</anchor>
+      <arglist>() final</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>getValue</name>
+      <anchorfile>structlemons_1_1serializing_1_1StringPairArrayInterface.html</anchorfile>
+      <anchor>ad41b145db69f45156a5f481f30d73f54</anchor>
+      <arglist>(const String &amp;key) final</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setValue</name>
+      <anchorfile>structlemons_1_1serializing_1_1StringPairArrayInterface.html</anchorfile>
+      <anchor>aceb71d80ceb355f1dba00dfdddbb577d</anchor>
+      <arglist>(const String &amp;key, const String &amp;value) final</arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>lemons::plugin::presets::SubLibrary</name>
     <filename>classlemons_1_1plugin_1_1presets_1_1SubLibrary.html</filename>
@@ -20771,12 +20962,16 @@
     <class kind="struct">lemons::serializing::isContainer&lt; std::list&lt; ElementType &gt; &gt;</class>
     <class kind="struct">lemons::serializing::isContainer&lt; std::vector&lt; ElementType &gt; &gt;</class>
     <class kind="struct">lemons::serializing::isMap</class>
+    <class kind="struct">lemons::serializing::isMap&lt; juce::StringPairArray &gt;</class>
     <class kind="struct">lemons::serializing::JuceArrayInterface</class>
     <class kind="struct">lemons::serializing::JuceOwnedArrayInterface</class>
     <class kind="struct">lemons::serializing::LambdaContainerInterface</class>
+    <class kind="struct">lemons::serializing::MapInterface</class>
+    <class kind="struct">lemons::serializing::MapInterfaceBase</class>
     <class kind="struct">lemons::serializing::StdArrayInterface</class>
     <class kind="struct">lemons::serializing::STLContainerInterface</class>
     <class kind="struct">lemons::serializing::StringArrayInterface</class>
+    <class kind="struct">lemons::serializing::StringPairArrayInterface</class>
     <class kind="struct">lemons::serializing::Toggler</class>
     <class kind="struct">lemons::serializing::TogglerInterface</class>
     <member kind="function">
@@ -21009,6 +21204,20 @@
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
       <anchor>ae61433549df459186ab1bf2c3597d00c</anchor>
       <arglist>(std::vector&lt; ElementType &gt; &amp;container)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; MapInterfaceBase &gt;</type>
+      <name>getInterfaceForMap</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>aadcc7b394e1615b592c383f767236f7b</anchor>
+      <arglist>(juce::StringPairArray &amp;array)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::unique_ptr&lt; MapInterfaceBase &gt;</type>
+      <name>getInterfaceForMap</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>ad9fd2901d3d0fcf54fda8c043ee0d89f</anchor>
+      <arglist>(MapType &amp;)</arglist>
     </member>
     <member kind="function">
       <type>void</type>

@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['panparam_2128',['PanParam',['../namespacelemons.html#a5a1555071e59461615433027f9cae3c6',1,'lemons']]],
-  ['percentparam_2129',['PercentParam',['../namespacelemons.html#a023a7b4e1d3ee7e6ea8783ecf63f4975',1,'lemons']]],
-  ['pitchparam_2130',['PitchParam',['../namespacelemons.html#a465c54c77647869da76f78c4d97c5f6b',1,'lemons']]],
-  ['point_2131',['Point',['../namespacelemons_1_1spline.html#a832ddba7a7244525784ee6d0644dd27e',1,'lemons::spline']]],
-  ['points_2132',['Points',['../namespacelemons_1_1spline.html#ae2dbcb02271768847771957183931530',1,'lemons::spline']]]
+  ['osc_2155',['Osc',['../classlemons_1_1dsp_1_1osc_1_1OscEngine.html#a6e5ba0677e79787704d8ebd81f9e9d38',1,'lemons::dsp::osc::OscEngine::Osc()'],['../structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#a1a71f2bc39080d4b34851b7dac6f516e',1,'lemons::plugin::ModulationManager::LFO::Osc()']]]
 ];

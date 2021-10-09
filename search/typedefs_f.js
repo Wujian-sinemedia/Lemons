@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['voice_2148',['Voice',['../classlemons_1_1dsp_1_1LambdaSynth.html#aeeaca36b3c632d446402337908603810',1,'lemons::dsp::LambdaSynth::Voice()'],['../classlemons_1_1dsp_1_1synth_1_1AutomatedHarmonyVoice.html#a72b612cdf3c53f4a0a97c6deb1fe8910',1,'lemons::dsp::synth::AutomatedHarmonyVoice::Voice()'],['../classlemons_1_1dsp_1_1synth_1_1VoiceAllocator.html#aa6c84c2a35ec716096dc18bb681c9406',1,'lemons::dsp::synth::VoiceAllocator::Voice()']]],
-  ['voicecreationfunc_2149',['VoiceCreationFunc',['../classlemons_1_1dsp_1_1LambdaSynth.html#a05f22470ae54059b9da75895ab4e6106',1,'lemons::dsp::LambdaSynth']]]
+  ['toggle_2173',['Toggle',['../classlemons_1_1plugin_1_1GUIBase.html#a17b324db523918e374ef27e2941532d9',1,'lemons::plugin::GUIBase']]],
+  ['toggleparam_2174',['ToggleParam',['../namespacelemons.html#a6610ae87b54c2e3df80cd9dd74481f1f',1,'lemons']]],
+  ['triangle_2175',['Triangle',['../namespacelemons_1_1dsp_1_1synth.html#aa9c8040151c167d0e462405162fdd107',1,'lemons::dsp::synth']]]
 ];
