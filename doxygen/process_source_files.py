@@ -22,19 +22,16 @@ def add_doxygen_group(path, group_name):
 ###############################################################################
 
 
-def process_juce_module(module_name, original_module_dir, dest_module_dir):
-    
-    shutil.copytree(original_module_dir, dest_module_dir)
-
-    # Parse the module header to get module information
-    module_header = os.path.join(dest_module_dir, module_name + ".h")
-    with open(module_header, "r") as f:
+def process_module_header(header_path):
+    with open(header_path, "r") as f:
         content = f.read()
+
     block_info_result = re.match(r".*BEGIN_JUCE_MODULE_DECLARATION"
                                  "(.*)"
                                  "END_JUCE_MODULE_DECLARATION.*",
                                  content,
                                  re.DOTALL)
+
     detail_lines = []
     for line in block_info_result.group(1).split("\n"):
         stripped_line = line.strip()
@@ -46,14 +43,26 @@ def process_juce_module(module_name, original_module_dir, dest_module_dir):
                 detail_lines.append(stripped_line)
 
     # The module header causes problems for Doxygen, so delete it
-    os.remove(module_header)
+    os.remove(header_path)
+
+    return short_description, detail_lines
+
+
+###############################################################################
+
+
+def process_juce_module(module_name, original_module_dir, dest_module_dir):
+    
+    shutil.copytree(original_module_dir, dest_module_dir)
+
+    module_header_info = process_module_header(os.path.join(dest_module_dir, module_name + ".h"))
 
     # Create a Doxygen group definition for the module
     module_definiton = []
     module_definiton.append("/** @defgroup {n} {n}".format(n=module_name))
-    module_definiton.append("    {d}".format(d=short_description))
+    module_definiton.append("    {d}".format(d=module_header_info[0]))
     module_definiton.append("")
-    for line in detail_lines:
+    for line in module_header_info[1]:
         module_definiton.append("    - {l}".format(l=line))
     module_definiton.append("")
     module_definiton.append("    @{")
@@ -125,15 +134,12 @@ if __name__ == "__main__":
                 if os.path.isdir(os.path.join(cur_subdir, module)):
                     juce_modules.append(category + os.path.sep + module)
 
-    # Copy the juce modules to the temporary directory, and process the source files
     module_definitions = []
+
     for module_path in juce_modules:
-
-        module_name = module_path.split(os.path.sep, 1)[-1]
-        original_module_dir = os.path.join(args.source_dir, module_path)
-        dest_module_dir = os.path.join(args.dest_dir, module_path)
-
-        module_definiton = process_juce_module(module_name, original_module_dir, dest_module_dir)
+        module_definiton = process_juce_module(module_path.split(os.path.sep, 1)[-1], 
+                                               os.path.join(args.source_dir, module_path), 
+                                               os.path.join(args.dest_dir, module_path))
 
         module_definitions.append("\r\n".join(module_definiton))
 
