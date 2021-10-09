@@ -6,8 +6,8 @@ import re
 import argparse
 
 
+# Given a string and a starting position of an opening brace, find the position of the closing brace
 def get_curly_brace_scope_end(string, start_pos):
-    # Given a string and a starting position of an opening brace, find the position of the closing brace
     start_pos += 1
     string_end = len(string)
     bracket_counter = 1
@@ -23,8 +23,8 @@ def get_curly_brace_scope_end(string, start_pos):
     return -1
 
 
+# Add a Doxygen group to the file at 'path'
 def add_doxygen_group(path, group_name):
-    # Add a Doxygen group to the file at 'path'
     filename = os.path.basename(path)
 
     if re.match(r"^lemons_.*\.(h|dox)", filename):
