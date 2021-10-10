@@ -108,19 +108,65 @@ private:
 
 namespace lemons
 {
+
+/** Any kind of generic float parameter.
+    @see plugin::FloatParameter
+ */
 using FloatParam = plugin::ParameterHolder< plugin::FloatParameter >;
+
+/** Any kind of generic integer parameter.
+    @see plugin::IntParameter
+ */
 using IntParam   = plugin::ParameterHolder< plugin::IntParameter >;
+
+/** Any kind of generic boolean parameter.
+    @see plugin::BoolParameter
+ */
 using BoolParam  = plugin::ParameterHolder< plugin::BoolParameter >;
 
+/** A parameter in decibels, used to represent gain, level, or gain reduction.
+    @see plugin::GainParameter
+ */
 using dbParam        = plugin::ParameterHolder< plugin::GainParameter >;
+
+/** An on/off toggle parameter.
+    @see plugin::ToggleParameter
+ */
 using ToggleParam    = plugin::ParameterHolder< plugin::ToggleParameter >;
+
+/** A 0-100 percent parameter.
+    @see plugin::PercentParameter
+ */
 using PercentParam   = plugin::ParameterHolder< plugin::PercentParameter >;
+
+/** A frequency parameter in Hz.
+    @see plugin::FrequencyParameter
+ */
 using HzParam        = plugin::ParameterHolder< plugin::FrequencyParameter >;
+
+/** A MIDI pitch parameter, in the range 0-127.
+    @see plugin::MidiPitchParameter
+ */
 using PitchParam     = plugin::ParameterHolder< plugin::MidiPitchParameter >;
+
+/** A MIDI pan parameter, in the range 0-127.
+    @see plugin::MidiPanParameter
+ */
 using PanParam       = plugin::ParameterHolder< plugin::MidiPanParameter >;
+
+/** A parameter for representing a number of semitones.
+    @see plugin::SemitonesParameter
+ */
 using SemitonesParam = plugin::ParameterHolder< plugin::SemitonesParameter >;
+
+/** A parameter for representing a number of seconds.
+    @see plugin::SecondsParameter
+ */
 using SecParam       = plugin::ParameterHolder< plugin::SecondsParameter >;
 
+/** A parameter for outputting gain reduction from the plugin back to the DAW.
+    @see plugin::GainMeterParameter
+ */
 using GainMeter = plugin::ParameterHolder< plugin::GainMeterParameter >;
 
 }  // namespace lemons
