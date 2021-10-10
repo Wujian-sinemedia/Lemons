@@ -70,8 +70,8 @@ struct TreeReflector
             }
         };
         @endcode
-        In the above example, the 'string' data will overwrite the 'number' data, because the programmer has chosen duplicate property names. \n
-        \n
+        In the above example, the 'string' data will overwrite the 'number' data, because the programmer has chosen duplicate property names. \n \n
+
         Container types you wish to serialize with a single call to add() must fulfill the following: \n
         - have begin() and end() functions -- ie, are compatable with range-based for loops
         - have an implementation of serializing::ContainerInterface
@@ -223,7 +223,7 @@ struct TreeReflector
      
             void serialize (TreeReflector& ref) final
             {
-                ref.add ("Data", data);
+                ref.as (data);
             }
         };
         @endcode

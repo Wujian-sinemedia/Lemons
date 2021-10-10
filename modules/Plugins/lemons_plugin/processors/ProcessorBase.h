@@ -13,7 +13,7 @@ public:
     /** Creates a processor.
         @param stateToUse The state object to reference. The internal ParameterProcessor will reference stateToUse.getParameters().
         @param floatEngineToUse The float specialization of the dsp::Engine to use.
-        @param floatEngineToUse The double specialization of the dsp::Engine to use.
+        @param doubleEngineToUse The double specialization of the dsp::Engine to use.
         @param busesLayout The buses layout to pass to the underlying juce::AudioProcessor.
      */
     ProcessorBase (StateBase&                            stateToUse,

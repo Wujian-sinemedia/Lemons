@@ -51,6 +51,7 @@ struct FloatAmountParameter : public FloatParameter
         @param paramName The name of this parameter.
         @param defaultVal The default value of this parameter.
         @param parameterCategory The category of this parameter.
+        @param parameterLabel An optional label to use for this parameter's units.
      */
     FloatAmountParameter (String                                  paramName,
                           float                                   defaultVal,
