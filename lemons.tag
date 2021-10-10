@@ -21502,6 +21502,22 @@
     <filename>group__lemons__mobile__utils-Android.html</filename>
   </compound>
   <compound kind="group">
+    <name>Apps</name>
+    <title>Apps</title>
+    <filename>group__Apps.html</filename>
+    <subgroup>lemons_app_utils</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>Audio</name>
+    <title>Audio</title>
+    <filename>group__Audio.html</filename>
+    <subgroup>lemons_audio_effects</subgroup>
+    <subgroup>lemons_dsp</subgroup>
+    <subgroup>lemons_oscillators</subgroup>
+    <subgroup>lemons_psola</subgroup>
+    <subgroup>lemons_synth</subgroup>
+  </compound>
+  <compound kind="group">
     <name>lemons_audio_effects-AudioEffects</name>
     <title>AudioEffects</title>
     <filename>group__lemons__audio__effects-AudioEffects.html</filename>
@@ -21522,6 +21538,20 @@
     <filename>group__lemons__dsp-BufferUtils.html</filename>
   </compound>
   <compound kind="group">
+    <name>Common</name>
+    <title>Common</title>
+    <filename>group__Common.html</filename>
+    <subgroup>lemons_core</subgroup>
+    <subgroup>lemons_mobile_utils</subgroup>
+    <subgroup>lemons_serializing</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>Connectivity</name>
+    <title>Connectivity</title>
+    <filename>group__Connectivity.html</filename>
+    <subgroup>lemons_midi</subgroup>
+  </compound>
+  <compound kind="group">
     <name>lemons_serializing-DataSynchronizer</name>
     <title>DataSynchronizer</title>
     <filename>group__lemons__serializing-DataSynchronizer.html</filename>
@@ -21540,6 +21570,13 @@
     <name>lemons_dsp-FIFOs</name>
     <title>FIFOs</title>
     <filename>group__lemons__dsp-FIFOs.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>GUI</name>
+    <title>GUI</title>
+    <filename>group__GUI.html</filename>
+    <subgroup>lemons_gui</subgroup>
+    <subgroup>lemons_spline</subgroup>
   </compound>
   <compound kind="group">
     <name>lemons_app_utils-GuiApp</name>
@@ -21570,6 +21607,14 @@
     <name>lemons_dsp-PitchDetector</name>
     <title>PitchDetector</title>
     <filename>group__lemons__dsp-PitchDetector.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>Plugins</name>
+    <title>Plugins</title>
+    <filename>group__Plugins.html</filename>
+    <subgroup>lemons_plugin</subgroup>
+    <subgroup>lemons_plugin_gui</subgroup>
+    <subgroup>lemons_plugin_presets</subgroup>
   </compound>
   <compound kind="group">
     <name>lemons_plugin_gui-PresetBar</name>
@@ -21829,14 +21874,14 @@
     <filename>group__lemons__core-math.html</filename>
   </compound>
   <compound kind="group">
-    <name>lemons_audio_effects-misc</name>
-    <title>misc</title>
-    <filename>group__lemons__audio__effects-misc.html</filename>
-  </compound>
-  <compound kind="group">
     <name>lemons_core-misc</name>
     <title>misc</title>
     <filename>group__lemons__core-misc.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_audio_effects-misc</name>
+    <title>misc</title>
+    <filename>group__lemons__audio__effects-misc.html</filename>
   </compound>
   <compound kind="group">
     <name>lemons_plugin-parameters</name>
@@ -21854,14 +21899,14 @@
     <filename>group__lemons__plugin__presets-presets.html</filename>
   </compound>
   <compound kind="group">
-    <name>lemons_midi-processors</name>
-    <title>processors</title>
-    <filename>group__lemons__midi-processors.html</filename>
-  </compound>
-  <compound kind="group">
     <name>lemons_plugin-processors</name>
     <title>processors</title>
     <filename>group__lemons__plugin-processors.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>lemons_midi-processors</name>
+    <title>processors</title>
+    <filename>group__lemons__midi-processors.html</filename>
   </compound>
   <compound kind="group">
     <name>lemons_psola-resynthesis</name>
