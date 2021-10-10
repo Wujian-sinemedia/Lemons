@@ -55,11 +55,9 @@ def process_module_header(header_path):
 ###############################################################################
 
 
-def process_juce_module(module_name, original_module_dir, dest_module_dir):
+def process_juce_module(module_name, module_dir):
     
-    shutil.copytree(original_module_dir, dest_module_dir)
-
-    module_header_info = process_module_header(os.path.join(dest_module_dir, module_name + ".h"))
+    module_header_info = process_module_header(os.path.join(module_dir, module_name + ".h"))
 
     # Create a Doxygen group definition for the module
     module_definiton = []
@@ -75,7 +73,7 @@ def process_juce_module(module_name, original_module_dir, dest_module_dir):
     module_definiton.append("*/")
 
     # Create a list of the directories in the module that we can use as subgroups and create the Doxygen group hierarchy string
-    dir_contents = os.listdir(dest_module_dir)
+    dir_contents = os.listdir(module_dir)
 
     # Ignore "native" folders
     try:
@@ -85,13 +83,13 @@ def process_juce_module(module_name, original_module_dir, dest_module_dir):
 
     subdirs = []
     for item in dir_contents:
-        if (os.path.isdir(os.path.join(dest_module_dir, item))):
+        if (os.path.isdir(os.path.join(module_dir, item))):
             subdirs.append(item)
 
     module_groups = {}
     for subdir in subdirs:
         subgroup_name = "{n}-{s}".format(n=module_name, s=subdir)
-        module_groups[subgroup_name] = os.path.join(dest_module_dir, subdir)
+        module_groups[subgroup_name] = os.path.join(module_dir, subdir)
         module_definiton.append("")
         module_definiton.append("/** @defgroup {tag} {n} */".format(tag=subgroup_name, n=subdir))
         
@@ -100,7 +98,7 @@ def process_juce_module(module_name, original_module_dir, dest_module_dir):
 
     # Put the top level files into the main group
     for filename in (set(dir_contents) - set(subdirs)):
-        add_doxygen_group(os.path.join(dest_module_dir, filename), 
+        add_doxygen_group(os.path.join(module_dir, filename), 
                           module_name)
 
     # Put subdirectory files into their respective groups
@@ -112,6 +110,46 @@ def process_juce_module(module_name, original_module_dir, dest_module_dir):
 
     return module_definiton
 
+
+###############################################################################
+
+
+def process_module_category(category_name, orig_cat_dir, dest_cat_dir):
+
+    shutil.copytree(orig_cat_dir, dest_cat_dir)
+
+    # Create a Doxygen group definition for the category
+    category_definiton = []
+    category_definiton.append("/** @defgroup {n} {n}".format(n=category_name))
+
+    category_definiton.append("")
+    category_definiton.append("    @{")
+    category_definiton.append("*/")
+
+    dir_contents = os.listdir(dest_cat_dir)
+
+    subdirs = []
+    for item in dir_contents:
+        if (os.path.isdir(os.path.join(dest_cat_dir, item))):
+            subdirs.append(item)
+
+    modules = {}
+    for subdir in subdirs:
+        modules[subdir] = os.path.join(dest_cat_dir, subdir)
+        module_definition = process_juce_module(subdir, os.path.join(dest_cat_dir, subdir))
+        category_definiton.append("\r\n".join(module_definition))
+
+    category_definiton.append("")
+    category_definiton.append("/** @} */")
+
+    # Put subdirectory files into their respective groups
+    for module in modules:
+        for dirpath, dirnames, filenames in os.walk(modules[module]):
+            for filename in filenames:
+                add_doxygen_group(os.path.join(dirpath, filename), 
+                                  module)
+
+    return category_definiton
 
 ###############################################################################
 
@@ -132,24 +170,17 @@ if __name__ == "__main__":
     except FileNotFoundError:
         pass
 
-    # create the list of juce modules to include
-    juce_modules = []
+    category_definitions = []
+
     for category in os.listdir(args.source_dir):
         cur_subdir = os.path.join(args.source_dir, category)
         if os.path.isdir(cur_subdir):
-            for module in os.listdir(cur_subdir):
-                if os.path.isdir(os.path.join(cur_subdir, module)):
-                    juce_modules.append(category + os.path.sep + module)
+            category_definition = process_module_category(category,
+                                                          os.path.join(args.source_dir, category),
+                                                          os.path.join(args.dest_dir, category))
 
-    module_definitions = []
-
-    for module_path in juce_modules:
-        module_definiton = process_juce_module(module_path.split(os.path.sep, 1)[-1], 
-                                               os.path.join(args.source_dir, module_path), 
-                                               os.path.join(args.dest_dir, module_path))
-
-        module_definitions.append("\r\n".join(module_definiton))
+            category_definitions.append("\r\n".join(category_definition))
 
     # Create an extra header file containing the module hierarchy
     with open(os.path.join(args.dest_dir, "lemons_modules.dox"), "w") as f:
-        f.write("\r\n\r\n".join(module_definitions))
+        f.write("\r\n\r\n".join(category_definitions))
