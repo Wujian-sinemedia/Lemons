@@ -212,26 +212,11 @@ EXTRACT_ALL            = YES
 
 EXTRACT_PRIV_VIRTUAL   = YES
 
-# If the EXTRACT_STATIC tag is set to YES, all static members of a file will be
-# included in the documentation.
-# The default value is: NO.
-
 EXTRACT_STATIC         = NO
 
 EXTRACT_LOCAL_CLASSES  = NO
 
-# If the HIDE_UNDOC_CLASSES tag is set to YES, doxygen will hide all
-# undocumented classes that are normally visible in the class hierarchy. If set
-# to NO, these classes will be included in the various overviews. This option
-# has no effect if EXTRACT_ALL is enabled.
-# The default value is: NO.
-
 HIDE_UNDOC_CLASSES     = YES
-
-# If the HIDE_FRIEND_COMPOUNDS tag is set to YES, doxygen will hide all friend
-# declarations. If set to NO, these declarations will be included in the
-# documentation.
-# The default value is: NO.
 
 HIDE_FRIEND_COMPOUNDS  = YES
 
@@ -379,20 +364,11 @@ EXCLUDE                =
 
 EXCLUDE_SYMLINKS       = YES
 
-# If the value of the INPUT tag contains directories, you can use the
-# EXCLUDE_PATTERNS tag to specify one or more wildcard patterns to exclude
-# certain files from those directories.
-#
-# Note that the wildcards are matched against the file with absolute path, so to
-# exclude all test directories for example use the pattern */test/*
-
-EXCLUDE_PATTERNS       =
-
 # The IMAGE_PATH tag can be used to specify one or more files or directories
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH             =
+IMAGE_PATH             = ../assets
 
 USE_MDFILE_AS_MAINPAGE = main_page.md
 
