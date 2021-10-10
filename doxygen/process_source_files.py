@@ -8,21 +8,25 @@ import argparse
 
 # Add a Doxygen group to the file at 'path'
 def add_doxygen_group(path, group_name):
+
     filename = os.path.basename(path)
 
-    if re.match(r"^lemons_.*\.(h|dox)", filename):
-        with open(path, "r") as f:
-            content = f.read()
-        with open(path, "w") as f:
-            f.write("\r\n/** @weakgroup " + group_name + "\r\n *  @{\r\n */\r\n")
-            f.write(content)
-            f.write("\r\n/** @}*/\r\n")
+    if not re.match(r"^lemons_.*\.(h|dox)", filename):
+        return
+
+    with open(path, "r") as f:
+        content = f.read()
+    with open(path, "w") as f:
+        f.write("\r\n/** @weakgroup " + group_name + "\r\n *  @{\r\n */\r\n")
+        f.write(content)
+        f.write("\r\n/** @}*/\r\n")
 
 
 ###############################################################################
 
 
 def process_module_header(header_path):
+
     with open(header_path, "r") as f:
         content = f.read()
 
@@ -61,9 +65,11 @@ def process_juce_module(module_name, original_module_dir, dest_module_dir):
     module_definiton = []
     module_definiton.append("/** @defgroup {n} {n}".format(n=module_name))
     module_definiton.append("    {d}".format(d=module_header_info[0]))
+    
     module_definiton.append("")
     for line in module_header_info[1]:
         module_definiton.append("    - {l}".format(l=line))
+
     module_definiton.append("")
     module_definiton.append("    @{")
     module_definiton.append("*/")
@@ -94,14 +100,15 @@ def process_juce_module(module_name, original_module_dir, dest_module_dir):
 
     # Put the top level files into the main group
     for filename in (set(dir_contents) - set(subdirs)):
-        add_doxygen_group(os.path.join(dest_module_dir, filename), module_name)
+        add_doxygen_group(os.path.join(dest_module_dir, filename), 
+                          module_name)
 
     # Put subdirectory files into their respective groups
     for group_name in module_groups:
         for dirpath, dirnames, filenames in os.walk(module_groups[group_name]):
             for filename in filenames:
-                filepath = os.path.join(dirpath, filename)
-                add_doxygen_group(filepath, group_name)
+                add_doxygen_group(os.path.join(dirpath, filename), 
+                                  group_name)
 
     return module_definiton
 
