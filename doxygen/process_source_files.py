@@ -21,9 +21,7 @@ def add_doxygen_group(path, group_name):
         f.write(content)
         f.write("\r\n/** @}*/\r\n")
 
-
 ###############################################################################
-
 
 # Parse information from a JUCE module header's info block.
 # Deletes the module header when it's finished, as Doxygen doesn't like them.
@@ -55,9 +53,7 @@ def process_module_header(header_path):
 
     return short_description, detail_lines
 
-
 ###############################################################################
-
 
 # Processes a JUCE module and returns a module description for Doxygen
 def process_juce_module(module_name, module_dir):
@@ -115,9 +111,7 @@ def process_juce_module(module_name, module_dir):
 
     return module_definiton
 
-
 ###############################################################################
-
 
 # Processes a group of JUCE modules and returns a module category description for Doxygen
 def process_module_category(category_name, orig_cat_dir, dest_cat_dir):
@@ -132,33 +126,20 @@ def process_module_category(category_name, orig_cat_dir, dest_cat_dir):
     category_definiton.append("    @{")
     category_definiton.append("*/")
 
-    dir_contents = os.listdir(dest_cat_dir)
-
-    subdirs = []
-    for item in dir_contents:
-        if (os.path.isdir(os.path.join(dest_cat_dir, item))):
-            subdirs.append(item)
-
     modules = {}
-    for subdir in subdirs:
-        modules[subdir] = os.path.join(dest_cat_dir, subdir)
-        module_definition = process_juce_module(subdir, os.path.join(dest_cat_dir, subdir))
-        category_definiton.append("\r\n".join(module_definition))
+
+    for subdir in os.listdir(dest_cat_dir):
+        if os.path.isdir(os.path.join(dest_cat_dir, subdir)):
+            modules[subdir] = os.path.join(dest_cat_dir, subdir)
+            module_definition = process_juce_module(subdir, os.path.join(dest_cat_dir, subdir))
+            category_definiton.append("\r\n".join(module_definition))
 
     category_definiton.append("")
     category_definiton.append("/** @} */")
 
-    # Put subdirectory files into their respective groups
-    for module in modules:
-        for dirpath, dirnames, filenames in os.walk(modules[module]):
-            for filename in filenames:
-                add_doxygen_group(os.path.join(dirpath, filename), 
-                                  module)
-
     return category_definiton
 
 ###############################################################################
-
 
 # Main script 
 if __name__ == "__main__":
@@ -182,17 +163,12 @@ if __name__ == "__main__":
     category_definitions = []
 
     for category in os.listdir(args.source_dir):
+        if os.path.isdir(os.path.join(args.source_dir, category)):
+            category_definition = process_module_category(category,
+                                                          os.path.join(args.source_dir, category),
+                                                          os.path.join(args.dest_dir, category))
 
-        cur_subdir = os.path.join(args.source_dir, category)
-
-        if not os.path.isdir(cur_subdir):
-            continue
-
-        category_definition = process_module_category(category,
-                                                      os.path.join(args.source_dir, category),
-                                                      os.path.join(args.dest_dir, category))
-
-        category_definitions.append("\r\n".join(category_definition))
+            category_definitions.append("\r\n".join(category_definition))
 
     #
     # Create an extra header file containing the module hierarchy
