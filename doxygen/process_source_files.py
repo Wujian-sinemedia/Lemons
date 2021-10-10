@@ -25,6 +25,8 @@ def add_doxygen_group(path, group_name):
 ###############################################################################
 
 
+# Parse information from a JUCE module header's info block.
+# Deletes the module header when it's finished, as Doxygen doesn't like them.
 def process_module_header(header_path):
 
     with open(header_path, "r") as f:
@@ -37,8 +39,10 @@ def process_module_header(header_path):
                                  re.DOTALL)
 
     detail_lines = []
+
     for line in block_info_result.group(1).split("\n"):
         stripped_line = line.strip()
+        
         if stripped_line:
             result = re.match(r"^.*?description:\s*(.*)$", stripped_line)
             if result:
@@ -55,6 +59,7 @@ def process_module_header(header_path):
 ###############################################################################
 
 
+# Processes a JUCE module and returns a module description for Doxygen
 def process_juce_module(module_name, module_dir):
     
     module_header_info = process_module_header(os.path.join(module_dir, module_name + ".h"))
@@ -114,6 +119,7 @@ def process_juce_module(module_name, module_dir):
 ###############################################################################
 
 
+# Processes a group of JUCE modules and returns a module category description for Doxygen
 def process_module_category(category_name, orig_cat_dir, dest_cat_dir):
 
     shutil.copytree(orig_cat_dir, dest_cat_dir)
@@ -154,6 +160,7 @@ def process_module_category(category_name, orig_cat_dir, dest_cat_dir):
 ###############################################################################
 
 
+# Main script 
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
@@ -170,17 +177,24 @@ if __name__ == "__main__":
     except FileNotFoundError:
         pass
 
+    #
+
     category_definitions = []
 
     for category in os.listdir(args.source_dir):
+
         cur_subdir = os.path.join(args.source_dir, category)
-        if os.path.isdir(cur_subdir):
-            category_definition = process_module_category(category,
-                                                          os.path.join(args.source_dir, category),
-                                                          os.path.join(args.dest_dir, category))
 
-            category_definitions.append("\r\n".join(category_definition))
+        if not os.path.isdir(cur_subdir):
+            continue
 
+        category_definition = process_module_category(category,
+                                                      os.path.join(args.source_dir, category),
+                                                      os.path.join(args.dest_dir, category))
+
+        category_definitions.append("\r\n".join(category_definition))
+
+    #
     # Create an extra header file containing the module hierarchy
     with open(os.path.join(args.dest_dir, "lemons_modules.dox"), "w") as f:
         f.write("\r\n\r\n".join(category_definitions))
