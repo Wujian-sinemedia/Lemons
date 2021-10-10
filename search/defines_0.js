@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['bv_5fdeclare_5frecursive_5fvariadic_5ffunction_2217',['BV_DECLARE_RECURSIVE_VARIADIC_FUNCTION',['../Preprocessor_8h.html#a71fcb76e39fd308a3a436e18986e9f7a',1,'Preprocessor.h']]],
-  ['bv_5fmust_5finherit_5ffrom_2218',['BV_MUST_INHERIT_FROM',['../Preprocessor_8h.html#af1d6131f0a4de6984698ba8d077841ab',1,'Preprocessor.h']]]
+  ['lemons_5fmobile_2201',['LEMONS_MOBILE',['../Preprocessor_8h.html#ac999e6bb8b2b5b4c7bd5f4176f27e5b6',1,'Preprocessor.h']]],
+  ['lemons_5fmust_5finherit_5ffrom_2202',['LEMONS_MUST_INHERIT_FROM',['../Preprocessor_8h.html#a4be31aa0be590eae843d1a0be27e95a8',1,'Preprocessor.h']]]
 ];

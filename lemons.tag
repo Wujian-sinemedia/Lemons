@@ -676,7 +676,7 @@
       <type>std::unique_ptr&lt; MapInterfaceBase &gt;</type>
       <name>getInterfaceForMap</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>aadcc7b394e1615b592c383f767236f7b</anchor>
+      <anchor>a52f16de419ffe2a472740c8e58fb849c</anchor>
       <arglist>(juce::StringPairArray &amp;array)</arglist>
     </member>
   </compound>
@@ -790,7 +790,7 @@
       <type>std::unique_ptr&lt; MapInterfaceBase &gt;</type>
       <name>getInterfaceForMap</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>ad9fd2901d3d0fcf54fda8c043ee0d89f</anchor>
+      <anchor>a7270802d3bb72c38a7d6e82460c8bd37</anchor>
       <arglist>(MapType &amp;)</arglist>
     </member>
   </compound>
@@ -1375,16 +1375,16 @@
     <filename>Preprocessor_8h.html</filename>
     <member kind="define">
       <type>#define</type>
-      <name>BV_DECLARE_RECURSIVE_VARIADIC_FUNCTION</name>
+      <name>LEMONS_MOBILE</name>
       <anchorfile>Preprocessor_8h.html</anchorfile>
-      <anchor>a71fcb76e39fd308a3a436e18986e9f7a</anchor>
-      <arglist>(funcName, Type)</arglist>
+      <anchor>ac999e6bb8b2b5b4c7bd5f4176f27e5b6</anchor>
+      <arglist></arglist>
     </member>
     <member kind="define">
       <type>#define</type>
-      <name>BV_MUST_INHERIT_FROM</name>
+      <name>LEMONS_MUST_INHERIT_FROM</name>
       <anchorfile>Preprocessor_8h.html</anchorfile>
-      <anchor>af1d6131f0a4de6984698ba8d077841ab</anchor>
+      <anchor>a4be31aa0be590eae843d1a0be27e95a8</anchor>
       <arglist>(classToTest, requiredBaseClass)</arglist>
     </member>
   </compound>
@@ -1960,14 +1960,6 @@
     <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
-    <name>TypeTraits.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_core/misc/</path>
-    <filename>TypeTraits_8h.html</filename>
-    <class kind="struct">lemons::is_specialization</class>
-    <class kind="struct">lemons::is_specialization&lt; Ref&lt; Args... &gt;, Ref &gt;</class>
-    <namespace>lemons</namespace>
-  </compound>
-  <compound kind="file">
     <name>UndoManager.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/undo/</path>
     <filename>UndoManager_8h.html</filename>
@@ -2331,13 +2323,6 @@
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::synth</namespace>
-  </compound>
-  <compound kind="file">
-    <name>WrapperType.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_core/misc/</path>
-    <filename>WrapperType_8h.html</filename>
-    <class kind="struct">lemons::WrapperType</class>
-    <namespace>lemons</namespace>
   </compound>
   <compound kind="class">
     <name>lemons::dsp::psola::AnalysisGrainStorage</name>
@@ -7083,18 +7068,6 @@
       <anchor>a6b091945117c5ffccf7d42e4ba1ae20a</anchor>
       <arglist>(ValueType)</arglist>
     </member>
-  </compound>
-  <compound kind="struct">
-    <name>lemons::is_specialization</name>
-    <filename>structlemons_1_1is__specialization.html</filename>
-    <templarg></templarg>
-    <templarg>Ref</templarg>
-  </compound>
-  <compound kind="struct">
-    <name>lemons::is_specialization&lt; Ref&lt; Args... &gt;, Ref &gt;</name>
-    <filename>structlemons_1_1is__specialization_3_01Ref_3_01Args_8_8_8_01_4_00_01Ref_01_4.html</filename>
-    <templarg>Ref</templarg>
-    <templarg>Args</templarg>
   </compound>
   <compound kind="struct">
     <name>lemons::serializing::isContainer</name>
@@ -20084,95 +20057,6 @@
       <arglist>(int maxNumVoices)</arglist>
     </member>
   </compound>
-  <compound kind="struct">
-    <name>lemons::WrapperType</name>
-    <filename>structlemons_1_1WrapperType.html</filename>
-    <templarg></templarg>
-    <member kind="typedef">
-      <type>T</type>
-      <name>WrappedObjectType</name>
-      <anchorfile>structlemons_1_1WrapperType.html</anchorfile>
-      <anchor>ac023c443ae3de6ecc1f614d0d02a7980</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~WrapperType</name>
-      <anchorfile>structlemons_1_1WrapperType.html</anchorfile>
-      <anchor>a3c49547eaa942cc22de298154c123393</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type>T &amp;</type>
-      <name>getWrappedObject</name>
-      <anchorfile>structlemons_1_1WrapperType.html</anchorfile>
-      <anchor>a0a3541368558498914f889ff36be17cd</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>const T &amp;</type>
-      <name>getWrappedObject</name>
-      <anchorfile>structlemons_1_1WrapperType.html</anchorfile>
-      <anchor>ac7843522b2f6b81157650cff965de8eb</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>T &amp;</type>
-      <name>operator*</name>
-      <anchorfile>structlemons_1_1WrapperType.html</anchorfile>
-      <anchor>a1e26383b5c28c0f7b961a2482b47183f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>const T &amp;</type>
-      <name>operator*</name>
-      <anchorfile>structlemons_1_1WrapperType.html</anchorfile>
-      <anchor>a5654be69e3a1e4c9f256e126750d3c0a</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>T *</type>
-      <name>operator-&gt;</name>
-      <anchorfile>structlemons_1_1WrapperType.html</anchorfile>
-      <anchor>a5d0babc9d94617a8dfa088e610ce45e5</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>const T *</type>
-      <name>operator-&gt;</name>
-      <anchorfile>structlemons_1_1WrapperType.html</anchorfile>
-      <anchor>a9d8cec5082e19853f920b5a5491e4fdb</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>WrapperType &amp;</type>
-      <name>operator=</name>
-      <anchorfile>structlemons_1_1WrapperType.html</anchorfile>
-      <anchor>a2d8843626364fbb82c5b284afcecebc4</anchor>
-      <arglist>(const T &amp;other)</arglist>
-    </member>
-    <member kind="function">
-      <type>WrapperType &amp;</type>
-      <name>operator=</name>
-      <anchorfile>structlemons_1_1WrapperType.html</anchorfile>
-      <anchor>a99d096f9d6c8cbfe0103e241e99b8cde</anchor>
-      <arglist>(const WrapperType &amp;other)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>operator==</name>
-      <anchorfile>structlemons_1_1WrapperType.html</anchorfile>
-      <anchor>a205388961dabc34d3c442659ea42e160</anchor>
-      <arglist>(const T &amp;other)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>operator==</name>
-      <anchorfile>structlemons_1_1WrapperType.html</anchorfile>
-      <anchor>a076486c5c71b8a58566d7ecc226ead0c</anchor>
-      <arglist>(const WrapperType &amp;other)</arglist>
-    </member>
-  </compound>
   <compound kind="namespace">
     <name>lemons</name>
     <filename>namespacelemons.html</filename>
@@ -20190,8 +20074,6 @@
     <class kind="struct">lemons::DeviceRotation</class>
     <class kind="struct">lemons::DeviceRotationListener</class>
     <class kind="class">lemons::GuiApp</class>
-    <class kind="struct">lemons::is_specialization</class>
-    <class kind="struct">lemons::is_specialization&lt; Ref&lt; Args... &gt;, Ref &gt;</class>
     <class kind="struct">lemons::MotionListener</class>
     <class kind="class">lemons::MotionManager</class>
     <class kind="class">lemons::MotionManagerInterface</class>
@@ -20204,7 +20086,6 @@
     <class kind="class">lemons::UndoManager</class>
     <class kind="struct">lemons::ValueSmoother</class>
     <class kind="struct">lemons::Version</class>
-    <class kind="struct">lemons::WrapperType</class>
     <member kind="typedef">
       <type>plugin::ParameterHolder&lt; plugin::BoolParameter &gt;</type>
       <name>BoolParam</name>
@@ -21209,14 +21090,14 @@
       <type>std::unique_ptr&lt; MapInterfaceBase &gt;</type>
       <name>getInterfaceForMap</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>aadcc7b394e1615b592c383f767236f7b</anchor>
+      <anchor>a52f16de419ffe2a472740c8e58fb849c</anchor>
       <arglist>(juce::StringPairArray &amp;array)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; MapInterfaceBase &gt;</type>
       <name>getInterfaceForMap</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>ad9fd2901d3d0fcf54fda8c043ee0d89f</anchor>
+      <anchor>a7270802d3bb72c38a7d6e82460c8bd37</anchor>
       <arglist>(MapType &amp;)</arglist>
     </member>
     <member kind="function">
