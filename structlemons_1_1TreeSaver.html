@@ -188,8 +188,8 @@ Example &ndash; what NOT to do: <div class="fragment"><div class="line"><span cl
 <div class="line">    }</div>
 <div class="line">};</div>
 </div><!-- fragment --> In the above example, the 'string' data will overwrite the 'number' data, because the programmer has chosen duplicate property names. <br  />
-<br  />
-Container types you wish to serialize with a single call to <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">add()</a> must fulfill the following: <br  />
+ <br  />
+ Container types you wish to serialize with a single call to <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">add()</a> must fulfill the following: <br  />
 </dd></dl>
 </li>
 <li>have begin() and end() functions &ndash; ie, are compatable with range-based for loops</li>
@@ -394,7 +394,7 @@ You could do this: </p><div class="fragment"><div class="line"><span class="keyw
 <div class="line"> </div>
 <div class="line">    <span class="keywordtype">void</span> serialize (<a class="code" href="structlemons_1_1TreeReflector.html#a0d351fe3d4087291fe84c745a5edfcf4">TreeReflector</a>&amp; ref) <span class="keyword">final</span></div>
 <div class="line">    {</div>
-<div class="line">        ref.add (<span class="stringliteral">&quot;Data&quot;</span>, data);</div>
+<div class="line">        ref.as (data);</div>
 <div class="line">    }</div>
 <div class="line">};</div>
 </div><!-- fragment --><p> Then you'll get this tree: </p><pre class="fragment">&lt;Wrapper&gt;
@@ -523,7 +523,7 @@ You could do this: </p><div class="fragment"><div class="line"><span class="keyw
 <div class="ttc" id="anamespacelemons_html"><div class="ttname"><a href="namespacelemons.html">lemons</a></div><div class="ttdef"><b>Definition:</b> DefaultWindow.h:6</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 10 2021 20:35:15 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 10 2021 20:49:21 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
