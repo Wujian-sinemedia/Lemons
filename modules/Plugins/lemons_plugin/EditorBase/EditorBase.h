@@ -30,7 +30,7 @@ private:
     @tparam StateType The type of your plugin's main state object.
  */
 template < typename ContentComponentType, typename StateType,
-           BV_MUST_INHERIT_FROM (ContentComponentType, GUIBase), BV_MUST_INHERIT_FROM (StateType, StateBase) >
+           LEMONS_MUST_INHERIT_FROM (ContentComponentType, GUIBase), LEMONS_MUST_INHERIT_FROM (StateType, StateBase) >
 class PluginEditor : public EditorBase
 {
 public:

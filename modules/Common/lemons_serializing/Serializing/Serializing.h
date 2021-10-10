@@ -12,7 +12,7 @@ void copy (SerializableData& dest, SerializableData& source);
 /** Creates a copy of a serializable object by deserializing from the state of the source object.
     @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
  */
-template < typename ObjectType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
+template < typename ObjectType, LEMONS_MUST_INHERIT_FROM (ObjectType, SerializableData) >
 ObjectType createCopy (ObjectType& objectToCopy)
 {
     ObjectType newObject;
@@ -31,7 +31,7 @@ void fromTree (const ValueTree& tree, SerializableData& data);
 /** Creates a new object from the state saved in the ValueTree.
     @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
  */
-template < typename ObjectType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
+template < typename ObjectType, LEMONS_MUST_INHERIT_FROM (ObjectType, SerializableData) >
 ObjectType fromTreeCreate (const ValueTree& tree)
 {
     ObjectType newObject;
@@ -70,7 +70,7 @@ void fromBinary (const void* data, IntegerType dataSizeInBytes, SerializableData
 /** Creates a new object from the state saved in the file.
     @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
  */
-template < typename ObjectType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
+template < typename ObjectType, LEMONS_MUST_INHERIT_FROM (ObjectType, SerializableData) >
 ObjectType fromBinaryCreate (File file)
 {
     ObjectType newObject;
@@ -81,7 +81,7 @@ ObjectType fromBinaryCreate (File file)
 /** Creates a new object from the state saved in the MemoryBlock.
     @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
  */
-template < typename ObjectType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
+template < typename ObjectType, LEMONS_MUST_INHERIT_FROM (ObjectType, SerializableData) >
 ObjectType fromBinaryCreate (const juce::MemoryBlock& data)
 {
     ObjectType newObject;
@@ -92,7 +92,7 @@ ObjectType fromBinaryCreate (const juce::MemoryBlock& data)
 /** Creates a new object from the state saved in the opaque binary data.
     @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
  */
-template < typename ObjectType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
+template < typename ObjectType, LEMONS_MUST_INHERIT_FROM (ObjectType, SerializableData) >
 ObjectType fromBinaryCreate (const void* data, size_t dataSizeInBytes)
 {
     ObjectType newObject;
@@ -103,7 +103,7 @@ ObjectType fromBinaryCreate (const void* data, size_t dataSizeInBytes)
 /** Creates a new object from the state saved in the opaque binary data.
     @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
  */
-template < typename ObjectType, typename IntegerType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
+template < typename ObjectType, typename IntegerType, LEMONS_MUST_INHERIT_FROM (ObjectType, SerializableData) >
 ObjectType fromBinaryCreate (const void* data, IntegerType dataSizeInBytes)
 {
     return fromBinaryCreate< ObjectType > (data, static_cast< size_t > (dataSizeInBytes));
@@ -129,7 +129,7 @@ void fromXML (const File& xmlFile, SerializableData& dest);
 /** Creates a new object from the state saved in the XML element.
     @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
  */
-template < typename ObjectType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
+template < typename ObjectType, LEMONS_MUST_INHERIT_FROM (ObjectType, SerializableData) >
 ObjectType fromXMLCreate (const juce::XmlElement& xml)
 {
     ObjectType newObject;
@@ -140,7 +140,7 @@ ObjectType fromXMLCreate (const juce::XmlElement& xml)
 /** Creates a new object from the state saved in the XML element.
     @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
  */
-template < typename ObjectType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
+template < typename ObjectType, LEMONS_MUST_INHERIT_FROM (ObjectType, SerializableData) >
 ObjectType fromXMLCreate (std::unique_ptr< juce::XmlElement > xml)
 {
     ObjectType newObject;
@@ -151,7 +151,7 @@ ObjectType fromXMLCreate (std::unique_ptr< juce::XmlElement > xml)
 /** Creates a new object from the state saved in the XML file.
     @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
  */
-template < typename ObjectType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
+template < typename ObjectType, LEMONS_MUST_INHERIT_FROM (ObjectType, SerializableData) >
 ObjectType fromXMLCreate (const File& xmlFile)
 {
     ObjectType newObject;
@@ -177,7 +177,7 @@ void fromJSON (const File& file, SerializableData& dest);
     @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
     @see valueTreeFromJSON()
  */
-template < typename ObjectType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
+template < typename ObjectType, LEMONS_MUST_INHERIT_FROM (ObjectType, SerializableData) >
 ObjectType fromJSONCreate (const String& jsonText)
 {
     ObjectType newObject;
@@ -189,7 +189,7 @@ ObjectType fromJSONCreate (const String& jsonText)
     @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
     @see valueTreeToJSON()
  */
-template < typename ObjectType, BV_MUST_INHERIT_FROM (ObjectType, SerializableData) >
+template < typename ObjectType, LEMONS_MUST_INHERIT_FROM (ObjectType, SerializableData) >
 ObjectType fromJSONCreate (const File& file)
 {
     ObjectType newObject;

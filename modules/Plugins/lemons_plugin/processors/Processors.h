@@ -37,7 +37,7 @@ namespace lemons::plugin
     @endcode
     @see ProcessorWithEditor, ProcessorBase, PluginState, StateBase, dsp::Engine
  */
-template < class StateType, template < typename SampleType > class EngineType, BV_MUST_INHERIT_FROM (StateType, StateBase), BV_MUST_INHERIT_FROM (EngineType< float >, dsp::Engine< float >) >
+template < class StateType, template < typename SampleType > class EngineType, LEMONS_MUST_INHERIT_FROM (StateType, StateBase), LEMONS_MUST_INHERIT_FROM (EngineType< float >, dsp::Engine< float >) >
 class Processor : public ProcessorBase
 {
 public:
@@ -146,7 +146,7 @@ class GUIBase;
     @endcode
     @see Processor, ProcessorBase, dsp::Engine, StateBase, GUIBase, plugin::GUI
  */
-template < class ProcessorType, class ComponentType, BV_MUST_INHERIT_FROM (ComponentType, GUIBase) >
+template < class ProcessorType, class ComponentType, LEMONS_MUST_INHERIT_FROM (ComponentType, GUIBase) >
 struct ProcessorWithEditor : ProcessorType
 {
     /** Creates a processor.

@@ -85,7 +85,7 @@ protected:
     @see CustomState, PluginState, StateBase, ParameterList
  */
 template < typename ParamListType,
-           BV_MUST_INHERIT_FROM (ParamListType, ParameterList) >
+           LEMONS_MUST_INHERIT_FROM (ParamListType, ParameterList) >
 struct State : StateBase
 {
     /** Creates a new plugin state.
@@ -140,8 +140,8 @@ struct State : StateBase
     @see State, PluginState, StateBase, ParameterList
  */
 template < typename ParamListType, typename CustomDataType,
-           BV_MUST_INHERIT_FROM (ParamListType, ParameterList),
-           BV_MUST_INHERIT_FROM (CustomDataType, SerializableData) >
+           LEMONS_MUST_INHERIT_FROM (ParamListType, ParameterList),
+           LEMONS_MUST_INHERIT_FROM (CustomDataType, SerializableData) >
 struct CustomState : StateBase
 {
     /** Creates a new plugin state.

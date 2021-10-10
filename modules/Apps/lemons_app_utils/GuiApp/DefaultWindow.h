@@ -28,7 +28,7 @@ private:
     @tparam ComponentType The type of top-level main component that this window owns and displays. This must inherit from juce::Component and must be default-constructable.
     @see DefaultWindowBase, GuiApp
  */
-template < typename ComponentType, BV_MUST_INHERIT_FROM (ComponentType, juce::Component) >
+template < typename ComponentType, LEMONS_MUST_INHERIT_FROM (ComponentType, juce::Component) >
 struct DefaultWindow : public DefaultWindowBase
 {
     /** Constructor. */

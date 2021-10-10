@@ -21,7 +21,7 @@ private:
 };
 
 
-template < typename ContentType, BV_MUST_INHERIT_FROM (ContentType, PopupComponent) >
+template < typename ContentType, LEMONS_MUST_INHERIT_FROM (ContentType, PopupComponent) >
 class Popup : public juce::Component
 {
 public:

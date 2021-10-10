@@ -1,11 +1,9 @@
 
 namespace lemons::serializing
 {
-
 StringPairArrayInterface::StringPairArrayInterface (juce::StringPairArray& a)
-: array(a)
+    : array (a)
 {
-    
 }
 
 int StringPairArrayInterface::getSize()
@@ -31,9 +29,9 @@ void StringPairArrayInterface::setValue (const String& key, const String& value)
 
 
 template <>
-std::unique_ptr<MapInterfaceBase> getInterfaceForMap (juce::StringPairArray& array)
+std::unique_ptr< MapInterfaceBase > getInterfaceForMap (juce::StringPairArray& array)
 {
-    return std::make_unique<StringPairArrayInterface> (array);
+    return std::make_unique< StringPairArrayInterface > (array);
 }
 
-}
+}  // namespace lemons::serializing

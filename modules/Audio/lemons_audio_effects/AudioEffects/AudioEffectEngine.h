@@ -8,7 +8,7 @@ namespace lemons::dsp::FX
     @tparam SampleType The specialization of EffectType that this engine will instantiate. Must be float or double.
     @see AudioEffect, dsp::Engine
  */
-template < template < typename FloatType > class EffectType, typename SampleType, BV_MUST_INHERIT_FROM (EffectType< SampleType >, AudioEffect< SampleType >) >
+template < template < typename FloatType > class EffectType, typename SampleType, LEMONS_MUST_INHERIT_FROM (EffectType< SampleType >, AudioEffect< SampleType >) >
 class EffectEngine : public dsp::Engine< SampleType >
 {
 public:

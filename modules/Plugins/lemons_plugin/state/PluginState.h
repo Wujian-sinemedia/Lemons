@@ -8,7 +8,7 @@ namespace lemons::plugin
     @tparam StateType The type of state object to use to represent the plugin's state. This type must inherit from StateBase.
     @see Processor, StateBase, StateToggler, UndoManager
  */
-template < typename StateType, BV_MUST_INHERIT_FROM (StateType, StateBase) >
+template < typename StateType, LEMONS_MUST_INHERIT_FROM (StateType, StateBase) >
 struct PluginState : SerializableData
 {
     /** Creates a new plugin state. */
