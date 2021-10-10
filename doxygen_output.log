@@ -1,6 +1,6 @@
 python process_source_files.py ../modules build
 doxygen
-warning: ignoring unsupported tag 'SHOW_HEADERFILE' at line 279, file Doxyfile
+warning: ignoring unsupported tag 'SHOW_HEADERFILE' at line 264, file Doxyfile
 error: the type 'concepts' is not supported for the entry tag within a navindex! Check your layout file!
 error: found unsupported value $SHOW_HEADERFILE for visible attribute in layout file
 error: Unexpected start tag 'concepts' found in scope='namespace/memberdecl/'!
