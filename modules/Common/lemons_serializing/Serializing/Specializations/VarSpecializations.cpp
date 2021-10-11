@@ -110,6 +110,38 @@ juce::RelativeTime fromVar (const juce::var& var)
     return time;
 }
 
+/*--------------------------------------- Files -------------------------------------------*/
+
+template<>
+juce::var toVar (const File& file)
+{
+    return {file.getFullPathName()};
+}
+
+template<>
+File fromVar (const juce::var& var)
+{
+    return {var.toString()};
+}
+
+FileContents::FileContents (File fileToUse)
+: file (fileToUse)
+{
+    jassert (file.existsAsFile());
+}
+
+FileContents::FileContents (const String& absolutePathToFile)
+: file (absolutePathToFile)
+{
+    jassert (file.existsAsFile());
+}
+
+void FileContents::serialize (TreeReflector& ref)
+{
+    ref.addLambdaSet<String> ("FileContents",
+                              [&]{ return file.loadFileAsString(); },
+                              [&](String& s){ file.replaceWithText (s); });
+}
 
 /*--------------------------------------- Images -------------------------------------------*/
 
