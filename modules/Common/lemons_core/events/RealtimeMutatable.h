@@ -101,7 +101,7 @@ private:
 
     void realtimeRelease() noexcept
     {
-        auto idx  = acquireIndex();
+        const auto idx  = acquireIndex();
         data[idx] = realtimeCopy;
         releaseIndex (idx);
     }
@@ -129,7 +129,7 @@ private:
         }
 
         // flip the index bit as we always use the index that the realtime thread is currently NOT using
-        auto nonRealtimeIndex = (current & BIT::INDEX) ^ 1;
+        const auto nonRealtimeIndex = (current & BIT::INDEX) ^ 1;
 
         return data[nonRealtimeIndex];
     }
@@ -148,12 +148,12 @@ private:
         NEWDATA = (1 << 2)
     };
 
-    int acquireIndex() noexcept
+    inline int acquireIndex() noexcept
     {
         return control.fetch_or (BIT::BUSY, std::memory_order_acquire) & BIT::INDEX;
     }
 
-    void releaseIndex (int idx) noexcept
+    inline void releaseIndex (int idx) noexcept
     {
         control.store ((idx & BIT::INDEX) | BIT::NEWDATA, std::memory_order_release);
     }
