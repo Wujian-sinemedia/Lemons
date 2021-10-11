@@ -1,5 +1,4 @@
 ccache
-clang-format
 cmake
 git
 openssl

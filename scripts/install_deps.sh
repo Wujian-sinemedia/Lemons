@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-# Installs all dependencies for a typical Lemons workspace, as well as Ccache.
+# Installs all dependencies for a typical Lemons workspace, as well as ccache.
+# If you're on Linux, this script will also run the 'install_juce_linux_deps.sh' script in this directory.
 
 set -euo pipefail
 
@@ -70,7 +71,7 @@ run_linux_config() {
 	bash "$script_dir/install_juce_linux_deps.sh"
 }
 
-###
+####################################################################
 
 run_mac_config() {
 
@@ -90,6 +91,14 @@ run_mac_config() {
 		! apple_m1 && command -v brew >/dev/null
 	}
 
+	delete_file_if_exists() {
+		if [ -f "$1" ]; then
+			rm -f "$1"
+		fi
+	}
+
+	#
+
 	local -r brewfile="$script_dir/Brewfile"
 
 	if [ ! -f "$brewfile" ]; then 
@@ -102,6 +111,9 @@ run_mac_config() {
 		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 		brew tap Homebrew/bundle
 	fi
+
+	delete_file_if_exists "$brewfile"
+	delete_file_if_exists "$script_dir/Brewfile.lock.json"
 
 	# write deps list to Brewfile
 	cat "$deps_list" | while read line || [[ -n $line ]];
@@ -118,7 +130,7 @@ run_mac_config() {
 	append_to_file "$SHELL_FILE" 'export PATH="$(brew --prefix)/opt/ccache/libexec:$PATH"'
 }
 
-###
+####################################################################
 
 run_windows_config() {
 	printf "Windows!"
@@ -126,7 +138,6 @@ run_windows_config() {
 
 ####################################################################
 
-#
 # Run appropriate OS config function
 
 case "$OSTYPE" in
@@ -148,7 +159,7 @@ case "$OSTYPE" in
 	*) :
 		echo "Error - unknown operating system!"
 		exit 1
-	;;
+		;;
 esac
 
 source "$SHELL_FILE"
