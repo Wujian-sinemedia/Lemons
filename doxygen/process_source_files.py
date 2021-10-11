@@ -3,7 +3,6 @@
 import os
 import shutil
 import re
-import argparse
 
 
 # Add a Doxygen group to the file at 'path'
@@ -159,31 +158,29 @@ def copy_cmake_readme(source_dir, dest_dir):
 # Main script 
 if __name__ == "__main__":
 
-    # parse command line args
-    parser = argparse.ArgumentParser()
-    parser.add_argument("source_dir",
-                        help="the directory to search for source files")
-    parser.add_argument("dest_dir",
-                        help="the directory in which to place processed files")
-    args = parser.parse_args()
+    script_dir = os.path.abspath(os.path.dirname(__file__))
+
+    source_dir = os.path.abspath(os.path.dirname(script_dir))
+
+    dest_dir = os.path.join(script_dir, "build")
 
     # delete the working dir if it exists
     try:
-        shutil.rmtree(args.dest_dir)
+        shutil.rmtree(dest_dir)
     except OSError:
         pass
     except FileNotFoundError:
         pass
 
     # re-create a clean working directory
-    os.mkdir(args.dest_dir)
+    os.mkdir(dest_dir)
 
     # copy cmake API readme to build tree
-    copy_cmake_readme(args.source_dir, args.dest_dir)
+    copy_cmake_readme(source_dir, dest_dir)
 
     # process module categories
 
-    orig_module_dir = os.path.join(args.source_dir, "modules")
+    orig_module_dir = os.path.join(source_dir, "modules")
 
     category_definitions = []
 
@@ -191,11 +188,11 @@ if __name__ == "__main__":
         if os.path.isdir(os.path.join(orig_module_dir, category)):
             category_definition = process_module_category(category,
                                                           os.path.join(orig_module_dir, category),
-                                                          os.path.join(args.dest_dir, category))
+                                                          os.path.join(dest_dir, category))
 
             category_definitions.append("\r\n".join(category_definition))
 
     
     # Create an extra header file containing the module hierarchy
-    with open(os.path.join(args.dest_dir, "lemons_modules.dox"), "w") as f:
+    with open(os.path.join(dest_dir, "lemons_modules.dox"), "w") as f:
         f.write("\r\n\r\n".join(category_definitions))
