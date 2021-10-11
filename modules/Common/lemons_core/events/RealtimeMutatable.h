@@ -34,7 +34,7 @@ public:
     struct RealtimeAccess
     {
     public:
-        ~RealtimeAccess()
+        ~RealtimeAccess() noexcept
         {
             parent.realtimeRelease();
         }
