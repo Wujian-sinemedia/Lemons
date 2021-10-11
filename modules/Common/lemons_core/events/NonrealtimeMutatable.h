@@ -25,7 +25,7 @@ public:
         auto accquired = nonRealtimeLock.try_lock();
 
         ((void) (accquired));
-        assert (accquired);  // <- you didn't call release on one of the non-realtime threads before deleting this object
+        jassert (accquired);  // <- you didn't call release on one of the non-realtime threads before deleting this object
 
         nonRealtimeLock.unlock();
     }
