@@ -116,6 +116,7 @@ def process_juce_module(module_name, module_dir):
 # Processes a group of JUCE modules and returns a module category description for Doxygen
 def process_module_category(category_name, orig_cat_dir, dest_cat_dir):
 
+    # copy files to doxygen working tree
     shutil.copytree(orig_cat_dir, dest_cat_dir)
 
     # Create a Doxygen group definition for the category
@@ -141,9 +142,24 @@ def process_module_category(category_name, orig_cat_dir, dest_cat_dir):
 
 ###############################################################################
 
+# Copies the readme from the cmake directory into the working tree for doxygen
+def copy_cmake_readme(source_dir, dest_dir):
+    dest = os.path.join(dest_dir, "cmake_api.md")
+
+    # create an empty file
+    with open(dest, "w") as f:
+        pass
+
+    src = os.path.join(source_dir, "cmake")
+    src = os.path.join(src, "README.md")
+    shutil.copy2(src, dest)
+
+###############################################################################
+
 # Main script 
 if __name__ == "__main__":
 
+    # parse command line args
     parser = argparse.ArgumentParser()
     parser.add_argument("source_dir",
                         help="the directory to search for source files")
@@ -151,6 +167,7 @@ if __name__ == "__main__":
                         help="the directory in which to place processed files")
     args = parser.parse_args()
 
+    # delete the working dir if it exists
     try:
         shutil.rmtree(args.dest_dir)
     except OSError:
@@ -158,19 +175,27 @@ if __name__ == "__main__":
     except FileNotFoundError:
         pass
 
-    #
+    # re-create a clean working directory
+    os.mkdir(args.dest_dir)
+
+    # copy cmake API readme to build tree
+    copy_cmake_readme(args.source_dir, args.dest_dir)
+
+    # process module categories
+
+    orig_module_dir = os.path.join(args.source_dir, "modules")
 
     category_definitions = []
 
-    for category in os.listdir(args.source_dir):
-        if os.path.isdir(os.path.join(args.source_dir, category)):
+    for category in os.listdir(orig_module_dir):
+        if os.path.isdir(os.path.join(orig_module_dir, category)):
             category_definition = process_module_category(category,
-                                                          os.path.join(args.source_dir, category),
+                                                          os.path.join(orig_module_dir, category),
                                                           os.path.join(args.dest_dir, category))
 
             category_definitions.append("\r\n".join(category_definition))
 
-    #
+    
     # Create an extra header file containing the module hierarchy
     with open(os.path.join(args.dest_dir, "lemons_modules.dox"), "w") as f:
         f.write("\r\n\r\n".join(category_definitions))
