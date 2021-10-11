@@ -3,3 +3,5 @@ Builds/
 Cache/
 doxygen/build
 doxygen/doc
+doxygen/Lemons
+scripts/Brewfile
