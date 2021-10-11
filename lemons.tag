@@ -164,7 +164,7 @@
   </compound>
   <compound kind="file">
     <name>cmake_api.md</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/</path>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/</path>
     <filename>cmake__api_8md.html</filename>
   </compound>
   <compound kind="file">
@@ -1064,6 +1064,16 @@
     <namespace>lemons::dsp::FX</namespace>
   </compound>
   <compound kind="file">
+    <name>NonrealtimeMutatable.h</name>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_core/events/</path>
+    <filename>NonrealtimeMutatable_8h.html</filename>
+    <class kind="struct">lemons::serializing::NonrealtimeMutatable::NonrealtimeAccess</class>
+    <class kind="class">lemons::serializing::NonrealtimeMutatable</class>
+    <class kind="struct">lemons::serializing::NonrealtimeMutatable::RealtimeAccess</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::serializing</namespace>
+  </compound>
+  <compound kind="file">
     <name>OscEngine.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_oscillators/choosable/</path>
     <filename>OscEngine_8h.html</filename>
@@ -1477,6 +1487,16 @@
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::psola</namespace>
+  </compound>
+  <compound kind="file">
+    <name>RealtimeMutatable.h</name>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_core/events/</path>
+    <filename>RealtimeMutatable_8h.html</filename>
+    <class kind="struct">lemons::serializing::RealtimeMutatable::NonrealtimeAccess</class>
+    <class kind="struct">lemons::serializing::RealtimeMutatable::RealtimeAccess</class>
+    <class kind="class">lemons::serializing::RealtimeMutatable</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::serializing</namespace>
   </compound>
   <compound kind="file">
     <name>Reverb.h</name>
@@ -2025,13 +2045,14 @@
     <name>VarSpecializations.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/Serializing/Specializations/</path>
     <filename>VarSpecializations_8h.html</filename>
+    <class kind="struct">lemons::serializing::FileContents</class>
     <namespace>lemons</namespace>
     <namespace>lemons::serializing</namespace>
     <member kind="function">
       <type>String</type>
       <name>fromVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a1f61f3d63eccd58003af4d3f80dbb74c</anchor>
+      <anchor>a6b8eb05784908c6aa35fa8499a495350</anchor>
       <arglist>(const juce::var &amp;var)</arglist>
     </member>
     <member kind="function">
@@ -2047,6 +2068,13 @@
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
       <anchor>a24125b298d1fb471bbbdd149093dce51</anchor>
       <arglist>(const AudioBuffer&lt; float &gt; &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>aaa3cb10822960a8de86fb356660ad327</anchor>
+      <arglist>(const File &amp;file)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
@@ -5256,6 +5284,46 @@
       <name>state</name>
       <anchorfile>classlemons_1_1plugin_1_1presets_1_1SubLibrary.html</anchorfile>
       <anchor>aae0e4b6fd8a4080165afae4d47c0be2b</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::serializing::FileContents</name>
+    <filename>structlemons_1_1serializing_1_1FileContents.html</filename>
+    <base>lemons::SerializableData</base>
+    <member kind="function">
+      <type></type>
+      <name>FileContents</name>
+      <anchorfile>structlemons_1_1serializing_1_1FileContents.html</anchorfile>
+      <anchor>ad4accd6a06de32da8933ce775b3721c0</anchor>
+      <arglist>(const String &amp;absolutePathToFile)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>FileContents</name>
+      <anchorfile>structlemons_1_1serializing_1_1FileContents.html</anchorfile>
+      <anchor>af9dc247f3a15caadae22bd6cedba8507</anchor>
+      <arglist>(File fileToUse)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>deserialize</name>
+      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
+      <anchor>ace1758cc9344ae03a6d01c3c218226de</anchor>
+      <arglist>(const ValueTree &amp;tree)</arglist>
+    </member>
+    <member kind="function">
+      <type>ValueTree</type>
+      <name>serialize</name>
+      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
+      <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>File</type>
+      <name>file</name>
+      <anchorfile>structlemons_1_1serializing_1_1FileContents.html</anchorfile>
+      <anchor>aed1c10ef23823b99e93cb1acf7496cb4</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -11049,6 +11117,126 @@
       <arglist>(float newThreshold_dB)</arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>lemons::serializing::NonrealtimeMutatable::NonrealtimeAccess</name>
+    <filename>structlemons_1_1serializing_1_1NonrealtimeMutatable_1_1NonrealtimeAccess.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>~NonrealtimeAccess</name>
+      <anchorfile>structlemons_1_1serializing_1_1NonrealtimeMutatable_1_1NonrealtimeAccess.html</anchorfile>
+      <anchor>a565c059a8c8723c9e9e6b2363e977132</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>ObjectType &amp;</type>
+      <name>operator()</name>
+      <anchorfile>structlemons_1_1serializing_1_1NonrealtimeMutatable_1_1NonrealtimeAccess.html</anchorfile>
+      <anchor>ae9d639ed43184462ab71fcaf7d76e0c1</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>ObjectType *</type>
+      <name>operator-&gt;</name>
+      <anchorfile>structlemons_1_1serializing_1_1NonrealtimeMutatable_1_1NonrealtimeAccess.html</anchorfile>
+      <anchor>ac50b5e907d1cde5792086ecd828b4e12</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>ObjectType &amp;</type>
+      <name>object</name>
+      <anchorfile>structlemons_1_1serializing_1_1NonrealtimeMutatable_1_1NonrealtimeAccess.html</anchorfile>
+      <anchor>ab408c8950c9c876c6d74ffb3cec0a752</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="friend" protection="private">
+      <type>friend class</type>
+      <name>NonrealtimeMutatable</name>
+      <anchorfile>structlemons_1_1serializing_1_1NonrealtimeMutatable_1_1NonrealtimeAccess.html</anchorfile>
+      <anchor>ad829975fa777d1d9491a1ceaff4abff8</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::serializing::RealtimeMutatable::NonrealtimeAccess</name>
+    <filename>structlemons_1_1serializing_1_1RealtimeMutatable_1_1NonrealtimeAccess.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>~NonrealtimeAccess</name>
+      <anchorfile>structlemons_1_1serializing_1_1RealtimeMutatable_1_1NonrealtimeAccess.html</anchorfile>
+      <anchor>aba3dc134b37eb7dc002bc1041202bb49</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>const ObjectType &amp;</type>
+      <name>operator()</name>
+      <anchorfile>structlemons_1_1serializing_1_1RealtimeMutatable_1_1NonrealtimeAccess.html</anchorfile>
+      <anchor>a5a9a0bc94f28ce4f288a48e5026a3716</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>const ObjectType *</type>
+      <name>operator-&gt;</name>
+      <anchorfile>structlemons_1_1serializing_1_1RealtimeMutatable_1_1NonrealtimeAccess.html</anchorfile>
+      <anchor>afa4fb36709435506c285a4a3b9c1ba4e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>const ObjectType &amp;</type>
+      <name>object</name>
+      <anchorfile>structlemons_1_1serializing_1_1RealtimeMutatable_1_1NonrealtimeAccess.html</anchorfile>
+      <anchor>a5a5c7d6904fa663a90b6916efd1cc7df</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="friend" protection="private">
+      <type>friend class</type>
+      <name>RealtimeMutatable</name>
+      <anchorfile>structlemons_1_1serializing_1_1RealtimeMutatable_1_1NonrealtimeAccess.html</anchorfile>
+      <anchor>a711a24f035daacfe57a667f5c7c6846c</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lemons::serializing::NonrealtimeMutatable</name>
+    <filename>classlemons_1_1serializing_1_1NonrealtimeMutatable.html</filename>
+    <templarg></templarg>
+    <class kind="struct">lemons::serializing::NonrealtimeMutatable::NonrealtimeAccess</class>
+    <class kind="struct">lemons::serializing::NonrealtimeMutatable::RealtimeAccess</class>
+    <member kind="function">
+      <type></type>
+      <name>NonrealtimeMutatable</name>
+      <anchorfile>classlemons_1_1serializing_1_1NonrealtimeMutatable.html</anchorfile>
+      <anchor>ac2cc41a764875eade21910e6b36970ea</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>NonrealtimeMutatable</name>
+      <anchorfile>classlemons_1_1serializing_1_1NonrealtimeMutatable.html</anchorfile>
+      <anchor>a6bdf81a29948c42dce6ed7147ecc5fef</anchor>
+      <arglist>(Args &amp;&amp;... args)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~NonrealtimeMutatable</name>
+      <anchorfile>classlemons_1_1serializing_1_1NonrealtimeMutatable.html</anchorfile>
+      <anchor>a4d8f82855d557c2213d091b1b0c632c0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>NonrealtimeAccess</type>
+      <name>access_nonrealtime</name>
+      <anchorfile>classlemons_1_1serializing_1_1NonrealtimeMutatable.html</anchorfile>
+      <anchor>adb473d5f3e3aa4ecc5614d4a1537d50b</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>RealtimeAccess</type>
+      <name>access_realtime</name>
+      <anchorfile>classlemons_1_1serializing_1_1NonrealtimeMutatable.html</anchorfile>
+      <anchor>aabee4f485df1baf2678d07157d01b8cf</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>lemons::dsp::osc::OscEngine</name>
     <filename>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</filename>
@@ -14720,6 +14908,126 @@
       <anchorfile>structlemons_1_1RawData.html</anchorfile>
       <anchor>a1e3947effbb3ce48387ffcac890cffb3</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::serializing::NonrealtimeMutatable::RealtimeAccess</name>
+    <filename>structlemons_1_1serializing_1_1NonrealtimeMutatable_1_1RealtimeAccess.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>~RealtimeAccess</name>
+      <anchorfile>structlemons_1_1serializing_1_1NonrealtimeMutatable_1_1RealtimeAccess.html</anchorfile>
+      <anchor>a7fafbcd96a402061b3a7ac8c36e94bb5</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>const ObjectType &amp;</type>
+      <name>operator()</name>
+      <anchorfile>structlemons_1_1serializing_1_1NonrealtimeMutatable_1_1RealtimeAccess.html</anchorfile>
+      <anchor>a0813e348ba5190854e89398cd766e8b5</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>const ObjectType *</type>
+      <name>operator-&gt;</name>
+      <anchorfile>structlemons_1_1serializing_1_1NonrealtimeMutatable_1_1RealtimeAccess.html</anchorfile>
+      <anchor>ac228ae9d7721d0a35d5a3b57727cabdb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>const ObjectType &amp;</type>
+      <name>object</name>
+      <anchorfile>structlemons_1_1serializing_1_1NonrealtimeMutatable_1_1RealtimeAccess.html</anchorfile>
+      <anchor>a928b9a2008b7776f81ff2a2fbe104bc7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="friend" protection="private">
+      <type>friend class</type>
+      <name>NonrealtimeMutatable</name>
+      <anchorfile>structlemons_1_1serializing_1_1NonrealtimeMutatable_1_1RealtimeAccess.html</anchorfile>
+      <anchor>ad829975fa777d1d9491a1ceaff4abff8</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::serializing::RealtimeMutatable::RealtimeAccess</name>
+    <filename>structlemons_1_1serializing_1_1RealtimeMutatable_1_1RealtimeAccess.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>~RealtimeAccess</name>
+      <anchorfile>structlemons_1_1serializing_1_1RealtimeMutatable_1_1RealtimeAccess.html</anchorfile>
+      <anchor>a92075211642d31100fe4f245ab30f279</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>ObjectType &amp;</type>
+      <name>operator()</name>
+      <anchorfile>structlemons_1_1serializing_1_1RealtimeMutatable_1_1RealtimeAccess.html</anchorfile>
+      <anchor>a8a5ac2220ce0c8b8133603447a327418</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>ObjectType *</type>
+      <name>operator-&gt;</name>
+      <anchorfile>structlemons_1_1serializing_1_1RealtimeMutatable_1_1RealtimeAccess.html</anchorfile>
+      <anchor>aa958fdc21c7c0e9cc6fccfa88664e07f</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>ObjectType &amp;</type>
+      <name>object</name>
+      <anchorfile>structlemons_1_1serializing_1_1RealtimeMutatable_1_1RealtimeAccess.html</anchorfile>
+      <anchor>a57fe5b92e69453c14c1be3fd86bdc3ba</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="friend" protection="private">
+      <type>friend class</type>
+      <name>RealtimeMutatable</name>
+      <anchorfile>structlemons_1_1serializing_1_1RealtimeMutatable_1_1RealtimeAccess.html</anchorfile>
+      <anchor>a711a24f035daacfe57a667f5c7c6846c</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lemons::serializing::RealtimeMutatable</name>
+    <filename>classlemons_1_1serializing_1_1RealtimeMutatable.html</filename>
+    <templarg></templarg>
+    <class kind="struct">lemons::serializing::RealtimeMutatable::NonrealtimeAccess</class>
+    <class kind="struct">lemons::serializing::RealtimeMutatable::RealtimeAccess</class>
+    <member kind="function">
+      <type></type>
+      <name>RealtimeMutatable</name>
+      <anchorfile>classlemons_1_1serializing_1_1RealtimeMutatable.html</anchorfile>
+      <anchor>ad3e71f636ae44a3a56250ea55e1a8c7e</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>RealtimeMutatable</name>
+      <anchorfile>classlemons_1_1serializing_1_1RealtimeMutatable.html</anchorfile>
+      <anchor>aef8c403fff16bdcacec8210dc2f3edef</anchor>
+      <arglist>(const ObjectType &amp;obj)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~RealtimeMutatable</name>
+      <anchorfile>classlemons_1_1serializing_1_1RealtimeMutatable.html</anchorfile>
+      <anchor>ac4ad195f368df48f8be9ef90b973e0c9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>NonrealtimeAccess</type>
+      <name>access_nonrealtime</name>
+      <anchorfile>classlemons_1_1serializing_1_1RealtimeMutatable.html</anchorfile>
+      <anchor>abe39c6d345c60d5a9101d8f416cb5511</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>RealtimeAccess</type>
+      <name>access_realtime</name>
+      <anchorfile>classlemons_1_1serializing_1_1RealtimeMutatable.html</anchorfile>
+      <anchor>a52ddac2016f289666ba1b8841604939f</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -20833,6 +21141,7 @@
     <filename>namespacelemons_1_1serializing.html</filename>
     <class kind="struct">lemons::serializing::ContainerInterface</class>
     <class kind="class">lemons::serializing::DataSynchronizer</class>
+    <class kind="struct">lemons::serializing::FileContents</class>
     <class kind="struct">lemons::serializing::isContainer</class>
     <class kind="struct">lemons::serializing::isContainer&lt; juce::Array&lt; ElementType &gt; &gt;</class>
     <class kind="struct">lemons::serializing::isContainer&lt; juce::OwnedArray&lt; ElementType &gt; &gt;</class>
@@ -20849,6 +21158,8 @@
     <class kind="struct">lemons::serializing::LambdaContainerInterface</class>
     <class kind="struct">lemons::serializing::MapInterface</class>
     <class kind="struct">lemons::serializing::MapInterfaceBase</class>
+    <class kind="class">lemons::serializing::NonrealtimeMutatable</class>
+    <class kind="class">lemons::serializing::RealtimeMutatable</class>
     <class kind="struct">lemons::serializing::StdArrayInterface</class>
     <class kind="struct">lemons::serializing::STLContainerInterface</class>
     <class kind="struct">lemons::serializing::StringArrayInterface</class>
@@ -20971,7 +21282,7 @@
       <type>String</type>
       <name>fromVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a1f61f3d63eccd58003af4d3f80dbb74c</anchor>
+      <anchor>a6b8eb05784908c6aa35fa8499a495350</anchor>
       <arglist>(const juce::var &amp;var)</arglist>
     </member>
     <member kind="function">
@@ -21148,6 +21459,13 @@
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
       <anchor>a24125b298d1fb471bbbdd149093dce51</anchor>
       <arglist>(const AudioBuffer&lt; float &gt; &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>aaa3cb10822960a8de86fb356660ad327</anchor>
+      <arglist>(const File &amp;file)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>

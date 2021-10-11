@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['toggleinterface_2117',['toggleInterface',['../classlemons_1_1plugin_1_1GUIBase.html#a97a9230b68c4c1b831376c23f511047b',1,'lemons::plugin::GUIBase']]],
-  ['toggles_2118',['toggles',['../classlemons_1_1plugin_1_1GUI.html#a13961f3701f21f144ca5e7a4cdb23034',1,'lemons::plugin::GUI::toggles()'],['../structlemons_1_1plugin_1_1PluginState.html#aa40e75834f1455e11a29294cbd06ece7',1,'lemons::plugin::PluginState::toggles()']]],
-  ['tooltipwindow_2119',['tooltipWindow',['../classlemons_1_1plugin_1_1GUIBase.html#ad2e032dba9ae1e80997bd38a2fc87561',1,'lemons::plugin::GUIBase']]],
-  ['tuning_2120',['tuning',['../structlemons_1_1midi_1_1PitchPipeline.html#a2c70e7d052e926ec3ae517d192039e18',1,'lemons::midi::PitchPipeline']]],
-  ['type_2121',['type',['../structlemons_1_1dsp_1_1SynthBase_1_1TimbreModParams.html#a4b3584a6f4bc5bf2cf3087a805b6afa1',1,'lemons::dsp::SynthBase::TimbreModParams']]]
+  ['size_2146',['size',['../structlemons_1_1RawData.html#a1e3947effbb3ce48387ffcac890cffb3',1,'lemons::RawData']]],
+  ['softpedal_2147',['softPedal',['../classlemons_1_1dsp_1_1SynthBase.html#a99921455c45ede8e43c3dcdc30ee0ff7',1,'lemons::dsp::SynthBase']]],
+  ['state_2148',['state',['../classlemons_1_1plugin_1_1GUI.html#ab3aa4183884b14a9f09d0a99373576ae',1,'lemons::plugin::GUI::state()'],['../classlemons_1_1plugin_1_1Processor.html#a3db1d86c7db3b0247959771dfb0bd0b8',1,'lemons::plugin::Processor::state()'],['../structlemons_1_1plugin_1_1PluginState.html#a2b29ea43c8e780bce47082ad73ab2bc6',1,'lemons::plugin::PluginState::state()'],['../classlemons_1_1plugin_1_1presets_1_1SubLibrary.html#aae0e4b6fd8a4080165afae4d47c0be2b',1,'lemons::plugin::presets::SubLibrary::state()'],['../structlemons_1_1plugin_1_1Preset.html#a79ecfc76f5fa8ae3ba318c7342d99908',1,'lemons::plugin::Preset::state()']]],
+  ['statebase_2149',['stateBase',['../classlemons_1_1plugin_1_1GUIBase.html#a282b917402312585cff6316028b9f5a8',1,'lemons::plugin::GUIBase']]]
 ];

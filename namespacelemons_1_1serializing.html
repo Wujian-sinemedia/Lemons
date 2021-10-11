@@ -82,6 +82,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1serializing_1_1DataSynchronizer.html">DataSynchronizer</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Keeps two copies of an object inheriting from <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> in sync.  <a href="classlemons_1_1serializing_1_1DataSynchronizer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1FileContents.html">FileContents</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A wrapper around a File that, when serializing, loads and saves the file's entire contents.  <a href="structlemons_1_1serializing_1_1FileContents.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1isContainer.html">isContainer</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template struct that that indicates to <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a> whether a given type is a container.  <a href="structlemons_1_1serializing_1_1isContainer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,6 +129,10 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1MapInterface.html">MapInterface</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1MapInterfaceBase.html">MapInterfaceBase</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1serializing_1_1NonrealtimeMutatable.html">NonrealtimeMutatable</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1serializing_1_1RealtimeMutatable.html">RealtimeMutatable</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html">StdArrayInterface</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container interface that provides support for serializing std::arrays with <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a>.  <a href="structlemons_1_1serializing_1_1StdArrayInterface.html#details">More...</a><br /></td></tr>
@@ -204,10 +211,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a449fb4b02e490125b488a21ea568d0cb"><td class="memTemplItemLeft" align="right" valign="top">ObjectType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a449fb4b02e490125b488a21ea568d0cb">fromTreeCreate</a> (const ValueTree &amp;tree)</td></tr>
 <tr class="memdesc:a449fb4b02e490125b488a21ea568d0cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new object from the state saved in the ValueTree.  <a href="namespacelemons_1_1serializing.html#a449fb4b02e490125b488a21ea568d0cb">More...</a><br /></td></tr>
 <tr class="separator:a449fb4b02e490125b488a21ea568d0cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f61f3d63eccd58003af4d3f80dbb74c"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
-<tr class="memitem:a1f61f3d63eccd58003af4d3f80dbb74c"><td class="memTemplItemLeft" align="right" valign="top">String&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a1f61f3d63eccd58003af4d3f80dbb74c">fromVar</a> (const juce::var &amp;var)</td></tr>
-<tr class="memdesc:a1f61f3d63eccd58003af4d3f80dbb74c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Explicitly calls juce::var::toString().  <a href="namespacelemons_1_1serializing.html#a1f61f3d63eccd58003af4d3f80dbb74c">More...</a><br /></td></tr>
-<tr class="separator:a1f61f3d63eccd58003af4d3f80dbb74c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b8eb05784908c6aa35fa8499a495350"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a6b8eb05784908c6aa35fa8499a495350"><td class="memTemplItemLeft" align="right" valign="top">String&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a6b8eb05784908c6aa35fa8499a495350">fromVar</a> (const juce::var &amp;var)</td></tr>
+<tr class="memdesc:a6b8eb05784908c6aa35fa8499a495350"><td class="mdescLeft">&#160;</td><td class="mdescRight">Explicitly calls juce::var::toString().  <a href="namespacelemons_1_1serializing.html#a6b8eb05784908c6aa35fa8499a495350">More...</a><br /></td></tr>
+<tr class="separator:a6b8eb05784908c6aa35fa8499a495350"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1f2f10c7b4aaf9489cc1ee43c450464"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
 <tr class="memitem:ab1f2f10c7b4aaf9489cc1ee43c450464"><td class="memTemplItemLeft" align="right" valign="top">Type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#ab1f2f10c7b4aaf9489cc1ee43c450464">fromVar</a> (const juce::var &amp;var)</td></tr>
 <tr class="memdesc:ab1f2f10c7b4aaf9489cc1ee43c450464"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implement this function and <a class="el" href="namespacelemons_1_1serializing.html#ae8ee0e682cb966523ed9d443e76789a2" title="Implement this function and fromVar() for any custom type to allow easily serialization using TreeRef...">toVar()</a> for any custom type to allow easily serialization using <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">TreeReflector::add()</a>.  <a href="namespacelemons_1_1serializing.html#ab1f2f10c7b4aaf9489cc1ee43c450464">More...</a><br /></td></tr>
@@ -297,6 +304,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a24125b298d1fb471bbbdd149093dce51"><td class="memTemplItemLeft" align="right" valign="top">juce::var&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a24125b298d1fb471bbbdd149093dce51">toVar</a> (const AudioBuffer&lt; float &gt; &amp;buffer)</td></tr>
 <tr class="memdesc:a24125b298d1fb471bbbdd149093dce51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes an AudioBuffer to a var.  <a href="namespacelemons_1_1serializing.html#a24125b298d1fb471bbbdd149093dce51">More...</a><br /></td></tr>
 <tr class="separator:a24125b298d1fb471bbbdd149093dce51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa3cb10822960a8de86fb356660ad327"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:aaa3cb10822960a8de86fb356660ad327"><td class="memTemplItemLeft" align="right" valign="top">juce::var&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#aaa3cb10822960a8de86fb356660ad327">toVar</a> (const File &amp;file)</td></tr>
+<tr class="memdesc:aaa3cb10822960a8de86fb356660ad327"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes a file as its path's String representation.  <a href="namespacelemons_1_1serializing.html#aaa3cb10822960a8de86fb356660ad327">More...</a><br /></td></tr>
+<tr class="separator:aaa3cb10822960a8de86fb356660ad327"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc3bfc8f01116f4667d90f34c0e3d8c4"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
 <tr class="memitem:adc3bfc8f01116f4667d90f34c0e3d8c4"><td class="memTemplItemLeft" align="right" valign="top">juce::var&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#adc3bfc8f01116f4667d90f34c0e3d8c4">toVar</a> (const juce::Image &amp;image)</td></tr>
 <tr class="memdesc:adc3bfc8f01116f4667d90f34c0e3d8c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes a juce::Image object using the PNG image format.  <a href="namespacelemons_1_1serializing.html#adc3bfc8f01116f4667d90f34c0e3d8c4">More...</a><br /></td></tr>
@@ -883,8 +894,8 @@ template&lt;typename ObjectType , LEMONS_MUST_INHERIT_FROM(ObjectType, Serializa
 
 </div>
 </div>
-<a id="a1f61f3d63eccd58003af4d3f80dbb74c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f61f3d63eccd58003af4d3f80dbb74c">&#9670;&nbsp;</a></span>fromVar() <span class="overload">[1/2]</span></h2>
+<a id="a6b8eb05784908c6aa35fa8499a495350"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b8eb05784908c6aa35fa8499a495350">&#9670;&nbsp;</a></span>fromVar() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -892,7 +903,7 @@ template&lt;typename ObjectType , LEMONS_MUST_INHERIT_FROM(ObjectType, Serializa
 template&lt;&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">juce::AudioBuffer&lt; double &gt; lemons::serializing::fromVar </td>
+          <td class="memname">File lemons::serializing::fromVar </td>
           <td>(</td>
           <td class="paramtype">const juce::var &amp;&#160;</td>
           <td class="paramname"><em>var</em></td><td>)</td>
@@ -902,6 +913,7 @@ template&lt;&gt; </div>
 </div><div class="memdoc">
 
 <p>Explicitly calls juce::var::toString(). </p>
+<p>Serializes a file as its path's String representation.</p>
 <p>Deserializes an AudioBuffer from a var.</p>
 <p>Serializes a juce::MidiBuffer.</p>
 <p>Serializes a juce::Image object using the PNG image format.</p>
@@ -918,6 +930,7 @@ template&lt;&gt; </div>
 <p>Internally, this converts the var to a String, then uses juce's FlacAudioFormat to decode the String back into audio samples.</p>
 <p>Internally, this converts the var to a String, then uses juce's FlacAudioFormat to decode the String back into audio samples. <br  />
 Since juce's FlacAudioFormat is only available for float samples, the buffer is first decoded with float samples and then converted to double samples for the final result.</p>
+<p>This method may be platform-dependant. I recommend using the <a class="el" href="structlemons_1_1serializing_1_1FileContents.html" title="A wrapper around a File that, when serializing, loads and saves the file&#39;s entire contents.">FileContents</a> struct to reliably serialize files' contents instead of their paths.</p>
 <p>Explicitly calls juce::var::toString().</p>
 <p>This function must load the complete state of your object from a juce::var. Your object type must be default-constructable. <br  />
  <br  />
@@ -1635,7 +1648,7 @@ Use the XML- and JSON-specific functions in this namespace to explicitly use eit
 </div>
 </div>
 <a id="a995e9b485ca6b3b7ce540d96ec74e6a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a995e9b485ca6b3b7ce540d96ec74e6a2">&#9670;&nbsp;</a></span>toVar() <span class="overload">[1/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a995e9b485ca6b3b7ce540d96ec74e6a2">&#9670;&nbsp;</a></span>toVar() <span class="overload">[1/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1658,7 +1671,7 @@ template&lt;&gt; </div>
 </div>
 </div>
 <a id="a24125b298d1fb471bbbdd149093dce51"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24125b298d1fb471bbbdd149093dce51">&#9670;&nbsp;</a></span>toVar() <span class="overload">[2/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a24125b298d1fb471bbbdd149093dce51">&#9670;&nbsp;</a></span>toVar() <span class="overload">[2/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1680,8 +1693,31 @@ template&lt;&gt; </div>
 
 </div>
 </div>
+<a id="aaa3cb10822960a8de86fb356660ad327"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa3cb10822960a8de86fb356660ad327">&#9670;&nbsp;</a></span>toVar() <span class="overload">[3/15]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::var lemons::serializing::toVar </td>
+          <td>(</td>
+          <td class="paramtype">const File &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Serializes a file as its path's String representation. </p>
+<p>This method may be platform-dependant. I recommend using the <a class="el" href="structlemons_1_1serializing_1_1FileContents.html" title="A wrapper around a File that, when serializing, loads and saves the file&#39;s entire contents.">FileContents</a> struct to reliably serialize files' contents instead of their paths. </p>
+
+</div>
+</div>
 <a id="adc3bfc8f01116f4667d90f34c0e3d8c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc3bfc8f01116f4667d90f34c0e3d8c4">&#9670;&nbsp;</a></span>toVar() <span class="overload">[3/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adc3bfc8f01116f4667d90f34c0e3d8c4">&#9670;&nbsp;</a></span>toVar() <span class="overload">[4/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1703,7 +1739,7 @@ template&lt;&gt; </div>
 </div>
 </div>
 <a id="a0b086889965f50d7dc83930d085de325"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b086889965f50d7dc83930d085de325">&#9670;&nbsp;</a></span>toVar() <span class="overload">[4/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b086889965f50d7dc83930d085de325">&#9670;&nbsp;</a></span>toVar() <span class="overload">[5/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1726,7 +1762,7 @@ template&lt;&gt; </div>
 </div>
 </div>
 <a id="a4faac5d9f8e68faafea91e27ceccc7c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4faac5d9f8e68faafea91e27ceccc7c5">&#9670;&nbsp;</a></span>toVar() <span class="overload">[5/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4faac5d9f8e68faafea91e27ceccc7c5">&#9670;&nbsp;</a></span>toVar() <span class="overload">[6/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1748,7 +1784,7 @@ template&lt;&gt; </div>
 </div>
 </div>
 <a id="a0ff1227990759f0b34182e43aae0680d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ff1227990759f0b34182e43aae0680d">&#9670;&nbsp;</a></span>toVar() <span class="overload">[6/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ff1227990759f0b34182e43aae0680d">&#9670;&nbsp;</a></span>toVar() <span class="overload">[7/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1770,7 +1806,7 @@ template&lt;&gt; </div>
 </div>
 </div>
 <a id="a15aac9d86072af03ffe8bfb8f8d4605c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15aac9d86072af03ffe8bfb8f8d4605c">&#9670;&nbsp;</a></span>toVar() <span class="overload">[7/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a15aac9d86072af03ffe8bfb8f8d4605c">&#9670;&nbsp;</a></span>toVar() <span class="overload">[8/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1792,7 +1828,7 @@ template&lt;&gt; </div>
 </div>
 </div>
 <a id="a14a5d01ead6cd547224b26dbe905ba41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14a5d01ead6cd547224b26dbe905ba41">&#9670;&nbsp;</a></span>toVar() <span class="overload">[8/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a14a5d01ead6cd547224b26dbe905ba41">&#9670;&nbsp;</a></span>toVar() <span class="overload">[9/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1814,7 +1850,7 @@ template&lt;&gt; </div>
 </div>
 </div>
 <a id="a1c6587c822504cd6cd5320fa4f752371"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c6587c822504cd6cd5320fa4f752371">&#9670;&nbsp;</a></span>toVar() <span class="overload">[9/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c6587c822504cd6cd5320fa4f752371">&#9670;&nbsp;</a></span>toVar() <span class="overload">[10/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1836,7 +1872,7 @@ template&lt;&gt; </div>
 </div>
 </div>
 <a id="a3474b867dfb3bfa6d9a6e8f8122db43f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3474b867dfb3bfa6d9a6e8f8122db43f">&#9670;&nbsp;</a></span>toVar() <span class="overload">[10/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3474b867dfb3bfa6d9a6e8f8122db43f">&#9670;&nbsp;</a></span>toVar() <span class="overload">[11/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1858,7 +1894,7 @@ template&lt;&gt; </div>
 </div>
 </div>
 <a id="a589c4da13a83569ebfdc1e42a9c40c21"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a589c4da13a83569ebfdc1e42a9c40c21">&#9670;&nbsp;</a></span>toVar() <span class="overload">[11/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a589c4da13a83569ebfdc1e42a9c40c21">&#9670;&nbsp;</a></span>toVar() <span class="overload">[12/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1880,7 +1916,7 @@ template&lt;&gt; </div>
 </div>
 </div>
 <a id="a87f2d83a5e4631fc440c00a39a8f3dac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a87f2d83a5e4631fc440c00a39a8f3dac">&#9670;&nbsp;</a></span>toVar() <span class="overload">[12/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a87f2d83a5e4631fc440c00a39a8f3dac">&#9670;&nbsp;</a></span>toVar() <span class="overload">[13/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1902,7 +1938,7 @@ template&lt;&gt; </div>
 </div>
 </div>
 <a id="a3b5374fbfd620b723a9320be08047ad6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b5374fbfd620b723a9320be08047ad6">&#9670;&nbsp;</a></span>toVar() <span class="overload">[13/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b5374fbfd620b723a9320be08047ad6">&#9670;&nbsp;</a></span>toVar() <span class="overload">[14/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1924,7 +1960,7 @@ template&lt;&gt; </div>
 </div>
 </div>
 <a id="ae8ee0e682cb966523ed9d443e76789a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8ee0e682cb966523ed9d443e76789a2">&#9670;&nbsp;</a></span>toVar() <span class="overload">[14/14]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8ee0e682cb966523ed9d443e76789a2">&#9670;&nbsp;</a></span>toVar() <span class="overload">[15/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2081,7 +2117,7 @@ As a general rule, you shouldn't need to implement <a class="el" href="namespace
 <div class="ttc" id="anamespacelemons_1_1serializing_html_a947d1fd48af7f4413f461f6c741d5fc2"><div class="ttname"><a href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2">lemons::serializing::getInterfaceForContainer</a></div><div class="ttdeci">std::unique_ptr&lt; ContainerInterface &gt; getInterfaceForContainer(ContainerType &amp;)</div><div class="ttdoc">Template function that returns an instance of the correct ContainerInterface for the given container.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 10 2021 22:43:49 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Oct 11 2021 21:51:46 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

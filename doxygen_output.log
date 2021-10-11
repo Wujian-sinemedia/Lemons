@@ -1,4 +1,4 @@
-python process_source_files.py ../modules build
+python process_source_files.py .. build
 doxygen
 warning: ignoring unsupported tag 'SHOW_HEADERFILE' at line 264, file Doxyfile
 error: the type 'concepts' is not supported for the entry tag within a navindex! Check your layout file!

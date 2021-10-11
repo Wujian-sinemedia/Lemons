@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['stereo_5fimage_2272',['stereo_image',['../group__lemons__audio__effects-stereo__image.html',1,'']]],
-  ['supersaw_2273',['SuperSaw',['../group__lemons__oscillators-SuperSaw.html',1,'']]],
-  ['state_2274',['state',['../group__lemons__plugin-state.html',1,'']]],
-  ['sliders_2275',['sliders',['../group__lemons__plugin__gui-sliders.html',1,'']]],
-  ['serializabledata_2276',['SerializableData',['../group__lemons__serializing-SerializableData.html',1,'']]],
-  ['serializing_2277',['Serializing',['../group__lemons__serializing-Serializing.html',1,'']]],
-  ['spline_2278',['spline',['../group__lemons__spline-spline.html',1,'']]],
-  ['synth_2279',['Synth',['../group__lemons__synth-Synth.html',1,'']]],
-  ['synthvoice_2280',['SynthVoice',['../group__lemons__synth-SynthVoice.html',1,'']]]
+  ['stereo_5fimage_2305',['stereo_image',['../group__lemons__audio__effects-stereo__image.html',1,'']]],
+  ['supersaw_2306',['SuperSaw',['../group__lemons__oscillators-SuperSaw.html',1,'']]],
+  ['state_2307',['state',['../group__lemons__plugin-state.html',1,'']]],
+  ['sliders_2308',['sliders',['../group__lemons__plugin__gui-sliders.html',1,'']]],
+  ['serializabledata_2309',['SerializableData',['../group__lemons__serializing-SerializableData.html',1,'']]],
+  ['serializing_2310',['Serializing',['../group__lemons__serializing-Serializing.html',1,'']]],
+  ['spline_2311',['spline',['../group__lemons__spline-spline.html',1,'']]],
+  ['synth_2312',['Synth',['../group__lemons__synth-Synth.html',1,'']]],
+  ['synthvoice_2313',['SynthVoice',['../group__lemons__synth-SynthVoice.html',1,'']]]
 ];
