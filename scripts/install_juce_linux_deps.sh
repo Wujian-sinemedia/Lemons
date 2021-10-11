@@ -17,3 +17,5 @@ sudo apt install -y --no-install-recommends \
     libwebkit2gtk-4.0-dev \
     libglu1-mesa-dev mesa-common-dev \
     lv2-dev  # Also install LV2 development headers on Linux
+
+exit 0
