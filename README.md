@@ -36,7 +36,7 @@ Contributing is welcome and appreciated! *(Or feel free to just make feature sug
 
 It's recommended to build with CMake. You could manually add the desired modules to a Projucer project, but CMake is a much better build system. Lemons contains several useful CMake scripts that should make getting things running fairly painless...
 
-The full CMake API reference can be found [here](https://github.com/benthevining/Lemons/blob/main/doxygen/cmake_api.md).
+The full CMake API reference can be found [here](https://github.com/benthevining/Lemons/blob/main/cmake/README.md).
 
 ### *Adding with CPM.cmake*
 
