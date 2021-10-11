@@ -1,10 +1,3 @@
-# install JUCE linux deps
-
-execute_process (COMMAND chmod a+rx "${CMAKE_CURRENT_LIST_DIR}/install_juce_linux_deps.sh")
-
-execute_process (COMMAND bash "${CMAKE_CURRENT_LIST_DIR}/install_juce_linux_deps.sh")
-
-
 # fixes a bug with LTO on Ubuntu with Clang
 set (CMAKE_AR ${CMAKE_CXX_COMPILER_AR} CACHE PATH "AR" FORCE)
 set (CMAKE_RANLIB ${CMAKE_CXX_COMPILER_RANLIB} CACHE PATH "RANLIB" FORCE)
