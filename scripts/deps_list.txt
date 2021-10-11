@@ -2,5 +2,4 @@ ccache
 clang-format
 cmake
 git
-openssh-client
 openssl
