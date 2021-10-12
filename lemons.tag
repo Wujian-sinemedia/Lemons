@@ -4586,13 +4586,6 @@
     <name>lemons::dsp::FX::DryWetMixer</name>
     <filename>classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html</filename>
     <templarg></templarg>
-    <member kind="typedef">
-      <type>AudioBuffer&lt; SampleType &gt;</type>
-      <name>AudioBuffer</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html</anchorfile>
-      <anchor>a65752af6406801172e5544628c1f2314</anchor>
-      <arglist></arglist>
-    </member>
     <member kind="function">
       <type></type>
       <name>DryWetMixer</name>
@@ -4611,8 +4604,8 @@
       <type>void</type>
       <name>mixWetSamples</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html</anchorfile>
-      <anchor>a9d31be501cb4b66b8fb81f1da95afe4a</anchor>
-      <arglist>(AudioBuffer &amp;buffer)</arglist>
+      <anchor>a66093e7331d37328243466fc44f9899c</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -4625,15 +4618,15 @@
       <type>void</type>
       <name>process</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html</anchorfile>
-      <anchor>a924dca99c6c8872667375ff6cb0c7dab</anchor>
-      <arglist>(AudioBuffer &amp;dry, AudioBuffer &amp;wet)</arglist>
+      <anchor>add140d9bce35af37d5e328f32a2bc04b</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;dry, AudioBuffer&lt; SampleType &gt; &amp;wet)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>pushDrySamples</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html</anchorfile>
-      <anchor>aaa4014b8663e0915bc8681d7b58e11f9</anchor>
-      <arglist>(AudioBuffer &amp;buffer)</arglist>
+      <anchor>a873dfc96c21253d8200597c8b13e5440</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;buffer)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -7380,8 +7373,8 @@
       <type></type>
       <name>JuceArrayInterface</name>
       <anchorfile>structlemons_1_1serializing_1_1JuceArrayInterface.html</anchorfile>
-      <anchor>a92444a4093f2b11956127c1548682a2f</anchor>
-      <arglist>(Container &amp;container)</arglist>
+      <anchor>a2c0ad17161c25e480ccdc4404dc5aeda</anchor>
+      <arglist>(Container &amp;ctr)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -7407,8 +7400,8 @@
       <type></type>
       <name>JuceOwnedArrayInterface</name>
       <anchorfile>structlemons_1_1serializing_1_1JuceOwnedArrayInterface.html</anchorfile>
-      <anchor>ab1b2307af7a2e090f03a7a5a7705fa9e</anchor>
-      <arglist>(Container &amp;container)</arglist>
+      <anchor>ad990e6ac2d0d12eef1b07e56e03221ae</anchor>
+      <arglist>(Container &amp;ctr)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -16437,13 +16430,6 @@
     <templarg></templarg>
     <templarg>channels</templarg>
     <base>lemons::dsp::FX::AudioEffect</base>
-    <member kind="typedef">
-      <type>AudioBuffer&lt; SampleType &gt;</type>
-      <name>AudioBuffer</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>a4a693ff5741c6ad91652e6e9be5e69b1</anchor>
-      <arglist></arglist>
-    </member>
     <member kind="function">
       <type></type>
       <name>SmoothedGain</name>
@@ -16490,8 +16476,8 @@
       <type>void</type>
       <name>process</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>a4264ff4250d908d9b867b3393f8e8096</anchor>
-      <arglist>(AudioBuffer &amp;audio) final</arglist>
+      <anchor>abfb7ec75237105b0e6a12c0ad26abe43</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;audio) final</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -16519,13 +16505,6 @@
     <name>SmoothedGain&lt; float, 2 &gt;</name>
     <filename>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</filename>
     <base>AudioEffect&lt; float &gt;</base>
-    <member kind="typedef">
-      <type>AudioBuffer&lt; float &gt;</type>
-      <name>AudioBuffer</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>a4a693ff5741c6ad91652e6e9be5e69b1</anchor>
-      <arglist></arglist>
-    </member>
     <member kind="function">
       <type></type>
       <name>SmoothedGain</name>
@@ -16572,8 +16551,8 @@
       <type>void</type>
       <name>process</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>a4264ff4250d908d9b867b3393f8e8096</anchor>
-      <arglist>(AudioBuffer &amp;audio) final</arglist>
+      <anchor>abfb7ec75237105b0e6a12c0ad26abe43</anchor>
+      <arglist>(AudioBuffer&lt; float &gt; &amp;audio) final</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -16601,13 +16580,6 @@
     <name>SmoothedGain&lt; SampleType, 1 &gt;</name>
     <filename>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</filename>
     <base>lemons::dsp::FX::AudioEffect</base>
-    <member kind="typedef">
-      <type>AudioBuffer&lt; SampleType &gt;</type>
-      <name>AudioBuffer</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>a4a693ff5741c6ad91652e6e9be5e69b1</anchor>
-      <arglist></arglist>
-    </member>
     <member kind="function">
       <type></type>
       <name>SmoothedGain</name>
@@ -16654,8 +16626,8 @@
       <type>void</type>
       <name>process</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>a4264ff4250d908d9b867b3393f8e8096</anchor>
-      <arglist>(AudioBuffer &amp;audio) final</arglist>
+      <anchor>abfb7ec75237105b0e6a12c0ad26abe43</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;audio) final</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -17057,8 +17029,8 @@
       <type></type>
       <name>StdArrayInterface</name>
       <anchorfile>structlemons_1_1serializing_1_1StdArrayInterface.html</anchorfile>
-      <anchor>a5dbf642c458e2a374553197db957c241</anchor>
-      <arglist>(Container &amp;container)</arglist>
+      <anchor>a049f32f46c73d9a265a8323236d64991</anchor>
+      <arglist>(Container &amp;c)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -17203,8 +17175,8 @@
       <type></type>
       <name>STLContainerInterface</name>
       <anchorfile>structlemons_1_1serializing_1_1STLContainerInterface.html</anchorfile>
-      <anchor>af8c94137fe709cc9516af2d92972a52c</anchor>
-      <arglist>(ContainerType &amp;container)</arglist>
+      <anchor>abf1a1e86d0d480d68827db9f37ad3209</anchor>
+      <arglist>(ContainerType &amp;ctr)</arglist>
     </member>
   </compound>
   <compound kind="struct">

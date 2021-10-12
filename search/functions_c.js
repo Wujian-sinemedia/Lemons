@@ -22,7 +22,7 @@ var searchData=
   ['midirouter_1819',['MidiRouter',['../classlemons_1_1dsp_1_1synth_1_1MidiManager_1_1MidiRouter.html#ad09289fcf5c59c45b44f311000ff7e37',1,'lemons::dsp::synth::MidiManager::MidiRouter']]],
   ['miditofreq_1820',['midiToFreq',['../namespacelemons_1_1math.html#a7d1c565513533843fed0d748e2b25cb6',1,'lemons::math']]],
   ['miditofrequency_1821',['midiToFrequency',['../classMTSESP_1_1Client.html#a4f80ff1f4a2d92258cd961f43f71ca4f',1,'MTSESP::Client']]],
-  ['mixwetsamples_1822',['mixWetSamples',['../classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html#a9d31be501cb4b66b8fb81f1da95afe4a',1,'lemons::dsp::FX::DryWetMixer']]],
+  ['mixwetsamples_1822',['mixWetSamples',['../classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html#a66093e7331d37328243466fc44f9899c',1,'lemons::dsp::FX::DryWetMixer']]],
   ['modulationmanager_1823',['ModulationManager',['../classlemons_1_1plugin_1_1ModulationManager.html#a793a5b4b22a21eb088ab5e238b689cf1',1,'lemons::plugin::ModulationManager']]],
   ['monostereoconverter_1824',['MonoStereoConverter',['../classlemons_1_1dsp_1_1FX_1_1MonoStereoConverter.html#a121924e0ff4e4d3d2a4448a8afa07de6',1,'lemons::dsp::FX::MonoStereoConverter']]],
   ['motionmanager_1825',['MotionManager',['../classlemons_1_1MotionManager.html#a364744f4f010bea85b4d77605b28f5b0',1,'lemons::MotionManager::MotionManager()'],['../classlemons_1_1MotionManager.html#a3adb2ccab55eb19b2fae73561f7756bb',1,'lemons::MotionManager::MotionManager()=default']]],

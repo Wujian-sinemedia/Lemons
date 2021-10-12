@@ -46,7 +46,7 @@ var searchData=
   ['midiutilities_2eh_582',['MidiUtilities.h',['../MidiUtilities_8h.html',1,'']]],
   ['misc_2eh_583',['misc.h',['../misc_8h.html',1,'']]],
   ['mixtomono_584',['mixToMono',['../classlemons_1_1dsp_1_1FX_1_1MonoStereoConverter.html#ade2abf33ee96d0bb7bfdc43c3336c3aca0d2a8602a2cd80a62be55f9bc60e1f22',1,'lemons::dsp::FX::MonoStereoConverter']]],
-  ['mixwetsamples_585',['mixWetSamples',['../classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html#a9d31be501cb4b66b8fb81f1da95afe4a',1,'lemons::dsp::FX::DryWetMixer']]],
+  ['mixwetsamples_585',['mixWetSamples',['../classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html#a66093e7331d37328243466fc44f9899c',1,'lemons::dsp::FX::DryWetMixer']]],
   ['modmanager_586',['modManager',['../classlemons_1_1plugin_1_1StateBase.html#ae139e1bc96f05db7e27391c6d1241340',1,'lemons::plugin::StateBase']]],
   ['modulationmanager_587',['ModulationManager',['../classlemons_1_1plugin_1_1ModulationManager.html',1,'lemons::plugin::ModulationManager'],['../classlemons_1_1plugin_1_1ModulationManager.html#a793a5b4b22a21eb088ab5e238b689cf1',1,'lemons::plugin::ModulationManager::ModulationManager()']]],
   ['modulationmanager_2eh_588',['ModulationManager.h',['../ModulationManager_8h.html',1,'']]],
