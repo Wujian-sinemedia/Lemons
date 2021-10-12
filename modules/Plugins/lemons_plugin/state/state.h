@@ -27,7 +27,7 @@ public:
         @param paramsToUse The plugin's parameter list.
         @param customStateDataToUse An optional additional serializable object to save with your plugin's state.
      */
-    StateBase (String pluginName, ParameterList& paramsToUse, SerializableData* customStateDataToUse = nullptr);
+    StateBase (const String& pluginName, ParameterList& paramsToUse, SerializableData* customStateDataToUse = nullptr);
 
 
     /** Adds the state's parameters to the specified AudioProcessor.

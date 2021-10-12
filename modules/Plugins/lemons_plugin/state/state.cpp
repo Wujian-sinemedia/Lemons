@@ -1,7 +1,7 @@
 
 namespace lemons::plugin
 {
-StateBase::StateBase (String pluginName, ParameterList& paramsToUse, SerializableData* customStateDataToUse)
+StateBase::StateBase (const String& pluginName, ParameterList& paramsToUse, SerializableData* customStateDataToUse)
     : SerializableData (pluginName + "_State"),
       modManager (paramsToUse),
       params (paramsToUse), customStateData (customStateDataToUse)

@@ -1,14 +1,14 @@
 
 namespace lemons
 {
-SerializableData::SerializableData (juce::Identifier identifier)
-    : dataIdentifier (identifier)
+SerializableData::SerializableData (const juce::String& identifier)
+    : dataIdentifier (identifier.toStdString())
 {
 }
 
 ValueTree SerializableData::serialize()
 {
-    ValueTree tree {dataIdentifier};
+    ValueTree tree {juce::Identifier (dataIdentifier)};
 
     TreeSaver ref {tree};
 
@@ -19,7 +19,8 @@ ValueTree SerializableData::serialize()
 
 void SerializableData::deserialize (const ValueTree& t)
 {
-    const auto tree = t.hasType (dataIdentifier) ? t : t.getChildWithName (dataIdentifier);
+    juce::Identifier id {dataIdentifier};
+    const auto       tree = t.hasType (id) ? t : t.getChildWithName (id);
 
     if (! tree.isValid()) return;
 

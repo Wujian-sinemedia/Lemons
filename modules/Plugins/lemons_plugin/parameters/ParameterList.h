@@ -52,7 +52,7 @@ public:
         @param name The identifier used for the list of parameters as a whole in serialization.
         @param um Optional pointer to an UndoManager to use with all of your parameters. This can also be set after construction with setUndoManager().
      */
-    ParameterList (juce::Identifier name = "Parameters", UndoManager* um = nullptr);
+    ParameterList (const String& name = "Parameters", UndoManager* um = nullptr);
 
     /** Adds the list's managed parameters to a juce::AudioProcessor.
         You should first add all your parameters to the list using add() or addInternal(), then call this to add all the parameters to your processor. \n

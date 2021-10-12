@@ -16,10 +16,15 @@ struct SerializableData
         The identifier argument is optional, and really only needed for an app/plugin's top-level state object; usually, when building a heirarchy of serializable objects that include other serializable objects, you'll use the TreeReflector::add() API, and the property name you pass to that function call will override the child serializable object's identifier. \n \n
         The only time this class uses the identifier passed at construction time is when you call the top-level serialize() -- this will give you a ValueTree whose top-level type is the identifier passed to the serializable object's constructor.
      */
-    SerializableData (juce::Identifier identifier = "Data");
+    SerializableData (const juce::String& identifier = "Data");
 
     /** Destructor. */
     virtual ~SerializableData() = default;
+
+    SerializableData& operator= (const SerializableData&) = default;
+    SerializableData (const SerializableData&)            = default;
+    SerializableData (SerializableData&&)                 = default;
+    SerializableData& operator= (SerializableData&&) = default;
 
 
     /**
@@ -90,7 +95,7 @@ private:
 
     friend struct TreeReflector;
 
-    const juce::Identifier dataIdentifier;
+    const std::string dataIdentifier;
 };
 
 }  // namespace lemons

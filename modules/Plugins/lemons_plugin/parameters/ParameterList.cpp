@@ -1,7 +1,7 @@
 
 namespace lemons::plugin
 {
-ParameterList::ParameterList (juce::Identifier name, UndoManager* um)
+ParameterList::ParameterList (const String& name, UndoManager* um)
     : SerializableData (name), undo (um)
 {
 }
