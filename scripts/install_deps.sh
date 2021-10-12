@@ -19,9 +19,9 @@ case "$OSTYPE" in
 		sudo /usr/sbin/update-ccache-symlinks
 		append_to_file "$SHELL_FILE" 'export PATH="/usr/lib/ccache:$PATH"'
 
-		# run juce linux deps install script
-		chmod u+x "$script_path/install_juce_linux_deps.sh"
-		bash "$script_path/install_juce_linux_deps.sh"
+		# install juce linux deps
+		export INSTALL_LIST_FILE="juce_linux_deps.txt"
+		source "$script_path/install/install_list.sh"
 	;;
 	darwin*) :
 		# prepend ccache to path
