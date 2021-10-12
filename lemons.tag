@@ -8,6 +8,16 @@
     <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
+    <name>Apps.h</name>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Apps/</path>
+    <filename>Apps_8h.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>Audio.h</name>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/</path>
+    <filename>Audio_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>AudioAndMidiFIFO.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_dsp/FIFOs/</path>
     <filename>AudioAndMidiFIFO_8h.html</filename>
@@ -192,9 +202,14 @@
     <namespace>lemons::dsp::filters</namespace>
   </compound>
   <compound kind="file">
-    <name>Common.h</name>
+    <name>Common/Common.h</name>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/</path>
+    <filename>Common_2Common_8h.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>GUI/lemons_spline/common/Common.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/GUI/lemons_spline/common/</path>
-    <filename>Common_8h.html</filename>
+    <filename>GUI_2lemons__spline_2common_2Common_8h.html</filename>
     <includes id="Knots_8h" name="Knots.h" local="yes" imported="no">Knots.h</includes>
     <includes id="Interpolation_8h" name="Interpolation.h" local="yes" imported="no">Interpolation.h</includes>
     <namespace>lemons</namespace>
@@ -222,6 +237,11 @@
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::FX</namespace>
+  </compound>
+  <compound kind="file">
+    <name>Connectivity.h</name>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Connectivity/</path>
+    <filename>Connectivity_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>ContainerInterface.h</name>
@@ -436,6 +456,11 @@
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::psola</namespace>
+  </compound>
+  <compound kind="file">
+    <name>GUI.h</name>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/GUI/</path>
+    <filename>GUI_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>GuiApp.h</name>
@@ -1388,6 +1413,11 @@
     <namespace>lemons::plugin</namespace>
   </compound>
   <compound kind="file">
+    <name>Plugins.h</name>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/</path>
+    <filename>Plugins_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>PluginState.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/state/</path>
     <filename>PluginState_8h.html</filename>
@@ -1831,7 +1861,7 @@
     <name>Spline.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/GUI/lemons_spline/spline/</path>
     <filename>Spline_8h.html</filename>
-    <includes id="Common_8h" name="Common.h" local="no" imported="no">lemons_spline/common/Common.h</includes>
+    <includes id="GUI_2lemons__spline_2common_2Common_8h" name="GUI/lemons_spline/common/Common.h" local="no" imported="no">lemons_spline/common/Common.h</includes>
     <class kind="struct">lemons::spline::Spline</class>
     <namespace>lemons</namespace>
     <namespace>lemons::spline</namespace>
@@ -22526,18 +22556,6 @@
     <namespace>lemons::vecops</namespace>
   </compound>
   <compound kind="group">
-    <name>lemons_audio_effects-misc</name>
-    <title>misc</title>
-    <filename>group__lemons__audio__effects-misc.html</filename>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::FX</namespace>
-    <class kind="class">lemons::dsp::FX::DeEsser</class>
-    <class kind="class">lemons::dsp::FX::DryWetMixer</class>
-    <class kind="class">lemons::dsp::FX::Reverb</class>
-    <class kind="class">lemons::dsp::FX::Saturator</class>
-  </compound>
-  <compound kind="group">
     <name>lemons_core-misc</name>
     <title>misc</title>
     <filename>group__lemons__core-misc.html</filename>
@@ -22555,6 +22573,18 @@
       <anchor>ga4be31aa0be590eae843d1a0be27e95a8</anchor>
       <arglist>(classToTest, requiredBaseClass)</arglist>
     </member>
+  </compound>
+  <compound kind="group">
+    <name>lemons_audio_effects-misc</name>
+    <title>misc</title>
+    <filename>group__lemons__audio__effects-misc.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::FX</namespace>
+    <class kind="class">lemons::dsp::FX::DeEsser</class>
+    <class kind="class">lemons::dsp::FX::DryWetMixer</class>
+    <class kind="class">lemons::dsp::FX::Reverb</class>
+    <class kind="class">lemons::dsp::FX::Saturator</class>
   </compound>
   <compound kind="group">
     <name>mts_esp_cpp</name>
