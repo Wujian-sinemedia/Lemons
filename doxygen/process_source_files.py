@@ -8,13 +8,9 @@ import re
 # Add a Doxygen group to the file at 'path'
 def add_doxygen_group(path, group_name):
 
-    filename = os.path.basename(path)
-
-    if not re.match(r"^lemons_.*\.(h|dox)", filename):
-        return
-
     with open(path, "r") as f:
         content = f.read()
+
     with open(path, "w") as f:
         f.write("\r\n/** @weakgroup " + group_name + "\r\n *  @{\r\n */\r\n")
         f.write(content)
@@ -178,7 +174,7 @@ if __name__ == "__main__":
     # copy cmake API readme to build tree
     copy_cmake_readme(source_dir, dest_dir)
 
-    # process module categories
+    # process juce modules
 
     orig_module_dir = os.path.join(source_dir, "modules")
 
