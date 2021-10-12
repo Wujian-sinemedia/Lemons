@@ -11217,6 +11217,13 @@
     </member>
     <member kind="function">
       <type></type>
+      <name>NonrealtimeMutatable</name>
+      <anchorfile>classlemons_1_1serializing_1_1NonrealtimeMutatable.html</anchorfile>
+      <anchor>a0baca81aa406689632751021313f9685</anchor>
+      <arglist>(ObjectType &amp;obj)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
       <name>~NonrealtimeMutatable</name>
       <anchorfile>classlemons_1_1serializing_1_1NonrealtimeMutatable.html</anchorfile>
       <anchor>a4d8f82855d557c2213d091b1b0c632c0</anchor>
@@ -15000,6 +15007,13 @@
       <anchorfile>classlemons_1_1serializing_1_1RealtimeMutatable.html</anchorfile>
       <anchor>ad3e71f636ae44a3a56250ea55e1a8c7e</anchor>
       <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>RealtimeMutatable</name>
+      <anchorfile>classlemons_1_1serializing_1_1RealtimeMutatable.html</anchorfile>
+      <anchor>a988463f5adf168378cca1275cd9587cb</anchor>
+      <arglist>(Args &amp;&amp;... args)</arglist>
     </member>
     <member kind="function">
       <type></type>
