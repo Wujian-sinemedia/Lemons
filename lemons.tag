@@ -1397,6 +1397,20 @@
       <anchor>ga4be31aa0be590eae843d1a0be27e95a8</anchor>
       <arglist>(classToTest, requiredBaseClass)</arglist>
     </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_MOBILE</name>
+      <anchorfile>group__lemons__core-misc.html</anchorfile>
+      <anchor>gac999e6bb8b2b5b4c7bd5f4176f27e5b6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_MUST_INHERIT_FROM</name>
+      <anchorfile>group__lemons__core-misc.html</anchorfile>
+      <anchor>ga4be31aa0be590eae843d1a0be27e95a8</anchor>
+      <arglist>(classToTest, requiredBaseClass)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>Preset.h</name>
