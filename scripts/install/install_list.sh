@@ -88,6 +88,4 @@ esac
 
 source "$SCRIPT_DIR/$os_script.sh"
 
-source "$SHELL_FILE"
-
 exit 0

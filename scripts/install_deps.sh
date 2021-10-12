@@ -11,7 +11,7 @@ export INSTALL_LIST_FILE="deps_list.txt"
 
 readonly script_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-source "$script_path/install/install_list.sh"
+bash "$script_path/install/install_list.sh"
 
 case "$OSTYPE" in 
 	linux-gnu*) :
@@ -21,7 +21,7 @@ case "$OSTYPE" in
 
 		# install juce linux deps
 		export INSTALL_LIST_FILE="juce_linux_deps.txt"
-		source "$script_path/install/install_list.sh"
+		bash "$script_path/install/install_list.sh"
 	;;
 	darwin*) :
 		# prepend ccache to path
@@ -31,5 +31,7 @@ case "$OSTYPE" in
 	break;
 	;;
 esac
+
+source "$SHELL_FILE"
 
 exit 0

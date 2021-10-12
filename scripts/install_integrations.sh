@@ -10,6 +10,6 @@ export INSTALL_LIST_FILE="integrations_list.txt"
 
 readonly script_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-source "$script_path/install/install_list.sh"
+bash "$script_path/install/install_list.sh"
 
 exit 0
