@@ -9,7 +9,7 @@ static String getCountryCodeToUse()
 
 RawData getDefaultTranslationFile (String defaultCountryCode = "en")
 {
-#if BV_HAS_BINARY_DATA
+#if LEMONS_HAS_BINARY_DATA
     const auto countryCodeToTranslationFileName = [] (const String& countryCode)
     {
         return String ("trans_") + countryCode + ".txt";
@@ -22,6 +22,7 @@ RawData getDefaultTranslationFile (String defaultCountryCode = "en")
 
     return RawData (countryCodeToTranslationFileName (defaultCountryCode));
 #else
+    juce::ignoreUnused (defaultCountryCode);
     return {};
 #endif
 }

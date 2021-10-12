@@ -95,7 +95,7 @@ private:
 
     friend struct TreeReflector;
 
-    const std::string dataIdentifier;
+    juce::Identifier dataIdentifier;
 };
 
 }  // namespace lemons
