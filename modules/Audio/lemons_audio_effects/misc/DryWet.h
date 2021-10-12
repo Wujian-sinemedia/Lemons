@@ -12,8 +12,6 @@ template < typename SampleType >
 class DryWetMixer
 {
 public:
-    using AudioBuffer = AudioBuffer< SampleType >;
-
     /** Creates a DryWetMixer with some default inital settings. */
     DryWetMixer();
 
@@ -40,7 +38,7 @@ public:
         The contents of the passed buffer are not altered, but the buffer itself can't be const due to juce::dsp::AudioBlock's constructor. Take it up with Jules  ¯\_(ツ)_/¯
         @see mixWetSamples(), process()
      */
-    void pushDrySamples (AudioBuffer& buffer);
+    void pushDrySamples (AudioBuffer< SampleType >& buffer);
 
 
     /** Mixes wet samples with the previously pushed dry samples.
@@ -48,7 +46,7 @@ public:
         The mixed output signal will be written back to the passed buffer.
         @see pushDrySamples(), process()
      */
-    void mixWetSamples (AudioBuffer& buffer);
+    void mixWetSamples (AudioBuffer< SampleType >& buffer);
 
 
     /** Mixes together a stream of dry and wet samples with one function call.
@@ -57,7 +55,7 @@ public:
         The mixed output signal will be written to the wet buffer.
         @see pushDrySamples(), mixWetSamples()
      */
-    void process (AudioBuffer& dry, AudioBuffer& wet);
+    void process (AudioBuffer< SampleType >& dry, AudioBuffer< SampleType >& wet);
 
 private:
     juce::dsp::DryWetMixer< SampleType > mixer {512};

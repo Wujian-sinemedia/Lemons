@@ -3,6 +3,9 @@
 set -euo pipefail
 
 os_install_func() {
+
+	return
+
 	local -r DEPS_LIST="$1"
 
 	# install deps listed in deps list file

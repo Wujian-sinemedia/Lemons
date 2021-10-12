@@ -12,8 +12,6 @@ template < typename SampleType, size_t channels = 1 >
 class SmoothedGain : public AudioEffect< SampleType >
 {
 public:
-    using AudioBuffer = AudioBuffer< SampleType >;
-
     /** Creates a default SmoothedGain with an initial gain of 1. */
     SmoothedGain();
 
@@ -24,7 +22,7 @@ public:
     void prepare (double samplerate, int blocksize) final;
 
     /** Processes the next frame of audio. */
-    void process (AudioBuffer& audio) final;
+    void process (AudioBuffer< SampleType >& audio) final;
 
     /** Call this to inform the SmoothedGain that a bypassed block was recieved.
         This will skip ahead in the ramp created by the smoother.

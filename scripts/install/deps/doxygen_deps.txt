@@ -1,4 +1,4 @@
 make
-python
+python3
 doxygen
 graphviz

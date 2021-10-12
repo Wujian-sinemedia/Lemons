@@ -8,8 +8,8 @@ struct JuceArrayInterface : LambdaContainerInterface< juce::Array< ElementType >
 {
     using Container = juce::Array< ElementType >;
 
-    JuceArrayInterface (Container& container)
-        : LambdaContainerInterface< Container > (container, [] (Container& c, int newSize)
+    JuceArrayInterface (Container& ctr)
+        : LambdaContainerInterface< Container > (ctr, [] (Container& c, int newSize)
                                                  { c.resize (newSize); })
     {
     }
@@ -40,8 +40,8 @@ struct JuceOwnedArrayInterface : LambdaContainerInterface< juce::OwnedArray< Ele
 {
     using Container = juce::OwnedArray< ElementType >;
 
-    JuceOwnedArrayInterface (Container& container)
-        : LambdaContainerInterface< Container > (container, [] (Container& c, int newSize)
+    JuceOwnedArrayInterface (Container& ctr)
+        : LambdaContainerInterface< Container > (ctr, [] (Container& c, int newSize)
                                                  {
                                                      const auto prevSize = c.size();
 

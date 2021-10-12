@@ -45,19 +45,19 @@ void DryWetMixer< SampleType >::reset()
 }
 
 template < typename SampleType >
-void DryWetMixer< SampleType >::pushDrySamples (AudioBuffer& buffer)
+void DryWetMixer< SampleType >::pushDrySamples (AudioBuffer< SampleType >& buffer)
 {
     mixer.pushDrySamples (juce::dsp::AudioBlock< SampleType > (buffer));
 }
 
 template < typename SampleType >
-void DryWetMixer< SampleType >::mixWetSamples (AudioBuffer& buffer)
+void DryWetMixer< SampleType >::mixWetSamples (AudioBuffer< SampleType >& buffer)
 {
     mixer.mixWetSamples (juce::dsp::AudioBlock< SampleType > (buffer));
 }
 
 template < typename SampleType >
-void DryWetMixer< SampleType >::process (AudioBuffer& dry, AudioBuffer& wet)
+void DryWetMixer< SampleType >::process (AudioBuffer< SampleType >& dry, AudioBuffer< SampleType >& wet)
 {
     pushDrySamples (dry);
     mixWetSamples (wet);

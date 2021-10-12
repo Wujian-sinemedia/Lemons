@@ -32,7 +32,7 @@ void SmoothedGain< SampleType, channels >::prepare (double, int blocksize)
 }
 
 template < typename SampleType, size_t channels >
-void SmoothedGain< SampleType, channels >::process (AudioBuffer& audio)
+void SmoothedGain< SampleType, channels >::process (AudioBuffer< SampleType >& audio)
 {
     const auto numSamples = audio.getNumSamples();
 

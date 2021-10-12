@@ -8,7 +8,7 @@ doc/index.html: build/lemons_modules.dox Doxyfile
 	doxygen
 
 build/lemons_modules.dox: process_source_files.py $(SOURCE_FILES)
-	python $<
+	python3 $<
 
 clean:
 	rm -rf build doc Lemons

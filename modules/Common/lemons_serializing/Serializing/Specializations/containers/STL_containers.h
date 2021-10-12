@@ -13,8 +13,8 @@ struct StdArrayInterface : LambdaContainerInterface< std::array< ElementType, si
 {
     using Container = std::array< ElementType, size >;
 
-    StdArrayInterface (Container& container)
-        : LambdaContainerInterface< Container > (container, [] (Container&, int) {})
+    StdArrayInterface (Container& c)
+        : LambdaContainerInterface< Container > (c, [] (Container&, int) {})
     {
     }
 };
@@ -42,8 +42,8 @@ struct isContainer< std::array< ElementType, size > > : std::true_type
 template < class ContainerType >
 struct STLContainerInterface : LambdaContainerInterface< ContainerType >
 {
-    STLContainerInterface (ContainerType& container)
-        : LambdaContainerInterface< ContainerType > (container, [] (ContainerType& c, int newSize)
+    STLContainerInterface (ContainerType& ctr)
+        : LambdaContainerInterface< ContainerType > (ctr, [] (ContainerType& c, int newSize)
                                                      { c.resize (static_cast< typename ContainerType::size_type > (newSize)); })
     {
     }
