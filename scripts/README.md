@@ -7,6 +7,10 @@ This directory contains several shell scripts to perform basic configuration tas
 This script installs all required dependencies for a typical Lemons workspace, as well as Ccache. 
 If you're on Linux, this script will also run 'install_juce_linux_deps.sh'.
 
+## install_integrations.sh
+
+This script installs all the auxillery integrations for Lemons -- clang format, etc.
+
 ## install_juce_linux_deps.sh
 
 This script installs all of JUCE's dependencies for Ubuntu, and the LV2 development headers.
