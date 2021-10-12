@@ -191,8 +191,6 @@ SHOW_INCLUDE_FILES     = NO
 
 INLINE_INFO            = NO
 
-SHOW_HEADERFILE        = NO
-
 # If the SORT_BRIEF_DOCS tag is set to YES then doxygen will sort the brief
 # descriptions of file, namespace and class members alphabetically by member
 # name. If set to NO, the members will appear in declaration order. Note that
