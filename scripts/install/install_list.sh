@@ -3,7 +3,7 @@
 # Installs a list of dependencies, read from a given text file
 
 # Input 
-# INSTALL_LIST_FILE : The name of the file to read deps from, relative to the directory of this script
+# INSTALL_LIST_FILE : The name of the file to read deps from, relative to the deps directory
 
 set -euo pipefail
 
@@ -77,14 +77,14 @@ case "$OSTYPE" in
 		;;
 esac
 
-source "$SCRIPT_DIR/$os_script.sh"
+source "$SCRIPT_DIR/os/$os_script.sh"
 
 #
 
 install_deps_list() {
-	local -r DEPS_LIST="$SCRIPT_DIR/$1"
-
 	echo "Installing dependencies from file: $1" 
+
+	local -r DEPS_LIST="$SCRIPT_DIR/deps/$1"
 
 	# if deps list file doesn't exist, fail with error
 	if [ ! -f "$DEPS_LIST" ]; then

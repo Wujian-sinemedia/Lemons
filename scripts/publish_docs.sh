@@ -8,10 +8,11 @@
 
 set -euo pipefail
 
-# install deps
-sudo apt-get install -y --no-install-recommends doxygen graphviz
-
 readonly script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
+# install deps
+source "$script_dir/install/install_list.sh"
+install_deps_list "doxygen_deps.txt"
 
 readonly doxygen_dir="$script_dir/../doxygen"
 
