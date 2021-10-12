@@ -70,6 +70,11 @@
     <namespace>lemons::dsp</namespace>
   </compound>
   <compound kind="file">
+    <name>begin_warnings.h</name>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Connectivity/mts_esp_cpp/warnings/</path>
+    <filename>begin__warnings_8h.html</filename>
+  </compound>
+  <compound kind="file">
     <name>BinaryDataHelpers.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_core/binary_data/</path>
     <filename>BinaryDataHelpers_8h.html</filename>
@@ -161,6 +166,15 @@
     <class kind="class">lemons::dsp::CircularBuffer</class>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
+  </compound>
+  <compound kind="file">
+    <name>client.h</name>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Connectivity/mts_esp_cpp/client/</path>
+    <filename>client_8h.html</filename>
+    <includes id="begin__warnings_8h" name="begin_warnings.h" local="no" imported="no">mts_esp_cpp/warnings/begin_warnings.h</includes>
+    <includes id="end__warnings_8h" name="end_warnings.h" local="no" imported="no">mts_esp_cpp/warnings/end_warnings.h</includes>
+    <class kind="class">MTSESP::Client</class>
+    <namespace>MTSESP</namespace>
   </compound>
   <compound kind="file">
     <name>cmake_api.md</name>
@@ -305,6 +319,11 @@
     <class kind="class">lemons::plugin::PluginEditor</class>
     <namespace>lemons</namespace>
     <namespace>lemons::plugin</namespace>
+  </compound>
+  <compound kind="file">
+    <name>end_warnings.h</name>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Connectivity/mts_esp_cpp/warnings/</path>
+    <filename>end__warnings_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>EQ.h</name>
@@ -1323,9 +1342,15 @@
     <name>PitchConverter.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Connectivity/lemons_midi/PitchConverter/</path>
     <filename>PitchConverter_8h.html</filename>
-    <class kind="class">lemons::midi::PitchConverter</class>
     <namespace>lemons</namespace>
     <namespace>lemons::midi</namespace>
+    <member kind="typedef">
+      <type>MTSESP::Client</type>
+      <name>PitchConverter</name>
+      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
+      <anchor>a11931a5dc733747fb81e3b49a0c8f37c</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>PitchCorrector.h</name>
@@ -3291,6 +3316,59 @@
       <anchorfile>classlemons_1_1dsp_1_1CircularBuffer.html</anchorfile>
       <anchor>ace39516126a8df18306ac337d29d9321</anchor>
       <arglist>(const SampleType *samples, int numSamples)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>MTSESP::Client</name>
+    <filename>classMTSESP_1_1Client.html</filename>
+    <member kind="function">
+      <type>float</type>
+      <name>frequencyToMidi</name>
+      <anchorfile>classMTSESP_1_1Client.html</anchorfile>
+      <anchor>ac3754f1f6ddbbef160e7e9f0991bc904</anchor>
+      <arglist>(T frequency, int midiChannel=-1) const</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>getScaleName</name>
+      <anchorfile>classMTSESP_1_1Client.html</anchorfile>
+      <anchor>ab75546201eca6ca661d5f5f27a7a8642</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isConnected</name>
+      <anchorfile>classMTSESP_1_1Client.html</anchorfile>
+      <anchor>a7e255b07ba0ac908bf00fb099045338d</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>midiToFrequency</name>
+      <anchorfile>classMTSESP_1_1Client.html</anchorfile>
+      <anchor>a4f80ff1f4a2d92258cd961f43f71ca4f</anchor>
+      <arglist>(T midiNote, int midiChannel=-1) const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>parseMidiMessageForSysEx</name>
+      <anchorfile>classMTSESP_1_1Client.html</anchorfile>
+      <anchor>ae49d64e4fde267aa3209391f6c6de0ca</anchor>
+      <arglist>(const juce::MidiMessage &amp;m) const</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>retuneAmountInSemitones</name>
+      <anchorfile>classMTSESP_1_1Client.html</anchorfile>
+      <anchor>a46fcd4b8b540a0b59b7954e2a2602bb9</anchor>
+      <arglist>(T midiNote, int midiChannel=-1) const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>shouldFilterNote</name>
+      <anchorfile>classMTSESP_1_1Client.html</anchorfile>
+      <anchor>ab56576535d75ef1439ba8c8550475d51</anchor>
+      <arglist>(int midiPitch, int midiChannel=-1) const</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -14245,52 +14323,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>lemons::midi::PitchConverter</name>
-    <filename>classlemons_1_1midi_1_1PitchConverter.html</filename>
-    <member kind="function">
-      <type>int</type>
-      <name>frequencyToMidi</name>
-      <anchorfile>classlemons_1_1midi_1_1PitchConverter.html</anchorfile>
-      <anchor>a232b45d2570e1006b6989410ab971fe7</anchor>
-      <arglist>(float frequency, int midiChannel=-1) const</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>getScaleName</name>
-      <anchorfile>classlemons_1_1midi_1_1PitchConverter.html</anchorfile>
-      <anchor>acddc16067e9ab89f9dfa9b63c2cbdb80</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isConnectedToMtsEsp</name>
-      <anchorfile>classlemons_1_1midi_1_1PitchConverter.html</anchorfile>
-      <anchor>a53d387c6fcd89af23b9c6956dcd9e107</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>midiToFrequency</name>
-      <anchorfile>classlemons_1_1midi_1_1PitchConverter.html</anchorfile>
-      <anchor>ac8ca74569db7bdee73b1a5546dd99676</anchor>
-      <arglist>(float midiNote, int midiChannel=-1) const</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>midiToFrequency</name>
-      <anchorfile>classlemons_1_1midi_1_1PitchConverter.html</anchorfile>
-      <anchor>a966a65c2fc27076965fecb4db452e148</anchor>
-      <arglist>(int midiNote, int midiChannel=-1) const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>shouldFilterNote</name>
-      <anchorfile>classlemons_1_1midi_1_1PitchConverter.html</anchorfile>
-      <anchor>a608757ae50ebd5908681aeb9bfc8060e</anchor>
-      <arglist>(int midiPitch, int midiChannel=-1) const</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>lemons::dsp::psola::PitchCorrector</name>
     <filename>classlemons_1_1dsp_1_1psola_1_1PitchCorrector.html</filename>
     <templarg></templarg>
@@ -21107,9 +21139,15 @@
     <class kind="class">lemons::midi::MidiFIFO</class>
     <class kind="class">lemons::midi::MidiProcessor</class>
     <class kind="class">lemons::midi::PitchBendTracker</class>
-    <class kind="class">lemons::midi::PitchConverter</class>
     <class kind="struct">lemons::midi::PitchPipeline</class>
     <class kind="struct">lemons::midi::VelocityHelper</class>
+    <member kind="typedef">
+      <type>MTSESP::Client</type>
+      <name>PitchConverter</name>
+      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
+      <anchor>a11931a5dc733747fb81e3b49a0c8f37c</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type>bool</type>
       <name>areNotesSamePitchClass</name>
@@ -21914,6 +21952,11 @@
       <arglist>(Type *vecA, const Type *vecB, int count)</arglist>
     </member>
   </compound>
+  <compound kind="namespace">
+    <name>MTSESP</name>
+    <filename>namespaceMTSESP.html</filename>
+    <class kind="class">MTSESP::Client</class>
+  </compound>
   <compound kind="group">
     <name>lemons_mobile_utils-Android</name>
     <title>Android</title>
@@ -21988,6 +22031,7 @@
     <title>Connectivity</title>
     <filename>group__Connectivity.html</filename>
     <subgroup>lemons_midi</subgroup>
+    <subgroup>mts_esp_cpp</subgroup>
   </compound>
   <compound kind="group">
     <name>lemons_serializing-DataSynchronizer</name>
@@ -22068,7 +22112,6 @@
     <filename>group__lemons__midi-PitchConverter.html</filename>
     <namespace>lemons</namespace>
     <namespace>lemons::midi</namespace>
-    <class kind="class">lemons::midi::PitchConverter</class>
   </compound>
   <compound kind="group">
     <name>lemons_psola-PitchCorrector</name>
@@ -22226,6 +22269,11 @@
     <namespace>lemons::dsp::osc</namespace>
     <class kind="class">lemons::dsp::osc::ChoosableOscillator</class>
     <class kind="class">lemons::dsp::osc::OscEngine</class>
+  </compound>
+  <compound kind="group">
+    <name>mts_esp_cpp-client</name>
+    <title>client</title>
+    <filename>group__mts__esp__cpp-client.html</filename>
   </compound>
   <compound kind="group">
     <name>lemons_spline-common</name>
@@ -22478,6 +22526,18 @@
     <namespace>lemons::vecops</namespace>
   </compound>
   <compound kind="group">
+    <name>lemons_audio_effects-misc</name>
+    <title>misc</title>
+    <filename>group__lemons__audio__effects-misc.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::FX</namespace>
+    <class kind="class">lemons::dsp::FX::DeEsser</class>
+    <class kind="class">lemons::dsp::FX::DryWetMixer</class>
+    <class kind="class">lemons::dsp::FX::Reverb</class>
+    <class kind="class">lemons::dsp::FX::Saturator</class>
+  </compound>
+  <compound kind="group">
     <name>lemons_core-misc</name>
     <title>misc</title>
     <filename>group__lemons__core-misc.html</filename>
@@ -22497,16 +22557,11 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>lemons_audio_effects-misc</name>
-    <title>misc</title>
-    <filename>group__lemons__audio__effects-misc.html</filename>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::FX</namespace>
-    <class kind="class">lemons::dsp::FX::DeEsser</class>
-    <class kind="class">lemons::dsp::FX::DryWetMixer</class>
-    <class kind="class">lemons::dsp::FX::Reverb</class>
-    <class kind="class">lemons::dsp::FX::Saturator</class>
+    <name>mts_esp_cpp</name>
+    <title>mts_esp_cpp</title>
+    <filename>group__mts__esp__cpp.html</filename>
+    <subgroup>mts_esp_cpp-client</subgroup>
+    <subgroup>mts_esp_cpp-warnings</subgroup>
   </compound>
   <compound kind="group">
     <name>lemons_plugin-parameters</name>
@@ -22559,16 +22614,6 @@
     <class kind="struct">lemons::plugin::Preset</class>
   </compound>
   <compound kind="group">
-    <name>lemons_plugin-processors</name>
-    <title>processors</title>
-    <filename>group__lemons__plugin-processors.html</filename>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-    <class kind="class">lemons::plugin::Processor</class>
-    <class kind="class">lemons::plugin::ProcessorBase</class>
-    <class kind="struct">lemons::plugin::ProcessorWithEditor</class>
-  </compound>
-  <compound kind="group">
     <name>lemons_midi-processors</name>
     <title>processors</title>
     <filename>group__lemons__midi-processors.html</filename>
@@ -22578,6 +22623,16 @@
     <class kind="struct">lemons::midi::MidiProcessor::LastMovedControllerInfo</class>
     <class kind="class">lemons::dsp::MidiChoppingProcessor</class>
     <class kind="class">lemons::midi::MidiProcessor</class>
+  </compound>
+  <compound kind="group">
+    <name>lemons_plugin-processors</name>
+    <title>processors</title>
+    <filename>group__lemons__plugin-processors.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+    <class kind="class">lemons::plugin::Processor</class>
+    <class kind="class">lemons::plugin::ProcessorBase</class>
+    <class kind="struct">lemons::plugin::ProcessorWithEditor</class>
   </compound>
   <compound kind="group">
     <name>lemons_psola-resynthesis</name>
@@ -22665,6 +22720,11 @@
     <name>lemons_serializing-version</name>
     <title>version</title>
     <filename>group__lemons__serializing-version.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>mts_esp_cpp-warnings</name>
+    <title>warnings</title>
+    <filename>group__mts__esp__cpp-warnings.html</filename>
   </compound>
   <compound kind="page">
     <name>cmake_api</name>
