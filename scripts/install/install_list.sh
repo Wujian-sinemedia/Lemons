@@ -13,6 +13,8 @@ export SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd 
 
 export DEPS_LIST="$SCRIPT_DIR/$INSTALL_LIST_FILE"
 
+echo "Installing dependencies from file: $INSTALL_LIST_FILE" 
+
 # if deps list file doesn't exist, fail with error
 if [ ! -f "$DEPS_LIST" ]; then
 	printf "Error - dependency list file not found!"
