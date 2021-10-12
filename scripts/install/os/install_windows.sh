@@ -2,9 +2,14 @@
 
 set -euo pipefail
 
+# TODO: install chocolatey, if needed
+
 os_install_func() {
 	local -r DEPS_LIST="$1"
 
 	# install deps listed in deps list file
-	xargs choco install <"$DEPS_LIST"
+	cat "$DEPS_LIST" | while read line || [[ -n $line ]];
+	do
+		choco install "$line"
+	done
 }
