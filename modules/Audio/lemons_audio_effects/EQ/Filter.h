@@ -88,7 +88,7 @@ private:
     @see FX::Filter
  */
 template < typename SampleType >
-struct FilterEngine : EffectEngine< Filter, SampleType >
+struct FilterEngine final : EffectEngine< Filter, SampleType >
 {
     using EffectEngine< Filter, SampleType >::EffectEngine;
 

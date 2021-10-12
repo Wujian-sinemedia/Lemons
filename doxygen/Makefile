@@ -11,4 +11,4 @@ build/lemons_modules.dox: process_source_files.py $(SOURCE_FILES)
 	python $<
 
 clean:
-	rm -rf build doc
+	rm -rf build doc Lemons

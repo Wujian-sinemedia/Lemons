@@ -34,27 +34,7 @@ PROJECT_LOGO           =
 
 OUTPUT_LANGUAGE        = English
 
-# If the REPEAT_BRIEF tag is set to YES, doxygen will prepend the brief
-# description of a member or function before the detailed description
-#
-# Note: If both HIDE_UNDOC_MEMBERS and BRIEF_MEMBER_DESC are set to NO, the
-# brief descriptions will be completely suppressed.
-# The default value is: YES.
-
-REPEAT_BRIEF           = YES
-
-# If the INLINE_INHERITED_MEMB tag is set to YES, doxygen will show all
-# inherited members of a class in the documentation of that class as if those
-# members were ordinary class members. Constructors, destructors and assignment
-# operators of the base classes will not be shown.
-# The default value is: NO.
-
 INLINE_INHERITED_MEMB  = YES
-
-# If the FULL_PATH_NAMES tag is set to YES, doxygen will prepend the full path
-# before files name in the file list and in the header files. If set to NO the
-# shortest path that makes the file name unique will be used
-# The default value is: YES.
 
 FULL_PATH_NAMES        = NO
 
@@ -66,36 +46,6 @@ FULL_PATH_NAMES        = NO
 # The default value is: NO.
 
 JAVADOC_AUTOBRIEF      = YES
-
-# If the JAVADOC_BANNER tag is set to YES then doxygen will interpret a line
-# such as
-# /***************
-# as being the beginning of a Javadoc-style comment "banner". If set to NO, the
-# Javadoc-style will behave just like regular comments and it will not be
-# interpreted by doxygen.
-# The default value is: NO.
-
-JAVADOC_BANNER         = NO
-
-# If the QT_AUTOBRIEF tag is set to YES then doxygen will interpret the first
-# line (until the first dot) of a Qt-style comment as the brief description. If
-# set to NO, the Qt-style will behave just like regular Qt-style comments (thus
-# requiring an explicit \brief command for a brief description.)
-# The default value is: NO.
-
-QT_AUTOBRIEF           = NO
-
-# The MULTILINE_CPP_IS_BRIEF tag can be set to YES to make doxygen treat a
-# multi-line C++ special comment block (i.e. a block of //! or /// comments) as
-# a brief description. This used to be the default behavior. The new default is
-# to treat a multi-line C++ comment block as a detailed description. Set this
-# tag to YES if you prefer the old behavior instead.
-#
-# Note that setting this tag to YES also means that rational rose comments are
-# not recognized any more.
-# The default value is: NO.
-
-MULTILINE_CPP_IS_BRIEF = NO
 
 # This tag can be used to specify a number of aliases that act as commands in
 # the documentation. An alias has the form:
@@ -158,13 +108,6 @@ ALIASES                = tags{1}= \
 
 EXTENSION_MAPPING      = txt=md
 
-# When the TOC_INCLUDE_HEADINGS tag is set to a non-zero value, all headings up
-# to that level are automatically included in the table of contents, even if
-# they do not have an id attribute.
-# Note: This feature currently applies only to Markdown headings.
-# Minimum value: 0, maximum value: 99, default value: 5.
-# This tag requires that the tag MARKDOWN_SUPPORT is set to YES.
-
 TOC_INCLUDE_HEADINGS   = 0
 
 BUILTIN_STL_SUPPORT    = YES
@@ -200,14 +143,6 @@ INLINE_GROUPED_CLASSES = NO
 # Build related configuration options
 #---------------------------------------------------------------------------
 
-# If the EXTRACT_ALL tag is set to YES, doxygen will assume all entities in
-# documentation are documented, even if no documentation was available. Private
-# class members and static file members will be hidden unless the
-# EXTRACT_PRIVATE respectively EXTRACT_STATIC tags are set to YES.
-# Note: This will also disable the warnings about undocumented members that are
-# normally produced when WARNINGS is set to YES.
-# The default value is: NO.
-
 EXTRACT_ALL            = YES
 
 EXTRACT_PRIV_VIRTUAL   = YES
@@ -219,11 +154,6 @@ EXTRACT_LOCAL_CLASSES  = NO
 HIDE_UNDOC_CLASSES     = YES
 
 HIDE_FRIEND_COMPOUNDS  = YES
-
-# If the HIDE_IN_BODY_DOCS tag is set to YES, doxygen will hide any
-# documentation blocks found inside the body of a function. If set to NO, these
-# blocks will be appended to the function's detailed documentation block.
-# The default value is: NO.
 
 HIDE_IN_BODY_DOCS      = YES
 
@@ -273,32 +203,7 @@ SORT_BRIEF_DOCS        = YES
 
 SORT_MEMBERS_CTORS_1ST = YES
 
-# If the SORT_GROUP_NAMES tag is set to YES then doxygen will sort the hierarchy
-# of group names into alphabetical order. If set to NO the group names will
-# appear in their defined order.
-# The default value is: NO.
-
 SORT_GROUP_NAMES       = YES
-
-# If the SORT_BY_SCOPE_NAME tag is set to YES, the class list will be sorted by
-# fully-qualified names, including namespaces. If set to NO, the class list will
-# be sorted only by class name, not including the namespace part.
-# Note: This option is not very useful if HIDE_SCOPE_NAMES is set to YES.
-# Note: This option applies only to the class list, not to the alphabetical
-# list.
-# The default value is: NO.
-
-SORT_BY_SCOPE_NAME     = NO
-
-# If the STRICT_PROTO_MATCHING option is enabled and doxygen fails to do proper
-# type resolution of all parameters of a function it will reject a match between
-# the prototype and the implementation of a member function even if there is
-# only one candidate or it is obvious which candidate to choose by doing a
-# simple string match. By disabling STRICT_PROTO_MATCHING doxygen will still
-# accept a match between prototype and implementation in such cases.
-# The default value is: NO.
-
-STRICT_PROTO_MATCHING  = NO
 
 # The GENERATE_TESTLIST tag can be used to enable (YES) or disable (NO) the test
 # list. This list is created by putting \test commands in the documentation.
@@ -311,11 +216,6 @@ LAYOUT_FILE            = DoxygenLayout.xml
 #---------------------------------------------------------------------------
 # Configuration options related to warning and progress messages
 #---------------------------------------------------------------------------
-
-# The QUIET tag can be used to turn on/off the messages that are generated to
-# standard output by doxygen. If QUIET is set to YES this implies that the
-# messages are off.
-# The default value is: NO.
 
 QUIET                  = YES
 
@@ -353,20 +253,9 @@ FILE_PATTERNS          = *.h *.dox *.md
 
 RECURSIVE              = YES
 
-# The EXCLUDE tag can be used to specify files and/or directories that should be
-# excluded from the INPUT source files. This way you can easily exclude a
-# subdirectory from a directory tree whose root is specified with the INPUT tag.
-#
-# Note that relative paths are relative to the directory from which doxygen is
-# run.
-
 EXCLUDE                =
 
 EXCLUDE_SYMLINKS       = YES
-
-# The IMAGE_PATH tag can be used to specify one or more files or directories
-# that contain images that are to be included in the documentation (see the
-# \image command).
 
 IMAGE_PATH             = ../assets
 
@@ -388,42 +277,6 @@ REFERENCED_BY_RELATION = YES
 
 REFERENCES_RELATION    = YES
 
-# If the REFERENCES_LINK_SOURCE tag is set to YES and SOURCE_BROWSER tag is set
-# to YES then the hyperlinks from functions in REFERENCES_RELATION and
-# REFERENCED_BY_RELATION lists will link to the source code. Otherwise they will
-# link to the documentation.
-# The default value is: YES.
-
-REFERENCES_LINK_SOURCE = YES
-
-# If the USE_HTAGS tag is set to YES then the references to source code will
-# point to the HTML generated by the htags(1) tool instead of doxygen built-in
-# source browser. The htags tool is part of GNU's global source tagging system
-# (see https://www.gnu.org/software/global/global.html). You will need version
-# 4.8.6 or higher.
-#
-# To use it do the following:
-# - Install the latest version of global
-# - Enable SOURCE_BROWSER and USE_HTAGS in the configuration file
-# - Make sure the INPUT points to the root of the source tree
-# - Run doxygen as normal
-#
-# Doxygen will invoke htags (and that will in turn invoke gtags), so these
-# tools must be available from the command line (i.e. in the search path).
-#
-# The result: instead of the source browser generated by doxygen, the links to
-# source code will now point to the output of htags.
-# The default value is: NO.
-# This tag requires that the tag SOURCE_BROWSER is set to YES.
-
-USE_HTAGS              = NO
-
-# If the VERBATIM_HEADERS tag is set the YES then doxygen will generate a
-# verbatim copy of the header file for each class for which an include is
-# specified. Set to NO to disable this.
-# See also: Section \class.
-# The default value is: YES.
-
 VERBATIM_HEADERS       = NO
 
 #---------------------------------------------------------------------------
@@ -431,26 +284,6 @@ VERBATIM_HEADERS       = NO
 #---------------------------------------------------------------------------
 
 HTML_OUTPUT            = doc
-
-# The HTML_HEADER tag can be used to specify a user-defined HTML header file for
-# each generated HTML page. If the tag is left blank doxygen will generate a
-# standard header.
-#
-# To get valid HTML the header file that includes any scripts and style sheets
-# that doxygen needs, which is dependent on the configuration options used (e.g.
-# the setting GENERATE_TREEVIEW). It is highly recommended to start with a
-# default header using
-# doxygen -w html new_header.html new_footer.html new_stylesheet.css
-# YourConfigFile
-# and then modify the file new_header.html. See also section "Doxygen usage"
-# for information on how to generate the default header that doxygen normally
-# uses.
-# Note: The header is subject to change so you typically have to regenerate the
-# default header when upgrading to a newer version of doxygen. For a description
-# of the possible markers and block names see the documentation.
-# This tag requires that the tag GENERATE_HTML is set to YES.
-
-HTML_HEADER            =
 
 # The HTML_FOOTER tag can be used to specify a user-defined HTML footer for each
 # generated HTML page. If the tag is left blank doxygen will generate a standard
@@ -474,16 +307,6 @@ HTML_FOOTER            =
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
 HTML_EXTRA_STYLESHEET  =
-
-# The HTML_EXTRA_FILES tag can be used to specify one or more extra images or
-# other source files which should be copied to the HTML output directory. Note
-# that these files will be copied to the base HTML output directory. Use the
-# $relpath^ marker in the HTML_HEADER and/or HTML_FOOTER files to load these
-# files. In the HTML_STYLESHEET file, use the file name only. Also note that the
-# files will be copied as-is; there are no commands or markers available.
-# This tag requires that the tag GENERATE_HTML is set to YES.
-
-HTML_EXTRA_FILES       =
 
 # The HTML_COLORSTYLE_HUE tag controls the color of the HTML output. Doxygen
 # will adjust the colors in the style sheet and background images according to
@@ -519,63 +342,9 @@ HTML_TIMESTAMP         = YES
 
 HTML_DYNAMIC_SECTIONS  = YES
 
-# With HTML_INDEX_NUM_ENTRIES one can control the preferred number of entries
-# shown in the various tree structured indices initially; the user can expand
-# and collapse entries dynamically later on. Doxygen will expand the tree to
-# such a level that at most the specified number of entries are visible (unless
-# a fully collapsed tree already exceeds this amount). So setting the number of
-# entries 1 will produce a full collapsed tree by default. 0 is a special value
-# representing an infinite number of entries and will result in a full expanded
-# tree by default.
-# Minimum value: 0, maximum value: 9999, default value: 100.
-# This tag requires that the tag GENERATE_HTML is set to YES.
-
 HTML_INDEX_NUM_ENTRIES = 32
 
-# If the GENERATE_DOCSET tag is set to YES, additional index files will be
-# generated that can be used as input for Apple's Xcode 3 integrated development
-# environment (see:
-# https://developer.apple.com/xcode/), introduced with OSX 10.5 (Leopard). To
-# create a documentation set, doxygen will generate a Makefile in the HTML
-# output directory. Running make will produce the docset in that directory and
-# running make install will install the docset in
-# ~/Library/Developer/Shared/Documentation/DocSets so that Xcode will find it at
-# startup. See https://developer.apple.com/library/archive/featuredarticles/Doxy
-# genXcode/_index.html for more information.
-# The default value is: NO.
-# This tag requires that the tag GENERATE_HTML is set to YES.
-
 GENERATE_DOCSET        = NO
-
-# This tag determines the name of the docset feed. A documentation feed provides
-# an umbrella under which multiple documentation sets from a single provider
-# (such as a company or product suite) can be grouped.
-# The default value is: Doxygen generated docs.
-# This tag requires that the tag GENERATE_DOCSET is set to YES.
-
-DOCSET_FEEDNAME        = "Doxygen generated docs"
-
-# This tag specifies a string that should uniquely identify the documentation
-# set bundle. This should be a reverse domain-name style string, e.g.
-# com.mycompany.MyDocSet. Doxygen will append .docset to the name.
-# The default value is: org.doxygen.Project.
-# This tag requires that the tag GENERATE_DOCSET is set to YES.
-
-DOCSET_BUNDLE_ID       = org.doxygen.Project
-
-# The DOCSET_PUBLISHER_ID tag specifies a string that should uniquely identify
-# the documentation publisher. This should be a reverse domain-name style
-# string, e.g. com.mycompany.MyDocSet.documentation.
-# The default value is: org.doxygen.Publisher.
-# This tag requires that the tag GENERATE_DOCSET is set to YES.
-
-DOCSET_PUBLISHER_ID    = org.doxygen.Publisher
-
-# The DOCSET_PUBLISHER_NAME tag identifies the documentation publisher.
-# The default value is: Publisher.
-# This tag requires that the tag GENERATE_DOCSET is set to YES.
-
-DOCSET_PUBLISHER_NAME  = Publisher
 
 # The ENUM_VALUES_PER_LINE tag can be used to set the number of enum values that
 # doxygen will group on one line in the generated HTML documentation.
@@ -587,11 +356,6 @@ DOCSET_PUBLISHER_NAME  = Publisher
 
 ENUM_VALUES_PER_LINE   = 4
 
-# If the EXT_LINKS_IN_WINDOW option is set to YES, doxygen will open links to
-# external symbols imported via tag files in a separate window.
-# The default value is: NO.
-# This tag requires that the tag GENERATE_HTML is set to YES.
-
 EXT_LINKS_IN_WINDOW    = YES
 
 # Use this tag to change the font size of LaTeX formulas included as images in
@@ -602,15 +366,6 @@ EXT_LINKS_IN_WINDOW    = YES
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
 FORMULA_FONTSIZE       = 10
-
-# Use the FORMULA_TRANSPARENT tag to determine whether or not the images
-# generated for formulas are transparent PNGs. Transparent PNGs are not
-# supported properly for IE 6.0, but are supported on all modern browsers.
-#
-# Note that when changing this option you need to delete any form_*.png files in
-# the HTML output directory before the changes have effect.
-# The default value is: YES.
-# This tag requires that the tag GENERATE_HTML is set to YES.
 
 FORMULA_TRANSPARENT    = YES
 
@@ -638,14 +393,6 @@ GENERATE_LATEX         = NO
 # This tag requires that the tag ENABLE_PREPROCESSING is set to YES.
 
 MACRO_EXPANSION        = NO
-
-# If the EXPAND_ONLY_PREDEF and MACRO_EXPANSION tags are both set to YES then
-# the macro expansion is limited to the macros specified with the PREDEFINED and
-# EXPAND_AS_DEFINED tags.
-# The default value is: NO.
-# This tag requires that the tag ENABLE_PREPROCESSING is set to YES.
-
-EXPAND_ONLY_PREDEF     = NO
 
 # If the SEARCH_INCLUDES tag is set to YES, the include files in the
 # INCLUDE_PATH will be searched if a #include is found.
@@ -677,14 +424,6 @@ PREDEFINED             = WIN32=1 \
                          JUCE_COMPILER_SUPPORTS_OVERRIDE_AND_FINAL=1 \
                          JUCE_COMPILER_SUPPORTS_LAMBDAS=1 \
                          JUCE_MODAL_LOOPS_PERMITTED=1
-
-# If the SKIP_FUNCTION_MACROS tag is set to YES then doxygen's preprocessor will
-# remove all references to function-like macros that are alone on a line, have
-# an all uppercase name, and do not end with a semicolon. Such function macros
-# are typically used for boiler-plate code, and will confuse the parser if not
-# removed.
-# The default value is: YES.
-# This tag requires that the tag ENABLE_PREPROCESSING is set to YES.
 
 SKIP_FUNCTION_MACROS   = YES
 
@@ -724,13 +463,6 @@ EXTERNAL_GROUPS        = NO
 # Configuration options related to the dot tool
 #---------------------------------------------------------------------------
 
-# If you set the HAVE_DOT tag to YES then doxygen will assume the dot tool is
-# available from the path. This tool is part of Graphviz (see:
-# http://www.graphviz.org/), a graph visualization toolkit from AT&T and Lucent
-# Bell Labs. The other options in this section have no effect if this option is
-# set to NO
-# The default value is: NO.
-
 HAVE_DOT               = YES
 
 # When you want a differently looking font in the dot files that doxygen
@@ -743,11 +475,6 @@ HAVE_DOT               = YES
 
 DOT_FONTNAME           =
 
-# The DOT_FONTSIZE tag can be used to set the size (in points) of the font of
-# dot graphs.
-# Minimum value: 4, maximum value: 24, default value: 10.
-# This tag requires that the tag HAVE_DOT is set to YES.
-
 DOT_FONTSIZE           = 10
 
 # By default doxygen will tell dot to use the default font as specified with
@@ -757,20 +484,9 @@ DOT_FONTSIZE           = 10
 
 DOT_FONTPATH           =
 
-COLLABORATION_GRAPH    = NO
+COLLABORATION_GRAPH    = YES
 
-# If the GROUP_GRAPHS tag is set to YES then doxygen will generate a graph for
-# groups, showing the direct groups dependencies.
-# The default value is: YES.
-# This tag requires that the tag HAVE_DOT is set to YES.
-
-GROUP_GRAPHS           = NO
-
-# If the TEMPLATE_RELATIONS tag is set to YES then the inheritance and
-# collaboration graphs will show the relations between templates and their
-# instances.
-# The default value is: NO.
-# This tag requires that the tag HAVE_DOT is set to YES.
+GROUP_GRAPHS           = YES
 
 TEMPLATE_RELATIONS     = YES
 
@@ -782,43 +498,10 @@ GRAPHICAL_HIERARCHY    = NO
 
 DIRECTORY_GRAPH        = NO
 
-# The DOT_IMAGE_FORMAT tag can be used to set the image format of the images
-# generated by dot. For an explanation of the image formats see the section
-# output formats in the documentation of the dot tool (Graphviz (see:
-# http://www.graphviz.org/)).
-# Note: If you choose svg you need to set HTML_FILE_EXTENSION to xhtml in order
-# to make the SVG files visible in IE 9+ (other browsers do not have this
-# requirement).
-# Possible values are: png, jpg, gif, svg, png:gd, png:gd:gd, png:cairo,
-# png:cairo:gd, png:cairo:cairo, png:cairo:gdiplus, png:gdiplus and
-# png:gdiplus:gdiplus.
-# The default value is: png.
-# This tag requires that the tag HAVE_DOT is set to YES.
-
 DOT_IMAGE_FORMAT       = svg
-
-# If DOT_IMAGE_FORMAT is set to svg, then this option can be set to YES to
-# enable generation of interactive SVG images that allow zooming and panning.
-#
-# Note that this requires a modern browser other than Internet Explorer. Tested
-# and working are Firefox, Chrome, Safari, and Opera.
-# Note: For IE 9+ you need to set HTML_FILE_EXTENSION to xhtml in order to make
-# the SVG files visible. Older versions of IE do not have SVG support.
-# The default value is: NO.
-# This tag requires that the tag HAVE_DOT is set to YES.
 
 INTERACTIVE_SVG        = YES
 
 DOT_GRAPH_MAX_NODES    = 100
-
-# Set the DOT_TRANSPARENT tag to YES to generate images with a transparent
-# background. This is disabled by default, because dot on Windows does not seem
-# to support this out of the box.
-#
-# Warning: Depending on the platform used, enabling this option may lead to
-# badly anti-aliased labels on the edges of a graph (i.e. they become hard to
-# read).
-# The default value is: NO.
-# This tag requires that the tag HAVE_DOT is set to YES.
 
 DOT_TRANSPARENT        = YES

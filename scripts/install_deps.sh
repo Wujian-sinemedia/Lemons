@@ -28,7 +28,6 @@ case "$OSTYPE" in
 		append_to_file "$SHELL_FILE" 'export PATH="$(brew --prefix)/opt/ccache/libexec:$PATH"'
 	;;
 	*) :
-	break;
 	;;
 esac
 
