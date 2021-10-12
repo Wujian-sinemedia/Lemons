@@ -28,11 +28,11 @@ EditorBase::EditorBase (ProcessorBase& pbToUse, juce::Point< int > initialSize)
 
 void EditorBase::initializeSize (int width, int height)
 {
-    auto* constrainer = getConstrainer();
+    auto* c = getConstrainer();
 
-    constrainer->setMinimumSize (width / 2, height / 2);
-    constrainer->setMaximumSize (width * 2, height * 2);
-    constrainer->setFixedAspectRatio (static_cast< float > (width) / static_cast< float > (height));
+    c->setMinimumSize (width / 2, height / 2);
+    c->setMaximumSize (width * 2, height * 2);
+    c->setFixedAspectRatio (static_cast< float > (width) / static_cast< float > (height));
 
     setSize (width, height);
 }

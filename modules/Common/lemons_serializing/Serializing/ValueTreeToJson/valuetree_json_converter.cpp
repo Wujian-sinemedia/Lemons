@@ -82,7 +82,7 @@ static inline ValueTree valueTreefromVar (const juce::var& obj)
                 juce::MemoryBlock mb;
 
                 if (mb.fromBase64Encoding (itr.value.toString()))
-                    v.setProperty (name.substring (std::strlen (BASE64_PROP)),
+                    v.setProperty (name.substring (static_cast< int > (std::strlen (BASE64_PROP))),
                                    juce::var (mb), nullptr);
             }
             else
