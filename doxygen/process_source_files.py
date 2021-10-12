@@ -12,7 +12,7 @@ def add_doxygen_group(path, group_name):
         content = f.read()
 
     with open(path, "w") as f:
-        f.write("\r\n/** @weakgroup " + group_name + "\r\n *  @{\r\n */\r\n")
+        f.write("\r\n/** @ingroup " + group_name + "\r\n *  @{\r\n */\r\n")
         f.write(content)
         f.write("\r\n/** @}*/\r\n")
 
