@@ -7,12 +7,11 @@ set -euo pipefail
 
 export DEBIAN_FRONTEND=noninteractive
 
-export INSTALL_LIST_FILE="deps_list.txt"
-
 readonly script_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 source "$script_path/install/install_list.sh"
 
+install_deps_list "deps_list.txt"
 
 
 case "$OSTYPE" in 
@@ -22,8 +21,7 @@ case "$OSTYPE" in
 		append_to_file "$SHELL_FILE" 'export PATH="/usr/lib/ccache:$PATH"'
 
 		# install juce linux deps
-		export INSTALL_LIST_FILE="juce_linux_deps.txt"
-		bash "$script_path/install/install_list.sh"
+		install_deps_list "juce_linux_deps.txt"
 	;;
 	darwin*) :
 		# prepend ccache to path

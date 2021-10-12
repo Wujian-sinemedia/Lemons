@@ -6,10 +6,10 @@ set -euo pipefail
 
 export DEBIAN_FRONTEND=noninteractive
 
-export INSTALL_LIST_FILE="integrations_list.txt"
-
 readonly script_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-bash "$script_path/install/install_list.sh"
+source "$script_path/install/install_list.sh"
+
+install_deps_list "integrations_list.txt"
 
 exit 0
