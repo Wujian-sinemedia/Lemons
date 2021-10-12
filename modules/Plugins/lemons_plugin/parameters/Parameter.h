@@ -35,19 +35,19 @@ public:
                juce::AudioProcessorParameter::Category parameterCategory    = AudioProcessorParameter::genericParameter);
 
     /** Returns the maximum possible value for this parameter. */
-    float getMax() const;
+    [[nodiscard]] float getMax() const;
 
     /** Returns the minimum possible value for this parameter. */
-    float getMin() const;
+    [[nodiscard]] float getMin() const;
 
     /** Returns this parameter's range object. */
     const juce::NormalisableRange< float >& getNormalisableRange() const final;
 
     /** Returns the number of the MIDI controller mapped to this parameter, or -1 if this parameter is unmapped. */
-    int getMidiControllerNumber() const;
+    [[nodiscard]] int getMidiControllerNumber() const;
 
     /** Returns true if this parameter is currently mapped to a MIDI controller. */
-    bool isMidiControllerMapped() const;
+    [[nodiscard]] bool isMidiControllerMapped() const;
 
     /** Maps this parameter to listen for changes in a specified MIDI controller number. */
     void setMidiControllerNumber (int newControllerNumber);
@@ -67,12 +67,12 @@ public:
     /** Returns the parameter's default value, in a normalized 0-1 range.
         @see getDenormalizedDefault()
      */
-    float getNormalizedDefault() const;
+    [[nodiscard]] float getNormalizedDefault() const;
 
     /** Returns the parameter's default value, in the parameter's denormalized range.
         @see getNormalizedDefault()
      */
-    float getDenormalizedDefault() const;
+    [[nodiscard]] float getDenormalizedDefault() const;
 
     /** Sets the parameter's default, in a normalized 0-1 range.
         @see setDenormalizedDefault()
@@ -87,12 +87,12 @@ public:
     /** Returns the parameter's current value, in a normalized 0-1 range.
         @see getDenormalizedValue()
      */
-    float getNormalizedValue() const;
+    [[nodiscard]] float getNormalizedValue() const;
 
     /** Returns the parameter's current value, in the parameter's denormalized range.
         @see getNormalizedValue()
      */
-    float getDenormalizedValue() const;
+    [[nodiscard]] float getDenormalizedValue() const;
 
     /** Sets the parameter's value, in a normalized 0-1 range.
         @see setDenormalizedValue()
@@ -111,19 +111,19 @@ public:
     void endGesture();
 
     /** Returns true if this parameter is currently in the middle of a change gesture. */
-    bool isChanging() const;
+    [[nodiscard]] bool isChanging() const;
 
     /** Normalizes a float using this parameter's normalizable range object.
         @param input Denormalized float, within the parameter's denormalized range
         @return Normalized float in the range 0-1
      */
-    float normalize (float input) const;
+    [[nodiscard]] float normalize (float input) const;
 
     /** Denormalizes a float using this parameter's normalizable range object.
         @param input Float within the normalized range 0-1
         @return Denormalized float within the parameter's denormal range.
      */
-    float denormalize (float input) const;
+    [[nodiscard]] float denormalize (float input) const;
 
     /** Sets an UndoManager to use to manage this parameter's transactions.
         The UndoManager will track change gestures, changing the default value, and changing the MIDI CC mapping.
@@ -143,24 +143,24 @@ public:
     /** Returns a textual description of a normalized value in the range 0-1.
         @see getTextForDenormalizedValue()
      */
-    String getTextForNormalizedValue (float value) const;
+    [[nodiscard]] String getTextForNormalizedValue (float value) const;
 
     /** Returns a textual description of a value in the parameter's denormalized range.
         @see getTextForNormalizedValue()
      */
-    String getTextForDenormalizedValue (float value) const;
+    [[nodiscard]] String getTextForDenormalizedValue (float value) const;
 
     /** Returns a textual description of the parameter's maximum value. */
-    String getTextForMax() const;
+    [[nodiscard]] String getTextForMax() const;
 
     /** Returns a textual description of the parameter's minimum value. */
-    String getTextForMin() const;
+    [[nodiscard]] String getTextForMin() const;
 
     /** Returns the name of the parameter.
         @param maxLength The maximum length of the string to return, in characters. If this is less than 1, the max length will be unlimited.
         @param internationalize If this is true, the returned string will be translated using the juce::LocalisedStrings class. Setting this to false is useful for serialization logic that relies on parameter names.
      */
-    String getParameterName (int maxLength = 0, bool internationalize = true) const;
+    [[nodiscard]] String getParameterName (int maxLength = 0, bool internationalize = true) const;
 
     //==============================================================================
 

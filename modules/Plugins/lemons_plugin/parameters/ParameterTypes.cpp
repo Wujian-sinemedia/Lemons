@@ -34,33 +34,33 @@ juce::NormalisableRange< float > createRange (bool, bool)
 template < typename ValueType >
 std::function< String (ValueType, int) > createDefaultStringFromValueFunc (float rangeInterval);
 
+[[nodiscard]] static inline constexpr int getNumDecimalPlacesToDisplay (float rangeInterval)
+{
+    int numDecimalPlaces = 7;
+
+    if (rangeInterval != 0.f)
+    {
+        if (juce::approximatelyEqual (std::abs (rangeInterval - std::floor (rangeInterval)), 0.f))
+            return 0;
+
+        auto v = std::abs (juce::roundToInt (rangeInterval * pow (10, numDecimalPlaces)));
+
+        while ((v % 10) == 0 && numDecimalPlaces > 0)
+        {
+            --numDecimalPlaces;
+            v /= 10;
+        }
+    }
+
+    return numDecimalPlaces;
+}
+
 template <>
 std::function< String (float, int) > createDefaultStringFromValueFunc (float rangeInterval)
 {
-    const auto numDecimalPlacesToDisplay = [rangeInterval]
+    return [rangeInterval] (float v, int length)
     {
-        int numDecimalPlaces = 7;
-
-        if (rangeInterval != 0.0f)
-        {
-            if (juce::approximatelyEqual (std::abs (rangeInterval - std::floor (rangeInterval)), 0.0f))
-                return 0;
-
-            auto v = std::abs (juce::roundToInt (rangeInterval * pow (10, numDecimalPlaces)));
-
-            while ((v % 10) == 0 && numDecimalPlaces > 0)
-            {
-                --numDecimalPlaces;
-                v /= 10;
-            }
-        }
-
-        return numDecimalPlaces;
-    }();
-
-    return [numDecimalPlacesToDisplay] (float v, int length)
-    {
-        String asText (v, numDecimalPlacesToDisplay);
+        String asText (v, getNumDecimalPlacesToDisplay (rangeInterval));
         return length > 0 ? asText.substring (0, length) : asText;
     };
 }
@@ -101,18 +101,18 @@ std::function< int (const String&) > createDefaultValueFromStringFunc()
 template <>
 std::function< bool (const String&) > createDefaultValueFromStringFunc()
 {
-    juce::StringArray onStrings;
-    onStrings.add (TRANS ("on"));
-    onStrings.add (TRANS ("yes"));
-    onStrings.add (TRANS ("true"));
-
-    juce::StringArray offStrings;
-    offStrings.add (TRANS ("off"));
-    offStrings.add (TRANS ("no"));
-    offStrings.add (TRANS ("false"));
-
-    return [onStrings, offStrings] (const String& text)
+    return [] (const String& text)
     {
+        juce::StringArray onStrings;
+        onStrings.add (TRANS ("on"));
+        onStrings.add (TRANS ("yes"));
+        onStrings.add (TRANS ("true"));
+
+        juce::StringArray offStrings;
+        offStrings.add (TRANS ("off"));
+        offStrings.add (TRANS ("no"));
+        offStrings.add (TRANS ("false"));
+
         String lowercaseText (text.toLowerCase());
 
         for (auto& testText : onStrings)
@@ -204,19 +204,19 @@ TypedParameter< ValueType >::TypedParameter (ValueType minimum,
 }
 
 template <>
-float TypedParameter< float >::get() const
+[[nodiscard]] float TypedParameter< float >::get() const
 {
     return this->getDenormalizedValue();
 }
 
 template <>
-int TypedParameter< int >::get() const
+[[nodiscard]] int TypedParameter< int >::get() const
 {
     return juce::roundToInt (this->getDenormalizedValue());
 }
 
 template <>
-bool TypedParameter< bool >::get() const
+[[nodiscard]] bool TypedParameter< bool >::get() const
 {
     return this->getNormalizedValue() >= 0.5f;
 }
@@ -228,19 +228,19 @@ void TypedParameter< ValueType >::set (ValueType newValue)
 }
 
 template <>
-float TypedParameter< float >::getDefault() const
+[[nodiscard]] float TypedParameter< float >::getDefault() const
 {
     return this->getDenormalizedDefault();
 }
 
 template <>
-int TypedParameter< int >::getDefault() const
+[[nodiscard]] int TypedParameter< int >::getDefault() const
 {
     return juce::roundToInt (this->getDenormalizedDefault());
 }
 
 template <>
-bool TypedParameter< bool >::getDefault() const
+[[nodiscard]] bool TypedParameter< bool >::getDefault() const
 {
     return this->getNormalizedDefault() >= 0.5f;
 }
@@ -252,31 +252,31 @@ void TypedParameter< ValueType >::setDefault (ValueType newDefault)
 }
 
 template < typename ValueType >
-String TypedParameter< ValueType >::getStringForValue (ValueType value, int maxLength) const
+[[nodiscard]] String TypedParameter< ValueType >::getStringForValue (ValueType value, int maxLength) const
 {
     return stringFromValueFunction (value, maxLength);
 }
 
 template < typename ValueType >
-String TypedParameter< ValueType >::getStringForCurrentValue (int maxLength) const
+[[nodiscard]] String TypedParameter< ValueType >::getStringForCurrentValue (int maxLength) const
 {
     return stringFromValueFunction (get(), maxLength);
 }
 
 template < typename ValueType >
-ValueType TypedParameter< ValueType >::getValueForString (const String& string) const
+[[nodiscard]] ValueType TypedParameter< ValueType >::getValueForString (const String& string) const
 {
     return valueFromStringFunction (string);
 }
 
 template < typename ValueType >
-ValueType TypedParameter< ValueType >::getMinimum() const
+[[nodiscard]] ValueType TypedParameter< ValueType >::getMinimum() const
 {
     return static_cast< ValueType > (this->getMin());
 }
 
 template < typename ValueType >
-ValueType TypedParameter< ValueType >::getMaximum() const
+[[nodiscard]] ValueType TypedParameter< ValueType >::getMaximum() const
 {
     return static_cast< ValueType > (this->getMax());
 }

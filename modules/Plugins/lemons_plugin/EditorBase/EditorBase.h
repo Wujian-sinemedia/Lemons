@@ -9,10 +9,9 @@ class EditorBase : public juce::AudioProcessorEditor
 {
 public:
     /** Creates a plugin editor with an initial size. */
-    EditorBase (ProcessorBase& pbToUse, juce::Point< int > initialSize = {450, 300});
+    EditorBase (ProcessorBase& pbToUse, const juce::Point< int >& initialSize = defaultWindowSize());
 
 private:
-    void initializeSize (int width, int height);
     void paint (juce::Graphics& g) final;
 
     void resized() final;

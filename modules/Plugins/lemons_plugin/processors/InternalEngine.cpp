@@ -1,13 +1,15 @@
 namespace lemons::plugin
 {
 template < typename SampleType >
-ProcessorBase::InternalEngine< SampleType >::InternalEngine (juce::AudioProcessor& processorToUse, StateBase& stateToUse, dsp::Engine< SampleType >& engineToUse)
+ProcessorBase::InternalEngine< SampleType >::InternalEngine (juce::AudioProcessor&      processorToUse,
+                                                             StateBase&                 stateToUse,
+                                                             dsp::Engine< SampleType >& engineToUse)
     : ParameterProcessor< SampleType > (stateToUse.getParameters()), processor (processorToUse), state (stateToUse), engine (engineToUse)
 {
 }
 
 template < typename SampleType >
-dsp::Engine< SampleType >* ProcessorBase::InternalEngine< SampleType >::operator->()
+dsp::Engine< SampleType >* ProcessorBase::InternalEngine< SampleType >::operator->() noexcept
 {
     return &engine;
 }

@@ -8,7 +8,7 @@ StateBase::StateBase (const String& pluginName, ParameterList& paramsToUse, Seri
 {
 }
 
-ParameterList& StateBase::getParameters()
+[[nodiscard]] ParameterList& StateBase::getParameters() noexcept
 {
     return params;
 }

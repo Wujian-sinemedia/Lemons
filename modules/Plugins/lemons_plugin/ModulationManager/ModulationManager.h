@@ -35,13 +35,13 @@ public:
         void prepareToPlay (int numSamples, double samplerate);
 
         /** Returns a reference to the LFO's internal ChoosableOscillator object. You can then call methods on the oscillator to, for example, set its frequency, change the type, etc. */
-        Osc& getOscillator();
+        [[nodiscard]] Osc& getOscillator() noexcept;
 
         /** Returns true if any of the LFO's connections are connected to the given Parameter. */
-        bool hasConnection (Parameter& parameter) const;
+        [[nodiscard]] bool hasConnection (Parameter& parameter) const;
 
         /** Returns the "amount" set for the connection to the given parameter. If no connection to the given parameter exists, returns -1. */
-        int getConnectionAmount (Parameter& parameter) const;
+        [[nodiscard]] int getConnectionAmount (Parameter& parameter) const;
 
         /** Creates or edits a parameter connection.
             If a connection to the specified parameter already exists, the connection's amount will be set to the new amount supplied here. Otherwise, a new connection will be added to this parameter.

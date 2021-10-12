@@ -3,38 +3,41 @@
 
 namespace lemons::plugin
 {
-static inline bool isValidSize (const juce::Point< int >& size)
+[[nodiscard]] static inline bool isValidSize (const juce::Point< int >& size) noexcept
 {
     return size.x > 0 && size.y > 0;
 }
 
-EditorBase::EditorBase (ProcessorBase& pbToUse, juce::Point< int > initialSize)
+static inline void initializeSize (juce::AudioProcessorEditor& editor, const juce::Point< int >& size)
+{
+    const auto width  = size.x;
+    const auto height = size.y;
+
+    auto* c = editor.getConstrainer();
+
+    c->setMinimumSize (width / 2, height / 2);
+    c->setMaximumSize (width * 2, height * 2);
+    c->setFixedAspectRatio (static_cast< float > (width) / static_cast< float > (height));
+
+    editor.setSize (width, height);
+}
+
+EditorBase::EditorBase (ProcessorBase& pbToUse, const juce::Point< int >& initialSize)
     : AudioProcessorEditor (pbToUse), pb (pbToUse)
 {
     setResizable (true, true);
 
     if (const auto size = pb.getSavedEditorSize(); isValidSize (size))
     {
-        initializeSize (size.x, size.y);
+        initializeSize (*this, size);
     }
     else
     {
         jassert (isValidSize (initialSize));
-        initializeSize (initialSize.x, initialSize.y);
+        initializeSize (*this, initialSize);
     }
 
     AutoLock::setEnabled (false);
-}
-
-void EditorBase::initializeSize (int width, int height)
-{
-    auto* c = getConstrainer();
-
-    c->setMinimumSize (width / 2, height / 2);
-    c->setMaximumSize (width * 2, height * 2);
-    c->setFixedAspectRatio (static_cast< float > (width) / static_cast< float > (height));
-
-    setSize (width, height);
 }
 
 void EditorBase::paint (juce::Graphics& g)

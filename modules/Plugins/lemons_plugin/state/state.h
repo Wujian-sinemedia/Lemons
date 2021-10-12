@@ -41,7 +41,7 @@ public:
     void addAllAsInternal();
 
     /** Returns a reference to the plugin's ParameterList. */
-    ParameterList& getParameters();
+    [[nodiscard]] ParameterList& getParameters() noexcept;
 
     /** The plugin's main bypass parameter. */
     ToggleParam mainBypass {"Main bypass", false};
@@ -57,7 +57,7 @@ protected:
 
     ParameterList& params;
 
-    SerializableData* customStateData;
+    SerializableData* customStateData {nullptr};
 };
 
 

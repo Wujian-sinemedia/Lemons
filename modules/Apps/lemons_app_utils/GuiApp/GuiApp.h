@@ -15,7 +15,9 @@ public:
     using Size       = juce::Point< int >;
 
     /** Creates a default GuiApp. */
-    GuiApp (const String& appName, const String& appVersion, const Size& initSize)
+    GuiApp (const String& appName    = JUCE_APPLICATION_NAME_STRING,
+            const String& appVersion = JUCE_APPLICATION_VERSION_STRING,
+            const Size&   initSize   = defaultWindowSize())
         : initialSize (initSize), name (appName), version (appVersion)
     {
     }

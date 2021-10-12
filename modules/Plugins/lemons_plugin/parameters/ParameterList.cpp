@@ -129,7 +129,7 @@ void ParameterList::processNewPitchwheelMessage (int pitchwheelValue)
     }
 }
 
-Parameter* ParameterList::getParameterWithName (const String name, bool internationalizeName)
+[[nodiscard]] Parameter* ParameterList::getParameterWithName (const String name, bool internationalizeName)
 {
     const auto test = internationalizeName ? TRANS (name) : name;
 

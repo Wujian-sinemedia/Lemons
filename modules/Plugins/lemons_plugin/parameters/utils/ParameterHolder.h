@@ -11,16 +11,16 @@ struct ParamHolderBase : SerializableData
     /** Constructor.
         @param internal True if this parameter is "internal", IE, not automatable.
      */
-    ParamHolderBase (bool internal = false);
+    ParamHolderBase (bool internal = false) noexcept;
 
     /** Destructor. */
     virtual ~ParamHolderBase() = default;
 
     /** Returns a pointer to the managed parameter object. */
-    Parameter* operator->();
+    Parameter* operator->() const noexcept;
 
     /** The superclass ParameterHolder implements this to return a pointer to the managed parameter object. */
-    virtual Parameter* getParam() const = 0;
+    [[nodiscard]] virtual Parameter* getParam() const noexcept = 0;
 
     /** Adds the managed parameter object to the specified AudioProcessor. */
     void addTo (juce::AudioProcessor& processor);
@@ -86,19 +86,19 @@ public:
     }
 
     /** Returns a pointer to the managed parameter object as a pointer to my Parameter base class. */
-    Parameter* getParam() const final { return param; }
+    [[nodiscard]] Parameter* getParam() const noexcept final { return param; }
 
     /** Returns a pointer to the managed parameter object as its actual type. */
-    ParameterType* get() const { return param; }
+    [[nodiscard]] ParameterType* get() const noexcept { return param; }
 
     /** Returns a reference to the managed parameter object. */
-    operator ParameterType&() { return *param; }
+    operator ParameterType&() noexcept { return *param; }
 
     /** Returns a pointer to the managed parameter obejct. */
-    ParameterType* operator->() { return param; }
+    ParameterType* operator->() noexcept { return param; }
 
     /** Returns a reference to the managed parameter object. */
-    ParameterType& operator*() { return *param; }
+    ParameterType& operator*() noexcept { return *param; }
 
 private:
     ParameterType* param;

@@ -11,8 +11,9 @@ namespace lemons
 struct DefaultWindowBase : public juce::DocumentWindow
 {
 public:
-    /** Constructor. */
-    DefaultWindowBase (const String& appName, const juce::Point< int >& initSize);
+    /** Constructs a window with a specified initial size. */
+    DefaultWindowBase (const String&             appName  = JUCE_APPLICATION_NAME_STRING,
+                       const juce::Point< int >& initSize = defaultWindowSize());
 
 protected:
     /** Initializes the window. */
@@ -31,8 +32,9 @@ private:
 template < typename ComponentType, LEMONS_MUST_INHERIT_FROM (ComponentType, juce::Component) >
 struct DefaultWindow : public DefaultWindowBase
 {
-    /** Constructor. */
-    DefaultWindow (const String& appName, const juce::Point< int >& initSize)
+    /** Constructs a default window. */
+    DefaultWindow (const String&             appName  = JUCE_APPLICATION_NAME_STRING,
+                   const juce::Point< int >& initSize = defaultWindowSize())
         : DefaultWindowBase (appName, initSize)
     {
         setSize (initSize.x, initSize.y);

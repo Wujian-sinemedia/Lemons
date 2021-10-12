@@ -1,6 +1,7 @@
 
 namespace lemons
 {
+
 bool thisIsTheMessageThread() noexcept
 {
     return juce::MessageManager::getInstance()->isThisTheMessageThread();

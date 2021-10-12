@@ -4,17 +4,14 @@
 
 namespace lemons
 {
-bool thisIsTheMessageThread() noexcept;
 
-template < typename T >
-inline void atomic_swap (std::atomic< T >& atomic, const T& newValue)
+/** Returns the default initial size for top-level GUIs, used for both plugins and apps. */
+[[nodiscard]] static inline constexpr juce::Point< int > defaultWindowSize() noexcept
 {
-    const auto before = atomic.load();
-
-    while (! atomic.compare_exchange_weak (before, newValue))
-    {
-    }
+    return {1060, 640};
 }
+
+bool thisIsTheMessageThread() noexcept;
 
 /* Returns a unicode sharp symbol.
  */

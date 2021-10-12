@@ -1,12 +1,12 @@
 
 namespace lemons::plugin
 {
-ParamHolderBase::ParamHolderBase (bool internal)
+ParamHolderBase::ParamHolderBase (bool internal) noexcept
     : isInternal (internal)
 {
 }
 
-Parameter* ParamHolderBase::operator->()
+Parameter* ParamHolderBase::operator->() const noexcept
 {
     return getParam();
 }

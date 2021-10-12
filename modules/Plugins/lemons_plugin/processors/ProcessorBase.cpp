@@ -17,7 +17,7 @@ void ProcessorBase::saveEditorSize (int width, int height)
     state.dimensions = {width, height};
 }
 
-juce::Point< int > ProcessorBase::getSavedEditorSize() const
+[[nodiscard]] juce::Point< int > ProcessorBase::getSavedEditorSize() const noexcept
 {
     return state.dimensions;
 }
@@ -36,7 +36,7 @@ void ProcessorBase::prepareToPlay (double sampleRate, int samplesPerBlock)
 }
 
 template < typename SampleType1, typename SampleType2 >
-void ProcessorBase::prepareToPlayInternal (const double                   sampleRate,
+void ProcessorBase::prepareToPlayInternal (double                         sampleRate,
                                            int                            samplesPerBlock,
                                            InternalEngine< SampleType1 >& activeEngine,
                                            InternalEngine< SampleType2 >& idleEngine)

@@ -177,7 +177,7 @@ public:
     /** Searches for a parameter in the list with a specified name.
         This may return nullptr if a parameter with the specified name can't be found.
      */
-    Parameter* getParameterWithName (const String name, bool internationalizeName = false);
+    [[nodiscard]] Parameter* getParameterWithName (const String name, bool internationalizeName = false);
 
 private:
     void serialize (TreeReflector& ref) final;

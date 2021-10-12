@@ -42,14 +42,16 @@ class Processor : public ProcessorBase
 {
 public:
     /** Creates a processor with the specified bus layout. */
-    Processor (juce::AudioProcessor::BusesProperties busesLayout)
+    Processor (juce::AudioProcessor::BusesProperties busesLayout = BusesProperties()
+                                                                       .withInput (TRANS ("Input"), juce::AudioChannelSet::stereo(), true)
+                                                                       .withOutput (TRANS ("Output"), juce::AudioChannelSet::stereo(), true))
         : ProcessorBase (getState(), floatEngine, doubleEngine, busesLayout)
     {
         getState().addTo (*this);
     }
 
 protected:
-    StateType& getState() { return state.state; }
+    [[nodiscard]] StateType& getState() noexcept { return state.state; }
 
     PluginState< StateType > state;
 
@@ -149,18 +151,20 @@ class GUIBase;
 template < class ProcessorType, class ComponentType, LEMONS_MUST_INHERIT_FROM (ComponentType, GUIBase) >
 struct ProcessorWithEditor : ProcessorType
 {
+    using Size = juce::Point< int >;
+
     /** Creates a processor.
         The arguments are the initial size of the plugin's editor.
      */
-    ProcessorWithEditor (int width = 450, int height = 300)
-        : w (width), h (height)
+    ProcessorWithEditor (const Size& initSize = defaultWindowSize())
+        : size (initSize)
     {
-        jassert (isValidGuiSize (w, h));
+        jassert (isValidGuiSize (size));
 
-        auto& size = this->getState().dimensions;
+        auto& dimensions = this->getState().dimensions;
 
-        if (! isValidGuiSize (size.x, size.y))
-            size = {w, h};
+        if (! isValidGuiSize (dimensions))
+            dimensions = size;
     }
 
     /** Informs the juce::AudioProcessor API that this processor supplies an editor. */
@@ -173,13 +177,12 @@ struct ProcessorWithEditor : ProcessorType
     }
 
 private:
-    constexpr bool isValidGuiSize (int width, int height)
+    [[nodiscard]] constexpr bool isValidGuiSize (const Size& toTest) const noexcept
     {
-        return width > 0 && height > 0;
+        return toTest.x > 0 && toTest.y > 0;
     }
 
-    const int w;
-    const int h;
+    const Size size;
 };
 
 }  // namespace lemons::plugin

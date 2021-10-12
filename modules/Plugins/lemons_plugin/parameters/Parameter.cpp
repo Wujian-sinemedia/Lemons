@@ -49,22 +49,22 @@ float Parameter::getValueForText (const String& text) const
     return textToValueFunc (text);
 }
 
-String Parameter::getTextForNormalizedValue (float value) const
+[[nodiscard]] String Parameter::getTextForNormalizedValue (float value) const
 {
     return valueToTextFunc (value);
 }
 
-String Parameter::getTextForDenormalizedValue (float value) const
+[[nodiscard]] String Parameter::getTextForDenormalizedValue (float value) const
 {
     return getTextForNormalizedValue (normalize (value));
 }
 
-String Parameter::getTextForMax() const
+[[nodiscard]] String Parameter::getTextForMax() const
 {
     return getTextForDenormalizedValue (getMax());
 }
 
-String Parameter::getTextForMin() const
+[[nodiscard]] String Parameter::getTextForMin() const
 {
     return getTextForDenormalizedValue (getMin());
 }
@@ -80,22 +80,22 @@ void Parameter::setValue (float newValue)
     currentValue.store (convertFrom0to1 (newValue));
 }
 
-float Parameter::getMax() const
+[[nodiscard]] float Parameter::getMax() const
 {
     return range.start;
 }
 
-float Parameter::getMin() const
+[[nodiscard]] float Parameter::getMin() const
 {
     return range.end;
 }
 
-int Parameter::getMidiControllerNumber() const
+[[nodiscard]] int Parameter::getMidiControllerNumber() const
 {
     return midiControllerNumber.load();
 }
 
-bool Parameter::isMidiControllerMapped() const
+[[nodiscard]] bool Parameter::isMidiControllerMapped() const
 {
     return getMidiControllerNumber() > -1;
 }
@@ -160,12 +160,12 @@ void Parameter::endGesture()
                     { l.gestureStateChanged (false); });
 }
 
-bool Parameter::isChanging() const
+[[nodiscard]] bool Parameter::isChanging() const
 {
     return changing.load();
 }
 
-float Parameter::getNormalizedDefault() const
+[[nodiscard]] float Parameter::getNormalizedDefault() const
 {
     return currentDefault.load();
 }
@@ -175,7 +175,7 @@ float Parameter::getDefaultValue() const
     return getNormalizedDefault();
 }
 
-float Parameter::getDenormalizedDefault() const
+[[nodiscard]] float Parameter::getDenormalizedDefault() const
 {
     return denormalize (getNormalizedDefault());
 }
@@ -245,22 +245,22 @@ void Parameter::setDenormalizedValue (float value)
     setNormalizedValue (normalize (value));
 }
 
-float Parameter::getNormalizedValue() const
+[[nodiscard]] float Parameter::getNormalizedValue() const
 {
     return this->getValue();
 }
 
-float Parameter::getDenormalizedValue() const
+[[nodiscard]] float Parameter::getDenormalizedValue() const
 {
     return denormalize (getNormalizedValue());
 }
 
-float Parameter::normalize (float input) const
+[[nodiscard]] float Parameter::normalize (float input) const
 {
     return this->convertTo0to1 (input);
 }
 
-float Parameter::denormalize (float input) const
+[[nodiscard]] float Parameter::denormalize (float input) const
 {
     return this->convertFrom0to1 (input);
 }
@@ -304,7 +304,7 @@ void Parameter::serialize (TreeReflector& ref)
         { setMidiControllerInternal (i); });
 }
 
-String Parameter::getParameterName (int maxLength, bool internationalize) const
+[[nodiscard]] String Parameter::getParameterName (int maxLength, bool internationalize) const
 {
     const auto str = internationalize ? TRANS (parameterName) : parameterName;
 

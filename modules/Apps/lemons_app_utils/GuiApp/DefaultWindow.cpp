@@ -1,7 +1,8 @@
 
 namespace lemons
 {
-static inline juce::Colour getDefaultWindowBackgroundColor()
+
+[[nodiscard]] static inline juce::Colour getDefaultWindowBackgroundColor()
 {
     return juce::Desktop::getInstance().getDefaultLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId);
 }
@@ -20,15 +21,12 @@ void DefaultWindowBase::closeButtonPressed()
 
 void DefaultWindowBase::init()
 {
-    if (Platform::isMobile())
-    {
-        setFullScreen (true);
-    }
-    else
-    {
-        setResizable (true, true);
-        centreWithSize (getWidth(), getHeight());
-    }
+#if LEMONS_MOBILE
+    setFullScreen (true);
+#else
+    setResizable (true, true);
+    centreWithSize (getWidth(), getHeight());
+#endif
 
     setVisible (true);
 }

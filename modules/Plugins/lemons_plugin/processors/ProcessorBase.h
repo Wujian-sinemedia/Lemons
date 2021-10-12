@@ -19,13 +19,15 @@ public:
     ProcessorBase (StateBase&                            stateToUse,
                    dsp::Engine< float >&                 floatEngineToUse,
                    dsp::Engine< double >&                doubleEngineToUse,
-                   juce::AudioProcessor::BusesProperties busesLayout);
+                   juce::AudioProcessor::BusesProperties busesLayout = BusesProperties()
+                                                                           .withInput (TRANS ("Input"), juce::AudioChannelSet::stereo(), true)
+                                                                           .withOutput (TRANS ("Output"), juce::AudioChannelSet::stereo(), true));
 
     /** Saves the editor's current dimensions in the plugin state. */
     void saveEditorSize (int width, int height);
 
     /** Returns the state's saved editor dimensions. */
-    juce::Point< int > getSavedEditorSize() const;
+    [[nodiscard]] juce::Point< int > getSavedEditorSize() const noexcept;
 
 private:
     juce::AudioProcessorParameter* getBypassParameter() const final;
@@ -50,11 +52,13 @@ private:
     class InternalEngine : public ParameterProcessor< SampleType >
     {
     public:
-        InternalEngine (juce::AudioProcessor& processorToUse, StateBase& stateToUse, dsp::Engine< SampleType >& engineToUse);
+        InternalEngine (juce::AudioProcessor&      processorToUse,
+                        StateBase&                 stateToUse,
+                        dsp::Engine< SampleType >& engineToUse);
 
         void prepareToPlay (double samplerate, int maxBlocksize);
 
-        dsp::Engine< SampleType >* operator->();
+        dsp::Engine< SampleType >* operator->() noexcept;
 
     private:
         void renderChunk (juce::AudioBuffer< SampleType >& audio, MidiBuffer& midi) final;
@@ -67,7 +71,7 @@ private:
     /*-------------------------------------------------------*/
 
     template < typename SampleType1, typename SampleType2 >
-    void prepareToPlayInternal (const double sampleRate, int samplesPerBlock,
+    void prepareToPlayInternal (double sampleRate, int samplesPerBlock,
                                 InternalEngine< SampleType1 >& activeEngine,
                                 InternalEngine< SampleType2 >& idleEngine);
 

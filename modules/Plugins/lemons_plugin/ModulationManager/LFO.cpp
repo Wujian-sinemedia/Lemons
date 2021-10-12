@@ -42,7 +42,7 @@ void ModulationManager::LFO::processNextSample (bool advance)
         currentTick++;
 }
 
-dsp::osc::ChoosableOscillator< float >& ModulationManager::LFO::getOscillator()
+[[nodiscard]] dsp::osc::ChoosableOscillator< float >& ModulationManager::LFO::getOscillator() noexcept
 {
     return osc;
 }
@@ -56,7 +56,7 @@ void ModulationManager::LFO::serialize (TreeReflector& ref)
     ref.add ("Connections", connections);
 }
 
-bool ModulationManager::LFO::hasConnection (Parameter& parameter) const
+[[nodiscard]] bool ModulationManager::LFO::hasConnection (Parameter& parameter) const
 {
     for (const auto* con : connections)
         if (con->param == &parameter)
@@ -65,7 +65,7 @@ bool ModulationManager::LFO::hasConnection (Parameter& parameter) const
     return false;
 }
 
-int ModulationManager::LFO::getConnectionAmount (Parameter& parameter) const
+[[nodiscard]] int ModulationManager::LFO::getConnectionAmount (Parameter& parameter) const
 {
     for (const auto* con : connections)
         if (con->param == &parameter)
