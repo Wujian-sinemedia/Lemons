@@ -40,7 +40,6 @@ fi
 #
 
 brew update
-brew upgrade
 
 #
 
