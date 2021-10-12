@@ -92,9 +92,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab65fb10342fa691eaf6cac603197c818"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1StateBase.html#ab65fb10342fa691eaf6cac603197c818">StateBase</a> (String pluginName, <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html">ParameterList</a> &amp;paramsToUse, <a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> *customStateDataToUse=nullptr)</td></tr>
-<tr class="memdesc:ab65fb10342fa691eaf6cac603197c818"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new plugin state.  <a href="classlemons_1_1plugin_1_1StateBase.html#ab65fb10342fa691eaf6cac603197c818">More...</a><br /></td></tr>
-<tr class="separator:ab65fb10342fa691eaf6cac603197c818"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6cd871f029477ee818c0b401e2a92de"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1StateBase.html#aa6cd871f029477ee818c0b401e2a92de">StateBase</a> (const String &amp;pluginName, <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html">ParameterList</a> &amp;paramsToUse, <a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> *customStateDataToUse=nullptr)</td></tr>
+<tr class="memdesc:aa6cd871f029477ee818c0b401e2a92de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new plugin state.  <a href="classlemons_1_1plugin_1_1StateBase.html#aa6cd871f029477ee818c0b401e2a92de">More...</a><br /></td></tr>
+<tr class="separator:aa6cd871f029477ee818c0b401e2a92de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7c186d21688b88e9cfe67e97bd60beb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1StateBase.html#af7c186d21688b88e9cfe67e97bd60beb">addAllAsInternal</a> ()</td></tr>
 <tr class="memdesc:af7c186d21688b88e9cfe67e97bd60beb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds all the state's parameters to a dummy internal processor.  <a href="classlemons_1_1plugin_1_1StateBase.html#af7c186d21688b88e9cfe67e97bd60beb">More...</a><br /></td></tr>
 <tr class="separator:af7c186d21688b88e9cfe67e97bd60beb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -143,8 +143,8 @@ Protected Attributes</h2></td></tr>
 This class will automatically add a master bypass ToggleParam to your parameter list. <br  />
 I recommed using the templated <a class="el" href="structlemons_1_1plugin_1_1State.html" title="A plugin state class that instantiates the appropriate ParameterList and passes it to the StateBase c...">State</a> or <a class="el" href="structlemons_1_1plugin_1_1CustomState.html" title="A plugin state class that instantiates the appropriate ParameterList and custom serializable object a...">CustomState</a> classes; they handle creating your parameter list and custom serializable data objects and passing them to the base class. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1plugin_1_1State.html" title="A plugin state class that instantiates the appropriate ParameterList and passes it to the StateBase c...">State</a>, <a class="el" href="structlemons_1_1plugin_1_1CustomState.html" title="A plugin state class that instantiates the appropriate ParameterList and custom serializable object a...">CustomState</a>, <a class="el" href="structlemons_1_1plugin_1_1PluginState.html" title="Represents the top-level state of a plugin as a whole.">PluginState</a>, <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a>, <a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html" title="A modulation manager for a plugin.">ModulationManager</a>, <a class="el" href="namespacelemons_1_1plugin.html#a8fea260dc594cf530c3ffb3bf1f5b1e9" title="Represent the dimensions of a plugin editor using a juce::Point&lt;int&gt;.">Dimensions</a>, StateToggler </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ab65fb10342fa691eaf6cac603197c818"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab65fb10342fa691eaf6cac603197c818">&#9670;&nbsp;</a></span>StateBase()</h2>
+<a id="aa6cd871f029477ee818c0b401e2a92de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6cd871f029477ee818c0b401e2a92de">&#9670;&nbsp;</a></span>StateBase()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -152,7 +152,7 @@ I recommed using the templated <a class="el" href="structlemons_1_1plugin_1_1Sta
         <tr>
           <td class="memname">lemons::plugin::StateBase::StateBase </td>
           <td>(</td>
-          <td class="paramtype">String&#160;</td>
+          <td class="paramtype">const String &amp;&#160;</td>
           <td class="paramname"><em>pluginName</em>, </td>
         </tr>
         <tr>
@@ -478,11 +478,11 @@ If your object requires more low-level control or complex logic, you can also us
 </ul>
 </div><!-- contents -->
 <div class="ttc" id="astructlemons_1_1SerializableData_html_af4e10eefa677226e7927d204b33edbdb"><div class="ttname"><a href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">lemons::SerializableData::serialize</a></div><div class="ttdeci">ValueTree serialize()</div><div class="ttdoc">Serializes the state of this object and returns a ValueTree.</div></div>
-<div class="ttc" id="astructlemons_1_1SerializableData_html_a89ec326c9a71dce7572d8a1b50d827a5"><div class="ttname"><a href="structlemons_1_1SerializableData.html#a89ec326c9a71dce7572d8a1b50d827a5">lemons::SerializableData::TreeReflector</a></div><div class="ttdeci">friend struct TreeReflector</div><div class="ttdef"><b>Definition:</b> SerializableData.h:95</div></div>
+<div class="ttc" id="astructlemons_1_1SerializableData_html_a89ec326c9a71dce7572d8a1b50d827a5"><div class="ttname"><a href="structlemons_1_1SerializableData.html#a89ec326c9a71dce7572d8a1b50d827a5">lemons::SerializableData::TreeReflector</a></div><div class="ttdeci">friend struct TreeReflector</div><div class="ttdef"><b>Definition:</b> SerializableData.h:100</div></div>
 <div class="ttc" id="astructlemons_1_1SerializableData_html"><div class="ttname"><a href="structlemons_1_1SerializableData.html">lemons::SerializableData</a></div><div class="ttdoc">Base class for any C++ object that needs to be serialized to binary and back.</div><div class="ttdef"><b>Definition:</b> SerializableData.h:16</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 12 2021 03:58:09 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 12 2021 04:41:40 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

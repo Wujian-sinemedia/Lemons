@@ -96,9 +96,9 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab5846455fe76367a4adf5d12b9e86e61"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#ab5846455fe76367a4adf5d12b9e86e61">ParameterList</a> (juce::Identifier name=&quot;Parameters&quot;, UndoManager *um=nullptr)</td></tr>
-<tr class="memdesc:ab5846455fe76367a4adf5d12b9e86e61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a parameter list.  <a href="classlemons_1_1plugin_1_1ParameterList.html#ab5846455fe76367a4adf5d12b9e86e61">More...</a><br /></td></tr>
-<tr class="separator:ab5846455fe76367a4adf5d12b9e86e61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62829f49457c31402f04f692b56e1c91"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#a62829f49457c31402f04f692b56e1c91">ParameterList</a> (const String &amp;name=&quot;Parameters&quot;, UndoManager *um=nullptr)</td></tr>
+<tr class="memdesc:a62829f49457c31402f04f692b56e1c91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a parameter list.  <a href="classlemons_1_1plugin_1_1ParameterList.html#a62829f49457c31402f04f692b56e1c91">More...</a><br /></td></tr>
+<tr class="separator:a62829f49457c31402f04f692b56e1c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35182b53a362f3c9dd225a01c45de0e2"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
 <tr class="memitem:a35182b53a362f3c9dd225a01c45de0e2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#a35182b53a362f3c9dd225a01c45de0e2">add</a> (<a class="el" href="structlemons_1_1plugin_1_1ParamHolderBase.html">ParamHolderBase</a> &amp;first, Args &amp;&amp;... rest)</td></tr>
 <tr class="memdesc:a35182b53a362f3c9dd225a01c45de0e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a list of parameters to the list.  <a href="classlemons_1_1plugin_1_1ParameterList.html#a35182b53a362f3c9dd225a01c45de0e2">More...</a><br /></td></tr>
@@ -163,7 +163,7 @@ I usually recommend creating a subclass of <a class="el" href="classlemons_1_1pl
 <div class="line"> </div>
 <div class="line"><span class="keyword">struct </span>MyParameters : <a class="code" href="classlemons_1_1plugin_1_1ParameterList.html">plugin::ParameterList</a></div>
 <div class="line">{</div>
-<div class="line">    MyParameters() : <a class="code" href="classlemons_1_1plugin_1_1ParameterList.html#ab5846455fe76367a4adf5d12b9e86e61">ParameterList</a> (<span class="stringliteral">&quot;MyParameters&quot;</span>)</div>
+<div class="line">    MyParameters() : <a class="code" href="classlemons_1_1plugin_1_1ParameterList.html#a62829f49457c31402f04f692b56e1c91">ParameterList</a> (<span class="stringliteral">&quot;MyParameters&quot;</span>)</div>
 <div class="line">    {</div>
 <div class="line">        <a class="code" href="classlemons_1_1plugin_1_1ParameterList.html#a43bb1c17db49e91c5a77225f690b8102">add</a> (reverbToggle, delayToggle);</div>
 <div class="line"> </div>
@@ -187,8 +187,8 @@ I usually recommend creating a subclass of <a class="el" href="classlemons_1_1pl
 <div class="line">};</div>
 </div><!-- fragment --><p> You should usually only need one <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a> for your plugin. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1plugin_1_1Parameter.html" title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an...">Parameter</a>, <a class="el" href="classlemons_1_1plugin_1_1ParameterHolder.html" title="Class that holds a parameter object, and can retain a reference to it after it has been added to an A...">ParameterHolder</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ab5846455fe76367a4adf5d12b9e86e61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5846455fe76367a4adf5d12b9e86e61">&#9670;&nbsp;</a></span>ParameterList()</h2>
+<a id="a62829f49457c31402f04f692b56e1c91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62829f49457c31402f04f692b56e1c91">&#9670;&nbsp;</a></span>ParameterList()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -196,7 +196,7 @@ I usually recommend creating a subclass of <a class="el" href="classlemons_1_1pl
         <tr>
           <td class="memname">lemons::plugin::ParameterList::ParameterList </td>
           <td>(</td>
-          <td class="paramtype">juce::Identifier&#160;</td>
+          <td class="paramtype">const String &amp;&#160;</td>
           <td class="paramname"><em>name</em> = <code>&quot;Parameters&quot;</code>, </td>
         </tr>
         <tr>
@@ -660,13 +660,13 @@ After calling this, the IntParameter specified will always have the same value a
 </div><!-- contents -->
 <div class="ttc" id="aclasslemons_1_1plugin_1_1ParameterList_html"><div class="ttname"><a href="classlemons_1_1plugin_1_1ParameterList.html">lemons::plugin::ParameterList</a></div><div class="ttdoc">This class manages a list of a plugin's parameters.</div><div class="ttdef"><b>Definition:</b> ParameterList.h:52</div></div>
 <div class="ttc" id="aclasslemons_1_1plugin_1_1ParameterHolder_html"><div class="ttname"><a href="classlemons_1_1plugin_1_1ParameterHolder.html">lemons::plugin::ParameterHolder&lt; plugin::ToggleParameter &gt;</a></div></div>
-<div class="ttc" id="aclasslemons_1_1plugin_1_1ParameterList_html_ab5846455fe76367a4adf5d12b9e86e61"><div class="ttname"><a href="classlemons_1_1plugin_1_1ParameterList.html#ab5846455fe76367a4adf5d12b9e86e61">lemons::plugin::ParameterList::ParameterList</a></div><div class="ttdeci">ParameterList(juce::Identifier name=&quot;Parameters&quot;, UndoManager *um=nullptr)</div><div class="ttdoc">Creates a parameter list.</div></div>
 <div class="ttc" id="aclasslemons_1_1plugin_1_1ParameterList_html_aab1387ff02ed050351c80b368a832db4"><div class="ttname"><a href="classlemons_1_1plugin_1_1ParameterList.html#aab1387ff02ed050351c80b368a832db4">lemons::plugin::ParameterList::addInternal</a></div><div class="ttdeci">void addInternal(ParamHolderBase &amp;param)</div><div class="ttdoc">Adds a single parameter to the list as an &quot;internal&quot; parameter.</div></div>
 <div class="ttc" id="anamespacelemons_html"><div class="ttname"><a href="namespacelemons.html">lemons</a></div><div class="ttdef"><b>Definition:</b> DefaultWindow.h:10</div></div>
+<div class="ttc" id="aclasslemons_1_1plugin_1_1ParameterList_html_a62829f49457c31402f04f692b56e1c91"><div class="ttname"><a href="classlemons_1_1plugin_1_1ParameterList.html#a62829f49457c31402f04f692b56e1c91">lemons::plugin::ParameterList::ParameterList</a></div><div class="ttdeci">ParameterList(const String &amp;name=&quot;Parameters&quot;, UndoManager *um=nullptr)</div><div class="ttdoc">Creates a parameter list.</div></div>
 <div class="ttc" id="aclasslemons_1_1plugin_1_1ParameterList_html_a43bb1c17db49e91c5a77225f690b8102"><div class="ttname"><a href="classlemons_1_1plugin_1_1ParameterList.html#a43bb1c17db49e91c5a77225f690b8102">lemons::plugin::ParameterList::add</a></div><div class="ttdeci">void add(ParamHolderBase &amp;param)</div><div class="ttdoc">Adds a single parameter to the list.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 12 2021 03:58:09 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 12 2021 04:41:40 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

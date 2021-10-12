@@ -13482,8 +13482,8 @@
       <type></type>
       <name>ParameterList</name>
       <anchorfile>classlemons_1_1plugin_1_1ParameterList.html</anchorfile>
-      <anchor>ab5846455fe76367a4adf5d12b9e86e61</anchor>
-      <arglist>(juce::Identifier name=&quot;Parameters&quot;, UndoManager *um=nullptr)</arglist>
+      <anchor>a62829f49457c31402f04f692b56e1c91</anchor>
+      <arglist>(const String &amp;name=&quot;Parameters&quot;, UndoManager *um=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -16068,8 +16068,22 @@
       <type></type>
       <name>SerializableData</name>
       <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>a2b74e9a988991a16cc08f3eee24f1748</anchor>
-      <arglist>(juce::Identifier identifier=&quot;Data&quot;)</arglist>
+      <anchor>aa944e857b98b6225735a600086f7173d</anchor>
+      <arglist>(const juce::String &amp;identifier=&quot;Data&quot;)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>SerializableData</name>
+      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
+      <anchor>a0316ef3329c9f9668499cf0709dabda8</anchor>
+      <arglist>(const SerializableData &amp;)=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>SerializableData</name>
+      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
+      <anchor>a15e4ed37f5d846f421948b551446d2c9</anchor>
+      <arglist>(SerializableData &amp;&amp;)=default</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
@@ -16084,6 +16098,20 @@
       <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
       <anchor>ace1758cc9344ae03a6d01c3c218226de</anchor>
       <arglist>(const ValueTree &amp;tree)</arglist>
+    </member>
+    <member kind="function">
+      <type>SerializableData &amp;</type>
+      <name>operator=</name>
+      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
+      <anchor>ab512a229a6bb11269ab286e3a50ae6da</anchor>
+      <arglist>(const SerializableData &amp;)=default</arglist>
+    </member>
+    <member kind="function">
+      <type>SerializableData &amp;</type>
+      <name>operator=</name>
+      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
+      <anchor>a2e1c9546a02fdaefdc291314c5df5813</anchor>
+      <arglist>(SerializableData &amp;&amp;)=default</arglist>
     </member>
     <member kind="function">
       <type>ValueTree</type>
@@ -16837,8 +16865,8 @@
       <type></type>
       <name>StateBase</name>
       <anchorfile>classlemons_1_1plugin_1_1StateBase.html</anchorfile>
-      <anchor>ab65fb10342fa691eaf6cac603197c818</anchor>
-      <arglist>(String pluginName, ParameterList &amp;paramsToUse, SerializableData *customStateDataToUse=nullptr)</arglist>
+      <anchor>aa6cd871f029477ee818c0b401e2a92de</anchor>
+      <arglist>(const String &amp;pluginName, ParameterList &amp;paramsToUse, SerializableData *customStateDataToUse=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
