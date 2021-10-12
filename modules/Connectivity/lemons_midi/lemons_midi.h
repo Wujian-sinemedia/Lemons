@@ -9,7 +9,7 @@
  version:            0.0.1
  name:               lemons_midi
  description:        Midi utilities
- dependencies:       lemons_core
+ dependencies:       lemons_core mts_esp_cpp
 
  END_JUCE_MODULE_DECLARATION
 

@@ -66,7 +66,7 @@ public:
     bool isSoftPedalDown() const noexcept { return midi.router.isSoftPedalDown(); }
     bool isAftertouchGainOn() const noexcept { return aftertouchGainIsOn; }
 
-    bool   isConnectedToMtsEsp() const { return pitch.tuning.isConnectedToMtsEsp(); }
+    bool   isConnectedToMtsEsp() const { return pitch.tuning.isConnected(); }
     String getScaleName() const { return pitch.tuning.getScaleName(); }
 
     auto getLastMovedControllerInfo() const { return midi.router.getLastMovedCCinfo(); }
