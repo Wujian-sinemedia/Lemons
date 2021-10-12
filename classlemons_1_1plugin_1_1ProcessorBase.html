@@ -89,12 +89,12 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afb127186ae31896b282237a47682e5f5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ProcessorBase.html#afb127186ae31896b282237a47682e5f5">ProcessorBase</a> (<a class="el" href="classlemons_1_1plugin_1_1StateBase.html">StateBase</a> &amp;stateToUse, <a class="el" href="classlemons_1_1dsp_1_1Engine.html">dsp::Engine</a>&lt; float &gt; &amp;floatEngineToUse, <a class="el" href="classlemons_1_1dsp_1_1Engine.html">dsp::Engine</a>&lt; double &gt; &amp;doubleEngineToUse, juce::AudioProcessor::BusesProperties busesLayout)</td></tr>
-<tr class="memdesc:afb127186ae31896b282237a47682e5f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a processor.  <a href="classlemons_1_1plugin_1_1ProcessorBase.html#afb127186ae31896b282237a47682e5f5">More...</a><br /></td></tr>
-<tr class="separator:afb127186ae31896b282237a47682e5f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa31fab30093c40c1d0a8bc931a944a18"><td class="memItemLeft" align="right" valign="top">juce::Point&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ProcessorBase.html#aa31fab30093c40c1d0a8bc931a944a18">getSavedEditorSize</a> () const</td></tr>
-<tr class="memdesc:aa31fab30093c40c1d0a8bc931a944a18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the state's saved editor dimensions.  <a href="classlemons_1_1plugin_1_1ProcessorBase.html#aa31fab30093c40c1d0a8bc931a944a18">More...</a><br /></td></tr>
-<tr class="separator:aa31fab30093c40c1d0a8bc931a944a18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a594b9c70fa57b4a8021d32b364e20dbc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ProcessorBase.html#a594b9c70fa57b4a8021d32b364e20dbc">ProcessorBase</a> (<a class="el" href="classlemons_1_1plugin_1_1StateBase.html">StateBase</a> &amp;stateToUse, <a class="el" href="classlemons_1_1dsp_1_1Engine.html">dsp::Engine</a>&lt; float &gt; &amp;floatEngineToUse, <a class="el" href="classlemons_1_1dsp_1_1Engine.html">dsp::Engine</a>&lt; double &gt; &amp;doubleEngineToUse, juce::AudioProcessor::BusesProperties busesLayout=BusesProperties() .withInput(TRANS(&quot;Input&quot;), juce::AudioChannelSet::stereo(), true) .withOutput(TRANS(&quot;Output&quot;), juce::AudioChannelSet::stereo(), true))</td></tr>
+<tr class="memdesc:a594b9c70fa57b4a8021d32b364e20dbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a processor.  <a href="classlemons_1_1plugin_1_1ProcessorBase.html#a594b9c70fa57b4a8021d32b364e20dbc">More...</a><br /></td></tr>
+<tr class="separator:a594b9c70fa57b4a8021d32b364e20dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43679d5fea72916860f7cf292a3a6602"><td class="memItemLeft" align="right" valign="top">juce::Point&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ProcessorBase.html#a43679d5fea72916860f7cf292a3a6602">getSavedEditorSize</a> () const noexcept</td></tr>
+<tr class="memdesc:a43679d5fea72916860f7cf292a3a6602"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the state's saved editor dimensions.  <a href="classlemons_1_1plugin_1_1ProcessorBase.html#a43679d5fea72916860f7cf292a3a6602">More...</a><br /></td></tr>
+<tr class="separator:a43679d5fea72916860f7cf292a3a6602"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57640651bbac3970c117f2a7f03890f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1BasicProcessorBase.html#a57640651bbac3970c117f2a7f03890f4">repaintEditor</a> ()</td></tr>
 <tr class="memdesc:a57640651bbac3970c117f2a7f03890f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Repaints the editor, if one exists.  <a href="classlemons_1_1dsp_1_1BasicProcessorBase.html#a57640651bbac3970c117f2a7f03890f4">More...</a><br /></td></tr>
 <tr class="separator:a57640651bbac3970c117f2a7f03890f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -108,8 +108,8 @@ Public Member Functions</h2></td></tr>
  <br  />
 This class is a <a class="el" href="structlemons_1_1SystemInitializer.html">SystemInitializer</a>, meaning it sets up translations for you. This class also holds a <a class="el" href="classlemons_1_1plugin_1_1ParameterProcessor.html" title="This class processes incoming MIDI messages and quantizes the audio output with any MIDI CC messages ...">ParameterProcessor</a> internally. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1SystemInitializer.html">SystemInitializer</a>, <a class="el" href="classlemons_1_1dsp_1_1Engine.html" title="Base class for an audio engine.">dsp::Engine</a>, <a class="el" href="classlemons_1_1dsp_1_1BasicProcessorBase.html" title="A default implementation of a basic, generic juce AudioProcessor.">dsp::BasicProcessorBase</a>, <a class="el" href="classlemons_1_1plugin_1_1StateBase.html" title="Base class for a plugin&#39;s state.">StateBase</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="afb127186ae31896b282237a47682e5f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb127186ae31896b282237a47682e5f5">&#9670;&nbsp;</a></span>ProcessorBase()</h2>
+<a id="a594b9c70fa57b4a8021d32b364e20dbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a594b9c70fa57b4a8021d32b364e20dbc">&#9670;&nbsp;</a></span>ProcessorBase()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -136,7 +136,7 @@ This class is a <a class="el" href="structlemons_1_1SystemInitializer.html">Syst
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">juce::AudioProcessor::BusesProperties&#160;</td>
-          <td class="paramname"><em>busesLayout</em>&#160;</td>
+          <td class="paramname"><em>busesLayout</em> = <code>BusesProperties()&#160;.withInput(TRANS(&quot;Input&quot;),&#160;juce::AudioChannelSet::stereo(),&#160;true)&#160;.withOutput(TRANS(&quot;Output&quot;),&#160;juce::AudioChannelSet::stereo(),&#160;true)</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -160,11 +160,14 @@ This class is a <a class="el" href="structlemons_1_1SystemInitializer.html">Syst
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aa31fab30093c40c1d0a8bc931a944a18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa31fab30093c40c1d0a8bc931a944a18">&#9670;&nbsp;</a></span>getSavedEditorSize()</h2>
+<a id="a43679d5fea72916860f7cf292a3a6602"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43679d5fea72916860f7cf292a3a6602">&#9670;&nbsp;</a></span>getSavedEditorSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">juce::Point&lt; int &gt; lemons::plugin::ProcessorBase::getSavedEditorSize </td>
@@ -173,6 +176,11 @@ This class is a <a class="el" href="structlemons_1_1SystemInitializer.html">Syst
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Returns the state's saved editor dimensions. </p>
@@ -242,7 +250,7 @@ This class is a <a class="el" href="structlemons_1_1SystemInitializer.html">Syst
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 12 2021 10:09:23 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 12 2021 11:25:36 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

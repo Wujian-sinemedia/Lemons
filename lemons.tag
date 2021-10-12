@@ -986,13 +986,6 @@
     <class kind="struct">lemons::SystemInitializer</class>
     <namespace>lemons</namespace>
     <member kind="function">
-      <type>void</type>
-      <name>atomic_swap</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a481e40a750af3498832af2d58115d1aa</anchor>
-      <arglist>(std::atomic&lt; T &gt; &amp;atomic, const T &amp;newValue)</arglist>
-    </member>
-    <member kind="function">
       <type>const juce::juce_wchar</type>
       <name>getFlatSymbol</name>
       <anchorfile>namespacelemons.html</anchorfile>
@@ -4111,8 +4104,8 @@
       <type>ParameterList &amp;</type>
       <name>getParameters</name>
       <anchorfile>classlemons_1_1plugin_1_1StateBase.html</anchorfile>
-      <anchor>ac6509bdb427c634a0e09fe50c6752e52</anchor>
-      <arglist>()</arglist>
+      <anchor>acebd59199f161b6348cd5acf105d9c06</anchor>
+      <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
       <type>ValueTree</type>
@@ -4392,8 +4385,8 @@
       <type></type>
       <name>DefaultWindow</name>
       <anchorfile>structlemons_1_1DefaultWindow.html</anchorfile>
-      <anchor>aae0d2b3936576277bbea4d4f3525debf</anchor>
-      <arglist>(const String &amp;appName, const juce::Point&lt; int &gt; &amp;initSize)</arglist>
+      <anchor>ae6730a7533986d996878550001961e60</anchor>
+      <arglist>(const String &amp;appName=JUCE_APPLICATION_NAME_STRING, const juce::Point&lt; int &gt; &amp;initSize=defaultWindowSize())</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -4410,8 +4403,8 @@
       <type></type>
       <name>DefaultWindowBase</name>
       <anchorfile>structlemons_1_1DefaultWindowBase.html</anchorfile>
-      <anchor>a794f74fefde853606b5ce448c4358a5c</anchor>
-      <arglist>(const String &amp;appName, const juce::Point&lt; int &gt; &amp;initSize)</arglist>
+      <anchor>a5eb1e0ce1c5adfc43ad7e3005b19f1bb</anchor>
+      <arglist>(const String &amp;appName=JUCE_APPLICATION_NAME_STRING, const juce::Point&lt; int &gt; &amp;initSize=defaultWindowSize())</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -4738,8 +4731,8 @@
       <type></type>
       <name>EditorBase</name>
       <anchorfile>classlemons_1_1plugin_1_1EditorBase.html</anchorfile>
-      <anchor>a375ce11d98797d2174d75d7a61a7659a</anchor>
-      <arglist>(ProcessorBase &amp;pbToUse, juce::Point&lt; int &gt; initialSize={450, 300})</arglist>
+      <anchor>a5894cfd112c511465181427b83937384</anchor>
+      <arglist>(ProcessorBase &amp;pbToUse, const juce::Point&lt; int &gt; &amp;initialSize=defaultWindowSize())</arglist>
     </member>
     <member kind="function" protection="private" virtualness="virtual">
       <type>virtual void</type>
@@ -7162,8 +7155,8 @@
       <type></type>
       <name>GuiApp</name>
       <anchorfile>classlemons_1_1GuiApp.html</anchorfile>
-      <anchor>a0e423fe991e7c2f7caadc39d4000f8d7</anchor>
-      <arglist>(const String &amp;appName, const String &amp;appVersion, const Size &amp;initSize)</arglist>
+      <anchor>a15280c485bb0cd3edaf9422aa1a9a635</anchor>
+      <arglist>(const String &amp;appName=JUCE_APPLICATION_NAME_STRING, const String &amp;appVersion=JUCE_APPLICATION_VERSION_STRING, const Size &amp;initSize=defaultWindowSize())</arglist>
     </member>
     <member kind="function">
       <type>const String</type>
@@ -8354,8 +8347,8 @@
       <type>Osc &amp;</type>
       <name>getOscillator</name>
       <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
-      <anchor>a205b8664820cf7b2257c8d71c5bea710</anchor>
-      <arglist>()</arglist>
+      <anchor>a6cd50b326a427bc156f279eae32e5284</anchor>
+      <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -13411,36 +13404,43 @@
       <type>ParameterType *</type>
       <name>get</name>
       <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
-      <anchor>a979086ee20104d907c09072f5523608b</anchor>
-      <arglist>() const</arglist>
+      <anchor>ae04296b7f4ca2aeffb2af85292f22feb</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>Parameter *</type>
       <name>getParam</name>
       <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
-      <anchor>a257ffd5598fdc91b616250372dfb0728</anchor>
-      <arglist>() const final</arglist>
+      <anchor>a91d8017c2f09703205213984335fd5be</anchor>
+      <arglist>() const noexcept final</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>operator ParameterType &amp;</name>
       <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
-      <anchor>accfa3452f548cfd4a2bd985fef88b14d</anchor>
-      <arglist>()</arglist>
+      <anchor>a3f10fac9b90052c0dda28f9b98763ea3</anchor>
+      <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
       <type>ParameterType &amp;</type>
       <name>operator*</name>
       <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
-      <anchor>ae105850fab84683a482c21345421caae</anchor>
-      <arglist>()</arglist>
+      <anchor>a9243bbaef87a179742d3300d5657caf9</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>Parameter *</type>
+      <name>operator-&gt;</name>
+      <anchorfile>structlemons_1_1plugin_1_1ParamHolderBase.html</anchorfile>
+      <anchor>aa3dd2770b6e24fffb849628a947f1de0</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>ParameterType *</type>
       <name>operator-&gt;</name>
       <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
-      <anchor>a4231d6afa194d41696b93f04dd5a120c</anchor>
-      <arglist>()</arglist>
+      <anchor>af8be24e22449c0d7e778e689ce3202a3</anchor>
+      <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
       <type>ValueTree</type>
@@ -13507,43 +13507,50 @@
       <type>plugin::ToggleParameter *</type>
       <name>get</name>
       <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
-      <anchor>a979086ee20104d907c09072f5523608b</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual Parameter *</type>
-      <name>getParam</name>
-      <anchorfile>structlemons_1_1plugin_1_1ParamHolderBase.html</anchorfile>
-      <anchor>a2faabbcdd9698d7f72fb24d643107d6d</anchor>
-      <arglist>() const =0</arglist>
+      <anchor>ae04296b7f4ca2aeffb2af85292f22feb</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>Parameter *</type>
       <name>getParam</name>
       <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
-      <anchor>a257ffd5598fdc91b616250372dfb0728</anchor>
-      <arglist>() const final</arglist>
+      <anchor>a91d8017c2f09703205213984335fd5be</anchor>
+      <arglist>() const noexcept final</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual Parameter *</type>
+      <name>getParam</name>
+      <anchorfile>structlemons_1_1plugin_1_1ParamHolderBase.html</anchorfile>
+      <anchor>a05fdbbc40c5ff449c4a7731d2f53bb3e</anchor>
+      <arglist>() const noexcept=0</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>operator plugin::ToggleParameter &amp;</name>
       <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
-      <anchor>accfa3452f548cfd4a2bd985fef88b14d</anchor>
-      <arglist>()</arglist>
+      <anchor>a3f10fac9b90052c0dda28f9b98763ea3</anchor>
+      <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
       <type>plugin::ToggleParameter &amp;</type>
       <name>operator*</name>
       <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
-      <anchor>ae105850fab84683a482c21345421caae</anchor>
-      <arglist>()</arglist>
+      <anchor>a9243bbaef87a179742d3300d5657caf9</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>Parameter *</type>
+      <name>operator-&gt;</name>
+      <anchorfile>structlemons_1_1plugin_1_1ParamHolderBase.html</anchorfile>
+      <anchor>aa3dd2770b6e24fffb849628a947f1de0</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>plugin::ToggleParameter *</type>
       <name>operator-&gt;</name>
       <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
-      <anchor>a4231d6afa194d41696b93f04dd5a120c</anchor>
-      <arglist>()</arglist>
+      <anchor>af8be24e22449c0d7e778e689ce3202a3</anchor>
+      <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
       <type>ValueTree</type>
@@ -13814,8 +13821,8 @@
       <type></type>
       <name>ParamHolderBase</name>
       <anchorfile>structlemons_1_1plugin_1_1ParamHolderBase.html</anchorfile>
-      <anchor>a0ac01ab68114e96f02f2635591f432c4</anchor>
-      <arglist>(bool internal=false)</arglist>
+      <anchor>ac218de9c384eea497eb9bc252b1578b4</anchor>
+      <arglist>(bool internal=false) noexcept</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
@@ -13842,15 +13849,15 @@
       <type>virtual Parameter *</type>
       <name>getParam</name>
       <anchorfile>structlemons_1_1plugin_1_1ParamHolderBase.html</anchorfile>
-      <anchor>a2faabbcdd9698d7f72fb24d643107d6d</anchor>
-      <arglist>() const =0</arglist>
+      <anchor>a05fdbbc40c5ff449c4a7731d2f53bb3e</anchor>
+      <arglist>() const noexcept=0</arglist>
     </member>
     <member kind="function">
       <type>Parameter *</type>
       <name>operator-&gt;</name>
       <anchorfile>structlemons_1_1plugin_1_1ParamHolderBase.html</anchorfile>
-      <anchor>a979e35738448d8f15702584dbafc736f</anchor>
-      <arglist>()</arglist>
+      <anchor>aa3dd2770b6e24fffb849628a947f1de0</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>ValueTree</type>
@@ -14876,15 +14883,15 @@
       <type></type>
       <name>Processor</name>
       <anchorfile>classlemons_1_1plugin_1_1Processor.html</anchorfile>
-      <anchor>a5021ae97187079f08e4954ac83f7a75c</anchor>
-      <arglist>(juce::AudioProcessor::BusesProperties busesLayout)</arglist>
+      <anchor>a4ec6d4e2f0bff756a1963f7170fc3cda</anchor>
+      <arglist>(juce::AudioProcessor::BusesProperties busesLayout=BusesProperties() .withInput(TRANS(&quot;Input&quot;), juce::AudioChannelSet::stereo(), true) .withOutput(TRANS(&quot;Output&quot;), juce::AudioChannelSet::stereo(), true))</arglist>
     </member>
     <member kind="function">
       <type>juce::Point&lt; int &gt;</type>
       <name>getSavedEditorSize</name>
       <anchorfile>classlemons_1_1plugin_1_1ProcessorBase.html</anchorfile>
-      <anchor>aa31fab30093c40c1d0a8bc931a944a18</anchor>
-      <arglist>() const</arglist>
+      <anchor>a43679d5fea72916860f7cf292a3a6602</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -14911,8 +14918,8 @@
       <type>StateType &amp;</type>
       <name>getState</name>
       <anchorfile>classlemons_1_1plugin_1_1Processor.html</anchorfile>
-      <anchor>af9126dcd369dba88d15b6f59f1206210</anchor>
-      <arglist>()</arglist>
+      <anchor>a2acf59f798cea2401c7cad31d4ab190a</anchor>
+      <arglist>() noexcept</arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>PluginState&lt; StateType &gt;</type>
@@ -14931,15 +14938,15 @@
       <type></type>
       <name>ProcessorBase</name>
       <anchorfile>classlemons_1_1plugin_1_1ProcessorBase.html</anchorfile>
-      <anchor>afb127186ae31896b282237a47682e5f5</anchor>
-      <arglist>(StateBase &amp;stateToUse, dsp::Engine&lt; float &gt; &amp;floatEngineToUse, dsp::Engine&lt; double &gt; &amp;doubleEngineToUse, juce::AudioProcessor::BusesProperties busesLayout)</arglist>
+      <anchor>a594b9c70fa57b4a8021d32b364e20dbc</anchor>
+      <arglist>(StateBase &amp;stateToUse, dsp::Engine&lt; float &gt; &amp;floatEngineToUse, dsp::Engine&lt; double &gt; &amp;doubleEngineToUse, juce::AudioProcessor::BusesProperties busesLayout=BusesProperties() .withInput(TRANS(&quot;Input&quot;), juce::AudioChannelSet::stereo(), true) .withOutput(TRANS(&quot;Output&quot;), juce::AudioChannelSet::stereo(), true))</arglist>
     </member>
     <member kind="function">
       <type>juce::Point&lt; int &gt;</type>
       <name>getSavedEditorSize</name>
       <anchorfile>classlemons_1_1plugin_1_1ProcessorBase.html</anchorfile>
-      <anchor>aa31fab30093c40c1d0a8bc931a944a18</anchor>
-      <arglist>() const</arglist>
+      <anchor>a43679d5fea72916860f7cf292a3a6602</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -14962,12 +14969,19 @@
     <templarg></templarg>
     <templarg></templarg>
     <templarg></templarg>
+    <member kind="typedef">
+      <type>juce::Point&lt; int &gt;</type>
+      <name>Size</name>
+      <anchorfile>structlemons_1_1plugin_1_1ProcessorWithEditor.html</anchorfile>
+      <anchor>a60cce1a2c8744c4dfcf3678984d8e3fc</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>ProcessorWithEditor</name>
       <anchorfile>structlemons_1_1plugin_1_1ProcessorWithEditor.html</anchorfile>
-      <anchor>a6d884ac227e2d0786dab064a84995c08</anchor>
-      <arglist>(int width=450, int height=300)</arglist>
+      <anchor>a11efe61dd3a595018e8845f0326d9a34</anchor>
+      <arglist>(const Size &amp;initSize=defaultWindowSize())</arglist>
     </member>
     <member kind="function">
       <type>juce::AudioProcessorEditor *</type>
@@ -16831,8 +16845,8 @@
       <type>ParameterList &amp;</type>
       <name>getParameters</name>
       <anchorfile>classlemons_1_1plugin_1_1StateBase.html</anchorfile>
-      <anchor>ac6509bdb427c634a0e09fe50c6752e52</anchor>
-      <arglist>()</arglist>
+      <anchor>acebd59199f161b6348cd5acf105d9c06</anchor>
+      <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
       <type>ValueTree</type>
@@ -16927,8 +16941,8 @@
       <type>ParameterList &amp;</type>
       <name>getParameters</name>
       <anchorfile>classlemons_1_1plugin_1_1StateBase.html</anchorfile>
-      <anchor>ac6509bdb427c634a0e09fe50c6752e52</anchor>
-      <arglist>()</arglist>
+      <anchor>acebd59199f161b6348cd5acf105d9c06</anchor>
+      <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
       <type>ValueTree</type>
@@ -20618,13 +20632,6 @@
       <anchorfile>namespacelemons.html</anchorfile>
       <anchor>a9858c6c582b810d207fd3a969b15d29c</anchor>
       <arglist>(const String &amp;string, const String &amp;extension)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>atomic_swap</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a481e40a750af3498832af2d58115d1aa</anchor>
-      <arglist>(std::atomic&lt; T &gt; &amp;atomic, const T &amp;newValue)</arglist>
     </member>
     <member kind="function">
       <type>void</type>

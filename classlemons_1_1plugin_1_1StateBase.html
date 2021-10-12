@@ -104,9 +104,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ace1758cc9344ae03a6d01c3c218226de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1SerializableData.html#ace1758cc9344ae03a6d01c3c218226de">deserialize</a> (const ValueTree &amp;tree)</td></tr>
 <tr class="memdesc:ace1758cc9344ae03a6d01c3c218226de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores a previously saved state.  <a href="structlemons_1_1SerializableData.html#ace1758cc9344ae03a6d01c3c218226de">More...</a><br /></td></tr>
 <tr class="separator:ace1758cc9344ae03a6d01c3c218226de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6509bdb427c634a0e09fe50c6752e52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html">ParameterList</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1StateBase.html#ac6509bdb427c634a0e09fe50c6752e52">getParameters</a> ()</td></tr>
-<tr class="memdesc:ac6509bdb427c634a0e09fe50c6752e52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the plugin's <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a>.  <a href="classlemons_1_1plugin_1_1StateBase.html#ac6509bdb427c634a0e09fe50c6752e52">More...</a><br /></td></tr>
-<tr class="separator:ac6509bdb427c634a0e09fe50c6752e52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acebd59199f161b6348cd5acf105d9c06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html">ParameterList</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1StateBase.html#acebd59199f161b6348cd5acf105d9c06">getParameters</a> () noexcept</td></tr>
+<tr class="memdesc:acebd59199f161b6348cd5acf105d9c06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the plugin's <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a>.  <a href="classlemons_1_1plugin_1_1StateBase.html#acebd59199f161b6348cd5acf105d9c06">More...</a><br /></td></tr>
+<tr class="separator:acebd59199f161b6348cd5acf105d9c06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4e10eefa677226e7927d204b33edbdb"><td class="memItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">serialize</a> ()</td></tr>
 <tr class="memdesc:af4e10eefa677226e7927d204b33edbdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the state of this object and returns a ValueTree.  <a href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">More...</a><br /></td></tr>
 <tr class="separator:af4e10eefa677226e7927d204b33edbdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -131,7 +131,7 @@ Protected Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a4474e8d9a0164146f7f746eb60156e84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1StateBase.html#a4474e8d9a0164146f7f746eb60156e84">customStateData</a></td></tr>
+<tr class="memitem:a4474e8d9a0164146f7f746eb60156e84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1StateBase.html#a4474e8d9a0164146f7f746eb60156e84">customStateData</a> {nullptr}</td></tr>
 <tr class="separator:a4474e8d9a0164146f7f746eb60156e84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a7f0d732e9783ddb91bb35296a2d00f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html">ParameterList</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1StateBase.html#a8a7f0d732e9783ddb91bb35296a2d00f">params</a></td></tr>
 <tr class="separator:a8a7f0d732e9783ddb91bb35296a2d00f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -265,11 +265,14 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
 
 </div>
 </div>
-<a id="ac6509bdb427c634a0e09fe50c6752e52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6509bdb427c634a0e09fe50c6752e52">&#9670;&nbsp;</a></span>getParameters()</h2>
+<a id="acebd59199f161b6348cd5acf105d9c06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acebd59199f161b6348cd5acf105d9c06">&#9670;&nbsp;</a></span>getParameters()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html">ParameterList</a>&amp; lemons::plugin::StateBase::getParameters </td>
@@ -278,6 +281,11 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Returns a reference to the plugin's <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a>. </p>
@@ -391,7 +399,7 @@ If your object requires more low-level control or complex logic, you can also us
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a>* lemons::plugin::StateBase::customStateData</td>
+          <td class="memname"><a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a>* lemons::plugin::StateBase::customStateData {nullptr}</td>
         </tr>
       </table>
   </td>
@@ -482,7 +490,7 @@ If your object requires more low-level control or complex logic, you can also us
 <div class="ttc" id="astructlemons_1_1SerializableData_html"><div class="ttname"><a href="structlemons_1_1SerializableData.html">lemons::SerializableData</a></div><div class="ttdoc">Base class for any C++ object that needs to be serialized to binary and back.</div><div class="ttdef"><b>Definition:</b> SerializableData.h:16</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 12 2021 10:09:23 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 12 2021 11:25:36 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
