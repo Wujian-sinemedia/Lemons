@@ -1,6 +1,6 @@
 <map id="lemons::serializing::TogglerInterface" name="lemons::serializing::TogglerInterface">
-<area shape="rect" id="node1" title="Interface that all Togglers implement to be able to access one without knowing its template arguments..." alt="" coords="84,81,229,123"/>
-<area shape="rect" id="node3" href="$structlemons_1_1serializing_1_1Toggler.html" title="Class that manages several versions of the state of a serializable object and allows you to switch be..." alt="" coords="5,172,183,213"/>
-<area shape="rect" id="node4" href="$structlemons_1_1serializing_1_1Toggler.html" title=" " alt="" coords="84,276,229,317"/>
-<area shape="rect" id="node2" href="$structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="64,5,249,32"/>
+<area shape="rect" id="node1" title="Interface that all Togglers implement to be able to access one without knowing its template arguments..." alt="" coords="24,81,156,123"/>
+<area shape="rect" id="node3" href="$structlemons_1_1serializing_1_1Toggler.html" title=" " alt="" coords="29,276,161,317"/>
+<area shape="rect" id="node4" href="$structlemons_1_1serializing_1_1Toggler.html" title="Class that manages several versions of the state of a serializable object and allows you to switch be..." alt="" coords="111,172,271,213"/>
+<area shape="rect" id="node2" href="$structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="5,5,175,32"/>
 </map>

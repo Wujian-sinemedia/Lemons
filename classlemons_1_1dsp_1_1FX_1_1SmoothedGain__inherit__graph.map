@@ -1,7 +1,5 @@
 <map id="lemons::dsp::FX::SmoothedGain&lt; SampleType, channels &gt;" name="lemons::dsp::FX::SmoothedGain&lt; SampleType, channels &gt;">
-<area shape="rect" id="node1" title="A handy effect class that allows you to change the gain of a stream of audio, and will smooth the cha..." alt="" coords="497,39,724,80"/>
-<area shape="rect" id="node4" href="$classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html" title=" " alt="" coords="901,5,1101,47"/>
-<area shape="rect" id="node5" href="$classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html" title=" " alt="" coords="901,71,1101,112"/>
-<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1FX_1_1AudioEffect.html" title="Base class for any kind of audio effect." alt="" coords="240,39,448,80"/>
-<area shape="rect" id="node3" href="$structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="5,46,191,73"/>
+<area shape="rect" id="node1" title="A handy effect class that allows you to change the gain of a stream of audio, and will smooth the cha..." alt="" coords="5,169,213,211"/>
+<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1FX_1_1AudioEffect.html" title="Base class for any kind of audio effect." alt="" coords="13,80,206,121"/>
+<area shape="rect" id="node3" href="$structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="25,5,194,32"/>
 </map>

@@ -1,5 +1,5 @@
 <map id="lemons::dsp::FX::PannerBase" name="lemons::dsp::FX::PannerBase">
-<area shape="rect" id="node1" title=" " alt="" coords="5,46,216,73"/>
-<area shape="rect" id="node2" href="$classlemons_1_1dsp_1_1FX_1_1MonoToStereoPanner.html" title=" " alt="" coords="264,5,491,47"/>
-<area shape="rect" id="node3" href="$classlemons_1_1dsp_1_1FX_1_1StereoPanner.html" title=" " alt="" coords="267,71,487,112"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,46,204,73"/>
+<area shape="rect" id="node2" href="$classlemons_1_1dsp_1_1FX_1_1MonoToStereoPanner.html" title=" " alt="" coords="252,5,464,47"/>
+<area shape="rect" id="node3" href="$classlemons_1_1dsp_1_1FX_1_1StereoPanner.html" title=" " alt="" coords="254,71,462,112"/>
 </map>

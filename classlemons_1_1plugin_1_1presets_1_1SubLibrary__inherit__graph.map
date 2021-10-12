@@ -1,6 +1,6 @@
 <map id="lemons::plugin::presets::SubLibrary" name="lemons::plugin::presets::SubLibrary">
-<area shape="rect" id="node1" title=" " alt="" coords="5,71,180,112"/>
-<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1presets_1_1DatabasePresetsManager.html" title=" " alt="" coords="228,5,425,47"/>
-<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1presets_1_1FactoryPresetsManager.html" title=" " alt="" coords="235,71,418,112"/>
-<area shape="rect" id="node4" href="$classlemons_1_1plugin_1_1presets_1_1LocalPresetsManager.html" title=" " alt="" coords="239,136,414,177"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,71,164,112"/>
+<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1presets_1_1DatabasePresetsManager.html" title=" " alt="" coords="212,5,396,47"/>
+<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1presets_1_1FactoryPresetsManager.html" title=" " alt="" coords="218,71,390,112"/>
+<area shape="rect" id="node4" href="$classlemons_1_1plugin_1_1presets_1_1LocalPresetsManager.html" title=" " alt="" coords="225,136,383,177"/>
 </map>

@@ -1,8 +1,8 @@
 <map id="lemons::plugin::BoolParameter" name="lemons::plugin::BoolParameter">
-<area shape="rect" id="node1" title="Helper struct that simplifies the constructor for boolean parameters." alt="" coords="11,352,234,379"/>
-<area shape="rect" id="node6" href="$structlemons_1_1plugin_1_1ToggleParameter.html" title="A parameter that represents a boolean on/off toggle." alt="" coords="5,428,240,455"/>
-<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1TypedParameter.html" title=" " alt="" coords="7,261,238,303"/>
-<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1Parameter.html" title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an..." alt="" coords="21,81,214,108"/>
-<area shape="rect" id="node5" href="$classlemons_1_1plugin_1_1TypedParameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="139,157,370,199"/>
-<area shape="rect" id="node4" href="$structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="25,5,210,32"/>
+<area shape="rect" id="node1" title="Helper struct that simplifies the constructor for boolean parameters." alt="" coords="12,352,216,379"/>
+<area shape="rect" id="node6" href="$structlemons_1_1plugin_1_1ToggleParameter.html" title="A parameter that represents a boolean on/off toggle." alt="" coords="5,428,223,455"/>
+<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1TypedParameter.html" title=" " alt="" coords="7,261,221,303"/>
+<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1Parameter.html" title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an..." alt="" coords="20,81,197,108"/>
+<area shape="rect" id="node5" href="$classlemons_1_1plugin_1_1TypedParameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="130,157,343,199"/>
+<area shape="rect" id="node4" href="$structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="24,5,193,32"/>
 </map>

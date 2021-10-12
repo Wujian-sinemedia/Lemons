@@ -1,6 +1,6 @@
 <map id="lemons::gui::FloatSlider" name="lemons::gui::FloatSlider">
-<area shape="rect" id="node1" title="Plugin slider that attaches to a float parameter." alt="" coords="118,184,294,211"/>
-<area shape="rect" id="node2" href="$classlemons_1_1gui_1_1SliderBase.html" title="Base class for plugin sliders that handles some logic common to both int and float parameter sliders." alt="" coords="5,102,180,129"/>
-<area shape="rect" id="node3" href="$structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html" title="A class that will recieve updates when aspects of a TypedParameter change." alt="" coords="204,95,435,136"/>
-<area shape="rect" id="node4" href="$structlemons_1_1plugin_1_1Parameter_1_1Listener.html" title="A Listener class that will be notified when aspects of a Parameter change." alt="" coords="223,5,416,47"/>
+<area shape="rect" id="node1" title="Plugin slider that attaches to a float parameter." alt="" coords="111,184,273,211"/>
+<area shape="rect" id="node2" href="$classlemons_1_1gui_1_1SliderBase.html" title="Base class for plugin sliders that handles some logic common to both int and float parameter sliders." alt="" coords="5,102,168,129"/>
+<area shape="rect" id="node3" href="$structlemons_1_1plugin_1_1TypedParameter_1_1Listener.html" title="A class that will recieve updates when aspects of a TypedParameter change." alt="" coords="192,95,405,136"/>
+<area shape="rect" id="node4" href="$structlemons_1_1plugin_1_1Parameter_1_1Listener.html" title="A Listener class that will be notified when aspects of a Parameter change." alt="" coords="210,5,387,47"/>
 </map>

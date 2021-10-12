@@ -1,23 +1,23 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
-<tagfile>
+<tagfile doxygen_version="1.9.2">
   <compound kind="file">
-    <name>androidMotion.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_mobile_utils/Android/</path>
-    <filename>androidMotion_8h.html</filename>
-    <class kind="class">lemons::MotionManager</class>
+    <name>DefaultWindow.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Apps/lemons_app_utils/GuiApp/</path>
+    <filename>DefaultWindow_8h.html</filename>
+    <class kind="struct">lemons::DefaultWindow</class>
+    <class kind="struct">lemons::DefaultWindowBase</class>
     <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
-    <name>AudioAndMidiFIFO.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_dsp/FIFOs/</path>
-    <filename>AudioAndMidiFIFO_8h.html</filename>
-    <class kind="class">lemons::dsp::AudioAndMidiFIFO</class>
+    <name>GuiApp.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Apps/lemons_app_utils/GuiApp/</path>
+    <filename>GuiApp_8h.html</filename>
+    <class kind="class">lemons::GuiApp</class>
     <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
   </compound>
   <compound kind="file">
     <name>AudioEffect.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_audio_effects/AudioEffects/</path>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_audio_effects/AudioEffects/</path>
     <filename>AudioEffect_8h.html</filename>
     <class kind="struct">lemons::dsp::FX::AudioEffect</class>
     <class kind="struct">lemons::dsp::FX::LevelReportingAudioEffect</class>
@@ -28,7 +28,7 @@
   </compound>
   <compound kind="file">
     <name>AudioEffectEngine.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_audio_effects/AudioEffects/</path>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_audio_effects/AudioEffects/</path>
     <filename>AudioEffectEngine_8h.html</filename>
     <class kind="class">lemons::dsp::FX::EffectEngine</class>
     <namespace>lemons</namespace>
@@ -36,58 +36,143 @@
     <namespace>lemons::dsp::FX</namespace>
   </compound>
   <compound kind="file">
-    <name>AudioEngine.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_dsp/engines/</path>
-    <filename>AudioEngine_8h.html</filename>
-    <class kind="class">lemons::dsp::Engine</class>
+    <name>Compressor.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_audio_effects/dynamics/</path>
+    <filename>Compressor_8h.html</filename>
+    <class kind="class">lemons::dsp::FX::Compressor</class>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::FX</namespace>
   </compound>
   <compound kind="file">
-    <name>AudioFIFO.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_dsp/FIFOs/</path>
-    <filename>AudioFIFO_8h.html</filename>
-    <class kind="class">lemons::dsp::AudioFIFO</class>
-    <class kind="class">lemons::dsp::MultiAudioFIFO</class>
+    <name>Limiter.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_audio_effects/dynamics/</path>
+    <filename>Limiter_8h.html</filename>
+    <class kind="class">lemons::dsp::FX::Limiter</class>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::FX</namespace>
   </compound>
   <compound kind="file">
-    <name>AutomatedHarmonyVoice.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_synth/Synth/helpers/</path>
-    <filename>AutomatedHarmonyVoice_8h.html</filename>
-    <class kind="class">lemons::dsp::synth::AutomatedHarmonyVoice</class>
+    <name>NoiseGate.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_audio_effects/dynamics/</path>
+    <filename>NoiseGate_8h.html</filename>
+    <class kind="class">lemons::dsp::FX::NoiseGate</class>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::synth</namespace>
+    <namespace>lemons::dsp::FX</namespace>
+  </compound>
+  <compound kind="file">
+    <name>SmoothedGain.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_audio_effects/dynamics/</path>
+    <filename>SmoothedGain_8h.html</filename>
+    <class kind="class">lemons::dsp::FX::SmoothedGain</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::FX</namespace>
+  </compound>
+  <compound kind="file">
+    <name>EQ.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_audio_effects/EQ/</path>
+    <filename>EQ_8h.html</filename>
+    <class kind="class">lemons::dsp::FX::EQ</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::FX</namespace>
+  </compound>
+  <compound kind="file">
+    <name>DeEsser.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_audio_effects/misc/</path>
+    <filename>DeEsser_8h.html</filename>
+    <class kind="class">lemons::dsp::FX::DeEsser</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::FX</namespace>
+  </compound>
+  <compound kind="file">
+    <name>DryWet.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_audio_effects/misc/</path>
+    <filename>DryWet_8h.html</filename>
+    <class kind="class">lemons::dsp::FX::DryWetMixer</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::FX</namespace>
+  </compound>
+  <compound kind="file">
+    <name>Reverb.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_audio_effects/misc/</path>
+    <filename>Reverb_8h.html</filename>
+    <class kind="class">lemons::dsp::FX::Reverb</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::FX</namespace>
+  </compound>
+  <compound kind="file">
+    <name>Saturation.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_audio_effects/misc/</path>
+    <filename>Saturation_8h.html</filename>
+    <class kind="class">lemons::dsp::FX::Saturator</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::FX</namespace>
+  </compound>
+  <compound kind="file">
+    <name>MonoStereoConverter.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_audio_effects/stereo_image/</path>
+    <filename>MonoStereoConverter_8h.html</filename>
+    <class kind="class">lemons::dsp::FX::MonoStereoConverter</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::FX</namespace>
+  </compound>
+  <compound kind="file">
+    <name>MonoToStereoPanner.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_audio_effects/stereo_image/panning/</path>
+    <filename>MonoToStereoPanner_8h.html</filename>
+    <includes id="PannerBase_8h" name="PannerBase.h" local="yes" imported="no">PannerBase.h</includes>
+    <class kind="class">lemons::dsp::FX::MonoToStereoPanner</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::FX</namespace>
+  </compound>
+  <compound kind="file">
+    <name>PannerBase.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_audio_effects/stereo_image/panning/</path>
+    <filename>PannerBase_8h.html</filename>
+    <class kind="class">lemons::dsp::FX::PannerBase</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::FX</namespace>
+  </compound>
+  <compound kind="file">
+    <name>StereoPanner.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_audio_effects/stereo_image/panning/</path>
+    <filename>StereoPanner_8h.html</filename>
+    <class kind="class">lemons::dsp::FX::StereoPanner</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::FX</namespace>
+  </compound>
+  <compound kind="file">
+    <name>Delay.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_audio_effects/time/</path>
+    <filename>Delay_8h.html</filename>
+    <class kind="class">lemons::dsp::FX::Delay</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::FX</namespace>
   </compound>
   <compound kind="file">
     <name>BasicProcessor.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_dsp/BasicProcessor/</path>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_dsp/BasicProcessor/</path>
     <filename>BasicProcessor_8h.html</filename>
     <class kind="class">lemons::dsp::BasicProcessorBase</class>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
   </compound>
   <compound kind="file">
-    <name>BinaryDataHelpers.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_core/binary_data/</path>
-    <filename>BinaryDataHelpers_8h.html</filename>
-    <class kind="struct">lemons::RawData</class>
-    <namespace>lemons</namespace>
-  </compound>
-  <compound kind="file">
-    <name>Broadcaster.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_core/events/</path>
-    <filename>Broadcaster_8h.html</filename>
-    <class kind="class">lemons::events::Broadcaster</class>
-    <class kind="struct">lemons::events::Broadcaster::Reciever</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::events</namespace>
-  </compound>
-  <compound kind="file">
     <name>BufferUtils.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_dsp/BufferUtils/</path>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_dsp/BufferUtils/</path>
     <filename>BufferUtils_8h.html</filename>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
@@ -115,26 +200,117 @@
     </member>
   </compound>
   <compound kind="file">
-    <name>GUI/lemons_gui/components/Buttons.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/GUI/lemons_gui/components/</path>
-    <filename>GUI_2lemons__gui_2components_2Buttons_8h.html</filename>
-    <class kind="struct">lemons::gui::ImageButton</class>
-    <class kind="struct">lemons::gui::TextButton</class>
-    <class kind="struct">lemons::gui::ToggleTextButton</class>
+    <name>AudioEngine.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_dsp/engines/</path>
+    <filename>AudioEngine_8h.html</filename>
+    <class kind="class">lemons::dsp::Engine</class>
     <namespace>lemons</namespace>
-    <namespace>lemons::gui</namespace>
+    <namespace>lemons::dsp</namespace>
   </compound>
   <compound kind="file">
-    <name>Plugins/lemons_plugin_gui/buttons/Buttons.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_gui/buttons/</path>
-    <filename>Plugins_2lemons__plugin__gui_2buttons_2Buttons_8h.html</filename>
-    <class kind="class">lemons::gui::ToggleButton</class>
+    <name>LatencyEngine.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_dsp/engines/</path>
+    <filename>LatencyEngine_8h.html</filename>
+    <class kind="class">lemons::dsp::LatencyEngine</class>
     <namespace>lemons</namespace>
-    <namespace>lemons::gui</namespace>
+    <namespace>lemons::dsp</namespace>
+  </compound>
+  <compound kind="file">
+    <name>AudioAndMidiFIFO.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_dsp/FIFOs/</path>
+    <filename>AudioAndMidiFIFO_8h.html</filename>
+    <class kind="class">lemons::dsp::AudioAndMidiFIFO</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+  </compound>
+  <compound kind="file">
+    <name>AudioFIFO.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_dsp/FIFOs/</path>
+    <filename>AudioFIFO_8h.html</filename>
+    <class kind="class">lemons::dsp::AudioFIFO</class>
+    <class kind="class">lemons::dsp::MultiAudioFIFO</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+  </compound>
+  <compound kind="file">
+    <name>CircularBuffer.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_dsp/FIFOs/</path>
+    <filename>CircularBuffer_8h.html</filename>
+    <class kind="class">lemons::dsp::CircularBuffer</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+  </compound>
+  <compound kind="file">
+    <name>Coeffecients.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_dsp/filters/</path>
+    <filename>Coeffecients_8h.html</filename>
+    <class kind="struct">lemons::dsp::filters::Coefficients</class>
+    <class kind="struct">lemons::dsp::filters::Coefficients::Storage</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::filters</namespace>
+  </compound>
+  <compound kind="file">
+    <name>lemons_audio_effects/EQ/Filter.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_audio_effects/EQ/</path>
+    <filename>lemons__audio__effects_2EQ_2Filter_8h.html</filename>
+    <class kind="class">lemons::dsp::FX::Filter</class>
+    <class kind="struct">lemons::dsp::FX::FilterEngine</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::FX</namespace>
+    <member kind="enumeration">
+      <type></type>
+      <name>FilterType</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1FX.html</anchorfile>
+      <anchor>a2a75c0c88cd8cbd576add3c0d4db1d14</anchor>
+      <arglist></arglist>
+      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14a835f2dc4fd545ddcd275198d9fbadf63">LowPass</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14ae9456dc865a19e434997ea20bb5373f6">HighPass</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14a04efcd6f392567e252822d1247d8c875">LowShelf</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14aaafe3de5c829706a2fda73dd43fd740e">HighShelf</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14a39c9e9c45a479147bf5f74156421c744">BandPass</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14aa70ec028ca3f03d3bf0f8016f8c072a3">Notch</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14aa21e600ebbe2eab6697e3087ee1fdb9f">Peak</enumvalue>
+      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14a3f1176ed061437aff6d76b860d5969f6">AllPass</enumvalue>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>lemons_dsp/filters/Filter.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_dsp/filters/</path>
+    <filename>lemons__dsp_2filters_2Filter_8h.html</filename>
+    <includes id="Coeffecients_8h" name="Coeffecients.h" local="yes" imported="no">Coeffecients.h</includes>
+    <class kind="class">lemons::dsp::filters::Filter</class>
+    <class kind="struct">lemons::dsp::filters::MultiFilter</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::filters</namespace>
+  </compound>
+  <compound kind="file">
+    <name>PitchDetector.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_dsp/PitchDetector/</path>
+    <filename>PitchDetector_8h.html</filename>
+    <class kind="class">lemons::dsp::PitchDetector</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+  </compound>
+  <compound kind="file">
+    <name>oscillators.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_oscillators/basic_types/</path>
+    <filename>oscillators_8h.html</filename>
+    <class kind="struct">lemons::dsp::osc::Oscillator</class>
+    <class kind="struct">lemons::dsp::osc::Phase</class>
+    <class kind="struct">lemons::dsp::osc::Saw</class>
+    <class kind="struct">lemons::dsp::osc::Sine</class>
+    <class kind="struct">lemons::dsp::osc::Square</class>
+    <class kind="struct">lemons::dsp::osc::Triangle</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::osc</namespace>
   </compound>
   <compound kind="file">
     <name>ChoosableOscillator.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_oscillators/choosable/</path>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_oscillators/choosable/</path>
     <filename>ChoosableOscillator_8h.html</filename>
     <includes id="OscEngine_8h" name="OscEngine.h" local="yes" imported="no">OscEngine.h</includes>
     <class kind="class">lemons::dsp::osc::ChoosableOscillator</class>
@@ -155,179 +331,250 @@
     </member>
   </compound>
   <compound kind="file">
-    <name>CircularBuffer.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_dsp/FIFOs/</path>
-    <filename>CircularBuffer_8h.html</filename>
-    <class kind="class">lemons::dsp::CircularBuffer</class>
+    <name>OscEngine.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_oscillators/choosable/</path>
+    <filename>OscEngine_8h.html</filename>
+    <class kind="class">lemons::dsp::osc::OscEngine</class>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::osc</namespace>
+  </compound>
+  <compound kind="file">
+    <name>SuperSaw.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_oscillators/SuperSaw/</path>
+    <filename>SuperSaw_8h.html</filename>
+    <class kind="class">lemons::dsp::osc::SuperSaw</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::osc</namespace>
+  </compound>
+  <compound kind="file">
+    <name>GrainStorage.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_psola/analysis/GrainStorage/</path>
+    <filename>GrainStorage_8h.html</filename>
+    <class kind="class">lemons::dsp::psola::AnalysisGrainStorage</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::psola</namespace>
+  </compound>
+  <compound kind="file">
+    <name>psola_analyzer.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_psola/analysis/</path>
+    <filename>psola__analyzer_8h.html</filename>
+    <includes id="GrainStorage_8h" name="GrainStorage.h" local="yes" imported="no">GrainStorage/GrainStorage.h</includes>
+    <class kind="class">lemons::dsp::psola::Analyzer</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::psola</namespace>
+  </compound>
+  <compound kind="file">
+    <name>PitchCorrector.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_psola/PitchCorrector/</path>
+    <filename>PitchCorrector_8h.html</filename>
+    <class kind="class">lemons::dsp::psola::PitchCorrector</class>
+    <class kind="class">lemons::dsp::psola::PitchCorrectorBase</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::psola</namespace>
+  </compound>
+  <compound kind="file">
+    <name>psola_shifter.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_psola/resynthesis/</path>
+    <filename>psola__shifter_8h.html</filename>
+    <class kind="class">lemons::dsp::psola::Shifter</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::psola</namespace>
+  </compound>
+  <compound kind="file">
+    <name>LambdaSynth.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_synth/BasicSynths/</path>
+    <filename>LambdaSynth_8h.html</filename>
+    <class kind="class">lemons::dsp::LambdaSynth</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+  </compound>
+  <compound kind="file">
+    <name>OscSynth.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_synth/BasicSynths/</path>
+    <filename>OscSynth_8h.html</filename>
+    <class kind="struct">lemons::dsp::OscSynth</class>
+    <class kind="struct">lemons::dsp::OscSynthVoice</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::synth</namespace>
+    <member kind="typedef">
+      <type>OscSynth&lt; SampleType, osc::Saw &gt;</type>
+      <name>Saw</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1synth.html</anchorfile>
+      <anchor>a7269b6280f2b51716e797bf2c0dca7d1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>OscSynth&lt; SampleType, osc::Sine &gt;</type>
+      <name>Sine</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1synth.html</anchorfile>
+      <anchor>a430ae7ada908a2f8a52973e98167f807</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>OscSynth&lt; SampleType, osc::Square &gt;</type>
+      <name>Square</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1synth.html</anchorfile>
+      <anchor>af80648fe5e5df3b31d06e9c2aab3862b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>OscSynth&lt; SampleType, osc::SuperSaw &gt;</type>
+      <name>SuperSaw</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1synth.html</anchorfile>
+      <anchor>a712a47f2ffcf27c4f87b9429543dffe9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>OscSynth&lt; SampleType, osc::Triangle &gt;</type>
+      <name>Triangle</name>
+      <anchorfile>namespacelemons_1_1dsp_1_1synth.html</anchorfile>
+      <anchor>aa9c8040151c167d0e462405162fdd107</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>TemplateSynth.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_synth/BasicSynths/</path>
+    <filename>TemplateSynth_8h.html</filename>
+    <class kind="struct">lemons::dsp::TemplateSynth</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+  </compound>
+  <compound kind="file">
+    <name>AutomatedHarmonyVoice.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_synth/Synth/helpers/</path>
+    <filename>AutomatedHarmonyVoice_8h.html</filename>
+    <class kind="class">lemons::dsp::synth::AutomatedHarmonyVoice</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::synth</namespace>
+  </compound>
+  <compound kind="file">
+    <name>MidiManager.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_synth/Synth/helpers/</path>
+    <filename>MidiManager_8h.html</filename>
+    <class kind="class">lemons::dsp::synth::MidiManager</class>
+    <class kind="class">lemons::dsp::synth::MidiManager::MidiRouter</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::synth</namespace>
+  </compound>
+  <compound kind="file">
+    <name>PanningManager.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_synth/Synth/helpers/</path>
+    <filename>PanningManager_8h.html</filename>
+    <class kind="class">lemons::dsp::synth::PanningManager</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::synth</namespace>
+  </compound>
+  <compound kind="file">
+    <name>VoiceAllocator.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_synth/Synth/helpers/</path>
+    <filename>VoiceAllocator_8h.html</filename>
+    <class kind="class">lemons::dsp::synth::VoiceAllocator</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::synth</namespace>
+  </compound>
+  <compound kind="file">
+    <name>Synth.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_synth/Synth/</path>
+    <filename>Synth_8h.html</filename>
+    <includes id="AutomatedHarmonyVoice_8h" name="AutomatedHarmonyVoice.h" local="yes" imported="no">helpers/AutomatedHarmonyVoice.h</includes>
+    <includes id="PanningManager_8h" name="PanningManager.h" local="yes" imported="no">helpers/PanningManager.h</includes>
+    <includes id="MidiManager_8h" name="MidiManager.h" local="yes" imported="no">helpers/MidiManager.h</includes>
+    <includes id="VoiceAllocator_8h" name="VoiceAllocator.h" local="yes" imported="no">helpers/VoiceAllocator.h</includes>
+    <class kind="class">lemons::dsp::SynthBase</class>
+    <class kind="struct">lemons::dsp::SynthBase::TimbreModParams</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+  </compound>
+  <compound kind="file">
+    <name>SynthVoice.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_synth/SynthVoice/</path>
+    <filename>SynthVoice_8h.html</filename>
+    <includes id="TimbreMod_8h" name="TimbreMod.h" local="yes" imported="no">TimbreMod.h</includes>
+    <class kind="class">lemons::dsp::SynthVoiceBase</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+  </compound>
+  <compound kind="file">
+    <name>TimbreMod.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Audio/lemons_synth/SynthVoice/</path>
+    <filename>TimbreMod_8h.html</filename>
+    <class kind="class">lemons::dsp::synth::TimbreMod</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::synth</namespace>
   </compound>
   <compound kind="file">
     <name>cmake_api.md</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/</path>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/</path>
     <filename>cmake__api_8md.html</filename>
   </compound>
   <compound kind="file">
-    <name>Coeffecients.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_dsp/filters/</path>
-    <filename>Coeffecients_8h.html</filename>
-    <class kind="struct">lemons::dsp::filters::Coefficients</class>
-    <class kind="struct">lemons::dsp::filters::Coefficients::Storage</class>
+    <name>BinaryDataHelpers.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_core/binary_data/</path>
+    <filename>BinaryDataHelpers_8h.html</filename>
+    <class kind="struct">lemons::RawData</class>
     <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::filters</namespace>
   </compound>
   <compound kind="file">
-    <name>Common.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/GUI/lemons_spline/common/</path>
-    <filename>Common_8h.html</filename>
-    <includes id="Knots_8h" name="Knots.h" local="yes" imported="no">Knots.h</includes>
-    <includes id="Interpolation_8h" name="Interpolation.h" local="yes" imported="no">Interpolation.h</includes>
+    <name>Broadcaster.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_core/events/</path>
+    <filename>Broadcaster_8h.html</filename>
+    <class kind="class">lemons::events::Broadcaster</class>
+    <class kind="struct">lemons::events::Broadcaster::Reciever</class>
     <namespace>lemons</namespace>
-    <namespace>lemons::spline</namespace>
-    <member kind="typedef">
-      <type>juce::Point&lt; float &gt;</type>
-      <name>Point</name>
-      <anchorfile>namespacelemons_1_1spline.html</anchorfile>
-      <anchor>a832ddba7a7244525784ee6d0644dd27e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>std::vector&lt; float &gt;</type>
-      <name>Points</name>
-      <anchorfile>namespacelemons_1_1spline.html</anchorfile>
-      <anchor>ae2dbcb02271768847771957183931530</anchor>
-      <arglist></arglist>
-    </member>
+    <namespace>lemons::events</namespace>
   </compound>
   <compound kind="file">
-    <name>Compressor.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_audio_effects/dynamics/</path>
-    <filename>Compressor_8h.html</filename>
-    <class kind="class">lemons::dsp::FX::Compressor</class>
+    <name>Listener.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_core/events/</path>
+    <filename>Listener_8h.html</filename>
+    <class kind="struct">lemons::events::Listener</class>
     <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::FX</namespace>
+    <namespace>lemons::events</namespace>
   </compound>
   <compound kind="file">
-    <name>ContainerInterface.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/</path>
-    <filename>ContainerInterface_8h.html</filename>
-    <class kind="struct">lemons::serializing::ContainerInterface</class>
-    <class kind="struct">lemons::serializing::isContainer</class>
-    <class kind="struct">lemons::serializing::LambdaContainerInterface</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::serializing</namespace>
-    <member kind="function">
-      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
-      <name>getInterfaceForContainer</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a947d1fd48af7f4413f461f6c741d5fc2</anchor>
-      <arglist>(ContainerType &amp;)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>DatabasePresetsManager.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_presets/preset_library/sub_libraries/</path>
-    <filename>DatabasePresetsManager_8h.html</filename>
-    <includes id="SubLibrary_8h" name="SubLibrary.h" local="yes" imported="no">SubLibrary.h</includes>
-    <includes id="UserProfile_8h" name="UserProfile.h" local="yes" imported="no">database/UserProfile.h</includes>
-    <includes id="PresetDatabase_8h" name="PresetDatabase.h" local="yes" imported="no">database/PresetDatabase.h</includes>
-    <class kind="class">lemons::plugin::presets::DatabasePresetsManager</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-    <namespace>lemons::plugin::presets</namespace>
-  </compound>
-  <compound kind="file">
-    <name>DataSynchronizer.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/DataSynchronizer/</path>
-    <filename>DataSynchronizer_8h.html</filename>
-    <class kind="class">lemons::serializing::DataSynchronizer</class>
+    <name>NonrealtimeMutatable.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_core/events/</path>
+    <filename>NonrealtimeMutatable_8h.html</filename>
+    <class kind="struct">lemons::serializing::NonrealtimeMutatable::NonrealtimeAccess</class>
+    <class kind="class">lemons::serializing::NonrealtimeMutatable</class>
+    <class kind="struct">lemons::serializing::NonrealtimeMutatable::RealtimeAccess</class>
     <namespace>lemons</namespace>
     <namespace>lemons::serializing</namespace>
   </compound>
   <compound kind="file">
-    <name>DeEsser.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_audio_effects/misc/</path>
-    <filename>DeEsser_8h.html</filename>
-    <class kind="class">lemons::dsp::FX::DeEsser</class>
+    <name>RealtimeMutatable.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_core/events/</path>
+    <filename>RealtimeMutatable_8h.html</filename>
+    <class kind="struct">lemons::serializing::RealtimeMutatable::NonrealtimeAccess</class>
+    <class kind="struct">lemons::serializing::RealtimeMutatable::RealtimeAccess</class>
+    <class kind="class">lemons::serializing::RealtimeMutatable</class>
     <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::FX</namespace>
+    <namespace>lemons::serializing</namespace>
   </compound>
   <compound kind="file">
-    <name>DefaultWindow.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Apps/lemons_app_utils/GuiApp/</path>
-    <filename>DefaultWindow_8h.html</filename>
-    <class kind="struct">lemons::DefaultWindow</class>
-    <class kind="struct">lemons::DefaultWindowBase</class>
+    <name>Timers.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_core/events/</path>
+    <filename>Timers_8h.html</filename>
+    <class kind="struct">lemons::events::TimerCallback</class>
     <namespace>lemons</namespace>
-  </compound>
-  <compound kind="file">
-    <name>Delay.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_audio_effects/time/</path>
-    <filename>Delay_8h.html</filename>
-    <class kind="class">lemons::dsp::FX::Delay</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::FX</namespace>
-  </compound>
-  <compound kind="file">
-    <name>detail.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/</path>
-    <filename>detail_8h.html</filename>
-    <includes id="Juce__containers_8h" name="Juce_containers.h" local="no" imported="no">lemons_serializing/Serializing/Specializations/containers/Juce_containers.h</includes>
-    <includes id="STL__containers_8h" name="STL_containers.h" local="no" imported="no">lemons_serializing/Serializing/Specializations/containers/STL_containers.h</includes>
-    <includes id="Juce__maps_8h" name="Juce_maps.h" local="no" imported="no">lemons_serializing/Serializing/Specializations/maps/Juce_maps.h</includes>
-    <namespace>lemons</namespace>
-  </compound>
-  <compound kind="file">
-    <name>DryWet.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_audio_effects/misc/</path>
-    <filename>DryWet_8h.html</filename>
-    <class kind="class">lemons::dsp::FX::DryWetMixer</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::FX</namespace>
-  </compound>
-  <compound kind="file">
-    <name>DummyMotionManager.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_mobile_utils/dummy_desktop_versions/</path>
-    <filename>DummyMotionManager_8h.html</filename>
-    <class kind="class">lemons::MotionManager</class>
-    <namespace>lemons</namespace>
-  </compound>
-  <compound kind="file">
-    <name>EditorBase.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/EditorBase/</path>
-    <filename>EditorBase_8h.html</filename>
-    <class kind="class">lemons::plugin::EditorBase</class>
-    <class kind="class">lemons::plugin::PluginEditor</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-  </compound>
-  <compound kind="file">
-    <name>EQ.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_audio_effects/EQ/</path>
-    <filename>EQ_8h.html</filename>
-    <class kind="class">lemons::dsp::FX::EQ</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::FX</namespace>
-  </compound>
-  <compound kind="file">
-    <name>FactoryPresetsManager.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_presets/preset_library/sub_libraries/</path>
-    <filename>FactoryPresetsManager_8h.html</filename>
-    <includes id="SubLibrary_8h" name="SubLibrary.h" local="yes" imported="no">SubLibrary.h</includes>
-    <class kind="class">lemons::plugin::presets::FactoryPresetsManager</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-    <namespace>lemons::plugin::presets</namespace>
+    <namespace>lemons::events</namespace>
   </compound>
   <compound kind="file">
     <name>FileUtilities.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_core/files/</path>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_core/files/</path>
     <filename>FileUtilities_8h.html</filename>
     <namespace>lemons</namespace>
     <member kind="function">
@@ -374,370 +621,8 @@
     </member>
   </compound>
   <compound kind="file">
-    <name>lemons_audio_effects/EQ/Filter.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_audio_effects/EQ/</path>
-    <filename>lemons__audio__effects_2EQ_2Filter_8h.html</filename>
-    <class kind="class">lemons::dsp::FX::Filter</class>
-    <class kind="struct">lemons::dsp::FX::FilterEngine</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::FX</namespace>
-    <member kind="enumeration">
-      <type></type>
-      <name>FilterType</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1FX.html</anchorfile>
-      <anchor>a2a75c0c88cd8cbd576add3c0d4db1d14</anchor>
-      <arglist></arglist>
-      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14a835f2dc4fd545ddcd275198d9fbadf63">LowPass</enumvalue>
-      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14ae9456dc865a19e434997ea20bb5373f6">HighPass</enumvalue>
-      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14a04efcd6f392567e252822d1247d8c875">LowShelf</enumvalue>
-      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14aaafe3de5c829706a2fda73dd43fd740e">HighShelf</enumvalue>
-      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14a39c9e9c45a479147bf5f74156421c744">BandPass</enumvalue>
-      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14aa70ec028ca3f03d3bf0f8016f8c072a3">Notch</enumvalue>
-      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14aa21e600ebbe2eab6697e3087ee1fdb9f">Peak</enumvalue>
-      <enumvalue file="namespacelemons_1_1dsp_1_1FX.html" anchor="a2a75c0c88cd8cbd576add3c0d4db1d14a3f1176ed061437aff6d76b860d5969f6">AllPass</enumvalue>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>lemons_dsp/filters/Filter.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_dsp/filters/</path>
-    <filename>lemons__dsp_2filters_2Filter_8h.html</filename>
-    <includes id="Coeffecients_8h" name="Coeffecients.h" local="yes" imported="no">Coeffecients.h</includes>
-    <class kind="class">lemons::dsp::filters::Filter</class>
-    <class kind="struct">lemons::dsp::filters::MultiFilter</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::filters</namespace>
-  </compound>
-  <compound kind="file">
-    <name>GrainStorage.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_psola/analysis/GrainStorage/</path>
-    <filename>GrainStorage_8h.html</filename>
-    <class kind="class">lemons::dsp::psola::AnalysisGrainStorage</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::psola</namespace>
-  </compound>
-  <compound kind="file">
-    <name>GuiApp.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Apps/lemons_app_utils/GuiApp/</path>
-    <filename>GuiApp_8h.html</filename>
-    <class kind="class">lemons::GuiApp</class>
-    <namespace>lemons</namespace>
-  </compound>
-  <compound kind="file">
-    <name>GuiUtils.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/GUI/lemons_gui/utilities/</path>
-    <filename>GuiUtils_8h.html</filename>
-    <class kind="struct">lemons::gui::ScopedCursor</class>
-    <class kind="struct">lemons::gui::ScopedWaitCursor</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::gui</namespace>
-    <member kind="function">
-      <type>void</type>
-      <name>addAndMakeVisible</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ace177788f88c655a88a7bf34740e1a6c</anchor>
-      <arglist>(juce::Component *parent, juce::Component &amp;child)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Button::ButtonState</type>
-      <name>boolToButtonState</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>a5e0feccfdadacaa1d4c7598c1e57fd5b</anchor>
-      <arglist>(const bool isOn) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>buttonStateToBool</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>aadbde23ae8b784d26b71b992c06667c1</anchor>
-      <arglist>(juce::Button::ButtonState state) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>scale</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ac374f72bc68b6558f9653ad08970d903</anchor>
-      <arglist>(juce::Component &amp;component, const juce::Rectangle&lt; float &gt; &amp;boundsRatio)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>icons.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/GUI/lemons_gui/icons/</path>
-    <filename>icons_8h.html</filename>
-    <namespace>lemons</namespace>
-    <namespace>lemons::gui</namespace>
-    <member kind="enumeration">
-      <type></type>
-      <name>IconType</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Stop</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78ad538b31fc4b838bef01edd63eb2af27d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Play</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78aca4767f402db1ae25e4d4a302364ddff</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Pause</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78ad4ec6728260bcf6f5f2e40e8ae8c08f8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Next</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a30c421b50ab399464be32094dd7d337a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Previous</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a39863dceb0a578f066638ce06ea94c3f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>ShuffleForward</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a121a793e27433d419f59ea545a55bcb2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>ShuffleBack</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a4b2960479c85cdb7193225d2af200c40</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Eject</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78ada179ee9422c09eb44fa4a5491b508eb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Add</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a9aaacf0ae03c0995f56dac044093fcb6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Search</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a35c526fdade2ed85c0fd1adfa59afb81</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Power</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a1f3cf5e60db769ddcabcefac089e966f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Bypass</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a651b9f28876fff1fc5be011c8d61e51d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Info</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78aedea1697e084eb07606a6bc309b2cdf6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Loop</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a7ad55a135082449cc4a1786f2d7df1b2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Speaker</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78acdc990ce0f47ba8febfcc5c74fc82419</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>MutedSpeaker</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a6f1a947c3aa11f97c9fb48dbafb14615</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>juce::DrawablePath</type>
-      <name>createIcon</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ab7b994bfeb698f1b3070d59ac9436518</anchor>
-      <arglist>(IconType icon, juce::Colour colour=juce::Colours::black)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>ImageComp.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/GUI/lemons_gui/components/</path>
-    <filename>ImageComp_8h.html</filename>
-    <class kind="struct">lemons::gui::ImageComp</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::gui</namespace>
-  </compound>
-  <compound kind="file">
-    <name>Interpolation.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/GUI/lemons_spline/common/</path>
-    <filename>Interpolation_8h.html</filename>
-    <namespace>lemons</namespace>
-    <namespace>lemons::spline</namespace>
-    <namespace>lemons::spline::interpolation</namespace>
-    <member kind="function">
-      <type>float</type>
-      <name>hermitCubic</name>
-      <anchorfile>namespacelemons_1_1spline_1_1interpolation.html</anchorfile>
-      <anchor>ade13a7f8e279d2dfef662217dd9a500f</anchor>
-      <arglist>(const Knots &amp;data, float x) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>hermitCubic2</name>
-      <anchorfile>namespacelemons_1_1spline_1_1interpolation.html</anchorfile>
-      <anchor>a300030ec6a47046a739e4032c20c2c78</anchor>
-      <arglist>(const Knots &amp;data, float x, float tolerance, int i1) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>Point</type>
-      <name>lin</name>
-      <anchorfile>namespacelemons_1_1spline_1_1interpolation.html</anchorfile>
-      <anchor>a9894612d36a56455f83cd21a9f677008</anchor>
-      <arglist>(const Point &amp;a, const Point &amp;b, float x) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>Point</type>
-      <name>nurbs</name>
-      <anchorfile>namespacelemons_1_1spline_1_1interpolation.html</anchorfile>
-      <anchor>a50c25e0f00a4a2947cbcc1218eecbc31</anchor>
-      <arglist>(const Knots &amp;data, float t, const int *k) noexcept</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>iosMotion.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_mobile_utils/iOS/</path>
-    <filename>iosMotion_8h.html</filename>
-    <class kind="class">lemons::MotionManager</class>
-    <namespace>lemons</namespace>
-  </compound>
-  <compound kind="file">
-    <name>Juce_containers.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/Serializing/Specializations/containers/</path>
-    <filename>Juce__containers_8h.html</filename>
-    <class kind="struct">lemons::serializing::isContainer&lt; juce::Array&lt; ElementType &gt; &gt;</class>
-    <class kind="struct">lemons::serializing::isContainer&lt; juce::OwnedArray&lt; ElementType &gt; &gt;</class>
-    <class kind="struct">lemons::serializing::isContainer&lt; juce::StringArray &gt;</class>
-    <class kind="struct">lemons::serializing::JuceArrayInterface</class>
-    <class kind="struct">lemons::serializing::JuceOwnedArrayInterface</class>
-    <class kind="struct">lemons::serializing::StringArrayInterface</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::serializing</namespace>
-    <member kind="function">
-      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
-      <name>getInterfaceForContainer</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>acaa9bcf94a6a18b321714a7425ff0a83</anchor>
-      <arglist>(juce::Array&lt; ElementType &gt; &amp;container)</arglist>
-    </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
-      <name>getInterfaceForContainer</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a62bdd53db8c515549f20b1f0835052b7</anchor>
-      <arglist>(juce::OwnedArray&lt; ElementType &gt; &amp;container)</arglist>
-    </member>
-    <member kind="function">
-      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
-      <name>getInterfaceForContainer</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a5451726fdfd9955d7017ac2b529f44eb</anchor>
-      <arglist>(juce::StringArray &amp;container)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>Juce_maps.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/Serializing/Specializations/maps/</path>
-    <filename>Juce__maps_8h.html</filename>
-    <class kind="struct">lemons::serializing::isMap&lt; juce::StringPairArray &gt;</class>
-    <class kind="struct">lemons::serializing::StringPairArrayInterface</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::serializing</namespace>
-    <member kind="function">
-      <type>std::unique_ptr&lt; MapInterfaceBase &gt;</type>
-      <name>getInterfaceForMap</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a52f16de419ffe2a472740c8e58fb849c</anchor>
-      <arglist>(juce::StringPairArray &amp;array)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>Knots.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/GUI/lemons_spline/common/</path>
-    <filename>Knots_8h.html</filename>
-    <class kind="struct">lemons::spline::Knot</class>
-    <class kind="struct">lemons::spline::Knots</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::spline</namespace>
-  </compound>
-  <compound kind="file">
-    <name>Label.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/GUI/lemons_gui/components/</path>
-    <filename>Label_8h.html</filename>
-    <class kind="struct">lemons::gui::Label</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::gui</namespace>
-  </compound>
-  <compound kind="file">
-    <name>LambdaSynth.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_synth/BasicSynths/</path>
-    <filename>LambdaSynth_8h.html</filename>
-    <class kind="class">lemons::dsp::LambdaSynth</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-  </compound>
-  <compound kind="file">
-    <name>LatencyEngine.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_dsp/engines/</path>
-    <filename>LatencyEngine_8h.html</filename>
-    <class kind="class">lemons::dsp::LatencyEngine</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-  </compound>
-  <compound kind="file">
-    <name>lemons_modules.dox</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/</path>
-    <filename>lemons__modules_8dox.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>Limiter.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_audio_effects/dynamics/</path>
-    <filename>Limiter_8h.html</filename>
-    <class kind="class">lemons::dsp::FX::Limiter</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::FX</namespace>
-  </compound>
-  <compound kind="file">
-    <name>Listener.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_core/events/</path>
-    <filename>Listener_8h.html</filename>
-    <class kind="struct">lemons::events::Listener</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::events</namespace>
-  </compound>
-  <compound kind="file">
     <name>localization.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_core/localization/</path>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_core/localization/</path>
     <filename>localization_8h.html</filename>
     <namespace>lemons</namespace>
     <member kind="function">
@@ -763,40 +648,8 @@
     </member>
   </compound>
   <compound kind="file">
-    <name>LocalPresetsManager.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_presets/preset_library/sub_libraries/</path>
-    <filename>LocalPresetsManager_8h.html</filename>
-    <includes id="SubLibrary_8h" name="SubLibrary.h" local="yes" imported="no">SubLibrary.h</includes>
-    <class kind="class">lemons::plugin::presets::LocalPresetsManager</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-    <namespace>lemons::plugin::presets</namespace>
-  </compound>
-  <compound kind="file">
-    <name>main_page.md</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/</path>
-    <filename>main__page_8md.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>MapInterface.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/</path>
-    <filename>MapInterface_8h.html</filename>
-    <class kind="struct">lemons::serializing::isMap</class>
-    <class kind="struct">lemons::serializing::MapInterface</class>
-    <class kind="struct">lemons::serializing::MapInterfaceBase</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::serializing</namespace>
-    <member kind="function">
-      <type>std::unique_ptr&lt; MapInterfaceBase &gt;</type>
-      <name>getInterfaceForMap</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a7270802d3bb72c38a7d6e82460c8bd37</anchor>
-      <arglist>(MapType &amp;)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
     <name>mathHelpers.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_core/math/</path>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_core/math/</path>
     <filename>mathHelpers_8h.html</filename>
     <namespace>lemons</namespace>
     <namespace>lemons::math</namespace>
@@ -851,93 +704,190 @@
     </member>
   </compound>
   <compound kind="file">
-    <name>MidiChoppingProcessor.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Connectivity/lemons_midi/processors/MidiChoppingProcessor/</path>
-    <filename>MidiChoppingProcessor_8h.html</filename>
-    <class kind="class">lemons::dsp::MidiChoppingProcessor</class>
+    <name>vecops.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_core/math/vecops/</path>
+    <filename>vecops_8h.html</filename>
     <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-  </compound>
-  <compound kind="file">
-    <name>MidiFIFO.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Connectivity/lemons_midi/MidiUtilities/</path>
-    <filename>MidiFIFO_8h.html</filename>
-    <class kind="class">lemons::midi::MidiFIFO</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::midi</namespace>
-  </compound>
-  <compound kind="file">
-    <name>MidiManager.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_synth/Synth/helpers/</path>
-    <filename>MidiManager_8h.html</filename>
-    <class kind="class">lemons::dsp::synth::MidiManager</class>
-    <class kind="class">lemons::dsp::synth::MidiManager::MidiRouter</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::synth</namespace>
-  </compound>
-  <compound kind="file">
-    <name>MidiProcessor.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Connectivity/lemons_midi/processors/</path>
-    <filename>MidiProcessor_8h.html</filename>
-    <class kind="struct">lemons::midi::MidiProcessor::LastMovedControllerInfo</class>
-    <class kind="class">lemons::midi::MidiProcessor</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::midi</namespace>
-  </compound>
-  <compound kind="file">
-    <name>MidiUtilities.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Connectivity/lemons_midi/MidiUtilities/</path>
-    <filename>MidiUtilities_8h.html</filename>
-    <class kind="struct">lemons::midi::VelocityHelper</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::midi</namespace>
+    <namespace>lemons::vecops</namespace>
     <member kind="function">
-      <type>bool</type>
-      <name>areNotesSamePitchClass</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>a17296da211c2aa8456b9865b913187c8</anchor>
-      <arglist>(const noteType1 pitch1, const noteType2 pitch2)</arglist>
+      <type>void</type>
+      <name>absVal</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a5b7e3c4409150af11458675ebffe27fa</anchor>
+      <arglist>(Type *data, int dataSize)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
-      <name>copyRangeOfMidiBuffer</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>ae32c7b236b4feff5b1bc49ccda1a8517</anchor>
-      <arglist>(const MidiBuffer &amp;readingBuffer, MidiBuffer &amp;destBuffer, const int startSampleOfInput, const int startSampleOfOutput, const int numSamples)</arglist>
+      <name>addC</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>aad3fa62e31c1fae1b30b9e65978f8b26</anchor>
+      <arglist>(Type *vector, Type value, int count)</arglist>
     </member>
     <member kind="function">
-      <type>float</type>
-      <name>getGainMultFromMidiVelocity</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>a8791220d983aa0594b5dabf48d05bfbe</anchor>
-      <arglist>(float midiVelocity, float sensitivity=1.0f)</arglist>
+      <type>void</type>
+      <name>addV</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a3fa77cb23011c0175d15b546d2559586</anchor>
+      <arglist>(Type *vecA, const Type *vecB, int count)</arglist>
     </member>
     <member kind="function">
-      <type>float</type>
-      <name>getGainMultFromMidiVelocity</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>a269aad5bd2a44f7e5df3748c6bb39e63</anchor>
-      <arglist>(int midiVelocity, float sensitivity=1.0f)</arglist>
+      <type>void</type>
+      <name>convert</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a8e357469c7eae8ed3163136fd01edfaa</anchor>
+      <arglist>(Type1 *const dst, const Type2 *const src, int count)</arglist>
     </member>
     <member kind="function">
-      <type>bool</type>
-      <name>isMidiNoteBlackKey</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>aec33a18b91a81f28e71b7e8767be414c</anchor>
-      <arglist>(noteType midipitch)</arglist>
+      <type>void</type>
+      <name>copy</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a91bd1f3e3f9e7e9dba4dbafec8f8800b</anchor>
+      <arglist>(const Type *const source, Type *const dest, int count)</arglist>
     </member>
     <member kind="function">
-      <type>bool</type>
-      <name>isValidMidiPitch</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>ad2284a447de722eb308cc391ba6246a4</anchor>
-      <arglist>(int note)</arglist>
+      <type>void</type>
+      <name>divideC</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a0b14583eca10081ede8555007f5d6bb8</anchor>
+      <arglist>(Type *vector, Type value, int count)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>divideV</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a8822dcd57c640e788cddb95ce195af72</anchor>
+      <arglist>(Type *vecA, const Type *vecB, int count)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>fill</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a239ba96be25a77d259c5357d702b7a44</anchor>
+      <arglist>(Type *vector, Type value, int count)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>findExtrema</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a75c28dafcaa835851d7ddbb60e308a09</anchor>
+      <arglist>(const Type *data, int dataSize, Type &amp;min, Type &amp;max)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>findIndexOfMaxElement</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>aeab399dcf306c75d4dada4ba4e8fdf35</anchor>
+      <arglist>(const Type *data, int dataSize)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>findIndexOfMinElement</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a00267fce1554664aeb74a28ee4004380</anchor>
+      <arglist>(const Type *data, int dataSize)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>findMaxAndMaxIndex</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a5848223aba423c51942026f668786fd8</anchor>
+      <arglist>(const Type *data, int dataSize, Type &amp;maximum, int &amp;maxIndex)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>findMinAndMinIndex</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>afe4faa462c897ed60423e60863d3caba</anchor>
+      <arglist>(const Type *data, int dataSize, Type &amp;minimum, int &amp;minIndex)</arglist>
+    </member>
+    <member kind="function">
+      <type>Type</type>
+      <name>findRangeOfExtrema</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a32374ec825061a1db11194751b9c23e2</anchor>
+      <arglist>(const Type *data, int dataSize)</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>isUsingFallback</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>ae1c5df4348af2db72ad43e54102097bb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>isUsingVDSP</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>ae721467f6730530d38876888e7a0ea90</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>locateGreatestAbsMagnitude</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a18686bc9bf20020bdcc1ab23d41503b5</anchor>
+      <arglist>(const Type *data, int dataSize, Type &amp;greatestMagnitude, int &amp;index)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>locateLeastAbsMagnitude</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>aaf5977c9cdac8bb141ad5f16fdbd56e6</anchor>
+      <arglist>(const Type *data, int dataSize, Type &amp;leastMagnitude, int &amp;index)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>multiplyC</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>adcff358da42922fba719d4f49e6ab255</anchor>
+      <arglist>(Type *vector, Type value, int count)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>multiplyV</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>af620febbaa640fe2a713e1d42a6115b7</anchor>
+      <arglist>(Type *vecA, const Type *vecB, int count)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>normalize</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a090e2a869d602c7b0cc492e5b604436a</anchor>
+      <arglist>(Type *vector, int size)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>square</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a6639e01ff961e2a1254d3546de1d7cc3</anchor>
+      <arglist>(Type *data, int dataSize)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>squareRoot</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a7a55da3f049b74035b114eb01dddc614</anchor>
+      <arglist>(Type *data, int dataSize)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>subtractC</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a95b55a06507a899ca5fc6a3d4d095fa9</anchor>
+      <arglist>(Type *vector, Type value, int count)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>subtractV</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a362cf31bf20dc4e734523e79f966b0a4</anchor>
+      <arglist>(Type *vecA, const Type *vecB, int count)</arglist>
     </member>
   </compound>
   <compound kind="file">
     <name>misc.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_core/misc/</path>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_core/misc/</path>
     <filename>misc_8h.html</filename>
     <class kind="struct">lemons::SystemInitializer</class>
     <namespace>lemons</namespace>
@@ -1013,375 +963,8 @@
     </member>
   </compound>
   <compound kind="file">
-    <name>ModulationManager.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/ModulationManager/</path>
-    <filename>ModulationManager_8h.html</filename>
-    <class kind="struct">lemons::plugin::ModulationManager::LFO</class>
-    <class kind="class">lemons::plugin::ModulationManager</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-  </compound>
-  <compound kind="file">
-    <name>MonoStereoConverter.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_audio_effects/stereo_image/</path>
-    <filename>MonoStereoConverter_8h.html</filename>
-    <class kind="class">lemons::dsp::FX::MonoStereoConverter</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::FX</namespace>
-  </compound>
-  <compound kind="file">
-    <name>MonoToStereoPanner.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_audio_effects/stereo_image/panning/</path>
-    <filename>MonoToStereoPanner_8h.html</filename>
-    <includes id="PannerBase_8h" name="PannerBase.h" local="yes" imported="no">PannerBase.h</includes>
-    <class kind="class">lemons::dsp::FX::MonoToStereoPanner</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::FX</namespace>
-  </compound>
-  <compound kind="file">
-    <name>motion.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_mobile_utils/all_platforms/</path>
-    <filename>motion_8h.html</filename>
-    <class kind="struct">lemons::MotionManagerInterface::Coords</class>
-    <class kind="struct">lemons::MotionListener</class>
-    <class kind="class">lemons::MotionManagerInterface</class>
-    <namespace>lemons</namespace>
-  </compound>
-  <compound kind="file">
-    <name>NamePopup.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_gui/PresetBar/PresetSavingComponent/</path>
-    <filename>NamePopup_8h.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>NoiseGate.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_audio_effects/dynamics/</path>
-    <filename>NoiseGate_8h.html</filename>
-    <class kind="class">lemons::dsp::FX::NoiseGate</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::FX</namespace>
-  </compound>
-  <compound kind="file">
-    <name>NonrealtimeMutatable.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_core/events/</path>
-    <filename>NonrealtimeMutatable_8h.html</filename>
-    <class kind="struct">lemons::serializing::NonrealtimeMutatable::NonrealtimeAccess</class>
-    <class kind="class">lemons::serializing::NonrealtimeMutatable</class>
-    <class kind="struct">lemons::serializing::NonrealtimeMutatable::RealtimeAccess</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::serializing</namespace>
-  </compound>
-  <compound kind="file">
-    <name>OscEngine.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_oscillators/choosable/</path>
-    <filename>OscEngine_8h.html</filename>
-    <class kind="class">lemons::dsp::osc::OscEngine</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::osc</namespace>
-  </compound>
-  <compound kind="file">
-    <name>oscillators.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_oscillators/basic_types/</path>
-    <filename>oscillators_8h.html</filename>
-    <class kind="struct">lemons::dsp::osc::Oscillator</class>
-    <class kind="struct">lemons::dsp::osc::Phase</class>
-    <class kind="struct">lemons::dsp::osc::Saw</class>
-    <class kind="struct">lemons::dsp::osc::Sine</class>
-    <class kind="struct">lemons::dsp::osc::Square</class>
-    <class kind="struct">lemons::dsp::osc::Triangle</class>
-    <class kind="struct">lemons::dsp::osc::Triangle</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::osc</namespace>
-  </compound>
-  <compound kind="file">
-    <name>OscSynth.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_synth/BasicSynths/</path>
-    <filename>OscSynth_8h.html</filename>
-    <class kind="struct">lemons::dsp::OscSynth</class>
-    <class kind="struct">lemons::dsp::OscSynthVoice</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::synth</namespace>
-    <member kind="typedef">
-      <type>OscSynth&lt; SampleType, osc::Saw &gt;</type>
-      <name>Saw</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1synth.html</anchorfile>
-      <anchor>a7269b6280f2b51716e797bf2c0dca7d1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>OscSynth&lt; SampleType, osc::Sine &gt;</type>
-      <name>Sine</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1synth.html</anchorfile>
-      <anchor>a430ae7ada908a2f8a52973e98167f807</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>OscSynth&lt; SampleType, osc::Square &gt;</type>
-      <name>Square</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1synth.html</anchorfile>
-      <anchor>af80648fe5e5df3b31d06e9c2aab3862b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>OscSynth&lt; SampleType, osc::SuperSaw &gt;</type>
-      <name>SuperSaw</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1synth.html</anchorfile>
-      <anchor>a712a47f2ffcf27c4f87b9429543dffe9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>OscSynth&lt; SampleType, osc::Triangle &gt;</type>
-      <name>Triangle</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1synth.html</anchorfile>
-      <anchor>aa9c8040151c167d0e462405162fdd107</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>PannerBase.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_audio_effects/stereo_image/panning/</path>
-    <filename>PannerBase_8h.html</filename>
-    <class kind="class">lemons::dsp::FX::PannerBase</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::FX</namespace>
-  </compound>
-  <compound kind="file">
-    <name>PanningManager.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_synth/Synth/helpers/</path>
-    <filename>PanningManager_8h.html</filename>
-    <class kind="class">lemons::dsp::synth::PanningManager</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::synth</namespace>
-  </compound>
-  <compound kind="file">
-    <name>Parameter.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/parameters/</path>
-    <filename>Parameter_8h.html</filename>
-    <class kind="struct">lemons::plugin::Parameter::Listener</class>
-    <class kind="class">lemons::plugin::Parameter</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-  </compound>
-  <compound kind="file">
-    <name>ParameterHolder.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/parameters/utils/</path>
-    <filename>ParameterHolder_8h.html</filename>
-    <class kind="class">lemons::plugin::ParameterHolder</class>
-    <class kind="struct">lemons::plugin::ParamHolderBase</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-    <member kind="typedef">
-      <type>plugin::ParameterHolder&lt; plugin::BoolParameter &gt;</type>
-      <name>BoolParam</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a9d697c3ff25dfc43e597de15d8555b3e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>plugin::ParameterHolder&lt; plugin::GainParameter &gt;</type>
-      <name>dbParam</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a844dba6aafc52b1d910e4e3c19130e92</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>plugin::ParameterHolder&lt; plugin::FloatParameter &gt;</type>
-      <name>FloatParam</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>ae8cc701522c1070e134c9312b0641300</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>plugin::ParameterHolder&lt; plugin::GainMeterParameter &gt;</type>
-      <name>GainMeter</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>af5510b4c822b3b9afc862b3ae5ab39c5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>plugin::ParameterHolder&lt; plugin::FrequencyParameter &gt;</type>
-      <name>HzParam</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>acc4070282f0c1a22cd88841626c9b08c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>plugin::ParameterHolder&lt; plugin::IntParameter &gt;</type>
-      <name>IntParam</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a88962e62201aedb2ed503c7485768cc4</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>plugin::ParameterHolder&lt; plugin::MidiPanParameter &gt;</type>
-      <name>PanParam</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a5a1555071e59461615433027f9cae3c6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>plugin::ParameterHolder&lt; plugin::PercentParameter &gt;</type>
-      <name>PercentParam</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a023a7b4e1d3ee7e6ea8783ecf63f4975</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>plugin::ParameterHolder&lt; plugin::MidiPitchParameter &gt;</type>
-      <name>PitchParam</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a465c54c77647869da76f78c4d97c5f6b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>plugin::ParameterHolder&lt; plugin::SecondsParameter &gt;</type>
-      <name>SecParam</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a6e9c7e31133fe325c1648fca7a3af07c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>plugin::ParameterHolder&lt; plugin::SemitonesParameter &gt;</type>
-      <name>SemitonesParam</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>afdf21d446c5261c4175877cd837db089</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>plugin::ParameterHolder&lt; plugin::ToggleParameter &gt;</type>
-      <name>ToggleParam</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a6610ae87b54c2e3df80cd9dd74481f1f</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>ParameterList.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/parameters/</path>
-    <filename>ParameterList_8h.html</filename>
-    <class kind="struct">lemons::plugin::ParameterList::Listener</class>
-    <class kind="class">lemons::plugin::ParameterList</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-  </compound>
-  <compound kind="file">
-    <name>ParameterProcessor.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/parameters/utils/</path>
-    <filename>ParameterProcessor_8h.html</filename>
-    <class kind="class">lemons::plugin::ParameterProcessor</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-  </compound>
-  <compound kind="file">
-    <name>ParameterTypes.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/parameters/</path>
-    <filename>ParameterTypes_8h.html</filename>
-    <class kind="struct">lemons::plugin::BoolParameter</class>
-    <class kind="struct">lemons::plugin::TypedParameter::Listener</class>
-    <class kind="class">lemons::plugin::TypedParameter</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-    <member kind="typedef">
-      <type>TypedParameter&lt; float &gt;</type>
-      <name>FloatParameter</name>
-      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>aa77c4923225c9ae40394bfc8d1e19536</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>TypedParameter&lt; int &gt;</type>
-      <name>IntParameter</name>
-      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>a4517ac2014f80bb22e05083a49c3e7ee</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>ParamUpdater.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/parameters/utils/</path>
-    <filename>ParamUpdater_8h.html</filename>
-    <class kind="struct">lemons::plugin::ParamUpdater</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-  </compound>
-  <compound kind="file">
-    <name>PitchbendTracker.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Connectivity/lemons_midi/MidiUtilities/</path>
-    <filename>PitchbendTracker_8h.html</filename>
-    <class kind="class">lemons::midi::PitchBendTracker</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::midi</namespace>
-  </compound>
-  <compound kind="file">
-    <name>PitchConverter.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Connectivity/lemons_midi/PitchConverter/</path>
-    <filename>PitchConverter_8h.html</filename>
-    <class kind="class">lemons::midi::PitchConverter</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::midi</namespace>
-  </compound>
-  <compound kind="file">
-    <name>PitchCorrector.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_psola/PitchCorrector/</path>
-    <filename>PitchCorrector_8h.html</filename>
-    <class kind="class">lemons::dsp::psola::PitchCorrector</class>
-    <class kind="class">lemons::dsp::psola::PitchCorrectorBase</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::psola</namespace>
-  </compound>
-  <compound kind="file">
-    <name>PitchDetector.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_dsp/PitchDetector/</path>
-    <filename>PitchDetector_8h.html</filename>
-    <class kind="class">lemons::dsp::PitchDetector</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-  </compound>
-  <compound kind="file">
-    <name>PitchPipeline.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Connectivity/lemons_midi/MidiUtilities/</path>
-    <filename>PitchPipeline_8h.html</filename>
-    <class kind="struct">lemons::midi::PitchPipeline</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::midi</namespace>
-  </compound>
-  <compound kind="file">
-    <name>PluginGUIBase.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/EditorBase/</path>
-    <filename>PluginGUIBase_8h.html</filename>
-    <class kind="class">lemons::plugin::GUI</class>
-    <class kind="class">lemons::plugin::GUIBase</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-  </compound>
-  <compound kind="file">
-    <name>PluginState.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/state/</path>
-    <filename>PluginState_8h.html</filename>
-    <class kind="struct">lemons::plugin::PluginState</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-  </compound>
-  <compound kind="file">
-    <name>PopupComponent.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/GUI/lemons_gui/components/</path>
-    <filename>PopupComponent_8h.html</filename>
-    <class kind="class">lemons::gui::Popup</class>
-    <class kind="class">lemons::gui::PopupComponent</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::gui</namespace>
-  </compound>
-  <compound kind="file">
     <name>Preprocessor.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_core/misc/</path>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_core/misc/</path>
     <filename>Preprocessor_8h.html</filename>
     <member kind="define">
       <type>#define</type>
@@ -1399,141 +982,142 @@
     </member>
   </compound>
   <compound kind="file">
-    <name>Preset.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_presets/presets/</path>
-    <filename>Preset_8h.html</filename>
-    <class kind="struct">lemons::plugin::Preset</class>
+    <name>ValueSmoother.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_core/misc/</path>
+    <filename>ValueSmoother_8h.html</filename>
+    <class kind="struct">lemons::ValueSmoother</class>
     <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
   </compound>
   <compound kind="file">
-    <name>PresetBar.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_gui/PresetBar/</path>
-    <filename>PresetBar_8h.html</filename>
-    <includes id="StateToggleButtons_8h" name="StateToggleButtons.h" local="yes" imported="no">StateToggleButtons.h</includes>
-    <includes id="PresetSavingComponent_8h" name="PresetSavingComponent.h" local="yes" imported="no">PresetSavingComponent/PresetSavingComponent.h</includes>
-    <includes id="PresetBrowserComponent_8h" name="PresetBrowserComponent.h" local="yes" imported="no">PresetBrowserComponent/PresetBrowserComponent.h</includes>
-    <class kind="class">lemons::plugin::PresetBar</class>
+    <name>motion.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_mobile_utils/all_platforms/</path>
+    <filename>motion_8h.html</filename>
+    <class kind="struct">lemons::MotionManagerInterface::Coords</class>
+    <class kind="struct">lemons::MotionListener</class>
+    <class kind="class">lemons::MotionManagerInterface</class>
     <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-  </compound>
-  <compound kind="file">
-    <name>PresetBrowserComponent.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_gui/PresetBar/PresetBrowserComponent/</path>
-    <filename>PresetBrowserComponent_8h.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>PresetDatabase.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_presets/preset_library/sub_libraries/database/</path>
-    <filename>PresetDatabase_8h.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>PresetSavingComponent.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_gui/PresetBar/PresetSavingComponent/</path>
-    <filename>PresetSavingComponent_8h.html</filename>
-    <includes id="NamePopup_8h" name="NamePopup.h" local="yes" imported="no">NamePopup.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>PresetsLibrary.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_presets/preset_library/</path>
-    <filename>PresetsLibrary_8h.html</filename>
-    <includes id="LocalPresetsManager_8h" name="LocalPresetsManager.h" local="yes" imported="no">sub_libraries/LocalPresetsManager.h</includes>
-    <includes id="FactoryPresetsManager_8h" name="FactoryPresetsManager.h" local="yes" imported="no">sub_libraries/FactoryPresetsManager.h</includes>
-    <includes id="DatabasePresetsManager_8h" name="DatabasePresetsManager.h" local="yes" imported="no">sub_libraries/DatabasePresetsManager.h</includes>
-    <class kind="class">lemons::plugin::PresetsLibrary</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-  </compound>
-  <compound kind="file">
-    <name>ProcessorBase.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/processors/</path>
-    <filename>ProcessorBase_8h.html</filename>
-    <class kind="class">lemons::plugin::ProcessorBase</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-  </compound>
-  <compound kind="file">
-    <name>Processors.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/processors/</path>
-    <filename>Processors_8h.html</filename>
-    <class kind="class">lemons::plugin::Processor</class>
-    <class kind="struct">lemons::plugin::ProcessorWithEditor</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-    <member kind="typedef">
-      <type>Processor&lt; StateBase, EngineType &gt;</type>
-      <name>StatelessProcessor</name>
-      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>ab118f684c798a14db3ac1a3f8417caea</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>psola_analyzer.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_psola/analysis/</path>
-    <filename>psola__analyzer_8h.html</filename>
-    <includes id="GrainStorage_8h" name="GrainStorage.h" local="yes" imported="no">GrainStorage/GrainStorage.h</includes>
-    <class kind="class">lemons::dsp::psola::Analyzer</class>
-    <class kind="class">lemons::dsp::psola::Shifter</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::psola</namespace>
-  </compound>
-  <compound kind="file">
-    <name>psola_shifter.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_psola/resynthesis/</path>
-    <filename>psola__shifter_8h.html</filename>
-    <class kind="class">lemons::dsp::psola::Shifter</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::psola</namespace>
-  </compound>
-  <compound kind="file">
-    <name>RealtimeMutatable.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_core/events/</path>
-    <filename>RealtimeMutatable_8h.html</filename>
-    <class kind="struct">lemons::serializing::RealtimeMutatable::NonrealtimeAccess</class>
-    <class kind="struct">lemons::serializing::RealtimeMutatable::RealtimeAccess</class>
-    <class kind="class">lemons::serializing::RealtimeMutatable</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::serializing</namespace>
-  </compound>
-  <compound kind="file">
-    <name>Reverb.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_audio_effects/misc/</path>
-    <filename>Reverb_8h.html</filename>
-    <class kind="class">lemons::dsp::FX::Reverb</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::FX</namespace>
   </compound>
   <compound kind="file">
     <name>rotation.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_mobile_utils/all_platforms/</path>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_mobile_utils/all_platforms/</path>
     <filename>rotation_8h.html</filename>
     <class kind="struct">lemons::DeviceRotation</class>
     <class kind="struct">lemons::DeviceRotationListener</class>
     <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
-    <name>Saturation.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_audio_effects/misc/</path>
-    <filename>Saturation_8h.html</filename>
-    <class kind="class">lemons::dsp::FX::Saturator</class>
+    <name>androidMotion.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_mobile_utils/Android/</path>
+    <filename>androidMotion_8h.html</filename>
+    <class kind="class">lemons::MotionManager</class>
     <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::FX</namespace>
+  </compound>
+  <compound kind="file">
+    <name>DummyMotionManager.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_mobile_utils/dummy_desktop_versions/</path>
+    <filename>DummyMotionManager_8h.html</filename>
+    <class kind="class">lemons::MotionManager</class>
+    <namespace>lemons</namespace>
+  </compound>
+  <compound kind="file">
+    <name>iosMotion.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_mobile_utils/iOS/</path>
+    <filename>iosMotion_8h.html</filename>
+    <class kind="class">lemons::MotionManager</class>
+    <namespace>lemons</namespace>
+  </compound>
+  <compound kind="file">
+    <name>DataSynchronizer.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_serializing/DataSynchronizer/</path>
+    <filename>DataSynchronizer_8h.html</filename>
+    <class kind="class">lemons::serializing::DataSynchronizer</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::serializing</namespace>
+  </compound>
+  <compound kind="file">
+    <name>ContainerInterface.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/</path>
+    <filename>ContainerInterface_8h.html</filename>
+    <class kind="struct">lemons::serializing::ContainerInterface</class>
+    <class kind="struct">lemons::serializing::isContainer</class>
+    <class kind="struct">lemons::serializing::LambdaContainerInterface</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::serializing</namespace>
+    <member kind="function">
+      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
+      <name>getInterfaceForContainer</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a947d1fd48af7f4413f461f6c741d5fc2</anchor>
+      <arglist>(ContainerType &amp;)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>MapInterface.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/</path>
+    <filename>MapInterface_8h.html</filename>
+    <class kind="struct">lemons::serializing::isMap</class>
+    <class kind="struct">lemons::serializing::MapInterface</class>
+    <class kind="struct">lemons::serializing::MapInterfaceBase</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::serializing</namespace>
+    <member kind="function">
+      <type>std::unique_ptr&lt; MapInterfaceBase &gt;</type>
+      <name>getInterfaceForMap</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a7270802d3bb72c38a7d6e82460c8bd37</anchor>
+      <arglist>(MapType &amp;)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>SerializableData.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/</path>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/</path>
     <filename>SerializableData_8h.html</filename>
     <class kind="struct">lemons::SerializableData</class>
     <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
+    <name>detail.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/</path>
+    <filename>detail_8h.html</filename>
+    <includes id="Juce__containers_8h" name="Juce_containers.h" local="no" imported="no">lemons_serializing/Serializing/Specializations/containers/Juce_containers.h</includes>
+    <includes id="STL__containers_8h" name="STL_containers.h" local="no" imported="no">lemons_serializing/Serializing/Specializations/containers/STL_containers.h</includes>
+    <includes id="Juce__maps_8h" name="Juce_maps.h" local="no" imported="no">lemons_serializing/Serializing/Specializations/maps/Juce_maps.h</includes>
+    <namespace>lemons</namespace>
+  </compound>
+  <compound kind="file">
+    <name>TreeReflector.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/</path>
+    <filename>TreeReflector_8h.html</filename>
+    <includes id="detail_8h" name="detail.h" local="yes" imported="no">detail.h</includes>
+    <class kind="struct">lemons::TreeLoader</class>
+    <class kind="struct">lemons::TreeReflector</class>
+    <class kind="struct">lemons::TreeSaver</class>
+    <namespace>lemons</namespace>
+  </compound>
+  <compound kind="file">
+    <name>VarConversion.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/</path>
+    <filename>VarConversion_8h.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::serializing</namespace>
+    <member kind="function">
+      <type>Type</type>
+      <name>fromVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>ab1f2f10c7b4aaf9489cc1ee43c450464</anchor>
+      <arglist>(const juce::var &amp;var)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>ae8ee0e682cb966523ed9d443e76789a2</anchor>
+      <arglist>(const Type &amp;object)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>Serializing.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/Serializing/</path>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_serializing/Serializing/</path>
     <filename>Serializing_8h.html</filename>
     <includes id="valuetree__json__converter_8h" name="valuetree_json_converter.h" local="yes" imported="no">ValueTreeToJson/valuetree_json_converter.h</includes>
     <includes id="VarSpecializations_8h" name="VarSpecializations.h" local="yes" imported="no">Specializations/VarSpecializations.h</includes>
@@ -1744,111 +1328,42 @@
     </member>
   </compound>
   <compound kind="file">
-    <name>SliderBase.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_gui/sliders/</path>
-    <filename>SliderBase_8h.html</filename>
-    <class kind="class">lemons::gui::SliderBase</class>
+    <name>Juce_containers.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_serializing/Serializing/Specializations/containers/</path>
+    <filename>Juce__containers_8h.html</filename>
+    <class kind="struct">lemons::serializing::isContainer&lt; juce::Array&lt; ElementType &gt; &gt;</class>
+    <class kind="struct">lemons::serializing::isContainer&lt; juce::OwnedArray&lt; ElementType &gt; &gt;</class>
+    <class kind="struct">lemons::serializing::isContainer&lt; juce::StringArray &gt;</class>
+    <class kind="struct">lemons::serializing::JuceArrayInterface</class>
+    <class kind="struct">lemons::serializing::JuceOwnedArrayInterface</class>
+    <class kind="struct">lemons::serializing::StringArrayInterface</class>
     <namespace>lemons</namespace>
-    <namespace>lemons::gui</namespace>
-  </compound>
-  <compound kind="file">
-    <name>Sliders.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_gui/sliders/</path>
-    <filename>Sliders_8h.html</filename>
-    <includes id="SliderBase_8h" name="SliderBase.h" local="yes" imported="no">SliderBase.h</includes>
-    <class kind="class">lemons::gui::FloatSlider</class>
-    <class kind="class">lemons::gui::IntSlider</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::gui</namespace>
-  </compound>
-  <compound kind="file">
-    <name>SmoothedGain.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_audio_effects/dynamics/</path>
-    <filename>SmoothedGain_8h.html</filename>
-    <class kind="class">lemons::dsp::FX::SmoothedGain</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::FX</namespace>
-  </compound>
-  <compound kind="file">
-    <name>Specializations.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/parameters/</path>
-    <filename>Specializations_8h.html</filename>
-    <class kind="struct">lemons::plugin::FloatAmountParameter</class>
-    <class kind="struct">lemons::plugin::FrequencyParameter</class>
-    <class kind="struct">lemons::plugin::GainMeterParameter</class>
-    <class kind="struct">lemons::plugin::GainParameter</class>
-    <class kind="struct">lemons::plugin::MeterParameter</class>
-    <class kind="struct">lemons::plugin::MidiPanParameter</class>
-    <class kind="struct">lemons::plugin::MidiPitchParameter</class>
-    <class kind="struct">lemons::plugin::PercentParameter</class>
-    <class kind="struct">lemons::plugin::SecondsParameter</class>
-    <class kind="struct">lemons::plugin::SemitonesParameter</class>
-    <class kind="struct">lemons::plugin::ToggleParameter</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-  </compound>
-  <compound kind="file">
-    <name>Spline.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/GUI/lemons_spline/spline/</path>
-    <filename>Spline_8h.html</filename>
-    <includes id="Common_8h" name="Common.h" local="no" imported="no">lemons_spline/common/Common.h</includes>
-    <class kind="struct">lemons::spline::Spline</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::spline</namespace>
-  </compound>
-  <compound kind="file">
-    <name>SplineEditor.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/GUI/lemons_spline/editor/</path>
-    <filename>SplineEditor_8h.html</filename>
-    <class kind="class">lemons::spline::Editor</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::spline</namespace>
-  </compound>
-  <compound kind="file">
-    <name>state.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/state/</path>
-    <filename>state_8h.html</filename>
-    <class kind="struct">lemons::plugin::CustomState</class>
-    <class kind="struct">lemons::plugin::State</class>
-    <class kind="class">lemons::plugin::StateBase</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-    <member kind="typedef">
-      <type>juce::Point&lt; int &gt;</type>
-      <name>Dimensions</name>
-      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>a8fea260dc594cf530c3ffb3bf1f5b1e9</anchor>
-      <arglist></arglist>
+    <namespace>lemons::serializing</namespace>
+    <member kind="function">
+      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
+      <name>getInterfaceForContainer</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>acaa9bcf94a6a18b321714a7425ff0a83</anchor>
+      <arglist>(juce::Array&lt; ElementType &gt; &amp;container)</arglist>
     </member>
-    <member kind="typedef">
-      <type>serializing::Toggler&lt; 3 &gt;</type>
-      <name>StateToggles</name>
-      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>abcfc580033c4f7a4e5242dbb4c3089b0</anchor>
-      <arglist></arglist>
+    <member kind="function">
+      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
+      <name>getInterfaceForContainer</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a62bdd53db8c515549f20b1f0835052b7</anchor>
+      <arglist>(juce::OwnedArray&lt; ElementType &gt; &amp;container)</arglist>
     </member>
-  </compound>
-  <compound kind="file">
-    <name>StateToggleButtons.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_gui/PresetBar/</path>
-    <filename>StateToggleButtons_8h.html</filename>
-    <class kind="class">lemons::plugin::StateToggleButtons</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-  </compound>
-  <compound kind="file">
-    <name>StereoPanner.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_audio_effects/stereo_image/panning/</path>
-    <filename>StereoPanner_8h.html</filename>
-    <class kind="class">lemons::dsp::FX::StereoPanner</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::FX</namespace>
+    <member kind="function">
+      <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
+      <name>getInterfaceForContainer</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a5451726fdfd9955d7017ac2b529f44eb</anchor>
+      <arglist>(juce::StringArray &amp;container)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>STL_containers.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/Serializing/Specializations/containers/</path>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_serializing/Serializing/Specializations/containers/</path>
     <filename>STL__containers_8h.html</filename>
     <class kind="struct">lemons::serializing::isContainer&lt; std::array&lt; ElementType, size &gt; &gt;</class>
     <class kind="struct">lemons::serializing::isContainer&lt; std::deque&lt; ElementType &gt; &gt;</class>
@@ -1896,154 +1411,24 @@
     </member>
   </compound>
   <compound kind="file">
-    <name>SubLibrary.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_presets/preset_library/sub_libraries/</path>
-    <filename>SubLibrary_8h.html</filename>
-    <class kind="class">lemons::plugin::presets::SubLibrary</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-    <namespace>lemons::plugin::presets</namespace>
-  </compound>
-  <compound kind="file">
-    <name>SuperSaw.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_oscillators/SuperSaw/</path>
-    <filename>SuperSaw_8h.html</filename>
-    <class kind="class">lemons::dsp::osc::SuperSaw</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::osc</namespace>
-  </compound>
-  <compound kind="file">
-    <name>Synth.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_synth/Synth/</path>
-    <filename>Synth_8h.html</filename>
-    <includes id="AutomatedHarmonyVoice_8h" name="AutomatedHarmonyVoice.h" local="yes" imported="no">helpers/AutomatedHarmonyVoice.h</includes>
-    <includes id="PanningManager_8h" name="PanningManager.h" local="yes" imported="no">helpers/PanningManager.h</includes>
-    <includes id="MidiManager_8h" name="MidiManager.h" local="yes" imported="no">helpers/MidiManager.h</includes>
-    <includes id="VoiceAllocator_8h" name="VoiceAllocator.h" local="yes" imported="no">helpers/VoiceAllocator.h</includes>
-    <class kind="class">lemons::dsp::SynthBase</class>
-    <class kind="struct">lemons::dsp::SynthBase::TimbreModParams</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-  </compound>
-  <compound kind="file">
-    <name>SynthVoice.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_synth/SynthVoice/</path>
-    <filename>SynthVoice_8h.html</filename>
-    <includes id="TimbreMod_8h" name="TimbreMod.h" local="yes" imported="no">TimbreMod.h</includes>
-    <class kind="class">lemons::dsp::SynthVoiceBase</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-  </compound>
-  <compound kind="file">
-    <name>TemplateSynth.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_synth/BasicSynths/</path>
-    <filename>TemplateSynth_8h.html</filename>
-    <class kind="struct">lemons::dsp::TemplateSynth</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-  </compound>
-  <compound kind="file">
-    <name>TimbreMod.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_synth/SynthVoice/</path>
-    <filename>TimbreMod_8h.html</filename>
-    <class kind="class">lemons::dsp::synth::TimbreMod</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::synth</namespace>
-  </compound>
-  <compound kind="file">
-    <name>Timers.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_core/events/</path>
-    <filename>Timers_8h.html</filename>
-    <class kind="struct">lemons::events::TimerCallback</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::events</namespace>
-  </compound>
-  <compound kind="file">
-    <name>Toggler.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/toggler/</path>
-    <filename>Toggler_8h.html</filename>
-    <class kind="struct">lemons::serializing::Toggler</class>
-    <class kind="struct">lemons::serializing::TogglerInterface</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::serializing</namespace>
-  </compound>
-  <compound kind="file">
-    <name>TreeReflector.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/</path>
-    <filename>TreeReflector_8h.html</filename>
-    <includes id="detail_8h" name="detail.h" local="yes" imported="no">detail.h</includes>
-    <class kind="struct">lemons::TreeLoader</class>
-    <class kind="struct">lemons::TreeReflector</class>
-    <class kind="struct">lemons::TreeSaver</class>
-    <namespace>lemons</namespace>
-  </compound>
-  <compound kind="file">
-    <name>UndoManager.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/undo/</path>
-    <filename>UndoManager_8h.html</filename>
-    <class kind="struct">lemons::UndoManager::ScopedTransaction</class>
-    <class kind="class">lemons::UndoManager</class>
-    <namespace>lemons</namespace>
-  </compound>
-  <compound kind="file">
-    <name>UserProfile.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin_presets/preset_library/sub_libraries/database/</path>
-    <filename>UserProfile_8h.html</filename>
-  </compound>
-  <compound kind="file">
-    <name>ValueSmoother.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_core/misc/</path>
-    <filename>ValueSmoother_8h.html</filename>
-    <class kind="struct">lemons::ValueSmoother</class>
-    <namespace>lemons</namespace>
-  </compound>
-  <compound kind="file">
-    <name>valuetree_json_converter.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/Serializing/ValueTreeToJson/</path>
-    <filename>valuetree__json__converter_8h.html</filename>
+    <name>Juce_maps.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_serializing/Serializing/Specializations/maps/</path>
+    <filename>Juce__maps_8h.html</filename>
+    <class kind="struct">lemons::serializing::isMap&lt; juce::StringPairArray &gt;</class>
+    <class kind="struct">lemons::serializing::StringPairArrayInterface</class>
     <namespace>lemons</namespace>
     <namespace>lemons::serializing</namespace>
     <member kind="function">
-      <type>ValueTree</type>
-      <name>valueTreeFromJSON</name>
+      <type>std::unique_ptr&lt; MapInterfaceBase &gt;</type>
+      <name>getInterfaceForMap</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a3a28001c151ae9a72cee950b7b0c5fe0</anchor>
-      <arglist>(const String &amp;jsonText)</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>valueTreeToJSON</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a44dc62981a244f674a7b47738595d0ac</anchor>
-      <arglist>(const ValueTree &amp;v)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>VarConversion.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/</path>
-    <filename>VarConversion_8h.html</filename>
-    <namespace>lemons</namespace>
-    <namespace>lemons::serializing</namespace>
-    <member kind="function">
-      <type>Type</type>
-      <name>fromVar</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>ab1f2f10c7b4aaf9489cc1ee43c450464</anchor>
-      <arglist>(const juce::var &amp;var)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::var</type>
-      <name>toVar</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>ae8ee0e682cb966523ed9d443e76789a2</anchor>
-      <arglist>(const Type &amp;object)</arglist>
+      <anchor>a52f16de419ffe2a472740c8e58fb849c</anchor>
+      <arglist>(juce::StringPairArray &amp;array)</arglist>
     </member>
   </compound>
   <compound kind="file">
     <name>VarSpecializations.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/Serializing/Specializations/</path>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_serializing/Serializing/Specializations/</path>
     <filename>VarSpecializations_8h.html</filename>
     <class kind="struct">lemons::serializing::FileContents</class>
     <namespace>lemons</namespace>
@@ -2155,207 +1540,820 @@
     </member>
   </compound>
   <compound kind="file">
-    <name>vecops.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_core/math/vecops/</path>
-    <filename>vecops_8h.html</filename>
+    <name>valuetree_json_converter.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_serializing/Serializing/ValueTreeToJson/</path>
+    <filename>valuetree__json__converter_8h.html</filename>
     <namespace>lemons</namespace>
-    <namespace>lemons::vecops</namespace>
+    <namespace>lemons::serializing</namespace>
     <member kind="function">
-      <type>void</type>
-      <name>absVal</name>
-      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
-      <anchor>a5b7e3c4409150af11458675ebffe27fa</anchor>
-      <arglist>(Type *data, int dataSize)</arglist>
+      <type>ValueTree</type>
+      <name>valueTreeFromJSON</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a3a28001c151ae9a72cee950b7b0c5fe0</anchor>
+      <arglist>(const String &amp;jsonText)</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
-      <name>addC</name>
-      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
-      <anchor>aad3fa62e31c1fae1b30b9e65978f8b26</anchor>
-      <arglist>(Type *vector, Type value, int count)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>addV</name>
-      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
-      <anchor>a3fa77cb23011c0175d15b546d2559586</anchor>
-      <arglist>(Type *vecA, const Type *vecB, int count)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>convert</name>
-      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
-      <anchor>a8e357469c7eae8ed3163136fd01edfaa</anchor>
-      <arglist>(Type1 *const dst, const Type2 *const src, int count)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>copy</name>
-      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
-      <anchor>a91bd1f3e3f9e7e9dba4dbafec8f8800b</anchor>
-      <arglist>(const Type *const source, Type *const dest, int count)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>divideC</name>
-      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
-      <anchor>a0b14583eca10081ede8555007f5d6bb8</anchor>
-      <arglist>(Type *vector, Type value, int count)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>divideV</name>
-      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
-      <anchor>a8822dcd57c640e788cddb95ce195af72</anchor>
-      <arglist>(Type *vecA, const Type *vecB, int count)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>fill</name>
-      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
-      <anchor>a239ba96be25a77d259c5357d702b7a44</anchor>
-      <arglist>(Type *vector, Type value, int count)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>findExtrema</name>
-      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
-      <anchor>a75c28dafcaa835851d7ddbb60e308a09</anchor>
-      <arglist>(const Type *data, int dataSize, Type &amp;min, Type &amp;max)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>findIndexOfMaxElement</name>
-      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
-      <anchor>aeab399dcf306c75d4dada4ba4e8fdf35</anchor>
-      <arglist>(const Type *data, int dataSize)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>findIndexOfMinElement</name>
-      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
-      <anchor>a00267fce1554664aeb74a28ee4004380</anchor>
-      <arglist>(const Type *data, int dataSize)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>findMaxAndMaxIndex</name>
-      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
-      <anchor>a5848223aba423c51942026f668786fd8</anchor>
-      <arglist>(const Type *data, int dataSize, Type &amp;maximum, int &amp;maxIndex)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>findMinAndMinIndex</name>
-      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
-      <anchor>afe4faa462c897ed60423e60863d3caba</anchor>
-      <arglist>(const Type *data, int dataSize, Type &amp;minimum, int &amp;minIndex)</arglist>
-    </member>
-    <member kind="function">
-      <type>Type</type>
-      <name>findRangeOfExtrema</name>
-      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
-      <anchor>a32374ec825061a1db11194751b9c23e2</anchor>
-      <arglist>(const Type *data, int dataSize)</arglist>
-    </member>
-    <member kind="function">
-      <type>constexpr bool</type>
-      <name>isUsingFallback</name>
-      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
-      <anchor>ae1c5df4348af2db72ad43e54102097bb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>constexpr bool</type>
-      <name>isUsingVDSP</name>
-      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
-      <anchor>ae721467f6730530d38876888e7a0ea90</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>locateGreatestAbsMagnitude</name>
-      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
-      <anchor>a18686bc9bf20020bdcc1ab23d41503b5</anchor>
-      <arglist>(const Type *data, int dataSize, Type &amp;greatestMagnitude, int &amp;index)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>locateLeastAbsMagnitude</name>
-      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
-      <anchor>aaf5977c9cdac8bb141ad5f16fdbd56e6</anchor>
-      <arglist>(const Type *data, int dataSize, Type &amp;leastMagnitude, int &amp;index)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>multiplyC</name>
-      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
-      <anchor>adcff358da42922fba719d4f49e6ab255</anchor>
-      <arglist>(Type *vector, Type value, int count)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>multiplyV</name>
-      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
-      <anchor>af620febbaa640fe2a713e1d42a6115b7</anchor>
-      <arglist>(Type *vecA, const Type *vecB, int count)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>normalize</name>
-      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
-      <anchor>a090e2a869d602c7b0cc492e5b604436a</anchor>
-      <arglist>(Type *vector, int size)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>square</name>
-      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
-      <anchor>a6639e01ff961e2a1254d3546de1d7cc3</anchor>
-      <arglist>(Type *data, int dataSize)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>squareRoot</name>
-      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
-      <anchor>a7a55da3f049b74035b114eb01dddc614</anchor>
-      <arglist>(Type *data, int dataSize)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>subtractC</name>
-      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
-      <anchor>a95b55a06507a899ca5fc6a3d4d095fa9</anchor>
-      <arglist>(Type *vector, Type value, int count)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>subtractV</name>
-      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
-      <anchor>a362cf31bf20dc4e734523e79f966b0a4</anchor>
-      <arglist>(Type *vecA, const Type *vecB, int count)</arglist>
+      <type>String</type>
+      <name>valueTreeToJSON</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a44dc62981a244f674a7b47738595d0ac</anchor>
+      <arglist>(const ValueTree &amp;v)</arglist>
     </member>
   </compound>
   <compound kind="file">
+    <name>Toggler.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_serializing/toggler/</path>
+    <filename>Toggler_8h.html</filename>
+    <class kind="struct">lemons::serializing::Toggler</class>
+    <class kind="struct">lemons::serializing::TogglerInterface</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::serializing</namespace>
+  </compound>
+  <compound kind="file">
+    <name>UndoManager.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_serializing/undo/</path>
+    <filename>UndoManager_8h.html</filename>
+    <class kind="struct">lemons::UndoManager::ScopedTransaction</class>
+    <class kind="class">lemons::UndoManager</class>
+    <namespace>lemons</namespace>
+  </compound>
+  <compound kind="file">
     <name>Version.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/version/</path>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Common/lemons_serializing/version/</path>
     <filename>Version_8h.html</filename>
     <class kind="struct">lemons::Version</class>
     <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
-    <name>VoiceAllocator.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Audio/lemons_synth/Synth/helpers/</path>
-    <filename>VoiceAllocator_8h.html</filename>
-    <class kind="class">lemons::dsp::synth::VoiceAllocator</class>
+    <name>MidiFIFO.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Connectivity/lemons_midi/MidiUtilities/</path>
+    <filename>MidiFIFO_8h.html</filename>
+    <class kind="class">lemons::midi::MidiFIFO</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::midi</namespace>
+  </compound>
+  <compound kind="file">
+    <name>MidiUtilities.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Connectivity/lemons_midi/MidiUtilities/</path>
+    <filename>MidiUtilities_8h.html</filename>
+    <class kind="struct">lemons::midi::VelocityHelper</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::midi</namespace>
+    <member kind="function">
+      <type>bool</type>
+      <name>areNotesSamePitchClass</name>
+      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
+      <anchor>a17296da211c2aa8456b9865b913187c8</anchor>
+      <arglist>(const noteType1 pitch1, const noteType2 pitch2)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>copyRangeOfMidiBuffer</name>
+      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
+      <anchor>ae32c7b236b4feff5b1bc49ccda1a8517</anchor>
+      <arglist>(const MidiBuffer &amp;readingBuffer, MidiBuffer &amp;destBuffer, const int startSampleOfInput, const int startSampleOfOutput, const int numSamples)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getGainMultFromMidiVelocity</name>
+      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
+      <anchor>a8791220d983aa0594b5dabf48d05bfbe</anchor>
+      <arglist>(float midiVelocity, float sensitivity=1.0f)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getGainMultFromMidiVelocity</name>
+      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
+      <anchor>a269aad5bd2a44f7e5df3748c6bb39e63</anchor>
+      <arglist>(int midiVelocity, float sensitivity=1.0f)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isMidiNoteBlackKey</name>
+      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
+      <anchor>aec33a18b91a81f28e71b7e8767be414c</anchor>
+      <arglist>(noteType midipitch)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isValidMidiPitch</name>
+      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
+      <anchor>ad2284a447de722eb308cc391ba6246a4</anchor>
+      <arglist>(int note)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>PitchbendTracker.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Connectivity/lemons_midi/MidiUtilities/</path>
+    <filename>PitchbendTracker_8h.html</filename>
+    <class kind="class">lemons::midi::PitchBendTracker</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::midi</namespace>
+  </compound>
+  <compound kind="file">
+    <name>PitchPipeline.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Connectivity/lemons_midi/MidiUtilities/</path>
+    <filename>PitchPipeline_8h.html</filename>
+    <class kind="struct">lemons::midi::PitchPipeline</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::midi</namespace>
+  </compound>
+  <compound kind="file">
+    <name>PitchConverter.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Connectivity/lemons_midi/PitchConverter/</path>
+    <filename>PitchConverter_8h.html</filename>
+    <class kind="class">lemons::midi::PitchConverter</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::midi</namespace>
+  </compound>
+  <compound kind="file">
+    <name>MidiChoppingProcessor.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Connectivity/lemons_midi/processors/MidiChoppingProcessor/</path>
+    <filename>MidiChoppingProcessor_8h.html</filename>
+    <class kind="class">lemons::dsp::MidiChoppingProcessor</class>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::synth</namespace>
+  </compound>
+  <compound kind="file">
+    <name>MidiProcessor.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Connectivity/lemons_midi/processors/</path>
+    <filename>MidiProcessor_8h.html</filename>
+    <class kind="struct">lemons::midi::MidiProcessor::LastMovedControllerInfo</class>
+    <class kind="class">lemons::midi::MidiProcessor</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::midi</namespace>
+  </compound>
+  <compound kind="file">
+    <name>ImageComp.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/GUI/lemons_gui/components/</path>
+    <filename>ImageComp_8h.html</filename>
+    <class kind="struct">lemons::gui::ImageComp</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::gui</namespace>
+  </compound>
+  <compound kind="file">
+    <name>Label.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/GUI/lemons_gui/components/</path>
+    <filename>Label_8h.html</filename>
+    <class kind="struct">lemons::gui::Label</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::gui</namespace>
+  </compound>
+  <compound kind="file">
+    <name>PopupComponent.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/GUI/lemons_gui/components/</path>
+    <filename>PopupComponent_8h.html</filename>
+    <class kind="class">lemons::gui::Popup</class>
+    <class kind="class">lemons::gui::PopupComponent</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::gui</namespace>
+  </compound>
+  <compound kind="file">
+    <name>icons.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/GUI/lemons_gui/icons/</path>
+    <filename>icons_8h.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::gui</namespace>
+    <member kind="enumeration">
+      <type></type>
+      <name>IconType</name>
+      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
+      <anchor>ad048a3f259a44396952d9a5a55a95e78</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Stop</name>
+      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
+      <anchor>ad048a3f259a44396952d9a5a55a95e78ad538b31fc4b838bef01edd63eb2af27d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Play</name>
+      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
+      <anchor>ad048a3f259a44396952d9a5a55a95e78aca4767f402db1ae25e4d4a302364ddff</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Pause</name>
+      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
+      <anchor>ad048a3f259a44396952d9a5a55a95e78ad4ec6728260bcf6f5f2e40e8ae8c08f8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Next</name>
+      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
+      <anchor>ad048a3f259a44396952d9a5a55a95e78a30c421b50ab399464be32094dd7d337a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Previous</name>
+      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
+      <anchor>ad048a3f259a44396952d9a5a55a95e78a39863dceb0a578f066638ce06ea94c3f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>ShuffleForward</name>
+      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
+      <anchor>ad048a3f259a44396952d9a5a55a95e78a121a793e27433d419f59ea545a55bcb2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>ShuffleBack</name>
+      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
+      <anchor>ad048a3f259a44396952d9a5a55a95e78a4b2960479c85cdb7193225d2af200c40</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Eject</name>
+      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
+      <anchor>ad048a3f259a44396952d9a5a55a95e78ada179ee9422c09eb44fa4a5491b508eb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Add</name>
+      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
+      <anchor>ad048a3f259a44396952d9a5a55a95e78a9aaacf0ae03c0995f56dac044093fcb6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Search</name>
+      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
+      <anchor>ad048a3f259a44396952d9a5a55a95e78a35c526fdade2ed85c0fd1adfa59afb81</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Power</name>
+      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
+      <anchor>ad048a3f259a44396952d9a5a55a95e78a1f3cf5e60db769ddcabcefac089e966f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Bypass</name>
+      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
+      <anchor>ad048a3f259a44396952d9a5a55a95e78a651b9f28876fff1fc5be011c8d61e51d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Info</name>
+      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
+      <anchor>ad048a3f259a44396952d9a5a55a95e78aedea1697e084eb07606a6bc309b2cdf6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Loop</name>
+      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
+      <anchor>ad048a3f259a44396952d9a5a55a95e78a7ad55a135082449cc4a1786f2d7df1b2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>Speaker</name>
+      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
+      <anchor>ad048a3f259a44396952d9a5a55a95e78acdc990ce0f47ba8febfcc5c74fc82419</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>MutedSpeaker</name>
+      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
+      <anchor>ad048a3f259a44396952d9a5a55a95e78a6f1a947c3aa11f97c9fb48dbafb14615</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>juce::DrawablePath</type>
+      <name>createIcon</name>
+      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
+      <anchor>ab7b994bfeb698f1b3070d59ac9436518</anchor>
+      <arglist>(IconType icon, juce::Colour colour=juce::Colours::black)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>GuiUtils.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/GUI/lemons_gui/utilities/</path>
+    <filename>GuiUtils_8h.html</filename>
+    <class kind="struct">lemons::gui::ScopedCursor</class>
+    <class kind="struct">lemons::gui::ScopedWaitCursor</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::gui</namespace>
+    <member kind="function">
+      <type>void</type>
+      <name>addAndMakeVisible</name>
+      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
+      <anchor>ace177788f88c655a88a7bf34740e1a6c</anchor>
+      <arglist>(juce::Component *parent, juce::Component &amp;child)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::Button::ButtonState</type>
+      <name>boolToButtonState</name>
+      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
+      <anchor>a5e0feccfdadacaa1d4c7598c1e57fd5b</anchor>
+      <arglist>(const bool isOn) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>buttonStateToBool</name>
+      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
+      <anchor>aadbde23ae8b784d26b71b992c06667c1</anchor>
+      <arglist>(juce::Button::ButtonState state) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>scale</name>
+      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
+      <anchor>ac374f72bc68b6558f9653ad08970d903</anchor>
+      <arglist>(juce::Component &amp;component, const juce::Rectangle&lt; float &gt; &amp;boundsRatio)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>Common.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/GUI/lemons_spline/common/</path>
+    <filename>Common_8h.html</filename>
+    <includes id="Knots_8h" name="Knots.h" local="yes" imported="no">Knots.h</includes>
+    <includes id="Interpolation_8h" name="Interpolation.h" local="yes" imported="no">Interpolation.h</includes>
+    <namespace>lemons</namespace>
+    <namespace>lemons::spline</namespace>
+    <member kind="typedef">
+      <type>juce::Point&lt; float &gt;</type>
+      <name>Point</name>
+      <anchorfile>namespacelemons_1_1spline.html</anchorfile>
+      <anchor>a832ddba7a7244525784ee6d0644dd27e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>std::vector&lt; float &gt;</type>
+      <name>Points</name>
+      <anchorfile>namespacelemons_1_1spline.html</anchorfile>
+      <anchor>ae2dbcb02271768847771957183931530</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>Interpolation.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/GUI/lemons_spline/common/</path>
+    <filename>Interpolation_8h.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::spline</namespace>
+    <namespace>lemons::spline::interpolation</namespace>
+    <member kind="function">
+      <type>float</type>
+      <name>hermitCubic</name>
+      <anchorfile>namespacelemons_1_1spline_1_1interpolation.html</anchorfile>
+      <anchor>ade13a7f8e279d2dfef662217dd9a500f</anchor>
+      <arglist>(const Knots &amp;data, float x) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>hermitCubic2</name>
+      <anchorfile>namespacelemons_1_1spline_1_1interpolation.html</anchorfile>
+      <anchor>a300030ec6a47046a739e4032c20c2c78</anchor>
+      <arglist>(const Knots &amp;data, float x, float tolerance, int i1) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>Point</type>
+      <name>lin</name>
+      <anchorfile>namespacelemons_1_1spline_1_1interpolation.html</anchorfile>
+      <anchor>a9894612d36a56455f83cd21a9f677008</anchor>
+      <arglist>(const Point &amp;a, const Point &amp;b, float x) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>Point</type>
+      <name>nurbs</name>
+      <anchorfile>namespacelemons_1_1spline_1_1interpolation.html</anchorfile>
+      <anchor>a50c25e0f00a4a2947cbcc1218eecbc31</anchor>
+      <arglist>(const Knots &amp;data, float t, const int *k) noexcept</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>Knots.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/GUI/lemons_spline/common/</path>
+    <filename>Knots_8h.html</filename>
+    <class kind="struct">lemons::spline::Knot</class>
+    <class kind="struct">lemons::spline::Knots</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::spline</namespace>
+  </compound>
+  <compound kind="file">
+    <name>SplineEditor.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/GUI/lemons_spline/editor/</path>
+    <filename>SplineEditor_8h.html</filename>
+    <class kind="class">lemons::spline::Editor</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::spline</namespace>
+  </compound>
+  <compound kind="file">
+    <name>Spline.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/GUI/lemons_spline/spline/</path>
+    <filename>Spline_8h.html</filename>
+    <includes id="Common_8h" name="Common.h" local="no" imported="no">lemons_spline/common/Common.h</includes>
+    <class kind="struct">lemons::spline::Spline</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::spline</namespace>
+  </compound>
+  <compound kind="file">
+    <name>lemons_modules.dox</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/</path>
+    <filename>lemons__modules_8dox.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>EditorBase.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin/EditorBase/</path>
+    <filename>EditorBase_8h.html</filename>
+    <class kind="class">lemons::plugin::EditorBase</class>
+    <class kind="class">lemons::plugin::PluginEditor</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+  </compound>
+  <compound kind="file">
+    <name>PluginGUIBase.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin/EditorBase/</path>
+    <filename>PluginGUIBase_8h.html</filename>
+    <class kind="class">lemons::plugin::GUI</class>
+    <class kind="class">lemons::plugin::GUIBase</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+  </compound>
+  <compound kind="file">
+    <name>ModulationManager.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin/ModulationManager/</path>
+    <filename>ModulationManager_8h.html</filename>
+    <class kind="struct">lemons::plugin::ModulationManager::LFO</class>
+    <class kind="class">lemons::plugin::ModulationManager</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+  </compound>
+  <compound kind="file">
+    <name>Parameter.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin/parameters/</path>
+    <filename>Parameter_8h.html</filename>
+    <class kind="struct">lemons::plugin::Parameter::Listener</class>
+    <class kind="class">lemons::plugin::Parameter</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+  </compound>
+  <compound kind="file">
+    <name>ParameterList.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin/parameters/</path>
+    <filename>ParameterList_8h.html</filename>
+    <class kind="struct">lemons::plugin::ParameterList::Listener</class>
+    <class kind="class">lemons::plugin::ParameterList</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+  </compound>
+  <compound kind="file">
+    <name>ParameterTypes.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin/parameters/</path>
+    <filename>ParameterTypes_8h.html</filename>
+    <class kind="struct">lemons::plugin::BoolParameter</class>
+    <class kind="struct">lemons::plugin::TypedParameter::Listener</class>
+    <class kind="class">lemons::plugin::TypedParameter</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+    <member kind="typedef">
+      <type>TypedParameter&lt; float &gt;</type>
+      <name>FloatParameter</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>aa77c4923225c9ae40394bfc8d1e19536</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>TypedParameter&lt; int &gt;</type>
+      <name>IntParameter</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>a4517ac2014f80bb22e05083a49c3e7ee</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>Specializations.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin/parameters/</path>
+    <filename>Specializations_8h.html</filename>
+    <class kind="struct">lemons::plugin::FloatAmountParameter</class>
+    <class kind="struct">lemons::plugin::FrequencyParameter</class>
+    <class kind="struct">lemons::plugin::GainMeterParameter</class>
+    <class kind="struct">lemons::plugin::GainParameter</class>
+    <class kind="struct">lemons::plugin::MeterParameter</class>
+    <class kind="struct">lemons::plugin::MidiPanParameter</class>
+    <class kind="struct">lemons::plugin::MidiPitchParameter</class>
+    <class kind="struct">lemons::plugin::PercentParameter</class>
+    <class kind="struct">lemons::plugin::SecondsParameter</class>
+    <class kind="struct">lemons::plugin::SemitonesParameter</class>
+    <class kind="struct">lemons::plugin::ToggleParameter</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+  </compound>
+  <compound kind="file">
+    <name>ParameterHolder.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin/parameters/utils/</path>
+    <filename>ParameterHolder_8h.html</filename>
+    <class kind="class">lemons::plugin::ParameterHolder</class>
+    <class kind="struct">lemons::plugin::ParamHolderBase</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+    <member kind="typedef">
+      <type>plugin::ParameterHolder&lt; plugin::BoolParameter &gt;</type>
+      <name>BoolParam</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>a9d697c3ff25dfc43e597de15d8555b3e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>plugin::ParameterHolder&lt; plugin::GainParameter &gt;</type>
+      <name>dbParam</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>a844dba6aafc52b1d910e4e3c19130e92</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>plugin::ParameterHolder&lt; plugin::FloatParameter &gt;</type>
+      <name>FloatParam</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>ae8cc701522c1070e134c9312b0641300</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>plugin::ParameterHolder&lt; plugin::GainMeterParameter &gt;</type>
+      <name>GainMeter</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>af5510b4c822b3b9afc862b3ae5ab39c5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>plugin::ParameterHolder&lt; plugin::FrequencyParameter &gt;</type>
+      <name>HzParam</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>acc4070282f0c1a22cd88841626c9b08c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>plugin::ParameterHolder&lt; plugin::IntParameter &gt;</type>
+      <name>IntParam</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>a88962e62201aedb2ed503c7485768cc4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>plugin::ParameterHolder&lt; plugin::MidiPanParameter &gt;</type>
+      <name>PanParam</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>a5a1555071e59461615433027f9cae3c6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>plugin::ParameterHolder&lt; plugin::PercentParameter &gt;</type>
+      <name>PercentParam</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>a023a7b4e1d3ee7e6ea8783ecf63f4975</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>plugin::ParameterHolder&lt; plugin::MidiPitchParameter &gt;</type>
+      <name>PitchParam</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>a465c54c77647869da76f78c4d97c5f6b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>plugin::ParameterHolder&lt; plugin::SecondsParameter &gt;</type>
+      <name>SecParam</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>a6e9c7e31133fe325c1648fca7a3af07c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>plugin::ParameterHolder&lt; plugin::SemitonesParameter &gt;</type>
+      <name>SemitonesParam</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>afdf21d446c5261c4175877cd837db089</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>plugin::ParameterHolder&lt; plugin::ToggleParameter &gt;</type>
+      <name>ToggleParam</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>a6610ae87b54c2e3df80cd9dd74481f1f</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>ParameterProcessor.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin/parameters/utils/</path>
+    <filename>ParameterProcessor_8h.html</filename>
+    <class kind="class">lemons::plugin::ParameterProcessor</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+  </compound>
+  <compound kind="file">
+    <name>ParamUpdater.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin/parameters/utils/</path>
+    <filename>ParamUpdater_8h.html</filename>
+    <class kind="struct">lemons::plugin::ParamUpdater</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+  </compound>
+  <compound kind="file">
+    <name>ProcessorBase.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin/processors/</path>
+    <filename>ProcessorBase_8h.html</filename>
+    <class kind="class">lemons::plugin::ProcessorBase</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+  </compound>
+  <compound kind="file">
+    <name>Processors.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin/processors/</path>
+    <filename>Processors_8h.html</filename>
+    <class kind="class">lemons::plugin::Processor</class>
+    <class kind="struct">lemons::plugin::ProcessorWithEditor</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+    <member kind="typedef">
+      <type>Processor&lt; StateBase, EngineType &gt;</type>
+      <name>StatelessProcessor</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>ab118f684c798a14db3ac1a3f8417caea</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>PluginState.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin/state/</path>
+    <filename>PluginState_8h.html</filename>
+    <class kind="struct">lemons::plugin::PluginState</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+  </compound>
+  <compound kind="file">
+    <name>state.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin/state/</path>
+    <filename>state_8h.html</filename>
+    <class kind="struct">lemons::plugin::CustomState</class>
+    <class kind="struct">lemons::plugin::State</class>
+    <class kind="class">lemons::plugin::StateBase</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+    <member kind="typedef">
+      <type>juce::Point&lt; int &gt;</type>
+      <name>Dimensions</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>a8fea260dc594cf530c3ffb3bf1f5b1e9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>serializing::Toggler&lt; 3 &gt;</type>
+      <name>StateToggles</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>abcfc580033c4f7a4e5242dbb4c3089b0</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>GUI/lemons_gui/components/Buttons.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/GUI/lemons_gui/components/</path>
+    <filename>GUI_2lemons__gui_2components_2Buttons_8h.html</filename>
+    <class kind="struct">lemons::gui::ImageButton</class>
+    <class kind="struct">lemons::gui::TextButton</class>
+    <class kind="struct">lemons::gui::ToggleTextButton</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::gui</namespace>
+  </compound>
+  <compound kind="file">
+    <name>Plugins/lemons_plugin_gui/buttons/Buttons.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin_gui/buttons/</path>
+    <filename>Plugins_2lemons__plugin__gui_2buttons_2Buttons_8h.html</filename>
+    <class kind="class">lemons::gui::ToggleButton</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::gui</namespace>
+  </compound>
+  <compound kind="file">
+    <name>PresetBar.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin_gui/PresetBar/</path>
+    <filename>PresetBar_8h.html</filename>
+    <includes id="StateToggleButtons_8h" name="StateToggleButtons.h" local="yes" imported="no">StateToggleButtons.h</includes>
+    <includes id="PresetSavingComponent_8h" name="PresetSavingComponent.h" local="yes" imported="no">PresetSavingComponent/PresetSavingComponent.h</includes>
+    <includes id="PresetBrowserComponent_8h" name="PresetBrowserComponent.h" local="yes" imported="no">PresetBrowserComponent/PresetBrowserComponent.h</includes>
+    <class kind="class">lemons::plugin::PresetBar</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+  </compound>
+  <compound kind="file">
+    <name>PresetBrowserComponent.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin_gui/PresetBar/PresetBrowserComponent/</path>
+    <filename>PresetBrowserComponent_8h.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>NamePopup.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin_gui/PresetBar/PresetSavingComponent/</path>
+    <filename>NamePopup_8h.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>PresetSavingComponent.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin_gui/PresetBar/PresetSavingComponent/</path>
+    <filename>PresetSavingComponent_8h.html</filename>
+    <includes id="NamePopup_8h" name="NamePopup.h" local="yes" imported="no">NamePopup.h</includes>
+  </compound>
+  <compound kind="file">
+    <name>StateToggleButtons.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin_gui/PresetBar/</path>
+    <filename>StateToggleButtons_8h.html</filename>
+    <class kind="class">lemons::plugin::StateToggleButtons</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+  </compound>
+  <compound kind="file">
+    <name>SliderBase.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin_gui/sliders/</path>
+    <filename>SliderBase_8h.html</filename>
+    <class kind="class">lemons::gui::SliderBase</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::gui</namespace>
+  </compound>
+  <compound kind="file">
+    <name>Sliders.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin_gui/sliders/</path>
+    <filename>Sliders_8h.html</filename>
+    <includes id="SliderBase_8h" name="SliderBase.h" local="yes" imported="no">SliderBase.h</includes>
+    <class kind="class">lemons::gui::FloatSlider</class>
+    <class kind="class">lemons::gui::IntSlider</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::gui</namespace>
+  </compound>
+  <compound kind="file">
+    <name>PresetsLibrary.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin_presets/preset_library/</path>
+    <filename>PresetsLibrary_8h.html</filename>
+    <includes id="LocalPresetsManager_8h" name="LocalPresetsManager.h" local="yes" imported="no">sub_libraries/LocalPresetsManager.h</includes>
+    <includes id="FactoryPresetsManager_8h" name="FactoryPresetsManager.h" local="yes" imported="no">sub_libraries/FactoryPresetsManager.h</includes>
+    <includes id="DatabasePresetsManager_8h" name="DatabasePresetsManager.h" local="yes" imported="no">sub_libraries/DatabasePresetsManager.h</includes>
+    <class kind="class">lemons::plugin::PresetsLibrary</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+  </compound>
+  <compound kind="file">
+    <name>PresetDatabase.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin_presets/preset_library/sub_libraries/database/</path>
+    <filename>PresetDatabase_8h.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>UserProfile.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin_presets/preset_library/sub_libraries/database/</path>
+    <filename>UserProfile_8h.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>DatabasePresetsManager.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin_presets/preset_library/sub_libraries/</path>
+    <filename>DatabasePresetsManager_8h.html</filename>
+    <includes id="SubLibrary_8h" name="SubLibrary.h" local="yes" imported="no">SubLibrary.h</includes>
+    <includes id="UserProfile_8h" name="UserProfile.h" local="yes" imported="no">database/UserProfile.h</includes>
+    <includes id="PresetDatabase_8h" name="PresetDatabase.h" local="yes" imported="no">database/PresetDatabase.h</includes>
+    <class kind="class">lemons::plugin::presets::DatabasePresetsManager</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+    <namespace>lemons::plugin::presets</namespace>
+  </compound>
+  <compound kind="file">
+    <name>FactoryPresetsManager.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin_presets/preset_library/sub_libraries/</path>
+    <filename>FactoryPresetsManager_8h.html</filename>
+    <includes id="SubLibrary_8h" name="SubLibrary.h" local="yes" imported="no">SubLibrary.h</includes>
+    <class kind="class">lemons::plugin::presets::FactoryPresetsManager</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+    <namespace>lemons::plugin::presets</namespace>
+  </compound>
+  <compound kind="file">
+    <name>LocalPresetsManager.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin_presets/preset_library/sub_libraries/</path>
+    <filename>LocalPresetsManager_8h.html</filename>
+    <includes id="SubLibrary_8h" name="SubLibrary.h" local="yes" imported="no">SubLibrary.h</includes>
+    <class kind="class">lemons::plugin::presets::LocalPresetsManager</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+    <namespace>lemons::plugin::presets</namespace>
+  </compound>
+  <compound kind="file">
+    <name>SubLibrary.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin_presets/preset_library/sub_libraries/</path>
+    <filename>SubLibrary_8h.html</filename>
+    <class kind="class">lemons::plugin::presets::SubLibrary</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+    <namespace>lemons::plugin::presets</namespace>
+  </compound>
+  <compound kind="file">
+    <name>Preset.h</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/build/Plugins/lemons_plugin_presets/presets/</path>
+    <filename>Preset_8h.html</filename>
+    <class kind="struct">lemons::plugin::Preset</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+  </compound>
+  <compound kind="file">
+    <name>main_page.md</name>
+    <path>/Users/benvining/Documents/MyRepos/dev_workspace/Lemons/doxygen/</path>
+    <filename>main__page_8md.html</filename>
   </compound>
   <compound kind="class">
     <name>lemons::dsp::psola::AnalysisGrainStorage</name>
     <filename>classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <member kind="typedef">
       <type>juce::AudioBuffer&lt; SampleType &gt;</type>
       <name>AudioBuffer</name>
@@ -2395,7 +2393,7 @@
   <compound kind="class">
     <name>lemons::dsp::psola::Analyzer</name>
     <filename>classlemons_1_1dsp_1_1psola_1_1Analyzer.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <member kind="typedef">
       <type>AnalysisGrainStorage&lt; SampleType &gt;</type>
       <name>Storage</name>
@@ -2463,7 +2461,7 @@
   <compound kind="class">
     <name>lemons::dsp::AudioAndMidiFIFO</name>
     <filename>classlemons_1_1dsp_1_1AudioAndMidiFIFO.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <member kind="function">
       <type></type>
       <name>AudioAndMidiFIFO</name>
@@ -2503,7 +2501,7 @@
   <compound kind="struct">
     <name>lemons::dsp::FX::AudioEffect</name>
     <filename>structlemons_1_1dsp_1_1FX_1_1AudioEffect.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <base>lemons::SerializableData</base>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
@@ -2549,56 +2547,9 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>AudioEffect&lt; float &gt;</name>
-    <filename>structlemons_1_1dsp_1_1FX_1_1AudioEffect.html</filename>
-    <base>lemons::SerializableData</base>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~AudioEffect</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1AudioEffect.html</anchorfile>
-      <anchor>a4022812ed63599216d3d943f4c1295d0</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>bypassedBlock</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1AudioEffect.html</anchorfile>
-      <anchor>a0e2734ec1b7a89c566cbd2fe9b3592c8</anchor>
-      <arglist>(int numSamples)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>deserialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>ace1758cc9344ae03a6d01c3c218226de</anchor>
-      <arglist>(const ValueTree &amp;tree)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>prepare</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1AudioEffect.html</anchorfile>
-      <anchor>a97b60e3696ef3e25e4fe24b4448ec4f1</anchor>
-      <arglist>(double samplerate, int blocksize)</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>process</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1AudioEffect.html</anchorfile>
-      <anchor>a5979cff40fec5864fb6a45bba0b01911</anchor>
-      <arglist>(AudioBuffer&lt; float &gt; &amp;audio)=0</arglist>
-    </member>
-    <member kind="function">
-      <type>ValueTree</type>
-      <name>serialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>lemons::dsp::AudioFIFO</name>
     <filename>classlemons_1_1dsp_1_1AudioFIFO.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <member kind="function">
       <type>int</type>
       <name>numStoredSamples</name>
@@ -2631,7 +2582,7 @@
   <compound kind="class">
     <name>lemons::dsp::synth::AutomatedHarmonyVoice</name>
     <filename>classlemons_1_1dsp_1_1synth_1_1AutomatedHarmonyVoice.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <member kind="typedef">
       <type>SynthVoiceBase&lt; SampleType &gt;</type>
       <name>Voice</name>
@@ -2650,7 +2601,7 @@
       <type>Voice *</type>
       <name>getVoice</name>
       <anchorfile>classlemons_1_1dsp_1_1synth_1_1AutomatedHarmonyVoice.html</anchorfile>
-      <anchor>ae420f6cf33c42b638b267e5b2fe33c0f</anchor>
+      <anchor>aeca4d8ffa606f6446c43e7b551372088</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -2827,7 +2778,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>a56ede68a45d400299a704db8e629933d</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -3056,7 +3007,7 @@
   <compound kind="class">
     <name>lemons::dsp::osc::ChoosableOscillator</name>
     <filename>classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <base>lemons::SerializableData</base>
     <member kind="function">
       <type></type>
@@ -3137,91 +3088,9 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>ChoosableOscillator&lt; float &gt;</name>
-    <filename>classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html</filename>
-    <base>lemons::SerializableData</base>
-    <member kind="function">
-      <type></type>
-      <name>ChoosableOscillator</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html</anchorfile>
-      <anchor>a50d1c7a2bb5c56c9ef910d1d2d24255d</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>deserialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>ace1758cc9344ae03a6d01c3c218226de</anchor>
-      <arglist>(const ValueTree &amp;tree)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getFrequency</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html</anchorfile>
-      <anchor>a2d3ec8b57408773a24a0f96b1c5ca24e</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>OscType</type>
-      <name>getOscType</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html</anchorfile>
-      <anchor>a5705f7719f4f0ce5a7d4be38d9fc5a3b</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html</anchorfile>
-      <anchor>af12518b5cd5e5ea13bf599ddbfccbf7b</anchor>
-      <arglist>(int blocksize, double samplerate)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html</anchorfile>
-      <anchor>a4ef0ce63df807f5dd3d63062ebe43d2b</anchor>
-      <arglist>(AudioBuffer&lt; float &gt; &amp;output)</arglist>
-    </member>
-    <member kind="function">
-      <type>ValueTree</type>
-      <name>serialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setDetuneAmount</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html</anchorfile>
-      <anchor>abae65b1d4b749b074aaec6082eadc89c</anchor>
-      <arglist>(int pitchSpreadCents)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setFrequency</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html</anchorfile>
-      <anchor>a6ed30db2672c60de56d8858abfadc7ee</anchor>
-      <arglist>(float freqHz)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setOscType</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html</anchorfile>
-      <anchor>a39f887a0d50e01b72f1f862d20e43069</anchor>
-      <arglist>(OscType newType)</arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="virtual">
-      <type>virtual void</type>
-      <name>prepared</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html</anchorfile>
-      <anchor>aa0ea229ad02704d516c727b10b69504b</anchor>
-      <arglist>(int)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>lemons::dsp::CircularBuffer</name>
     <filename>classlemons_1_1dsp_1_1CircularBuffer.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <member kind="function">
       <type>int</type>
       <name>clipValueToCapacity</name>
@@ -3282,7 +3151,7 @@
   <compound kind="struct">
     <name>lemons::dsp::filters::Coefficients</name>
     <filename>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</filename>
-    <templarg></templarg>
+    <templarg>typename NumericType</templarg>
     <class kind="struct">lemons::dsp::filters::Coefficients::Storage</class>
     <member kind="function">
       <type></type>
@@ -3302,14 +3171,14 @@
       <type>const NumericType *</type>
       <name>getRawCoefficients</name>
       <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>a9eb2d24f7562e3562ec08a39ddbcb2f9</anchor>
+      <anchor>ab1c4969fbb4804bb5e080f5ee82d660f</anchor>
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>NumericType *</type>
       <name>getRawCoefficients</name>
       <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>aad5889503f4df7e24ca5f94d7dfaecc3</anchor>
+      <anchor>a86f2699d63812a78d163f2ab7280e7f6</anchor>
       <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
@@ -3398,241 +3267,9 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>Coefficients&lt; float &gt;</name>
-    <filename>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>Coefficients</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>a3a6c616dedc468cd13c1a589b2c1ac6a</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getFilterOrder</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>a49b280b555e78155d9871d98ccd32041</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>const float *</type>
-      <name>getRawCoefficients</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>a9eb2d24f7562e3562ec08a39ddbcb2f9</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>float *</type>
-      <name>getRawCoefficients</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>aad5889503f4df7e24ca5f94d7dfaecc3</anchor>
-      <arglist>() noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>makeAllPass</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>a3a7c242d1a4828c7a406009d1192044d</anchor>
-      <arglist>(double sampleRate, float frequency, float Q=inverseRootTwo)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>makeBandPass</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>ab2fb51ddb61ca5aa4c628a0b164cc0e3</anchor>
-      <arglist>(double sampleRate, float frequency, float Q=inverseRootTwo)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>makeFirstOrderAllPass</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>a532a5bc0d543a1ad51ffb25513c395dd</anchor>
-      <arglist>(double sampleRate, float frequency)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>makeFirstOrderHighPass</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>a7f39f3609dec218b73f4b7f36a2743b2</anchor>
-      <arglist>(double sampleRate, float frequency)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>makeFirstOrderLowPass</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>aa241f84403f500a55aa04854eab6fa4d</anchor>
-      <arglist>(double sampleRate, float frequency)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>makeHighPass</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>ae2d96c7a63ccc9e187540cd7cb72dd65</anchor>
-      <arglist>(double sampleRate, float frequency, float Q=inverseRootTwo)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>makeHighShelf</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>a0fd5b6d24db5ec70fc2c1a98a3a8b679</anchor>
-      <arglist>(double sampleRate, float cutOffFrequency, float Q=inverseRootTwo, float gainFactor=(float) 1)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>makeLowPass</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>a58815f389b9b037f861b91aa5d548598</anchor>
-      <arglist>(double sampleRate, float frequency, float Q=inverseRootTwo)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>makeLowShelf</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>a0fd8aaf0e0d6189d1c3ff1f9bf78be12</anchor>
-      <arglist>(double sampleRate, float cutOffFrequency, float Q=inverseRootTwo, float gainFactor=(float) 1)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>makeNotch</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>a4a0f375675947372c3f7ef75da70a1b8</anchor>
-      <arglist>(double sampleRate, float frequency, float Q=inverseRootTwo)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>makePeakFilter</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>ab22e8f58053dcba63671e20961a71e6a</anchor>
-      <arglist>(double sampleRate, float centreFrequency, float Q=inverseRootTwo, float gainFactor=(float) 1)</arglist>
-    </member>
-    <member kind="variable">
-      <type>Storage</type>
-      <name>coefficients</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>aa2956ada5f78984a5ef47f28cde1b8c0</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>Coefficients&lt; SampleType &gt;</name>
-    <filename>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>Coefficients</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>a3a6c616dedc468cd13c1a589b2c1ac6a</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getFilterOrder</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>a49b280b555e78155d9871d98ccd32041</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>const SampleType *</type>
-      <name>getRawCoefficients</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>a9eb2d24f7562e3562ec08a39ddbcb2f9</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>SampleType *</type>
-      <name>getRawCoefficients</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>aad5889503f4df7e24ca5f94d7dfaecc3</anchor>
-      <arglist>() noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>makeAllPass</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>a3a7c242d1a4828c7a406009d1192044d</anchor>
-      <arglist>(double sampleRate, SampleType frequency, SampleType Q=inverseRootTwo)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>makeBandPass</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>ab2fb51ddb61ca5aa4c628a0b164cc0e3</anchor>
-      <arglist>(double sampleRate, SampleType frequency, SampleType Q=inverseRootTwo)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>makeFirstOrderAllPass</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>a532a5bc0d543a1ad51ffb25513c395dd</anchor>
-      <arglist>(double sampleRate, SampleType frequency)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>makeFirstOrderHighPass</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>a7f39f3609dec218b73f4b7f36a2743b2</anchor>
-      <arglist>(double sampleRate, SampleType frequency)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>makeFirstOrderLowPass</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>aa241f84403f500a55aa04854eab6fa4d</anchor>
-      <arglist>(double sampleRate, SampleType frequency)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>makeHighPass</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>ae2d96c7a63ccc9e187540cd7cb72dd65</anchor>
-      <arglist>(double sampleRate, SampleType frequency, SampleType Q=inverseRootTwo)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>makeHighShelf</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>a0fd5b6d24db5ec70fc2c1a98a3a8b679</anchor>
-      <arglist>(double sampleRate, SampleType cutOffFrequency, SampleType Q=inverseRootTwo, SampleType gainFactor=(SampleType) 1)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>makeLowPass</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>a58815f389b9b037f861b91aa5d548598</anchor>
-      <arglist>(double sampleRate, SampleType frequency, SampleType Q=inverseRootTwo)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>makeLowShelf</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>a0fd8aaf0e0d6189d1c3ff1f9bf78be12</anchor>
-      <arglist>(double sampleRate, SampleType cutOffFrequency, SampleType Q=inverseRootTwo, SampleType gainFactor=(SampleType) 1)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>makeNotch</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>a4a0f375675947372c3f7ef75da70a1b8</anchor>
-      <arglist>(double sampleRate, SampleType frequency, SampleType Q=inverseRootTwo)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>makePeakFilter</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>ab22e8f58053dcba63671e20961a71e6a</anchor>
-      <arglist>(double sampleRate, SampleType centreFrequency, SampleType Q=inverseRootTwo, SampleType gainFactor=(SampleType) 1)</arglist>
-    </member>
-    <member kind="variable">
-      <type>Storage</type>
-      <name>coefficients</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients.html</anchorfile>
-      <anchor>aa2956ada5f78984a5ef47f28cde1b8c0</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>lemons::dsp::FX::Compressor</name>
     <filename>classlemons_1_1dsp_1_1FX_1_1Compressor.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <base>lemons::dsp::FX::LevelReportingAudioEffect</base>
     <member kind="function">
       <type></type>
@@ -3768,144 +3405,6 @@
       <arglist>(float newThresh_dB)</arglist>
     </member>
   </compound>
-  <compound kind="class">
-    <name>Compressor&lt; float &gt;</name>
-    <filename>classlemons_1_1dsp_1_1FX_1_1Compressor.html</filename>
-    <base>LevelReportingAudioEffect&lt; float &gt;</base>
-    <member kind="function">
-      <type></type>
-      <name>Compressor</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Compressor.html</anchorfile>
-      <anchor>a04d8d8563014eeb6c8a990df1a55b22e</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>Compressor</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Compressor.html</anchorfile>
-      <anchor>aa4c204cd9aaa6714bfb88614ea91de9e</anchor>
-      <arglist>(float thresh, float ratioToUse, float attackMs, float releaseMs)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>bypassedBlock</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1AudioEffect.html</anchorfile>
-      <anchor>a0e2734ec1b7a89c566cbd2fe9b3592c8</anchor>
-      <arglist>(int numSamples)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>deserialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>ace1758cc9344ae03a6d01c3c218226de</anchor>
-      <arglist>(const ValueTree &amp;tree)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getAverageGainReduction</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html</anchorfile>
-      <anchor>a14cf647f18c204aafc0433069ae685e3</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getAverageLevel</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html</anchorfile>
-      <anchor>af3597cf522549d6bcbd0777bb6926dfd</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getGainReduction</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html</anchorfile>
-      <anchor>a845aafe7263a138250b02bd383f509d3</anchor>
-      <arglist>(int channel) const</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getLevel</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html</anchorfile>
-      <anchor>a93a089c0564fa043b74c78ad2c8311cc</anchor>
-      <arglist>(int channel) const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Compressor.html</anchorfile>
-      <anchor>ac39f2f984f9d38eaad3d99ab1f7b0a7a</anchor>
-      <arglist>(double samplerate, int blocksize) final</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html</anchorfile>
-      <anchor>af83eabef85b031658c1963012544609b</anchor>
-      <arglist>(AudioBuffer&lt; float &gt; &amp;audio) final</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html</anchorfile>
-      <anchor>a86b4201e9da1bc16b9498adf879d2256</anchor>
-      <arglist>(AudioBuffer&lt; float &gt; &amp;inOut, const AudioBuffer&lt; float &gt; &amp;sidechain) final</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>processChannel</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Compressor.html</anchorfile>
-      <anchor>af328eee8e0467199bf2a416358379a1d</anchor>
-      <arglist>(int channel, int numSamples, float *signalToCompress, const float *sidechain) final</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>processSample</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Compressor.html</anchorfile>
-      <anchor>a9caa8d522fb54d8a5621a79a23e9da77</anchor>
-      <arglist>(int channel, float inputSample, float sidechainSample, float *gainReduction)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>reset</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Compressor.html</anchorfile>
-      <anchor>a951a48cf35955cfb272877193ddf783d</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>ValueTree</type>
-      <name>serialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setAttack</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Compressor.html</anchorfile>
-      <anchor>adfa2f022270f9f3bc9e5ec7731c4e2e9</anchor>
-      <arglist>(float attackMs)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setRatio</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Compressor.html</anchorfile>
-      <anchor>a7985c29151ff171797f73d7768b9716e</anchor>
-      <arglist>(float newRatio)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setRelease</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Compressor.html</anchorfile>
-      <anchor>a07029a42eab5af1698331acd714fa533</anchor>
-      <arglist>(float releaseMs)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setThreshold</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1Compressor.html</anchorfile>
-      <anchor>a401f36fcf010190dfdb74e6a707c3e7c</anchor>
-      <arglist>(float newThresh_dB)</arglist>
-    </member>
-  </compound>
   <compound kind="struct">
     <name>lemons::serializing::ContainerInterface</name>
     <filename>structlemons_1_1serializing_1_1ContainerInterface.html</filename>
@@ -3952,10 +3451,10 @@
   <compound kind="struct">
     <name>lemons::plugin::CustomState</name>
     <filename>structlemons_1_1plugin_1_1CustomState.html</filename>
-    <templarg></templarg>
-    <templarg></templarg>
-    <templarg></templarg>
-    <templarg></templarg>
+    <templarg>typename ParamListType</templarg>
+    <templarg>typename CustomDataType</templarg>
+    <templarg>LEMONS_MUST_INHERIT_FROM(ParamListType, ParameterList)</templarg>
+    <templarg>LEMONS_MUST_INHERIT_FROM(CustomDataType, SerializableData)</templarg>
     <base>lemons::plugin::StateBase</base>
     <member kind="function">
       <type></type>
@@ -3989,7 +3488,7 @@
       <type>ParameterList &amp;</type>
       <name>getParameters</name>
       <anchorfile>classlemons_1_1plugin_1_1StateBase.html</anchorfile>
-      <anchor>ac6509bdb427c634a0e09fe50c6752e52</anchor>
+      <anchor>a8d3569a3cbec7e46f3726b1ffd698d6c</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -4071,7 +3570,7 @@
       <type>const juce::Array&lt; Preset &gt; &amp;</type>
       <name>getPresets</name>
       <anchorfile>classlemons_1_1plugin_1_1presets_1_1SubLibrary.html</anchorfile>
-      <anchor>a0376512c8575df44d899b0cecfd6fb77</anchor>
+      <anchor>acd2dcc1b4596513f339ee84e256047c3</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -4145,7 +3644,7 @@
   <compound kind="class">
     <name>lemons::dsp::FX::DeEsser</name>
     <filename>classlemons_1_1dsp_1_1FX_1_1DeEsser.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <base>lemons::dsp::FX::LevelReportingAudioEffect</base>
     <member kind="function">
       <type></type>
@@ -4263,8 +3762,8 @@
   <compound kind="struct">
     <name>lemons::DefaultWindow</name>
     <filename>structlemons_1_1DefaultWindow.html</filename>
-    <templarg></templarg>
-    <templarg></templarg>
+    <templarg>typename ComponentType</templarg>
+    <templarg>LEMONS_MUST_INHERIT_FROM(ComponentType, juce::Component)</templarg>
     <base>lemons::DefaultWindowBase</base>
     <member kind="function">
       <type></type>
@@ -4302,7 +3801,7 @@
   <compound kind="class">
     <name>lemons::dsp::FX::Delay</name>
     <filename>classlemons_1_1dsp_1_1FX_1_1Delay.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <base>lemons::dsp::FX::LevelReportingAudioEffect</base>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
@@ -4463,7 +3962,7 @@
   <compound kind="class">
     <name>lemons::dsp::FX::DryWetMixer</name>
     <filename>classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <member kind="typedef">
       <type>AudioBuffer&lt; SampleType &gt;</type>
       <name>AudioBuffer</name>
@@ -4637,9 +4136,9 @@
   <compound kind="class">
     <name>lemons::dsp::FX::EffectEngine</name>
     <filename>classlemons_1_1dsp_1_1FX_1_1EffectEngine.html</filename>
-    <templarg>EffectType</templarg>
-    <templarg></templarg>
-    <templarg></templarg>
+    <templarg>template&lt; typename FloatType &gt; class EffectType</templarg>
+    <templarg>typename SampleType</templarg>
+    <templarg>LEMONS_MUST_INHERIT_FROM(EffectType&lt; SampleType &gt;, AudioEffect&lt; SampleType &gt;)</templarg>
     <base>lemons::dsp::Engine</base>
     <base>lemons::SerializableData</base>
     <member kind="function">
@@ -4674,132 +4173,21 @@
       <type>EffectType&lt; SampleType &gt; &amp;</type>
       <name>operator()</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EffectEngine.html</anchorfile>
-      <anchor>aa0c5a5dd723ac14053bc9fb3ca60a9a9</anchor>
+      <anchor>a5e570bd7ec5ce38cb2fb2d45a4f9e349</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>EffectType&lt; SampleType &gt; &amp;</type>
       <name>operator*</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EffectEngine.html</anchorfile>
-      <anchor>a01aba18223c1a30326cfae4d0a9915ea</anchor>
+      <anchor>a526b2428511850b51ed5121e52eea486</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>EffectType&lt; SampleType &gt; *</type>
       <name>operator-&gt;</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EffectEngine.html</anchorfile>
-      <anchor>acf94ecc471a7bf6127deb4193e9e4fae</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a92fe69356c54445d91e70586cc9cdf73</anchor>
-      <arglist>(double samplerate, int blocksize, int numChannels=2)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a3f813b9e44ed7518183da4afe405f44e</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a48b37b72835d34fc060a1010a1fe2499</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>adfb2f088baaa0e07efa7bf794918d831</anchor>
-      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>aa3668be93e3cc7b9a4340c5872be9b45</anchor>
-      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>releaseResources</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a144323b4488420dcf49b89cee7837f8c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual int</type>
-      <name>reportLatency</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a8cf8a2dd9e6cded85b3762f9db805310</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>ValueTree</type>
-      <name>serialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>EffectEngine&lt; Filter, SampleType &gt;</name>
-    <filename>classlemons_1_1dsp_1_1FX_1_1EffectEngine.html</filename>
-    <base>lemons::dsp::Engine</base>
-    <base>lemons::SerializableData</base>
-    <member kind="function">
-      <type></type>
-      <name>EffectEngine</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1EffectEngine.html</anchorfile>
-      <anchor>a3543298599048f1a8d3a471a67ae9eff</anchor>
-      <arglist>(Args &amp;&amp;... args)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>deserialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>ace1758cc9344ae03a6d01c3c218226de</anchor>
-      <arglist>(const ValueTree &amp;tree)</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>getSamplerate</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isInitialized</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>Filter&lt; SampleType &gt; &amp;</type>
-      <name>operator()</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1EffectEngine.html</anchorfile>
-      <anchor>aa0c5a5dd723ac14053bc9fb3ca60a9a9</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>Filter&lt; SampleType &gt; &amp;</type>
-      <name>operator*</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1EffectEngine.html</anchorfile>
-      <anchor>a01aba18223c1a30326cfae4d0a9915ea</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>Filter&lt; SampleType &gt; *</type>
-      <name>operator-&gt;</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1EffectEngine.html</anchorfile>
-      <anchor>acf94ecc471a7bf6127deb4193e9e4fae</anchor>
+      <anchor>a0e9a0817dc587fc17a11000a4a283ac7</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -4862,7 +4250,7 @@
   <compound kind="class">
     <name>lemons::dsp::Engine</name>
     <filename>classlemons_1_1dsp_1_1Engine.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <member kind="function">
       <type></type>
       <name>Engine</name>
@@ -4963,213 +4351,9 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>Engine&lt; double &gt;</name>
-    <filename>classlemons_1_1dsp_1_1Engine.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>Engine</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>aff2070d0265ee64b3377e7551525efa6</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~Engine</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a47b57c00f1986dd60c0c620f9d404e70</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>getSamplerate</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isInitialized</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a92fe69356c54445d91e70586cc9cdf73</anchor>
-      <arglist>(double samplerate, int blocksize, int numChannels=2)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a3f813b9e44ed7518183da4afe405f44e</anchor>
-      <arglist>(AudioBuffer&lt; double &gt; &amp;inplaceInAndOut, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a48b37b72835d34fc060a1010a1fe2499</anchor>
-      <arglist>(AudioBuffer&lt; double &gt; &amp;inplaceInAndOut, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>adfb2f088baaa0e07efa7bf794918d831</anchor>
-      <arglist>(const AudioBuffer&lt; double &gt; &amp;input, AudioBuffer&lt; double &gt; &amp;output, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>aa3668be93e3cc7b9a4340c5872be9b45</anchor>
-      <arglist>(const AudioBuffer&lt; double &gt; &amp;input, AudioBuffer&lt; double &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>releaseResources</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a144323b4488420dcf49b89cee7837f8c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual int</type>
-      <name>reportLatency</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a8cf8a2dd9e6cded85b3762f9db805310</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="virtual">
-      <type>virtual void</type>
-      <name>prepared</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a5502bd355277d1bb044c4061a2cf612e</anchor>
-      <arglist>(int blocksize, double samplerate)</arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="virtual">
-      <type>virtual void</type>
-      <name>released</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>ac8b2a88ec044945497543798253e211a</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="pure">
-      <type>virtual void</type>
-      <name>renderBlock</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a20e2f81d84b335b507e34eb129e87820</anchor>
-      <arglist>(const AudioBuffer&lt; double &gt; &amp;input, AudioBuffer&lt; double &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed)=0</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>Engine&lt; float &gt;</name>
-    <filename>classlemons_1_1dsp_1_1Engine.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>Engine</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>aff2070d0265ee64b3377e7551525efa6</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~Engine</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a47b57c00f1986dd60c0c620f9d404e70</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>getSamplerate</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isInitialized</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a92fe69356c54445d91e70586cc9cdf73</anchor>
-      <arglist>(double samplerate, int blocksize, int numChannels=2)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a3f813b9e44ed7518183da4afe405f44e</anchor>
-      <arglist>(AudioBuffer&lt; float &gt; &amp;inplaceInAndOut, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a48b37b72835d34fc060a1010a1fe2499</anchor>
-      <arglist>(AudioBuffer&lt; float &gt; &amp;inplaceInAndOut, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>adfb2f088baaa0e07efa7bf794918d831</anchor>
-      <arglist>(const AudioBuffer&lt; float &gt; &amp;input, AudioBuffer&lt; float &gt; &amp;output, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>aa3668be93e3cc7b9a4340c5872be9b45</anchor>
-      <arglist>(const AudioBuffer&lt; float &gt; &amp;input, AudioBuffer&lt; float &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>releaseResources</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a144323b4488420dcf49b89cee7837f8c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual int</type>
-      <name>reportLatency</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a8cf8a2dd9e6cded85b3762f9db805310</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="virtual">
-      <type>virtual void</type>
-      <name>prepared</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a5502bd355277d1bb044c4061a2cf612e</anchor>
-      <arglist>(int blocksize, double samplerate)</arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="virtual">
-      <type>virtual void</type>
-      <name>released</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>ac8b2a88ec044945497543798253e211a</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="pure">
-      <type>virtual void</type>
-      <name>renderBlock</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a20e2f81d84b335b507e34eb129e87820</anchor>
-      <arglist>(const AudioBuffer&lt; float &gt; &amp;input, AudioBuffer&lt; float &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed)=0</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>lemons::dsp::FX::EQ</name>
     <filename>classlemons_1_1dsp_1_1FX_1_1EQ.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <base>lemons::dsp::FX::AudioEffect</base>
     <member kind="typedef">
       <type>FilterEngine&lt; SampleType &gt;</type>
@@ -5217,21 +4401,21 @@
       <type>Filter&lt; SampleType &gt; *</type>
       <name>getBand</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EQ.html</anchorfile>
-      <anchor>aacfc5db6bce3134063ba1fe6e029e744</anchor>
+      <anchor>aff7b81f9a8254b44843f18d52bc12033</anchor>
       <arglist>(int index)</arglist>
     </member>
     <member kind="function">
       <type>Filter&lt; SampleType &gt; *</type>
       <name>getBandAtFrequency</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EQ.html</anchorfile>
-      <anchor>ac15a0db71bda56f38eb8cf3f89695a41</anchor>
+      <anchor>abb6045404f7a98340592447cef4dbd18</anchor>
       <arglist>(float freq)</arglist>
     </member>
     <member kind="function">
       <type>Filter&lt; SampleType &gt; *</type>
       <name>getBandOfType</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EQ.html</anchorfile>
-      <anchor>a2ada180fca59922063a373ef7e55a6ef</anchor>
+      <anchor>ac57a8f3bf8b81085a2352741d880c16b</anchor>
       <arglist>(FilterType type)</arglist>
     </member>
     <member kind="function">
@@ -5278,7 +4462,7 @@
       <type>const juce::Array&lt; Preset &gt; &amp;</type>
       <name>getPresets</name>
       <anchorfile>classlemons_1_1plugin_1_1presets_1_1SubLibrary.html</anchorfile>
-      <anchor>a0376512c8575df44d899b0cecfd6fb77</anchor>
+      <anchor>acd2dcc1b4596513f339ee84e256047c3</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -5358,9 +4542,42 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>lemons::dsp::filters::Filter</name>
+    <filename>classlemons_1_1dsp_1_1filters_1_1Filter.html</filename>
+    <templarg>typename SampleType</templarg>
+    <member kind="function">
+      <type>void</type>
+      <name>prepare</name>
+      <anchorfile>classlemons_1_1dsp_1_1filters_1_1Filter.html</anchorfile>
+      <anchor>adb8982b06bdc99e8b8b544318ca9e02a</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1filters_1_1Filter.html</anchorfile>
+      <anchor>a5fbb9f92bd17682d554077cc3a8c08c5</anchor>
+      <arglist>(SampleType *buffer, int numSamples)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>reset</name>
+      <anchorfile>classlemons_1_1dsp_1_1filters_1_1Filter.html</anchorfile>
+      <anchor>a072e405ea503f6e2a1fc15d3a2818e4f</anchor>
+      <arglist>(SampleType resetToValue=SampleType(0))</arglist>
+    </member>
+    <member kind="variable">
+      <type>Coefficients&lt; SampleType &gt;</type>
+      <name>coefs</name>
+      <anchorfile>classlemons_1_1dsp_1_1filters_1_1Filter.html</anchorfile>
+      <anchor>a7ad358b8fde87138aff590f7724fd941</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>lemons::dsp::FX::Filter</name>
     <filename>classlemons_1_1dsp_1_1FX_1_1Filter.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <base>lemons::dsp::FX::AudioEffect</base>
     <member kind="function">
       <type></type>
@@ -5475,43 +4692,10 @@
       <arglist>(float newQ)</arglist>
     </member>
   </compound>
-  <compound kind="class">
-    <name>lemons::dsp::filters::Filter</name>
-    <filename>classlemons_1_1dsp_1_1filters_1_1Filter.html</filename>
-    <templarg></templarg>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1filters_1_1Filter.html</anchorfile>
-      <anchor>adb8982b06bdc99e8b8b544318ca9e02a</anchor>
-      <arglist>() noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1filters_1_1Filter.html</anchorfile>
-      <anchor>a5fbb9f92bd17682d554077cc3a8c08c5</anchor>
-      <arglist>(SampleType *buffer, int numSamples)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>reset</name>
-      <anchorfile>classlemons_1_1dsp_1_1filters_1_1Filter.html</anchorfile>
-      <anchor>a072e405ea503f6e2a1fc15d3a2818e4f</anchor>
-      <arglist>(SampleType resetToValue=SampleType(0))</arglist>
-    </member>
-    <member kind="variable">
-      <type>Coefficients&lt; SampleType &gt;</type>
-      <name>coefs</name>
-      <anchorfile>classlemons_1_1dsp_1_1filters_1_1Filter.html</anchorfile>
-      <anchor>a7ad358b8fde87138aff590f7724fd941</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
   <compound kind="struct">
     <name>lemons::dsp::FX::FilterEngine</name>
     <filename>structlemons_1_1dsp_1_1FX_1_1FilterEngine.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <base>EffectEngine&lt; Filter, SampleType &gt;</base>
     <member kind="function">
       <type>void</type>
@@ -5524,7 +4708,7 @@
       <type>Filter&lt; SampleType &gt; &amp;</type>
       <name>getFilter</name>
       <anchorfile>structlemons_1_1dsp_1_1FX_1_1FilterEngine.html</anchorfile>
-      <anchor>aa059bb5ef05b86aca33a66238f1f0d20</anchor>
+      <anchor>a5f8f4420995022228736a2c02a7a2a27</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -5545,21 +4729,21 @@
       <type>Filter&lt; SampleType &gt; &amp;</type>
       <name>operator()</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EffectEngine.html</anchorfile>
-      <anchor>aa0c5a5dd723ac14053bc9fb3ca60a9a9</anchor>
+      <anchor>a5e570bd7ec5ce38cb2fb2d45a4f9e349</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>Filter&lt; SampleType &gt; &amp;</type>
       <name>operator*</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EffectEngine.html</anchorfile>
-      <anchor>a01aba18223c1a30326cfae4d0a9915ea</anchor>
+      <anchor>a526b2428511850b51ed5121e52eea486</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>Filter&lt; SampleType &gt; *</type>
       <name>operator-&gt;</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EffectEngine.html</anchorfile>
-      <anchor>acf94ecc471a7bf6127deb4193e9e4fae</anchor>
+      <anchor>a0e9a0817dc587fc17a11000a4a283ac7</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -5732,7 +4916,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>a56ede68a45d400299a704db8e629933d</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -6093,7 +5277,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>a56ede68a45d400299a704db8e629933d</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -6420,7 +5604,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>a56ede68a45d400299a704db8e629933d</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -6747,7 +5931,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>a56ede68a45d400299a704db8e629933d</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -6964,7 +6148,7 @@
   <compound kind="class">
     <name>lemons::plugin::GUI</name>
     <filename>classlemons_1_1plugin_1_1GUI.html</filename>
-    <templarg></templarg>
+    <templarg>typename StateType</templarg>
     <base>lemons::plugin::GUIBase</base>
     <member kind="typedef">
       <type>serializing::TogglerInterface</type>
@@ -7026,8 +6210,8 @@
   <compound kind="class">
     <name>lemons::GuiApp</name>
     <filename>classlemons_1_1GuiApp.html</filename>
-    <templarg></templarg>
-    <templarg></templarg>
+    <templarg>typename ContentComponentType</templarg>
+    <templarg>LEMONS_MUST_INHERIT_FROM(ContentComponentType, juce::Component)</templarg>
     <base protection="private">lemons::SystemInitializer</base>
     <member kind="typedef">
       <type>juce::Point&lt; int &gt;</type>
@@ -7184,17 +6368,17 @@
   <compound kind="struct">
     <name>lemons::serializing::isContainer</name>
     <filename>structlemons_1_1serializing_1_1isContainer.html</filename>
-    <templarg></templarg>
+    <templarg>typename Type</templarg>
   </compound>
   <compound kind="struct">
     <name>lemons::serializing::isContainer&lt; juce::Array&lt; ElementType &gt; &gt;</name>
     <filename>structlemons_1_1serializing_1_1isContainer_3_01juce_1_1Array_3_01ElementType_01_4_01_4.html</filename>
-    <templarg></templarg>
+    <templarg>typename ElementType</templarg>
   </compound>
   <compound kind="struct">
     <name>lemons::serializing::isContainer&lt; juce::OwnedArray&lt; ElementType &gt; &gt;</name>
     <filename>structlemons_1_1serializing_1_1isContainer_3_01juce_1_1OwnedArray_3_01ElementType_01_4_01_4.html</filename>
-    <templarg></templarg>
+    <templarg>typename ElementType</templarg>
   </compound>
   <compound kind="struct">
     <name>lemons::serializing::isContainer&lt; juce::StringArray &gt;</name>
@@ -7203,33 +6387,33 @@
   <compound kind="struct">
     <name>lemons::serializing::isContainer&lt; std::array&lt; ElementType, size &gt; &gt;</name>
     <filename>structlemons_1_1serializing_1_1isContainer_3_01std_1_1array_3_01ElementType_00_01size_01_4_01_4.html</filename>
-    <templarg></templarg>
-    <templarg>size</templarg>
+    <templarg>typename ElementType</templarg>
+    <templarg>size_t size</templarg>
   </compound>
   <compound kind="struct">
     <name>lemons::serializing::isContainer&lt; std::deque&lt; ElementType &gt; &gt;</name>
     <filename>structlemons_1_1serializing_1_1isContainer_3_01std_1_1deque_3_01ElementType_01_4_01_4.html</filename>
-    <templarg></templarg>
+    <templarg>typename ElementType</templarg>
   </compound>
   <compound kind="struct">
     <name>lemons::serializing::isContainer&lt; std::forward_list&lt; ElementType &gt; &gt;</name>
     <filename>structlemons_1_1serializing_1_1isContainer_3_01std_1_1forward__list_3_01ElementType_01_4_01_4.html</filename>
-    <templarg></templarg>
+    <templarg>typename ElementType</templarg>
   </compound>
   <compound kind="struct">
     <name>lemons::serializing::isContainer&lt; std::list&lt; ElementType &gt; &gt;</name>
     <filename>structlemons_1_1serializing_1_1isContainer_3_01std_1_1list_3_01ElementType_01_4_01_4.html</filename>
-    <templarg></templarg>
+    <templarg>typename ElementType</templarg>
   </compound>
   <compound kind="struct">
     <name>lemons::serializing::isContainer&lt; std::vector&lt; ElementType &gt; &gt;</name>
     <filename>structlemons_1_1serializing_1_1isContainer_3_01std_1_1vector_3_01ElementType_01_4_01_4.html</filename>
-    <templarg></templarg>
+    <templarg>typename ElementType</templarg>
   </compound>
   <compound kind="struct">
     <name>lemons::serializing::isMap</name>
     <filename>structlemons_1_1serializing_1_1isMap.html</filename>
-    <templarg></templarg>
+    <templarg>typename Type</templarg>
   </compound>
   <compound kind="struct">
     <name>lemons::serializing::isMap&lt; juce::StringPairArray &gt;</name>
@@ -7238,7 +6422,7 @@
   <compound kind="struct">
     <name>lemons::serializing::JuceArrayInterface</name>
     <filename>structlemons_1_1serializing_1_1JuceArrayInterface.html</filename>
-    <templarg></templarg>
+    <templarg>typename ElementType</templarg>
     <base>LambdaContainerInterface&lt; juce::Array&lt; ElementType &gt; &gt;</base>
     <member kind="typedef">
       <type>juce::Array&lt; ElementType &gt;</type>
@@ -7265,7 +6449,7 @@
   <compound kind="struct">
     <name>lemons::serializing::JuceOwnedArrayInterface</name>
     <filename>structlemons_1_1serializing_1_1JuceOwnedArrayInterface.html</filename>
-    <templarg></templarg>
+    <templarg>typename ElementType</templarg>
     <base>LambdaContainerInterface&lt; juce::OwnedArray&lt; ElementType &gt; &gt;</base>
     <member kind="typedef">
       <type>juce::OwnedArray&lt; ElementType &gt;</type>
@@ -7339,7 +6523,7 @@
       <type>Knot &amp;</type>
       <name>operator=</name>
       <anchorfile>structlemons_1_1spline_1_1Knot.html</anchorfile>
-      <anchor>a986777609b846bd04fbf44347f2d518b</anchor>
+      <anchor>a46039b9fd80826befb988bd10fdc756a</anchor>
       <arglist>(const Knot &amp;other)</arglist>
     </member>
     <member kind="function">
@@ -7414,7 +6598,7 @@
       <type>const Knot &amp;</type>
       <name>getKnot</name>
       <anchorfile>structlemons_1_1spline_1_1Knots.html</anchorfile>
-      <anchor>a848ea41039c0622df410cc41a414b948</anchor>
+      <anchor>a3462bfe071ed922a465541a8a18cf654</anchor>
       <arglist>(int index) const</arglist>
     </member>
     <member kind="function">
@@ -7481,7 +6665,7 @@
   <compound kind="struct">
     <name>lemons::serializing::LambdaContainerInterface</name>
     <filename>structlemons_1_1serializing_1_1LambdaContainerInterface.html</filename>
-    <templarg></templarg>
+    <templarg>class ContainerType</templarg>
     <base>lemons::serializing::ContainerInterface</base>
     <member kind="typedef">
       <type>std::function&lt; void(ContainerType &amp;, int) &gt;</type>
@@ -7499,85 +6683,9 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>LambdaContainerInterface&lt; juce::Array&lt; ElementType &gt; &gt;</name>
-    <filename>structlemons_1_1serializing_1_1LambdaContainerInterface.html</filename>
-    <base>lemons::serializing::ContainerInterface</base>
-    <member kind="typedef">
-      <type>std::function&lt; void(juce::Array&lt; ElementType &gt; &amp;, int) &gt;</type>
-      <name>ResizeCallback</name>
-      <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
-      <anchor>a32d76526cd79b1430dd90251f242d821</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>LambdaContainerInterface</name>
-      <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
-      <anchor>ae7169782ade1798d043e301000b79790</anchor>
-      <arglist>(juce::Array&lt; ElementType &gt; &amp;containerToUse, ResizeCallback resizeFuncToUse)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>LambdaContainerInterface&lt; juce::OwnedArray&lt; ElementType &gt; &gt;</name>
-    <filename>structlemons_1_1serializing_1_1LambdaContainerInterface.html</filename>
-    <base>lemons::serializing::ContainerInterface</base>
-    <member kind="typedef">
-      <type>std::function&lt; void(juce::OwnedArray&lt; ElementType &gt; &amp;, int) &gt;</type>
-      <name>ResizeCallback</name>
-      <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
-      <anchor>a32d76526cd79b1430dd90251f242d821</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>LambdaContainerInterface</name>
-      <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
-      <anchor>ae7169782ade1798d043e301000b79790</anchor>
-      <arglist>(juce::OwnedArray&lt; ElementType &gt; &amp;containerToUse, ResizeCallback resizeFuncToUse)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>LambdaContainerInterface&lt; juce::StringArray &gt;</name>
-    <filename>structlemons_1_1serializing_1_1LambdaContainerInterface.html</filename>
-    <base>lemons::serializing::ContainerInterface</base>
-    <member kind="typedef">
-      <type>std::function&lt; void(juce::StringArray &amp;, int) &gt;</type>
-      <name>ResizeCallback</name>
-      <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
-      <anchor>a32d76526cd79b1430dd90251f242d821</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>LambdaContainerInterface</name>
-      <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
-      <anchor>ae7169782ade1798d043e301000b79790</anchor>
-      <arglist>(juce::StringArray &amp;containerToUse, ResizeCallback resizeFuncToUse)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>LambdaContainerInterface&lt; std::array&lt; ElementType, size &gt; &gt;</name>
-    <filename>structlemons_1_1serializing_1_1LambdaContainerInterface.html</filename>
-    <base>lemons::serializing::ContainerInterface</base>
-    <member kind="typedef">
-      <type>std::function&lt; void(std::array&lt; ElementType, size &gt; &amp;, int) &gt;</type>
-      <name>ResizeCallback</name>
-      <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
-      <anchor>a32d76526cd79b1430dd90251f242d821</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>LambdaContainerInterface</name>
-      <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
-      <anchor>ae7169782ade1798d043e301000b79790</anchor>
-      <arglist>(std::array&lt; ElementType, size &gt; &amp;containerToUse, ResizeCallback resizeFuncToUse)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>lemons::dsp::LambdaSynth</name>
     <filename>classlemons_1_1dsp_1_1LambdaSynth.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <base>lemons::dsp::SynthBase</base>
     <member kind="typedef">
       <type>SynthVoiceBase&lt; SampleType &gt;</type>
@@ -7646,7 +6754,7 @@
       <type>const midi::PitchPipeline *</type>
       <name>getPitchAdjuster</name>
       <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>af119c05b5f84f9dc81e8cfd5c0af15c4</anchor>
+      <anchor>aea1d1e3765eff81a1d2928149774ead9</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -7937,7 +7045,7 @@
   <compound kind="class">
     <name>lemons::dsp::LatencyEngine</name>
     <filename>classlemons_1_1dsp_1_1LatencyEngine.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <base>lemons::dsp::Engine</base>
     <member kind="function">
       <type>void</type>
@@ -8034,7 +7142,7 @@
   <compound kind="struct">
     <name>lemons::dsp::FX::LevelReportingAudioEffect</name>
     <filename>structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <base>lemons::dsp::FX::SidechainableAudioEffect</base>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
@@ -8114,88 +7222,6 @@
       <arglist>()</arglist>
     </member>
   </compound>
-  <compound kind="class">
-    <name>LevelReportingAudioEffect&lt; float &gt;</name>
-    <filename>structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html</filename>
-    <base>SidechainableAudioEffect&lt; float &gt;</base>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>bypassedBlock</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1AudioEffect.html</anchorfile>
-      <anchor>a0e2734ec1b7a89c566cbd2fe9b3592c8</anchor>
-      <arglist>(int numSamples)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>deserialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>ace1758cc9344ae03a6d01c3c218226de</anchor>
-      <arglist>(const ValueTree &amp;tree)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getAverageGainReduction</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html</anchorfile>
-      <anchor>a14cf647f18c204aafc0433069ae685e3</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getAverageLevel</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html</anchorfile>
-      <anchor>af3597cf522549d6bcbd0777bb6926dfd</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getGainReduction</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html</anchorfile>
-      <anchor>a845aafe7263a138250b02bd383f509d3</anchor>
-      <arglist>(int channel) const</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getLevel</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html</anchorfile>
-      <anchor>a93a089c0564fa043b74c78ad2c8311cc</anchor>
-      <arglist>(int channel) const</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>prepare</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1AudioEffect.html</anchorfile>
-      <anchor>a97b60e3696ef3e25e4fe24b4448ec4f1</anchor>
-      <arglist>(double samplerate, int blocksize)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html</anchorfile>
-      <anchor>af83eabef85b031658c1963012544609b</anchor>
-      <arglist>(AudioBuffer&lt; float &gt; &amp;audio) final</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html</anchorfile>
-      <anchor>a86b4201e9da1bc16b9498adf879d2256</anchor>
-      <arglist>(AudioBuffer&lt; float &gt; &amp;inOut, const AudioBuffer&lt; float &gt; &amp;sidechain) final</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual float</type>
-      <name>processChannel</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html</anchorfile>
-      <anchor>a741af352762825c91302203d89257c64</anchor>
-      <arglist>(int channel, int numSamples, float *signal, const float *sidechain)=0</arglist>
-    </member>
-    <member kind="function">
-      <type>ValueTree</type>
-      <name>serialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
   <compound kind="struct">
     <name>lemons::plugin::ModulationManager::LFO</name>
     <filename>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</filename>
@@ -8239,7 +7265,7 @@
       <type>Osc &amp;</type>
       <name>getOscillator</name>
       <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
-      <anchor>a205b8664820cf7b2257c8d71c5bea710</anchor>
+      <anchor>ad43fbd8a739b629159c749ea6a67539a</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -8295,7 +7321,7 @@
   <compound kind="class">
     <name>lemons::dsp::FX::Limiter</name>
     <filename>classlemons_1_1dsp_1_1FX_1_1Limiter.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <base>lemons::dsp::FX::LevelReportingAudioEffect</base>
     <member kind="function">
       <type></type>
@@ -8548,7 +7574,7 @@
       <type>const juce::Array&lt; Preset &gt; &amp;</type>
       <name>getPresets</name>
       <anchorfile>classlemons_1_1plugin_1_1presets_1_1SubLibrary.html</anchorfile>
-      <anchor>a0376512c8575df44d899b0cecfd6fb77</anchor>
+      <anchor>acd2dcc1b4596513f339ee84e256047c3</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -8597,8 +7623,8 @@
   <compound kind="struct">
     <name>lemons::serializing::MapInterface</name>
     <filename>structlemons_1_1serializing_1_1MapInterface.html</filename>
-    <templarg></templarg>
-    <templarg></templarg>
+    <templarg>typename KeyType</templarg>
+    <templarg>typename ValueType</templarg>
     <base>lemons::serializing::MapInterfaceBase</base>
     <member kind="typedef">
       <type>KeyType</type>
@@ -8641,53 +7667,6 @@
       <anchorfile>structlemons_1_1serializing_1_1MapInterface.html</anchorfile>
       <anchor>aef3bcb8e0cdf6264a7c11b8fe5ec8a19</anchor>
       <arglist>(const KeyType &amp;key, const ValueType &amp;value)=0</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>MapInterface&lt; String, String &gt;</name>
-    <filename>structlemons_1_1serializing_1_1MapInterface.html</filename>
-    <base>lemons::serializing::MapInterfaceBase</base>
-    <member kind="typedef">
-      <type>String</type>
-      <name>key_type</name>
-      <anchorfile>structlemons_1_1serializing_1_1MapInterface.html</anchorfile>
-      <anchor>a285a70955beb2debfba8b3cde089df50</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>String</type>
-      <name>value_type</name>
-      <anchorfile>structlemons_1_1serializing_1_1MapInterface.html</anchorfile>
-      <anchor>a5303f4905cf96ec08611c2e950e15b4c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual String</type>
-      <name>getKey</name>
-      <anchorfile>structlemons_1_1serializing_1_1MapInterface.html</anchorfile>
-      <anchor>a8bdd21c6df599c93dc55b794284574e2</anchor>
-      <arglist>(int index)=0</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual int</type>
-      <name>getSize</name>
-      <anchorfile>structlemons_1_1serializing_1_1MapInterface.html</anchorfile>
-      <anchor>a566a74257baddc3e15c9d7440291d076</anchor>
-      <arglist>()=0</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual String</type>
-      <name>getValue</name>
-      <anchorfile>structlemons_1_1serializing_1_1MapInterface.html</anchorfile>
-      <anchor>a951902d8b528623950ca450b9a53668a</anchor>
-      <arglist>(const String &amp;key)=0</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>setValue</name>
-      <anchorfile>structlemons_1_1serializing_1_1MapInterface.html</anchorfile>
-      <anchor>aef3bcb8e0cdf6264a7c11b8fe5ec8a19</anchor>
-      <arglist>(const String &amp;key, const String &amp;value)=0</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -8814,7 +7793,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>a56ede68a45d400299a704db8e629933d</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -9031,7 +8010,7 @@
   <compound kind="class">
     <name>lemons::dsp::MidiChoppingProcessor</name>
     <filename>classlemons_1_1dsp_1_1MidiChoppingProcessor.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
       <name>~MidiChoppingProcessor</name>
@@ -9073,98 +8052,6 @@
       <anchorfile>classlemons_1_1dsp_1_1MidiChoppingProcessor.html</anchorfile>
       <anchor>a199ab584f491a6202baa314db04babc2</anchor>
       <arglist>(AudioBuffer&lt; SampleType &gt; &amp;audio, MidiBuffer &amp;midi)=0</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>MidiChoppingProcessor&lt; double &gt;</name>
-    <filename>classlemons_1_1dsp_1_1MidiChoppingProcessor.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~MidiChoppingProcessor</name>
-      <anchorfile>classlemons_1_1dsp_1_1MidiChoppingProcessor.html</anchorfile>
-      <anchor>a659f390660fca4e93cbd97159e2f19e3</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1MidiChoppingProcessor.html</anchorfile>
-      <anchor>a45808b9a9eebcc339dacdd63cccd61b9</anchor>
-      <arglist>(int maxBlocksize)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1MidiChoppingProcessor.html</anchorfile>
-      <anchor>a849f6d6f2cb2851f12b0169c7b9fa293</anchor>
-      <arglist>(AudioBuffer&lt; double &gt; &amp;audio, MidiBuffer &amp;midi)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>processBypassed</name>
-      <anchorfile>classlemons_1_1dsp_1_1MidiChoppingProcessor.html</anchorfile>
-      <anchor>afe12d93088472dcb07ba5fd0520084ea</anchor>
-      <arglist>(int numSamples, MidiBuffer &amp;midi)</arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="pure">
-      <type>virtual void</type>
-      <name>handleMidiMessage</name>
-      <anchorfile>classlemons_1_1dsp_1_1MidiChoppingProcessor.html</anchorfile>
-      <anchor>abdaebf7b32050e582a7135564fd1d763</anchor>
-      <arglist>(const MidiMessage &amp;m)=0</arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="pure">
-      <type>virtual void</type>
-      <name>renderChunk</name>
-      <anchorfile>classlemons_1_1dsp_1_1MidiChoppingProcessor.html</anchorfile>
-      <anchor>a199ab584f491a6202baa314db04babc2</anchor>
-      <arglist>(AudioBuffer&lt; double &gt; &amp;audio, MidiBuffer &amp;midi)=0</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>MidiChoppingProcessor&lt; float &gt;</name>
-    <filename>classlemons_1_1dsp_1_1MidiChoppingProcessor.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~MidiChoppingProcessor</name>
-      <anchorfile>classlemons_1_1dsp_1_1MidiChoppingProcessor.html</anchorfile>
-      <anchor>a659f390660fca4e93cbd97159e2f19e3</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1MidiChoppingProcessor.html</anchorfile>
-      <anchor>a45808b9a9eebcc339dacdd63cccd61b9</anchor>
-      <arglist>(int maxBlocksize)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1MidiChoppingProcessor.html</anchorfile>
-      <anchor>a849f6d6f2cb2851f12b0169c7b9fa293</anchor>
-      <arglist>(AudioBuffer&lt; float &gt; &amp;audio, MidiBuffer &amp;midi)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>processBypassed</name>
-      <anchorfile>classlemons_1_1dsp_1_1MidiChoppingProcessor.html</anchorfile>
-      <anchor>afe12d93088472dcb07ba5fd0520084ea</anchor>
-      <arglist>(int numSamples, MidiBuffer &amp;midi)</arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="pure">
-      <type>virtual void</type>
-      <name>handleMidiMessage</name>
-      <anchorfile>classlemons_1_1dsp_1_1MidiChoppingProcessor.html</anchorfile>
-      <anchor>abdaebf7b32050e582a7135564fd1d763</anchor>
-      <arglist>(const MidiMessage &amp;m)=0</arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="pure">
-      <type>virtual void</type>
-      <name>renderChunk</name>
-      <anchorfile>classlemons_1_1dsp_1_1MidiChoppingProcessor.html</anchorfile>
-      <anchor>a199ab584f491a6202baa314db04babc2</anchor>
-      <arglist>(AudioBuffer&lt; float &gt; &amp;audio, MidiBuffer &amp;midi)=0</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -9223,7 +8110,7 @@
   <compound kind="class">
     <name>lemons::dsp::synth::MidiManager</name>
     <filename>classlemons_1_1dsp_1_1synth_1_1MidiManager.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <base>lemons::dsp::MidiChoppingProcessor</base>
     <class kind="class">lemons::dsp::synth::MidiManager::MidiRouter</class>
     <member kind="function">
@@ -9375,7 +8262,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>a56ede68a45d400299a704db8e629933d</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -9702,7 +8589,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>a56ede68a45d400299a704db8e629933d</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -10208,28 +9095,28 @@
       <type>LFO *</type>
       <name>getLFO</name>
       <anchorfile>classlemons_1_1plugin_1_1ModulationManager.html</anchorfile>
-      <anchor>abd3f4f0bdb5327aae2ab002130041fe7</anchor>
+      <anchor>ad2e357f174832d826d6bba7f27e20433</anchor>
       <arglist>(int index)</arglist>
     </member>
     <member kind="function">
       <type>LFO *</type>
       <name>getLFOatFrequency</name>
       <anchorfile>classlemons_1_1plugin_1_1ModulationManager.html</anchorfile>
-      <anchor>ad6177da7043874ffeefbf6c93477250d</anchor>
+      <anchor>a665932b81841b12be4ad0612c585f1c0</anchor>
       <arglist>(float freq)</arglist>
     </member>
     <member kind="function">
       <type>LFO *</type>
       <name>getLFOofType</name>
       <anchorfile>classlemons_1_1plugin_1_1ModulationManager.html</anchorfile>
-      <anchor>ae6c7491da976c2b1f24473add9fffb55</anchor>
+      <anchor>adb255002347a6e49cf13ba87f8e39ecc</anchor>
       <arglist>(dsp::osc::OscType type)</arglist>
     </member>
     <member kind="function">
       <type>LFO *</type>
       <name>getLFOwithConnection</name>
       <anchorfile>classlemons_1_1plugin_1_1ModulationManager.html</anchorfile>
-      <anchor>a2bf2f41443680711a8a2be570106b3bb</anchor>
+      <anchor>a1357e1eb08a487f44b98e19a34a7ddb4</anchor>
       <arglist>(Parameter &amp;param)</arglist>
     </member>
     <member kind="function">
@@ -10257,7 +9144,7 @@
   <compound kind="class">
     <name>lemons::dsp::FX::MonoStereoConverter</name>
     <filename>classlemons_1_1dsp_1_1FX_1_1MonoStereoConverter.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <member kind="enumeration">
       <type></type>
       <name>StereoReductionMode</name>
@@ -10335,7 +9222,7 @@
   <compound kind="class">
     <name>lemons::dsp::FX::MonoToStereoPanner</name>
     <filename>classlemons_1_1dsp_1_1FX_1_1MonoToStereoPanner.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <base>lemons::dsp::FX::PannerBase</base>
     <member kind="typedef">
       <type>juce::AudioBuffer&lt; SampleType &gt;</type>
@@ -10465,6 +9352,8 @@
     <name>lemons::MotionManager</name>
     <filename>classlemons_1_1MotionManager.html</filename>
     <base>lemons::MotionManagerInterface</base>
+    <base>lemons::MotionManagerInterface</base>
+    <base>lemons::MotionManagerInterface</base>
     <member kind="function">
       <type></type>
       <name>MotionManager</name>
@@ -10521,13 +9410,6 @@
       <anchor>a49c1439490bea845684e54e2444de777</anchor>
       <arglist>() const</arglist>
     </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isRunning</name>
-      <anchorfile>classlemons_1_1MotionManager.html</anchorfile>
-      <anchor>aec4ed9f722bf84f0db406bd6c49b9fca</anchor>
-      <arglist>() final</arglist>
-    </member>
     <member kind="function" virtualness="virtual">
       <type>virtual bool</type>
       <name>isRunning</name>
@@ -10536,18 +9418,18 @@
       <arglist>() final</arglist>
     </member>
     <member kind="function">
+      <type>bool</type>
+      <name>isRunning</name>
+      <anchorfile>classlemons_1_1MotionManager.html</anchorfile>
+      <anchor>aec4ed9f722bf84f0db406bd6c49b9fca</anchor>
+      <arglist>() final</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>removeListener</name>
       <anchorfile>classlemons_1_1MotionManagerInterface.html</anchorfile>
       <anchor>acdf866381ba361bd45d8d8c96cc96664</anchor>
       <arglist>(MotionListener *l)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>start</name>
-      <anchorfile>classlemons_1_1MotionManager.html</anchorfile>
-      <anchor>a48fa105dbde61444436d2acddd74cdd3</anchor>
-      <arglist>() final</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
@@ -10558,9 +9440,9 @@
     </member>
     <member kind="function">
       <type>void</type>
-      <name>stop</name>
+      <name>start</name>
       <anchorfile>classlemons_1_1MotionManager.html</anchorfile>
-      <anchor>aa0634a026dc505ea830148dbafa0ede5</anchor>
+      <anchor>a48fa105dbde61444436d2acddd74cdd3</anchor>
       <arglist>() final</arglist>
     </member>
     <member kind="function" virtualness="virtual">
@@ -10568,6 +9450,13 @@
       <name>stop</name>
       <anchorfile>classlemons_1_1MotionManager.html</anchorfile>
       <anchor>a928848daeb216b49cca1952e319be88b</anchor>
+      <arglist>() final</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>stop</name>
+      <anchorfile>classlemons_1_1MotionManager.html</anchorfile>
+      <anchor>aa0634a026dc505ea830148dbafa0ede5</anchor>
       <arglist>() final</arglist>
     </member>
     <member kind="function" protection="protected">
@@ -10789,7 +9678,7 @@
   <compound kind="class">
     <name>lemons::dsp::MultiAudioFIFO</name>
     <filename>classlemons_1_1dsp_1_1MultiAudioFIFO.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <member kind="function">
       <type></type>
       <name>MultiAudioFIFO</name>
@@ -10836,128 +9725,8 @@
   <compound kind="struct">
     <name>lemons::dsp::filters::MultiFilter</name>
     <filename>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</filename>
-    <templarg></templarg>
-    <templarg>numChannels</templarg>
-    <member kind="typedef">
-      <type>juce::AudioBuffer&lt; SampleType &gt;</type>
-      <name>AudioBuffer</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</anchorfile>
-      <anchor>afe195bc5a21579d6ba3ffd275059d5c5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>MultiFilter</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</anchorfile>
-      <anchor>a3744cd8fb6f34f6993f545a61ff9c83f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</anchorfile>
-      <anchor>a5b38c43ba38e4bf37c2eb4c67c10065f</anchor>
-      <arglist>() noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</anchorfile>
-      <anchor>a1235890b5bba3b3653253f3f948afe9f</anchor>
-      <arglist>(AudioBuffer &amp;buffer) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>processChannel</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</anchorfile>
-      <anchor>a1e248c03bb32569c4c9a031302f464a7</anchor>
-      <arglist>(int channel, SampleType *audio, int numSamples) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>reset</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</anchorfile>
-      <anchor>a10465dacccba2118358ee7759b2089d0</anchor>
-      <arglist>(SampleType resetToValue=SampleType(0))</arglist>
-    </member>
-    <member kind="variable">
-      <type>Coefficients&lt; SampleType &gt;</type>
-      <name>coefs</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</anchorfile>
-      <anchor>ae8604e9be4d98949a84d784a51d29b7f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>OwnedArray&lt; Filter&lt; SampleType &gt; &gt;</type>
-      <name>filters</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</anchorfile>
-      <anchor>a48aea2dd107906c55605e5e39d88bd0f</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>MultiFilter&lt; float &gt;</name>
-    <filename>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</filename>
-    <member kind="typedef">
-      <type>juce::AudioBuffer&lt; float &gt;</type>
-      <name>AudioBuffer</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</anchorfile>
-      <anchor>afe195bc5a21579d6ba3ffd275059d5c5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>MultiFilter</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</anchorfile>
-      <anchor>a3744cd8fb6f34f6993f545a61ff9c83f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</anchorfile>
-      <anchor>a5b38c43ba38e4bf37c2eb4c67c10065f</anchor>
-      <arglist>() noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</anchorfile>
-      <anchor>a1235890b5bba3b3653253f3f948afe9f</anchor>
-      <arglist>(AudioBuffer &amp;buffer) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>processChannel</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</anchorfile>
-      <anchor>a1e248c03bb32569c4c9a031302f464a7</anchor>
-      <arglist>(int channel, float *audio, int numSamples) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>reset</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</anchorfile>
-      <anchor>a10465dacccba2118358ee7759b2089d0</anchor>
-      <arglist>(float resetToValue=float(0))</arglist>
-    </member>
-    <member kind="variable">
-      <type>Coefficients&lt; float &gt;</type>
-      <name>coefs</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</anchorfile>
-      <anchor>ae8604e9be4d98949a84d784a51d29b7f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>OwnedArray&lt; Filter&lt; float &gt; &gt;</type>
-      <name>filters</name>
-      <anchorfile>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</anchorfile>
-      <anchor>a48aea2dd107906c55605e5e39d88bd0f</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>MultiFilter&lt; SampleType, 2 &gt;</name>
-    <filename>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</filename>
+    <templarg>typename SampleType</templarg>
+    <templarg>size_t numChannels</templarg>
     <member kind="typedef">
       <type>juce::AudioBuffer&lt; SampleType &gt;</type>
       <name>AudioBuffer</name>
@@ -11018,7 +9787,7 @@
   <compound kind="class">
     <name>lemons::dsp::FX::NoiseGate</name>
     <filename>classlemons_1_1dsp_1_1FX_1_1NoiseGate.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <base>lemons::dsp::FX::LevelReportingAudioEffect</base>
     <member kind="function">
       <type></type>
@@ -11175,14 +9944,14 @@
       <type>ObjectType &amp;</type>
       <name>operator()</name>
       <anchorfile>structlemons_1_1serializing_1_1NonrealtimeMutatable_1_1NonrealtimeAccess.html</anchorfile>
-      <anchor>ae9d639ed43184462ab71fcaf7d76e0c1</anchor>
+      <anchor>aa6571e42fbce3fe8bfb8d6c382826cfb</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>ObjectType *</type>
       <name>operator-&gt;</name>
       <anchorfile>structlemons_1_1serializing_1_1NonrealtimeMutatable_1_1NonrealtimeAccess.html</anchorfile>
-      <anchor>ac50b5e907d1cde5792086ecd828b4e12</anchor>
+      <anchor>abbeea8ab2263632df472ce7d31e8888a</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="variable">
@@ -11214,14 +9983,14 @@
       <type>const ObjectType &amp;</type>
       <name>operator()</name>
       <anchorfile>structlemons_1_1serializing_1_1RealtimeMutatable_1_1NonrealtimeAccess.html</anchorfile>
-      <anchor>a5a9a0bc94f28ce4f288a48e5026a3716</anchor>
+      <anchor>a65dd5b760fb131f9313b0292e89ee0fe</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>const ObjectType *</type>
       <name>operator-&gt;</name>
       <anchorfile>structlemons_1_1serializing_1_1RealtimeMutatable_1_1NonrealtimeAccess.html</anchorfile>
-      <anchor>afa4fb36709435506c285a4a3b9c1ba4e</anchor>
+      <anchor>abdb80c927ca1795c503b4d48d7af1637</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="variable">
@@ -11242,7 +10011,7 @@
   <compound kind="class">
     <name>lemons::serializing::NonrealtimeMutatable</name>
     <filename>classlemons_1_1serializing_1_1NonrealtimeMutatable.html</filename>
-    <templarg></templarg>
+    <templarg>class ObjectType</templarg>
     <class kind="struct">lemons::serializing::NonrealtimeMutatable::NonrealtimeAccess</class>
     <class kind="struct">lemons::serializing::NonrealtimeMutatable::RealtimeAccess</class>
     <member kind="function">
@@ -11291,8 +10060,8 @@
   <compound kind="class">
     <name>lemons::dsp::osc::OscEngine</name>
     <filename>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</filename>
-    <templarg></templarg>
-    <templarg>Osctype</templarg>
+    <templarg>typename SampleType</templarg>
+    <templarg>template&lt; typename T &gt; class Osctype</templarg>
     <base>lemons::dsp::Engine</base>
     <member kind="typedef">
       <type>Osctype&lt; SampleType &gt;</type>
@@ -11326,967 +10095,7 @@
       <type>Osc *</type>
       <name>operator-&gt;</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ab464771e675722a7f8a86fc1da96237f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a92fe69356c54445d91e70586cc9cdf73</anchor>
-      <arglist>(double samplerate, int blocksize, int numChannels=2)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a3f813b9e44ed7518183da4afe405f44e</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a48b37b72835d34fc060a1010a1fe2499</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>adfb2f088baaa0e07efa7bf794918d831</anchor>
-      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>aa3668be93e3cc7b9a4340c5872be9b45</anchor>
-      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>releaseResources</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a144323b4488420dcf49b89cee7837f8c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual int</type>
-      <name>reportLatency</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a8cf8a2dd9e6cded85b3762f9db805310</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setFrequency</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ad82e240a6f60fff4de0c688f303de4a9</anchor>
-      <arglist>(float freqHz)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>OscEngine&lt; float, lemons::dsp::osc::Saw &gt;</name>
-    <filename>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</filename>
-    <base>Engine&lt; float &gt;</base>
-    <member kind="typedef">
-      <type>lemons::dsp::osc::Saw&lt; float &gt;</type>
-      <name>Osc</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>OscEngine</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a0226b1f2b27b06600174a858360459a2</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>getSamplerate</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isInitialized</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>Osc *</type>
-      <name>operator-&gt;</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ab464771e675722a7f8a86fc1da96237f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a92fe69356c54445d91e70586cc9cdf73</anchor>
-      <arglist>(double samplerate, int blocksize, int numChannels=2)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a3f813b9e44ed7518183da4afe405f44e</anchor>
-      <arglist>(AudioBuffer&lt; float &gt; &amp;inplaceInAndOut, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a48b37b72835d34fc060a1010a1fe2499</anchor>
-      <arglist>(AudioBuffer&lt; float &gt; &amp;inplaceInAndOut, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>adfb2f088baaa0e07efa7bf794918d831</anchor>
-      <arglist>(const AudioBuffer&lt; float &gt; &amp;input, AudioBuffer&lt; float &gt; &amp;output, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>aa3668be93e3cc7b9a4340c5872be9b45</anchor>
-      <arglist>(const AudioBuffer&lt; float &gt; &amp;input, AudioBuffer&lt; float &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>releaseResources</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a144323b4488420dcf49b89cee7837f8c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual int</type>
-      <name>reportLatency</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a8cf8a2dd9e6cded85b3762f9db805310</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setFrequency</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ad82e240a6f60fff4de0c688f303de4a9</anchor>
-      <arglist>(float freqHz)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>OscEngine&lt; float, lemons::dsp::osc::Sine &gt;</name>
-    <filename>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</filename>
-    <base>Engine&lt; float &gt;</base>
-    <member kind="typedef">
-      <type>lemons::dsp::osc::Sine&lt; float &gt;</type>
-      <name>Osc</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>OscEngine</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a0226b1f2b27b06600174a858360459a2</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>getSamplerate</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isInitialized</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>Osc *</type>
-      <name>operator-&gt;</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ab464771e675722a7f8a86fc1da96237f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a92fe69356c54445d91e70586cc9cdf73</anchor>
-      <arglist>(double samplerate, int blocksize, int numChannels=2)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a3f813b9e44ed7518183da4afe405f44e</anchor>
-      <arglist>(AudioBuffer&lt; float &gt; &amp;inplaceInAndOut, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a48b37b72835d34fc060a1010a1fe2499</anchor>
-      <arglist>(AudioBuffer&lt; float &gt; &amp;inplaceInAndOut, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>adfb2f088baaa0e07efa7bf794918d831</anchor>
-      <arglist>(const AudioBuffer&lt; float &gt; &amp;input, AudioBuffer&lt; float &gt; &amp;output, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>aa3668be93e3cc7b9a4340c5872be9b45</anchor>
-      <arglist>(const AudioBuffer&lt; float &gt; &amp;input, AudioBuffer&lt; float &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>releaseResources</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a144323b4488420dcf49b89cee7837f8c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual int</type>
-      <name>reportLatency</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a8cf8a2dd9e6cded85b3762f9db805310</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setFrequency</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ad82e240a6f60fff4de0c688f303de4a9</anchor>
-      <arglist>(float freqHz)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>OscEngine&lt; float, lemons::dsp::osc::Square &gt;</name>
-    <filename>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</filename>
-    <base>Engine&lt; float &gt;</base>
-    <member kind="typedef">
-      <type>lemons::dsp::osc::Square&lt; float &gt;</type>
-      <name>Osc</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>OscEngine</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a0226b1f2b27b06600174a858360459a2</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>getSamplerate</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isInitialized</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>Osc *</type>
-      <name>operator-&gt;</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ab464771e675722a7f8a86fc1da96237f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a92fe69356c54445d91e70586cc9cdf73</anchor>
-      <arglist>(double samplerate, int blocksize, int numChannels=2)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a3f813b9e44ed7518183da4afe405f44e</anchor>
-      <arglist>(AudioBuffer&lt; float &gt; &amp;inplaceInAndOut, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a48b37b72835d34fc060a1010a1fe2499</anchor>
-      <arglist>(AudioBuffer&lt; float &gt; &amp;inplaceInAndOut, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>adfb2f088baaa0e07efa7bf794918d831</anchor>
-      <arglist>(const AudioBuffer&lt; float &gt; &amp;input, AudioBuffer&lt; float &gt; &amp;output, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>aa3668be93e3cc7b9a4340c5872be9b45</anchor>
-      <arglist>(const AudioBuffer&lt; float &gt; &amp;input, AudioBuffer&lt; float &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>releaseResources</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a144323b4488420dcf49b89cee7837f8c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual int</type>
-      <name>reportLatency</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a8cf8a2dd9e6cded85b3762f9db805310</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setFrequency</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ad82e240a6f60fff4de0c688f303de4a9</anchor>
-      <arglist>(float freqHz)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>OscEngine&lt; float, lemons::dsp::osc::SuperSaw &gt;</name>
-    <filename>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</filename>
-    <base>Engine&lt; float &gt;</base>
-    <member kind="typedef">
-      <type>lemons::dsp::osc::SuperSaw&lt; float &gt;</type>
-      <name>Osc</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>OscEngine</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a0226b1f2b27b06600174a858360459a2</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>getSamplerate</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isInitialized</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>Osc *</type>
-      <name>operator-&gt;</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ab464771e675722a7f8a86fc1da96237f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a92fe69356c54445d91e70586cc9cdf73</anchor>
-      <arglist>(double samplerate, int blocksize, int numChannels=2)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a3f813b9e44ed7518183da4afe405f44e</anchor>
-      <arglist>(AudioBuffer&lt; float &gt; &amp;inplaceInAndOut, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a48b37b72835d34fc060a1010a1fe2499</anchor>
-      <arglist>(AudioBuffer&lt; float &gt; &amp;inplaceInAndOut, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>adfb2f088baaa0e07efa7bf794918d831</anchor>
-      <arglist>(const AudioBuffer&lt; float &gt; &amp;input, AudioBuffer&lt; float &gt; &amp;output, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>aa3668be93e3cc7b9a4340c5872be9b45</anchor>
-      <arglist>(const AudioBuffer&lt; float &gt; &amp;input, AudioBuffer&lt; float &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>releaseResources</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a144323b4488420dcf49b89cee7837f8c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual int</type>
-      <name>reportLatency</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a8cf8a2dd9e6cded85b3762f9db805310</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setFrequency</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ad82e240a6f60fff4de0c688f303de4a9</anchor>
-      <arglist>(float freqHz)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>OscEngine&lt; float, lemons::dsp::osc::Triangle &gt;</name>
-    <filename>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</filename>
-    <base>Engine&lt; float &gt;</base>
-    <member kind="typedef">
-      <type>lemons::dsp::osc::Triangle&lt; float &gt;</type>
-      <name>Osc</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>OscEngine</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a0226b1f2b27b06600174a858360459a2</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>getSamplerate</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isInitialized</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>Osc *</type>
-      <name>operator-&gt;</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ab464771e675722a7f8a86fc1da96237f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a92fe69356c54445d91e70586cc9cdf73</anchor>
-      <arglist>(double samplerate, int blocksize, int numChannels=2)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a3f813b9e44ed7518183da4afe405f44e</anchor>
-      <arglist>(AudioBuffer&lt; float &gt; &amp;inplaceInAndOut, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a48b37b72835d34fc060a1010a1fe2499</anchor>
-      <arglist>(AudioBuffer&lt; float &gt; &amp;inplaceInAndOut, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>adfb2f088baaa0e07efa7bf794918d831</anchor>
-      <arglist>(const AudioBuffer&lt; float &gt; &amp;input, AudioBuffer&lt; float &gt; &amp;output, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>aa3668be93e3cc7b9a4340c5872be9b45</anchor>
-      <arglist>(const AudioBuffer&lt; float &gt; &amp;input, AudioBuffer&lt; float &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>releaseResources</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a144323b4488420dcf49b89cee7837f8c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual int</type>
-      <name>reportLatency</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a8cf8a2dd9e6cded85b3762f9db805310</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setFrequency</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ad82e240a6f60fff4de0c688f303de4a9</anchor>
-      <arglist>(float freqHz)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>OscEngine&lt; SampleType, lemons::dsp::osc::Saw &gt;</name>
-    <filename>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</filename>
-    <base>lemons::dsp::Engine</base>
-    <member kind="typedef">
-      <type>lemons::dsp::osc::Saw&lt; SampleType &gt;</type>
-      <name>Osc</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>OscEngine</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a0226b1f2b27b06600174a858360459a2</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>getSamplerate</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isInitialized</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>Osc *</type>
-      <name>operator-&gt;</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ab464771e675722a7f8a86fc1da96237f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a92fe69356c54445d91e70586cc9cdf73</anchor>
-      <arglist>(double samplerate, int blocksize, int numChannels=2)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a3f813b9e44ed7518183da4afe405f44e</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a48b37b72835d34fc060a1010a1fe2499</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>adfb2f088baaa0e07efa7bf794918d831</anchor>
-      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>aa3668be93e3cc7b9a4340c5872be9b45</anchor>
-      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>releaseResources</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a144323b4488420dcf49b89cee7837f8c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual int</type>
-      <name>reportLatency</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a8cf8a2dd9e6cded85b3762f9db805310</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setFrequency</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ad82e240a6f60fff4de0c688f303de4a9</anchor>
-      <arglist>(float freqHz)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>OscEngine&lt; SampleType, lemons::dsp::osc::Sine &gt;</name>
-    <filename>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</filename>
-    <base>lemons::dsp::Engine</base>
-    <member kind="typedef">
-      <type>lemons::dsp::osc::Sine&lt; SampleType &gt;</type>
-      <name>Osc</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>OscEngine</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a0226b1f2b27b06600174a858360459a2</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>getSamplerate</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isInitialized</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>Osc *</type>
-      <name>operator-&gt;</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ab464771e675722a7f8a86fc1da96237f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a92fe69356c54445d91e70586cc9cdf73</anchor>
-      <arglist>(double samplerate, int blocksize, int numChannels=2)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a3f813b9e44ed7518183da4afe405f44e</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a48b37b72835d34fc060a1010a1fe2499</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>adfb2f088baaa0e07efa7bf794918d831</anchor>
-      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>aa3668be93e3cc7b9a4340c5872be9b45</anchor>
-      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>releaseResources</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a144323b4488420dcf49b89cee7837f8c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual int</type>
-      <name>reportLatency</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a8cf8a2dd9e6cded85b3762f9db805310</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setFrequency</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ad82e240a6f60fff4de0c688f303de4a9</anchor>
-      <arglist>(float freqHz)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>OscEngine&lt; SampleType, lemons::dsp::osc::Square &gt;</name>
-    <filename>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</filename>
-    <base>lemons::dsp::Engine</base>
-    <member kind="typedef">
-      <type>lemons::dsp::osc::Square&lt; SampleType &gt;</type>
-      <name>Osc</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>OscEngine</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a0226b1f2b27b06600174a858360459a2</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>getSamplerate</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isInitialized</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>Osc *</type>
-      <name>operator-&gt;</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ab464771e675722a7f8a86fc1da96237f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a92fe69356c54445d91e70586cc9cdf73</anchor>
-      <arglist>(double samplerate, int blocksize, int numChannels=2)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a3f813b9e44ed7518183da4afe405f44e</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a48b37b72835d34fc060a1010a1fe2499</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>adfb2f088baaa0e07efa7bf794918d831</anchor>
-      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>aa3668be93e3cc7b9a4340c5872be9b45</anchor>
-      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>releaseResources</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a144323b4488420dcf49b89cee7837f8c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual int</type>
-      <name>reportLatency</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a8cf8a2dd9e6cded85b3762f9db805310</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setFrequency</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ad82e240a6f60fff4de0c688f303de4a9</anchor>
-      <arglist>(float freqHz)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>OscEngine&lt; SampleType, lemons::dsp::osc::SuperSaw &gt;</name>
-    <filename>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</filename>
-    <base>lemons::dsp::Engine</base>
-    <member kind="typedef">
-      <type>lemons::dsp::osc::SuperSaw&lt; SampleType &gt;</type>
-      <name>Osc</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>OscEngine</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a0226b1f2b27b06600174a858360459a2</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>getSamplerate</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isInitialized</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>Osc *</type>
-      <name>operator-&gt;</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ab464771e675722a7f8a86fc1da96237f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a92fe69356c54445d91e70586cc9cdf73</anchor>
-      <arglist>(double samplerate, int blocksize, int numChannels=2)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a3f813b9e44ed7518183da4afe405f44e</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a48b37b72835d34fc060a1010a1fe2499</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>adfb2f088baaa0e07efa7bf794918d831</anchor>
-      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>aa3668be93e3cc7b9a4340c5872be9b45</anchor>
-      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>releaseResources</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a144323b4488420dcf49b89cee7837f8c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual int</type>
-      <name>reportLatency</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a8cf8a2dd9e6cded85b3762f9db805310</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setFrequency</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ad82e240a6f60fff4de0c688f303de4a9</anchor>
-      <arglist>(float freqHz)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>OscEngine&lt; SampleType, lemons::dsp::osc::Triangle &gt;</name>
-    <filename>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</filename>
-    <base>lemons::dsp::Engine</base>
-    <member kind="typedef">
-      <type>lemons::dsp::osc::Triangle&lt; SampleType &gt;</type>
-      <name>Osc</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>OscEngine</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a0226b1f2b27b06600174a858360459a2</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>getSamplerate</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isInitialized</name>
-      <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>Osc *</type>
-      <name>operator-&gt;</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>ab464771e675722a7f8a86fc1da96237f</anchor>
+      <anchor>a21ba2570825a45ac4f2320bea05bcd5c</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -12349,7 +10158,7 @@
   <compound kind="struct">
     <name>lemons::dsp::osc::Oscillator</name>
     <filename>structlemons_1_1dsp_1_1osc_1_1Oscillator.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
       <name>~Oscillator</name>
@@ -12386,50 +10195,11 @@
       <arglist>(SampleType frequency, SampleType sampleRate)=0</arglist>
     </member>
   </compound>
-  <compound kind="class">
-    <name>Oscillator&lt; float &gt;</name>
-    <filename>structlemons_1_1dsp_1_1osc_1_1Oscillator.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~Oscillator</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Oscillator.html</anchorfile>
-      <anchor>ac40a312c68d4ddc94f9aa8265a061688</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual float</type>
-      <name>getSample</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Oscillator.html</anchorfile>
-      <anchor>ac7dbd9538f446278698dbfed3f39a90f</anchor>
-      <arglist>()=0</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>getSamples</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Oscillator.html</anchorfile>
-      <anchor>a0d4e7108f8cb508f01efeb7e7d423c84</anchor>
-      <arglist>(float *output, int numSamples)</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>resetPhase</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Oscillator.html</anchorfile>
-      <anchor>af0337e1ba93847789802aef01ccff72f</anchor>
-      <arglist>()=0</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>setFrequency</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Oscillator.html</anchorfile>
-      <anchor>a85e60c81999d18bfc2c363b89acd8ba1</anchor>
-      <arglist>(float frequency, float sampleRate)=0</arglist>
-    </member>
-  </compound>
   <compound kind="struct">
     <name>lemons::dsp::OscSynth</name>
     <filename>structlemons_1_1dsp_1_1OscSynth.html</filename>
-    <templarg></templarg>
-    <templarg>OscType</templarg>
+    <templarg>typename SampleType</templarg>
+    <templarg>template&lt; typename NumericType &gt; class OscType</templarg>
     <base>TemplateSynth&lt; SampleType, OscSynthVoice&lt; SampleType, OscType &gt; &gt;</base>
     <member kind="function">
       <type>void</type>
@@ -12456,7 +10226,7 @@
       <type>SynthVoiceBase&lt; SampleType &gt; *</type>
       <name>createVoice</name>
       <anchorfile>structlemons_1_1dsp_1_1TemplateSynth.html</anchorfile>
-      <anchor>aef5eeed5207b79c9cb3e39500561c7b8</anchor>
+      <anchor>a05121b7e98d8185151f65f30888e0dc3</anchor>
       <arglist>() final</arglist>
     </member>
     <member kind="function">
@@ -12484,7 +10254,7 @@
       <type>const midi::PitchPipeline *</type>
       <name>getPitchAdjuster</name>
       <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>af119c05b5f84f9dc81e8cfd5c0af15c4</anchor>
+      <anchor>aea1d1e3765eff81a1d2928149774ead9</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -12757,8 +10527,8 @@
   <compound kind="struct">
     <name>lemons::dsp::OscSynthVoice</name>
     <filename>structlemons_1_1dsp_1_1OscSynthVoice.html</filename>
-    <templarg></templarg>
-    <templarg>OscType</templarg>
+    <templarg>typename SampleType</templarg>
+    <templarg>template&lt; typename NumericType &gt; class OscType</templarg>
     <base>lemons::dsp::SynthVoiceBase</base>
     <member kind="function">
       <type>void</type>
@@ -12964,7 +10734,7 @@
   <compound kind="class">
     <name>lemons::dsp::synth::PanningManager</name>
     <filename>classlemons_1_1dsp_1_1synth_1_1PanningManager.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <member kind="function">
       <type></type>
       <name>PanningManager</name>
@@ -13080,7 +10850,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>a56ede68a45d400299a704db8e629933d</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -13262,7 +11032,7 @@
   <compound kind="class">
     <name>lemons::plugin::ParameterHolder</name>
     <filename>classlemons_1_1plugin_1_1ParameterHolder.html</filename>
-    <templarg></templarg>
+    <templarg>typename ParameterType</templarg>
     <base>lemons::plugin::ParamHolderBase</base>
     <member kind="function">
       <type></type>
@@ -13296,14 +11066,14 @@
       <type>ParameterType *</type>
       <name>get</name>
       <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
-      <anchor>a979086ee20104d907c09072f5523608b</anchor>
+      <anchor>ae62300103a0808e25ec2cd797be56b9a</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>Parameter *</type>
       <name>getParam</name>
       <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
-      <anchor>a257ffd5598fdc91b616250372dfb0728</anchor>
+      <anchor>a54574f06359f92807f99647e0be78afc</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -13317,117 +11087,14 @@
       <type>ParameterType &amp;</type>
       <name>operator*</name>
       <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
-      <anchor>ae105850fab84683a482c21345421caae</anchor>
+      <anchor>ae850b78005454f23a6f3993a67304e3a</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>ParameterType *</type>
       <name>operator-&gt;</name>
       <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
-      <anchor>a4231d6afa194d41696b93f04dd5a120c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>ValueTree</type>
-      <name>serialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="variable">
-      <type>bool</type>
-      <name>isInternal</name>
-      <anchorfile>structlemons_1_1plugin_1_1ParamHolderBase.html</anchorfile>
-      <anchor>adfadd47309422ecf2bdc5d4b54828ecf</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>serialize</name>
-      <anchorfile>structlemons_1_1plugin_1_1ParamHolderBase.html</anchorfile>
-      <anchor>a4ab97c4fac55246598fec66b3da5c501</anchor>
-      <arglist>(TreeReflector &amp;ref) final</arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>bool</type>
-      <name>addedToProcessor</name>
-      <anchorfile>structlemons_1_1plugin_1_1ParamHolderBase.html</anchorfile>
-      <anchor>a9709276e5627852ac2be0c9e628ddbb6</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>ParameterHolder&lt; plugin::ToggleParameter &gt;</name>
-    <filename>classlemons_1_1plugin_1_1ParameterHolder.html</filename>
-    <base>lemons::plugin::ParamHolderBase</base>
-    <member kind="function">
-      <type></type>
-      <name>ParameterHolder</name>
-      <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
-      <anchor>a7d5493b060034137efe56b84f168f543</anchor>
-      <arglist>(Args &amp;&amp;... args)</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>~ParameterHolder</name>
-      <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
-      <anchor>a7f4767d8a5e848b9142d6edad36b2b56</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>addTo</name>
-      <anchorfile>structlemons_1_1plugin_1_1ParamHolderBase.html</anchorfile>
-      <anchor>a11d61d765d9c8a318a6f8dadfcf4b9cb</anchor>
-      <arglist>(juce::AudioProcessor &amp;processor)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>deserialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>ace1758cc9344ae03a6d01c3c218226de</anchor>
-      <arglist>(const ValueTree &amp;tree)</arglist>
-    </member>
-    <member kind="function">
-      <type>plugin::ToggleParameter *</type>
-      <name>get</name>
-      <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
-      <anchor>a979086ee20104d907c09072f5523608b</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual Parameter *</type>
-      <name>getParam</name>
-      <anchorfile>structlemons_1_1plugin_1_1ParamHolderBase.html</anchorfile>
-      <anchor>a2faabbcdd9698d7f72fb24d643107d6d</anchor>
-      <arglist>() const =0</arglist>
-    </member>
-    <member kind="function">
-      <type>Parameter *</type>
-      <name>getParam</name>
-      <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
-      <anchor>a257ffd5598fdc91b616250372dfb0728</anchor>
-      <arglist>() const final</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>operator plugin::ToggleParameter &amp;</name>
-      <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
-      <anchor>accfa3452f548cfd4a2bd985fef88b14d</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>plugin::ToggleParameter &amp;</type>
-      <name>operator*</name>
-      <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
-      <anchor>ae105850fab84683a482c21345421caae</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>plugin::ToggleParameter *</type>
-      <name>operator-&gt;</name>
-      <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
-      <anchor>a4231d6afa194d41696b93f04dd5a120c</anchor>
+      <anchor>a47eaac53c880ddaea82247f2c94e8547</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -13524,7 +11191,7 @@
       <type>Parameter *</type>
       <name>getParameterWithName</name>
       <anchorfile>classlemons_1_1plugin_1_1ParameterList.html</anchorfile>
-      <anchor>aaf60b283ea9c384267f2d26b865e58e5</anchor>
+      <anchor>a2b20b120c57cf5e34b942eb342eb4e44</anchor>
       <arglist>(const String name, bool internationalizeName=false)</arglist>
     </member>
     <member kind="function">
@@ -13594,7 +11261,7 @@
   <compound kind="class">
     <name>lemons::plugin::ParameterProcessor</name>
     <filename>classlemons_1_1plugin_1_1ParameterProcessor.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <base>lemons::dsp::MidiChoppingProcessor</base>
     <member kind="function">
       <type></type>
@@ -13616,72 +11283,6 @@
       <anchorfile>classlemons_1_1dsp_1_1MidiChoppingProcessor.html</anchorfile>
       <anchor>a849f6d6f2cb2851f12b0169c7b9fa293</anchor>
       <arglist>(AudioBuffer&lt; SampleType &gt; &amp;audio, MidiBuffer &amp;midi)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>processBypassed</name>
-      <anchorfile>classlemons_1_1dsp_1_1MidiChoppingProcessor.html</anchorfile>
-      <anchor>afe12d93088472dcb07ba5fd0520084ea</anchor>
-      <arglist>(int numSamples, MidiBuffer &amp;midi)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>ParameterProcessor&lt; double &gt;</name>
-    <filename>classlemons_1_1plugin_1_1ParameterProcessor.html</filename>
-    <base>MidiChoppingProcessor&lt; double &gt;</base>
-    <member kind="function">
-      <type></type>
-      <name>ParameterProcessor</name>
-      <anchorfile>classlemons_1_1plugin_1_1ParameterProcessor.html</anchorfile>
-      <anchor>afb177c3b99030ee80f42fbbec0e4aae1</anchor>
-      <arglist>(ParameterList &amp;listToUse)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1MidiChoppingProcessor.html</anchorfile>
-      <anchor>a45808b9a9eebcc339dacdd63cccd61b9</anchor>
-      <arglist>(int maxBlocksize)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1MidiChoppingProcessor.html</anchorfile>
-      <anchor>a849f6d6f2cb2851f12b0169c7b9fa293</anchor>
-      <arglist>(AudioBuffer&lt; double &gt; &amp;audio, MidiBuffer &amp;midi)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>processBypassed</name>
-      <anchorfile>classlemons_1_1dsp_1_1MidiChoppingProcessor.html</anchorfile>
-      <anchor>afe12d93088472dcb07ba5fd0520084ea</anchor>
-      <arglist>(int numSamples, MidiBuffer &amp;midi)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>ParameterProcessor&lt; float &gt;</name>
-    <filename>classlemons_1_1plugin_1_1ParameterProcessor.html</filename>
-    <base>MidiChoppingProcessor&lt; float &gt;</base>
-    <member kind="function">
-      <type></type>
-      <name>ParameterProcessor</name>
-      <anchorfile>classlemons_1_1plugin_1_1ParameterProcessor.html</anchorfile>
-      <anchor>afb177c3b99030ee80f42fbbec0e4aae1</anchor>
-      <arglist>(ParameterList &amp;listToUse)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1MidiChoppingProcessor.html</anchorfile>
-      <anchor>a45808b9a9eebcc339dacdd63cccd61b9</anchor>
-      <arglist>(int maxBlocksize)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1MidiChoppingProcessor.html</anchorfile>
-      <anchor>a849f6d6f2cb2851f12b0169c7b9fa293</anchor>
-      <arglist>(AudioBuffer&lt; float &gt; &amp;audio, MidiBuffer &amp;midi)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -13727,14 +11328,14 @@
       <type>virtual Parameter *</type>
       <name>getParam</name>
       <anchorfile>structlemons_1_1plugin_1_1ParamHolderBase.html</anchorfile>
-      <anchor>a2faabbcdd9698d7f72fb24d643107d6d</anchor>
+      <anchor>a3f2129a7077c82fb3d0139bc9466e9f0</anchor>
       <arglist>() const =0</arglist>
     </member>
     <member kind="function">
       <type>Parameter *</type>
       <name>operator-&gt;</name>
       <anchorfile>structlemons_1_1plugin_1_1ParamHolderBase.html</anchorfile>
-      <anchor>a979e35738448d8f15702584dbafc736f</anchor>
+      <anchor>a11e00b9480e05280dcabcdd5e20bc607</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -13905,7 +11506,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>a56ede68a45d400299a704db8e629933d</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -14122,7 +11723,7 @@
   <compound kind="struct">
     <name>lemons::dsp::osc::Phase</name>
     <filename>structlemons_1_1dsp_1_1osc_1_1Phase.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <member kind="function">
       <type>SampleType</type>
       <name>getIncrement</name>
@@ -14150,38 +11751,6 @@
       <anchorfile>structlemons_1_1dsp_1_1osc_1_1Phase.html</anchorfile>
       <anchor>aeca90e459a6529d338e8f47923b5d6f3</anchor>
       <arglist>(SampleType frequency, SampleType sampleRate)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>Phase&lt; float &gt;</name>
-    <filename>structlemons_1_1dsp_1_1osc_1_1Phase.html</filename>
-    <member kind="function">
-      <type>float</type>
-      <name>getIncrement</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Phase.html</anchorfile>
-      <anchor>acb6dee2858f02f252733532bdcf5ed69</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>next</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Phase.html</anchorfile>
-      <anchor>a43a5cf0e92b7d5a32b40a6a6aae258c0</anchor>
-      <arglist>(float wrapLimit) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>resetPhase</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Phase.html</anchorfile>
-      <anchor>a3b35afc1047194a152c3de9ffb2b1072</anchor>
-      <arglist>() noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setFrequency</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Phase.html</anchorfile>
-      <anchor>aeca90e459a6529d338e8f47923b5d6f3</anchor>
-      <arglist>(float frequency, float sampleRate)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -14279,7 +11848,7 @@
   <compound kind="class">
     <name>lemons::dsp::psola::PitchCorrector</name>
     <filename>classlemons_1_1dsp_1_1psola_1_1PitchCorrector.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <base>lemons::dsp::psola::PitchCorrectorBase</base>
     <member kind="typedef">
       <type>dsp::psola::Analyzer&lt; SampleType &gt;</type>
@@ -14341,7 +11910,7 @@
   <compound kind="class">
     <name>lemons::dsp::psola::PitchCorrectorBase</name>
     <filename>classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <member kind="typedef">
       <type>dsp::psola::Analyzer&lt; SampleType &gt;</type>
       <name>Analyzer</name>
@@ -14409,7 +11978,7 @@
   <compound kind="class">
     <name>lemons::dsp::PitchDetector</name>
     <filename>classlemons_1_1dsp_1_1PitchDetector.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <member kind="function">
       <type></type>
       <name>PitchDetector</name>
@@ -14523,10 +12092,10 @@
   <compound kind="class">
     <name>lemons::plugin::PluginEditor</name>
     <filename>classlemons_1_1plugin_1_1PluginEditor.html</filename>
-    <templarg></templarg>
-    <templarg></templarg>
-    <templarg></templarg>
-    <templarg></templarg>
+    <templarg>typename ContentComponentType</templarg>
+    <templarg>typename StateType</templarg>
+    <templarg>LEMONS_MUST_INHERIT_FROM(ContentComponentType, GUIBase)</templarg>
+    <templarg>LEMONS_MUST_INHERIT_FROM(StateType, StateBase)</templarg>
     <base>lemons::plugin::EditorBase</base>
     <member kind="function">
       <type></type>
@@ -14539,55 +12108,8 @@
   <compound kind="struct">
     <name>lemons::plugin::PluginState</name>
     <filename>structlemons_1_1plugin_1_1PluginState.html</filename>
-    <templarg></templarg>
-    <templarg></templarg>
-    <base>lemons::SerializableData</base>
-    <member kind="function">
-      <type></type>
-      <name>PluginState</name>
-      <anchorfile>structlemons_1_1plugin_1_1PluginState.html</anchorfile>
-      <anchor>a0ad419ac90896c8d489a4a6731479640</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>deserialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>ace1758cc9344ae03a6d01c3c218226de</anchor>
-      <arglist>(const ValueTree &amp;tree)</arglist>
-    </member>
-    <member kind="function">
-      <type>ValueTree</type>
-      <name>serialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="variable">
-      <type>StateType</type>
-      <name>state</name>
-      <anchorfile>structlemons_1_1plugin_1_1PluginState.html</anchorfile>
-      <anchor>a2b29ea43c8e780bce47082ad73ab2bc6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>StateToggles</type>
-      <name>toggles</name>
-      <anchorfile>structlemons_1_1plugin_1_1PluginState.html</anchorfile>
-      <anchor>aa40e75834f1455e11a29294cbd06ece7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>UndoManager</type>
-      <name>undo</name>
-      <anchorfile>structlemons_1_1plugin_1_1PluginState.html</anchorfile>
-      <anchor>a9baef8928515047ae943e5b5af3f0ae4</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>PluginState&lt; StateType &gt;</name>
-    <filename>structlemons_1_1plugin_1_1PluginState.html</filename>
+    <templarg>typename StateType</templarg>
+    <templarg>LEMONS_MUST_INHERIT_FROM(StateType, StateBase)</templarg>
     <base>lemons::SerializableData</base>
     <member kind="function">
       <type></type>
@@ -14635,8 +12157,8 @@
   <compound kind="class">
     <name>lemons::gui::Popup</name>
     <filename>classlemons_1_1gui_1_1Popup.html</filename>
-    <templarg></templarg>
-    <templarg></templarg>
+    <templarg>typename ContentType</templarg>
+    <templarg>LEMONS_MUST_INHERIT_FROM(ContentType, PopupComponent)</templarg>
     <member kind="function">
       <type></type>
       <name>Popup</name>
@@ -14791,17 +12313,17 @@
       <type>const juce::Array&lt; Preset &gt; &amp;</type>
       <name>getPresets</name>
       <anchorfile>classlemons_1_1plugin_1_1PresetsLibrary.html</anchorfile>
-      <anchor>a74d3d81912d93642916abc9a20f476ff</anchor>
+      <anchor>a37d50d693ca0a55ce10aa2ef8a93fd3f</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>lemons::plugin::Processor</name>
     <filename>classlemons_1_1plugin_1_1Processor.html</filename>
-    <templarg></templarg>
-    <templarg>EngineType</templarg>
-    <templarg></templarg>
-    <templarg></templarg>
+    <templarg>class StateType</templarg>
+    <templarg>template&lt; typename SampleType &gt; class EngineType</templarg>
+    <templarg>LEMONS_MUST_INHERIT_FROM(StateType, StateBase)</templarg>
+    <templarg>LEMONS_MUST_INHERIT_FROM(EngineType&lt; float &gt;, dsp::Engine&lt; float &gt;)</templarg>
     <base>lemons::plugin::ProcessorBase</base>
     <member kind="function">
       <type></type>
@@ -14842,7 +12364,7 @@
       <type>StateType &amp;</type>
       <name>getState</name>
       <anchorfile>classlemons_1_1plugin_1_1Processor.html</anchorfile>
-      <anchor>af9126dcd369dba88d15b6f59f1206210</anchor>
+      <anchor>a7f06dcbbf3413a935a9e1c54f972cea9</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -14890,9 +12412,9 @@
   <compound kind="struct">
     <name>lemons::plugin::ProcessorWithEditor</name>
     <filename>structlemons_1_1plugin_1_1ProcessorWithEditor.html</filename>
-    <templarg></templarg>
-    <templarg></templarg>
-    <templarg></templarg>
+    <templarg>class ProcessorType</templarg>
+    <templarg>class ComponentType</templarg>
+    <templarg>LEMONS_MUST_INHERIT_FROM(ComponentType, GUIBase)</templarg>
     <member kind="function">
       <type></type>
       <name>ProcessorWithEditor</name>
@@ -14904,7 +12426,7 @@
       <type>juce::AudioProcessorEditor *</type>
       <name>createEditor</name>
       <anchorfile>structlemons_1_1plugin_1_1ProcessorWithEditor.html</anchorfile>
-      <anchor>a201a4272c92945bdbe74460f60ca0b64</anchor>
+      <anchor>a01e11719059e6f06dc190a1cc318758b</anchor>
       <arglist>() final</arglist>
     </member>
     <member kind="function">
@@ -14975,14 +12497,14 @@
       <type>const ObjectType &amp;</type>
       <name>operator()</name>
       <anchorfile>structlemons_1_1serializing_1_1NonrealtimeMutatable_1_1RealtimeAccess.html</anchorfile>
-      <anchor>a0813e348ba5190854e89398cd766e8b5</anchor>
+      <anchor>a781f45b4bcb971f87210ae249a826599</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>const ObjectType *</type>
       <name>operator-&gt;</name>
       <anchorfile>structlemons_1_1serializing_1_1NonrealtimeMutatable_1_1RealtimeAccess.html</anchorfile>
-      <anchor>ac228ae9d7721d0a35d5a3b57727cabdb</anchor>
+      <anchor>ad79dc761c592c653fe362ee3c6916e68</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="variable">
@@ -15014,14 +12536,14 @@
       <type>ObjectType &amp;</type>
       <name>operator()</name>
       <anchorfile>structlemons_1_1serializing_1_1RealtimeMutatable_1_1RealtimeAccess.html</anchorfile>
-      <anchor>a8a5ac2220ce0c8b8133603447a327418</anchor>
+      <anchor>a6ebe44c790a8ae26f8c4687588f32e36</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>ObjectType *</type>
       <name>operator-&gt;</name>
       <anchorfile>structlemons_1_1serializing_1_1RealtimeMutatable_1_1RealtimeAccess.html</anchorfile>
-      <anchor>aa958fdc21c7c0e9cc6fccfa88664e07f</anchor>
+      <anchor>aab1af5a2100c442145449d98b4b87caa</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="variable">
@@ -15042,7 +12564,7 @@
   <compound kind="class">
     <name>lemons::serializing::RealtimeMutatable</name>
     <filename>classlemons_1_1serializing_1_1RealtimeMutatable.html</filename>
-    <templarg></templarg>
+    <templarg>class ObjectType</templarg>
     <class kind="struct">lemons::serializing::RealtimeMutatable::NonrealtimeAccess</class>
     <class kind="struct">lemons::serializing::RealtimeMutatable::RealtimeAccess</class>
     <member kind="function">
@@ -15240,7 +12762,7 @@
   <compound kind="class">
     <name>lemons::dsp::FX::Saturator</name>
     <filename>classlemons_1_1dsp_1_1FX_1_1Saturator.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <base protection="private">lemons::dsp::FX::AudioEffect</base>
     <member kind="function">
       <type>void</type>
@@ -15267,7 +12789,7 @@
   <compound kind="struct">
     <name>lemons::dsp::osc::Saw</name>
     <filename>structlemons_1_1dsp_1_1osc_1_1Saw.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <base>lemons::dsp::osc::Oscillator</base>
     <member kind="function">
       <type></type>
@@ -15303,46 +12825,6 @@
       <anchorfile>structlemons_1_1dsp_1_1osc_1_1Saw.html</anchorfile>
       <anchor>ad693ea714d9a074cad7538bd1d4ddd22</anchor>
       <arglist>(SampleType frequency, SampleType sampleRate) final</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>Saw&lt; float &gt;</name>
-    <filename>structlemons_1_1dsp_1_1osc_1_1Saw.html</filename>
-    <base>Oscillator&lt; float &gt;</base>
-    <member kind="function">
-      <type></type>
-      <name>Saw</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Saw.html</anchorfile>
-      <anchor>a158a37dab3759be9e39f00ab1a72663f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getSample</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Saw.html</anchorfile>
-      <anchor>a740b3e0a53ab99c81d92f7e49a90a11a</anchor>
-      <arglist>() final</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>getSamples</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Oscillator.html</anchorfile>
-      <anchor>a0d4e7108f8cb508f01efeb7e7d423c84</anchor>
-      <arglist>(float *output, int numSamples)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>resetPhase</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Saw.html</anchorfile>
-      <anchor>ae2b0a0d1924b4873813d8163f4bb01a7</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setFrequency</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Saw.html</anchorfile>
-      <anchor>ad693ea714d9a074cad7538bd1d4ddd22</anchor>
-      <arglist>(float frequency, float sampleRate) final</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -15506,7 +12988,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>a56ede68a45d400299a704db8e629933d</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -15833,7 +13315,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>a56ede68a45d400299a704db8e629933d</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -16096,7 +13578,7 @@
   <compound kind="class">
     <name>lemons::dsp::psola::Shifter</name>
     <filename>classlemons_1_1dsp_1_1psola_1_1Shifter.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <member kind="typedef">
       <type>juce::AudioBuffer&lt; SampleType &gt;</type>
       <name>AudioBuffer</name>
@@ -16143,7 +13625,7 @@
   <compound kind="struct">
     <name>lemons::dsp::FX::SidechainableAudioEffect</name>
     <filename>structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <base>lemons::dsp::FX::AudioEffect</base>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
@@ -16188,57 +13670,10 @@
       <arglist>()</arglist>
     </member>
   </compound>
-  <compound kind="class">
-    <name>SidechainableAudioEffect&lt; float &gt;</name>
-    <filename>structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html</filename>
-    <base>AudioEffect&lt; float &gt;</base>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>bypassedBlock</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1AudioEffect.html</anchorfile>
-      <anchor>a0e2734ec1b7a89c566cbd2fe9b3592c8</anchor>
-      <arglist>(int numSamples)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>deserialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>ace1758cc9344ae03a6d01c3c218226de</anchor>
-      <arglist>(const ValueTree &amp;tree)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>prepare</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1AudioEffect.html</anchorfile>
-      <anchor>a97b60e3696ef3e25e4fe24b4448ec4f1</anchor>
-      <arglist>(double samplerate, int blocksize)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html</anchorfile>
-      <anchor>a72cd2a03ab39a2d605b1eda5693d26e4</anchor>
-      <arglist>(AudioBuffer&lt; float &gt; &amp;audio) override</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>process</name>
-      <anchorfile>structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html</anchorfile>
-      <anchor>a44a8b2b00d00c72900bb24105c45909c</anchor>
-      <arglist>(AudioBuffer&lt; float &gt; &amp;inOut, const AudioBuffer&lt; float &gt; &amp;sidechain)=0</arglist>
-    </member>
-    <member kind="function">
-      <type>ValueTree</type>
-      <name>serialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
   <compound kind="struct">
     <name>lemons::dsp::osc::Sine</name>
     <filename>structlemons_1_1dsp_1_1osc_1_1Sine.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <base>lemons::dsp::osc::Oscillator</base>
     <member kind="function">
       <type></type>
@@ -16277,46 +13712,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>Sine&lt; float &gt;</name>
-    <filename>structlemons_1_1dsp_1_1osc_1_1Sine.html</filename>
-    <base>Oscillator&lt; float &gt;</base>
-    <member kind="function">
-      <type></type>
-      <name>Sine</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Sine.html</anchorfile>
-      <anchor>aea160e6cbd0caf65fcc163bb476c5f97</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getSample</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Sine.html</anchorfile>
-      <anchor>af4a826b1fd62beb3255ae4a8965fdc62</anchor>
-      <arglist>() final</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>getSamples</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Oscillator.html</anchorfile>
-      <anchor>a0d4e7108f8cb508f01efeb7e7d423c84</anchor>
-      <arglist>(float *output, int numSamples)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>resetPhase</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Sine.html</anchorfile>
-      <anchor>a4b1a66de3b0cfc53a9c811536bcba5ad</anchor>
-      <arglist>() final</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setFrequency</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Sine.html</anchorfile>
-      <anchor>ab9a250d4a8800c416635bb9ba8ae4b64</anchor>
-      <arglist>(float frequency, float sampleRate) final</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>lemons::gui::SliderBase</name>
     <filename>classlemons_1_1gui_1_1SliderBase.html</filename>
     <member kind="function">
@@ -16330,172 +13725,8 @@
   <compound kind="class">
     <name>lemons::dsp::FX::SmoothedGain</name>
     <filename>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</filename>
-    <templarg></templarg>
-    <templarg>channels</templarg>
-    <base>lemons::dsp::FX::AudioEffect</base>
-    <member kind="typedef">
-      <type>AudioBuffer&lt; SampleType &gt;</type>
-      <name>AudioBuffer</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>a4a693ff5741c6ad91652e6e9be5e69b1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>SmoothedGain</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>af47c7b82ba55f1eebe16eb7c5f94bf5c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>SmoothedGain</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>a793fe0ab3a62e6cb9e81d5af115bf507</anchor>
-      <arglist>(float gain)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>bypassedBlock</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>a8335b506c3444b98f063652352100d65</anchor>
-      <arglist>(int numSamples) final</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>deserialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>ace1758cc9344ae03a6d01c3c218226de</anchor>
-      <arglist>(const ValueTree &amp;tree)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getGain</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>a392fa413f8b7d1a0e6469a5a35f80424</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>a44dfa473241c6b66568fdd7ed3af4fd2</anchor>
-      <arglist>(double samplerate, int blocksize) final</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>a4264ff4250d908d9b867b3393f8e8096</anchor>
-      <arglist>(AudioBuffer &amp;audio) final</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>reset</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>a1d7192b98f07069403c63d85157ddb70</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>ValueTree</type>
-      <name>serialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setGain</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>a90d461bd16bad378a7ab00e7672fccbd</anchor>
-      <arglist>(float gain)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>SmoothedGain&lt; float, 2 &gt;</name>
-    <filename>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</filename>
-    <base>AudioEffect&lt; float &gt;</base>
-    <member kind="typedef">
-      <type>AudioBuffer&lt; float &gt;</type>
-      <name>AudioBuffer</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>a4a693ff5741c6ad91652e6e9be5e69b1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>SmoothedGain</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>af47c7b82ba55f1eebe16eb7c5f94bf5c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>SmoothedGain</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>a793fe0ab3a62e6cb9e81d5af115bf507</anchor>
-      <arglist>(float gain)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>bypassedBlock</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>a8335b506c3444b98f063652352100d65</anchor>
-      <arglist>(int numSamples) final</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>deserialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>ace1758cc9344ae03a6d01c3c218226de</anchor>
-      <arglist>(const ValueTree &amp;tree)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getGain</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>a392fa413f8b7d1a0e6469a5a35f80424</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>a44dfa473241c6b66568fdd7ed3af4fd2</anchor>
-      <arglist>(double samplerate, int blocksize) final</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>a4264ff4250d908d9b867b3393f8e8096</anchor>
-      <arglist>(AudioBuffer &amp;audio) final</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>reset</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>a1d7192b98f07069403c63d85157ddb70</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>ValueTree</type>
-      <name>serialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setGain</name>
-      <anchorfile>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</anchorfile>
-      <anchor>a90d461bd16bad378a7ab00e7672fccbd</anchor>
-      <arglist>(float gain)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>SmoothedGain&lt; SampleType, 1 &gt;</name>
-    <filename>classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html</filename>
+    <templarg>typename SampleType</templarg>
+    <templarg>size_t channels</templarg>
     <base>lemons::dsp::FX::AudioEffect</base>
     <member kind="typedef">
       <type>AudioBuffer&lt; SampleType &gt;</type>
@@ -16632,7 +13863,7 @@
   <compound kind="struct">
     <name>lemons::dsp::osc::Square</name>
     <filename>structlemons_1_1dsp_1_1osc_1_1Square.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <base>lemons::dsp::osc::Oscillator</base>
     <member kind="function">
       <type></type>
@@ -16677,51 +13908,11 @@
       <arglist></arglist>
     </member>
   </compound>
-  <compound kind="class">
-    <name>Square&lt; float &gt;</name>
-    <filename>structlemons_1_1dsp_1_1osc_1_1Square.html</filename>
-    <base>Oscillator&lt; float &gt;</base>
-    <member kind="function">
-      <type></type>
-      <name>Square</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Square.html</anchorfile>
-      <anchor>a405fd123c99b7455bd56b3f18af2cc99</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getSample</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Square.html</anchorfile>
-      <anchor>af8cc0ad63ab8fbf08ecf9a3c77b29277</anchor>
-      <arglist>() final</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>getSamples</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Oscillator.html</anchorfile>
-      <anchor>a0d4e7108f8cb508f01efeb7e7d423c84</anchor>
-      <arglist>(float *output, int numSamples)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>resetPhase</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Square.html</anchorfile>
-      <anchor>aa90412a6f665b0bab29e8688970abbeb</anchor>
-      <arglist>() final</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setFrequency</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Square.html</anchorfile>
-      <anchor>a2f9f7288f85f8699a4b15f6041de2632</anchor>
-      <arglist>(float frequency, float sampleRate) final</arglist>
-    </member>
-  </compound>
   <compound kind="struct">
     <name>lemons::plugin::State</name>
     <filename>structlemons_1_1plugin_1_1State.html</filename>
-    <templarg></templarg>
-    <templarg></templarg>
+    <templarg>typename ParamListType</templarg>
+    <templarg>LEMONS_MUST_INHERIT_FROM(ParamListType, ParameterList)</templarg>
     <base>lemons::plugin::StateBase</base>
     <member kind="function">
       <type></type>
@@ -16755,7 +13946,7 @@
       <type>ParameterList &amp;</type>
       <name>getParameters</name>
       <anchorfile>classlemons_1_1plugin_1_1StateBase.html</anchorfile>
-      <anchor>ac6509bdb427c634a0e09fe50c6752e52</anchor>
+      <anchor>a8d3569a3cbec7e46f3726b1ffd698d6c</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -16851,7 +14042,7 @@
       <type>ParameterList &amp;</type>
       <name>getParameters</name>
       <anchorfile>classlemons_1_1plugin_1_1StateBase.html</anchorfile>
-      <anchor>ac6509bdb427c634a0e09fe50c6752e52</anchor>
+      <anchor>a8d3569a3cbec7e46f3726b1ffd698d6c</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -16932,8 +14123,8 @@
   <compound kind="struct">
     <name>lemons::serializing::StdArrayInterface</name>
     <filename>structlemons_1_1serializing_1_1StdArrayInterface.html</filename>
-    <templarg></templarg>
-    <templarg>size</templarg>
+    <templarg>typename ElementType</templarg>
+    <templarg>size_t size</templarg>
     <base>LambdaContainerInterface&lt; std::array&lt; ElementType, size &gt; &gt;</base>
     <member kind="typedef">
       <type>std::array&lt; ElementType, size &gt;</type>
@@ -16960,7 +14151,7 @@
   <compound kind="class">
     <name>lemons::dsp::FX::StereoPanner</name>
     <filename>classlemons_1_1dsp_1_1FX_1_1StereoPanner.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <base>lemons::dsp::FX::PannerBase</base>
     <base>lemons::dsp::FX::AudioEffect</base>
     <member kind="typedef">
@@ -17086,7 +14277,7 @@
   <compound kind="struct">
     <name>lemons::serializing::STLContainerInterface</name>
     <filename>structlemons_1_1serializing_1_1STLContainerInterface.html</filename>
-    <templarg></templarg>
+    <templarg>class ContainerType</templarg>
     <base>lemons::serializing::LambdaContainerInterface</base>
     <member kind="typedef">
       <type>std::function&lt; void(ContainerType &amp;, int) &gt;</type>
@@ -17117,7 +14308,7 @@
       <type>Storage &amp;</type>
       <name>operator=</name>
       <anchorfile>structlemons_1_1dsp_1_1filters_1_1Coefficients_1_1Storage.html</anchorfile>
-      <anchor>aad4d25d98e77db409adc6ced77bc5bc9</anchor>
+      <anchor>adfaa7afc3e338a901c95841b45e56e11</anchor>
       <arglist>(std::initializer_list&lt; NumericType &gt; list)</arglist>
     </member>
   </compound>
@@ -17215,7 +14406,7 @@
       <type>const juce::Array&lt; Preset &gt; &amp;</type>
       <name>getPresets</name>
       <anchorfile>classlemons_1_1plugin_1_1presets_1_1SubLibrary.html</anchorfile>
-      <anchor>a0376512c8575df44d899b0cecfd6fb77</anchor>
+      <anchor>acd2dcc1b4596513f339ee84e256047c3</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -17264,7 +14455,7 @@
   <compound kind="class">
     <name>lemons::dsp::osc::SuperSaw</name>
     <filename>classlemons_1_1dsp_1_1osc_1_1SuperSaw.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <base>lemons::dsp::osc::Oscillator</base>
     <member kind="function">
       <type></type>
@@ -17317,63 +14508,9 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>SuperSaw&lt; float &gt;</name>
-    <filename>classlemons_1_1dsp_1_1osc_1_1SuperSaw.html</filename>
-    <base>Oscillator&lt; float &gt;</base>
-    <member kind="function">
-      <type></type>
-      <name>SuperSaw</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1SuperSaw.html</anchorfile>
-      <anchor>a394f803e344df738e0a3da085bfc6792</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getPitchSpreadCents</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1SuperSaw.html</anchorfile>
-      <anchor>ab147bbae63bba206564d52a837b930ec</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getSample</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1SuperSaw.html</anchorfile>
-      <anchor>ac265c02f42dac755b6b2114a887aec44</anchor>
-      <arglist>() final</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>getSamples</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Oscillator.html</anchorfile>
-      <anchor>a0d4e7108f8cb508f01efeb7e7d423c84</anchor>
-      <arglist>(float *output, int numSamples)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>resetPhase</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1SuperSaw.html</anchorfile>
-      <anchor>a80528ee05c8ada9460bc49cd435e8ae3</anchor>
-      <arglist>() final</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setDetuneAmount</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1SuperSaw.html</anchorfile>
-      <anchor>a4990ad07773cbb3fae93582e33064bcc</anchor>
-      <arglist>(int totalPitchSpreadInCents)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setFrequency</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1SuperSaw.html</anchorfile>
-      <anchor>aebb73235f424cd217b88523dfdc35bab</anchor>
-      <arglist>(float frequency, float sampleRate) final</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>lemons::dsp::SynthBase</name>
     <filename>classlemons_1_1dsp_1_1SynthBase.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <class kind="struct">lemons::dsp::SynthBase::TimbreModParams</class>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
@@ -17428,7 +14565,7 @@
       <type>const midi::PitchPipeline *</type>
       <name>getPitchAdjuster</name>
       <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>af119c05b5f84f9dc81e8cfd5c0af15c4</anchor>
+      <anchor>aea1d1e3765eff81a1d2928149774ead9</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -17673,7 +14810,7 @@
       <type>virtual Voice *</type>
       <name>createVoice</name>
       <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a90865bbbb010903ca5ba65f3f1d3fb8c</anchor>
+      <anchor>a30ef35dd86893ed3ab837b7425eed82f</anchor>
       <arglist>()=0</arglist>
     </member>
     <member kind="function" protection="protected" virtualness="virtual">
@@ -17743,7 +14880,7 @@
   <compound kind="class">
     <name>lemons::dsp::SynthVoiceBase</name>
     <filename>classlemons_1_1dsp_1_1SynthVoiceBase.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <member kind="function">
       <type></type>
       <name>SynthVoiceBase</name>
@@ -17955,8 +15092,8 @@
   <compound kind="struct">
     <name>lemons::dsp::TemplateSynth</name>
     <filename>structlemons_1_1dsp_1_1TemplateSynth.html</filename>
-    <templarg></templarg>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
+    <templarg>typename VoiceType</templarg>
     <base>lemons::dsp::SynthBase</base>
     <member kind="function">
       <type>void</type>
@@ -17983,7 +15120,7 @@
       <type>SynthVoiceBase&lt; SampleType &gt; *</type>
       <name>createVoice</name>
       <anchorfile>structlemons_1_1dsp_1_1TemplateSynth.html</anchorfile>
-      <anchor>aef5eeed5207b79c9cb3e39500561c7b8</anchor>
+      <anchor>a05121b7e98d8185151f65f30888e0dc3</anchor>
       <arglist>() final</arglist>
     </member>
     <member kind="function">
@@ -18011,334 +15148,7 @@
       <type>const midi::PitchPipeline *</type>
       <name>getPitchAdjuster</name>
       <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>af119c05b5f84f9dc81e8cfd5c0af15c4</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>getScaleName</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a16a6e5209b303a6347c07b70a33a3069</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>initialize</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a735fdf83784af9a5b3063c10fa8d4e59</anchor>
-      <arglist>(int initNumVoices, double initSamplerate=44100.0, int initBlocksize=512)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isAftertouchGainOn</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a7363d2222e34c156ad28a649a79f6989</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isConnectedToMtsEsp</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>ada3cff3c4dc76a683e9f25d844ef22de</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isInitialized</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a049aa17cd6520dc2f6f52e3ad79230eb</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isLatched</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>aa33ec5804fb40f3b14e3db94c7c2c90d</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isPitchActive</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a7b712714196f3e449951fae06d29e8ee</anchor>
-      <arglist>(int midiPitch, bool countRingingButReleased=false, bool countKeyUpNotes=false) const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isSoftPedalDown</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>af1077b352be17e7193561a3d5608ceee</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isSostenutoPedalDown</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a2b1be0c6c4e580ffdc88e06d28021dc5</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isSustainPedalDown</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>ab9a0ac251c1bfc4fef45104aeadd7869</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>playChord</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a9a50048abd1bb3fa4f6b881a18b0b82b</anchor>
-      <arglist>(const juce::Array&lt; int &gt; &amp;desiredPitches, float velocity=1.0f, bool allowTailOffOfOld=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a34c78e730cbf5848bbaa671905486a6a</anchor>
-      <arglist>(double samplerate, int blocksize)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>processMidiEvent</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>aa6f57523a03a5b0f1a9f74d5be093f44</anchor>
-      <arglist>(const MidiMessage &amp;m)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>releaseResources</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a4d6e9ec66b6cb5a68366289ea251fb37</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>renderVoices</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a31d94dedef4b759fadf9e463d81b9fa7</anchor>
-      <arglist>(MidiBuffer &amp;midiMessages, AudioBuffer&lt; SampleType &gt; &amp;output)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>reportActiveNotes</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a889889a9b08cc05171150e1d59d274da</anchor>
-      <arglist>(juce::Array&lt; int &gt; &amp;outputArray, bool includePlayingButReleased=false, bool includeKeyUpNotes=true) const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>reset</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>af9854fe81bf30725700d97c69f504f3d</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setAftertouchGainOnOff</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a209e18f56e993f13c280a2a3dd58d27d</anchor>
-      <arglist>(bool shouldBeOn)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setMidiLatch</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a793a2d5fd63b8866cb1369825a99e7ad</anchor>
-      <arglist>(bool shouldBeOn, const bool allowTailOff=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setNoteStealingEnabled</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a1b4b1e3ce9ab3bfefa448edba826e136</anchor>
-      <arglist>(bool shouldSteal) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setPitchGlideTime</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>ab5947c267077d9cd36f30388a3b34372</anchor>
-      <arglist>(double glideTimeSeconds)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>togglePitchGlide</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>ab5a5959b1227f1b00764453a815f1a73</anchor>
-      <arglist>(bool shouldGlide)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>turnOffAllKeyupNotes</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>aff2ed72d6b84ea6f720a4d437b2b3d6e</anchor>
-      <arglist>(bool allowTailOff=false, bool includePedalPitchAndDescant=true, float velocity=1.0f, bool overrideSostenutoPedal=true)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>updateADSRsettings</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>ab452fb3e2ee79aa8f95081bff317462b</anchor>
-      <arglist>(float attack, float decay, float sustain, float release)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>updateMidiVelocitySensitivity</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>aa4e5707859857dcbff75cd91d4690657</anchor>
-      <arglist>(int newSensitivity)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>updatePitchbendRange</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a9b2c6c4f648250111af37e7e7512d6ff</anchor>
-      <arglist>(int rangeSemitones)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>updatePitchbendRange</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a8676b5ac95187e769740872a3390b19e</anchor>
-      <arglist>(int rangeUp, int rangeDown)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>updateQuickReleaseMs</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a7e249b858ee8cb944bbcafd183e8793d</anchor>
-      <arglist>(int newMs)</arglist>
-    </member>
-    <member kind="variable">
-      <type>synth::AutomatedHarmonyVoice&lt; SampleType &gt;</type>
-      <name>descant</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a1520e74c0664cd7378b37784cd2f61a2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>juce::MidiKeyboardState</type>
-      <name>keyboardState</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a32ddb3597cd3ae6fcb3669b664c775e5</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>synth::PanningManager&lt; SampleType &gt;</type>
-      <name>panner</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a6385f1208d58a1d37918d4ac708db3a4</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>synth::AutomatedHarmonyVoice&lt; SampleType &gt;</type>
-      <name>pedal</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>aece7c55fee9fdcead4677fcf1f441641</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>TimbreModParams</type>
-      <name>playingButReleased</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a95fc35cbfdd2c70f665faa1a565ce888</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>TimbreModParams</type>
-      <name>softPedal</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a99921455c45ede8e43c3dcdc30ee0ff7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function" protection="protected" virtualness="virtual">
-      <type>virtual void</type>
-      <name>initialized</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a8d883d358cd1294c188d1b8a7db77365</anchor>
-      <arglist>(double initSamplerate, int initBlocksize)</arglist>
-    </member>
-    <member kind="function" protection="protected" virtualness="virtual">
-      <type>virtual void</type>
-      <name>prepared</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>aa8ef4457e0e07e4549dc0bc8e105aa56</anchor>
-      <arglist>(double samplerate, int blocksize)</arglist>
-    </member>
-    <member kind="function" protection="protected" virtualness="virtual">
-      <type>virtual void</type>
-      <name>release</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>accdf1a7000c35b35d3cd7f781d89565b</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" protection="protected" virtualness="virtual">
-      <type>virtual void</type>
-      <name>resetTriggered</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a4cf5c383301bebd3be10327a75bbad5d</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>TemplateSynth&lt; SampleType, OscSynthVoice&lt; SampleType, OscType &gt; &gt;</name>
-    <filename>structlemons_1_1dsp_1_1TemplateSynth.html</filename>
-    <base>lemons::dsp::SynthBase</base>
-    <member kind="function">
-      <type>void</type>
-      <name>allNotesOff</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a2fad1b9778b6a2185e8959824a25422f</anchor>
-      <arglist>(bool allowTailOff=false, float velocity=1.0f)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>bypassedBlock</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a56641cc1e3f530f450c37855553d403e</anchor>
-      <arglist>(int numSamples, MidiBuffer &amp;midiMessages)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>changeNumVoices</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a283881d2fa2abaedc99cf1042c5d3eb9</anchor>
-      <arglist>(int newNumVoices)</arglist>
-    </member>
-    <member kind="function">
-      <type>SynthVoiceBase&lt; SampleType &gt; *</type>
-      <name>createVoice</name>
-      <anchorfile>structlemons_1_1dsp_1_1TemplateSynth.html</anchorfile>
-      <anchor>aef5eeed5207b79c9cb3e39500561c7b8</anchor>
-      <arglist>() final</arglist>
-    </member>
-    <member kind="function">
-      <type>auto</type>
-      <name>getLastMovedControllerInfo</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>afadd3a45c7db303eef075afabef80737</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getNumActiveVoices</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a38007d9c531b80d4ea64875f881be8cf</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getNumVoices</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a22a13afada1f072993befdbf3197d47c</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>const midi::PitchPipeline *</type>
-      <name>getPitchAdjuster</name>
-      <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>af119c05b5f84f9dc81e8cfd5c0af15c4</anchor>
+      <anchor>aea1d1e3765eff81a1d2928149774ead9</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -18622,7 +15432,7 @@
   <compound kind="class">
     <name>lemons::dsp::synth::TimbreMod</name>
     <filename>classlemons_1_1dsp_1_1synth_1_1TimbreMod.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <member kind="function">
       <type></type>
       <name>TimbreMod</name>
@@ -18869,7 +15679,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>a56ede68a45d400299a704db8e629933d</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -19086,54 +15896,7 @@
   <compound kind="struct">
     <name>lemons::serializing::Toggler</name>
     <filename>structlemons_1_1serializing_1_1Toggler.html</filename>
-    <templarg>numStates</templarg>
-    <base>lemons::serializing::TogglerInterface</base>
-    <member kind="function">
-      <type></type>
-      <name>Toggler</name>
-      <anchorfile>structlemons_1_1serializing_1_1Toggler.html</anchorfile>
-      <anchor>a9db23f7bade002167235a653074fca1c</anchor>
-      <arglist>(SerializableData &amp;stateToUse)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>deserialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>ace1758cc9344ae03a6d01c3c218226de</anchor>
-      <arglist>(const ValueTree &amp;tree)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>loadState</name>
-      <anchorfile>structlemons_1_1serializing_1_1Toggler.html</anchorfile>
-      <anchor>af7d7fe1120dc768c0f4ad45f72a0452f</anchor>
-      <arglist>(size_t num) final</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>saveState</name>
-      <anchorfile>structlemons_1_1serializing_1_1Toggler.html</anchorfile>
-      <anchor>a6f5aac64ca3f8b96371c4168096cf446</anchor>
-      <arglist>(size_t num) final</arglist>
-    </member>
-    <member kind="function">
-      <type>ValueTree</type>
-      <name>serialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setUndoManager</name>
-      <anchorfile>structlemons_1_1serializing_1_1Toggler.html</anchorfile>
-      <anchor>ab9ce11ec0120c1e9a21caba99889806b</anchor>
-      <arglist>(UndoManager &amp;undoManager)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>Toggler&lt; 3 &gt;</name>
-    <filename>structlemons_1_1serializing_1_1Toggler.html</filename>
+    <templarg>size_t numStates</templarg>
     <base>lemons::serializing::TogglerInterface</base>
     <member kind="function">
       <type></type>
@@ -19252,7 +16015,7 @@
       <type>ValueTree &amp;</type>
       <name>getRawDataTree</name>
       <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
-      <anchor>a7a88f53e45239d0b8d11cb2ce4dbefd0</anchor>
+      <anchor>a3f9ec6e79be6e646a88f24b9b0b5b30f</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -19319,7 +16082,7 @@
       <type>ValueTree &amp;</type>
       <name>getRawDataTree</name>
       <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
-      <anchor>a7a88f53e45239d0b8d11cb2ce4dbefd0</anchor>
+      <anchor>a3f9ec6e79be6e646a88f24b9b0b5b30f</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" virtualness="pure">
@@ -19366,7 +16129,7 @@
       <type>ValueTree &amp;</type>
       <name>getRawDataTree</name>
       <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
-      <anchor>a7a88f53e45239d0b8d11cb2ce4dbefd0</anchor>
+      <anchor>a3f9ec6e79be6e646a88f24b9b0b5b30f</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -19394,7 +16157,8 @@
   <compound kind="struct">
     <name>lemons::dsp::osc::Triangle</name>
     <filename>structlemons_1_1dsp_1_1osc_1_1Triangle.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
+    <base>lemons::dsp::osc::Oscillator</base>
     <member kind="function">
       <type></type>
       <name>Triangle</name>
@@ -19408,6 +16172,13 @@
       <anchorfile>structlemons_1_1dsp_1_1osc_1_1Triangle.html</anchorfile>
       <anchor>a2bc186fc90983db3536a09ad4fbb23f5</anchor>
       <arglist>() final</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>getSamples</name>
+      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Oscillator.html</anchorfile>
+      <anchor>a0d4e7108f8cb508f01efeb7e7d423c84</anchor>
+      <arglist>(SampleType *output, int numSamples)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -19425,41 +16196,9 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>Triangle&lt; float &gt;</name>
-    <filename>structlemons_1_1dsp_1_1osc_1_1Triangle.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>Triangle</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Triangle.html</anchorfile>
-      <anchor>af87960ad0b6bdd0235f8a6efcf956b4a</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getSample</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Triangle.html</anchorfile>
-      <anchor>a2bc186fc90983db3536a09ad4fbb23f5</anchor>
-      <arglist>() final</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>resetPhase</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Triangle.html</anchorfile>
-      <anchor>a58e11fd6ce2733815fd528f4bce17a0f</anchor>
-      <arglist>() final</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setFrequency</name>
-      <anchorfile>structlemons_1_1dsp_1_1osc_1_1Triangle.html</anchorfile>
-      <anchor>ae558e62ec53f88ca35bf65f9cc40c7ad</anchor>
-      <arglist>(float frequency, float sampleRate) final</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>lemons::plugin::TypedParameter</name>
     <filename>classlemons_1_1plugin_1_1TypedParameter.html</filename>
-    <templarg></templarg>
+    <templarg>typename ValueType</templarg>
     <base>lemons::plugin::Parameter</base>
     <class kind="struct">lemons::plugin::TypedParameter::Listener</class>
     <member kind="function">
@@ -19564,7 +16303,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>a56ede68a45d400299a704db8e629933d</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -19779,326 +16518,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>TypedParameter&lt; bool &gt;</name>
-    <filename>classlemons_1_1plugin_1_1TypedParameter.html</filename>
-    <base>lemons::plugin::Parameter</base>
-    <member kind="function">
-      <type></type>
-      <name>TypedParameter</name>
-      <anchorfile>classlemons_1_1plugin_1_1TypedParameter.html</anchorfile>
-      <anchor>a01ef0890d81948e636d558459770ebf2</anchor>
-      <arglist>(bool minimum, bool maximum, bool defaultValue, String paramName, std::function&lt; String(bool, int) &gt; stringFromValue=nullptr, std::function&lt; bool(const String &amp;) &gt; valueFromString=nullptr, String paramLabel={}, bool isAutomatable=true, bool metaParam=false, juce::AudioProcessorParameter::Category parameterCategory=AudioProcessorParameter::genericParameter)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>beginGesture</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab401bba2feb1c21a43c9e1ebb0e9089e</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>denormalize</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a35470e1272c020747c634b5e99e8f840</anchor>
-      <arglist>(float input) const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>deserialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>ace1758cc9344ae03a6d01c3c218226de</anchor>
-      <arglist>(const ValueTree &amp;tree)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>endGesture</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a6dcc681b173e3682f071e0423343e12f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>get</name>
-      <anchorfile>classlemons_1_1plugin_1_1TypedParameter.html</anchorfile>
-      <anchor>a9333a81bf01432310fc49d52816c6a86</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>getDefault</name>
-      <anchorfile>classlemons_1_1plugin_1_1TypedParameter.html</anchorfile>
-      <anchor>aaad0266372079085c094947faa57ce2b</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getDenormalizedDefault</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a0f20a4d166dd1ce9a161608b31b9ccbd</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getDenormalizedValue</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a1ad216ffc9c5b688b21d2896165de0d3</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getMax</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a039379ee8787e3d1e2dd797ff83df122</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>getMaximum</name>
-      <anchorfile>classlemons_1_1plugin_1_1TypedParameter.html</anchorfile>
-      <anchor>ab475aed3afd4247a7c5afc53e5b74c0b</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getMidiControllerNumber</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a26767145588fbdb49127be4a3e1bd12c</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getMin</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab5ccf172d8184a14cc1d70e5d160859b</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>getMinimum</name>
-      <anchorfile>classlemons_1_1plugin_1_1TypedParameter.html</anchorfile>
-      <anchor>a3f385a1ada429e1f7cd8e16d3f5a7635</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
-      <name>getNormalisableRange</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
-      <arglist>() const final</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getNormalizedDefault</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a4a21e8181dabc81dc9a159a686c10d73</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getNormalizedValue</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ac624ce0059aa3c873b2e0920ff973332</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>getParameterName</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a34250cac555b1d3a3ab04e31ca2f310e</anchor>
-      <arglist>(int maxLength=0, bool internationalize=true) const</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>getStringForCurrentValue</name>
-      <anchorfile>classlemons_1_1plugin_1_1TypedParameter.html</anchorfile>
-      <anchor>ad3607d98e258cd3a0b0330af8d70b8be</anchor>
-      <arglist>(int maxLength=50) const</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>getStringForValue</name>
-      <anchorfile>classlemons_1_1plugin_1_1TypedParameter.html</anchorfile>
-      <anchor>adaa546ec98412109e257ea946b1b5d22</anchor>
-      <arglist>(bool value, int maxLength=50) const</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>getTextForDenormalizedValue</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a455faf5cc388e774ca74b8c1a0dcf91e</anchor>
-      <arglist>(float value) const</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>getTextForMax</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a0f4d1ded85fbe096e467e3f76726b02d</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>getTextForMin</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>aebe3716f130dedf9f217a8b19cb84d1b</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>getTextForNormalizedValue</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a07202aa895f5c0e7a49dba3ffb5e275e</anchor>
-      <arglist>(float value) const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>getValueForString</name>
-      <anchorfile>classlemons_1_1plugin_1_1TypedParameter.html</anchorfile>
-      <anchor>ab115e4682d29dba03b949c7aace71f7d</anchor>
-      <arglist>(const String &amp;string) const</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getValueForText</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a7f5d65dc22dbd10f181559bdb1cf05ee</anchor>
-      <arglist>(const String &amp;text) const final</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isAutomatable</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>abcae02c6785e36a8fd3b7a34cba8911b</anchor>
-      <arglist>() const final</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isChanging</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a5fb75a0f332a7d3507a019632fb000d1</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isMetaParameter</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a0e7e021b4bd12090ddecc145b7e927e4</anchor>
-      <arglist>() const final</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isMidiControllerMapped</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a7183d1d97be3442658d9722a95b7afb0</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>normalize</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a598a9b7449439567dc63aa225155b9f1</anchor>
-      <arglist>(float input) const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>processNewControllerMessage</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a06e51ea134d132a97a30da7b699f4dd5</anchor>
-      <arglist>(int controllerNumber, int controllerValue)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>refreshDefault</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a06ee7850537979ed797fbe016f8700b5</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>removeMidiControllerMapping</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a877331972bbe99e7335aea74db1f839e</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>resetToDefault</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>aa22078ebf664fe42bfc16e0a73faf09b</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>ValueTree</type>
-      <name>serialize</name>
-      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
-      <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>set</name>
-      <anchorfile>classlemons_1_1plugin_1_1TypedParameter.html</anchorfile>
-      <anchor>acd7c04563172272764edc67aba4e5631</anchor>
-      <arglist>(bool newValue)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setDefault</name>
-      <anchorfile>classlemons_1_1plugin_1_1TypedParameter.html</anchorfile>
-      <anchor>a7d50e7bd69be6af249c972d424c7d5bc</anchor>
-      <arglist>(bool newDefault)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setDenormalizedDefault</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>afa210c9638d5fc5e09f8e659eb41c120</anchor>
-      <arglist>(float value)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setDenormalizedValue</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>af9c19c3fdb79022f085f83903c80f89a</anchor>
-      <arglist>(float value)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setMidiControllerNumber</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a22cc2b06fd785195c7658ea32a00216b</anchor>
-      <arglist>(int newControllerNumber)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setNormalizedDefault</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a7d82f0a7fb6ad8f1c4a62cb68a627c69</anchor>
-      <arglist>(float value)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setNormalizedValue</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
-      <arglist>(float value)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setUndoManager</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
-      <arglist>(UndoManager &amp;managerToUse)</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>setMidiControllerInternal</name>
-      <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a01f6abc488d0130e83ee7aa664c139c8</anchor>
-      <arglist>(int controller)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>lemons::UndoManager</name>
     <filename>classlemons_1_1UndoManager.html</filename>
     <class kind="struct">lemons::UndoManager::ScopedTransaction</class>
@@ -20134,7 +16553,7 @@
       <type>events::Broadcaster &amp;</type>
       <name>getBroadcaster</name>
       <anchorfile>classlemons_1_1UndoManager.html</anchorfile>
-      <anchor>a3318cfab21c214d1e9cefa5d2e2453eb</anchor>
+      <anchor>a989e284854306c2da415c4631b4c163f</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -20218,7 +16637,7 @@
   <compound kind="struct">
     <name>lemons::ValueSmoother</name>
     <filename>structlemons_1_1ValueSmoother.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <member kind="function">
       <type>void</type>
       <name>set</name>
@@ -20386,7 +16805,7 @@
   <compound kind="class">
     <name>lemons::dsp::synth::VoiceAllocator</name>
     <filename>classlemons_1_1dsp_1_1synth_1_1VoiceAllocator.html</filename>
-    <templarg></templarg>
+    <templarg>typename SampleType</templarg>
     <member kind="typedef">
       <type>SynthVoiceBase&lt; SampleType &gt;</type>
       <name>Voice</name>
@@ -20405,14 +16824,14 @@
       <type>Voice *</type>
       <name>findFreeVoice</name>
       <anchorfile>classlemons_1_1dsp_1_1synth_1_1VoiceAllocator.html</anchorfile>
-      <anchor>a2d4a3b701958b11af574bb8203bad7d9</anchor>
+      <anchor>a8853139d79f5a4ddccb0e4efa97904c6</anchor>
       <arglist>(bool stealIfNoneAvailable)</arglist>
     </member>
     <member kind="function">
       <type>Voice *</type>
       <name>findVoiceToSteal</name>
       <anchorfile>classlemons_1_1dsp_1_1synth_1_1VoiceAllocator.html</anchorfile>
-      <anchor>aa34b3073081e7bf0ef208ec573cee0b1</anchor>
+      <anchor>aed160c0adfee2ace466cb570b911745b</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -21337,17 +17756,17 @@
       <arglist>(const ValueTree &amp;tree)</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
-      <name>fromVar</name>
-      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a6b8eb05784908c6aa35fa8499a495350</anchor>
-      <arglist>(const juce::var &amp;var)</arglist>
-    </member>
-    <member kind="function">
       <type>Type</type>
       <name>fromVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
       <anchor>ab1f2f10c7b4aaf9489cc1ee43c450464</anchor>
+      <arglist>(const juce::var &amp;var)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>fromVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a6b8eb05784908c6aa35fa8499a495350</anchor>
       <arglist>(const juce::var &amp;var)</arglist>
     </member>
     <member kind="function">
@@ -21876,6 +18295,8 @@
     <name>lemons_mobile_utils-Android</name>
     <title>Android</title>
     <filename>group__lemons__mobile__utils-Android.html</filename>
+    <namespace>lemons</namespace>
+    <class kind="class">lemons::MotionManager</class>
   </compound>
   <compound kind="group">
     <name>Apps</name>
@@ -21999,6 +18420,10 @@
     <name>lemons_app_utils-GuiApp</name>
     <title>GuiApp</title>
     <filename>group__lemons__app__utils-GuiApp.html</filename>
+    <namespace>lemons</namespace>
+    <class kind="struct">lemons::DefaultWindow</class>
+    <class kind="struct">lemons::DefaultWindowBase</class>
+    <class kind="class">lemons::GuiApp</class>
   </compound>
   <compound kind="group">
     <name>lemons_midi-MidiUtilities</name>
@@ -22075,6 +18500,10 @@
     <class kind="struct">lemons::serializing::LambdaContainerInterface</class>
     <class kind="struct">lemons::serializing::MapInterface</class>
     <class kind="struct">lemons::serializing::MapInterfaceBase</class>
+    <class kind="struct">lemons::SerializableData</class>
+    <class kind="struct">lemons::TreeLoader</class>
+    <class kind="struct">lemons::TreeReflector</class>
+    <class kind="struct">lemons::TreeSaver</class>
   </compound>
   <compound kind="group">
     <name>lemons_serializing-Serializing</name>
@@ -22137,6 +18566,12 @@
     <name>lemons_mobile_utils-all_platforms</name>
     <title>all_platforms</title>
     <filename>group__lemons__mobile__utils-all__platforms.html</filename>
+    <namespace>lemons</namespace>
+    <class kind="struct">lemons::MotionManagerInterface::Coords</class>
+    <class kind="struct">lemons::DeviceRotation</class>
+    <class kind="struct">lemons::DeviceRotationListener</class>
+    <class kind="struct">lemons::MotionListener</class>
+    <class kind="class">lemons::MotionManagerInterface</class>
   </compound>
   <compound kind="group">
     <name>lemons_psola-analysis</name>
@@ -22166,6 +18601,8 @@
     <name>lemons_core-binary_data</name>
     <title>binary_data</title>
     <filename>group__lemons__core-binary__data.html</filename>
+    <namespace>lemons</namespace>
+    <class kind="struct">lemons::RawData</class>
   </compound>
   <compound kind="group">
     <name>lemons_plugin_gui-buttons</name>
@@ -22213,6 +18650,8 @@
     <name>lemons_mobile_utils-dummy_desktop_versions</name>
     <title>dummy_desktop_versions</title>
     <filename>group__lemons__mobile__utils-dummy__desktop__versions.html</filename>
+    <namespace>lemons</namespace>
+    <class kind="class">lemons::MotionManager</class>
   </compound>
   <compound kind="group">
     <name>lemons_audio_effects-dynamics</name>
@@ -22252,11 +18691,11 @@
     <namespace>lemons::serializing</namespace>
     <class kind="class">lemons::events::Broadcaster</class>
     <class kind="struct">lemons::events::Listener</class>
-    <class kind="struct">lemons::serializing::RealtimeMutatable::NonrealtimeAccess</class>
     <class kind="struct">lemons::serializing::NonrealtimeMutatable::NonrealtimeAccess</class>
+    <class kind="struct">lemons::serializing::RealtimeMutatable::NonrealtimeAccess</class>
     <class kind="class">lemons::serializing::NonrealtimeMutatable</class>
-    <class kind="struct">lemons::serializing::RealtimeMutatable::RealtimeAccess</class>
     <class kind="struct">lemons::serializing::NonrealtimeMutatable::RealtimeAccess</class>
+    <class kind="struct">lemons::serializing::RealtimeMutatable::RealtimeAccess</class>
     <class kind="class">lemons::serializing::RealtimeMutatable</class>
     <class kind="struct">lemons::events::Broadcaster::Reciever</class>
     <class kind="struct">lemons::events::TimerCallback</class>
@@ -22265,6 +18704,7 @@
     <name>lemons_core-files</name>
     <title>files</title>
     <filename>group__lemons__core-files.html</filename>
+    <namespace>lemons</namespace>
   </compound>
   <compound kind="group">
     <name>lemons_dsp-filters</name>
@@ -22282,6 +18722,8 @@
     <name>lemons_mobile_utils-iOS</name>
     <title>iOS</title>
     <filename>group__lemons__mobile__utils-iOS.html</filename>
+    <namespace>lemons</namespace>
+    <class kind="class">lemons::MotionManager</class>
   </compound>
   <compound kind="group">
     <name>lemons_gui-icons</name>
@@ -22426,6 +18868,7 @@
     <name>lemons_core-localization</name>
     <title>localization</title>
     <filename>group__lemons__core-localization.html</filename>
+    <namespace>lemons</namespace>
   </compound>
   <compound kind="group">
     <name>lemons_core-math</name>
@@ -22436,9 +18879,24 @@
     <namespace>lemons::vecops</namespace>
   </compound>
   <compound kind="group">
+    <name>lemons_audio_effects-misc</name>
+    <title>misc</title>
+    <filename>group__lemons__audio__effects-misc.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::FX</namespace>
+    <class kind="class">lemons::dsp::FX::DeEsser</class>
+    <class kind="class">lemons::dsp::FX::DryWetMixer</class>
+    <class kind="class">lemons::dsp::FX::Reverb</class>
+    <class kind="class">lemons::dsp::FX::Saturator</class>
+  </compound>
+  <compound kind="group">
     <name>lemons_core-misc</name>
     <title>misc</title>
     <filename>group__lemons__core-misc.html</filename>
+    <namespace>lemons</namespace>
+    <class kind="struct">lemons::SystemInitializer</class>
+    <class kind="struct">lemons::ValueSmoother</class>
     <member kind="define">
       <type>#define</type>
       <name>LEMONS_MOBILE</name>
@@ -22455,18 +18913,6 @@
     </member>
   </compound>
   <compound kind="group">
-    <name>lemons_audio_effects-misc</name>
-    <title>misc</title>
-    <filename>group__lemons__audio__effects-misc.html</filename>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::FX</namespace>
-    <class kind="class">lemons::dsp::FX::DeEsser</class>
-    <class kind="class">lemons::dsp::FX::DryWetMixer</class>
-    <class kind="class">lemons::dsp::FX::Reverb</class>
-    <class kind="class">lemons::dsp::FX::Saturator</class>
-  </compound>
-  <compound kind="group">
     <name>lemons_plugin-parameters</name>
     <title>parameters</title>
     <filename>group__lemons__plugin-parameters.html</filename>
@@ -22477,9 +18923,9 @@
     <class kind="struct">lemons::plugin::FrequencyParameter</class>
     <class kind="struct">lemons::plugin::GainMeterParameter</class>
     <class kind="struct">lemons::plugin::GainParameter</class>
-    <class kind="struct">lemons::plugin::TypedParameter::Listener</class>
-    <class kind="struct">lemons::plugin::ParameterList::Listener</class>
     <class kind="struct">lemons::plugin::Parameter::Listener</class>
+    <class kind="struct">lemons::plugin::ParameterList::Listener</class>
+    <class kind="struct">lemons::plugin::TypedParameter::Listener</class>
     <class kind="struct">lemons::plugin::MeterParameter</class>
     <class kind="struct">lemons::plugin::MidiPanParameter</class>
     <class kind="struct">lemons::plugin::MidiPitchParameter</class>
@@ -22609,6 +19055,9 @@
     <name>lemons_serializing-undo</name>
     <title>undo</title>
     <filename>group__lemons__serializing-undo.html</filename>
+    <namespace>lemons</namespace>
+    <class kind="struct">lemons::UndoManager::ScopedTransaction</class>
+    <class kind="class">lemons::UndoManager</class>
   </compound>
   <compound kind="group">
     <name>lemons_gui-utilities</name>
@@ -22623,15 +19072,19 @@
     <name>lemons_serializing-version</name>
     <title>version</title>
     <filename>group__lemons__serializing-version.html</filename>
+    <namespace>lemons</namespace>
+    <class kind="struct">lemons::Version</class>
   </compound>
   <compound kind="page">
     <name>cmake_api</name>
     <title>Lemons CMake API</title>
-    <filename>cmake_api</filename>
+    <filename>cmake_api.html</filename>
+    <docanchor file="cmake_api.html">md_build_cmake_api</docanchor>
   </compound>
   <compound kind="page">
     <name>index</name>
-    <title></title>
-    <filename>index</filename>
+    <title>Lemons</title>
+    <filename>index.html</filename>
+    <docanchor file="index.html">md_main_page</docanchor>
   </compound>
 </tagfile>
