@@ -50,8 +50,28 @@ def process_module_header(header_path):
 
 ###############################################################################
 
+# Puts a top-level source file into a juce module's Doxygen group
+def put_source_file_into_module_group(module_name, module_dir, filename):
+    add_doxygen_group(os.path.join(module_dir, filename), 
+                      module_name)
+
+###############################################################################
+
+# Creates a subgroup for a subdir inside a module, and groups all files into the new subgroup
+def create_module_subgroup(module_name, module_dir, subdir):
+    subgroup_name = "{n}-{s}".format(n=module_name, s=subdir)
+
+    for dirpath, dirnames, filenames in os.walk(os.path.join(module_dir, subdir)):
+        for filename in filenames:
+            add_doxygen_group(os.path.join(dirpath, filename), 
+                              subgroup_name)
+
+    return "/** @defgroup {tag} {n} */".format(tag=subgroup_name, n=subdir)
+
+###############################################################################
+
 # Processes a JUCE module and returns a module description for Doxygen
-def process_juce_module(module_name, module_dir):
+def process_juce_module(category_name, module_name, module_dir):
     
     module_header_info = process_module_header(os.path.join(module_dir, module_name + ".h"))
 
@@ -68,25 +88,6 @@ def process_juce_module(module_name, module_dir):
     module_definiton.append("    @{")
     module_definiton.append("*/")
 
-    #
-
-    def handle_file(filename):
-        add_doxygen_group(os.path.join(module_dir, filename), 
-                          module_name)
-
-
-    def handle_subdir(subdir):
-        subgroup_name = "{n}-{s}".format(n=module_name, s=subdir)
-        module_definiton.append("")
-        module_definiton.append("/** @defgroup {tag} {n} */".format(tag=subgroup_name, n=subdir))
-
-        for dirpath, dirnames, filenames in os.walk(os.path.join(module_dir, subdir)):
-            for filename in filenames:
-                add_doxygen_group(os.path.join(dirpath, filename), 
-                                  subgroup_name)
-
-    #
-
     # Create a list of the directories in the module that we can use as subgroups
     dir_contents = os.listdir(module_dir)
 
@@ -98,9 +99,11 @@ def process_juce_module(module_name, module_dir):
 
     for item in dir_contents:
         if (os.path.isdir(os.path.join(module_dir, item))):
-            handle_subdir(item)
+            subgroup_definition = create_module_subgroup(module_name, module_dir, item)
+            module_definiton.append("")
+            module_definiton.append(subgroup_definition)
         else:
-            handle_file(item)
+            put_source_file_into_module_group(module_name, module_dir, item)
 
     module_definiton.append("")
     module_definiton.append("/** @} */")
@@ -127,7 +130,7 @@ def process_module_category(category_name, orig_cat_dir, dest_cat_dir):
         module_path = os.path.join(dest_cat_dir, subdir)
 
         if os.path.isdir(module_path):
-            module_definition = process_juce_module(subdir, module_path)
+            module_definition = process_juce_module(category_name, subdir, module_path)
 
             category_definiton.append("\r\n".join(module_definition))
 
