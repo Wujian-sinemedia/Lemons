@@ -64,25 +64,27 @@ fi
 
 case "$OSTYPE" in
 	darwin*) :
-    	source "$SCRIPT_DIR/install_mac.sh"
+		readonly os_script="install_mac"
     	;;
   	linux-gnu*) :
-    	source "$SCRIPT_DIR/install_linux.sh"
+		readonly os_script="install_linux"
     	;;
   	cygwin*) :
-		source "$SCRIPT_DIR/install_windows.sh"
+		readonly os_script="install_windows"
 		;;
 	msys*) :	
-		source "$SCRIPT_DIR/install_windows.sh"
+		readonly os_script="install_windows"
 		;;
 	win32) :
-		source "$SCRIPT_DIR/install_windows.sh"
+		readonly os_script="install_windows"
 		;;
 	*) :
 		echo "Error - unknown operating system!"
 		exit 1
 		;;
 esac
+
+source "$SCRIPT_DIR/$os_script.sh"
 
 source "$SHELL_FILE"
 

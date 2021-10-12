@@ -55,7 +55,4 @@ brew update
 brew upgrade
 brew bundle install --file="$brewfile"
 
-# prepend ccache to path
-append_to_file "$SHELL_FILE" 'export PATH="$(brew --prefix)/opt/ccache/libexec:$PATH"'
-
 exit 0
