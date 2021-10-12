@@ -1386,15 +1386,15 @@
     <member kind="define">
       <type>#define</type>
       <name>LEMONS_MOBILE</name>
-      <anchorfile>Preprocessor_8h.html</anchorfile>
-      <anchor>ac999e6bb8b2b5b4c7bd5f4176f27e5b6</anchor>
+      <anchorfile>group__lemons__core-misc.html</anchorfile>
+      <anchor>gac999e6bb8b2b5b4c7bd5f4176f27e5b6</anchor>
       <arglist></arglist>
     </member>
     <member kind="define">
       <type>#define</type>
       <name>LEMONS_MUST_INHERIT_FROM</name>
-      <anchorfile>Preprocessor_8h.html</anchorfile>
-      <anchor>a4be31aa0be590eae843d1a0be27e95a8</anchor>
+      <anchorfile>group__lemons__core-misc.html</anchorfile>
+      <anchor>ga4be31aa0be590eae843d1a0be27e95a8</anchor>
       <arglist>(classToTest, requiredBaseClass)</arglist>
     </member>
   </compound>
@@ -21853,21 +21853,41 @@
     <name>lemons_audio_effects-AudioEffects</name>
     <title>AudioEffects</title>
     <filename>group__lemons__audio__effects-AudioEffects.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::FX</namespace>
+    <class kind="struct">lemons::dsp::FX::AudioEffect</class>
+    <class kind="class">lemons::dsp::FX::EffectEngine</class>
+    <class kind="struct">lemons::dsp::FX::LevelReportingAudioEffect</class>
+    <class kind="struct">lemons::dsp::FX::SidechainableAudioEffect</class>
   </compound>
   <compound kind="group">
     <name>lemons_dsp-BasicProcessor</name>
     <title>BasicProcessor</title>
     <filename>group__lemons__dsp-BasicProcessor.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <class kind="class">lemons::dsp::BasicProcessorBase</class>
   </compound>
   <compound kind="group">
     <name>lemons_synth-BasicSynths</name>
     <title>BasicSynths</title>
     <filename>group__lemons__synth-BasicSynths.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::synth</namespace>
+    <class kind="class">lemons::dsp::LambdaSynth</class>
+    <class kind="struct">lemons::dsp::OscSynth</class>
+    <class kind="struct">lemons::dsp::OscSynthVoice</class>
+    <class kind="struct">lemons::dsp::TemplateSynth</class>
   </compound>
   <compound kind="group">
     <name>lemons_dsp-BufferUtils</name>
     <title>BufferUtils</title>
     <filename>group__lemons__dsp-BufferUtils.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::buffers</namespace>
   </compound>
   <compound kind="group">
     <name>Common</name>
@@ -21887,21 +21907,42 @@
     <name>lemons_serializing-DataSynchronizer</name>
     <title>DataSynchronizer</title>
     <filename>group__lemons__serializing-DataSynchronizer.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::serializing</namespace>
+    <class kind="class">lemons::serializing::DataSynchronizer</class>
   </compound>
   <compound kind="group">
     <name>lemons_audio_effects-EQ</name>
     <title>EQ</title>
     <filename>group__lemons__audio__effects-EQ.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::FX</namespace>
+    <class kind="class">lemons::dsp::FX::EQ</class>
+    <class kind="class">lemons::dsp::FX::Filter</class>
+    <class kind="struct">lemons::dsp::FX::FilterEngine</class>
   </compound>
   <compound kind="group">
     <name>lemons_plugin-EditorBase</name>
     <title>EditorBase</title>
     <filename>group__lemons__plugin-EditorBase.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+    <class kind="class">lemons::plugin::EditorBase</class>
+    <class kind="class">lemons::plugin::GUI</class>
+    <class kind="class">lemons::plugin::GUIBase</class>
+    <class kind="class">lemons::plugin::PluginEditor</class>
   </compound>
   <compound kind="group">
     <name>lemons_dsp-FIFOs</name>
     <title>FIFOs</title>
     <filename>group__lemons__dsp-FIFOs.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <class kind="class">lemons::dsp::AudioAndMidiFIFO</class>
+    <class kind="class">lemons::dsp::AudioFIFO</class>
+    <class kind="class">lemons::dsp::CircularBuffer</class>
+    <class kind="class">lemons::dsp::MultiAudioFIFO</class>
   </compound>
   <compound kind="group">
     <name>GUI</name>
@@ -21919,26 +21960,47 @@
     <name>lemons_midi-MidiUtilities</name>
     <title>MidiUtilities</title>
     <filename>group__lemons__midi-MidiUtilities.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::midi</namespace>
+    <class kind="class">lemons::midi::MidiFIFO</class>
+    <class kind="class">lemons::midi::PitchBendTracker</class>
+    <class kind="struct">lemons::midi::PitchPipeline</class>
+    <class kind="struct">lemons::midi::VelocityHelper</class>
   </compound>
   <compound kind="group">
     <name>lemons_plugin-ModulationManager</name>
     <title>ModulationManager</title>
     <filename>group__lemons__plugin-ModulationManager.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+    <class kind="struct">lemons::plugin::ModulationManager::LFO</class>
+    <class kind="class">lemons::plugin::ModulationManager</class>
   </compound>
   <compound kind="group">
     <name>lemons_midi-PitchConverter</name>
     <title>PitchConverter</title>
     <filename>group__lemons__midi-PitchConverter.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::midi</namespace>
+    <class kind="class">lemons::midi::PitchConverter</class>
   </compound>
   <compound kind="group">
     <name>lemons_psola-PitchCorrector</name>
     <title>PitchCorrector</title>
     <filename>group__lemons__psola-PitchCorrector.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::psola</namespace>
+    <class kind="class">lemons::dsp::psola::PitchCorrector</class>
+    <class kind="class">lemons::dsp::psola::PitchCorrectorBase</class>
   </compound>
   <compound kind="group">
     <name>lemons_dsp-PitchDetector</name>
     <title>PitchDetector</title>
     <filename>group__lemons__dsp-PitchDetector.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <class kind="class">lemons::dsp::PitchDetector</class>
   </compound>
   <compound kind="group">
     <name>Plugins</name>
@@ -21952,31 +22014,80 @@
     <name>lemons_plugin_gui-PresetBar</name>
     <title>PresetBar</title>
     <filename>group__lemons__plugin__gui-PresetBar.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+    <class kind="class">lemons::plugin::PresetBar</class>
+    <class kind="class">lemons::plugin::StateToggleButtons</class>
   </compound>
   <compound kind="group">
     <name>lemons_serializing-SerializableData</name>
     <title>SerializableData</title>
     <filename>group__lemons__serializing-SerializableData.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::serializing</namespace>
+    <class kind="struct">lemons::serializing::ContainerInterface</class>
+    <class kind="struct">lemons::serializing::isContainer</class>
+    <class kind="struct">lemons::serializing::isMap</class>
+    <class kind="struct">lemons::serializing::LambdaContainerInterface</class>
+    <class kind="struct">lemons::serializing::MapInterface</class>
+    <class kind="struct">lemons::serializing::MapInterfaceBase</class>
   </compound>
   <compound kind="group">
     <name>lemons_serializing-Serializing</name>
     <title>Serializing</title>
     <filename>group__lemons__serializing-Serializing.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::serializing</namespace>
+    <class kind="struct">lemons::serializing::FileContents</class>
+    <class kind="struct">lemons::serializing::isContainer&lt; juce::Array&lt; ElementType &gt; &gt;</class>
+    <class kind="struct">lemons::serializing::isContainer&lt; juce::OwnedArray&lt; ElementType &gt; &gt;</class>
+    <class kind="struct">lemons::serializing::isContainer&lt; juce::StringArray &gt;</class>
+    <class kind="struct">lemons::serializing::isContainer&lt; std::array&lt; ElementType, size &gt; &gt;</class>
+    <class kind="struct">lemons::serializing::isContainer&lt; std::deque&lt; ElementType &gt; &gt;</class>
+    <class kind="struct">lemons::serializing::isContainer&lt; std::forward_list&lt; ElementType &gt; &gt;</class>
+    <class kind="struct">lemons::serializing::isContainer&lt; std::list&lt; ElementType &gt; &gt;</class>
+    <class kind="struct">lemons::serializing::isContainer&lt; std::vector&lt; ElementType &gt; &gt;</class>
+    <class kind="struct">lemons::serializing::isMap&lt; juce::StringPairArray &gt;</class>
+    <class kind="struct">lemons::serializing::JuceArrayInterface</class>
+    <class kind="struct">lemons::serializing::JuceOwnedArrayInterface</class>
+    <class kind="struct">lemons::serializing::StdArrayInterface</class>
+    <class kind="struct">lemons::serializing::STLContainerInterface</class>
+    <class kind="struct">lemons::serializing::StringArrayInterface</class>
+    <class kind="struct">lemons::serializing::StringPairArrayInterface</class>
   </compound>
   <compound kind="group">
     <name>lemons_oscillators-SuperSaw</name>
     <title>SuperSaw</title>
     <filename>group__lemons__oscillators-SuperSaw.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::osc</namespace>
+    <class kind="class">lemons::dsp::osc::SuperSaw</class>
   </compound>
   <compound kind="group">
     <name>lemons_synth-Synth</name>
     <title>Synth</title>
     <filename>group__lemons__synth-Synth.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::synth</namespace>
+    <class kind="class">lemons::dsp::synth::AutomatedHarmonyVoice</class>
+    <class kind="class">lemons::dsp::synth::MidiManager</class>
+    <class kind="class">lemons::dsp::synth::MidiManager::MidiRouter</class>
+    <class kind="class">lemons::dsp::synth::PanningManager</class>
+    <class kind="class">lemons::dsp::SynthBase</class>
+    <class kind="struct">lemons::dsp::SynthBase::TimbreModParams</class>
+    <class kind="class">lemons::dsp::synth::VoiceAllocator</class>
   </compound>
   <compound kind="group">
     <name>lemons_synth-SynthVoice</name>
     <title>SynthVoice</title>
     <filename>group__lemons__synth-SynthVoice.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::synth</namespace>
+    <class kind="class">lemons::dsp::SynthVoiceBase</class>
+    <class kind="class">lemons::dsp::synth::TimbreMod</class>
   </compound>
   <compound kind="group">
     <name>lemons_mobile_utils-all_platforms</name>
@@ -21987,11 +22098,25 @@
     <name>lemons_psola-analysis</name>
     <title>analysis</title>
     <filename>group__lemons__psola-analysis.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::psola</namespace>
+    <class kind="class">lemons::dsp::psola::AnalysisGrainStorage</class>
+    <class kind="class">lemons::dsp::psola::Analyzer</class>
   </compound>
   <compound kind="group">
     <name>lemons_oscillators-basic_types</name>
     <title>basic_types</title>
     <filename>group__lemons__oscillators-basic__types.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::osc</namespace>
+    <class kind="struct">lemons::dsp::osc::Oscillator</class>
+    <class kind="struct">lemons::dsp::osc::Phase</class>
+    <class kind="struct">lemons::dsp::osc::Saw</class>
+    <class kind="struct">lemons::dsp::osc::Sine</class>
+    <class kind="struct">lemons::dsp::osc::Square</class>
+    <class kind="struct">lemons::dsp::osc::Triangle</class>
   </compound>
   <compound kind="group">
     <name>lemons_core-binary_data</name>
@@ -22002,21 +22127,43 @@
     <name>lemons_plugin_gui-buttons</name>
     <title>buttons</title>
     <filename>group__lemons__plugin__gui-buttons.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::gui</namespace>
+    <class kind="class">lemons::gui::ToggleButton</class>
   </compound>
   <compound kind="group">
     <name>lemons_oscillators-choosable</name>
     <title>choosable</title>
     <filename>group__lemons__oscillators-choosable.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::osc</namespace>
+    <class kind="class">lemons::dsp::osc::ChoosableOscillator</class>
+    <class kind="class">lemons::dsp::osc::OscEngine</class>
   </compound>
   <compound kind="group">
     <name>lemons_spline-common</name>
     <title>common</title>
     <filename>group__lemons__spline-common.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::spline</namespace>
+    <namespace>lemons::spline::interpolation</namespace>
+    <class kind="struct">lemons::spline::Knot</class>
+    <class kind="struct">lemons::spline::Knots</class>
   </compound>
   <compound kind="group">
     <name>lemons_gui-components</name>
     <title>components</title>
     <filename>group__lemons__gui-components.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::gui</namespace>
+    <class kind="struct">lemons::gui::ImageButton</class>
+    <class kind="struct">lemons::gui::ImageComp</class>
+    <class kind="struct">lemons::gui::Label</class>
+    <class kind="class">lemons::gui::Popup</class>
+    <class kind="class">lemons::gui::PopupComponent</class>
+    <class kind="struct">lemons::gui::TextButton</class>
+    <class kind="struct">lemons::gui::ToggleTextButton</class>
   </compound>
   <compound kind="group">
     <name>lemons_mobile_utils-dummy_desktop_versions</name>
@@ -22027,21 +22174,48 @@
     <name>lemons_audio_effects-dynamics</name>
     <title>dynamics</title>
     <filename>group__lemons__audio__effects-dynamics.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::FX</namespace>
+    <class kind="class">lemons::dsp::FX::Compressor</class>
+    <class kind="class">lemons::dsp::FX::Limiter</class>
+    <class kind="class">lemons::dsp::FX::NoiseGate</class>
+    <class kind="class">lemons::dsp::FX::SmoothedGain</class>
   </compound>
   <compound kind="group">
     <name>lemons_spline-editor</name>
     <title>editor</title>
     <filename>group__lemons__spline-editor.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::spline</namespace>
+    <class kind="class">lemons::spline::Editor</class>
   </compound>
   <compound kind="group">
     <name>lemons_dsp-engines</name>
     <title>engines</title>
     <filename>group__lemons__dsp-engines.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <class kind="class">lemons::dsp::Engine</class>
+    <class kind="class">lemons::dsp::LatencyEngine</class>
   </compound>
   <compound kind="group">
     <name>lemons_core-events</name>
     <title>events</title>
     <filename>group__lemons__core-events.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::events</namespace>
+    <namespace>lemons::serializing</namespace>
+    <class kind="class">lemons::events::Broadcaster</class>
+    <class kind="struct">lemons::events::Listener</class>
+    <class kind="struct">lemons::serializing::RealtimeMutatable::NonrealtimeAccess</class>
+    <class kind="struct">lemons::serializing::NonrealtimeMutatable::NonrealtimeAccess</class>
+    <class kind="class">lemons::serializing::NonrealtimeMutatable</class>
+    <class kind="struct">lemons::serializing::RealtimeMutatable::RealtimeAccess</class>
+    <class kind="struct">lemons::serializing::NonrealtimeMutatable::RealtimeAccess</class>
+    <class kind="class">lemons::serializing::RealtimeMutatable</class>
+    <class kind="struct">lemons::events::Broadcaster::Reciever</class>
+    <class kind="struct">lemons::events::TimerCallback</class>
   </compound>
   <compound kind="group">
     <name>lemons_core-files</name>
@@ -22052,6 +22226,13 @@
     <name>lemons_dsp-filters</name>
     <title>filters</title>
     <filename>group__lemons__dsp-filters.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::filters</namespace>
+    <class kind="struct">lemons::dsp::filters::Coefficients</class>
+    <class kind="class">lemons::dsp::filters::Filter</class>
+    <class kind="struct">lemons::dsp::filters::MultiFilter</class>
+    <class kind="struct">lemons::dsp::filters::Coefficients::Storage</class>
   </compound>
   <compound kind="group">
     <name>lemons_mobile_utils-iOS</name>
@@ -22062,6 +22243,8 @@
     <name>lemons_gui-icons</name>
     <title>icons</title>
     <filename>group__lemons__gui-icons.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::gui</namespace>
   </compound>
   <compound kind="group">
     <name>lemons_app_utils</name>
@@ -22204,76 +22387,179 @@
     <name>lemons_core-math</name>
     <title>math</title>
     <filename>group__lemons__core-math.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::math</namespace>
+    <namespace>lemons::vecops</namespace>
   </compound>
   <compound kind="group">
     <name>lemons_core-misc</name>
     <title>misc</title>
     <filename>group__lemons__core-misc.html</filename>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_MOBILE</name>
+      <anchorfile>group__lemons__core-misc.html</anchorfile>
+      <anchor>gac999e6bb8b2b5b4c7bd5f4176f27e5b6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_MUST_INHERIT_FROM</name>
+      <anchorfile>group__lemons__core-misc.html</anchorfile>
+      <anchor>ga4be31aa0be590eae843d1a0be27e95a8</anchor>
+      <arglist>(classToTest, requiredBaseClass)</arglist>
+    </member>
   </compound>
   <compound kind="group">
     <name>lemons_audio_effects-misc</name>
     <title>misc</title>
     <filename>group__lemons__audio__effects-misc.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::FX</namespace>
+    <class kind="class">lemons::dsp::FX::DeEsser</class>
+    <class kind="class">lemons::dsp::FX::DryWetMixer</class>
+    <class kind="class">lemons::dsp::FX::Reverb</class>
+    <class kind="class">lemons::dsp::FX::Saturator</class>
   </compound>
   <compound kind="group">
     <name>lemons_plugin-parameters</name>
     <title>parameters</title>
     <filename>group__lemons__plugin-parameters.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+    <class kind="struct">lemons::plugin::BoolParameter</class>
+    <class kind="struct">lemons::plugin::FloatAmountParameter</class>
+    <class kind="struct">lemons::plugin::FrequencyParameter</class>
+    <class kind="struct">lemons::plugin::GainMeterParameter</class>
+    <class kind="struct">lemons::plugin::GainParameter</class>
+    <class kind="struct">lemons::plugin::TypedParameter::Listener</class>
+    <class kind="struct">lemons::plugin::ParameterList::Listener</class>
+    <class kind="struct">lemons::plugin::Parameter::Listener</class>
+    <class kind="struct">lemons::plugin::MeterParameter</class>
+    <class kind="struct">lemons::plugin::MidiPanParameter</class>
+    <class kind="struct">lemons::plugin::MidiPitchParameter</class>
+    <class kind="class">lemons::plugin::Parameter</class>
+    <class kind="class">lemons::plugin::ParameterHolder</class>
+    <class kind="class">lemons::plugin::ParameterList</class>
+    <class kind="class">lemons::plugin::ParameterProcessor</class>
+    <class kind="struct">lemons::plugin::ParamHolderBase</class>
+    <class kind="struct">lemons::plugin::ParamUpdater</class>
+    <class kind="struct">lemons::plugin::PercentParameter</class>
+    <class kind="struct">lemons::plugin::SecondsParameter</class>
+    <class kind="struct">lemons::plugin::SemitonesParameter</class>
+    <class kind="struct">lemons::plugin::ToggleParameter</class>
+    <class kind="class">lemons::plugin::TypedParameter</class>
   </compound>
   <compound kind="group">
     <name>lemons_plugin_presets-preset_library</name>
     <title>preset_library</title>
     <filename>group__lemons__plugin__presets-preset__library.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+    <namespace>lemons::plugin::presets</namespace>
+    <class kind="class">lemons::plugin::presets::DatabasePresetsManager</class>
+    <class kind="class">lemons::plugin::presets::FactoryPresetsManager</class>
+    <class kind="class">lemons::plugin::presets::LocalPresetsManager</class>
+    <class kind="class">lemons::plugin::PresetsLibrary</class>
+    <class kind="class">lemons::plugin::presets::SubLibrary</class>
   </compound>
   <compound kind="group">
     <name>lemons_plugin_presets-presets</name>
     <title>presets</title>
     <filename>group__lemons__plugin__presets-presets.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+    <class kind="struct">lemons::plugin::Preset</class>
   </compound>
   <compound kind="group">
     <name>lemons_plugin-processors</name>
     <title>processors</title>
     <filename>group__lemons__plugin-processors.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+    <class kind="class">lemons::plugin::Processor</class>
+    <class kind="class">lemons::plugin::ProcessorBase</class>
+    <class kind="struct">lemons::plugin::ProcessorWithEditor</class>
   </compound>
   <compound kind="group">
     <name>lemons_midi-processors</name>
     <title>processors</title>
     <filename>group__lemons__midi-processors.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::midi</namespace>
+    <class kind="struct">lemons::midi::MidiProcessor::LastMovedControllerInfo</class>
+    <class kind="class">lemons::dsp::MidiChoppingProcessor</class>
+    <class kind="class">lemons::midi::MidiProcessor</class>
   </compound>
   <compound kind="group">
     <name>lemons_psola-resynthesis</name>
     <title>resynthesis</title>
     <filename>group__lemons__psola-resynthesis.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::psola</namespace>
+    <class kind="class">lemons::dsp::psola::Shifter</class>
   </compound>
   <compound kind="group">
     <name>lemons_plugin_gui-sliders</name>
     <title>sliders</title>
     <filename>group__lemons__plugin__gui-sliders.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::gui</namespace>
+    <class kind="class">lemons::gui::FloatSlider</class>
+    <class kind="class">lemons::gui::IntSlider</class>
+    <class kind="class">lemons::gui::SliderBase</class>
   </compound>
   <compound kind="group">
     <name>lemons_spline-spline</name>
     <title>spline</title>
     <filename>group__lemons__spline-spline.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::spline</namespace>
+    <class kind="struct">lemons::spline::Spline</class>
   </compound>
   <compound kind="group">
     <name>lemons_plugin-state</name>
     <title>state</title>
     <filename>group__lemons__plugin-state.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+    <class kind="struct">lemons::plugin::CustomState</class>
+    <class kind="struct">lemons::plugin::PluginState</class>
+    <class kind="struct">lemons::plugin::State</class>
+    <class kind="class">lemons::plugin::StateBase</class>
   </compound>
   <compound kind="group">
     <name>lemons_audio_effects-stereo_image</name>
     <title>stereo_image</title>
     <filename>group__lemons__audio__effects-stereo__image.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::FX</namespace>
+    <class kind="class">lemons::dsp::FX::MonoStereoConverter</class>
+    <class kind="class">lemons::dsp::FX::MonoToStereoPanner</class>
+    <class kind="class">lemons::dsp::FX::PannerBase</class>
+    <class kind="class">lemons::dsp::FX::StereoPanner</class>
   </compound>
   <compound kind="group">
     <name>lemons_audio_effects-time</name>
     <title>time</title>
     <filename>group__lemons__audio__effects-time.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::FX</namespace>
+    <class kind="class">lemons::dsp::FX::Delay</class>
   </compound>
   <compound kind="group">
     <name>lemons_serializing-toggler</name>
     <title>toggler</title>
     <filename>group__lemons__serializing-toggler.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::serializing</namespace>
+    <class kind="struct">lemons::serializing::Toggler</class>
+    <class kind="struct">lemons::serializing::TogglerInterface</class>
   </compound>
   <compound kind="group">
     <name>lemons_serializing-undo</name>
@@ -22284,6 +22570,10 @@
     <name>lemons_gui-utilities</name>
     <title>utilities</title>
     <filename>group__lemons__gui-utilities.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::gui</namespace>
+    <class kind="struct">lemons::gui::ScopedCursor</class>
+    <class kind="struct">lemons::gui::ScopedWaitCursor</class>
   </compound>
   <compound kind="group">
     <name>lemons_serializing-version</name>
