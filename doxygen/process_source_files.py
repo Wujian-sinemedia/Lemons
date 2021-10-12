@@ -132,11 +132,16 @@ def process_module_category (category_name, orig_cat_dir, dest_cat_dir):
 
         if os.path.isdir (module_path):
             module_definition = process_juce_module (category_name, subdir, module_path)
-
             category_definiton.append ("\r\n".join (module_definition))
 
     category_definiton.append ("")
     category_definiton.append ("/** @} */")
+
+    # create an empty header file for the category
+    category_header = os.path.join (dest_cat_dir, category_name + ".h")
+
+    with open (category_header, "w") as f:
+        f.write ("\r\n\r\n".join (category_definiton))
 
     return category_definiton
 
