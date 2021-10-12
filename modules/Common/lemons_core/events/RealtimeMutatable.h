@@ -12,6 +12,13 @@ public:
         : data ({obj, obj}), realtimeCopy (obj)
     {
     }
+    
+    template<typename... Args>
+    explicit RealtimeMutatable (Args&&... args)
+    : data ({{std::forward<Args>(args)...}, {std::forward<Args>(args)...}}), realtimeCopy (std::forward<Args>(args)...)
+    {
+        
+    }
 
     ~RealtimeMutatable()
     {
@@ -158,12 +165,14 @@ private:
         control.store ((idx & BIT::INDEX) | BIT::NEWDATA, std::memory_order_release);
     }
 
-    std::atomic< int > control = {0};
+    std::atomic< int > control {0};
 
     std::array< ObjectType, 2 > data;
     ObjectType                  realtimeCopy;
 
     std::mutex nonRealtimeLock;
+    
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (RealtimeMutatable)
 };
 
 }  // namespace lemons::serializing

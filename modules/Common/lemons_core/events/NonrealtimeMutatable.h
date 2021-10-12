@@ -7,6 +7,11 @@ class NonrealtimeMutatable
 {
 public:
     NonrealtimeMutatable() = default;
+    
+    explicit NonrealtimeMutatable (ObjectType& obj)
+    : storage (std::move (obj))
+    {
+    }
 
     template < typename... Args >
     explicit NonrealtimeMutatable (Args&&... args)
@@ -136,6 +141,8 @@ private:
     std::atomic< ObjectType* >    pointer {storage.get()};
     ObjectType*                   currentObj {nullptr};
     std::mutex                    nonRealtimeLock;
+    
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (NonrealtimeMutatable)
 };
 
 }  // namespace lemons::serializing
