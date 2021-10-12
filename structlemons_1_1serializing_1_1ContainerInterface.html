@@ -106,7 +106,7 @@ Implement this if you want to be able to serialize a custom container type with 
 <div class="line">    - Specialize the serializing::isContainer struct for your type and make the specialization inherit from std::true_type.</div>
 <div class="line"> </div>
 <div class="line">    In addition, your custom container type must have begin() and end() functions -- ie, it must be compatable with range-based for loops.</div>
-<div class="line">    </div>
+<div class="line"> </div>
 <div class="line">    The elements of your container must also be valid TreeReflector::add() calls -- ie, if they don&#39;t inherit SerializableData, you must implement <a class="code" href="namespacelemons_1_1serializing.html#ae8ee0e682cb966523ed9d443e76789a2">toVar</a>() and <a class="code" href="namespacelemons_1_1serializing.html#ab1f2f10c7b4aaf9489cc1ee43c450464">fromVar</a>() for the container&#39;s element type as well.</div>
 <div class="line"> </div>
 <div class="line">    Here is an example implementation for a custom type:</div>
@@ -224,7 +224,7 @@ Implement this if you want to be able to serialize a custom container type with 
 <div class="ttc" id="astructlemons_1_1serializing_1_1ContainerInterface_html_a85d1977c9d97f103449df253760dc1e8"><div class="ttname"><a href="structlemons_1_1serializing_1_1ContainerInterface.html#a85d1977c9d97f103449df253760dc1e8">lemons::serializing::ContainerInterface::resize</a></div><div class="ttdeci">virtual void resize(int newSize)=0</div><div class="ttdoc">Your subclass must implement this to change the total number of items in the container.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 12 2021 02:17:11 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 12 2021 02:32:10 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

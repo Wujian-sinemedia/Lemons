@@ -1,6 +1,7 @@
 <map id="lemons::dsp::FX::FilterEngine&lt; SampleType &gt;" name="lemons::dsp::FX::FilterEngine&lt; SampleType &gt;">
-<area shape="rect" id="node1" title="A class that represents an audio engine holding a filter effect." alt="" coords="889,5,1100,47"/>
-<area shape="rect" id="node2" href="$classlemons_1_1dsp_1_1FX_1_1EffectEngine.html" title=" " alt="" coords="625,5,840,47"/>
-<area shape="rect" id="node3" href="$classlemons_1_1dsp_1_1Engine.html" title="Base class for an audio engine." alt="" coords="5,11,159,52"/>
-<area shape="rect" id="node4" href="$classlemons_1_1dsp_1_1FX_1_1EffectEngine.html" title="A class that wraps an AudioEffect into a dsp::Engine." alt="" coords="208,40,423,81"/>
+<area shape="rect" id="node1" title="A class that represents an audio engine holding a filter effect." alt="" coords="921,37,1132,79"/>
+<area shape="rect" id="node2" href="$classlemons_1_1dsp_1_1FX_1_1EffectEngine.html" title=" " alt="" coords="657,37,872,79"/>
+<area shape="rect" id="node3" href="$classlemons_1_1dsp_1_1Engine.html" title="Base class for an audio engine." alt="" coords="21,5,175,47"/>
+<area shape="rect" id="node5" href="$classlemons_1_1dsp_1_1FX_1_1EffectEngine.html" title="A class that wraps an AudioEffect into a dsp::Engine." alt="" coords="240,37,455,79"/>
+<area shape="rect" id="node4" href="$structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="5,75,191,102"/>
 </map>

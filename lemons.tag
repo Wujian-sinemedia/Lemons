@@ -4641,12 +4641,20 @@
     <templarg></templarg>
     <templarg></templarg>
     <base>lemons::dsp::Engine</base>
+    <base>lemons::SerializableData</base>
     <member kind="function">
       <type></type>
       <name>EffectEngine</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EffectEngine.html</anchorfile>
       <anchor>a3543298599048f1a8d3a471a67ae9eff</anchor>
       <arglist>(Args &amp;&amp;... args)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>deserialize</name>
+      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
+      <anchor>ace1758cc9344ae03a6d01c3c218226de</anchor>
+      <arglist>(const ValueTree &amp;tree)</arglist>
     </member>
     <member kind="function">
       <type>double</type>
@@ -4732,17 +4740,32 @@
       <anchor>a8cf8a2dd9e6cded85b3762f9db805310</anchor>
       <arglist>() const</arglist>
     </member>
+    <member kind="function">
+      <type>ValueTree</type>
+      <name>serialize</name>
+      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
+      <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
+      <arglist>()</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>EffectEngine&lt; Filter, SampleType &gt;</name>
     <filename>classlemons_1_1dsp_1_1FX_1_1EffectEngine.html</filename>
     <base>lemons::dsp::Engine</base>
+    <base>lemons::SerializableData</base>
     <member kind="function">
       <type></type>
       <name>EffectEngine</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EffectEngine.html</anchorfile>
       <anchor>a3543298599048f1a8d3a471a67ae9eff</anchor>
       <arglist>(Args &amp;&amp;... args)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>deserialize</name>
+      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
+      <anchor>ace1758cc9344ae03a6d01c3c218226de</anchor>
+      <arglist>(const ValueTree &amp;tree)</arglist>
     </member>
     <member kind="function">
       <type>double</type>
@@ -4827,6 +4850,13 @@
       <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
       <anchor>a8cf8a2dd9e6cded85b3762f9db805310</anchor>
       <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>ValueTree</type>
+      <name>serialize</name>
+      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
+      <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -5484,6 +5514,13 @@
     <templarg></templarg>
     <base>EffectEngine&lt; Filter, SampleType &gt;</base>
     <member kind="function">
+      <type>void</type>
+      <name>deserialize</name>
+      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
+      <anchor>ace1758cc9344ae03a6d01c3c218226de</anchor>
+      <arglist>(const ValueTree &amp;tree)</arglist>
+    </member>
+    <member kind="function">
       <type>Filter&lt; SampleType &gt; &amp;</type>
       <name>getFilter</name>
       <anchorfile>structlemons_1_1dsp_1_1FX_1_1FilterEngine.html</anchorfile>
@@ -5573,6 +5610,13 @@
       <anchorfile>classlemons_1_1dsp_1_1Engine.html</anchorfile>
       <anchor>a8cf8a2dd9e6cded85b3762f9db805310</anchor>
       <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>ValueTree</type>
+      <name>serialize</name>
+      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
+      <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="struct">
