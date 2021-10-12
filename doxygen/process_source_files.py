@@ -5,7 +5,10 @@ import shutil
 import re
 
 
+###############################################################################
+
 # Add a Doxygen group to the file at 'path'
+
 def add_doxygen_group (path, group_name):
 
     with open (path, "r") as f:
@@ -16,10 +19,12 @@ def add_doxygen_group (path, group_name):
         f.write (content)
         f.write ("\r\n/** @}*/\r\n")
 
+
 ###############################################################################
 
 # Parse information from a JUCE module header's info block.
 # Deletes the module header when it's finished, as Doxygen doesn't like them.
+
 def process_module_header (header_path):
 
     with open (header_path, "r") as f:
@@ -48,17 +53,13 @@ def process_module_header (header_path):
 
     return short_description, detail_lines
 
-###############################################################################
-
-# Puts a top-level source file into a juce module's Doxygen group
-def put_source_file_into_module_group (module_name, module_dir, filename):
-    add_doxygen_group (os.path.join (module_dir, filename), 
-                       module_name)
 
 ###############################################################################
 
 # Creates a subgroup for a subdir inside a module, and groups all files into the new subgroup
+
 def create_module_subgroup (module_name, module_dir, subdir):
+
     subgroup_name = "{n}-{s}".format(n=module_name, s=subdir)
 
     for dirpath, dirnames, filenames in os.walk (os.path.join (module_dir, subdir)):
@@ -67,6 +68,7 @@ def create_module_subgroup (module_name, module_dir, subdir):
                                subgroup_name)
 
     return "/** @defgroup {tag} {n} */".format(tag=subgroup_name, n=subdir)
+
 
 ###############################################################################
 
@@ -80,8 +82,8 @@ def process_juce_module (category_name, module_name, module_dir):
     module_definiton = []
     module_definiton.append ("/** @defgroup {n} {n}".format(n=module_name))
     module_definiton.append ("    {d}".format(d=module_header_info[0]))
-    
     module_definiton.append ("")
+    
     for line in module_header_info[1]:
         module_definiton.append ("    - {l}".format(l=line))
 
@@ -104,16 +106,19 @@ def process_juce_module (category_name, module_name, module_dir):
             module_definiton.append ("")
             module_definiton.append (subgroup_definition)
         else:
-            put_source_file_into_module_group (module_name, module_dir, item)
+            add_doxygen_group (os.path.join (module_dir, item), 
+                               module_name)
 
     module_definiton.append ("")
     module_definiton.append ("/** @} */")
 
     return module_definiton
 
+
 ###############################################################################
 
 # Processes a group of JUCE modules and returns a module category description for Doxygen
+
 def process_module_category (category_name, orig_cat_dir, dest_cat_dir):
 
     # copy files to doxygen working tree
@@ -137,7 +142,7 @@ def process_module_category (category_name, orig_cat_dir, dest_cat_dir):
     category_definiton.append ("")
     category_definiton.append ("/** @} */")
 
-    # create an empty header file for the category
+    # create a header file for the category
     category_header = os.path.join (dest_cat_dir, category_name + ".h")
 
     with open (category_header, "w") as f:
@@ -145,10 +150,13 @@ def process_module_category (category_name, orig_cat_dir, dest_cat_dir):
 
     return category_definiton
 
+
 ###############################################################################
 
 # Copies the readme from the cmake directory into the working tree for doxygen
+
 def copy_cmake_readme (source_dir, dest_dir):
+
     dest = os.path.join (dest_dir, "cmake_api.md")
 
     # create an empty file
@@ -159,9 +167,11 @@ def copy_cmake_readme (source_dir, dest_dir):
     src = os.path.join (src, "README.md")
     shutil.copy2 (src, dest)
 
+
 ###############################################################################
 
 # Main script 
+
 if __name__ == "__main__":
 
     script_dir = os.path.abspath (os.path.dirname (__file__))
