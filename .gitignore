@@ -4,5 +4,5 @@ Cache/
 doxygen/build
 doxygen/doc
 doxygen/Lemons
-scripts/Brewfile
-scripts/Brewfile.lock.json
+scripts/install/Brewfile
+scripts/install/Brewfile.lock.json
