@@ -8,34 +8,40 @@
 
 set -euo pipefail
 
+#
+
+readonly repo_url="github.com/benthevining/Lemons.git"
+
 readonly script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
+readonly doxygen_dir="$script_dir/../doxygen"
+
+readonly working_dir="$doxygen_dir/Lemons"
+
 
 # install deps
 source "$script_dir/install/install_list.sh"
 install_deps_list "doxygen_deps.txt"
 
-readonly doxygen_dir="$script_dir/../doxygen"
 
 # Clone the docs branch
-cd "$doxygen_dir"
-echo "Cloning docs branch..."
-git clone -b docs https://github.com/benthevining/Lemons.git
 
-readonly working_dir="$doxygen_dir/Lemons"
+cd "$doxygen_dir"
+
+make clean
+
+echo "Cloning docs branch..."
+git clone -b docs "https://$repo_url"
 
 cd "$working_dir"
 
 # remove everything currently in the docs branch
 rm -rf *
 
-git config --global push.default simple
-git config user.name "Github Actions"
-git config user.email "actions@github.com"
-
 # Build new copy of docs
 cd "$doxygen_dir"
 echo "Building documentation..."
-make 2>&1 | tee "$working_dir/doxygen_output.log"
+make
 
 # Copy new docs into 'docs' branch
 mv $doxygen_dir/doc/* "$working_dir"
@@ -48,7 +54,12 @@ echo "" > .nojekyll
 
 echo "Publishing documentation..."
 
+git config --global push.default simple
+git config user.name "Github Actions"
+git config user.email "actions@github.com"
+
 git commit -a -m "Updating documentation"
-git push --force "https://${GH_REPO_TOKEN}@github.com/benthevining/Lemons.git"
+
+git push --force "https://$GH_REPO_TOKEN@$repo_url"
 
 exit 0
