@@ -10,5 +10,3 @@ os_install_func() {
 	# install deps listed in deps list file
 	xargs sudo apt-get install -y --no-install-recommends <"$DEPS_LIST"
 }
-
-exit 0

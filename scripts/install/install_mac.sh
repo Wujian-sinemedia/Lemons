@@ -63,7 +63,3 @@ os_install_func() {
 	# run Homebrew on generated Brewfile
 	brew bundle install --file="$brewfile"
 }
-
-#
-
-exit 0

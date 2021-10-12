@@ -95,5 +95,3 @@ install_deps_list() {
 	# run os install func
 	os_install_func "$DEPS_LIST"
 }
-
-exit 0
