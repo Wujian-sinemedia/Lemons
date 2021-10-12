@@ -34,7 +34,7 @@ bool Version::operator< (const Version& other) const noexcept
     return patch < other.patch;
 }
 
-String Version::getAsString (const String& separator) const noexcept
+[[nodiscard]] String Version::getAsString (const String& separator) const noexcept
 {
     return String (major) + separator + String (minor) + separator + String (patch);
 }
@@ -57,21 +57,21 @@ void Version::bumpPatch() noexcept
     ++patch;
 }
 
-Version Version::withMajorBump() const
+[[nodiscard]] Version Version::withMajorBump() const
 {
     return {major + 1,
             0,
             0};
 }
 
-Version Version::withMinorBump() const
+[[nodiscard]] Version Version::withMinorBump() const
 {
     return {major,
             minor + 1,
             0};
 }
 
-Version Version::withPatchBump() const
+[[nodiscard]] Version Version::withPatchBump() const
 {
     return {major,
             minor,

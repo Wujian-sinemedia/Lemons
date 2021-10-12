@@ -6,17 +6,17 @@ UndoManager::UndoManager (SerializableData& stateToManage)
     storedStates.reserve (50);
 }
 
-bool UndoManager::isInMiddleOfTransaction() const
+[[nodiscard]] bool UndoManager::isInMiddleOfTransaction() const
 {
     return changing;
 }
 
-String UndoManager::getCurrentTransactionName() const
+[[nodiscard]] String UndoManager::getCurrentTransactionName() const
 {
     return transactionName;
 }
 
-events::Broadcaster& UndoManager::getBroadcaster()
+[[nodiscard]] events::Broadcaster& UndoManager::getBroadcaster()
 {
     return broadcaster;
 }
@@ -48,12 +48,12 @@ void UndoManager::undoToLastTransaction()
     loadState (storedStates[currentStep]);
 }
 
-bool UndoManager::hasUndo() const
+[[nodiscard]] bool UndoManager::hasUndo() const
 {
     return currentStep > 0 && ! storedStates.empty();
 }
 
-bool UndoManager::hasRedo() const
+[[nodiscard]] bool UndoManager::hasRedo() const
 {
     return currentStep + 1 < storedStates.size();
 }
@@ -92,7 +92,7 @@ void UndoManager::clearUndoHistory()
     saveState();
 }
 
-String UndoManager::getNextUndoTransactionName() const
+[[nodiscard]] String UndoManager::getNextUndoTransactionName() const
 {
     if (hasUndo())
         return storedStates[currentStep - 1].transactionName;
@@ -100,7 +100,7 @@ String UndoManager::getNextUndoTransactionName() const
     return {};
 }
 
-String UndoManager::getNextRedoTransactionName() const
+[[nodiscard]] String UndoManager::getNextRedoTransactionName() const
 {
     if (hasRedo())
         return storedStates[currentStep + 1].transactionName;
@@ -108,7 +108,7 @@ String UndoManager::getNextRedoTransactionName() const
     return {};
 }
 
-juce::StringArray UndoManager::getUndoTransactionNames() const
+[[nodiscard]] juce::StringArray UndoManager::getUndoTransactionNames() const
 {
     juce::StringArray names;
 
@@ -118,7 +118,7 @@ juce::StringArray UndoManager::getUndoTransactionNames() const
     return names;
 }
 
-juce::StringArray UndoManager::getRedoTransactionNames() const
+[[nodiscard]] juce::StringArray UndoManager::getRedoTransactionNames() const
 {
     juce::StringArray names;
 

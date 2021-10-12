@@ -4,7 +4,7 @@ static constexpr auto NAME_PROP     = "_name";
 static constexpr auto CHILDREN_PROP = "_children";
 static constexpr auto BASE64_PROP   = "_base64:";
 
-static inline juce::var valueTreeToVar (const ValueTree& v)
+[[nodiscard]] static inline juce::var valueTreeToVar (const ValueTree& v)
 {
     juce::DynamicObject obj;
 
@@ -41,7 +41,7 @@ static inline juce::var valueTreeToVar (const ValueTree& v)
     return juce::var (&obj);
 }
 
-String valueTreeToJSON (const ValueTree& v)
+[[nodiscard]] String valueTreeToJSON (const ValueTree& v)
 {
     return juce::JSON::toString (valueTreeToVar (v));
 }
@@ -51,7 +51,7 @@ String valueTreeToJSON (const ValueTree& v)
 //==============================================================================
 
 
-static inline ValueTree valueTreefromVar (const juce::var& obj)
+[[nodiscard]] static inline ValueTree valueTreefromVar (const juce::var& obj)
 {
     if (auto dobj = obj.getDynamicObject())
     {
@@ -97,7 +97,7 @@ static inline ValueTree valueTreefromVar (const juce::var& obj)
     return {};
 }
 
-ValueTree valueTreeFromJSON (const String& jsonText)
+[[nodiscard]] ValueTree valueTreeFromJSON (const String& jsonText)
 {
     auto obj = juce::JSON::parse (jsonText);
 

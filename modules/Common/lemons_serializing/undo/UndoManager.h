@@ -28,13 +28,13 @@ public:
     bool redo();
 
     /** Returns true if there is a cached action that can be undone. */
-    bool hasUndo() const;
+    [[nodiscard]] bool hasUndo() const;
 
     /** Returns true if there is an action that has been undone and can be re-done. */
-    bool hasRedo() const;
+    [[nodiscard]] bool hasRedo() const;
 
     /** Returns true if a change transaction is in progress. */
-    bool isInMiddleOfTransaction() const;
+    [[nodiscard]] bool isInMiddleOfTransaction() const;
 
     /** Undoes any actions taken since the last transaction finished. */
     void undoToLastTransaction();
@@ -49,19 +49,19 @@ public:
     void endTransaction();
 
     /** Returns the name of the current transaction. */
-    String getCurrentTransactionName() const;
+    [[nodiscard]] String getCurrentTransactionName() const;
 
     /** Returns the name of the cached transaction that's next in line to undo, if any. */
-    String getNextUndoTransactionName() const;
+    [[nodiscard]] String getNextUndoTransactionName() const;
 
     /** Returns the name of the cached transaction that's next in line to redo, if any. */
-    String getNextRedoTransactionName() const;
+    [[nodiscard]] String getNextRedoTransactionName() const;
 
     /** Returns the names of all cached transactions that can be undone. */
-    juce::StringArray getUndoTransactionNames() const;
+    [[nodiscard]] juce::StringArray getUndoTransactionNames() const;
 
     /** Returns the names of all cached transactions that can be redone. */
-    juce::StringArray getRedoTransactionNames() const;
+    [[nodiscard]] juce::StringArray getRedoTransactionNames() const;
 
     /** Clears the internal cache of stored states, and the entire undo/redo history. */
     void clearUndoHistory();
@@ -69,7 +69,7 @@ public:
     /** Returns a Broadcaster object that fires every time a new state is loaded as a result of an undo or redo.
         @see events::Broadcaster
      */
-    events::Broadcaster& getBroadcaster();
+    [[nodiscard]] events::Broadcaster& getBroadcaster();
 
     /**
         An RAII class for beginning and ending a transaction in a scoped manner.

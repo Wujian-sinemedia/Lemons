@@ -245,7 +245,7 @@ void TreeReflector::addMap (MapType& map)
 /*----------------------------------------------------------------------------------------------------------------------------------*/
 
 template < typename Type >
-constexpr bool TreeReflector::isSubtree()
+[[nodiscard]] constexpr bool TreeReflector::isSubtree()
 {
     using namespace serializing;
 

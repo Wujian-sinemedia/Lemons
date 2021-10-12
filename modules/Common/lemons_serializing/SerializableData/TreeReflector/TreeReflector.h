@@ -28,10 +28,10 @@ struct TreeReflector
     virtual ~TreeReflector() = default;
 
     /** Returns true if this reflector is loading state. */
-    virtual bool isLoading() const = 0;
+    [[nodiscard]] virtual bool isLoading() const = 0;
 
     /** Returns true if this reflector is saving state. */
-    bool isSaving() const;
+    [[nodiscard]] bool isSaving() const;
 
 
     /** Binds a named ValueTree property to a data member of your object.
@@ -242,7 +242,7 @@ struct TreeReflector
     /** Returns a reference to this reflector's root ValueTree.
         @attention Handle with care! The tree this function returns may already contain sub-nodes representing other serialized children of whatever object is serializing you at the moment...
     */
-    ValueTree& getRawDataTree();
+    [[nodiscard]] ValueTree& getRawDataTree();
 
 private:
     template < typename Type >
@@ -283,7 +283,7 @@ private:
     /*------------------------------------------*/
 
     template < typename Type >
-    static constexpr bool isSubtree();
+    [[nodiscard]] static constexpr bool isSubtree();
 
     /*------------------------------------------*/
 
@@ -299,7 +299,7 @@ struct TreeLoader : TreeReflector
 {
     using TreeReflector::TreeReflector;
 
-    bool isLoading() const final;
+    [[nodiscard]] bool isLoading() const final;
 };
 
 
@@ -311,7 +311,7 @@ struct TreeSaver : TreeReflector
 {
     using TreeReflector::TreeReflector;
 
-    bool isLoading() const final;
+    [[nodiscard]] bool isLoading() const final;
 };
 
 }  // namespace lemons

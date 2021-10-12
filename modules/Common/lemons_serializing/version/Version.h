@@ -27,7 +27,7 @@ struct Version : SerializableData
     /** Returns a String representation of this Version.
         @param separator A character that will be placed between the major, minor, and patch values. Defaults to ".".
      */
-    String getAsString (const String& separator = ".") const noexcept;
+    [[nodiscard]] String getAsString (const String& separator = ".") const noexcept;
 
     /** Increments the major value and sets minor and patch to 0. */
     void bumpMajor() noexcept;
@@ -41,17 +41,17 @@ struct Version : SerializableData
     /** Returns a new Version object with bumpMajor() applied.
         @see bumpMajor()
      */
-    Version withMajorBump() const;
+    [[nodiscard]] Version withMajorBump() const;
 
     /** Returns a new Version object with bumpMinor() applied.
         @see bumpMinor()
      */
-    Version withMinorBump() const;
+    [[nodiscard]] Version withMinorBump() const;
 
     /** Returns a new Version object with bumpPatch() applied.
      @see bumpPatch()
      */
-    Version withPatchBump() const;
+    [[nodiscard]] Version withPatchBump() const;
 
 private:
     void serialize (TreeReflector& ref) final;

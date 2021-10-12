@@ -6,7 +6,7 @@ SerializableData::SerializableData (const juce::String& identifier)
 {
 }
 
-ValueTree SerializableData::serialize()
+[[nodiscard]] ValueTree SerializableData::serialize()
 {
     ValueTree tree {dataIdentifier};
 

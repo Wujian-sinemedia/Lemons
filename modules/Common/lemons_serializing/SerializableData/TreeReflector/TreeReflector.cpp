@@ -7,7 +7,7 @@ TreeReflector::TreeReflector (const ValueTree& treeToUse)
     jassert (tree.isValid());
 }
 
-bool TreeReflector::isSaving() const { return ! isLoading(); }
+[[nodiscard]] bool TreeReflector::isSaving() const { return ! isLoading(); }
 
 void TreeReflector::addValueTree (ValueTree& data)
 {
@@ -22,13 +22,13 @@ void TreeReflector::as (SerializableData& data)
     data.serialize (*this);
 }
 
-ValueTree& TreeReflector::getRawDataTree() { return tree; }
+[[nodiscard]] ValueTree& TreeReflector::getRawDataTree() { return tree; }
 
 
 /*------------------------------------------------------------------------------------------------------*/
 
-bool TreeLoader::isLoading() const { return true; }
+[[nodiscard]] bool TreeLoader::isLoading() const { return true; }
 
-bool TreeSaver::isLoading() const { return false; }
+[[nodiscard]] bool TreeSaver::isLoading() const { return false; }
 
 }  // namespace lemons

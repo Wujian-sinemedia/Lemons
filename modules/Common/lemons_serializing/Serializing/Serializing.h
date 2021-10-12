@@ -13,7 +13,7 @@ void copy (SerializableData& dest, SerializableData& source);
     @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
  */
 template < typename ObjectType, LEMONS_MUST_INHERIT_FROM (ObjectType, SerializableData) >
-ObjectType createCopy (ObjectType& objectToCopy)
+[[nodiscard]] ObjectType createCopy (ObjectType& objectToCopy)
 {
     ObjectType newObject;
     copy (newObject, objectToCopy);
@@ -23,7 +23,7 @@ ObjectType createCopy (ObjectType& objectToCopy)
 /*---------------------------------------------------------------------*/
 
 /** Serializes an object to a ValueTree. */
-ValueTree toTree (SerializableData& data);
+[[nodiscard]] ValueTree toTree (SerializableData& data);
 
 /** Deserializes an object from a ValueTree. */
 void fromTree (const ValueTree& tree, SerializableData& data);
@@ -32,7 +32,7 @@ void fromTree (const ValueTree& tree, SerializableData& data);
     @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
  */
 template < typename ObjectType, LEMONS_MUST_INHERIT_FROM (ObjectType, SerializableData) >
-ObjectType fromTreeCreate (const ValueTree& tree)
+[[nodiscard]] ObjectType fromTreeCreate (const ValueTree& tree)
 {
     ObjectType newObject;
     fromTree (tree, newObject);
@@ -71,7 +71,7 @@ void fromBinary (const void* data, IntegerType dataSizeInBytes, SerializableData
     @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
  */
 template < typename ObjectType, LEMONS_MUST_INHERIT_FROM (ObjectType, SerializableData) >
-ObjectType fromBinaryCreate (File file)
+[[nodiscard]] ObjectType fromBinaryCreate (File file)
 {
     ObjectType newObject;
     fromBinary (file, newObject);
@@ -82,7 +82,7 @@ ObjectType fromBinaryCreate (File file)
     @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
  */
 template < typename ObjectType, LEMONS_MUST_INHERIT_FROM (ObjectType, SerializableData) >
-ObjectType fromBinaryCreate (const juce::MemoryBlock& data)
+[[nodiscard]] ObjectType fromBinaryCreate (const juce::MemoryBlock& data)
 {
     ObjectType newObject;
     fromBinary (data, newObject);
@@ -93,7 +93,7 @@ ObjectType fromBinaryCreate (const juce::MemoryBlock& data)
     @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
  */
 template < typename ObjectType, LEMONS_MUST_INHERIT_FROM (ObjectType, SerializableData) >
-ObjectType fromBinaryCreate (const void* data, size_t dataSizeInBytes)
+[[nodiscard]] ObjectType fromBinaryCreate (const void* data, size_t dataSizeInBytes)
 {
     ObjectType newObject;
     fromBinary (data, dataSizeInBytes, newObject);
@@ -104,7 +104,7 @@ ObjectType fromBinaryCreate (const void* data, size_t dataSizeInBytes)
     @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
  */
 template < typename ObjectType, typename IntegerType, LEMONS_MUST_INHERIT_FROM (ObjectType, SerializableData) >
-ObjectType fromBinaryCreate (const void* data, IntegerType dataSizeInBytes)
+[[nodiscard]] ObjectType fromBinaryCreate (const void* data, IntegerType dataSizeInBytes)
 {
     return fromBinaryCreate< ObjectType > (data, static_cast< size_t > (dataSizeInBytes));
 }
@@ -130,7 +130,7 @@ void fromXML (const File& xmlFile, SerializableData& dest);
     @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
  */
 template < typename ObjectType, LEMONS_MUST_INHERIT_FROM (ObjectType, SerializableData) >
-ObjectType fromXMLCreate (const juce::XmlElement& xml)
+[[nodiscard]] ObjectType fromXMLCreate (const juce::XmlElement& xml)
 {
     ObjectType newObject;
     fromXML (xml, newObject);
@@ -141,7 +141,7 @@ ObjectType fromXMLCreate (const juce::XmlElement& xml)
     @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
  */
 template < typename ObjectType, LEMONS_MUST_INHERIT_FROM (ObjectType, SerializableData) >
-ObjectType fromXMLCreate (std::unique_ptr< juce::XmlElement > xml)
+[[nodiscard]] ObjectType fromXMLCreate (std::unique_ptr< juce::XmlElement > xml)
 {
     ObjectType newObject;
     fromXML (xml, newObject);
@@ -152,7 +152,7 @@ ObjectType fromXMLCreate (std::unique_ptr< juce::XmlElement > xml)
     @tparam ObjectType The type of object to create. This type must inherit from SerializableData and must be default-constructable.
  */
 template < typename ObjectType, LEMONS_MUST_INHERIT_FROM (ObjectType, SerializableData) >
-ObjectType fromXMLCreate (const File& xmlFile)
+[[nodiscard]] ObjectType fromXMLCreate (const File& xmlFile)
 {
     ObjectType newObject;
     fromXML (xmlFile, newObject);
@@ -178,7 +178,7 @@ void fromJSON (const File& file, SerializableData& dest);
     @see valueTreeFromJSON()
  */
 template < typename ObjectType, LEMONS_MUST_INHERIT_FROM (ObjectType, SerializableData) >
-ObjectType fromJSONCreate (const String& jsonText)
+[[nodiscard]] ObjectType fromJSONCreate (const String& jsonText)
 {
     ObjectType newObject;
     fromJSON (jsonText, newObject);
@@ -190,7 +190,7 @@ ObjectType fromJSONCreate (const String& jsonText)
     @see valueTreeToJSON()
  */
 template < typename ObjectType, LEMONS_MUST_INHERIT_FROM (ObjectType, SerializableData) >
-ObjectType fromJSONCreate (const File& file)
+[[nodiscard]] ObjectType fromJSONCreate (const File& file)
 {
     ObjectType newObject;
     fromJSON (file, newObject);

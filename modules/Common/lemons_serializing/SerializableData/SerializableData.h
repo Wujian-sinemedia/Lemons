@@ -32,7 +32,7 @@ struct SerializableData
         Internally, this will create a TreeSaver object and call the virtual serialize(TreeReflector&) function.
         @see TreeSaver, TreeReflector
      */
-    ValueTree serialize();
+    [[nodiscard]] ValueTree serialize();
 
     /**
         Restores a previously saved state.
