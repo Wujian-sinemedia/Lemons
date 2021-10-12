@@ -68,7 +68,26 @@ def process_juce_module(module_name, module_dir):
     module_definiton.append("    @{")
     module_definiton.append("*/")
 
-    # Create a list of the directories in the module that we can use as subgroups and create the Doxygen group hierarchy string
+    #
+
+    def handle_file(filename):
+        add_doxygen_group(os.path.join(module_dir, filename), 
+                          module_name)
+
+
+    def handle_subdir(subdir):
+        subgroup_name = "{n}-{s}".format(n=module_name, s=subdir)
+        module_definiton.append("")
+        module_definiton.append("/** @defgroup {tag} {n} */".format(tag=subgroup_name, n=subdir))
+
+        for dirpath, dirnames, filenames in os.walk(os.path.join(module_dir, subdir)):
+            for filename in filenames:
+                add_doxygen_group(os.path.join(dirpath, filename), 
+                                  subgroup_name)
+
+    #
+
+    # Create a list of the directories in the module that we can use as subgroups
     dir_contents = os.listdir(module_dir)
 
     # Ignore "native" folders
@@ -77,32 +96,14 @@ def process_juce_module(module_name, module_dir):
     except ValueError:
         pass
 
-    subdirs = []
     for item in dir_contents:
         if (os.path.isdir(os.path.join(module_dir, item))):
-            subdirs.append(item)
+            handle_subdir(item)
+        else:
+            handle_file(item)
 
-    module_groups = {}
-    for subdir in subdirs:
-        subgroup_name = "{n}-{s}".format(n=module_name, s=subdir)
-        module_groups[subgroup_name] = os.path.join(module_dir, subdir)
-        module_definiton.append("")
-        module_definiton.append("/** @defgroup {tag} {n} */".format(tag=subgroup_name, n=subdir))
-        
     module_definiton.append("")
     module_definiton.append("/** @} */")
-
-    # Put the top level files into the main group
-    for filename in (set(dir_contents) - set(subdirs)):
-        add_doxygen_group(os.path.join(module_dir, filename), 
-                          module_name)
-
-    # Put subdirectory files into their respective groups
-    for group_name in module_groups:
-        for dirpath, dirnames, filenames in os.walk(module_groups[group_name]):
-            for filename in filenames:
-                add_doxygen_group(os.path.join(dirpath, filename), 
-                                  group_name)
 
     return module_definiton
 
@@ -122,12 +123,12 @@ def process_module_category(category_name, orig_cat_dir, dest_cat_dir):
     category_definiton.append("    @{")
     category_definiton.append("*/")
 
-    modules = {}
-
     for subdir in os.listdir(dest_cat_dir):
-        if os.path.isdir(os.path.join(dest_cat_dir, subdir)):
-            modules[subdir] = os.path.join(dest_cat_dir, subdir)
-            module_definition = process_juce_module(subdir, os.path.join(dest_cat_dir, subdir))
+        module_path = os.path.join(dest_cat_dir, subdir)
+
+        if os.path.isdir(module_path):
+            module_definition = process_juce_module(subdir, module_path)
+
             category_definiton.append("\r\n".join(module_definition))
 
     category_definiton.append("")
