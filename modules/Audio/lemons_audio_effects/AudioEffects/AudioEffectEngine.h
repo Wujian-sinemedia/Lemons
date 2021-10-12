@@ -9,7 +9,7 @@ namespace lemons::dsp::FX
     @see AudioEffect, dsp::Engine
  */
 template < template < typename FloatType > class EffectType, typename SampleType, LEMONS_MUST_INHERIT_FROM (EffectType< SampleType >, AudioEffect< SampleType >) >
-class EffectEngine : public dsp::Engine< SampleType >
+class EffectEngine : public dsp::Engine< SampleType >, public SerializableData
 {
 public:
     /** Creates an EffectEngine.
@@ -59,6 +59,11 @@ private:
     void released() final
     {
         storage.setSize (0, 0);
+    }
+
+    void serialize (TreeReflector& ref) final
+    {
+        ref.as (effect);
     }
 
     EffectType< SampleType >  effect;

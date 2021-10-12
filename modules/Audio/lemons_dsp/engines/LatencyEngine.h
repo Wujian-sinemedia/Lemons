@@ -4,7 +4,7 @@
 namespace lemons::dsp
 {
 /** Base class for audio engines that require latency (ie, a consistent block size) for their processing.
- 
+
     @see Engine
  */
 template < typename SampleType >

@@ -19,14 +19,14 @@ namespace lemons::serializing
         {
             // implement your conversion logic here...
         }
- 
+
         template<>
         MyCustomType fromVar (juce::var var)
         {
             // implement your conversion logic here...
         }
     }
- 
+
     // example usage:
     struct SomethingSerializable : lemons::SerializableData
     {
@@ -35,11 +35,11 @@ namespace lemons::serializing
             // TreeReflector will internally call toVar to save your object and fromVar to load your object
             ref.add ("MyCustomData", data);
         }
- 
+
         MyCustomType data;
     };
     @endcode
- 
+
     @see fromVar(), SerializableData, TreeReflector
  */
 template < typename Type >
@@ -65,14 +65,14 @@ juce::var toVar (const Type& object)
         {
             // implement your conversion logic here...
         }
- 
+
         template<>
         MyCustomType fromVar (juce::var var)
         {
             // implement your conversion logic here...
         }
     }
- 
+
     // example usage:
     struct SomethingSerializable : lemons::SerializableData
     {
@@ -81,11 +81,11 @@ juce::var toVar (const Type& object)
             // TreeReflector will internally call toVar to save your object and fromVar to load your object
             ref.add ("MyCustomData", data);
         }
- 
+
         MyCustomType data;
     };
     @endcode
- 
+
     @see toVar(), SerializableData, TreeReflector
  */
 template < typename Type >

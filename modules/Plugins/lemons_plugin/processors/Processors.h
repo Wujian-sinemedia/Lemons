@@ -6,21 +6,21 @@ namespace lemons::plugin
     Example usage:
     @code
     using namespace lemons;
- 
+
     struct MyPluginState : plugin::StateBase
     {
         // put some cool stuff in here...
     };
- 
+
     template<typename SampleType>
     struct MyEngine : dsp::Engine<SampleType>
     {
         // this constructor signature is required for your engine type!
         MyEngine (MyPluginState& stateToUse);
- 
+
         // implement your audio processing here...
     };
- 
+
     struct MyPluginProcessor : plugin::Processor< MyPluginState, MyEngine >
     {
     };
@@ -78,7 +78,7 @@ private:
     For example:
     @code
     using namespace lemons;
- 
+
     template<typename SampleType>
     struct MyEngine : dsp::Engine<SampleType>
     {
@@ -86,7 +86,7 @@ private:
         // but this constructor signature is required.
         MyEngine (plugin::StateBase&);
     };
- 
+
     using MyProcessor = plugin::StatelessProcessor< MyEngine >;
     @endcode
  */
@@ -101,34 +101,34 @@ class GUIBase;
     Example usage:
     @code
     using namespace lemons;
- 
+
     // first, let's declare our plugin's state type
     struct MyPluginState : plugin::StateBase
     {
         // put some cool stuff in here...
     };
- 
+
     // next, our DSP engine
     template<typename SampleType>
     struct MyEngine : dsp::Engine<SampleType>
     {
         // this constructor signature is required for your engine type!
         MyEngine (MyPluginState& stateToUse);
- 
+
         // implement your audio processing here...
     };
- 
+
     // now we can declare our plugin's GUI-less processor type:
     struct HeadlessProcessor : plugin::Processor< MyPluginState, MyEngine >
     {
     };
- 
+
     // now, let's define our processor's GUI:
     struct MyEditor : plugin::GUI< State >
     {
         MyEditor (plugin::PluginState< YourStateType >& pluginState);
     };
- 
+
     // and now we can declare the processor with editor:
     struct Plugin : plugin::ProcessorWithEditor < HeadlessProcessor, MyEditor >
     {
@@ -138,7 +138,7 @@ class GUIBase;
     @tparam ComponentType The type of component for your plugin's editor to display. This type must inherit from GUIBase or plugin::GUI and must have the following constructor signature:
     @code
     using namespace lemons;
- 
+
     struct MyEditor : plugin::GUI< State >
     {
         MyEditor (plugin::PluginState< YourStateType >& pluginState);

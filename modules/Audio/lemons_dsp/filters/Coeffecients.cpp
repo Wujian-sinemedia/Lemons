@@ -117,7 +117,7 @@ void Coefficients< NumericType >::makeHighPass (double      sampleRate,
                                                 NumericType Q)
 {
     const auto n        = std::tan (juce::MathConstants< NumericType >::pi * frequency
-                             / static_cast< NumericType > (sampleRate));
+                                    / static_cast< NumericType > (sampleRate));
     const auto nSquared = n * n;
     const auto invQ     = (NumericType) 1 / Q;
     const auto c1       = 1 / (1 + invQ * n + nSquared);

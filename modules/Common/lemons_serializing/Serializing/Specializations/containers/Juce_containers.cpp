@@ -5,8 +5,7 @@ StringArrayInterface::StringArrayInterface (juce::StringArray& array)
     : LambdaContainerInterface< juce::StringArray > (array, [] (juce::StringArray& a, int newSize)
                                                      {
                                                          a.clear();
-                                                         a.ensureStorageAllocated (newSize);
-                                                     })
+                                                         a.ensureStorageAllocated (newSize); })
 {
 }
 

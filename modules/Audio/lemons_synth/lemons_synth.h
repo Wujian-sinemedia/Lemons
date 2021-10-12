@@ -12,7 +12,7 @@ description:        Infrastructure for a polyphonic synthesizer instrument
 dependencies:       lemons_audio_effects lemons_oscillators
 
 END_JUCE_MODULE_DECLARATION
- 
+
  -------------------------------------------------------------------------------------*/
 
 

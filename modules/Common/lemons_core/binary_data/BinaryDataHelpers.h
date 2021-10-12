@@ -14,7 +14,7 @@ namespace lemons
     Example:
     @code
     RawData data {"MyAudioFile.wav"};
- 
+
     if (data.isValid())
         doSomethingWithData (data.data, data.size);
     @endcode

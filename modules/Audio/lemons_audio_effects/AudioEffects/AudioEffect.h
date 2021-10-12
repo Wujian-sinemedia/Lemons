@@ -58,7 +58,7 @@ struct LevelReportingAudioEffect : SidechainableAudioEffect< SampleType >
         @param numSamples The total number of samples to process.
         @param signal Pointer to contiguous audio samples, used for in and out.
         @param sidechain Pointer to contiguous sidechain signal samples.
-     
+
         @return The level or gain reduction for this frame of audio for this channel.
      */
     virtual SampleType processChannel (int               channel,

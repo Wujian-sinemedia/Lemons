@@ -66,7 +66,7 @@ void SynthBase< SampleType >::updatePitchbendRange (int rangeSemitones)
    /_\ |   \/ __| _ ( ) __|
   / _ \| |) \__ \   //\__ \
  /_/ \_\___/|___/_|_\ |___/
- 
+
  Parameters to control the synth's various ADSRs
  */
 

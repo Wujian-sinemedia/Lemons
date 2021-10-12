@@ -13,20 +13,20 @@ namespace lemons::plugin
     I usually recommend creating a subclass of ParameterList for your product. For example:
     @code
     using namespace lemons;
- 
+
     struct MyParameters : plugin::ParameterList
     {
         MyParameters() : ParameterList ("MyParameters")
         {
             add (reverbToggle, delayToggle);
- 
+
             // maybe this is just for communication with the GUI?
             addInternal (feedbackLevel);
         }
- 
+
         ToggleParam reverbToggle {"Reverb toggle", true};
         ToggleParam delayToggle {"Delay toggle", false};
- 
+
         dbParam feedbackLevel {"Feedback", -6.f};
     };
     @endcode
@@ -38,7 +38,7 @@ namespace lemons::plugin
         {
             params.addParametersTo (*this);
         }
- 
+
         MyParameters params;
     };
     @endcode

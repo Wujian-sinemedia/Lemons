@@ -7,9 +7,9 @@ class NonrealtimeMutatable
 {
 public:
     NonrealtimeMutatable() = default;
-    
+
     explicit NonrealtimeMutatable (ObjectType& obj)
-    : storage (std::move (obj))
+        : storage (std::move (obj))
     {
     }
 
@@ -141,7 +141,7 @@ private:
     std::atomic< ObjectType* >    pointer {storage.get()};
     ObjectType*                   currentObj {nullptr};
     std::mutex                    nonRealtimeLock;
-    
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (NonrealtimeMutatable)
 };
 

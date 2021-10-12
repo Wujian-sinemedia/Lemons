@@ -35,4 +35,3 @@
 #include "toggler/Toggler.h"
 
 #include "DataSynchronizer/DataSynchronizer.h"
-

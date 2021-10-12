@@ -46,7 +46,7 @@ struct TreeReflector
         {
             // we want to save this integer with our program's state
             int data;
-     
+
             void serialize (TreeReflector& ref) final
             {
                 // simply choose a property name -- and that's it!
@@ -62,7 +62,7 @@ struct TreeReflector
         {
             int number;
             String string;
-     
+
             void serialize (TreeReflector& ref) final
             {
                 ref.add ("ThisWillBreak!", number);
@@ -86,7 +86,7 @@ struct TreeReflector
         struct SomethingSerializable : lemons::SerializableData
         {
             std::vector<int> data;
-     
+
             void serialize (TreeReflector& ref) final
             {
                 ref.add ("Ints", data);
@@ -94,14 +94,14 @@ struct TreeReflector
         };
         @endcode
         This will create a sub-tree in your object's ValueTree named "Ints", with properties "Int_1", "Int_2", "Int_3"... etc. This works by iterating through each element of your container and calling add() on each of them.
-     
+
         @param propertyName The property name associated with the piece of data this function call represents. \n
         - When adding a reference to a member encoded with toVar() and fromVar(), this is the name of the ValueTree property the encoded object will be saved to and restored from in the reflector's internal ValueTree. \n
         - When adding a sub-tree object (such as when passing a child ValueTree, a child object that inherits from SerializableData, or a container), this is the name of the sub-tree that will be added to the reflector's internal tree, and will be populated with the child object's properties. \n
         - When adding a container, the container's individual element names are generated as following:
         @code
             std::vector<int> data {23, 16, 7};
-     
+
             ref.add ("Points", data);
         @endcode
         This will create the following sub-tree object:
@@ -113,14 +113,14 @@ struct TreeReflector
         @endverbatim
         I do not recommend attempting to internationalize property names. \n \n
         Take care to avoid duplicating property names for multiple data members of the same serializable object!
-     
+
         @param object Reference to the data member you wish to load/save. \n
         This can be: \n
         - Any C++ object for which toVar() and fromVar() are implemented;
         - A juce::ValueTree;
         - Another object that inherits from SerializableData;
         - A container that has serializing::ContainerInterface, serializing::getInterfaceForContainer(), and serializing::isContainer implemented and whose elements are also valid calls to add()
-     
+
         @see serializing::ContainerInterface, serializing::getInterfaceForContainer(), serializing::isContainer, serializing::toVar(), serializing::fromVar(), addLambdaSet()
      */
     template < typename Type >
@@ -139,11 +139,11 @@ struct TreeReflector
                 data = newData;
                 // do something else with side effects...
             }
-         
+
         private:
             // we still want to save this integer with our program's state, but I want to call setData() when it's being loaded...
             int data;
-         
+
             void serialize (TreeReflector& ref) final
             {
                 // you can specify lambdas for retrieving and saving a property's value as a specified type (int)
@@ -154,13 +154,13 @@ struct TreeReflector
          };
          @endcode
         If you use this function with a container type, your lambdas must return/recieve the entire container by value. I recommend sticking to add() (or implementing completely custom logic) for containers.
-     
+
         @param propertyName The name of the ValueTree property that this data corresponds to. See the docs for add().
-     
+
         @param saveToTree This lambda should return the current value of the data you wish to save.
-     
+
         @param loadFromTree This lambda will be called with the new value for this data when a new state is loaded.
-     
+
         @see add(), serializing::toVar(), serializing::fromVar()
      */
     template < typename Type >
@@ -176,22 +176,22 @@ struct TreeReflector
         For example, say you've got the following types:
         @code
         using namespace lemons;
-     
+
         struct StateData : SerializableData
         {
             int x {12}, y {48};
-     
+
             void serialize (TreeReflector& ref) final
             {
                 ref.add ("X", x);
                 ref.add ("Y", y);
             }
         };
-     
+
         struct Wrapper : SerializableData
         {
             StateData data;
-     
+
             // add some more functionality to "data"...
         };
         @endcode
@@ -201,7 +201,7 @@ struct TreeReflector
         struct Wrapper : SerializableData
         {
             StateData data;
-     
+
             void serialize (TreeReflector& ref) final
             {
                 ref.add ("Data", data);
@@ -220,7 +220,7 @@ struct TreeReflector
         struct Wrapper : SerializableData
         {
             StateData data;
-     
+
             void serialize (TreeReflector& ref) final
             {
                 ref.as (data);

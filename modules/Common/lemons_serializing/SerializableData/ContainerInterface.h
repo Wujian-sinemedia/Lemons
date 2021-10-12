@@ -28,7 +28,7 @@ struct ContainerInterface
     struct JuceArrayInterface : LambdaContainerInterface<juce::Array<ElementType>>
     {
         using Container = juce::Array<ElementType>;
-     
+
         JuceArrayInterface (Container& container)
             : LambdaContainerInterface<Container>(container, [](Container& c, int newSize)
                                                              {
@@ -36,7 +36,7 @@ struct ContainerInterface
                                                              })
         { }
     };
-     
+
     template < typename ElementType >
     std::unique_ptr< ContainerInterface > getInterfaceForContainer (juce::Array< ElementType >& container)
     {
@@ -101,11 +101,11 @@ struct isContainer : std::false_type
     - Implement a subclass of serializing::ContainerInterface with the correct resizing logic for your cotainer;
     - Implement a specialization ofserializing::getContainerForInterface() that returns an instance of your custom interface;
     - Specialize the serializing::isContainer struct for your type and make the specialization inherit from std::true_type.
- 
+
     In addition, your custom container type must have begin() and end() functions -- ie, it must be compatable with range-based for loops.
-    
+
     The elements of your container must also be valid TreeReflector::add() calls -- ie, if they don't inherit SerializableData, you must implement toVar() and fromVar() for the container's element type as well.
- 
+
     Here is an example implementation for a custom type:
 
     template<typename ElementType>
@@ -113,41 +113,41 @@ struct isContainer : std::false_type
     {
         ElementType* begin();
         ElementType* end();
- 
+
         void setSize (int);
     };
- 
+
     // Step 1: implement container interface
     // This tells the TreeReflector how to resize your container
- 
+
     template<typename ElementType>
     struct MyContainerInterface : lemons::serializing::ContainerInterface
     {
         using Container = MyContainerType<ElementType>;
- 
+
         MyContainerInterface (Container& c) : container (c) { }
- 
+
     private:
         void resize (int newSize) final
     {
         container.setSize (newSize);
     }
- 
+
         Container& container;
     };
- 
+
     // Step 2: implement getInterfaceForContainer()
     // This creates an instance of your container interface for the TreeReflector to use
- 
+
     template < typename ElementType >
     std::unique_ptr< ContainerInterface > getInterfaceForContainer (MyContainerType< ElementType >& container)
     {
         return std::make_unique< MyContainerInterface< ElementType > > (container);
     }
- 
+
     // Step 3: implement isContainer
     // This tells TreeReflector that any specialization of your container type is a kind of container
- 
+
     template < typename ElementType >
     struct isContainer< MyContainerType< ElementType > > : std::true_type
     {

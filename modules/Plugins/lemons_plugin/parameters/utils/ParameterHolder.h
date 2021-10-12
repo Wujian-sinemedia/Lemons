@@ -42,21 +42,21 @@ protected:
     Example usage:
     @code
     juce::AudioProcessor myProcessor;
- 
+
     using namespace lemons::plugin;
- 
+
     ParameterHolder<ToggleParameter> myParam {"MyToggleParameter", true};
- 
+
     myParam.addTo (myProcessor);
     @endcode
     Several typedefs are included in the lemons namespace to make it easier to forget that this wrapper class exists at all. For example:
     @code
     juce::AudioProcessor myProcessor;
- 
+
     using namespace lemons;
- 
+
     ToggleParam myParam {"MyToggleParameter", true};
- 
+
     myParam.addTo (myProcessor);
     @endcode
     Implementing your own ParameterList makes this even easier to manage; see the docs for ParameterList to learn more.

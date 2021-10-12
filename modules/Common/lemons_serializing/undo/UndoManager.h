@@ -7,7 +7,7 @@ namespace lemons
     This class is similar to juce's undo manager, but the major difference is that juce's implementation focuses on tracking individual actions, while this class simply saves a new copy of the entire state each time something changes. I have found this to be more robust, and easier to work with in other areas of the API. \n
     \n
     This object has a concept of grouping smaller actions into larger named transactions, similar to the API of the juce UndoManager.
- 
+
     @see SerializableData
  */
 class UndoManager
@@ -76,11 +76,11 @@ public:
         Example usage:
         @code
         lemons::UndoManager undo;
-     
+
         void someFunction()
         {
             lemons::UndoManager::ScopedTransaction s {&undo, "MyTransaction"};
-     
+
             // do something with side-effects...
         }
         @endcode

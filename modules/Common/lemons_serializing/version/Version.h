@@ -4,7 +4,7 @@ namespace lemons
 {
 /**
     A class that represents a version of something, with major, minor, and patch numbers.
- 
+
     @see SerializableData
  */
 struct Version : SerializableData

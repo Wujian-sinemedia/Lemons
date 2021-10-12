@@ -8,7 +8,7 @@ namespace lemons::dsp::osc
     Example usage:
     @code
     using namspace lemons::dsp::osc;
- 
+
     auto sineEngine = OscEngine<float, Sine>;
     @endcode
     @tparam SampleType The floating point type to be used for samples. Must be either float or double.

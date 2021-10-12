@@ -9,7 +9,7 @@ namespace lemons::serializing
     This is akin to juce's ValueTreeSynchronizer, but for working with my SerializableData class. \n
     Because SerializableData does not have any means for detecting changes, this class simply sends a consistent stream of updates on a timer callback. \n
     At first glance this may seem excessive, but I have found it to be the most robust way of ensuring that two remote objects stay in sync, and I haven't encountered any major performance issues.
- 
+
     @see SerializableData
  */
 class DataSynchronizer

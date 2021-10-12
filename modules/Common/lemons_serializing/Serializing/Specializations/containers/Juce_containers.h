@@ -49,8 +49,7 @@ struct JuceOwnedArrayInterface : LambdaContainerInterface< juce::OwnedArray< Ele
                                                          c.remove (i, true);
 
                                                      for (int i = prevSize; i < newSize; ++i)
-                                                         c.add (new ElementType());
-                                                 })
+                                                         c.add (new ElementType()); })
     {
     }
 };

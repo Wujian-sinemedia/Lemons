@@ -66,7 +66,7 @@ protected:
     Example usage:
     @code
     using namespace lemons;
- 
+
     // define our parameter list type for our plugin:
     struct MyParams : plugin::ParameterList
     {
@@ -74,10 +74,10 @@ protected:
         {
             add (reverbToggle);
         }
- 
+
         ToggleParam reverbToggle {"Reverb toggle", true};
     };
- 
+
     // now this is our full state object:
     using MyPluginState = plugin::State< MyParams >;
     @endcode
@@ -106,7 +106,7 @@ struct State : StateBase
     Example usage:
     @code
     using namespace lemons;
- 
+
     // define our parameter list type for our plugin:
     struct MyParams : plugin::ParameterList
     {
@@ -114,16 +114,16 @@ struct State : StateBase
         {
             add (reverbToggle);
         }
- 
+
         ToggleParam reverbToggle {"Reverb toggle", true};
     };
- 
+
     // define our custom serializable data for our plugin:
     struct MyCustomData : SerializableData
     {
         String username;
         std::vector<int> points;
- 
+
     private:
         void serialize (TreeReflector& ref) final
         {
@@ -131,7 +131,7 @@ struct State : StateBase
             ref.add ("Point", points);
         }
     };
- 
+
     // now, this is our plugin's full state object:
     using MyPluginState = plugin::CustomState< MyParams, MyCustomData >;
     @endcode

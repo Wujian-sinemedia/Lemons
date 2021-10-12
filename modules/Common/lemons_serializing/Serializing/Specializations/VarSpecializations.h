@@ -126,13 +126,13 @@ juce::AudioBuffer< double > fromVar (const juce::var& var);
 /** Serializes a file as its path's String representation.
     This method may be platform-dependant. I recommend using the FileContents struct to reliably serialize files' contents instead of their paths.
  */
-template<>
+template <>
 juce::var toVar (const File& file);
 
 /** Serializes a file as its path's String representation.
  This method may be platform-dependant. I recommend using the FileContents struct to reliably serialize files' contents instead of their paths.
  */
-template<>
+template <>
 File fromVar (const juce::var& var);
 
 /** A wrapper around a File that, when serializing, loads and saves the file's entire contents.
@@ -141,13 +141,13 @@ struct FileContents : SerializableData
 {
     /** Must be passed a file or filepath on construction. */
     explicit FileContents (File fileToUse);
-    
+
     /** Must be passed a file or filepath on construction. */
     explicit FileContents (const String& absolutePathToFile);
-    
+
     /** The managed file object. */
     File file;
-    
+
 private:
     void serialize (TreeReflector& ref) final;
 };

@@ -12,12 +12,11 @@ public:
         : data ({obj, obj}), realtimeCopy (obj)
     {
     }
-    
-    template<typename... Args>
+
+    template < typename... Args >
     explicit RealtimeMutatable (Args&&... args)
-    : data ({{std::forward<Args>(args)...}, {std::forward<Args>(args)...}}), realtimeCopy (std::forward<Args>(args)...)
+        : data ({{std::forward< Args > (args)...}, {std::forward< Args > (args)...}}), realtimeCopy (std::forward< Args > (args)...)
     {
-        
     }
 
     ~RealtimeMutatable()
@@ -108,8 +107,8 @@ private:
 
     void realtimeRelease() noexcept
     {
-        const auto idx  = acquireIndex();
-        data[idx] = realtimeCopy;
+        const auto idx = acquireIndex();
+        data[idx]      = realtimeCopy;
         releaseIndex (idx);
     }
 
@@ -171,7 +170,7 @@ private:
     ObjectType                  realtimeCopy;
 
     std::mutex nonRealtimeLock;
-    
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (RealtimeMutatable)
 };
 

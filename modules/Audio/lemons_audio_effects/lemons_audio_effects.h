@@ -12,7 +12,7 @@ description:        Audio effects
 dependencies:       lemons_dsp lemons_serializing
 
 END_JUCE_MODULE_DECLARATION
- 
+
 -------------------------------------------------------------------------------------*/
 
 
