@@ -1,7 +1,8 @@
 <map id="lemons::dsp::SynthBase&lt; SampleType &gt;" name="lemons::dsp::SynthBase&lt; SampleType &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="5,26,171,67"/>
-<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1TemplateSynth.html" title=" " alt="" coords="645,22,851,78"/>
-<area shape="rect" id="node4" href="$classlemons_1_1dsp_1_1LambdaSynth.html" title=" " alt="" coords="223,26,407,67"/>
-<area shape="rect" id="node5" href="$structlemons_1_1dsp_1_1TemplateSynth.html" title=" " alt="" coords="220,91,409,132"/>
-<area shape="rect" id="node3" href="$structlemons_1_1dsp_1_1OscSynth.html" title=" " alt="" coords="900,30,1079,71"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,71,184,112"/>
+<area shape="rect" id="node2" href="$classlemons_1_1dsp_1_1LambdaSynth.html" title=" " alt="" coords="237,5,436,47"/>
+<area shape="rect" id="node3" href="$structlemons_1_1dsp_1_1TemplateSynth.html" title=" " alt="" coords="233,71,440,112"/>
+<area shape="rect" id="node6" href="$structlemons_1_1dsp_1_1TemplateSynth.html" title=" " alt="" coords="464,122,684,178"/>
+<area shape="rect" id="node4" href="$structlemons_1_1dsp_1_1TemplateSynth.html" title=" " alt="" coords="708,59,928,115"/>
+<area shape="rect" id="node5" href="$structlemons_1_1dsp_1_1OscSynth.html" title=" " alt="" coords="977,116,1171,157"/>
 </map>

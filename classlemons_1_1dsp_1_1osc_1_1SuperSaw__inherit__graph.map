@@ -1,4 +1,5 @@
 <map id="lemons::dsp::osc::SuperSaw&lt; SampleType &gt;" name="lemons::dsp::osc::SuperSaw&lt; SampleType &gt;">
-<area shape="rect" id="node1" title="A basic &quot;super saw&quot; oscillator." alt="" coords="5,95,196,136"/>
-<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1osc_1_1Oscillator.html" title="Base class for any kind of oscillator." alt="" coords="8,5,193,47"/>
+<area shape="rect" id="node1" title="A basic &quot;super saw&quot; oscillator." alt="" coords="5,96,208,137"/>
+<area shape="rect" id="node3" href="$classlemons_1_1dsp_1_1osc_1_1SuperSaw.html" title=" " alt="" coords="5,200,208,241"/>
+<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1osc_1_1Oscillator.html" title="Base class for any kind of oscillator." alt="" coords="6,5,207,47"/>
 </map>

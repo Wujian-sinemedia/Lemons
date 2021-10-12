@@ -1,6 +1,6 @@
 <map id="lemons::serializing::StdArrayInterface&lt; ElementType, size &gt;" name="lemons::serializing::StdArrayInterface&lt; ElementType, size &gt;">
-<area shape="rect" id="node1" title="Container interface that provides support for serializing std::arrays with TreeReflector." alt="" coords="828,13,981,69"/>
-<area shape="rect" id="node2" href="$structlemons_1_1serializing_1_1LambdaContainerInterface.html" title=" " alt="" coords="592,5,779,76"/>
-<area shape="rect" id="node3" href="$structlemons_1_1serializing_1_1ContainerInterface.html" title="Interface that defines how a TreeReflector can resize a given container during deserialization." alt="" coords="5,24,144,65"/>
-<area shape="rect" id="node4" href="$structlemons_1_1serializing_1_1LambdaContainerInterface.html" title="Provides a slightly slicker interface to ContainerInterface, allowing you to supply a lambda function..." alt="" coords="193,49,380,105"/>
+<area shape="rect" id="node1" title="Container interface that provides support for serializing std::arrays with TreeReflector." alt="" coords="893,13,1064,69"/>
+<area shape="rect" id="node2" href="$structlemons_1_1serializing_1_1LambdaContainerInterface.html" title=" " alt="" coords="641,5,844,76"/>
+<area shape="rect" id="node3" href="$structlemons_1_1serializing_1_1ContainerInterface.html" title="Interface that defines how a TreeReflector can resize a given container during deserialization." alt="" coords="5,24,156,65"/>
+<area shape="rect" id="node4" href="$structlemons_1_1serializing_1_1LambdaContainerInterface.html" title="Provides a slightly slicker interface to ContainerInterface, allowing you to supply a lambda function..." alt="" coords="205,49,408,105"/>
 </map>

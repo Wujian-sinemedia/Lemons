@@ -1,5 +1,5 @@
 <map id="lemons::dsp::FX::Saturator&lt; SampleType &gt;" name="lemons::dsp::FX::Saturator&lt; SampleType &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="12,169,192,211"/>
-<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1FX_1_1AudioEffect.html" title="Base class for any kind of audio effect." alt="" coords="5,80,199,121"/>
-<area shape="rect" id="node3" href="$structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="17,5,187,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="12,169,207,211"/>
+<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1FX_1_1AudioEffect.html" title="Base class for any kind of audio effect." alt="" coords="5,80,213,121"/>
+<area shape="rect" id="node3" href="$structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="17,5,202,32"/>
 </map>

@@ -1,6 +1,6 @@
 <map id="lemons::plugin::StateBase" name="lemons::plugin::StateBase">
-<area shape="rect" id="node1" title="Base class for a plugin&#39;s state." alt="" coords="223,46,400,73"/>
-<area shape="rect" id="node3" href="$structlemons_1_1plugin_1_1CustomState.html" title="A plugin state class that instantiates the appropriate ParameterList and custom serializable object a..." alt="" coords="448,5,700,47"/>
-<area shape="rect" id="node4" href="$structlemons_1_1plugin_1_1State.html" title="A plugin state class that instantiates the appropriate ParameterList and passes it to the StateBase c..." alt="" coords="501,71,647,112"/>
-<area shape="rect" id="node2" href="$structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="5,46,175,73"/>
+<area shape="rect" id="node1" title="Base class for a plugin&#39;s state." alt="" coords="239,46,431,73"/>
+<area shape="rect" id="node3" href="$structlemons_1_1plugin_1_1CustomState.html" title="A plugin state class that instantiates the appropriate ParameterList and custom serializable object a..." alt="" coords="479,5,752,47"/>
+<area shape="rect" id="node4" href="$structlemons_1_1plugin_1_1State.html" title="A plugin state class that instantiates the appropriate ParameterList and passes it to the StateBase c..." alt="" coords="535,71,695,112"/>
+<area shape="rect" id="node2" href="$structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="5,46,191,73"/>
 </map>

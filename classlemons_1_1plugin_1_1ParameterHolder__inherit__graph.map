@@ -1,6 +1,6 @@
 <map id="lemons::plugin::ParameterHolder&lt; ParameterType &gt;" name="lemons::plugin::ParameterHolder&lt; ParameterType &gt;">
-<area shape="rect" id="node1" title="Class that holds a parameter object, and can retain a reference to it after it has been added to an A..." alt="" coords="31,157,209,199"/>
-<area shape="rect" id="node4" href="$classlemons_1_1plugin_1_1ParameterHolder.html" title=" " alt="" coords="5,261,235,303"/>
-<area shape="rect" id="node2" href="$structlemons_1_1plugin_1_1ParamHolderBase.html" title="Base class for ParameterHolder that allows any kind of parameter to be accessed without knowing the f..." alt="" coords="8,81,232,108"/>
-<area shape="rect" id="node3" href="$structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="35,5,205,32"/>
+<area shape="rect" id="node1" title="Class that holds a parameter object, and can retain a reference to it after it has been added to an A..." alt="" coords="35,157,228,199"/>
+<area shape="rect" id="node4" href="$classlemons_1_1plugin_1_1ParameterHolder.html" title=" " alt="" coords="5,261,257,303"/>
+<area shape="rect" id="node2" href="$structlemons_1_1plugin_1_1ParamHolderBase.html" title="Base class for ParameterHolder that allows any kind of parameter to be accessed without knowing the f..." alt="" coords="10,81,253,108"/>
+<area shape="rect" id="node3" href="$structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="39,5,224,32"/>
 </map>
