@@ -49,6 +49,6 @@ echo "" > .nojekyll
 echo "Publishing documentation..."
 
 git commit -a -m "Updating documentation"
-git push --force "https://${GH_REPO_TOKEN}@github.com/benthevining/Lemons.git" > /dev/null 2>&1
+git push --force "https://${GH_REPO_TOKEN}@github.com/benthevining/Lemons.git"
 
 exit 0
