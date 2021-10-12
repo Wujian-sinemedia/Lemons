@@ -2,11 +2,13 @@
 
 # Installs a list of dependencies using apt
 
-set -euo pipefail
-
 sudo apt-get update
 
-# install deps listed in deps list file
-xargs sudo apt-get install -y --no-install-recommends <"$DEPS_LIST"
+os_install_func() {
+	local -r DEPS_LIST="$1"
+
+	# install deps listed in deps list file
+	xargs sudo apt-get install -y --no-install-recommends <"$DEPS_LIST"
+}
 
 exit 0

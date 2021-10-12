@@ -11,7 +11,9 @@ export INSTALL_LIST_FILE="deps_list.txt"
 
 readonly script_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-bash "$script_path/install/install_list.sh"
+source "$script_path/install/install_list.sh"
+
+
 
 case "$OSTYPE" in 
 	linux-gnu*) :

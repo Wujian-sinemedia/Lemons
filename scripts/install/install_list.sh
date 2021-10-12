@@ -11,16 +11,6 @@ export DEBIAN_FRONTEND=noninteractive
 
 export SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-export DEPS_LIST="$SCRIPT_DIR/$INSTALL_LIST_FILE"
-
-echo "Installing dependencies from file: $INSTALL_LIST_FILE" 
-
-# if deps list file doesn't exist, fail with error
-if [ ! -f "$DEPS_LIST" ]; then
-	printf "Error - dependency list file not found!"
-	exit 1
-fi
-
 #
 
 # Utility function to append text to file
@@ -61,8 +51,9 @@ if [ ! -f "$SHELL_FILE" ]; then
 	touch "$SHELL_FILE"
 fi
 
+#
 
-# Run appropriate OS config script
+# import the appropriate os-specific function
 
 case "$OSTYPE" in
 	darwin*) :
@@ -87,5 +78,22 @@ case "$OSTYPE" in
 esac
 
 source "$SCRIPT_DIR/$os_script.sh"
+
+#
+
+install_deps_list() {
+	local -r DEPS_LIST="$SCRIPT_DIR/$1"
+
+	echo "Installing dependencies from file: $1" 
+
+	# if deps list file doesn't exist, fail with error
+	if [ ! -f "$DEPS_LIST" ]; then
+		printf "Error - dependency list file not found!"
+		exit 1
+	fi
+
+	# run os install func
+	os_install_func "$DEPS_LIST"
+}
 
 exit 0

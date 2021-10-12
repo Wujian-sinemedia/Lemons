@@ -37,22 +37,33 @@ if ! [[ homebrew_installed_m1 || homebrew_installed_intel ]]; then
 	brew tap Homebrew/bundle
 fi
 
-delete_file_if_exists "$brewfile"
-delete_file_if_exists "$SCRIPT_DIR/Brewfile.lock.json"
+#
 
-# create empty Brewfile, to write to
-touch "$brewfile"
-
-# write deps list to Brewfile
-cat "$DEPS_LIST" | while read line || [[ -n $line ]];
-do
-	newtext="$(echo "brew "\'"$line"\')"
-	append_to_file "$brewfile" "$newtext"
-done
-
-# run Homebrew on generated Brewfile
 brew update
 brew upgrade
-brew bundle install --file="$brewfile"
+
+#
+
+os_install_func() {
+	local -r DEPS_LIST="$1"
+
+	delete_file_if_exists "$brewfile"
+	delete_file_if_exists "$SCRIPT_DIR/Brewfile.lock.json"
+
+	# create empty Brewfile, to write to
+	touch "$brewfile"
+
+	# write deps list to Brewfile
+	cat "$DEPS_LIST" | while read line || [[ -n $line ]];
+	do
+		newtext="$(echo "brew "\'"$line"\')"
+		append_to_file "$brewfile" "$newtext"
+	done
+
+	# run Homebrew on generated Brewfile
+	brew bundle install --file="$brewfile"
+}
+
+#
 
 exit 0
