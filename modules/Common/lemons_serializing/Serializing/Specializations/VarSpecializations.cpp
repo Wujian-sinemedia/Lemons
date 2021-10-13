@@ -180,21 +180,20 @@ inline String pointToString (const juce::Point< Type >& point)
 }
 
 template < typename Type >
-inline Type pointTokenToValue (const String& token)
-{
-    if constexpr (std::is_same_v< Type, int >)
-        return token.getIntValue();
-    else
-        return static_cast< Type > (token.getFloatValue());
-}
-
-template < typename Type >
 inline juce::Point< Type > pointFromString (const String& string)
 {
+    auto pointTokenToValue = [] (const String& token) -> Type
+    {
+        if constexpr (std::is_same_v< Type, int >)
+            return token.getIntValue();
+        else
+            return static_cast< Type > (token.getFloatValue());
+    };
+
     juce::Point< Type > point;
 
-    point.x = pointTokenToValue< Type > (string.upToFirstOccurrenceOf ("_", false, true));
-    point.y = pointTokenToValue< Type > (string.fromFirstOccurrenceOf ("_", false, true));
+    point.x = pointTokenToValue (string.upToFirstOccurrenceOf ("_", false, true));
+    point.y = pointTokenToValue (string.fromFirstOccurrenceOf ("_", false, true));
 
     return point;
 }
@@ -208,9 +207,7 @@ juce::var toVar (const juce::Point< float >& point)
 template <>
 juce::Point< float > fromVar (const juce::var& var)
 {
-    const auto string = var.toString();
-
-    return pointFromString< float > (string);
+    return pointFromString< float > (var.toString());
 }
 
 template <>
@@ -222,9 +219,7 @@ juce::var toVar (const juce::Point< int >& point)
 template <>
 juce::Point< int > fromVar (const juce::var& var)
 {
-    const auto string = var.toString();
-
-    return pointFromString< int > (string);
+    return pointFromString< int > (var.toString());
 }
 
 
@@ -328,37 +323,19 @@ AudioBuffer< double > fromVar (const juce::var& var)
 
 /*--------------------------------------- Midi buffers -------------------------------------------*/
 
-static inline juce::MidiMessageSequence midiBufferToSequence (const juce::MidiBuffer& buffer)
-{
-    juce::MidiMessageSequence sequence;
-
-    for (auto meta : buffer)
-    {
-        sequence.addEvent (meta.getMessage());
-    }
-
-    return sequence;
-}
-
-static inline juce::MidiBuffer midiSequenceToBuffer (const juce::MidiMessageSequence& sequence)
-{
-    juce::MidiBuffer buffer;
-
-    for (const auto* holder : sequence)
-    {
-        buffer.addEvent (holder->message,
-                         juce::roundToInt (holder->message.getTimeStamp()));
-    }
-
-    return buffer;
-}
-
 template <>
 juce::var toVar (const juce::MidiBuffer& buffer)
 {
     juce::MidiFile file;
 
-    file.addTrack (midiBufferToSequence (buffer));
+    file.addTrack ([buffer]() -> juce::MidiMessageSequence
+                   {
+        juce::MidiMessageSequence sequence;
+        
+        for (auto meta : buffer)
+            sequence.addEvent (meta.getMessage());
+        
+        return sequence; }());
 
     juce::MemoryBlock        block;
     juce::MemoryOutputStream stream {block, false};
@@ -378,9 +355,18 @@ juce::MidiBuffer fromVar (const juce::var& var)
     juce::MidiFile file;
     file.readFrom (stream);
 
-    if (auto* track = file.getTrack (1))
+    if (auto* track = file.getTrack (0))
     {
-        return midiSequenceToBuffer (*track);
+        return [sequence = *track]() -> juce::MidiBuffer
+        {
+            juce::MidiBuffer buffer;
+
+            for (const auto* holder : sequence)
+                buffer.addEvent (holder->message,
+                                 juce::roundToInt (holder->message.getTimeStamp()));
+
+            return buffer;
+        }();
     }
 
     return {};

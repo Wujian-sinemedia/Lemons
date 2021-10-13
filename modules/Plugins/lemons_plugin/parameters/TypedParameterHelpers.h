@@ -37,33 +37,33 @@ inline juce::NormalisableRange< float > createRange (bool, bool)
 template < typename ValueType >
 inline std::function< String (ValueType, int) > createDefaultStringFromValueFunc (float rangeInterval);
 
-[[nodiscard]] static inline constexpr int getNumDecimalPlacesToDisplay (float rangeInterval) noexcept
-{
-    int numDecimalPlaces = 7;
-
-    if (rangeInterval != 0.f)
-    {
-        if (juce::approximatelyEqual (std::abs (rangeInterval - std::floor (rangeInterval)), 0.f))
-            return 0;
-
-        auto v = std::abs (juce::roundToInt (rangeInterval * std::pow (10, numDecimalPlaces)));
-
-        while ((v % 10) == 0 && numDecimalPlaces > 0)
-        {
-            --numDecimalPlaces;
-            v /= 10;
-        }
-    }
-
-    return numDecimalPlaces;
-}
-
 template <>
 inline std::function< String (float, int) > createDefaultStringFromValueFunc (float rangeInterval)
 {
     return [rangeInterval] (float v, int length) -> String
     {
-        String asText (v, getNumDecimalPlacesToDisplay (rangeInterval));
+        const auto numDecimalPlaces = [rangeInterval]() -> int
+        {
+            int numPlaces = 7;
+
+            if (rangeInterval != 0.f)
+            {
+                if (juce::approximatelyEqual (std::abs (rangeInterval - std::floor (rangeInterval)), 0.f))
+                    return 0;
+
+                auto val = std::abs (juce::roundToInt (rangeInterval * std::pow (10, numPlaces)));
+
+                while ((val % 10) == 0 && numPlaces > 0)
+                {
+                    --numPlaces;
+                    val /= 10;
+                }
+            }
+
+            return numPlaces;
+        }();
+
+        String asText (v, numDecimalPlaces);
         return length > 0 ? asText.substring (0, length) : asText;
     };
 }

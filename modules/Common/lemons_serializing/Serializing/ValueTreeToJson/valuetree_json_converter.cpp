@@ -1,11 +1,15 @@
 namespace lemons::serializing
 {
-static constexpr auto NAME_PROP     = "_name";
-static constexpr auto CHILDREN_PROP = "_children";
-static constexpr auto BASE64_PROP   = "_base64:";
+constexpr auto NAME_PROP     = "_name";
+constexpr auto CHILDREN_PROP = "_children";
+constexpr auto BASE64_PROP   = "_base64:";
+
 
 [[nodiscard]] static inline juce::var valueTreeToVar (const ValueTree& v)
 {
+    if (! v.isValid())
+        return {};
+
     juce::DynamicObject obj;
 
     obj.setProperty (NAME_PROP, v.getType().toString());
@@ -26,16 +30,15 @@ static constexpr auto BASE64_PROP   = "_base64:";
         if (const auto mb = val.getBinaryData())
         {
             obj.setProperty (BASE64_PROP + name, mb->toBase64Encoding());
+            continue;
         }
-        else
-        {
-            // These types can't be stored as JSON!
-            jassert (! val.isObject());
-            jassert (! val.isMethod());
-            jassert (! val.isArray());
 
-            obj.setProperty (name, val.toString());
-        }
+        // These types can't be stored as JSON!
+        jassert (! val.isObject());
+        jassert (! val.isMethod());
+        jassert (! val.isArray());
+
+        obj.setProperty (name, val.toString());
     }
 
     return juce::var (&obj);
@@ -53,23 +56,17 @@ static constexpr auto BASE64_PROP   = "_base64:";
 
 [[nodiscard]] static inline ValueTree valueTreefromVar (const juce::var& obj)
 {
-    if (auto dobj = obj.getDynamicObject())
+    if (auto* dobj = obj.getDynamicObject())
     {
         if (! dobj->hasProperty (NAME_PROP))
             return {};
 
-        ValueTree v (dobj->getProperty (NAME_PROP).toString());
+        ValueTree v {dobj->getProperty (NAME_PROP).toString()};
 
         if (const auto c = dobj->getProperty (CHILDREN_PROP); c.isArray())
-        {
             for (const auto& child : *c.getArray())
-            {
-                const auto childTree = valueTreefromVar (child);
-
-                if (childTree.isValid())
+                if (const auto childTree = valueTreefromVar (child); childTree.isValid())
                     v.appendChild (childTree, nullptr);
-            }
-        }
 
         for (auto itr : dobj->getProperties())
         {
@@ -99,12 +96,7 @@ static constexpr auto BASE64_PROP   = "_base64:";
 
 [[nodiscard]] ValueTree valueTreeFromJSON (const String& jsonText)
 {
-    auto obj = juce::JSON::parse (jsonText);
-
-    if (obj.isObject())
-        return valueTreefromVar (obj);
-
-    return {};
+    return valueTreefromVar (juce::JSON::parse (jsonText));
 }
 
 

@@ -41,30 +41,6 @@ bool buttonStateToBool (juce::Button::ButtonState state) noexcept
     return false;
 }
 
-static inline juce::Rectangle< float > scaleRect (const juce::Rectangle< float >& source,
-                                                  const juce::Rectangle< float >& ratio)
-{
-    auto newWidth  = source.getWidth() * ratio.getWidth();
-    auto newHeight = source.getHeight() * ratio.getHeight();
-    auto newX      = source.getX() + (ratio.getX() * source.getWidth());
-    auto newY      = source.getY() + (ratio.getY() * source.getHeight());
-
-    return {newX, newY, newWidth, newHeight};
-}
-
-static inline juce::AffineTransform getRectTransformFor (const juce::Rectangle< float >& source,
-                                                         const juce::Rectangle< float >& target)
-{
-    auto newX = target.getX();
-    auto newY = target.getY();
-
-    auto scaleX = target.getWidth() / source.getWidth();
-    auto scaleY = target.getHeight() / source.getHeight();
-
-    return juce::AffineTransform::translation (-source.getX(), -source.getY())
-        .scaled (scaleX, scaleY)
-        .translated (newX, newY);
-}
 
 void scale (juce::Component& component, const juce::Rectangle< float >& boundsRatio)
 {
@@ -73,15 +49,24 @@ void scale (juce::Component& component, const juce::Rectangle< float >& boundsRa
 
     if (auto* parent = component.getParentComponent())
     {
-        auto scaledBounds = scaleRect (parent->getLocalBounds().toFloat(),
-                                       boundsRatio);
+        const auto scaledBounds = [source = parent->getLocalBounds().toFloat(), ratio = boundsRatio]() -> juce::Rectangle< float >
+        {
+            return {source.getX() + (ratio.getX() * source.getWidth()),
+                    source.getY() + (ratio.getY() * source.getHeight()),
+                    source.getWidth() * ratio.getWidth(),
+                    source.getHeight() * ratio.getHeight()};
+        }();
 
-        auto compBounds = scaledBounds.getSmallestIntegerContainer();
-        auto transform  = getRectTransformFor (compBounds.toFloat(), scaledBounds);
+        const auto compBounds = scaledBounds.getSmallestIntegerContainer();
 
         component.setTransform (juce::AffineTransform());
         component.setBounds (compBounds);
-        component.setTransform (transform);
+
+        component.setTransform ([source = compBounds.toFloat(), target = scaledBounds]() -> juce::AffineTransform
+                                { return juce::AffineTransform::translation (-source.getX(), -source.getY())
+                                      .scaled ((target.getWidth() / source.getWidth()),
+                                               (target.getHeight() / source.getHeight()))
+                                      .translated (target.getX(), target.getY()); }());
     }
 }
 

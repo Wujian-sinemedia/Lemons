@@ -1,10 +1,6 @@
 
 #pragma once
 
-#if LEMONS_HAS_BINARY_DATA
-#    include "BinaryData.h"
-#endif
-
 
 namespace lemons
 {

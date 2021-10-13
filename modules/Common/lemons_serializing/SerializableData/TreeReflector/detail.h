@@ -83,31 +83,28 @@ void TreeReflector::loadObject (const String& propertyName, Type& object)
     if (! tree.hasProperty (propertyName))
         return;
 
-    const juce::var& var = tree.getProperty (propertyName);
-
-    auto convertFromVar = [&]() -> Type
+    object = [var = tree.getProperty (propertyName)]() -> Type
     {
         if constexpr (std::is_enum< Type >())
             return static_cast< Type > (static_cast< std::underlying_type_t< Type > > ((int) var));
         else
             return serializing::fromVar< Type > (var);
-    };
-
-    object = convertFromVar();
+    }();
 }
 
 template < typename Type >
 void TreeReflector::saveObject (const String& propertyName, const Type& object)
 {
-    auto convertToVar = [&]() -> juce::var
-    {
-        if constexpr (std::is_enum< Type >())
-            return static_cast< int > (static_cast< std::underlying_type_t< Type > > (object));
-        else
-            return serializing::toVar (object);
-    };
-
-    tree.setProperty (propertyName, convertToVar(), nullptr);
+    tree.setProperty (
+        propertyName,
+        [&]() -> juce::var
+        {
+            if constexpr (std::is_enum< Type >())
+                return static_cast< int > (static_cast< std::underlying_type_t< Type > > (object));
+            else
+                return serializing::toVar (object);
+        }(),
+        nullptr);
 }
 
 /*----------------------------------------------------------------------------------------------------------------------------------*/
@@ -176,7 +173,7 @@ void TreeReflector::addContainer (ContainerType& container)
         {
             using ElementType = typename std::decay_t< decltype (container.begin()) >;
 
-            constexpr bool elementsAreContainers = isContainer< ElementType >();
+            constexpr auto elementsAreContainers = isContainer< ElementType >();
 
             const auto total = elementsAreContainers ? tree.getNumChildren() : tree.getNumProperties();
 
