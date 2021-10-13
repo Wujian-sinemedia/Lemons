@@ -32,6 +32,30 @@ size_t fromVar (const juce::var& var)
     return static_cast< size_t > ((int) var);
 }
 
+template<>
+juce::var toVar (const juce::Identifier& ident)
+{
+    return ident.toString();
+}
+
+template<>
+juce::Identifier fromVar (const juce::var& var)
+{
+    return {var.toString()};
+}
+
+template<>
+juce::var toVar (const juce::BigInteger& bigint)
+{
+    return {bigint.toInt64()};
+}
+
+template<>
+juce::BigInteger fromVar (const juce::var& var)
+{
+    return {(juce::int64) var};
+}
+
 /*--------------------------------------- Memory blocks -------------------------------------------*/
 
 static inline String memoryBlockToString (const juce::MemoryBlock& block)
@@ -70,6 +94,19 @@ template <>
 juce::URL fromVar (const juce::var& var)
 {
     return {var.toString()};
+}
+
+template<>
+juce::var toVar (const juce::IPAddress& address)
+{
+    return address.toString();
+}
+
+template<>
+juce::IPAddress fromVar (const juce::var& var)
+{
+    juce::IPAddress newAddress {var.toString()};
+    return newAddress;
 }
 
 template <>
