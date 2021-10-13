@@ -2042,6 +2042,83 @@
     <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
+    <name>TypedParameterHelpers.h</name>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Plugins/lemons_plugin/parameters/</path>
+    <filename>TypedParameterHelpers_8h.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+    <member kind="function">
+      <type>std::function&lt; float(const String &amp;) &gt;</type>
+      <name>convertStringToValFunc</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>ac317360544729ddd1ea3e34f69a9fc37</anchor>
+      <arglist>(std::function&lt; ValueType(const String &amp;) &gt; origFunc)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::function&lt; String(float) &gt;</type>
+      <name>convertValToStringFunc</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>addc166c9f63071a1c8046efb8e7d0a62</anchor>
+      <arglist>(std::function&lt; String(ValueType, int) &gt; origFunc)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::function&lt; String(ValueType, int) &gt;</type>
+      <name>createDefaultStringFromValueFunc</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>a3e1108436e56be60ce4fff004af0f978</anchor>
+      <arglist>(float rangeInterval)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::function&lt; String(float, int) &gt;</type>
+      <name>createDefaultStringFromValueFunc</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>abe844291a6a33bcfb839ec8e76c0965c</anchor>
+      <arglist>(float rangeInterval)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::function&lt; float(const String &amp;) &gt;</type>
+      <name>createDefaultValueFromStringFunc</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>ad5f80836a4283dfb605d2c6983c0b07c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::NormalisableRange&lt; float &gt;</type>
+      <name>createRange</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>ad5950a82031d039e19e215670dca6c75</anchor>
+      <arglist>(bool, bool)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::NormalisableRange&lt; float &gt;</type>
+      <name>createRange</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>a409ffdf64ee0b7fc0f7e17dd308ea79d</anchor>
+      <arglist>(float minimum, float maximum)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::NormalisableRange&lt; float &gt;</type>
+      <name>createRange</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>a4039484d9ffb2b539251f12fc90be287</anchor>
+      <arglist>(int minimum, int maximum)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::NormalisableRange&lt; float &gt;</type>
+      <name>createRange</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>a939f8a4f5e956907b8c3e7e4721b20a8</anchor>
+      <arglist>(ValueType minimum, ValueType maximum)</arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; ValueType(const String &amp;) &gt;</type>
+      <name>createDefaultValueFromStringFunc</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>a04d974479a233a2ece45f1cfe60a6e5d</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>UndoManager.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/undo/</path>
     <filename>UndoManager_8h.html</filename>
@@ -21273,6 +21350,76 @@
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
       <anchor>abcfc580033c4f7a4e5242dbb4c3089b0</anchor>
       <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>std::function&lt; float(const String &amp;) &gt;</type>
+      <name>convertStringToValFunc</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>ac317360544729ddd1ea3e34f69a9fc37</anchor>
+      <arglist>(std::function&lt; ValueType(const String &amp;) &gt; origFunc)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::function&lt; String(float) &gt;</type>
+      <name>convertValToStringFunc</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>addc166c9f63071a1c8046efb8e7d0a62</anchor>
+      <arglist>(std::function&lt; String(ValueType, int) &gt; origFunc)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::function&lt; String(ValueType, int) &gt;</type>
+      <name>createDefaultStringFromValueFunc</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>a3e1108436e56be60ce4fff004af0f978</anchor>
+      <arglist>(float rangeInterval)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::function&lt; String(float, int) &gt;</type>
+      <name>createDefaultStringFromValueFunc</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>abe844291a6a33bcfb839ec8e76c0965c</anchor>
+      <arglist>(float rangeInterval)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::function&lt; float(const String &amp;) &gt;</type>
+      <name>createDefaultValueFromStringFunc</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>ad5f80836a4283dfb605d2c6983c0b07c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::NormalisableRange&lt; float &gt;</type>
+      <name>createRange</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>ad5950a82031d039e19e215670dca6c75</anchor>
+      <arglist>(bool, bool)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::NormalisableRange&lt; float &gt;</type>
+      <name>createRange</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>a409ffdf64ee0b7fc0f7e17dd308ea79d</anchor>
+      <arglist>(float minimum, float maximum)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::NormalisableRange&lt; float &gt;</type>
+      <name>createRange</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>a4039484d9ffb2b539251f12fc90be287</anchor>
+      <arglist>(int minimum, int maximum)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::NormalisableRange&lt; float &gt;</type>
+      <name>createRange</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>a939f8a4f5e956907b8c3e7e4721b20a8</anchor>
+      <arglist>(ValueType minimum, ValueType maximum)</arglist>
+    </member>
+    <member kind="variable">
+      <type>std::function&lt; ValueType(const String &amp;) &gt;</type>
+      <name>createDefaultValueFromStringFunc</name>
+      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
+      <anchor>a04d974479a233a2ece45f1cfe60a6e5d</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="namespace">
