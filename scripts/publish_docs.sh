@@ -60,6 +60,6 @@ git config user.email "actions@github.com"
 
 git commit -a -m "Updating documentation"
 
-git push --force --allow-empty "https://$GH_REPO_TOKEN@$repo_url"
+git push --force "https://$GH_REPO_TOKEN@$repo_url"
 
 exit 0
