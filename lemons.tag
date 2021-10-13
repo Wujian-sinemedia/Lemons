@@ -485,142 +485,11 @@
       <arglist>(juce::Component *parent, juce::Component &amp;child)</arglist>
     </member>
     <member kind="function">
-      <type>juce::Button::ButtonState</type>
-      <name>boolToButtonState</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>a5e0feccfdadacaa1d4c7598c1e57fd5b</anchor>
-      <arglist>(const bool isOn) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>buttonStateToBool</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>aadbde23ae8b784d26b71b992c06667c1</anchor>
-      <arglist>(juce::Button::ButtonState state) noexcept</arglist>
-    </member>
-    <member kind="function">
       <type>void</type>
       <name>scale</name>
       <anchorfile>namespacelemons_1_1gui.html</anchorfile>
       <anchor>ac374f72bc68b6558f9653ad08970d903</anchor>
       <arglist>(juce::Component &amp;component, const juce::Rectangle&lt; float &gt; &amp;boundsRatio)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>icons.h</name>
-    <path>/home/runner/work/Lemons/Lemons/doxygen/build/GUI/lemons_gui/icons/</path>
-    <filename>icons_8h.html</filename>
-    <namespace>lemons</namespace>
-    <namespace>lemons::gui</namespace>
-    <member kind="enumeration">
-      <type></type>
-      <name>IconType</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Stop</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78ad538b31fc4b838bef01edd63eb2af27d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Play</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78aca4767f402db1ae25e4d4a302364ddff</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Pause</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78ad4ec6728260bcf6f5f2e40e8ae8c08f8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Next</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a30c421b50ab399464be32094dd7d337a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Previous</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a39863dceb0a578f066638ce06ea94c3f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>ShuffleForward</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a121a793e27433d419f59ea545a55bcb2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>ShuffleBack</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a4b2960479c85cdb7193225d2af200c40</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Eject</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78ada179ee9422c09eb44fa4a5491b508eb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Add</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a9aaacf0ae03c0995f56dac044093fcb6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Search</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a35c526fdade2ed85c0fd1adfa59afb81</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Power</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a1f3cf5e60db769ddcabcefac089e966f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Bypass</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a651b9f28876fff1fc5be011c8d61e51d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Info</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78aedea1697e084eb07606a6bc309b2cdf6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Loop</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a7ad55a135082449cc4a1786f2d7df1b2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Speaker</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78acdc990ce0f47ba8febfcc5c74fc82419</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>MutedSpeaker</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a6f1a947c3aa11f97c9fb48dbafb14615</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>juce::DrawablePath</type>
-      <name>createIcon</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ab7b994bfeb698f1b3070d59ac9436518</anchor>
-      <arglist>(IconType icon, juce::Colour colour=juce::Colours::black)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -937,46 +806,11 @@
     <namespace>lemons</namespace>
     <namespace>lemons::midi</namespace>
     <member kind="function">
-      <type>bool</type>
-      <name>areNotesSamePitchClass</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>a17296da211c2aa8456b9865b913187c8</anchor>
-      <arglist>(const noteType1 pitch1, const noteType2 pitch2)</arglist>
-    </member>
-    <member kind="function">
       <type>void</type>
       <name>copyRangeOfMidiBuffer</name>
       <anchorfile>namespacelemons_1_1midi.html</anchorfile>
       <anchor>ae32c7b236b4feff5b1bc49ccda1a8517</anchor>
       <arglist>(const MidiBuffer &amp;readingBuffer, MidiBuffer &amp;destBuffer, const int startSampleOfInput, const int startSampleOfOutput, const int numSamples)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getGainMultFromMidiVelocity</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>a8791220d983aa0594b5dabf48d05bfbe</anchor>
-      <arglist>(float midiVelocity, float sensitivity=1.0f)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getGainMultFromMidiVelocity</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>a269aad5bd2a44f7e5df3748c6bb39e63</anchor>
-      <arglist>(int midiVelocity, float sensitivity=1.0f)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isMidiNoteBlackKey</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>aec33a18b91a81f28e71b7e8767be414c</anchor>
-      <arglist>(noteType midipitch)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isValidMidiPitch</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>ad2284a447de722eb308cc391ba6246a4</anchor>
-      <arglist>(int note)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -1040,13 +874,6 @@
       <anchorfile>namespacelemons.html</anchorfile>
       <anchor>ad9c18a64dc09b2dafd886e3a8c0c275b</anchor>
       <arglist>(const String &amp;string)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>thisIsTheMessageThread</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a1c9c3ab359bcc3e92a98e61992c01972</anchor>
-      <arglist>() noexcept</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -2219,8 +2046,29 @@
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a2fb6321a773c1b99bc51b5683f6f641b</anchor>
+      <arglist>(const juce::BigInteger &amp;bigint)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>af23c33da664ac3012fbe86e5b5f68d53</anchor>
+      <arglist>(const juce::Identifier &amp;ident)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
       <anchor>adc3bfc8f01116f4667d90f34c0e3d8c4</anchor>
       <arglist>(const juce::Image &amp;image)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a4b094dd9fc9a385c80072e97fb6e20e6</anchor>
+      <arglist>(const juce::IPAddress &amp;address)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
@@ -20822,13 +20670,6 @@
       <anchor>ad9c18a64dc09b2dafd886e3a8c0c275b</anchor>
       <arglist>(const String &amp;string)</arglist>
     </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>thisIsTheMessageThread</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a1c9c3ab359bcc3e92a98e61992c01972</anchor>
-      <arglist>() noexcept</arglist>
-    </member>
   </compound>
   <compound kind="namespace">
     <name>lemons::dsp</name>
@@ -21027,136 +20868,12 @@
     <class kind="struct">lemons::gui::TextButton</class>
     <class kind="class">lemons::gui::ToggleButton</class>
     <class kind="struct">lemons::gui::ToggleTextButton</class>
-    <member kind="enumeration">
-      <type></type>
-      <name>IconType</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Stop</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78ad538b31fc4b838bef01edd63eb2af27d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Play</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78aca4767f402db1ae25e4d4a302364ddff</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Pause</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78ad4ec6728260bcf6f5f2e40e8ae8c08f8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Next</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a30c421b50ab399464be32094dd7d337a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Previous</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a39863dceb0a578f066638ce06ea94c3f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>ShuffleForward</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a121a793e27433d419f59ea545a55bcb2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>ShuffleBack</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a4b2960479c85cdb7193225d2af200c40</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Eject</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78ada179ee9422c09eb44fa4a5491b508eb</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Add</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a9aaacf0ae03c0995f56dac044093fcb6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Search</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a35c526fdade2ed85c0fd1adfa59afb81</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Power</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a1f3cf5e60db769ddcabcefac089e966f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Bypass</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a651b9f28876fff1fc5be011c8d61e51d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Info</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78aedea1697e084eb07606a6bc309b2cdf6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Loop</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a7ad55a135082449cc4a1786f2d7df1b2</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>Speaker</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78acdc990ce0f47ba8febfcc5c74fc82419</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="enumvalue">
-      <name>MutedSpeaker</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ad048a3f259a44396952d9a5a55a95e78a6f1a947c3aa11f97c9fb48dbafb14615</anchor>
-      <arglist></arglist>
-    </member>
     <member kind="function">
       <type>void</type>
       <name>addAndMakeVisible</name>
       <anchorfile>namespacelemons_1_1gui.html</anchorfile>
       <anchor>ace177788f88c655a88a7bf34740e1a6c</anchor>
       <arglist>(juce::Component *parent, juce::Component &amp;child)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::Button::ButtonState</type>
-      <name>boolToButtonState</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>a5e0feccfdadacaa1d4c7598c1e57fd5b</anchor>
-      <arglist>(const bool isOn) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>buttonStateToBool</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>aadbde23ae8b784d26b71b992c06667c1</anchor>
-      <arglist>(juce::Button::ButtonState state) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::DrawablePath</type>
-      <name>createIcon</name>
-      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>ab7b994bfeb698f1b3070d59ac9436518</anchor>
-      <arglist>(IconType icon, juce::Colour colour=juce::Colours::black)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -21235,46 +20952,11 @@
       <arglist></arglist>
     </member>
     <member kind="function">
-      <type>bool</type>
-      <name>areNotesSamePitchClass</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>a17296da211c2aa8456b9865b913187c8</anchor>
-      <arglist>(const noteType1 pitch1, const noteType2 pitch2)</arglist>
-    </member>
-    <member kind="function">
       <type>void</type>
       <name>copyRangeOfMidiBuffer</name>
       <anchorfile>namespacelemons_1_1midi.html</anchorfile>
       <anchor>ae32c7b236b4feff5b1bc49ccda1a8517</anchor>
       <arglist>(const MidiBuffer &amp;readingBuffer, MidiBuffer &amp;destBuffer, const int startSampleOfInput, const int startSampleOfOutput, const int numSamples)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getGainMultFromMidiVelocity</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>a8791220d983aa0594b5dabf48d05bfbe</anchor>
-      <arglist>(float midiVelocity, float sensitivity=1.0f)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getGainMultFromMidiVelocity</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>a269aad5bd2a44f7e5df3748c6bb39e63</anchor>
-      <arglist>(int midiVelocity, float sensitivity=1.0f)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isMidiNoteBlackKey</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>aec33a18b91a81f28e71b7e8767be414c</anchor>
-      <arglist>(noteType midipitch)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isValidMidiPitch</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>ad2284a447de722eb308cc391ba6246a4</anchor>
-      <arglist>(int note)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -21765,8 +21447,29 @@
       <type>juce::var</type>
       <name>toVar</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a2fb6321a773c1b99bc51b5683f6f641b</anchor>
+      <arglist>(const juce::BigInteger &amp;bigint)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>af23c33da664ac3012fbe86e5b5f68d53</anchor>
+      <arglist>(const juce::Identifier &amp;ident)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
       <anchor>adc3bfc8f01116f4667d90f34c0e3d8c4</anchor>
       <arglist>(const juce::Image &amp;image)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::var</type>
+      <name>toVar</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a4b094dd9fc9a385c80072e97fb6e20e6</anchor>
+      <arglist>(const juce::IPAddress &amp;address)</arglist>
     </member>
     <member kind="function">
       <type>juce::var</type>
@@ -22530,13 +22233,6 @@
     <filename>group__lemons__mobile__utils-iOS.html</filename>
   </compound>
   <compound kind="group">
-    <name>lemons_gui-icons</name>
-    <title>icons</title>
-    <filename>group__lemons__gui-icons.html</filename>
-    <namespace>lemons</namespace>
-    <namespace>lemons::gui</namespace>
-  </compound>
-  <compound kind="group">
     <name>lemons_app_utils</name>
     <title>lemons_app_utils</title>
     <filename>group__lemons__app__utils.html</filename>
@@ -22580,7 +22276,6 @@
     <title>lemons_gui</title>
     <filename>group__lemons__gui.html</filename>
     <subgroup>lemons_gui-components</subgroup>
-    <subgroup>lemons_gui-icons</subgroup>
     <subgroup>lemons_gui-utilities</subgroup>
   </compound>
   <compound kind="group">

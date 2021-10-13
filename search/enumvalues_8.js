@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['pause_2265',['Pause',['../namespacelemons_1_1gui.html#ad048a3f259a44396952d9a5a55a95e78ad4ec6728260bcf6f5f2e40e8ae8c08f8',1,'lemons::gui']]],
-  ['peak_2266',['Peak',['../namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14aa21e600ebbe2eab6697e3087ee1fdb9f',1,'lemons::dsp::FX']]],
-  ['play_2267',['Play',['../namespacelemons_1_1gui.html#ad048a3f259a44396952d9a5a55a95e78aca4767f402db1ae25e4d4a302364ddff',1,'lemons::gui']]],
-  ['power_2268',['Power',['../namespacelemons_1_1gui.html#ad048a3f259a44396952d9a5a55a95e78a1f3cf5e60db769ddcabcefac089e966f',1,'lemons::gui']]],
-  ['previous_2269',['Previous',['../namespacelemons_1_1gui.html#ad048a3f259a44396952d9a5a55a95e78a39863dceb0a578f066638ce06ea94c3f',1,'lemons::gui']]]
+  ['saw_2226',['Saw',['../namespacelemons_1_1dsp_1_1osc.html#a1771007d411d4f6426cc3773961dfa5dac551a26a97a7440529e861dff6933722',1,'lemons::dsp::osc']]],
+  ['sine_2227',['Sine',['../namespacelemons_1_1dsp_1_1osc.html#a1771007d411d4f6426cc3773961dfa5da6ca9e2d793f678aba7c1b19526592a46',1,'lemons::dsp::osc']]],
+  ['square_2228',['Square',['../namespacelemons_1_1dsp_1_1osc.html#a1771007d411d4f6426cc3773961dfa5daceb46ca115d05c51aa5a16a8867c3304',1,'lemons::dsp::osc']]],
+  ['supersaw_2229',['SuperSaw',['../namespacelemons_1_1dsp_1_1osc.html#a1771007d411d4f6426cc3773961dfa5dae9bf866a0336b772631bb909f722ab23',1,'lemons::dsp::osc']]]
 ];

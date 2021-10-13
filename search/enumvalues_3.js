@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['highpass_2254',['HighPass',['../namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14ae9456dc865a19e434997ea20bb5373f6',1,'lemons::dsp::FX']]],
-  ['highshelf_2255',['HighShelf',['../namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14aaafe3de5c829706a2fda73dd43fd740e',1,'lemons::dsp::FX']]]
+  ['leftonly_2219',['leftOnly',['../classlemons_1_1dsp_1_1FX_1_1MonoStereoConverter.html#ade2abf33ee96d0bb7bfdc43c3336c3aca1551df77400b2edbe1682fef8b4ee182',1,'lemons::dsp::FX::MonoStereoConverter']]],
+  ['lowpass_2220',['LowPass',['../namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14a835f2dc4fd545ddcd275198d9fbadf63',1,'lemons::dsp::FX']]],
+  ['lowshelf_2221',['LowShelf',['../namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14a04efcd6f392567e252822d1247d8c875',1,'lemons::dsp::FX']]]
 ];

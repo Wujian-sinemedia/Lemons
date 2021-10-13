@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['next_2263',['Next',['../namespacelemons_1_1gui.html#ad048a3f259a44396952d9a5a55a95e78a30c421b50ab399464be32094dd7d337a',1,'lemons::gui']]],
-  ['notch_2264',['Notch',['../namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14aa70ec028ca3f03d3bf0f8016f8c072a3',1,'lemons::dsp::FX']]]
+  ['rightonly_2225',['rightOnly',['../classlemons_1_1dsp_1_1FX_1_1MonoStereoConverter.html#ade2abf33ee96d0bb7bfdc43c3336c3aca97ed31f67756738d6c8d74a1ee8c565d',1,'lemons::dsp::FX::MonoStereoConverter']]]
 ];

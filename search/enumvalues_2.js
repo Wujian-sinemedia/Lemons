@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['eject_2253',['Eject',['../namespacelemons_1_1gui.html#ad048a3f259a44396952d9a5a55a95e78ada179ee9422c09eb44fa4a5491b508eb',1,'lemons::gui']]]
+  ['highpass_2217',['HighPass',['../namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14ae9456dc865a19e434997ea20bb5373f6',1,'lemons::dsp::FX']]],
+  ['highshelf_2218',['HighShelf',['../namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14aaafe3de5c829706a2fda73dd43fd740e',1,'lemons::dsp::FX']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rightonly_2270',['rightOnly',['../classlemons_1_1dsp_1_1FX_1_1MonoStereoConverter.html#ade2abf33ee96d0bb7bfdc43c3336c3aca97ed31f67756738d6c8d74a1ee8c565d',1,'lemons::dsp::FX::MonoStereoConverter']]]
+  ['triangle_2230',['Triangle',['../namespacelemons_1_1dsp_1_1osc.html#a1771007d411d4f6426cc3773961dfa5da5e5500cb2b82eb72d550de644bd1b64b',1,'lemons::dsp::osc']]]
 ];
