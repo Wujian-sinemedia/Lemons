@@ -51,10 +51,13 @@ void scale (juce::Component& component, const juce::Rectangle< float >& boundsRa
     {
         const auto scaledBounds = [source = parent->getLocalBounds().toFloat(), ratio = boundsRatio]() -> juce::Rectangle< float >
         {
-            return {source.getX() + (ratio.getX() * source.getWidth()),
-                    source.getY() + (ratio.getY() * source.getHeight()),
-                    source.getWidth() * ratio.getWidth(),
-                    source.getHeight() * ratio.getHeight()};
+            const auto sw = source.getWidth();
+            const auto sh = source.getHeight();
+            
+            return {source.getX() + (ratio.getX() * sw),
+                    source.getY() + (ratio.getY() * sh),
+                    sw * ratio.getWidth(),
+                    sh * ratio.getHeight()};
         }();
 
         const auto compBounds = scaledBounds.getSmallestIntegerContainer();
