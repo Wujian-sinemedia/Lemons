@@ -4,7 +4,6 @@ elseif (WIN32)
     include (Windows.cmake)
 else()
     include (Linux.cmake)
-    return()
 endif()
 
 
