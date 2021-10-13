@@ -17,9 +17,6 @@ static inline void addAndMakeVisible (juce::Component* parent, juce::Component& 
     addAndMakeVisible (parent, std::forward< Args > (rest)...);
 }
 
-juce::Button::ButtonState boolToButtonState (const bool isOn) noexcept;
-bool                      buttonStateToBool (juce::Button::ButtonState state) noexcept;
-
 
 /* RAII mechanism for changing the cursor & resetting it later */
 struct ScopedCursor

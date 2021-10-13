@@ -2,11 +2,6 @@
 namespace lemons
 {
 
-bool thisIsTheMessageThread() noexcept
-{
-    return juce::MessageManager::getInstance()->isThisTheMessageThread();
-}
-
 const juce::juce_wchar getSharpSymbol() noexcept
 {
     return *juce::CharPointer_UTF8 ("\xe2\x99\xaf");
@@ -133,10 +128,6 @@ int stringToPitch (const String& string)
 
 SystemInitializer::SystemInitializer()
 {
-#if BV_USE_NE10
-    ne10_init();
-#endif
-
     initializeDefaultTranslations();
 }
 

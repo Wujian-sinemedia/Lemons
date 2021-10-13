@@ -32,25 +32,25 @@ size_t fromVar (const juce::var& var)
     return static_cast< size_t > ((int) var);
 }
 
-template<>
+template <>
 juce::var toVar (const juce::Identifier& ident)
 {
     return ident.toString();
 }
 
-template<>
+template <>
 juce::Identifier fromVar (const juce::var& var)
 {
     return {var.toString()};
 }
 
-template<>
+template <>
 juce::var toVar (const juce::BigInteger& bigint)
 {
     return {bigint.toInt64()};
 }
 
-template<>
+template <>
 juce::BigInteger fromVar (const juce::var& var)
 {
     return {(juce::int64) var};
@@ -96,13 +96,13 @@ juce::URL fromVar (const juce::var& var)
     return {var.toString()};
 }
 
-template<>
+template <>
 juce::var toVar (const juce::IPAddress& address)
 {
     return address.toString();
 }
 
-template<>
+template <>
 juce::IPAddress fromVar (const juce::var& var)
 {
     juce::IPAddress newAddress {var.toString()};
@@ -274,36 +274,9 @@ static inline juce::MemoryBlock bufferToMemoryBlock (const AudioBuffer< float >&
     return block;
 }
 
-static inline juce::MemoryBlock bufferToMemoryBlock (const AudioBuffer< double >& buffer)
+static inline AudioBuffer< float > memoryBlockToBuffer (const juce::MemoryBlock& mem)
 {
-    const auto numSamples  = buffer.getNumSamples();
-    const auto numChannels = buffer.getNumChannels();
-
-    AudioBuffer< float > temp {numSamples, numChannels};
-
-    for (int chan = 0; chan < numChannels; ++chan)
-        vecops::convert (temp.getWritePointer (chan), buffer.getReadPointer (chan), numSamples);
-
-    return bufferToMemoryBlock (temp);
-}
-
-
-template <>
-juce::var toVar (const AudioBuffer< float >& buffer)
-{
-    return memoryBlockToString (bufferToMemoryBlock (buffer));
-}
-
-template <>
-juce::var toVar (const AudioBuffer< double >& buffer)
-{
-    return memoryBlockToString (bufferToMemoryBlock (buffer));
-}
-
-
-static inline void memoryBlockToBuffer (const juce::MemoryBlock& mem, AudioBuffer< float >& buffer)
-{
-    buffer.clear();
+    AudioBuffer< float > buffer;
 
     juce::MemoryInputStream in {mem.getData(), mem.getSize(), false};
     juce::FlacAudioFormat   format;
@@ -316,45 +289,53 @@ static inline void memoryBlockToBuffer (const juce::MemoryBlock& mem, AudioBuffe
         buffer.setSize (numChannels, numSamples);
         reader->read (&buffer, 0, numSamples, 0, true, numChannels > 1);
     }
-}
-
-static inline void memoryBlockToBuffer (const juce::MemoryBlock& mem, AudioBuffer< double >& buffer)
-{
-    const auto numSamples  = buffer.getNumSamples();
-    const auto numChannels = buffer.getNumChannels();
-
-    AudioBuffer< float > temp {numSamples, numChannels};
-
-    for (int chan = 0; chan < numChannels; ++chan)
-        vecops::convert (temp.getWritePointer (chan), buffer.getReadPointer (chan), numSamples);
-
-    memoryBlockToBuffer (mem, temp);
-
-    for (int chan = 0; chan < numChannels; ++chan)
-        vecops::convert (buffer.getWritePointer (chan), temp.getReadPointer (chan), numSamples);
-}
-
-template < typename SampleType >
-inline AudioBuffer< SampleType > varToBuffer (const juce::var& var)
-{
-    AudioBuffer< SampleType > buffer;
-
-    memoryBlockToBuffer (memoryBlockFromString (var.toString()),
-                         buffer);
 
     return buffer;
 }
 
 template <>
+juce::var toVar (const AudioBuffer< float >& buffer)
+{
+    return memoryBlockToString (bufferToMemoryBlock (buffer));
+}
+
+template <>
+juce::var toVar (const AudioBuffer< double >& buffer)
+{
+    return memoryBlockToString ([&]() -> juce::MemoryBlock
+                                {
+        const auto numSamples  = buffer.getNumSamples();
+        const auto numChannels = buffer.getNumChannels();
+        
+        AudioBuffer< float > temp {numSamples, numChannels};
+        
+        for (int chan = 0; chan < numChannels; ++chan)
+            vecops::convert (temp.getWritePointer (chan), buffer.getReadPointer (chan), numSamples);
+        
+        return bufferToMemoryBlock (temp); }());
+}
+
+
+template <>
 AudioBuffer< float > fromVar (const juce::var& var)
 {
-    return varToBuffer< float > (var);
+    return memoryBlockToBuffer (memoryBlockFromString (var.toString()));
 }
 
 template <>
 AudioBuffer< double > fromVar (const juce::var& var)
 {
-    return varToBuffer< double > (var);
+    const auto floatBuf = memoryBlockToBuffer (memoryBlockFromString (var.toString()));
+
+    const auto numSamples  = floatBuf.getNumSamples();
+    const auto numChannels = floatBuf.getNumChannels();
+
+    juce::AudioBuffer< double > doubleBuf {numSamples, numChannels};
+
+    for (int chan = 0; chan < numChannels; ++chan)
+        vecops::convert (doubleBuf.getWritePointer (chan), floatBuf.getReadPointer (chan), numSamples);
+
+    return doubleBuf;
 }
 
 

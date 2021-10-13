@@ -6,7 +6,7 @@ FloatSlider::FloatSlider (plugin::FloatParameter& paramToUse, SliderStyle style)
       plugin::FloatParameter::Listener (paramToUse),
       param (paramToUse)
 {
-    Slider::valueFromTextFunction = [this] (const String& text)
+    Slider::valueFromTextFunction = [&] (const String& text)
     {
         return static_cast< double > (param.getValueForString (text));
     };
@@ -43,7 +43,7 @@ IntSlider::IntSlider (plugin::IntParameter& paramToUse, SliderStyle style)
       plugin::IntParameter::Listener (paramToUse),
       param (paramToUse)
 {
-    Slider::valueFromTextFunction = [this] (const String& text)
+    Slider::valueFromTextFunction = [&] (const String& text)
     {
         return static_cast< double > (param.getValueForString (text));
     };

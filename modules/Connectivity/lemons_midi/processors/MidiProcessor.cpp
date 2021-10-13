@@ -13,7 +13,7 @@ void MidiProcessor::reset()
 void MidiProcessor::process (const MidiBuffer& buffer)
 {
     std::for_each (buffer.begin(), buffer.end(),
-                   [this] (const juce::MidiMessageMetadata& m)
+                   [&] (const juce::MidiMessageMetadata& m)
                    { process (m); });
 }
 

@@ -74,13 +74,9 @@ SynthVoiceBase< SampleType >* VoiceAllocator< SampleType >::findVoiceToSteal()
 
         usableVoices.add (voice);
 
-        // NB: Using a functor rather than a lambda here due to scare-stories about compilers generating code containing heap allocations...
-        struct Sorter
-        {
-            bool operator() (const Voice* a, const Voice* b) const noexcept { return a->wasStartedBefore (*b); }
-        };
-
-        std::sort (usableVoices.begin(), usableVoices.end(), Sorter());
+        std::sort (usableVoices.begin(), usableVoices.end(),
+                   [] (const Voice* a, const Voice* b)
+                   { return a->wasStartedBefore (*b); });
 
         if (voice->isVoiceActive() && ! voice->isPlayingButReleased())
         {

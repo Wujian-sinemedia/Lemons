@@ -23,24 +23,20 @@ UndoManager::UndoManager (SerializableData& stateToManage)
 
 bool UndoManager::undo()
 {
-    if (hasUndo())
-    {
-        loadState (storedStates[--currentStep]);
-        return true;
-    }
+    if (! hasUndo())
+        return false;
 
-    return false;
+    loadState (storedStates[--currentStep]);
+    return true;
 }
 
 bool UndoManager::redo()
 {
-    if (hasRedo())
-    {
-        loadState (storedStates[++currentStep]);
-        return true;
-    }
+    if (! hasRedo())
+        return false;
 
-    return false;
+    loadState (storedStates[++currentStep]);
+    return true;
 }
 
 void UndoManager::undoToLastTransaction()

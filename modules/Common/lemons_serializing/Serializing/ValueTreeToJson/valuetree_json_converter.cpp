@@ -56,17 +56,16 @@ constexpr auto BASE64_PROP   = "_base64:";
 
 [[nodiscard]] static inline ValueTree valueTreefromVar (const juce::var& obj)
 {
-    if (auto* dobj = obj.getDynamicObject())
+    if (auto* dobj = obj.getDynamicObject(); dobj->hasProperty (NAME_PROP))
     {
-        if (! dobj->hasProperty (NAME_PROP))
-            return {};
-
         ValueTree v {dobj->getProperty (NAME_PROP).toString()};
 
         if (const auto c = dobj->getProperty (CHILDREN_PROP); c.isArray())
             for (const auto& child : *c.getArray())
                 if (const auto childTree = valueTreefromVar (child); childTree.isValid())
                     v.appendChild (childTree, nullptr);
+
+        const auto base64PropLen = static_cast< int > (std::strlen (BASE64_PROP));
 
         for (auto itr : dobj->getProperties())
         {
@@ -79,7 +78,7 @@ constexpr auto BASE64_PROP   = "_base64:";
                 juce::MemoryBlock mb;
 
                 if (mb.fromBase64Encoding (itr.value.toString()))
-                    v.setProperty (name.substring (static_cast< int > (std::strlen (BASE64_PROP))),
+                    v.setProperty (name.substring (base64PropLen),
                                    juce::var (mb), nullptr);
             }
             else

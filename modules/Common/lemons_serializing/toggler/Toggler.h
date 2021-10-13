@@ -45,12 +45,13 @@ struct Toggler : TogglerInterface
      */
     bool loadState (size_t num) final
     {
-        if (num > numStates)
+        if (num >= numStates)
             return false;
 
         saveState (lastLoadedState);
 
         UndoManager::ScopedTransaction t {undo, "Loaded state " + String (num)};
+
         serializing::fromTree (states[num], state);
         lastLoadedState = num;
         return true;
@@ -62,7 +63,7 @@ struct Toggler : TogglerInterface
      */
     bool saveState (size_t num) final
     {
-        if (num > numStates)
+        if (num >= numStates)
             return false;
 
         states[num] = serializing::toTree (state);

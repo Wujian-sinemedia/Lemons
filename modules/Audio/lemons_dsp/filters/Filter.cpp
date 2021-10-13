@@ -29,16 +29,16 @@ void Filter< SampleType >::processOrder1 (SampleType* buffer, int numSamples)
 {
     const auto coeffs = coefs.getRawCoefficients();
 
-    auto b0 = coeffs[0];
-    auto b1 = coeffs[1];
-    auto a1 = coeffs[2];
+    const auto b0 = coeffs[0];
+    const auto b1 = coeffs[1];
+    const auto a1 = coeffs[2];
 
     auto lv1 = state[0];
 
     for (int i = 0; i < numSamples; ++i)
     {
-        auto input  = buffer[i];
-        auto output = input * b0 + lv1;
+        const auto input  = buffer[i];
+        const auto output = input * b0 + lv1;
 
         buffer[i] = output;
 
@@ -54,20 +54,20 @@ void Filter< SampleType >::processOrder2 (SampleType* buffer, int numSamples)
 {
     const auto coeffs = coefs.getRawCoefficients();
 
-    auto b0 = coeffs[0];
-    auto b1 = coeffs[1];
-    auto b2 = coeffs[2];
-    auto a1 = coeffs[3];
-    auto a2 = coeffs[4];
+    const auto b0 = coeffs[0];
+    const auto b1 = coeffs[1];
+    const auto b2 = coeffs[2];
+    const auto a1 = coeffs[3];
+    const auto a2 = coeffs[4];
 
     auto lv1 = state[0];
     auto lv2 = state[1];
 
     for (int i = 0; i < numSamples; ++i)
     {
-        auto input  = buffer[i];
-        auto output = (input * b0) + lv1;
-        buffer[i]   = output;
+        const auto input  = buffer[i];
+        const auto output = (input * b0) + lv1;
+        buffer[i]         = output;
 
         lv1 = (input * b1) - (output * a1) + lv2;
         lv2 = (input * b2) - (output * a2);
@@ -84,13 +84,13 @@ void Filter< SampleType >::processOrder3 (SampleType* buffer, int numSamples)
 {
     const auto coeffs = coefs.getRawCoefficients();
 
-    auto b0 = coeffs[0];
-    auto b1 = coeffs[1];
-    auto b2 = coeffs[2];
-    auto b3 = coeffs[3];
-    auto a1 = coeffs[4];
-    auto a2 = coeffs[5];
-    auto a3 = coeffs[6];
+    const auto b0 = coeffs[0];
+    const auto b1 = coeffs[1];
+    const auto b2 = coeffs[2];
+    const auto b3 = coeffs[3];
+    const auto a1 = coeffs[4];
+    const auto a2 = coeffs[5];
+    const auto a3 = coeffs[6];
 
     auto lv1 = state[0];
     auto lv2 = state[1];
@@ -98,9 +98,9 @@ void Filter< SampleType >::processOrder3 (SampleType* buffer, int numSamples)
 
     for (int i = 0; i < numSamples; ++i)
     {
-        auto input  = buffer[i];
-        auto output = (input * b0) + lv1;
-        buffer[i]   = output;
+        const auto input  = buffer[i];
+        const auto output = (input * b0) + lv1;
+        buffer[i]         = output;
 
         lv1 = (input * b1) - (output * a1) + lv2;
         lv2 = (input * b2) - (output * a2) + lv3;
@@ -122,9 +122,9 @@ void Filter< SampleType >::processDefault (SampleType* buffer, int numSamples)
 
     for (int i = 0; i < numSamples; ++i)
     {
-        auto input  = buffer[i];
-        auto output = (input * coeffs[0]) + state[0];
-        buffer[i]   = output;
+        const auto input  = buffer[i];
+        const auto output = (input * coeffs[0]) + state[0];
+        buffer[i]         = output;
 
         for (int j = 0; j < order - 1; ++j)
             state.set (j, (input * coeffs[j + 1])

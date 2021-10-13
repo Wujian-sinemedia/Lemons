@@ -18,8 +18,6 @@
 
 #include "utilities/GuiUtils.h"
 
-#include "icons/icons.h"
-
 #include "components/PopupComponent.h"
 #include "components/Buttons.h"
 #include "components/Label.h"

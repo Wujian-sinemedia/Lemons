@@ -26,21 +26,6 @@ void addAndMakeVisible (juce::Component* parent, juce::Component& child)
     parent->addAndMakeVisible (child);
 }
 
-juce::Button::ButtonState boolToButtonState (const bool isOn) noexcept
-{
-    if (isOn) return juce::Button::ButtonState::buttonDown;
-
-    return juce::Button::ButtonState::buttonNormal;
-}
-
-bool buttonStateToBool (juce::Button::ButtonState state) noexcept
-{
-    if (state == juce::Button::ButtonState::buttonDown)
-        return true;
-
-    return false;
-}
-
 
 void scale (juce::Component& component, const juce::Rectangle< float >& boundsRatio)
 {
@@ -49,15 +34,15 @@ void scale (juce::Component& component, const juce::Rectangle< float >& boundsRa
 
     if (auto* parent = component.getParentComponent())
     {
-        const auto scaledBounds = [source = parent->getLocalBounds().toFloat(), ratio = boundsRatio]() -> juce::Rectangle< float >
+        const auto scaledBounds = [source = parent->getLocalBounds().toFloat(), boundsRatio]() -> juce::Rectangle< float >
         {
             const auto sw = source.getWidth();
             const auto sh = source.getHeight();
-            
-            return {source.getX() + (ratio.getX() * sw),
-                    source.getY() + (ratio.getY() * sh),
-                    sw * ratio.getWidth(),
-                    sh * ratio.getHeight()};
+
+            return {source.getX() + (boundsRatio.getX() * sw),
+                    source.getY() + (boundsRatio.getY() * sh),
+                    sw * boundsRatio.getWidth(),
+                    sh * boundsRatio.getHeight()};
         }();
 
         const auto compBounds = scaledBounds.getSmallestIntegerContainer();

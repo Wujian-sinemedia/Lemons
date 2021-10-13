@@ -56,7 +56,7 @@ SliderBase::SliderBase (plugin::Parameter& paramToUse)
 
     Slider::setNormalisableRange (newRange);
 
-    Slider::textFromValueFunction = [this] (double value)
+    Slider::textFromValueFunction = [&] (double value)
     {
         return param_.getTextForDenormalizedValue (static_cast< float > (value));
     };

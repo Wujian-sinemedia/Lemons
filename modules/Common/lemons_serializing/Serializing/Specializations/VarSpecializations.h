@@ -7,11 +7,11 @@ template <>
 String fromVar (const juce::var& var);
 
 /** Serializes an Identifier. */
-template<>
+template <>
 juce::var toVar (const juce::Identifier& ident);
 
 /** Serializes an Identifier. */
-template<>
+template <>
 juce::Identifier fromVar (const juce::var& var);
 
 /** Serializes a size_t. */
@@ -23,11 +23,11 @@ template <>
 size_t fromVar (const juce::var& var);
 
 /** Serializes a juce BigInteger. */
-template<>
+template <>
 juce::var toVar (const juce::BigInteger& bigint);
 
 /** Serializes a juce BigInteger. */
-template<>
+template <>
 juce::BigInteger fromVar (const juce::var& var);
 
 /** Serializes a float Point. */
@@ -67,11 +67,11 @@ template <>
 juce::URL fromVar (const juce::var& var);
 
 /** Serializes an IP address as a String. */
-template<>
+template <>
 juce::var toVar (const juce::IPAddress& address);
 
 /** Serializes an IP address as a String. */
-template<>
+template <>
 juce::IPAddress fromVar (const juce::var& var);
 
 /** Serializes a std::string. */

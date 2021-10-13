@@ -11,8 +11,6 @@ namespace lemons
     return {1060, 640};
 }
 
-bool thisIsTheMessageThread() noexcept;
-
 /* Returns a unicode sharp symbol.
  */
 const juce::juce_wchar getSharpSymbol() noexcept;
