@@ -15,8 +15,6 @@
 
  -------------------------------------------------------------------------------------*/
 
-#include <juce_core/juce_core.h>
-
 
 #include "SerializableData/MapInterface.h"
 #include "SerializableData/ContainerInterface.h"

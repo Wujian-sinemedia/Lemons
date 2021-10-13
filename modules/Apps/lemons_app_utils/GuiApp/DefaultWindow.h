@@ -1,7 +1,6 @@
 #pragma once
 
-#include <lemons_serializing/lemons_serializing.h>
-#include <lemons_mobile_utils/lemons_mobile_utils.h>
+#include <lemons_core/lemons_core.h>
 
 namespace lemons
 {

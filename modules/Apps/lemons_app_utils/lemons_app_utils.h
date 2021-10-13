@@ -9,7 +9,7 @@
  version:            0.0.1
  name:               lemons_app_utils
  description:        High-level building blocks for applications
- dependencies:       lemons_serializing lemons_mobile_utils
+ dependencies:       lemons_core
 
  END_JUCE_MODULE_DECLARATION
 

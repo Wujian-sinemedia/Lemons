@@ -1,5 +1,8 @@
 #pragma once
 
+#include <type_traits>
+#include <memory>
+
 namespace lemons::serializing
 {
 struct MapInterfaceBase

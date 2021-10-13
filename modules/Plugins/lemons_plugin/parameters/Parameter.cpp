@@ -1,9 +1,25 @@
 
 namespace lemons::plugin
 {
-static inline String paramNameToID (const String& name)
+[[nodiscard]] static inline String paramNameToID (const String& name)
 {
     return name.removeCharacters (" ");
+}
+
+static inline std::function< String (float) > createDefaultValueToTextFunction (const String& paramLabel)
+{
+    return [&] (float value) -> String
+    {
+        return String (value) + " " + paramLabel;
+    };
+}
+
+static inline std::function< float (const String&) > createDefaultTextToValueFunction()
+{
+    return [] (const String& text) -> float
+    {
+        return text.getFloatValue();
+    };
 }
 
 Parameter::Parameter (String paramName,
@@ -32,16 +48,10 @@ Parameter::Parameter (String paramName,
       midiControllerChangeTransactionName (TRANS ("Changed MIDI controller number for") + " " + getParameterName())
 {
     if (valueToTextFunc == nullptr)
-    {
-        valueToTextFunc = [&] (float value)
-        { return String (value) + label; };
-    }
+        valueToTextFunc = createDefaultValueToTextFunction (label);
 
     if (textToValueFunc == nullptr)
-    {
-        textToValueFunc = [] (const String& text)
-        { return text.getFloatValue(); };
-    }
+        textToValueFunc = createDefaultTextToValueFunction();
 }
 
 float Parameter::getValueForText (const String& text) const

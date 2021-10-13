@@ -1,7 +1,6 @@
 #pragma once
 
 #include "ValueTreeToJson/valuetree_json_converter.h"
-
 #include "Specializations/VarSpecializations.h"
 
 namespace lemons::serializing
