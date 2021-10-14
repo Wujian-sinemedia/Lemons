@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['utilities_2311',['utilities',['../group__lemons__gui-utilities.html',1,'']]],
-  ['undo_2312',['undo',['../group__lemons__serializing-undo.html',1,'']]]
+  ['utilities_2338',['utilities',['../group__lemons__gui-utilities.html',1,'']]],
+  ['undo_2339',['undo',['../group__lemons__serializing-undo.html',1,'']]]
 ];

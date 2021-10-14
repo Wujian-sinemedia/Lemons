@@ -169,18 +169,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab115e4682d29dba03b949c7aace71f7d"><td class="memItemLeft" align="right" valign="top">ValueType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1TypedParameter.html#ab115e4682d29dba03b949c7aace71f7d">getValueForString</a> (const String &amp;string) const</td></tr>
 <tr class="memdesc:ab115e4682d29dba03b949c7aace71f7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts some user input text to a possible representation as a parameter value.  <a href="classlemons_1_1plugin_1_1TypedParameter.html#ab115e4682d29dba03b949c7aace71f7d">More...</a><br /></td></tr>
 <tr class="separator:ab115e4682d29dba03b949c7aace71f7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f5d65dc22dbd10f181559bdb1cf05ee"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1Parameter.html#a7f5d65dc22dbd10f181559bdb1cf05ee">getValueForText</a> (const String &amp;text) const final</td></tr>
-<tr class="memdesc:a7f5d65dc22dbd10f181559bdb1cf05ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a value for specified input text.  <a href="classlemons_1_1plugin_1_1Parameter.html#a7f5d65dc22dbd10f181559bdb1cf05ee">More...</a><br /></td></tr>
-<tr class="separator:a7f5d65dc22dbd10f181559bdb1cf05ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcae02c6785e36a8fd3b7a34cba8911b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1Parameter.html#abcae02c6785e36a8fd3b7a34cba8911b">isAutomatable</a> () const final</td></tr>
 <tr class="memdesc:abcae02c6785e36a8fd3b7a34cba8911b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is automatable by the user's DAW.  <a href="classlemons_1_1plugin_1_1Parameter.html#abcae02c6785e36a8fd3b7a34cba8911b">More...</a><br /></td></tr>
 <tr class="separator:abcae02c6785e36a8fd3b7a34cba8911b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fb75a0f332a7d3507a019632fb000d1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1Parameter.html#a5fb75a0f332a7d3507a019632fb000d1">isChanging</a> () const</td></tr>
 <tr class="memdesc:a5fb75a0f332a7d3507a019632fb000d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is currently in the middle of a change gesture.  <a href="classlemons_1_1plugin_1_1Parameter.html#a5fb75a0f332a7d3507a019632fb000d1">More...</a><br /></td></tr>
 <tr class="separator:a5fb75a0f332a7d3507a019632fb000d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e7e021b4bd12090ddecc145b7e927e4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1Parameter.html#a0e7e021b4bd12090ddecc145b7e927e4">isMetaParameter</a> () const final</td></tr>
-<tr class="memdesc:a0e7e021b4bd12090ddecc145b7e927e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is a "meta-parameter" &ndash; that is, a parameter that controls other parameters.  <a href="classlemons_1_1plugin_1_1Parameter.html#a0e7e021b4bd12090ddecc145b7e927e4">More...</a><br /></td></tr>
-<tr class="separator:a0e7e021b4bd12090ddecc145b7e927e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7183d1d97be3442658d9722a95b7afb0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1Parameter.html#a7183d1d97be3442658d9722a95b7afb0">isMidiControllerMapped</a> () const</td></tr>
 <tr class="memdesc:a7183d1d97be3442658d9722a95b7afb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is currently mapped to a MIDI controller.  <a href="classlemons_1_1plugin_1_1Parameter.html#a7183d1d97be3442658d9722a95b7afb0">More...</a><br /></td></tr>
 <tr class="separator:a7183d1d97be3442658d9722a95b7afb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1014,34 +1008,6 @@ template&lt;typename ValueType &gt; </div>
 
 </div>
 </div>
-<a id="a7f5d65dc22dbd10f181559bdb1cf05ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f5d65dc22dbd10f181559bdb1cf05ee">&#9670;&nbsp;</a></span>getValueForText()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float lemons::plugin::Parameter::getValueForText </td>
-          <td>(</td>
-          <td class="paramtype">const String &amp;&#160;</td>
-          <td class="paramname"><em>text</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns a value for specified input text. </p>
-
-</div>
-</div>
 <a id="abcae02c6785e36a8fd3b7a34cba8911b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abcae02c6785e36a8fd3b7a34cba8911b">&#9670;&nbsp;</a></span>isAutomatable()</h2>
 
@@ -1093,33 +1059,6 @@ template&lt;typename ValueType &gt; </div>
 </div><div class="memdoc">
 
 <p>Returns true if this parameter is currently in the middle of a change gesture. </p>
-
-</div>
-</div>
-<a id="a0e7e021b4bd12090ddecc145b7e927e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e7e021b4bd12090ddecc145b7e927e4">&#9670;&nbsp;</a></span>isMetaParameter()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool lemons::plugin::Parameter::isMetaParameter </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns true if this parameter is a "meta-parameter" &ndash; that is, a parameter that controls other parameters. </p>
 
 </div>
 </div>
@@ -1182,6 +1121,8 @@ template&lt;typename ValueType &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Normalized float in the range 0-1 </dd></dl>
+
+<p class="reference">Referenced by <a class="el" href="classlemons_1_1plugin_1_1MetaParameter.html#a83f4f5d821014dd39776874d86391d5e">lemons::plugin::MetaParameter&lt; int &gt;::createOrEditConnection()</a>.</p>
 
 </div>
 </div>
@@ -1597,7 +1538,7 @@ template&lt;typename ValueType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 14 2021 20:04:50 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 14 2021 22:48:22 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
