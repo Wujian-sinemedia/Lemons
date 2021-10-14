@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['databasepresetsmanager_2eh_1346',['DatabasePresetsManager.h',['../DatabasePresetsManager_8h.html',1,'']]],
-  ['datasynchronizer_2eh_1347',['DataSynchronizer.h',['../DataSynchronizer_8h.html',1,'']]],
-  ['deesser_2eh_1348',['DeEsser.h',['../DeEsser_8h.html',1,'']]],
-  ['defaultwindow_2eh_1349',['DefaultWindow.h',['../DefaultWindow_8h.html',1,'']]],
-  ['delay_2eh_1350',['Delay.h',['../Delay_8h.html',1,'']]],
-  ['detail_2eh_1351',['detail.h',['../detail_8h.html',1,'']]],
-  ['drywet_2eh_1352',['DryWet.h',['../DryWet_8h.html',1,'']]],
-  ['dummymotionmanager_2eh_1353',['DummyMotionManager.h',['../DummyMotionManager_8h.html',1,'']]]
+  ['databasepresetsmanager_2eh_1350',['DatabasePresetsManager.h',['../DatabasePresetsManager_8h.html',1,'']]],
+  ['datasynchronizer_2eh_1351',['DataSynchronizer.h',['../DataSynchronizer_8h.html',1,'']]],
+  ['deesser_2eh_1352',['DeEsser.h',['../DeEsser_8h.html',1,'']]],
+  ['defaultwindow_2eh_1353',['DefaultWindow.h',['../DefaultWindow_8h.html',1,'']]],
+  ['delay_2eh_1354',['Delay.h',['../Delay_8h.html',1,'']]],
+  ['detail_2eh_1355',['detail.h',['../detail_8h.html',1,'']]],
+  ['drywet_2eh_1356',['DryWet.h',['../DryWet_8h.html',1,'']]],
+  ['dummymotionmanager_2eh_1357',['DummyMotionManager.h',['../DummyMotionManager_8h.html',1,'']]]
 ];

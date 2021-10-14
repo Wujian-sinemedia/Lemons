@@ -1,6 +1,18 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
 <tagfile>
   <compound kind="file">
+    <name>add_container.h</name>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/</path>
+    <filename>add__container_8h.html</filename>
+    <namespace>lemons</namespace>
+  </compound>
+  <compound kind="file">
+    <name>add_map.h</name>
+    <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/</path>
+    <filename>add__map_8h.html</filename>
+    <namespace>lemons</namespace>
+  </compound>
+  <compound kind="file">
     <name>androidMotion.h</name>
     <path>/home/runner/work/Lemons/Lemons/doxygen/build/Common/lemons_mobile_utils/Android/</path>
     <filename>androidMotion_8h.html</filename>
@@ -313,6 +325,8 @@
     <includes id="Juce__containers_8h" name="Juce_containers.h" local="no" imported="no">lemons_serializing/Serializing/Specializations/containers/Juce_containers.h</includes>
     <includes id="STL__containers_8h" name="STL_containers.h" local="no" imported="no">lemons_serializing/Serializing/Specializations/containers/STL_containers.h</includes>
     <includes id="Juce__maps_8h" name="Juce_maps.h" local="no" imported="no">lemons_serializing/Serializing/Specializations/maps/Juce_maps.h</includes>
+    <includes id="add__container_8h" name="add_container.h" local="yes" imported="no">add_container.h</includes>
+    <includes id="add__map_8h" name="add_map.h" local="yes" imported="no">add_map.h</includes>
     <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
