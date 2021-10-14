@@ -17,7 +17,7 @@ constexpr auto BASE64_PROP   = "_base64:";
     juce::Array< juce::var > children;
 
     for (auto child : tree)
-        if (auto childVar = valueTreeToVar (child); ! childVar.isVoid())
+        if (const auto childVar = valueTreeToVar (child); ! childVar.isVoid())
             children.add (childVar);
 
     if (! children.isEmpty())

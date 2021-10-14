@@ -13,9 +13,8 @@ static inline void sortSampleIndicesForPeakSearching (
 
     output.set (0, predictedPeak);
 
-    int p = 1, m = -1;
-
-    for (int n = 1; n < (endSample - startSample); ++n)
+    for (int p = 1, m = -1, n = 1;
+         n < (endSample - startSample); ++n)
     {
         const auto pos = predictedPeak + p;
         const auto neg = predictedPeak + m;
@@ -49,12 +48,6 @@ static inline void sortSampleIndicesForPeakSearching (
             }
         }
     }
-}
-
-
-static inline double weighting_func (int index, int predicted, int numSamples)
-{
-    return 1.0 - ((double) (std::abs (index - predicted) / (double) numSamples) * 0.5);
 }
 
 
@@ -102,8 +95,8 @@ void Analyzer< SampleType >::PeakFinder::findPeaks (IArray&           targetArra
 
     jassert (totalNumSamples >= grainSize);
 
-    int analysisIndex =
-        halfPeriod;  // marks the center of the analysis windows, which are 1 period long
+    // marks the center of the analysis windows, which are 1 period long
+    auto analysisIndex = halfPeriod;
 
     do
     {
@@ -130,11 +123,8 @@ void Analyzer< SampleType >::PeakFinder::findPeaks (IArray&           targetArra
         const auto targetArraySize   = targetArray.size();
 
         // analysisIndex marks the middle of our next analysis window, so it's where our next predicted peak should be:
-        if (targetArraySize == 1)
-            analysisIndex = targetArray.getUnchecked (0) + period;
-        else
-            analysisIndex =
-                targetArray.getUnchecked (targetArraySize - 2) + grainSize;
+        analysisIndex = targetArraySize == 1 ? targetArray.getUnchecked (0) + period
+                                             : targetArray.getUnchecked (targetArraySize - 2) + grainSize;
 
         if (analysisIndex == prevAnalysisIndex)
             analysisIndex = prevAnalysisIndex + period;
@@ -212,7 +202,7 @@ int Analyzer< SampleType >::PeakFinder::chooseIdealPeakCandidate (
     for (int candidate : candidates)
     {
         candidateDeltas.add (
-            (abs (candidate - deltaTarget1) + abs (candidate - deltaTarget2))
+            (std::abs (candidate - deltaTarget1) + abs (candidate - deltaTarget2))
             * 0.5f);
     }
 
@@ -277,6 +267,11 @@ int Analyzer< SampleType >::PeakFinder::chooseIdealPeakCandidate (
     }
 
     return chosenPeak;
+}
+
+static inline double weighting_func (int index, int predicted, int numSamples)
+{
+    return 1.0 - ((double) (std::abs (index - predicted) / (double) numSamples) * 0.5);
 }
 
 template < typename SampleType >
@@ -358,11 +353,11 @@ int Analyzer< SampleType >::PeakFinder::choosePeakWithGreatestPower (
     const juce::Array< int >& candidates, const SampleType* reading)
 {
     auto strongestPeakIndex = candidates.getUnchecked (0);
-    auto strongestPeak      = abs (reading[strongestPeakIndex]);
+    auto strongestPeak      = std::abs (reading[strongestPeakIndex]);
 
     for (int candidate : candidates)
     {
-        const auto current = abs (reading[candidate]);
+        const auto current = std::abs (reading[candidate]);
 
         if (current > strongestPeak)
         {

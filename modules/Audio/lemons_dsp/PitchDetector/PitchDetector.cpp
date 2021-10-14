@@ -64,7 +64,7 @@ static inline int samplesToFirstZeroCrossing (const SampleType* inputAudio, int 
                       vDSP_Length (numSamples));
     return static_cast< int > (index);
 #else
-    const bool startedPositive = inputAudio[0] > SampleType (0);
+    const auto startedPositive = inputAudio[0] > SampleType (0);
 
     for (int s = 1; s < numSamples; ++s)
         if (startedPositive != (inputAudio[s] > SampleType (0))) return s;
