@@ -17,6 +17,8 @@ public:
     void prepare (int blocksize, double samplerate);
 
     void processNextChunk (int numSamples);
+    
+    void addAllParametersTo (juce::AudioProcessor& processor);
 
     /*----------------------------------------------------------------------------------------------------------*/
 
@@ -27,30 +29,19 @@ public:
     {
         /** Internally, LFOs use ChoosableOscillator to generate their values. */
         using Osc = dsp::osc::ChoosableOscillator< float >;
-
-        /** Creates an LFO. */
-        LFO() = default;
+        
+        /** Creates a new LFO. */
+        LFO (ParameterList& listToUse, String metaParameterName = "MetaParameter");
 
         /** Prepares the LFO for processing. */
         void prepareToPlay (int numSamples, double samplerate);
 
         /** Returns a reference to the LFO's internal ChoosableOscillator object. You can then call methods on the oscillator to, for example, set its frequency, change the type, etc. */
         [[nodiscard]] Osc& getOscillator() noexcept;
+        
+        [[nodiscard]] DefaultMetaParameter& getParameter() noexcept;
 
-        /** Returns true if any of the LFO's connections are connected to the given Parameter. */
-        [[nodiscard]] bool hasConnection (Parameter& parameter) const;
-
-        /** Returns the "amount" set for the connection to the given parameter. If no connection to the given parameter exists, returns -1. */
-        [[nodiscard]] int getConnectionAmount (Parameter& parameter) const;
-
-        /** Creates or edits a parameter connection.
-            If a connection to the specified parameter already exists, the connection's amount will be set to the new amount supplied here. Otherwise, a new connection will be added to this parameter.
-         */
-        void createOrEditConnection (Parameter& parameter, int amount);
-
-        /** Removes the connection to the specified parameter, if one exists. */
-        void removeConnection (Parameter& parameter);
-
+        void addParameterTo (juce::AudioProcessor& processor);
 
         // // //
 
@@ -60,40 +51,11 @@ public:
 
 
     private:
-        friend class ModulationManager;
-
-        LFO (ParameterList& listToUse);
-
-        void removeInvalidConnections();
-
-        void setParamList (ParameterList& listToUse);
-
         void serialize (TreeReflector& ref) final;
 
-        struct Connection : SerializableData
-        {
-            Connection() = default;
-
-            void apply (float newLFOsample) const;
-
-            Parameter* param {nullptr};
-            int        percentEffect {100};
-
-        private:
-            friend struct LFO;
-
-            Connection (ParameterList& listToUse, Parameter& parameter, int amount = 100);
-
-            void serialize (TreeReflector& ref) final;
-
-            ParameterList* paramList;
-        };
-
-        ParameterList* paramList;
-
-        juce::OwnedArray< Connection > connections;
-
         Osc osc;
+        
+        MetaParam param;
 
         int currentTick {0};
 
@@ -139,8 +101,6 @@ public:
 
 private:
     void serialize (TreeReflector& ref) final;
-
-    void removeAllInvalidConnections();
 
     /*------------------------------*/
 

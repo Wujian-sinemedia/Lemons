@@ -24,10 +24,6 @@ void ModulationManager::processNextChunk (int numSamples)
 void ModulationManager::serialize (TreeReflector& ref)
 {
     ref.add ("LFOs", lfos);
-
-    if (ref.isLoading())
-        for (auto* lfo : lfos)
-            lfo->setParamList (paramList);
 }
 
 ModulationManager::LFO* ModulationManager::getLFO (int index)
@@ -57,21 +53,21 @@ ModulationManager::LFO* ModulationManager::getLFOatFrequency (float freq)
 ModulationManager::LFO* ModulationManager::getLFOwithConnection (Parameter& param)
 {
     for (auto* lfo : lfos)
-        if (lfo->hasConnection (param))
+        if (lfo->getParameter().hasConnection (param))
             return lfo;
 
     return nullptr;
 }
 
-void ModulationManager::removeAllInvalidConnections()
-{
-    for (auto* lfo : lfos)
-        lfo->removeInvalidConnections();
-}
-
 void ModulationManager::addLFO (LFO* newLFO)
 {
     lfos.add (newLFO);
+}
+
+void ModulationManager::addAllParametersTo (juce::AudioProcessor& processor)
+{
+    for (auto* lfo : lfos)
+        lfo->addParameterTo (processor);
 }
 
 }  // namespace lemons::plugin
