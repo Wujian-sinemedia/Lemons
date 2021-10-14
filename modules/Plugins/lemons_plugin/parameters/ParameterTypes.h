@@ -32,7 +32,7 @@ public:
                     String                                     paramLabel        = {},
                     bool                                       isAutomatable     = true,
                     bool                                       metaParam         = false,
-                    juce::AudioProcessorParameter::Category    parameterCategory = AudioProcessorParameter::genericParameter);
+                    juce::AudioProcessorParameter::Category    parameterCategory = juce::AudioProcessorParameter::genericParameter);
 
     /** Returns the parameter's current value. */
     [[nodiscard]] ValueType get() const;
@@ -88,7 +88,7 @@ public:
     //--------------------------------------
 
 private:
-    void serialize (TreeReflector& ref) final;
+    void serialize (TreeReflector& ref) override;
 
     std::function< String (ValueType, int) >   stringFromValueFunction;
     std::function< ValueType (const String&) > valueFromStringFunction;

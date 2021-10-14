@@ -76,6 +76,8 @@ void ModulationManager::LFO::serialize (TreeReflector& ref)
 
 void ModulationManager::LFO::createOrEditConnection (Parameter& parameter, int amount)
 {
+    jassert (parameter.isAutomatable());
+
     Connection* toUse = nullptr;
 
     for (auto* con : connections)

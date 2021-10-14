@@ -25,6 +25,8 @@
 
 #include "parameters/ParameterList.h"
 
+#include "parameters/MetaParameter.h"
+
 #include "parameters/utils/ParameterProcessor.h"
 
 #include "ModulationManager/ModulationManager.h"

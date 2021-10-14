@@ -134,12 +134,6 @@ public:
     /** Returns true if this parameter is automatable by the user's DAW. */
     bool isAutomatable() const final;
 
-    /** Returns true if this parameter is a "meta-parameter" -- that is, a parameter that controls other parameters. */
-    bool isMetaParameter() const final;
-
-    /** Returns a value for specified input text. */
-    float getValueForText (const String& text) const final;
-
     /** Returns a textual description of a normalized value in the range 0-1.
         @see getTextForDenormalizedValue()
      */
@@ -200,6 +194,8 @@ protected:
     void setMidiControllerInternal (int controller);
 
 private:
+    bool isMetaParameter() const final;
+
     void serialize (TreeReflector& ref) override;
 
     float getValue() const final;
@@ -208,6 +204,8 @@ private:
 
     void setValueInternal (float value);
     void setDefaultInternal (float value);
+
+    float getValueForText (const String& text) const final;
 
     const bool automatable;
     const bool metaParameter;

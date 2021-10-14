@@ -11,6 +11,8 @@
 
 #include "parameters/ParameterList.cpp"
 
+#include "parameters/MetaParameter.cpp"
+
 #include "ModulationManager/LFO.cpp"
 #include "ModulationManager/ModulationManager.cpp"
 
