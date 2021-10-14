@@ -210,10 +210,12 @@ juce::Image fromVar (const juce::var& var)
 
 /*--------------------------------------- Points -------------------------------------------*/
 
+constexpr auto POINT_STRING_SEP_CHAR = "_";
+
 template < typename Type >
 inline String pointToString (const juce::Point< Type >& point)
 {
-    return String (point.x) + "_" + String (point.y);
+    return String (point.x) + POINT_STRING_SEP_CHAR + String (point.y);
 }
 
 template < typename Type >
@@ -227,12 +229,8 @@ inline juce::Point< Type > pointFromString (const String& string)
             return static_cast< Type > (token.getFloatValue());
     };
 
-    juce::Point< Type > point;
-
-    point.x = pointTokenToValue (string.upToFirstOccurrenceOf ("_", false, true));
-    point.y = pointTokenToValue (string.fromFirstOccurrenceOf ("_", false, true));
-
-    return point;
+    return {pointTokenToValue (string.upToFirstOccurrenceOf (POINT_STRING_SEP_CHAR, false, true)),
+            pointTokenToValue (string.fromFirstOccurrenceOf (POINT_STRING_SEP_CHAR, false, true))};
 }
 
 template <>

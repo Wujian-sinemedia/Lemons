@@ -147,100 +147,6 @@ void TreeReflector::addSubtree (Type& object)
 
 /*----------------------------------------------------------------------------------------------------------------------------------*/
 
-template < class ContainerType >
-void TreeReflector::addContainer (ContainerType& container)
-{
-    const auto singlePropertyName = [&]() -> String
-    {
-        const auto str = tree.getType().toString();
-
-        if (str.endsWith ("s"))
-            str.dropLastCharacters (1);
-
-        return str + "_";
-    }();
-
-    auto makePropertyNameForContainerElement = [&] (int index) -> String
-    {
-        return singlePropertyName + String (index);
-    };
-
-    if (isLoading())
-    {
-        using namespace serializing;
-
-        const auto numElements = [&]() -> int
-        {
-            using ElementType = typename std::decay_t< decltype (container.begin()) >;
-
-            constexpr auto elementsAreContainers = isContainer< ElementType >();
-
-            const auto total = elementsAreContainers ? tree.getNumChildren() : tree.getNumProperties();
-
-            juce::Array< String > names;
-
-            for (int i = 1; i <= total; ++i)
-                names.add (makePropertyNameForContainerElement (i));
-
-            auto actualNum = total;
-
-            for (int i = 0; i < total; ++i)
-            {
-                const auto test = elementsAreContainers ? tree.getChild (i).getType() : tree.getPropertyName (i);
-
-                if (! names.contains (test.toString()))
-                    --actualNum;
-            }
-
-            return actualNum;
-        }();
-
-        getInterfaceForContainer (container)->resize (numElements);
-    }
-
-    int index = 1;
-
-    for (auto& element : container)
-        add (makePropertyNameForContainerElement (index++),
-             element);
-}
-
-template < class MapType >
-void TreeReflector::addMap (MapType& map)
-{
-    using namespace serializing;
-
-    auto interface = getInterfaceForMap (map);
-
-    if (isLoading())
-    {
-        using InterfaceType = typename decltype (interface)::element_type;
-        using KeyType       = typename InterfaceType::key_type;
-        using ValueType     = typename InterfaceType::value_type;
-
-        for (int i = 0; i < tree.getNumProperties(); ++i)
-        {
-            const auto name = tree.getPropertyName (i);
-
-            interface->setValue (fromVar< KeyType > (name),
-                                 fromVar< ValueType > (tree.getProperty (name)));
-        }
-    }
-    else
-    {
-        for (int i = 0; i < interface->getSize(); ++i)
-        {
-            const auto key = interface->getKey (i);
-
-            tree.setProperty (toVar (key),
-                              toVar (interface->getValue (key)),
-                              nullptr);
-        }
-    }
-}
-
-/*----------------------------------------------------------------------------------------------------------------------------------*/
-
 template < typename Type >
 [[nodiscard]] constexpr bool TreeReflector::isSubtree()
 {
@@ -250,3 +156,6 @@ template < typename Type >
 }
 
 }  // namespace lemons
+
+#include "add_container.h"
+#include "add_map.h"
