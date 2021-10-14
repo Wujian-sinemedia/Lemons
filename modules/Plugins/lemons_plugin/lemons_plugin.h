@@ -29,7 +29,6 @@
 
 #include "parameters/utils/ParameterProcessor.h"
 
-#include "ModulationManager/LFO.h"
 #include "ModulationManager/ModulationManager.h"
 
 #include "state/state.h"
