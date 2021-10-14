@@ -5,3 +5,5 @@
 
 #include "processors/MidiProcessor.cpp"
 #include "processors/MidiChoppingProcessor/MidiChoppingProcessor.cpp"
+
+#include "MidiUtilities/MidiKeyboardState.cpp"

@@ -9,7 +9,7 @@
  version:            0.0.1
  name:               lemons_midi
  description:        Midi utilities
- dependencies:       lemons_core mts_esp_cpp
+ dependencies:       lemons_serializing mts_esp_cpp
 
  END_JUCE_MODULE_DECLARATION
 
@@ -26,3 +26,5 @@
 #include "PitchConverter/PitchConverter.h"
 
 #include "MidiUtilities/PitchPipeline.h"
+
+#include "MidiUtilities/MidiKeyboardState.h"
