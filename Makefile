@@ -11,9 +11,11 @@ doxygen: $(SOURCE_FILES)
 
 format: scripts/run_clang_format.py $(SOURCE_FILES)
 	python $< modules
+	cd default_projects && make format
 
 translate: scripts/generate_translation_file.py $(SOURCE_FILES)
 	python $< modules lemons_translations.txt
+	cd default_projects && make translate
 
 uth:
 	git fetch && git pull
