@@ -56,16 +56,28 @@ def process_module_header (header_path):
 ###############################################################################
 
 # Creates a subgroup for a subdir inside a module, and groups all files into the new subgroup
+# Works recursively as well to create nested subgroups resembling the filesystem layout
 
 def create_module_subgroup (module_name, module_dir, subdir):
 
-    subgroup_name = "{n}-{s}".format (n=module_name, s=subdir)
+    subgroup_name = subdir.split(os.path.sep)[-1]
+
+    subgroup_definition = []
+    subgroup_definition.append ("/** @defgroup {n} {n}".format (n=subgroup_name))
+    subgroup_definition.append ("")
+    subgroup_definition.append ("    @{")
+    subgroup_definition.append ("*/")
 
     for dirpath, dirnames, filenames in os.walk (os.path.join (module_dir, subdir)):
         for filename in filenames:
             add_doxygen_group (os.path.join (dirpath, filename), subgroup_name)
+        for dirname in dirnames:
+            subgroup_definition.append (create_module_subgroup (module_name, module_dir, os.path.join (subdir, dirname)))
 
-    return "/** @defgroup {tag} {n} */".format (tag=subgroup_name, n=subdir)
+    subgroup_definition.append ("")
+    subgroup_definition.append ("/** @} */")
+
+    return "\r\n".join (subgroup_definition)
 
 
 ###############################################################################
@@ -117,7 +129,6 @@ def process_module_category (category_name, orig_cat_dir, dest_cat_dir):
     # Create a Doxygen group definition for the category
     category_definiton = []
     category_definiton.append ("/** @defgroup {n} {n}".format (n=category_name))
-
     category_definiton.append ("")
     category_definiton.append ("    @{")
     category_definiton.append ("*/")
