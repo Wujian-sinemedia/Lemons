@@ -14,19 +14,17 @@ readonly repo_url="github.com/benthevining/Lemons.git"
 
 readonly script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-readonly doxygen_dir="$script_dir/../doxygen"
-
-readonly working_dir="$doxygen_dir/Lemons"
+readonly working_dir="$script_dir/Lemons"
 
 
 # install deps
-source "$script_dir/install/install_list.sh"
+source "$script_dir/../scripts/install/install_list.sh"
 install_deps_list "doxygen_deps.txt"
 
 
 # Clone the docs branch
 
-cd "$doxygen_dir"
+cd "$script_dir"
 
 make clean
 
@@ -39,12 +37,12 @@ cd "$working_dir"
 rm -rf *
 
 # Build new copy of docs
-cd "$doxygen_dir"
+cd "$script_dir"
 echo "Building documentation..."
 make
 
 # Copy new docs into 'docs' branch
-mv $doxygen_dir/doc/* "$working_dir"
+mv $script_dir/doc/* "$working_dir"
 
 cd "$working_dir"
 
