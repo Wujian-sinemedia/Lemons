@@ -1,9 +1,20 @@
 var searchData=
 [
-  ['misc_2316',['misc',['../group__lemons__audio__effects-misc.html',1,'']]],
-  ['math_2317',['math',['../group__lemons__core-math.html',1,'']]],
-  ['misc_2318',['misc',['../group__lemons__core-misc.html',1,'']]],
-  ['midiutilities_2319',['MidiUtilities',['../group__lemons__midi-MidiUtilities.html',1,'']]],
-  ['modulationmanager_2320',['ModulationManager',['../group__lemons__plugin-ModulationManager.html',1,'']]],
-  ['mts_5fesp_5fcpp_2321',['mts_esp_cpp',['../group__mts__esp__cpp.html',1,'']]]
+  ['lemons_5fapp_5futils_2293',['lemons_app_utils',['../group__lemons__app__utils.html',1,'']]],
+  ['lemons_5faudio_5feffects_2294',['lemons_audio_effects',['../group__lemons__audio__effects.html',1,'']]],
+  ['lemons_5fcore_2295',['lemons_core',['../group__lemons__core.html',1,'']]],
+  ['lemons_5fdsp_2296',['lemons_dsp',['../group__lemons__dsp.html',1,'']]],
+  ['lemons_5fgui_2297',['lemons_gui',['../group__lemons__gui.html',1,'']]],
+  ['lemons_5fmidi_2298',['lemons_midi',['../group__lemons__midi.html',1,'']]],
+  ['lemons_5fmobile_5futils_2299',['lemons_mobile_utils',['../group__lemons__mobile__utils.html',1,'']]],
+  ['lemons_5foscillators_2300',['lemons_oscillators',['../group__lemons__oscillators.html',1,'']]],
+  ['lemons_5fplugin_2301',['lemons_plugin',['../group__lemons__plugin.html',1,'']]],
+  ['lemons_5fplugin_5fgui_2302',['lemons_plugin_gui',['../group__lemons__plugin__gui.html',1,'']]],
+  ['lemons_5fplugin_5fparameters_2303',['lemons_plugin_parameters',['../group__lemons__plugin__parameters.html',1,'']]],
+  ['lemons_5fplugin_5fpresets_2304',['lemons_plugin_presets',['../group__lemons__plugin__presets.html',1,'']]],
+  ['lemons_5fpsola_2305',['lemons_psola',['../group__lemons__psola.html',1,'']]],
+  ['lemons_5fserializing_2306',['lemons_serializing',['../group__lemons__serializing.html',1,'']]],
+  ['lemons_5fspline_2307',['lemons_spline',['../group__lemons__spline.html',1,'']]],
+  ['lemons_5fsynth_2308',['lemons_synth',['../group__lemons__synth.html',1,'']]],
+  ['localization_2309',['localization',['../group__localization.html',1,'']]]
 ];

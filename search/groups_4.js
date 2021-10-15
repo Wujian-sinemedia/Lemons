@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['eq_2289',['EQ',['../group__lemons__audio__effects-EQ.html',1,'']]],
-  ['events_2290',['events',['../group__lemons__core-events.html',1,'']]],
-  ['engines_2291',['engines',['../group__lemons__dsp-engines.html',1,'']]],
-  ['editorbase_2292',['EditorBase',['../group__lemons__plugin-EditorBase.html',1,'']]],
-  ['editor_2293',['editor',['../group__lemons__spline-editor.html',1,'']]]
+  ['editor_2279',['editor',['../group__editor.html',1,'']]],
+  ['editorbase_2280',['EditorBase',['../group__EditorBase.html',1,'']]],
+  ['engines_2281',['engines',['../group__engines.html',1,'']]],
+  ['eq_2282',['EQ',['../group__EQ.html',1,'']]],
+  ['events_2283',['events',['../group__events.html',1,'']]]
 ];

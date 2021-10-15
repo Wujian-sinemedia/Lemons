@@ -67,11 +67,11 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classlemons_1_1plugin_1_1ModulationManager-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">lemons::plugin::ModulationManager Class Reference<div class="ingroups"><a class="el" href="group__Plugins.html">Plugins</a> &raquo; <a class="el" href="group__lemons__plugin.html">lemons_plugin</a> &raquo; <a class="el" href="group__lemons__plugin-ModulationManager.html">ModulationManager</a></div></div>  </div>
+<div class="title">lemons::plugin::ModulationManager Class Reference<div class="ingroups"><a class="el" href="group__Plugins.html">Plugins</a> &raquo; <a class="el" href="group__lemons__plugin__parameters.html">lemons_plugin_parameters</a> &raquo; <a class="el" href="group__ModulationManager.html">ModulationManager</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -86,45 +86,37 @@ $(function() {
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html">LFO</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html" title="An LFO, to be used by a ModulationManager object.">LFO</a>, to be used by a <a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html" title="A modulation manager for a plugin.">ModulationManager</a> object.  <a href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a559399ab525e84187df090726b603ebb"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#a559399ab525e84187df090726b603ebb">LfoNamingFunc</a> = std::function&lt; String(int) &gt;</td></tr>
+<tr class="separator:a559399ab525e84187df090726b603ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a793a5b4b22a21eb088ab5e238b689cf1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#a793a5b4b22a21eb088ab5e238b689cf1">ModulationManager</a> (<a class="el" href="classlemons_1_1plugin_1_1ParameterList.html">ParameterList</a> &amp;listToUse)</td></tr>
-<tr class="memdesc:a793a5b4b22a21eb088ab5e238b689cf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a modulation manager.  <a href="classlemons_1_1plugin_1_1ModulationManager.html#a793a5b4b22a21eb088ab5e238b689cf1">More...</a><br /></td></tr>
-<tr class="separator:a793a5b4b22a21eb088ab5e238b689cf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09a72f46ef1257a9ccc4f0c19c8883ac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#a09a72f46ef1257a9ccc4f0c19c8883ac">ModulationManager</a> (<a class="el" href="classlemons_1_1plugin_1_1ParameterList.html">ParameterList</a> &amp;listToUse, int initNumLfos=1, <a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#a559399ab525e84187df090726b603ebb">LfoNamingFunc</a> namingFuncToUse=nullptr)</td></tr>
+<tr class="memdesc:a09a72f46ef1257a9ccc4f0c19c8883ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a modulation manager.  <a href="classlemons_1_1plugin_1_1ModulationManager.html#a09a72f46ef1257a9ccc4f0c19c8883ac">More...</a><br /></td></tr>
+<tr class="separator:a09a72f46ef1257a9ccc4f0c19c8883ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d4564cce2d572f95fc3c92056cbcbcd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#a0d4564cce2d572f95fc3c92056cbcbcd">addAllParametersAsInternal</a> ()</td></tr>
+<tr class="separator:a0d4564cce2d572f95fc3c92056cbcbcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26129de9832841d0b87bc9c38a39fdfc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#a26129de9832841d0b87bc9c38a39fdfc">addAllParametersTo</a> (juce::AudioProcessor &amp;processor)</td></tr>
 <tr class="separator:a26129de9832841d0b87bc9c38a39fdfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82d9a73bdbda8511a7133f9a1812d5e1"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
-<tr class="memitem:a82d9a73bdbda8511a7133f9a1812d5e1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#a82d9a73bdbda8511a7133f9a1812d5e1">addLFO</a> (Args &amp;&amp;... args)</td></tr>
-<tr class="memdesc:a82d9a73bdbda8511a7133f9a1812d5e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and adds a new <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html" title="An LFO, to be used by a ModulationManager object.">LFO</a> to the modulation manager.  <a href="classlemons_1_1plugin_1_1ModulationManager.html#a82d9a73bdbda8511a7133f9a1812d5e1">More...</a><br /></td></tr>
-<tr class="separator:a82d9a73bdbda8511a7133f9a1812d5e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3cb727e2d89c312187ade0252cd689ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#a3cb727e2d89c312187ade0252cd689ba">addLFO</a> (<a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html">LFO</a> *newLFO)</td></tr>
-<tr class="memdesc:a3cb727e2d89c312187ade0252cd689ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html" title="An LFO, to be used by a ModulationManager object.">LFO</a> to the modulation manager.  <a href="classlemons_1_1plugin_1_1ModulationManager.html#a3cb727e2d89c312187ade0252cd689ba">More...</a><br /></td></tr>
-<tr class="separator:a3cb727e2d89c312187ade0252cd689ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a433a034ce5d453ead64c6b31b42bc939"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1LFO.html">LFO</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#a433a034ce5d453ead64c6b31b42bc939">addLFO</a> ()</td></tr>
+<tr class="separator:a433a034ce5d453ead64c6b31b42bc939"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace1758cc9344ae03a6d01c3c218226de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1SerializableData.html#ace1758cc9344ae03a6d01c3c218226de">deserialize</a> (const ValueTree &amp;tree)</td></tr>
 <tr class="memdesc:ace1758cc9344ae03a6d01c3c218226de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores a previously saved state.  <a href="structlemons_1_1SerializableData.html#ace1758cc9344ae03a6d01c3c218226de">More...</a><br /></td></tr>
 <tr class="separator:ace1758cc9344ae03a6d01c3c218226de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd3f4f0bdb5327aae2ab002130041fe7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html">LFO</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#abd3f4f0bdb5327aae2ab002130041fe7">getLFO</a> (int index)</td></tr>
-<tr class="memdesc:abd3f4f0bdb5327aae2ab002130041fe7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html" title="An LFO, to be used by a ModulationManager object.">LFO</a> at the given index in the modulation manager's vector of LFOs.  <a href="classlemons_1_1plugin_1_1ModulationManager.html#abd3f4f0bdb5327aae2ab002130041fe7">More...</a><br /></td></tr>
+<tr class="memitem:abd3f4f0bdb5327aae2ab002130041fe7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1LFO.html">LFO</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#abd3f4f0bdb5327aae2ab002130041fe7">getLFO</a> (int index)</td></tr>
+<tr class="memdesc:abd3f4f0bdb5327aae2ab002130041fe7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="structlemons_1_1plugin_1_1LFO.html" title="An LFO, to be used by a ModulationManager object.">LFO</a> at the given index in the modulation manager's vector of LFOs.  <a href="classlemons_1_1plugin_1_1ModulationManager.html#abd3f4f0bdb5327aae2ab002130041fe7">More...</a><br /></td></tr>
 <tr class="separator:abd3f4f0bdb5327aae2ab002130041fe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6177da7043874ffeefbf6c93477250d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html">LFO</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#ad6177da7043874ffeefbf6c93477250d">getLFOatFrequency</a> (float freq)</td></tr>
-<tr class="memdesc:ad6177da7043874ffeefbf6c93477250d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the first <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html" title="An LFO, to be used by a ModulationManager object.">LFO</a> found with the given frequency.  <a href="classlemons_1_1plugin_1_1ModulationManager.html#ad6177da7043874ffeefbf6c93477250d">More...</a><br /></td></tr>
+<tr class="memitem:ad6177da7043874ffeefbf6c93477250d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1LFO.html">LFO</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#ad6177da7043874ffeefbf6c93477250d">getLFOatFrequency</a> (float freq)</td></tr>
+<tr class="memdesc:ad6177da7043874ffeefbf6c93477250d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the first <a class="el" href="structlemons_1_1plugin_1_1LFO.html" title="An LFO, to be used by a ModulationManager object.">LFO</a> found with the given frequency.  <a href="classlemons_1_1plugin_1_1ModulationManager.html#ad6177da7043874ffeefbf6c93477250d">More...</a><br /></td></tr>
 <tr class="separator:ad6177da7043874ffeefbf6c93477250d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6c7491da976c2b1f24473add9fffb55"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html">LFO</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#ae6c7491da976c2b1f24473add9fffb55">getLFOofType</a> (<a class="el" href="namespacelemons_1_1dsp_1_1osc.html#a1771007d411d4f6426cc3773961dfa5d">dsp::osc::OscType</a> type)</td></tr>
-<tr class="memdesc:ae6c7491da976c2b1f24473add9fffb55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the first <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html" title="An LFO, to be used by a ModulationManager object.">LFO</a> found with the given oscillator type.  <a href="classlemons_1_1plugin_1_1ModulationManager.html#ae6c7491da976c2b1f24473add9fffb55">More...</a><br /></td></tr>
+<tr class="memitem:ae6c7491da976c2b1f24473add9fffb55"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1LFO.html">LFO</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#ae6c7491da976c2b1f24473add9fffb55">getLFOofType</a> (<a class="el" href="namespacelemons_1_1dsp_1_1osc.html#a1771007d411d4f6426cc3773961dfa5d">dsp::osc::OscType</a> type)</td></tr>
+<tr class="memdesc:ae6c7491da976c2b1f24473add9fffb55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the first <a class="el" href="structlemons_1_1plugin_1_1LFO.html" title="An LFO, to be used by a ModulationManager object.">LFO</a> found with the given oscillator type.  <a href="classlemons_1_1plugin_1_1ModulationManager.html#ae6c7491da976c2b1f24473add9fffb55">More...</a><br /></td></tr>
 <tr class="separator:ae6c7491da976c2b1f24473add9fffb55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bf2f41443680711a8a2be570106b3bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html">LFO</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#a2bf2f41443680711a8a2be570106b3bb">getLFOwithConnection</a> (<a class="el" href="classlemons_1_1plugin_1_1Parameter.html">Parameter</a> &amp;param)</td></tr>
-<tr class="memdesc:a2bf2f41443680711a8a2be570106b3bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the first <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html" title="An LFO, to be used by a ModulationManager object.">LFO</a> found that is connected to the specified parameter.  <a href="classlemons_1_1plugin_1_1ModulationManager.html#a2bf2f41443680711a8a2be570106b3bb">More...</a><br /></td></tr>
+<tr class="memitem:a2bf2f41443680711a8a2be570106b3bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1LFO.html">LFO</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#a2bf2f41443680711a8a2be570106b3bb">getLFOwithConnection</a> (<a class="el" href="classlemons_1_1plugin_1_1Parameter.html">Parameter</a> &amp;param)</td></tr>
+<tr class="memdesc:a2bf2f41443680711a8a2be570106b3bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the first <a class="el" href="structlemons_1_1plugin_1_1LFO.html" title="An LFO, to be used by a ModulationManager object.">LFO</a> found that is connected to the specified parameter.  <a href="classlemons_1_1plugin_1_1ModulationManager.html#a2bf2f41443680711a8a2be570106b3bb">More...</a><br /></td></tr>
 <tr class="separator:a2bf2f41443680711a8a2be570106b3bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5abff866158ac0ac335800cb945946d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#a5abff866158ac0ac335800cb945946d2">prepare</a> (int blocksize, double samplerate)</td></tr>
-<tr class="separator:a5abff866158ac0ac335800cb945946d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79e22c279a6c7d79a774dbcbaeaf7e8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#a79e22c279a6c7d79a774dbcbaeaf7e8e">processNextChunk</a> (int numSamples)</td></tr>
-<tr class="separator:a79e22c279a6c7d79a774dbcbaeaf7e8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4e10eefa677226e7927d204b33edbdb"><td class="memItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">serialize</a> ()</td></tr>
 <tr class="memdesc:af4e10eefa677226e7927d204b33edbdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the state of this object and returns a ValueTree.  <a href="structlemons_1_1SerializableData.html#af4e10eefa677226e7927d204b33edbdb">More...</a><br /></td></tr>
 <tr class="separator:af4e10eefa677226e7927d204b33edbdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -133,9 +125,24 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>A modulation manager for a plugin. </p>
 <p>This class holds a collection of LFOs that can be mapped to any number of <a class="el" href="classlemons_1_1plugin_1_1Parameter.html" title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an...">Parameter</a> objects. <br  />
 This class is also serializable; the saving and loading of parameter connections works by using the <a class="el" href="classlemons_1_1plugin_1_1ParameterList.html#aaf60b283ea9c384267f2d26b865e58e5" title="Searches for a parameter in the list with a specified name.">ParameterList::getParameterWithName()</a> function. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a793a5b4b22a21eb088ab5e238b689cf1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a793a5b4b22a21eb088ab5e238b689cf1">&#9670;&nbsp;</a></span>ModulationManager()</h2>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a559399ab525e84187df090726b603ebb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a559399ab525e84187df090726b603ebb">&#9670;&nbsp;</a></span>LfoNamingFunc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#a559399ab525e84187df090726b603ebb">lemons::plugin::ModulationManager::LfoNamingFunc</a> =  std::function&lt; String (int) &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a09a72f46ef1257a9ccc4f0c19c8883ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09a72f46ef1257a9ccc4f0c19c8883ac">&#9670;&nbsp;</a></span>ModulationManager()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -144,8 +151,24 @@ This class is also serializable; the saving and loading of parameter connections
           <td class="memname">lemons::plugin::ModulationManager::ModulationManager </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classlemons_1_1plugin_1_1ParameterList.html">ParameterList</a> &amp;&#160;</td>
-          <td class="paramname"><em>listToUse</em></td><td>)</td>
+          <td class="paramname"><em>listToUse</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>initNumLfos</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#a559399ab525e84187df090726b603ebb">LfoNamingFunc</a>&#160;</td>
+          <td class="paramname"><em>namingFuncToUse</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -155,6 +178,23 @@ This class is also serializable; the saving and loading of parameter connections
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a0d4564cce2d572f95fc3c92056cbcbcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d4564cce2d572f95fc3c92056cbcbcd">&#9670;&nbsp;</a></span>addAllParametersAsInternal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lemons::plugin::ModulationManager::addAllParametersAsInternal </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a26129de9832841d0b87bc9c38a39fdfc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a26129de9832841d0b87bc9c38a39fdfc">&#9670;&nbsp;</a></span>addAllParametersTo()</h2>
 
@@ -173,51 +213,20 @@ This class is also serializable; the saving and loading of parameter connections
 
 </div>
 </div>
-<a id="a82d9a73bdbda8511a7133f9a1812d5e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82d9a73bdbda8511a7133f9a1812d5e1">&#9670;&nbsp;</a></span>addLFO() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename... Args&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void lemons::plugin::ModulationManager::addLFO </td>
-          <td>(</td>
-          <td class="paramtype">Args &amp;&amp;...&#160;</td>
-          <td class="paramname"><em>args</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Creates and adds a new <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html" title="An LFO, to be used by a ModulationManager object.">LFO</a> to the modulation manager. </p>
-<p>The arguments are all passed to the constructor of <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html" title="An LFO, to be used by a ModulationManager object.">ModulationManager::LFO</a>. </p>
-
-<p class="reference">References <a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#a3cb727e2d89c312187ade0252cd689ba">addLFO()</a>.</p>
-
-</div>
-</div>
-<a id="a3cb727e2d89c312187ade0252cd689ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3cb727e2d89c312187ade0252cd689ba">&#9670;&nbsp;</a></span>addLFO() <span class="overload">[2/2]</span></h2>
+<a id="a433a034ce5d453ead64c6b31b42bc939"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a433a034ce5d453ead64c6b31b42bc939">&#9670;&nbsp;</a></span>addLFO()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void lemons::plugin::ModulationManager::addLFO </td>
+          <td class="memname"><a class="el" href="structlemons_1_1plugin_1_1LFO.html">LFO</a>&amp; lemons::plugin::ModulationManager::addLFO </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html">LFO</a> *&#160;</td>
-          <td class="paramname"><em>newLFO</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Adds a new <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html" title="An LFO, to be used by a ModulationManager object.">LFO</a> to the modulation manager. </p>
-<p>The modulation manager will take ownership of the <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html" title="An LFO, to be used by a ModulationManager object.">LFO</a> passed to this function. </p>
-
-<p class="reference">Referenced by <a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#a82d9a73bdbda8511a7133f9a1812d5e1">addLFO()</a>.</p>
 
 </div>
 </div>
@@ -264,7 +273,7 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html">LFO</a>* lemons::plugin::ModulationManager::getLFO </td>
+          <td class="memname"><a class="el" href="structlemons_1_1plugin_1_1LFO.html">LFO</a>* lemons::plugin::ModulationManager::getLFO </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>index</em></td><td>)</td>
@@ -273,10 +282,10 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
       </table>
 </div><div class="memdoc">
 
-<p>Returns the <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html" title="An LFO, to be used by a ModulationManager object.">LFO</a> at the given index in the modulation manager's vector of LFOs. </p>
-<p>The returned pointer may be null if an <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html" title="An LFO, to be used by a ModulationManager object.">LFO</a> does not exist at the requested index. <br  />
+<p>Returns the <a class="el" href="structlemons_1_1plugin_1_1LFO.html" title="An LFO, to be used by a ModulationManager object.">LFO</a> at the given index in the modulation manager's vector of LFOs. </p>
+<p>The returned pointer may be null if an <a class="el" href="structlemons_1_1plugin_1_1LFO.html" title="An LFO, to be used by a ModulationManager object.">LFO</a> does not exist at the requested index. <br  />
  <br  />
-This is the least preferable way to retrieve <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html" title="An LFO, to be used by a ModulationManager object.">LFO</a> objects; prefer to use <a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#ae6c7491da976c2b1f24473add9fffb55" title="Returns the first LFO found with the given oscillator type.">getLFOofType()</a>, <a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#ad6177da7043874ffeefbf6c93477250d" title="Returns the first LFO found with the given frequency.">getLFOatFrequency()</a>, or <a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#a2bf2f41443680711a8a2be570106b3bb" title="Returns the first LFO found that is connected to the specified parameter.">getLFOwithConnection()</a>. </p>
+This is the least preferable way to retrieve <a class="el" href="structlemons_1_1plugin_1_1LFO.html" title="An LFO, to be used by a ModulationManager object.">LFO</a> objects; prefer to use <a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#ae6c7491da976c2b1f24473add9fffb55" title="Returns the first LFO found with the given oscillator type.">getLFOofType()</a>, <a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#ad6177da7043874ffeefbf6c93477250d" title="Returns the first LFO found with the given frequency.">getLFOatFrequency()</a>, or <a class="el" href="classlemons_1_1plugin_1_1ModulationManager.html#a2bf2f41443680711a8a2be570106b3bb" title="Returns the first LFO found that is connected to the specified parameter.">getLFOwithConnection()</a>. </p>
 
 </div>
 </div>
@@ -287,7 +296,7 @@ This is the least preferable way to retrieve <a class="el" href="structlemons_1_
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html">LFO</a>* lemons::plugin::ModulationManager::getLFOatFrequency </td>
+          <td class="memname"><a class="el" href="structlemons_1_1plugin_1_1LFO.html">LFO</a>* lemons::plugin::ModulationManager::getLFOatFrequency </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>freq</em></td><td>)</td>
@@ -296,7 +305,7 @@ This is the least preferable way to retrieve <a class="el" href="structlemons_1_
       </table>
 </div><div class="memdoc">
 
-<p>Returns the first <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html" title="An LFO, to be used by a ModulationManager object.">LFO</a> found with the given frequency. </p>
+<p>Returns the first <a class="el" href="structlemons_1_1plugin_1_1LFO.html" title="An LFO, to be used by a ModulationManager object.">LFO</a> found with the given frequency. </p>
 <p>The returned pointer may be null if no LFOs have the requested frequency. </p>
 
 </div>
@@ -308,7 +317,7 @@ This is the least preferable way to retrieve <a class="el" href="structlemons_1_
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html">LFO</a>* lemons::plugin::ModulationManager::getLFOofType </td>
+          <td class="memname"><a class="el" href="structlemons_1_1plugin_1_1LFO.html">LFO</a>* lemons::plugin::ModulationManager::getLFOofType </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespacelemons_1_1dsp_1_1osc.html#a1771007d411d4f6426cc3773961dfa5d">dsp::osc::OscType</a>&#160;</td>
           <td class="paramname"><em>type</em></td><td>)</td>
@@ -317,7 +326,7 @@ This is the least preferable way to retrieve <a class="el" href="structlemons_1_
       </table>
 </div><div class="memdoc">
 
-<p>Returns the first <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html" title="An LFO, to be used by a ModulationManager object.">LFO</a> found with the given oscillator type. </p>
+<p>Returns the first <a class="el" href="structlemons_1_1plugin_1_1LFO.html" title="An LFO, to be used by a ModulationManager object.">LFO</a> found with the given oscillator type. </p>
 <p>The returned pointer may be null if no LFOs have the requested type. </p>
 
 </div>
@@ -329,7 +338,7 @@ This is the least preferable way to retrieve <a class="el" href="structlemons_1_
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html">LFO</a>* lemons::plugin::ModulationManager::getLFOwithConnection </td>
+          <td class="memname"><a class="el" href="structlemons_1_1plugin_1_1LFO.html">LFO</a>* lemons::plugin::ModulationManager::getLFOwithConnection </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classlemons_1_1plugin_1_1Parameter.html">Parameter</a> &amp;&#160;</td>
           <td class="paramname"><em>param</em></td><td>)</td>
@@ -338,54 +347,8 @@ This is the least preferable way to retrieve <a class="el" href="structlemons_1_
       </table>
 </div><div class="memdoc">
 
-<p>Returns the first <a class="el" href="structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html" title="An LFO, to be used by a ModulationManager object.">LFO</a> found that is connected to the specified parameter. </p>
+<p>Returns the first <a class="el" href="structlemons_1_1plugin_1_1LFO.html" title="An LFO, to be used by a ModulationManager object.">LFO</a> found that is connected to the specified parameter. </p>
 <p>The returned pointer may be null if no LFOs have the requested connection. </p>
-
-</div>
-</div>
-<a id="a5abff866158ac0ac335800cb945946d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5abff866158ac0ac335800cb945946d2">&#9670;&nbsp;</a></span>prepare()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void lemons::plugin::ModulationManager::prepare </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>blocksize</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>samplerate</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a79e22c279a6c7d79a774dbcbaeaf7e8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79e22c279a6c7d79a774dbcbaeaf7e8e">&#9670;&nbsp;</a></span>processNextChunk()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void lemons::plugin::ModulationManager::processNextChunk </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>numSamples</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>
@@ -423,7 +386,7 @@ This is the least preferable way to retrieve <a class="el" href="structlemons_1_
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 15 2021 00:44:44 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 15 2021 05:41:19 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

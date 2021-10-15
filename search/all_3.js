@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['data_139',['data',['../structlemons_1_1RawData.html#a022333d14194d6ba19fb597f8feeb3a4',1,'lemons::RawData']]],
+  ['data_138',['data',['../structlemons_1_1RawData.html#a022333d14194d6ba19fb597f8feeb3a4',1,'lemons::RawData']]],
+  ['database_139',['database',['../group__database.html',1,'']]],
   ['databasepresetsmanager_140',['DatabasePresetsManager',['../classlemons_1_1plugin_1_1presets_1_1DatabasePresetsManager.html',1,'lemons::plugin::presets::DatabasePresetsManager'],['../classlemons_1_1plugin_1_1presets_1_1DatabasePresetsManager.html#a0579521d3cae167dce4c5c11f67af395',1,'lemons::plugin::presets::DatabasePresetsManager::DatabasePresetsManager()']]],
   ['databasepresetsmanager_2eh_141',['DatabasePresetsManager.h',['../DatabasePresetsManager_8h.html',1,'']]],
-  ['datasynchronizer_142',['DataSynchronizer',['../classlemons_1_1serializing_1_1DataSynchronizer.html',1,'lemons::serializing::DataSynchronizer'],['../classlemons_1_1serializing_1_1DataSynchronizer.html#a5f4b193ad6d069a9259a7324ddfbfd0a',1,'lemons::serializing::DataSynchronizer::DataSynchronizer()']]],
+  ['datasynchronizer_142',['DataSynchronizer',['../classlemons_1_1serializing_1_1DataSynchronizer.html',1,'lemons::serializing::DataSynchronizer'],['../classlemons_1_1serializing_1_1DataSynchronizer.html#a5f4b193ad6d069a9259a7324ddfbfd0a',1,'lemons::serializing::DataSynchronizer::DataSynchronizer()'],['../group__DataSynchronizer.html',1,'(Global Namespace)']]],
   ['datasynchronizer_2eh_143',['DataSynchronizer.h',['../DataSynchronizer_8h.html',1,'']]],
   ['dbparam_144',['dbParam',['../namespacelemons.html#a844dba6aafc52b1d910e4e3c19130e92',1,'lemons']]],
   ['deesser_145',['DeEsser',['../classlemons_1_1dsp_1_1FX_1_1DeEsser.html',1,'lemons::dsp::FX::DeEsser&lt; SampleType &gt;'],['../classlemons_1_1dsp_1_1FX_1_1DeEsser.html#a7450b544c31f184e1a4f86a3e95e9077',1,'lemons::dsp::FX::DeEsser::DeEsser()'],['../classlemons_1_1dsp_1_1FX_1_1DeEsser.html#afd07d59db330843c370f0080fa4f25a1',1,'lemons::dsp::FX::DeEsser::DeEsser(float threshDB, int deEssAmount)']]],
@@ -33,8 +34,7 @@ var searchData=
   ['dragstart_169',['dragStart',['../structlemons_1_1spline_1_1Knot.html#ab0aa56e638a7cef7b7ee238378782cea',1,'lemons::spline::Knot']]],
   ['drywet_2eh_170',['DryWet.h',['../DryWet_8h.html',1,'']]],
   ['drywetmixer_171',['DryWetMixer',['../classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html',1,'lemons::dsp::FX::DryWetMixer&lt; SampleType &gt;'],['../classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html#a21cda0dd28393401b26a3215d2826c25',1,'lemons::dsp::FX::DryWetMixer::DryWetMixer()'],['../classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html#a98f5a785665430b3547c2edbc0c70c81',1,'lemons::dsp::FX::DryWetMixer::DryWetMixer(int wetPercentMix, int wetLatencySamples=0)']]],
-  ['dummymotionmanager_2eh_172',['DummyMotionManager.h',['../DummyMotionManager_8h.html',1,'']]],
-  ['dynamics_173',['dynamics',['../group__lemons__audio__effects-dynamics.html',1,'']]],
-  ['dummy_5fdesktop_5fversions_174',['dummy_desktop_versions',['../group__lemons__mobile__utils-dummy__desktop__versions.html',1,'']]],
-  ['datasynchronizer_175',['DataSynchronizer',['../group__lemons__serializing-DataSynchronizer.html',1,'']]]
+  ['dummy_5fdesktop_5fversions_172',['dummy_desktop_versions',['../group__dummy__desktop__versions.html',1,'']]],
+  ['dummymotionmanager_2eh_173',['DummyMotionManager.h',['../DummyMotionManager_8h.html',1,'']]],
+  ['dynamics_174',['dynamics',['../group__dynamics.html',1,'']]]
 ];
