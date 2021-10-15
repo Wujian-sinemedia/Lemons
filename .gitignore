@@ -6,3 +6,4 @@ doxygen/doc
 doxygen/Lemons
 scripts/install/Brewfile
 scripts/install/Brewfile.lock.json
+default_projects/Builds

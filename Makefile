@@ -23,3 +23,4 @@ uth:
 clean:
 	$(RM) -rf Builds lemons_translations.txt scripts/install/Brewfile scripts/install/Brewfile.lock.json
 	cd doxygen && make clean
+	cd default_projects && make clean
