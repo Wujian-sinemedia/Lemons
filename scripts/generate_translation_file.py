@@ -31,18 +31,30 @@ def get_translate_tokens():
 
 ###############################################################################
 
+# Scans a single line of source code for calls to TRANS()
+
+def scan_line (text):
+	needed_translations = []
+	return needed_translations
+
+
+###############################################################################
+
 # Scans a single source file for calls to TRANS()
 
 def scan_file (file_path):
-	
-	with open (file_path, "r") as f:
-		content = f.read()
 
 	needed_translations = []
 
-	for token in get_translate_tokens():
-		for result in re.split (r"token", content):
-			needed_translations.append (result)
+	filename, file_extension = os.path.splitext (file_path)
+	if not (file_extension == ".h" or file_extension == ".hpp" or file_extension == ".c" or file_extension == ".cpp"):
+		return needed_translations
+	
+	with open (file_path, "r") as file:
+		for line in file:
+			if line:
+				for translation in scan_line (line):
+					needed_translations.append (translation)
 
 	return needed_translations
 
