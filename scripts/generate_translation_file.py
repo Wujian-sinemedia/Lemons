@@ -35,7 +35,7 @@ def scan_file (file_path):
 	needed_translations = []
 
 	for token in get_translate_tokens():
-		for result in re.split (r'%token', content):
+		for result in re.split (r"token", content):
 			print (result)
 			needed_translations.append (result)
 
