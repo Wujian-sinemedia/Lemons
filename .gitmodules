@@ -4,3 +4,6 @@
 [submodule "default_projects/DefaultJucePlugin"]
 	path = default_projects/DefaultJucePlugin
 	url = https://github.com/benthevining/DefaultJucePlugin
+[submodule "default_projects/DefaultJuceApp"]
+	path = default_projects/DefaultJuceApp
+	url = https://github.com/benthevining/DefaultJuceApp.git
