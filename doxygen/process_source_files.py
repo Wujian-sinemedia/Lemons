@@ -68,10 +68,14 @@ def create_module_subgroup (module_name, module_dir, subdir):
     subgroup_definition.append ("    @{")
     subgroup_definition.append ("*/")
 
+    # put this subdir's contents into appropriate doxygen subgroups
     for dirpath, dirnames, filenames in os.walk (os.path.join (module_dir, subdir)):
         for filename in filenames:
+            # top-level files in this directory
             add_doxygen_group (os.path.join (dirpath, filename), subgroup_name)
         for dirname in dirnames:
+            # nested subdirectories
+            subgroup_definition.append ("")
             subgroup_definition.append (create_module_subgroup (module_name, module_dir, os.path.join (subdir, dirname)))
 
     subgroup_definition.append ("")
@@ -104,9 +108,8 @@ def process_juce_module (category_name, module_name, module_dir):
     for item in os.listdir (module_dir):
         if (os.path.isdir (os.path.join (module_dir, item))):
             # subdirectory within module
-            subgroup_definition = create_module_subgroup (module_name, module_dir, item)
             module_definiton.append ("")
-            module_definiton.append (subgroup_definition)
+            module_definiton.append (create_module_subgroup (module_name, module_dir, item))
         else:
             # top-level files within module
             add_doxygen_group (os.path.join (module_dir, item), module_name)
@@ -114,7 +117,7 @@ def process_juce_module (category_name, module_name, module_dir):
     module_definiton.append ("")
     module_definiton.append ("/** @} */")
 
-    return module_definiton
+    return "\r\n".join (module_definiton)
 
 
 ###############################################################################
@@ -136,19 +139,14 @@ def process_module_category (category_name, orig_cat_dir, dest_cat_dir):
     # process all the modules in this category
     for subdir in os.listdir  (dest_cat_dir):
         module_path = os.path.join (dest_cat_dir, subdir)
-
         if os.path.isdir (module_path):
-            module_definition = process_juce_module (category_name, subdir, module_path)
-            category_definiton.append ("\r\n".join (module_definition))
+            category_definiton.append ("")
+            category_definiton.append (process_juce_module (category_name, subdir, module_path))
 
     category_definiton.append ("")
     category_definiton.append ("/** @} */")
 
-    # create a header file for the category
-    with open (os.path.join (dest_cat_dir, category_name + ".h"), "w") as f:
-        f.write ("\r\n\r\n".join (category_definiton))
-
-    return category_definiton
+    return "\r\n".join (category_definiton)
 
 
 ###############################################################################
@@ -162,12 +160,10 @@ def process_juce_modules (source_dir, dest_dir):
     category_definitions = []
 
     for category in os.listdir (orig_module_dir):
-        if os.path.isdir (os.path.join (orig_module_dir, category)):
-            category_definition = process_module_category (category,
-                                                           os.path.join (orig_module_dir, category),
-                                                           os.path.join (dest_dir, category))
-
-            category_definitions.append ("\r\n".join (category_definition))
+        category_path = os.path.join (orig_module_dir, category)
+        if os.path.isdir (category_path):
+            category_definitions.append (process_module_category (category, category_path,
+                                                                  os.path.join (dest_dir, category)))
 
     # Create a .dox file containing the entire module hierarchy
     with open (os.path.join (dest_dir, "lemons_modules.dox"), "w") as f:
@@ -181,10 +177,6 @@ def process_juce_modules (source_dir, dest_dir):
 def copy_cmake_readme (source_dir, dest_dir):
 
     dest = os.path.join (dest_dir, "cmake_api.md")
-
-    # create an empty file
-    with open (dest, "w") as f:
-        pass
 
     shutil.copy2 (os.path.join (os.path.join (source_dir, "cmake"), "README.md"), 
                   dest)
