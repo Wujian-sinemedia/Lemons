@@ -1,69 +1,70 @@
 <map id="lemons::SerializableData" name="lemons::SerializableData">
-<area shape="rect" id="node1" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="5,998,191,1024"/>
-<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1FX_1_1AudioEffect.html" title=" " alt="" coords="718,453,926,494"/>
-<area shape="rect" id="node7" href="$classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html" title=" " alt="" coords="719,584,925,625"/>
-<area shape="rect" id="node8" href="$classlemons_1_1dsp_1_1FX_1_1EffectEngine.html" title=" " alt="" coords="715,9,929,50"/>
-<area shape="rect" id="node10" href="$structlemons_1_1dsp_1_1FX_1_1AudioEffect.html" title="Base class for any kind of audio effect." alt="" coords="257,336,465,377"/>
-<area shape="rect" id="node25" href="$classlemons_1_1dsp_1_1FX_1_1EffectEngine.html" title="A class that wraps an AudioEffect into a dsp::Engine." alt="" coords="254,141,469,182"/>
-<area shape="rect" id="node26" href="$classlemons_1_1dsp_1_1FX_1_1Reverb.html" title="Reverb effect class that wraps juce::Reverb with some other useful bells and whistles,..." alt="" coords="271,634,451,660"/>
-<area shape="rect" id="node27" href="$classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html" title="A class that encapsulates together all the kinds of oscillators, and allows you to seamlessly switch ..." alt="" coords="258,685,465,726"/>
-<area shape="rect" id="node28" href="$classlemons_1_1midi_1_1MidiKeyboardState.html" title=" " alt="" coords="259,750,463,792"/>
-<area shape="rect" id="node29" href="$classlemons_1_1plugin_1_1ModulationManager.html" title="A modulation manager for a plugin." alt="" coords="262,816,461,857"/>
-<area shape="rect" id="node30" href="$structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html" title="An LFO, to be used by a ModulationManager object." alt="" coords="262,881,461,922"/>
-<area shape="rect" id="node31" href="$classlemons_1_1plugin_1_1Parameter.html" title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an..." alt="" coords="265,947,458,974"/>
-<area shape="rect" id="node50" href="$classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters." alt="" coords="253,998,469,1024"/>
-<area shape="rect" id="node51" href="$structlemons_1_1plugin_1_1ParamHolderBase.html" title="Base class for ParameterHolder that allows any kind of parameter to be accessed without knowing the f..." alt="" coords="240,1048,483,1075"/>
-<area shape="rect" id="node54" href="$structlemons_1_1plugin_1_1PluginState.html" title="Represents the top&#45;level state of a plugin as a whole." alt="" coords="261,1100,461,1141"/>
-<area shape="rect" id="node55" href="$structlemons_1_1plugin_1_1PluginState.html" title=" " alt="" coords="722,1165,922,1206"/>
-<area shape="rect" id="node56" href="$structlemons_1_1plugin_1_1Preset.html" title=" " alt="" coords="278,1216,445,1243"/>
-<area shape="rect" id="node57" href="$classlemons_1_1plugin_1_1StateBase.html" title="Base class for a plugin&#39;s state." alt="" coords="265,1267,457,1294"/>
-<area shape="rect" id="node60" href="$structlemons_1_1serializing_1_1FileContents.html" title="A wrapper around a File that, when serializing, loads and saves the file&#39;s entire contents." alt="" coords="289,1318,434,1360"/>
-<area shape="rect" id="node61" href="$structlemons_1_1serializing_1_1TogglerInterface.html" title="Interface that all Togglers implement to be able to access one without knowing its template arguments..." alt="" coords="289,1384,434,1425"/>
-<area shape="rect" id="node64" href="$structlemons_1_1spline_1_1Knot.html" title=" " alt="" coords="284,1450,439,1476"/>
-<area shape="rect" id="node65" href="$structlemons_1_1spline_1_1Knots.html" title=" " alt="" coords="280,1500,443,1527"/>
-<area shape="rect" id="node66" href="$structlemons_1_1spline_1_1Spline.html" title=" " alt="" coords="279,1551,444,1578"/>
-<area shape="rect" id="node67" href="$structlemons_1_1Version.html" title="A class that represents a version of something, with major, minor, and patch numbers." alt="" coords="298,1602,425,1628"/>
-<area shape="rect" id="node3" href="$structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html" title=" " alt="" coords="1212,74,1437,116"/>
-<area shape="rect" id="node6" href="$classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html" title=" " alt="" coords="1225,424,1425,465"/>
-<area shape="rect" id="node4" href="$structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html" title=" " alt="" coords="1569,42,1801,84"/>
-<area shape="rect" id="node5" href="$classlemons_1_1dsp_1_1FX_1_1Compressor.html" title=" " alt="" coords="1930,173,2142,214"/>
-<area shape="rect" id="node9" href="$structlemons_1_1dsp_1_1FX_1_1FilterEngine.html" title="A class that represents an audio engine holding a filter effect." alt="" coords="1219,9,1430,50"/>
-<area shape="rect" id="node11" href="$classlemons_1_1dsp_1_1FX_1_1EQ.html" title="An equalizer effect class." alt="" coords="746,140,898,181"/>
-<area shape="rect" id="node12" href="$classlemons_1_1dsp_1_1FX_1_1Filter.html" title="A filter audio effect class that wraps the more low&#45;level filters::Filter." alt="" coords="739,205,905,246"/>
-<area shape="rect" id="node13" href="$classlemons_1_1dsp_1_1FX_1_1Saturator.html" title=" " alt="" coords="725,270,919,312"/>
-<area shape="rect" id="node14" href="$structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html" title="Base class for audio effects that accept a sidechain signal." alt="" coords="709,74,935,116"/>
-<area shape="rect" id="node21" href="$classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html" title="A handy effect class that allows you to change the gain of a stream of audio, and will smooth the cha..." alt="" coords="722,518,922,560"/>
-<area shape="rect" id="node23" href="$classlemons_1_1dsp_1_1FX_1_1StereoPanner.html" title=" " alt="" coords="712,336,932,377"/>
-<area shape="rect" id="node24" href="$classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html" title=" " alt="" coords="701,402,943,428"/>
-<area shape="rect" id="node15" href="$structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html" title="Base class for audio effects that can report their level or gain reduction." alt="" coords="1209,173,1441,214"/>
-<area shape="rect" id="node16" href="$classlemons_1_1dsp_1_1FX_1_1Compressor.html" title="A simple compressor effect class that allows you to optionally sidechain the signal." alt="" coords="1579,304,1791,345"/>
-<area shape="rect" id="node17" href="$classlemons_1_1dsp_1_1FX_1_1DeEsser.html" title="A basic &quot;de&#45;esser&quot; effect class." alt="" coords="1591,369,1778,410"/>
-<area shape="rect" id="node18" href="$classlemons_1_1dsp_1_1FX_1_1Delay.html" title=" " alt="" coords="1599,108,1771,149"/>
-<area shape="rect" id="node19" href="$classlemons_1_1dsp_1_1FX_1_1Limiter.html" title="A simple limiter effect class that allows you to optionally sidechain the signal." alt="" coords="1595,173,1775,214"/>
-<area shape="rect" id="node20" href="$classlemons_1_1dsp_1_1FX_1_1NoiseGate.html" title="A simple noise gate effect class that allows you to optionally sidechain the signal." alt="" coords="1583,238,1786,280"/>
-<area shape="rect" id="node22" href="$classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html" title=" " alt="" coords="1225,489,1425,530"/>
-<area shape="rect" id="node32" href="$classlemons_1_1plugin_1_1TypedParameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="707,849,937,890"/>
-<area shape="rect" id="node44" href="$classlemons_1_1plugin_1_1TypedParameter.html" title=" " alt="" coords="1209,554,1440,596"/>
-<area shape="rect" id="node47" href="$classlemons_1_1plugin_1_1TypedParameter.html" title=" " alt="" coords="1209,1142,1440,1184"/>
-<area shape="rect" id="node33" href="$structlemons_1_1plugin_1_1FloatAmountParameter.html" title="A parameter that represents a value in a normalized 0&#45;1 range." alt="" coords="1219,1077,1430,1118"/>
-<area shape="rect" id="node34" href="$structlemons_1_1plugin_1_1FrequencyParameter.html" title="A parameter that represents a frequency in Hz." alt="" coords="1228,620,1421,661"/>
-<area shape="rect" id="node35" href="$structlemons_1_1plugin_1_1GainParameter.html" title="A parameter that represents a gain value in decibels." alt="" coords="1213,685,1436,726"/>
-<area shape="rect" id="node36" href="$classlemons_1_1plugin_1_1MetaParameter.html" title=" " alt="" coords="1211,750,1438,792"/>
-<area shape="rect" id="node39" href="$structlemons_1_1plugin_1_1MeterParameter.html" title="A parameter that represents a general kind of meter, used for reporting things like level or gain red..." alt="" coords="1209,881,1440,922"/>
-<area shape="rect" id="node41" href="$structlemons_1_1plugin_1_1MidiPitchParameter.html" title="A parameter that represents a MIDI pitch." alt="" coords="1231,816,1418,857"/>
-<area shape="rect" id="node42" href="$structlemons_1_1plugin_1_1SecondsParameter.html" title="A parameter that represents a time value in seconds, expressed as a float." alt="" coords="1201,946,1448,988"/>
-<area shape="rect" id="node43" href="$structlemons_1_1plugin_1_1SemitonesParameter.html" title="A parameter that represents a number of semitones, as an integer." alt="" coords="1227,1012,1422,1053"/>
-<area shape="rect" id="node37" href="$classlemons_1_1plugin_1_1MetaParameter.html" title=" " alt="" coords="1571,664,1798,705"/>
-<area shape="rect" id="node38" href="$structlemons_1_1plugin_1_1DefaultMetaParameter.html" title=" " alt="" coords="1933,664,2139,705"/>
-<area shape="rect" id="node40" href="$structlemons_1_1plugin_1_1GainMeterParameter.html" title="A parameter that represents a meter displaying values in decibels." alt="" coords="1587,881,1782,922"/>
-<area shape="rect" id="node45" href="$structlemons_1_1plugin_1_1MidiPanParameter.html" title="A parameter that represents a MIDI panning value in the range 0 to 127." alt="" coords="1563,536,1807,563"/>
-<area shape="rect" id="node46" href="$structlemons_1_1plugin_1_1PercentParameter.html" title="A parameter that represents an integer value in the range 0&#45;100." alt="" coords="1563,587,1806,614"/>
-<area shape="rect" id="node48" href="$structlemons_1_1plugin_1_1BoolParameter.html" title="Helper struct that simplifies the constructor for boolean parameters." alt="" coords="1573,1150,1796,1176"/>
-<area shape="rect" id="node49" href="$structlemons_1_1plugin_1_1ToggleParameter.html" title="A parameter that represents a boolean on/off toggle." alt="" coords="1919,1150,2153,1176"/>
-<area shape="rect" id="node52" href="$classlemons_1_1plugin_1_1ParameterHolder.html" title="Class that holds a parameter object, and can retain a reference to it after it has been added to an A..." alt="" coords="725,1048,919,1089"/>
-<area shape="rect" id="node53" href="$classlemons_1_1plugin_1_1ParameterHolder.html" title=" " alt="" coords="1199,1208,1451,1249"/>
-<area shape="rect" id="node58" href="$structlemons_1_1plugin_1_1CustomState.html" title="A plugin state class that instantiates the appropriate ParameterList and custom serializable object a..." alt="" coords="685,1234,959,1276"/>
-<area shape="rect" id="node59" href="$structlemons_1_1plugin_1_1State.html" title="A plugin state class that instantiates the appropriate ParameterList and passes it to the StateBase c..." alt="" coords="742,1300,902,1341"/>
-<area shape="rect" id="node62" href="$structlemons_1_1serializing_1_1Toggler.html" title="Class that manages several versions of the state of a serializable object and allows you to switch be..." alt="" coords="733,1373,911,1414"/>
-<area shape="rect" id="node63" href="$structlemons_1_1serializing_1_1Toggler.html" title=" " alt="" coords="1252,1409,1397,1450"/>
+<area shape="rect" id="node1" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="5,934,191,961"/>
+<area shape="rect" id="node2" href="$structlemons_1_1dsp_1_1FX_1_1AudioEffect.html" title=" " alt="" coords="718,180,926,221"/>
+<area shape="rect" id="node7" href="$classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html" title=" " alt="" coords="719,115,925,156"/>
+<area shape="rect" id="node8" href="$classlemons_1_1dsp_1_1FX_1_1EffectEngine.html" title=" " alt="" coords="715,31,929,72"/>
+<area shape="rect" id="node10" href="$structlemons_1_1dsp_1_1FX_1_1AudioEffect.html" title="Base class for any kind of audio effect." alt="" coords="257,452,465,493"/>
+<area shape="rect" id="node25" href="$classlemons_1_1dsp_1_1FX_1_1EffectEngine.html" title="A class that wraps an AudioEffect into a dsp::Engine." alt="" coords="254,5,469,47"/>
+<area shape="rect" id="node26" href="$classlemons_1_1dsp_1_1FX_1_1Reverb.html" title="Reverb effect class that wraps juce::Reverb with some other useful bells and whistles,..." alt="" coords="271,401,451,427"/>
+<area shape="rect" id="node27" href="$classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html" title="A class that encapsulates together all the kinds of oscillators, and allows you to seamlessly switch ..." alt="" coords="258,173,465,215"/>
+<area shape="rect" id="node28" href="$classlemons_1_1midi_1_1MidiKeyboardState.html" title=" " alt="" coords="259,687,463,728"/>
+<area shape="rect" id="node29" href="$classlemons_1_1plugin_1_1ModulationManager.html" title="A modulation manager for a plugin." alt="" coords="262,752,461,793"/>
+<area shape="rect" id="node30" href="$structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html" title="An LFO, to be used by a ModulationManager object." alt="" coords="262,817,461,859"/>
+<area shape="rect" id="node31" href="$classlemons_1_1plugin_1_1Parameter.html" title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an..." alt="" coords="265,883,458,910"/>
+<area shape="rect" id="node50" href="$classlemons_1_1plugin_1_1ParameterList.html" title="This class manages a list of a plugin&#39;s parameters." alt="" coords="253,934,469,961"/>
+<area shape="rect" id="node51" href="$structlemons_1_1plugin_1_1ParamHolderBase.html" title="Base class for ParameterHolder that allows any kind of parameter to be accessed without knowing the f..." alt="" coords="240,985,483,1011"/>
+<area shape="rect" id="node55" href="$structlemons_1_1plugin_1_1PluginState.html" title="Represents the top&#45;level state of a plugin as a whole." alt="" coords="261,1087,461,1128"/>
+<area shape="rect" id="node56" href="$structlemons_1_1plugin_1_1PluginState.html" title=" " alt="" coords="722,1128,922,1169"/>
+<area shape="rect" id="node57" href="$structlemons_1_1plugin_1_1Preset.html" title=" " alt="" coords="278,1153,445,1179"/>
+<area shape="rect" id="node58" href="$classlemons_1_1plugin_1_1StateBase.html" title="Base class for a plugin&#39;s state." alt="" coords="265,1203,457,1230"/>
+<area shape="rect" id="node61" href="$structlemons_1_1serializing_1_1FileContents.html" title="A wrapper around a File that, when serializing, loads and saves the file&#39;s entire contents." alt="" coords="289,1255,434,1296"/>
+<area shape="rect" id="node62" href="$structlemons_1_1serializing_1_1TogglerInterface.html" title="Interface that all Togglers implement to be able to access one without knowing its template arguments..." alt="" coords="289,1320,434,1361"/>
+<area shape="rect" id="node65" href="$structlemons_1_1spline_1_1Knot.html" title=" " alt="" coords="284,1386,439,1413"/>
+<area shape="rect" id="node66" href="$structlemons_1_1spline_1_1Knots.html" title=" " alt="" coords="280,1437,443,1463"/>
+<area shape="rect" id="node67" href="$structlemons_1_1spline_1_1Spline.html" title=" " alt="" coords="279,1487,444,1514"/>
+<area shape="rect" id="node68" href="$structlemons_1_1Version.html" title="A class that represents a version of something, with major, minor, and patch numbers." alt="" coords="298,1538,425,1565"/>
+<area shape="rect" id="node3" href="$structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html" title=" " alt="" coords="1270,180,1495,221"/>
+<area shape="rect" id="node6" href="$classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html" title=" " alt="" coords="1283,312,1483,353"/>
+<area shape="rect" id="node4" href="$structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html" title=" " alt="" coords="1646,79,1878,120"/>
+<area shape="rect" id="node5" href="$classlemons_1_1dsp_1_1FX_1_1Compressor.html" title=" " alt="" coords="2007,144,2219,185"/>
+<area shape="rect" id="node9" href="$structlemons_1_1dsp_1_1FX_1_1FilterEngine.html" title="A class that represents an audio engine holding a filter effect." alt="" coords="1277,31,1488,72"/>
+<area shape="rect" id="node11" href="$classlemons_1_1dsp_1_1FX_1_1EQ.html" title="An equalizer effect class." alt="" coords="746,297,898,339"/>
+<area shape="rect" id="node12" href="$classlemons_1_1dsp_1_1FX_1_1Filter.html" title="A filter audio effect class that wraps the more low&#45;level filters::Filter." alt="" coords="739,363,905,404"/>
+<area shape="rect" id="node13" href="$classlemons_1_1dsp_1_1FX_1_1Saturator.html" title=" " alt="" coords="725,428,919,469"/>
+<area shape="rect" id="node14" href="$structlemons_1_1dsp_1_1FX_1_1SidechainableAudioEffect.html" title="Base class for audio effects that accept a sidechain signal." alt="" coords="709,493,935,535"/>
+<area shape="rect" id="node21" href="$classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html" title="A handy effect class that allows you to change the gain of a stream of audio, and will smooth the cha..." alt="" coords="722,559,922,600"/>
+<area shape="rect" id="node23" href="$classlemons_1_1dsp_1_1FX_1_1StereoPanner.html" title=" " alt="" coords="712,624,932,665"/>
+<area shape="rect" id="node24" href="$classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html" title=" " alt="" coords="701,246,943,273"/>
+<area shape="rect" id="node15" href="$structlemons_1_1dsp_1_1FX_1_1LevelReportingAudioEffect.html" title="Base class for audio effects that can report their level or gain reduction." alt="" coords="1267,247,1499,288"/>
+<area shape="rect" id="node16" href="$classlemons_1_1dsp_1_1FX_1_1Compressor.html" title="A simple compressor effect class that allows you to optionally sidechain the signal." alt="" coords="1656,209,1868,251"/>
+<area shape="rect" id="node17" href="$classlemons_1_1dsp_1_1FX_1_1DeEsser.html" title="A basic &quot;de&#45;esser&quot; effect class." alt="" coords="1669,275,1855,316"/>
+<area shape="rect" id="node18" href="$classlemons_1_1dsp_1_1FX_1_1Delay.html" title=" " alt="" coords="1676,340,1848,381"/>
+<area shape="rect" id="node19" href="$classlemons_1_1dsp_1_1FX_1_1Limiter.html" title="A simple limiter effect class that allows you to optionally sidechain the signal." alt="" coords="1672,405,1852,447"/>
+<area shape="rect" id="node20" href="$classlemons_1_1dsp_1_1FX_1_1NoiseGate.html" title="A simple noise gate effect class that allows you to optionally sidechain the signal." alt="" coords="1661,144,1863,185"/>
+<area shape="rect" id="node22" href="$classlemons_1_1dsp_1_1FX_1_1SmoothedGain.html" title=" " alt="" coords="1283,377,1483,419"/>
+<area shape="rect" id="node32" href="$classlemons_1_1plugin_1_1TypedParameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="707,741,937,783"/>
+<area shape="rect" id="node44" href="$classlemons_1_1plugin_1_1TypedParameter.html" title=" " alt="" coords="1267,1031,1498,1072"/>
+<area shape="rect" id="node47" href="$classlemons_1_1plugin_1_1TypedParameter.html" title=" " alt="" coords="1267,443,1498,484"/>
+<area shape="rect" id="node33" href="$structlemons_1_1plugin_1_1FloatAmountParameter.html" title="A parameter that represents a value in a normalized 0&#45;1 range." alt="" coords="1277,639,1488,680"/>
+<area shape="rect" id="node34" href="$structlemons_1_1plugin_1_1FrequencyParameter.html" title="A parameter that represents a frequency in Hz." alt="" coords="1286,704,1479,745"/>
+<area shape="rect" id="node35" href="$structlemons_1_1plugin_1_1GainParameter.html" title="A parameter that represents a gain value in decibels." alt="" coords="1271,835,1494,876"/>
+<area shape="rect" id="node36" href="$classlemons_1_1plugin_1_1MetaParameter.html" title=" " alt="" coords="1269,900,1496,941"/>
+<area shape="rect" id="node39" href="$structlemons_1_1plugin_1_1MeterParameter.html" title="A parameter that represents a general kind of meter, used for reporting things like level or gain red..." alt="" coords="1267,769,1498,811"/>
+<area shape="rect" id="node41" href="$structlemons_1_1plugin_1_1MidiPitchParameter.html" title="A parameter that represents a MIDI pitch." alt="" coords="1289,965,1476,1007"/>
+<area shape="rect" id="node42" href="$structlemons_1_1plugin_1_1SecondsParameter.html" title="A parameter that represents a time value in seconds, expressed as a float." alt="" coords="1259,508,1506,549"/>
+<area shape="rect" id="node43" href="$structlemons_1_1plugin_1_1SemitonesParameter.html" title="A parameter that represents a number of semitones, as an integer." alt="" coords="1285,573,1480,615"/>
+<area shape="rect" id="node37" href="$classlemons_1_1plugin_1_1MetaParameter.html" title=" " alt="" coords="1649,948,1875,989"/>
+<area shape="rect" id="node38" href="$structlemons_1_1plugin_1_1DefaultMetaParameter.html" title=" " alt="" coords="2010,948,2217,989"/>
+<area shape="rect" id="node40" href="$structlemons_1_1plugin_1_1GainMeterParameter.html" title="A parameter that represents a meter displaying values in decibels." alt="" coords="1665,769,1859,811"/>
+<area shape="rect" id="node45" href="$structlemons_1_1plugin_1_1MidiPanParameter.html" title="A parameter that represents a MIDI panning value in the range 0 to 127." alt="" coords="1640,1031,1884,1058"/>
+<area shape="rect" id="node46" href="$structlemons_1_1plugin_1_1PercentParameter.html" title="A parameter that represents an integer value in the range 0&#45;100." alt="" coords="1641,1082,1883,1109"/>
+<area shape="rect" id="node48" href="$structlemons_1_1plugin_1_1BoolParameter.html" title="Helper struct that simplifies the constructor for boolean parameters." alt="" coords="1651,471,1873,498"/>
+<area shape="rect" id="node49" href="$structlemons_1_1plugin_1_1ToggleParameter.html" title="A parameter that represents a boolean on/off toggle." alt="" coords="1996,471,2231,498"/>
+<area shape="rect" id="node52" href="$classlemons_1_1plugin_1_1ParameterHolder.html" title="Class that holds a parameter object, and can retain a reference to it after it has been added to an A..." alt="" coords="725,1011,919,1052"/>
+<area shape="rect" id="node53" href="$classlemons_1_1plugin_1_1ParameterHolder.html" title=" " alt="" coords="1257,1161,1509,1203"/>
+<area shape="rect" id="node54" href="$classlemons_1_1plugin_1_1ParameterHolder.html" title=" " alt="" coords="1237,1096,1528,1137"/>
+<area shape="rect" id="node59" href="$structlemons_1_1plugin_1_1CustomState.html" title="A plugin state class that instantiates the appropriate ParameterList and custom serializable object a..." alt="" coords="685,1259,959,1300"/>
+<area shape="rect" id="node60" href="$structlemons_1_1plugin_1_1State.html" title="A plugin state class that instantiates the appropriate ParameterList and passes it to the StateBase c..." alt="" coords="742,1193,902,1235"/>
+<area shape="rect" id="node63" href="$structlemons_1_1serializing_1_1Toggler.html" title="Class that manages several versions of the state of a serializable object and allows you to switch be..." alt="" coords="733,1324,911,1365"/>
+<area shape="rect" id="node64" href="$structlemons_1_1serializing_1_1Toggler.html" title=" " alt="" coords="1310,1357,1455,1399"/>
 </map>

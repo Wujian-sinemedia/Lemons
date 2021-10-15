@@ -8546,15 +8546,15 @@
       <type></type>
       <name>LFO</name>
       <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
-      <anchor>a454ed97c712e1db3f82cf301493d355e</anchor>
-      <arglist>()=default</arglist>
+      <anchor>a3b3f06cf0f71609fa1cc022c8ba7d67c</anchor>
+      <arglist>(ParameterList &amp;listToUse, String metaParameterName=&quot;MetaParameter&quot;)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
-      <name>createOrEditConnection</name>
+      <name>addParameterTo</name>
       <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
-      <anchor>a0dfb75a04070beef87878e531fee3481</anchor>
-      <arglist>(Parameter &amp;parameter, int amount)</arglist>
+      <anchor>aa86fc077d0a9772c700b3c8dd61e6ee7</anchor>
+      <arglist>(juce::AudioProcessor &amp;processor)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -8564,13 +8564,6 @@
       <arglist>(const ValueTree &amp;tree)</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
-      <name>getConnectionAmount</name>
-      <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
-      <anchor>a9a441caddd8fa41fd4caf76cbf9e36ea</anchor>
-      <arglist>(Parameter &amp;parameter) const</arglist>
-    </member>
-    <member kind="function">
       <type>Osc &amp;</type>
       <name>getOscillator</name>
       <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
@@ -8578,11 +8571,11 @@
       <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
-      <type>bool</type>
-      <name>hasConnection</name>
+      <type>DefaultMetaParameter &amp;</type>
+      <name>getParameter</name>
       <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
-      <anchor>af25a13aaa9840c6d0911400cf0e985ad</anchor>
-      <arglist>(Parameter &amp;parameter) const</arglist>
+      <anchor>a263bf445d2bcd71d88e95d94a1c6bbe5</anchor>
+      <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -8606,25 +8599,11 @@
       <arglist>(bool advance=true)</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
-      <name>removeConnection</name>
-      <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
-      <anchor>a7faee7a83d718178c91bd434b1b0d584</anchor>
-      <arglist>(Parameter &amp;parameter)</arglist>
-    </member>
-    <member kind="function">
       <type>ValueTree</type>
       <name>serialize</name>
       <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
       <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
       <arglist>()</arglist>
-    </member>
-    <member kind="friend" protection="private">
-      <type>friend class</type>
-      <name>ModulationManager</name>
-      <anchorfile>structlemons_1_1plugin_1_1ModulationManager_1_1LFO.html</anchorfile>
-      <anchor>a9ab1a3e1be618595804de7c989b5e099</anchor>
-      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -11254,6 +11233,13 @@
       <anchorfile>classlemons_1_1plugin_1_1ModulationManager.html</anchorfile>
       <anchor>a793a5b4b22a21eb088ab5e238b689cf1</anchor>
       <arglist>(ParameterList &amp;listToUse)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addAllParametersTo</name>
+      <anchorfile>classlemons_1_1plugin_1_1ModulationManager.html</anchorfile>
+      <anchor>a26129de9832841d0b87bc9c38a39fdfc</anchor>
+      <arglist>(juce::AudioProcessor &amp;processor)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -14387,6 +14373,116 @@
     </member>
     <member kind="function">
       <type>ParameterType *</type>
+      <name>operator-&gt;</name>
+      <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
+      <anchor>af8be24e22449c0d7e778e689ce3202a3</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>ValueTree</type>
+      <name>serialize</name>
+      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
+      <anchor>af4e10eefa677226e7927d204b33edbdb</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="variable">
+      <type>bool</type>
+      <name>isInternal</name>
+      <anchorfile>structlemons_1_1plugin_1_1ParamHolderBase.html</anchorfile>
+      <anchor>adfadd47309422ecf2bdc5d4b54828ecf</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>serialize</name>
+      <anchorfile>structlemons_1_1plugin_1_1ParamHolderBase.html</anchorfile>
+      <anchor>a4ab97c4fac55246598fec66b3da5c501</anchor>
+      <arglist>(TreeReflector &amp;ref) final</arglist>
+    </member>
+    <member kind="variable" protection="protected">
+      <type>bool</type>
+      <name>addedToProcessor</name>
+      <anchorfile>structlemons_1_1plugin_1_1ParamHolderBase.html</anchorfile>
+      <anchor>a9709276e5627852ac2be0c9e628ddbb6</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>ParameterHolder&lt; plugin::DefaultMetaParameter &gt;</name>
+    <filename>classlemons_1_1plugin_1_1ParameterHolder.html</filename>
+    <base>lemons::plugin::ParamHolderBase</base>
+    <member kind="function">
+      <type></type>
+      <name>ParameterHolder</name>
+      <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
+      <anchor>a7d5493b060034137efe56b84f168f543</anchor>
+      <arglist>(Args &amp;&amp;... args)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~ParameterHolder</name>
+      <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
+      <anchor>a7f4767d8a5e848b9142d6edad36b2b56</anchor>
+      <arglist>() override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addTo</name>
+      <anchorfile>structlemons_1_1plugin_1_1ParamHolderBase.html</anchorfile>
+      <anchor>a11d61d765d9c8a318a6f8dadfcf4b9cb</anchor>
+      <arglist>(juce::AudioProcessor &amp;processor)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>deserialize</name>
+      <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
+      <anchor>ace1758cc9344ae03a6d01c3c218226de</anchor>
+      <arglist>(const ValueTree &amp;tree)</arglist>
+    </member>
+    <member kind="function">
+      <type>plugin::DefaultMetaParameter *</type>
+      <name>get</name>
+      <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
+      <anchor>ae04296b7f4ca2aeffb2af85292f22feb</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>Parameter *</type>
+      <name>getParam</name>
+      <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
+      <anchor>a91d8017c2f09703205213984335fd5be</anchor>
+      <arglist>() const noexcept final</arglist>
+    </member>
+    <member kind="function" virtualness="pure">
+      <type>virtual Parameter *</type>
+      <name>getParam</name>
+      <anchorfile>structlemons_1_1plugin_1_1ParamHolderBase.html</anchorfile>
+      <anchor>a05fdbbc40c5ff449c4a7731d2f53bb3e</anchor>
+      <arglist>() const noexcept=0</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>operator plugin::DefaultMetaParameter &amp;</name>
+      <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
+      <anchor>a3f10fac9b90052c0dda28f9b98763ea3</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>plugin::DefaultMetaParameter &amp;</type>
+      <name>operator*</name>
+      <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
+      <anchor>a9243bbaef87a179742d3300d5657caf9</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>Parameter *</type>
+      <name>operator-&gt;</name>
+      <anchorfile>structlemons_1_1plugin_1_1ParamHolderBase.html</anchorfile>
+      <anchor>aa3dd2770b6e24fffb849628a947f1de0</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>plugin::DefaultMetaParameter *</type>
       <name>operator-&gt;</name>
       <anchorfile>classlemons_1_1plugin_1_1ParameterHolder.html</anchorfile>
       <anchor>af8be24e22449c0d7e778e689ce3202a3</anchor>
