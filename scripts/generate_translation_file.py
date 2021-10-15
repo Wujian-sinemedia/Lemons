@@ -9,23 +9,21 @@ import argparse
 
 # Returns an array of strings to look for, the most common ways that translate() appears in source code
 
+def get_tokens_for_symbol (symbol):
+	tokens = []
+
+	for ending in ["(\"", " (\"", "( \"", " ( \""]:
+		tokens.append (symbol + ending)
+
+	return tokens
+
+
 def get_translate_tokens():
 	tokens = []
 
-	tokens.append ("translate(\"")
-	tokens.append ("translate (\"")
-	tokens.append ("translate( \"")
-	tokens.append ("translate ( \"")
-
-	tokens.append ("juce::translate(\"")
-	tokens.append ("juce::translate (\"")
-	tokens.append ("juce::translate( \"")
-	tokens.append ("juce::translate ( \"")
-
-	tokens.append ("TRANS(\"")
-	tokens.append ("TRANS (\"")
-	tokens.append ("TRANS( \"")
-	tokens.append ("TRANS ( \"")
+	for version in ["translate", "juce::translate", "TRANS"]:
+		for token in get_tokens_for_symbol (version):
+			tokens.append (token)
 
 	return tokens
 
@@ -94,10 +92,9 @@ def remove_duplicates (orig_list):
 if __name__ == "__main__":
 
 	parser = argparse.ArgumentParser()
-    parser.add_argument ("source_dir", help="the directory to search for source files")
-    parser.add_argument ("output_file", help="the file to write the output to")
-    
-    args = parser.parse_args()
+	parser.add_argument ("source_dir", help="the directory to search for source files")
+	parser.add_argument ("output_file", help="the file to write the output to")
+	args = parser.parse_args()
 
 	if os.path.exists (args.output_file):
 		os.remove (args.output_file)
@@ -105,8 +102,8 @@ if __name__ == "__main__":
 	needed_translations = remove_duplicates (scan_directory (args.source_dir))
 
 	with open (args.output_file, "w") as f:
-		f.write ("language: ")
-		f.write ("countries: ")
+		f.write ("language: \n")
+		f.write ("countries: \n")
 		f.write ("")
 
 		for translation in needed_translations:
