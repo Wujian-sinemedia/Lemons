@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['editorbase_1562',['EditorBase',['../classlemons_1_1plugin_1_1EditorBase.html#a5894cfd112c511465181427b83937384',1,'lemons::plugin::EditorBase']]],
-  ['effectengine_1563',['EffectEngine',['../classlemons_1_1dsp_1_1FX_1_1EffectEngine.html#a3543298599048f1a8d3a471a67ae9eff',1,'lemons::dsp::FX::EffectEngine']]],
-  ['enableonlylandscaperotations_1564',['enableOnlyLandscapeRotations',['../structlemons_1_1DeviceRotation.html#a0df7021c93b9a6ddddfa2ed729be62d2',1,'lemons::DeviceRotation']]],
-  ['enableonlyverticalrotations_1565',['enableOnlyVerticalRotations',['../structlemons_1_1DeviceRotation.html#a4e3fba3a64e72593c3cd5b4100562b53',1,'lemons::DeviceRotation']]],
-  ['endgesture_1566',['endGesture',['../classlemons_1_1plugin_1_1Parameter.html#a6dcc681b173e3682f071e0423343e12f',1,'lemons::plugin::Parameter']]],
-  ['endtransaction_1567',['endTransaction',['../classlemons_1_1UndoManager.html#a32fe98d863b94e41d23425bb1b0f1396',1,'lemons::UndoManager']]],
-  ['engine_1568',['Engine',['../classlemons_1_1dsp_1_1Engine.html#aff2070d0265ee64b3377e7551525efa6',1,'lemons::dsp::Engine']]],
-  ['eq_1569',['EQ',['../classlemons_1_1dsp_1_1FX_1_1EQ.html#a2dcdb60a42bb68a1f447336ee6127d1e',1,'lemons::dsp::FX::EQ']]]
+  ['editorbase_1550',['EditorBase',['../classlemons_1_1plugin_1_1EditorBase.html#a5894cfd112c511465181427b83937384',1,'lemons::plugin::EditorBase']]],
+  ['effectengine_1551',['EffectEngine',['../classlemons_1_1dsp_1_1FX_1_1EffectEngine.html#a3543298599048f1a8d3a471a67ae9eff',1,'lemons::dsp::FX::EffectEngine']]],
+  ['enableonlylandscaperotations_1552',['enableOnlyLandscapeRotations',['../structlemons_1_1DeviceRotation.html#a0df7021c93b9a6ddddfa2ed729be62d2',1,'lemons::DeviceRotation']]],
+  ['enableonlyverticalrotations_1553',['enableOnlyVerticalRotations',['../structlemons_1_1DeviceRotation.html#a4e3fba3a64e72593c3cd5b4100562b53',1,'lemons::DeviceRotation']]],
+  ['endgesture_1554',['endGesture',['../classlemons_1_1plugin_1_1Parameter.html#a6dcc681b173e3682f071e0423343e12f',1,'lemons::plugin::Parameter']]],
+  ['endtransaction_1555',['endTransaction',['../classlemons_1_1UndoManager.html#a32fe98d863b94e41d23425bb1b0f1396',1,'lemons::UndoManager']]],
+  ['engine_1556',['Engine',['../classlemons_1_1dsp_1_1Engine.html#aff2070d0265ee64b3377e7551525efa6',1,'lemons::dsp::Engine']]],
+  ['eq_1557',['EQ',['../classlemons_1_1dsp_1_1FX_1_1EQ.html#a2dcdb60a42bb68a1f447336ee6127d1e',1,'lemons::dsp::FX::EQ']]]
 ];

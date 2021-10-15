@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['databasepresetsmanager_1113',['DatabasePresetsManager',['../classlemons_1_1plugin_1_1presets_1_1DatabasePresetsManager.html',1,'lemons::plugin::presets']]],
-  ['datasynchronizer_1114',['DataSynchronizer',['../classlemons_1_1serializing_1_1DataSynchronizer.html',1,'lemons::serializing']]],
-  ['deesser_1115',['DeEsser',['../classlemons_1_1dsp_1_1FX_1_1DeEsser.html',1,'lemons::dsp::FX']]],
-  ['defaultmetaparameter_1116',['DefaultMetaParameter',['../structlemons_1_1plugin_1_1DefaultMetaParameter.html',1,'lemons::plugin']]],
-  ['defaultwindow_1117',['DefaultWindow',['../structlemons_1_1DefaultWindow.html',1,'lemons']]],
-  ['defaultwindowbase_1118',['DefaultWindowBase',['../structlemons_1_1DefaultWindowBase.html',1,'lemons']]],
-  ['delay_1119',['Delay',['../classlemons_1_1dsp_1_1FX_1_1Delay.html',1,'lemons::dsp::FX']]],
-  ['devicerotation_1120',['DeviceRotation',['../structlemons_1_1DeviceRotation.html',1,'lemons']]],
-  ['devicerotationlistener_1121',['DeviceRotationListener',['../structlemons_1_1DeviceRotationListener.html',1,'lemons']]],
-  ['drywetmixer_1122',['DryWetMixer',['../classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html',1,'lemons::dsp::FX']]]
+  ['databasepresetsmanager_1107',['DatabasePresetsManager',['../classlemons_1_1plugin_1_1presets_1_1DatabasePresetsManager.html',1,'lemons::plugin::presets']]],
+  ['datasynchronizer_1108',['DataSynchronizer',['../classlemons_1_1serializing_1_1DataSynchronizer.html',1,'lemons::serializing']]],
+  ['deesser_1109',['DeEsser',['../classlemons_1_1dsp_1_1FX_1_1DeEsser.html',1,'lemons::dsp::FX']]],
+  ['defaultmetaparameter_1110',['DefaultMetaParameter',['../structlemons_1_1plugin_1_1DefaultMetaParameter.html',1,'lemons::plugin']]],
+  ['defaultwindow_1111',['DefaultWindow',['../structlemons_1_1DefaultWindow.html',1,'lemons']]],
+  ['defaultwindowbase_1112',['DefaultWindowBase',['../structlemons_1_1DefaultWindowBase.html',1,'lemons']]],
+  ['delay_1113',['Delay',['../classlemons_1_1dsp_1_1FX_1_1Delay.html',1,'lemons::dsp::FX']]],
+  ['devicerotation_1114',['DeviceRotation',['../structlemons_1_1DeviceRotation.html',1,'lemons']]],
+  ['devicerotationlistener_1115',['DeviceRotationListener',['../structlemons_1_1DeviceRotationListener.html',1,'lemons']]],
+  ['drywetmixer_1116',['DryWetMixer',['../classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html',1,'lemons::dsp::FX']]]
 ];
