@@ -95,16 +95,15 @@ void TreeReflector::loadObject (const String& propertyName, Type& object)
 template < typename Type >
 void TreeReflector::saveObject (const String& propertyName, const Type& object)
 {
-    tree.setProperty (
-        propertyName,
-        [&]() -> juce::var
-        {
-            if constexpr (std::is_enum< Type >())
-                return static_cast< int > (static_cast< std::underlying_type_t< Type > > (object));
-            else
-                return serializing::toVar (object);
-        }(),
-        nullptr);
+    const auto var = [&]() -> juce::var
+    {
+        if constexpr (std::is_enum< Type >())
+            return static_cast< int > (static_cast< std::underlying_type_t< Type > > (object));
+        else
+            return serializing::toVar (object);
+    }();
+
+    tree.setProperty (propertyName, var, nullptr);
 }
 
 /*----------------------------------------------------------------------------------------------------------------------------------*/

@@ -40,11 +40,10 @@ void TreeReflector::addContainer (ContainerType& container)
 
             for (int i = 0; i < total; ++i)
             {
-                if (const auto test = elementsAreContainers ? tree.getChild (i).getType() : tree.getPropertyName (i);
-                    ! names.contains (test.toString()))
-                {
+                const auto test = elementsAreContainers ? tree.getChild (i).getType() : tree.getPropertyName (i);
+
+                if (! names.contains (test.toString()))
                     --actualNum;
-                }
             }
 
             return actualNum;

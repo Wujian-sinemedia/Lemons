@@ -30,7 +30,7 @@ void ParameterList::addParameter (ParamHolderBase& param, bool isInternal)
         param->setUndoManager (*undo);
 
     param.isInternal = isInternal;
-    params.emplace_back (&param);
+    params.push_back (&param);
 }
 
 void ParameterList::setPitchbendParameter (IntParam& param)

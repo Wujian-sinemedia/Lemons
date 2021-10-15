@@ -300,17 +300,20 @@ juce::var toVar (const AudioBuffer< float >& buffer)
 template <>
 juce::var toVar (const AudioBuffer< double >& buffer)
 {
-    return memoryBlockToString ([&]() -> juce::MemoryBlock
-                                {
+    const auto block = [&]() -> juce::MemoryBlock
+    {
         const auto numSamples  = buffer.getNumSamples();
         const auto numChannels = buffer.getNumChannels();
-        
+
         AudioBuffer< float > temp {numSamples, numChannels};
-        
+
         for (int chan = 0; chan < numChannels; ++chan)
             vecops::convert (temp.getWritePointer (chan), buffer.getReadPointer (chan), numSamples);
-        
-        return bufferToMemoryBlock (temp); }());
+
+        return bufferToMemoryBlock (temp);
+    }();
+
+    return memoryBlockToString (block);
 }
 
 
@@ -344,14 +347,17 @@ juce::var toVar (const juce::MidiBuffer& buffer)
 {
     juce::MidiFile file;
 
-    file.addTrack ([buffer]() -> juce::MidiMessageSequence
-                   {
-        juce::MidiMessageSequence sequence;
-        
+    const auto sequence = [buffer]() -> juce::MidiMessageSequence
+    {
+        juce::MidiMessageSequence seq;
+
         for (auto meta : buffer)
-            sequence.addEvent (meta.getMessage());
-        
-        return sequence; }());
+            seq.addEvent (meta.getMessage());
+
+        return seq;
+    }();
+
+    file.addTrack (sequence);
 
     juce::MemoryBlock        block;
     juce::MemoryOutputStream stream {block, false};
