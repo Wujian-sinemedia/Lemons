@@ -10,5 +10,5 @@ set (CPM_Lemons_SOURCE ${CMAKE_CURRENT_LIST_DIR}/..)
 set (LEMONS_CCACHE_OPTIONS "CCACHE_BASEDIR=${CPM_Lemons_SOURCE}")
 list (APPEND LEMONS_CCACHE_OPTIONS "CCACHE_DIR=$ENV{CPM_SOURCE_CACHE}/ccache/cache")
 
-add_subdirectory (DefaultJucePlugin)
 add_subdirectory (DefaultJuceApp)
+add_subdirectory (DefaultJucePlugin)

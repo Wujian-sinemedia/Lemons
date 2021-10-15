@@ -1,15 +1,13 @@
 SHELL := /bin/bash
 
-SOURCE_FILES := $(shell find modules -type f -name "*.h" | sed 's/ /\\ /g')
-
 .PHONY: config clean
 
 #
 
-config: CMakelists.txt $(SOURCE_FILES)
+config: CMakelists.txt
 	cmake -B Builds -G Xcode
 
-build: config $(SOURCE_FILES)
+build: config
 	cmake --build Builds --target All_Build
 
 clean:
