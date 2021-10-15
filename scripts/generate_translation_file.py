@@ -2,6 +2,7 @@
 
 import os
 import re
+import argparse
 
 
 ###############################################################################
@@ -92,21 +93,18 @@ def remove_duplicates (orig_list):
 
 if __name__ == "__main__":
 
-	script_dir = os.path.abspath (os.path.dirname (__file__))
+	parser = argparse.ArgumentParser()
+    parser.add_argument ("source_dir", help="the directory to search for source files")
+    parser.add_argument ("output_file", help="the file to write the output to")
+    
+    args = parser.parse_args()
 
-	repo_dir = os.path.abspath (os.path.dirname (script_dir))
+	if os.path.exists (args.output_file):
+		os.remove (args.output_file)
 
-	modules_dir = os.path.join (repo_dir, "modules")
+	needed_translations = remove_duplicates (scan_directory (args.source_dir))
 
-	output_file = os.path.join (script_dir, "lemons_translations.txt")
-
-	if os.path.exists (output_file):
-		os.remove (output_file)
-
-	needed_translations = remove_duplicates (scan_directory (modules_dir))
-
-	# write to output file
-	with open (output_file, "w") as f:
+	with open (args.output_file, "w") as f:
 		f.write ("language: ")
 		f.write ("countries: ")
 		f.write ("")
