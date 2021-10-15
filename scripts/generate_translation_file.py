@@ -15,6 +15,12 @@ def get_translate_tokens():
 	tokens.append ("translate (\"")
 	tokens.append ("translate( \"")
 	tokens.append ("translate ( \"")
+
+	tokens.append ("juce::translate(\"")
+	tokens.append ("juce::translate (\"")
+	tokens.append ("juce::translate( \"")
+	tokens.append ("juce::translate ( \"")
+
 	tokens.append ("TRANS(\"")
 	tokens.append ("TRANS (\"")
 	tokens.append ("TRANS( \"")
@@ -36,10 +42,9 @@ def scan_file (file_path):
 
 	for token in get_translate_tokens():
 		for result in re.split (r"token", content):
-			print (result)
 			needed_translations.append (result)
 
-	return "\r\n".join (needed_translations)
+	return needed_translations
 
 
 ###############################################################################
@@ -52,11 +57,13 @@ def scan_directory (dir_path):
 
 	for dirpath, dirnames, filenames in os.walk (dir_path):
 		for dirname in dirnames:
-			needed_translations.append (scan_directory (os.path.join (dirpath, dirname)))
+			for translation in scan_directory (os.path.join (dirpath, dirname)):
+				needed_translations.append (translation)
 		for filename in filenames:
-			needed_translations.append (scan_file (os.path.join (dirpath, filename)))
+			for translation in scan_file (os.path.join (dirpath, filename)):
+				needed_translations.append (translation)
 
-	return "\r\n".join (needed_translations)
+	return needed_translations
 
 
 ###############################################################################
@@ -88,4 +95,9 @@ if __name__ == "__main__":
 
 	# write to output file
 	with open (output_file, "w") as f:
-		f.write ("\r\n".join (needed_translations))
+		f.write ("language: ")
+		f.write ("countries: ")
+		f.write ("")
+
+		for translation in needed_translations:
+			f.write ("\"{t}\" = ".format (t=translation))
