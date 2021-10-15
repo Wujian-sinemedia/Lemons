@@ -2,9 +2,12 @@ SHELL := /bin/bash
 
 SOURCE_FILES := $(shell find modules -type f -name "*.h" | sed 's/ /\\ /g')
 
-.PHONY: doxygen format translate uth clean
+.PHONY: defaults doxygen format translate uth clean
 
 #
+
+defaults:
+	cd default_projects && make build
 
 doxygen: $(SOURCE_FILES)
 	cd doxygen && make
