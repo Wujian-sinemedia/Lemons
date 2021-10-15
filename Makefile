@@ -2,8 +2,11 @@ SHELL := /bin/bash
 
 SOURCE_FILES := $(shell find modules -type f -name "*.h" | sed 's/ /\\ /g')
 
-.PHONY: clean translate doxygen
+.PHONY: format doxygen translate clean
 
+
+format: scripts/run_clang_format.py $(SOURCE_FILES)
+	python $< modules
 
 doxygen: $(SOURCE_FILES)
 	cd doxygen && make
