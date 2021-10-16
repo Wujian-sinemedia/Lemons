@@ -5,15 +5,9 @@
 
 import os
 import shutil
-import argparse
 
 
 if __name__ == "__main__":
-
-	parser = argparse.ArgumentParser()
-	parser.add_argument ("github_repo_token", help="secure token for github login")
-	
-	args = parser.parse_args()
 
 	script_dir = os.path.abspath (os.path.dirname (__file__))
 
