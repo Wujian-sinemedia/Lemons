@@ -1,0 +1,5 @@
+<map id="lemons::dsp::osc::ChoosableOscillator&lt; SampleType &gt;" name="lemons::dsp::osc::ChoosableOscillator&lt; SampleType &gt;">
+<area shape="rect" id="node1" title="A class that encapsulates together all the kinds of oscillators, and allows you to seamlessly switch ..." alt="" coords="5,81,212,123"/>
+<area shape="rect" id="node3" href="$classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html" title=" " alt="" coords="5,185,212,227"/>
+<area shape="rect" id="node2" href="$structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="16,5,201,32"/>
+</map>

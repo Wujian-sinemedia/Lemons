@@ -1,0 +1,5 @@
+<map id="lemons::gui::TextButton" name="lemons::gui::TextButton">
+<area shape="rect" id="node1" title=" " alt="" coords="27,5,203,32"/>
+<area shape="rect" id="node2" href="$structlemons_1_1gui_1_1ToggleTextButton.html" title=" " alt="" coords="5,80,224,107"/>
+<area shape="rect" id="node3" href="$classlemons_1_1gui_1_1ToggleButton.html" title="A stateful on/off button attached to a boolean plugin parameter." alt="" coords="19,155,210,181"/>
+</map>

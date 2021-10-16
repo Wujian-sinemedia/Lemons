@@ -1,0 +1,828 @@
+/** @defgroup Common Common
+
+    @{
+*/
+
+/** @defgroup lemons_mobile_utils lemons_mobile_utils
+    JUCE module that provides some useful utilities for crossplatform iOS and Android development
+
+    - ID:                 lemons_mobile_utils
+    - vendor:             Ben Vining
+    - version:            0.0.1
+    - name:               lemons_mobile_utils
+    - dependencies:       juce_gui_basics
+    - iOSFrameworks:      CoreMotion
+
+    @{
+*/
+
+/** @defgroup Android Android
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup all_platforms all_platforms
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup iOS iOS
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup dummy_desktop_versions dummy_desktop_versions
+
+    @{
+*/
+
+/** @} */
+
+/** @} */
+
+/** @defgroup lemons_core lemons_core
+    General utilities useful for developing plugins.
+
+    - ID:                lemons_core
+    - vendor:            Ben Vining
+    - version:           0.0.1
+    - name:              lemons_core
+    - dependencies:      juce_audio_utils
+    - OSXFrameworks:     Accelerate
+    - iOSFrameworks:     Accelerate
+
+    @{
+*/
+
+/** @defgroup misc misc
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup math math
+
+    @{
+*/
+
+/** @defgroup vecops vecops
+
+    @{
+*/
+
+/** @} */
+
+/** @} */
+
+/** @defgroup binary_data binary_data
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup files files
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup localization localization
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup events events
+
+    @{
+*/
+
+/** @} */
+
+/** @} */
+
+/** @defgroup lemons_serializing lemons_serializing
+    Easily serialize any C++ object to and from ValueTree, JSON, or XML
+
+    - ID:                lemons_serializing
+    - vendor:            Ben Vining
+    - version:           0.0.1
+    - name:              lemons_serializing
+    - dependencies:      lemons_core
+
+    @{
+*/
+
+/** @defgroup SerializableData SerializableData
+
+    @{
+*/
+
+/** @defgroup TreeReflector TreeReflector
+
+    @{
+*/
+
+/** @} */
+
+/** @} */
+
+/** @defgroup version version
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup undo undo
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup DataSynchronizer DataSynchronizer
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup toggler toggler
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup Serializing Serializing
+
+    @{
+*/
+
+/** @defgroup ValueTreeToJson ValueTreeToJson
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup Specializations Specializations
+
+    @{
+*/
+
+/** @defgroup containers containers
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup maps maps
+
+    @{
+*/
+
+/** @} */
+
+/** @} */
+
+/** @defgroup containers containers
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup maps maps
+
+    @{
+*/
+
+/** @} */
+
+/** @} */
+
+/** @} */
+
+/** @} */
+
+/** @defgroup Audio Audio
+
+    @{
+*/
+
+/** @defgroup lemons_oscillators lemons_oscillators
+    Oscillators for building synths
+
+    - ID:                 lemons_oscillators
+    - vendor:             Ben Vining
+    - version:            0.0.1
+    - name:               lemons_oscillators
+    - dependencies:       lemons_dsp lemons_serializing
+
+    @{
+*/
+
+/** @defgroup basic_types basic_types
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup choosable choosable
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup SuperSaw SuperSaw
+
+    @{
+*/
+
+/** @} */
+
+/** @} */
+
+/** @defgroup lemons_synth lemons_synth
+    Infrastructure for a polyphonic synthesizer instrument
+
+    - ID:                 lemons_synth
+    - vendor:             Ben Vining
+    - version:            0.0.1
+    - name:               lemons_synth
+    - dependencies:       lemons_audio_effects lemons_oscillators
+
+    @{
+*/
+
+/** @defgroup Synth Synth
+
+    @{
+*/
+
+/** @defgroup helpers helpers
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup synth_impl synth_impl
+
+    @{
+*/
+
+/** @} */
+
+/** @} */
+
+/** @defgroup SynthVoice SynthVoice
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup BasicSynths BasicSynths
+
+    @{
+*/
+
+/** @} */
+
+/** @} */
+
+/** @defgroup lemons_psola lemons_psola
+    Classes for PSOLA pitch shifting of monophonic audio
+
+    - ID:                 lemons_psola
+    - vendor:             Ben Vining
+    - version:            0.0.1
+    - name:               lemons_psola
+    - dependencies:       lemons_dsp
+
+    @{
+*/
+
+/** @defgroup analysis analysis
+
+    @{
+*/
+
+/** @defgroup GrainStorage GrainStorage
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup GrainExtractor GrainExtractor
+
+    @{
+*/
+
+/** @} */
+
+/** @} */
+
+/** @defgroup resynthesis resynthesis
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup PitchCorrector PitchCorrector
+
+    @{
+*/
+
+/** @} */
+
+/** @} */
+
+/** @defgroup lemons_dsp lemons_dsp
+    DSP/audio utilities and effects
+
+    - ID:                 lemons_dsp
+    - vendor:             Ben Vining
+    - version:            0.0.1
+    - name:               lemons_dsp
+    - dependencies:       juce_audio_utils juce_dsp lemons_midi
+
+    @{
+*/
+
+/** @defgroup BufferUtils BufferUtils
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup BasicProcessor BasicProcessor
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup engines engines
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup FIFOs FIFOs
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup PitchDetector PitchDetector
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup filters filters
+
+    @{
+*/
+
+/** @} */
+
+/** @} */
+
+/** @defgroup lemons_audio_effects lemons_audio_effects
+    Audio effects
+
+    - ID:                 lemons_audio_effects
+    - vendor:             Ben Vining
+    - version:            0.0.1
+    - name:               lemons_audio_effects
+    - dependencies:       lemons_dsp lemons_serializing
+
+    @{
+*/
+
+/** @defgroup misc misc
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup time time
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup stereo_image stereo_image
+
+    @{
+*/
+
+/** @defgroup panning panning
+
+    @{
+*/
+
+/** @} */
+
+/** @} */
+
+/** @defgroup AudioEffects AudioEffects
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup EQ EQ
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup dynamics dynamics
+
+    @{
+*/
+
+/** @} */
+
+/** @} */
+
+/** @} */
+
+/** @defgroup Connectivity Connectivity
+
+    @{
+*/
+
+/** @defgroup mts_esp_cpp mts_esp_cpp
+    A thin C++ wrapper around the MTS-ESP library
+
+    - ID:                 mts_esp_cpp
+    - vendor:             Ben Vining
+    - version:            0.0.1
+    - name:               mts_esp_cpp
+    - dependencies:       juce_audio_basics
+
+    @{
+*/
+
+/** @defgroup warnings warnings
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup client client
+
+    @{
+*/
+
+/** @} */
+
+/** @} */
+
+/** @defgroup lemons_midi lemons_midi
+    Midi utilities
+
+    - ID:                 lemons_midi
+    - vendor:             Ben Vining
+    - version:            0.0.1
+    - name:               lemons_midi
+    - dependencies:       lemons_serializing mts_esp_cpp
+
+    @{
+*/
+
+/** @defgroup processors processors
+
+    @{
+*/
+
+/** @defgroup MidiChoppingProcessor MidiChoppingProcessor
+
+    @{
+*/
+
+/** @} */
+
+/** @} */
+
+/** @defgroup MidiUtilities MidiUtilities
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup PitchConverter PitchConverter
+
+    @{
+*/
+
+/** @} */
+
+/** @} */
+
+/** @} */
+
+/** @defgroup Apps Apps
+
+    @{
+*/
+
+/** @defgroup lemons_app_utils lemons_app_utils
+    High-level building blocks for applications
+
+    - ID:                 lemons_app_utils
+    - vendor:             Ben Vining
+    - version:            0.0.1
+    - name:               lemons_app_utils
+    - dependencies:       lemons_core
+
+    @{
+*/
+
+/** @defgroup GuiApp GuiApp
+
+    @{
+*/
+
+/** @} */
+
+/** @} */
+
+/** @} */
+
+/** @defgroup GUI GUI
+
+    @{
+*/
+
+/** @defgroup lemons_spline lemons_spline
+    Module for creating, editing, and interpolating B-splines as real-time audio paramters
+
+    - ID:                 lemons_spline
+    - vendor:             Ben Vining and Florian Mrugralla
+    - version:            0.0.1
+    - name:               lemons_spline
+    - dependencies:       lemons_serializing juce_graphics
+
+    @{
+*/
+
+/** @defgroup common common
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup editor editor
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup spline spline
+
+    @{
+*/
+
+/** @} */
+
+/** @} */
+
+/** @defgroup lemons_gui lemons_gui
+    GUI utility classes and some basic components
+
+    - ID:                 lemons_gui
+    - vendor:             Ben Vining
+    - version:            0.0.1
+    - name:               lemons_gui
+    - dependencies:       lemons_core lemons_mobile_utils juce_gui_extra
+
+    @{
+*/
+
+/** @defgroup utilities utilities
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup components components
+
+    @{
+*/
+
+/** @} */
+
+/** @} */
+
+/** @} */
+
+/** @defgroup Plugins Plugins
+
+    @{
+*/
+
+/** @defgroup lemons_plugin_gui lemons_plugin_gui
+    GUI utility classes and some basic components
+
+    - ID:                 lemons_plugin_gui
+    - vendor:             Ben Vining
+    - version:            0.0.1
+    - name:               lemons_plugin_gui
+    - dependencies:       lemons_gui lemons_plugin_presets
+
+    @{
+*/
+
+/** @defgroup sliders sliders
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup buttons buttons
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup PresetBar PresetBar
+
+    @{
+*/
+
+/** @defgroup PresetSavingComponent PresetSavingComponent
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup PresetBrowserComponent PresetBrowserComponent
+
+    @{
+*/
+
+/** @} */
+
+/** @} */
+
+/** @} */
+
+/** @defgroup lemons_plugin lemons_plugin
+    Abstractions and building blocks for plugins
+
+    - ID:                 lemons_plugin
+    - vendor:             Ben Vining
+    - version:            0.0.1
+    - name:               lemons_plugin
+    - dependencies:       lemons_plugin_parameters lemons_mobile_utils
+
+    @{
+*/
+
+/** @defgroup state state
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup EditorBase EditorBase
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup processors processors
+
+    @{
+*/
+
+/** @} */
+
+/** @} */
+
+/** @defgroup lemons_plugin_presets lemons_plugin_presets
+    Framework for managing a plugin's presets - factory, user-created, and community database
+
+    - ID:                 lemons_plugin_presets
+    - vendor:             Ben Vining
+    - version:            0.0.1
+    - name:               lemons_plugin_presets
+    - dependencies:       lemons_plugin
+
+    @{
+*/
+
+/** @defgroup presets presets
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup preset_library preset_library
+
+    @{
+*/
+
+/** @defgroup sub_libraries sub_libraries
+
+    @{
+*/
+
+/** @defgroup database database
+
+    @{
+*/
+
+/** @} */
+
+/** @} */
+
+/** @defgroup database database
+
+    @{
+*/
+
+/** @} */
+
+/** @} */
+
+/** @} */
+
+/** @defgroup lemons_plugin_parameters lemons_plugin_parameters
+    Plugin parameter classes, and related building blocks
+
+    - ID:                 lemons_plugin_parameters
+    - vendor:             Ben Vining
+    - version:            0.0.1
+    - name:               lemons_plugin_parameters
+    - dependencies:       lemons_oscillators
+
+    @{
+*/
+
+/** @defgroup ModulationManager ModulationManager
+
+    @{
+*/
+
+/** @} */
+
+/** @defgroup parameters parameters
+
+    @{
+*/
+
+/** @defgroup utils utils
+
+    @{
+*/
+
+/** @} */
+
+/** @} */
+
+/** @} */
+
+/** @} */

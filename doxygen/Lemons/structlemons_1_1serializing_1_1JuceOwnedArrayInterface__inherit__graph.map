@@ -1,0 +1,6 @@
+<map id="lemons::serializing::JuceOwnedArrayInterface&lt; ElementType &gt;" name="lemons::serializing::JuceOwnedArrayInterface&lt; ElementType &gt;">
+<area shape="rect" id="node1" title="Container interface that provides support for serializing juce::OwnedArrays with TreeReflector." alt="" coords="921,5,1116,61"/>
+<area shape="rect" id="node2" href="$structlemons_1_1serializing_1_1LambdaContainerInterface.html" title=" " alt="" coords="591,5,872,61"/>
+<area shape="rect" id="node3" href="$structlemons_1_1serializing_1_1ContainerInterface.html" title="Interface that defines how a TreeReflector can resize a given container during deserialization." alt="" coords="5,17,156,58"/>
+<area shape="rect" id="node4" href="$structlemons_1_1serializing_1_1LambdaContainerInterface.html" title="Provides a slightly slicker interface to ContainerInterface, allowing you to supply a lambda function..." alt="" coords="205,41,408,97"/>
+</map>
