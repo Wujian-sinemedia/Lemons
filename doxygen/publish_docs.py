@@ -23,7 +23,7 @@ if __name__ == "__main__":
 	for dirpath, dirnames, filenames in os.walk (working_dir):
 		# subdirs
 		for subdir in dirnames:
-			path = os.path.join (dirpath, dirnames)
+			path = os.path.join (dirpath, subdir)
 			if os.path.isdir (path):
 				if not (subdir == ".git"):
 					shutil.rmtree (path)
