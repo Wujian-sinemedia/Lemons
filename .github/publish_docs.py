@@ -11,13 +11,15 @@ if __name__ == "__main__":
 
 	script_dir = os.path.abspath (os.path.dirname (__file__))
 
+	doxygen_dir = os.path.join (os.path.abspath (os.path.dirname (script_dir)), "doxygen")
+	
 	repo_url = "github.com/benthevining/Lemons.git"
 
-	os.chdir (script_dir)
+	os.chdir (doxygen_dir)
 
 	os.system ("git clone -b docs https://" + repo_url)
 
-	working_dir = os.path.join (script_dir, "Lemons")
+	working_dir = os.path.join (doxygen_dir, "Lemons")
 
 	# remove everything currently in the docs branch 
 	for dirpath, dirnames, filenames in os.walk (working_dir):
@@ -34,12 +36,12 @@ if __name__ == "__main__":
 				os.remove (path)
 
 	# Build new copy of docs
-	os.chdir (script_dir)
+	os.chdir (doxygen_dir)
 	os.system ("make clean")
 	os.system ("make")
 
 	# Copy new docs into git tree
-	shutil.copytree (os.path.join (script_dir, "doc"), working_dir)
+	shutil.copytree (os.path.join (doxygen_dir, "doc"), working_dir)
 
 	# Need to create an empty .nojekyll file for GH pages...
 	with open (os.path.join (working_dir, ".nojekyll"), "w") as f:
@@ -49,5 +51,10 @@ if __name__ == "__main__":
 	os.system ("git config --global push.default simple")
 	os.system ("git config user.name \"Github Actions\"")
 	os.system ("git config user.email \"actions@github.com\"")
+	os.system ("git add --all")
 	os.system ("git commit -a -m \"Updating documentation\"")
 	os.system ("git push --force \"https://{t}@{url}\"".format (t=os.environ['GH_REPO_TOKEN'], url=repo_url))
+
+	# Clean up
+	os.chdir (doxygen_dir)
+	os.system ("make clean")
