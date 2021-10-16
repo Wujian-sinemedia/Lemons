@@ -1,4 +1,0 @@
-<map id="lemons::plugin::LFO" name="lemons::plugin::LFO">
-<area shape="rect" id="node1" title="An LFO, to be used by a ModulationManager object." alt="" coords="23,80,173,107"/>
-<area shape="rect" id="node2" href="$structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="5,5,191,32"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="lemons::dsp::MidiChoppingProcessor&lt; SampleType &gt;" name="lemons::dsp::MidiChoppingProcessor&lt; SampleType &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="5,109,204,151"/>
-<area shape="rect" id="node2" href="$classlemons_1_1dsp_1_1synth_1_1MidiManager.html" title=" " alt="" coords="331,5,555,47"/>
-<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1ParameterProcessor.html" title="This class processes incoming MIDI messages and quantizes the audio output with any MIDI CC messages ..." alt="" coords="345,136,540,177"/>
-<area shape="rect" id="node6" href="$classlemons_1_1dsp_1_1MidiChoppingProcessor.html" title=" " alt="" coords="343,71,542,112"/>
-<area shape="rect" id="node7" href="$classlemons_1_1dsp_1_1MidiChoppingProcessor.html" title=" " alt="" coords="343,201,542,243"/>
-<area shape="rect" id="node4" href="$classlemons_1_1plugin_1_1ParameterProcessor.html" title=" " alt="" coords="681,91,875,132"/>
-<area shape="rect" id="node5" href="$classlemons_1_1plugin_1_1ParameterProcessor.html" title=" " alt="" coords="681,168,875,209"/>
-</map>

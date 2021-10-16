@@ -1,7 +1,0 @@
-<map id="lemons::plugin::MidiPanParameter" name="lemons::plugin::MidiPanParameter">
-<area shape="rect" id="node1" title="A parameter that represents a MIDI panning value in the range 0 to 127." alt="" coords="5,337,249,364"/>
-<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1TypedParameter.html" title=" " alt="" coords="74,261,181,288"/>
-<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1Parameter.html" title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an..." alt="" coords="25,81,219,108"/>
-<area shape="rect" id="node5" href="$classlemons_1_1plugin_1_1TypedParameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="144,157,375,199"/>
-<area shape="rect" id="node4" href="$structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="29,5,215,32"/>
-</map>
