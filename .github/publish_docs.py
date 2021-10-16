@@ -6,8 +6,28 @@
 import os
 import shutil
 
+###############################################################################
+
+# Commits to the repo in the specified directory
+
+def commit_to_repo (dir_path):
+
+	os.chdir (dir_path)
+
+	os.system ("git add .")
+	os.system ("git commit -a -m \"Updating documentation\"")
+
+###############################################################################
+
+# Main script
 
 if __name__ == "__main__":
+
+	# git config
+	os.system ("git config --global push.default simple")
+	os.system ("git config user.name \"Github Actions\"")
+	os.system ("git config user.email \"actions@github.com\"")
+
 
 	script_dir = os.path.abspath (os.path.dirname (__file__))
 
@@ -35,6 +55,8 @@ if __name__ == "__main__":
 			if (os.path.exists (path)):
 				os.remove (path)
 
+	commit_to_repo (working_dir)
+
 	# Build new copy of docs
 	os.chdir (doxygen_dir)
 	os.system ("make clean")
@@ -48,11 +70,9 @@ if __name__ == "__main__":
 		f.write ("")
 
 	# Publish new documentation
-	os.system ("git config --global push.default simple")
-	os.system ("git config user.name \"Github Actions\"")
-	os.system ("git config user.email \"actions@github.com\"")
-	os.system ("git add --all")
-	os.system ("git commit -a -m \"Updating documentation\"")
+
+	commit_to_repo (working_dir)
+
 	os.system ("git push --force \"https://{t}@{url}\"".format (t=os.environ['GH_REPO_TOKEN'], url=repo_url))
 
 	# Clean up
