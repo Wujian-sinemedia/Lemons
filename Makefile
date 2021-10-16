@@ -1,24 +1,23 @@
 SHELL := /bin/bash
-.ONESHELL:
 .SHELLFLAGS := -eu -o pipefail -c
+.ONESHELL:
 .DELETE_ON_ERROR:
 .DEFAULT_GOAL := help
-
-.PHONY: clean help uth
-
-SOURCE_FILES := $(shell find modules -type f -name "*.h|*.cpp|*CMakeLists.txt")
-
-CMAKE_FILES := $(shell find cmake -type f -name "*CMakeLists.txt|*.cmake")
+.PHONY: clean defaults docs format help uth
 
 #
+
+SOURCE_FILE_PATTERNS := *.h|*.cpp|*CMakeLists.txt
+
+SOURCE_FILES := $(shell find modules -type f -name "$(SOURCE_FILE_PATTERNS)")
+
+CMAKE_FILES := $(shell find cmake -type f -name "*CMakeLists.txt|*.cmake")
 
 TEMPLATES_DIR := default_projects
 
 TEMPLATE_REPOS := $(TEMPLATES_DIR)/DefaultJuceApp $(TEMPLATES_DIR)/DefaultJucePlugin
 
-TEMPLATE_PROJECT_FILES := $(shell find $(TEMPLATE_REPOS) -type f -name "*.h|*.cpp|*CMakeLists.txt")
-
-#
+TEMPLATE_PROJECT_FILES := $(shell find $(TEMPLATE_REPOS) -type f -name "$(SOURCE_FILE_PATTERNS)")
 
 CMAKE_GENERATOR := Xcode
 
@@ -66,18 +65,18 @@ DOXYGEN_DEPLOY_DIR := doxygen/doc
 
 docs: $(DOXYGEN_DEPLOY_DIR)/index.html ## Builds the documentation
 
-$(DOXYGEN_DEPLOY_DIR)/index.html: $(DOXYGEN_BUILD_DIR)/lemons_modules.dox doxygen/Doxyfile doxygen/DoxygenLayout.xml doxygen/main_page.md cmake/README.md
+$(DOXYGEN_DEPLOY_DIR)/index.html: $(DOXYGEN_BUILD_DIR)/lemons_modules.dox doxygen/Doxyfile doxygen/DoxygenLayout.xml doxygen/main_page.md
 	@echo "Building documentation..."
 	cd doxygen && doxygen
 
 # Parses the module tree to create doxygen's build tree, and the module subgroups' descriptions file
-$(DOXYGEN_BUILD_DIR)/lemons_modules.dox: doxygen/process_source_files.py $(SOURCE_FILES)
+$(DOXYGEN_BUILD_DIR)/lemons_modules.dox: doxygen/process_source_files.py $(SOURCE_FILES) cmake/README.md
 	python $<
 
 #
 
 clean: ## Cleans the source tree
-	$(RM) -rf Builds $(TEMPLATES_DIR)/Builds $(DOXYGEN_BUILD_DIR) $(DOXYGEN_DEPLOY_DIR) scripts/install/Brewfile scripts/install/Brewfile.lock.json
+	rm -rf Builds $(TEMPLATES_DIR)/Builds $(DOXYGEN_BUILD_DIR) $(DOXYGEN_DEPLOY_DIR) scripts/install/Brewfile scripts/install/Brewfile.lock.json
 
 help: ## Prints the list of commands
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
