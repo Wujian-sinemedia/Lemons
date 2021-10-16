@@ -1,0 +1,6 @@
+<map id="lemons::plugin::GainParameter" name="lemons::plugin::GainParameter">
+<area shape="rect" id="node1" title="A parameter that represents a gain value in decibels." alt="" coords="5,229,228,256"/>
+<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1TypedParameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="55,155,178,181"/>
+<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1Parameter.html" title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an..." alt="" coords="20,80,213,107"/>
+<area shape="rect" id="node4" href="$structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="24,5,209,32"/>
+</map>

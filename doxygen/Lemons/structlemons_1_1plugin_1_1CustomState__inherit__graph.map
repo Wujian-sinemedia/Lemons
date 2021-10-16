@@ -1,0 +1,5 @@
+<map id="lemons::plugin::CustomState&lt; ParamListType, CustomDataType,, &gt;" name="lemons::plugin::CustomState&lt; ParamListType, CustomDataType,, &gt;">
+<area shape="rect" id="node1" title="A plugin state class that instantiates the appropriate ParameterList and custom serializable object a..." alt="" coords="5,155,279,196"/>
+<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1StateBase.html" title="Base class for a plugin&#39;s state." alt="" coords="46,80,238,107"/>
+<area shape="rect" id="node3" href="$structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="49,5,235,32"/>
+</map>
