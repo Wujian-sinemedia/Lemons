@@ -21,6 +21,7 @@ defaults: .out/defaults
 
 # Builds the template example projects
 .out/defaults: $(TEMPLATE_PROJECT_CMAKE_OUT)
+	@echo "Building template projects..."
 	mkdir -p $(@D)
 	cd default_projects && cmake --build Builds --target ALL_BUILD
 	touch $@
@@ -35,10 +36,13 @@ format: .out/format
 
 # Runs clang-format
 .out/format: scripts/run_clang_format.py $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES)
+	@echo "Running clang-format..."
 	mkdir -p $(@D)
-	python $< modules
-	python $< default_projects/DefaultJuceApp
-	python $< default_projects/DefaultJucePlugin
+
+	for dir in modules default_projects/DefaultJuceApp default_projects/DefaultJucePlugin ; do \
+		python $< $$dir 2>&1 >/dev/null ; \
+	done
+
 	touch $@
 
 # Updates all git submodules to head
