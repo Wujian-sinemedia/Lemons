@@ -19,7 +19,21 @@ TEMPLATE_REPOS := $(TEMPLATES_DIR)/DefaultJuceApp $(TEMPLATES_DIR)/DefaultJucePl
 
 TEMPLATE_PROJECT_FILES := $(shell find $(TEMPLATE_REPOS) -type f -name "$(SOURCE_FILE_PATTERNS)")
 
-CMAKE_GENERATOR := Xcode
+BUILD_TYPE := Debug
+
+ifeq ($(OS),Windows_NT)
+	CMAKE_GENERATOR := \"Visual Studio 16 2019\"
+else
+	UNAME_S := $(shell uname -s)
+
+	ifeq ($(UNAME_S),Linux)
+		CMAKE_GENERATOR := \"Unix Makefiles\"
+	else ifeq ($(UNAME_S),Darwin)
+		CMAKE_GENERATOR := Xcode
+	else 
+		$(error Unknown operating system!)
+	endif
+endif
 
 #
 
@@ -28,13 +42,13 @@ defaults: .out/defaults ## Builds the template example projects
 .out/defaults: $(TEMPLATES_DIR)/Builds
 	@echo "Building template projects..."
 	@mkdir -p $(@D)
-	cd $(TEMPLATES_DIR) && cmake --build Builds --target ALL_BUILD
+	cd $(TEMPLATES_DIR) && cmake --build Builds --target ALL_BUILD --config $(BUILD_TYPE)
 	@touch $@
 
 # Configures the build for the template projects
 $(TEMPLATES_DIR)/Builds: $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES) $(CMAKE_FILES)
 	@echo "Configuring cmake..."
-	cd $(TEMPLATES_DIR) && cmake -B Builds -G $(CMAKE_GENERATOR)
+	cd $(TEMPLATES_DIR) && cmake -B Builds -G $(CMAKE_GENERATOR) -DCMAKE_BUILD_TYPE=$(BUILD_TYPE)
 
 #
 
@@ -49,6 +63,8 @@ format: .out/format ## Runs clang-format
 	done
 
 	@touch $@
+
+#
 
 SUBMODULE_COMMAND := git checkout main && git fetch && git pull && git submodule update
 
