@@ -10,7 +10,7 @@ install_deps_list "doxygen_deps.txt"
 
 
 # Run python script
-python "$script_dir/doxygen/publish_docs.py"
+python "$script_dir/publish_docs.py"
 
 
 exit 0
