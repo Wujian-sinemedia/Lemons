@@ -21,4 +21,4 @@ jobs:
 
     - name: Run script
       shell: bash
-      run: export GH_REPO_TOKEN=${{ secrets.ACCESS_TOKEN }} && bash doxygen/publish_docs.sh
+      run: export GH_REPO_TOKEN=${{ secrets.ACCESS_TOKEN }} && bash .github/docs_publish_script.sh
