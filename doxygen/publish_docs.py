@@ -30,7 +30,7 @@ if __name__ == "__main__":
 		# top-level files
 		for file in filenames:
 			path = os.path.join (dirpath, file)
-			if (os.exists (path)):
+			if (os.path.exists (path)):
 				os.remove (path)
 
 	# Build new copy of docs
