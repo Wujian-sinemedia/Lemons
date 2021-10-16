@@ -1,6 +1,0 @@
-var searchData=
-[
-  ['leftonly_2233',['leftOnly',['../classlemons_1_1dsp_1_1FX_1_1MonoStereoConverter.html#ade2abf33ee96d0bb7bfdc43c3336c3aca1551df77400b2edbe1682fef8b4ee182',1,'lemons::dsp::FX::MonoStereoConverter']]],
-  ['lowpass_2234',['LowPass',['../namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14a835f2dc4fd545ddcd275198d9fbadf63',1,'lemons::dsp::FX']]],
-  ['lowshelf_2235',['LowShelf',['../namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14a04efcd6f392567e252822d1247d8c875',1,'lemons::dsp::FX']]]
-];
