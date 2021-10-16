@@ -2,11 +2,11 @@ SHELL := /bin/bash
 
 SOURCE_FILES := $(shell find DefaultJuceApp DefaultJucePlugin -type f -name "*.h" | sed 's/ /\\ /g')
 
-.PHONY: config format translate clean
+.PHONY: format translate clean
 
 #
 
-config: CMakelists.txt
+config: Builds/CMakeCache.txt
 	cmake -B Builds -G Xcode
 
 build: config $(SOURCE_FILES)

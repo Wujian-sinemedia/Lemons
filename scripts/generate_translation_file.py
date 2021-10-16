@@ -94,6 +94,7 @@ if __name__ == "__main__":
 	parser = argparse.ArgumentParser()
 	parser.add_argument ("source_dir", help="the directory to search for source files")
 	parser.add_argument ("output_file", help="the file to write the output to")
+	
 	args = parser.parse_args()
 
 	if os.path.exists (args.output_file):
