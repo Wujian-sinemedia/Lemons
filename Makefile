@@ -5,26 +5,36 @@ SHELL := /bin/bash
 
 .PHONY: clean uth
 
-SOURCE_FILES := $(shell find modules -type f -name "*.h|*.cpp" | sed 's/ /\\ /g')
+SOURCE_FILES := $(shell find modules -type f -name "*.h|*.cpp|*CMakeLists.txt" | sed 's/ /\\ /g')
 
-CMAKE_GENERATOR := "Xcode"
+CMAKE_FILES := $(shell find cmake -type f -name "*CMakeLists.txt|*.cmake" | sed 's/ /\\ /g')
+
+TEMPLATE_PROJECT_FILES := $(shell find default_projects/DefaultJuceApp default_projects/DefaultJucePlugin -type f -name "*.h|*.cpp|*CMakeLists.txt" | sed 's/ /\\ /g')
+
+TEMPLATE_PROJECT_CMAKE_OUT := default_projects/Builds/CMakeCache.txt
+
+CMAKE_GENERATOR := Xcode
 
 #
 
+defaults: .out/defaults
+
 # Builds the template example projects
-.out/defaults: default_projects/Builds/CMakeCache.txt
+.out/defaults: $(TEMPLATE_PROJECT_CMAKE_OUT)
 	mkdir -p $(@D)
 	cd default_projects && cmake --build Builds --target ALL_BUILD
 	touch $@
 
 # Configures the build for the template projects
-default_projects/Builds/CMakeCache.txt: $(shell find default_projects/DefaultJuceApp default_projects/DefaultJucePlugin -type f -name "*.h|*.cpp|*CMakeLists.txt" | sed 's/ /\\ /g') $(SOURCE_FILES)
+$(TEMPLATE_PROJECT_CMAKE_OUT): $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES) $(CMAKE_FILES)
 	cd default_projects && cmake -B Builds -G $(CMAKE_GENERATOR)
 
 #
 
+format: .out/format
+
 # Runs clang-format
-.out/format: scripts/run_clang_format.py $(SOURCE_FILES)
+.out/format: scripts/run_clang_format.py $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES)
 	mkdir -p $(@D)
 	python $< modules
 	python $< default_projects/DefaultJuceApp
@@ -38,6 +48,8 @@ uth:
 	git submodule foreach 'git checkout main && git fetch && git pull && git submodule update'
 
 #
+
+docs: doxygen/doc/index.html
 
 # Builds the documentation
 doxygen/doc/index.html: doxygen/build/lemons_modules.dox doxygen/Doxyfile doxygen/DoxygenLayout.xml doxygen/main_page.md cmake/README.md
