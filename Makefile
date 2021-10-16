@@ -66,7 +66,7 @@ format: .out/format ## Runs clang-format
 
 #
 
-SUBMODULE_COMMAND := git checkout main && git fetch && git pull && git submodule update
+SUBMODULE_COMMAND := git checkout main && git fetch && git pull
 
 uth: ## Updates all git submodules to head
 	@echo "Updating git submodules..."
