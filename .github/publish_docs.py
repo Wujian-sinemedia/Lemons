@@ -14,7 +14,7 @@ def commit_to_repo (dir_path):
 
 	os.chdir (dir_path)
 
-	os.system ("git add .")
+	os.system ("git add -f .")
 	os.system ("git commit -a -m \"Updating documentation\"")
 
 ###############################################################################
