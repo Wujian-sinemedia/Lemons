@@ -2,6 +2,7 @@ SHELL := /bin/bash
 .ONESHELL:
 .SHELLFLAGS := -eu -o pipefail -c
 .DELETE_ON_ERROR:
+.DEFAULT_GOAL := help
 
 .PHONY: clean uth
 
@@ -17,9 +18,8 @@ CMAKE_GENERATOR := Xcode
 
 #
 
-defaults: .out/defaults
+defaults: .out/defaults ## Builds the template example projects
 
-# Builds the template example projects
 .out/defaults: $(TEMPLATE_PROJECT_CMAKE_OUT)
 	@echo "Building template projects..."
 	mkdir -p $(@D)
@@ -32,9 +32,8 @@ $(TEMPLATE_PROJECT_CMAKE_OUT): $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES) $(CMAKE
 
 #
 
-format: .out/format
+format: .out/format ## Runs clang-format
 
-# Runs clang-format
 .out/format: scripts/run_clang_format.py $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES)
 	@echo "Running clang-format..."
 	mkdir -p $(@D)
@@ -45,17 +44,15 @@ format: .out/format
 
 	touch $@
 
-# Updates all git submodules to head
-uth:
+uth: ## Updates all git submodules to head
 	git fetch && git pull
 	git submodule update
 	git submodule foreach 'git checkout main && git fetch && git pull && git submodule update'
 
 #
 
-docs: doxygen/doc/index.html
+docs: doxygen/doc/index.html ## Builds the documentation
 
-# Builds the documentation
 doxygen/doc/index.html: doxygen/build/lemons_modules.dox doxygen/Doxyfile doxygen/DoxygenLayout.xml doxygen/main_page.md cmake/README.md
 	cd doxygen && doxygen
 
@@ -65,5 +62,10 @@ doxygen/build/lemons_modules.dox: doxygen/process_source_files.py $(SOURCE_FILES
 
 #
 
-clean:
+clean: ## Cleans the source tree
 	$(RM) -rf Builds default_projects/Builds scripts/install/Brewfile scripts/install/Brewfile.lock.json doxygen/build doxygen/doc
+
+# Prints a list of commands
+help:
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+
