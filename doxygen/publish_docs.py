@@ -17,7 +17,7 @@ if __name__ == "__main__":
 
 	os.system ("git clone -b docs https://" + repo_url)
 
-	working_dir = os.path.join (script_dir, Lemons)
+	working_dir = os.path.join (script_dir, "Lemons")
 
 	# remove everything currently in the docs branch 
 	for dirpath, dirnames, filenames in os.walk (working_dir):
