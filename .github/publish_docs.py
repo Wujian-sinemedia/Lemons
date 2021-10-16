@@ -14,7 +14,7 @@ def commit_to_repo (dir_path):
 
 	os.chdir (dir_path)
 
-	os.system ("git add -f .")
+	os.system ("git add -f --all")
 	os.system ("git commit -a -m \"Updating documentation\"")
 
 ###############################################################################
@@ -40,6 +40,11 @@ if __name__ == "__main__":
 	os.system ("git clone -b docs https://" + repo_url)
 
 	working_dir = os.path.join (doxygen_dir, "Lemons")
+
+	os.chdir (working_dir)
+
+	os.system ("git checkout docs")
+	os.system ("git fetch && git pull")
 
 	# remove everything currently in the docs branch 
 	for dirpath, dirnames, filenames in os.walk (working_dir):
