@@ -77,8 +77,8 @@ if __name__ == "__main__":
 	# Publish new documentation
 
 	commit_to_repo (working_dir)
-
-	os.system ("git push --force \"https://{t}@{url}\"".format (t=os.environ['GH_REPO_TOKEN'], url=repo_url))
+	os.chdir (working_dir)
+	os.system ("git push --force origin docs \"https://{t}@{url}\"".format (t=os.environ['GH_REPO_TOKEN'], url=repo_url))
 
 	# Clean up
 	os.chdir (doxygen_dir)
