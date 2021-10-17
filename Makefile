@@ -19,6 +19,10 @@ BUILD_TYPE := Debug
 
 PYTHON := python
 
+SCRIPTS_DIR := scripts
+
+CMAKE_DIR := cmake
+
 TEMP := .out
 
 BUILD := Builds
@@ -32,7 +36,7 @@ DOXYGEN_DIR := doxygen
 DOXYGEN_BUILD_DIR := $(DOXYGEN_DIR)/build
 DOXYGEN_DEPLOY_DIR := $(DOXYGEN_DIR)/doc
 
-CMAKE_FILES := $(shell find cmake -type f -name "*CMakeLists.txt|*.cmake")
+CMAKE_FILES := $(shell find $(CMAKE_DIR) -type f -name "*CMakeLists.txt|*.cmake")
 
 SOURCE_FILE_PATTERNS := *.h|*.cpp|*CMakeLists.txt
 
@@ -90,7 +94,7 @@ FORMAT_SENTINEL := $(TEMP)/format
 format: $(FORMAT_SENTINEL) ## Runs clang-format
 
 # Executes the clang-format python script
-$(FORMAT_SENTINEL): scripts/run_clang_format.py $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES)
+$(FORMAT_SENTINEL): $(SCRIPTS_DIR)/run_clang_format.py $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES)
 	@echo "Running clang-format..."
 	@mkdir -p $(@D)
 
@@ -126,7 +130,7 @@ $(DOXYGEN_DEPLOY_DIR)/index.html: $(DOXYGEN_BUILD_DIR)/lemons_modules.dox $(DOXY
 	cd $(DOXYGEN_DIR) && doxygen
 
 # Parses the module tree to create doxygen's build tree, and the module subgroups' descriptions file
-$(DOXYGEN_BUILD_DIR)/lemons_modules.dox: $(DOXYGEN_DIR)/process_source_files.py $(SOURCE_FILES) cmake/README.md
+$(DOXYGEN_BUILD_DIR)/lemons_modules.dox: $(DOXYGEN_DIR)/process_source_files.py $(CMAKE_DIR)/README.md $(SOURCE_FILES)
 	$(PYTHON) $<
 
 
@@ -134,8 +138,10 @@ $(DOXYGEN_BUILD_DIR)/lemons_modules.dox: $(DOXYGEN_DIR)/process_source_files.py 
 #
 # Standard utilities
 
+DEPS_SCRIPT_TEMP_DIR := install_deps/install
+
 clean: ## Cleans the source tree
-	rm -rf $(BUILD) $(TEMP) $(TEMPLATES_DIR)/$(BUILD) $(DOXYGEN_BUILD_DIR) $(DOXYGEN_DEPLOY_DIR) scripts/install/Brewfile scripts/install/Brewfile.lock.json
+	rm -rf $(BUILD) $(TEMP) $(TEMPLATES_DIR)/$(BUILD) $(DOXYGEN_BUILD_DIR) $(DOXYGEN_DEPLOY_DIR) $(DEPS_SCRIPT_TEMP_DIR)/Brewfile $(DEPS_SCRIPT_TEMP_DIR)/Brewfile.lock.json
 
 help: ## Prints the list of commands
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'

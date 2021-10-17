@@ -2,9 +2,6 @@
 
 # Installs a list of dependencies, read from a given text file
 
-# Input 
-# INSTALL_LIST_FILE : The name of the file to read deps from, relative to the deps directory
-
 set -euo pipefail
 
 export DEBIAN_FRONTEND=noninteractive
@@ -81,10 +78,11 @@ source "$SCRIPT_DIR/os/$os_script.sh"
 
 #
 
+# The argument given to this function must be the absolute path to a text file from which to read the list of dependencies
 install_deps_list() {
 	echo "Installing dependencies from file: $1" 
 
-	local -r DEPS_LIST="$SCRIPT_DIR/deps/$1"
+	local -r DEPS_LIST="$1"
 
 	# if deps list file doesn't exist, fail with error
 	if [ ! -f "$DEPS_LIST" ]; then

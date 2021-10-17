@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Installs all dependencies for a typical Lemons workspace, as well as ccache.
-# If you're on Linux, this script will also run the 'install_juce_linux_deps.sh' script in this directory.
+# Installs all dependencies for a typical Lemons workspace
+# If you're on Linux, this script will also install all of JUCE's Linux dependencies.
 
 set -euo pipefail
 
@@ -11,7 +11,7 @@ readonly script_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && p
 
 source "$script_path/install/install_list.sh"
 
-install_deps_list "deps_list.txt"
+install_deps_list "$script_path/deps_list.txt"
 
 
 case "$OSTYPE" in 
@@ -21,7 +21,7 @@ case "$OSTYPE" in
 		append_to_file "$SHELL_FILE" 'export PATH="/usr/lib/ccache:$PATH"'
 
 		# install juce linux deps
-		install_deps_list "juce_linux_deps.txt"
+		install_deps_list "$script_path/juce_linux_deps.txt"
 	;;
 	darwin*) :
 		# prepend ccache to path

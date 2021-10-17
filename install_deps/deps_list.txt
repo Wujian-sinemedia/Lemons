@@ -1,0 +1,9 @@
+ccache
+clang-format
+cmake
+doxygen
+git
+graphviz
+make
+openssl
+python3

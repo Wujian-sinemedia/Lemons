@@ -1,4 +1,0 @@
-ccache
-cmake
-git
-openssl
