@@ -5,17 +5,9 @@ SHELL := /bin/bash
 .DEFAULT_GOAL := help
 .PHONY: clean defaults docs format help uth
 
-
 #
-#
-# Input configuration
 
 BUILD_TYPE := Debug
-
-
-#
-#
-# Subdirs and files
 
 PYTHON := python
 
@@ -44,32 +36,23 @@ SOURCE_FILES := $(shell find $(MODULES) -type f -name "$(SOURCE_FILE_PATTERNS)")
 
 TEMPLATE_PROJECT_FILES := $(shell find $(TEMPLATE_REPOS) -type f -name "$(SOURCE_FILE_PATTERNS)")
 
-
 #
-#
-# Detect appropriate CMake generator for OS
 
 ifeq ($(OS),Windows_NT)
-	# Windows
 	CMAKE_GENERATOR := Visual Studio 16 2019
 else
 	UNAME_S := $(shell uname -s)
 
 	ifeq ($(UNAME_S),Linux)
-		# Linux
 		CMAKE_GENERATOR := Unix Makefiles
 	else ifeq ($(UNAME_S),Darwin)
-		# MacOS
 		CMAKE_GENERATOR := Xcode
 	else 
 		$(error Unknown operating system!)
 	endif
 endif
 
-
 #
-#
-# Rules to build the template projects
 
 DEFAUT_SENTINEL := $(TEMP)/defaults
 
@@ -79,7 +62,7 @@ defaults: $(DEFAUT_SENTINEL) ## Builds the template example projects
 $(DEFAUT_SENTINEL): $(TEMPLATES_DIR)/$(BUILD)
 	@echo "Building template projects..."
 	@mkdir -p $(@D)
-	cd $(TEMPLATES_DIR) && cmake --build $(BUILD) --target ALL_BUILD --config $(BUILD_TYPE)
+	cd $(TEMPLATES_DIR) && cmake --build $(BUILD) --config $(BUILD_TYPE)
 	@touch $@
 
 # Configures the build for the template projects
@@ -87,10 +70,7 @@ $(TEMPLATES_DIR)/$(BUILD): $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES) $(CMAKE_FIL
 	@echo "Configuring cmake..."
 	cd $(TEMPLATES_DIR) && cmake -B $(BUILD) -G "$(CMAKE_GENERATOR)" -DCMAKE_BUILD_TYPE=$(BUILD_TYPE)
 
-
 #
-#
-# Rules to run clang-format
 
 FORMAT_SENTINEL := $(TEMP)/format
 
@@ -107,10 +87,7 @@ $(FORMAT_SENTINEL): $(SCRIPTS_DIR)/run_clang_format.py $(TEMPLATE_PROJECT_FILES)
 
 	@touch $@
 
-
 #
-#
-# Rules to update git submodules
 
 SUBMODULE_COMMAND := git checkout main && git fetch && git pull
 
@@ -120,26 +97,22 @@ uth: ## Updates all git submodules to head
 	git submodule update
 	git submodule foreach '$(SUBMODULE_COMMAND)'
 
-
 #
-#
-# Rules to build the documentation
 
 docs: $(DOXYGEN_DEPLOY_DIR)/index.html ## Builds the documentation
 
+MODULE_DOC_OUTPUT := $(DOXYGEN_BUILD_DIR)/lemons_modules.dox
+
 # Executes doxygen to build the documentation
-$(DOXYGEN_DEPLOY_DIR)/index.html: $(DOXYGEN_BUILD_DIR)/lemons_modules.dox $(DOXYGEN_DIR)/Doxyfile $(DOXYGEN_DIR)/DoxygenLayout.xml $(DOXYGEN_DIR)/main_page.md
+$(DOXYGEN_DEPLOY_DIR)/index.html: $(MODULE_DOC_OUTPUT) $(DOXYGEN_DIR)/Doxyfile $(DOXYGEN_DIR)/DoxygenLayout.xml $(DOXYGEN_DIR)/main_page.md
 	@echo "Building documentation..."
 	cd $(DOXYGEN_DIR) && doxygen
 
 # Parses the module tree to create doxygen's build tree, and the module subgroups' descriptions file
-$(DOXYGEN_BUILD_DIR)/lemons_modules.dox: $(DOXYGEN_DIR)/process_source_files.py $(CMAKE_DIR)/README.md $(SOURCE_FILES)
+$(MODULE_DOC_OUTPUT): $(DOXYGEN_DIR)/process_source_files.py $(CMAKE_DIR)/README.md $(SOURCE_FILES)
 	$(PYTHON) $<
 
-
 #
-#
-# Standard utilities
 
 DEPS_SCRIPT_TEMP_DIR := install_deps/install
 
