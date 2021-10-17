@@ -36,7 +36,7 @@ Contributing is welcome and appreciated! *(Or feel free to just make feature sug
 
 It's recommended to build with CMake. You could manually add the desired modules to a Projucer project, but CMake is a much better build system. Lemons contains several useful CMake scripts that should make getting things running fairly painless...
 
-The full CMake API reference can be found [here](https://github.com/benthevining/Lemons/blob/main/cmake/README.md).
+The full CMake API reference can be found [here](https://github.com/benthevining/Lemons/blob/main/util/cmake/README.md).
 
 ### *Adding with CPM.cmake*
 
@@ -54,7 +54,7 @@ CPMAddPackage (
 
 ### *A note about adding JUCE*
 
-Internally, Lemons's cmake scripts [add JUCE like this](https://github.com/benthevining/Lemons/blob/main/cmake/third_party/juce_config.cmake), using CPM.cmake. JUCE will automatically be fetched for you at configure time -- but, if you'd like to reference another local copy of JUCE, you can set this variable before adding the Lemons package:
+Internally, Lemons's cmake scripts [add JUCE like this](https://github.com/benthevining/Lemons/blob/main/util/cmake/third_party/juce_config.cmake), using CPM.cmake. JUCE will automatically be fetched for you at configure time -- but, if you'd like to reference another local copy of JUCE, you can set this variable before adding the Lemons package:
 ```
 set (CPM_JUCE_SOURCE /absolute/path/to/your/copy/of/juce)
 ```
