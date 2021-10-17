@@ -8,5 +8,10 @@ os_install_func() {
 
 	local -r DEPS_LIST="$1"
 
-	xargs choco install <"$DEPS_LIST"
+	cat "$DEPS_LIST" | while read line || [[ -n "$line" ]];
+	do
+		line=$(echo "$line" | sed 's/;//')
+		echo "line : \"$line\""
+		choco install "$line"
+	done
 }
