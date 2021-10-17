@@ -85,15 +85,11 @@ $(TRANSLATION_OUTPUT): $(SCRIPTS_DIR)/generate_translation_file.py $(SOURCE_FILE
 
 #
 
-### UPDATE GIT SUBMODULES ###
-
 uth: ## Updates all git submodules to head
 	@echo "Updating git submodules..."
 	$(GIT_UTH)
 
 #
-
-### CLEAN ###
 
 DEPS_SCRIPT_TEMP_DIR := install_deps/install
 
@@ -103,9 +99,6 @@ clean: ## Cleans the source tree
 		$(DOXYGEN_BUILD_DIR) $(DOXYGEN_DEPLOY_DIR) \
 		$(DEPS_SCRIPT_TEMP_DIR)/Brewfile $(DEPS_SCRIPT_TEMP_DIR)/Brewfile.lock.json
 
-#
-
-### HELP ###
 
 help: ## Prints the list of commands
 	@$(PRINT_HELP_LIST)
