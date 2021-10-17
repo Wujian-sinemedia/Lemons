@@ -2,8 +2,8 @@
 	path = cmake/third_party/GetLemons
 	url = https://github.com/benthevining/GetLemons.git
 [submodule "default_projects/DefaultJucePlugin"]
-	path = default_projects/DefaultJucePlugin
+	path = templates/DefaultJucePlugin/DefaultJucePlugin
 	url = https://github.com/benthevining/DefaultJucePlugin
 [submodule "default_projects/DefaultJuceApp"]
-	path = default_projects/DefaultJuceApp
+	path = templates/DefaultJuceApp/DefaultJuceApp
 	url = https://github.com/benthevining/DefaultJuceApp.git
