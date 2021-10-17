@@ -11,6 +11,9 @@ os_install_func() {
 	cat "$DEPS_LIST" | while read line || [[ -n "$line" ]];
 	do
 		line=$(echo "$line" | sed 's/;//')
+		if [ "$line" = "clang-format" ]; then
+			continue;
+		fi
 		echo "line : \"$line\""
 		choco install "$line"
 	done
