@@ -50,13 +50,16 @@ TEMPLATE_PROJECT_FILES := $(shell find $(TEMPLATE_REPOS) -type f -name "$(SOURCE
 # Detect appropriate CMake generator for OS
 
 ifeq ($(OS),Windows_NT)
-	CMAKE_GENERATOR := \"Visual Studio 16 2019\"
+	# Windows
+	CMAKE_GENERATOR := "\"Visual Studio 16 2019\""
 else
 	UNAME_S := $(shell uname -s)
 
 	ifeq ($(UNAME_S),Linux)
-		CMAKE_GENERATOR := \"Unix Makefiles\"
+		# Linux
+		CMAKE_GENERATOR := "\"Unix Makefiles\""
 	else ifeq ($(UNAME_S),Darwin)
+		# MacOS
 		CMAKE_GENERATOR := Xcode
 	else 
 		$(error Unknown operating system!)
