@@ -2,6 +2,7 @@ SHELL := /bin/bash
 .SHELLFLAGS := -eu -o pipefail -c
 .ONESHELL:
 .DELETE_ON_ERROR:
+	
 .DEFAULT_GOAL := help
 .PHONY: clean docs format help templates translations uth
 
