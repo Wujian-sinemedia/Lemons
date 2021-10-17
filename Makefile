@@ -6,7 +6,9 @@ SHELL := /bin/bash
 .DEFAULT_GOAL := help
 .PHONY: clean docs format help templates translations uth
 
-include basic_settings.make
+MAKE_DIR := make
+
+include $(MAKE_DIR)/basic_settings.make
 
 SCRIPTS_DIR := scripts
 MODULES := modules
@@ -19,7 +21,7 @@ TEMPLATE_REPOS := $(shell find $(TEMPLATES_DIR) -type d -maxdepth 1 ! -name $(TE
 SOURCE_FILES := $(shell find $(MODULES) -type f -name "$(SOURCE_FILE_PATTERNS)")
 TEMPLATE_PROJECT_FILES := $(shell find $(TEMPLATE_REPOS) -type f -name "$(SOURCE_FILE_PATTERNS)")
 
-include $(CMAKE_DIR)/cmake.make
+include $(MAKE_DIR)/cmake.make
 
 #
 
