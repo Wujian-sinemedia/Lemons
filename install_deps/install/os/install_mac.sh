@@ -37,8 +37,6 @@ if ! [[ homebrew_installed_m1 || homebrew_installed_intel ]]; then
 	brew tap Homebrew/bundle
 fi
 
-brew update
-
 #
 
 os_install_func() {
