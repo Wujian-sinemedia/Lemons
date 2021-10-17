@@ -31,6 +31,10 @@ jobs:
         key: ${{ runner.os }}.${{ hashFiles('**/') }}
         restore-keys: ${{ runner.os }}.
 
+    - name: Install dependencies
+      shell: bash
+      run: bash install_deps/install_deps.sh
+
     - name: Run CI build script
       shell: bash
       run: make defaults
