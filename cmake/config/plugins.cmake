@@ -31,6 +31,22 @@ function (_lemons_configure_juce_aax origTarget pagetableFile)
 
     if (pagetableFile)
         target_compile_definitions (${aaxTarget} PUBLIC JucePlugin_AAXPageTableFile=${pagetableFile})
+
+        # On Windows, pagetable files need a special post-build copy step to be included in the binary correctly
+        if (WIN32)
+
+            #TO DO: LEMONS_PLUGIN_ORIG_DIR
+
+            set (LEMONS_PLUGIN_NAME "${origTarget}")
+
+            configure_file (${CMAKE_CURRENT_LIST_DIR}/aax_pagetable_post_copy.bat pagetable_copy.bat)
+
+            execute_process (COMMAND chmod a+rx "${CMAKE_CURRENT_BINARY_DIR}/pagetable_copy.bat")
+
+            add_custom_command (TARGET ${aaxTarget} POST_BUILD COMMAND pagetable_copy.bat)
+
+        endif()
+        
     endif()
 
 endfunction()
