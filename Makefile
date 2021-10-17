@@ -51,13 +51,13 @@ TEMPLATE_PROJECT_FILES := $(shell find $(TEMPLATE_REPOS) -type f -name "$(SOURCE
 
 ifeq ($(OS),Windows_NT)
 	# Windows
-	CMAKE_GENERATOR := "\"Visual Studio 16 2019\""
+	CMAKE_GENERATOR := Visual Studio 16 2019
 else
 	UNAME_S := $(shell uname -s)
 
 	ifeq ($(UNAME_S),Linux)
 		# Linux
-		CMAKE_GENERATOR := "\"Unix Makefiles\""
+		CMAKE_GENERATOR := Unix Makefiles
 	else ifeq ($(UNAME_S),Darwin)
 		# MacOS
 		CMAKE_GENERATOR := Xcode
@@ -85,7 +85,7 @@ $(DEFAUT_SENTINEL): $(TEMPLATES_DIR)/$(BUILD)
 # Configures the build for the template projects
 $(TEMPLATES_DIR)/$(BUILD): $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES) $(CMAKE_FILES)
 	@echo "Configuring cmake..."
-	cd $(TEMPLATES_DIR) && cmake -B $(BUILD) -G $(CMAKE_GENERATOR) -DCMAKE_BUILD_TYPE=$(BUILD_TYPE)
+	cd $(TEMPLATES_DIR) && cmake -B $(BUILD) -G "$(CMAKE_GENERATOR)" -DCMAKE_BUILD_TYPE=$(BUILD_TYPE)
 
 
 #
