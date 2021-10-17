@@ -1,0 +1,36 @@
+name: Templates
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+
+  build:
+
+    name: ${{ matrix.os }} build
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.ACCESS_TOKEN }}
+        submodules: recursive
+
+    - name: Set up cache
+      uses: actions/cache@v2
+      with:
+        path: Cache
+        key: ${{ runner.os }}.${{ hashFiles('**/') }}
+        restore-keys: ${{ runner.os }}.
+
+    - name: Run CI build script
+      shell: bash
+      run: make defaults
