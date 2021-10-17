@@ -6,14 +6,14 @@ SHELL := /bin/bash
 .DEFAULT_GOAL := help
 .PHONY: clean docs format help templates translations uth
 
-MAKE_DIR := make
+MAKE_DIR := util/make
 
 include $(MAKE_DIR)/basic_settings.make
 
 SCRIPTS_DIR := scripts
 MODULES := modules
-CMAKE_DIR := cmake
-DOXYGEN_DIR := doxygen
+CMAKE_DIR := util/cmake
+DOXYGEN_DIR := util/doxygen
 DOXYGEN_BUILD_DIR := $(DOXYGEN_DIR)/build
 DOXYGEN_DEPLOY_DIR := $(DOXYGEN_DIR)/doc
 TEMPLATES_DIR := templates
