@@ -8,7 +8,7 @@ set -euo pipefail
 process_line() {
 	local -r line=$(echo "$1" | sed 's/;//')
 
-	for other in "clang-format" "doxygen" "graphviz"
+	for other in "clang-format" "doxygen"
 	do
 		if [ "$line" = "$other" ]; then
 			return
