@@ -3,7 +3,7 @@ SHELL := /bin/bash
 .ONESHELL:
 .DELETE_ON_ERROR:
 .DEFAULT_GOAL := help
-.PHONY: clean defaults docs format help uth wipe
+.PHONY: clean defaults docs format help translations uth wipe
 
 #
 
@@ -99,6 +99,15 @@ uth: ## Updates all git submodules to head
 
 #
 
+TRANSLATION_OUTPUT := needed_translations.txt
+
+translations: $(TRANSLATION_OUTPUT) ## Generates a JUCE-style translations file with all of Lemons' usages of the JUCE translation functions
+
+$(TRANSLATION_OUTPUT): $(SCRIPTS_DIR)/generate_translation_file.py $(SOURCE_FILES)
+	$(PYTHON) $< $(MODULES) $(TRANSLATION_OUTPUT)
+
+#
+
 docs: $(DOXYGEN_DEPLOY_DIR)/index.html ## Builds the documentation
 
 MODULE_DOC_OUTPUT := $(DOXYGEN_BUILD_DIR)/lemons_modules.dox
@@ -117,7 +126,7 @@ $(MODULE_DOC_OUTPUT): $(DOXYGEN_DIR)/process_source_files.py $(CMAKE_DIR)/README
 DEPS_SCRIPT_TEMP_DIR := install_deps/install
 
 clean: ## Cleans the source tree
-	rm -rf $(BUILD) $(TEMP) $(TEMPLATES_DIR)/$(BUILD) $(DOXYGEN_BUILD_DIR) $(DOXYGEN_DEPLOY_DIR) $(DEPS_SCRIPT_TEMP_DIR)/Brewfile $(DEPS_SCRIPT_TEMP_DIR)/Brewfile.lock.json
+	rm -rf $(BUILD) $(TEMP) $(TRANSLATION_OUTPUT) $(TEMPLATES_DIR)/$(BUILD) $(DOXYGEN_BUILD_DIR) $(DOXYGEN_DEPLOY_DIR) $(DEPS_SCRIPT_TEMP_DIR)/Brewfile $(DEPS_SCRIPT_TEMP_DIR)/Brewfile.lock.json
 
 wipe: clean ## Cleans everything, and busts the CPM cache
 	rm -rf $(CACHE) $(TEMPLATES_DIR)/$(CACHE)
