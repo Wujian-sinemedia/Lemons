@@ -176,10 +176,8 @@ def process_juce_modules (source_dir, dest_dir):
 
 def copy_cmake_readme (source_dir, dest_dir):
 
-    dest = os.path.join (dest_dir, "cmake_api.md")
-
-    shutil.copy2 (os.path.join (os.path.join (source_dir, "cmake"), "README.md"), 
-                  dest)
+    shutil.copy2 (os.path.join (os.path.join (os.path.join (source_dir, "util"), "cmake"), "README.md"), 
+                  os.path.join (dest_dir, "cmake_api.md"))
 
 
 ###############################################################################
@@ -190,7 +188,7 @@ if __name__ == "__main__":
 
     script_dir = os.path.abspath (os.path.dirname (__file__))
 
-    source_dir = os.path.abspath (os.path.dirname (script_dir))
+    source_dir = os.path.abspath (os.path.dirname (os.path.dirname (script_dir)))
 
     dest_dir = os.path.join (script_dir, "build")
 
