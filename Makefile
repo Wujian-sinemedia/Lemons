@@ -7,8 +7,6 @@ SHELL := /bin/bash
 
 #
 
-BUILD_TYPE := Debug
-
 PYTHON := python
 
 SCRIPTS_DIR := scripts
@@ -17,7 +15,6 @@ CMAKE_DIR := cmake
 CMAKE_FILES := $(shell find $(CMAKE_DIR) -type f -name "*CMakeLists.txt|*.cmake")
 
 TEMP := .out
-BUILD := Builds
 
 DOXYGEN_DIR := doxygen
 DOXYGEN_BUILD_DIR := $(DOXYGEN_DIR)/build
@@ -31,21 +28,7 @@ TEMPLATES_DIR := default_projects
 TEMPLATE_REPOS := $(shell find $(TEMPLATES_DIR) -type d -maxdepth 1 ! -name $(TEMPLATES_DIR))
 TEMPLATE_PROJECT_FILES := $(shell find $(TEMPLATE_REPOS) -type f -name "$(SOURCE_FILE_PATTERNS)")
 
-#
-
-ifeq ($(OS),Windows_NT)
-	CMAKE_GENERATOR := Visual Studio 16 2019
-else
-	UNAME_S := $(shell uname -s)
-
-	ifeq ($(UNAME_S),Linux)
-		CMAKE_GENERATOR := Unix Makefiles
-	else ifeq ($(UNAME_S),Darwin)
-		CMAKE_GENERATOR := Xcode
-	else 
-		$(error Unknown operating system!)
-	endif
-endif
+include $(CMAKE_DIR)/Makefile
 
 #
 
@@ -83,10 +66,6 @@ $(TEMP)/format: $(SCRIPTS_DIR)/run_clang_format.py $(TEMPLATE_PROJECT_FILES) $(S
 ### BUILD PROJECT TEMPLATES ###
 
 templates: $(TEMP)/templates ## Builds the template example projects
-
-CMAKE_CONFIGURE_COMMAND := cmake -B $(BUILD) -G "$(CMAKE_GENERATOR)" -DCMAKE_BUILD_TYPE=$(BUILD_TYPE)
-
-CMAKE_BUILD_COMMAND := cmake --build $(BUILD) --config $(BUILD_TYPE)
 
 # Executes the build for the template projects
 $(TEMP)/templates: $(TEMPLATES_DIR)/$(BUILD)
@@ -133,7 +112,7 @@ DEPS_SCRIPT_TEMP_DIR := install_deps/install
 
 clean: ## Cleans the source tree
 	@echo "Cleaning Lemons..."
-	@rm -rf $(BUILD) $(TEMP) $(TRANSLATION_OUTPUT) $(TEMPLATES_DIR)/$(BUILD) \
+	@rm -rf $(BUILD) $(TEMP) Cache $(TRANSLATION_OUTPUT) $(TEMPLATES_DIR)/$(BUILD) \
 		$(DOXYGEN_BUILD_DIR) $(DOXYGEN_DEPLOY_DIR) \
 		$(DEPS_SCRIPT_TEMP_DIR)/Brewfile $(DEPS_SCRIPT_TEMP_DIR)/Brewfile.lock.json
 
