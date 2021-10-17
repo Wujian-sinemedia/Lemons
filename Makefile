@@ -6,30 +6,20 @@ SHELL := /bin/bash
 .DEFAULT_GOAL := help
 .PHONY: clean docs format help templates translations uth
 
-#
-
-PYTHON := python
+include basic_settings.make
 
 SCRIPTS_DIR := scripts
 MODULES := modules
 CMAKE_DIR := cmake
-CMAKE_FILES := $(shell find $(CMAKE_DIR) -type f -name "*CMakeLists.txt|*.cmake")
-
-TEMP := .out
-
 DOXYGEN_DIR := doxygen
 DOXYGEN_BUILD_DIR := $(DOXYGEN_DIR)/build
 DOXYGEN_DEPLOY_DIR := $(DOXYGEN_DIR)/doc
-
-SOURCE_FILE_PATTERNS := *.h|*.cpp|*CMakeLists.txt
-
-SOURCE_FILES := $(shell find $(MODULES) -type f -name "$(SOURCE_FILE_PATTERNS)")
-
 TEMPLATES_DIR := default_projects
 TEMPLATE_REPOS := $(shell find $(TEMPLATES_DIR) -type d -maxdepth 1 ! -name $(TEMPLATES_DIR))
+SOURCE_FILES := $(shell find $(MODULES) -type f -name "$(SOURCE_FILE_PATTERNS)")
 TEMPLATE_PROJECT_FILES := $(shell find $(TEMPLATE_REPOS) -type f -name "$(SOURCE_FILE_PATTERNS)")
 
-include $(CMAKE_DIR)/Makefile
+include $(CMAKE_DIR)/cmake.make
 
 #
 
@@ -76,15 +66,13 @@ $(TEMP)/templates: $(TEMPLATES_DIR)/$(BUILD)
 	@touch $@
 
 # Configures the build for the template projects
-$(TEMPLATES_DIR)/$(BUILD): $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES) $(CMAKE_FILES)
+$(TEMPLATES_DIR)/$(BUILD): $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES) $(shell find $(CMAKE_DIR) -type f -name "*CMakeLists.txt|*.cmake")
 	@echo "Configuring cmake..."
 	cd $(TEMPLATES_DIR) && $(CMAKE_CONFIGURE_COMMAND)
 
 #
 
 ### TRANSLATIONS ###
-
-TRANSLATION_OUTPUT := needed_translations.txt
 
 translations: $(TRANSLATION_OUTPUT) ## Generates a JUCE-style translations file for Lemons
 
@@ -97,13 +85,9 @@ $(TRANSLATION_OUTPUT): $(SCRIPTS_DIR)/generate_translation_file.py $(SOURCE_FILE
 
 ### UPDATE GIT SUBMODULES ###
 
-SUBMODULE_COMMAND := git checkout main && git fetch && git pull
-
 uth: ## Updates all git submodules to head
 	@echo "Updating git submodules..."
-	git fetch && git pull
-	git submodule update
-	git submodule foreach '$(SUBMODULE_COMMAND)'
+	$(GIT_UTH)
 
 #
 
@@ -122,5 +106,4 @@ clean: ## Cleans the source tree
 ### HELP ###
 
 help: ## Prints the list of commands
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
-
+	@$(PRINT_HELP_LIST)
