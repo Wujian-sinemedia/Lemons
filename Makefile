@@ -3,7 +3,7 @@ SHELL := /bin/bash
 .ONESHELL:
 .DELETE_ON_ERROR:
 .DEFAULT_GOAL := help
-.PHONY: clean defaults docs format help uth
+.PHONY: clean defaults docs format help uth wipe
 
 #
 
@@ -16,6 +16,8 @@ SCRIPTS_DIR := scripts
 CMAKE_DIR := cmake
 
 TEMP := .out
+
+CACHE := Cache
 
 BUILD := Builds
 
@@ -116,6 +118,9 @@ DEPS_SCRIPT_TEMP_DIR := install_deps/install
 
 clean: ## Cleans the source tree
 	rm -rf $(BUILD) $(TEMP) $(TEMPLATES_DIR)/$(BUILD) $(DOXYGEN_BUILD_DIR) $(DOXYGEN_DEPLOY_DIR) $(DEPS_SCRIPT_TEMP_DIR)/Brewfile $(DEPS_SCRIPT_TEMP_DIR)/Brewfile.lock.json
+
+wipe: clean ## Cleans everything, and busts the CPM cache
+	rm -rf $(CACHE) $(TEMPLATES_DIR)/$(CACHE)
 
 help: ## Prints the list of commands
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
