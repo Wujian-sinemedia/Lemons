@@ -6,7 +6,7 @@ set -euo pipefail
 
 
 process_line() {
-	local -r line = $(echo "$1" | sed 's/;//')
+	local -r line=$(echo "$1" | sed 's/;//')
 
 	for other in "clang-format" "doxygen" "graphviz"
 	do
