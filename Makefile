@@ -81,10 +81,8 @@ $(FORMAT_SENTINEL): $(SCRIPTS_DIR)/run_clang_format.py $(TEMPLATE_PROJECT_FILES)
 	@echo "Running clang-format..."
 	@mkdir -p $(@D)
 
-	for dir in $(MODULES) $(TEMPLATE_REPOS) ; do \
-		$(PYTHON) $< $$dir ; \
-	done
-
+	for dir in $(MODULES) $(TEMPLATE_REPOS) ; do $(PYTHON) $< $$dir ; done
+	
 	@touch $@
 
 #
