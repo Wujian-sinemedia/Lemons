@@ -80,15 +80,17 @@ source "$SCRIPT_DIR/os/$os_script.sh"
 
 # The argument given to this function must be the absolute path to a text file from which to read the list of dependencies
 install_deps_list() {
-	echo "Installing dependencies from file: $1" 
-
+	
 	local -r DEPS_LIST="$1"
 
 	# if deps list file doesn't exist, fail with error
 	if [ ! -f "$DEPS_LIST" ]; then
-		printf "Error - dependency list file not found!"
+		echo "Error - dependency list file not found!"
+		echo "Requested file: $DEPS_LIST"
 		exit 1
 	fi
+
+	echo "Installing dependencies from file: $DEPS_LIST" 
 
 	# run os install func
 	os_install_func "$DEPS_LIST"

@@ -4,10 +4,13 @@
 
 set -euo pipefail
 
+# TO DO: Check if Chocolatey is installed, and install it if need be...?
+
 
 process_line() {
 	local -r line=$(echo "$1" | sed 's/;//')
 
+	# AFAIK Chocolatey doesn't have packages by these names
 	for other in "clang-format" "doxygen"
 	do
 		if [ "$line" = "$other" ]; then
@@ -15,17 +18,13 @@ process_line() {
 		fi
 	done
 
-	echo "line : \"$line\""
-
 	choco install "$line"
 }
 
 
 os_install_func() {
 
-	local -r DEPS_LIST="$1"
-
-	cat "$DEPS_LIST" | while read line || [[ -n "$line" ]];
+	cat "$1" | while read line || [[ -n "$line" ]];
 	do
 		process_line "$line"
 	done

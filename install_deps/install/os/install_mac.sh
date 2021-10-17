@@ -40,8 +40,6 @@ fi
 #
 
 os_install_func() {
-	local -r DEPS_LIST="$1"
-
 	delete_file_if_exists "$brewfile"
 	delete_file_if_exists "$SCRIPT_DIR/Brewfile.lock.json"
 
@@ -49,7 +47,7 @@ os_install_func() {
 	touch "$brewfile"
 
 	# write deps list to Brewfile
-	cat "$DEPS_LIST" | while read line || [[ -n $line ]];
+	cat "$1" | while read line || [[ -n $line ]];
 	do
 		newtext="$(echo "brew "\'"$line"\')"
 		append_to_file "$brewfile" "$newtext"
