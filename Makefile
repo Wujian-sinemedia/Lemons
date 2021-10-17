@@ -3,7 +3,7 @@ SHELL := /bin/bash
 .ONESHELL:
 .DELETE_ON_ERROR:
 .DEFAULT_GOAL := help
-.PHONY: clean defaults docs format help translations uth wipe
+.PHONY: clean docs format help templates translations uth
 
 #
 
@@ -13,12 +13,10 @@ PYTHON := python
 
 SCRIPTS_DIR := scripts
 MODULES := modules
-
 CMAKE_DIR := cmake
 CMAKE_FILES := $(shell find $(CMAKE_DIR) -type f -name "*CMakeLists.txt|*.cmake")
 
 TEMP := .out
-CACHE := Cache
 BUILD := Builds
 
 DOXYGEN_DIR := doxygen
@@ -30,7 +28,7 @@ SOURCE_FILE_PATTERNS := *.h|*.cpp|*CMakeLists.txt
 SOURCE_FILES := $(shell find $(MODULES) -type f -name "$(SOURCE_FILE_PATTERNS)")
 
 TEMPLATES_DIR := default_projects
-TEMPLATE_REPOS := $(shell find $(TEMPLATES_DIR) -type d)
+TEMPLATE_REPOS := $(shell find $(TEMPLATES_DIR) -type d -maxdepth 1 ! -name $(TEMPLATES_DIR))
 TEMPLATE_PROJECT_FILES := $(shell find $(TEMPLATE_REPOS) -type f -name "$(SOURCE_FILE_PATTERNS)")
 
 #
@@ -51,36 +49,73 @@ endif
 
 #
 
-DEFAUT_SENTINEL := $(TEMP)/defaults
+### DOCS ###
 
-defaults: $(DEFAUT_SENTINEL) ## Builds the template example projects
+MODULE_DOC_OUTPUT := $(DOXYGEN_BUILD_DIR)/lemons_modules.dox
+HTML_DOC_OUTPUT := $(DOXYGEN_DEPLOY_DIR)/index.html
 
-# Executes the build for the template projects
-$(DEFAUT_SENTINEL): $(TEMPLATES_DIR)/$(BUILD)
-	@echo "Building template projects..."
-	@mkdir -p $(@D)
-	cd $(TEMPLATES_DIR) && cmake --build $(BUILD) --config $(BUILD_TYPE)
-	@touch $@
+docs: $(HTML_DOC_OUTPUT) ## Builds the documentation
 
-# Configures the build for the template projects
-$(TEMPLATES_DIR)/$(BUILD): $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES) $(CMAKE_FILES)
-	@echo "Configuring cmake..."
-	cd $(TEMPLATES_DIR) && cmake -B $(BUILD) -G "$(CMAKE_GENERATOR)" -DCMAKE_BUILD_TYPE=$(BUILD_TYPE)
+# Executes doxygen to build the documentation
+$(HTML_DOC_OUTPUT): $(MODULE_DOC_OUTPUT) $(shell find $(DOXYGEN_DIR) -type f -maxdepth 1 ! -name *process_source_files.py)
+	@echo "Building documentation..."
+	cd $(DOXYGEN_DIR) && doxygen
+
+# Parses the module tree to create doxygen's build tree, and the module subgroups' descriptions file
+$(MODULE_DOC_OUTPUT): $(DOXYGEN_DIR)/process_source_files.py $(CMAKE_DIR)/README.md $(SOURCE_FILES)
+	$(PYTHON) $<
 
 #
 
-FORMAT_SENTINEL := $(TEMP)/format
+### CLANG FORMAT ###
 
-format: $(FORMAT_SENTINEL) ## Runs clang-format
+format: $(TEMP)/format ## Runs clang-format
 
 # Executes the clang-format python script
-$(FORMAT_SENTINEL): $(SCRIPTS_DIR)/run_clang_format.py $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES)
+$(TEMP)/format: $(SCRIPTS_DIR)/run_clang_format.py $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES)
 	@echo "Running clang-format..."
 	@mkdir -p $(@D)
 	@for dir in $(MODULES) $(TEMPLATE_REPOS) ; do $(PYTHON) $< $$dir ; done
 	@touch $@
 
 #
+
+### BUILD PROJECT TEMPLATES ###
+
+templates: $(TEMP)/templates ## Builds the template example projects
+
+CMAKE_CONFIGURE_COMMAND := cmake -B $(BUILD) -G "$(CMAKE_GENERATOR)" -DCMAKE_BUILD_TYPE=$(BUILD_TYPE)
+
+CMAKE_BUILD_COMMAND := cmake --build $(BUILD) --config $(BUILD_TYPE)
+
+# Executes the build for the template projects
+$(TEMP)/templates: $(TEMPLATES_DIR)/$(BUILD)
+	@echo "Building template projects..."
+	@mkdir -p $(@D)
+	cd $(TEMPLATES_DIR) && $(CMAKE_BUILD_COMMAND)
+	@touch $@
+
+# Configures the build for the template projects
+$(TEMPLATES_DIR)/$(BUILD): $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES) $(CMAKE_FILES)
+	@echo "Configuring cmake..."
+	cd $(TEMPLATES_DIR) && $(CMAKE_CONFIGURE_COMMAND)
+
+#
+
+### TRANSLATIONS ###
+
+TRANSLATION_OUTPUT := needed_translations.txt
+
+translations: $(TRANSLATION_OUTPUT) ## Generates a JUCE-style translations file for Lemons
+
+# Executes the translation file generation script
+$(TRANSLATION_OUTPUT): $(SCRIPTS_DIR)/generate_translation_file.py $(SOURCE_FILES)
+	@echo "Generating Lemons translation file..."
+	$(PYTHON) $< $(MODULES) $(TRANSLATION_OUTPUT)
+
+#
+
+### UPDATE GIT SUBMODULES ###
 
 SUBMODULE_COMMAND := git checkout main && git fetch && git pull
 
@@ -92,44 +127,19 @@ uth: ## Updates all git submodules to head
 
 #
 
-TRANSLATION_OUTPUT := needed_translations.txt
-
-translations: $(TRANSLATION_OUTPUT) ## Generates a JUCE-style translations file with all of Lemons' usages of the JUCE translation functions
-
-$(TRANSLATION_OUTPUT): $(SCRIPTS_DIR)/generate_translation_file.py $(SOURCE_FILES)
-	@echo "Generating Lemons translation file..."
-	$(PYTHON) $< $(MODULES) $(TRANSLATION_OUTPUT)
-
-#
-
-docs: $(DOXYGEN_DEPLOY_DIR)/index.html ## Builds the documentation
-
-MODULE_DOC_OUTPUT := $(DOXYGEN_BUILD_DIR)/lemons_modules.dox
-
-# Executes doxygen to build the documentation
-$(DOXYGEN_DEPLOY_DIR)/index.html: $(MODULE_DOC_OUTPUT) $(DOXYGEN_DIR)/Doxyfile $(DOXYGEN_DIR)/DoxygenLayout.xml $(DOXYGEN_DIR)/main_page.md
-	@echo "Building documentation..."
-	cd $(DOXYGEN_DIR) && doxygen
-
-# Parses the module tree to create doxygen's build tree, and the module subgroups' descriptions file
-$(MODULE_DOC_OUTPUT): $(DOXYGEN_DIR)/process_source_files.py $(CMAKE_DIR)/README.md $(SOURCE_FILES)
-	$(PYTHON) $<
-
-#
+### CLEAN ###
 
 DEPS_SCRIPT_TEMP_DIR := install_deps/install
 
 clean: ## Cleans the source tree
 	@echo "Cleaning Lemons..."
-	rm -rf $(BUILD) $(TEMP) $(TRANSLATION_OUTPUT) $(TEMPLATES_DIR)/$(BUILD) \
+	@rm -rf $(BUILD) $(TEMP) $(TRANSLATION_OUTPUT) $(TEMPLATES_DIR)/$(BUILD) \
 		$(DOXYGEN_BUILD_DIR) $(DOXYGEN_DEPLOY_DIR) \
 		$(DEPS_SCRIPT_TEMP_DIR)/Brewfile $(DEPS_SCRIPT_TEMP_DIR)/Brewfile.lock.json
 
-wipe: clean ## Cleans everything, and busts the CPM cache
-	@echo "Wiping Lemons cache..."
-	rm -rf $(CACHE) $(TEMPLATES_DIR)/$(CACHE)
-
 #
+
+### HELP ###
 
 help: ## Prints the list of commands
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
