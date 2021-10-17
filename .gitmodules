@@ -1,10 +1,9 @@
-[submodule "cmake/GetLemons"]
-	path = cmake/third_party/GetLemons
-	url = https://github.com/benthevining/GetLemons.git
-
 [submodule "templates/DefaultJuceApp"]
 	path = templates/DefaultJuceApp
 	url = https://github.com/benthevining/DefaultJuceApp.git
 [submodule "templates/DefaultJucePlugin"]
 	path = templates/DefaultJucePlugin
 	url = https://github.com/benthevining/DefaultJucePlugin.git
+[submodule "util/cmake/third_party/GetLemons"]
+	path = util/cmake/third_party/GetLemons
+	url = https://github.com/benthevining/GetLemons.git
