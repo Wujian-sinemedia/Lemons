@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lemons: Main Page</title>
+<title>Lemons: Welcome to the Lemons online documentation!</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,16 +63,15 @@ $(function() {
 
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Lemons Documentation</div>  </div>
+<div class="title">Welcome to the Lemons online documentation! </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Welcome to the Lemons online documentation!</p>
-<p>The source code repository itself can be found <a href="https://github.com/benthevining/Lemons">here</a>.</p>
+<div class="textblock"><p>The source code repository itself can be found <a href="https://github.com/benthevining/Lemons">here</a>.</p>
 <hr  />
-<h2>*Building*</h2>
+<h1>Building</h1>
 <p>It's recommended to build with CMake. You could manually add the desired modules to a Projucer project, but CMake is a much better build system. Lemons contains several useful CMake scripts that should make getting things running fairly painless...</p>
 <p>The full CMake API reference can be found <a href="https://github.com/benthevining/Lemons/blob/main/util/cmake/README.md">here</a>.</p>
-<h3>*Adding with CPM.cmake*</h3>
+<h2>Adding with CPM.cmake</h2>
 <p>I recommend that within your CMake, you add Lemons by using <a href="https://github.com/cpm-cmake/CPM.cmake">CPM.cmake</a>, which is a single-script CMake package manager that allows you lots of flexibility in project configuration. One particularly important feature is the ability to specify that a local directory contains the source code for a certain package &ndash; so that not every project repository on your machine has to contain a copy of Lemons as a submodule. This makes your cmake perfectly modular: simply add the Lemons package with CPM.cmake in each project, and then if that project is cloned and built in isolation, CPM will download the Lemons package at configure time, but you also have the ability to tell CPM to reference a local copy of Lemons on your machine, so you can work on all your projects while only having one copy of Lemons on your machine.</p>
 <p>Adding Lemons with CPM.cmake looks like this: </p><div class="fragment"><div class="line">include (CPM.cmake)</div>
 <div class="line"> </div>
@@ -80,10 +79,10 @@ $(function() {
 <div class="line">        NAME Lemons</div>
 <div class="line">        GIT_REPOSITORY https://github.com/benthevining/Lemons.git</div>
 <div class="line">        GIT_TAG origin/main)</div>
-</div><!-- fragment --><h3>*A note about adding JUCE*</h3>
+</div><!-- fragment --><h2>A note about adding JUCE</h2>
 <p>Internally, Lemons's cmake scripts <a href="https://github.com/benthevining/Lemons/blob/main/util/cmake/third_party/juce_config.cmake">add JUCE like this</a>, using CPM.cmake. JUCE will automatically be fetched for you at configure time &ndash; but, if you'd like to reference another local copy of JUCE, you can set this variable before adding the Lemons package: </p><div class="fragment"><div class="line">set (CPM_JUCE_SOURCE /absolute/path/to/your/copy/of/juce)</div>
 </div><!-- fragment --><p>Note that this is optional, and if you omit the above line, adding the Lemons package will automatically also add the latest copy of JUCE for you.</p>
-<h3>*What I actually do in my projects' CMake*</h3>
+<h2>What I actually do in my projects' CMake</h2>
 <p>I noticed myself duplicating several lines of CMake code in every project, so I encapsulated the <em>adding of Lemons</em> into <a href="https://github.com/benthevining/GetLemons">its own little repository</a>.</p>
 <p>What I usually do in my project repos is make my <a href="https://github.com/benthevining/GetLemons">GetLemons</a> repo a git submodule, then from the project's main CMakeLists.txt, simply </p><div class="fragment"><div class="line">addSubdirectory (GetLemons)</div>
 </div><!-- fragment --><p>What this will do is:</p><ul>
@@ -93,21 +92,21 @@ $(function() {
 <p>You can check out the GetLemons repo's ReadMe for more details.</p>
 <p>For an example of a project repo that uses this configuration, see <a href="https://github.com/benthevining/imogen/blob/main/CMakeLists.txt">Imogen's CMakeLists.txt</a>.</p>
 <hr  />
-<h2>*Integrations*</h2>
+<h1>Integrations</h1>
 <p>When you add the Lemons subdirectory in your CMake (or GetLemons), my cmake scripts will automatically configure several integrations, if the respective programs can be found on your computer. If they can't be found, cmake will not install anything at configure time. See the section below on installing dependencies and integrations.</p>
-<h3>*Ccache*</h3>
+<h2>Ccache</h2>
 <p>My cmake scripts will automatically configure your build to use <a href="https://ccache.dev/">ccache</a> as the compiler launcher, if the ccache program can be located on your machine. This will drastically speed up consecutive builds! Ccache works by detecting if the same compilation is being repeated, and if so, reusing the old output. For an example of a GithubActions workflow that utilizes a persistent cache, see <a href="https://github.com/benthevining/dev_workspace/blob/main/.github/workflows/Build.yml">here</a>.</p>
-<h3>*Clang-format*</h3>
+<h2>Clang-format</h2>
 <p>If clang-format is found at configure time, my cmake scripts will automatically add a target to your project called <em>ClangFormat</em>, that will recursively run clang-format on all nested subdirectories within your source tree. For this to work, before adding Lemons in your CMake, set the variable <em>LEMONS_TOPLEVEL_DIR</em> to the absolute path of your top-level source directory.</p>
-<h3>*Clang-tidy*</h3>
+<h2>Clang-tidy</h2>
 <p>(in progress...)</p>
-<h2>*Installing dependencies and integrations*</h2>
+<h1>Installing dependencies and integrations</h1>
 <p>To install all dependencies and integrations in a cross-platform way, simply run the script at <code>util/install_deps/install_deps.sh</code>. This is tested on GithubActions with Windows, MacOS, and Linux. The Windows version could still do with some improvements, though &ndash; it relies on the GithubActions runner's pre-installed Linux subsystem for Windows...</p>
 <hr  />
-<h2>*Example dev environment*</h2>
+<h1>Example dev environment</h1>
 <p>For an example of how you can integrate several project repos of this nature side-by-side in a "super-repo", check out my <a href="https://github.com/benthevining/dev_workspace">dev_workspace repo</a> &ndash; this is the only repo I have to clone onto a dev machine in order to work on all my projects, and I only have to have one copy of Lemons and JUCE on my machine, which every project repo will reference.</p>
 <hr  />
-<h2>*Licensing*</h2>
+<h1>Licensing</h1>
 <p>This repository is licensed with the GNU General Public License. This means that any projects using this repository's code <em><b>must also themselves be open-source and licensed under the GPL.</b></em></p>
 <p>For inquiries about exemptions for commercial usage, please email me at <a href="#" onclick="location.href='mai'+'lto:'+'ben'+'.t'+'he.'+'vi'+'nin'+'g@'+'gma'+'il'+'.co'+'m'; return false;">ben.t<span style="display: none;">.nosp@m.</span>he.v<span style="display: none;">.nosp@m.</span>ining<span style="display: none;">.nosp@m.</span>@gma<span style="display: none;">.nosp@m.</span>il.co<span style="display: none;">.nosp@m.</span>m</a>.</p>
 <hr  />
@@ -116,7 +115,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 18 2021 19:22:16 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Oct 18 2021 19:25:31 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

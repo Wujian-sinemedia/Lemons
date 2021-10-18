@@ -24068,7 +24068,7 @@
   </compound>
   <compound kind="page">
     <name>index</name>
-    <title></title>
+    <title>Welcome to the Lemons online documentation!</title>
     <filename>index</filename>
   </compound>
 </tagfile>
