@@ -17,3 +17,4 @@ endfunction()
 #
 
 run_clangformat_on_subdir ("@LEMONS_TOPLEVEL_DIR@")
+run_clangformat_on_subdir ("@LEMONS_REPO_ROOT@/modules")
