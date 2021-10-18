@@ -1,7 +1,7 @@
 # Lemons
 
 <p align="center">
-  <img src="https://github.com/benthevining/Lemons/blob/main/assets/lemons.jpg" alt="Watercolor painting of some lemons" width="1191" height="585"/>
+  <img src="https://github.com/benthevining/Lemons/blob/main/util/assets/lemons.jpg" alt="Watercolor painting of some lemons" width="1191" height="585"/>
 </p>
 
 I used to work full time in live theatre. Then, COVID happened. 
@@ -16,7 +16,7 @@ wait, damn it, perhaps I should've gone with *Lemonade*, now that I think about 
 Here are my lemons, go make lemonade of your own.
 
 <p align="center">
-  <img src="https://github.com/benthevining/Lemons/blob/main/assets/deke.png" alt="Deke Shaw, from Agents of Shield, saying, 'it's lemons then'." width="409" height="311"/>
+  <img src="https://github.com/benthevining/Lemons/blob/main/util/assets/deke.png" alt="Deke Shaw, from Agents of Shield, saying, 'it's lemons then'." width="409" height="311"/>
 </p>
 
 ---
