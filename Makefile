@@ -45,9 +45,18 @@ $(MODULE_DOC_OUTPUT): $(DOXYGEN_DIR)/process_source_files.py $(SOURCE_FILES)
 
 ### CLANG FORMAT ###
 
-format: $(SCRIPTS_DIR)/run_clang_format.py $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES) ## Runs clang-format
+format: $(SCRIPTS_DIR)/run_clang_format.py $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES) .clang-format ## Runs clang-format
 	@echo "Running clang-format..."
 	@for dir in $(MODULES) $(TEMPLATE_REPOS) ; do $(PYTHON) $< $$dir ; done
+
+
+### CLANG TIDY ###
+
+
+
+### CPPCHECK ###
+
+
 
 #
 
@@ -85,7 +94,7 @@ DEPS_SCRIPT_TEMP_DIR := $(UTIL_DIR)/install_deps/install
 
 clean: ## Cleans the source tree
 	@echo "Cleaning Lemons..."
-	@rm -rf $(BUILD) $(CACHE) $(TRANSLATION_OUTPUT) $(TEMPLATES_DIR)/$(BUILD) .github/docs \
+	@$(RM) $(BUILD) $(CACHE) $(TRANSLATION_OUTPUT) $(TEMPLATES_DIR)/$(BUILD) .github/docs \
 		$(DOXYGEN_BUILD_DIR) $(DOXYGEN_DEPLOY_DIR) \
 		$(DEPS_SCRIPT_TEMP_DIR)/Brewfile $(DEPS_SCRIPT_TEMP_DIR)/Brewfile.lock.json
 

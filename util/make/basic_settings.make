@@ -1,5 +1,9 @@
 PYTHON := python3
 
+RM := rm -rf
+
+#
+
 CACHE := Cache
 
 SOURCE_FILE_PATTERNS := *.h|*.cpp|*CMakeLists.txt
