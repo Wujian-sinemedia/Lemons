@@ -194,6 +194,27 @@ def copy_cmake_readme (source_dir, dest_dir):
                   os.path.join (dest_dir, "cmake_api.md"))
 
 
+# Copies the relevant sections from the top-level readme into the main_page.md file
+
+def copy_from_main_readme (source_dir, script_dir, dest_dir):
+
+    dest_file_path = os.path.join (dest_dir, "main_page.md")
+
+    shutil.copy2 (os.path.join (script_dir, "main_page.md"), dest_file_path)
+
+    toplevel_readme_path = os.path.join (source_dir, "README.md")
+
+    last_bit_of_intro = "whatever floats your git boat."
+
+    with open (toplevel_readme_path, "r") as f:
+        orig_readme_text = f.read()
+
+    relevant_text = orig_readme_text.split (last_bit_of_intro, 1)[1]
+
+    with open (dest_file_path, "a") as f:
+        f.write (relevant_text)
+
+
 ###############################################################################
 
 # Main script 
@@ -213,8 +234,8 @@ if __name__ == "__main__":
     # re-create a clean working directory
     os.mkdir (dest_dir)
 
-    # copy cmake API readme to the build tree
     copy_cmake_readme (source_dir, dest_dir)
 
-    # process juce modules
+    copy_from_main_readme (source_dir, script_dir, dest_dir)
+
     process_juce_modules (source_dir, dest_dir)
