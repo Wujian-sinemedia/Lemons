@@ -1,8 +1,8 @@
 ccache
-clang-format
 cmake
 doxygen
 git
 graphviz
+llvm
 make
 python3
