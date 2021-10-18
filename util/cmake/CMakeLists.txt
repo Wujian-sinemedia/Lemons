@@ -9,18 +9,17 @@ set (CMAKE_CXX_STANDARD                 ${LEMONS_CXX_VERSION})
 set (CMAKE_CXX_STANDARD_REQUIRED        ON)
 set (CMAKE_INCLUDE_CURRENT_DIR          ON)
 
-if (NOT Lemons_SOURCE_DIR)
-    set (Lemons_SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/../.. CACHE INTERNAL "Path to the Lemons repo")
+set (LEMONS_CMAKE_ROOT "${CMAKE_CURRENT_LIST_DIR}" CACHE INTERNAL "" FORCE)
+
+# The top level directory of the current build
+if (NOT LEMONS_TOPLEVEL_DIR)
+    set (LEMONS_TOPLEVEL_DIR "${LEMONS_REPO_ROOT}/..")
 endif()
 
 # set up CPM source cache in a git-ignored location (makes successive build configs MUCH faster!)
 # if you wish to refresh the cache, I suggest manually deleting the cached files from the Cache dir. They will be freshly re-downloaded when the next CMake configuration is run.
 if (NOT ENV{CPM_SOURCE_CACHE})
-    if (LEMONS_WORKSPACE_BUILD)
-        set (ENV{CPM_SOURCE_CACHE} ${Lemons_SOURCE_DIR}/../Cache)
-    else()
-        set (ENV{CPM_SOURCE_CACHE} ${Lemons_SOURCE_DIR}/Cache)
-    endif()
+    set (ENV{CPM_SOURCE_CACHE} "${LEMONS_TOPLEVEL_DIR}/Cache")
 endif()
 
 #
