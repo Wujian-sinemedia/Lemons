@@ -10,13 +10,9 @@ set -euo pipefail
 process_line() {
 	local -r line=$(echo "$1" | sed 's/;//')
 
-	# AFAIK Chocolatey doesn't have packages by these names
-	for other in "clang-format" "doxygen"
-	do
-		if [ "$line" = "$other" ]; then
-			return
-		fi
-	done
+	if [ "$line" = "doxygen" ]; then
+		return
+	fi
 
 	choco install "$line"
 }
