@@ -13,7 +13,7 @@ set (LEMONS_CMAKE_ROOT "${CMAKE_CURRENT_LIST_DIR}" CACHE INTERNAL "" FORCE)
 
 # The top level directory of the current build
 if (NOT LEMONS_TOPLEVEL_DIR)
-    set (LEMONS_TOPLEVEL_DIR "${LEMONS_REPO_ROOT}/..")
+    set (LEMONS_TOPLEVEL_DIR "${LEMONS_REPO_ROOT}/.." CACHE INTERNAL "" FORCE)
 endif()
 
 # set up CPM source cache in a git-ignored location (makes successive build configs MUCH faster!)
