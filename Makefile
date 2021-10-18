@@ -38,7 +38,7 @@ $(HTML_DOC_OUTPUT): $(MODULE_DOC_OUTPUT) $(shell find $(DOXYGEN_DIR) -type f -ma
 	cd $(DOXYGEN_DIR) && doxygen
 
 # Parses the module tree to create doxygen's build tree, and the module subgroups' descriptions file
-$(MODULE_DOC_OUTPUT): $(DOXYGEN_DIR)/process_source_files.py $(CMAKE_DIR)/README.md $(SOURCE_FILES)
+$(MODULE_DOC_OUTPUT): $(DOXYGEN_DIR)/process_source_files.py $(SOURCE_FILES)
 	$(PYTHON) $<
 
 #

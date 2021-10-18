@@ -188,10 +188,14 @@ def process_juce_modules (source_dir, dest_dir):
 
 # Copies the readme from the cmake directory into the working tree for doxygen
 
-def copy_cmake_readme (source_dir, dest_dir):
+def copy_cmake_readme (script_dir, dest_dir):
 
-    shutil.copy2 (os.path.join (os.path.join (os.path.join (source_dir, "util"), "cmake"), "README.md"), 
-                  os.path.join (dest_dir, "cmake_api.md"))
+    filename = "cmake_api.md"
+
+    orig_file_path = os.path.join (script_dir, filename)
+    dest_file_path = os.path.join (dest_dir, filename)
+
+    shutil.copy2 (orig_file_path, dest_file_path)
 
 
 # Copies the relevant sections from the top-level readme into the main_page.md file
@@ -234,7 +238,7 @@ if __name__ == "__main__":
     # re-create a clean working directory
     os.mkdir (dest_dir)
 
-    copy_cmake_readme (source_dir, dest_dir)
+    copy_cmake_readme (script_dir, dest_dir)
 
     copy_from_main_readme (source_dir, script_dir, dest_dir)
 
