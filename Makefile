@@ -6,17 +6,18 @@ SHELL := /bin/bash
 .DEFAULT_GOAL := help
 .PHONY: clean docs format help templates translations uth
 
-MAKE_DIR := util/make
+SCRIPTS_DIR := scripts
+MODULES := modules
+UTIL_DIR := util
+MAKE_DIR := $(UTIL_DIR)/make
+CMAKE_DIR := $(UTIL_DIR)/cmake
+DOXYGEN_DIR := $(UTIL_DIR)/doxygen
+DOXYGEN_BUILD_DIR := $(DOXYGEN_DIR)/build
+DOXYGEN_DEPLOY_DIR := $(DOXYGEN_DIR)/doc
 
 include $(MAKE_DIR)/basic_settings.make
 include $(MAKE_DIR)/cmake.make
 
-SCRIPTS_DIR := scripts
-MODULES := modules
-CMAKE_DIR := util/cmake
-DOXYGEN_DIR := util/doxygen
-DOXYGEN_BUILD_DIR := $(DOXYGEN_DIR)/build
-DOXYGEN_DEPLOY_DIR := $(DOXYGEN_DIR)/doc
 TEMPLATES_DIR := templates
 TEMPLATE_REPOS := $(shell find $(TEMPLATES_DIR) -type d -maxdepth 1 ! -name $(TEMPLATES_DIR))
 TEMPLATE_PROJECT_FILES := $(shell find $(TEMPLATE_REPOS) -type f -name "$(SOURCE_FILE_PATTERNS)")
@@ -80,7 +81,7 @@ uth: ## Updates all git submodules to head
 
 #
 
-DEPS_SCRIPT_TEMP_DIR := install_deps/install
+DEPS_SCRIPT_TEMP_DIR := $(UTIL_DIR)/install_deps/install
 
 clean: ## Cleans the source tree
 	@echo "Cleaning Lemons..."

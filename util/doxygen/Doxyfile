@@ -221,7 +221,7 @@ EXCLUDE                =
 
 EXCLUDE_SYMLINKS       = YES
 
-IMAGE_PATH             = ../../assets
+IMAGE_PATH             = ../assets
 
 USE_MDFILE_AS_MAINPAGE = main_page.md
 
