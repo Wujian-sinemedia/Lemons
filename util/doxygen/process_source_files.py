@@ -198,16 +198,16 @@ def copy_cmake_readme (source_dir, dest_dir):
 
 def copy_from_main_readme (source_dir, script_dir, dest_dir):
 
-    dest_file_path = os.path.join (dest_dir, "main_page.md")
+    filename = "main_page.md"
 
-    shutil.copy2 (os.path.join (script_dir, "main_page.md"), dest_file_path)
+    dest_file_path = os.path.join (dest_dir, filename)
 
-    toplevel_readme_path = os.path.join (source_dir, "README.md")
+    shutil.copy2 (os.path.join (script_dir, filename), dest_file_path)
+
+    with open (os.path.join (source_dir, "README.md"), "r") as f:
+        orig_readme_text = f.read()
 
     last_bit_of_intro = "whatever floats your git boat."
-
-    with open (toplevel_readme_path, "r") as f:
-        orig_readme_text = f.read()
 
     relevant_text = orig_readme_text.split (last_bit_of_intro, 1)[1]
 
