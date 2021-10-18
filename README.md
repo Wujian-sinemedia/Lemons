@@ -76,14 +76,25 @@ You can check out the GetLemons repo's ReadMe for more details.
 
 For an example of a project repo that uses this configuration, see [Imogen's CMakeLists.txt](https://github.com/benthevining/imogen/blob/main/CMakeLists.txt).
 
-## *Ccache*
+## *Integrations*
 
-When you add the Lemons subdir, my cmake scripts will automatically configure your build to use [ccache](https://ccache.dev/) as the compiler launcher, if the ccache program can be located on your machine. This will drastically speed up consecutive builds.
+When you add the Lemons subdirectory in your CMake (or GetLemons), my cmake scripts will automatically configure several integrations, if the respective programs can be found on your computer. If they can't be found, cmake will not install anything at configure time. See the section below on installing dependencies and integrations.
 
-Running CMake configuration will *not* install ccache. To install it:
-* Mac: `bundle install ccache` 
-* Linux: `apt-get install ccache`
-* Windows: grab a release from [this repo](https://github.com/cristianadam/ccache)
+### *Ccache*
+
+My cmake scripts will automatically configure your build to use [ccache](https://ccache.dev/) as the compiler launcher, if the ccache program can be located on your machine. This will drastically speed up consecutive builds! Ccache works by detecting if the same compilation is being repeated, and if so, reusing the old output. For an example of a GithubActions workflow that utilizes a persistent cache, see [here](https://github.com/benthevining/dev_workspace/blob/main/.github/workflows/Build.yml).
+
+### *Clang-format*
+
+If clang-format is found at configure time, my cmake scripts will automatically add a target to your project called *ClangFormat*, that will recursively run clang-format on all nested subdirectories within your source tree. For this to work, before adding Lemons in your CMake, set the variable *LEMONS_TOPLEVEL_DIR* to the absolute path of your top-level source directory.
+
+### *Clang-tidy*
+
+(in progress...)
+
+## *Installing dependencies and integrations*
+
+To install all dependencies and integrations in a cross-platform way, simply run the script at `util/install_deps/install_deps.sh`. This is tested on GithubActions with Windows, MacOS, and Linux. The Windows version could still do with some improvements, though -- it relies on the GithubActions runner's pre-installed Linux subsystem for Windows...
 
 ## *Example dev environment*
 
