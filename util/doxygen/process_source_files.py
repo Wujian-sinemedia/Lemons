@@ -122,6 +122,17 @@ def process_juce_module (category_name, module_name, module_dir):
 
 ###############################################################################
 
+# Processes a text file containing the description of a category of JUCE modules
+
+def process_category_description (file_path):
+
+    with open (file_path, "r") as f:
+        content = f.read()
+
+    return content
+
+###############################################################################
+
 # Processes a group of JUCE modules and returns a module category description for Doxygen
 
 def process_module_category (category_name, orig_cat_dir, dest_cat_dir):
@@ -129,9 +140,12 @@ def process_module_category (category_name, orig_cat_dir, dest_cat_dir):
     # copy files to doxygen working tree
     shutil.copytree (orig_cat_dir, dest_cat_dir)
 
+    category_description = process_category_description (os.path.join (dest_cat_dir, category_name.lower() + ".txt"))
+
     # Create a Doxygen group definition for the category
     category_definiton = []
     category_definiton.append ("/** @defgroup {n} {n}".format (n=category_name))
+    category_definiton.append ("    {d}".format (d=category_description))
     category_definiton.append ("")
     category_definiton.append ("    @{")
     category_definiton.append ("*/")
