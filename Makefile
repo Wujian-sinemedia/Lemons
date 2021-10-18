@@ -84,7 +84,7 @@ DEPS_SCRIPT_TEMP_DIR := install_deps/install
 
 clean: ## Cleans the source tree
 	@echo "Cleaning Lemons..."
-	@rm -rf $(BUILD) $(CACHE) $(TRANSLATION_OUTPUT) $(TEMPLATES_DIR)/$(BUILD) \
+	@rm -rf $(BUILD) $(CACHE) $(TRANSLATION_OUTPUT) $(TEMPLATES_DIR)/$(BUILD) .github/docs \
 		$(DOXYGEN_BUILD_DIR) $(DOXYGEN_DEPLOY_DIR) \
 		$(DEPS_SCRIPT_TEMP_DIR)/Brewfile $(DEPS_SCRIPT_TEMP_DIR)/Brewfile.lock.json
 

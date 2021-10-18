@@ -4,8 +4,8 @@ Cache/
 .out/
 util/doxygen/build
 util/doxygen/doc
-util/doxygen/Lemons
 install_deps/install/Brewfile
 install_deps/install/Brewfile.lock.json
 templates/Builds
+.github/docs
 needed_translations.txt
