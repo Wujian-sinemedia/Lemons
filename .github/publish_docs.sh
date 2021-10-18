@@ -12,7 +12,7 @@ readonly script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pw
 readonly lemons_root="$script_dir/.."
 
 # install deps
-/usr/bin/env bash "$lemons_root/install_deps/install_deps.sh"
+/usr/bin/env bash "$lemons_root/util/install_deps/install_deps.sh"
 
 cd "$script_dir"
 
