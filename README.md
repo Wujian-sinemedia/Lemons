@@ -76,6 +76,8 @@ You can check out the GetLemons repo's ReadMe for more details.
 
 For an example of a project repo that uses this configuration, see [Imogen's CMakeLists.txt](https://github.com/benthevining/imogen/blob/main/CMakeLists.txt).
 
+---
+
 ## *Integrations*
 
 When you add the Lemons subdirectory in your CMake (or GetLemons), my cmake scripts will automatically configure several integrations, if the respective programs can be found on your computer. If they can't be found, cmake will not install anything at configure time. See the section below on installing dependencies and integrations.
@@ -95,6 +97,8 @@ If clang-format is found at configure time, my cmake scripts will automatically 
 ## *Installing dependencies and integrations*
 
 To install all dependencies and integrations in a cross-platform way, simply run the script at `util/install_deps/install_deps.sh`. This is tested on GithubActions with Windows, MacOS, and Linux. The Windows version could still do with some improvements, though -- it relies on the GithubActions runner's pre-installed Linux subsystem for Windows...
+
+---
 
 ## *Example dev environment*
 
