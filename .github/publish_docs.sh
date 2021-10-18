@@ -7,6 +7,10 @@
 
 set -euo pipefail
 
+readonly GH_REPO_REF="github.com/benthevining/Lemons.git"
+
+readonly temp_dir="docs"
+
 readonly script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 readonly lemons_root="$script_dir/.."
@@ -16,13 +20,9 @@ readonly lemons_root="$script_dir/.."
 
 cd "$script_dir"
 
-readonly temp_dir="docs"
-
 # create a clean working directory for the script
 mkdir "$temp_dir"
 cd "$temp_dir"
-
-readonly GH_REPO_REF="github.com/benthevining/Lemons.git"
 
 # clone the docs branch
 git clone -b docs "https://git@$GH_REPO_REF"
@@ -47,7 +47,7 @@ cd "$lemons_root"
 make docs
 
 # copy generated docs to cloned copy of docs git tree
-mv "$lemons_root/util/doxygen/doc/*" "$docs_git_tree"
+mv "$lemons_root"/util/doxygen/doc/* "$docs_git_tree"
 
 cd "$docs_git_tree"
 
