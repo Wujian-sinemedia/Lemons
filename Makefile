@@ -2,9 +2,10 @@ SHELL := /bin/bash
 .SHELLFLAGS := -eu -o pipefail -c
 .ONESHELL:
 .DELETE_ON_ERROR:
-	
+
 .DEFAULT_GOAL := help
-.PHONY: clean docs format help templates translations uth
+
+THIS_FILE := $(lastword $(MAKEFILE_LIST))
 
 SCRIPTS_DIR := scripts
 MODULES := modules
@@ -17,6 +18,8 @@ DOXYGEN_DEPLOY_DIR := $(DOXYGEN_DIR)/doc
 
 include $(MAKE_DIR)/basic_settings.make
 include $(MAKE_DIR)/cmake.make
+
+.PHONY: $(ALL_PHONY_TARGETS)
 
 TEMPLATES_DIR := templates
 TEMPLATE_REPOS := $(shell find $(TEMPLATES_DIR) -type d -maxdepth 1 ! -name $(TEMPLATES_DIR))
