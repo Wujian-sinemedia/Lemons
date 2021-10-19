@@ -69,12 +69,12 @@ format: $(SCRIPTS_DIR)/run_clang_format.py $(TEMPLATE_PROJECT_FILES) $(SOURCE_FI
 
 templates: $(TEMPLATES_DIR)/$(BUILD) ## Builds the template example projects
 	@echo "Building template projects..."
-	cd $(TEMPLATES_DIR) && $(CMAKE_BUILD_COMMAND) | tee $(BUILD_LOG_FILE)
+	cd $(TEMPLATES_DIR) && time $(CMAKE_BUILD_COMMAND) | tee $(BUILD_LOG_FILE)
 
 # Configures the build for the template projects
 $(TEMPLATES_DIR)/$(BUILD): $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES) $(shell find $(CMAKE_DIR) -type f -name "$(CMAKE_FILE_PATTERNS)")
 	@echo "Configuring cmake..."
-	cd $(TEMPLATES_DIR) && $(CMAKE_CONFIGURE_COMMAND) | tee $(CONFIG_LOG_FILE)
+	cd $(TEMPLATES_DIR) && $(CMAKE_CONFIGURE_COMMAND)
 
 #
 
