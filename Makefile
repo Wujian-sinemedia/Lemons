@@ -69,12 +69,12 @@ format: $(SCRIPTS_DIR)/run_clang_format.py $(TEMPLATE_PROJECT_FILES) $(SOURCE_FI
 
 templates: $(TEMPLATES_DIR)/$(BUILD) ## Builds the template example projects
 	@echo "Building template projects..."
-	cd $(TEMPLATES_DIR) && $(CMAKE_BUILD_COMMAND)
+	cd $(TEMPLATES_DIR) && $(CMAKE_BUILD_COMMAND) | tee $(BUILD_LOG_FILE)
 
 # Configures the build for the template projects
 $(TEMPLATES_DIR)/$(BUILD): $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES) $(shell find $(CMAKE_DIR) -type f -name "$(CMAKE_FILE_PATTERNS)")
 	@echo "Configuring cmake..."
-	cd $(TEMPLATES_DIR) && $(CMAKE_CONFIGURE_COMMAND)
+	cd $(TEMPLATES_DIR) && $(CMAKE_CONFIGURE_COMMAND) | tee $(CONFIG_LOG_FILE)
 
 #
 
@@ -100,6 +100,7 @@ DEPS_SCRIPT_TEMP_DIR := $(UTIL_DIR)/install_deps/install
 clean: ## Cleans the source tree
 	@echo "Cleaning Lemons..."
 	@$(RM) $(BUILD) $(CACHE) $(TRANSLATION_OUTPUT) $(TEMPLATES_DIR)/$(BUILD) .github/docs \
+		$(CONFIG_LOG_FILE) $(BUILD_LOG_FILE) $(TEMPLATES_DIR)/$(CONFIG_LOG_FILE) $(TEMPLATES_DIR)/$(BUILD_LOG_FILE) \
 		$(DOXYGEN_BUILD_DIR) $(DOXYGEN_DEPLOY_DIR) \
 		$(DEPS_SCRIPT_TEMP_DIR)/Brewfile $(DEPS_SCRIPT_TEMP_DIR)/Brewfile.lock.json
 
