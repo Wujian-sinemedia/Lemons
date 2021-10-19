@@ -24,6 +24,8 @@ ALL_PHONY_TARGETS := $(shell grep -E '^[a-zA-Z_-]+:.*?\#\# .*$$' $(THIS_FILE) | 
 
 GIT_BRANCH_NAME := main
 
-GIT_SUBMODULE_UTH_COMMAND := git checkout $(GIT_BRANCH_NAME) && git fetch && git pull
+GIT_SUBMODULE_UPDATE_COMMAND := git submodule update --init --recursive --merge
 
-GIT_UTH := git fetch && git pull && git submodule update && git submodule foreach '$(GIT_SUBMODULE_UTH_COMMAND)'
+GIT_SUBMODULE_UTH_COMMAND := git checkout $(GIT_BRANCH_NAME) && git fetch && git pull && $(GIT_SUBMODULE_UPDATE_COMMAND)
+
+GIT_UTH := git fetch && git pull && $(GIT_SUBMODULE_UPDATE_COMMAND) && git submodule foreach --recursive '$(GIT_SUBMODULE_UTH_COMMAND)'
