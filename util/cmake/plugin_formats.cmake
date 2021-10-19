@@ -1,21 +1,11 @@
 #
 #  LV2
-if (NOT WIN32 AND NOT APPLE AND EXISTS ${JUCE_SOURCE_DIR}/modules/juce_audio_plugin_client/juce_audio_plugin_client_LV2.cpp)
-    set (LEMONS_LV2_AVAILABLE TRUE)
-else()
-    set (LEMONS_LV2_AVAILABLE FALSE)
-endif()
 
+set (LEMONS_LV2_AVAILABLE FALSE)
 
-#
-#  AAX
-if (NOT LEMONS_AAX_SDK_PATH)
-    set (LEMONS_AAX_AVAILABLE FALSE)
-else()
-    if (NOT IS_DIRECTORY ${LEMONS_AAX_SDK_PATH})
-        set (LEMONS_AAX_AVAILABLE FALSE)
-    else()
-        set (LEMONS_AAX_AVAILABLE TRUE)
+if (LEMONS_USE_LV2_JUCE)
+    if (NOT WIN32 AND NOT APPLE AND EXISTS ${JUCE_SOURCE_DIR}/modules/juce_audio_plugin_client/juce_audio_plugin_client_LV2.cpp)
+        set (LEMONS_LV2_AVAILABLE TRUE)
     endif()
 endif()
 
@@ -25,7 +15,7 @@ endif()
 set (LEMONS_VST2_AVAILABLE FALSE)
 
 
-#
+###
 
 set (available_formats Standalone)
 

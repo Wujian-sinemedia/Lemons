@@ -1,3 +1,5 @@
+include (aax_sdk.cmake)
+
 include (FindPackageHandleStandardArgs)
 
 include (GetLemons/get_cpm.cmake)
