@@ -16,8 +16,7 @@ DOXYGEN_DIR := $(UTIL_DIR)/doxygen
 DOXYGEN_BUILD_DIR := $(DOXYGEN_DIR)/build
 DOXYGEN_DEPLOY_DIR := $(DOXYGEN_DIR)/doc
 
-include $(MAKE_DIR)/basic_settings.make
-include $(MAKE_DIR)/cmake.make
+include $(MAKE_DIR)/Makefile
 
 .PHONY: $(ALL_PHONY_TARGETS)
 
