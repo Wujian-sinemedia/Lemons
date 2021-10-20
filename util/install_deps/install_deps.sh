@@ -9,7 +9,7 @@ export DEBIAN_FRONTEND=noninteractive
 
 readonly script_path="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-source "$script_path/install/install_list.sh"
+source "$script_path/install_list.sh"
 
 install_deps_list "$script_path/deps_list.txt"
 

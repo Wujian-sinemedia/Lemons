@@ -71,7 +71,7 @@ $(TRANSLATION_OUTPUT): $(SCRIPTS_DIR)/generate_translation_file.py $(SOURCE_FILE
 	@echo "Generating Lemons translation file..."
 	$(PYTHON) $< $(MODULES) $(TRANSLATION_OUTPUT)
 
-DEPS_SCRIPT_TEMP_DIR := $(UTIL_DIR)/install_deps/install
+DEPS_SCRIPT_TEMP_DIR := $(UTIL_DIR)/install_deps
 
 clean: ## Cleans the source tree
 	@echo "Cleaning Lemons..."
