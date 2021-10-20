@@ -1,0 +1,3 @@
+
+execute_process (COMMAND "@CLANG_TIDY@" 
+			     WORKING_DIRECTORY "@LEMONS_TOPLEVEL_DIR@")
