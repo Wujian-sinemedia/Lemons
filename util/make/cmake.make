@@ -5,9 +5,10 @@ ifdef CROSSCOMPILE_IOS
 	# CMAKE_XCODE_ATTRIBUTE_DEVELOPMENT_TEAM=<10 character id>
 endif
 
-# This is the command actually referenced by makefiles
-CMAKE_CONFIGURE_COMMAND := mkdir $(LOGS) && time $(CMAKE_CONFIG_CMD) | tee $(CONFIG_LOG_FILE)
+WRITE_CONFIG_LOG := 2>&1 | tee $(CONFIG_LOG_FILE)
+WRITE_BUILD_LOG := 2>&1 | tee $(BUILD_LOG_FILE)
 
-#
+# This is the configure command actually referenced by makefiles
+CMAKE_CONFIGURE_COMMAND := mkdir $(LOGS) && time $(CMAKE_CONFIG_CMD) $(WRITE_CONFIG_LOG)
 
 CMAKE_BUILD_COMMAND := cmake --build $(BUILD) --config $(BUILD_TYPE) -j $(NUM_CORES)
