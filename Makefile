@@ -26,9 +26,19 @@ TEMPLATE_REPOS := $(shell find $(TEMPLATES_DIR) -type d -maxdepth 1 ! -name $(TE
 TEMPLATE_PROJECT_FILES := $(shell find $(TEMPLATE_REPOS) -type f -name "$(SOURCE_FILE_PATTERNS)")
 SOURCE_FILES := $(shell find $(MODULES) -type f -name "$(SOURCE_FILE_PATTERNS)")
 
-#
 
-### DOCS ###
+#####  BUILD PROJECT TEMPLATES  #####
+
+templates: $(TEMPLATES_DIR)/$(BUILD) ## Builds the template example projects
+	@echo "Building template projects..."
+	cd $(TEMPLATES_DIR) && time $(CMAKE_BUILD_COMMAND) | tee $(BUILD_LOG_FILE)
+
+$(TEMPLATES_DIR)/$(BUILD): $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES) $(shell find $(CMAKE_DIR) -type f -name "$(CMAKE_FILE_PATTERNS)")
+	@echo "Configuring cmake..."
+	cd $(TEMPLATES_DIR) && $(CMAKE_CONFIGURE_COMMAND)
+
+
+#####  DOCS  #####
 
 MODULE_DOC_OUTPUT := $(DOXYGEN_BUILD_DIR)/lemons_modules.dox
 HTML_DOC_OUTPUT := $(DOXYGEN_DEPLOY_DIR)/index.html
@@ -46,39 +56,16 @@ $(HTML_DOC_OUTPUT): $(MODULE_DOC_OUTPUT) $(shell find $(DOXYGEN_DIR) -type f -ma
 $(MODULE_DOC_OUTPUT): $(DOXYGEN_DIR)/$(DOC_SCRIPT_NAME) $(SOURCE_FILES)
 	$(PYTHON) $<
 
-#
 
-### CLANG FORMAT ###
+###  UTILITIES  ###
 
 format: $(SCRIPTS_DIR)/run_clang_format.py $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES) .clang-format ## Runs clang-format
 	@echo "Running clang-format..."
 	@for dir in $(MODULES) $(TEMPLATE_REPOS) ; do $(PYTHON) $< $$dir ; done
 
-
-### CLANG TIDY ###
-
-
-
-### CPPCHECK ###
-
-
-
-#
-
-### BUILD PROJECT TEMPLATES ###
-
-templates: $(TEMPLATES_DIR)/$(BUILD) ## Builds the template example projects
-	@echo "Building template projects..."
-	cd $(TEMPLATES_DIR) && time $(CMAKE_BUILD_COMMAND) | tee $(BUILD_LOG_FILE)
-
-# Configures the build for the template projects
-$(TEMPLATES_DIR)/$(BUILD): $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES) $(shell find $(CMAKE_DIR) -type f -name "$(CMAKE_FILE_PATTERNS)")
-	@echo "Configuring cmake..."
-	cd $(TEMPLATES_DIR) && $(CMAKE_CONFIGURE_COMMAND)
-
-#
-
-### TRANSLATIONS ###
+uth: ## Updates all git submodules to head
+	@echo "Updating git submodules..."
+	$(GIT_UTH)
 
 translations: $(TRANSLATION_OUTPUT) ## Generates a JUCE-style translations file for Lemons
 
@@ -86,14 +73,6 @@ translations: $(TRANSLATION_OUTPUT) ## Generates a JUCE-style translations file 
 $(TRANSLATION_OUTPUT): $(SCRIPTS_DIR)/generate_translation_file.py $(SOURCE_FILES)
 	@echo "Generating Lemons translation file..."
 	$(PYTHON) $< $(MODULES) $(TRANSLATION_OUTPUT)
-
-#
-
-uth: ## Updates all git submodules to head
-	@echo "Updating git submodules..."
-	$(GIT_UTH)
-
-#
 
 DEPS_SCRIPT_TEMP_DIR := $(UTIL_DIR)/install_deps/install
 
@@ -103,7 +82,6 @@ clean: ## Cleans the source tree
 		$(CONFIG_LOG_FILE) $(BUILD_LOG_FILE) $(TEMPLATES_DIR)/$(CONFIG_LOG_FILE) $(TEMPLATES_DIR)/$(BUILD_LOG_FILE) \
 		$(DOXYGEN_BUILD_DIR) $(DOXYGEN_DEPLOY_DIR) \
 		$(DEPS_SCRIPT_TEMP_DIR)/Brewfile $(DEPS_SCRIPT_TEMP_DIR)/Brewfile.lock.json
-
 
 help: ## Prints the list of commands
 	@$(PRINT_HELP_LIST)
