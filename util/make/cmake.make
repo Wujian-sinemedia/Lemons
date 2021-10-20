@@ -21,15 +21,6 @@ endif
 
 #
 
-BUILD_TYPE := Debug
-
-BUILD := Builds
-
-CONFIG_LOG_FILE := config.log
-BUILD_LOG_FILE := build.log
-
-#
-
 CMAKE_CONFIG_CMD := cmake -B $(BUILD) -G "$(CMAKE_GENERATOR)" -DCMAKE_BUILD_TYPE=$(BUILD_TYPE)
 
 ifdef CROSSCOMPILE_IOS
