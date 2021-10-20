@@ -31,6 +31,8 @@ COPY util/install_deps install_deps
 RUN DEBIAN_FRONTEND=noninteractive \
 	bash install_deps/install_deps.sh
 
+RUN rm -rf install_deps
+
 
 # Make sure clang is the default compiler
 
