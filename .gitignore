@@ -10,5 +10,6 @@ util/install_deps/Brewfile.lock.json
 templates/Builds
 templates/config.log
 templates/build.log
+templates/deploy
 .github/docs
 needed_translations.txt
