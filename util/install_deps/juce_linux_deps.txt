@@ -16,3 +16,4 @@ libglu1-mesa-dev
 mesa-common-dev
 openssh-client
 lv2-dev
+ninja-build

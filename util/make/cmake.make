@@ -5,7 +5,7 @@ else
 	UNAME_S := $(shell uname -s)
 
 	ifeq ($(UNAME_S),Linux)
-		CMAKE_GENERATOR := Unix Makefiles
+		CMAKE_GENERATOR := Ninja
 		NUM_CORES := $(shell grep -c ^processor /proc/cpuinfo)
 	else ifeq ($(UNAME_S),Darwin)
 		CMAKE_GENERATOR := Xcode
