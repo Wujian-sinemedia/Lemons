@@ -9,8 +9,24 @@ import argparse
 
 def process_log_file (input_file, output_file):
 
+	error_lines = []
+
 	with open (input_file, "r") as f:
-		orig_log = f.read()
+		for line in f:
+			stripped_line = line.strip()
+			if stripped_line:
+				if stripped_line.startswith("Error") or stripped_line.startswith("error"):
+					error_lines.append (stripped_line)
+
+	num_errors_string = str(len(error_lines)) + " errors found"
+
+	print ("")
+	print (num_errors_string)
+
+	with open (output_file, "w") as f:
+		f.write (num_errors_string)
+		f.write ("")
+		f.write ("\r\n\r\n".join (error_lines))
 
 
 ###############################################################################
