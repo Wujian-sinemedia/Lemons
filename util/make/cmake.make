@@ -1,15 +1,22 @@
 ifeq ($(OS),Windows_NT)
 	CMAKE_GENERATOR := Visual Studio 16 2019
+	NUM_CORES := $(NUMBER_OF_PROCESSORS)
 else
 	UNAME_S := $(shell uname -s)
 
 	ifeq ($(UNAME_S),Linux)
 		CMAKE_GENERATOR := Unix Makefiles
+		NUM_CORES := $(shell grep -c ^processor /proc/cpuinfo)
 	else ifeq ($(UNAME_S),Darwin)
 		CMAKE_GENERATOR := Xcode
+		NUM_CORES := $(shell sysctl hw.ncpu | awk '{print $$2}')
 	else 
 		$(error Unknown operating system!)
 	endif
+endif
+
+ifneq ($J,)
+	NUM_CORES := $J
 endif
 
 #
@@ -30,9 +37,9 @@ ifdef CROSSCOMPILE_IOS
 	# CMAKE_XCODE_ATTRIBUTE_DEVELOPMENT_TEAM=<10 character id>
 endif
 
-# This is the variable actually referenced by makefiles
+# This is the command actually referenced by makefiles
 CMAKE_CONFIGURE_COMMAND := time $(CMAKE_CONFIG_CMD) | tee $(CONFIG_LOG_FILE)
 
 #
 
-CMAKE_BUILD_COMMAND := cmake --build $(BUILD) --config $(BUILD_TYPE)
+CMAKE_BUILD_COMMAND := cmake --build $(BUILD) --config $(BUILD_TYPE) -j $(NUM_CORES)
