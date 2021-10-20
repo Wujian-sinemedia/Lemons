@@ -156,7 +156,7 @@ PREDEFINED             = WIN32=1 \
                          JUCE_COMPILER_SUPPORTS_VARIADIC_TEMPLATES=1 \
                          JUCE_COMPILER_SUPPORTS_OVERRIDE_AND_FINAL=1 \
                          JUCE_COMPILER_SUPPORTS_LAMBDAS=1 \
-                         JUCE_MODAL_LOOPS_PERMITTED=1
+                         JUCE_MODAL_LOOPS_PERMITTED=0
 
 SKIP_FUNCTION_MACROS   = YES
 
