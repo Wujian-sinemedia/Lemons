@@ -47,12 +47,10 @@ docs: $(HTML_DOC_OUTPUT) ## Builds the documentation
 
 DOC_SCRIPT_NAME := process_source_files.py
 
-# Executes doxygen to build the documentation
 $(HTML_DOC_OUTPUT): $(MODULE_DOC_OUTPUT) $(shell find $(DOXYGEN_DIR) -type f -maxdepth 1 ! -name *$(DOC_SCRIPT_NAME))
 	@echo "Building documentation..."
 	cd $(DOXYGEN_DIR) && doxygen
 
-# Parses the module tree to create doxygen's build tree, and the module subgroups' descriptions file
 $(MODULE_DOC_OUTPUT): $(DOXYGEN_DIR)/$(DOC_SCRIPT_NAME) $(SOURCE_FILES)
 	$(PYTHON) $<
 
