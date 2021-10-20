@@ -21,21 +21,6 @@ FULL_PATH_NAMES        = NO
 
 JAVADOC_AUTOBRIEF      = YES
 
-# This tag can be used to specify a number of aliases that act as commands in
-# the documentation. An alias has the form:
-# name=value
-# For example adding
-# "sideeffect=@par Side Effects:^^"
-# will allow you to put the command \sideeffect (or @sideeffect) in the
-# documentation, which will result in a user-defined paragraph with heading
-# "Side Effects:". Note that you cannot put \n's in the value part of an alias
-# to insert newlines (in the resulting output). You can put ^^ in the value part
-# of an alias to insert a newline as if a physical newline was in the original
-# file. When you need a literal { or } or , in the value part of an alias you
-# have to escape them by means of a backslash (\), this can lead to conflicts
-# with the commands \{ and \} for these it is advised to use the version @{ and
-# @} or use a double escape (\\{ and \\})
-
 ALIASES                = 
 
 EXTENSION_MAPPING      = txt=md
@@ -66,45 +51,13 @@ HIDE_FRIEND_COMPOUNDS  = YES
 
 HIDE_IN_BODY_DOCS      = YES
 
-# With the correct setting of option CASE_SENSE_NAMES doxygen will better be
-# able to match the capabilities of the underlying filesystem. In case the
-# filesystem is case sensitive (i.e. it supports files in the same directory
-# whose names only differ in casing), the option must be set to YES to properly
-# deal with such files in case they appear in the input. For filesystems that
-# are not case sensitive the option should be be set to NO to properly deal with
-# output files written for symbols that only differ in casing, such as for two
-# classes, one named CLASS and the other named Class, and to also support
-# references to files without having to specify the exact matching casing. On
-# Windows (including Cygwin) and MacOS, users should typically set this option
-# to NO, whereas on Linux or other Unix flavors it should typically be set to
-# YES.
-# The default value is: system dependent.
-
 CASE_SENSE_NAMES       = YES
 
-# If the HIDE_SCOPE_NAMES tag is set to NO then doxygen will show members with
-# their full class and namespace scopes in the documentation. If set to YES, the
-# scope will be hidden.
-# The default value is: NO.
-
 HIDE_SCOPE_NAMES       = NO
-
-# If the HIDE_COMPOUND_REFERENCE tag is set to NO (default) then doxygen will
-# append additional text to a page's title, such as Class Reference. If set to
-# YES the compound reference will be hidden.
-# The default value is: NO.
-
-HIDE_COMPOUND_REFERENCE= NO
 
 SHOW_INCLUDE_FILES     = NO
 
 INLINE_INFO            = NO
-
-# If the SORT_BRIEF_DOCS tag is set to YES then doxygen will sort the brief
-# descriptions of file, namespace and class members alphabetically by member
-# name. If set to NO, the members will appear in declaration order. Note that
-# this will also influence the order of the classes in the class list.
-# The default value is: NO.
 
 SORT_BRIEF_DOCS        = YES
 
@@ -136,8 +89,6 @@ FILE_PATTERNS          = *.h *.dox *.md
 
 RECURSIVE              = YES
 
-EXCLUDE                =
-
 EXCLUDE_SYMLINKS       = YES
 
 IMAGE_PATH             = ../assets
@@ -148,15 +99,7 @@ USE_MDFILE_AS_MAINPAGE = build/main_page.md
 # Configuration options related to source browsing
 #---------------------------------------------------------------------------
 
-# If the REFERENCED_BY_RELATION tag is set to YES then for each documented
-# entity all documented functions referencing it will be listed.
-# The default value is: NO.
-
 REFERENCED_BY_RELATION = YES
-
-# If the REFERENCES_RELATION tag is set to YES then for each documented function
-# all documented entities called/used by that function will be listed.
-# The default value is: NO.
 
 REFERENCES_RELATION    = YES
 
@@ -170,35 +113,11 @@ HTML_OUTPUT            = doc
 
 HTML_EXTRA_STYLESHEET  =
 
-# The HTML_COLORSTYLE_HUE tag controls the color of the HTML output. Doxygen
-# will adjust the colors in the style sheet and background images according to
-# this color. Hue is specified as an angle on a color-wheel, see
-# https://en.wikipedia.org/wiki/Hue for more information. For instance the value
-# 0 represents red, 60 is yellow, 120 is green, 180 is cyan, 240 is blue, 300
-# purple, and 360 is red again.
-# Minimum value: 0, maximum value: 359, default value: 220.
-# This tag requires that the tag GENERATE_HTML is set to YES.
+HTML_COLORSTYLE_HUE    = 250
 
-HTML_COLORSTYLE_HUE    = 220
+HTML_COLORSTYLE_SAT    = 175
 
-# The HTML_COLORSTYLE_SAT tag controls the purity (or saturation) of the colors
-# in the HTML output. For a value of 0 the output will use gray-scales only. A
-# value of 255 will produce the most vivid colors.
-# Minimum value: 0, maximum value: 255, default value: 100.
-# This tag requires that the tag GENERATE_HTML is set to YES.
-
-HTML_COLORSTYLE_SAT    = 100
-
-# The HTML_COLORSTYLE_GAMMA tag controls the gamma correction applied to the
-# luminance component of the colors in the HTML output. Values below 100
-# gradually make the output lighter, whereas values above 100 make the output
-# darker. The value divided by 100 is the actual gamma applied, so 80 represents
-# a gamma of 0.8, The value 220 represents a gamma of 2.2, and 100 does not
-# change the gamma.
-# Minimum value: 40, maximum value: 240, default value: 80.
-# This tag requires that the tag GENERATE_HTML is set to YES.
-
-HTML_COLORSTYLE_GAMMA  = 80
+HTML_COLORSTYLE_GAMMA  = 90
 
 HTML_TIMESTAMP         = YES
 
@@ -215,10 +134,6 @@ EXT_LINKS_IN_WINDOW    = YES
 FORMULA_FONTSIZE       = 10
 
 FORMULA_TRANSPARENT    = YES
-
-# The FORMULA_MACROFILE can contain LaTeX \newcommand and \renewcommand commands
-# to create new LaTeX commands to be used in formulas as building blocks. See
-# the section "Including formulas" for details.
 
 FORMULA_MACROFILE      =
 
