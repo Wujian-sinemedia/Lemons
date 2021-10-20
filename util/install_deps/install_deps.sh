@@ -31,6 +31,10 @@ case "$OSTYPE" in
 	;;
 esac
 
+if ! [[ -z "${CROSSCOMPILE_ANDROID}" ]]; then
+	/usr/bin/env bash "$script_path/os/install_android_deps.sh"
+fi
+
 source "$SHELL_FILE"
 
 exit 0
