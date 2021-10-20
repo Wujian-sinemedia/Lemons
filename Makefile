@@ -30,7 +30,7 @@ SOURCE_FILES := $(shell find $(MODULES) -type f -name "$(SOURCE_FILE_PATTERNS)")
 
 templates: $(TEMPLATES_DIR)/$(BUILD) ## Builds the template example projects
 	@echo "Building template projects..."
-	cd $(TEMPLATES_DIR) && time $(CMAKE_BUILD_COMMAND) $(WRITE_BUILD_LOG)
+	cd $(TEMPLATES_DIR) && $(CMAKE_BUILD_COMMAND) $(WRITE_BUILD_LOG)
 
 $(TEMPLATES_DIR)/$(BUILD): $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES) $(shell find $(CMAKE_DIR) -type f -name "$(CMAKE_FILE_PATTERNS)")
 	@echo "Configuring cmake..."
