@@ -20,6 +20,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Lemons
    </div>
@@ -88,14 +89,14 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a689a1f246b3351f0f210819f49f861c5"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html#a689a1f246b3351f0f210819f49f861c5">Container</a> = std::array&lt; ElementType, size &gt;</td></tr>
-<tr class="separator:a689a1f246b3351f0f210819f49f861c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32d76526cd79b1430dd90251f242d821"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1LambdaContainerInterface.html#a32d76526cd79b1430dd90251f242d821">ResizeCallback</a> = std::function&lt; void(std::array&lt; ElementType, size &gt; &amp;, int) &gt;</td></tr>
-<tr class="separator:a32d76526cd79b1430dd90251f242d821"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d46234ac6703404f040a8860316fdd4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html#a1d46234ac6703404f040a8860316fdd4">Container</a> = std::array&lt; ElementType, size &gt;</td></tr>
+<tr class="separator:a1d46234ac6703404f040a8860316fdd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a748a14aa164db3c0c133d38e16f7c001"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1LambdaContainerInterface.html#a748a14aa164db3c0c133d38e16f7c001">ResizeCallback</a> = std::function&lt; void(std::array&lt; ElementType, size &gt; &amp;, int)&gt;</td></tr>
+<tr class="separator:a748a14aa164db3c0c133d38e16f7c001"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a049f32f46c73d9a265a8323236d64991"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html#a049f32f46c73d9a265a8323236d64991">StdArrayInterface</a> (<a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html#a689a1f246b3351f0f210819f49f861c5">Container</a> &amp;c)</td></tr>
+<tr class="memitem:a049f32f46c73d9a265a8323236d64991"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html#a049f32f46c73d9a265a8323236d64991">StdArrayInterface</a> (<a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html#a1d46234ac6703404f040a8860316fdd4">Container</a> &amp;c)</td></tr>
 <tr class="separator:a049f32f46c73d9a265a8323236d64991"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -105,8 +106,8 @@ struct lemons::serializing::StdArrayInterface&lt; ElementType, size &gt;</h3>
 <p>Container interface that provides support for serializing std::arrays with <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a>. </p>
 <p>std::array cannot actually be resized, so this interface does nothing when its resize() function is called. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a689a1f246b3351f0f210819f49f861c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a689a1f246b3351f0f210819f49f861c5">&#9670;&nbsp;</a></span>Container</h2>
+<a id="a1d46234ac6703404f040a8860316fdd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d46234ac6703404f040a8860316fdd4">&#9670;&nbsp;</a></span>Container</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -114,15 +115,15 @@ struct lemons::serializing::StdArrayInterface&lt; ElementType, size &gt;</h3>
 template&lt;typename ElementType , size_t size&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html">lemons::serializing::StdArrayInterface</a>&lt; ElementType, size &gt;::<a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html#a689a1f246b3351f0f210819f49f861c5">Container</a> =  std::array&lt; ElementType, size &gt;</td>
+          <td class="memname">using <a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html">lemons::serializing::StdArrayInterface</a>&lt; ElementType, size &gt;::<a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html#a1d46234ac6703404f040a8860316fdd4">Container</a> =  std::array&lt;ElementType, size&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a32d76526cd79b1430dd90251f242d821"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32d76526cd79b1430dd90251f242d821">&#9670;&nbsp;</a></span>ResizeCallback</h2>
+<a id="a748a14aa164db3c0c133d38e16f7c001"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a748a14aa164db3c0c133d38e16f7c001">&#9670;&nbsp;</a></span>ResizeCallback</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -131,7 +132,7 @@ template&lt;typename ElementType , size_t size&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structlemons_1_1serializing_1_1LambdaContainerInterface.html">lemons::serializing::LambdaContainerInterface</a>&lt; std::array&lt; ElementType, size &gt;  &gt;::<a class="el" href="structlemons_1_1serializing_1_1LambdaContainerInterface.html#a32d76526cd79b1430dd90251f242d821">ResizeCallback</a> =  std::function&lt; void (std::array&lt; ElementType, size &gt; &amp;, int) &gt;</td>
+          <td class="memname">using <a class="el" href="structlemons_1_1serializing_1_1LambdaContainerInterface.html">lemons::serializing::LambdaContainerInterface</a>&lt; std::array&lt; ElementType, size &gt;  &gt;::<a class="el" href="structlemons_1_1serializing_1_1LambdaContainerInterface.html#a748a14aa164db3c0c133d38e16f7c001">ResizeCallback</a> =  std::function&lt;void (std::array&lt; ElementType, size &gt; &amp;, int)&gt;</td>
         </tr>
       </table>
   </td>
@@ -155,7 +156,7 @@ template&lt;typename ElementType , size_t size&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html">lemons::serializing::StdArrayInterface</a>&lt; ElementType, size &gt;::<a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html">StdArrayInterface</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html#a689a1f246b3351f0f210819f49f861c5">Container</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="structlemons_1_1serializing_1_1StdArrayInterface.html#a1d46234ac6703404f040a8860316fdd4">Container</a> &amp;&#160;</td>
           <td class="paramname"><em>c</em></td><td>)</td>
           <td></td>
         </tr>
@@ -170,7 +171,7 @@ template&lt;typename ElementType , size_t size&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 20 2021 00:43:42 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 20 2021 19:59:07 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

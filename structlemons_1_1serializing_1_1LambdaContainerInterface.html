@@ -20,6 +20,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Lemons
    </div>
@@ -88,12 +89,12 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a32d76526cd79b1430dd90251f242d821"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1LambdaContainerInterface.html#a32d76526cd79b1430dd90251f242d821">ResizeCallback</a> = std::function&lt; void(ContainerType &amp;, int) &gt;</td></tr>
-<tr class="separator:a32d76526cd79b1430dd90251f242d821"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a748a14aa164db3c0c133d38e16f7c001"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1LambdaContainerInterface.html#a748a14aa164db3c0c133d38e16f7c001">ResizeCallback</a> = std::function&lt; void(ContainerType &amp;, int)&gt;</td></tr>
+<tr class="separator:a748a14aa164db3c0c133d38e16f7c001"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae7169782ade1798d043e301000b79790"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1LambdaContainerInterface.html#ae7169782ade1798d043e301000b79790">LambdaContainerInterface</a> (ContainerType &amp;containerToUse, <a class="el" href="structlemons_1_1serializing_1_1LambdaContainerInterface.html#a32d76526cd79b1430dd90251f242d821">ResizeCallback</a> resizeFuncToUse)</td></tr>
+<tr class="memitem:ae7169782ade1798d043e301000b79790"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1serializing_1_1LambdaContainerInterface.html#ae7169782ade1798d043e301000b79790">LambdaContainerInterface</a> (ContainerType &amp;containerToUse, <a class="el" href="structlemons_1_1serializing_1_1LambdaContainerInterface.html#a748a14aa164db3c0c133d38e16f7c001">ResizeCallback</a> resizeFuncToUse)</td></tr>
 <tr class="separator:ae7169782ade1798d043e301000b79790"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -116,7 +117,7 @@ Example usage: </p><div class="fragment"><div class="line"><span class="keyword"
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">template</span> &lt; <span class="keyword">typename</span> ElementType &gt;</div>
-<div class="line">std::unique_ptr&lt; ContainerInterface &gt; <a class="code" href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2">getInterfaceForContainer</a> (juce::Array&lt; ElementType &gt;&amp; container)</div>
+<div class="line">std::unique_ptr&lt; ContainerInterface &gt; <a class="code" href="namespacelemons_1_1serializing.html#a9b66b6522f40175fa851aba1abf80050">getInterfaceForContainer</a> (juce::Array&lt; ElementType &gt;&amp; container)</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span> std::make_unique&lt; JuceArrayInterface&lt; ElementType &gt; &gt; (container);</div>
 <div class="line">}</div>
@@ -126,10 +127,10 @@ Example usage: </p><div class="fragment"><div class="line"><span class="keyword"
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1serializing_1_1ContainerInterface.html" title="Interface that defines how a TreeReflector can resize a given container during deserialization.">ContainerInterface</a>, <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a>, <a class="el" href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2" title="Template function that returns an instance of the correct ContainerInterface for the given container.">getInterfaceForContainer()</a>, <a class="el" href="structlemons_1_1serializing_1_1isContainer.html" title="Template struct that that indicates to TreeReflector whether a given type is a container.">isContainer</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1serializing_1_1ContainerInterface.html" title="Interface that defines how a TreeReflector can resize a given container during deserialization.">ContainerInterface</a>, <a class="el" href="structlemons_1_1TreeReflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a>, <a class="el" href="namespacelemons_1_1serializing.html#a9b66b6522f40175fa851aba1abf80050" title="Template function that returns an instance of the correct ContainerInterface for the given container.">getInterfaceForContainer()</a>, <a class="el" href="structlemons_1_1serializing_1_1isContainer.html" title="Template struct that that indicates to TreeReflector whether a given type is a container.">isContainer</a> </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a32d76526cd79b1430dd90251f242d821"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32d76526cd79b1430dd90251f242d821">&#9670;&nbsp;</a></span>ResizeCallback</h2>
+<a id="a748a14aa164db3c0c133d38e16f7c001"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a748a14aa164db3c0c133d38e16f7c001">&#9670;&nbsp;</a></span>ResizeCallback</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -137,7 +138,7 @@ Example usage: </p><div class="fragment"><div class="line"><span class="keyword"
 template&lt;class ContainerType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structlemons_1_1serializing_1_1LambdaContainerInterface.html">lemons::serializing::LambdaContainerInterface</a>&lt; ContainerType &gt;::<a class="el" href="structlemons_1_1serializing_1_1LambdaContainerInterface.html#a32d76526cd79b1430dd90251f242d821">ResizeCallback</a> =  std::function&lt; void (ContainerType&amp;, int) &gt;</td>
+          <td class="memname">using <a class="el" href="structlemons_1_1serializing_1_1LambdaContainerInterface.html">lemons::serializing::LambdaContainerInterface</a>&lt; ContainerType &gt;::<a class="el" href="structlemons_1_1serializing_1_1LambdaContainerInterface.html#a748a14aa164db3c0c133d38e16f7c001">ResizeCallback</a> =  std::function&lt;void (ContainerType&amp;, int)&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -162,7 +163,7 @@ template&lt;class ContainerType &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structlemons_1_1serializing_1_1LambdaContainerInterface.html#a32d76526cd79b1430dd90251f242d821">ResizeCallback</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="structlemons_1_1serializing_1_1LambdaContainerInterface.html#a748a14aa164db3c0c133d38e16f7c001">ResizeCallback</a>&#160;</td>
           <td class="paramname"><em>resizeFuncToUse</em>&#160;</td>
         </tr>
         <tr>
@@ -180,10 +181,10 @@ template&lt;class ContainerType &gt; </div>
 </ul>
 </div><!-- contents -->
 <div class="ttc" id="astructlemons_1_1serializing_1_1LambdaContainerInterface_html_ae7169782ade1798d043e301000b79790"><div class="ttname"><a href="structlemons_1_1serializing_1_1LambdaContainerInterface.html#ae7169782ade1798d043e301000b79790">lemons::serializing::LambdaContainerInterface::LambdaContainerInterface</a></div><div class="ttdeci">LambdaContainerInterface(ContainerType &amp;containerToUse, ResizeCallback resizeFuncToUse)</div><div class="ttdef"><b>Definition:</b> ContainerInterface.h:60</div></div>
-<div class="ttc" id="anamespacelemons_1_1serializing_html_a947d1fd48af7f4413f461f6c741d5fc2"><div class="ttname"><a href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2">lemons::serializing::getInterfaceForContainer</a></div><div class="ttdeci">std::unique_ptr&lt; ContainerInterface &gt; getInterfaceForContainer(ContainerType &amp;)</div><div class="ttdoc">Template function that returns an instance of the correct ContainerInterface for the given container.</div></div>
+<div class="ttc" id="anamespacelemons_1_1serializing_html_a9b66b6522f40175fa851aba1abf80050"><div class="ttname"><a href="namespacelemons_1_1serializing.html#a9b66b6522f40175fa851aba1abf80050">lemons::serializing::getInterfaceForContainer</a></div><div class="ttdeci">std::unique_ptr&lt; ContainerInterface &gt; getInterfaceForContainer(ContainerType &amp;)</div><div class="ttdoc">Template function that returns an instance of the correct ContainerInterface for the given container.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 20 2021 00:43:42 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 20 2021 19:59:07 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

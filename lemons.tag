@@ -127,7 +127,7 @@
       <type>AudioBuffer&lt; SampleType &gt;</type>
       <name>getAliasBuffer</name>
       <anchorfile>namespacelemons_1_1dsp_1_1buffers.html</anchorfile>
-      <anchor>ae7a58230672837db81f1fbd9b5ea3805</anchor>
+      <anchor>af08caeb8ac174b35a1cc6d32edda5d51</anchor>
       <arglist>(AudioBuffer&lt; SampleType &gt; &amp;bufferToAlias, int startSample, int numSamples, int numChannels, int channelOffset=0)</arglist>
     </member>
   </compound>
@@ -215,14 +215,14 @@
       <type>juce::Point&lt; float &gt;</type>
       <name>Point</name>
       <anchorfile>namespacelemons_1_1spline.html</anchorfile>
-      <anchor>a832ddba7a7244525784ee6d0644dd27e</anchor>
+      <anchor>a4815e51376e33169aa821c5b402e1462</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>std::vector&lt; float &gt;</type>
       <name>Points</name>
       <anchorfile>namespacelemons_1_1spline.html</anchorfile>
-      <anchor>ae2dbcb02271768847771957183931530</anchor>
+      <anchor>addc7a93d56f97a7f73b2a53cba567b4e</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -248,7 +248,7 @@
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a947d1fd48af7f4413f461f6c741d5fc2</anchor>
+      <anchor>a9b66b6522f40175fa851aba1abf80050</anchor>
       <arglist>(ContainerType &amp;)</arglist>
     </member>
   </compound>
@@ -548,21 +548,21 @@
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>acaa9bcf94a6a18b321714a7425ff0a83</anchor>
+      <anchor>a69bbf011afe858bcc4ee69bc542f44fc</anchor>
       <arglist>(juce::Array&lt; ElementType &gt; &amp;container)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a62bdd53db8c515549f20b1f0835052b7</anchor>
+      <anchor>ad40e0edb3064fd1e7663232842176ec1</anchor>
       <arglist>(juce::OwnedArray&lt; ElementType &gt; &amp;container)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a5451726fdfd9955d7017ac2b529f44eb</anchor>
+      <anchor>a8308c069f29bbcd44bc55e2c8292cf7b</anchor>
       <arglist>(juce::StringArray &amp;container)</arglist>
     </member>
   </compound>
@@ -578,7 +578,7 @@
       <type>std::unique_ptr&lt; MapInterfaceBase &gt;</type>
       <name>getInterfaceForMap</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a52f16de419ffe2a472740c8e58fb849c</anchor>
+      <anchor>aadcc7b394e1615b592c383f767236f7b</anchor>
       <arglist>(juce::StringPairArray &amp;array)</arglist>
     </member>
   </compound>
@@ -700,7 +700,7 @@
       <type>std::unique_ptr&lt; MapInterfaceBase &gt;</type>
       <name>getInterfaceForMap</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a7270802d3bb72c38a7d6e82460c8bd37</anchor>
+      <anchor>ad9fd2901d3d0fcf54fda8c043ee0d89f</anchor>
       <arglist>(MapType &amp;)</arglist>
     </member>
   </compound>
@@ -772,7 +772,7 @@
       <type>plugin::ParameterHolder&lt; plugin::DefaultMetaParameter &gt;</type>
       <name>MetaParam</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a76422bb06981e12eccfbbf18de4467dc</anchor>
+      <anchor>a6a8c9da9ee5fe6c399b1d3a028d26bb7</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -994,35 +994,35 @@
       <type>OscSynth&lt; SampleType, osc::Saw &gt;</type>
       <name>Saw</name>
       <anchorfile>namespacelemons_1_1dsp_1_1synth.html</anchorfile>
-      <anchor>a7269b6280f2b51716e797bf2c0dca7d1</anchor>
+      <anchor>afa3b1f52ea29a71fffd789388337adbc</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>OscSynth&lt; SampleType, osc::Sine &gt;</type>
       <name>Sine</name>
       <anchorfile>namespacelemons_1_1dsp_1_1synth.html</anchorfile>
-      <anchor>a430ae7ada908a2f8a52973e98167f807</anchor>
+      <anchor>ac2e323c6263a32217314b8041f56f87d</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>OscSynth&lt; SampleType, osc::Square &gt;</type>
       <name>Square</name>
       <anchorfile>namespacelemons_1_1dsp_1_1synth.html</anchorfile>
-      <anchor>af80648fe5e5df3b31d06e9c2aab3862b</anchor>
+      <anchor>a903fbb43adf3eea72eb6a42fae56330c</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>OscSynth&lt; SampleType, osc::SuperSaw &gt;</type>
       <name>SuperSaw</name>
       <anchorfile>namespacelemons_1_1dsp_1_1synth.html</anchorfile>
-      <anchor>a712a47f2ffcf27c4f87b9429543dffe9</anchor>
+      <anchor>a903e1e1d9351ec01537078f87a6446ee</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>OscSynth&lt; SampleType, osc::Triangle &gt;</type>
       <name>Triangle</name>
       <anchorfile>namespacelemons_1_1dsp_1_1synth.html</anchorfile>
-      <anchor>aa9c8040151c167d0e462405162fdd107</anchor>
+      <anchor>a7f1ef90930175f151eb6aba9b52aacd1</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -1065,84 +1065,84 @@
       <type>plugin::ParameterHolder&lt; plugin::BoolParameter &gt;</type>
       <name>BoolParam</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a9d697c3ff25dfc43e597de15d8555b3e</anchor>
+      <anchor>afdc5a738ddbcb3f56e372b759736c093</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>plugin::ParameterHolder&lt; plugin::GainParameter &gt;</type>
       <name>dbParam</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a844dba6aafc52b1d910e4e3c19130e92</anchor>
+      <anchor>ac614caf4150218fb3a4cac23a30151e1</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>plugin::ParameterHolder&lt; plugin::FloatParameter &gt;</type>
       <name>FloatParam</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>ae8cc701522c1070e134c9312b0641300</anchor>
+      <anchor>a2d4c9fe95e3b1efd9a6e39f9cd54de15</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>plugin::ParameterHolder&lt; plugin::GainMeterParameter &gt;</type>
       <name>GainMeter</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>af5510b4c822b3b9afc862b3ae5ab39c5</anchor>
+      <anchor>a9ce6cf3434cf8e57114bc19335ee5edc</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>plugin::ParameterHolder&lt; plugin::FrequencyParameter &gt;</type>
       <name>HzParam</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>acc4070282f0c1a22cd88841626c9b08c</anchor>
+      <anchor>ad16b8f101f35c247917437d39af40318</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>plugin::ParameterHolder&lt; plugin::IntParameter &gt;</type>
       <name>IntParam</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a88962e62201aedb2ed503c7485768cc4</anchor>
+      <anchor>a19bcdec888b54c646ea83b3b60c4796c</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>plugin::ParameterHolder&lt; plugin::MidiPanParameter &gt;</type>
       <name>PanParam</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a5a1555071e59461615433027f9cae3c6</anchor>
+      <anchor>a08b0d93ff99e2499c9f7c97aeef40954</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>plugin::ParameterHolder&lt; plugin::PercentParameter &gt;</type>
       <name>PercentParam</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a023a7b4e1d3ee7e6ea8783ecf63f4975</anchor>
+      <anchor>a88629dac1e441490a7afe6c6194d8fed</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>plugin::ParameterHolder&lt; plugin::MidiPitchParameter &gt;</type>
       <name>PitchParam</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a465c54c77647869da76f78c4d97c5f6b</anchor>
+      <anchor>adaa61c7c462d4939dc7e66291e51d1c9</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>plugin::ParameterHolder&lt; plugin::SecondsParameter &gt;</type>
       <name>SecParam</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a6e9c7e31133fe325c1648fca7a3af07c</anchor>
+      <anchor>a0a05a54879b29945963cd2538e95590f</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>plugin::ParameterHolder&lt; plugin::SemitonesParameter &gt;</type>
       <name>SemitonesParam</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>afdf21d446c5261c4175877cd837db089</anchor>
+      <anchor>a36d79a0dbadb5479355577540d573b77</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>plugin::ParameterHolder&lt; plugin::ToggleParameter &gt;</type>
       <name>ToggleParam</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a6610ae87b54c2e3df80cd9dd74481f1f</anchor>
+      <anchor>a90d4caa1fe97e0a1dae1dee8559f7f42</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -1176,14 +1176,14 @@
       <type>TypedParameter&lt; float &gt;</type>
       <name>FloatParameter</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>aa77c4923225c9ae40394bfc8d1e19536</anchor>
+      <anchor>a6aa457b145fb2649ae90850e6ea7a18c</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>TypedParameter&lt; int &gt;</type>
       <name>IntParameter</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>a4517ac2014f80bb22e05083a49c3e7ee</anchor>
+      <anchor>a7d5746e33dadd4d351de50a915c6ed49</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -1368,7 +1368,7 @@
       <type>Processor&lt; StateBase, EngineType &gt;</type>
       <name>StatelessProcessor</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>ab118f684c798a14db3ac1a3f8417caea</anchor>
+      <anchor>af7697ad368d38f09b567e28e16f37986</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -1636,7 +1636,7 @@
       <type>std::unique_ptr&lt; juce::XmlElement &gt;</type>
       <name>toXML</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a19051971222b714020a7e957034bcd1a</anchor>
+      <anchor>a171b47fa7f8efadd549e0838a19a6ac4</anchor>
       <arglist>(SerializableData &amp;source)</arglist>
     </member>
     <member kind="function">
@@ -1722,14 +1722,14 @@
       <type>juce::Point&lt; int &gt;</type>
       <name>Dimensions</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>a8fea260dc594cf530c3ffb3bf1f5b1e9</anchor>
+      <anchor>a47c63ce964844d24e40ca6dad594907e</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>serializing::Toggler&lt; 3 &gt;</type>
       <name>StateToggles</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>abcfc580033c4f7a4e5242dbb4c3089b0</anchor>
+      <anchor>a2ed692298f3553ce6d55dac8dba07e68</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -1767,35 +1767,35 @@
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>aee820d761ae553c8ad6c5ce1a1ebe269</anchor>
+      <anchor>ac226f9e9cdb0043fdbccd39e4759c4e0</anchor>
       <arglist>(std::array&lt; ElementType, size &gt; &amp;container)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a07f5a5656f4beb02e6db2e232c28ae67</anchor>
+      <anchor>a61393976398ed8cbe88dbdfab57a6e59</anchor>
       <arglist>(std::deque&lt; ElementType &gt; &amp;container)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>aebc3ef91761c11e3aa8f01e29e07f132</anchor>
+      <anchor>ad400adf4f688e438a0242ff3ba1105cb</anchor>
       <arglist>(std::forward_list&lt; ElementType &gt; &amp;container)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a75f40fa5baf10eca39436e00057d601b</anchor>
+      <anchor>af49fb76eae35eaa5899043c2484446d9</anchor>
       <arglist>(std::list&lt; ElementType &gt; &amp;container)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>ae61433549df459186ab1bf2c3597d00c</anchor>
+      <anchor>a250c9e501cd46a837b512bf5e07d4266</anchor>
       <arglist>(std::vector&lt; ElementType &gt; &amp;container)</arglist>
     </member>
   </compound>
@@ -1890,73 +1890,73 @@
     <namespace>lemons</namespace>
     <namespace>lemons::plugin</namespace>
     <member kind="function">
-      <type>std::function&lt; float(const String &amp;) &gt;</type>
+      <type>std::function&lt; float(const String &amp;)&gt;</type>
       <name>convertStringToValFunc</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>ac317360544729ddd1ea3e34f69a9fc37</anchor>
-      <arglist>(std::function&lt; ValueType(const String &amp;) &gt; origFunc)</arglist>
+      <anchor>a61ed31a217e012bc0cfa0a6a6b264492</anchor>
+      <arglist>(std::function&lt; ValueType(const String &amp;)&gt; origFunc)</arglist>
     </member>
     <member kind="function">
-      <type>std::function&lt; String(float) &gt;</type>
+      <type>std::function&lt; String(float)&gt;</type>
       <name>convertValToStringFunc</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>addc166c9f63071a1c8046efb8e7d0a62</anchor>
-      <arglist>(std::function&lt; String(ValueType, int) &gt; origFunc)</arglist>
+      <anchor>af2c6e2096736df4e3a3b00876f04ab60</anchor>
+      <arglist>(std::function&lt; String(ValueType, int)&gt; origFunc)</arglist>
     </member>
     <member kind="function">
-      <type>std::function&lt; String(ValueType, int) &gt;</type>
+      <type>std::function&lt; String(ValueType, int)&gt;</type>
       <name>createDefaultStringFromValueFunc</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>a3e1108436e56be60ce4fff004af0f978</anchor>
+      <anchor>a9a4c41cb6b74b3d1217bdb342725b261</anchor>
       <arglist>(float rangeInterval)</arglist>
     </member>
     <member kind="function">
-      <type>std::function&lt; String(float, int) &gt;</type>
+      <type>std::function&lt; String(float, int)&gt;</type>
       <name>createDefaultStringFromValueFunc</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>abe844291a6a33bcfb839ec8e76c0965c</anchor>
+      <anchor>a60c4874ba95e13d86c264aa4aecb6dc7</anchor>
       <arglist>(float rangeInterval)</arglist>
     </member>
     <member kind="function">
-      <type>std::function&lt; float(const String &amp;) &gt;</type>
+      <type>std::function&lt; float(const String &amp;)&gt;</type>
       <name>createDefaultValueFromStringFunc</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>ad5f80836a4283dfb605d2c6983c0b07c</anchor>
+      <anchor>a89abaa3e988230c35b6c818b795f4c48</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>juce::NormalisableRange&lt; float &gt;</type>
       <name>createRange</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>ad5950a82031d039e19e215670dca6c75</anchor>
+      <anchor>ad50c3748c871971f6d9ca8ff1b668f3c</anchor>
       <arglist>(bool, bool)</arglist>
     </member>
     <member kind="function">
       <type>juce::NormalisableRange&lt; float &gt;</type>
       <name>createRange</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>a409ffdf64ee0b7fc0f7e17dd308ea79d</anchor>
+      <anchor>ac082ec591eeaa83836bd28297472139b</anchor>
       <arglist>(float minimum, float maximum)</arglist>
     </member>
     <member kind="function">
       <type>juce::NormalisableRange&lt; float &gt;</type>
       <name>createRange</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>a4039484d9ffb2b539251f12fc90be287</anchor>
+      <anchor>ae0090c19fe6389e3aa3223c4a71ba3dc</anchor>
       <arglist>(int minimum, int maximum)</arglist>
     </member>
     <member kind="function">
       <type>juce::NormalisableRange&lt; float &gt;</type>
       <name>createRange</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>a939f8a4f5e956907b8c3e7e4721b20a8</anchor>
+      <anchor>adba78787c684a4535a6670394d70fb11</anchor>
       <arglist>(ValueType minimum, ValueType maximum)</arglist>
     </member>
     <member kind="variable">
-      <type>std::function&lt; ValueType(const String &amp;) &gt;</type>
+      <type>std::function&lt; ValueType(const String &amp;)&gt;</type>
       <name>createDefaultValueFromStringFunc</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>a04d974479a233a2ece45f1cfe60a6e5d</anchor>
+      <anchor>a7e38f9c29a05a75b8d87f91d7909c688</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
@@ -2362,7 +2362,7 @@
       <type>juce::AudioBuffer&lt; SampleType &gt;</type>
       <name>AudioBuffer</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1AnalysisGrainStorage.html</anchorfile>
-      <anchor>a8269055f0e17d050f30c9b2290d3cda9</anchor>
+      <anchor>a89f77066049620f8562adbbad5800be7</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -2402,7 +2402,7 @@
       <type>AnalysisGrainStorage&lt; SampleType &gt;</type>
       <name>Storage</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1Analyzer.html</anchorfile>
-      <anchor>a0ee5d389ef145b3f2b60a9066549f546</anchor>
+      <anchor>a6dc5fd4cc2dbc9dab3e94d3370192c22</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -2638,7 +2638,7 @@
       <type>SynthVoiceBase&lt; SampleType &gt;</type>
       <name>Voice</name>
       <anchorfile>classlemons_1_1dsp_1_1synth_1_1AutomatedHarmonyVoice.html</anchorfile>
-      <anchor>a72b612cdf3c53f4a0a97c6deb1fe8910</anchor>
+      <anchor>a362f75f5f7c557177bb35dda72fd1175</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -2731,8 +2731,8 @@
       <type></type>
       <name>BoolParameter</name>
       <anchorfile>structlemons_1_1plugin_1_1BoolParameter.html</anchorfile>
-      <anchor>a44365338048fe6046369cb42634b59fa</anchor>
-      <arglist>(bool defaultValue, String paramName, std::function&lt; String(bool, int) &gt; stringFromValue=nullptr, std::function&lt; bool(const String &amp;) &gt; valueFromString=nullptr, String paramLabel={}, bool isAutomatable=true, bool metaParam=false, juce::AudioProcessorParameter::Category parameterCategory=AudioProcessorParameter::genericParameter)</arglist>
+      <anchor>a9ae1c6b6c17a084114c1f1c603a57e54</anchor>
+      <arglist>(bool defaultValue, String paramName, std::function&lt; String(bool, int)&gt; stringFromValue=nullptr, std::function&lt; bool(const String &amp;)&gt; valueFromString=nullptr, String paramLabel={}, bool isAutomatable=true, bool metaParam=false, juce::AudioProcessorParameter::Category parameterCategory=AudioProcessorParameter::genericParameter)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -2829,7 +2829,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>ad607d23979bbdbb9a78f1b3d013fc5b4</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -4428,7 +4428,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>ad607d23979bbdbb9a78f1b3d013fc5b4</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -4831,8 +4831,8 @@
       <type></type>
       <name>DeviceRotationListener</name>
       <anchorfile>structlemons_1_1DeviceRotationListener.html</anchorfile>
-      <anchor>a3383e952f1286618e6f51310009f9d41</anchor>
-      <arglist>(std::function&lt; void() &gt; callbackToUse)</arglist>
+      <anchor>a6eeacfa9fa7fc02c1ee7a992c9fd3c2d</anchor>
+      <arglist>(std::function&lt; void()&gt; callbackToUse)</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
@@ -4931,7 +4931,7 @@
       <type>juce::Rectangle&lt; float &gt;</type>
       <name>getAdjustedBounds</name>
       <anchorfile>classlemons_1_1spline_1_1Editor.html</anchorfile>
-      <anchor>a5edbbeacd4e7bc85ce794003d1844d78</anchor>
+      <anchor>a1ff2b7d7e8473c42ae97b572936854b7</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -5056,21 +5056,21 @@
       <type>EffectType&lt; SampleType &gt; &amp;</type>
       <name>operator()</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EffectEngine.html</anchorfile>
-      <anchor>aa0c5a5dd723ac14053bc9fb3ca60a9a9</anchor>
+      <anchor>a912e71b9a2f01b8e9294cd288c3404be</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>EffectType&lt; SampleType &gt; &amp;</type>
       <name>operator*</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EffectEngine.html</anchorfile>
-      <anchor>a01aba18223c1a30326cfae4d0a9915ea</anchor>
+      <anchor>aefb72aa4366e829fa14d1903b25fbe36</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>EffectType&lt; SampleType &gt; *</type>
       <name>operator-&gt;</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EffectEngine.html</anchorfile>
-      <anchor>acf94ecc471a7bf6127deb4193e9e4fae</anchor>
+      <anchor>a72044738ed02d2155754a18d2452e4ec</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -5167,21 +5167,21 @@
       <type>Filter&lt; SampleType &gt; &amp;</type>
       <name>operator()</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EffectEngine.html</anchorfile>
-      <anchor>aa0c5a5dd723ac14053bc9fb3ca60a9a9</anchor>
+      <anchor>a912e71b9a2f01b8e9294cd288c3404be</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>Filter&lt; SampleType &gt; &amp;</type>
       <name>operator*</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EffectEngine.html</anchorfile>
-      <anchor>a01aba18223c1a30326cfae4d0a9915ea</anchor>
+      <anchor>aefb72aa4366e829fa14d1903b25fbe36</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>Filter&lt; SampleType &gt; *</type>
       <name>operator-&gt;</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EffectEngine.html</anchorfile>
-      <anchor>acf94ecc471a7bf6127deb4193e9e4fae</anchor>
+      <anchor>a72044738ed02d2155754a18d2452e4ec</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -5557,7 +5557,7 @@
       <type>FilterEngine&lt; SampleType &gt;</type>
       <name>Band</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EQ.html</anchorfile>
-      <anchor>a709af9303aa13d983fe6887f9ef5b521</anchor>
+      <anchor>a9da162b53c264d8f4ed4ad8fc1e91aef</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -5599,21 +5599,21 @@
       <type>Filter&lt; SampleType &gt; *</type>
       <name>getBand</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EQ.html</anchorfile>
-      <anchor>aacfc5db6bce3134063ba1fe6e029e744</anchor>
+      <anchor>ab9eeb09472d736bda20c8a28f81b2904</anchor>
       <arglist>(int index)</arglist>
     </member>
     <member kind="function">
       <type>Filter&lt; SampleType &gt; *</type>
       <name>getBandAtFrequency</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EQ.html</anchorfile>
-      <anchor>ac15a0db71bda56f38eb8cf3f89695a41</anchor>
+      <anchor>a84f081df33484c9f049a117907a2abe8</anchor>
       <arglist>(float freq)</arglist>
     </member>
     <member kind="function">
       <type>Filter&lt; SampleType &gt; *</type>
       <name>getBandOfType</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EQ.html</anchorfile>
-      <anchor>a2ada180fca59922063a373ef7e55a6ef</anchor>
+      <anchor>a4c1d6365b4752a40c2f2d43d7db97d37</anchor>
       <arglist>(FilterType type)</arglist>
     </member>
     <member kind="function">
@@ -5886,7 +5886,7 @@
       <type>Coefficients&lt; SampleType &gt;</type>
       <name>coefs</name>
       <anchorfile>classlemons_1_1dsp_1_1filters_1_1Filter.html</anchorfile>
-      <anchor>a7ad358b8fde87138aff590f7724fd941</anchor>
+      <anchor>aa2a2553de95ae712e5d0e74599dd908b</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -5906,7 +5906,7 @@
       <type>Filter&lt; SampleType &gt; &amp;</type>
       <name>getFilter</name>
       <anchorfile>structlemons_1_1dsp_1_1FX_1_1FilterEngine.html</anchorfile>
-      <anchor>aa059bb5ef05b86aca33a66238f1f0d20</anchor>
+      <anchor>ae9d94ae38c46f5f78fb4b2c1958bdf23</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -5927,21 +5927,21 @@
       <type>Filter&lt; SampleType &gt; &amp;</type>
       <name>operator()</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EffectEngine.html</anchorfile>
-      <anchor>aa0c5a5dd723ac14053bc9fb3ca60a9a9</anchor>
+      <anchor>a912e71b9a2f01b8e9294cd288c3404be</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>Filter&lt; SampleType &gt; &amp;</type>
       <name>operator*</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EffectEngine.html</anchorfile>
-      <anchor>a01aba18223c1a30326cfae4d0a9915ea</anchor>
+      <anchor>aefb72aa4366e829fa14d1903b25fbe36</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>Filter&lt; SampleType &gt; *</type>
       <name>operator-&gt;</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1EffectEngine.html</anchorfile>
-      <anchor>acf94ecc471a7bf6127deb4193e9e4fae</anchor>
+      <anchor>a72044738ed02d2155754a18d2452e4ec</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -6114,7 +6114,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>ad607d23979bbdbb9a78f1b3d013fc5b4</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -6461,7 +6461,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>ad607d23979bbdbb9a78f1b3d013fc5b4</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -6774,7 +6774,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>ad607d23979bbdbb9a78f1b3d013fc5b4</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -7087,7 +7087,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>ad607d23979bbdbb9a78f1b3d013fc5b4</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -7359,14 +7359,14 @@
       <type>juce::Point&lt; int &gt;</type>
       <name>Size</name>
       <anchorfile>classlemons_1_1GuiApp.html</anchorfile>
-      <anchor>a0595ae328e8bbcb8898cdefbc9125afa</anchor>
+      <anchor>a949045cb0fd51b25fc0630aeb604c6b5</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>DefaultWindow&lt; ContentComponentType &gt;</type>
       <name>WindowType</name>
       <anchorfile>classlemons_1_1GuiApp.html</anchorfile>
-      <anchor>ac8a6dad05ca100317ad0f74110bacfa4</anchor>
+      <anchor>aecc78c8f4dee507f282b9e3b648f46da</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -7458,8 +7458,8 @@
       <type></type>
       <name>ImageButton</name>
       <anchorfile>structlemons_1_1gui_1_1ImageButton.html</anchorfile>
-      <anchor>ab1ab62ce2c7d50ee9a613f5544903763</anchor>
-      <arglist>(const juce::Image &amp;image, std::function&lt; void() &gt; whenClicked, float opacityRange=0.2f)</arglist>
+      <anchor>afccf21b8680b9849f267813470769a5a</anchor>
+      <arglist>(const juce::Image &amp;image, std::function&lt; void()&gt; whenClicked, float opacityRange=0.2f)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -7556,14 +7556,14 @@
       <type>juce::Array&lt; ElementType &gt;</type>
       <name>Container</name>
       <anchorfile>structlemons_1_1serializing_1_1JuceArrayInterface.html</anchorfile>
-      <anchor>a2135faa45e24142fcde586eb6ae89daf</anchor>
+      <anchor>a3dac0a5f236bb3f5f4bbd52a7321fd34</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
-      <type>std::function&lt; void(juce::Array&lt; ElementType &gt; &amp;, int) &gt;</type>
+      <type>std::function&lt; void(juce::Array&lt; ElementType &gt; &amp;, int)&gt;</type>
       <name>ResizeCallback</name>
       <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
-      <anchor>a32d76526cd79b1430dd90251f242d821</anchor>
+      <anchor>a748a14aa164db3c0c133d38e16f7c001</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -7583,14 +7583,14 @@
       <type>juce::OwnedArray&lt; ElementType &gt;</type>
       <name>Container</name>
       <anchorfile>structlemons_1_1serializing_1_1JuceOwnedArrayInterface.html</anchorfile>
-      <anchor>a5f13472f2522d347814be463fae57510</anchor>
+      <anchor>a5b9ef14e078b8e2ea26b2b67e7a3e93c</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
-      <type>std::function&lt; void(juce::OwnedArray&lt; ElementType &gt; &amp;, int) &gt;</type>
+      <type>std::function&lt; void(juce::OwnedArray&lt; ElementType &gt; &amp;, int)&gt;</type>
       <name>ResizeCallback</name>
       <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
-      <anchor>a32d76526cd79b1430dd90251f242d821</anchor>
+      <anchor>a748a14aa164db3c0c133d38e16f7c001</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -7796,10 +7796,10 @@
     <templarg></templarg>
     <base>lemons::serializing::ContainerInterface</base>
     <member kind="typedef">
-      <type>std::function&lt; void(ContainerType &amp;, int) &gt;</type>
+      <type>std::function&lt; void(ContainerType &amp;, int)&gt;</type>
       <name>ResizeCallback</name>
       <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
-      <anchor>a32d76526cd79b1430dd90251f242d821</anchor>
+      <anchor>a748a14aa164db3c0c133d38e16f7c001</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -7815,10 +7815,10 @@
     <filename>structlemons_1_1serializing_1_1LambdaContainerInterface.html</filename>
     <base>lemons::serializing::ContainerInterface</base>
     <member kind="typedef">
-      <type>std::function&lt; void(juce::Array&lt; ElementType &gt; &amp;, int) &gt;</type>
+      <type>std::function&lt; void(juce::Array&lt; ElementType &gt; &amp;, int)&gt;</type>
       <name>ResizeCallback</name>
       <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
-      <anchor>a32d76526cd79b1430dd90251f242d821</anchor>
+      <anchor>a748a14aa164db3c0c133d38e16f7c001</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -7834,10 +7834,10 @@
     <filename>structlemons_1_1serializing_1_1LambdaContainerInterface.html</filename>
     <base>lemons::serializing::ContainerInterface</base>
     <member kind="typedef">
-      <type>std::function&lt; void(juce::OwnedArray&lt; ElementType &gt; &amp;, int) &gt;</type>
+      <type>std::function&lt; void(juce::OwnedArray&lt; ElementType &gt; &amp;, int)&gt;</type>
       <name>ResizeCallback</name>
       <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
-      <anchor>a32d76526cd79b1430dd90251f242d821</anchor>
+      <anchor>a748a14aa164db3c0c133d38e16f7c001</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -7853,10 +7853,10 @@
     <filename>structlemons_1_1serializing_1_1LambdaContainerInterface.html</filename>
     <base>lemons::serializing::ContainerInterface</base>
     <member kind="typedef">
-      <type>std::function&lt; void(juce::StringArray &amp;, int) &gt;</type>
+      <type>std::function&lt; void(juce::StringArray &amp;, int)&gt;</type>
       <name>ResizeCallback</name>
       <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
-      <anchor>a32d76526cd79b1430dd90251f242d821</anchor>
+      <anchor>a748a14aa164db3c0c133d38e16f7c001</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -7872,10 +7872,10 @@
     <filename>structlemons_1_1serializing_1_1LambdaContainerInterface.html</filename>
     <base>lemons::serializing::ContainerInterface</base>
     <member kind="typedef">
-      <type>std::function&lt; void(std::array&lt; ElementType, size &gt; &amp;, int) &gt;</type>
+      <type>std::function&lt; void(std::array&lt; ElementType, size &gt; &amp;, int)&gt;</type>
       <name>ResizeCallback</name>
       <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
-      <anchor>a32d76526cd79b1430dd90251f242d821</anchor>
+      <anchor>a748a14aa164db3c0c133d38e16f7c001</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -7895,14 +7895,14 @@
       <type>SynthVoiceBase&lt; SampleType &gt;</type>
       <name>Voice</name>
       <anchorfile>classlemons_1_1dsp_1_1LambdaSynth.html</anchorfile>
-      <anchor>aeeaca36b3c632d446402337908603810</anchor>
+      <anchor>a18dd4726f53147ab3e612054a332de08</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
-      <type>std::function&lt; Voice *() &gt;</type>
+      <type>std::function&lt; Voice *()&gt;</type>
       <name>VoiceCreationFunc</name>
       <anchorfile>classlemons_1_1dsp_1_1LambdaSynth.html</anchorfile>
-      <anchor>a05f22470ae54059b9da75895ab4e6106</anchor>
+      <anchor>a05c7d5673a4479b696857a0aceb5a0c9</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -8161,7 +8161,7 @@
       <type>synth::AutomatedHarmonyVoice&lt; SampleType &gt;</type>
       <name>descant</name>
       <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a1520e74c0664cd7378b37784cd2f61a2</anchor>
+      <anchor>a4483f9aef1275bfa7627cbacfcde85e2</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -8175,14 +8175,14 @@
       <type>synth::PanningManager&lt; SampleType &gt;</type>
       <name>panner</name>
       <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a6385f1208d58a1d37918d4ac708db3a4</anchor>
+      <anchor>a44e8d83ce7c5dabc59976bce5434c7c7</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>synth::AutomatedHarmonyVoice&lt; SampleType &gt;</type>
       <name>pedal</name>
       <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>aece7c55fee9fdcead4677fcf1f441641</anchor>
+      <anchor>ae8d57c099e83e510cc2e2ac0152198f2</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -8516,7 +8516,7 @@
       <type>dsp::osc::ChoosableOscillator&lt; float &gt;</type>
       <name>Osc</name>
       <anchorfile>structlemons_1_1plugin_1_1LFO.html</anchorfile>
-      <anchor>a41e7c503e2930f9760c0f97c08b6a65e</anchor>
+      <anchor>a47b72909f6b14e0773810a4d3bed5ee0</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -8695,8 +8695,8 @@
       <type></type>
       <name>Listener</name>
       <anchorfile>structlemons_1_1events_1_1Listener.html</anchorfile>
-      <anchor>a6c44b0355614d5ba119df5ed2f9f1509</anchor>
-      <arglist>(Broadcaster &amp;b, std::function&lt; void() &gt; func)</arglist>
+      <anchor>a9f1f11eb3088fd6053763c2bebc8fd6e</anchor>
+      <arglist>(Broadcaster &amp;b, std::function&lt; void()&gt; func)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -8752,8 +8752,8 @@
       <type></type>
       <name>Listener</name>
       <anchorfile>structlemons_1_1plugin_1_1ParameterList_1_1Listener.html</anchorfile>
-      <anchor>a0e86dfe60459f8e220cd618332447bea</anchor>
-      <arglist>(ParameterList &amp;list, std::function&lt; void(Parameter &amp;) &gt; onParamChange, std::function&lt; void(Parameter &amp;, bool) &gt; onGestureGhange={}, bool includeInternalParams=true)</arglist>
+      <anchor>a6e5ca48bc6cc12a577b9853789780d38</anchor>
+      <arglist>(ParameterList &amp;list, std::function&lt; void(Parameter &amp;)&gt; onParamChange, std::function&lt; void(Parameter &amp;, bool)&gt; onGestureGhange={}, bool includeInternalParams=true)</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
@@ -8987,8 +8987,8 @@
       <type></type>
       <name>MetaParameter</name>
       <anchorfile>classlemons_1_1plugin_1_1MetaParameter.html</anchorfile>
-      <anchor>a8b1a50a1b85471a37d5fbe1aa83b9797</anchor>
-      <arglist>(ParameterList &amp;parameterListToUse, ValueType minimum, ValueType maximum, ValueType defaultValue, String paramName, std::function&lt; String(ValueType, int) &gt; stringFromValue=nullptr, std::function&lt; ValueType(const String &amp;) &gt; valueFromString=nullptr, String paramLabel={}, bool isAutomatable=true, juce::AudioProcessorParameter::Category parameterCategory=juce::AudioProcessorParameter::genericParameter)</arglist>
+      <anchor>adb9575e88267247e30f84141df863adf</anchor>
+      <arglist>(ParameterList &amp;parameterListToUse, ValueType minimum, ValueType maximum, ValueType defaultValue, String paramName, std::function&lt; String(ValueType, int)&gt; stringFromValue=nullptr, std::function&lt; ValueType(const String &amp;)&gt; valueFromString=nullptr, String paramLabel={}, bool isAutomatable=true, juce::AudioProcessorParameter::Category parameterCategory=juce::AudioProcessorParameter::genericParameter)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -9106,7 +9106,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>ad607d23979bbdbb9a78f1b3d013fc5b4</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -9342,8 +9342,8 @@
       <type></type>
       <name>MetaParameter</name>
       <anchorfile>classlemons_1_1plugin_1_1MetaParameter.html</anchorfile>
-      <anchor>a8b1a50a1b85471a37d5fbe1aa83b9797</anchor>
-      <arglist>(ParameterList &amp;parameterListToUse, int minimum, int maximum, int defaultValue, String paramName, std::function&lt; String(int, int) &gt; stringFromValue=nullptr, std::function&lt; int(const String &amp;) &gt; valueFromString=nullptr, String paramLabel={}, bool isAutomatable=true, juce::AudioProcessorParameter::Category parameterCategory=juce::AudioProcessorParameter::genericParameter)</arglist>
+      <anchor>adb9575e88267247e30f84141df863adf</anchor>
+      <arglist>(ParameterList &amp;parameterListToUse, int minimum, int maximum, int defaultValue, String paramName, std::function&lt; String(int, int)&gt; stringFromValue=nullptr, std::function&lt; int(const String &amp;)&gt; valueFromString=nullptr, String paramLabel={}, bool isAutomatable=true, juce::AudioProcessorParameter::Category parameterCategory=juce::AudioProcessorParameter::genericParameter)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -9461,7 +9461,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>ad607d23979bbdbb9a78f1b3d013fc5b4</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -9697,8 +9697,8 @@
       <type></type>
       <name>MeterParameter</name>
       <anchorfile>structlemons_1_1plugin_1_1MeterParameter.html</anchorfile>
-      <anchor>a9eabd377f6d3a996af92508f0db3a57f</anchor>
-      <arglist>(float min, float max, float defaultVal, String paramName, std::function&lt; String(float, int) &gt; stringFromValue=nullptr, std::function&lt; float(String) &gt; valueFromString=nullptr, String parameterLabel={}, juce::AudioProcessorParameter::Category parameterCategory=juce::AudioProcessorParameter::genericParameter)</arglist>
+      <anchor>a879b8fed6b01b2be4bce190c0c2d2022</anchor>
+      <arglist>(float min, float max, float defaultVal, String paramName, std::function&lt; String(float, int)&gt; stringFromValue=nullptr, std::function&lt; float(String)&gt; valueFromString=nullptr, String parameterLabel={}, juce::AudioProcessorParameter::Category parameterCategory=juce::AudioProcessorParameter::genericParameter)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -9795,7 +9795,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>ad607d23979bbdbb9a78f1b3d013fc5b4</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -10216,7 +10216,7 @@
       <type>juce::Array&lt; int &gt;</type>
       <name>getAsArrayOfPitches</name>
       <anchorfile>classlemons_1_1midi_1_1MidiKeyboardState.html</anchorfile>
-      <anchor>a24474a3303a9ee70a9131073280d9524</anchor>
+      <anchor>a794135ea50b4d321d83867e73a6b5e83</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -10417,7 +10417,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>ad607d23979bbdbb9a78f1b3d013fc5b4</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -10730,7 +10730,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>ad607d23979bbdbb9a78f1b3d013fc5b4</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -11190,10 +11190,10 @@
     <filename>classlemons_1_1plugin_1_1ModulationManager.html</filename>
     <base>lemons::SerializableData</base>
     <member kind="typedef">
-      <type>std::function&lt; String(int) &gt;</type>
+      <type>std::function&lt; String(int)&gt;</type>
       <name>LfoNamingFunc</name>
       <anchorfile>classlemons_1_1plugin_1_1ModulationManager.html</anchorfile>
-      <anchor>a559399ab525e84187df090726b603ebb</anchor>
+      <anchor>aef90e3039d26e0fe8e8d862688e2e004</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -11354,7 +11354,7 @@
       <type>juce::AudioBuffer&lt; SampleType &gt;</type>
       <name>AudioBuffer</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1MonoToStereoPanner.html</anchorfile>
-      <anchor>ac81afaba84fc8aa8e7fb5dfd992e1dcd</anchor>
+      <anchor>a319d3bf768d924dddafd8318ca462089</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -11622,7 +11622,7 @@
       <type>juce::ListenerList&lt; MotionListener &gt;</type>
       <name>listeners</name>
       <anchorfile>classlemons_1_1MotionManagerInterface.html</anchorfile>
-      <anchor>a43a3e02f07a62652749444cdca169f26</anchor>
+      <anchor>a949d72c24fea6eb85637fdf5eec17c36</anchor>
       <arglist></arglist>
     </member>
     <member kind="function" protection="private" virtualness="virtual">
@@ -11788,7 +11788,7 @@
       <type>juce::ListenerList&lt; MotionListener &gt;</type>
       <name>listeners</name>
       <anchorfile>classlemons_1_1MotionManagerInterface.html</anchorfile>
-      <anchor>a43a3e02f07a62652749444cdca169f26</anchor>
+      <anchor>a949d72c24fea6eb85637fdf5eec17c36</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -11855,7 +11855,7 @@
       <type>juce::AudioBuffer&lt; SampleType &gt;</type>
       <name>AudioBuffer</name>
       <anchorfile>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</anchorfile>
-      <anchor>afe195bc5a21579d6ba3ffd275059d5c5</anchor>
+      <anchor>a2749b9689db1be10f434f3c861e4208a</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -11897,14 +11897,14 @@
       <type>Coefficients&lt; SampleType &gt;</type>
       <name>coefs</name>
       <anchorfile>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</anchorfile>
-      <anchor>ae8604e9be4d98949a84d784a51d29b7f</anchor>
+      <anchor>a9508ef62f004c93f863d0f1338d05ee9</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>OwnedArray&lt; Filter&lt; SampleType &gt; &gt;</type>
       <name>filters</name>
       <anchorfile>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</anchorfile>
-      <anchor>a48aea2dd107906c55605e5e39d88bd0f</anchor>
+      <anchor>aa8f1c7b3ad420456281601186aafdc62</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -11915,7 +11915,7 @@
       <type>juce::AudioBuffer&lt; float &gt;</type>
       <name>AudioBuffer</name>
       <anchorfile>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</anchorfile>
-      <anchor>afe195bc5a21579d6ba3ffd275059d5c5</anchor>
+      <anchor>a2749b9689db1be10f434f3c861e4208a</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -11957,14 +11957,14 @@
       <type>Coefficients&lt; float &gt;</type>
       <name>coefs</name>
       <anchorfile>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</anchorfile>
-      <anchor>ae8604e9be4d98949a84d784a51d29b7f</anchor>
+      <anchor>a9508ef62f004c93f863d0f1338d05ee9</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>OwnedArray&lt; Filter&lt; float &gt; &gt;</type>
       <name>filters</name>
       <anchorfile>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</anchorfile>
-      <anchor>a48aea2dd107906c55605e5e39d88bd0f</anchor>
+      <anchor>aa8f1c7b3ad420456281601186aafdc62</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -11975,7 +11975,7 @@
       <type>juce::AudioBuffer&lt; SampleType &gt;</type>
       <name>AudioBuffer</name>
       <anchorfile>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</anchorfile>
-      <anchor>afe195bc5a21579d6ba3ffd275059d5c5</anchor>
+      <anchor>a2749b9689db1be10f434f3c861e4208a</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -12017,14 +12017,14 @@
       <type>Coefficients&lt; SampleType &gt;</type>
       <name>coefs</name>
       <anchorfile>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</anchorfile>
-      <anchor>ae8604e9be4d98949a84d784a51d29b7f</anchor>
+      <anchor>a9508ef62f004c93f863d0f1338d05ee9</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>OwnedArray&lt; Filter&lt; SampleType &gt; &gt;</type>
       <name>filters</name>
       <anchorfile>structlemons_1_1dsp_1_1filters_1_1MultiFilter.html</anchorfile>
-      <anchor>a48aea2dd107906c55605e5e39d88bd0f</anchor>
+      <anchor>aa8f1c7b3ad420456281601186aafdc62</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -12311,7 +12311,7 @@
       <type>Osctype&lt; SampleType &gt;</type>
       <name>Osc</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
+      <anchor>a99bea61ee18b26eb2d62c9b55c8b4252</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -12407,7 +12407,7 @@
       <type>lemons::dsp::osc::Saw&lt; float &gt;</type>
       <name>Osc</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
+      <anchor>a99bea61ee18b26eb2d62c9b55c8b4252</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -12503,7 +12503,7 @@
       <type>lemons::dsp::osc::Sine&lt; float &gt;</type>
       <name>Osc</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
+      <anchor>a99bea61ee18b26eb2d62c9b55c8b4252</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -12599,7 +12599,7 @@
       <type>lemons::dsp::osc::Square&lt; float &gt;</type>
       <name>Osc</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
+      <anchor>a99bea61ee18b26eb2d62c9b55c8b4252</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -12695,7 +12695,7 @@
       <type>lemons::dsp::osc::SuperSaw&lt; float &gt;</type>
       <name>Osc</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
+      <anchor>a99bea61ee18b26eb2d62c9b55c8b4252</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -12791,7 +12791,7 @@
       <type>lemons::dsp::osc::Triangle&lt; float &gt;</type>
       <name>Osc</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
+      <anchor>a99bea61ee18b26eb2d62c9b55c8b4252</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -12887,7 +12887,7 @@
       <type>lemons::dsp::osc::Saw&lt; SampleType &gt;</type>
       <name>Osc</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
+      <anchor>a99bea61ee18b26eb2d62c9b55c8b4252</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -12983,7 +12983,7 @@
       <type>lemons::dsp::osc::Sine&lt; SampleType &gt;</type>
       <name>Osc</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
+      <anchor>a99bea61ee18b26eb2d62c9b55c8b4252</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -13079,7 +13079,7 @@
       <type>lemons::dsp::osc::Square&lt; SampleType &gt;</type>
       <name>Osc</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
+      <anchor>a99bea61ee18b26eb2d62c9b55c8b4252</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -13175,7 +13175,7 @@
       <type>lemons::dsp::osc::SuperSaw&lt; SampleType &gt;</type>
       <name>Osc</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
+      <anchor>a99bea61ee18b26eb2d62c9b55c8b4252</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -13271,7 +13271,7 @@
       <type>lemons::dsp::osc::Triangle&lt; SampleType &gt;</type>
       <name>Osc</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1OscEngine.html</anchorfile>
-      <anchor>a6e5ba0677e79787704d8ebd81f9e9d38</anchor>
+      <anchor>a99bea61ee18b26eb2d62c9b55c8b4252</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -13469,7 +13469,7 @@
       <type>SynthVoiceBase&lt; SampleType &gt; *</type>
       <name>createVoice</name>
       <anchorfile>structlemons_1_1dsp_1_1TemplateSynth.html</anchorfile>
-      <anchor>aef5eeed5207b79c9cb3e39500561c7b8</anchor>
+      <anchor>ad07b54bfc7da0da1b7ee26e46e2ea8cf</anchor>
       <arglist>() final</arglist>
     </member>
     <member kind="function">
@@ -13700,7 +13700,7 @@
       <type>synth::AutomatedHarmonyVoice&lt; SampleType &gt;</type>
       <name>descant</name>
       <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a1520e74c0664cd7378b37784cd2f61a2</anchor>
+      <anchor>a4483f9aef1275bfa7627cbacfcde85e2</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -13714,14 +13714,14 @@
       <type>synth::PanningManager&lt; SampleType &gt;</type>
       <name>panner</name>
       <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a6385f1208d58a1d37918d4ac708db3a4</anchor>
+      <anchor>a44e8d83ce7c5dabc59976bce5434c7c7</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>synth::AutomatedHarmonyVoice&lt; SampleType &gt;</type>
       <name>pedal</name>
       <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>aece7c55fee9fdcead4677fcf1f441641</anchor>
+      <anchor>ae8d57c099e83e510cc2e2ac0152198f2</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -14023,8 +14023,8 @@
       <type></type>
       <name>Parameter</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>a8685e8c31c140ba565b1ba3e01b7f73f</anchor>
-      <arglist>(String paramName, juce::NormalisableRange&lt; float &gt; paramRange, float paramDefaultValue=1.f, std::function&lt; String(float) &gt; valueToTextFuncToUse=nullptr, std::function&lt; float(const String &amp;) &gt; textToValueFuncToUse=nullptr, String paramLabel={}, bool isAutomatable=true, bool metaParam=false, juce::AudioProcessorParameter::Category parameterCategory=AudioProcessorParameter::genericParameter)</arglist>
+      <anchor>a15878331e99752c50d9b9f7793461ebb</anchor>
+      <arglist>(String paramName, juce::NormalisableRange&lt; float &gt; paramRange, float paramDefaultValue=1.f, std::function&lt; String(float)&gt; valueToTextFuncToUse=nullptr, std::function&lt; float(const String &amp;)&gt; textToValueFuncToUse=nullptr, String paramLabel={}, bool isAutomatable=true, bool metaParam=false, juce::AudioProcessorParameter::Category parameterCategory=AudioProcessorParameter::genericParameter)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -14093,7 +14093,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>ad607d23979bbdbb9a78f1b3d013fc5b4</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -14897,8 +14897,8 @@
       <type></type>
       <name>ParamUpdater</name>
       <anchorfile>structlemons_1_1plugin_1_1ParamUpdater.html</anchorfile>
-      <anchor>a084d471134b87f4031f03f7d7a272fbe</anchor>
-      <arglist>(Parameter &amp;param, std::function&lt; void() &gt; onValueChange, std::function&lt; void(bool) &gt; onGestureChange=[](bool) {})</arglist>
+      <anchor>a202d2de2e263a539de1edb3dc350f215</anchor>
+      <arglist>(Parameter &amp;param, std::function&lt; void()&gt; onValueChange, std::function&lt; void(bool)&gt; onGestureChange=[](bool) {})</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
@@ -15028,7 +15028,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>ad607d23979bbdbb9a78f1b3d013fc5b4</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -15348,14 +15348,14 @@
       <type>dsp::psola::Analyzer&lt; SampleType &gt;</type>
       <name>Analyzer</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html</anchorfile>
-      <anchor>a632a34043dd135ef53ad32c2b058bb88</anchor>
+      <anchor>a80ad958850808040935ac1d8f08c2058</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>juce::AudioBuffer&lt; SampleType &gt;</type>
       <name>AudioBuffer</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html</anchorfile>
-      <anchor>a94fbc5cbcb9c87c844df3124547cbd26</anchor>
+      <anchor>ac06027015e778d7a5331151f31139152</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -15409,14 +15409,14 @@
       <type>dsp::psola::Analyzer&lt; SampleType &gt;</type>
       <name>Analyzer</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html</anchorfile>
-      <anchor>a632a34043dd135ef53ad32c2b058bb88</anchor>
+      <anchor>a80ad958850808040935ac1d8f08c2058</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>juce::AudioBuffer&lt; SampleType &gt;</type>
       <name>AudioBuffer</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1PitchCorrectorBase.html</anchorfile>
-      <anchor>a94fbc5cbcb9c87c844df3124547cbd26</anchor>
+      <anchor>ac06027015e778d7a5331151f31139152</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -15498,7 +15498,7 @@
       <type>juce::Range&lt; int &gt;</type>
       <name>getCurrentLegalPeriodRange</name>
       <anchorfile>classlemons_1_1dsp_1_1PitchDetector.html</anchorfile>
-      <anchor>aa11cb42f7a4161cd3ce16b0328daf4e1</anchor>
+      <anchor>acfcf1e50297d305807d842ecde5f7f4a</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -15743,8 +15743,8 @@
       <type></type>
       <name>PopupComponent</name>
       <anchorfile>classlemons_1_1gui_1_1PopupComponent.html</anchorfile>
-      <anchor>aa4c856a7331accf41a7dd086fb92aed1</anchor>
-      <arglist>(std::function&lt; void() &gt; toClose)</arglist>
+      <anchor>a048a1b4a83f6aefee2b6628ac05eccc6</anchor>
+      <arglist>(std::function&lt; void()&gt; toClose)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -15877,7 +15877,7 @@
       <type>juce::Point&lt; int &gt;</type>
       <name>getSavedEditorSize</name>
       <anchorfile>classlemons_1_1plugin_1_1ProcessorBase.html</anchorfile>
-      <anchor>a43679d5fea72916860f7cf292a3a6602</anchor>
+      <anchor>a3814788aae0eff4e449e29dbcd16352f</anchor>
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
@@ -15912,7 +15912,7 @@
       <type>PluginState&lt; StateType &gt;</type>
       <name>state</name>
       <anchorfile>classlemons_1_1plugin_1_1Processor.html</anchorfile>
-      <anchor>a3db1d86c7db3b0247959771dfb0bd0b8</anchor>
+      <anchor>ac0cb2050def44fe149c33f32ec217077</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -15932,7 +15932,7 @@
       <type>juce::Point&lt; int &gt;</type>
       <name>getSavedEditorSize</name>
       <anchorfile>classlemons_1_1plugin_1_1ProcessorBase.html</anchorfile>
-      <anchor>a43679d5fea72916860f7cf292a3a6602</anchor>
+      <anchor>a3814788aae0eff4e449e29dbcd16352f</anchor>
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
@@ -15960,7 +15960,7 @@
       <type>juce::Point&lt; int &gt;</type>
       <name>Size</name>
       <anchorfile>structlemons_1_1plugin_1_1ProcessorWithEditor.html</anchorfile>
-      <anchor>a60cce1a2c8744c4dfcf3678984d8e3fc</anchor>
+      <anchor>a939a5483bfaea7a8010c2ad570807ac2</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -16576,7 +16576,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>ad607d23979bbdbb9a78f1b3d013fc5b4</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -16889,7 +16889,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>ad607d23979bbdbb9a78f1b3d013fc5b4</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -17171,7 +17171,7 @@
       <type>juce::AudioBuffer&lt; SampleType &gt;</type>
       <name>AudioBuffer</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1Shifter.html</anchorfile>
-      <anchor>ab48b93accb65bf3295ceda63442e5665</anchor>
+      <anchor>a812efce0cebd5cc51b865752dcd274cf</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -17988,14 +17988,14 @@
       <type>std::array&lt; ElementType, size &gt;</type>
       <name>Container</name>
       <anchorfile>structlemons_1_1serializing_1_1StdArrayInterface.html</anchorfile>
-      <anchor>a689a1f246b3351f0f210819f49f861c5</anchor>
+      <anchor>a1d46234ac6703404f040a8860316fdd4</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
-      <type>std::function&lt; void(std::array&lt; ElementType, size &gt; &amp;, int) &gt;</type>
+      <type>std::function&lt; void(std::array&lt; ElementType, size &gt; &amp;, int)&gt;</type>
       <name>ResizeCallback</name>
       <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
-      <anchor>a32d76526cd79b1430dd90251f242d821</anchor>
+      <anchor>a748a14aa164db3c0c133d38e16f7c001</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -18016,7 +18016,7 @@
       <type>juce::AudioBuffer&lt; SampleType &gt;</type>
       <name>AudioBuffer</name>
       <anchorfile>classlemons_1_1dsp_1_1FX_1_1StereoPanner.html</anchorfile>
-      <anchor>affd6a05de0e5572269895455b2483948</anchor>
+      <anchor>a19bcf2bc95df440ec70348459fb74ab6</anchor>
       <arglist></arglist>
     </member>
     <member kind="function" virtualness="virtual">
@@ -18138,10 +18138,10 @@
     <templarg></templarg>
     <base>lemons::serializing::LambdaContainerInterface</base>
     <member kind="typedef">
-      <type>std::function&lt; void(ContainerType &amp;, int) &gt;</type>
+      <type>std::function&lt; void(ContainerType &amp;, int)&gt;</type>
       <name>ResizeCallback</name>
       <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
-      <anchor>a32d76526cd79b1430dd90251f242d821</anchor>
+      <anchor>a748a14aa164db3c0c133d38e16f7c001</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -18175,10 +18175,10 @@
     <filename>structlemons_1_1serializing_1_1StringArrayInterface.html</filename>
     <base>LambdaContainerInterface&lt; juce::StringArray &gt;</base>
     <member kind="typedef">
-      <type>std::function&lt; void(juce::StringArray &amp;, int) &gt;</type>
+      <type>std::function&lt; void(juce::StringArray &amp;, int)&gt;</type>
       <name>ResizeCallback</name>
       <anchorfile>structlemons_1_1serializing_1_1LambdaContainerInterface.html</anchorfile>
-      <anchor>a32d76526cd79b1430dd90251f242d821</anchor>
+      <anchor>a748a14aa164db3c0c133d38e16f7c001</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -18680,7 +18680,7 @@
       <type>synth::AutomatedHarmonyVoice&lt; SampleType &gt;</type>
       <name>descant</name>
       <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a1520e74c0664cd7378b37784cd2f61a2</anchor>
+      <anchor>a4483f9aef1275bfa7627cbacfcde85e2</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -18694,14 +18694,14 @@
       <type>synth::PanningManager&lt; SampleType &gt;</type>
       <name>panner</name>
       <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a6385f1208d58a1d37918d4ac708db3a4</anchor>
+      <anchor>a44e8d83ce7c5dabc59976bce5434c7c7</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>synth::AutomatedHarmonyVoice&lt; SampleType &gt;</type>
       <name>pedal</name>
       <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>aece7c55fee9fdcead4677fcf1f441641</anchor>
+      <anchor>ae8d57c099e83e510cc2e2ac0152198f2</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -19032,7 +19032,7 @@
       <type>SynthVoiceBase&lt; SampleType &gt; *</type>
       <name>createVoice</name>
       <anchorfile>structlemons_1_1dsp_1_1TemplateSynth.html</anchorfile>
-      <anchor>aef5eeed5207b79c9cb3e39500561c7b8</anchor>
+      <anchor>ad07b54bfc7da0da1b7ee26e46e2ea8cf</anchor>
       <arglist>() final</arglist>
     </member>
     <member kind="function">
@@ -19263,7 +19263,7 @@
       <type>synth::AutomatedHarmonyVoice&lt; SampleType &gt;</type>
       <name>descant</name>
       <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a1520e74c0664cd7378b37784cd2f61a2</anchor>
+      <anchor>a4483f9aef1275bfa7627cbacfcde85e2</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -19277,14 +19277,14 @@
       <type>synth::PanningManager&lt; SampleType &gt;</type>
       <name>panner</name>
       <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a6385f1208d58a1d37918d4ac708db3a4</anchor>
+      <anchor>a44e8d83ce7c5dabc59976bce5434c7c7</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>synth::AutomatedHarmonyVoice&lt; SampleType &gt;</type>
       <name>pedal</name>
       <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>aece7c55fee9fdcead4677fcf1f441641</anchor>
+      <anchor>ae8d57c099e83e510cc2e2ac0152198f2</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -19359,7 +19359,7 @@
       <type>SynthVoiceBase&lt; SampleType &gt; *</type>
       <name>createVoice</name>
       <anchorfile>structlemons_1_1dsp_1_1TemplateSynth.html</anchorfile>
-      <anchor>aef5eeed5207b79c9cb3e39500561c7b8</anchor>
+      <anchor>ad07b54bfc7da0da1b7ee26e46e2ea8cf</anchor>
       <arglist>() final</arglist>
     </member>
     <member kind="function">
@@ -19590,7 +19590,7 @@
       <type>synth::AutomatedHarmonyVoice&lt; SampleType &gt;</type>
       <name>descant</name>
       <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a1520e74c0664cd7378b37784cd2f61a2</anchor>
+      <anchor>a4483f9aef1275bfa7627cbacfcde85e2</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -19604,14 +19604,14 @@
       <type>synth::PanningManager&lt; SampleType &gt;</type>
       <name>panner</name>
       <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>a6385f1208d58a1d37918d4ac708db3a4</anchor>
+      <anchor>a44e8d83ce7c5dabc59976bce5434c7c7</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>synth::AutomatedHarmonyVoice&lt; SampleType &gt;</type>
       <name>pedal</name>
       <anchorfile>classlemons_1_1dsp_1_1SynthBase.html</anchorfile>
-      <anchor>aece7c55fee9fdcead4677fcf1f441641</anchor>
+      <anchor>ae8d57c099e83e510cc2e2ac0152198f2</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -19664,8 +19664,8 @@
       <type></type>
       <name>TextButton</name>
       <anchorfile>structlemons_1_1gui_1_1TextButton.html</anchorfile>
-      <anchor>af7d03db23b45d1c4fd01a9a824a7a31b</anchor>
-      <arglist>(const String &amp;buttonText, std::function&lt; void() &gt; whenClicked)</arglist>
+      <anchor>a7e7e0f7dee93d22af67096360e65bb56</anchor>
+      <arglist>(const String &amp;buttonText, std::function&lt; void()&gt; whenClicked)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -19768,8 +19768,8 @@
       <type></type>
       <name>TimerCallback</name>
       <anchorfile>structlemons_1_1events_1_1TimerCallback.html</anchorfile>
-      <anchor>aa944d6182b98591664c5872c925407b3</anchor>
-      <arglist>(std::function&lt; void() &gt; callbackToUse, int rateInMs=100)</arglist>
+      <anchor>a1cc3566fad88cf8c0c494ed68807d3f8</anchor>
+      <arglist>(std::function&lt; void()&gt; callbackToUse, int rateInMs=100)</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
@@ -19787,8 +19787,8 @@
       <type></type>
       <name>ToggleButton</name>
       <anchorfile>classlemons_1_1gui_1_1ToggleButton.html</anchorfile>
-      <anchor>a13c2d7cae83cb8b3a653ac60a08e5128</anchor>
-      <arglist>(plugin::BoolParameter &amp;paramToUse, std::function&lt; void(bool) &gt; cb={})</arglist>
+      <anchor>ad337fe2312f73346a8f7636722f86f4a</anchor>
+      <arglist>(plugin::BoolParameter &amp;paramToUse, std::function&lt; void(bool)&gt; cb={})</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
@@ -19918,7 +19918,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>ad607d23979bbdbb9a78f1b3d013fc5b4</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -20254,8 +20254,8 @@
       <type></type>
       <name>ToggleTextButton</name>
       <anchorfile>structlemons_1_1gui_1_1ToggleTextButton.html</anchorfile>
-      <anchor>a6b0f0b3c2861999666154d66237bd817</anchor>
-      <arglist>(const String &amp;buttonText, std::function&lt; void(bool) &gt; on_click)</arglist>
+      <anchor>a94408f0fe9221855769596507a1d5d35</anchor>
+      <arglist>(const String &amp;buttonText, std::function&lt; void(bool)&gt; on_click)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -20273,8 +20273,8 @@
       <type>void</type>
       <name>addLambdaSet</name>
       <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
-      <anchor>a3ea2cd3e9bb6c6d3dcc493211e72af1b</anchor>
-      <arglist>(const String &amp;propertyName, std::function&lt; Type() &gt; saveToTree, std::function&lt; void(Type &amp;) &gt; loadFromTree)</arglist>
+      <anchor>a59c2eb5d7a3befe619aa4df0b7b148fa</anchor>
+      <arglist>(const String &amp;propertyName, std::function&lt; Type()&gt; saveToTree, std::function&lt; void(Type &amp;)&gt; loadFromTree)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -20340,8 +20340,8 @@
       <type>void</type>
       <name>addLambdaSet</name>
       <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
-      <anchor>a3ea2cd3e9bb6c6d3dcc493211e72af1b</anchor>
-      <arglist>(const String &amp;propertyName, std::function&lt; Type() &gt; saveToTree, std::function&lt; void(Type &amp;) &gt; loadFromTree)</arglist>
+      <anchor>a59c2eb5d7a3befe619aa4df0b7b148fa</anchor>
+      <arglist>(const String &amp;propertyName, std::function&lt; Type()&gt; saveToTree, std::function&lt; void(Type &amp;)&gt; loadFromTree)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -20387,8 +20387,8 @@
       <type>void</type>
       <name>addLambdaSet</name>
       <anchorfile>structlemons_1_1TreeReflector.html</anchorfile>
-      <anchor>a3ea2cd3e9bb6c6d3dcc493211e72af1b</anchor>
-      <arglist>(const String &amp;propertyName, std::function&lt; Type() &gt; saveToTree, std::function&lt; void(Type &amp;) &gt; loadFromTree)</arglist>
+      <anchor>a59c2eb5d7a3befe619aa4df0b7b148fa</anchor>
+      <arglist>(const String &amp;propertyName, std::function&lt; Type()&gt; saveToTree, std::function&lt; void(Type &amp;)&gt; loadFromTree)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -20501,8 +20501,8 @@
       <type></type>
       <name>TypedParameter</name>
       <anchorfile>classlemons_1_1plugin_1_1TypedParameter.html</anchorfile>
-      <anchor>ad6d940c83f3902c0cda087bf35280790</anchor>
-      <arglist>(ValueType minimum, ValueType maximum, ValueType defaultValue, String paramName, std::function&lt; String(ValueType, int) &gt; stringFromValue=nullptr, std::function&lt; ValueType(const String &amp;) &gt; valueFromString=nullptr, String paramLabel={}, bool isAutomatable=true, bool metaParam=false, juce::AudioProcessorParameter::Category parameterCategory=juce::AudioProcessorParameter::genericParameter)</arglist>
+      <anchor>a2e38d8dfc54e329f15ead413067a50a5</anchor>
+      <arglist>(ValueType minimum, ValueType maximum, ValueType defaultValue, String paramName, std::function&lt; String(ValueType, int)&gt; stringFromValue=nullptr, std::function&lt; ValueType(const String &amp;)&gt; valueFromString=nullptr, String paramLabel={}, bool isAutomatable=true, bool metaParam=false, juce::AudioProcessorParameter::Category parameterCategory=juce::AudioProcessorParameter::genericParameter)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -20599,7 +20599,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>ad607d23979bbdbb9a78f1b3d013fc5b4</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -20807,8 +20807,8 @@
       <type></type>
       <name>TypedParameter</name>
       <anchorfile>classlemons_1_1plugin_1_1TypedParameter.html</anchorfile>
-      <anchor>ad6d940c83f3902c0cda087bf35280790</anchor>
-      <arglist>(bool minimum, bool maximum, bool defaultValue, String paramName, std::function&lt; String(bool, int) &gt; stringFromValue=nullptr, std::function&lt; bool(const String &amp;) &gt; valueFromString=nullptr, String paramLabel={}, bool isAutomatable=true, bool metaParam=false, juce::AudioProcessorParameter::Category parameterCategory=juce::AudioProcessorParameter::genericParameter)</arglist>
+      <anchor>a2e38d8dfc54e329f15ead413067a50a5</anchor>
+      <arglist>(bool minimum, bool maximum, bool defaultValue, String paramName, std::function&lt; String(bool, int)&gt; stringFromValue=nullptr, std::function&lt; bool(const String &amp;)&gt; valueFromString=nullptr, String paramLabel={}, bool isAutomatable=true, bool metaParam=false, juce::AudioProcessorParameter::Category parameterCategory=juce::AudioProcessorParameter::genericParameter)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -20905,7 +20905,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>ad607d23979bbdbb9a78f1b3d013fc5b4</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -21113,8 +21113,8 @@
       <type></type>
       <name>TypedParameter</name>
       <anchorfile>classlemons_1_1plugin_1_1TypedParameter.html</anchorfile>
-      <anchor>ad6d940c83f3902c0cda087bf35280790</anchor>
-      <arglist>(int minimum, int maximum, int defaultValue, String paramName, std::function&lt; String(int, int) &gt; stringFromValue=nullptr, std::function&lt; int(const String &amp;) &gt; valueFromString=nullptr, String paramLabel={}, bool isAutomatable=true, bool metaParam=false, juce::AudioProcessorParameter::Category parameterCategory=juce::AudioProcessorParameter::genericParameter)</arglist>
+      <anchor>a2e38d8dfc54e329f15ead413067a50a5</anchor>
+      <arglist>(int minimum, int maximum, int defaultValue, String paramName, std::function&lt; String(int, int)&gt; stringFromValue=nullptr, std::function&lt; int(const String &amp;)&gt; valueFromString=nullptr, String paramLabel={}, bool isAutomatable=true, bool metaParam=false, juce::AudioProcessorParameter::Category parameterCategory=juce::AudioProcessorParameter::genericParameter)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -21211,7 +21211,7 @@
       <type>const juce::NormalisableRange&lt; float &gt; &amp;</type>
       <name>getNormalisableRange</name>
       <anchorfile>classlemons_1_1plugin_1_1Parameter.html</anchorfile>
-      <anchor>ab37bf0ccb1632c22af0ead8992b744e9</anchor>
+      <anchor>ad607d23979bbdbb9a78f1b3d013fc5b4</anchor>
       <arglist>() const final</arglist>
     </member>
     <member kind="function">
@@ -21704,7 +21704,7 @@
       <type>SynthVoiceBase&lt; SampleType &gt;</type>
       <name>Voice</name>
       <anchorfile>classlemons_1_1dsp_1_1synth_1_1VoiceAllocator.html</anchorfile>
-      <anchor>aa6c84c2a35ec716096dc18bb681c9406</anchor>
+      <anchor>a9e5e973e3bc50210bdbef7f0ae3e971f</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -21769,91 +21769,91 @@
       <type>plugin::ParameterHolder&lt; plugin::BoolParameter &gt;</type>
       <name>BoolParam</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a9d697c3ff25dfc43e597de15d8555b3e</anchor>
+      <anchor>afdc5a738ddbcb3f56e372b759736c093</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>plugin::ParameterHolder&lt; plugin::GainParameter &gt;</type>
       <name>dbParam</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a844dba6aafc52b1d910e4e3c19130e92</anchor>
+      <anchor>ac614caf4150218fb3a4cac23a30151e1</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>plugin::ParameterHolder&lt; plugin::FloatParameter &gt;</type>
       <name>FloatParam</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>ae8cc701522c1070e134c9312b0641300</anchor>
+      <anchor>a2d4c9fe95e3b1efd9a6e39f9cd54de15</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>plugin::ParameterHolder&lt; plugin::GainMeterParameter &gt;</type>
       <name>GainMeter</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>af5510b4c822b3b9afc862b3ae5ab39c5</anchor>
+      <anchor>a9ce6cf3434cf8e57114bc19335ee5edc</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>plugin::ParameterHolder&lt; plugin::FrequencyParameter &gt;</type>
       <name>HzParam</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>acc4070282f0c1a22cd88841626c9b08c</anchor>
+      <anchor>ad16b8f101f35c247917437d39af40318</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>plugin::ParameterHolder&lt; plugin::IntParameter &gt;</type>
       <name>IntParam</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a88962e62201aedb2ed503c7485768cc4</anchor>
+      <anchor>a19bcdec888b54c646ea83b3b60c4796c</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>plugin::ParameterHolder&lt; plugin::DefaultMetaParameter &gt;</type>
       <name>MetaParam</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a76422bb06981e12eccfbbf18de4467dc</anchor>
+      <anchor>a6a8c9da9ee5fe6c399b1d3a028d26bb7</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>plugin::ParameterHolder&lt; plugin::MidiPanParameter &gt;</type>
       <name>PanParam</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a5a1555071e59461615433027f9cae3c6</anchor>
+      <anchor>a08b0d93ff99e2499c9f7c97aeef40954</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>plugin::ParameterHolder&lt; plugin::PercentParameter &gt;</type>
       <name>PercentParam</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a023a7b4e1d3ee7e6ea8783ecf63f4975</anchor>
+      <anchor>a88629dac1e441490a7afe6c6194d8fed</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>plugin::ParameterHolder&lt; plugin::MidiPitchParameter &gt;</type>
       <name>PitchParam</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a465c54c77647869da76f78c4d97c5f6b</anchor>
+      <anchor>adaa61c7c462d4939dc7e66291e51d1c9</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>plugin::ParameterHolder&lt; plugin::SecondsParameter &gt;</type>
       <name>SecParam</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a6e9c7e31133fe325c1648fca7a3af07c</anchor>
+      <anchor>a0a05a54879b29945963cd2538e95590f</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>plugin::ParameterHolder&lt; plugin::SemitonesParameter &gt;</type>
       <name>SemitonesParam</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>afdf21d446c5261c4175877cd837db089</anchor>
+      <anchor>a36d79a0dbadb5479355577540d573b77</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>plugin::ParameterHolder&lt; plugin::ToggleParameter &gt;</type>
       <name>ToggleParam</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a6610ae87b54c2e3df80cd9dd74481f1f</anchor>
+      <anchor>a90d4caa1fe97e0a1dae1dee8559f7f42</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -22022,7 +22022,7 @@
       <type>AudioBuffer&lt; SampleType &gt;</type>
       <name>getAliasBuffer</name>
       <anchorfile>namespacelemons_1_1dsp_1_1buffers.html</anchorfile>
-      <anchor>ae7a58230672837db81f1fbd9b5ea3805</anchor>
+      <anchor>af08caeb8ac174b35a1cc6d32edda5d51</anchor>
       <arglist>(AudioBuffer&lt; SampleType &gt; &amp;bufferToAlias, int startSample, int numSamples, int numChannels, int channelOffset=0)</arglist>
     </member>
   </compound>
@@ -22118,35 +22118,35 @@
       <type>OscSynth&lt; SampleType, osc::Saw &gt;</type>
       <name>Saw</name>
       <anchorfile>namespacelemons_1_1dsp_1_1synth.html</anchorfile>
-      <anchor>a7269b6280f2b51716e797bf2c0dca7d1</anchor>
+      <anchor>afa3b1f52ea29a71fffd789388337adbc</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>OscSynth&lt; SampleType, osc::Sine &gt;</type>
       <name>Sine</name>
       <anchorfile>namespacelemons_1_1dsp_1_1synth.html</anchorfile>
-      <anchor>a430ae7ada908a2f8a52973e98167f807</anchor>
+      <anchor>ac2e323c6263a32217314b8041f56f87d</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>OscSynth&lt; SampleType, osc::Square &gt;</type>
       <name>Square</name>
       <anchorfile>namespacelemons_1_1dsp_1_1synth.html</anchorfile>
-      <anchor>af80648fe5e5df3b31d06e9c2aab3862b</anchor>
+      <anchor>a903fbb43adf3eea72eb6a42fae56330c</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>OscSynth&lt; SampleType, osc::SuperSaw &gt;</type>
       <name>SuperSaw</name>
       <anchorfile>namespacelemons_1_1dsp_1_1synth.html</anchorfile>
-      <anchor>a712a47f2ffcf27c4f87b9429543dffe9</anchor>
+      <anchor>a903e1e1d9351ec01537078f87a6446ee</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>OscSynth&lt; SampleType, osc::Triangle &gt;</type>
       <name>Triangle</name>
       <anchorfile>namespacelemons_1_1dsp_1_1synth.html</anchorfile>
-      <anchor>aa9c8040151c167d0e462405162fdd107</anchor>
+      <anchor>a7f1ef90930175f151eb6aba9b52aacd1</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -22311,105 +22311,105 @@
       <type>juce::Point&lt; int &gt;</type>
       <name>Dimensions</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>a8fea260dc594cf530c3ffb3bf1f5b1e9</anchor>
+      <anchor>a47c63ce964844d24e40ca6dad594907e</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>TypedParameter&lt; float &gt;</type>
       <name>FloatParameter</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>aa77c4923225c9ae40394bfc8d1e19536</anchor>
+      <anchor>a6aa457b145fb2649ae90850e6ea7a18c</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>TypedParameter&lt; int &gt;</type>
       <name>IntParameter</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>a4517ac2014f80bb22e05083a49c3e7ee</anchor>
+      <anchor>a7d5746e33dadd4d351de50a915c6ed49</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>Processor&lt; StateBase, EngineType &gt;</type>
       <name>StatelessProcessor</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>ab118f684c798a14db3ac1a3f8417caea</anchor>
+      <anchor>af7697ad368d38f09b567e28e16f37986</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>serializing::Toggler&lt; 3 &gt;</type>
       <name>StateToggles</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>abcfc580033c4f7a4e5242dbb4c3089b0</anchor>
+      <anchor>a2ed692298f3553ce6d55dac8dba07e68</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
-      <type>std::function&lt; float(const String &amp;) &gt;</type>
+      <type>std::function&lt; float(const String &amp;)&gt;</type>
       <name>convertStringToValFunc</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>ac317360544729ddd1ea3e34f69a9fc37</anchor>
-      <arglist>(std::function&lt; ValueType(const String &amp;) &gt; origFunc)</arglist>
+      <anchor>a61ed31a217e012bc0cfa0a6a6b264492</anchor>
+      <arglist>(std::function&lt; ValueType(const String &amp;)&gt; origFunc)</arglist>
     </member>
     <member kind="function">
-      <type>std::function&lt; String(float) &gt;</type>
+      <type>std::function&lt; String(float)&gt;</type>
       <name>convertValToStringFunc</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>addc166c9f63071a1c8046efb8e7d0a62</anchor>
-      <arglist>(std::function&lt; String(ValueType, int) &gt; origFunc)</arglist>
+      <anchor>af2c6e2096736df4e3a3b00876f04ab60</anchor>
+      <arglist>(std::function&lt; String(ValueType, int)&gt; origFunc)</arglist>
     </member>
     <member kind="function">
-      <type>std::function&lt; String(ValueType, int) &gt;</type>
+      <type>std::function&lt; String(ValueType, int)&gt;</type>
       <name>createDefaultStringFromValueFunc</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>a3e1108436e56be60ce4fff004af0f978</anchor>
+      <anchor>a9a4c41cb6b74b3d1217bdb342725b261</anchor>
       <arglist>(float rangeInterval)</arglist>
     </member>
     <member kind="function">
-      <type>std::function&lt; String(float, int) &gt;</type>
+      <type>std::function&lt; String(float, int)&gt;</type>
       <name>createDefaultStringFromValueFunc</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>abe844291a6a33bcfb839ec8e76c0965c</anchor>
+      <anchor>a60c4874ba95e13d86c264aa4aecb6dc7</anchor>
       <arglist>(float rangeInterval)</arglist>
     </member>
     <member kind="function">
-      <type>std::function&lt; float(const String &amp;) &gt;</type>
+      <type>std::function&lt; float(const String &amp;)&gt;</type>
       <name>createDefaultValueFromStringFunc</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>ad5f80836a4283dfb605d2c6983c0b07c</anchor>
+      <anchor>a89abaa3e988230c35b6c818b795f4c48</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>juce::NormalisableRange&lt; float &gt;</type>
       <name>createRange</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>ad5950a82031d039e19e215670dca6c75</anchor>
+      <anchor>ad50c3748c871971f6d9ca8ff1b668f3c</anchor>
       <arglist>(bool, bool)</arglist>
     </member>
     <member kind="function">
       <type>juce::NormalisableRange&lt; float &gt;</type>
       <name>createRange</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>a409ffdf64ee0b7fc0f7e17dd308ea79d</anchor>
+      <anchor>ac082ec591eeaa83836bd28297472139b</anchor>
       <arglist>(float minimum, float maximum)</arglist>
     </member>
     <member kind="function">
       <type>juce::NormalisableRange&lt; float &gt;</type>
       <name>createRange</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>a4039484d9ffb2b539251f12fc90be287</anchor>
+      <anchor>ae0090c19fe6389e3aa3223c4a71ba3dc</anchor>
       <arglist>(int minimum, int maximum)</arglist>
     </member>
     <member kind="function">
       <type>juce::NormalisableRange&lt; float &gt;</type>
       <name>createRange</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>a939f8a4f5e956907b8c3e7e4721b20a8</anchor>
+      <anchor>adba78787c684a4535a6670394d70fb11</anchor>
       <arglist>(ValueType minimum, ValueType maximum)</arglist>
     </member>
     <member kind="variable">
-      <type>std::function&lt; ValueType(const String &amp;) &gt;</type>
+      <type>std::function&lt; ValueType(const String &amp;)&gt;</type>
       <name>createDefaultValueFromStringFunc</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>a04d974479a233a2ece45f1cfe60a6e5d</anchor>
+      <anchor>a7e38f9c29a05a75b8d87f91d7909c688</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
@@ -22623,77 +22623,77 @@
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a947d1fd48af7f4413f461f6c741d5fc2</anchor>
+      <anchor>a9b66b6522f40175fa851aba1abf80050</anchor>
       <arglist>(ContainerType &amp;)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>acaa9bcf94a6a18b321714a7425ff0a83</anchor>
+      <anchor>a69bbf011afe858bcc4ee69bc542f44fc</anchor>
       <arglist>(juce::Array&lt; ElementType &gt; &amp;container)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a62bdd53db8c515549f20b1f0835052b7</anchor>
+      <anchor>ad40e0edb3064fd1e7663232842176ec1</anchor>
       <arglist>(juce::OwnedArray&lt; ElementType &gt; &amp;container)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a5451726fdfd9955d7017ac2b529f44eb</anchor>
+      <anchor>a8308c069f29bbcd44bc55e2c8292cf7b</anchor>
       <arglist>(juce::StringArray &amp;container)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>aee820d761ae553c8ad6c5ce1a1ebe269</anchor>
+      <anchor>ac226f9e9cdb0043fdbccd39e4759c4e0</anchor>
       <arglist>(std::array&lt; ElementType, size &gt; &amp;container)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a07f5a5656f4beb02e6db2e232c28ae67</anchor>
+      <anchor>a61393976398ed8cbe88dbdfab57a6e59</anchor>
       <arglist>(std::deque&lt; ElementType &gt; &amp;container)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>aebc3ef91761c11e3aa8f01e29e07f132</anchor>
+      <anchor>ad400adf4f688e438a0242ff3ba1105cb</anchor>
       <arglist>(std::forward_list&lt; ElementType &gt; &amp;container)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a75f40fa5baf10eca39436e00057d601b</anchor>
+      <anchor>af49fb76eae35eaa5899043c2484446d9</anchor>
       <arglist>(std::list&lt; ElementType &gt; &amp;container)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; ContainerInterface &gt;</type>
       <name>getInterfaceForContainer</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>ae61433549df459186ab1bf2c3597d00c</anchor>
+      <anchor>a250c9e501cd46a837b512bf5e07d4266</anchor>
       <arglist>(std::vector&lt; ElementType &gt; &amp;container)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; MapInterfaceBase &gt;</type>
       <name>getInterfaceForMap</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a52f16de419ffe2a472740c8e58fb849c</anchor>
+      <anchor>aadcc7b394e1615b592c383f767236f7b</anchor>
       <arglist>(juce::StringPairArray &amp;array)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; MapInterfaceBase &gt;</type>
       <name>getInterfaceForMap</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a7270802d3bb72c38a7d6e82460c8bd37</anchor>
+      <anchor>ad9fd2901d3d0fcf54fda8c043ee0d89f</anchor>
       <arglist>(MapType &amp;)</arglist>
     </member>
     <member kind="function">
@@ -22861,7 +22861,7 @@
       <type>std::unique_ptr&lt; juce::XmlElement &gt;</type>
       <name>toXML</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
-      <anchor>a19051971222b714020a7e957034bcd1a</anchor>
+      <anchor>a171b47fa7f8efadd549e0838a19a6ac4</anchor>
       <arglist>(SerializableData &amp;source)</arglist>
     </member>
     <member kind="function">
@@ -22898,14 +22898,14 @@
       <type>juce::Point&lt; float &gt;</type>
       <name>Point</name>
       <anchorfile>namespacelemons_1_1spline.html</anchorfile>
-      <anchor>a832ddba7a7244525784ee6d0644dd27e</anchor>
+      <anchor>a4815e51376e33169aa821c5b402e1462</anchor>
       <arglist></arglist>
     </member>
     <member kind="typedef">
       <type>std::vector&lt; float &gt;</type>
       <name>Points</name>
       <anchorfile>namespacelemons_1_1spline.html</anchorfile>
-      <anchor>ae2dbcb02271768847771957183931530</anchor>
+      <anchor>addc7a93d56f97a7f73b2a53cba567b4e</anchor>
       <arglist></arglist>
     </member>
   </compound>

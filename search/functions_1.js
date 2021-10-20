@@ -3,7 +3,7 @@ var searchData=
   ['basicprocessorbase_1497',['BasicProcessorBase',['../classlemons_1_1dsp_1_1BasicProcessorBase.html#ab3ee880d17a012786ae04d863f7c6dca',1,'lemons::dsp::BasicProcessorBase']]],
   ['begingesture_1498',['beginGesture',['../classlemons_1_1plugin_1_1Parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e',1,'lemons::plugin::Parameter']]],
   ['beginnewtransaction_1499',['beginNewTransaction',['../classlemons_1_1UndoManager.html#a95f700fdc109129763bfdf862a07f805',1,'lemons::UndoManager']]],
-  ['boolparameter_1500',['BoolParameter',['../structlemons_1_1plugin_1_1BoolParameter.html#a44365338048fe6046369cb42634b59fa',1,'lemons::plugin::BoolParameter']]],
+  ['boolparameter_1500',['BoolParameter',['../structlemons_1_1plugin_1_1BoolParameter.html#a9ae1c6b6c17a084114c1f1c603a57e54',1,'lemons::plugin::BoolParameter']]],
   ['bumpmajor_1501',['bumpMajor',['../structlemons_1_1Version.html#a2b906ed4d93957ad4e93e4c712236081',1,'lemons::Version']]],
   ['bumpminor_1502',['bumpMinor',['../structlemons_1_1Version.html#abc6b9609562d8f6ea37b71bdc1d6b366',1,'lemons::Version']]],
   ['bumppatch_1503',['bumpPatch',['../structlemons_1_1Version.html#ab01ffcc37bd2c9e5cc355d891afc32d3',1,'lemons::Version']]],

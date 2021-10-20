@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['band_53',['Band',['../classlemons_1_1dsp_1_1FX_1_1EQ.html#a709af9303aa13d983fe6887f9ef5b521',1,'lemons::dsp::FX::EQ']]],
+  ['band_53',['Band',['../classlemons_1_1dsp_1_1FX_1_1EQ.html#a9da162b53c264d8f4ed4ad8fc1e91aef',1,'lemons::dsp::FX::EQ']]],
   ['bandpass_54',['BandPass',['../namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14a39c9e9c45a479147bf5f74156421c744',1,'lemons::dsp::FX']]],
   ['basic_5ftypes_55',['basic_types',['../group__basic__types.html',1,'']]],
   ['basicprocessor_56',['BasicProcessor',['../group__BasicProcessor.html',1,'']]],
@@ -13,8 +13,8 @@ var searchData=
   ['bend_63',['bend',['../structlemons_1_1midi_1_1PitchPipeline.html#a7ead7b0871d677ba8a4895db04debab3',1,'lemons::midi::PitchPipeline']]],
   ['binary_5fdata_64',['binary_data',['../group__binary__data.html',1,'']]],
   ['binarydatahelpers_2eh_65',['BinaryDataHelpers.h',['../BinaryDataHelpers_8h.html',1,'']]],
-  ['boolparam_66',['BoolParam',['../namespacelemons.html#a9d697c3ff25dfc43e597de15d8555b3e',1,'lemons']]],
-  ['boolparameter_67',['BoolParameter',['../structlemons_1_1plugin_1_1BoolParameter.html',1,'lemons::plugin::BoolParameter'],['../structlemons_1_1plugin_1_1BoolParameter.html#a44365338048fe6046369cb42634b59fa',1,'lemons::plugin::BoolParameter::BoolParameter()']]],
+  ['boolparam_66',['BoolParam',['../namespacelemons.html#afdc5a738ddbcb3f56e372b759736c093',1,'lemons']]],
+  ['boolparameter_67',['BoolParameter',['../structlemons_1_1plugin_1_1BoolParameter.html',1,'lemons::plugin::BoolParameter'],['../structlemons_1_1plugin_1_1BoolParameter.html#a9ae1c6b6c17a084114c1f1c603a57e54',1,'lemons::plugin::BoolParameter::BoolParameter()']]],
   ['broadcaster_68',['Broadcaster',['../classlemons_1_1events_1_1Broadcaster.html',1,'lemons::events']]],
   ['broadcaster_2eh_69',['Broadcaster.h',['../Broadcaster_8h.html',1,'']]],
   ['bufferutils_70',['BufferUtils',['../group__BufferUtils.html',1,'']]],

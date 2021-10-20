@@ -20,6 +20,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Lemons
    </div>
@@ -91,10 +92,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa0c4f2b619acd9a3287a1f27d4c23883"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883">add</a> (const String &amp;propertyName, Type &amp;object)</td></tr>
 <tr class="memdesc:aa0c4f2b619acd9a3287a1f27d4c23883"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds a named ValueTree property to a data member of your object.  <a href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883">More...</a><br /></td></tr>
 <tr class="separator:aa0c4f2b619acd9a3287a1f27d4c23883"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ea2cd3e9bb6c6d3dcc493211e72af1b"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
-<tr class="memitem:a3ea2cd3e9bb6c6d3dcc493211e72af1b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structlemons_1_1TreeReflector.html#a3ea2cd3e9bb6c6d3dcc493211e72af1b">addLambdaSet</a> (const String &amp;propertyName, std::function&lt; Type() &gt; saveToTree, std::function&lt; void(Type &amp;) &gt; loadFromTree)</td></tr>
-<tr class="memdesc:a3ea2cd3e9bb6c6d3dcc493211e72af1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds lambda functions for saving and loading a certain value to and from a named ValueTree property.  <a href="structlemons_1_1TreeReflector.html#a3ea2cd3e9bb6c6d3dcc493211e72af1b">More...</a><br /></td></tr>
-<tr class="separator:a3ea2cd3e9bb6c6d3dcc493211e72af1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59c2eb5d7a3befe619aa4df0b7b148fa"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
+<tr class="memitem:a59c2eb5d7a3befe619aa4df0b7b148fa"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structlemons_1_1TreeReflector.html#a59c2eb5d7a3befe619aa4df0b7b148fa">addLambdaSet</a> (const String &amp;propertyName, std::function&lt; Type()&gt; saveToTree, std::function&lt; void(Type &amp;)&gt; loadFromTree)</td></tr>
+<tr class="memdesc:a59c2eb5d7a3befe619aa4df0b7b148fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds lambda functions for saving and loading a certain value to and from a named ValueTree property.  <a href="structlemons_1_1TreeReflector.html#a59c2eb5d7a3befe619aa4df0b7b148fa">More...</a><br /></td></tr>
+<tr class="separator:a59c2eb5d7a3befe619aa4df0b7b148fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f602bcade7f2f41bd103d40d935c33c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1TreeReflector.html#a9f602bcade7f2f41bd103d40d935c33c">as</a> (<a class="el" href="structlemons_1_1SerializableData.html">SerializableData</a> &amp;data)</td></tr>
 <tr class="memdesc:a9f602bcade7f2f41bd103d40d935c33c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delegates another object to be serialized as this object's data.  <a href="structlemons_1_1TreeReflector.html#a9f602bcade7f2f41bd103d40d935c33c">More...</a><br /></td></tr>
 <tr class="separator:a9f602bcade7f2f41bd103d40d935c33c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -192,7 +193,7 @@ Example &ndash; what NOT to do: <div class="fragment"><div class="line"><span cl
 </li>
 <li>have begin() and end() functions &ndash; ie, are compatable with range-based for loops</li>
 <li>have an implementation of <a class="el" href="structlemons_1_1serializing_1_1ContainerInterface.html" title="Interface that defines how a TreeReflector can resize a given container during deserialization.">serializing::ContainerInterface</a></li>
-<li>have a specialization of <a class="el" href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2" title="Template function that returns an instance of the correct ContainerInterface for the given container.">serializing::getInterfaceForContainer()</a></li>
+<li>have a specialization of <a class="el" href="namespacelemons_1_1serializing.html#a9b66b6522f40175fa851aba1abf80050" title="Template function that returns an instance of the correct ContainerInterface for the given container.">serializing::getInterfaceForContainer()</a></li>
 <li>have a specialization of <a class="el" href="structlemons_1_1serializing_1_1isContainer.html" title="Template struct that that indicates to TreeReflector whether a given type is a container.">serializing::isContainer</a> that inherits std::true_type</li>
 <li>The container's elements must themselves be valid calls to <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">add()</a> &ndash; ie, either inherit from <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a> or have <a class="el" href="namespacelemons_1_1serializing.html#ae8ee0e682cb966523ed9d443e76789a2" title="Implement this function and fromVar() for any custom type to allow easily serialization using TreeRef...">serializing::toVar()</a> and <a class="el" href="namespacelemons_1_1serializing.html#ab1f2f10c7b4aaf9489cc1ee43c450464" title="Implement this function and toVar() for any custom type to allow easily serialization using TreeRefle...">serializing::fromVar()</a> implemented. <br  />
 <br  />
@@ -235,20 +236,20 @@ This can be: <br  />
 <li>Any C++ object for which <a class="el" href="namespacelemons_1_1serializing.html#ae8ee0e682cb966523ed9d443e76789a2" title="Implement this function and fromVar() for any custom type to allow easily serialization using TreeRef...">toVar()</a> and <a class="el" href="namespacelemons_1_1serializing.html#ab1f2f10c7b4aaf9489cc1ee43c450464" title="Implement this function and toVar() for any custom type to allow easily serialization using TreeRefle...">fromVar()</a> are implemented;</li>
 <li>A juce::ValueTree;</li>
 <li>Another object that inherits from <a class="el" href="structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back.">SerializableData</a>;</li>
-<li>A container that has <a class="el" href="structlemons_1_1serializing_1_1ContainerInterface.html" title="Interface that defines how a TreeReflector can resize a given container during deserialization.">serializing::ContainerInterface</a>, <a class="el" href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2" title="Template function that returns an instance of the correct ContainerInterface for the given container.">serializing::getInterfaceForContainer()</a>, and <a class="el" href="structlemons_1_1serializing_1_1isContainer.html" title="Template struct that that indicates to TreeReflector whether a given type is a container.">serializing::isContainer</a> implemented and whose elements are also valid calls to <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">add()</a></li>
+<li>A container that has <a class="el" href="structlemons_1_1serializing_1_1ContainerInterface.html" title="Interface that defines how a TreeReflector can resize a given container during deserialization.">serializing::ContainerInterface</a>, <a class="el" href="namespacelemons_1_1serializing.html#a9b66b6522f40175fa851aba1abf80050" title="Template function that returns an instance of the correct ContainerInterface for the given container.">serializing::getInterfaceForContainer()</a>, and <a class="el" href="structlemons_1_1serializing_1_1isContainer.html" title="Template struct that that indicates to TreeReflector whether a given type is a container.">serializing::isContainer</a> implemented and whose elements are also valid calls to <a class="el" href="structlemons_1_1TreeReflector.html#aa0c4f2b619acd9a3287a1f27d4c23883" title="Binds a named ValueTree property to a data member of your object.">add()</a></li>
 </ul>
 </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1serializing_1_1ContainerInterface.html" title="Interface that defines how a TreeReflector can resize a given container during deserialization.">serializing::ContainerInterface</a>, <a class="el" href="namespacelemons_1_1serializing.html#a947d1fd48af7f4413f461f6c741d5fc2" title="Template function that returns an instance of the correct ContainerInterface for the given container.">serializing::getInterfaceForContainer()</a>, <a class="el" href="structlemons_1_1serializing_1_1isContainer.html" title="Template struct that that indicates to TreeReflector whether a given type is a container.">serializing::isContainer</a>, <a class="el" href="namespacelemons_1_1serializing.html#ae8ee0e682cb966523ed9d443e76789a2" title="Implement this function and fromVar() for any custom type to allow easily serialization using TreeRef...">serializing::toVar()</a>, <a class="el" href="namespacelemons_1_1serializing.html#ab1f2f10c7b4aaf9489cc1ee43c450464" title="Implement this function and toVar() for any custom type to allow easily serialization using TreeRefle...">serializing::fromVar()</a>, <a class="el" href="structlemons_1_1TreeReflector.html#a3ea2cd3e9bb6c6d3dcc493211e72af1b" title="Binds lambda functions for saving and loading a certain value to and from a named ValueTree property.">addLambdaSet()</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1serializing_1_1ContainerInterface.html" title="Interface that defines how a TreeReflector can resize a given container during deserialization.">serializing::ContainerInterface</a>, <a class="el" href="namespacelemons_1_1serializing.html#a9b66b6522f40175fa851aba1abf80050" title="Template function that returns an instance of the correct ContainerInterface for the given container.">serializing::getInterfaceForContainer()</a>, <a class="el" href="structlemons_1_1serializing_1_1isContainer.html" title="Template struct that that indicates to TreeReflector whether a given type is a container.">serializing::isContainer</a>, <a class="el" href="namespacelemons_1_1serializing.html#ae8ee0e682cb966523ed9d443e76789a2" title="Implement this function and fromVar() for any custom type to allow easily serialization using TreeRef...">serializing::toVar()</a>, <a class="el" href="namespacelemons_1_1serializing.html#ab1f2f10c7b4aaf9489cc1ee43c450464" title="Implement this function and toVar() for any custom type to allow easily serialization using TreeRefle...">serializing::fromVar()</a>, <a class="el" href="structlemons_1_1TreeReflector.html#a59c2eb5d7a3befe619aa4df0b7b148fa" title="Binds lambda functions for saving and loading a certain value to and from a named ValueTree property.">addLambdaSet()</a> </dd></dl>
 
 <p class="reference">References <a class="el" href="structlemons_1_1TreeReflector.html#ad8d42bdfb2093716fe60ba2196d54ac3">lemons::TreeReflector::isLoading()</a>.</p>
 
 </div>
 </div>
-<a id="a3ea2cd3e9bb6c6d3dcc493211e72af1b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3ea2cd3e9bb6c6d3dcc493211e72af1b">&#9670;&nbsp;</a></span>addLambdaSet()</h2>
+<a id="a59c2eb5d7a3befe619aa4df0b7b148fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59c2eb5d7a3befe619aa4df0b7b148fa">&#9670;&nbsp;</a></span>addLambdaSet()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -267,13 +268,13 @@ template&lt;typename Type &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; Type() &gt;&#160;</td>
+          <td class="paramtype">std::function&lt; Type()&gt;&#160;</td>
           <td class="paramname"><em>saveToTree</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; void(Type &amp;) &gt;&#160;</td>
+          <td class="paramtype">std::function&lt; void(Type &amp;)&gt;&#160;</td>
           <td class="paramname"><em>loadFromTree</em>&#160;</td>
         </tr>
         <tr>
@@ -521,7 +522,7 @@ You could do this: </p><div class="fragment"><div class="line"><span class="keyw
 <div class="ttc" id="anamespacelemons_html"><div class="ttname"><a href="namespacelemons.html">lemons</a></div><div class="ttdef"><b>Definition:</b> DefaultWindow.h:9</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 20 2021 00:43:42 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 20 2021 19:59:06 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

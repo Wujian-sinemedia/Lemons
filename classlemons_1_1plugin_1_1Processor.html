@@ -20,6 +20,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Lemons
    </div>
@@ -93,9 +94,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4ec6d4e2f0bff756a1963f7170fc3cda"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1Processor.html#a4ec6d4e2f0bff756a1963f7170fc3cda">Processor</a> (juce::AudioProcessor::BusesProperties busesLayout=BusesProperties() .withInput(TRANS(&quot;Input&quot;), juce::AudioChannelSet::stereo(), true) .withOutput(TRANS(&quot;Output&quot;), juce::AudioChannelSet::stereo(), true))</td></tr>
 <tr class="memdesc:a4ec6d4e2f0bff756a1963f7170fc3cda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a processor with the specified bus layout.  <a href="classlemons_1_1plugin_1_1Processor.html#a4ec6d4e2f0bff756a1963f7170fc3cda">More...</a><br /></td></tr>
 <tr class="separator:a4ec6d4e2f0bff756a1963f7170fc3cda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43679d5fea72916860f7cf292a3a6602"><td class="memItemLeft" align="right" valign="top">juce::Point&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ProcessorBase.html#a43679d5fea72916860f7cf292a3a6602">getSavedEditorSize</a> () const noexcept</td></tr>
-<tr class="memdesc:a43679d5fea72916860f7cf292a3a6602"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the state's saved editor dimensions.  <a href="classlemons_1_1plugin_1_1ProcessorBase.html#a43679d5fea72916860f7cf292a3a6602">More...</a><br /></td></tr>
-<tr class="separator:a43679d5fea72916860f7cf292a3a6602"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3814788aae0eff4e449e29dbcd16352f"><td class="memItemLeft" align="right" valign="top">juce::Point&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1ProcessorBase.html#a3814788aae0eff4e449e29dbcd16352f">getSavedEditorSize</a> () const noexcept</td></tr>
+<tr class="memdesc:a3814788aae0eff4e449e29dbcd16352f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the state's saved editor dimensions.  <a href="classlemons_1_1plugin_1_1ProcessorBase.html#a3814788aae0eff4e449e29dbcd16352f">More...</a><br /></td></tr>
+<tr class="separator:a3814788aae0eff4e449e29dbcd16352f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57640651bbac3970c117f2a7f03890f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1BasicProcessorBase.html#a57640651bbac3970c117f2a7f03890f4">repaintEditor</a> ()</td></tr>
 <tr class="memdesc:a57640651bbac3970c117f2a7f03890f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Repaints the editor, if one exists.  <a href="classlemons_1_1dsp_1_1BasicProcessorBase.html#a57640651bbac3970c117f2a7f03890f4">More...</a><br /></td></tr>
 <tr class="separator:a57640651bbac3970c117f2a7f03890f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -115,8 +116,8 @@ Protected Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a3db1d86c7db3b0247959771dfb0bd0b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1PluginState.html">PluginState</a>&lt; StateType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1Processor.html#a3db1d86c7db3b0247959771dfb0bd0b8">state</a></td></tr>
-<tr class="separator:a3db1d86c7db3b0247959771dfb0bd0b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0cb2050def44fe149c33f32ec217077"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1plugin_1_1PluginState.html">PluginState</a>&lt; StateType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1Processor.html#ac0cb2050def44fe149c33f32ec217077">state</a></td></tr>
+<tr class="separator:ac0cb2050def44fe149c33f32ec217077"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;class StateType, template&lt; typename SampleType &gt; class EngineType, LEMONS_MUST_INHERIT_FROM(StateType, StateBase), LEMONS_MUST_INHERIT_FROM(EngineType&lt; float &gt;, dsp::Engine&lt; float &gt;)&gt;<br />
@@ -206,8 +207,8 @@ template&lt;class StateType , template&lt; typename SampleType &gt; class Engine
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a43679d5fea72916860f7cf292a3a6602"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43679d5fea72916860f7cf292a3a6602">&#9670;&nbsp;</a></span>getSavedEditorSize()</h2>
+<a id="a3814788aae0eff4e449e29dbcd16352f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3814788aae0eff4e449e29dbcd16352f">&#9670;&nbsp;</a></span>getSavedEditorSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -216,7 +217,7 @@ template&lt;class StateType , template&lt; typename SampleType &gt; class Engine
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">juce::Point&lt; int &gt; lemons::plugin::ProcessorBase::getSavedEditorSize </td>
+          <td class="memname">juce::Point&lt;int&gt; lemons::plugin::ProcessorBase::getSavedEditorSize </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -258,7 +259,7 @@ template&lt;class StateType , template&lt; typename SampleType &gt; class Engine
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="structlemons_1_1plugin_1_1PluginState.html#a2b29ea43c8e780bce47082ad73ab2bc6">lemons::plugin::PluginState&lt; StateType, &gt;::state</a>, and <a class="el" href="classlemons_1_1plugin_1_1Processor.html#a3db1d86c7db3b0247959771dfb0bd0b8">lemons::plugin::Processor&lt; StateType, EngineType,, &gt;::state</a>.</p>
+<p class="reference">References <a class="el" href="structlemons_1_1plugin_1_1PluginState.html#a2b29ea43c8e780bce47082ad73ab2bc6">lemons::plugin::PluginState&lt; StateType, &gt;::state</a>, and <a class="el" href="classlemons_1_1plugin_1_1Processor.html#ac0cb2050def44fe149c33f32ec217077">lemons::plugin::Processor&lt; StateType, EngineType,, &gt;::state</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classlemons_1_1plugin_1_1Processor.html#a4ec6d4e2f0bff756a1963f7170fc3cda">lemons::plugin::Processor&lt; StateType, EngineType,, &gt;::Processor()</a>.</p>
 
@@ -330,8 +331,8 @@ template&lt;class StateType , template&lt; typename SampleType &gt; class Engine
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a3db1d86c7db3b0247959771dfb0bd0b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3db1d86c7db3b0247959771dfb0bd0b8">&#9670;&nbsp;</a></span>state</h2>
+<a id="ac0cb2050def44fe149c33f32ec217077"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0cb2050def44fe149c33f32ec217077">&#9670;&nbsp;</a></span>state</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -342,7 +343,7 @@ template&lt;class StateType , template&lt; typename SampleType &gt; class Engine
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structlemons_1_1plugin_1_1PluginState.html">PluginState</a>&lt; StateType &gt; <a class="el" href="classlemons_1_1plugin_1_1Processor.html">lemons::plugin::Processor</a>&lt; StateType, EngineType,, &gt;::state</td>
+          <td class="memname"><a class="el" href="structlemons_1_1plugin_1_1PluginState.html">PluginState</a>&lt;StateType&gt; <a class="el" href="classlemons_1_1plugin_1_1Processor.html">lemons::plugin::Processor</a>&lt; StateType, EngineType,, &gt;::state</td>
         </tr>
       </table>
   </td>
@@ -366,7 +367,7 @@ template&lt;class StateType , template&lt; typename SampleType &gt; class Engine
 <div class="ttc" id="anamespacelemons_html"><div class="ttname"><a href="namespacelemons.html">lemons</a></div><div class="ttdef"><b>Definition:</b> DefaultWindow.h:9</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 20 2021 00:43:42 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 20 2021 19:59:06 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

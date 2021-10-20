@@ -20,5 +20,5 @@ var searchData=
   ['hermitcubic2_385',['hermitCubic2',['../namespacelemons_1_1spline_1_1interpolation.html#a300030ec6a47046a739e4032c20c2c78',1,'lemons::spline::interpolation']]],
   ['highpass_386',['HighPass',['../namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14ae9456dc865a19e434997ea20bb5373f6',1,'lemons::dsp::FX']]],
   ['highshelf_387',['HighShelf',['../namespacelemons_1_1dsp_1_1FX.html#a2a75c0c88cd8cbd576add3c0d4db1d14aaafe3de5c829706a2fda73dd43fd740e',1,'lemons::dsp::FX']]],
-  ['hzparam_388',['HzParam',['../namespacelemons.html#acc4070282f0c1a22cd88841626c9b08c',1,'lemons']]]
+  ['hzparam_388',['HzParam',['../namespacelemons.html#ad16b8f101f35c247917437d39af40318',1,'lemons']]]
 ];

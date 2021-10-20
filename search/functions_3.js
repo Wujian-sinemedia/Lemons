@@ -12,7 +12,7 @@ var searchData=
   ['deserialize_1542',['deserialize',['../structlemons_1_1SerializableData.html#ace1758cc9344ae03a6d01c3c218226de',1,'lemons::SerializableData']]],
   ['destroy_1543',['destroy',['../classlemons_1_1gui_1_1Popup.html#a04fe107db6ea3a6ab6d06afa31fc7fc4',1,'lemons::gui::Popup']]],
   ['detectpitch_1544',['detectPitch',['../classlemons_1_1dsp_1_1PitchDetector.html#afb22af48c499eaec4a2242c822a6c68e',1,'lemons::dsp::PitchDetector::detectPitch(const AudioBuffer&lt; SampleType &gt; &amp;inputAudio)'],['../classlemons_1_1dsp_1_1PitchDetector.html#a8af34401237e6d01ef0034d33fc3cb9a',1,'lemons::dsp::PitchDetector::detectPitch(const SampleType *inputAudio, int numSamples)']]],
-  ['devicerotationlistener_1545',['DeviceRotationListener',['../structlemons_1_1DeviceRotationListener.html#a3383e952f1286618e6f51310009f9d41',1,'lemons::DeviceRotationListener']]],
+  ['devicerotationlistener_1545',['DeviceRotationListener',['../structlemons_1_1DeviceRotationListener.html#a6eeacfa9fa7fc02c1ee7a992c9fd3c2d',1,'lemons::DeviceRotationListener']]],
   ['disablerotation_1546',['disableRotation',['../structlemons_1_1DeviceRotation.html#a8101dc114e574beefa5e0ea935279d5f',1,'lemons::DeviceRotation']]],
   ['dividec_1547',['divideC',['../namespacelemons_1_1vecops.html#a0b14583eca10081ede8555007f5d6bb8',1,'lemons::vecops']]],
   ['dividev_1548',['divideV',['../namespacelemons_1_1vecops.html#a8822dcd57c640e788cddb95ce195af72',1,'lemons::vecops']]],
