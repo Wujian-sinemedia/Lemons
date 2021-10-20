@@ -6,10 +6,10 @@ readonly script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pw
 
 cd "$script_dir/.."
 
-readonly tag_name="juce_dev_machine:latest"
+readonly tag_name="benvining/juce_dev_machine:latest"
 
 docker build --tag "$tag_name" .
 
-docker push benvining/"$tag_name"
+docker push "$tag_name"
 
 exit 0
