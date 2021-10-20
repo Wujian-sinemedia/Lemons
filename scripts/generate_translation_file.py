@@ -51,8 +51,9 @@ def scan_file (file_path):
 	
 	with open (file_path, "r") as file:
 		for line in file:
-			if line:
-				for translation in scan_line (line):
+			stripped_line = line.strip()
+			if stripped_line:
+				for translation in scan_line (stripped_line):
 					needed_translations.append (translation)
 
 	return needed_translations
