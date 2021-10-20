@@ -14,6 +14,6 @@ docker buildx inspect --bootstrap
 
 docker buildx build \
   --push -t "$tag_name" \
-  --platform="$DOCKER_PLATFORMS" .
+  --platform=linux/amd64,linux/arm64 .
 
 exit 0
