@@ -31,9 +31,14 @@ case "$OSTYPE" in
 	;;
 esac
 
-if ! [[ -z "${CROSSCOMPILE_ANDROID}" ]]; then
+
+CROSSCOMPILE_ANDROID="${CROSSCOMPILE_ANDROID:-false}"
+CROSSCOMPILE_ANDROID=$( echo "$CROSSCOMPILE_ANDROID" | tr '[:upper:]' '[:lower:]' )
+
+if [ "$CROSSCOMPILE_ANDROID" = true ] ; then
 	/usr/bin/env bash "$script_path/os/install_android_deps.sh"
 fi
+
 
 source "$SHELL_FILE"
 
