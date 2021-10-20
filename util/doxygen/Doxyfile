@@ -11,7 +11,7 @@ PROJECT_BRIEF          = "Utilities and building blocks for JUCE-based apps and 
 # pixels and the maximum width should not exceed 200 pixels. Doxygen will copy
 # the logo to the output directory.
 
-PROJECT_LOGO           =
+PROJECT_LOGO           = logo.png
 
 OUTPUT_LANGUAGE        = English
 
