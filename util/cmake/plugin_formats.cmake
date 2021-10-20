@@ -14,6 +14,12 @@ endif()
 #  VST2
 set (LEMONS_VST2_AVAILABLE FALSE)
 
+if (LEMONS_VST2_SDK_PATH)
+    if (IS_DIRECTORY "${LEMONS_VST2_SDK_PATH}")
+        set (LEMONS_VST2_AVAILABLE TRUE)
+    endif()
+endif()
+
 
 ###
 
@@ -40,6 +46,7 @@ if (NOT ("${CMAKE_SYSTEM_NAME}" MATCHES "iOS"))
     endif()
 
     if (LEMONS_VST2_AVAILABLE)
+        juce_set_vst2_sdk_path ("${LEMONS_VST2_SDK_PATH}")
         list (APPEND available_formats VST)
     endif()
 endif()
