@@ -221,6 +221,21 @@ def copy_from_main_readme (source_dir, script_dir, dest_dir):
 
 ###############################################################################
 
+# Copies the logo from the assets dir into the build tree
+
+def copy_logo (script_dir, dest_dir):
+
+    filename = "logo.png"
+
+    util_dir = os.path.abspath (os.path.dirname (script_dir))
+    assets_dir = os.path.join (util_dir, "assets")
+
+    shutil.copy2 (os.path.join (assets_dir, filename), 
+                  os.path.join (dest_dir, filename))
+
+
+###############################################################################
+
 # Main script 
 
 if __name__ == "__main__":
@@ -241,5 +256,7 @@ if __name__ == "__main__":
     copy_cmake_readme (script_dir, dest_dir)
 
     copy_from_main_readme (source_dir, script_dir, dest_dir)
+
+    copy_logo (script_dir, dest_dir)
 
     process_juce_modules (source_dir, dest_dir)

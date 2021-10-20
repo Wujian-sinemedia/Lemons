@@ -6,11 +6,6 @@ PROJECT_NAME           = Lemons
 
 PROJECT_BRIEF          = "Utilities and building blocks for JUCE-based apps and plugins"
 
-# With the PROJECT_LOGO tag one can specify a logo or an icon that is included
-# in the documentation. The maximum height of the logo should not exceed 55
-# pixels and the maximum width should not exceed 200 pixels. Doxygen will copy
-# the logo to the output directory.
-
 PROJECT_LOGO           = logo.png
 
 OUTPUT_LANGUAGE        = English
