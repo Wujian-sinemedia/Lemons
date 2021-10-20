@@ -17,7 +17,7 @@ RUN groupadd -g 999 foo && useradd -u 999 -g foo -G sudo -m -s /bin/bash foo && 
 
 # Make sure tzdata won't hang our script
 
-ENV TZ=Europe/Madrid
+ENV TZ=America/Chicago
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
@@ -28,15 +28,14 @@ WORKDIR /
 
 COPY util/install_deps install_deps
 
-RUN DEBIAN_FRONTEND=noninteractive \
-	bash install_deps/install_deps.sh
+RUN DEBIAN_FRONTEND=noninteractive bash install_deps/install_deps.sh
 
 RUN rm -rf install_deps
+
+RUN DEBIAN_FRONTEND=noninteractive sudo apt-get update && sudo apt-get upgrade
 
 
 # Make sure clang is the default compiler
 
-RUN DEBIAN_FRONTEND=noninteractive \
-    update-alternatives --install /usr/bin/cc cc /usr/bin/clang-11 100 \
-	&& DEBIAN_FRONTEND=noninteractive \
-	update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++-11 100
+RUN DEBIAN_FRONTEND=noninteractive update-alternatives --install /usr/bin/cc cc /usr/bin/clang-11 100 && \
+    DEBIAN_FRONTEND=noninteractive update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++-11 100
