@@ -19,7 +19,7 @@ jobs:
       with:
         username: benvining
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-        
+
     - name: Set up Docker QEMU
       id: qemu
       uses: docker/setup-qemu-action@v1
