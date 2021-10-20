@@ -6,7 +6,7 @@ ifdef CROSSCOMPILE_IOS
 endif
 
 # This is the command actually referenced by makefiles
-CMAKE_CONFIGURE_COMMAND := time $(CMAKE_CONFIG_CMD) | tee $(CONFIG_LOG_FILE)
+CMAKE_CONFIGURE_COMMAND := mkdir $(LOGS) && time $(CMAKE_CONFIG_CMD) | tee $(CONFIG_LOG_FILE)
 
 #
 

@@ -12,8 +12,9 @@ BUILD := Builds
 
 TRANSLATION_OUTPUT := needed_translations.txt
 
-CONFIG_LOG_FILE := config.log
-BUILD_LOG_FILE := build.log
+LOGS := logs
+CONFIG_LOG_FILE := $(LOGS)/config.log
+BUILD_LOG_FILE := $(LOGS)/build.log
 
 SOURCE_FILE_PATTERNS := *.h|*.cpp|*CMakeLists.txt
 
