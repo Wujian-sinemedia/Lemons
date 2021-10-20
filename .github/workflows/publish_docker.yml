@@ -31,5 +31,4 @@ jobs:
 
     - name: Run script
       shell: bash
-      run: export DOCKER_PLATFORMS=${{ steps.qemu.outputs.platforms }} \
-        && bash .github/publish_docker.sh
+      run: export DOCKER_PLATFORMS=${{ steps.qemu.outputs.platforms }} && bash .github/publish_docker.sh
