@@ -5,30 +5,30 @@
 
 namespace lemons::dsp::synth
 {
-template < typename SampleType >
+template <typename SampleType>
 class TimbreMod
 {
 public:
-    TimbreMod (const typename SynthBase< SampleType >::TimbreModParams& modSource);
+	TimbreMod (const typename SynthBase<SampleType>::TimbreModParams& modSource);
 
-    void prepare (int blocksize, double samplerate);
+	void prepare (int blocksize, double samplerate);
 
-    void process (AudioBuffer< SampleType >& audio);
+	void process (AudioBuffer<SampleType>& audio);
 
-    void skipSamples (int numSamples);
+	void skipSamples (int numSamples);
 
-    void reset();
+	void reset();
 
-    void setToggle (bool shouldModBeOn);
+	void setToggle (bool shouldModBeOn);
 
 private:
-    const typename SynthBase< SampleType >::TimbreModParams& params;
+	const typename SynthBase<SampleType>::TimbreModParams& params;
 
-    // FX::FilterEngine< SampleType > filter {filterParams};
+	// FX::FilterEngine< SampleType > filter {filterParams};
 
-    FX::SmoothedGain< SampleType, 1 > gain;
+	FX::SmoothedGain<SampleType, 1> gain;
 
-    bool toggle {false};
+	bool toggle { false };
 };
 
 }  // namespace lemons::dsp::synth

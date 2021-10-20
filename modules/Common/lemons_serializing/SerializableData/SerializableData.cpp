@@ -8,24 +8,24 @@ SerializableData::SerializableData (const juce::String& identifier)
 
 [[nodiscard]] ValueTree SerializableData::serialize()
 {
-    ValueTree tree {dataIdentifier};
+	ValueTree tree { dataIdentifier };
 
-    TreeSaver ref {tree};
+	TreeSaver ref { tree };
 
-    serialize (ref);
+	serialize (ref);
 
-    return tree;
+	return tree;
 }
 
 void SerializableData::deserialize (const ValueTree& t)
 {
-    const auto tree = t.hasType (dataIdentifier) ? t : t.getChildWithName (dataIdentifier);
+	const auto tree = t.hasType (dataIdentifier) ? t : t.getChildWithName (dataIdentifier);
 
-    if (! tree.isValid()) return;
+	if (! tree.isValid()) return;
 
-    TreeLoader ref {tree};
+	TreeLoader ref { tree };
 
-    serialize (ref);
+	serialize (ref);
 }
 
 }  // namespace lemons

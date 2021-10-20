@@ -10,54 +10,54 @@ namespace lemons::plugin
 class ModulationManager : public SerializableData
 {
 public:
-    using LfoNamingFunc = std::function< String (int) >;
+	using LfoNamingFunc = std::function<String (int)>;
 
-    /** Creates a modulation manager. */
-    ModulationManager (ParameterList& listToUse,
-                       int            initNumLfos     = 1,
-                       LfoNamingFunc  namingFuncToUse = nullptr);
+	/** Creates a modulation manager. */
+	ModulationManager (ParameterList& listToUse,
+	                   int            initNumLfos     = 1,
+	                   LfoNamingFunc  namingFuncToUse = nullptr);
 
-    void addAllParametersTo (juce::AudioProcessor& processor);
+	void addAllParametersTo (juce::AudioProcessor& processor);
 
-    void addAllParametersAsInternal();
-
-
-    /** Returns the LFO at the given index in the modulation manager's vector of LFOs.
-        The returned pointer may be null if an LFO does not exist at the requested index. \n \n
-        This is the least preferable way to retrieve LFO objects; prefer to use getLFOofType(), getLFOatFrequency(), or getLFOwithConnection().
-     */
-    LFO* getLFO (int index);
-
-    /** Returns the first LFO found with the given oscillator type.
-        The returned pointer may be null if no LFOs have the requested type.
-     */
-    LFO* getLFOofType (dsp::osc::OscType type);
-
-    /** Returns the first LFO found with the given frequency.
-        The returned pointer may be null if no LFOs have the requested frequency.
-     */
-    LFO* getLFOatFrequency (float freq);
-
-    /** Returns the first LFO found that is connected to the specified parameter.
-        The returned pointer may be null if no LFOs have the requested connection.
-     */
-    LFO* getLFOwithConnection (Parameter& param);
+	void addAllParametersAsInternal();
 
 
-    LFO& addLFO();
+	/** Returns the LFO at the given index in the modulation manager's vector of LFOs.
+	    The returned pointer may be null if an LFO does not exist at the requested index. \n \n
+	    This is the least preferable way to retrieve LFO objects; prefer to use getLFOofType(), getLFOatFrequency(), or getLFOwithConnection().
+	 */
+	LFO* getLFO (int index);
+
+	/** Returns the first LFO found with the given oscillator type.
+	    The returned pointer may be null if no LFOs have the requested type.
+	 */
+	LFO* getLFOofType (dsp::osc::OscType type);
+
+	/** Returns the first LFO found with the given frequency.
+	    The returned pointer may be null if no LFOs have the requested frequency.
+	 */
+	LFO* getLFOatFrequency (float freq);
+
+	/** Returns the first LFO found that is connected to the specified parameter.
+	    The returned pointer may be null if no LFOs have the requested connection.
+	 */
+	LFO* getLFOwithConnection (Parameter& param);
+
+
+	LFO& addLFO();
 
 private:
-    void serialize (TreeReflector& ref) final;
+	void serialize (TreeReflector& ref) final;
 
-    /*------------------------------*/
+	/*------------------------------*/
 
-    ParameterList& paramList;
+	ParameterList& paramList;
 
-    juce::OwnedArray< LFO > lfos;
+	juce::OwnedArray<LFO> lfos;
 
-    dsp::BasicProcessorBase dummyProcessor;
+	dsp::BasicProcessorBase dummyProcessor;
 
-    LfoNamingFunc namingFunc;
+	LfoNamingFunc namingFunc;
 };
 
 }  // namespace lemons::plugin

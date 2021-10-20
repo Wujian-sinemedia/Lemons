@@ -37,42 +37,42 @@ namespace lemons::plugin
     @endcode
     @see ProcessorWithEditor, ProcessorBase, PluginState, StateBase, dsp::Engine
  */
-template < class StateType, template < typename SampleType > class EngineType, LEMONS_MUST_INHERIT_FROM (StateType, StateBase), LEMONS_MUST_INHERIT_FROM (EngineType< float >, dsp::Engine< float >) >
+template <class StateType, template <typename SampleType> class EngineType, LEMONS_MUST_INHERIT_FROM (StateType, StateBase), LEMONS_MUST_INHERIT_FROM (EngineType<float>, dsp::Engine<float>)>
 class Processor : public ProcessorBase
 {
 public:
-    /** Creates a processor with the specified bus layout. */
-    Processor (juce::AudioProcessor::BusesProperties busesLayout = BusesProperties()
-                                                                       .withInput (TRANS ("Input"), juce::AudioChannelSet::stereo(), true)
-                                                                       .withOutput (TRANS ("Output"), juce::AudioChannelSet::stereo(), true))
-        : ProcessorBase (getState(), floatEngine, doubleEngine, busesLayout)
-    {
-        getState().addTo (*this);
-    }
+	/** Creates a processor with the specified bus layout. */
+	Processor (juce::AudioProcessor::BusesProperties busesLayout = BusesProperties()
+	                                                                   .withInput (TRANS ("Input"), juce::AudioChannelSet::stereo(), true)
+	                                                                   .withOutput (TRANS ("Output"), juce::AudioChannelSet::stereo(), true))
+	    : ProcessorBase (getState(), floatEngine, doubleEngine, busesLayout)
+	{
+		getState().addTo (*this);
+	}
 
 protected:
-    [[nodiscard]] StateType& getState() noexcept { return state.state; }
+	[[nodiscard]] StateType& getState() noexcept { return state.state; }
 
-    PluginState< StateType > state;
+	PluginState<StateType> state;
 
-    using State_Type_t = StateType;
+	using State_Type_t = StateType;
 
 private:
-    void getStateInformation (juce::MemoryBlock& block) final
-    {
-        serializing::toBinary (state, block);
-    }
+	void getStateInformation (juce::MemoryBlock& block) final
+	{
+		serializing::toBinary (state, block);
+	}
 
-    void setStateInformation (const void* data, int size) final
-    {
-        serializing::fromBinary (data, size, state);
+	void setStateInformation (const void* data, int size) final
+	{
+		serializing::fromBinary (data, size, state);
 
-        if (auto* e = getActiveEditor())
-            e->setSize (state.state.dimensions.x, state.state.dimensions.y);
-    }
+		if (auto* e = getActiveEditor())
+			e->setSize (state.state.dimensions.x, state.state.dimensions.y);
+	}
 
-    EngineType< float >  floatEngine {state.state};
-    EngineType< double > doubleEngine {state.state};
+	EngineType<float>  floatEngine { state.state };
+	EngineType<double> doubleEngine { state.state };
 };
 
 
@@ -92,8 +92,8 @@ private:
     using MyProcessor = plugin::StatelessProcessor< MyEngine >;
     @endcode
  */
-template < template < typename SampleType > class EngineType >
-using StatelessProcessor = Processor< StateBase, EngineType >;
+template <template <typename SampleType> class EngineType>
+using StatelessProcessor = Processor<StateBase, EngineType>;
 
 
 class GUIBase;
@@ -148,41 +148,41 @@ class GUIBase;
     @endcode
     @see Processor, ProcessorBase, dsp::Engine, StateBase, GUIBase, plugin::GUI
  */
-template < class ProcessorType, class ComponentType, LEMONS_MUST_INHERIT_FROM (ComponentType, GUIBase) >
+template <class ProcessorType, class ComponentType, LEMONS_MUST_INHERIT_FROM (ComponentType, GUIBase)>
 struct ProcessorWithEditor : ProcessorType
 {
-    using Size = juce::Point< int >;
+	using Size = juce::Point<int>;
 
-    /** Creates a processor.
-        The arguments are the initial size of the plugin's editor.
-     */
-    ProcessorWithEditor (const Size& initSize = defaultWindowSize())
-        : size (initSize)
-    {
-        jassert (isValidGuiSize (size));
+	/** Creates a processor.
+	    The arguments are the initial size of the plugin's editor.
+	 */
+	ProcessorWithEditor (const Size& initSize = defaultWindowSize())
+	    : size (initSize)
+	{
+		jassert (isValidGuiSize (size));
 
-        auto& dimensions = this->getState().dimensions;
+		auto& dimensions = this->getState().dimensions;
 
-        if (! isValidGuiSize (dimensions))
-            dimensions = size;
-    }
+		if (! isValidGuiSize (dimensions))
+			dimensions = size;
+	}
 
-    /** Informs the juce::AudioProcessor API that this processor supplies an editor. */
-    bool hasEditor() const final { return true; }
+	/** Informs the juce::AudioProcessor API that this processor supplies an editor. */
+	bool hasEditor() const final { return true; }
 
-    /** Creates an editor for this processor. */
-    juce::AudioProcessorEditor* createEditor() final
-    {
-        return new PluginEditor< ComponentType, typename ProcessorType::State_Type_t > (*this, this->state);
-    }
+	/** Creates an editor for this processor. */
+	juce::AudioProcessorEditor* createEditor() final
+	{
+		return new PluginEditor<ComponentType, typename ProcessorType::State_Type_t> (*this, this->state);
+	}
 
 private:
-    [[nodiscard]] constexpr bool isValidGuiSize (const Size& toTest) const noexcept
-    {
-        return toTest.x > 0 && toTest.y > 0;
-    }
+	[[nodiscard]] constexpr bool isValidGuiSize (const Size& toTest) const noexcept
+	{
+		return toTest.x > 0 && toTest.y > 0;
+	}
 
-    const Size size;
+	const Size size;
 };
 
 }  // namespace lemons::plugin

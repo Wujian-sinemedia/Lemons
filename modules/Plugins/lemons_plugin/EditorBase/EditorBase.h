@@ -8,18 +8,18 @@ namespace lemons::plugin
 class EditorBase : public juce::AudioProcessorEditor
 {
 public:
-    /** Creates a plugin editor with an initial size. */
-    EditorBase (ProcessorBase& pbToUse, const juce::Point< int >& initialSize = defaultWindowSize());
+	/** Creates a plugin editor with an initial size. */
+	EditorBase (ProcessorBase& pbToUse, const juce::Point<int>& initialSize = defaultWindowSize());
 
 private:
-    void paint (juce::Graphics& g) final;
+	void paint (juce::Graphics& g) final;
 
-    void resized() final;
+	void resized() final;
 
-    /** Called when the editor is resized. */
-    virtual void resizeTriggered() { }
+	/** Called when the editor is resized. */
+	virtual void resizeTriggered() { }
 
-    ProcessorBase& pb;
+	ProcessorBase& pb;
 };
 
 
@@ -28,25 +28,26 @@ private:
     This type's constructor signature must be ContentComponentType (PluginState< StateType >&).
     @tparam StateType The type of your plugin's main state object.
  */
-template < typename ContentComponentType, typename StateType,
-           LEMONS_MUST_INHERIT_FROM (ContentComponentType, GUIBase), LEMONS_MUST_INHERIT_FROM (StateType, StateBase) >
+template <typename ContentComponentType, typename StateType,
+          LEMONS_MUST_INHERIT_FROM (ContentComponentType, GUIBase), LEMONS_MUST_INHERIT_FROM (StateType, StateBase)>
 class PluginEditor : public EditorBase
 {
 public:
-    /** Creates a plugin editor. */
-    PluginEditor (ProcessorBase& processorToUse, PluginState< StateType >& state)
-        : EditorBase (processorToUse, state.state.dimensions), content (state)
-    {
-        addAndMakeVisible (content);
-    }
+	/** Creates a plugin editor. */
+	PluginEditor (ProcessorBase& processorToUse, PluginState<StateType>& state)
+	    : EditorBase (processorToUse, state.state.dimensions)
+	    , content (state)
+	{
+		addAndMakeVisible (content);
+	}
 
 private:
-    void resizeTriggered() final
-    {
-        content.setBounds (getLocalBounds());
-    }
+	void resizeTriggered() final
+	{
+		content.setBounds (getLocalBounds());
+	}
 
-    ContentComponentType content;
+	ContentComponentType content;
 };
 
 }  // namespace lemons::plugin

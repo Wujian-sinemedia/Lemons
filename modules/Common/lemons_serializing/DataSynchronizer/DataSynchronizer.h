@@ -15,35 +15,35 @@ namespace lemons::serializing
 class DataSynchronizer
 {
 public:
-    /** Creates a DataSynchronizer. Make sure that you don't delete the referenced data object before the synchronizer object! */
-    explicit DataSynchronizer (SerializableData& dataToUse);
+	/** Creates a DataSynchronizer. Make sure that you don't delete the referenced data object before the synchronizer object! */
+	explicit DataSynchronizer (SerializableData& dataToUse);
 
-    virtual ~DataSynchronizer() = default;
+	virtual ~DataSynchronizer() = default;
 
-    /** When recieving a change message from another data synchronizer, call this function to apply the latest recieved state to the managed object.
-        @param recievedData The binary blob you recieved from another DataSynchronizer's sendData function.
-        @see sendData
-     */
-    void applyRecievedData (const juce::MemoryBlock& recievedData);
+	/** When recieving a change message from another data synchronizer, call this function to apply the latest recieved state to the managed object.
+	    @param recievedData The binary blob you recieved from another DataSynchronizer's sendData function.
+	    @see sendData
+	 */
+	void applyRecievedData (const juce::MemoryBlock& recievedData);
 
 private:
-    /**
-        Your subclass of DataSynchroniser should implement this function to send binary blobs of encoded state information to the destination.
-        You can use this function to send OSC messages, UDP packets, HTTP requests, MIDI, DMX packets, etc.
-        @param outgoingData The encoded binary blob of state data that should be fed to the recieving DataSynchronizer's applyRecievedData function.
-        @see applyRecievedData
-     */
-    virtual void sendData (const juce::MemoryBlock& outgoingData) = 0;
+	/**
+	    Your subclass of DataSynchroniser should implement this function to send binary blobs of encoded state information to the destination.
+	    You can use this function to send OSC messages, UDP packets, HTTP requests, MIDI, DMX packets, etc.
+	    @param outgoingData The encoded binary blob of state data that should be fed to the recieving DataSynchronizer's applyRecievedData function.
+	    @see applyRecievedData
+	 */
+	virtual void sendData (const juce::MemoryBlock& outgoingData) = 0;
 
-    void callback();
+	void callback();
 
-    SerializableData& managedState;
+	SerializableData& managedState;
 
-    juce::MemoryBlock cachedData;
+	juce::MemoryBlock cachedData;
 
-    events::TimerCallback t {[&]
-                             { callback(); },
-                             10};
+	events::TimerCallback t { [&]
+		                      { callback(); },
+		                      10 };
 };
 
 }  // namespace lemons::serializing

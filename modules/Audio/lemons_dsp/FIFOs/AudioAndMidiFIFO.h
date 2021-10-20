@@ -4,23 +4,23 @@
 
 namespace lemons::dsp
 {
-template < typename SampleType >
+template <typename SampleType>
 class AudioAndMidiFIFO
 {
 public:
-    AudioAndMidiFIFO (int channels = 2, int samples = 1024);
+	AudioAndMidiFIFO (int channels = 2, int samples = 1024);
 
-    void setSize (int numChannels, int numSamples);
+	void setSize (int numChannels, int numSamples);
 
-    void push (const AudioBuffer< SampleType >& audioIn, const MidiBuffer& midiIn);
+	void push (const AudioBuffer<SampleType>& audioIn, const MidiBuffer& midiIn);
 
-    void pop (AudioBuffer< SampleType >& audioOut, MidiBuffer& midiOut);
+	void pop (AudioBuffer<SampleType>& audioOut, MidiBuffer& midiOut);
 
-    int numStoredSamples() const;
+	int numStoredSamples() const;
 
 private:
-    midi::MidiFIFO               midi;
-    MultiAudioFIFO< SampleType > audio;
+	midi::MidiFIFO             midi;
+	MultiAudioFIFO<SampleType> audio;
 };
 
 }  // namespace lemons::dsp

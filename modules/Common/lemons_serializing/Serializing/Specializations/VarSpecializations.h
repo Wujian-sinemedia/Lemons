@@ -32,19 +32,19 @@ juce::BigInteger fromVar (const juce::var& var);
 
 /** Serializes a float Point. */
 template <>
-juce::var toVar (const juce::Point< float >& point);
+juce::var toVar (const juce::Point<float>& point);
 
 /** Serializes a float Point. */
 template <>
-juce::Point< float > fromVar (const juce::var& var);
+juce::Point<float> fromVar (const juce::var& var);
 
 /** Serializes an integer Point. */
 template <>
-juce::var toVar (const juce::Point< int >& point);
+juce::var toVar (const juce::Point<int>& point);
 
 /** Serializes an integer Point. */
 template <>
-juce::Point< int > fromVar (const juce::var& var);
+juce::Point<int> fromVar (const juce::var& var);
 
 /** Serializes a MemoryBlock.
     This works by writing the contents of the memory block to a String use Base64 encoding.
@@ -126,26 +126,26 @@ juce::MidiBuffer fromVar (const juce::var& var);
     Internally, this uses juce's FlacAudioFormat to write the buffer's contents into a String.
  */
 template <>
-juce::var toVar (const AudioBuffer< float >& buffer);
+juce::var toVar (const AudioBuffer<float>& buffer);
 
 /** Serializes an AudioBuffer to a var.
     Since juce's FlacAudioFormat is only available for float samples, this first converts the buffer to floats and then uses juce::FlacAudioFormat to write the buffer's contents to a String.
  */
 template <>
-juce::var toVar (const AudioBuffer< double >& buffer);
+juce::var toVar (const AudioBuffer<double>& buffer);
 
 /** Deserializes an AudioBuffer from a var.
     Internally, this converts the var to a String, then uses juce's FlacAudioFormat to decode the String back into audio samples.
  */
 template <>
-juce::AudioBuffer< float > fromVar (const juce::var& var);
+juce::AudioBuffer<float> fromVar (const juce::var& var);
 
 /** Deserializes an AudioBuffer from a var.
     Internally, this converts the var to a String, then uses juce's FlacAudioFormat to decode the String back into audio samples. \n
     Since juce's FlacAudioFormat is only available for float samples, the buffer is first decoded with float samples and then converted to double samples for the final result.
  */
 template <>
-juce::AudioBuffer< double > fromVar (const juce::var& var);
+juce::AudioBuffer<double> fromVar (const juce::var& var);
 
 /** Serializes a file as its path's String representation.
     This method may be platform-dependant. I recommend using the FileContents struct to reliably serialize files' contents instead of their paths.
@@ -163,17 +163,17 @@ File fromVar (const juce::var& var);
  */
 struct FileContents : SerializableData
 {
-    /** Must be passed a file or filepath on construction. */
-    explicit FileContents (File fileToUse);
+	/** Must be passed a file or filepath on construction. */
+	explicit FileContents (File fileToUse);
 
-    /** Must be passed a file or filepath on construction. */
-    explicit FileContents (const String& absolutePathToFile);
+	/** Must be passed a file or filepath on construction. */
+	explicit FileContents (const String& absolutePathToFile);
 
-    /** The managed file object. */
-    File file;
+	/** The managed file object. */
+	File file;
 
 private:
-    void serialize (TreeReflector& ref) final;
+	void serialize (TreeReflector& ref) final;
 };
 
 }  // namespace lemons::serializing

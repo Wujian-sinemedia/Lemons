@@ -54,7 +54,7 @@ Language: Cpp
 MaxEmptyLinesToKeep: 2
 NamespaceIndentation: None
 PPIndentWidth: 2
-PackConstructorInitializers: Never
+#PackConstructorInitializers: Never
 PointerAlignment: Left
 ReferenceAlignment: Pointer
 ReflowComments: true

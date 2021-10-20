@@ -21,11 +21,11 @@
 #include "all_platforms/rotation.h"
 
 #if JUCE_IOS
-#    include "iOS/iosMotion.h"
+#  include "iOS/iosMotion.h"
 #elif JUCE_ANDROID
-#    include "Android/androidMotion.h"
+#  include "Android/androidMotion.h"
 #else
-#    include "dummy_desktop_versions/DummyMotionManager.h"
+#  include "dummy_desktop_versions/DummyMotionManager.h"
 #endif
 
 
@@ -34,19 +34,19 @@ namespace lemons
 // Control the auto-locking of the screen on mobile devices. On desktop, this disables the computer's screensaver.
 struct AutoLock
 {
-    static void setEnabled (bool shouldBeEnabled);
+	static void setEnabled (bool shouldBeEnabled);
 };
 
 
 struct Platform
 {
-    static constexpr bool isMobile()
-    {
+	static constexpr bool isMobile()
+	{
 #if JUCE_IOS || JUCE_ANDROID
-        return true;
+		return true;
 #endif
-        return false;
-    }
+		return false;
+	}
 };
 
 

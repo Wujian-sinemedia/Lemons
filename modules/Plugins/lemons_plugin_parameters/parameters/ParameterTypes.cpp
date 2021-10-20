@@ -3,174 +3,175 @@
 namespace lemons::plugin
 {
 
-template < typename ValueType >
-TypedParameter< ValueType >::TypedParameter (ValueType minimum,
-                                             ValueType maximum,
-                                             ValueType defaultValue,
-                                             String    paramName,
-                                             std::function< String (ValueType, int) >
-                                                 stringFromValue,
-                                             std::function< ValueType (const String&) >
-                                                                                     valueFromString,
-                                             String                                  paramLabel,
-                                             bool                                    isAutomatable,
-                                             bool                                    metaParam,
-                                             juce::AudioProcessorParameter::Category parameterCategory)
+template <typename ValueType>
+TypedParameter<ValueType>::TypedParameter (ValueType minimum,
+                                           ValueType maximum,
+                                           ValueType defaultValue,
+                                           String    paramName,
+                                           std::function<String (ValueType, int)>
+                                               stringFromValue,
+                                           std::function<ValueType (const String&)>
+                                                                                   valueFromString,
+                                           String                                  paramLabel,
+                                           bool                                    isAutomatable,
+                                           bool                                    metaParam,
+                                           juce::AudioProcessorParameter::Category parameterCategory)
     : Parameter (
         paramName,
         createRange (minimum, maximum),
-        static_cast< float > (defaultValue),
+        static_cast<float> (defaultValue),
         convertValToStringFunc (stringFromValue),
         convertStringToValFunc (valueFromString),
-        paramLabel, isAutomatable, metaParam, parameterCategory),
-      stringFromValueFunction (stringFromValue),
-      valueFromStringFunction (valueFromString)
+        paramLabel, isAutomatable, metaParam, parameterCategory)
+    , stringFromValueFunction (stringFromValue)
+    , valueFromStringFunction (valueFromString)
 {
-    if (stringFromValueFunction == nullptr)
-        stringFromValueFunction = createDefaultStringFromValueFunc< ValueType > (getNormalisableRange().interval);
+	if (stringFromValueFunction == nullptr)
+		stringFromValueFunction = createDefaultStringFromValueFunc<ValueType> (getNormalisableRange().interval);
 
-    if (valueFromStringFunction == nullptr)
-        valueFromStringFunction = createDefaultValueFromStringFunc< ValueType >();
+	if (valueFromStringFunction == nullptr)
+		valueFromStringFunction = createDefaultValueFromStringFunc<ValueType>();
 }
 
 template <>
-[[nodiscard]] float TypedParameter< float >::get() const
+[[nodiscard]] float TypedParameter<float>::get() const
 {
-    return this->getDenormalizedValue();
+	return this->getDenormalizedValue();
 }
 
 template <>
-[[nodiscard]] int TypedParameter< int >::get() const
+[[nodiscard]] int TypedParameter<int>::get() const
 {
-    return juce::roundToInt (this->getDenormalizedValue());
+	return juce::roundToInt (this->getDenormalizedValue());
 }
 
 template <>
-[[nodiscard]] bool TypedParameter< bool >::get() const
+[[nodiscard]] bool TypedParameter<bool>::get() const
 {
-    return this->getNormalizedValue() >= 0.5f;
+	return this->getNormalizedValue() >= 0.5f;
 }
 
-template < typename ValueType >
-void TypedParameter< ValueType >::set (ValueType newValue)
+template <typename ValueType>
+void TypedParameter<ValueType>::set (ValueType newValue)
 {
-    this->setDenormalizedValue (static_cast< float > (newValue));
-}
-
-template <>
-[[nodiscard]] float TypedParameter< float >::getDefault() const
-{
-    return this->getDenormalizedDefault();
+	this->setDenormalizedValue (static_cast<float> (newValue));
 }
 
 template <>
-[[nodiscard]] int TypedParameter< int >::getDefault() const
+[[nodiscard]] float TypedParameter<float>::getDefault() const
 {
-    return juce::roundToInt (this->getDenormalizedDefault());
+	return this->getDenormalizedDefault();
 }
 
 template <>
-[[nodiscard]] bool TypedParameter< bool >::getDefault() const
+[[nodiscard]] int TypedParameter<int>::getDefault() const
 {
-    return this->getNormalizedDefault() >= 0.5f;
+	return juce::roundToInt (this->getDenormalizedDefault());
 }
 
-template < typename ValueType >
-void TypedParameter< ValueType >::setDefault (ValueType newDefault)
+template <>
+[[nodiscard]] bool TypedParameter<bool>::getDefault() const
 {
-    this->setDenormalizedDefault (static_cast< float > (newDefault));
+	return this->getNormalizedDefault() >= 0.5f;
 }
 
-template < typename ValueType >
-[[nodiscard]] String TypedParameter< ValueType >::getStringForValue (ValueType value, int maxLength) const
+template <typename ValueType>
+void TypedParameter<ValueType>::setDefault (ValueType newDefault)
 {
-    return stringFromValueFunction (value, maxLength);
+	this->setDenormalizedDefault (static_cast<float> (newDefault));
 }
 
-template < typename ValueType >
-[[nodiscard]] String TypedParameter< ValueType >::getStringForCurrentValue (int maxLength) const
+template <typename ValueType>
+[[nodiscard]] String TypedParameter<ValueType>::getStringForValue (ValueType value, int maxLength) const
 {
-    return stringFromValueFunction (get(), maxLength);
+	return stringFromValueFunction (value, maxLength);
 }
 
-template < typename ValueType >
-[[nodiscard]] ValueType TypedParameter< ValueType >::getValueForString (const String& string) const
+template <typename ValueType>
+[[nodiscard]] String TypedParameter<ValueType>::getStringForCurrentValue (int maxLength) const
 {
-    return valueFromStringFunction (string);
+	return stringFromValueFunction (get(), maxLength);
 }
 
-template < typename ValueType >
-[[nodiscard]] ValueType TypedParameter< ValueType >::getMinimum() const
+template <typename ValueType>
+[[nodiscard]] ValueType TypedParameter<ValueType>::getValueForString (const String& string) const
 {
-    return static_cast< ValueType > (this->getMin());
+	return valueFromStringFunction (string);
 }
 
-template < typename ValueType >
-[[nodiscard]] ValueType TypedParameter< ValueType >::getMaximum() const
+template <typename ValueType>
+[[nodiscard]] ValueType TypedParameter<ValueType>::getMinimum() const
 {
-    return static_cast< ValueType > (this->getMax());
+	return static_cast<ValueType> (this->getMin());
 }
 
-template < typename ValueType >
-void TypedParameter< ValueType >::serialize (TreeReflector& ref)
+template <typename ValueType>
+[[nodiscard]] ValueType TypedParameter<ValueType>::getMaximum() const
 {
-    ref.addLambdaSet< ValueType > (
-        "Value",
-        [&]
-        { return get(); },
-        [&] (ValueType& f)
-        { set (f); });
-
-    ref.addLambdaSet< ValueType > (
-        "Default",
-        [&]
-        { return getDefault(); },
-        [&] (ValueType& f)
-        { setDefault (f); });
-
-    ref.addLambdaSet< int > (
-        "MidiControllerNumber",
-        [&]
-        { return getMidiControllerNumber(); },
-        [&] (int& i)
-        { setMidiControllerInternal (i); });
+	return static_cast<ValueType> (this->getMax());
 }
 
-template < typename ValueType >
-TypedParameter< ValueType >::Listener::Listener (TypedParameter< ValueType >& param)
-    : Parameter::Listener (param), parameter (param)
+template <typename ValueType>
+void TypedParameter<ValueType>::serialize (TreeReflector& ref)
+{
+	ref.addLambdaSet<ValueType> (
+	    "Value",
+	    [&]
+	    { return get(); },
+	    [&] (ValueType& f)
+	    { set (f); });
+
+	ref.addLambdaSet<ValueType> (
+	    "Default",
+	    [&]
+	    { return getDefault(); },
+	    [&] (ValueType& f)
+	    { setDefault (f); });
+
+	ref.addLambdaSet<int> (
+	    "MidiControllerNumber",
+	    [&]
+	    { return getMidiControllerNumber(); },
+	    [&] (int& i)
+	    { setMidiControllerInternal (i); });
+}
+
+template <typename ValueType>
+TypedParameter<ValueType>::Listener::Listener (TypedParameter<ValueType>& param)
+    : Parameter::Listener (param)
+    , parameter (param)
 {
 }
 
-template < typename ValueType >
-void TypedParameter< ValueType >::Listener::parameterValueChanged (float)
+template <typename ValueType>
+void TypedParameter<ValueType>::Listener::parameterValueChanged (float)
 {
-    paramValueChanged (parameter.get());
+	paramValueChanged (parameter.get());
 }
 
-template < typename ValueType >
-void TypedParameter< ValueType >::Listener::parameterDefaultChanged (float)
+template <typename ValueType>
+void TypedParameter<ValueType>::Listener::parameterDefaultChanged (float)
 {
-    paramDefaultChanged (parameter.getDefault());
+	paramDefaultChanged (parameter.getDefault());
 }
 
 
-template class TypedParameter< float >;
-template class TypedParameter< int >;
-template class TypedParameter< bool >;
+template class TypedParameter<float>;
+template class TypedParameter<int>;
+template class TypedParameter<bool>;
 
 
 BoolParameter::BoolParameter (bool   defaultValue,
                               String paramName,
-                              std::function< String (bool, int) >
+                              std::function<String (bool, int)>
                                   stringFromValue,
-                              std::function< bool (const String&) >
+                              std::function<bool (const String&)>
                                                                       valueFromString,
                               String                                  paramLabel,
                               bool                                    isAutomatable,
                               bool                                    metaParam,
                               juce::AudioProcessorParameter::Category parameterCategory)
-    : TypedParameter< bool > (false, true, defaultValue, paramName, stringFromValue, valueFromString, paramLabel, isAutomatable, metaParam, parameterCategory)
+    : TypedParameter<bool> (false, true, defaultValue, paramName, stringFromValue, valueFromString, paramLabel, isAutomatable, metaParam, parameterCategory)
 {
 }
 

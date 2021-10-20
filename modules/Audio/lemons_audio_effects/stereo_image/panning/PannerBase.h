@@ -14,25 +14,25 @@ namespace lemons::dsp::FX
 class PannerBase
 {
 public:
-    PannerBase();
-    virtual ~PannerBase() = default;
+	PannerBase();
+	virtual ~PannerBase() = default;
 
-    void resetToCenter();
+	void resetToCenter();
 
-    float getLeftGain() const noexcept;
-    float getRightGain() const noexcept;
-    float getGainMult (const int chan) const;
-    void  getGainMults (float& left, float& right);
+	float getLeftGain() const noexcept;
+	float getRightGain() const noexcept;
+	float getGainMult (const int chan) const;
+	void  getGainMults (float& left, float& right);
 
-    void setMidiPan (int newMidiPan);
-    void setMidiPan (int newMidiPan, float& leftGainOutput, float& rightGainOutput);
-    int  getLastMidiPan() const noexcept;
+	void setMidiPan (int newMidiPan);
+	void setMidiPan (int newMidiPan, float& leftGainOutput, float& rightGainOutput);
+	int  getLastMidiPan() const noexcept;
 
 private:
-    int lastRecievedMidiPan;
+	int lastRecievedMidiPan;
 
-    float leftGain;
-    float rightGain;
+	float leftGain;
+	float rightGain;
 };
 
 

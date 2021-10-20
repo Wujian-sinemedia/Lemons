@@ -7,28 +7,28 @@ namespace lemons::midi
 class MidiFIFO
 {
 public:
-    MidiFIFO (int maxNumMessages = 512);
+	MidiFIFO (int maxNumMessages = 512);
 
-    ~MidiFIFO() = default;
+	~MidiFIFO() = default;
 
-    void setSize (int maxNumMessages);
+	void setSize (int maxNumMessages);
 
-    void clear();
+	void clear();
 
-    int numStoredEvents() const;
+	int numStoredEvents() const;
 
-    void pushEvents (const MidiBuffer& source, int numSamples);
+	void pushEvents (const MidiBuffer& source, int numSamples);
 
-    void popEvents (MidiBuffer& output, int numSamples);
+	void popEvents (MidiBuffer& output, int numSamples);
 
 private:
-    int numStoredSamples {0};
+	int numStoredSamples { 0 };
 
-    MidiBuffer base;
+	MidiBuffer base;
 
-    MidiBuffer copying;
+	MidiBuffer copying;
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MidiFIFO)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MidiFIFO)
 };
 
 

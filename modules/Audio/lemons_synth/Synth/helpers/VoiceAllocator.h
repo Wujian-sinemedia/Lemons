@@ -2,24 +2,24 @@
 
 namespace lemons::dsp::synth
 {
-template < typename SampleType >
+template <typename SampleType>
 class VoiceAllocator
 {
 public:
-    using Voice = SynthVoiceBase< SampleType >;
+	using Voice = SynthVoiceBase<SampleType>;
 
-    VoiceAllocator (SynthBase< SampleType >& s);
+	VoiceAllocator (SynthBase<SampleType>& s);
 
-    void prepare (int maxNumVoices);
+	void prepare (int maxNumVoices);
 
-    Voice* findFreeVoice (bool stealIfNoneAvailable);
+	Voice* findFreeVoice (bool stealIfNoneAvailable);
 
-    Voice* findVoiceToSteal();
+	Voice* findVoiceToSteal();
 
 private:
-    SynthBase< SampleType >& synth;
+	SynthBase<SampleType>& synth;
 
-    Array< Voice* > usableVoices;  // this array is used to sort the voices when a 'steal' is requested
+	Array<Voice*> usableVoices;  // this array is used to sort the voices when a 'steal' is requested
 };
 
 }  // namespace lemons::dsp::synth

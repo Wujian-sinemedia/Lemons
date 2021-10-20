@@ -7,23 +7,23 @@ namespace lemons::plugin
  */
 struct ParamUpdater : Parameter::Listener
 {
-    /** Creates an updater.
-        @param param The parameter to listen to.
-        @param onValueChange Lambda function that will be called when the parameter's value changes.
-        @param onGestureChange Lambda function that will be called when the parameter's gesture state changes.
-     */
-    ParamUpdater (
-        Parameter& param,
-        std::function< void() >
-                                     onValueChange,
-        std::function< void (bool) > onGestureChange = [] (bool) {});
+	/** Creates an updater.
+	    @param param The parameter to listen to.
+	    @param onValueChange Lambda function that will be called when the parameter's value changes.
+	    @param onGestureChange Lambda function that will be called when the parameter's gesture state changes.
+	 */
+	ParamUpdater (
+	    Parameter& param,
+	    std::function<void()>
+	                               onValueChange,
+	    std::function<void (bool)> onGestureChange = [] (bool) {});
 
 private:
-    void parameterValueChanged (float) final;
-    void gestureStateChanged (bool gestureIsStarting) final;
+	void parameterValueChanged (float) final;
+	void gestureStateChanged (bool gestureIsStarting) final;
 
-    std::function< void() >      valueCallback;
-    std::function< void (bool) > gestureCallback;
+	std::function<void()>      valueCallback;
+	std::function<void (bool)> gestureCallback;
 };
 
 }  // namespace lemons::plugin

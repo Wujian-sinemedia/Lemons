@@ -3,46 +3,46 @@
 
 namespace lemons::dsp::FX
 {
-template < typename SampleType >
+template <typename SampleType>
 class MonoStereoConverter
 {
-    using Buffer = AudioBuffer< SampleType >;
+	using Buffer = AudioBuffer<SampleType>;
 
 public:
-    MonoStereoConverter();
-    virtual ~MonoStereoConverter() = default;
+	MonoStereoConverter();
+	virtual ~MonoStereoConverter() = default;
 
-    enum class StereoReductionMode
-    {
-        leftOnly,
-        rightOnly,
-        mixToMono
-    };
+	enum class StereoReductionMode
+	{
+		leftOnly,
+		rightOnly,
+		mixToMono
+	};
 
-    void prepare (int blocksize);
+	void prepare (int blocksize);
 
-    void                setStereoReductionMode (StereoReductionMode newmode);
-    StereoReductionMode getStereoReductionMode() { return toMonoMode; }
+	void                setStereoReductionMode (StereoReductionMode newmode);
+	StereoReductionMode getStereoReductionMode() { return toMonoMode; }
 
-    void convertStereoToMono (const SampleType* leftIn,
-                              const SampleType* rightIn,
-                              SampleType*       monoOut,
-                              int               numSamples);
+	void convertStereoToMono (const SampleType* leftIn,
+	                          const SampleType* rightIn,
+	                          SampleType*       monoOut,
+	                          int               numSamples);
 
-    void convertStereoToMono (const Buffer& input, Buffer& output);
+	void convertStereoToMono (const Buffer& input, Buffer& output);
 
-    void convertMonoToStereo (const SampleType* monoIn,
-                              SampleType*       leftOut,
-                              SampleType*       rightOut,
-                              int               numSamples);
+	void convertMonoToStereo (const SampleType* monoIn,
+	                          SampleType*       leftOut,
+	                          SampleType*       rightOut,
+	                          int               numSamples);
 
-    void convertMonoToStereo (const Buffer& input, Buffer& output);
+	void convertMonoToStereo (const Buffer& input, Buffer& output);
 
 
 private:
-    StereoReductionMode toMonoMode;
+	StereoReductionMode toMonoMode;
 
-    juce::AudioBuffer< SampleType > monoStorage;
+	juce::AudioBuffer<SampleType> monoStorage;
 };
 
 }  // namespace lemons::dsp::FX

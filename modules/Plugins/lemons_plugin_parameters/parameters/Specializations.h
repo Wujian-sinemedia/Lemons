@@ -8,17 +8,17 @@ namespace lemons::plugin
  */
 struct GainParameter : public FloatParameter
 {
-    /** Creates a new gain parameter.
-        @param paramName The name of this parameter.
-        @param defaultVal The default value of this parameter.
-        @param parameterCategory The category of this parameter.
-     */
-    GainParameter (String                                  paramName,
-                   float                                   defaultVal,
-                   juce::AudioProcessorParameter::Category parameterCategory =
-                       juce::AudioProcessorParameter::genericParameter);
+	/** Creates a new gain parameter.
+	    @param paramName The name of this parameter.
+	    @param defaultVal The default value of this parameter.
+	    @param parameterCategory The category of this parameter.
+	 */
+	GainParameter (String                                  paramName,
+	               float                                   defaultVal,
+	               juce::AudioProcessorParameter::Category parameterCategory =
+	                   juce::AudioProcessorParameter::genericParameter);
 
-    using Listener = FloatParameter::Listener;
+	using Listener = FloatParameter::Listener;
 };
 
 /*-----------------------------------------------------------------------------------------------------------------------
@@ -29,14 +29,14 @@ struct GainParameter : public FloatParameter
  */
 struct ToggleParameter : public BoolParameter
 {
-    /** Creates a new toggle parameter.
-        @param paramName The name of this parameter.
-        @param defaultVal Indicates whether the parameter should initially be on or off by default.
-     */
-    ToggleParameter (String paramName,
-                     bool   defaultVal);
+	/** Creates a new toggle parameter.
+	    @param paramName The name of this parameter.
+	    @param defaultVal Indicates whether the parameter should initially be on or off by default.
+	 */
+	ToggleParameter (String paramName,
+	                 bool   defaultVal);
 
-    using Listener = BoolParameter::Listener;
+	using Listener = BoolParameter::Listener;
 };
 
 /*-----------------------------------------------------------------------------------------------------------------------
@@ -47,19 +47,19 @@ struct ToggleParameter : public BoolParameter
  */
 struct FloatAmountParameter : public FloatParameter
 {
-    /** Creates a new float amount parameter.
-        @param paramName The name of this parameter.
-        @param defaultVal The default value of this parameter.
-        @param parameterCategory The category of this parameter.
-        @param parameterLabel An optional label to use for this parameter's units.
-     */
-    FloatAmountParameter (String                                  paramName,
-                          float                                   defaultVal,
-                          juce::AudioProcessorParameter::Category parameterCategory =
-                              juce::AudioProcessorParameter::genericParameter,
-                          String parameterLabel = String());
+	/** Creates a new float amount parameter.
+	    @param paramName The name of this parameter.
+	    @param defaultVal The default value of this parameter.
+	    @param parameterCategory The category of this parameter.
+	    @param parameterLabel An optional label to use for this parameter's units.
+	 */
+	FloatAmountParameter (String                                  paramName,
+	                      float                                   defaultVal,
+	                      juce::AudioProcessorParameter::Category parameterCategory =
+	                          juce::AudioProcessorParameter::genericParameter,
+	                      String parameterLabel = String());
 
-    using Listener = FloatParameter::Listener;
+	using Listener = FloatParameter::Listener;
 };
 
 /*-----------------------------------------------------------------------------------------------------------------------
@@ -70,14 +70,14 @@ struct FloatAmountParameter : public FloatParameter
  */
 struct FrequencyParameter : public FloatParameter
 {
-    /** Creates a new frequency parameter.
-        @param paramName The name of this parameter.
-        @param defaultVal The default value of this parameter.
-     */
-    FrequencyParameter (String paramName,
-                        float  defaultVal);
+	/** Creates a new frequency parameter.
+	    @param paramName The name of this parameter.
+	    @param defaultVal The default value of this parameter.
+	 */
+	FrequencyParameter (String paramName,
+	                    float  defaultVal);
 
-    using Listener = FloatParameter::Listener;
+	using Listener = FloatParameter::Listener;
 };
 
 /*-----------------------------------------------------------------------------------------------------------------------
@@ -88,13 +88,13 @@ struct FrequencyParameter : public FloatParameter
  */
 struct MidiPitchParameter : public IntParameter
 {
-    /** Creates a new MIDI pitch parameter.
-        @param paramName The name of this parameter.
-        @param defaultVal The default value of this parameter.
-     */
-    MidiPitchParameter (String paramName, int defaultVal);
+	/** Creates a new MIDI pitch parameter.
+	    @param paramName The name of this parameter.
+	    @param defaultVal The default value of this parameter.
+	 */
+	MidiPitchParameter (String paramName, int defaultVal);
 
-    using Listener = IntParameter::Listener;
+	using Listener = IntParameter::Listener;
 };
 
 /*-----------------------------------------------------------------------------------------------------------------------
@@ -105,13 +105,13 @@ struct MidiPitchParameter : public IntParameter
  */
 struct MidiPanParameter : public IntParameter
 {
-    /** Creates a new MIDI pan parameter.
-        @param paramName The name of this parameter.
-        @param defaultVal The default value of this parameter.
-     */
-    MidiPanParameter (String paramName, int defaultVal = 64);
+	/** Creates a new MIDI pan parameter.
+	    @param paramName The name of this parameter.
+	    @param defaultVal The default value of this parameter.
+	 */
+	MidiPanParameter (String paramName, int defaultVal = 64);
 
-    using Listener = IntParameter::Listener;
+	using Listener = IntParameter::Listener;
 };
 
 /*-----------------------------------------------------------------------------------------------------------------------
@@ -122,14 +122,14 @@ struct MidiPanParameter : public IntParameter
  */
 struct SemitonesParameter : public IntParameter
 {
-    /** Creates a new semitones parameter.
-        @param maxSemitones The maximum number of semitones that this parameter can represent.
-        @param paramName The name of this parameter.
-        @param defaultVal The default value of this parameter.
-     */
-    SemitonesParameter (int maxSemitones, String paramName, int defaultVal);
+	/** Creates a new semitones parameter.
+	    @param maxSemitones The maximum number of semitones that this parameter can represent.
+	    @param paramName The name of this parameter.
+	    @param defaultVal The default value of this parameter.
+	 */
+	SemitonesParameter (int maxSemitones, String paramName, int defaultVal);
 
-    using Listener = IntParameter::Listener;
+	using Listener = IntParameter::Listener;
 };
 
 /*-----------------------------------------------------------------------------------------------------------------------
@@ -140,14 +140,14 @@ struct SemitonesParameter : public IntParameter
  */
 struct PercentParameter : public IntParameter
 {
-    /** Creates a new percent parameter.
-        @param paramName The name of this parameter.
-        @param defaultVal The default value of this parameter.
-     */
-    PercentParameter (String paramName,
-                      int    defaultVal);
+	/** Creates a new percent parameter.
+	    @param paramName The name of this parameter.
+	    @param defaultVal The default value of this parameter.
+	 */
+	PercentParameter (String paramName,
+	                  int    defaultVal);
 
-    using Listener = IntParameter::Listener;
+	using Listener = IntParameter::Listener;
 };
 
 /*-----------------------------------------------------------------------------------------------------------------------
@@ -158,14 +158,14 @@ struct PercentParameter : public IntParameter
  */
 struct SecondsParameter : public FloatParameter
 {
-    /** Creates a new seconds parameter.
-        @param maxSeconds The maximum number of seconds that this parameter can represent.
-        @param paramName The name of this parameter.
-        @param defaultVal The default value of this parameter.
-     */
-    SecondsParameter (float maxSeconds, String paramName, float defaultVal);
+	/** Creates a new seconds parameter.
+	    @param maxSeconds The maximum number of seconds that this parameter can represent.
+	    @param paramName The name of this parameter.
+	    @param defaultVal The default value of this parameter.
+	 */
+	SecondsParameter (float maxSeconds, String paramName, float defaultVal);
 
-    using Listener = FloatParameter::Listener;
+	using Listener = FloatParameter::Listener;
 };
 
 /*-----------------------------------------------------------------------------------------------------------------------
@@ -177,23 +177,23 @@ struct SecondsParameter : public FloatParameter
  */
 struct MeterParameter : public FloatParameter
 {
-    /** Creates a new meter parameter.
-        @param min The minimum possible value of this parameter.
-        @param max The maximum possible value of this parameter.
-        @param defaultVal The default value of this parameter.
-        @param paramName The name of this parameter.
-        @param stringFromValue An optional lambda that returns a textual description of a value for this parameter.
-        @param valueFromString An optional lambda that converts a user input text string into a parameter value. This may never be called with meter parameters.
-        @param parameterLabel An optional label to use for the parameter's units.
-        @param parameterCategory The parameter's category. This is used to indicate to the DAW whether the parameter is a level meter, a gain reduction meter, etc.
-     */
-    MeterParameter (float min, float max, float defaultVal, String paramName,
-                    std::function< String (float, int) >    stringFromValue   = nullptr,
-                    std::function< float (String) >         valueFromString   = nullptr,
-                    String                                  parameterLabel    = {},
-                    juce::AudioProcessorParameter::Category parameterCategory = juce::AudioProcessorParameter::genericParameter);
+	/** Creates a new meter parameter.
+	    @param min The minimum possible value of this parameter.
+	    @param max The maximum possible value of this parameter.
+	    @param defaultVal The default value of this parameter.
+	    @param paramName The name of this parameter.
+	    @param stringFromValue An optional lambda that returns a textual description of a value for this parameter.
+	    @param valueFromString An optional lambda that converts a user input text string into a parameter value. This may never be called with meter parameters.
+	    @param parameterLabel An optional label to use for the parameter's units.
+	    @param parameterCategory The parameter's category. This is used to indicate to the DAW whether the parameter is a level meter, a gain reduction meter, etc.
+	 */
+	MeterParameter (float min, float max, float defaultVal, String paramName,
+	                std::function<String (float, int)>      stringFromValue   = nullptr,
+	                std::function<float (String)>           valueFromString   = nullptr,
+	                String                                  parameterLabel    = {},
+	                juce::AudioProcessorParameter::Category parameterCategory = juce::AudioProcessorParameter::genericParameter);
 
-    using Listener = FloatParameter::Listener;
+	using Listener = FloatParameter::Listener;
 };
 
 
@@ -206,15 +206,15 @@ struct MeterParameter : public FloatParameter
  */
 struct GainMeterParameter : public MeterParameter
 {
-    /** Creates a new gain meter parameter.
-        @param paramName The name of this parameter.
-        @param parameterCategory The category of this meter parameter. This is used to indicate to the DAW whether the parameter is a level meter, a gain reduction meter, etc.
-     */
-    GainMeterParameter (String                                  paramName,
-                        juce::AudioProcessorParameter::Category parameterCategory =
-                            juce::AudioProcessorParameter::genericParameter);
+	/** Creates a new gain meter parameter.
+	    @param paramName The name of this parameter.
+	    @param parameterCategory The category of this meter parameter. This is used to indicate to the DAW whether the parameter is a level meter, a gain reduction meter, etc.
+	 */
+	GainMeterParameter (String                                  paramName,
+	                    juce::AudioProcessorParameter::Category parameterCategory =
+	                        juce::AudioProcessorParameter::genericParameter);
 
-    using Listener = MeterParameter::Listener;
+	using Listener = MeterParameter::Listener;
 };
 
 }  // namespace lemons::plugin

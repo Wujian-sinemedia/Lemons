@@ -14,4 +14,4 @@
     Note that both arguments to this macro must be fully specialized types.
  */
 #define LEMONS_MUST_INHERIT_FROM(classToTest, requiredBaseClass) \
-    std::enable_if_t< std::is_base_of< requiredBaseClass, classToTest >::value >* = nullptr
+  std::enable_if_t<std::is_base_of<requiredBaseClass, classToTest>::value>* = nullptr

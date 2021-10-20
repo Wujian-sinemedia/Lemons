@@ -1,98 +1,98 @@
 
 namespace lemons::dsp
 {
-template < typename SampleType >
-void CircularBuffer< SampleType >::resize (int blocksize, int blocksizeMultipleToAllocate)
+template <typename SampleType>
+void CircularBuffer<SampleType>::resize (int blocksize, int blocksizeMultipleToAllocate)
 {
-    const auto newSize = blocksize * blocksizeMultipleToAllocate;
-    buffer.setSize (1, newSize, true, true, true);
+	const auto newSize = blocksize * blocksizeMultipleToAllocate;
+	buffer.setSize (1, newSize, true, true, true);
 
-    lastFrameStart %= newSize;
-    lastFrameEnd %= newSize;
+	lastFrameStart %= newSize;
+	lastFrameEnd %= newSize;
 }
 
-template < typename SampleType >
-void CircularBuffer< SampleType >::storeSamples (const AudioBuffer< SampleType >& samples, int channel)
+template <typename SampleType>
+void CircularBuffer<SampleType>::storeSamples (const AudioBuffer<SampleType>& samples, int channel)
 {
-    storeSamples (samples.getReadPointer (channel), samples.getNumSamples());
+	storeSamples (samples.getReadPointer (channel), samples.getNumSamples());
 }
 
-template < typename SampleType >
-void CircularBuffer< SampleType >::storeSamples (const SampleType* samples, int numSamples)
+template <typename SampleType>
+void CircularBuffer<SampleType>::storeSamples (const SampleType* samples, int numSamples)
 {
-    const auto bufferSize = getCapacity();
+	const auto bufferSize = getCapacity();
 
-    jassert (numSamples > 0 && numSamples <= bufferSize);
-    lastFrameSize = numSamples;
+	jassert (numSamples > 0 && numSamples <= bufferSize);
+	lastFrameSize = numSamples;
 
-    auto newStart = lastFrameEnd + 1;
-    if (newStart > bufferSize) newStart -= bufferSize;
+	auto newStart = lastFrameEnd + 1;
+	if (newStart > bufferSize) newStart -= bufferSize;
 
-    lastFrameStart = newStart;
+	lastFrameStart = newStart;
 
-    if (newStart + numSamples > bufferSize)
-    {
-        const auto chunkAtEndOfBuffer = bufferSize - newStart;
+	if (newStart + numSamples > bufferSize)
+	{
+		const auto chunkAtEndOfBuffer = bufferSize - newStart;
 
-        vecops::copy (samples,
-                      buffer.getWritePointer (0, newStart),
-                      chunkAtEndOfBuffer);
+		vecops::copy (samples,
+		              buffer.getWritePointer (0, newStart),
+		              chunkAtEndOfBuffer);
 
-        const auto left = numSamples - chunkAtEndOfBuffer;
+		const auto left = numSamples - chunkAtEndOfBuffer;
 
-        vecops::copy (samples + chunkAtEndOfBuffer,
-                      buffer.getWritePointer (0, 0),
-                      left);
+		vecops::copy (samples + chunkAtEndOfBuffer,
+		              buffer.getWritePointer (0, 0),
+		              left);
 
-        lastFrameEnd = left;
-    }
-    else
-    {
-        vecops::copy (samples,
-                      buffer.getWritePointer (0, newStart),
-                      numSamples);
+		lastFrameEnd = left;
+	}
+	else
+	{
+		vecops::copy (samples,
+		              buffer.getWritePointer (0, newStart),
+		              numSamples);
 
-        lastFrameEnd = newStart + numSamples;
-    }
+		lastFrameEnd = newStart + numSamples;
+	}
 }
 
-template < typename SampleType >
-int CircularBuffer< SampleType >::getCapacity() const
+template <typename SampleType>
+int CircularBuffer<SampleType>::getCapacity() const
 {
-    return buffer.getNumSamples();
+	return buffer.getNumSamples();
 }
 
-template < typename SampleType >
-int CircularBuffer< SampleType >::getLastFrameStartIndex() const
+template <typename SampleType>
+int CircularBuffer<SampleType>::getLastFrameStartIndex() const
 {
-    return lastFrameStart;
+	return lastFrameStart;
 }
 
-template < typename SampleType >
-int CircularBuffer< SampleType >::getLastFrameEndIndex() const
+template <typename SampleType>
+int CircularBuffer<SampleType>::getLastFrameEndIndex() const
 {
-    return lastFrameEnd;
+	return lastFrameEnd;
 }
 
-template < typename SampleType >
-int CircularBuffer< SampleType >::clipValueToCapacity (int value) const
+template <typename SampleType>
+int CircularBuffer<SampleType>::clipValueToCapacity (int value) const
 {
-    const auto capacity = getCapacity();
+	const auto capacity = getCapacity();
 
-    if (value < capacity)
-        return value;
+	if (value < capacity)
+		return value;
 
-    return value - capacity;
+	return value - capacity;
 }
 
-template < typename SampleType >
-SampleType CircularBuffer< SampleType >::getSample (int index) const
+template <typename SampleType>
+SampleType CircularBuffer<SampleType>::getSample (int index) const
 {
-    jassert (index >= 0 && index <= getCapacity());
-    return buffer.getSample (0, index);
+	jassert (index >= 0 && index <= getCapacity());
+	return buffer.getSample (0, index);
 }
 
-template class CircularBuffer< float >;
-template class CircularBuffer< double >;
+template class CircularBuffer<float>;
+template class CircularBuffer<double>;
 
 }  // namespace lemons::dsp

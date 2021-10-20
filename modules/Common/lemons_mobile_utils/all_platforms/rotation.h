@@ -14,14 +14,14 @@ namespace lemons
 
 struct DeviceRotationListener : private juce::Timer
 {
-    DeviceRotationListener (std::function< void() > callbackToUse);
-    virtual ~DeviceRotationListener() override;
+	DeviceRotationListener (std::function<void()> callbackToUse);
+	virtual ~DeviceRotationListener() override;
 
-    void timerCallback() final;
+	void timerCallback() final;
 
 private:
-    std::function< void() >           callback;
-    juce::Desktop::DisplayOrientation prevOrientation;
+	std::function<void()>             callback;
+	juce::Desktop::DisplayOrientation prevOrientation;
 };
 
 
@@ -29,10 +29,10 @@ private:
 
 struct DeviceRotation
 {
-    static void disableRotation();
+	static void disableRotation();
 
-    static void enableOnlyVerticalRotations();
-    static void enableOnlyLandscapeRotations();
+	static void enableOnlyVerticalRotations();
+	static void enableOnlyLandscapeRotations();
 };
 
 }  // namespace lemons

@@ -4,22 +4,22 @@ namespace lemons
 TreeReflector::TreeReflector (const ValueTree& treeToUse)
     : tree (treeToUse)
 {
-    jassert (tree.isValid());
+	jassert (tree.isValid());
 }
 
 [[nodiscard]] bool TreeReflector::isSaving() const { return ! isLoading(); }
 
 void TreeReflector::addValueTree (ValueTree& data)
 {
-    if (isLoading())
-        data = tree;
-    else
-        tree = data;
+	if (isLoading())
+		data = tree;
+	else
+		tree = data;
 }
 
 void TreeReflector::as (SerializableData& data)
 {
-    data.serialize (*this);
+	data.serialize (*this);
 }
 
 [[nodiscard]] ValueTree& TreeReflector::getRawDataTree() { return tree; }

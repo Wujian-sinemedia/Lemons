@@ -14,12 +14,12 @@ namespace lemons::serializing
  */
 struct ContainerInterface
 {
-    virtual ~ContainerInterface() = default;
+	virtual ~ContainerInterface() = default;
 
-    /** Your subclass must implement this to change the total number of items in the container.
-        After TreeReflector calls this function, it will use a range-based for loop to traverse your container, so its size needs to be correct, and you shouldn't keep any "idle" objects around or reserved memory allocated after this function call.
-     */
-    virtual void resize (int newSize) = 0;
+	/** Your subclass must implement this to change the total number of items in the container.
+	    After TreeReflector calls this function, it will use a range-based for loop to traverse your container, so its size needs to be correct, and you shouldn't keep any "idle" objects around or reserved memory allocated after this function call.
+	 */
+	virtual void resize (int newSize) = 0;
 };
 
 
@@ -48,24 +48,25 @@ struct ContainerInterface
     @tparam ContainerType The fully specialized container type -- for example, std::vector<int> or juce::Array<std::vector<float>>.
     @see ContainerInterface, TreeReflector, getInterfaceForContainer(), isContainer
  */
-template < class ContainerType >
+template <class ContainerType>
 struct LambdaContainerInterface : ContainerInterface
 {
-    using ResizeCallback = std::function< void (ContainerType&, int) >;
+	using ResizeCallback = std::function<void (ContainerType&, int)>;
 
-    LambdaContainerInterface (ContainerType& containerToUse, ResizeCallback resizeFuncToUse)
-        : resizeFunc (std::move (resizeFuncToUse)), container (containerToUse)
-    {
-    }
+	LambdaContainerInterface (ContainerType& containerToUse, ResizeCallback resizeFuncToUse)
+	    : resizeFunc (std::move (resizeFuncToUse))
+	    , container (containerToUse)
+	{
+	}
 
 private:
-    void resize (int newSize) final
-    {
-        resizeFunc (container, newSize);
-    }
+	void resize (int newSize) final
+	{
+		resizeFunc (container, newSize);
+	}
 
-    ResizeCallback resizeFunc;
-    ContainerType& container;
+	ResizeCallback resizeFunc;
+	ContainerType& container;
 };
 
 
@@ -77,8 +78,8 @@ private:
     @tparam ContainerType The fully specialized container type -- for example, std::vector<int> or juce::Array<float>.
     @see TreeReflector, ContainerInterface, isContainer
  */
-template < typename ContainerType >
-std::unique_ptr< ContainerInterface > getInterfaceForContainer (ContainerType&);
+template <typename ContainerType>
+std::unique_ptr<ContainerInterface> getInterfaceForContainer (ContainerType&);
 
 
 /**
@@ -89,7 +90,7 @@ std::unique_ptr< ContainerInterface > getInterfaceForContainer (ContainerType&);
     @tparam Type The type being tested. For example, int or String will return false, but std::vector<int> will return true.
     @see TreeReflector, ContainerInterface, getInterfaceForContainer()
  */
-template < typename Type >
+template <typename Type>
 struct isContainer : std::false_type
 {
 };

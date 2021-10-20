@@ -1,99 +1,99 @@
 namespace lemons::dsp::FX
 {
-template < typename SampleType >
-void AudioEffect< SampleType >::prepare (double, int)
+template <typename SampleType>
+void AudioEffect<SampleType>::prepare (double, int)
 {
 }
 
-template < typename SampleType >
-void AudioEffect< SampleType >::bypassedBlock (int)
+template <typename SampleType>
+void AudioEffect<SampleType>::bypassedBlock (int)
 {
 }
 
-template struct AudioEffect< float >;
-template struct AudioEffect< double >;
+template struct AudioEffect<float>;
+template struct AudioEffect<double>;
 
 
-template < typename SampleType >
-void SidechainableAudioEffect< SampleType >::process (AudioBuffer< SampleType >& audio)
+template <typename SampleType>
+void SidechainableAudioEffect<SampleType>::process (AudioBuffer<SampleType>& audio)
 {
-    process (audio, audio);
+	process (audio, audio);
 }
 
-template struct SidechainableAudioEffect< float >;
-template struct SidechainableAudioEffect< double >;
+template struct SidechainableAudioEffect<float>;
+template struct SidechainableAudioEffect<double>;
 
 
-template < typename SampleType >
-void LevelReportingAudioEffect< SampleType >::process (AudioBuffer< SampleType >& inOut, const AudioBuffer< SampleType >& sidechain)
+template <typename SampleType>
+void LevelReportingAudioEffect<SampleType>::process (AudioBuffer<SampleType>& inOut, const AudioBuffer<SampleType>& sidechain)
 {
-    const auto numChannels = inOut.getNumChannels();
+	const auto numChannels = inOut.getNumChannels();
 
-    if (numChannels == 0) return;
+	if (numChannels == 0) return;
 
-    gainReductions.ensureStorageAllocated (numChannels);
+	gainReductions.ensureStorageAllocated (numChannels);
 
-    const auto numSamples = inOut.getNumSamples();
+	const auto numSamples = inOut.getNumSamples();
 
-    jassert (sidechain.getNumChannels() == numChannels);
-    jassert (sidechain.getNumSamples() == numSamples);
+	jassert (sidechain.getNumChannels() == numChannels);
+	jassert (sidechain.getNumSamples() == numSamples);
 
-    for (int chan = 0; chan < numChannels; ++chan)
-    {
-        gainReductions.set (chan,
-                            processChannel (chan,
-                                            numSamples,
-                                            inOut.getWritePointer (chan),
-                                            sidechain.getReadPointer (chan)));
-    }
+	for (int chan = 0; chan < numChannels; ++chan)
+	{
+		gainReductions.set (chan,
+		                    processChannel (chan,
+		                                    numSamples,
+		                                    inOut.getWritePointer (chan),
+		                                    sidechain.getReadPointer (chan)));
+	}
 }
 
-template < typename SampleType >
-void LevelReportingAudioEffect< SampleType >::process (AudioBuffer< SampleType >& audio)
+template <typename SampleType>
+void LevelReportingAudioEffect<SampleType>::process (AudioBuffer<SampleType>& audio)
 {
-    process (audio, audio);
+	process (audio, audio);
 }
 
-template < typename SampleType >
-SampleType LevelReportingAudioEffect< SampleType >::getGainReduction (int channel) const
+template <typename SampleType>
+SampleType LevelReportingAudioEffect<SampleType>::getGainReduction (int channel) const
 {
-    if (channel < gainReductions.size())
-        return gainReductions.getUnchecked (channel);
+	if (channel < gainReductions.size())
+		return gainReductions.getUnchecked (channel);
 
-    return (SampleType) 0;
+	return (SampleType) 0;
 }
 
-template < typename SampleType >
-SampleType LevelReportingAudioEffect< SampleType >::getAverageGainReduction() const
+template <typename SampleType>
+SampleType LevelReportingAudioEffect<SampleType>::getAverageGainReduction() const
 {
-    auto avg = (SampleType) 0;
+	auto avg = (SampleType) 0;
 
-    const auto numChannels = gainReductions.size();
+	const auto numChannels = gainReductions.size();
 
-    if (numChannels == 0) return avg;
+	if (numChannels == 0) return avg;
 
-    for (int i = 0; i < numChannels; ++i)
-        avg += gainReductions.getUnchecked (i);
+	for (int i = 0; i < numChannels; ++i)
+		avg += gainReductions.getUnchecked (i);
 
-    avg /= static_cast< SampleType > (numChannels);
+	avg /= static_cast<SampleType> (numChannels);
 
-    return avg;
+	return avg;
 }
 
-template < typename SampleType >
-SampleType LevelReportingAudioEffect< SampleType >::getLevel (int channel) const
+template <typename SampleType>
+SampleType LevelReportingAudioEffect<SampleType>::getLevel (int channel) const
 {
-    return getGainReduction (channel);
+	return getGainReduction (channel);
 }
 
-template < typename SampleType >
-SampleType LevelReportingAudioEffect< SampleType >::getAverageLevel() const
+template <typename SampleType>
+SampleType LevelReportingAudioEffect<SampleType>::getAverageLevel() const
 {
-    return getAverageGainReduction();
+	return getAverageGainReduction();
 }
 
 
-template struct LevelReportingAudioEffect< float >;
-template struct LevelReportingAudioEffect< double >;
+template struct LevelReportingAudioEffect<float>;
+template struct LevelReportingAudioEffect<double>;
 
 }  // namespace lemons::dsp::FX

@@ -10,153 +10,154 @@ Knot::Knot (float xToUse, float yToUse)
 
 Knot& Knot::operator= (const Knot& other)
 {
-    location  = other.location;
-    dragStart = other.dragStart;
-    selected  = other.selected;
+	location  = other.location;
+	dragStart = other.dragStart;
+	selected  = other.selected;
 
-    return *this;
+	return *this;
 }
 
 void Knot::serialize (TreeReflector& ref)
 {
-    ref.add ("Location", location);
-    ref.add ("DragStart", dragStart);
-    ref.add ("Selected", selected);
+	ref.add ("Location", location);
+	ref.add ("DragStart", dragStart);
+	ref.add ("Selected", selected);
 }
 
 void Knot::select() noexcept
 {
-    dragStart = location;
-    selected  = true;
+	dragStart = location;
+	selected  = true;
 }
 
 void Knot::deselect()
 {
-    selected = false;
+	selected = false;
 }
 
 bool Knot::isSelected() const
 {
-    return selected;
+	return selected;
 }
 
 bool Knot::drag (const Point& p) noexcept
 {
-    if (! selected) return false;
+	if (! selected) return false;
 
-    location.x = dragStart.x + p.x;
-    location.y = dragStart.y + p.y;
+	location.x = dragStart.x + p.x;
+	location.y = dragStart.y + p.y;
 
-    return true;
+	return true;
 }
 
-Point Knot::getDenormalizedPoint (const juce::Rectangle< float >& bounds) const
+Point Knot::getDenormalizedPoint (const juce::Rectangle<float>& bounds) const
 {
-    return {
-        bounds.getX() + bounds.getWidth() * location.x,
-        bounds.getY() + bounds.getHeight() * location.y};
+	return {
+		bounds.getX() + bounds.getWidth() * location.x,
+		bounds.getY() + bounds.getHeight() * location.y
+	};
 }
 
 
 Knots::Knots()
 {
-    add ({0, 0});
-    add ({1, 1});
+	add ({ 0, 0 });
+	add ({ 1, 1 });
 }
 
 const Knot& Knots::getKnot (int index) const
 {
-    const auto idx = static_cast< size_type > (index);
-    jassert (index >= 0 && idx < size());
-    return (*this)[idx];
+	const auto idx = static_cast<size_type> (index);
+	jassert (index >= 0 && idx < size());
+	return (*this)[idx];
 }
 
 void Knots::serialize (TreeReflector& ref)
 {
-    ref.add ("Knot", *(static_cast< std::vector< Knot >* > (this)));
+	ref.add ("Knot", *(static_cast<std::vector<Knot>*> (this)));
 }
 
 void Knots::add (const Point& p)
 {
-    push_back ({p.x, p.y});
+	push_back ({ p.x, p.y });
 }
 
 void Knots::sort()
 {
-    std::sort (begin(), end(),
-               [] (const Knot& a, const Knot& b)
-               { return a.location.x < b.location.x; });
+	std::sort (begin(), end(),
+	           [] (const Knot& a, const Knot& b)
+	           { return a.location.x < b.location.x; });
 }
 
 void Knots::removeOffLimits()
 {
-    std::remove_if (begin(), end(),
-                    [] (const Knot& knot)
-                    {
-                        if (! knot.isSelected()) return false;
-                        return knot.location.x <= 0.f || knot.location.x >= 1.f || knot.location.y <= 0.f || knot.location.y >= 1.f;
-                    });
+	std::remove_if (begin(), end(),
+	                [] (const Knot& knot)
+	                {
+		                if (! knot.isSelected()) return false;
+		                return knot.location.x <= 0.f || knot.location.x >= 1.f || knot.location.y <= 0.f || knot.location.y >= 1.f;
+	                });
 }
 
-void Knots::remove (const juce::Range< float >& range)
+void Knots::remove (const juce::Range<float>& range)
 {
-    for (auto knot = begin(); knot != end(); ++knot)
-    {
-        if (range.getEnd() < knot->location.x) break;
+	for (auto knot = begin(); knot != end(); ++knot)
+	{
+		if (range.getEnd() < knot->location.x) break;
 
-        if (range.getStart() < knot->location.x)
-            erase (knot);
-    }
+		if (range.getStart() < knot->location.x)
+			erase (knot);
+	}
 }
 
-void Knots::select (const juce::Range< float >& range) noexcept
+void Knots::select (const juce::Range<float>& range) noexcept
 {
-    for (auto& knot : *this)
-    {
-        if (knot.location.x > range.getEnd()) return;
+	for (auto& knot : *this)
+	{
+		if (knot.location.x > range.getEnd()) return;
 
-        if (knot.location.x >= range.getStart())
-            knot.select();
-    }
+		if (knot.location.x >= range.getStart())
+			knot.select();
+	}
 }
 
 bool Knots::drag (const Point& drag) noexcept
 {
-    bool changed = false;
+	bool changed = false;
 
-    for (auto& knot : *this)
-        if (knot.drag (drag))
-            changed = true;
+	for (auto& knot : *this)
+		if (knot.drag (drag))
+			changed = true;
 
-    return changed;
+	return changed;
 }
 
 void Knots::deselect()
 {
-    for (auto& knot : *this)
-        knot.deselect();
+	for (auto& knot : *this)
+		knot.deselect();
 }
 
 void Knots::makeSpline (Points& spline) const
 {
-    const auto inc              = 1.f / static_cast< float > (spline.size());
-    const auto smallestDistance = inc * 2.f;
-    auto       x                = 0.f;
-    int        kIdx             = 1;
+	const auto inc              = 1.f / static_cast<float> (spline.size());
+	const auto smallestDistance = inc * 2.f;
+	auto       x                = 0.f;
+	int        kIdx             = 1;
 
-    for (auto& point : spline)
-    {
-        if (x >= getKnot (kIdx).location.x)
-        {
-            ++kIdx;
-            kIdx %= size();
-        }
+	for (auto& point : spline)
+	{
+		if (x >= getKnot (kIdx).location.x)
+		{
+			++kIdx;
+			kIdx %= size();
+		}
 
-        point = juce::jlimit (0.f, 1.f,
-                              interpolation::hermitCubic2 (*this, x, smallestDistance, kIdx - 1));
+		point = juce::jlimit (0.f, 1.f,
+		                      interpolation::hermitCubic2 (*this, x, smallestDistance, kIdx - 1));
 
-        x += inc;
-    }
+		x += inc;
+	}
 }
 
 }  // namespace lemons::spline

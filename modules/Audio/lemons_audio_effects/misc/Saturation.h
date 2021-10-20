@@ -6,25 +6,25 @@
 
 namespace lemons::dsp::FX
 {
-template < typename SampleType >
-class Saturator : AudioEffect< SampleType >
+template <typename SampleType>
+class Saturator : AudioEffect<SampleType>
 {
 public:
-    void setHardness (float newHardness);
+	void setHardness (float newHardness);
 
 private:
-    void serialize (TreeReflector& ref) final;
+	void serialize (TreeReflector& ref) final;
 
-    void process (juce::AudioBuffer< SampleType >& audio) final;
+	void process (juce::AudioBuffer<SampleType>& audio) final;
 
-    SampleType processSample (SampleType inputSample);
+	SampleType processSample (SampleType inputSample);
 
-    SampleType transferFunc (SampleType amplitude);
+	SampleType transferFunc (SampleType amplitude);
 
-    void prepare (double samplerate, int blocksize) final;
-    void bypassedBlock (int numSamples) final;
+	void prepare (double samplerate, int blocksize) final;
+	void bypassedBlock (int numSamples) final;
 
-    SampleType hardness {1.};
+	SampleType hardness { 1. };
 };
 
 }  // namespace lemons::dsp::FX

@@ -4,12 +4,12 @@ namespace lemons::events
 {
 struct Listener : Broadcaster::Reciever
 {
-    Listener (Broadcaster& b, std::function< void() > func);
+	Listener (Broadcaster& b, std::function<void()> func);
 
 private:
-    void callback() final;
+	void callback() final;
 
-    std::function< void() > callbackFunc;
+	std::function<void()> callbackFunc;
 };
 
 }  // namespace lemons::events

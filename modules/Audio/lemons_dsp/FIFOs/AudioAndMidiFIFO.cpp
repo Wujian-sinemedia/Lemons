@@ -1,41 +1,41 @@
 
 namespace lemons::dsp
 {
-template < typename SampleType >
-AudioAndMidiFIFO< SampleType >::AudioAndMidiFIFO (int channels, int samples)
+template <typename SampleType>
+AudioAndMidiFIFO<SampleType>::AudioAndMidiFIFO (int channels, int samples)
 {
-    setSize (channels, samples);
+	setSize (channels, samples);
 }
 
-template < typename SampleType >
-void AudioAndMidiFIFO< SampleType >::setSize (int numChannels, int numSamples)
+template <typename SampleType>
+void AudioAndMidiFIFO<SampleType>::setSize (int numChannels, int numSamples)
 {
-    audio.setNumChannels (numChannels);
-    audio.setMaximumSize (numSamples);
-    midi.setSize (numSamples);
+	audio.setNumChannels (numChannels);
+	audio.setMaximumSize (numSamples);
+	midi.setSize (numSamples);
 }
 
-template < typename SampleType >
-void AudioAndMidiFIFO< SampleType >::push (const AudioBuffer< SampleType >& audioIn, const MidiBuffer& midiIn)
+template <typename SampleType>
+void AudioAndMidiFIFO<SampleType>::push (const AudioBuffer<SampleType>& audioIn, const MidiBuffer& midiIn)
 {
-    audio.pushSamples (audioIn);
-    midi.pushEvents (midiIn, audioIn.getNumSamples());
+	audio.pushSamples (audioIn);
+	midi.pushEvents (midiIn, audioIn.getNumSamples());
 }
 
-template < typename SampleType >
-void AudioAndMidiFIFO< SampleType >::pop (AudioBuffer< SampleType >& audioOut, MidiBuffer& midiOut)
+template <typename SampleType>
+void AudioAndMidiFIFO<SampleType>::pop (AudioBuffer<SampleType>& audioOut, MidiBuffer& midiOut)
 {
-    audio.popSamples (audioOut);
-    midi.popEvents (midiOut, audioOut.getNumSamples());
+	audio.popSamples (audioOut);
+	midi.popEvents (midiOut, audioOut.getNumSamples());
 }
 
-template < typename SampleType >
-int AudioAndMidiFIFO< SampleType >::numStoredSamples() const
+template <typename SampleType>
+int AudioAndMidiFIFO<SampleType>::numStoredSamples() const
 {
-    return audio.numStoredSamples();
+	return audio.numStoredSamples();
 }
 
-template class AudioAndMidiFIFO< float >;
-template class AudioAndMidiFIFO< double >;
+template class AudioAndMidiFIFO<float>;
+template class AudioAndMidiFIFO<double>;
 
 }  // namespace lemons::dsp

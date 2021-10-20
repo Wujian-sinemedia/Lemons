@@ -11,30 +11,30 @@ namespace lemons::plugin
  */
 struct LFO : SerializableData
 {
-    /** Internally, LFOs use ChoosableOscillator to generate their values. */
-    using Osc = dsp::osc::ChoosableOscillator< float >;
+	/** Internally, LFOs use ChoosableOscillator to generate their values. */
+	using Osc = dsp::osc::ChoosableOscillator<float>;
 
-    /** Creates a new LFO. */
-    LFO (ParameterList& listToUse, String metaParameterName = "MetaParameter");
+	/** Creates a new LFO. */
+	LFO (ParameterList& listToUse, String metaParameterName = "MetaParameter");
 
-    /** Prepares the LFO for processing. */
-    void prepareToPlay (int numSamples, double samplerate);
+	/** Prepares the LFO for processing. */
+	void prepareToPlay (int numSamples, double samplerate);
 
-    /** Returns a reference to the LFO's internal ChoosableOscillator object. You can then call methods on the oscillator to, for example, set its frequency, change the type, etc. */
-    [[nodiscard]] Osc& getOscillator() noexcept;
+	/** Returns a reference to the LFO's internal ChoosableOscillator object. You can then call methods on the oscillator to, for example, set its frequency, change the type, etc. */
+	[[nodiscard]] Osc& getOscillator() noexcept;
 
-    [[nodiscard]] DefaultMetaParameter& getParameter() noexcept;
+	[[nodiscard]] DefaultMetaParameter& getParameter() noexcept;
 
-    void addParameterTo (juce::AudioProcessor& processor);
+	void addParameterTo (juce::AudioProcessor& processor);
 
 private:
-    void serialize (TreeReflector& ref) final;
+	void serialize (TreeReflector& ref) final;
 
-    Osc osc;
+	Osc osc;
 
-    MetaParam param;
+	MetaParam param;
 
-    AudioBuffer< float > storage;
+	AudioBuffer<float> storage;
 };
 
 }  // namespace lemons::plugin

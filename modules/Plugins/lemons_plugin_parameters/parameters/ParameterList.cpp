@@ -2,179 +2,180 @@
 namespace lemons::plugin
 {
 ParameterList::ParameterList (const String& name, UndoManager* um)
-    : SerializableData (name), undo (um)
+    : SerializableData (name)
+    , undo (um)
 {
 }
 
 void ParameterList::setUndoManager (UndoManager& um)
 {
-    undo = &um;
+	undo = &um;
 
-    for (auto* holder : params)
-        holder->getParam()->setUndoManager (um);
+	for (auto* holder : params)
+		holder->getParam()->setUndoManager (um);
 }
 
 void ParameterList::add (ParamHolderBase& param)
 {
-    addParameter (param, false);
+	addParameter (param, false);
 }
 
 void ParameterList::addInternal (ParamHolderBase& param)
 {
-    addParameter (param, true);
+	addParameter (param, true);
 }
 
 void ParameterList::addParameter (ParamHolderBase& param, bool isInternal)
 {
-    if (undo != nullptr)
-        param->setUndoManager (*undo);
+	if (undo != nullptr)
+		param->setUndoManager (*undo);
 
-    param.isInternal = isInternal;
-    params.push_back (&param);
+	param.isInternal = isInternal;
+	params.push_back (&param);
 }
 
 void ParameterList::setPitchbendParameter (IntParam& param)
 {
-    pitchwheelParameter = param.get();
+	pitchwheelParameter = param.get();
 
-    //    if (! params.contains (param))
-    //        addParameter (param, false);
+	//    if (! params.contains (param))
+	//        addParameter (param, false);
 }
 
 void ParameterList::setLastMovedMidiControllerNumberParameter (IntParam& param)
 {
-    lastMovedControllerNumberParameter = param.get();
+	lastMovedControllerNumberParameter = param.get();
 
-    //    if (! params.contains (param))
-    //        addParameter (param, true);
+	//    if (! params.contains (param))
+	//        addParameter (param, true);
 }
 
 void ParameterList::setLastMovedMidiControllerValueParameter (IntParam& param)
 {
-    lastMovedControllerValueParameter = param.get();
+	lastMovedControllerValueParameter = param.get();
 
-    //    if (! params.contains (param))
-    //        addParameter (param, true);
+	//    if (! params.contains (param))
+	//        addParameter (param, true);
 }
 
 void ParameterList::addParametersTo (juce::AudioProcessor& processor)
 {
-    for (auto* holder : params)
-    {
-        if (holder->isInternal)
-            holder->addTo (processor);
-        else
-            holder->addTo (dummyProcessor);
-    }
+	for (auto* holder : params)
+	{
+		if (holder->isInternal)
+			holder->addTo (processor);
+		else
+			holder->addTo (dummyProcessor);
+	}
 }
 
 void ParameterList::addAllParametersAsInternal()
 {
-    for (auto* holder : params)
-        holder->addTo (dummyProcessor);
+	for (auto* holder : params)
+		holder->addTo (dummyProcessor);
 }
 
 void ParameterList::serialize (TreeReflector& ref)
 {
-    ref.add ("Parameters", params);
+	ref.add ("Parameters", params);
 }
 
 void ParameterList::refreshAllDefaults()
 {
-    for (auto* holder : params)
-        holder->getParam()->refreshDefault();
+	for (auto* holder : params)
+		holder->getParam()->refreshDefault();
 }
 
 void ParameterList::resetAllToDefault()
 {
-    for (auto* holder : params)
-        holder->getParam()->resetToDefault();
+	for (auto* holder : params)
+		holder->getParam()->resetToDefault();
 }
 
 void ParameterList::processMidi (const MidiBuffer& midiMessages)
 {
-    for (auto meta : midiMessages)
-        processMidiMessage (meta.getMessage());
+	for (auto meta : midiMessages)
+		processMidiMessage (meta.getMessage());
 }
 
 void ParameterList::processMidiMessage (const MidiMessage& message)
 {
-    if (message.isController())
-        processNewControllerMessage (message.getControllerNumber(), message.getControllerValue());
-    else if (message.isPitchWheel())
-        processNewPitchwheelMessage (message.getPitchWheelValue());
+	if (message.isController())
+		processNewControllerMessage (message.getControllerNumber(), message.getControllerValue());
+	else if (message.isPitchWheel())
+		processNewPitchwheelMessage (message.getPitchWheelValue());
 }
 
 void ParameterList::processNewControllerMessage (int controllerNumber, int controllerValue)
 {
-    for (auto* holder : params)
-        holder->getParam()->processNewControllerMessage (controllerNumber, controllerValue);
+	for (auto* holder : params)
+		holder->getParam()->processNewControllerMessage (controllerNumber, controllerValue);
 
-    if (auto* num = lastMovedControllerNumberParameter)
-    {
-        num->set (controllerNumber);
-    }
+	if (auto* num = lastMovedControllerNumberParameter)
+	{
+		num->set (controllerNumber);
+	}
 
-    if (auto* val = lastMovedControllerValueParameter)
-    {
-        val->set (controllerValue);
-    }
+	if (auto* val = lastMovedControllerValueParameter)
+	{
+		val->set (controllerValue);
+	}
 }
 
 void ParameterList::processNewPitchwheelMessage (int pitchwheelValue)
 {
-    if (auto* param = pitchwheelParameter)
-    {
-        param->set (juce::jmap (pitchwheelValue, 0, 16383, param->getMinimum(), param->getMaximum()));
-    }
+	if (auto* param = pitchwheelParameter)
+	{
+		param->set (juce::jmap (pitchwheelValue, 0, 16383, param->getMinimum(), param->getMaximum()));
+	}
 }
 
 [[nodiscard]] Parameter* ParameterList::getParameterWithName (const String name, bool internationalizeName)
 {
-    const auto test = internationalizeName ? TRANS (name) : name;
+	const auto test = internationalizeName ? TRANS (name) : name;
 
-    for (auto* holder : params)
-    {
-        auto* param = holder->getParam();
+	for (auto* holder : params)
+	{
+		auto* param = holder->getParam();
 
-        if (param->getParameterName (0, internationalizeName) == test)
-            return param;
-    }
+		if (param->getParameterName (0, internationalizeName) == test)
+			return param;
+	}
 
-    return nullptr;
+	return nullptr;
 }
 
 //==============================================================================
 
 ParameterList::Listener::Listener (ParameterList& list,
-                                   std::function< void (Parameter&) >
+                                   std::function<void (Parameter&)>
                                        onParamChange,
-                                   std::function< void (Parameter&, bool) >
+                                   std::function<void (Parameter&, bool)>
                                         onGestureGhange,
                                    bool includeInternalParams)
 {
-    for (auto* base : list.params)
-    {
-        if (includeInternalParams || ! base->isInternal)
-        {
-            auto* param = base->getParam();
+	for (auto* base : list.params)
+	{
+		if (includeInternalParams || ! base->isInternal)
+		{
+			auto* param = base->getParam();
 
-            auto change = [=]
-            {
-                if (onParamChange)
-                    onParamChange (*param);
-                ;
-            };
+			auto change = [=]
+			{
+				if (onParamChange)
+					onParamChange (*param);
+				;
+			};
 
-            auto gesture = [=] (bool starting)
-            {
-                if (onGestureGhange)
-                    onGestureGhange (*param, starting);
-            };
+			auto gesture = [=] (bool starting)
+			{
+				if (onGestureGhange)
+					onGestureGhange (*param, starting);
+			};
 
-            updaters.add (new ParamUpdater (*param, change, gesture));
-        }
-    }
+			updaters.add (new ParamUpdater (*param, change, gesture));
+		}
+	}
 }
 
 }  // namespace lemons::plugin

@@ -5,22 +5,22 @@ namespace lemons::events
 class Broadcaster
 {
 public:
-    struct Reciever
-    {
-        Reciever (Broadcaster& b);
-        virtual ~Reciever();
-        virtual void callback() = 0;
+	struct Reciever
+	{
+		Reciever (Broadcaster& b);
+		virtual ~Reciever();
+		virtual void callback() = 0;
 
-    private:
-        Broadcaster& broadcaster;
-    };
+	private:
+		Broadcaster& broadcaster;
+	};
 
-    void trigger();
+	void trigger();
 
 private:
-    friend Reciever;
+	friend Reciever;
 
-    juce::ListenerList< Reciever > listeners;
+	juce::ListenerList<Reciever> listeners;
 };
 
 }  // namespace lemons::events

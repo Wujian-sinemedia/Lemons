@@ -4,7 +4,7 @@ namespace lemons::gui
 {
 struct ImageComp : juce::ImageComponent
 {
-    ImageComp (const juce::Image& image);
+	ImageComp (const juce::Image& image);
 };
 
 }  // namespace lemons::gui

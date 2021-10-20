@@ -9,19 +9,19 @@ namespace lemons::plugin
     This class inherits dsp::MidiChoppingProcessor but does not implement dsp::MidiChoppingProcessor::renderChunk() -- you should subclass this and implement that function to do your actual processing.
     @see dsp::MidiChoppingProcessor ParameterList
  */
-template < typename SampleType >
-class ParameterProcessor : public dsp::MidiChoppingProcessor< SampleType >
+template <typename SampleType>
+class ParameterProcessor : public dsp::MidiChoppingProcessor<SampleType>
 {
 public:
-    /** Creates a parameter processor.
-        @param listToUse The ParameterList to reference.
-     */
-    ParameterProcessor (ParameterList& listToUse);
+	/** Creates a parameter processor.
+	    @param listToUse The ParameterList to reference.
+	 */
+	ParameterProcessor (ParameterList& listToUse);
 
 private:
-    void handleMidiMessage (const MidiMessage& m) final;
+	void handleMidiMessage (const MidiMessage& m) final;
 
-    ParameterList& list;
+	ParameterList& list;
 };
 
 }  // namespace lemons::plugin

@@ -3,25 +3,25 @@
 
 namespace lemons::dsp
 {
-template < typename SampleType >
-class LambdaSynth : public SynthBase< SampleType >
+template <typename SampleType>
+class LambdaSynth : public SynthBase<SampleType>
 {
 public:
-    using Voice             = SynthVoiceBase< SampleType >;
-    using VoiceCreationFunc = std::function< Voice*() >;
+	using Voice             = SynthVoiceBase<SampleType>;
+	using VoiceCreationFunc = std::function<Voice*()>;
 
-    LambdaSynth (VoiceCreationFunc&& creationFuncToUse)
-        : createVoiceFunc (std::move (creationFuncToUse))
-    {
-    }
+	LambdaSynth (VoiceCreationFunc&& creationFuncToUse)
+	    : createVoiceFunc (std::move (creationFuncToUse))
+	{
+	}
 
 private:
-    Voice* createVoice() final
-    {
-        return createVoiceFunc();
-    }
+	Voice* createVoice() final
+	{
+		return createVoiceFunc();
+	}
 
-    VoiceCreationFunc createVoiceFunc;
+	VoiceCreationFunc createVoiceFunc;
 };
 
 }  // namespace lemons::dsp

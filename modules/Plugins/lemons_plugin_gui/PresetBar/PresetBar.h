@@ -11,16 +11,16 @@ namespace lemons::plugin
 class PresetBar : public juce::Component
 {
 public:
-    PresetBar (StateBase&    stateToUse,
-               StateToggles& toggler,
-               const String& productName,
-               const String& presetFileExtension = ".bvpreset",
-               const String& companyName         = "BenViningMusicSoftware");
+	PresetBar (StateBase&    stateToUse,
+	           StateToggles& toggler,
+	           const String& productName,
+	           const String& presetFileExtension = ".bvpreset",
+	           const String& companyName         = "BenViningMusicSoftware");
 
 private:
-    PresetsLibrary presetLibrary;
+	PresetsLibrary presetLibrary;
 
-    StateToggleButtons toggleButtons;
+	StateToggleButtons toggleButtons;
 };
 
 }  // namespace lemons::plugin

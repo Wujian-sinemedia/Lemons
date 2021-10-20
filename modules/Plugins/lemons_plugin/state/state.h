@@ -5,11 +5,11 @@
 namespace lemons::plugin
 {
 /** Represent the dimensions of a plugin editor using a juce::Point<int>. */
-using Dimensions = juce::Point< int >;
+using Dimensions = juce::Point<int>;
 
 
 /** The default plugin state toggler has 3 states, A/B/C. */
-using StateToggles = serializing::Toggler< 3 >;
+using StateToggles = serializing::Toggler<3>;
 
 
 /** Base class for a plugin's state.
@@ -23,42 +23,42 @@ using StateToggles = serializing::Toggler< 3 >;
 class StateBase : public SerializableData
 {
 public:
-    /** Creates a new plugin state.
-        @param pluginName The name of this plugin.
-        @param paramsToUse The plugin's parameter list.
-        @param customStateDataToUse An optional additional serializable object to save with your plugin's state.
-     */
-    StateBase (const String& pluginName, ParameterList& paramsToUse, SerializableData* customStateDataToUse = nullptr);
+	/** Creates a new plugin state.
+	    @param pluginName The name of this plugin.
+	    @param paramsToUse The plugin's parameter list.
+	    @param customStateDataToUse An optional additional serializable object to save with your plugin's state.
+	 */
+	StateBase (const String& pluginName, ParameterList& paramsToUse, SerializableData* customStateDataToUse = nullptr);
 
 
-    /** Adds the state's parameters to the specified AudioProcessor.
-        @see ParameterList::addParametersTo()
-     */
-    void addTo (juce::AudioProcessor& processor);
+	/** Adds the state's parameters to the specified AudioProcessor.
+	    @see ParameterList::addParametersTo()
+	 */
+	void addTo (juce::AudioProcessor& processor);
 
-    /** Adds all the state's parameters to a dummy internal processor.
-        @see ParameterList::addAllParametersAsInternal()
-     */
-    void addAllAsInternal();
+	/** Adds all the state's parameters to a dummy internal processor.
+	    @see ParameterList::addAllParametersAsInternal()
+	 */
+	void addAllAsInternal();
 
-    /** Returns a reference to the plugin's ParameterList. */
-    [[nodiscard]] ParameterList& getParameters() noexcept;
+	/** Returns a reference to the plugin's ParameterList. */
+	[[nodiscard]] ParameterList& getParameters() noexcept;
 
-    /** The plugin's main bypass parameter. */
-    ToggleParam mainBypass {"Main bypass", false};
+	/** The plugin's main bypass parameter. */
+	ToggleParam mainBypass { "Main bypass", false };
 
-    /** The plugin editor's dimensions. */
-    Dimensions dimensions;
+	/** The plugin editor's dimensions. */
+	Dimensions dimensions;
 
-    /** The plugin's modulation manager. */
-    ModulationManager modManager;
+	/** The plugin's modulation manager. */
+	ModulationManager modManager;
 
 protected:
-    void serialize (TreeReflector& ref) final;
+	void serialize (TreeReflector& ref) final;
 
-    ParameterList& params;
+	ParameterList& params;
 
-    SerializableData* customStateData {nullptr};
+	SerializableData* customStateData { nullptr };
 };
 
 
@@ -85,20 +85,20 @@ protected:
     @tparam ParamListType The type of parameter list to use for your plugin. This type must inherit from ParameterList and must be default-constructable.
     @see CustomState, PluginState, StateBase, ParameterList
  */
-template < typename ParamListType,
-           LEMONS_MUST_INHERIT_FROM (ParamListType, ParameterList) >
+template <typename ParamListType,
+          LEMONS_MUST_INHERIT_FROM (ParamListType, ParameterList)>
 struct State : StateBase
 {
-    /** Creates a new plugin state.
-        @param pluginName The name of this plugin.
-     */
-    State (String pluginName)
-        : StateBase (pluginName, parameters)
-    {
-    }
+	/** Creates a new plugin state.
+	    @param pluginName The name of this plugin.
+	 */
+	State (String pluginName)
+	    : StateBase (pluginName, parameters)
+	{
+	}
 
-    /** The plugin's ParameterList. */
-    ParamListType parameters;
+	/** The plugin's ParameterList. */
+	ParamListType parameters;
 };
 
 
@@ -140,24 +140,24 @@ struct State : StateBase
     @tparam CustomDataType The type of custom serializable object to use for your plugin. This type must inherit from SerializableData and must be default-constructable.
     @see State, PluginState, StateBase, ParameterList
  */
-template < typename ParamListType, typename CustomDataType,
-           LEMONS_MUST_INHERIT_FROM (ParamListType, ParameterList),
-           LEMONS_MUST_INHERIT_FROM (CustomDataType, SerializableData) >
+template <typename ParamListType, typename CustomDataType,
+          LEMONS_MUST_INHERIT_FROM (ParamListType, ParameterList),
+          LEMONS_MUST_INHERIT_FROM (CustomDataType, SerializableData)>
 struct CustomState : StateBase
 {
-    /** Creates a new plugin state.
-        @param pluginName The name of this plugin.
-     */
-    CustomState (String pluginName)
-        : StateBase (pluginName, parameters, &customData)
-    {
-    }
+	/** Creates a new plugin state.
+	    @param pluginName The name of this plugin.
+	 */
+	CustomState (String pluginName)
+	    : StateBase (pluginName, parameters, &customData)
+	{
+	}
 
-    /** The plugin's ParameterList. */
-    ParamListType parameters;
+	/** The plugin's ParameterList. */
+	ParamListType parameters;
 
-    /** The plugin's custom SerializableData object. */
-    CustomDataType customData;
+	/** The plugin's custom SerializableData object. */
+	CustomDataType customData;
 };
 
 

@@ -5,10 +5,10 @@
 #include "all_platforms/rotation.cpp"
 
 #if JUCE_IOS
-#    include "iOS/iOSMotionManager.mm"
+#  include "iOS/iOSMotionManager.mm"
 #elif JUCE_ANDROID
-#    include "Android/androidMotion.cpp"
-#    include "Android/AndroidAutoLock.cpp"
+#  include "Android/androidMotion.cpp"
+#  include "Android/AndroidAutoLock.cpp"
 #endif
 
 
@@ -18,7 +18,7 @@ namespace lemons
 
 void AutoLock::setEnabled (bool shouldBeEnabled)
 {
-    juce::Desktop::getInstance().setScreenSaverEnabled (shouldBeEnabled);
+	juce::Desktop::getInstance().setScreenSaverEnabled (shouldBeEnabled);
 }
 
 #endif /* if ! JUCE_ANDROID */

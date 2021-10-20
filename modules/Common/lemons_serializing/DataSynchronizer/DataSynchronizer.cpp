@@ -8,14 +8,14 @@ DataSynchronizer::DataSynchronizer (SerializableData& dataToUse)
 
 void DataSynchronizer::applyRecievedData (const juce::MemoryBlock& recievedData)
 {
-    serializing::fromBinary (recievedData, managedState);
+	serializing::fromBinary (recievedData, managedState);
 }
 
 void DataSynchronizer::callback()
 {
-    serializing::toBinary (managedState, cachedData);
+	serializing::toBinary (managedState, cachedData);
 
-    sendData (cachedData);
+	sendData (cachedData);
 }
 
 }  // namespace lemons::serializing

@@ -2,27 +2,27 @@
 
 namespace lemons::serializing
 {
-struct StringPairArrayInterface : MapInterface< String, String >
+struct StringPairArrayInterface : MapInterface<String, String>
 {
-    StringPairArrayInterface (juce::StringPairArray& a);
+	StringPairArrayInterface (juce::StringPairArray& a);
 
-    int getSize() final;
+	int getSize() final;
 
-    String getKey (int index) final;
+	String getKey (int index) final;
 
-    String getValue (const String& key) final;
+	String getValue (const String& key) final;
 
-    void setValue (const String& key, const String& value) final;
+	void setValue (const String& key, const String& value) final;
 
 private:
-    juce::StringPairArray& array;
+	juce::StringPairArray& array;
 };
 
 template <>
-std::unique_ptr< MapInterfaceBase > getInterfaceForMap (juce::StringPairArray& array);
+std::unique_ptr<MapInterfaceBase> getInterfaceForMap (juce::StringPairArray& array);
 
 template <>
-struct isMap< juce::StringPairArray > : std::true_type
+struct isMap<juce::StringPairArray> : std::true_type
 {
 };
 

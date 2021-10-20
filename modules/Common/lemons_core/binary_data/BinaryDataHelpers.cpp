@@ -1,5 +1,5 @@
 #if LEMONS_HAS_BINARY_DATA
-#    include "BinaryData.h"
+#  include "BinaryData.h"
 #endif
 
 
@@ -14,26 +14,26 @@ RawData::RawData (const String& fileToFind)
 
 RawData::RawData (const char* fileToFind)
 {
-    data = [&]() -> const char*
-    {
-        using namespace BinaryData;
+	data = [&]() -> const char*
+	{
+		using namespace BinaryData;
 
-        for (int index = 0; index < namedResourceListSize; ++index)
-        {
-            const auto binaryName = namedResourceList[index];
+		for (int index = 0; index < namedResourceListSize; ++index)
+		{
+			const auto binaryName = namedResourceList[index];
 
-            if (getNamedResourceOriginalFilename (binaryName) == fileToFind)
-                return getNamedResource (binaryName, size);
-        }
+			if (getNamedResourceOriginalFilename (binaryName) == fileToFind)
+				return getNamedResource (binaryName, size);
+		}
 
-        return nullptr;
-    }();
+		return nullptr;
+	}();
 }
 
 
 bool RawData::isValid() const
 {
-    return data != nullptr && size > 0;
+	return data != nullptr && size > 0;
 }
 
 

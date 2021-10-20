@@ -18,23 +18,23 @@ namespace lemons
  */
 struct RawData
 {
-    /** Creates a default, invalid RawData object. */
-    RawData() = default;
+	/** Creates a default, invalid RawData object. */
+	RawData() = default;
 
-    /** Creates a RawData object referencing a named resource. */
-    explicit RawData (const String& fileToFind);
+	/** Creates a RawData object referencing a named resource. */
+	explicit RawData (const String& fileToFind);
 
-    /** Creates a RawData object referencing a named resource. */
-    explicit RawData (const char* fileToFind);
+	/** Creates a RawData object referencing a named resource. */
+	explicit RawData (const char* fileToFind);
 
-    /** Returns true if the requested data has been loaded successfully from the binary data target. */
-    bool isValid() const;
+	/** Returns true if the requested data has been loaded successfully from the binary data target. */
+	bool isValid() const;
 
-    /** The raw data. */
-    const char* data = nullptr;
+	/** The raw data. */
+	const char* data = nullptr;
 
-    /** The size of the data, in bytes. */
-    int size {0};
+	/** The size of the data, in bytes. */
+	int size { 0 };
 };
 
 

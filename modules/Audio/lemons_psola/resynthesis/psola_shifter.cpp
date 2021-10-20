@@ -1,92 +1,93 @@
 
 namespace lemons::dsp::psola
 {
-template < typename SampleType >
-Shifter< SampleType >::Shifter (Analyzer< SampleType >& parentAnalyzer)
-    : analyzer (parentAnalyzer), l (analyzer.broadcaster, [this]
-                                    { this->currentSample = 0; })
+template <typename SampleType>
+Shifter<SampleType>::Shifter (Analyzer<SampleType>& parentAnalyzer)
+    : analyzer (parentAnalyzer)
+    , l (analyzer.broadcaster, [this]
+         { this->currentSample = 0; })
 {
-    while (grains.size() < 40)
-        grains.add (new Grain (storage));
+	while (grains.size() < 40)
+		grains.add (new Grain (storage));
 }
 
-template < typename SampleType >
-void Shifter< SampleType >::setPitch (float desiredFrequency, double samplerate)
+template <typename SampleType>
+void Shifter<SampleType>::setPitch (float desiredFrequency, double samplerate)
 {
-    desiredPeriod = math::periodInSamples (samplerate, desiredFrequency);
+	desiredPeriod = math::periodInSamples (samplerate, desiredFrequency);
 }
 
-template < typename SampleType >
-void Shifter< SampleType >::getSamples (AudioBuffer& output, int channel)
+template <typename SampleType>
+void Shifter<SampleType>::getSamples (AudioBuffer& output, int channel)
 {
-    getSamples (output.getWritePointer (channel), output.getNumSamples());
+	getSamples (output.getWritePointer (channel), output.getNumSamples());
 }
 
-template < typename SampleType >
-void Shifter< SampleType >::getSamples (SampleType* outputSamples, int numSamples)
+template <typename SampleType>
+void Shifter<SampleType>::getSamples (SampleType* outputSamples, int numSamples)
 {
-    for (int i = 0; i < numSamples; ++i)
-        outputSamples[i] = getNextSample();
+	for (int i = 0; i < numSamples; ++i)
+		outputSamples[i] = getNextSample();
 }
 
-template < typename SampleType >
-SampleType Shifter< SampleType >::getNextSample()
+template <typename SampleType>
+SampleType Shifter<SampleType>::getNextSample()
 {
-    jassert (desiredPeriod > 0);
+	jassert (desiredPeriod > 0);
 
-    if (samplesToNextGrain == 0 || ! areAnyGrainsActive())
-        startNewGrain();
+	if (samplesToNextGrain == 0 || ! areAnyGrainsActive())
+		startNewGrain();
 
-    auto sample = SampleType (0);
+	auto sample = SampleType (0);
 
-    for (auto* grain : grains)
-        if (grain->isActive())
-            sample += grain->getNextSample();
+	for (auto* grain : grains)
+		if (grain->isActive())
+			sample += grain->getNextSample();
 
-    ++currentSample;
-    --samplesToNextGrain;
+	++currentSample;
+	--samplesToNextGrain;
 
-    return sample;
+	return sample;
 }
 
-template < typename SampleType >
-void Shifter< SampleType >::startNewGrain()
+template <typename SampleType>
+void Shifter<SampleType>::startNewGrain()
 {
-    if (auto* grain = getAvailableGrain())
-    {
-        grain->startNewGrain (storage.getStartOfClosestGrain (currentSample),
-                              analyzer.getGrainLength());
-    }
-    else
-    {
-        jassertfalse;
-    }
+	if (auto* grain = getAvailableGrain())
+	{
+		grain->startNewGrain (storage.getStartOfClosestGrain (currentSample),
+		                      analyzer.getGrainLength());
+	}
+	else
+	{
+		jassertfalse;
+	}
 
-    samplesToNextGrain = desiredPeriod;
+	samplesToNextGrain = desiredPeriod;
 }
 
-template < typename SampleType >
-typename Shifter< SampleType >::Grain* Shifter< SampleType >::getAvailableGrain() const
+template <typename SampleType>
+typename Shifter<SampleType>::Grain* Shifter<SampleType>::getAvailableGrain() const
 {
-    for (auto* grain : grains)
-        if (! grain->isActive())
-            return grain;
+	for (auto* grain : grains)
+		if (! grain->isActive())
+			return grain;
 
-    return nullptr;
+	return nullptr;
 }
 
-template < typename SampleType >
-bool Shifter< SampleType >::areAnyGrainsActive() const
+template <typename SampleType>
+bool Shifter<SampleType>::areAnyGrainsActive() const
 {
-    for (auto* grain : grains)
-        if (grain->isActive())
-            return true;
+	for (auto* grain : grains)
+		if (grain->isActive())
+			return true;
 
-    return false;
+	return false;
 }
 
 
-template class Shifter< float >;
-template class Shifter< double >;
+template class Shifter<float>;
+template class Shifter<double>;
 
 }  // namespace lemons::dsp::psola

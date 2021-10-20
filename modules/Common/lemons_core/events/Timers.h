@@ -4,15 +4,15 @@ namespace lemons::events
 {
 struct TimerCallback : private juce::Timer
 {
-    TimerCallback (std::function< void() > callbackToUse,
-                   int                     rateInMs = 100);
+	TimerCallback (std::function<void()> callbackToUse,
+	               int                   rateInMs = 100);
 
-    virtual ~TimerCallback();
+	virtual ~TimerCallback();
 
 private:
-    void timerCallback() final;
+	void timerCallback() final;
 
-    std::function< void() > callback;
+	std::function<void()> callback;
 };
 
 }  // namespace lemons::events

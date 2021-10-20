@@ -30,18 +30,18 @@ juce::AudioProcessorEditor* BasicProcessorBase::createEditor() { return nullptr;
 
 static inline bool isChannelsetValid (const juce::AudioChannelSet& set)
 {
-    return set != juce::AudioChannelSet::disabled();
+	return set != juce::AudioChannelSet::disabled();
 }
 
 bool BasicProcessorBase::isBusesLayoutSupported (const BusesLayout& layout) const
 {
-    return isChannelsetValid (layout.getMainInputChannelSet()) && isChannelsetValid (layout.getMainOutputChannelSet());
+	return isChannelsetValid (layout.getMainInputChannelSet()) && isChannelsetValid (layout.getMainOutputChannelSet());
 }
 
 void BasicProcessorBase::repaintEditor()
 {
-    if (auto* editor = getActiveEditor())
-        editor->repaint();
+	if (auto* editor = getActiveEditor())
+		editor->repaint();
 }
 
 }  // namespace lemons::dsp

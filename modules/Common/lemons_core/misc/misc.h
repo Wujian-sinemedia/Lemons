@@ -6,9 +6,9 @@ namespace lemons
 {
 
 /** Returns the default initial size for top-level GUIs, used for both plugins and apps. */
-[[nodiscard]] static inline constexpr juce::Point< int > defaultWindowSize() noexcept
+[[nodiscard]] static inline constexpr juce::Point<int> defaultWindowSize() noexcept
 {
-    return {1060, 640};
+	return { 1060, 640 };
 }
 
 /* Returns a unicode sharp symbol.
@@ -47,9 +47,9 @@ int stringToPitch (const String& string);
 
 struct SystemInitializer
 {
-    SystemInitializer();
+	SystemInitializer();
 
-    virtual ~SystemInitializer() = default;
+	virtual ~SystemInitializer() = default;
 };
 
 }  // namespace lemons

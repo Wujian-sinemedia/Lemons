@@ -5,131 +5,131 @@
 
 namespace lemons::dsp
 {
-template < typename SampleType >
+template <typename SampleType>
 class SynthVoiceBase
 {
-    using uint32     = juce::uint32;
-    using ADSR       = juce::ADSR;
-    using ADSRParams = juce::ADSR::Parameters;
+	using uint32     = juce::uint32;
+	using ADSR       = juce::ADSR;
+	using ADSRParams = juce::ADSR::Parameters;
 
 public:
-    SynthVoiceBase (SynthBase< SampleType >* base, double initSamplerate = 44100.0);
+	SynthVoiceBase (SynthBase<SampleType>* base, double initSamplerate = 44100.0);
 
-    virtual ~SynthVoiceBase() = default;
+	virtual ~SynthVoiceBase() = default;
 
-    void prepare (double samplerate, int blocksize);
+	void prepare (double samplerate, int blocksize);
 
-    void renderBlock (AudioBuffer< SampleType >& output);
+	void renderBlock (AudioBuffer<SampleType>& output);
 
-    void bypassedBlock (int numSamples);
+	void bypassedBlock (int numSamples);
 
-    bool isCurrentPedalVoice() const noexcept { return isPedalPitchVoice; }
-    bool isCurrentDescantVoice() const noexcept { return isDescantVoice; }
+	bool isCurrentPedalVoice() const noexcept { return isPedalPitchVoice; }
+	bool isCurrentDescantVoice() const noexcept { return isDescantVoice; }
 
-    int getCurrentMidiPan() const noexcept { return panner.getLastMidiPan(); }
+	int getCurrentMidiPan() const noexcept { return panner.getLastMidiPan(); }
 
-    bool isKeyDown() const noexcept { return keyIsDown; }
+	bool isKeyDown() const noexcept { return keyIsDown; }
 
-    bool wasStartedBefore (const SynthVoiceBase& other) const noexcept { return noteOnTime < other.noteOnTime; }
+	bool wasStartedBefore (const SynthVoiceBase& other) const noexcept { return noteOnTime < other.noteOnTime; }
 
-    bool isPlayingButReleased() const noexcept { return playingButReleased; }
+	bool isPlayingButReleased() const noexcept { return playingButReleased; }
 
-    bool isVoiceActive() const noexcept { return currentlyPlayingNote >= 0; }
+	bool isVoiceActive() const noexcept { return currentlyPlayingNote >= 0; }
 
-    int getCurrentlyPlayingNote() const noexcept { return currentlyPlayingNote; }
+	int getCurrentlyPlayingNote() const noexcept { return currentlyPlayingNote; }
 
-    int getMidiChannel() const { return midiChannel > 0 ? midiChannel : parent->midi.router.getLastMidiChannel(); }
+	int getMidiChannel() const { return midiChannel > 0 ? midiChannel : parent->midi.router.getLastMidiChannel(); }
 
-    void setTargetOutputFrequency (float newFreq);
+	void setTargetOutputFrequency (float newFreq);
 
-    void setPitchGlideTime (double glideTimeSeconds);
-    void togglePitchGlide (bool shouldGlide);
+	void setPitchGlideTime (double glideTimeSeconds);
+	void togglePitchGlide (bool shouldGlide);
 
 protected:
-    friend class SynthBase< SampleType >;
-    friend class synth::AutomatedHarmonyVoice< SampleType >;
-    friend class synth::PanningManager< SampleType >;
-    friend class synth::MidiManager< SampleType >;
+	friend class SynthBase<SampleType>;
+	friend class synth::AutomatedHarmonyVoice<SampleType>;
+	friend class synth::PanningManager<SampleType>;
+	friend class synth::MidiManager<SampleType>;
 
-    /*
-            Called in the subclass to actually generate some audio at the desired frequency.
-            The output buffer sent to this function will contain the number of samples desired for this frame, and your output samples should start at index 0.
-        */
-    virtual void renderPlease (AudioBuffer< SampleType >& output, float desiredFrequency, double currentSamplerate) = 0;
+	/*
+	        Called in the subclass to actually generate some audio at the desired frequency.
+	        The output buffer sent to this function will contain the number of samples desired for this frame, and your output samples should start at index 0.
+	    */
+	virtual void renderPlease (AudioBuffer<SampleType>& output, float desiredFrequency, double currentSamplerate) = 0;
 
-    virtual void prepared (double /*samplerate*/, int /*blocksize*/) { }
+	virtual void prepared (double /*samplerate*/, int /*blocksize*/) { }
 
-    virtual void released() { }
+	virtual void released() { }
 
-    virtual void noteCleared() { }
+	virtual void noteCleared() { }
 
-    virtual void bypassedBlockRecieved (float /*voicesLastOutputFreq*/, double /*currentSamplerate*/, int /*numSamples*/) { }
+	virtual void bypassedBlockRecieved (float /*voicesLastOutputFreq*/, double /*currentSamplerate*/, int /*numSamples*/) { }
 
-    /* called each time the parent recieves a new block in renderVoices(), before any calls to renderPlease() are made. This function may be called even if the voice is not currently active. */
-    virtual void newBlockComing (int /*previousBlocksize*/, int /*upcomingBlocksize*/) { }
+	/* called each time the parent recieves a new block in renderVoices(), before any calls to renderPlease() are made. This function may be called even if the voice is not currently active. */
+	virtual void newBlockComing (int /*previousBlocksize*/, int /*upcomingBlocksize*/) { }
 
-    /*=================================================================================
-         =================================================================================*/
+	/*=================================================================================
+	     =================================================================================*/
 
 private:
-    void renderInternal (int totalNumSamples);
+	void renderInternal (int totalNumSamples);
 
-    void startNote (const int    midiPitch,
-                    const float  velocity,
-                    const uint32 noteOnTimestamp,
-                    const bool   keyboardKeyIsDown = true,
-                    const bool   isPedal           = false,
-                    const bool   isDescant         = false,
-                    const int    midichannel       = -1);
+	void startNote (const int    midiPitch,
+	                const float  velocity,
+	                const uint32 noteOnTimestamp,
+	                const bool   keyboardKeyIsDown = true,
+	                const bool   isPedal           = false,
+	                const bool   isDescant         = false,
+	                const int    midichannel       = -1);
 
-    void stopNote (const float velocity, const bool allowTailOff);
+	void stopNote (const float velocity, const bool allowTailOff);
 
-    void clearCurrentNote();
+	void clearCurrentNote();
 
-    void setKeyDown (bool isNowDown);
+	void setKeyDown (bool isNowDown);
 
-    void setPan (int newPan);
+	void setPan (int newPan);
 
-    void setVelocityMultiplier (const float newMultiplier);
+	void setVelocityMultiplier (const float newMultiplier);
 
-    void softPedalChanged (bool isDown);
+	void softPedalChanged (bool isDown);
 
-    void aftertouchChanged (const int newAftertouchValue);
+	void aftertouchChanged (const int newAftertouchValue);
 
-    void setAdsrParameters (const ADSRParams newParams) { adsr.setParameters (newParams); }
-    void setQuickReleaseParameters (const ADSRParams newParams) { quickRelease.setParameters (newParams); }
+	void setAdsrParameters (const ADSRParams newParams) { adsr.setParameters (newParams); }
+	void setQuickReleaseParameters (const ADSRParams newParams) { quickRelease.setParameters (newParams); }
 
-    bool isVoiceOnRightNow() const;
+	bool isVoiceOnRightNow() const;
 
-    void resetRampedValues();
+	void resetRampedValues();
 
 
-    SynthBase< SampleType >* parent;
+	SynthBase<SampleType>* parent;
 
-    ADSR adsr, quickRelease;
+	ADSR adsr, quickRelease;
 
-    bool keyIsDown {false}, playingButReleased {false}, sustainingFromSostenutoPedal {false}, isQuickFading {false}, pitchGlide {false};
+	bool keyIsDown { false }, playingButReleased { false }, sustainingFromSostenutoPedal { false }, isQuickFading { false }, pitchGlide { false };
 
-    bool isPedalPitchVoice {false}, isDescantVoice {false}, isDoubledByAutomatedVoice {false};
+	bool isPedalPitchVoice { false }, isDescantVoice { false }, isDoubledByAutomatedVoice { false };
 
-    int    currentlyPlayingNote {-1}, currentAftertouch {0}, midiChannel {1};
-    float  lastRecievedVelocity {0};
-    double pitchGlideTimeSecs {0.4};
+	int    currentlyPlayingNote { -1 }, currentAftertouch { 0 }, midiChannel { 1 };
+	float  lastRecievedVelocity { 0 };
+	double pitchGlideTimeSecs { 0.4 };
 
-    uint32 noteOnTime {0};
+	uint32 noteOnTime { 0 };
 
-    ValueSmoother< SampleType > outputFrequency;
+	ValueSmoother<SampleType> outputFrequency;
 
-    FX::MonoToStereoPanner< SampleType > panner;
+	FX::MonoToStereoPanner<SampleType> panner;
 
-    FX::SmoothedGain< SampleType, 1 > midiVelocityGain, aftertouchGain;
+	FX::SmoothedGain<SampleType, 1> midiVelocityGain, aftertouchGain;
 
-    AudioBuffer< SampleType > scratchBuffer, renderingBuffer, stereoBuffer;
+	AudioBuffer<SampleType> scratchBuffer, renderingBuffer, stereoBuffer;
 
-    synth::TimbreMod< SampleType > playingButReleasedMod {parent->playingButReleased};
-    synth::TimbreMod< SampleType > softPedalMod {parent->softPedal};
+	synth::TimbreMod<SampleType> playingButReleasedMod { parent->playingButReleased };
+	synth::TimbreMod<SampleType> softPedalMod { parent->softPedal };
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SynthVoiceBase)
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SynthVoiceBase)
 };
 
 

@@ -6,9 +6,9 @@
 
 namespace lemons::spline
 {
-using Point = juce::Point< float >;
+using Point = juce::Point<float>;
 
-using Points = std::vector< float >;
+using Points = std::vector<float>;
 }  // namespace lemons::spline
 
 #include "Knots.h"

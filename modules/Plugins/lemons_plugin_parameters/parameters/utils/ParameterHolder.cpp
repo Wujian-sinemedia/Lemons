@@ -8,18 +8,18 @@ ParamHolderBase::ParamHolderBase (bool internal) noexcept
 
 Parameter* ParamHolderBase::operator->() const noexcept
 {
-    return getParam();
+	return getParam();
 }
 
 void ParamHolderBase::addTo (juce::AudioProcessor& processor)
 {
-    processor.addParameter (getParam());
-    addedToProcessor = true;
+	processor.addParameter (getParam());
+	addedToProcessor = true;
 }
 
 void ParamHolderBase::serialize (TreeReflector& ref)
 {
-    ref.as (*getParam());
+	ref.as (*getParam());
 }
 
 }  // namespace lemons::plugin

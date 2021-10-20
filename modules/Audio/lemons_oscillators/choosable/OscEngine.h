@@ -15,28 +15,28 @@ namespace lemons::dsp::osc
     @tparam Osctype A template class representing the kind of oscillator you want this engine to use; for example, osc::Sine. This should be un-specialized. This type must inherit from Oscillator.
     @see Oscillator, dsp::Engine
  */
-template < typename SampleType, template < typename T > class Osctype >
-class OscEngine : public dsp::Engine< SampleType >
+template <typename SampleType, template <typename T> class Osctype>
+class OscEngine : public dsp::Engine<SampleType>
 {
 public:
-    using Osc = Osctype< SampleType >;
+	using Osc = Osctype<SampleType>;
 
-    /** Constructs a default oscillator engine. */
-    OscEngine() = default;
+	/** Constructs a default oscillator engine. */
+	OscEngine() = default;
 
-    /** Returns a pointer to the owned Oscillator object. */
-    Osc* operator->();
+	/** Returns a pointer to the owned Oscillator object. */
+	Osc* operator->();
 
-    /** Updates the frequency of the owned oscillator object. */
-    void setFrequency (float freqHz);
+	/** Updates the frequency of the owned oscillator object. */
+	void setFrequency (float freqHz);
 
 private:
-    void renderBlock (const AudioBuffer< SampleType >& input, AudioBuffer< SampleType >& output, MidiBuffer& midiMessages, bool isBypassed) final;
-    void prepared (int blocksize, double samplerate) final;
+	void renderBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages, bool isBypassed) final;
+	void prepared (int blocksize, double samplerate) final;
 
-    Osc osc;
+	Osc osc;
 
-    float frequency {440.f};
+	float frequency { 440.f };
 };
 
 }  // namespace lemons::dsp::osc

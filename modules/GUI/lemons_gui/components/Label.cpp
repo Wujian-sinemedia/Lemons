@@ -8,6 +8,6 @@ Label::Label (const String& textToUse)
 
 void Label::set (const String& newText)
 {
-    setText (newText, juce::NotificationType::dontSendNotification);
+	setText (newText, juce::NotificationType::dontSendNotification);
 }
 }  // namespace lemons::gui
