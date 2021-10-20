@@ -1,7 +1,8 @@
-SELF_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
+MAKE_UTILS_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
 
-include $(SELF_DIR)native/Makefile
-include $(SELF_DIR)basic_settings.make
-include $(SELF_DIR)targets.make
-include $(SELF_DIR)git.make
-include $(SELF_DIR)cmake.make
+include $(MAKE_UTILS_DIR)native/Makefile
+include $(MAKE_UTILS_DIR)basic_settings.make
+include $(MAKE_UTILS_DIR)targets.make
+include $(MAKE_UTILS_DIR)git.make
+include $(MAKE_UTILS_DIR)logs.make
+include $(MAKE_UTILS_DIR)cmake.make
