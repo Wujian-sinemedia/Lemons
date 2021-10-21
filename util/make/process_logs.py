@@ -9,38 +9,50 @@ import argparse
 
 def process_log_file (input_file, output_file, tokenToSearchFor):
 
-	if not tokenToSearchFor:
-		raise Exception("Error - blank token in log post processing!")
+	if not os.path.exists (input_file):
+		raise Exception("Nonexistent input log!")
 		return
 
-	error_lines = []
+	assert tokenToSearchFor
+
+	output_lines = []
 
 	with open (input_file, "r") as f:
 		for line in f:
 			stripped_line = line.strip()
 			if stripped_line:
 				if tokenToSearchFor.capitalize() in stripped_line or tokenToSearchFor.lower() in stripped_line:
-					error_lines.append (stripped_line)
+					output_lines.append (stripped_line)
 
-	num_errors = len(error_lines)
+	num_errors = len(output_lines)
 
-	plural_token = tokenToSearchFor.lower() + "s"
+	plural_token = tokenToSearchFor.lower()
+
+	if num_errors != 1:
+		plural_token += "s"
 
 	num_errors_string = str(num_errors) + " " + plural_token + " found"
+
+	del plural_token
 
 	if num_errors > 0:
 		num_errors_string += ":"
 
 	print ("")
 	print (num_errors_string)
-	for error in error_lines:
-		print (error)
+
+	if num_errors > 1:
+		print ("First error:")
+
+	if num_errors > 0:
+		print (output_lines[0])
+
 	print ("")
 
 	with open (output_file, "w") as f:
 		f.write (num_errors_string)
 		f.write ("")
-		f.write ("\r\n\r\n".join (error_lines))
+		f.write ("\r\n\r\n".join (output_lines))
 
 
 ###############################################################################
