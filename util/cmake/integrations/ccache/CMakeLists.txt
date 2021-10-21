@@ -14,7 +14,6 @@ find_program (CCACHE_PROGRAM ccache
               PATHS $ENV{CPM_SOURCE_CACHE}/ccache)
 
 if (NOT CCACHE_PROGRAM)
-    message (STATUS "Could not enable ccache: could not find program")
     return()
 endif()
 

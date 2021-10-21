@@ -5,7 +5,6 @@ if (NOT CLANG_FORMAT)
 endif()
 
 if (NOT LEMONS_TOPLEVEL_DIR)
-    message (WARNING "LEMONS_TOPLEVEL_DIR must be specified in order to create the ClangFormat target!")
     return()
 endif()
 
