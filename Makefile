@@ -34,7 +34,7 @@ templates: $(TEMPLATES_DIR)/$(BUILD) ## Builds the template example projects
 
 $(TEMPLATES_DIR)/$(BUILD): $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES) $(shell find $(CMAKE_DIR) -type f -name "$(CMAKE_FILE_PATTERNS)")
 	@echo "Configuring cmake..."
-	cd $(TEMPLATES_DIR) && $(CMAKE_CONFIGURE_COMMAND)
+	cd $(TEMPLATES_DIR) && $(CMAKE_CONFIGURE_COMMAND) $(WRITE_CONFIG_LOG)
 
 
 #####  DOCS  #####
