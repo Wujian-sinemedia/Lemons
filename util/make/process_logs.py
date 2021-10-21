@@ -19,7 +19,7 @@ def process_log_file (input_file, output_file, tokenToSearchFor):
 		for line in f:
 			stripped_line = line.strip()
 			if stripped_line:
-				if stripped_line.startswith(tokenToSearchFor.capitalize()) or stripped_line.startswith(tokenToSearchFor.lower()):
+				if tokenToSearchFor.capitalize() in stripped_line or tokenToSearchFor.lower() in stripped_line:
 					error_lines.append (stripped_line)
 
 	num_errors = len(error_lines)
