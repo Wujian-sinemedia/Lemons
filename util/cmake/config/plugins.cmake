@@ -30,7 +30,7 @@ function (_lemons_configure_juce_aax origTarget pagetableFile)
     set_target_properties (${aaxTarget} PROPERTIES OSX_ARCHITECTURES x86_64)
 
     if (pagetableFile)
-        target_compile_definitions (${aaxTarget} PUBLIC JucePlugin_AAXPageTableFile=${pagetableFile})
+        target_compile_definitions (${aaxTarget} PUBLIC JucePlugin_AAXPageTableFile=\"${pagetableFile}\")
 
         # On Windows, pagetable files need a special post-build copy step to be included in the binary correctly
         if (WIN32)
