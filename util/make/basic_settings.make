@@ -12,7 +12,9 @@ BUILD := Builds
 
 SOURCE := Source
 
-TRANSLATION_OUTPUT := needed_translations.txt
+TRANSLATIONS := translations
+
+TRANSLATION_FILE_TEMPLATE := needed_translations.txt
 
 LOGS := logs
 

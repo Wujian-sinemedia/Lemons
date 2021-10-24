@@ -47,7 +47,7 @@ def process_gitignore (default_gitignore, dest_repo):
 		with open (dest_file, "a") as dest:
 			for line in default:
 				if not line in prev_lines:
-					dest.write (line)
+					dest.write ("\n" + line)
 
 
 ###############################################################################

@@ -68,11 +68,12 @@ uth: ## Updates all git submodules to head
 	@echo "Updating git submodules..."
 	$(GIT_UTH)
 
-translations: $(TRANSLATION_OUTPUT) ## Generates a JUCE-style translations file for Lemons
+translations: $(TRANSLATIONS)/$(TRANSLATION_FILE_TEMPLATE) ## Generates a JUCE-style translations file for Lemons
 
-$(TRANSLATION_OUTPUT): $(SCRIPTS_DIR)/generate_translation_file.py $(SOURCE_FILES)
+$(TRANSLATIONS)/$(TRANSLATION_FILE_TEMPLATE): $(SCRIPTS_DIR)/generate_translation_file.py $(SOURCE_FILES)
 	@echo "Generating Lemons translation file..."
-	$(PYTHON) $< $(MODULES) $(TRANSLATION_OUTPUT)
+	@mkdir $(@D)
+	$(PYTHON) $< $(MODULES) $(TRANSLATIONS)/$(TRANSLATION_FILE_TEMPLATE)
 
 #
 
@@ -80,7 +81,7 @@ DEPS_SCRIPT_TEMP_DIR := $(UTIL_DIR)/install_deps
 
 clean: ## Cleans the source tree
 	@echo "Cleaning Lemons..."
-	@$(RM) $(BUILD) $(LOGS) $(TRANSLATION_OUTPUT) .github/docs \
+	@$(RM) $(BUILD) $(LOGS) $(TRANSLATIONS) .github/docs \
 		$(TEMPLATES_DIR)/$(BUILD) $(TEMPLATES_DIR)/deploy $(TEMPLATES_DIR)/$(LOGS) \
 		$(DOXYGEN_BUILD_DIR) $(DOXYGEN_DEPLOY_DIR) \
 		$(DEPS_SCRIPT_TEMP_DIR)/Brewfile $(DEPS_SCRIPT_TEMP_DIR)/Brewfile.lock.json

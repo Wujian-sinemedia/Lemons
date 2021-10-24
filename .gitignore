@@ -10,4 +10,4 @@ templates/Builds
 templates/logs/
 templates/deploy/
 .github/docs
-needed_translations.txt
+translations/
