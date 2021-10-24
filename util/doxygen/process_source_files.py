@@ -83,7 +83,6 @@ def create_module_subgroup (module_name, module_dir, subdir):
     subgroup_definition.append ("    @{")
     subgroup_definition.append ("*/")
 
-    # put this subdir's contents into appropriate doxygen subgroups
     for dirpath, dirnames, filenames in os.walk (os.path.join (module_dir, subdir)):
         for filename in filenames:
             add_doxygen_group (os.path.join (dirpath, filename), subgroup_name)
@@ -130,7 +129,6 @@ def process_juce_module (category_name, module_name, module_dir):
     module_definiton.append ("    @{")
     module_definiton.append ("*/")
 
-    # put the module's contents into appropriate doxygen subgroups
     for item in os.listdir (module_dir):
         if os.path.isdir (os.path.join (module_dir, item)):
             module_definiton.append ("")

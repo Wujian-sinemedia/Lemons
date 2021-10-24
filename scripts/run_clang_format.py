@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import os
-import argparse
+from argparse import ArgumentParser
 
 
 def process_dir (dir_path):
@@ -20,7 +20,7 @@ def process_dir (dir_path):
 
 if __name__ == "__main__":
 
-	parser = argparse.ArgumentParser()
+	parser = ArgumentParser()
 	parser.add_argument ("directory", help="the directory to search for source files")
 	args = parser.parse_args()
 
