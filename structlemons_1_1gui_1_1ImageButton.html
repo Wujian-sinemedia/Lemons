@@ -75,6 +75,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A simple wrapper around juce::ImageButton that allows you to specify a lambda that will be called when the button is clicked.  
+ <a href="structlemons_1_1gui_1_1ImageButton.html#details">More...</a></p>
+
 <p>Inherits ImageButton.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -82,7 +85,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afccf21b8680b9849f267813470769a5a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1gui_1_1ImageButton.html#afccf21b8680b9849f267813470769a5a">ImageButton</a> (const juce::Image &amp;image, std::function&lt; void()&gt; whenClicked, float opacityRange=0.2f)</td></tr>
 <tr class="separator:afccf21b8680b9849f267813470769a5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A simple wrapper around juce::ImageButton that allows you to specify a lambda that will be called when the button is clicked. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">image</td><td>The image to use. </td></tr>
+    <tr><td class="paramname">whenClicked</td><td>Lambda function that will be called when the button is clicked. </td></tr>
+    <tr><td class="paramname">opacityRange</td><td>The difference in the image's opacity between when the mouse is pressed and when it's not </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="afccf21b8680b9849f267813470769a5a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afccf21b8680b9849f267813470769a5a">&#9670;&nbsp;</a></span>ImageButton()</h2>
 
@@ -123,7 +136,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 24 2021 18:13:48 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 24 2021 19:14:45 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

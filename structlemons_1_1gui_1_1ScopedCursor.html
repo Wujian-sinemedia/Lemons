@@ -74,23 +74,23 @@ $(function() {
 <div class="title">lemons::gui::ScopedCursor Struct Reference<div class="ingroups"><a class="el" href="group__GUI.html">GUI</a> &raquo; <a class="el" href="group__lemons__gui.html">lemons_gui</a> &raquo; <a class="el" href="group__utilities.html">utilities</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
-<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::gui::ScopedCursor:</div>
-<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structlemons_1_1gui_1_1ScopedCursor__inherit__graph.svg" width="235" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+
+<p>An RAII mechanism for temporarily changing the mouse cursor.  
+ <a href="structlemons_1_1gui_1_1ScopedCursor.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af7dae67691e4ebeb15049556e1b2309f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1gui_1_1ScopedCursor.html#af7dae67691e4ebeb15049556e1b2309f">ScopedCursor</a> (const juce::MouseCursor &amp;cursor, juce::MouseCursor cursorToResetTo=juce::MouseCursor::NormalCursor)</td></tr>
+<tr class="memdesc:af7dae67691e4ebeb15049556e1b2309f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the mouse cursor.  <a href="structlemons_1_1gui_1_1ScopedCursor.html#af7dae67691e4ebeb15049556e1b2309f">More...</a><br /></td></tr>
 <tr class="separator:af7dae67691e4ebeb15049556e1b2309f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7095a2727015f6dd128c0ec0ef2cb227"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1gui_1_1ScopedCursor.html#a7095a2727015f6dd128c0ec0ef2cb227">~ScopedCursor</a> ()</td></tr>
-<tr class="separator:a7095a2727015f6dd128c0ec0ef2cb227"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acce4fe5f5f21b1f59b34fabdbb172362"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1gui_1_1ScopedCursor.html#acce4fe5f5f21b1f59b34fabdbb172362">~ScopedCursor</a> ()</td></tr>
+<tr class="memdesc:acce4fe5f5f21b1f59b34fabdbb172362"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the mouse cursor to the reset cursor specified when this object was created.  <a href="structlemons_1_1gui_1_1ScopedCursor.html#acce4fe5f5f21b1f59b34fabdbb172362">More...</a><br /></td></tr>
+<tr class="separator:acce4fe5f5f21b1f59b34fabdbb172362"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>An RAII mechanism for temporarily changing the mouse cursor. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1gui_1_1ScopedWaitCursor.html" title="An RAII mechanism for showing the system&#39;s default &quot;wait&quot; or &quot;busy&quot; cursor, then resetting to the nor...">ScopedWaitCursor</a> </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af7dae67691e4ebeb15049556e1b2309f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af7dae67691e4ebeb15049556e1b2309f">&#9670;&nbsp;</a></span>ScopedCursor()</h2>
 
@@ -117,40 +117,43 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Changes the mouse cursor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cursor</td><td>The new cursor to display for this object's lifetime. </td></tr>
+    <tr><td class="paramname">cursorToResetTo</td><td>The cursor to display when this object is destroyed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="a7095a2727015f6dd128c0ec0ef2cb227"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7095a2727015f6dd128c0ec0ef2cb227">&#9670;&nbsp;</a></span>~ScopedCursor()</h2>
+<a id="acce4fe5f5f21b1f59b34fabdbb172362"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acce4fe5f5f21b1f59b34fabdbb172362">&#9670;&nbsp;</a></span>~ScopedCursor()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual lemons::gui::ScopedCursor::~ScopedCursor </td>
+          <td class="memname">lemons::gui::ScopedCursor::~ScopedCursor </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Resets the mouse cursor to the reset cursor specified when this object was created. </p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="GuiUtils_8h.html">GuiUtils.h</a></li>
+<li><a class="el" href="cursor_8h.html">cursor.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 24 2021 18:13:48 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 24 2021 19:14:45 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

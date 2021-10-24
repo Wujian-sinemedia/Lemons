@@ -253,6 +253,15 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>cursor.h</name>
+    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_gui/utilities/</path>
+    <filename>cursor_8h.html</filename>
+    <class kind="struct">lemons::gui::ScopedCursor</class>
+    <class kind="struct">lemons::gui::ScopedWaitCursor</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::gui</namespace>
+  </compound>
+  <compound kind="file">
     <name>DatabasePresetsManager.h</name>
     <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_presets/preset_library/sub_libraries/</path>
     <filename>DatabasePresetsManager_8h.html</filename>
@@ -462,8 +471,6 @@
     <name>GuiUtils.h</name>
     <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_gui/utilities/</path>
     <filename>GuiUtils_8h.html</filename>
-    <class kind="struct">lemons::gui::ScopedCursor</class>
-    <class kind="struct">lemons::gui::ScopedWaitCursor</class>
     <namespace>lemons</namespace>
     <namespace>lemons::gui</namespace>
     <member kind="function">
@@ -480,14 +487,6 @@
       <anchor>ac374f72bc68b6558f9653ad08970d903</anchor>
       <arglist>(juce::Component &amp;component, const juce::Rectangle&lt; float &gt; &amp;boundsRatio)</arglist>
     </member>
-  </compound>
-  <compound kind="file">
-    <name>ImageComp.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_gui/components/</path>
-    <filename>ImageComp_8h.html</filename>
-    <class kind="struct">lemons::gui::ImageComp</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::gui</namespace>
   </compound>
   <compound kind="file">
     <name>Interpolation.h</name>
@@ -7460,17 +7459,6 @@
       <anchorfile>structlemons_1_1gui_1_1ImageButton.html</anchorfile>
       <anchor>afccf21b8680b9849f267813470769a5a</anchor>
       <arglist>(const juce::Image &amp;image, std::function&lt; void()&gt; whenClicked, float opacityRange=0.2f)</arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
-    <name>lemons::gui::ImageComp</name>
-    <filename>structlemons_1_1gui_1_1ImageComp.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>ImageComp</name>
-      <anchorfile>structlemons_1_1gui_1_1ImageComp.html</anchorfile>
-      <anchor>a6fef844006de9556d7f101d068e31d6e</anchor>
-      <arglist>(const juce::Image &amp;image)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -16425,11 +16413,11 @@
       <anchor>af7dae67691e4ebeb15049556e1b2309f</anchor>
       <arglist>(const juce::MouseCursor &amp;cursor, juce::MouseCursor cursorToResetTo=juce::MouseCursor::NormalCursor)</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
+    <member kind="function">
+      <type></type>
       <name>~ScopedCursor</name>
       <anchorfile>structlemons_1_1gui_1_1ScopedCursor.html</anchorfile>
-      <anchor>a7095a2727015f6dd128c0ec0ef2cb227</anchor>
+      <anchor>acce4fe5f5f21b1f59b34fabdbb172362</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
@@ -16454,12 +16442,18 @@
   <compound kind="struct">
     <name>lemons::gui::ScopedWaitCursor</name>
     <filename>structlemons_1_1gui_1_1ScopedWaitCursor.html</filename>
-    <base>lemons::gui::ScopedCursor</base>
     <member kind="function">
       <type></type>
       <name>ScopedWaitCursor</name>
       <anchorfile>structlemons_1_1gui_1_1ScopedWaitCursor.html</anchorfile>
       <anchor>a7c14d3032c6540c445b95d5be76ab76a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~ScopedWaitCursor</name>
+      <anchorfile>structlemons_1_1gui_1_1ScopedWaitCursor.html</anchorfile>
+      <anchor>a8a9890039c1e747c97028bf7c0015f3f</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
@@ -20254,8 +20248,8 @@
       <type></type>
       <name>ToggleTextButton</name>
       <anchorfile>structlemons_1_1gui_1_1ToggleTextButton.html</anchorfile>
-      <anchor>a94408f0fe9221855769596507a1d5d35</anchor>
-      <arglist>(const String &amp;buttonText, std::function&lt; void(bool)&gt; on_click)</arglist>
+      <anchor>a8712e743e43258f9d1e83feb226b13f9</anchor>
+      <arglist>(const String &amp;buttonText, std::function&lt; void(bool)&gt; whenClicked)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -22162,7 +22156,6 @@
     <filename>namespacelemons_1_1gui.html</filename>
     <class kind="class">lemons::gui::FloatSlider</class>
     <class kind="struct">lemons::gui::ImageButton</class>
-    <class kind="struct">lemons::gui::ImageComp</class>
     <class kind="class">lemons::gui::IntSlider</class>
     <class kind="struct">lemons::gui::Label</class>
     <class kind="class">lemons::gui::Popup</class>
@@ -23540,7 +23533,6 @@
     <namespace>lemons</namespace>
     <namespace>lemons::gui</namespace>
     <class kind="struct">lemons::gui::ImageButton</class>
-    <class kind="struct">lemons::gui::ImageComp</class>
     <class kind="struct">lemons::gui::Label</class>
     <class kind="class">lemons::gui::Popup</class>
     <class kind="class">lemons::gui::PopupComponent</class>

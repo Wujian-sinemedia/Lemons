@@ -1,5 +1,5 @@
 <map id="lemons::gui::ToggleButton" name="lemons::gui::ToggleButton">
 <area shape="rect" id="node1" title="A stateful on/off button attached to a boolean plugin parameter." alt="" coords="19,155,210,181"/>
-<area shape="rect" id="node2" href="$structlemons_1_1gui_1_1ToggleTextButton.html" title=" " alt="" coords="5,80,224,107"/>
-<area shape="rect" id="node3" href="$structlemons_1_1gui_1_1TextButton.html" title=" " alt="" coords="27,5,203,32"/>
+<area shape="rect" id="node2" href="$structlemons_1_1gui_1_1ToggleTextButton.html" title="A simple wrapper around TextButton that functions as an on/off toggle and allows you to specify a lam..." alt="" coords="5,80,224,107"/>
+<area shape="rect" id="node3" href="$structlemons_1_1gui_1_1TextButton.html" title="A simple wrapper around juce::TextButton that allows you to specify a lambda that will be called when..." alt="" coords="27,5,203,32"/>
 </map>
