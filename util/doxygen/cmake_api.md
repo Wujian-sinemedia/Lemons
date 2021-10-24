@@ -117,3 +117,6 @@ Builds all formats of all plugin targets.
 
 ### ALL_APPS
 Builds all app targets, including any Standalone formats of plugin targets.
+
+### ClangFormat
+If you specify the LEMONS_TOPLEVEL_DIR variable, then this custom target will execute a Python script that runs clang-format recursively over all directories containing C++ files in your source tree.
