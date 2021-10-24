@@ -9,7 +9,7 @@ var searchData=
   ['get_236',['get',['../classlemons_1_1plugin_1_1TypedParameter.html#a9333a81bf01432310fc49d52816c6a86',1,'lemons::plugin::TypedParameter::get()'],['../classlemons_1_1plugin_1_1ParameterHolder.html#ae04296b7f4ca2aeffb2af85292f22feb',1,'lemons::plugin::ParameterHolder::get()']]],
   ['getacceleration_237',['getAcceleration',['../classlemons_1_1MotionManagerInterface.html#a72e64513f7e55b632313e597745eedbc',1,'lemons::MotionManagerInterface']]],
   ['getadjustedbounds_238',['getAdjustedBounds',['../classlemons_1_1spline_1_1Editor.html#a1ff2b7d7e8473c42ae97b572936854b7',1,'lemons::spline::Editor']]],
-  ['getadjustedmidipitch_239',['getAdjustedMidiPitch',['../classlemons_1_1midi_1_1PitchBendTracker.html#adbf0cd75ee5ed788ee9083a98e4309b1',1,'lemons::midi::PitchBendTracker']]],
+  ['getadjustedmidipitch_239',['getAdjustedMidiPitch',['../classlemons_1_1midi_1_1PitchBendTracker.html#a1131838d5035bd2e127b092c64519f33',1,'lemons::midi::PitchBendTracker']]],
   ['getaliasbuffer_240',['getAliasBuffer',['../namespacelemons_1_1dsp_1_1buffers.html#af08caeb8ac174b35a1cc6d32edda5d51',1,'lemons::dsp::buffers']]],
   ['getapplicationname_241',['getApplicationName',['../classlemons_1_1GuiApp.html#ae1f7bb5fa912591541efd6165176676c',1,'lemons::GuiApp']]],
   ['getapplicationversion_242',['getApplicationVersion',['../classlemons_1_1GuiApp.html#a0c62a2acd8d597acd329726feb5694b2',1,'lemons::GuiApp']]],

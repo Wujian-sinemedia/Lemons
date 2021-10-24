@@ -777,7 +777,7 @@
   </compound>
   <compound kind="file">
     <name>MidiChoppingProcessor.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_midi/processors/MidiChoppingProcessor/</path>
+    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_midi/processors/</path>
     <filename>MidiChoppingProcessor_8h.html</filename>
     <class kind="class">lemons::dsp::MidiChoppingProcessor</class>
     <namespace>lemons</namespace>
@@ -785,7 +785,7 @@
   </compound>
   <compound kind="file">
     <name>MidiFIFO.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_midi/MidiUtilities/</path>
+    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_midi/utilities/</path>
     <filename>MidiFIFO_8h.html</filename>
     <class kind="class">lemons::midi::MidiFIFO</class>
     <namespace>lemons</namespace>
@@ -793,7 +793,7 @@
   </compound>
   <compound kind="file">
     <name>MidiKeyboardState.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_midi/MidiUtilities/</path>
+    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_midi/utilities/</path>
     <filename>MidiKeyboardState_8h.html</filename>
     <class kind="class">lemons::midi::MidiKeyboardState</class>
     <namespace>lemons</namespace>
@@ -820,9 +820,8 @@
   </compound>
   <compound kind="file">
     <name>MidiUtilities.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_midi/MidiUtilities/</path>
+    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_midi/utilities/</path>
     <filename>MidiUtilities_8h.html</filename>
-    <class kind="struct">lemons::midi::VelocityHelper</class>
     <namespace>lemons</namespace>
     <namespace>lemons::midi</namespace>
     <member kind="function">
@@ -1196,25 +1195,11 @@
   </compound>
   <compound kind="file">
     <name>PitchbendTracker.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_midi/MidiUtilities/</path>
+    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_midi/utilities/</path>
     <filename>PitchbendTracker_8h.html</filename>
     <class kind="class">lemons::midi::PitchBendTracker</class>
     <namespace>lemons</namespace>
     <namespace>lemons::midi</namespace>
-  </compound>
-  <compound kind="file">
-    <name>PitchConverter.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_midi/PitchConverter/</path>
-    <filename>PitchConverter_8h.html</filename>
-    <namespace>lemons</namespace>
-    <namespace>lemons::midi</namespace>
-    <member kind="typedef">
-      <type>MTSESP::Client</type>
-      <name>PitchConverter</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>a11931a5dc733747fb81e3b49a0c8f37c</anchor>
-      <arglist></arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>PitchCorrector.h</name>
@@ -1236,7 +1221,7 @@
   </compound>
   <compound kind="file">
     <name>PitchPipeline.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_midi/MidiUtilities/</path>
+    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_midi/utilities/</path>
     <filename>PitchPipeline_8h.html</filename>
     <class kind="struct">lemons::midi::PitchPipeline</class>
     <namespace>lemons</namespace>
@@ -2336,6 +2321,14 @@
       <anchor>a362cf31bf20dc4e734523e79f966b0a4</anchor>
       <arglist>(Type *vecA, const Type *vecB, int count)</arglist>
     </member>
+  </compound>
+  <compound kind="file">
+    <name>VelocityHelper.h</name>
+    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_midi/utilities/</path>
+    <filename>VelocityHelper_8h.html</filename>
+    <class kind="struct">lemons::midi::VelocityHelper</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::midi</namespace>
   </compound>
   <compound kind="file">
     <name>Version.h</name>
@@ -10133,13 +10126,6 @@
       <arglist>(int maxNumMessages=512)</arglist>
     </member>
     <member kind="function">
-      <type></type>
-      <name>~MidiFIFO</name>
-      <anchorfile>classlemons_1_1midi_1_1MidiFIFO.html</anchorfile>
-      <anchor>abef9e5e0fea25761f968209ce1482c47</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
       <type>void</type>
       <name>clear</name>
       <anchorfile>classlemons_1_1midi_1_1MidiFIFO.html</anchorfile>
@@ -15288,8 +15274,8 @@
       <type>float</type>
       <name>getAdjustedMidiPitch</name>
       <anchorfile>classlemons_1_1midi_1_1PitchBendTracker.html</anchorfile>
-      <anchor>adbf0cd75ee5ed788ee9083a98e4309b1</anchor>
-      <arglist>(NoteType recievedMidiPitch) const</arglist>
+      <anchor>a1131838d5035bd2e127b092c64519f33</anchor>
+      <arglist>(NoteType midiPitch) const</arglist>
     </member>
     <member kind="function">
       <type>int</type>
@@ -15316,8 +15302,8 @@
       <type>void</type>
       <name>newPitchbendRecieved</name>
       <anchorfile>classlemons_1_1midi_1_1PitchBendTracker.html</anchorfile>
-      <anchor>a2efca8d2b19d2214351dc0f0e80f223a</anchor>
-      <arglist>(const int newPitchbend)</arglist>
+      <anchor>a209a730f6d0c397bb086da6e0b216312</anchor>
+      <arglist>(int newPitchbend) noexcept</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -15564,10 +15550,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>PitchConverter</type>
+      <type>MTSESP::Client</type>
       <name>tuning</name>
       <anchorfile>structlemons_1_1midi_1_1PitchPipeline.html</anchorfile>
-      <anchor>a2c70e7d052e926ec3ae517d192039e18</anchor>
+      <anchor>a9e9f6441d3a5c06234dd0a19f96cbeaf</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -22243,13 +22229,6 @@
     <class kind="class">lemons::midi::PitchBendTracker</class>
     <class kind="struct">lemons::midi::PitchPipeline</class>
     <class kind="struct">lemons::midi::VelocityHelper</class>
-    <member kind="typedef">
-      <type>MTSESP::Client</type>
-      <name>PitchConverter</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>a11931a5dc733747fb81e3b49a0c8f37c</anchor>
-      <arglist></arglist>
-    </member>
     <member kind="function">
       <type>void</type>
       <name>copyRangeOfMidiBuffer</name>
@@ -23262,26 +23241,6 @@
     <filename>group__GuiApp.html</filename>
   </compound>
   <compound kind="group">
-    <name>MidiChoppingProcessor</name>
-    <title>MidiChoppingProcessor</title>
-    <filename>group__MidiChoppingProcessor.html</filename>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <class kind="class">lemons::dsp::MidiChoppingProcessor</class>
-  </compound>
-  <compound kind="group">
-    <name>MidiUtilities</name>
-    <title>MidiUtilities</title>
-    <filename>group__MidiUtilities.html</filename>
-    <namespace>lemons</namespace>
-    <namespace>lemons::midi</namespace>
-    <class kind="class">lemons::midi::MidiFIFO</class>
-    <class kind="class">lemons::midi::MidiKeyboardState</class>
-    <class kind="class">lemons::midi::PitchBendTracker</class>
-    <class kind="struct">lemons::midi::PitchPipeline</class>
-    <class kind="struct">lemons::midi::VelocityHelper</class>
-  </compound>
-  <compound kind="group">
     <name>ModulationManager</name>
     <title>ModulationManager</title>
     <filename>group__ModulationManager.html</filename>
@@ -23289,13 +23248,6 @@
     <namespace>lemons::plugin</namespace>
     <class kind="struct">lemons::plugin::LFO</class>
     <class kind="class">lemons::plugin::ModulationManager</class>
-  </compound>
-  <compound kind="group">
-    <name>PitchConverter</name>
-    <title>PitchConverter</title>
-    <filename>group__PitchConverter.html</filename>
-    <namespace>lemons</namespace>
-    <namespace>lemons::midi</namespace>
   </compound>
   <compound kind="group">
     <name>PitchCorrector</name>
@@ -23701,9 +23653,8 @@
     <name>lemons_midi</name>
     <title>lemons_midi</title>
     <filename>group__lemons__midi.html</filename>
-    <subgroup>MidiUtilities</subgroup>
-    <subgroup>PitchConverter</subgroup>
     <subgroup>processors</subgroup>
+    <subgroup>utilities</subgroup>
   </compound>
   <compound kind="group">
     <name>lemons_mobile_utils</name>
@@ -23912,7 +23863,6 @@
     <name>processors</name>
     <title>processors</title>
     <filename>group__processors.html</filename>
-    <subgroup>MidiChoppingProcessor</subgroup>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::midi</namespace>
@@ -24022,8 +23972,14 @@
     <filename>group__utilities.html</filename>
     <namespace>lemons</namespace>
     <namespace>lemons::gui</namespace>
+    <namespace>lemons::midi</namespace>
+    <class kind="class">lemons::midi::MidiFIFO</class>
+    <class kind="class">lemons::midi::MidiKeyboardState</class>
+    <class kind="class">lemons::midi::PitchBendTracker</class>
+    <class kind="struct">lemons::midi::PitchPipeline</class>
     <class kind="struct">lemons::gui::ScopedCursor</class>
     <class kind="struct">lemons::gui::ScopedWaitCursor</class>
+    <class kind="struct">lemons::midi::VelocityHelper</class>
   </compound>
   <compound kind="group">
     <name>utils</name>
