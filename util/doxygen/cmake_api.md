@@ -8,7 +8,10 @@
 Defines the C++ language standard used for all targets configured using the Lemons CMake API. Defaults to 20.
 
 ### LEMONS_AAX_SDK_PATH
-If you are an Avid developer, you can set this variable to the absolute path of the AAX SDK repo root to enable using the AAX plugin format. If this is set, the Lemons CMake scripts will attempt to build the AAX SDK when you add the Lemons package (note that this is currently only supported with the XCode and MSVC generators).
+If you are an Avid developer, you can set this variable to the absolute path of the AAX SDK root to enable using the AAX plugin format. If this is set, the Lemons CMake scripts will attempt to build the AAX SDK when you add the Lemons package -- note that this requires xcodebuild on Mac or msbuild on Windows.
+
+### LEMONS_VST2_SDK_PATH
+If you have access to the VST2 SDK, you can define this variable to the absolute path of the VST2 SDK root to enable compiling VST2 plugins.
 
 ### LEMONS_SANITIZERS_TO_ENABLE
 An optional list of sanitizers to enable. Currently only supported with GNU, Clang, or MSVC compilers.
@@ -27,8 +30,8 @@ The sanitizers "address", "memory" and "thread" are mutually exclusive.  You can
 ### LEMONS_USE_LV2_JUCE
 If enabled, uses [the fork of JUCE that enables compiling to LV2 on Linux](https://github.com/lv2-porting-project/JUCE/tree/lv2). Note that this option changes nothing if you're not on Linux.
 
-### LEMONS_COPY_TO_DEPLOY_FOLDER 
-If enabled, copies each product's binaries to /Builds/deploy/{ProductName}. Convenient for CI.
+### LEMONS_TOPLEVEL_DIR
+Set this to the topmost directory of your entire project's source tree. This is used for things like configuring clang-format integration, etc.
 
 ---
 
@@ -62,12 +65,12 @@ Takes a single unnamed argument, which is the absolute path to the parent direct
 
 Example usage:
 ```
-# Assuming the folder structure is:
-# <repo_root>
-#     source
-#         modules 
-#             my_module_1
-#             my_module_2 ...
+Assuming the folder structure is:
+<repo_root>
+    source
+        modules 
+            my_module_1
+            my_module_2 ...
 
 # You can simply do this from your project's root dir:
 lemons_add_juce_modules (${CMAKE_CURRENT_LIST_DIR}/source/modules)

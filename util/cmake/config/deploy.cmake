@@ -1,14 +1,4 @@
-option (LEMONS_COPY_TO_DEPLOY_FOLDER "Copies each product's install components to /Builds/deploy/<ProductName>" ON)
-
-#
-
 function (_lemons_configure_product_deploy target isPlugin)
-
-    if (NOT LEMONS_COPY_TO_DEPLOY_FOLDER)
-        return()
-    endif()
-
-    #
 
     function (_lemons_configure_target_deploy target productName)
 
