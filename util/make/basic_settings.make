@@ -10,6 +10,8 @@ CACHE := Cache
 
 BUILD := Builds
 
+SOURCE := Source
+
 TRANSLATION_OUTPUT := needed_translations.txt
 
 LOGS := logs
