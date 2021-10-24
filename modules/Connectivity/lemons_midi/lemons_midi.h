@@ -16,15 +16,14 @@
 -------------------------------------------------------------------------------------*/
 
 
-#include "MidiUtilities/MidiFIFO.h"
-#include "MidiUtilities/MidiUtilities.h"
-#include "MidiUtilities/PitchbendTracker.h"
+#include "utilities/MidiFIFO.h"
+#include "utilities/MidiUtilities.h"
+#include "utilities/VelocityHelper.h"
+#include "utilities/PitchbendTracker.h"
 
 #include "processors/MidiProcessor.h"
-#include "processors/MidiChoppingProcessor/MidiChoppingProcessor.h"
+#include "processors/MidiChoppingProcessor.h"
 
-#include "PitchConverter/PitchConverter.h"
+#include "utilities/PitchPipeline.h"
 
-#include "MidiUtilities/PitchPipeline.h"
-
-#include "MidiUtilities/MidiKeyboardState.h"
+#include "utilities/MidiKeyboardState.h"

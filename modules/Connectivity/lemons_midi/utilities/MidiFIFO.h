@@ -9,8 +9,6 @@ class MidiFIFO
 public:
 	MidiFIFO (int maxNumMessages = 512);
 
-	~MidiFIFO() = default;
-
 	void setSize (int maxNumMessages);
 
 	void clear();
