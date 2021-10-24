@@ -21,15 +21,14 @@ def get_translate_tokens():
 	tokens = []
 
 	for version in ["translate", "juce::translate", "TRANS"]:
-		for token in get_tokens_for_symbol (version):
-			tokens.append (token)
+		tokens += get_tokens_for_symbol (version)
 
 	return tokens
 
 
 ###############################################################################
 
-# Scans a single line of source code for calls to TRANS()
+# Scans a single line of source code for calls to translation functions
 
 def scan_line_for_token (text, token):
 	needed_translations = []
@@ -134,6 +133,9 @@ def remove_duplicates (orig_list):
 
 if __name__ == "__main__":
 
+	script_dir = os.path.abspath (os.path.dirname (__file__))
+	lemons_root = os.path.abspath (os.path.dirname (script_dir))
+
 	parser = ArgumentParser()
 	parser.add_argument ("source_dir", help="the directory to search for source files")
 	parser.add_argument ("output_file", help="the file to write the output to")
@@ -146,7 +148,12 @@ if __name__ == "__main__":
 	if not os.path.isdir (args.source_dir):
 		raise Exception("Non existent source directory!")
 
-	needed_translations = remove_duplicates (scan_directory (args.source_dir))
+	needed_translations = scan_directory (args.source_dir)
+	
+	if not args.source_dir == "modules":
+		needed_translations += scan_directory (os.path.join (lemons_root, "modules"))
+
+	needed_translations = remove_duplicates (needed_translations)
 	needed_translations.sort()
 
 	with open (args.output_file, "w") as f:
