@@ -135,6 +135,7 @@ if __name__ == "__main__":
 
 	script_dir = os.path.abspath (os.path.dirname (__file__))
 	lemons_root = os.path.abspath (os.path.dirname (script_dir))
+	lemons_modules = os.path.join (lemons_root, "modules")
 
 	parser = ArgumentParser()
 	parser.add_argument ("source_dir", help="the directory to search for source files")
@@ -150,8 +151,8 @@ if __name__ == "__main__":
 
 	needed_translations = scan_directory (args.source_dir)
 	
-	if not args.source_dir == "modules":
-		needed_translations += scan_directory (os.path.join (lemons_root, "modules"))
+	if args.source_dir != lemons_modules and args.source_dir != lemons_root:
+		needed_translations += scan_directory (lemons_modules)
 
 	needed_translations = remove_duplicates (needed_translations)
 	needed_translations.sort()
