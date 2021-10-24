@@ -56,6 +56,10 @@ $(MODULE_DOC_OUTPUT): $(DOXYGEN_DIR)/$(DOC_SCRIPT_NAME) $(SOURCE_FILES)
 
 ###  UTILITIES  ###
 
+propogate: $(SCRIPTS_DIR)/propogate_config_files.py ## Propogates all configuration files to the template repos
+	@echo "Propogating configuration files to template repos..."
+	@for dir in $(TEMPLATE_REPOS) ; do $(PYTHON) $< $$dir ; done
+
 format: $(SCRIPTS_DIR)/run_clang_format.py $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES) .clang-format ## Runs clang-format
 	@echo "Running clang-format..."
 	@for dir in $(MODULES) $(TEMPLATE_REPOS) ; do $(PYTHON) $< $$dir ; done
@@ -69,6 +73,8 @@ translations: $(TRANSLATION_OUTPUT) ## Generates a JUCE-style translations file 
 $(TRANSLATION_OUTPUT): $(SCRIPTS_DIR)/generate_translation_file.py $(SOURCE_FILES)
 	@echo "Generating Lemons translation file..."
 	$(PYTHON) $< $(MODULES) $(TRANSLATION_OUTPUT)
+
+#
 
 DEPS_SCRIPT_TEMP_DIR := $(UTIL_DIR)/install_deps
 
