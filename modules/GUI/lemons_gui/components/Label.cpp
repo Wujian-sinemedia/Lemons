@@ -2,12 +2,12 @@
 namespace lemons::gui
 {
 Label::Label (const String& textToUse)
-    : juce::Label (textToUse, textToUse)
+    : juce::Label (TRANS (textToUse), TRANS (textToUse))
 {
 }
 
 void Label::set (const String& newText)
 {
-	setText (newText, juce::NotificationType::dontSendNotification);
+	setText (TRANS (newText), juce::NotificationType::dontSendNotification);
 }
 }  // namespace lemons::gui

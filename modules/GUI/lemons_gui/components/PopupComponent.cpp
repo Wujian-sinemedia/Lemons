@@ -1,7 +1,7 @@
 namespace lemons::gui
 {
 PopupComponent::PopupComponent (std::function<void()> toClose)
-    : closeFunc (toClose)
+    : closeFunc (std::move (toClose))
 {
 	setWantsKeyboardFocus (true);
 }

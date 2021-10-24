@@ -2,8 +2,8 @@
 
 
 #include "utilities/GuiUtils.cpp"
+#include "utilities/cursor.cpp"
 
 #include "components/PopupComponent.cpp"
 #include "components/Buttons.cpp"
 #include "components/Label.cpp"
-#include "components/ImageComp.cpp"

@@ -6,37 +6,28 @@
 
 namespace lemons::gui
 {
+
+/** Scales a component relatively to the bounds of its parent.
+    The ratios are provided in the form of a rectangle, ie {x, y, w, h}.
+    @param component The component to scale. This component must have a parent assigned.
+    @param boundsRatio The ratio to the parent component's bounds to which the child will be scaled. If you pass {0.f, 0.f, 1.f, 1.f}, the scaled component will take up the entire area of its parent. If you pass {0.5f, 0.5f, 0.5f, 0.5f}, the scaled component will be half the area of the parent and will sit in the lower right corner of the parent.
+ */
 void scale (juce::Component& component, const juce::Rectangle<float>& boundsRatio);
 
+
+/** Variadic function that allows adding any number of child components to a parent with a single function call.
+ */
 void addAndMakeVisible (juce::Component* parent, juce::Component& child);
 
+
+/** Variadic function that allows adding any number of child components to a parent with a single function call.
+ */
 template <typename... Args>
 static inline void addAndMakeVisible (juce::Component* parent, juce::Component& firstChild, Args&&... rest)
 {
 	addAndMakeVisible (parent, firstChild);
 	addAndMakeVisible (parent, std::forward<Args> (rest)...);
 }
-
-
-/* RAII mechanism for changing the cursor & resetting it later */
-struct ScopedCursor
-{
-	ScopedCursor (
-	    const juce::MouseCursor& cursor,
-	    juce::MouseCursor        cursorToResetTo = juce::MouseCursor::NormalCursor);
-
-	virtual ~ScopedCursor();
-
-private:
-	const juce::MouseCursor resetCursor;
-};
-
-
-/* Sets the cursor to the system's default "wait" cursor, then back to the normal one */
-struct ScopedWaitCursor : ScopedCursor
-{
-	ScopedWaitCursor();
-};
 
 
 }  // namespace lemons::gui

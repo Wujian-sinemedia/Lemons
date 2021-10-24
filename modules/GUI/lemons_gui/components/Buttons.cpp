@@ -11,21 +11,17 @@ TextButton::TextButton (const String& buttonText, std::function<void()> whenClic
 }
 
 
-ToggleTextButton::ToggleTextButton (const String& buttonText, std::function<void (bool)> on_click)
-    : TextButton (buttonText, [&]
-                  { buttonclicked(); })
-    , whenClicked (on_click)
+ToggleTextButton::ToggleTextButton (const String& buttonText, std::function<void (bool)> whenClicked)
+    : TextButton (buttonText, [whenClicked, this]
+                  { whenClicked (getToggleState()); })
 {
-}
-
-void ToggleTextButton::buttonclicked()
-{
-	whenClicked (getToggleState());
 }
 
 
 ImageButton::ImageButton (const juce::Image& image, std::function<void()> whenClicked, float opacityRange)
 {
+    jassert (opacityRange >= 0.f && opacityRange <= 1.f);
+    
 	onClick = std::move (whenClicked);
 
 	this->setImages (false, true, true,
