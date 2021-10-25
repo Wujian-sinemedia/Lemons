@@ -69,8 +69,7 @@ function (lemons_generate_translation_files target outputFolder)
 
 	# Translate the template file into each target language
 	execute_process (COMMAND "${PYTHON_EXEC}" "${translation_scripts_dir}/generate_translation_files.py" "${template_file}" "${translations_folder}"
-					 WORKING_DIRECTORY "${LEMONS_PROJECT_REPO_DIR}"
-					 COMMAND_ECHO STDOUT)
+					 WORKING_DIRECTORY "${LEMONS_PROJECT_REPO_DIR}")
 
 	file (REMOVE "${template_file_abs_path}")
 
