@@ -1,10 +1,16 @@
 find_program (PYTHON_EXEC python3)
 
+option (LEMONS_SKIP_TRANSLATION_FILE_GENERATION "Always skip translation file generation" OFF)
+
 #
 
 function (lemons_generate_translation_files)
 
 	if (NOT PYTHON_EXEC)
+		return()
+	endif()
+
+	if (LEMONS_SKIP_TRANSLATION_FILE_GENERATION)
 		return()
 	endif()
 
