@@ -73,7 +73,7 @@ function (_lemons_configure_juce_target)
     endif()
 
     if (LEMONS_TARGETCONFIG_MICROPHONE)
-        target_compile_definitions (${lemons_targetname} PUBLIC JUCE_MICROPHONE_PERMISSION_ENABLED=1)
+        target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET} PUBLIC JUCE_MICROPHONE_PERMISSION_ENABLED=1)
     endif()
 
     set (lemons_targetname "${LEMONS_TARGETCONFIG_TARGET}" PARENT_SCOPE)

@@ -33,7 +33,6 @@ include (plugin_formats.cmake)
 
 add_subdirectory (config)
 add_subdirectory (integrations)
-add_subdirectory (cpack)
 
 #
 
