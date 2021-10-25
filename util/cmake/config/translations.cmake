@@ -14,7 +14,7 @@ function (lemons_generate_translation_files target outputFolder)
 		return()
 	endif()
 
-	set (translation_scripts_dir "${LEMONS_REPO_ROOT}/scripts")
+	set (translation_scripts_dir "${LEMONS_REPO_ROOT}/scripts/translations")
 
 	set (translations_folder "${outputFolder}/translations")
 	set (template_file "${translations_folder}/needed_translations.txt")

@@ -8,6 +8,7 @@ SHELL := /bin/bash
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
 
 SCRIPTS_DIR := scripts
+TRANSLATION_SCRIPTS := $(SCRIPTS_DIR)/translations
 MODULES := modules
 UTIL_DIR := util
 MAKE_DIR := $(UTIL_DIR)/make
@@ -72,9 +73,9 @@ uth: ## Updates all git submodules to head
 
 translations: $(TRANSLATION_FILE_TEMPLATE) ## Generates a JUCE-style translations file for Lemons
 	@echo "Translating Lemons template file into target languages..."
-	@$(PYTHON) $(SCRIPTS_DIR)/generate_translation_files.py $(TRANSLATION_FILE_TEMPLATE) $(TRANSLATIONS)
+	@$(PYTHON) $(TRANSLATION_SCRIPTS)/generate_translation_files.py $(TRANSLATION_FILE_TEMPLATE) $(TRANSLATIONS)
 
-$(TRANSLATION_FILE_TEMPLATE): $(SCRIPTS_DIR)/generate_translation_file_template.py $(SOURCE_FILES)
+$(TRANSLATION_FILE_TEMPLATE): $(TRANSLATION_SCRIPTS)/generate_translation_file_template.py $(SOURCE_FILES)
 	@echo "Generating Lemons template translation file..."
 	@mkdir $(@D)
 	@$(PYTHON) $< $(MODULES) $(TRANSLATION_FILE_TEMPLATE)
