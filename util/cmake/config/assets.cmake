@@ -1,3 +1,5 @@
+include (translations.cmake)
+
 #
 # lemons_add_resources_folder
 # configures a binary resources target for the specified product target. If you're making a JUCE plugin, you should call this function with your plugin's shared code target.
@@ -28,6 +30,8 @@ function (lemons_add_resources_folder)
 
     # create resources target, if needed 
     if (NOT TARGET ${resourcesTarget})
+
+        # lemons_generate_translation_files ("${LEMONS_RSRC_FLDR_FOLDER}")
 
         file (GLOB_RECURSE files "${LEMONS_RSRC_FLDR_FOLDER}/*.*")
 
