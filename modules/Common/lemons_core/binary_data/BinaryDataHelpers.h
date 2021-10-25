@@ -1,4 +1,3 @@
-
 #pragma once
 
 
@@ -28,7 +27,7 @@ struct RawData
 	explicit RawData (const char* fileToFind);
 
 	/** Returns true if the requested data has been loaded successfully from the binary data target. */
-	bool isValid() const;
+	bool isValid() const noexcept;
 
 	/** The raw data. */
 	const char* data = nullptr;

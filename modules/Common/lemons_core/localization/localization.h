@@ -3,11 +3,10 @@
 
 namespace lemons
 {
-extern void initializeTranslations (const File& translationFile,
-                                    bool        ignoreCaseOfKeys = true);
 
+extern void initializeTranslations (const File& translationFile, bool ignoreCaseOfKeys = true);
 
-extern void initializeTranslationsFromBinaryData (RawData data,
+extern void initializeTranslations (RawData data,
                                                   bool    ignoreCaseOfKeys = true);
 
 

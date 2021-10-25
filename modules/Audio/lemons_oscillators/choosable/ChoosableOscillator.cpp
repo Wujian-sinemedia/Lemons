@@ -1,10 +1,5 @@
 namespace lemons::dsp::osc
 {
-template <typename SampleType>
-ChoosableOscillator<SampleType>::ChoosableOscillator()
-{
-	setFrequency (440.f);
-}
 
 template <typename SampleType>
 void ChoosableOscillator<SampleType>::setOscType (OscType newType)

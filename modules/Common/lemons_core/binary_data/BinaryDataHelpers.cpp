@@ -5,7 +5,6 @@
 
 namespace lemons
 {
-#if LEMONS_HAS_BINARY_DATA
 
 RawData::RawData (const String& fileToFind)
     : RawData (fileToFind.toRawUTF8())
@@ -14,6 +13,7 @@ RawData::RawData (const String& fileToFind)
 
 RawData::RawData (const char* fileToFind)
 {
+#if LEMONS_HAS_BINARY_DATA
 	data = [&]() -> const char*
 	{
 		using namespace BinaryData;
@@ -28,27 +28,19 @@ RawData::RawData (const char* fileToFind)
 
 		return nullptr;
 	}();
-}
-
-
-bool RawData::isValid() const
-{
-	return data != nullptr && size > 0;
-}
-
-
-#else /* if LEMONS_HAS_BINARY_DATA */
-
-RawData::RawData (const String&)
-{
-}
-
-RawData::RawData (const char*)
-{
-}
-
-bool RawData::isValid() const { return false; }
-
+#else
+    juce::ignoreUnused (fileToFind);
 #endif
+}
+
+
+bool RawData::isValid() const noexcept
+{
+#if LEMONS_HAS_BINARY_DATA
+	return data != nullptr && size > 0;
+#else
+    return false;
+#endif
+}
 
 }  // namespace lemons

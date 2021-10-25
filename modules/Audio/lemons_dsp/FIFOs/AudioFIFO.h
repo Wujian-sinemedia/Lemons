@@ -24,13 +24,11 @@ private:
 
 
 /* FIFO for multiple channels of audio */
-template <typename SampleType>
+template <typename SampleType, size_t numChannels = 2>
 class MultiAudioFIFO
 {
 public:
-	MultiAudioFIFO (int numChannels = 2, int maxCapacity = 1024);
-
-	void setNumChannels (int numChannels);
+	MultiAudioFIFO (int maxCapacity = 1024);
 
 	void setMaximumSize (int maximumCapacitySamples);
 
@@ -41,7 +39,7 @@ public:
 	void popSamples (AudioBuffer<SampleType>& output);
 
 private:
-	OwnedArray<AudioFIFO<SampleType>> fifos;
+    std::array<AudioFIFO<SampleType>, numChannels> fifos;
 
 	int capacity { 512 };
 };

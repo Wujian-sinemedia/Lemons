@@ -25,9 +25,6 @@ template <typename SampleType>
 class ChoosableOscillator : public SerializableData
 {
 public:
-	/** Constructs a default choosable oscillator. */
-	ChoosableOscillator();
-
 	/** Sets the type of oscillator that will be used to generate the output.
 	    @see OscType
 	 */

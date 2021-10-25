@@ -8,9 +8,9 @@ template <typename SampleType>
 class AudioAndMidiFIFO
 {
 public:
-	AudioAndMidiFIFO (int channels = 2, int samples = 1024);
+	AudioAndMidiFIFO (int samples = 1024);
 
-	void setSize (int numChannels, int numSamples);
+	void setSize (int numSamples);
 
 	void push (const AudioBuffer<SampleType>& audioIn, const MidiBuffer& midiIn);
 
@@ -20,7 +20,7 @@ public:
 
 private:
 	midi::MidiFIFO             midi;
-	MultiAudioFIFO<SampleType> audio;
+	MultiAudioFIFO<SampleType, 2> audio;
 };
 
 }  // namespace lemons::dsp

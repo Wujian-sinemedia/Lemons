@@ -5,8 +5,8 @@ template <typename SampleType>
 void LatencyEngine<SampleType>::prepared (int blocksize, double samplerate)
 {
 	chunkMidiBuffer.ensureSize (static_cast<size_t> (blocksize));
-	inputFIFO.setSize (2, blocksize);
-	outputFIFO.setSize (2, blocksize);
+	inputFIFO.setSize (blocksize);
+	outputFIFO.setSize (blocksize);
 	inBuffer.setSize (2, blocksize, true, true, true);
 	outBuffer.setSize (2, blocksize, true, true, true);
 	onPrepare (blocksize, samplerate);

@@ -1,57 +1,54 @@
 
 namespace lemons
 {
-static String getCountryCodeToUse()
+static inline String getLanguageToUse()
 {
-	return juce::SystemStats::getDisplayLanguage().upToFirstOccurrenceOf ("-", false, false);
+    const auto countryCode = juce::SystemStats::getDisplayLanguage().upToFirstOccurrenceOf ("-", false, false);
+    
+    return countryCode;
 }
 
 
-RawData getDefaultTranslationFile (String defaultCountryCode = "en")
+static constexpr auto TRANSLATION_FILE_PREFIX = "trans_";
+static constexpr auto TRANSLATION_FILE_XTN = ".txt";
+
+
+static inline RawData getDefaultTranslationFile()
 {
 #if LEMONS_HAS_BINARY_DATA
-	const auto countryCodeToTranslationFileName = [] (const String& countryCode)
+	const auto languageToTranslationFileName = [] (const String& language) -> String
 	{
-		return String ("trans_") + countryCode + ".txt";
+		return TRANSLATION_FILE_PREFIX + language + TRANSLATION_FILE_XTN;
 	};
 
-	auto data = RawData (countryCodeToTranslationFileName (getCountryCodeToUse()));
-
-	if (data.isValid())
-		return data;
-
-	return RawData (countryCodeToTranslationFileName (defaultCountryCode));
+    return RawData {languageToTranslationFileName (getLanguageToUse())};
 #else
-	juce::ignoreUnused (defaultCountryCode);
 	return {};
 #endif
 }
 
-
-void initializeTranslations (const File& translationFile,
-                             bool        ignoreCaseOfKeys)
+void initializeTranslations (const File& translationFile, bool ignoreCaseOfKeys)
 {
-	if (translationFile.existsAsFile())
-		juce::LocalisedStrings::setCurrentMappings (
-		    new juce::LocalisedStrings (translationFile, ignoreCaseOfKeys));
+    if (translationFile.existsAsFile())
+        juce::LocalisedStrings::setCurrentMappings (
+                                                    new juce::LocalisedStrings (translationFile, ignoreCaseOfKeys));
 }
 
-
-void initializeTranslationsFromBinaryData (RawData data,
+void initializeTranslations (RawData data,
                                            bool    ignoreCaseOfKeys)
 {
 	if (! data.isValid())
 		return;
 
 	juce::LocalisedStrings::setCurrentMappings (
-	    new juce::LocalisedStrings ({ data.data, static_cast<size_t> (data.size) },
+	    new juce::LocalisedStrings ({ juce::CharPointer_UTF8 (data.data), static_cast<size_t> (data.size) },
 	                                ignoreCaseOfKeys));
 }
 
 
 void initializeDefaultTranslations()
 {
-	initializeTranslationsFromBinaryData (getDefaultTranslationFile());
+	initializeTranslations (getDefaultTranslationFile());
 }
 
 }  // namespace lemons

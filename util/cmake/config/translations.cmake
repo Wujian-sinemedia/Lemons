@@ -61,8 +61,8 @@ function (lemons_generate_translation_files target outputFolder)
 					 WORKING_DIRECTORY "${LEMONS_PROJECT_REPO_DIR}")
 
 	# Merge the product's template translation file with the generated Lemons and JUCE translation files
-	# execute_process (COMMAND "${PYTHON_EXEC}" "${translation_scripts_dir}/merge_translation_files.py" "${template_file_abs_path}" "-l" "${Lemons_translations_file}" "${JUCE_translations_file}"
-	# 				 WORKING_DIRECTORY "${LEMONS_PROJECT_REPO_DIR}")
+	execute_process (COMMAND "${PYTHON_EXEC}" "${translation_scripts_dir}/merge_translation_files.py" "${template_file_abs_path}" "-l" "${Lemons_translations_file}" "${JUCE_translations_file}"
+					 WORKING_DIRECTORY "${LEMONS_PROJECT_REPO_DIR}")
 
 	# Translate the template file into each target language
 	execute_process (COMMAND "${PYTHON_EXEC}" "${translation_scripts_dir}/generate_translation_files.py" "${template_file}" "${translations_folder}"

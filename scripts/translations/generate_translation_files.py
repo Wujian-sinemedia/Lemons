@@ -7,6 +7,11 @@ from argparse import ArgumentParser
 
 ###############################################################################
 
+TRANSLATION_FILE_PREFIX = "trans_"
+TRANSLATION_FILE_XTN = ".txt"
+
+###############################################################################
+
 # Returns a list of ISO country codes for a language name
 
 def get_country_codes_for_langauge (language):
@@ -24,7 +29,10 @@ def generate_translation_file (template_file, output_directory, output_language)
 		raise Exception("Non existant template file!")
 		return
 
-	output_file = os.path.join (output_directory, output_language + ".txt")
+	print ("Translating into " + output_language + "...")
+
+	output_file = os.path.join (output_directory, 
+							    TRANSLATION_FILE_PREFIX + output_language + TRANSLATION_FILE_XTN)
 
 	if os.path.exists (output_file):
 		os.remove (output_file)

@@ -2,15 +2,14 @@
 namespace lemons::dsp
 {
 template <typename SampleType>
-AudioAndMidiFIFO<SampleType>::AudioAndMidiFIFO (int channels, int samples)
+AudioAndMidiFIFO<SampleType>::AudioAndMidiFIFO (int samples)
 {
-	setSize (channels, samples);
+	setSize (samples);
 }
 
 template <typename SampleType>
-void AudioAndMidiFIFO<SampleType>::setSize (int numChannels, int numSamples)
+void AudioAndMidiFIFO<SampleType>::setSize (int numSamples)
 {
-	audio.setNumChannels (numChannels);
 	audio.setMaximumSize (numSamples);
 	midi.setSize (numSamples);
 }

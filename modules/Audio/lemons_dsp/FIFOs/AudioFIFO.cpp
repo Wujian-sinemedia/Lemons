@@ -55,79 +55,61 @@ template class AudioFIFO<float>;
 template class AudioFIFO<double>;
 
 
-template <typename SampleType>
-MultiAudioFIFO<SampleType>::MultiAudioFIFO (int numChannels, int maxCapacity)
+template <typename SampleType, size_t numChannels>
+MultiAudioFIFO<SampleType, numChannels>::MultiAudioFIFO (int maxCapacity)
 {
-	setNumChannels (numChannels);
 	setMaximumSize (maxCapacity);
 }
 
-template <typename SampleType>
-void MultiAudioFIFO<SampleType>::setNumChannels (int numChannels)
+template <typename SampleType, size_t numChannels>
+void MultiAudioFIFO<SampleType, numChannels>::setMaximumSize (int maximumCapacitySamples)
 {
-	while (fifos.size() < numChannels)
-	{
-		fifos.add (new AudioFIFO<SampleType>);
-	}
-
-	while (fifos.size() > numChannels)
-	{
-		fifos.removeLast();
-	}
-
-	setMaximumSize (capacity);
-}
-
-template <typename SampleType>
-void MultiAudioFIFO<SampleType>::setMaximumSize (int maximumCapacitySamples)
-{
-	for (auto* fifo : fifos)
-		fifo->setMaximumSize (maximumCapacitySamples);
+	for (auto& fifo : fifos)
+		fifo.setMaximumSize (maximumCapacitySamples);
 
 	capacity = maximumCapacitySamples;
 }
 
-template <typename SampleType>
-int MultiAudioFIFO<SampleType>::numStoredSamples() const
+template <typename SampleType, size_t numChannels>
+int MultiAudioFIFO<SampleType, numChannels>::numStoredSamples() const
 {
-	if (fifos.isEmpty())
-		return 0;
-
 	int num = std::numeric_limits<int>::max();
 
-	for (auto* fifo : fifos)
-		if (auto stored = fifo->numStoredSamples(); stored < num)
+	for (auto& fifo : fifos)
+		if (auto stored = fifo.numStoredSamples(); stored < num)
 			num = stored;
 
 	jassert (num < std::numeric_limits<int>::max());
 	return num;
 }
 
-template <typename SampleType>
-void MultiAudioFIFO<SampleType>::pushSamples (const AudioBuffer<SampleType>& input)
+template <typename SampleType, size_t numChannels>
+void MultiAudioFIFO<SampleType, numChannels>::pushSamples (const AudioBuffer<SampleType>& input)
 {
 	const auto numSamples = input.getNumSamples();
-	const auto channels   = std::min (input.getNumChannels(), fifos.size());
+	const auto channels   = std::min (input.getNumChannels(), static_cast<int>(numChannels));
 
 	for (int i = 0; i < channels; ++i)
-		fifos[i]->pushSamples (input.getReadPointer (i), numSamples);
+		fifos[static_cast<size_t>(i)].pushSamples (input.getReadPointer (i), numSamples);
 }
 
-template <typename SampleType>
-void MultiAudioFIFO<SampleType>::popSamples (AudioBuffer<SampleType>& output)
+template <typename SampleType, size_t numChannels>
+void MultiAudioFIFO<SampleType, numChannels>::popSamples (AudioBuffer<SampleType>& output)
 {
 	const auto numSamples = output.getNumSamples();
-	const auto channels   = std::min (output.getNumChannels(), fifos.size());
+	const auto channels   = std::min (output.getNumChannels(), static_cast<int>(numChannels));
 
 	for (int i = 0; i < channels; ++i)
-		fifos[i]->popSamples (output.getWritePointer (i), numSamples);
+		fifos[static_cast<size_t>(i)].popSamples (output.getWritePointer (i), numSamples);
 
 	for (int i = channels; i < output.getNumChannels(); ++i)
 		output.clear (i, 0, numSamples);
 }
 
 
-template class MultiAudioFIFO<float>;
-template class MultiAudioFIFO<double>;
+template class MultiAudioFIFO<float, 1>;
+template class MultiAudioFIFO<double, 1>;
+template class MultiAudioFIFO<float, 2>;
+template class MultiAudioFIFO<double, 2>;
 
 }  // namespace lemons::dsp

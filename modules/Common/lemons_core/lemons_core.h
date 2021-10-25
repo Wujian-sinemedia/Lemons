@@ -25,7 +25,11 @@
     The Lemons repo's cmake scripts set this automatically for you; if that's how you added the Lemons package, then you don't need to worry about setting this manually.
  */
 #ifndef LEMONS_HAS_BINARY_DATA
+#if __has_include("BinaryData.h")
+#    define LEMONS_HAS_BINARY_DATA 1
+#else
 #    define LEMONS_HAS_BINARY_DATA 0
+#endif
 #endif
 
 
