@@ -19,8 +19,10 @@ function (lemons_generate_translation_files target outputFolder)
 	set (translations_folder "${outputFolder}/translations")
 	set (template_file "${translations_folder}/needed_translations.txt")
 
-	if (EXISTS "${translations_folder}")
-		file (REMOVE "${template_file}")
+	set (template_file_abs_path "${LEMONS_PROJECT_REPO_DIR}/${template_file}")
+
+	if (EXISTS "${LEMONS_PROJECT_REPO_DIR}/${translations_folder}")
+		file (REMOVE "${template_file_abs_path}")
 		return()
 	endif()
 
@@ -36,6 +38,6 @@ function (lemons_generate_translation_files target outputFolder)
 					 WORKING_DIRECTORY "${LEMONS_PROJECT_REPO_DIR}"
 					 COMMAND_ECHO STDOUT)
 
-	file (REMOVE "${template_file}")
+	file (REMOVE "${template_file_abs_path}")
 
 endfunction()
