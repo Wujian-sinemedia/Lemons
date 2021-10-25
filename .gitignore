@@ -11,3 +11,4 @@ templates/logs/
 templates/deploy/
 .github/docs
 Lemons_translations.txt
+CMakeUserPresets.json
