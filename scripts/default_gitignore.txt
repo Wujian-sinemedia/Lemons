@@ -1,6 +1,5 @@
 **/.DS_Store
+CMakeUserPresets.json
 Builds/
 Cache/
 logs/
-translations/
-assets/translations/

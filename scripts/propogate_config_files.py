@@ -40,6 +40,9 @@ def process_gitignore (default_gitignore, dest_repo):
 	if path.exists (dest_file):
 		with open (dest_file, "r") as f:
 			prev_lines = f.read()
+			if not prev_lines.endswith ("\n"):
+				with open (dest_file, "a") as f:
+					f.write ("\n")
 	else:
 		prev_lines = ""
 
@@ -47,7 +50,7 @@ def process_gitignore (default_gitignore, dest_repo):
 		with open (dest_file, "a") as dest:
 			for line in default:
 				if not line in prev_lines:
-					dest.write ("\n" + line)
+					dest.write (line)
 
 
 ###############################################################################
