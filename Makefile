@@ -75,7 +75,6 @@ DEPS_SCRIPT_TEMP_DIR := $(UTIL_DIR)/install_deps
 clean: ## Cleans the source tree
 	@echo "Cleaning Lemons..."
 	@$(RM) $(BUILD) $(LOGS) .github/docs Lemons_translations.txt \
-		$(TEMPLATES_DIR)/$(BUILD) $(TEMPLATES_DIR)/deploy $(TEMPLATES_DIR)/$(LOGS) \
 		$(DOXYGEN_BUILD_DIR) $(DOXYGEN_DEPLOY_DIR) \
 		$(DEPS_SCRIPT_TEMP_DIR)/Brewfile $(DEPS_SCRIPT_TEMP_DIR)/Brewfile.lock.json
 	@for dir in $(TEMPLATE_REPOS) ; do $(RM) $$dir/assets/translations ; done
