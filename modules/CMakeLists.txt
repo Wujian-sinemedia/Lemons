@@ -27,6 +27,10 @@ target_link_libraries (lemons_core   INTERFACE Vecops)
 target_link_libraries (mts_esp_cpp   INTERFACE MTS-ESP)
 target_link_libraries (lemons_plugin INTERFACE AbletonLink)
 
+if (LEMONS_BUILD_TESTS)
+    target_compile_definitions (lemons_core INTERFACE LEMONS_UNIT_TESTS=1)
+endif()
+
 #
 
 function (lemons_add_juce_modules dir)

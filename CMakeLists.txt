@@ -16,5 +16,6 @@ add_subdirectory (modules)
 option (LEMONS_BUILD_TESTS "Build the Lemons unit tests" OFF)
 
 if (LEMONS_BUILD_TESTS)
+	enable_testing()
 	add_subdirectory (util/testing)
 endif()

@@ -49,6 +49,16 @@
 #endif
 
 
+//==============================================================================
+/** Config: LEMONS_UNIT_TESTS
+
+    Set this to 1 to build the Lemons unit tests.
+ */
+#ifndef LEMONS_UNIT_TESTS
+#    define LEMONS_UNIT_TESTS 0
+#endif
+
+
 /*=======================================================================*/
 
 #include <juce_audio_utils/juce_audio_utils.h>
