@@ -64,9 +64,5 @@ clean: ## Cleans the source tree
 		$(DOXYGEN_BUILD_DIR) $(DOXYGEN_DEPLOY_DIR) \
 		$(DEPS_SCRIPT_TEMP_DIR)/Brewfile $(DEPS_SCRIPT_TEMP_DIR)/Brewfile.lock.json
 
-wipe: clean ## Cleans everything, and busts the CPM cache
-	@echo "Wiping Lemons cache..."
-	@$(RM) $(CACHE)
-
 help: ## Prints the list of commands
 	@$(PRINT_HELP_LIST)
