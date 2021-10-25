@@ -68,13 +68,13 @@ uth: ## Updates all git submodules to head
 	@echo "Updating git submodules..."
 	$(GIT_UTH)
 
-translations: $(TRANSLATIONS)/$(TRANSLATION_FILE_TEMPLATE) ## Generates a JUCE-style translations file for Lemons
-	$(PYTHON) $(SCRIPTS_DIR)/generate_translation_files.py $(TRANSLATIONS)/$(TRANSLATION_FILE_TEMPLATE)
+translations: $(TRANSLATION_FILE_TEMPLATE) ## Generates a JUCE-style translations file for Lemons
+	$(PYTHON) $(SCRIPTS_DIR)/generate_translation_files.py $(TRANSLATION_FILE_TEMPLATE) $(TRANSLATIONS)
 
-$(TRANSLATIONS)/$(TRANSLATION_FILE_TEMPLATE): $(SCRIPTS_DIR)/generate_translation_file_template.py $(SOURCE_FILES)
+$(TRANSLATION_FILE_TEMPLATE): $(SCRIPTS_DIR)/generate_translation_file_template.py $(SOURCE_FILES)
 	@echo "Generating Lemons translation file..."
 	@mkdir $(@D)
-	$(PYTHON) $< $(MODULES) $(TRANSLATIONS)/$(TRANSLATION_FILE_TEMPLATE)
+	$(PYTHON) $< $(MODULES) $(TRANSLATION_FILE_TEMPLATE)
 
 #
 

@@ -14,7 +14,7 @@ SOURCE := Source
 
 TRANSLATIONS := translations
 
-TRANSLATION_FILE_TEMPLATE := needed_translations.txt
+TRANSLATION_FILE_TEMPLATE := $(TRANSLATIONS)/needed_translations.txt
 
 LOGS := logs
 
