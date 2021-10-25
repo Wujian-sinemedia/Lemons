@@ -76,9 +76,7 @@ function (lemons_configure_juce_plugin)
 
     target_link_libraries (${lemons_targetname} PUBLIC ${LEMONS_PLUGIN_ONLY_MODULES})
 
-    target_compile_definitions (${lemons_targetname} PUBLIC
-            JUCE_MICROPHONE_PERMISSION_ENABLED=1
-            JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=0)
+    target_compile_definitions (${lemons_targetname} PUBLIC JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=0)
 
     _lemons_configure_product_deploy (${lemons_targetname} TRUE)
 

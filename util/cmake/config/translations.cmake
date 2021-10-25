@@ -2,25 +2,19 @@ find_program (PYTHON_EXEC python3)
 
 #
 
-function (lemons_generate_translation_files target outputFolder)
+function (lemons_generate_translation_files)
 
 	if (NOT PYTHON_EXEC)
 		return()
 	endif()
 
-	# Check if translation output for this target already exists
+	set (options "")
+    set (oneValueArgs TARGET FOLDER)
+    set (multiValueArgs "")
 
-	set (translations_folder "${outputFolder}/translations")
-	set (template_file "${translations_folder}/needed_translations.txt")
+    cmake_parse_arguments (LEMONS_TRANS "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
-	set (template_file_abs_path "${LEMONS_PROJECT_REPO_DIR}/${template_file}")
-
-	if (EXISTS "${LEMONS_PROJECT_REPO_DIR}/${translations_folder}")
-		file (REMOVE "${template_file_abs_path}")
-		return()
-	endif()
-
-	#
+    #
 
 	set (translation_scripts_dir "${LEMONS_REPO_ROOT}/scripts/translations")
 	set (generate_translation_template "${translation_scripts_dir}/generate_translation_file_template.py")
@@ -52,7 +46,12 @@ function (lemons_generate_translation_files target outputFolder)
 	_lemons_generate_template_translation_file ("${JUCE_SOURCE_DIR}" "JUCE")
 
 
-	message (STATUS "Generating translation files for target: ${target}")
+	message (STATUS "Generating translation files for target: ${LEMONS_TRANS_TARGET}")
+
+	set (translations_folder "${LEMONS_TRANS_FOLDER}/translations")
+	set (template_file "${translations_folder}/needed_translations.txt")
+
+	set (template_file_abs_path "${LEMONS_PROJECT_REPO_DIR}/${template_file}")
 
 	file (MAKE_DIRECTORY "${LEMONS_PROJECT_REPO_DIR}/${translations_folder}")
 

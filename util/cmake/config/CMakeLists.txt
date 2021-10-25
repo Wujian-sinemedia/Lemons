@@ -4,7 +4,7 @@ include (assets.cmake)
 
 function (_lemons_configure_juce_target)
 
-    set (options BROWSER PLUGIN_HOST CAMERA)
+    set (options BROWSER PLUGIN_HOST CAMERA MICROPHONE)
     set (oneValueArgs TARGET ASSET_FOLDER AAX_PAGETABLE_FILE)
     set (multiValueArgs "")
 
@@ -70,6 +70,10 @@ function (_lemons_configure_juce_target)
     if (LEMONS_TARGETCONFIG_CAMERA)
         target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET} PUBLIC JUCE_USE_CAMERA=1)
         target_link_libraries (${LEMONS_TARGETCONFIG_TARGET} PUBLIC juce_video)
+    endif()
+
+    if (LEMONS_TARGETCONFIG_MICROPHONE)
+        target_compile_definitions (${lemons_targetname} PUBLIC JUCE_MICROPHONE_PERMISSION_ENABLED=1)
     endif()
 
     set (lemons_targetname "${LEMONS_TARGETCONFIG_TARGET}" PARENT_SCOPE)

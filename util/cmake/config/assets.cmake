@@ -10,7 +10,7 @@ include (translations.cmake)
 # 
 function (lemons_add_resources_folder)
 
-    set (options "")
+    set (options TRANSLATIONS)
     set (oneValueArgs TARGET FOLDER)
     set (multiValueArgs "")
 
@@ -31,7 +31,9 @@ function (lemons_add_resources_folder)
     # create resources target, if needed 
     if (NOT TARGET ${resourcesTarget})
 
-        lemons_generate_translation_files ("${LEMONS_RSRC_FLDR_TARGET}" "${LEMONS_RSRC_FLDR_FOLDER}")
+        if (LEMONS_RSRC_FLDR_TRANSLATIONS)
+            lemons_generate_translation_files (TARGET "${LEMONS_RSRC_FLDR_TARGET}" FOLDER "${LEMONS_RSRC_FLDR_FOLDER}")
+        endif()
 
         file (GLOB_RECURSE files "${LEMONS_RSRC_FLDR_FOLDER}/*.*")
 
@@ -48,7 +50,6 @@ function (lemons_add_resources_folder)
             message (WARNING "Error creating resources target.")
             return()
         endif()
-
     endif()
 
     juce_add_bundle_resources_directory (${LEMONS_RSRC_FLDR_TARGET} ${LEMONS_RSRC_FLDR_FOLDER})
