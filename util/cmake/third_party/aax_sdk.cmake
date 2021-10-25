@@ -39,7 +39,7 @@ if (APPLE)
 	
 	execute_process (COMMAND "${XCODE_BUILD}" -scheme AAXLibrary_libcpp -configuration ${CMAKE_BUILD_TYPE} build 
 					 WORKING_DIRECTORY "${LEMONS_AAX_SDK_PATH}/Libs/AAXLibrary/MacBuild"
-					 RESULT_VARIABLE res COMMAND_ECHO STDOUT)
+					 RESULT_VARIABLE res)
 
 elseif (WIN32)
 

@@ -10,4 +10,4 @@ templates/Builds
 templates/logs/
 templates/deploy/
 .github/docs
-assets/translations/
+Lemons_translations.txt
