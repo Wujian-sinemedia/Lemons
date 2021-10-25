@@ -10,3 +10,11 @@ set (LEMONS_REPO_ROOT "${CMAKE_CURRENT_LIST_DIR}" CACHE INTERNAL "" FORCE)
 
 add_subdirectory (util/cmake)
 add_subdirectory (modules)
+
+#
+
+option (LEMONS_BUILD_TESTS "Build the Lemons unit tests" OFF)
+
+if (LEMONS_BUILD_TESTS)
+	add_subdirectory (util/testing)
+endif()
