@@ -69,14 +69,14 @@ if __name__ == "__main__":
 	script_dir = os.path.abspath (os.path.dirname (__file__))
 	language_list = os.path.join (script_dir, "translation_config.txt")
 
+	if not os.path.exists (language_list):
+		raise Exception("Nonexistant language list file!")
+
 	parser = ArgumentParser()
 	parser.add_argument ("template_file", help="the directory to search for source files")
 	parser.add_argument ("output_dir", help="the output directory")
 	
 	args = parser.parse_args()
-
-	if not os.path.exists (language_list):
-		raise Exception("Nonexistant language list file!")
 
 	with open (language_list, "r") as f:
 		for line in f:

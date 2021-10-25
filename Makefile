@@ -66,15 +66,18 @@ format: $(SCRIPTS_DIR)/run_clang_format.py $(TEMPLATE_PROJECT_FILES) $(SOURCE_FI
 
 uth: ## Updates all git submodules to head
 	@echo "Updating git submodules..."
-	$(GIT_UTH)
+	@$(GIT_UTH)
+
+#
 
 translations: $(TRANSLATION_FILE_TEMPLATE) ## Generates a JUCE-style translations file for Lemons
-	$(PYTHON) $(SCRIPTS_DIR)/generate_translation_files.py $(TRANSLATION_FILE_TEMPLATE) $(TRANSLATIONS)
+	@echo "Translating Lemons template file into target languages..."
+	@$(PYTHON) $(SCRIPTS_DIR)/generate_translation_files.py $(TRANSLATION_FILE_TEMPLATE) $(TRANSLATIONS)
 
 $(TRANSLATION_FILE_TEMPLATE): $(SCRIPTS_DIR)/generate_translation_file_template.py $(SOURCE_FILES)
-	@echo "Generating Lemons translation file..."
+	@echo "Generating Lemons template translation file..."
 	@mkdir $(@D)
-	$(PYTHON) $< $(MODULES) $(TRANSLATION_FILE_TEMPLATE)
+	@$(PYTHON) $< $(MODULES) $(TRANSLATION_FILE_TEMPLATE)
 
 #
 
