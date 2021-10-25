@@ -89,6 +89,7 @@ clean: ## Cleans the source tree
 		$(TEMPLATES_DIR)/$(BUILD) $(TEMPLATES_DIR)/deploy $(TEMPLATES_DIR)/$(LOGS) \
 		$(DOXYGEN_BUILD_DIR) $(DOXYGEN_DEPLOY_DIR) \
 		$(DEPS_SCRIPT_TEMP_DIR)/Brewfile $(DEPS_SCRIPT_TEMP_DIR)/Brewfile.lock.json
+	@for dir in $(TEMPLATE_REPOS) ; do $(RM) $$dir/assets/translations ; done
 
 wipe: clean ## Cleans everything, and busts the CPM cache
 	@echo "Wiping Lemons cache..."
