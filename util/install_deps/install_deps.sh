@@ -42,4 +42,6 @@ fi
 
 source "$SHELL_FILE"
 
+python3 -m pip install translate
+
 exit 0
