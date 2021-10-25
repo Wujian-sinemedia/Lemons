@@ -20,21 +20,7 @@ include $(MAKE_DIR)/Makefile
 
 .PHONY: $(ALL_PHONY_TARGETS)
 
-TEMPLATES_DIR := templates
-TEMPLATE_REPOS := $(shell find $(TEMPLATES_DIR) -type d -maxdepth 1 ! -name $(TEMPLATES_DIR))
-TEMPLATE_PROJECT_FILES := $(shell find $(TEMPLATE_REPOS) -type f -name "$(SOURCE_FILE_PATTERNS)")
 SOURCE_FILES := $(shell find $(MODULES) -type f -name "$(SOURCE_FILE_PATTERNS)")
-
-
-#####  BUILD PROJECT TEMPLATES  #####
-
-# templates: $(TEMPLATES_DIR)/$(BUILD) ## Builds the template example projects
-# 	@echo "Building template projects..."
-# 	cd $(TEMPLATES_DIR) && $(CMAKE_BUILD_COMMAND) $(WRITE_BUILD_LOG)
-
-# $(TEMPLATES_DIR)/$(BUILD): $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES) $(shell find $(CMAKE_DIR) -type f -name "$(CMAKE_FILE_PATTERNS)")
-# 	@echo "Configuring cmake..."
-# 	cd $(TEMPLATES_DIR) && $(CMAKE_CONFIGURE_COMMAND) $(WRITE_CONFIG_LOG)
 
 
 #####  DOCS  #####
@@ -77,7 +63,6 @@ clean: ## Cleans the source tree
 	@$(RM) $(BUILD) $(LOGS) .github/docs Lemons_translations.txt \
 		$(DOXYGEN_BUILD_DIR) $(DOXYGEN_DEPLOY_DIR) \
 		$(DEPS_SCRIPT_TEMP_DIR)/Brewfile $(DEPS_SCRIPT_TEMP_DIR)/Brewfile.lock.json
-	@for dir in $(TEMPLATE_REPOS) ; do $(RM) $$dir/assets/translations ; done
 
 wipe: clean ## Cleans everything, and busts the CPM cache
 	@echo "Wiping Lemons cache..."
