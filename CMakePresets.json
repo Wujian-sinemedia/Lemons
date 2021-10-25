@@ -1,0 +1,42 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 19,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "config_tests",
+      "displayName": "Configure for testing",
+      "description": "Confuguration with testing enabled",
+      "binaryDir": "${sourceDir}/Builds",
+      "cacheVariables": {
+        "LEMONS_BUILD_TESTS": "ON",
+        "LEMONS_SKIP_TRANSLATION_FILE_GENERATION": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "tests",
+      "displayName": "Build tests",
+      "description": "Builds the UnitTestRunner",
+      "configurePreset": "config_tests",
+      "configuration": "Debug",
+      "targets": ["UnitTestRunner"]
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "run_tests",
+      "displayName": "Run tests",
+      "description": "Runs all unit tests",
+      "configurePreset": "config_tests",
+      "configuration": "Debug",
+      "output": {
+        "outputLogFile": "${sourceDir}/logs/tests.log"
+      }
+    }
+  ]
+}
