@@ -6,9 +6,9 @@ SHELL := /bin/bash
 .DEFAULT_GOAL := help
 
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
+TRANSLATIONS_BASE_DIR := $(abspath $(dir $(THIS_FILE)))
 
 SCRIPTS_DIR := scripts
-TRANSLATION_SCRIPTS := $(SCRIPTS_DIR)/translations
 MODULES := modules
 UTIL_DIR := util
 MAKE_DIR := $(UTIL_DIR)/make
@@ -68,17 +68,6 @@ format: $(SCRIPTS_DIR)/run_clang_format.py $(TEMPLATE_PROJECT_FILES) $(SOURCE_FI
 uth: ## Updates all git submodules to head
 	@echo "Updating git submodules..."
 	@$(GIT_UTH)
-
-#
-
-translations: $(TRANSLATION_FILE_TEMPLATE) ## Generates a JUCE-style translations file for Lemons
-	@echo "Translating Lemons template file into target languages..."
-	@$(PYTHON) $(TRANSLATION_SCRIPTS)/generate_translation_files.py $(TRANSLATION_FILE_TEMPLATE) $(TRANSLATIONS)
-
-$(TRANSLATION_FILE_TEMPLATE): $(TRANSLATION_SCRIPTS)/generate_translation_file_template.py $(SOURCE_FILES)
-	@echo "Generating Lemons template translation file..."
-	@mkdir $(@D)
-	@$(PYTHON) $< $(MODULES) $(TRANSLATION_FILE_TEMPLATE)
 
 #
 
