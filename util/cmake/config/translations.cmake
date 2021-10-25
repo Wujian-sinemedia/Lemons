@@ -1,20 +1,34 @@
 find_program (PYTHON_EXEC python3)
 
+option (LEMONS_AUTOGENERATE_TRANSLATION_FILES "Automatically generate translation files during configuration" ON)
 
-function (lemons_generate_translation_files outputFolder)
+#
+
+function (lemons_generate_translation_files target outputFolder)
 
 	if (NOT PYTHON_EXEC)
 		return()
 	endif()
 
-	message (STATUS "Writing translation files to ${outputFolder}...")
+	if (NOT LEMONS_AUTOGENERATE_TRANSLATION_FILES)
+		return()
+	endif()
+
+	message (STATUS "Generating translation files for target: ${target}")
 
 	set (translation_scripts_dir "${LEMONS_REPO_ROOT}/scripts")
 
-	execute_process (COMMAND "${PYTHON_EXEC}" "${translation_scripts_dir}/generate_translation_file_template.py" "Source" "${outputFolder}/needed_translations.txt"
-					 WORKING_DIRECTORY "${outputFolder}/..")
+	set (translations_folder "${outputFolder}/translations")
+	set (template_file "${translations_folder}/needed_translations.txt")
 
-	execute_process (COMMAND "${PYTHON_EXEC}" "${translation_scripts_dir}/generate_translation_files.py" "${outputFolder}/needed_translations.txt" "${outputFolder}"
-					 WORKING_DIRECTORY "${outputFolder}/..")
+	file (MAKE_DIRECTORY "${translations_folder}")
+
+	execute_process (COMMAND "${PYTHON_EXEC}" "${translation_scripts_dir}/generate_translation_file_template.py" "Source" "${template_file}"
+					 WORKING_DIRECTORY "${LEMONS_PROJECT_REPO_DIR}"
+					 COMMAND_ECHO STDOUT)
+
+	execute_process (COMMAND "${PYTHON_EXEC}" "${translation_scripts_dir}/generate_translation_files.py" "${template_file}" "${translations_folder}"
+					 WORKING_DIRECTORY "${LEMONS_PROJECT_REPO_DIR}"
+					 COMMAND_ECHO STDOUT)
 
 endfunction()

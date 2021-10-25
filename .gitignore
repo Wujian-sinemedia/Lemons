@@ -11,3 +11,4 @@ templates/logs/
 templates/deploy/
 .github/docs
 translations/
+assets/translations/
