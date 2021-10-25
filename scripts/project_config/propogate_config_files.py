@@ -9,6 +9,7 @@
 
 from shutil import copy2
 from os import path
+from os import remove
 from argparse import ArgumentParser
 
 
@@ -35,6 +36,10 @@ def copy_file_verbatim (filename, lemons_root, dest_repo):
 
 def process_gitignore (default_gitignore, dest_repo):
 
+	if not path.exists (default_gitignore):
+		raise Exception("Non-existant source default gitignore!")
+		return
+
 	dest_file = path.join (dest_repo, ".gitignore")
 
 	if path.exists (dest_file):
@@ -55,6 +60,24 @@ def process_gitignore (default_gitignore, dest_repo):
 
 ###############################################################################
 
+# Writes a default CMakePresets.json file into the project repo
+
+def write_cmake_presets_json (template_file, dest_repo):
+
+	if not path.exists (template_file):
+		raise Exception("Non existant template CMakePresets.json file!")
+		return
+
+	dest_file = path.join (dest_repo, "CMakePresets.json")
+
+	if path.exists (dest_file):
+		remove (dest_file)
+
+	copy2 (template_file, dest_file)
+
+
+###############################################################################
+
 
 if __name__ == "__main__":
 
@@ -67,18 +90,16 @@ if __name__ == "__main__":
 		raise Exception("Non-existant destination repo!")
 
 	script_dir = path.abspath (path.dirname (__file__))
-
-	lemons_root = path.abspath (path.dirname (script_dir))
+	lemons_root = path.abspath (path.dirname (path.dirname (script_dir)))
 
 	copy_file_verbatim (".clang-format", lemons_root, args.output_dir)
-
 	copy_file_verbatim (".clang-tidy", lemons_root, args.output_dir)
 
 	default_gitignore = path.join (script_dir, "default_gitignore.txt")
 
-	if not path.exists (default_gitignore):
-		raise Exception("Non-existant source default gitignore!")
-
 	process_gitignore (default_gitignore, args.output_dir)
 
-	process_gitignore (default_gitignore, lemons_root)  # Also make sure the Lemons gitignore itself is in sync with the default one
+	# Also make sure the Lemons gitignore itself is in sync with the default one
+	process_gitignore (default_gitignore, lemons_root)  
+
+	write_cmake_presets_json (path.join (script_dir, "default_cmake_presets.json"), args.output_dir)

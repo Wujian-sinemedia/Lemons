@@ -20,6 +20,9 @@ include $(MAKE_DIR)/Makefile
 
 .PHONY: $(ALL_PHONY_TARGETS)
 
+TEMPLATES_DIR := templates
+TEMPLATE_REPOS := $(shell find $(TEMPLATES_DIR) -type d -maxdepth 1 ! -name $(TEMPLATES_DIR))
+TEMPLATE_PROJECT_FILES := $(shell find $(TEMPLATE_REPOS) -type f -name "$(SOURCE_FILE_PATTERNS)")
 SOURCE_FILES := $(shell find $(MODULES) -type f -name "$(SOURCE_FILE_PATTERNS)")
 
 
@@ -42,7 +45,7 @@ $(MODULE_DOC_OUTPUT): $(DOXYGEN_DIR)/$(DOC_SCRIPT_NAME) $(SOURCE_FILES)
 
 ###  UTILITIES  ###
 
-propogate: $(SCRIPTS_DIR)/propogate_config_files.py ## Propogates all configuration files to the template repos
+propogate: $(SCRIPTS_DIR)/project_config/propogate_config_files.py ## Propogates all configuration files to the template repos
 	@echo "Propogating configuration files to template repos..."
 	@for dir in $(TEMPLATE_REPOS) ; do $(PYTHON) $< $$dir ; done
 
