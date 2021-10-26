@@ -6,7 +6,6 @@ set -euo pipefail
 
 # TO DO: Check if Chocolatey is installed, and install it if need be...?
 
-choco upgrade all
 
 process_line() {
 	local -r line=$(echo "$1" | sed 's/;//')
