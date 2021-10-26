@@ -4,10 +4,6 @@ import os
 from argparse import ArgumentParser
 import shutil
 
-import generate_template
-import merge_templates
-import generate_translations
-
 ###############################################################################
 
 if __name__ == "__main__":
