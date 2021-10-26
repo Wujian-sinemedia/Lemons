@@ -8,5 +8,4 @@ util/install_deps/Brewfile
 util/install_deps/Brewfile.lock.json
 util/translations/__pycache__/
 .github/docs
-Lemons_translations.txt
 CMakeUserPresets.json
