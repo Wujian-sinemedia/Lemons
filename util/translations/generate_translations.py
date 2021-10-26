@@ -8,11 +8,13 @@ import translation_file_parser as parser
 from country_codes import get_country_codes_for_langauge
 import options
 
+import concurrent.futures
+
 ###############################################################################
 
 # Generates a translation file for a certain language based on a template translation file
 
-def generate_translation_file (template_file, output_directory, output_language):
+def generate_translation_file (output_language, template_file, output_directory):
 
 	if not path.exists (template_file):
 		raise Exception("Non existant template file!")
@@ -65,9 +67,14 @@ def generate_translation_files (template_file, output_dir):
 	if not path.exists (language_list):
 		raise Exception("Nonexistant language list file!")
 
+	languages = []
+
 	with open (language_list, "r") as f:
 		for line in f:
 			stripped_line = line.strip()
 			if stripped_line:
-				generate_translation_file (template_file, output_dir, stripped_line)
+				languages.append (stripped_line)
+
+	with concurrent.futures.ThreadPoolExecutor(max_workers=len(languages)) as executor:
+		executor.map (generate_translation_file, languages, template_file, output_dir)
 

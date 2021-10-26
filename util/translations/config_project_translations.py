@@ -9,6 +9,8 @@ from source_scanner import get_translate_tokens_for_source_tree
 from translation_file_parser import get_tokens_in_file
 import options
 
+import concurrent.futures
+
 ###############################################################################
 
 def process_translated_file (file_path, needed_translations):
@@ -67,10 +69,14 @@ if __name__ == "__main__":
 	# generate list of needed phrases for the product
 	needed_translations = get_translate_tokens_for_source_tree (args.project_dir)
 
+	filepaths = []
+
 	# scan each translated file, and add any phrases from the product's list that are missing
 	for dirpath, dirnames, filenames in os.walk (args.output_dir):
 		for file in filenames:
 			file_path = os.path.join (dirpath, file)
 			if os.path.exists (file_path):
-				process_translated_file (file_path, needed_translations)
+				filepaths.append (file_path)
 
+	with concurrent.futures.ThreadPoolExecutor(max_workers=len(filepaths)) as executor:
+		executor.map (process_translated_file, filepaths, needed_translations)
