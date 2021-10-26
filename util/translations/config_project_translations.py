@@ -14,11 +14,8 @@ from translation_file_parser import get_tokens_in_file
 def process_translated_file (file_path, needed_translations):
 
 	# detect the language of this translation file
-	try:
-		with open (file_path, "r") as f:
-			firstLine = f.readline().rstrip()
-	except UnicodeDecodeError:
-		pass
+	with open (file_path, "r") as f:
+		firstLine = f.readline().rstrip()
 
 	if not firstLine.startswith ("language:"):
 		raise Exception("Unknown language for generated translation file!")
