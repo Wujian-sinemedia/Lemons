@@ -9,14 +9,14 @@ import generate_translations
 
 ###############################################################################
 
-def generate_template_file_if_needed (working_dir, name, source_dir_name):
+def generate_template_file_if_needed (working_dir, name, source_dir_name, cache_dir):
 
 	if not os.path.isdir (working_dir):
 		raise Exception("Non existant working directory for template file generation!")
 		return ""
 
 	translations_file = name + "_translations.txt"
-	translations_file_abs_path = os.path.join (working_dir, translations_file)
+	translations_file_abs_path = os.path.join (cache_dir, translations_file)
 
 	if not os.path.exists (translations_file_abs_path):
 		print ("Generating translations template for " + name + "...")
@@ -36,16 +36,17 @@ if __name__ == "__main__":
 	
 	args = parser.parse_args()
 
+	if not os.path.isdir (args.output_dir):
+		os.mkdir (args.output_dir)
+
 	# generate template file for Lemons, if needed
-	lemons_template_file = generate_template_file_if_needed (args.lemons_root, "Lemons", "modules")
+	lemons_template_file = generate_template_file_if_needed (args.lemons_root, "Lemons", "modules", args.output_dir)
 
 	# generate template file for JUCE, if needed
-	juce_template_file = generate_template_file_if_needed (args.juce_root, "JUCE", "modules")
+	juce_template_file = generate_template_file_if_needed (args.juce_root, "JUCE", "modules", args.output_dir)
 
 	# merge both - output is written back to the lemons repo's file
 	merge_templates.merge_translation_file (lemons_template_file, juce_template_file)
 
 	# take the master template file and translate it into each target language
 	generate_translations.generate_translations (lemons_template_file, args.output_dir)
-
-	os.remove (lemons_template_file)

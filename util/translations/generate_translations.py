@@ -56,16 +56,7 @@ def generate_translation_file (template_file, output_directory, output_language)
 	translator = Translator(from_lang="English", to_lang=output_language, email="ben.the.vining@gmail.com")
 
 	with open (template_file, "r") as template:
-		with open (output_file, "w") as output:
-
-			output.write ("language: " + output_language)
-
-			output.write ("\n")
-
-			output.write ("countries: " + "".join (country_codes.get_country_codes_for_langauge (output_language)))
-
-			output.write ("\n")
-
+		with open (output_file, "a") as output:
 			for line in template:
 				token = get_token_for_line (line)
 
@@ -73,7 +64,6 @@ def generate_translation_file (template_file, output_directory, output_language)
 					continue
 
 				if token in prev_tokens:
-					output.write (line)
 					continue
 
 				output.write ("\n")
