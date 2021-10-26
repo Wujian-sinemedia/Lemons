@@ -32,8 +32,6 @@ def process_translated_file (file_path, needed_translations):
 
 	prev_tokens = get_tokens_in_file (file_path)
 
-	print ("Translating into " + output_language + "...")
-
 	translator = Translator(from_lang=options.source_language, to_lang=output_language, email=options.email)
 
 	with open (file_path, "a") as f:
@@ -59,7 +57,7 @@ if __name__ == "__main__":
 	if os.path.isdir (args.output_dir):
 		shutil.rmtree (args.output_dir)
 
-	os.mkdir (args.output_dir)
+	os.makedirs (args.output_dir)
 
 	for dirpath, dirnames, filenames in os.walk (args.translated_files_dir):
 		for file in filenames:
