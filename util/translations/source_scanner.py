@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 
-import os
-from argparse import ArgumentParser
-
+from os import path
+from os import walk
 
 ###############################################################################
 
@@ -87,10 +86,10 @@ def scan_file (file_path):
 
 	needed_translations = []
 
-	if not os.path.exists (file_path):
+	if not path.exists (file_path):
 		return needed_translations
 
-	filename, file_extension = os.path.splitext (file_path)
+	filename, file_extension = path.splitext (file_path)
 	if not (file_extension == ".h" or file_extension == ".hpp" or file_extension == ".c" or file_extension == ".cpp"):
 		return needed_translations
 	
@@ -114,14 +113,14 @@ def scan_directory (dir_path):
 
 	needed_translations = []
 
-	if not os.path.isdir (dir_path):
+	if not path.isdir (dir_path):
 		return needed_translations
 
-	for dirpath, dirnames, filenames in os.walk (dir_path):
+	for dirpath, dirnames, filenames in walk (dir_path):
 		for dirname in dirnames:
-			needed_translations += scan_directory (os.path.join (dirpath, dirname))
+			needed_translations += scan_directory (path.join (dirpath, dirname))
 		for filename in filenames:
-			needed_translations += scan_file (os.path.join (dirpath, filename))
+			needed_translations += scan_file (path.join (dirpath, filename))
 
 	return needed_translations
 
@@ -140,23 +139,17 @@ def remove_duplicates (orig_list):
 
 	return new_list
 
-
 ###############################################################################
 
-# Main script 
+# Returns a sorted list of tokens to be translated for a given source tree
 
-def generate_template_file (source_dir, output_file):
+def get_translate_tokens_for_source_tree (dir_to_scan):
 
-	if os.path.exists (output_file):
-		os.remove (output_file)
-
-	if not os.path.isdir (source_dir):
-		raise Exception("Non existent source directory!")
+	if not path.isdir (dir_to_scan):
+		raise Exception("Nonexistant source tree!")
 		return
 
-	needed_translations = remove_duplicates (scan_directory (source_dir))
+	needed_translations = remove_duplicates (scan_directory (dir_to_scan))
 	needed_translations.sort()
 
-	with open (output_file, "w") as f:
-		for translation in needed_translations:
-			f.write ("\"{t}\" = \"\"\n".format (t=translation))
+	return needed_translations

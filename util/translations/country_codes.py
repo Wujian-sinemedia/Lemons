@@ -6,4 +6,4 @@
 
 def get_country_codes_for_langauge (language):
 	country_codes = []
-	return country_codes
+	return ""

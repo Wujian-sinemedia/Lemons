@@ -3,13 +3,13 @@
 import os
 from argparse import ArgumentParser
 
-import generate_template
-import merge_templates
-import generate_translations
+import source_scanner
+from generate_translations import generate_translation_files
+
 
 ###############################################################################
 
-def generate_template_file_if_needed (working_dir, name, source_dir_name, cache_dir):
+def generate_template_file_if_needed (working_dir, name, cache_dir):
 
 	if not os.path.isdir (working_dir):
 		raise Exception("Non existant working directory for template file generation!")
@@ -20,10 +20,49 @@ def generate_template_file_if_needed (working_dir, name, source_dir_name, cache_
 
 	if not os.path.exists (translations_file_abs_path):
 		print ("Generating translations template for " + name + "...")
-		generate_template.generate_template_file (os.path.join (working_dir, source_dir_name), 
-												  translations_file_abs_path)
+
+		source_dir = os.path.join (working_dir, "modules")
+
+		if os.path.exists (translations_file_abs_path):
+			os.remove (translations_file_abs_path)
+
+		needed_translations = source_scanner.get_translate_tokens_for_source_tree (source_dir)
+
+		with open (translations_file_abs_path, "w") as f:
+			for translation in needed_translations:
+				f.write ("\"{t}\" = \"\"\r\n".format (t=translation))
 
 	return translations_file_abs_path
+
+###############################################################################
+
+def process_file_for_lines (file_path):
+
+	lines_to_merge = []
+
+	with open (file_path, "r") as f:
+		for line in f:
+			stripped_line = line.strip()
+			if stripped_line:
+				if not stripped_line in lines_to_merge:
+						lines_to_merge.append (stripped_line)
+
+	return lines_to_merge
+
+
+def merge_translation_file (output_file, *files_to_merge):
+
+	merged_file = []
+
+	for file in files_to_merge:
+		merged_file += process_file_for_lines (file)
+
+	merged_file = source_scanner.remove_duplicates (merged_file)
+
+	merged_file.sort()
+
+	with open (output_file, "w") as f:
+		f.write ("\r\n".join (merged_file))
 
 ###############################################################################
 
@@ -40,13 +79,18 @@ if __name__ == "__main__":
 		os.mkdir (args.output_dir)
 
 	# generate template file for Lemons, if needed
-	lemons_template_file = generate_template_file_if_needed (args.lemons_root, "Lemons", "modules", args.output_dir)
+	lemons_template_file = generate_template_file_if_needed (args.lemons_root, "Lemons", args.output_dir)
 
 	# generate template file for JUCE, if needed
-	juce_template_file = generate_template_file_if_needed (args.juce_root, "JUCE", "modules", args.output_dir)
+	juce_template_file = generate_template_file_if_needed (args.juce_root, "JUCE", args.output_dir)
 
-	# merge both - output is written back to the lemons repo's file
-	merge_templates.merge_translation_file (lemons_template_file, juce_template_file)
+	aggregate_file = os.path.join (args.output_dir, "translations.txt")
+
+	# merge both into an aggregate template file
+	merge_translation_file (aggregate_file, lemons_template_file, juce_template_file)
 
 	# take the master template file and translate it into each target language
-	generate_translations.generate_translations (lemons_template_file, args.output_dir)
+	generate_translation_files (aggregate_file, args.output_dir)
+
+	# remove the aggregate file
+	os.remove (aggregate_file)
