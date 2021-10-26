@@ -5,26 +5,34 @@ from argparse import ArgumentParser
 
 import source_scanner
 from generate_translations import generate_translation_files
+import options
 
+import concurrent.futures
 
 ###############################################################################
 
-def generate_template_file_if_needed (working_dir, name, cache_dir):
+def make_template_file_name (working_dir):
+
+	idx = working_dir.rfind ("/")
+
+	if idx < 0:
+		return working_dir
+
+	return working_dir[idx+1:]
+
+
+def generate_template_file_if_needed (working_dir, cache_dir):
 
 	if not os.path.isdir (working_dir):
 		raise Exception("Non existant working directory for template file generation!")
 		return ""
 
-	translations_file = name + "_translations.txt"
-	translations_file_abs_path = os.path.join (cache_dir, translations_file)
+	translations_file_abs_path = os.path.join (cache_dir, 
+										       make_template_file_name (working_dir) + options.translation_file_xtn)
 
 	if not os.path.exists (translations_file_abs_path):
-		print ("Generating translations template for " + name + "...")
 
 		source_dir = os.path.join (working_dir, "modules")
-
-		if os.path.exists (translations_file_abs_path):
-			os.remove (translations_file_abs_path)
 
 		needed_translations = source_scanner.get_translate_tokens_for_source_tree (source_dir)
 
@@ -50,7 +58,7 @@ def process_file_for_lines (file_path):
 	return lines_to_merge
 
 
-def merge_translation_file (output_file, *files_to_merge):
+def merge_translation_files (output_file, files_to_merge):
 
 	merged_file = []
 
@@ -78,16 +86,19 @@ if __name__ == "__main__":
 	if not os.path.isdir (args.output_dir):
 		os.mkdir (args.output_dir)
 
-	# generate template file for Lemons, if needed
-	lemons_template_file = generate_template_file_if_needed (args.lemons_root, "Lemons", args.output_dir)
+	templates = []
 
-	# generate template file for JUCE, if needed
-	juce_template_file = generate_template_file_if_needed (args.juce_root, "JUCE", args.output_dir)
+	# generate template files for Lemons and JUCE, if needed
+	with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
+		futures = {executor.submit (generate_template_file_if_needed, repo_dir, args.output_dir): repo_dir for repo_dir in [args.lemons_root, args.juce_root]}
+		
+		for future in concurrent.futures.as_completed (futures):
+			templates.append (future.result())
 
 	aggregate_file = os.path.join (args.output_dir, "translations.txt")
 
 	# merge both into an aggregate template file
-	merge_translation_file (aggregate_file, lemons_template_file, juce_template_file)
+	merge_translation_files (aggregate_file, templates)
 
 	# take the master template file and translate it into each target language
 	generate_translation_files (aggregate_file, args.output_dir)

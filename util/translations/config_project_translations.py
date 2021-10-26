@@ -69,14 +69,16 @@ if __name__ == "__main__":
 	# generate list of needed phrases for the product
 	needed_translations = get_translate_tokens_for_source_tree (args.project_dir)
 
+	# make list of absolute paths of pre-generated files containing Lemons & JUCE translations
 	filepaths = []
 
-	# scan each translated file, and add any phrases from the product's list that are missing
 	for dirpath, dirnames, filenames in os.walk (args.output_dir):
 		for file in filenames:
 			file_path = os.path.join (dirpath, file)
 			if os.path.exists (file_path):
 				filepaths.append (file_path)
 
+	# scan each translated file, and add any phrases from the product's list that are missing
 	with concurrent.futures.ThreadPoolExecutor(max_workers=len(filepaths)) as executor:
-		executor.map (process_translated_file, filepaths, needed_translations)
+		for filepath in filepaths:
+			executor.submit (process_translated_file, filepath, needed_translations)

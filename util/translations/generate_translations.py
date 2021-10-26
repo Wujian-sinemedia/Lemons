@@ -67,6 +67,7 @@ def generate_translation_files (template_file, output_dir):
 	if not path.exists (language_list):
 		raise Exception("Nonexistant language list file!")
 
+	# make list of target languages
 	languages = []
 
 	with open (language_list, "r") as f:
@@ -75,6 +76,8 @@ def generate_translation_files (template_file, output_dir):
 			if stripped_line:
 				languages.append (stripped_line)
 
+	# generate a JUCE-style translation file for each target language
 	with concurrent.futures.ThreadPoolExecutor(max_workers=len(languages)) as executor:
-		executor.map (generate_translation_file, languages, template_file, output_dir)
+		for language in languages:
+			executor.submit (generate_translation_file, language, template_file, output_dir)
 
