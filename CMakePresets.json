@@ -13,7 +13,7 @@
       "binaryDir": "${sourceDir}/Builds",
       "cacheVariables": {
         "LEMONS_BUILD_TESTS": "ON",
-        "LEMONS_SKIP_TRANSLATION_FILE_GENERATION": "ON"
+        "LEMONS_GENERATE_TRANSLATION_FILES": "OFF"
       }
     }
   ],

@@ -53,7 +53,7 @@ function (_lemons_configure_juce_target)
     target_compile_features (${LEMONS_TARGETCONFIG_TARGET} PUBLIC cxx_std_${LEMONS_CXX_VERSION})
 
     if (LEMONS_TARGETCONFIG_ASSET_FOLDER)
-        lemons_add_resources_folder (TARGET ${LEMONS_TARGETCONFIG_TARGET} FOLDER ${LEMONS_TARGETCONFIG_ASSET_FOLDER})
+        lemons_add_resources_folder (TARGET ${LEMONS_TARGETCONFIG_TARGET} FOLDER ${LEMONS_TARGETCONFIG_ASSET_FOLDER} TRANSLATIONS)
     endif()
 
     if (LEMONS_TARGETCONFIG_PLUGIN_HOST)

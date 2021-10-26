@@ -4,6 +4,7 @@ import os
 from translate import Translator
 from argparse import ArgumentParser
 
+import country_codes
 
 ###############################################################################
 
@@ -12,12 +13,21 @@ TRANSLATION_FILE_XTN = ".txt"
 
 ###############################################################################
 
-# Returns a list of ISO country codes for a language name
+# Returns the translated key from a line of a translation file
 
-def get_country_codes_for_langauge (language):
-	country_codes = []
-	return country_codes
+def get_token_for_line (line):
 
+	idx = line.find ("\" =")
+
+	if idx < 0:
+		return ""
+
+	token = line[:idx]
+
+	if token.startswith ("\""):
+		token = token[1:]
+
+	return token
 
 ###############################################################################
 
@@ -34,8 +44,14 @@ def generate_translation_file (template_file, output_directory, output_language)
 	output_file = os.path.join (output_directory, 
 							    TRANSLATION_FILE_PREFIX + output_language + TRANSLATION_FILE_XTN)
 
+	prev_tokens = []
+
 	if os.path.exists (output_file):
-		os.remove (output_file)
+		with open (output_file, "r") as f:
+			for line in f:
+				token = get_token_for_line (line)
+				if token:
+					prev_tokens.append (token)
 
 	translator = Translator(from_lang="English", to_lang=output_language, email="ben.the.vining@gmail.com")
 
@@ -46,22 +62,18 @@ def generate_translation_file (template_file, output_directory, output_language)
 
 			output.write ("\n")
 
-			output.write ("countries: " + "".join (get_country_codes_for_langauge (output_language)))
+			output.write ("countries: " + "".join (country_codes.get_country_codes_for_langauge (output_language)))
 
 			output.write ("\n")
 
 			for line in template:
-				idx = line.find ("\" =")
-
-				if idx < 0:
-					continue
-
-				token = line[:idx]
-
-				if token.startswith ("\""):
-					token = token[1:]
+				token = get_token_for_line (line)
 
 				if not token:
+					continue
+
+				if token in prev_tokens:
+					output.write (line)
 					continue
 
 				output.write ("\n")
@@ -72,7 +84,10 @@ def generate_translation_file (template_file, output_directory, output_language)
 
 # Main script
 
-if __name__ == "__main__":
+def generate_translations (template_file, output_dir):
+
+	if not os.path.isdir (output_dir):
+		os.mkdir (output_dir)
 
 	script_dir = os.path.abspath (os.path.dirname (__file__))
 	language_list = os.path.join (script_dir, "translation_config.txt")
@@ -80,15 +95,9 @@ if __name__ == "__main__":
 	if not os.path.exists (language_list):
 		raise Exception("Nonexistant language list file!")
 
-	parser = ArgumentParser()
-	parser.add_argument ("template_file", help="the directory to search for source files")
-	parser.add_argument ("output_dir", help="the output directory")
-	
-	args = parser.parse_args()
-
 	with open (language_list, "r") as f:
 		for line in f:
 			stripped_line = line.strip()
-
 			if stripped_line:
-				generate_translation_file (args.template_file, args.output_dir, stripped_line)
+				generate_translation_file (template_file, output_dir, stripped_line)
+

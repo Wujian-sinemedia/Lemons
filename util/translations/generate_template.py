@@ -9,6 +9,7 @@ from argparse import ArgumentParser
 # Returns an array of strings to look for, the most common ways that translate() appears in source code
 
 def get_tokens_for_symbol (symbol):
+	
 	tokens = []
 
 	for ending in ["(\"", " (\"", "( \"", " ( \""]:
@@ -18,6 +19,7 @@ def get_tokens_for_symbol (symbol):
 
 
 def get_translate_tokens():
+
 	tokens = []
 
 	for version in ["translate", "juce::translate", "TRANS"]:
@@ -31,6 +33,7 @@ def get_translate_tokens():
 # Scans a single line of source code for calls to translation functions
 
 def scan_line_for_token (text, token):
+
 	needed_translations = []
 
 	while text:
@@ -41,7 +44,6 @@ def scan_line_for_token (text, token):
 
 		text = text[begin_idx:]
 
-		# Find the end of the translation call
 		end_idx = text.find (")")
 
 		if end_idx < 0:
@@ -68,6 +70,7 @@ def scan_line_for_token (text, token):
 
 
 def scan_line (text):
+
 	needed_translations = []
 
 	for token in get_translate_tokens():
@@ -128,6 +131,7 @@ def scan_directory (dir_path):
 # Remove duplicates from an array
 
 def remove_duplicates (orig_list):
+
 	new_list = []
 
 	for item in orig_list:
@@ -141,26 +145,18 @@ def remove_duplicates (orig_list):
 
 # Main script 
 
-if __name__ == "__main__":
+def generate_template_file (source_dir, output_file):
 
-	parser = ArgumentParser()
-	parser.add_argument ("source_dir", help="the directory to search for source files")
-	parser.add_argument ("output_file", help="the file to write the output to", default="needed_translations.txt")
-	
-	args = parser.parse_args()
+	if os.path.exists (output_file):
+		os.remove (output_file)
 
-	if os.path.exists (args.output_file):
-		os.remove (args.output_file)
-
-	if not os.path.isdir (args.source_dir):
+	if not os.path.isdir (source_dir):
 		raise Exception("Non existent source directory!")
+		return
 
-	needed_translations = remove_duplicates (scan_directory (args.source_dir))
+	needed_translations = remove_duplicates (scan_directory (source_dir))
 	needed_translations.sort()
 
-	with open (args.output_file, "w") as f:
-		f.write ("language: \n")
-		f.write ("countries: \n\n")
-
+	with open (output_file, "w") as f:
 		for translation in needed_translations:
 			f.write ("\"{t}\" = \"\"\n".format (t=translation))
