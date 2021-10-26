@@ -665,9 +665,9 @@
     </member>
     <member kind="function">
       <type>void</type>
-      <name>initializeTranslationsFromBinaryData</name>
+      <name>initializeTranslations</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a1109a87069aa514a07c19b93a73f9b72</anchor>
+      <anchor>a15d8225ce18633008e7e87b5f57c4cb7</anchor>
       <arglist>(RawData data, bool ignoreCaseOfKeys=true)</arglist>
     </member>
   </compound>
@@ -2462,8 +2462,8 @@
       <type></type>
       <name>AudioAndMidiFIFO</name>
       <anchorfile>classlemons_1_1dsp_1_1AudioAndMidiFIFO.html</anchorfile>
-      <anchor>aa8312ae82e2f8cac17c02e3a40b92ca5</anchor>
-      <arglist>(int channels=2, int samples=1024)</arglist>
+      <anchor>a6f493e1b09033cad18e8557c46ff37f7</anchor>
+      <arglist>(int samples=1024)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
@@ -2490,8 +2490,8 @@
       <type>void</type>
       <name>setSize</name>
       <anchorfile>classlemons_1_1dsp_1_1AudioAndMidiFIFO.html</anchorfile>
-      <anchor>ab2866c0de7e3db2a107f0ea344474b01</anchor>
-      <arglist>(int numChannels, int numSamples)</arglist>
+      <anchor>a27ff77cabbf4bd8ef5eff04353779474</anchor>
+      <arglist>(int numSamples)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -3039,13 +3039,6 @@
     <templarg></templarg>
     <base>lemons::SerializableData</base>
     <member kind="function">
-      <type></type>
-      <name>ChoosableOscillator</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html</anchorfile>
-      <anchor>a50d1c7a2bb5c56c9ef910d1d2d24255d</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
       <type>void</type>
       <name>deserialize</name>
       <anchorfile>structlemons_1_1SerializableData.html</anchorfile>
@@ -3120,13 +3113,6 @@
     <name>ChoosableOscillator&lt; float &gt;</name>
     <filename>classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html</filename>
     <base>lemons::SerializableData</base>
-    <member kind="function">
-      <type></type>
-      <name>ChoosableOscillator</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html</anchorfile>
-      <anchor>a50d1c7a2bb5c56c9ef910d1d2d24255d</anchor>
-      <arglist>()</arglist>
-    </member>
     <member kind="function">
       <type>void</type>
       <name>deserialize</name>
@@ -11777,47 +11763,80 @@
     <name>lemons::dsp::MultiAudioFIFO</name>
     <filename>classlemons_1_1dsp_1_1MultiAudioFIFO.html</filename>
     <templarg></templarg>
+    <templarg>numChannels</templarg>
     <member kind="function">
       <type></type>
       <name>MultiAudioFIFO</name>
       <anchorfile>classlemons_1_1dsp_1_1MultiAudioFIFO.html</anchorfile>
-      <anchor>a6af732545adb23c39bd020b0d9ccd2d5</anchor>
-      <arglist>(int numChannels=2, int maxCapacity=1024)</arglist>
+      <anchor>a758eb38b873917656b2fd3766201919b</anchor>
+      <arglist>(int maxCapacity=1024)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>numStoredSamples</name>
       <anchorfile>classlemons_1_1dsp_1_1MultiAudioFIFO.html</anchorfile>
-      <anchor>ab1f111d3531cf577b58c3b1ed568a969</anchor>
+      <anchor>a18a628d43a0fb6632e9c2a53543fe9d1</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>popSamples</name>
       <anchorfile>classlemons_1_1dsp_1_1MultiAudioFIFO.html</anchorfile>
-      <anchor>a885c914db88038d44d5c4957722b5bf5</anchor>
+      <anchor>a239a2b9566bffb6efa2971612cce2cce</anchor>
       <arglist>(AudioBuffer&lt; SampleType &gt; &amp;output)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>pushSamples</name>
       <anchorfile>classlemons_1_1dsp_1_1MultiAudioFIFO.html</anchorfile>
-      <anchor>ae338f4b89cf5dd0507653021f35f202e</anchor>
+      <anchor>a8b349b2b69a074ec6255056129a62292</anchor>
       <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setMaximumSize</name>
       <anchorfile>classlemons_1_1dsp_1_1MultiAudioFIFO.html</anchorfile>
-      <anchor>a2cdd8f6a44f7ba1ae438679b3cba0203</anchor>
+      <anchor>ac66b0de2cdb57d9b41fd050919191954</anchor>
       <arglist>(int maximumCapacitySamples)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>MultiAudioFIFO&lt; SampleType, 2 &gt;</name>
+    <filename>classlemons_1_1dsp_1_1MultiAudioFIFO.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>MultiAudioFIFO</name>
+      <anchorfile>classlemons_1_1dsp_1_1MultiAudioFIFO.html</anchorfile>
+      <anchor>a758eb38b873917656b2fd3766201919b</anchor>
+      <arglist>(int maxCapacity=1024)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>numStoredSamples</name>
+      <anchorfile>classlemons_1_1dsp_1_1MultiAudioFIFO.html</anchorfile>
+      <anchor>a18a628d43a0fb6632e9c2a53543fe9d1</anchor>
+      <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>void</type>
-      <name>setNumChannels</name>
+      <name>popSamples</name>
       <anchorfile>classlemons_1_1dsp_1_1MultiAudioFIFO.html</anchorfile>
-      <anchor>a22d65089112e8402b98c522d017546b7</anchor>
-      <arglist>(int numChannels)</arglist>
+      <anchor>a239a2b9566bffb6efa2971612cce2cce</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;output)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>pushSamples</name>
+      <anchorfile>classlemons_1_1dsp_1_1MultiAudioFIFO.html</anchorfile>
+      <anchor>a8b349b2b69a074ec6255056129a62292</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setMaximumSize</name>
+      <anchorfile>classlemons_1_1dsp_1_1MultiAudioFIFO.html</anchorfile>
+      <anchor>ac66b0de2cdb57d9b41fd050919191954</anchor>
+      <arglist>(int maximumCapacitySamples)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -15987,8 +16006,8 @@
       <type>bool</type>
       <name>isValid</name>
       <anchorfile>structlemons_1_1RawData.html</anchorfile>
-      <anchor>a563b6d9ae41079b4e3a1cfa0cdcad822</anchor>
-      <arglist>() const</arglist>
+      <anchor>ac3b04892ff5b648480e24a9a2532e8c0</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="variable">
       <type>const char *</type>
@@ -21894,9 +21913,9 @@
     </member>
     <member kind="function">
       <type>void</type>
-      <name>initializeTranslationsFromBinaryData</name>
+      <name>initializeTranslations</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a1109a87069aa514a07c19b93a73f9b72</anchor>
+      <anchor>a15d8225ce18633008e7e87b5f57c4cb7</anchor>
       <arglist>(RawData data, bool ignoreCaseOfKeys=true)</arglist>
     </member>
     <member kind="function">

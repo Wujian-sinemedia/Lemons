@@ -90,9 +90,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4d08bca6526b43a29384d923bf4aa64a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1RawData.html#a4d08bca6526b43a29384d923bf4aa64a">RawData</a> (const String &amp;fileToFind)</td></tr>
 <tr class="memdesc:a4d08bca6526b43a29384d923bf4aa64a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="structlemons_1_1RawData.html" title="Represents a wrapper around some data contained in a juce BinaryData target.">RawData</a> object referencing a named resource.  <a href="structlemons_1_1RawData.html#a4d08bca6526b43a29384d923bf4aa64a">More...</a><br /></td></tr>
 <tr class="separator:a4d08bca6526b43a29384d923bf4aa64a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a563b6d9ae41079b4e3a1cfa0cdcad822"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1RawData.html#a563b6d9ae41079b4e3a1cfa0cdcad822">isValid</a> () const</td></tr>
-<tr class="memdesc:a563b6d9ae41079b4e3a1cfa0cdcad822"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the requested data has been loaded successfully from the binary data target.  <a href="structlemons_1_1RawData.html#a563b6d9ae41079b4e3a1cfa0cdcad822">More...</a><br /></td></tr>
-<tr class="separator:a563b6d9ae41079b4e3a1cfa0cdcad822"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3b04892ff5b648480e24a9a2532e8c0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1RawData.html#ac3b04892ff5b648480e24a9a2532e8c0">isValid</a> () const noexcept</td></tr>
+<tr class="memdesc:ac3b04892ff5b648480e24a9a2532e8c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the requested data has been loaded successfully from the binary data target.  <a href="structlemons_1_1RawData.html#ac3b04892ff5b648480e24a9a2532e8c0">More...</a><br /></td></tr>
+<tr class="separator:ac3b04892ff5b648480e24a9a2532e8c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -106,7 +106,7 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents a wrapper around some data contained in a juce BinaryData target. </p>
 <p>Simply provide the filename and this object will load the data contained by the named resource, if it can be located. <br  />
-Be sure to check <a class="el" href="structlemons_1_1RawData.html#a563b6d9ae41079b4e3a1cfa0cdcad822" title="Returns true if the requested data has been loaded successfully from the binary data target.">isValid()</a> before attempting to use the data! <br  />
+Be sure to check <a class="el" href="structlemons_1_1RawData.html#ac3b04892ff5b648480e24a9a2532e8c0" title="Returns true if the requested data has been loaded successfully from the binary data target.">isValid()</a> before attempting to use the data! <br  />
 Example: </p><div class="fragment"><div class="line"><a class="code" href="structlemons_1_1RawData.html#a08a4b11ec4c596faf48456a827c6a1bd">RawData</a> <a class="code" href="structlemons_1_1RawData.html#a022333d14194d6ba19fb597f8feeb3a4">data</a> {<span class="stringliteral">&quot;MyAudioFile.wav&quot;</span>};</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordflow">if</span> (<a class="code" href="structlemons_1_1RawData.html#a022333d14194d6ba19fb597f8feeb3a4">data</a>.isValid())</div>
@@ -197,11 +197,14 @@ Example: </p><div class="fragment"><div class="line"><a class="code" href="struc
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a563b6d9ae41079b4e3a1cfa0cdcad822"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a563b6d9ae41079b4e3a1cfa0cdcad822">&#9670;&nbsp;</a></span>isValid()</h2>
+<a id="ac3b04892ff5b648480e24a9a2532e8c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3b04892ff5b648480e24a9a2532e8c0">&#9670;&nbsp;</a></span>isValid()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool lemons::RawData::isValid </td>
@@ -210,6 +213,11 @@ Example: </p><div class="fragment"><div class="line"><a class="code" href="struc
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Returns true if the requested data has been loaded successfully from the binary data target. </p>
@@ -253,11 +261,11 @@ Example: </p><div class="fragment"><div class="line"><a class="code" href="struc
 <li><a class="el" href="BinaryDataHelpers_8h.html">BinaryDataHelpers.h</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="astructlemons_1_1RawData_html_a022333d14194d6ba19fb597f8feeb3a4"><div class="ttname"><a href="structlemons_1_1RawData.html#a022333d14194d6ba19fb597f8feeb3a4">lemons::RawData::data</a></div><div class="ttdeci">const char * data</div><div class="ttdoc">The raw data.</div><div class="ttdef"><b>Definition:</b> BinaryDataHelpers.h:38</div></div>
+<div class="ttc" id="astructlemons_1_1RawData_html_a022333d14194d6ba19fb597f8feeb3a4"><div class="ttname"><a href="structlemons_1_1RawData.html#a022333d14194d6ba19fb597f8feeb3a4">lemons::RawData::data</a></div><div class="ttdeci">const char * data</div><div class="ttdoc">The raw data.</div><div class="ttdef"><b>Definition:</b> BinaryDataHelpers.h:37</div></div>
 <div class="ttc" id="astructlemons_1_1RawData_html_a08a4b11ec4c596faf48456a827c6a1bd"><div class="ttname"><a href="structlemons_1_1RawData.html#a08a4b11ec4c596faf48456a827c6a1bd">lemons::RawData::RawData</a></div><div class="ttdeci">RawData()=default</div><div class="ttdoc">Creates a default, invalid RawData object.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 25 2021 00:44:22 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 26 2021 00:41:03 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

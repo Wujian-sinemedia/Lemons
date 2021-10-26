@@ -5,7 +5,7 @@ var searchData=
   ['changelatency_80',['changeLatency',['../classlemons_1_1dsp_1_1LatencyEngine.html#af0419e5fefcb2a16b836cb18ab8cf023',1,'lemons::dsp::LatencyEngine']]],
   ['changenumvoices_81',['changeNumVoices',['../classlemons_1_1dsp_1_1SynthBase.html#a283881d2fa2abaedc99cf1042c5d3eb9',1,'lemons::dsp::SynthBase']]],
   ['choosable_82',['choosable',['../group__choosable.html',1,'']]],
-  ['choosableoscillator_83',['ChoosableOscillator',['../classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html',1,'lemons::dsp::osc::ChoosableOscillator&lt; SampleType &gt;'],['../classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html#a50d1c7a2bb5c56c9ef910d1d2d24255d',1,'lemons::dsp::osc::ChoosableOscillator::ChoosableOscillator()']]],
+  ['choosableoscillator_83',['ChoosableOscillator',['../classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html',1,'lemons::dsp::osc']]],
   ['choosableoscillator_2eh_84',['ChoosableOscillator.h',['../ChoosableOscillator_8h.html',1,'']]],
   ['choosableoscillator_3c_20float_20_3e_85',['ChoosableOscillator&lt; float &gt;',['../classlemons_1_1dsp_1_1osc_1_1ChoosableOscillator.html',1,'lemons::dsp::osc']]],
   ['circularbuffer_86',['CircularBuffer',['../classlemons_1_1dsp_1_1CircularBuffer.html',1,'lemons::dsp']]],

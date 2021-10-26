@@ -77,20 +77,20 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa8312ae82e2f8cac17c02e3a40b92ca5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1AudioAndMidiFIFO.html#aa8312ae82e2f8cac17c02e3a40b92ca5">AudioAndMidiFIFO</a> (int channels=2, int samples=1024)</td></tr>
-<tr class="separator:aa8312ae82e2f8cac17c02e3a40b92ca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f493e1b09033cad18e8557c46ff37f7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1AudioAndMidiFIFO.html#a6f493e1b09033cad18e8557c46ff37f7">AudioAndMidiFIFO</a> (int samples=1024)</td></tr>
+<tr class="separator:a6f493e1b09033cad18e8557c46ff37f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9797d995165a0a81daa5698cfd9d2de"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1AudioAndMidiFIFO.html#aa9797d995165a0a81daa5698cfd9d2de">numStoredSamples</a> () const</td></tr>
 <tr class="separator:aa9797d995165a0a81daa5698cfd9d2de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99e577b199955f15932995b9559ae84e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1AudioAndMidiFIFO.html#a99e577b199955f15932995b9559ae84e">pop</a> (AudioBuffer&lt; SampleType &gt; &amp;audioOut, MidiBuffer &amp;midiOut)</td></tr>
 <tr class="separator:a99e577b199955f15932995b9559ae84e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a283043170f786b3f477801919d2f0114"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1AudioAndMidiFIFO.html#a283043170f786b3f477801919d2f0114">push</a> (const AudioBuffer&lt; SampleType &gt; &amp;audioIn, const MidiBuffer &amp;midiIn)</td></tr>
 <tr class="separator:a283043170f786b3f477801919d2f0114"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2866c0de7e3db2a107f0ea344474b01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1AudioAndMidiFIFO.html#ab2866c0de7e3db2a107f0ea344474b01">setSize</a> (int numChannels, int numSamples)</td></tr>
-<tr class="separator:ab2866c0de7e3db2a107f0ea344474b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27ff77cabbf4bd8ef5eff04353779474"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1AudioAndMidiFIFO.html#a27ff77cabbf4bd8ef5eff04353779474">setSize</a> (int numSamples)</td></tr>
+<tr class="separator:a27ff77cabbf4bd8ef5eff04353779474"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aa8312ae82e2f8cac17c02e3a40b92ca5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8312ae82e2f8cac17c02e3a40b92ca5">&#9670;&nbsp;</a></span>AudioAndMidiFIFO()</h2>
+<a id="a6f493e1b09033cad18e8557c46ff37f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f493e1b09033cad18e8557c46ff37f7">&#9670;&nbsp;</a></span>AudioAndMidiFIFO()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -101,18 +101,8 @@ template&lt;typename SampleType &gt; </div>
           <td class="memname"><a class="el" href="classlemons_1_1dsp_1_1AudioAndMidiFIFO.html">lemons::dsp::AudioAndMidiFIFO</a>&lt; SampleType &gt;::<a class="el" href="classlemons_1_1dsp_1_1AudioAndMidiFIFO.html">AudioAndMidiFIFO</a> </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>channels</em> = <code>2</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>samples</em> = <code>1024</code></td><td>)</td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>samples</em> = <code>1024</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -199,8 +189,8 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
-<a id="ab2866c0de7e3db2a107f0ea344474b01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2866c0de7e3db2a107f0ea344474b01">&#9670;&nbsp;</a></span>setSize()</h2>
+<a id="a27ff77cabbf4bd8ef5eff04353779474"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27ff77cabbf4bd8ef5eff04353779474">&#9670;&nbsp;</a></span>setSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -211,18 +201,8 @@ template&lt;typename SampleType &gt; </div>
           <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1AudioAndMidiFIFO.html">lemons::dsp::AudioAndMidiFIFO</a>&lt; SampleType &gt;::setSize </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>numChannels</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>numSamples</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>numSamples</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -235,7 +215,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 25 2021 00:44:22 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 26 2021 00:41:03 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

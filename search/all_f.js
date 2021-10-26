@@ -64,7 +64,7 @@ var searchData=
   ['pop_711',['pop',['../classlemons_1_1dsp_1_1AudioAndMidiFIFO.html#a99e577b199955f15932995b9559ae84e',1,'lemons::dsp::AudioAndMidiFIFO']]],
   ['popevents_712',['popEvents',['../classlemons_1_1midi_1_1MidiFIFO.html#aa41af9504c263d8e442e07dd529d35f6',1,'lemons::midi::MidiFIFO']]],
   ['popsample_713',['popSample',['../classlemons_1_1dsp_1_1FX_1_1Delay.html#a6d56705156f714d26a6af7a4db2654ff',1,'lemons::dsp::FX::Delay']]],
-  ['popsamples_714',['popSamples',['../classlemons_1_1dsp_1_1AudioFIFO.html#abcbddccece2cf8f2f376082163843d77',1,'lemons::dsp::AudioFIFO::popSamples()'],['../classlemons_1_1dsp_1_1MultiAudioFIFO.html#a885c914db88038d44d5c4957722b5bf5',1,'lemons::dsp::MultiAudioFIFO::popSamples()']]],
+  ['popsamples_714',['popSamples',['../classlemons_1_1dsp_1_1AudioFIFO.html#abcbddccece2cf8f2f376082163843d77',1,'lemons::dsp::AudioFIFO::popSamples()'],['../classlemons_1_1dsp_1_1MultiAudioFIFO.html#a239a2b9566bffb6efa2971612cce2cce',1,'lemons::dsp::MultiAudioFIFO::popSamples()']]],
   ['popup_715',['Popup',['../classlemons_1_1gui_1_1Popup.html',1,'lemons::gui::Popup&lt; ContentType, &gt;'],['../classlemons_1_1gui_1_1Popup.html#ada032997eb2c719307e57edd8f66e3e2',1,'lemons::gui::Popup::Popup()']]],
   ['popupcomponent_716',['PopupComponent',['../classlemons_1_1gui_1_1PopupComponent.html',1,'lemons::gui::PopupComponent'],['../classlemons_1_1gui_1_1PopupComponent.html#a048a1b4a83f6aefee2b6628ac05eccc6',1,'lemons::gui::PopupComponent::PopupComponent()']]],
   ['popupcomponent_2eh_717',['PopupComponent.h',['../PopupComponent_8h.html',1,'']]],
@@ -110,5 +110,5 @@ var searchData=
   ['pushdrysamples_757',['pushDrySamples',['../classlemons_1_1dsp_1_1FX_1_1DryWetMixer.html#a873dfc96c21253d8200597c8b13e5440',1,'lemons::dsp::FX::DryWetMixer']]],
   ['pushevents_758',['pushEvents',['../classlemons_1_1midi_1_1MidiFIFO.html#ab074f98455ade04c78c543f687f7582e',1,'lemons::midi::MidiFIFO']]],
   ['pushsample_759',['pushSample',['../classlemons_1_1dsp_1_1FX_1_1Delay.html#a72790e3c1f020adaf212ada8272c3673',1,'lemons::dsp::FX::Delay']]],
-  ['pushsamples_760',['pushSamples',['../classlemons_1_1dsp_1_1AudioFIFO.html#a0f57e09290e152bf4391d242825d943e',1,'lemons::dsp::AudioFIFO::pushSamples()'],['../classlemons_1_1dsp_1_1MultiAudioFIFO.html#ae338f4b89cf5dd0507653021f35f202e',1,'lemons::dsp::MultiAudioFIFO::pushSamples()']]]
+  ['pushsamples_760',['pushSamples',['../classlemons_1_1dsp_1_1AudioFIFO.html#a0f57e09290e152bf4391d242825d943e',1,'lemons::dsp::AudioFIFO::pushSamples()'],['../classlemons_1_1dsp_1_1MultiAudioFIFO.html#a8b349b2b69a074ec6255056129a62292',1,'lemons::dsp::MultiAudioFIFO::pushSamples()']]]
 ];

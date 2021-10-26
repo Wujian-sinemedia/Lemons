@@ -16,6 +16,6 @@ var searchData=
   ['noteoff_612',['noteOff',['../classlemons_1_1midi_1_1MidiKeyboardState.html#af4d5b390a84c31865e5db0b3fbe1f056',1,'lemons::midi::MidiKeyboardState']]],
   ['noteon_613',['noteOn',['../classlemons_1_1midi_1_1MidiKeyboardState.html#a451dce880a4ec0480f7fa33aa07770e8',1,'lemons::midi::MidiKeyboardState']]],
   ['numstoredevents_614',['numStoredEvents',['../classlemons_1_1midi_1_1MidiFIFO.html#a250de86cb4a39e2cbc145b345e757ef4',1,'lemons::midi::MidiFIFO']]],
-  ['numstoredsamples_615',['numStoredSamples',['../classlemons_1_1dsp_1_1AudioAndMidiFIFO.html#aa9797d995165a0a81daa5698cfd9d2de',1,'lemons::dsp::AudioAndMidiFIFO::numStoredSamples()'],['../classlemons_1_1dsp_1_1AudioFIFO.html#a24923664b1235b76ae6def8e0e57a539',1,'lemons::dsp::AudioFIFO::numStoredSamples()'],['../classlemons_1_1dsp_1_1MultiAudioFIFO.html#ab1f111d3531cf577b58c3b1ed568a969',1,'lemons::dsp::MultiAudioFIFO::numStoredSamples()']]],
+  ['numstoredsamples_615',['numStoredSamples',['../classlemons_1_1dsp_1_1AudioAndMidiFIFO.html#aa9797d995165a0a81daa5698cfd9d2de',1,'lemons::dsp::AudioAndMidiFIFO::numStoredSamples()'],['../classlemons_1_1dsp_1_1AudioFIFO.html#a24923664b1235b76ae6def8e0e57a539',1,'lemons::dsp::AudioFIFO::numStoredSamples()'],['../classlemons_1_1dsp_1_1MultiAudioFIFO.html#a18a628d43a0fb6632e9c2a53543fe9d1',1,'lemons::dsp::MultiAudioFIFO::numStoredSamples()']]],
   ['nurbs_616',['nurbs',['../namespacelemons_1_1spline_1_1interpolation.html#a50c25e0f00a4a2947cbcc1218eecbc31',1,'lemons::spline::interpolation']]]
 ];
