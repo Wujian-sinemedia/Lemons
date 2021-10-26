@@ -7,7 +7,7 @@ import shutil
 
 from source_scanner import get_translate_tokens_for_source_tree
 from translation_file_parser import get_tokens_in_file
-
+import options
 
 ###############################################################################
 
@@ -32,7 +32,7 @@ def process_translated_file (file_path, needed_translations):
 
 	print ("Translating into " + output_language + "...")
 
-	translator = Translator(from_lang="English", to_lang=output_language, email="ben.the.vining@gmail.com")
+	translator = Translator(from_lang=options.source_language, to_lang=output_language, email=options.email)
 
 	with open (file_path, "a") as f:
 		for token in needed_translations:
@@ -61,7 +61,7 @@ if __name__ == "__main__":
 
 	for dirpath, dirnames, filenames in os.walk (args.translated_files_dir):
 		for file in filenames:
-			if not (file == "Lemons_translations.txt" or file == "JUCE_translations.txt"):
+			if file.startswith (options.translation_file_prefix):
 				shutil.copy2 (os.path.join (dirpath, file), os.path.join (args.output_dir, file))
 	
 	# generate list of needed phrases for the product

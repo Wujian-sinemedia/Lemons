@@ -6,11 +6,7 @@ from translate import Translator
 
 import translation_file_parser as parser
 from country_codes import get_country_codes_for_langauge
-
-###############################################################################
-
-TRANSLATION_FILE_PREFIX = "trans_"
-TRANSLATION_FILE_XTN = ".txt"
+import options
 
 ###############################################################################
 
@@ -25,11 +21,11 @@ def generate_translation_file (template_file, output_directory, output_language)
 	print ("Translating into " + output_language + "...")
 
 	output_file = path.join (output_directory, 
-							 TRANSLATION_FILE_PREFIX + output_language + TRANSLATION_FILE_XTN)
+							 options.translation_file_prefix + output_language + options.translation_file_xtn)
 
 	prev_tokens = parser.get_tokens_in_file (output_file)
 
-	translator = Translator(from_lang="English", to_lang=output_language, email="ben.the.vining@gmail.com")
+	translator = Translator(from_lang=options.source_language, to_lang=output_language, email=options.email)
 
 	with open (template_file, "r") as template:
 		with open (output_file, "a") as output:
