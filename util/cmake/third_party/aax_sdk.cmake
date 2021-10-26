@@ -36,9 +36,11 @@ if (APPLE)
 		message (WARNING "Could not find xcodebuild - cannot build AAX SDK!")
 		return()
 	endif()
+
+	file (REAL_PATH "${LEMONS_AAX_SDK_PATH}/Libs/AAXLibrary/MacBuild" mac_build_path)
 	
 	execute_process (COMMAND "${XCODE_BUILD}" -scheme AAXLibrary_libcpp -configuration ${CMAKE_BUILD_TYPE} build 
-					 WORKING_DIRECTORY "${LEMONS_AAX_SDK_PATH}/Libs/AAXLibrary/MacBuild"
+					 WORKING_DIRECTORY "${mac_build_path}"
 					 RESULT_VARIABLE res OUTPUT_QUIET)
 
 elseif (WIN32)
@@ -49,9 +51,11 @@ elseif (WIN32)
 		message (WARNING "Could not find msbuild - cannot build AAX SDK!")
 		return()
 	endif()
+
+	file (REAL_PATH "${LEMONS_AAX_SDK_PATH}/msvc" win_build_path)
 	
 	execute_process (COMMAND "${MS_BUILD}" AAX_SDK.sln -p:Configuration=${CMAKE_BUILD_TYPE}
-					 WORKING_DIRECTORY "${LEMONS_AAX_SDK_PATH}/msvc"
+					 WORKING_DIRECTORY "${win_build_path}"
 					 RESULT_VARIABLE res COMMAND_ECHO STDOUT)
 endif()
 
