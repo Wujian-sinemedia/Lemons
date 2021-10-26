@@ -4,7 +4,7 @@ from os import path
 from os import mkdir
 from translate import Translator
 
-import translation_file_parser as parser
+from translation_file_parser import get_tokens_in_file
 from country_codes import get_country_codes_for_langauge
 import options
 
@@ -14,34 +14,25 @@ import concurrent.futures
 
 # Generates a translation file for a certain language based on a template translation file
 
-def generate_translation_file (output_language, template_file, output_directory):
-
-	if not path.exists (template_file):
-		raise Exception("Non existant template file!")
-		return
+def generate_translation_file (output_language, tokens_to_translate, output_directory):
 
 	print ("Translating into " + output_language + "...")
 
 	output_file = path.join (output_directory, 
 							 options.translation_file_prefix + output_language + options.translation_file_xtn)
 
-	prev_tokens = parser.get_tokens_in_file (output_file)
+	for token in get_tokens_in_file (output_file):
+		if token in tokens_to_translate:
+			tokens_to_translate.remove (token)
+			if len(tokens_to_translate) < 1:
+				return
 
 	translator = Translator(from_lang=options.source_language, to_lang=output_language, email=options.email)
 
-	with open (template_file, "r") as template:
-		with open (output_file, "a") as output:
-			for line in template:
-				token = parser.get_token_for_line (line)
-
-				if not token:
-					continue
-
-				if token in prev_tokens:
-					continue
-
-				output.write ("\r\n")
-				output.write ("\"" + token + "\" = \"" + translator.translate (token) + "\"")
+	with open (output_file, "a") as output:
+		for token in tokens_to_translate:
+			output.write ("\r\n")
+			output.write ("\"" + token + "\" = \"" + translator.translate (token) + "\"")
 
 	with open (output_file, "r") as f:
 		content = f.read()
@@ -66,6 +57,13 @@ def generate_translation_files (template_file, output_dir):
 
 	if not path.exists (language_list):
 		raise Exception("Nonexistant language list file!")
+		return
+
+	if not path.exists (template_file):
+		raise Exception("Non existant template file!")
+		return
+
+	tokens_to_translate = get_tokens_in_file (template_file)
 
 	# make list of target languages
 	languages = []
@@ -79,5 +77,5 @@ def generate_translation_files (template_file, output_dir):
 	# generate a JUCE-style translation file for each target language
 	with concurrent.futures.ThreadPoolExecutor(max_workers=len(languages)) as executor:
 		for language in languages:
-			executor.submit (generate_translation_file, language, template_file, output_dir)
+			executor.submit (generate_translation_file, language, tokens_to_translate, output_dir)
 

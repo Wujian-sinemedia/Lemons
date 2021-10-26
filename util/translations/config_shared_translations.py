@@ -15,10 +15,7 @@ def make_template_file_name (working_dir):
 
 	idx = working_dir.rfind ("/")
 
-	if idx < 0:
-		return working_dir
-
-	return working_dir[idx+1:]
+	return working_dir[idx+1:] + options.translation_file_xtn
 
 
 def generate_template_file_if_needed (working_dir, cache_dir):
@@ -27,14 +24,11 @@ def generate_template_file_if_needed (working_dir, cache_dir):
 		raise Exception("Non existant working directory for template file generation!")
 		return ""
 
-	translations_file_abs_path = os.path.join (cache_dir, 
-										       make_template_file_name (working_dir) + options.translation_file_xtn)
+	translations_file_abs_path = os.path.join (cache_dir, make_template_file_name (working_dir))
 
 	if not os.path.exists (translations_file_abs_path):
 
-		source_dir = os.path.join (working_dir, "modules")
-
-		needed_translations = source_scanner.get_translate_tokens_for_source_tree (source_dir)
+		needed_translations = source_scanner.get_translate_tokens_for_source_tree (os.path.join (working_dir, "modules"))
 
 		with open (translations_file_abs_path, "w") as f:
 			for translation in needed_translations:
@@ -90,6 +84,7 @@ if __name__ == "__main__":
 
 	# generate template files for Lemons and JUCE, if needed
 	with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
+
 		futures = {executor.submit (generate_template_file_if_needed, repo_dir, args.output_dir): repo_dir for repo_dir in [args.lemons_root, args.juce_root]}
 		
 		for future in concurrent.futures.as_completed (futures):
@@ -97,11 +92,11 @@ if __name__ == "__main__":
 
 	aggregate_file = os.path.join (args.output_dir, "translations.txt")
 
-	# merge both into an aggregate template file
+	if os.path.exists (aggregate_file):
+		os.remove (aggregate_file)
+
+	# merge into an aggregate template file
 	merge_translation_files (aggregate_file, templates)
 
 	# take the master template file and translate it into each target language
 	generate_translation_files (aggregate_file, args.output_dir)
-
-	# remove the aggregate file
-	os.remove (aggregate_file)
