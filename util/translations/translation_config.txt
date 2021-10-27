@@ -5,7 +5,6 @@ Hindi
 Italian
 Japanese
 Korean
-Mandarin
 Polish
 Portuguese
 Russian
