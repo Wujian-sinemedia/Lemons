@@ -28,8 +28,14 @@ struct RawData
 
 	/** Returns true if the requested data has been loaded successfully from the binary data target. */
 	bool isValid() const noexcept;
+    
+    /** Returns the data as a UTF-8 formatted string. */
+    String getAsString() const;
+    
+    /** If this binary data represents an image, this returns a juce Image object created from it. */
+    juce::Image getAsImage() const;
 
-	/** The raw data. */
+	/** The raw data. This may be null if the data cannot be found. */
 	const char* data = nullptr;
 
 	/** The size of the data, in bytes. */

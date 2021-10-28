@@ -40,9 +40,7 @@ void initializeTranslations (RawData data,
 	if (! data.isValid())
 		return;
 
-	juce::LocalisedStrings::setCurrentMappings (
-	    new juce::LocalisedStrings ({ juce::CharPointer_UTF8 (data.data), static_cast<size_t> (data.size) },
-	                                ignoreCaseOfKeys));
+	juce::LocalisedStrings::setCurrentMappings (new juce::LocalisedStrings (data.getAsString(), ignoreCaseOfKeys));
 }
 
 

@@ -43,4 +43,20 @@ bool RawData::isValid() const noexcept
 #endif
 }
 
+String RawData::getAsString() const
+{
+    if (! isValid())
+        return {};
+    
+    return {juce::CharPointer_UTF8 (data)};
+}
+
+juce::Image RawData::getAsImage() const
+{
+    if (! isValid())
+        return {};
+    
+    return juce::ImageCache::getFromMemory (data, size);
+}
+
 }  // namespace lemons
