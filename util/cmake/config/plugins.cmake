@@ -106,5 +106,10 @@ function (lemons_configure_juce_plugin)
         add_dependencies (${app_target} ${stdaln_target})
     endif()
 
+    # configure plugin QC tests
+    if (LEMONS_BUILD_TESTS)
+        _lemons_configure_plugin_tests ("${lemons_targetname}")
+    endif()
+
 endfunction()
 
