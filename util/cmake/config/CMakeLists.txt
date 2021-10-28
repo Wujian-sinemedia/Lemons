@@ -15,6 +15,11 @@ function (_lemons_configure_juce_target)
         return()
     endif()
 
+    # The directory of the target being configured
+    if (NOT LEMONS_PROJECT_REPO_DIR)
+        set (LEMONS_PROJECT_REPO_DIR "${LEMONS_TOPLEVEL_DIR}" CACHE INTERNAL "")
+    endif()
+
     target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET} PUBLIC
             JUCE_VST3_CAN_REPLACE_VST2=0
             JUCE_APPLICATION_NAME_STRING="$<TARGET_PROPERTY:${LEMONS_TARGETCONFIG_TARGET},JUCE_PRODUCT_NAME>"
@@ -74,6 +79,10 @@ function (_lemons_configure_juce_target)
 
     if (LEMONS_TARGETCONFIG_MICROPHONE)
         target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET} PUBLIC JUCE_MICROPHONE_PERMISSION_ENABLED=1)
+    endif()
+
+    if (LEMONS_BUILD_TESTS)
+        _lemons_configure_plugin_tests ("${LEMONS_TARGETCONFIG_TARGET}")
     endif()
 
     set (lemons_targetname "${LEMONS_TARGETCONFIG_TARGET}" PARENT_SCOPE)

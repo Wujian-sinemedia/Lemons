@@ -9,12 +9,12 @@ set (CMAKE_CXX_STANDARD                 ${LEMONS_CXX_VERSION})
 set (CMAKE_CXX_STANDARD_REQUIRED        ON)
 set (CMAKE_INCLUDE_CURRENT_DIR          ON)
 
-set (LEMONS_CMAKE_ROOT "${CMAKE_CURRENT_LIST_DIR}" CACHE INTERNAL "" FORCE)
+set (LEMONS_CMAKE_ROOT "${CMAKE_CURRENT_LIST_DIR}" CACHE INTERNAL "")
 
 # The top level directory of the current build
 if (NOT LEMONS_TOPLEVEL_DIR)
     file (REAL_PATH "${LEMONS_REPO_ROOT}/.." lemons_toplevel_path)
-    set (LEMONS_TOPLEVEL_DIR "${lemons_toplevel_path}" CACHE INTERNAL "" FORCE)
+    set (LEMONS_TOPLEVEL_DIR "${lemons_toplevel_path}" CACHE INTERNAL "")
 endif()
 
 # set up CPM source cache in a git-ignored location (makes successive build configs MUCH faster!)
