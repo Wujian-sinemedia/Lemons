@@ -3,10 +3,9 @@ find_program (PYTHON_EXEC python3)
 option (LEMONS_GENERATE_TRANSLATION_FILES "Generate translation files" ON)
 
 
-file (REAL_PATH "${LEMONS_REPO_ROOT}/util/translations" translation_scripts)
-file (REAL_PATH "$ENV{CPM_SOURCE_CACHE}/translations" translation_files)
+set (_lemons_translation_scripts_dir "${LEMONS_PYTHON_SCRIPTS_DIR}/translations" CACHE INTERNAL "" FORCE)
 
-set (_lemons_translation_scripts_dir "${translation_scripts}" CACHE INTERNAL "" FORCE)
+file (REAL_PATH "$ENV{CPM_SOURCE_CACHE}/translations" translation_files)
 set (_lemons_translation_files_storage "${translation_files}" CACHE INTERNAL "" FORCE)
 
 

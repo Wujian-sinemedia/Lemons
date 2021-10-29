@@ -6,6 +6,6 @@ util/doxygen/build
 util/doxygen/doc
 util/install_deps/Brewfile
 util/install_deps/Brewfile.lock.json
-util/translations/__pycache__/
+util/scripts/translations/__pycache__/
 .github/docs
 CMakeUserPresets.json

@@ -15,7 +15,8 @@ if (NOT PYTHON_EXEC)
 endif()
 
 add_custom_target (ClangFormat
-                   COMMAND ${PYTHON_EXEC} "${LEMONS_REPO_ROOT}/scripts/run_clang_format.py" "${LEMONS_TOPLEVEL_DIR}"
+                   COMMAND ${PYTHON_EXEC} "${LEMONS_PYTHON_SCRIPTS_DIR}/run_clang_format.py" "${LEMONS_TOPLEVEL_DIR}"
+                   WORKING_DIRECTORY "${LEMONS_TOPLEVEL_DIR}"
                    COMMENT "Running clang-format...")
 
 message (STATUS " -- using clang-format! -- ")
