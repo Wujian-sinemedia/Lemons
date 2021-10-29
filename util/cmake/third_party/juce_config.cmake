@@ -1,8 +1,3 @@
-option (JUCE_ENABLE_MODULE_SOURCE_GROUPS "Use JUCE source groups" ON)
-option (JUCE_BUILD_EXAMPLES "Build JUCE Examples" OFF)
-option (JUCE_BUILD_EXTRAS "Build JUCE Extras" OFF)
-
-
 option (LEMONS_USE_LV2_JUCE "Use the fork of JUCE that enables compiling to LV2 on Linux" OFF)
 
 if (NOT APPLE AND NOT WIN32 AND LEMONS_USE_LV2_JUCE)
@@ -16,4 +11,5 @@ endif()
 CPMAddPackage (
         NAME JUCE
         GIT_REPOSITORY ${juce_repo}.git
-        GIT_TAG ${juce_tag})
+        GIT_TAG ${juce_tag}
+        OPTIONS "JUCE_ENABLE_MODULE_SOURCE_GROUPS ON" "JUCE_BUILD_EXAMPLES OFF" "JUCE_BUILD_EXTRAS OFF")
