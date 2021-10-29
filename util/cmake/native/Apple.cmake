@@ -4,7 +4,7 @@ execute_process (
       OUTPUT_VARIABLE osx_native_architecture
       OUTPUT_STRIP_TRAILING_WHITESPACE)
 
-if ("${CMAKE_GENERATOR}" MATCHES "Xcode" AND "${osx_native_architecture}" MATCHES "arm64")
+if ("${CMAKE_GENERATOR}" MATCHES "Xcode" AND "${osx_native_architecture}" MATCHES "arm64" AND NOT "${CMAKE_SYSTEM_NAME}" MATCHES "iOS")
     set (CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "")
 endif()
 
