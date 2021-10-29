@@ -10,10 +10,12 @@ set (out_folder "${CMAKE_CURRENT_LIST_DIR}/build")
 #
 
 set (cmake_api "cmake_api.md")
+set (cmake_api_input "${CMAKE_CURRENT_LIST_DIR}/${cmake_api}")
 set (cmake_api_output "${out_folder}/${cmake_api}")
 
 add_custom_command (OUTPUT "${cmake_api_output}"
-					COMMAND "${CMAKE_COMMAND}" ARGS -E copy "${CMAKE_CURRENT_LIST_DIR}/${cmake_api}" "${cmake_api_output}"
+					MAIN_DEPENDENCY "${cmake_api_input}" 
+					COMMAND "${CMAKE_COMMAND}" ARGS -E copy "${cmake_api_input}" "${cmake_api_output}"
 					VERBATIM
 					WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}"
 					COMMENT "Copying CMake API to Doxygen build tree...")
@@ -21,10 +23,12 @@ add_custom_command (OUTPUT "${cmake_api_output}"
 #
 
 set (logo_file "logo.png")
+set (logo_input "${LEMONS_REPO_ROOT}/util/assets/${logo_file}")
 set (logo_output "${out_folder}/${logo_file}")
 
 add_custom_command (OUTPUT "${logo_output}"
-					COMMAND "${CMAKE_COMMAND}" ARGS -E copy "${LEMONS_REPO_ROOT}/util/assets/${logo_file}" "${logo_output}"
+					MAIN_DEPENDENCY "${logo_input}"
+					COMMAND "${CMAKE_COMMAND}" ARGS -E copy "${logo_input}" "${logo_output}"
 					VERBATIM
 					WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}"
 					COMMENT "Copying logo to Doxygen build tree...")
@@ -32,20 +36,25 @@ add_custom_command (OUTPUT "${logo_output}"
 #
 
 set (main_page "main_page.md")
+set (lemons_repo_readme "${LEMONS_REPO_ROOT}/README.md")
 set (main_page_output "${out_folder}/${main_page}")
 
 add_custom_command (OUTPUT "${main_page_output}"
-					COMMAND "${CMAKE_COMMAND}" ARGS -D "MAIN_PAGE_INPUT=${CMAKE_CURRENT_LIST_DIR}/${main_page}" -D "MAIN_PAGE_OUTPUT=${main_page_output}" -D "LEMONS_README=${LEMONS_REPO_ROOT}/README.md" -P "${CMAKE_CURRENT_LIST_DIR}/copy_main_page.cmake"
+					MAIN_DEPENDENCY "${lemons_repo_readme}"
+					DEPENDS "${CMAKE_CURRENT_LIST_DIR}/${main_page}"
+					COMMAND "${CMAKE_COMMAND}" ARGS -D "MAIN_PAGE_OUTPUT=${main_page_output}" -D "LEMONS_README=${lemons_repo_readme}" -P "${CMAKE_CURRENT_LIST_DIR}/copy_main_page.cmake"
 					VERBATIM
 					WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}"
 					COMMENT "Copying from main readme into Doxygen main page...")
 
 #
 
+set (module_process_script "${CMAKE_CURRENT_LIST_DIR}/process_modules.py")
 set (modules_output "${out_folder}/lemons_modules.dox")
 
 add_custom_command (OUTPUT "${modules_output}"
-				 	COMMAND "${PYTHON}" ARGS "${CMAKE_CURRENT_LIST_DIR}/process_modules.py" "${LEMONS_REPO_ROOT}" "${out_folder}"
+					MAIN_DEPENDENCY "${module_process_script}"
+				 	COMMAND "${PYTHON}" ARGS "${module_process_script}" "${LEMONS_REPO_ROOT}" "${out_folder}"
 				 	VERBATIM
 				 	WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}"
 				 	COMMENT "Preparing Doxygen build tree...")

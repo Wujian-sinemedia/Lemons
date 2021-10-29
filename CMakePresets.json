@@ -7,23 +7,29 @@
   },
   "configurePresets": [
     {
+      "name": "base",
+      "binaryDir": "${sourceDir}/Builds/${presetName}",
+      "cacheVariables": {
+        "LEMONS_GENERATE_TRANSLATION_FILES": "OFF"
+      },
+      "hidden": true
+    },
+    {
       "name": "docs",
       "displayName": "Configure for documentation",
       "description": "Configuration with documentation enabled",
-      "binaryDir": "${sourceDir}/Builds/${presetName}",
+      "inherits": "base",
       "cacheVariables": {
-        "LEMONS_GENERATE_TRANSLATION_FILES": "OFF",
-        "LEMONS_BUILD_DOCS": "ON"
+        "LEMONS_BUILD_DOCS": "true"
       }
     },
     {
       "name": "tests",
       "displayName": "Configure for testing",
       "description": "Confuguration with testing enabled",
-      "inherits": "docs",
+      "inherits": "base",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
-        "LEMONS_BUILD_DOCS": "OFF",
         "LEMONS_BUILD_TESTS": "ON"
       }
     }
