@@ -34,6 +34,20 @@ config_docs:
 .PHONY: config_docs
 
 
+#####  TESTS  #####
+
+tests: build_tests ## Builds and runs the Lemons unit tests
+	ctest --preset all
+
+build_tests: config_tests
+	cmake --build --preset tests
+
+config_tests: 
+	cmake --preset tests
+
+.PHONY: build_tests config_tests
+
+
 ###  UTILITIES  ###
 
 propogate: $(SCRIPTS_DIR)/project_config/propogate_config_files.py ## Propogates all configuration files to the template repos
