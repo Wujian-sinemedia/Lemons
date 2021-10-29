@@ -4,6 +4,8 @@ import os
 import shutil
 import re
 
+from argparse import ArgumentParser
+
 ###############################################################################
 
 # Add a Doxygen group to the file at 'path'
@@ -18,8 +20,11 @@ def add_doxygen_group (path, group_name):
         raise Exception("Doxygen group name cannot be empty!")
         return
 
-    with open (path, "r") as f:
-        content = f.read()
+    try:
+        with open (path, "r") as f:
+            content = f.read()
+    except UnicodeDecodeError:
+        return
 
     with open (path, "w") as f:
         f.write ("\r\n/** @ingroup " + group_name + "\r\n *  @{\r\n */\r\n")
@@ -220,3 +225,15 @@ def create_module_heirarchy (source_dir, dest_dir):
     # Create a .dox file containing the entire module hierarchy
     with open (os.path.join (dest_dir, "lemons_modules.dox"), "w") as f:
         f.write ("\r\n\r\n".join (category_definitions))
+
+###############################################################################
+
+if __name__ == "__main__":
+
+    parser = ArgumentParser()
+    parser.add_argument ("lemons_root", help="the absolute path to the Lemons repo root")
+    parser.add_argument ("dest_dir", help="the absolute path to the project's source tree to scan for translations")
+    
+    args = parser.parse_args()
+
+    create_module_heirarchy (args.lemons_root, args.dest_dir)
