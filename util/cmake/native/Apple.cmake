@@ -1,3 +1,14 @@
+execute_process (
+      COMMAND uname -m
+      RESULT_VARIABLE result
+      OUTPUT_VARIABLE osx_native_architecture
+      OUTPUT_STRIP_TRAILING_WHITESPACE)
+
+if ("${CMAKE_GENERATOR MATCHES}" "Xcode" AND "${osx_native_architecture}" MATCHES "arm64")
+    set (CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "")
+endif()
+
+
 if ("${CMAKE_SYSTEM_NAME}" MATCHES "iOS")
 
     set (CMAKE_OSX_DEPLOYMENT_TARGET "9.3" CACHE STRING "Minimum OS X deployment version" FORCE)
@@ -13,8 +24,6 @@ else()
     if (IS_DIRECTORY ${MAC_SDK_DIR})
         set (CMAKE_OSX_SYSROOT ${MAC_SDK_DIR})
     endif()
-
-    set (CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE INTERNAL "")
 
 endif()
 
