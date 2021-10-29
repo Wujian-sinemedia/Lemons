@@ -1,7 +1,5 @@
 add_subdirectory (UnitTestRunner)
 
-add_test (NAME LemonsUnitTests COMMAND UnitTestRunner WORKING_DIRECTORY "${LEMONS_REPO_ROOT}")
-
 
 include (pluginval.cmake)
 include (auval.cmake)

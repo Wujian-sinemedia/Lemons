@@ -79,7 +79,6 @@ function (_lemons_configure_pluginval_tests)
     set (atLeastOne FALSE)
 
     foreach (format ${formats})
-
         set (target "${LEMONS_PIV_TARGET}_${format}")
 
         if (NOT TARGET "${target}")
