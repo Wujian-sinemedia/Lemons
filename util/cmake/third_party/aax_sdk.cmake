@@ -10,6 +10,11 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "iOS")
 	return()
 endif()
 
+# or when testing...
+if (LEMONS_BUILD_TESTS)
+	return()
+endif()
+
 # Check if the supplied AAX SDK path is valid
 
 if (NOT LEMONS_AAX_SDK_PATH)
