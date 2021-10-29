@@ -90,6 +90,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4d08bca6526b43a29384d923bf4aa64a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1RawData.html#a4d08bca6526b43a29384d923bf4aa64a">RawData</a> (const String &amp;fileToFind)</td></tr>
 <tr class="memdesc:a4d08bca6526b43a29384d923bf4aa64a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="structlemons_1_1RawData.html" title="Represents a wrapper around some data contained in a juce BinaryData target.">RawData</a> object referencing a named resource.  <a href="structlemons_1_1RawData.html#a4d08bca6526b43a29384d923bf4aa64a">More...</a><br /></td></tr>
 <tr class="separator:a4d08bca6526b43a29384d923bf4aa64a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dbfe6355bf679c8a5bfc5e9cd381e17"><td class="memItemLeft" align="right" valign="top">juce::Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1RawData.html#a7dbfe6355bf679c8a5bfc5e9cd381e17">getAsImage</a> () const</td></tr>
+<tr class="memdesc:a7dbfe6355bf679c8a5bfc5e9cd381e17"><td class="mdescLeft">&#160;</td><td class="mdescRight">If this binary data represents an image, this returns a juce Image object created from it.  <a href="structlemons_1_1RawData.html#a7dbfe6355bf679c8a5bfc5e9cd381e17">More...</a><br /></td></tr>
+<tr class="separator:a7dbfe6355bf679c8a5bfc5e9cd381e17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab53329e23da7ab50cdca806d65a4fe9d"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1RawData.html#ab53329e23da7ab50cdca806d65a4fe9d">getAsString</a> () const</td></tr>
+<tr class="memdesc:ab53329e23da7ab50cdca806d65a4fe9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the data as a UTF-8 formatted string.  <a href="structlemons_1_1RawData.html#ab53329e23da7ab50cdca806d65a4fe9d">More...</a><br /></td></tr>
+<tr class="separator:ab53329e23da7ab50cdca806d65a4fe9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3b04892ff5b648480e24a9a2532e8c0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1RawData.html#ac3b04892ff5b648480e24a9a2532e8c0">isValid</a> () const noexcept</td></tr>
 <tr class="memdesc:ac3b04892ff5b648480e24a9a2532e8c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the requested data has been loaded successfully from the binary data target.  <a href="structlemons_1_1RawData.html#ac3b04892ff5b648480e24a9a2532e8c0">More...</a><br /></td></tr>
 <tr class="separator:ac3b04892ff5b648480e24a9a2532e8c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -197,6 +203,44 @@ Example: </p><div class="fragment"><div class="line"><a class="code" href="struc
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7dbfe6355bf679c8a5bfc5e9cd381e17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dbfe6355bf679c8a5bfc5e9cd381e17">&#9670;&nbsp;</a></span>getAsImage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::Image lemons::RawData::getAsImage </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If this binary data represents an image, this returns a juce Image object created from it. </p>
+
+</div>
+</div>
+<a id="ab53329e23da7ab50cdca806d65a4fe9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab53329e23da7ab50cdca806d65a4fe9d">&#9670;&nbsp;</a></span>getAsString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String lemons::RawData::getAsString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the data as a UTF-8 formatted string. </p>
+
+</div>
+</div>
 <a id="ac3b04892ff5b648480e24a9a2532e8c0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac3b04892ff5b648480e24a9a2532e8c0">&#9670;&nbsp;</a></span>isValid()</h2>
 
@@ -238,6 +282,7 @@ Example: </p><div class="fragment"><div class="line"><a class="code" href="struc
 </div><div class="memdoc">
 
 <p>The raw data. </p>
+<p>This may be null if the data cannot be found. </p>
 
 </div>
 </div>
@@ -261,11 +306,11 @@ Example: </p><div class="fragment"><div class="line"><a class="code" href="struc
 <li><a class="el" href="BinaryDataHelpers_8h.html">BinaryDataHelpers.h</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="astructlemons_1_1RawData_html_a022333d14194d6ba19fb597f8feeb3a4"><div class="ttname"><a href="structlemons_1_1RawData.html#a022333d14194d6ba19fb597f8feeb3a4">lemons::RawData::data</a></div><div class="ttdeci">const char * data</div><div class="ttdoc">The raw data.</div><div class="ttdef"><b>Definition:</b> BinaryDataHelpers.h:37</div></div>
+<div class="ttc" id="astructlemons_1_1RawData_html_a022333d14194d6ba19fb597f8feeb3a4"><div class="ttname"><a href="structlemons_1_1RawData.html#a022333d14194d6ba19fb597f8feeb3a4">lemons::RawData::data</a></div><div class="ttdeci">const char * data</div><div class="ttdoc">The raw data.</div><div class="ttdef"><b>Definition:</b> BinaryDataHelpers.h:43</div></div>
 <div class="ttc" id="astructlemons_1_1RawData_html_a08a4b11ec4c596faf48456a827c6a1bd"><div class="ttname"><a href="structlemons_1_1RawData.html#a08a4b11ec4c596faf48456a827c6a1bd">lemons::RawData::RawData</a></div><div class="ttdeci">RawData()=default</div><div class="ttdoc">Creates a default, invalid RawData object.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 28 2021 00:41:52 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 29 2021 00:40:17 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

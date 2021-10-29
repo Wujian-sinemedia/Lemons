@@ -16003,6 +16003,20 @@
       <arglist>(const String &amp;fileToFind)</arglist>
     </member>
     <member kind="function">
+      <type>juce::Image</type>
+      <name>getAsImage</name>
+      <anchorfile>structlemons_1_1RawData.html</anchorfile>
+      <anchor>a7dbfe6355bf679c8a5bfc5e9cd381e17</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>getAsString</name>
+      <anchorfile>structlemons_1_1RawData.html</anchorfile>
+      <anchor>ab53329e23da7ab50cdca806d65a4fe9d</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
       <type>bool</type>
       <name>isValid</name>
       <anchorfile>structlemons_1_1RawData.html</anchorfile>
