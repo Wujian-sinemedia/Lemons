@@ -12,9 +12,6 @@ MODULES := modules
 UTIL_DIR := util
 MAKE_DIR := $(UTIL_DIR)/make
 CMAKE_DIR := $(UTIL_DIR)/cmake
-DOXYGEN_DIR := $(UTIL_DIR)/doxygen
-DOXYGEN_BUILD_DIR := $(DOXYGEN_DIR)/build
-DOXYGEN_DEPLOY_DIR := $(DOXYGEN_DIR)/doc
 
 include $(MAKE_DIR)/Makefile
 

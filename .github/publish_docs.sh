@@ -25,7 +25,7 @@ mkdir "$temp_dir"
 cd "$temp_dir"
 
 # clone the docs branch
-git clone -b docs "https://git@$GH_REPO_REF"
+git clone -b docs --recurse-submodules "https://git@$GH_REPO_REF"
 
 readonly docs_git_tree="$script_dir/$temp_dir/Lemons"
 
