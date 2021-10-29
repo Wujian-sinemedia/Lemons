@@ -20,3 +20,9 @@ option (LEMONS_BUILD_TESTS "Build the Lemons unit tests" OFF)
 if (LEMONS_BUILD_TESTS)
 	enable_testing()
 endif()
+
+option (LEMONS_BUILD_DOCS "Build the Lemons documentation" OFF)
+
+if (LEMONS_BUILD_DOCS)
+	add_subdirectory (util/doxygen)
+endif()

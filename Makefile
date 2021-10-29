@@ -28,19 +28,13 @@ SOURCE_FILES := $(shell find $(MODULES) -type f -name "$(SOURCE_FILE_PATTERNS)")
 
 #####  DOCS  #####
 
-MODULE_DOC_OUTPUT := $(DOXYGEN_BUILD_DIR)/lemons_modules.dox
-HTML_DOC_OUTPUT := $(DOXYGEN_DEPLOY_DIR)/index.html
+docs: config_docs ## Builds the Doxygen documentation
+	cmake --build --preset docs
 
-docs: $(HTML_DOC_OUTPUT) ## Builds the documentation
+config_docs:
+	cmake --preset docs
 
-DOC_SCRIPT_NAME := prepare_doxygen_build_tree.py
-
-$(HTML_DOC_OUTPUT): $(MODULE_DOC_OUTPUT) $(shell find $(DOXYGEN_DIR) -type f -maxdepth 1 ! -name *$(DOC_SCRIPT_NAME))
-	@echo "Building documentation..."
-	cd $(DOXYGEN_DIR) && doxygen
-
-$(MODULE_DOC_OUTPUT): $(DOXYGEN_DIR)/scripts/$(DOC_SCRIPT_NAME) $(SOURCE_FILES)
-	$(PYTHON) $<
+.PHONY: config_docs
 
 
 ###  UTILITIES  ###

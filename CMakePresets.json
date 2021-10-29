@@ -1,0 +1,63 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 19,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "docs",
+      "displayName": "Configure for documentation",
+      "description": "Configuration with documentation enabled",
+      "binaryDir": "${sourceDir}/Builds/${presetName}",
+      "cacheVariables": {
+        "LEMONS_GENERATE_TRANSLATION_FILES": "OFF",
+        "LEMONS_BUILD_DOCS": "ON"
+      }
+    },
+    {
+      "name": "tests",
+      "displayName": "Configure for testing",
+      "description": "Confuguration with testing enabled",
+      "inherits": "docs",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "LEMONS_BUILD_DOCS": "OFF",
+        "LEMONS_BUILD_TESTS": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "docs",
+      "displayName": "Build all",
+      "description": "Builds everything",
+      "configurePreset": "docs",
+      "targets": ["Doxygen"]
+    },
+    {
+      "name": "tests",
+      "displayName": "Build tests",
+      "description": "Builds the Lemons unit tests",
+      "configurePreset": "tests",
+      "configuration": "Debug",
+      "targets": ["UnitTestRunner"]
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "all",
+      "displayName": "Run tests",
+      "description": "Runs the Lemons unit tests",
+      "configurePreset": "tests",
+      "configuration": "Debug",
+      "output": {
+        "outputLogFile": "${sourceDir}/logs/unitTests.log"
+      },
+      "execution": {
+        "noTestsAction": "error"
+      }
+    }
+  ]
+}
