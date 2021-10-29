@@ -1,12 +1,50 @@
-include (aax_sdk.cmake)
-
 include (FindPackageHandleStandardArgs)
 
 include (GetLemons/get_cpm.cmake)
 
-include (juce_config.cmake)
+include (aax_sdk.cmake)
 
-include (mts_esp_config.cmake)
-include (ableton_link_config.cmake)
+#
+
+# JUCE
+
+CPMAddPackage (
+        NAME JUCE
+        GITHUB_REPOSITORY juce-framework/JUCE
+        GIT_TAG origin/develop
+        OPTIONS "JUCE_ENABLE_MODULE_SOURCE_GROUPS ON" "JUCE_BUILD_EXAMPLES OFF" "JUCE_BUILD_EXTRAS OFF")
+
+#
+
+# Ableton Link
+
+CPMAddPackage (
+        NAME AbletonLink
+        GITHUB_REPOSITORY Ableton/link
+        GIT_TAG origin/master
+        DOWNLOAD_ONLY YES)
+
+include (${AbletonLink_SOURCE_DIR}/AbletonLinkConfig.cmake)
+
+add_library (AbletonLink INTERFACE)
+add_dependencies (AbletonLink Ableton::Link)
+
+target_include_directories (AbletonLink INTERFACE ${AbletonLink_SOURCE_DIR}/include/ableton)
+target_compile_definitions (AbletonLink INTERFACE LEMONS_USE_ABLETON_LINK=1)
+
+#
+
+# MTS-ESP
+
+CPMAddPackage (
+        NAME MTS-ESP
+        GITHUB_REPOSITORY ODDSound/MTS-ESP
+        GIT_TAG origin/main)
+
+add_library (MTS-ESP INTERFACE)
+
+target_include_directories (MTS-ESP INTERFACE "${MTS-ESP_SOURCE_DIR}/Client")
+
+#
 
 add_subdirectory (vecops)

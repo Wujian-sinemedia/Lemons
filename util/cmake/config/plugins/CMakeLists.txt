@@ -1,3 +1,7 @@
+include (formats.cmake)
+
+#
+
 function (_lemons_configure_juce_lv2 origTarget)
 
     set (LV2target ${origTarget}_LV2)

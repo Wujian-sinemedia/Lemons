@@ -1,5 +1,7 @@
 function (_lemons_configure_product_deploy target isPlugin)
 
+    return()
+
     function (_lemons_configure_target_deploy target productName)
 
         if (NOT TARGET ${target})

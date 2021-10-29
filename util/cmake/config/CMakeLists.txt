@@ -100,4 +100,5 @@ endfunction()
 
 include (deploy.cmake)
 include (apps.cmake)
-include (plugins.cmake)
+
+add_subdirectory (plugins)

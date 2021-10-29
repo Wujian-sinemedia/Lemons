@@ -33,8 +33,6 @@ include (FileUtilities.cmake)
 add_subdirectory (native)
 add_subdirectory (third_party)
 
-include (plugin_formats.cmake)
-
 add_subdirectory (config)
 add_subdirectory (integrations)
 
@@ -48,3 +46,9 @@ set (BV_DEFAULT_BRAND_FLAGS
         COMPANY_COPYRIGHT           "Copyright 2021 Ben Vining"
         PLUGIN_MANUFACTURER_CODE    Benv
         CACHE INTERNAL "Ben Vining Music Software brand flags")
+
+#
+
+if (LEMONS_BUILD_TESTS)
+    add_subdirectory (testing)
+endif()

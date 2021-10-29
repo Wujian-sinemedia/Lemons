@@ -53,5 +53,6 @@ endif()
 
 set (LEMONS_PLUGIN_FORMATS ${available_formats} CACHE INTERNAL "Available plugin formats" FORCE)
 
-message (STATUS "  -- Available plugin formats: ${LEMONS_PLUGIN_FORMATS}")
+list (JOIN available_formats " " formats_output)
+message (STATUS "  -- Available plugin formats: ${formats_output}")
 

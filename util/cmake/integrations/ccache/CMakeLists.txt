@@ -34,21 +34,28 @@ foreach (option ${LEMONS_CCACHE_OPTIONS})
     set (CCCACHE_EXPORTS "${CCCACHE_EXPORTS}\nexport ${option}")
 endforeach()
 
-configure_file (${CMAKE_CURRENT_LIST_DIR}/launch-c.in   launch-c)
-configure_file (${CMAKE_CURRENT_LIST_DIR}/launch-cxx.in launch-cxx)
+macro (_lemons_configure_compiler_launcher language)
 
-execute_process (COMMAND chmod a+rx
-                "${CMAKE_CURRENT_BINARY_DIR}/launch-c"
-                "${CMAKE_CURRENT_BINARY_DIR}/launch-cxx")
+    set (script_name launch-${language})
+
+    configure_file ("${CMAKE_CURRENT_LIST_DIR}/${script_name}.in" ${script_name})
+
+    set (${language}_script "${CMAKE_CURRENT_BINARY_DIR}/${script_name}")
+endmacro()
+
+_lemons_configure_compiler_launcher (c)
+_lemons_configure_compiler_launcher (cxx)
+
+execute_process (COMMAND chmod a+rx "${c_script}" "${cxx_script}")
 
 if (CMAKE_GENERATOR MATCHES "Xcode")
-    set (CMAKE_XCODE_ATTRIBUTE_CC         "${CMAKE_CURRENT_BINARY_DIR}/launch-c" CACHE INTERNAL "" FORCE)
-    set (CMAKE_XCODE_ATTRIBUTE_CXX        "${CMAKE_CURRENT_BINARY_DIR}/launch-cxx" CACHE INTERNAL "" FORCE)
-    set (CMAKE_XCODE_ATTRIBUTE_LD         "${CMAKE_CURRENT_BINARY_DIR}/launch-c" CACHE INTERNAL "" FORCE)
-    set (CMAKE_XCODE_ATTRIBUTE_LDPLUSPLUS "${CMAKE_CURRENT_BINARY_DIR}/launch-cxx" CACHE INTERNAL "" FORCE)
+    set (CMAKE_XCODE_ATTRIBUTE_CC         "${c_script}" CACHE INTERNAL "" FORCE)
+    set (CMAKE_XCODE_ATTRIBUTE_CXX        "${cxx_script}" CACHE INTERNAL "" FORCE)
+    set (CMAKE_XCODE_ATTRIBUTE_LD         "${c_script}" CACHE INTERNAL "" FORCE)
+    set (CMAKE_XCODE_ATTRIBUTE_LDPLUSPLUS "${cxx_script}" CACHE INTERNAL "" FORCE)
 else()
-    set (CMAKE_C_COMPILER_LAUNCHER   "${CMAKE_CURRENT_BINARY_DIR}/launch-c" CACHE INTERNAL "" FORCE)
-    set (CMAKE_CXX_COMPILER_LAUNCHER "${CMAKE_CURRENT_BINARY_DIR}/launch-cxx" CACHE INTERNAL "" FORCE)
+    set (CMAKE_C_COMPILER_LAUNCHER   "${c_script}" CACHE INTERNAL "" FORCE)
+    set (CMAKE_CXX_COMPILER_LAUNCHER "${cxx_script}" CACHE INTERNAL "" FORCE)
 endif()
 
 message (STATUS " -- Using ccache! -- ")
