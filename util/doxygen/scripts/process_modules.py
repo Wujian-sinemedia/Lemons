@@ -4,7 +4,6 @@ import os
 import shutil
 import re
 
-
 ###############################################################################
 
 # Add a Doxygen group to the file at 'path'
@@ -198,7 +197,7 @@ def process_module_category (category_name, orig_cat_dir, dest_cat_dir):
 
 # Processes the entire heirarchy of juce modules
 
-def process_juce_modules (source_dir, dest_dir):
+def create_module_heirarchy (source_dir, dest_dir):
 
     if not os.path.isdir (source_dir):
         raise Exception("Juce modules source directory does not exist!")
@@ -221,100 +220,3 @@ def process_juce_modules (source_dir, dest_dir):
     # Create a .dox file containing the entire module hierarchy
     with open (os.path.join (dest_dir, "lemons_modules.dox"), "w") as f:
         f.write ("\r\n\r\n".join (category_definitions))
-
-
-###############################################################################
-
-# Copies the readme from the cmake directory into the working tree for doxygen
-
-def copy_cmake_readme (script_dir, dest_dir):
-
-    filename = "cmake_api.md"
-
-    orig_file_path = os.path.join (script_dir, filename)
-
-    if not os.path.exists (orig_file_path):
-        raise Exception("CMake API readme not found!")
-        return
-
-    dest_file_path = os.path.join (dest_dir, filename)
-
-    shutil.copy2 (orig_file_path, dest_file_path)
-
-
-# Copies the relevant sections from the top-level readme into the main_page.md file
-
-def copy_from_main_readme (source_dir, script_dir, dest_dir):
-
-    filename = "main_page.md"
-
-    orig_file_path = os.path.join (script_dir, filename)
-
-    if not os.path.exists (orig_file_path):
-        raise Exception("Main Lemons readme not found!")
-        return
-
-    dest_file_path = os.path.join (dest_dir, filename)
-
-    shutil.copy2 (orig_file_path, dest_file_path)
-
-    with open (os.path.join (source_dir, "README.md"), "r") as f:
-        orig_readme_text = f.read()
-
-    last_bit_of_intro = "whatever floats your git boat."
-
-    relevant_text = orig_readme_text.split (last_bit_of_intro, 1)[1]
-
-    if not relevant_text:
-        raise Exception("No relevant text found in main Lemons readme")
-        return
-
-    with open (dest_file_path, "a") as f:
-        f.write (relevant_text)
-
-
-###############################################################################
-
-# Copies the logo from the assets dir into the build tree
-
-def copy_logo (script_dir, dest_dir):
-
-    filename = "logo.png"
-
-    util_dir = os.path.abspath (os.path.dirname (script_dir))
-    assets_dir = os.path.join (util_dir, "assets")
-
-    orig_logo_file = os.path.join (assets_dir, filename)
-
-    if not os.path.exists (orig_logo_file):
-        raise Exception("Logo not found")
-        return
-
-    shutil.copy2 (orig_logo_file, 
-                  os.path.join (dest_dir, filename))
-
-
-###############################################################################
-
-# Main script 
-
-if __name__ == "__main__":
-
-    script_dir = os.path.abspath (os.path.dirname (__file__))
-
-    dest_dir = os.path.join (script_dir, "build")
-
-    if os.path.isdir (dest_dir):
-        shutil.rmtree (dest_dir)
-
-    os.mkdir (dest_dir)
-
-    copy_cmake_readme (script_dir, dest_dir)
-
-    copy_logo (script_dir, dest_dir)
-
-    lemons_root = os.path.abspath (os.path.dirname (os.path.dirname (script_dir)))
-
-    copy_from_main_readme (lemons_root, script_dir, dest_dir)
-
-    process_juce_modules (lemons_root, dest_dir)

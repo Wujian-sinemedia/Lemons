@@ -33,13 +33,13 @@ HTML_DOC_OUTPUT := $(DOXYGEN_DEPLOY_DIR)/index.html
 
 docs: $(HTML_DOC_OUTPUT) ## Builds the documentation
 
-DOC_SCRIPT_NAME := process_source_files.py
+DOC_SCRIPT_NAME := prepare_doxygen_build_tree.py
 
 $(HTML_DOC_OUTPUT): $(MODULE_DOC_OUTPUT) $(shell find $(DOXYGEN_DIR) -type f -maxdepth 1 ! -name *$(DOC_SCRIPT_NAME))
 	@echo "Building documentation..."
 	cd $(DOXYGEN_DIR) && doxygen
 
-$(MODULE_DOC_OUTPUT): $(DOXYGEN_DIR)/$(DOC_SCRIPT_NAME) $(SOURCE_FILES)
+$(MODULE_DOC_OUTPUT): $(DOXYGEN_DIR)/scripts/$(DOC_SCRIPT_NAME) $(SOURCE_FILES)
 	$(PYTHON) $<
 
 
