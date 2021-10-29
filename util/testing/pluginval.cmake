@@ -1,22 +1,8 @@
-set (pluginval_repo_path "${CPM_SOURCE_CACHE}/pluginval")
-
-#
-
-function (_lemons_pull_or_clone_pluginval_repo)
-
-    find_program (GIT git REQUIRED)
-
-    if (IS_DIRECTORY "${pluginval_repo_path}")
-        execute_process (COMMAND "${GIT}" "fetch" COMMAND "${GIT}" "pull"
-                         WORKING_DIRECTORY "${pluginval_repo_path}")
-    else()
-        message (STATUS "Cloning pluginval repo...")
-        execute_process (COMMAND "${GIT}" "clone" "--recurse-submodules" "https://github.com/Tracktion/pluginval.git" 
-                         WORKING_DIRECTORY "${CPM_SOURCE_CACHE}")
-    endif()
-endfunction()
-
-_lemons_pull_or_clone_pluginval_repo()
+CPMAddPackage (
+        NAME pluginval
+        GITHUB_REPOSITORY Tracktion/pluginval
+        GIT_TAG origin/develop
+        DOWNLOAD_ONLY YES)
 
 #
 
@@ -32,13 +18,11 @@ else()
 endif()
 
 macro (_lemons_locate_pluginval)
-    find_program (PLUGINVAL_EXEC pluginval PATHS "${pluginval_repo_path}/Builds/${pluginval_build_dir}/build/Release")
+    find_program (PLUGINVAL_EXEC pluginval PATHS "${pluginval_SOURCE_DIR}/Builds/${pluginval_build_dir}/build/Release")
 endmacro()
 
-# see if we can find a previously-built version...
 _lemons_locate_pluginval()
 
-# Build pluginval
 if (NOT PLUGINVAL_EXEC)
     unset (CACHE{PLUGINVAL_EXEC})
 
@@ -49,7 +33,7 @@ if (NOT PLUGINVAL_EXEC)
     endif()
 
     execute_process (COMMAND "./${pluginval_build_script}"
-                     WORKING_DIRECTORY "${pluginval_repo_path}/install")
+                     WORKING_DIRECTORY "${pluginval_SOURCE_DIR}/install")
 
     _lemons_locate_pluginval()
 endif()
@@ -89,7 +73,6 @@ function (_lemons_configure_pluginval_tests)
 
         add_test (NAME "${target}-Pluginval" 
                   COMMAND "${PLUGINVAL_EXEC}" "--strictness-level" "${LEMONS_PIV_LEVEL}" "--validate" "$<TARGET_FILE:${target}>" 
-                  WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}" 
                   COMMAND_EXPAND_LISTS)
     endforeach()
 

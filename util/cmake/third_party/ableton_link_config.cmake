@@ -1,6 +1,6 @@
 CPMAddPackage (
         NAME AbletonLink
-        GIT_REPOSITORY https://github.com/Ableton/link.git
+        GITHUB_REPOSITORY Ableton/link
         GIT_TAG origin/master
         DOWNLOAD_ONLY YES)
 

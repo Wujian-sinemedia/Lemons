@@ -1,6 +1,6 @@
 CPMAddPackage (
         NAME MTS-ESP
-        GIT_REPOSITORY https://github.com/ODDSound/MTS-ESP.git
+        GITHUB_REPOSITORY ODDSound/MTS-ESP
         GIT_TAG origin/main)
 
 add_library (MTS-ESP INTERFACE)
