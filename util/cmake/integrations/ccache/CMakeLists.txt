@@ -29,7 +29,7 @@ list (APPEND LEMONS_CCACHE_OPTIONS "CCACHE_MAXSIZE=800M")
 set (CCCACHE_EXPORTS "")
 
 foreach (option ${LEMONS_CCACHE_OPTIONS})
-    string (APPEND CCCACHE_EXPORTS "\n export ${option}")
+    string (APPEND CCCACHE_EXPORTS "\nexport ${option}")
 endforeach()
 
 macro (_lemons_configure_compiler_launcher language)
