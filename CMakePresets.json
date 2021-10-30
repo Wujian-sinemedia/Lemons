@@ -32,6 +32,15 @@
         "CMAKE_BUILD_TYPE": "Debug",
         "LEMONS_BUILD_TESTS": "ON"
       }
+    },
+    {
+      "name": "templates",
+      "displayName": "Configure templates build",
+      "description": "Configuration with the template projects enabled",
+      "inherits": "base",
+      "cacheVariables": {
+        "LEMONS_BUILD_TEMPLATES": "true"
+      }
     }
   ],
   "buildPresets": [

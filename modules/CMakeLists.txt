@@ -1,9 +1,9 @@
 function (_lemons_add_juce_modules_internal dir list)
 
-    lemons_subdir_list (RESULT moduleFolders DIR ${dir})
+    lemons_subdir_list (RESULT moduleFolders DIR "${dir}")
 
     foreach (folder ${moduleFolders})
-        juce_add_module (${dir}/${folder})
+        juce_add_module ("${dir}/${folder}")
     endforeach()
 
     list (APPEND ${list} ${moduleFolders} PARENT_SCOPE)
