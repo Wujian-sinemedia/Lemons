@@ -14,6 +14,10 @@ function (_lemons_enable_browser target)
 endfunction()
 
 function (_lemons_enable_plugin_hosting target)
+    if (IOS)
+        return()
+    endif()
+
     target_compile_definitions ("${target}" PRIVATE 
             JUCE_PLUGINHOST_VST=0
             JUCE_PLUGINHOST_VST3=1

@@ -4,12 +4,12 @@ execute_process (
       OUTPUT_VARIABLE osx_native_architecture
       OUTPUT_STRIP_TRAILING_WHITESPACE)
 
-if ("${CMAKE_GENERATOR}" MATCHES "Xcode" AND "${osx_native_architecture}" MATCHES "arm64" AND NOT "${CMAKE_SYSTEM_NAME}" MATCHES "iOS")
+if (XCODE AND NOT IOS AND "${osx_native_architecture}" MATCHES "arm64")
     set (CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "")
 endif()
 
 
-if ("${CMAKE_SYSTEM_NAME}" MATCHES "iOS")
+if (IOS)
 
     set (CMAKE_OSX_DEPLOYMENT_TARGET "9.3" CACHE STRING "" FORCE)
     set (CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "iPhone Developer" CACHE INTERNAL "")
@@ -35,7 +35,7 @@ function (_lemons_set_default_macos_options target)
     
     set_target_properties (${target} PROPERTIES XCODE_ATTRIBUTE_ENABLE_HARDENED_RUNTIME YES)
 
-    if (${CMAKE_SYSTEM_NAME} MATCHES "iOS")
+    if (IOS)
         set_target_properties (${target} PROPERTIES
                 ARCHIVE_OUTPUT_DIRECTORY "./"
                 XCODE_ATTRIBUTE_INSTALL_PATH "$(LOCAL_APPS_DIR)"

@@ -1,4 +1,4 @@
-set (LEMONS_AAX_AVAILABLE FALSE CACHE INTERNAL "" FORCE)
+set (LEMONS_AAX_AVAILABLE FALSE CACHE INTERNAL "")
 
 # AAX is only available on Mac and Windows...
 if (NOT APPLE AND NOT WIN32)
@@ -6,7 +6,7 @@ if (NOT APPLE AND NOT WIN32)
 endif()
 
 # AAX isn't useful on iOS...
-if (${CMAKE_SYSTEM_NAME} MATCHES "iOS")
+if (IOS)
 	return()
 endif()
 
@@ -70,4 +70,4 @@ if (res)
 	return()
 endif()
 	
-set (LEMONS_AAX_AVAILABLE TRUE CACHE INTERNAL "" FORCE)
+set (LEMONS_AAX_AVAILABLE TRUE CACHE INTERNAL "")

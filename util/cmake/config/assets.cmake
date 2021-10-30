@@ -26,7 +26,7 @@ function (lemons_add_resources_folder)
         return()
     endif()
 
-    set (resourcesTarget "${LEMONS_RSRC_FLDR_TARGET}-Assets")
+    set (resourcesTarget "${PROJECT_NAME}-Assets")
 
     # create resources target, if needed 
     if (NOT TARGET ${resourcesTarget})

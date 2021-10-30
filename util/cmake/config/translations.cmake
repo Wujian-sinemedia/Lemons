@@ -1,10 +1,10 @@
 find_program (PYTHON_EXEC python3)
 
 
-set (_lemons_translation_scripts_dir "${LEMONS_PYTHON_SCRIPTS_DIR}/translations" CACHE INTERNAL "" FORCE)
+set (_lemons_translation_scripts_dir "${LEMONS_PYTHON_SCRIPTS_DIR}/translations" CACHE INTERNAL "")
 
 file (REAL_PATH "$ENV{CPM_SOURCE_CACHE}/translations" translation_files)
-set (_lemons_translation_files_storage "${translation_files}" CACHE INTERNAL "" FORCE)
+set (_lemons_translation_files_storage "${translation_files}" CACHE INTERNAL "")
 
 
 if (PYTHON_EXEC AND LEMONS_GENERATE_TRANSLATION_FILES)

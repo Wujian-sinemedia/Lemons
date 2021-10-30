@@ -17,7 +17,7 @@ if (APPLE)
     list (APPEND available_formats AUv3)
 endif()
 
-if (NOT ("${CMAKE_SYSTEM_NAME}" MATCHES "iOS"))
+if (NOT IOS)
     list (APPEND available_formats Unity VST3)
 
     if (APPLE)
@@ -35,7 +35,7 @@ if (NOT ("${CMAKE_SYSTEM_NAME}" MATCHES "iOS"))
     endif()
 endif()
 
-set (LEMONS_PLUGIN_FORMATS ${available_formats} CACHE STRING "Available plugin formats")
+set (LEMONS_PLUGIN_FORMATS ${available_formats} CACHE INTERNAL "Available plugin formats")
 
 list (JOIN available_formats " " formats_output)
 message (STATUS "  -- Available plugin formats: ${formats_output}")

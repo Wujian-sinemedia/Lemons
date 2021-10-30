@@ -6,8 +6,6 @@ project (Lemons VERSION 0.1.0 LANGUAGES CXX C)
 
 #
 
-option (LEMONS_WORKSPACE_BUILD "" OFF)
-
 set (LEMONS_CXX_VERSION 20 CACHE STRING "C++ standard version")
 
 set (LEMONS_SANITIZERS_TO_ENABLE "" CACHE STRING "List of sanitizers to enable")
@@ -28,9 +26,6 @@ set (LEMONS_AAX_SDK_PATH "" CACHE STRING "Path to the AAX SDK")
 set (LEMONS_VST2_SDK_PATH "" CACHE STRING "Path to the VST2 SDK")
 
 #
-
-file (REAL_PATH "${CMAKE_CURRENT_LIST_DIR}" lemons_repo_path)
-set (LEMONS_REPO_ROOT "${lemons_repo_path}" CACHE INTERNAL "" FORCE)
 
 add_subdirectory (util/cmake)
 add_subdirectory (modules)

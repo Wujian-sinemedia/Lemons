@@ -1,28 +1,20 @@
 set_property (GLOBAL PROPERTY USE_FOLDERS YES)
 set_property (GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER "Targets")
 
-set (CMAKE_SUPPRESS_REGENERATION        TRUE)
-set (CMAKE_EXPORT_COMPILE_COMMANDS      TRUE)
-set (CMAKE_CXX_STANDARD                 ${LEMONS_CXX_VERSION})
-set (CMAKE_CXX_STANDARD_REQUIRED        ON)
-set (CMAKE_INCLUDE_CURRENT_DIR          ON)
+set (CMAKE_SUPPRESS_REGENERATION        TRUE CACHE INTERNAL "")
+set (CMAKE_EXPORT_COMPILE_COMMANDS      TRUE CACHE INTERNAL "")
+set (CMAKE_CXX_STANDARD                 ${LEMONS_CXX_VERSION} CACHE INTERNAL "")
+set (CMAKE_CXX_STANDARD_REQUIRED        ON CACHE INTERNAL "")
+set (CMAKE_INCLUDE_CURRENT_DIR          ON CACHE INTERNAL "")
 
-set (LEMONS_CMAKE_ROOT "${CMAKE_CURRENT_LIST_DIR}" CACHE INTERNAL "" FORCE)
+set (LEMONS_CMAKE_ROOT "${CMAKE_CURRENT_LIST_DIR}" CACHE INTERNAL "")
 
 file (REAL_PATH "${CMAKE_CURRENT_LIST_DIR}/../scripts" python_dir)
-set (LEMONS_PYTHON_SCRIPTS_DIR "${python_dir}" CACHE INTERNAL "" FORCE)
-
-# The top level directory of the current build
-if (NOT LEMONS_TOPLEVEL_DIR)
-    file (REAL_PATH "${LEMONS_REPO_ROOT}/.." lemons_toplevel_path)
-    set (LEMONS_TOPLEVEL_DIR "${lemons_toplevel_path}" CACHE INTERNAL "")
-endif()
+set (LEMONS_PYTHON_SCRIPTS_DIR "${python_dir}" CACHE INTERNAL "")
 
 # set up CPM source cache in a git-ignored location (makes successive build configs MUCH faster!)
 # if you wish to refresh the cache, I suggest manually deleting the cached files from the Cache dir. They will be freshly re-downloaded when the next CMake configuration is run.
-if (NOT ENV{CPM_SOURCE_CACHE})
-    set (ENV{CPM_SOURCE_CACHE} "${LEMONS_TOPLEVEL_DIR}/Cache")
-endif()
+set (ENV{CPM_SOURCE_CACHE} "${CMAKE_PROJECT_DIR}/Cache")
 
 #
 

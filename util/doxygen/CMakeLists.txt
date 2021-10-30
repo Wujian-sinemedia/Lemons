@@ -23,7 +23,7 @@ add_custom_command (OUTPUT "${cmake_api_output}"
 #
 
 set (logo_file "logo.png")
-set (logo_input "${LEMONS_REPO_ROOT}/util/assets/${logo_file}")
+set (logo_input "${Lemons_PROJECT_DIR}/util/assets/${logo_file}")
 set (logo_output "${out_folder}/${logo_file}")
 
 add_custom_command (OUTPUT "${logo_output}"
@@ -36,7 +36,7 @@ add_custom_command (OUTPUT "${logo_output}"
 #
 
 set (main_page "main_page.md")
-set (lemons_repo_readme "${LEMONS_REPO_ROOT}/README.md")
+set (lemons_repo_readme "${Lemons_PROJECT_DIR}/README.md")
 set (main_page_output "${out_folder}/${main_page}")
 
 add_custom_command (OUTPUT "${main_page_output}"
@@ -54,7 +54,7 @@ set (modules_output "${out_folder}/lemons_modules.dox")
 
 add_custom_command (OUTPUT "${modules_output}"
 					MAIN_DEPENDENCY "${module_process_script}"
-				 	COMMAND "${PYTHON}" ARGS "${module_process_script}" "${LEMONS_REPO_ROOT}" "${out_folder}"
+				 	COMMAND "${PYTHON}" ARGS "${module_process_script}" "${Lemons_PROJECT_DIR}" "${out_folder}"
 				 	VERBATIM
 				 	WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}"
 				 	COMMENT "Preparing Doxygen build tree...")
