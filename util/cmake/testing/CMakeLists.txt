@@ -12,7 +12,7 @@ function (_lemons_configure_plugin_tests target)
 		return()
 	endif()
 
-	_lemons_configure_pluginval_tests (TARGET "${target}" LEVEL 10)
+	_lemons_configure_pluginval_tests (TARGET "${target}")
 	_lemons_configure_auval_tests (TARGET "${target}")
 
 endfunction()

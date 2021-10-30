@@ -8,7 +8,7 @@ function (_lemons_enable_browser target)
             JUCE_USE_CURL=1
             JUCE_LOAD_CURL_SYMBOLS_LAZILY=1)
 
-    if (CMAKE_SYSTEM_NAME MATCHES "Linux")
+    if ("${CMAKE_SYSTEM_NAME}" MATCHES "Linux")
         target_link_libraries ("${target}" PRIVATE juce::pkgconfig_JUCE_CURL_LINUX_DEPS)
     endif()
 endfunction()

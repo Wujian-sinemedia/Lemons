@@ -2,27 +2,6 @@ include (formats.cmake)
 
 #
 
-function (_lemons_configure_juce_lv2 origTarget)
-
-    set (LV2target ${origTarget}_LV2)
-
-    if (NOT TARGET ${LV2target})
-        return()
-    endif()
-
-    get_target_property (BundleID ${origTarget} JUCE_BUNDLE_ID)
-
-    if (NOT BundleID)
-        message (WARNING "Unspecified bundle ID for ${origTarget}!")
-        return()
-    endif()
-
-    set_target_properties (${LV2target} PROPERTIES JUCE_LV2_URI ${BundleID})
-
-endfunction()
-
-#
-
 function (_lemons_configure_juce_aax origTarget pagetableFile)
 
     set (aaxTarget ${origTarget}_AAX)
@@ -34,7 +13,7 @@ function (_lemons_configure_juce_aax origTarget pagetableFile)
     set_target_properties (${aaxTarget} PROPERTIES OSX_ARCHITECTURES x86_64)
 
     if (pagetableFile)
-        target_compile_definitions (${aaxTarget} PUBLIC JucePlugin_AAXPageTableFile=\"${pagetableFile}\")
+        target_compile_definitions (${aaxTarget} PUBLIC "JucePlugin_AAXPageTableFile=\"${pagetableFile}\"")
 
         # On Windows, pagetable files need a special post-build copy step to be included in the binary correctly
         if (WIN32)
@@ -75,7 +54,6 @@ endfunction()
 function (lemons_configure_juce_plugin)
 
     _lemons_configure_juce_target (${ARGN})
-    _lemons_configure_juce_lv2 (${lemons_targetname})
     _lemons_configure_juce_aax (${lemons_targetname} "${lemons_aax_pagetable_file}")
 
     target_link_libraries (${lemons_targetname} PUBLIC ${LEMONS_PLUGIN_ONLY_MODULES})

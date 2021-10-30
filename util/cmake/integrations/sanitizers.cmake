@@ -27,7 +27,6 @@ endif()
 if (NOT (CMAKE_CXX_COMPILER_ID MATCHES "GNU" 
       OR CMAKE_CXX_COMPILER_ID MATCHES "Clang" 
       OR CMAKE_CXX_COMPILER_ID MATCHES "MSVC"))
-    message (WARNING "Your compiler (${CMAKE_CXX_COMPILER_ID}) does not have sanitizer support :(")
     return()
 endif()
 
@@ -93,7 +92,7 @@ macro (_lemons_enable_sanitizer_flags sanitize_option)
 endmacro()
 
 #
-     
+
 foreach (sanitizer ${LEMONS_SANITIZERS_TO_ENABLE})
 
     string (TOLOWER ${sanitizer} sanitizer)

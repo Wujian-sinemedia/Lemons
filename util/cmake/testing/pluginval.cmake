@@ -49,7 +49,7 @@ function (_lemons_configure_pluginval_tests)
     endif()
 
 	set (options "")
-    set (oneValueArgs TARGET LEVEL)
+    set (oneValueArgs TARGET)
     set (multiValueArgs "")
 
     cmake_parse_arguments (LEMONS_PIV "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
@@ -72,7 +72,7 @@ function (_lemons_configure_pluginval_tests)
         set (atLeastOne TRUE)
 
         add_test (NAME "${target}-Pluginval" 
-                  COMMAND "${PLUGINVAL_EXEC}" "--strictness-level" "${LEMONS_PIV_LEVEL}" "--validate" "$<TARGET_FILE:${target}>" 
+                  COMMAND "${PLUGINVAL_EXEC}" "--strictness-level" "${LEMONS_PLUGINVAL_LEVEL}" "--validate" "$<TARGET_FILE:${target}>" 
                   COMMAND_EXPAND_LISTS)
     endforeach()
 

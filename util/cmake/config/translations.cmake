@@ -1,7 +1,5 @@
 find_program (PYTHON_EXEC python3)
 
-option (LEMONS_GENERATE_TRANSLATION_FILES "Generate translation files" ON)
-
 
 set (_lemons_translation_scripts_dir "${LEMONS_PYTHON_SCRIPTS_DIR}/translations" CACHE INTERNAL "" FORCE)
 
