@@ -10,9 +10,7 @@ set (_lemons_translation_files_storage "${translation_files}" CACHE INTERNAL "")
 if (PYTHON_EXEC AND LEMONS_GENERATE_TRANSLATION_FILES)
 	message (STATUS "Generating translation files for Lemons and JUCE...")
 
-	file (REAL_PATH "${JUCE_SOURCE_DIR}" juce_path)
-	
-	execute_process (COMMAND "${PYTHON_EXEC}" "${_lemons_translation_scripts_dir}/config_shared_translations.py" "${juce_path}" "${Lemons_PROJECT_SOURCE_DIR}" "${_lemons_translation_files_storage}")
+	execute_process (COMMAND "${PYTHON_EXEC}" "${_lemons_translation_scripts_dir}/config_shared_translations.py" "${JUCE_SOURCE_DIR}" "${Lemons_SOURCE_DIR}" "${_lemons_translation_files_storage}")
 endif()
 
 #
