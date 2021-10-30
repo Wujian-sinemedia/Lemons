@@ -19,12 +19,10 @@ if (APPLE)
 
 	if (XCODE_BUILD)
 		
-		file (REAL_PATH "${LEMONS_AAX_SDK_PATH}/Libs/AAXLibrary/MacBuild" mac_build_path)
-	
 		add_custom_target (AAXSDK
-					   	   COMMAND "${XCODE_BUILD}" -scheme AAXLibrary_libcpp -configuration $<OUTPUT_CONFIG:$<CONFIG>> build
+					   	   COMMAND "${XCODE_BUILD}" -scheme AAXLibrary_libcpp -configuration $<COMMAND_CONFIG:$<IF:$<STREQUAL:$<CONFIG>,>,Debug,$<CONFIG>>> build
 					   	   COMMAND_EXPAND_LISTS VERBATIM
-					   	   WORKING_DIRECTORY "${mac_build_path}"
+					   	   WORKING_DIRECTORY "${LEMONS_AAX_SDK_PATH}/Libs/AAXLibrary/MacBuild"
 					   	   COMMENT "Building AAX SDK..."
 					   	   COMMAND_ECHO STDOUT)
 	endif()
@@ -35,14 +33,17 @@ elseif (WIN32)
 
 	if (MS_BUILD)
 		
-		file (REAL_PATH "${LEMONS_AAX_SDK_PATH}/msvc" win_build_path)
-	
 		add_custom_target (AAXSDK
-					   	   COMMAND "${MS_BUILD}" AAX_SDK.sln -p:Configuration=$<OUTPUT_CONFIG:$<CONFIG>>
+					   	   COMMAND "${MS_BUILD}" AAX_SDK.sln -p:Configuration=$<COMMAND_CONFIG:$<IF:$<STREQUAL:$<CONFIG>,>,Debug,$<CONFIG>>>
 					   	   COMMAND_EXPAND_LISTS VERBATIM
-					   	   WORKING_DIRECTORY "${win_build_path}"
+					   	   WORKING_DIRECTORY "${LEMONS_AAX_SDK_PATH}/msvc"
 					   	   COMMENT "Building AAX SDK..."
 					   	   COMMAND_ECHO STDOUT)
 	endif()
 
+endif()
+
+
+if (TARGET AAXSDK)
+	set_target_properties (AAXSDK PROPERTIES OSX_ARCHITECTURES x86_64)
 endif()
