@@ -9,7 +9,6 @@
     Ccache can drastically improve build time, and there's not really a good reason NOT to use it if it's installed on your system.
 ]]
 
-
 find_program (CCACHE_PROGRAM ccache
               PATHS $ENV{CPM_SOURCE_CACHE}/ccache)
 

@@ -21,10 +21,9 @@ set (ENV{CPM_SOURCE_CACHE} "${CMAKE_SOURCE_DIR}/Cache")
 include (FileUtilities.cmake)
 
 add_subdirectory (native)
-add_subdirectory (third_party)
-
-add_subdirectory (config)
 add_subdirectory (integrations)
+add_subdirectory (third_party)
+add_subdirectory (config)
 
 #
 

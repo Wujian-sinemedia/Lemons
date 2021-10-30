@@ -1,22 +1,9 @@
-set (LEMONS_AAX_AVAILABLE FALSE CACHE INTERNAL "")
-
 # AAX is only available on Mac and Windows...
-if (NOT APPLE AND NOT WIN32)
-	return()
-endif()
-
-# AAX isn't useful on iOS...
-if (IOS)
-	return()
-endif()
-
-# or when testing...
-if (LEMONS_BUILD_TESTS)
+if (IOS OR NOT (APPLE OR WIN32))
 	return()
 endif()
 
 # Check if the supplied AAX SDK path is valid
-
 if (NOT LEMONS_AAX_SDK_PATH)
 	return()
 endif()
@@ -25,49 +12,37 @@ if (NOT IS_DIRECTORY "${LEMONS_AAX_SDK_PATH}")
 	return()
 endif()
 
-# Need to know the build type
-if (NOT CMAKE_BUILD_TYPE)
-	message (WARNING "CMAKE_BUILD_TYPE must be specified in order to buid the AAX SDK. Skipping for this build...")
-	return()
-endif()
-
-message (STATUS "Building AAX SDK...")
 
 if (APPLE)
 
 	find_program (XCODE_BUILD xcodebuild)
 
-	if (NOT XCODE_BUILD)
-		message (WARNING "Could not find xcodebuild - cannot build AAX SDK!")
-		return()
-	endif()
-
-	file (REAL_PATH "${LEMONS_AAX_SDK_PATH}/Libs/AAXLibrary/MacBuild" mac_build_path)
+	if (XCODE_BUILD)
+		
+		file (REAL_PATH "${LEMONS_AAX_SDK_PATH}/Libs/AAXLibrary/MacBuild" mac_build_path)
 	
-	execute_process (COMMAND "${XCODE_BUILD}" -scheme AAXLibrary_libcpp -configuration ${CMAKE_BUILD_TYPE} build 
-					 WORKING_DIRECTORY "${mac_build_path}"
-					 RESULT_VARIABLE res OUTPUT_QUIET)
+		add_custom_target (AAXSDK
+					   	   COMMAND "${XCODE_BUILD}" -scheme AAXLibrary_libcpp -configuration $<OUTPUT_CONFIG:$<CONFIG>> build
+					   	   COMMAND_EXPAND_LISTS VERBATIM
+					   	   WORKING_DIRECTORY "${mac_build_path}"
+					   	   COMMENT "Building AAX SDK..."
+					   	   COMMAND_ECHO STDOUT)
+	endif()
 
 elseif (WIN32)
 
 	find_program (MS_BUILD msbuild)
 
-	if (NOT MS_BUILD)
-		message (WARNING "Could not find msbuild - cannot build AAX SDK!")
-		return()
+	if (MS_BUILD)
+		
+		file (REAL_PATH "${LEMONS_AAX_SDK_PATH}/msvc" win_build_path)
+	
+		add_custom_target (AAXSDK
+					   	   COMMAND "${MS_BUILD}" AAX_SDK.sln -p:Configuration=$<OUTPUT_CONFIG:$<CONFIG>>
+					   	   COMMAND_EXPAND_LISTS VERBATIM
+					   	   WORKING_DIRECTORY "${win_build_path}"
+					   	   COMMENT "Building AAX SDK..."
+					   	   COMMAND_ECHO STDOUT)
 	endif()
 
-	file (REAL_PATH "${LEMONS_AAX_SDK_PATH}/msvc" win_build_path)
-	
-	execute_process (COMMAND "${MS_BUILD}" AAX_SDK.sln -p:Configuration=${CMAKE_BUILD_TYPE}
-					 WORKING_DIRECTORY "${win_build_path}"
-					 RESULT_VARIABLE res COMMAND_ECHO STDOUT)
 endif()
-
-# Check if build was successful
-if (res)
-	message (WARNING "Error building AAX SDK -- unable to use AAX plugin format")
-	return()
-endif()
-	
-set (LEMONS_AAX_AVAILABLE TRUE CACHE INTERNAL "")

@@ -24,7 +24,7 @@ if (NOT IOS)
         list (APPEND available_formats AU)
     endif()
 
-    if (LEMONS_AAX_AVAILABLE)
+    if (TARGET AAXSDK)
         juce_set_aax_sdk_path ("${LEMONS_AAX_SDK_PATH}")
         list (APPEND available_formats AAX)
     endif()

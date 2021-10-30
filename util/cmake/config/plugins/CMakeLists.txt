@@ -10,6 +10,8 @@ function (_lemons_configure_juce_aax origTarget pagetableFile)
         return()
     endif()
 
+    add_dependencies (${aaxTarget} AAXSDK)
+
     set_target_properties (${aaxTarget} PROPERTIES OSX_ARCHITECTURES x86_64)
 
     if (pagetableFile)
