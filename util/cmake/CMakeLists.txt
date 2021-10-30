@@ -14,7 +14,7 @@ set (LEMONS_PYTHON_SCRIPTS_DIR "${python_dir}" CACHE INTERNAL "")
 
 # set up CPM source cache in a git-ignored location (makes successive build configs MUCH faster!)
 # if you wish to refresh the cache, I suggest manually deleting the cached files from the Cache dir. They will be freshly re-downloaded when the next CMake configuration is run.
-set (ENV{CPM_SOURCE_CACHE} "${CMAKE_PROJECT_SOURCE_DIR}/Cache")
+set (ENV{CPM_SOURCE_CACHE} "${CMAKE_SOURCE_DIR}/Cache")
 
 #
 
