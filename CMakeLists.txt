@@ -1,6 +1,6 @@
 include_guard (GLOBAL)
 
-cmake_minimum_required (VERSION 3.19)
+cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
 project (Lemons VERSION 0.1.0 LANGUAGES CXX C)
 
