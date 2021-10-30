@@ -9,7 +9,7 @@ set (script_name "run_clang_format.cmake")
 configure_file ("${CMAKE_CURRENT_LIST_DIR}/${script_name}" "${script_name}" @ONLY)
 
 add_custom_target (ClangFormat
-                   COMMAND "${CMAKE_COMMAND}" -P "${script_name}"
+                   COMMAND "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/${script_name}"
                    WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
                    COMMENT "Running clang-format...")
 
