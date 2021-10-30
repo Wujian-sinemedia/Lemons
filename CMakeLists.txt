@@ -6,6 +6,8 @@ project (Lemons VERSION 0.1.0 LANGUAGES CXX C)
 
 #
 
+option (LEMONS_WORKSPACE_BUILD "" OFF)
+
 set (LEMONS_CXX_VERSION 20 CACHE STRING "C++ standard version")
 
 set (LEMONS_SANITIZERS_TO_ENABLE "" CACHE STRING "List of sanitizers to enable")
