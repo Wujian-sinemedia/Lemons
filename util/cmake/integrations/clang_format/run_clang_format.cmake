@@ -10,10 +10,12 @@ function (_lemons_cf_process_dir dirpath)
 		_lemons_cf_process_dir ("${dirpath}/${subdir}")
 	endforeach()
 
-	execute_process (COMMAND "@CLANG_FORMAT@" -i *.h *.hpp *.c *.cpp
-					 WORKING_DIRECTORY "${dirpath}"
-					 TIMEOUT 120)
-
+	if (IS_DIRECTORY "${dirpath}")
+		execute_process (COMMAND "@CLANG_FORMAT@" -i *.h *.hpp *.c *.cpp
+					 	 WORKING_DIRECTORY "${dirpath}"
+					 	 TIMEOUT 120
+					 	 OUTPUT_QUIET ERROR_QUIET)
+	endif()
 endfunction()
 
 #
