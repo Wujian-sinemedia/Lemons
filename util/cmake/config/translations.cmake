@@ -12,7 +12,7 @@ if (PYTHON_EXEC AND LEMONS_GENERATE_TRANSLATION_FILES)
 
 	file (REAL_PATH "${JUCE_SOURCE_DIR}" juce_path)
 	
-	execute_process (COMMAND "${PYTHON_EXEC}" "${_lemons_translation_scripts_dir}/config_shared_translations.py" "${juce_path}" "${LEMONS_REPO_ROOT}" "${_lemons_translation_files_storage}")
+	execute_process (COMMAND "${PYTHON_EXEC}" "${_lemons_translation_scripts_dir}/config_shared_translations.py" "${juce_path}" "${Lemons_PROJECT_SOURCE_DIR}" "${_lemons_translation_files_storage}")
 endif()
 
 #
@@ -31,7 +31,7 @@ function (lemons_generate_translation_files)
 
     message (STATUS "Generating translation files for target: ${LEMONS_TRANS_TARGET}")
 
-    file (REAL_PATH "${LEMONS_PROJECT_REPO_DIR}/${LEMONS_TRANS_FOLDER}/translations" translation_output)
+    file (REAL_PATH "${PROJECT_SOURCE_DIR}/${LEMONS_TRANS_FOLDER}/translations" translation_output)
 
-    execute_process (COMMAND "${PYTHON_EXEC}" "${_lemons_translation_scripts_dir}/config_project_translations.py" "${_lemons_translation_files_storage}" "${LEMONS_PROJECT_REPO_DIR}" "${translation_output}")
+    execute_process (COMMAND "${PYTHON_EXEC}" "${_lemons_translation_scripts_dir}/config_project_translations.py" "${_lemons_translation_files_storage}" "${PROJECT_SOURCE_DIR}" "${translation_output}")
 endfunction()
