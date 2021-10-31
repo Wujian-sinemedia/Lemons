@@ -63,17 +63,25 @@ function (_lemons_configure_pluginval_tests)
     set (atLeastOne FALSE)
 
     foreach (format ${formats})
+
         set (target "${LEMONS_PIV_TARGET}_${format}")
 
         if (NOT TARGET "${target}")
             continue()
         endif()
 
+        set (testName "${target}-Pluginval")
+
+        add_test (NAME "${testName}" 
+                  COMMAND "${PLUGINVAL_EXEC}" "--strictness-level" "${LEMONS_PLUGINVAL_LEVEL}" "--validate" "$<TARGET_FILE:${target}>" "--validate-in-process"
+                  COMMAND_EXPAND_LISTS)
+
+        set_tests_properties ("${testName}" PROPERTIES 
+                              REQUIRED_FILES "$<TARGET_FILE:${target}>;${PLUGINVAL_EXEC}"
+                              LABELS Pluginval)
+
         set (atLeastOne TRUE)
 
-        add_test (NAME "${target}-Pluginval" 
-                  COMMAND "${PLUGINVAL_EXEC}" "--strictness-level" "${LEMONS_PLUGINVAL_LEVEL}" "--validate" "$<TARGET_FILE:${target}>" 
-                  COMMAND_EXPAND_LISTS)
     endforeach()
 
     if (atLeastOne)

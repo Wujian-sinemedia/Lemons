@@ -1,3 +1,5 @@
+include (FindPackageHandleStandardArgs)
+
 option (IPP_STATIC "" FALSE)
 option (IPP_MULTI_THREADED "" FALSE)
 

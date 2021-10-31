@@ -20,7 +20,7 @@
       "description": "Configuration with documentation enabled",
       "inherits": "base",
       "cacheVariables": {
-        "LEMONS_BUILD_DOCS": "true"
+        "LEMONS_BUILD_DOCS": "ON"
       }
     },
     {
@@ -39,7 +39,7 @@
       "description": "Configuration with the template projects enabled",
       "inherits": "base",
       "cacheVariables": {
-        "LEMONS_BUILD_TEMPLATES": "true"
+        "LEMONS_BUILD_TEMPLATES": "ON"
       }
     }
   ],

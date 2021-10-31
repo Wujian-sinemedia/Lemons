@@ -36,54 +36,54 @@ set (CMAKE_SHARED_LIBRARY_CREATE_C_FLAGS "-dynamiclib -headerpad_max_install_nam
 set (CMAKE_SHARED_MODULE_CREATE_C_FLAGS "-bundle -headerpad_max_install_names" CACHE INTERNAL "")
 set (CMAKE_SHARED_MODULE_LOADER_C_FLAG "-Wl,-bundle_loader," CACHE INTERNAL "")
 set (CMAKE_SHARED_MODULE_LOADER_CXX_FLAG "-Wl,-bundle_loader," CACHE INTERNAL "")
-set (CMAKE_FIND_LIBRARY_SUFFIXES ".dylib" ".so" ".a" CACHE INTERNAL "")
+set (CMAKE_FIND_LIBRARY_SUFFIXES ".dylib;.so;.a" CACHE INTERNAL "")
 
 
 # Setup iOS developer location unless specified manually with CMAKE_IOS_DEVELOPER_ROOT
 # Note Xcode 4.3 changed the installation location, choose the most recent one available
-exec_program(/usr/bin/xcode-select ARGS -print-path OUTPUT_VARIABLE CMAKE_XCODE_DEVELOPER_DIR)
-set (XCODE_POST_43_ROOT "${CMAKE_XCODE_DEVELOPER_DIR}/Platforms/${IOS_PLATFORM_LOCATION}/Developer")
-set (XCODE_PRE_43_ROOT "/Developer/Platforms/${IOS_PLATFORM_LOCATION}/Developer")
-if (NOT DEFINED CMAKE_IOS_DEVELOPER_ROOT)
-	if (EXISTS ${XCODE_POST_43_ROOT})
-		set (CMAKE_IOS_DEVELOPER_ROOT ${XCODE_POST_43_ROOT})
-	elseif(EXISTS ${XCODE_PRE_43_ROOT})
-		set (CMAKE_IOS_DEVELOPER_ROOT ${XCODE_PRE_43_ROOT})
-	endif (EXISTS ${XCODE_POST_43_ROOT})
-endif ()
-set (CMAKE_IOS_DEVELOPER_ROOT ${CMAKE_IOS_DEVELOPER_ROOT} CACHE PATH "Location of iOS Platform")
+# exec_program(/usr/bin/xcode-select ARGS -print-path OUTPUT_VARIABLE CMAKE_XCODE_DEVELOPER_DIR)
+# set (XCODE_POST_43_ROOT "${CMAKE_XCODE_DEVELOPER_DIR}/Platforms/${IOS_PLATFORM_LOCATION}/Developer")
+# set (XCODE_PRE_43_ROOT "/Developer/Platforms/${IOS_PLATFORM_LOCATION}/Developer")
+# if (NOT DEFINED CMAKE_IOS_DEVELOPER_ROOT)
+# 	if (EXISTS ${XCODE_POST_43_ROOT})
+# 		set (CMAKE_IOS_DEVELOPER_ROOT ${XCODE_POST_43_ROOT})
+# 	elseif(EXISTS ${XCODE_PRE_43_ROOT})
+# 		set (CMAKE_IOS_DEVELOPER_ROOT ${XCODE_PRE_43_ROOT})
+# 	endif (EXISTS ${XCODE_POST_43_ROOT})
+# endif ()
+# set (CMAKE_IOS_DEVELOPER_ROOT ${CMAKE_IOS_DEVELOPER_ROOT} CACHE PATH "Location of iOS Platform")
 
 
 # Find and use the most recent iOS sdk unless specified manually with CMAKE_IOS_SDK_ROOT
-if (NOT DEFINED CMAKE_IOS_SDK_ROOT)
-	file (GLOB _CMAKE_IOS_SDKS "${CMAKE_IOS_DEVELOPER_ROOT}/SDKs/*")
-	if (_CMAKE_IOS_SDKS) 
-		list (SORT _CMAKE_IOS_SDKS)
-		list (REVERSE _CMAKE_IOS_SDKS)
-		list (GET _CMAKE_IOS_SDKS 0 CMAKE_IOS_SDK_ROOT)
-	else()
-		#message (FATAL_ERROR "No iOS SDK's found in default search path ${CMAKE_IOS_DEVELOPER_ROOT}. Manually set CMAKE_IOS_SDK_ROOT or install the iOS SDK.")
-	endif()
-	message (STATUS "Toolchain using default iOS SDK: ${CMAKE_IOS_SDK_ROOT}")
-endif ()
-set (CMAKE_IOS_SDK_ROOT ${CMAKE_IOS_SDK_ROOT} CACHE PATH "Location of the selected iOS SDK")
+# if (NOT DEFINED CMAKE_IOS_SDK_ROOT)
+# 	file (GLOB _CMAKE_IOS_SDKS "${CMAKE_IOS_DEVELOPER_ROOT}/SDKs/*")
+# 	if (_CMAKE_IOS_SDKS) 
+# 		list (SORT _CMAKE_IOS_SDKS)
+# 		list (REVERSE _CMAKE_IOS_SDKS)
+# 		list (GET _CMAKE_IOS_SDKS 0 CMAKE_IOS_SDK_ROOT)
+# 	else()
+# 		#message (FATAL_ERROR "No iOS SDK's found in default search path ${CMAKE_IOS_DEVELOPER_ROOT}. Manually set CMAKE_IOS_SDK_ROOT or install the iOS SDK.")
+# 	endif()
+# 	message (STATUS "Toolchain using default iOS SDK: ${CMAKE_IOS_SDK_ROOT}")
+# endif ()
+# set (CMAKE_IOS_SDK_ROOT ${CMAKE_IOS_SDK_ROOT} CACHE PATH "Location of the selected iOS SDK")
 
 
 # Set the sysroot default to the most recent SDK
-set (CMAKE_OSX_SYSROOT ${CMAKE_IOS_SDK_ROOT} CACHE PATH "Sysroot used for iOS support")
+#set (CMAKE_OSX_SYSROOT ${CMAKE_IOS_SDK_ROOT} CACHE PATH "Sysroot used for iOS support")
 
 # Set the find root to the iOS developer roots and to user defined paths
-set (CMAKE_FIND_ROOT_PATH ${CMAKE_IOS_DEVELOPER_ROOT} ${CMAKE_IOS_SDK_ROOT} ${CMAKE_PREFIX_PATH} CACHE STRING  "iOS find search path root")
+#set (CMAKE_FIND_ROOT_PATH ${CMAKE_IOS_DEVELOPER_ROOT} ${CMAKE_IOS_SDK_ROOT} ${CMAKE_PREFIX_PATH} CACHE STRING  "iOS find search path root")
 
 # default to searching for frameworks first
 set (CMAKE_FIND_FRAMEWORK FIRST)
 
 # set up the default search directories for frameworks
-set (CMAKE_SYSTEM_FRAMEWORK_PATH
-	${CMAKE_IOS_SDK_ROOT}/System/Library/Frameworks
-	${CMAKE_IOS_SDK_ROOT}/System/Library/PrivateFrameworks
-	${CMAKE_IOS_SDK_ROOT}/Developer/Library/Frameworks
-)
+# set (CMAKE_SYSTEM_FRAMEWORK_PATH
+# 	${CMAKE_IOS_SDK_ROOT}/System/Library/Frameworks
+# 	${CMAKE_IOS_SDK_ROOT}/System/Library/PrivateFrameworks
+# 	${CMAKE_IOS_SDK_ROOT}/Developer/Library/Frameworks
+# )
 
 # only search the iOS sdks, not the remainder of the host filesystem
 set (CMAKE_FIND_ROOT_PATH_MODE_PROGRAM ONLY)
@@ -110,4 +110,5 @@ else()
 	set (CMAKE_XCODE_EFFECTIVE_PLATFORMS "-iphoneos" CACHE INTERNAL "")
 
 	set (CMAKE_OSX_ARCHITECTURES "armv7;armv7s;arm64;i386;x86_64" CACHE INTERNAL "")
+
 endif()

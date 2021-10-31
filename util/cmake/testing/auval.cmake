@@ -21,6 +21,15 @@ function (_lemons_configure_auval_tests)
 
     ###
 
+    set (testName "${au_target}-Auval")
+
+    add_test (NAME "${testName}" 
+              COMMAND "${AUVAL_PROGRAM}")
+
+    set_tests_properties ("${testName}" PROPERTIES 
+                          REQUIRED_FILES "$<TARGET_FILE:${au_target}>"
+                          LABELS Auval)
+
     message (STATUS "Configured auval tests for target: ${LEMONS_AUV_TARGET}!")
 
 endfunction()

@@ -1,5 +1,3 @@
-include (FindPackageHandleStandardArgs)
-
 include (GetLemons/get_cpm.cmake)
 
 include (aax_sdk.cmake)
