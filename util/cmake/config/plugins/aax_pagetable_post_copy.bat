@@ -1,13 +1,14 @@
 SETLOCAL
 
-set BinaryName=${LEMONS_PLUGIN_NAME}
-set OrigDir=${LEMONS_PLUGIN_ORIG_DIR}
+set FileName="${LEMONS_PAGETABLE_FILENAME}"
+set BinaryName="${LEMONS_PLUGIN_NAME}"
+set OrigDir="${LEMONS_PLUGIN_ORIG_DIR}"
 
-set SourcePath=%OrigDir%\%BinaryName%.xml
+set SourcePath="%OrigDir%\%FileName%.xml"
 
-set AAXPlugin=%CommonProgramW6432%\Avid\Audio\Plug-Ins\%BinaryName%.aaxplugin
-set DestDir=%AAXPlugin%\Contents\Resources
+set AAXPlugin="%CommonProgramW6432%\Avid\Audio\Plug-Ins\%BinaryName%.aaxplugin"
+set DestDir="%AAXPlugin%\Contents\Resources"
 
-copy %SourcePath% %DestDir%
+copy "%SourcePath%" "%DestDir%"
 
 ENDLOCAL
