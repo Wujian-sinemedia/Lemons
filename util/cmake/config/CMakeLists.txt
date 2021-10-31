@@ -1,3 +1,4 @@
+add_subdirectory (translations)
 include (assets.cmake)
 
 #
