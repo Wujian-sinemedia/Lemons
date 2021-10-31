@@ -59,7 +59,8 @@ function (_lemons_configure_juce_target)
             JUCE_MODAL_LOOPS_PERMITTED=0
             JUCE_JACK=1
             JUCE_DISABLE_AUDIO_MIXING_WITH_OTHER_APPS=1
-            JUCE_EXECUTE_APP_SUSPEND_ON_BACKGROUND_TASK=1)
+            JUCE_EXECUTE_APP_SUSPEND_ON_BACKGROUND_TASK=1
+            JUCE_DISPLAY_SPLASH_SCREEN=0)
 
     target_link_libraries (${LEMONS_TARGETCONFIG_TARGET} PUBLIC
         ${LEMONS_JUCE_MODULES}
