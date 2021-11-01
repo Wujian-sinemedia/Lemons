@@ -85,7 +85,7 @@ function (_lemons_configure_pluginval_tests)
     endforeach()
 
     if (atLeastOne)
-        message (STATUS "Configured pluginval tests for target: ${LEMONS_PIV_TARGET}!")
+        message (VERBOSE "Configured pluginval tests for target: ${LEMONS_PIV_TARGET}!")
     endif()
     
 endfunction()

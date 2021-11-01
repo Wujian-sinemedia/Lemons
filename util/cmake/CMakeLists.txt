@@ -27,6 +27,8 @@ else()
     set (CMAKE_INTERPROCEDURAL_OPTIMIZATION OFF CACHE BOOL "" FORCE)
 endif()
 
+mark_as_advanced (FORCE CMAKE_INTERPROCEDURAL_OPTIMIZATION)
+
 #
 
 include (FileUtilities.cmake)

@@ -36,7 +36,7 @@ function (lemons_generate_translation_files)
         return()
     endif()
 
-    message (STATUS "Generating translation files for target: ${LEMONS_TRANS_TARGET}")
+    message (VERBOSE "Generating translation files for target: ${LEMONS_TRANS_TARGET}")
 
     file (REAL_PATH "${PROJECT_SOURCE_DIR}/${LEMONS_TRANS_FOLDER}/translations" translation_output)
 

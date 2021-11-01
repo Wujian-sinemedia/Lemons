@@ -8,7 +8,7 @@ include (auval.cmake)
 function (_lemons_configure_plugin_tests target)
 
 	if (NOT TARGET "${target}")
-		message (WARNING "Cannot configure tests for nonexistant plugin target ${target}!")
+		message (FATAL_ERROR "Cannot configure tests for nonexistant plugin target ${target}!")
 		return()
 	endif()
 

@@ -24,7 +24,7 @@ list (APPEND ccache_options "CCACHE_MAXSIZE=800M")
 
 list (JOIN ccache_options "\n export " CCCACHE_EXPORTS)
 
-macro (_lemons_configure_compiler_launcher language)
+function (_lemons_configure_compiler_launcher language)
 
     string (TOUPPER "${language}" lang_upper)
 
@@ -34,8 +34,8 @@ macro (_lemons_configure_compiler_launcher language)
 
     configure_file ("${CMAKE_CURRENT_LIST_DIR}/launcher.in" "${script_name}")
 
-    set (${language}_script "${CMAKE_CURRENT_BINARY_DIR}/${script_name}")
-endmacro()
+    set (${language}_script "${CMAKE_CURRENT_BINARY_DIR}/${script_name}" PARENT_SCOPE)
+endfunction()
 
 _lemons_configure_compiler_launcher (c)
 _lemons_configure_compiler_launcher (cxx)
@@ -52,4 +52,4 @@ else()
     set (CMAKE_CXX_COMPILER_LAUNCHER "${cxx_script}" CACHE INTERNAL "")
 endif()
 
-message (STATUS " -- Using ccache! -- ")
+message (VERBOSE " -- Using ccache! -- ")

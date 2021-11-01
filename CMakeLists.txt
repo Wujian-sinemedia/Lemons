@@ -9,11 +9,12 @@ include (CMakeDependentOption)
 #
 
 set (LEMONS_CXX_VERSION 20 CACHE STRING "C++ standard version")
+mark_as_advanced (FORCE LEMONS_CXX_VERSION)
 
 set (LEMONS_SANITIZERS_TO_ENABLE "" CACHE STRING "List of sanitizers to enable")
 
-set (LEMONS_AAX_SDK_PATH "" CACHE STRING "Path to the AAX SDK")
-set (LEMONS_VST2_SDK_PATH "" CACHE STRING "Path to the VST2 SDK")
+set (LEMONS_AAX_SDK_PATH "" CACHE PATH "Path to the AAX SDK")
+set (LEMONS_VST2_SDK_PATH "" CACHE PATH "Path to the VST2 SDK")
 
 option (LEMONS_IGNORE_ALL_EXTRAS "Ignore everything except what's needed to make compiling your project work" OFF)
 
@@ -25,6 +26,7 @@ cmake_dependent_option (LEMONS_BUILD_TEMPLATES "Build the Lemons project templat
 
 if (LEMONS_BUILD_TESTS)
 	set (LEMONS_PLUGINVAL_LEVEL "10" CACHE STRING "Pluginval testing level")
+	mark_as_advanced (FORCE LEMONS_PLUGINVAL_LEVEL)
 endif()
 
 #

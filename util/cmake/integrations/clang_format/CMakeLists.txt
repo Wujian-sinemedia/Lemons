@@ -13,4 +13,4 @@ add_custom_target (ClangFormat
                    WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
                    COMMENT "Running clang-format...")
 
-message (STATUS " -- using clang-format! -- ")
+message (VERBOSE " -- using clang-format! -- ")
