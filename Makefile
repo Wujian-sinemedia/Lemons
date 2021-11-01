@@ -6,6 +6,7 @@ SHELL := /bin/bash
 .DEFAULT_GOAL := help
 
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
+THIS_DIR := $(abspath $(dir $(THIS_FILE)))
 
 include util/make/Makefile
 

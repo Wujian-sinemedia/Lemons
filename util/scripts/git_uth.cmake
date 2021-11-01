@@ -29,7 +29,7 @@ set (fetch_command "fetch --all --recurse-submodules --jobs=${numCores}")
 
 set (pull_command "pull --all --recurse-submodules --jobs=${numCores}")
 
-set (submodule_update_command "submodule update --init --recursive")
+set (submodule_update_command "submodule update --init --recursive --merge")
 
 #
 
@@ -39,12 +39,11 @@ separate_arguments (pull_command_line UNIX_COMMAND "${pull_command}")
 
 separate_arguments (submodule_update_command_line UNIX_COMMAND "${submodule_update_command}")
 
-separate_arguments (submodule_foreach_command UNIX_COMMAND "submodule foreach --recursive 'git checkout ${BRANCH_NAME} && git ${fetch_command} && git ${pull_command} && git ${submodule_update_command}'")
+separate_arguments (submodule_foreach_command UNIX_COMMAND "submodule foreach --recursive 'git checkout ${BRANCH_NAME} && git ${fetch_command} && git ${pull_command} && git ${submodule_update_command} || :'")
 
 execute_process (COMMAND "${GIT_EXECUTABLE}" ${fetch_command_line}
 				 COMMAND "${GIT_EXECUTABLE}" ${pull_command_line}
 				 COMMAND "${GIT_EXECUTABLE}" ${submodule_update_command_line}
 				 COMMAND "${GIT_EXECUTABLE}" ${submodule_foreach_command}
-				 COMMAND_ECHO STDOUT
 				 WORKING_DIRECTORY "${DIR}"
 				 OUTPUT_QUIET)
