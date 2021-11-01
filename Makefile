@@ -25,13 +25,20 @@ SOURCE_FILES := $(shell find $(MODULES) -type f -name "$(SOURCE_FILE_PATTERNS)")
 
 #####  DOCS  #####
 
-docs: config_docs ## Builds the Doxygen documentation
+docs: Builds/docs ## Builds the Doxygen documentation
 	cmake --build --preset docs
 
-config_docs:
+Builds/docs:
 	cmake --preset docs
 
-.PHONY: config_docs
+
+#####  TEMPLATES  #####
+
+templates: Builds/templates ## Builds the Lemons template projects
+	cmake --build --preset templates
+
+Builds/templates:
+	cmake --preset templates
 
 
 #####  TESTS  #####
@@ -39,13 +46,13 @@ config_docs:
 tests: build_tests ## Builds and runs the Lemons unit tests
 	ctest --preset all
 
-build_tests: config_tests
+build_tests: Builds/tests
 	cmake --build --preset tests
 
-config_tests: 
+Builds/tests: 
 	cmake --preset tests
 
-.PHONY: build_tests config_tests
+.PHONY: build_tests
 
 
 ###  UTILITIES  ###
