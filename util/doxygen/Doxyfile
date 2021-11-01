@@ -84,7 +84,7 @@ RECURSIVE              = YES
 
 EXCLUDE_SYMLINKS       = YES
 
-IMAGE_PATH             = ../assets
+IMAGE_PATH             = 
 
 USE_MDFILE_AS_MAINPAGE = build/main_page.md
 

@@ -60,13 +60,11 @@ uth: ## Updates all git submodules to head
 
 #
 
-DOXYGEN_DIR := util/doxygen
 DEPS_SCRIPT_TEMP_DIR := util/install_deps
 
 clean: ## Cleans the source tree
 	@echo "Cleaning Lemons..."
 	@$(RM) Builds logs .github/docs \
-		$(DOXYGEN_DIR)/build $(DOXYGEN_DIR)/doc \
 		$(DEPS_SCRIPT_TEMP_DIR)/Brewfile $(DEPS_SCRIPT_TEMP_DIR)/Brewfile.lock.json
 
 wipe: clean ## Cleans the source tree and dumps the cache
