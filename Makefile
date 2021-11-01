@@ -7,38 +7,27 @@ SHELL := /bin/bash
 
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
 
-SCRIPTS_DIR := scripts
-MODULES := modules
-UTIL_DIR := util
-MAKE_DIR := $(UTIL_DIR)/make
-CMAKE_DIR := $(UTIL_DIR)/cmake
+include util/make/Makefile
 
-include $(MAKE_DIR)/Makefile
-
-.PHONY: $(ALL_PHONY_TARGETS)
-
-TEMPLATES_DIR := templates
-TEMPLATE_REPOS := $(shell find $(TEMPLATES_DIR) -type d -maxdepth 1 ! -name $(TEMPLATES_DIR))
-TEMPLATE_PROJECT_FILES := $(shell find $(TEMPLATE_REPOS) -type f -name "$(SOURCE_FILE_PATTERNS)")
-SOURCE_FILES := $(shell find $(MODULES) -type f -name "$(SOURCE_FILE_PATTERNS)")
+.PHONY: $(ALL_PHONY_TARGETS) build_tests
 
 
 #####  DOCS  #####
 
 docs: Builds/docs ## Builds the Doxygen documentation
-	cmake --build --preset docs
+	cmake --build --preset docs -j $(NUM_CORES)
 
 Builds/docs:
-	cmake --preset docs
+	cmake --preset docs -G $(CMAKE_GENERATOR)
 
 
 #####  TEMPLATES  #####
 
 templates: Builds/templates ## Builds the Lemons template projects
-	cmake --build --preset templates
+	cmake --build --preset templates -j $(NUM_CORES)
 
 Builds/templates:
-	cmake --preset templates
+	cmake --preset templates -G $(CMAKE_GENERATOR)
 
 
 #####  TESTS  #####
@@ -47,23 +36,23 @@ tests: build_tests ## Builds and runs the Lemons unit tests
 	ctest --preset all
 
 build_tests: Builds/tests
-	cmake --build --preset tests
+	cmake --build --preset tests -j $(NUM_CORES)
 
-Builds/tests: 
-	cmake --preset tests
-
-.PHONY: build_tests
+Builds/tests:
+	cmake --preset tests -G $(CMAKE_GENERATOR)
 
 
 ###  UTILITIES  ###
 
-propogate: $(SCRIPTS_DIR)/project_config/propogate_config_files.py ## Propogates all configuration files to the template repos
-	@echo "Propogating configuration files to template repos..."
-	@for dir in $(TEMPLATE_REPOS) ; do $(PYTHON) $< $$dir ; done
+# TEMPLATE_REPOS := $(shell find templates -type d -maxdepth 1 ! -name templates)
 
-format: $(SCRIPTS_DIR)/run_clang_format.py $(TEMPLATE_PROJECT_FILES) $(SOURCE_FILES) .clang-format ## Runs clang-format
-	@echo "Running clang-format..."
-	@for dir in $(MODULES) $(TEMPLATE_REPOS) ; do $(PYTHON) $< $$dir ; done
+# propogate: ## Propogates all configuration files to the template repos
+# 	@echo "Propogating configuration files to template repos..."
+# 	@for dir in $(TEMPLATE_REPOS) ; do $(PYTHON) scripts/project_config/propogate_config_files.py $$dir ; done
+
+# format: scripts/run_clang_format.py .clang-format ## Runs clang-format
+# 	@echo "Running clang-format..."
+# 	@for dir in modules $(TEMPLATE_REPOS) ; do $(PYTHON) $< $$dir ; done
 
 uth: ## Updates all git submodules to head
 	@echo "Updating git submodules..."
@@ -71,13 +60,18 @@ uth: ## Updates all git submodules to head
 
 #
 
-DEPS_SCRIPT_TEMP_DIR := $(UTIL_DIR)/install_deps
+DOXYGEN_DIR := util/doxygen
+DEPS_SCRIPT_TEMP_DIR := util/install_deps
 
 clean: ## Cleans the source tree
 	@echo "Cleaning Lemons..."
-	@$(RM) $(BUILD) $(LOGS) .github/docs Lemons_translations.txt \
-		$(DOXYGEN_BUILD_DIR) $(DOXYGEN_DEPLOY_DIR) \
+	@$(RM) Builds logs .github/docs \
+		$(DOXYGEN_DIR)/build $(DOXYGEN_DIR)/doc \
 		$(DEPS_SCRIPT_TEMP_DIR)/Brewfile $(DEPS_SCRIPT_TEMP_DIR)/Brewfile.lock.json
+
+wipe: clean ## Cleans the source tree and dumps the cache
+	@echo "Wiping Lemons cache..."
+	@$(RM) Cache
 
 help: ## Prints the list of commands
 	@$(PRINT_HELP_LIST)
