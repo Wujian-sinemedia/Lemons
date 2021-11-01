@@ -23,14 +23,12 @@ juce_add_gui_app (${PROJECT_NAME}
     SEND_APPLE_EVENTS_PERMISSION_ENABLED FALSE
     )
 
-lemons_configure_juce_app (TARGET ${PROJECT_NAME} ASSET_FOLDER assets PLUGIN_MODULES)
+lemons_add_juce_modules ("${CMAKE_CURRENT_LIST_DIR}/modules")
 
-set (sourceDir "${CMAKE_CURRENT_LIST_DIR}/Source")
+lemons_configure_juce_app (TARGET ${PROJECT_NAME} ASSET_FOLDER assets PLUGIN_MODULES PLUGIN_HOST)
 
-lemons_add_juce_modules ("${sourceDir}/modules")
+target_sources (${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_LIST_DIR}/Main.cpp")
 
-target_sources (${PROJECT_NAME} PRIVATE "${sourceDir}/Main.cpp")
-
-target_include_directories (${PROJECT_NAME} PRIVATE ${sourceDir})
+target_include_directories (${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_LIST_DIR})
 
 target_link_libraries (${PROJECT_NAME} PRIVATE new_app_gui)
