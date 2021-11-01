@@ -19,6 +19,7 @@ _lemons_add_module_subcategory (Audio        LEMONS_PLUGIN_ONLY_MODULES)
 _lemons_add_module_subcategory (Common       LEMONS_JUCE_MODULES)
 _lemons_add_module_subcategory (Connectivity LEMONS_JUCE_MODULES)
 _lemons_add_module_subcategory (GUI          LEMONS_JUCE_MODULES)
+_lemons_add_module_subcategory (Apps         LEMONS_APP_ONLY_MODULES)
 
 #
 
