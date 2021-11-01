@@ -29,21 +29,13 @@ if (LEMONS_BUILD_TESTS)
 	mark_as_advanced (FORCE LEMONS_PLUGINVAL_LEVEL)
 endif()
 
-#
-
-add_subdirectory (util/cmake)
+add_subdirectory (util)
 add_subdirectory (modules)
-
-#
-
-if (LEMONS_BUILD_TESTS)
-	enable_testing()
-endif()
-
-if (LEMONS_BUILD_DOCS)
-	add_subdirectory (util/doxygen)
-endif()
 
 if (LEMONS_BUILD_TEMPLATES)
 	add_subdirectory (templates)
+endif()
+
+if (LEMONS_BUILD_TESTS)
+	enable_testing()
 endif()
