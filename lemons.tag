@@ -2,26 +2,26 @@
 <tagfile>
   <compound kind="file">
     <name>add_container.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/</path>
     <filename>add__container_8h.html</filename>
     <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
     <name>add_map.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/</path>
     <filename>add__map_8h.html</filename>
     <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
     <name>androidMotion.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_mobile_utils/Android/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_mobile_utils/Android/</path>
     <filename>androidMotion_8h.html</filename>
     <class kind="class">lemons::MotionManager</class>
     <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
     <name>AudioAndMidiFIFO.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_dsp/FIFOs/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/FIFOs/</path>
     <filename>AudioAndMidiFIFO_8h.html</filename>
     <class kind="class">lemons::dsp::AudioAndMidiFIFO</class>
     <namespace>lemons</namespace>
@@ -29,7 +29,7 @@
   </compound>
   <compound kind="file">
     <name>AudioEffect.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_audio_effects/AudioEffects/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_audio_effects/AudioEffects/</path>
     <filename>AudioEffect_8h.html</filename>
     <class kind="struct">lemons::dsp::FX::AudioEffect</class>
     <class kind="struct">lemons::dsp::FX::LevelReportingAudioEffect</class>
@@ -40,7 +40,7 @@
   </compound>
   <compound kind="file">
     <name>AudioEffectEngine.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_audio_effects/AudioEffects/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_audio_effects/AudioEffects/</path>
     <filename>AudioEffectEngine_8h.html</filename>
     <class kind="class">lemons::dsp::FX::EffectEngine</class>
     <namespace>lemons</namespace>
@@ -49,7 +49,7 @@
   </compound>
   <compound kind="file">
     <name>AudioEngine.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_dsp/engines/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/engines/</path>
     <filename>AudioEngine_8h.html</filename>
     <class kind="class">lemons::dsp::Engine</class>
     <namespace>lemons</namespace>
@@ -57,7 +57,7 @@
   </compound>
   <compound kind="file">
     <name>AudioFIFO.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_dsp/FIFOs/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/FIFOs/</path>
     <filename>AudioFIFO_8h.html</filename>
     <class kind="class">lemons::dsp::AudioFIFO</class>
     <class kind="class">lemons::dsp::MultiAudioFIFO</class>
@@ -66,7 +66,7 @@
   </compound>
   <compound kind="file">
     <name>AutomatedHarmonyVoice.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_synth/Synth/helpers/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_synth/Synth/helpers/</path>
     <filename>AutomatedHarmonyVoice_8h.html</filename>
     <class kind="class">lemons::dsp::synth::AutomatedHarmonyVoice</class>
     <namespace>lemons</namespace>
@@ -75,7 +75,7 @@
   </compound>
   <compound kind="file">
     <name>BasicProcessor.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_dsp/BasicProcessor/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/BasicProcessor/</path>
     <filename>BasicProcessor_8h.html</filename>
     <class kind="class">lemons::dsp::BasicProcessorBase</class>
     <namespace>lemons</namespace>
@@ -83,19 +83,19 @@
   </compound>
   <compound kind="file">
     <name>begin_warnings.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/mts_esp_cpp/warnings/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Connectivity/mts_esp_cpp/warnings/</path>
     <filename>begin__warnings_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>BinaryDataHelpers.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/binary_data/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/binary_data/</path>
     <filename>BinaryDataHelpers_8h.html</filename>
     <class kind="struct">lemons::RawData</class>
     <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
     <name>Broadcaster.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/events/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/events/</path>
     <filename>Broadcaster_8h.html</filename>
     <class kind="class">lemons::events::Broadcaster</class>
     <class kind="struct">lemons::events::Broadcaster::Reciever</class>
@@ -104,7 +104,7 @@
   </compound>
   <compound kind="file">
     <name>BufferUtils.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_dsp/BufferUtils/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/BufferUtils/</path>
     <filename>BufferUtils_8h.html</filename>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
@@ -133,7 +133,7 @@
   </compound>
   <compound kind="file">
     <name>GUI/lemons_gui/components/Buttons.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_gui/components/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/GUI/lemons_gui/components/</path>
     <filename>GUI_2lemons__gui_2components_2Buttons_8h.html</filename>
     <class kind="struct">lemons::gui::ImageButton</class>
     <class kind="struct">lemons::gui::TextButton</class>
@@ -143,7 +143,7 @@
   </compound>
   <compound kind="file">
     <name>Plugins/lemons_plugin_gui/buttons/Buttons.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_gui/buttons/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_gui/buttons/</path>
     <filename>Plugins_2lemons__plugin__gui_2buttons_2Buttons_8h.html</filename>
     <class kind="class">lemons::gui::ToggleButton</class>
     <namespace>lemons</namespace>
@@ -151,7 +151,7 @@
   </compound>
   <compound kind="file">
     <name>ChoosableOscillator.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_oscillators/choosable/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_oscillators/choosable/</path>
     <filename>ChoosableOscillator_8h.html</filename>
     <includes id="OscEngine_8h" name="OscEngine.h" local="yes" imported="no">OscEngine.h</includes>
     <class kind="class">lemons::dsp::osc::ChoosableOscillator</class>
@@ -173,7 +173,7 @@
   </compound>
   <compound kind="file">
     <name>CircularBuffer.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_dsp/FIFOs/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/FIFOs/</path>
     <filename>CircularBuffer_8h.html</filename>
     <class kind="class">lemons::dsp::CircularBuffer</class>
     <namespace>lemons</namespace>
@@ -181,7 +181,7 @@
   </compound>
   <compound kind="file">
     <name>client.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/mts_esp_cpp/client/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Connectivity/mts_esp_cpp/client/</path>
     <filename>client_8h.html</filename>
     <includes id="begin__warnings_8h" name="begin_warnings.h" local="no" imported="no">mts_esp_cpp/warnings/begin_warnings.h</includes>
     <includes id="end__warnings_8h" name="end_warnings.h" local="no" imported="no">mts_esp_cpp/warnings/end_warnings.h</includes>
@@ -190,12 +190,12 @@
   </compound>
   <compound kind="file">
     <name>cmake_api.md</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
     <filename>cmake__api_8md.html</filename>
   </compound>
   <compound kind="file">
     <name>Coeffecients.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_dsp/filters/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/filters/</path>
     <filename>Coeffecients_8h.html</filename>
     <class kind="struct">lemons::dsp::filters::Coefficients</class>
     <class kind="struct">lemons::dsp::filters::Coefficients::Storage</class>
@@ -205,7 +205,7 @@
   </compound>
   <compound kind="file">
     <name>Common.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_spline/common/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/GUI/lemons_spline/common/</path>
     <filename>Common_8h.html</filename>
     <includes id="Knots_8h" name="Knots.h" local="yes" imported="no">Knots.h</includes>
     <includes id="Interpolation_8h" name="Interpolation.h" local="yes" imported="no">Interpolation.h</includes>
@@ -228,7 +228,7 @@
   </compound>
   <compound kind="file">
     <name>Compressor.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_audio_effects/dynamics/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_audio_effects/dynamics/</path>
     <filename>Compressor_8h.html</filename>
     <class kind="class">lemons::dsp::FX::Compressor</class>
     <namespace>lemons</namespace>
@@ -237,7 +237,7 @@
   </compound>
   <compound kind="file">
     <name>ContainerInterface.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_serializing/SerializableData/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_serializing/SerializableData/</path>
     <filename>ContainerInterface_8h.html</filename>
     <class kind="struct">lemons::serializing::ContainerInterface</class>
     <class kind="struct">lemons::serializing::isContainer</class>
@@ -254,7 +254,7 @@
   </compound>
   <compound kind="file">
     <name>cursor.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_gui/utilities/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/GUI/lemons_gui/utilities/</path>
     <filename>cursor_8h.html</filename>
     <class kind="struct">lemons::gui::ScopedCursor</class>
     <class kind="struct">lemons::gui::ScopedWaitCursor</class>
@@ -263,7 +263,7 @@
   </compound>
   <compound kind="file">
     <name>DatabasePresetsManager.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_presets/preset_library/sub_libraries/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_presets/preset_library/sub_libraries/</path>
     <filename>DatabasePresetsManager_8h.html</filename>
     <includes id="SubLibrary_8h" name="SubLibrary.h" local="yes" imported="no">SubLibrary.h</includes>
     <includes id="UserProfile_8h" name="UserProfile.h" local="yes" imported="no">database/UserProfile.h</includes>
@@ -275,7 +275,7 @@
   </compound>
   <compound kind="file">
     <name>DataSynchronizer.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_serializing/DataSynchronizer/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_serializing/DataSynchronizer/</path>
     <filename>DataSynchronizer_8h.html</filename>
     <class kind="class">lemons::serializing::DataSynchronizer</class>
     <namespace>lemons</namespace>
@@ -283,7 +283,7 @@
   </compound>
   <compound kind="file">
     <name>DeEsser.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_audio_effects/misc/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_audio_effects/misc/</path>
     <filename>DeEsser_8h.html</filename>
     <class kind="class">lemons::dsp::FX::DeEsser</class>
     <namespace>lemons</namespace>
@@ -292,7 +292,7 @@
   </compound>
   <compound kind="file">
     <name>DefaultWindow.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Apps/lemons_app_utils/GuiApp/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Apps/lemons_app_utils/GuiApp/</path>
     <filename>DefaultWindow_8h.html</filename>
     <class kind="struct">lemons::DefaultWindow</class>
     <class kind="struct">lemons::DefaultWindowBase</class>
@@ -300,7 +300,7 @@
   </compound>
   <compound kind="file">
     <name>Delay.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_audio_effects/time/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_audio_effects/time/</path>
     <filename>Delay_8h.html</filename>
     <class kind="class">lemons::dsp::FX::Delay</class>
     <namespace>lemons</namespace>
@@ -309,7 +309,7 @@
   </compound>
   <compound kind="file">
     <name>detail.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/</path>
     <filename>detail_8h.html</filename>
     <includes id="Juce__containers_8h" name="Juce_containers.h" local="no" imported="no">lemons_serializing/Serializing/Specializations/containers/Juce_containers.h</includes>
     <includes id="STL__containers_8h" name="STL_containers.h" local="no" imported="no">lemons_serializing/Serializing/Specializations/containers/STL_containers.h</includes>
@@ -320,7 +320,7 @@
   </compound>
   <compound kind="file">
     <name>DryWet.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_audio_effects/misc/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_audio_effects/misc/</path>
     <filename>DryWet_8h.html</filename>
     <class kind="class">lemons::dsp::FX::DryWetMixer</class>
     <namespace>lemons</namespace>
@@ -329,14 +329,14 @@
   </compound>
   <compound kind="file">
     <name>DummyMotionManager.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_mobile_utils/dummy_desktop_versions/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_mobile_utils/dummy_desktop_versions/</path>
     <filename>DummyMotionManager_8h.html</filename>
     <class kind="class">lemons::MotionManager</class>
     <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
     <name>EditorBase.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin/EditorBase/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin/EditorBase/</path>
     <filename>EditorBase_8h.html</filename>
     <class kind="class">lemons::plugin::EditorBase</class>
     <class kind="class">lemons::plugin::PluginEditor</class>
@@ -345,12 +345,12 @@
   </compound>
   <compound kind="file">
     <name>end_warnings.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/mts_esp_cpp/warnings/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Connectivity/mts_esp_cpp/warnings/</path>
     <filename>end__warnings_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>EQ.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_audio_effects/EQ/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_audio_effects/EQ/</path>
     <filename>EQ_8h.html</filename>
     <class kind="class">lemons::dsp::FX::EQ</class>
     <namespace>lemons</namespace>
@@ -359,7 +359,7 @@
   </compound>
   <compound kind="file">
     <name>FactoryPresetsManager.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_presets/preset_library/sub_libraries/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_presets/preset_library/sub_libraries/</path>
     <filename>FactoryPresetsManager_8h.html</filename>
     <includes id="SubLibrary_8h" name="SubLibrary.h" local="yes" imported="no">SubLibrary.h</includes>
     <class kind="class">lemons::plugin::presets::FactoryPresetsManager</class>
@@ -369,7 +369,7 @@
   </compound>
   <compound kind="file">
     <name>FileUtilities.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/files/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/files/</path>
     <filename>FileUtilities_8h.html</filename>
     <namespace>lemons</namespace>
     <member kind="function">
@@ -417,7 +417,7 @@
   </compound>
   <compound kind="file">
     <name>lemons_audio_effects/EQ/Filter.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_audio_effects/EQ/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_audio_effects/EQ/</path>
     <filename>lemons__audio__effects_2EQ_2Filter_8h.html</filename>
     <class kind="class">lemons::dsp::FX::Filter</class>
     <class kind="struct">lemons::dsp::FX::FilterEngine</class>
@@ -442,7 +442,7 @@
   </compound>
   <compound kind="file">
     <name>lemons_dsp/filters/Filter.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_dsp/filters/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/filters/</path>
     <filename>lemons__dsp_2filters_2Filter_8h.html</filename>
     <includes id="Coeffecients_8h" name="Coeffecients.h" local="yes" imported="no">Coeffecients.h</includes>
     <class kind="class">lemons::dsp::filters::Filter</class>
@@ -453,7 +453,7 @@
   </compound>
   <compound kind="file">
     <name>GrainStorage.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_psola/analysis/GrainStorage/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_psola/analysis/GrainStorage/</path>
     <filename>GrainStorage_8h.html</filename>
     <class kind="class">lemons::dsp::psola::AnalysisGrainStorage</class>
     <namespace>lemons</namespace>
@@ -462,14 +462,14 @@
   </compound>
   <compound kind="file">
     <name>GuiApp.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Apps/lemons_app_utils/GuiApp/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Apps/lemons_app_utils/GuiApp/</path>
     <filename>GuiApp_8h.html</filename>
     <class kind="class">lemons::GuiApp</class>
     <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
     <name>GuiUtils.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_gui/utilities/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/GUI/lemons_gui/utilities/</path>
     <filename>GuiUtils_8h.html</filename>
     <namespace>lemons</namespace>
     <namespace>lemons::gui</namespace>
@@ -490,7 +490,7 @@
   </compound>
   <compound kind="file">
     <name>Interpolation.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_spline/common/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/GUI/lemons_spline/common/</path>
     <filename>Interpolation_8h.html</filename>
     <namespace>lemons</namespace>
     <namespace>lemons::spline</namespace>
@@ -526,14 +526,14 @@
   </compound>
   <compound kind="file">
     <name>iosMotion.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_mobile_utils/iOS/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_mobile_utils/iOS/</path>
     <filename>iosMotion_8h.html</filename>
     <class kind="class">lemons::MotionManager</class>
     <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
     <name>Juce_containers.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_serializing/Serializing/Specializations/containers/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_serializing/Serializing/Specializations/containers/</path>
     <filename>Juce__containers_8h.html</filename>
     <class kind="struct">lemons::serializing::isContainer&lt; juce::Array&lt; ElementType &gt; &gt;</class>
     <class kind="struct">lemons::serializing::isContainer&lt; juce::OwnedArray&lt; ElementType &gt; &gt;</class>
@@ -567,7 +567,7 @@
   </compound>
   <compound kind="file">
     <name>Juce_maps.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_serializing/Serializing/Specializations/maps/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_serializing/Serializing/Specializations/maps/</path>
     <filename>Juce__maps_8h.html</filename>
     <class kind="struct">lemons::serializing::isMap&lt; juce::StringPairArray &gt;</class>
     <class kind="struct">lemons::serializing::StringPairArrayInterface</class>
@@ -583,7 +583,7 @@
   </compound>
   <compound kind="file">
     <name>Knots.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_spline/common/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/GUI/lemons_spline/common/</path>
     <filename>Knots_8h.html</filename>
     <class kind="struct">lemons::spline::Knot</class>
     <class kind="struct">lemons::spline::Knots</class>
@@ -592,7 +592,7 @@
   </compound>
   <compound kind="file">
     <name>Label.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_gui/components/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/GUI/lemons_gui/components/</path>
     <filename>Label_8h.html</filename>
     <class kind="struct">lemons::gui::Label</class>
     <namespace>lemons</namespace>
@@ -600,7 +600,7 @@
   </compound>
   <compound kind="file">
     <name>LambdaSynth.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_synth/BasicSynths/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_synth/BasicSynths/</path>
     <filename>LambdaSynth_8h.html</filename>
     <class kind="class">lemons::dsp::LambdaSynth</class>
     <namespace>lemons</namespace>
@@ -608,7 +608,7 @@
   </compound>
   <compound kind="file">
     <name>LatencyEngine.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_dsp/engines/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/engines/</path>
     <filename>LatencyEngine_8h.html</filename>
     <class kind="class">lemons::dsp::LatencyEngine</class>
     <namespace>lemons</namespace>
@@ -616,12 +616,12 @@
   </compound>
   <compound kind="file">
     <name>lemons_modules.dox</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
     <filename>lemons__modules_8dox.html</filename>
   </compound>
   <compound kind="file">
     <name>LFO.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_parameters/ModulationManager/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_parameters/ModulationManager/</path>
     <filename>LFO_8h.html</filename>
     <class kind="struct">lemons::plugin::LFO</class>
     <namespace>lemons</namespace>
@@ -629,7 +629,7 @@
   </compound>
   <compound kind="file">
     <name>Limiter.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_audio_effects/dynamics/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_audio_effects/dynamics/</path>
     <filename>Limiter_8h.html</filename>
     <class kind="class">lemons::dsp::FX::Limiter</class>
     <namespace>lemons</namespace>
@@ -638,7 +638,7 @@
   </compound>
   <compound kind="file">
     <name>Listener.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/events/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/events/</path>
     <filename>Listener_8h.html</filename>
     <class kind="struct">lemons::events::Listener</class>
     <namespace>lemons</namespace>
@@ -646,7 +646,7 @@
   </compound>
   <compound kind="file">
     <name>localization.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/localization/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/localization/</path>
     <filename>localization_8h.html</filename>
     <namespace>lemons</namespace>
     <member kind="function">
@@ -673,7 +673,7 @@
   </compound>
   <compound kind="file">
     <name>LocalPresetsManager.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_presets/preset_library/sub_libraries/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_presets/preset_library/sub_libraries/</path>
     <filename>LocalPresetsManager_8h.html</filename>
     <includes id="SubLibrary_8h" name="SubLibrary.h" local="yes" imported="no">SubLibrary.h</includes>
     <class kind="class">lemons::plugin::presets::LocalPresetsManager</class>
@@ -683,12 +683,12 @@
   </compound>
   <compound kind="file">
     <name>main_page.md</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
     <filename>main__page_8md.html</filename>
   </compound>
   <compound kind="file">
     <name>MapInterface.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_serializing/SerializableData/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_serializing/SerializableData/</path>
     <filename>MapInterface_8h.html</filename>
     <class kind="struct">lemons::serializing::isMap</class>
     <class kind="struct">lemons::serializing::MapInterface</class>
@@ -705,7 +705,7 @@
   </compound>
   <compound kind="file">
     <name>mathHelpers.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/math/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/math/</path>
     <filename>mathHelpers_8h.html</filename>
     <namespace>lemons</namespace>
     <namespace>lemons::math</namespace>
@@ -761,7 +761,7 @@
   </compound>
   <compound kind="file">
     <name>MetaParameter.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_parameters/parameters/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_parameters/parameters/</path>
     <filename>MetaParameter_8h.html</filename>
     <class kind="struct">lemons::plugin::DefaultMetaParameter</class>
     <class kind="class">lemons::plugin::MetaParameter</class>
@@ -777,7 +777,7 @@
   </compound>
   <compound kind="file">
     <name>MidiChoppingProcessor.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_midi/processors/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Connectivity/lemons_midi/processors/</path>
     <filename>MidiChoppingProcessor_8h.html</filename>
     <class kind="class">lemons::dsp::MidiChoppingProcessor</class>
     <namespace>lemons</namespace>
@@ -785,7 +785,7 @@
   </compound>
   <compound kind="file">
     <name>MidiFIFO.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_midi/utilities/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Connectivity/lemons_midi/utilities/</path>
     <filename>MidiFIFO_8h.html</filename>
     <class kind="class">lemons::midi::MidiFIFO</class>
     <namespace>lemons</namespace>
@@ -793,7 +793,7 @@
   </compound>
   <compound kind="file">
     <name>MidiKeyboardState.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_midi/utilities/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Connectivity/lemons_midi/utilities/</path>
     <filename>MidiKeyboardState_8h.html</filename>
     <class kind="class">lemons::midi::MidiKeyboardState</class>
     <namespace>lemons</namespace>
@@ -801,7 +801,7 @@
   </compound>
   <compound kind="file">
     <name>MidiManager.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_synth/Synth/helpers/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_synth/Synth/helpers/</path>
     <filename>MidiManager_8h.html</filename>
     <class kind="class">lemons::dsp::synth::MidiManager</class>
     <class kind="class">lemons::dsp::synth::MidiManager::MidiRouter</class>
@@ -811,7 +811,7 @@
   </compound>
   <compound kind="file">
     <name>MidiProcessor.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_midi/processors/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Connectivity/lemons_midi/processors/</path>
     <filename>MidiProcessor_8h.html</filename>
     <class kind="struct">lemons::midi::MidiProcessor::LastMovedControllerInfo</class>
     <class kind="class">lemons::midi::MidiProcessor</class>
@@ -820,7 +820,7 @@
   </compound>
   <compound kind="file">
     <name>MidiUtilities.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_midi/utilities/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Connectivity/lemons_midi/utilities/</path>
     <filename>MidiUtilities_8h.html</filename>
     <namespace>lemons</namespace>
     <namespace>lemons::midi</namespace>
@@ -834,7 +834,7 @@
   </compound>
   <compound kind="file">
     <name>misc.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/misc/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/misc/</path>
     <filename>misc_8h.html</filename>
     <class kind="struct">lemons::SystemInitializer</class>
     <namespace>lemons</namespace>
@@ -897,7 +897,7 @@
   </compound>
   <compound kind="file">
     <name>ModulationManager.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_parameters/ModulationManager/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_parameters/ModulationManager/</path>
     <filename>ModulationManager_8h.html</filename>
     <class kind="class">lemons::plugin::ModulationManager</class>
     <namespace>lemons</namespace>
@@ -905,7 +905,7 @@
   </compound>
   <compound kind="file">
     <name>MonoStereoConverter.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_audio_effects/stereo_image/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_audio_effects/stereo_image/</path>
     <filename>MonoStereoConverter_8h.html</filename>
     <class kind="class">lemons::dsp::FX::MonoStereoConverter</class>
     <namespace>lemons</namespace>
@@ -914,7 +914,7 @@
   </compound>
   <compound kind="file">
     <name>MonoToStereoPanner.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_audio_effects/stereo_image/panning/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_audio_effects/stereo_image/panning/</path>
     <filename>MonoToStereoPanner_8h.html</filename>
     <includes id="PannerBase_8h" name="PannerBase.h" local="yes" imported="no">PannerBase.h</includes>
     <class kind="class">lemons::dsp::FX::MonoToStereoPanner</class>
@@ -924,7 +924,7 @@
   </compound>
   <compound kind="file">
     <name>motion.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_mobile_utils/all_platforms/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_mobile_utils/all_platforms/</path>
     <filename>motion_8h.html</filename>
     <class kind="struct">lemons::MotionManagerInterface::Coords</class>
     <class kind="struct">lemons::MotionListener</class>
@@ -933,12 +933,12 @@
   </compound>
   <compound kind="file">
     <name>NamePopup.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_gui/PresetBar/PresetSavingComponent/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_gui/PresetBar/PresetSavingComponent/</path>
     <filename>NamePopup_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>NoiseGate.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_audio_effects/dynamics/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_audio_effects/dynamics/</path>
     <filename>NoiseGate_8h.html</filename>
     <class kind="class">lemons::dsp::FX::NoiseGate</class>
     <namespace>lemons</namespace>
@@ -947,7 +947,7 @@
   </compound>
   <compound kind="file">
     <name>NonrealtimeMutatable.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/events/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/events/</path>
     <filename>NonrealtimeMutatable_8h.html</filename>
     <class kind="struct">lemons::serializing::NonrealtimeMutatable::NonrealtimeAccess</class>
     <class kind="class">lemons::serializing::NonrealtimeMutatable</class>
@@ -957,7 +957,7 @@
   </compound>
   <compound kind="file">
     <name>OscEngine.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_oscillators/choosable/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_oscillators/choosable/</path>
     <filename>OscEngine_8h.html</filename>
     <class kind="class">lemons::dsp::osc::OscEngine</class>
     <namespace>lemons</namespace>
@@ -966,7 +966,7 @@
   </compound>
   <compound kind="file">
     <name>oscillators.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_oscillators/basic_types/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_oscillators/basic_types/</path>
     <filename>oscillators_8h.html</filename>
     <class kind="struct">lemons::dsp::osc::Oscillator</class>
     <class kind="struct">lemons::dsp::osc::Phase</class>
@@ -981,7 +981,7 @@
   </compound>
   <compound kind="file">
     <name>OscSynth.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_synth/BasicSynths/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_synth/BasicSynths/</path>
     <filename>OscSynth_8h.html</filename>
     <class kind="struct">lemons::dsp::OscSynth</class>
     <class kind="struct">lemons::dsp::OscSynthVoice</class>
@@ -1026,7 +1026,7 @@
   </compound>
   <compound kind="file">
     <name>PannerBase.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_audio_effects/stereo_image/panning/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_audio_effects/stereo_image/panning/</path>
     <filename>PannerBase_8h.html</filename>
     <class kind="class">lemons::dsp::FX::PannerBase</class>
     <namespace>lemons</namespace>
@@ -1035,7 +1035,7 @@
   </compound>
   <compound kind="file">
     <name>PanningManager.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_synth/Synth/helpers/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_synth/Synth/helpers/</path>
     <filename>PanningManager_8h.html</filename>
     <class kind="class">lemons::dsp::synth::PanningManager</class>
     <namespace>lemons</namespace>
@@ -1044,7 +1044,7 @@
   </compound>
   <compound kind="file">
     <name>Parameter.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_parameters/parameters/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_parameters/parameters/</path>
     <filename>Parameter_8h.html</filename>
     <class kind="struct">lemons::plugin::Parameter::Listener</class>
     <class kind="class">lemons::plugin::Parameter</class>
@@ -1053,7 +1053,7 @@
   </compound>
   <compound kind="file">
     <name>ParameterHolder.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_parameters/parameters/utils/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_parameters/parameters/utils/</path>
     <filename>ParameterHolder_8h.html</filename>
     <class kind="class">lemons::plugin::ParameterHolder</class>
     <class kind="struct">lemons::plugin::ParamHolderBase</class>
@@ -1146,7 +1146,7 @@
   </compound>
   <compound kind="file">
     <name>ParameterList.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_parameters/parameters/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_parameters/parameters/</path>
     <filename>ParameterList_8h.html</filename>
     <class kind="struct">lemons::plugin::ParameterList::Listener</class>
     <class kind="class">lemons::plugin::ParameterList</class>
@@ -1155,7 +1155,7 @@
   </compound>
   <compound kind="file">
     <name>ParameterProcessor.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_parameters/parameters/utils/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_parameters/parameters/utils/</path>
     <filename>ParameterProcessor_8h.html</filename>
     <class kind="class">lemons::plugin::ParameterProcessor</class>
     <namespace>lemons</namespace>
@@ -1163,7 +1163,7 @@
   </compound>
   <compound kind="file">
     <name>ParameterTypes.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_parameters/parameters/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_parameters/parameters/</path>
     <filename>ParameterTypes_8h.html</filename>
     <class kind="struct">lemons::plugin::BoolParameter</class>
     <class kind="struct">lemons::plugin::TypedParameter::Listener</class>
@@ -1187,7 +1187,7 @@
   </compound>
   <compound kind="file">
     <name>ParamUpdater.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_parameters/parameters/utils/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_parameters/parameters/utils/</path>
     <filename>ParamUpdater_8h.html</filename>
     <class kind="struct">lemons::plugin::ParamUpdater</class>
     <namespace>lemons</namespace>
@@ -1195,7 +1195,7 @@
   </compound>
   <compound kind="file">
     <name>PitchbendTracker.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_midi/utilities/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Connectivity/lemons_midi/utilities/</path>
     <filename>PitchbendTracker_8h.html</filename>
     <class kind="class">lemons::midi::PitchBendTracker</class>
     <namespace>lemons</namespace>
@@ -1203,7 +1203,7 @@
   </compound>
   <compound kind="file">
     <name>PitchCorrector.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_psola/PitchCorrector/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_psola/PitchCorrector/</path>
     <filename>PitchCorrector_8h.html</filename>
     <class kind="class">lemons::dsp::psola::PitchCorrector</class>
     <class kind="class">lemons::dsp::psola::PitchCorrectorBase</class>
@@ -1213,7 +1213,7 @@
   </compound>
   <compound kind="file">
     <name>PitchDetector.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_dsp/PitchDetector/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/PitchDetector/</path>
     <filename>PitchDetector_8h.html</filename>
     <class kind="class">lemons::dsp::PitchDetector</class>
     <namespace>lemons</namespace>
@@ -1221,7 +1221,7 @@
   </compound>
   <compound kind="file">
     <name>PitchPipeline.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_midi/utilities/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Connectivity/lemons_midi/utilities/</path>
     <filename>PitchPipeline_8h.html</filename>
     <class kind="struct">lemons::midi::PitchPipeline</class>
     <namespace>lemons</namespace>
@@ -1229,7 +1229,7 @@
   </compound>
   <compound kind="file">
     <name>PluginGUIBase.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin/EditorBase/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin/EditorBase/</path>
     <filename>PluginGUIBase_8h.html</filename>
     <class kind="class">lemons::plugin::GUI</class>
     <class kind="class">lemons::plugin::GUIBase</class>
@@ -1238,7 +1238,7 @@
   </compound>
   <compound kind="file">
     <name>PluginState.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin/state/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin/state/</path>
     <filename>PluginState_8h.html</filename>
     <class kind="struct">lemons::plugin::PluginState</class>
     <namespace>lemons</namespace>
@@ -1246,7 +1246,7 @@
   </compound>
   <compound kind="file">
     <name>PopupComponent.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_gui/components/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/GUI/lemons_gui/components/</path>
     <filename>PopupComponent_8h.html</filename>
     <class kind="class">lemons::gui::Popup</class>
     <class kind="class">lemons::gui::PopupComponent</class>
@@ -1255,7 +1255,7 @@
   </compound>
   <compound kind="file">
     <name>Preprocessor.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/misc/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/misc/</path>
     <filename>Preprocessor_8h.html</filename>
     <member kind="define">
       <type>#define</type>
@@ -1288,7 +1288,7 @@
   </compound>
   <compound kind="file">
     <name>Preset.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_presets/presets/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_presets/presets/</path>
     <filename>Preset_8h.html</filename>
     <class kind="struct">lemons::plugin::Preset</class>
     <namespace>lemons</namespace>
@@ -1296,7 +1296,7 @@
   </compound>
   <compound kind="file">
     <name>PresetBar.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_gui/PresetBar/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_gui/PresetBar/</path>
     <filename>PresetBar_8h.html</filename>
     <includes id="StateToggleButtons_8h" name="StateToggleButtons.h" local="yes" imported="no">StateToggleButtons.h</includes>
     <includes id="PresetSavingComponent_8h" name="PresetSavingComponent.h" local="yes" imported="no">PresetSavingComponent/PresetSavingComponent.h</includes>
@@ -1307,23 +1307,23 @@
   </compound>
   <compound kind="file">
     <name>PresetBrowserComponent.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_gui/PresetBar/PresetBrowserComponent/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_gui/PresetBar/PresetBrowserComponent/</path>
     <filename>PresetBrowserComponent_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>PresetDatabase.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_presets/preset_library/sub_libraries/database/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_presets/preset_library/sub_libraries/database/</path>
     <filename>PresetDatabase_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>PresetSavingComponent.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_gui/PresetBar/PresetSavingComponent/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_gui/PresetBar/PresetSavingComponent/</path>
     <filename>PresetSavingComponent_8h.html</filename>
     <includes id="NamePopup_8h" name="NamePopup.h" local="yes" imported="no">NamePopup.h</includes>
   </compound>
   <compound kind="file">
     <name>PresetsLibrary.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_presets/preset_library/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_presets/preset_library/</path>
     <filename>PresetsLibrary_8h.html</filename>
     <includes id="LocalPresetsManager_8h" name="LocalPresetsManager.h" local="yes" imported="no">sub_libraries/LocalPresetsManager.h</includes>
     <includes id="FactoryPresetsManager_8h" name="FactoryPresetsManager.h" local="yes" imported="no">sub_libraries/FactoryPresetsManager.h</includes>
@@ -1334,7 +1334,7 @@
   </compound>
   <compound kind="file">
     <name>ProcessorBase.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin/processors/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin/processors/</path>
     <filename>ProcessorBase_8h.html</filename>
     <class kind="class">lemons::plugin::ProcessorBase</class>
     <namespace>lemons</namespace>
@@ -1342,7 +1342,7 @@
   </compound>
   <compound kind="file">
     <name>Processors.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin/processors/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin/processors/</path>
     <filename>Processors_8h.html</filename>
     <class kind="class">lemons::plugin::Processor</class>
     <class kind="struct">lemons::plugin::ProcessorWithEditor</class>
@@ -1358,7 +1358,7 @@
   </compound>
   <compound kind="file">
     <name>psola_analyzer.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_psola/analysis/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_psola/analysis/</path>
     <filename>psola__analyzer_8h.html</filename>
     <includes id="GrainStorage_8h" name="GrainStorage.h" local="yes" imported="no">GrainStorage/GrainStorage.h</includes>
     <class kind="class">lemons::dsp::psola::Analyzer</class>
@@ -1369,7 +1369,7 @@
   </compound>
   <compound kind="file">
     <name>psola_shifter.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_psola/resynthesis/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_psola/resynthesis/</path>
     <filename>psola__shifter_8h.html</filename>
     <class kind="class">lemons::dsp::psola::Shifter</class>
     <namespace>lemons</namespace>
@@ -1378,7 +1378,7 @@
   </compound>
   <compound kind="file">
     <name>RealtimeMutatable.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/events/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/events/</path>
     <filename>RealtimeMutatable_8h.html</filename>
     <class kind="struct">lemons::serializing::RealtimeMutatable::NonrealtimeAccess</class>
     <class kind="struct">lemons::serializing::RealtimeMutatable::RealtimeAccess</class>
@@ -1388,7 +1388,7 @@
   </compound>
   <compound kind="file">
     <name>Reverb.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_audio_effects/misc/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_audio_effects/misc/</path>
     <filename>Reverb_8h.html</filename>
     <class kind="class">lemons::dsp::FX::Reverb</class>
     <namespace>lemons</namespace>
@@ -1397,7 +1397,7 @@
   </compound>
   <compound kind="file">
     <name>rotation.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_mobile_utils/all_platforms/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_mobile_utils/all_platforms/</path>
     <filename>rotation_8h.html</filename>
     <class kind="struct">lemons::DeviceRotation</class>
     <class kind="struct">lemons::DeviceRotationListener</class>
@@ -1405,7 +1405,7 @@
   </compound>
   <compound kind="file">
     <name>Saturation.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_audio_effects/misc/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_audio_effects/misc/</path>
     <filename>Saturation_8h.html</filename>
     <class kind="class">lemons::dsp::FX::Saturator</class>
     <namespace>lemons</namespace>
@@ -1414,14 +1414,14 @@
   </compound>
   <compound kind="file">
     <name>SerializableData.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_serializing/SerializableData/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_serializing/SerializableData/</path>
     <filename>SerializableData_8h.html</filename>
     <class kind="struct">lemons::SerializableData</class>
     <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
     <name>Serializing.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_serializing/Serializing/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_serializing/Serializing/</path>
     <filename>Serializing_8h.html</filename>
     <includes id="valuetree__json__converter_8h" name="valuetree_json_converter.h" local="yes" imported="no">ValueTreeToJson/valuetree_json_converter.h</includes>
     <includes id="VarSpecializations_8h" name="VarSpecializations.h" local="yes" imported="no">Specializations/VarSpecializations.h</includes>
@@ -1633,7 +1633,7 @@
   </compound>
   <compound kind="file">
     <name>SliderBase.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_gui/sliders/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_gui/sliders/</path>
     <filename>SliderBase_8h.html</filename>
     <class kind="class">lemons::gui::SliderBase</class>
     <namespace>lemons</namespace>
@@ -1641,7 +1641,7 @@
   </compound>
   <compound kind="file">
     <name>Sliders.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_gui/sliders/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_gui/sliders/</path>
     <filename>Sliders_8h.html</filename>
     <includes id="SliderBase_8h" name="SliderBase.h" local="yes" imported="no">SliderBase.h</includes>
     <class kind="class">lemons::gui::FloatSlider</class>
@@ -1651,7 +1651,7 @@
   </compound>
   <compound kind="file">
     <name>SmoothedGain.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_audio_effects/dynamics/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_audio_effects/dynamics/</path>
     <filename>SmoothedGain_8h.html</filename>
     <class kind="class">lemons::dsp::FX::SmoothedGain</class>
     <namespace>lemons</namespace>
@@ -1660,7 +1660,7 @@
   </compound>
   <compound kind="file">
     <name>Specializations.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_parameters/parameters/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_parameters/parameters/</path>
     <filename>Specializations_8h.html</filename>
     <class kind="struct">lemons::plugin::FloatAmountParameter</class>
     <class kind="struct">lemons::plugin::FrequencyParameter</class>
@@ -1678,7 +1678,7 @@
   </compound>
   <compound kind="file">
     <name>Spline.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_spline/spline/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/GUI/lemons_spline/spline/</path>
     <filename>Spline_8h.html</filename>
     <includes id="Common_8h" name="Common.h" local="no" imported="no">lemons_spline/common/Common.h</includes>
     <class kind="struct">lemons::spline::Spline</class>
@@ -1687,7 +1687,7 @@
   </compound>
   <compound kind="file">
     <name>SplineEditor.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/GUI/lemons_spline/editor/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/GUI/lemons_spline/editor/</path>
     <filename>SplineEditor_8h.html</filename>
     <class kind="class">lemons::spline::Editor</class>
     <namespace>lemons</namespace>
@@ -1695,7 +1695,7 @@
   </compound>
   <compound kind="file">
     <name>state.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin/state/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin/state/</path>
     <filename>state_8h.html</filename>
     <class kind="struct">lemons::plugin::CustomState</class>
     <class kind="struct">lemons::plugin::State</class>
@@ -1719,7 +1719,7 @@
   </compound>
   <compound kind="file">
     <name>StateToggleButtons.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_gui/PresetBar/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_gui/PresetBar/</path>
     <filename>StateToggleButtons_8h.html</filename>
     <class kind="class">lemons::plugin::StateToggleButtons</class>
     <namespace>lemons</namespace>
@@ -1727,7 +1727,7 @@
   </compound>
   <compound kind="file">
     <name>StereoPanner.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_audio_effects/stereo_image/panning/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_audio_effects/stereo_image/panning/</path>
     <filename>StereoPanner_8h.html</filename>
     <class kind="class">lemons::dsp::FX::StereoPanner</class>
     <namespace>lemons</namespace>
@@ -1736,7 +1736,7 @@
   </compound>
   <compound kind="file">
     <name>STL_containers.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_serializing/Serializing/Specializations/containers/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_serializing/Serializing/Specializations/containers/</path>
     <filename>STL__containers_8h.html</filename>
     <class kind="struct">lemons::serializing::isContainer&lt; std::array&lt; ElementType, size &gt; &gt;</class>
     <class kind="struct">lemons::serializing::isContainer&lt; std::deque&lt; ElementType &gt; &gt;</class>
@@ -1785,7 +1785,7 @@
   </compound>
   <compound kind="file">
     <name>SubLibrary.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_presets/preset_library/sub_libraries/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_presets/preset_library/sub_libraries/</path>
     <filename>SubLibrary_8h.html</filename>
     <class kind="class">lemons::plugin::presets::SubLibrary</class>
     <namespace>lemons</namespace>
@@ -1794,7 +1794,7 @@
   </compound>
   <compound kind="file">
     <name>SuperSaw.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_oscillators/SuperSaw/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_oscillators/SuperSaw/</path>
     <filename>SuperSaw_8h.html</filename>
     <class kind="class">lemons::dsp::osc::SuperSaw</class>
     <namespace>lemons</namespace>
@@ -1803,7 +1803,7 @@
   </compound>
   <compound kind="file">
     <name>Synth.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_synth/Synth/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_synth/Synth/</path>
     <filename>Synth_8h.html</filename>
     <includes id="AutomatedHarmonyVoice_8h" name="AutomatedHarmonyVoice.h" local="yes" imported="no">helpers/AutomatedHarmonyVoice.h</includes>
     <includes id="PanningManager_8h" name="PanningManager.h" local="yes" imported="no">helpers/PanningManager.h</includes>
@@ -1816,7 +1816,7 @@
   </compound>
   <compound kind="file">
     <name>SynthVoice.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_synth/SynthVoice/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_synth/SynthVoice/</path>
     <filename>SynthVoice_8h.html</filename>
     <includes id="TimbreMod_8h" name="TimbreMod.h" local="yes" imported="no">TimbreMod.h</includes>
     <class kind="class">lemons::dsp::SynthVoiceBase</class>
@@ -1825,7 +1825,7 @@
   </compound>
   <compound kind="file">
     <name>TemplateSynth.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_synth/BasicSynths/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_synth/BasicSynths/</path>
     <filename>TemplateSynth_8h.html</filename>
     <class kind="struct">lemons::dsp::TemplateSynth</class>
     <namespace>lemons</namespace>
@@ -1833,7 +1833,7 @@
   </compound>
   <compound kind="file">
     <name>TimbreMod.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_synth/SynthVoice/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_synth/SynthVoice/</path>
     <filename>TimbreMod_8h.html</filename>
     <class kind="class">lemons::dsp::synth::TimbreMod</class>
     <namespace>lemons</namespace>
@@ -1842,7 +1842,7 @@
   </compound>
   <compound kind="file">
     <name>Timers.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/events/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/events/</path>
     <filename>Timers_8h.html</filename>
     <class kind="struct">lemons::events::TimerCallback</class>
     <namespace>lemons</namespace>
@@ -1850,7 +1850,7 @@
   </compound>
   <compound kind="file">
     <name>Toggler.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_serializing/toggler/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_serializing/toggler/</path>
     <filename>Toggler_8h.html</filename>
     <class kind="struct">lemons::serializing::Toggler</class>
     <class kind="struct">lemons::serializing::TogglerInterface</class>
@@ -1859,7 +1859,7 @@
   </compound>
   <compound kind="file">
     <name>TreeReflector.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_serializing/SerializableData/TreeReflector/</path>
     <filename>TreeReflector_8h.html</filename>
     <includes id="detail_8h" name="detail.h" local="yes" imported="no">detail.h</includes>
     <class kind="struct">lemons::TreeLoader</class>
@@ -1869,7 +1869,7 @@
   </compound>
   <compound kind="file">
     <name>TypedParameterHelpers.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_parameters/parameters/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_parameters/parameters/</path>
     <filename>TypedParameterHelpers_8h.html</filename>
     <namespace>lemons</namespace>
     <namespace>lemons::plugin</namespace>
@@ -1946,7 +1946,7 @@
   </compound>
   <compound kind="file">
     <name>UndoManager.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_serializing/undo/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_serializing/undo/</path>
     <filename>UndoManager_8h.html</filename>
     <class kind="struct">lemons::UndoManager::ScopedTransaction</class>
     <class kind="class">lemons::UndoManager</class>
@@ -1954,19 +1954,19 @@
   </compound>
   <compound kind="file">
     <name>UserProfile.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Plugins/lemons_plugin_presets/preset_library/sub_libraries/database/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_presets/preset_library/sub_libraries/database/</path>
     <filename>UserProfile_8h.html</filename>
   </compound>
   <compound kind="file">
     <name>ValueSmoother.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/misc/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/misc/</path>
     <filename>ValueSmoother_8h.html</filename>
     <class kind="struct">lemons::ValueSmoother</class>
     <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
     <name>valuetree_json_converter.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_serializing/Serializing/ValueTreeToJson/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_serializing/Serializing/ValueTreeToJson/</path>
     <filename>valuetree__json__converter_8h.html</filename>
     <namespace>lemons</namespace>
     <namespace>lemons::serializing</namespace>
@@ -1987,7 +1987,7 @@
   </compound>
   <compound kind="file">
     <name>VarConversion.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_serializing/SerializableData/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_serializing/SerializableData/</path>
     <filename>VarConversion_8h.html</filename>
     <namespace>lemons</namespace>
     <namespace>lemons::serializing</namespace>
@@ -2008,7 +2008,7 @@
   </compound>
   <compound kind="file">
     <name>VarSpecializations.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_serializing/Serializing/Specializations/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_serializing/Serializing/Specializations/</path>
     <filename>VarSpecializations_8h.html</filename>
     <class kind="struct">lemons::serializing::FileContents</class>
     <namespace>lemons</namespace>
@@ -2142,7 +2142,7 @@
   </compound>
   <compound kind="file">
     <name>vecops.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_core/math/vecops/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/math/vecops/</path>
     <filename>vecops_8h.html</filename>
     <namespace>lemons</namespace>
     <namespace>lemons::vecops</namespace>
@@ -2324,7 +2324,7 @@
   </compound>
   <compound kind="file">
     <name>VelocityHelper.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Connectivity/lemons_midi/utilities/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Connectivity/lemons_midi/utilities/</path>
     <filename>VelocityHelper_8h.html</filename>
     <class kind="struct">lemons::midi::VelocityHelper</class>
     <namespace>lemons</namespace>
@@ -2332,14 +2332,14 @@
   </compound>
   <compound kind="file">
     <name>Version.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Common/lemons_serializing/version/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_serializing/version/</path>
     <filename>Version_8h.html</filename>
     <class kind="struct">lemons::Version</class>
     <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
     <name>VoiceAllocator.h</name>
-    <path>/home/runner/work/Lemons/Lemons/util/doxygen/build/Audio/lemons_synth/Synth/helpers/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_synth/Synth/helpers/</path>
     <filename>VoiceAllocator_8h.html</filename>
     <class kind="class">lemons::dsp::synth::VoiceAllocator</class>
     <namespace>lemons</namespace>
