@@ -2,8 +2,6 @@
 Builds/
 Cache/
 logs/
-util/doxygen/build
-util/doxygen/doc
 util/install_deps/Brewfile
 util/install_deps/Brewfile.lock.json
 __pycache__/
