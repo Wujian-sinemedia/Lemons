@@ -58,6 +58,13 @@
       "configurePreset": "tests",
       "configuration": "Debug",
       "targets": ["UnitTestRunner"]
+    },
+    {
+      "name": "templates",
+      "displayName": "Build templates",
+      "description": "Builds both Lemons project templates",
+      "configurePreset": "templates",
+      "targets": ["Templates"]
     }
   ],
   "testPresets": [
