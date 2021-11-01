@@ -17,20 +17,6 @@ set (CPM_Lemons_SOURCE "${PROJECT_SOURCE_DIR}" CACHE INTERNAL "")
 
 #
 
-include (CheckIPOSupported)
-
-check_ipo_supported (RESULT result OUTPUT output)
-
-if (result)
-    set (CMAKE_INTERPROCEDURAL_OPTIMIZATION ON CACHE BOOL "" FORCE)
-else()
-    set (CMAKE_INTERPROCEDURAL_OPTIMIZATION OFF CACHE BOOL "" FORCE)
-endif()
-
-mark_as_advanced (FORCE CMAKE_INTERPROCEDURAL_OPTIMIZATION)
-
-#
-
 include (FileUtilities.cmake)
 
 add_subdirectory (native)
