@@ -9,10 +9,12 @@ function (_lemons_enable_browser target)
             JUCE_USE_CURL=1
             JUCE_LOAD_CURL_SYMBOLS_LAZILY=1)
 
-    if ("${CMAKE_SYSTEM_NAME}" MATCHES "Linux")
+    # Linux
+    if (NOT (APPLE OR WIN32))
         target_link_libraries ("${target}" PRIVATE juce::pkgconfig_JUCE_CURL_LINUX_DEPS)
     endif()
 endfunction()
+
 
 function (_lemons_enable_plugin_hosting target)
     if (IOS)
@@ -20,9 +22,12 @@ function (_lemons_enable_plugin_hosting target)
     endif()
 
     target_compile_definitions ("${target}" PRIVATE 
-            JUCE_PLUGINHOST_VST=0
             JUCE_PLUGINHOST_VST3=1
             JUCE_PLUGINHOST_LADSPA=1)
+
+    if (LEMONS_VST2_SDK_PATH)
+        target_compile_definitions ("${target}" PRIVATE  JUCE_PLUGINHOST_VST=1)
+    endif()
 
     if (APPLE)
         target_compile_definitions ("${target}" PRIVATE JUCE_PLUGINHOST_AU=1)
@@ -42,11 +47,6 @@ function (_lemons_configure_juce_target)
     if (NOT LEMONS_TARGETCONFIG_TARGET)
         message (FATAL_ERROR "Target name not specified in call to _lemons_configure_juce_target!")
         return()
-    endif()
-
-    # The directory of the target being configured
-    if (NOT LEMONS_PROJECT_REPO_DIR)
-        set (LEMONS_PROJECT_REPO_DIR "${LEMONS_TOPLEVEL_DIR}" CACHE INTERNAL "")
     endif()
 
     target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET} PUBLIC
@@ -81,7 +81,7 @@ function (_lemons_configure_juce_target)
     endif()
 
     if (LEMONS_TARGETCONFIG_ASSET_FOLDER)
-        lemons_add_resources_folder (TARGET ${LEMONS_TARGETCONFIG_TARGET} FOLDER ${LEMONS_TARGETCONFIG_ASSET_FOLDER} TRANSLATIONS)
+        lemons_add_resources_folder (TARGET ${LEMONS_TARGETCONFIG_TARGET} FOLDER ${LEMONS_TARGETCONFIG_ASSET_FOLDER})
     endif()
 
     if (LEMONS_TARGETCONFIG_PLUGIN_HOST)
@@ -104,7 +104,6 @@ endfunction()
 
 #
 
-include (deploy.cmake)
 include (apps.cmake)
 
 add_subdirectory (plugins)

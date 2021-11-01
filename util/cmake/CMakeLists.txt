@@ -15,6 +15,18 @@ set (ENV{CPM_SOURCE_CACHE} "${CMAKE_SOURCE_DIR}/Cache")
 
 #
 
+include (CheckIPOSupported)
+
+check_ipo_supported (RESULT result OUTPUT output)
+
+if (result)
+    set (CMAKE_INTERPROCEDURAL_OPTIMIZATION ON CACHE BOOL "" FORCE)
+else()
+    set (CMAKE_INTERPROCEDURAL_OPTIMIZATION OFF CACHE BOOL "" FORCE)
+endif()
+
+#
+
 include (FileUtilities.cmake)
 
 add_subdirectory (native)

@@ -15,12 +15,12 @@ function (lemons_subdir_list)
 	cmake_parse_arguments (LEMONS_SUBDIR "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
 	if (NOT LEMONS_SUBDIR_RESULT)
-		message (WARNING "Result variable not defined in call to lemons_subdir_list!")
+		message (FATAL_ERROR "Result variable not defined in call to lemons_subdir_list!")
 		return()
 	endif()
 
 	if (NOT LEMONS_SUBDIR_DIR)
-		message (WARNING "Directory to search not defined in call to lemons_subdir_list!")
+		message (FATAL_ERROR "Directory to search not defined in call to lemons_subdir_list!")
 		return()
 	endif()
 

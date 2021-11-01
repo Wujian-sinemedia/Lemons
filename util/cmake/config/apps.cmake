@@ -1,3 +1,11 @@
+function (_lemons_create_all_apps_target_if_not_exists)
+    if (NOT TARGET ALL_APPS)
+        add_custom_target (ALL_APPS COMMENT "Building all apps...")
+    endif()
+endfunction()
+
+
+
 #
 # lemons_configure_juce_app
 # configures a default juce app
@@ -17,17 +25,7 @@ function (lemons_configure_juce_app)
 
     target_link_libraries (${lemons_targetname} PUBLIC ${LEMONS_APP_ONLY_MODULES})
 
-    _lemons_configure_product_deploy (${lemons_targetname} FALSE)
-
-
-    # add this app to the `ALL_APPS` target...
-
-    set (app_target "ALL_APPS")
-
-    if (NOT TARGET ${app_target})
-        add_custom_target (${app_target})
-    endif()
-
-    add_dependencies (${app_target} ${lemons_targetname})
+    _lemons_create_all_apps_target_if_not_exists()
+    add_dependencies (ALL_APPS ${lemons_targetname})
 
 endfunction()

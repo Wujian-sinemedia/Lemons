@@ -1,4 +1,4 @@
-# AAX is only available on Mac and Windows...
+# AAX is only available on MacOS and Windows...
 if (IOS OR NOT (APPLE OR WIN32))
 	return()
 endif()
@@ -20,7 +20,7 @@ if (APPLE)
 	if (XCODE_BUILD)
 		
 		add_custom_target (AAXSDK
-					   	   COMMAND "${XCODE_BUILD}" -scheme AAXLibrary_libcpp -configuration $<COMMAND_CONFIG:$<CONFIG>> build
+					   	   COMMAND "${XCODE_BUILD}" "-scheme" "AAXLibrary_libcpp" "-configuration" "$<COMMAND_CONFIG:$<CONFIG>>" "build"
 					   	   COMMAND_EXPAND_LISTS VERBATIM
 					   	   WORKING_DIRECTORY "${LEMONS_AAX_SDK_PATH}/Libs/AAXLibrary/MacBuild"
 					   	   COMMENT "Building AAX SDK..."
@@ -34,7 +34,7 @@ elseif (WIN32)
 	if (MS_BUILD)
 		
 		add_custom_target (AAXSDK
-					   	   COMMAND "${MS_BUILD}" AAX_SDK.sln -p:Configuration=$<COMMAND_CONFIG:$<CONFIG>>
+					   	   COMMAND "${MS_BUILD}" "AAX_SDK.sln" "-p:Configuration=$<COMMAND_CONFIG:$<CONFIG>>"
 					   	   COMMAND_EXPAND_LISTS VERBATIM
 					   	   WORKING_DIRECTORY "${LEMONS_AAX_SDK_PATH}/msvc"
 					   	   COMMENT "Building AAX SDK..."
@@ -45,5 +45,5 @@ endif()
 
 
 if (TARGET AAXSDK)
-	set_target_properties (AAXSDK PROPERTIES OSX_ARCHITECTURES x86_64)
+	#set_target_properties (AAXSDK PROPERTIES OSX_ARCHITECTURES x86_64)
 endif()

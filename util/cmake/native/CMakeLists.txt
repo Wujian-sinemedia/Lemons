@@ -1,18 +1,7 @@
 if (APPLE)
-    include (Apple.cmake)
+    add_subdirectory (Apple)
 elseif (WIN32)
     include (Windows.cmake)
 else()
     include (Linux.cmake)
-endif()
-
-
-include (CheckIPOSupported)
-
-check_ipo_supported (RESULT result OUTPUT output)
-
-if (result)
-    set (CMAKE_INTERPROCEDURAL_OPTIMIZATION ON CACHE BOOL "" FORCE)
-else()
-    set (CMAKE_INTERPROCEDURAL_OPTIMIZATION OFF CACHE BOOL "" FORCE)
 endif()

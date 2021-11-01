@@ -8,19 +8,19 @@
 # 
 function (lemons_add_resources_folder)
 
-    set (options TRANSLATIONS)
+    set (options)
     set (oneValueArgs TARGET FOLDER)
     set (multiValueArgs "")
 
     cmake_parse_arguments (LEMONS_RSRC_FLDR "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
     if (NOT LEMONS_RSRC_FLDR_TARGET)
-        message (WARNING "Target name not specified in call to lemons_add_resources_folder!")
+        message (FATAL_ERROR "Target name not specified in call to lemons_add_resources_folder!")
         return()
     endif()
 
     if (NOT LEMONS_RSRC_FLDR_FOLDER)
-        message (WARNING "Folder name not specified in call to lemons_add_resources_folder!")
+        message (FATAL_ERROR "Folder name not specified in call to lemons_add_resources_folder!")
         return()
     endif()
 
@@ -29,7 +29,9 @@ function (lemons_add_resources_folder)
     # create resources target, if needed 
     if (NOT TARGET ${resourcesTarget})
 
-        lemons_generate_translation_files (TARGET "${LEMONS_RSRC_FLDR_TARGET}" FOLDER "${LEMONS_RSRC_FLDR_FOLDER}")
+        if (LEMONS_GENERATE_TRANSLATION_FILES)
+            lemons_generate_translation_files (TARGET "${LEMONS_RSRC_FLDR_TARGET}" FOLDER "${LEMONS_RSRC_FLDR_FOLDER}")
+        endif()
 
         file (GLOB_RECURSE files "${LEMONS_RSRC_FLDR_FOLDER}/*.*")
 
@@ -38,12 +40,12 @@ function (lemons_add_resources_folder)
             set_target_properties (${resourcesTarget} PROPERTIES POSITION_INDEPENDENT_CODE TRUE)
             target_compile_definitions (${resourcesTarget} INTERFACE LEMONS_HAS_BINARY_DATA=1)
         else()
-            message (STATUS "No files found for inclusion in resources target!")
+            message (WARNING "No files found for inclusion in resources target!")
             return()
         endif()
 
         if (NOT TARGET ${resourcesTarget})
-            message (STATUS "Error creating resources target.")
+            message (WARNING "Error creating resources target.")
             return()
         endif()
     endif()

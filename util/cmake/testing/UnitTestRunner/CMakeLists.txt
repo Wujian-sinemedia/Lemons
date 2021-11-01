@@ -1,12 +1,10 @@
-cmake_minimum_required (VERSION 3.19)
-
 project (UnitTestRunner VERSION 0.1.0 LANGUAGES CXX)
 
 #
 
 juce_add_console_app (${PROJECT_NAME})
 
-target_sources (${PROJECT_NAME} PRIVATE Main.cpp)
+target_sources (${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_LIST_DIR}/Main.cpp")
 
 target_compile_definitions (${PROJECT_NAME} PRIVATE
     JUCE_USE_CURL=0

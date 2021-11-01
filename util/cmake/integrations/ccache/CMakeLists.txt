@@ -10,24 +10,19 @@
 ]]
 
 find_program (CCACHE_PROGRAM ccache
-              PATHS $ENV{CPM_SOURCE_CACHE}/ccache)
+              PATHS "$ENV{CPM_SOURCE_CACHE}/ccache")
 
 if (NOT CCACHE_PROGRAM)
     return()
 endif()
 
-set  (LEMONS_CCACHE_OPTIONS "CCACHE_BASEDIR=${CMAKE_SOURCE_DIR}")
-list (APPEND LEMONS_CCACHE_OPTIONS "CCACHE_DIR=$ENV{CPM_SOURCE_CACHE}/ccache/cache")
-list (APPEND LEMONS_CCACHE_OPTIONS "CCACHE_COMPRESS=true")
-list (APPEND LEMONS_CCACHE_OPTIONS "CCACHE_COMPRESSLEVEL=6")
-list (APPEND LEMONS_CCACHE_OPTIONS "CCACHE_MAXSIZE=800M")
+set  (ccache_options "CCACHE_BASEDIR=${CMAKE_SOURCE_DIR}")
+list (APPEND ccache_options "CCACHE_DIR=$ENV{CPM_SOURCE_CACHE}/ccache/cache")
+list (APPEND ccache_options "CCACHE_COMPRESS=true")
+list (APPEND ccache_options "CCACHE_COMPRESSLEVEL=6")
+list (APPEND ccache_options "CCACHE_MAXSIZE=800M")
 
-set (CCCACHE_EXPORTS "")
-
-foreach (option ${LEMONS_CCACHE_OPTIONS})
-    string (APPEND CCCACHE_EXPORTS "\nexport ${option}")
-endforeach()
-
+list (JOIN ccache_options "\n export " CCCACHE_EXPORTS)
 
 macro (_lemons_configure_compiler_launcher language)
 
@@ -35,12 +30,11 @@ macro (_lemons_configure_compiler_launcher language)
 
     set (CCACHE_COMPILER_BEING_CONFIGURED "${CMAKE_${lang_upper}_COMPILER}")
 
-    set (script_name launch-${language})
+    set (script_name "launch-${language}")
 
-    configure_file ("${CMAKE_CURRENT_LIST_DIR}/launcher.in" ${script_name})
+    configure_file ("${CMAKE_CURRENT_LIST_DIR}/launcher.in" "${script_name}")
 
     set (${language}_script "${CMAKE_CURRENT_BINARY_DIR}/${script_name}")
-
 endmacro()
 
 _lemons_configure_compiler_launcher (c)

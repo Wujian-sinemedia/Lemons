@@ -32,7 +32,6 @@ function (_lemons_configure_juce_aax origTarget pagetableFile)
                                 COMMAND "${CMAKE_CURRENT_BINARY_DIR}/pagetable_copy.bat")
 
         endif()
-        
     endif()
 
 endfunction()
@@ -57,38 +56,26 @@ endfunction()
 function (lemons_configure_juce_plugin)
 
     _lemons_configure_juce_target (${ARGN})
+
     _lemons_configure_juce_aax (${lemons_targetname} "${lemons_aax_pagetable_file}")
 
     target_link_libraries (${lemons_targetname} PUBLIC ${LEMONS_PLUGIN_ONLY_MODULES})
 
     target_compile_definitions (${lemons_targetname} PUBLIC JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=0)
 
-    _lemons_configure_product_deploy (${lemons_targetname} TRUE)
-
-
     # add this plugin to the `ALL_PLUGINS` target...
-
-    set (plugins_target "ALL_PLUGINS")
-
-    if (NOT TARGET ${plugins_target})
-        add_custom_target (${plugins_target})
+    if (NOT TARGET ALL_PLUGINS)
+        add_custom_target (ALL_PLUGINS COMMENT "Building all plugins...")
     endif()
 
-    add_dependencies (${plugins_target} "${lemons_targetname}_All")
-
+    add_dependencies (ALL_PLUGINS "${lemons_targetname}_All")
 
     # add the standalone plugin to the `ALL_APPS` target...
-
     set (stdaln_target "${lemons_targetname}_Standalone")
 
     if (TARGET ${stdaln_target})
-        set (app_target "ALL_APPS")
-
-        if (NOT TARGET ${app_target})
-            add_custom_target (${app_target})
-        endif()
-
-        add_dependencies (${app_target} ${stdaln_target})
+        _lemons_create_all_apps_target_if_not_exists()
+        add_dependencies (ALL_APPS ${stdaln_target})
     endif()
 
     # configure plugin QC tests
