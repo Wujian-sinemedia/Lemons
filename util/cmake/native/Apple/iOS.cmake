@@ -6,7 +6,7 @@ enable_language (OBJC)
 enable_language (OBJCXX)
 
 
-option (LEMONS_IOS_SIMULATOR "Build for an iOS simulator, rather than a real device" OFF)
+option (LEMONS_IOS_SIMULATOR "Build for an iOS simulator, rather than a real device" ON)
 
 if (LEMONS_IOS_SIMULATOR)
     # Options for building for a simulator
