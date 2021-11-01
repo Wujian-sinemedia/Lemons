@@ -41,6 +41,15 @@
       "cacheVariables": {
         "LEMONS_BUILD_TEMPLATES": "ON"
       }
+    },
+    {
+      "name": "lab",
+      "displayName": "Configure the TestLab build",
+      "description": "Configuration for building TestLab",
+      "inherits": "base",
+      "cacheVariables": {
+        "LEMONS_BUILD_TEST_LAB": "ON"
+      }
     }
   ],
   "buildPresets": [
@@ -65,6 +74,13 @@
       "description": "Builds both Lemons project templates",
       "configurePreset": "templates",
       "targets": ["Templates"]
+    },
+    {
+      "name": "lab",
+      "displayName": "Build TestLab",
+      "description": "Builds TestLab",
+      "configurePreset": "lab",
+      "targets": ["TestLab"]
     }
   ],
   "testPresets": [

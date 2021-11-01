@@ -1,8 +1,8 @@
 add_subdirectory (UnitTestRunner)
 
-
 include (pluginval.cmake)
 include (auval.cmake)
+include (steinberg_val.cmake)
 
 
 function (_lemons_configure_plugin_tests target)
@@ -13,6 +13,6 @@ function (_lemons_configure_plugin_tests target)
 	endif()
 
 	_lemons_configure_pluginval_tests (TARGET "${target}")
-	_lemons_configure_auval_tests (TARGET "${target}")
+	#_lemons_configure_auval_tests (TARGET "${target}")
 
 endfunction()

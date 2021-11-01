@@ -97,6 +97,10 @@ function (_lemons_configure_juce_target)
         target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET} PUBLIC JUCE_MICROPHONE_PERMISSION_ENABLED=1)
     endif()
 
+    if (LEMONS_TARGETCONFIG_PLUGIN_MODULES)
+        set (_lemons_link_plugin_modules TRUE PARENT_SCOPE)
+    endif()
+
     set (lemons_targetname "${LEMONS_TARGETCONFIG_TARGET}" PARENT_SCOPE)
     set (lemons_aax_pagetable_file "${LEMONS_TARGETCONFIG_AAX_PAGETABLE_FILE}" PARENT_SCOPE)
 

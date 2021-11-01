@@ -14,6 +14,7 @@ endfunction()
 # BROWSER : when mentioned in the call, enables the juce web browser functionality for this app target
 # PLUGIN_HOST : when mentioned in the call, enables juce audio plugin hosting capabilities for this app target
 # CAMERA : when mentioned in the call, enables juce support for using the camera with this app target
+# PLUGIN_MODULES : when mentioned in the call, links all lemons plugin modules to this app target
 # 
 # INPUTS : 
 # TARGET : the name of the app target (usually the name of your product)
@@ -23,7 +24,11 @@ function (lemons_configure_juce_app)
 
     _lemons_configure_juce_target (${ARGN})
 
-    target_link_libraries (${lemons_targetname} PUBLIC ${LEMONS_APP_ONLY_MODULES})
+    target_link_libraries (${lemons_targetname} PUBLIC lemons_app_utils)
+
+    if (_lemons_link_plugin_modules)
+        target_link_libraries (${lemons_targetname} PUBLIC ${LEMONS_PLUGIN_ONLY_MODULES})
+    endif()
 
     _lemons_create_all_apps_target_if_not_exists()
     add_dependencies (ALL_APPS ${lemons_targetname})
