@@ -4,6 +4,28 @@ function (_lemons_create_all_apps_target_if_not_exists)
     endif()
 endfunction()
 
+macro (_lemons_configure_app_internal)
+
+    _lemons_configure_juce_target (${ARGN})
+
+    _lemons_create_all_apps_target_if_not_exists()
+    add_dependencies (ALL_APPS ${lemons_targetname})
+endmacro()
+
+#
+
+#
+# lemons_configure_headless_app
+# configures a default headless console app
+#
+# INPUTS : 
+# TARGET : the name of the app target (usually the name of your product)
+# ASSET_FOLDER (optional): the name of the assets folder to use for generating the resources target. The folder can be relative to your project's root; for example, if your folder structure is "YourProject/assets", you can pass `lemons_configure_juce_app (TARGET YourProject ASSET_FOLDER assets)`. 
+#
+function (lemons_configure_headless_app)
+    _lemons_configure_app_internal (${ARGN})
+endfunction()
+
 
 
 #
@@ -22,15 +44,11 @@ endfunction()
 #
 function (lemons_configure_juce_app)
 
-    _lemons_configure_juce_target (${ARGN})
+    _lemons_configure_app_internal (${ARGN})
 
     target_link_libraries (${lemons_targetname} PUBLIC lemons_app_utils)
 
     if (_lemons_link_plugin_modules)
         target_link_libraries (${lemons_targetname} PUBLIC ${LEMONS_PLUGIN_ONLY_MODULES})
     endif()
-
-    _lemons_create_all_apps_target_if_not_exists()
-    add_dependencies (ALL_APPS ${lemons_targetname})
-
 endfunction()
