@@ -30,7 +30,16 @@ Builds/templates:
 	cmake --preset templates -G $(CMAKE_GENERATOR)
 
 
-#####  TESTS  #####
+#####  TEST LAB  #####
+
+lab: Builds/lab ## Builds TestLab
+	cmake --build --preset lab -j $(NUM_CORES)
+
+Builds/lab:
+	cmake --preset lab -G $(CMAKE_GENERATOR)
+
+
+#####  UNIT TESTS  #####
 
 tests: build_tests ## Builds and runs the Lemons unit tests
 	ctest --preset all
@@ -64,8 +73,7 @@ DEPS_SCRIPT_TEMP_DIR := util/install_deps
 
 clean: ## Cleans the source tree
 	@echo "Cleaning Lemons..."
-	@$(RM) Builds logs .github/docs \
-		$(DEPS_SCRIPT_TEMP_DIR)/Brewfile $(DEPS_SCRIPT_TEMP_DIR)/Brewfile.lock.json
+	@$(RM) Builds logs .github/docs $(DEPS_SCRIPT_TEMP_DIR)/Brewfile $(DEPS_SCRIPT_TEMP_DIR)/Brewfile.lock.json
 
 wipe: clean ## Cleans the source tree and dumps the cache
 	@echo "Wiping Lemons cache..."
