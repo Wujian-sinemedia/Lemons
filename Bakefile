@@ -1,0 +1,25 @@
+Generators:
+* Mac: Xcode
+* Windows: Visual Studio 16 2019
+* Linux: Ninja
+
+Aliases:
+* docs: build[docs]
+* templates: build[templates]
+* lab: build[lab]
+* tests: test[all]
+
+Clean:
+* Builds/
+* .github/docs
+* util/install_deps/Brewfile
+* util/install_deps/Brewfile.lock.json
+
+Wipe:
+* Cache/
+
+Logs: 
+* logs
+
+Git branch name: 
+* main
