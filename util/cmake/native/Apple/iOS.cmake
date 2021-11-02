@@ -16,7 +16,7 @@ if (LEMONS_IOS_SIMULATOR)
     set (IOS_PLATFORM_LOCATION "iPhoneSimulator.platform" CACHE INTERNAL "")
     set (CMAKE_XCODE_EFFECTIVE_PLATFORMS "-iphonesimulator" CACHE INTERNAL "")
 
-    set (CMAKE_OSX_ARCHITECTURES "i386;x86_64" CACHE STRING "")
+    set (CMAKE_OSX_ARCHITECTURES "i386;x86_64" CACHE INTERNAL "")
 
 else()
     # Options for building for a real device
@@ -26,6 +26,6 @@ else()
     set (IOS_PLATFORM_LOCATION "iPhoneOS.platform" CACHE INTERNAL "")
     set (CMAKE_XCODE_EFFECTIVE_PLATFORMS "-iphoneos" CACHE INTERNAL "")
 
-    set (CMAKE_OSX_ARCHITECTURES "armv7;armv7s;arm64;i386;x86_64" CACHE STRING "")
+    set (CMAKE_OSX_ARCHITECTURES "armv7;armv7s;arm64;i386;x86_64" CACHE INTERNAL "")
 
 endif()

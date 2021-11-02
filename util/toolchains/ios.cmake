@@ -85,11 +85,6 @@ set (CMAKE_FIND_FRAMEWORK FIRST)
 # 	${CMAKE_IOS_SDK_ROOT}/Developer/Library/Frameworks
 # )
 
-# only search the iOS sdks, not the remainder of the host filesystem
-set (CMAKE_FIND_ROOT_PATH_MODE_PROGRAM ONLY)
-set (CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
-set (CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
-
 
 if (LEMONS_IOS_SIMULATOR)
 	# Options for building for a simulator
