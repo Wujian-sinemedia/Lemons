@@ -18,9 +18,8 @@ if (APPLE)
 	find_program (XCODE_BUILD xcodebuild)
 
 	if (XCODE_BUILD)
-		
 		add_custom_target (AAXSDK
-					   	   COMMAND "${XCODE_BUILD}" "-scheme" "AAXLibrary_libcpp" "-configuration" "$<COMMAND_CONFIG:$<CONFIG>>" "build"
+					   	   COMMAND "${XCODE_BUILD}" "-scheme" "AAXLibrary_libcpp" "ONLY_ACTIVE_ARCH=NO" "ARCHS=x86_64" "-configuration" "$<COMMAND_CONFIG:$<CONFIG>>" "build"
 					   	   COMMAND_EXPAND_LISTS VERBATIM
 					   	   WORKING_DIRECTORY "${LEMONS_AAX_SDK_PATH}/Libs/AAXLibrary/MacBuild"
 					   	   COMMENT "Building AAX SDK..."
@@ -32,7 +31,6 @@ elseif (WIN32)
 	find_program (MS_BUILD msbuild)
 
 	if (MS_BUILD)
-		
 		add_custom_target (AAXSDK
 					   	   COMMAND "${MS_BUILD}" "AAX_SDK.sln" "-p:Configuration=$<COMMAND_CONFIG:$<CONFIG>>"
 					   	   COMMAND_EXPAND_LISTS VERBATIM
@@ -45,5 +43,5 @@ endif()
 
 
 if (TARGET AAXSDK)
-	#set_target_properties (AAXSDK PROPERTIES OSX_ARCHITECTURES x86_64)
+	set_target_properties (AAXSDK PROPERTIES OSX_ARCHITECTURES x86_64)
 endif()

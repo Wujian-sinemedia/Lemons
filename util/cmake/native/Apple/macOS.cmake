@@ -9,12 +9,4 @@ if (IS_DIRECTORY ${MAC_SDK_DIR})
     set (CMAKE_OSX_SYSROOT ${MAC_SDK_DIR} CACHE INTERNAL "")
 endif()
 
-if (XCODE)
-    execute_process (COMMAND uname -m OUTPUT_QUIET
-                     RESULT_VARIABLE result OUTPUT_VARIABLE osx_native_architecture
-                     OUTPUT_STRIP_TRAILING_WHITESPACE)
-
-    if ("${osx_native_architecture}" MATCHES "arm64")
-        set (CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "")
-    endif()
-endif()
+set (CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE INTERNAL "")

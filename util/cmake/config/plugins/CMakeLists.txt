@@ -10,9 +10,14 @@ function (_lemons_configure_juce_aax origTarget pagetableFile)
         return()
     endif()
 
-    add_dependencies (${aaxTarget} AAXSDK)
+    if (NOT TARGET AAXSDK)
+        message (FATAL_ERROR "AAX plugin target created, but AAXSDK target doesn't exist!")
+        return()
+    endif()
 
     set_target_properties (${aaxTarget} PROPERTIES OSX_ARCHITECTURES x86_64)
+
+    add_dependencies (${aaxTarget} AAXSDK)
 
     if (pagetableFile)
         target_compile_definitions (${aaxTarget} PUBLIC "JucePlugin_AAXPageTableFile=\"${pagetableFile}\"")
