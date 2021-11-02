@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # Installs all dependencies for a typical Lemons workspace
 # If you're on Linux, this script will also install all of JUCE's Linux dependencies.

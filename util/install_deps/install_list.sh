@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # Installs a list of dependencies, read from a given text file
 
@@ -12,8 +12,8 @@ export SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd 
 
 # Utility function to append text to file
 append_to_file() {
-  	local -r file="$1"
-  	local -r text="$2"
+  	file="$1"
+  	text="$2"
 
   	if ! grep -qs "^$text$" "$file"; then
     	printf "\\n%s\\n" "$text" >> "$file"
@@ -81,7 +81,7 @@ source "$SCRIPT_DIR/os/$os_script.sh"
 # The argument given to this function must be the absolute path to a text file from which to read the list of dependencies
 install_deps_list() {
 	
-	local -r DEPS_LIST="$1"
+	DEPS_LIST="$1"
 
 	# if deps list file doesn't exist, fail with error
 	if [ ! -f "$DEPS_LIST" ]; then

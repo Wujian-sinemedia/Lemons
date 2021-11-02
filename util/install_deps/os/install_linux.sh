@@ -1,6 +1,8 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # Installs a list of dependencies using apt
+
+set -euo pipefail
 
 sudo apt-get update
 sudo apt-get upgrade

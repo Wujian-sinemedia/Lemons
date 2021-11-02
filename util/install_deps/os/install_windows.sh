@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # Installs a list of dependencies using Chocolatey
 
@@ -8,7 +8,7 @@ set -euo pipefail
 
 
 process_line() {
-	local -r line=$(echo "$1" | sed 's/;//')
+	line=$(echo "$1" | sed 's/;//')
 
 	if [ "$line" = "doxygen" ]; then
 		return
@@ -20,7 +20,7 @@ process_line() {
 
 os_install_func() {
 
-	cat "$1" | while read line || [[ -n "$line" ]];
+	cat "$1" | while read line || [ -n "$line" ];
 	do
 		process_line "$line"
 	done

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # Installs a list of dependencies using Homebrew
 
@@ -31,7 +31,7 @@ delete_file_if_exists() {
 readonly brewfile="$SCRIPT_DIR/Brewfile"
 
 # Install Homebrew, if needed
-if ! [[ homebrew_installed_m1 || homebrew_installed_intel ]]; then
+if ! [ homebrew_installed_m1 || homebrew_installed_intel ]; then
 	echo "Installing Homebrew..."
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	brew tap Homebrew/bundle
@@ -47,7 +47,7 @@ os_install_func() {
 	touch "$brewfile"
 
 	# write deps list to Brewfile
-	cat "$1" | while read line || [[ -n $line ]];
+	cat "$1" | while read line || [ -n $line ];
 	do
 		newtext="$(echo "brew "\'"$line"\')"
 		append_to_file "$brewfile" "$newtext"
