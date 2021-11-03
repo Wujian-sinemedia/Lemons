@@ -1,45 +1,6 @@
 include (formats.cmake)
 
-#
-
-function (_lemons_configure_juce_aax origTarget pagetableFile)
-
-    set (aaxTarget ${origTarget}_AAX)
-
-    if (NOT TARGET ${aaxTarget})
-        return()
-    endif()
-
-    if (NOT TARGET AAXSDK)
-        message (FATAL_ERROR "AAX plugin target created, but AAXSDK target doesn't exist!")
-        return()
-    endif()
-
-    set_target_properties (${aaxTarget} PROPERTIES OSX_ARCHITECTURES x86_64)
-
-    add_dependencies (${aaxTarget} AAXSDK)
-
-    if (pagetableFile)
-        target_compile_definitions (${aaxTarget} PUBLIC "JucePlugin_AAXPageTableFile=\"${pagetableFile}\"")
-
-        # On Windows, pagetable files need a special post-build copy step to be included in the binary correctly
-        if (WIN32)
-
-            set (LEMONS_PAGETABLE_FILENAME "${pagetableFile}")
-            set (LEMONS_PLUGIN_NAME "${origTarget}")
-            set (LEMONS_PLUGIN_ORIG_DIR "${PROJECT_SOURCE_DIR}")
-
-            configure_file ("${CMAKE_CURRENT_LIST_DIR}/aax_pagetable_post_copy.bat" pagetable_copy.bat)
-
-            execute_process (COMMAND chmod a+rx "${CMAKE_CURRENT_BINARY_DIR}/pagetable_copy.bat")
-
-            add_custom_command (TARGET ${aaxTarget} POST_BUILD 
-                                COMMAND "${CMAKE_CURRENT_BINARY_DIR}/pagetable_copy.bat")
-
-        endif()
-    endif()
-
-endfunction()
+include (aax.cmake)
 
 
 #
