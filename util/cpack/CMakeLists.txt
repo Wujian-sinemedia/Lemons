@@ -1,3 +1,7 @@
+if (NOT (APPLE OR WIN32))
+	include (linux_lsb.cmake)
+endif()
+
 add_subdirectory (generators)
 
 
