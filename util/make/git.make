@@ -1,1 +1,0 @@
-GIT_UTH := cmake -D DIR=$(THIS_DIR) -P $(LEMONS_ROOT_DIR)/scripts/git_uth.cmake
