@@ -32,13 +32,3 @@ endif()
 
 add_library (LemonsModules INTERFACE)
 target_link_libraries (LemonsModules INTERFACE LemonsPluginModules LemonsCommonModules LemonsAppModules)
-
-#
-
-function (lemons_add_juce_modules dir)
-    lemons_subdir_list (RESULT moduleFolders DIR "${dir}")
-
-    foreach (folder ${moduleFolders})
-        juce_add_module ("${dir}/${folder}")
-    endforeach()
-endfunction()

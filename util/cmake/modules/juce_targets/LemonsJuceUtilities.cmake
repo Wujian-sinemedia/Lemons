@@ -13,6 +13,16 @@ CPMAddPackage (
 
 ########################################################################
 
+function (lemons_add_juce_modules dir)
+    lemons_subdir_list (RESULT moduleFolders DIR "${dir}")
+
+    foreach (folder ${moduleFolders})
+        juce_add_module ("${dir}/${folder}")
+    endforeach()
+endfunction()
+
+########################################################################
+
 
 function (_lemons_enable_browser target)
     target_compile_definitions ("${target}" PUBLIC JUCE_WEB_BROWSER=1 JUCE_USE_CURL=1 JUCE_LOAD_CURL_SYMBOLS_LAZILY=1)

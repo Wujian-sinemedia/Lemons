@@ -18,22 +18,18 @@ add_subdirectory (native)
 include (LemonsClangFormatIntegration)
 include (LemonsCcacheIntegration)
 
-add_subdirectory (third_party)
+include (LemonsJuceUtilities)
+
+CPMAddPackage (
+        NAME MTS-ESP
+        GITHUB_REPOSITORY ODDSound/MTS-ESP
+        GIT_TAG origin/main)
+
+add_library (MTS-ESP INTERFACE)
+
+target_include_directories (MTS-ESP INTERFACE "${MTS-ESP_SOURCE_DIR}/Client")
 
 include (LemonsTranslationFileGeneration)
 include (LemonsPluginUtilities)
 include (LemonsAppUtilities)
 include (LemonsAssetsHelpers)
-
-#
-
-set (BV_DEFAULT_BRAND_FLAGS
-        BUNDLE_ID                   com.BenViningMusicSoftware.${PROJECT_NAME}
-        COMPANY_NAME                Ben Vining Music Software
-        COMPANY_WEBSITE             www.benvining.com
-        COMPANY_EMAIL               ben.the.vining@gmail.com
-        COMPANY_COPYRIGHT           "Copyright 2021 Ben Vining"
-        PLUGIN_MANUFACTURER_CODE    Benv
-        CACHE INTERNAL "Ben Vining Music Software brand flags")
-
-#
