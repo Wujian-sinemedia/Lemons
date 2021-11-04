@@ -8,6 +8,10 @@ include (CMakeDependentOption)
 
 #
 
+list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/util/cmake_modules/general")
+
+#
+
 set (LEMONS_CXX_VERSION 20 CACHE STRING "C++ standard version")
 mark_as_advanced (FORCE LEMONS_CXX_VERSION)
 

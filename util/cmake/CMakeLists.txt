@@ -15,7 +15,7 @@ set (CPM_Lemons_SOURCE "${PROJECT_SOURCE_DIR}" CACHE INTERNAL "")
 
 #
 
-include (FileUtilities.cmake)
+include (LemonsFileUtils)
 
 add_subdirectory (native)
 add_subdirectory (integrations)

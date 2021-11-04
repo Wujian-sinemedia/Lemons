@@ -1,4 +1,4 @@
-include (GetLemons/get_cpm.cmake)
+include (LemonsGetCPM)
 
 #
 
