@@ -1,3 +1,5 @@
+include_guard (GLOBAL)
+
 find_program (CLANG_FORMAT clang-format)
 
 if (NOT CLANG_FORMAT)

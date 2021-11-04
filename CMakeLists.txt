@@ -8,7 +8,10 @@ include (CMakeDependentOption)
 
 #
 
-list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/util/cmake_modules/general")
+list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/util/cmake/modules/general")
+list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/util/cmake/modules/juce_targets")
+list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/util/cmake/modules/translations")
+list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/util/cmake/modules/integrations")
 
 #
 

@@ -1,3 +1,5 @@
+include_guard (GLOBAL)
+
 #[[
     The code in this file is based on:
         - this blog post: https://cristianadam.eu/20200113/speeding-up-c-plus-plus-github-actions-using-ccache/
@@ -9,8 +11,7 @@
     Ccache can drastically improve build time, and there's not really a good reason NOT to use it if it's installed on your system.
 ]]
 
-find_program (CCACHE_PROGRAM ccache
-              PATHS "$ENV{CPM_SOURCE_CACHE}/ccache")
+find_program (CCACHE_PROGRAM ccache)
 
 if (NOT CCACHE_PROGRAM)
     return()

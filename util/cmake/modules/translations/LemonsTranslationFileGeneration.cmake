@@ -1,3 +1,5 @@
+include_guard (GLOBAL)
+
 find_package (Python3 COMPONENTS Interpreter)
 
 if (NOT Python3_Interpreter_FOUND OR NOT LEMONS_GENERATE_TRANSLATION_FILES)
@@ -19,6 +21,8 @@ mark_as_advanced (FORCE LEMONS_LANGUAGE_LIST)
 
 #
 
+# TO DO: deal with  CPM_SOURCE_CACHE not being defined, and JUCE_SOURCE_DIR not being defined...
+
 file (REAL_PATH "$ENV{CPM_SOURCE_CACHE}/translations" translation_files)
 set (_lemons_translation_files_storage "${translation_files}" CACHE INTERNAL "")
 
@@ -38,7 +42,7 @@ function (lemons_generate_translation_files)
     cmake_parse_arguments (LEMONS_TRANS "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
     if (NOT LEMONS_TRANS_FOLDER)
-        message (FATAL_ERROR "Folder not specified in call to lemons_generate_translation_files!")
+        message (FATAL_ERROR "Folder not specified in call to ${CMAKE_CURRENT_FUNCTION}!")
         return()
     endif()
 

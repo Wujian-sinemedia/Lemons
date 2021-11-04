@@ -1,3 +1,8 @@
+include_guard (GLOBAL)
+
+include (LemonsJuceUtilities)
+
+
 #
 # lemons_add_resources_folder
 # configures a binary resources target for the specified product target. If you're making a JUCE plugin, you should call this function with your plugin's shared code target.

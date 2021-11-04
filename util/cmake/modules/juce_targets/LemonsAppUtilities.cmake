@@ -1,14 +1,17 @@
-function (_lemons_create_all_apps_target_if_not_exists)
-    if (NOT TARGET ALL_APPS)
-        add_custom_target (ALL_APPS COMMENT "Building all apps...")
-    endif()
-endfunction()
+include_guard (GLOBAL)
+
+include (LemonsJuceUtilities)
+
+
 
 macro (_lemons_configure_app_internal)
 
     _lemons_configure_juce_target (${ARGN})
 
-    _lemons_create_all_apps_target_if_not_exists()
+    if (NOT TARGET ALL_APPS)
+        add_custom_target (ALL_APPS COMMENT "Building all apps...")
+    endif()
+    
     add_dependencies (ALL_APPS ${lemons_targetname})
 endmacro()
 

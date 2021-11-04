@@ -1,10 +1,18 @@
-add_subdirectory (translations)
-add_subdirectory (plugins)
+include_guard (GLOBAL)
 
-include (assets.cmake)
-include (apps.cmake)
+include (LemonsGetCPM)
 
 #
+
+CPMAddPackage (
+        NAME JUCE
+        GITHUB_REPOSITORY juce-framework/JUCE
+        GIT_TAG origin/develop
+        OPTIONS "JUCE_ENABLE_MODULE_SOURCE_GROUPS ON" "JUCE_BUILD_EXAMPLES OFF" "JUCE_BUILD_EXTRAS OFF")
+
+
+########################################################################
+
 
 function (_lemons_enable_browser target)
     target_compile_definitions ("${target}" PUBLIC JUCE_WEB_BROWSER=1 JUCE_USE_CURL=1 JUCE_LOAD_CURL_SYMBOLS_LAZILY=1)
@@ -32,7 +40,6 @@ function (_lemons_enable_plugin_hosting target)
     endif()
 endfunction()
 
-#
 
 function (_lemons_configure_juce_target)
 
@@ -106,3 +113,5 @@ function (_lemons_configure_juce_target)
     endif()
 
 endfunction()
+
+#

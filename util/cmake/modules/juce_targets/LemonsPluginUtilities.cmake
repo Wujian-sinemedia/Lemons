@@ -1,8 +1,43 @@
-add_subdirectory (aax)
-include (formats.cmake)
+include_guard (GLOBAL)
+
+include (LemonsAAXUtils)
+include (LemonsJuceUtilities)
 
 
-#
+set (available_formats Standalone)
+
+if (APPLE)
+    list (APPEND available_formats AUv3)
+endif()
+
+if (NOT IOS)
+    list (APPEND available_formats Unity VST3)
+
+    if (APPLE)
+        list (APPEND available_formats AU)
+    endif()
+
+    if (TARGET AAXSDK)
+        list (APPEND available_formats AAX)
+    endif()
+
+    if (LEMONS_VST2_SDK_PATH)
+        if (IS_DIRECTORY "${LEMONS_VST2_SDK_PATH}")
+            juce_set_vst2_sdk_path ("${LEMONS_VST2_SDK_PATH}")
+            list (APPEND available_formats VST)
+        endif()
+    endif()
+endif()
+
+set (LEMONS_PLUGIN_FORMATS ${available_formats} CACHE INTERNAL "Available plugin formats")
+
+list (JOIN available_formats " " formats_output)
+message (VERBOSE "  -- Available plugin formats: ${formats_output}")
+
+
+
+
+########################################################################
 
 #
 # lemons_configure_juce_plugin
@@ -39,7 +74,10 @@ function (lemons_configure_juce_plugin)
     set (stdaln_target "${lemons_targetname}_Standalone")
 
     if (TARGET ${stdaln_target})
-        _lemons_create_all_apps_target_if_not_exists()
+        if (NOT TARGET ALL_APPS)
+            add_custom_target (ALL_APPS COMMENT "Building all apps...")
+        endif()
+        
         add_dependencies (ALL_APPS ${stdaln_target})
     endif()
 

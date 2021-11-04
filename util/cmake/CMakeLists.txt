@@ -7,10 +7,6 @@ set (CMAKE_CXX_STANDARD            ${LEMONS_CXX_VERSION} CACHE INTERNAL "")
 set (CMAKE_CXX_STANDARD_REQUIRED   ON CACHE INTERNAL "")
 set (CMAKE_INCLUDE_CURRENT_DIR     ON CACHE INTERNAL "")
 
-# set up CPM source cache in a git-ignored location (makes successive build configs MUCH faster!)
-# if you wish to refresh the cache, I suggest manually deleting the cached files from the Cache dir. They will be freshly re-downloaded when the next CMake configuration is run.
-set (ENV{CPM_SOURCE_CACHE} "${CMAKE_SOURCE_DIR}/Cache")
-
 set (CPM_Lemons_SOURCE "${PROJECT_SOURCE_DIR}" CACHE INTERNAL "")
 
 #
@@ -18,9 +14,16 @@ set (CPM_Lemons_SOURCE "${PROJECT_SOURCE_DIR}" CACHE INTERNAL "")
 include (LemonsFileUtils)
 
 add_subdirectory (native)
-add_subdirectory (integrations)
+
+include (LemonsClangFormatIntegration)
+include (LemonsCcacheIntegration)
+
 add_subdirectory (third_party)
-add_subdirectory (config)
+
+include (LemonsTranslationFileGeneration)
+include (LemonsPluginUtilities)
+include (LemonsAppUtilities)
+include (LemonsAssetsHelpers)
 
 #
 
