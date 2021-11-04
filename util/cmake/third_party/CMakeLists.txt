@@ -1,7 +1,5 @@
 include (GetLemons/get_cpm.cmake)
 
-add_subdirectory (vecops)
-
 #
 
 # JUCE

@@ -1,4 +1,4 @@
-if (LEMONS_AAX_SDK_PATH AND IS_DIRECTORY "${LEMONS_AAX_SDK_PATH}")
+if (LEMONS_AAX_SDK_PATH)
     
     if (APPLE AND NOT IOS)
 
@@ -26,6 +26,7 @@ if (LEMONS_AAX_SDK_PATH AND IS_DIRECTORY "${LEMONS_AAX_SDK_PATH}")
                                COMMAND_ECHO STDOUT)
         endif()
     endif()
+    
 endif()
 
 

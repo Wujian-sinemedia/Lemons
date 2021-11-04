@@ -7,8 +7,6 @@ set (CMAKE_CXX_STANDARD            ${LEMONS_CXX_VERSION} CACHE INTERNAL "")
 set (CMAKE_CXX_STANDARD_REQUIRED   ON CACHE INTERNAL "")
 set (CMAKE_INCLUDE_CURRENT_DIR     ON CACHE INTERNAL "")
 
-set (LEMONS_CMAKE_ROOT "${CMAKE_CURRENT_LIST_DIR}" CACHE INTERNAL "")
-
 # set up CPM source cache in a git-ignored location (makes successive build configs MUCH faster!)
 # if you wish to refresh the cache, I suggest manually deleting the cached files from the Cache dir. They will be freshly re-downloaded when the next CMake configuration is run.
 set (ENV{CPM_SOURCE_CACHE} "${CMAKE_SOURCE_DIR}/Cache")
@@ -36,7 +34,3 @@ set (BV_DEFAULT_BRAND_FLAGS
         CACHE INTERNAL "Ben Vining Music Software brand flags")
 
 #
-
-if (LEMONS_BUILD_TESTS)
-    add_subdirectory (testing)
-endif()

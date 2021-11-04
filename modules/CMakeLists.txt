@@ -23,7 +23,6 @@ _lemons_add_module_subcategory (Apps         LEMONS_APP_ONLY_MODULES)
 
 #
 
-target_link_libraries (lemons_core   INTERFACE Vecops)
 target_link_libraries (mts_esp_cpp   INTERFACE MTS-ESP)
 target_link_libraries (lemons_plugin INTERFACE AbletonLink)
 

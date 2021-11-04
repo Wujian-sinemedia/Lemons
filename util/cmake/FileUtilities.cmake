@@ -29,8 +29,8 @@ function (lemons_subdir_list)
   	set (dirlist "")
 
   	foreach (child ${children})
-    	if (IS_DIRECTORY ${LEMONS_SUBDIR_DIR}/${child})
-      		list (APPEND dirlist ${child})
+    	if (IS_DIRECTORY "${LEMONS_SUBDIR_DIR}/${child}")
+      		list (APPEND dirlist "${child}")
     	endif()
   	endforeach()
 
