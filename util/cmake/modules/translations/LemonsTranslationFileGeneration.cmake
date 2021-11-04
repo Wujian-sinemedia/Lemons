@@ -31,9 +31,11 @@ mark_as_advanced (FORCE LEMONS_SHARED_TRANSLATION_FILE_STORAGE LEMONS_LANGUAGE_L
 
 #
 
+set (translation_scripts_dir "${CMAKE_CURRENT_LIST_DIR}/scripts" CACHE INTERNAL "")
+
 message (STATUS "Generating translation files for Lemons and JUCE...")
 
-execute_process (COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_LIST_DIR}/scripts/config_shared_translations.py" "${JUCE_SOURCE_DIR}" "${Lemons_SOURCE_DIR}" "${LEMONS_SHARED_TRANSLATION_FILE_STORAGE}" "${LEMONS_LANGUAGE_LIST}"
+execute_process (COMMAND "${Python3_EXECUTABLE}" "${translation_scripts_dir}/config_shared_translations.py" "${JUCE_SOURCE_DIR}" "${Lemons_SOURCE_DIR}" "${LEMONS_SHARED_TRANSLATION_FILE_STORAGE}" "${LEMONS_LANGUAGE_LIST}"
                  OUTPUT_QUIET)
 
 #
@@ -55,6 +57,6 @@ function (lemons_generate_translation_files)
 
     file (REAL_PATH "${PROJECT_SOURCE_DIR}/${LEMONS_TRANS_FOLDER}" translation_output)
 
-    execute_process (COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_LIST_DIR}/scripts/config_project_translations.py" "${LEMONS_SHARED_TRANSLATION_FILE_STORAGE}" "${PROJECT_SOURCE_DIR}" "${translation_output}"
+    execute_process (COMMAND "${Python3_EXECUTABLE}" "${translation_scripts_dir}/config_project_translations.py" "${LEMONS_SHARED_TRANSLATION_FILE_STORAGE}" "${PROJECT_SOURCE_DIR}" "${translation_output}"
                      OUTPUT_QUIET)
 endfunction()
