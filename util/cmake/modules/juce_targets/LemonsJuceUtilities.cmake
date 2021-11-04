@@ -2,6 +2,7 @@ include_guard (GLOBAL)
 
 include (LemonsGetCPM)
 include (LemonsFileUtils)
+include (LemonsJuceModuleUtilities)
 
 if (APPLE)
     include (LemonsDefaultMacOsOptions)
@@ -21,16 +22,6 @@ include (LemonsAssetsHelpers)
 
 
 ########################################################################
-
-function (lemons_add_juce_modules dir)
-    lemons_subdir_list (RESULT moduleFolders DIR "${dir}")
-
-    foreach (folder ${moduleFolders})
-        juce_add_module ("${dir}/${folder}")
-    endforeach()
-endfunction()
-
-#
 
 function (lemons_enable_plugin_hosting target)
     if (IOS)

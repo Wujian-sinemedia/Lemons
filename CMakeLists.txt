@@ -44,10 +44,11 @@ foreach (child ${children})
 	endif()
 endforeach()
 
+list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/modules")
+
 #
 
 add_subdirectory (util)
-add_subdirectory (modules)
 
 if (LEMONS_BUILD_TEMPLATES)
 	add_subdirectory (templates)

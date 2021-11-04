@@ -1,3 +1,6 @@
+include (AllLemonsModules)
+include (BVBrandFlags)
+
 project (TestLab VERSION 0.0.1 LANGUAGES CXX)
 
 juce_add_gui_app (${PROJECT_NAME}

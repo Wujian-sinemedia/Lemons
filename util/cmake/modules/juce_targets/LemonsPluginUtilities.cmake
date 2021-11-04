@@ -6,6 +6,8 @@ if (LEMONS_AAX_SDK_PATH AND NOT IOS AND (APPLE OR WIN32))
     include (LemonsAAXUtils)
 endif()
 
+option (LEMONS_BUILD_TESTS "Build tests" OFF)
+
 if (LEMONS_BUILD_TESTS)
     include (LemonsPluginvalUtils)
 endif()

@@ -16,10 +16,6 @@ add_subdirectory (cmake/native)
 include (LemonsCcacheIntegration)
 include (LemonsClangFormatIntegration)
 
-include (LemonsPluginUtilities)
-include (LemonsAppUtilities)
-include (LemonsAssetsHelpers)
-
 #
 
 if (LEMONS_BUILD_DOCS)
