@@ -11,25 +11,11 @@ set (CPM_Lemons_SOURCE "${PROJECT_SOURCE_DIR}" CACHE INTERNAL "")
 
 #
 
-include (LemonsFileUtils)
-
 add_subdirectory (native)
 
-include (LemonsClangFormatIntegration)
 include (LemonsCcacheIntegration)
+include (LemonsClangFormatIntegration)
 
-include (LemonsJuceUtilities)
-
-CPMAddPackage (
-        NAME MTS-ESP
-        GITHUB_REPOSITORY ODDSound/MTS-ESP
-        GIT_TAG origin/main)
-
-add_library (MTS-ESP INTERFACE)
-
-target_include_directories (MTS-ESP INTERFACE "${MTS-ESP_SOURCE_DIR}/Client")
-
-include (LemonsTranslationFileGeneration)
 include (LemonsPluginUtilities)
 include (LemonsAppUtilities)
 include (LemonsAssetsHelpers)

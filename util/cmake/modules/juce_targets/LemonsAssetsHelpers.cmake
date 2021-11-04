@@ -1,6 +1,7 @@
 include_guard (GLOBAL)
 
 include (LemonsJuceUtilities)
+include (LemonsTranslationFileGeneration)
 
 
 #
@@ -34,9 +35,7 @@ function (lemons_add_resources_folder)
     # create resources target, if needed 
     if (NOT TARGET ${resourcesTarget})
 
-        if (LEMONS_GENERATE_TRANSLATION_FILES)
-            lemons_generate_translation_files (TARGET "${LEMONS_RSRC_FLDR_TARGET}" FOLDER "${LEMONS_RSRC_FLDR_FOLDER}")
-        endif()
+        lemons_generate_translation_files (TARGET "${LEMONS_RSRC_FLDR_TARGET}" FOLDER "${LEMONS_RSRC_FLDR_FOLDER}")
 
         file (GLOB_RECURSE files "${LEMONS_RSRC_FLDR_FOLDER}/*.*")
 
