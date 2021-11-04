@@ -39,7 +39,7 @@ function (_lemons_configure_compiler_launcher language)
 
     set (script_name "launch-${language}")
 
-    configure_file ("${CMAKE_CURRENT_LIST_DIR}/launcher.in" "${script_name}")
+    configure_file ("${CMAKE_CURRENT_LIST_DIR}/scripts/launcher.in" "${script_name}")
 
     set (${language}_script "${CMAKE_CURRENT_BINARY_DIR}/${script_name}" PARENT_SCOPE)
 endfunction()

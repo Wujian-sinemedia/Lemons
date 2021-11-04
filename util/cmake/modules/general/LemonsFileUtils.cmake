@@ -8,10 +8,11 @@ include_guard (GLOBAL)
 # INPUTS:
 # DIR : the parent directory to search 
 # RESULT : the name of the variable to which the output list will be written in the calling scope
+# RECURSE : when mentioned, the search is recursive
 
 function (lemons_subdir_list)
 
-	set (options "")
+	set (options RECURSE)
 	set (oneValueArgs RESULT DIR)
 	set (multiValueArgs "")
 
@@ -27,7 +28,11 @@ function (lemons_subdir_list)
 		return()
 	endif()
 
-  	file (GLOB children RELATIVE ${LEMONS_SUBDIR_DIR} ${LEMONS_SUBDIR_DIR}/*)
+	if (LEMONS_SUBDIR_RECURSE)
+		file (GLOB_RECURSE children RELATIVE ${LEMONS_SUBDIR_DIR} ${LEMONS_SUBDIR_DIR}/*)
+	else()
+		file (GLOB children RELATIVE ${LEMONS_SUBDIR_DIR} ${LEMONS_SUBDIR_DIR}/*)
+	endif()
 
   	set (dirlist "")
 

@@ -2,6 +2,7 @@ include_guard (GLOBAL)
 
 include (LemonsGetCPM)
 include (LemonsFileUtils)
+include (LemonsAssetsHelpers)
 
 #
 
@@ -13,7 +14,7 @@ CPMAddPackage (
 
 
 ########################################################################
-
+## TO DO _lemons_set_default_macos_options
 
 function (lemons_add_juce_modules dir)
     lemons_subdir_list (RESULT moduleFolders DIR "${dir}")

@@ -20,23 +20,26 @@ endif()
 set (LEMONS_LANGUAGE_LIST "${CMAKE_CURRENT_LIST_DIR}/languages.txt" 
      CACHE PATH "Path to a file containing a list of target languages for translation file generation")
 
-#
-
-# TO DO: deal with JUCE_SOURCE_DIR and Lemons_SOURCE_DIR not being defined...
-
 if (DEFINED ENV{CPM_SOURCE_CACHE})
-    set (_lemons_translation_files_storage "$ENV{CPM_SOURCE_CACHE}/translations" CACHE PATH "")
+    set (LEMONS_SHARED_TRANSLATION_FILE_STORAGE "$ENV{CPM_SOURCE_CACHE}/translations" 
+            CACHE PATH "Path to directory where cached translation files for JUCE and Lemons will be stored")
 else()
-    set (_lemons_translation_files_storage "${CMAKE_SOURCE_DIR}/Cache/translations" CACHE PATH "")
+    set (LEMONS_SHARED_TRANSLATION_FILE_STORAGE "${CMAKE_SOURCE_DIR}/Cache/translations" 
+            CACHE PATH "Path to directory where cached translation files for JUCE and Lemons will be stored")
 endif()
 
-mark_as_advanced (FORCE _lemons_translation_files_storage LEMONS_LANGUAGE_LIST)
+mark_as_advanced (FORCE LEMONS_SHARED_TRANSLATION_FILE_STORAGE LEMONS_LANGUAGE_LIST)
+
+
+if (NOT JUCE_SOURCE_DIR OR NOT Lemons_SOURCE_DIR)
+    message (AUTHOR_WARNING "Missing required variable definitions...")
+    return()
+endif()
+
 
 message (STATUS "Generating translation files for Lemons and JUCE...")
 
-set (scripts_dir "${CMAKE_CURRENT_LIST_DIR}/scripts")
-
-execute_process (COMMAND "${Python3_EXECUTABLE}" "${scripts_dir}/config_shared_translations.py" "${JUCE_SOURCE_DIR}" "${Lemons_SOURCE_DIR}" "${_lemons_translation_files_storage}" "${LEMONS_LANGUAGE_LIST}"
+execute_process (COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_LIST_DIR}/scripts/config_shared_translations.py" "${JUCE_SOURCE_DIR}" "${Lemons_SOURCE_DIR}" "${LEMONS_SHARED_TRANSLATION_FILE_STORAGE}" "${LEMONS_LANGUAGE_LIST}"
                  OUTPUT_QUIET)
 
 #
@@ -58,7 +61,7 @@ function (lemons_generate_translation_files)
 
     file (REAL_PATH "${PROJECT_SOURCE_DIR}/${LEMONS_TRANS_FOLDER}/translations" translation_output)
 
-    execute_process (COMMAND "${Python3_EXECUTABLE}" "${scripts_dir}/config_project_translations.py" "${_lemons_translation_files_storage}" "${PROJECT_SOURCE_DIR}" "${translation_output}"
+    execute_process (COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_LIST_DIR}/scripts/config_project_translations.py" "${LEMONS_SHARED_TRANSLATION_FILE_STORAGE}" "${PROJECT_SOURCE_DIR}" "${translation_output}"
                      OUTPUT_QUIET)
 
 endfunction()
