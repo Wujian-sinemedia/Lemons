@@ -74,6 +74,7 @@ if __name__ == "__main__":
 	parser.add_argument ("juce_root", help="the absolute path to the JUCE repo root")
 	parser.add_argument ("lemons_root", help="the absolute path to the Lemons repo root")
 	parser.add_argument ("output_dir", help="the absolute path of the directory to write the shared translated files to")
+	parser.add_argument ("language_list", help="absolute path to a list of target languages")
 	
 	args = parser.parse_args()
 
@@ -99,4 +100,4 @@ if __name__ == "__main__":
 	merge_translation_files (aggregate_file, templates)
 
 	# take the master template file and translate it into each target language
-	generate_translation_files (aggregate_file, args.output_dir)
+	generate_translation_files (aggregate_file, args.output_dir, args.language_list)

@@ -47,13 +47,12 @@ def generate_translation_file (output_language, tokens_to_translate, output_dire
 
 ###############################################################################
 
-def generate_translation_files (template_file, output_dir):
+def generate_translation_files (template_file, output_dir, language_list):
 
 	if not path.isdir (output_dir):
 		mkdir (output_dir)
 
 	script_dir = path.abspath (path.dirname (__file__))
-	language_list = path.join (script_dir, "translation_config.txt")
 
 	if not path.exists (language_list):
 		raise Exception("Nonexistant language list file!")

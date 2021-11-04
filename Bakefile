@@ -12,13 +12,14 @@ Aliases:
 Clean:
 * Builds/
 * .github/docs
+* util/cmake/config/translations/__pycache__/
 * util/install_deps/Brewfile
 * util/install_deps/Brewfile.lock.json
 
 Wipe:
 * Cache/
 
-Logs: 
+Logs:
 * logs
 
 Git branch name: 
