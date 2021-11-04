@@ -1,6 +1,7 @@
 add_subdirectory (UnitTestRunner)
 
-include (pluginval.cmake)
+include (LemonsPluginvalUtils)
+
 include (auval.cmake)
 include (steinberg_val.cmake)
 

@@ -1,7 +1,17 @@
 include_guard (GLOBAL)
 
-include (LemonsAAXUtils)
 include (LemonsJuceUtilities)
+
+if (LEMONS_AAX_SDK_PATH AND NOT IOS AND (APPLE OR WIN32))
+    include (LemonsAAXUtils)
+endif()
+
+if (LEMONS_BUILD_TESTS)
+    include (LemonsPluginvalUtils)
+endif()
+
+
+########################################################################
 
 
 set (available_formats Standalone)
@@ -35,8 +45,6 @@ list (JOIN available_formats " " formats_output)
 message (VERBOSE "  -- Available plugin formats: ${formats_output}")
 
 
-
-
 ########################################################################
 
 #
@@ -55,23 +63,30 @@ message (VERBOSE "  -- Available plugin formats: ${formats_output}")
 #
 function (lemons_configure_juce_plugin)
 
-    _lemons_configure_juce_target (${ARGN})
+    lemons_configure_juce_target (${ARGN})
 
-    _lemons_configure_juce_aax (${lemons_targetname} "${lemons_aax_pagetable_file}")
 
-    target_link_libraries (${lemons_targetname} PUBLIC LemonsPluginModules)
+    set (options "")
+    set (oneValueArgs TARGET AAX_PAGETABLE_FILE)
+    set (multiValueArgs "")
 
-    target_compile_definitions (${lemons_targetname} PUBLIC JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=0)
+    cmake_parse_arguments (LEMONS_PLUGIN "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
+
+    lemons_configure_aax_plugin (${LEMONS_PLUGIN_TARGET} "${LEMONS_PLUGIN_AAX_PAGETABLE_FILE}")
+
+    target_link_libraries (${LEMONS_PLUGIN_TARGET} PUBLIC LemonsPluginModules)
+
+    target_compile_definitions (${LEMONS_PLUGIN_TARGET} PUBLIC JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=0)
 
     # add this plugin to the `ALL_PLUGINS` target...
     if (NOT TARGET ALL_PLUGINS)
         add_custom_target (ALL_PLUGINS COMMENT "Building all plugins...")
     endif()
 
-    add_dependencies (ALL_PLUGINS "${lemons_targetname}_All")
+    add_dependencies (ALL_PLUGINS "${LEMONS_PLUGIN_TARGET}_All")
 
     # add the standalone plugin to the `ALL_APPS` target...
-    set (stdaln_target "${lemons_targetname}_Standalone")
+    set (stdaln_target "${LEMONS_PLUGIN_TARGET}_Standalone")
 
     if (TARGET ${stdaln_target})
         if (NOT TARGET ALL_APPS)
@@ -81,9 +96,8 @@ function (lemons_configure_juce_plugin)
         add_dependencies (ALL_APPS ${stdaln_target})
     endif()
 
-    # configure plugin QC tests
     if (LEMONS_BUILD_TESTS)
-        _lemons_configure_plugin_tests ("${lemons_targetname}")
+        lemons_configure_pluginval_tests (TARGET "${LEMONS_PLUGIN_TARGET}")
     endif()
 
 endfunction()

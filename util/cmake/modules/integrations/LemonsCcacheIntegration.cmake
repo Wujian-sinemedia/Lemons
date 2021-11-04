@@ -18,7 +18,13 @@ if (NOT CCACHE_PROGRAM)
 endif()
 
 set  (ccache_options "CCACHE_BASEDIR=${CMAKE_SOURCE_DIR}")
-list (APPEND ccache_options "CCACHE_DIR=$ENV{CPM_SOURCE_CACHE}/ccache/cache")
+
+if (DEFINED ENV{CPM_SOURCE_CACHE})
+    list (APPEND ccache_options "CCACHE_DIR=$ENV{CPM_SOURCE_CACHE}/ccache/cache")
+else()
+    list (APPEND ccache_options "CCACHE_DIR=${CMAKE_SOURCE_DIR}/Cache/ccache/cache")
+endif()
+
 list (APPEND ccache_options "CCACHE_COMPRESS=true")
 list (APPEND ccache_options "CCACHE_COMPRESSLEVEL=6")
 list (APPEND ccache_options "CCACHE_MAXSIZE=800M")

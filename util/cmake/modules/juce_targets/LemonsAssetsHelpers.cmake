@@ -1,7 +1,12 @@
 include_guard (GLOBAL)
 
 include (LemonsJuceUtilities)
-include (LemonsTranslationFileGeneration)
+
+option (LEMONS_GENERATE_TRANSLATION_FILES "Generate translation files" ON)
+
+if (LEMONS_GENERATE_TRANSLATION_FILES)
+    include (LemonsTranslationFileGeneration)
+endif()
 
 
 #
@@ -21,21 +26,22 @@ function (lemons_add_resources_folder)
     cmake_parse_arguments (LEMONS_RSRC_FLDR "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
     if (NOT LEMONS_RSRC_FLDR_TARGET)
-        message (FATAL_ERROR "Target name not specified in call to lemons_add_resources_folder!")
+        message (FATAL_ERROR "Target name not specified in call to ${CMAKE_CURRENT_FUNCTION}!")
         return()
     endif()
 
     if (NOT LEMONS_RSRC_FLDR_FOLDER)
-        message (FATAL_ERROR "Folder name not specified in call to lemons_add_resources_folder!")
+        message (FATAL_ERROR "Folder name not specified in call to ${CMAKE_CURRENT_FUNCTION}!")
         return()
     endif()
 
     set (resourcesTarget "${PROJECT_NAME}-Assets")
 
-    # create resources target, if needed 
     if (NOT TARGET ${resourcesTarget})
 
-        lemons_generate_translation_files (TARGET "${LEMONS_RSRC_FLDR_TARGET}" FOLDER "${LEMONS_RSRC_FLDR_FOLDER}")
+        if (LEMONS_GENERATE_TRANSLATION_FILES)
+            lemons_generate_translation_files (TARGET "${LEMONS_RSRC_FLDR_TARGET}" FOLDER "${LEMONS_RSRC_FLDR_FOLDER}")
+        endif()
 
         file (GLOB_RECURSE files "${LEMONS_RSRC_FLDR_FOLDER}/*.*")
 

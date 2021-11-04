@@ -1,6 +1,7 @@
 include_guard (GLOBAL)
 
 include (LemonsGetCPM)
+include (LemonsFileUtils)
 
 #
 
@@ -13,6 +14,7 @@ CPMAddPackage (
 
 ########################################################################
 
+
 function (lemons_add_juce_modules dir)
     lemons_subdir_list (RESULT moduleFolders DIR "${dir}")
 
@@ -21,20 +23,9 @@ function (lemons_add_juce_modules dir)
     endforeach()
 endfunction()
 
-########################################################################
+#
 
-
-function (_lemons_enable_browser target)
-    target_compile_definitions ("${target}" PUBLIC JUCE_WEB_BROWSER=1 JUCE_USE_CURL=1 JUCE_LOAD_CURL_SYMBOLS_LAZILY=1)
-
-    # Linux
-    if (NOT (APPLE OR WIN32))
-        target_link_libraries ("${target}" PRIVATE juce::pkgconfig_JUCE_CURL_LINUX_DEPS)
-    endif()
-endfunction()
-
-
-function (_lemons_enable_plugin_hosting target)
+function (lemons_enable_plugin_hosting target)
     if (IOS)
         return()
     endif()
@@ -50,17 +41,18 @@ function (_lemons_enable_plugin_hosting target)
     endif()
 endfunction()
 
+#
 
-function (_lemons_configure_juce_target)
+function (lemons_configure_juce_target)
 
     set (options BROWSER PLUGIN_HOST CAMERA MICROPHONE)
-    set (oneValueArgs TARGET ASSET_FOLDER AAX_PAGETABLE_FILE)
+    set (oneValueArgs TARGET ASSET_FOLDER)
     set (multiValueArgs "")
 
     cmake_parse_arguments (LEMONS_TARGETCONFIG "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
     if (NOT LEMONS_TARGETCONFIG_TARGET)
-        message (FATAL_ERROR "Target name not specified in call to _lemons_configure_juce_target!")
+        message (FATAL_ERROR "Target name not specified in call to ${CMAKE_CURRENT_FUNCTION}!")
         return()
     endif()
 
@@ -85,10 +77,13 @@ function (_lemons_configure_juce_target)
 
     target_compile_features (${LEMONS_TARGETCONFIG_TARGET} PUBLIC cxx_std_${LEMONS_CXX_VERSION})
 
-    set (lemons_targetname "${LEMONS_TARGETCONFIG_TARGET}" PARENT_SCOPE)
-    
     if (LEMONS_TARGETCONFIG_BROWSER)
-        _lemons_enable_browser ("${LEMONS_TARGETCONFIG_TARGET}")
+        target_compile_definitions ("${LEMONS_TARGETCONFIG_TARGET}" PUBLIC JUCE_WEB_BROWSER=1 JUCE_USE_CURL=1 JUCE_LOAD_CURL_SYMBOLS_LAZILY=1)
+
+        # Linux
+        if (NOT (APPLE OR WIN32))
+            target_link_libraries ("${LEMONS_TARGETCONFIG_TARGET}" PRIVATE juce::pkgconfig_JUCE_CURL_LINUX_DEPS)
+        endif()
     else()
         target_compile_definitions ("${LEMONS_TARGETCONFIG_TARGET}" PUBLIC JUCE_WEB_BROWSER=0 JUCE_USE_CURL=0)
     endif()
@@ -102,7 +97,7 @@ function (_lemons_configure_juce_target)
     endif()
 
     if (LEMONS_TARGETCONFIG_PLUGIN_HOST)
-        _lemons_enable_plugin_hosting ("${LEMONS_TARGETCONFIG_TARGET}")
+        lemons_enable_plugin_hosting ("${LEMONS_TARGETCONFIG_TARGET}")
     endif()
 
     if (LEMONS_TARGETCONFIG_CAMERA)
@@ -113,15 +108,4 @@ function (_lemons_configure_juce_target)
     if (LEMONS_TARGETCONFIG_MICROPHONE)
         target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET} PUBLIC JUCE_MICROPHONE_PERMISSION_ENABLED=1)
     endif()
-
-    if (LEMONS_TARGETCONFIG_PLUGIN_MODULES)
-        set (_lemons_link_plugin_modules TRUE PARENT_SCOPE)
-    endif()
-
-    if (LEMONS_TARGETCONFIG_AAX_PAGETABLE_FILE)
-        set (lemons_aax_pagetable_file "${LEMONS_TARGETCONFIG_AAX_PAGETABLE_FILE}" PARENT_SCOPE)
-    endif()
-
 endfunction()
-
-#

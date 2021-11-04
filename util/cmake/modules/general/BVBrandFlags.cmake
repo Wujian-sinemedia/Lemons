@@ -1,3 +1,5 @@
+include_guard (GLOBAL)
+
 set (BV_DEFAULT_BRAND_FLAGS
         BUNDLE_ID                   com.BenViningMusicSoftware.${PROJECT_NAME}
         COMPANY_NAME                Ben Vining Music Software

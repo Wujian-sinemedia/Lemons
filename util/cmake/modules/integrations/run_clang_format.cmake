@@ -1,4 +1,4 @@
-include ("@LEMONS_CMAKE_ROOT@/FileUtilities.cmake")
+include (LemonsFileUtils)
 
 #
 

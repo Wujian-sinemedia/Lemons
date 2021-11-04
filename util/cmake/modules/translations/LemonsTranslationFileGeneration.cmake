@@ -1,15 +1,16 @@
 include_guard (GLOBAL)
 
+function (lemons_generate_translation_files)
+endfunction()
+
+if (NOT LEMONS_GENERATE_TRANSLATION_FILES)
+    return()
+endif()
+
 find_package (Python3 COMPONENTS Interpreter)
 
-if (NOT Python3_Interpreter_FOUND OR NOT LEMONS_GENERATE_TRANSLATION_FILES)
-	function (lemons_generate_translation_files)
-	endfunction()
-
-    if (LEMONS_GENERATE_TRANSLATION_FILES)
-        message (WARNING "Python3 is required for translation file generation, but could not be found!")
-    endif()
-
+if (NOT Python3_Interpreter_FOUND)
+    message (WARNING "Python3 is required for translation file generation, but could not be found!")
 	return()
 endif()
 

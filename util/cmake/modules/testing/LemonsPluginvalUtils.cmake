@@ -1,3 +1,5 @@
+include_guard (GLOBAL)
+
 CPMAddPackage (
         NAME pluginval
         GITHUB_REPOSITORY Tracktion/pluginval
@@ -42,7 +44,7 @@ endif()
 ################################################
 
 
-function (_lemons_configure_pluginval_tests)
+function (lemons_configure_pluginval_tests)
 
     if (NOT PLUGINVAL_EXEC)
         return()
@@ -73,11 +75,11 @@ function (_lemons_configure_pluginval_tests)
         set (testName "${target}-Pluginval")
 
         add_test (NAME "${testName}" 
-                  COMMAND "${PLUGINVAL_EXEC}" "--strictness-level" "${LEMONS_PLUGINVAL_LEVEL}" "--validate" "$<TARGET_FILE:${target}>" "--validate-in-process"
+                  COMMAND "${PLUGINVAL_EXEC}" "--strictness-level" "${LEMONS_PLUGINVAL_LEVEL}" "--validate" "$<TARGET_PROPERTY:${target},JUCE_PLUGIN_ARTEFACT_FILE>" "--validate-in-process"
                   COMMAND_EXPAND_LISTS)
 
         set_tests_properties ("${testName}" PROPERTIES 
-                              REQUIRED_FILES "$<TARGET_FILE:${target}>;${PLUGINVAL_EXEC}"
+                              REQUIRED_FILES "$<TARGET_PROPERTY:${target},JUCE_PLUGIN_ARTEFACT_FILE>;${PLUGINVAL_EXEC}"
                               LABELS Pluginval)
 
         set (atLeastOne TRUE)
