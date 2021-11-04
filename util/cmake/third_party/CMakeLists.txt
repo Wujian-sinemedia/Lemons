@@ -1,6 +1,6 @@
 include (GetLemons/get_cpm.cmake)
 
-include (aax_sdk.cmake)
+add_subdirectory (vecops)
 
 #
 
@@ -43,5 +43,3 @@ add_library (MTS-ESP INTERFACE)
 target_include_directories (MTS-ESP INTERFACE "${MTS-ESP_SOURCE_DIR}/Client")
 
 #
-
-add_subdirectory (vecops)

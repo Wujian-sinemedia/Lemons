@@ -1,6 +1,5 @@
-include (formats.cmake)
-
 include (aax.cmake)
+include (formats.cmake)
 
 
 #
