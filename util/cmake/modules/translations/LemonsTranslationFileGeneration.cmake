@@ -3,6 +3,8 @@ include_guard (GLOBAL)
 function (lemons_generate_translation_files)
 endfunction()
 
+option (LEMONS_GENERATE_TRANSLATION_FILES "Generate translation files" ON)
+
 if (NOT LEMONS_GENERATE_TRANSLATION_FILES)
     return()
 endif()
@@ -18,18 +20,23 @@ endif()
 set (LEMONS_LANGUAGE_LIST "${CMAKE_CURRENT_LIST_DIR}/languages.txt" 
      CACHE PATH "Path to a file containing a list of target languages for translation file generation")
 
-mark_as_advanced (FORCE LEMONS_LANGUAGE_LIST)
-
 #
 
-# TO DO: deal with  CPM_SOURCE_CACHE not being defined, and JUCE_SOURCE_DIR not being defined...
+# TO DO: deal with JUCE_SOURCE_DIR and Lemons_SOURCE_DIR not being defined...
 
-file (REAL_PATH "$ENV{CPM_SOURCE_CACHE}/translations" translation_files)
-set (_lemons_translation_files_storage "${translation_files}" CACHE INTERNAL "")
+if (DEFINED ENV{CPM_SOURCE_CACHE})
+    set (_lemons_translation_files_storage "$ENV{CPM_SOURCE_CACHE}/translations" CACHE PATH "")
+else()
+    set (_lemons_translation_files_storage "${CMAKE_SOURCE_DIR}/Cache/translations" CACHE PATH "")
+endif()
+
+mark_as_advanced (FORCE _lemons_translation_files_storage LEMONS_LANGUAGE_LIST)
 
 message (STATUS "Generating translation files for Lemons and JUCE...")
 
-execute_process (COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_LIST_DIR}/config_shared_translations.py" "${JUCE_SOURCE_DIR}" "${Lemons_SOURCE_DIR}" "${_lemons_translation_files_storage}" "${LEMONS_LANGUAGE_LIST}"
+set (scripts_dir "${CMAKE_CURRENT_LIST_DIR}/scripts")
+
+execute_process (COMMAND "${Python3_EXECUTABLE}" "${scripts_dir}/config_shared_translations.py" "${JUCE_SOURCE_DIR}" "${Lemons_SOURCE_DIR}" "${_lemons_translation_files_storage}" "${LEMONS_LANGUAGE_LIST}"
                  OUTPUT_QUIET)
 
 #
@@ -51,7 +58,7 @@ function (lemons_generate_translation_files)
 
     file (REAL_PATH "${PROJECT_SOURCE_DIR}/${LEMONS_TRANS_FOLDER}/translations" translation_output)
 
-    execute_process (COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_LIST_DIR}/config_project_translations.py" "${_lemons_translation_files_storage}" "${PROJECT_SOURCE_DIR}" "${translation_output}"
+    execute_process (COMMAND "${Python3_EXECUTABLE}" "${scripts_dir}/config_project_translations.py" "${_lemons_translation_files_storage}" "${PROJECT_SOURCE_DIR}" "${translation_output}"
                      OUTPUT_QUIET)
 
 endfunction()
