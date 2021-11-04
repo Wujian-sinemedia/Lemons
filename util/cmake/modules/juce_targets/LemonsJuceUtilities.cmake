@@ -2,7 +2,10 @@ include_guard (GLOBAL)
 
 include (LemonsGetCPM)
 include (LemonsFileUtils)
-include (LemonsAssetsHelpers)
+
+if (APPLE)
+    include (LemonsDefaultMacOsOptions)
+endif()
 
 #
 
@@ -13,8 +16,11 @@ CPMAddPackage (
         OPTIONS "JUCE_ENABLE_MODULE_SOURCE_GROUPS ON" "JUCE_BUILD_EXAMPLES OFF" "JUCE_BUILD_EXTRAS OFF")
 
 
+# N.B. must be included AFTER Juce is added, because this includes the translations module, which needs to know the location of the Juce package as defined by CPM
+include (LemonsAssetsHelpers)
+
+
 ########################################################################
-## TO DO _lemons_set_default_macos_options
 
 function (lemons_add_juce_modules dir)
     lemons_subdir_list (RESULT moduleFolders DIR "${dir}")
@@ -78,6 +84,14 @@ function (lemons_configure_juce_target)
 
     target_compile_features (${LEMONS_TARGETCONFIG_TARGET} PUBLIC cxx_std_${LEMONS_CXX_VERSION})
 
+    if (APPLE)
+        lemons_set_default_macos_options (${LEMONS_TARGETCONFIG_TARGET})
+    endif()
+
+    if (LEMONS_TARGETCONFIG_ASSET_FOLDER)
+        lemons_add_resources_folder (TARGET ${LEMONS_TARGETCONFIG_TARGET} FOLDER ${LEMONS_TARGETCONFIG_ASSET_FOLDER})
+    endif()
+
     if (LEMONS_TARGETCONFIG_BROWSER)
         target_compile_definitions ("${LEMONS_TARGETCONFIG_TARGET}" PUBLIC JUCE_WEB_BROWSER=1 JUCE_USE_CURL=1 JUCE_LOAD_CURL_SYMBOLS_LAZILY=1)
 
@@ -87,14 +101,6 @@ function (lemons_configure_juce_target)
         endif()
     else()
         target_compile_definitions ("${LEMONS_TARGETCONFIG_TARGET}" PUBLIC JUCE_WEB_BROWSER=0 JUCE_USE_CURL=0)
-    endif()
-
-    if (APPLE)
-        _lemons_set_default_macos_options (${LEMONS_TARGETCONFIG_TARGET})
-    endif()
-
-    if (LEMONS_TARGETCONFIG_ASSET_FOLDER)
-        lemons_add_resources_folder (TARGET ${LEMONS_TARGETCONFIG_TARGET} FOLDER ${LEMONS_TARGETCONFIG_ASSET_FOLDER})
     endif()
 
     if (LEMONS_TARGETCONFIG_PLUGIN_HOST)

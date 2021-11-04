@@ -1,3 +1,9 @@
+#[[
+This module downloads the CPM.cmake package manager script to a cached location, if it can't be found. Subsequent configuration runs will not require internet connection.
+
+You can use the environment variable CPM_SOURCE_CACHE to control where the cache is set up; if not set, it will default to <top_level_source_dir>/Cache/.
+]]
+
 include_guard (GLOBAL)
 
 if (COMMAND CPMAddPackage)

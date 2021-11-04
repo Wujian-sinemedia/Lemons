@@ -65,14 +65,16 @@ function (lemons_configure_juce_plugin)
 
     lemons_configure_juce_target (${ARGN})
 
-
     set (options "")
     set (oneValueArgs TARGET AAX_PAGETABLE_FILE)
     set (multiValueArgs "")
 
     cmake_parse_arguments (LEMONS_PLUGIN "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
-    lemons_configure_aax_plugin (${LEMONS_PLUGIN_TARGET} "${LEMONS_PLUGIN_AAX_PAGETABLE_FILE}")
+    set (aax_target ${LEMONS_PLUGIN_TARGET}_AAX)
+    if (TARGET ${aax_target})
+        lemons_configure_aax_plugin (TARGET "${aax_target}" PAGETABLE_FILE "${LEMONS_PLUGIN_AAX_PAGETABLE_FILE}")
+    endif()
 
     target_link_libraries (${LEMONS_PLUGIN_TARGET} PUBLIC LemonsPluginModules)
 

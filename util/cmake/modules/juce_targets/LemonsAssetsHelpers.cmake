@@ -1,3 +1,17 @@
+#[[
+This module provides the function 
+
+lemons_add_resources_folder (TARGET <target_name> FOLDER <folder_rel_path>)
+
+FOLDER must be the path to the folder containing the asset files you wish to bundle into your binary, relative to your project's root directory (ie, the value of ${PROJECT_SOURCE_DIR} when this function is called).
+
+The resources target will be named "${PROJECT_NAME}-Assets".
+
+OPTIONS:
+LEMONS_GENERATE_TRANSLATION_FILES 
+When set to ON, this module will include LemonsTranslationFileGeneration, and calling lemons_add_resources_folder will automatically call lemons_generate_translation_files for your target, placing the output at <folder_rel_path>/translations.
+]]
+
 include_guard (GLOBAL)
 
 include (LemonsJuceUtilities)
@@ -9,17 +23,9 @@ if (LEMONS_GENERATE_TRANSLATION_FILES)
 endif()
 
 
-#
-# lemons_add_resources_folder
-# configures a binary resources target for the specified product target. If you're making a JUCE plugin, you should call this function with your plugin's shared code target.
-#
-# INPUTS:
-# TARGET : the name of the product target to link the generated resources target to. The resources target will be named "$TARGET-Assets". If you're making a JUCE plugin, this should be your plugin's shared code target (usually named the same as your product)
-# FOLDER : the absolute path of the assets folder to use to populate the resources target. This folder can have any nested directory structure -- glob-resurs'ing is used to generate the list of files.
-# 
 function (lemons_add_resources_folder)
 
-    set (options)
+    set (options "")
     set (oneValueArgs TARGET FOLDER)
     set (multiValueArgs "")
 
@@ -40,7 +46,7 @@ function (lemons_add_resources_folder)
     if (NOT TARGET ${resourcesTarget})
 
         if (LEMONS_GENERATE_TRANSLATION_FILES)
-            lemons_generate_translation_files (TARGET "${LEMONS_RSRC_FLDR_TARGET}" FOLDER "${LEMONS_RSRC_FLDR_FOLDER}")
+            lemons_generate_translation_files (TARGET "${LEMONS_RSRC_FLDR_TARGET}" FOLDER "${LEMONS_RSRC_FLDR_FOLDER}/translations")
         endif()
 
         file (GLOB_RECURSE files "${LEMONS_RSRC_FLDR_FOLDER}/*.*")

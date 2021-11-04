@@ -1,14 +1,11 @@
+#[[
+This module defines the following function:
+
+lemons_subdir_list (DIR <directory_absolute_path> RESULT <result_variable> [RECURSE])
+]]
+
 include_guard (GLOBAL)
 
-
-#
-# lemons_subdir_list
-# returns a list of subdirectories found in the specified parent directory.
-# 
-# INPUTS:
-# DIR : the parent directory to search 
-# RESULT : the name of the variable to which the output list will be written in the calling scope
-# RECURSE : when mentioned, the search is recursive
 
 function (lemons_subdir_list)
 

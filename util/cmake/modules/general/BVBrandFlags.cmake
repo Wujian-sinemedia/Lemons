@@ -1,3 +1,7 @@
+#[[
+Module that defines some flags common to my personal projects.
+]]
+
 include_guard (GLOBAL)
 
 set (BV_DEFAULT_BRAND_FLAGS
