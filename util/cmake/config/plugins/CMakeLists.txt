@@ -1,4 +1,4 @@
-include (aax.cmake)
+add_subdirectory (aax)
 include (formats.cmake)
 
 
@@ -24,7 +24,7 @@ function (lemons_configure_juce_plugin)
 
     _lemons_configure_juce_aax (${lemons_targetname} "${lemons_aax_pagetable_file}")
 
-    target_link_libraries (${lemons_targetname} PUBLIC ${LEMONS_PLUGIN_ONLY_MODULES})
+    target_link_libraries (${lemons_targetname} PUBLIC LemonsPluginModules)
 
     target_compile_definitions (${lemons_targetname} PUBLIC JUCE_USE_CUSTOM_PLUGIN_STANDALONE_APP=0)
 

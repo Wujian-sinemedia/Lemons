@@ -1,13 +1,13 @@
 add_subdirectory (translations)
+add_subdirectory (plugins)
+
 include (assets.cmake)
+include (apps.cmake)
 
 #
 
 function (_lemons_enable_browser target)
-    target_compile_definitions ("${target}" PUBLIC 
-            JUCE_WEB_BROWSER=1
-            JUCE_USE_CURL=1
-            JUCE_LOAD_CURL_SYMBOLS_LAZILY=1)
+    target_compile_definitions ("${target}" PUBLIC JUCE_WEB_BROWSER=1 JUCE_USE_CURL=1 JUCE_LOAD_CURL_SYMBOLS_LAZILY=1)
 
     # Linux
     if (NOT (APPLE OR WIN32))
@@ -21,9 +21,7 @@ function (_lemons_enable_plugin_hosting target)
         return()
     endif()
 
-    target_compile_definitions ("${target}" PRIVATE 
-            JUCE_PLUGINHOST_VST3=1
-            JUCE_PLUGINHOST_LADSPA=1)
+    target_compile_definitions ("${target}" PRIVATE JUCE_PLUGINHOST_VST3=1 JUCE_PLUGINHOST_LADSPA=1)
 
     if (LEMONS_VST2_SDK_PATH)
         target_compile_definitions ("${target}" PRIVATE  JUCE_PLUGINHOST_VST=1)
@@ -54,21 +52,23 @@ function (_lemons_configure_juce_target)
             JUCE_APPLICATION_NAME_STRING="$<TARGET_PROPERTY:${LEMONS_TARGETCONFIG_TARGET},JUCE_PRODUCT_NAME>"
             JUCE_APPLICATION_VERSION_STRING="$<TARGET_PROPERTY:${LEMONS_TARGETCONFIG_TARGET},JUCE_VERSION>"
             JUCE_COREGRAPHICS_DRAW_ASYNC=1
-            _CRT_SECURE_NO_WARNINGS=1
             JUCE_STRICT_REFCOUNTEDPTR=1
             JUCE_MODAL_LOOPS_PERMITTED=0
             JUCE_JACK=1
             JUCE_DISABLE_AUDIO_MIXING_WITH_OTHER_APPS=1
             JUCE_EXECUTE_APP_SUSPEND_ON_BACKGROUND_TASK=1
-            JUCE_DISPLAY_SPLASH_SCREEN=0)
+            JUCE_DISPLAY_SPLASH_SCREEN=0
+            _CRT_SECURE_NO_WARNINGS=1)
 
     target_link_libraries (${LEMONS_TARGETCONFIG_TARGET} PUBLIC
-        ${LEMONS_JUCE_MODULES}
+        LemonsCommonModules
         juce::juce_recommended_config_flags
         juce::juce_recommended_lto_flags
         juce::juce_recommended_warning_flags)
 
     target_compile_features (${LEMONS_TARGETCONFIG_TARGET} PUBLIC cxx_std_${LEMONS_CXX_VERSION})
+
+    set (lemons_targetname "${LEMONS_TARGETCONFIG_TARGET}" PARENT_SCOPE)
     
     if (LEMONS_TARGETCONFIG_BROWSER)
         _lemons_enable_browser ("${LEMONS_TARGETCONFIG_TARGET}")
@@ -101,13 +101,8 @@ function (_lemons_configure_juce_target)
         set (_lemons_link_plugin_modules TRUE PARENT_SCOPE)
     endif()
 
-    set (lemons_targetname "${LEMONS_TARGETCONFIG_TARGET}" PARENT_SCOPE)
-    set (lemons_aax_pagetable_file "${LEMONS_TARGETCONFIG_AAX_PAGETABLE_FILE}" PARENT_SCOPE)
+    if (LEMONS_TARGETCONFIG_AAX_PAGETABLE_FILE)
+        set (lemons_aax_pagetable_file "${LEMONS_TARGETCONFIG_AAX_PAGETABLE_FILE}" PARENT_SCOPE)
+    endif()
 
 endfunction()
-
-#
-
-include (apps.cmake)
-
-add_subdirectory (plugins)

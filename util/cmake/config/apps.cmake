@@ -46,9 +46,9 @@ function (lemons_configure_juce_app)
 
     _lemons_configure_app_internal (${ARGN})
 
-    target_link_libraries (${lemons_targetname} PUBLIC lemons_app_utils)
+    target_link_libraries (${lemons_targetname} PUBLIC LemonsAppModules)
 
     if (_lemons_link_plugin_modules)
-        target_link_libraries (${lemons_targetname} PUBLIC ${LEMONS_PLUGIN_ONLY_MODULES})
+        target_link_libraries (${lemons_targetname} PUBLIC LemonsPluginModules)
     endif()
 endfunction()
