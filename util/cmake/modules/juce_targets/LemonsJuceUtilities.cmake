@@ -1,8 +1,6 @@
 include_guard (GLOBAL)
 
 include (LemonsGetCPM)
-include (LemonsFileUtils)
-include (LemonsJuceModuleUtilities)
 
 if (APPLE)
     include (LemonsDefaultMacOsOptions)
