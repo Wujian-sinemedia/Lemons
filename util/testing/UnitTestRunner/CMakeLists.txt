@@ -1,6 +1,6 @@
-include (AllLemonsModules)
-
 project (UnitTestRunner VERSION 0.1.0 LANGUAGES CXX)
+
+include (AllLemonsModules)
 
 #
 

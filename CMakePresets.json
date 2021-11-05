@@ -9,9 +9,6 @@
     {
       "name": "base",
       "binaryDir": "${sourceDir}/Builds/${presetName}",
-      "cacheVariables": {
-        "LEMONS_GENERATE_TRANSLATION_FILES": "OFF"
-      },
       "hidden": true
     },
     {
