@@ -4,7 +4,7 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
 project (Lemons VERSION 0.1.0 LANGUAGES CXX C)
 
-#
+
 # Options and settings
 
 set (LEMONS_CXX_VERSION 20 CACHE STRING "C++ standard version")
@@ -30,7 +30,22 @@ if (LEMONS_BUILD_TESTS)
 	enable_testing()
 endif()
 
-#
+
+# General configuration
+
+set_property (GLOBAL PROPERTY USE_FOLDERS YES)
+set_property (GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER "Targets")
+
+set (CMAKE_SUPPRESS_REGENERATION   TRUE CACHE INTERNAL "")
+set (CMAKE_EXPORT_COMPILE_COMMANDS TRUE CACHE INTERNAL "")
+set (CMAKE_CXX_STANDARD            ${LEMONS_CXX_VERSION} CACHE INTERNAL "")
+set (CMAKE_CXX_STANDARD_REQUIRED   ON CACHE INTERNAL "")
+set (CMAKE_INCLUDE_CURRENT_DIR     ON CACHE INTERNAL "")
+
+# in case any subprojects we include as subdirs try to include Lemons again via CPM...
+set (CPM_Lemons_SOURCE "${CMAKE_CURRENT_LIST_DIR}" CACHE INTERNAL "")
+
+
 # Add CMake modules
 
 set (modules_dir "${CMAKE_CURRENT_LIST_DIR}/util/cmake/modules")
@@ -49,20 +64,6 @@ list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/modules")
 
 # force CMake module paths to propogate outwards to any containing projects...
 set (CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" CACHE INTERNAL "")
-
-#
-# General configuration
-
-set (CPM_Lemons_SOURCE "${CMAKE_CURRENT_LIST_DIR}" CACHE INTERNAL "")
-
-set_property (GLOBAL PROPERTY USE_FOLDERS YES)
-set_property (GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER "Targets")
-
-set (CMAKE_SUPPRESS_REGENERATION   TRUE CACHE INTERNAL "")
-set (CMAKE_EXPORT_COMPILE_COMMANDS TRUE CACHE INTERNAL "")
-set (CMAKE_CXX_STANDARD            ${LEMONS_CXX_VERSION} CACHE INTERNAL "")
-set (CMAKE_CXX_STANDARD_REQUIRED   ON CACHE INTERNAL "")
-set (CMAKE_INCLUDE_CURRENT_DIR     ON CACHE INTERNAL "")
 
 #
 
