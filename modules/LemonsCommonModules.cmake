@@ -1,7 +1,7 @@
 include_guard (GLOBAL)
 
 include (LemonsJuceUtilities)
-include (LemonsJuceModuleUtilities)
+
 
 _lemons_add_module_subcategory (Common       LemonsCommonModules)
 _lemons_add_module_subcategory (Connectivity LemonsCommonModules)

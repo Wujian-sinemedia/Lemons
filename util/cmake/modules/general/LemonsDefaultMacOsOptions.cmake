@@ -1,10 +1,11 @@
 include_guard (GLOBAL)
 
-if (NOT APPLE)
-	return()
-endif()
 
 function (lemons_set_default_macos_options target)
+
+    if (NOT APPLE)
+        return()
+    endif()
 
 	target_compile_definitions (${target} INTERFACE JUCE_USE_VDSP_FRAMEWORK=1 LEMONS_USE_VDSP=1)
     

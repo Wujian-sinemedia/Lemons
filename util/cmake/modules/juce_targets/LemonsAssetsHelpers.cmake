@@ -1,31 +1,23 @@
 #[[
 This module provides the function 
 
-lemons_add_resources_folder (TARGET <target_name> FOLDER <folder_rel_path>)
+lemons_add_resources_folder (TARGET <target_name> FOLDER <folder_rel_path> [TRANSLATIONS])
 
 FOLDER must be the path to the folder containing the asset files you wish to bundle into your binary, relative to your project's root directory (ie, the value of ${PROJECT_SOURCE_DIR} when this function is called).
 
 The resources target will be named "${PROJECT_NAME}-Assets".
 
-OPTIONS:
-LEMONS_GENERATE_TRANSLATION_FILES 
-When set to ON, this module will include LemonsTranslationFileGeneration, and calling lemons_add_resources_folder will automatically call lemons_generate_translation_files for your target, placing the output at <folder_rel_path>/translations.
+When the [TRANSLATIONS] option is present, calling this function will include LemonsTranslationFileGeneration, and calling lemons_add_resources_folder will automatically call lemons_generate_translation_files for your target, placing the output at <folder_rel_path>/translations.
 ]]
 
 include_guard (GLOBAL)
 
 include (LemonsJuceUtilities)
 
-option (LEMONS_GENERATE_TRANSLATION_FILES "Generate translation files" ON)
-
-if (LEMONS_GENERATE_TRANSLATION_FILES)
-    include (LemonsTranslationFileGeneration)
-endif()
-
 
 function (lemons_add_resources_folder)
 
-    set (options "")
+    set (options TRANSLATIONS)
     set (oneValueArgs TARGET FOLDER)
     set (multiValueArgs "")
 
@@ -44,8 +36,8 @@ function (lemons_add_resources_folder)
     set (resourcesTarget "${PROJECT_NAME}-Assets")
 
     if (NOT TARGET ${resourcesTarget})
-
-        if (LEMONS_GENERATE_TRANSLATION_FILES)
+        if (LEMONS_RSRC_FLDR_TRANSLATIONS)
+            include (LemonsTranslationFileGeneration)
             lemons_generate_translation_files (TARGET "${LEMONS_RSRC_FLDR_TARGET}" FOLDER "${LEMONS_RSRC_FLDR_FOLDER}/translations")
         endif()
 

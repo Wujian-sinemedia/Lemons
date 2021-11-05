@@ -15,8 +15,6 @@ set (LEMONS_SANITIZERS_TO_ENABLE "" CACHE STRING "List of sanitizers to enable")
 set (LEMONS_AAX_SDK_PATH ""  CACHE PATH "Path to the AAX SDK")
 set (LEMONS_VST2_SDK_PATH "" CACHE PATH "Path to the VST2 SDK")
 
-option (LEMONS_GENERATE_TRANSLATION_FILES "Generate translation files" ON)
-
 option (LEMONS_IGNORE_ALL_EXTRAS "Ignore everything except what's needed to make compiling your project work" OFF)
 
 include (CMakeDependentOption)

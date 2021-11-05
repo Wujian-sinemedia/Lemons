@@ -91,7 +91,6 @@ function (lemons_configure_juce_plugin)
 
     # add the standalone plugin to the `ALL_APPS` target...
     set (stdaln_target "${LEMONS_PLUGIN_TARGET}_Standalone")
-
     if (TARGET ${stdaln_target})
         if (NOT TARGET ALL_APPS)
             add_custom_target (ALL_APPS COMMENT "Building all apps...")

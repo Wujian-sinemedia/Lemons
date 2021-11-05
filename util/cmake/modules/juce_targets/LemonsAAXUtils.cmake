@@ -17,7 +17,7 @@ endif()
 
 if (APPLE)
     if (NOT "x86_64" IN_LIST CMAKE_OSX_ARCHITECTURES)
-    	message (WARNING "You're not building for x86_64, which will cause linker errors with AAX targets! Enable universal binaries to build for AAX.")
+    	message (AUTHOR_WARNING "You're not building for x86_64, which will cause linker errors with AAX targets! Enable universal binaries to build for AAX.")
     	return()
     endif()
 
@@ -97,7 +97,6 @@ function (lemons_configure_aax_plugin_signing)
     endif()
 
     if (APPLE)
-
         if (NOT LEMONS_AAX_SIGNID)
             message (WARNING "SIGNID is required to enable AAX signing on Mac!")
             return()
@@ -107,7 +106,6 @@ function (lemons_configure_aax_plugin_signing)
                             COMMAND "${WRAPTOOL_PROGRAM}" 
                             ARGS sign --verbose --dsig1-compat off --account ${LEMONS_AAX_ACCOUNT} --wcguid ${LEMONS_AAX_GUID} --signid ${LEMONS_AAX_SIGNID} --in $<TARGET_PROPERTY:${aaxTarget},JUCE_PLUGIN_ARTEFACT_FILE> --out $<TARGET_PROPERTY:${aaxTarget},JUCE_PLUGIN_ARTEFACT_FILE>
                             COMMENT "Signing AAX...")
-
     elseif (WIN32)
 
         if (NOT LEMONS_AAX_KEYFILE)

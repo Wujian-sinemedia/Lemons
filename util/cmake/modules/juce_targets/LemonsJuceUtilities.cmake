@@ -43,7 +43,7 @@ endfunction()
 
 function (lemons_configure_juce_target)
 
-    set (options BROWSER PLUGIN_HOST CAMERA MICROPHONE)
+    set (options BROWSER PLUGIN_HOST CAMERA MICROPHONE TRANSLATIONS)
     set (oneValueArgs TARGET ASSET_FOLDER)
     set (multiValueArgs "")
 
@@ -80,7 +80,15 @@ function (lemons_configure_juce_target)
     endif()
 
     if (LEMONS_TARGETCONFIG_ASSET_FOLDER)
-        lemons_add_resources_folder (TARGET ${LEMONS_TARGETCONFIG_TARGET} FOLDER ${LEMONS_TARGETCONFIG_ASSET_FOLDER})
+        if (LEMONS_TARGETCONFIG_TRANSLATIONS)
+            lemons_add_resources_folder (TARGET ${LEMONS_TARGETCONFIG_TARGET} FOLDER ${LEMONS_TARGETCONFIG_ASSET_FOLDER} TRANSLATIONS)
+        else()
+            lemons_add_resources_folder (TARGET ${LEMONS_TARGETCONFIG_TARGET} FOLDER ${LEMONS_TARGETCONFIG_ASSET_FOLDER})
+        endif()
+    else()
+        if (LEMONS_TARGETCONFIG_TRANSLATIONS)
+            message (WARNING "Translation file generation requested without enabling a binary resources target!")
+        endif()
     endif()
 
     if (LEMONS_TARGETCONFIG_BROWSER)

@@ -1,6 +1,7 @@
 include_guard (GLOBAL)
 
 include (LemonsFileUtils)
+include (LemonsJuceUtilities)
 
 #
 
