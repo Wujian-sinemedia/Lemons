@@ -9,9 +9,9 @@ set -euo pipefail
 
 readonly GH_REPO_REF="github.com/benthevining/Lemons.git"
 
-readonly temp_dir="docs"
-
 readonly script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
+readonly temp_dir="docs"
 
 readonly lemons_root="$script_dir/.."
 
@@ -39,16 +39,16 @@ git config user.email "actions@github.com"
 # remove everything currently in the docs branch
 rm -rf *
 
-# need to create an empty .nojekyll file
-echo "" > .nojekyll
-
 # generate the doxygen documentation
 cd "$lemons_root"
 cmake --preset docs
 cmake --build --preset docs
 
+# need to create an empty .nojekyll file
+echo "" > .nojekyll
+
 # copy generated docs to cloned copy of docs git tree
-mv $lemons_root/Builds/docs/util/doxygen/doc/* "$docs_git_tree"
+mv $lemons_root/docs/* "$docs_git_tree"
 
 cd "$docs_git_tree"
 
