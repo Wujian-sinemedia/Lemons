@@ -23,8 +23,8 @@ var searchData=
   ['bumpminor_75',['bumpMinor',['../structlemons_1_1_version.html#abc6b9609562d8f6ea37b71bdc1d6b366',1,'lemons::Version']]],
   ['bumppatch_76',['bumpPatch',['../structlemons_1_1_version.html#ab01ffcc37bd2c9e5cc355d891afc32d3',1,'lemons::Version']]],
   ['buttons_77',['buttons',['../group__buttons.html',1,'']]],
-  ['bvbrandflags_2emd_78',['BVBrandFlags.md',['../_b_v_brand_flags_8md.html',1,'']]],
-  ['bypassedblock_79',['bypassedBlock',['../structlemons_1_1dsp_1_1_f_x_1_1_audio_effect.html#a0e2734ec1b7a89c566cbd2fe9b3592c8',1,'lemons::dsp::FX::AudioEffect::bypassedBlock()'],['../classlemons_1_1dsp_1_1_f_x_1_1_smoothed_gain.html#a8335b506c3444b98f063652352100d65',1,'lemons::dsp::FX::SmoothedGain::bypassedBlock()'],['../classlemons_1_1dsp_1_1_synth_base.html#a56641cc1e3f530f450c37855553d403e',1,'lemons::dsp::SynthBase::bypassedBlock()'],['../classlemons_1_1dsp_1_1_synth_voice_base.html#a41811700a1db4d05074f7e4717201b64',1,'lemons::dsp::SynthVoiceBase::bypassedBlock()']]],
-  ['bypassedblockrecieved_80',['bypassedBlockRecieved',['../classlemons_1_1dsp_1_1_synth_voice_base.html#a66792c4e9f40d929865adb20d7d7a6aa',1,'lemons::dsp::SynthVoiceBase']]],
-  ['bvbrandflags_81',['BVBrandFlags',['../md_build__b_v_brand_flags.html',1,'']]]
+  ['bvbrandflags_78',['BVBrandFlags',['../_b_v_brand_flags.html',1,'']]],
+  ['bvbrandflags_2emd_79',['BVBrandFlags.md',['../_b_v_brand_flags_8md.html',1,'']]],
+  ['bypassedblock_80',['bypassedBlock',['../structlemons_1_1dsp_1_1_f_x_1_1_audio_effect.html#a0e2734ec1b7a89c566cbd2fe9b3592c8',1,'lemons::dsp::FX::AudioEffect::bypassedBlock()'],['../classlemons_1_1dsp_1_1_f_x_1_1_smoothed_gain.html#a8335b506c3444b98f063652352100d65',1,'lemons::dsp::FX::SmoothedGain::bypassedBlock()'],['../classlemons_1_1dsp_1_1_synth_base.html#a56641cc1e3f530f450c37855553d403e',1,'lemons::dsp::SynthBase::bypassedBlock()'],['../classlemons_1_1dsp_1_1_synth_voice_base.html#a41811700a1db4d05074f7e4717201b64',1,'lemons::dsp::SynthVoiceBase::bypassedBlock()']]],
+  ['bypassedblockrecieved_81',['bypassedBlockRecieved',['../classlemons_1_1dsp_1_1_synth_voice_base.html#a66792c4e9f40d929865adb20d7d7a6aa',1,'lemons::dsp::SynthVoiceBase']]]
 ];

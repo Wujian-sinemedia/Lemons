@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lemons: LemonsAppModules</title>
+<title>Lemons: LemonsJuceUtilities</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,24 +64,31 @@ $(function() {
 </div><!-- top -->
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">LemonsAppModules </div>  </div>
+<div class="title">LemonsJuceUtilities </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Includes app-related Lemons JUCE modules and CMake utilities.</p>
-<h1>Includes:</h1>
+<div class="textblock"><h1>Includes:</h1>
 <ul>
-<li><a class="el" href="_lemons_common_modules_8md.html">LemonsCommonModules</a></li>
-<li><a class="el" href="_lemons_app_utilities_8md.html">LemonsAppUtilities</a></li>
+<li>LemonsGetCPM</li>
+<li><a class="el" href="_lemons_assets_helpers.html">LemonsAssetsHelpers</a></li>
+<li><a class="el" href="_lemons_default_mac_os_options.html">LemonsDefaultMacOsOptions</a>, on Apple platforms only</li>
 </ul>
-<h1>Targets:</h1>
-<ul>
-<li>LemonsAppModules </li>
-</ul>
+<h1>Include-time actions:</h1>
+<p>This module adds JUCE using CPM.cmake. By default the tip of JUCE's develop branch is added.</p>
+<h1>Functions:</h1>
+<div class="fragment"><div class="line">lemons_enable_plugin_hosting (&lt;target&gt;)</div>
+</div><!-- fragment --><p>Enables plugin hosting by the specified target.</p>
+<div class="fragment"><div class="line">lemons_configure_juce_target (TARGET &lt;target&gt;</div>
+<div class="line">                              [ASSET_FOLDER &lt;folder&gt;] [TRANSLATIONS]</div>
+<div class="line">                              [PLUGIN_HOST] [BROWSER] [CAMERA] [MICROPHONE])</div>
+</div><!-- fragment --><p>Configures default settings for JUCE targets that are common to apps and plugins. TARGET is required and, for plugins, must be the name of the plugin's shared code target (usually your product name). The specified target will be linked to LemonsCommonModules.</p>
+<p>If ASSET_FOLDER is specified, lemons_add_resources_folder() will be called for you with the specified folder name; the TRANSLATIONS option may also optionally be present.</p>
+<p>The PLUGIN_HOST, BROWSER, CAMERA, and MICROPHONE options are all optional, and enable additional functionality for this plugin's targets. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 7 2021 07:56:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 7 2021 08:11:31 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

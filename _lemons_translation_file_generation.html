@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lemons: LemonsAssetsHelpers</title>
+<title>Lemons: LemonsTranslationFileGeneration</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,24 +64,20 @@ $(function() {
 </div><!-- top -->
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">LemonsAssetsHelpers </div>  </div>
+<div class="title">LemonsTranslationFileGeneration </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1>Includes:</h1>
-<ul>
-<li><a class="el" href="_lemons_juce_utilities_8md.html">LemonsJuceUtilities</a></li>
-<li><a class="el" href="_lemons_juce_utilities_8md.html">LemonsTranslationFileGeneration</a></li>
-</ul>
-<h1>Function:</h1>
-<div class="fragment"><div class="line">lemons_add_resources_folder (TARGET &lt;target&gt; FOLDER &lt;folder&gt; [HEADER_NAME &lt;header.h&gt;] [NAMESPACE &lt;namespace&gt;] [TRANSLATIONS])</div>
-</div><!-- fragment --><p>Adds a JUCE binary data folder for the specified &lt;target&gt;, and populates it with all the files found in &lt;folder&gt;. &lt;folder&gt; is relative to your project's root directory (ie, the value of ${PROJECT_SOURCE_DIR} when this function is called).</p>
-<p>The resources target will be named "${PROJECT_NAME}-Assets".</p>
-<p>If the TRANSLATIONS option is present, then this will call lemons_generate_translation_files, placing the output in &lt;folder&gt;/translations and also bundling these files in the generated resources target. </p>
+<div class="textblock"><h1>Functions:</h1>
+<div class="fragment"><div class="line">lemons_generate_translation_files (TARGET &lt;target&gt; FOLDER &lt;output_folder&gt;)</div>
+</div><!-- fragment --><p>Generates JUCE-style translation files for the given target (by scanning the source tree recursively, starting at ${PROJECT_SOURCE_DIR}), and merges them with the shared Lemons and JUCE translation output. Places the output files in &lt;folder&gt;, which is relative to the project's root directory.</p>
+<p>You can control the list of output languages by setting LEMONS_LANGUAGE_LIST to the path to a text file containing a list of target languages, separated by lines. Otherwise a default list of target languages will be used.</p>
+<p>The first time you call this function, shared translation files for Lemons and JUCE will be generated, that are cached and reused for each project's configuration.</p>
+<p>Note that this module's functionality requires Python3. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 7 2021 07:56:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 7 2021 08:11:31 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
