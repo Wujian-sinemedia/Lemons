@@ -199,6 +199,11 @@
     <namespace>MTSESP</namespace>
   </compound>
   <compound kind="file">
+    <name>CMakeModules.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
+    <filename>_c_make_modules_8md.html</filename>
+  </compound>
+  <compound kind="file">
     <name>Coeffecients.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/filters/</path>
     <filename>_coeffecients_8h.html</filename>
@@ -24146,6 +24151,11 @@
     <name>BVBrandFlags</name>
     <title>BVBrandFlags</title>
     <filename>_b_v_brand_flags</filename>
+  </compound>
+  <compound kind="page">
+    <name>CMake_API</name>
+    <title>Lemons CMake API</title>
+    <filename>_c_make__a_p_i</filename>
   </compound>
   <compound kind="page">
     <name>LemonsAAXUtils</name>

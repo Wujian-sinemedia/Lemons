@@ -68,4 +68,4 @@ var menudata={children:[
 {text:"Class List",url:"annotated.html"},
 {text:"Class Index",url:"classes.html"},
 {text:"Class Hierarchy",url:"hierarchy.html"}]},
-{text:"CMake modules",url:"pages.html"}]}
+{text:"CMake API",url:"_c_make__a_p_i.html"}]}
