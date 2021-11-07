@@ -1,5 +1,5 @@
 #[[
-Module: AllLemonsModules
+Module: AllLemonsModules  {#AllLemonsModules}
 
 Includes:
 - LemonsAppModules

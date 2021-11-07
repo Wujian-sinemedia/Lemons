@@ -58,9 +58,6 @@ def write_doxygen_layout_file (input_file, cmake_module_names, output_file):
 	with open(input_file, "r") as f:
 		content = f.read()
 
-	for module_name in cmake_module_names:
-		pass
-
 	with open(output_file, "w") as f:
 		f.write (content)
 

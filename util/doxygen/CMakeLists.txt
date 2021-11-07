@@ -56,17 +56,17 @@ add_custom_command (OUTPUT "${modules_output}" VERBATIM
 				 	WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}"
 				 	COMMENT "Preparing Doxygen build tree...")
 
-set (cmake_docs_output "${out_folder}/CMake")
+set (DoxyLayoutOutput "${CMAKE_CURRENT_BINARY_DIR}/DoxygenLayout.xml")
 
-add_custom_command (OUTPUT "${cmake_docs_output}" VERBATIM
-					COMMAND Python3::Interpreter ARGS "${CMAKE_CURRENT_LIST_DIR}/process_cmake_modules.py" "${Lemons_SOURCE_DIR}/util/cmake/modules" "${Lemons_SOURCE_DIR}/modules" "${cmake_docs_output}" "${CMAKE_CURRENT_LIST_DIR}/DoxygenLayout.xml" "${CMAKE_CURRENT_BINARY_DIR}/DoxygenLayout.xml"
+add_custom_command (OUTPUT "${DoxyLayoutOutput}" VERBATIM
+					COMMAND Python3::Interpreter ARGS "${CMAKE_CURRENT_LIST_DIR}/process_cmake_modules.py" "${Lemons_SOURCE_DIR}/util/cmake/modules" "${Lemons_SOURCE_DIR}/modules" "${out_folder}" "${CMAKE_CURRENT_LIST_DIR}/DoxygenLayout.xml" "${DoxyLayoutOutput}"
 					WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}"
 					COMMENT "Generating documentation for CMake modules...")
 
 #
 
 add_custom_target (Doxygen COMMAND Doxygen::doxygen
-				   DEPENDS "${cmake_docs_output}" "${modules_output}" "${doxyfile_output}" "${cmake_api_output}" "${logo_output}" "${main_page_output}"
+				   DEPENDS "${DoxyLayoutOutput}" "${modules_output}" "${doxyfile_output}" "${cmake_api_output}" "${logo_output}" "${main_page_output}"
 				   WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
 				   COMMENT "Running Doxygen...")
 
