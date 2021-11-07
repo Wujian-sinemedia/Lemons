@@ -1,3 +1,40 @@
+#[[
+Module: LemonsAAXUtils
+
+Includes:
+- LemonsJuceUtilities, if AAXSDK target is configured successfully
+
+Include-time actions:
+Attempts to configure a target to build the AAX SDK based on the path you've provided to LEMONS_AAX_SDK_PATH. 
+This module may return early if the AAXSDK target cannot be configured correctly, in which case the AAXSDK target will not exist and the functions provided by this module may not exist.
+If the AAXSDK target is configured successfully, this module will call juce_set_aax_sdk_path() for you.
+
+Targets:
+- AAXSDK
+
+
+Functions:
+
+lemons_configure_aax_plugin (TARGET <target>
+                             [PAGETABLE_FILE <file>] [SIGN])
+
+Configures default settings for the specified AAX plugin target. Note that <target> is the *literal* name of this plugin target, not the shared plugin target name!
+
+PAGETABLE_FILE is optional and specifies the name of an AAX pagetable file within your resources target to use.
+
+If SIGN is present, ${ARGN} will be forwarded to lemons_configure_aax_plugin_signing.
+
+
+lemons_configure_aax_plugin_signing (TARGET <target> ACCOUNT <account> GUID <guid>
+                                     SIGNID <signid> KEYFILE <keyfile> KEYPASSWORD <password>)
+
+Configures a post-build digital signing step for the specified AAX plugin target. Note that <target> is the *literal* name of this plugin target, not the shared plugin target name!
+
+Does nothing if wraptool cannot be located at configure-time.
+
+]]
+
+
 include_guard (GLOBAL)
 
 #

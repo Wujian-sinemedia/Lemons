@@ -1,3 +1,18 @@
+#[[
+Module: LemonsConnectivityModules
+
+Includes:
+- LemonsJuceModuleUtilities
+
+Include-time actions:
+Adds the MTS-ESP library via CPM.cmake.
+
+Targets:
+- LemonsConnectivityModules
+
+]]
+
+
 include_guard (GLOBAL)
 
 include (LemonsJuceModuleUtilities)

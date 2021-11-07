@@ -1,3 +1,13 @@
+#[[
+Module: LemonsDefaultMacOsOptions
+
+Function:
+
+lemons_set_default_macos_options (<target>)
+
+]]
+
+
 include_guard (GLOBAL)
 
 

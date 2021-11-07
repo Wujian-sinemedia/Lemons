@@ -1,6 +1,42 @@
+#[[
+Module: LemonsJuceUtilities
+
+Includes:
+- LemonsGetCPM
+- LemonsCommonModules
+- LemonsAssetsHelpers
+- LemonsDefaultMacOsOptions, on Apple platforms only
+
+
+Include-time actions:
+This module adds JUCE using CPM.cmake. By default the tip of JUCE's develop branch is added.
+
+
+Functions:
+
+lemons_enable_plugin_hosting (<target>)
+
+Enables plugin hosting by the specified target.
+
+
+lemons_configure_juce_target (TARGET <target>
+                              [ASSET_FOLDER <folder>] [TRANSLATIONS]
+                              [PLUGIN_HOST] [BROWSER] [CAMERA] [MICROPHONE])
+
+Configures default settings for JUCE targets that are common to apps and plugins. TARGET is required and, for plugins, must be the name of the plugin's shared code target (usually your product name).
+The specified target will be linked to LemonsCommonModules.
+
+If ASSET_FOLDER is specified, lemons_add_resources_folder() will be called for you with the specified folder name; the TRANSLATIONS option may also optionally be present.
+
+The PLUGIN_HOST, BROWSER, CAMERA, and MICROPHONE options are all optional, and enable additional functionality for this plugin's targets.
+
+]]
+
+
 include_guard (GLOBAL)
 
 include (LemonsGetCPM)
+include (LemonsCommonModules)
 
 if (APPLE)
     include (LemonsDefaultMacOsOptions)

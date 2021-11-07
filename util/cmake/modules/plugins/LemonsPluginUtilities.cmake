@@ -1,3 +1,28 @@
+#[[
+Module: LemonsPluginUtilities
+
+Includes:
+- LemonsJuceUtilities
+- LemonsAAXUtils, if LEMONS_AAX_SDK_PATH is set
+- LemonsPluginvalUtils, if LEMONS_BUILD_TESTS is on
+
+Include-time actions:
+Determines the list of all available plugin formats.
+
+Output variables:
+- LEMONS_PLUGIN_FORMATS: list of all available plugin formats
+
+
+Functions:
+
+lemons_configure_juce_plugin (TARGET <target> [AAX_PAGETABLE_FILE <file>])
+
+Forwards ${ARGN} to lemons_configure_juce_target. 
+If an AAX-format target exists for this plugin, then lemons_configure_aax_plugin will be called for you. The [AAX_PAGETABLE_FILE] option will be forwarded.
+
+]]
+
+
 include_guard (GLOBAL)
 
 include (LemonsJuceUtilities)
@@ -49,20 +74,7 @@ message (VERBOSE "  -- Available plugin formats: ${formats_output}")
 
 ########################################################################
 
-#
-# lemons_configure_juce_plugin
-# configures a default juce plugin
-#
-# OPTIONS (binary toggles, all optional):
-# BROWSER : when mentioned in the call, enables the juce web browser functionality for this plugin target
-# PLUGIN_HOST : when mentioned in the call, enables juce audio plugin hosting capabilities for this plugin target
-# CAMERA : when mentioned in the call, enables juce support for using the camera with this plugin target
-# 
-# INPUTS : 
-# TARGET : the name of the plugin target (usually the name of your product)
-# ASSET_FOLDER (optional): the name of the assets folder to use for generating the resources target. The folder can be relative to your project's root; for example, if your folder structure is "YourProject/assets", you can pass `lemons_configure_juce_app (TARGET YourProject ASSET_FOLDER assets)`. 
-# AAX_PAGETABLE_FILE (optional) : the path to the AAX pagetable file for this plugin
-#
+
 function (lemons_configure_juce_plugin)
 
     lemons_configure_juce_target (${ARGN})

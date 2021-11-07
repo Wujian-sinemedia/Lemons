@@ -1,3 +1,19 @@
+#[[
+Module: LemonsCommonModules
+
+Includes:
+- LemonsConnectivityModules
+- LemonsGUIModules
+
+Targets:
+- LemonsCommonModules
+
+Options:
+- LEMONS_BUILD_TESTS, defaults to OFF
+
+]]
+
+
 include_guard (GLOBAL)
 
 include (LemonsConnectivityModules)

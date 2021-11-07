@@ -1,5 +1,9 @@
 #[[
-Module that defines some flags common to my personal projects.
+Module: BVBrandFlags
+
+Output variables:
+- BV_DEFAULT_BRAND_FLAGS
+
 ]]
 
 set (BV_DEFAULT_BRAND_FLAGS

@@ -1,15 +1,13 @@
-include_guard (GLOBAL)
-
 #[[
-    The code in this file is based on:
-        - this blog post: https://cristianadam.eu/20200113/speeding-up-c-plus-plus-github-actions-using-ccache/
-        - and this repository: https://github.com/TheLartians/Ccache.cmake
+Module: LemonsCcacheIntegration
 
-    Configures ccache support for all builds in this source tree. 
-    (Specifically, works by configuring a shell script that invokes ccache with the correct arguments for each build, then sets that shell script as the C and C++ launcher for these builds.)
-    
-    Ccache can drastically improve build time, and there's not really a good reason NOT to use it if it's installed on your system.
+Include-time actions:
+Configures a compiler-launcher script that uses ccache to execute CMake's generated compiler command line. Does nothing if ccache cannot be located at configure-time.
+
 ]]
+
+
+include_guard (GLOBAL)
 
 find_program (CCACHE_PROGRAM ccache)
 

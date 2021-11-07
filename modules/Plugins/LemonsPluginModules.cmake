@@ -1,3 +1,17 @@
+#[[
+Module: LemonsPluginModules
+
+Includes:
+- LemonsCommonModules
+- LemonsAudioModules
+- LemonsPluginUtilities
+
+Targets:
+- LemonsPluginModules
+
+]]
+
+
 include_guard (GLOBAL)
 
 include (LemonsCommonModules)

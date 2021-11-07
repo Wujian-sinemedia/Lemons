@@ -1,3 +1,16 @@
+#[[
+Module: LemonsAppModules
+
+Includes:
+- LemonsCommonModules
+- LemonsAppUtilities
+
+Targets:
+- LemonsAppModules
+
+]]
+
+
 include_guard (GLOBAL)
 
 include (LemonsCommonModules)

@@ -1,3 +1,20 @@
+#[[
+Module: LemonsJuceModuleUtilities
+
+Includes:
+- LemonsFileUtils
+- LemonsJuceUtilities
+
+
+Functions:
+
+lemons_add_juce_modules (<directory>)
+
+Adds any/all JUCE modules that are nested subdirectories within the specified directory.
+
+]]
+
+
 include_guard (GLOBAL)
 
 include (LemonsFileUtils)

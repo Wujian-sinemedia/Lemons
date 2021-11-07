@@ -1,3 +1,15 @@
+#[[
+Module: AllLemonsModules
+
+Includes:
+- LemonsAppModules
+- LemonsPluginModules
+
+Targets:
+- AllLemonsModules
+
+]]
+
 include_guard (GLOBAL)
 
 include (LemonsAppModules)

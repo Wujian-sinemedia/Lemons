@@ -240,7 +240,7 @@ if __name__ == "__main__":
 
     parser = ArgumentParser()
     parser.add_argument ("lemons_root", help="the absolute path to the Lemons repo root")
-    parser.add_argument ("dest_dir", help="the absolute path to the project's source tree to scan for translations")
+    parser.add_argument ("dest_dir", help="the absolute path to the output")
     
     args = parser.parse_args()
 

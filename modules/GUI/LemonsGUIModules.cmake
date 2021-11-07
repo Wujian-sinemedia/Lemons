@@ -1,3 +1,15 @@
+#[[
+Module: LemonsGUIModules
+
+Includes:
+- LemonsJuceModuleUtilities
+
+Targets:
+- LemonsGUIModules
+
+]]
+
+
 include_guard (GLOBAL)
 
 include (LemonsJuceModuleUtilities)
