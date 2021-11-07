@@ -2,9 +2,10 @@
 
 import os
 import shutil
-import re
 
 from argparse import ArgumentParser
+
+from process_juce_module_header import process_module_header
 
 ###############################################################################
 
@@ -30,42 +31,6 @@ def add_doxygen_group (path, group_name):
         f.write ("\r\n/** @ingroup " + group_name + "\r\n *  @{\r\n */\r\n")
         f.write (content)
         f.write ("\r\n/** @}*/\r\n")
-
-
-###############################################################################
-
-# Parse information from a JUCE module header's info block.
-# Deletes the module header when it's finished, as Doxygen doesn't like them.
-
-def process_module_header (header_path):
-
-    if not os.path.exists (header_path):
-        raise Exception("Cannot parse nonexistent module header!")
-        return
-
-    with open (header_path, "r") as f:
-        block_info_result = re.match (r".*BEGIN_JUCE_MODULE_DECLARATION"
-                                      "(.*)"
-                                      "END_JUCE_MODULE_DECLARATION.*",
-                                      f.read(),
-                                      re.DOTALL)
-
-    os.remove (header_path) # The module header causes problems for Doxygen, so delete it
-
-    detail_lines = []
-
-    for line in block_info_result.group (1).split ("\n"):
-
-        stripped_line = line.strip()
-        
-        if stripped_line:
-            result = re.match (r"^.*?description:\s*(.*)$", stripped_line)
-            if result:
-                short_description = result.group (1)
-            else:
-                detail_lines.append (stripped_line)
-
-    return short_description, detail_lines
 
 
 ###############################################################################
@@ -126,6 +91,13 @@ def process_juce_module (category_name, module_name, module_dir):
     
     for line in module_header_info[1]:
         module_definiton.append ("    - {l}".format (l=line))
+
+    if module_header_info[2]:
+        module_definiton.append ("")
+        module_definiton.append ("Preprocessor configuration flags:")
+
+        for preproc_definition in module_header_info[2]:
+            module_definiton.append ("    - {l}".format (l=preproc_definition))
 
     del module_header_info
 
