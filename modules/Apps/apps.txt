@@ -1,1 +1,2 @@
 Building blocks for JUCE applications
+To use these JUCE modules, include the `LemonsAppModules` CMake module, and link against the LemonsAppModules target.

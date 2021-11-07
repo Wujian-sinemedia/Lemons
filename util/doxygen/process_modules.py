@@ -157,9 +157,10 @@ def process_category_description (file_path):
         return
 
     with open (file_path, "r") as f:
-        content = f.read()
+        shortDescription = f.readline()
+        detailedDescription = f.readline()
 
-    return content
+    return shortDescription, detailedDescription
 
 ###############################################################################
 
@@ -178,10 +179,17 @@ def process_module_category (category_name, orig_cat_dir, dest_cat_dir):
     # copy files to doxygen working tree
     shutil.copytree (orig_cat_dir, dest_cat_dir)
 
+    category_info = process_category_description (os.path.join (dest_cat_dir, category_name.lower() + ".txt"))
+
     category_definiton = []
     category_definiton.append ("/** @defgroup {n} {n}".format (n=category_name))
-    category_definiton.append ("    {d}".format (d=process_category_description (os.path.join (dest_cat_dir, 
-                                                                                 category_name.lower() + ".txt"))))
+
+    category_definiton.append ("    {d}".format (d=category_info[0]))
+    category_definiton.append ("")
+    category_definiton.append ("    {l}".format (l=category_info[1]))
+
+    del category_info
+
     category_definiton.append ("")
     category_definiton.append ("    @{")
     category_definiton.append ("*/")

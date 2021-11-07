@@ -1,1 +1,2 @@
 Building blocks for GUIs
+To use these JUCE modules, include the `LemonsGUIModules` CMake module, and link against the LemonsGUIModules target.

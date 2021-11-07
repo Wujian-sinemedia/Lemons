@@ -1,1 +1,2 @@
 JUCE modules for connectivity and networking APIs
+To use these JUCE modules, include the `LemonsConnectivityModules` CMake module, and link against the LemonsConnectivityModules target.
