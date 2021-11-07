@@ -10,23 +10,11 @@ set (out_folder "${CMAKE_CURRENT_BINARY_DIR}/build")
 
 #
 
-set (lemons_repo_readme "${Lemons_SOURCE_DIR}/README.md")
-set (main_page_output "${out_folder}/main_page.md")
-
-add_custom_command (OUTPUT "${main_page_output}" MAIN_DEPENDENCY "${lemons_repo_readme}" VERBATIM
-					DEPENDS "${CMAKE_CURRENT_LIST_DIR}/main_page.md"
-					COMMAND "${CMAKE_COMMAND}" ARGS -D "MAIN_PAGE_OUTPUT=${main_page_output}" -D "LEMONS_README=${lemons_repo_readme}" -P "${CMAKE_CURRENT_LIST_DIR}/scripts/copy_main_page.cmake"
-					WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}"
-					COMMENT "Copying from main readme into Doxygen main page...")
-
-#
-
 set (doxyfile_input "${CMAKE_CURRENT_LIST_DIR}/Doxyfile")
 set (doxyfile_output "${CMAKE_CURRENT_BINARY_DIR}/Doxyfile")
 
 add_custom_command (OUTPUT "${doxyfile_output}" MAIN_DEPENDENCY "${doxyfile_input}" VERBATIM
 				    COMMAND "${CMAKE_COMMAND}" ARGS -E copy "${doxyfile_input}" "${doxyfile_output}"
-				    WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}"
 				    COMMENT "Copying Doxyfile to Doxygen build tree...")
 
 set (doxylayout_input "${CMAKE_CURRENT_LIST_DIR}/DoxygenLayout.xml")
@@ -34,7 +22,6 @@ set (doxylayout_output "${CMAKE_CURRENT_BINARY_DIR}/DoxygenLayout.xml")
 
 add_custom_command (OUTPUT "${doxylayout_output}" MAIN_DEPENDENCY "${doxylayout_input}" VERBATIM
 					COMMAND "${CMAKE_COMMAND}" ARGS -E copy "${doxylayout_input}" "${doxylayout_output}"
-					WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}"
 					COMMENT "Copying DoxygenLayout.xml to Doxygen build tree...")
 
 set (logo_input "${Lemons_SOURCE_DIR}/util/assets/logo.png")
@@ -42,23 +29,28 @@ set (logo_output "${out_folder}/logo.png")
 
 add_custom_command (OUTPUT "${logo_output}" MAIN_DEPENDENCY "${logo_input}" VERBATIM
 					COMMAND "${CMAKE_COMMAND}" ARGS -E copy "${logo_input}" "${logo_output}" 
-					WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}"
 					COMMENT "Copying logo to Doxygen build tree...")
 
 #
+
+set (lemons_repo_readme "${Lemons_SOURCE_DIR}/README.md")
+set (main_page_output "${out_folder}/main_page.md")
+
+add_custom_command (OUTPUT "${main_page_output}" MAIN_DEPENDENCY "${lemons_repo_readme}" VERBATIM
+					DEPENDS "${CMAKE_CURRENT_LIST_DIR}/main_page.md"
+					COMMAND Python3::Interpreter ARGS "${CMAKE_CURRENT_LIST_DIR}/scripts/main_page.py" "${Lemons_SOURCE_DIR}" "${CMAKE_CURRENT_LIST_DIR}/main_page.md" "${main_page_output}"
+					COMMENT "Copying from main readme into Doxygen main page...")
 
 set (modules_output "${out_folder}/lemons_modules.dox")
 
 add_custom_command (OUTPUT "${modules_output}" VERBATIM
 				 	COMMAND Python3::Interpreter ARGS "${CMAKE_CURRENT_LIST_DIR}/scripts/process_juce_modules.py" "${Lemons_SOURCE_DIR}" "${out_folder}" 
-				 	WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}"
 				 	COMMENT "Preparing Doxygen build tree...")
 
 set (cmake_modules_output "${out_folder}/CMake")
 
 add_custom_command (OUTPUT "${cmake_modules_output}" VERBATIM
-					COMMAND Python3::Interpreter ARGS "${CMAKE_CURRENT_LIST_DIR}/scripts/process_cmake_modules.py" "${Lemons_SOURCE_DIR}/util/cmake/modules" "${Lemons_SOURCE_DIR}/modules" "${cmake_modules_output}"
-					WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}"
+					COMMAND Python3::Interpreter ARGS "${CMAKE_CURRENT_LIST_DIR}/scripts/process_cmake_modules.py" "${Lemons_SOURCE_DIR}/util/cmake/modules" "${Lemons_SOURCE_DIR}/modules" "${cmake_modules_output}" "${CMAKE_CURRENT_LIST_DIR}/cmake_api.md"
 					COMMENT "Generating documentation for CMake modules...")
 
 #
