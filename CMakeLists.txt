@@ -48,8 +48,10 @@ set (CPM_Lemons_SOURCE "${CMAKE_CURRENT_LIST_DIR}" CACHE INTERNAL "")
 
 # Add CMake modules
 
-macro (_lemons_add_nested_dirs_of_cmake_modules directory)
+list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/modules")
+list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/util/cmake/GetLemons")
 
+foreach (directory "${CMAKE_CURRENT_LIST_DIR}/util/cmake/modules" "${CMAKE_CURRENT_LIST_DIR}/modules")
 	file (GLOB children RELATIVE ${directory} ${directory}/*)
 
 	foreach (child ${children})
@@ -59,12 +61,7 @@ macro (_lemons_add_nested_dirs_of_cmake_modules directory)
 			list (APPEND CMAKE_MODULE_PATH "${full_path}")
 		endif()
 	endforeach()
-endmacro()
-
-_lemons_add_nested_dirs_of_cmake_modules ("${CMAKE_CURRENT_LIST_DIR}/util/cmake/modules")
-_lemons_add_nested_dirs_of_cmake_modules ("${CMAKE_CURRENT_LIST_DIR}/modules")
-
-list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/modules")
+endforeach()
 
 # force CMake module paths to propogate outwards to any containing projects...
 set (CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" CACHE INTERNAL "")

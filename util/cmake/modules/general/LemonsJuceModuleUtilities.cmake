@@ -15,7 +15,7 @@ endfunction()
 
 #
 
-function (_lemons_add_module_subcategory target)
+macro (_lemons_add_module_subcategory target)
     if (NOT TARGET ${target})
         add_library (${target} INTERFACE)
     endif()
@@ -26,4 +26,4 @@ function (_lemons_add_module_subcategory target)
         juce_add_module ("${CMAKE_CURRENT_LIST_DIR}/${folder}")
         target_link_libraries (${target} INTERFACE ${folder})
     endforeach()
-endfunction()
+endmacro()
