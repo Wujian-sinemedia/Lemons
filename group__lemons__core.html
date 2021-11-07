@@ -97,12 +97,24 @@ Modules</h2></td></tr>
 <li>name: lemons_core</li>
 <li>dependencies: juce_audio_utils</li>
 <li>OSXFrameworks: Accelerate</li>
-<li>iOSFrameworks: Accelerate </li>
+<li>iOSFrameworks: Accelerate</li>
 </ul>
+<p>Preprocessor configuration flags:</p><ul>
+<li>LEMONS_HAS_BINARY_DATA</li>
+</ul>
+<p>Set this to 1 if your project has a juce binary data target. The Lemons repo's cmake scripts set this automatically for you; if that's how you added the Lemons package, then you don't need to worry about setting this manually.</p>
+<ul>
+<li>LEMONS_USE_VDSP</li>
+</ul>
+<p>Set this to 1 to use Apple's vDSP library for vecops SIMD. vDSP ships with the OS on Mac and iOS, which is why it's the default on Apple platforms. The Lemons repo's cmake scripts set this automatically for you; if that's how you added the Lemons package, then you don't need to worry about setting this manually.</p>
+<ul>
+<li>LEMONS_UNIT_TESTS</li>
+</ul>
+<p>Set this to 1 to build the Lemons unit tests. </p>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 7 2021 02:38:32 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 7 2021 06:09:21 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['welcome_20to_20the_20lemons_20online_20documentation_21_2332',['Welcome to the Lemons online documentation!',['../index.html',1,'']]]
+  ['lemons_20cmake_20api_2392',['Lemons CMake API',['../cmake_api.html',1,'']]]
 ];

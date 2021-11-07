@@ -13,6 +13,11 @@
     <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
+    <name>AllLemonsModules.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <filename>AllLemonsModules_8md.html</filename>
+  </compound>
+  <compound kind="file">
     <name>androidMotion.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_mobile_utils/Android/</path>
     <filename>androidMotion_8h.html</filename>
@@ -148,6 +153,11 @@
     <class kind="class">lemons::gui::ToggleButton</class>
     <namespace>lemons</namespace>
     <namespace>lemons::gui</namespace>
+  </compound>
+  <compound kind="file">
+    <name>BVBrandFlags.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <filename>BVBrandFlags_8md.html</filename>
   </compound>
   <compound kind="file">
     <name>ChoosableOscillator.h</name>
@@ -618,6 +628,96 @@
     <name>lemons_modules.dox</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
     <filename>lemons__modules_8dox.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>LemonsAAXUtils.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <filename>LemonsAAXUtils_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>LemonsAppModules.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <filename>LemonsAppModules_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>LemonsAppUtilities.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <filename>LemonsAppUtilities_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>LemonsAssetsHelpers.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <filename>LemonsAssetsHelpers_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>LemonsAudioModules.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <filename>LemonsAudioModules_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>LemonsCcacheIntegration.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <filename>LemonsCcacheIntegration_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>LemonsClangFormatIntegration.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <filename>LemonsClangFormatIntegration_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>LemonsCommonModules.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <filename>LemonsCommonModules_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>LemonsConnectivityModules.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <filename>LemonsConnectivityModules_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>LemonsDefaultMacOsOptions.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <filename>LemonsDefaultMacOsOptions_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>LemonsFileUtils.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <filename>LemonsFileUtils_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>LemonsGUIModules.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <filename>LemonsGUIModules_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>LemonsJuceModuleUtilities.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <filename>LemonsJuceModuleUtilities_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>LemonsJuceUtilities.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <filename>LemonsJuceUtilities_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>LemonsPluginModules.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <filename>LemonsPluginModules_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>LemonsPluginUtilities.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <filename>LemonsPluginUtilities_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>LemonsPluginvalUtils.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <filename>LemonsPluginvalUtils_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>LemonsTranslationFileGeneration.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <filename>LemonsTranslationFileGeneration_8md.html</filename>
   </compound>
   <compound kind="file">
     <name>LFO.h</name>
@@ -24043,9 +24143,109 @@
     <filename>group__warnings.html</filename>
   </compound>
   <compound kind="page">
+    <name>md_build_AllLemonsModules</name>
+    <title>AllLemonsModules</title>
+    <filename>md_build_AllLemonsModules</filename>
+  </compound>
+  <compound kind="page">
+    <name>md_build_BVBrandFlags</name>
+    <title>Module: BVBrandFlags</title>
+    <filename>md_build_BVBrandFlags</filename>
+  </compound>
+  <compound kind="page">
     <name>cmake_api</name>
     <title>Lemons CMake API</title>
     <filename>cmake_api</filename>
+  </compound>
+  <compound kind="page">
+    <name>md_build_LemonsAAXUtils</name>
+    <title>Module: LemonsAAXUtils</title>
+    <filename>md_build_LemonsAAXUtils</filename>
+  </compound>
+  <compound kind="page">
+    <name>md_build_LemonsAppModules</name>
+    <title>Module: LemonsAppModules</title>
+    <filename>md_build_LemonsAppModules</filename>
+  </compound>
+  <compound kind="page">
+    <name>md_build_LemonsAppUtilities</name>
+    <title>Module: LemonsAppUtilities</title>
+    <filename>md_build_LemonsAppUtilities</filename>
+  </compound>
+  <compound kind="page">
+    <name>md_build_LemonsAssetsHelpers</name>
+    <title>Module: LemonsAssetsHelpers</title>
+    <filename>md_build_LemonsAssetsHelpers</filename>
+  </compound>
+  <compound kind="page">
+    <name>md_build_LemonsAudioModules</name>
+    <title>Module: LemonsAudioModules</title>
+    <filename>md_build_LemonsAudioModules</filename>
+  </compound>
+  <compound kind="page">
+    <name>md_build_LemonsCcacheIntegration</name>
+    <title>Module: LemonsCcacheIntegration</title>
+    <filename>md_build_LemonsCcacheIntegration</filename>
+  </compound>
+  <compound kind="page">
+    <name>md_build_LemonsClangFormatIntegration</name>
+    <title>Module: LemonsClangFormatIntegration</title>
+    <filename>md_build_LemonsClangFormatIntegration</filename>
+  </compound>
+  <compound kind="page">
+    <name>md_build_LemonsCommonModules</name>
+    <title>Module: LemonsCommonModules</title>
+    <filename>md_build_LemonsCommonModules</filename>
+  </compound>
+  <compound kind="page">
+    <name>md_build_LemonsConnectivityModules</name>
+    <title>Module: LemonsConnectivityModules</title>
+    <filename>md_build_LemonsConnectivityModules</filename>
+  </compound>
+  <compound kind="page">
+    <name>md_build_LemonsDefaultMacOsOptions</name>
+    <title>Module: LemonsDefaultMacOsOptions</title>
+    <filename>md_build_LemonsDefaultMacOsOptions</filename>
+  </compound>
+  <compound kind="page">
+    <name>md_build_LemonsFileUtils</name>
+    <title>Module: LemonsFileUtils</title>
+    <filename>md_build_LemonsFileUtils</filename>
+  </compound>
+  <compound kind="page">
+    <name>md_build_LemonsGUIModules</name>
+    <title>Module: LemonsGUIModules</title>
+    <filename>md_build_LemonsGUIModules</filename>
+  </compound>
+  <compound kind="page">
+    <name>md_build_LemonsJuceModuleUtilities</name>
+    <title>Module: LemonsJuceModuleUtilities</title>
+    <filename>md_build_LemonsJuceModuleUtilities</filename>
+  </compound>
+  <compound kind="page">
+    <name>md_build_LemonsJuceUtilities</name>
+    <title>Module: LemonsJuceUtilities</title>
+    <filename>md_build_LemonsJuceUtilities</filename>
+  </compound>
+  <compound kind="page">
+    <name>md_build_LemonsPluginModules</name>
+    <title>Module: LemonsPluginModules</title>
+    <filename>md_build_LemonsPluginModules</filename>
+  </compound>
+  <compound kind="page">
+    <name>md_build_LemonsPluginUtilities</name>
+    <title>Module: LemonsPluginUtilities</title>
+    <filename>md_build_LemonsPluginUtilities</filename>
+  </compound>
+  <compound kind="page">
+    <name>md_build_LemonsPluginvalUtils</name>
+    <title>Module: LemonsPluginvalUtils</title>
+    <filename>md_build_LemonsPluginvalUtils</filename>
+  </compound>
+  <compound kind="page">
+    <name>md_build_LemonsTranslationFileGeneration</name>
+    <title>Module: LemonsTranslationFileGeneration</title>
+    <filename>md_build_LemonsTranslationFileGeneration</filename>
   </compound>
   <compound kind="page">
     <name>index</name>
