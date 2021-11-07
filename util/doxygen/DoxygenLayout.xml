@@ -3,8 +3,7 @@
   <!-- Navigation index tabs for HTML output -->
   <navindex>
     <tab type="mainpage" visible="yes" title=""/>
-    <tab type="pages" visible="no" title="" intro=""/>
-    <tab type="modules" visible="yes" title="" intro="Here is a list of all the JUCE modules that comprise Lemons:"/>
+    <tab type="modules" visible="yes" title="JUCE modules" intro="Here is a list of all the JUCE modules that comprise Lemons:"/>
     <tab type="namespaces" visible="yes" title="">
       <tab type="namespacelist" visible="yes" title="" intro="Here is a list of all Lemons namespaces with brief descriptions:"/>
       <tab type="namespacemembers" visible="yes" title="" intro="Here is a list of all Lemons namespace members with links to the namespace documentation for each member:"/>
@@ -35,8 +34,8 @@
       <tab type="filelist" visible="no" title="" intro=""/>
       <tab type="globals" visible="no" title="" intro=""/>
     </tab>
-    <tab type="examples" visible="no" title="" intro=""/>  
-    <tab type="user" visible="yes" url="@ref cmake_api" title="CMake API"/>
+    <tab type="examples" visible="no" title="" intro=""/>
+    <tab type="pages" visible="yes" title="CMake modules" intro="These CMake modules comprise the Lemons CMake API:"/>
   </navindex>
 
   <!-- Layout definition for a class page -->

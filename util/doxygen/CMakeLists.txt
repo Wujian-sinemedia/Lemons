@@ -10,16 +10,6 @@ set (out_folder "${CMAKE_CURRENT_BINARY_DIR}/build")
 
 #
 
-set (cmake_api_input "${CMAKE_CURRENT_LIST_DIR}/cmake_api.md")
-set (cmake_api_output "${out_folder}/cmake_api.md")
-
-add_custom_command (OUTPUT "${cmake_api_output}" MAIN_DEPENDENCY "${cmake_api_input}" VERBATIM
-					COMMAND "${CMAKE_COMMAND}" ARGS -E copy "${cmake_api_input}" "${cmake_api_output}"
-					WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}"
-					COMMENT "Copying CMake API to Doxygen build tree...")
-
-#
-
 set (lemons_repo_readme "${Lemons_SOURCE_DIR}/README.md")
 set (main_page_output "${out_folder}/main_page.md")
 
@@ -66,7 +56,7 @@ add_custom_command (OUTPUT "${DoxyLayoutOutput}" VERBATIM
 #
 
 add_custom_target (Doxygen COMMAND Doxygen::doxygen
-				   DEPENDS "${DoxyLayoutOutput}" "${modules_output}" "${doxyfile_output}" "${cmake_api_output}" "${logo_output}" "${main_page_output}"
+				   DEPENDS "${DoxyLayoutOutput}" "${modules_output}" "${doxyfile_output}" "${logo_output}" "${main_page_output}"
 				   WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
 				   COMMENT "Running Doxygen...")
 
