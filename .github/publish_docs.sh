@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # This script is based on: https://gist.github.com/vidavidorra/548ffbcdae99d752da02
 
@@ -44,10 +44,11 @@ echo "" > .nojekyll
 
 # generate the doxygen documentation
 cd "$lemons_root"
-make docs
+cmake --preset docs
+cmake --build --preset docs
 
 # copy generated docs to cloned copy of docs git tree
-mv "$lemons_root"/Builds/docs/util/doxygen/doc/* "$docs_git_tree"
+mv $lemons_root/Builds/docs/util/doxygen/doc/* "$docs_git_tree"
 
 cd "$docs_git_tree"
 
