@@ -3,7 +3,6 @@
 
 ## Includes:
 - LemonsGetCPM
-- [LemonsCommonModules](LemonsCommonModules.md)
 - [LemonsAssetsHelpers](LemonsAssetsHelpers.md)
 - [LemonsDefaultMacOsOptions](LemonsDefaultMacOsOptions.md), on Apple platforms only
 
@@ -37,7 +36,6 @@ The PLUGIN_HOST, BROWSER, CAMERA, and MICROPHONE options are all optional, and e
 include_guard (GLOBAL)
 
 include (LemonsGetCPM)
-include (LemonsCommonModules)
 
 if (APPLE)
     include (LemonsDefaultMacOsOptions)
