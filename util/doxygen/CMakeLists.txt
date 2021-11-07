@@ -29,6 +29,14 @@ add_custom_command (OUTPUT "${doxyfile_output}" MAIN_DEPENDENCY "${doxyfile_inpu
 				    WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}"
 				    COMMENT "Copying Doxyfile to Doxygen build tree...")
 
+set (doxylayout_input "${CMAKE_CURRENT_LIST_DIR}/DoxygenLayout.xml")
+set (doxylayout_output "${CMAKE_CURRENT_BINARY_DIR}/DoxygenLayout.xml")
+
+add_custom_command (OUTPUT "${doxylayout_output}" MAIN_DEPENDENCY "${doxylayout_input}" VERBATIM
+					COMMAND "${CMAKE_COMMAND}" ARGS -E copy "${doxylayout_input}" "${doxylayout_output}"
+					WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}"
+					COMMENT "Copying DoxygenLayout.xml to Doxygen build tree...")
+
 set (logo_input "${Lemons_SOURCE_DIR}/util/assets/logo.png")
 set (logo_output "${out_folder}/logo.png")
 
@@ -46,17 +54,17 @@ add_custom_command (OUTPUT "${modules_output}" VERBATIM
 				 	WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}"
 				 	COMMENT "Preparing Doxygen build tree...")
 
-set (DoxyLayoutOutput "${CMAKE_CURRENT_BINARY_DIR}/DoxygenLayout.xml")
+set (cmake_modules_output "${out_folder}/CMake")
 
-add_custom_command (OUTPUT "${DoxyLayoutOutput}" VERBATIM
-					COMMAND Python3::Interpreter ARGS "${CMAKE_CURRENT_LIST_DIR}/scripts/process_cmake_modules.py" "${Lemons_SOURCE_DIR}/util/cmake/modules" "${Lemons_SOURCE_DIR}/modules" "${out_folder}" "${CMAKE_CURRENT_LIST_DIR}/DoxygenLayout.xml" "${DoxyLayoutOutput}"
+add_custom_command (OUTPUT "${cmake_modules_output}" VERBATIM
+					COMMAND Python3::Interpreter ARGS "${CMAKE_CURRENT_LIST_DIR}/scripts/process_cmake_modules.py" "${Lemons_SOURCE_DIR}/util/cmake/modules" "${Lemons_SOURCE_DIR}/modules" "${cmake_modules_output}"
 					WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}"
 					COMMENT "Generating documentation for CMake modules...")
 
 #
 
 add_custom_target (Doxygen COMMAND Doxygen::doxygen
-				   DEPENDS "${DoxyLayoutOutput}" "${modules_output}" "${doxyfile_output}" "${logo_output}" "${main_page_output}"
+				   DEPENDS "${doxylayout_output}" "${cmake_modules_output}" "${modules_output}" "${doxyfile_output}" "${logo_output}" "${main_page_output}"
 				   WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
 				   COMMENT "Running Doxygen...")
 
