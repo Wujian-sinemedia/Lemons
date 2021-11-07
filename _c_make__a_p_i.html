@@ -73,6 +73,8 @@ $(function() {
 <p>If you are an Avid developer, you can set this variable to the absolute path of the AAX SDK root to enable using the AAX plugin format. If this is set, the Lemons CMake scripts will attempt to build the AAX SDK when you add the Lemons package &ndash; note that this requires xcodebuild on Mac or msbuild on Windows.</p>
 <h3>LEMONS_VST2_SDK_PATH</h3>
 <p>If you have access to the VST2 SDK, you can define this variable to the absolute path of the VST2 SDK root to enable compiling VST2 plugins.</p>
+<h3>LEMONS_ENABLE_INTEGRATIONS</h3>
+<p>Set this to ON to enable all available integrations by default (ccache, clang-format, etc). Defaults to ON.</p>
 <h3>LEMONS_SANITIZERS_TO_ENABLE</h3>
 <p>An optional list of sanitizers to enable. Currently only supported with GNU, Clang, or MSVC compilers. The options are:</p><ul>
 <li>address</li>
@@ -84,14 +86,14 @@ $(function() {
 </ul>
 <p>The sanitizers "address", "memory" and "thread" are mutually exclusive. You cannot enable two of them in the same build.</p>
 <p>"leak" requires the "address" sanitizer.</p>
+<h3>LEMONS_PLUGINVAL_LEVEL</h3>
+<p>The "level" of strictness of the configured pluginval tests; 1 through 10. Defaults to 10.</p>
 <h3>LEMONS_LANGUAGE_LIST</h3>
 <p>An optional path to a text file, containing a line-separated list of target languages for generated translation files. If not provided, a default list of languages will be used. An example language list file might look like this: </p><div class="fragment"><div class="line">French</div>
 <div class="line">German</div>
 <div class="line">Italian</div>
 <div class="line">Spanish</div>
-</div><!-- fragment --><h3>LEMONS_PLUGINVAL_LEVEL</h3>
-<p>The "level" of strictness of the configured pluginval tests; 1 through 10. Defaults to 10.</p>
-<h2>Options for conditionally enabling building additional stuff</h2>
+</div><!-- fragment --><h2>Options for conditionally enabling building additional stuff</h2>
 <h3>LEMONS_BUILD_TESTS</h3>
 <p>Set this to ON to enable testing. Defaults to OFF. When enabled, using the plugin configuration functions will also automatically configure plugin QC tests.</p>
 <h3>LEMONS_BUILD_DOCS</h3>
@@ -99,10 +101,22 @@ $(function() {
 <h3>LEMONS_BUILD_TEMPLATES</h3>
 <p>Set this to ON to enable building the Lemons template projects. Defaults to OFF.</p>
 <h3>LEMONS_IGNORE_ALL_EXTRAS</h3>
-<p>Set this to ON to disable tests, docs, and templates with one option.</p>
+<p>Set this to ON to disable tests, docs, and templates with one option. Defaults to OFF.</p>
 <hr  />
 <h1><a class="anchor" id="CMake_modules"></a>
 CMake modules</h1>
+<p>Lemons is designed to be as modular as possible; its CMake features, integrations, and the JUCE modules themselves (and even JUCE itself) are all included by projects via CMake module includes. For example, a basic plugin's CMakeLists.txt might look something like this: </p><div class="fragment"><div class="line">cmake_minimum_required (VERSION 3.19) </div>
+<div class="line"> </div>
+<div class="line">project (NewPlugin VERSION 0.0.1 LANGUAGES CXX)</div>
+<div class="line"> </div>
+<div class="line">add_subdirectory (GetLemons)</div>
+<div class="line"> </div>
+<div class="line">include (LemonsPluginModules)</div>
+<div class="line"> </div>
+<div class="line">juce_add_plugin (...)</div>
+<div class="line"> </div>
+<div class="line">lemons_configure_juce_plugin (TARGET ${PROJECT_NAME} ASSET_FOLDER assets TRANSLATIONS)</div>
+</div><!-- fragment --><p>It is possible to use Lemons only for its default CMake set-up, without including any of the JUCE modules in the build tree at all. Categories of JUCE modules can be included by the relevant module in the 'Juce module inclusion' category below:</p>
 <h2>Plugins</h2>
 <ul>
 <li><a class="el" href="_lemons_plugin_utilities.html">LemonsPluginUtilities</a></li>
@@ -142,7 +156,7 @@ CMake modules</h1>
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 7 2021 12:50:20 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 7 2021 13:29:35 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
