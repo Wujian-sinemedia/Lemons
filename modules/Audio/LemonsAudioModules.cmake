@@ -1,10 +1,10 @@
 #[[
-# LemonsAudioModules
+# LemonsAudioModules	{#LemonsAudioModules}
 
 Includes audio-related Lemons JUCE modules in your build.
 
 ## Includes:
-- [LemonsJuceModuleUtilities](LemonsJuceModuleUtilities.md)
+- [LemonsJuceModuleUtilities](@ref LemonsJuceModuleUtilities)
 
 ## Targets:
 - LemonsAudioModules

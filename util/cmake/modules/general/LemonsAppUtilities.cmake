@@ -1,8 +1,8 @@
 #[[
-# LemonsAppUtilities
+# LemonsAppUtilities    {#LemonsAppUtilities}
 
 ## Includes:
-- [LemonsJuceUtilities](LemonsJuceUtilities.md)
+- [LemonsJuceUtilities](@ref LemonsJuceUtilities)
 
 
 ## Functions:

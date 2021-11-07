@@ -1,11 +1,11 @@
 #[[
-# AllLemonsModules
+# AllLemonsModules	{#AllLemonsModules}
 
 Includes all the Lemons JUCE modules in your build, and provides a target to allow linking to all of them at once.
 
 ## Includes:
-- [LemonsAppModules](LemonsAppModules.md)
-- [LemonsPluginModules](LemonsPluginModules.md)
+- [LemonsAppModules](@ref LemonsAppModules)
+- [LemonsPluginModules](@ref LemonsPluginModules)
 
 ## Targets:
 - AllLemonsModules

@@ -1,5 +1,5 @@
 #[[
-# LemonsTranslationFileGeneration
+# LemonsTranslationFileGeneration   {#LemonsTranslationFileGeneration}
 
 
 ## Functions:

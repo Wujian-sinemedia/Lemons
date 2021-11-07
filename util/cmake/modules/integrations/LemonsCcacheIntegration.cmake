@@ -1,5 +1,5 @@
 #[[
-# LemonsCcacheIntegration
+# LemonsCcacheIntegration   {#LemonsCcacheIntegration}
 
 ## Include-time actions:
 Configures a compiler-launcher script that uses ccache to execute CMake's generated compiler command line. Does nothing if ccache cannot be located at configure-time.

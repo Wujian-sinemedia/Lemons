@@ -1,11 +1,11 @@
 #[[
-# LemonsCommonModules
+# LemonsCommonModules   {#LemonsCommonModules}
 
 Includes the common Lemons JUCE modules.
 
 ## Includes:
-- [LemonsConnectivityModules](LemonsConnectivityModules.md)
-- [LemonsGUIModules](LemonsGUIModules.md)
+- [LemonsConnectivityModules](@ref LemonsConnectivityModules)
+- [LemonsGUIModules](@ref LemonsGUIModules)
 
 ## Targets:
 - LemonsCommonModules

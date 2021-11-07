@@ -1,10 +1,10 @@
 #[[
-# LemonsJuceUtilities
+# LemonsJuceUtilities   {#LemonsJuceUtilities}
 
 ## Includes:
 - LemonsGetCPM
-- [LemonsAssetsHelpers](LemonsAssetsHelpers.md)
-- [LemonsDefaultMacOsOptions](LemonsDefaultMacOsOptions.md), on Apple platforms only
+- [LemonsAssetsHelpers](@ref LemonsAssetsHelpers)
+- [LemonsDefaultMacOsOptions](@ref LemonsDefaultMacOsOptions), on Apple platforms only
 
 
 ## Include-time actions:

@@ -1,10 +1,10 @@
 #[[
-# LemonsPluginUtilities
+# LemonsPluginUtilities     {#LemonsPluginUtilities}
 
 ## Includes:
-- [LemonsJuceUtilities](LemonsJuceUtilities.md)
-- [LemonsAAXUtils](LemonsAAXUtils.md), if LEMONS_AAX_SDK_PATH is set
-- [LemonsPluginvalUtils](LemonsPluginvalUtils.md), if LEMONS_BUILD_TESTS is on
+- [LemonsJuceUtilities](@ref LemonsJuceUtilities)
+- [LemonsAAXUtils](@ref LemonsAAXUtils), if LEMONS_AAX_SDK_PATH is set
+- [LemonsPluginvalUtils](@ref LemonsPluginvalUtils), if LEMONS_BUILD_TESTS is on
 
 ## Include-time actions:
 Determines the list of all available plugin formats.

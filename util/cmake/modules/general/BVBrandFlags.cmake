@@ -1,5 +1,5 @@
 #[[
-# BVBrandFlags
+# BVBrandFlags  {#BVBrandFlags}
 
 For internal usage by my own projects.
 

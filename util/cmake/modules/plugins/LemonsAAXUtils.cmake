@@ -1,8 +1,8 @@
 #[[
-# LemonsAAXUtils
+# LemonsAAXUtils    {#LemonsAAXUtils}
 
 ## Includes:
-- [LemonsJuceUtilities](LemonsJuceUtilities.md), if AAXSDK target is configured successfully
+- [LemonsJuceUtilities](@ref LemonsJuceUtilities), if AAXSDK target is configured successfully
 
 ## Include-time actions:
 Attempts to configure a target to build the AAX SDK based on the path you've provided to LEMONS_AAX_SDK_PATH. 

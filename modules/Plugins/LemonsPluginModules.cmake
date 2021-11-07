@@ -1,12 +1,12 @@
 #[[
-# LemonsPluginModules
+# LemonsPluginModules	{#LemonsPluginModules}
 
 Includes audio plugin-related JUCE modules and CMake utilities into your build.
 
 ## Includes:
-- [LemonsCommonModules](LemonsCommonModules.md)
-- [LemonsAudioModules](LemonsAudioModules.md)
-- [LemonsPluginUtilities](LemonsPluginUtilities.md)
+- [LemonsCommonModules](@ref LemonsCommonModules)
+- [LemonsAudioModules](@ref LemonsAudioModules)
+- [LemonsPluginUtilities](@ref LemonsPluginUtilities)
 
 ## Targets:
 - LemonsPluginModules

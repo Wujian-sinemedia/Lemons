@@ -1,9 +1,9 @@
 #[[
-# LemonsJuceModuleUtilities
+# LemonsJuceModuleUtilities     {#LemonsJuceModuleUtilities}
 
 ## Includes:
-- [LemonsFileUtils](LemonsFileUtils.md)
-- [LemonsJuceUtilities](LemonsJuceUtilities.md)
+- [LemonsFileUtils](@ref LemonsFileUtils)
+- [LemonsJuceUtilities](@ref LemonsJuceUtilities)
 
 
 ## Function:

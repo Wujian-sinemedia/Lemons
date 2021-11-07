@@ -1,10 +1,10 @@
 #[[
-# LemonsGUIModules
+# LemonsGUIModules	{#LemonsGUIModules}
 
 Includes Lemons JUCE modules for building GUIs.
 
 ## Includes:
-- [LemonsJuceModuleUtilities](LemonsJuceModuleUtilities.md)
+- [LemonsJuceModuleUtilities](@ref LemonsJuceModuleUtilities)
 
 ## Targets:
 - LemonsGUIModules

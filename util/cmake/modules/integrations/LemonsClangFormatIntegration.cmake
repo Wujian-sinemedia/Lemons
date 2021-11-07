@@ -1,5 +1,5 @@
 #[[
-# LemonsClangFormatIntegration
+# LemonsClangFormatIntegration  {#LemonsClangFormatIntegration}
 
 ## Targets:
 - ClangFormat: Runs clang-format recursively over all source files in the source tree.
