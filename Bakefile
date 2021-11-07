@@ -11,7 +11,8 @@ Aliases:
 
 Clean:
 * Builds/
-* .github/docs
+* docs/
+* .github/docs/
 * util/cmake/modules/translations/__pycache__/
 * util/install_deps/Brewfile
 * util/install_deps/Brewfile.lock.json

@@ -35,7 +35,7 @@ set (doxyfile_input "${CMAKE_CURRENT_LIST_DIR}/Doxyfile")
 set (doxyfile_output "${CMAKE_CURRENT_BINARY_DIR}/Doxyfile")
 
 add_custom_command (OUTPUT "${doxyfile_output}" MAIN_DEPENDENCY "${doxyfile_input}" VERBATIM
-				    COMMAND "${CMAKE_COMMAND}" -E copy "${doxyfile_input}" "${doxyfile_output}"
+				    COMMAND "${CMAKE_COMMAND}" ARGS -E copy "${doxyfile_input}" "${doxyfile_output}"
 				    WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}"
 				    COMMENT "Copying Doxyfile to Doxygen build tree...")
 
@@ -69,4 +69,8 @@ add_custom_target (Doxygen COMMAND Doxygen::doxygen
 				   DEPENDS "${DoxyLayoutOutput}" "${modules_output}" "${doxyfile_output}" "${cmake_api_output}" "${logo_output}" "${main_page_output}"
 				   WORKING_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}"
 				   COMMENT "Running Doxygen...")
+
+add_custom_command (TARGET Doxygen POST_BUILD
+					COMMAND "${CMAKE_COMMAND}" ARGS -E copy_directory "${CMAKE_CURRENT_BINARY_DIR}/doc" "${Lemons_SOURCE_DIR}/docs"
+					COMMENT "Copying to output...")
 

@@ -1,6 +1,7 @@
 **/.DS_Store
 Builds/
 Cache/
+docs/
 logs/
 util/install_deps/Brewfile
 util/install_deps/Brewfile.lock.json
