@@ -107,6 +107,6 @@ if __name__ == "__main__":
 	with open (dest_file, "w") as f:
 		f.write (cmake_api_input)
 		f.write ("\r\n\r\n")
-		f.write ("## CMake modules")
+		f.write ("## CMake modules 		{{#{n}}}".format(n="CMake_modules"))
 		f.write ("\r\n")
 		f.write (module_list)

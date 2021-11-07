@@ -27,6 +27,11 @@ def process_module_includes (orig_content):
 
 #
 
+def get_main_cmake_modules_ref():
+	return "[Back to CMake modules reference](@ref {n})".format(n="CMake_modules")
+
+#
+
 def add_module_to_output_file (dest_dir, module, dest_file):
 	with open (dest_file, "a") as f:
 		f.write ("\r\n")
@@ -57,4 +62,6 @@ def process_file (file_path, dest_dir, dest_file, category):
 		f.write ("\r\n")
 		f.write ("#### Category: {c}".format(c=category.capitalize()))
 		f.write ("\r\n")
+		f.write (get_main_cmake_modules_ref())
+		f.write ("\r\n\r\n")
 		f.write (content)
