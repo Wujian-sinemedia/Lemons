@@ -2,8 +2,8 @@
 # LemonsAssetsHelpers
 
 ## Includes:
-- LemonsJuceUtilities
-- LemonsTranslationFileGeneration
+- [LemonsJuceUtilities](LemonsJuceUtilities.md)
+- [LemonsTranslationFileGeneration](LemonsJuceUtilities.md)
 
 
 ## Function:

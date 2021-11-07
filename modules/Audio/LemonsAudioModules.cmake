@@ -4,7 +4,7 @@
 Includes audio-related Lemons JUCE modules in your build.
 
 ## Includes:
-- LemonsJuceModuleUtilities
+- [LemonsJuceModuleUtilities](LemonsJuceModuleUtilities.md)
 
 ## Targets:
 - LemonsAudioModules

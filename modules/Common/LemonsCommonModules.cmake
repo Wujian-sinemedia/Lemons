@@ -4,8 +4,8 @@
 Includes the common Lemons JUCE modules.
 
 ## Includes:
-- LemonsConnectivityModules
-- LemonsGUIModules
+- [LemonsConnectivityModules](LemonsConnectivityModules.md)
+- [LemonsGUIModules](LemonsGUIModules.md)
 
 ## Targets:
 - LemonsCommonModules

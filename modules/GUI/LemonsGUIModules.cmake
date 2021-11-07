@@ -4,7 +4,7 @@
 Includes Lemons JUCE modules for building GUIs.
 
 ## Includes:
-- LemonsJuceModuleUtilities
+- [LemonsJuceModuleUtilities](LemonsJuceModuleUtilities.md)
 
 ## Targets:
 - LemonsGUIModules

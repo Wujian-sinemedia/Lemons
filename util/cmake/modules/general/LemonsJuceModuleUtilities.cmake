@@ -2,8 +2,8 @@
 # LemonsJuceModuleUtilities
 
 ## Includes:
-- LemonsFileUtils
-- LemonsJuceUtilities
+- [LemonsFileUtils](LemonsFileUtils.md)
+- [LemonsJuceUtilities](LemonsJuceUtilities.md)
 
 
 ## Function:

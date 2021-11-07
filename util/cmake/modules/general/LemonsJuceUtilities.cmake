@@ -3,9 +3,9 @@
 
 ## Includes:
 - LemonsGetCPM
-- LemonsCommonModules
-- LemonsAssetsHelpers
-- LemonsDefaultMacOsOptions, on Apple platforms only
+- [LemonsCommonModules](LemonsCommonModules.md)
+- [LemonsAssetsHelpers](LemonsAssetsHelpers.md)
+- [LemonsDefaultMacOsOptions](LemonsDefaultMacOsOptions.md), on Apple platforms only
 
 
 ## Include-time actions:

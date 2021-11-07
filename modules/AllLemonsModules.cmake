@@ -4,8 +4,8 @@
 Includes all the Lemons JUCE modules in your build, and provides a target to allow linking to all of them at once.
 
 ## Includes:
-- LemonsAppModules
-- LemonsPluginModules
+- [LemonsAppModules](LemonsAppModules.md)
+- [LemonsPluginModules](LemonsPluginModules.md)
 
 ## Targets:
 - AllLemonsModules

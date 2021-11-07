@@ -4,8 +4,8 @@
 Includes app-related Lemons JUCE modules and CMake utilities.
 
 ## Includes:
-- LemonsCommonModules
-- LemonsAppUtilities
+- [LemonsCommonModules](LemonsCommonModules.md)
+- [LemonsAppUtilities](LemonsAppUtilities.md)
 
 ## Targets:
 - LemonsAppModules

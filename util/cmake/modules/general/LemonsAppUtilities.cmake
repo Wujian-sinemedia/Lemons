@@ -2,7 +2,7 @@
 # LemonsAppUtilities
 
 ## Includes:
-- LemonsJuceUtilities
+- [LemonsJuceUtilities](LemonsJuceUtilities.md)
 
 
 ## Functions:
