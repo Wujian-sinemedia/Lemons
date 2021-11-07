@@ -15,17 +15,15 @@ endfunction()
 
 #
 
-function (_lemons_add_module_subcategory dir target)
+function (_lemons_add_module_subcategory target)
     if (NOT TARGET ${target})
         add_library (${target} INTERFACE)
     endif()
 
-    set (path "${Lemons_SOURCE_DIR}/modules/${dir}")
-
-    lemons_subdir_list (RESULT moduleFolders DIR "${path}")
+    lemons_subdir_list (RESULT moduleFolders DIR "${CMAKE_CURRENT_LIST_DIR}")
 
     foreach (folder ${moduleFolders})
-        juce_add_module ("${path}/${folder}")
+        juce_add_module ("${CMAKE_CURRENT_LIST_DIR}/${folder}")
         target_link_libraries (${target} INTERFACE ${folder})
     endforeach()
 endfunction()

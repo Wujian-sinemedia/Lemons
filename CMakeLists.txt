@@ -48,17 +48,21 @@ set (CPM_Lemons_SOURCE "${CMAKE_CURRENT_LIST_DIR}" CACHE INTERNAL "")
 
 # Add CMake modules
 
-set (modules_dir "${CMAKE_CURRENT_LIST_DIR}/util/cmake/modules")
+macro (_lemons_add_nested_dirs_of_cmake_modules directory)
 
-file (GLOB children RELATIVE ${modules_dir} ${modules_dir}/*)
+	file (GLOB children RELATIVE ${directory} ${directory}/*)
 
-foreach (child ${children})
-	set (full_path "${modules_dir}/${child}")
+	foreach (child ${children})
+		set (full_path "${directory}/${child}")
 
-	if (IS_DIRECTORY "${full_path}")
-		list (APPEND CMAKE_MODULE_PATH "${full_path}")
-	endif()
-endforeach()
+		if (IS_DIRECTORY "${full_path}")
+			list (APPEND CMAKE_MODULE_PATH "${full_path}")
+		endif()
+	endforeach()
+endmacro()
+
+_lemons_add_nested_dirs_of_cmake_modules ("${CMAKE_CURRENT_LIST_DIR}/util/cmake/modules")
+_lemons_add_nested_dirs_of_cmake_modules ("${CMAKE_CURRENT_LIST_DIR}/modules")
 
 list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/modules")
 
