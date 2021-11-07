@@ -16,10 +16,6 @@ END_JUCE_MODULE_DECLARATION
  -------------------------------------------------------------------------------------*/
 
 
-#include "FIFOs/CircularBuffer.h"
-#include "FIFOs/AudioFIFO.h"
-#include "FIFOs/AudioAndMidiFIFO.h"
-
 #include "engines/AudioEngine.h"
 #include "engines/LatencyEngine.h"
 

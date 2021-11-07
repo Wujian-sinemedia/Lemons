@@ -89,11 +89,7 @@ using OwnedArray = juce::OwnedArray< T >;
 #include "misc/misc.h"
 #include "misc/ValueSmoother.h"
 
-#include "events/Broadcaster.h"
-#include "events/Listener.h"
 #include "events/Timers.h"
-#include "events/RealtimeMutatable.h"
-#include "events/NonrealtimeMutatable.h"
 
 #include "files/FileUtilities.h"
 

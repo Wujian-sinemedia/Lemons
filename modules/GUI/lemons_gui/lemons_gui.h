@@ -16,7 +16,6 @@
 -------------------------------------------------------------------------------------*/
 
 
-#include "utilities/GuiUtils.h"
 #include "utilities/cursor.h"
 
 #include "components/PopupComponent.h"
