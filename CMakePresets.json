@@ -17,7 +17,8 @@
       "description": "Configuration with documentation enabled",
       "inherits": "base",
       "cacheVariables": {
-        "LEMONS_BUILD_DOCS": "ON"
+        "LEMONS_BUILD_DOCS": "ON",
+        "LEMONS_ENABLE_INTEGRATIONS": "OFF"
       }
     },
     {

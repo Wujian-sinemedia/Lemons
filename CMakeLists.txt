@@ -15,6 +15,8 @@ set (LEMONS_SANITIZERS_TO_ENABLE "" CACHE STRING "List of sanitizers to enable")
 set (LEMONS_AAX_SDK_PATH ""  CACHE PATH "Path to the AAX SDK")
 set (LEMONS_VST2_SDK_PATH "" CACHE PATH "Path to the VST2 SDK")
 
+option (LEMONS_ENABLE_INTEGRATIONS "Enable all available integrations by default" ON)
+
 option (LEMONS_IGNORE_ALL_EXTRAS "Ignore everything except what's needed to make compiling your project work" OFF)
 
 include (CMakeDependentOption)
@@ -68,8 +70,10 @@ set (CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" CACHE INTERNAL "")
 
 #
 
-include (LemonsCcacheIntegration)
-include (LemonsClangFormatIntegration)
+if (LEMONS_ENABLE_INTEGRATIONS)
+	include (LemonsCcacheIntegration)
+	include (LemonsClangFormatIntegration)
+endif()
 
 add_subdirectory (util)
 

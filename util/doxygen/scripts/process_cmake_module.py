@@ -60,8 +60,6 @@ def process_file (file_path, dest_dir, dest_file, category):
 	with open (output_file, "w") as f:
 		f.write ("# {n}		{{#{n}}}".format(n=name))
 		f.write ("\r\n")
-		f.write ("#### Category: {c}".format(c=category.capitalize()))
-		f.write ("\r\n")
 		f.write (get_main_cmake_modules_ref())
 		f.write ("\r\n\r\n")
 		f.write (content)
