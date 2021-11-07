@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['all_5fplatforms_2299',['all_platforms',['../group__all__platforms.html',1,'']]],
-  ['analysis_2300',['analysis',['../group__analysis.html',1,'']]],
-  ['android_2301',['Android',['../group__Android.html',1,'']]],
-  ['apps_2302',['Apps',['../group__Apps.html',1,'']]],
-  ['audio_2303',['Audio',['../group__Audio.html',1,'']]],
-  ['audioeffects_2304',['AudioEffects',['../group__AudioEffects.html',1,'']]]
+  ['all_5fplatforms_2296',['all_platforms',['../group__all__platforms.html',1,'']]],
+  ['analysis_2297',['analysis',['../group__analysis.html',1,'']]],
+  ['android_2298',['Android',['../group___android.html',1,'']]],
+  ['apps_2299',['Apps',['../group___apps.html',1,'']]],
+  ['audio_2300',['Audio',['../group___audio.html',1,'']]],
+  ['audioeffects_2301',['AudioEffects',['../group___audio_effects.html',1,'']]]
 ];

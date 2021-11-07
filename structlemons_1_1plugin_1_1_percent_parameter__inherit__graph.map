@@ -1,0 +1,7 @@
+<map id="lemons::plugin::PercentParameter" name="lemons::plugin::PercentParameter">
+<area shape="rect" id="node1" title="A parameter that represents an integer value in the range 0&#45;100." alt="" coords="5,337,248,364"/>
+<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title=" " alt="" coords="73,261,180,288"/>
+<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an..." alt="" coords="25,81,218,108"/>
+<area shape="rect" id="node5" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="143,157,374,199"/>
+<area shape="rect" id="node4" href="$structlemons_1_1_serializable_data.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="29,5,214,32"/>
+</map>

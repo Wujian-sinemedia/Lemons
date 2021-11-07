@@ -1,0 +1,4 @@
+<map id="lemons::dsp::FX::Reverb" name="lemons::dsp::FX::Reverb">
+<area shape="rect" id="node1" title="Reverb effect class that wraps juce::Reverb with some other useful bells and whistles,..." alt="" coords="8,80,188,107"/>
+<area shape="rect" id="node2" href="$structlemons_1_1_serializable_data.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="5,5,191,32"/>
+</map>

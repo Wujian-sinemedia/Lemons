@@ -1,5 +1,0 @@
-<map id="lemons::serializing::STLContainerInterface&lt; ContainerType &gt;" name="lemons::serializing::STLContainerInterface&lt; ContainerType &gt;">
-<area shape="rect" id="node1" title="Container interface that provides support for serializing most STL containers with TreeReflector." alt="" coords="19,199,194,255"/>
-<area shape="rect" id="node2" href="$structlemons_1_1serializing_1_1LambdaContainerInterface.html" title="Provides a slightly slicker interface to ContainerInterface, allowing you to supply a lambda function..." alt="" coords="5,95,208,151"/>
-<area shape="rect" id="node3" href="$structlemons_1_1serializing_1_1ContainerInterface.html" title="Interface that defines how a TreeReflector can resize a given container during deserialization." alt="" coords="31,5,182,47"/>
-</map>

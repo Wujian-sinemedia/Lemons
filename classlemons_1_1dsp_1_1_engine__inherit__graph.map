@@ -1,0 +1,26 @@
+<map id="lemons::dsp::Engine&lt; SampleType &gt;" name="lemons::dsp::Engine&lt; SampleType &gt;">
+<area shape="rect" id="node1" title="Base class for an audio engine." alt="" coords="5,500,159,541"/>
+<area shape="rect" id="node2" href="$classlemons_1_1dsp_1_1_f_x_1_1_effect_engine.html" title=" " alt="" coords="532,5,687,47"/>
+<area shape="rect" id="node4" href="$classlemons_1_1dsp_1_1_f_x_1_1_effect_engine.html" title="A class that wraps an AudioEffect into a dsp::Engine." alt="" coords="289,131,504,172"/>
+<area shape="rect" id="node6" href="$classlemons_1_1dsp_1_1_latency_engine.html" title="Base class for audio engines that require latency (ie, a consistent block size) for their processing." alt="" coords="295,255,499,296"/>
+<area shape="rect" id="node7" href="$classlemons_1_1dsp_1_1osc_1_1_osc_engine.html" title="A utility class that wraps an Oscillator into a self&#45;contained dsp::Engine." alt="" coords="293,435,500,476"/>
+<area shape="rect" id="node18" href="$classlemons_1_1dsp_1_1osc_1_1_osc_engine.html" title=" " alt="" coords="303,500,491,541"/>
+<area shape="rect" id="node19" href="$classlemons_1_1dsp_1_1osc_1_1_osc_engine.html" title=" " alt="" coords="303,565,491,607"/>
+<area shape="rect" id="node20" href="$classlemons_1_1dsp_1_1osc_1_1_osc_engine.html" title=" " alt="" coords="295,631,498,672"/>
+<area shape="rect" id="node21" href="$classlemons_1_1dsp_1_1osc_1_1_osc_engine.html" title=" " alt="" coords="285,696,508,737"/>
+<area shape="rect" id="node22" href="$classlemons_1_1dsp_1_1osc_1_1_osc_engine.html" title=" " alt="" coords="292,761,501,803"/>
+<area shape="rect" id="node23" href="$classlemons_1_1dsp_1_1_engine.html" title=" " alt="" coords="320,827,473,868"/>
+<area shape="rect" id="node24" href="$classlemons_1_1dsp_1_1_engine.html" title=" " alt="" coords="320,320,473,361"/>
+<area shape="rect" id="node3" href="$structlemons_1_1dsp_1_1_f_x_1_1_filter_engine.html" title="A class that represents an audio engine holding a filter effect." alt="" coords="993,28,1204,69"/>
+<area shape="rect" id="node5" href="$classlemons_1_1dsp_1_1_f_x_1_1_effect_engine.html" title=" " alt="" coords="720,57,935,99"/>
+<area shape="rect" id="node8" href="$classlemons_1_1dsp_1_1osc_1_1_osc_engine.html" title=" " alt="" coords="724,635,931,691"/>
+<area shape="rect" id="node9" href="$classlemons_1_1dsp_1_1osc_1_1_osc_engine.html" title=" " alt="" coords="711,208,944,249"/>
+<area shape="rect" id="node10" href="$classlemons_1_1dsp_1_1osc_1_1_osc_engine.html" title=" " alt="" coords="724,715,931,771"/>
+<area shape="rect" id="node11" href="$classlemons_1_1dsp_1_1osc_1_1_osc_engine.html" title=" " alt="" coords="724,279,931,335"/>
+<area shape="rect" id="node12" href="$classlemons_1_1dsp_1_1osc_1_1_osc_engine.html" title=" " alt="" coords="724,371,931,427"/>
+<area shape="rect" id="node13" href="$classlemons_1_1dsp_1_1osc_1_1_osc_engine.html" title=" " alt="" coords="724,795,931,851"/>
+<area shape="rect" id="node14" href="$classlemons_1_1dsp_1_1osc_1_1_osc_engine.html" title=" " alt="" coords="724,474,931,530"/>
+<area shape="rect" id="node15" href="$classlemons_1_1dsp_1_1osc_1_1_osc_engine.html" title=" " alt="" coords="724,875,931,931"/>
+<area shape="rect" id="node16" href="$classlemons_1_1dsp_1_1osc_1_1_osc_engine.html" title=" " alt="" coords="724,555,931,611"/>
+<area shape="rect" id="node17" href="$classlemons_1_1dsp_1_1osc_1_1_osc_engine.html" title=" " alt="" coords="724,125,931,181"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="lemons::dsp::LatencyEngine&lt; SampleType &gt;" name="lemons::dsp::LatencyEngine&lt; SampleType &gt;">
+<area shape="rect" id="node1" title="Base class for audio engines that require latency (ie, a consistent block size) for their processing." alt="" coords="5,95,209,136"/>
+<area shape="rect" id="node2" href="$classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine." alt="" coords="31,5,184,47"/>
+</map>

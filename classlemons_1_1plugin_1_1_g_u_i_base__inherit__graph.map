@@ -1,0 +1,4 @@
+<map id="lemons::plugin::GUIBase" name="lemons::plugin::GUIBase">
+<area shape="rect" id="node1" title="Base class for all plugin GUI&#39;s." alt="" coords="5,5,188,32"/>
+<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_g_u_i.html" title="Base class for plugin GUI&#39;s." alt="" coords="21,80,172,121"/>
+</map>

@@ -1,6 +1,0 @@
-<map id="lemons::plugin::SecondsParameter" name="lemons::plugin::SecondsParameter">
-<area shape="rect" id="node1" title="A parameter that represents a time value in seconds, expressed as a float." alt="" coords="5,229,252,256"/>
-<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1TypedParameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="67,155,190,181"/>
-<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1Parameter.html" title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an..." alt="" coords="32,80,225,107"/>
-<area shape="rect" id="node4" href="$structlemons_1_1SerializableData.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="36,5,221,32"/>
-</map>

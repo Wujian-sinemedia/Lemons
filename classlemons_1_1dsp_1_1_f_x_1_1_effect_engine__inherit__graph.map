@@ -1,0 +1,7 @@
+<map id="lemons::dsp::FX::EffectEngine&lt; EffectType, SampleType, &gt;" name="lemons::dsp::FX::EffectEngine&lt; EffectType, SampleType, &gt;">
+<area shape="rect" id="node1" title="A class that wraps an AudioEffect into a dsp::Engine." alt="" coords="71,96,285,137"/>
+<area shape="rect" id="node4" href="$classlemons_1_1dsp_1_1_f_x_1_1_effect_engine.html" title=" " alt="" coords="71,200,285,241"/>
+<area shape="rect" id="node2" href="$classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine." alt="" coords="5,5,159,47"/>
+<area shape="rect" id="node3" href="$structlemons_1_1_serializable_data.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="183,13,368,39"/>
+<area shape="rect" id="node5" href="$structlemons_1_1dsp_1_1_f_x_1_1_filter_engine.html" title="A class that represents an audio engine holding a filter effect." alt="" coords="73,291,283,332"/>
+</map>

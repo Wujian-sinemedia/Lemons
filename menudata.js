@@ -22,7 +22,7 @@ for the JavaScript code in this file
 */
 var menudata={children:[
 {text:"Main Page",url:"index.html"},
-{text:"Modules",url:"modules.html"},
+{text:"JUCE modules",url:"modules.html"},
 {text:"Namespaces",url:"namespaces.html",children:[
 {text:"Namespace List",url:"namespaces.html"},
 {text:"Namespace Members",url:"namespacemembers.html",children:[
@@ -68,4 +68,4 @@ var menudata={children:[
 {text:"Class List",url:"annotated.html"},
 {text:"Class Index",url:"classes.html"},
 {text:"Class Hierarchy",url:"hierarchy.html"}]},
-{text:"CMake API",url:"cmake_api.html"}]}
+{text:"CMake modules",url:"pages.html"}]}

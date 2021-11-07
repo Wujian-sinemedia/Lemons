@@ -1,0 +1,5 @@
+<map id="lemons::gui::SliderBase" name="lemons::gui::SliderBase">
+<area shape="rect" id="node1" title="Base class for plugin sliders that handles some logic common to both int and float parameter sliders." alt="" coords="102,5,277,32"/>
+<area shape="rect" id="node2" href="$classlemons_1_1gui_1_1_float_slider.html" title="Plugin slider that attaches to a float parameter." alt="" coords="5,80,181,107"/>
+<area shape="rect" id="node3" href="$classlemons_1_1gui_1_1_int_slider.html" title="Plugin slider that attaches to an integer parameter." alt="" coords="205,80,365,107"/>
+</map>
