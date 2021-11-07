@@ -68,11 +68,12 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h1>CMake options</h1>
-<h2>LEMONS_AAX_SDK_PATH</h2>
+<h2>Options for controlling the configuration of your build</h2>
+<h3>LEMONS_AAX_SDK_PATH</h3>
 <p>If you are an Avid developer, you can set this variable to the absolute path of the AAX SDK root to enable using the AAX plugin format. If this is set, the Lemons CMake scripts will attempt to build the AAX SDK when you add the Lemons package &ndash; note that this requires xcodebuild on Mac or msbuild on Windows.</p>
-<h2>LEMONS_VST2_SDK_PATH</h2>
+<h3>LEMONS_VST2_SDK_PATH</h3>
 <p>If you have access to the VST2 SDK, you can define this variable to the absolute path of the VST2 SDK root to enable compiling VST2 plugins.</p>
-<h2>LEMONS_SANITIZERS_TO_ENABLE</h2>
+<h3>LEMONS_SANITIZERS_TO_ENABLE</h3>
 <p>An optional list of sanitizers to enable. Currently only supported with GNU, Clang, or MSVC compilers. The options are:</p><ul>
 <li>address</li>
 <li>memory</li>
@@ -83,13 +84,21 @@ $(function() {
 </ul>
 <p>The sanitizers "address", "memory" and "thread" are mutually exclusive. You cannot enable two of them in the same build.</p>
 <p>"leak" requires the "address" sanitizer.</p>
-<h2>LEMONS_BUILD_TESTS</h2>
-<p>Set this to ON to enable testing. Defaults to OFF.</p>
-<h2>LEMONS_BUILD_DOCS</h2>
+<h3>LEMONS_LANGUAGE_LIST</h3>
+<p>An optional path to a text file, containing a line-separated list of target languages for generated translation files. If not provided, a default list of languages will be used. An example language list file might look like this: </p><div class="fragment"><div class="line">French</div>
+<div class="line">German</div>
+<div class="line">Italian</div>
+<div class="line">Spanish</div>
+</div><!-- fragment --><h3>LEMONS_PLUGINVAL_LEVEL</h3>
+<p>The "level" of strictness of the configured pluginval tests; 1 through 10. Defaults to 10.</p>
+<h2>Options for conditionally enabling building additional stuff</h2>
+<h3>LEMONS_BUILD_TESTS</h3>
+<p>Set this to ON to enable testing. Defaults to OFF. When enabled, using the plugin configuration functions will also automatically configure plugin QC tests.</p>
+<h3>LEMONS_BUILD_DOCS</h3>
 <p>Set this to ON to enable building the Lemons documentation (requires Doxygen, Graphviz, and Python3). Defaults to OFF.</p>
-<h2>LEMONS_BUILD_TEMPLATES</h2>
+<h3>LEMONS_BUILD_TEMPLATES</h3>
 <p>Set this to ON to enable building the Lemons template projects. Defaults to OFF.</p>
-<h2>LEMONS_IGNORE_ALL_EXTRAS</h2>
+<h3>LEMONS_IGNORE_ALL_EXTRAS</h3>
 <p>Set this to ON to disable tests, docs, and templates with one option.</p>
 <hr  />
 <h1>CMake modules</h1>
@@ -132,7 +141,7 @@ $(function() {
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 7 2021 12:14:33 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 7 2021 12:37:57 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
