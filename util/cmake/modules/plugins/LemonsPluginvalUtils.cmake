@@ -1,5 +1,5 @@
 #[[
-# LemonsPluginvalUtils  {#LemonsPluginvalUtils}
+Utilities for testing audio plugins with pluginval.
 
 ## Include-time actions:
 Adds pluginval using CPM.cmake, and runs their provided platform-specific build-and-install script.

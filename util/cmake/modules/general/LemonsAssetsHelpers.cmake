@@ -1,9 +1,9 @@
 #[[
-# LemonsAssetsHelpers   {#LemonsAssetsHelpers}
+Utilities for adding binary data targets to JUCE projects.
 
 ## Includes:
-- [LemonsJuceUtilities](@ref LemonsJuceUtilities)
-- [LemonsTranslationFileGeneration](@ref LemonsTranslationFileGeneration)
+- LemonsJuceUtilities
+- LemonsTranslationFileGeneration
 
 
 ## Function:

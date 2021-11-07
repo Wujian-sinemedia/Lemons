@@ -1,9 +1,9 @@
 #[[
-# LemonsJuceModuleUtilities     {#LemonsJuceModuleUtilities}
+Utilities for adding custom JUCE modules to projects.
 
 ## Includes:
-- [LemonsFileUtils](@ref LemonsFileUtils)
-- [LemonsJuceUtilities](@ref LemonsJuceUtilities)
+- LemonsFileUtils
+- LemonsJuceUtilities
 
 
 ## Function:

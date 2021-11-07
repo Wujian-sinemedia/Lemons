@@ -1,8 +1,8 @@
 #[[
-# LemonsAppUtilities    {#LemonsAppUtilities}
+Utilities for configuring JUCE GUI apps.
 
 ## Includes:
-- [LemonsJuceUtilities](@ref LemonsJuceUtilities)
+- LemonsJuceUtilities
 
 
 ## Functions:

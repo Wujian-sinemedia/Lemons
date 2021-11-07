@@ -1,5 +1,4 @@
 #[[
-# LemonsDefaultMacOsOptions     {#LemonsDefaultMacOsOptions}
 
 ## Function:
 ```

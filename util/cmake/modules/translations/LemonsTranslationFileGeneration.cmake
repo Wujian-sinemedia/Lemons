@@ -1,5 +1,5 @@
 #[[
-# LemonsTranslationFileGeneration   {#LemonsTranslationFileGeneration}
+Automatically generate JUCE translation files for your project.
 
 
 ## Functions:

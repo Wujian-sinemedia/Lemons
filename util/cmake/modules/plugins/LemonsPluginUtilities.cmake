@@ -1,10 +1,10 @@
 #[[
-# LemonsPluginUtilities     {#LemonsPluginUtilities}
+Utilities for audio plugins.
 
 ## Includes:
-- [LemonsJuceUtilities](@ref LemonsJuceUtilities)
-- [LemonsAAXUtils](@ref LemonsAAXUtils), if LEMONS_AAX_SDK_PATH is set
-- [LemonsPluginvalUtils](@ref LemonsPluginvalUtils), if LEMONS_BUILD_TESTS is on
+- LemonsJuceUtilities
+- LemonsAAXUtils
+- LemonsPluginvalUtils
 
 ## Include-time actions:
 Determines the list of all available plugin formats.

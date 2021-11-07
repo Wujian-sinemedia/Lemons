@@ -1,6 +1,5 @@
 #[[
-# LemonsFileUtils	{#LemonsFileUtils}
-
+General filesystem utilities.
 
 ## Function:
 ```

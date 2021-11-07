@@ -1,11 +1,9 @@
 #[[
-# LemonsAppModules	{#LemonsAppModules}
-
 Includes app-related Lemons JUCE modules and CMake utilities.
 
 ## Includes:
-- [LemonsCommonModules](@ref LemonsCommonModules)
-- [LemonsAppUtilities](@ref LemonsAppUtilities)
+- LemonsCommonModules
+- LemonsAppUtilities
 
 ## Targets:
 - LemonsAppModules

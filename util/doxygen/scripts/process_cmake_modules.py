@@ -1,22 +1,15 @@
 #!/usr/bin/env python
 
 import os
-import shutil
 
 from argparse import ArgumentParser
+
+from process_cmake_module import process_file
 
 ###############################################################################
 
 def get_output_file (dest_dir):
 	return os.path.join (dest_dir, "CMakeModules.md")
-
-
-def add_module (dest_dir, module):
-	dest_file = get_output_file (dest_dir)
-
-	with open (dest_file, "a") as f:
-		f.write ("\r\n")
-		f.write ("- [{n}](@ref {n})".format(n=module))
 
 
 def add_category_to_output_file (dest_dir, category):
@@ -45,32 +38,12 @@ def add_category_to_output_file (dest_dir, category):
 
 ###############################################################################
 
-def process_file (file_path, dest_dir):
-
-	root, ext = os.path.splitext (os.path.basename (file_path))
-
-	if not ext == ".cmake": return
-
-	with open (file_path, "r") as f:
-		content = f.read()
-	
-	if not content.startswith ("#[["): return
-
-	content = content[content.find("\n")+1:content.find("]]")]
-
-	output_file = os.path.join (dest_dir, root + ".md")
-
-	with open (output_file, "w") as f:
-		f.write (content)
-
-	add_module (dest_dir, root)
-
-#
-
 def process_files_in_subdir (dirpath, dest_dir, category):
 
 	if not os.path.isdir (dest_dir):
 		os.makedirs (dest_dir)
+
+	dest_file = get_output_file (dest_dir)
 
 	add_category_to_output_file (dest_dir, category)
 
@@ -78,9 +51,7 @@ def process_files_in_subdir (dirpath, dest_dir, category):
 		for file in filenames:
 			file_path = os.path.join (dirpath, file)
 			if os.path.isfile (file_path):
-				process_file (file_path, dest_dir)
-
-	dest_file = get_output_file (dest_dir)
+				process_file (file_path, dest_dir, dest_file, category)
 
 	if os.path.isfile (dest_file):
 		with open (dest_file, "a") as f:

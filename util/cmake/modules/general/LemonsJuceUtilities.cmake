@@ -1,10 +1,10 @@
 #[[
-# LemonsJuceUtilities   {#LemonsJuceUtilities}
+General JUCE CMake utilities.
 
 ## Includes:
 - LemonsGetCPM
-- [LemonsAssetsHelpers](@ref LemonsAssetsHelpers)
-- [LemonsDefaultMacOsOptions](@ref LemonsDefaultMacOsOptions), on Apple platforms only
+- LemonsAssetsHelpers
+- LemonsDefaultMacOsOptions
 
 
 ## Include-time actions:

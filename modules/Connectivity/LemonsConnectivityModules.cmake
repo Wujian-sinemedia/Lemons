@@ -1,10 +1,8 @@
 #[[
-# LemonsConnectivityModules     {#LemonsConnectivityModules}
-
 Includes Lemons JUCE modules for connectivity and networking APIs.
 
 ## Includes:
-- [LemonsJuceModuleUtilities](@ref LemonsJuceModuleUtilities)
+- LemonsJuceModuleUtilities
 
 ## Include-time actions:
 Adds the MTS-ESP library via CPM.cmake.
