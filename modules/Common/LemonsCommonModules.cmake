@@ -1,5 +1,5 @@
 #[[
-# Module: LemonsCommonModules
+# LemonsCommonModules
 
 Includes the common Lemons JUCE modules.
 

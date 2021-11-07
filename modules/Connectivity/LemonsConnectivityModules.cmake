@@ -1,5 +1,5 @@
 #[[
-# Module: LemonsConnectivityModules
+# LemonsConnectivityModules
 
 Includes Lemons JUCE modules for connectivity and networking APIs.
 

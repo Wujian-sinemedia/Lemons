@@ -1,5 +1,5 @@
 #[[
-# Module: LemonsPluginModules
+# LemonsPluginModules
 
 Includes audio plugin-related JUCE modules and CMake utilities into your build.
 

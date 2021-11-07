@@ -1,5 +1,5 @@
 #[[
-# Module: LemonsAudioModules
+# LemonsAudioModules
 
 Includes audio-related Lemons JUCE modules in your build.
 

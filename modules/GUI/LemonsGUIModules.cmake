@@ -1,5 +1,5 @@
 #[[
-# Module: LemonsGUIModules
+# LemonsGUIModules
 
 Includes Lemons JUCE modules for building GUIs.
 

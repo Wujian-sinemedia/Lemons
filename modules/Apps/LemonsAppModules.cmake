@@ -1,5 +1,5 @@
 #[[
-# Module: LemonsAppModules
+# LemonsAppModules
 
 Includes app-related Lemons JUCE modules and CMake utilities.
 
