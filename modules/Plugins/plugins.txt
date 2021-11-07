@@ -1,2 +1,1 @@
 Building blocks for audio plugins
-To use these JUCE modules, include the `LemonsPluginModules` CMake module, and link against the LemonsPluginModules target.

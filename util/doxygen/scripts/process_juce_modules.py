@@ -129,10 +129,21 @@ def process_category_description (file_path):
         return
 
     with open (file_path, "r") as f:
-        shortDescription = f.readline()
-        detailedDescription = f.readline()
+        description = f.read()
 
-    return shortDescription, detailedDescription
+    category_cmake_module = ""
+
+    for dirpath, dirnames, filenames in os.walk (os.path.abspath (os.path.dirname (file_path))):
+        for file in filenames:
+            root, ext = os.path.splitext (file)
+            if ext == ".cmake": category_cmake_module = root
+
+    if not category_cmake_module:
+        raise Exception("Can't find CMake module in this JUCE module category directory!")
+
+    cmakeInfo = "To use these JUCE modules, include the `{n}` CMake module, and link against the `{n}` target.".format(n=category_cmake_module)
+
+    return description, cmakeInfo
 
 ###############################################################################
 

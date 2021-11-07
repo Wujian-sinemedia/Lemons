@@ -14,6 +14,7 @@ Clean:
 * docs/
 * .github/docs/
 * util/cmake/modules/translations/scripts/__pycache__/
+* util/doxygen/scripts/__pycache__
 * util/install_deps/Brewfile
 * util/install_deps/Brewfile.lock.json
 

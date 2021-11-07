@@ -1,2 +1,1 @@
 Common building blocks and utilities
-To use these JUCE modules, include the `LemonsCommonModules` CMake module, and link against the LemonsCommonModules target.
