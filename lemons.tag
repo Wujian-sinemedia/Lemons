@@ -14,7 +14,7 @@
   </compound>
   <compound kind="file">
     <name>AllLemonsModules.md</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_all_lemons_modules_8md.html</filename>
   </compound>
   <compound kind="file">
@@ -156,7 +156,7 @@
   </compound>
   <compound kind="file">
     <name>BVBrandFlags.md</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_b_v_brand_flags_8md.html</filename>
   </compound>
   <compound kind="file">
@@ -626,92 +626,92 @@
   </compound>
   <compound kind="file">
     <name>LemonsAAXUtils.md</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_lemons_a_a_x_utils_8md.html</filename>
   </compound>
   <compound kind="file">
     <name>LemonsAppModules.md</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_lemons_app_modules_8md.html</filename>
   </compound>
   <compound kind="file">
     <name>LemonsAppUtilities.md</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_lemons_app_utilities_8md.html</filename>
   </compound>
   <compound kind="file">
     <name>LemonsAssetsHelpers.md</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_lemons_assets_helpers_8md.html</filename>
   </compound>
   <compound kind="file">
     <name>LemonsAudioModules.md</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_lemons_audio_modules_8md.html</filename>
   </compound>
   <compound kind="file">
     <name>LemonsCcacheIntegration.md</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_lemons_ccache_integration_8md.html</filename>
   </compound>
   <compound kind="file">
     <name>LemonsClangFormatIntegration.md</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_lemons_clang_format_integration_8md.html</filename>
   </compound>
   <compound kind="file">
     <name>LemonsCommonModules.md</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_lemons_common_modules_8md.html</filename>
   </compound>
   <compound kind="file">
     <name>LemonsConnectivityModules.md</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_lemons_connectivity_modules_8md.html</filename>
   </compound>
   <compound kind="file">
     <name>LemonsDefaultMacOsOptions.md</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_lemons_default_mac_os_options_8md.html</filename>
   </compound>
   <compound kind="file">
     <name>LemonsFileUtils.md</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_lemons_file_utils_8md.html</filename>
   </compound>
   <compound kind="file">
     <name>LemonsGUIModules.md</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_lemons_g_u_i_modules_8md.html</filename>
   </compound>
   <compound kind="file">
     <name>LemonsJuceModuleUtilities.md</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_lemons_juce_module_utilities_8md.html</filename>
   </compound>
   <compound kind="file">
     <name>LemonsJuceUtilities.md</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_lemons_juce_utilities_8md.html</filename>
   </compound>
   <compound kind="file">
     <name>LemonsPluginModules.md</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_lemons_plugin_modules_8md.html</filename>
   </compound>
   <compound kind="file">
     <name>LemonsPluginUtilities.md</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_lemons_plugin_utilities_8md.html</filename>
   </compound>
   <compound kind="file">
     <name>LemonsPluginvalUtils.md</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_lemons_pluginval_utils_8md.html</filename>
   </compound>
   <compound kind="file">
     <name>LemonsTranslationFileGeneration.md</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_lemons_translation_file_generation_8md.html</filename>
   </compound>
   <compound kind="file">
