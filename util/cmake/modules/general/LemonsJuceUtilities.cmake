@@ -26,14 +26,14 @@ function (lemons_enable_plugin_hosting target)
         return()
     endif()
 
-    target_compile_definitions ("${target}" PRIVATE JUCE_PLUGINHOST_VST3=1 JUCE_PLUGINHOST_LADSPA=1)
+    target_compile_definitions ("${target}" PUBLIC JUCE_PLUGINHOST_VST3=1 JUCE_PLUGINHOST_LADSPA=1)
 
     if (LEMONS_VST2_SDK_PATH)
-        target_compile_definitions ("${target}" PRIVATE  JUCE_PLUGINHOST_VST=1)
+        target_compile_definitions ("${target}" PUBLIC  JUCE_PLUGINHOST_VST=1)
     endif()
 
     if (APPLE)
-        target_compile_definitions ("${target}" PRIVATE JUCE_PLUGINHOST_AU=1)
+        target_compile_definitions ("${target}" PUBLIC JUCE_PLUGINHOST_AU=1)
     endif()
 endfunction()
 
@@ -71,7 +71,7 @@ function (lemons_configure_juce_target)
         juce::juce_recommended_lto_flags
         juce::juce_recommended_warning_flags)
 
-    target_compile_features (${LEMONS_TARGETCONFIG_TARGET} PUBLIC cxx_std_${LEMONS_CXX_VERSION})
+    target_compile_features (${LEMONS_TARGETCONFIG_TARGET} PUBLIC cxx_std_${CMAKE_CXX_STANDARD})
 
     if (APPLE)
         lemons_set_default_macos_options (${LEMONS_TARGETCONFIG_TARGET})

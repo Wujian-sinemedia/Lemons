@@ -14,10 +14,6 @@ macro (_lemons_configure_app_internal)
 
     cmake_parse_arguments (LEMONS_APP "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
-    if (NOT LEMONS_APP_TARGET)
-        message(FATAL_ERROR "boo :(")
-    endif()
-
     if (NOT TARGET ALL_APPS)
         add_custom_target (ALL_APPS COMMENT "Building all apps...")
     endif()

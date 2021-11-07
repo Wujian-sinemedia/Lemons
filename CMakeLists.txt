@@ -7,8 +7,8 @@ project (Lemons VERSION 0.1.0 LANGUAGES CXX C)
 
 # Options and settings
 
-set (LEMONS_CXX_VERSION 20 CACHE STRING "C++ standard version")
-mark_as_advanced (FORCE LEMONS_CXX_VERSION)
+set (CMAKE_CXX_STANDARD 20 CACHE STRING "C++ standard version")
+mark_as_advanced (FORCE CMAKE_CXX_STANDARD)
 
 set (LEMONS_SANITIZERS_TO_ENABLE "" CACHE STRING "List of sanitizers to enable")
 
@@ -38,7 +38,6 @@ set_property (GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER "Targets")
 
 set (CMAKE_SUPPRESS_REGENERATION   TRUE CACHE INTERNAL "")
 set (CMAKE_EXPORT_COMPILE_COMMANDS TRUE CACHE INTERNAL "")
-set (CMAKE_CXX_STANDARD            ${LEMONS_CXX_VERSION} CACHE INTERNAL "")
 set (CMAKE_CXX_STANDARD_REQUIRED   ON CACHE INTERNAL "")
 set (CMAKE_INCLUDE_CURRENT_DIR     ON CACHE INTERNAL "")
 
@@ -51,7 +50,8 @@ set (CPM_Lemons_SOURCE "${CMAKE_CURRENT_LIST_DIR}" CACHE INTERNAL "")
 list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/modules")
 list (APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/util/cmake/GetLemons")
 
-foreach (directory "${CMAKE_CURRENT_LIST_DIR}/util/cmake/modules" "${CMAKE_CURRENT_LIST_DIR}/modules")
+foreach (directory "util/cmake/modules" "modules")
+	set (directory "${CMAKE_CURRENT_LIST_DIR}/${directory}")
 	file (GLOB children RELATIVE ${directory} ${directory}/*)
 
 	foreach (child ${children})
