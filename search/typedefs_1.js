@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['band_2238',['Band',['../classlemons_1_1dsp_1_1_f_x_1_1_e_q.html#a9da162b53c264d8f4ed4ad8fc1e91aef',1,'lemons::dsp::FX::EQ']]],
-  ['boolparam_2239',['BoolParam',['../namespacelemons.html#afdc5a738ddbcb3f56e372b759736c093',1,'lemons']]]
+  ['band_1757',['Band',['../classlemons_1_1dsp_1_1_f_x_1_1_e_q.html#a9da162b53c264d8f4ed4ad8fc1e91aef',1,'lemons::dsp::FX::EQ']]]
 ];

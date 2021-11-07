@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['jucearrayinterface_1827',['JuceArrayInterface',['../structlemons_1_1serializing_1_1_juce_array_interface.html#a2c0ad17161c25e480ccdc4404dc5aeda',1,'lemons::serializing::JuceArrayInterface']]],
-  ['juceownedarrayinterface_1828',['JuceOwnedArrayInterface',['../structlemons_1_1serializing_1_1_juce_owned_array_interface.html#ad990e6ac2d0d12eef1b07e56e03221ae',1,'lemons::serializing::JuceOwnedArrayInterface']]]
+  ['keypressrecieved_1436',['keyPressRecieved',['../classlemons_1_1gui_1_1_popup_component.html#a4cb50ef3214b3e0109165e1374319950',1,'lemons::gui::PopupComponent']]],
+  ['knot_1437',['Knot',['../structlemons_1_1spline_1_1_knot.html#af03b74500d91ff090a15143ab2612927',1,'lemons::spline::Knot']]],
+  ['knots_1438',['Knots',['../structlemons_1_1spline_1_1_knots.html#abd6d85c0c51d7df629dc07df0674fe3d',1,'lemons::spline::Knots']]]
 ];

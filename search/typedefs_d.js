@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['resizecallback_2261',['ResizeCallback',['../structlemons_1_1serializing_1_1_lambda_container_interface.html#a748a14aa164db3c0c133d38e16f7c001',1,'lemons::serializing::LambdaContainerInterface']]]
+  ['windowtype_1782',['WindowType',['../classlemons_1_1_gui_app.html#aecc78c8f4dee507f282b9e3b648f46da',1,'lemons::GuiApp']]]
 ];

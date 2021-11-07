@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['panparam_2256',['PanParam',['../namespacelemons.html#a08b0d93ff99e2499c9f7c97aeef40954',1,'lemons']]],
-  ['percentparam_2257',['PercentParam',['../namespacelemons.html#a88629dac1e441490a7afe6c6194d8fed',1,'lemons']]],
-  ['pitchparam_2258',['PitchParam',['../namespacelemons.html#adaa61c7c462d4939dc7e66291e51d1c9',1,'lemons']]],
-  ['point_2259',['Point',['../namespacelemons_1_1spline.html#a4815e51376e33169aa821c5b402e1462',1,'lemons::spline']]],
-  ['points_2260',['Points',['../namespacelemons_1_1spline.html#addc7a93d56f97a7f73b2a53cba567b4e',1,'lemons::spline']]]
+  ['voice_1780',['Voice',['../classlemons_1_1dsp_1_1_lambda_synth.html#a18dd4726f53147ab3e612054a332de08',1,'lemons::dsp::LambdaSynth::Voice()'],['../classlemons_1_1dsp_1_1synth_1_1_automated_harmony_voice.html#a362f75f5f7c557177bb35dda72fd1175',1,'lemons::dsp::synth::AutomatedHarmonyVoice::Voice()'],['../classlemons_1_1dsp_1_1synth_1_1_voice_allocator.html#a9e5e973e3bc50210bdbef7f0ae3e971f',1,'lemons::dsp::synth::VoiceAllocator::Voice()']]],
+  ['voicecreationfunc_1781',['VoiceCreationFunc',['../classlemons_1_1dsp_1_1_lambda_synth.html#a05c7d5673a4479b696857a0aceb5a0c9',1,'lemons::dsp::LambdaSynth']]]
 ];

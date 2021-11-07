@@ -1,5 +1,0 @@
-<map id="lemons::TreeReflector" name="lemons::TreeReflector">
-<area shape="rect" id="node1" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope..." alt="" coords="84,5,247,32"/>
-<area shape="rect" id="node2" href="$structlemons_1_1_tree_loader.html" title="Subclass of TreeReflector used for loading state." alt="" coords="5,80,155,107"/>
-<area shape="rect" id="node3" href="$structlemons_1_1_tree_saver.html" title="Subclass of TreeReflector used for saving state." alt="" coords="179,80,322,107"/>
-</map>

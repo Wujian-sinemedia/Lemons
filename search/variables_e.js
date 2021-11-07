@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['rotation_2219',['rotation',['../classlemons_1_1_motion_manager_interface.html#afbb4ab4e2a2c3e9a68b168b5487878df',1,'lemons::MotionManagerInterface']]],
-  ['router_2220',['router',['../classlemons_1_1dsp_1_1synth_1_1_midi_manager.html#a1efb522546be99a0b0c0ec95d1ffbec5',1,'lemons::dsp::synth::MidiManager']]]
+  ['undo_1750',['undo',['../structlemons_1_1plugin_1_1_plugin_state.html#a9baef8928515047ae943e5b5af3f0ae4',1,'lemons::plugin::PluginState']]],
+  ['undomanager_1751',['undoManager',['../classlemons_1_1plugin_1_1_g_u_i_base.html#a786e45ff520ec5ee2b81c0d23425c54d',1,'lemons::plugin::GUIBase']]]
 ];

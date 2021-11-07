@@ -1,4 +1,0 @@
-<map id="lemons::serializing::FileContents" name="lemons::serializing::FileContents">
-<area shape="rect" id="node1" title="A wrapper around a File that, when serializing, loads and saves the file&#39;s entire contents." alt="" coords="25,80,171,121"/>
-<area shape="rect" id="node2" href="$structlemons_1_1_serializable_data.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="5,5,191,32"/>
-</map>

@@ -1,6 +1,5 @@
 <map id="lemons::plugin::SemitonesParameter" name="lemons::plugin::SemitonesParameter">
-<area shape="rect" id="node1" title="A parameter that represents a number of semitones, as an integer." alt="" coords="5,229,200,271"/>
-<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="49,155,156,181"/>
-<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an..." alt="" coords="6,80,199,107"/>
-<area shape="rect" id="node4" href="$structlemons_1_1_serializable_data.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="10,5,195,32"/>
+<area shape="rect" id="node1" title="A parameter that represents a number of semitones, as an integer." alt="" coords="5,155,200,196"/>
+<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_typed_parameter.html" title="A parameter that can be stored as a type other than a float, but still inherits from my Parameter bas..." alt="" coords="49,80,156,107"/>
+<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_parameter.html" title="A plugin parameter class that allows you to use my Serializing API, and has a few other cool bells an..." alt="" coords="6,5,199,32"/>
 </map>

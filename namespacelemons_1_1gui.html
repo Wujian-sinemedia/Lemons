@@ -68,8 +68,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
 <div class="title">lemons::gui Namespace Reference<div class="ingroups"><a class="el" href="group___g_u_i.html">GUI</a> &raquo; <a class="el" href="group__lemons__gui.html">lemons_gui</a> &raquo; <a class="el" href="group__components.html">components</a><a class="el" href="group___g_u_i.html">GUI</a> &raquo; <a class="el" href="group__lemons__gui.html">lemons_gui</a><a class="el" href="group___connectivity.html">Connectivity</a> &raquo;  &#124; <a class="el" href="group__lemons__midi.html">lemons_midi</a> &raquo;  &#124; <a class="el" href="group__utilities.html">utilities</a><a class="el" href="group___plugins.html">Plugins</a> &raquo; <a class="el" href="group__lemons__plugin__gui.html">lemons_plugin_gui</a> &raquo;  &#124; <a class="el" href="group__buttons.html">buttons</a><a class="el" href="group___plugins.html">Plugins</a> &raquo; <a class="el" href="group__lemons__plugin__gui.html">lemons_plugin_gui</a> &raquo;  &#124; <a class="el" href="group__sliders.html">sliders</a></div></div>  </div>
 </div><!--header-->
@@ -113,90 +112,11 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1gui_1_1_toggle_text_button.html">ToggleTextButton</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple wrapper around <a class="el" href="structlemons_1_1gui_1_1_text_button.html" title="A simple wrapper around juce::TextButton that allows you to specify a lambda that will be called when...">TextButton</a> that functions as an on/off toggle and allows you to specify a lambda that will be called when the button is clicked.  <a href="structlemons_1_1gui_1_1_toggle_text_button.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ace177788f88c655a88a7bf34740e1a6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1gui.html#ace177788f88c655a88a7bf34740e1a6c">addAndMakeVisible</a> (juce::Component *parent, juce::Component &amp;child)</td></tr>
-<tr class="memdesc:ace177788f88c655a88a7bf34740e1a6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variadic function that allows adding any number of child components to a parent with a single function call.  <a href="namespacelemons_1_1gui.html#ace177788f88c655a88a7bf34740e1a6c">More...</a><br /></td></tr>
-<tr class="separator:ace177788f88c655a88a7bf34740e1a6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac374f72bc68b6558f9653ad08970d903"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1gui.html#ac374f72bc68b6558f9653ad08970d903">scale</a> (juce::Component &amp;component, const juce::Rectangle&lt; float &gt; &amp;boundsRatio)</td></tr>
-<tr class="memdesc:ac374f72bc68b6558f9653ad08970d903"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scales a component relatively to the bounds of its parent.  <a href="namespacelemons_1_1gui.html#ac374f72bc68b6558f9653ad08970d903">More...</a><br /></td></tr>
-<tr class="separator:ac374f72bc68b6558f9653ad08970d903"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="ace177788f88c655a88a7bf34740e1a6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace177788f88c655a88a7bf34740e1a6c">&#9670;&nbsp;</a></span>addAndMakeVisible()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void lemons::gui::addAndMakeVisible </td>
-          <td>(</td>
-          <td class="paramtype">juce::Component *&#160;</td>
-          <td class="paramname"><em>parent</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">juce::Component &amp;&#160;</td>
-          <td class="paramname"><em>child</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Variadic function that allows adding any number of child components to a parent with a single function call. </p>
-
-<p class="reference">Referenced by <a class="el" href="classlemons_1_1plugin_1_1_plugin_editor.html#a94e909705a449f153d6c3a05dd85f019">lemons::plugin::PluginEditor&lt; ContentComponentType, StateType,, &gt;::PluginEditor()</a>.</p>
-
-</div>
-</div>
-<a id="ac374f72bc68b6558f9653ad08970d903"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac374f72bc68b6558f9653ad08970d903">&#9670;&nbsp;</a></span>scale()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void lemons::gui::scale </td>
-          <td>(</td>
-          <td class="paramtype">juce::Component &amp;&#160;</td>
-          <td class="paramname"><em>component</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const juce::Rectangle&lt; float &gt; &amp;&#160;</td>
-          <td class="paramname"><em>boundsRatio</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Scales a component relatively to the bounds of its parent. </p>
-<p>The ratios are provided in the form of a rectangle, ie {x, y, w, h}. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">component</td><td>The component to scale. This component must have a parent assigned. </td></tr>
-    <tr><td class="paramname">boundsRatio</td><td>The ratio to the parent component's bounds to which the child will be scaled. If you pass {0.f, 0.f, 1.f, 1.f}, the scaled component will take up the entire area of its parent. If you pass {0.5f, 0.5f, 0.5f, 0.5f}, the scaled component will be half the area of the parent and will sit in the lower right corner of the parent. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 7 2021 13:29:35 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 7 2021 21:52:52 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

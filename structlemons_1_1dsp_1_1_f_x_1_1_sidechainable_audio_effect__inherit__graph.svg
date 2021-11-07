@@ -46,7 +46,7 @@ if (edges && edges.length) {
         </defs>
 
 <script type="text/javascript">
-var viewWidth = 1305;
+var viewWidth = 1129;
 var viewHeight = 284;
 var sectionId = 'dynsection-0';
 </script>
@@ -58,201 +58,186 @@ var sectionId = 'dynsection-0';
 <g id="node1" class="node">
 <title>Node1</title>
 <g id="a_node1"><a xlink:title="Base class for audio effects that accept a sidechain signal.">
-<polygon fill="#bfbfbf" stroke="black" points="369,-49.5 369,-79.5 538,-79.5 538,-49.5 369,-49.5"/>
-<text text-anchor="start" x="377" y="-67.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::Sidechainable</text>
-<text text-anchor="middle" x="453.5" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">AudioEffect&lt; SampleType &gt;</text>
+<polygon fill="#bfbfbf" stroke="black" points="193,-49.5 193,-79.5 362,-79.5 362,-49.5 193,-49.5"/>
+<text text-anchor="start" x="201" y="-67.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::Sidechainable</text>
+<text text-anchor="middle" x="277.5" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">AudioEffect&lt; SampleType &gt;</text>
 </a>
 </g>
 </g>
-<!-- Node4 -->
-<g id="node4" class="node">
-<title>Node4</title>
-<g id="a_node4"><a xlink:href="structlemons_1_1dsp_1_1_f_x_1_1_level_reporting_audio_effect.html" target="_top" xlink:title="Base class for audio effects that can report their level or gain reduction.">
-<polygon fill="none" stroke="black" points="622,-98.5 622,-128.5 796,-128.5 796,-98.5 622,-98.5"/>
-<text text-anchor="start" x="630" y="-116.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::LevelReporting</text>
-<text text-anchor="middle" x="709" y="-105.5" font-family="Helvetica,sans-Serif" font-size="10.00">AudioEffect&lt; SampleType &gt;</text>
+<!-- Node3 -->
+<g id="node3" class="node">
+<title>Node3</title>
+<g id="a_node3"><a xlink:href="structlemons_1_1dsp_1_1_f_x_1_1_level_reporting_audio_effect.html" target="_top" xlink:title="Base class for audio effects that can report their level or gain reduction.">
+<polygon fill="none" stroke="black" points="446,-98.5 446,-128.5 620,-128.5 620,-98.5 446,-98.5"/>
+<text text-anchor="start" x="454" y="-116.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::LevelReporting</text>
+<text text-anchor="middle" x="533" y="-105.5" font-family="Helvetica,sans-Serif" font-size="10.00">AudioEffect&lt; SampleType &gt;</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node4 -->
-<g id="edge3" class="edge">
-<title>Node1&#45;&gt;Node4</title>
-<path fill="none" stroke="midnightblue" d="M542.28,-81.47C570.93,-87 602.52,-93.11 630.37,-98.49"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="542.76,-78 532.28,-79.53 541.44,-84.87 542.76,-78"/>
+<!-- Node1&#45;&gt;Node3 -->
+<g id="edge2" class="edge">
+<title>Node1&#45;&gt;Node3</title>
+<path fill="none" stroke="midnightblue" d="M366.28,-81.47C394.93,-87 426.52,-93.11 454.37,-98.49"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="366.76,-78 356.28,-79.53 365.44,-84.87 366.76,-78"/>
 </g>
-<!-- Node12 -->
-<g id="node12" class="node">
-<title>Node12</title>
-<g id="a_node12"><a xlink:href="structlemons_1_1dsp_1_1_f_x_1_1_sidechainable_audio_effect.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="624.5,-25.5 624.5,-55.5 793.5,-55.5 793.5,-25.5 624.5,-25.5"/>
-<text text-anchor="start" x="632.5" y="-43.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::Sidechainable</text>
-<text text-anchor="middle" x="709" y="-32.5" font-family="Helvetica,sans-Serif" font-size="10.00">AudioEffect&lt; float &gt;</text>
+<!-- Node11 -->
+<g id="node11" class="node">
+<title>Node11</title>
+<g id="a_node11"><a xlink:href="structlemons_1_1dsp_1_1_f_x_1_1_sidechainable_audio_effect.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="448.5,-25.5 448.5,-55.5 617.5,-55.5 617.5,-25.5 448.5,-25.5"/>
+<text text-anchor="start" x="456.5" y="-43.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::Sidechainable</text>
+<text text-anchor="middle" x="533" y="-32.5" font-family="Helvetica,sans-Serif" font-size="10.00">AudioEffect&lt; float &gt;</text>
 </a>
 </g>
 </g>
-<!-- Node1&#45;&gt;Node12 -->
-<g id="edge12" class="edge">
-<title>Node1&#45;&gt;Node12</title>
-<path fill="none" stroke="orange" stroke-dasharray="5,2" d="M548.39,-55.61C573.31,-53.25 600.05,-50.72 624.38,-48.42"/>
-<polygon fill="orange" stroke="orange" points="547.83,-52.15 538.21,-56.57 548.49,-59.12 547.83,-52.15"/>
-<text text-anchor="middle" x="580" y="-58.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &lt; float &gt;</text>
+<!-- Node1&#45;&gt;Node11 -->
+<g id="edge11" class="edge">
+<title>Node1&#45;&gt;Node11</title>
+<path fill="none" stroke="orange" stroke-dasharray="5,2" d="M372.39,-55.61C397.31,-53.25 424.05,-50.72 448.38,-48.42"/>
+<polygon fill="orange" stroke="orange" points="371.83,-52.15 362.21,-56.57 372.49,-59.12 371.83,-52.15"/>
+<text text-anchor="middle" x="404" y="-58.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &lt; float &gt;</text>
 </g>
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
 <g id="a_node2"><a xlink:href="structlemons_1_1dsp_1_1_f_x_1_1_audio_effect.html" target="_top" xlink:title="Base class for any kind of audio effect.">
-<polygon fill="none" stroke="black" points="176,-49.5 176,-79.5 332,-79.5 332,-49.5 176,-49.5"/>
-<text text-anchor="start" x="184" y="-67.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::AudioEffect</text>
-<text text-anchor="middle" x="254" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>
+<polygon fill="none" stroke="black" points="0,-49.5 0,-79.5 156,-79.5 156,-49.5 0,-49.5"/>
+<text text-anchor="start" x="8" y="-67.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::AudioEffect</text>
+<text text-anchor="middle" x="78" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>
 </a>
 </g>
 </g>
 <!-- Node2&#45;&gt;Node1 -->
 <g id="edge1" class="edge">
 <title>Node2&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M342.43,-64.5C351.2,-64.5 360.09,-64.5 368.82,-64.5"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="342.21,-61 332.21,-64.5 342.21,-68 342.21,-61"/>
+<path fill="none" stroke="midnightblue" d="M166.43,-64.5C175.2,-64.5 184.09,-64.5 192.82,-64.5"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="166.21,-61 156.21,-64.5 166.21,-68 166.21,-61"/>
 </g>
-<!-- Node3 -->
-<g id="node3" class="node">
-<title>Node3</title>
-<g id="a_node3"><a xlink:href="structlemons_1_1_serializable_data.html" target="_top" xlink:title="Base class for any C++ object that needs to be serialized to binary and back.">
-<polygon fill="none" stroke="black" points="0,-55 0,-74 139,-74 139,-55 0,-55"/>
-<text text-anchor="middle" x="69.5" y="-62" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::SerializableData</text>
+<!-- Node4 -->
+<g id="node4" class="node">
+<title>Node4</title>
+<g id="a_node4"><a xlink:href="classlemons_1_1dsp_1_1_f_x_1_1_compressor.html" target="_top" xlink:title="A simple compressor effect class that allows you to optionally sidechain the signal.">
+<polygon fill="none" stroke="black" points="711.5,-245.5 711.5,-275.5 870.5,-275.5 870.5,-245.5 711.5,-245.5"/>
+<text text-anchor="start" x="719.5" y="-263.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::Compressor</text>
+<text text-anchor="middle" x="791" y="-252.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>
 </a>
 </g>
 </g>
-<!-- Node3&#45;&gt;Node2 -->
-<g id="edge2" class="edge">
-<title>Node3&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M149.41,-64.5C158.15,-64.5 167.04,-64.5 175.76,-64.5"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="149.24,-61 139.24,-64.5 149.24,-68 149.24,-61"/>
+<!-- Node3&#45;&gt;Node4 -->
+<g id="edge3" class="edge">
+<title>Node3&#45;&gt;Node4</title>
+<path fill="none" stroke="midnightblue" d="M558.35,-135.47C589.83,-162.81 647.37,-209.2 704,-236.5 710.98,-239.87 718.52,-242.83 726.12,-245.43"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="560.38,-132.6 550.55,-128.63 555.76,-137.86 560.38,-132.6"/>
+</g>
+<!-- Node6 -->
+<g id="node6" class="node">
+<title>Node6</title>
+<g id="a_node6"><a xlink:href="classlemons_1_1dsp_1_1_f_x_1_1_de_esser.html" target="_top" xlink:title="A basic &quot;de&#45;esser&quot; effect class.">
+<polygon fill="none" stroke="black" points="721,-196.5 721,-226.5 861,-226.5 861,-196.5 721,-196.5"/>
+<text text-anchor="start" x="729" y="-214.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::DeEsser</text>
+<text text-anchor="middle" x="791" y="-203.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>
+</a>
+</g>
+</g>
+<!-- Node3&#45;&gt;Node6 -->
+<g id="edge5" class="edge">
+<title>Node3&#45;&gt;Node6</title>
+<path fill="none" stroke="midnightblue" d="M574.28,-132.92C608.33,-148.87 658.67,-171.4 704,-187.5 712.91,-190.67 722.46,-193.68 731.83,-196.45"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="575.66,-129.7 565.12,-128.6 572.67,-136.03 575.66,-129.7"/>
+</g>
+<!-- Node7 -->
+<g id="node7" class="node">
+<title>Node7</title>
+<g id="a_node7"><a xlink:href="classlemons_1_1dsp_1_1_f_x_1_1_delay.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="726.5,-147.5 726.5,-177.5 855.5,-177.5 855.5,-147.5 726.5,-147.5"/>
+<text text-anchor="start" x="734.5" y="-165.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::Delay</text>
+<text text-anchor="middle" x="791" y="-154.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>
+</a>
+</g>
+</g>
+<!-- Node3&#45;&gt;Node7 -->
+<g id="edge6" class="edge">
+<title>Node3&#45;&gt;Node7</title>
+<path fill="none" stroke="midnightblue" d="M622.52,-130.44C656.62,-136.97 694.86,-144.29 726.19,-150.29"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="623.03,-126.98 612.55,-128.53 621.71,-133.85 623.03,-126.98"/>
+</g>
+<!-- Node8 -->
+<g id="node8" class="node">
+<title>Node8</title>
+<g id="a_node8"><a xlink:href="classlemons_1_1dsp_1_1_f_x_1_1_limiter.html" target="_top" xlink:title="A simple limiter effect class that allows you to optionally sidechain the signal.">
+<polygon fill="none" stroke="black" points="723.5,-98.5 723.5,-128.5 858.5,-128.5 858.5,-98.5 723.5,-98.5"/>
+<text text-anchor="start" x="731.5" y="-116.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::Limiter</text>
+<text text-anchor="middle" x="791" y="-105.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>
+</a>
+</g>
+</g>
+<!-- Node3&#45;&gt;Node8 -->
+<g id="edge7" class="edge">
+<title>Node3&#45;&gt;Node8</title>
+<path fill="none" stroke="midnightblue" d="M630.7,-113.5C661.64,-113.5 695.18,-113.5 723.48,-113.5"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="630.31,-110 620.31,-113.5 630.31,-117 630.31,-110"/>
+</g>
+<!-- Node9 -->
+<g id="node9" class="node">
+<title>Node9</title>
+<g id="a_node9"><a xlink:href="classlemons_1_1dsp_1_1_f_x_1_1_noise_gate.html" target="_top" xlink:title="A simple noise gate effect class that allows you to optionally sidechain the signal.">
+<polygon fill="none" stroke="black" points="715,-49.5 715,-79.5 867,-79.5 867,-49.5 715,-49.5"/>
+<text text-anchor="start" x="723" y="-67.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::NoiseGate</text>
+<text text-anchor="middle" x="791" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>
+</a>
+</g>
+</g>
+<!-- Node3&#45;&gt;Node9 -->
+<g id="edge8" class="edge">
+<title>Node3&#45;&gt;Node9</title>
+<path fill="none" stroke="midnightblue" d="M622.59,-96.54C652.59,-90.8 685.8,-84.45 714.67,-78.92"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="621.71,-93.15 612.55,-98.47 623.03,-100.02 621.71,-93.15"/>
+</g>
+<!-- Node10 -->
+<g id="node10" class="node">
+<title>Node10</title>
+<g id="a_node10"><a xlink:href="structlemons_1_1dsp_1_1_f_x_1_1_level_reporting_audio_effect.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="704,-0.5 704,-30.5 878,-30.5 878,-0.5 704,-0.5"/>
+<text text-anchor="start" x="712" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::LevelReporting</text>
+<text text-anchor="middle" x="791" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">AudioEffect&lt; float &gt;</text>
+</a>
+</g>
+</g>
+<!-- Node3&#45;&gt;Node10 -->
+<g id="edge9" class="edge">
+<title>Node3&#45;&gt;Node10</title>
+<path fill="none" stroke="orange" stroke-dasharray="5,2" d="M574.28,-94.08C608.33,-78.13 658.67,-55.6 704,-39.5 712.91,-36.33 722.46,-33.32 731.83,-30.55"/>
+<polygon fill="orange" stroke="orange" points="572.67,-90.97 565.12,-98.4 575.66,-97.3 572.67,-90.97"/>
+<text text-anchor="middle" x="662" y="-67.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &lt; float &gt;</text>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node">
 <title>Node5</title>
-<g id="a_node5"><a xlink:href="classlemons_1_1dsp_1_1_f_x_1_1_compressor.html" target="_top" xlink:title="A simple compressor effect class that allows you to optionally sidechain the signal.">
-<polygon fill="none" stroke="black" points="887.5,-245.5 887.5,-275.5 1046.5,-275.5 1046.5,-245.5 887.5,-245.5"/>
-<text text-anchor="start" x="895.5" y="-263.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::Compressor</text>
-<text text-anchor="middle" x="967" y="-252.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>
+<g id="a_node5"><a xlink:href="classlemons_1_1dsp_1_1_f_x_1_1_compressor.html" target="_top" xlink:title=" ">
+<polygon fill="none" stroke="black" points="962,-122.5 962,-152.5 1121,-152.5 1121,-122.5 962,-122.5"/>
+<text text-anchor="start" x="970" y="-140.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::Compressor</text>
+<text text-anchor="middle" x="1041.5" y="-129.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; float &gt;</text>
 </a>
 </g>
 </g>
 <!-- Node4&#45;&gt;Node5 -->
 <g id="edge4" class="edge">
 <title>Node4&#45;&gt;Node5</title>
-<path fill="none" stroke="midnightblue" d="M734.35,-135.47C765.83,-162.81 823.37,-209.2 880,-236.5 886.98,-239.87 894.52,-242.83 902.12,-245.43"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="736.38,-132.6 726.55,-128.63 731.76,-137.86 736.38,-132.6"/>
+<path fill="none" stroke="orange" stroke-dasharray="5,2" d="M863.44,-242.22C868.42,-240.44 873.32,-238.53 878,-236.5 932.24,-212.95 990.08,-173.93 1019.96,-152.59"/>
+<polygon fill="orange" stroke="orange" points="862.14,-238.96 853.79,-245.48 864.39,-245.59 862.14,-238.96"/>
+<text text-anchor="middle" x="920" y="-230.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &lt; float &gt;</text>
 </g>
-<!-- Node7 -->
-<g id="node7" class="node">
-<title>Node7</title>
-<g id="a_node7"><a xlink:href="classlemons_1_1dsp_1_1_f_x_1_1_de_esser.html" target="_top" xlink:title="A basic &quot;de&#45;esser&quot; effect class.">
-<polygon fill="none" stroke="black" points="897,-196.5 897,-226.5 1037,-226.5 1037,-196.5 897,-196.5"/>
-<text text-anchor="start" x="905" y="-214.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::DeEsser</text>
-<text text-anchor="middle" x="967" y="-203.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>
-</a>
-</g>
-</g>
-<!-- Node4&#45;&gt;Node7 -->
-<g id="edge6" class="edge">
-<title>Node4&#45;&gt;Node7</title>
-<path fill="none" stroke="midnightblue" d="M750.28,-132.92C784.33,-148.87 834.67,-171.4 880,-187.5 888.91,-190.67 898.46,-193.68 907.83,-196.45"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="751.66,-129.7 741.12,-128.6 748.67,-136.03 751.66,-129.7"/>
-</g>
-<!-- Node8 -->
-<g id="node8" class="node">
-<title>Node8</title>
-<g id="a_node8"><a xlink:href="classlemons_1_1dsp_1_1_f_x_1_1_delay.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="902.5,-147.5 902.5,-177.5 1031.5,-177.5 1031.5,-147.5 902.5,-147.5"/>
-<text text-anchor="start" x="910.5" y="-165.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::Delay</text>
-<text text-anchor="middle" x="967" y="-154.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>
-</a>
-</g>
-</g>
-<!-- Node4&#45;&gt;Node8 -->
-<g id="edge7" class="edge">
-<title>Node4&#45;&gt;Node8</title>
-<path fill="none" stroke="midnightblue" d="M798.52,-130.44C832.62,-136.97 870.86,-144.29 902.19,-150.29"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="799.03,-126.98 788.55,-128.53 797.71,-133.85 799.03,-126.98"/>
-</g>
-<!-- Node9 -->
-<g id="node9" class="node">
-<title>Node9</title>
-<g id="a_node9"><a xlink:href="classlemons_1_1dsp_1_1_f_x_1_1_limiter.html" target="_top" xlink:title="A simple limiter effect class that allows you to optionally sidechain the signal.">
-<polygon fill="none" stroke="black" points="899.5,-98.5 899.5,-128.5 1034.5,-128.5 1034.5,-98.5 899.5,-98.5"/>
-<text text-anchor="start" x="907.5" y="-116.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::Limiter</text>
-<text text-anchor="middle" x="967" y="-105.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>
-</a>
-</g>
-</g>
-<!-- Node4&#45;&gt;Node9 -->
-<g id="edge8" class="edge">
-<title>Node4&#45;&gt;Node9</title>
-<path fill="none" stroke="midnightblue" d="M806.7,-113.5C837.64,-113.5 871.18,-113.5 899.48,-113.5"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="806.31,-110 796.31,-113.5 806.31,-117 806.31,-110"/>
-</g>
-<!-- Node10 -->
-<g id="node10" class="node">
-<title>Node10</title>
-<g id="a_node10"><a xlink:href="classlemons_1_1dsp_1_1_f_x_1_1_noise_gate.html" target="_top" xlink:title="A simple noise gate effect class that allows you to optionally sidechain the signal.">
-<polygon fill="none" stroke="black" points="891,-49.5 891,-79.5 1043,-79.5 1043,-49.5 891,-49.5"/>
-<text text-anchor="start" x="899" y="-67.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::NoiseGate</text>
-<text text-anchor="middle" x="967" y="-56.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>
-</a>
-</g>
-</g>
-<!-- Node4&#45;&gt;Node10 -->
-<g id="edge9" class="edge">
-<title>Node4&#45;&gt;Node10</title>
-<path fill="none" stroke="midnightblue" d="M798.59,-96.54C828.59,-90.8 861.8,-84.45 890.67,-78.92"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="797.71,-93.15 788.55,-98.47 799.03,-100.02 797.71,-93.15"/>
-</g>
-<!-- Node11 -->
-<g id="node11" class="node">
-<title>Node11</title>
-<g id="a_node11"><a xlink:href="structlemons_1_1dsp_1_1_f_x_1_1_level_reporting_audio_effect.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="880,-0.5 880,-30.5 1054,-30.5 1054,-0.5 880,-0.5"/>
-<text text-anchor="start" x="888" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::LevelReporting</text>
-<text text-anchor="middle" x="967" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">AudioEffect&lt; float &gt;</text>
-</a>
-</g>
-</g>
-<!-- Node4&#45;&gt;Node11 -->
+<!-- Node10&#45;&gt;Node5 -->
 <g id="edge10" class="edge">
-<title>Node4&#45;&gt;Node11</title>
-<path fill="none" stroke="orange" stroke-dasharray="5,2" d="M750.28,-94.08C784.33,-78.13 834.67,-55.6 880,-39.5 888.91,-36.33 898.46,-33.32 907.83,-30.55"/>
-<polygon fill="orange" stroke="orange" points="748.67,-90.97 741.12,-98.4 751.66,-97.3 748.67,-90.97"/>
-<text text-anchor="middle" x="838" y="-67.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &lt; float &gt;</text>
+<title>Node10&#45;&gt;Node5</title>
+<path fill="none" stroke="midnightblue" d="M863.43,-33.81C868.42,-35.58 873.32,-37.48 878,-39.5 931.99,-62.8 989.7,-101.25 1019.68,-122.4"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="864.37,-30.43 853.78,-30.55 862.14,-37.06 864.37,-30.43"/>
 </g>
-<!-- Node6 -->
-<g id="node6" class="node">
-<title>Node6</title>
-<g id="a_node6"><a xlink:href="classlemons_1_1dsp_1_1_f_x_1_1_compressor.html" target="_top" xlink:title=" ">
-<polygon fill="none" stroke="black" points="1138,-122.5 1138,-152.5 1297,-152.5 1297,-122.5 1138,-122.5"/>
-<text text-anchor="start" x="1146" y="-140.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::FX::Compressor</text>
-<text text-anchor="middle" x="1217.5" y="-129.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; float &gt;</text>
-</a>
-</g>
-</g>
-<!-- Node5&#45;&gt;Node6 -->
-<g id="edge5" class="edge">
-<title>Node5&#45;&gt;Node6</title>
-<path fill="none" stroke="orange" stroke-dasharray="5,2" d="M1039.44,-242.22C1044.42,-240.44 1049.32,-238.53 1054,-236.5 1108.24,-212.95 1166.08,-173.93 1195.96,-152.59"/>
-<polygon fill="orange" stroke="orange" points="1038.14,-238.96 1029.79,-245.48 1040.39,-245.59 1038.14,-238.96"/>
-<text text-anchor="middle" x="1096" y="-230.5" font-family="Helvetica,sans-Serif" font-size="10.00"> &lt; float &gt;</text>
-</g>
-<!-- Node11&#45;&gt;Node6 -->
-<g id="edge11" class="edge">
-<title>Node11&#45;&gt;Node6</title>
-<path fill="none" stroke="midnightblue" d="M1039.43,-33.81C1044.42,-35.58 1049.32,-37.48 1054,-39.5 1107.99,-62.8 1165.7,-101.25 1195.68,-122.4"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="1040.37,-30.43 1029.78,-30.55 1038.14,-37.06 1040.37,-30.43"/>
-</g>
-<!-- Node12&#45;&gt;Node11 -->
-<g id="edge13" class="edge">
-<title>Node12&#45;&gt;Node11</title>
-<path fill="none" stroke="midnightblue" d="M803.96,-30.5C807.35,-30.16 810.7,-29.83 814,-29.5 835.36,-27.39 858.42,-25.21 879.97,-23.22"/>
-<polygon fill="midnightblue" stroke="midnightblue" points="803.31,-27.05 793.72,-31.55 804.02,-34.02 803.31,-27.05"/>
+<!-- Node11&#45;&gt;Node10 -->
+<g id="edge12" class="edge">
+<title>Node11&#45;&gt;Node10</title>
+<path fill="none" stroke="midnightblue" d="M627.96,-30.5C631.35,-30.16 634.7,-29.83 638,-29.5 659.36,-27.39 682.42,-25.21 703.97,-23.22"/>
+<polygon fill="midnightblue" stroke="midnightblue" points="627.31,-27.05 617.72,-31.55 628.02,-34.02 627.31,-27.05"/>
 </g>
 </g>
 </svg>

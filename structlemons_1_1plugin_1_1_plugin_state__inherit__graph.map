@@ -1,5 +1,4 @@
 <map id="lemons::plugin::PluginState&lt; StateType, &gt;" name="lemons::plugin::PluginState&lt; StateType, &gt;">
-<area shape="rect" id="node1" title="Represents the top&#45;level state of a plugin as a whole." alt="" coords="5,81,205,123"/>
-<area shape="rect" id="node3" href="$structlemons_1_1plugin_1_1_plugin_state.html" title=" " alt="" coords="5,185,205,227"/>
-<area shape="rect" id="node2" href="$structlemons_1_1_serializable_data.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="13,5,198,32"/>
+<area shape="rect" id="node1" title="Represents the top&#45;level state of a plugin as a whole." alt="" coords="5,5,205,47"/>
+<area shape="rect" id="node2" href="$structlemons_1_1plugin_1_1_plugin_state.html" title=" " alt="" coords="5,109,205,151"/>
 </map>

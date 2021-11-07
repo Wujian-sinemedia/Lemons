@@ -1,15 +1,11 @@
 var searchData=
 [
-  ['newblockcoming_1877',['newBlockComing',['../classlemons_1_1dsp_1_1_synth_voice_base.html#a2fdfe023fcaebb4ccd8f27e57d564b2b',1,'lemons::dsp::SynthVoiceBase']]],
-  ['newpitchbendrecieved_1878',['newPitchbendRecieved',['../classlemons_1_1midi_1_1_pitch_bend_tracker.html#a209a730f6d0c397bb086da6e0b216312',1,'lemons::midi::PitchBendTracker']]],
-  ['next_1879',['next',['../structlemons_1_1dsp_1_1osc_1_1_phase.html#a43a5cf0e92b7d5a32b40a6a6aae258c0',1,'lemons::dsp::osc::Phase']]],
-  ['noisegate_1880',['NoiseGate',['../classlemons_1_1dsp_1_1_f_x_1_1_noise_gate.html#ab3e228df0aaef4d9e2a132132c07eb46',1,'lemons::dsp::FX::NoiseGate::NoiseGate()'],['../classlemons_1_1dsp_1_1_f_x_1_1_noise_gate.html#a2d85157fc7cbdb8321210f14ec4ddad4',1,'lemons::dsp::FX::NoiseGate::NoiseGate(float threshDB, float ratioToUse, float attackMs, float releaseMs, bool shouldBeInverted=false)']]],
-  ['nonrealtimemutatable_1881',['NonrealtimeMutatable',['../classlemons_1_1serializing_1_1_nonrealtime_mutatable.html#ac2cc41a764875eade21910e6b36970ea',1,'lemons::serializing::NonrealtimeMutatable::NonrealtimeMutatable()=default'],['../classlemons_1_1serializing_1_1_nonrealtime_mutatable.html#a0baca81aa406689632751021313f9685',1,'lemons::serializing::NonrealtimeMutatable::NonrealtimeMutatable(ObjectType &amp;obj)'],['../classlemons_1_1serializing_1_1_nonrealtime_mutatable.html#a6bdf81a29948c42dce6ed7147ecc5fef',1,'lemons::serializing::NonrealtimeMutatable::NonrealtimeMutatable(Args &amp;&amp;... args)']]],
-  ['normalize_1882',['normalize',['../classlemons_1_1plugin_1_1_parameter.html#a598a9b7449439567dc63aa225155b9f1',1,'lemons::plugin::Parameter::normalize()'],['../namespacelemons_1_1vecops.html#a090e2a869d602c7b0cc492e5b604436a',1,'lemons::vecops::normalize()']]],
-  ['notecleared_1883',['noteCleared',['../classlemons_1_1dsp_1_1_synth_voice_base.html#ac6f8d7ef8ea554d84807f66996eeab2a',1,'lemons::dsp::SynthVoiceBase']]],
-  ['noteoff_1884',['noteOff',['../classlemons_1_1midi_1_1_midi_keyboard_state.html#af4d5b390a84c31865e5db0b3fbe1f056',1,'lemons::midi::MidiKeyboardState']]],
-  ['noteon_1885',['noteOn',['../classlemons_1_1midi_1_1_midi_keyboard_state.html#a451dce880a4ec0480f7fa33aa07770e8',1,'lemons::midi::MidiKeyboardState']]],
-  ['numstoredevents_1886',['numStoredEvents',['../classlemons_1_1midi_1_1_midi_f_i_f_o.html#a250de86cb4a39e2cbc145b345e757ef4',1,'lemons::midi::MidiFIFO']]],
-  ['numstoredsamples_1887',['numStoredSamples',['../classlemons_1_1dsp_1_1_audio_and_midi_f_i_f_o.html#aa9797d995165a0a81daa5698cfd9d2de',1,'lemons::dsp::AudioAndMidiFIFO::numStoredSamples()'],['../classlemons_1_1dsp_1_1_audio_f_i_f_o.html#a24923664b1235b76ae6def8e0e57a539',1,'lemons::dsp::AudioFIFO::numStoredSamples()'],['../classlemons_1_1dsp_1_1_multi_audio_f_i_f_o.html#a18a628d43a0fb6632e9c2a53543fe9d1',1,'lemons::dsp::MultiAudioFIFO::numStoredSamples()']]],
-  ['nurbs_1888',['nurbs',['../namespacelemons_1_1spline_1_1interpolation.html#a50c25e0f00a4a2947cbcc1218eecbc31',1,'lemons::spline::interpolation']]]
+  ['onprepare_1490',['onPrepare',['../classlemons_1_1dsp_1_1_latency_engine.html#af171ed2c410e7e03dd8e583b27f81903',1,'lemons::dsp::LatencyEngine']]],
+  ['onrelease_1491',['onRelease',['../classlemons_1_1dsp_1_1_latency_engine.html#a836d66a52283875ec29eab8cbe1eea4a',1,'lemons::dsp::LatencyEngine']]],
+  ['openfile_1492',['openFile',['../namespacelemons.html#a6d34be9e9d17562dcc43898b269053a1',1,'lemons']]],
+  ['operator_28_29_1493',['operator()',['../classlemons_1_1dsp_1_1_f_x_1_1_effect_engine.html#a912e71b9a2f01b8e9294cd288c3404be',1,'lemons::dsp::FX::EffectEngine']]],
+  ['operator_2a_1494',['operator*',['../classlemons_1_1dsp_1_1_f_x_1_1_effect_engine.html#aefb72aa4366e829fa14d1903b25fbe36',1,'lemons::dsp::FX::EffectEngine']]],
+  ['operator_2d_3e_1495',['operator-&gt;',['../classlemons_1_1dsp_1_1_f_x_1_1_effect_engine.html#a72044738ed02d2155754a18d2452e4ec',1,'lemons::dsp::FX::EffectEngine::operator-&gt;()'],['../classlemons_1_1dsp_1_1osc_1_1_osc_engine.html#ab464771e675722a7f8a86fc1da96237f',1,'lemons::dsp::osc::OscEngine::operator-&gt;()']]],
+  ['operator_3d_1496',['operator=',['../structlemons_1_1dsp_1_1filters_1_1_coefficients_1_1_storage.html#aad4d25d98e77db409adc6ced77bc5bc9',1,'lemons::dsp::filters::Coefficients::Storage::operator=()'],['../structlemons_1_1spline_1_1_knot.html#a986777609b846bd04fbf44347f2d518b',1,'lemons::spline::Knot::operator=()']]],
+  ['oscengine_1497',['OscEngine',['../classlemons_1_1dsp_1_1osc_1_1_osc_engine.html#a0226b1f2b27b06600174a858360459a2',1,'lemons::dsp::osc::OscEngine']]]
 ];

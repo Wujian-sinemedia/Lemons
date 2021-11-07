@@ -74,14 +74,8 @@ $(function() {
 <div class="title">lemons::midi::MidiKeyboardState Class Reference<div class="ingroups"><a class="el" href="group___g_u_i.html">GUI</a> &raquo; <a class="el" href="group__lemons__gui.html">lemons_gui</a><a class="el" href="group___connectivity.html">Connectivity</a> &raquo;  &#124; <a class="el" href="group__lemons__midi.html">lemons_midi</a> &raquo; <a class="el" href="group__utilities.html">utilities</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
-<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::midi::MidiKeyboardState:</div>
-<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classlemons_1_1midi_1_1_midi_keyboard_state__inherit__graph.svg" width="215" height="127"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
+
+<p>Inherits SerializableData.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -89,9 +83,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6641ce0912edcf1f47980b673c8c9d21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a567a137828ec0ce9975f1d3362b6e4a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1midi_1_1_midi_keyboard_state.html#a567a137828ec0ce9975f1d3362b6e4a2">allNotesOff</a> ()</td></tr>
 <tr class="separator:a567a137828ec0ce9975f1d3362b6e4a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace1758cc9344ae03a6d01c3c218226de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_serializable_data.html#ace1758cc9344ae03a6d01c3c218226de">deserialize</a> (const ValueTree &amp;tree)</td></tr>
-<tr class="memdesc:ace1758cc9344ae03a6d01c3c218226de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores a previously saved state.  <a href="structlemons_1_1_serializable_data.html#ace1758cc9344ae03a6d01c3c218226de">More...</a><br /></td></tr>
-<tr class="separator:ace1758cc9344ae03a6d01c3c218226de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a794135ea50b4d321d83867e73a6b5e83"><td class="memItemLeft" align="right" valign="top">juce::Array&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1midi_1_1_midi_keyboard_state.html#a794135ea50b4d321d83867e73a6b5e83">getAsArrayOfPitches</a> () const</td></tr>
 <tr class="separator:a794135ea50b4d321d83867e73a6b5e83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd8fefbe2f6996d5615ccdfcbd8f1efe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1midi_1_1_midi_keyboard_state.html#abd8fefbe2f6996d5615ccdfcbd8f1efe">isNoteOn</a> (int note) const</td></tr>
@@ -102,9 +93,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a451dce880a4ec0480f7fa33aa07770e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43892ddaaa171874887a7f2efc6bc9d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1midi_1_1_midi_keyboard_state.html#a43892ddaaa171874887a7f2efc6bc9d6">processMidiMessage</a> (const MidiMessage &amp;m)</td></tr>
 <tr class="separator:a43892ddaaa171874887a7f2efc6bc9d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4e10eefa677226e7927d204b33edbdb"><td class="memItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_serializable_data.html#af4e10eefa677226e7927d204b33edbdb">serialize</a> ()</td></tr>
-<tr class="memdesc:af4e10eefa677226e7927d204b33edbdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes the state of this object and returns a ValueTree.  <a href="structlemons_1_1_serializable_data.html#af4e10eefa677226e7927d204b33edbdb">More...</a><br /></td></tr>
-<tr class="separator:af4e10eefa677226e7927d204b33edbdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c25ff49b363f0c630479d55598d583b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1midi_1_1_midi_keyboard_state.html#a5c25ff49b363f0c630479d55598d583b">setFromArrayOfPitches</a> (const juce::Array&lt; int &gt; &amp;pitches)</td></tr>
 <tr class="separator:a5c25ff49b363f0c630479d55598d583b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -141,42 +129,6 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="ace1758cc9344ae03a6d01c3c218226de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace1758cc9344ae03a6d01c3c218226de">&#9670;&nbsp;</a></span>deserialize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void lemons::SerializableData::deserialize </td>
-          <td>(</td>
-          <td class="paramtype">const ValueTree &amp;&#160;</td>
-          <td class="paramname"><em>tree</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Restores a previously saved state. </p>
-<p>Internally, this will create a <a class="el" href="structlemons_1_1_tree_loader.html" title="Subclass of TreeReflector used for loading state.">TreeLoader</a> object and call the virtual serialize(TreeReflector&amp;) function. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">tree</td><td>The saved state you wish to restore. This should usually be a ValueTree you got from a previous call to <a class="el" href="structlemons_1_1_serializable_data.html#af4e10eefa677226e7927d204b33edbdb" title="Serializes the state of this object and returns a ValueTree.">serialize()</a>. <br  />
-If the state is incomplete, for a different kind of object, or otherwise corrupted, this function will only change the properties that it can successfully parse from the passed state. For example, if your serializable object uses properties named "apple", "orange", and "grape", and you pass a ValueTree with entries for "apple", "grapefruit", and "mango", then the "grapefruit" and "mango" properties will be ignored, and only the "apple" property will actually be loaded. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1_tree_loader.html" title="Subclass of TreeReflector used for loading state.">TreeLoader</a>, <a class="el" href="structlemons_1_1_tree_reflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a> </dd></dl>
 
 </div>
 </div>
@@ -269,34 +221,6 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
 
 </div>
 </div>
-<a id="af4e10eefa677226e7927d204b33edbdb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4e10eefa677226e7927d204b33edbdb">&#9670;&nbsp;</a></span>serialize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">ValueTree lemons::SerializableData::serialize </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Serializes the state of this object and returns a ValueTree. </p>
-<p>Internally, this will create a <a class="el" href="structlemons_1_1_tree_saver.html" title="Subclass of TreeReflector used for saving state.">TreeSaver</a> object and call the virtual serialize(TreeReflector&amp;) function. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1_tree_saver.html" title="Subclass of TreeReflector used for saving state.">TreeSaver</a>, <a class="el" href="structlemons_1_1_tree_reflector.html" title="Utility class that provides a convenient API for assigning data members or lambdas to ValueTree prope...">TreeReflector</a> </dd></dl>
-
-</div>
-</div>
 <a id="a5c25ff49b363f0c630479d55598d583b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5c25ff49b363f0c630479d55598d583b">&#9670;&nbsp;</a></span>setFromArrayOfPitches()</h2>
 
@@ -321,7 +245,7 @@ If the state is incomplete, for a different kind of object, or otherwise corrupt
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 7 2021 13:29:35 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 7 2021 21:52:52 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

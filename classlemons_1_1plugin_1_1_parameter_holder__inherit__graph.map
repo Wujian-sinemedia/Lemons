@@ -1,7 +1,0 @@
-<map id="lemons::plugin::ParameterHolder&lt; ParameterType &gt;" name="lemons::plugin::ParameterHolder&lt; ParameterType &gt;">
-<area shape="rect" id="node1" title="Class that holds a parameter object, and can retain a reference to it after it has been added to an A..." alt="" coords="532,39,725,80"/>
-<area shape="rect" id="node4" href="$classlemons_1_1plugin_1_1_parameter_holder.html" title=" " alt="" coords="1023,5,1275,47"/>
-<area shape="rect" id="node5" href="$classlemons_1_1plugin_1_1_parameter_holder.html" title=" " alt="" coords="1004,71,1295,112"/>
-<area shape="rect" id="node2" href="$structlemons_1_1plugin_1_1_param_holder_base.html" title="Base class for ParameterHolder that allows any kind of parameter to be accessed without knowing the f..." alt="" coords="240,46,483,73"/>
-<area shape="rect" id="node3" href="$structlemons_1_1_serializable_data.html" title="Base class for any C++ object that needs to be serialized to binary and back." alt="" coords="5,46,191,73"/>
-</map>

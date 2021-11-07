@@ -1,6 +1,25 @@
 var searchData=
 [
-  ['oscengine_2eh_1461',['OscEngine.h',['../_osc_engine_8h.html',1,'']]],
-  ['oscillators_2eh_1462',['oscillators.h',['../oscillators_8h.html',1,'']]],
-  ['oscsynth_2eh_1463',['OscSynth.h',['../_osc_synth_8h.html',1,'']]]
+  ['buttons_2eh_1146',['Buttons.h',['../_plugins_2lemons__plugin__gui_2buttons_2_buttons_8h.html',1,'']]],
+  ['pannerbase_2eh_1147',['PannerBase.h',['../_panner_base_8h.html',1,'']]],
+  ['panningmanager_2eh_1148',['PanningManager.h',['../_panning_manager_8h.html',1,'']]],
+  ['parameter_2eh_1149',['Parameter.h',['../_parameter_8h.html',1,'']]],
+  ['parameterprocessor_2eh_1150',['ParameterProcessor.h',['../_parameter_processor_8h.html',1,'']]],
+  ['parametertypes_2eh_1151',['ParameterTypes.h',['../_parameter_types_8h.html',1,'']]],
+  ['paramupdater_2eh_1152',['ParamUpdater.h',['../_param_updater_8h.html',1,'']]],
+  ['pitchbendtracker_2eh_1153',['PitchbendTracker.h',['../_pitchbend_tracker_8h.html',1,'']]],
+  ['pitchcorrector_2eh_1154',['PitchCorrector.h',['../_pitch_corrector_8h.html',1,'']]],
+  ['pitchdetector_2eh_1155',['PitchDetector.h',['../_pitch_detector_8h.html',1,'']]],
+  ['pitchpipeline_2eh_1156',['PitchPipeline.h',['../_pitch_pipeline_8h.html',1,'']]],
+  ['pluginguibase_2eh_1157',['PluginGUIBase.h',['../_plugin_g_u_i_base_8h.html',1,'']]],
+  ['pluginstate_2eh_1158',['PluginState.h',['../_plugin_state_8h.html',1,'']]],
+  ['popupcomponent_2eh_1159',['PopupComponent.h',['../_popup_component_8h.html',1,'']]],
+  ['preprocessor_2eh_1160',['Preprocessor.h',['../_preprocessor_8h.html',1,'']]],
+  ['presetbar_2eh_1161',['PresetBar.h',['../_preset_bar_8h.html',1,'']]],
+  ['presetbrowsercomponent_2eh_1162',['PresetBrowserComponent.h',['../_preset_browser_component_8h.html',1,'']]],
+  ['presetsavingcomponent_2eh_1163',['PresetSavingComponent.h',['../_preset_saving_component_8h.html',1,'']]],
+  ['processorbase_2eh_1164',['ProcessorBase.h',['../_processor_base_8h.html',1,'']]],
+  ['processors_2eh_1165',['Processors.h',['../_processors_8h.html',1,'']]],
+  ['psola_5fanalyzer_2eh_1166',['psola_analyzer.h',['../psola__analyzer_8h.html',1,'']]],
+  ['psola_5fshifter_2eh_1167',['psola_shifter.h',['../psola__shifter_8h.html',1,'']]]
 ];

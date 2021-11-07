@@ -88,7 +88,7 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afb177c3b99030ee80f42fbbec0e4aae1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter_processor.html#afb177c3b99030ee80f42fbbec0e4aae1">ParameterProcessor</a> (<a class="el" href="classlemons_1_1plugin_1_1_parameter_list.html">ParameterList</a> &amp;listToUse)</td></tr>
+<tr class="memitem:afb177c3b99030ee80f42fbbec0e4aae1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter_processor.html#afb177c3b99030ee80f42fbbec0e4aae1">ParameterProcessor</a> (ParameterList &amp;listToUse)</td></tr>
 <tr class="memdesc:afb177c3b99030ee80f42fbbec0e4aae1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a parameter processor.  <a href="classlemons_1_1plugin_1_1_parameter_processor.html#afb177c3b99030ee80f42fbbec0e4aae1">More...</a><br /></td></tr>
 <tr class="separator:afb177c3b99030ee80f42fbbec0e4aae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45808b9a9eebcc339dacdd63cccd61b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_midi_chopping_processor.html#a45808b9a9eebcc339dacdd63cccd61b9">prepare</a> (int maxBlocksize)</td></tr>
@@ -107,7 +107,7 @@ class lemons::plugin::ParameterProcessor&lt; SampleType &gt;</h3>
  <br  />
 In order for this to work nicely, your parameter changes must be realtime safe, and your audio processing algorithm must be able to process as little as 1 sample at a time. <br  />
  <br  />
-This class inherits <a class="el" href="classlemons_1_1dsp_1_1_midi_chopping_processor.html">dsp::MidiChoppingProcessor</a> but does not implement <a class="el" href="classlemons_1_1dsp_1_1_midi_chopping_processor.html#a199ab584f491a6202baa314db04babc2">dsp::MidiChoppingProcessor::renderChunk()</a> &ndash; you should subclass this and implement that function to do your actual processing. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1_midi_chopping_processor.html">dsp::MidiChoppingProcessor</a> <a class="el" href="classlemons_1_1plugin_1_1_parameter_list.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a> </dd></dl>
+This class inherits <a class="el" href="classlemons_1_1dsp_1_1_midi_chopping_processor.html">dsp::MidiChoppingProcessor</a> but does not implement <a class="el" href="classlemons_1_1dsp_1_1_midi_chopping_processor.html#a199ab584f491a6202baa314db04babc2">dsp::MidiChoppingProcessor::renderChunk()</a> &ndash; you should subclass this and implement that function to do your actual processing. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1_midi_chopping_processor.html">dsp::MidiChoppingProcessor</a> ParameterList </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="afb177c3b99030ee80f42fbbec0e4aae1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afb177c3b99030ee80f42fbbec0e4aae1">&#9670;&nbsp;</a></span>ParameterProcessor()</h2>
@@ -120,7 +120,7 @@ template&lt;typename SampleType &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classlemons_1_1plugin_1_1_parameter_processor.html">lemons::plugin::ParameterProcessor</a>&lt; SampleType &gt;::<a class="el" href="classlemons_1_1plugin_1_1_parameter_processor.html">ParameterProcessor</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classlemons_1_1plugin_1_1_parameter_list.html">ParameterList</a> &amp;&#160;</td>
+          <td class="paramtype">ParameterList &amp;&#160;</td>
           <td class="paramname"><em>listToUse</em></td><td>)</td>
           <td></td>
         </tr>
@@ -130,7 +130,7 @@ template&lt;typename SampleType &gt; </div>
 <p>Creates a parameter processor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">listToUse</td><td>The <a class="el" href="classlemons_1_1plugin_1_1_parameter_list.html" title="This class manages a list of a plugin&#39;s parameters.">ParameterList</a> to reference. </td></tr>
+    <tr><td class="paramname">listToUse</td><td>The ParameterList to reference. </td></tr>
   </table>
   </dd>
 </dl>
@@ -248,7 +248,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 7 2021 13:29:35 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 7 2021 21:52:52 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

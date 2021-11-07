@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['templatesynth_2eh_1511',['TemplateSynth.h',['../_template_synth_8h.html',1,'']]],
-  ['timbremod_2eh_1512',['TimbreMod.h',['../_timbre_mod_8h.html',1,'']]],
-  ['timers_2eh_1513',['Timers.h',['../_timers_8h.html',1,'']]],
-  ['toggler_2eh_1514',['Toggler.h',['../_toggler_8h.html',1,'']]],
-  ['treereflector_2eh_1515',['TreeReflector.h',['../_tree_reflector_8h.html',1,'']]],
-  ['typedparameterhelpers_2eh_1516',['TypedParameterHelpers.h',['../_typed_parameter_helpers_8h.html',1,'']]]
+  ['valuesmoother_2eh_1187',['ValueSmoother.h',['../_value_smoother_8h.html',1,'']]],
+  ['vecops_2eh_1188',['vecops.h',['../vecops_8h.html',1,'']]],
+  ['velocityhelper_2eh_1189',['VelocityHelper.h',['../_velocity_helper_8h.html',1,'']]],
+  ['voiceallocator_2eh_1190',['VoiceAllocator.h',['../_voice_allocator_8h.html',1,'']]]
 ];

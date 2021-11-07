@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['jucearrayinterface_1188',['JuceArrayInterface',['../structlemons_1_1serializing_1_1_juce_array_interface.html',1,'lemons::serializing']]],
-  ['juceownedarrayinterface_1189',['JuceOwnedArrayInterface',['../structlemons_1_1serializing_1_1_juce_owned_array_interface.html',1,'lemons::serializing']]]
+  ['knot_930',['Knot',['../structlemons_1_1spline_1_1_knot.html',1,'lemons::spline']]],
+  ['knots_931',['Knots',['../structlemons_1_1spline_1_1_knots.html',1,'lemons::spline']]]
 ];

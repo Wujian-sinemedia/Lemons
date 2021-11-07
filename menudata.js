@@ -28,7 +28,6 @@ var menudata={children:[
 {text:"Namespace Members",url:"namespacemembers.html",children:[
 {text:"All",url:"namespacemembers.html",children:[
 {text:"a",url:"namespacemembers.html#index_a"},
-{text:"b",url:"namespacemembers.html#index_b"},
 {text:"c",url:"namespacemembers.html#index_c"},
 {text:"d",url:"namespacemembers.html#index_d"},
 {text:"f",url:"namespacemembers.html#index_f"},
@@ -42,8 +41,7 @@ var menudata={children:[
 {text:"p",url:"namespacemembers.html#index_p"},
 {text:"r",url:"namespacemembers.html#index_r"},
 {text:"s",url:"namespacemembers.html#index_s"},
-{text:"t",url:"namespacemembers.html#index_t"},
-{text:"v",url:"namespacemembers.html#index_v"}]},
+{text:"t",url:"namespacemembers.html#index_t"}]},
 {text:"Functions",url:"namespacemembers_func.html",children:[
 {text:"a",url:"namespacemembers_func.html#index_a"},
 {text:"c",url:"namespacemembers_func.html#index_c"},
@@ -58,9 +56,7 @@ var menudata={children:[
 {text:"o",url:"namespacemembers_func.html#index_o"},
 {text:"p",url:"namespacemembers_func.html#index_p"},
 {text:"r",url:"namespacemembers_func.html#index_r"},
-{text:"s",url:"namespacemembers_func.html#index_s"},
-{text:"t",url:"namespacemembers_func.html#index_t"},
-{text:"v",url:"namespacemembers_func.html#index_v"}]},
+{text:"s",url:"namespacemembers_func.html#index_s"}]},
 {text:"Variables",url:"namespacemembers_vars.html"},
 {text:"Typedefs",url:"namespacemembers_type.html"},
 {text:"Enumerations",url:"namespacemembers_enum.html"}]}]},
