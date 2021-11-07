@@ -1,5 +1,5 @@
 #[[
-# Module: LemonsJuceModuleUtilities
+# LemonsJuceModuleUtilities
 
 ## Includes:
 - LemonsFileUtils

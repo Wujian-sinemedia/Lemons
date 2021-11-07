@@ -1,5 +1,5 @@
 #[[
-# Module: LemonsAssetsHelpers
+# LemonsAssetsHelpers
 
 ## Includes:
 - LemonsJuceUtilities
@@ -8,7 +8,7 @@
 
 ## Function:
 ```
-lemons_add_resources_folder (TARGET <target> FOLDER <folder> [TRANSLATIONS])
+lemons_add_resources_folder (TARGET <target> FOLDER <folder> [HEADER_NAME <header.h>] [NAMESPACE <namespace>] [TRANSLATIONS])
 ```
 
 Adds a JUCE binary data folder for the specified <target>, and populates it with all the files found in <folder>. <folder> is relative to your project's root directory (ie, the value of ${PROJECT_SOURCE_DIR} when this function is called).
@@ -29,7 +29,7 @@ include (LemonsTranslationFileGeneration)
 function (lemons_add_resources_folder)
 
     set (options TRANSLATIONS)
-    set (oneValueArgs TARGET FOLDER)
+    set (oneValueArgs TARGET FOLDER HEADER_NAME NAMESPACE)
     set (multiValueArgs "")
 
     cmake_parse_arguments (LEMONS_RSRC_FLDR "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
@@ -53,14 +53,26 @@ function (lemons_add_resources_folder)
 
         file (GLOB_RECURSE files "${LEMONS_RSRC_FLDR_FOLDER}/*.*")
 
-        if (files)
-            juce_add_binary_data (${resourcesTarget} SOURCES ${files})
-            set_target_properties (${resourcesTarget} PROPERTIES POSITION_INDEPENDENT_CODE TRUE)
-            target_compile_definitions (${resourcesTarget} INTERFACE LEMONS_HAS_BINARY_DATA=1)
-        else()
+        if (NOT files)
             message (AUTHOR_WARNING "No files found for inclusion in resources target!")
             return()
         endif()
+
+        if (NOT LEMONS_RSRC_FLDR_HEADER_NAME)
+            set (LEMONS_RSRC_FLDR_HEADER_NAME "BinaryData.h")
+        endif()
+
+        if (NOT LEMONS_RSRC_FLDR_FOLDER_NAMESPACE)
+            set (LEMONS_RSRC_FLDR_FOLDER_NAMESPACE "BinaryData")
+        endif()
+
+        juce_add_binary_data (${resourcesTarget} 
+                              SOURCES ${files}
+                              HEADER_NAME "${LEMONS_RSRC_FLDR_HEADER_NAME}"
+                              NAMESPACE "${LEMONS_RSRC_FLDR_FOLDER_NAMESPACE}")
+
+        set_target_properties (${resourcesTarget} PROPERTIES POSITION_INDEPENDENT_CODE TRUE)
+        target_compile_definitions (${resourcesTarget} INTERFACE LEMONS_HAS_BINARY_DATA=1)
 
         if (NOT TARGET ${resourcesTarget})
             message (AUTHOR_WARNING "Error creating resources target.")

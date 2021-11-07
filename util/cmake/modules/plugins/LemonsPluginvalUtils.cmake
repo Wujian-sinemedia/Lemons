@@ -1,5 +1,5 @@
 #[[
-# Module: LemonsPluginvalUtils
+# LemonsPluginvalUtils
 
 ## Include-time actions:
 Adds pluginval using CPM.cmake, and runs their provided platform-specific build-and-install script.

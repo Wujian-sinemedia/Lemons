@@ -1,5 +1,5 @@
 #[[
-# Module: LemonsAAXUtils
+# LemonsAAXUtils
 
 ## Includes:
 - LemonsJuceUtilities, if AAXSDK target is configured successfully

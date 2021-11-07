@@ -1,5 +1,5 @@
 #[[
-# Module: LemonsFileUtils
+# LemonsFileUtils
 
 
 ## Function:

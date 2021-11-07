@@ -1,5 +1,5 @@
 #[[
-# Module: LemonsJuceUtilities
+# LemonsJuceUtilities
 
 ## Includes:
 - LemonsGetCPM
