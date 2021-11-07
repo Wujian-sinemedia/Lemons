@@ -8,7 +8,7 @@ math (EXPR idx "${chop_idx} + ${last_bit_len}")
 
 string (SUBSTRING "${lemons_readme_content}" ${idx} -1 relevant_text)
 
-file (READ "${CMAKE_CURRENT_LIST_DIR}/main_page.md" main_page_content)
+file (READ "${CMAKE_CURRENT_LIST_DIR}/../main_page.md" main_page_content)
 
 string (APPEND main_page_content "${relevant_text}")
 

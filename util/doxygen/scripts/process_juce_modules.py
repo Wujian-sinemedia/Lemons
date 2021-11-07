@@ -30,7 +30,7 @@ def process_category_description (file_path):
     if not category_cmake_module:
         raise Exception("Can't find CMake module in this JUCE module category directory!")
 
-    cmakeInfo = "To use these JUCE modules, include the `{n}` CMake module, and link against the `{n}` target.".format(n=category_cmake_module)
+    cmakeInfo = "To use these JUCE modules, include the [{n} CMake module](@ref {n}), and link against the `{n}` target.".format(n=category_cmake_module)
 
     return description, cmakeInfo
 

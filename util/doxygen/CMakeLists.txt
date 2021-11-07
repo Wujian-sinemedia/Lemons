@@ -15,7 +15,7 @@ set (main_page_output "${out_folder}/main_page.md")
 
 add_custom_command (OUTPUT "${main_page_output}" MAIN_DEPENDENCY "${lemons_repo_readme}" VERBATIM
 					DEPENDS "${CMAKE_CURRENT_LIST_DIR}/main_page.md"
-					COMMAND "${CMAKE_COMMAND}" ARGS -D "MAIN_PAGE_OUTPUT=${main_page_output}" -D "LEMONS_README=${lemons_repo_readme}" -P "${CMAKE_CURRENT_LIST_DIR}/copy_main_page.cmake"
+					COMMAND "${CMAKE_COMMAND}" ARGS -D "MAIN_PAGE_OUTPUT=${main_page_output}" -D "LEMONS_README=${lemons_repo_readme}" -P "${CMAKE_CURRENT_LIST_DIR}/scripts/copy_main_page.cmake"
 					WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}"
 					COMMENT "Copying from main readme into Doxygen main page...")
 
