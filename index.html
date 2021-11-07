@@ -81,7 +81,7 @@ $(function() {
 <div class="line">        GIT_REPOSITORY https://github.com/benthevining/Lemons.git</div>
 <div class="line">        GIT_TAG origin/main)</div>
 </div><!-- fragment --><h2>A note about adding JUCE</h2>
-<p>Internally, Lemons's cmake scripts <a href="https://github.com/benthevining/Lemons/blob/main/util/cmake/third_party/juce_config.cmake">add JUCE like this</a>, using CPM.cmake. JUCE will automatically be fetched for you at configure time &ndash; but, if you'd like to reference another local copy of JUCE, you can set this variable before adding the Lemons package: </p><div class="fragment"><div class="line">set (CPM_JUCE_SOURCE /absolute/path/to/your/copy/of/juce)</div>
+<p>Internally, Lemons's cmake scripts <a href="https://github.com/benthevining/Lemons/blob/main/util/cmake/modules/general/LemonsJuceUtilities.cmake">add JUCE like this</a>, using CPM.cmake. JUCE will automatically be fetched for you at configure time &ndash; but, if you'd like to reference another local copy of JUCE, you can set this variable before adding the Lemons package: </p><div class="fragment"><div class="line">set (CPM_JUCE_SOURCE /absolute/path/to/your/copy/of/juce)</div>
 </div><!-- fragment --><p>Note that this is optional, and if you omit the above line, adding the Lemons package will automatically also add the latest copy of JUCE for you.</p>
 <h2>What I actually do in my projects' CMake</h2>
 <p>I noticed myself duplicating several lines of CMake code in every project, so I encapsulated the <em>adding of Lemons</em> into <a href="https://github.com/benthevining/GetLemons">its own little repository</a>.</p>
@@ -116,7 +116,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 7 2021 02:32:14 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 7 2021 02:38:33 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
