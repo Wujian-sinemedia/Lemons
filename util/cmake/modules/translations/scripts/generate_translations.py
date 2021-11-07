@@ -24,8 +24,7 @@ def generate_translation_file (output_language, tokens_to_translate, output_dire
 	for token in get_tokens_in_file (output_file):
 		if token in tokens_to_translate:
 			tokens_to_translate.remove (token)
-			if len(tokens_to_translate) < 1:
-				return
+			if len(tokens_to_translate) < 1: return
 
 	translator = Translator(from_lang=options.source_language, to_lang=output_language, email=options.email)
 

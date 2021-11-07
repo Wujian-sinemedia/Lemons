@@ -8,18 +8,15 @@ from os import path
 
 def get_token_for_line (line):
 
-	if not line:
-		return ""
+	if not line: return ""
 
 	idx = line.find ("\" =")
 
-	if idx < 0:
-		return ""
+	if idx < 0: return ""
 
 	token = line[:idx]
 
-	if token.startswith ("\""):
-		token = token[1:]
+	if token.startswith ("\""): token = token[1:]
 
 	return token.strip()
 
@@ -31,8 +28,7 @@ def get_tokens_in_file (file_path):
 
 	tokens = []
 
-	if not path.exists (file_path):
-		return tokens
+	if not path.exists (file_path): return tokens
 
 	with open (file_path, "r") as f:
 		for line in f:

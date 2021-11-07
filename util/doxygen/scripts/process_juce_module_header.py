@@ -15,8 +15,7 @@ def process_preprocessor_defines (file_contents):
 	while file_contents:
 		idx = file_contents.find (config_token)
 
-		if (idx < 0):
-			break
+		if (idx < 0): break
 
 		file_contents = file_contents[idx+len(config_token):]
 
@@ -53,8 +52,7 @@ def process_module_header (header_path):
 
         stripped_line = line.strip()
 
-        if not stripped_line:
-        	continue
+        if not stripped_line: continue
         
         result = re.match (r"^.*?description:\s*(.*)$", stripped_line)
 

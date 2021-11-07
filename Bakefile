@@ -13,7 +13,7 @@ Clean:
 * Builds/
 * docs/
 * .github/docs/
-* util/cmake/modules/translations/__pycache__/
+* util/cmake/modules/translations/scripts/__pycache__/
 * util/install_deps/Brewfile
 * util/install_deps/Brewfile.lock.json
 

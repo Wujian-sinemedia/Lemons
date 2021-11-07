@@ -33,8 +33,7 @@ def process_translated_file (file_path, needed_translations):
 	for token in get_tokens_in_file (file_path):
 		if token in needed_translations:
 			needed_translations.remove (token)
-			if len(needed_translations) < 1:
-				return
+			if len(needed_translations) < 1: return
 
 	translator = Translator(from_lang=options.source_language, to_lang=output_language, email=options.email)
 

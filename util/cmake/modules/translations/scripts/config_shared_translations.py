@@ -13,9 +13,7 @@ import concurrent.futures
 
 def make_template_file_name (working_dir):
 
-	idx = working_dir.rfind ("/")
-
-	return working_dir[idx+1:] + options.translation_file_xtn
+	return working_dir[working_dir.rfind ("/")+1:] + options.translation_file_xtn
 
 
 def generate_template_file_if_needed (working_dir, cache_dir):
@@ -60,7 +58,6 @@ def merge_translation_files (output_file, files_to_merge):
 		merged_file += process_file_for_lines (file)
 
 	merged_file = source_scanner.remove_duplicates (merged_file)
-
 	merged_file.sort()
 
 	with open (output_file, "w") as f:

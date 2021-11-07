@@ -11,13 +11,11 @@ def process_file (file_path, dest_dir):
 
 	root, ext = os.path.splitext (os.path.basename (file_path))
 
-	if not ext == ".cmake":
-		return ""
+	if not ext == ".cmake": return ""
 
 	with open (file_path, "r") as f:
 		content = f.read()
-		if not content.startswith ("#[["):
-			return ""
+		if not content.startswith ("#[["): return ""
 
 	content = content[content.find("\n")+1:content.find("]]")]
 

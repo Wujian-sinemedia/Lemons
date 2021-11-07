@@ -38,15 +38,13 @@ def scan_line_for_token (text, token):
 	while text:
 		begin_idx = text.find (token)
 
-		if begin_idx < 0:
-			return needed_translations
+		if begin_idx < 0: return needed_translations
 
 		text = text[begin_idx:]
 
 		end_idx = text.find (")")
 
-		if end_idx < 0:
-			return needed_translations
+		if end_idx < 0: return needed_translations
 
 		spliced = text[:end_idx]
 		spliced = spliced.replace (token, "")
@@ -54,11 +52,9 @@ def scan_line_for_token (text, token):
 
 		text = text[end_idx:]
 
-		if spliced.startswith ("("):
-			spliced = spliced[1:]
+		if spliced.startswith ("("): spliced = spliced[1:]
 
-		if spliced.endswith("\""):
-			spliced = spliced[:-1]
+		if spliced.endswith("\""): spliced = spliced[:-1]
 
 		spliced = spliced.replace ("\"", "'\"'")
 		
@@ -86,10 +82,10 @@ def scan_file (file_path):
 
 	needed_translations = []
 
-	if not path.exists (file_path):
-		return needed_translations
+	if not path.exists (file_path): return needed_translations
 
 	filename, file_extension = path.splitext (file_path)
+
 	if not (file_extension == ".h" or file_extension == ".hpp" or file_extension == ".c" or file_extension == ".cpp"):
 		return needed_translations
 	
@@ -113,8 +109,7 @@ def scan_directory (dir_path):
 
 	needed_translations = []
 
-	if not path.isdir (dir_path):
-		return needed_translations
+	if not path.isdir (dir_path): return needed_translations
 
 	for dirpath, dirnames, filenames in walk (dir_path):
 		for dirname in dirnames:
