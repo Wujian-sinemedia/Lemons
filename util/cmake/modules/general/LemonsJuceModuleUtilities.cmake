@@ -1,15 +1,15 @@
 #[[
-Module: LemonsJuceModuleUtilities
+# Module: LemonsJuceModuleUtilities
 
-Includes:
+## Includes:
 - LemonsFileUtils
 - LemonsJuceUtilities
 
 
-Functions:
-
+## Function:
+```
 lemons_add_juce_modules (<directory>)
-
+```
 Adds any/all JUCE modules that are nested subdirectories within the specified directory.
 
 ]]

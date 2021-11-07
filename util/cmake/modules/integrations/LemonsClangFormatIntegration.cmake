@@ -1,7 +1,7 @@
 #[[
-Module: LemonsClangFormatIntegration
+# Module: LemonsClangFormatIntegration
 
-Targets:
+## Targets:
 - ClangFormat: Runs clang-format recursively over all source files in the source tree.
 
 This module does nothing if clang-format cannot be found at configure-time.

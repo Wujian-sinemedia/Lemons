@@ -2,7 +2,7 @@ find_package (Doxygen REQUIRED dot)
 find_package (Python3 COMPONENTS Interpreter)
 
 if (NOT DOXYGEN_FOUND OR NOT Python3_Interpreter_FOUND)
-	message (WARNING "Doxygen dependencies missing!")
+	message (FATAL_ERROR "Doxygen dependencies missing!")
 	return()
 endif()
 

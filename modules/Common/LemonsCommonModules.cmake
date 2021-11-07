@@ -1,14 +1,16 @@
 #[[
-Module: LemonsCommonModules
+# Module: LemonsCommonModules
 
-Includes:
+Includes the common Lemons JUCE modules.
+
+## Includes:
 - LemonsConnectivityModules
 - LemonsGUIModules
 
-Targets:
+## Targets:
 - LemonsCommonModules
 
-Options:
+## Options:
 - LEMONS_BUILD_TESTS, defaults to OFF
 
 ]]

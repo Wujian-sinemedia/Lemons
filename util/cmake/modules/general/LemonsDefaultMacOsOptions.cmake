@@ -1,9 +1,10 @@
 #[[
-Module: LemonsDefaultMacOsOptions
+# Module: LemonsDefaultMacOsOptions
 
-Function:
-
+## Function:
+```
 lemons_set_default_macos_options (<target>)
+```
 
 ]]
 

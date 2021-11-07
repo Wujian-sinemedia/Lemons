@@ -1,7 +1,9 @@
 #[[
-Module: BVBrandFlags
+# Module: BVBrandFlags
 
-Output variables:
+For internal usage by my own projects.
+
+## Output variables:
 - BV_DEFAULT_BRAND_FLAGS
 
 ]]

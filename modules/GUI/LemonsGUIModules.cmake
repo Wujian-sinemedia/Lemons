@@ -1,10 +1,12 @@
 #[[
-Module: LemonsGUIModules
+# Module: LemonsGUIModules
 
-Includes:
+Includes Lemons JUCE modules for building GUIs.
+
+## Includes:
 - LemonsJuceModuleUtilities
 
-Targets:
+## Targets:
 - LemonsGUIModules
 
 ]]

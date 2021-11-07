@@ -1,14 +1,15 @@
 #[[
-Module: LemonsAssetsHelpers
+# Module: LemonsAssetsHelpers
 
-Includes:
+## Includes:
 - LemonsJuceUtilities
 - LemonsTranslationFileGeneration
 
 
-Function:
-
+## Function:
+```
 lemons_add_resources_folder (TARGET <target> FOLDER <folder> [TRANSLATIONS])
+```
 
 Adds a JUCE binary data folder for the specified <target>, and populates it with all the files found in <folder>. <folder> is relative to your project's root directory (ie, the value of ${PROJECT_SOURCE_DIR} when this function is called).
 

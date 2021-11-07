@@ -21,7 +21,7 @@ def process_file (file_path, dest_dir):
 
 	content = content[content.find("\n")+1:content.find("]]")]
 
-	output_file = os.path.join (dest_dir, root + ".txt")
+	output_file = os.path.join (dest_dir, root + ".md")
 
 	with open (output_file, "w") as f:
 		f.write (content)

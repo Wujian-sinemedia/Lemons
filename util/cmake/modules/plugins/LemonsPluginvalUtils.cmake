@@ -1,13 +1,13 @@
 #[[
-Module: LemonsPluginvalUtils
+# Module: LemonsPluginvalUtils
 
-Include-time actions:
+## Include-time actions:
 Adds pluginval using CPM.cmake, and runs their provided platform-specific build-and-install script.
 
-Functions:
-
+## Functions:
+```
 lemons_configure_pluginval_tests (TARGET <target>)
-
+```
 Note that this does nothing if you don't manually call the enable_testing() macro first.
 
 ]]

@@ -1,18 +1,21 @@
 #[[
-Module: LemonsAppUtilities
+# Module: LemonsAppUtilities
 
-Includes:
+## Includes:
 - LemonsJuceUtilities
 
 
-Functions:
+## Functions:
 
+```
 lemons_configure_headless_app (TARGET <>)
+```
 
 Forwards ${ARGN} to lemons_configure_juce_target.
 
-
+```
 lemons_configure_juce_app (TARGET <>)
+```
 
 Forwards ${ARGN} to lemons_configure_juce_target.
 

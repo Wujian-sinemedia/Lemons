@@ -1,11 +1,11 @@
 #[[
-Module: LemonsTranslationFileGeneration
+# Module: LemonsTranslationFileGeneration
 
 
-Functions:
-
+## Functions:
+```
 lemons_generate_translation_files (TARGET <target> FOLDER <output_folder>)
-
+```
 Generates JUCE-style translation files for the given target (by scanning the source tree recursively, starting at ${PROJECT_SOURCE_DIR}), and merges them with the shared Lemons and JUCE translation output.
 Places the output files in <folder>, which is relative to the project's root directory.
 

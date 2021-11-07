@@ -1,22 +1,22 @@
 #[[
-Module: LemonsPluginUtilities
+# Module: LemonsPluginUtilities
 
-Includes:
+## Includes:
 - LemonsJuceUtilities
 - LemonsAAXUtils, if LEMONS_AAX_SDK_PATH is set
 - LemonsPluginvalUtils, if LEMONS_BUILD_TESTS is on
 
-Include-time actions:
+## Include-time actions:
 Determines the list of all available plugin formats.
 
-Output variables:
+## Output variables:
 - LEMONS_PLUGIN_FORMATS: list of all available plugin formats
 
 
-Functions:
-
+## Function:
+```
 lemons_configure_juce_plugin (TARGET <target> [AAX_PAGETABLE_FILE <file>])
-
+```
 Forwards ${ARGN} to lemons_configure_juce_target. 
 If an AAX-format target exists for this plugin, then lemons_configure_aax_plugin will be called for you. The [AAX_PAGETABLE_FILE] option will be forwarded.
 
