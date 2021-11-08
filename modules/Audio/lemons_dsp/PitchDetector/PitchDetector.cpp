@@ -1,6 +1,5 @@
-
-#if BV_USE_VDSP
-#  include <Accelerate/Accelerate.h>
+#if LEMONS_USE_VDSP
+#include <Accelerate/Accelerate.h>
 #endif
 
 namespace lemons::dsp
@@ -44,7 +43,7 @@ void PitchDetector<SampleType>::releaseResources()
 template <typename SampleType>
 static inline int samplesToFirstZeroCrossing (const SampleType* inputAudio, int numSamples)
 {
-#if BV_USE_VDSP
+#if LEMONS_USE_VDSP
 	unsigned long index =
 	    0;  // in Apple's vDSP, the type vDSP_Length is an alias for unsigned long
 	unsigned long totalcrossings = 0;

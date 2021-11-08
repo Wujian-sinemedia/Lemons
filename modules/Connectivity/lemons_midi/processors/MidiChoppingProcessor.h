@@ -1,6 +1,6 @@
 #pragma once
 
-namespace lemons::dsp
+namespace lemons::midi
 {
 template <typename SampleType>
 class MidiChoppingProcessor

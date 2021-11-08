@@ -1,5 +1,7 @@
 #pragma once
 
+#include <lemons_midi/lemons_midi.h>
+
 /*
  This class attempts to guess the correct pitch for an input signal, and performs PSOLA pitch shifting to provide pitch corrected output.
  Intended for monophonic audio only.

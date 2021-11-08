@@ -33,7 +33,7 @@ private:
 
 	void snapToZero() noexcept;
 
-	Array<SampleType> state;
+	juce::Array<SampleType> state;
 	int               order = 0;
 };
 
@@ -70,7 +70,7 @@ struct MultiFilter
 	Coefficients<SampleType> coefs;
 
 	/** The array of filters. */
-	OwnedArray<Filter<SampleType>> filters;
+	juce::OwnedArray<Filter<SampleType>> filters;
 };
 
 }  // namespace lemons::dsp::filters

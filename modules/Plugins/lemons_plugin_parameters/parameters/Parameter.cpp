@@ -291,30 +291,6 @@ bool Parameter::isMetaParameter() const
 	return metaParameter;
 }
 
-void Parameter::serialize (TreeReflector& ref)
-{
-	ref.addLambdaSet<float> (
-	    "Value",
-	    [&]
-	    { return getDenormalizedValue(); },
-	    [&] (float& f)
-	    { setValueInternal (f); });
-
-	ref.addLambdaSet<float> (
-	    "Default",
-	    [&]
-	    { return getDenormalizedDefault(); },
-	    [&] (float& f)
-	    { setDefaultInternal (f); });
-
-	ref.addLambdaSet<int> (
-	    "MidiControllerNumber",
-	    [&]
-	    { return getMidiControllerNumber(); },
-	    [&] (int& i)
-	    { setMidiControllerInternal (i); });
-}
-
 [[nodiscard]] String Parameter::getParameterName (int maxLength, bool internationalize) const
 {
 	const auto str = internationalize ? TRANS (parameterName) : parameterName;

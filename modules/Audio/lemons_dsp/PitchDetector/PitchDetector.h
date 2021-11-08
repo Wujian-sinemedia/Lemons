@@ -68,9 +68,9 @@ private:
 
 	AudioBuffer<SampleType> asdfBuffer { 1, 512 };  // calculated ASDF values will be placed in this buffer
 
-	Array<int>        periodCandidates;
-	Array<int>        candidateDeltas;
-	Array<SampleType> weightedCandidateConfidence;
+	juce::Array<int>        periodCandidates;
+	juce::Array<int>        candidateDeltas;
+	juce::Array<SampleType> weightedCandidateConfidence;
 
 	AudioBuffer<SampleType>     filteringBuffer { 1, 512 };
 	filters::Filter<SampleType> loCut, hiCut;

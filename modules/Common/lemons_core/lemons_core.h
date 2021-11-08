@@ -65,27 +65,6 @@
 
 #include "misc/Preprocessor.h"
 
-
-namespace lemons
-{
-using juce::File;
-using juce::MidiBuffer;
-using juce::MidiMessage;
-using juce::String;
-using juce::ValueTree;
-
-template < typename T >
-using AudioBuffer = juce::AudioBuffer< T >;
-
-template < typename T >
-using Array = juce::Array< T >;
-
-template < typename T >
-using OwnedArray = juce::OwnedArray< T >;
-
-}  // namespace lemons
-
-
 #include "misc/misc.h"
 #include "misc/ValueSmoother.h"
 

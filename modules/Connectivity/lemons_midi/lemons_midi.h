@@ -9,15 +9,15 @@
  version:            0.0.1
  name:               lemons_midi
  description:        Midi utilities
- dependencies:       lemons_serializing mts_esp_cpp
+ dependencies:       lemons_serializing mts_esp_cpp juce_audio_basics
 
  END_JUCE_MODULE_DECLARATION
 
 -------------------------------------------------------------------------------------*/
 
 
-#include "utilities/MidiFIFO.h"
 #include "utilities/MidiUtilities.h"
+#include "utilities/MidiFIFO.h"
 #include "utilities/VelocityHelper.h"
 #include "utilities/PitchbendTracker.h"
 

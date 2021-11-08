@@ -5,6 +5,16 @@
 namespace lemons
 {
 
+using juce::File;
+using juce::String;
+using juce::ValueTree;
+
+template < typename T >
+using Array = juce::Array< T >;
+
+template < typename T >
+using OwnedArray = juce::OwnedArray< T >;
+
 /** Returns the default initial size for top-level GUIs, used for both plugins and apps. */
 [[nodiscard]] static inline constexpr juce::Point<int> defaultWindowSize() noexcept
 {

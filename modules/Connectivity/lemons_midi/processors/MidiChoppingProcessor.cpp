@@ -1,5 +1,5 @@
 
-namespace lemons::dsp
+namespace lemons::midi
 {
 template <typename SampleType>
 void MidiChoppingProcessor<SampleType>::prepare (int maxBlocksize)

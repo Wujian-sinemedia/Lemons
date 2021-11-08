@@ -16,6 +16,8 @@
 -------------------------------------------------------------------------------------*/
 
 
+#include "utilities/aliases.h"
+
 #include "utilities/cursor.h"
 
 #include "components/PopupComponent.h"

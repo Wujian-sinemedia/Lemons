@@ -136,7 +136,7 @@ private:
 	GrainExtractor            grainExtractor;
 	Storage                   grainStorage;
 
-	events::Broadcaster broadcaster;
+//	events::Broadcaster broadcaster;
 };
 
 

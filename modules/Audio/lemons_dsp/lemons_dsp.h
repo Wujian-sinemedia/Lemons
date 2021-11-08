@@ -15,6 +15,7 @@ END_JUCE_MODULE_DECLARATION
 
  -------------------------------------------------------------------------------------*/
 
+#include "aliases.h"
 
 #include "engines/AudioEngine.h"
 #include "engines/LatencyEngine.h"

@@ -197,8 +197,6 @@ protected:
 private:
 	bool isMetaParameter() const final;
 
-	void serialize (TreeReflector& ref) override;
-
 	float getValue() const final;
 	void  setValue (float newValue) final;
 	float getDefaultValue() const final;

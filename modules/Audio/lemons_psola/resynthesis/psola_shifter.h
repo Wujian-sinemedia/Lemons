@@ -69,7 +69,7 @@ private:
 	int samplesToNextGrain { 0 };
 	int currentSample { 0 };
 
-	events::Listener l;
+//	events::Listener l;
 };
 
 
