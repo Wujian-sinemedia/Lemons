@@ -20,4 +20,4 @@ target_link_libraries (${PROJECT_NAME} PRIVATE
 
 add_test (NAME LemonsUnitTests 
           COMMAND ${PROJECT_NAME} 
-          WORKING_DIRECTORY "${LEMONS_REPO_ROOT}")
+          WORKING_DIRECTORY "${Lemons_SOURCE_DIR}")
