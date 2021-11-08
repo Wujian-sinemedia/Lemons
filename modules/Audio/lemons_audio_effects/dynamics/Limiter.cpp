@@ -118,18 +118,6 @@ void Limiter<SampleType>::update()
 	outputVolume.setTargetValue (gain);
 }
 
-
-template <typename SampleType>
-void Limiter<SampleType>::serialize (TreeReflector& ref)
-{
-	ref.add ("Threshold", thresholddB);
-	ref.add ("ReleaseMs", releaseTime);
-
-	if (ref.isLoading())
-		update();
-}
-
-
 template class Limiter<float>;
 template class Limiter<double>;
 

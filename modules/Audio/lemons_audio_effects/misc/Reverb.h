@@ -7,7 +7,7 @@ namespace lemons::dsp::FX
     Reverb effect class that wraps juce::Reverb with some other useful bells and whistles, like hi- and lo-pass filters for the wet signal, a built-in dry/wet mixer, etc.
     Note that this class is NOT templated, it contains functions for both float and double AudioBuffers. This is because juce::Reverb only processes in floats.
  */
-class Reverb : public SerializableData
+class Reverb
 {
 public:
 	/** Creates a default Reverb object. */
@@ -89,8 +89,6 @@ public:
 
 
 private:
-	void serialize (TreeReflector& ref) final;
-
 	juce::Reverb reverb;
 
 	juce::Reverb::Parameters juceReverbParams;

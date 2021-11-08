@@ -118,34 +118,6 @@ float Filter<SampleType>::getGain() const
 	return static_cast<float> (gain);
 }
 
-
-template <typename SampleType>
-void Filter<SampleType>::serialize (TreeReflector& ref)
-{
-	ref.add ("Type", type);
-
-	ref.addLambdaSet<float> (
-	    "Frequency",
-	    [&]
-	    { return static_cast<float> (freq); },
-	    [&] (float& newFreq)
-	    { setFilterFrequency (newFreq); });
-
-	ref.addLambdaSet<float> (
-	    "Q",
-	    [&]
-	    { return static_cast<float> (Q); },
-	    [&] (float& newQ)
-	    { setQfactor (newQ); });
-
-	ref.addLambdaSet<float> (
-	    "Gain",
-	    [&]
-	    { return static_cast<float> (gain); },
-	    [&] (float& newGain)
-	    { setGain (newGain); });
-}
-
 template class Filter<float>;
 template class Filter<double>;
 

@@ -35,7 +35,6 @@ Parameter::Parameter (String paramName,
                       bool                                    metaParam,
                       juce::AudioProcessorParameter::Category parameterCategory)
     : juce::RangedAudioParameter (paramNameToID (TRANS (paramName)), TRANS (paramName), paramLabel, parameterCategory)
-    , SerializableData (paramName)
     , automatable (isAutomatable)
     , metaParameter (metaParam)
     , range (paramRange)
@@ -115,7 +114,7 @@ void Parameter::setMidiControllerNumber (int newControllerNumber)
 {
 	if (newControllerNumber == getMidiControllerNumber()) return;
 
-	UndoManager::ScopedTransaction s { um, midiControllerChangeTransactionName };
+//	UndoManager::ScopedTransaction s { um, midiControllerChangeTransactionName };
 	setMidiControllerInternal (newControllerNumber);
 }
 
@@ -146,8 +145,8 @@ void Parameter::beginGesture()
 	if (isChanging())
 		return;
 
-	if (um != nullptr)
-		um->beginNewTransaction (valueChangeTransactionName);
+//	if (um != nullptr)
+//		um->beginNewTransaction (valueChangeTransactionName);
 
 	changing.store (true);
 	this->beginChangeGesture();
@@ -161,8 +160,8 @@ void Parameter::endGesture()
 	if (! isChanging())
 		return;
 
-	if (um != nullptr)
-		um->endTransaction();
+//	if (um != nullptr)
+//		um->endTransaction();
 
 	changing.store (false);
 	this->endChangeGesture();
@@ -195,7 +194,7 @@ void Parameter::setNormalizedDefault (float value)
 {
 	if (value == getNormalizedDefault()) return;
 
-	UndoManager::ScopedTransaction s { um, defaultChangeTransactionName };
+//	UndoManager::ScopedTransaction s { um, defaultChangeTransactionName };
 
 	setDefaultInternal (value);
 }
@@ -276,10 +275,10 @@ void Parameter::setDenormalizedValue (float value)
 	return this->convertFrom0to1 (input);
 }
 
-void Parameter::setUndoManager (UndoManager& managerToUse)
-{
-	um = &managerToUse;
-}
+//void Parameter::setUndoManager (UndoManager& managerToUse)
+//{
+//	um = &managerToUse;
+//}
 
 bool Parameter::isAutomatable() const
 {

@@ -16,14 +16,13 @@
 -------------------------------------------------------------------------------------*/
 
 
+#include "aliases.h"
+
 #include "parameters/Parameter.h"
 #include "parameters/ParameterTypes.h"
 #include "parameters/Specializations.h"
 
 #include "parameters/utils/ParamUpdater.h"
-#include "parameters/utils/ParameterHolder.h"
-
-#include "parameters/ParameterList.h"
 
 #include "parameters/MetaParameter.h"
 

@@ -7,9 +7,6 @@
 
 #include "parameters/utils/ParamUpdater.cpp"
 #include "parameters/utils/ParameterProcessor.cpp"
-#include "parameters/utils/ParameterHolder.cpp"
-
-#include "parameters/ParameterList.cpp"
 
 #include "parameters/MetaParameter.cpp"
 

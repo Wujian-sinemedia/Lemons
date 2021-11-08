@@ -54,8 +54,6 @@ public:
 
 
 private:
-	void serialize (TreeReflector& ref) final;
-
 	dsp::filters::MultiFilter<SampleType, 2> filter;
 
 	NoiseGate<SampleType> gate;

@@ -1,12 +1,6 @@
 
 namespace lemons::spline
 {
-void Spline::serialize (TreeReflector& ref)
-{
-	ref.add ("Knots", knots);
-	ref.add ("Point", points);
-}
-
 void Spline::updatePoints (const juce::Rectangle<float>& bounds)
 {
 	knots.makeSpline (points);

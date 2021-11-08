@@ -16,12 +16,12 @@
 -------------------------------------------------------------------------------------*/
 
 
-#include "state/state.h"
-#include "state/PluginState.h"
+//#include "state/state.h"
+//#include "state/PluginState.h"
 
 #include "processors/ProcessorBase.h"
 
 #include "EditorBase/PluginGUIBase.h"
 #include "EditorBase/EditorBase.h"
 
-#include "processors/Processors.h"
+//#include "processors/Processors.h"

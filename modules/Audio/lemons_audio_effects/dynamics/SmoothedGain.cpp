@@ -65,17 +65,6 @@ float SmoothedGain<SampleType, channels>::getGain() const
 	return gainVal;
 }
 
-template <typename SampleType, size_t channels>
-void SmoothedGain<SampleType, channels>::serialize (TreeReflector& ref)
-{
-	ref.addLambdaSet<float> (
-	    "Gain",
-	    [&]
-	    { return gainVal; },
-	    [&] (float& gain)
-	    { setGain (gain); });
-}
-
 template class SmoothedGain<float, 1>;
 template class SmoothedGain<double, 1>;
 template class SmoothedGain<float, 2>;

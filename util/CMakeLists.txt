@@ -5,5 +5,5 @@ if (LEMONS_BUILD_DOCS)
 endif()
 
 if (LEMONS_BUILD_TESTS)
-    add_subdirectory (testing)
+    add_subdirectory (UnitTestRunner)
 endif()

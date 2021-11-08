@@ -71,8 +71,6 @@ public:
 
 
 private:
-	void serialize (TreeReflector& ref) final;
-
 	void update();
 
 	juce::dsp::ProcessSpec spec;

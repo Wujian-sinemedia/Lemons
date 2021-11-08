@@ -3,7 +3,7 @@ namespace lemons::plugin
 {
 
 template <typename ValueType>
-MetaParameter<ValueType>::MetaParameter (ParameterList& parameterListToUse,
+MetaParameter<ValueType>::MetaParameter (//ParameterList& parameterListToUse,
                                          ValueType minimum, ValueType maximum, ValueType defaultValue,
                                          String                                   paramName,
                                          std::function<String (ValueType, int)>   stringFromValue,
@@ -11,7 +11,7 @@ MetaParameter<ValueType>::MetaParameter (ParameterList& parameterListToUse,
                                          String paramLabel, bool isAutomatable,
                                          juce::AudioProcessorParameter::Category parameterCategory)
     : TypedParameter<ValueType> (minimum, maximum, defaultValue, paramName, stringFromValue, valueFromString, paramLabel, isAutomatable, true, parameterCategory)
-    , parameterList (parameterListToUse)
+    //, parameterList (parameterListToUse)
 {
 }
 
@@ -21,25 +21,6 @@ void MetaParameter<ValueType>::removeInvalidConnections()
 	for (const auto& connection : connections)
 		if (connection.parameter == nullptr)
 			connections.remove (&connection);
-}
-
-template <typename ValueType>
-void MetaParameter<ValueType>::serialize (TreeReflector& ref)
-{
-	if (ref.isSaving())
-		removeInvalidConnections();
-
-	ref.addLambdaSet<ValueTree> (
-	    "MetaSettings",
-	    [&]
-	    { return TypedParameter<ValueType>::SerializableData::serialize(); },
-	    [&] (ValueTree& t)
-	    { TypedParameter<ValueType>::SerializableData::deserialize (t); });
-
-	ref.add ("Connections", connections);
-
-	for (auto& connection : connections)
-		connection.paramList = &parameterList;
 }
 
 template <typename ValueType>
@@ -96,7 +77,7 @@ void MetaParameter<ValueType>::createOrEditConnection (Parameter& parameter, flo
 		connection.parameter = &parameter;
 		connection.min       = minAmt;
 		connection.max       = maxAmt;
-		connection.paramList = &parameterList;
+		//connection.paramList = &parameterList;
 	};
 
 	if (auto* connection = getConnection (parameter))
@@ -146,31 +127,6 @@ void MetaParameter<ValueType>::Updater::parameterValueChanged (float newNormaliz
 
 
 template <typename ValueType>
-void MetaParameter<ValueType>::Connection::serialize (TreeReflector& ref)
-{
-	if (ref.isSaving() && parameter == nullptr)
-		return;
-
-	ref.addLambdaSet<String> (
-	    "ParameterName",
-	    [&]
-	    { return parameter->getParameterName(); },
-	    [&] (const String& name)
-	    {
-		    if (parameter != nullptr && parameter->getParameterName() == name)
-			    return;
-
-		    parameter = nullptr;
-
-		    if (paramList != nullptr)
-			    parameter = paramList->getParameterWithName (name);
-	    });
-
-	ref.add ("MinimumAmount", min);
-	ref.add ("MaximumAmount", max);
-}
-
-template <typename ValueType>
 void MetaParameter<ValueType>::Connection::apply (float newMetaVal)
 {
 	if (parameter == nullptr) return;
@@ -186,9 +142,9 @@ template class MetaParameter<int>;
 /*----------------------------------------------------------------------------------------------------------------*/
 
 
-DefaultMetaParameter::DefaultMetaParameter (ParameterList& parameterListToUse,
+DefaultMetaParameter::DefaultMetaParameter (//ParameterList& parameterListToUse,
                                             String         paramName)
-    : MetaParameter<int> (parameterListToUse, 0, 100, 50, paramName)
+    : MetaParameter<int> (/*parameterListToUse,*/ 0, 100, 50, paramName)
 {
 }
 

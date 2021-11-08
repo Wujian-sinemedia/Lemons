@@ -88,8 +88,6 @@ public:
 	//--------------------------------------
 
 private:
-	void serialize (TreeReflector& ref) override;
-
 	std::function<String (ValueType, int)>   stringFromValueFunction;
 	std::function<ValueType (const String&)> valueFromStringFunction;
 };

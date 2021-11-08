@@ -4,8 +4,8 @@ namespace lemons::dsp::psola
 template <typename SampleType>
 Shifter<SampleType>::Shifter (Analyzer<SampleType>& parentAnalyzer)
     : analyzer (parentAnalyzer)
-    , l (analyzer.broadcaster, [this]
-         { this->currentSample = 0; })
+//    , l (analyzer.broadcaster, [this]
+//         { this->currentSample = 0; })
 {
 	while (grains.size() < 40)
 		grains.add (new Grain (storage));

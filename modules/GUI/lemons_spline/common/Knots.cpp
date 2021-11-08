@@ -17,13 +17,6 @@ Knot& Knot::operator= (const Knot& other)
 	return *this;
 }
 
-void Knot::serialize (TreeReflector& ref)
-{
-	ref.add ("Location", location);
-	ref.add ("DragStart", dragStart);
-	ref.add ("Selected", selected);
-}
-
 void Knot::select() noexcept
 {
 	dragStart = location;
@@ -70,11 +63,6 @@ const Knot& Knots::getKnot (int index) const
 	const auto idx = static_cast<size_type> (index);
 	jassert (index >= 0 && idx < size());
 	return (*this)[idx];
-}
-
-void Knots::serialize (TreeReflector& ref)
-{
-	ref.add ("Knot", *(static_cast<std::vector<Knot>*> (this)));
 }
 
 void Knots::add (const Point& p)

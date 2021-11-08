@@ -210,42 +210,4 @@ void Reverb::process (juce::AudioBuffer<float>& input,
 }
 
 
-void Reverb::serialize (TreeReflector& ref)
-{
-	ref.add ("RoomSize", juceReverbParams.roomSize);
-	ref.add ("Damping", juceReverbParams.damping);
-	ref.add ("Width", juceReverbParams.width);
-
-	if (ref.isLoading())
-		reverb.setParameters (juceReverbParams);
-
-	ref.addLambdaSet<int> (
-	    "DryWet",
-	    [&]
-	    { return dryWet_val; },
-	    [&] (int& i)
-	    { setDryWet (i); });
-
-	ref.addLambdaSet<int> (
-	    "Ducking",
-	    [&]
-	    { return duck_val; },
-	    [&] (int& i)
-	    { setDuckAmount (i); });
-
-	ref.addLambdaSet<float> (
-	    "LoCut",
-	    [&]
-	    { return loCutFreq; },
-	    [&] (float& f)
-	    { setLoCutFrequency (f); });
-
-	ref.addLambdaSet<float> (
-	    "HiCut",
-	    [&]
-	    { return hiCutFreq; },
-	    [&] (float& f)
-	    { setHiCutFrequency (f); });
-}
-
 }  // namespace lemons::dsp::FX

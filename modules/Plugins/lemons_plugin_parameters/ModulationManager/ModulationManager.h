@@ -7,13 +7,13 @@ namespace lemons::plugin
     This class holds a collection of LFOs that can be mapped to any number of Parameter objects. \n
     This class is also serializable; the saving and loading of parameter connections works by using the ParameterList::getParameterWithName() function.
  */
-class ModulationManager : public SerializableData
+class ModulationManager
 {
 public:
 	using LfoNamingFunc = std::function<String (int)>;
 
 	/** Creates a modulation manager. */
-	ModulationManager (ParameterList& listToUse,
+	ModulationManager (//ParameterList& listToUse,
 	                   int            initNumLfos     = 1,
 	                   LfoNamingFunc  namingFuncToUse = nullptr);
 
@@ -47,11 +47,9 @@ public:
 	LFO& addLFO();
 
 private:
-	void serialize (TreeReflector& ref) final;
-
 	/*------------------------------*/
 
-	ParameterList& paramList;
+	//ParameterList& paramList;
 
 	juce::OwnedArray<LFO> lfos;
 

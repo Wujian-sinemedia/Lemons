@@ -64,24 +64,6 @@ SampleType DeEsser<SampleType>::processChannel (int               channel,
 	return gate.processChannel (channel, numSamples, signalToDeEss, sidechain);
 }
 
-template <typename SampleType>
-void DeEsser<SampleType>::serialize (TreeReflector& ref)
-{
-	ref.addLambdaSet<float> (
-	    "Threshold",
-	    [&]
-	    { return thresh; },
-	    [&] (float& newThresh)
-	    { setThresh (newThresh); });
-
-	ref.addLambdaSet<int> (
-	    "Amount",
-	    [&]
-	    { return amt; },
-	    [&] (int& newAmt)
-	    { setDeEssAmount (newAmt); });
-}
-
 template class DeEsser<float>;
 template class DeEsser<double>;
 

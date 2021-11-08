@@ -1,16 +1,16 @@
 
 namespace lemons::plugin
 {
-template <typename SampleType>
-ParameterProcessor<SampleType>::ParameterProcessor (ParameterList& listToUse)
-    : list (listToUse)
-{
-}
+//template <typename SampleType>
+//ParameterProcessor<SampleType>::ParameterProcessor (ParameterList& listToUse)
+//    : list (listToUse)
+//{
+//}
 
 template <typename SampleType>
-void ParameterProcessor<SampleType>::handleMidiMessage (const MidiMessage& m)
+void ParameterProcessor<SampleType>::handleMidiMessage (const juce::MidiMessage&)
 {
-	list.processMidiMessage (m);
+	//list.processMidiMessage (m);
 }
 
 template class ParameterProcessor<float>;

@@ -92,26 +92,6 @@ void ChoosableOscillator<SampleType>::setDetuneAmount (int pitchSpreadCents)
 	superSaw->setDetuneAmount (pitchSpreadCents);
 }
 
-template <typename SampleType>
-void ChoosableOscillator<SampleType>::serialize (TreeReflector& ref)
-{
-	ref.add ("OscillatorType", type);
-
-	ref.addLambdaSet<float> (
-	    "Frequency",
-	    [&]
-	    { return freq; },
-	    [&] (float& f)
-	    { setFrequency (f); });
-
-	ref.addLambdaSet<int> (
-	    "DetuneAmount",
-	    [&]
-	    { return superSaw->getPitchSpreadCents(); },
-	    [&] (int& c)
-	    { setDetuneAmount (c); });
-}
-
 template class ChoosableOscillator<float>;
 template class ChoosableOscillator<double>;
 

@@ -1,5 +1,6 @@
 #pragma once
 
+#include <lemons_midi/lemons_midi.h>
 
 namespace lemons::plugin
 {
@@ -10,18 +11,18 @@ namespace lemons::plugin
     @see dsp::MidiChoppingProcessor ParameterList
  */
 template <typename SampleType>
-class ParameterProcessor : public dsp::MidiChoppingProcessor<SampleType>
+class ParameterProcessor : public midi::MidiChoppingProcessor<SampleType>
 {
 public:
 	/** Creates a parameter processor.
 	    @param listToUse The ParameterList to reference.
 	 */
-	ParameterProcessor (ParameterList& listToUse);
+	//ParameterProcessor (ParameterList& listToUse);
 
 private:
-	void handleMidiMessage (const MidiMessage& m) final;
+	void handleMidiMessage (const juce::MidiMessage& m) final;
 
-	ParameterList& list;
+	//ParameterList& list;
 };
 
 }  // namespace lemons::plugin

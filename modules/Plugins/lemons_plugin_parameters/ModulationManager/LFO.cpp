@@ -1,8 +1,8 @@
 
 namespace lemons::plugin
 {
-LFO::LFO (ParameterList& listToUse, String metaParameterName)
-    : param (listToUse, metaParameterName)
+LFO::LFO (/*ParameterList& listToUse,*/ String metaParameterName)
+    //: param (metaParameterName)
 {
 }
 
@@ -19,18 +19,12 @@ void LFO::prepareToPlay (int numSamples, double samplerate)
 
 [[nodiscard]] DefaultMetaParameter& LFO::getParameter() noexcept
 {
-	return *param.get();
+	//return *param.get();
 }
 
 void LFO::addParameterTo (juce::AudioProcessor& processor)
 {
-	param.addTo (processor);
-}
-
-void LFO::serialize (TreeReflector& ref)
-{
-	ref.add ("Oscillator", osc);
-	ref.add ("MetaParameter", param);
+	//param.addTo (processor);
 }
 
 }  // namespace lemons::plugin

@@ -12,17 +12,13 @@ public:
 	using Toggle = serializing::TogglerInterface;
 
 	/** Creates a new plugin GUI. */
-	GUIBase (UndoManager& undoToUse, StateBase& stateBaseToUse, Toggle& toggleInterfaceToUse)
-	    : undoManager (undoToUse)
-	    , stateBase (stateBaseToUse)
+	GUIBase (StateBase& stateBaseToUse, Toggle& toggleInterfaceToUse)
+	    : stateBase (stateBaseToUse)
 	    , toggleInterface (toggleInterfaceToUse)
 	{
 	}
 
 protected:
-	/** The plugin's UndoManager. */
-	UndoManager& undoManager;
-
 	/** The plugin's state. */
 	StateBase& stateBase;
 
@@ -45,7 +41,7 @@ class GUI : public GUIBase
 public:
 	/** Creates a new plugin GUI. */
 	GUI (plugin::PluginState<StateType>& stateToUse)
-	    : GUIBase (stateToUse.undo, stateToUse.state, stateToUse.toggles)
+	    : GUIBase (stateToUse.state, stateToUse.toggles)
 	    , state (stateToUse.state)
 	    , toggles (stateToUse.toggles)
 	{

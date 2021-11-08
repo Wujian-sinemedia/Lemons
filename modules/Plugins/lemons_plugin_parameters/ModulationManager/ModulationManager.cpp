@@ -10,11 +10,11 @@ static inline std::function<String (int)> createDefaultLfoNamingFunc()
 	};
 }
 
-ModulationManager::ModulationManager (ParameterList& listToUse,
+ModulationManager::ModulationManager (//ParameterList& listToUse,
                                       int            initNumLfos,
                                       LfoNamingFunc  namingFuncToUse)
-    : paramList (listToUse)
-    , namingFunc (namingFuncToUse)
+    //: paramList (listToUse)
+    : namingFunc (namingFuncToUse)
 {
 	if (namingFunc == nullptr)
 		namingFunc = createDefaultLfoNamingFunc();
@@ -25,36 +25,8 @@ ModulationManager::ModulationManager (ParameterList& listToUse,
 
 LFO& ModulationManager::addLFO()
 {
-	auto* lfo = lfos.add (new LFO (paramList, namingFunc (lfos.size())));
+	auto* lfo = lfos.add (new LFO (namingFunc (lfos.size())));
 	return *lfo;
-}
-
-void ModulationManager::serialize (TreeReflector& ref)
-{
-	using State = std::vector<ValueTree>;
-
-	auto getState = [&]() -> State
-	{
-		State state;
-
-		for (auto* lfo : lfos)
-			state.push_back (lfo->SerializableData::serialize());
-
-		return state;
-	};
-
-	auto setState = [&] (State& state)
-	{
-		for (auto i = static_cast<int> (state.size()); i < lfos.size(); ++i)
-			lfos.remove (i);
-
-		for (auto i = static_cast<State::size_type> (lfos.size()); i < state.size(); ++i)
-		{
-			addLFO().deserialize (state[i]);
-		}
-	};
-
-	ref.addLambdaSet<State> ("LFOs", getState, setState);
 }
 
 LFO* ModulationManager::getLFO (int index)

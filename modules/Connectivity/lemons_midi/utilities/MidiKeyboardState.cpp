@@ -48,11 +48,6 @@ void MidiKeyboardState::processMidiMessage (const MidiMessage& m)
 		allNotesOff();
 }
 
-void MidiKeyboardState::serialize (TreeReflector& ref)
-{
-	ref.add ("Notes", notes);
-}
-
 void MidiKeyboardState::setFromArrayOfPitches (const juce::Array<int>& pitches)
 {
 	if (pitches.isEmpty())

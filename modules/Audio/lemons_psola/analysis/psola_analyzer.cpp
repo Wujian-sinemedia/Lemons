@@ -33,7 +33,7 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* samples, int numSampl
 
 	currentPeriod = period;
 
-	broadcaster.trigger();
+//	broadcaster.trigger();
 }
 
 template <typename SampleType>

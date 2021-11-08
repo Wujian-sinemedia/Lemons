@@ -4,6 +4,19 @@
 
 namespace lemons
 {
+
+#ifdef JUCE_APPLICATION_NAME_STRING
+  #define LEMONS_DEFAULT_APP_NAME (JUCE_APPLICATION_NAME_STRING)
+#else
+  #define LEMONS_DEFAULT_APP_NAME "LemonsApp"
+#endif
+
+#ifdef JUCE_APPLICATION_VERSION_STRING
+  #define LEMONS_DEFAULT_APP_VERSION (JUCE_APPLICATION_VERSION_STRING)
+#else
+  #define LEMONS_DEFAULT_APP_VERSION "0.0.1"
+#endif
+
 /**
     Base class for a GUI app's main window.
  */
@@ -11,7 +24,7 @@ struct DefaultWindowBase : public juce::DocumentWindow
 {
 public:
 	/** Constructs a window with a specified initial size. */
-	DefaultWindowBase (const String&           appName  = JUCE_APPLICATION_NAME_STRING,
+	DefaultWindowBase (const String&           appName  = LEMONS_DEFAULT_APP_NAME,
 	                   const juce::Point<int>& initSize = defaultWindowSize());
 
 protected:
@@ -32,7 +45,7 @@ template <typename ComponentType, LEMONS_MUST_INHERIT_FROM (ComponentType, juce:
 struct DefaultWindow : public DefaultWindowBase
 {
 	/** Constructs a default window. */
-	DefaultWindow (const String&           appName  = JUCE_APPLICATION_NAME_STRING,
+	DefaultWindow (const String&           appName  = LEMONS_DEFAULT_APP_NAME,
 	               const juce::Point<int>& initSize = defaultWindowSize())
 	    : DefaultWindowBase (appName, initSize)
 	{

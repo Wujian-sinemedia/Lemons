@@ -9,7 +9,7 @@ using Dimensions = juce::Point<int>;
 
 
 /** The default plugin state toggler has 3 states, A/B/C. */
-using StateToggles = serializing::Toggler<3>;
+//using StateToggles = serializing::Toggler<3>;
 
 
 /** Base class for a plugin's state.
@@ -20,7 +20,7 @@ using StateToggles = serializing::Toggler<3>;
     I recommed using the templated State or CustomState classes; they handle creating your parameter list and custom serializable data objects and passing them to the base class.
     @see State, CustomState, PluginState, ParameterList, ModulationManager, Dimensions, StateToggler
  */
-class StateBase : public SerializableData
+class StateBase
 {
 public:
 	/** Creates a new plugin state.

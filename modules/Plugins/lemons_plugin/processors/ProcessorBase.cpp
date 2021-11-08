@@ -14,17 +14,17 @@ ProcessorBase::ProcessorBase (StateBase&                            stateToUse,
 
 void ProcessorBase::saveEditorSize (int width, int height)
 {
-	state.dimensions = { width, height };
+	//state.dimensions = { width, height };
 }
 
 [[nodiscard]] juce::Point<int> ProcessorBase::getSavedEditorSize() const noexcept
 {
-	return state.dimensions;
+	//return state.dimensions;
 }
 
 juce::AudioProcessorParameter* ProcessorBase::getBypassParameter() const
 {
-	return state.mainBypass.get();
+	//return state.mainBypass.get();
 }
 
 void ProcessorBase::prepareToPlay (double sampleRate, int samplesPerBlock)

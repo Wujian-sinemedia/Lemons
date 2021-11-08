@@ -4,7 +4,7 @@
 
 namespace lemons::spline
 {
-struct Spline : SerializableData
+struct Spline
 {
 	void updatePoints (const juce::Rectangle<float>& bounds);
 
@@ -14,9 +14,6 @@ struct Spline : SerializableData
 
 	Knots  knots;
 	Points points;
-
-private:
-	void serialize (TreeReflector& ref) final;
 };
 
 }  // namespace lemons::spline

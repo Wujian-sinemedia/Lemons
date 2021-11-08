@@ -1,12 +1,10 @@
 #pragma once
 
-#include <lemons_serializing/lemons_serializing.h>
-
 
 namespace lemons::midi
 {
 
-class MidiKeyboardState : public SerializableData
+class MidiKeyboardState
 {
 public:
 	MidiKeyboardState();
@@ -25,8 +23,6 @@ public:
 	void allNotesOff();
 
 private:
-	void serialize (TreeReflector& ref) final;
-
 	std::array<bool, 128> notes;
 };
 

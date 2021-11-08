@@ -1,7 +1,6 @@
 #pragma once
 
 #include "OscEngine.h"
-#include <lemons_serializing/lemons_serializing.h>
 
 namespace lemons::dsp::osc
 {
@@ -22,7 +21,7 @@ enum class OscType
     @see OscType, OscEngine, Oscillator
  */
 template <typename SampleType>
-class ChoosableOscillator : public SerializableData
+class ChoosableOscillator
 {
 public:
 	/** Sets the type of oscillator that will be used to generate the output.
@@ -55,8 +54,6 @@ public:
 private:
 	/** If you're implementing a subclass of ChoosableOscillator, this will be called after the main call to prepare() is made. */
 	virtual void prepared (int /*blocksize*/) { }
-
-	void serialize (TreeReflector& ref) final;
 
 	OscType type { OscType::Sine };
 	float   freq { 440.f };

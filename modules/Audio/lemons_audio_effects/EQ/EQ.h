@@ -60,8 +60,6 @@ public:
 
 
 private:
-	void serialize (TreeReflector& ref) final;
-
 	juce::OwnedArray<Band> bands;
 
 	double lastSamplerate { 44100. };

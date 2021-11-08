@@ -85,24 +85,6 @@ SampleType Delay<SampleType>::processChannel (int         channel,
 	return avgMag;
 }
 
-template <typename SampleType>
-void Delay<SampleType>::serialize (TreeReflector& ref)
-{
-	ref.addLambdaSet<int> (
-	    "DelayTime",
-	    [&]
-	    { return juce::roundToInt (delay.getDelay()); },
-	    [&] (int& d)
-	    { setDelay (d); });
-
-	ref.addLambdaSet<int> (
-	    "DryWet",
-	    [&]
-	    { return wetPcnt; },
-	    [&] (int& w)
-	    { setDryWet (w); });
-}
-
 template class Delay<float>;
 template class Delay<double>;
 

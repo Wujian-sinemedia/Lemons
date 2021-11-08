@@ -70,8 +70,6 @@ public:
 
 
 private:
-	void serialize (TreeReflector& ref) final;
-
 	filters::MultiFilter<SampleType, 2> filter;
 
 	FilterType type { FilterType::HighPass };

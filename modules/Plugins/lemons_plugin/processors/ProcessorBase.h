@@ -1,5 +1,9 @@
 #pragma once
 
+#include <lemons_dsp/lemons_dsp.h>
+#include <lemons_core/lemons_core.h>
+#include <lemons_plugin_parameters/lemons_plugin_parameters.h>
+
 namespace lemons::plugin
 {
 /** Base class for a plugin processor.
@@ -10,6 +14,11 @@ namespace lemons::plugin
 class ProcessorBase : public dsp::BasicProcessorBase
     , private SystemInitializer
 {
+    using MidiBuffer = juce::MidiBuffer;
+    
+    template<typename SampleType>
+    using AudioBuffer = juce::AudioBuffer<SampleType>;
+    
 public:
 	/** Creates a processor.
 	    @param stateToUse The state object to reference. The internal ParameterProcessor will reference stateToUse.getParameters().
@@ -17,7 +26,7 @@ public:
 	    @param doubleEngineToUse The double specialization of the dsp::Engine to use.
 	    @param busesLayout The buses layout to pass to the underlying juce::AudioProcessor.
 	 */
-	ProcessorBase (StateBase&                            stateToUse,
+	ProcessorBase (//StateBase&                            stateToUse,
 	               dsp::Engine<float>&                   floatEngineToUse,
 	               dsp::Engine<double>&                  doubleEngineToUse,
 	               juce::AudioProcessor::BusesProperties busesLayout = BusesProperties()
@@ -54,7 +63,7 @@ private:
 	{
 	public:
 		InternalEngine (juce::AudioProcessor&    processorToUse,
-		                StateBase&               stateToUse,
+		                //StateBase&               stateToUse,
 		                dsp::Engine<SampleType>& engineToUse);
 
 		void prepareToPlay (double samplerate, int maxBlocksize);
@@ -65,7 +74,7 @@ private:
 		void renderChunk (juce::AudioBuffer<SampleType>& audio, MidiBuffer& midi) final;
 
 		juce::AudioProcessor&    processor;
-		StateBase&               state;
+		//StateBase&               state;
 		dsp::Engine<SampleType>& engine;
 	};
 
@@ -78,7 +87,7 @@ private:
 
 	/*-------------------------------------------------------*/
 
-	StateBase& state;
+	//StateBase& state;
 
 	InternalEngine<float>  floatEngine;
 	InternalEngine<double> doubleEngine;

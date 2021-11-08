@@ -68,12 +68,6 @@ Filter<SampleType>* EQ<SampleType>::getBandAtFrequency (float freq)
 	return nullptr;
 }
 
-template <typename SampleType>
-void EQ<SampleType>::serialize (TreeReflector& ref)
-{
-	ref.add ("Bands", bands);
-}
-
 template class EQ<float>;
 template class EQ<double>;
 

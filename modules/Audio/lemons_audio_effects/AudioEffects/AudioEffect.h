@@ -1,7 +1,6 @@
 #pragma once
 
 #include <lemons_dsp/lemons_dsp.h>
-#include <lemons_serializing/lemons_serializing.h>
 
 namespace lemons::dsp::FX
 {
@@ -10,7 +9,7 @@ namespace lemons::dsp::FX
     Note that AudioEffect does not implement SerializableData::serialize(), your subclass must implement this to save and restore its state!
  */
 template <typename SampleType>
-struct AudioEffect : SerializableData
+struct AudioEffect
 {
 	/** Destructor. */
 	virtual ~AudioEffect() = default;
@@ -87,7 +86,7 @@ struct LevelReportingAudioEffect : SidechainableAudioEffect<SampleType>
 	SampleType getAverageLevel() const;
 
 private:
-	Array<SampleType> gainReductions;
+	juce::Array<SampleType> gainReductions;
 };
 
 }  // namespace lemons::dsp::FX

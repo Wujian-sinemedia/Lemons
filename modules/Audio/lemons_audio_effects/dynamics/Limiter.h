@@ -45,8 +45,6 @@ public:
 
 
 private:
-	void serialize (TreeReflector& ref) final;
-
 	void update();
 
 	Compressor<SampleType> firstStageCompressor, secondStageCompressor;

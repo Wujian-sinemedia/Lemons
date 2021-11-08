@@ -7,7 +7,7 @@ template <typename ValueType>
 class MetaParameter : public TypedParameter<ValueType>
 {
 public:
-	MetaParameter (ParameterList& parameterListToUse,
+	MetaParameter (//ParameterList& parameterListToUse,
 	               ValueType minimum, ValueType maximum, ValueType defaultValue, String paramName,
 	               std::function<String (ValueType, int)>   stringFromValue = nullptr,
 	               std::function<ValueType (const String&)> valueFromString = nullptr,
@@ -33,11 +33,9 @@ public:
 	void createOrEditConnection (BoolParameter& parameter);
 
 private:
-	void serialize (TreeReflector& ref) final;
-
 	/*---------------------------------------------------------*/
 
-	struct Connection : SerializableData
+	struct Connection
 	{
 		Connection() = default;
 
@@ -47,11 +45,9 @@ private:
 	private:
 		friend class MetaParameter;
 
-		void serialize (TreeReflector& ref) final;
-
 		void apply (float newMetaVal);
 
-		ParameterList* paramList { nullptr };
+		//ParameterList* paramList { nullptr };
 	};
 
 	/*---------------------------------------------------------*/
@@ -81,13 +77,13 @@ private:
 
 	juce::Array<Connection> connections;
 
-	ParameterList& parameterList;
+	//ParameterList& parameterList;
 };
 
 
 struct DefaultMetaParameter : MetaParameter<int>
 {
-	DefaultMetaParameter (ParameterList& parameterListToUse, String paramName);
+	DefaultMetaParameter (/*ParameterList& parameterListToUse,*/ String paramName);
 };
 
 }  // namespace lemons::plugin
@@ -95,6 +91,6 @@ struct DefaultMetaParameter : MetaParameter<int>
 namespace lemons
 {
 
-using MetaParam = plugin::ParameterHolder<plugin::DefaultMetaParameter>;
+//using MetaParam = plugin::ParameterHolder<plugin::DefaultMetaParameter>;
 
 }

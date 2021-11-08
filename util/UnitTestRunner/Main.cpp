@@ -24,28 +24,30 @@ class ConsoleUnitTestRunner : public juce::UnitTestRunner
 
 
 //==============================================================================
+
+static constexpr auto TEST_EXIT_SUCCESS = 0;
+static constexpr auto TEST_EXIT_FAILURE = 1;
+
 int main (int argc, char **argv)
 {
-    using namespace juce;
-
-    ArgumentList args (argc, argv);
+    juce::ArgumentList args (argc, argv);
 
     if (args.containsOption ("--help|-h"))
     {
         std::cout << argv[0] << " [--help|-h] [--list-categories] [--category category] [--seed seed]" << std::endl;
-        return 0;
+        return TEST_EXIT_SUCCESS;
     }
 
     if (args.containsOption ("--list-categories"))
     {
-        for (auto& category : UnitTest::getAllCategories())
+        for (auto& category : juce::UnitTest::getAllCategories())
             std::cout << category << std::endl;
 
-        return  0;
+        return TEST_EXIT_SUCCESS;
     }
 
     ConsoleLogger logger;
-    Logger::setCurrentLogger (&logger);
+    juce::Logger::setCurrentLogger (&logger);
 
     ConsoleUnitTestRunner runner;
 
@@ -61,7 +63,7 @@ int main (int argc, char **argv)
             return seedValueString.getLargeIntValue();
         }
 
-        return Random::getSystemRandom().nextInt64();
+        return juce::Random::getSystemRandom().nextInt64();
     }();
 
     if (args.containsOption ("--category"))
@@ -69,11 +71,11 @@ int main (int argc, char **argv)
     else
         runner.runAllTests (seed);
 
-    Logger::setCurrentLogger (nullptr);
+    juce::Logger::setCurrentLogger (nullptr);
 
     for (int i = 0; i < runner.getNumResults(); ++i)
         if (runner.getResult(i)->failures > 0)
-            return 1;
+            return TEST_EXIT_FAILURE;
 
-    return 0;
+    return TEST_EXIT_SUCCESS;
 }

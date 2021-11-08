@@ -19,8 +19,6 @@ public:
 	SampleType popSample (int channel, SampleType* delayLevel = nullptr);
 
 private:
-	void serialize (TreeReflector& ref) final;
-
 	SampleType processChannel (int         channel,
 	                           int         numSamples,
 	                           SampleType* signal,

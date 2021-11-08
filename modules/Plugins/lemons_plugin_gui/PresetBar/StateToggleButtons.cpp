@@ -1,11 +1,11 @@
 
 namespace lemons::plugin
 {
-StateToggleButtons::StateToggleButtons (StateToggles& togglerToUse)
-    : toggler (togglerToUse)
-{
-	gui::addAndMakeVisible (this, a_button, b_button, c_button);
-}
+//StateToggleButtons::StateToggleButtons (StateToggles& togglerToUse)
+//    : toggler (togglerToUse)
+//{
+//	gui::addAndMakeVisible (this, a_button, b_button, c_button);
+//}
 
 void StateToggleButtons::resized()
 {

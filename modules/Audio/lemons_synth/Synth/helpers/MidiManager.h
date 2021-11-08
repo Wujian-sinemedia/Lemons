@@ -1,9 +1,12 @@
 #pragma once
 
+#include <lemons_midi/lemons_midi.h>
+
 namespace lemons::dsp::synth
 {
+
 template <typename SampleType>
-class MidiManager : public MidiChoppingProcessor<SampleType>
+class MidiManager : public midi::MidiChoppingProcessor<SampleType>
 {
 public:
 	MidiManager (SynthBase<SampleType>& s)

@@ -8,7 +8,7 @@ namespace lemons::plugin
 class StateToggleButtons : public juce::Component
 {
 public:
-	StateToggleButtons (StateToggles& togglerToUse);
+	//StateToggleButtons (StateToggles& togglerToUse);
 
 	bool isVertical() const;
 	void setVertical (bool shouldBeVertical);
@@ -16,7 +16,7 @@ public:
 private:
 	void resized() final;
 
-	StateToggles& toggler;
+	//StateToggles& toggler;
 
 	gui::TextButton a_button { "A", [this]
 		                       { toggler.loadState (0); } };

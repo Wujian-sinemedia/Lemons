@@ -2,7 +2,7 @@
 
 namespace lemons::spline
 {
-struct Knot : SerializableData
+struct Knot
 {
 	Knot (float xToUse = 0.f, float yToUse = 0.f);
 
@@ -20,14 +20,12 @@ struct Knot : SerializableData
 	Point dragStart;
 
 private:
-	void serialize (TreeReflector& ref) final;
-
 	bool selected { false };
 };
 
 
-struct Knots : SerializableData
-    , std::vector<Knot>
+struct Knots
+    : std::vector<Knot>
 {
 	Knots();
 
@@ -46,9 +44,6 @@ struct Knots : SerializableData
 	bool drag (const Point& drag) noexcept;
 
 	void makeSpline (Points& spline) const;
-
-private:
-	void serialize (TreeReflector& ref) final;
 };
 
 }  // namespace lemons::spline

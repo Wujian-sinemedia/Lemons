@@ -163,19 +163,6 @@ void NoiseGate<SampleType>::update()
 	envelopeFilter.setReleaseTime (releaseTime);
 }
 
-template <typename SampleType>
-void NoiseGate<SampleType>::serialize (TreeReflector& ref)
-{
-	ref.add ("Threshold", thresholddB);
-	ref.add ("Ratio", ratio);
-	ref.add ("Attack", attackTime);
-	ref.add ("Release", releaseTime);
-	ref.add ("Inverted", inverted);
-
-	if (ref.isLoading())
-		update();
-}
-
 
 template class NoiseGate<float>;
 template class NoiseGate<double>;

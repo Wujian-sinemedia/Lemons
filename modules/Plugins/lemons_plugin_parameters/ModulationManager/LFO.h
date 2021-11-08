@@ -9,13 +9,13 @@ namespace lemons::plugin
 /** An LFO, to be used by a ModulationManager object.
  Internally, this class uses a dsp::osc::ChoosableOscillator to generate its values.
  */
-struct LFO : SerializableData
+struct LFO
 {
 	/** Internally, LFOs use ChoosableOscillator to generate their values. */
 	using Osc = dsp::osc::ChoosableOscillator<float>;
 
 	/** Creates a new LFO. */
-	LFO (ParameterList& listToUse, String metaParameterName = "MetaParameter");
+	LFO (/*ParameterList& listToUse,*/ String metaParameterName = "MetaParameter");
 
 	/** Prepares the LFO for processing. */
 	void prepareToPlay (int numSamples, double samplerate);
@@ -28,13 +28,11 @@ struct LFO : SerializableData
 	void addParameterTo (juce::AudioProcessor& processor);
 
 private:
-	void serialize (TreeReflector& ref) final;
-
 	Osc osc;
 
-	MetaParam param;
+	//MetaParam param;
 
-	AudioBuffer<float> storage;
+	juce::AudioBuffer<float> storage;
 };
 
 }  // namespace lemons::plugin

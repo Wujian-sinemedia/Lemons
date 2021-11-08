@@ -128,20 +128,6 @@ void Compressor<SampleType>::update()
 	envelopeFilter.setReleaseTime (releaseTime);
 }
 
-
-template <typename SampleType>
-void Compressor<SampleType>::serialize (TreeReflector& ref)
-{
-	ref.add ("Threshold", thresholddB);
-	ref.add ("Ratio", ratio);
-	ref.add ("AttackMs", attackTime);
-	ref.add ("ReleaseMs", releaseTime);
-
-	if (ref.isLoading())
-		update();
-}
-
-
 template class Compressor<float>;
 template class Compressor<double>;
 

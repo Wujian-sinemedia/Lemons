@@ -64,8 +64,6 @@ public:
 
 
 private:
-	void serialize (TreeReflector& ref) final;
-
 	void update();
 
 	SampleType                              threshold { 0. }, thresholdInverse { 0. }, ratioInverse { 0. };
