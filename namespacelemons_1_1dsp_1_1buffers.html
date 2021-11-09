@@ -77,15 +77,15 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a338cb2205ecb51e66fe09025286e62d1"><td class="memTemplParams" colspan="2">template&lt;typename Type1 , typename Type2 &gt; </td></tr>
-<tr class="memitem:a338cb2205ecb51e66fe09025286e62d1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1dsp_1_1buffers.html#a338cb2205ecb51e66fe09025286e62d1">convert</a> (const AudioBuffer&lt; Type1 &gt; &amp;source, AudioBuffer&lt; Type2 &gt; &amp;dest)</td></tr>
+<tr class="memitem:a338cb2205ecb51e66fe09025286e62d1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1dsp_1_1buffers.html#a338cb2205ecb51e66fe09025286e62d1">convert</a> (const <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; Type1 &gt; &amp;source, <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; Type2 &gt; &amp;dest)</td></tr>
 <tr class="memdesc:a338cb2205ecb51e66fe09025286e62d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts all channels from the source buffer to the other numeric type for the destination buffer.  <a href="namespacelemons_1_1dsp_1_1buffers.html#a338cb2205ecb51e66fe09025286e62d1">More...</a><br /></td></tr>
 <tr class="separator:a338cb2205ecb51e66fe09025286e62d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8f6c7a0fdfc0981f44b3dfa291cc2ee"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
-<tr class="memitem:aa8f6c7a0fdfc0981f44b3dfa291cc2ee"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1dsp_1_1buffers.html#aa8f6c7a0fdfc0981f44b3dfa291cc2ee">copy</a> (const AudioBuffer&lt; SampleType &gt; &amp;source, AudioBuffer&lt; SampleType &gt; &amp;dest)</td></tr>
+<tr class="memitem:aa8f6c7a0fdfc0981f44b3dfa291cc2ee"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1dsp_1_1buffers.html#aa8f6c7a0fdfc0981f44b3dfa291cc2ee">copy</a> (const <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;source, <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;dest)</td></tr>
 <tr class="memdesc:aa8f6c7a0fdfc0981f44b3dfa291cc2ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies all channels from the source buffer to the destination buffer.  <a href="namespacelemons_1_1dsp_1_1buffers.html#aa8f6c7a0fdfc0981f44b3dfa291cc2ee">More...</a><br /></td></tr>
 <tr class="separator:aa8f6c7a0fdfc0981f44b3dfa291cc2ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af08caeb8ac174b35a1cc6d32edda5d51"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
-<tr class="memitem:af08caeb8ac174b35a1cc6d32edda5d51"><td class="memTemplItemLeft" align="right" valign="top">AudioBuffer&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1dsp_1_1buffers.html#af08caeb8ac174b35a1cc6d32edda5d51">getAliasBuffer</a> (AudioBuffer&lt; SampleType &gt; &amp;bufferToAlias, int startSample, int numSamples, int numChannels, int channelOffset=0)</td></tr>
+<tr class="memitem:af08caeb8ac174b35a1cc6d32edda5d51"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1dsp_1_1buffers.html#af08caeb8ac174b35a1cc6d32edda5d51">getAliasBuffer</a> (<a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;bufferToAlias, int startSample, int numSamples, int numChannels, int channelOffset=0)</td></tr>
 <tr class="memdesc:af08caeb8ac174b35a1cc6d32edda5d51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an alias buffer referring to the memory region owned by the original passed buffer.  <a href="namespacelemons_1_1dsp_1_1buffers.html#af08caeb8ac174b35a1cc6d32edda5d51">More...</a><br /></td></tr>
 <tr class="separator:af08caeb8ac174b35a1cc6d32edda5d51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -101,13 +101,13 @@ template&lt;typename Type1 , typename Type2 &gt; </div>
         <tr>
           <td class="memname">void lemons::dsp::buffers::convert </td>
           <td>(</td>
-          <td class="paramtype">const AudioBuffer&lt; Type1 &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; Type1 &gt; &amp;&#160;</td>
           <td class="paramname"><em>source</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">AudioBuffer&lt; Type2 &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; Type2 &gt; &amp;&#160;</td>
           <td class="paramname"><em>dest</em>&#160;</td>
         </tr>
         <tr>
@@ -133,13 +133,13 @@ template&lt;typename SampleType &gt; </div>
         <tr>
           <td class="memname">void lemons::dsp::buffers::copy </td>
           <td>(</td>
-          <td class="paramtype">const AudioBuffer&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
           <td class="paramname"><em>source</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">AudioBuffer&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
           <td class="paramname"><em>dest</em>&#160;</td>
         </tr>
         <tr>
@@ -163,9 +163,9 @@ template&lt;typename SampleType &gt; </div>
 template&lt;typename SampleType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">AudioBuffer&lt;SampleType&gt; lemons::dsp::buffers::getAliasBuffer </td>
+          <td class="memname"><a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt;SampleType&gt; lemons::dsp::buffers::getAliasBuffer </td>
           <td>(</td>
-          <td class="paramtype">AudioBuffer&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
           <td class="paramname"><em>bufferToAlias</em>, </td>
         </tr>
         <tr>
@@ -207,7 +207,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 8 2021 00:43:10 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 9 2021 00:43:28 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -98,7 +98,7 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a2b29ea43c8e780bce47082ad73ab2bc6"><td class="memItemLeft" align="right" valign="top">StateType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_plugin_state.html#a2b29ea43c8e780bce47082ad73ab2bc6">state</a></td></tr>
 <tr class="memdesc:a2b29ea43c8e780bce47082ad73ab2bc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The plugin's main state object.  <a href="structlemons_1_1plugin_1_1_plugin_state.html#a2b29ea43c8e780bce47082ad73ab2bc6">More...</a><br /></td></tr>
 <tr class="separator:a2b29ea43c8e780bce47082ad73ab2bc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa40e75834f1455e11a29294cbd06ece7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelemons_1_1plugin.html#a2ed692298f3553ce6d55dac8dba07e68">StateToggles</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_plugin_state.html#aa40e75834f1455e11a29294cbd06ece7">toggles</a> { <a class="el" href="structlemons_1_1plugin_1_1_plugin_state.html#a2b29ea43c8e780bce47082ad73ab2bc6">state</a> }</td></tr>
+<tr class="memitem:aa40e75834f1455e11a29294cbd06ece7"><td class="memItemLeft" align="right" valign="top">StateToggles&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_plugin_state.html#aa40e75834f1455e11a29294cbd06ece7">toggles</a> { <a class="el" href="structlemons_1_1plugin_1_1_plugin_state.html#a2b29ea43c8e780bce47082ad73ab2bc6">state</a> }</td></tr>
 <tr class="memdesc:aa40e75834f1455e11a29294cbd06ece7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The plugin's A/B/C state toggler.  <a href="structlemons_1_1plugin_1_1_plugin_state.html#aa40e75834f1455e11a29294cbd06ece7">More...</a><br /></td></tr>
 <tr class="separator:aa40e75834f1455e11a29294cbd06ece7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9baef8928515047ae943e5b5af3f0ae4"><td class="memItemLeft" align="right" valign="top">UndoManager&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_plugin_state.html#a9baef8928515047ae943e5b5af3f0ae4">undo</a> { <a class="el" href="structlemons_1_1plugin_1_1_plugin_state.html#a2b29ea43c8e780bce47082ad73ab2bc6">state</a> }</td></tr>
@@ -110,14 +110,14 @@ Public Attributes</h2></td></tr>
 struct lemons::plugin::PluginState&lt; StateType, &gt;</h3>
 
 <p>Represents the top-level state of a plugin as a whole. </p>
-<p>This encapsulates your <a class="el" href="classlemons_1_1plugin_1_1_state_base.html" title="Base class for a plugin&#39;s state.">StateBase</a>, <a class="el" href="structlemons_1_1plugin_1_1_state.html" title="A plugin state class that instantiates the appropriate ParameterList and passes it to the StateBase c...">State</a>, or <a class="el" href="structlemons_1_1plugin_1_1_custom_state.html" title="A plugin state class that instantiates the appropriate ParameterList and custom serializable object a...">CustomState</a> object along with a StateToggler and an UndoManager. <br  />
+<p>This encapsulates your <a class="el" href="classlemons_1_1plugin_1_1_state_base.html" title="The default plugin state toggler has 3 states, A/B/C.">StateBase</a>, <a class="el" href="structlemons_1_1plugin_1_1_state.html" title="A plugin state class that instantiates the appropriate ParameterList and passes it to the StateBase c...">State</a>, or <a class="el" href="structlemons_1_1plugin_1_1_custom_state.html" title="A plugin state class that instantiates the appropriate ParameterList and custom serializable object a...">CustomState</a> object along with a StateToggler and an UndoManager. <br  />
 If you use my <a class="el" href="classlemons_1_1plugin_1_1_processor.html" title="A processor class for a plugin that can simply be told the state type and engine type,...">Processor</a> class, it will instantiate one of these objects with the state type you passed to the processor class's template. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">StateType</td><td>The type of state object to use to represent the plugin's state. This type must inherit from <a class="el" href="classlemons_1_1plugin_1_1_state_base.html" title="Base class for a plugin&#39;s state.">StateBase</a>. </td></tr>
+    <tr><td class="paramname">StateType</td><td>The type of state object to use to represent the plugin's state. This type must inherit from <a class="el" href="classlemons_1_1plugin_1_1_state_base.html" title="The default plugin state toggler has 3 states, A/B/C.">StateBase</a>. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1plugin_1_1_processor.html" title="A processor class for a plugin that can simply be told the state type and engine type,...">Processor</a>, <a class="el" href="classlemons_1_1plugin_1_1_state_base.html" title="Base class for a plugin&#39;s state.">StateBase</a>, StateToggler, UndoManager </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1plugin_1_1_processor.html" title="A processor class for a plugin that can simply be told the state type and engine type,...">Processor</a>, <a class="el" href="classlemons_1_1plugin_1_1_state_base.html" title="The default plugin state toggler has 3 states, A/B/C.">StateBase</a>, StateToggler, UndoManager </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0ad419ac90896c8d489a4a6731479640"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0ad419ac90896c8d489a4a6731479640">&#9670;&nbsp;</a></span>PluginState()</h2>
@@ -170,7 +170,7 @@ template&lt;typename StateType , LEMONS_MUST_INHERIT_FROM(StateType, StateBase) 
 template&lt;typename StateType , LEMONS_MUST_INHERIT_FROM(StateType, StateBase) &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacelemons_1_1plugin.html#a2ed692298f3553ce6d55dac8dba07e68">StateToggles</a> <a class="el" href="structlemons_1_1plugin_1_1_plugin_state.html">lemons::plugin::PluginState</a>&lt; StateType, &gt;::toggles { <a class="el" href="structlemons_1_1plugin_1_1_plugin_state.html#a2b29ea43c8e780bce47082ad73ab2bc6">state</a> }</td>
+          <td class="memname">StateToggles <a class="el" href="structlemons_1_1plugin_1_1_plugin_state.html">lemons::plugin::PluginState</a>&lt; StateType, &gt;::toggles { <a class="el" href="structlemons_1_1plugin_1_1_plugin_state.html#a2b29ea43c8e780bce47082ad73ab2bc6">state</a> }</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -208,7 +208,7 @@ template&lt;typename StateType , LEMONS_MUST_INHERIT_FROM(StateType, StateBase) 
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 8 2021 00:43:10 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 9 2021 00:43:28 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -69,6 +69,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">lemons::midi Namespace Reference<div class="ingroups"><a class="el" href="group___plugins.html">Plugins</a> &raquo; <a class="el" href="group__lemons__plugin.html">lemons_plugin</a><a class="el" href="group___connectivity.html">Connectivity</a> &raquo;  &#124; <a class="el" href="group__lemons__midi.html">lemons_midi</a> &raquo; <a class="el" href="group__processors.html">processors</a><a class="el" href="group___g_u_i.html">GUI</a> &raquo; <a class="el" href="group__lemons__gui.html">lemons_gui</a><a class="el" href="group___connectivity.html">Connectivity</a> &raquo;  &#124; <a class="el" href="group__lemons__midi.html">lemons_midi</a> &raquo;  &#124; <a class="el" href="group__utilities.html">utilities</a></div></div>  </div>
@@ -77,6 +78,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1midi_1_1_midi_chopping_processor.html">MidiChoppingProcessor</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1midi_1_1_midi_f_i_f_o.html">MidiFIFO</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1midi_1_1_midi_keyboard_state.html">MidiKeyboardState</a></td></tr>
@@ -90,11 +93,34 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1midi_1_1_velocity_helper.html">VelocityHelper</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ae8e8b374f60d6ae1f3d9eb10d149a8c4"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
+<tr class="memitem:ae8e8b374f60d6ae1f3d9eb10d149a8c4"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1midi.html#ae8e8b374f60d6ae1f3d9eb10d149a8c4">AudioBuffer</a> = juce::AudioBuffer&lt; SampleType &gt;</td></tr>
+<tr class="separator:ae8e8b374f60d6ae1f3d9eb10d149a8c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ae32c7b236b4feff5b1bc49ccda1a8517"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1midi.html#ae32c7b236b4feff5b1bc49ccda1a8517">copyRangeOfMidiBuffer</a> (const MidiBuffer &amp;readingBuffer, MidiBuffer &amp;destBuffer, const int startSampleOfInput, const int startSampleOfOutput, const int numSamples)</td></tr>
 <tr class="separator:ae32c7b236b4feff5b1bc49ccda1a8517"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="ae8e8b374f60d6ae1f3d9eb10d149a8c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8e8b374f60d6ae1f3d9eb10d149a8c4">&#9670;&nbsp;</a></span>AudioBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacelemons_1_1midi.html#ae8e8b374f60d6ae1f3d9eb10d149a8c4">lemons::midi::AudioBuffer</a> = typedef juce::AudioBuffer&lt;SampleType&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ae32c7b236b4feff5b1bc49ccda1a8517"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae32c7b236b4feff5b1bc49ccda1a8517">&#9670;&nbsp;</a></span>copyRangeOfMidiBuffer()</h2>
@@ -145,7 +171,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 8 2021 00:43:10 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 9 2021 00:43:28 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

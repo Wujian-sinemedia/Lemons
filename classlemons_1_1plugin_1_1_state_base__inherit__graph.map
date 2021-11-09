@@ -1,5 +1,5 @@
 <map id="lemons::plugin::StateBase" name="lemons::plugin::StateBase">
-<area shape="rect" id="node1" title="Base class for a plugin&#39;s state." alt="" coords="5,46,197,73"/>
+<area shape="rect" id="node1" title="The default plugin state toggler has 3 states, A/B/C." alt="" coords="5,46,197,73"/>
 <area shape="rect" id="node2" href="$structlemons_1_1plugin_1_1_custom_state.html" title="A plugin state class that instantiates the appropriate ParameterList and custom serializable object a..." alt="" coords="245,5,519,47"/>
 <area shape="rect" id="node3" href="$structlemons_1_1plugin_1_1_state.html" title="A plugin state class that instantiates the appropriate ParameterList and passes it to the StateBase c..." alt="" coords="302,71,462,112"/>
 </map>

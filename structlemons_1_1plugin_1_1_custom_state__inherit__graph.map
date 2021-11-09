@@ -1,4 +1,4 @@
 <map id="lemons::plugin::CustomState&lt; ParamListType, CustomDataType,, &gt;" name="lemons::plugin::CustomState&lt; ParamListType, CustomDataType,, &gt;">
 <area shape="rect" id="node1" title="A plugin state class that instantiates the appropriate ParameterList and custom serializable object a..." alt="" coords="5,80,279,121"/>
-<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_state_base.html" title="Base class for a plugin&#39;s state." alt="" coords="46,5,238,32"/>
+<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_state_base.html" title="The default plugin state toggler has 3 states, A/B/C." alt="" coords="46,5,238,32"/>
 </map>

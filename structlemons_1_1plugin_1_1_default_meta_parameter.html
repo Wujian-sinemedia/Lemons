@@ -86,8 +86,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac33acd757c08ad1c3a0ffbdde28abc66"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_default_meta_parameter.html#ac33acd757c08ad1c3a0ffbdde28abc66">DefaultMetaParameter</a> (ParameterList &amp;parameterListToUse, String paramName)</td></tr>
-<tr class="separator:ac33acd757c08ad1c3a0ffbdde28abc66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe838aa58d5b8df878ad5d491e4f6706"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_default_meta_parameter.html#afe838aa58d5b8df878ad5d491e4f6706">DefaultMetaParameter</a> (String paramName)</td></tr>
+<tr class="separator:afe838aa58d5b8df878ad5d491e4f6706"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">beginGesture</a> ()</td></tr>
 <tr class="memdesc:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins a change gesture for this parameter.  <a href="classlemons_1_1plugin_1_1_parameter.html#ab401bba2feb1c21a43c9e1ebb0e9089e">More...</a><br /></td></tr>
 <tr class="separator:ab401bba2feb1c21a43c9e1ebb0e9089e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -166,7 +166,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af91a66fd37d4d57851856d3a7a71bf71"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_meta_parameter.html#af91a66fd37d4d57851856d3a7a71bf71">hasConnection</a> (<a class="el" href="classlemons_1_1plugin_1_1_parameter.html">Parameter</a> &amp;parameter) const</td></tr>
 <tr class="separator:af91a66fd37d4d57851856d3a7a71bf71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcae02c6785e36a8fd3b7a34cba8911b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#abcae02c6785e36a8fd3b7a34cba8911b">isAutomatable</a> () const final</td></tr>
-<tr class="memdesc:abcae02c6785e36a8fd3b7a34cba8911b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is automatable by the user's DAW.  <a href="classlemons_1_1plugin_1_1_parameter.html#abcae02c6785e36a8fd3b7a34cba8911b">More...</a><br /></td></tr>
+<tr class="memdesc:abcae02c6785e36a8fd3b7a34cba8911b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an UndoManager to use to manage this parameter's transactions.  <a href="classlemons_1_1plugin_1_1_parameter.html#abcae02c6785e36a8fd3b7a34cba8911b">More...</a><br /></td></tr>
 <tr class="separator:abcae02c6785e36a8fd3b7a34cba8911b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fb75a0f332a7d3507a019632fb000d1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a5fb75a0f332a7d3507a019632fb000d1">isChanging</a> () const</td></tr>
 <tr class="memdesc:a5fb75a0f332a7d3507a019632fb000d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this parameter is currently in the middle of a change gesture.  <a href="classlemons_1_1plugin_1_1_parameter.html#a5fb75a0f332a7d3507a019632fb000d1">More...</a><br /></td></tr>
@@ -214,9 +214,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4fd0b7b94418f9101ded10541e67c3d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a4fd0b7b94418f9101ded10541e67c3d2">setNormalizedValue</a> (float value)</td></tr>
 <tr class="memdesc:a4fd0b7b94418f9101ded10541e67c3d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the parameter's value, in a normalized 0-1 range.  <a href="classlemons_1_1plugin_1_1_parameter.html#a4fd0b7b94418f9101ded10541e67c3d2">More...</a><br /></td></tr>
 <tr class="separator:a4fd0b7b94418f9101ded10541e67c3d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac98947f4590133e0d997ebddbcc9b707"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ac98947f4590133e0d997ebddbcc9b707">setUndoManager</a> (UndoManager &amp;managerToUse)</td></tr>
-<tr class="memdesc:ac98947f4590133e0d997ebddbcc9b707"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets an UndoManager to use to manage this parameter's transactions.  <a href="classlemons_1_1plugin_1_1_parameter.html#ac98947f4590133e0d997ebddbcc9b707">More...</a><br /></td></tr>
-<tr class="separator:ac98947f4590133e0d997ebddbcc9b707"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -224,8 +221,8 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a01f6abc488d0130e83ee7aa664c139c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ac33acd757c08ad1c3a0ffbdde28abc66"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac33acd757c08ad1c3a0ffbdde28abc66">&#9670;&nbsp;</a></span>DefaultMetaParameter()</h2>
+<a id="afe838aa58d5b8df878ad5d491e4f6706"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe838aa58d5b8df878ad5d491e4f6706">&#9670;&nbsp;</a></span>DefaultMetaParameter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -233,19 +230,9 @@ Protected Member Functions</h2></td></tr>
         <tr>
           <td class="memname">lemons::plugin::DefaultMetaParameter::DefaultMetaParameter </td>
           <td>(</td>
-          <td class="paramtype">ParameterList &amp;&#160;</td>
-          <td class="paramname"><em>parameterListToUse</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">String&#160;</td>
-          <td class="paramname"><em>paramName</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>paramName</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1068,7 +1055,8 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns true if this parameter is automatable by the user's DAW. </p>
+<p>Sets an UndoManager to use to manage this parameter's transactions. </p>
+<p>The UndoManager will track change gestures, changing the default value, and changing the MIDI CC mapping. </p><dl class="section see"><dt>See also</dt><dd>UndoManager Returns true if this parameter is automatable by the user's DAW. </dd></dl>
 
 </div>
 </div>
@@ -1556,42 +1544,13 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ac98947f4590133e0d997ebddbcc9b707"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac98947f4590133e0d997ebddbcc9b707">&#9670;&nbsp;</a></span>setUndoManager()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void lemons::plugin::Parameter::setUndoManager </td>
-          <td>(</td>
-          <td class="paramtype">UndoManager &amp;&#160;</td>
-          <td class="paramname"><em>managerToUse</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets an UndoManager to use to manage this parameter's transactions. </p>
-<p>The UndoManager will track change gestures, changing the default value, and changing the MIDI CC mapping. </p><dl class="section see"><dt>See also</dt><dd>UndoManager </dd></dl>
-
-</div>
-</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="_meta_parameter_8h.html">MetaParameter.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 8 2021 00:43:10 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 9 2021 00:43:28 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

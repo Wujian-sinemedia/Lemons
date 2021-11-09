@@ -1,6 +1,34 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
 <tagfile>
   <compound kind="file">
+    <name>Audio/lemons_dsp/aliases.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/</path>
+    <filename>_audio_2lemons__dsp_2aliases_8h.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <member kind="typedef">
+      <type>juce::AudioBuffer&lt; T &gt;</type>
+      <name>AudioBuffer</name>
+      <anchorfile>namespacelemons_1_1dsp.html</anchorfile>
+      <anchor>a2cb3ff34106454e04037bd6b63edc531</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>GUI/lemons_gui/utilities/aliases.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/GUI/lemons_gui/utilities/</path>
+    <filename>_g_u_i_2lemons__gui_2utilities_2aliases_8h.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::gui</namespace>
+  </compound>
+  <compound kind="file">
+    <name>Plugins/lemons_plugin_parameters/aliases.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_parameters/</path>
+    <filename>_plugins_2lemons__plugin__parameters_2aliases_8h.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+  </compound>
+  <compound kind="file">
     <name>AllLemonsModules.md</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_all_lemons_modules_8md.html</filename>
@@ -224,6 +252,20 @@
     <class kind="struct">lemons::DefaultWindow</class>
     <class kind="struct">lemons::DefaultWindowBase</class>
     <namespace>lemons</namespace>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_DEFAULT_APP_NAME</name>
+      <anchorfile>_default_window_8h.html</anchorfile>
+      <anchor>a54fb2895bd43426bc8f9710b1d9ccf7e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_DEFAULT_APP_VERSION</name>
+      <anchorfile>_default_window_8h.html</anchorfile>
+      <anchor>aa2f41a9802e40c2f7d44a7e465bf8dcf</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>Delay.h</name>
@@ -657,21 +699,14 @@
     <class kind="class">lemons::plugin::MetaParameter</class>
     <namespace>lemons</namespace>
     <namespace>lemons::plugin</namespace>
-    <member kind="typedef">
-      <type>plugin::ParameterHolder&lt; plugin::DefaultMetaParameter &gt;</type>
-      <name>MetaParam</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a6a8c9da9ee5fe6c399b1d3a028d26bb7</anchor>
-      <arglist></arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>MidiChoppingProcessor.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Connectivity/lemons_midi/processors/</path>
     <filename>_midi_chopping_processor_8h.html</filename>
-    <class kind="class">lemons::dsp::MidiChoppingProcessor</class>
+    <class kind="class">lemons::midi::MidiChoppingProcessor</class>
     <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::midi</namespace>
   </compound>
   <compound kind="file">
     <name>MidiFIFO.h</name>
@@ -714,6 +749,13 @@
     <filename>_midi_utilities_8h.html</filename>
     <namespace>lemons</namespace>
     <namespace>lemons::midi</namespace>
+    <member kind="typedef">
+      <type>juce::AudioBuffer&lt; SampleType &gt;</type>
+      <name>AudioBuffer</name>
+      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
+      <anchor>ae8e8b374f60d6ae1f3d9eb10d149a8c4</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type>void</type>
       <name>copyRangeOfMidiBuffer</name>
@@ -728,6 +770,20 @@
     <filename>misc_8h.html</filename>
     <class kind="struct">lemons::SystemInitializer</class>
     <namespace>lemons</namespace>
+    <member kind="typedef">
+      <type>juce::Array&lt; T &gt;</type>
+      <name>Array</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>a1a0cd6d100bcb4673b1d0a469fa488ad</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>juce::OwnedArray&lt; T &gt;</type>
+      <name>OwnedArray</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>a83f01bfa4388d72128c260f15c678c31</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type>const juce::juce_wchar</type>
       <name>getFlatSymbol</name>
@@ -1232,13 +1288,6 @@
       <name>Dimensions</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
       <anchor>a47c63ce964844d24e40ca6dad594907e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>serializing::Toggler&lt; 3 &gt;</type>
-      <name>StateToggles</name>
-      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>a2ed692298f3553ce6d55dac8dba07e68</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -2140,13 +2189,6 @@
       <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setUndoManager</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
-      <arglist>(UndoManager &amp;managerToUse)</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -3159,8 +3201,8 @@
       <type></type>
       <name>DefaultMetaParameter</name>
       <anchorfile>structlemons_1_1plugin_1_1_default_meta_parameter.html</anchorfile>
-      <anchor>ac33acd757c08ad1c3a0ffbdde28abc66</anchor>
-      <arglist>(ParameterList &amp;parameterListToUse, String paramName)</arglist>
+      <anchor>afe838aa58d5b8df878ad5d491e4f6706</anchor>
+      <arglist>(String paramName)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -3470,13 +3512,6 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setUndoManager</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
-      <arglist>(UndoManager &amp;managerToUse)</arglist>
-    </member>
     <member kind="function" protection="protected">
       <type>void</type>
       <name>setMidiControllerInternal</name>
@@ -3495,8 +3530,8 @@
       <type></type>
       <name>DefaultWindow</name>
       <anchorfile>structlemons_1_1_default_window.html</anchorfile>
-      <anchor>ae6730a7533986d996878550001961e60</anchor>
-      <arglist>(const String &amp;appName=JUCE_APPLICATION_NAME_STRING, const juce::Point&lt; int &gt; &amp;initSize=defaultWindowSize())</arglist>
+      <anchor>ae4820fc9be5ff48b55a6bd1575901e3c</anchor>
+      <arglist>(const String &amp;appName=LEMONS_DEFAULT_APP_NAME, const juce::Point&lt; int &gt; &amp;initSize=defaultWindowSize())</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -3513,8 +3548,8 @@
       <type></type>
       <name>DefaultWindowBase</name>
       <anchorfile>structlemons_1_1_default_window_base.html</anchorfile>
-      <anchor>a5eb1e0ce1c5adfc43ad7e3005b19f1bb</anchor>
-      <arglist>(const String &amp;appName=JUCE_APPLICATION_NAME_STRING, const juce::Point&lt; int &gt; &amp;initSize=defaultWindowSize())</arglist>
+      <anchor>a79ee48847abadcad0589777da1971fb7</anchor>
+      <arglist>(const String &amp;appName=LEMONS_DEFAULT_APP_NAME, const juce::Point&lt; int &gt; &amp;initSize=defaultWindowSize())</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -4941,13 +4976,6 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setUndoManager</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
-      <arglist>(UndoManager &amp;managerToUse)</arglist>
-    </member>
     <member kind="function" protection="protected">
       <type>void</type>
       <name>setMidiControllerInternal</name>
@@ -5274,13 +5302,6 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setUndoManager</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
-      <arglist>(UndoManager &amp;managerToUse)</arglist>
-    </member>
     <member kind="function" protection="protected">
       <type>void</type>
       <name>setMidiControllerInternal</name>
@@ -5572,13 +5593,6 @@
       <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setUndoManager</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
-      <arglist>(UndoManager &amp;managerToUse)</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -5872,13 +5886,6 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setUndoManager</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
-      <arglist>(UndoManager &amp;managerToUse)</arglist>
-    </member>
     <member kind="function" protection="protected">
       <type>void</type>
       <name>setMidiControllerInternal</name>
@@ -5941,13 +5948,6 @@
       <anchor>ad2e032dba9ae1e80997bd38a2fc87561</anchor>
       <arglist></arglist>
     </member>
-    <member kind="variable" protection="protected">
-      <type>UndoManager &amp;</type>
-      <name>undoManager</name>
-      <anchorfile>classlemons_1_1plugin_1_1_g_u_i_base.html</anchorfile>
-      <anchor>a786e45ff520ec5ee2b81c0d23425c54d</anchor>
-      <arglist></arglist>
-    </member>
   </compound>
   <compound kind="class">
     <name>lemons::GuiApp</name>
@@ -5973,8 +5973,8 @@
       <type></type>
       <name>GuiApp</name>
       <anchorfile>classlemons_1_1_gui_app.html</anchorfile>
-      <anchor>a15280c485bb0cd3edaf9422aa1a9a635</anchor>
-      <arglist>(const String &amp;appName=JUCE_APPLICATION_NAME_STRING, const String &amp;appVersion=JUCE_APPLICATION_VERSION_STRING, const Size &amp;initSize=defaultWindowSize())</arglist>
+      <anchor>a4ab064de98227affff397cc18357dbf8</anchor>
+      <arglist>(const String &amp;appName=LEMONS_DEFAULT_APP_NAME, const String &amp;appVersion=LEMONS_DEFAULT_APP_VERSION, const Size &amp;initSize=defaultWindowSize())</arglist>
     </member>
     <member kind="function">
       <type>const String</type>
@@ -6019,8 +6019,8 @@
       <type></type>
       <name>GUIBase</name>
       <anchorfile>classlemons_1_1plugin_1_1_g_u_i_base.html</anchorfile>
-      <anchor>a799d3172c166fabd0af9a237b5a5540f</anchor>
-      <arglist>(UndoManager &amp;undoToUse, StateBase &amp;stateBaseToUse, Toggle &amp;toggleInterfaceToUse)</arglist>
+      <anchor>a2fdfb7e061d265ab3f4cdc6af453058e</anchor>
+      <arglist>(StateBase &amp;stateBaseToUse, Toggle &amp;toggleInterfaceToUse)</arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>StateBase &amp;</type>
@@ -6041,13 +6041,6 @@
       <name>tooltipWindow</name>
       <anchorfile>classlemons_1_1plugin_1_1_g_u_i_base.html</anchorfile>
       <anchor>ad2e032dba9ae1e80997bd38a2fc87561</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>UndoManager &amp;</type>
-      <name>undoManager</name>
-      <anchorfile>classlemons_1_1plugin_1_1_g_u_i_base.html</anchorfile>
-      <anchor>a786e45ff520ec5ee2b81c0d23425c54d</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -6849,8 +6842,8 @@
       <type></type>
       <name>LFO</name>
       <anchorfile>structlemons_1_1plugin_1_1_l_f_o.html</anchorfile>
-      <anchor>aa6eecc51d03acf21293fe0e149e76fd8</anchor>
-      <arglist>(ParameterList &amp;listToUse, String metaParameterName=&quot;MetaParameter&quot;)</arglist>
+      <anchor>a138529c87c48a08f212f4ebee2262b3a</anchor>
+      <arglist>(String metaParameterName=&quot;MetaParameter&quot;)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -7080,8 +7073,8 @@
       <type></type>
       <name>MetaParameter</name>
       <anchorfile>classlemons_1_1plugin_1_1_meta_parameter.html</anchorfile>
-      <anchor>adb9575e88267247e30f84141df863adf</anchor>
-      <arglist>(ParameterList &amp;parameterListToUse, ValueType minimum, ValueType maximum, ValueType defaultValue, String paramName, std::function&lt; String(ValueType, int)&gt; stringFromValue=nullptr, std::function&lt; ValueType(const String &amp;)&gt; valueFromString=nullptr, String paramLabel={}, bool isAutomatable=true, juce::AudioProcessorParameter::Category parameterCategory=juce::AudioProcessorParameter::genericParameter)</arglist>
+      <anchor>a095a0ad28bf8ba873ec552b77c3c767b</anchor>
+      <arglist>(ValueType minimum, ValueType maximum, ValueType defaultValue, String paramName, std::function&lt; String(ValueType, int)&gt; stringFromValue=nullptr, std::function&lt; ValueType(const String &amp;)&gt; valueFromString=nullptr, String paramLabel={}, bool isAutomatable=true, juce::AudioProcessorParameter::Category parameterCategory=juce::AudioProcessorParameter::genericParameter)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -7391,13 +7384,6 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setUndoManager</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
-      <arglist>(UndoManager &amp;managerToUse)</arglist>
-    </member>
     <member kind="function" protection="protected">
       <type>void</type>
       <name>setMidiControllerInternal</name>
@@ -7421,8 +7407,8 @@
       <type></type>
       <name>MetaParameter</name>
       <anchorfile>classlemons_1_1plugin_1_1_meta_parameter.html</anchorfile>
-      <anchor>adb9575e88267247e30f84141df863adf</anchor>
-      <arglist>(ParameterList &amp;parameterListToUse, int minimum, int maximum, int defaultValue, String paramName, std::function&lt; String(int, int)&gt; stringFromValue=nullptr, std::function&lt; int(const String &amp;)&gt; valueFromString=nullptr, String paramLabel={}, bool isAutomatable=true, juce::AudioProcessorParameter::Category parameterCategory=juce::AudioProcessorParameter::genericParameter)</arglist>
+      <anchor>a095a0ad28bf8ba873ec552b77c3c767b</anchor>
+      <arglist>(int minimum, int maximum, int defaultValue, String paramName, std::function&lt; String(int, int)&gt; stringFromValue=nullptr, std::function&lt; int(const String &amp;)&gt; valueFromString=nullptr, String paramLabel={}, bool isAutomatable=true, juce::AudioProcessorParameter::Category parameterCategory=juce::AudioProcessorParameter::genericParameter)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -7732,13 +7718,6 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setUndoManager</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
-      <arglist>(UndoManager &amp;managerToUse)</arglist>
-    </member>
     <member kind="function" protection="protected">
       <type>void</type>
       <name>setMidiControllerInternal</name>
@@ -8031,13 +8010,6 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setUndoManager</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
-      <arglist>(UndoManager &amp;managerToUse)</arglist>
-    </member>
     <member kind="function" protection="protected">
       <type>void</type>
       <name>setMidiControllerInternal</name>
@@ -8047,141 +8019,141 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>lemons::dsp::MidiChoppingProcessor</name>
-    <filename>classlemons_1_1dsp_1_1_midi_chopping_processor.html</filename>
+    <name>lemons::midi::MidiChoppingProcessor</name>
+    <filename>classlemons_1_1midi_1_1_midi_chopping_processor.html</filename>
     <templarg></templarg>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
       <name>~MidiChoppingProcessor</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>a659f390660fca4e93cbd97159e2f19e3</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>affebff3f76cd5531c7458babab37bed8</anchor>
       <arglist>()=default</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>a45808b9a9eebcc339dacdd63cccd61b9</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>ac574396cc2c8da65977f78acb441cdd5</anchor>
       <arglist>(int maxBlocksize)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>a849f6d6f2cb2851f12b0169c7b9fa293</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>a9404dab6a6428a5da8145a50640b39e3</anchor>
       <arglist>(AudioBuffer&lt; SampleType &gt; &amp;audio, MidiBuffer &amp;midi)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>processBypassed</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>afe12d93088472dcb07ba5fd0520084ea</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>a4534fcc988f9c5c31d6c3a4198064197</anchor>
       <arglist>(int numSamples, MidiBuffer &amp;midi)</arglist>
     </member>
     <member kind="function" protection="private" virtualness="pure">
       <type>virtual void</type>
       <name>handleMidiMessage</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>abdaebf7b32050e582a7135564fd1d763</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>a6e12f8cfa6026fd7e2c1a325b8ee90fa</anchor>
       <arglist>(const MidiMessage &amp;m)=0</arglist>
     </member>
     <member kind="function" protection="private" virtualness="pure">
       <type>virtual void</type>
       <name>renderChunk</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>a199ab584f491a6202baa314db04babc2</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>ae817ea3caadc81520df2edeefcaca2a4</anchor>
       <arglist>(AudioBuffer&lt; SampleType &gt; &amp;audio, MidiBuffer &amp;midi)=0</arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>MidiChoppingProcessor&lt; double &gt;</name>
-    <filename>classlemons_1_1dsp_1_1_midi_chopping_processor.html</filename>
+    <filename>classlemons_1_1midi_1_1_midi_chopping_processor.html</filename>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
       <name>~MidiChoppingProcessor</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>a659f390660fca4e93cbd97159e2f19e3</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>affebff3f76cd5531c7458babab37bed8</anchor>
       <arglist>()=default</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>a45808b9a9eebcc339dacdd63cccd61b9</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>ac574396cc2c8da65977f78acb441cdd5</anchor>
       <arglist>(int maxBlocksize)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>a849f6d6f2cb2851f12b0169c7b9fa293</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>a9404dab6a6428a5da8145a50640b39e3</anchor>
       <arglist>(AudioBuffer&lt; double &gt; &amp;audio, MidiBuffer &amp;midi)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>processBypassed</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>afe12d93088472dcb07ba5fd0520084ea</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>a4534fcc988f9c5c31d6c3a4198064197</anchor>
       <arglist>(int numSamples, MidiBuffer &amp;midi)</arglist>
     </member>
     <member kind="function" protection="private" virtualness="pure">
       <type>virtual void</type>
       <name>handleMidiMessage</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>abdaebf7b32050e582a7135564fd1d763</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>a6e12f8cfa6026fd7e2c1a325b8ee90fa</anchor>
       <arglist>(const MidiMessage &amp;m)=0</arglist>
     </member>
     <member kind="function" protection="private" virtualness="pure">
       <type>virtual void</type>
       <name>renderChunk</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>a199ab584f491a6202baa314db04babc2</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>ae817ea3caadc81520df2edeefcaca2a4</anchor>
       <arglist>(AudioBuffer&lt; double &gt; &amp;audio, MidiBuffer &amp;midi)=0</arglist>
     </member>
   </compound>
   <compound kind="class">
     <name>MidiChoppingProcessor&lt; float &gt;</name>
-    <filename>classlemons_1_1dsp_1_1_midi_chopping_processor.html</filename>
+    <filename>classlemons_1_1midi_1_1_midi_chopping_processor.html</filename>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
       <name>~MidiChoppingProcessor</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>a659f390660fca4e93cbd97159e2f19e3</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>affebff3f76cd5531c7458babab37bed8</anchor>
       <arglist>()=default</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>a45808b9a9eebcc339dacdd63cccd61b9</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>ac574396cc2c8da65977f78acb441cdd5</anchor>
       <arglist>(int maxBlocksize)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>a849f6d6f2cb2851f12b0169c7b9fa293</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>a9404dab6a6428a5da8145a50640b39e3</anchor>
       <arglist>(AudioBuffer&lt; float &gt; &amp;audio, MidiBuffer &amp;midi)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>processBypassed</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>afe12d93088472dcb07ba5fd0520084ea</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>a4534fcc988f9c5c31d6c3a4198064197</anchor>
       <arglist>(int numSamples, MidiBuffer &amp;midi)</arglist>
     </member>
     <member kind="function" protection="private" virtualness="pure">
       <type>virtual void</type>
       <name>handleMidiMessage</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>abdaebf7b32050e582a7135564fd1d763</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>a6e12f8cfa6026fd7e2c1a325b8ee90fa</anchor>
       <arglist>(const MidiMessage &amp;m)=0</arglist>
     </member>
     <member kind="function" protection="private" virtualness="pure">
       <type>virtual void</type>
       <name>renderChunk</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>a199ab584f491a6202baa314db04babc2</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>ae817ea3caadc81520df2edeefcaca2a4</anchor>
       <arglist>(AudioBuffer&lt; float &gt; &amp;audio, MidiBuffer &amp;midi)=0</arglist>
     </member>
   </compound>
@@ -8295,7 +8267,7 @@
     <name>lemons::dsp::synth::MidiManager</name>
     <filename>classlemons_1_1dsp_1_1synth_1_1_midi_manager.html</filename>
     <templarg></templarg>
-    <base>lemons::dsp::MidiChoppingProcessor</base>
+    <base>lemons::midi::MidiChoppingProcessor</base>
     <class kind="class">lemons::dsp::synth::MidiManager::MidiRouter</class>
     <member kind="function">
       <type></type>
@@ -8307,22 +8279,22 @@
     <member kind="function">
       <type>void</type>
       <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>a45808b9a9eebcc339dacdd63cccd61b9</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>ac574396cc2c8da65977f78acb441cdd5</anchor>
       <arglist>(int maxBlocksize)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>a849f6d6f2cb2851f12b0169c7b9fa293</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>a9404dab6a6428a5da8145a50640b39e3</anchor>
       <arglist>(AudioBuffer&lt; SampleType &gt; &amp;audio, MidiBuffer &amp;midi)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>processBypassed</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>afe12d93088472dcb07ba5fd0520084ea</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>a4534fcc988f9c5c31d6c3a4198064197</anchor>
       <arglist>(int numSamples, MidiBuffer &amp;midi)</arglist>
     </member>
     <member kind="variable">
@@ -8617,13 +8589,6 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setUndoManager</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
-      <arglist>(UndoManager &amp;managerToUse)</arglist>
-    </member>
     <member kind="function" protection="protected">
       <type>void</type>
       <name>setMidiControllerInternal</name>
@@ -8916,13 +8881,6 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setUndoManager</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
-      <arglist>(UndoManager &amp;managerToUse)</arglist>
-    </member>
     <member kind="function" protection="protected">
       <type>void</type>
       <name>setMidiControllerInternal</name>
@@ -9200,8 +9158,8 @@
       <type></type>
       <name>ModulationManager</name>
       <anchorfile>classlemons_1_1plugin_1_1_modulation_manager.html</anchorfile>
-      <anchor>a09a72f46ef1257a9ccc4f0c19c8883ac</anchor>
-      <arglist>(ParameterList &amp;listToUse, int initNumLfos=1, LfoNamingFunc namingFuncToUse=nullptr)</arglist>
+      <anchor>aeffc7bff21f68b65639da162b84f39ee</anchor>
+      <arglist>(int initNumLfos=1, LfoNamingFunc namingFuncToUse=nullptr)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -9840,10 +9798,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>OwnedArray&lt; Filter&lt; SampleType &gt; &gt;</type>
+      <type>juce::OwnedArray&lt; Filter&lt; SampleType &gt; &gt;</type>
       <name>filters</name>
       <anchorfile>structlemons_1_1dsp_1_1filters_1_1_multi_filter.html</anchorfile>
-      <anchor>aa8f1c7b3ad420456281601186aafdc62</anchor>
+      <anchor>a267c69151848e68d8b062c630a9593b8</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -9900,10 +9858,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>OwnedArray&lt; Filter&lt; float &gt; &gt;</type>
+      <type>juce::OwnedArray&lt; Filter&lt; float &gt; &gt;</type>
       <name>filters</name>
       <anchorfile>structlemons_1_1dsp_1_1filters_1_1_multi_filter.html</anchorfile>
-      <anchor>aa8f1c7b3ad420456281601186aafdc62</anchor>
+      <anchor>a267c69151848e68d8b062c630a9593b8</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -9960,10 +9918,10 @@
       <arglist></arglist>
     </member>
     <member kind="variable">
-      <type>OwnedArray&lt; Filter&lt; SampleType &gt; &gt;</type>
+      <type>juce::OwnedArray&lt; Filter&lt; SampleType &gt; &gt;</type>
       <name>filters</name>
       <anchorfile>structlemons_1_1dsp_1_1filters_1_1_multi_filter.html</anchorfile>
-      <anchor>aa8f1c7b3ad420456281601186aafdc62</anchor>
+      <anchor>a267c69151848e68d8b062c630a9593b8</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -12026,13 +11984,6 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setUndoManager</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
-      <arglist>(UndoManager &amp;managerToUse)</arglist>
-    </member>
     <member kind="function" protection="protected">
       <type>void</type>
       <name>setMidiControllerInternal</name>
@@ -12045,33 +11996,26 @@
     <name>lemons::plugin::ParameterProcessor</name>
     <filename>classlemons_1_1plugin_1_1_parameter_processor.html</filename>
     <templarg></templarg>
-    <base>lemons::dsp::MidiChoppingProcessor</base>
-    <member kind="function">
-      <type></type>
-      <name>ParameterProcessor</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter_processor.html</anchorfile>
-      <anchor>afb177c3b99030ee80f42fbbec0e4aae1</anchor>
-      <arglist>(ParameterList &amp;listToUse)</arglist>
-    </member>
+    <base>lemons::midi::MidiChoppingProcessor</base>
     <member kind="function">
       <type>void</type>
       <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>a45808b9a9eebcc339dacdd63cccd61b9</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>ac574396cc2c8da65977f78acb441cdd5</anchor>
       <arglist>(int maxBlocksize)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>a849f6d6f2cb2851f12b0169c7b9fa293</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>a9404dab6a6428a5da8145a50640b39e3</anchor>
       <arglist>(AudioBuffer&lt; SampleType &gt; &amp;audio, MidiBuffer &amp;midi)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>processBypassed</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>afe12d93088472dcb07ba5fd0520084ea</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>a4534fcc988f9c5c31d6c3a4198064197</anchor>
       <arglist>(int numSamples, MidiBuffer &amp;midi)</arglist>
     </member>
   </compound>
@@ -12080,31 +12024,24 @@
     <filename>classlemons_1_1plugin_1_1_parameter_processor.html</filename>
     <base>MidiChoppingProcessor&lt; double &gt;</base>
     <member kind="function">
-      <type></type>
-      <name>ParameterProcessor</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter_processor.html</anchorfile>
-      <anchor>afb177c3b99030ee80f42fbbec0e4aae1</anchor>
-      <arglist>(ParameterList &amp;listToUse)</arglist>
-    </member>
-    <member kind="function">
       <type>void</type>
       <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>a45808b9a9eebcc339dacdd63cccd61b9</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>ac574396cc2c8da65977f78acb441cdd5</anchor>
       <arglist>(int maxBlocksize)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>a849f6d6f2cb2851f12b0169c7b9fa293</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>a9404dab6a6428a5da8145a50640b39e3</anchor>
       <arglist>(AudioBuffer&lt; double &gt; &amp;audio, MidiBuffer &amp;midi)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>processBypassed</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>afe12d93088472dcb07ba5fd0520084ea</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>a4534fcc988f9c5c31d6c3a4198064197</anchor>
       <arglist>(int numSamples, MidiBuffer &amp;midi)</arglist>
     </member>
   </compound>
@@ -12113,31 +12050,24 @@
     <filename>classlemons_1_1plugin_1_1_parameter_processor.html</filename>
     <base>MidiChoppingProcessor&lt; float &gt;</base>
     <member kind="function">
-      <type></type>
-      <name>ParameterProcessor</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter_processor.html</anchorfile>
-      <anchor>afb177c3b99030ee80f42fbbec0e4aae1</anchor>
-      <arglist>(ParameterList &amp;listToUse)</arglist>
-    </member>
-    <member kind="function">
       <type>void</type>
       <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>a45808b9a9eebcc339dacdd63cccd61b9</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>ac574396cc2c8da65977f78acb441cdd5</anchor>
       <arglist>(int maxBlocksize)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>a849f6d6f2cb2851f12b0169c7b9fa293</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>a9404dab6a6428a5da8145a50640b39e3</anchor>
       <arglist>(AudioBuffer&lt; float &gt; &amp;audio, MidiBuffer &amp;midi)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>processBypassed</name>
-      <anchorfile>classlemons_1_1dsp_1_1_midi_chopping_processor.html</anchorfile>
-      <anchor>afe12d93088472dcb07ba5fd0520084ea</anchor>
+      <anchorfile>classlemons_1_1midi_1_1_midi_chopping_processor.html</anchorfile>
+      <anchor>a4534fcc988f9c5c31d6c3a4198064197</anchor>
       <arglist>(int numSamples, MidiBuffer &amp;midi)</arglist>
     </member>
   </compound>
@@ -12450,13 +12380,6 @@
       <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setUndoManager</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
-      <arglist>(UndoManager &amp;managerToUse)</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -12983,8 +12906,8 @@
       <type></type>
       <name>PresetBar</name>
       <anchorfile>classlemons_1_1plugin_1_1_preset_bar.html</anchorfile>
-      <anchor>af97a9e8fe84cc03dc462c3a914898110</anchor>
-      <arglist>(StateBase &amp;stateToUse, StateToggles &amp;toggler, const String &amp;productName, const String &amp;presetFileExtension=&quot;.bvpreset&quot;, const String &amp;companyName=&quot;BenViningMusicSoftware&quot;)</arglist>
+      <anchor>afb20aeebe40f410e1f0973884a23eb88</anchor>
+      <arglist>(const String &amp;productName, const String &amp;presetFileExtension=&quot;.bvpreset&quot;, const String &amp;companyName=&quot;BenViningMusicSoftware&quot;)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -13054,8 +12977,8 @@
       <type></type>
       <name>ProcessorBase</name>
       <anchorfile>classlemons_1_1plugin_1_1_processor_base.html</anchorfile>
-      <anchor>a594b9c70fa57b4a8021d32b364e20dbc</anchor>
-      <arglist>(StateBase &amp;stateToUse, dsp::Engine&lt; float &gt; &amp;floatEngineToUse, dsp::Engine&lt; double &gt; &amp;doubleEngineToUse, juce::AudioProcessor::BusesProperties busesLayout=BusesProperties() .withInput(TRANS(&quot;Input&quot;), juce::AudioChannelSet::stereo(), true) .withOutput(TRANS(&quot;Output&quot;), juce::AudioChannelSet::stereo(), true))</arglist>
+      <anchor>abe95b8fb819e0b8ca736d4d2cd2f6750</anchor>
+      <arglist>(dsp::Engine&lt; float &gt; &amp;floatEngineToUse, dsp::Engine&lt; double &gt; &amp;doubleEngineToUse, juce::AudioProcessor::BusesProperties busesLayout=BusesProperties() .withInput(TRANS(&quot;Input&quot;), juce::AudioChannelSet::stereo(), true) .withOutput(TRANS(&quot;Output&quot;), juce::AudioChannelSet::stereo(), true))</arglist>
     </member>
     <member kind="function">
       <type>juce::Point&lt; int &gt;</type>
@@ -13704,13 +13627,6 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setUndoManager</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
-      <arglist>(UndoManager &amp;managerToUse)</arglist>
-    </member>
     <member kind="function" protection="protected">
       <type>void</type>
       <name>setMidiControllerInternal</name>
@@ -14002,13 +13918,6 @@
       <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setUndoManager</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
-      <arglist>(UndoManager &amp;managerToUse)</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -14697,13 +14606,6 @@
   <compound kind="class">
     <name>lemons::plugin::StateToggleButtons</name>
     <filename>classlemons_1_1plugin_1_1_state_toggle_buttons.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>StateToggleButtons</name>
-      <anchorfile>classlemons_1_1plugin_1_1_state_toggle_buttons.html</anchorfile>
-      <anchor>ad66ded2c9ad0e50f1bde9327e802f518</anchor>
-      <arglist>(StateToggles &amp;togglerToUse)</arglist>
-    </member>
     <member kind="function">
       <type>bool</type>
       <name>isVertical</name>
@@ -16628,13 +16530,6 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setUndoManager</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
-      <arglist>(UndoManager &amp;managerToUse)</arglist>
-    </member>
     <member kind="function" protection="protected">
       <type>void</type>
       <name>setMidiControllerInternal</name>
@@ -16999,13 +16894,6 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setUndoManager</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
-      <arglist>(UndoManager &amp;managerToUse)</arglist>
-    </member>
     <member kind="function" protection="protected">
       <type>void</type>
       <name>setMidiControllerInternal</name>
@@ -17290,13 +17178,6 @@
       <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setUndoManager</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
-      <arglist>(UndoManager &amp;managerToUse)</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -17583,13 +17464,6 @@
       <anchor>a4fd0b7b94418f9101ded10541e67c3d2</anchor>
       <arglist>(float value)</arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setUndoManager</name>
-      <anchorfile>classlemons_1_1plugin_1_1_parameter.html</anchorfile>
-      <anchor>ac98947f4590133e0d997ebddbcc9b707</anchor>
-      <arglist>(UndoManager &amp;managerToUse)</arglist>
-    </member>
     <member kind="function" protection="protected">
       <type>void</type>
       <name>setMidiControllerInternal</name>
@@ -17719,10 +17593,17 @@
     <class kind="struct">lemons::SystemInitializer</class>
     <class kind="struct">lemons::ValueSmoother</class>
     <member kind="typedef">
-      <type>plugin::ParameterHolder&lt; plugin::DefaultMetaParameter &gt;</type>
-      <name>MetaParam</name>
+      <type>juce::Array&lt; T &gt;</type>
+      <name>Array</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a6a8c9da9ee5fe6c399b1d3a028d26bb7</anchor>
+      <anchor>a1a0cd6d100bcb4673b1d0a469fa488ad</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>juce::OwnedArray&lt; T &gt;</type>
+      <name>OwnedArray</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>a83f01bfa4388d72128c260f15c678c31</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -17858,13 +17739,19 @@
     <class kind="class">lemons::dsp::Engine</class>
     <class kind="class">lemons::dsp::LambdaSynth</class>
     <class kind="class">lemons::dsp::LatencyEngine</class>
-    <class kind="class">lemons::dsp::MidiChoppingProcessor</class>
     <class kind="struct">lemons::dsp::OscSynth</class>
     <class kind="struct">lemons::dsp::OscSynthVoice</class>
     <class kind="class">lemons::dsp::PitchDetector</class>
     <class kind="class">lemons::dsp::SynthBase</class>
     <class kind="class">lemons::dsp::SynthVoiceBase</class>
     <class kind="struct">lemons::dsp::TemplateSynth</class>
+    <member kind="typedef">
+      <type>juce::AudioBuffer&lt; T &gt;</type>
+      <name>AudioBuffer</name>
+      <anchorfile>namespacelemons_1_1dsp.html</anchorfile>
+      <anchor>a2cb3ff34106454e04037bd6b63edc531</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="namespace">
     <name>lemons::dsp::buffers</name>
@@ -18092,12 +17979,20 @@
   <compound kind="namespace">
     <name>lemons::midi</name>
     <filename>namespacelemons_1_1midi.html</filename>
+    <class kind="class">lemons::midi::MidiChoppingProcessor</class>
     <class kind="class">lemons::midi::MidiFIFO</class>
     <class kind="class">lemons::midi::MidiKeyboardState</class>
     <class kind="class">lemons::midi::MidiProcessor</class>
     <class kind="class">lemons::midi::PitchBendTracker</class>
     <class kind="struct">lemons::midi::PitchPipeline</class>
     <class kind="struct">lemons::midi::VelocityHelper</class>
+    <member kind="typedef">
+      <type>juce::AudioBuffer&lt; SampleType &gt;</type>
+      <name>AudioBuffer</name>
+      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
+      <anchor>ae8e8b374f60d6ae1f3d9eb10d149a8c4</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type>void</type>
       <name>copyRangeOfMidiBuffer</name>
@@ -18168,13 +18063,6 @@
       <name>StatelessProcessor</name>
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
       <anchor>af7697ad368d38f09b567e28e16f37986</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>serializing::Toggler&lt; 3 &gt;</type>
-      <name>StateToggles</name>
-      <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
-      <anchor>a2ed692298f3553ce6d55dac8dba07e68</anchor>
       <arglist></arglist>
     </member>
     <member kind="function">
@@ -18898,6 +18786,8 @@
     <subgroup>PitchDetector</subgroup>
     <subgroup>engines</subgroup>
     <subgroup>filters</subgroup>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
   </compound>
   <compound kind="group">
     <name>lemons_gui</name>
@@ -18952,6 +18842,8 @@
     <filename>group__lemons__plugin__parameters.html</filename>
     <subgroup>ModulationManager</subgroup>
     <subgroup>parameters</subgroup>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
   </compound>
   <compound kind="group">
     <name>lemons_psola</name>
@@ -19068,11 +18960,10 @@
     <title>processors</title>
     <filename>group__processors.html</filename>
     <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
     <namespace>lemons::midi</namespace>
     <namespace>lemons::plugin</namespace>
     <class kind="struct">lemons::midi::MidiProcessor::LastMovedControllerInfo</class>
-    <class kind="class">lemons::dsp::MidiChoppingProcessor</class>
+    <class kind="class">lemons::midi::MidiChoppingProcessor</class>
     <class kind="class">lemons::midi::MidiProcessor</class>
     <class kind="class">lemons::plugin::Processor</class>
     <class kind="class">lemons::plugin::ProcessorBase</class>

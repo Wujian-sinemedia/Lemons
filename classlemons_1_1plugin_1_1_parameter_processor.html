@@ -88,15 +88,12 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afb177c3b99030ee80f42fbbec0e4aae1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_parameter_processor.html#afb177c3b99030ee80f42fbbec0e4aae1">ParameterProcessor</a> (ParameterList &amp;listToUse)</td></tr>
-<tr class="memdesc:afb177c3b99030ee80f42fbbec0e4aae1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a parameter processor.  <a href="classlemons_1_1plugin_1_1_parameter_processor.html#afb177c3b99030ee80f42fbbec0e4aae1">More...</a><br /></td></tr>
-<tr class="separator:afb177c3b99030ee80f42fbbec0e4aae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45808b9a9eebcc339dacdd63cccd61b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_midi_chopping_processor.html#a45808b9a9eebcc339dacdd63cccd61b9">prepare</a> (int maxBlocksize)</td></tr>
-<tr class="separator:a45808b9a9eebcc339dacdd63cccd61b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a849f6d6f2cb2851f12b0169c7b9fa293"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_midi_chopping_processor.html#a849f6d6f2cb2851f12b0169c7b9fa293">process</a> (AudioBuffer&lt; SampleType &gt; &amp;audio, MidiBuffer &amp;midi)</td></tr>
-<tr class="separator:a849f6d6f2cb2851f12b0169c7b9fa293"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe12d93088472dcb07ba5fd0520084ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_midi_chopping_processor.html#afe12d93088472dcb07ba5fd0520084ea">processBypassed</a> (int numSamples, MidiBuffer &amp;midi)</td></tr>
-<tr class="separator:afe12d93088472dcb07ba5fd0520084ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac574396cc2c8da65977f78acb441cdd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1midi_1_1_midi_chopping_processor.html#ac574396cc2c8da65977f78acb441cdd5">prepare</a> (int maxBlocksize)</td></tr>
+<tr class="separator:ac574396cc2c8da65977f78acb441cdd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9404dab6a6428a5da8145a50640b39e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1midi_1_1_midi_chopping_processor.html#a9404dab6a6428a5da8145a50640b39e3">process</a> (AudioBuffer&lt; SampleType &gt; &amp;audio, MidiBuffer &amp;midi)</td></tr>
+<tr class="separator:a9404dab6a6428a5da8145a50640b39e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4534fcc988f9c5c31d6c3a4198064197"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1midi_1_1_midi_chopping_processor.html#a4534fcc988f9c5c31d6c3a4198064197">processBypassed</a> (int numSamples, MidiBuffer &amp;midi)</td></tr>
+<tr class="separator:a4534fcc988f9c5c31d6c3a4198064197"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename SampleType&gt;<br />
@@ -107,39 +104,10 @@ class lemons::plugin::ParameterProcessor&lt; SampleType &gt;</h3>
  <br  />
 In order for this to work nicely, your parameter changes must be realtime safe, and your audio processing algorithm must be able to process as little as 1 sample at a time. <br  />
  <br  />
-This class inherits <a class="el" href="classlemons_1_1dsp_1_1_midi_chopping_processor.html">dsp::MidiChoppingProcessor</a> but does not implement <a class="el" href="classlemons_1_1dsp_1_1_midi_chopping_processor.html#a199ab584f491a6202baa314db04babc2">dsp::MidiChoppingProcessor::renderChunk()</a> &ndash; you should subclass this and implement that function to do your actual processing. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1_midi_chopping_processor.html">dsp::MidiChoppingProcessor</a> ParameterList </dd></dl>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="afb177c3b99030ee80f42fbbec0e4aae1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb177c3b99030ee80f42fbbec0e4aae1">&#9670;&nbsp;</a></span>ParameterProcessor()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classlemons_1_1plugin_1_1_parameter_processor.html">lemons::plugin::ParameterProcessor</a>&lt; SampleType &gt;::<a class="el" href="classlemons_1_1plugin_1_1_parameter_processor.html">ParameterProcessor</a> </td>
-          <td>(</td>
-          <td class="paramtype">ParameterList &amp;&#160;</td>
-          <td class="paramname"><em>listToUse</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Creates a parameter processor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">listToUse</td><td>The ParameterList to reference. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a45808b9a9eebcc339dacdd63cccd61b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a45808b9a9eebcc339dacdd63cccd61b9">&#9670;&nbsp;</a></span>prepare()</h2>
+This class inherits dsp::MidiChoppingProcessor but does not implement dsp::MidiChoppingProcessor::renderChunk() &ndash; you should subclass this and implement that function to do your actual processing. </p><dl class="section see"><dt>See also</dt><dd>dsp::MidiChoppingProcessor ParameterList </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac574396cc2c8da65977f78acb441cdd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac574396cc2c8da65977f78acb441cdd5">&#9670;&nbsp;</a></span>prepare()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -150,7 +118,7 @@ template&lt;typename SampleType &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1_midi_chopping_processor.html">lemons::dsp::MidiChoppingProcessor</a>&lt; SampleType &gt;::prepare </td>
+          <td class="memname">void <a class="el" href="classlemons_1_1midi_1_1_midi_chopping_processor.html">lemons::midi::MidiChoppingProcessor</a>&lt; SampleType &gt;::prepare </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>maxBlocksize</em></td><td>)</td>
@@ -166,8 +134,8 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
-<a id="a849f6d6f2cb2851f12b0169c7b9fa293"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a849f6d6f2cb2851f12b0169c7b9fa293">&#9670;&nbsp;</a></span>process()</h2>
+<a id="a9404dab6a6428a5da8145a50640b39e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9404dab6a6428a5da8145a50640b39e3">&#9670;&nbsp;</a></span>process()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -178,9 +146,9 @@ template&lt;typename SampleType &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1_midi_chopping_processor.html">lemons::dsp::MidiChoppingProcessor</a>&lt; SampleType &gt;::process </td>
+          <td class="memname">void <a class="el" href="classlemons_1_1midi_1_1_midi_chopping_processor.html">lemons::midi::MidiChoppingProcessor</a>&lt; SampleType &gt;::process </td>
           <td>(</td>
-          <td class="paramtype">AudioBuffer&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacelemons_1_1midi.html#ae8e8b374f60d6ae1f3d9eb10d149a8c4">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
           <td class="paramname"><em>audio</em>, </td>
         </tr>
         <tr>
@@ -204,8 +172,8 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
-<a id="afe12d93088472dcb07ba5fd0520084ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe12d93088472dcb07ba5fd0520084ea">&#9670;&nbsp;</a></span>processBypassed()</h2>
+<a id="a4534fcc988f9c5c31d6c3a4198064197"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4534fcc988f9c5c31d6c3a4198064197">&#9670;&nbsp;</a></span>processBypassed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -216,7 +184,7 @@ template&lt;typename SampleType &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1_midi_chopping_processor.html">lemons::dsp::MidiChoppingProcessor</a>&lt; SampleType &gt;::processBypassed </td>
+          <td class="memname">void <a class="el" href="classlemons_1_1midi_1_1_midi_chopping_processor.html">lemons::midi::MidiChoppingProcessor</a>&lt; SampleType &gt;::processBypassed </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>numSamples</em>, </td>
@@ -248,7 +216,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 8 2021 00:43:10 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 9 2021 00:43:28 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -145,7 +145,7 @@ class lemons::plugin::Processor&lt; StateType, EngineType,, &gt;</h3>
 <div class="line">};</div>
 </div><!-- fragment --><p> By default, this processor does not have an editor; see <a class="el" href="structlemons_1_1plugin_1_1_processor_with_editor.html" title="A processor class that has a GUI editor.">ProcessorWithEditor</a> to use your processor with a <a class="el" href="classlemons_1_1plugin_1_1_g_u_i.html" title="Base class for plugin GUI&#39;s.">GUI</a>. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">StateType</td><td>The type of your plugin's state class. This must inherit from <a class="el" href="classlemons_1_1plugin_1_1_state_base.html" title="Base class for a plugin&#39;s state.">StateBase</a>. Your state type must be default-constructable. </td></tr>
+    <tr><td class="paramname">StateType</td><td>The type of your plugin's state class. This must inherit from <a class="el" href="classlemons_1_1plugin_1_1_state_base.html" title="The default plugin state toggler has 3 states, A/B/C.">StateBase</a>. Your state type must be default-constructable. </td></tr>
     <tr><td class="paramname">EngineType</td><td>A class template for your plugin's engine class. This must inherit from <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">dsp::Engine</a>. The constructor for your engine must take a reference to your state type; for example: <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> SampleType&gt;</div>
 <div class="line"><span class="keyword">struct </span>YourEngine : dsp::Engine&lt;SampleType&gt;</div>
 <div class="line">{</div>
@@ -155,7 +155,7 @@ class lemons::plugin::Processor&lt; StateType, EngineType,, &gt;</h3>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1plugin_1_1_processor_with_editor.html" title="A processor class that has a GUI editor.">ProcessorWithEditor</a>, <a class="el" href="classlemons_1_1plugin_1_1_processor_base.html" title="Base class for a plugin processor.">ProcessorBase</a>, <a class="el" href="structlemons_1_1plugin_1_1_plugin_state.html" title="Represents the top-level state of a plugin as a whole.">PluginState</a>, <a class="el" href="classlemons_1_1plugin_1_1_state_base.html" title="Base class for a plugin&#39;s state.">StateBase</a>, <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">dsp::Engine</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1plugin_1_1_processor_with_editor.html" title="A processor class that has a GUI editor.">ProcessorWithEditor</a>, <a class="el" href="classlemons_1_1plugin_1_1_processor_base.html" title="Base class for a plugin processor.">ProcessorBase</a>, <a class="el" href="structlemons_1_1plugin_1_1_plugin_state.html" title="Represents the top-level state of a plugin as a whole.">PluginState</a>, <a class="el" href="classlemons_1_1plugin_1_1_state_base.html" title="The default plugin state toggler has 3 states, A/B/C.">StateBase</a>, <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">dsp::Engine</a> </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="ab81dd6fd31a40605ab4e5b68ae05f7dc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab81dd6fd31a40605ab4e5b68ae05f7dc">&#9670;&nbsp;</a></span>State_Type_t</h2>
@@ -361,13 +361,13 @@ template&lt;class StateType , template&lt; typename SampleType &gt; class Engine
 <li><a class="el" href="_processors_8h.html">Processors.h</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="aclasslemons_1_1plugin_1_1_state_base_html"><div class="ttname"><a href="classlemons_1_1plugin_1_1_state_base.html">lemons::plugin::StateBase</a></div><div class="ttdoc">Base class for a plugin's state.</div><div class="ttdef"><b>Definition:</b> state.h:27</div></div>
+<div class="ttc" id="aclasslemons_1_1plugin_1_1_state_base_html"><div class="ttname"><a href="classlemons_1_1plugin_1_1_state_base.html">lemons::plugin::StateBase</a></div><div class="ttdoc">The default plugin state toggler has 3 states, A/B/C.</div><div class="ttdef"><b>Definition:</b> state.h:27</div></div>
 <div class="ttc" id="aclasslemons_1_1plugin_1_1_processor_html"><div class="ttname"><a href="classlemons_1_1plugin_1_1_processor.html">lemons::plugin::Processor</a></div><div class="ttdoc">A processor class for a plugin that can simply be told the state type and engine type,...</div><div class="ttdef"><b>Definition:</b> Processors.h:45</div></div>
 <div class="ttc" id="aclasslemons_1_1dsp_1_1_engine_html"><div class="ttname"><a href="classlemons_1_1dsp_1_1_engine.html">lemons::dsp::Engine</a></div><div class="ttdoc">Base class for an audio engine.</div><div class="ttdef"><b>Definition:</b> AudioEngine.h:15</div></div>
 <div class="ttc" id="anamespacelemons_html"><div class="ttname"><a href="namespacelemons.html">lemons</a></div><div class="ttdef"><b>Definition:</b> DefaultWindow.h:9</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 8 2021 00:43:10 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 9 2021 00:43:28 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
