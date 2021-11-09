@@ -2,9 +2,8 @@
 Configures various sanitizers for the current build.
 
 ## Options:
-- LEMONS_SANITIZERS_TO_ENABLE: a list of sanitizers to enable.
+LEMONS_SANITIZERS_TO_ENABLE: a list of sanitizers to enable.
 The options are:
-
 - address
 - memory
 - thread

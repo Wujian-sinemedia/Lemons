@@ -17,11 +17,10 @@ Includes the common Lemons JUCE modules.
 include_guard (GLOBAL)
 
 include (LemonsConnectivityModules)
-include (LemonsGUIModules)
+
 
 _lemons_add_module_subcategory (LemonsCommonModules)
-
-target_link_libraries (LemonsCommonModules INTERFACE LemonsConnectivityModules LemonsGUIModules)
+target_link_libraries (LemonsCommonModules INTERFACE LemonsConnectivityModules)
 
 #
 

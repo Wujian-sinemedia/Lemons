@@ -9,7 +9,7 @@
  version:            0.0.1
  name:               lemons_spline
  description:        Module for creating, editing, and interpolating B-splines as real-time audio paramters
- dependencies:       lemons_serializing juce_graphics
+ dependencies:       juce_graphics
 
  END_JUCE_MODULE_DECLARATION
 

@@ -9,7 +9,7 @@ vendor:             Ben Vining
 version:            0.0.1
 name:               lemons_oscillators
 description:        Oscillators for building synths
-dependencies:       lemons_dsp lemons_serializing
+dependencies:       lemons_dsp
 
 END_JUCE_MODULE_DECLARATION
 

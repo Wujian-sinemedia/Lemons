@@ -12,7 +12,8 @@ Includes Lemons JUCE modules for building GUIs.
 
 include_guard (GLOBAL)
 
-include (LemonsJuceModuleUtilities)
+include (LemonsCommonModules)
 
 
 _lemons_add_module_subcategory (LemonsGUIModules)
+target_link_libraries (LemonsGUIModules INTERFACE LemonsCommonModules)

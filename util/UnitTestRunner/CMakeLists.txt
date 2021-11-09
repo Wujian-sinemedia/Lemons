@@ -21,7 +21,7 @@ CPMAddPackage (
         GITHUB_REPOSITORY benthevining/Lemons
         GIT_TAG origin/main)
 
-include (AllLemonsModules)
+include (LemonsAudioModules)
 
 #
 
@@ -33,7 +33,7 @@ target_compile_definitions (${PROJECT_NAME} PRIVATE
     JUCE_USE_CURL=0
     JUCE_WEB_BROWSER=0)
 
-target_link_libraries (${PROJECT_NAME} PRIVATE juce_core AllLemonsModules)
+target_link_libraries (${PROJECT_NAME} PRIVATE juce_core LemonsAudioModules)
 
 #
 
