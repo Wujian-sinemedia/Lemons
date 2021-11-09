@@ -582,6 +582,11 @@
     <filename>_lemons_pluginval_utils_8md.html</filename>
   </compound>
   <compound kind="file">
+    <name>LemonsSanitizerIntegration.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
+    <filename>_lemons_sanitizer_integration_8md.html</filename>
+  </compound>
+  <compound kind="file">
     <name>LemonsTranslationFileGeneration.md</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_lemons_translation_file_generation_8md.html</filename>
@@ -18850,6 +18855,11 @@
     <title>LemonsPluginvalUtils</title>
     <filename>_lemons_pluginval_utils</filename>
     <docanchor file="_lemons_pluginval_utils.html" title="lemons_configure_pluginval_tests">lemons_configure_pluginval_tests</docanchor>
+  </compound>
+  <compound kind="page">
+    <name>LemonsSanitizerIntegration</name>
+    <title>LemonsSanitizerIntegration</title>
+    <filename>_lemons_sanitizer_integration</filename>
   </compound>
   <compound kind="page">
     <name>LemonsTranslationFileGeneration</name>

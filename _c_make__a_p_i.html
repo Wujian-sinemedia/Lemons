@@ -68,21 +68,8 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h1>CMake options</h1>
-<h2>Options for controlling the configuration of your build</h2>
 <h3>LEMONS_ENABLE_INTEGRATIONS</h3>
 <p>Set this to ON to enable all available integrations by default (ccache, clang-format, etc). Defaults to ON.</p>
-<h3>LEMONS_SANITIZERS_TO_ENABLE</h3>
-<p>An optional list of sanitizers to enable. Currently only supported with GNU, Clang, or MSVC compilers. The options are:</p><ul>
-<li>address</li>
-<li>memory</li>
-<li>thread</li>
-<li>leak</li>
-<li>undefined</li>
-<li>fuzzer</li>
-</ul>
-<p>The sanitizers "address", "memory" and "thread" are mutually exclusive. You cannot enable two of them in the same build.</p>
-<p>"leak" requires the "address" sanitizer.</p>
-<h2>Options for conditionally enabling building additional stuff</h2>
 <h3>LEMONS_BUILD_TESTS</h3>
 <p>Set this to ON to enable testing. Defaults to OFF. When enabled, using the plugin configuration functions will also automatically configure plugin QC tests.</p>
 <h3>LEMONS_BUILD_DOCS</h3>
@@ -119,6 +106,7 @@ CMake modules</h1>
 <h2>Integrations</h2>
 <ul>
 <li><a class="el" href="_lemons_ccache_integration.html">LemonsCcacheIntegration</a></li>
+<li><a class="el" href="_lemons_sanitizer_integration.html">LemonsSanitizerIntegration</a></li>
 <li><a class="el" href="_lemons_clang_format_integration.html">LemonsClangFormatIntegration</a></li>
 </ul>
 <h2>General</h2>
@@ -131,6 +119,7 @@ CMake modules</h1>
 <li><a class="el" href="_lemons_assets_helpers.html">LemonsAssetsHelpers</a></li>
 <li><a class="el" href="_lemons_default_mac_os_options.html">LemonsDefaultMacOsOptions</a></li>
 </ul>
+<h2>Code_gen</h2>
 <h2>Juce module inclusion</h2>
 <ul>
 <li><a class="el" href="_all_lemons_modules.html">AllLemonsModules</a></li>
@@ -145,7 +134,7 @@ CMake modules</h1>
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 9 2021 21:47:28 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 9 2021 22:31:28 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
