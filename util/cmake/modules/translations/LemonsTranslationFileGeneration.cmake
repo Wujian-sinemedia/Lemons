@@ -89,7 +89,6 @@ function (lemons_generate_translation_files)
 
     if (NOT LEMONS_TRANS_FOLDER)
         message (FATAL_ERROR "Folder not specified in call to ${CMAKE_CURRENT_FUNCTION}!")
-        return()
     endif()
 
     if (NOT shared_translations_generated)
