@@ -75,6 +75,10 @@ if (LEMONS_ENABLE_INTEGRATIONS)
 	include (LemonsClangFormatIntegration)
 endif()
 
+if (LEMONS_SANITIZERS_TO_ENABLE)
+	include (LemonsSanitizerIntegration)
+endif()
+
 add_subdirectory (util)
 
 if (LEMONS_BUILD_TEMPLATES)

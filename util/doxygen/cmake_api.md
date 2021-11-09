@@ -3,27 +3,8 @@
 
 ## CMake options
 
-### Options for controlling the configuration of your build
-
 #### LEMONS_ENABLE_INTEGRATIONS
 Set this to ON to enable all available integrations by default (ccache, clang-format, etc). Defaults to ON.
-
-#### LEMONS_SANITIZERS_TO_ENABLE
-An optional list of sanitizers to enable. Currently only supported with GNU, Clang, or MSVC compilers.
-The options are:
-- address
-- memory
-- thread
-- leak
-- undefined
-- fuzzer
-
-The sanitizers "address", "memory" and "thread" are mutually exclusive.  You cannot enable two of them in the same build.
-
-"leak" requires the  "address" sanitizer.
-
-
-### Options for conditionally enabling building additional stuff
 
 #### LEMONS_BUILD_TESTS
 Set this to ON to enable testing. Defaults to OFF. When enabled, using the plugin configuration functions will also automatically configure plugin QC tests.
