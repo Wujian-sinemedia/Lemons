@@ -16,8 +16,7 @@
 -------------------------------------------------------------------------------------*/
 
 
-//#include "state/state.h"
-//#include "state/PluginState.h"
+#include "state/state.h"
 
 #include "processors/ProcessorBase.h"
 

@@ -30,7 +30,7 @@ public:
 private:
 	int blockIndexToBufferIndex (int blockIndex) const;
 
-	CircularBuffer<SampleType> buffer;
+//	CircularBuffer<SampleType> buffer;
 
 	juce::Array<int>         grainIndices;  // sample indices in the circular buffer of grain onsets
 	mutable juce::Array<int> distances;     // array for sorting distances of grain onsets

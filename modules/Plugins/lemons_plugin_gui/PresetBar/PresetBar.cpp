@@ -9,7 +9,7 @@ PresetBar::PresetBar (//StateBase&    stateToUse,
 //    : presetLibrary (stateToUse, companyName, productName, presetFileExtension)
 //    , toggleButtons (toggler)
 {
-	gui::addAndMakeVisible (this, toggleButtons);
+	//gui::addAndMakeVisible (this, toggleButtons);
 }
 
 }  // namespace lemons::plugin

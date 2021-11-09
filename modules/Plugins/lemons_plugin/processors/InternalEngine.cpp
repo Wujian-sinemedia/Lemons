@@ -2,11 +2,11 @@ namespace lemons::plugin
 {
 template <typename SampleType>
 ProcessorBase::InternalEngine<SampleType>::InternalEngine (juce::AudioProcessor&    processorToUse,
-                                                           //StateBase&               stateToUse,
+                                                           StateBase&               stateToUse,
                                                            dsp::Engine<SampleType>& engineToUse)
     : //ParameterProcessor<SampleType> (stateToUse.getParameters())
      processor (processorToUse)
-    //, state (stateToUse)
+    , state (stateToUse)
     , engine (engineToUse)
 {
 }

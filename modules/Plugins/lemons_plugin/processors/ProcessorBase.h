@@ -26,7 +26,7 @@ public:
 	    @param doubleEngineToUse The double specialization of the dsp::Engine to use.
 	    @param busesLayout The buses layout to pass to the underlying juce::AudioProcessor.
 	 */
-	ProcessorBase (//StateBase&                            stateToUse,
+	ProcessorBase (StateBase&                            stateToUse,
 	               dsp::Engine<float>&                   floatEngineToUse,
 	               dsp::Engine<double>&                  doubleEngineToUse,
 	               juce::AudioProcessor::BusesProperties busesLayout = BusesProperties()
@@ -63,7 +63,7 @@ private:
 	{
 	public:
 		InternalEngine (juce::AudioProcessor&    processorToUse,
-		                //StateBase&               stateToUse,
+		                StateBase&               stateToUse,
 		                dsp::Engine<SampleType>& engineToUse);
 
 		void prepareToPlay (double samplerate, int maxBlocksize);
@@ -74,7 +74,7 @@ private:
 		void renderChunk (juce::AudioBuffer<SampleType>& audio, MidiBuffer& midi) final;
 
 		juce::AudioProcessor&    processor;
-		//StateBase&               state;
+		StateBase&               state;
 		dsp::Engine<SampleType>& engine;
 	};
 
@@ -87,7 +87,7 @@ private:
 
 	/*-------------------------------------------------------*/
 
-	//StateBase& state;
+	StateBase& state;
 
 	InternalEngine<float>  floatEngine;
 	InternalEngine<double> doubleEngine;

@@ -5,8 +5,8 @@ template <typename SampleType>
 void LatencyEngine<SampleType>::prepared (int blocksize, double samplerate)
 {
 	chunkMidiBuffer.ensureSize (static_cast<size_t> (blocksize));
-	inputFIFO.setSize (blocksize);
-	outputFIFO.setSize (blocksize);
+//	inputFIFO.setSize (blocksize);
+//	outputFIFO.setSize (blocksize);
 	inBuffer.setSize (2, blocksize, true, true, true);
 	outBuffer.setSize (2, blocksize, true, true, true);
 	onPrepare (blocksize, samplerate);
@@ -54,24 +54,24 @@ void LatencyEngine<SampleType>::renderBlock (const AudioBuffer<SampleType>& inpu
 		return;
 	}
 
-	inputFIFO.push (input, midiMessages);
-
-	while (inputFIFO.numStoredSamples() >= internalBlocksize)
-	{
-		AudioBuffer<SampleType> inAlias { inBuffer.getArrayOfWritePointers(),
-			                              input.getNumChannels(), internalBlocksize };
-
-		AudioBuffer<SampleType> outAlias { outBuffer.getArrayOfWritePointers(),
-			                               output.getNumChannels(), internalBlocksize };
-
-		inputFIFO.pop (inAlias, chunkMidiBuffer);
-
-		renderChunk (inAlias, outAlias, chunkMidiBuffer, isBypassed);
-
-		outputFIFO.push (outAlias, chunkMidiBuffer);
-	}
-
-	outputFIFO.pop (output, midiMessages);
+//	inputFIFO.push (input, midiMessages);
+//
+//	while (inputFIFO.numStoredSamples() >= internalBlocksize)
+//	{
+//		AudioBuffer<SampleType> inAlias { inBuffer.getArrayOfWritePointers(),
+//			                              input.getNumChannels(), internalBlocksize };
+//
+//		AudioBuffer<SampleType> outAlias { outBuffer.getArrayOfWritePointers(),
+//			                               output.getNumChannels(), internalBlocksize };
+//
+//		inputFIFO.pop (inAlias, chunkMidiBuffer);
+//
+//		renderChunk (inAlias, outAlias, chunkMidiBuffer, isBypassed);
+//
+//		outputFIFO.push (outAlias, chunkMidiBuffer);
+//	}
+//
+//	outputFIFO.pop (output, midiMessages);
 }
 
 template <typename SampleType>

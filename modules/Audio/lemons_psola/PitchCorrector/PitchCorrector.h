@@ -50,7 +50,7 @@ private:
 
 	const midi::PitchPipeline* pitch;
 
-    dsp::psola::Shifter<SampleType> shifter; //{ analyzer };
+    dsp::psola::Shifter<SampleType> shifter { analyzer };
 
 	double sampleRate { 0. };
 

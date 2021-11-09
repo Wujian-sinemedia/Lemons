@@ -36,7 +36,7 @@ private:
 
 
 	int                          internalBlocksize { 0 };
-	AudioAndMidiFIFO<SampleType> inputFIFO, outputFIFO;
+//	AudioAndMidiFIFO<SampleType> inputFIFO, outputFIFO;
 	AudioBuffer<SampleType>      inBuffer, outBuffer;
 	MidiBuffer                   chunkMidiBuffer;
 };

@@ -8,22 +8,15 @@ namespace lemons::plugin
 class GUIBase : public juce::Component
 {
 public:
-	/** We need non-templated access to Toggler here... */
-	using Toggle = serializing::TogglerInterface;
-
 	/** Creates a new plugin GUI. */
-	GUIBase (StateBase& stateBaseToUse, Toggle& toggleInterfaceToUse)
+	GUIBase (StateBase& stateBaseToUse)//, Toggle& toggleInterfaceToUse)
 	    : stateBase (stateBaseToUse)
-	    , toggleInterface (toggleInterfaceToUse)
 	{
 	}
 
 protected:
 	/** The plugin's state. */
 	StateBase& stateBase;
-
-	/** The plugin's state toggles. */
-	Toggle& toggleInterface;
 
 	/** The plugin's tooltip window. */
 	juce::TooltipWindow tooltipWindow { this, 700 };
@@ -40,17 +33,15 @@ class GUI : public GUIBase
 {
 public:
 	/** Creates a new plugin GUI. */
-	GUI (plugin::PluginState<StateType>& stateToUse)
+	GUI (StateType& stateToUse)
 	    : GUIBase (stateToUse.state, stateToUse.toggles)
 	    , state (stateToUse.state)
-	    , toggles (stateToUse.toggles)
 	{
 	}
 
 protected:
 	/** The plugin's main state object. */
 	StateType&    state;
-	StateToggles& toggles;
 };
 
 }  // namespace lemons::plugin
