@@ -66,7 +66,7 @@ foreach (directory "util/cmake/modules" "modules")
 endforeach()
 
 # force CMake module paths to propogate outwards to any containing projects...
-set (CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" CACHE INTERNAL "")
+set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} CACHE INTERNAL "")
 
 #
 

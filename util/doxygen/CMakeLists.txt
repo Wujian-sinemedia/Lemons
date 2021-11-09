@@ -1,12 +1,20 @@
+include_guard (GLOBAL)
+
 cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
 project (LemonsDocs VERSION 0.0.1)
+
+#
 
 find_package (Doxygen REQUIRED dot)
 find_package (Python3 COMPONENTS Interpreter)
 
 if (NOT DOXYGEN_FOUND OR NOT Python3_Interpreter_FOUND)
 	message (FATAL_ERROR "Doxygen dependencies missing!")
+endif()
+
+if (NOT DEFINED Lemons_SOURCE_DIR)
+	set (Lemons_SOURCE_DIR "${CMAKE_CURRENT_LIST_DIR}/../.." CACHE INTERNAL "")
 endif()
 
 set (out_folder "${CMAKE_CURRENT_BINARY_DIR}/build")
@@ -25,6 +33,7 @@ function (_lemons_configure_doxygen_file_copy_target input output)
 
 	list (APPEND DoxygenDepends "${output}")
 	set (DoxygenDepends ${DoxygenDepends} PARENT_SCOPE)
+	
 endfunction()
 
 _lemons_configure_doxygen_file_copy_target ("${CMAKE_CURRENT_LIST_DIR}/Doxyfile" 

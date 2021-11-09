@@ -71,7 +71,7 @@
       "displayName": "Build templates",
       "description": "Builds both Lemons project templates",
       "configurePreset": "templates",
-      "targets": ["Templates"]
+      "targets": ["LemonsTemplates"]
     },
     {
       "name": "lab",

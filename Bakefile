@@ -11,6 +11,9 @@ Aliases:
 
 Clean:
 * Builds/
+* templates/Builds/
+* util/UnitTestRunner/Builds/
+* util/doxygen/Builds/
 * docs/
 * .github/docs/
 * util/cmake/modules/translations/scripts/__pycache__/
