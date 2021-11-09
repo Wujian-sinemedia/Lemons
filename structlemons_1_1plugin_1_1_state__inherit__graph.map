@@ -1,4 +1,0 @@
-<map id="lemons::plugin::State&lt; ParamListType, &gt;" name="lemons::plugin::State&lt; ParamListType, &gt;">
-<area shape="rect" id="node1" title="A plugin state class that instantiates the appropriate ParameterList and passes it to the StateBase c..." alt="" coords="21,80,181,121"/>
-<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_state_base.html" title="The default plugin state toggler has 3 states, A/B/C." alt="" coords="5,5,197,32"/>
-</map>

@@ -88,9 +88,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abe95b8fb819e0b8ca736d4d2cd2f6750"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#abe95b8fb819e0b8ca736d4d2cd2f6750">ProcessorBase</a> (<a class="el" href="classlemons_1_1dsp_1_1_engine.html">dsp::Engine</a>&lt; float &gt; &amp;floatEngineToUse, <a class="el" href="classlemons_1_1dsp_1_1_engine.html">dsp::Engine</a>&lt; double &gt; &amp;doubleEngineToUse, juce::AudioProcessor::BusesProperties busesLayout=BusesProperties() .withInput(TRANS(&quot;Input&quot;), juce::AudioChannelSet::stereo(), true) .withOutput(TRANS(&quot;Output&quot;), juce::AudioChannelSet::stereo(), true))</td></tr>
-<tr class="memdesc:abe95b8fb819e0b8ca736d4d2cd2f6750"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a processor.  <a href="classlemons_1_1plugin_1_1_processor_base.html#abe95b8fb819e0b8ca736d4d2cd2f6750">More...</a><br /></td></tr>
-<tr class="separator:abe95b8fb819e0b8ca736d4d2cd2f6750"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a594b9c70fa57b4a8021d32b364e20dbc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#a594b9c70fa57b4a8021d32b364e20dbc">ProcessorBase</a> (<a class="el" href="classlemons_1_1plugin_1_1_state_base.html">StateBase</a> &amp;stateToUse, <a class="el" href="classlemons_1_1dsp_1_1_engine.html">dsp::Engine</a>&lt; float &gt; &amp;floatEngineToUse, <a class="el" href="classlemons_1_1dsp_1_1_engine.html">dsp::Engine</a>&lt; double &gt; &amp;doubleEngineToUse, juce::AudioProcessor::BusesProperties busesLayout=BusesProperties() .withInput(TRANS(&quot;Input&quot;), juce::AudioChannelSet::stereo(), true) .withOutput(TRANS(&quot;Output&quot;), juce::AudioChannelSet::stereo(), true))</td></tr>
+<tr class="memdesc:a594b9c70fa57b4a8021d32b364e20dbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a processor.  <a href="classlemons_1_1plugin_1_1_processor_base.html#a594b9c70fa57b4a8021d32b364e20dbc">More...</a><br /></td></tr>
+<tr class="separator:a594b9c70fa57b4a8021d32b364e20dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3814788aae0eff4e449e29dbcd16352f"><td class="memItemLeft" align="right" valign="top">juce::Point&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#a3814788aae0eff4e449e29dbcd16352f">getSavedEditorSize</a> () const noexcept</td></tr>
 <tr class="memdesc:a3814788aae0eff4e449e29dbcd16352f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the state's saved editor dimensions.  <a href="classlemons_1_1plugin_1_1_processor_base.html#a3814788aae0eff4e449e29dbcd16352f">More...</a><br /></td></tr>
 <tr class="separator:a3814788aae0eff4e449e29dbcd16352f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -107,8 +107,8 @@ Public Member Functions</h2></td></tr>
  <br  />
 This class is a <a class="el" href="structlemons_1_1_system_initializer.html">SystemInitializer</a>, meaning it sets up translations for you. This class also holds a <a class="el" href="classlemons_1_1plugin_1_1_parameter_processor.html" title="This class processes incoming MIDI messages and quantizes the audio output with any MIDI CC messages ...">ParameterProcessor</a> internally. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1_system_initializer.html">SystemInitializer</a>, <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">dsp::Engine</a>, <a class="el" href="classlemons_1_1dsp_1_1_basic_processor_base.html" title="A default implementation of a basic, generic juce AudioProcessor.">dsp::BasicProcessorBase</a>, <a class="el" href="classlemons_1_1plugin_1_1_state_base.html" title="The default plugin state toggler has 3 states, A/B/C.">StateBase</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="abe95b8fb819e0b8ca736d4d2cd2f6750"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe95b8fb819e0b8ca736d4d2cd2f6750">&#9670;&nbsp;</a></span>ProcessorBase()</h2>
+<a id="a594b9c70fa57b4a8021d32b364e20dbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a594b9c70fa57b4a8021d32b364e20dbc">&#9670;&nbsp;</a></span>ProcessorBase()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -116,6 +116,12 @@ This class is a <a class="el" href="structlemons_1_1_system_initializer.html">Sy
         <tr>
           <td class="memname">lemons::plugin::ProcessorBase::ProcessorBase </td>
           <td>(</td>
+          <td class="paramtype"><a class="el" href="classlemons_1_1plugin_1_1_state_base.html">StateBase</a> &amp;&#160;</td>
+          <td class="paramname"><em>stateToUse</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype"><a class="el" href="classlemons_1_1dsp_1_1_engine.html">dsp::Engine</a>&lt; float &gt; &amp;&#160;</td>
           <td class="paramname"><em>floatEngineToUse</em>, </td>
         </tr>
@@ -243,7 +249,7 @@ This class is a <a class="el" href="structlemons_1_1_system_initializer.html">Sy
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 9 2021 00:43:28 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 9 2021 21:00:59 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

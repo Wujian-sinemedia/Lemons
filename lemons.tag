@@ -1071,14 +1071,6 @@
     <namespace>lemons::plugin</namespace>
   </compound>
   <compound kind="file">
-    <name>PluginState.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin/state/</path>
-    <filename>_plugin_state_8h.html</filename>
-    <class kind="struct">lemons::plugin::PluginState</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::plugin</namespace>
-  </compound>
-  <compound kind="file">
     <name>PopupComponent.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/GUI/lemons_gui/components/</path>
     <filename>_popup_component_8h.html</filename>
@@ -1278,8 +1270,6 @@
     <name>state.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin/state/</path>
     <filename>state_8h.html</filename>
-    <class kind="struct">lemons::plugin::CustomState</class>
-    <class kind="struct">lemons::plugin::State</class>
     <class kind="class">lemons::plugin::StateBase</class>
     <namespace>lemons</namespace>
     <namespace>lemons::plugin</namespace>
@@ -2993,99 +2983,6 @@
       <name>z</name>
       <anchorfile>structlemons_1_1_motion_manager_interface_1_1_coords.html</anchorfile>
       <anchor>a2d8285405be7eb1820c37101e5faf82c</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
-    <name>lemons::plugin::CustomState</name>
-    <filename>structlemons_1_1plugin_1_1_custom_state.html</filename>
-    <templarg></templarg>
-    <templarg></templarg>
-    <templarg></templarg>
-    <templarg></templarg>
-    <base>lemons::plugin::StateBase</base>
-    <member kind="function">
-      <type></type>
-      <name>CustomState</name>
-      <anchorfile>structlemons_1_1plugin_1_1_custom_state.html</anchorfile>
-      <anchor>acac176a1178a3f3d4a2bd36227ddb688</anchor>
-      <arglist>(String pluginName)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>addAllAsInternal</name>
-      <anchorfile>classlemons_1_1plugin_1_1_state_base.html</anchorfile>
-      <anchor>af7c186d21688b88e9cfe67e97bd60beb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>addTo</name>
-      <anchorfile>classlemons_1_1plugin_1_1_state_base.html</anchorfile>
-      <anchor>a6e2c15469404d7c8f3d78630d23e95fd</anchor>
-      <arglist>(juce::AudioProcessor &amp;processor)</arglist>
-    </member>
-    <member kind="function">
-      <type>ParameterList &amp;</type>
-      <name>getParameters</name>
-      <anchorfile>classlemons_1_1plugin_1_1_state_base.html</anchorfile>
-      <anchor>acebd59199f161b6348cd5acf105d9c06</anchor>
-      <arglist>() noexcept</arglist>
-    </member>
-    <member kind="variable">
-      <type>CustomDataType</type>
-      <name>customData</name>
-      <anchorfile>structlemons_1_1plugin_1_1_custom_state.html</anchorfile>
-      <anchor>ac6376c8ba34815cc4d079c69349d9a7e</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>Dimensions</type>
-      <name>dimensions</name>
-      <anchorfile>classlemons_1_1plugin_1_1_state_base.html</anchorfile>
-      <anchor>af61d909bb4b2fbc6a101a389f87a3ae3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>ToggleParam</type>
-      <name>mainBypass</name>
-      <anchorfile>classlemons_1_1plugin_1_1_state_base.html</anchorfile>
-      <anchor>aeb826035e1976ec685c8bf3232d3bdc0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>ModulationManager</type>
-      <name>modManager</name>
-      <anchorfile>classlemons_1_1plugin_1_1_state_base.html</anchorfile>
-      <anchor>ae139e1bc96f05db7e27391c6d1241340</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>ParamListType</type>
-      <name>parameters</name>
-      <anchorfile>structlemons_1_1plugin_1_1_custom_state.html</anchorfile>
-      <anchor>add2341b6f48d2d885cb449daef9fe39c</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>serialize</name>
-      <anchorfile>classlemons_1_1plugin_1_1_state_base.html</anchorfile>
-      <anchor>a30db7069c3333b6e630acd156a8194af</anchor>
-      <arglist>(TreeReflector &amp;ref) final</arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>SerializableData *</type>
-      <name>customStateData</name>
-      <anchorfile>classlemons_1_1plugin_1_1_state_base.html</anchorfile>
-      <anchor>a4474e8d9a0164146f7f746eb60156e84</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>ParameterList &amp;</type>
-      <name>params</name>
-      <anchorfile>classlemons_1_1plugin_1_1_state_base.html</anchorfile>
-      <anchor>a8a7f0d732e9783ddb91bb35296a2d00f</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -5899,19 +5796,12 @@
     <filename>classlemons_1_1plugin_1_1_g_u_i.html</filename>
     <templarg></templarg>
     <base>lemons::plugin::GUIBase</base>
-    <member kind="typedef">
-      <type>serializing::TogglerInterface</type>
-      <name>Toggle</name>
-      <anchorfile>classlemons_1_1plugin_1_1_g_u_i_base.html</anchorfile>
-      <anchor>a17b324db523918e374ef27e2941532d9</anchor>
-      <arglist></arglist>
-    </member>
     <member kind="function">
       <type></type>
       <name>GUI</name>
       <anchorfile>classlemons_1_1plugin_1_1_g_u_i.html</anchorfile>
-      <anchor>a81845aaba82a9a0e970fe99472e905f6</anchor>
-      <arglist>(plugin::PluginState&lt; StateType &gt; &amp;stateToUse)</arglist>
+      <anchor>a7de4aaf74c7c900d105782ed26bf6442</anchor>
+      <arglist>(StateType &amp;stateToUse)</arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>StateType &amp;</type>
@@ -5925,20 +5815,6 @@
       <name>stateBase</name>
       <anchorfile>classlemons_1_1plugin_1_1_g_u_i_base.html</anchorfile>
       <anchor>a282b917402312585cff6316028b9f5a8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>Toggle &amp;</type>
-      <name>toggleInterface</name>
-      <anchorfile>classlemons_1_1plugin_1_1_g_u_i_base.html</anchorfile>
-      <anchor>a97a9230b68c4c1b831376c23f511047b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>StateToggles &amp;</type>
-      <name>toggles</name>
-      <anchorfile>classlemons_1_1plugin_1_1_g_u_i.html</anchorfile>
-      <anchor>a13961f3701f21f144ca5e7a4cdb23034</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -6008,32 +5884,18 @@
   <compound kind="class">
     <name>lemons::plugin::GUIBase</name>
     <filename>classlemons_1_1plugin_1_1_g_u_i_base.html</filename>
-    <member kind="typedef">
-      <type>serializing::TogglerInterface</type>
-      <name>Toggle</name>
-      <anchorfile>classlemons_1_1plugin_1_1_g_u_i_base.html</anchorfile>
-      <anchor>a17b324db523918e374ef27e2941532d9</anchor>
-      <arglist></arglist>
-    </member>
     <member kind="function">
       <type></type>
       <name>GUIBase</name>
       <anchorfile>classlemons_1_1plugin_1_1_g_u_i_base.html</anchorfile>
-      <anchor>a2fdfb7e061d265ab3f4cdc6af453058e</anchor>
-      <arglist>(StateBase &amp;stateBaseToUse, Toggle &amp;toggleInterfaceToUse)</arglist>
+      <anchor>ab5fa92e62959c4e759db8530053ad368</anchor>
+      <arglist>(StateBase &amp;stateBaseToUse)</arglist>
     </member>
     <member kind="variable" protection="protected">
       <type>StateBase &amp;</type>
       <name>stateBase</name>
       <anchorfile>classlemons_1_1plugin_1_1_g_u_i_base.html</anchorfile>
       <anchor>a282b917402312585cff6316028b9f5a8</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>Toggle &amp;</type>
-      <name>toggleInterface</name>
-      <anchorfile>classlemons_1_1plugin_1_1_g_u_i_base.html</anchorfile>
-      <anchor>a97a9230b68c4c1b831376c23f511047b</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable" protection="protected">
@@ -12749,81 +12611,13 @@
     <filename>classlemons_1_1plugin_1_1_plugin_editor.html</filename>
     <templarg></templarg>
     <templarg></templarg>
-    <templarg></templarg>
-    <templarg></templarg>
     <base>lemons::plugin::EditorBase</base>
     <member kind="function">
       <type></type>
       <name>PluginEditor</name>
       <anchorfile>classlemons_1_1plugin_1_1_plugin_editor.html</anchorfile>
-      <anchor>a94e909705a449f153d6c3a05dd85f019</anchor>
-      <arglist>(ProcessorBase &amp;processorToUse, PluginState&lt; StateType &gt; &amp;state)</arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
-    <name>lemons::plugin::PluginState</name>
-    <filename>structlemons_1_1plugin_1_1_plugin_state.html</filename>
-    <templarg></templarg>
-    <templarg></templarg>
-    <member kind="function">
-      <type></type>
-      <name>PluginState</name>
-      <anchorfile>structlemons_1_1plugin_1_1_plugin_state.html</anchorfile>
-      <anchor>a0ad419ac90896c8d489a4a6731479640</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="variable">
-      <type>StateType</type>
-      <name>state</name>
-      <anchorfile>structlemons_1_1plugin_1_1_plugin_state.html</anchorfile>
-      <anchor>a2b29ea43c8e780bce47082ad73ab2bc6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>StateToggles</type>
-      <name>toggles</name>
-      <anchorfile>structlemons_1_1plugin_1_1_plugin_state.html</anchorfile>
-      <anchor>aa40e75834f1455e11a29294cbd06ece7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>UndoManager</type>
-      <name>undo</name>
-      <anchorfile>structlemons_1_1plugin_1_1_plugin_state.html</anchorfile>
-      <anchor>a9baef8928515047ae943e5b5af3f0ae4</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>PluginState&lt; StateType &gt;</name>
-    <filename>structlemons_1_1plugin_1_1_plugin_state.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>PluginState</name>
-      <anchorfile>structlemons_1_1plugin_1_1_plugin_state.html</anchorfile>
-      <anchor>a0ad419ac90896c8d489a4a6731479640</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="variable">
-      <type>StateType</type>
-      <name>state</name>
-      <anchorfile>structlemons_1_1plugin_1_1_plugin_state.html</anchorfile>
-      <anchor>a2b29ea43c8e780bce47082ad73ab2bc6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>StateToggles</type>
-      <name>toggles</name>
-      <anchorfile>structlemons_1_1plugin_1_1_plugin_state.html</anchorfile>
-      <anchor>aa40e75834f1455e11a29294cbd06ece7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>UndoManager</type>
-      <name>undo</name>
-      <anchorfile>structlemons_1_1plugin_1_1_plugin_state.html</anchorfile>
-      <anchor>a9baef8928515047ae943e5b5af3f0ae4</anchor>
-      <arglist></arglist>
+      <anchor>aa746ad4af4630f59cb400014028e118c</anchor>
+      <arglist>(ProcessorBase &amp;processorToUse, StateType &amp;state)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -12977,8 +12771,8 @@
       <type></type>
       <name>ProcessorBase</name>
       <anchorfile>classlemons_1_1plugin_1_1_processor_base.html</anchorfile>
-      <anchor>abe95b8fb819e0b8ca736d4d2cd2f6750</anchor>
-      <arglist>(dsp::Engine&lt; float &gt; &amp;floatEngineToUse, dsp::Engine&lt; double &gt; &amp;doubleEngineToUse, juce::AudioProcessor::BusesProperties busesLayout=BusesProperties() .withInput(TRANS(&quot;Input&quot;), juce::AudioChannelSet::stereo(), true) .withOutput(TRANS(&quot;Output&quot;), juce::AudioChannelSet::stereo(), true))</arglist>
+      <anchor>a594b9c70fa57b4a8021d32b364e20dbc</anchor>
+      <arglist>(StateBase &amp;stateToUse, dsp::Engine&lt; float &gt; &amp;floatEngineToUse, dsp::Engine&lt; double &gt; &amp;doubleEngineToUse, juce::AudioProcessor::BusesProperties busesLayout=BusesProperties() .withInput(TRANS(&quot;Input&quot;), juce::AudioChannelSet::stereo(), true) .withOutput(TRANS(&quot;Output&quot;), juce::AudioChannelSet::stereo(), true))</arglist>
     </member>
     <member kind="function">
       <type>juce::Point&lt; int &gt;</type>
@@ -14445,90 +14239,6 @@
       <arglist>(float frequency, float sampleRate) final</arglist>
     </member>
   </compound>
-  <compound kind="struct">
-    <name>lemons::plugin::State</name>
-    <filename>structlemons_1_1plugin_1_1_state.html</filename>
-    <templarg></templarg>
-    <templarg></templarg>
-    <base>lemons::plugin::StateBase</base>
-    <member kind="function">
-      <type></type>
-      <name>State</name>
-      <anchorfile>structlemons_1_1plugin_1_1_state.html</anchorfile>
-      <anchor>aae2b72eea418e304680cf301f41d1218</anchor>
-      <arglist>(String pluginName)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>addAllAsInternal</name>
-      <anchorfile>classlemons_1_1plugin_1_1_state_base.html</anchorfile>
-      <anchor>af7c186d21688b88e9cfe67e97bd60beb</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>addTo</name>
-      <anchorfile>classlemons_1_1plugin_1_1_state_base.html</anchorfile>
-      <anchor>a6e2c15469404d7c8f3d78630d23e95fd</anchor>
-      <arglist>(juce::AudioProcessor &amp;processor)</arglist>
-    </member>
-    <member kind="function">
-      <type>ParameterList &amp;</type>
-      <name>getParameters</name>
-      <anchorfile>classlemons_1_1plugin_1_1_state_base.html</anchorfile>
-      <anchor>acebd59199f161b6348cd5acf105d9c06</anchor>
-      <arglist>() noexcept</arglist>
-    </member>
-    <member kind="variable">
-      <type>Dimensions</type>
-      <name>dimensions</name>
-      <anchorfile>classlemons_1_1plugin_1_1_state_base.html</anchorfile>
-      <anchor>af61d909bb4b2fbc6a101a389f87a3ae3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>ToggleParam</type>
-      <name>mainBypass</name>
-      <anchorfile>classlemons_1_1plugin_1_1_state_base.html</anchorfile>
-      <anchor>aeb826035e1976ec685c8bf3232d3bdc0</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>ModulationManager</type>
-      <name>modManager</name>
-      <anchorfile>classlemons_1_1plugin_1_1_state_base.html</anchorfile>
-      <anchor>ae139e1bc96f05db7e27391c6d1241340</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>ParamListType</type>
-      <name>parameters</name>
-      <anchorfile>structlemons_1_1plugin_1_1_state.html</anchorfile>
-      <anchor>a477c1768671733e7ac56aec26de9e9dc</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>serialize</name>
-      <anchorfile>classlemons_1_1plugin_1_1_state_base.html</anchorfile>
-      <anchor>a30db7069c3333b6e630acd156a8194af</anchor>
-      <arglist>(TreeReflector &amp;ref) final</arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>SerializableData *</type>
-      <name>customStateData</name>
-      <anchorfile>classlemons_1_1plugin_1_1_state_base.html</anchorfile>
-      <anchor>a4474e8d9a0164146f7f746eb60156e84</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>ParameterList &amp;</type>
-      <name>params</name>
-      <anchorfile>classlemons_1_1plugin_1_1_state_base.html</anchorfile>
-      <anchor>a8a7f0d732e9783ddb91bb35296a2d00f</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
   <compound kind="class">
     <name>lemons::plugin::StateBase</name>
     <filename>classlemons_1_1plugin_1_1_state_base.html</filename>
@@ -14536,8 +14246,8 @@
       <type></type>
       <name>StateBase</name>
       <anchorfile>classlemons_1_1plugin_1_1_state_base.html</anchorfile>
-      <anchor>aa6cd871f029477ee818c0b401e2a92de</anchor>
-      <arglist>(const String &amp;pluginName, ParameterList &amp;paramsToUse, SerializableData *customStateDataToUse=nullptr)</arglist>
+      <anchor>a4ef7cf313673af40abda31d93f8ac1cf</anchor>
+      <arglist>(const String &amp;pluginName)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -14552,13 +14262,6 @@
       <anchorfile>classlemons_1_1plugin_1_1_state_base.html</anchorfile>
       <anchor>a6e2c15469404d7c8f3d78630d23e95fd</anchor>
       <arglist>(juce::AudioProcessor &amp;processor)</arglist>
-    </member>
-    <member kind="function">
-      <type>ParameterList &amp;</type>
-      <name>getParameters</name>
-      <anchorfile>classlemons_1_1plugin_1_1_state_base.html</anchorfile>
-      <anchor>acebd59199f161b6348cd5acf105d9c06</anchor>
-      <arglist>() noexcept</arglist>
     </member>
     <member kind="variable">
       <type>Dimensions</type>
@@ -14579,27 +14282,6 @@
       <name>modManager</name>
       <anchorfile>classlemons_1_1plugin_1_1_state_base.html</anchorfile>
       <anchor>ae139e1bc96f05db7e27391c6d1241340</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>serialize</name>
-      <anchorfile>classlemons_1_1plugin_1_1_state_base.html</anchorfile>
-      <anchor>a30db7069c3333b6e630acd156a8194af</anchor>
-      <arglist>(TreeReflector &amp;ref) final</arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>SerializableData *</type>
-      <name>customStateData</name>
-      <anchorfile>classlemons_1_1plugin_1_1_state_base.html</anchorfile>
-      <anchor>a4474e8d9a0164146f7f746eb60156e84</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>ParameterList &amp;</type>
-      <name>params</name>
-      <anchorfile>classlemons_1_1plugin_1_1_state_base.html</anchorfile>
-      <anchor>a8a7f0d732e9783ddb91bb35296a2d00f</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -18005,7 +17687,6 @@
     <name>lemons::plugin</name>
     <filename>namespacelemons_1_1plugin.html</filename>
     <class kind="struct">lemons::plugin::BoolParameter</class>
-    <class kind="struct">lemons::plugin::CustomState</class>
     <class kind="struct">lemons::plugin::DefaultMetaParameter</class>
     <class kind="class">lemons::plugin::EditorBase</class>
     <class kind="struct">lemons::plugin::FloatAmountParameter</class>
@@ -18025,14 +17706,12 @@
     <class kind="struct">lemons::plugin::ParamUpdater</class>
     <class kind="struct">lemons::plugin::PercentParameter</class>
     <class kind="class">lemons::plugin::PluginEditor</class>
-    <class kind="struct">lemons::plugin::PluginState</class>
     <class kind="class">lemons::plugin::PresetBar</class>
     <class kind="class">lemons::plugin::Processor</class>
     <class kind="class">lemons::plugin::ProcessorBase</class>
     <class kind="struct">lemons::plugin::ProcessorWithEditor</class>
     <class kind="struct">lemons::plugin::SecondsParameter</class>
     <class kind="struct">lemons::plugin::SemitonesParameter</class>
-    <class kind="struct">lemons::plugin::State</class>
     <class kind="class">lemons::plugin::StateBase</class>
     <class kind="class">lemons::plugin::StateToggleButtons</class>
     <class kind="struct">lemons::plugin::ToggleParameter</class>
@@ -19002,9 +18681,6 @@
     <filename>group__state.html</filename>
     <namespace>lemons</namespace>
     <namespace>lemons::plugin</namespace>
-    <class kind="struct">lemons::plugin::CustomState</class>
-    <class kind="struct">lemons::plugin::PluginState</class>
-    <class kind="struct">lemons::plugin::State</class>
     <class kind="class">lemons::plugin::StateBase</class>
   </compound>
   <compound kind="group">

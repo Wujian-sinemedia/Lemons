@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['saw_1772',['Saw',['../namespacelemons_1_1dsp_1_1synth.html#afa3b1f52ea29a71fffd789388337adbc',1,'lemons::dsp::synth']]],
-  ['sine_1773',['Sine',['../namespacelemons_1_1dsp_1_1synth.html#ac2e323c6263a32217314b8041f56f87d',1,'lemons::dsp::synth']]],
-  ['size_1774',['Size',['../classlemons_1_1_gui_app.html#a949045cb0fd51b25fc0630aeb604c6b5',1,'lemons::GuiApp::Size()'],['../structlemons_1_1plugin_1_1_processor_with_editor.html#a939a5483bfaea7a8010c2ad570807ac2',1,'lemons::plugin::ProcessorWithEditor::Size()']]],
-  ['square_1775',['Square',['../namespacelemons_1_1dsp_1_1synth.html#a903fbb43adf3eea72eb6a42fae56330c',1,'lemons::dsp::synth']]],
-  ['state_5ftype_5ft_1776',['State_Type_t',['../classlemons_1_1plugin_1_1_processor.html#ab81dd6fd31a40605ab4e5b68ae05f7dc',1,'lemons::plugin::Processor']]],
-  ['statelessprocessor_1777',['StatelessProcessor',['../namespacelemons_1_1plugin.html#af7697ad368d38f09b567e28e16f37986',1,'lemons::plugin']]],
-  ['storage_1778',['Storage',['../classlemons_1_1dsp_1_1psola_1_1_analyzer.html#a6dc5fd4cc2dbc9dab3e94d3370192c22',1,'lemons::dsp::psola::Analyzer']]],
-  ['supersaw_1779',['SuperSaw',['../namespacelemons_1_1dsp_1_1synth.html#a903e1e1d9351ec01537078f87a6446ee',1,'lemons::dsp::synth']]]
+  ['saw_1742',['Saw',['../namespacelemons_1_1dsp_1_1synth.html#afa3b1f52ea29a71fffd789388337adbc',1,'lemons::dsp::synth']]],
+  ['sine_1743',['Sine',['../namespacelemons_1_1dsp_1_1synth.html#ac2e323c6263a32217314b8041f56f87d',1,'lemons::dsp::synth']]],
+  ['size_1744',['Size',['../classlemons_1_1_gui_app.html#a949045cb0fd51b25fc0630aeb604c6b5',1,'lemons::GuiApp::Size()'],['../structlemons_1_1plugin_1_1_processor_with_editor.html#a939a5483bfaea7a8010c2ad570807ac2',1,'lemons::plugin::ProcessorWithEditor::Size()']]],
+  ['square_1745',['Square',['../namespacelemons_1_1dsp_1_1synth.html#a903fbb43adf3eea72eb6a42fae56330c',1,'lemons::dsp::synth']]],
+  ['state_5ftype_5ft_1746',['State_Type_t',['../classlemons_1_1plugin_1_1_processor.html#ab81dd6fd31a40605ab4e5b68ae05f7dc',1,'lemons::plugin::Processor']]],
+  ['statelessprocessor_1747',['StatelessProcessor',['../namespacelemons_1_1plugin.html#af7697ad368d38f09b567e28e16f37986',1,'lemons::plugin']]],
+  ['storage_1748',['Storage',['../classlemons_1_1dsp_1_1psola_1_1_analyzer.html#a6dc5fd4cc2dbc9dab3e94d3370192c22',1,'lemons::dsp::psola::Analyzer']]],
+  ['supersaw_1749',['SuperSaw',['../namespacelemons_1_1dsp_1_1synth.html#a903e1e1d9351ec01537078f87a6446ee',1,'lemons::dsp::synth']]]
 ];
