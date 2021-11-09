@@ -27,8 +27,44 @@ def process_module_includes (orig_content):
 
 #
 
-def get_main_cmake_modules_ref():
-	return "[Back to CMake modules reference](@ref {n})".format(n="CMake_modules")
+def get_list_of_juce_modules_in_category (cmake_module_path):
+	print ("Processing juce modules for module: " + cmake_module_path)
+
+	modules = []
+
+	category_dir = os.path.abspath (os.path.dirname (cmake_module_path))
+
+	for item in os.listdir (category_dir):
+		if os.path.isdir (os.path.join (category_dir, item)):
+			modules.append (item)
+
+	return modules
+
+
+def process_module_targets (orig_content, cmake_module_path):
+	output_lines = []
+	inTargetsSection = False
+	wroteTargets = False
+
+	for line in orig_content.splitlines():
+		if line.startswith ("## Targets:"):
+			inTargetsSection = True
+			output_lines.append (line)
+			continue
+		elif inTargetsSection:
+			if not line.startswith ("-"):
+				inTargetsSection = False
+				wroteTargets = True
+				for module in get_list_of_juce_modules_in_category (cmake_module_path):
+					output_lines.append ("- [{n}](@ref {n})".format(n=module))
+		
+		output_lines.append (line)
+
+	if not wroteTargets:
+		for module in get_list_of_juce_modules_in_category (cmake_module_path):
+					output_lines.append ("- [{n}](@ref {n})".format(n=module))
+
+	return "\r\n".join(output_lines)
 
 #
 
@@ -55,11 +91,14 @@ def process_file (file_path, dest_dir, dest_file, category):
 	content = content[content.find("\n")+1:content.find("]]")]
 	content = process_module_includes (content)
 
+	if category == "JUCE module inclusion" and name != "AllLemonsModules":
+		content = process_module_targets (content, file_path)
+
 	output_file = os.path.join (dest_dir, name + ".md")
 
 	with open (output_file, "w") as f:
 		f.write ("# {n}		{{#{n}}}".format(n=name))
 		f.write ("\r\n")
-		f.write (get_main_cmake_modules_ref())
+		f.write ("[Back to CMake modules reference](@ref {n})".format(n="CMake_modules"))
 		f.write ("\r\n\r\n")
 		f.write (content)
