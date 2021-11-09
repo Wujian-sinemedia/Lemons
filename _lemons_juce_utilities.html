@@ -78,19 +78,22 @@ $(function() {
 <h1>Include-time actions:</h1>
 <p>This module adds JUCE using CPM.cmake. By default the tip of JUCE's develop branch is added.</p>
 <h1>Functions:</h1>
+<h2>lemons_enable_plugin_hosting</h2>
 <div class="fragment"><div class="line">lemons_enable_plugin_hosting (&lt;target&gt;)</div>
 </div><!-- fragment --><p>Enables plugin hosting by the specified target.</p>
+<h2><a class="anchor" id="lemons_configure_juce_target"></a>
+lemons_configure_juce_target</h2>
 <div class="fragment"><div class="line">lemons_configure_juce_target (TARGET &lt;target&gt;</div>
 <div class="line">                              [ASSET_FOLDER &lt;folder&gt;] [TRANSLATIONS]</div>
 <div class="line">                              [PLUGIN_HOST] [BROWSER] [CAMERA] [MICROPHONE])</div>
-</div><!-- fragment --><p>Configures default settings for JUCE targets that are common to apps and plugins. TARGET is required and, for plugins, must be the name of the plugin's shared code target (usually your product name). The specified target will be linked to LemonsCommonModules.</p>
-<p>If ASSET_FOLDER is specified, lemons_add_resources_folder() will be called for you with the specified folder name; the TRANSLATIONS option may also optionally be present.</p>
-<p>The PLUGIN_HOST, BROWSER, CAMERA, and MICROPHONE options are all optional, and enable additional functionality for this plugin's targets. </p>
+</div><!-- fragment --><p>Configures default settings for JUCE targets that are common to apps and plugins. <code>TARGET</code> is required and, for plugins, must be the name of the plugin's shared code target (usually your product name). The specified target will be linked to <code>LemonsCommonModules</code>.</p>
+<p>If <code>ASSET_FOLDER</code> is specified, <a class="el" href="_lemons_assets_helpers.html#lemons_add_resources_folder">lemons_add_resources_folder()</a> will be called for you with the specified folder name; the <code>TRANSLATIONS</code> option may also optionally be present.</p>
+<p>The <code>PLUGIN_HOST</code>, <code>BROWSER</code>, <code>CAMERA</code>, and <code>MICROPHONE</code> options are all optional, and enable additional functionality for this plugin's targets. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 9 2021 21:00:59 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 9 2021 21:47:28 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

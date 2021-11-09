@@ -18766,6 +18766,7 @@
     <name>LemonsAAXUtils</name>
     <title>LemonsAAXUtils</title>
     <filename>_lemons_a_a_x_utils</filename>
+    <docanchor file="_lemons_a_a_x_utils.html" title="lemons_configure_aax_plugin">lemons_configure_aax_plugin</docanchor>
   </compound>
   <compound kind="page">
     <name>LemonsAppModules</name>
@@ -18781,6 +18782,7 @@
     <name>LemonsAssetsHelpers</name>
     <title>LemonsAssetsHelpers</title>
     <filename>_lemons_assets_helpers</filename>
+    <docanchor file="_lemons_assets_helpers.html" title="lemons_add_resources_folder">lemons_add_resources_folder</docanchor>
   </compound>
   <compound kind="page">
     <name>LemonsAudioModules</name>
@@ -18831,6 +18833,7 @@
     <name>LemonsJuceUtilities</name>
     <title>LemonsJuceUtilities</title>
     <filename>_lemons_juce_utilities</filename>
+    <docanchor file="_lemons_juce_utilities.html" title="lemons_configure_juce_target">lemons_configure_juce_target</docanchor>
   </compound>
   <compound kind="page">
     <name>LemonsPluginModules</name>
@@ -18846,11 +18849,13 @@
     <name>LemonsPluginvalUtils</name>
     <title>LemonsPluginvalUtils</title>
     <filename>_lemons_pluginval_utils</filename>
+    <docanchor file="_lemons_pluginval_utils.html" title="lemons_configure_pluginval_tests">lemons_configure_pluginval_tests</docanchor>
   </compound>
   <compound kind="page">
     <name>LemonsTranslationFileGeneration</name>
     <title>LemonsTranslationFileGeneration</title>
     <filename>_lemons_translation_file_generation</filename>
+    <docanchor file="_lemons_translation_file_generation.html" title="lemons_generate_translation_files">lemons_generate_translation_files</docanchor>
   </compound>
   <compound kind="page">
     <name>index</name>

@@ -79,21 +79,28 @@ $(function() {
 <ul>
 <li>AAXSDK</li>
 </ul>
+<h1>Options:</h1>
+<ul>
+<li>LEMONS_AAX_SDK_PATH: the absolute path of the AAX SDK root.</li>
+</ul>
 <h1>Functions:</h1>
+<h2><a class="anchor" id="lemons_configure_aax_plugin"></a>
+lemons_configure_aax_plugin</h2>
 <div class="fragment"><div class="line">lemons_configure_aax_plugin (TARGET &lt;target&gt;</div>
 <div class="line">                             [PAGETABLE_FILE &lt;file&gt;] [SIGN])</div>
-</div><!-- fragment --><p>Configures default settings for the specified AAX plugin target. Note that &lt;target&gt; is the <em>literal</em> name of this plugin target, not the shared plugin target name!</p>
-<p>PAGETABLE_FILE is optional and specifies the name of an AAX pagetable file within your resources target to use.</p>
-<p>If SIGN is present, ${ARGN} will be forwarded to lemons_configure_aax_plugin_signing.</p>
+</div><!-- fragment --><p>Configures default settings for the specified AAX plugin target. Note that <code>&lt;target&gt;</code> is the <em>literal</em> name of this plugin target, not the shared plugin target name!</p>
+<p><code>PAGETABLE_FILE</code> is optional and specifies the name of an AAX pagetable file within your resources target to use.</p>
+<p>If <code>SIGN</code> is present, <code>${ARGN}</code> will be forwarded to lemons_configure_aax_plugin_signing.</p>
+<h2>lemons_configure_aax_plugin_signing</h2>
 <div class="fragment"><div class="line">lemons_configure_aax_plugin_signing (TARGET &lt;target&gt; ACCOUNT &lt;account&gt; GUID &lt;guid&gt;</div>
 <div class="line">                                     SIGNID &lt;signid&gt; KEYFILE &lt;keyfile&gt; KEYPASSWORD &lt;password&gt;)</div>
-</div><!-- fragment --><p>Configures a post-build digital signing step for the specified AAX plugin target. Note that &lt;target&gt; is the <em>literal</em> name of this plugin target, not the shared plugin target name!</p>
+</div><!-- fragment --><p>Configures a post-build digital signing step for the specified AAX plugin target. Note that <code>&lt;target&gt;</code> is the <em>literal</em> name of this plugin target, not the shared plugin target name!</p>
 <p>Does nothing if wraptool cannot be located at configure-time. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 9 2021 21:00:59 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 9 2021 21:47:28 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

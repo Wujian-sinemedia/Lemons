@@ -69,10 +69,6 @@ $(function() {
 <div class="contents">
 <div class="textblock"><h1>CMake options</h1>
 <h2>Options for controlling the configuration of your build</h2>
-<h3>LEMONS_AAX_SDK_PATH</h3>
-<p>If you are an Avid developer, you can set this variable to the absolute path of the AAX SDK root to enable using the AAX plugin format. If this is set, the Lemons CMake scripts will attempt to build the AAX SDK when you add the Lemons package &ndash; note that this requires xcodebuild on Mac or msbuild on Windows.</p>
-<h3>LEMONS_VST2_SDK_PATH</h3>
-<p>If you have access to the VST2 SDK, you can define this variable to the absolute path of the VST2 SDK root to enable compiling VST2 plugins.</p>
 <h3>LEMONS_ENABLE_INTEGRATIONS</h3>
 <p>Set this to ON to enable all available integrations by default (ccache, clang-format, etc). Defaults to ON.</p>
 <h3>LEMONS_SANITIZERS_TO_ENABLE</h3>
@@ -86,14 +82,7 @@ $(function() {
 </ul>
 <p>The sanitizers "address", "memory" and "thread" are mutually exclusive. You cannot enable two of them in the same build.</p>
 <p>"leak" requires the "address" sanitizer.</p>
-<h3>LEMONS_PLUGINVAL_LEVEL</h3>
-<p>The "level" of strictness of the configured pluginval tests; 1 through 10. Defaults to 10.</p>
-<h3>LEMONS_LANGUAGE_LIST</h3>
-<p>An optional path to a text file, containing a line-separated list of target languages for generated translation files. If not provided, a default list of languages will be used. An example language list file might look like this: </p><div class="fragment"><div class="line">French</div>
-<div class="line">German</div>
-<div class="line">Italian</div>
-<div class="line">Spanish</div>
-</div><!-- fragment --><h2>Options for conditionally enabling building additional stuff</h2>
+<h2>Options for conditionally enabling building additional stuff</h2>
 <h3>LEMONS_BUILD_TESTS</h3>
 <p>Set this to ON to enable testing. Defaults to OFF. When enabled, using the plugin configuration functions will also automatically configure plugin QC tests.</p>
 <h3>LEMONS_BUILD_DOCS</h3>
@@ -156,7 +145,7 @@ CMake modules</h1>
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 9 2021 21:00:59 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 9 2021 21:47:28 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
