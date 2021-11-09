@@ -2,15 +2,17 @@
 General filesystem utilities.
 
 ## Function:
+
+### lemons_subdir_list
 ```
 lemons_subdir_list (DIR <directory> RESULT <out_var> [RECURSE])
 ```
 Returns a list of subdirectories within the specified directory.
 
-DIR is required and must be the absolute path to the directory to be searched.
-RESULT is required and is the name of the variable to which the resulting list will be set in the parent scope.
+`DIR` is required and must be the absolute path to the directory to be searched.
+`RESULT` is required and is the name of the variable to which the resulting list will be set in the parent scope.
 
-RECURSE is optional, and when present, the search will recurse into all levels of subdirectories.
+`RECURSE` is optional, and when present, the search will recurse into all levels of subdirectories.
 
 ]]
 

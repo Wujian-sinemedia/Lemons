@@ -12,13 +12,23 @@ Determines the list of all available plugin formats.
 ## Output variables:
 - LEMONS_PLUGIN_FORMATS: list of all available plugin formats
 
+## Options:
+- LEMONS_VST2_SDK_PATH: if you have access to the VST2 SDK, you can define this variable to the absolute path of the VST2 SDK root to enable compiling VST2 plugins.
+- LEMONS_BUILD_TESTS: if ON, this module will include LemonsPluginvalUtils, and calling `lemons_configure_juce_plugin` will also call `lemons_configure_pluginval_tests`. Defaults to OFF.
+
 
 ## Function:
+
+### lemons_configure_juce_plugin
 ```
-lemons_configure_juce_plugin (TARGET <target> [AAX_PAGETABLE_FILE <file>])
+lemons_configure_juce_plugin (TARGET <target> 
+                             [AAX_PAGETABLE_FILE <file>])
 ```
-Forwards ${ARGN} to lemons_configure_juce_target. 
-If an AAX-format target exists for this plugin, then lemons_configure_aax_plugin will be called for you. The [AAX_PAGETABLE_FILE] option will be forwarded.
+Forwards `${ARGN}` to [lemons_configure_juce_target](@ref lemons_configure_juce_target).
+
+If an AAX-format target exists for this plugin, then [lemons_configure_aax_plugin()](@ref lemons_configure_aax_plugin) will be called for you. The `AAX_PAGETABLE_FILE` option will be forwarded.
+
+If the `LEMONS_BUILD_TESTS` option is set to ON, then [lemons_configure_pluginval_tests()](@ref lemons_configure_pluginval_tests) will be called for you.
 
 ]]
 

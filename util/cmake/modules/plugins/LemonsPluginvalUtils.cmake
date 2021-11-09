@@ -5,10 +5,17 @@ Utilities for testing audio plugins with pluginval.
 Adds pluginval using CPM.cmake, and runs their provided platform-specific build-and-install script.
 
 ## Functions:
+
+### lemons_configure_pluginval_tests {#lemons_configure_pluginval_tests}
 ```
 lemons_configure_pluginval_tests (TARGET <target>)
 ```
+Creates a pluginval test target for the given plugin.
+
 Note that this does nothing if you don't manually call the enable_testing() macro first.
+
+#### Options
+- LEMONS_PLUGINVAL_LEVEL: The "level" of strictness of the configured pluginval tests; 1 through 10. Defaults to 10.
 
 ]]
 

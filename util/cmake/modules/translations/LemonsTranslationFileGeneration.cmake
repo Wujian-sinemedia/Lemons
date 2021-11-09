@@ -1,15 +1,25 @@
 #[[
 Automatically generate JUCE translation files for your project.
 
+## Options:
+- LEMONS_LANGUAGE_LIST: You can control the list of output languages by setting LEMONS_LANGUAGE_LIST to the path to a text file containing a list of target languages, separated by lines. Otherwise a default list of target languages will be used.
+An example language list file might look like this:
+```
+French
+German
+Italian
+Spanish
+```
+
 
 ## Functions:
+
+### lemons_generate_translation_files {#lemons_generate_translation_files}
 ```
 lemons_generate_translation_files (TARGET <target> FOLDER <output_folder>)
 ```
-Generates JUCE-style translation files for the given target (by scanning the source tree recursively, starting at ${PROJECT_SOURCE_DIR}), and merges them with the shared Lemons and JUCE translation output.
-Places the output files in <folder>, which is relative to the project's root directory.
-
-You can control the list of output languages by setting LEMONS_LANGUAGE_LIST to the path to a text file containing a list of target languages, separated by lines. Otherwise a default list of target languages will be used.
+Generates JUCE-style translation files for the given target (by scanning the source tree recursively, starting at `${PROJECT_SOURCE_DIR}`), and merges them with the shared Lemons and JUCE translation output.
+Places the output files in `<folder>`, which is relative to the project's root directory.
 
 The first time you call this function, shared translation files for Lemons and JUCE will be generated, that are cached and reused for each project's configuration.
 

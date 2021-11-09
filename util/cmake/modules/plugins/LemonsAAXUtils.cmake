@@ -12,25 +12,32 @@ If the AAXSDK target is configured successfully, this module will call juce_set_
 ## Targets:
 - AAXSDK
 
+## Options:
+- LEMONS_AAX_SDK_PATH: the absolute path of the AAX SDK root.
+
 
 ## Functions:
+
+### lemons_configure_aax_plugin {#lemons_configure_aax_plugin}
 
 ```
 lemons_configure_aax_plugin (TARGET <target>
                              [PAGETABLE_FILE <file>] [SIGN])
 ```
-Configures default settings for the specified AAX plugin target. Note that <target> is the *literal* name of this plugin target, not the shared plugin target name!
+Configures default settings for the specified AAX plugin target. Note that `<target>` is the *literal* name of this plugin target, not the shared plugin target name!
 
-PAGETABLE_FILE is optional and specifies the name of an AAX pagetable file within your resources target to use.
+`PAGETABLE_FILE` is optional and specifies the name of an AAX pagetable file within your resources target to use.
 
-If SIGN is present, ${ARGN} will be forwarded to lemons_configure_aax_plugin_signing.
+If `SIGN` is present, `${ARGN}` will be forwarded to lemons_configure_aax_plugin_signing.
 
+
+### lemons_configure_aax_plugin_signing
 
 ```
 lemons_configure_aax_plugin_signing (TARGET <target> ACCOUNT <account> GUID <guid>
                                      SIGNID <signid> KEYFILE <keyfile> KEYPASSWORD <password>)
 ```
-Configures a post-build digital signing step for the specified AAX plugin target. Note that <target> is the *literal* name of this plugin target, not the shared plugin target name!
+Configures a post-build digital signing step for the specified AAX plugin target. Note that `<target>` is the *literal* name of this plugin target, not the shared plugin target name!
 
 Does nothing if wraptool cannot be located at configure-time.
 

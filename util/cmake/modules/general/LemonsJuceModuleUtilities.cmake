@@ -7,6 +7,8 @@ Utilities for adding custom JUCE modules to projects.
 
 
 ## Function:
+
+### lemons_add_juce_modules
 ```
 lemons_add_juce_modules (<directory>)
 ```

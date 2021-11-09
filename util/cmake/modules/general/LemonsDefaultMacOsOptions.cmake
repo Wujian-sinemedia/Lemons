@@ -1,9 +1,12 @@
 #[[
 
 ## Function:
+
+### lemons_set_default_macos_options
 ```
 lemons_set_default_macos_options (<target>)
 ```
+Sets default Apple-only options for the given target.
 
 ]]
 

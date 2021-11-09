@@ -5,12 +5,6 @@
 
 ### Options for controlling the configuration of your build
 
-#### LEMONS_AAX_SDK_PATH
-If you are an Avid developer, you can set this variable to the absolute path of the AAX SDK root to enable using the AAX plugin format. If this is set, the Lemons CMake scripts will attempt to build the AAX SDK when you add the Lemons package -- note that this requires xcodebuild on Mac or msbuild on Windows.
-
-#### LEMONS_VST2_SDK_PATH
-If you have access to the VST2 SDK, you can define this variable to the absolute path of the VST2 SDK root to enable compiling VST2 plugins.
-
 #### LEMONS_ENABLE_INTEGRATIONS
 Set this to ON to enable all available integrations by default (ccache, clang-format, etc). Defaults to ON.
 
@@ -27,18 +21,6 @@ The options are:
 The sanitizers "address", "memory" and "thread" are mutually exclusive.  You cannot enable two of them in the same build.
 
 "leak" requires the  "address" sanitizer.
-
-#### LEMONS_PLUGINVAL_LEVEL
-The "level" of strictness of the configured pluginval tests; 1 through 10. Defaults to 10.
-
-#### LEMONS_LANGUAGE_LIST
-An optional path to a text file, containing a line-separated list of target languages for generated translation files. If not provided, a default list of languages will be used. An example language list file might look like this:
-```
-French
-German
-Italian
-Spanish
-```
 
 
 ### Options for conditionally enabling building additional stuff
