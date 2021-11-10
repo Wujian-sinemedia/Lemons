@@ -58,8 +58,22 @@ def process_module_header (header_path):
 
         if result:
             short_description = result.group (1)
-        else:
+            continue
+
+        deps_token = "dependencies:"
+
+        idx = line.find (deps_token)
+
+        if idx < 0:
             detail_lines.append (stripped_line)
+            continue
+
+        new_line = deps_token
+
+        for dep in line[idx+1:].split():
+            new_line += " [{n}](@ref {n})".format(n=dep)
+            
+        detail_lines.append (new_line)
 
     preprocessor_defines = process_preprocessor_defines (file_contents)
 
