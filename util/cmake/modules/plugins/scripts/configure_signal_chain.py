@@ -2,19 +2,17 @@
 
 import os
 from json import loads as load_json
-
 from argparse import ArgumentParser
 
 #
 
-def get_classes_list (json):
+def get_classes_list (array):
 
 	classes = ""
 
-	for class_obj in json["nodes"]:
-		if classes:
-			classes += ", "
-		classes += class_obj["name"]
+	for class_obj in array:
+		if classes: classes += ", "
+		classes += class_obj["type"]
 
 	return classes
 
@@ -40,7 +38,7 @@ if __name__ == "__main__":
 
 	file_contents = file_contents.replace ("@LEMONS_DSP_HEADER_NAMESPACE@", json["namespace"])
 	file_contents = file_contents.replace ("@LEMONS_DSP_CHAIN_CLASS_NAME@", json["class_name"])
-	file_contents = file_contents.replace ("@LEMONS_DSP_CHAIN_CLASSES@", get_classes_list (json))
+	file_contents = file_contents.replace ("@LEMONS_DSP_CHAIN_CLASSES@", get_classes_list (json["nodes"]))
 
 	output_dir = os.path.abspath (os.path.dirname (args.output_file))
 

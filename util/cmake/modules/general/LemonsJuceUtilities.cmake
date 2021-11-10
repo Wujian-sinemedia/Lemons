@@ -123,7 +123,7 @@ function (lemons_configure_juce_target)
         endif()
     else()
         if (LEMONS_TARGETCONFIG_TRANSLATIONS)
-            message (WARNING "Translation file generation requested without enabling a binary resources target!")
+            message (AUTHOR_WARNING "Translation file generation requested without enabling a binary resources target!")
         endif()
     endif()
 

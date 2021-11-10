@@ -12,13 +12,14 @@ Utilities for adding binary data targets to JUCE projects.
 ```
 lemons_add_resources_folder (TARGET <target> FOLDER <folder> 
                             [HEADER_NAME <header.h>] [NAMESPACE <namespace>] 
+                            [OUTPUT_TARGET <targetName>]
                             [TRANSLATIONS])
 ```
 
 Adds a JUCE binary data folder for the specified `<target>`, and populates it with all the files found in `<folder>`. 
 `<folder>` is relative to your project's root directory (ie, the value of `${PROJECT_SOURCE_DIR}` when this function is called).
 
-The resources target will be named `${PROJECT_NAME}-Assets`.
+If `[OUTPUT_TARGET]` is present, `targetName` will be the name of the generated resources target; otherwise, it will default to `${PROJECT_NAME}-Assets`.
 
 If the `TRANSLATIONS` option is present, then this will call [lemons_generate_translation_files()](@ref lemons_generate_translation_files), placing the output in `<folder>/translations` and also bundling these files in the generated resources target.
 
