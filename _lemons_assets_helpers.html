@@ -79,15 +79,16 @@ $(function() {
 lemons_add_resources_folder</h2>
 <div class="fragment"><div class="line">lemons_add_resources_folder (TARGET &lt;target&gt; FOLDER &lt;folder&gt; </div>
 <div class="line">                            [HEADER_NAME &lt;header.h&gt;] [NAMESPACE &lt;namespace&gt;] </div>
+<div class="line">                            [OUTPUT_TARGET &lt;targetName&gt;]</div>
 <div class="line">                            [TRANSLATIONS])</div>
 </div><!-- fragment --><p>Adds a JUCE binary data folder for the specified <code>&lt;target&gt;</code>, and populates it with all the files found in <code>&lt;folder&gt;</code>. <code>&lt;folder&gt;</code> is relative to your project's root directory (ie, the value of <code>${PROJECT_SOURCE_DIR}</code> when this function is called).</p>
-<p>The resources target will be named <code>${PROJECT_NAME}-Assets</code>.</p>
+<p>If <code>[OUTPUT_TARGET]</code> is present, <code>targetName</code> will be the name of the generated resources target; otherwise, it will default to <code>${PROJECT_NAME}-Assets</code>.</p>
 <p>If the <code>TRANSLATIONS</code> option is present, then this will call <a class="el" href="_lemons_translation_file_generation.html#lemons_generate_translation_files">lemons_generate_translation_files()</a>, placing the output in <code>&lt;folder&gt;/translations</code> and also bundling these files in the generated resources target. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 10 2021 06:22:37 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 10 2021 10:42:01 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
