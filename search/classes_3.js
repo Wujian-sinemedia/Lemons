@@ -1,11 +1,12 @@
 var searchData=
 [
-  ['deesser_893',['DeEsser',['../classlemons_1_1dsp_1_1_f_x_1_1_de_esser.html',1,'lemons::dsp::FX']]],
-  ['defaultmetaparameter_894',['DefaultMetaParameter',['../structlemons_1_1plugin_1_1_default_meta_parameter.html',1,'lemons::plugin']]],
-  ['defaultwindow_895',['DefaultWindow',['../structlemons_1_1_default_window.html',1,'lemons']]],
-  ['defaultwindowbase_896',['DefaultWindowBase',['../structlemons_1_1_default_window_base.html',1,'lemons']]],
-  ['delay_897',['Delay',['../classlemons_1_1dsp_1_1_f_x_1_1_delay.html',1,'lemons::dsp::FX']]],
-  ['devicerotation_898',['DeviceRotation',['../structlemons_1_1_device_rotation.html',1,'lemons']]],
-  ['devicerotationlistener_899',['DeviceRotationListener',['../structlemons_1_1_device_rotation_listener.html',1,'lemons']]],
-  ['drywetmixer_900',['DryWetMixer',['../classlemons_1_1dsp_1_1_f_x_1_1_dry_wet_mixer.html',1,'lemons::dsp::FX']]]
+  ['deesser_896',['DeEsser',['../classlemons_1_1dsp_1_1_f_x_1_1_de_esser.html',1,'lemons::dsp::FX']]],
+  ['defaultmetaparameter_897',['DefaultMetaParameter',['../structlemons_1_1plugin_1_1_default_meta_parameter.html',1,'lemons::plugin']]],
+  ['defaultwindow_898',['DefaultWindow',['../structlemons_1_1_default_window.html',1,'lemons']]],
+  ['defaultwindowbase_899',['DefaultWindowBase',['../structlemons_1_1_default_window_base.html',1,'lemons']]],
+  ['delay_900',['Delay',['../classlemons_1_1dsp_1_1_f_x_1_1_delay.html',1,'lemons::dsp::FX']]],
+  ['devicerotation_901',['DeviceRotation',['../structlemons_1_1_device_rotation.html',1,'lemons']]],
+  ['devicerotationlistener_902',['DeviceRotationListener',['../structlemons_1_1_device_rotation_listener.html',1,'lemons']]],
+  ['drywetmixer_903',['DryWetMixer',['../classlemons_1_1dsp_1_1_f_x_1_1_dry_wet_mixer.html',1,'lemons::dsp::FX']]],
+  ['dspchain_904',['DspChain',['../classlemons_1_1dsp_1_1_dsp_chain.html',1,'lemons::dsp']]]
 ];

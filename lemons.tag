@@ -286,6 +286,14 @@
     <namespace>lemons::dsp::FX</namespace>
   </compound>
   <compound kind="file">
+    <name>DSPChain.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/chains/</path>
+    <filename>_d_s_p_chain_8h.html</filename>
+    <class kind="class">lemons::dsp::DspChain</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+  </compound>
+  <compound kind="file">
     <name>DummyMotionManager.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_mobile_utils/dummy_desktop_versions/</path>
     <filename>_dummy_motion_manager_8h.html</filename>
@@ -3674,6 +3682,32 @@
       <anchorfile>classlemons_1_1dsp_1_1_f_x_1_1_dry_wet_mixer.html</anchorfile>
       <anchor>a0e4472bb525ca0118b3304ad7a84421b</anchor>
       <arglist>(int wetPercent)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lemons::dsp::DspChain</name>
+    <filename>classlemons_1_1dsp_1_1_dsp_chain.html</filename>
+    <templarg>Nodes</templarg>
+    <member kind="function">
+      <type>const auto &amp;</type>
+      <name>get</name>
+      <anchorfile>classlemons_1_1dsp_1_1_dsp_chain.html</anchorfile>
+      <anchor>ae40c3a5e4f01bb3c9d862aebf389cea8</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>auto &amp;</type>
+      <name>get</name>
+      <anchorfile>classlemons_1_1dsp_1_1_dsp_chain.html</anchorfile>
+      <anchor>ae0b1b1538e4e4fa2dc9ce1f8db875d06</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1_dsp_chain.html</anchorfile>
+      <anchor>ac8fbabd073631072be56fc30af15e2f5</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -17423,6 +17457,7 @@
     <namespace>lemons::dsp::psola</namespace>
     <namespace>lemons::dsp::synth</namespace>
     <class kind="class">lemons::dsp::BasicProcessorBase</class>
+    <class kind="class">lemons::dsp::DspChain</class>
     <class kind="class">lemons::dsp::Engine</class>
     <class kind="class">lemons::dsp::LambdaSynth</class>
     <class kind="class">lemons::dsp::LatencyEngine</class>
@@ -18319,6 +18354,14 @@
     <class kind="class">lemons::gui::ToggleButton</class>
   </compound>
   <compound kind="group">
+    <name>chains</name>
+    <title>chains</title>
+    <filename>group__chains.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <class kind="class">lemons::dsp::DspChain</class>
+  </compound>
+  <compound kind="group">
     <name>choosable</name>
     <title>choosable</title>
     <filename>group__choosable.html</filename>
@@ -18468,6 +18511,7 @@
     <subgroup>BasicProcessor</subgroup>
     <subgroup>BufferUtils</subgroup>
     <subgroup>PitchDetector</subgroup>
+    <subgroup>chains</subgroup>
     <subgroup>engines</subgroup>
     <subgroup>filters</subgroup>
     <namespace>lemons</namespace>
