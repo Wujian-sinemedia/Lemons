@@ -3,8 +3,7 @@
 import os
 import re
 
-
-###############################################################################
+#
 
 def process_preprocessor_defines (file_contents):
 
@@ -23,11 +22,7 @@ def process_preprocessor_defines (file_contents):
 
 	return preprocessor_defines
 
-
-###############################################################################
-
-# Parse information from a JUCE module header's info block.
-# Deletes the module header when it's finished, as Doxygen doesn't like them.
+#
 
 def process_module_header (header_path):
 
@@ -80,9 +75,7 @@ def process_module_header (header_path):
 
     return short_description, detail_lines, preprocessor_defines
 
-###############################################################################
-
-# Add a Doxygen group to the file at 'path'
+#
 
 def add_doxygen_group (path, group_name):
 
@@ -105,11 +98,7 @@ def add_doxygen_group (path, group_name):
         f.write (content)
         f.write ("\r\n/** @}*/\r\n")
 
-
-###############################################################################
-
-# Creates a subgroup for a subdir inside a module, and groups all files into the new subgroup
-# Works recursively as well to create nested subgroups resembling the filesystem layout
+#
 
 def create_module_subgroup (module_name, module_dir, subdir):
 
@@ -137,10 +126,8 @@ def create_module_subgroup (module_name, module_dir, subdir):
 
     return "\r\n".join (subgroup_definition)
 
+#
 
-###############################################################################
-
-# Processes a JUCE module and returns a module description for Doxygen
 def process_juce_module (category_name, module_name, module_dir):
 
     if not category_name:

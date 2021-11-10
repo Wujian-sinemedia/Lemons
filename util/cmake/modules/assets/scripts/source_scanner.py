@@ -3,9 +3,7 @@
 from os import path
 from os import walk
 
-###############################################################################
-
-# Returns an array of strings to look for, the most common ways that translate() appears in source code
+#
 
 def get_tokens_for_symbol (symbol):
 	
@@ -27,9 +25,7 @@ def get_translate_tokens():
 	return tokens
 
 
-###############################################################################
-
-# Scans a single line of source code for calls to translation functions
+#
 
 def scan_line_for_token (text, token):
 
@@ -74,9 +70,7 @@ def scan_line (text):
 	return needed_translations
 
 
-###############################################################################
-
-# Scans a single source file for calls to TRANS()
+#
 
 def scan_file (file_path):
 
@@ -101,9 +95,7 @@ def scan_file (file_path):
 	return needed_translations
 
 
-###############################################################################
-
-# Scans all the source files in a given directory
+#
 
 def scan_directory (dir_path):
 
@@ -120,18 +112,14 @@ def scan_directory (dir_path):
 	return needed_translations
 
 
-###############################################################################
-
-# Remove duplicates from an array
+#
 
 def remove_duplicates (orig_list):
 
 	return list(set(orig_list))
 	
 
-###############################################################################
-
-# Returns a sorted list of tokens to be translated for a given source tree
+#
 
 def get_translate_tokens_for_source_tree (dir_to_scan):
 

@@ -7,9 +7,7 @@ from process_juce_module import process_juce_module
 
 from argparse import ArgumentParser
 
-###############################################################################
-
-# Processes a text file containing the description of a category of JUCE modules
+#
 
 def process_category_description (file_path):
 
@@ -34,9 +32,7 @@ def process_category_description (file_path):
 
     return description, cmakeInfo
 
-###############################################################################
-
-# Processes a group of JUCE modules and returns a module category description for Doxygen
+#
 
 def process_module_category (category_name, orig_cat_dir, dest_cat_dir):
 
@@ -78,9 +74,7 @@ def process_module_category (category_name, orig_cat_dir, dest_cat_dir):
     return "\r\n".join (category_definiton)
 
 
-###############################################################################
-
-# Processes the entire heirarchy of juce modules
+#
 
 def create_module_heirarchy (source_dir, dest_dir):
 
@@ -106,7 +100,7 @@ def create_module_heirarchy (source_dir, dest_dir):
     with open (os.path.join (dest_dir, "lemons_modules.dox"), "w") as f:
         f.write ("\r\n\r\n".join (category_definitions))
 
-###############################################################################
+#
 
 if __name__ == "__main__":
 

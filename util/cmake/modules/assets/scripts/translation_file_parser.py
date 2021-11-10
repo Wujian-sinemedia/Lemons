@@ -2,7 +2,7 @@
 
 from os import path
 
-###############################################################################
+#
 
 # Returns the key (to be translated) from a line of a translation file
 
@@ -20,7 +20,7 @@ def get_token_for_line (line):
 
 	return token.strip()
 
-###############################################################################
+#
 
 # Returns a list of tokens present in a JUCE translation file
 

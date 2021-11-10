@@ -6,7 +6,7 @@ from argparse import ArgumentParser
 
 from process_cmake_module import process_file
 
-###############################################################################
+#
 
 def get_output_file (dest_dir):
 	return os.path.join (dest_dir, "CMakeModules.md")
@@ -35,8 +35,7 @@ def add_category_to_output_file (dest_dir, category):
 		f.write ("\r\n")
 		f.write (formatted_line)
 
-
-###############################################################################
+#
 
 def process_files_in_subdir (dirpath, dest_dir, category):
 
@@ -81,7 +80,7 @@ def process_subdir (directory, dest_dir, category):
 					
 				process_files_in_subdir (subdir_path, dest_dir, rec_cat)
 
-###############################################################################
+#
 
 if __name__ == "__main__":
 	parser = ArgumentParser()

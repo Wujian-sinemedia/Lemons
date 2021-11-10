@@ -9,10 +9,9 @@ import options
 
 import concurrent.futures
 
-###############################################################################
+#
 
 def make_template_file_name (working_dir):
-
 	return working_dir[working_dir.rfind ("/")+1:] + options.translation_file_xtn
 
 
@@ -34,7 +33,7 @@ def generate_template_file_if_needed (working_dir, cache_dir):
 
 	return translations_file_abs_path
 
-###############################################################################
+#
 
 def process_file_for_lines (file_path):
 
@@ -63,7 +62,7 @@ def merge_translation_files (output_file, files_to_merge):
 	with open (output_file, "w") as f:
 		f.write ("\r\n".join (merged_file))
 
-###############################################################################
+#
 
 if __name__ == "__main__":
 
@@ -93,8 +92,6 @@ if __name__ == "__main__":
 	if os.path.exists (aggregate_file):
 		os.remove (aggregate_file)
 
-	# merge into an aggregate template file
 	merge_translation_files (aggregate_file, templates)
 
-	# take the master template file and translate it into each target language
 	generate_translation_files (aggregate_file, args.output_dir, args.language_list)

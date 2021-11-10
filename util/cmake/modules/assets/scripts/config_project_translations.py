@@ -11,7 +11,7 @@ import options
 
 import concurrent.futures
 
-###############################################################################
+#
 
 def process_translated_file (file_path, needed_translations):
 
@@ -42,7 +42,7 @@ def process_translated_file (file_path, needed_translations):
 			f.write ("\r\n")
 			f.write ("\"" + token + "\" = \"" + translator.translate (token) + "\"")
 
-###############################################################################
+#
 
 if __name__ == "__main__":
 

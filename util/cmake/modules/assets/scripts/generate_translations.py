@@ -10,16 +10,16 @@ import options
 
 import concurrent.futures
 
-###############################################################################
-
-# Generates a translation file for a certain language based on a template translation file
+#
 
 def generate_translation_file (output_language, tokens_to_translate, output_directory):
 
-	print ("Translating into " + output_language + "...")
-
 	output_file = path.join (output_directory, 
 							 options.translation_file_prefix + output_language + options.translation_file_xtn)
+
+	if os.path.isfile (output_file): return
+
+	print ("Translating into " + output_language + "...")
 
 	for token in get_tokens_in_file (output_file):
 		if token in tokens_to_translate:
@@ -44,14 +44,12 @@ def generate_translation_file (output_language, tokens_to_translate, output_dire
 			f.write ("\r\n")
 			f.write (content)
 
-###############################################################################
+#
 
 def generate_translation_files (template_file, output_dir, language_list):
 
 	if not path.isdir (output_dir):
 		mkdir (output_dir)
-
-	script_dir = path.abspath (path.dirname (__file__))
 
 	if not path.exists (language_list):
 		raise Exception("Nonexistant language list file!")
@@ -63,7 +61,6 @@ def generate_translation_files (template_file, output_dir, language_list):
 
 	tokens_to_translate = get_tokens_in_file (template_file)
 
-	# make list of target languages
 	languages = []
 
 	with open (language_list, "r") as f:
@@ -72,7 +69,8 @@ def generate_translation_files (template_file, output_dir, language_list):
 			if stripped_line:
 				languages.append (stripped_line)
 
-	# generate a JUCE-style translation file for each target language
+	if not languages: return
+
 	with concurrent.futures.ThreadPoolExecutor(max_workers=len(languages)) as executor:
 		for language in languages:
 			executor.submit (generate_translation_file, language, tokens_to_translate, output_dir)
