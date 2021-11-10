@@ -27,3 +27,5 @@ END_JUCE_MODULE_DECLARATION
 #include "PitchDetector/PitchDetector.h"
 
 #include "BasicProcessor/BasicProcessor.h"
+
+#include "chains/DSPChain.h"

@@ -202,12 +202,21 @@ function (lemons_configure_aax_plugin)
     add_dependencies (${LEMONS_AAX_TARGET} AAXSDK)
 
     if (LEMONS_AAX_PAGETABLE_FILE)
-        target_compile_definitions (${LEMONS_AAX_TARGET} PUBLIC "JucePlugin_AAXPageTableFile=\"${LEMONS_AAX_PAGETABLE_FILE}\"")
+
+        cmake_path (IS_ABSOLUTE LEMONS_AAX_PAGETABLE_FILE pagetable_path_is_absolute)
+
+        if (pagetable_path_is_absolute)
+            set (pagetable_file "${LEMONS_AAX_PAGETABLE_FILE}")
+        else()
+            set (pagetable_file "${PROJECT_SOURCE_DIR}/${LEMONS_AAX_PAGETABLE_FILE}")
+        endif()
+
+        target_compile_definitions (${LEMONS_AAX_TARGET} PUBLIC "JucePlugin_AAXPageTableFile=\"${pagetable_file}\"")
 
         if (WIN32)
             # On Windows, pagetable files need a special post-build copy step to be included in the binary correctly
             add_custom_command (TARGET ${LEMONS_AAX_TARGET} POST_BUILD VERBATIM
-                                COMMAND "${CMAKE_COMMAND}" ARGS -E copy "${LEMONS_AAX_PAGETABLE_FILE}" "$<TARGET_PROPERTY:${LEMONS_AAX_TARGET},JUCE_PLUGIN_ARTEFACT_FILE>/Contents/Resources"
+                                COMMAND "${CMAKE_COMMAND}" ARGS -E copy "${pagetable_file}" "$<TARGET_PROPERTY:${LEMONS_AAX_TARGET},JUCE_PLUGIN_ARTEFACT_FILE>/Contents/Resources"
                                 COMMENT "Copying AAX pagetable into AAX binary...")
         endif()
     endif()

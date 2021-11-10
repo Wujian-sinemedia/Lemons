@@ -1,9 +1,13 @@
-include (LemonsFileUtils)
+include ("@LEMONS_FILE_UTILS@")
 
 #
 
 function (_lemons_cf_process_dir dirpath)
 	if (NOT IS_DIRECTORY "${dirpath}")
+		return()
+	endif()
+
+	if ("${dirpath}" STREQUAL "@CMAKE_BINARY_DIR@")
 		return()
 	endif()
 

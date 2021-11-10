@@ -19,6 +19,8 @@ endif()
 
 set (script_name "run_clang_format.cmake")
 
+set (LEMONS_FILE_UTILS "${CMAKE_CURRENT_LIST_DIR}/../general/LemonsFileUtils.cmake")
+
 configure_file ("${CMAKE_CURRENT_LIST_DIR}/scripts/${script_name}" "${script_name}" @ONLY)
 
 add_custom_target (ClangFormat

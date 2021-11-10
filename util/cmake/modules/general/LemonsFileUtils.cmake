@@ -38,16 +38,24 @@ function (lemons_subdir_list)
 		return()
 	endif()
 
-	if (LEMONS_SUBDIR_RECURSE)
-		file (GLOB_RECURSE children RELATIVE ${LEMONS_SUBDIR_DIR} ${LEMONS_SUBDIR_DIR}/*)
+	cmake_path (IS_ABSOLUTE LEMONS_SUBDIR_DIR dir_path_is_absolute)
+
+	if (dir_path_is_absolute)
+		set (dir "${LEMONS_SUBDIR_DIR}")
 	else()
-		file (GLOB children RELATIVE ${LEMONS_SUBDIR_DIR} ${LEMONS_SUBDIR_DIR}/*)
+		set (dir "${CMAKE_CURRENT_LIST_DIR}/${LEMONS_SUBDIR_DIR}")
+	endif()
+
+	if (LEMONS_SUBDIR_RECURSE)
+		file (GLOB_RECURSE children RELATIVE ${dir} ${dir}/*)
+	else()
+		file (GLOB children RELATIVE ${dir} ${dir}/*)
 	endif()
 
   	set (dirlist "")
 
   	foreach (child ${children})
-    	if (IS_DIRECTORY "${LEMONS_SUBDIR_DIR}/${child}")
+    	if (IS_DIRECTORY "${dir}/${child}")
       		list (APPEND dirlist "${child}")
     	endif()
   	endforeach()

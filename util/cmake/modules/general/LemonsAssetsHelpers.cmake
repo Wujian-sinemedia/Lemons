@@ -34,7 +34,7 @@ include (LemonsTranslationFileGeneration)
 function (lemons_add_resources_folder)
 
     set (options TRANSLATIONS)
-    set (oneValueArgs TARGET FOLDER HEADER_NAME NAMESPACE)
+    set (oneValueArgs TARGET FOLDER HEADER_NAME NAMESPACE OUTPUT_TARGET)
     set (multiValueArgs "")
 
     cmake_parse_arguments (LEMONS_RSRC_FLDR "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
@@ -49,14 +49,26 @@ function (lemons_add_resources_folder)
         return()
     endif()
 
-    set (resourcesTarget "${PROJECT_NAME}-Assets")
+    cmake_path (IS_ABSOLUTE LEMONS_RSRC_FLDR_FOLDER folder_path_is_absolute)
+
+    if (folder_path_is_absolute)
+        set (dest_folder "${LEMONS_RSRC_FLDR_FOLDER}")
+    else()
+        set (dest_folder "${PROJECT_SOURCE_DIR}/${LEMONS_RSRC_FLDR_FOLDER}")
+    endif()
+
+    if (LEMONS_RSRC_FLDR_OUTPUT_TARGET)
+        set (resourcesTarget "${LEMONS_RSRC_FLDR_OUTPUT_TARGET}")
+    else()
+        set (resourcesTarget "${PROJECT_NAME}-Assets")
+    endif()
 
     if (NOT TARGET ${resourcesTarget})
         if (LEMONS_RSRC_FLDR_TRANSLATIONS)
-            lemons_generate_translation_files (TARGET "${LEMONS_RSRC_FLDR_TARGET}" FOLDER "${LEMONS_RSRC_FLDR_FOLDER}/translations")
+            lemons_generate_translation_files (TARGET "${LEMONS_RSRC_FLDR_TARGET}" FOLDER "${dest_folder}/translations")
         endif()
 
-        file (GLOB_RECURSE files "${LEMONS_RSRC_FLDR_FOLDER}/*.*")
+        file (GLOB_RECURSE files "${dest_folder}/*.*")
 
         if (NOT files)
             message (AUTHOR_WARNING "No files found for inclusion in resources target!")
@@ -85,7 +97,7 @@ function (lemons_add_resources_folder)
         endif()
     endif()
 
-    juce_add_bundle_resources_directory (${LEMONS_RSRC_FLDR_TARGET} ${LEMONS_RSRC_FLDR_FOLDER})
+    juce_add_bundle_resources_directory (${LEMONS_RSRC_FLDR_TARGET} ${dest_folder})
 
     target_link_libraries (${LEMONS_RSRC_FLDR_TARGET} PRIVATE ${resourcesTarget})
     
