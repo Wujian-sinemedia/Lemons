@@ -70,7 +70,8 @@ def process_module_header (header_path):
 
         new_line = deps_token
 
-        for dep in line[idx+1:].split():
+        for dep in line[idx:].split():
+            if dep == deps_token: continue
             new_line += " [{n}](@ref {n})".format(n=dep)
             
         detail_lines.append (new_line)
