@@ -35,11 +35,8 @@ macro (_lemons_configure_app_internal)
 
     lemons_configure_juce_target (${ARGN})
 
-    set (options "")
     set (oneValueArgs TARGET)
-    set (multiValueArgs "")
-
-    cmake_parse_arguments (LEMONS_APP "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
+    cmake_parse_arguments (LEMONS_APP "" "${oneValueArgs}" "" ${ARGN})
 
     if (NOT TARGET ALL_APPS)
         add_custom_target (ALL_APPS COMMENT "Building all apps...")

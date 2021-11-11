@@ -68,7 +68,6 @@ set (shared_translations_generated FALSE CACHE INTERNAL "")
 
 
 function (_lemons_generate_shared_translations)
-
     message (STATUS "Generating translation files for Lemons and JUCE...")
 
     execute_process (COMMAND "${Python3_EXECUTABLE}" "${LEMONS_TRANSLATION_SCRIPTS_DIR}/config_shared_translations.py" "${JUCE_SOURCE_DIR}" "${Lemons_SOURCE_DIR}" "${LEMONS_SHARED_TRANSLATION_FILE_STORAGE}" "${LEMONS_LANGUAGE_LIST}"
@@ -81,11 +80,8 @@ endfunction()
 
 function (lemons_generate_translation_files)
 
-	set (options "")
     set (oneValueArgs TARGET FOLDER)
-    set (multiValueArgs "")
-
-    cmake_parse_arguments (LEMONS_TRANS "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
+    cmake_parse_arguments (LEMONS_TRANS "" "${oneValueArgs}" "" ${ARGN})
 
     if (NOT LEMONS_TRANS_FOLDER)
         message (FATAL_ERROR "Folder not specified in call to ${CMAKE_CURRENT_FUNCTION}!")

@@ -72,11 +72,8 @@ function (lemons_configure_pluginval_tests)
         return()
     endif()
 
-	set (options "")
     set (oneValueArgs TARGET)
-    set (multiValueArgs "")
-
-    cmake_parse_arguments (LEMONS_PIV "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
+    cmake_parse_arguments (LEMONS_PIV "" "${oneValueArgs}" "" ${ARGN})
 
     ###
 

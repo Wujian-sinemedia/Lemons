@@ -81,9 +81,8 @@ function (lemons_configure_juce_target)
 
     set (options BROWSER PLUGIN_HOST CAMERA MICROPHONE TRANSLATIONS)
     set (oneValueArgs TARGET ASSET_FOLDER)
-    set (multiValueArgs "")
 
-    cmake_parse_arguments (LEMONS_TARGETCONFIG "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
+    cmake_parse_arguments (LEMONS_TARGETCONFIG "${options}" "${oneValueArgs}" "" ${ARGN})
 
     if (NOT LEMONS_TARGETCONFIG_TARGET)
         message (FATAL_ERROR "Target name not specified in call to ${CMAKE_CURRENT_FUNCTION}!")

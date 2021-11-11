@@ -36,9 +36,8 @@ function (lemons_add_resources_folder)
 
     set (options TRANSLATIONS)
     set (oneValueArgs TARGET FOLDER HEADER_NAME NAMESPACE OUTPUT_TARGET)
-    set (multiValueArgs "")
 
-    cmake_parse_arguments (LEMONS_RSRC_FLDR "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
+    cmake_parse_arguments (LEMONS_RSRC_FLDR "${options}" "${oneValueArgs}" "" ${ARGN})
 
     if (NOT LEMONS_RSRC_FLDR_TARGET)
         message (FATAL_ERROR "Target name not specified in call to ${CMAKE_CURRENT_FUNCTION}!")

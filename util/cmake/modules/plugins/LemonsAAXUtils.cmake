@@ -114,11 +114,9 @@ juce_set_aax_sdk_path ("${LEMONS_AAX_SDK_PATH}")
 
 function (lemons_configure_aax_plugin_signing)
 
-    set (options "")
     set (oneValueArgs TARGET ACCOUNT GUID SIGNID KEYFILE KEYPASSWORD)
-    set (multiValueArgs "")
 
-    cmake_parse_arguments (LEMONS_AAX "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
+    cmake_parse_arguments (LEMONS_AAX "" "${oneValueArgs}" "" ${ARGN})
 
     if (NOT LEMONS_AAX_TARGET)
         message (FATAL_ERROR "Target name not specified in call to ${CMAKE_CURRENT_FUNCTION}!")
@@ -178,9 +176,8 @@ function (lemons_configure_aax_plugin)
 
     set (options SIGN)
     set (oneValueArgs TARGET PAGETABLE_FILE)
-    set (multiValueArgs "")
 
-    cmake_parse_arguments (LEMONS_AAX "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
+    cmake_parse_arguments (LEMONS_AAX "${options}" "${oneValueArgs}" "" ${ARGN})
 
     if (NOT LEMONS_AAX_TARGET)
         message (FATAL_ERROR "Target name not specified in call to ${CMAKE_CURRENT_FUNCTION}!")

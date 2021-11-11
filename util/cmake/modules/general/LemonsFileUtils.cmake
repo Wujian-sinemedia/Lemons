@@ -24,9 +24,8 @@ function (lemons_subdir_list)
 
 	set (options RECURSE)
 	set (oneValueArgs RESULT DIR)
-	set (multiValueArgs "")
 
-	cmake_parse_arguments (LEMONS_SUBDIR "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
+	cmake_parse_arguments (LEMONS_SUBDIR "${options}" "${oneValueArgs}" "" ${ARGN})
 
 	if (NOT LEMONS_SUBDIR_RESULT)
 		message (FATAL_ERROR "Result variable not defined in call to ${CMAKE_CURRENT_FUNCTION}!")
