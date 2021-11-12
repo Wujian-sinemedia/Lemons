@@ -40,7 +40,7 @@ def process_translated_file (file_path, needed_translations):
 	with open (file_path, "a") as f:
 		for token in needed_translations:
 			f.write ("\r\n")
-			f.write ("\"" + token + "\" = \"" + translator.translate (token) + "\"")
+			f.write ("\"{o}\" = \"{t}\"".format(o=token, t=translator.translate (token)))
 
 #
 
