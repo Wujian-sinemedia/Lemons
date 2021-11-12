@@ -95,12 +95,19 @@ lemons_configure_aax_plugin</h2>
 <div class="fragment"><div class="line">lemons_configure_aax_plugin_signing (TARGET &lt;target&gt; ACCOUNT &lt;account&gt; GUID &lt;guid&gt;</div>
 <div class="line">                                     SIGNID &lt;signid&gt; KEYFILE &lt;keyfile&gt; KEYPASSWORD &lt;password&gt;)</div>
 </div><!-- fragment --><p>Configures a post-build digital signing step for the specified AAX plugin target. Note that <code>&lt;target&gt;</code> is the <em>literal</em> name of this plugin target, not the shared plugin target name!</p>
-<p>Does nothing if wraptool cannot be located at configure-time. </p>
+<p>Does nothing if wraptool cannot be located at configure-time.</p>
+<h2>lemons_set_aax_signing_settings</h2>
+<div class="fragment"><div class="line">lemons_set_aax_signing_settings ([ACCOUNT &lt;accountID&gt;] </div>
+<div class="line">                                 [SIGNID &lt;signID&gt;] </div>
+<div class="line">                                 [KEYFILE &lt;keyfilePath&gt;] </div>
+<div class="line">                                 [KEYPASSWORD &lt;keyPassword&gt;])</div>
+</div><!-- fragment --><p>Configures some default settings for the lemons_configure_aax_plugin_signing() function, so that these settings don't have to be provided for each target you configure.</p>
+<p>I recommend you create a <code>YourBrand.cmake</code> module in some shared location that each project can include, and that module can call this function at include-time with your settings. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 11 2021 00:42:51 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 12 2021 00:43:16 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
