@@ -60,7 +60,13 @@ if (NOT PLUGINVAL_EXEC)
                      WORKING_DIRECTORY "${pluginval_SOURCE_DIR}/install")
 
     _lemons_locate_pluginval()
+
+    if (NOT PLUGINVAL_EXEC)
+        message (WARNING "Error building pluginval - executable cannot be located!")
+    endif()
 endif()
+
+set (LEMONS_PLUGINVAL_LEVEL "10" CACHE STRING "Pluginval testing level")
 
 
 ################################################
@@ -77,14 +83,10 @@ function (lemons_configure_pluginval_tests)
 
     ###
 
-    set (formats "VST")
-    list (APPEND formats "AU")
-    list (APPEND formats "VST3")
-
+    set (formats VST AU VST3)
     set (atLeastOne FALSE)
 
     foreach (format ${formats})
-
         set (target "${LEMONS_PIV_TARGET}_${format}")
 
         if (NOT TARGET "${target}")
@@ -93,20 +95,20 @@ function (lemons_configure_pluginval_tests)
 
         set (testName "${target}-Pluginval")
 
-        add_test (NAME "${testName}" 
-                  COMMAND "${PLUGINVAL_EXEC}" "--strictness-level" "${LEMONS_PLUGINVAL_LEVEL}" "--validate" "$<TARGET_PROPERTY:${target},JUCE_PLUGIN_ARTEFACT_FILE>" "--validate-in-process"
+        add_test (NAME ${testName}
+                  COMMAND "${PLUGINVAL_EXEC}" --strictness-level ${LEMONS_PLUGINVAL_LEVEL} --validate "$<TARGET_PROPERTY:${target},JUCE_PLUGIN_ARTEFACT_FILE>" --validate-in-process
                   COMMAND_EXPAND_LISTS)
 
-        set_tests_properties ("${testName}" PROPERTIES 
+        set_tests_properties (${testName} PROPERTIES 
                               REQUIRED_FILES "$<TARGET_PROPERTY:${target},JUCE_PLUGIN_ARTEFACT_FILE>;${PLUGINVAL_EXEC}"
                               LABELS Pluginval)
 
         set (atLeastOne TRUE)
 
+        message (VERBOSE "Configured pluginval tests for format ${format} of plugin ${LEMONS_PIV_TARGET}: target ${target}")
     endforeach()
 
     if (atLeastOne)
-        message (VERBOSE "Configured pluginval tests for target: ${LEMONS_PIV_TARGET}!")
+        message (STATUS "Configured pluginval tests for target: ${LEMONS_PIV_TARGET}!")
     endif()
-    
 endfunction()

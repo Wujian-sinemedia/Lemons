@@ -41,6 +41,18 @@ Configures a post-build digital signing step for the specified AAX plugin target
 
 Does nothing if wraptool cannot be located at configure-time.
 
+
+### lemons_set_aax_signing_settings
+```
+lemons_set_aax_signing_settings ([ACCOUNT <accountID>] 
+                                 [SIGNID <signID>] 
+                                 [KEYFILE <keyfilePath>] 
+                                 [KEYPASSWORD <keyPassword>])
+```
+Configures some default settings for the lemons_configure_aax_plugin_signing() function, so that these settings don't have to be provided for each target you configure.
+
+I recommend you create a `YourBrand.cmake` module in some shared location that each project can include, and that module can call this function at include-time with your settings.
+
 ]]
 
 
@@ -48,15 +60,16 @@ include_guard (GLOBAL)
 
 #
 
+if (IOS OR NOT (APPLE OR WIN32))
+    return()
+endif()
+
 if (NOT LEMONS_AAX_SDK_PATH)
 	return()
 endif()
 
 if (NOT IS_DIRECTORY "${LEMONS_AAX_SDK_PATH}")
-	return()
-endif()
-
-if (IOS OR NOT (APPLE OR WIN32))
+    message (AUTHOR_WARNING "LEMONS_AAX_SDK_PATH has been specified, but the directory does not exist!")
 	return()
 endif()
 
@@ -70,11 +83,18 @@ if (APPLE)
     find_program (XCODE_BUILD xcodebuild)
 
     if (NOT XCODE_BUILD)
+        message (AUTHOR_WARNING "xcodebuild is required to build the AAXSDK, but could not be found!")
     	return()
     endif()
 
+    set (xcode_proj_file "${LEMONS_AAX_SDK_PATH}/Libs/AAXLibrary/MacBuild/AAXLibrary.xcodeproj")
+    if (NOT EXISTS "${xcode_proj_file}")
+        message (AUTHOR_WARNING "${xcode_proj_file} could not be found, AAX SDK cannot be built!")
+        return()
+    endif()
+
     add_custom_target (AAXSDK
-                       COMMAND "${XCODE_BUILD}" "-scheme" "AAXLibrary_libcpp" "ONLY_ACTIVE_ARCH=NO" "ARCHS=x86_64" "-configuration" "$<COMMAND_CONFIG:$<CONFIG>>" "build"
+                       COMMAND "${XCODE_BUILD}" -scheme AAXLibrary_libcpp ONLY_ACTIVE_ARCH=NO ARCHS=x86_64 -configuration "$<COMMAND_CONFIG:$<CONFIG>>" build
                        COMMAND_EXPAND_LISTS VERBATIM
                        WORKING_DIRECTORY "${LEMONS_AAX_SDK_PATH}/Libs/AAXLibrary/MacBuild"
                        COMMENT "Building AAX SDK..."
@@ -83,15 +103,21 @@ if (APPLE)
     set_target_properties (AAXSDK PROPERTIES OSX_ARCHITECTURES x86_64)
 
 elseif (WIN32)
-
     find_program (MS_BUILD msbuild)
 
     if (NOT MS_BUILD)
+        message (AUTHOR_WARNING "msbuild is required to build the AAXSDK, but could not be found!")
     	return()
     endif()
 
+    set (msvc_proj_file "${LEMONS_AAX_SDK_PATH}/msvc/AAX_SDK.sln")
+    if (NOT EXISTS "${msvc_proj_file}")
+        message (AUTHOR_WARNING "${msvc_proj_file} could not be found, AAX SDK cannot be built!")
+        return()
+    endif()
+
     add_custom_target (AAXSDK
-                       COMMAND "${MS_BUILD}" "AAX_SDK.sln" "-p:Configuration=$<COMMAND_CONFIG:$<CONFIG>>"
+                       COMMAND "${MS_BUILD}" AAX_SDK.sln "-p:Configuration=$<COMMAND_CONFIG:$<CONFIG>>"
                        COMMAND_EXPAND_LISTS VERBATIM
                        WORKING_DIRECTORY "${LEMONS_AAX_SDK_PATH}/msvc"
                        COMMENT "Building AAX SDK..."
@@ -100,6 +126,7 @@ endif()
 
 
 if (NOT TARGET AAXSDK)
+    message (AUTHOR_WARNING "Error configuring the AAXSDK target!")
 	return()
 endif()
 
@@ -107,14 +134,39 @@ endif()
 include (LemonsJuceUtilities)
 juce_set_aax_sdk_path ("${LEMONS_AAX_SDK_PATH}")
 
+message (VERBOSE "Configured target for AAXSDK!")
 
 
 ########################################################################
 
+function (lemons_set_aax_signing_settings)
+
+    set (oneValueArgs ACCOUNT SIGNID KEYFILE KEYPASSWORD)
+
+    cmake_parse_arguments (LEMONS_AAX "" "${oneValueArgs}" "" ${ARGN})
+
+    if (LEMONS_AAX_ACCOUNT)
+        set (LEMONS_AAX_ACCOUNT "${LEMONS_AAX_ACCOUNT}" CACHE STRING "Account ID for AAX plugin signing")
+    endif()
+
+    if (LEMONS_AAX_SIGNID)
+        set (LEMONS_AAX_SIGNID "${LEMONS_AAX_SIGNID}" CACHE STRING "SignID for AAX signing on Mac")
+    endif()
+
+    if (LEMONS_AAX_KEYFILE)
+        set (LEMONS_AAX_KEYFILE "${LEMONS_AAX_KEYFILE}" CACHE PATH "Keyfile for AAX signing on Windows")
+    endif()
+
+    if (LEMONS_AAX_KEYPASSWORD)
+        set (LEMONS_AAX_KEYPASSWORD "${LEMONS_AAX_KEYPASSWORD}" CACHE STRING "Keypassword for AAX signing on Windows")
+    endif()
+endfunction()
+
+#
 
 function (lemons_configure_aax_plugin_signing)
 
-    set (oneValueArgs TARGET ACCOUNT GUID SIGNID KEYFILE KEYPASSWORD)
+    set (oneValueArgs TARGET GUID ACCOUNT SIGNID KEYFILE KEYPASSWORD)
 
     cmake_parse_arguments (LEMONS_AAX "" "${oneValueArgs}" "" ${ARGN})
 
@@ -123,20 +175,20 @@ function (lemons_configure_aax_plugin_signing)
         return()
     endif()
 
-    if (NOT LEMONS_AAX_ACCOUNT)
-        message (WARNING "ACCOUNT must be specified in order to enable AAX signing!")
+    if (NOT LEMONS_AAX_GUID)
+        message (FATAL_ERROR "GUID must be specified in order to enable AAX signing!")
         return()
     endif()
 
-    if (NOT LEMONS_AAX_GUID)
-        message (WARNING "GUID must be specified in order to enable AAX signing!")
+    if (NOT LEMONS_AAX_ACCOUNT)
+        message (WARNING "ACCOUNT must be specified in order to enable AAX signing!")
         return()
     endif()
 
     find_program (WRAPTOOL_PROGRAM wraptool)
 
     if (NOT WRAPTOOL_PROGRAM)
-        message (WARNING "wraptool cannot be found, AAX signing disabled!")
+        message (AUTHOR_WARNING "wraptool cannot be found, AAX signing disabled!")
         return()
     endif()
 
@@ -148,10 +200,9 @@ function (lemons_configure_aax_plugin_signing)
 
         add_custom_command (TARGET ${LEMONS_AAX_TARGET} POST_BUILD VERBATIM
                             COMMAND "${WRAPTOOL_PROGRAM}" 
-                            ARGS sign --verbose --dsig1-compat off --account ${LEMONS_AAX_ACCOUNT} --wcguid ${LEMONS_AAX_GUID} --signid ${LEMONS_AAX_SIGNID} --in $<TARGET_PROPERTY:${aaxTarget},JUCE_PLUGIN_ARTEFACT_FILE> --out $<TARGET_PROPERTY:${aaxTarget},JUCE_PLUGIN_ARTEFACT_FILE>
+                            ARGS sign --verbose --dsig1-compat off --account "${LEMONS_AAX_ACCOUNT}" --wcguid "${LEMONS_AAX_GUID}" --signid "${LEMONS_AAX_SIGNID}" --in "$<TARGET_PROPERTY:${aaxTarget},JUCE_PLUGIN_ARTEFACT_FILE>" --out "$<TARGET_PROPERTY:${aaxTarget},JUCE_PLUGIN_ARTEFACT_FILE>"
                             COMMENT "Signing AAX...")
     elseif (WIN32)
-
         if (NOT LEMONS_AAX_KEYFILE)
             message (WARNING "KEYFILE is required to enable AAX signing on Windows!")
             return()
@@ -164,13 +215,14 @@ function (lemons_configure_aax_plugin_signing)
 
         add_custom_command (TARGET ${LEMONS_AAX_TARGET} POST_BUILD VERBATIM
                             COMMAND "${WRAPTOOL_PROGRAM}" 
-                            ARGS sign --verbose --dsig1-compat off --account ${LEMONS_AAX_ACCOUNT} --keyfile "${LEMONS_AAX_KEYFILE}" --keypassword ${LEMONS_AAX_KEYPASSWORD} --wcguid ${LEMONS_AAX_GUID} --in $<TARGET_PROPERTY:${aaxTarget},JUCE_PLUGIN_ARTEFACT_FILE> --out $<TARGET_PROPERTY:${aaxTarget},JUCE_PLUGIN_ARTEFACT_FILE>
+                            ARGS sign --verbose --dsig1-compat off --account "${LEMONS_AAX_ACCOUNT}" --keyfile "${LEMONS_AAX_KEYFILE}" --keypassword "${LEMONS_AAX_KEYPASSWORD}" --wcguid "${LEMONS_AAX_GUID}" --in "$<TARGET_PROPERTY:${aaxTarget},JUCE_PLUGIN_ARTEFACT_FILE>" --out "$<TARGET_PROPERTY:${aaxTarget},JUCE_PLUGIN_ARTEFACT_FILE>"
                             COMMENT "Signing AAX...")
     endif()
-
 endfunction()
 
-#
+
+########################################################################
+
 
 function (lemons_configure_aax_plugin)
 

@@ -28,21 +28,16 @@ Forwards `${ARGN`} to [lemons_configure_juce_target](@ref lemons_configure_juce_
 include_guard (GLOBAL)
 
 include (LemonsJuceUtilities)
-
+include (lemons_internal)
 
 
 macro (_lemons_configure_app_internal)
-
     lemons_configure_juce_target (${ARGN})
 
     set (oneValueArgs TARGET)
     cmake_parse_arguments (LEMONS_APP "" "${oneValueArgs}" "" ${ARGN})
 
-    if (NOT TARGET ALL_APPS)
-        add_custom_target (ALL_APPS COMMENT "Building all apps...")
-    endif()
-    
-    add_dependencies (ALL_APPS ${LEMONS_APP_TARGET})
+    _lemons_add_to_all_apps_target (${LEMONS_APP_TARGET})
 endmacro()
 
 #
@@ -54,9 +49,7 @@ endfunction()
 #
 
 function (lemons_configure_juce_app)
-
     _lemons_configure_app_internal (${ARGN})
 
     target_link_libraries (${LEMONS_APP_TARGET} PUBLIC LemonsAppModules)
-
 endfunction()

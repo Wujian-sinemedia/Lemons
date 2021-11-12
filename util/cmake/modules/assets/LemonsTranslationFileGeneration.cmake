@@ -38,10 +38,12 @@ if (NOT Python3_Interpreter_FOUND)
 	return()
 endif()
 
+if (NOT JUCE_SOURCE_DIR)
+    include (LemonsJuceUtilities)
+endif()
 
-if (NOT JUCE_SOURCE_DIR OR NOT Lemons_SOURCE_DIR)
-    message (FATAL_ERROR "Missing required variable definitions...")
-    return()
+if (NOT Lemons_SOURCE_DIR)
+    set (Lemons_SOURCE_DIR "${CMAKE_CURRENT_LIST_DIR}/../../../.." CACHE INTERNAL "")
 endif()
 
 #
@@ -54,12 +56,12 @@ else()
             CACHE PATH "Path to directory where cached translation files for JUCE and Lemons will be stored")
 endif()
 
-set (LEMONS_TRANSLATION_SCRIPTS_DIR "${CMAKE_CURRENT_LIST_DIR}/scripts" CACHE INTERNAL "")
-
 set (LEMONS_LANGUAGE_LIST "${CMAKE_CURRENT_LIST_DIR}/languages.txt" 
      CACHE PATH "Path to a file containing a list of target languages for translation file generation")
 
-mark_as_advanced (FORCE LEMONS_SHARED_TRANSLATION_FILE_STORAGE LEMONS_LANGUAGE_LIST LEMONS_TRANSLATION_SCRIPTS_DIR)
+mark_as_advanced (FORCE LEMONS_SHARED_TRANSLATION_FILE_STORAGE LEMONS_LANGUAGE_LIST)
+
+set (LEMONS_TRANSLATION_SCRIPTS_DIR "${CMAKE_CURRENT_LIST_DIR}/scripts" CACHE INTERNAL "")
 
 #
 
@@ -85,6 +87,7 @@ function (lemons_generate_translation_files)
 
     if (NOT LEMONS_TRANS_FOLDER)
         message (FATAL_ERROR "Folder not specified in call to ${CMAKE_CURRENT_FUNCTION}!")
+        return()
     endif()
 
     if (NOT shared_translations_generated)

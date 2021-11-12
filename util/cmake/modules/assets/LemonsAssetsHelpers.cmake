@@ -10,7 +10,7 @@ Utilities for adding binary data targets to JUCE projects.
 
 ### lemons_add_resources_folder {#lemons_add_resources_folder}
 ```
-lemons_add_resources_folder (TARGET <target> FOLDER <folder> 
+lemons_add_resources_folder (TARGET <target> ASSET_FOLDER <folder> 
                             [HEADER_NAME <header.h>] [NAMESPACE <namespace>] 
                             [OUTPUT_TARGET <targetName>]
                             [TRANSLATIONS])
@@ -29,13 +29,12 @@ If the `TRANSLATIONS` option is present, then this will call [lemons_generate_tr
 include_guard (GLOBAL)
 
 include (LemonsJuceUtilities)
-include (LemonsTranslationFileGeneration)
 
 
 function (lemons_add_resources_folder)
 
     set (options TRANSLATIONS)
-    set (oneValueArgs TARGET FOLDER HEADER_NAME NAMESPACE OUTPUT_TARGET)
+    set (oneValueArgs TARGET ASSET_FOLDER HEADER_NAME NAMESPACE OUTPUT_TARGET)
 
     cmake_parse_arguments (LEMONS_RSRC_FLDR "${options}" "${oneValueArgs}" "" ${ARGN})
 
@@ -44,17 +43,17 @@ function (lemons_add_resources_folder)
         return()
     endif()
 
-    if (NOT LEMONS_RSRC_FLDR_FOLDER)
+    if (NOT LEMONS_RSRC_FLDR_ASSET_FOLDER)
         message (FATAL_ERROR "Folder name not specified in call to ${CMAKE_CURRENT_FUNCTION}!")
         return()
     endif()
 
-    cmake_path (IS_ABSOLUTE LEMONS_RSRC_FLDR_FOLDER folder_path_is_absolute)
+    cmake_path (IS_ABSOLUTE LEMONS_RSRC_FLDR_ASSET_FOLDER folder_path_is_absolute)
 
     if (folder_path_is_absolute)
-        set (dest_folder "${LEMONS_RSRC_FLDR_FOLDER}")
+        set (dest_folder "${LEMONS_RSRC_FLDR_ASSET_FOLDER}")
     else()
-        set (dest_folder "${PROJECT_SOURCE_DIR}/${LEMONS_RSRC_FLDR_FOLDER}")
+        set (dest_folder "${PROJECT_SOURCE_DIR}/${LEMONS_RSRC_FLDR_ASSET_FOLDER}")
     endif()
 
     if (LEMONS_RSRC_FLDR_OUTPUT_TARGET)
@@ -65,6 +64,7 @@ function (lemons_add_resources_folder)
 
     if (NOT TARGET ${resourcesTarget})
         if (LEMONS_RSRC_FLDR_TRANSLATIONS)
+            include (LemonsTranslationFileGeneration)
             lemons_generate_translation_files (TARGET "${LEMONS_RSRC_FLDR_TARGET}" FOLDER "${dest_folder}/translations")
         endif()
 
