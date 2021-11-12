@@ -4,51 +4,60 @@ import os
 
 #
 
-def split_args_from_line (line):
+def split_args_from_line (inputString):
 
-	line = line[line.find("(")+1:line.find(")")-1]
+	inputString = inputString[inputString.find('(')+1:inputString.find(')')]
 
-	args = []
+	res = []
+	temp = []
 
-	inMultiwordArg = False
-	currentArg = ""
-
-	for word in line.split():
-		if word == "\"\"":
-			args.append (" ")
+	for word in inputString.split():
+		if word == "\"\"" or word == "\"":
+			res.append (" ")
 			continue
 
-		if word.startswith ('"'):
-			inMultiwordArg = True
-			currentArg = word[1:]
-		elif word.endswith ('"'):
-			if inMultiwordArg:
-				inMultiwordArg = False
-				currentArg += word[:-1]
-				args.append (currentArg)
-				currentArg = ""
-			else:
-				args.append (word)
-		else:
-			if inMultiwordArg:
-				currentArg += word
-			else:
-				args.append (word)
+		if word.startswith ('"') and not word.endswith ('"'):
+			temp.append (word)
+			continue
 
-	return args
+		if temp and not word.endswith ('"'):
+			temp.append (word)
+			continue
+		
+		if word.endswith ('"'):
+			temp.append (word)
+
+			newWord = ' '.join (temp)
+			if newWord.startswith ('"'): newWord = newWord[1:]
+			if newWord.endswith ('"'): newWord = newWord[:-1]
+			res.append (newWord)
+
+			temp = []
+		else:
+			res.append (word)
+
+	return res
 
 #
 
 def parse_option_from_line (line):
 	args = split_args_from_line (line)
 
-	return "*{n}:* {t}. Defaults to {d}.".format(n=args[0], t=args[1].strip('"'), d=args[2])
+	string = "**{n}:** {t}.".format(n=args[0], t=args[1].strip('"'))
+
+	default = args[2]
+	if default and not default == " ":
+		string += " Defaults to {d}.".format(d=default)
+
+	string += "\r\n"
+
+	return string
 
 
 def parse_dependant_option_from_line (line):
 	args = split_args_from_line (line)
 
-	return "*{n}:* {t}".format(n=args[0], t=args[1].strip('"'))
+	return "**{n}:** {t}. \r\n".format(n=args[0], t=args[1].strip('"'))
 
 
 def get_options_from_cmakelists (orig_text):
@@ -70,10 +79,15 @@ def get_options_from_cmakelists (orig_text):
 def parse_cache_var_from_line (line):
 	args = split_args_from_line (line)
 
-	print ("Num args: " + str(len(args)))
-	print ("name: " + args[0])
+	string = "**{n}:** {t}.".format(n=args[0], t=args[4].strip('"'))
 
-	return "*{n}:* {t}. Defaults to {d}.".format(n=args[0], t=args[4].strip('"'), d=args[1].strip('"'))
+	default = args[1].strip('"')
+	if default and not default == " ":
+		string += " Defaults to {d}.".format(d=default)
+
+	string += "\r\n"
+
+	return string
 
 
 def get_cache_vars_from_cmakelists (orig_text):
@@ -102,14 +116,19 @@ def process_cmake_api (cmake_api_input, lemons_root):
 	with open (lemons_cmakelists, "r") as f:
 		cmakelists_text = f.read()
 
-	output_text = "# Lemons CMake API		{#CMake_API}"
+	output_lines = ["# Lemons CMake API		{#CMake_API}", "\r\n", "## CMake options"]
 
-	output_text += "\r\n ## CMake options \r\n"
-	output_text += "\r\n".join (get_options_from_cmakelists (cmakelists_text))
-	output_text += "\r\n".join (get_cache_vars_from_cmakelists (cmakelists_text))
-	output_text += "\r\n\r\n --- \r\n\r\n"
+	options = get_options_from_cmakelists (cmakelists_text)
+	options += get_cache_vars_from_cmakelists (cmakelists_text)
+	options.sort()
+
+	for option in options:
+		if option.startswith ("**LEMONS_"):
+			output_lines.append (" - {o}".format(o=option))
+
+	output_lines.append ("\r\n\r\n --- \r\n\r\n")
 
 	with open (cmake_api_input, "r") as f:
-		output_text += f.read()
+		output_lines += f.readlines()
 
-	return output_text
+	return "\r\n".join (output_lines)
