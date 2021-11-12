@@ -17,21 +17,19 @@ def generate_translation_file (output_language, tokens_to_translate, output_dire
 	output_file = path.join (output_directory, 
 							 options.translation_file_prefix + output_language + options.translation_file_xtn)
 
-	if os.path.isfile (output_file): return
-
-	print ("Translating into " + output_language + "...")
-
 	for token in get_tokens_in_file (output_file):
 		if token in tokens_to_translate:
 			tokens_to_translate.remove (token)
 			if len(tokens_to_translate) < 1: return
+
+	print ("Translating into " + output_language + "...")
 
 	translator = Translator(from_lang=options.source_language, to_lang=output_language, email=options.email)
 
 	with open (output_file, "a") as output:
 		for token in tokens_to_translate:
 			output.write ("\r\n")
-			output.write ("\"" + token + "\" = \"" + translator.translate (token) + "\"")
+			output.write ("\"{t}\" = \"{n}\"".format(t=token, n=translator.translate (token)))
 
 	with open (output_file, "r") as f:
 		content = f.read()
@@ -69,7 +67,9 @@ def generate_translation_files (template_file, output_dir, language_list):
 			if stripped_line:
 				languages.append (stripped_line)
 
-	if not languages: return
+	if not languages: 
+		raise Exception("Warning: empty language list!")
+		return
 
 	with concurrent.futures.ThreadPoolExecutor(max_workers=len(languages)) as executor:
 		for language in languages:

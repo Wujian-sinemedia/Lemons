@@ -70,7 +70,12 @@ set (shared_translations_generated FALSE CACHE INTERNAL "")
 
 
 function (_lemons_generate_shared_translations)
-    message (STATUS "Generating translation files for Lemons and JUCE...")
+
+    if (NOT IS_DIRECTORY "${LEMONS_SHARED_TRANSLATION_FILE_STORAGE}")
+        message (STATUS "Generating translation files for Lemons and JUCE...")
+    else()
+        message (VERBOSE "Generating translation files for Lemons and JUCE...")
+    endif()
 
     execute_process (COMMAND "${Python3_EXECUTABLE}" "${LEMONS_TRANSLATION_SCRIPTS_DIR}/config_shared_translations.py" "${JUCE_SOURCE_DIR}" "${Lemons_SOURCE_DIR}" "${LEMONS_SHARED_TRANSLATION_FILE_STORAGE}" "${LEMONS_LANGUAGE_LIST}"
                      OUTPUT_QUIET)

@@ -89,9 +89,6 @@ if __name__ == "__main__":
 
 	aggregate_file = os.path.join (args.output_dir, "translations.txt")
 
-	if os.path.exists (aggregate_file):
-		os.remove (aggregate_file)
-
 	merge_translation_files (aggregate_file, templates)
 
 	generate_translation_files (aggregate_file, args.output_dir, args.language_list)
