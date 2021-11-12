@@ -68,28 +68,43 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h1>CMake options</h1>
-<h3>LEMONS_ENABLE_INTEGRATIONS</h3>
-<p>Set this to ON to enable all available integrations by default (ccache, clang-format, etc). Defaults to ON.</p>
-<h3>LEMONS_BUILD_TESTS</h3>
-<p>Set this to ON to enable testing. Defaults to OFF. When enabled, using the plugin configuration functions will also automatically configure plugin QC tests.</p>
-<h3>LEMONS_BUILD_DOCS</h3>
-<p>Set this to ON to enable building the Lemons documentation (requires Doxygen, Graphviz, and Python3). Defaults to OFF.</p>
-<h3>LEMONS_BUILD_TEMPLATES</h3>
-<p>Set this to ON to enable building the Lemons template projects. Defaults to OFF.</p>
-<h3>LEMONS_IGNORE_ALL_EXTRAS</h3>
-<p>Set this to ON to disable tests, docs, and templates with one option. Defaults to OFF.</p>
+<ul>
+<li><b>LEMONS_AAX_SDK_PATH:</b> Path to the AAX SDK.</li>
+<li><b>LEMONS_BUILD_DOCS:</b> Build the Lemons documentation.</li>
+<li><b>LEMONS_BUILD_TEMPLATES:</b> Build the Lemons project templates.</li>
+<li><b>LEMONS_BUILD_TESTS:</b> Build the Lemons unit tests.</li>
+<li><b>LEMONS_BUILD_TEST_LAB:</b> Build the TestLab application.</li>
+<li><b>LEMONS_CREATE_AGGREGATE_TARGETS:</b> Generate ALL_APPS and ALL_PLUGINS targets, populated accordingly. Defaults to ON.</li>
+<li><b>LEMONS_ENABLE_INTEGRATIONS:</b> Enable all available integrations by default. Defaults to ON.</li>
+<li><b>LEMONS_IGNORE_ALL_EXTRAS:</b> Ignore everything except what's needed to make compiling your project work. Defaults to OFF.</li>
+<li><b>LEMONS_JUCE_BRANCH</b> Defaults to develop.</li>
+<li><b>LEMONS_PLUGINVAL_LEVEL:</b> Pluginval testing level. Defaults to 10.</li>
+<li><b>LEMONS_SANITIZERS_TO_ENABLE:</b> List of sanitizers to enable.</li>
+<li><b>LEMONS_VST2_SDK_PATH:</b> Path to the VST2 SDK.</li>
+</ul>
 <hr  />
 <h1><a class="anchor" id="CMake_modules"></a>
 CMake modules</h1>
-<p>Lemons is designed to be as modular as possible; its CMake features, integrations, and the JUCE modules themselves (and even JUCE itself) are all included by projects via CMake module includes. For example, a basic plugin's CMakeLists.txt might look something like this: </p><div class="fragment"><div class="line">cmake_minimum_required (VERSION 3.19) </div>
+<p>Lemons is designed to be as modular as possible; its CMake features, integrations, and the JUCE modules themselves (and even JUCE itself) are all included by projects via CMake module includes. For example, a basic plugin's CMakeLists.txt might look something like this:</p>
+<div class="fragment"><div class="line">cmake_minimum_required (VERSION 3.19) </div>
+<div class="line"> </div>
+<div class="line"> </div>
 <div class="line"> </div>
 <div class="line">project (NewPlugin VERSION 0.0.1 LANGUAGES CXX)</div>
 <div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
 <div class="line">add_subdirectory (GetLemons)</div>
+<div class="line"> </div>
+<div class="line"> </div>
 <div class="line"> </div>
 <div class="line">include (LemonsPluginModules)</div>
 <div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
 <div class="line">juce_add_plugin (...)</div>
+<div class="line"> </div>
+<div class="line"> </div>
 <div class="line"> </div>
 <div class="line">lemons_configure_juce_plugin (TARGET ${PROJECT_NAME} ASSET_FOLDER assets TRANSLATIONS)</div>
 </div><!-- fragment --><p>It is possible to use Lemons only for its default CMake set-up, without including any of the JUCE modules in the build tree at all. Categories of JUCE modules can be included by the relevant module in the 'Juce module inclusion' category below:</p>
@@ -136,7 +151,7 @@ CMake modules</h1>
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 12 2021 00:49:54 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 12 2021 03:46:01 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
