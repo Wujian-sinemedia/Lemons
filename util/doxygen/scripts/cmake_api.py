@@ -43,7 +43,7 @@ def split_args_from_line (inputString):
 def parse_option_from_line (line):
 	args = split_args_from_line (line)
 
-	string = "**{n}:** {t}.".format(n=args[0], t=args[1].strip('"'))
+	string = "**{n}:** {t}.".format(n=args[0], t=args[1])
 
 	default = args[2]
 	if default and not default == " ":
@@ -57,7 +57,7 @@ def parse_option_from_line (line):
 def parse_dependant_option_from_line (line):
 	args = split_args_from_line (line)
 
-	return "**{n}:** {t}. \r\n".format(n=args[0], t=args[1].strip('"'))
+	return "**{n}:** {t}. \r\n".format(n=args[0], t=args[1])
 
 
 def get_options_from_cmakelists (orig_text):
@@ -79,7 +79,10 @@ def get_options_from_cmakelists (orig_text):
 def parse_cache_var_from_line (line):
 	args = split_args_from_line (line)
 
-	string = "**{n}:** {t}.".format(n=args[0], t=args[4].strip('"'))
+	if len(args) >= 5:
+		string = "**{n}:** {t}.".format(n=args[0], t=args[4])
+	else:
+		string = "**{n}**".format(n=args[0])
 
 	default = args[1].strip('"')
 	if default and not default == " ":
