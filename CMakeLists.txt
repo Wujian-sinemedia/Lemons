@@ -33,7 +33,7 @@ if (LEMONS_BUILD_TESTS)
 endif()
 
 option (LEMONS_CREATE_AGGREGATE_TARGETS "Generate ALL_APPS and ALL_PLUGINS targets, populated accordingly" ON)
-set (LEMONS_JUCE_BRANCH "develop" CACHE STRING "The branch of the JUCE GitHub repository to use (should be develop or master)")
+set (LEMONS_JUCE_BRANCH "develop" CACHE STRING "The branch of the JUCE GitHub repository to use - should be develop or master")
 
 mark_as_advanced (FORCE LEMONS_CREATE_AGGREGATE_TARGETS LEMONS_JUCE_BRANCH)
 
