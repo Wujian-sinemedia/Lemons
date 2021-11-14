@@ -1,5 +1,8 @@
 #[[
 
+## Include-time actions:
+Sets appropriate platform-specific settings for the current build.
+
 ## Function:
 
 ### lemons_set_default_macos_options
