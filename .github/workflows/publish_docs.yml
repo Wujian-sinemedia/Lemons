@@ -20,6 +20,10 @@ jobs:
         token: ${{ secrets.ACCESS_TOKEN }}
         submodules: recursive
 
+    - name: Install deps
+      shell: bash
+      run: bash util/install_deps/install_deps.sh
+
     - name: Run script
       shell: bash
       run: export GH_REPO_TOKEN=${{ secrets.ACCESS_TOKEN }} && bash .github/publish_docs.sh

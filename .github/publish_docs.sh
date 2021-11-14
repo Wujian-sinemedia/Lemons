@@ -15,9 +15,6 @@ readonly temp_dir="docs"
 
 readonly lemons_root="$script_dir/.."
 
-# install deps
-/usr/bin/env bash "$lemons_root/util/install_deps/install_deps.sh"
-
 cd "$script_dir"
 
 # create a clean working directory for the script
