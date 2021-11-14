@@ -39,10 +39,7 @@ The `PLUGIN_HOST`, `BROWSER`, `CAMERA`, and `MICROPHONE` options are all optiona
 include_guard (GLOBAL)
 
 include (LemonsGetCPM)
-
-if (APPLE)
-    include (LemonsDefaultMacOsOptions)
-endif()
+include (LemonsDefaultPlatformSettings)
 
 #
 

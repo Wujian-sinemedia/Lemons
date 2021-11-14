@@ -75,6 +75,8 @@ set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} CACHE INTERNAL "")
 
 #
 
+include (LemonsDefaultPlatformSettings)
+
 if (LEMONS_ENABLE_INTEGRATIONS)
 	include (LemonsCcacheIntegration)
 	include (LemonsClangFormatIntegration)

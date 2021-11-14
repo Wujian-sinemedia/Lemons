@@ -1,5 +1,0 @@
-if (IOS)
-    include (iOS.cmake)
-else()
-    include (macOS.cmake)
-endif()

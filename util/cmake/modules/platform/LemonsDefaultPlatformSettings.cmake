@@ -7,12 +7,29 @@
 lemons_set_default_macos_options (<target>)
 ```
 Sets default Apple-only options for the given target.
+Does nothing on non-Apple platforms.
 
 ]]
 
-
 include_guard (GLOBAL)
 
+if (APPLE)
+    if (IOS)
+        include (lemons_ios_settings)
+    else()
+        include (lemons_macos_settings)
+    endif()
+else()
+    set (CMAKE_INSTALL_RPATH $ORIGIN CACHE INTERNAL "")
+
+    if (WIN32)
+        include (lemons_windows_settings)
+    else()
+        include (lemons_linux_settings)
+    endif()
+endif()
+
+#
 
 function (lemons_set_default_macos_options target)
 
@@ -20,7 +37,7 @@ function (lemons_set_default_macos_options target)
         return()
     endif()
 
-	target_compile_definitions (${target} INTERFACE JUCE_USE_VDSP_FRAMEWORK=1 LEMONS_USE_VDSP=1)
+    target_compile_definitions (${target} INTERFACE JUCE_USE_VDSP_FRAMEWORK=1 LEMONS_USE_VDSP=1)
     
     set_target_properties (${target} PROPERTIES XCODE_ATTRIBUTE_ENABLE_HARDENED_RUNTIME YES)
 
