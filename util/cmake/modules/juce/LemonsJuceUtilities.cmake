@@ -4,7 +4,7 @@ General JUCE CMake utilities.
 ## Includes:
 - LemonsGetCPM
 - LemonsAssetsHelpers
-- LemonsDefaultMacOsOptions
+- LemonsDefaultPlatformSettings
 
 
 ## Include-time actions:

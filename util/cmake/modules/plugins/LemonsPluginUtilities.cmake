@@ -22,11 +22,11 @@ Determines the list of all available plugin formats.
 ### lemons_configure_juce_plugin
 ```
 lemons_configure_juce_plugin (TARGET <target> 
-                             [AAX_PAGETABLE_FILE <file>])
+                             [AAX_PAGETABLE_FILE <file>] [AAX_GUID <guid>])
 ```
 Forwards `${ARGN}` to [lemons_configure_juce_target](@ref lemons_configure_juce_target).
 
-If an AAX-format target exists for this plugin, then [lemons_configure_aax_plugin()](@ref lemons_configure_aax_plugin) will be called for you. The `AAX_PAGETABLE_FILE` option will be forwarded.
+If an AAX-format target exists for this plugin, then [lemons_configure_aax_plugin()](@ref lemons_configure_aax_plugin) will be called for you. The `AAX_PAGETABLE_FILE` and `AAX_GUID` options will be forwarded, if present.
 
 If the `LEMONS_BUILD_TESTS` option is set to ON, then [lemons_configure_pluginval_tests()](@ref lemons_configure_pluginval_tests) will be called for you.
 
@@ -93,7 +93,9 @@ function (lemons_configure_juce_plugin)
 
     set (aax_target "${LEMONS_PLUGIN_TARGET}_AAX")
     if (TARGET ${aax_target})
-        lemons_configure_aax_plugin (TARGET ${aax_target} PAGETABLE_FILE "${LEMONS_PLUGIN_AAX_PAGETABLE_FILE}")
+        lemons_configure_aax_plugin (TARGET ${aax_target} 
+                                     PAGETABLE_FILE "${LEMONS_PLUGIN_AAX_PAGETABLE_FILE}"
+                                     GUID "${LEMONS_PLUGIN_AAX_GUID}")
     endif()
 
     target_link_libraries (${LEMONS_PLUGIN_TARGET} PUBLIC LemonsPluginModules)

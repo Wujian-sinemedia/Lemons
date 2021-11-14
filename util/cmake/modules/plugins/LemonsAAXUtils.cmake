@@ -22,20 +22,21 @@ If the AAXSDK target is configured successfully, this module will call juce_set_
 
 ```
 lemons_configure_aax_plugin (TARGET <target>
-                             [PAGETABLE_FILE <file>] [SIGN])
+                            [PAGETABLE_FILE <file>]
+                            [GUID <guid>])
 ```
 Configures default settings for the specified AAX plugin target. Note that `<target>` is the *literal* name of this plugin target, not the shared plugin target name!
 
 `PAGETABLE_FILE` is optional and specifies the name of an AAX pagetable file within your resources target to use.
 
-If `SIGN` is present, `${ARGN}` will be forwarded to lemons_configure_aax_plugin_signing.
+If `GUID` is present, `${ARGN}` will be forwarded to lemons_configure_aax_plugin_signing.
 
 
 ### lemons_configure_aax_plugin_signing
 
 ```
-lemons_configure_aax_plugin_signing (TARGET <target> ACCOUNT <account> GUID <guid>
-                                     SIGNID <signid> KEYFILE <keyfile> KEYPASSWORD <password>)
+lemons_configure_aax_plugin_signing (TARGET <target> GUID <guid> 
+                                     ACCOUNT <account> SIGNID <signid> KEYFILE <keyfile> KEYPASSWORD <password>)
 ```
 Configures a post-build digital signing step for the specified AAX plugin target. Note that `<target>` is the *literal* name of this plugin target, not the shared plugin target name!
 
@@ -247,7 +248,6 @@ function (lemons_configure_aax_plugin)
     add_dependencies (${LEMONS_AAX_TARGET} AAXSDK)
 
     if (LEMONS_AAX_PAGETABLE_FILE)
-
         cmake_path (IS_ABSOLUTE LEMONS_AAX_PAGETABLE_FILE pagetable_path_is_absolute)
 
         if (pagetable_path_is_absolute)
@@ -266,7 +266,7 @@ function (lemons_configure_aax_plugin)
         endif()
     endif()
 
-    if (LEMONS_AAX_SIGN)
+    if (LEMONS_AAX_GUID)
         lemons_configure_aax_plugin_signing (${ARGN})
     endif()
 endfunction()
