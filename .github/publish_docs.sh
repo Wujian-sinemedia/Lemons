@@ -17,7 +17,6 @@ readonly lemons_root="$script_dir/.."
 
 cd "$script_dir"
 
-# create a clean working directory for the script
 mkdir "$temp_dir"
 cd "$temp_dir"
 

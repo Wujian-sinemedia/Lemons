@@ -34,6 +34,10 @@ jobs:
       shell: bash
       run: bash util/install_deps/install_deps.sh
 
-    - name: Run CI build script
+    - name: Configure CMake
       shell: bash
-      run: make templates
+      run: cmake --preset templates
+
+    - name: Run build
+      shell: bash
+      run: cmake --build --preset templates
