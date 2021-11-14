@@ -16,8 +16,8 @@ if __name__ == "__main__":
 
 	GH_REPO_REF = "github.com/benthevining/Lemons.git"
 
-	script_dir = os.path.abspath (os.dirname (__file__))
-	lemons_root = os.path.abspath (os.dirname (script_dir))
+	script_dir = os.path.abspath (os.path.dirname (__file__))
+	lemons_root = os.path.abspath (os.path.dirname (script_dir))
 
 	parser = ArgumentParser()
 	parser.add_argument ("GH_REPO_TOKEN", help="token for committing to the Lemons docs branch")
