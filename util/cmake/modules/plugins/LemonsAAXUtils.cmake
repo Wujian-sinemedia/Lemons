@@ -137,7 +137,7 @@ juce_set_aax_sdk_path ("${LEMONS_AAX_SDK_PATH}")
 message (VERBOSE "Configured target for AAXSDK!")
 
 
-########################################################################
+#
 
 function (lemons_set_aax_signing_settings)
 
@@ -172,12 +172,10 @@ function (lemons_configure_aax_plugin_signing)
 
     if (NOT LEMONS_AAX_TARGET)
         message (FATAL_ERROR "Target name not specified in call to ${CMAKE_CURRENT_FUNCTION}!")
-        return()
     endif()
 
     if (NOT LEMONS_AAX_GUID)
         message (FATAL_ERROR "GUID must be specified in order to enable AAX signing!")
-        return()
     endif()
 
     if (NOT LEMONS_AAX_ACCOUNT)
@@ -221,7 +219,7 @@ function (lemons_configure_aax_plugin_signing)
 endfunction()
 
 
-########################################################################
+#
 
 
 function (lemons_configure_aax_plugin)
@@ -233,7 +231,6 @@ function (lemons_configure_aax_plugin)
 
     if (NOT LEMONS_AAX_TARGET)
         message (FATAL_ERROR "Target name not specified in call to ${CMAKE_CURRENT_FUNCTION}!")
-        return()
     endif()
 
     if (NOT TARGET ${LEMONS_AAX_TARGET})
@@ -243,7 +240,6 @@ function (lemons_configure_aax_plugin)
 
     if (NOT TARGET AAXSDK)
         message (FATAL_ERROR "AAX plugin target created, but AAXSDK target doesn't exist!")
-        return()
     endif()
 
     set_target_properties (${LEMONS_AAX_TARGET} PROPERTIES OSX_ARCHITECTURES x86_64)

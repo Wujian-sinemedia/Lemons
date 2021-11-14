@@ -35,7 +35,6 @@ find_package (Python3 COMPONENTS Interpreter)
 
 if (NOT Python3_Interpreter_FOUND)
     message (FATAL_ERROR "Python3 is required for translation file generation, but could not be found!")
-	return()
 endif()
 
 if (NOT JUCE_SOURCE_DIR)
@@ -65,9 +64,7 @@ set (LEMONS_TRANSLATION_SCRIPTS_DIR "${CMAKE_CURRENT_LIST_DIR}/scripts" CACHE IN
 
 #
 
-
 set (shared_translations_generated FALSE CACHE INTERNAL "")
-
 
 function (_lemons_generate_shared_translations)
 
@@ -92,7 +89,6 @@ function (lemons_generate_translation_files)
 
     if (NOT LEMONS_TRANS_FOLDER)
         message (FATAL_ERROR "Folder not specified in call to ${CMAKE_CURRENT_FUNCTION}!")
-        return()
     endif()
 
     if (NOT shared_translations_generated)

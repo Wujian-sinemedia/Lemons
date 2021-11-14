@@ -60,7 +60,7 @@ CPMAddPackage (
 include (LemonsAssetsHelpers)
 
 
-########################################################################
+#
 
 function (lemons_enable_plugin_hosting target)
     if (IOS)
@@ -89,7 +89,6 @@ function (lemons_configure_juce_target)
 
     if (NOT LEMONS_TARGETCONFIG_TARGET)
         message (FATAL_ERROR "Target name not specified in call to ${CMAKE_CURRENT_FUNCTION}!")
-        return()
     endif()
 
     target_compile_definitions (${LEMONS_TARGETCONFIG_TARGET} PUBLIC

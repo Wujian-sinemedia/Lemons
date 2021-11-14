@@ -48,9 +48,7 @@ if (LEMONS_BUILD_TESTS)
     include (LemonsPluginvalUtils)
 endif()
 
-
-########################################################################
-
+#
 
 set (available_formats Standalone)
 
@@ -84,9 +82,7 @@ set (LEMONS_PLUGIN_FORMATS ${available_formats} CACHE INTERNAL "Available plugin
 list (JOIN available_formats " " formats_output)
 message (STATUS "  -- Available plugin formats: ${formats_output}")
 
-
-########################################################################
-
+#
 
 function (lemons_configure_juce_plugin)
 

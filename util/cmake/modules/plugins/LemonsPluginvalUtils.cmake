@@ -69,7 +69,7 @@ endif()
 set (LEMONS_PLUGINVAL_LEVEL "10" CACHE STRING "Pluginval testing level")
 
 
-################################################
+#
 
 
 function (lemons_configure_pluginval_tests)
@@ -80,8 +80,6 @@ function (lemons_configure_pluginval_tests)
 
     set (oneValueArgs TARGET)
     cmake_parse_arguments (LEMONS_PIV "" "${oneValueArgs}" "" ${ARGN})
-
-    ###
 
     set (formats VST AU VST3)
     set (atLeastOne FALSE)
@@ -110,5 +108,7 @@ function (lemons_configure_pluginval_tests)
 
     if (atLeastOne)
         message (STATUS "Configured pluginval tests for target: ${LEMONS_PIV_TARGET}!")
+    else()
+        message (AUTHOR_WARNING "No viable plugin formats found, no pluginval tests could be configured!")
     endif()
 endfunction()

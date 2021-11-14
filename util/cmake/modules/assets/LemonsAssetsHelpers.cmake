@@ -40,12 +40,10 @@ function (lemons_add_resources_folder)
 
     if (NOT LEMONS_RSRC_FLDR_TARGET)
         message (FATAL_ERROR "Target name not specified in call to ${CMAKE_CURRENT_FUNCTION}!")
-        return()
     endif()
 
     if (NOT LEMONS_RSRC_FLDR_ASSET_FOLDER)
         message (FATAL_ERROR "Folder name not specified in call to ${CMAKE_CURRENT_FUNCTION}!")
-        return()
     endif()
 
     cmake_path (IS_ABSOLUTE LEMONS_RSRC_FLDR_ASSET_FOLDER folder_path_is_absolute)

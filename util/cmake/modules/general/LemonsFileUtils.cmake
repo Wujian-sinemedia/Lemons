@@ -29,12 +29,10 @@ function (lemons_subdir_list)
 
 	if (NOT LEMONS_SUBDIR_RESULT)
 		message (FATAL_ERROR "Result variable not defined in call to ${CMAKE_CURRENT_FUNCTION}!")
-		return()
 	endif()
 
 	if (NOT LEMONS_SUBDIR_DIR)
 		message (FATAL_ERROR "Directory to search not defined in call to ${CMAKE_CURRENT_FUNCTION}!")
-		return()
 	endif()
 
 	cmake_path (IS_ABSOLUTE LEMONS_SUBDIR_DIR dir_path_is_absolute)

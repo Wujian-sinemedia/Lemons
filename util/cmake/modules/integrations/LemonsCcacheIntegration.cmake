@@ -12,10 +12,11 @@ include_guard (GLOBAL)
 find_program (CCACHE_PROGRAM ccache)
 
 if (NOT CCACHE_PROGRAM)
+    message (VERBOSE "ccache could not be found.")
     return()
 endif()
 
-set  (ccache_options "CCACHE_BASEDIR=${CMAKE_SOURCE_DIR}")
+set (ccache_options "CCACHE_BASEDIR=${CMAKE_SOURCE_DIR}")
 
 if (DEFINED ENV{CPM_SOURCE_CACHE})
     list (APPEND ccache_options "CCACHE_DIR=$ENV{CPM_SOURCE_CACHE}/ccache/cache")
@@ -23,11 +24,11 @@ else()
     list (APPEND ccache_options "CCACHE_DIR=${CMAKE_SOURCE_DIR}/Cache/ccache/cache")
 endif()
 
-list (APPEND ccache_options "CCACHE_COMPRESS=true")
-list (APPEND ccache_options "CCACHE_COMPRESSLEVEL=6")
-list (APPEND ccache_options "CCACHE_MAXSIZE=800M")
+list (APPEND ccache_options "CCACHE_COMPRESS=true" "CCACHE_COMPRESSLEVEL=6" "CCACHE_MAXSIZE=800M")
 
 list (JOIN ccache_options "\n export " CCCACHE_EXPORTS)
+
+#
 
 function (_lemons_configure_compiler_launcher language)
 
@@ -46,6 +47,8 @@ _lemons_configure_compiler_launcher (c)
 _lemons_configure_compiler_launcher (cxx)
 
 execute_process (COMMAND chmod a+rx "${c_script}" "${cxx_script}")
+
+#
 
 if (XCODE)
     set (CMAKE_XCODE_ATTRIBUTE_CC         "${c_script}" CACHE INTERNAL "")
