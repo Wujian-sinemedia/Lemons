@@ -33,8 +33,7 @@ if __name__ == "__main__":
 	docs_git_tree = os.path.join (temp_dir, "Lemons")
 
 	# remove everything currently in the docs branch
-	os.chdir (docs_git_tree)
-	os.system ("rm -rf *")
+	shutil.rmtree (docs_git_tree)
 
 	# generate the doxygen documentation
 	os.chdir (lemons_root)
