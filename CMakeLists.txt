@@ -98,11 +98,3 @@ if (LEMONS_SANITIZERS_TO_ENABLE)
 endif()
 
 add_subdirectory (util)
-
-if (LEMONS_BUILD_TEMPLATES)
-	add_subdirectory (templates)
-endif()
-
-if (LEMONS_BUILD_TEST_LAB)
-	add_subdirectory (TestLab)
-endif()
