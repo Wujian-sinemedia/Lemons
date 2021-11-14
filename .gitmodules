@@ -1,8 +1,8 @@
 [submodule "templates/DefaultJuceApp"]
-	path = util/templates/DefaultJuceApp
+	path = util/Templates/DefaultJuceApp
 	url = https://github.com/benthevining/DefaultJuceApp.git
 [submodule "templates/DefaultJucePlugin"]
-	path = util/templates/DefaultJucePlugin
+	path = util/Templates/DefaultJucePlugin
 	url = https://github.com/benthevining/DefaultJucePlugin.git
 [submodule "util/cmake/GetLemons"]
 	path = util/cmake/GetLemons
