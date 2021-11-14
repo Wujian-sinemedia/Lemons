@@ -48,7 +48,8 @@ if __name__ == "__main__":
 
 	# copy generated docs to cloned copy of docs git tree
 	shutil.copytree (os.path.join (lemons_root, "docs"), 
-		             docs_git_tree)
+		             docs_git_tree,
+		             dirs_exist_ok=True)
 
 	# need to create an empty .nojekyll file
 	with open (os.path.join (docs_git_tree, ".nojekyll"), "w") as f:
