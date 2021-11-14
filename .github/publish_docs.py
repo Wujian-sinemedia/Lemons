@@ -9,11 +9,6 @@ from argparse import ArgumentParser
 
 if __name__ == "__main__":
 
-	# configure git
-	os.system ("git config --global push.default simple")
-	os.system ("git config user.name \"Github Actions\"")
-	os.system ("git config user.email \"actions@github.com\"")
-
 	GH_REPO_REF = "github.com/benthevining/Lemons.git"
 
 	script_dir = os.path.abspath (os.path.dirname (__file__))
@@ -56,6 +51,11 @@ if __name__ == "__main__":
 		f.write ("")
 
 	os.chdir (docs_git_tree)
+
+	# configure git
+	os.system ("git config push.default simple")
+	os.system ("git config user.name \"Github Actions\"")
+	os.system ("git config user.email \"actions@github.com\"")
 
 	os.system ("git add --all")
 	os.system ("git commit -am \"Updating docs\"")
