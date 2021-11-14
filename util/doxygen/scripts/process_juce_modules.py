@@ -9,26 +9,36 @@ from argparse import ArgumentParser
 
 #
 
-def process_category_description (file_path):
-
-    if not os.path.exists (file_path):
-        raise Exception("Category desription file does not exist!")
-        return
-
-    with open (file_path, "r") as f:
-        description = f.read()
-
-    category_cmake_module = ""
-
-    for dirpath, dirnames, filenames in os.walk (os.path.abspath (os.path.dirname (file_path))):
+def get_category_description_from_cmake_module (dir_path):
+    for dirpath, dirnames, filenames in os.walk (dir_path):
         for file in filenames:
             root, ext = os.path.splitext (file)
-            if ext == ".cmake": category_cmake_module = root
+            if ext == ".cmake":
+                return root
+
+    return ""
+
+#
+
+def process_category_description (dir_path):
+
+    category_cmake_module = get_category_description_from_cmake_module (dir_path)
 
     if not category_cmake_module:
         raise Exception("Can't find CMake module in this JUCE module category directory!")
 
-    cmakeInfo = "To use these JUCE modules, include the [{n} CMake module](@ref {n}), and link against the `{n}` target.".format(n=category_cmake_module)
+    description = ""
+
+    with open (os.path.join (dir_path, category_cmake_module + ".cmake"), "r") as f:
+        for line in f:
+            if line.startswith ("#[["): continue
+            description = line.strip()
+            break
+
+    if not description:
+        raise Exception("Description could not be parsed!")
+
+    cmakeInfo = "To use these JUCE modules, include the [{n}](@ref {n}) CMake module, and link against the `{n}` target.".format(n=category_cmake_module)
 
     return description, cmakeInfo
 
@@ -44,10 +54,12 @@ def process_module_category (category_name, orig_cat_dir, dest_cat_dir):
         raise Exception("Module category name cannot be empty!")
         return
 
-    # copy files to doxygen working tree
+    if os.path.isdir (dest_cat_dir):
+        shutil.rmtree (dest_cat_dir)
+
     shutil.copytree (orig_cat_dir, dest_cat_dir)
 
-    category_info = process_category_description (os.path.join (dest_cat_dir, category_name.lower() + ".txt"))
+    category_info = process_category_description (dest_cat_dir)
 
     category_definiton = []
     category_definiton.append ("/** @defgroup {n} {n}".format (n=category_name))

@@ -1,5 +1,5 @@
 #[[
-Includes Lemons JUCE modules relevant to plugin development.
+Building blocks for audio plugins
 
 ## Includes:
 - LemonsCommonModules

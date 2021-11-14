@@ -1,5 +1,5 @@
 #[[
-Includes audio-related Lemons JUCE modules in your build.
+JUCE modules for audio and DSP
 
 ## Includes:
 - LemonsJuceModuleUtilities

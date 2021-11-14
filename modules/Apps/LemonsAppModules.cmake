@@ -1,5 +1,5 @@
 #[[
-Includes app-related Lemons JUCE modules and CMake utilities.
+Building blocks for JUCE applications
 
 ## Includes:
 - LemonsCommonModules

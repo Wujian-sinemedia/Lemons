@@ -1,5 +1,5 @@
 #[[
-Includes the common Lemons JUCE modules.
+Common building blocks and utilities
 
 ## Includes:
 - LemonsConnectivityModules
