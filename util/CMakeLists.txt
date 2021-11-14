@@ -11,5 +11,5 @@ if (LEMONS_BUILD_TEST_LAB)
 endif()
 
 if (LEMONS_BUILD_TEMPLATES)
-	add_subdirectory (templates)
+	add_subdirectory (Templates)
 endif()

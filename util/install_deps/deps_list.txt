@@ -4,5 +4,4 @@ doxygen
 git
 graphviz
 llvm
-make
 python3

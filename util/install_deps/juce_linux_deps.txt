@@ -15,5 +15,4 @@ libwebkit2gtk-4.0-dev
 libglu1-mesa-dev 
 mesa-common-dev
 openssh-client
-lv2-dev
 ninja-build
