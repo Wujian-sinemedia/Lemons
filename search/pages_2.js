@@ -10,7 +10,7 @@ var searchData=
   ['lemonsclangformatintegration_1867',['LemonsClangFormatIntegration',['../_lemons_clang_format_integration.html',1,'']]],
   ['lemonscommonmodules_1868',['LemonsCommonModules',['../_lemons_common_modules.html',1,'']]],
   ['lemonsconnectivitymodules_1869',['LemonsConnectivityModules',['../_lemons_connectivity_modules.html',1,'']]],
-  ['lemonsdefaultmacosoptions_1870',['LemonsDefaultMacOsOptions',['../_lemons_default_mac_os_options.html',1,'']]],
+  ['lemonsdefaultplatformsettings_1870',['LemonsDefaultPlatformSettings',['../_lemons_default_platform_settings.html',1,'']]],
   ['lemonsfileutils_1871',['LemonsFileUtils',['../_lemons_file_utils.html',1,'']]],
   ['lemonsguimodules_1872',['LemonsGUIModules',['../_lemons_g_u_i_modules.html',1,'']]],
   ['lemonsjucemoduleutilities_1873',['LemonsJuceModuleUtilities',['../_lemons_juce_module_utilities.html',1,'']]],

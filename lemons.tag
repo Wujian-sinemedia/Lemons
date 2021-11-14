@@ -550,9 +550,9 @@
     <filename>_lemons_connectivity_modules_8md.html</filename>
   </compound>
   <compound kind="file">
-    <name>LemonsDefaultMacOsOptions.md</name>
+    <name>LemonsDefaultPlatformSettings.md</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
-    <filename>_lemons_default_mac_os_options_8md.html</filename>
+    <filename>_lemons_default_platform_settings_8md.html</filename>
   </compound>
   <compound kind="file">
     <name>LemonsFileUtils.md</name>
@@ -18859,9 +18859,9 @@
     <filename>_lemons_connectivity_modules</filename>
   </compound>
   <compound kind="page">
-    <name>LemonsDefaultMacOsOptions</name>
-    <title>LemonsDefaultMacOsOptions</title>
-    <filename>_lemons_default_mac_os_options</filename>
+    <name>LemonsDefaultPlatformSettings</name>
+    <title>LemonsDefaultPlatformSettings</title>
+    <filename>_lemons_default_platform_settings</filename>
   </compound>
   <compound kind="page">
     <name>LemonsFileUtils</name>
