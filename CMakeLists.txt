@@ -32,6 +32,17 @@ if (LEMONS_BUILD_TESTS)
 	enable_testing()
 endif()
 
+if (IOS)
+	option (LEMONS_IOS_SIMULATOR "Build for an iOS simulator, rather than a real device" ON)
+
+	if (NOT LEMONS_IOS_SIMULATOR)
+		set (CMAKE_XCODE_ATTRIBUTE_DEVELOPMENT_TEAM "" CACHE STRING "10-character ID for your Apple developer account")
+	endif()
+else()
+	set (MAC_SDK_VERSION "10.13" CACHE STRING "Version of the MacOS SDK to use")
+	mark_as_advanced (FORCE MAC_SDK_VERSION)
+endif()
+
 option (LEMONS_CREATE_AGGREGATE_TARGETS "Generate ALL_APPS and ALL_PLUGINS targets, populated accordingly" ON)
 set (LEMONS_JUCE_BRANCH "develop" CACHE STRING "The branch of the JUCE GitHub repository to use - should be develop or master")
 
