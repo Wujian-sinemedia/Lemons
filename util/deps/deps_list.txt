@@ -1,6 +1,3 @@
 ccache
-doxygen
 git
-graphviz
-llvm
 python3

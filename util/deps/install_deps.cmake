@@ -35,3 +35,7 @@ install_deps_from_file ("${CMAKE_CURRENT_LIST_DIR}/deps_list.txt")
 if (NOT APPLE AND NOT WIN32)
 	install_deps_from_file ("${CMAKE_CURRENT_LIST_DIR}/juce_linux_deps.txt")
 endif()
+
+if (DOCS)
+	install_deps_from_file ("${CMAKE_CURRENT_LIST_DIR}/docs_deps.txt")
+endif()
