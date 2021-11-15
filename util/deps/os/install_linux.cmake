@@ -1,24 +1,20 @@
 include_guard (GLOBAL)
 
-find_program (APT "apt-get")
-
-if (NOT APT)
-	find_program (APT apt)
-endif()
+find_program (SUDO sudo)
 
 #
 
-execute_process (COMMAND "${APT}" update
+execute_process (COMMAND "${SUDO}" apt-get update
 			     COMMAND_ECHO STDOUT)
 
-execute_process (COMMAND "${APT}" upgrade
+execute_process (COMMAND "${SUDO}" apt-get upgrade
 				 COMMAND_ECHO STDOUT)
 
 #
 
 function (os_install_func deps)
 
-	execute_process (COMMAND "${APT}" install -y --no-install-recommends ${deps}
+	execute_process (COMMAND "${SUDO}" apt-get install -y --no-install-recommends ${deps}
 		             COMMAND_ECHO STDOUT)
 
 endfunction()
