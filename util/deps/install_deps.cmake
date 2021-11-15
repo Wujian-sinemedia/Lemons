@@ -1,9 +1,11 @@
+set (os_scripts "${CMAKE_CURRENT_LIST_DIR}/os")
+
 if (APPLE)
-	include ("${CMAKE_CURRENT_LIST_DIR}/os/install_mac.cmake")
+	include ("${os_scripts}/install_mac.cmake")
 elseif (WIN32)
-	include ("${CMAKE_CURRENT_LIST_DIR}/os/install_win.cmake")
+	include ("${os_scripts}/install_win.cmake")
 else()
-	include ("${CMAKE_CURRENT_LIST_DIR}/os/install_linux.cmake")
+	include ("${os_scripts}/install_linux.cmake")
 endif()
 
 #

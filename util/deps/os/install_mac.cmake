@@ -3,8 +3,34 @@ include_guard (GLOBAL)
 find_program (HOMEBREW brew)
 
 if (NOT HOMEBREW)
-	# install Homebrew...
+	unset (CACHE{HOMEBREW})
+
+	find_program (BASH bash)
+
+	if (NOT BASH)
+		message (FATAL_ERROR "bash is required for installing Homebrew, and cannot be found!")
+	endif()
+
+	execute_process (COMMAND "${BASH}" "${CMAKE_CURRENT_LIST_DIR}/mac_install_homebrew.sh"
+					 COMMAND_ECHO STDOUT
+					 COMMAND_ERROR_IS_FATAL ANY)
+
+	find_program (HOMEBREW brew)
+
+	if (NOT HOMEBREW)
+		message (FATAL_ERROR "Error installing Homebrew!")
+	endif()
 endif()
+
+#
+
+# update installed packages
+
+execute_process (COMMAND "${HOMEBREW}" update
+				 COMMAND_ECHO STDOUT)
+
+execute_process (COMMAND "${HOMEBREW}" upgrade
+				 COMMAND_ECHO STDOUT)
 
 #
 
