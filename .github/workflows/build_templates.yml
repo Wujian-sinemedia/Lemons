@@ -32,7 +32,7 @@ jobs:
 
     - name: Install dependencies
       shell: bash
-      run: bash util/install_deps/install_deps.sh
+      run: cmake -P util/deps/install_deps.cmake
 
     - name: Configure CMake
       shell: bash
