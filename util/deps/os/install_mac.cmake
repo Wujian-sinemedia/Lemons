@@ -11,6 +11,7 @@ endif()
 function (os_install_func deps)
 
 	execute_process (COMMAND "${HOMEBREW}" install ${deps}
-					 COMMAND_ECHO STDOUT)
+					 COMMAND_ECHO STDOUT
+					 COMMAND_ERROR_IS_FATAL ANY)
 
 endfunction()
