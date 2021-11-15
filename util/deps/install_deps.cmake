@@ -12,14 +12,6 @@ function (install_deps_from_file file_path)
 
 	file (STRINGS "${file_path}" file_list)
 
-	# set (deps_list "")
-
-	# foreach (dep ${file_list})
-	# 	if (NOT "${dep}" IN_LIST deps_list)
-	# 		list (APPEND deps_list "${dep}")
-	# 	endif()
-	# endforeach()
-
 	list (JOIN file_list " " deps)
 
 	separate_arguments (command UNIX_COMMAND "${deps}")
