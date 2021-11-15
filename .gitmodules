@@ -7,3 +7,6 @@
 [submodule "util/cmake/GetLemons"]
 	path = util/cmake/GetLemons
 	url = https://github.com/benthevining/GetLemons.git
+[submodule "util/deps/DepsInstaller"]
+	path = util/deps/DepsInstaller
+	url = https://github.com/benthevining/DepsInstaller.git
