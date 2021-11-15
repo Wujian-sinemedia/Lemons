@@ -22,7 +22,7 @@ jobs:
 
     - name: Install deps
       shell: bash
-      run: cmake -D CAT=Docs -P DepsInstaller/install_deps.cmake
+      run: cmake -D CAT=Docs -P util/DepsInstaller/install_deps.cmake
 
     - name: Run script
       shell: bash
