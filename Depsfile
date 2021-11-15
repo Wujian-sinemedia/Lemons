@@ -1,3 +1,13 @@
+- Default
+ccache
+git
+python3
+
+- Docs
+doxygen
+graphviz
+
+- Linux
 libasound2-dev
 libjack-jackd2-dev
 ladspa-sdk

@@ -1,3 +1,0 @@
-ccache
-git
-python3
