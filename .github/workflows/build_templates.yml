@@ -31,7 +31,7 @@ jobs:
         restore-keys: ${{ runner.os }}.
 
     - name: Install deps
-      uses: benthevining/DepsInstaller@v1
+      uses: benthevining/DepsInstaller@v0.2.0-alpha
       with:
         depfile_path: '$(pwd)/Depsfile'
 
