@@ -21,8 +21,10 @@ jobs:
         submodules: recursive
 
     - name: Install deps
-      shell: bash
-      run: cmake -D CAT=Docs -P util/DepsInstaller/install_deps.cmake
+      uses: benthevining/DepsInstaller@v1
+      with:
+        depfile_path: '$(pwd)/Depsfile'
+        category: 'Docs'
 
     - name: Run script
       shell: bash

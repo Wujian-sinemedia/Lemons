@@ -30,9 +30,10 @@ jobs:
         key: ${{ runner.os }}.${{ hashFiles('**/') }}
         restore-keys: ${{ runner.os }}.
 
-    - name: Install dependencies
-      shell: bash
-      run: cmake -P util/DepsInstaller/install_deps.cmake
+    - name: Install deps
+      uses: benthevining/DepsInstaller@v1
+      with:
+        depfile_path: '$(pwd)/Depsfile'
 
     - name: Configure CMake
       shell: bash
