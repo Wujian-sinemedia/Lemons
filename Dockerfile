@@ -3,7 +3,15 @@ FROM ubuntu:latest AS base
 FROM base AS dev_machine
 
 
-RUN apt-get update && apt-get -y install sudo cmake git
+# Make sure tzdata won't hang our script
+
+ENV TZ=America/Chicago
+
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+#
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get -y install sudo cmake git
 
 RUN groupadd -g 999 foo && useradd -u 999 -g foo -G sudo -m -s /bin/bash foo && \
     sed -i /etc/sudoers -re 's/^%sudo.*/%sudo ALL=(ALL:ALL) NOPASSWD: ALL/g' && \
@@ -12,13 +20,7 @@ RUN groupadd -g 999 foo && useradd -u 999 -g foo -G sudo -m -s /bin/bash foo && 
     echo "foo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
     echo "foo user:";  su - foo -c id
 
-
-# Make sure tzdata won't hang our script
-
-ENV TZ=America/Chicago
-
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get upgrade
 
 # Run the install_deps cmake script
 
