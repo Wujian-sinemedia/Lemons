@@ -80,6 +80,7 @@ $(function() {
 <li><b>LEMONS_IOS_SIMULATOR:</b> Build for an iOS simulator, rather than a real device. Defaults to ON.</li>
 <li><b>LEMONS_JUCE_BRANCH:</b> The branch of the JUCE GitHub repository to use - should be develop or master. Defaults to develop.</li>
 <li><b>LEMONS_MAC_SDK_VERSION:</b> Version of the MacOS SDK to use. Defaults to 10.13.</li>
+<li><b>LEMONS_MAC_UNIVERSAL_BINARY:</b> Builds for x86_64 and arm64. Defaults to ON.</li>
 <li><b>LEMONS_PLUGINVAL_LEVEL:</b> Pluginval testing level. Defaults to 10.</li>
 <li><b>LEMONS_SANITIZERS_TO_ENABLE:</b> List of sanitizers to enable.</li>
 <li><b>LEMONS_VST2_SDK_PATH:</b> Path to the VST2 SDK.</li>
@@ -122,9 +123,15 @@ CMake modules</h1>
 <li><a class="el" href="_lemons_sanitizer_integration.html">LemonsSanitizerIntegration</a></li>
 <li><a class="el" href="_lemons_clang_format_integration.html">LemonsClangFormatIntegration</a></li>
 </ul>
+<h2>Cpack</h2>
+<ul>
+<li><a class="el" href="_lemons_set_default_cpack_generator.html">LemonsSetDefaultCpackGenerator</a></li>
+<li><a class="el" href="_lemons_default_cpack_settings.html">LemonsDefaultCpackSettings</a></li>
+</ul>
 <h2>Platform</h2>
 <ul>
 <li><a class="el" href="_lemons_default_platform_settings.html">LemonsDefaultPlatformSettings</a></li>
+<li><a class="el" href="_linux_l_s_b_info.html">LinuxLSBInfo</a></li>
 </ul>
 <h2>Juce</h2>
 <ul>
@@ -156,7 +163,7 @@ CMake modules</h1>
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 16 2021 06:25:23 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 16 2021 07:05:57 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

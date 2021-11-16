@@ -550,6 +550,11 @@
     <filename>_lemons_connectivity_modules_8md.html</filename>
   </compound>
   <compound kind="file">
+    <name>LemonsDefaultCpackSettings.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
+    <filename>_lemons_default_cpack_settings_8md.html</filename>
+  </compound>
+  <compound kind="file">
     <name>LemonsDefaultPlatformSettings.md</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_lemons_default_platform_settings_8md.html</filename>
@@ -595,6 +600,11 @@
     <filename>_lemons_sanitizer_integration_8md.html</filename>
   </compound>
   <compound kind="file">
+    <name>LemonsSetDefaultCpackGenerator.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
+    <filename>_lemons_set_default_cpack_generator_8md.html</filename>
+  </compound>
+  <compound kind="file">
     <name>LemonsTranslationFileGeneration.md</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_lemons_translation_file_generation_8md.html</filename>
@@ -615,6 +625,11 @@
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::FX</namespace>
+  </compound>
+  <compound kind="file">
+    <name>LinuxLSBInfo.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
+    <filename>_linux_l_s_b_info_8md.html</filename>
   </compound>
   <compound kind="file">
     <name>localization.h</name>
@@ -18859,6 +18874,11 @@
     <filename>_lemons_connectivity_modules</filename>
   </compound>
   <compound kind="page">
+    <name>LemonsDefaultCpackSettings</name>
+    <title>LemonsDefaultCpackSettings</title>
+    <filename>_lemons_default_cpack_settings</filename>
+  </compound>
+  <compound kind="page">
     <name>LemonsDefaultPlatformSettings</name>
     <title>LemonsDefaultPlatformSettings</title>
     <filename>_lemons_default_platform_settings</filename>
@@ -18906,10 +18926,20 @@
     <filename>_lemons_sanitizer_integration</filename>
   </compound>
   <compound kind="page">
+    <name>LemonsSetDefaultCpackGenerator</name>
+    <title>LemonsSetDefaultCpackGenerator</title>
+    <filename>_lemons_set_default_cpack_generator</filename>
+  </compound>
+  <compound kind="page">
     <name>LemonsTranslationFileGeneration</name>
     <title>LemonsTranslationFileGeneration</title>
     <filename>_lemons_translation_file_generation</filename>
     <docanchor file="_lemons_translation_file_generation.html" title="lemons_generate_translation_files">lemons_generate_translation_files</docanchor>
+  </compound>
+  <compound kind="page">
+    <name>LinuxLSBInfo</name>
+    <title>LinuxLSBInfo</title>
+    <filename>_linux_l_s_b_info</filename>
   </compound>
   <compound kind="page">
     <name>index</name>
