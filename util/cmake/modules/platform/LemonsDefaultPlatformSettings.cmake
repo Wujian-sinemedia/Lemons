@@ -1,4 +1,8 @@
 #[[
+Default settings and configuration for a CMake build on the OS you're currently running.
+
+## Includes:
+- LinuxLSBInfo
 
 ## Include-time actions:
 Sets appropriate platform-specific settings for the current build.
@@ -34,6 +38,7 @@ else()
         include ("${CMAKE_CURRENT_LIST_DIR}/scripts/lemons_windows_settings.cmake")
     else()
         include ("${CMAKE_CURRENT_LIST_DIR}/scripts/lemons_linux_settings.cmake")
+        include (LinuxLSBInfo)
     endif()
 endif()
 

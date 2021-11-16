@@ -38,9 +38,11 @@ if (IOS)
 	if (NOT LEMONS_IOS_SIMULATOR)
 		set (CMAKE_XCODE_ATTRIBUTE_DEVELOPMENT_TEAM "" CACHE STRING "10-character ID for your Apple developer account")
 	endif()
-else()
+elseif (APPLE)
 	set (LEMONS_MAC_SDK_VERSION "10.13" CACHE STRING "Version of the MacOS SDK to use")
 	mark_as_advanced (FORCE LEMONS_MAC_SDK_VERSION)
+
+	option (LEMONS_MAC_UNIVERSAL_BINARY "Builds for x86_64 and arm64" ON)
 endif()
 
 option (LEMONS_CREATE_AGGREGATE_TARGETS "Generate ALL_APPS and ALL_PLUGINS targets, populated accordingly" ON)

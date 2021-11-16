@@ -1,3 +1,5 @@
+include_guard (GLOBAL)
+
 if (MSVC OR WIN32)
     set (CPACK_GENERATOR "NSIS" CACHE INTERNAL "")
     set (CPACK_NSIS_MODIFY_PATH ON CACHE INTERNAL "")
@@ -6,7 +8,7 @@ endif()
 
 if (APPLE)
     set (CPACK_GENERATOR "PackageMaker" CACHE INTERNAL "")
-    #set (CPACK_OSX_PACKAGE_VERSION "${${UPPER_PROJECT_NAME}_OSX_VERSION}")
+    set (CPACK_OSX_PACKAGE_VERSION "${${UPPER_PROJECT_NAME}_OSX_VERSION}")
     return()
 endif()
 
