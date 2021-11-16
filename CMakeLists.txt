@@ -91,10 +91,10 @@ include (LemonsDefaultPlatformSettings)
 if (LEMONS_ENABLE_INTEGRATIONS)
 	include (LemonsCcacheIntegration)
 	include (LemonsClangFormatIntegration)
-endif()
 
-if (LEMONS_SANITIZERS_TO_ENABLE)
-	include (LemonsSanitizerIntegration)
+	if (LEMONS_SANITIZERS_TO_ENABLE)
+		include (LemonsSanitizerIntegration)
+	endif()
 endif()
 
 add_subdirectory (util)

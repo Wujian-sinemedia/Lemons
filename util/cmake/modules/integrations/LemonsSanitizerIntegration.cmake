@@ -2,7 +2,7 @@
 Configures various sanitizers for the current build.
 
 ## Options:
-LEMONS_SANITIZERS_TO_ENABLE: a list of sanitizers to enable.
+LEMONS_SANITIZERS_TO_ENABLE: a semicolon-separated list of sanitizers to enable.
 The options are:
 - address
 - memory
@@ -15,22 +15,13 @@ The sanitizers "address", "memory" and "thread" are mutually exclusive.  You can
 
 "leak" requires the  "address" sanitizer.
 
+## Note
+
+If the `LEMONS_ENABLE_INTEGRATIONS` option is ON and the `LEMONS_SANITIZERS_TO_ENABLE` list is not empty, then this module will be included by Lemons, when Lemons is added as a subdirectory.
+
 ]]
 
 
-if (NOT LEMONS_SANITIZERS_TO_ENABLE)
-	return()
-endif()
-
-
-if (NOT (CMAKE_CXX_COMPILER_ID MATCHES "GNU" 
-      OR CMAKE_CXX_COMPILER_ID MATCHES "Clang" 
-      OR CMAKE_CXX_COMPILER_ID MATCHES "MSVC"))
-    message (VERBOSE "Sanitizers not supported with your current compiler: ${CMAKE_CXX_COMPILER_ID}")
-    return()
-endif()
-
-#
 
 function (_lemons_enable_sanitizer_flags sanitize_option)
 
@@ -125,7 +116,21 @@ function (_lemons_enable_sanitizer_flags sanitize_option)
     message (WARNING "Unknown sanitizer requested: ${sanitize_option}")
 endfunction()
 
-#
+
+#############################################################################################
+
+
+if (NOT LEMONS_SANITIZERS_TO_ENABLE)
+    return()
+endif()
+
+
+if (NOT (CMAKE_CXX_COMPILER_ID MATCHES "GNU" 
+      OR CMAKE_CXX_COMPILER_ID MATCHES "Clang" 
+      OR CMAKE_CXX_COMPILER_ID MATCHES "MSVC"))
+    message (VERBOSE "Sanitizers not supported with your current compiler: ${CMAKE_CXX_COMPILER_ID}")
+    return()
+endif()
 
 foreach (sanitizer ${LEMONS_SANITIZERS_TO_ENABLE})
 

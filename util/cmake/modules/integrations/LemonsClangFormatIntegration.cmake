@@ -6,6 +6,10 @@ Configures a target to run clang-format over all your code.
 
 This module does nothing if clang-format cannot be found at configure-time.
 
+## Note
+
+If the `LEMONS_ENABLE_INTEGRATIONS` option is ON, then this module will be included by Lemons, when Lemons is added as a subdirectory.
+
 ]]
 
 

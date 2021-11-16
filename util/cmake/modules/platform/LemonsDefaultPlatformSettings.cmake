@@ -12,23 +12,28 @@ lemons_set_default_macos_options (<target>)
 Sets default Apple-only options for the given target.
 Does nothing on non-Apple platforms.
 
+
+## Note
+
+This module is included by Lemons by default, when Lemons is added as a subdirectory.
+
 ]]
 
 include_guard (GLOBAL)
 
 if (APPLE)
     if (IOS)
-        include (lemons_ios_settings)
+        include ("${CMAKE_CURRENT_LIST_DIR}/scripts/lemons_ios_settings.cmake")
     else()
-        include (lemons_macos_settings)
+        include ("${CMAKE_CURRENT_LIST_DIR}/scripts/lemons_macos_settings.cmake")
     endif()
 else()
     set (CMAKE_INSTALL_RPATH $ORIGIN CACHE INTERNAL "")
 
     if (WIN32)
-        include (lemons_windows_settings)
+        include ("${CMAKE_CURRENT_LIST_DIR}/scripts/lemons_windows_settings.cmake")
     else()
-        include (lemons_linux_settings)
+        include ("${CMAKE_CURRENT_LIST_DIR}/scripts/lemons_linux_settings.cmake")
     endif()
 endif()
 
