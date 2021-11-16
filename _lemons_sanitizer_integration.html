@@ -70,7 +70,7 @@ $(function() {
 <div class="textblock"><p><a class="el" href="_c_make__a_p_i.html#CMake_modules">Back to CMake modules reference</a></p>
 <p>Configures various sanitizers for the current build.</p>
 <h1>Options:</h1>
-<p>LEMONS_SANITIZERS_TO_ENABLE: a list of sanitizers to enable. The options are:</p><ul>
+<p>LEMONS_SANITIZERS_TO_ENABLE: a semicolon-separated list of sanitizers to enable. The options are:</p><ul>
 <li>address</li>
 <li>memory</li>
 <li>thread</li>
@@ -79,12 +79,14 @@ $(function() {
 <li>fuzzer</li>
 </ul>
 <p>The sanitizers "address", "memory" and "thread" are mutually exclusive. You cannot enable two of them in the same build.</p>
-<p>"leak" requires the "address" sanitizer. </p>
+<p>"leak" requires the "address" sanitizer.</p>
+<h1>Note</h1>
+<p>If the <code>LEMONS_ENABLE_INTEGRATIONS</code> option is ON and the <code>LEMONS_SANITIZERS_TO_ENABLE</code> list is not empty, then this module will be included by Lemons, when Lemons is added as a subdirectory. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 16 2021 00:42:45 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 16 2021 06:25:23 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
