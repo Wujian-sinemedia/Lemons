@@ -11,12 +11,12 @@ Aliases:
 
 Clean:
 * Builds/
-* templates/Builds/
+* util/Templates/Builds/
 * util/UnitTestRunner/Builds/
 * util/doxygen/Builds/
 * docs/
 * .github/docs/
-* util/cmake/modules/translations/scripts/__pycache__/
+* util/cmake/modules/assets/scripts/__pycache__/
 * util/doxygen/scripts/__pycache__
 
 Wipe:
