@@ -18,7 +18,7 @@ var searchData=
   ['coefficients_3c_20sampletype_20_3e_76',['Coefficients&lt; SampleType &gt;',['../structlemons_1_1dsp_1_1filters_1_1_coefficients.html',1,'lemons::dsp::filters']]],
   ['coefs_77',['coefs',['../classlemons_1_1dsp_1_1filters_1_1_filter.html#aa2a2553de95ae712e5d0e74599dd908b',1,'lemons::dsp::filters::Filter::coefs()'],['../structlemons_1_1dsp_1_1filters_1_1_multi_filter.html#a9508ef62f004c93f863d0f1338d05ee9',1,'lemons::dsp::filters::MultiFilter::coefs()']]],
   ['color_78',['Color',['../classlemons_1_1spline_1_1_editor.html#af4ea9ab11310ad453aa96819fa4c46b6',1,'lemons::spline::Editor']]],
-  ['common_79',['Common',['../group___common.html',1,'(Global Namespace)'],['../group__common.html',1,'(Global Namespace)']]],
+  ['common_79',['common',['../group__common.html',1,'(Global Namespace)'],['../group___common.html',1,'(Global Namespace)']]],
   ['common_2eh_80',['Common.h',['../_common_8h.html',1,'']]],
   ['components_81',['components',['../group__components.html',1,'']]],
   ['compressor_82',['Compressor',['../classlemons_1_1dsp_1_1_f_x_1_1_compressor.html',1,'lemons::dsp::FX::Compressor&lt; SampleType &gt;'],['../classlemons_1_1dsp_1_1_f_x_1_1_compressor.html#a04d8d8563014eeb6c8a990df1a55b22e',1,'lemons::dsp::FX::Compressor::Compressor()'],['../classlemons_1_1dsp_1_1_f_x_1_1_compressor.html#aa4c204cd9aaa6714bfb88614ea91de9e',1,'lemons::dsp::FX::Compressor::Compressor(float thresh, float ratioToUse, float attackMs, float releaseMs)']]],
