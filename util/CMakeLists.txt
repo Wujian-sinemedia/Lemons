@@ -3,6 +3,7 @@ if (LEMONS_BUILD_DOCS)
 endif()
 
 if (LEMONS_BUILD_TESTS)
+	enable_testing()
     add_subdirectory (UnitTestRunner)
 endif()
 
