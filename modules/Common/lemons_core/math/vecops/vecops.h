@@ -77,10 +77,22 @@ void absVal (Type* data, int dataSize);
 template <typename Type>
 int findIndexOfMinElement (const Type* data, int dataSize);
 
+template <typename Type>
+int findIndexOfMinElement (const juce::Array<Type>& array)
+{
+    return findIndexOfMinElement (array.getRawDataPointer(), array.size());
+}
+
 
 /* returns the index in the vector of the maximum element */
 template <typename Type>
 int findIndexOfMaxElement (const Type* data, int dataSize);
+
+template <typename Type>
+int findIndexOfMaxElement (const juce::Array<Type>& array)
+{
+    return findIndexOfMaxElement (array.getRawDataPointer(), array.size());
+}
 
 
 /* returns both the minimum element and its index in the vector into the variables minimum and minIndex */
@@ -90,6 +102,12 @@ void findMinAndMinIndex (const Type* data,
                          Type&       minimum,
                          int&        minIndex);
 
+template <typename Type>
+void findMinAndMinIndex (const juce::Array<Type>& array, Type& minimum, int& minIndex)
+{
+    findMinAndMinIndex (array.getRawDataPointer(), array.size(), minimum, minIndex);
+}
+
 
 /* returns both the maximum element and its index in the vector into the variables maximum and maxIndex */
 template <typename Type>
@@ -97,6 +115,12 @@ void findMaxAndMaxIndex (const Type* data,
                          int         dataSize,
                          Type&       maximum,
                          int&        maxIndex);
+
+template <typename Type>
+void findMaxAndMaxIndex (const juce::Array<Type>& array, Type& maximum, int& maxIndex)
+{
+    findMaxAndMaxIndex (array.getRawDataPointer(), array.size(), maximum, maxIndex);
+}
 
 
 /* locates the element with the highest absolute value and its index in the vector, and returns them into the variables greatestMagnitude and index */
@@ -106,6 +130,12 @@ void locateGreatestAbsMagnitude (const Type* data,
                                  Type&       greatestMagnitude,
                                  int&        index);
 
+template <typename Type>
+void locateGreatestAbsMagnitude (const juce::Array<Type>& array, Type& greatestMagnitude, int& index)
+{
+    locateGreatestAbsMagnitude (array.getRawDataPointer(), array.size(), greatestMagnitude, index);
+}
+
 
 /* locates the element with the lowest absolute value and its index in the vector, and returns them into the variables leastMagnitude and index */
 template <typename Type>
@@ -114,10 +144,22 @@ void locateLeastAbsMagnitude (const Type* data,
                               Type&       leastMagnitude,
                               int&        index);
 
+template <typename Type>
+void locateLeastAbsMagnitude (const juce::Array<Type>& array, Type& leastMagnitude, int& index)
+{
+    locateLeastAbsMagnitude (array.getRawDataPointer(), array.size(), leastMagnitude, index);
+}
+
 
 /* finds both the maximum and minimum elements in the vector and returns them into the variables max and min */
 template <typename Type>
 void findExtrema (const Type* data, int dataSize, Type& min, Type& max);
+
+template <typename Type>
+void findExtrema (const juce::Array<Type>& array, Type& min, Type& max)
+{
+    findExtrema (array.getRawDataPointer(), array.size(), min, max);
+}
 
 
 /* returns the distance between the maximum and minimum element of the vector */
@@ -125,10 +167,22 @@ template <typename Type>
 Type findRangeOfExtrema (const Type* data,
                          int         dataSize);
 
+template <typename Type>
+Type findRangeOfExtrema (const juce::Array<Type>& array)
+{
+    return findRangeOfExtrema (array.getRawDataPointer(), array.size());
+}
+
 
 /* Normalises a set of samples to the absolute maximum contained within the buffer. */
 template <typename Type>
 void normalize (Type* vector, int size);
+
+template <typename Type>
+void normalize (juce::Array<Type>& array)
+{
+    normalize (array.getRawDataPointer(), array.size());
+}
 
 
 extern constexpr bool isUsingVDSP();

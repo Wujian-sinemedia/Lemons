@@ -1,4 +1,3 @@
-
 #pragma once
 
 namespace lemons::dsp
@@ -8,32 +7,35 @@ namespace lemons::dsp
     This algorithm is intended for use with perfectly monophonic signals, and has been most extensively tested with vocals.
  */
 template <typename SampleType>
-class PitchDetector
+class PitchDetector final
 {
 public:
 	/** Creates a pitch detector with a detectable frequency range that is constant for the life of the object.
 	    The latency of the algorithm is determined by 2 * the period of the minimum frequency. \n
 	    Therefore, pitch detectors with a higher minimum frequency will have a lower latency.
 	 */
-	PitchDetector (int minFreqHz = 60, int maxFreqHz = 2500);
+	explicit PitchDetector (int minFreqHz = 60, int maxFreqHz = 2500);
 
 	/** Returns the latency in samples of the detection algorithm. */
-	int getLatencySamples() const noexcept;
-
-	/** Releases the pitch detector's resources. */
-	void releaseResources();
-
+	[[nodiscard]] int getLatencySamples() const noexcept;
+    
+    /** Sets the samplerate in Hz of the pitch detector.
+        @return The latency, in samples, of the pitch detection algorithm at the new samplerate.
+        @see getLatencySamples()
+     */
+    int setSamplerate (double newSamplerate);
 
 	/** Detects the pitch in Hz for a frame of audio.
 	    This can only be used for one channel at a time. If you need to track the pitch of multiple channels of audio, you need one PitchDetector object for each channel.
+        The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that inputAudio.getNumSamples() is greater than or equal to getLatencySamples().
 	    @return The pitch in Hz for this frame of audio, or 0.f if the frame is unpitched.
 	 */
-	float detectPitch (const AudioBuffer<SampleType>& inputAudio);
+    [[nodiscard]] float detectPitch (const AudioBuffer<SampleType>& inputAudio);
 
 	/** Detects the pitch in Hz for a frame of audio.
 	    @return The pitch in Hz for this frame of audio, or 0.f if the frame is unpitched.
 	 */
-	float detectPitch (const SampleType* inputAudio, int numSamples);
+    [[nodiscard]] float detectPitch (const SampleType* inputAudio, int numSamples);
 
 
 	/** Sets the confidence threshold of the pitch detection algorithm.
@@ -44,16 +46,20 @@ public:
 	 */
 	void setConfidenceThresh (SampleType newThresh);
 
-	/** Sets the samplerate in Hz of the pitch detector. */
-	void setSamplerate (double newSamplerate);
-
 	/** Returns a range object representing the current legal range of period values. */
-	juce::Range<int> getCurrentLegalPeriodRange() const;
+    [[nodiscard]] juce::Range<int> getCurrentLegalPeriodRange() const;
 
 private:
-	int chooseIdealPeriodCandidate (const SampleType* asdfData,
-	                                int               asdfDataSize,
-	                                int               minIndex);
+    struct FrameLags
+    {
+        int min, max;
+    };
+    
+    FrameLags getLagsForThisFrame (const SampleType* inputAudio, int numSamples, int halfNumSamples) const;
+    
+    int chooseIdealPeriodCandidate (const SampleType* asdfData,
+                                    int               asdfDataSize,
+                                    int               minIndex);
 
 	const int minHz;
 	const int maxHz;
@@ -74,8 +80,6 @@ private:
 
 	AudioBuffer<SampleType>     filteringBuffer { 1, 512 };
 	filters::Filter<SampleType> loCut, hiCut;
-
-	static constexpr int numPeriodCandidatesToTest = 10;
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PitchDetector)
 };
