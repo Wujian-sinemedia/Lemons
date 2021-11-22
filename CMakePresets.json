@@ -27,7 +27,6 @@
       "description": "Confuguration with testing enabled",
       "inherits": "base",
       "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug",
         "LEMONS_BUILD_TESTS": "ON"
       }
     },
@@ -63,7 +62,6 @@
       "displayName": "Build tests",
       "description": "Builds the Lemons unit tests",
       "configurePreset": "tests",
-      "configuration": "Debug",
       "targets": ["UnitTestRunner"]
     },
     {
@@ -87,7 +85,6 @@
       "displayName": "Run tests",
       "description": "Runs the Lemons unit tests",
       "configurePreset": "tests",
-      "configuration": "Debug",
       "output": {
         "outputLogFile": "${sourceDir}/logs/unitTests.log"
       },
