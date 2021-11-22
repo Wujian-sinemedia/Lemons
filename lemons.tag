@@ -1532,8 +1532,22 @@
       <type>void</type>
       <name>findExtrema</name>
       <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a2c5c5ee0fe8b11408bcb6a85b5f950d7</anchor>
+      <arglist>(const juce::Array&lt; Type &gt; &amp;array, Type &amp;min, Type &amp;max)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>findExtrema</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
       <anchor>a75c28dafcaa835851d7ddbb60e308a09</anchor>
       <arglist>(const Type *data, int dataSize, Type &amp;min, Type &amp;max)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>findIndexOfMaxElement</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a99c470b54aa8dcc90a41f28a20dc98d3</anchor>
+      <arglist>(const juce::Array&lt; Type &gt; &amp;array)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
@@ -1546,8 +1560,22 @@
       <type>int</type>
       <name>findIndexOfMinElement</name>
       <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a312acd0cd2f394199c19822bf0b9e67a</anchor>
+      <arglist>(const juce::Array&lt; Type &gt; &amp;array)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>findIndexOfMinElement</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
       <anchor>a00267fce1554664aeb74a28ee4004380</anchor>
       <arglist>(const Type *data, int dataSize)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>findMaxAndMaxIndex</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a0696e2e9c43c6127f7970498b12b420e</anchor>
+      <arglist>(const juce::Array&lt; Type &gt; &amp;array, Type &amp;maximum, int &amp;maxIndex)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -1560,8 +1588,22 @@
       <type>void</type>
       <name>findMinAndMinIndex</name>
       <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a574bd9e778123e8abde62349a7781210</anchor>
+      <arglist>(const juce::Array&lt; Type &gt; &amp;array, Type &amp;minimum, int &amp;minIndex)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>findMinAndMinIndex</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
       <anchor>afe4faa462c897ed60423e60863d3caba</anchor>
       <arglist>(const Type *data, int dataSize, Type &amp;minimum, int &amp;minIndex)</arglist>
+    </member>
+    <member kind="function">
+      <type>Type</type>
+      <name>findRangeOfExtrema</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>abd5145483942feb96628f761c1dc500d</anchor>
+      <arglist>(const juce::Array&lt; Type &gt; &amp;array)</arglist>
     </member>
     <member kind="function">
       <type>Type</type>
@@ -1588,8 +1630,22 @@
       <type>void</type>
       <name>locateGreatestAbsMagnitude</name>
       <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a59df817ff99aa1083182e27dcfa3a54f</anchor>
+      <arglist>(const juce::Array&lt; Type &gt; &amp;array, Type &amp;greatestMagnitude, int &amp;index)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>locateGreatestAbsMagnitude</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
       <anchor>a18686bc9bf20020bdcc1ab23d41503b5</anchor>
       <arglist>(const Type *data, int dataSize, Type &amp;greatestMagnitude, int &amp;index)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>locateLeastAbsMagnitude</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>af5d3a3a395f7b2a42b6bbf3270e65498</anchor>
+      <arglist>(const juce::Array&lt; Type &gt; &amp;array, Type &amp;leastMagnitude, int &amp;index)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -1611,6 +1667,13 @@
       <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
       <anchor>af620febbaa640fe2a713e1d42a6115b7</anchor>
       <arglist>(Type *vecA, const Type *vecB, int count)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>normalize</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>ae4c82b41a52716a163e1b97d9ddfd461</anchor>
+      <arglist>(juce::Array&lt; Type &gt; &amp;array)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -12587,23 +12650,16 @@
     </member>
     <member kind="function">
       <type>void</type>
-      <name>releaseResources</name>
-      <anchorfile>classlemons_1_1dsp_1_1_pitch_detector.html</anchorfile>
-      <anchor>a65be98ea39cce6d01524fb49997c2786</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
       <name>setConfidenceThresh</name>
       <anchorfile>classlemons_1_1dsp_1_1_pitch_detector.html</anchorfile>
       <anchor>a21efffea02b46c2b606b7b4a8a2f07e5</anchor>
       <arglist>(SampleType newThresh)</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
+      <type>int</type>
       <name>setSamplerate</name>
       <anchorfile>classlemons_1_1dsp_1_1_pitch_detector.html</anchorfile>
-      <anchor>a2898d9e48634b640998e5f3993b02553</anchor>
+      <anchor>a0fa76e7633d37065ec8f43bc14a0a30b</anchor>
       <arglist>(double newSamplerate)</arglist>
     </member>
   </compound>
@@ -17988,8 +18044,22 @@
       <type>void</type>
       <name>findExtrema</name>
       <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a2c5c5ee0fe8b11408bcb6a85b5f950d7</anchor>
+      <arglist>(const juce::Array&lt; Type &gt; &amp;array, Type &amp;min, Type &amp;max)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>findExtrema</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
       <anchor>a75c28dafcaa835851d7ddbb60e308a09</anchor>
       <arglist>(const Type *data, int dataSize, Type &amp;min, Type &amp;max)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>findIndexOfMaxElement</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a99c470b54aa8dcc90a41f28a20dc98d3</anchor>
+      <arglist>(const juce::Array&lt; Type &gt; &amp;array)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
@@ -18002,8 +18072,22 @@
       <type>int</type>
       <name>findIndexOfMinElement</name>
       <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a312acd0cd2f394199c19822bf0b9e67a</anchor>
+      <arglist>(const juce::Array&lt; Type &gt; &amp;array)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>findIndexOfMinElement</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
       <anchor>a00267fce1554664aeb74a28ee4004380</anchor>
       <arglist>(const Type *data, int dataSize)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>findMaxAndMaxIndex</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a0696e2e9c43c6127f7970498b12b420e</anchor>
+      <arglist>(const juce::Array&lt; Type &gt; &amp;array, Type &amp;maximum, int &amp;maxIndex)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -18016,8 +18100,22 @@
       <type>void</type>
       <name>findMinAndMinIndex</name>
       <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a574bd9e778123e8abde62349a7781210</anchor>
+      <arglist>(const juce::Array&lt; Type &gt; &amp;array, Type &amp;minimum, int &amp;minIndex)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>findMinAndMinIndex</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
       <anchor>afe4faa462c897ed60423e60863d3caba</anchor>
       <arglist>(const Type *data, int dataSize, Type &amp;minimum, int &amp;minIndex)</arglist>
+    </member>
+    <member kind="function">
+      <type>Type</type>
+      <name>findRangeOfExtrema</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>abd5145483942feb96628f761c1dc500d</anchor>
+      <arglist>(const juce::Array&lt; Type &gt; &amp;array)</arglist>
     </member>
     <member kind="function">
       <type>Type</type>
@@ -18044,8 +18142,22 @@
       <type>void</type>
       <name>locateGreatestAbsMagnitude</name>
       <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>a59df817ff99aa1083182e27dcfa3a54f</anchor>
+      <arglist>(const juce::Array&lt; Type &gt; &amp;array, Type &amp;greatestMagnitude, int &amp;index)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>locateGreatestAbsMagnitude</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
       <anchor>a18686bc9bf20020bdcc1ab23d41503b5</anchor>
       <arglist>(const Type *data, int dataSize, Type &amp;greatestMagnitude, int &amp;index)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>locateLeastAbsMagnitude</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>af5d3a3a395f7b2a42b6bbf3270e65498</anchor>
+      <arglist>(const juce::Array&lt; Type &gt; &amp;array, Type &amp;leastMagnitude, int &amp;index)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -18067,6 +18179,13 @@
       <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
       <anchor>af620febbaa640fe2a713e1d42a6115b7</anchor>
       <arglist>(Type *vecA, const Type *vecB, int count)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>normalize</name>
+      <anchorfile>namespacelemons_1_1vecops.html</anchorfile>
+      <anchor>ae4c82b41a52716a163e1b97d9ddfd461</anchor>
+      <arglist>(juce::Array&lt; Type &gt; &amp;array)</arglist>
     </member>
     <member kind="function">
       <type>void</type>

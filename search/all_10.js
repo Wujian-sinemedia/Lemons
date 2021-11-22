@@ -4,7 +4,7 @@ var searchData=
   ['refreshdefault_653',['refreshDefault',['../classlemons_1_1plugin_1_1_parameter.html#a06ee7850537979ed797fbe016f8700b5',1,'lemons::plugin::Parameter']]],
   ['release_654',['release',['../classlemons_1_1dsp_1_1_synth_base.html#accdf1a7000c35b35d3cd7f781d89565b',1,'lemons::dsp::SynthBase']]],
   ['released_655',['released',['../classlemons_1_1dsp_1_1_engine.html#ac8b2a88ec044945497543798253e211a',1,'lemons::dsp::Engine::released()'],['../classlemons_1_1dsp_1_1_synth_voice_base.html#a15be3528f0fef97aa715aa266f8c3fd3',1,'lemons::dsp::SynthVoiceBase::released()']]],
-  ['releaseresources_656',['releaseResources',['../classlemons_1_1dsp_1_1_engine.html#a144323b4488420dcf49b89cee7837f8c',1,'lemons::dsp::Engine::releaseResources()'],['../classlemons_1_1dsp_1_1_pitch_detector.html#a65be98ea39cce6d01524fb49997c2786',1,'lemons::dsp::PitchDetector::releaseResources()'],['../classlemons_1_1dsp_1_1_synth_base.html#a4d6e9ec66b6cb5a68366289ea251fb37',1,'lemons::dsp::SynthBase::releaseResources()']]],
+  ['releaseresources_656',['releaseResources',['../classlemons_1_1dsp_1_1_engine.html#a144323b4488420dcf49b89cee7837f8c',1,'lemons::dsp::Engine::releaseResources()'],['../classlemons_1_1dsp_1_1_synth_base.html#a4d6e9ec66b6cb5a68366289ea251fb37',1,'lemons::dsp::SynthBase::releaseResources()']]],
   ['remove_657',['remove',['../structlemons_1_1spline_1_1_knots.html#a0518edd727c043ab99465d17f12ef21d',1,'lemons::spline::Knots']]],
   ['removeconnection_658',['removeConnection',['../classlemons_1_1plugin_1_1_meta_parameter.html#a81378a443c321bd7d14034b936afec08',1,'lemons::plugin::MetaParameter']]],
   ['removefileextensionifthere_659',['removeFileExtensionIfThere',['../namespacelemons.html#ab83a1770feca6178311afcdda9a29274',1,'lemons']]],
