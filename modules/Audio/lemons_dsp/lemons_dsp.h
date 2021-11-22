@@ -5,10 +5,13 @@
 BEGIN_JUCE_MODULE_DECLARATION
 
 ID:                 lemons_dsp
-vendor:             Ben Vining
+vendor:             Lemons
 version:            0.0.1
 name:               lemons_dsp
 description:        DSP/audio utilities and effects
+website:            http://benthevining.github.io/Lemons/
+license:            GPL-3.0
+minimumCppStandard: 17
 dependencies:       juce_audio_utils juce_dsp lemons_midi
 
 END_JUCE_MODULE_DECLARATION

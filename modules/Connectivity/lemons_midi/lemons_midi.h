@@ -5,10 +5,13 @@
  BEGIN_JUCE_MODULE_DECLARATION
 
  ID:                 lemons_midi
- vendor:             Ben Vining
+ vendor:             Lemons
  version:            0.0.1
  name:               lemons_midi
  description:        Midi utilities
+ website:            http://benthevining.github.io/Lemons/
+ license:            GPL-3.0
+ minimumCppStandard: 17
  dependencies:       mts_esp_cpp juce_audio_basics
 
  END_JUCE_MODULE_DECLARATION

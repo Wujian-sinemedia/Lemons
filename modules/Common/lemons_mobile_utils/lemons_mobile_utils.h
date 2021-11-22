@@ -5,10 +5,13 @@
  BEGIN_JUCE_MODULE_DECLARATION
 
  ID:                 lemons_mobile_utils
- vendor:             Ben Vining
+ vendor:             Lemons
  version:            0.0.1
  name:               lemons_mobile_utils
  description:        JUCE module that provides some useful utilities for crossplatform iOS and Android development
+ website:            http://benthevining.github.io/Lemons/
+ license:            GPL-3.0
+ minimumCppStandard: 17
  dependencies:       juce_gui_basics
  iOSFrameworks:      CoreMotion
 

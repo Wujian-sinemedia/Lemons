@@ -5,10 +5,13 @@
 BEGIN_JUCE_MODULE_DECLARATION
 
 ID:                 lemons_synth
-vendor:             Ben Vining
+vendor:             Lemons
 version:            0.0.1
 name:               lemons_synth
 description:        Infrastructure for a polyphonic synthesizer instrument
+website:            http://benthevining.github.io/Lemons/
+license:            GPL-3.0
+minimumCppStandard: 17
 dependencies:       lemons_audio_effects
 
 END_JUCE_MODULE_DECLARATION

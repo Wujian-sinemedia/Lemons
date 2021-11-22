@@ -4,14 +4,17 @@
 
  BEGIN_JUCE_MODULE_DECLARATION
 
- ID:                lemons_core
- vendor:            Ben Vining
- version:           0.0.1
- name:              lemons_core
- description:       General utilities useful for developing plugins.
- dependencies:      juce_audio_utils
- OSXFrameworks:     Accelerate
- iOSFrameworks:     Accelerate
+ ID:                 lemons_core
+ vendor:             Lemons
+ version:            0.0.1
+ name:               lemons_core
+ description:        General utilities useful for developing plugins
+ website:            http://benthevining.github.io/Lemons/
+ license:            GPL-3.0
+ minimumCppStandard: 17
+ dependencies:       juce_audio_utils
+ OSXFrameworks:      Accelerate
+ iOSFrameworks:      Accelerate
 
  END_JUCE_MODULE_DECLARATION
 
@@ -21,7 +24,7 @@
 //==============================================================================
 /** Config: LEMONS_HAS_BINARY_DATA
 
-    Set this to 1 if your project has a juce binary data target.
+    Set this to 1 if your project has a JUCE binary data target.
     The Lemons repo's cmake scripts set this automatically for you; if that's how you added the Lemons package, then you don't need to worry about setting this manually.
  */
 #ifndef LEMONS_HAS_BINARY_DATA
