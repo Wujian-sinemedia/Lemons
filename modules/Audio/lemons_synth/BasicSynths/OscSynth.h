@@ -1,7 +1,5 @@
 #pragma once
 
-#include <lemons_oscillators/lemons_oscillators.h>
-
 namespace lemons::dsp
 {
 template <typename SampleType, template <typename NumericType> class OscType>

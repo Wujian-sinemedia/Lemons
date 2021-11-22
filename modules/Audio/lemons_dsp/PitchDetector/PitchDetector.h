@@ -85,3 +85,30 @@ private:
 };
 
 }  // namespace lemons::dsp
+
+
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+
+
+#if LEMONS_UNIT_TESTS
+
+struct PitchDetectorTests : public juce::UnitTest
+{
+public:
+    PitchDetectorTests();
+    
+private:
+    using FloatType = float;
+    
+    void runTest() final;
+    
+    lemons::dsp::osc::Sine<FloatType> osc;
+    
+    juce::AudioBuffer<FloatType> storage;
+    
+    lemons::dsp::PitchDetector<FloatType> detector;
+};
+
+static PitchDetectorTests test;
+
+#endif

@@ -131,7 +131,8 @@ typename PitchDetector<SampleType>::FrameLags PitchDetector<SampleType>::getLags
 template <typename SampleType>
 [[nodiscard]] float PitchDetector<SampleType>::detectPitch (const AudioBuffer<SampleType>& inputAudio)
 {
-	return detectPitch (inputAudio.getReadPointer (0), inputAudio.getNumSamples());
+	return detectPitch (inputAudio.getReadPointer (0),
+                        inputAudio.getNumSamples());
 }
 
 template <typename SampleType>
@@ -316,3 +317,36 @@ template class PitchDetector<float>;
 template class PitchDetector<double>;
 
 }  // namespace lemons::dsp
+
+
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+
+
+#if LEMONS_UNIT_TESTS
+
+PitchDetectorTests::PitchDetectorTests()
+: juce::UnitTest ("PitchDetectorTests", "DSP")
+{ }
+
+void PitchDetectorTests::runTest()
+{
+    constexpr auto samplerate = 44100.;
+    
+    const auto latency = detector.setSamplerate (samplerate);
+    
+    storage.setSize (1, latency);
+    
+    constexpr auto correctFreq = 440.f;
+    
+    beginTest ("Detect frequency of sine wave");
+    
+    osc.setFrequency (correctFreq, samplerate);
+    osc.getSamples (storage);
+    
+    const auto guess = detector.detectPitch (storage);
+    
+    expectEquals (guess, correctFreq,
+                  "Detected incorrect frequency!");
+}
+
+#endif

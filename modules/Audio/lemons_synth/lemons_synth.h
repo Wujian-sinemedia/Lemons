@@ -9,7 +9,7 @@ vendor:             Ben Vining
 version:            0.0.1
 name:               lemons_synth
 description:        Infrastructure for a polyphonic synthesizer instrument
-dependencies:       lemons_audio_effects lemons_oscillators
+dependencies:       lemons_audio_effects
 
 END_JUCE_MODULE_DECLARATION
 

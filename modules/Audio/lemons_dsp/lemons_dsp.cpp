@@ -9,6 +9,11 @@
 
 #include "BufferUtils/BufferUtils.cpp"
 
+#include "oscillators/oscillators.cpp"
+#include "oscillators/SuperSaw/SuperSaw.cpp"
+#include "oscillators/choosable/OscEngine.cpp"
+#include "oscillators/choosable/ChoosableOscillator.cpp"
+
 #include "PitchDetector/PitchDetector.cpp"
 
 #include "BasicProcessor/BasicProcessor.cpp"

@@ -24,6 +24,10 @@ END_JUCE_MODULE_DECLARATION
 
 #include "BufferUtils/BufferUtils.h"
 
+#include "oscillators/oscillators.h"
+#include "oscillators/SuperSaw/SuperSaw.h"
+#include "oscillators/choosable/ChoosableOscillator.h"
+
 #include "PitchDetector/PitchDetector.h"
 
 #include "BasicProcessor/BasicProcessor.h"

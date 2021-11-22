@@ -69,6 +69,13 @@ void Oscillator<SampleType>::getSamples (SampleType* output, int numSamples)
 		output[i] = getSample();
 }
 
+template <typename SampleType>
+void Oscillator<SampleType>::getSamples (juce::AudioBuffer<SampleType>& output, int channel)
+{
+    getSamples (output.getWritePointer(channel),
+                output.getNumSamples());
+}
+
 template struct Oscillator<float>;
 template struct Oscillator<double>;
 

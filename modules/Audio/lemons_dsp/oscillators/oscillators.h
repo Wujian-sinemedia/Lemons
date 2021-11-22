@@ -1,7 +1,5 @@
 #pragma once
 
-#include <lemons_dsp/lemons_dsp.h>
-
 namespace lemons::dsp::osc
 {
 /** Represents the phase of an oscillator.
@@ -49,6 +47,9 @@ struct Oscillator
 
 	/** Returns a stream of samples from the oscillator. */
 	void getSamples (SampleType* output, int numSamples);
+    
+    /** Returns a stream of samples from the oscillator. */
+    void getSamples (juce::AudioBuffer<SampleType>& output, int channel = 0);
 };
 
 /*--------------------------------------------------------------------------------------------*/
