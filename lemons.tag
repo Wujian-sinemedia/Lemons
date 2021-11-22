@@ -151,7 +151,7 @@
   </compound>
   <compound kind="file">
     <name>ChoosableOscillator.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_oscillators/choosable/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/oscillators/choosable/</path>
     <filename>_choosable_oscillator_8h.html</filename>
     <includes id="_osc_engine_8h" name="OscEngine.h" local="yes" imported="no">OscEngine.h</includes>
     <class kind="class">lemons::dsp::osc::ChoosableOscillator</class>
@@ -921,7 +921,7 @@
   </compound>
   <compound kind="file">
     <name>OscEngine.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_oscillators/choosable/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/oscillators/choosable/</path>
     <filename>_osc_engine_8h.html</filename>
     <class kind="class">lemons::dsp::osc::OscEngine</class>
     <namespace>lemons</namespace>
@@ -930,7 +930,7 @@
   </compound>
   <compound kind="file">
     <name>oscillators.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_oscillators/basic_types/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/oscillators/</path>
     <filename>oscillators_8h.html</filename>
     <class kind="struct">lemons::dsp::osc::Oscillator</class>
     <class kind="struct">lemons::dsp::osc::Phase</class>
@@ -1328,7 +1328,7 @@
   </compound>
   <compound kind="file">
     <name>SuperSaw.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_oscillators/SuperSaw/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/oscillators/SuperSaw/</path>
     <filename>_super_saw_8h.html</filename>
     <class kind="class">lemons::dsp::osc::SuperSaw</class>
     <namespace>lemons</namespace>
@@ -11116,6 +11116,13 @@
       <type>void</type>
       <name>getSamples</name>
       <anchorfile>structlemons_1_1dsp_1_1osc_1_1_oscillator.html</anchorfile>
+      <anchor>a60cacb1aeca5d4f2eed87c754b01fc6a</anchor>
+      <arglist>(juce::AudioBuffer&lt; SampleType &gt; &amp;output, int channel=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>getSamples</name>
+      <anchorfile>structlemons_1_1dsp_1_1osc_1_1_oscillator.html</anchorfile>
       <anchor>a0d4e7108f8cb508f01efeb7e7d423c84</anchor>
       <arglist>(SampleType *output, int numSamples)</arglist>
     </member>
@@ -11157,6 +11164,13 @@
       <anchorfile>structlemons_1_1dsp_1_1osc_1_1_oscillator.html</anchorfile>
       <anchor>a0d4e7108f8cb508f01efeb7e7d423c84</anchor>
       <arglist>(float *output, int numSamples)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>getSamples</name>
+      <anchorfile>structlemons_1_1dsp_1_1osc_1_1_oscillator.html</anchorfile>
+      <anchor>a60cacb1aeca5d4f2eed87c754b01fc6a</anchor>
+      <arglist>(juce::AudioBuffer&lt; float &gt; &amp;output, int channel=0)</arglist>
     </member>
     <member kind="function" virtualness="pure">
       <type>virtual void</type>
@@ -13153,6 +13167,13 @@
       <type>void</type>
       <name>getSamples</name>
       <anchorfile>structlemons_1_1dsp_1_1osc_1_1_oscillator.html</anchorfile>
+      <anchor>a60cacb1aeca5d4f2eed87c754b01fc6a</anchor>
+      <arglist>(juce::AudioBuffer&lt; SampleType &gt; &amp;output, int channel=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>getSamples</name>
+      <anchorfile>structlemons_1_1dsp_1_1osc_1_1_oscillator.html</anchorfile>
       <anchor>a0d4e7108f8cb508f01efeb7e7d423c84</anchor>
       <arglist>(SampleType *output, int numSamples)</arglist>
     </member>
@@ -13195,6 +13216,13 @@
       <anchorfile>structlemons_1_1dsp_1_1osc_1_1_oscillator.html</anchorfile>
       <anchor>a0d4e7108f8cb508f01efeb7e7d423c84</anchor>
       <arglist>(float *output, int numSamples)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>getSamples</name>
+      <anchorfile>structlemons_1_1dsp_1_1osc_1_1_oscillator.html</anchorfile>
+      <anchor>a60cacb1aeca5d4f2eed87c754b01fc6a</anchor>
+      <arglist>(juce::AudioBuffer&lt; float &gt; &amp;output, int channel=0)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -13968,6 +13996,13 @@
       <type>void</type>
       <name>getSamples</name>
       <anchorfile>structlemons_1_1dsp_1_1osc_1_1_oscillator.html</anchorfile>
+      <anchor>a60cacb1aeca5d4f2eed87c754b01fc6a</anchor>
+      <arglist>(juce::AudioBuffer&lt; SampleType &gt; &amp;output, int channel=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>getSamples</name>
+      <anchorfile>structlemons_1_1dsp_1_1osc_1_1_oscillator.html</anchorfile>
       <anchor>a0d4e7108f8cb508f01efeb7e7d423c84</anchor>
       <arglist>(SampleType *output, int numSamples)</arglist>
     </member>
@@ -14010,6 +14045,13 @@
       <anchorfile>structlemons_1_1dsp_1_1osc_1_1_oscillator.html</anchorfile>
       <anchor>a0d4e7108f8cb508f01efeb7e7d423c84</anchor>
       <arglist>(float *output, int numSamples)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>getSamples</name>
+      <anchorfile>structlemons_1_1dsp_1_1osc_1_1_oscillator.html</anchorfile>
+      <anchor>a60cacb1aeca5d4f2eed87c754b01fc6a</anchor>
+      <arglist>(juce::AudioBuffer&lt; float &gt; &amp;output, int channel=0)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -14284,6 +14326,13 @@
       <type>void</type>
       <name>getSamples</name>
       <anchorfile>structlemons_1_1dsp_1_1osc_1_1_oscillator.html</anchorfile>
+      <anchor>a60cacb1aeca5d4f2eed87c754b01fc6a</anchor>
+      <arglist>(juce::AudioBuffer&lt; SampleType &gt; &amp;output, int channel=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>getSamples</name>
+      <anchorfile>structlemons_1_1dsp_1_1osc_1_1_oscillator.html</anchorfile>
       <anchor>a0d4e7108f8cb508f01efeb7e7d423c84</anchor>
       <arglist>(SampleType *output, int numSamples)</arglist>
     </member>
@@ -14333,6 +14382,13 @@
       <anchorfile>structlemons_1_1dsp_1_1osc_1_1_oscillator.html</anchorfile>
       <anchor>a0d4e7108f8cb508f01efeb7e7d423c84</anchor>
       <arglist>(float *output, int numSamples)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>getSamples</name>
+      <anchorfile>structlemons_1_1dsp_1_1osc_1_1_oscillator.html</anchorfile>
+      <anchor>a60cacb1aeca5d4f2eed87c754b01fc6a</anchor>
+      <arglist>(juce::AudioBuffer&lt; float &gt; &amp;output, int channel=0)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -14573,6 +14629,13 @@
       <type>void</type>
       <name>getSamples</name>
       <anchorfile>structlemons_1_1dsp_1_1osc_1_1_oscillator.html</anchorfile>
+      <anchor>a60cacb1aeca5d4f2eed87c754b01fc6a</anchor>
+      <arglist>(juce::AudioBuffer&lt; SampleType &gt; &amp;output, int channel=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>getSamples</name>
+      <anchorfile>structlemons_1_1dsp_1_1osc_1_1_oscillator.html</anchorfile>
       <anchor>a0d4e7108f8cb508f01efeb7e7d423c84</anchor>
       <arglist>(SampleType *output, int numSamples)</arglist>
     </member>
@@ -14629,6 +14692,13 @@
       <anchorfile>structlemons_1_1dsp_1_1osc_1_1_oscillator.html</anchorfile>
       <anchor>a0d4e7108f8cb508f01efeb7e7d423c84</anchor>
       <arglist>(float *output, int numSamples)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>getSamples</name>
+      <anchorfile>structlemons_1_1dsp_1_1osc_1_1_oscillator.html</anchorfile>
+      <anchor>a60cacb1aeca5d4f2eed87c754b01fc6a</anchor>
+      <arglist>(juce::AudioBuffer&lt; float &gt; &amp;output, int channel=0)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -18245,7 +18315,6 @@
     <filename>group___audio.html</filename>
     <subgroup>lemons_audio_effects</subgroup>
     <subgroup>lemons_dsp</subgroup>
-    <subgroup>lemons_oscillators</subgroup>
     <subgroup>lemons_psola</subgroup>
     <subgroup>lemons_synth</subgroup>
   </compound>
@@ -18461,20 +18530,6 @@
     <class kind="class">lemons::dsp::psola::Analyzer</class>
   </compound>
   <compound kind="group">
-    <name>basic_types</name>
-    <title>basic_types</title>
-    <filename>group__basic__types.html</filename>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::osc</namespace>
-    <class kind="struct">lemons::dsp::osc::Oscillator</class>
-    <class kind="struct">lemons::dsp::osc::Phase</class>
-    <class kind="struct">lemons::dsp::osc::Saw</class>
-    <class kind="struct">lemons::dsp::osc::Sine</class>
-    <class kind="struct">lemons::dsp::osc::Square</class>
-    <class kind="struct">lemons::dsp::osc::Triangle</class>
-  </compound>
-  <compound kind="group">
     <name>binary_data</name>
     <title>binary_data</title>
     <filename>group__binary__data.html</filename>
@@ -18648,6 +18703,7 @@
     <subgroup>chains</subgroup>
     <subgroup>engines</subgroup>
     <subgroup>filters</subgroup>
+    <subgroup>oscillators</subgroup>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
   </compound>
@@ -18673,14 +18729,6 @@
     <subgroup>all_platforms</subgroup>
     <subgroup>dummy_desktop_versions</subgroup>
     <subgroup>iOS</subgroup>
-  </compound>
-  <compound kind="group">
-    <name>lemons_oscillators</name>
-    <title>lemons_oscillators</title>
-    <filename>group__lemons__oscillators.html</filename>
-    <subgroup>SuperSaw</subgroup>
-    <subgroup>basic_types</subgroup>
-    <subgroup>choosable</subgroup>
   </compound>
   <compound kind="group">
     <name>lemons_plugin</name>
@@ -18777,6 +18825,25 @@
     <filename>group__mts__esp__cpp.html</filename>
     <subgroup>client</subgroup>
     <subgroup>warnings</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>oscillators</name>
+    <title>oscillators</title>
+    <filename>group__oscillators.html</filename>
+    <subgroup>SuperSaw</subgroup>
+    <subgroup>choosable</subgroup>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::osc</namespace>
+    <class kind="class">lemons::dsp::osc::ChoosableOscillator</class>
+    <class kind="class">lemons::dsp::osc::OscEngine</class>
+    <class kind="struct">lemons::dsp::osc::Oscillator</class>
+    <class kind="struct">lemons::dsp::osc::Phase</class>
+    <class kind="struct">lemons::dsp::osc::Saw</class>
+    <class kind="struct">lemons::dsp::osc::Sine</class>
+    <class kind="struct">lemons::dsp::osc::Square</class>
+    <class kind="class">lemons::dsp::osc::SuperSaw</class>
+    <class kind="struct">lemons::dsp::osc::Triangle</class>
   </compound>
   <compound kind="group">
     <name>panning</name>

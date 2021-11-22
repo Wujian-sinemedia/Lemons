@@ -71,7 +71,7 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="structlemons_1_1dsp_1_1osc_1_1_sine-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">lemons::dsp::osc::Sine&lt; SampleType &gt; Struct Template Reference<div class="ingroups"><a class="el" href="group___audio.html">Audio</a> &raquo; <a class="el" href="group__lemons__oscillators.html">lemons_oscillators</a> &raquo; <a class="el" href="group__basic__types.html">basic_types</a></div></div>  </div>
+<div class="title">lemons::dsp::osc::Sine&lt; SampleType &gt; Struct Template Reference<div class="ingroups"><a class="el" href="group___audio.html">Audio</a> &raquo; <a class="el" href="group__lemons__dsp.html">lemons_dsp</a> &raquo; <a class="el" href="group__oscillators.html">oscillators</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -94,6 +94,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af4a826b1fd62beb3255ae4a8965fdc62"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1_sine.html#af4a826b1fd62beb3255ae4a8965fdc62">getSample</a> () final</td></tr>
 <tr class="memdesc:af4a826b1fd62beb3255ae4a8965fdc62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next sample of the sine wave.  <a href="structlemons_1_1dsp_1_1osc_1_1_sine.html#af4a826b1fd62beb3255ae4a8965fdc62">More...</a><br /></td></tr>
 <tr class="separator:af4a826b1fd62beb3255ae4a8965fdc62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60cacb1aeca5d4f2eed87c754b01fc6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html#a60cacb1aeca5d4f2eed87c754b01fc6a">getSamples</a> (juce::AudioBuffer&lt; SampleType &gt; &amp;output, int channel=0)</td></tr>
+<tr class="memdesc:a60cacb1aeca5d4f2eed87c754b01fc6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a stream of samples from the oscillator.  <a href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html#a60cacb1aeca5d4f2eed87c754b01fc6a">More...</a><br /></td></tr>
+<tr class="separator:a60cacb1aeca5d4f2eed87c754b01fc6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d4e7108f8cb508f01efeb7e7d423c84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html#a0d4e7108f8cb508f01efeb7e7d423c84">getSamples</a> (SampleType *output, int numSamples)</td></tr>
 <tr class="memdesc:a0d4e7108f8cb508f01efeb7e7d423c84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a stream of samples from the oscillator.  <a href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html#a0d4e7108f8cb508f01efeb7e7d423c84">More...</a><br /></td></tr>
 <tr class="separator:a0d4e7108f8cb508f01efeb7e7d423c84"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,8 +167,48 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
+<a id="a60cacb1aeca5d4f2eed87c754b01fc6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60cacb1aeca5d4f2eed87c754b01fc6a">&#9670;&nbsp;</a></span>getSamples() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html">lemons::dsp::osc::Oscillator</a>&lt; SampleType &gt;::getSamples </td>
+          <td>(</td>
+          <td class="paramtype">juce::AudioBuffer&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>output</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>channel</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a stream of samples from the oscillator. </p>
+
+</div>
+</div>
 <a id="a0d4e7108f8cb508f01efeb7e7d423c84"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d4e7108f8cb508f01efeb7e7d423c84">&#9670;&nbsp;</a></span>getSamples()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d4e7108f8cb508f01efeb7e7d423c84">&#9670;&nbsp;</a></span>getSamples() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -283,7 +326,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 22 2021 00:42:53 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 22 2021 07:47:08 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
