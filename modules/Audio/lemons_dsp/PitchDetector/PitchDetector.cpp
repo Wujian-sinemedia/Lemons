@@ -5,7 +5,7 @@
 namespace lemons::dsp
 {
 template <typename SampleType>
-static inline int samplesToFirstZeroCrossing (const SampleType* inputAudio, int numSamples)
+inline int samplesToFirstZeroCrossing (const SampleType* inputAudio, int numSamples)
 {
 #if LEMONS_USE_VDSP
 	unsigned long index          = 0;
@@ -42,7 +42,7 @@ template int samplesToFirstZeroCrossing (const float*, int);
 template int samplesToFirstZeroCrossing (const double*, int);
 
 template <typename SampleType>
-void getNextBestPeriodCandidate (juce::Array<int>& candidates, const SampleType* asdfData, int dataSize)
+inline void getNextBestPeriodCandidate (juce::Array<int>& candidates, const SampleType* asdfData, int dataSize)
 {
 	int index = -1;
 
@@ -329,6 +329,15 @@ PitchDetectorTests::PitchDetectorTests()
 {
 }
 
+using juce::String;
+
+inline String getFailureMessage (float guess, float actual)
+{
+    return String("Detected incorrect frequency! Estimated MIDI: ")
+        + String(lemons::math::freqToMidi(guess))
+        + "; Actual MIDI: " + String(lemons::math::freqToMidi(actual));
+}
+
 void PitchDetectorTests::runTest()
 {
 	constexpr auto samplerate = 44100.;
@@ -347,7 +356,7 @@ void PitchDetectorTests::runTest()
 	const auto guess = detector.detectPitch (storage);
 
 	expectEquals (guess, correctFreq,
-	              "Detected incorrect frequency!");
+                  getFailureMessage (guess, correctFreq));
 }
 
 #endif
