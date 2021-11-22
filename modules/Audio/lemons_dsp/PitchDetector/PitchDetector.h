@@ -18,24 +18,24 @@ public:
 
 	/** Returns the latency in samples of the detection algorithm. */
 	[[nodiscard]] int getLatencySamples() const noexcept;
-    
-    /** Sets the samplerate in Hz of the pitch detector.
-        @return The latency, in samples, of the pitch detection algorithm at the new samplerate.
-        @see getLatencySamples()
-     */
-    int setSamplerate (double newSamplerate);
+
+	/** Sets the samplerate in Hz of the pitch detector.
+	    @return The latency, in samples, of the pitch detection algorithm at the new samplerate.
+	    @see getLatencySamples()
+	 */
+	int setSamplerate (double newSamplerate);
 
 	/** Detects the pitch in Hz for a frame of audio.
 	    This can only be used for one channel at a time. If you need to track the pitch of multiple channels of audio, you need one PitchDetector object for each channel.
-        The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that inputAudio.getNumSamples() is greater than or equal to getLatencySamples().
+	    The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that inputAudio.getNumSamples() is greater than or equal to getLatencySamples().
 	    @return The pitch in Hz for this frame of audio, or 0.f if the frame is unpitched.
 	 */
-    [[nodiscard]] float detectPitch (const AudioBuffer<SampleType>& inputAudio);
+	[[nodiscard]] float detectPitch (const AudioBuffer<SampleType>& inputAudio);
 
 	/** Detects the pitch in Hz for a frame of audio.
 	    @return The pitch in Hz for this frame of audio, or 0.f if the frame is unpitched.
 	 */
-    [[nodiscard]] float detectPitch (const SampleType* inputAudio, int numSamples);
+	[[nodiscard]] float detectPitch (const SampleType* inputAudio, int numSamples);
 
 
 	/** Sets the confidence threshold of the pitch detection algorithm.
@@ -47,19 +47,19 @@ public:
 	void setConfidenceThresh (SampleType newThresh);
 
 	/** Returns a range object representing the current legal range of period values. */
-    [[nodiscard]] juce::Range<int> getCurrentLegalPeriodRange() const;
+	[[nodiscard]] juce::Range<int> getCurrentLegalPeriodRange() const;
 
 private:
-    struct FrameLags
-    {
-        int min, max;
-    };
-    
-    FrameLags getLagsForThisFrame (const SampleType* inputAudio, int numSamples, int halfNumSamples) const;
-    
-    int chooseIdealPeriodCandidate (const SampleType* asdfData,
-                                    int               asdfDataSize,
-                                    int               minIndex);
+	struct FrameLags
+	{
+		int min, max;
+	};
+
+	FrameLags getLagsForThisFrame (const SampleType* inputAudio, int numSamples, int halfNumSamples) const;
+
+	int chooseIdealPeriodCandidate (const SampleType* asdfData,
+	                                int               asdfDataSize,
+	                                int               minIndex);
 
 	const int minHz;
 	const int maxHz;
@@ -95,18 +95,18 @@ private:
 struct PitchDetectorTests : public juce::UnitTest
 {
 public:
-    PitchDetectorTests();
-    
+	PitchDetectorTests();
+
 private:
-    using FloatType = float;
-    
-    void runTest() final;
-    
-    lemons::dsp::osc::Sine<FloatType> osc;
-    
-    juce::AudioBuffer<FloatType> storage;
-    
-    lemons::dsp::PitchDetector<FloatType> detector;
+	using FloatType = float;
+
+	void runTest() final;
+
+	lemons::dsp::osc::Sine<FloatType> osc;
+
+	juce::AudioBuffer<FloatType> storage;
+
+	lemons::dsp::PitchDetector<FloatType> detector;
 };
 
 static PitchDetectorTests test;
