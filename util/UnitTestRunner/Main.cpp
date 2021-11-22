@@ -16,11 +16,6 @@ class ConsoleLogger : public juce::Logger
 //==============================================================================
 struct ConsoleUnitTestRunner : public juce::UnitTestRunner
 {
-    ConsoleUnitTestRunner()
-    {
-        setAssertOnFailure (false);
-    }
-    
     void logMessage (const juce::String& message) final
     {
         juce::Logger::writeToLog (message);

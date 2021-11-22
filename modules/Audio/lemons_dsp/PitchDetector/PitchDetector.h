@@ -4,7 +4,7 @@ namespace lemons::dsp
 {
 /** An ASDF-based pitch detector.
     This pitch detection algorithm works in the time domain to estimate the fundamental frequency of a signal by finding the offset with the highest autocorrelation value -- ie, the period. \n \n
-    This algorithm is intended for use with perfectly monophonic signals, and has been most extensively tested with vocals.
+    This algorithm is intended for use with perfectly monophonic signals, and has been most extensively tested with vocals. The algorithm is based on the YIN paper.
  */
 template <typename SampleType>
 class PitchDetector final
@@ -46,40 +46,19 @@ public:
 	 */
 	void setConfidenceThresh (SampleType newThresh);
 
-	/** Returns a range object representing the current legal range of period values. */
-	[[nodiscard]] juce::Range<int> getCurrentLegalPeriodRange() const;
-
 private:
-	struct FrameLags
-	{
-		int min, max;
-	};
+	inline int absoluteThreshold (int halfNumSamples);
 
-	FrameLags getLagsForThisFrame (const SampleType* inputAudio, int numSamples, int halfNumSamples) const;
-
-	int chooseIdealPeriodCandidate (const SampleType* asdfData,
-	                                int               asdfDataSize,
-	                                int               minIndex);
+	inline float parabolicInterpolation (int periodEstimate, int halfNumSamples);
 
 	const int minHz;
 	const int maxHz;
-	int       minPeriod { 0 }, maxPeriod { 0 };
-
-	int  lastEstimatedPeriod { 0 };
-	bool lastFrameWasPitched { false };
 
 	double samplerate { 0.0 };
 
 	SampleType confidenceThresh { static_cast<SampleType> (0.15) };
 
-	AudioBuffer<SampleType> asdfBuffer { 1, 512 };  // calculated ASDF values will be placed in this buffer
-
-	juce::Array<int>        periodCandidates;
-	juce::Array<int>        candidateDeltas;
-	juce::Array<SampleType> weightedCandidateConfidence;
-
-	AudioBuffer<SampleType>     filteringBuffer { 1, 512 };
-	filters::Filter<SampleType> loCut, hiCut;
+	AudioBuffer<SampleType> yinBuffer { 1, 512 };
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PitchDetector)
 };

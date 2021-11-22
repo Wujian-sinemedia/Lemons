@@ -4,83 +4,6 @@
 
 namespace lemons::dsp
 {
-template <typename SampleType>
-inline int samplesToFirstZeroCrossing (const SampleType* inputAudio, int numSamples)
-{
-#if LEMONS_USE_VDSP
-	unsigned long index          = 0;
-	unsigned long totalcrossings = 0;
-
-	if constexpr (std::is_same_v<SampleType, float>)
-		vDSP_nzcros (inputAudio,
-		             vDSP_Stride (1),
-		             vDSP_Length (1),
-		             &index,
-		             &totalcrossings,
-		             vDSP_Length (numSamples));
-	else
-		vDSP_nzcrosD (inputAudio,
-		              vDSP_Stride (1),
-		              vDSP_Length (1),
-		              &index,
-		              &totalcrossings,
-		              vDSP_Length (numSamples));
-
-	return static_cast<int> (index);
-#else
-	const auto startedPositive = inputAudio[0] > SampleType (0);
-
-	for (int s = 1; s < numSamples; ++s)
-		if (startedPositive != (inputAudio[s] > SampleType (0)))
-			return s;
-
-	return 0;
-#endif
-}
-
-template int samplesToFirstZeroCrossing (const float*, int);
-template int samplesToFirstZeroCrossing (const double*, int);
-
-template <typename SampleType>
-inline void getNextBestPeriodCandidate (juce::Array<int>& candidates, const SampleType* asdfData, int dataSize)
-{
-	int index = -1;
-
-	for (int i = 0; i < dataSize; ++i)
-	{
-		if (! candidates.contains (i))
-		{
-			index = i;
-			break;
-		}
-	}
-
-	if (index == -1) return;
-
-	auto min = asdfData[index];
-
-	for (int i = 0; i < dataSize; ++i)
-	{
-		if (candidates.contains (i)) continue;
-
-		const auto current = asdfData[i];
-
-		if (current < min)
-		{
-			min   = current;
-			index = i;
-		}
-	}
-
-	candidates.add (index);
-}
-
-template void getNextBestPeriodCandidate (juce::Array<int>&, const float*, int);
-template void getNextBestPeriodCandidate (juce::Array<int>&, const double*, int);
-
-static constexpr auto numPeriodCandidatesToTest = 10;
-
-/*-------------------------------------------------------------------------------------*/
 
 template <typename SampleType>
 PitchDetector<SampleType>::PitchDetector (int minFreqHz, int maxFreqHz)
@@ -89,43 +12,6 @@ PitchDetector<SampleType>::PitchDetector (int minFreqHz, int maxFreqHz)
 {
 	jassert (minHz > 0 && maxHz > 0);
 	jassert (maxHz > minHz);
-
-	periodCandidates.ensureStorageAllocated (numPeriodCandidatesToTest);
-	candidateDeltas.ensureStorageAllocated (numPeriodCandidatesToTest);
-	weightedCandidateConfidence.ensureStorageAllocated (numPeriodCandidatesToTest);
-
-	hiCut.prepare();
-	loCut.prepare();
-}
-
-template <typename SampleType>
-typename PitchDetector<SampleType>::FrameLags PitchDetector<SampleType>::getLagsForThisFrame (const SampleType* inputAudio,
-                                                                                              int               numSamples,
-                                                                                              int               halfNumSamples) const
-{
-	// the minPeriod & maxPeriod members define the overall global period range; here, the minLag & maxLag local variables are used to define the period range for this specific frame of audio, if it can be constrained more than the global range based on instantaneous conditions
-
-	FrameLags lags;
-
-	// period cannot be smaller than the # of samples to the first zero crossing
-	lags.min = samplesToFirstZeroCrossing (inputAudio, numSamples);
-	lags.max = halfNumSamples;
-
-	if (lastFrameWasPitched)  // pitch shouldn't halve or double between consecutive voiced frames
-	{
-		lags.min = std::max (lags.min, juce::roundToInt (lastEstimatedPeriod * SampleType (0.5)));
-		lags.max = std::min (lags.max, juce::roundToInt (lastEstimatedPeriod * SampleType (2)));
-	}
-
-	lags.min = std::max (lags.min, minPeriod);
-	lags.max = std::min (lags.max, maxPeriod);
-
-	if (! (lags.max > lags.min))
-		lags.min = std::min (lags.max - 1, minPeriod);
-
-	jassert (lags.max > lags.min);
-
-	return lags;
 }
 
 template <typename SampleType>
@@ -140,135 +26,107 @@ template <typename SampleType>
 {
 	jassert (samplerate > 0);  // pitch detector hasn't been prepared before calling this function!
 
-	jassert (numSamples >= 2 * maxPeriod);  // not enough samples in this frame to do analysis
+	// jassert (numSamples >= 2 * maxPeriod);  // not enough samples in this frame to do analysis
 
 	// TO DO: test if samples are all silent, if so return 0
 
 	const auto halfNumSamples = juce::roundToInt (std::floor (numSamples * 0.5f));
 
-	const auto lags = getLagsForThisFrame (inputAudio, numSamples, halfNumSamples);
+	auto* yinData = yinBuffer.getWritePointer (0);
 
-	auto* reading = filteringBuffer.getWritePointer (0);
+	jassert (yinBuffer.getNumSamples() >= halfNumSamples);
 
-	// copy to filtering buffer
-	vecops::copy (inputAudio, reading, numSamples);
+	vecops::fill (yinData, SampleType (0), halfNumSamples);
 
-	// filter to our min and max possible frequencies
-	loCut.coefs.makeHighPass (samplerate,
-	                          static_cast<SampleType> (math::freqFromPeriod (samplerate, lags.max)));
-
-	hiCut.coefs.makeLowPass (samplerate,
-	                         static_cast<SampleType> (math::freqFromPeriod (samplerate, lags.min)));
-
-	loCut.process (reading, numSamples);
-	hiCut.process (reading, numSamples);
-
-	auto* asdfData = asdfBuffer.getWritePointer (0);
-
-	const auto asdfDataSize = lags.max - lags.min + 1;
-
-	jassert (asdfBuffer.getNumSamples() >= asdfDataSize);
-
-	vecops::fill (asdfData, SampleType (0), asdfDataSize);
-
-	for (int k = lags.min; k <= lags.max; ++k)  // k = lag = period
+	// difference function
+	for (auto tau = 0; tau < halfNumSamples; ++tau)
 	{
-		const auto index = k - lags.min;  // index in asdfBuffer for this datum
-
-		jassert (index >= 0 && index <= asdfDataSize);
-
-		for (int s1 = 0, s2 = halfNumSamples;
-		     s1 < halfNumSamples && s2 < numSamples;
-		     ++s1, ++s2)
+		for (auto i = 0; i < halfNumSamples; ++i)
 		{
-			const auto sample1 = reading[s1] - reading[s1 + k];
-			const auto sample2 = reading[s2 - k] - reading[s2];
-
-			const auto difference = sample1 + sample2;
-
-			asdfData[index] += (difference * difference);
+			const auto delta = inputAudio[i] - inputAudio[i + tau];
+			yinData[tau] += (delta * delta);
 		}
 	}
 
-	vecops::normalize (asdfData, asdfDataSize);
+	yinData[0] = 1;
 
-	int        minIndex           = 0;
-	SampleType greatestConfidence = 0;
-
-	vecops::findMinAndMinIndex (asdfData, asdfDataSize, greatestConfidence, minIndex);
-
-	jassert (minIndex >= 0 && minIndex <= asdfDataSize);
-
-	if (greatestConfidence > confidenceThresh)  // determine if frame is unpitched - not enough periodicity
+	// cumulative mean normalized difference
 	{
-		lastFrameWasPitched = false;
+		SampleType runningSum = 0;
+
+		for (auto tau = 1; tau < halfNumSamples; ++tau)
+		{
+			runningSum += yinData[tau];
+			yinData[tau] *= ((SampleType) tau / runningSum);
+		}
+	}
+
+	const auto periodEstimate = absoluteThreshold (halfNumSamples);
+
+	if (periodEstimate <= 0)
 		return 0.f;
-	}
 
-	if (lastFrameWasPitched)
-		minIndex = chooseIdealPeriodCandidate (asdfData, asdfDataSize, minIndex);
-
-	const auto realPeriod = minIndex + lags.min;
-
-	jassert (realPeriod <= maxPeriod && realPeriod >= minPeriod);
-
-	lastEstimatedPeriod = realPeriod;
-	lastFrameWasPitched = true;
-
-	return math::freqFromPeriod (samplerate, realPeriod);
+	return math::freqFromPeriod (samplerate,
+	                             parabolicInterpolation (periodEstimate, halfNumSamples));
 }
 
-
 template <typename SampleType>
-int PitchDetector<SampleType>::chooseIdealPeriodCandidate (
-    const SampleType* asdfData, int asdfDataSize, int minIndex)
+inline int PitchDetector<SampleType>::absoluteThreshold (int halfNumSamples)
 {
-	periodCandidates.clearQuick();
-	candidateDeltas.clearQuick();
-	weightedCandidateConfidence.clearQuick();
+	const auto* yinData = yinBuffer.getReadPointer (0);
 
-	periodCandidates.add (minIndex);
+	int tau = 2;
 
-	for (int c = 1; c <= numPeriodCandidatesToTest; ++c)
-		getNextBestPeriodCandidate (periodCandidates, asdfData, asdfDataSize);
-
-	if (periodCandidates.size() <= 2)
-		return minIndex;
-
-	// candidate deltas: how far away each period candidate is from the last estimated period
-
-	const auto adding = minPeriod - lastEstimatedPeriod;
-
-	for (auto candidate : periodCandidates)
-		candidateDeltas.add (std::abs (candidate + adding));
-
-	// find the difference between the max & min delta values of the candidates
-	const auto deltaRange = vecops::findRangeOfExtrema (candidateDeltas);
-
-	if (deltaRange < 2)  // prevent dividing by zero in the next step...
-		return minIndex;
-
-	// weight the asdf data based on each candidate's delta value
-	// because higher asdf values represent a lower confidence in that period candidate, we want to artificially increase the asdf data a bit for candidates with higher deltas
-	for (int c = 0; c < periodCandidates.size(); ++c)
+	while (tau < halfNumSamples)
 	{
-		const auto weighted = asdfData[periodCandidates.getUnchecked (c)]
-		                    * (candidateDeltas.getUnchecked (c) / deltaRange);
+		if (yinData[tau] < confidenceThresh)
+		{
+			while (tau + 1 < halfNumSamples && yinData[tau + 1] < yinData[tau])
+			{
+				++tau;
+			}
 
-		weightedCandidateConfidence.add (weighted);
+			break;
+		}
+
+		++tau;
 	}
 
-	// choose the estimated period based on the lowest weighted asdf data value
+	if (tau == halfNumSamples || yinData[tau] >= confidenceThresh)
+		return -1;
 
-	const auto idx = vecops::findIndexOfMinElement (weightedCandidateConfidence);
-
-	return periodCandidates.getUnchecked (idx);
+	return tau;
 }
 
 template <typename SampleType>
-[[nodiscard]] juce::Range<int> PitchDetector<SampleType>::getCurrentLegalPeriodRange() const
+inline float PitchDetector<SampleType>::parabolicInterpolation (int periodEstimate, int halfNumSamples)
 {
-	return { minPeriod, maxPeriod };
+	const auto x0 = periodEstimate < 1 ? periodEstimate : periodEstimate - 1;
+	const auto x2 = periodEstimate + 1 < halfNumSamples ? periodEstimate + 1 : periodEstimate;
+
+	const auto* yinData = yinBuffer.getReadPointer (0);
+
+	if (x0 == periodEstimate)
+	{
+		if (yinData[periodEstimate] <= yinData[x2])
+			return periodEstimate;
+
+		return x2;
+	}
+
+	if (x2 == periodEstimate)
+	{
+		if (yinData[periodEstimate] <= yinData[x0])
+			return periodEstimate;
+
+		return x0;
+	}
+
+	const auto s0 = yinData[x0];
+	const auto s1 = yinData[periodEstimate];
+	const auto s2 = yinData[x2];
+
+	return periodEstimate + (s2 - s0) / (2 * (2 * s1 - s2 - s0));
 }
 
 template <typename SampleType>
@@ -282,35 +140,19 @@ int PitchDetector<SampleType>::setSamplerate (double newSamplerate)
 {
 	jassert (newSamplerate > 0);
 
-	if (lastFrameWasPitched)
-		lastEstimatedPeriod =
-		    juce::roundToInt (newSamplerate / (samplerate / lastEstimatedPeriod));
-
 	samplerate = newSamplerate;
 
-	maxPeriod = juce::roundToInt (samplerate / static_cast<double> (minHz));
-	minPeriod = juce::roundToInt (samplerate / static_cast<double> (maxHz));
+	const auto latency = getLatencySamples();
 
-	if (minPeriod < 1) minPeriod = 1;
+	yinBuffer.setSize (1, latency, true, true, true);
 
-	if (! (maxPeriod > minPeriod)) maxPeriod = minPeriod + 1;
-
-	const auto numOfLagValues = maxPeriod - minPeriod + 1;
-
-	asdfBuffer.setSize (1, numOfLagValues, true, true, true);
-	filteringBuffer.setSize (1, numOfLagValues, true, true, true);
-
-	hiCut.prepare();
-	loCut.prepare();
-
-	return getLatencySamples();
+	return latency;
 }
 
 template <typename SampleType>
 [[nodiscard]] int PitchDetector<SampleType>::getLatencySamples() const noexcept
 {
-	jassert (maxPeriod > 0);
-	return 2 * maxPeriod;
+	return math::periodInSamples (samplerate, minHz) * 2;
 }
 
 template class PitchDetector<float>;
@@ -329,15 +171,6 @@ PitchDetectorTests::PitchDetectorTests()
 {
 }
 
-using juce::String;
-
-inline String getFailureMessage (float guess, float actual)
-{
-    return String("Detected incorrect frequency! Estimated MIDI: ")
-        + String(lemons::math::freqToMidi(guess))
-        + "; Actual MIDI: " + String(lemons::math::freqToMidi(actual));
-}
-
 void PitchDetectorTests::runTest()
 {
 	constexpr auto samplerate = 44100.;
@@ -353,10 +186,13 @@ void PitchDetectorTests::runTest()
 	osc.setFrequency (correctFreq, samplerate);
 	osc.getSamples (storage);
 
-	const auto guess = detector.detectPitch (storage);
+	const auto estFreq = detector.detectPitch (storage);
 
-	expectEquals (guess, correctFreq,
-                  getFailureMessage (guess, correctFreq));
+	// measure success in the MIDI domain
+	const auto origMidi = lemons::math::freqToMidi (correctFreq);
+	const auto estMidi  = lemons::math::freqToMidi (estFreq);
+
+	expectWithinAbsoluteError (estMidi, origMidi, 0.1f);
 }
 
 #endif

@@ -51,7 +51,8 @@ int Analyzer<SampleType>::getLatencySamples() const
 template <typename SampleType>
 int Analyzer<SampleType>::getNextUnpitchedPeriod()
 {
-	return rand.nextInt (pitchDetector.getCurrentLegalPeriodRange());
+	//return rand.nextInt (pitchDetector.getCurrentLegalPeriodRange());
+    return rand.nextInt();
 }
 
 template <typename SampleType>
