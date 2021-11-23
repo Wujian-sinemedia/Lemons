@@ -6,12 +6,11 @@ namespace lemons::dsp
 {
 
 template <typename SampleType>
-PitchDetector<SampleType>::PitchDetector (int minFreqHz, int maxFreqHz)
+PitchDetector<SampleType>::PitchDetector (int minFreqHz, float confidenceThreshold)
     : minHz (minFreqHz)
-    , maxHz (maxFreqHz)
 {
-	jassert (minHz > 0 && maxHz > 0);
-	jassert (maxHz > minHz);
+	jassert (minHz > 0);
+    setConfidenceThresh (confidenceThreshold);
 }
 
 template <typename SampleType>
@@ -26,17 +25,17 @@ template <typename SampleType>
 {
 	jassert (samplerate > 0);  // pitch detector hasn't been prepared before calling this function!
 
-	// jassert (numSamples >= 2 * maxPeriod);  // not enough samples in this frame to do analysis
+	jassert (numSamples >= getLatencySamples());  // not enough samples in this frame to do analysis
 
 	// TO DO: test if samples are all silent, if so return 0
 
 	const auto halfNumSamples = juce::roundToInt (std::floor (numSamples * 0.5f));
 
-	auto* yinData = yinBuffer.getWritePointer (0);
-
 	jassert (yinBuffer.getNumSamples() >= halfNumSamples);
-
-	vecops::fill (yinData, SampleType (0), halfNumSamples);
+    
+    auto* yinData = yinBuffer.getWritePointer (0);
+    
+    vecops::fill (yinData, SampleType (1), halfNumSamples);
 
 	// difference function
 	for (auto tau = 0; tau < halfNumSamples; ++tau)
@@ -48,18 +47,9 @@ template <typename SampleType>
 		}
 	}
 
-	yinData[0] = 1;
+    yinData[0] = SampleType(1);
 
-	// cumulative mean normalized difference
-	{
-		SampleType runningSum = 0;
-
-		for (auto tau = 1; tau < halfNumSamples; ++tau)
-		{
-			runningSum += yinData[tau];
-			yinData[tau] *= ((SampleType) tau / runningSum);
-		}
-	}
+    cumulativeMeanNormalizedDifference (halfNumSamples);
 
 	const auto periodEstimate = absoluteThreshold (halfNumSamples);
 
@@ -71,7 +61,21 @@ template <typename SampleType>
 }
 
 template <typename SampleType>
-inline int PitchDetector<SampleType>::absoluteThreshold (int halfNumSamples)
+inline void PitchDetector<SampleType>::cumulativeMeanNormalizedDifference (int halfNumSamples)
+{
+    auto* yinData = yinBuffer.getWritePointer (0);
+    
+    SampleType runningSum = 0;
+    
+    for (auto tau = 1; tau < halfNumSamples; ++tau)
+    {
+        runningSum += yinData[tau];
+        yinData[tau] *= (static_cast<SampleType>(tau) / runningSum);
+    }
+}
+
+template <typename SampleType>
+inline int PitchDetector<SampleType>::absoluteThreshold (int halfNumSamples) const
 {
 	const auto* yinData = yinBuffer.getReadPointer (0);
 
@@ -99,9 +103,9 @@ inline int PitchDetector<SampleType>::absoluteThreshold (int halfNumSamples)
 }
 
 template <typename SampleType>
-inline float PitchDetector<SampleType>::parabolicInterpolation (int periodEstimate, int halfNumSamples)
+inline float PitchDetector<SampleType>::parabolicInterpolation (int periodEstimate, int halfNumSamples) const
 {
-	const auto x0 = periodEstimate < 1 ? periodEstimate : periodEstimate - 1;
+	const auto x0 = periodEstimate     < 1              ? periodEstimate     : periodEstimate - 1;
 	const auto x2 = periodEstimate + 1 < halfNumSamples ? periodEstimate + 1 : periodEstimate;
 
 	const auto* yinData = yinBuffer.getReadPointer (0);
@@ -126,13 +130,13 @@ inline float PitchDetector<SampleType>::parabolicInterpolation (int periodEstima
 	const auto s1 = yinData[periodEstimate];
 	const auto s2 = yinData[x2];
 
-	return periodEstimate + (s2 - s0) / (2 * (2 * s1 - s2 - s0));
+	return periodEstimate + (s2 - s0) / (2.f * (2.f * s1 - s2 - s0));
 }
 
 template <typename SampleType>
-void PitchDetector<SampleType>::setConfidenceThresh (SampleType newThresh)
+void PitchDetector<SampleType>::setConfidenceThresh (float newThresh)
 {
-	confidenceThresh = newThresh;
+	confidenceThresh = static_cast<SampleType> (newThresh);
 }
 
 template <typename SampleType>

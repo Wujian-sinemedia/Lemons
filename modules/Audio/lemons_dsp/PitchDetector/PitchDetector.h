@@ -2,21 +2,23 @@
 
 namespace lemons::dsp
 {
-/** An ASDF-based pitch detector.
-    This pitch detection algorithm works in the time domain to estimate the fundamental frequency of a signal by finding the offset with the highest autocorrelation value -- ie, the period. \n \n
-    This algorithm is intended for use with perfectly monophonic signals, and has been most extensively tested with vocals. The algorithm is based on the YIN paper.
+/** A pitch detector based on the YIN algorithm.
  */
 template <typename SampleType>
 class PitchDetector final
 {
 public:
-	/** Creates a pitch detector with a detectable frequency range that is constant for the life of the object.
-	    The latency of the algorithm is determined by 2 * the period of the minimum frequency. \n
-	    Therefore, pitch detectors with a higher minimum frequency will have a lower latency.
+	/** Creates a pitch detector with a minimum detectable frequency that is constant for the life of the object.
+	    The latency of the algorithm is determined by 2 * the period of the minimum frequency. Therefore, pitch detectors with a higher minimum frequency will have a lower latency.
+        @param minFreqHz The minimum frequency that this pitch detector will be able to detect. This value will be constant for the life of this object.
+        @param confidenceThreshold The initial YIN confidence threshold for the detector. See the setConfidenceThresh() method for more documentation on this.
+        @see getLatencySamples(), setConfidenceThresh()
 	 */
-	explicit PitchDetector (int minFreqHz = 60, int maxFreqHz = 2500);
+	explicit PitchDetector (int minFreqHz = 60, float confidenceThreshold = 0.15f);
 
-	/** Returns the latency in samples of the detection algorithm. */
+	/** Returns the latency in samples of the detection algorithm.
+        The latency is equal to 2 * the period of the lowest detectable frequency. Therefore, pitch detectors with a higher minimum frequency will have a lower latency.
+     */
 	[[nodiscard]] int getLatencySamples() const noexcept;
 
 	/** Sets the samplerate in Hz of the pitch detector.
@@ -39,24 +41,22 @@ public:
 
 
 	/** Sets the confidence threshold of the pitch detection algorithm.
-	    This is similar to YIN's post-processing ("peak-picking") concepts; this assures a degree of confidence in the rolling average of chosen most-periodic peaks, to attempt to eliminate octave errors and filter out noise from the results.
-	    @param newThresh The amount of periodicity that the most-likely period candidate must have in order for a frame to be determined pitched. \n \n
-	    If the highest autocorrelation value (ie, the greatest amount of periodicity) is below this threshold, the frame will be determined to be unpitched. \n \n
-	    The value should be between 0. and 1., inclusive; 0 means that nothing will be detected as unpitched, and 1 means that only exactly perfect sine waves are detected as pitched.
+	    This value should be between 0 and 1, inclusive, and can be thought of as the amount of aperiodic power tolerable in a signal determined to be pitched. Typical values are between 0.15 and 0.2.
 	 */
-	void setConfidenceThresh (SampleType newThresh);
+	void setConfidenceThresh (float newThresh);
 
 private:
-	inline int absoluteThreshold (int halfNumSamples);
+    inline void cumulativeMeanNormalizedDifference (int halfNumSamples);
+    
+	inline int absoluteThreshold (int halfNumSamples) const;
 
-	inline float parabolicInterpolation (int periodEstimate, int halfNumSamples);
+	inline float parabolicInterpolation (int periodEstimate, int halfNumSamples) const;
 
 	const int minHz;
-	const int maxHz;
 
 	double samplerate { 0.0 };
 
-	SampleType confidenceThresh { static_cast<SampleType> (0.15) };
+	SampleType confidenceThresh { 0.15 };
 
 	AudioBuffer<SampleType> yinBuffer { 1, 512 };
 
