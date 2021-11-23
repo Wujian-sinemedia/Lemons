@@ -196,6 +196,1519 @@
     <namespace>lemons::dsp::filters</namespace>
   </compound>
   <compound kind="file">
+    <name>colors.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/GUI/lemons_gui/utilities/</path>
+    <filename>colors_8h.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::gui</namespace>
+    <namespace>lemons::gui::colors</namespace>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1000greenbeige</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a4698869eb58f95ff49d3b51d95986c2c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1001beige</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a883fc47106524ba47becc229c018734e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1002sandyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a3869902dd864ca287ae4b98f7df122ee</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1003signalyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>abb1dd7a1899b8de537b0029779dcc606</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1004goldenyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aa661d49b112d0115f50a2e7e03062eb3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1005honeyyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>af82c6f2b3a672ecad28c78524edb0843</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1006maizeyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a0258bc516156195d018758f669a3f96a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1007daffodilyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ab13dcad6f02382bb77c5beb81b0afac9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1011brownbeige</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>afbc18a2f645357b481b769fdaab49e36</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1012lemonyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>afac1bd9602ee9953a642cf5264f754de</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1013oysterwhite</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ace219f186bc560618b01fb50a7e87987</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1014ivory</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a95d4152f2459b6312cef54cd7c32e781</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1015lightivory</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ab72a002a6ff2abb45d4f6ed614852268</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1016sulfuryellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aab264f49fab5f0c27c0710964b3dc697</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1017saffronyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a42736c4afceff962d3394629878dda83</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1018zincyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ae148c84c3d64e10cbb7268d819262119</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1019greybeige</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aa6019d3fd1240773e25939692f87240c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1020oliveyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a7738b48c4bfea0999ac75e49cabfb2c5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1021rapeyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a2900cc19895f5b1070bebed59f6e5878</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1023trafficyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a80fffe2789d5fedd0d5dfe78502ebb96</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1024ochreyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ac925207912ed0f0b69fc498ebf9e427b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1026luminousyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a4653a2b91a72acc2994b1456283dba8b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1027curry</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a6c55a38cf7edccdfd635985d93bdecc8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1028melonyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a7f86a063d944e261bbfe73cea9f998ea</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1032broomyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>af52e5009808f2c4e16826507ec6097c4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1033dahliayellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a0e988be35de75b674348b1912721b9fb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1034pastelyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a2e7e811bd80fad6eb088553de963e903</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1035pearlbeige</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aeccd83909f7d0015c7621787138de47e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1036pearlgold</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a88ce435b1c517f6f1a9bdc6e6f9998db</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1037sunyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ab3af2b2e60f7cd568ffe18a7141bc553</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2000yelloworange</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a1962d4d2200293e350e41ff778b7e886</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2001redorange</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a1fe0767658635d8b2e65a302e05c8c71</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2002vermilion</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aa47134055b6e2293b288046691650a79</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2003pastelorange</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a600c83302388bd98630b09ac002c30f2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2004pureorange</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a697001e9adc403389ded6ed19a8e961c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2005luminousorange</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a360a87ae0010718e905a00c6d8d481b3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2007luminousbrightorange</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a718879bfd05643217e1fa8e4fa5110c0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2008brightredorange</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>acfc702e8187cf8063a72eb849494468b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2009trafficorange</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a5eb674473f0b39978e26cc66769ed94b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2010signalorange</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>adbf5b5542d163c76fbbabfcd551d221e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2011deeporange</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>acf8f834a4cf33f555173baa8129e4109</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2012salmonorange</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a63c4aef77718e552951ef75923e052f1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2013pearlorange</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a3791ce3e221d346abaed976dbe0aea72</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2017orange</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a55b6125a6af05861b312d5d8c3dd04cb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3000flamered</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a863ac56373259f50407c0b4d4513dfc7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3001signalred</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a35ffd01f9d060f8f6c02e8e44be8a0f6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3002carminered</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>afad26d93443fbe410d00c349d0e5f61a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3003rubyred</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>afbce647f500937c3b0a357e5791e6b5a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3004purplered</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a95d65b1dd97348fce63bacf854c3d096</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3005winered</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ada41295be1d41e27a9ea55559d7cbba5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3007blackred</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a3a7393296eff48bc2fc3ec5d86b9f96a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3009oxidered</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a14977e8b88a39cb124acdd107f7e6578</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3011brownred</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ae3fb0e6c1dc25380796f282b2cfbed5d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3012beigered</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a1b5d1e3b935ae55acf16b3e2081e9909</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3013tomatored</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a62e6476e1e532f0a40ba1d16825ddaa4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3014antiquepink</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>acbaf24a5a7c51259ba444d4d17bc98b2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3015lightpink</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ab3c551299a468715f0ad7d87d950c3f0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3016coralred</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>afd6aea9217227f15676e65ee89e7769e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3017rose</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a460fc278a955d7fb661000bbb644e490</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3018strawberryred</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a17d9bbf1e4b662c4f4215f0a765f4c58</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3020trafficred</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a86bce22566c9ca7293edd1e17545f7bc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3022salmonpink</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>adc7db2582f47081775418b15f056e8dd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3024luminousred</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a01eb9d2dbe5f6aeec7704455d4288bdf</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3026luminousbrightred</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a2f55c949cc4db490a820ed843e87ef96</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3027raspberryred</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ae7d53e75502eb6cb6beea53b3310164e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3028purered</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aa540289c229abef2d5914b2e819be514</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3031orientred</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a2835b61af68f073f314723bb4f18bcd5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3032pearlrubyred</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ad29055d00951301db5ea240857728cf7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3033pearlpink</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aacaf27c26c90ba6dbe03ee53628e88fb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL4001redlilac</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a83a4835b350bbee82d8ec33a5ba30e9b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL4002redviolet</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ac33bc8b4be4a61f737ab3b053b86db24</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL4003heatherviolet</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ad99180986e88507874522773498cf55b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL4004claretviolet</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a18de1bdf2194a8ce4d4aa9b5d8d4e4b0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL4005bluelilac</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>accce234076e412176bdf5008e9f4505f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL4006trafficpurple</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a3345ef048d0d11d4fc50f5663fd5143f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL4007purpleviolet</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>adc967f4b1de1593128a78ccbfcf2f4bc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL4008signalviolet</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aad0bb9abe019f007f58884220902452c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL4009pastelviolet</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a0589899c85b6f7af553fb3606494282e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL4010telemagenta</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ac78afcc2dd0cfa7dfbe2a9c09270ff75</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL4011pearlviolet</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a03d2551329f1148ec954e0a3dd34a943</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL4012pearlblackberry</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a84f16778f416a31a0d7e46710199e462</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5000violetblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>acc236a3b06d6d911315625b396319a57</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5001greenblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a4233f5ab48367cbd02c446b2385a154e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5002ultramarineblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a3fe9906e5e6d1026cbbc8637b647522f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5003sapphireblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a451226016fca9754a6ca0b0534a27245</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5004blackblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>abd0c703c3e52b5459cb4f354d517619e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5005signalblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a88c4618ca5f4e1f72a4bbc9815687fe4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5007brilliantblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aae948f976d68d9e227fb9b22173d29f5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5008greyblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>afb3276553117c58136d819c46ce6f727</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5009azureblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a2eef949496ff3bae5d58294264428238</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5010gentianblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ac6b348619b34bc8f088ecbfa8c21637f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5011steelblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a66ec2abec90318e45a533cf848f2e686</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5012lightblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a8ac4424305892efcc2ecfe6c5163519e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5013cobaltblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a2bf52a32aecfee04f5e435d1bcfd2e03</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5014pigeonblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a2e3b4d7536d11852af54caef86ee377a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5015skyblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ab362d0e7becc731e183a843a226a35b5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5017trafficblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a0da4c332e1483911b877e3a304b6aac4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5018turquoiseblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ad8442f2fc8bd624a56cd52d5ff7e4de7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5019capriblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a78937492acd320930df44cd642c06696</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5020oceanblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ad6091b27c222040a832a2e552facbefe</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5021waterblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a2a3fd45374a93f533af718000f4aa8d2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5022nightblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a5299c5602e9f1409f43f9a8657e85900</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5023distantblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>af5e4bf1d2a7a7d7873086f983b934cee</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5024pastelblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aae01f8428cf1b2282aae5dff26629de8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5025pearlgentianblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ac589c3158c47e2e5c35e6a43de694eae</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5026pearlnightblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aa257f6e3b66f5d8a137715f77f58ccc8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6000patinagreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aca4fce9f4187306e7cb33067c700e43e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6001emeraldgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a5369058cc95105384fbc9cdf506badad</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6002leafgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aba539ac06b1eee6ce370dd442684be27</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6003olivegreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>adae8f82d29df1492f8d93c27d5ac18d7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6004bluegreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ade816101b3d82ddcb650e892c2ae53a8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6005mossgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a01bd1b6118d1ef5f539026bc31e26566</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6006greyolive</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ab3cbc719f528cd6999b39504738cf99e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6007bottlegreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a54d2608e1c777c13a0e648058cc7e310</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6008browngreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a7492355e5f2247a16654128a8200f111</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6009firgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a84abb5697a63c041c36dc09ef6913f27</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6010grassgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ad19d706777bc77884741e6c789b162e5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6011resedagreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a17b69b3db1976cfbb291e5b9d7fe4db4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6012blackgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a94e48f99c0ab7f8c7306af66b5cd0380</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6013reedgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a941a5aa885c3d212742056e993944ee2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6014yellowolive</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ada0b4cd2cffd8683bbd21596bbe32718</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6015blackolive</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aef7e552f11145b2b98ac69e0bf029050</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6016turquoisegreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a9856aec85da58bc66f58368219f58330</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6017maygreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>abf52351d3b693e669117e94f08c130f9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6018yellowgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ab23f5347886e93859101412c7293debd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6019pastelgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a417454ad158936c693bb4230f58cab18</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6020chromegreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ae84ab91fa3bd743f5effba51e0adc35f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6021palegreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>abe4670361a1382705afbc7475ed11146</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6022brownolive</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a3b745eaa6fa6da0a92c34ec294a2a884</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6024trafficgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a0646c226998d2ece6c7c8389ce87180b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6025ferngreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aa7c87011e8765edad4fc441ea22595ff</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6026opalgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aab9df7b1b69f3fe000169fea883c0747</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6027lightgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>af3cd52e3cc79507be3e9432453c41723</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6028pinegreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ab95af2977bb027bed7dd35dfb443c8ee</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6029mintgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a15b954ded448789690c9c67d9cc28d2f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6032signalgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a56683652d480623c52ebe0c372f74a55</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6033mintturquoise</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a0e21a0ae0d55984c67bf6d195a4429ad</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6034pastelturquoise</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a043796499a30aea6564400d022ed9cb5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6035pearlgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a2a7c16b12a52bd482813bf032b4f79ae</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6036pearlopalgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a22ff77f17d32282216b35785fb0e0c96</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6037puregreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a673d20e21ccaee884ec16127d75c0a3d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6038luminousgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a3d8c1ed8beca62ab02c05e38e6bf4e26</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7000squirrelgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a26dc56b97391e29103a717ed46cde701</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7001silvergrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a5cd8e60d87830e58625e2dd68f960a39</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7002olivegrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a20ebe48cb03d7d3b55f0417fd7e73889</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7003mossgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a38f2702a979646ebba351764f7d1e70b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7004signalgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a357f9757ee8745000b37ed2872786a83</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7005mousegrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ac2b288d2e2584e335ada77f81ce6990a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7006beigegrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a9d5bfb94997f1cc6c5c2c83122bea5da</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7008khakigrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a3a3f827752a7ddbfedcb4019540b72a5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7009greengrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a8edc575cf6bb7cb71774ac17ebc37afa</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7010tarpaulingrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ac125a77922e665b2bf00295675602234</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7011irongrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a11e12211481276a3a47487a0040b7e7f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7012basaltgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ab33e4b5d092ab359c903ea54f223ee38</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7013browngrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a5e3ff5e31a7f55ba696e5c9b34ecfc68</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7015slategrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ad69121d8f3e2a0161353c0341b36e7bc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7016anthracitegrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a1ca28bead552798663ee3019036a6c85</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7021blackgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a681d0ee04b1ec2172a1e472c148fa2dc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7022umbragrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a59be5e8fe93bd32524a493e2ef34a496</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7023concretegrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a2a0ac06c7ea169cd3be068a360348f9d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7024graphitegrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a470cd434c40b60406264dfefe1b13485</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7026granitegrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ab63bacd822d705b687e948485a7e2562</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7030stonegrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ad5046034dbd6603db41db8c36f1da309</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7031bluegrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ae20d2b2a63ec9ce4cb84b6cdae381920</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7032pebblegrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aa7c43c2eb5cf5361ac1470483b9bdece</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7033cementgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a95dbe48a93880b46fb0b97ca017785b9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7034yellowgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>abc6fa5263def0ea688b0314b216ff50a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7035lightgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a5afa88c8a45edd3ebc005037b12a3025</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7036platinumgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ae2242b01a384c9a51aecf8d067002c50</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7037dustygrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a4a1ab4758051127b4c34afae4c0b60d7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7038agategrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>af49d2582b9bb323af00a3821bcaeef41</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7039quartzgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a5b31e946636be7ca1e471876ad0f8eb9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7040windowgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a8b3e184ef808bd4004482c8d7ed48059</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7042trafficgreya</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aea7b828c846e741a687f378d854cd2be</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7043trafficgreyb</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a5f8868caa03275ffbd692c5cc8b8fca4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7044silkgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a9da3866b4a35b3a57e025d4c30c4796e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7045telegrey1</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>af6716bfa5458192b0393174a80656824</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7046telegrey2</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a67dffa086efbcad5a49dc4000048b0db</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7047telegrey4</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aaad027e5b31f7ca23e0d081f89842dc0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7048pearlmousegrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ad9e01e863d84381253c2c15effd27c21</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8000greenbrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ad2ed88dd6546928d76b06102c2ef776b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8001ochrebrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a59e39eada6398fc75a4e171ccc91b8f7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8002signalbrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aaed14c71c29d061a45940b86ed9a2f4c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8003claybrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a42746958d492c99b8fdf7b44a15f2c56</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8004copperbrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a7243057c129e40ed996d47b9cad0a23c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8007fawnbrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a9e525f398eb6fd0ebcf1727668b60079</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8008olivebrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a7d0bf6ee28a6bafab0a1165fc82c611e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8011nutbrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a7f1e71bb9c3024f1218c6aba7b197e98</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8012redbrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>af4f0746e91722123b13dd3d01950c878</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8014sepiabrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aeba734da6ac8fb39741b96dd6f7edcaa</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8015chestnutbrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aee1543a12cbfb3d072411d1c65c66ec2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8016mahoganybrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a980b9d6febdc4067ede16e291d891f4a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8017chocolatebrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a121e759a81ea92aefc18bc70335da5c0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8019greybrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a0278f361806220b90eae655b395bc248</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8022blackbrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a8f635d4718c7dae058bd02e37a310777</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8023orangebrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a9b19ff6aeaf7403c64795c0f63cbb541</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8024beigebrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aea94e32258e9ac0aed91dd52b73ecba6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8025palebrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a153239cebde4eec35d84b28eaa4a617e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8028terrabrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ae90084d404436ef40e56ae9611d6613a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8029pearlcopper</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>acea8b5a8938946451875e579effcbec5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9001cream</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a39fd3cda1f21fee449afa59509691e4e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9002greywhite</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a274f66c9cbe0c78bc8efb3deabe38fd0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9003signalwhite</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ab26d8c3aca60beac680d6fdac1143d10</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9004signalblack</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aa79d0d700ffaa1a7cef12c09284dd373</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9005jetblack</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a841add61b053ccf2f554f989fcb067a7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9006whitealuminium</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a5edac754198d24b887d27510a9c3729a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9007greyaluminium</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a9e0bdb5b40fb38e9e81b7db2d5ff13fd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9010purewhite</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a635e64cfb917cea160d459c49e75e61e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9011graphiteblack</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ac5f7639667466f9983464aeb48780801</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9012cleanroomwhite</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a120eb8671428188dc220dc2e4b0099a1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9016trafficwhite</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ab659c0e3b02122316655ed68edb7a3b0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9017trafficblack</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a6200d1ef2b1d0a0a1b6b49cdb316ff6c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9018papyruswhite</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>abf1fabf2165962d1e755c955ac104b83</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9022pearllightgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aece3dae4a18cf96c43870ec00d62596f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9023pearldarkgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aecad9b637bf86554214237e95575da02</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>Common.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/GUI/lemons_spline/common/</path>
     <filename>_common_8h.html</filename>
@@ -12631,8 +14144,8 @@
       <type></type>
       <name>PitchDetector</name>
       <anchorfile>classlemons_1_1dsp_1_1_pitch_detector.html</anchorfile>
-      <anchor>a7dd41f793247dbcb1f9a23834762ec3c</anchor>
-      <arglist>(int minFreqHz=60, int maxFreqHz=2500)</arglist>
+      <anchor>a073346df5f799b33a1a9e45dea3e82fb</anchor>
+      <arglist>(int minFreqHz=60, float confidenceThreshold=0.15f)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
@@ -12649,13 +14162,6 @@
       <arglist>(const SampleType *inputAudio, int numSamples)</arglist>
     </member>
     <member kind="function">
-      <type>juce::Range&lt; int &gt;</type>
-      <name>getCurrentLegalPeriodRange</name>
-      <anchorfile>classlemons_1_1dsp_1_1_pitch_detector.html</anchorfile>
-      <anchor>acfcf1e50297d305807d842ecde5f7f4a</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
       <type>int</type>
       <name>getLatencySamples</name>
       <anchorfile>classlemons_1_1dsp_1_1_pitch_detector.html</anchorfile>
@@ -12666,8 +14172,8 @@
       <type>void</type>
       <name>setConfidenceThresh</name>
       <anchorfile>classlemons_1_1dsp_1_1_pitch_detector.html</anchorfile>
-      <anchor>a21efffea02b46c2b606b7b4a8a2f07e5</anchor>
-      <arglist>(SampleType newThresh)</arglist>
+      <anchor>a35598ca4059d5e193b4c22769e1ee5fc</anchor>
+      <arglist>(float newThresh)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
@@ -17773,6 +19279,7 @@
   <compound kind="namespace">
     <name>lemons::gui</name>
     <filename>namespacelemons_1_1gui.html</filename>
+    <namespace>lemons::gui::colors</namespace>
     <class kind="class">lemons::gui::FloatSlider</class>
     <class kind="struct">lemons::gui::ImageButton</class>
     <class kind="class">lemons::gui::IntSlider</class>
@@ -17785,6 +19292,1515 @@
     <class kind="struct">lemons::gui::TextButton</class>
     <class kind="class">lemons::gui::ToggleButton</class>
     <class kind="struct">lemons::gui::ToggleTextButton</class>
+  </compound>
+  <compound kind="namespace">
+    <name>lemons::gui::colors</name>
+    <filename>namespacelemons_1_1gui_1_1colors.html</filename>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1000greenbeige</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a4698869eb58f95ff49d3b51d95986c2c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1001beige</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a883fc47106524ba47becc229c018734e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1002sandyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a3869902dd864ca287ae4b98f7df122ee</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1003signalyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>abb1dd7a1899b8de537b0029779dcc606</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1004goldenyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aa661d49b112d0115f50a2e7e03062eb3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1005honeyyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>af82c6f2b3a672ecad28c78524edb0843</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1006maizeyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a0258bc516156195d018758f669a3f96a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1007daffodilyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ab13dcad6f02382bb77c5beb81b0afac9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1011brownbeige</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>afbc18a2f645357b481b769fdaab49e36</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1012lemonyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>afac1bd9602ee9953a642cf5264f754de</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1013oysterwhite</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ace219f186bc560618b01fb50a7e87987</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1014ivory</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a95d4152f2459b6312cef54cd7c32e781</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1015lightivory</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ab72a002a6ff2abb45d4f6ed614852268</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1016sulfuryellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aab264f49fab5f0c27c0710964b3dc697</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1017saffronyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a42736c4afceff962d3394629878dda83</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1018zincyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ae148c84c3d64e10cbb7268d819262119</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1019greybeige</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aa6019d3fd1240773e25939692f87240c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1020oliveyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a7738b48c4bfea0999ac75e49cabfb2c5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1021rapeyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a2900cc19895f5b1070bebed59f6e5878</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1023trafficyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a80fffe2789d5fedd0d5dfe78502ebb96</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1024ochreyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ac925207912ed0f0b69fc498ebf9e427b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1026luminousyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a4653a2b91a72acc2994b1456283dba8b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1027curry</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a6c55a38cf7edccdfd635985d93bdecc8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1028melonyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a7f86a063d944e261bbfe73cea9f998ea</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1032broomyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>af52e5009808f2c4e16826507ec6097c4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1033dahliayellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a0e988be35de75b674348b1912721b9fb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1034pastelyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a2e7e811bd80fad6eb088553de963e903</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1035pearlbeige</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aeccd83909f7d0015c7621787138de47e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1036pearlgold</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a88ce435b1c517f6f1a9bdc6e6f9998db</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL1037sunyellow</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ab3af2b2e60f7cd568ffe18a7141bc553</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2000yelloworange</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a1962d4d2200293e350e41ff778b7e886</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2001redorange</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a1fe0767658635d8b2e65a302e05c8c71</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2002vermilion</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aa47134055b6e2293b288046691650a79</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2003pastelorange</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a600c83302388bd98630b09ac002c30f2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2004pureorange</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a697001e9adc403389ded6ed19a8e961c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2005luminousorange</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a360a87ae0010718e905a00c6d8d481b3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2007luminousbrightorange</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a718879bfd05643217e1fa8e4fa5110c0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2008brightredorange</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>acfc702e8187cf8063a72eb849494468b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2009trafficorange</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a5eb674473f0b39978e26cc66769ed94b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2010signalorange</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>adbf5b5542d163c76fbbabfcd551d221e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2011deeporange</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>acf8f834a4cf33f555173baa8129e4109</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2012salmonorange</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a63c4aef77718e552951ef75923e052f1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2013pearlorange</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a3791ce3e221d346abaed976dbe0aea72</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL2017orange</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a55b6125a6af05861b312d5d8c3dd04cb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3000flamered</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a863ac56373259f50407c0b4d4513dfc7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3001signalred</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a35ffd01f9d060f8f6c02e8e44be8a0f6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3002carminered</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>afad26d93443fbe410d00c349d0e5f61a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3003rubyred</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>afbce647f500937c3b0a357e5791e6b5a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3004purplered</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a95d65b1dd97348fce63bacf854c3d096</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3005winered</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ada41295be1d41e27a9ea55559d7cbba5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3007blackred</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a3a7393296eff48bc2fc3ec5d86b9f96a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3009oxidered</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a14977e8b88a39cb124acdd107f7e6578</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3011brownred</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ae3fb0e6c1dc25380796f282b2cfbed5d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3012beigered</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a1b5d1e3b935ae55acf16b3e2081e9909</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3013tomatored</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a62e6476e1e532f0a40ba1d16825ddaa4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3014antiquepink</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>acbaf24a5a7c51259ba444d4d17bc98b2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3015lightpink</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ab3c551299a468715f0ad7d87d950c3f0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3016coralred</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>afd6aea9217227f15676e65ee89e7769e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3017rose</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a460fc278a955d7fb661000bbb644e490</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3018strawberryred</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a17d9bbf1e4b662c4f4215f0a765f4c58</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3020trafficred</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a86bce22566c9ca7293edd1e17545f7bc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3022salmonpink</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>adc7db2582f47081775418b15f056e8dd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3024luminousred</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a01eb9d2dbe5f6aeec7704455d4288bdf</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3026luminousbrightred</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a2f55c949cc4db490a820ed843e87ef96</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3027raspberryred</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ae7d53e75502eb6cb6beea53b3310164e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3028purered</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aa540289c229abef2d5914b2e819be514</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3031orientred</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a2835b61af68f073f314723bb4f18bcd5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3032pearlrubyred</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ad29055d00951301db5ea240857728cf7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL3033pearlpink</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aacaf27c26c90ba6dbe03ee53628e88fb</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL4001redlilac</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a83a4835b350bbee82d8ec33a5ba30e9b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL4002redviolet</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ac33bc8b4be4a61f737ab3b053b86db24</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL4003heatherviolet</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ad99180986e88507874522773498cf55b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL4004claretviolet</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a18de1bdf2194a8ce4d4aa9b5d8d4e4b0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL4005bluelilac</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>accce234076e412176bdf5008e9f4505f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL4006trafficpurple</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a3345ef048d0d11d4fc50f5663fd5143f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL4007purpleviolet</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>adc967f4b1de1593128a78ccbfcf2f4bc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL4008signalviolet</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aad0bb9abe019f007f58884220902452c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL4009pastelviolet</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a0589899c85b6f7af553fb3606494282e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL4010telemagenta</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ac78afcc2dd0cfa7dfbe2a9c09270ff75</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL4011pearlviolet</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a03d2551329f1148ec954e0a3dd34a943</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL4012pearlblackberry</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a84f16778f416a31a0d7e46710199e462</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5000violetblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>acc236a3b06d6d911315625b396319a57</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5001greenblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a4233f5ab48367cbd02c446b2385a154e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5002ultramarineblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a3fe9906e5e6d1026cbbc8637b647522f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5003sapphireblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a451226016fca9754a6ca0b0534a27245</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5004blackblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>abd0c703c3e52b5459cb4f354d517619e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5005signalblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a88c4618ca5f4e1f72a4bbc9815687fe4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5007brilliantblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aae948f976d68d9e227fb9b22173d29f5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5008greyblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>afb3276553117c58136d819c46ce6f727</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5009azureblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a2eef949496ff3bae5d58294264428238</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5010gentianblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ac6b348619b34bc8f088ecbfa8c21637f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5011steelblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a66ec2abec90318e45a533cf848f2e686</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5012lightblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a8ac4424305892efcc2ecfe6c5163519e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5013cobaltblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a2bf52a32aecfee04f5e435d1bcfd2e03</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5014pigeonblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a2e3b4d7536d11852af54caef86ee377a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5015skyblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ab362d0e7becc731e183a843a226a35b5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5017trafficblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a0da4c332e1483911b877e3a304b6aac4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5018turquoiseblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ad8442f2fc8bd624a56cd52d5ff7e4de7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5019capriblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a78937492acd320930df44cd642c06696</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5020oceanblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ad6091b27c222040a832a2e552facbefe</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5021waterblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a2a3fd45374a93f533af718000f4aa8d2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5022nightblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a5299c5602e9f1409f43f9a8657e85900</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5023distantblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>af5e4bf1d2a7a7d7873086f983b934cee</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5024pastelblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aae01f8428cf1b2282aae5dff26629de8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5025pearlgentianblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ac589c3158c47e2e5c35e6a43de694eae</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL5026pearlnightblue</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aa257f6e3b66f5d8a137715f77f58ccc8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6000patinagreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aca4fce9f4187306e7cb33067c700e43e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6001emeraldgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a5369058cc95105384fbc9cdf506badad</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6002leafgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aba539ac06b1eee6ce370dd442684be27</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6003olivegreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>adae8f82d29df1492f8d93c27d5ac18d7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6004bluegreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ade816101b3d82ddcb650e892c2ae53a8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6005mossgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a01bd1b6118d1ef5f539026bc31e26566</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6006greyolive</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ab3cbc719f528cd6999b39504738cf99e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6007bottlegreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a54d2608e1c777c13a0e648058cc7e310</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6008browngreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a7492355e5f2247a16654128a8200f111</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6009firgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a84abb5697a63c041c36dc09ef6913f27</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6010grassgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ad19d706777bc77884741e6c789b162e5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6011resedagreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a17b69b3db1976cfbb291e5b9d7fe4db4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6012blackgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a94e48f99c0ab7f8c7306af66b5cd0380</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6013reedgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a941a5aa885c3d212742056e993944ee2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6014yellowolive</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ada0b4cd2cffd8683bbd21596bbe32718</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6015blackolive</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aef7e552f11145b2b98ac69e0bf029050</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6016turquoisegreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a9856aec85da58bc66f58368219f58330</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6017maygreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>abf52351d3b693e669117e94f08c130f9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6018yellowgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ab23f5347886e93859101412c7293debd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6019pastelgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a417454ad158936c693bb4230f58cab18</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6020chromegreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ae84ab91fa3bd743f5effba51e0adc35f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6021palegreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>abe4670361a1382705afbc7475ed11146</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6022brownolive</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a3b745eaa6fa6da0a92c34ec294a2a884</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6024trafficgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a0646c226998d2ece6c7c8389ce87180b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6025ferngreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aa7c87011e8765edad4fc441ea22595ff</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6026opalgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aab9df7b1b69f3fe000169fea883c0747</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6027lightgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>af3cd52e3cc79507be3e9432453c41723</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6028pinegreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ab95af2977bb027bed7dd35dfb443c8ee</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6029mintgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a15b954ded448789690c9c67d9cc28d2f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6032signalgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a56683652d480623c52ebe0c372f74a55</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6033mintturquoise</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a0e21a0ae0d55984c67bf6d195a4429ad</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6034pastelturquoise</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a043796499a30aea6564400d022ed9cb5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6035pearlgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a2a7c16b12a52bd482813bf032b4f79ae</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6036pearlopalgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a22ff77f17d32282216b35785fb0e0c96</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6037puregreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a673d20e21ccaee884ec16127d75c0a3d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL6038luminousgreen</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a3d8c1ed8beca62ab02c05e38e6bf4e26</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7000squirrelgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a26dc56b97391e29103a717ed46cde701</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7001silvergrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a5cd8e60d87830e58625e2dd68f960a39</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7002olivegrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a20ebe48cb03d7d3b55f0417fd7e73889</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7003mossgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a38f2702a979646ebba351764f7d1e70b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7004signalgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a357f9757ee8745000b37ed2872786a83</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7005mousegrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ac2b288d2e2584e335ada77f81ce6990a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7006beigegrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a9d5bfb94997f1cc6c5c2c83122bea5da</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7008khakigrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a3a3f827752a7ddbfedcb4019540b72a5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7009greengrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a8edc575cf6bb7cb71774ac17ebc37afa</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7010tarpaulingrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ac125a77922e665b2bf00295675602234</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7011irongrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a11e12211481276a3a47487a0040b7e7f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7012basaltgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ab33e4b5d092ab359c903ea54f223ee38</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7013browngrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a5e3ff5e31a7f55ba696e5c9b34ecfc68</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7015slategrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ad69121d8f3e2a0161353c0341b36e7bc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7016anthracitegrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a1ca28bead552798663ee3019036a6c85</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7021blackgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a681d0ee04b1ec2172a1e472c148fa2dc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7022umbragrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a59be5e8fe93bd32524a493e2ef34a496</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7023concretegrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a2a0ac06c7ea169cd3be068a360348f9d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7024graphitegrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a470cd434c40b60406264dfefe1b13485</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7026granitegrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ab63bacd822d705b687e948485a7e2562</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7030stonegrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ad5046034dbd6603db41db8c36f1da309</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7031bluegrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ae20d2b2a63ec9ce4cb84b6cdae381920</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7032pebblegrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aa7c43c2eb5cf5361ac1470483b9bdece</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7033cementgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a95dbe48a93880b46fb0b97ca017785b9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7034yellowgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>abc6fa5263def0ea688b0314b216ff50a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7035lightgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a5afa88c8a45edd3ebc005037b12a3025</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7036platinumgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ae2242b01a384c9a51aecf8d067002c50</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7037dustygrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a4a1ab4758051127b4c34afae4c0b60d7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7038agategrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>af49d2582b9bb323af00a3821bcaeef41</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7039quartzgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a5b31e946636be7ca1e471876ad0f8eb9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7040windowgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a8b3e184ef808bd4004482c8d7ed48059</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7042trafficgreya</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aea7b828c846e741a687f378d854cd2be</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7043trafficgreyb</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a5f8868caa03275ffbd692c5cc8b8fca4</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7044silkgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a9da3866b4a35b3a57e025d4c30c4796e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7045telegrey1</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>af6716bfa5458192b0393174a80656824</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7046telegrey2</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a67dffa086efbcad5a49dc4000048b0db</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7047telegrey4</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aaad027e5b31f7ca23e0d081f89842dc0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL7048pearlmousegrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ad9e01e863d84381253c2c15effd27c21</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8000greenbrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ad2ed88dd6546928d76b06102c2ef776b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8001ochrebrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a59e39eada6398fc75a4e171ccc91b8f7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8002signalbrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aaed14c71c29d061a45940b86ed9a2f4c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8003claybrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a42746958d492c99b8fdf7b44a15f2c56</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8004copperbrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a7243057c129e40ed996d47b9cad0a23c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8007fawnbrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a9e525f398eb6fd0ebcf1727668b60079</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8008olivebrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a7d0bf6ee28a6bafab0a1165fc82c611e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8011nutbrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a7f1e71bb9c3024f1218c6aba7b197e98</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8012redbrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>af4f0746e91722123b13dd3d01950c878</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8014sepiabrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aeba734da6ac8fb39741b96dd6f7edcaa</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8015chestnutbrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aee1543a12cbfb3d072411d1c65c66ec2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8016mahoganybrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a980b9d6febdc4067ede16e291d891f4a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8017chocolatebrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a121e759a81ea92aefc18bc70335da5c0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8019greybrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a0278f361806220b90eae655b395bc248</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8022blackbrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a8f635d4718c7dae058bd02e37a310777</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8023orangebrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a9b19ff6aeaf7403c64795c0f63cbb541</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8024beigebrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aea94e32258e9ac0aed91dd52b73ecba6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8025palebrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a153239cebde4eec35d84b28eaa4a617e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8028terrabrown</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ae90084d404436ef40e56ae9611d6613a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL8029pearlcopper</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>acea8b5a8938946451875e579effcbec5</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9001cream</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a39fd3cda1f21fee449afa59509691e4e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9002greywhite</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a274f66c9cbe0c78bc8efb3deabe38fd0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9003signalwhite</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ab26d8c3aca60beac680d6fdac1143d10</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9004signalblack</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aa79d0d700ffaa1a7cef12c09284dd373</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9005jetblack</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a841add61b053ccf2f554f989fcb067a7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9006whitealuminium</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a5edac754198d24b887d27510a9c3729a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9007greyaluminium</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a9e0bdb5b40fb38e9e81b7db2d5ff13fd</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9010purewhite</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a635e64cfb917cea160d459c49e75e61e</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9011graphiteblack</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ac5f7639667466f9983464aeb48780801</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9012cleanroomwhite</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a120eb8671428188dc220dc2e4b0099a1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9016trafficwhite</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>ab659c0e3b02122316655ed68edb7a3b0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9017trafficblack</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>a6200d1ef2b1d0a0a1b6b49cdb316ff6c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9018papyruswhite</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>abf1fabf2165962d1e755c955ac104b83</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9022pearllightgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aece3dae4a18cf96c43870ec00d62596f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::Colour</type>
+      <name>RAL9023pearldarkgrey</name>
+      <anchorfile>namespacelemons_1_1gui_1_1colors.html</anchorfile>
+      <anchor>aecad9b637bf86554214237e95575da02</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="namespace">
     <name>lemons::math</name>
@@ -18966,6 +21982,7 @@
     <filename>group__utilities.html</filename>
     <namespace>lemons</namespace>
     <namespace>lemons::gui</namespace>
+    <namespace>lemons::gui::colors</namespace>
     <namespace>lemons::midi</namespace>
     <class kind="class">lemons::midi::MidiFIFO</class>
     <class kind="class">lemons::midi::MidiKeyboardState</class>

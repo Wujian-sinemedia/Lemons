@@ -75,29 +75,26 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>An ASDF-based pitch detector.  
+<p>A pitch detector based on the YIN algorithm.  
  <a href="classlemons_1_1dsp_1_1_pitch_detector.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7dd41f793247dbcb1f9a23834762ec3c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_pitch_detector.html#a7dd41f793247dbcb1f9a23834762ec3c">PitchDetector</a> (int minFreqHz=60, int maxFreqHz=2500)</td></tr>
-<tr class="memdesc:a7dd41f793247dbcb1f9a23834762ec3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a pitch detector with a detectable frequency range that is constant for the life of the object.  <a href="classlemons_1_1dsp_1_1_pitch_detector.html#a7dd41f793247dbcb1f9a23834762ec3c">More...</a><br /></td></tr>
-<tr class="separator:a7dd41f793247dbcb1f9a23834762ec3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a073346df5f799b33a1a9e45dea3e82fb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_pitch_detector.html#a073346df5f799b33a1a9e45dea3e82fb">PitchDetector</a> (int minFreqHz=60, float confidenceThreshold=0.15f)</td></tr>
+<tr class="memdesc:a073346df5f799b33a1a9e45dea3e82fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a pitch detector with a minimum detectable frequency that is constant for the life of the object.  <a href="classlemons_1_1dsp_1_1_pitch_detector.html#a073346df5f799b33a1a9e45dea3e82fb">More...</a><br /></td></tr>
+<tr class="separator:a073346df5f799b33a1a9e45dea3e82fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb22af48c499eaec4a2242c822a6c68e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_pitch_detector.html#afb22af48c499eaec4a2242c822a6c68e">detectPitch</a> (const <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;inputAudio)</td></tr>
 <tr class="memdesc:afb22af48c499eaec4a2242c822a6c68e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detects the pitch in Hz for a frame of audio.  <a href="classlemons_1_1dsp_1_1_pitch_detector.html#afb22af48c499eaec4a2242c822a6c68e">More...</a><br /></td></tr>
 <tr class="separator:afb22af48c499eaec4a2242c822a6c68e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8af34401237e6d01ef0034d33fc3cb9a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_pitch_detector.html#a8af34401237e6d01ef0034d33fc3cb9a">detectPitch</a> (const SampleType *inputAudio, int numSamples)</td></tr>
 <tr class="memdesc:a8af34401237e6d01ef0034d33fc3cb9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detects the pitch in Hz for a frame of audio.  <a href="classlemons_1_1dsp_1_1_pitch_detector.html#a8af34401237e6d01ef0034d33fc3cb9a">More...</a><br /></td></tr>
 <tr class="separator:a8af34401237e6d01ef0034d33fc3cb9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfcf1e50297d305807d842ecde5f7f4a"><td class="memItemLeft" align="right" valign="top">juce::Range&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_pitch_detector.html#acfcf1e50297d305807d842ecde5f7f4a">getCurrentLegalPeriodRange</a> () const</td></tr>
-<tr class="memdesc:acfcf1e50297d305807d842ecde5f7f4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a range object representing the current legal range of period values.  <a href="classlemons_1_1dsp_1_1_pitch_detector.html#acfcf1e50297d305807d842ecde5f7f4a">More...</a><br /></td></tr>
-<tr class="separator:acfcf1e50297d305807d842ecde5f7f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83fe88a56a998eefee329ccaa5b3c48d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_pitch_detector.html#a83fe88a56a998eefee329ccaa5b3c48d">getLatencySamples</a> () const noexcept</td></tr>
 <tr class="memdesc:a83fe88a56a998eefee329ccaa5b3c48d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the latency in samples of the detection algorithm.  <a href="classlemons_1_1dsp_1_1_pitch_detector.html#a83fe88a56a998eefee329ccaa5b3c48d">More...</a><br /></td></tr>
 <tr class="separator:a83fe88a56a998eefee329ccaa5b3c48d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21efffea02b46c2b606b7b4a8a2f07e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_pitch_detector.html#a21efffea02b46c2b606b7b4a8a2f07e5">setConfidenceThresh</a> (SampleType newThresh)</td></tr>
-<tr class="memdesc:a21efffea02b46c2b606b7b4a8a2f07e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the confidence threshold of the pitch detection algorithm.  <a href="classlemons_1_1dsp_1_1_pitch_detector.html#a21efffea02b46c2b606b7b4a8a2f07e5">More...</a><br /></td></tr>
-<tr class="separator:a21efffea02b46c2b606b7b4a8a2f07e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35598ca4059d5e193b4c22769e1ee5fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_pitch_detector.html#a35598ca4059d5e193b4c22769e1ee5fc">setConfidenceThresh</a> (float newThresh)</td></tr>
+<tr class="memdesc:a35598ca4059d5e193b4c22769e1ee5fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the confidence threshold of the pitch detection algorithm.  <a href="classlemons_1_1dsp_1_1_pitch_detector.html#a35598ca4059d5e193b4c22769e1ee5fc">More...</a><br /></td></tr>
+<tr class="separator:a35598ca4059d5e193b4c22769e1ee5fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0fa76e7633d37065ec8f43bc14a0a30b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_pitch_detector.html#a0fa76e7633d37065ec8f43bc14a0a30b">setSamplerate</a> (double newSamplerate)</td></tr>
 <tr class="memdesc:a0fa76e7633d37065ec8f43bc14a0a30b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the samplerate in Hz of the pitch detector.  <a href="classlemons_1_1dsp_1_1_pitch_detector.html#a0fa76e7633d37065ec8f43bc14a0a30b">More...</a><br /></td></tr>
 <tr class="separator:a0fa76e7633d37065ec8f43bc14a0a30b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -106,13 +103,10 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename SampleType&gt;<br />
 class lemons::dsp::PitchDetector&lt; SampleType &gt;</h3>
 
-<p>An ASDF-based pitch detector. </p>
-<p>This pitch detection algorithm works in the time domain to estimate the fundamental frequency of a signal by finding the offset with the highest autocorrelation value &ndash; ie, the period. <br  />
- <br  />
-This algorithm is intended for use with perfectly monophonic signals, and has been most extensively tested with vocals. </p>
+<p>A pitch detector based on the YIN algorithm. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a7dd41f793247dbcb1f9a23834762ec3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7dd41f793247dbcb1f9a23834762ec3c">&#9670;&nbsp;</a></span>PitchDetector()</h2>
+<a id="a073346df5f799b33a1a9e45dea3e82fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a073346df5f799b33a1a9e45dea3e82fb">&#9670;&nbsp;</a></span>PitchDetector()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -131,8 +125,8 @@ template&lt;typename SampleType &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>maxFreqHz</em> = <code>2500</code>&#160;</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>confidenceThreshold</em> = <code>0.15f</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -147,9 +141,15 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Creates a pitch detector with a detectable frequency range that is constant for the life of the object. </p>
-<p>The latency of the algorithm is determined by 2 * the period of the minimum frequency. <br  />
-Therefore, pitch detectors with a higher minimum frequency will have a lower latency. </p>
+<p>Creates a pitch detector with a minimum detectable frequency that is constant for the life of the object. </p>
+<p>The latency of the algorithm is determined by 2 * the period of the minimum frequency. Therefore, pitch detectors with a higher minimum frequency will have a lower latency. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">minFreqHz</td><td>The minimum frequency that this pitch detector will be able to detect. This value will be constant for the life of this object. </td></tr>
+    <tr><td class="paramname">confidenceThreshold</td><td>The initial YIN confidence threshold for the detector. See the <a class="el" href="classlemons_1_1dsp_1_1_pitch_detector.html#a35598ca4059d5e193b4c22769e1ee5fc" title="Sets the confidence threshold of the pitch detection algorithm.">setConfidenceThresh()</a> method for more documentation on this. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1_pitch_detector.html#a83fe88a56a998eefee329ccaa5b3c48d" title="Returns the latency in samples of the detection algorithm.">getLatencySamples()</a>, <a class="el" href="classlemons_1_1dsp_1_1_pitch_detector.html#a35598ca4059d5e193b4c22769e1ee5fc" title="Sets the confidence threshold of the pitch detection algorithm.">setConfidenceThresh()</a> </dd></dl>
 
 </div>
 </div>
@@ -173,7 +173,7 @@ template&lt;typename SampleType &gt; </div>
 </div><div class="memdoc">
 
 <p>Detects the pitch in Hz for a frame of audio. </p>
-<p>This can only be used for one channel at a time. If you need to track the pitch of multiple channels of audio, you need one <a class="el" href="classlemons_1_1dsp_1_1_pitch_detector.html" title="An ASDF-based pitch detector.">PitchDetector</a> object for each channel. The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that inputAudio.getNumSamples() is greater than or equal to <a class="el" href="classlemons_1_1dsp_1_1_pitch_detector.html#a83fe88a56a998eefee329ccaa5b3c48d" title="Returns the latency in samples of the detection algorithm.">getLatencySamples()</a>. </p><dl class="section return"><dt>Returns</dt><dd>The pitch in Hz for this frame of audio, or 0.f if the frame is unpitched. </dd></dl>
+<p>This can only be used for one channel at a time. If you need to track the pitch of multiple channels of audio, you need one <a class="el" href="classlemons_1_1dsp_1_1_pitch_detector.html" title="A pitch detector based on the YIN algorithm.">PitchDetector</a> object for each channel. The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that inputAudio.getNumSamples() is greater than or equal to <a class="el" href="classlemons_1_1dsp_1_1_pitch_detector.html#a83fe88a56a998eefee329ccaa5b3c48d" title="Returns the latency in samples of the detection algorithm.">getLatencySamples()</a>. </p><dl class="section return"><dt>Returns</dt><dd>The pitch in Hz for this frame of audio, or 0.f if the frame is unpitched. </dd></dl>
 
 </div>
 </div>
@@ -210,27 +210,6 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
-<a id="acfcf1e50297d305807d842ecde5f7f4a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acfcf1e50297d305807d842ecde5f7f4a">&#9670;&nbsp;</a></span>getCurrentLegalPeriodRange()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">juce::Range&lt;int&gt; <a class="el" href="classlemons_1_1dsp_1_1_pitch_detector.html">lemons::dsp::PitchDetector</a>&lt; SampleType &gt;::getCurrentLegalPeriodRange </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns a range object representing the current legal range of period values. </p>
-
-</div>
-</div>
 <a id="a83fe88a56a998eefee329ccaa5b3c48d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a83fe88a56a998eefee329ccaa5b3c48d">&#9670;&nbsp;</a></span>getLatencySamples()</h2>
 
@@ -257,11 +236,12 @@ template&lt;typename SampleType &gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the latency in samples of the detection algorithm. </p>
+<p>The latency is equal to 2 * the period of the lowest detectable frequency. Therefore, pitch detectors with a higher minimum frequency will have a lower latency. </p>
 
 </div>
 </div>
-<a id="a21efffea02b46c2b606b7b4a8a2f07e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21efffea02b46c2b606b7b4a8a2f07e5">&#9670;&nbsp;</a></span>setConfidenceThresh()</h2>
+<a id="a35598ca4059d5e193b4c22769e1ee5fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35598ca4059d5e193b4c22769e1ee5fc">&#9670;&nbsp;</a></span>setConfidenceThresh()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -271,7 +251,7 @@ template&lt;typename SampleType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1_pitch_detector.html">lemons::dsp::PitchDetector</a>&lt; SampleType &gt;::setConfidenceThresh </td>
           <td>(</td>
-          <td class="paramtype">SampleType&#160;</td>
+          <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>newThresh</em></td><td>)</td>
           <td></td>
         </tr>
@@ -279,16 +259,7 @@ template&lt;typename SampleType &gt; </div>
 </div><div class="memdoc">
 
 <p>Sets the confidence threshold of the pitch detection algorithm. </p>
-<p>This is similar to YIN's post-processing ("peak-picking") concepts; this assures a degree of confidence in the rolling average of chosen most-periodic peaks, to attempt to eliminate octave errors and filter out noise from the results. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">newThresh</td><td>The amount of periodicity that the most-likely period candidate must have in order for a frame to be determined pitched. <br  />
- <br  />
-If the highest autocorrelation value (ie, the greatest amount of periodicity) is below this threshold, the frame will be determined to be unpitched. <br  />
- <br  />
-The value should be between 0. and 1., inclusive; 0 means that nothing will be detected as unpitched, and 1 means that only exactly perfect sine waves are detected as pitched. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>This value should be between 0 and 1, inclusive, and can be thought of as the amount of aperiodic power tolerable in a signal determined to be pitched. Typical values are between 0.15 and 0.2. </p>
 
 </div>
 </div>
@@ -322,7 +293,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 22 2021 07:47:08 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 23 2021 00:42:18 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

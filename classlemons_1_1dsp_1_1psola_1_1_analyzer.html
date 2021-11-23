@@ -114,7 +114,7 @@ class lemons::dsp::psola::Analyzer&lt; SampleType &gt;</h3>
 
 <p>Performs analysis of the incoming signal, to prepare for the <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html" title="Respaces a stream of analysis grains identified by an Analyzer object into a repitched stream of audi...">Shifter</a>'s resynthesis. </p>
 <p>This detects the pitch of the input signal and splits the incoming audio frame into analysis grains, ready to be respaced by <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html" title="Respaces a stream of analysis grains identified by an Analyzer object into a repitched stream of audi...">Shifter</a> objects. <br  />
-This is meant to be used with perfectly monophonic signals. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html" title="Respaces a stream of analysis grains identified by an Analyzer object into a repitched stream of audi...">Shifter</a>, <a class="el" href="classlemons_1_1dsp_1_1_pitch_detector.html" title="An ASDF-based pitch detector.">dsp::PitchDetector</a> </dd></dl>
+This is meant to be used with perfectly monophonic signals. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html" title="Respaces a stream of analysis grains identified by an Analyzer object into a repitched stream of audi...">Shifter</a>, <a class="el" href="classlemons_1_1dsp_1_1_pitch_detector.html" title="A pitch detector based on the YIN algorithm.">dsp::PitchDetector</a> </dd></dl>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a6dc5fd4cc2dbc9dab3e94d3370192c22"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6dc5fd4cc2dbc9dab3e94d3370192c22">&#9670;&nbsp;</a></span>Storage</h2>
@@ -258,7 +258,7 @@ template&lt;typename SampleType &gt; </div>
 </div><div class="memdoc">
 
 <p>Reports the latency in samples of the PSOLA algorithm. </p>
-<p>This is determined by the analyzer's internal <a class="el" href="classlemons_1_1dsp_1_1_pitch_detector.html" title="An ASDF-based pitch detector.">PitchDetector</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1_pitch_detector.html#a83fe88a56a998eefee329ccaa5b3c48d" title="Returns the latency in samples of the detection algorithm.">PitchDetector::getLatencySamples()</a> </dd></dl>
+<p>This is determined by the analyzer's internal <a class="el" href="classlemons_1_1dsp_1_1_pitch_detector.html" title="A pitch detector based on the YIN algorithm.">PitchDetector</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1_pitch_detector.html#a83fe88a56a998eefee329ccaa5b3c48d" title="Returns the latency in samples of the detection algorithm.">PitchDetector::getLatencySamples()</a> </dd></dl>
 
 </div>
 </div>
@@ -321,7 +321,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 22 2021 07:47:08 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 23 2021 00:42:18 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
