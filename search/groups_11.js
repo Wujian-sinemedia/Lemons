@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vecops_2295',['vecops',['../group__vecops.html',1,'']]]
+  ['vecops_2297',['vecops',['../group__vecops.html',1,'']]]
 ];

@@ -14172,8 +14172,15 @@
       <type>void</type>
       <name>setConfidenceThresh</name>
       <anchorfile>classlemons_1_1dsp_1_1_pitch_detector.html</anchorfile>
-      <anchor>a35598ca4059d5e193b4c22769e1ee5fc</anchor>
-      <arglist>(float newThresh)</arglist>
+      <anchor>abe293e00393f81b8422b59eca02d7cc6</anchor>
+      <arglist>(float newThresh) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>setMinHz</name>
+      <anchorfile>classlemons_1_1dsp_1_1_pitch_detector.html</anchorfile>
+      <anchor>a32a936a72466e8e51b33307ce368830a</anchor>
+      <arglist>(int newMinHz)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
