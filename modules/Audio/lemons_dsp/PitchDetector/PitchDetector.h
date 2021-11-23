@@ -10,15 +10,15 @@ class PitchDetector final
 public:
 	/** Creates a pitch detector with a minimum detectable frequency that is constant for the life of the object.
 	    The latency of the algorithm is determined by 2 * the period of the minimum frequency. Therefore, pitch detectors with a higher minimum frequency will have a lower latency.
-        @param minFreqHz The minimum frequency that this pitch detector will be able to detect. This value will be constant for the life of this object.
-        @param confidenceThreshold The initial YIN confidence threshold for the detector. See the setConfidenceThresh() method for more documentation on this.
-        @see getLatencySamples(), setConfidenceThresh()
+	    @param minFreqHz The minimum frequency that this pitch detector will be able to detect. This value will be constant for the life of this object.
+	    @param confidenceThreshold The initial YIN confidence threshold for the detector. See the setConfidenceThresh() method for more documentation on this.
+	    @see getLatencySamples(), setConfidenceThresh()
 	 */
 	explicit PitchDetector (int minFreqHz = 60, float confidenceThreshold = 0.15f);
 
 	/** Returns the latency in samples of the detection algorithm.
-        The latency is equal to 2 * the period of the lowest detectable frequency. Therefore, pitch detectors with a higher minimum frequency will have a lower latency.
-     */
+	    The latency is equal to 2 * the period of the lowest detectable frequency. Therefore, pitch detectors with a higher minimum frequency will have a lower latency.
+	 */
 	[[nodiscard]] int getLatencySamples() const noexcept;
 
 	/** Sets the samplerate in Hz of the pitch detector.
@@ -46,8 +46,8 @@ public:
 	void setConfidenceThresh (float newThresh);
 
 private:
-    inline void cumulativeMeanNormalizedDifference (int halfNumSamples);
-    
+	inline void cumulativeMeanNormalizedDifference (int halfNumSamples);
+
 	inline int absoluteThreshold (int halfNumSamples) const;
 
 	inline float parabolicInterpolation (int periodEstimate, int halfNumSamples) const;

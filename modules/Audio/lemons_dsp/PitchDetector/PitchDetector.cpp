@@ -10,7 +10,7 @@ PitchDetector<SampleType>::PitchDetector (int minFreqHz, float confidenceThresho
     : minHz (minFreqHz)
 {
 	jassert (minHz > 0);
-    setConfidenceThresh (confidenceThreshold);
+	setConfidenceThresh (confidenceThreshold);
 }
 
 template <typename SampleType>
@@ -32,10 +32,10 @@ template <typename SampleType>
 	const auto halfNumSamples = juce::roundToInt (std::floor (numSamples * 0.5f));
 
 	jassert (yinBuffer.getNumSamples() >= halfNumSamples);
-    
-    auto* yinData = yinBuffer.getWritePointer (0);
-    
-    vecops::fill (yinData, SampleType (1), halfNumSamples);
+
+	auto* yinData = yinBuffer.getWritePointer (0);
+
+	vecops::fill (yinData, SampleType (1), halfNumSamples);
 
 	// difference function
 	for (auto tau = 0; tau < halfNumSamples; ++tau)
@@ -47,9 +47,9 @@ template <typename SampleType>
 		}
 	}
 
-    yinData[0] = SampleType(1);
+	yinData[0] = SampleType (1);
 
-    cumulativeMeanNormalizedDifference (halfNumSamples);
+	cumulativeMeanNormalizedDifference (halfNumSamples);
 
 	const auto periodEstimate = absoluteThreshold (halfNumSamples);
 
@@ -63,15 +63,15 @@ template <typename SampleType>
 template <typename SampleType>
 inline void PitchDetector<SampleType>::cumulativeMeanNormalizedDifference (int halfNumSamples)
 {
-    auto* yinData = yinBuffer.getWritePointer (0);
-    
-    SampleType runningSum = 0;
-    
-    for (auto tau = 1; tau < halfNumSamples; ++tau)
-    {
-        runningSum += yinData[tau];
-        yinData[tau] *= (static_cast<SampleType>(tau) / runningSum);
-    }
+	auto* yinData = yinBuffer.getWritePointer (0);
+
+	SampleType runningSum = 0;
+
+	for (auto tau = 1; tau < halfNumSamples; ++tau)
+	{
+		runningSum += yinData[tau];
+		yinData[tau] *= (static_cast<SampleType> (tau) / runningSum);
+	}
 }
 
 template <typename SampleType>
@@ -105,7 +105,7 @@ inline int PitchDetector<SampleType>::absoluteThreshold (int halfNumSamples) con
 template <typename SampleType>
 inline float PitchDetector<SampleType>::parabolicInterpolation (int periodEstimate, int halfNumSamples) const
 {
-	const auto x0 = periodEstimate     < 1              ? periodEstimate     : periodEstimate - 1;
+	const auto x0 = periodEstimate < 1 ? periodEstimate : periodEstimate - 1;
 	const auto x2 = periodEstimate + 1 < halfNumSamples ? periodEstimate + 1 : periodEstimate;
 
 	const auto* yinData = yinBuffer.getReadPointer (0);
