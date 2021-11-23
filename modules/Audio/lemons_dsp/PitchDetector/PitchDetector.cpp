@@ -1,16 +1,13 @@
-#if LEMONS_USE_VDSP
-#  include <Accelerate/Accelerate.h>
-#endif
-
 namespace lemons::dsp
 {
 
 template <typename SampleType>
 PitchDetector<SampleType>::PitchDetector (int minFreqHz, float confidenceThreshold)
     : minHz (minFreqHz)
+    , confidenceThresh (static_cast<SampleType> (confidenceThreshold))
 {
 	jassert (minHz > 0);
-	setConfidenceThresh (confidenceThreshold);
+	jassert (confidenceThresh >= 0 && confidenceThresh <= 1);
 }
 
 template <typename SampleType>
@@ -134,8 +131,9 @@ inline float PitchDetector<SampleType>::parabolicInterpolation (int periodEstima
 }
 
 template <typename SampleType>
-void PitchDetector<SampleType>::setConfidenceThresh (float newThresh)
+void PitchDetector<SampleType>::setConfidenceThresh (float newThresh) noexcept
 {
+	jassert (newThresh >= 0 && newThresh <= 1);
 	confidenceThresh = static_cast<SampleType> (newThresh);
 }
 
@@ -148,14 +146,30 @@ int PitchDetector<SampleType>::setSamplerate (double newSamplerate)
 
 	const auto latency = getLatencySamples();
 
-	yinBuffer.setSize (1, latency, true, true, true);
+	yinBuffer.setSize (1, (latency / 2) + 1, true, true, true);
 
 	return latency;
 }
 
 template <typename SampleType>
+int PitchDetector<SampleType>::setMinHz (int newMinHz)
+{
+	jassert (newMinHz > 0);
+
+	minHz = newMinHz;
+
+	if (samplerate > 0)
+		return setSamplerate (samplerate);
+
+	return 512;
+}
+
+template <typename SampleType>
 [[nodiscard]] int PitchDetector<SampleType>::getLatencySamples() const noexcept
 {
+	if (samplerate == 0)
+		return 512;
+
 	return math::periodInSamples (samplerate, minHz) * 2;
 }
 
