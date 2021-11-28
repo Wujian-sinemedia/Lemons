@@ -1,4 +1,3 @@
-
 #pragma once
 
 namespace lemons::dsp
@@ -64,9 +63,9 @@ public:
 
 
 	/** Returns true if prepare() has been called at least once since the object's construction or the last releaseResources() call.
-	 @see prepare(), releaseResources()
+	    @see prepare(), releaseResources()
 	 */
-	bool isInitialized() const { return hasBeenInitialized; }
+	bool isInitialized() const noexcept { return sampleRate > 0.; }
 
 
 	/** Prepares the engine. */
@@ -76,7 +75,7 @@ public:
 	void releaseResources();
 
 	/** Returns the engine's samplerate. */
-	double getSamplerate() const { return sampleRate; }
+	double getSamplerate() const noexcept { return sampleRate; }
 
 private:
 	void processInternal (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages, bool isBypassed);
@@ -85,14 +84,13 @@ private:
 	virtual void renderBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages, bool isBypassed) = 0;
 
 	/** Your subclass may implement this to be informed when the engine is prepared. */
-	virtual void prepared (int blocksize, double samplerate);
+	virtual void prepared (int blocksize, double samplerate, int numChannels);
 
 	/** Your subclass may implement this to be informed when the engine is released. */
 	virtual void released() { }
 
 	MidiBuffer dummyMidiBuffer;
 	bool       wasBypassedLastCallback { true };
-	bool       hasBeenInitialized { false };
 	double     sampleRate { 0. };
 
 	AudioBuffer<SampleType> outputStorage;

@@ -13,48 +13,62 @@ PitchDetector<SampleType>::PitchDetector (int minFreqHz, float confidenceThresho
 template <typename SampleType>
 [[nodiscard]] float PitchDetector<SampleType>::detectPitch (const AudioBuffer<SampleType>& inputAudio)
 {
-	return detectPitch (inputAudio.getReadPointer (0),
-	                    inputAudio.getNumSamples());
+	return detectPitch (inputAudio.getReadPointer (0), inputAudio.getNumSamples());
 }
 
 template <typename SampleType>
 [[nodiscard]] float PitchDetector<SampleType>::detectPitch (const SampleType* inputAudio, int numSamples)
 {
-	jassert (samplerate > 0);  // pitch detector hasn't been prepared before calling this function!
+    const auto period = detectPeriod (inputAudio, numSamples);
+    
+    if (period > 0.f)
+        return math::freqFromPeriod (samplerate, period);
+    
+    return 0.f;
+}
 
-	jassert (numSamples >= getLatencySamples());  // not enough samples in this frame to do analysis
+template <typename SampleType>
+[[nodiscard]] float PitchDetector<SampleType>::detectPeriod (const AudioBuffer<SampleType>& inputAudio)
+{
+    return detectPeriod (inputAudio.getReadPointer(0), inputAudio.getNumSamples());
+}
 
-	// TO DO: test if samples are all silent, if so return 0
-
-	const auto halfNumSamples = juce::roundToInt (std::floor (numSamples * 0.5f));
-
-	jassert (yinBuffer.getNumSamples() >= halfNumSamples);
-
-	auto* yinData = yinBuffer.getWritePointer (0);
-
-	vecops::fill (yinData, SampleType (1), halfNumSamples);
-
-	// difference function
-	for (auto tau = 0; tau < halfNumSamples; ++tau)
-	{
-		for (auto i = 0; i < halfNumSamples; ++i)
-		{
-			const auto delta = inputAudio[i] - inputAudio[i + tau];
-			yinData[tau] += (delta * delta);
-		}
-	}
-
-	yinData[0] = SampleType (1);
-
-	cumulativeMeanNormalizedDifference (halfNumSamples);
-
-	const auto periodEstimate = absoluteThreshold (halfNumSamples);
-
-	if (periodEstimate <= 0)
-		return 0.f;
-
-	return math::freqFromPeriod (samplerate,
-	                             parabolicInterpolation (periodEstimate, halfNumSamples));
+template <typename SampleType>
+[[nodiscard]] float PitchDetector<SampleType>::detectPeriod (const SampleType* inputAudio, int numSamples)
+{
+    jassert (samplerate > 0);  // pitch detector hasn't been prepared before calling this function!
+    jassert (numSamples >= getLatencySamples());  // not enough samples in this frame to do analysis
+    
+    // TO DO: test if samples are all silent, if so return 0
+    
+    const auto halfNumSamples = juce::roundToInt (std::floor (numSamples * 0.5f));
+    
+    jassert (yinBuffer.getNumSamples() >= halfNumSamples);
+    
+    auto* yinData = yinBuffer.getWritePointer (0);
+    
+    vecops::fill (yinData, SampleType (1), halfNumSamples);
+    
+    // difference function
+    for (auto tau = 0; tau < halfNumSamples; ++tau)
+    {
+        for (auto i = 0; i < halfNumSamples; ++i)
+        {
+            const auto delta = inputAudio[i] - inputAudio[i + tau];
+            yinData[tau] += (delta * delta);
+        }
+    }
+    
+    yinData[0] = SampleType (1);
+    
+    cumulativeMeanNormalizedDifference (halfNumSamples);
+    
+    const auto periodEstimate = absoluteThreshold (halfNumSamples);
+    
+    if (periodEstimate <= 0)
+        return 0.f;
+    
+    return parabolicInterpolation (periodEstimate, halfNumSamples);
 }
 
 template <typename SampleType>
@@ -140,7 +154,7 @@ void PitchDetector<SampleType>::setConfidenceThresh (float newThresh) noexcept
 template <typename SampleType>
 int PitchDetector<SampleType>::setSamplerate (double newSamplerate)
 {
-	jassert (newSamplerate > 0);
+	jassert (newSamplerate > 0.);
 
 	samplerate = newSamplerate;
 

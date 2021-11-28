@@ -1,22 +1,22 @@
-
 namespace lemons::dsp
 {
+
 template <typename SampleType>
 void Engine<SampleType>::prepare (double samplerate, int blocksize, int numChannels)
 {
-	jassert (samplerate > 0 && blocksize > 0);
+	jassert (samplerate > 0 && blocksize > 0 && numChannels > 0);
+
 	dummyMidiBuffer.ensureSize (static_cast<size_t> (blocksize));
 	outputStorage.setSize (numChannels, blocksize);
-	hasBeenInitialized = true;
-	sampleRate         = samplerate;
-	prepared (blocksize, samplerate);
+	sampleRate = samplerate;
+
+	prepared (blocksize, samplerate, numChannels);
 }
 
 template <typename SampleType>
 void Engine<SampleType>::releaseResources()
 {
 	dummyMidiBuffer.clear();
-	hasBeenInitialized      = false;
 	wasBypassedLastCallback = true;
 	sampleRate              = 0.;
 	released();
@@ -59,7 +59,7 @@ void Engine<SampleType>::process (const AudioBuffer<SampleType>& input,
 template <typename SampleType>
 void Engine<SampleType>::processInternal (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages, bool isBypassed)
 {
-	jassert (isInitialized() && sampleRate > 0);
+	jassert (isInitialized());
 
 	const bool applyFadeIn                 = wasBypassedLastCallback;
 	const bool applyFadeOut                = isBypassed ? ! wasBypassedLastCallback : false;
@@ -67,23 +67,25 @@ void Engine<SampleType>::processInternal (const AudioBuffer<SampleType>& input, 
 
 	wasBypassedLastCallback = isBypassed;
 
-	AudioBuffer<SampleType> alias { outputStorage.getArrayOfWritePointers(), outputStorage.getNumChannels(), 0, output.getNumSamples() };
+	const auto numSamples = output.getNumSamples();
+
+	auto alias = buffers::getAliasBuffer (outputStorage, 0, numSamples);
 
 	alias.clear();
 
 	renderBlock (input, alias, midiMessages, processingBypassedThisFrame);
 
 	if (applyFadeIn)
-		alias.applyGainRamp (0, output.getNumSamples(), SampleType (0.), SampleType (1.));
+		alias.applyGainRamp (0, numSamples, SampleType (0), SampleType (1));
 
 	if (applyFadeOut)
-		alias.applyGainRamp (0, output.getNumSamples(), SampleType (1.), SampleType (0.));
+		alias.applyGainRamp (0, numSamples, SampleType (1), SampleType (0));
 
 	buffers::copy (alias, output);
 }
 
 template <typename SampleType>
-void Engine<SampleType>::prepared (int, double)
+void Engine<SampleType>::prepared (int, double, int)
 {
 }
 

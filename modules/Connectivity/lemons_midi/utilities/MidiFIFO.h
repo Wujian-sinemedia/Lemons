@@ -20,9 +20,7 @@ public:
 private:
 	int numStoredSamples { 0 };
 
-	MidiBuffer base;
-
-	MidiBuffer copying;
+	MidiBuffer base, copying;
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MidiFIFO)
 };

@@ -1,6 +1,10 @@
 #include "lemons_dsp.h"
 
 
+#include "fifos/CircularBuffer.cpp"
+#include "fifos/AudioFifo.cpp"
+#include "fifos/AudioAndMidiFIFO.cpp"
+
 #include "engines/AudioEngine.cpp"
 #include "engines/LatencyEngine.cpp"
 

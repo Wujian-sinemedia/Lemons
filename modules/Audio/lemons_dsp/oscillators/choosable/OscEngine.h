@@ -32,7 +32,7 @@ public:
 
 private:
 	void renderBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages, bool isBypassed) final;
-	void prepared (int blocksize, double samplerate) final;
+	void prepared (int blocksize, double samplerate, int) final;
 
 	Osc osc;
 

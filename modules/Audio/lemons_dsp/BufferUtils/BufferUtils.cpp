@@ -43,6 +43,11 @@ AudioBuffer<SampleType> getAliasBuffer (AudioBuffer<SampleType>& bufferToAlias,
                                         int                      numChannels,
                                         int                      channelOffset)
 {
+    if (numChannels == -1)
+        numChannels = bufferToAlias.getNumChannels();
+
+    jassert (numChannels > 0);
+    
 	return { bufferToAlias.getArrayOfWritePointers() + channelOffset, numChannels, startSample, numSamples };
 }
 template AudioBuffer<float>  getAliasBuffer (AudioBuffer<float>&, int, int, int, int);

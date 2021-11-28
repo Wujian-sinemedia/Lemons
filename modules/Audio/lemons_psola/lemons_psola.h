@@ -19,7 +19,5 @@ END_JUCE_MODULE_DECLARATION
  -------------------------------------------------------------------------------------*/
 
 
-#include "analysis/psola_analyzer.h"
-#include "resynthesis/psola_shifter.h"
-
-#include "PitchCorrector/PitchCorrector.h"
+#include "analysis/analyzer.h"
+#include "resynthesis/shifter.h"

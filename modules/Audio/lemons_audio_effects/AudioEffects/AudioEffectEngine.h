@@ -52,7 +52,7 @@ private:
 		buffers::copy (storage, output);
 	}
 
-	void prepared (int blocksize, double samplerate) final
+	void prepared (int blocksize, double samplerate, int) final
 	{
 		effect.prepare (samplerate, blocksize);
 		storage.setSize (2, blocksize);

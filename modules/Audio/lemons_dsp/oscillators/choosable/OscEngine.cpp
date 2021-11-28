@@ -24,7 +24,7 @@ void OscEngine<SampleType, Osctype>::renderBlock (const AudioBuffer<SampleType>&
 }
 
 template <typename SampleType, template <typename T> class Osctype>
-void OscEngine<SampleType, Osctype>::prepared (int, double samplerate)
+void OscEngine<SampleType, Osctype>::prepared (int, double samplerate, int)
 {
 	osc.resetPhase();
 	osc.setFrequency (frequency, (SampleType) samplerate);

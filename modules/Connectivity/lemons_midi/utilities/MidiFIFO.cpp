@@ -6,6 +6,8 @@ MidiFIFO::MidiFIFO (int maxNumMessages) { setSize (maxNumMessages); }
 
 void MidiFIFO::setSize (int maxNumMessages)
 {
+    jassert (maxNumMessages > 0);
+    
     const auto messages = static_cast<size_t> (maxNumMessages);
     base.ensureSize (messages);
     copying.ensureSize (messages);

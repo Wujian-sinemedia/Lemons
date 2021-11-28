@@ -27,7 +27,19 @@ public:
 	    @return The pitch in Hz for this frame of audio, or 0.f if the frame is unpitched.
 	 */
 	[[nodiscard]] float detectPitch (const SampleType* inputAudio, int numSamples);
+    
+    
+    /** Detects the period, in samples, for a frame of audio.
+        @return The period, in samples, of the fundamental frequency for this frame of audio, or 0.f if the frame is unpitched.
+     */
+    [[nodiscard]] float detectPeriod (const AudioBuffer<SampleType>& inputAudio);
+    
+    /** Detects the period, in samples, for a frame of audio.
+        @return The period, in samples, of the fundamental frequency for this frame of audio, or 0.f if the frame is unpitched.
+     */
+    [[nodiscard]] float detectPeriod (const SampleType* inputAudio, int numSamples);
 
+    
 	/** Returns the latency in samples of the detection algorithm.
 	    The latency is equal to 2 * the period of the lowest detectable frequency. Therefore, pitch detectors with a higher minimum frequency will have a lower latency.
 	    @see setMinHz()
@@ -94,6 +106,6 @@ private:
 	lemons::dsp::PitchDetector<FloatType> detector;
 };
 
-static PitchDetectorTests test;
+static PitchDetectorTests pitchDetectorTest;
 
 #endif

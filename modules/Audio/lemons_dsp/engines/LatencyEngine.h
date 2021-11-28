@@ -1,4 +1,3 @@
-
 #pragma once
 
 namespace lemons::dsp
@@ -17,10 +16,15 @@ public:
 	/** Sets the latency in samples of the engine. */
 	void changeLatency (int newInternalBlocksize);
 
+	/** Sets the samplerate of the engine.
+	    This function exists so that you can update only the samplerate, without needing to call Engine::prepare() and provide the blocksize again.
+	 */
+	void setSamplerate (double samplerate);
+
 private:
 	void renderBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages, bool isBypassed) final;
 
-	void prepared (int blocksize, double samplerate) final;
+	void prepared (int blocksize, double samplerate, int numChannels) final;
 	void released() final;
 
 	/** Your subclass should implement this function with your audio algorithm's rendering logic.
@@ -36,7 +40,7 @@ private:
 
 
 	int                          internalBlocksize { 0 };
-//	AudioAndMidiFIFO<SampleType> inputFIFO, outputFIFO;
+	AudioAndMidiFIFO<SampleType> inputFIFO, outputFIFO;
 	AudioBuffer<SampleType>      inBuffer, outBuffer;
 	MidiBuffer                   chunkMidiBuffer;
 };
