@@ -20,6 +20,8 @@ END_JUCE_MODULE_DECLARATION
 
 #include "aliases.h"
 
+#include "oscillators/oscillators.h"
+
 #include "fifos/CircularBuffer.h"
 #include "fifos/AudioFifo.h"
 #include "fifos/AudioAndMidiFIFO.h"
@@ -31,7 +33,6 @@ END_JUCE_MODULE_DECLARATION
 
 #include "BufferUtils/BufferUtils.h"
 
-#include "oscillators/oscillators.h"
 #include "oscillators/SuperSaw/SuperSaw.h"
 #include "oscillators/choosable/ChoosableOscillator.h"
 

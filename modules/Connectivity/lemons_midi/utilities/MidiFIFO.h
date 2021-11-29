@@ -5,7 +5,7 @@ namespace lemons::midi
 class MidiFIFO
 {
 public:
-	MidiFIFO (int maxNumMessages = 512);
+	explicit MidiFIFO (int maxNumMessages = 512);
 
 	void setSize (int maxNumMessages);
 

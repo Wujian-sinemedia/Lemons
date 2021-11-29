@@ -140,8 +140,10 @@ inline float PitchDetector<SampleType>::parabolicInterpolation (int periodEstima
 	const auto s0 = yinData[x0];
 	const auto s1 = yinData[periodEstimate];
 	const auto s2 = yinData[x2];
-
-	return periodEstimate + (s2 - s0) / (2.f * (2.f * s1 - s2 - s0));
+    
+    const auto period = static_cast<SampleType>(periodEstimate) + (s2 - s0) / (SampleType(2) * (SampleType(2) * s1 - s2 - s0));
+    
+    return static_cast<float>(period);
 }
 
 template <typename SampleType>
@@ -225,6 +227,16 @@ void PitchDetectorTests::runTest()
 	const auto estMidi  = lemons::math::freqToMidi (estFreq);
 
 	expectWithinAbsoluteError (estMidi, origMidi, 0.1f);
+    
+    
+    beginTest ("Detect random noise as unpitched");
+    
+    auto rand = getRandom();
+    
+    for (int i = 0; i < latency; ++i)
+        storage.setSample (0, i, static_cast<FloatType> (rand.nextFloat()));
+    
+    expectEquals (detector.detectPitch (storage), 0.f);
 }
 
 #endif

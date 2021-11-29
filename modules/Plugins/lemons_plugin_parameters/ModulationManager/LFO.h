@@ -1,6 +1,6 @@
 #pragma once
 
-#include <lemons_oscillators/lemons_oscillators.h>
+#include <lemons_dsp/lemons_dsp.h>
 
 
 namespace lemons::plugin

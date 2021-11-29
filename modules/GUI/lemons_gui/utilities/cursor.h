@@ -10,20 +10,20 @@ namespace lemons::gui
  */
 struct ScopedCursor
 {
-    /** Changes the mouse cursor.
-        @param cursor The new cursor to display for this object's lifetime.
-        @param cursorToResetTo The cursor to display when this object is destroyed.
-     */
-    ScopedCursor (
-                  const juce::MouseCursor& cursor,
-                  juce::MouseCursor        cursorToResetTo = juce::MouseCursor::NormalCursor);
-    
-    /** Resets the mouse cursor to the reset cursor specified when this object was created.
-     */
-    ~ScopedCursor();
-    
+	/** Changes the mouse cursor.
+	    @param cursor The new cursor to display for this object's lifetime.
+	    @param cursorToResetTo The cursor to display when this object is destroyed.
+	 */
+	ScopedCursor (
+	    const juce::MouseCursor& cursor,
+	    juce::MouseCursor        cursorToResetTo = juce::MouseCursor::NormalCursor);
+
+	/** Resets the mouse cursor to the reset cursor specified when this object was created.
+	 */
+	~ScopedCursor();
+
 private:
-    const juce::MouseCursor resetCursor;
+	const juce::MouseCursor resetCursor;
 };
 
 
@@ -32,16 +32,16 @@ private:
  */
 struct ScopedWaitCursor
 {
-    /** Shows the system's default "wait" or "busy" cursor.
-        This will turn the system cursor to an hourglass or spinning beachball until the next time the mouse is moved, or this object is destroyed.
-     
-        This is handy if the message loop is about to block for a couple of seconds while busy and you want to give the user feedback about this.
-     */
-    ScopedWaitCursor();
-    
-    /** Restores the system's "normal" cursor.
-     */
-    ~ScopedWaitCursor();
+	/** Shows the system's default "wait" or "busy" cursor.
+	    This will turn the system cursor to an hourglass or spinning beachball until the next time the mouse is moved, or this object is destroyed.
+
+	    This is handy if the message loop is about to block for a couple of seconds while busy and you want to give the user feedback about this.
+	 */
+	ScopedWaitCursor();
+
+	/** Restores the system's "normal" cursor.
+	 */
+	~ScopedWaitCursor();
 };
 
-}
+}  // namespace lemons::gui

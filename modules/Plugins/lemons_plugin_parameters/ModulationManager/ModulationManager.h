@@ -53,7 +53,7 @@ private:
 
 	juce::OwnedArray<LFO> lfos;
 
-	dsp::BasicProcessorBase dummyProcessor;
+	dsp::BasicProcessor dummyProcessor;
 
 	LfoNamingFunc namingFunc;
 };

@@ -50,13 +50,13 @@ void AudioFifo<SampleType>::resize (int maxNumSamples, int numChannels)
 {
 	if (buffers.size() < numChannels)
 	{
-		for (int i = buffers.size(); i < numChannels; ++i)
-			buffers.add (new CircularBuffer<SampleType>());
+        while (buffers.size() < numChannels)
+            buffers.add (new CircularBuffer<SampleType>());
 	}
 	else
 	{
-		for (int i = buffers.size(); i > numChannels; --i)
-			buffers.removeLast();
+        while (buffers.size() > numChannels)
+            buffers.removeLast();
 	}
 
 	for (auto* buffer : buffers)

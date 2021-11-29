@@ -19,11 +19,11 @@
 -------------------------------------------------------------------------------------*/
 
 
-#include "state/state.h"
+//#include "state/state.h"
 
-#include "processors/ProcessorBase.h"
+//#include "processors/ProcessorBase.h"
 
-#include "EditorBase/PluginGUIBase.h"
-#include "EditorBase/EditorBase.h"
+//#include "EditorBase/PluginGUIBase.h"
+//#include "EditorBase/EditorBase.h"
 
 //#include "processors/Processors.h"

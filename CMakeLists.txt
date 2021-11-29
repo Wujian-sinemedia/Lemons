@@ -101,4 +101,3 @@ endif()
 
 add_subdirectory (util)
 
-#add_subdirectory (psola_test)

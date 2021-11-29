@@ -5,7 +5,7 @@ ProcessorBase::ProcessorBase (StateBase&                            stateToUse,
                               dsp::Engine<float>&                   floatEngineToUse,
                               dsp::Engine<double>&                  doubleEngineToUse,
                               juce::AudioProcessor::BusesProperties busesLayout)
-    : BasicProcessorBase (busesLayout)
+    : BasicProcessor (busesLayout)
     , state (stateToUse)
     , floatEngine (*this, state, floatEngineToUse)
     , doubleEngine (*this, state, doubleEngineToUse)

@@ -11,7 +11,7 @@ namespace lemons::plugin
     This class is a SystemInitializer, meaning it sets up translations for you. This class also holds a ParameterProcessor internally.
     @see SystemInitializer, dsp::Engine, dsp::BasicProcessorBase, StateBase
  */
-class ProcessorBase : public dsp::BasicProcessorBase
+class ProcessorBase : public dsp::BasicProcessor
     , private SystemInitializer
 {
     using MidiBuffer = juce::MidiBuffer;
