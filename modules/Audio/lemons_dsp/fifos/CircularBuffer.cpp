@@ -25,8 +25,6 @@ void CircularBuffer<SampleType>::storeSamples (const SampleType* samples, int nu
     const auto scopedWrite = fifo.write (numSamples);
     
     // the buffer isn't big enough to hold all the samples you want to store!
-    // to avoid this assertion, you should always allocate the CircularBuffer's total size to be larger than the actual total number of samples you need to store.
-    // even allocating blocksize + 1 can help to avoid this assertion.
     jassert (scopedWrite.blockSize1 + scopedWrite.blockSize2 == numSamples);
     
     if (scopedWrite.blockSize1 > 0)
@@ -83,7 +81,12 @@ void CircularBuffer<SampleType>::getSamples (SampleType* output, int numSamples)
 template <typename SampleType>
 void CircularBuffer<SampleType>::resize (int newSize)
 {
+    jassert (newSize > 0);
+    
     clear();
+    
+    // NB. avoids edge cases when attempting to store the full capacity's worth of samples
+    newSize += 1;
     
     buffer.setSize (1, newSize, true, true, false);
     
@@ -125,42 +128,6 @@ template class CircularBuffer<double>;
 
 #if LEMONS_UNIT_TESTS
 
-template<typename FloatType>
-inline bool allSamplesAreEqual (const juce::AudioBuffer<FloatType>& buffer1,
-                                const juce::AudioBuffer<FloatType>& buffer2,
-                                int startIndex, int numSamples)
-{
-    jassert (startIndex + numSamples <= buffer1.getNumSamples());
-    jassert (startIndex + numSamples <= buffer2.getNumSamples());
-    
-    for (int i = startIndex; i < startIndex + numSamples; ++i)
-        if (buffer1.getSample (0, i) != buffer2.getSample (0, i))
-            return false;
-    
-    return true;
-}
-
-template bool allSamplesAreEqual (const juce::AudioBuffer<float>&, const juce::AudioBuffer<float>&, int, int);
-template bool allSamplesAreEqual (const juce::AudioBuffer<double>&, const juce::AudioBuffer<double>&, int, int);
-
-
-template<typename FloatType>
-inline bool allSamplesAreZero (const juce::AudioBuffer<FloatType>& buffer,
-                               int startIndex, int numSamples)
-{
-    jassert (startIndex + numSamples <= buffer.getNumSamples());
-    
-    for (int i = startIndex; i < startIndex + numSamples; ++i)
-        if (buffer.getSample (0, i) != FloatType(0))
-            return false;
-    
-    return true;
-}
-
-template bool allSamplesAreZero (const juce::AudioBuffer<float>&, int, int);
-template bool allSamplesAreZero (const juce::AudioBuffer<double>&, int, int);
-
-
 CircularBufferTests::CircularBufferTests()
 : juce::UnitTest ("CircularBufferTests", "DSP")
 {
@@ -173,8 +140,7 @@ void CircularBufferTests::initialise()
 
 void CircularBufferTests::resizeAllBuffers (int newSize)
 {
-    circularBuffer.resize (newSize + 1);
-    
+    circularBuffer.resize (newSize);
     origStorage.setSize (1, newSize);
     circOutput.setSize (1, newSize);
 }
@@ -201,6 +167,8 @@ void CircularBufferTests::runTest()
     
     beginTest ("Store samples and retrieve later");
     
+    using namespace lemons::dsp::buffers;
+    
     expect (allSamplesAreEqual (circOutput, orig, 0, numSamples));
     
     beginTest ("Retrieve fewer samples than were passed in");
@@ -209,7 +177,7 @@ void CircularBufferTests::runTest()
     
     const auto halfNumSamples = numSamples / 2;
     
-    auto alias = lemons::dsp::buffers::getAliasBuffer (circOutput, 0, halfNumSamples);
+    auto alias = getAliasBuffer (circOutput, 0, halfNumSamples);
     
     circularBuffer.getSamples (alias);
     

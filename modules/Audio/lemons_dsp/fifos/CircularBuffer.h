@@ -5,11 +5,11 @@ namespace lemons::dsp
 
 /**
     A circular buffer meant for storing a single channel's worth of audio samples.
-    You should allocate its size to be larger than the maximum blocksize you plan on storing, to eliminate possible edge cases.
+    If you need to store more than one channel's worth of samples, use the AudioFifo class.
     @see AudioFifo
  */
 template <typename SampleType>
-class CircularBuffer
+class CircularBuffer final
 {
 public:
     /** Creates a CircularBuffer with an initial size. */

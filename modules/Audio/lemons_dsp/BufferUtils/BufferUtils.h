@@ -20,4 +20,27 @@ AudioBuffer<SampleType> getAliasBuffer (AudioBuffer<SampleType>& bufferToAlias,
                                         int                      numChannels = -1,
                                         int                      channelOffset = 0);
 
+/** Returns true if every sample in the given range of the two buffers is equal.
+    If startIndex2 is -1, then it will be set to be the same as startIndex1. Similarly, if channel2 is -1, then it will be set to be the same as channel1.
+ */
+template<typename FloatType>
+bool allSamplesAreEqual (const AudioBuffer<FloatType>& buffer1,
+                         const AudioBuffer<FloatType>& buffer2,
+                         int startIndex1, int numSamples,
+                         int startIndex2 = -1,
+                         int channel1 = 0,
+                         int channel2 = -1);
+
+/** Returns true if every sample of every channel of both buffers are equal.
+ */
+template<typename FloatType>
+bool buffersAreEqual (const AudioBuffer<FloatType>& buffer1,
+                      const AudioBuffer<FloatType>& buffer2);
+
+/** Returns true if every sample in the given range of the buffer is exactly zero.
+ */
+template<typename FloatType>
+bool allSamplesAreZero (const AudioBuffer<FloatType>& buffer,
+                        int startIndex, int numSamples, int channel = 0);
+
 }  // namespace lemons::dsp::buffers
