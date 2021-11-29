@@ -84,10 +84,10 @@ Functions</h2></td></tr>
 <tr class="memitem:aa8f6c7a0fdfc0981f44b3dfa291cc2ee"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1dsp_1_1buffers.html#aa8f6c7a0fdfc0981f44b3dfa291cc2ee">copy</a> (const <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;source, <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;dest)</td></tr>
 <tr class="memdesc:aa8f6c7a0fdfc0981f44b3dfa291cc2ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies all channels from the source buffer to the destination buffer.  <a href="namespacelemons_1_1dsp_1_1buffers.html#aa8f6c7a0fdfc0981f44b3dfa291cc2ee">More...</a><br /></td></tr>
 <tr class="separator:aa8f6c7a0fdfc0981f44b3dfa291cc2ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af08caeb8ac174b35a1cc6d32edda5d51"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
-<tr class="memitem:af08caeb8ac174b35a1cc6d32edda5d51"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1dsp_1_1buffers.html#af08caeb8ac174b35a1cc6d32edda5d51">getAliasBuffer</a> (<a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;bufferToAlias, int startSample, int numSamples, int numChannels, int channelOffset=0)</td></tr>
-<tr class="memdesc:af08caeb8ac174b35a1cc6d32edda5d51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an alias buffer referring to the memory region owned by the original passed buffer.  <a href="namespacelemons_1_1dsp_1_1buffers.html#af08caeb8ac174b35a1cc6d32edda5d51">More...</a><br /></td></tr>
-<tr class="separator:af08caeb8ac174b35a1cc6d32edda5d51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a063ba8cbe088e06f78ddd7469aed6e6a"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
+<tr class="memitem:a063ba8cbe088e06f78ddd7469aed6e6a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1dsp_1_1buffers.html#a063ba8cbe088e06f78ddd7469aed6e6a">getAliasBuffer</a> (<a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;bufferToAlias, int startSample, int numSamples, int numChannels=-1, int channelOffset=0)</td></tr>
+<tr class="memdesc:a063ba8cbe088e06f78ddd7469aed6e6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an alias buffer referring to the memory region owned by the original passed buffer.  <a href="namespacelemons_1_1dsp_1_1buffers.html#a063ba8cbe088e06f78ddd7469aed6e6a">More...</a><br /></td></tr>
+<tr class="separator:a063ba8cbe088e06f78ddd7469aed6e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a338cb2205ecb51e66fe09025286e62d1"></a>
@@ -154,8 +154,8 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
-<a id="af08caeb8ac174b35a1cc6d32edda5d51"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af08caeb8ac174b35a1cc6d32edda5d51">&#9670;&nbsp;</a></span>getAliasBuffer()</h2>
+<a id="a063ba8cbe088e06f78ddd7469aed6e6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a063ba8cbe088e06f78ddd7469aed6e6a">&#9670;&nbsp;</a></span>getAliasBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -184,7 +184,7 @@ template&lt;typename SampleType &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>numChannels</em>, </td>
+          <td class="paramname"><em>numChannels</em> = <code>-1</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -201,13 +201,14 @@ template&lt;typename SampleType &gt; </div>
 </div><div class="memdoc">
 
 <p>Returns an alias buffer referring to the memory region owned by the original passed buffer. </p>
+<p>If the numChannels argument is -1, the alias buffer will have the same number of channels as the buffer being aliased. </p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 28 2021 00:44:04 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 29 2021 00:42:33 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

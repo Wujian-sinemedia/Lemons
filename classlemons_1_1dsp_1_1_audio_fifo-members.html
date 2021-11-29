@@ -63,26 +63,26 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacelemons.html">lemons</a></li><li class="navelem"><a class="el" href="namespacelemons_1_1dsp.html">dsp</a></li><li class="navelem"><a class="el" href="namespacelemons_1_1dsp_1_1psola.html">psola</a></li><li class="navelem"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analysis_grain_storage.html">AnalysisGrainStorage</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacelemons.html">lemons</a></li><li class="navelem"><a class="el" href="namespacelemons_1_1dsp.html">dsp</a></li><li class="navelem"><a class="el" href="classlemons_1_1dsp_1_1_audio_fifo.html">AudioFifo</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">lemons::dsp::psola::AnalysisGrainStorage&lt; SampleType &gt; Member List</div>  </div>
+<div class="title">lemons::dsp::AudioFifo&lt; SampleType &gt; Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analysis_grain_storage.html">lemons::dsp::psola::AnalysisGrainStorage&lt; SampleType &gt;</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="classlemons_1_1dsp_1_1_audio_fifo.html">lemons::dsp::AudioFifo&lt; SampleType &gt;</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analysis_grain_storage.html#a89f77066049620f8562adbbad5800be7">AudioBuffer</a> typedef</td><td class="entry"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analysis_grain_storage.html">lemons::dsp::psola::AnalysisGrainStorage&lt; SampleType &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analysis_grain_storage.html#aa8adf19fc5e5bff5cb5995d5914fc5cd">getSample</a>(int grainStartIndexInCircularBuffer, int grainTick) const</td><td class="entry"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analysis_grain_storage.html">lemons::dsp::psola::AnalysisGrainStorage&lt; SampleType &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analysis_grain_storage.html#a492149d9c33d2eed9f5c7c7cb2b70f8e">getStartOfClosestGrain</a>(int sampleIndex) const</td><td class="entry"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analysis_grain_storage.html">lemons::dsp::psola::AnalysisGrainStorage&lt; SampleType &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analysis_grain_storage.html#a7ad522e1e8f0fdf4e69d8211d9ab8b16">prepare</a>(int blocksize)</td><td class="entry"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analysis_grain_storage.html">lemons::dsp::psola::AnalysisGrainStorage&lt; SampleType &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analysis_grain_storage.html#a84f57524dee3657a1c2b1cd2c141d359">storeNewFrame</a>(const SampleType *inputSamples, int numSamples, const juce::Array&lt; int &gt; &amp;grainOnsets)</td><td class="entry"><a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analysis_grain_storage.html">lemons::dsp::psola::AnalysisGrainStorage&lt; SampleType &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classlemons_1_1dsp_1_1_audio_fifo.html#ab015adaedd4d13691b83ad22fcd3e587">clear</a>()</td><td class="entry"><a class="el" href="classlemons_1_1dsp_1_1_audio_fifo.html">lemons::dsp::AudioFifo&lt; SampleType &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classlemons_1_1dsp_1_1_audio_fifo.html#a7d5b82e87170b03907c160a89884abf9">numStoredSamples</a>() const noexcept</td><td class="entry"><a class="el" href="classlemons_1_1dsp_1_1_audio_fifo.html">lemons::dsp::AudioFifo&lt; SampleType &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classlemons_1_1dsp_1_1_audio_fifo.html#a95c5fcb08cede6de807d14a2bad563f3">popSamples</a>(AudioBuffer&lt; SampleType &gt; &amp;output)</td><td class="entry"><a class="el" href="classlemons_1_1dsp_1_1_audio_fifo.html">lemons::dsp::AudioFifo&lt; SampleType &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classlemons_1_1dsp_1_1_audio_fifo.html#a26eafa467c0334083b41559baa862e0a">pushSamples</a>(const AudioBuffer&lt; SampleType &gt; &amp;input)</td><td class="entry"><a class="el" href="classlemons_1_1dsp_1_1_audio_fifo.html">lemons::dsp::AudioFifo&lt; SampleType &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classlemons_1_1dsp_1_1_audio_fifo.html#acbdb303cddfa8c533cf2c073084f8ae2">resize</a>(int maxNumSamples, int numChannels=2)</td><td class="entry"><a class="el" href="classlemons_1_1dsp_1_1_audio_fifo.html">lemons::dsp::AudioFifo&lt; SampleType &gt;</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 28 2021 00:44:04 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 29 2021 00:42:33 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

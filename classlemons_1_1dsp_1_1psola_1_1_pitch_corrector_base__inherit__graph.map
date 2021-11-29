@@ -1,4 +1,0 @@
-<map id="lemons::dsp::psola::PitchCorrectorBase&lt; SampleType &gt;" name="lemons::dsp::psola::PitchCorrectorBase&lt; SampleType &gt;">
-<area shape="rect" id="node1" title="This class attempts to guess the correct pitch for a given input signal, and performs PSOLA pitch shi..." alt="" coords="43,5,198,61"/>
-<area shape="rect" id="node2" href="$classlemons_1_1dsp_1_1psola_1_1_pitch_corrector.html" title="This class attempts to guess the correct pitch for a given input signal, and performs PSOLA pitch shi..." alt="" coords="5,109,236,151"/>
-</map>

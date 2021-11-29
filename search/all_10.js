@@ -240,7 +240,7 @@ var searchData=
   ['resettocenter_889',['resetToCenter',['../classlemons_1_1dsp_1_1_f_x_1_1_panner_base.html#a6653d42f45530c55fe6e608199aff158',1,'lemons::dsp::FX::PannerBase']]],
   ['resettodefault_890',['resetToDefault',['../classlemons_1_1plugin_1_1_parameter.html#aa22078ebf664fe42bfc16e0a73faf09b',1,'lemons::plugin::Parameter']]],
   ['resettriggered_891',['resetTriggered',['../classlemons_1_1dsp_1_1_synth_base.html#a4cf5c383301bebd3be10327a75bbad5d',1,'lemons::dsp::SynthBase']]],
-  ['resize_892',['resize',['../structlemons_1_1spline_1_1_spline.html#a456b6004149fa437f8e5b3562393144b',1,'lemons::spline::Spline']]],
+  ['resize_892',['resize',['../classlemons_1_1dsp_1_1_audio_fifo.html#acbdb303cddfa8c533cf2c073084f8ae2',1,'lemons::dsp::AudioFifo::resize()'],['../classlemons_1_1dsp_1_1_circular_buffer.html#a128d70f28fcc01e6731f0b89e778ba73',1,'lemons::dsp::CircularBuffer::resize()'],['../structlemons_1_1spline_1_1_spline.html#a456b6004149fa437f8e5b3562393144b',1,'lemons::spline::Spline::resize()']]],
   ['resized_893',['resized',['../classlemons_1_1gui_1_1_popup.html#a1e473e927fb42f2fd43a25072f1413e5',1,'lemons::gui::Popup']]],
   ['resizetriggered_894',['resizeTriggered',['../classlemons_1_1gui_1_1_popup_component.html#ae0cb4efff6824179eff41968b0fa5919',1,'lemons::gui::PopupComponent::resizeTriggered()'],['../classlemons_1_1plugin_1_1_editor_base.html#a4437b2967a191b27ff96d2c0cb97d2b8',1,'lemons::plugin::EditorBase::resizeTriggered()']]],
   ['resynthesis_895',['resynthesis',['../group__resynthesis.html',1,'']]],

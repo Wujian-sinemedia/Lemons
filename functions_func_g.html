@@ -121,8 +121,8 @@ $(function() {
 <li>getBandOfType()
 : <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_e_q.html#a4c1d6365b4752a40c2f2d43d7db97d37">lemons::dsp::FX::EQ&lt; SampleType &gt;</a>
 </li>
-<li>getCentsSharp()
-: <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_corrector_base.html#ab01ad2a6fab1dd7ed56c33b6c8236dfe">lemons::dsp::psola::PitchCorrectorBase&lt; SampleType &gt;</a>
+<li>getCapacity()
+: <a class="el" href="classlemons_1_1dsp_1_1_circular_buffer.html#a501fc09d80b85274e0bebe94af474991">lemons::dsp::CircularBuffer&lt; SampleType &gt;</a>
 </li>
 <li>getCurrentlyPlayingNote()
 : <a class="el" href="classlemons_1_1dsp_1_1_synth_voice_base.html#ac4b3eb9706cf4246115e80e359b3323f">lemons::dsp::SynthVoiceBase&lt; SampleType &gt;</a>
@@ -156,7 +156,6 @@ $(function() {
 </li>
 <li>getFrequency()
 : <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_choosable_oscillator.html#a2d3ec8b57408773a24a0f96b1c5ca24e">lemons::dsp::osc::ChoosableOscillator&lt; SampleType &gt;</a>
-, <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analyzer.html#a9e7f5dfe2f286a537b734cffe46ed09e">lemons::dsp::psola::Analyzer&lt; SampleType &gt;</a>
 </li>
 <li>getFrequencyForMidi()
 : <a class="el" href="structlemons_1_1midi_1_1_pitch_pipeline.html#aaff529b9e3c1a77688aeea5b1fadc90f">lemons::midi::PitchPipeline</a>
@@ -176,9 +175,6 @@ $(function() {
 </li>
 <li>getGainReduction()
 : <a class="el" href="structlemons_1_1dsp_1_1_f_x_1_1_level_reporting_audio_effect.html#a845aafe7263a138250b02bd383f509d3">lemons::dsp::FX::LevelReportingAudioEffect&lt; SampleType &gt;</a>
-</li>
-<li>getGrainLength()
-: <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analyzer.html#a4df41a078cb3c5e0ad501fd3687ed5b4">lemons::dsp::psola::Analyzer&lt; SampleType &gt;</a>
 </li>
 <li>getGravity()
 : <a class="el" href="classlemons_1_1_motion_manager_interface.html#adecd1bafb3ec5c0f5e838db3644e4f9e">lemons::MotionManagerInterface</a>
@@ -212,7 +208,7 @@ $(function() {
 </li>
 <li>getLatencySamples()
 : <a class="el" href="classlemons_1_1dsp_1_1_pitch_detector.html#a83fe88a56a998eefee329ccaa5b3c48d">lemons::dsp::PitchDetector&lt; SampleType &gt;</a>
-, <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analyzer.html#a9f89d98860729b026ffdaf8713e12418">lemons::dsp::psola::Analyzer&lt; SampleType &gt;</a>
+, <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analyzer.html#a392fa0d9e1ce3e05a25f405db613a183">lemons::dsp::psola::Analyzer&lt; SampleType &gt;</a>
 </li>
 <li>getLeftGain()
 : <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_panner_base.html#ae23e59c46275aa57b9345a0769d82bfc">lemons::dsp::FX::PannerBase</a>
@@ -256,9 +252,6 @@ $(function() {
 <li>getMinimum()
 : <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#a3f385a1ada429e1f7cd8e16d3f5a7635">lemons::plugin::TypedParameter&lt; ValueType &gt;</a>
 </li>
-<li>getNextSample()
-: <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a7dbb3e0a44fe503c0a415c4b08d72d67">lemons::dsp::psola::Shifter&lt; SampleType &gt;</a>
-</li>
 <li>getNormalisableRange()
 : <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ad607d23979bbdbb9a78f1b3d013fc5b4">lemons::plugin::Parameter</a>
 </li>
@@ -274,6 +267,9 @@ $(function() {
 <li>getNumBands()
 : <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_e_q.html#a5cf898f49312c0c29e30030c08202341">lemons::dsp::FX::EQ&lt; SampleType &gt;</a>
 </li>
+<li>getNumStoredSamples()
+: <a class="el" href="classlemons_1_1dsp_1_1_circular_buffer.html#a8d0f824cfa4e30813a42930de1896f42">lemons::dsp::CircularBuffer&lt; SampleType &gt;</a>
+</li>
 <li>getNumVoices()
 : <a class="el" href="classlemons_1_1dsp_1_1_synth_base.html#a22a13afada1f072993befdbf3197d47c">lemons::dsp::SynthBase&lt; SampleType &gt;</a>
 </li>
@@ -283,20 +279,11 @@ $(function() {
 <li>getOscType()
 : <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_choosable_oscillator.html#a5705f7719f4f0ce5a7d4be38d9fc5a3b">lemons::dsp::osc::ChoosableOscillator&lt; SampleType &gt;</a>
 </li>
-<li>getOutputFreq()
-: <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_corrector_base.html#a68fb9c1a9de0191cc2c1c272c6e5f56e">lemons::dsp::psola::PitchCorrectorBase&lt; SampleType &gt;</a>
-</li>
-<li>getOutputMidiPitch()
-: <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_pitch_corrector_base.html#aec5dc4f898fc89741d384ecef61ffb8e">lemons::dsp::psola::PitchCorrectorBase&lt; SampleType &gt;</a>
-</li>
 <li>getParameter()
 : <a class="el" href="structlemons_1_1plugin_1_1_l_f_o.html#ac7b56cbcf71a190a9059149ca8ff2063">lemons::plugin::LFO</a>
 </li>
 <li>getParameterName()
 : <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a34250cac555b1d3a3ab04e31ca2f310e">lemons::plugin::Parameter</a>
-</li>
-<li>getPeriod()
-: <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analyzer.html#a0aebedcc5d7a0c18cbe936680bd5780f">lemons::dsp::psola::Analyzer&lt; SampleType &gt;</a>
 </li>
 <li>getPitchAdjuster()
 : <a class="el" href="classlemons_1_1dsp_1_1_synth_base.html#af119c05b5f84f9dc81e8cfd5c0af15c4">lemons::dsp::SynthBase&lt; SampleType &gt;</a>
@@ -332,14 +319,14 @@ $(function() {
 , <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_square.html#af8cc0ad63ab8fbf08ecf9a3c77b29277">lemons::dsp::osc::Square&lt; SampleType &gt;</a>
 , <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_super_saw.html#ac265c02f42dac755b6b2114a887aec44">lemons::dsp::osc::SuperSaw&lt; SampleType &gt;</a>
 , <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_triangle.html#a2bc186fc90983db3536a09ad4fbb23f5">lemons::dsp::osc::Triangle&lt; SampleType &gt;</a>
-, <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analysis_grain_storage.html#aa8adf19fc5e5bff5cb5995d5914fc5cd">lemons::dsp::psola::AnalysisGrainStorage&lt; SampleType &gt;</a>
 </li>
 <li>getSamplerate()
-: <a class="el" href="classlemons_1_1dsp_1_1_engine.html#afde19f6980e44ccaf99d168bb1f0f95f">lemons::dsp::Engine&lt; SampleType &gt;</a>
+: <a class="el" href="classlemons_1_1dsp_1_1_engine.html#a0c87ce560c5a841ae19764adb67e4dfc">lemons::dsp::Engine&lt; SampleType &gt;</a>
 </li>
 <li>getSamples()
-: <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html#a0d4e7108f8cb508f01efeb7e7d423c84">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>
-, <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#acd548e53f2b869723a5283d1875c6aed">lemons::dsp::psola::Shifter&lt; SampleType &gt;</a>
+: <a class="el" href="classlemons_1_1dsp_1_1_circular_buffer.html#a596b725d5dcfc529a1c7273630bf9ed3">lemons::dsp::CircularBuffer&lt; SampleType &gt;</a>
+, <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html#a60cacb1aeca5d4f2eed87c754b01fc6a">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>
+, <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a0517efb82243046286fc03585dbe0b6e">lemons::dsp::psola::Shifter&lt; SampleType &gt;</a>
 </li>
 <li>getSavedEditorSize()
 : <a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#a3814788aae0eff4e449e29dbcd16352f">lemons::plugin::ProcessorBase</a>
@@ -350,9 +337,6 @@ $(function() {
 </li>
 <li>getSensitivity()
 : <a class="el" href="structlemons_1_1midi_1_1_velocity_helper.html#aad492a24b4723b83f32c6245f869bc28">lemons::midi::VelocityHelper</a>
-</li>
-<li>getStartOfClosestGrain()
-: <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_analysis_grain_storage.html#a492149d9c33d2eed9f5c7c7cb2b70f8e">lemons::dsp::psola::AnalysisGrainStorage&lt; SampleType &gt;</a>
 </li>
 <li>getState()
 : <a class="el" href="classlemons_1_1plugin_1_1_processor.html#a2acf59f798cea2401c7cad31d4ab190a">lemons::plugin::Processor&lt; StateType, EngineType,, &gt;</a>
@@ -401,7 +385,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 28 2021 00:44:04 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 29 2021 00:42:34 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

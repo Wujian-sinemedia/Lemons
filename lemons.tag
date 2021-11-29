@@ -34,11 +34,29 @@
     <filename>_all_lemons_modules_8md.html</filename>
   </compound>
   <compound kind="file">
+    <name>analyzer.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_psola/analysis/</path>
+    <filename>analyzer_8h.html</filename>
+    <class kind="class">lemons::dsp::psola::Analyzer</class>
+    <class kind="class">lemons::dsp::psola::Shifter</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::psola</namespace>
+  </compound>
+  <compound kind="file">
     <name>androidMotion.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_mobile_utils/Android/</path>
     <filename>android_motion_8h.html</filename>
     <class kind="class">lemons::MotionManager</class>
     <namespace>lemons</namespace>
+  </compound>
+  <compound kind="file">
+    <name>AudioAndMidiFIFO.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/fifos/</path>
+    <filename>_audio_and_midi_f_i_f_o_8h.html</filename>
+    <class kind="class">lemons::dsp::AudioAndMidiFIFO</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
   </compound>
   <compound kind="file">
     <name>AudioEffect.h</name>
@@ -65,6 +83,14 @@
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/engines/</path>
     <filename>_audio_engine_8h.html</filename>
     <class kind="class">lemons::dsp::Engine</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+  </compound>
+  <compound kind="file">
+    <name>AudioFifo.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/fifos/</path>
+    <filename>_audio_fifo_8h.html</filename>
+    <class kind="class">lemons::dsp::AudioFifo</class>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
   </compound>
@@ -122,8 +148,8 @@
       <type>AudioBuffer&lt; SampleType &gt;</type>
       <name>getAliasBuffer</name>
       <anchorfile>namespacelemons_1_1dsp_1_1buffers.html</anchorfile>
-      <anchor>af08caeb8ac174b35a1cc6d32edda5d51</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;bufferToAlias, int startSample, int numSamples, int numChannels, int channelOffset=0)</arglist>
+      <anchor>a063ba8cbe088e06f78ddd7469aed6e6a</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;bufferToAlias, int startSample, int numSamples, int numChannels=-1, int channelOffset=0)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -170,6 +196,14 @@
       <enumvalue file="namespacelemons_1_1dsp_1_1osc.html" anchor="a1771007d411d4f6426cc3773961dfa5da5e5500cb2b82eb72d550de644bd1b64b">Triangle</enumvalue>
       <enumvalue file="namespacelemons_1_1dsp_1_1osc.html" anchor="a1771007d411d4f6426cc3773961dfa5dae9bf866a0336b772631bb909f722ab23">SuperSaw</enumvalue>
     </member>
+  </compound>
+  <compound kind="file">
+    <name>CircularBuffer.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/fifos/</path>
+    <filename>_circular_buffer_8h.html</filename>
+    <class kind="class">lemons::dsp::CircularBuffer</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
   </compound>
   <compound kind="file">
     <name>client.h</name>
@@ -1921,15 +1955,6 @@
     <namespace>lemons::dsp::filters</namespace>
   </compound>
   <compound kind="file">
-    <name>GrainStorage.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_psola/analysis/GrainStorage/</path>
-    <filename>_grain_storage_8h.html</filename>
-    <class kind="class">lemons::dsp::psola::AnalysisGrainStorage</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::psola</namespace>
-  </compound>
-  <compound kind="file">
     <name>GuiApp.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Apps/lemons_app_utils/GuiApp/</path>
     <filename>_gui_app_8h.html</filename>
@@ -2577,16 +2602,6 @@
     <namespace>lemons::midi</namespace>
   </compound>
   <compound kind="file">
-    <name>PitchCorrector.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_psola/PitchCorrector/</path>
-    <filename>_pitch_corrector_8h.html</filename>
-    <class kind="class">lemons::dsp::psola::PitchCorrector</class>
-    <class kind="class">lemons::dsp::psola::PitchCorrectorBase</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::psola</namespace>
-  </compound>
-  <compound kind="file">
     <name>PitchDetector.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/PitchDetector/</path>
     <filename>_pitch_detector_8h.html</filename>
@@ -2700,26 +2715,6 @@
     </member>
   </compound>
   <compound kind="file">
-    <name>psola_analyzer.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_psola/analysis/</path>
-    <filename>psola__analyzer_8h.html</filename>
-    <includes id="_grain_storage_8h" name="GrainStorage.h" local="yes" imported="no">GrainStorage/GrainStorage.h</includes>
-    <class kind="class">lemons::dsp::psola::Analyzer</class>
-    <class kind="class">lemons::dsp::psola::Shifter</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::psola</namespace>
-  </compound>
-  <compound kind="file">
-    <name>psola_shifter.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_psola/resynthesis/</path>
-    <filename>psola__shifter_8h.html</filename>
-    <class kind="class">lemons::dsp::psola::Shifter</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::psola</namespace>
-  </compound>
-  <compound kind="file">
     <name>Reverb.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_audio_effects/misc/</path>
     <filename>_reverb_8h.html</filename>
@@ -2744,6 +2739,15 @@
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::FX</namespace>
+  </compound>
+  <compound kind="file">
+    <name>shifter.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_psola/resynthesis/</path>
+    <filename>shifter_8h.html</filename>
+    <class kind="class">lemons::dsp::psola::Shifter</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::psola</namespace>
   </compound>
   <compound kind="file">
     <name>SliderBase.h</name>
@@ -3242,104 +3246,50 @@
     <namespace>lemons::dsp::synth</namespace>
   </compound>
   <compound kind="class">
-    <name>lemons::dsp::psola::AnalysisGrainStorage</name>
-    <filename>classlemons_1_1dsp_1_1psola_1_1_analysis_grain_storage.html</filename>
-    <templarg></templarg>
-    <member kind="typedef">
-      <type>juce::AudioBuffer&lt; SampleType &gt;</type>
-      <name>AudioBuffer</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_analysis_grain_storage.html</anchorfile>
-      <anchor>a89f77066049620f8562adbbad5800be7</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>SampleType</type>
-      <name>getSample</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_analysis_grain_storage.html</anchorfile>
-      <anchor>aa8adf19fc5e5bff5cb5995d5914fc5cd</anchor>
-      <arglist>(int grainStartIndexInCircularBuffer, int grainTick) const</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getStartOfClosestGrain</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_analysis_grain_storage.html</anchorfile>
-      <anchor>a492149d9c33d2eed9f5c7c7cb2b70f8e</anchor>
-      <arglist>(int sampleIndex) const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_analysis_grain_storage.html</anchorfile>
-      <anchor>a7ad522e1e8f0fdf4e69d8211d9ab8b16</anchor>
-      <arglist>(int blocksize)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>storeNewFrame</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_analysis_grain_storage.html</anchorfile>
-      <anchor>a84f57524dee3657a1c2b1cd2c141d359</anchor>
-      <arglist>(const SampleType *inputSamples, int numSamples, const juce::Array&lt; int &gt; &amp;grainOnsets)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>lemons::dsp::psola::Analyzer</name>
     <filename>classlemons_1_1dsp_1_1psola_1_1_analyzer.html</filename>
     <templarg></templarg>
-    <member kind="typedef">
-      <type>AnalysisGrainStorage&lt; SampleType &gt;</type>
-      <name>Storage</name>
+    <member kind="function">
+      <type></type>
+      <name>Analyzer</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_analyzer.html</anchorfile>
-      <anchor>a6dc5fd4cc2dbc9dab3e94d3370192c22</anchor>
-      <arglist></arglist>
+      <anchor>a3269033595e48b1a43c1ed8a1ae5c934</anchor>
+      <arglist>(int minFreqHz=60)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>analyzeInput</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_analyzer.html</anchorfile>
-      <anchor>aece10c9d94f550d225031fd98d0a218c</anchor>
-      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, int channel=0)</arglist>
+      <anchor>a10566f08a66c3be09e9aebe39beb4e2d</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;inputAudio)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>analyzeInput</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_analyzer.html</anchorfile>
-      <anchor>ab8a13de76a68eef7162c6b56cc998f5a</anchor>
-      <arglist>(const SampleType *samples, int numSamples)</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getFrequency</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_analyzer.html</anchorfile>
-      <anchor>a9e7f5dfe2f286a537b734cffe46ed09e</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getGrainLength</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_analyzer.html</anchorfile>
-      <anchor>a4df41a078cb3c5e0ad501fd3687ed5b4</anchor>
-      <arglist>() const</arglist>
+      <anchor>ab78f564ad845afb011e82a70c041409f</anchor>
+      <arglist>(const SampleType *inputAudio, int numSamples)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>getLatencySamples</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_analyzer.html</anchorfile>
-      <anchor>a9f89d98860729b026ffdaf8713e12418</anchor>
-      <arglist>() const</arglist>
+      <anchor>a392fa0d9e1ce3e05a25f405db613a183</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>int</type>
-      <name>getPeriod</name>
+      <name>setMinInputFreq</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_analyzer.html</anchorfile>
-      <anchor>a0aebedcc5d7a0c18cbe936680bd5780f</anchor>
-      <arglist>() const</arglist>
+      <anchor>acf4db1c9e9f83475f7fd67231ce31bec</anchor>
+      <arglist>(int minFreqHz)</arglist>
     </member>
     <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
+      <type>int</type>
+      <name>setSamplerate</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_analyzer.html</anchorfile>
-      <anchor>ab6b686b1dda490a086e2772f2e1fe739</anchor>
-      <arglist>(double sampleRate, int blocksize)</arglist>
+      <anchor>ad411d4adc2548c7ca7296a861ecf7fcf</anchor>
+      <arglist>(double newSamplerate)</arglist>
     </member>
     <member kind="friend" protection="private">
       <type>friend class</type>
@@ -3347,6 +3297,53 @@
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_analyzer.html</anchorfile>
       <anchor>ab0c6bf0dc83509d935bf350d9dace989</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lemons::dsp::AudioAndMidiFIFO</name>
+    <filename>classlemons_1_1dsp_1_1_audio_and_midi_f_i_f_o.html</filename>
+    <templarg></templarg>
+    <member kind="function">
+      <type></type>
+      <name>AudioAndMidiFIFO</name>
+      <anchorfile>classlemons_1_1dsp_1_1_audio_and_midi_f_i_f_o.html</anchorfile>
+      <anchor>a6f493e1b09033cad18e8557c46ff37f7</anchor>
+      <arglist>(int samples=1024)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>clear</name>
+      <anchorfile>classlemons_1_1dsp_1_1_audio_and_midi_f_i_f_o.html</anchorfile>
+      <anchor>accae61ae119545e5c3d9abfeffe4f210</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>numStoredSamples</name>
+      <anchorfile>classlemons_1_1dsp_1_1_audio_and_midi_f_i_f_o.html</anchorfile>
+      <anchor>a19672646d23236bbba698b5732e3efa6</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>pop</name>
+      <anchorfile>classlemons_1_1dsp_1_1_audio_and_midi_f_i_f_o.html</anchorfile>
+      <anchor>a99e577b199955f15932995b9559ae84e</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;audioOut, MidiBuffer &amp;midiOut)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>push</name>
+      <anchorfile>classlemons_1_1dsp_1_1_audio_and_midi_f_i_f_o.html</anchorfile>
+      <anchor>a283043170f786b3f477801919d2f0114</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;audioIn, const MidiBuffer &amp;midiIn)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSize</name>
+      <anchorfile>classlemons_1_1dsp_1_1_audio_and_midi_f_i_f_o.html</anchorfile>
+      <anchor>a4edd7711409ec84103fd5cb81b47df1a</anchor>
+      <arglist>(int numSamples, int numChannels=2)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -3412,6 +3409,46 @@
       <anchorfile>structlemons_1_1dsp_1_1_f_x_1_1_audio_effect.html</anchorfile>
       <anchor>a5979cff40fec5864fb6a45bba0b01911</anchor>
       <arglist>(AudioBuffer&lt; float &gt; &amp;audio)=0</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lemons::dsp::AudioFifo</name>
+    <filename>classlemons_1_1dsp_1_1_audio_fifo.html</filename>
+    <templarg></templarg>
+    <member kind="function">
+      <type>void</type>
+      <name>clear</name>
+      <anchorfile>classlemons_1_1dsp_1_1_audio_fifo.html</anchorfile>
+      <anchor>ab015adaedd4d13691b83ad22fcd3e587</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>numStoredSamples</name>
+      <anchorfile>classlemons_1_1dsp_1_1_audio_fifo.html</anchorfile>
+      <anchor>a7d5b82e87170b03907c160a89884abf9</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>popSamples</name>
+      <anchorfile>classlemons_1_1dsp_1_1_audio_fifo.html</anchorfile>
+      <anchor>a95c5fcb08cede6de807d14a2bad563f3</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;output)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>pushSamples</name>
+      <anchorfile>classlemons_1_1dsp_1_1_audio_fifo.html</anchorfile>
+      <anchor>a26eafa467c0334083b41559baa862e0a</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resize</name>
+      <anchorfile>classlemons_1_1dsp_1_1_audio_fifo.html</anchorfile>
+      <anchor>acbdb303cddfa8c533cf2c073084f8ae2</anchor>
+      <arglist>(int maxNumSamples, int numChannels=2)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -3911,6 +3948,67 @@
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1_choosable_oscillator.html</anchorfile>
       <anchor>aa0ea229ad02704d516c727b10b69504b</anchor>
       <arglist>(int)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lemons::dsp::CircularBuffer</name>
+    <filename>classlemons_1_1dsp_1_1_circular_buffer.html</filename>
+    <templarg></templarg>
+    <member kind="function">
+      <type>void</type>
+      <name>clear</name>
+      <anchorfile>classlemons_1_1dsp_1_1_circular_buffer.html</anchorfile>
+      <anchor>a6b944eb98905fe60288dc95e6ec2bd1d</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getCapacity</name>
+      <anchorfile>classlemons_1_1dsp_1_1_circular_buffer.html</anchorfile>
+      <anchor>a501fc09d80b85274e0bebe94af474991</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumStoredSamples</name>
+      <anchorfile>classlemons_1_1dsp_1_1_circular_buffer.html</anchorfile>
+      <anchor>a8d0f824cfa4e30813a42930de1896f42</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>getSamples</name>
+      <anchorfile>classlemons_1_1dsp_1_1_circular_buffer.html</anchorfile>
+      <anchor>a719fb2a904df96cb3942259fbd0d71ef</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;output, int channel=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>getSamples</name>
+      <anchorfile>classlemons_1_1dsp_1_1_circular_buffer.html</anchorfile>
+      <anchor>a596b725d5dcfc529a1c7273630bf9ed3</anchor>
+      <arglist>(SampleType *output, int numSamples)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resize</name>
+      <anchorfile>classlemons_1_1dsp_1_1_circular_buffer.html</anchorfile>
+      <anchor>a128d70f28fcc01e6731f0b89e778ba73</anchor>
+      <arglist>(int newSize)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>storeSamples</name>
+      <anchorfile>classlemons_1_1dsp_1_1_circular_buffer.html</anchorfile>
+      <anchor>a2a4e8eed89a54f705eaf8d64ba2516c0</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;samples, int channel=0)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>storeSamples</name>
+      <anchorfile>classlemons_1_1dsp_1_1_circular_buffer.html</anchorfile>
+      <anchor>ace39516126a8df18306ac337d29d9321</anchor>
+      <arglist>(const SampleType *samples, int numSamples)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -5418,15 +5516,15 @@
       <type>double</type>
       <name>getSamplerate</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
+      <anchor>a0c87ce560c5a841ae19764adb67e4dfc</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isInitialized</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
+      <anchor>a38a2e75c1ccdbe5fd3a7c1b376d4e40a</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>EffectType&lt; SampleType &gt; &amp;</type>
@@ -5514,15 +5612,15 @@
       <type>double</type>
       <name>getSamplerate</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
+      <anchor>a0c87ce560c5a841ae19764adb67e4dfc</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isInitialized</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
+      <anchor>a38a2e75c1ccdbe5fd3a7c1b376d4e40a</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>Filter&lt; SampleType &gt; &amp;</type>
@@ -5617,15 +5715,15 @@
       <type>double</type>
       <name>getSamplerate</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
+      <anchor>a0c87ce560c5a841ae19764adb67e4dfc</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isInitialized</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
+      <anchor>a38a2e75c1ccdbe5fd3a7c1b376d4e40a</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -5680,8 +5778,8 @@
       <type>virtual void</type>
       <name>prepared</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a5502bd355277d1bb044c4061a2cf612e</anchor>
-      <arglist>(int blocksize, double samplerate)</arglist>
+      <anchor>a42b9c161621794425abd0e92de14fc18</anchor>
+      <arglist>(int blocksize, double samplerate, int numChannels)</arglist>
     </member>
     <member kind="function" protection="private" virtualness="virtual">
       <type>virtual void</type>
@@ -5719,15 +5817,15 @@
       <type>double</type>
       <name>getSamplerate</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
+      <anchor>a0c87ce560c5a841ae19764adb67e4dfc</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isInitialized</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
+      <anchor>a38a2e75c1ccdbe5fd3a7c1b376d4e40a</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -5782,8 +5880,8 @@
       <type>virtual void</type>
       <name>prepared</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a5502bd355277d1bb044c4061a2cf612e</anchor>
-      <arglist>(int blocksize, double samplerate)</arglist>
+      <anchor>a42b9c161621794425abd0e92de14fc18</anchor>
+      <arglist>(int blocksize, double samplerate, int numChannels)</arglist>
     </member>
     <member kind="function" protection="private" virtualness="virtual">
       <type>virtual void</type>
@@ -5821,15 +5919,15 @@
       <type>double</type>
       <name>getSamplerate</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
+      <anchor>a0c87ce560c5a841ae19764adb67e4dfc</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isInitialized</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
+      <anchor>a38a2e75c1ccdbe5fd3a7c1b376d4e40a</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -5884,8 +5982,8 @@
       <type>virtual void</type>
       <name>prepared</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a5502bd355277d1bb044c4061a2cf612e</anchor>
-      <arglist>(int blocksize, double samplerate)</arglist>
+      <anchor>a42b9c161621794425abd0e92de14fc18</anchor>
+      <arglist>(int blocksize, double samplerate, int numChannels)</arglist>
     </member>
     <member kind="function" protection="private" virtualness="virtual">
       <type>virtual void</type>
@@ -6138,15 +6236,15 @@
       <type>double</type>
       <name>getSamplerate</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
+      <anchor>a0c87ce560c5a841ae19764adb67e4dfc</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isInitialized</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
+      <anchor>a38a2e75c1ccdbe5fd3a7c1b376d4e40a</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>Filter&lt; SampleType &gt; &amp;</type>
@@ -8102,15 +8200,15 @@
       <type>double</type>
       <name>getSamplerate</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
+      <anchor>a0c87ce560c5a841ae19764adb67e4dfc</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isInitialized</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
+      <anchor>a38a2e75c1ccdbe5fd3a7c1b376d4e40a</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -8160,6 +8258,13 @@
       <anchorfile>classlemons_1_1dsp_1_1_latency_engine.html</anchorfile>
       <anchor>a13fce9c2a64647375473f7df8b33db35</anchor>
       <arglist>() const final</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSamplerate</name>
+      <anchorfile>classlemons_1_1dsp_1_1_latency_engine.html</anchorfile>
+      <anchor>a89329e1d6ff9072befae739f72a5837b</anchor>
+      <arglist>(double samplerate)</arglist>
     </member>
     <member kind="function" protection="private" virtualness="virtual">
       <type>virtual void</type>
@@ -11573,15 +11678,15 @@
       <type>double</type>
       <name>getSamplerate</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
+      <anchor>a0c87ce560c5a841ae19764adb67e4dfc</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isInitialized</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
+      <anchor>a38a2e75c1ccdbe5fd3a7c1b376d4e40a</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>Osc *</type>
@@ -11669,15 +11774,15 @@
       <type>double</type>
       <name>getSamplerate</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
+      <anchor>a0c87ce560c5a841ae19764adb67e4dfc</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isInitialized</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
+      <anchor>a38a2e75c1ccdbe5fd3a7c1b376d4e40a</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>Osc *</type>
@@ -11765,15 +11870,15 @@
       <type>double</type>
       <name>getSamplerate</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
+      <anchor>a0c87ce560c5a841ae19764adb67e4dfc</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isInitialized</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
+      <anchor>a38a2e75c1ccdbe5fd3a7c1b376d4e40a</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>Osc *</type>
@@ -11861,15 +11966,15 @@
       <type>double</type>
       <name>getSamplerate</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
+      <anchor>a0c87ce560c5a841ae19764adb67e4dfc</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isInitialized</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
+      <anchor>a38a2e75c1ccdbe5fd3a7c1b376d4e40a</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>Osc *</type>
@@ -11957,15 +12062,15 @@
       <type>double</type>
       <name>getSamplerate</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
+      <anchor>a0c87ce560c5a841ae19764adb67e4dfc</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isInitialized</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
+      <anchor>a38a2e75c1ccdbe5fd3a7c1b376d4e40a</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>Osc *</type>
@@ -12053,15 +12158,15 @@
       <type>double</type>
       <name>getSamplerate</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
+      <anchor>a0c87ce560c5a841ae19764adb67e4dfc</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isInitialized</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
+      <anchor>a38a2e75c1ccdbe5fd3a7c1b376d4e40a</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>Osc *</type>
@@ -12149,15 +12254,15 @@
       <type>double</type>
       <name>getSamplerate</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
+      <anchor>a0c87ce560c5a841ae19764adb67e4dfc</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isInitialized</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
+      <anchor>a38a2e75c1ccdbe5fd3a7c1b376d4e40a</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>Osc *</type>
@@ -12245,15 +12350,15 @@
       <type>double</type>
       <name>getSamplerate</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
+      <anchor>a0c87ce560c5a841ae19764adb67e4dfc</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isInitialized</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
+      <anchor>a38a2e75c1ccdbe5fd3a7c1b376d4e40a</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>Osc *</type>
@@ -12341,15 +12446,15 @@
       <type>double</type>
       <name>getSamplerate</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
+      <anchor>a0c87ce560c5a841ae19764adb67e4dfc</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isInitialized</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
+      <anchor>a38a2e75c1ccdbe5fd3a7c1b376d4e40a</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>Osc *</type>
@@ -12437,15 +12542,15 @@
       <type>double</type>
       <name>getSamplerate</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
+      <anchor>a0c87ce560c5a841ae19764adb67e4dfc</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isInitialized</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
+      <anchor>a38a2e75c1ccdbe5fd3a7c1b376d4e40a</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>Osc *</type>
@@ -12533,15 +12638,15 @@
       <type>double</type>
       <name>getSamplerate</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>afde19f6980e44ccaf99d168bb1f0f95f</anchor>
-      <arglist>() const</arglist>
+      <anchor>a0c87ce560c5a841ae19764adb67e4dfc</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isInitialized</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a090f7c4344b0aee17162e841c255b57d</anchor>
-      <arglist>() const</arglist>
+      <anchor>a38a2e75c1ccdbe5fd3a7c1b376d4e40a</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>Osc *</type>
@@ -14007,136 +14112,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>lemons::dsp::psola::PitchCorrector</name>
-    <filename>classlemons_1_1dsp_1_1psola_1_1_pitch_corrector.html</filename>
-    <templarg></templarg>
-    <base>lemons::dsp::psola::PitchCorrectorBase</base>
-    <member kind="typedef">
-      <type>dsp::psola::Analyzer&lt; SampleType &gt;</type>
-      <name>Analyzer</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_corrector_base.html</anchorfile>
-      <anchor>a80ad958850808040935ac1d8f08c2058</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>juce::AudioBuffer&lt; SampleType &gt;</type>
-      <name>AudioBuffer</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_corrector_base.html</anchorfile>
-      <anchor>ac06027015e778d7a5331151f31139152</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>PitchCorrector</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_corrector.html</anchorfile>
-      <anchor>a46dc0d11aae1525574e0ef16a5a34375</anchor>
-      <arglist>(const midi::PitchPipeline *pitchConverterToUse=nullptr)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getCentsSharp</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_corrector_base.html</anchorfile>
-      <anchor>ab01ad2a6fab1dd7ed56c33b6c8236dfe</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getOutputFreq</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_corrector_base.html</anchorfile>
-      <anchor>a68fb9c1a9de0191cc2c1c272c6e5f56e</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getOutputMidiPitch</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_corrector_base.html</anchorfile>
-      <anchor>aec5dc4f898fc89741d384ecef61ffb8e</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_corrector_base.html</anchorfile>
-      <anchor>aabc78484d6aad0613293d50a5703c8cd</anchor>
-      <arglist>(double samplerate)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>processNextFrame</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_corrector_base.html</anchorfile>
-      <anchor>adb31d3eae7a4c1acfcc9abb22b9a3c4f</anchor>
-      <arglist>(AudioBuffer &amp;output)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>lemons::dsp::psola::PitchCorrectorBase</name>
-    <filename>classlemons_1_1dsp_1_1psola_1_1_pitch_corrector_base.html</filename>
-    <templarg></templarg>
-    <member kind="typedef">
-      <type>dsp::psola::Analyzer&lt; SampleType &gt;</type>
-      <name>Analyzer</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_corrector_base.html</anchorfile>
-      <anchor>a80ad958850808040935ac1d8f08c2058</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>juce::AudioBuffer&lt; SampleType &gt;</type>
-      <name>AudioBuffer</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_corrector_base.html</anchorfile>
-      <anchor>ac06027015e778d7a5331151f31139152</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>PitchCorrectorBase</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_corrector_base.html</anchorfile>
-      <anchor>a2fb20184a466a57d18456c78f202bfc9</anchor>
-      <arglist>(Analyzer &amp;analyzerToUse, const midi::PitchPipeline *pitchConverterToUse=nullptr)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~PitchCorrectorBase</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_corrector_base.html</anchorfile>
-      <anchor>ad1798494d67f7511d537c0498f9c4720</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getCentsSharp</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_corrector_base.html</anchorfile>
-      <anchor>ab01ad2a6fab1dd7ed56c33b6c8236dfe</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getOutputFreq</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_corrector_base.html</anchorfile>
-      <anchor>a68fb9c1a9de0191cc2c1c272c6e5f56e</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getOutputMidiPitch</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_corrector_base.html</anchorfile>
-      <anchor>aec5dc4f898fc89741d384ecef61ffb8e</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_corrector_base.html</anchorfile>
-      <anchor>aabc78484d6aad0613293d50a5703c8cd</anchor>
-      <arglist>(double samplerate)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>processNextFrame</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_pitch_corrector_base.html</anchorfile>
-      <anchor>adb31d3eae7a4c1acfcc9abb22b9a3c4f</anchor>
-      <arglist>(AudioBuffer &amp;output)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>lemons::dsp::PitchDetector</name>
     <filename>classlemons_1_1dsp_1_1_pitch_detector.html</filename>
     <templarg></templarg>
@@ -14146,6 +14121,20 @@
       <anchorfile>classlemons_1_1dsp_1_1_pitch_detector.html</anchorfile>
       <anchor>a073346df5f799b33a1a9e45dea3e82fb</anchor>
       <arglist>(int minFreqHz=60, float confidenceThreshold=0.15f)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>detectPeriod</name>
+      <anchorfile>classlemons_1_1dsp_1_1_pitch_detector.html</anchorfile>
+      <anchor>ac5056a6d948b3967eadfb0a5d1015b01</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;inputAudio)</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>detectPeriod</name>
+      <anchorfile>classlemons_1_1dsp_1_1_pitch_detector.html</anchorfile>
+      <anchor>a72c333ecfe64898eadbaebb21588ecbb</anchor>
+      <arglist>(const SampleType *inputAudio, int numSamples)</arglist>
     </member>
     <member kind="function">
       <type>float</type>
@@ -15376,47 +15365,40 @@
     <name>lemons::dsp::psola::Shifter</name>
     <filename>classlemons_1_1dsp_1_1psola_1_1_shifter.html</filename>
     <templarg></templarg>
-    <member kind="typedef">
-      <type>juce::AudioBuffer&lt; SampleType &gt;</type>
-      <name>AudioBuffer</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_shifter.html</anchorfile>
-      <anchor>a812efce0cebd5cc51b865752dcd274cf</anchor>
-      <arglist></arglist>
-    </member>
     <member kind="function">
       <type></type>
       <name>Shifter</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_shifter.html</anchorfile>
-      <anchor>a813a415a1bda16b26176ab185e0f7985</anchor>
-      <arglist>(Analyzer&lt; SampleType &gt; &amp;parentAnalyzer)</arglist>
-    </member>
-    <member kind="function">
-      <type>SampleType</type>
-      <name>getNextSample</name>
-      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_shifter.html</anchorfile>
-      <anchor>a7dbb3e0a44fe503c0a415c4b08d72d67</anchor>
-      <arglist>()</arglist>
+      <anchor>a2e3cd2a236f20d876b79789d81866ba4</anchor>
+      <arglist>(Analyzer&lt; SampleType &gt; &amp;analyzerToUse)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>getSamples</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_shifter.html</anchorfile>
-      <anchor>a3b1a581ddc397e478eeaf4fbe9faea9f</anchor>
-      <arglist>(AudioBuffer &amp;output, int channel=0)</arglist>
+      <anchor>a2cffdfc5f7a2b191f25b7e2a41e735c6</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;output)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>getSamples</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_shifter.html</anchorfile>
-      <anchor>acd548e53f2b869723a5283d1875c6aed</anchor>
-      <arglist>(SampleType *outputSamples, int numSamples)</arglist>
+      <anchor>a0517efb82243046286fc03585dbe0b6e</anchor>
+      <arglist>(SampleType *output, int numSamples)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>newBlockReceived</name>
+      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_shifter.html</anchorfile>
+      <anchor>a2dbad7cc22405548545fdffa78289297</anchor>
+      <arglist>(int numSamples)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setPitch</name>
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_shifter.html</anchorfile>
-      <anchor>a4972bbfb38937a0fa7f7a00ea0a7e4b7</anchor>
-      <arglist>(float desiredFrequency, double samplerate)</arglist>
+      <anchor>a2c87002a54dcd8f3daa3a6b3787af67e</anchor>
+      <arglist>(int pitchHz, double samplerate)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -19110,7 +19092,10 @@
     <namespace>lemons::dsp::osc</namespace>
     <namespace>lemons::dsp::psola</namespace>
     <namespace>lemons::dsp::synth</namespace>
+    <class kind="class">lemons::dsp::AudioAndMidiFIFO</class>
+    <class kind="class">lemons::dsp::AudioFifo</class>
     <class kind="class">lemons::dsp::BasicProcessorBase</class>
+    <class kind="class">lemons::dsp::CircularBuffer</class>
     <class kind="class">lemons::dsp::DspChain</class>
     <class kind="class">lemons::dsp::Engine</class>
     <class kind="class">lemons::dsp::LambdaSynth</class>
@@ -19150,8 +19135,8 @@
       <type>AudioBuffer&lt; SampleType &gt;</type>
       <name>getAliasBuffer</name>
       <anchorfile>namespacelemons_1_1dsp_1_1buffers.html</anchorfile>
-      <anchor>af08caeb8ac174b35a1cc6d32edda5d51</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;bufferToAlias, int startSample, int numSamples, int numChannels, int channelOffset=0)</arglist>
+      <anchor>a063ba8cbe088e06f78ddd7469aed6e6a</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;bufferToAlias, int startSample, int numSamples, int numChannels=-1, int channelOffset=0)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -19228,10 +19213,7 @@
   <compound kind="namespace">
     <name>lemons::dsp::psola</name>
     <filename>namespacelemons_1_1dsp_1_1psola.html</filename>
-    <class kind="class">lemons::dsp::psola::AnalysisGrainStorage</class>
     <class kind="class">lemons::dsp::psola::Analyzer</class>
-    <class kind="class">lemons::dsp::psola::PitchCorrector</class>
-    <class kind="class">lemons::dsp::psola::PitchCorrectorBase</class>
     <class kind="class">lemons::dsp::psola::Shifter</class>
   </compound>
   <compound kind="namespace">
@@ -21425,20 +21407,6 @@
     <subgroup>lemons_spline</subgroup>
   </compound>
   <compound kind="group">
-    <name>GrainExtractor</name>
-    <title>GrainExtractor</title>
-    <filename>group___grain_extractor.html</filename>
-  </compound>
-  <compound kind="group">
-    <name>GrainStorage</name>
-    <title>GrainStorage</title>
-    <filename>group___grain_storage.html</filename>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::psola</namespace>
-    <class kind="class">lemons::dsp::psola::AnalysisGrainStorage</class>
-  </compound>
-  <compound kind="group">
     <name>GuiApp</name>
     <title>GuiApp</title>
     <filename>group___gui_app.html</filename>
@@ -21451,16 +21419,6 @@
     <namespace>lemons::plugin</namespace>
     <class kind="struct">lemons::plugin::LFO</class>
     <class kind="class">lemons::plugin::ModulationManager</class>
-  </compound>
-  <compound kind="group">
-    <name>PitchCorrector</name>
-    <title>PitchCorrector</title>
-    <filename>group___pitch_corrector.html</filename>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <namespace>lemons::dsp::psola</namespace>
-    <class kind="class">lemons::dsp::psola::PitchCorrector</class>
-    <class kind="class">lemons::dsp::psola::PitchCorrectorBase</class>
   </compound>
   <compound kind="group">
     <name>PitchDetector</name>
@@ -21544,12 +21502,9 @@
     <name>analysis</name>
     <title>analysis</title>
     <filename>group__analysis.html</filename>
-    <subgroup>GrainExtractor</subgroup>
-    <subgroup>GrainStorage</subgroup>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::psola</namespace>
-    <class kind="class">lemons::dsp::psola::AnalysisGrainStorage</class>
     <class kind="class">lemons::dsp::psola::Analyzer</class>
   </compound>
   <compound kind="group">
@@ -21654,6 +21609,16 @@
     <class kind="struct">lemons::events::TimerCallback</class>
   </compound>
   <compound kind="group">
+    <name>fifos</name>
+    <title>fifos</title>
+    <filename>group__fifos.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <class kind="class">lemons::dsp::AudioAndMidiFIFO</class>
+    <class kind="class">lemons::dsp::AudioFifo</class>
+    <class kind="class">lemons::dsp::CircularBuffer</class>
+  </compound>
+  <compound kind="group">
     <name>files</name>
     <title>files</title>
     <filename>group__files.html</filename>
@@ -21725,6 +21690,7 @@
     <subgroup>PitchDetector</subgroup>
     <subgroup>chains</subgroup>
     <subgroup>engines</subgroup>
+    <subgroup>fifos</subgroup>
     <subgroup>filters</subgroup>
     <subgroup>oscillators</subgroup>
     <namespace>lemons</namespace>
@@ -21782,7 +21748,6 @@
     <name>lemons_psola</name>
     <title>lemons_psola</title>
     <filename>group__lemons__psola.html</filename>
-    <subgroup>PitchCorrector</subgroup>
     <subgroup>analysis</subgroup>
     <subgroup>resynthesis</subgroup>
   </compound>
