@@ -229,7 +229,7 @@ void PitchDetectorTests<FloatType>::runOscillatorTest (dsp::osc::Oscillator<Floa
 
 	const auto testFreq = [&] (const float correctFreq)
 	{
-		beginTest (String ("Detect frequency of ") + String (correctFreq) + " Hz " + waveName + " wave at samplerate " + String (samplerate));
+		beginTest (String ("Detect frequency of ") + String (correctFreq) + " Hz " + waveName + " wave");
 
 		osc.setFrequency (static_cast<FloatType> (correctFreq),
 		                  static_cast<FloatType> (samplerate));
@@ -266,6 +266,8 @@ void PitchDetectorTests<FloatType>::runTest()
 
 		for (const auto samplerate : getTestingSamplerates())
 		{
+            logSamplerateMessage (samplerate);
+            
 			const auto latency = detector.setSamplerate (samplerate);
 
 			storage.setSize (1, latency, true, true, true);

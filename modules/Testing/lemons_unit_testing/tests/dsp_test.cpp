@@ -11,6 +11,11 @@ void DspTest::logBlocksizeMessage (int blocksize)
 	logImportantMessage (String ("Blocksize: ") + String (blocksize));
 }
 
+void DspTest::logSamplerateMessage (double samplerate)
+{
+    logImportantMessage (String ("Samplerate: ") + String (samplerate));
+}
+
 template <typename FloatType>
 bool DspTest::buffersAreEqual (const AudioBuffer<FloatType>& buffer1,
                                const AudioBuffer<FloatType>& buffer2)

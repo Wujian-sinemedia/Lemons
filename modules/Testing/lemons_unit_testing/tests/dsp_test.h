@@ -16,10 +16,11 @@ protected:
 
 	using MidiBuffer = juce::MidiBuffer;
 
+    static const std::vector<int>&    getTestingBlockSizes();
 	static const std::vector<double>& getTestingSamplerates();
-	static const std::vector<int>&    getTestingBlockSizes();
 
 	void logBlocksizeMessage (int blocksize);
+    void logSamplerateMessage (double samplerate);
 
 	/** Returns true if every sample of every channel of both buffers are equal.
 	 */
