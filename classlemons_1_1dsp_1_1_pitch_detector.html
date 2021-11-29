@@ -364,7 +364,7 @@ template&lt;typename SampleType &gt; </div>
 </div><div class="memdoc">
 
 <p>Sets the confidence threshold of the pitch detection algorithm. </p>
-<p>This value should be between 0 and 1, inclusive, and can be thought of as the amount of aperiodic power tolerable in a signal determined to be pitched. Typical values are between 0.15 and 0.2. </p>
+<p>This value should be between 0 and 1, inclusive, and can be thought of as the amount of aperiodic power tolerable in a signal determined to be pitched. In other words, the lower this value is, the "stricter" the pitch detector is in choosing its pitch estimates. When this value is 1, the pitch detector might output a "pitch" value for a frame of random noise; when this value is 0, the pitch detector might say that even a perfect, pure sine wave is "unpitched". Typical recommended values are between 0.1 and 0.2. </p>
 
 </div>
 </div>
@@ -421,7 +421,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 29 2021 08:57:42 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 29 2021 11:20:18 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
