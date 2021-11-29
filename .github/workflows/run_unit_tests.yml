@@ -1,0 +1,48 @@
+name: UnitTests
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+
+  build_and_test:
+
+    name: ${{ matrix.os }} build
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        submodules: recursive
+
+    - name: Set up cache
+      uses: actions/cache@v2
+      with:
+        path: Cache
+        key: ${{ runner.os }}.${{ hashFiles('**/') }}
+        restore-keys: ${{ runner.os }}.
+
+    - name: Install deps
+      uses: benthevining/DepsInstaller@v0.3.0
+      with:
+        depfile_path: '$(pwd)/Depsfile'
+
+    - name: Configure CMake
+      shell: bash
+      run: cmake --preset tests
+
+    - name: Run build
+      shell: bash
+      run: cmake --build --preset tests
+
+    - name: Run tests
+      shell: bash
+      run: ctest --preset all
