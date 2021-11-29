@@ -27,8 +27,8 @@ jobs:
       uses: actions/cache@v2
       with:
         path: Cache
-        key: ${{ runner.os }}.${{ hashFiles('**/') }}
-        restore-keys: ${{ runner.os }}.
+        key: ${{ runner.os }}.unit_tests.${{ hashFiles('**/') }}
+        restore-keys: ${{ runner.os }}.unit_tests.
 
     - name: Install deps
       uses: benthevining/DepsInstaller@v0.3.0
