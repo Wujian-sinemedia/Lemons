@@ -76,6 +76,18 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a094d50d26811ef9b0e37750849d82380"><td class="memTemplParams" colspan="2">template&lt;typename FloatType &gt; </td></tr>
+<tr class="memitem:a094d50d26811ef9b0e37750849d82380"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1dsp_1_1buffers.html#a094d50d26811ef9b0e37750849d82380">allSamplesAreEqual</a> (const <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer1, const <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer2, int startIndex1, int numSamples, int startIndex2=-1, int channel1=0, int channel2=-1)</td></tr>
+<tr class="memdesc:a094d50d26811ef9b0e37750849d82380"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if every sample in the given range of the two buffers is equal.  <a href="namespacelemons_1_1dsp_1_1buffers.html#a094d50d26811ef9b0e37750849d82380">More...</a><br /></td></tr>
+<tr class="separator:a094d50d26811ef9b0e37750849d82380"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ddd755f9b4992135af15d4600309b8e"><td class="memTemplParams" colspan="2">template&lt;typename FloatType &gt; </td></tr>
+<tr class="memitem:a3ddd755f9b4992135af15d4600309b8e"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1dsp_1_1buffers.html#a3ddd755f9b4992135af15d4600309b8e">allSamplesAreZero</a> (const <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer, int startIndex, int numSamples, int channel=0)</td></tr>
+<tr class="memdesc:a3ddd755f9b4992135af15d4600309b8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if every sample in the given range of the buffer is exactly zero.  <a href="namespacelemons_1_1dsp_1_1buffers.html#a3ddd755f9b4992135af15d4600309b8e">More...</a><br /></td></tr>
+<tr class="separator:a3ddd755f9b4992135af15d4600309b8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8581ad13cb93ded1f279a8e30393e658"><td class="memTemplParams" colspan="2">template&lt;typename FloatType &gt; </td></tr>
+<tr class="memitem:a8581ad13cb93ded1f279a8e30393e658"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1dsp_1_1buffers.html#a8581ad13cb93ded1f279a8e30393e658">buffersAreEqual</a> (const <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer1, const <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer2)</td></tr>
+<tr class="memdesc:a8581ad13cb93ded1f279a8e30393e658"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if every sample of every channel of both buffers are equal.  <a href="namespacelemons_1_1dsp_1_1buffers.html#a8581ad13cb93ded1f279a8e30393e658">More...</a><br /></td></tr>
+<tr class="separator:a8581ad13cb93ded1f279a8e30393e658"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a338cb2205ecb51e66fe09025286e62d1"><td class="memTemplParams" colspan="2">template&lt;typename Type1 , typename Type2 &gt; </td></tr>
 <tr class="memitem:a338cb2205ecb51e66fe09025286e62d1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1dsp_1_1buffers.html#a338cb2205ecb51e66fe09025286e62d1">convert</a> (const <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; Type1 &gt; &amp;source, <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; Type2 &gt; &amp;dest)</td></tr>
 <tr class="memdesc:a338cb2205ecb51e66fe09025286e62d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts all channels from the source buffer to the other numeric type for the destination buffer.  <a href="namespacelemons_1_1dsp_1_1buffers.html#a338cb2205ecb51e66fe09025286e62d1">More...</a><br /></td></tr>
@@ -90,6 +102,145 @@ Functions</h2></td></tr>
 <tr class="separator:a063ba8cbe088e06f78ddd7469aed6e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a094d50d26811ef9b0e37750849d82380"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a094d50d26811ef9b0e37750849d82380">&#9670;&nbsp;</a></span>allSamplesAreEqual()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename FloatType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::dsp::buffers::allSamplesAreEqual </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; FloatType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; FloatType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>startIndex1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numSamples</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>startIndex2</em> = <code>-1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>channel1</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>channel2</em> = <code>-1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns true if every sample in the given range of the two buffers is equal. </p>
+<p>If startIndex2 is -1, then it will be set to be the same as startIndex1. Similarly, if channel2 is -1, then it will be set to be the same as channel1. </p>
+
+</div>
+</div>
+<a id="a3ddd755f9b4992135af15d4600309b8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ddd755f9b4992135af15d4600309b8e">&#9670;&nbsp;</a></span>allSamplesAreZero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename FloatType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::dsp::buffers::allSamplesAreZero </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; FloatType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>startIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numSamples</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>channel</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns true if every sample in the given range of the buffer is exactly zero. </p>
+
+</div>
+</div>
+<a id="a8581ad13cb93ded1f279a8e30393e658"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8581ad13cb93ded1f279a8e30393e658">&#9670;&nbsp;</a></span>buffersAreEqual()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename FloatType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::dsp::buffers::buffersAreEqual </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; FloatType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; FloatType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns true if every sample of every channel of both buffers are equal. </p>
+
+</div>
+</div>
 <a id="a338cb2205ecb51e66fe09025286e62d1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a338cb2205ecb51e66fe09025286e62d1">&#9670;&nbsp;</a></span>convert()</h2>
 
@@ -208,7 +359,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 29 2021 00:42:33 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 29 2021 05:34:09 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['panning_2276',['panning',['../group__panning.html',1,'']]],
-  ['parameters_2277',['parameters',['../group__parameters.html',1,'']]],
-  ['pitchdetector_2278',['PitchDetector',['../group___pitch_detector.html',1,'']]],
-  ['plugins_2279',['Plugins',['../group___plugins.html',1,'']]],
-  ['presetbar_2280',['PresetBar',['../group___preset_bar.html',1,'']]],
-  ['presetbrowsercomponent_2281',['PresetBrowserComponent',['../group___preset_browser_component.html',1,'']]],
-  ['presetsavingcomponent_2282',['PresetSavingComponent',['../group___preset_saving_component.html',1,'']]],
-  ['processors_2283',['processors',['../group__processors.html',1,'']]]
+  ['panning_1867',['panning',['../group__panning.html',1,'']]],
+  ['parameters_1868',['parameters',['../group__parameters.html',1,'']]],
+  ['pitchdetector_1869',['PitchDetector',['../group___pitch_detector.html',1,'']]],
+  ['plugins_1870',['Plugins',['../group___plugins.html',1,'']]],
+  ['presetbar_1871',['PresetBar',['../group___preset_bar.html',1,'']]],
+  ['presetbrowsercomponent_1872',['PresetBrowserComponent',['../group___preset_browser_component.html',1,'']]],
+  ['presetsavingcomponent_1873',['PresetSavingComponent',['../group___preset_saving_component.html',1,'']]],
+  ['processors_1874',['processors',['../group__processors.html',1,'']]]
 ];

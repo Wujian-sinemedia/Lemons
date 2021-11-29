@@ -82,7 +82,7 @@ $(function() {
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classlemons_1_1plugin_1_1_processor_base__inherit__graph.svg" width="462" height="202"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classlemons_1_1plugin_1_1_processor_base__inherit__graph.svg" width="430" height="202"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -94,9 +94,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3814788aae0eff4e449e29dbcd16352f"><td class="memItemLeft" align="right" valign="top">juce::Point&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#a3814788aae0eff4e449e29dbcd16352f">getSavedEditorSize</a> () const noexcept</td></tr>
 <tr class="memdesc:a3814788aae0eff4e449e29dbcd16352f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the state's saved editor dimensions.  <a href="classlemons_1_1plugin_1_1_processor_base.html#a3814788aae0eff4e449e29dbcd16352f">More...</a><br /></td></tr>
 <tr class="separator:a3814788aae0eff4e449e29dbcd16352f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57640651bbac3970c117f2a7f03890f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_basic_processor_base.html#a57640651bbac3970c117f2a7f03890f4">repaintEditor</a> ()</td></tr>
-<tr class="memdesc:a57640651bbac3970c117f2a7f03890f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Repaints the editor, if one exists.  <a href="classlemons_1_1dsp_1_1_basic_processor_base.html#a57640651bbac3970c117f2a7f03890f4">More...</a><br /></td></tr>
-<tr class="separator:a57640651bbac3970c117f2a7f03890f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28488d2ac54436ff69d1da67dc4d3dac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_basic_processor.html#a28488d2ac54436ff69d1da67dc4d3dac">repaintEditor</a> () const</td></tr>
+<tr class="memdesc:a28488d2ac54436ff69d1da67dc4d3dac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Repaints the editor, if one exists.  <a href="classlemons_1_1dsp_1_1_basic_processor.html#a28488d2ac54436ff69d1da67dc4d3dac">More...</a><br /></td></tr>
+<tr class="separator:a28488d2ac54436ff69d1da67dc4d3dac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace19860eb53c8057f2bed4b7e819fd41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#ace19860eb53c8057f2bed4b7e819fd41">saveEditorSize</a> (int width, int height)</td></tr>
 <tr class="memdesc:ace19860eb53c8057f2bed4b7e819fd41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the editor's current dimensions in the plugin state.  <a href="classlemons_1_1plugin_1_1_processor_base.html#ace19860eb53c8057f2bed4b7e819fd41">More...</a><br /></td></tr>
 <tr class="separator:ace19860eb53c8057f2bed4b7e819fd41"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -105,7 +105,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>Base class for a plugin processor. </p>
 <p>This class manages two instances of a <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">dsp::Engine</a> and uses the appropriate one &ndash; if the host uses double precision processing, the double engine will be used; otherwise, the float engine will be used. <br  />
  <br  />
-This class is a <a class="el" href="structlemons_1_1_system_initializer.html">SystemInitializer</a>, meaning it sets up translations for you. This class also holds a <a class="el" href="classlemons_1_1plugin_1_1_parameter_processor.html" title="This class processes incoming MIDI messages and quantizes the audio output with any MIDI CC messages ...">ParameterProcessor</a> internally. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1_system_initializer.html">SystemInitializer</a>, <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">dsp::Engine</a>, <a class="el" href="classlemons_1_1dsp_1_1_basic_processor_base.html" title="A default implementation of a basic, generic juce AudioProcessor.">dsp::BasicProcessorBase</a>, <a class="el" href="classlemons_1_1plugin_1_1_state_base.html" title="The default plugin state toggler has 3 states, A/B/C.">StateBase</a> </dd></dl>
+This class is a <a class="el" href="structlemons_1_1_system_initializer.html">SystemInitializer</a>, meaning it sets up translations for you. This class also holds a <a class="el" href="classlemons_1_1plugin_1_1_parameter_processor.html" title="This class processes incoming MIDI messages and quantizes the audio output with any MIDI CC messages ...">ParameterProcessor</a> internally. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1_system_initializer.html">SystemInitializer</a>, <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">dsp::Engine</a>, dsp::BasicProcessorBase, <a class="el" href="classlemons_1_1plugin_1_1_state_base.html" title="The default plugin state toggler has 3 states, A/B/C.">StateBase</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a594b9c70fa57b4a8021d32b364e20dbc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a594b9c70fa57b4a8021d32b364e20dbc">&#9670;&nbsp;</a></span>ProcessorBase()</h2>
@@ -186,8 +186,8 @@ This class is a <a class="el" href="structlemons_1_1_system_initializer.html">Sy
 
 </div>
 </div>
-<a id="a57640651bbac3970c117f2a7f03890f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57640651bbac3970c117f2a7f03890f4">&#9670;&nbsp;</a></span>repaintEditor()</h2>
+<a id="a28488d2ac54436ff69d1da67dc4d3dac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28488d2ac54436ff69d1da67dc4d3dac">&#9670;&nbsp;</a></span>repaintEditor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -196,10 +196,10 @@ This class is a <a class="el" href="structlemons_1_1_system_initializer.html">Sy
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void lemons::dsp::BasicProcessorBase::repaintEditor </td>
+          <td class="memname">void lemons::dsp::BasicProcessor::repaintEditor </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -210,6 +210,7 @@ This class is a <a class="el" href="structlemons_1_1_system_initializer.html">Sy
 </div><div class="memdoc">
 
 <p>Repaints the editor, if one exists. </p>
+<p>Internally, this uses the Juce MessageManager's callAsync method. Calling this on the audio thread should be avoided at all costs. I would personally only use this method in setStateInformation(). </p>
 
 </div>
 </div>
@@ -249,7 +250,7 @@ This class is a <a class="el" href="structlemons_1_1_system_initializer.html">Sy
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 29 2021 00:42:34 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 29 2021 05:34:09 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

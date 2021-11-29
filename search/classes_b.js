@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['noisegate_1183',['NoiseGate',['../classlemons_1_1dsp_1_1_f_x_1_1_noise_gate.html',1,'lemons::dsp::FX']]]
+  ['noisegate_977',['NoiseGate',['../classlemons_1_1dsp_1_1_f_x_1_1_noise_gate.html',1,'lemons::dsp::FX']]]
 ];

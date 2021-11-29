@@ -1,5 +1,0 @@
-<map id="lemons::dsp::BasicProcessorBase" name="lemons::dsp::BasicProcessorBase">
-<area shape="rect" id="node1" title="A default implementation of a basic, generic juce AudioProcessor." alt="" coords="5,5,244,32"/>
-<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_processor_base.html" title="Base class for a plugin processor." alt="" coords="14,80,235,107"/>
-<area shape="rect" id="node3" href="$classlemons_1_1plugin_1_1_processor.html" title="A processor class for a plugin that can simply be told the state type and engine type,..." alt="" coords="21,155,228,196"/>
-</map>
