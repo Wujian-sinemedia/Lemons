@@ -131,19 +131,19 @@ template class CircularBuffer<double>;
 namespace lemons::tests
 {
 
-template<typename FloatType>
+template <typename FloatType>
 CircularBufferTests<FloatType>::CircularBufferTests()
-    : juce::UnitTest ("CircularBufferTests", "DSP")
+    : DspTest ("CircularBufferTests")
 {
 }
 
-template<typename FloatType>
+template <typename FloatType>
 void CircularBufferTests<FloatType>::initialise()
 {
 	osc.setFrequency (440.f, 44100.);
 }
 
-template<typename FloatType>
+template <typename FloatType>
 void CircularBufferTests<FloatType>::resizeAllBuffers (int newSize)
 {
 	circularBuffer.resize (newSize);
@@ -151,70 +151,71 @@ void CircularBufferTests<FloatType>::resizeAllBuffers (int newSize)
 	circOutput.setSize (1, newSize, true, true, true);
 }
 
-template<typename FloatType>
+template <typename FloatType>
 void CircularBufferTests<FloatType>::runTest()
 {
-	constexpr auto numSamples = 44100;
+	for (const auto numSamples : getTestingBlockSizes())
+	{
+		logBlocksizeMessage (numSamples);
 
-	resizeAllBuffers (numSamples);
+		resizeAllBuffers (numSamples);
 
-	osc.getSamples (origStorage);
+		osc.getSamples (origStorage);
 
-	circularBuffer.storeSamples (origStorage);
+		circularBuffer.storeSamples (origStorage);
 
-    
-	beginTest ("Num stored samples stored correctly");
 
-	expectEquals (circularBuffer.getNumStoredSamples(), numSamples);
+		beginTest ("Num stored samples stored correctly");
 
-	circularBuffer.getSamples (circOutput);
+		expectEquals (circularBuffer.getNumStoredSamples(), numSamples);
 
-	expectEquals (circularBuffer.getNumStoredSamples(), 0);
+		circularBuffer.getSamples (circOutput);
 
-    
-	beginTest ("Store samples and retrieve later");
+		expectEquals (circularBuffer.getNumStoredSamples(), 0);
 
-	using namespace dsp::buffers;
 
-	expect (allSamplesAreEqual (circOutput, origStorage, 0, numSamples));
+		beginTest ("Store samples and retrieve later");
 
-    
-	beginTest ("Retrieve fewer samples than were passed in");
+		expect (allSamplesAreEqual (circOutput, origStorage, 0, numSamples));
 
-	circularBuffer.storeSamples (origStorage);
 
-	const auto halfNumSamples = numSamples / 2;
+		beginTest ("Retrieve fewer samples than were passed in");
 
-	auto alias = getAliasBuffer (circOutput, 0, halfNumSamples);
+		circularBuffer.storeSamples (origStorage);
 
-	circularBuffer.getSamples (alias);
+		const auto halfNumSamples = numSamples / 2;
 
-	expect (allSamplesAreEqual (alias, origStorage, 0, halfNumSamples));
+		auto alias = dsp::buffers::getAliasBuffer (circOutput, 0, halfNumSamples);
 
-    
-	beginTest ("Retrieve more samples than are left in circ buffer");
+		circularBuffer.getSamples (alias);
 
-	expectEquals (circularBuffer.getNumStoredSamples(), halfNumSamples);
+		expect (allSamplesAreEqual (alias, origStorage, 0, halfNumSamples));
 
-	circularBuffer.getSamples (circOutput);
 
-	expect (allSamplesAreZero (circOutput, 0, halfNumSamples));
+		beginTest ("Retrieve more samples than are left in circ buffer");
 
-	expect (allSamplesAreEqual (circOutput, origStorage, halfNumSamples, halfNumSamples));
+		expectEquals (circularBuffer.getNumStoredSamples(), halfNumSamples);
 
-    
-	beginTest ("Resizing");
+		circularBuffer.getSamples (circOutput);
 
-	circularBuffer.storeSamples (origStorage);
+		expect (allSamplesAreZero (circOutput, 0, halfNumSamples));
 
-	circularBuffer.resize (halfNumSamples);
+		expect (allSamplesAreEqual (circOutput, origStorage, halfNumSamples, halfNumSamples));
 
-	expectEquals (circularBuffer.getCapacity(), halfNumSamples);
 
-    
-	beginTest ("Resizing clears the buffer");
+		beginTest ("Resizing");
 
-	expectEquals (circularBuffer.getNumStoredSamples(), 0);
+		circularBuffer.storeSamples (origStorage);
+
+		circularBuffer.resize (halfNumSamples);
+
+		expectEquals (circularBuffer.getCapacity(), halfNumSamples);
+
+
+		beginTest ("Resizing clears the buffer");
+
+		expectEquals (circularBuffer.getNumStoredSamples(), 0);
+	}
 }
 
 template struct CircularBufferTests<float>;

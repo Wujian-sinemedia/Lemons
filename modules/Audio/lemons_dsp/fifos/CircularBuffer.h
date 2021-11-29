@@ -39,10 +39,10 @@ public:
 	void getSamples (SampleType* output, int numSamples);
 
 	/** Returns the total capacity of the buffer. */
-    [[nodiscard]] int getCapacity() const noexcept;
+	[[nodiscard]] int getCapacity() const noexcept;
 
 	/** Returns the number of samples currently stored in the buffer. */
-    [[nodiscard]] int getNumStoredSamples() const noexcept;
+	[[nodiscard]] int getNumStoredSamples() const noexcept;
 
 	/** Changes the total capacity of the buffer. Calling this method also clears the buffer.
 	    @see clear()
@@ -71,8 +71,8 @@ private:
 namespace lemons::tests
 {
 
-template<typename FloatType>
-struct CircularBufferTests : public juce::UnitTest
+template <typename FloatType>
+struct CircularBufferTests : public DspTest
 {
 public:
 	CircularBufferTests();
@@ -91,7 +91,7 @@ private:
 	dsp::CircularBuffer<FloatType> circularBuffer;
 };
 
-static CircularBufferTests<float> circularBufferTest_float;
+static CircularBufferTests<float>  circularBufferTest_float;
 static CircularBufferTests<double> circularBufferTest_double;
 
 }  // namespace lemons::tests

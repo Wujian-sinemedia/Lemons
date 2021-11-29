@@ -20,3 +20,6 @@
 
 
 #include "tests/test.h"
+#include "tests/dsp_test.h"
+
+#include "runner/runner.h"

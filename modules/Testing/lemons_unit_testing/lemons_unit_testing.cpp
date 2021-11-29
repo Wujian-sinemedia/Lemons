@@ -2,3 +2,6 @@
 
 
 #include "tests/test.cpp"
+#include "tests/dsp_test.cpp"
+
+#include "runner/runner.cpp"

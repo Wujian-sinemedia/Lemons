@@ -95,13 +95,11 @@ private:
 
 #if LEMONS_UNIT_TESTS
 
-#  include <lemons_unit_testing/lemons_unit_testing.h>
-
 namespace lemons::tests
 {
 
 template <typename FloatType>
-struct PitchDetectorTests : public Test
+struct PitchDetectorTests : public DspTest
 {
 public:
 	PitchDetectorTests (const std::vector<float>& confidenceThresholdsToUse = { 0.1f, 0.15f, 0.2f },

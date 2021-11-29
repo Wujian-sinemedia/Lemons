@@ -210,7 +210,7 @@ namespace lemons::tests
 template <typename FloatType>
 PitchDetectorTests<FloatType>::PitchDetectorTests (const std::vector<float>& confidenceThresholdsToUse,
                                                    const std::vector<int>& superSawDetuningsToUse, int defaultRepsToUse, float minFreq, float maxFreq)
-    : Test ("PitchDetectorTests", "DSP")
+    : DspTest ("PitchDetectorTests")
     , confidenceThresholds (confidenceThresholdsToUse)
     , superSawDetunings (superSawDetuningsToUse)
     , defaultReps (defaultRepsToUse)

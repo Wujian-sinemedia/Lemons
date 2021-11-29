@@ -19,6 +19,11 @@ END_JUCE_MODULE_DECLARATION
  -------------------------------------------------------------------------------------*/
 
 
+#if LEMONS_UNIT_TESTS
+#  include <lemons_unit_testing/lemons_unit_testing.h>
+#endif
+
+
 #include "aliases.h"
 
 #include "oscillators/oscillators.h"

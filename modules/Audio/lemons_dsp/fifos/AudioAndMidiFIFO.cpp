@@ -64,19 +64,19 @@ template class AudioAndMidiFIFO<double>;
 namespace lemons::tests
 {
 
-template<typename FloatType>
+template <typename FloatType>
 AudioAndMidiFifoTests<FloatType>::AudioAndMidiFifoTests()
-    : juce::UnitTest ("AudioAndMidiFifoTests", "DSP")
+    : DspTest ("AudioAndMidiFifoTests")
 {
 }
 
-template<typename FloatType>
+template <typename FloatType>
 void AudioAndMidiFifoTests<FloatType>::initialise()
 {
 	osc.setFrequency (440.f, 44100.);
 }
 
-template<typename FloatType>
+template <typename FloatType>
 void AudioAndMidiFifoTests<FloatType>::resizeAllBuffers (int newSize, int numChannels)
 {
 	origAudio.setSize (numChannels, newSize, true, true, true);
@@ -89,50 +89,55 @@ void AudioAndMidiFifoTests<FloatType>::resizeAllBuffers (int newSize, int numCha
 	fifo.setSize (newSize, numChannels);
 }
 
-template<typename FloatType>
+template <typename FloatType>
 void AudioAndMidiFifoTests<FloatType>::runTest()
 {
-	constexpr auto numSamples  = 512;
-	constexpr auto numEvents   = 400;
 	constexpr auto numChannels = 2;
-
-	resizeAllBuffers (numSamples, numChannels);
-
-	for (int chan = 0; chan < numChannels; ++chan)
-		osc.getSamples (origAudio, chan);
 
 	auto rand = getRandom();
 
-	for (int i = 0; i < numEvents; ++i)
-		origMidi.addEvent (juce::MidiMessage::controllerEvent (1, rand.nextInt (128), rand.nextInt (128)),
-		                   i);
+	for (const auto numSamples : getTestingBlockSizes())
+	{
+		logBlocksizeMessage (numSamples);
 
-	fifo.push (origAudio, origMidi);
+		resizeAllBuffers (numSamples, numChannels);
 
-    
-	beginTest ("Num stored samples stored correctly");
+		for (int chan = 0; chan < numChannels; ++chan)
+			osc.getSamples (origAudio, chan);
 
-	expectEquals (fifo.numStoredSamples(), numSamples);
+		origMidi.clear();
 
-	fifo.pop (audioOut, midiOut);
+		for (int i = 0; i < numSamples / 3; ++i)
+			origMidi.addEvent (juce::MidiMessage::controllerEvent (1, rand.nextInt (128), rand.nextInt (128)),
+			                   i);
 
-	expectEquals (fifo.numStoredSamples(), 0);
+		fifo.push (origAudio, origMidi);
 
-    
-	beginTest ("Store and retrieve audio and MIDI");
 
-	expect (dsp::buffers::buffersAreEqual (audioOut, origAudio));
+		beginTest ("Num stored samples stored correctly");
 
-	expect (midi::midiBuffersAreEqual (midiOut, origMidi));
+		expectEquals (fifo.numStoredSamples(), numSamples);
 
-    
-	beginTest ("Resizing clears the FIFO");
+		fifo.pop (audioOut, midiOut);
 
-	fifo.push (origAudio, origMidi);
+		expectEquals (fifo.numStoredSamples(), 0);
 
-	fifo.setSize (numSamples / 2, numChannels + 1);
 
-	expectEquals (fifo.numStoredSamples(), 0);
+		beginTest ("Store and retrieve audio and MIDI");
+
+		expect (buffersAreEqual (audioOut, origAudio));
+
+		expect (midiBuffersAreEqual (midiOut, origMidi));
+
+
+		beginTest ("Resizing clears the FIFO");
+
+		fifo.push (origAudio, origMidi);
+
+		fifo.setSize (numSamples / 2, numChannels + 1);
+
+		expectEquals (fifo.numStoredSamples(), 0);
+	}
 }
 
 template struct AudioAndMidiFifoTests<float>;

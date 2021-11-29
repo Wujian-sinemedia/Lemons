@@ -57,48 +57,54 @@ namespace lemons::tests
 {
 
 MidiFifoTests::MidiFifoTests()
-    : juce::UnitTest ("MidiFifoTests", "MIDI")
+    : DspTest ("MidiFifoTests")
 {
 }
 
 void MidiFifoTests::runTest()
 {
-	constexpr auto numEvents = 250;
-
 	auto rand = getRandom();
 
-	for (int i = 0; i < numEvents; ++i)
-		input.addEvent (juce::MidiMessage::controllerEvent (1, rand.nextInt (128), rand.nextInt (128)),
-		                i);
+	for (const auto numSamples : getTestingBlockSizes())
+	{
+		logBlocksizeMessage (numSamples);
 
-    
-	beginTest ("Num events stored correctly");
+		const auto numEvents = numSamples / 2;
 
-	constexpr auto numSamples = 512;
+		fifo.clear();
+		input.clear();
 
-	fifo.pushEvents (input, numSamples);
+		for (int i = 0; i < numEvents; ++i)
+			input.addEvent (juce::MidiMessage::controllerEvent (1, rand.nextInt (128), rand.nextInt (128)),
+			                i);
 
-	expectEquals (fifo.numStoredEvents(), numEvents);
 
-    
-	beginTest ("Num stored samples stored correctly");
+		beginTest ("Num events stored correctly");
 
-	expectEquals (fifo.numStoredSamples(), numSamples);
+		fifo.pushEvents (input, numSamples);
 
-    
-	beginTest ("Store events and retrieve later");
+		expectEquals (fifo.numStoredEvents(), numEvents);
 
-	fifo.popEvents (output, numSamples);
 
-	expect (midi::midiBuffersAreEqual (input, output));
+		beginTest ("Num stored samples stored correctly");
 
-    
-	beginTest ("Resizing clears the FIFO");
+		expectEquals (fifo.numStoredSamples(), numSamples);
 
-	fifo.setSize (numSamples / 2);
 
-	expectEquals (fifo.numStoredEvents(), 0);
-	expectEquals (fifo.numStoredSamples(), 0);
+		beginTest ("Store events and retrieve later");
+
+		fifo.popEvents (output, numSamples);
+
+		expect (midiBuffersAreEqual (input, output));
+
+
+		beginTest ("Resizing clears the FIFO");
+
+		fifo.setSize (numSamples / 4);
+
+		expectEquals (fifo.numStoredEvents(), 0);
+		expectEquals (fifo.numStoredSamples(), 0);
+	}
 }
 
 }  // namespace lemons::tests

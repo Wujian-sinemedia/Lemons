@@ -91,19 +91,19 @@ template class AudioFifo<double>;
 namespace lemons::tests
 {
 
-template<typename FloatType>
+template <typename FloatType>
 AudioFifoTests<FloatType>::AudioFifoTests()
-    : juce::UnitTest ("AudioFifoTests", "DSP")
+    : DspTest ("AudioFifoTests")
 {
 }
 
-template<typename FloatType>
+template <typename FloatType>
 void AudioFifoTests<FloatType>::initialise()
 {
 	osc.setFrequency (440.f, 44100.);
 }
 
-template<typename FloatType>
+template <typename FloatType>
 void AudioFifoTests<FloatType>::resizeAllBuffers (int newSize, int numChannels)
 {
 	fifo.resize (newSize, numChannels);
@@ -111,93 +111,97 @@ void AudioFifoTests<FloatType>::resizeAllBuffers (int newSize, int numChannels)
 	fifoOutput.setSize (numChannels, newSize, true, true, true);
 }
 
-template<typename FloatType>
+template <typename FloatType>
 void AudioFifoTests<FloatType>::runTest()
 {
-	constexpr auto numSamples  = 44100;
 	constexpr auto numChannels = 4;
 
-	resizeAllBuffers (numSamples, numChannels);
-
-	for (int chan = 0; chan < numChannels; ++chan)
-		osc.getSamples (origStorage, chan);
-
-	fifo.pushSamples (origStorage);
-
-    
-	beginTest ("Num stored samples stored correctly");
-
-	expectEquals (fifo.numStoredSamples(), numSamples);
-
-	fifo.popSamples (fifoOutput);
-
-	expectEquals (fifo.numStoredSamples(), 0);
-
-    
-	beginTest ("Store samples and retrieve later");
-
-	using namespace dsp::buffers;
-
-	expect (buffersAreEqual (fifoOutput, origStorage));
-
-    
-	beginTest ("Retrieve fewer samples than were passed in");
-
-	fifo.pushSamples (origStorage);
-
-	const auto halfNumSamples = numSamples / 2;
-
+	for (const auto numSamples : getTestingBlockSizes())
 	{
-		auto outAlias = getAliasBuffer (fifoOutput, 0, halfNumSamples);
+		logBlocksizeMessage (numSamples);
 
-		fifo.popSamples (outAlias);
+		resizeAllBuffers (numSamples, numChannels);
 
-		const auto inAlias = getAliasBuffer (origStorage, 0, halfNumSamples);
+		for (int chan = 0; chan < numChannels; ++chan)
+			osc.getSamples (origStorage, chan);
 
-		expect (buffersAreEqual (inAlias, outAlias));
+		fifo.pushSamples (origStorage);
+
+
+		beginTest ("Num stored samples stored correctly");
+
+		expectEquals (fifo.numStoredSamples(), numSamples);
+
+		fifo.popSamples (fifoOutput);
+
+		expectEquals (fifo.numStoredSamples(), 0);
+
+
+		beginTest ("Store samples and retrieve later");
+
+		expect (buffersAreEqual (fifoOutput, origStorage));
+
+
+		beginTest ("Retrieve fewer samples than were passed in");
+
+		fifo.pushSamples (origStorage);
+
+		const auto halfNumSamples = numSamples / 2;
+
+		using dsp::buffers::getAliasBuffer;
+
+		{
+			auto outAlias = getAliasBuffer (fifoOutput, 0, halfNumSamples);
+
+			fifo.popSamples (outAlias);
+
+			const auto inAlias = getAliasBuffer (origStorage, 0, halfNumSamples);
+
+			expect (buffersAreEqual (inAlias, outAlias));
+		}
+
+
+		beginTest ("Retrieve more samples than are left in FIFO");
+
+		expectEquals (fifo.numStoredSamples(), halfNumSamples);
+
+		fifo.popSamples (fifoOutput);
+
+		for (int chan = 0; chan < numChannels; ++chan)
+			expect (allSamplesAreZero (fifoOutput, 0, halfNumSamples, chan));
+
+
+		{
+			const auto inAlias = getAliasBuffer (origStorage, halfNumSamples, halfNumSamples);
+
+			auto outAlias = getAliasBuffer (fifoOutput, halfNumSamples, halfNumSamples);
+
+			expect (buffersAreEqual (inAlias, outAlias));
+		}
+
+
+		beginTest ("Resizing clears the FIFO");
+
+		fifo.pushSamples (origStorage);
+
+		fifo.resize (halfNumSamples);
+
+		expectEquals (fifo.numStoredSamples(), 0);
+
+
+		beginTest ("Increase number of channels");
+
+		fifo.resize (halfNumSamples, numChannels + 3);
+
+		expectEquals (fifo.numChannels(), numChannels + 3);
+
+
+		beginTest ("Decrease number of channels");
+
+		fifo.resize (halfNumSamples, numChannels);
+
+		expectEquals (fifo.numChannels(), numChannels);
 	}
-
-    
-	beginTest ("Retrieve more samples than are left in FIFO");
-
-	expectEquals (fifo.numStoredSamples(), halfNumSamples);
-
-	fifo.popSamples (fifoOutput);
-
-	for (int chan = 0; chan < numChannels; ++chan)
-		expect (allSamplesAreZero (fifoOutput, 0, halfNumSamples, chan));
-
-
-	{
-		const auto inAlias = getAliasBuffer (origStorage, halfNumSamples, halfNumSamples);
-
-		auto outAlias = getAliasBuffer (fifoOutput, halfNumSamples, halfNumSamples);
-
-		expect (buffersAreEqual (inAlias, outAlias));
-	}
-
-    
-	beginTest ("Resizing clears the FIFO");
-
-	fifo.pushSamples (origStorage);
-
-	fifo.resize (halfNumSamples);
-
-	expectEquals (fifo.numStoredSamples(), 0);
-
-    
-	beginTest ("Increase number of channels");
-
-	fifo.resize (halfNumSamples, numChannels + 3);
-
-	expectEquals (fifo.numChannels(), numChannels + 3);
-
-    
-	beginTest ("Decrease number of channels");
-
-	fifo.resize (halfNumSamples, numChannels);
-
-	expectEquals (fifo.numChannels(), numChannels);
 }
 
 template struct AudioFifoTests<float>;

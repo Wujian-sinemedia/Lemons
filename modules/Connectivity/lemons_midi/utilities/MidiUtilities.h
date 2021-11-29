@@ -19,7 +19,4 @@ void copyRangeOfMidiBuffer (const MidiBuffer& readingBuffer,
                             const int         numSamples);
 
 
-bool midiBuffersAreEqual (const MidiBuffer& buffer1, const MidiBuffer& buffer2);
-
-
 }  // namespace lemons::midi
