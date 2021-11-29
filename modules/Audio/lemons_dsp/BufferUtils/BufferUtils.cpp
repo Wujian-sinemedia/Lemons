@@ -92,11 +92,25 @@ void AudioBufferUtilsTests<FloatType>::runTest()
 
 		using namespace dsp::buffers;
 
+        
+        beginTest ("bufferIsSilent()");
+        
+        bufferA.clear();
+        bufferB.clear();
+        
+        expect (bufferIsSilent (bufferA));
+        expect (bufferIsSilent (bufferB));
+        
+        expect (buffersAreEqual (bufferA, bufferB));
+        
+        bufferA.setSample (0, 1, 1.f);
+        
+        expect (! bufferIsSilent (bufferA));
+        
+        expect (! buffersAreEqual (bufferA, bufferB));
+        
 
 		beginTest ("copy()");
-
-		bufferA.clear();
-		bufferB.clear();
 
 		osc.setFrequency (440.f, 44100.);
 		osc.getSamples (bufferA);
@@ -152,12 +166,17 @@ void AudioBufferUtilsTests<FloatType>::runTest()
 		beginTest ("allSamplesAreZero()");
 
 		expect (! allSamplesAreZero (aliasA, 0, halfNumSamples));
+        
+        expect (! bufferIsSilent (aliasA));
 
 		bufferA.clear();
 
 		expect (buffersAreEqual (aliasA, aliasB));
 
 		expect (allSamplesAreZero (aliasA, 0, halfNumSamples));
+        
+        expect (bufferIsSilent (aliasA));
+        expect (bufferIsSilent (aliasB));
 
 		//    beginTest ("convert()");
 	}

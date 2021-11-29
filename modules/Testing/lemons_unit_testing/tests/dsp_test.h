@@ -44,6 +44,9 @@ protected:
 	template <typename FloatType>
 	[[nodiscard]] static bool allSamplesAreZero (const AudioBuffer<FloatType>& buffer,
 	                                             int startIndex, int numSamples, int channel = 0);
+    
+    template <typename FloatType>
+    [[nodiscard]] static bool bufferIsSilent (const AudioBuffer<FloatType>& buffer);
 
 	[[nodiscard]] static bool midiBuffersAreEqual (const MidiBuffer& buffer1, const MidiBuffer& buffer2);
 };

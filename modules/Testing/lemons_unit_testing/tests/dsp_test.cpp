@@ -81,6 +81,22 @@ template bool DspTest::allSamplesAreZero (const AudioBuffer<float>&, int, int, i
 template bool DspTest::allSamplesAreZero (const AudioBuffer<double>&, int, int, int);
 
 
+template <typename FloatType>
+bool DspTest::bufferIsSilent (const AudioBuffer<FloatType>& buffer)
+{
+    const auto numSamples = buffer.getNumSamples();
+    
+    for (int chan = 0; chan < buffer.getNumChannels(); ++chan)
+        if (! allSamplesAreZero (buffer, 0, numSamples, chan))
+            return false;
+    
+    return true;
+}
+
+template bool DspTest::bufferIsSilent (const AudioBuffer<float>&);
+template bool DspTest::bufferIsSilent (const AudioBuffer<double>&);
+
+
 bool DspTest::midiBuffersAreEqual (const MidiBuffer& buffer1,
                                    const MidiBuffer& buffer2)
 {
