@@ -18,9 +18,7 @@ include_guard (GLOBAL)
 
 include (LemonsConnectivityModules)
 
-
 _lemons_add_module_subcategory (LemonsCommonModules)
-target_link_libraries (LemonsCommonModules INTERFACE LemonsConnectivityModules)
 
 #
 

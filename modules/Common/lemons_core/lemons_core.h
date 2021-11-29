@@ -28,11 +28,11 @@
     The Lemons repo's cmake scripts set this automatically for you; if that's how you added the Lemons package, then you don't need to worry about setting this manually.
  */
 #ifndef LEMONS_HAS_BINARY_DATA
-#if __has_include("BinaryData.h")
-#    define LEMONS_HAS_BINARY_DATA 1
-#else
-#    define LEMONS_HAS_BINARY_DATA 0
-#endif
+#  if __has_include("BinaryData.h")
+#	define LEMONS_HAS_BINARY_DATA 1
+#  else
+#	define LEMONS_HAS_BINARY_DATA 0
+#  endif
 #endif
 
 
@@ -44,11 +44,11 @@
     The Lemons repo's cmake scripts set this automatically for you; if that's how you added the Lemons package, then you don't need to worry about setting this manually.
  */
 #ifndef LEMONS_USE_VDSP
-#    if JUCE_IOS || JUCE_MAC
-#        define LEMONS_USE_VDSP 1
-#    else
-#        define LEMONS_USE_VDSP 0
-#    endif
+#  if JUCE_IOS || JUCE_MAC
+#	define LEMONS_USE_VDSP 1
+#  else
+#	define LEMONS_USE_VDSP 0
+#  endif
 #endif
 
 
@@ -58,7 +58,11 @@
     Set this to 1 to build the Lemons unit tests.
  */
 #ifndef LEMONS_UNIT_TESTS
-#    define LEMONS_UNIT_TESTS 0
+#  if __has_include("lemons_unit_testing/lemons_unit_testing.h")
+#	define LEMONS_UNIT_TESTS 1
+#  else
+#	define LEMONS_UNIT_TESTS 0
+#  endif
 #endif
 
 

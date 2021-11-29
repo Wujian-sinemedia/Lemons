@@ -95,29 +95,36 @@ private:
 
 #if LEMONS_UNIT_TESTS
 
+#  include <lemons_unit_testing/lemons_unit_testing.h>
+
 namespace lemons::tests
 {
 
 template <typename FloatType>
-struct PitchDetectorTests : public juce::UnitTest
+struct PitchDetectorTests : public Test
 {
 public:
-	PitchDetectorTests();
+	PitchDetectorTests (const std::vector<float>& confidenceThresholdsToUse = { 0.1f, 0.15f, 0.2f },
+	                    const std::vector<int>&   superSawDetuningsToUse    = { 0, 1, 5, 12 },
+	                    int                       defaultRepsToUse          = 3,
+	                    float minFreq = 30.f, float maxFreq = 2500.f);
 
 private:
-	using String = juce::String;
-
 	void runTest() final;
 
-	void runOscillatorTest (dsp::osc::Oscillator<FloatType>& osc, const String& waveName, double samplerate, int reps = 5);
+	void runOscillatorTest (dsp::osc::Oscillator<FloatType>& osc, const String& waveName, double samplerate, int reps = -1);
 
-	static constexpr auto confidenceThresh  = 0.1f;
-	static constexpr auto minDetectableFreq = 30.f;
-	static constexpr auto maxDetectableFreq = 2500.f;
+	const std::vector<float> confidenceThresholds;
+	const std::vector<int>   superSawDetunings;
+
+	const int defaultReps;
+
+	const float minDetectableFreq;
+	const float maxDetectableFreq;
 
 	juce::AudioBuffer<FloatType> storage;
 
-	dsp::PitchDetector<FloatType> detector { juce::roundToInt (minDetectableFreq), confidenceThresh };
+	dsp::PitchDetector<FloatType> detector { juce::roundToInt (minDetectableFreq) };
 
 	dsp::osc::Sine<FloatType>     sine;
 	dsp::osc::Saw<FloatType>      saw;

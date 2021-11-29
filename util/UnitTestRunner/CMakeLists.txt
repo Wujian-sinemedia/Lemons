@@ -19,9 +19,10 @@ include ("${CPM_Lemons_SOURCE}/util/cmake/GetLemons/LemonsGetCPM.cmake")
 CPMAddPackage (
         NAME Lemons
         GITHUB_REPOSITORY benthevining/Lemons
-        GIT_TAG origin/main)
+        GIT_TAG origin/main
+        OPTIONS "LEMONS_BUILD_TESTS ON")
 
-include (LemonsAudioModules)
+include (LemonsTestingModules)
 
 #
 
@@ -33,7 +34,7 @@ target_compile_definitions (${PROJECT_NAME} PRIVATE
     JUCE_USE_CURL=0
     JUCE_WEB_BROWSER=0)
 
-target_link_libraries (${PROJECT_NAME} PRIVATE juce_core LemonsAudioModules)
+target_link_libraries (${PROJECT_NAME} PUBLIC LemonsTestingModules)
 
 #
 
