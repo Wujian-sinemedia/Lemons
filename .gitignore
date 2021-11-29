@@ -6,4 +6,3 @@ logs/
 __pycache__/
 .github/docs
 CMakeUserPresets.json
-Testing/
