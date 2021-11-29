@@ -11,7 +11,7 @@ var searchData=
   ['binary_5fdata_50',['binary_data',['../group__binary__data.html',1,'']]],
   ['binarydatahelpers_2eh_51',['BinaryDataHelpers.h',['../_binary_data_helpers_8h.html',1,'']]],
   ['boolparameter_52',['BoolParameter',['../structlemons_1_1plugin_1_1_bool_parameter.html',1,'lemons::plugin::BoolParameter'],['../structlemons_1_1plugin_1_1_bool_parameter.html#a9ae1c6b6c17a084114c1f1c603a57e54',1,'lemons::plugin::BoolParameter::BoolParameter()']]],
-  ['buffersareequal_53',['buffersAreEqual',['../namespacelemons_1_1dsp_1_1buffers.html#a8581ad13cb93ded1f279a8e30393e658',1,'lemons::dsp::buffers']]],
+  ['buffersareequal_53',['buffersAreEqual',['../structlemons_1_1tests_1_1_dsp_test.html#a1bdf41e8cd02d7acda587ce3dc0a324a',1,'lemons::tests::DspTest']]],
   ['bufferutils_54',['BufferUtils',['../group___buffer_utils.html',1,'']]],
   ['bufferutils_2eh_55',['BufferUtils.h',['../_buffer_utils_8h.html',1,'']]],
   ['buttons_56',['buttons',['../group__buttons.html',1,'']]],

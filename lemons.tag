@@ -130,27 +130,6 @@
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::buffers</namespace>
     <member kind="function">
-      <type>bool</type>
-      <name>allSamplesAreEqual</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1buffers.html</anchorfile>
-      <anchor>a094d50d26811ef9b0e37750849d82380</anchor>
-      <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer1, const AudioBuffer&lt; FloatType &gt; &amp;buffer2, int startIndex1, int numSamples, int startIndex2=-1, int channel1=0, int channel2=-1)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>allSamplesAreZero</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1buffers.html</anchorfile>
-      <anchor>a3ddd755f9b4992135af15d4600309b8e</anchor>
-      <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer, int startIndex, int numSamples, int channel=0)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>buffersAreEqual</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1buffers.html</anchorfile>
-      <anchor>a8581ad13cb93ded1f279a8e30393e658</anchor>
-      <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer1, const AudioBuffer&lt; FloatType &gt; &amp;buffer2)</arglist>
-    </member>
-    <member kind="function">
       <type>void</type>
       <name>convert</name>
       <anchorfile>namespacelemons_1_1dsp_1_1buffers.html</anchorfile>
@@ -364,6 +343,14 @@
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::FX</namespace>
+  </compound>
+  <compound kind="file">
+    <name>dsp_test.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Testing/lemons_unit_testing/tests/</path>
+    <filename>dsp__test_8h.html</filename>
+    <class kind="struct">lemons::tests::DspTest</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::tests</namespace>
   </compound>
   <compound kind="file">
     <name>DSPChain.h</name>
@@ -662,6 +649,11 @@
     <filename>_lemons_set_default_cpack_generator_8md.html</filename>
   </compound>
   <compound kind="file">
+    <name>LemonsTestingModules.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
+    <filename>_lemons_testing_modules_8md.html</filename>
+  </compound>
+  <compound kind="file">
     <name>LemonsTranslationFileGeneration.md</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_lemons_translation_file_generation_8md.html</filename>
@@ -847,13 +839,6 @@
       <anchorfile>namespacelemons_1_1midi.html</anchorfile>
       <anchor>ae32c7b236b4feff5b1bc49ccda1a8517</anchor>
       <arglist>(const MidiBuffer &amp;readingBuffer, MidiBuffer &amp;destBuffer, const int startSampleOfInput, const int startSampleOfOutput, const int numSamples)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>midiBuffersAreEqual</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>a2080e2e3bfcbb7ed18926d3a3dfabbc3</anchor>
-      <arglist>(const MidiBuffer &amp;buffer1, const MidiBuffer &amp;buffer2)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -1242,6 +1227,22 @@
     <namespace>lemons::dsp::FX</namespace>
   </compound>
   <compound kind="file">
+    <name>runner.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Testing/lemons_unit_testing/runner/</path>
+    <filename>runner_8h.html</filename>
+    <class kind="class">lemons::tests::ConsoleLogger</class>
+    <class kind="struct">lemons::tests::ConsoleUnitTestRunner</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::tests</namespace>
+    <member kind="function">
+      <type>bool</type>
+      <name>executeAllTests</name>
+      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
+      <anchor>a4114b46d4dfdf5b2a18688e30e54a0c8</anchor>
+      <arglist>(const juce::ArgumentList &amp;args)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>Saturation.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_audio_effects/misc/</path>
     <filename>_saturation_8h.html</filename>
@@ -1391,6 +1392,14 @@
     <class kind="struct">lemons::dsp::TemplateSynth</class>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
+  </compound>
+  <compound kind="file">
+    <name>test.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Testing/lemons_unit_testing/tests/</path>
+    <filename>test_8h.html</filename>
+    <class kind="class">lemons::tests::Test</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::tests</namespace>
   </compound>
   <compound kind="file">
     <name>TimbreMod.h</name>
@@ -3215,6 +3224,21 @@
       <arglist>(float newThresh_dB)</arglist>
     </member>
   </compound>
+  <compound kind="class">
+    <name>lemons::tests::ConsoleLogger</name>
+    <filename>classlemons_1_1tests_1_1_console_logger.html</filename>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::tests::ConsoleUnitTestRunner</name>
+    <filename>structlemons_1_1tests_1_1_console_unit_test_runner.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>logMessage</name>
+      <anchorfile>structlemons_1_1tests_1_1_console_unit_test_runner.html</anchorfile>
+      <anchor>a80d17672dd1d319bafdd75d9e2a2ce19</anchor>
+      <arglist>(const juce::String &amp;message) final</arglist>
+    </member>
+  </compound>
   <compound kind="struct">
     <name>lemons::MotionManager::Coords</name>
     <filename>structlemons_1_1_motion_manager_1_1_coords.html</filename>
@@ -3972,6 +3996,109 @@
       <anchorfile>classlemons_1_1dsp_1_1_dsp_chain.html</anchorfile>
       <anchor>ac8fbabd073631072be56fc30af15e2f5</anchor>
       <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::tests::DspTest</name>
+    <filename>structlemons_1_1tests_1_1_dsp_test.html</filename>
+    <base>lemons::tests::Test</base>
+    <member kind="function">
+      <type></type>
+      <name>DspTest</name>
+      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
+      <anchor>a047ba8d4fa52f504feceebef695bf198</anchor>
+      <arglist>(const String &amp;testName)</arglist>
+    </member>
+    <member kind="typedef" protection="protected">
+      <type>juce::AudioBuffer&lt; FloatType &gt;</type>
+      <name>AudioBuffer</name>
+      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
+      <anchor>a034ce08b86150c128fd94b1ede159fa6</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef" protection="protected">
+      <type>juce::MidiBuffer</type>
+      <name>MidiBuffer</name>
+      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
+      <anchor>a494ff760322322864a74a22823cdcd7d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef" protection="protected">
+      <type>juce::String</type>
+      <name>String</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>af47362733ec58f00eb0e110684231270</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>const String &amp;</type>
+      <name>getLastImportantMessage</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a631a9edb4cd203eb50c11e1092879db4</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>logBlocksizeMessage</name>
+      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
+      <anchor>a5dd1ab356aa2d03f2687a5fb7cbf5103</anchor>
+      <arglist>(int blocksize)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>logImportantMessage</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a9c44d91c08ff84c15bbe15f6b37e35a0</anchor>
+      <arglist>(const String &amp;message)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>logSamplerateMessage</name>
+      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
+      <anchor>a88d94417c678041cabef5684b681fe5b</anchor>
+      <arglist>(double samplerate)</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static bool</type>
+      <name>allSamplesAreEqual</name>
+      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
+      <anchor>a98f24e23efaa6d82564349ac1bcc4c5d</anchor>
+      <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer1, const AudioBuffer&lt; FloatType &gt; &amp;buffer2, int startIndex1, int numSamples, int startIndex2=-1, int channel1=0, int channel2=-1)</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static bool</type>
+      <name>allSamplesAreZero</name>
+      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
+      <anchor>a3a0bd8158b5b068b45ea4c484c449cf7</anchor>
+      <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer, int startIndex, int numSamples, int channel=0)</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static bool</type>
+      <name>buffersAreEqual</name>
+      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
+      <anchor>a1bdf41e8cd02d7acda587ce3dc0a324a</anchor>
+      <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer1, const AudioBuffer&lt; FloatType &gt; &amp;buffer2)</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static const std::vector&lt; int &gt; &amp;</type>
+      <name>getTestingBlockSizes</name>
+      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
+      <anchor>ac786206b9a815f124b60db728a8dcbfc</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static const std::vector&lt; double &gt; &amp;</type>
+      <name>getTestingSamplerates</name>
+      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
+      <anchor>ae0d4ef51370f99918a860ffec3d16d68</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static bool</type>
+      <name>midiBuffersAreEqual</name>
+      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
+      <anchor>accdbbeef480c61a8ca090645122d8802</anchor>
+      <arglist>(const MidiBuffer &amp;buffer1, const MidiBuffer &amp;buffer2)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -15845,6 +15972,31 @@
       <arglist>()</arglist>
     </member>
   </compound>
+  <compound kind="class">
+    <name>lemons::tests::Test</name>
+    <filename>classlemons_1_1tests_1_1_test.html</filename>
+    <member kind="typedef" protection="protected">
+      <type>juce::String</type>
+      <name>String</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>af47362733ec58f00eb0e110684231270</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>const String &amp;</type>
+      <name>getLastImportantMessage</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a631a9edb4cd203eb50c11e1092879db4</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>logImportantMessage</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a9c44d91c08ff84c15bbe15f6b37e35a0</anchor>
+      <arglist>(const String &amp;message)</arglist>
+    </member>
+  </compound>
   <compound kind="struct">
     <name>lemons::gui::TextButton</name>
     <filename>structlemons_1_1gui_1_1_text_button.html</filename>
@@ -17328,6 +17480,7 @@
     <namespace>lemons::midi</namespace>
     <namespace>lemons::plugin</namespace>
     <namespace>lemons::spline</namespace>
+    <namespace>lemons::tests</namespace>
     <namespace>lemons::vecops</namespace>
     <class kind="struct">lemons::DefaultWindow</class>
     <class kind="struct">lemons::DefaultWindowBase</class>
@@ -17506,27 +17659,6 @@
   <compound kind="namespace">
     <name>lemons::dsp::buffers</name>
     <filename>namespacelemons_1_1dsp_1_1buffers.html</filename>
-    <member kind="function">
-      <type>bool</type>
-      <name>allSamplesAreEqual</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1buffers.html</anchorfile>
-      <anchor>a094d50d26811ef9b0e37750849d82380</anchor>
-      <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer1, const AudioBuffer&lt; FloatType &gt; &amp;buffer2, int startIndex1, int numSamples, int startIndex2=-1, int channel1=0, int channel2=-1)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>allSamplesAreZero</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1buffers.html</anchorfile>
-      <anchor>a3ddd755f9b4992135af15d4600309b8e</anchor>
-      <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer, int startIndex, int numSamples, int channel=0)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>buffersAreEqual</name>
-      <anchorfile>namespacelemons_1_1dsp_1_1buffers.html</anchorfile>
-      <anchor>a8581ad13cb93ded1f279a8e30393e658</anchor>
-      <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer1, const AudioBuffer&lt; FloatType &gt; &amp;buffer2)</arglist>
-    </member>
     <member kind="function">
       <type>void</type>
       <name>convert</name>
@@ -17773,13 +17905,6 @@
       <anchor>ae32c7b236b4feff5b1bc49ccda1a8517</anchor>
       <arglist>(const MidiBuffer &amp;readingBuffer, MidiBuffer &amp;destBuffer, const int startSampleOfInput, const int startSampleOfOutput, const int numSamples)</arglist>
     </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>midiBuffersAreEqual</name>
-      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
-      <anchor>a2080e2e3bfcbb7ed18926d3a3dfabbc3</anchor>
-      <arglist>(const MidiBuffer &amp;buffer1, const MidiBuffer &amp;buffer2)</arglist>
-    </member>
   </compound>
   <compound kind="namespace">
     <name>lemons::plugin</name>
@@ -17966,6 +18091,21 @@
       <anchorfile>namespacelemons_1_1spline_1_1interpolation.html</anchorfile>
       <anchor>a50c25e0f00a4a2947cbcc1218eecbc31</anchor>
       <arglist>(const Knots &amp;data, float t, const int *k) noexcept</arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>lemons::tests</name>
+    <filename>namespacelemons_1_1tests.html</filename>
+    <class kind="class">lemons::tests::ConsoleLogger</class>
+    <class kind="struct">lemons::tests::ConsoleUnitTestRunner</class>
+    <class kind="struct">lemons::tests::DspTest</class>
+    <class kind="class">lemons::tests::Test</class>
+    <member kind="function">
+      <type>bool</type>
+      <name>executeAllTests</name>
+      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
+      <anchor>a4114b46d4dfdf5b2a18688e30e54a0c8</anchor>
+      <arglist>(const juce::ArgumentList &amp;args)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -18400,6 +18540,12 @@
     <class kind="class">lemons::dsp::synth::TimbreMod</class>
   </compound>
   <compound kind="group">
+    <name>Testing</name>
+    <title>Testing</title>
+    <filename>group___testing.html</filename>
+    <subgroup>lemons_unit_testing</subgroup>
+  </compound>
+  <compound kind="group">
     <name>analysis</name>
     <title>analysis</title>
     <filename>group__analysis.html</filename>
@@ -18650,6 +18796,13 @@
     <subgroup>SynthVoice</subgroup>
   </compound>
   <compound kind="group">
+    <name>lemons_unit_testing</name>
+    <title>lemons_unit_testing</title>
+    <filename>group__lemons__unit__testing.html</filename>
+    <subgroup>runner</subgroup>
+    <subgroup>tests</subgroup>
+  </compound>
+  <compound kind="group">
     <name>localization</name>
     <title>localization</title>
     <filename>group__localization.html</filename>
@@ -18778,6 +18931,15 @@
     <class kind="class">lemons::dsp::psola::Shifter</class>
   </compound>
   <compound kind="group">
+    <name>runner</name>
+    <title>runner</title>
+    <filename>group__runner.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::tests</namespace>
+    <class kind="class">lemons::tests::ConsoleLogger</class>
+    <class kind="struct">lemons::tests::ConsoleUnitTestRunner</class>
+  </compound>
+  <compound kind="group">
     <name>sliders</name>
     <title>sliders</title>
     <filename>group__sliders.html</filename>
@@ -18820,6 +18982,15 @@
     <name>synth_impl</name>
     <title>synth_impl</title>
     <filename>group__synth__impl.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>tests</name>
+    <title>tests</title>
+    <filename>group__tests.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::tests</namespace>
+    <class kind="struct">lemons::tests::DspTest</class>
+    <class kind="class">lemons::tests::Test</class>
   </compound>
   <compound kind="group">
     <name>time</name>
@@ -18986,6 +19157,11 @@
     <name>LemonsSetDefaultCpackGenerator</name>
     <title>LemonsSetDefaultCpackGenerator</title>
     <filename>_lemons_set_default_cpack_generator</filename>
+  </compound>
+  <compound kind="page">
+    <name>LemonsTestingModules</name>
+    <title>LemonsTestingModules</title>
+    <filename>_lemons_testing_modules</filename>
   </compound>
   <compound kind="page">
     <name>LemonsTranslationFileGeneration</name>
