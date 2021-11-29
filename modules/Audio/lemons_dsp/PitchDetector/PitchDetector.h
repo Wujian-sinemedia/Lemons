@@ -62,7 +62,10 @@ public:
 	int setMinHz (int newMinHz);
 
 	/** Sets the confidence threshold of the pitch detection algorithm.
-	    This value should be between 0 and 1, inclusive, and can be thought of as the amount of aperiodic power tolerable in a signal determined to be pitched. Typical values are between 0.15 and 0.2.
+	    This value should be between 0 and 1, inclusive, and can be thought of as the amount of aperiodic power tolerable in a signal determined to be pitched.
+	    In other words, the lower this value is, the "stricter" the pitch detector is in choosing its pitch estimates.
+	    When this value is 1, the pitch detector might output a "pitch" value for a frame of random noise; when this value is 0, the pitch detector might say that even a perfect, pure sine wave is "unpitched".
+	    Typical recommended values are between 0.1 and 0.2.
 	 */
 	void setConfidenceThresh (float newThresh) noexcept;
 
@@ -95,23 +98,35 @@ private:
 namespace lemons::tests
 {
 
-template<typename FloatType>
+template <typename FloatType>
 struct PitchDetectorTests : public juce::UnitTest
 {
 public:
 	PitchDetectorTests();
 
 private:
+	using String = juce::String;
+
 	void runTest() final;
 
-	dsp::osc::Sine<FloatType> osc;
+	void runOscillatorTest (dsp::osc::Oscillator<FloatType>& osc, const String& waveName, double samplerate, int reps = 5);
+
+	static constexpr auto confidenceThresh  = 0.1f;
+	static constexpr auto minDetectableFreq = 30.f;
+	static constexpr auto maxDetectableFreq = 2500.f;
 
 	juce::AudioBuffer<FloatType> storage;
 
-	dsp::PitchDetector<FloatType> detector;
+	dsp::PitchDetector<FloatType> detector { juce::roundToInt (minDetectableFreq), confidenceThresh };
+
+	dsp::osc::Sine<FloatType>     sine;
+	dsp::osc::Saw<FloatType>      saw;
+	dsp::osc::Square<FloatType>   square;
+	dsp::osc::Triangle<FloatType> triangle;
+	dsp::osc::SuperSaw<FloatType> superSaw;
 };
 
-static PitchDetectorTests<float> pitchDetectorTest_float;
+static PitchDetectorTests<float>  pitchDetectorTest_float;
 static PitchDetectorTests<double> pitchDetectorTest_double;
 
 }  // namespace lemons::tests

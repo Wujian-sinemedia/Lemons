@@ -39,8 +39,6 @@ template <typename SampleType>
 	jassert (samplerate > 0);                     // pitch detector hasn't been prepared before calling this function!
 	jassert (numSamples >= getLatencySamples());  // not enough samples in this frame to do analysis
 
-	// TO DO: test if samples are all silent, if so return 0
-
 	const auto halfNumSamples = juce::roundToInt (std::floor (numSamples * 0.5f));
 
 	jassert (yinBuffer.getNumSamples() >= halfNumSamples);
@@ -74,6 +72,8 @@ template <typename SampleType>
 template <typename SampleType>
 inline void PitchDetector<SampleType>::cumulativeMeanNormalizedDifference (int halfNumSamples)
 {
+	jassert (halfNumSamples > 0);
+
 	auto* yinData = yinBuffer.getWritePointer (0);
 
 	SampleType runningSum = 0;
@@ -88,6 +88,8 @@ inline void PitchDetector<SampleType>::cumulativeMeanNormalizedDifference (int h
 template <typename SampleType>
 inline int PitchDetector<SampleType>::absoluteThreshold (int halfNumSamples) const
 {
+	jassert (halfNumSamples > 0);
+
 	const auto* yinData = yinBuffer.getReadPointer (0);
 
 	int tau = 2;
@@ -116,6 +118,8 @@ inline int PitchDetector<SampleType>::absoluteThreshold (int halfNumSamples) con
 template <typename SampleType>
 inline float PitchDetector<SampleType>::parabolicInterpolation (int periodEstimate, int halfNumSamples) const
 {
+	jassert (periodEstimate > 0 && halfNumSamples > 0);
+
 	const auto x0 = periodEstimate < 1 ? periodEstimate : periodEstimate - 1;
 	const auto x2 = periodEstimate + 1 < halfNumSamples ? periodEstimate + 1 : periodEstimate;
 
@@ -149,7 +153,7 @@ inline float PitchDetector<SampleType>::parabolicInterpolation (int periodEstima
 template <typename SampleType>
 void PitchDetector<SampleType>::setConfidenceThresh (float newThresh) noexcept
 {
-	jassert (newThresh >= 0 && newThresh <= 1);
+	jassert (newThresh >= 0.f && newThresh <= 1.f);
 	confidenceThresh = static_cast<SampleType> (newThresh);
 }
 
@@ -203,45 +207,88 @@ template class PitchDetector<double>;
 namespace lemons::tests
 {
 
-template<typename FloatType>
+template <typename FloatType>
 PitchDetectorTests<FloatType>::PitchDetectorTests()
     : juce::UnitTest ("PitchDetectorTests", "DSP")
 {
 }
 
-template<typename FloatType>
-void PitchDetectorTests<FloatType>::runTest()
+template <typename FloatType>
+void PitchDetectorTests<FloatType>::runOscillatorTest (dsp::osc::Oscillator<FloatType>& osc,
+                                                       const String&                    waveName,
+                                                       double                           samplerate,
+                                                       int                              reps)
 {
-	constexpr auto samplerate = 44100.;
+	const auto testFreq = [&] (const float correctFreq)
+	{
+		beginTest (String ("Detect frequency of ") + String (correctFreq) + " Hz " + waveName + " wave at samplerate " + String (samplerate));
 
-	const auto latency = detector.setSamplerate (samplerate);
+		osc.setFrequency (correctFreq, samplerate);
+		osc.getSamples (storage);
 
-	storage.setSize (1, latency, true, true, true);
+		const auto estFreq = detector.detectPitch (storage);
 
-	constexpr auto correctFreq = 440.f;
+		expectWithinAbsoluteError (estFreq, correctFreq, 10.f);
 
-	beginTest ("Detect frequency of sine wave");
+		expectWithinAbsoluteError (math::freqToMidi (estFreq),
+		                           math::freqToMidi (correctFreq),
+		                           0.1f);
+	};
 
-	osc.setFrequency (correctFreq, samplerate);
-	osc.getSamples (storage);
-
-	const auto estFreq = detector.detectPitch (storage);
-
-	// measure success in the MIDI domain
-	const auto origMidi = lemons::math::freqToMidi (correctFreq);
-	const auto estMidi  = lemons::math::freqToMidi (estFreq);
-
-	expectWithinAbsoluteError (estMidi, origMidi, 0.1f);
-
-
-	beginTest ("Detect random noise as unpitched");
+	testFreq (440.f);
+	testFreq (minDetectableFreq);
+	testFreq (maxDetectableFreq);
 
 	auto rand = getRandom();
 
-	for (int i = 0; i < latency; ++i)
-		storage.setSample (0, i, static_cast<FloatType> (rand.nextFloat()));
+	for (int i = 0; i < reps; ++i)
+		testFreq (juce::jmap (rand.nextFloat(), minDetectableFreq, maxDetectableFreq));
+}
 
-	expectEquals (detector.detectPitch (storage), 0.f);
+template <typename FloatType>
+void PitchDetectorTests<FloatType>::runTest()
+{
+	logMessage (String ("YIN confidence threshold: ") + String (confidenceThresh));
+	detector.setConfidenceThresh (confidenceThresh);
+
+	for (const auto samplerate : { 44100., 44800., 96000. })
+	{
+		const auto latency = detector.setSamplerate (samplerate);
+
+		storage.setSize (1, latency, true, true, true);
+
+		{
+			runOscillatorTest (sine, "Sine", samplerate);
+			runOscillatorTest (saw, "Saw", samplerate);
+			runOscillatorTest (square, "Square", samplerate);
+			runOscillatorTest (triangle, "Triangle", samplerate);
+
+			for (const auto detune : { 0, 1, 5, 12 })
+			{
+				logMessage ("Setting supersaw pitch spread to " + String (detune) + " cents");
+				superSaw.setDetuneAmount (detune);
+				runOscillatorTest (superSaw, "SuperSaw", samplerate, 1);
+			}
+		}
+
+
+		beginTest ("Detect random noise as unpitched");
+
+		auto rand = getRandom();
+
+		for (int i = 0; i < latency; ++i)
+			storage.setSample (0, i,
+			                   static_cast<FloatType> (juce::jmap (rand.nextFloat(), -1.f, 1.f)));
+
+		expectEquals (detector.detectPitch (storage), 0.f);
+
+
+		beginTest ("Detect silence as unpitched");
+
+		storage.clear();
+
+		expectEquals (detector.detectPitch (storage), 0.f);
+	}
 }
 
 template struct PitchDetectorTests<float>;

@@ -162,6 +162,7 @@ void CircularBufferTests<FloatType>::runTest()
 
 	circularBuffer.storeSamples (origStorage);
 
+    
 	beginTest ("Num stored samples stored correctly");
 
 	expectEquals (circularBuffer.getNumStoredSamples(), numSamples);
@@ -170,12 +171,14 @@ void CircularBufferTests<FloatType>::runTest()
 
 	expectEquals (circularBuffer.getNumStoredSamples(), 0);
 
+    
 	beginTest ("Store samples and retrieve later");
 
 	using namespace dsp::buffers;
 
 	expect (allSamplesAreEqual (circOutput, origStorage, 0, numSamples));
 
+    
 	beginTest ("Retrieve fewer samples than were passed in");
 
 	circularBuffer.storeSamples (origStorage);
@@ -188,6 +191,7 @@ void CircularBufferTests<FloatType>::runTest()
 
 	expect (allSamplesAreEqual (alias, origStorage, 0, halfNumSamples));
 
+    
 	beginTest ("Retrieve more samples than are left in circ buffer");
 
 	expectEquals (circularBuffer.getNumStoredSamples(), halfNumSamples);
@@ -198,6 +202,7 @@ void CircularBufferTests<FloatType>::runTest()
 
 	expect (allSamplesAreEqual (circOutput, origStorage, halfNumSamples, halfNumSamples));
 
+    
 	beginTest ("Resizing");
 
 	circularBuffer.storeSamples (origStorage);
@@ -206,6 +211,7 @@ void CircularBufferTests<FloatType>::runTest()
 
 	expectEquals (circularBuffer.getCapacity(), halfNumSamples);
 
+    
 	beginTest ("Resizing clears the buffer");
 
 	expectEquals (circularBuffer.getNumStoredSamples(), 0);

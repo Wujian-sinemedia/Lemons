@@ -71,6 +71,7 @@ void MidiFifoTests::runTest()
 		input.addEvent (juce::MidiMessage::controllerEvent (1, rand.nextInt (128), rand.nextInt (128)),
 		                i);
 
+    
 	beginTest ("Num events stored correctly");
 
 	constexpr auto numSamples = 512;
@@ -79,16 +80,19 @@ void MidiFifoTests::runTest()
 
 	expectEquals (fifo.numStoredEvents(), numEvents);
 
+    
 	beginTest ("Num stored samples stored correctly");
 
 	expectEquals (fifo.numStoredSamples(), numSamples);
 
+    
 	beginTest ("Store events and retrieve later");
 
 	fifo.popEvents (output, numSamples);
 
 	expect (midi::midiBuffersAreEqual (input, output));
 
+    
 	beginTest ("Resizing clears the FIFO");
 
 	fifo.setSize (numSamples / 2);

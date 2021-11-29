@@ -124,6 +124,7 @@ void AudioFifoTests<FloatType>::runTest()
 
 	fifo.pushSamples (origStorage);
 
+    
 	beginTest ("Num stored samples stored correctly");
 
 	expectEquals (fifo.numStoredSamples(), numSamples);
@@ -132,12 +133,14 @@ void AudioFifoTests<FloatType>::runTest()
 
 	expectEquals (fifo.numStoredSamples(), 0);
 
+    
 	beginTest ("Store samples and retrieve later");
 
 	using namespace dsp::buffers;
 
 	expect (buffersAreEqual (fifoOutput, origStorage));
 
+    
 	beginTest ("Retrieve fewer samples than were passed in");
 
 	fifo.pushSamples (origStorage);
@@ -154,6 +157,7 @@ void AudioFifoTests<FloatType>::runTest()
 		expect (buffersAreEqual (inAlias, outAlias));
 	}
 
+    
 	beginTest ("Retrieve more samples than are left in FIFO");
 
 	expectEquals (fifo.numStoredSamples(), halfNumSamples);
@@ -172,6 +176,7 @@ void AudioFifoTests<FloatType>::runTest()
 		expect (buffersAreEqual (inAlias, outAlias));
 	}
 
+    
 	beginTest ("Resizing clears the FIFO");
 
 	fifo.pushSamples (origStorage);
@@ -180,12 +185,14 @@ void AudioFifoTests<FloatType>::runTest()
 
 	expectEquals (fifo.numStoredSamples(), 0);
 
+    
 	beginTest ("Increase number of channels");
 
 	fifo.resize (halfNumSamples, numChannels + 3);
 
 	expectEquals (fifo.numChannels(), numChannels + 3);
 
+    
 	beginTest ("Decrease number of channels");
 
 	fifo.resize (halfNumSamples, numChannels);
