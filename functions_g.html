@@ -83,7 +83,7 @@ $(function() {
 , <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#a9333a81bf01432310fc49d52816c6a86">lemons::plugin::TypedParameter&lt; ValueType &gt;</a>
 </li>
 <li>getAcceleration()
-: <a class="el" href="classlemons_1_1_motion_manager_interface.html#a72e64513f7e55b632313e597745eedbc">lemons::MotionManagerInterface</a>
+: <a class="el" href="classlemons_1_1_motion_manager.html#a95b6c038637b80fb1c5d3b076ef0425c">lemons::MotionManager</a>
 </li>
 <li>getAdjustedBounds()
 : <a class="el" href="classlemons_1_1spline_1_1_editor.html#a1ff2b7d7e8473c42ae97b572936854b7">lemons::spline::Editor</a>
@@ -107,7 +107,7 @@ $(function() {
 : <a class="el" href="structlemons_1_1_raw_data.html#ab53329e23da7ab50cdca806d65a4fe9d">lemons::RawData</a>
 </li>
 <li>getAttitude()
-: <a class="el" href="classlemons_1_1_motion_manager_interface.html#af95dcb1ec8612951572b584bb1252103">lemons::MotionManagerInterface</a>
+: <a class="el" href="classlemons_1_1_motion_manager.html#a1a39899bc1e9d317a559cd89a562b787">lemons::MotionManager</a>
 </li>
 <li>getAverageGainReduction()
 : <a class="el" href="structlemons_1_1dsp_1_1_f_x_1_1_level_reporting_audio_effect.html#a14cf647f18c204aafc0433069ae685e3">lemons::dsp::FX::LevelReportingAudioEffect&lt; SampleType &gt;</a>
@@ -126,6 +126,9 @@ $(function() {
 </li>
 <li>getCapacity()
 : <a class="el" href="classlemons_1_1dsp_1_1_circular_buffer.html#a501fc09d80b85274e0bebe94af474991">lemons::dsp::CircularBuffer&lt; SampleType &gt;</a>
+</li>
+<li>getCurrent()
+: <a class="el" href="structlemons_1_1_device_rotation.html#a49f7cfbbc1dd01beab8479f5c2289a06">lemons::DeviceRotation</a>
 </li>
 <li>getCurrentlyPlayingNote()
 : <a class="el" href="classlemons_1_1dsp_1_1_synth_voice_base.html#ac4b3eb9706cf4246115e80e359b3323f">lemons::dsp::SynthVoiceBase&lt; SampleType &gt;</a>
@@ -180,7 +183,7 @@ $(function() {
 : <a class="el" href="structlemons_1_1dsp_1_1_f_x_1_1_level_reporting_audio_effect.html#a845aafe7263a138250b02bd383f509d3">lemons::dsp::FX::LevelReportingAudioEffect&lt; SampleType &gt;</a>
 </li>
 <li>getGravity()
-: <a class="el" href="classlemons_1_1_motion_manager_interface.html#adecd1bafb3ec5c0f5e838db3644e4f9e">lemons::MotionManagerInterface</a>
+: <a class="el" href="classlemons_1_1_motion_manager.html#a1718847202792179b587538b63839521">lemons::MotionManager</a>
 </li>
 <li>getIncrement()
 : <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_phase.html#acb6dee2858f02f252733532bdcf5ed69">lemons::dsp::osc::Phase&lt; SampleType &gt;</a>
@@ -313,7 +316,7 @@ $(function() {
 : <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_panner_base.html#a7b74c1c9ad8780a9c0a46e84e20bb730">lemons::dsp::FX::PannerBase</a>
 </li>
 <li>getRotation()
-: <a class="el" href="classlemons_1_1_motion_manager_interface.html#a49c1439490bea845684e54e2444de777">lemons::MotionManagerInterface</a>
+: <a class="el" href="classlemons_1_1_motion_manager.html#add1f38a81ca4c2c1287779d3259b1b4e">lemons::MotionManager</a>
 </li>
 <li>getSample()
 : <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html#ac7dbd9538f446278698dbfed3f39a90f">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>
@@ -327,8 +330,8 @@ $(function() {
 : <a class="el" href="classlemons_1_1dsp_1_1_engine.html#a0c87ce560c5a841ae19764adb67e4dfc">lemons::dsp::Engine&lt; SampleType &gt;</a>
 </li>
 <li>getSamples()
-: <a class="el" href="classlemons_1_1dsp_1_1_circular_buffer.html#a719fb2a904df96cb3942259fbd0d71ef">lemons::dsp::CircularBuffer&lt; SampleType &gt;</a>
-, <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html#a0d4e7108f8cb508f01efeb7e7d423c84">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>
+: <a class="el" href="classlemons_1_1dsp_1_1_circular_buffer.html#a596b725d5dcfc529a1c7273630bf9ed3">lemons::dsp::CircularBuffer&lt; SampleType &gt;</a>
+, <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html#a60cacb1aeca5d4f2eed87c754b01fc6a">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>
 , <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a0517efb82243046286fc03585dbe0b6e">lemons::dsp::psola::Shifter&lt; SampleType &gt;</a>
 </li>
 <li>getSavedEditorSize()
@@ -371,12 +374,8 @@ $(function() {
 <li>getVoice()
 : <a class="el" href="classlemons_1_1dsp_1_1synth_1_1_automated_harmony_voice.html#ae420f6cf33c42b638b267e5b2fe33c0f">lemons::dsp::synth::AutomatedHarmonyVoice&lt; SampleType &gt;</a>
 </li>
-<li>gravity
-: <a class="el" href="classlemons_1_1_motion_manager_interface.html#a45508bcbcf83a89004f9f389f2be2f8f">lemons::MotionManagerInterface</a>
-</li>
 <li>gravityChanged()
-: <a class="el" href="structlemons_1_1_motion_listener.html#a948163076b0a53d52b6a6be2cc5b4470">lemons::MotionListener</a>
-, <a class="el" href="classlemons_1_1_motion_manager_interface.html#a2503a58c8156cabc764ffe57e8595f35">lemons::MotionManagerInterface</a>
+: <a class="el" href="structlemons_1_1_motion_manager_1_1_listener.html#a4e797fca7366eaeb1f87b7e07720d7ad">lemons::MotionManager::Listener</a>
 </li>
 <li>GUI()
 : <a class="el" href="classlemons_1_1plugin_1_1_g_u_i.html#a7de4aaf74c7c900d105782ed26bf6442">lemons::plugin::GUI&lt; StateType &gt;</a>
@@ -391,7 +390,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 29 2021 05:34:09 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 29 2021 08:00:55 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lemons: lemons::DeviceRotationListener Struct Reference</title>
+<title>Lemons: lemons::DeviceRotation::ScopedDisabler Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,50 +63,36 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacelemons.html">lemons</a></li><li class="navelem"><a class="el" href="structlemons_1_1_device_rotation_listener.html">DeviceRotationListener</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacelemons.html">lemons</a></li><li class="navelem"><a class="el" href="structlemons_1_1_device_rotation.html">DeviceRotation</a></li><li class="navelem"><a class="el" href="structlemons_1_1_device_rotation_1_1_scoped_disabler.html">ScopedDisabler</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="structlemons_1_1_device_rotation_listener-members.html">List of all members</a>  </div>
+<a href="structlemons_1_1_device_rotation_1_1_scoped_disabler-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">lemons::DeviceRotationListener Struct Reference</div>  </div>
+<div class="title">lemons::DeviceRotation::ScopedDisabler Struct Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Inherits Timer.</p>
+<p>RAII mechanism for temporarily disabling device rotation.  
+ <a href="structlemons_1_1_device_rotation_1_1_scoped_disabler.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6eeacfa9fa7fc02c1ee7a992c9fd3c2d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_device_rotation_listener.html#a6eeacfa9fa7fc02c1ee7a992c9fd3c2d">DeviceRotationListener</a> (std::function&lt; void()&gt; callbackToUse)</td></tr>
-<tr class="separator:a6eeacfa9fa7fc02c1ee7a992c9fd3c2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae800e3e167ef9810bf1ad2ce273d32e3"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_device_rotation_listener.html#ae800e3e167ef9810bf1ad2ce273d32e3">~DeviceRotationListener</a> () override</td></tr>
-<tr class="separator:ae800e3e167ef9810bf1ad2ce273d32e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f47f683ebe2c7269ed642946221f3c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_device_rotation_listener.html#a1f47f683ebe2c7269ed642946221f3c8">timerCallback</a> () final</td></tr>
-<tr class="separator:a1f47f683ebe2c7269ed642946221f3c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bfc785ca38bf274cfb5fe55b235a161"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_device_rotation_1_1_scoped_disabler.html#a9bfc785ca38bf274cfb5fe55b235a161">ScopedDisabler</a> ()</td></tr>
+<tr class="memdesc:a9bfc785ca38bf274cfb5fe55b235a161"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="structlemons_1_1_device_rotation_1_1_scoped_disabler.html#a9bfc785ca38bf274cfb5fe55b235a161">More...</a><br /></td></tr>
+<tr class="separator:a9bfc785ca38bf274cfb5fe55b235a161"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41ae40f3c61ac009fdce4e732feb0000"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_device_rotation_1_1_scoped_disabler.html#a41ae40f3c61ac009fdce4e732feb0000">~ScopedDisabler</a> ()</td></tr>
+<tr class="memdesc:a41ae40f3c61ac009fdce4e732feb0000"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="structlemons_1_1_device_rotation_1_1_scoped_disabler.html#a41ae40f3c61ac009fdce4e732feb0000">More...</a><br /></td></tr>
+<tr class="separator:a41ae40f3c61ac009fdce4e732feb0000"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a6eeacfa9fa7fc02c1ee7a992c9fd3c2d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6eeacfa9fa7fc02c1ee7a992c9fd3c2d">&#9670;&nbsp;</a></span>DeviceRotationListener()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">lemons::DeviceRotationListener::DeviceRotationListener </td>
-          <td>(</td>
-          <td class="paramtype">std::function&lt; void()&gt;&#160;</td>
-          <td class="paramname"><em>callbackToUse</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae800e3e167ef9810bf1ad2ce273d32e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae800e3e167ef9810bf1ad2ce273d32e3">&#9670;&nbsp;</a></span>~DeviceRotationListener()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>RAII mechanism for temporarily disabling device rotation. </p>
+<p>When this object's destructor is called, it restores the rotations that were enabled when the object was constructed. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a9bfc785ca38bf274cfb5fe55b235a161"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bfc785ca38bf274cfb5fe55b235a161">&#9670;&nbsp;</a></span>ScopedDisabler()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -115,7 +101,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual lemons::DeviceRotationListener::~DeviceRotationListener </td>
+          <td class="memname">lemons::DeviceRotation::ScopedDisabler::ScopedDisabler </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -123,46 +109,41 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
+<p>Constructor. </p>
+
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1f47f683ebe2c7269ed642946221f3c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f47f683ebe2c7269ed642946221f3c8">&#9670;&nbsp;</a></span>timerCallback()</h2>
+<a id="a41ae40f3c61ac009fdce4e732feb0000"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41ae40f3c61ac009fdce4e732feb0000">&#9670;&nbsp;</a></span>~ScopedDisabler()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void lemons::DeviceRotationListener::timerCallback </td>
+          <td class="memname">lemons::DeviceRotation::ScopedDisabler::~ScopedDisabler </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Destructor. </p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="rotation_8h.html">rotation.h</a></li>
+<li><a class="el" href="_device_rotation_8h.html">DeviceRotation.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 29 2021 05:34:09 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 29 2021 08:00:55 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

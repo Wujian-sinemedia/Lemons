@@ -105,10 +105,10 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The default plugin state toggler has 3 states, A/B/C. </p>
-<p>Base class for a plugin's state. This class references a ParameterList that you give it; you can also specify another SerializableData object to be serialized with your plugin state. This class internally holds a Dimensions (juce::Point representing the plugin editor's size), and a <a class="el" href="classlemons_1_1plugin_1_1_modulation_manager.html" title="A modulation manager for a plugin.">ModulationManager</a> object that will reference the plugin's ParameterList. <br  />
+<p>Base class for a plugin's state. This class references a ParameterList that you give it; you can also specify another SerializableData object to be serialized with your plugin state. This class internally holds a <a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a> (juce::Point representing the plugin editor's size), and a <a class="el" href="classlemons_1_1plugin_1_1_modulation_manager.html" title="A modulation manager for a plugin.">ModulationManager</a> object that will reference the plugin's ParameterList. <br  />
 <br  />
 This class will automatically add a master bypass ToggleParam to your parameter list. <br  />
-I recommed using the templated State or CustomState classes; they handle creating your parameter list and custom serializable data objects and passing them to the base class. </p><dl class="section see"><dt>See also</dt><dd>State, CustomState, PluginState, ParameterList, <a class="el" href="classlemons_1_1plugin_1_1_modulation_manager.html" title="A modulation manager for a plugin.">ModulationManager</a>, <a class="el" href="namespacelemons_1_1plugin.html#a47c63ce964844d24e40ca6dad594907e" title="Represent the dimensions of a plugin editor using a juce::Point&lt;int&gt;.">Dimensions</a>, StateToggler </dd></dl>
+I recommed using the templated State or CustomState classes; they handle creating your parameter list and custom serializable data objects and passing them to the base class. </p><dl class="section see"><dt>See also</dt><dd>State, CustomState, PluginState, ParameterList, <a class="el" href="classlemons_1_1plugin_1_1_modulation_manager.html" title="A modulation manager for a plugin.">ModulationManager</a>, <a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a>, StateToggler </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4ef7cf313673af40abda31d93f8ac1cf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4ef7cf313673af40abda31d93f8ac1cf">&#9670;&nbsp;</a></span>StateBase()</h2>
@@ -235,7 +235,7 @@ I recommed using the templated State or CustomState classes; they handle creatin
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 29 2021 05:34:09 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 29 2021 08:00:55 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lemons: lemons::events::TimerCallback Struct Reference</title>
+<title>Lemons: lemons::events::TimerCallback&lt; FunctionType &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -71,37 +71,59 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="structlemons_1_1events_1_1_timer_callback-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">lemons::events::TimerCallback Struct Reference<div class="ingroups"><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__core.html">lemons_core</a> &raquo; <a class="el" href="group__events.html">events</a></div></div>  </div>
+<div class="title">lemons::events::TimerCallback&lt; FunctionType &gt; Struct Template Reference<div class="ingroups"><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__core.html">lemons_core</a> &raquo; <a class="el" href="group__events.html">events</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A timer callback that calls a lambda function.  
+ <a href="structlemons_1_1events_1_1_timer_callback.html#details">More...</a></p>
 
 <p>Inherits Timer.</p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1cc3566fad88cf8c0c494ed68807d3f8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1events_1_1_timer_callback.html#a1cc3566fad88cf8c0c494ed68807d3f8">TimerCallback</a> (std::function&lt; void()&gt; callbackToUse, int rateInMs=100)</td></tr>
-<tr class="separator:a1cc3566fad88cf8c0c494ed68807d3f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c62644f39fdc3264b06ff8a155b2285"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1events_1_1_timer_callback.html#a9c62644f39fdc3264b06ff8a155b2285">~TimerCallback</a> ()</td></tr>
-<tr class="separator:a9c62644f39fdc3264b06ff8a155b2285"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad407c38f7cc06ecd141eaac5e9ec9052"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1events_1_1_timer_callback.html#ad407c38f7cc06ecd141eaac5e9ec9052">TimerCallback</a> (FunctionType &amp;&amp;callbackToUse, int rateInMs=100, bool start=true)</td></tr>
+<tr class="memdesc:ad407c38f7cc06ecd141eaac5e9ec9052"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="structlemons_1_1events_1_1_timer_callback.html" title="A timer callback that calls a lambda function.">TimerCallback</a>.  <a href="structlemons_1_1events_1_1_timer_callback.html#ad407c38f7cc06ecd141eaac5e9ec9052">More...</a><br /></td></tr>
+<tr class="separator:ad407c38f7cc06ecd141eaac5e9ec9052"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86c68f9fd8bf648d7483e835ade9fe04"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1events_1_1_timer_callback.html#a86c68f9fd8bf648d7483e835ade9fe04">~TimerCallback</a> ()</td></tr>
+<tr class="memdesc:a86c68f9fd8bf648d7483e835ade9fe04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="structlemons_1_1events_1_1_timer_callback.html#a86c68f9fd8bf648d7483e835ade9fe04">More...</a><br /></td></tr>
+<tr class="separator:a86c68f9fd8bf648d7483e835ade9fe04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a1cc3566fad88cf8c0c494ed68807d3f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1cc3566fad88cf8c0c494ed68807d3f8">&#9670;&nbsp;</a></span>TimerCallback()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename FunctionType&gt;<br />
+struct lemons::events::TimerCallback&lt; FunctionType &gt;</h3>
+
+<p>A timer callback that calls a lambda function. </p>
+<p>e. g. </p><div class="fragment"><div class="line"><a class="code" href="structlemons_1_1events_1_1_timer_callback.html#ad407c38f7cc06ecd141eaac5e9ec9052">TimerCallback</a> t { [data = getSomeData()]{ callMyFunction (data); }; };</div>
+</div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ad407c38f7cc06ecd141eaac5e9ec9052"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad407c38f7cc06ecd141eaac5e9ec9052">&#9670;&nbsp;</a></span>TimerCallback()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename FunctionType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">lemons::events::TimerCallback::TimerCallback </td>
+          <td class="memname"><a class="el" href="structlemons_1_1events_1_1_timer_callback.html">lemons::events::TimerCallback</a>&lt; FunctionType &gt;::<a class="el" href="structlemons_1_1events_1_1_timer_callback.html">TimerCallback</a> </td>
           <td>(</td>
-          <td class="paramtype">std::function&lt; void()&gt;&#160;</td>
+          <td class="paramtype">FunctionType &amp;&amp;&#160;</td>
           <td class="paramname"><em>callbackToUse</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>rateInMs</em> = <code>100</code>&#160;</td>
+          <td class="paramname"><em>rateInMs</em> = <code>100</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>start</em> = <code>true</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -109,21 +131,38 @@ Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>Creates a <a class="el" href="structlemons_1_1events_1_1_timer_callback.html" title="A timer callback that calls a lambda function.">TimerCallback</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">callbackToUse</td><td>The function to call as the timer callback. </td></tr>
+    <tr><td class="paramname">rateInMs</td><td>The number of milliseconds between successive calls of callbackToUse when the timer is running. </td></tr>
+    <tr><td class="paramname">start</td><td>If true, the timer will be started istantly when this object is created. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a9c62644f39fdc3264b06ff8a155b2285"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c62644f39fdc3264b06ff8a155b2285">&#9670;&nbsp;</a></span>~TimerCallback()</h2>
+<a id="a86c68f9fd8bf648d7483e835ade9fe04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86c68f9fd8bf648d7483e835ade9fe04">&#9670;&nbsp;</a></span>~TimerCallback()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename FunctionType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual lemons::events::TimerCallback::~TimerCallback </td>
+          <td class="memname">virtual <a class="el" href="structlemons_1_1events_1_1_timer_callback.html">lemons::events::TimerCallback</a>&lt; FunctionType &gt;::~<a class="el" href="structlemons_1_1events_1_1_timer_callback.html">TimerCallback</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -136,15 +175,18 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Destructor. </p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="_timers_8h.html">Timers.h</a></li>
 </ul>
 </div><!-- contents -->
+<div class="ttc" id="astructlemons_1_1events_1_1_timer_callback_html_ad407c38f7cc06ecd141eaac5e9ec9052"><div class="ttname"><a href="structlemons_1_1events_1_1_timer_callback.html#ad407c38f7cc06ecd141eaac5e9ec9052">lemons::events::TimerCallback::TimerCallback</a></div><div class="ttdeci">TimerCallback(FunctionType &amp;&amp;callbackToUse, int rateInMs=100, bool start=true)</div><div class="ttdoc">Creates a TimerCallback.</div><div class="ttdef"><b>Definition:</b> Timers.h:27</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 29 2021 05:34:09 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 29 2021 08:00:55 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

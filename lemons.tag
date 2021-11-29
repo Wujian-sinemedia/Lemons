@@ -44,13 +44,6 @@
     <namespace>lemons::dsp::psola</namespace>
   </compound>
   <compound kind="file">
-    <name>androidMotion.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_mobile_utils/Android/</path>
-    <filename>android_motion_8h.html</filename>
-    <class kind="class">lemons::MotionManager</class>
-    <namespace>lemons</namespace>
-  </compound>
-  <compound kind="file">
     <name>AudioAndMidiFIFO.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/fifos/</path>
     <filename>_audio_and_midi_f_i_f_o_8h.html</filename>
@@ -93,6 +86,12 @@
     <class kind="class">lemons::dsp::AudioFifo</class>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
+  </compound>
+  <compound kind="file">
+    <name>AutoLock.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/events/</path>
+    <filename>_auto_lock_8h.html</filename>
+    <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
     <name>AutomatedHarmonyVoice.h</name>
@@ -340,6 +339,24 @@
     <namespace>lemons::dsp::FX</namespace>
   </compound>
   <compound kind="file">
+    <name>DeviceMotion.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/events/</path>
+    <filename>_device_motion_8h.html</filename>
+    <class kind="struct">lemons::MotionManager::Coords</class>
+    <class kind="struct">lemons::MotionManager::Listener</class>
+    <class kind="class">lemons::MotionManager</class>
+    <namespace>lemons</namespace>
+  </compound>
+  <compound kind="file">
+    <name>DeviceRotation.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/events/</path>
+    <filename>_device_rotation_8h.html</filename>
+    <class kind="struct">lemons::DeviceRotation</class>
+    <class kind="struct">lemons::DeviceRotation::Listener</class>
+    <class kind="struct">lemons::DeviceRotation::ScopedDisabler</class>
+    <namespace>lemons</namespace>
+  </compound>
+  <compound kind="file">
     <name>DryWet.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_audio_effects/misc/</path>
     <filename>_dry_wet_8h.html</filename>
@@ -355,13 +372,6 @@
     <class kind="class">lemons::dsp::DspChain</class>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
-  </compound>
-  <compound kind="file">
-    <name>DummyMotionManager.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_mobile_utils/dummy_desktop_versions/</path>
-    <filename>_dummy_motion_manager_8h.html</filename>
-    <class kind="class">lemons::MotionManager</class>
-    <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
     <name>EditorBase.h</name>
@@ -512,13 +522,6 @@
       <anchor>a50c25e0f00a4a2947cbcc1218eecbc31</anchor>
       <arglist>(const Knots &amp;data, float t, const int *k) noexcept</arglist>
     </member>
-  </compound>
-  <compound kind="file">
-    <name>iosMotion.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_mobile_utils/iOS/</path>
-    <filename>ios_motion_8h.html</filename>
-    <class kind="class">lemons::MotionManager</class>
-    <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
     <name>Knots.h</name>
@@ -857,6 +860,7 @@
     <name>misc.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/misc/</path>
     <filename>misc_8h.html</filename>
+    <class kind="struct">lemons::Dimensions</class>
     <class kind="struct">lemons::SystemInitializer</class>
     <namespace>lemons</namespace>
     <member kind="typedef">
@@ -956,15 +960,6 @@
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::FX</namespace>
-  </compound>
-  <compound kind="file">
-    <name>motion.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_mobile_utils/all_platforms/</path>
-    <filename>motion_8h.html</filename>
-    <class kind="struct">lemons::MotionManagerInterface::Coords</class>
-    <class kind="struct">lemons::MotionListener</class>
-    <class kind="class">lemons::MotionManagerInterface</class>
-    <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
     <name>NamePopup.h</name>
@@ -1245,14 +1240,6 @@
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::FX</namespace>
-  </compound>
-  <compound kind="file">
-    <name>rotation.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_mobile_utils/all_platforms/</path>
-    <filename>rotation_8h.html</filename>
-    <class kind="struct">lemons::DeviceRotation</class>
-    <class kind="struct">lemons::DeviceRotationListener</class>
-    <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
     <name>Saturation.h</name>
@@ -3229,27 +3216,27 @@
     </member>
   </compound>
   <compound kind="struct">
-    <name>lemons::MotionManagerInterface::Coords</name>
-    <filename>structlemons_1_1_motion_manager_interface_1_1_coords.html</filename>
+    <name>lemons::MotionManager::Coords</name>
+    <filename>structlemons_1_1_motion_manager_1_1_coords.html</filename>
     <member kind="variable">
       <type>double</type>
       <name>x</name>
-      <anchorfile>structlemons_1_1_motion_manager_interface_1_1_coords.html</anchorfile>
-      <anchor>a6b2a3df5e6762aa34739922965c3c3dc</anchor>
+      <anchorfile>structlemons_1_1_motion_manager_1_1_coords.html</anchorfile>
+      <anchor>aa3908c3d444ec6e438c024f1c640ec4b</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>double</type>
       <name>y</name>
-      <anchorfile>structlemons_1_1_motion_manager_interface_1_1_coords.html</anchorfile>
-      <anchor>a4f877ed8402ad9c49e078979f4e4d3bc</anchor>
+      <anchorfile>structlemons_1_1_motion_manager_1_1_coords.html</anchorfile>
+      <anchor>a853bb1f71f8a58e814f9f03e4c7e4d1f</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>double</type>
       <name>z</name>
-      <anchorfile>structlemons_1_1_motion_manager_interface_1_1_coords.html</anchorfile>
-      <anchor>a2d8285405be7eb1820c37101e5faf82c</anchor>
+      <anchorfile>structlemons_1_1_motion_manager_1_1_coords.html</anchorfile>
+      <anchor>a221af8e70b6316bf8b69cab2135a77e1</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -3823,51 +3810,74 @@
   <compound kind="struct">
     <name>lemons::DeviceRotation</name>
     <filename>structlemons_1_1_device_rotation.html</filename>
+    <class kind="struct">lemons::DeviceRotation::Listener</class>
+    <class kind="struct">lemons::DeviceRotation::ScopedDisabler</class>
+    <member kind="typedef">
+      <type>juce::Desktop::DisplayOrientation</type>
+      <name>Orientation</name>
+      <anchorfile>structlemons_1_1_device_rotation.html</anchorfile>
+      <anchor>a693951b64b01d378a1d19199fbaced2e</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function" static="yes">
       <type>static void</type>
-      <name>disableRotation</name>
+      <name>disable</name>
       <anchorfile>structlemons_1_1_device_rotation.html</anchorfile>
-      <anchor>a8101dc114e574beefa5e0ea935279d5f</anchor>
+      <anchor>a91d0f6a015009d6c86376d6c604516e8</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static void</type>
-      <name>enableOnlyLandscapeRotations</name>
+      <name>enableOnlyLandscape</name>
       <anchorfile>structlemons_1_1_device_rotation.html</anchorfile>
-      <anchor>a0df7021c93b9a6ddddfa2ed729be62d2</anchor>
+      <anchor>ab4e070148f955db2553a5fc23e20b6d7</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static void</type>
-      <name>enableOnlyVerticalRotations</name>
+      <name>enableOnlyVertical</name>
       <anchorfile>structlemons_1_1_device_rotation.html</anchorfile>
-      <anchor>a4e3fba3a64e72593c3cd5b4100562b53</anchor>
+      <anchor>a0e2de5eccdc3b2507720466dcc0dd0cf</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Orientation</type>
+      <name>getCurrent</name>
+      <anchorfile>structlemons_1_1_device_rotation.html</anchorfile>
+      <anchor>a49f7cfbbc1dd01beab8479f5c2289a06</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="struct">
-    <name>lemons::DeviceRotationListener</name>
-    <filename>structlemons_1_1_device_rotation_listener.html</filename>
+    <name>lemons::Dimensions</name>
+    <filename>structlemons_1_1_dimensions.html</filename>
+    <member kind="function">
+      <type>constexpr</type>
+      <name>Dimensions</name>
+      <anchorfile>structlemons_1_1_dimensions.html</anchorfile>
+      <anchor>af24b0d1facb1ac43c326868fa3c9b973</anchor>
+      <arglist>(int widthToUse, int heightToUse)</arglist>
+    </member>
     <member kind="function">
       <type></type>
-      <name>DeviceRotationListener</name>
-      <anchorfile>structlemons_1_1_device_rotation_listener.html</anchorfile>
-      <anchor>a6eeacfa9fa7fc02c1ee7a992c9fd3c2d</anchor>
-      <arglist>(std::function&lt; void()&gt; callbackToUse)</arglist>
+      <name>~Dimensions</name>
+      <anchorfile>structlemons_1_1_dimensions.html</anchorfile>
+      <anchor>a20d57c9f40a63aac687756876e5a1ccf</anchor>
+      <arglist>()=default</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~DeviceRotationListener</name>
-      <anchorfile>structlemons_1_1_device_rotation_listener.html</anchorfile>
-      <anchor>ae800e3e167ef9810bf1ad2ce273d32e3</anchor>
-      <arglist>() override</arglist>
+    <member kind="variable">
+      <type>int</type>
+      <name>height</name>
+      <anchorfile>structlemons_1_1_dimensions.html</anchorfile>
+      <anchor>a7edc258a0cbaa0f9ab9d216bc604e84e</anchor>
+      <arglist></arglist>
     </member>
-    <member kind="function">
-      <type>void</type>
-      <name>timerCallback</name>
-      <anchorfile>structlemons_1_1_device_rotation_listener.html</anchorfile>
-      <anchor>a1f47f683ebe2c7269ed642946221f3c8</anchor>
-      <arglist>() final</arglist>
+    <member kind="variable">
+      <type>int</type>
+      <name>width</name>
+      <anchorfile>structlemons_1_1_dimensions.html</anchorfile>
+      <anchor>a3ac9d19d87cf8d01a2f3ab7d3e483e9a</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -7141,6 +7151,77 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>lemons::MotionManager::Listener</name>
+    <filename>structlemons_1_1_motion_manager_1_1_listener.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Listener</name>
+      <anchorfile>structlemons_1_1_motion_manager_1_1_listener.html</anchorfile>
+      <anchor>acecf98267e93e37eed9afc03b42eb0dd</anchor>
+      <arglist>(MotionManager &amp;manager)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~Listener</name>
+      <anchorfile>structlemons_1_1_motion_manager_1_1_listener.html</anchorfile>
+      <anchor>a04b9c1d7ab51e90f0af57f16e703ad77</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>accelerationChanged</name>
+      <anchorfile>structlemons_1_1_motion_manager_1_1_listener.html</anchorfile>
+      <anchor>a1db91bf86d2540d56ee0225ea947beb5</anchor>
+      <arglist>(Coords)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>attitudeChanged</name>
+      <anchorfile>structlemons_1_1_motion_manager_1_1_listener.html</anchorfile>
+      <anchor>a09a043b85eba69f46f956848adeceb68</anchor>
+      <arglist>(Coords)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>gravityChanged</name>
+      <anchorfile>structlemons_1_1_motion_manager_1_1_listener.html</anchorfile>
+      <anchor>a4e797fca7366eaeb1f87b7e07720d7ad</anchor>
+      <arglist>(Coords)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>rotationChanged</name>
+      <anchorfile>structlemons_1_1_motion_manager_1_1_listener.html</anchorfile>
+      <anchor>a5821047e8937cfdf0b7b4faba38e2b14</anchor>
+      <arglist>(Coords)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::DeviceRotation::Listener</name>
+    <filename>structlemons_1_1_device_rotation_1_1_listener.html</filename>
+    <member kind="typedef">
+      <type>std::function&lt; void(Orientation)&gt;</type>
+      <name>Callback</name>
+      <anchorfile>structlemons_1_1_device_rotation_1_1_listener.html</anchorfile>
+      <anchor>aa3f7d63bbf7f26ccd193c93f30546de9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Listener</name>
+      <anchorfile>structlemons_1_1_device_rotation_1_1_listener.html</anchorfile>
+      <anchor>a30e6938a8de9f82332b66f66e8af9ba1</anchor>
+      <arglist>(Callback &amp;&amp;callbackToUse)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~Listener</name>
+      <anchorfile>structlemons_1_1_device_rotation_1_1_listener.html</anchorfile>
+      <anchor>a68b17e1694fa069c68d52a0a2c0f71ae</anchor>
+      <arglist>() override</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>lemons::plugin::Parameter::Listener</name>
     <filename>structlemons_1_1plugin_1_1_parameter_1_1_listener.html</filename>
     <member kind="function">
@@ -9555,49 +9636,11 @@
       <arglist>(int newMidiPan, float &amp;leftGainOutput, float &amp;rightGainOutput)</arglist>
     </member>
   </compound>
-  <compound kind="struct">
-    <name>lemons::MotionListener</name>
-    <filename>structlemons_1_1_motion_listener.html</filename>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~MotionListener</name>
-      <anchorfile>structlemons_1_1_motion_listener.html</anchorfile>
-      <anchor>a2ad4d1c53171bbb318f0d404ca2c3619</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>accelerationChanged</name>
-      <anchorfile>structlemons_1_1_motion_listener.html</anchorfile>
-      <anchor>aea263c7769226908421ddc254b1142de</anchor>
-      <arglist>(double, double, double)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>attitudeChanged</name>
-      <anchorfile>structlemons_1_1_motion_listener.html</anchorfile>
-      <anchor>aca395deb2bc876592f2f38ca4528308b</anchor>
-      <arglist>(double, double, double)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>gravityChanged</name>
-      <anchorfile>structlemons_1_1_motion_listener.html</anchorfile>
-      <anchor>a948163076b0a53d52b6a6be2cc5b4470</anchor>
-      <arglist>(double, double, double)</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>rotationChanged</name>
-      <anchorfile>structlemons_1_1_motion_listener.html</anchorfile>
-      <anchor>a3c7a9ee8005371b852d86232ac8c1e72</anchor>
-      <arglist>(double, double, double)</arglist>
-    </member>
-  </compound>
   <compound kind="class">
     <name>lemons::MotionManager</name>
     <filename>classlemons_1_1_motion_manager.html</filename>
-    <base>lemons::MotionManagerInterface</base>
+    <class kind="struct">lemons::MotionManager::Coords</class>
+    <class kind="struct">lemons::MotionManager::Listener</class>
     <member kind="function">
       <type></type>
       <name>MotionManager</name>
@@ -9607,316 +9650,59 @@
     </member>
     <member kind="function">
       <type></type>
-      <name>MotionManager</name>
-      <anchorfile>classlemons_1_1_motion_manager.html</anchorfile>
-      <anchor>a3adb2ccab55eb19b2fae73561f7756bb</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
       <name>~MotionManager</name>
       <anchorfile>classlemons_1_1_motion_manager.html</anchorfile>
-      <anchor>a256c1bac90b17f749eaabab8e906ebe8</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>addListener</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>a5e90801499aac455430ead7e6f867ed1</anchor>
-      <arglist>(MotionListener *l)</arglist>
+      <anchor>a54f296b3a685757e9930f592cc4f7f3f</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>Coords</type>
       <name>getAcceleration</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>a72e64513f7e55b632313e597745eedbc</anchor>
-      <arglist>() const</arglist>
+      <anchorfile>classlemons_1_1_motion_manager.html</anchorfile>
+      <anchor>a95b6c038637b80fb1c5d3b076ef0425c</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>Coords</type>
       <name>getAttitude</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>af95dcb1ec8612951572b584bb1252103</anchor>
-      <arglist>() const</arglist>
+      <anchorfile>classlemons_1_1_motion_manager.html</anchorfile>
+      <anchor>a1a39899bc1e9d317a559cd89a562b787</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>Coords</type>
       <name>getGravity</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>adecd1bafb3ec5c0f5e838db3644e4f9e</anchor>
-      <arglist>() const</arglist>
+      <anchorfile>classlemons_1_1_motion_manager.html</anchorfile>
+      <anchor>a1718847202792179b587538b63839521</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>Coords</type>
       <name>getRotation</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>a49c1439490bea845684e54e2444de777</anchor>
-      <arglist>() const</arglist>
+      <anchorfile>classlemons_1_1_motion_manager.html</anchorfile>
+      <anchor>add1f38a81ca4c2c1287779d3259b1b4e</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>isRunning</name>
       <anchorfile>classlemons_1_1_motion_manager.html</anchorfile>
-      <anchor>aec4ed9f722bf84f0db406bd6c49b9fca</anchor>
-      <arglist>() final</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual bool</type>
-      <name>isRunning</name>
-      <anchorfile>classlemons_1_1_motion_manager.html</anchorfile>
-      <anchor>a9ed2bfa1073180cb79dd39744713f355</anchor>
-      <arglist>() final</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>removeListener</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>acdf866381ba361bd45d8d8c96cc96664</anchor>
-      <arglist>(MotionListener *l)</arglist>
+      <anchor>a44c36d99351c84799174958846694391</anchor>
+      <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>start</name>
       <anchorfile>classlemons_1_1_motion_manager.html</anchorfile>
-      <anchor>a48fa105dbde61444436d2acddd74cdd3</anchor>
-      <arglist>() final</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>start</name>
-      <anchorfile>classlemons_1_1_motion_manager.html</anchorfile>
-      <anchor>a2fae5061c73ad073f646807997b610d9</anchor>
-      <arglist>() final</arglist>
+      <anchor>a8ca1ecf19a6f69e1f5caf6fe938a9e88</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>stop</name>
       <anchorfile>classlemons_1_1_motion_manager.html</anchorfile>
-      <anchor>aa0634a026dc505ea830148dbafa0ede5</anchor>
-      <arglist>() final</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual void</type>
-      <name>stop</name>
-      <anchorfile>classlemons_1_1_motion_manager.html</anchorfile>
-      <anchor>a928848daeb216b49cca1952e319be88b</anchor>
-      <arglist>() final</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>accelerationChanged</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>a9753b6ca3ff626920d041cd09d4b9b67</anchor>
-      <arglist>(double x, double y, double z)</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>attitudeChanged</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>a6cef6f6aaf3be61033bc8ac5595d6bdd</anchor>
-      <arglist>(double x, double y, double z)</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>gravityChanged</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>a2503a58c8156cabc764ffe57e8595f35</anchor>
-      <arglist>(double x, double y, double z)</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>rotationChanged</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>a0efbc17abfccb71f179a3dd064c57301</anchor>
-      <arglist>(double x, double y, double z)</arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>Coords</type>
-      <name>acceleration</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>a145045e6a9d0da886554c38c70800c62</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>juce::ListenerList&lt; MotionListener &gt;</type>
-      <name>listeners</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>a949d72c24fea6eb85637fdf5eec17c36</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="virtual">
-      <type>virtual</type>
-      <name>~MotionManager</name>
-      <anchorfile>classlemons_1_1_motion_manager.html</anchorfile>
-      <anchor>a256c1bac90b17f749eaabab8e906ebe8</anchor>
-      <arglist>() override</arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="virtual">
-      <type>virtual bool</type>
-      <name>isRunning</name>
-      <anchorfile>classlemons_1_1_motion_manager.html</anchorfile>
-      <anchor>a9ed2bfa1073180cb79dd39744713f355</anchor>
-      <arglist>() final</arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="virtual">
-      <type>virtual void</type>
-      <name>start</name>
-      <anchorfile>classlemons_1_1_motion_manager.html</anchorfile>
-      <anchor>a2fae5061c73ad073f646807997b610d9</anchor>
-      <arglist>() final</arglist>
-    </member>
-    <member kind="function" protection="private" virtualness="virtual">
-      <type>virtual void</type>
-      <name>stop</name>
-      <anchorfile>classlemons_1_1_motion_manager.html</anchorfile>
-      <anchor>a928848daeb216b49cca1952e319be88b</anchor>
-      <arglist>() final</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>lemons::MotionManagerInterface</name>
-    <filename>classlemons_1_1_motion_manager_interface.html</filename>
-    <class kind="struct">lemons::MotionManagerInterface::Coords</class>
-    <member kind="function">
-      <type></type>
-      <name>MotionManagerInterface</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>a1b07c383da5f48702867f3316f267297</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~MotionManagerInterface</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>a8b131a953f545e1ec0ce424f80ce8665</anchor>
-      <arglist>()=default</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>addListener</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>a5e90801499aac455430ead7e6f867ed1</anchor>
-      <arglist>(MotionListener *l)</arglist>
-    </member>
-    <member kind="function">
-      <type>Coords</type>
-      <name>getAcceleration</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>a72e64513f7e55b632313e597745eedbc</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>Coords</type>
-      <name>getAttitude</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>af95dcb1ec8612951572b584bb1252103</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>Coords</type>
-      <name>getGravity</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>adecd1bafb3ec5c0f5e838db3644e4f9e</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function">
-      <type>Coords</type>
-      <name>getRotation</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>a49c1439490bea845684e54e2444de777</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual bool</type>
-      <name>isRunning</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>a120f1fd59e4a05e2124ea784c2105c99</anchor>
-      <arglist>()=0</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>removeListener</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>acdf866381ba361bd45d8d8c96cc96664</anchor>
-      <arglist>(MotionListener *l)</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>start</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>a74602d8bf6dc0862b5da36ed08e6368b</anchor>
-      <arglist>()=0</arglist>
-    </member>
-    <member kind="function" virtualness="pure">
-      <type>virtual void</type>
-      <name>stop</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>a38c81e48e63ed6a5f6bfa087e47d62e4</anchor>
-      <arglist>()=0</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>accelerationChanged</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>a9753b6ca3ff626920d041cd09d4b9b67</anchor>
-      <arglist>(double x, double y, double z)</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>attitudeChanged</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>a6cef6f6aaf3be61033bc8ac5595d6bdd</anchor>
-      <arglist>(double x, double y, double z)</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>gravityChanged</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>a2503a58c8156cabc764ffe57e8595f35</anchor>
-      <arglist>(double x, double y, double z)</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>rotationChanged</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>a0efbc17abfccb71f179a3dd064c57301</anchor>
-      <arglist>(double x, double y, double z)</arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>Coords</type>
-      <name>acceleration</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>a145045e6a9d0da886554c38c70800c62</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>Coords</type>
-      <name>attitude</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>a6fd77219d8ba802abcd9a4bf79f29bac</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>Coords</type>
-      <name>gravity</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>a45508bcbcf83a89004f9f389f2be2f8f</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>juce::ListenerList&lt; MotionListener &gt;</type>
-      <name>listeners</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>a949d72c24fea6eb85637fdf5eec17c36</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable" protection="protected">
-      <type>Coords</type>
-      <name>rotation</name>
-      <anchorfile>classlemons_1_1_motion_manager_interface.html</anchorfile>
-      <anchor>afbb4ab4e2a2c3e9a68b168b5487878df</anchor>
-      <arglist></arglist>
+      <anchor>a7eab01f39395984791f5c3ed26ab5575</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -13346,6 +13132,24 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>lemons::DeviceRotation::ScopedDisabler</name>
+    <filename>structlemons_1_1_device_rotation_1_1_scoped_disabler.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ScopedDisabler</name>
+      <anchorfile>structlemons_1_1_device_rotation_1_1_scoped_disabler.html</anchorfile>
+      <anchor>a9bfc785ca38bf274cfb5fe55b235a161</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~ScopedDisabler</name>
+      <anchorfile>structlemons_1_1_device_rotation_1_1_scoped_disabler.html</anchorfile>
+      <anchor>a41ae40f3c61ac009fdce4e732feb0000</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>lemons::gui::ScopedWaitCursor</name>
     <filename>structlemons_1_1gui_1_1_scoped_wait_cursor.html</filename>
     <member kind="function">
@@ -16148,18 +15952,19 @@
   <compound kind="struct">
     <name>lemons::events::TimerCallback</name>
     <filename>structlemons_1_1events_1_1_timer_callback.html</filename>
+    <templarg></templarg>
     <member kind="function">
       <type></type>
       <name>TimerCallback</name>
       <anchorfile>structlemons_1_1events_1_1_timer_callback.html</anchorfile>
-      <anchor>a1cc3566fad88cf8c0c494ed68807d3f8</anchor>
-      <arglist>(std::function&lt; void()&gt; callbackToUse, int rateInMs=100)</arglist>
+      <anchor>ad407c38f7cc06ecd141eaac5e9ec9052</anchor>
+      <arglist>(FunctionType &amp;&amp;callbackToUse, int rateInMs=100, bool start=true)</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
       <name>~TimerCallback</name>
       <anchorfile>structlemons_1_1events_1_1_timer_callback.html</anchorfile>
-      <anchor>a9c62644f39fdc3264b06ff8a155b2285</anchor>
+      <anchor>a86c68f9fd8bf648d7483e835ade9fe04</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
@@ -17527,11 +17332,9 @@
     <class kind="struct">lemons::DefaultWindow</class>
     <class kind="struct">lemons::DefaultWindowBase</class>
     <class kind="struct">lemons::DeviceRotation</class>
-    <class kind="struct">lemons::DeviceRotationListener</class>
+    <class kind="struct">lemons::Dimensions</class>
     <class kind="class">lemons::GuiApp</class>
-    <class kind="struct">lemons::MotionListener</class>
     <class kind="class">lemons::MotionManager</class>
-    <class kind="class">lemons::MotionManagerInterface</class>
     <class kind="struct">lemons::RawData</class>
     <class kind="struct">lemons::SystemInitializer</class>
     <class kind="struct">lemons::ValueSmoother</class>
@@ -18413,11 +18216,6 @@
     <class kind="class">MTSESP::Client</class>
   </compound>
   <compound kind="group">
-    <name>Android</name>
-    <title>Android</title>
-    <filename>group___android.html</filename>
-  </compound>
-  <compound kind="group">
     <name>Apps</name>
     <title>Apps</title>
     <filename>group___apps.html</filename>
@@ -18477,7 +18275,6 @@
     <title>Common</title>
     <filename>group___common.html</filename>
     <subgroup>lemons_core</subgroup>
-    <subgroup>lemons_mobile_utils</subgroup>
   </compound>
   <compound kind="group">
     <name>Connectivity</name>
@@ -18603,11 +18400,6 @@
     <class kind="class">lemons::dsp::synth::TimbreMod</class>
   </compound>
   <compound kind="group">
-    <name>all_platforms</name>
-    <title>all_platforms</title>
-    <filename>group__all__platforms.html</filename>
-  </compound>
-  <compound kind="group">
     <name>analysis</name>
     <title>analysis</title>
     <filename>group__analysis.html</filename>
@@ -18674,11 +18466,6 @@
     <class kind="class">lemons::gui::PopupComponent</class>
     <class kind="struct">lemons::gui::TextButton</class>
     <class kind="struct">lemons::gui::ToggleTextButton</class>
-  </compound>
-  <compound kind="group">
-    <name>dummy_desktop_versions</name>
-    <title>dummy_desktop_versions</title>
-    <filename>group__dummy__desktop__versions.html</filename>
   </compound>
   <compound kind="group">
     <name>dynamics</name>
@@ -18758,11 +18545,6 @@
     <class kind="class">lemons::dsp::synth::VoiceAllocator</class>
   </compound>
   <compound kind="group">
-    <name>iOS</name>
-    <title>iOS</title>
-    <filename>group__i_o_s.html</filename>
-  </compound>
-  <compound kind="group">
     <name>lemons_app_utils</name>
     <title>lemons_app_utils</title>
     <filename>group__lemons__app__utils.html</filename>
@@ -18818,15 +18600,6 @@
     <filename>group__lemons__midi.html</filename>
     <subgroup>processors</subgroup>
     <subgroup>utilities</subgroup>
-  </compound>
-  <compound kind="group">
-    <name>lemons_mobile_utils</name>
-    <title>lemons_mobile_utils</title>
-    <filename>group__lemons__mobile__utils.html</filename>
-    <subgroup>Android</subgroup>
-    <subgroup>all_platforms</subgroup>
-    <subgroup>dummy_desktop_versions</subgroup>
-    <subgroup>iOS</subgroup>
   </compound>
   <compound kind="group">
     <name>lemons_plugin</name>
