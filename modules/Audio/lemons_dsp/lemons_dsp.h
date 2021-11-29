@@ -30,6 +30,7 @@ END_JUCE_MODULE_DECLARATION
 
 #include "fifos/CircularBuffer.h"
 #include "fifos/AudioFifo.h"
+#include "fifos/MidiFIFO.h"
 #include "fifos/AudioAndMidiFIFO.h"
 
 #include "engines/AudioEngine.h"

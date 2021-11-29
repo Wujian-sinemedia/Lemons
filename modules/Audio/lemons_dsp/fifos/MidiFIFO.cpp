@@ -1,5 +1,4 @@
-
-namespace lemons::midi
+namespace lemons::dsp
 {
 
 MidiFIFO::MidiFIFO (int maxNumMessages) { setSize (maxNumMessages); }

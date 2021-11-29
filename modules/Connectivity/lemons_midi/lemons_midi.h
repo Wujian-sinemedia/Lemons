@@ -20,7 +20,6 @@
 
 
 #include "utilities/MidiUtilities.h"
-#include "utilities/MidiFIFO.h"
 #include "utilities/VelocityHelper.h"
 #include "utilities/PitchbendTracker.h"
 

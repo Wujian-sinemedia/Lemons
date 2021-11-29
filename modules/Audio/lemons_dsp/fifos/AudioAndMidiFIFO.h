@@ -6,7 +6,7 @@ namespace lemons::dsp
 {
 
 /** A FIFO for storing both audio and MIDI data together.
-    @see AudioFifo, midi::MidiFIFO
+    @see AudioFifo, MidiFIFO
  */
 template <typename SampleType>
 class AudioAndMidiFIFO final
@@ -34,7 +34,7 @@ public:
 	void clear();
 
 private:
-	midi::MidiFIFO        midi;
+	MidiFIFO              midi;
 	AudioFifo<SampleType> audio;
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudioAndMidiFIFO)
