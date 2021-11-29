@@ -1,9 +1,20 @@
-
 #pragma once
+
+#include <juce_data_structures/juce_data_structures.h>
 
 
 namespace lemons
 {
+
+/** Returns true if this module was cross-compiled for iOS or Android, otherwise false. */
+static constexpr bool isOnMobilePlatform()
+{
+#if (JUCE_IOS || JUCE_ANDROID)
+    return true;
+#else
+    return false;
+#endif
+}
 
 using juce::File;
 using juce::String;
@@ -15,11 +26,25 @@ using Array = juce::Array< T >;
 template < typename T >
 using OwnedArray = juce::OwnedArray< T >;
 
+
+struct Dimensions final
+{
+    constexpr Dimensions (int widthToUse, int heightToUse)
+    : width(widthToUse), height(heightToUse)
+    { }
+    
+    ~Dimensions() = default;
+    
+    int width { 0 };
+    int height { 0 };
+};
+
 /** Returns the default initial size for top-level GUIs, used for both plugins and apps. */
-[[nodiscard]] static inline constexpr juce::Point<int> defaultWindowSize() noexcept
+[[nodiscard]] static inline constexpr Dimensions defaultWindowSize() noexcept
 {
 	return { 1060, 640 };
 }
+
 
 /* Returns a unicode sharp symbol.
  */

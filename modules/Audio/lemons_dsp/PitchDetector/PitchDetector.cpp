@@ -19,56 +19,56 @@ template <typename SampleType>
 template <typename SampleType>
 [[nodiscard]] float PitchDetector<SampleType>::detectPitch (const SampleType* inputAudio, int numSamples)
 {
-    const auto period = detectPeriod (inputAudio, numSamples);
-    
-    if (period > 0.f)
-        return math::freqFromPeriod (samplerate, period);
-    
-    return 0.f;
+	const auto period = detectPeriod (inputAudio, numSamples);
+
+	if (period > 0.f)
+		return math::freqFromPeriod (samplerate, period);
+
+	return 0.f;
 }
 
 template <typename SampleType>
 [[nodiscard]] float PitchDetector<SampleType>::detectPeriod (const AudioBuffer<SampleType>& inputAudio)
 {
-    return detectPeriod (inputAudio.getReadPointer(0), inputAudio.getNumSamples());
+	return detectPeriod (inputAudio.getReadPointer (0), inputAudio.getNumSamples());
 }
 
 template <typename SampleType>
 [[nodiscard]] float PitchDetector<SampleType>::detectPeriod (const SampleType* inputAudio, int numSamples)
 {
-    jassert (samplerate > 0);  // pitch detector hasn't been prepared before calling this function!
-    jassert (numSamples >= getLatencySamples());  // not enough samples in this frame to do analysis
-    
-    // TO DO: test if samples are all silent, if so return 0
-    
-    const auto halfNumSamples = juce::roundToInt (std::floor (numSamples * 0.5f));
-    
-    jassert (yinBuffer.getNumSamples() >= halfNumSamples);
-    
-    auto* yinData = yinBuffer.getWritePointer (0);
-    
-    vecops::fill (yinData, SampleType (1), halfNumSamples);
-    
-    // difference function
-    for (auto tau = 0; tau < halfNumSamples; ++tau)
-    {
-        for (auto i = 0; i < halfNumSamples; ++i)
-        {
-            const auto delta = inputAudio[i] - inputAudio[i + tau];
-            yinData[tau] += (delta * delta);
-        }
-    }
-    
-    yinData[0] = SampleType (1);
-    
-    cumulativeMeanNormalizedDifference (halfNumSamples);
-    
-    const auto periodEstimate = absoluteThreshold (halfNumSamples);
-    
-    if (periodEstimate <= 0)
-        return 0.f;
-    
-    return parabolicInterpolation (periodEstimate, halfNumSamples);
+	jassert (samplerate > 0);                     // pitch detector hasn't been prepared before calling this function!
+	jassert (numSamples >= getLatencySamples());  // not enough samples in this frame to do analysis
+
+	// TO DO: test if samples are all silent, if so return 0
+
+	const auto halfNumSamples = juce::roundToInt (std::floor (numSamples * 0.5f));
+
+	jassert (yinBuffer.getNumSamples() >= halfNumSamples);
+
+	auto* yinData = yinBuffer.getWritePointer (0);
+
+	vecops::fill (yinData, SampleType (1), halfNumSamples);
+
+	// difference function
+	for (auto tau = 0; tau < halfNumSamples; ++tau)
+	{
+		for (auto i = 0; i < halfNumSamples; ++i)
+		{
+			const auto delta = inputAudio[i] - inputAudio[i + tau];
+			yinData[tau] += (delta * delta);
+		}
+	}
+
+	yinData[0] = SampleType (1);
+
+	cumulativeMeanNormalizedDifference (halfNumSamples);
+
+	const auto periodEstimate = absoluteThreshold (halfNumSamples);
+
+	if (periodEstimate <= 0)
+		return 0.f;
+
+	return parabolicInterpolation (periodEstimate, halfNumSamples);
 }
 
 template <typename SampleType>
@@ -140,10 +140,10 @@ inline float PitchDetector<SampleType>::parabolicInterpolation (int periodEstima
 	const auto s0 = yinData[x0];
 	const auto s1 = yinData[periodEstimate];
 	const auto s2 = yinData[x2];
-    
-    const auto period = static_cast<SampleType>(periodEstimate) + (s2 - s0) / (SampleType(2) * (SampleType(2) * s1 - s2 - s0));
-    
-    return static_cast<float>(period);
+
+	const auto period = static_cast<SampleType> (periodEstimate) + (s2 - s0) / (SampleType (2) * (SampleType (2) * s1 - s2 - s0));
+
+	return static_cast<float> (period);
 }
 
 template <typename SampleType>
@@ -230,18 +230,18 @@ void PitchDetectorTests::runTest()
 	const auto estMidi  = lemons::math::freqToMidi (estFreq);
 
 	expectWithinAbsoluteError (estMidi, origMidi, 0.1f);
-    
-    
-    beginTest ("Detect random noise as unpitched");
-    
-    auto rand = getRandom();
-    
-    for (int i = 0; i < latency; ++i)
-        storage.setSample (0, i, static_cast<FloatType> (rand.nextFloat()));
-    
-    expectEquals (detector.detectPitch (storage), 0.f);
+
+
+	beginTest ("Detect random noise as unpitched");
+
+	auto rand = getRandom();
+
+	for (int i = 0; i < latency; ++i)
+		storage.setSample (0, i, static_cast<FloatType> (rand.nextFloat()));
+
+	expectEquals (detector.detectPitch (storage), 0.f);
 }
 
-}
+}  // namespace lemons::tests
 
 #endif

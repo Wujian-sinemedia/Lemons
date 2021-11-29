@@ -2,17 +2,47 @@
 
 namespace lemons::events
 {
+
+/** A timer callback that calls a lambda function.
+    e. g.
+    @code
+    TimerCallback t { [data = getSomeData()]{ callMyFunction (data); }; };
+    @endcode
+ */
+template <typename FunctionType>
 struct TimerCallback : private juce::Timer
 {
-	TimerCallback (std::function<void()> callbackToUse,
-	               int                   rateInMs = 100);
+	static_assert (std::is_invocable_v<FunctionType()>,
+	               "FunctionType must be invocable with no arguments!");
 
-	virtual ~TimerCallback();
+	/** Creates a TimerCallback.
+	    @param callbackToUse The function to call as the timer callback.
+	    @param rateInMs The number of milliseconds between successive calls of callbackToUse when the timer is running.
+	    @param start If true, the timer will be started istantly when this object is created.
+	 */
+	explicit TimerCallback (FunctionType&& callbackToUse,
+	                        int            rateInMs = 100,
+	                        bool           start    = true)
+	    : callback (std::move (callbackToUse))
+	{
+		if (start)
+			startTimer (rateInMs);
+	}
+
+	/** Destructor. */
+	virtual ~TimerCallback()
+	{
+		if (isTimerRunning())
+			stopTimer();
+	}
 
 private:
-	void timerCallback() final;
+	void timerCallback() final
+	{
+		callback();
+	}
 
-	std::function<void()> callback;
+	FunctionType callback;
 };
 
 }  // namespace lemons::events

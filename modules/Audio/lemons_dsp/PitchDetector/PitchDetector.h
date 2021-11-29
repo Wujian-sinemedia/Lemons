@@ -15,9 +15,9 @@ public:
 	    @see getLatencySamples(), setConfidenceThresh(), setMinHz()
 	 */
 	explicit PitchDetector (int minFreqHz = 60, float confidenceThreshold = 0.15f);
-    
-    /** Destructor. */
-    ~PitchDetector() = default;
+
+	/** Destructor. */
+	~PitchDetector() = default;
 
 	/** Detects the pitch in Hz for a frame of audio.
 	    This can only be used for one channel at a time. If you need to track the pitch of multiple channels of audio, you need one PitchDetector object for each channel.
@@ -30,19 +30,19 @@ public:
 	    @return The pitch in Hz for this frame of audio, or 0.f if the frame is unpitched.
 	 */
 	[[nodiscard]] float detectPitch (const SampleType* inputAudio, int numSamples);
-    
-    
-    /** Detects the period, in samples, for a frame of audio.
-        @return The period, in samples, of the fundamental frequency for this frame of audio, or 0.f if the frame is unpitched.
-     */
-    [[nodiscard]] float detectPeriod (const AudioBuffer<SampleType>& inputAudio);
-    
-    /** Detects the period, in samples, for a frame of audio.
-        @return The period, in samples, of the fundamental frequency for this frame of audio, or 0.f if the frame is unpitched.
-     */
-    [[nodiscard]] float detectPeriod (const SampleType* inputAudio, int numSamples);
 
-    
+
+	/** Detects the period, in samples, for a frame of audio.
+	    @return The period, in samples, of the fundamental frequency for this frame of audio, or 0.f if the frame is unpitched.
+	 */
+	[[nodiscard]] float detectPeriod (const AudioBuffer<SampleType>& inputAudio);
+
+	/** Detects the period, in samples, for a frame of audio.
+	    @return The period, in samples, of the fundamental frequency for this frame of audio, or 0.f if the frame is unpitched.
+	 */
+	[[nodiscard]] float detectPeriod (const SampleType* inputAudio, int numSamples);
+
+
 	/** Returns the latency in samples of the detection algorithm.
 	    The latency is equal to 2 * the period of the lowest detectable frequency. Therefore, pitch detectors with a higher minimum frequency will have a lower latency.
 	    @see setMinHz()
@@ -114,6 +114,6 @@ private:
 
 static PitchDetectorTests pitchDetectorTest;
 
-}
+}  // namespace lemons::tests
 
 #endif

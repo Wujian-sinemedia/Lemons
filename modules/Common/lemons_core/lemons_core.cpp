@@ -12,4 +12,6 @@
 
 #include "localization/localization.cpp"
 
-#include "events/events.cpp"
+#include "events/AutoLock.cpp"
+#include "events/DeviceRotation.cpp"
+#include "events/DeviceMotion.cpp"

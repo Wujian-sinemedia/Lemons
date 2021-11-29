@@ -64,7 +64,6 @@
 
 /*=======================================================================*/
 
-#include <juce_audio_utils/juce_audio_utils.h>
 
 #include "misc/Preprocessor.h"
 
@@ -72,6 +71,9 @@
 #include "misc/ValueSmoother.h"
 
 #include "events/Timers.h"
+#include "events/AutoLock.h"
+#include "events/DeviceRotation.h"
+#include "events/DeviceMotion.h"
 
 #include "files/FileUtilities.h"
 

@@ -12,7 +12,7 @@
  website:            http://benthevining.github.io/Lemons/
  license:            GPL-3.0
  minimumCppStandard: 17
- dependencies:       lemons_plugin_parameters lemons_mobile_utils
+ dependencies:       lemons_plugin_parameters
 
  END_JUCE_MODULE_DECLARATION
 
