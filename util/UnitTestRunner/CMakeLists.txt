@@ -22,6 +22,7 @@ CPMAddPackage (
         GIT_TAG origin/main
         OPTIONS "LEMONS_BUILD_TESTS ON")
 
+include (LemonsJuceUtilities)
 include (LemonsTestingModules)
 
 #
