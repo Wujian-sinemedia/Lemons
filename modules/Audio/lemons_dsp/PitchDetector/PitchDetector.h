@@ -15,6 +15,9 @@ public:
 	    @see getLatencySamples(), setConfidenceThresh(), setMinHz()
 	 */
 	explicit PitchDetector (int minFreqHz = 60, float confidenceThreshold = 0.15f);
+    
+    /** Destructor. */
+    ~PitchDetector() = default;
 
 	/** Detects the pitch in Hz for a frame of audio.
 	    This can only be used for one channel at a time. If you need to track the pitch of multiple channels of audio, you need one PitchDetector object for each channel.
@@ -89,6 +92,9 @@ private:
 
 #if LEMONS_UNIT_TESTS
 
+namespace lemons::tests
+{
+
 struct PitchDetectorTests : public juce::UnitTest
 {
 public:
@@ -99,13 +105,15 @@ private:
 
 	void runTest() final;
 
-	lemons::dsp::osc::Sine<FloatType> osc;
+	dsp::osc::Sine<FloatType> osc;
 
 	juce::AudioBuffer<FloatType> storage;
 
-	lemons::dsp::PitchDetector<FloatType> detector;
+	dsp::PitchDetector<FloatType> detector;
 };
 
 static PitchDetectorTests pitchDetectorTest;
+
+}
 
 #endif

@@ -19,16 +19,16 @@ public:
 	template <typename NoteType>
 	float getAdjustedMidiPitch (NoteType midiPitch) const
 	{
-        static_assert (std::is_arithmetic<NoteType>(), "This function only works with arithmetic types!");
-        
-        if (lastRecievedPitchbend == 64) return static_cast<float> (midiPitch);
-        
-        if (lastRecievedPitchbend > 64)
-            return static_cast<float> (((rangeUp * (lastRecievedPitchbend - 65.f)) / 62.f)
-                                       + float (midiPitch));
-        
-        return static_cast<float> ((((1.f - rangeDown) * lastRecievedPitchbend) / 63.f) + float (midiPitch)
-                                   - rangeDown);
+		static_assert (std::is_arithmetic<NoteType>(), "This function only works with arithmetic types!");
+
+		if (lastRecievedPitchbend == 64) return static_cast<float> (midiPitch);
+
+		if (lastRecievedPitchbend > 64)
+			return static_cast<float> (((rangeUp * (lastRecievedPitchbend - 65.f)) / 62.f)
+			                           + float (midiPitch));
+
+		return static_cast<float> ((((1.f - rangeDown) * lastRecievedPitchbend) / 63.f) + float (midiPitch)
+		                           - rangeDown);
 	}
 
 private:

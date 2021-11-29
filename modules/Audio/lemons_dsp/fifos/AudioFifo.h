@@ -5,7 +5,7 @@ namespace lemons::dsp
 
 /** A multichannel audio FIFO.
     If you only need to store a single channel's worth of audio samples, consider using the CircularBuffer class instead.
-    @see CircularBuffer
+    @see CircularBuffer, AudioAndMidiFIFO
  */
 template <typename SampleType>
 class AudioFifo final
@@ -13,6 +13,9 @@ class AudioFifo final
 public:
 	/** Creates an AudioFifo with an initial capacity. */
 	explicit AudioFifo (int numSamples = 512, int numChannels = 2);
+
+	/** Destructor. */
+	~AudioFifo() = default;
 
 	/** Pushes samples into the FIFO.
 	    If the internal buffer's capacity isn't big enough to hold all the passed samples, an assertion will be thrown.
@@ -40,6 +43,8 @@ public:
 
 private:
 	juce::OwnedArray<CircularBuffer<SampleType>> buffers;
+
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudioFifo)
 };
 
 }  // namespace lemons::dsp
@@ -49,6 +54,9 @@ private:
 
 
 #if LEMONS_UNIT_TESTS
+
+namespace lemons::tests
+{
 
 struct AudioFifoTests : public juce::UnitTest
 {
@@ -64,13 +72,15 @@ private:
 
 	void resizeAllBuffers (int newSize, int numChannels);
 
-	lemons::dsp::osc::Sine<FloatType> osc;
+	dsp::osc::Sine<FloatType> osc;
 
 	juce::AudioBuffer<FloatType> origStorage, fifoOutput;
 
-	lemons::dsp::AudioFifo<FloatType> fifo;
+	dsp::AudioFifo<FloatType> fifo;
 };
 
 static AudioFifoTests audioFifoTest;
+
+}  // namespace lemons::tests
 
 #endif

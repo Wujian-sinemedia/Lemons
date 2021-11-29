@@ -128,6 +128,9 @@ template class CircularBuffer<double>;
 
 #if LEMONS_UNIT_TESTS
 
+namespace lemons::tests
+{
+
 CircularBufferTests::CircularBufferTests()
     : juce::UnitTest ("CircularBufferTests", "DSP")
 {
@@ -153,9 +156,7 @@ void CircularBufferTests::runTest()
 
 	osc.getSamples (origStorage);
 
-	const auto& orig = std::as_const (origStorage);
-
-	circularBuffer.storeSamples (orig);
+	circularBuffer.storeSamples (origStorage);
 
 	beginTest ("Num stored samples stored correctly");
 
@@ -167,13 +168,13 @@ void CircularBufferTests::runTest()
 
 	beginTest ("Store samples and retrieve later");
 
-	using namespace lemons::dsp::buffers;
+	using namespace dsp::buffers;
 
-	expect (allSamplesAreEqual (circOutput, orig, 0, numSamples));
+	expect (allSamplesAreEqual (circOutput, origStorage, 0, numSamples));
 
 	beginTest ("Retrieve fewer samples than were passed in");
 
-	circularBuffer.storeSamples (orig);
+	circularBuffer.storeSamples (origStorage);
 
 	const auto halfNumSamples = numSamples / 2;
 
@@ -181,7 +182,7 @@ void CircularBufferTests::runTest()
 
 	circularBuffer.getSamples (alias);
 
-	expect (allSamplesAreEqual (alias, orig, 0, halfNumSamples));
+	expect (allSamplesAreEqual (alias, origStorage, 0, halfNumSamples));
 
 	beginTest ("Retrieve more samples than are left in circ buffer");
 
@@ -191,11 +192,11 @@ void CircularBufferTests::runTest()
 
 	expect (allSamplesAreZero (circOutput, 0, halfNumSamples));
 
-	expect (allSamplesAreEqual (circOutput, orig, halfNumSamples, halfNumSamples));
+	expect (allSamplesAreEqual (circOutput, origStorage, halfNumSamples, halfNumSamples));
 
 	beginTest ("Resizing");
 
-	circularBuffer.storeSamples (orig);
+	circularBuffer.storeSamples (origStorage);
 
 	circularBuffer.resize (halfNumSamples);
 
@@ -205,5 +206,7 @@ void CircularBufferTests::runTest()
 
 	expectEquals (circularBuffer.getNumStoredSamples(), 0);
 }
+
+}  // namespace lemons::tests
 
 #endif

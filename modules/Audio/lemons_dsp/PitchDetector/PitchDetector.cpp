@@ -200,6 +200,9 @@ template class PitchDetector<double>;
 
 #if LEMONS_UNIT_TESTS
 
+namespace lemons::tests
+{
+
 PitchDetectorTests::PitchDetectorTests()
     : juce::UnitTest ("PitchDetectorTests", "DSP")
 {
@@ -237,6 +240,8 @@ void PitchDetectorTests::runTest()
         storage.setSample (0, i, static_cast<FloatType> (rand.nextFloat()));
     
     expectEquals (detector.detectPitch (storage), 0.f);
+}
+
 }
 
 #endif

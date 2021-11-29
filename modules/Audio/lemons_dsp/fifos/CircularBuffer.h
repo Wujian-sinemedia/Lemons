@@ -6,7 +6,7 @@ namespace lemons::dsp
 /**
     A circular buffer meant for storing a single channel's worth of audio samples.
     If you need to store more than one channel's worth of samples, use the AudioFifo class.
-    @see AudioFifo
+    @see AudioFifo, AudioAndMidiFIFO
  */
 template <typename SampleType>
 class CircularBuffer final
@@ -14,6 +14,9 @@ class CircularBuffer final
 public:
 	/** Creates a CircularBuffer with an initial size. */
 	explicit CircularBuffer (int initialCapacity = 512);
+
+	/** Destructor. */
+	~CircularBuffer() = default;
 
 	/** Stores samples in the buffer.
 	    If the buffer's capacity isn't big enough to hold all the passed samples, an assertion will be thrown.
@@ -53,6 +56,8 @@ private:
 	AudioBuffer<SampleType> buffer;
 
 	juce::AbstractFifo fifo;
+
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (CircularBuffer)
 };
 
 }  // namespace lemons::dsp
@@ -62,6 +67,9 @@ private:
 
 
 #if LEMONS_UNIT_TESTS
+
+namespace lemons::tests
+{
 
 struct CircularBufferTests : public juce::UnitTest
 {
@@ -77,13 +85,15 @@ private:
 
 	void resizeAllBuffers (int newSize);
 
-	lemons::dsp::osc::Sine<FloatType> osc;
+	dsp::osc::Sine<FloatType> osc;
 
 	juce::AudioBuffer<FloatType> origStorage, circOutput;
 
-	lemons::dsp::CircularBuffer<FloatType> circularBuffer;
+	dsp::CircularBuffer<FloatType> circularBuffer;
 };
 
 static CircularBufferTests circularBufferTest;
+
+}  // namespace lemons::tests
 
 #endif

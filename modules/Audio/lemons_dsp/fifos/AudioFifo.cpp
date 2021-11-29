@@ -88,8 +88,11 @@ template class AudioFifo<double>;
 
 #if LEMONS_UNIT_TESTS
 
+namespace lemons::tests
+{
+
 AudioFifoTests::AudioFifoTests()
-    : juce::UnitTest ("CircularBufferTests", "DSP")
+    : juce::UnitTest ("AudioFifoTests", "DSP")
 {
 }
 
@@ -115,9 +118,7 @@ void AudioFifoTests::runTest()
 	for (int chan = 0; chan < numChannels; ++chan)
 		osc.getSamples (origStorage, chan);
 
-	const auto& orig = std::as_const (origStorage);
-
-	fifo.pushSamples (orig);
+	fifo.pushSamples (origStorage);
 
 	beginTest ("Num stored samples stored correctly");
 
@@ -129,13 +130,13 @@ void AudioFifoTests::runTest()
 
 	beginTest ("Store samples and retrieve later");
 
-	using namespace lemons::dsp::buffers;
+	using namespace dsp::buffers;
 
-	expect (buffersAreEqual (fifoOutput, orig));
+	expect (buffersAreEqual (fifoOutput, origStorage));
 
 	beginTest ("Retrieve fewer samples than were passed in");
 
-	fifo.pushSamples (orig);
+	fifo.pushSamples (origStorage);
 
 	const auto halfNumSamples = numSamples / 2;
 
@@ -169,7 +170,7 @@ void AudioFifoTests::runTest()
 
 	beginTest ("Resizing clears the FIFO");
 
-	fifo.pushSamples (orig);
+	fifo.pushSamples (origStorage);
 
 	fifo.resize (halfNumSamples);
 
@@ -187,5 +188,7 @@ void AudioFifoTests::runTest()
 
 	expectEquals (fifo.numChannels(), numChannels);
 }
+
+}  // namespace lemons::tests
 
 #endif
