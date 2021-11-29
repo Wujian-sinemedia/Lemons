@@ -25,7 +25,7 @@ public:
 	void pop (AudioBuffer<SampleType>& audioOut, MidiBuffer& midiOut);
 
 	/** Returns the number of samples' worth of data currently stored in the FIFO. */
-	int numStoredSamples() const noexcept;
+    [[nodiscard]] int numStoredSamples() const noexcept;
 
 	/** Resizes the FIFO's internal capacity. Calling this method also clears any data stored in the FIFO. */
 	void setSize (int numSamples, int numChannels = 2);
@@ -51,14 +51,13 @@ private:
 namespace lemons::tests
 {
 
+template<typename FloatType>
 struct AudioAndMidiFifoTests : public juce::UnitTest
 {
 public:
 	AudioAndMidiFifoTests();
 
 private:
-	using FloatType = float;
-
 	void initialise() final;
 
 	void runTest() final;
@@ -74,7 +73,8 @@ private:
 	dsp::AudioAndMidiFIFO<FloatType> fifo;
 };
 
-static AudioAndMidiFifoTests audioAndMidiFifoTest;
+static AudioAndMidiFifoTests<float> audioAndMidiFifoTest_float;
+static AudioAndMidiFifoTests<double> audioAndMidiFifoTest_double;
 
 }  // namespace lemons::tests
 

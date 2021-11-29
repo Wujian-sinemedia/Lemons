@@ -57,7 +57,7 @@ public:
 	static void enableOnlyLandscape();
 
 	/** This method returns the current orientation of the device's screen. */
-	static Orientation getCurrent();
+	[[nodiscard]] static Orientation getCurrent();
 
 private:
 	using Desktop = juce::Desktop;

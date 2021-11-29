@@ -95,14 +95,13 @@ private:
 namespace lemons::tests
 {
 
+template<typename FloatType>
 struct PitchDetectorTests : public juce::UnitTest
 {
 public:
 	PitchDetectorTests();
 
 private:
-	using FloatType = float;
-
 	void runTest() final;
 
 	dsp::osc::Sine<FloatType> osc;
@@ -112,7 +111,8 @@ private:
 	dsp::PitchDetector<FloatType> detector;
 };
 
-static PitchDetectorTests pitchDetectorTest;
+static PitchDetectorTests<float> pitchDetectorTest_float;
+static PitchDetectorTests<double> pitchDetectorTest_double;
 
 }  // namespace lemons::tests
 

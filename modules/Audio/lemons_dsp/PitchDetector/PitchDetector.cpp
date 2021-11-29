@@ -203,18 +203,20 @@ template class PitchDetector<double>;
 namespace lemons::tests
 {
 
-PitchDetectorTests::PitchDetectorTests()
+template<typename FloatType>
+PitchDetectorTests<FloatType>::PitchDetectorTests()
     : juce::UnitTest ("PitchDetectorTests", "DSP")
 {
 }
 
-void PitchDetectorTests::runTest()
+template<typename FloatType>
+void PitchDetectorTests<FloatType>::runTest()
 {
 	constexpr auto samplerate = 44100.;
 
 	const auto latency = detector.setSamplerate (samplerate);
 
-	storage.setSize (1, latency);
+	storage.setSize (1, latency, true, true, true);
 
 	constexpr auto correctFreq = 440.f;
 
@@ -241,6 +243,9 @@ void PitchDetectorTests::runTest()
 
 	expectEquals (detector.detectPitch (storage), 0.f);
 }
+
+template struct PitchDetectorTests<float>;
+template struct PitchDetectorTests<double>;
 
 }  // namespace lemons::tests
 

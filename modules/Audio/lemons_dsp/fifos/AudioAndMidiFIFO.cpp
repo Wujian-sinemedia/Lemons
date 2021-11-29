@@ -64,20 +64,23 @@ template class AudioAndMidiFIFO<double>;
 namespace lemons::tests
 {
 
-AudioAndMidiFifoTests::AudioAndMidiFifoTests()
+template<typename FloatType>
+AudioAndMidiFifoTests<FloatType>::AudioAndMidiFifoTests()
     : juce::UnitTest ("AudioAndMidiFifoTests", "DSP")
 {
 }
 
-void AudioAndMidiFifoTests::initialise()
+template<typename FloatType>
+void AudioAndMidiFifoTests<FloatType>::initialise()
 {
 	osc.setFrequency (440.f, 44100.);
 }
 
-void AudioAndMidiFifoTests::resizeAllBuffers (int newSize, int numChannels)
+template<typename FloatType>
+void AudioAndMidiFifoTests<FloatType>::resizeAllBuffers (int newSize, int numChannels)
 {
-	origAudio.setSize (numChannels, newSize);
-	audioOut.setSize (numChannels, newSize);
+	origAudio.setSize (numChannels, newSize, true, true, true);
+	audioOut.setSize (numChannels, newSize, true, true, true);
 
 	const auto messages = static_cast<size_t> (newSize);
 	origMidi.ensureSize (messages);
@@ -86,7 +89,8 @@ void AudioAndMidiFifoTests::resizeAllBuffers (int newSize, int numChannels)
 	fifo.setSize (newSize, numChannels);
 }
 
-void AudioAndMidiFifoTests::runTest()
+template<typename FloatType>
+void AudioAndMidiFifoTests<FloatType>::runTest()
 {
 	constexpr auto numSamples  = 512;
 	constexpr auto numEvents   = 400;
@@ -127,6 +131,9 @@ void AudioAndMidiFifoTests::runTest()
 
 	expectEquals (fifo.numStoredSamples(), 0);
 }
+
+template struct AudioAndMidiFifoTests<float>;
+template struct AudioAndMidiFifoTests<double>;
 
 }  // namespace lemons::tests
 

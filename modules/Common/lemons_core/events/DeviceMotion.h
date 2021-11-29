@@ -50,19 +50,19 @@ public:
 	void stop();
 
 	/** Returns true if the motion manager is currently tracking the device's sensor data. Note that this always returns false on desktop platforms. */
-	bool isRunning() const noexcept;
+	[[nodiscard]] bool isRunning() const noexcept;
 
 	/** Returns the latest measured acceleration data. */
-	Coords getAcceleration() const noexcept;
+    [[nodiscard]] Coords getAcceleration() const noexcept;
 
 	/** Returns the latest measured gravity data. */
-	Coords getGravity() const noexcept;
+    [[nodiscard]] Coords getGravity() const noexcept;
 
 	/** Returns the latest measured rotation data. */
-	Coords getRotation() const noexcept;
+    [[nodiscard]] Coords getRotation() const noexcept;
 
 	/** Returns the latest measured attitude data. */
-	Coords getAttitude() const noexcept;
+    [[nodiscard]] Coords getAttitude() const noexcept;
 
 private:
 	void addListener (Listener& l);

@@ -131,24 +131,28 @@ template class CircularBuffer<double>;
 namespace lemons::tests
 {
 
-CircularBufferTests::CircularBufferTests()
+template<typename FloatType>
+CircularBufferTests<FloatType>::CircularBufferTests()
     : juce::UnitTest ("CircularBufferTests", "DSP")
 {
 }
 
-void CircularBufferTests::initialise()
+template<typename FloatType>
+void CircularBufferTests<FloatType>::initialise()
 {
 	osc.setFrequency (440.f, 44100.);
 }
 
-void CircularBufferTests::resizeAllBuffers (int newSize)
+template<typename FloatType>
+void CircularBufferTests<FloatType>::resizeAllBuffers (int newSize)
 {
 	circularBuffer.resize (newSize);
-	origStorage.setSize (1, newSize);
-	circOutput.setSize (1, newSize);
+	origStorage.setSize (1, newSize, true, true, true);
+	circOutput.setSize (1, newSize, true, true, true);
 }
 
-void CircularBufferTests::runTest()
+template<typename FloatType>
+void CircularBufferTests<FloatType>::runTest()
 {
 	constexpr auto numSamples = 44100;
 
@@ -206,6 +210,9 @@ void CircularBufferTests::runTest()
 
 	expectEquals (circularBuffer.getNumStoredSamples(), 0);
 }
+
+template struct CircularBufferTests<float>;
+template struct CircularBufferTests<double>;
 
 }  // namespace lemons::tests
 

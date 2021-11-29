@@ -24,12 +24,12 @@ public:
 	/** Returns the number of MIDI messages currently stored in the FIFO.
 	    @see numStoredSamples()
 	 */
-	int numStoredEvents() const noexcept;
+    [[nodiscard]] int numStoredEvents() const noexcept;
 
 	/** Returns the number of samples that the FIFO's stored messages represent. Note that this may be different than the actual number of messages stored.
 	    @see numStoredEvents()
 	 */
-	int numStoredSamples() const noexcept;
+    [[nodiscard]] int numStoredSamples() const noexcept;
 
 	/** Changes the capacity of the FIFO. Calling this method clears any previously stored data from the FIFO. */
 	void setSize (int maxNumMessages);

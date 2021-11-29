@@ -30,10 +30,10 @@ public:
 	/** Returns the number of samples currently stored in the FIFO.
 	    This searches through every channel and returns the minimum number of samples available for any channel.
 	 */
-	int numStoredSamples() const noexcept;
+    [[nodiscard]] int numStoredSamples() const noexcept;
 
 	/** Returns the number of channels of audio this FIFO can store. */
-	int numChannels() const noexcept;
+    [[nodiscard]] int numChannels() const noexcept;
 
 	/** Clears the FIFO. */
 	void clear();
@@ -58,14 +58,13 @@ private:
 namespace lemons::tests
 {
 
+template<typename FloatType>
 struct AudioFifoTests : public juce::UnitTest
 {
 public:
 	AudioFifoTests();
 
 private:
-	using FloatType = float;
-
 	void initialise() final;
 
 	void runTest() final;
@@ -79,7 +78,8 @@ private:
 	dsp::AudioFifo<FloatType> fifo;
 };
 
-static AudioFifoTests audioFifoTest;
+static AudioFifoTests<float> audioFifoTest_float;
+static AudioFifoTests<double> audioFifoTest_double;
 
 }  // namespace lemons::tests
 

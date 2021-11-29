@@ -91,24 +91,28 @@ template class AudioFifo<double>;
 namespace lemons::tests
 {
 
-AudioFifoTests::AudioFifoTests()
+template<typename FloatType>
+AudioFifoTests<FloatType>::AudioFifoTests()
     : juce::UnitTest ("AudioFifoTests", "DSP")
 {
 }
 
-void AudioFifoTests::initialise()
+template<typename FloatType>
+void AudioFifoTests<FloatType>::initialise()
 {
 	osc.setFrequency (440.f, 44100.);
 }
 
-void AudioFifoTests::resizeAllBuffers (int newSize, int numChannels)
+template<typename FloatType>
+void AudioFifoTests<FloatType>::resizeAllBuffers (int newSize, int numChannels)
 {
 	fifo.resize (newSize, numChannels);
-	origStorage.setSize (numChannels, newSize);
-	fifoOutput.setSize (numChannels, newSize);
+	origStorage.setSize (numChannels, newSize, true, true, true);
+	fifoOutput.setSize (numChannels, newSize, true, true, true);
 }
 
-void AudioFifoTests::runTest()
+template<typename FloatType>
+void AudioFifoTests<FloatType>::runTest()
 {
 	constexpr auto numSamples  = 44100;
 	constexpr auto numChannels = 4;
@@ -188,6 +192,9 @@ void AudioFifoTests::runTest()
 
 	expectEquals (fifo.numChannels(), numChannels);
 }
+
+template struct AudioFifoTests<float>;
+template struct AudioFifoTests<double>;
 
 }  // namespace lemons::tests
 
