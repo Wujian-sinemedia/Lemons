@@ -128,8 +128,6 @@ private:
     AudioBuffer<FloatType> audioIn, audioOut;
     
     MidiBuffer midiStorage;
-    
-    dsp::osc::Sine<FloatType> osc;
 };
 
 static AudioEngineTests<float>  audioEngineTest_float;

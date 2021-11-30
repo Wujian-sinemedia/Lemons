@@ -58,17 +58,13 @@ public:
 	AudioAndMidiFifoTests();
 
 private:
-	void initialise() final;
-
 	void runTest() final;
 
 	void resizeAllBuffers (int newSize, int numChannels);
 
-	dsp::osc::Sine<FloatType> osc;
+	AudioBuffer<FloatType> origAudio, audioOut;
 
-	juce::AudioBuffer<FloatType> origAudio, audioOut;
-
-	juce::MidiBuffer origMidi, midiOut;
+	MidiBuffer origMidi, midiOut;
 
 	dsp::AudioAndMidiFIFO<FloatType> fifo;
 };

@@ -14,11 +14,7 @@ public:
 protected:
 	using String = juce::String;
 
-	void          logImportantMessage (const String& message);
-	const String& getLastImportantMessage() const;
-
-private:
-	String lastImportantMessage;
+	void logImportantMessage (const String& message);
 };
 
 }  // namespace lemons::tests

@@ -65,15 +65,11 @@ public:
 	AudioFifoTests();
 
 private:
-	void initialise() final;
-
 	void runTest() final;
 
 	void resizeAllBuffers (int newSize, int numChannels);
 
-	dsp::osc::Sine<FloatType> osc;
-
-	juce::AudioBuffer<FloatType> origStorage, fifoOutput;
+	AudioBuffer<FloatType> origStorage, fifoOutput;
 
 	dsp::AudioFifo<FloatType> fifo;
 };

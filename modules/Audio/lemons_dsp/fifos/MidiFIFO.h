@@ -66,7 +66,7 @@ private:
 
 	dsp::MidiFIFO fifo;
 
-	juce::MidiBuffer input, output;
+	MidiBuffer input, output;
 };
 
 static MidiFifoTests midiFifoTest;

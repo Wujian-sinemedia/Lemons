@@ -27,6 +27,9 @@ private:
 	void releaseResources() override;
 
 	void processBlock (AudioBuffer<float>&, MidiBuffer&) override { }
+    void processBlock (AudioBuffer<double>&, MidiBuffer&) override { }
+    
+    bool supportsDoublePrecisionProcessing() const override { return true; }
 
 	double getTailLengthSeconds() const override;
 
@@ -54,3 +57,15 @@ private:
 
 
 }  // namespace lemons::dsp
+
+
+#if LEMONS_UNIT_TESTS
+
+namespace lemons::tests
+{
+
+static AudioProcessorTest<dsp::BasicProcessor> basicProcessorTest { "BasicProcessor tests" };
+
+}
+
+#endif

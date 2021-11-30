@@ -21,5 +21,6 @@
 
 #include "tests/test.h"
 #include "tests/dsp_test.h"
+#include "tests/audio_processor_test.h"
 
 #include "runner/runner.h"

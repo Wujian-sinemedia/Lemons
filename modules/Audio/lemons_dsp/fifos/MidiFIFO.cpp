@@ -56,48 +56,42 @@ namespace lemons::tests
 {
 
 MidiFifoTests::MidiFifoTests()
-    : DspTest ("MidiFifoTests")
+    : DspTest ("MIDI FIFO tests")
 {
 }
 
 void MidiFifoTests::runTest()
 {
-	auto rand = getRandom();
-
 	for (const auto numSamples : getTestingBlockSizes())
 	{
-		logBlocksizeMessage (numSamples);
+        beginTest ("Blocksize: " + String(numSamples));
+        
+        const auto numEvents = numSamples / 2;
 
-		const auto numEvents = numSamples / 2;
+        fillMidiBufferWithRandomEvents (input, numEvents);
 
-		fifo.clear();
-		input.clear();
-
-		for (int i = 0; i < numEvents; ++i)
-			input.addEvent (juce::MidiMessage::controllerEvent (1, rand.nextInt (128), rand.nextInt (128)),
-			                i);
-
-
-		beginTest ("Num events stored correctly");
+        fifo.clear();
+        
+		logImportantMessage ("Num events stored correctly");
 
 		fifo.pushEvents (input, numSamples);
 
 		expectEquals (fifo.numStoredEvents(), numEvents);
 
 
-		beginTest ("Num stored samples stored correctly");
+        logImportantMessage ("Num stored samples stored correctly");
 
 		expectEquals (fifo.numStoredSamples(), numSamples);
 
 
-		beginTest ("Store events and retrieve later");
+        logImportantMessage ("Store events and retrieve later");
 
 		fifo.popEvents (output, numSamples);
 
 		expect (midiBuffersAreEqual (input, output));
 
 
-		beginTest ("Resizing clears the FIFO");
+        logImportantMessage ("Resizing clears the FIFO");
 
 		fifo.setSize (numSamples / 4);
 

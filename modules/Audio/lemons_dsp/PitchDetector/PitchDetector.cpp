@@ -208,29 +208,17 @@ namespace lemons::tests
 {
 
 template <typename FloatType>
-PitchDetectorTests<FloatType>::PitchDetectorTests (const std::vector<float>& confidenceThresholdsToUse,
-                                                   const std::vector<int>& superSawDetuningsToUse, int defaultRepsToUse, float minFreq, float maxFreq)
-    : DspTest ("PitchDetectorTests")
-    , confidenceThresholds (confidenceThresholdsToUse)
-    , superSawDetunings (superSawDetuningsToUse)
-    , defaultReps (defaultRepsToUse)
-    , minDetectableFreq (minFreq)
-    , maxDetectableFreq (maxFreq)
+PitchDetectorTests<FloatType>::PitchDetectorTests()
+    : DspTest (getDspTestName<FloatType>("Pitch detector tests"))
 {
 }
 
 template <typename FloatType>
 void PitchDetectorTests<FloatType>::runOscillatorTest (dsp::osc::Oscillator<FloatType>& osc,
-                                                       const String&                    waveName,
-                                                       double                           samplerate,
-                                                       int                              reps)
+                                                       double                           samplerate)
 {
-	if (reps < 1) reps = defaultReps;
-
 	const auto testFreq = [&] (const float correctFreq)
 	{
-		beginTest (String ("Detect frequency of ") + String (correctFreq) + " Hz " + waveName + " wave");
-
 		osc.setFrequency (static_cast<FloatType> (correctFreq),
 		                  static_cast<FloatType> (samplerate));
 
@@ -238,7 +226,7 @@ void PitchDetectorTests<FloatType>::runOscillatorTest (dsp::osc::Oscillator<Floa
 
 		const auto estFreq = detector.detectPitch (storage);
 
-		expectWithinAbsoluteError (estFreq, correctFreq, 10.f);
+		expectWithinAbsoluteError (estFreq, correctFreq, 15.f);
 
 		expectWithinAbsoluteError (math::freqToMidi (estFreq),
 		                           math::freqToMidi (correctFreq),
@@ -251,58 +239,53 @@ void PitchDetectorTests<FloatType>::runOscillatorTest (dsp::osc::Oscillator<Floa
 
 	auto rand = getRandom();
 
-	for (int i = 0; i < reps; ++i)
+	for (int i = 0; i < defaultReps; ++i)
 		testFreq (juce::jmap (rand.nextFloat(), minDetectableFreq, maxDetectableFreq));
 }
 
 template <typename FloatType>
 void PitchDetectorTests<FloatType>::runTest()
 {
-	for (const auto confidenceThresh : confidenceThresholds)
+    for (const auto confidenceThresh : { 0.1f, 0.15f, 0.2f })
 	{
-		logImportantMessage (String ("YIN confidence threshold: ") + String (confidenceThresh));
-
 		detector.setConfidenceThresh (confidenceThresh);
 
 		for (const auto samplerate : getTestingSamplerates())
 		{
-            logSamplerateMessage (samplerate);
+            beginTest ("Samplerate: " + String(samplerate) + "; YIN confidence threshold: " + String(confidenceThresh));
             
 			const auto latency = detector.setSamplerate (samplerate);
 
 			storage.setSize (1, latency, true, true, true);
 
-			{
-				runOscillatorTest (sine, "Sine", samplerate);
-				runOscillatorTest (saw, "Saw", samplerate);
-				runOscillatorTest (square, "Square", samplerate);
-				runOscillatorTest (triangle, "Triangle", samplerate);
+            
+            logImportantMessage ("Detect frequencies of oscillators");
+            
+            runOscillatorTest (sine,     samplerate);
+            runOscillatorTest (saw,      samplerate);
+            runOscillatorTest (square,   samplerate);
+            runOscillatorTest (triangle, samplerate);
 
-				//                for (const auto detune : superSawDetunings)
-				//                {
-				//                    logImportantMessage (String("Setting supersaw pitch spread to ") + String(detune));
-				//
-				//                    superSaw.setDetuneAmount (detune);
-				//                    runOscillatorTest (superSaw, "SuperSaw", samplerate, 1);
-				//                }
-			}
-
-
-			beginTest ("Detect random noise as unpitched");
-
-			auto rand = getRandom();
+            //                for (const auto detune : { 0, 1, 5, 12 })
+            //                {
+            //                    logImportantMessage (String("Setting supersaw pitch spread to ") + String(detune));
+            //
+            //                    superSaw.setDetuneAmount (detune);
+            //                    runOscillatorTest (superSaw, "SuperSaw", samplerate, 1);
+            //                }
+    
+            
+            logImportantMessage ("Detect random noise as unpitched");
 
 			for (int r = 0; r < defaultReps; ++r)
 			{
-				for (int i = 0; i < latency; ++i)
-					storage.setSample (0, i,
-					                   static_cast<FloatType> (juce::jmap (rand.nextFloat(), -1.f, 1.f)));
+                fillAudioBufferWithRandomNoise (storage);
 
 				expectEquals (detector.detectPitch (storage), 0.f);
 			}
 
 
-			beginTest ("Detect silence as unpitched");
+            logImportantMessage ("Detect silence as unpitched");
 
 			storage.clear();
 

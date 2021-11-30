@@ -157,3 +157,33 @@ private:
 };
 
 }  // namespace lemons::dsp::osc
+
+
+/*--------------------------------------------------------------------------------------------*/
+
+namespace lemons::tests
+{
+
+template<typename SampleType>
+struct OscillatorTests : public DspTest
+{
+    OscillatorTests();
+    
+private:
+    void runTest() final;
+    
+    void runOscillatorTests (dsp::osc::Oscillator<SampleType>& osc);
+    
+    dsp::osc::Sine<SampleType>     sine;
+    dsp::osc::Saw<SampleType>      saw;
+    dsp::osc::Square<SampleType>   square;
+    dsp::osc::Triangle<SampleType> triangle;
+    //dsp::osc::SuperSaw<SampleType> superSaw;
+    
+    AudioBuffer<SampleType> storage;
+};
+
+static OscillatorTests<float> oscillatorTest_float;
+static OscillatorTests<double> oscillatorTest_double;
+
+}

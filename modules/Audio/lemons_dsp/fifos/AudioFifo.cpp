@@ -93,14 +93,8 @@ namespace lemons::tests
 
 template <typename FloatType>
 AudioFifoTests<FloatType>::AudioFifoTests()
-    : DspTest ("AudioFifoTests")
+    : DspTest (getDspTestName<FloatType>("Audio FIFO tests"))
 {
-}
-
-template <typename FloatType>
-void AudioFifoTests<FloatType>::initialise()
-{
-	osc.setFrequency (440.f, 44100.);
 }
 
 template <typename FloatType>
@@ -118,17 +112,16 @@ void AudioFifoTests<FloatType>::runTest()
 
 	for (const auto numSamples : getTestingBlockSizes())
 	{
-		logBlocksizeMessage (numSamples);
+        beginTest ("Blocksize: " + String(numSamples));
 
 		resizeAllBuffers (numSamples, numChannels);
-
-		for (int chan = 0; chan < numChannels; ++chan)
-			osc.getSamples (origStorage, chan);
+        
+        fillAudioBufferWithRandomNoise (origStorage);
 
 		fifo.pushSamples (origStorage);
 
 
-		beginTest ("Num stored samples stored correctly");
+		logImportantMessage ("Num stored samples stored correctly");
 
 		expectEquals (fifo.numStoredSamples(), numSamples);
 
@@ -137,12 +130,12 @@ void AudioFifoTests<FloatType>::runTest()
 		expectEquals (fifo.numStoredSamples(), 0);
 
 
-		beginTest ("Store samples and retrieve later");
+        logImportantMessage ("Store samples and retrieve later");
 
 		expect (buffersAreEqual (fifoOutput, origStorage));
 
 
-		beginTest ("Retrieve fewer samples than were passed in");
+        logImportantMessage ("Retrieve fewer samples than were passed in");
 
 		fifo.pushSamples (origStorage);
 
@@ -161,7 +154,7 @@ void AudioFifoTests<FloatType>::runTest()
 		}
 
 
-		beginTest ("Retrieve more samples than are left in FIFO");
+        logImportantMessage ("Retrieve more samples than are left in FIFO");
 
 		expectEquals (fifo.numStoredSamples(), halfNumSamples);
 
@@ -180,7 +173,7 @@ void AudioFifoTests<FloatType>::runTest()
 		}
 
 
-		beginTest ("Resizing clears the FIFO");
+        logImportantMessage ("Resizing clears the FIFO");
 
 		fifo.pushSamples (origStorage);
 
@@ -189,14 +182,14 @@ void AudioFifoTests<FloatType>::runTest()
 		expectEquals (fifo.numStoredSamples(), 0);
 
 
-		beginTest ("Increase number of channels");
+        logImportantMessage ("Increase number of channels");
 
 		fifo.resize (halfNumSamples, numChannels + 3);
 
 		expectEquals (fifo.numChannels(), numChannels + 3);
 
 
-		beginTest ("Decrease number of channels");
+        logImportantMessage ("Decrease number of channels");
 
 		fifo.resize (halfNumSamples, numChannels);
 

@@ -117,7 +117,7 @@ namespace lemons::tests
 
 template <typename FloatType>
 AudioEngineTests<FloatType>::AudioEngineTests()
-: DspTest ("AudioEngineTests")
+: DspTest (getDspTestName<FloatType>("Audio engine tests"))
 {
 }
 
@@ -129,18 +129,15 @@ void AudioEngineTests<FloatType>::runTest()
     beginTest ("Latency should be 0");
     
     expect (! engine.isInitialized());
-    
     expectEquals (engine.reportLatency(), 0);
     
     for (const auto blocksize : getTestingBlockSizes())
     {
-        logBlocksizeMessage (blocksize);
-        
         for (const auto samplerate : getTestingSamplerates())
         {
-            logSamplerateMessage (samplerate);
+            beginTest ("Blocksize: " + String(blocksize) + "; Samplerate: " + String(samplerate));
             
-            beginTest ("Prepare");
+            logImportantMessage ("Prepare");
             
             engine.prepare (samplerate, blocksize, numChannels);
             midiStorage.ensureSize (static_cast<size_t>(blocksize));
@@ -148,20 +145,17 @@ void AudioEngineTests<FloatType>::runTest()
             audioOut.setSize (numChannels, blocksize, true, true, true);
             
             expect (engine.isInitialized());
-            
             expectEquals (engine.getSamplerate(), samplerate);
             
-            osc.setFrequency (static_cast<FloatType> (440),
-                              static_cast<FloatType> (samplerate));
+            fillAudioBufferWithRandomNoise (audioIn);
+            fillMidiBufferWithRandomEvents (midiStorage, blocksize / 2);
             
-            osc.getSamples (audioIn);
-            
-            beginTest ("Can call process()");
+            logImportantMessage ("Can call process()");
             
             engine.process (audioIn);
             engine.process (audioIn, midiStorage);
             
-            beginTest ("Alternate bypassed/unbypassed processing");
+            logImportantMessage ("Alternate bypassed/unbypassed processing");
             
             audioOut.clear();
             
@@ -182,7 +176,7 @@ void AudioEngineTests<FloatType>::runTest()
 //            expect (! bufferIsSilent (audioOut));
             
             
-            beginTest ("Release");
+            logImportantMessage ("Release");
             
             engine.releaseResources();
             

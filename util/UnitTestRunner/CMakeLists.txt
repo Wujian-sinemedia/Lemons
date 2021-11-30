@@ -32,7 +32,8 @@ target_sources (${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_LIST_DIR}/Main.cpp")
 
 target_compile_definitions (${PROJECT_NAME} PRIVATE
     JUCE_USE_CURL=0
-    JUCE_WEB_BROWSER=0)
+    JUCE_WEB_BROWSER=0
+    JUCE_DISPLAY_SPLASH_SCREEN=0)
 
 target_link_libraries (${PROJECT_NAME} PUBLIC LemonsTestingModules)
 

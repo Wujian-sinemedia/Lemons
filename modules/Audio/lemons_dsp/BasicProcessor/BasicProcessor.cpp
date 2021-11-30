@@ -24,9 +24,9 @@ bool BasicProcessor::isMidiEffect() const { return false; }
 
 const String BasicProcessor::getName() const { return TRANS ("ProcessorBase"); }
 
-bool BasicProcessor::hasEditor() const { return false; }
+bool BasicProcessor::hasEditor() const { return true; }
 
-juce::AudioProcessorEditor* BasicProcessor::createEditor() { return nullptr; }
+juce::AudioProcessorEditor* BasicProcessor::createEditor() { return new juce::GenericAudioProcessorEditor(*this); }
 
 static inline bool isChannelsetValid (const juce::AudioChannelSet& set)
 {

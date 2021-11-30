@@ -1,20 +1,49 @@
 namespace lemons::tests
 {
 
-void ConsoleLogger::logMessage (const juce::String& message)
+class ConsoleLogger : public juce::Logger
 {
-	std::cout << message << std::endl;
-
+public:
+    ConsoleLogger()
+    {
+        juce::Logger::setCurrentLogger (this);
+    }
+    
+    ~ConsoleLogger() override
+    {
+        juce::Logger::setCurrentLogger (nullptr);
+    }
+    
+private:
+    void logMessage (const juce::String& message) final
+    {
+        std::cout << message << std::endl;
+        
 #if JUCE_WINDOWS
-	juce::Logger::outputDebugString (message);
+        juce::Logger::outputDebugString (message);
 #endif
-}
+    }
+};
 
 
-void ConsoleUnitTestRunner::logMessage (const juce::String& message)
+class ConsoleUnitTestRunner : public juce::UnitTestRunner
 {
-	juce::Logger::writeToLog (message);
-}
+public:
+    bool hadAnyFailures() const
+    {
+        for (int i = 0; i < getNumResults(); ++i)
+            if (getResult (i)->failures > 0)
+                return true;
+        
+        return false;
+    }
+    
+private:
+    void logMessage (const juce::String& message) final
+    {
+        juce::Logger::writeToLog (message);
+    }
+};
 
 
 bool executeAllTests (const juce::ArgumentList& args)
@@ -32,11 +61,6 @@ bool executeAllTests (const juce::ArgumentList& args)
 
 		return true;
 	}
-
-	ConsoleLogger logger;
-	juce::Logger::setCurrentLogger (&logger);
-
-	ConsoleUnitTestRunner runner;
 
 	const auto seed = [&args]
 	{
@@ -62,21 +86,18 @@ bool executeAllTests (const juce::ArgumentList& args)
 
 		return juce::Random::getSystemRandom().nextInt64();
 	}();
+    
+    ConsoleUnitTestRunner runner;
+    ConsoleLogger         logger;
+    
+    if (args.containsOption ("--category"))
+        runner.runTestsInCategory (args.getValueForOption ("--category"), seed);
+    else if (args.containsOption ("-c"))
+        runner.runTestsInCategory (args.getValueForOption ("-c"), seed);
+    else
+        runner.runAllTests (seed);
 
-	if (args.containsOption ("--category"))
-		runner.runTestsInCategory (args.getValueForOption ("--category"), seed);
-	else if (args.containsOption ("-c"))
-		runner.runTestsInCategory (args.getValueForOption ("-c"), seed);
-	else
-		runner.runAllTests (seed);
-
-	juce::Logger::setCurrentLogger (nullptr);
-
-	for (int i = 0; i < runner.getNumResults(); ++i)
-		if (runner.getResult (i)->failures > 0)
-			return false;
-
-	return true;
+    return ! runner.hadAnyFailures();
 }
 
 }  // namespace lemons::tests

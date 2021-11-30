@@ -78,15 +78,11 @@ public:
 	CircularBufferTests();
 
 private:
-	void initialise() final;
-
 	void runTest() final;
 
 	void resizeAllBuffers (int newSize);
 
-	dsp::osc::Sine<FloatType> osc;
-
-	juce::AudioBuffer<FloatType> origStorage, circOutput;
+	AudioBuffer<FloatType> origStorage, circOutput;
 
 	dsp::CircularBuffer<FloatType> circularBuffer;
 };

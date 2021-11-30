@@ -6,15 +6,52 @@ DspTest::DspTest (const String& testName)
 {
 }
 
-void DspTest::logBlocksizeMessage (int blocksize)
+DspTest::DspTest (const String& testName, const String& testCategory)
+    : Test (testName, testCategory)
 {
-	logImportantMessage (String ("Blocksize: ") + String (blocksize));
+    
 }
 
-void DspTest::logSamplerateMessage (double samplerate)
+template<typename SampleType>
+String DspTest::getDspTestName (const String& name)
 {
-    logImportantMessage (String ("Samplerate: ") + String (samplerate));
+    if constexpr (std::is_same_v<SampleType, float>)
+        return name + " (float)";
+    else
+        return name + " (double)";
 }
+
+template String DspTest::getDspTestName<float> (const String&);
+template String DspTest::getDspTestName<double> (const String&);
+
+void DspTest::fillMidiBufferWithRandomEvents (MidiBuffer& buffer, int numEvents)
+{
+    buffer.clear();
+    
+    auto rand = getRandom();
+    
+    for (int i = 0; i < numEvents; ++i)
+        buffer.addEvent (juce::MidiMessage::controllerEvent (1, rand.nextInt (128), rand.nextInt (128)),
+                        i);
+}
+
+template<typename SampleType>
+void DspTest::fillAudioBufferWithRandomNoise (AudioBuffer<SampleType>& buffer)
+{
+    auto rand = getRandom();
+    
+    for (int chan = 0; chan < buffer.getNumChannels(); ++chan)
+    {
+        for (int s = 0; s < buffer.getNumSamples(); ++s)
+        {
+            buffer.setSample (chan, s,
+                              static_cast<SampleType> (juce::jmap (rand.nextFloat(), -1.f, 1.f)));
+        }
+    }
+}
+
+template void DspTest::fillAudioBufferWithRandomNoise (AudioBuffer<float>&);
+template void DspTest::fillAudioBufferWithRandomNoise (AudioBuffer<double>&);
 
 template <typename FloatType>
 bool DspTest::buffersAreEqual (const AudioBuffer<FloatType>& buffer1,
@@ -34,6 +71,36 @@ bool DspTest::buffersAreEqual (const AudioBuffer<FloatType>& buffer1,
 
 template bool DspTest::buffersAreEqual (const AudioBuffer<float>&, const AudioBuffer<float>&);
 template bool DspTest::buffersAreEqual (const AudioBuffer<double>&, const AudioBuffer<double>&);
+
+template<typename FloatType>
+bool DspTest::buffersAreReasonablyEqual (const AudioBuffer<FloatType>& buffer1,
+                                         const AudioBuffer<FloatType>& buffer2)
+{
+    jassert (buffer1.getNumChannels() == buffer2.getNumChannels());
+    
+    const auto numSamples = buffer1.getNumSamples();
+    jassert (numSamples == buffer2.getNumSamples());
+    
+    const auto samplesAreWithinError = [](FloatType sample1, FloatType sample2, FloatType error)
+    {
+        return std::abs (sample1 - sample2) <= error;
+    };
+    
+    for (int chan = 0; chan < buffer1.getNumChannels(); ++chan)
+    {
+        const auto* samplesA = buffer1.getReadPointer (chan);
+        const auto* samplesB = buffer2.getReadPointer (chan);
+        
+        for (int s = 0; s < numSamples; ++s)
+            if (! samplesAreWithinError (samplesA[s], samplesB[s], static_cast<FloatType>(0.001)))
+                return false;
+    }
+    
+    return true;
+}
+
+template bool DspTest::buffersAreReasonablyEqual (const AudioBuffer<float>&, const AudioBuffer<float>&);
+template bool DspTest::buffersAreReasonablyEqual (const AudioBuffer<double>&, const AudioBuffer<double>&);
 
 template <typename FloatType>
 bool DspTest::allSamplesAreEqual (const juce::AudioBuffer<FloatType>& buffer1,

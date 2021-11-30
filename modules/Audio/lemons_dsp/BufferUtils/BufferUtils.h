@@ -39,12 +39,13 @@ public:
 
 private:
 	void runTest() final;
+    
+    template<typename OtherFloatType>
+    void runConversionTests (int numChannels, int numSamples);
 
 	void resizeAllBuffers (int numSamples, int numChannels);
 
-	dsp::osc::Sine<FloatType> osc;
-
-	juce::AudioBuffer<FloatType> bufferA, bufferB;
+	AudioBuffer<FloatType> bufferA, bufferB;
 };
 
 static AudioBufferUtilsTests<float>  audioBufferUtilsTest_float;

@@ -102,25 +102,18 @@ template <typename FloatType>
 struct PitchDetectorTests : public DspTest
 {
 public:
-	PitchDetectorTests (const std::vector<float>& confidenceThresholdsToUse = { 0.1f, 0.15f, 0.2f },
-	                    const std::vector<int>&   superSawDetuningsToUse    = { 0, 1, 5, 12 },
-	                    int                       defaultRepsToUse          = 3,
-	                    float minFreq = 30.f, float maxFreq = 2500.f);
+    PitchDetectorTests();
 
 private:
 	void runTest() final;
 
-	void runOscillatorTest (dsp::osc::Oscillator<FloatType>& osc, const String& waveName, double samplerate, int reps = -1);
+	void runOscillatorTest (dsp::osc::Oscillator<FloatType>& osc, double samplerate);
 
-	const std::vector<float> confidenceThresholds;
-	const std::vector<int>   superSawDetunings;
+    static constexpr auto defaultReps = 3;
+	static constexpr auto minDetectableFreq = 30.f;
+	static constexpr auto maxDetectableFreq = 3000.f;
 
-	const int defaultReps;
-
-	const float minDetectableFreq;
-	const float maxDetectableFreq;
-
-	juce::AudioBuffer<FloatType> storage;
+	AudioBuffer<FloatType> storage;
 
 	dsp::PitchDetector<FloatType> detector { juce::roundToInt (minDetectableFreq) };
 

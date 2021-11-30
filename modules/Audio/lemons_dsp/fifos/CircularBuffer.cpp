@@ -133,14 +133,8 @@ namespace lemons::tests
 
 template <typename FloatType>
 CircularBufferTests<FloatType>::CircularBufferTests()
-    : DspTest ("CircularBufferTests")
+    : DspTest (getDspTestName<FloatType>("Circular buffer tests"))
 {
-}
-
-template <typename FloatType>
-void CircularBufferTests<FloatType>::initialise()
-{
-	osc.setFrequency (440.f, 44100.);
 }
 
 template <typename FloatType>
@@ -156,16 +150,16 @@ void CircularBufferTests<FloatType>::runTest()
 {
 	for (const auto numSamples : getTestingBlockSizes())
 	{
-		logBlocksizeMessage (numSamples);
-
+        beginTest ("Blocksize: " + String(numSamples));
+        
 		resizeAllBuffers (numSamples);
-
-		osc.getSamples (origStorage);
+        
+        fillAudioBufferWithRandomNoise (origStorage);
 
 		circularBuffer.storeSamples (origStorage);
 
 
-		beginTest ("Num stored samples stored correctly");
+		logImportantMessage ("Num stored samples stored correctly");
 
 		expectEquals (circularBuffer.getNumStoredSamples(), numSamples);
 
@@ -174,12 +168,12 @@ void CircularBufferTests<FloatType>::runTest()
 		expectEquals (circularBuffer.getNumStoredSamples(), 0);
 
 
-		beginTest ("Store samples and retrieve later");
+        logImportantMessage ("Store samples and retrieve later");
 
 		expect (allSamplesAreEqual (circOutput, origStorage, 0, numSamples));
 
 
-		beginTest ("Retrieve fewer samples than were passed in");
+        logImportantMessage ("Retrieve fewer samples than were passed in");
 
 		circularBuffer.storeSamples (origStorage);
 
@@ -192,28 +186,23 @@ void CircularBufferTests<FloatType>::runTest()
 		expect (allSamplesAreEqual (alias, origStorage, 0, halfNumSamples));
 
 
-		beginTest ("Retrieve more samples than are left in circ buffer");
+        logImportantMessage ("Retrieve more samples than are left in circ buffer");
 
 		expectEquals (circularBuffer.getNumStoredSamples(), halfNumSamples);
 
 		circularBuffer.getSamples (circOutput);
 
 		expect (allSamplesAreZero (circOutput, 0, halfNumSamples));
-
 		expect (allSamplesAreEqual (circOutput, origStorage, halfNumSamples, halfNumSamples));
 
 
-		beginTest ("Resizing");
+        logImportantMessage ("Resizing");
 
 		circularBuffer.storeSamples (origStorage);
 
 		circularBuffer.resize (halfNumSamples);
 
 		expectEquals (circularBuffer.getCapacity(), halfNumSamples);
-
-
-		beginTest ("Resizing clears the buffer");
-
 		expectEquals (circularBuffer.getNumStoredSamples(), 0);
 	}
 }
