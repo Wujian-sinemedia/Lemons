@@ -122,6 +122,9 @@ Static Protected Member Functions</h2></td></tr>
 <tr class="memitem:a3a0bd8158b5b068b45ea4c484c449cf7"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structlemons_1_1tests_1_1_dsp_test.html#a3a0bd8158b5b068b45ea4c484c449cf7">allSamplesAreZero</a> (const <a class="el" href="structlemons_1_1tests_1_1_dsp_test.html#a034ce08b86150c128fd94b1ede159fa6">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer, int startIndex, int numSamples, int channel=0)</td></tr>
 <tr class="memdesc:a3a0bd8158b5b068b45ea4c484c449cf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if every sample in the given range of the buffer is exactly zero.  <a href="structlemons_1_1tests_1_1_dsp_test.html#a3a0bd8158b5b068b45ea4c484c449cf7">More...</a><br /></td></tr>
 <tr class="separator:a3a0bd8158b5b068b45ea4c484c449cf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c651a986d06169ba5d6b98dc43c35a1"><td class="memTemplParams" colspan="2">template&lt;typename FloatType &gt; </td></tr>
+<tr class="memitem:a5c651a986d06169ba5d6b98dc43c35a1"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structlemons_1_1tests_1_1_dsp_test.html#a5c651a986d06169ba5d6b98dc43c35a1">bufferIsSilent</a> (const <a class="el" href="structlemons_1_1tests_1_1_dsp_test.html#a034ce08b86150c128fd94b1ede159fa6">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer)</td></tr>
+<tr class="separator:a5c651a986d06169ba5d6b98dc43c35a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bdf41e8cd02d7acda587ce3dc0a324a"><td class="memTemplParams" colspan="2">template&lt;typename FloatType &gt; </td></tr>
 <tr class="memitem:a1bdf41e8cd02d7acda587ce3dc0a324a"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structlemons_1_1tests_1_1_dsp_test.html#a1bdf41e8cd02d7acda587ce3dc0a324a">buffersAreEqual</a> (const <a class="el" href="structlemons_1_1tests_1_1_dsp_test.html#a034ce08b86150c128fd94b1ede159fa6">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer1, const <a class="el" href="structlemons_1_1tests_1_1_dsp_test.html#a034ce08b86150c128fd94b1ede159fa6">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer2)</td></tr>
 <tr class="memdesc:a1bdf41e8cd02d7acda587ce3dc0a324a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if every sample of every channel of both buffers are equal.  <a href="structlemons_1_1tests_1_1_dsp_test.html#a1bdf41e8cd02d7acda587ce3dc0a324a">More...</a><br /></td></tr>
@@ -342,6 +345,34 @@ template&lt;typename FloatType &gt; </div>
 </div><div class="memdoc">
 
 <p>Returns true if every sample in the given range of the buffer is exactly zero. </p>
+
+</div>
+</div>
+<a id="a5c651a986d06169ba5d6b98dc43c35a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c651a986d06169ba5d6b98dc43c35a1">&#9670;&nbsp;</a></span>bufferIsSilent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename FloatType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool lemons::tests::DspTest::bufferIsSilent </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structlemons_1_1tests_1_1_dsp_test.html#a034ce08b86150c128fd94b1ede159fa6">AudioBuffer</a>&lt; FloatType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -580,7 +611,7 @@ template&lt;typename FloatType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 29 2021 14:47:22 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 30 2021 00:44:09 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

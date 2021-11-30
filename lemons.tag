@@ -787,11 +787,11 @@
   </compound>
   <compound kind="file">
     <name>MidiFIFO.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Connectivity/lemons_midi/utilities/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/fifos/</path>
     <filename>_midi_f_i_f_o_8h.html</filename>
-    <class kind="class">lemons::midi::MidiFIFO</class>
+    <class kind="class">lemons::dsp::MidiFIFO</class>
     <namespace>lemons</namespace>
-    <namespace>lemons::midi</namespace>
+    <namespace>lemons::dsp</namespace>
   </compound>
   <compound kind="file">
     <name>MidiKeyboardState.h</name>
@@ -4071,6 +4071,13 @@
       <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
       <anchor>a3a0bd8158b5b068b45ea4c484c449cf7</anchor>
       <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer, int startIndex, int numSamples, int channel=0)</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static bool</type>
+      <name>bufferIsSilent</name>
+      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
+      <anchor>a5c651a986d06169ba5d6b98dc43c35a1</anchor>
+      <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer)</arglist>
     </member>
     <member kind="function" protection="protected" static="yes">
       <type>static bool</type>
@@ -8528,62 +8535,62 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>lemons::midi::MidiFIFO</name>
-    <filename>classlemons_1_1midi_1_1_midi_f_i_f_o.html</filename>
+    <name>lemons::dsp::MidiFIFO</name>
+    <filename>classlemons_1_1dsp_1_1_midi_f_i_f_o.html</filename>
     <member kind="function">
       <type></type>
       <name>MidiFIFO</name>
-      <anchorfile>classlemons_1_1midi_1_1_midi_f_i_f_o.html</anchorfile>
-      <anchor>aa8ab15d343b452994671f59a9d0b9c1c</anchor>
+      <anchorfile>classlemons_1_1dsp_1_1_midi_f_i_f_o.html</anchorfile>
+      <anchor>af21b5c40a3e2bc22d60fb5ae6920d928</anchor>
       <arglist>(int maxNumMessages=512)</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>~MidiFIFO</name>
-      <anchorfile>classlemons_1_1midi_1_1_midi_f_i_f_o.html</anchorfile>
-      <anchor>abef9e5e0fea25761f968209ce1482c47</anchor>
+      <anchorfile>classlemons_1_1dsp_1_1_midi_f_i_f_o.html</anchorfile>
+      <anchor>aafaf1f5208c21ae204412d4213b0577e</anchor>
       <arglist>()=default</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>clear</name>
-      <anchorfile>classlemons_1_1midi_1_1_midi_f_i_f_o.html</anchorfile>
-      <anchor>a6297ecd6facbad49eada8e7e5cdb32dd</anchor>
+      <anchorfile>classlemons_1_1dsp_1_1_midi_f_i_f_o.html</anchorfile>
+      <anchor>ae4ee15c73a140de0b733829372693176</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>numStoredEvents</name>
-      <anchorfile>classlemons_1_1midi_1_1_midi_f_i_f_o.html</anchorfile>
-      <anchor>a4727438bccb1dec00612718d7376a8e6</anchor>
+      <anchorfile>classlemons_1_1dsp_1_1_midi_f_i_f_o.html</anchorfile>
+      <anchor>aeb90ffd214ace4cd129f4553bfd24821</anchor>
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>numStoredSamples</name>
-      <anchorfile>classlemons_1_1midi_1_1_midi_f_i_f_o.html</anchorfile>
-      <anchor>a8e8702257209f923ed595c8b72239c79</anchor>
+      <anchorfile>classlemons_1_1dsp_1_1_midi_f_i_f_o.html</anchorfile>
+      <anchor>a7f6e60180a7152277d5f6c8c9c4d5405</anchor>
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>popEvents</name>
-      <anchorfile>classlemons_1_1midi_1_1_midi_f_i_f_o.html</anchorfile>
-      <anchor>aa41af9504c263d8e442e07dd529d35f6</anchor>
+      <anchorfile>classlemons_1_1dsp_1_1_midi_f_i_f_o.html</anchorfile>
+      <anchor>a707aa3dddf9495469ca28d427a363645</anchor>
       <arglist>(MidiBuffer &amp;output, int numSamples)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>pushEvents</name>
-      <anchorfile>classlemons_1_1midi_1_1_midi_f_i_f_o.html</anchorfile>
-      <anchor>ab074f98455ade04c78c543f687f7582e</anchor>
+      <anchorfile>classlemons_1_1dsp_1_1_midi_f_i_f_o.html</anchorfile>
+      <anchor>a67b9929d246b45087ea95f93411764b0</anchor>
       <arglist>(const MidiBuffer &amp;source, int numSamples)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>setSize</name>
-      <anchorfile>classlemons_1_1midi_1_1_midi_f_i_f_o.html</anchorfile>
-      <anchor>a91a9873ad05fdb6310d86e15b505a2df</anchor>
+      <anchorfile>classlemons_1_1dsp_1_1_midi_f_i_f_o.html</anchorfile>
+      <anchor>a9a4081ef42680a3d70f097fa46d339bf</anchor>
       <arglist>(int maxNumMessages)</arglist>
     </member>
   </compound>
@@ -17642,6 +17649,7 @@
     <class kind="class">lemons::dsp::Engine</class>
     <class kind="class">lemons::dsp::LambdaSynth</class>
     <class kind="class">lemons::dsp::LatencyEngine</class>
+    <class kind="class">lemons::dsp::MidiFIFO</class>
     <class kind="struct">lemons::dsp::OscSynth</class>
     <class kind="struct">lemons::dsp::OscSynthVoice</class>
     <class kind="class">lemons::dsp::PitchDetector</class>
@@ -17885,7 +17893,6 @@
     <name>lemons::midi</name>
     <filename>namespacelemons_1_1midi.html</filename>
     <class kind="class">lemons::midi::MidiChoppingProcessor</class>
-    <class kind="class">lemons::midi::MidiFIFO</class>
     <class kind="class">lemons::midi::MidiKeyboardState</class>
     <class kind="class">lemons::midi::MidiProcessor</class>
     <class kind="class">lemons::midi::PitchBendTracker</class>
@@ -18659,6 +18666,7 @@
     <class kind="class">lemons::dsp::AudioAndMidiFIFO</class>
     <class kind="class">lemons::dsp::AudioFifo</class>
     <class kind="class">lemons::dsp::CircularBuffer</class>
+    <class kind="class">lemons::dsp::MidiFIFO</class>
   </compound>
   <compound kind="group">
     <name>files</name>
@@ -19009,7 +19017,6 @@
     <namespace>lemons::gui</namespace>
     <namespace>lemons::gui::colors</namespace>
     <namespace>lemons::midi</namespace>
-    <class kind="class">lemons::midi::MidiFIFO</class>
     <class kind="class">lemons::midi::MidiKeyboardState</class>
     <class kind="class">lemons::midi::PitchBendTracker</class>
     <class kind="struct">lemons::midi::PitchPipeline</class>

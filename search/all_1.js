@@ -11,12 +11,13 @@ var searchData=
   ['binary_5fdata_50',['binary_data',['../group__binary__data.html',1,'']]],
   ['binarydatahelpers_2eh_51',['BinaryDataHelpers.h',['../_binary_data_helpers_8h.html',1,'']]],
   ['boolparameter_52',['BoolParameter',['../structlemons_1_1plugin_1_1_bool_parameter.html',1,'lemons::plugin::BoolParameter'],['../structlemons_1_1plugin_1_1_bool_parameter.html#a9ae1c6b6c17a084114c1f1c603a57e54',1,'lemons::plugin::BoolParameter::BoolParameter()']]],
-  ['buffersareequal_53',['buffersAreEqual',['../structlemons_1_1tests_1_1_dsp_test.html#a1bdf41e8cd02d7acda587ce3dc0a324a',1,'lemons::tests::DspTest']]],
-  ['bufferutils_54',['BufferUtils',['../group___buffer_utils.html',1,'']]],
-  ['bufferutils_2eh_55',['BufferUtils.h',['../_buffer_utils_8h.html',1,'']]],
-  ['buttons_56',['buttons',['../group__buttons.html',1,'']]],
-  ['bvbrandflags_57',['BVBrandFlags',['../_b_v_brand_flags.html',1,'']]],
-  ['bvbrandflags_2emd_58',['BVBrandFlags.md',['../_b_v_brand_flags_8md.html',1,'']]],
-  ['bypassedblock_59',['bypassedBlock',['../structlemons_1_1dsp_1_1_f_x_1_1_audio_effect.html#a0e2734ec1b7a89c566cbd2fe9b3592c8',1,'lemons::dsp::FX::AudioEffect::bypassedBlock()'],['../classlemons_1_1dsp_1_1_f_x_1_1_smoothed_gain.html#a8335b506c3444b98f063652352100d65',1,'lemons::dsp::FX::SmoothedGain::bypassedBlock()'],['../classlemons_1_1dsp_1_1_synth_base.html#a56641cc1e3f530f450c37855553d403e',1,'lemons::dsp::SynthBase::bypassedBlock()'],['../classlemons_1_1dsp_1_1_synth_voice_base.html#a41811700a1db4d05074f7e4717201b64',1,'lemons::dsp::SynthVoiceBase::bypassedBlock()']]],
-  ['bypassedblockrecieved_60',['bypassedBlockRecieved',['../classlemons_1_1dsp_1_1_synth_voice_base.html#a66792c4e9f40d929865adb20d7d7a6aa',1,'lemons::dsp::SynthVoiceBase']]]
+  ['bufferissilent_53',['bufferIsSilent',['../structlemons_1_1tests_1_1_dsp_test.html#a5c651a986d06169ba5d6b98dc43c35a1',1,'lemons::tests::DspTest']]],
+  ['buffersareequal_54',['buffersAreEqual',['../structlemons_1_1tests_1_1_dsp_test.html#a1bdf41e8cd02d7acda587ce3dc0a324a',1,'lemons::tests::DspTest']]],
+  ['bufferutils_55',['BufferUtils',['../group___buffer_utils.html',1,'']]],
+  ['bufferutils_2eh_56',['BufferUtils.h',['../_buffer_utils_8h.html',1,'']]],
+  ['buttons_57',['buttons',['../group__buttons.html',1,'']]],
+  ['bvbrandflags_58',['BVBrandFlags',['../_b_v_brand_flags.html',1,'']]],
+  ['bvbrandflags_2emd_59',['BVBrandFlags.md',['../_b_v_brand_flags_8md.html',1,'']]],
+  ['bypassedblock_60',['bypassedBlock',['../structlemons_1_1dsp_1_1_f_x_1_1_audio_effect.html#a0e2734ec1b7a89c566cbd2fe9b3592c8',1,'lemons::dsp::FX::AudioEffect::bypassedBlock()'],['../classlemons_1_1dsp_1_1_f_x_1_1_smoothed_gain.html#a8335b506c3444b98f063652352100d65',1,'lemons::dsp::FX::SmoothedGain::bypassedBlock()'],['../classlemons_1_1dsp_1_1_synth_base.html#a56641cc1e3f530f450c37855553d403e',1,'lemons::dsp::SynthBase::bypassedBlock()'],['../classlemons_1_1dsp_1_1_synth_voice_base.html#a41811700a1db4d05074f7e4717201b64',1,'lemons::dsp::SynthVoiceBase::bypassedBlock()']]],
+  ['bypassedblockrecieved_61',['bypassedBlockRecieved',['../classlemons_1_1dsp_1_1_synth_voice_base.html#a66792c4e9f40d929865adb20d7d7a6aa',1,'lemons::dsp::SynthVoiceBase']]]
 ];
