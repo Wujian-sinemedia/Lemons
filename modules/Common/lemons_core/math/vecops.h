@@ -80,7 +80,7 @@ int findIndexOfMinElement (const Type* data, int dataSize);
 template <typename Type>
 int findIndexOfMinElement (const juce::Array<Type>& array)
 {
-    return findIndexOfMinElement (array.getRawDataPointer(), array.size());
+	return findIndexOfMinElement (array.getRawDataPointer(), array.size());
 }
 
 
@@ -91,7 +91,7 @@ int findIndexOfMaxElement (const Type* data, int dataSize);
 template <typename Type>
 int findIndexOfMaxElement (const juce::Array<Type>& array)
 {
-    return findIndexOfMaxElement (array.getRawDataPointer(), array.size());
+	return findIndexOfMaxElement (array.getRawDataPointer(), array.size());
 }
 
 
@@ -105,7 +105,7 @@ void findMinAndMinIndex (const Type* data,
 template <typename Type>
 void findMinAndMinIndex (const juce::Array<Type>& array, Type& minimum, int& minIndex)
 {
-    findMinAndMinIndex (array.getRawDataPointer(), array.size(), minimum, minIndex);
+	findMinAndMinIndex (array.getRawDataPointer(), array.size(), minimum, minIndex);
 }
 
 
@@ -119,7 +119,7 @@ void findMaxAndMaxIndex (const Type* data,
 template <typename Type>
 void findMaxAndMaxIndex (const juce::Array<Type>& array, Type& maximum, int& maxIndex)
 {
-    findMaxAndMaxIndex (array.getRawDataPointer(), array.size(), maximum, maxIndex);
+	findMaxAndMaxIndex (array.getRawDataPointer(), array.size(), maximum, maxIndex);
 }
 
 
@@ -133,7 +133,7 @@ void locateGreatestAbsMagnitude (const Type* data,
 template <typename Type>
 void locateGreatestAbsMagnitude (const juce::Array<Type>& array, Type& greatestMagnitude, int& index)
 {
-    locateGreatestAbsMagnitude (array.getRawDataPointer(), array.size(), greatestMagnitude, index);
+	locateGreatestAbsMagnitude (array.getRawDataPointer(), array.size(), greatestMagnitude, index);
 }
 
 
@@ -147,7 +147,7 @@ void locateLeastAbsMagnitude (const Type* data,
 template <typename Type>
 void locateLeastAbsMagnitude (const juce::Array<Type>& array, Type& leastMagnitude, int& index)
 {
-    locateLeastAbsMagnitude (array.getRawDataPointer(), array.size(), leastMagnitude, index);
+	locateLeastAbsMagnitude (array.getRawDataPointer(), array.size(), leastMagnitude, index);
 }
 
 
@@ -158,7 +158,7 @@ void findExtrema (const Type* data, int dataSize, Type& min, Type& max);
 template <typename Type>
 void findExtrema (const juce::Array<Type>& array, Type& min, Type& max)
 {
-    findExtrema (array.getRawDataPointer(), array.size(), min, max);
+	findExtrema (array.getRawDataPointer(), array.size(), min, max);
 }
 
 
@@ -170,7 +170,7 @@ Type findRangeOfExtrema (const Type* data,
 template <typename Type>
 Type findRangeOfExtrema (const juce::Array<Type>& array)
 {
-    return findRangeOfExtrema (array.getRawDataPointer(), array.size());
+	return findRangeOfExtrema (array.getRawDataPointer(), array.size());
 }
 
 
@@ -181,7 +181,7 @@ void normalize (Type* vector, int size);
 template <typename Type>
 void normalize (juce::Array<Type>& array)
 {
-    normalize (array.getRawDataPointer(), array.size());
+	normalize (array.getRawDataPointer(), array.size());
 }
 
 

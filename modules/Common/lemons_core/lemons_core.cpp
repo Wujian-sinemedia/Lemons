@@ -2,10 +2,10 @@
 
 
 #include "math/mathHelpers.cpp"
-#include "math/vecops/vecops.cpp"
+#include "math/vecops.cpp"
+#include "math/ValueSmoother.cpp"
 
 #include "misc/misc.cpp"
-#include "misc/ValueSmoother.cpp"
 
 #include "files/FileUtilities.cpp"
 #include "binary_data/BinaryDataHelpers.cpp"

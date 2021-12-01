@@ -73,7 +73,6 @@
 #include "misc/Preprocessor.h"
 
 #include "misc/misc.h"
-#include "misc/ValueSmoother.h"
 
 #include "events/Timers.h"
 #include "events/AutoLock.h"
@@ -87,4 +86,5 @@
 #include "localization/localization.h"
 
 #include "math/mathHelpers.h"
-#include "math/vecops/vecops.h"
+#include "math/ValueSmoother.h"
+#include "math/vecops.h"
