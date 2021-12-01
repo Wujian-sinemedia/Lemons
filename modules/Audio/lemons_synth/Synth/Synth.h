@@ -69,8 +69,6 @@ public:
 	bool   isConnectedToMtsEsp() const { return pitch.tuning.isConnected(); }
 	String getScaleName() const { return pitch.tuning.getScaleName(); }
 
-	auto getLastMovedControllerInfo() const { return midi.router.getLastMovedCCinfo(); }
-
 	void setPitchGlideTime (double glideTimeSeconds);
 	void togglePitchGlide (bool shouldGlide);
 

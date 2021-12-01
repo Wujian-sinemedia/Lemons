@@ -131,7 +131,7 @@ void SynthBase<SampleType>::renderVoices (MidiBuffer& midiMessages, AudioBuffer<
 template <typename SampleType>
 void SynthBase<SampleType>::bypassedBlock (int numSamples, MidiBuffer& midiMessages)
 {
-	midi.processBypassed (numSamples, midiMessages);
+	midi.processBypassed (midiMessages);
 
 	for (auto* voice : voices)
 		voice->bypassedBlock (numSamples);

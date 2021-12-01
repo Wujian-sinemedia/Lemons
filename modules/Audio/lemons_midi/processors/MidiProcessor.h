@@ -1,4 +1,3 @@
-
 #pragma once
 
 namespace lemons::midi
@@ -6,28 +5,24 @@ namespace lemons::midi
 class MidiProcessor
 {
 public:
-	using Metadata = juce::MidiMessageMetadata;
-
+    MidiProcessor() = default;
+    virtual ~MidiProcessor() = default;
+    
 	void reset();
 
 	void process (const MidiBuffer& buffer);
-	void process (const Metadata& meta);
+	void process (const juce::MidiMessageMetadata& meta);
 	void process (const MidiMessage& m);
 
-	int getLastPitchwheelValue() const { return lastPitchwheelValue; }
-	int getLastMidiChannel() const { return lastMidiChannel; }
-	int getLastMidiTimestamp() const { return lastMidiTimestamp; }
+	int getLastPitchwheelValue() const noexcept { return lastPitchwheelValue; }
+	int getLastMidiChannel() const noexcept { return lastMidiChannel; }
+	int getLastMidiTimestamp() const noexcept { return lastMidiTimestamp; }
 
-	bool isSustainPedalDown() const { return sustainPedalDown; }
-	bool isSostenutoPedalDown() const { return sostenutoPedalDown; }
-	bool isSoftPedalDown() const { return softPedalDown; }
+	bool isSustainPedalDown() const noexcept { return sustainPedalDown; }
+	bool isSostenutoPedalDown() const noexcept { return sostenutoPedalDown; }
+	bool isSoftPedalDown() const noexcept { return softPedalDown; }
 
-	struct LastMovedControllerInfo
-	{
-		int controllerNumber, controllerValue;
-	};
-
-	LastMovedControllerInfo getLastMovedCCinfo() const;
+	void getLastMovedCCinfo (int& controllerNumber, int& controllerValue) const noexcept;
 
 private:
 	void processControllerMessage (int controllerNumber, int controllerValue);

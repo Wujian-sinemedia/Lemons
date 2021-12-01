@@ -5,17 +5,13 @@ template <typename SampleType>
 void MidiChoppingProcessor<SampleType>::prepare (int maxBlocksize)
 {
 	midiStorage.ensureSize (static_cast<size_t> (maxBlocksize));
-	dummyBuffer.setSize (1, maxBlocksize, true, true, true);
 }
 
 template <typename SampleType>
-void MidiChoppingProcessor<SampleType>::processBypassed (int numSamples, MidiBuffer& midi)
+void MidiChoppingProcessor<SampleType>::processBypassed (const MidiBuffer& midi)
 {
-	dummyBuffer.clear();
-
-	AudioBuffer alias { dummyBuffer.getArrayOfWritePointers(), 1, 0, numSamples };
-
-	process (alias, midi);
+    std::for_each (midi.findNextSamplePosition (0), midi.cend(), [&] (const juce::MidiMessageMetadata& meta)
+                   { handleMidiMessage (meta.getMessage()); });
 }
 
 template <typename SampleType>

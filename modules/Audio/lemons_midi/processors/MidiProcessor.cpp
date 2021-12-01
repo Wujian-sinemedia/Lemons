@@ -1,4 +1,3 @@
-
 namespace lemons::midi
 {
 void MidiProcessor::reset()
@@ -17,7 +16,7 @@ void MidiProcessor::process (const MidiBuffer& buffer)
 	               { process (m); });
 }
 
-void MidiProcessor::process (const Metadata& meta)
+void MidiProcessor::process (const juce::MidiMessageMetadata& meta)
 {
 	process (meta.getMessage());
 }
@@ -81,12 +80,10 @@ void MidiProcessor::processSoftPedal (int controllerValue)
 	handleSoftPedal (controllerValue);
 }
 
-MidiProcessor::LastMovedControllerInfo MidiProcessor::getLastMovedCCinfo() const
+void MidiProcessor::getLastMovedCCinfo (int& controllerNumber, int& controllerValue) const noexcept
 {
-	LastMovedControllerInfo info;
-	info.controllerNumber = lastMovedController;
-	info.controllerValue  = lastControllerValue;
-	return info;
+    controllerNumber = lastMovedController;
+    controllerValue = lastControllerValue;
 }
 
 void MidiProcessor::handleNoteOn (int, float) { }

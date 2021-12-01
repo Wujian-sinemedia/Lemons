@@ -14,7 +14,7 @@ public:
 
 	void process (AudioBuffer& audio, MidiBuffer& midi);
 
-	void processBypassed (int numSamples, MidiBuffer& midi);
+	void processBypassed (const MidiBuffer& midi);
 
 private:
 	void processInternal (AudioBuffer& audio, MidiBuffer& midi,
@@ -24,7 +24,6 @@ private:
 	virtual void renderChunk (AudioBuffer& audio, MidiBuffer& midi) = 0;
 
 	MidiBuffer  midiStorage;
-	AudioBuffer dummyBuffer;
 };
 
 }  // namespace lemons::midi
