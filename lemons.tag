@@ -1353,6 +1353,49 @@
     <includes id="_name_popup_8h" name="NamePopup.h" local="yes" imported="no">NamePopup.h</includes>
   </compound>
   <compound kind="file">
+    <name>processor_helpers.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_unit_testing/util/</path>
+    <filename>processor__helpers_8h.html</filename>
+    <class kind="struct">lemons::tests::ProcessorParameterData</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::tests</namespace>
+    <member kind="typedef">
+      <type>juce::Array&lt; ProcessorParameterData &gt;</type>
+      <name>ProcessorParameterState</name>
+      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
+      <anchor>a6bb7fb68ff1e696189979e0792862bb9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>allParameterNamesAreUnique</name>
+      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
+      <anchor>aa6e8978a635ade337abbea96ddabb6aa</anchor>
+      <arglist>(juce::AudioProcessor &amp;processor)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::AudioProcessorParameter *</type>
+      <name>getNamedParameter</name>
+      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
+      <anchor>af32470e075de66ce34e03d4097f42bbf</anchor>
+      <arglist>(juce::AudioProcessor &amp;processor, const String &amp;name)</arglist>
+    </member>
+    <member kind="function">
+      <type>ProcessorParameterState</type>
+      <name>getStateOfProcessorParameters</name>
+      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
+      <anchor>a93f75ae33c1fdb0f059053f475dfe186</anchor>
+      <arglist>(juce::AudioProcessor &amp;processor)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>processorMatchesParameterState</name>
+      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
+      <anchor>af51c1c27b8f139d16cf5b29f35a741be</anchor>
+      <arglist>(juce::AudioProcessor &amp;processor, const ProcessorParameterState &amp;state)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>ProcessorBase.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin/processors/</path>
     <filename>_processor_base_8h.html</filename>
@@ -1403,8 +1446,8 @@
       <type>bool</type>
       <name>executeUnitTests</name>
       <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a6c0667618e391a361844cfdd79bdc213</anchor>
-      <arglist>(juce::File logOutput, juce::int64 seed, const String &amp;singleTestName={}, const String &amp;categoryName={})</arglist>
+      <anchor>a97d48e4d4a61d0a08ea45b826f0634b0</anchor>
+      <arglist>(Intensity intensityLevel=Intensity::Medium, juce::File logOutput={}, juce::int64 seed=juce::Random::getSystemRandom().nextInt64(), const String &amp;singleTestName={}, const String &amp;categoryName={})</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -1562,9 +1605,20 @@
     <name>test.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_unit_testing/tests/</path>
     <filename>test_8h.html</filename>
+    <class kind="struct">lemons::tests::Test::Subtest</class>
     <class kind="class">lemons::tests::Test</class>
     <namespace>lemons</namespace>
     <namespace>lemons::tests</namespace>
+    <member kind="enumeration">
+      <type></type>
+      <name>Intensity</name>
+      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
+      <anchor>abe71616eeadecd56537dd9a10376223c</anchor>
+      <arglist></arglist>
+      <enumvalue file="namespacelemons_1_1tests.html" anchor="abe71616eeadecd56537dd9a10376223ca28d0edd045e05cf5af64e35ae0c4c6ef">Low</enumvalue>
+      <enumvalue file="namespacelemons_1_1tests.html" anchor="abe71616eeadecd56537dd9a10376223ca87f8a6ab85c9ced3702b4ea641ad4bb5">Medium</enumvalue>
+      <enumvalue file="namespacelemons_1_1tests.html" anchor="abe71616eeadecd56537dd9a10376223ca655d20c1ca69519ca647684edbb2db35">High</enumvalue>
+    </member>
   </compound>
   <compound kind="file">
     <name>TimbreMod.h</name>
@@ -2183,12 +2237,47 @@
       <anchor>a53f2e88274b234947c8acbea090d6423</anchor>
       <arglist>(const String &amp;testName)</arglist>
     </member>
-    <member kind="typedef" protection="protected">
-      <type>juce::String</type>
-      <name>String</name>
+    <member kind="function" static="yes">
+      <type>static Intensity</type>
+      <name>getTestingIntensityLevel</name>
       <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
-      <anchor>af47362733ec58f00eb0e110684231270</anchor>
-      <arglist></arglist>
+      <anchor>aae5d3a4c8d6beec3749a044fea476030</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>setGlobalTestingIntensityLevel</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>ac8e9c2467c498fcce12dfb5b5b8d4d1b</anchor>
+      <arglist>(Intensity intensityLevel)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>testingIntensityIsHigh</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>ac46ac43cc5d55eecdd13c6438005c29a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>testingIntensityIsLow</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a6cd4f026f0cdc32c7dbdbdf89a2980c9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>testingIntensityIsMedium</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a256c1c9b185e12d9190c8458d42a30a3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>const Subtest</type>
+      <name>beginSubtest</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a557b2274571a75b2cba3c8b59c1eb483</anchor>
+      <arglist>(const String &amp;name)</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -2219,17 +2308,17 @@
       <arglist>(const String &amp;name)</arglist>
     </member>
     <member kind="function" protection="protected" static="yes">
-      <type>static const std::vector&lt; int &gt; &amp;</type>
+      <type>static const std::vector&lt; int &gt;</type>
       <name>getTestingBlockSizes</name>
       <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
-      <anchor>ac786206b9a815f124b60db728a8dcbfc</anchor>
+      <anchor>af9f694dc17dfdd7d3af59d134cf46a72</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected" static="yes">
-      <type>static const std::vector&lt; double &gt; &amp;</type>
+      <type>static const std::vector&lt; double &gt;</type>
       <name>getTestingSamplerates</name>
       <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
-      <anchor>ae0d4ef51370f99918a860ffec3d16d68</anchor>
+      <anchor>a57be202f9cf92b54be161c513d4919d5</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
@@ -2244,12 +2333,47 @@
       <anchor>aecfdce2a9e45b77367c5b4016820062d</anchor>
       <arglist>(juce::AudioProcessor &amp;processorToUse, const String &amp;testName)</arglist>
     </member>
-    <member kind="typedef" protection="protected">
-      <type>juce::String</type>
-      <name>String</name>
+    <member kind="function" static="yes">
+      <type>static Intensity</type>
+      <name>getTestingIntensityLevel</name>
       <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
-      <anchor>af47362733ec58f00eb0e110684231270</anchor>
-      <arglist></arglist>
+      <anchor>aae5d3a4c8d6beec3749a044fea476030</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>setGlobalTestingIntensityLevel</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>ac8e9c2467c498fcce12dfb5b5b8d4d1b</anchor>
+      <arglist>(Intensity intensityLevel)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>testingIntensityIsHigh</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>ac46ac43cc5d55eecdd13c6438005c29a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>testingIntensityIsLow</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a6cd4f026f0cdc32c7dbdbdf89a2980c9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>testingIntensityIsMedium</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a256c1c9b185e12d9190c8458d42a30a3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>const Subtest</type>
+      <name>beginSubtest</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a557b2274571a75b2cba3c8b59c1eb483</anchor>
+      <arglist>(const String &amp;name)</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -2280,17 +2404,17 @@
       <arglist>(const String &amp;name)</arglist>
     </member>
     <member kind="function" protection="protected" static="yes">
-      <type>static const std::vector&lt; int &gt; &amp;</type>
+      <type>static const std::vector&lt; int &gt;</type>
       <name>getTestingBlockSizes</name>
       <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
-      <anchor>ac786206b9a815f124b60db728a8dcbfc</anchor>
+      <anchor>af9f694dc17dfdd7d3af59d134cf46a72</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected" static="yes">
-      <type>static const std::vector&lt; double &gt; &amp;</type>
+      <type>static const std::vector&lt; double &gt;</type>
       <name>getTestingSamplerates</name>
       <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
-      <anchor>ae0d4ef51370f99918a860ffec3d16d68</anchor>
+      <anchor>a57be202f9cf92b54be161c513d4919d5</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
@@ -4285,12 +4409,40 @@
       <anchor>a047ba8d4fa52f504feceebef695bf198</anchor>
       <arglist>(const String &amp;testName)</arglist>
     </member>
-    <member kind="typedef" protection="protected">
-      <type>juce::String</type>
-      <name>String</name>
+    <member kind="function" static="yes">
+      <type>static Intensity</type>
+      <name>getTestingIntensityLevel</name>
       <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
-      <anchor>af47362733ec58f00eb0e110684231270</anchor>
-      <arglist></arglist>
+      <anchor>aae5d3a4c8d6beec3749a044fea476030</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>setGlobalTestingIntensityLevel</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>ac8e9c2467c498fcce12dfb5b5b8d4d1b</anchor>
+      <arglist>(Intensity intensityLevel)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>testingIntensityIsHigh</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>ac46ac43cc5d55eecdd13c6438005c29a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>testingIntensityIsLow</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a6cd4f026f0cdc32c7dbdbdf89a2980c9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>testingIntensityIsMedium</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a256c1c9b185e12d9190c8458d42a30a3</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected">
       <type></type>
@@ -4298,6 +4450,13 @@
       <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
       <anchor>ab22b66a49878451542d09d94b21a1680</anchor>
       <arglist>(const String &amp;testName, const String &amp;testCategory)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>const Subtest</type>
+      <name>beginSubtest</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a557b2274571a75b2cba3c8b59c1eb483</anchor>
+      <arglist>(const String &amp;name)</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -4328,17 +4487,17 @@
       <arglist>(const String &amp;name)</arglist>
     </member>
     <member kind="function" protection="protected" static="yes">
-      <type>static const std::vector&lt; int &gt; &amp;</type>
+      <type>static const std::vector&lt; int &gt;</type>
       <name>getTestingBlockSizes</name>
       <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
-      <anchor>ac786206b9a815f124b60db728a8dcbfc</anchor>
+      <anchor>af9f694dc17dfdd7d3af59d134cf46a72</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected" static="yes">
-      <type>static const std::vector&lt; double &gt; &amp;</type>
+      <type>static const std::vector&lt; double &gt;</type>
       <name>getTestingSamplerates</name>
       <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
-      <anchor>ae0d4ef51370f99918a860ffec3d16d68</anchor>
+      <anchor>a57be202f9cf92b54be161c513d4919d5</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
@@ -12911,6 +13070,24 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>lemons::tests::ProcessorParameterData</name>
+    <filename>structlemons_1_1tests_1_1_processor_parameter_data.html</filename>
+    <member kind="variable">
+      <type>String</type>
+      <name>name</name>
+      <anchorfile>structlemons_1_1tests_1_1_processor_parameter_data.html</anchorfile>
+      <anchor>adec637ea0e191cee539a9a460ef2218c</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>value</name>
+      <anchorfile>structlemons_1_1tests_1_1_processor_parameter_data.html</anchorfile>
+      <anchor>a388cea51a844c5d1e3ef1aa33e72a031</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>lemons::plugin::ProcessorWithEditor</name>
     <filename>structlemons_1_1plugin_1_1_processor_with_editor.html</filename>
     <templarg></templarg>
@@ -14431,6 +14608,24 @@
       <arglist>(std::initializer_list&lt; NumericType &gt; list)</arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>lemons::tests::Test::Subtest</name>
+    <filename>structlemons_1_1tests_1_1_test_1_1_subtest.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Subtest</name>
+      <anchorfile>structlemons_1_1tests_1_1_test_1_1_subtest.html</anchorfile>
+      <anchor>ae3c4208cb073662962ba76080d7115e8</anchor>
+      <arglist>(const String &amp;name, Test &amp;t)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~Subtest</name>
+      <anchorfile>structlemons_1_1tests_1_1_test_1_1_subtest.html</anchorfile>
+      <anchor>aacbf687133893950cb1841743dcd98d9</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>lemons::dsp::osc::SuperSaw</name>
     <filename>classlemons_1_1dsp_1_1osc_1_1_super_saw.html</filename>
@@ -15720,12 +15915,48 @@
   <compound kind="class">
     <name>lemons::tests::Test</name>
     <filename>classlemons_1_1tests_1_1_test.html</filename>
-    <member kind="typedef" protection="protected">
-      <type>juce::String</type>
-      <name>String</name>
+    <class kind="struct">lemons::tests::Test::Subtest</class>
+    <member kind="function" static="yes">
+      <type>static Intensity</type>
+      <name>getTestingIntensityLevel</name>
       <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
-      <anchor>af47362733ec58f00eb0e110684231270</anchor>
-      <arglist></arglist>
+      <anchor>aae5d3a4c8d6beec3749a044fea476030</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>setGlobalTestingIntensityLevel</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>ac8e9c2467c498fcce12dfb5b5b8d4d1b</anchor>
+      <arglist>(Intensity intensityLevel)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>testingIntensityIsHigh</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>ac46ac43cc5d55eecdd13c6438005c29a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>testingIntensityIsLow</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a6cd4f026f0cdc32c7dbdbdf89a2980c9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>testingIntensityIsMedium</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a256c1c9b185e12d9190c8458d42a30a3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>const Subtest</type>
+      <name>beginSubtest</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a557b2274571a75b2cba3c8b59c1eb483</anchor>
+      <arglist>(const String &amp;name)</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -15733,6 +15964,13 @@
       <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
       <anchor>a9c44d91c08ff84c15bbe15f6b37e35a0</anchor>
       <arglist>(const String &amp;message)</arglist>
+    </member>
+    <member kind="friend" protection="private">
+      <type>friend struct</type>
+      <name>Subtest</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a2e6e3542985d46cf96d889c67120f158</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -18013,6 +18251,7 @@
     <class kind="struct">lemons::tests::AudioProcessorTest</class>
     <class kind="struct">lemons::tests::AudioProcessorTestBase</class>
     <class kind="struct">lemons::tests::DspTest</class>
+    <class kind="struct">lemons::tests::ProcessorParameterData</class>
     <class kind="class">lemons::tests::Runner</class>
     <class kind="class">lemons::tests::Test</class>
     <member kind="typedef">
@@ -18028,6 +18267,30 @@
       <anchorfile>namespacelemons_1_1tests.html</anchorfile>
       <anchor>a03c16098e5790557328c667001923104</anchor>
       <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>juce::Array&lt; ProcessorParameterData &gt;</type>
+      <name>ProcessorParameterState</name>
+      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
+      <anchor>a6bb7fb68ff1e696189979e0792862bb9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumeration">
+      <type></type>
+      <name>Intensity</name>
+      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
+      <anchor>abe71616eeadecd56537dd9a10376223c</anchor>
+      <arglist></arglist>
+      <enumvalue file="namespacelemons_1_1tests.html" anchor="abe71616eeadecd56537dd9a10376223ca28d0edd045e05cf5af64e35ae0c4c6ef">Low</enumvalue>
+      <enumvalue file="namespacelemons_1_1tests.html" anchor="abe71616eeadecd56537dd9a10376223ca87f8a6ab85c9ced3702b4ea641ad4bb5">Medium</enumvalue>
+      <enumvalue file="namespacelemons_1_1tests.html" anchor="abe71616eeadecd56537dd9a10376223ca655d20c1ca69519ca647684edbb2db35">High</enumvalue>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>allParameterNamesAreUnique</name>
+      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
+      <anchor>aa6e8978a635ade337abbea96ddabb6aa</anchor>
+      <arglist>(juce::AudioProcessor &amp;processor)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -18089,8 +18352,22 @@
       <type>bool</type>
       <name>executeUnitTests</name>
       <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a6c0667618e391a361844cfdd79bdc213</anchor>
-      <arglist>(juce::File logOutput, juce::int64 seed, const String &amp;singleTestName={}, const String &amp;categoryName={})</arglist>
+      <anchor>a97d48e4d4a61d0a08ea45b826f0634b0</anchor>
+      <arglist>(Intensity intensityLevel=Intensity::Medium, juce::File logOutput={}, juce::int64 seed=juce::Random::getSystemRandom().nextInt64(), const String &amp;singleTestName={}, const String &amp;categoryName={})</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::AudioProcessorParameter *</type>
+      <name>getNamedParameter</name>
+      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
+      <anchor>af32470e075de66ce34e03d4097f42bbf</anchor>
+      <arglist>(juce::AudioProcessor &amp;processor, const String &amp;name)</arglist>
+    </member>
+    <member kind="function">
+      <type>ProcessorParameterState</type>
+      <name>getStateOfProcessorParameters</name>
+      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
+      <anchor>a93f75ae33c1fdb0f059053f475dfe186</anchor>
+      <arglist>(juce::AudioProcessor &amp;processor)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -18105,6 +18382,13 @@
       <anchorfile>namespacelemons_1_1tests.html</anchorfile>
       <anchor>a91d1e7095657d0593a3baba099b5ed36</anchor>
       <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>processorMatchesParameterState</name>
+      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
+      <anchor>af51c1c27b8f139d16cf5b29f35a741be</anchor>
+      <arglist>(juce::AudioProcessor &amp;processor, const ProcessorParameterState &amp;state)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -18896,6 +19180,7 @@
     <class kind="struct">lemons::tests::AudioProcessorTest</class>
     <class kind="struct">lemons::tests::AudioProcessorTestBase</class>
     <class kind="struct">lemons::tests::DspTest</class>
+    <class kind="struct">lemons::tests::Test::Subtest</class>
     <class kind="class">lemons::tests::Test</class>
   </compound>
   <compound kind="group">
@@ -18928,6 +19213,7 @@
     <class kind="class">lemons::dsp::BasicProcessor</class>
     <class kind="class">lemons::dsp::MonoStereoConverter</class>
     <class kind="class">lemons::dsp::PitchDetector</class>
+    <class kind="struct">lemons::tests::ProcessorParameterData</class>
   </compound>
   <compound kind="group">
     <name>utilities</name>

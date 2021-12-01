@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['stereoreductionmode_1854',['StereoReductionMode',['../namespacelemons_1_1dsp.html#aaf020aad6edbe51634e978b1d97a37e2',1,'lemons::dsp']]]
+  ['osctype_1891',['OscType',['../namespacelemons_1_1dsp_1_1osc.html#a1771007d411d4f6426cc3773961dfa5d',1,'lemons::dsp::osc']]]
 ];

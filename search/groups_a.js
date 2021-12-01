@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['oscillators_1910',['oscillators',['../group__oscillators.html',1,'']]]
+  ['oscillators_1951',['oscillators',['../group__oscillators.html',1,'']]]
 ];
