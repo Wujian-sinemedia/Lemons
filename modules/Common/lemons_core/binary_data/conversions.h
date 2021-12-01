@@ -9,27 +9,34 @@ namespace lemons::binary
 using juce::Image;
 using juce::MemoryBlock;
 using juce::MidiBuffer;
+using juce::ValueTree;
 
 template <typename SampleType>
 using AudioBuffer = juce::AudioBuffer<SampleType>;
 
 
-Image imageFromBinary (const MemoryBlock& block);
+[[nodiscard]] Image imageFromBinary (const MemoryBlock& block);
 
-MemoryBlock imageToBinary (const Image& image);
-
-template <typename SampleType>
-AudioBuffer<SampleType> audioFromBinary (const MemoryBlock& block);
+[[nodiscard]] MemoryBlock imageToBinary (const Image& image);
 
 template <typename SampleType>
-MemoryBlock audioToBinary (const AudioBuffer<SampleType>& buffer);
+[[nodiscard]] AudioBuffer<SampleType> audioFromBinary (const MemoryBlock& block);
 
-MidiBuffer midiFromBinary (const MemoryBlock& block);
+template <typename SampleType>
+[[nodiscard]] MemoryBlock audioToBinary (const AudioBuffer<SampleType>& buffer);
 
-MemoryBlock midiToBinary (const MidiBuffer& midi);
+[[nodiscard]] MidiBuffer midiFromBinary (const MemoryBlock& block);
 
-String memoryBlockToString (const MemoryBlock& block);
+[[nodiscard]] MemoryBlock midiToBinary (const MidiBuffer& midi);
 
-MemoryBlock memoryBlockFromString (const String& string);
+[[nodiscard]] String memoryBlockToString (const MemoryBlock& block);
+
+[[nodiscard]] MemoryBlock memoryBlockFromString (const String& string);
+
+/** Converts a ValueTree to a JSON string. */
+[[nodiscard]] String valueTreeToJSON (const ValueTree& v);
+
+/** Converts a JSON string to a ValueTree. */
+[[nodiscard]] ValueTree valueTreeFromJSON (const String& jsonText);
 
 }  // namespace lemons::binary

@@ -6,6 +6,7 @@
 #include "math/ValueSmoother.cpp"
 
 #include "misc/misc.cpp"
+#include "misc/Version.cpp"
 
 #include "console/arguments.cpp"
 #include "console/logger.cpp"
