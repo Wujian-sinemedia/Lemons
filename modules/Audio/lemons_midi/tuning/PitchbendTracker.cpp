@@ -22,4 +22,10 @@ void PitchBendTracker::newPitchbendRecieved (int newPitchbend) noexcept
 	lastRecievedPitchbend = static_cast<float> (newPitchbend);
 }
 
+void PitchBendTracker::processMidiMessage (const MidiMessage& m) noexcept
+{
+	if (m.isPitchWheel())
+		newPitchbendRecieved (juce::jmap (m.getPitchWheelValue(), 0, 16383, 0, 127));
+}
+
 }  // namespace lemons::midi

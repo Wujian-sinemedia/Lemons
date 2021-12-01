@@ -12,7 +12,7 @@
  website:            http://benthevining.github.io/Lemons/
  license:            GPL-3.0
  minimumCppStandard: 17
- dependencies:       mts_esp_cpp juce_audio_basics
+ dependencies:       juce_audio_basics
 
  END_JUCE_MODULE_DECLARATION
 
@@ -21,11 +21,10 @@
 
 #include "utilities/MidiUtilities.h"
 #include "utilities/VelocityHelper.h"
-#include "utilities/PitchbendTracker.h"
+
+#include "tuning/mts_client.h"
+#include "tuning/PitchbendTracker.h"
+#include "tuning/PitchPipeline.h"
 
 #include "processors/MidiProcessor.h"
 #include "processors/MidiChoppingProcessor.h"
-
-#include "utilities/PitchPipeline.h"
-
-#include "utilities/MidiKeyboardState.h"

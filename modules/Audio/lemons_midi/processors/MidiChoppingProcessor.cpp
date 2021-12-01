@@ -13,13 +13,13 @@ void MidiChoppingProcessor<SampleType>::processBypassed (int numSamples, MidiBuf
 {
 	dummyBuffer.clear();
 
-	AudioBuffer<SampleType> alias { dummyBuffer.getArrayOfWritePointers(), 1, 0, numSamples };
+	AudioBuffer alias { dummyBuffer.getArrayOfWritePointers(), 1, 0, numSamples };
 
 	process (alias, midi);
 }
 
 template <typename SampleType>
-void MidiChoppingProcessor<SampleType>::process (AudioBuffer<SampleType>& audio, MidiBuffer& midi)
+void MidiChoppingProcessor<SampleType>::process (AudioBuffer& audio, MidiBuffer& midi)
 {
 	auto samplesLeft = audio.getNumSamples();
 
@@ -70,23 +70,23 @@ void MidiChoppingProcessor<SampleType>::process (AudioBuffer<SampleType>& audio,
 }
 
 template <typename SampleType>
-void MidiChoppingProcessor<SampleType>::processInternal (AudioBuffer<SampleType>& audio, MidiBuffer& midi,
+void MidiChoppingProcessor<SampleType>::processInternal (AudioBuffer& audio, MidiBuffer& midi,
                                                          int startSample, int numSamples)
 {
-	juce::AudioBuffer<SampleType> alias { audio.getArrayOfWritePointers(),
-		                                  audio.getNumChannels(),
-		                                  startSample,
-		                                  numSamples };
+	AudioBuffer alias { audio.getArrayOfWritePointers(),
+		                audio.getNumChannels(),
+		                startSample,
+		                numSamples };
 
-	midi::copyRangeOfMidiBuffer (midi, midiStorage, startSample, 0, numSamples);
+	copyRangeOfMidiBuffer (midi, midiStorage, startSample, 0, numSamples);
 
 	renderChunk (alias, midiStorage);
 
-	midi::copyRangeOfMidiBuffer (midiStorage, midi, 0, startSample, numSamples);
+	copyRangeOfMidiBuffer (midiStorage, midi, 0, startSample, numSamples);
 }
 
 
 template class MidiChoppingProcessor<float>;
 template class MidiChoppingProcessor<double>;
 
-}  // namespace lemons::dsp
+}  // namespace lemons::midi

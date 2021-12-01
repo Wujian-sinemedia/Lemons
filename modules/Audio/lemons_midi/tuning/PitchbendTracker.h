@@ -16,11 +16,11 @@ public:
 
 	void newPitchbendRecieved (int newPitchbend) noexcept;
 
+	void processMidiMessage (const MidiMessage& m) noexcept;
+
 	template <typename NoteType>
 	float getAdjustedMidiPitch (NoteType midiPitch) const
 	{
-		static_assert (std::is_arithmetic<NoteType>(), "This function only works with arithmetic types!");
-
 		if (lastRecievedPitchbend == 64) return static_cast<float> (midiPitch);
 
 		if (lastRecievedPitchbend > 64)

@@ -1,7 +1,5 @@
 #pragma once
 
-#include <mts_esp_cpp/mts_esp_cpp.h>
-
 namespace lemons::midi
 {
 struct PitchPipeline
@@ -15,7 +13,7 @@ struct PitchPipeline
 	void reset();
 
 	PitchBendTracker bend;
-	MTSESP::Client   tuning;
+	MtsClient        tuning;
 };
 
 }  // namespace lemons::midi

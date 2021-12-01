@@ -16,7 +16,7 @@ Common building blocks and utilities
 
 include_guard (GLOBAL)
 
-include (LemonsConnectivityModules)
+include (LemonsJuceModuleUtilities)
 
 _lemons_add_module_subcategory (LemonsCommonModules)
 
