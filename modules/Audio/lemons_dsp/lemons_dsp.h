@@ -26,8 +26,6 @@ END_JUCE_MODULE_DECLARATION
 
 #include "aliases.h"
 
-#include "oscillators/oscillators.h"
-
 #include "fifos/CircularBuffer.h"
 #include "fifos/AudioFifo.h"
 #include "fifos/MidiFIFO.h"
@@ -36,12 +34,14 @@ END_JUCE_MODULE_DECLARATION
 #include "engines/AudioEngine.h"
 #include "engines/LatencyEngine.h"
 
+#include "oscillators/oscillators.h"
+#include "oscillators/SuperSaw.h"
+#include "oscillators/OscEngine.h"
+#include "oscillators/choosable.h"
+
 #include "filters/Filter.h"
 
 #include "BufferUtils/BufferUtils.h"
-
-#include "oscillators/SuperSaw/SuperSaw.h"
-#include "oscillators/choosable/ChoosableOscillator.h"
 
 #include "PitchDetector/PitchDetector.h"
 

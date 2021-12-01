@@ -1,6 +1,5 @@
 #pragma once
 
-#include "OscEngine.h"
 
 namespace lemons::dsp::osc
 {
@@ -12,8 +11,7 @@ enum class OscType
 	Sine,
 	Saw,
 	Square,
-	Triangle,
-	SuperSaw
+	Triangle
 };
 
 
@@ -30,25 +28,19 @@ public:
 	void setOscType (OscType newType);
 
 	/** Returns the type of oscillator that is currently chosen. */
-	OscType getOscType() const { return type; }
+	OscType getOscType() const noexcept { return type; }
 
 	/** Sets the oscillator's frequency. */
 	void setFrequency (float freqHz);
 
 	/** Returns the frequency of the oscillator. */
-	float getFrequency() const { return freq; }
+	float getFrequency() const noexcept { return freq; }
 
 	/** Processes a stream of audio. */
 	void process (AudioBuffer<SampleType>& output);
 
 	/** Prepares the choosable oscillator for playback. */
 	void prepare (int blocksize, double samplerate);
-
-	/** Sets the detune amount for the super saw oscillator.
-	    This has no effect on the other oscillator types.
-	    @see SuperSaw::setDetuneAmount()
-	 */
-	void setDetuneAmount (int pitchSpreadCents);
 
 
 private:
@@ -58,11 +50,10 @@ private:
 	OscType type { OscType::Sine };
 	float   freq { 440.f };
 
-	OscEngine<SampleType, Sine>     sine;
-	OscEngine<SampleType, Saw>      saw;
-	OscEngine<SampleType, Square>   square;
-	OscEngine<SampleType, Triangle> triangle;
-	OscEngine<SampleType, SuperSaw> superSaw;
+	Engine<SampleType, Sine>     sine;
+	Engine<SampleType, Saw>      saw;
+	Engine<SampleType, Square>   square;
+	Engine<SampleType, Triangle> triangle;
 };
 
 }  // namespace lemons::dsp::osc

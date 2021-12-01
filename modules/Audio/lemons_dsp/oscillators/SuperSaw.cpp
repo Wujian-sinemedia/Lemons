@@ -38,7 +38,7 @@ void SuperSaw<SampleType>::setFrequency (SampleType frequency, SampleType sample
 template <typename SampleType>
 void SuperSaw<SampleType>::setDetuneAmount (int totalPitchSpreadInCents)
 {
-    jassert (totalPitchSpreadInCents >= 0);
+	jassert (totalPitchSpreadInCents >= 0);
 	totalSpreadCents = totalPitchSpreadInCents;
 	setFrequency (lastFrequency, samplerate);
 }

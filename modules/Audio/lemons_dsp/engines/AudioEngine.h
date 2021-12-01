@@ -74,8 +74,15 @@ public:
 	/** Releases all of the engine's internal resources. */
 	void releaseResources();
 
-	/** Returns the engine's samplerate. */
+	/** Returns the engine's samplerate.
+	    This will return 0. if the engine is unprepared.
+	 */
 	double getSamplerate() const noexcept { return sampleRate; }
+
+	/** Returns the number of channels this engine has been prepared to process.
+	    This will return 0 if the engine is unprepared.
+	 */
+	int getNumChannels() const noexcept;
 
 private:
 	void processInternal (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages, bool isBypassed);

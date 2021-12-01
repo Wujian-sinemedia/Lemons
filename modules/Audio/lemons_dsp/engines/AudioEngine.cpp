@@ -7,7 +7,7 @@ void Engine<SampleType>::prepare (double samplerate, int blocksize, int numChann
 	jassert (samplerate > 0 && blocksize > 0 && numChannels > 0);
 
 	dummyMidiBuffer.ensureSize (static_cast<size_t> (blocksize));
-	outputStorage.setSize (numChannels, blocksize);
+	outputStorage.setSize (numChannels, blocksize, true, true, true);
 	sampleRate = samplerate;
 
 	prepared (blocksize, samplerate, numChannels);
@@ -17,9 +17,17 @@ template <typename SampleType>
 void Engine<SampleType>::releaseResources()
 {
 	dummyMidiBuffer.clear();
+	outputStorage.setSize (0, 0);
 	wasBypassedLastCallback = true;
 	sampleRate              = 0.;
+
 	released();
+}
+
+template <typename SampleType>
+int Engine<SampleType>::getNumChannels() const noexcept
+{
+	return outputStorage.getNumChannels();
 }
 
 template <typename SampleType>
@@ -132,6 +140,7 @@ void AudioEngineTests<FloatType>::runTest()
 
 	expect (! engine.isInitialized());
 	expectEquals (engine.reportLatency(), 0);
+	expectEquals (engine.getNumChannels(), 0);
 
 	for (const auto blocksize : getTestingBlockSizes())
 	{
@@ -144,6 +153,7 @@ void AudioEngineTests<FloatType>::runTest()
 
 		expect (engine.isInitialized());
 		expectEquals (engine.getSamplerate(), samplerate);
+		expectEquals (engine.getNumChannels(), numChannels);
 
 		fillAudioBufferWithRandomNoise (audioIn);
 		fillMidiBufferWithRandomEvents (midiStorage, blocksize / 2);
@@ -188,6 +198,8 @@ void AudioEngineTests<FloatType>::runTest()
 		engine.releaseResources();
 
 		expect (! engine.isInitialized());
+		expectEquals (engine.getSamplerate(), 0.);
+		expectEquals (engine.getNumChannels(), 0);
 	}
 }
 

@@ -50,6 +50,9 @@ struct Oscillator
 
 	/** Returns a stream of samples from the oscillator. */
 	void getSamples (juce::AudioBuffer<SampleType>& output, int channel = 0);
+
+	/** Skips a number of samples in the stream. */
+	void skipSamples (int numToSkip);
 };
 
 /*--------------------------------------------------------------------------------------------*/

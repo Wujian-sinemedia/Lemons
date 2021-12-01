@@ -15,9 +15,8 @@
 #include "BufferUtils/BufferUtils.cpp"
 
 #include "oscillators/oscillators.cpp"
-#include "oscillators/SuperSaw/SuperSaw.cpp"
-#include "oscillators/choosable/OscEngine.cpp"
-#include "oscillators/choosable/ChoosableOscillator.cpp"
+#include "oscillators/SuperSaw.cpp"
+#include "oscillators/choosable.cpp"
 
 #include "PitchDetector/PitchDetector.cpp"
 

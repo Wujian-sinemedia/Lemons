@@ -76,6 +76,13 @@ void Oscillator<SampleType>::getSamples (juce::AudioBuffer<SampleType>& output, 
 	            output.getNumSamples());
 }
 
+template <typename SampleType>
+void Oscillator<SampleType>::skipSamples (int numToSkip)
+{
+	for (int i = 0; i < numToSkip; ++i)
+		getSample();
+}
+
 template struct Oscillator<float>;
 template struct Oscillator<double>;
 
