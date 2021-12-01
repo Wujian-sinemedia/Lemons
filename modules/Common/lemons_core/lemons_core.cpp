@@ -7,6 +7,9 @@
 
 #include "misc/misc.cpp"
 
+#include "console/arguments.cpp"
+#include "console/logger.cpp"
+
 #include "files/FileUtilities.cpp"
 
 #include "binary_data/conversions.cpp"

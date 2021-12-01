@@ -6,7 +6,7 @@ namespace lemons::console
 class Logger : public juce::Logger
 {
 public:
-    Logger (juce::File outputFile);
+    Logger (juce::File outputFile = {});
     
     ~Logger() override;
     

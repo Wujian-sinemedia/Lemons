@@ -71,8 +71,10 @@
 
 
 #include "misc/Preprocessor.h"
-
 #include "misc/misc.h"
+
+#include "console/arguments.h"
+#include "console/logger.h"
 
 #include "events/Timers.h"
 #include "events/AutoLock.h"
