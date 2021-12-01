@@ -31,7 +31,7 @@ struct Version
 	/** Returns a String representation of this Version.
 	    @param separator A character that will be placed between the major, minor, and patch values. Defaults to ".".
 	 */
-	[[nodiscard]] String getAsString (const String& separator = ".") const noexcept;
+	[[nodiscard]] String toString (const String& separator = ".") const noexcept;
 
 	/** Increments the major value and sets minor and patch to 0. */
 	void bumpMajor() noexcept;
@@ -59,6 +59,9 @@ struct Version
 
 	/** Returns a Version object representing the version of Juce this module was compiled with. */
 	[[nodiscard]] static Version juceVersion();
+    
+    /** Returns a Version object representing the version of Lemons this module was compiled with. */
+    [[nodiscard]] static Version lemonsVersion();
 
 private:
 	int major { 0 }, minor { 0 }, patch { 1 };

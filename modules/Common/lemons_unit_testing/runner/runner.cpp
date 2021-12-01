@@ -23,8 +23,7 @@ bool executeUnitTests (juce::File logOutput, juce::int64 seed,
 {
 	jassert (! (! singleTestName.isEmpty() && ! categoryName.isEmpty()));
 
-	console::Logger logger { logOutput };
-
+	Logger logger { logOutput };
 	Runner runner;
 
 #if LEMONS_GUI_UNIT_TESTS

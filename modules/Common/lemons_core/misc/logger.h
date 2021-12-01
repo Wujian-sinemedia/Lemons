@@ -1,12 +1,12 @@
 #pragma once
 
-namespace lemons::console
+namespace lemons
 {
 
 class Logger : public juce::Logger
 {
 public:
-    Logger (juce::File outputFile = {});
+    Logger (File outputFile = {});
     
     ~Logger() override;
     
@@ -15,7 +15,7 @@ private:
     
     juce::StringArray loggedMessages;
     
-    juce::File fileToWriteTo;
+    File fileToWriteTo;
     
     bool writeToFile { false };
 };

@@ -41,7 +41,7 @@ bool Version::hasSameMajorVersion (const Version& other) const noexcept
 	return major == other.major;
 }
 
-String Version::getAsString (const String& separator) const noexcept
+String Version::toString (const String& separator) const noexcept
 {
 	return String (major) + separator + String (minor) + separator + String (patch);
 }
@@ -88,6 +88,11 @@ Version Version::withPatchBump() const
 Version Version::juceVersion()
 {
 	return { JUCE_MAJOR_VERSION, JUCE_MINOR_VERSION, JUCE_BUILDNUMBER };
+}
+
+Version Version::lemonsVersion()
+{
+    return { 0, 0, 1 };
 }
 
 }  // namespace lemons

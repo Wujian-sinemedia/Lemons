@@ -7,9 +7,7 @@
 
 #include "misc/misc.cpp"
 #include "misc/Version.cpp"
-
-#include "console/arguments.cpp"
-#include "console/logger.cpp"
+#include "misc/logger.cpp"
 
 #include "files/FileUtilities.cpp"
 

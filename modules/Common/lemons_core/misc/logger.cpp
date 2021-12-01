@@ -1,7 +1,7 @@
-namespace lemons::console
+namespace lemons
 {
 
-Logger::Logger (juce::File outputFile)
+Logger::Logger (File outputFile)
 {
     juce::Logger::setCurrentLogger (this);
     
@@ -13,9 +13,9 @@ Logger::Logger (juce::File outputFile)
     {
         writeToFile = true;
         fileToWriteTo = outputFile;
-        
-        logMessage ("Writing log to file path: " + fileToWriteTo.getFullPathName());
     }
+    
+    logMessage ("Lemons v" + Version::lemonsVersion().toString());
 }
 
 Logger::~Logger()
