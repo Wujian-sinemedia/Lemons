@@ -29,6 +29,13 @@ bool executeUnitTests (juce::File logOutput, juce::int64 seed,
 #if LEMONS_GUI_UNIT_TESTS
 	// set up message manager, etc...
 #endif
+    
+    if (Test::testingIntensityIsLow())
+        logger.writeToLog ("Testing intensity - LOW");
+    else if (Test::testingIntensityIsMedium())
+        logger.writeToLog ("Testing intensity - MEDIUM");
+    else
+        logger.writeToLog ("Testing intensity - HIGH");
 
 	if (! singleTestName.isEmpty())
 	{

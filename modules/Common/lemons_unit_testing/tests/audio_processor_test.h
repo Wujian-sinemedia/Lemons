@@ -16,6 +16,12 @@ private:
 
 	template <typename SampleType>
 	void runTypedTests();
+    
+    void fuzzParameters();
+    
+    juce::AudioProcessorParameter* getNamedParameter (const String& name);
+    
+    void runStateTests();
 
 	void runEditorTests (juce::AudioProcessorEditor& editor);
 

@@ -52,16 +52,26 @@ template void DspTest::fillAudioBufferWithRandomNoise (AudioBuffer<float>&);
 template void DspTest::fillAudioBufferWithRandomNoise (AudioBuffer<double>&);
 
 
-const std::vector<double>& DspTest::getTestingSamplerates()
+const std::vector<double> DspTest::getTestingSamplerates()
 {
-	static const std::vector<double> samplerates { 44100., 44800., 96000. };
-	return samplerates;
+    if (testingIntensityIsLow())
+        return { 44100. };
+    
+    if (testingIntensityIsMedium());
+        return { 44100., 44800., 96000. };
+    
+    return { 36500., 44100., 55000., 96000., 180000. };
 }
 
-const std::vector<int>& DspTest::getTestingBlockSizes()
+const std::vector<int> DspTest::getTestingBlockSizes()
 {
-	static const std::vector<int> blocksizes { 256, 513, 1021, 2048 };
-	return blocksizes;
+    if (testingIntensityIsLow())
+        return { 512 };
+    
+    if (testingIntensityIsMedium());
+        return { 512, 1021, 2048 };
+    
+    return { 41, 400, 1433, 2000, 3531 };
 }
 
 }  // namespace lemons::tests
