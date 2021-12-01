@@ -46,6 +46,31 @@ private:
 };
 
 
+juce::int64 getRandomSeed (const juce::ArgumentList& args)
+{
+    const auto checkForToken = [&args](const String& token) -> std::optional<juce::int64>
+    {
+        if (! args.containsOption (token))
+            return std::nullopt;
+        
+        const auto seedValueString = args.getValueForOption ("--seed");
+        
+        if (seedValueString.startsWith ("0x"))
+            return { seedValueString.getHexValue64() };
+        
+        return { seedValueString.getLargeIntValue() };
+    };
+    
+    if (const auto seed = checkForToken ("--seed"))
+        return *seed;
+    
+    if (const auto s = checkForToken ("-s"))
+        return *s;
+    
+    return juce::Random::getSystemRandom().nextInt64();
+}
+
+
 bool executeAllTests (const juce::ArgumentList& args)
 {
 	if (args.containsOption ("--help|-h"))
@@ -62,37 +87,14 @@ bool executeAllTests (const juce::ArgumentList& args)
 		return true;
 	}
 
-	const auto seed = [&args]
-	{
-		if (args.containsOption ("--seed"))
-		{
-			const auto seedValueString = args.getValueForOption ("--seed");
-
-			if (seedValueString.startsWith ("0x"))
-				return seedValueString.getHexValue64();
-
-			return seedValueString.getLargeIntValue();
-		}
-
-		if (args.containsOption ("-s"))
-		{
-			const auto seedValueString = args.getValueForOption ("-s");
-
-			if (seedValueString.startsWith ("0x"))
-				return seedValueString.getHexValue64();
-
-			return seedValueString.getLargeIntValue();
-		}
-
-		return juce::Random::getSystemRandom().nextInt64();
-	}();
-
 	ConsoleUnitTestRunner runner;
 	ConsoleLogger         logger;
 
 #if LEMONS_GUI_UNIT_TESTS
 	// set up message manager, etc...
 #endif
+    
+    const auto seed = getRandomSeed (args);
 
 	if (args.containsOption ("--category"))
 		runner.runTestsInCategory (args.getValueForOption ("--category"), seed);

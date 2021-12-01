@@ -61,7 +61,7 @@ list (APPEND DoxygenDepends "${main_page_output}")
 set (modules_output "${out_folder}/lemons_modules.dox")
 
 add_custom_command (OUTPUT "${modules_output}" VERBATIM
-				 	COMMAND Python3::Interpreter ARGS "${CMAKE_CURRENT_LIST_DIR}/scripts/process_juce_modules.py" "${Lemons_SOURCE_DIR}" "${out_folder}" 
+				 	COMMAND Python3::Interpreter ARGS "${CMAKE_CURRENT_LIST_DIR}/scripts/juce_modules/process_juce_modules.py" "${Lemons_SOURCE_DIR}" "${out_folder}" 
 				 	COMMENT "Preparing Doxygen build tree...")
 
 list (APPEND DoxygenDepends "${modules_output}")
@@ -71,7 +71,7 @@ list (APPEND DoxygenDepends "${modules_output}")
 set (cmake_modules_output "${out_folder}/CMake")
 
 add_custom_command (OUTPUT "${cmake_modules_output}" VERBATIM
-					COMMAND Python3::Interpreter ARGS "${CMAKE_CURRENT_LIST_DIR}/scripts/process_cmake_modules.py" "${Lemons_SOURCE_DIR}/util/cmake/modules" "${Lemons_SOURCE_DIR}/modules" "${Lemons_SOURCE_DIR}" "${cmake_modules_output}" "${CMAKE_CURRENT_LIST_DIR}/cmake_api.md"
+					COMMAND Python3::Interpreter ARGS "${CMAKE_CURRENT_LIST_DIR}/scripts/cmake/process_cmake_modules.py" "${Lemons_SOURCE_DIR}/util/cmake/modules" "${Lemons_SOURCE_DIR}/modules" "${Lemons_SOURCE_DIR}" "${cmake_modules_output}" "${CMAKE_CURRENT_LIST_DIR}/cmake_api.md"
 					COMMENT "Generating documentation for CMake modules...")
 
 list (APPEND DoxygenDepends "${cmake_modules_output}")
