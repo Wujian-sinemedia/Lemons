@@ -100,8 +100,12 @@ void AudioProcessorTestBase::runTypedTests()
             
             logImportantMessage ("Can call process");
             processor.processBlock (audioIO, midiIO);
+            processor.processBlock (audioIO, midiIO);
+            processor.processBlock (audioIO, midiIO);
             
             logImportantMessage ("Bypassed processing");
+            processor.processBlockBypassed (audioIO, midiIO);
+            processor.processBlock (audioIO, midiIO);
             processor.processBlockBypassed (audioIO, midiIO);
             
             logImportantMessage ("Offline rendering");
@@ -109,7 +113,6 @@ void AudioProcessorTestBase::runTypedTests()
             processor.processBlock (audioIO, midiIO);
             processor.processBlockBypassed (audioIO, midiIO);
             
-            logImportantMessage ("Back to normal processing");
             processor.setNonRealtime (false);
             processor.processBlockBypassed (audioIO, midiIO);
             processor.processBlock (audioIO, midiIO);

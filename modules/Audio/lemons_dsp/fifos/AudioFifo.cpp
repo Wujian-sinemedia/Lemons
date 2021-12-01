@@ -155,8 +155,11 @@ void AudioFifoTests<FloatType>::runTest()
 
 
         logImportantMessage ("Retrieve more samples than are left in FIFO");
-
-		expectEquals (fifo.numStoredSamples(), halfNumSamples);
+        
+        if (math::numberIsEven (numSamples))
+            expectEquals (fifo.numStoredSamples(), halfNumSamples);
+        else
+            expectWithinAbsoluteError (fifo.numStoredSamples(), halfNumSamples, 1);
 
 		fifo.popSamples (fifoOutput);
 

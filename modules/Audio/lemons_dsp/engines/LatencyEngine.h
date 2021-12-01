@@ -46,3 +46,43 @@ private:
 };
 
 }  // namespace lemons::dsp
+
+
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+
+#if LEMONS_UNIT_TESTS
+
+namespace lemons::tests
+{
+
+template <typename FloatType>
+struct LatencyEngineTests : public DspTest
+{
+public:
+    LatencyEngineTests();
+    
+private:
+    void runTest() final;
+    
+    void testLatency (int latency);
+    
+    struct PassThroughEngine : public dsp::LatencyEngine<FloatType>
+    {
+        void renderChunk (const AudioBuffer<FloatType>& input,
+                          AudioBuffer<FloatType>& output,
+                          MidiBuffer& midiMessages, bool isBypassed) final;
+    };
+    
+    PassThroughEngine engine;
+    
+    AudioBuffer<FloatType> audioIn, audioOut;
+    
+    MidiBuffer midiStorage;
+};
+
+static LatencyEngineTests<float> latencyEngineTest_float;
+static LatencyEngineTests<double> latencyEngineTest_double;
+ 
+}
+
+#endif

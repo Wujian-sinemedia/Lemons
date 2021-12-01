@@ -183,7 +183,7 @@ private:
     AudioBuffer<SampleType> storage;
 };
 
-static OscillatorTests<float> oscillatorTest_float;
-static OscillatorTests<double> oscillatorTest_double;
+//static OscillatorTests<float> oscillatorTest_float;
+//static OscillatorTests<double> oscillatorTest_double;
 
 }

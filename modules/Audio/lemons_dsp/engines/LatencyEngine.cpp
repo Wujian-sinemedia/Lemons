@@ -5,12 +5,16 @@ template <typename SampleType>
 void LatencyEngine<SampleType>::prepared (int blocksize, double samplerate, int numChannels)
 {
 	jassert (blocksize == internalBlocksize);
+    
+    const auto multiple = blocksize * 4;
 
-	chunkMidiBuffer.ensureSize (static_cast<size_t> (blocksize));
-	inputFIFO.setSize (blocksize, numChannels);
-	outputFIFO.setSize (blocksize, numChannels);
-	inBuffer.setSize (numChannels, blocksize, true, true, true);
-	outBuffer.setSize (numChannels, blocksize, true, true, true);
+	inputFIFO.setSize (multiple, numChannels);
+	outputFIFO.setSize (multiple, numChannels);
+    
+    chunkMidiBuffer.ensureSize (static_cast<size_t> (blocksize));
+    
+	inBuffer.setSize  (numChannels, multiple, true, true, true);
+	outBuffer.setSize (numChannels, multiple, true, true, true);
 
 	onPrepare (blocksize, samplerate);
 }
@@ -51,6 +55,8 @@ void LatencyEngine<SampleType>::setSamplerate (double samplerate)
 
 	auto channels = inBuffer.getNumChannels();
 	if (channels == 0) channels = 2;
+    
+    if (internalBlocksize == 0) internalBlocksize = 512;
 
 	this->prepare (samplerate, internalBlocksize, channels);
 }
@@ -74,8 +80,7 @@ void LatencyEngine<SampleType>::renderBlock (const AudioBuffer<SampleType>& inpu
 
 	while (inputFIFO.numStoredSamples() >= internalBlocksize)
 	{
-		auto inAlias = buffers::getAliasBuffer (inBuffer, 0, internalBlocksize);
-
+		auto inAlias  = buffers::getAliasBuffer (inBuffer, 0, internalBlocksize);
 		auto outAlias = buffers::getAliasBuffer (outBuffer, 0, internalBlocksize);
 
 		inputFIFO.pop (inAlias, chunkMidiBuffer);
@@ -97,3 +102,98 @@ template class LatencyEngine<float>;
 template class LatencyEngine<double>;
 
 }  // namespace lemons::dsp
+
+
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+
+#if LEMONS_UNIT_TESTS
+
+namespace lemons::tests
+{
+
+template <typename FloatType>
+LatencyEngineTests<FloatType>::LatencyEngineTests()
+: DspTest (getDspTestName<FloatType>("Latency audio engine tests"))
+{
+}
+
+template <typename FloatType>
+void LatencyEngineTests<FloatType>::runTest()
+{
+    constexpr auto numChannels = 2;
+    
+    beginTest ("Initial latency should be 0");
+    
+    expect (! engine.isInitialized());
+    expectEquals (engine.reportLatency(), 0);
+    
+    for (const auto blocksize : getTestingBlockSizes())
+    {
+        for (const auto samplerate : getTestingSamplerates())
+        {
+            beginTest ("Blocksize: " + String(blocksize) + "; Samplerate: " + String(samplerate));
+            
+            midiStorage.ensureSize (static_cast<size_t>(blocksize));
+            audioIn.setSize  (numChannels, blocksize, true, true, true);
+            audioOut.setSize (numChannels, blocksize, true, true, true);
+            
+            fillAudioBufferWithRandomNoise (audioIn);
+            fillMidiBufferWithRandomEvents (midiStorage, blocksize / 2);
+            
+            engine.setSamplerate (samplerate);
+            expectEquals (engine.getSamplerate(), samplerate);
+            
+            expect (engine.isInitialized());
+            
+            logImportantMessage ("Latency equal to blocksize");
+            testLatency (blocksize);
+            
+            logImportantMessage ("Latency larger than blocksize");
+            testLatency (blocksize * 2 + 36);
+            
+//            logImportantMessage ("Latency smaller than blocksize");
+//            testLatency (blocksize / 2);
+        }
+    }
+}
+
+template <typename FloatType>
+void LatencyEngineTests<FloatType>::testLatency (int latency)
+{
+    const auto srBefore = engine.getSamplerate();
+    
+    engine.changeLatency (latency);
+    expectEquals (engine.reportLatency(), latency);
+    
+    expectEquals (engine.getSamplerate(), srBefore);
+    
+    logImportantMessage ("Can call process()");
+    
+    audioOut.clear();
+    
+    engine.process (audioIn, audioOut, midiStorage);
+    
+    //expect (allSamplesAreZero (audioOut, 0, latency));
+    
+    
+}
+
+template struct LatencyEngineTests<float>;
+template struct LatencyEngineTests<double>;
+
+template<typename FloatType>
+void LatencyEngineTests<FloatType>::PassThroughEngine::renderChunk (const AudioBuffer<FloatType>& input,
+                                                                    AudioBuffer<FloatType>& output,
+                                                                    MidiBuffer&, bool isBypassed)
+{
+    jassert (input.getNumSamples() == output.getNumSamples());
+    jassert (input.getNumChannels() == output.getNumChannels());
+    jassert (input.getNumSamples() == this->reportLatency());
+    
+    if (! isBypassed)
+        dsp::buffers::copy (input, output);
+}
+
+}
+
+#endif

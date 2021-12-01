@@ -15,6 +15,11 @@ constexpr int periodInSamples (double samplerate, FreqType freqHz) noexcept
 	return juce::roundToInt (samplerate / freqHz);
 }
 
+template<typename T>
+constexpr bool numberIsEven (T number) noexcept
+{
+    return number % 2 == 0;
+}
 
 // returns the resultant fundamental frequency in Hz from a specified period in samples and samplerate
 template <typename PeriodType>

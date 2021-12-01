@@ -202,7 +202,7 @@ const std::vector<double>& DspTest::getTestingSamplerates()
 
 const std::vector<int>& DspTest::getTestingBlockSizes()
 {
-	static const std::vector<int> blocksizes { 256, 512, 1024, 2048 };
+	static const std::vector<int> blocksizes { 256, 513, 1021, 2048 };
 	return blocksizes;
 }
 

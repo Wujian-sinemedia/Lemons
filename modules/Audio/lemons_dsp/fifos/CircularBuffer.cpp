@@ -88,7 +88,7 @@ void CircularBuffer<SampleType>::resize (int newSize)
 	// NB. avoids edge cases when attempting to store the full capacity's worth of samples
 	newSize += 1;
 
-	buffer.setSize (1, newSize, true, true, false);
+	buffer.setSize (1, newSize, true, true, true);
 
 	fifo.setTotalSize (newSize);
 
@@ -177,7 +177,7 @@ void CircularBufferTests<FloatType>::runTest()
 
 		circularBuffer.storeSamples (origStorage);
 
-		const auto halfNumSamples = numSamples / 2;
+        const auto halfNumSamples = numSamples / 2;
 
 		auto alias = dsp::buffers::getAliasBuffer (circOutput, 0, halfNumSamples);
 
@@ -187,8 +187,11 @@ void CircularBufferTests<FloatType>::runTest()
 
 
         logImportantMessage ("Retrieve more samples than are left in circ buffer");
-
-		expectEquals (circularBuffer.getNumStoredSamples(), halfNumSamples);
+        
+        if (math::numberIsEven (numSamples))
+            expectEquals (circularBuffer.getNumStoredSamples(), halfNumSamples);
+        else
+            expectWithinAbsoluteError (circularBuffer.getNumStoredSamples(), halfNumSamples, 1);
 
 		circularBuffer.getSamples (circOutput);
 
