@@ -69,9 +69,10 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">lemons::tests Namespace Reference<div class="ingroups"><a class="el" href="group___testing.html">Testing</a> &raquo; <a class="el" href="group__lemons__unit__testing.html">lemons_unit_testing</a> &raquo; <a class="el" href="group__runner.html">runner</a><a class="el" href="group___testing.html">Testing</a> &raquo; <a class="el" href="group__lemons__unit__testing.html">lemons_unit_testing</a> &raquo;  &#124; <a class="el" href="group__tests.html">tests</a></div></div>  </div>
+<div class="title">lemons::tests Namespace Reference<div class="ingroups"><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__unit__testing.html">lemons_unit_testing</a> &raquo; <a class="el" href="group__runner.html">runner</a><a class="el" href="group___common.html">Common</a> &raquo; <a class="el" href="group__lemons__unit__testing.html">lemons_unit_testing</a> &raquo;  &#124; <a class="el" href="group__tests.html">tests</a><a class="el" href="group___audio.html">Audio</a> &raquo; <a class="el" href="group__lemons__dsp.html">lemons_dsp</a><a class="el" href="group___common.html">Common</a> &raquo;  &#124; <a class="el" href="group__lemons__unit__testing.html">lemons_unit_testing</a> &raquo;  &#124; <a class="el" href="group__util.html">util</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
@@ -83,17 +84,328 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1tests_1_1_dsp_test.html">DspTest</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1tests_1_1_oscillator_tests.html">OscillatorTests</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1tests_1_1_runner.html">Runner</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1tests_1_1_test.html">Test</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:aa422106235194433473c28fa45ff152b"><td class="memTemplParams" colspan="2">template&lt;typename FloatType &gt; </td></tr>
+<tr class="memitem:aa422106235194433473c28fa45ff152b"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a> = juce::AudioBuffer&lt; FloatType &gt;</td></tr>
+<tr class="separator:aa422106235194433473c28fa45ff152b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03c16098e5790557328c667001923104"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#a03c16098e5790557328c667001923104">MidiBuffer</a> = juce::MidiBuffer</td></tr>
+<tr class="separator:a03c16098e5790557328c667001923104"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a7b7bf566585454b8ecab1b489ecf916c"><td class="memTemplParams" colspan="2">template&lt;typename FloatType &gt; </td></tr>
+<tr class="memitem:a7b7bf566585454b8ecab1b489ecf916c"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#a7b7bf566585454b8ecab1b489ecf916c">allSamplesAreEqual</a> (const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer1, const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer2, int startIndex1, int numSamples, int startIndex2=-1, int channel1=0, int channel2=-1)</td></tr>
+<tr class="separator:a7b7bf566585454b8ecab1b489ecf916c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcba4d5065cf05b03e3a70c608eeb836"><td class="memTemplParams" colspan="2">template&lt;typename FloatType &gt; </td></tr>
+<tr class="memitem:adcba4d5065cf05b03e3a70c608eeb836"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#adcba4d5065cf05b03e3a70c608eeb836">allSamplesAreValid</a> (const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer)</td></tr>
+<tr class="separator:adcba4d5065cf05b03e3a70c608eeb836"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9eeb99099375f1fa3d717a93454c2c9c"><td class="memTemplParams" colspan="2">template&lt;typename FloatType &gt; </td></tr>
+<tr class="memitem:a9eeb99099375f1fa3d717a93454c2c9c"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#a9eeb99099375f1fa3d717a93454c2c9c">allSamplesAreZero</a> (const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer, int startIndex, int numSamples, int channel=0)</td></tr>
+<tr class="separator:a9eeb99099375f1fa3d717a93454c2c9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38f39f789d5019726a8d50af6cdb96ab"><td class="memTemplParams" colspan="2">template&lt;typename FloatType &gt; </td></tr>
+<tr class="memitem:a38f39f789d5019726a8d50af6cdb96ab"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#a38f39f789d5019726a8d50af6cdb96ab">bufferChannelsAreEqual</a> (const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer1, int channel1, const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer2, int channel2)</td></tr>
+<tr class="separator:a38f39f789d5019726a8d50af6cdb96ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc03e9fae97d48e1f10d2c5a2131f6ff"><td class="memTemplParams" colspan="2">template&lt;typename FloatType &gt; </td></tr>
+<tr class="memitem:abc03e9fae97d48e1f10d2c5a2131f6ff"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#abc03e9fae97d48e1f10d2c5a2131f6ff">bufferIsSilent</a> (const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer)</td></tr>
+<tr class="separator:abc03e9fae97d48e1f10d2c5a2131f6ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e40182d3a34127843dc0487cf7678d2"><td class="memTemplParams" colspan="2">template&lt;typename FloatType &gt; </td></tr>
+<tr class="memitem:a5e40182d3a34127843dc0487cf7678d2"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#a5e40182d3a34127843dc0487cf7678d2">buffersAreEqual</a> (const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer1, const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer2)</td></tr>
+<tr class="separator:a5e40182d3a34127843dc0487cf7678d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7681e5e17b48965aa1416c51ea9c4a61"><td class="memTemplParams" colspan="2">template&lt;typename FloatType &gt; </td></tr>
+<tr class="memitem:a7681e5e17b48965aa1416c51ea9c4a61"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#a7681e5e17b48965aa1416c51ea9c4a61">buffersAreReasonablyEqual</a> (const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer1, const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer2)</td></tr>
+<tr class="separator:a7681e5e17b48965aa1416c51ea9c4a61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4114b46d4dfdf5b2a18688e30e54a0c8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#a4114b46d4dfdf5b2a18688e30e54a0c8">executeAllTests</a> (const juce::ArgumentList &amp;args)</td></tr>
 <tr class="separator:a4114b46d4dfdf5b2a18688e30e54a0c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c0667618e391a361844cfdd79bdc213"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#a6c0667618e391a361844cfdd79bdc213">executeUnitTests</a> (juce::File logOutput, juce::int64 seed, const String &amp;singleTestName={}, const String &amp;categoryName={})</td></tr>
+<tr class="separator:a6c0667618e391a361844cfdd79bdc213"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac131c73da0a08f4127224d450c02270e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#ac131c73da0a08f4127224d450c02270e">midiBuffersAreEqual</a> (const <a class="el" href="namespacelemons_1_1tests.html#a03c16098e5790557328c667001923104">MidiBuffer</a> &amp;buffer1, const <a class="el" href="namespacelemons_1_1tests.html#a03c16098e5790557328c667001923104">MidiBuffer</a> &amp;buffer2)</td></tr>
+<tr class="separator:ac131c73da0a08f4127224d450c02270e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91d1e7095657d0593a3baba099b5ed36"><td class="memTemplParams" colspan="2">template&lt;typename FloatType &gt; </td></tr>
+<tr class="memitem:a91d1e7095657d0593a3baba099b5ed36"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#a91d1e7095657d0593a3baba099b5ed36">noSamplesAreClipping</a> (const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer)</td></tr>
+<tr class="separator:a91d1e7095657d0593a3baba099b5ed36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="aa422106235194433473c28fa45ff152b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa422106235194433473c28fa45ff152b">&#9670;&nbsp;</a></span>AudioBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename FloatType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">lemons::tests::AudioBuffer</a> = typedef juce::AudioBuffer&lt;FloatType&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a03c16098e5790557328c667001923104"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03c16098e5790557328c667001923104">&#9670;&nbsp;</a></span>MidiBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacelemons_1_1tests.html#a03c16098e5790557328c667001923104">lemons::tests::MidiBuffer</a> = typedef juce::MidiBuffer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a7b7bf566585454b8ecab1b489ecf916c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b7bf566585454b8ecab1b489ecf916c">&#9670;&nbsp;</a></span>allSamplesAreEqual()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename FloatType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::tests::allSamplesAreEqual </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>startIndex1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numSamples</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>startIndex2</em> = <code>-1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>channel1</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>channel2</em> = <code>-1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adcba4d5065cf05b03e3a70c608eeb836"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcba4d5065cf05b03e3a70c608eeb836">&#9670;&nbsp;</a></span>allSamplesAreValid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename FloatType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::tests::allSamplesAreValid </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9eeb99099375f1fa3d717a93454c2c9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9eeb99099375f1fa3d717a93454c2c9c">&#9670;&nbsp;</a></span>allSamplesAreZero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename FloatType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::tests::allSamplesAreZero </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>startIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numSamples</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>channel</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a38f39f789d5019726a8d50af6cdb96ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38f39f789d5019726a8d50af6cdb96ab">&#9670;&nbsp;</a></span>bufferChannelsAreEqual()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename FloatType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::tests::bufferChannelsAreEqual </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>channel1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>channel2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abc03e9fae97d48e1f10d2c5a2131f6ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc03e9fae97d48e1f10d2c5a2131f6ff">&#9670;&nbsp;</a></span>bufferIsSilent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename FloatType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::tests::bufferIsSilent </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5e40182d3a34127843dc0487cf7678d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e40182d3a34127843dc0487cf7678d2">&#9670;&nbsp;</a></span>buffersAreEqual()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename FloatType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::tests::buffersAreEqual </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7681e5e17b48965aa1416c51ea9c4a61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7681e5e17b48965aa1416c51ea9c4a61">&#9670;&nbsp;</a></span>buffersAreReasonablyEqual()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename FloatType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::tests::buffersAreReasonablyEqual </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a4114b46d4dfdf5b2a18688e30e54a0c8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4114b46d4dfdf5b2a18688e30e54a0c8">&#9670;&nbsp;</a></span>executeAllTests()</h2>
 
@@ -112,10 +424,98 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a6c0667618e391a361844cfdd79bdc213"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c0667618e391a361844cfdd79bdc213">&#9670;&nbsp;</a></span>executeUnitTests()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::tests::executeUnitTests </td>
+          <td>(</td>
+          <td class="paramtype">juce::File&#160;</td>
+          <td class="paramname"><em>logOutput</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">juce::int64&#160;</td>
+          <td class="paramname"><em>seed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>singleTestName</em> = <code>{}</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>categoryName</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac131c73da0a08f4127224d450c02270e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac131c73da0a08f4127224d450c02270e">&#9670;&nbsp;</a></span>midiBuffersAreEqual()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::tests::midiBuffersAreEqual </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1tests.html#a03c16098e5790557328c667001923104">MidiBuffer</a> &amp;&#160;</td>
+          <td class="paramname"><em>buffer1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1tests.html#a03c16098e5790557328c667001923104">MidiBuffer</a> &amp;&#160;</td>
+          <td class="paramname"><em>buffer2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a91d1e7095657d0593a3baba099b5ed36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91d1e7095657d0593a3baba099b5ed36">&#9670;&nbsp;</a></span>noSamplesAreClipping()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename FloatType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::tests::noSamplesAreClipping </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 1 2021 00:45:16 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 1 2021 10:52:59 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

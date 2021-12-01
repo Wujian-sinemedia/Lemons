@@ -95,8 +95,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a283881d2fa2abaedc99cf1042c5d3eb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad07b54bfc7da0da1b7ee26e46e2ea8cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1dsp_1_1_synth_voice_base.html">SynthVoiceBase</a>&lt; SampleType &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_template_synth.html#ad07b54bfc7da0da1b7ee26e46e2ea8cf">createVoice</a> () final</td></tr>
 <tr class="separator:ad07b54bfc7da0da1b7ee26e46e2ea8cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afadd3a45c7db303eef075afabef80737"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_synth_base.html#afadd3a45c7db303eef075afabef80737">getLastMovedControllerInfo</a> () const</td></tr>
-<tr class="separator:afadd3a45c7db303eef075afabef80737"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38007d9c531b80d4ea64875f881be8cf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_synth_base.html#a38007d9c531b80d4ea64875f881be8cf">getNumActiveVoices</a> () const</td></tr>
 <tr class="separator:a38007d9c531b80d4ea64875f881be8cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22a13afada1f072993befdbf3197d47c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_synth_base.html#a22a13afada1f072993befdbf3197d47c">getNumVoices</a> () const noexcept</td></tr>
@@ -131,7 +129,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa6f57523a03a5b0f1a9f74d5be093f44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d6e9ec66b6cb5a68366289ea251fb37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_synth_base.html#a4d6e9ec66b6cb5a68366289ea251fb37">releaseResources</a> ()</td></tr>
 <tr class="separator:a4d6e9ec66b6cb5a68366289ea251fb37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31d94dedef4b759fadf9e463d81b9fa7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_synth_base.html#a31d94dedef4b759fadf9e463d81b9fa7">renderVoices</a> (MidiBuffer &amp;midiMessages, <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;output)</td></tr>
+<tr class="memitem:a31d94dedef4b759fadf9e463d81b9fa7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_synth_base.html#a31d94dedef4b759fadf9e463d81b9fa7">renderVoices</a> (MidiBuffer &amp;midiMessages, <a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;output)</td></tr>
 <tr class="separator:a31d94dedef4b759fadf9e463d81b9fa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a889889a9b08cc05171150e1d59d274da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_synth_base.html#a889889a9b08cc05171150e1d59d274da">reportActiveNotes</a> (juce::Array&lt; int &gt; &amp;outputArray, bool includePlayingButReleased=false, bool includeKeyUpNotes=true) const</td></tr>
 <tr class="separator:a889889a9b08cc05171150e1d59d274da"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -320,33 +318,6 @@ template&lt;typename SampleType , typename VoiceType &gt; </div>
 
 </div>
 </div>
-<a id="afadd3a45c7db303eef075afabef80737"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afadd3a45c7db303eef075afabef80737">&#9670;&nbsp;</a></span>getLastMovedControllerInfo()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto <a class="el" href="classlemons_1_1dsp_1_1_synth_base.html">lemons::dsp::SynthBase</a>&lt; SampleType &gt;::getLastMovedControllerInfo </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a38007d9c531b80d4ea64875f881be8cf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a38007d9c531b80d4ea64875f881be8cf">&#9670;&nbsp;</a></span>getNumActiveVoices()</h2>
 
@@ -453,7 +424,7 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="class_m_t_s_e_s_p_1_1_client.html#ab75546201eca6ca661d5f5f27a7a8642">MTSESP::Client::getScaleName()</a>, and <a class="el" href="structlemons_1_1midi_1_1_pitch_pipeline.html#a9e9f6441d3a5c06234dd0a19f96cbeaf">lemons::midi::PitchPipeline::tuning</a>.</p>
+<p class="reference">References <a class="el" href="classlemons_1_1midi_1_1_mts_client.html#ae56a4b789bcf8cb9ca682310155d57e6">lemons::midi::MtsClient::getScaleName()</a>, and <a class="el" href="structlemons_1_1midi_1_1_pitch_pipeline.html#abf3dee92140fdc8097df95e653f04a89">lemons::midi::PitchPipeline::tuning</a>.</p>
 
 </div>
 </div>
@@ -591,7 +562,7 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">References <a class="el" href="class_m_t_s_e_s_p_1_1_client.html#a7e255b07ba0ac908bf00fb099045338d">MTSESP::Client::isConnected()</a>, and <a class="el" href="structlemons_1_1midi_1_1_pitch_pipeline.html#a9e9f6441d3a5c06234dd0a19f96cbeaf">lemons::midi::PitchPipeline::tuning</a>.</p>
+<p class="reference">References <a class="el" href="classlemons_1_1midi_1_1_mts_client.html#aa4cc4579a9841ba5a2f76aa3761bd978">lemons::midi::MtsClient::isConnected()</a>, and <a class="el" href="structlemons_1_1midi_1_1_pitch_pipeline.html#abf3dee92140fdc8097df95e653f04a89">lemons::midi::PitchPipeline::tuning</a>.</p>
 
 </div>
 </div>
@@ -996,7 +967,7 @@ template&lt;typename SampleType &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
           <td class="paramname"><em>output</em>&#160;</td>
         </tr>
         <tr>
@@ -1635,7 +1606,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 1 2021 00:45:15 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 1 2021 10:52:59 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

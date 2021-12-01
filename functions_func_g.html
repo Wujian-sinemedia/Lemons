@@ -76,8 +76,7 @@ $(function() {
 : <a class="el" href="structlemons_1_1plugin_1_1_parameter_1_1_listener.html#ac0db7beb485e9164070104f5da7e7b40">lemons::plugin::Parameter::Listener</a>
 </li>
 <li>get()
-: <a class="el" href="classlemons_1_1dsp_1_1_dsp_chain.html#ae0b1b1538e4e4fa2dc9ce1f8db875d06">lemons::dsp::DspChain&lt; Nodes &gt;</a>
-, <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#a9333a81bf01432310fc49d52816c6a86">lemons::plugin::TypedParameter&lt; ValueType &gt;</a>
+: <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#a9333a81bf01432310fc49d52816c6a86">lemons::plugin::TypedParameter&lt; ValueType &gt;</a>
 </li>
 <li>getAcceleration()
 : <a class="el" href="classlemons_1_1_motion_manager.html#a95b6c038637b80fb1c5d3b076ef0425c">lemons::MotionManager</a>
@@ -94,17 +93,17 @@ $(function() {
 <li>getApplicationVersion()
 : <a class="el" href="classlemons_1_1_gui_app.html#a0c62a2acd8d597acd329726feb5694b2">lemons::GuiApp&lt; ContentComponentType, &gt;</a>
 </li>
-<li>getAsArrayOfPitches()
-: <a class="el" href="classlemons_1_1midi_1_1_midi_keyboard_state.html#a794135ea50b4d321d83867e73a6b5e83">lemons::midi::MidiKeyboardState</a>
-</li>
-<li>getAsImage()
-: <a class="el" href="structlemons_1_1_raw_data.html#a7dbfe6355bf679c8a5bfc5e9cd381e17">lemons::RawData</a>
+<li>getAsMemoryBlock()
+: <a class="el" href="structlemons_1_1binary_1_1_data.html#a74b924703cf18cf60b4931df8cc3ac7b">lemons::binary::Data</a>
 </li>
 <li>getAsString()
-: <a class="el" href="structlemons_1_1_raw_data.html#ab53329e23da7ab50cdca806d65a4fe9d">lemons::RawData</a>
+: <a class="el" href="structlemons_1_1binary_1_1_data.html#ac830c9dca94282ee57eb55b35730ea0f">lemons::binary::Data</a>
 </li>
 <li>getAttitude()
 : <a class="el" href="classlemons_1_1_motion_manager.html#a1a39899bc1e9d317a559cd89a562b787">lemons::MotionManager</a>
+</li>
+<li>getAudio()
+: <a class="el" href="structlemons_1_1binary_1_1_data.html#ab1d65e86c955eb8492ab1cdcdc42fc79">lemons::binary::Data</a>
 </li>
 <li>getAverageGainReduction()
 : <a class="el" href="structlemons_1_1dsp_1_1_f_x_1_1_level_reporting_audio_effect.html#a14cf647f18c204aafc0433069ae685e3">lemons::dsp::FX::LevelReportingAudioEffect&lt; SampleType &gt;</a>
@@ -120,6 +119,9 @@ $(function() {
 </li>
 <li>getBandOfType()
 : <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_e_q.html#a4c1d6365b4752a40c2f2d43d7db97d37">lemons::dsp::FX::EQ&lt; SampleType &gt;</a>
+</li>
+<li>getBlob()
+: <a class="el" href="structlemons_1_1binary_1_1_data.html#aae0a1b7c1c60e3de7b98c33da19974dd">lemons::binary::Data</a>
 </li>
 <li>getCapacity()
 : <a class="el" href="classlemons_1_1dsp_1_1_circular_buffer.html#a501fc09d80b85274e0bebe94af474991">lemons::dsp::CircularBuffer&lt; SampleType &gt;</a>
@@ -161,7 +163,8 @@ $(function() {
 : <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_filter.html#adb1506705e06457cfb10ce0272c66c04">lemons::dsp::FX::Filter&lt; SampleType &gt;</a>
 </li>
 <li>getFrequency()
-: <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_choosable_oscillator.html#a2d3ec8b57408773a24a0f96b1c5ca24e">lemons::dsp::osc::ChoosableOscillator&lt; SampleType &gt;</a>
+: <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_choosable_oscillator.html#aabcca2d31c9712b289f7af88aa925da6">lemons::dsp::osc::ChoosableOscillator&lt; SampleType &gt;</a>
+, <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_engine.html#a9c15dd22b1c6fd7bf5999b665766e7d4">lemons::dsp::osc::Engine&lt; SampleType, Osctype, &gt;</a>
 </li>
 <li>getFrequencyForMidi()
 : <a class="el" href="structlemons_1_1midi_1_1_pitch_pipeline.html#aaff529b9e3c1a77688aeea5b1fadc90f">lemons::midi::PitchPipeline</a>
@@ -185,6 +188,9 @@ $(function() {
 <li>getGravity()
 : <a class="el" href="classlemons_1_1_motion_manager.html#a1718847202792179b587538b63839521">lemons::MotionManager</a>
 </li>
+<li>getImage()
+: <a class="el" href="structlemons_1_1binary_1_1_data.html#a8cf059725220443050eec963b7e3d2ca">lemons::binary::Data</a>
+</li>
 <li>getIncrement()
 : <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_phase.html#acb6dee2858f02f252733532bdcf5ed69">lemons::dsp::osc::Phase&lt; SampleType &gt;</a>
 </li>
@@ -192,22 +198,19 @@ $(function() {
 : <a class="el" href="structlemons_1_1spline_1_1_knots.html#a848ea41039c0622df410cc41a414b948">lemons::spline::Knots</a>
 </li>
 <li>getLastMidiChannel()
-: <a class="el" href="classlemons_1_1midi_1_1_midi_processor.html#afe52d96bc46cdeed954b481e95a49914">lemons::midi::MidiProcessor</a>
+: <a class="el" href="classlemons_1_1midi_1_1_midi_processor.html#a0b7c7b4161c1c7a3f12b02bc2a548935">lemons::midi::MidiProcessor</a>
 </li>
 <li>getLastMidiPan()
 : <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_panner_base.html#ae8871e9d712186ba640183a7791242e6">lemons::dsp::FX::PannerBase</a>
 </li>
 <li>getLastMidiTimestamp()
-: <a class="el" href="classlemons_1_1midi_1_1_midi_processor.html#aea8b1f462732a9eeb9843b35a8d91fb8">lemons::midi::MidiProcessor</a>
+: <a class="el" href="classlemons_1_1midi_1_1_midi_processor.html#ae9de4a1652b1d55ed7ec146849d8f18e">lemons::midi::MidiProcessor</a>
 </li>
 <li>getLastMovedCCinfo()
-: <a class="el" href="classlemons_1_1midi_1_1_midi_processor.html#a2ff14c7d693609fc853e3d5d4da9e433">lemons::midi::MidiProcessor</a>
-</li>
-<li>getLastMovedControllerInfo()
-: <a class="el" href="classlemons_1_1dsp_1_1_synth_base.html#afadd3a45c7db303eef075afabef80737">lemons::dsp::SynthBase&lt; SampleType &gt;</a>
+: <a class="el" href="classlemons_1_1midi_1_1_midi_processor.html#ab2d46b01a2c660049db621140833bba8">lemons::midi::MidiProcessor</a>
 </li>
 <li>getLastPitchwheelValue()
-: <a class="el" href="classlemons_1_1midi_1_1_midi_processor.html#a9f2d199343d072b8ff4ce67b49cb4f4a">lemons::midi::MidiProcessor</a>
+: <a class="el" href="classlemons_1_1midi_1_1_midi_processor.html#a40b779da63a4a9232fd7157b9262ec98">lemons::midi::MidiProcessor</a>
 </li>
 <li>getLastRecievedPitchbend()
 : <a class="el" href="classlemons_1_1midi_1_1_pitch_bend_tracker.html#af2cb699d8149f9372e56fa71e5d0f769">lemons::midi::PitchBendTracker</a>
@@ -243,6 +246,9 @@ $(function() {
 <li>getMaximum()
 : <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#ab475aed3afd4247a7c5afc53e5b74c0b">lemons::plugin::TypedParameter&lt; ValueType &gt;</a>
 </li>
+<li>getMidi()
+: <a class="el" href="structlemons_1_1binary_1_1_data.html#a1701e824ca7a235d52fde08f622167b0">lemons::binary::Data</a>
+</li>
 <li>getMidiChannel()
 : <a class="el" href="classlemons_1_1dsp_1_1_synth_voice_base.html#a03608e1f2fa8a9419a5de9cd92021d4d">lemons::dsp::SynthVoiceBase&lt; SampleType &gt;</a>
 </li>
@@ -273,6 +279,9 @@ $(function() {
 <li>getNumBands()
 : <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_e_q.html#a5cf898f49312c0c29e30030c08202341">lemons::dsp::FX::EQ&lt; SampleType &gt;</a>
 </li>
+<li>getNumChannels()
+: <a class="el" href="classlemons_1_1dsp_1_1_engine.html#abcbd3bdeebea99be0e756ad1161190dc">lemons::dsp::Engine&lt; SampleType &gt;</a>
+</li>
 <li>getNumStoredSamples()
 : <a class="el" href="classlemons_1_1dsp_1_1_circular_buffer.html#a8d0f824cfa4e30813a42930de1896f42">lemons::dsp::CircularBuffer&lt; SampleType &gt;</a>
 </li>
@@ -283,7 +292,7 @@ $(function() {
 : <a class="el" href="structlemons_1_1plugin_1_1_l_f_o.html#ac2d829448a0083b1da49efd070738a2c">lemons::plugin::LFO</a>
 </li>
 <li>getOscType()
-: <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_choosable_oscillator.html#a5705f7719f4f0ce5a7d4be38d9fc5a3b">lemons::dsp::osc::ChoosableOscillator&lt; SampleType &gt;</a>
+: <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_choosable_oscillator.html#a5283633e6dcf6884232f78e5ae20117a">lemons::dsp::osc::ChoosableOscillator&lt; SampleType &gt;</a>
 </li>
 <li>getParameter()
 : <a class="el" href="structlemons_1_1plugin_1_1_l_f_o.html#ac7b56cbcf71a190a9059149ca8ff2063">lemons::plugin::LFO</a>
@@ -339,7 +348,7 @@ $(function() {
 </li>
 <li>getScaleName()
 : <a class="el" href="classlemons_1_1dsp_1_1_synth_base.html#a16a6e5209b303a6347c07b70a33a3069">lemons::dsp::SynthBase&lt; SampleType &gt;</a>
-, <a class="el" href="class_m_t_s_e_s_p_1_1_client.html#ab75546201eca6ca661d5f5f27a7a8642">MTSESP::Client</a>
+, <a class="el" href="classlemons_1_1midi_1_1_mts_client.html#ae56a4b789bcf8cb9ca682310155d57e6">lemons::midi::MtsClient</a>
 </li>
 <li>getSensitivity()
 : <a class="el" href="structlemons_1_1midi_1_1_velocity_helper.html#aad492a24b4723b83f32c6245f869bc28">lemons::midi::VelocityHelper</a>
@@ -348,13 +357,16 @@ $(function() {
 : <a class="el" href="classlemons_1_1plugin_1_1_processor.html#a2acf59f798cea2401c7cad31d4ab190a">lemons::plugin::Processor&lt; StateType, EngineType,, &gt;</a>
 </li>
 <li>getStereoReductionMode()
-: <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_mono_stereo_converter.html#a8f6781ddcea1559ec0d564d8f4f0b46c">lemons::dsp::FX::MonoStereoConverter&lt; SampleType &gt;</a>
+: <a class="el" href="classlemons_1_1dsp_1_1_mono_stereo_converter.html#a1e74936c76aadd4a85c3eaa141a1f2ed">lemons::dsp::MonoStereoConverter&lt; SampleType &gt;</a>
 </li>
 <li>getStringForCurrentValue()
 : <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#ad3607d98e258cd3a0b0330af8d70b8be">lemons::plugin::TypedParameter&lt; ValueType &gt;</a>
 </li>
 <li>getStringForValue()
 : <a class="el" href="classlemons_1_1plugin_1_1_typed_parameter.html#adaa546ec98412109e257ea946b1b5d22">lemons::plugin::TypedParameter&lt; ValueType &gt;</a>
+</li>
+<li>getStrings()
+: <a class="el" href="structlemons_1_1binary_1_1_data.html#a2c1c9b78a58b88c44e51b09668048e46">lemons::binary::Data</a>
 </li>
 <li>getTestingBlockSizes()
 : <a class="el" href="structlemons_1_1tests_1_1_dsp_test.html#ac786206b9a815f124b60db728a8dcbfc">lemons::tests::DspTest</a>
@@ -396,7 +408,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 1 2021 00:45:16 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 1 2021 10:52:59 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

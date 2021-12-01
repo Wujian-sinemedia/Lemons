@@ -92,6 +92,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3543298599048f1a8d3a471a67ae9eff"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_effect_engine.html#a3543298599048f1a8d3a471a67ae9eff">EffectEngine</a> (Args &amp;&amp;... args)</td></tr>
 <tr class="memdesc:a3543298599048f1a8d3a471a67ae9eff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_effect_engine.html" title="A class that wraps an AudioEffect into a dsp::Engine.">EffectEngine</a>.  <a href="classlemons_1_1dsp_1_1_f_x_1_1_effect_engine.html#a3543298599048f1a8d3a471a67ae9eff">More...</a><br /></td></tr>
 <tr class="separator:a3543298599048f1a8d3a471a67ae9eff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcbd3bdeebea99be0e756ad1161190dc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine.html#abcbd3bdeebea99be0e756ad1161190dc">getNumChannels</a> () const noexcept</td></tr>
+<tr class="memdesc:abcbd3bdeebea99be0e756ad1161190dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of channels this engine has been prepared to process.  <a href="classlemons_1_1dsp_1_1_engine.html#abcbd3bdeebea99be0e756ad1161190dc">More...</a><br /></td></tr>
+<tr class="separator:abcbd3bdeebea99be0e756ad1161190dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c87ce560c5a841ae19764adb67e4dfc"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine.html#a0c87ce560c5a841ae19764adb67e4dfc">getSamplerate</a> () const noexcept</td></tr>
 <tr class="memdesc:a0c87ce560c5a841ae19764adb67e4dfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the engine's samplerate.  <a href="classlemons_1_1dsp_1_1_engine.html#a0c87ce560c5a841ae19764adb67e4dfc">More...</a><br /></td></tr>
 <tr class="separator:a0c87ce560c5a841ae19764adb67e4dfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -110,16 +113,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a92fe69356c54445d91e70586cc9cdf73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine.html#a92fe69356c54445d91e70586cc9cdf73">prepare</a> (double samplerate, int blocksize, int numChannels=2)</td></tr>
 <tr class="memdesc:a92fe69356c54445d91e70586cc9cdf73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the engine.  <a href="classlemons_1_1dsp_1_1_engine.html#a92fe69356c54445d91e70586cc9cdf73">More...</a><br /></td></tr>
 <tr class="separator:a92fe69356c54445d91e70586cc9cdf73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f813b9e44ed7518183da4afe405f44e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine.html#a3f813b9e44ed7518183da4afe405f44e">process</a> (<a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;inplaceInAndOut, bool isBypassed=false)</td></tr>
+<tr class="memitem:a3f813b9e44ed7518183da4afe405f44e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine.html#a3f813b9e44ed7518183da4afe405f44e">process</a> (<a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;inplaceInAndOut, bool isBypassed=false)</td></tr>
 <tr class="memdesc:a3f813b9e44ed7518183da4afe405f44e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the audio engine with in-place audio I/O and no MIDI.  <a href="classlemons_1_1dsp_1_1_engine.html#a3f813b9e44ed7518183da4afe405f44e">More...</a><br /></td></tr>
 <tr class="separator:a3f813b9e44ed7518183da4afe405f44e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48b37b72835d34fc060a1010a1fe2499"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine.html#a48b37b72835d34fc060a1010a1fe2499">process</a> (<a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;inplaceInAndOut, MidiBuffer &amp;midiMessages, bool isBypassed=false)</td></tr>
+<tr class="memitem:a48b37b72835d34fc060a1010a1fe2499"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine.html#a48b37b72835d34fc060a1010a1fe2499">process</a> (<a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;inplaceInAndOut, MidiBuffer &amp;midiMessages, bool isBypassed=false)</td></tr>
 <tr class="memdesc:a48b37b72835d34fc060a1010a1fe2499"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the audio engine with in-place audio I/O and MIDI.  <a href="classlemons_1_1dsp_1_1_engine.html#a48b37b72835d34fc060a1010a1fe2499">More...</a><br /></td></tr>
 <tr class="separator:a48b37b72835d34fc060a1010a1fe2499"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfb2f088baaa0e07efa7bf794918d831"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine.html#adfb2f088baaa0e07efa7bf794918d831">process</a> (const <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;input, <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;output, bool isBypassed=false)</td></tr>
+<tr class="memitem:adfb2f088baaa0e07efa7bf794918d831"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine.html#adfb2f088baaa0e07efa7bf794918d831">process</a> (const <a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;input, <a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;output, bool isBypassed=false)</td></tr>
 <tr class="memdesc:adfb2f088baaa0e07efa7bf794918d831"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the audio engine with separate audio in and out and no MIDI.  <a href="classlemons_1_1dsp_1_1_engine.html#adfb2f088baaa0e07efa7bf794918d831">More...</a><br /></td></tr>
 <tr class="separator:adfb2f088baaa0e07efa7bf794918d831"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3668be93e3cc7b9a4340c5872be9b45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine.html#aa3668be93e3cc7b9a4340c5872be9b45">process</a> (const <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;input, <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed=false)</td></tr>
+<tr class="memitem:aa3668be93e3cc7b9a4340c5872be9b45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine.html#aa3668be93e3cc7b9a4340c5872be9b45">process</a> (const <a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;input, <a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed=false)</td></tr>
 <tr class="memdesc:aa3668be93e3cc7b9a4340c5872be9b45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the audio engine with separate audio in and out, and MIDI.  <a href="classlemons_1_1dsp_1_1_engine.html#aa3668be93e3cc7b9a4340c5872be9b45">More...</a><br /></td></tr>
 <tr class="separator:aa3668be93e3cc7b9a4340c5872be9b45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a144323b4488420dcf49b89cee7837f8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine.html#a144323b4488420dcf49b89cee7837f8c">releaseResources</a> ()</td></tr>
@@ -169,6 +172,36 @@ template&lt;typename... Args&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="abcbd3bdeebea99be0e756ad1161190dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcbd3bdeebea99be0e756ad1161190dc">&#9670;&nbsp;</a></span>getNumChannels()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classlemons_1_1dsp_1_1_engine.html">lemons::dsp::Engine</a>&lt; SampleType &gt;::getNumChannels </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the number of channels this engine has been prepared to process. </p>
+<p>This will return 0 if the engine is unprepared. </p>
+
+</div>
+</div>
 <a id="a0c87ce560c5a841ae19764adb67e4dfc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0c87ce560c5a841ae19764adb67e4dfc">&#9670;&nbsp;</a></span>getSamplerate()</h2>
 
@@ -195,6 +228,9 @@ template&lt;typename SampleType &gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the engine's samplerate. </p>
+<p>This will return 0. if the engine is unprepared. </p>
+
+<p class="reference">Referenced by <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_engine.html#a1dff90309bc92e1b4dcaa66ac723f7cb">lemons::dsp::osc::Engine&lt; float, lemons::dsp::osc::Triangle &gt;::setFrequency()</a>.</p>
 
 </div>
 </div>
@@ -351,7 +387,7 @@ template&lt;typename SampleType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1_engine.html">lemons::dsp::Engine</a>&lt; SampleType &gt;::process </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
           <td class="paramname"><em>inplaceInAndOut</em>, </td>
         </tr>
         <tr>
@@ -398,7 +434,7 @@ template&lt;typename SampleType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1_engine.html">lemons::dsp::Engine</a>&lt; SampleType &gt;::process </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
           <td class="paramname"><em>inplaceInAndOut</em>, </td>
         </tr>
         <tr>
@@ -452,13 +488,13 @@ template&lt;typename SampleType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1_engine.html">lemons::dsp::Engine</a>&lt; SampleType &gt;::process </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
           <td class="paramname"><em>input</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
           <td class="paramname"><em>output</em>, </td>
         </tr>
         <tr>
@@ -506,13 +542,13 @@ template&lt;typename SampleType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1_engine.html">lemons::dsp::Engine</a>&lt; SampleType &gt;::process </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
           <td class="paramname"><em>input</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
           <td class="paramname"><em>output</em>, </td>
         </tr>
         <tr>
@@ -619,7 +655,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 1 2021 00:45:15 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 1 2021 10:52:59 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

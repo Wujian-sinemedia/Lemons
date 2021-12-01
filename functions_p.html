@@ -99,7 +99,7 @@ $(function() {
 : <a class="el" href="structlemons_1_1plugin_1_1_typed_parameter_1_1_listener.html#a6b091945117c5ffccf7d42e4ba1ae20a">lemons::plugin::TypedParameter&lt; ValueType &gt;::Listener</a>
 </li>
 <li>parseMidiMessageForSysEx()
-: <a class="el" href="class_m_t_s_e_s_p_1_1_client.html#ae49d64e4fde267aa3209391f6c6de0ca">MTSESP::Client</a>
+: <a class="el" href="classlemons_1_1midi_1_1_mts_client.html#a704b2f7836080cbbc178a2b3394d9e25">lemons::midi::MtsClient</a>
 </li>
 <li>pedal
 : <a class="el" href="classlemons_1_1dsp_1_1_synth_base.html#ae8d57c099e83e510cc2e2ac0152198f2">lemons::dsp::SynthBase&lt; SampleType &gt;</a>
@@ -126,7 +126,7 @@ $(function() {
 : <a class="el" href="classlemons_1_1dsp_1_1_audio_and_midi_f_i_f_o.html#a99e577b199955f15932995b9559ae84e">lemons::dsp::AudioAndMidiFIFO&lt; SampleType &gt;</a>
 </li>
 <li>popEvents()
-: <a class="el" href="classlemons_1_1dsp_1_1_midi_f_i_f_o.html#a707aa3dddf9495469ca28d427a363645">lemons::dsp::MidiFIFO</a>
+: <a class="el" href="classlemons_1_1midi_1_1_midi_f_i_f_o.html#aa41af9504c263d8e442e07dd529d35f6">lemons::midi::MidiFIFO</a>
 </li>
 <li>popSample()
 : <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_delay.html#a6d56705156f714d26a6af7a4db2654ff">lemons::dsp::FX::Delay&lt; SampleType &gt;</a>
@@ -152,12 +152,12 @@ $(function() {
 , <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_e_q.html#a4531658c83d3845b5910e3e23892d6c0">lemons::dsp::FX::EQ&lt; SampleType &gt;</a>
 , <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_filter.html#a25c2dd76f5e1298d8ac8a5aebed48780">lemons::dsp::FX::Filter&lt; SampleType &gt;</a>
 , <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_limiter.html#ad6972f230a62149a5e65f59e28ae1bb6">lemons::dsp::FX::Limiter&lt; SampleType &gt;</a>
-, <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_mono_stereo_converter.html#ab8dcd6fb26d85cba1faf5e056df9ca97">lemons::dsp::FX::MonoStereoConverter&lt; SampleType &gt;</a>
 , <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_mono_to_stereo_panner.html#a8fe92d210baade7de59f0114fb5406ce">lemons::dsp::FX::MonoToStereoPanner&lt; SampleType &gt;</a>
 , <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_noise_gate.html#a90b2a7ea2ec2586c7d792acdd7c34450">lemons::dsp::FX::NoiseGate&lt; SampleType &gt;</a>
 , <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_reverb.html#a3f9e3fcb3afac89a3fc308ed8d06abbe">lemons::dsp::FX::Reverb</a>
 , <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_smoothed_gain.html#a44dfa473241c6b66568fdd7ed3af4fd2">lemons::dsp::FX::SmoothedGain&lt; SampleType, channels &gt;</a>
 , <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_stereo_panner.html#af202fda394532731b9445717099931c5">lemons::dsp::FX::StereoPanner&lt; SampleType &gt;</a>
+, <a class="el" href="classlemons_1_1dsp_1_1_mono_stereo_converter.html#aa25f8c949e43c08c408ee96a1f195875">lemons::dsp::MonoStereoConverter&lt; SampleType &gt;</a>
 , <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_choosable_oscillator.html#af12518b5cd5e5ea13bf599ddbfccbf7b">lemons::dsp::osc::ChoosableOscillator&lt; SampleType &gt;</a>
 , <a class="el" href="classlemons_1_1dsp_1_1synth_1_1_timbre_mod.html#a1b538556e6eff85df0c7c6da1417e757">lemons::dsp::synth::TimbreMod&lt; SampleType &gt;</a>
 , <a class="el" href="classlemons_1_1dsp_1_1synth_1_1_voice_allocator.html#a4528f4154529b4224a65ca7be810ac8f">lemons::dsp::synth::VoiceAllocator&lt; SampleType &gt;</a>
@@ -178,8 +178,7 @@ $(function() {
 : <a class="el" href="classlemons_1_1plugin_1_1_preset_bar.html#afb20aeebe40f410e1f0973884a23eb88">lemons::plugin::PresetBar</a>
 </li>
 <li>process()
-: <a class="el" href="classlemons_1_1dsp_1_1_dsp_chain.html#ac8fbabd073631072be56fc30af15e2f5">lemons::dsp::DspChain&lt; Nodes &gt;</a>
-, <a class="el" href="classlemons_1_1dsp_1_1_engine.html#a48b37b72835d34fc060a1010a1fe2499">lemons::dsp::Engine&lt; SampleType &gt;</a>
+: <a class="el" href="classlemons_1_1dsp_1_1_engine.html#aa3668be93e3cc7b9a4340c5872be9b45">lemons::dsp::Engine&lt; SampleType &gt;</a>
 , <a class="el" href="classlemons_1_1dsp_1_1filters_1_1_filter.html#a5fbb9f92bd17682d554077cc3a8c08c5">lemons::dsp::filters::Filter&lt; SampleType &gt;</a>
 , <a class="el" href="structlemons_1_1dsp_1_1filters_1_1_multi_filter.html#a1235890b5bba3b3653253f3f948afe9f">lemons::dsp::filters::MultiFilter&lt; SampleType, numChannels &gt;</a>
 , <a class="el" href="structlemons_1_1dsp_1_1_f_x_1_1_audio_effect.html#a5979cff40fec5864fb6a45bba0b01911">lemons::dsp::FX::AudioEffect&lt; SampleType &gt;</a>
@@ -188,17 +187,17 @@ $(function() {
 , <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_filter.html#a27a162745b38ce7082c9d2b42f6b552b">lemons::dsp::FX::Filter&lt; SampleType &gt;</a>
 , <a class="el" href="structlemons_1_1dsp_1_1_f_x_1_1_level_reporting_audio_effect.html#a86b4201e9da1bc16b9498adf879d2256">lemons::dsp::FX::LevelReportingAudioEffect&lt; SampleType &gt;</a>
 , <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_mono_to_stereo_panner.html#ae7a88f77fff41998dfd15a75e3c401ef">lemons::dsp::FX::MonoToStereoPanner&lt; SampleType &gt;</a>
-, <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_reverb.html#ab6d90cd6099ebeb90bf38fcc0147b36d">lemons::dsp::FX::Reverb</a>
+, <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_reverb.html#a6c4cb0f2b294fa40ebbac0fd7a1a0276">lemons::dsp::FX::Reverb</a>
 , <a class="el" href="structlemons_1_1dsp_1_1_f_x_1_1_sidechainable_audio_effect.html#a72cd2a03ab39a2d605b1eda5693d26e4">lemons::dsp::FX::SidechainableAudioEffect&lt; SampleType &gt;</a>
 , <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_smoothed_gain.html#abfb7ec75237105b0e6a12c0ad26abe43">lemons::dsp::FX::SmoothedGain&lt; SampleType, channels &gt;</a>
-, <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_stereo_panner.html#abda83b5bece218a9d09deac3813e6cce">lemons::dsp::FX::StereoPanner&lt; SampleType &gt;</a>
+, <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_stereo_panner.html#a300c80405e1c94b53e232c2c4da772aa">lemons::dsp::FX::StereoPanner&lt; SampleType &gt;</a>
 , <a class="el" href="classlemons_1_1dsp_1_1osc_1_1_choosable_oscillator.html#a4ef0ce63df807f5dd3d63062ebe43d2b">lemons::dsp::osc::ChoosableOscillator&lt; SampleType &gt;</a>
 , <a class="el" href="classlemons_1_1dsp_1_1synth_1_1_timbre_mod.html#a6275368982283ac8229f23971fd89404">lemons::dsp::synth::TimbreMod&lt; SampleType &gt;</a>
-, <a class="el" href="classlemons_1_1midi_1_1_midi_chopping_processor.html#a9404dab6a6428a5da8145a50640b39e3">lemons::midi::MidiChoppingProcessor&lt; SampleType &gt;</a>
-, <a class="el" href="classlemons_1_1midi_1_1_midi_processor.html#a7c28d67582d6686c7b0d8ac5cb1317f7">lemons::midi::MidiProcessor</a>
+, <a class="el" href="classlemons_1_1midi_1_1_midi_chopping_processor.html#af6c4e2f047fa6e4210ebc80e3700e976">lemons::midi::MidiChoppingProcessor&lt; SampleType &gt;</a>
+, <a class="el" href="classlemons_1_1midi_1_1_midi_processor.html#a46dc394d6b5f093912668f626afd3f16">lemons::midi::MidiProcessor</a>
 </li>
 <li>processBypassed()
-: <a class="el" href="classlemons_1_1midi_1_1_midi_chopping_processor.html#a4534fcc988f9c5c31d6c3a4198064197">lemons::midi::MidiChoppingProcessor&lt; SampleType &gt;</a>
+: <a class="el" href="classlemons_1_1midi_1_1_midi_chopping_processor.html#a976060982ac295d28a12bec7c4c7ab13">lemons::midi::MidiChoppingProcessor&lt; SampleType &gt;</a>
 </li>
 <li>processChannel()
 : <a class="el" href="structlemons_1_1dsp_1_1filters_1_1_multi_filter.html#a1e248c03bb32569c4c9a031302f464a7">lemons::dsp::filters::MultiFilter&lt; SampleType, numChannels &gt;</a>
@@ -212,7 +211,7 @@ $(function() {
 : <a class="el" href="classlemons_1_1dsp_1_1_synth_base.html#aa6f57523a03a5b0f1a9f74d5be093f44">lemons::dsp::SynthBase&lt; SampleType &gt;</a>
 </li>
 <li>processMidiMessage()
-: <a class="el" href="classlemons_1_1midi_1_1_midi_keyboard_state.html#a43892ddaaa171874887a7f2efc6bc9d6">lemons::midi::MidiKeyboardState</a>
+: <a class="el" href="classlemons_1_1midi_1_1_pitch_bend_tracker.html#a2c2555f94675c39c746aea2b1e71ff0f">lemons::midi::PitchBendTracker</a>
 </li>
 <li>processNewControllerMessage()
 : <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a06e51ea134d132a97a30da7b699f4dd5">lemons::plugin::Parameter</a>
@@ -237,7 +236,7 @@ $(function() {
 : <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_dry_wet_mixer.html#a873dfc96c21253d8200597c8b13e5440">lemons::dsp::FX::DryWetMixer&lt; SampleType &gt;</a>
 </li>
 <li>pushEvents()
-: <a class="el" href="classlemons_1_1dsp_1_1_midi_f_i_f_o.html#a67b9929d246b45087ea95f93411764b0">lemons::dsp::MidiFIFO</a>
+: <a class="el" href="classlemons_1_1midi_1_1_midi_f_i_f_o.html#ab074f98455ade04c78c543f687f7582e">lemons::midi::MidiFIFO</a>
 </li>
 <li>pushSample()
 : <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_delay.html#a72790e3c1f020adaf212ada8272c3673">lemons::dsp::FX::Delay&lt; SampleType &gt;</a>
@@ -249,7 +248,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 1 2021 00:45:16 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 1 2021 10:52:59 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

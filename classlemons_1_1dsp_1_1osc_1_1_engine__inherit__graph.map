@@ -1,0 +1,12 @@
+<map id="lemons::dsp::osc::Engine&lt; SampleType, Osctype, &gt;" name="lemons::dsp::osc::Engine&lt; SampleType, Osctype, &gt;">
+<area shape="rect" id="node1" title="A utility class that wraps an Oscillator into a self&#45;contained dsp::Engine." alt="" coords="208,281,404,322"/>
+<area shape="rect" id="node3" href="$classlemons_1_1dsp_1_1osc_1_1_engine.html" title=" " alt="" coords="622,7,825,63"/>
+<area shape="rect" id="node4" href="$classlemons_1_1dsp_1_1osc_1_1_engine.html" title=" " alt="" coords="607,87,840,129"/>
+<area shape="rect" id="node5" href="$classlemons_1_1dsp_1_1osc_1_1_engine.html" title=" " alt="" coords="622,153,825,209"/>
+<area shape="rect" id="node6" href="$classlemons_1_1dsp_1_1osc_1_1_engine.html" title=" " alt="" coords="632,233,815,289"/>
+<area shape="rect" id="node7" href="$classlemons_1_1dsp_1_1osc_1_1_engine.html" title=" " alt="" coords="622,313,825,369"/>
+<area shape="rect" id="node8" href="$classlemons_1_1dsp_1_1osc_1_1_engine.html" title=" " alt="" coords="632,393,815,449"/>
+<area shape="rect" id="node9" href="$classlemons_1_1dsp_1_1osc_1_1_engine.html" title=" " alt="" coords="622,473,825,529"/>
+<area shape="rect" id="node10" href="$classlemons_1_1dsp_1_1osc_1_1_engine.html" title=" " alt="" coords="632,553,815,609"/>
+<area shape="rect" id="node2" href="$classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine." alt="" coords="5,281,159,322"/>
+</map>

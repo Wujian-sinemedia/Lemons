@@ -1,17 +1,17 @@
 var searchData=
 [
-  ['saturation_2eh_1211',['Saturation.h',['../_saturation_8h.html',1,'']]],
-  ['shifter_2eh_1212',['shifter.h',['../shifter_8h.html',1,'']]],
-  ['sliderbase_2eh_1213',['SliderBase.h',['../_slider_base_8h.html',1,'']]],
-  ['sliders_2eh_1214',['Sliders.h',['../_sliders_8h.html',1,'']]],
-  ['smoothedgain_2eh_1215',['SmoothedGain.h',['../_smoothed_gain_8h.html',1,'']]],
-  ['specializations_2eh_1216',['Specializations.h',['../_specializations_8h.html',1,'']]],
-  ['spline_2eh_1217',['Spline.h',['../_spline_8h.html',1,'']]],
-  ['splineeditor_2eh_1218',['SplineEditor.h',['../_spline_editor_8h.html',1,'']]],
-  ['state_2eh_1219',['state.h',['../state_8h.html',1,'']]],
-  ['statetogglebuttons_2eh_1220',['StateToggleButtons.h',['../_state_toggle_buttons_8h.html',1,'']]],
-  ['stereopanner_2eh_1221',['StereoPanner.h',['../_stereo_panner_8h.html',1,'']]],
-  ['supersaw_2eh_1222',['SuperSaw.h',['../_super_saw_8h.html',1,'']]],
-  ['synth_2eh_1223',['Synth.h',['../_synth_8h.html',1,'']]],
-  ['synthvoice_2eh_1224',['SynthVoice.h',['../_synth_voice_8h.html',1,'']]]
+  ['saturation_2eh_1191',['Saturation.h',['../_saturation_8h.html',1,'']]],
+  ['shifter_2eh_1192',['shifter.h',['../shifter_8h.html',1,'']]],
+  ['sliderbase_2eh_1193',['SliderBase.h',['../_slider_base_8h.html',1,'']]],
+  ['sliders_2eh_1194',['Sliders.h',['../_sliders_8h.html',1,'']]],
+  ['smoothedgain_2eh_1195',['SmoothedGain.h',['../_smoothed_gain_8h.html',1,'']]],
+  ['specializations_2eh_1196',['Specializations.h',['../_specializations_8h.html',1,'']]],
+  ['spline_2eh_1197',['Spline.h',['../_spline_8h.html',1,'']]],
+  ['splineeditor_2eh_1198',['SplineEditor.h',['../_spline_editor_8h.html',1,'']]],
+  ['state_2eh_1199',['state.h',['../state_8h.html',1,'']]],
+  ['statetogglebuttons_2eh_1200',['StateToggleButtons.h',['../_state_toggle_buttons_8h.html',1,'']]],
+  ['stereopanner_2eh_1201',['StereoPanner.h',['../_stereo_panner_8h.html',1,'']]],
+  ['supersaw_2eh_1202',['SuperSaw.h',['../_super_saw_8h.html',1,'']]],
+  ['synth_2eh_1203',['Synth.h',['../_synth_8h.html',1,'']]],
+  ['synthvoice_2eh_1204',['SynthVoice.h',['../_synth_voice_8h.html',1,'']]]
 ];

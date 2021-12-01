@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['stereoreductionmode_1835',['StereoReductionMode',['../classlemons_1_1dsp_1_1_f_x_1_1_mono_stereo_converter.html#ade2abf33ee96d0bb7bfdc43c3336c3ac',1,'lemons::dsp::FX::MonoStereoConverter']]]
+  ['stereoreductionmode_1828',['StereoReductionMode',['../namespacelemons_1_1dsp.html#aaf020aad6edbe51634e978b1d97a37e2',1,'lemons::dsp']]]
 ];

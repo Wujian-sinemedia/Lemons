@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['deesser_933',['DeEsser',['../classlemons_1_1dsp_1_1_f_x_1_1_de_esser.html',1,'lemons::dsp::FX']]],
-  ['defaultmetaparameter_934',['DefaultMetaParameter',['../structlemons_1_1plugin_1_1_default_meta_parameter.html',1,'lemons::plugin']]],
-  ['defaultwindow_935',['DefaultWindow',['../structlemons_1_1_default_window.html',1,'lemons']]],
-  ['defaultwindowbase_936',['DefaultWindowBase',['../structlemons_1_1_default_window_base.html',1,'lemons']]],
-  ['delay_937',['Delay',['../classlemons_1_1dsp_1_1_f_x_1_1_delay.html',1,'lemons::dsp::FX']]],
-  ['devicerotation_938',['DeviceRotation',['../structlemons_1_1_device_rotation.html',1,'lemons']]],
-  ['dimensions_939',['Dimensions',['../structlemons_1_1_dimensions.html',1,'lemons']]],
-  ['drywetmixer_940',['DryWetMixer',['../classlemons_1_1dsp_1_1_f_x_1_1_dry_wet_mixer.html',1,'lemons::dsp::FX']]],
-  ['dspchain_941',['DspChain',['../classlemons_1_1dsp_1_1_dsp_chain.html',1,'lemons::dsp']]],
-  ['dsptest_942',['DspTest',['../structlemons_1_1tests_1_1_dsp_test.html',1,'lemons::tests']]]
+  ['data_924',['Data',['../structlemons_1_1binary_1_1_data.html',1,'lemons::binary']]],
+  ['deesser_925',['DeEsser',['../classlemons_1_1dsp_1_1_f_x_1_1_de_esser.html',1,'lemons::dsp::FX']]],
+  ['defaultmetaparameter_926',['DefaultMetaParameter',['../structlemons_1_1plugin_1_1_default_meta_parameter.html',1,'lemons::plugin']]],
+  ['defaultwindow_927',['DefaultWindow',['../structlemons_1_1_default_window.html',1,'lemons']]],
+  ['defaultwindowbase_928',['DefaultWindowBase',['../structlemons_1_1_default_window_base.html',1,'lemons']]],
+  ['delay_929',['Delay',['../classlemons_1_1dsp_1_1_f_x_1_1_delay.html',1,'lemons::dsp::FX']]],
+  ['devicerotation_930',['DeviceRotation',['../structlemons_1_1_device_rotation.html',1,'lemons']]],
+  ['dimensions_931',['Dimensions',['../structlemons_1_1_dimensions.html',1,'lemons']]],
+  ['drywetmixer_932',['DryWetMixer',['../classlemons_1_1dsp_1_1_f_x_1_1_dry_wet_mixer.html',1,'lemons::dsp::FX']]],
+  ['dsptest_933',['DspTest',['../structlemons_1_1tests_1_1_dsp_test.html',1,'lemons::tests']]]
 ];

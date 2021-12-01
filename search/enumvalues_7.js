@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rightonly_1846',['rightOnly',['../classlemons_1_1dsp_1_1_f_x_1_1_mono_stereo_converter.html#ade2abf33ee96d0bb7bfdc43c3336c3aca97ed31f67756738d6c8d74a1ee8c565d',1,'lemons::dsp::FX::MonoStereoConverter']]]
+  ['rightonly_1839',['rightOnly',['../namespacelemons_1_1dsp.html#aaf020aad6edbe51634e978b1d97a37e2a97ed31f67756738d6c8d74a1ee8c565d',1,'lemons::dsp']]]
 ];

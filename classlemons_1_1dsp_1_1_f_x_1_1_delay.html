@@ -105,10 +105,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a95e54923d642bfc47a114ebc8695c7a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_delay.html#a95e54923d642bfc47a114ebc8695c7a4">prepare</a> (double samplerate, int blocksize) final</td></tr>
 <tr class="memdesc:a95e54923d642bfc47a114ebc8695c7a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives the effect a chance to prepare itself.  <a href="classlemons_1_1dsp_1_1_f_x_1_1_delay.html#a95e54923d642bfc47a114ebc8695c7a4">More...</a><br /></td></tr>
 <tr class="separator:a95e54923d642bfc47a114ebc8695c7a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af83eabef85b031658c1963012544609b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_f_x_1_1_level_reporting_audio_effect.html#af83eabef85b031658c1963012544609b">process</a> (<a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;audio) final</td></tr>
+<tr class="memitem:af83eabef85b031658c1963012544609b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_f_x_1_1_level_reporting_audio_effect.html#af83eabef85b031658c1963012544609b">process</a> (<a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;audio) final</td></tr>
 <tr class="memdesc:af83eabef85b031658c1963012544609b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the effect with the signal sidechained to itself.  <a href="structlemons_1_1dsp_1_1_f_x_1_1_level_reporting_audio_effect.html#af83eabef85b031658c1963012544609b">More...</a><br /></td></tr>
 <tr class="separator:af83eabef85b031658c1963012544609b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86b4201e9da1bc16b9498adf879d2256"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_f_x_1_1_level_reporting_audio_effect.html#a86b4201e9da1bc16b9498adf879d2256">process</a> (<a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;inOut, const <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;sidechain) final</td></tr>
+<tr class="memitem:a86b4201e9da1bc16b9498adf879d2256"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_f_x_1_1_level_reporting_audio_effect.html#a86b4201e9da1bc16b9498adf879d2256">process</a> (<a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;inOut, const <a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;sidechain) final</td></tr>
 <tr class="memdesc:a86b4201e9da1bc16b9498adf879d2256"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the effect with a sidechain signal.  <a href="structlemons_1_1dsp_1_1_f_x_1_1_level_reporting_audio_effect.html#a86b4201e9da1bc16b9498adf879d2256">More...</a><br /></td></tr>
 <tr class="separator:a86b4201e9da1bc16b9498adf879d2256"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72790e3c1f020adaf212ada8272c3673"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_delay.html#a72790e3c1f020adaf212ada8272c3673">pushSample</a> (int channel, SampleType sample)</td></tr>
@@ -363,7 +363,7 @@ template&lt;typename SampleType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="structlemons_1_1dsp_1_1_f_x_1_1_level_reporting_audio_effect.html">lemons::dsp::FX::LevelReportingAudioEffect</a>&lt; SampleType &gt;::process </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
           <td class="paramname"><em>audio</em></td><td>)</td>
           <td></td>
         </tr>
@@ -395,13 +395,13 @@ template&lt;typename SampleType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="structlemons_1_1dsp_1_1_f_x_1_1_level_reporting_audio_effect.html">lemons::dsp::FX::LevelReportingAudioEffect</a>&lt; SampleType &gt;::process </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
           <td class="paramname"><em>inOut</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacelemons_1_1dsp.html#a2cb3ff34106454e04037bd6b63edc531">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
           <td class="paramname"><em>sidechain</em>&#160;</td>
         </tr>
         <tr>
@@ -518,7 +518,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 1 2021 00:45:15 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 1 2021 10:52:59 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

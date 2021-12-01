@@ -71,7 +71,7 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classlemons_1_1midi_1_1_pitch_bend_tracker-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">lemons::midi::PitchBendTracker Class Reference<div class="ingroups"><a class="el" href="group___connectivity.html">Connectivity</a> &raquo; <a class="el" href="group__lemons__midi.html">lemons_midi</a><a class="el" href="group___g_u_i.html">GUI</a> &raquo;  &#124; <a class="el" href="group__lemons__gui.html">lemons_gui</a> &raquo; <a class="el" href="group__utilities.html">utilities</a></div></div>  </div>
+<div class="title">lemons::midi::PitchBendTracker Class Reference<div class="ingroups"><a class="el" href="group___audio.html">Audio</a> &raquo; <a class="el" href="group__lemons__midi.html">lemons_midi</a> &raquo; <a class="el" href="group__tuning.html">tuning</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
@@ -88,6 +88,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4b70bed3bd56b977599c954fa900417d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a209a730f6d0c397bb086da6e0b216312"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1midi_1_1_pitch_bend_tracker.html#a209a730f6d0c397bb086da6e0b216312">newPitchbendRecieved</a> (int newPitchbend) noexcept</td></tr>
 <tr class="separator:a209a730f6d0c397bb086da6e0b216312"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c2555f94675c39c746aea2b1e71ff0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1midi_1_1_pitch_bend_tracker.html#a2c2555f94675c39c746aea2b1e71ff0f">processMidiMessage</a> (const MidiMessage &amp;m) noexcept</td></tr>
+<tr class="separator:a2c2555f94675c39c746aea2b1e71ff0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae38e06837eef06755386d0fcecdf15fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1midi_1_1_pitch_bend_tracker.html#ae38e06837eef06755386d0fcecdf15fb">setRange</a> (int newStUp, int newStDown) noexcept</td></tr>
 <tr class="separator:ae38e06837eef06755386d0fcecdf15fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -213,6 +215,32 @@ template&lt;typename NoteType &gt; </div>
 
 </div>
 </div>
+<a id="a2c2555f94675c39c746aea2b1e71ff0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c2555f94675c39c746aea2b1e71ff0f">&#9670;&nbsp;</a></span>processMidiMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lemons::midi::PitchBendTracker::processMidiMessage </td>
+          <td>(</td>
+          <td class="paramtype">const MidiMessage &amp;&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ae38e06837eef06755386d0fcecdf15fb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae38e06837eef06755386d0fcecdf15fb">&#9670;&nbsp;</a></span>setRange()</h2>
 
@@ -255,7 +283,7 @@ template&lt;typename NoteType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 1 2021 00:45:15 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 1 2021 10:52:59 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
