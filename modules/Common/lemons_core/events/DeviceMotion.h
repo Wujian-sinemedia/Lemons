@@ -53,16 +53,16 @@ public:
 	[[nodiscard]] bool isRunning() const noexcept;
 
 	/** Returns the latest measured acceleration data. */
-    [[nodiscard]] Coords getAcceleration() const noexcept;
+	[[nodiscard]] Coords getAcceleration() const noexcept;
 
 	/** Returns the latest measured gravity data. */
-    [[nodiscard]] Coords getGravity() const noexcept;
+	[[nodiscard]] Coords getGravity() const noexcept;
 
 	/** Returns the latest measured rotation data. */
-    [[nodiscard]] Coords getRotation() const noexcept;
+	[[nodiscard]] Coords getRotation() const noexcept;
 
 	/** Returns the latest measured attitude data. */
-    [[nodiscard]] Coords getAttitude() const noexcept;
+	[[nodiscard]] Coords getAttitude() const noexcept;
 
 private:
 	void addListener (Listener& l);

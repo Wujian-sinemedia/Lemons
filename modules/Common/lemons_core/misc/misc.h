@@ -10,9 +10,9 @@ namespace lemons
 static constexpr bool isOnMobilePlatform()
 {
 #if (JUCE_IOS || JUCE_ANDROID)
-    return true;
+	return true;
 #else
-    return false;
+	return false;
 #endif
 }
 
@@ -20,23 +20,25 @@ using juce::File;
 using juce::String;
 using juce::ValueTree;
 
-template < typename T >
-using Array = juce::Array< T >;
+template <typename T>
+using Array = juce::Array<T>;
 
-template < typename T >
-using OwnedArray = juce::OwnedArray< T >;
+template <typename T>
+using OwnedArray = juce::OwnedArray<T>;
 
 
 struct Dimensions final
 {
-    constexpr Dimensions (int widthToUse, int heightToUse)
-    : width(widthToUse), height(heightToUse)
-    { }
-    
-    ~Dimensions() = default;
-    
-    int width { 0 };
-    int height { 0 };
+	constexpr Dimensions (int widthToUse, int heightToUse)
+	    : width (widthToUse)
+	    , height (heightToUse)
+	{
+	}
+
+	~Dimensions() = default;
+
+	int width { 0 };
+	int height { 0 };
 };
 
 /** Returns the default initial size for top-level GUIs, used for both plugins and apps. */
