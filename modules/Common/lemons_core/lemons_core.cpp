@@ -8,7 +8,9 @@
 #include "misc/misc.cpp"
 
 #include "files/FileUtilities.cpp"
-#include "binary_data/BinaryDataHelpers.cpp"
+
+#include "binary_data/conversions.cpp"
+#include "binary_data/data.cpp"
 
 #include "localization/localization.cpp"
 

@@ -13,18 +13,14 @@ static constexpr auto TRANSLATION_FILE_PREFIX = "trans_";
 static constexpr auto TRANSLATION_FILE_XTN = ".txt";
 
 
-static inline RawData getDefaultTranslationFile()
+static inline binary::Data getDefaultTranslationFile()
 {
-#if LEMONS_HAS_BINARY_DATA
-	const auto languageToTranslationFileName = [] (const String& language) -> String
-	{
-		return TRANSLATION_FILE_PREFIX + language + TRANSLATION_FILE_XTN;
-	};
-
-    return RawData {languageToTranslationFileName (getLanguageToUse())};
-#else
-	return {};
-#endif
+    const auto languageToTranslationFileName = [] (const String& language) -> String
+    {
+        return TRANSLATION_FILE_PREFIX + language + TRANSLATION_FILE_XTN;
+    };
+    
+    return binary::Data {languageToTranslationFileName (getLanguageToUse())};
 }
 
 void initializeTranslations (const File& translationFile, bool ignoreCaseOfKeys)
@@ -34,7 +30,7 @@ void initializeTranslations (const File& translationFile, bool ignoreCaseOfKeys)
                                                     new juce::LocalisedStrings (translationFile, ignoreCaseOfKeys));
 }
 
-void initializeTranslations (RawData data,
+void initializeTranslations (binary::Data data,
                                            bool    ignoreCaseOfKeys)
 {
 	if (! data.isValid())

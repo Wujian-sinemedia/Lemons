@@ -6,7 +6,7 @@ namespace lemons
 
 extern void initializeTranslations (const File& translationFile, bool ignoreCaseOfKeys = true);
 
-extern void initializeTranslations (RawData data,
+extern void initializeTranslations (binary::Data data,
                                                   bool    ignoreCaseOfKeys = true);
 
 

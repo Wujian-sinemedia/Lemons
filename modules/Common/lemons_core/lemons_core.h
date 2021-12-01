@@ -12,7 +12,7 @@
  website:            http://benthevining.github.io/Lemons/
  license:            GPL-3.0
  minimumCppStandard: 17
- dependencies:       juce_audio_utils
+ dependencies:       juce_audio_formats juce_graphics
  OSXFrameworks:      Accelerate
  iOSFrameworks:      Accelerate
 
@@ -81,7 +81,8 @@
 
 #include "files/FileUtilities.h"
 
-#include "binary_data/BinaryDataHelpers.h"
+#include "binary_data/conversions.h"
+#include "binary_data/data.h"
 
 #include "localization/localization.h"
 
