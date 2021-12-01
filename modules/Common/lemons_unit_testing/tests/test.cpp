@@ -33,6 +33,6 @@ bool Test::testingIntensityIsHigh()
     return intensity == Intensity::High;
 }
 
-Intensity Test::intensity { Intensity::High };
+Intensity Test::intensity { Intensity::Medium };
 
 }  // namespace lemons::tests

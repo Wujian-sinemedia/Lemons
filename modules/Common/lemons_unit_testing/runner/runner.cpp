@@ -18,10 +18,24 @@ void Runner::logMessage (const juce::String& message)
 }
 
 
-bool executeUnitTests (juce::File logOutput, juce::int64 seed,
+void printUnitTestHelp()
+{
+    std::cout << " [--help|-h]" << std::endl
+              << " [--list-categories|-l]" << std::endl
+              << " [--category|-c <categoryName>]" << std::endl
+              << " [--test|-t <testName>]" << std::endl
+              << " [--file|-f <logFile>]" << std::endl
+              << " [--seed|-s <seedValue>]" << std::endl
+              << " [--intensity|-i <intensityLevel>]" << std::endl;
+}
+
+
+bool executeUnitTests (Intensity intensityLevel, juce::File logOutput, juce::int64 seed,
                        const String& singleTestName, const String& categoryName)
 {
 	jassert (! (! singleTestName.isEmpty() && ! categoryName.isEmpty()));
+    
+    Test::setGlobalTestingIntensityLevel (intensityLevel);
 
 	Logger logger { logOutput };
 	Runner runner;
@@ -65,12 +79,11 @@ bool executeUnitTests (juce::File logOutput, juce::int64 seed,
 	return ! runner.hadAnyFailures();
 }
 
-
 bool executeUnitTests (const juce::ArgumentList& args)
 {
 	if (args.containsOption ("--help|-h"))
 	{
-		std::cout << " [--help|-h] [--list-categories|-l] [--category|-c <categoryName>] [--test|-t <testName>] [--file|-f <logFile>] [--seed|-s <seedValue>]" << std::endl;
+        printUnitTestHelp();
 		return true;
 	}
 
@@ -97,20 +110,34 @@ bool executeUnitTests (const juce::ArgumentList& args)
 
 	const auto randomSeed = [&args]() -> juce::int64
 	{
-		if (args.containsOption ("--seed|-s"))
-		{
-			const auto seedValueString = args.getValueForOption ("--seed|-s");
-
-			if (seedValueString.startsWith ("0x"))
-				return seedValueString.getHexValue64();
-
-			return seedValueString.getLargeIntValue();
-		}
-
-		return juce::Random::getSystemRandom().nextInt64();
+		if (! args.containsOption ("--seed|-s"))
+            return juce::Random::getSystemRandom().nextInt64();
+		
+        const auto seedValueString = args.getValueForOption ("--seed|-s");
+        
+        if (seedValueString.startsWith ("0x"))
+            return seedValueString.getHexValue64();
+        
+        return seedValueString.getLargeIntValue();
 	}();
+    
+    const auto intensity = [&args]() -> Intensity
+    {
+        if (! args.containsOption ("--intensity|-i"))
+            return Intensity::Medium;
+        
+        const auto intensityString = args.getValueForOption ("--intensity|-i");
+        
+        if (intensityString.equalsIgnoreCase ("high") || intensityString.getIntValue() == 2)
+            return Intensity::High;
+        
+        if (intensityString.equalsIgnoreCase ("low") || intensityString.getIntValue() == 0)
+            return Intensity::Low;
+        
+        return Intensity::Medium;
+    }();
 
-	return executeUnitTests (logFile, randomSeed,
+	return executeUnitTests (intensity, logFile, randomSeed,
 	                         args.getValueForOption ("--test|-t"),
 	                         args.getValueForOption ("--category|-c"));
 }

@@ -13,7 +13,8 @@ private:
 };
 
 
-[[nodiscard]] bool executeUnitTests (juce::File logOutput, juce::int64 seed,
+[[nodiscard]] bool executeUnitTests (Intensity intensityLevel = Intensity::Medium,
+                                     juce::File logOutput = {}, juce::int64 seed = juce::Random::getSystemRandom().nextInt64(),
                                      const String& singleTestName = {}, const String& categoryName = {});
 
 [[nodiscard]] bool executeUnitTests (const juce::ArgumentList& args);
