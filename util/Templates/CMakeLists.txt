@@ -16,6 +16,15 @@ endif()
 
 #
 
+file (REAL_PATH "${CMAKE_CURRENT_LIST_DIR}/../cmake/modules/general" cpm_module_path)
+
+if (NOT "${cpm_module_path}" IN_LIST CMAKE_MODULE_PATH)
+    list (APPEND CMAKE_MODULE_PATH "${cpm_module_path}")
+    set (CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" CACHE INTERNAL "")
+endif()
+
+#
+
 add_subdirectory (app)
 add_subdirectory (plugin)
 

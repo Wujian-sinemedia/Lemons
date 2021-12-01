@@ -14,7 +14,7 @@ if (NOT DEFINED ENV{CPM_SOURCE_CACHE})
     set (ENV{CPM_SOURCE_CACHE} "${CPM_Lemons_SOURCE}/Cache")
 endif()
 
-include ("${CPM_Lemons_SOURCE}/util/cmake/GetLemons/LemonsGetCPM.cmake")
+include (LemonsGetCPM)
 
 CPMAddPackage (
         NAME Lemons

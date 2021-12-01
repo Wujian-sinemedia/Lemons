@@ -2,7 +2,12 @@ cmake_minimum_required (VERSION 3.21 FATAL_ERROR)
 
 project (NewApp VERSION 0.0.1 LANGUAGES CXX)
 
-add_subdirectory (GetLemons)
+include (LemonsGetCPM)
+
+CPMAddPackage (
+        NAME Lemons
+        GITHUB_REPOSITORY benthevining/Lemons
+        GIT_TAG origin/main)
 
 include (LemonsAppModules)
 include (BVBrandFlags)
