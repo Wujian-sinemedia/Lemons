@@ -1,6 +1,5 @@
 #pragma once
 
-#include <juce_audio_processors/juce_audio_processors.h>
 #include <lemons_core/lemons_core.h>
 
 
@@ -18,8 +17,6 @@ private:
 	void runTypedTests();
     
     void fuzzParameters();
-    
-    juce::AudioProcessorParameter* getNamedParameter (const String& name);
     
     void runStateTests();
 

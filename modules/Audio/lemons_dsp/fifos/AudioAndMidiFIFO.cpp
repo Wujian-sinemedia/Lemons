@@ -99,7 +99,6 @@ void AudioAndMidiFifoTests<FloatType>::runTest()
 
 		fifo.push (origAudio, origMidi);
 
-
 		logImportantMessage ("Num stored samples stored correctly");
 
 		expectEquals (fifo.numStoredSamples(), numSamples);
@@ -108,12 +107,10 @@ void AudioAndMidiFifoTests<FloatType>::runTest()
 
 		expectEquals (fifo.numStoredSamples(), 0);
 
-
 		logImportantMessage ("Store and retrieve audio and MIDI");
 
 		expect (buffersAreEqual (audioOut, origAudio));
 		expect (midiBuffersAreEqual (midiOut, origMidi));
-
 
 		logImportantMessage ("Resizing clears the FIFO");
 

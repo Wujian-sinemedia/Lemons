@@ -107,7 +107,9 @@ public:
 private:
 	void runTest() final;
 
-	void runOscillatorTest (dsp::osc::Oscillator<FloatType>& osc, double samplerate);
+	void runOscillatorTest (dsp::osc::Oscillator<FloatType>& osc, double samplerate, const String& waveName);
+    
+    static const std::vector<float> getConfidenceThresholdsToTest();
 
 	static constexpr auto defaultReps       = 3;
 	static constexpr auto minDetectableFreq = 30.f;

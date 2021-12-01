@@ -19,20 +19,37 @@ class Test : public juce::UnitTest
 public:
 	using juce::UnitTest::UnitTest;
     
-    static Intensity getTestingIntensityLevel();
+    [[nodiscard]] static Intensity getTestingIntensityLevel();
     
     static void setGlobalTestingIntensityLevel (Intensity intensityLevel);
     
-    static bool testingIntensityIsLow();
-    static bool testingIntensityIsMedium();
-    static bool testingIntensityIsHigh();
+    [[nodiscard]] static bool testingIntensityIsLow();
+    [[nodiscard]] static bool testingIntensityIsMedium();
+    [[nodiscard]] static bool testingIntensityIsHigh();
 
 protected:
-	using String = juce::String;
-
 	void logImportantMessage (const String& message);
     
+    struct Subtest
+    {
+        explicit Subtest (const String& name, Test& t);
+        ~Subtest();
+        
+    private:
+        Test& test;
+    };
+    
+    const Subtest beginSubtest (const String& name);
+    
 private:
+    friend struct Subtest;
+    
+    void beginSubtestInternal (const String& name);
+    void endSubtest();
+    
+    static constexpr auto indentSize = 4;
+    String importantMsgIndent { "  " };
+    
     static Intensity intensity;
 };
 

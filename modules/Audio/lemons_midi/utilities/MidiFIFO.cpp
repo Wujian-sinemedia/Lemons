@@ -84,8 +84,6 @@ void MidiFifoTests::runTest()
 		expectEquals (fifo.numStoredSamples(), numSamples);
 
 
-		logImportantMessage ("Store events and retrieve later");
-
 		fifo.popEvents (output, numSamples);
 
 		expect (midiBuffersAreEqual (input, output));

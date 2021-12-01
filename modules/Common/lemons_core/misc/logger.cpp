@@ -23,7 +23,10 @@ Logger::~Logger()
     juce::Logger::setCurrentLogger (nullptr);
     
     if (writeToFile)
+    {
+        std::cout << "Writing log output to file: " << fileToWriteTo.getFullPathName() << std::endl;
         fileToWriteTo.replaceWithText (loggedMessages.joinIntoString (" \r\n"));
+    }
 }
 
 void Logger::logMessage (const juce::String& message)

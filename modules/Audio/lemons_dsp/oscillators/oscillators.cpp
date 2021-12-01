@@ -247,10 +247,12 @@ void OscillatorTests<SampleType>::runOscillatorTests (dsp::osc::Oscillator<Sampl
 {
 	for (const auto samplerate : getTestingSamplerates())
 	{
-        logImportantMessage ("Samplerate: " + String (samplerate));
+        const auto samplerateSubtest = beginSubtest ("Samplerate: " + String (samplerate));
         
 		for (const auto period : { 50, 119, 350, 531 })
 		{
+            const auto periodSubtest = beginSubtest ("Period: " + String(period));
+            
             const auto blocksize = period * 4;
             
             storage.setSize (1, blocksize, true, true, true);
@@ -268,6 +270,9 @@ void OscillatorTests<SampleType>::runOscillatorTests (dsp::osc::Oscillator<Sampl
             expect (! bufferIsSilent (storage));
             expect (allSamplesAreValid (storage));
             expect (noSamplesAreClipping (storage));
+            
+            
+            const auto subtest = beginSubtest ("Test zero-crossings");
             
             const auto* samples = storage.getReadPointer(0);
             

@@ -84,9 +84,11 @@ void AudioBufferUtilsTests<FloatType>::runTest()
 {
 	for (const auto numChannels : { 1, 2, 3, 5, 8, 9 })
 	{
+        beginTest ("Num channels: " + String (numChannels));
+        
 		for (const auto numSamples : getTestingBlockSizes())
 		{
-			beginTest ("Num channels: " + String (numChannels) + "; Num samples: " + String (numSamples));
+            const auto blocksizeSubtest = beginSubtest ("Blocksize: " + String (numSamples));
 
 			resizeAllBuffers (numSamples, numChannels);
 
@@ -163,6 +165,8 @@ template <typename FloatType>
 template <typename OtherFloatType>
 void AudioBufferUtilsTests<FloatType>::runConversionTests (int numChannels, int numSamples)
 {
+    const auto subtest = beginSubtest ("Sample type conversion");
+    
 	AudioBuffer<OtherFloatType> otherBuffer { numChannels, numSamples };
 
 	fillAudioBufferWithRandomNoise (bufferA);

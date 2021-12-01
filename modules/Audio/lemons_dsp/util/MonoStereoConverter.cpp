@@ -133,25 +133,29 @@ void MonoStereoConverterTests<FloatType>::runTest()
     
     fillAudioBufferWithRandomNoise (stereoBuffer);
     
-    logImportantMessage ("Left only");
+    {
+        const auto subtest = beginSubtest ("Left only");
+        
+        converter.setStereoReductionMode (dsp::StereoReductionMode::leftOnly);
+        
+        converter.convertStereoToMono (stereoBuffer, monoBuffer);
+        
+        expect (bufferChannelsAreEqual (monoBuffer, 0, stereoBuffer, 0));
+        expect (! bufferChannelsAreEqual (monoBuffer, 0, stereoBuffer, 1));
+    }
     
-    converter.setStereoReductionMode (dsp::StereoReductionMode::leftOnly);
+    {
+        const auto subtest = beginSubtest ("Right only");
+        
+        converter.setStereoReductionMode (dsp::StereoReductionMode::rightOnly);
+        
+        converter.convertStereoToMono (stereoBuffer, monoBuffer);
+        
+        expect (bufferChannelsAreEqual (monoBuffer, 0, stereoBuffer, 1));
+        expect (! bufferChannelsAreEqual (monoBuffer, 0, stereoBuffer, 0));
+    }
     
-    converter.convertStereoToMono (stereoBuffer, monoBuffer);
-    
-    expect (bufferChannelsAreEqual (monoBuffer, 0, stereoBuffer, 0));
-    expect (! bufferChannelsAreEqual (monoBuffer, 0, stereoBuffer, 1));
-    
-    logImportantMessage ("Right only");
-    
-    converter.setStereoReductionMode (dsp::StereoReductionMode::rightOnly);
-    
-    converter.convertStereoToMono (stereoBuffer, monoBuffer);
-    
-    expect (bufferChannelsAreEqual (monoBuffer, 0, stereoBuffer, 1));
-    expect (! bufferChannelsAreEqual (monoBuffer, 0, stereoBuffer, 0));
-    
-    logImportantMessage ("Mix to mono");
+    const auto subtest = beginSubtest ("Mix to mono");
     
     converter.setStereoReductionMode (dsp::StereoReductionMode::mixToMono);
     

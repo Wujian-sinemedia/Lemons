@@ -120,7 +120,6 @@ void AudioFifoTests<FloatType>::runTest()
 
 		fifo.pushSamples (origStorage);
 
-
 		logImportantMessage ("Num stored samples stored correctly");
 
 		expectEquals (fifo.numStoredSamples(), numSamples);
@@ -129,70 +128,65 @@ void AudioFifoTests<FloatType>::runTest()
 
 		expectEquals (fifo.numStoredSamples(), 0);
         
-        
-		logImportantMessage ("Store samples and retrieve later");
-
 		expect (buffersAreEqual (fifoOutput, origStorage));
+        
+        const auto halfNumSamples = numSamples / 2;
+        
+        using dsp::buffers::getAliasBuffer;
+        
+        {
+            const auto subtest = beginSubtest ("Retrieve fewer samples than were passed in");
+            
+            fifo.pushSamples (origStorage);
+            
+            auto outAlias = getAliasBuffer (fifoOutput, 0, halfNumSamples);
+            
+            fifo.popSamples (outAlias);
+            
+            const auto inAlias = getAliasBuffer (origStorage, 0, halfNumSamples);
+            
+            expect (buffersAreEqual (inAlias, outAlias));
+        }
 
-
-		logImportantMessage ("Retrieve fewer samples than were passed in");
-
-		fifo.pushSamples (origStorage);
-
-		const auto halfNumSamples = numSamples / 2;
-
-		using dsp::buffers::getAliasBuffer;
-
-		{
-			auto outAlias = getAliasBuffer (fifoOutput, 0, halfNumSamples);
-
-			fifo.popSamples (outAlias);
-
-			const auto inAlias = getAliasBuffer (origStorage, 0, halfNumSamples);
-
-			expect (buffersAreEqual (inAlias, outAlias));
-		}
-
-
-		logImportantMessage ("Retrieve more samples than are left in FIFO");
-
-		if (math::numberIsEven (numSamples))
-			expectEquals (fifo.numStoredSamples(), halfNumSamples);
-		else
-			expectWithinAbsoluteError (fifo.numStoredSamples(), halfNumSamples, 1);
-
-		fifo.popSamples (fifoOutput);
-
-		for (int chan = 0; chan < numChannels; ++chan)
-			expect (allSamplesAreZero (fifoOutput, 0, halfNumSamples, chan));
-
-
-		{
-			const auto inAlias = getAliasBuffer (origStorage, halfNumSamples, halfNumSamples);
-
-			auto outAlias = getAliasBuffer (fifoOutput, halfNumSamples, halfNumSamples);
-
-			expect (buffersAreEqual (inAlias, outAlias));
-		}
-
-
-		logImportantMessage ("Resizing clears the FIFO");
-
-		fifo.pushSamples (origStorage);
-
-		fifo.resize (halfNumSamples);
-
-		expectEquals (fifo.numStoredSamples(), 0);
-
-
-		logImportantMessage ("Increase number of channels");
-
-		fifo.resize (halfNumSamples, numChannels + 3);
-
-		expectEquals (fifo.numChannels(), numChannels + 3);
-
-
-		logImportantMessage ("Decrease number of channels");
+        {
+            const auto subtest = beginSubtest ("Retrieve more samples than are left in FIFO");
+            
+            if (math::numberIsEven (numSamples))
+                expectEquals (fifo.numStoredSamples(), halfNumSamples);
+            else
+                expectWithinAbsoluteError (fifo.numStoredSamples(), halfNumSamples, 1);
+            
+            fifo.popSamples (fifoOutput);
+            
+            for (int chan = 0; chan < numChannels; ++chan)
+                expect (allSamplesAreZero (fifoOutput, 0, halfNumSamples, chan));
+            
+            const auto inAlias = getAliasBuffer (origStorage, halfNumSamples, halfNumSamples);
+            
+            auto outAlias = getAliasBuffer (fifoOutput, halfNumSamples, halfNumSamples);
+            
+            expect (buffersAreEqual (inAlias, outAlias));
+        }
+        
+        {
+            const auto subtest = beginSubtest ("Resizing clears the FIFO");
+            
+            fifo.pushSamples (origStorage);
+            
+            fifo.resize (halfNumSamples);
+            
+            expectEquals (fifo.numStoredSamples(), 0);
+        }
+        
+        {
+            const auto subtest = beginSubtest ("Increase number of channels");
+            
+            fifo.resize (halfNumSamples, numChannels + 3);
+            
+            expectEquals (fifo.numChannels(), numChannels + 3);
+        }
+        
+        const auto subtest = beginSubtest ("Decrease number of channels");
 
 		fifo.resize (halfNumSamples, numChannels);
 

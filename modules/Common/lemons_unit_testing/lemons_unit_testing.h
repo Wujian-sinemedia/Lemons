@@ -49,6 +49,7 @@
 
 
 #include "util/dsp_helpers.h"
+#include "util/processor_helpers.h"
 
 #include "tests/test.h"
 #include "tests/dsp_test.h"

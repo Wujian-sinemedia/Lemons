@@ -2,6 +2,7 @@
 
 
 #include "util/dsp_helpers.cpp"
+#include "util/processor_helpers.cpp"
 
 #include "tests/test.cpp"
 #include "tests/dsp_test.cpp"
