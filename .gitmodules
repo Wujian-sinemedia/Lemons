@@ -1,3 +1,0 @@
-[submodule "util/cmake/GetLemons"]
-	path = util/cmake/GetLemons
-	url = https://github.com/benthevining/GetLemons.git
