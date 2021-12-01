@@ -88,4 +88,84 @@ void MonoStereoConverter<SampleType>::convertMonoToStereo (const AudioBuffer<Sam
 template class MonoStereoConverter<float>;
 template class MonoStereoConverter<double>;
 
-}  // namespace lemons::dsp::FX
+}  // namespace lemons::dsp
+
+
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+
+#if LEMONS_UNIT_TESTS
+
+namespace lemons::tests
+{
+
+template<typename FloatType>
+MonoStereoConverterTests<FloatType>::MonoStereoConverterTests()
+: DspTest(getDspTestName<FloatType>("Mono-stereo converter tests"))
+{
+}
+
+template<typename FloatType>
+void MonoStereoConverterTests<FloatType>::runTest()
+{
+    constexpr auto blocksize = 512;
+    
+    converter.prepare (blocksize);
+    
+    monoBuffer.setSize (1, blocksize);
+    stereoBuffer.setSize (2, blocksize);
+    
+    monoBuffer.clear();
+    stereoBuffer.clear();
+    
+    beginTest ("Mono to stereo");
+    
+    fillAudioBufferWithRandomNoise (monoBuffer);
+    
+    converter.convertMonoToStereo (monoBuffer, stereoBuffer);
+    
+    expect (bufferChannelsAreEqual (monoBuffer, 0, stereoBuffer, 0));
+    expect (bufferChannelsAreEqual (monoBuffer, 0, stereoBuffer, 1));
+    
+    beginTest ("Stereo to mono");
+    
+    monoBuffer.clear();
+    stereoBuffer.clear();
+    
+    fillAudioBufferWithRandomNoise (stereoBuffer);
+    
+    logImportantMessage ("Left only");
+    
+    converter.setStereoReductionMode (dsp::StereoReductionMode::leftOnly);
+    
+    converter.convertStereoToMono (stereoBuffer, monoBuffer);
+    
+    expect (bufferChannelsAreEqual (monoBuffer, 0, stereoBuffer, 0));
+    expect (! bufferChannelsAreEqual (monoBuffer, 0, stereoBuffer, 1));
+    
+    logImportantMessage ("Right only");
+    
+    converter.setStereoReductionMode (dsp::StereoReductionMode::rightOnly);
+    
+    converter.convertStereoToMono (stereoBuffer, monoBuffer);
+    
+    expect (bufferChannelsAreEqual (monoBuffer, 0, stereoBuffer, 1));
+    expect (! bufferChannelsAreEqual (monoBuffer, 0, stereoBuffer, 0));
+    
+    logImportantMessage ("Mix to mono");
+    
+    converter.setStereoReductionMode (dsp::StereoReductionMode::mixToMono);
+    
+    converter.convertStereoToMono (stereoBuffer, monoBuffer);
+    
+    expect (! bufferChannelsAreEqual (monoBuffer, 0, stereoBuffer, 0));
+    expect (! bufferChannelsAreEqual (monoBuffer, 0, stereoBuffer, 1));
+    
+    expect (noSamplesAreClipping (monoBuffer));
+}
+
+template struct MonoStereoConverterTests<float>;
+template struct MonoStereoConverterTests<double>;
+
+}
+
+#endif

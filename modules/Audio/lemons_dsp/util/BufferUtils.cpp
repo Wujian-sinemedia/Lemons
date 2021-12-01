@@ -98,11 +98,13 @@ void AudioBufferUtilsTests<FloatType>::runTest()
 			expect (bufferIsSilent (bufferA));
 			expect (bufferIsSilent (bufferB));
 			expect (buffersAreEqual (bufferA, bufferB));
+            expect (noSamplesAreClipping (bufferA));
 
-			bufferA.setSample (0, 1, 1.f);
+			bufferA.setSample (0, 1, FloatType(1.001));
 
 			expect (! bufferIsSilent (bufferA));
 			expect (! buffersAreEqual (bufferA, bufferB));
+            expect (! noSamplesAreClipping (bufferA));
 
 			fillAudioBufferWithRandomNoise (bufferA);
 

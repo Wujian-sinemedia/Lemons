@@ -128,8 +128,8 @@ void AudioFifoTests<FloatType>::runTest()
 		fifo.popSamples (fifoOutput);
 
 		expectEquals (fifo.numStoredSamples(), 0);
-
-
+        
+        
 		logImportantMessage ("Store samples and retrieve later");
 
 		expect (buffersAreEqual (fifoOutput, origStorage));

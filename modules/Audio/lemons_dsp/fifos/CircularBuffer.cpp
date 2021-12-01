@@ -155,18 +155,18 @@ void CircularBufferTests<FloatType>::runTest()
 		resizeAllBuffers (numSamples);
 
 		fillAudioBufferWithRandomNoise (origStorage);
+        
+        expect (noSamplesAreClipping (origStorage));
 
 		circularBuffer.storeSamples (origStorage);
-
-
-		logImportantMessage ("Num stored samples stored correctly");
 
 		expectEquals (circularBuffer.getNumStoredSamples(), numSamples);
 
 		circularBuffer.getSamples (circOutput);
 
 		expectEquals (circularBuffer.getNumStoredSamples(), 0);
-
+        expect (allSamplesAreValid (circOutput));
+        expect (noSamplesAreClipping (circOutput));
 
 		logImportantMessage ("Store samples and retrieve later");
 

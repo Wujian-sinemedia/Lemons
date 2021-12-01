@@ -44,4 +44,33 @@ private:
 	AudioBuffer<SampleType> monoStorage;
 };
 
-}  // namespace lemons::dsp::FX
+}  // namespace lemons::dsp
+
+
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+
+#if LEMONS_UNIT_TESTS
+
+namespace lemons::tests
+{
+
+template<typename FloatType>
+struct MonoStereoConverterTests : public DspTest
+{
+public:
+    MonoStereoConverterTests();
+    
+private:
+    void runTest() final;
+    
+    AudioBuffer<FloatType> monoBuffer, stereoBuffer;
+    
+    dsp::MonoStereoConverter<FloatType> converter;
+};
+
+static MonoStereoConverterTests<float> monoStereoConverterTest_float;
+static MonoStereoConverterTests<double> monoStereoConverterTest_double;
+
+}
+
+#endif

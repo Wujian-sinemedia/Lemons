@@ -33,6 +33,18 @@ template bool allSamplesAreEqual (const AudioBuffer<float>&, const AudioBuffer<f
 template bool allSamplesAreEqual (const AudioBuffer<double>&, const AudioBuffer<double>&, int, int, int, int, int);
 
 template <typename FloatType>
+bool bufferChannelsAreEqual (const AudioBuffer<FloatType>& buffer1,
+                                           int channel1,
+                                           const AudioBuffer<FloatType>& buffer2,
+                                           int channel2)
+{
+    return allSamplesAreEqual (buffer1, buffer2, 0, buffer1.getNumSamples(), 0, channel1, channel2);
+}
+
+template bool bufferChannelsAreEqual (const AudioBuffer<float>&, int, const AudioBuffer<float>&, int);
+template bool bufferChannelsAreEqual (const AudioBuffer<double>&, int, const AudioBuffer<double>&, int);
+
+template <typename FloatType>
 bool buffersAreEqual (const AudioBuffer<FloatType>& buffer1,
                       const AudioBuffer<FloatType>& buffer2)
 {
@@ -133,6 +145,29 @@ bool allSamplesAreValid (const AudioBuffer<FloatType>& buffer)
 
 template bool allSamplesAreValid (const AudioBuffer<float>&);
 template bool allSamplesAreValid (const AudioBuffer<double>&);
+
+
+template <typename FloatType>
+bool noSamplesAreClipping (const AudioBuffer<FloatType>& buffer)
+{
+    for (int chan = 0; chan < buffer.getNumChannels(); ++chan)
+    {
+        const auto* samples = buffer.getReadPointer (chan);
+        
+        for (int s = 0; s < buffer.getNumSamples(); ++s)
+        {
+            const auto sample = samples[s];
+            
+            if (sample > FloatType(1) || sample < FloatType(-1))
+                return false;
+        }
+    }
+    
+    return true;
+}
+
+template bool noSamplesAreClipping (const AudioBuffer<float>&);
+template bool noSamplesAreClipping (const AudioBuffer<double>&);
 
 
 bool midiBuffersAreEqual (const MidiBuffer& buffer1,

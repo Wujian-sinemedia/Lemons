@@ -133,7 +133,7 @@ AudioEngineTests<FloatType>::AudioEngineTests()
 template <typename FloatType>
 void AudioEngineTests<FloatType>::runTest()
 {
-	constexpr auto numChannels = 2;
+	constexpr auto numChannels = 3;
 	constexpr auto samplerate  = 44100.;
 
 	beginTest ("Latency should be 0");
@@ -161,6 +161,9 @@ void AudioEngineTests<FloatType>::runTest()
 		logImportantMessage ("Can call process()");
 
 		engine.process (audioIn);
+        
+        expect (allSamplesAreValid (audioIn));
+        
 		engine.process (audioIn, midiStorage);
 
 		logImportantMessage ("Alternate bypassed/unbypassed processing");

@@ -215,6 +215,8 @@ template struct Triangle<double>;
 
 /*--------------------------------------------------------------------------------------------*/
 
+#if LEMONS_UNIT_TESTS
+
 namespace lemons::tests
 {
 
@@ -236,8 +238,8 @@ void OscillatorTests<SampleType>::runTest()
 	beginTest ("Square tests");
 	runOscillatorTests (square);
 
-	beginTest ("Triangle tests");
-	runOscillatorTests (triangle);
+//	beginTest ("Triangle tests");
+//	runOscillatorTests (triangle);
 }
 
 template <typename SampleType>
@@ -245,36 +247,52 @@ void OscillatorTests<SampleType>::runOscillatorTests (dsp::osc::Oscillator<Sampl
 {
 	for (const auto samplerate : getTestingSamplerates())
 	{
-		for (const auto period : { 50, 220, 350, 520 })
+        logImportantMessage ("Samplerate: " + String (samplerate));
+        
+		for (const auto period : { 50, 119, 350, 531 })
 		{
-			const auto blocksize = period * 4;
-
-			logImportantMessage ("Samplerate: " + String (samplerate) + "; Blocksize: " + String (blocksize));
-
-			storage.setSize (1, blocksize, true, true, true);
-			storage.clear();
-
+            const auto blocksize = period * 4;
+            
+            storage.setSize (1, blocksize, true, true, true);
+            storage.clear();
+            
 			const auto freq = math::freqFromPeriod (samplerate, period);
-
-			osc.resetPhase();
+            
+            logImportantMessage ("Frequency: " + String (freq));
 
 			osc.setFrequency (static_cast<SampleType> (freq),
 			                  static_cast<SampleType> (samplerate));
 
 			osc.getSamples (storage);
-
-			// beginTest ("Test that period is consistent");
-
-			//            const auto* samples = storage.getReadPointer(0);
-			//
-			//            for (int p = 0;
-			//                 p < period && p + period < blocksize;
-			//                 ++p)
-			//            {
-			//                expectWithinAbsoluteError (samples[p],
-			//                                           samples[p + period],
-			//                                           SampleType(0.01));
-			//            }
+            
+            expect (! bufferIsSilent (storage));
+            expect (allSamplesAreValid (storage));
+            expect (noSamplesAreClipping (storage));
+            
+            const auto* samples = storage.getReadPointer(0);
+            
+            zeroCrossings.clearQuick();
+            bool status = samples[0] > SampleType(0);
+            
+            for (int s = 0; s < blocksize; ++s)
+            {
+                const auto current = samples[s] > SampleType(0);
+                
+                if (current != status)
+                {
+                    zeroCrossings.add (s);
+                    status = current;
+                }
+            }
+            
+            expectGreaterThan (zeroCrossings.size(), 2);
+            
+            for (int i = 1; i < zeroCrossings.size(); ++i)
+            {
+                expectWithinAbsoluteError (zeroCrossings.getUnchecked (i) - zeroCrossings.getUnchecked (i - 1),
+                                           period / 2,
+                                           3);
+            }
 		}
 	}
 }
@@ -283,3 +301,5 @@ template struct OscillatorTests<float>;
 template struct OscillatorTests<double>;
 
 }  // namespace lemons::tests
+
+#endif

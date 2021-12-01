@@ -164,6 +164,8 @@ private:
 
 /*--------------------------------------------------------------------------------------------*/
 
+#if LEMONS_UNIT_TESTS
+
 namespace lemons::tests
 {
 
@@ -181,12 +183,15 @@ private:
 	dsp::osc::Saw<SampleType>      saw;
 	dsp::osc::Square<SampleType>   square;
 	dsp::osc::Triangle<SampleType> triangle;
-	// dsp::osc::SuperSaw<SampleType> superSaw;
 
 	AudioBuffer<SampleType> storage;
+    
+    juce::Array<int> zeroCrossings;
 };
 
-// static OscillatorTests<float> oscillatorTest_float;
-// static OscillatorTests<double> oscillatorTest_double;
+static OscillatorTests<float>  oscillatorTest_float;
+static OscillatorTests<double> oscillatorTest_double;
 
 }  // namespace lemons::tests
+
+#endif
