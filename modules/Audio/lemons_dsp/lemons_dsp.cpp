@@ -3,7 +3,6 @@
 
 #include "fifos/CircularBuffer.cpp"
 #include "fifos/AudioFifo.cpp"
-#include "fifos/MidiFIFO.cpp"
 #include "fifos/AudioAndMidiFIFO.cpp"
 
 #include "engines/AudioEngine.cpp"

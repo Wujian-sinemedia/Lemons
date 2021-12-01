@@ -19,7 +19,13 @@
 -------------------------------------------------------------------------------------*/
 
 
+#if LEMONS_UNIT_TESTS
+#  include <lemons_unit_testing/lemons_unit_testing.h>
+#endif
+
+
 #include "utilities/MidiUtilities.h"
+#include "utilities/MidiFIFO.h"
 #include "utilities/VelocityHelper.h"
 
 #include "tuning/mts_client.h"

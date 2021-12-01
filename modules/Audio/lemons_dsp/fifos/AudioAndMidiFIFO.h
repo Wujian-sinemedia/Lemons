@@ -34,7 +34,7 @@ public:
 	void clear();
 
 private:
-	MidiFIFO              midi;
+	midi::MidiFIFO        midi;
 	AudioFifo<SampleType> audio;
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudioAndMidiFIFO)

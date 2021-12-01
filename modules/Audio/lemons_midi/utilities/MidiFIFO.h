@@ -1,6 +1,6 @@
 #pragma once
 
-namespace lemons::dsp
+namespace lemons::midi
 {
 
 /** A FIFO for storing MIDI events.
@@ -64,9 +64,9 @@ public:
 private:
 	void runTest() final;
 
-	dsp::MidiFIFO fifo;
+	midi::MidiFIFO fifo;
 
-	MidiBuffer input, output;
+	juce::MidiBuffer input, output;
 };
 
 static MidiFifoTests midiFifoTest;
