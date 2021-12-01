@@ -44,27 +44,6 @@
     <namespace>lemons::dsp::psola</namespace>
   </compound>
   <compound kind="file">
-    <name>arguments.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/console/</path>
-    <filename>arguments_8h.html</filename>
-    <namespace>lemons</namespace>
-    <namespace>lemons::console</namespace>
-    <member kind="function">
-      <type>T</type>
-      <name>conditionalExecuteWithReturn</name>
-      <anchorfile>namespacelemons_1_1console.html</anchorfile>
-      <anchor>a53d8a442da9be3ab3c47cc18af8e13d3</anchor>
-      <arglist>(const juce::ArgumentList &amp;args, const String &amp;option, std::function&lt; T(const String &amp;)&gt; functionIfFound, std::function&lt; T()&gt; functionIfNotFound)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>executeIfHasOption</name>
-      <anchorfile>namespacelemons_1_1console.html</anchorfile>
-      <anchor>a56660e7a31087463911bb8262dd6e63a</anchor>
-      <arglist>(const juce::ArgumentList &amp;args, const String &amp;option, std::function&lt; void(String)&gt; function)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
     <name>audio_processor_test.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_unit_testing/tests/</path>
     <filename>audio__processor__test_8h.html</filename>
@@ -343,6 +322,20 @@
       <anchorfile>namespacelemons_1_1binary.html</anchorfile>
       <anchor>a41518c65837719a57867f339a74dd847</anchor>
       <arglist>(const MidiBuffer &amp;midi)</arglist>
+    </member>
+    <member kind="function">
+      <type>ValueTree</type>
+      <name>valueTreeFromJSON</name>
+      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
+      <anchor>af9e8c5e6a4914f6758ca0efa6bc83512</anchor>
+      <arglist>(const String &amp;jsonText)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>valueTreeToJSON</name>
+      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
+      <anchor>ad40f7a5189286960dca69cbb397bc6c5</anchor>
+      <arglist>(const ValueTree &amp;v)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -860,11 +853,10 @@
   </compound>
   <compound kind="file">
     <name>logger.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/console/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/misc/</path>
     <filename>logger_8h.html</filename>
-    <class kind="class">lemons::console::Logger</class>
+    <class kind="class">lemons::Logger</class>
     <namespace>lemons</namespace>
-    <namespace>lemons::console</namespace>
   </compound>
   <compound kind="file">
     <name>main_page.md</name>
@@ -1402,9 +1394,9 @@
     <namespace>lemons::tests</namespace>
     <member kind="function">
       <type>bool</type>
-      <name>executeAllTests</name>
+      <name>executeUnitTests</name>
       <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a4114b46d4dfdf5b2a18688e30e54a0c8</anchor>
+      <anchor>a0e01d6e10d184911f604f738ae18653d</anchor>
       <arglist>(const juce::ArgumentList &amp;args)</arglist>
     </member>
     <member kind="function">
@@ -1927,6 +1919,13 @@
     <class kind="struct">lemons::midi::VelocityHelper</class>
     <namespace>lemons</namespace>
     <namespace>lemons::midi</namespace>
+  </compound>
+  <compound kind="file">
+    <name>Version.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/misc/</path>
+    <filename>_version_8h.html</filename>
+    <class kind="struct">lemons::Version</class>
+    <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
     <name>VoiceAllocator.h</name>
@@ -8505,20 +8504,20 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>lemons::console::Logger</name>
-    <filename>classlemons_1_1console_1_1_logger.html</filename>
+    <name>lemons::Logger</name>
+    <filename>classlemons_1_1_logger.html</filename>
     <member kind="function">
       <type></type>
       <name>Logger</name>
-      <anchorfile>classlemons_1_1console_1_1_logger.html</anchorfile>
-      <anchor>a6d85522e773c3e36644c66e26a939c6f</anchor>
-      <arglist>(juce::File outputFile={})</arglist>
+      <anchorfile>classlemons_1_1_logger.html</anchorfile>
+      <anchor>a814e7372762976fd8b796184a9f6b978</anchor>
+      <arglist>(File outputFile={})</arglist>
     </member>
     <member kind="function">
       <type></type>
       <name>~Logger</name>
-      <anchorfile>classlemons_1_1console_1_1_logger.html</anchorfile>
-      <anchor>ab0a331d28c273f4c11655f1aad106148</anchor>
+      <anchorfile>classlemons_1_1_logger.html</anchorfile>
+      <anchor>a9dd144696277c3f77a1fa01978b78bea</anchor>
       <arglist>() override</arglist>
     </member>
   </compound>
@@ -17137,6 +17136,122 @@
       <arglist>(int newSensitivity)</arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>lemons::Version</name>
+    <filename>structlemons_1_1_version.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>Version</name>
+      <anchorfile>structlemons_1_1_version.html</anchorfile>
+      <anchor>a27e4ef58f9a1502a4ce105ff771638ff</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>Version</name>
+      <anchorfile>structlemons_1_1_version.html</anchorfile>
+      <anchor>a13c58f684675e2a5ec266607cba9da83</anchor>
+      <arglist>(int maj, int min, int p)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>bumpMajor</name>
+      <anchorfile>structlemons_1_1_version.html</anchorfile>
+      <anchor>a2b906ed4d93957ad4e93e4c712236081</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>bumpMinor</name>
+      <anchorfile>structlemons_1_1_version.html</anchorfile>
+      <anchor>abc6b9609562d8f6ea37b71bdc1d6b366</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>bumpPatch</name>
+      <anchorfile>structlemons_1_1_version.html</anchorfile>
+      <anchor>ab01ffcc37bd2c9e5cc355d891afc32d3</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>hasSameMajorVersion</name>
+      <anchorfile>structlemons_1_1_version.html</anchorfile>
+      <anchor>ab86869233665c42fa29c5230cb5c8e38</anchor>
+      <arglist>(const Version &amp;other) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator!=</name>
+      <anchorfile>structlemons_1_1_version.html</anchorfile>
+      <anchor>a9b1dcad08a3a75cbab2236c4a418b9bb</anchor>
+      <arglist>(const Version &amp;other) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator&lt;</name>
+      <anchorfile>structlemons_1_1_version.html</anchorfile>
+      <anchor>a717f1f2d61b2fc207ce822d138cc4f86</anchor>
+      <arglist>(const Version &amp;other) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator==</name>
+      <anchorfile>structlemons_1_1_version.html</anchorfile>
+      <anchor>a01d57790a965f1d8a7a11a0861bf7a4e</anchor>
+      <arglist>(const Version &amp;other) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>operator&gt;</name>
+      <anchorfile>structlemons_1_1_version.html</anchorfile>
+      <anchor>a76c0c58ed2c3e89a83d79f83a8df4ee6</anchor>
+      <arglist>(const Version &amp;other) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>toString</name>
+      <anchorfile>structlemons_1_1_version.html</anchorfile>
+      <anchor>afa44ea8c1696df245d0b8462592f02a4</anchor>
+      <arglist>(const String &amp;separator=&quot;.&quot;) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>Version</type>
+      <name>withMajorBump</name>
+      <anchorfile>structlemons_1_1_version.html</anchorfile>
+      <anchor>ae770a3c144130dd30939b29788edadeb</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>Version</type>
+      <name>withMinorBump</name>
+      <anchorfile>structlemons_1_1_version.html</anchorfile>
+      <anchor>a93ff0cefe206eeb12aaea8651ddc30f8</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>Version</type>
+      <name>withPatchBump</name>
+      <anchorfile>structlemons_1_1_version.html</anchorfile>
+      <anchor>aa7e4074b4ce4a6a47c2c146c9cc88625</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Version</type>
+      <name>juceVersion</name>
+      <anchorfile>structlemons_1_1_version.html</anchorfile>
+      <anchor>a1f2ee8574b935bcab69f49c62b5d2cc7</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Version</type>
+      <name>lemonsVersion</name>
+      <anchorfile>structlemons_1_1_version.html</anchorfile>
+      <anchor>a55f32f9cd0cd397d9e2c2f36d96b2eb8</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>lemons::dsp::synth::VoiceAllocator</name>
     <filename>classlemons_1_1dsp_1_1synth_1_1_voice_allocator.html</filename>
@@ -17181,7 +17296,6 @@
     <name>lemons</name>
     <filename>namespacelemons.html</filename>
     <namespace>lemons::binary</namespace>
-    <namespace>lemons::console</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::events</namespace>
     <namespace>lemons::gui</namespace>
@@ -17196,9 +17310,11 @@
     <class kind="struct">lemons::DeviceRotation</class>
     <class kind="struct">lemons::Dimensions</class>
     <class kind="class">lemons::GuiApp</class>
+    <class kind="class">lemons::Logger</class>
     <class kind="class">lemons::MotionManager</class>
     <class kind="struct">lemons::SystemInitializer</class>
     <class kind="struct">lemons::ValueSmoother</class>
+    <class kind="struct">lemons::Version</class>
     <member kind="typedef">
       <type>juce::Array&lt; T &gt;</type>
       <name>Array</name>
@@ -17400,24 +17516,19 @@
       <anchor>a41518c65837719a57867f339a74dd847</anchor>
       <arglist>(const MidiBuffer &amp;midi)</arglist>
     </member>
-  </compound>
-  <compound kind="namespace">
-    <name>lemons::console</name>
-    <filename>namespacelemons_1_1console.html</filename>
-    <class kind="class">lemons::console::Logger</class>
     <member kind="function">
-      <type>T</type>
-      <name>conditionalExecuteWithReturn</name>
-      <anchorfile>namespacelemons_1_1console.html</anchorfile>
-      <anchor>a53d8a442da9be3ab3c47cc18af8e13d3</anchor>
-      <arglist>(const juce::ArgumentList &amp;args, const String &amp;option, std::function&lt; T(const String &amp;)&gt; functionIfFound, std::function&lt; T()&gt; functionIfNotFound)</arglist>
+      <type>ValueTree</type>
+      <name>valueTreeFromJSON</name>
+      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
+      <anchor>af9e8c5e6a4914f6758ca0efa6bc83512</anchor>
+      <arglist>(const String &amp;jsonText)</arglist>
     </member>
     <member kind="function">
-      <type>bool</type>
-      <name>executeIfHasOption</name>
-      <anchorfile>namespacelemons_1_1console.html</anchorfile>
-      <anchor>a56660e7a31087463911bb8262dd6e63a</anchor>
-      <arglist>(const juce::ArgumentList &amp;args, const String &amp;option, std::function&lt; void(String)&gt; function)</arglist>
+      <type>String</type>
+      <name>valueTreeToJSON</name>
+      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
+      <anchor>ad40f7a5189286960dca69cbb397bc6c5</anchor>
+      <arglist>(const ValueTree &amp;v)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -17969,9 +18080,9 @@
     </member>
     <member kind="function">
       <type>bool</type>
-      <name>executeAllTests</name>
+      <name>executeUnitTests</name>
       <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a4114b46d4dfdf5b2a18688e30e54a0c8</anchor>
+      <anchor>a0e01d6e10d184911f604f738ae18653d</anchor>
       <arglist>(const juce::ArgumentList &amp;args)</arglist>
     </member>
     <member kind="function">
@@ -18433,14 +18544,6 @@
     <class kind="struct">lemons::gui::ToggleTextButton</class>
   </compound>
   <compound kind="group">
-    <name>console</name>
-    <title>console</title>
-    <filename>group__console.html</filename>
-    <namespace>lemons</namespace>
-    <namespace>lemons::console</namespace>
-    <class kind="class">lemons::console::Logger</class>
-  </compound>
-  <compound kind="group">
     <name>dynamics</name>
     <title>dynamics</title>
     <filename>group__dynamics.html</filename>
@@ -18539,7 +18642,6 @@
     <title>lemons_core</title>
     <filename>group__lemons__core.html</filename>
     <subgroup>binary_data</subgroup>
-    <subgroup>console</subgroup>
     <subgroup>events</subgroup>
     <subgroup>files</subgroup>
     <subgroup>localization</subgroup>

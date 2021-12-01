@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['valuesmoother_865',['ValueSmoother',['../structlemons_1_1_value_smoother.html',1,'lemons']]],
-  ['valuesmoother_2eh_866',['ValueSmoother.h',['../_value_smoother_8h.html',1,'']]],
-  ['vecops_2eh_867',['vecops.h',['../vecops_8h.html',1,'']]],
-  ['velocityhelper_868',['VelocityHelper',['../structlemons_1_1midi_1_1_velocity_helper.html',1,'lemons::midi']]],
-  ['velocityhelper_2eh_869',['VelocityHelper.h',['../_velocity_helper_8h.html',1,'']]],
-  ['voice_870',['Voice',['../classlemons_1_1dsp_1_1_lambda_synth.html#a18dd4726f53147ab3e612054a332de08',1,'lemons::dsp::LambdaSynth::Voice()'],['../classlemons_1_1dsp_1_1synth_1_1_automated_harmony_voice.html#a362f75f5f7c557177bb35dda72fd1175',1,'lemons::dsp::synth::AutomatedHarmonyVoice::Voice()'],['../classlemons_1_1dsp_1_1synth_1_1_voice_allocator.html#a9e5e973e3bc50210bdbef7f0ae3e971f',1,'lemons::dsp::synth::VoiceAllocator::Voice()']]],
-  ['voiceallocator_871',['VoiceAllocator',['../classlemons_1_1dsp_1_1synth_1_1_voice_allocator.html',1,'lemons::dsp::synth::VoiceAllocator&lt; SampleType &gt;'],['../classlemons_1_1dsp_1_1synth_1_1_voice_allocator.html#a354c89a201e5b49eade21dcc6d636e60',1,'lemons::dsp::synth::VoiceAllocator::VoiceAllocator()']]],
-  ['voiceallocator_2eh_872',['VoiceAllocator.h',['../_voice_allocator_8h.html',1,'']]],
-  ['voicecreationfunc_873',['VoiceCreationFunc',['../classlemons_1_1dsp_1_1_lambda_synth.html#a05c7d5673a4479b696857a0aceb5a0c9',1,'lemons::dsp::LambdaSynth']]]
+  ['updateadsrsettings_861',['updateADSRsettings',['../classlemons_1_1dsp_1_1_synth_base.html#ab452fb3e2ee79aa8f95081bff317462b',1,'lemons::dsp::SynthBase']]],
+  ['updatemidivelocitysensitivity_862',['updateMidiVelocitySensitivity',['../classlemons_1_1dsp_1_1_synth_base.html#aa4e5707859857dcbff75cd91d4690657',1,'lemons::dsp::SynthBase']]],
+  ['updatepitchbendrange_863',['updatePitchbendRange',['../classlemons_1_1dsp_1_1_synth_base.html#a8676b5ac95187e769740872a3390b19e',1,'lemons::dsp::SynthBase::updatePitchbendRange(int rangeUp, int rangeDown)'],['../classlemons_1_1dsp_1_1_synth_base.html#a9b2c6c4f648250111af37e7e7512d6ff',1,'lemons::dsp::SynthBase::updatePitchbendRange(int rangeSemitones)']]],
+  ['updatepoints_864',['updatePoints',['../structlemons_1_1spline_1_1_spline.html#a7dcdb8a3fbec4fd0e807c0538ff34d1c',1,'lemons::spline::Spline']]],
+  ['updatequickreleasems_865',['updateQuickReleaseMs',['../classlemons_1_1dsp_1_1_synth_base.html#a7e249b858ee8cb944bbcafd183e8793d',1,'lemons::dsp::SynthBase']]],
+  ['updatestereowidth_866',['updateStereoWidth',['../classlemons_1_1dsp_1_1synth_1_1_panning_manager.html#a0cc8fc92ee05cb5921834de284f37ce0',1,'lemons::dsp::synth::PanningManager']]],
+  ['util_867',['util',['../group__util.html',1,'']]],
+  ['utilities_868',['utilities',['../group__utilities.html',1,'']]],
+  ['utils_869',['utils',['../group__utils.html',1,'']]]
 ];

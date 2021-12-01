@@ -1,27 +1,7 @@
 var searchData=
 [
-  ['_7eaudioandmidififo_1737',['~AudioAndMidiFIFO',['../classlemons_1_1dsp_1_1_audio_and_midi_f_i_f_o.html#a8093dd96a9941db36322836df8c97324',1,'lemons::dsp::AudioAndMidiFIFO']]],
-  ['_7eaudioeffect_1738',['~AudioEffect',['../structlemons_1_1dsp_1_1_f_x_1_1_audio_effect.html#a4022812ed63599216d3d943f4c1295d0',1,'lemons::dsp::FX::AudioEffect']]],
-  ['_7eaudiofifo_1739',['~AudioFifo',['../classlemons_1_1dsp_1_1_audio_fifo.html#ad201ec3be3501eb2dfc55e1b9f359e27',1,'lemons::dsp::AudioFifo']]],
-  ['_7ecircularbuffer_1740',['~CircularBuffer',['../classlemons_1_1dsp_1_1_circular_buffer.html#a2b83fc40751b047bf08181f8c40e02c6',1,'lemons::dsp::CircularBuffer']]],
-  ['_7edimensions_1741',['~Dimensions',['../structlemons_1_1_dimensions.html#a20d57c9f40a63aac687756876e5a1ccf',1,'lemons::Dimensions']]],
-  ['_7eengine_1742',['~Engine',['../classlemons_1_1dsp_1_1_engine.html#a47b57c00f1986dd60c0c620f9d404e70',1,'lemons::dsp::Engine']]],
-  ['_7elistener_1743',['~Listener',['../structlemons_1_1_motion_manager_1_1_listener.html#a04b9c1d7ab51e90f0af57f16e703ad77',1,'lemons::MotionManager::Listener::~Listener()'],['../structlemons_1_1_device_rotation_1_1_listener.html#a68b17e1694fa069c68d52a0a2c0f71ae',1,'lemons::DeviceRotation::Listener::~Listener()'],['../structlemons_1_1plugin_1_1_parameter_1_1_listener.html#ad9243b6cad4c3a0e9c76762917a83a3a',1,'lemons::plugin::Parameter::Listener::~Listener()']]],
-  ['_7elogger_1744',['~Logger',['../classlemons_1_1console_1_1_logger.html#ab0a331d28c273f4c11655f1aad106148',1,'lemons::console::Logger']]],
-  ['_7emidichoppingprocessor_1745',['~MidiChoppingProcessor',['../classlemons_1_1midi_1_1_midi_chopping_processor.html#affebff3f76cd5531c7458babab37bed8',1,'lemons::midi::MidiChoppingProcessor']]],
-  ['_7emidififo_1746',['~MidiFIFO',['../classlemons_1_1midi_1_1_midi_f_i_f_o.html#abef9e5e0fea25761f968209ce1482c47',1,'lemons::midi::MidiFIFO']]],
-  ['_7emidiprocessor_1747',['~MidiProcessor',['../classlemons_1_1midi_1_1_midi_processor.html#ab44464dabe30123c66f17baa7bfa337c',1,'lemons::midi::MidiProcessor']]],
-  ['_7emonostereoconverter_1748',['~MonoStereoConverter',['../classlemons_1_1dsp_1_1_mono_stereo_converter.html#aee870d1187f781ae5f2fc32425aeb97e',1,'lemons::dsp::MonoStereoConverter']]],
-  ['_7emotionmanager_1749',['~MotionManager',['../classlemons_1_1_motion_manager.html#a54f296b3a685757e9930f592cc4f7f3f',1,'lemons::MotionManager']]],
-  ['_7eoscillator_1750',['~Oscillator',['../structlemons_1_1dsp_1_1osc_1_1_oscillator.html#ac40a312c68d4ddc94f9aa8265a061688',1,'lemons::dsp::osc::Oscillator']]],
-  ['_7epannerbase_1751',['~PannerBase',['../classlemons_1_1dsp_1_1_f_x_1_1_panner_base.html#acd9dcd0a7c717add2a012b93163b7d7a',1,'lemons::dsp::FX::PannerBase']]],
-  ['_7epitchdetector_1752',['~PitchDetector',['../classlemons_1_1dsp_1_1_pitch_detector.html#a155dddb62c84f8c3634b2f8432cc0e7a',1,'lemons::dsp::PitchDetector']]],
-  ['_7escopedcursor_1753',['~ScopedCursor',['../structlemons_1_1gui_1_1_scoped_cursor.html#acce4fe5f5f21b1f59b34fabdbb172362',1,'lemons::gui::ScopedCursor']]],
-  ['_7escopeddisabler_1754',['~ScopedDisabler',['../structlemons_1_1_device_rotation_1_1_scoped_disabler.html#a41ae40f3c61ac009fdce4e732feb0000',1,'lemons::DeviceRotation::ScopedDisabler']]],
-  ['_7escopedwaitcursor_1755',['~ScopedWaitCursor',['../structlemons_1_1gui_1_1_scoped_wait_cursor.html#a8a9890039c1e747c97028bf7c0015f3f',1,'lemons::gui::ScopedWaitCursor']]],
-  ['_7esynthbase_1756',['~SynthBase',['../classlemons_1_1dsp_1_1_synth_base.html#a4d31200bd53189b63751267907358cd9',1,'lemons::dsp::SynthBase']]],
-  ['_7esynthvoicebase_1757',['~SynthVoiceBase',['../classlemons_1_1dsp_1_1_synth_voice_base.html#a52c45a2d148ad2b0334b1bb852d2b67d',1,'lemons::dsp::SynthVoiceBase']]],
-  ['_7esysteminitializer_1758',['~SystemInitializer',['../structlemons_1_1_system_initializer.html#afd774b075d41e65b70e358d56034ef17',1,'lemons::SystemInitializer']]],
-  ['_7etimercallback_1759',['~TimerCallback',['../structlemons_1_1events_1_1_timer_callback.html#a86c68f9fd8bf648d7483e835ade9fe04',1,'lemons::events::TimerCallback']]],
-  ['_7etogglebutton_1760',['~ToggleButton',['../classlemons_1_1gui_1_1_toggle_button.html#aafe0e0cbb1115f922e38f607cb88b6d5',1,'lemons::gui::ToggleButton']]]
+  ['wasstartedbefore_1759',['wasStartedBefore',['../classlemons_1_1dsp_1_1_synth_voice_base.html#a60ce72b630ee7eb687154ad7c623b0bb',1,'lemons::dsp::SynthVoiceBase']]],
+  ['withmajorbump_1760',['withMajorBump',['../structlemons_1_1_version.html#ae770a3c144130dd30939b29788edadeb',1,'lemons::Version']]],
+  ['withminorbump_1761',['withMinorBump',['../structlemons_1_1_version.html#a93ff0cefe206eeb12aaea8651ddc30f8',1,'lemons::Version']]],
+  ['withpatchbump_1762',['withPatchBump',['../structlemons_1_1_version.html#aa7e4074b4ce4a6a47c2c146c9cc88625',1,'lemons::Version']]]
 ];

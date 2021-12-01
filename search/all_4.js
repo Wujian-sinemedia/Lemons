@@ -23,7 +23,5 @@ var searchData=
   ['eq_164',['EQ',['../classlemons_1_1dsp_1_1_f_x_1_1_e_q.html',1,'lemons::dsp::FX::EQ&lt; SampleType &gt;'],['../classlemons_1_1dsp_1_1_f_x_1_1_e_q.html#a2dcdb60a42bb68a1f447336ee6127d1e',1,'lemons::dsp::FX::EQ::EQ()'],['../group___e_q.html',1,'(Global Namespace)']]],
   ['eq_2eh_165',['EQ.h',['../_e_q_8h.html',1,'']]],
   ['events_166',['events',['../group__events.html',1,'']]],
-  ['executealltests_167',['executeAllTests',['../namespacelemons_1_1tests.html#a4114b46d4dfdf5b2a18688e30e54a0c8',1,'lemons::tests']]],
-  ['executeifhasoption_168',['executeIfHasOption',['../namespacelemons_1_1console.html#a56660e7a31087463911bb8262dd6e63a',1,'lemons::console']]],
-  ['executeunittests_169',['executeUnitTests',['../namespacelemons_1_1tests.html#a6c0667618e391a361844cfdd79bdc213',1,'lemons::tests']]]
+  ['executeunittests_167',['executeUnitTests',['../namespacelemons_1_1tests.html#a6c0667618e391a361844cfdd79bdc213',1,'lemons::tests::executeUnitTests(juce::File logOutput, juce::int64 seed, const String &amp;singleTestName={}, const String &amp;categoryName={})'],['../namespacelemons_1_1tests.html#a0e01d6e10d184911f604f738ae18653d',1,'lemons::tests::executeUnitTests(const juce::ArgumentList &amp;args)']]]
 ];
