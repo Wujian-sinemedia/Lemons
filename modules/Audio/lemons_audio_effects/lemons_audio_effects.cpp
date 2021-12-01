@@ -10,10 +10,9 @@
 #include "misc/DeEsser.cpp"
 #include "misc/DryWet.cpp"
 #include "misc/Reverb.cpp"
-#include "stereo_image/MonoStereoConverter.cpp"
-#include "stereo_image/panning/MonoToStereoPanner.cpp"
-#include "stereo_image/panning/StereoPanner.cpp"
-#include "stereo_image/panning/PannerBase.cpp"
+#include "panning/MonoToStereoPanner.cpp"
+#include "panning/StereoPanner.cpp"
+#include "panning/PannerBase.cpp"
 #include "time/Delay.cpp"
 
 #include "EQ/Filter.cpp"

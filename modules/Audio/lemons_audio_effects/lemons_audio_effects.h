@@ -31,9 +31,8 @@ END_JUCE_MODULE_DECLARATION
 #include "misc/Reverb.h"
 #include "misc/DryWet.h"
 
-#include "stereo_image/MonoStereoConverter.h"
-#include "stereo_image/panning/MonoToStereoPanner.h"
-#include "stereo_image/panning/StereoPanner.h"
+#include "panning/MonoToStereoPanner.h"
+#include "panning/StereoPanner.h"
 
 #include "time/Delay.h"
 

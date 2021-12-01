@@ -19,7 +19,7 @@ enum class OscType
     @see OscType, OscEngine, Oscillator
  */
 template <typename SampleType>
-class ChoosableOscillator
+class ChoosableOscillator final
 {
 public:
 	/** Sets the type of oscillator that will be used to generate the output.

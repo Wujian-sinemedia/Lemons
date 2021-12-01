@@ -1,5 +1,4 @@
-
-namespace lemons::dsp::FX
+namespace lemons::dsp
 {
 template <typename SampleType>
 MonoStereoConverter<SampleType>::MonoStereoConverter()
@@ -33,10 +32,12 @@ void MonoStereoConverter<SampleType>::convertStereoToMono (const SampleType* lef
 		case (StereoReductionMode::leftOnly) :
 		{
 			vecops::copy (leftIn, monoOut, numSamples);
+            return;
 		}
 		case (StereoReductionMode::rightOnly) :
 		{
 			vecops::copy (rightIn, monoOut, numSamples);
+            return;
 		}
 		case (StereoReductionMode::mixToMono) :
 		{
@@ -48,21 +49,16 @@ void MonoStereoConverter<SampleType>::convertStereoToMono (const SampleType* lef
 }
 
 template <typename SampleType>
-void MonoStereoConverter<SampleType>::convertStereoToMono (const Buffer& input, Buffer& output)
+void MonoStereoConverter<SampleType>::convertStereoToMono (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output)
 {
 	jassert (input.getNumSamples() == output.getNumSamples());
+    jassert (input.getNumChannels() == 2);
+    jassert (output.getNumChannels() == 1);
 
-	if (input.getNumChannels() == 1)
-	{
-		dsp::buffers::copy (input, output);
-	}
-	else
-	{
-		convertStereoToMono (input.getReadPointer (0),
-		                     input.getReadPointer (1),
-		                     output.getWritePointer (0),
-		                     output.getNumSamples());
-	}
+    convertStereoToMono (input.getReadPointer (0),
+                         input.getReadPointer (1),
+                         output.getWritePointer (0),
+                         output.getNumSamples());
 }
 
 
@@ -77,10 +73,11 @@ void MonoStereoConverter<SampleType>::convertMonoToStereo (const SampleType* mon
 }
 
 template <typename SampleType>
-void MonoStereoConverter<SampleType>::convertMonoToStereo (const Buffer& input, Buffer& output)
+void MonoStereoConverter<SampleType>::convertMonoToStereo (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output)
 {
 	jassert (input.getNumSamples() == output.getNumSamples());
-	jassert (output.getNumChannels() >= 2);
+    jassert (input.getNumChannels() == 1);
+	jassert (output.getNumChannels() == 2);
 
 	convertMonoToStereo (input.getReadPointer (0),
 	                     output.getWritePointer (0),

@@ -14,8 +14,9 @@ namespace lemons::dsp::osc
     @tparam Osctype A template class representing the kind of oscillator you want this engine to use; for example, osc::Sine. This should be un-specialized. This type must inherit from Oscillator.
     @see Oscillator, dsp::Engine
  */
-template <typename SampleType, template <typename T> class Osctype>
-class Engine : public dsp::Engine<SampleType>
+template <typename SampleType, template <typename T> class Osctype,
+          LEMONS_MUST_INHERIT_FROM (Osctype<SampleType>, Oscillator<SampleType>)>
+class Engine final : public dsp::Engine<SampleType>
 {
 public:
 	/** Updates the frequency of the owned oscillator object. */

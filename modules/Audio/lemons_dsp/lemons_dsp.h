@@ -41,10 +41,7 @@ END_JUCE_MODULE_DECLARATION
 
 #include "filters/Filter.h"
 
-#include "BufferUtils/BufferUtils.h"
-
-#include "PitchDetector/PitchDetector.h"
-
-#include "BasicProcessor/BasicProcessor.h"
-
-#include "chains/DSPChain.h"
+#include "util/BufferUtils.h"
+#include "util/BasicProcessor.h"
+#include "util/MonoStereoConverter.h"
+#include "util/PitchDetector.h"

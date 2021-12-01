@@ -8,7 +8,7 @@ namespace lemons::dsp::osc
     @see Saw, Oscillator, Phase
  */
 template <typename SampleType>
-class SuperSaw : public Oscillator<SampleType>
+class SuperSaw final : public Oscillator<SampleType>
 {
 public:
 	/** Constructs a default SuperSaw. */

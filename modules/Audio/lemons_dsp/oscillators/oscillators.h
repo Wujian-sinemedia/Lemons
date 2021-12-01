@@ -61,7 +61,7 @@ struct Oscillator
     @see Oscillator, Phase
  */
 template <typename SampleType>
-struct Sine : public Oscillator<SampleType>
+struct Sine final : public Oscillator<SampleType>
 {
 	/** Constructs a default sine oscillator. */
 	Sine();
@@ -86,7 +86,7 @@ private:
     @see SuperSaw, Oscillator, Phase
  */
 template <typename SampleType>
-struct Saw : public Oscillator<SampleType>
+struct Saw final : public Oscillator<SampleType>
 {
 	/** Constructs a default sawtooth oscillator. */
 	Saw();
@@ -114,7 +114,7 @@ struct Triangle;
     @see Oscillator, Phase
  */
 template <typename SampleType>
-struct Square : public Oscillator<SampleType>
+struct Square final : public Oscillator<SampleType>
 {
 	/** Consructs a default square wave oscillator. */
 	Square();
@@ -140,7 +140,7 @@ private:
     @see Square, Oscillator, Phase
  */
 template <typename SampleType>
-struct Triangle : public Oscillator<SampleType>
+struct Triangle final : public Oscillator<SampleType>
 {
 	/** Constructs a default triangle wave. */
 	Triangle();
