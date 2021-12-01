@@ -43,5 +43,5 @@ target_link_libraries (${PROJECT_NAME} PUBLIC LemonsTestingModules LemonsAudioMo
 enable_testing()
 
 add_test (NAME LemonsUnitTests 
-          COMMAND ${PROJECT_NAME} 
+          COMMAND ${PROJECT_NAME} -f "logs/unit_tests.log"
           WORKING_DIRECTORY "${Lemons_SOURCE_DIR}")
