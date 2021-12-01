@@ -51,13 +51,15 @@ void AudioProcessorTestBase::runTest()
     
     if (processor.hasEditor())
     {
+#if LEMONS_GUI_UNIT_TESTS
         beginTest ("Editor tests");
 
-//        auto* editor = processor.createEditor();
-//
-//        expect (editor != nullptr);
-//
-//        runEditorTests (*editor);
+        auto* editor = processor.createEditor();
+
+        expect (editor != nullptr);
+
+        runEditorTests (*editor);
+#endif
     }
     else
     {
@@ -105,8 +107,13 @@ void AudioProcessorTestBase::runTypedTests()
             
             logImportantMessage ("Bypassed processing");
             processor.processBlockBypassed (audioIO, midiIO);
+            processor.processBlockBypassed (audioIO, midiIO);
+            processor.processBlockBypassed (audioIO, midiIO);
             processor.processBlock (audioIO, midiIO);
             processor.processBlockBypassed (audioIO, midiIO);
+            processor.processBlock (audioIO, midiIO);
+            processor.processBlockBypassed (audioIO, midiIO);
+            processor.processBlock (audioIO, midiIO);
             
             logImportantMessage ("Offline rendering");
             processor.setNonRealtime (true);

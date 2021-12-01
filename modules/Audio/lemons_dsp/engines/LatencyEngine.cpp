@@ -8,7 +8,7 @@ void LatencyEngine<SampleType>::prepared (int blocksize, double samplerate, int 
     
     const auto multiple = blocksize * 4;
 
-	inputFIFO.setSize (multiple, numChannels);
+	inputFIFO.setSize  (multiple, numChannels);
 	outputFIFO.setSize (multiple, numChannels);
     
     chunkMidiBuffer.ensureSize (static_cast<size_t> (blocksize));
@@ -121,6 +121,7 @@ template <typename FloatType>
 void LatencyEngineTests<FloatType>::runTest()
 {
     constexpr auto numChannels = 2;
+    constexpr auto samplerate = 44100.;
     
     beginTest ("Initial latency should be 0");
     
@@ -129,49 +130,47 @@ void LatencyEngineTests<FloatType>::runTest()
     
     for (const auto blocksize : getTestingBlockSizes())
     {
-        for (const auto samplerate : getTestingSamplerates())
-        {
-            beginTest ("Blocksize: " + String(blocksize) + "; Samplerate: " + String(samplerate));
-            
-            midiStorage.ensureSize (static_cast<size_t>(blocksize));
-            audioIn.setSize  (numChannels, blocksize, true, true, true);
-            audioOut.setSize (numChannels, blocksize, true, true, true);
-            
-            fillAudioBufferWithRandomNoise (audioIn);
-            fillMidiBufferWithRandomEvents (midiStorage, blocksize / 2);
-            
-            engine.setSamplerate (samplerate);
-            expectEquals (engine.getSamplerate(), samplerate);
-            
-            expect (engine.isInitialized());
-            
-            logImportantMessage ("Latency equal to blocksize");
-            testLatency (blocksize);
-            
-            logImportantMessage ("Latency larger than blocksize");
-            testLatency (blocksize * 2 + 36);
-            
-//            logImportantMessage ("Latency smaller than blocksize");
-//            testLatency (blocksize / 2);
-        }
+        beginTest ("Blocksize: " + String(blocksize));
+        
+        midiStorage.ensureSize (static_cast<size_t>(blocksize));
+        audioIn.setSize  (numChannels, blocksize, true, true, true);
+        audioOut.setSize (numChannels, blocksize, true, true, true);
+        
+        fillAudioBufferWithRandomNoise (audioIn);
+        fillMidiBufferWithRandomEvents (midiStorage, blocksize / 2);
+        
+        engine.setSamplerate (samplerate);
+        expectEquals (engine.getSamplerate(), samplerate);
+        
+        expect (engine.isInitialized());
+        
+        logImportantMessage ("Latency equal to blocksize");
+        testLatency (blocksize);
+        
+        logImportantMessage ("Latency larger than blocksize");
+        testLatency (blocksize * 2 + 36);
+        
+        logImportantMessage ("Latency smaller than blocksize");
+        testLatency (blocksize / 2);
     }
 }
 
 template <typename FloatType>
 void LatencyEngineTests<FloatType>::testLatency (int latency)
 {
-    const auto srBefore = engine.getSamplerate();
+    {
+        const auto srBefore = engine.getSamplerate();
     
-    engine.changeLatency (latency);
-    expectEquals (engine.reportLatency(), latency);
+        engine.changeLatency (latency);
+        expectEquals (engine.reportLatency(), latency);
+        expectEquals (engine.getSamplerate(), srBefore);
+    }
     
-    expectEquals (engine.getSamplerate(), srBefore);
-    
-    logImportantMessage ("Can call process()");
-    
+//    logImportantMessage ("Can call process()");
+
     audioOut.clear();
-    
-    engine.process (audioIn, audioOut, midiStorage);
+
+    //engine.process (audioIn, audioOut, midiStorage);
     
     //expect (allSamplesAreZero (audioOut, 0, latency));
     

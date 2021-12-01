@@ -90,6 +90,10 @@ bool executeAllTests (const juce::ArgumentList& args)
     ConsoleUnitTestRunner runner;
     ConsoleLogger         logger;
     
+#if LEMONS_GUI_UNIT_TESTS
+    // set up message manager, etc...
+#endif
+    
     if (args.containsOption ("--category"))
         runner.runTestsInCategory (args.getValueForOption ("--category"), seed);
     else if (args.containsOption ("-c"))

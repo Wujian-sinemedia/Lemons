@@ -19,6 +19,35 @@
 -------------------------------------------------------------------------------------*/
 
 
+//==============================================================================
+/** Config: LEMONS_UNIT_TESTS
+ 
+ Set this to 1 to build the Lemons unit tests.
+ The Lemons repo's cmake scripts set this automatically for you; if that's how you added the Lemons package, then you don't need to worry about setting this manually.
+ Inclusion of the lemons_core header also sets this to 1.
+ */
+#ifndef LEMONS_UNIT_TESTS
+#  define LEMONS_UNIT_TESTS 1
+#endif
+
+#if ! LEMONS_UNIT_TESTS
+#  error "Unit tests are disabled!"
+#endif
+
+
+//==============================================================================
+/** Config: LEMONS_GUI_UNIT_TESTS
+ 
+ Set this to 1 to include GUI unit tests.
+ */
+#ifndef LEMONS_GUI_UNIT_TESTS
+#  define LEMONS_GUI_UNIT_TESTS 0
+#endif
+
+
+/*=======================================================================*/
+
+
 #include "tests/test.h"
 #include "tests/dsp_test.h"
 #include "tests/audio_processor_test.h"

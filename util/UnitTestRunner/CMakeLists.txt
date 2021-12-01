@@ -23,6 +23,7 @@ CPMAddPackage (
         OPTIONS "LEMONS_BUILD_TESTS ON")
 
 include (LemonsTestingModules)
+include (LemonsAudioModules)
 
 #
 
@@ -35,7 +36,7 @@ target_compile_definitions (${PROJECT_NAME} PRIVATE
     JUCE_WEB_BROWSER=0
     JUCE_DISPLAY_SPLASH_SCREEN=0)
 
-target_link_libraries (${PROJECT_NAME} PUBLIC LemonsTestingModules)
+target_link_libraries (${PROJECT_NAME} PUBLIC LemonsTestingModules LemonsAudioModules)
 
 #
 

@@ -1,9 +1,8 @@
 #[[
-Building blocks for audio plugins
+Helpers for writing unit tests
 
 ## Includes:
 - LemonsJuceModuleUtilities
-- LemonsAudioModules
 
 ## Targets:
 - LemonsTestingModules
@@ -14,7 +13,6 @@ Building blocks for audio plugins
 include_guard (GLOBAL)
 
 include (LemonsJuceModuleUtilities)
-include (LemonsAudioModules)
 
 _lemons_add_module_subcategory (LemonsTestingModules)
 

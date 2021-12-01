@@ -126,6 +126,7 @@ template <typename FloatType>
 void AudioEngineTests<FloatType>::runTest()
 {
     constexpr auto numChannels = 2;
+    constexpr auto samplerate = 44100.;
     
     beginTest ("Latency should be 0");
     
@@ -134,62 +135,59 @@ void AudioEngineTests<FloatType>::runTest()
     
     for (const auto blocksize : getTestingBlockSizes())
     {
-        for (const auto samplerate : getTestingSamplerates())
-        {
-            beginTest ("Blocksize: " + String(blocksize) + "; Samplerate: " + String(samplerate));
-            
-            engine.prepare (samplerate, blocksize, numChannels);
-            midiStorage.ensureSize (static_cast<size_t>(blocksize));
-            audioIn.setSize  (numChannels, blocksize, true, true, true);
-            audioOut.setSize (numChannels, blocksize, true, true, true);
-            
-            expect (engine.isInitialized());
-            expectEquals (engine.getSamplerate(), samplerate);
-            
-            fillAudioBufferWithRandomNoise (audioIn);
-            fillMidiBufferWithRandomEvents (midiStorage, blocksize / 2);
-            
-            logImportantMessage ("Can call process()");
-            
-            engine.process (audioIn);
-            engine.process (audioIn, midiStorage);
-            
-            logImportantMessage ("Alternate bypassed/unbypassed processing");
-            
-            audioOut.clear();
-            
-            engine.process (audioIn, audioOut, false);
-            expect (buffersAreEqual (audioIn, audioOut));
-            
-            engine.process (audioIn, audioOut, true);
-            expect (! bufferIsSilent (audioOut));
-            expect (! buffersAreEqual (audioIn, audioOut));
-            
-            engine.process (audioIn, audioOut, true);
-            expect (bufferIsSilent (audioOut));
-            
-            engine.process (audioIn, audioOut, true);
-            expect (bufferIsSilent (audioOut));
-            
-            engine.process (audioIn, audioOut, false);
-            expect (! bufferIsSilent (audioOut));
-            expect (! buffersAreEqual (audioIn, audioOut));
-            
-            engine.process (audioIn, audioOut, false);
-            expect (buffersAreEqual (audioIn, audioOut));
-            
-            engine.process (audioIn, true);
-            engine.process (audioIn, false);
-            engine.process (audioIn, true);
-            engine.process (audioIn, false);
-            engine.process (audioIn, true);
-
-            logImportantMessage ("Release");
-            
-            engine.releaseResources();
-            
-            expect (! engine.isInitialized());
-        }
+        beginTest ("Blocksize: " + String(blocksize));
+        
+        engine.prepare (samplerate, blocksize, numChannels);
+        midiStorage.ensureSize (static_cast<size_t>(blocksize));
+        audioIn.setSize  (numChannels, blocksize, true, true, true);
+        audioOut.setSize (numChannels, blocksize, true, true, true);
+        
+        expect (engine.isInitialized());
+        expectEquals (engine.getSamplerate(), samplerate);
+        
+        fillAudioBufferWithRandomNoise (audioIn);
+        fillMidiBufferWithRandomEvents (midiStorage, blocksize / 2);
+        
+        logImportantMessage ("Can call process()");
+        
+        engine.process (audioIn);
+        engine.process (audioIn, midiStorage);
+        
+        logImportantMessage ("Alternate bypassed/unbypassed processing");
+        
+        audioOut.clear();
+        
+        engine.process (audioIn, audioOut, false);
+        expect (buffersAreEqual (audioIn, audioOut));
+        
+        engine.process (audioIn, audioOut, true);
+        expect (! bufferIsSilent (audioOut));
+        expect (! buffersAreEqual (audioIn, audioOut));
+        
+        engine.process (audioIn, audioOut, true);
+        expect (bufferIsSilent (audioOut));
+        
+        engine.process (audioIn, audioOut, true);
+        expect (bufferIsSilent (audioOut));
+        
+        engine.process (audioIn, audioOut, false);
+        expect (! bufferIsSilent (audioOut));
+        expect (! buffersAreEqual (audioIn, audioOut));
+        
+        engine.process (audioIn, audioOut, false);
+        expect (buffersAreEqual (audioIn, audioOut));
+        
+        engine.process (audioIn, true);
+        engine.process (audioIn, false);
+        engine.process (audioIn, true);
+        engine.process (audioIn, false);
+        engine.process (audioIn, true);
+        
+        logImportantMessage ("Release");
+        
+        engine.releaseResources();
+        
+        expect (! engine.isInitialized());
     }
 }
 
