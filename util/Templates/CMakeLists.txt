@@ -17,7 +17,7 @@ endif()
 #
 
 add_subdirectory (app)
-add_subdirectory (DefaultJucePlugin)
+add_subdirectory (plugin)
 
 #
 

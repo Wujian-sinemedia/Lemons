@@ -1,0 +1,20 @@
+Generators:
+* Mac: Xcode
+* Windows: Visual Studio 16 2019
+* Linux: Ninja
+
+Aliases:
+* all: build[all]
+* ios: build[ios]
+
+Clean:
+* Builds/
+
+Wipe:
+* Cache/
+
+Logs: 
+* logs
+
+Git branch name: 
+* main
