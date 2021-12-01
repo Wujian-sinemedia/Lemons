@@ -93,7 +93,7 @@ namespace lemons::tests
 
 template <typename FloatType>
 AudioFifoTests<FloatType>::AudioFifoTests()
-    : DspTest (getDspTestName<FloatType>("Audio FIFO tests"))
+    : DspTest (getDspTestName<FloatType> ("Audio FIFO tests"))
 {
 }
 
@@ -112,11 +112,11 @@ void AudioFifoTests<FloatType>::runTest()
 
 	for (const auto numSamples : getTestingBlockSizes())
 	{
-        beginTest ("Blocksize: " + String(numSamples));
+		beginTest ("Blocksize: " + String (numSamples));
 
 		resizeAllBuffers (numSamples, numChannels);
-        
-        fillAudioBufferWithRandomNoise (origStorage);
+
+		fillAudioBufferWithRandomNoise (origStorage);
 
 		fifo.pushSamples (origStorage);
 
@@ -130,12 +130,12 @@ void AudioFifoTests<FloatType>::runTest()
 		expectEquals (fifo.numStoredSamples(), 0);
 
 
-        logImportantMessage ("Store samples and retrieve later");
+		logImportantMessage ("Store samples and retrieve later");
 
 		expect (buffersAreEqual (fifoOutput, origStorage));
 
 
-        logImportantMessage ("Retrieve fewer samples than were passed in");
+		logImportantMessage ("Retrieve fewer samples than were passed in");
 
 		fifo.pushSamples (origStorage);
 
@@ -154,12 +154,12 @@ void AudioFifoTests<FloatType>::runTest()
 		}
 
 
-        logImportantMessage ("Retrieve more samples than are left in FIFO");
-        
-        if (math::numberIsEven (numSamples))
-            expectEquals (fifo.numStoredSamples(), halfNumSamples);
-        else
-            expectWithinAbsoluteError (fifo.numStoredSamples(), halfNumSamples, 1);
+		logImportantMessage ("Retrieve more samples than are left in FIFO");
+
+		if (math::numberIsEven (numSamples))
+			expectEquals (fifo.numStoredSamples(), halfNumSamples);
+		else
+			expectWithinAbsoluteError (fifo.numStoredSamples(), halfNumSamples, 1);
 
 		fifo.popSamples (fifoOutput);
 
@@ -176,7 +176,7 @@ void AudioFifoTests<FloatType>::runTest()
 		}
 
 
-        logImportantMessage ("Resizing clears the FIFO");
+		logImportantMessage ("Resizing clears the FIFO");
 
 		fifo.pushSamples (origStorage);
 
@@ -185,14 +185,14 @@ void AudioFifoTests<FloatType>::runTest()
 		expectEquals (fifo.numStoredSamples(), 0);
 
 
-        logImportantMessage ("Increase number of channels");
+		logImportantMessage ("Increase number of channels");
 
 		fifo.resize (halfNumSamples, numChannels + 3);
 
 		expectEquals (fifo.numChannels(), numChannels + 3);
 
 
-        logImportantMessage ("Decrease number of channels");
+		logImportantMessage ("Decrease number of channels");
 
 		fifo.resize (halfNumSamples, numChannels);
 

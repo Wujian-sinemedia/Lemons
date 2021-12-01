@@ -44,7 +44,7 @@ void MidiFIFO::popEvents (MidiBuffer& output, int numSamples)
 	numSamplesStored = std::max (0, numSamplesStored - numSamples);
 }
 
-}  // namespace lemons::midi
+}  // namespace lemons::dsp
 
 
 /*---------------------------------------------------------------------------------------------------------------------------------*/
@@ -64,14 +64,14 @@ void MidiFifoTests::runTest()
 {
 	for (const auto numSamples : getTestingBlockSizes())
 	{
-        beginTest ("Blocksize: " + String(numSamples));
-        
-        const auto numEvents = numSamples / 2;
+		beginTest ("Blocksize: " + String (numSamples));
 
-        fillMidiBufferWithRandomEvents (input, numEvents);
+		const auto numEvents = numSamples / 2;
 
-        fifo.clear();
-        
+		fillMidiBufferWithRandomEvents (input, numEvents);
+
+		fifo.clear();
+
 		logImportantMessage ("Num events stored correctly");
 
 		fifo.pushEvents (input, numSamples);
@@ -79,19 +79,19 @@ void MidiFifoTests::runTest()
 		expectEquals (fifo.numStoredEvents(), numEvents);
 
 
-        logImportantMessage ("Num stored samples stored correctly");
+		logImportantMessage ("Num stored samples stored correctly");
 
 		expectEquals (fifo.numStoredSamples(), numSamples);
 
 
-        logImportantMessage ("Store events and retrieve later");
+		logImportantMessage ("Store events and retrieve later");
 
 		fifo.popEvents (output, numSamples);
 
 		expect (midiBuffersAreEqual (input, output));
 
 
-        logImportantMessage ("Resizing clears the FIFO");
+		logImportantMessage ("Resizing clears the FIFO");
 
 		fifo.setSize (numSamples / 4);
 

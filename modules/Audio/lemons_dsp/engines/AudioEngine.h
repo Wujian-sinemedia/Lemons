@@ -111,23 +111,23 @@ template <typename FloatType>
 struct AudioEngineTests : public DspTest
 {
 public:
-    AudioEngineTests();
-    
+	AudioEngineTests();
+
 private:
-    void runTest() final;
-    
-    struct PassThroughEngine : public dsp::Engine<FloatType>
-    {
-        void renderBlock (const AudioBuffer<FloatType>& input,
-                          AudioBuffer<FloatType>& output,
-                          MidiBuffer& midiMessages, bool isBypassed) final;
-    };
-    
-    PassThroughEngine engine;
-    
-    AudioBuffer<FloatType> audioIn, audioOut;
-    
-    MidiBuffer midiStorage;
+	void runTest() final;
+
+	struct PassThroughEngine : public dsp::Engine<FloatType>
+	{
+		void renderBlock (const AudioBuffer<FloatType>& input,
+		                  AudioBuffer<FloatType>&       output,
+		                  MidiBuffer& midiMessages, bool isBypassed) final;
+	};
+
+	PassThroughEngine engine;
+
+	AudioBuffer<FloatType> audioIn, audioOut;
+
+	MidiBuffer midiStorage;
 };
 
 static AudioEngineTests<float>  audioEngineTest_float;

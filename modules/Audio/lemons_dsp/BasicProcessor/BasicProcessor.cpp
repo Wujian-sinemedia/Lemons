@@ -26,7 +26,7 @@ const String BasicProcessor::getName() const { return TRANS ("ProcessorBase"); }
 
 bool BasicProcessor::hasEditor() const { return true; }
 
-juce::AudioProcessorEditor* BasicProcessor::createEditor() { return new juce::GenericAudioProcessorEditor(*this); }
+juce::AudioProcessorEditor* BasicProcessor::createEditor() { return new juce::GenericAudioProcessorEditor (*this); }
 
 static inline bool isChannelsetValid (const juce::AudioChannelSet& set)
 {
@@ -36,16 +36,15 @@ static inline bool isChannelsetValid (const juce::AudioChannelSet& set)
 bool BasicProcessor::isBusesLayoutSupported (const BusesLayout& layout) const
 {
 	return isChannelsetValid (layout.getMainInputChannelSet())
-        && isChannelsetValid (layout.getMainOutputChannelSet());
+	    && isChannelsetValid (layout.getMainOutputChannelSet());
 }
 
 void BasicProcessor::repaintEditor() const
 {
-    juce::MessageManager::callAsync ([editor = juce::Component::SafePointer<juce::AudioProcessorEditor>(getActiveEditor())]
-                                     {
+	juce::MessageManager::callAsync ([editor = juce::Component::SafePointer<juce::AudioProcessorEditor> (getActiveEditor())]
+	                                 {
                                         if (auto* e = editor.getComponent())
-                                            e->repaint();
-                                     });
+                                            e->repaint(); });
 }
 
 }  // namespace lemons::dsp

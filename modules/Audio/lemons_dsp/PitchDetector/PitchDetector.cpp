@@ -209,7 +209,7 @@ namespace lemons::tests
 
 template <typename FloatType>
 PitchDetectorTests<FloatType>::PitchDetectorTests()
-    : DspTest (getDspTestName<FloatType>("Pitch detector tests"))
+    : DspTest (getDspTestName<FloatType> ("Pitch detector tests"))
 {
 }
 
@@ -246,46 +246,46 @@ void PitchDetectorTests<FloatType>::runOscillatorTest (dsp::osc::Oscillator<Floa
 template <typename FloatType>
 void PitchDetectorTests<FloatType>::runTest()
 {
-    for (const auto confidenceThresh : { 0.1f, 0.15f, 0.2f })
+	for (const auto confidenceThresh : { 0.1f, 0.15f, 0.2f })
 	{
 		detector.setConfidenceThresh (confidenceThresh);
 
 		for (const auto samplerate : getTestingSamplerates())
 		{
-            beginTest ("Samplerate: " + String(samplerate) + "; YIN confidence threshold: " + String(confidenceThresh));
-            
+			beginTest ("Samplerate: " + String (samplerate) + "; YIN confidence threshold: " + String (confidenceThresh));
+
 			const auto latency = detector.setSamplerate (samplerate);
 
 			storage.setSize (1, latency, true, true, true);
 
-            
-            logImportantMessage ("Detect frequencies of oscillators");
-            
-            runOscillatorTest (sine,     samplerate);
-            runOscillatorTest (saw,      samplerate);
-            runOscillatorTest (square,   samplerate);
-            runOscillatorTest (triangle, samplerate);
 
-            //                for (const auto detune : { 0, 1, 5, 12 })
-            //                {
-            //                    logImportantMessage (String("Setting supersaw pitch spread to ") + String(detune));
-            //
-            //                    superSaw.setDetuneAmount (detune);
-            //                    runOscillatorTest (superSaw, "SuperSaw", samplerate, 1);
-            //                }
-    
-            
-            logImportantMessage ("Detect random noise as unpitched");
+			logImportantMessage ("Detect frequencies of oscillators");
+
+			runOscillatorTest (sine, samplerate);
+			runOscillatorTest (saw, samplerate);
+			runOscillatorTest (square, samplerate);
+			runOscillatorTest (triangle, samplerate);
+
+			//                for (const auto detune : { 0, 1, 5, 12 })
+			//                {
+			//                    logImportantMessage (String("Setting supersaw pitch spread to ") + String(detune));
+			//
+			//                    superSaw.setDetuneAmount (detune);
+			//                    runOscillatorTest (superSaw, "SuperSaw", samplerate, 1);
+			//                }
+
+
+			logImportantMessage ("Detect random noise as unpitched");
 
 			for (int r = 0; r < defaultReps; ++r)
 			{
-                fillAudioBufferWithRandomNoise (storage);
+				fillAudioBufferWithRandomNoise (storage);
 
 				expectEquals (detector.detectPitch (storage), 0.f);
 			}
 
 
-            logImportantMessage ("Detect silence as unpitched");
+			logImportantMessage ("Detect silence as unpitched");
 
 			storage.clear();
 

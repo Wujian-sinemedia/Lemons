@@ -10,7 +10,7 @@ using juce::String;
 using juce::MidiBuffer;
 using juce::MidiMessage;
 
-template < typename T >
-using AudioBuffer = juce::AudioBuffer< T >;
+template <typename T>
+using AudioBuffer = juce::AudioBuffer<T>;
 
-}
+}  // namespace lemons::dsp

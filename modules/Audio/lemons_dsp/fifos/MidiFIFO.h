@@ -45,7 +45,7 @@ private:
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MidiFIFO)
 };
 
-}  // namespace lemons::midi
+}  // namespace lemons::dsp
 
 
 /*---------------------------------------------------------------------------------------------------------------------------------*/

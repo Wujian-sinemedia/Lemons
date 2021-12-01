@@ -47,9 +47,9 @@ struct Oscillator
 
 	/** Returns a stream of samples from the oscillator. */
 	void getSamples (SampleType* output, int numSamples);
-    
-    /** Returns a stream of samples from the oscillator. */
-    void getSamples (juce::AudioBuffer<SampleType>& output, int channel = 0);
+
+	/** Returns a stream of samples from the oscillator. */
+	void getSamples (juce::AudioBuffer<SampleType>& output, int channel = 0);
 };
 
 /*--------------------------------------------------------------------------------------------*/
@@ -164,26 +164,26 @@ private:
 namespace lemons::tests
 {
 
-template<typename SampleType>
+template <typename SampleType>
 struct OscillatorTests : public DspTest
 {
-    OscillatorTests();
-    
+	OscillatorTests();
+
 private:
-    void runTest() final;
-    
-    void runOscillatorTests (dsp::osc::Oscillator<SampleType>& osc);
-    
-    dsp::osc::Sine<SampleType>     sine;
-    dsp::osc::Saw<SampleType>      saw;
-    dsp::osc::Square<SampleType>   square;
-    dsp::osc::Triangle<SampleType> triangle;
-    //dsp::osc::SuperSaw<SampleType> superSaw;
-    
-    AudioBuffer<SampleType> storage;
+	void runTest() final;
+
+	void runOscillatorTests (dsp::osc::Oscillator<SampleType>& osc);
+
+	dsp::osc::Sine<SampleType>     sine;
+	dsp::osc::Saw<SampleType>      saw;
+	dsp::osc::Square<SampleType>   square;
+	dsp::osc::Triangle<SampleType> triangle;
+	// dsp::osc::SuperSaw<SampleType> superSaw;
+
+	AudioBuffer<SampleType> storage;
 };
 
-//static OscillatorTests<float> oscillatorTest_float;
-//static OscillatorTests<double> oscillatorTest_double;
+// static OscillatorTests<float> oscillatorTest_float;
+// static OscillatorTests<double> oscillatorTest_double;
 
-}
+}  // namespace lemons::tests

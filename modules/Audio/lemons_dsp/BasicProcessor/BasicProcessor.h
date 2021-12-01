@@ -14,12 +14,12 @@ public:
 	    The default constructor initializes an audio processor with stereo in and out buses.
 	 */
 	BasicProcessor (juce::AudioProcessor::BusesProperties busesLayout = BusesProperties()
-	                                                                            .withInput (TRANS ("Input"), juce::AudioChannelSet::stereo(), true)
-	                                                                            .withOutput (TRANS ("Output"), juce::AudioChannelSet::stereo(), true));
+	                                                                        .withInput (TRANS ("Input"), juce::AudioChannelSet::stereo(), true)
+	                                                                        .withOutput (TRANS ("Output"), juce::AudioChannelSet::stereo(), true));
 
 	/** Repaints the editor, if one exists.
-        Internally, this uses the Juce MessageManager's callAsync method. Calling this on the audio thread should be avoided at all costs. I would personally only use this method in setStateInformation().
-     */
+	    Internally, this uses the Juce MessageManager's callAsync method. Calling this on the audio thread should be avoided at all costs. I would personally only use this method in setStateInformation().
+	 */
 	void repaintEditor() const;
 
 private:
@@ -27,9 +27,9 @@ private:
 	void releaseResources() override;
 
 	void processBlock (AudioBuffer<float>&, MidiBuffer&) override { }
-    void processBlock (AudioBuffer<double>&, MidiBuffer&) override { }
-    
-    bool supportsDoublePrecisionProcessing() const override { return true; }
+	void processBlock (AudioBuffer<double>&, MidiBuffer&) override { }
+
+	bool supportsDoublePrecisionProcessing() const override { return true; }
 
 	double getTailLengthSeconds() const override;
 

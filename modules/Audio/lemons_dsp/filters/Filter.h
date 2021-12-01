@@ -34,7 +34,7 @@ private:
 	void snapToZero() noexcept;
 
 	juce::Array<SampleType> state;
-	int               order = 0;
+	int                     order = 0;
 };
 
 /*--------------------------------------------------------------------------------------------------------------*/

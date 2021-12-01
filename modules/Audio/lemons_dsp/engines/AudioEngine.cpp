@@ -60,23 +60,23 @@ template <typename SampleType>
 void Engine<SampleType>::processInternal (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages, bool isBypassed)
 {
 	jassert (isInitialized());
-    
-    bool applyFadeIn  = false;
-    bool applyFadeOut = false;
-    bool processingBypassedThisFrame = isBypassed;
-    
-    if (isBypassed && ! wasBypassedLastCallback)
-    {
-        applyFadeOut = true;
-        processingBypassedThisFrame = false;
-    }
-    else if (wasBypassedLastCallback && ! isBypassed)
-    {
-        applyFadeIn = true;
-        processingBypassedThisFrame = false;
-    }
-    
-    jassert (! (applyFadeIn && applyFadeOut));
+
+	bool applyFadeIn                 = false;
+	bool applyFadeOut                = false;
+	bool processingBypassedThisFrame = isBypassed;
+
+	if (isBypassed && ! wasBypassedLastCallback)
+	{
+		applyFadeOut                = true;
+		processingBypassedThisFrame = false;
+	}
+	else if (wasBypassedLastCallback && ! isBypassed)
+	{
+		applyFadeIn                 = true;
+		processingBypassedThisFrame = false;
+	}
+
+	jassert (! (applyFadeIn && applyFadeOut));
 
 	const auto numSamples = output.getNumSamples();
 
@@ -92,8 +92,8 @@ void Engine<SampleType>::processInternal (const AudioBuffer<SampleType>& input, 
 		alias.applyGainRamp (0, numSamples, SampleType (1), SampleType (0));
 
 	buffers::copy (alias, output);
-    
-    wasBypassedLastCallback = isBypassed;
+
+	wasBypassedLastCallback = isBypassed;
 }
 
 template <typename SampleType>
@@ -118,86 +118,86 @@ namespace lemons::tests
 
 template <typename FloatType>
 AudioEngineTests<FloatType>::AudioEngineTests()
-: DspTest (getDspTestName<FloatType>("Audio engine tests"))
+    : DspTest (getDspTestName<FloatType> ("Audio engine tests"))
 {
 }
 
 template <typename FloatType>
 void AudioEngineTests<FloatType>::runTest()
 {
-    constexpr auto numChannels = 2;
-    constexpr auto samplerate = 44100.;
-    
-    beginTest ("Latency should be 0");
-    
-    expect (! engine.isInitialized());
-    expectEquals (engine.reportLatency(), 0);
-    
-    for (const auto blocksize : getTestingBlockSizes())
-    {
-        beginTest ("Blocksize: " + String(blocksize));
-        
-        engine.prepare (samplerate, blocksize, numChannels);
-        midiStorage.ensureSize (static_cast<size_t>(blocksize));
-        audioIn.setSize  (numChannels, blocksize, true, true, true);
-        audioOut.setSize (numChannels, blocksize, true, true, true);
-        
-        expect (engine.isInitialized());
-        expectEquals (engine.getSamplerate(), samplerate);
-        
-        fillAudioBufferWithRandomNoise (audioIn);
-        fillMidiBufferWithRandomEvents (midiStorage, blocksize / 2);
-        
-        logImportantMessage ("Can call process()");
-        
-        engine.process (audioIn);
-        engine.process (audioIn, midiStorage);
-        
-        logImportantMessage ("Alternate bypassed/unbypassed processing");
-        
-        audioOut.clear();
-        
-        engine.process (audioIn, audioOut, false);
-        expect (buffersAreEqual (audioIn, audioOut));
-        
-        engine.process (audioIn, audioOut, true);
-        expect (! bufferIsSilent (audioOut));
-        expect (! buffersAreEqual (audioIn, audioOut));
-        
-        engine.process (audioIn, audioOut, true);
-        expect (bufferIsSilent (audioOut));
-        
-        engine.process (audioIn, audioOut, true);
-        expect (bufferIsSilent (audioOut));
-        
-        engine.process (audioIn, audioOut, false);
-        expect (! bufferIsSilent (audioOut));
-        expect (! buffersAreEqual (audioIn, audioOut));
-        
-        engine.process (audioIn, audioOut, false);
-        expect (buffersAreEqual (audioIn, audioOut));
-        
-        engine.process (audioIn, true);
-        engine.process (audioIn, false);
-        engine.process (audioIn, true);
-        engine.process (audioIn, false);
-        engine.process (audioIn, true);
-        
-        logImportantMessage ("Release");
-        
-        engine.releaseResources();
-        
-        expect (! engine.isInitialized());
-    }
+	constexpr auto numChannels = 2;
+	constexpr auto samplerate  = 44100.;
+
+	beginTest ("Latency should be 0");
+
+	expect (! engine.isInitialized());
+	expectEquals (engine.reportLatency(), 0);
+
+	for (const auto blocksize : getTestingBlockSizes())
+	{
+		beginTest ("Blocksize: " + String (blocksize));
+
+		engine.prepare (samplerate, blocksize, numChannels);
+		midiStorage.ensureSize (static_cast<size_t> (blocksize));
+		audioIn.setSize (numChannels, blocksize, true, true, true);
+		audioOut.setSize (numChannels, blocksize, true, true, true);
+
+		expect (engine.isInitialized());
+		expectEquals (engine.getSamplerate(), samplerate);
+
+		fillAudioBufferWithRandomNoise (audioIn);
+		fillMidiBufferWithRandomEvents (midiStorage, blocksize / 2);
+
+		logImportantMessage ("Can call process()");
+
+		engine.process (audioIn);
+		engine.process (audioIn, midiStorage);
+
+		logImportantMessage ("Alternate bypassed/unbypassed processing");
+
+		audioOut.clear();
+
+		engine.process (audioIn, audioOut, false);
+		expect (buffersAreEqual (audioIn, audioOut));
+
+		engine.process (audioIn, audioOut, true);
+		expect (! bufferIsSilent (audioOut));
+		expect (! buffersAreEqual (audioIn, audioOut));
+
+		engine.process (audioIn, audioOut, true);
+		expect (bufferIsSilent (audioOut));
+
+		engine.process (audioIn, audioOut, true);
+		expect (bufferIsSilent (audioOut));
+
+		engine.process (audioIn, audioOut, false);
+		expect (! bufferIsSilent (audioOut));
+		expect (! buffersAreEqual (audioIn, audioOut));
+
+		engine.process (audioIn, audioOut, false);
+		expect (buffersAreEqual (audioIn, audioOut));
+
+		engine.process (audioIn, true);
+		engine.process (audioIn, false);
+		engine.process (audioIn, true);
+		engine.process (audioIn, false);
+		engine.process (audioIn, true);
+
+		logImportantMessage ("Release");
+
+		engine.releaseResources();
+
+		expect (! engine.isInitialized());
+	}
 }
 
 template <typename FloatType>
 void AudioEngineTests<FloatType>::PassThroughEngine::renderBlock (const AudioBuffer<FloatType>& input,
-                                                                  AudioBuffer<FloatType>& output,
+                                                                  AudioBuffer<FloatType>&       output,
                                                                   MidiBuffer&, bool bypassed)
 {
-    if (! bypassed)
-        dsp::buffers::copy (input, output);
+	if (! bypassed)
+		dsp::buffers::copy (input, output);
 }
 
 template struct AudioEngineTests<float>;

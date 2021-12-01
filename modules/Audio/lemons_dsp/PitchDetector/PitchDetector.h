@@ -102,14 +102,14 @@ template <typename FloatType>
 struct PitchDetectorTests : public DspTest
 {
 public:
-    PitchDetectorTests();
+	PitchDetectorTests();
 
 private:
 	void runTest() final;
 
 	void runOscillatorTest (dsp::osc::Oscillator<FloatType>& osc, double samplerate);
 
-    static constexpr auto defaultReps = 3;
+	static constexpr auto defaultReps       = 3;
 	static constexpr auto minDetectableFreq = 30.f;
 	static constexpr auto maxDetectableFreq = 3000.f;
 

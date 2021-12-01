@@ -66,7 +66,7 @@ namespace lemons::tests
 
 template <typename FloatType>
 AudioAndMidiFifoTests<FloatType>::AudioAndMidiFifoTests()
-    : DspTest (getDspTestName<FloatType>("Audio and MIDI FIFO tests"))
+    : DspTest (getDspTestName<FloatType> ("Audio and MIDI FIFO tests"))
 {
 }
 
@@ -90,12 +90,12 @@ void AudioAndMidiFifoTests<FloatType>::runTest()
 
 	for (const auto numSamples : getTestingBlockSizes())
 	{
-        beginTest("Blocksize: " + String(numSamples));
+		beginTest ("Blocksize: " + String (numSamples));
 
 		resizeAllBuffers (numSamples, numChannels);
-        
-        fillAudioBufferWithRandomNoise (origAudio);
-        fillMidiBufferWithRandomEvents (origMidi, numSamples / 3);
+
+		fillAudioBufferWithRandomNoise (origAudio);
+		fillMidiBufferWithRandomEvents (origMidi, numSamples / 3);
 
 		fifo.push (origAudio, origMidi);
 
@@ -109,13 +109,13 @@ void AudioAndMidiFifoTests<FloatType>::runTest()
 		expectEquals (fifo.numStoredSamples(), 0);
 
 
-        logImportantMessage ("Store and retrieve audio and MIDI");
+		logImportantMessage ("Store and retrieve audio and MIDI");
 
 		expect (buffersAreEqual (audioOut, origAudio));
 		expect (midiBuffersAreEqual (midiOut, origMidi));
 
 
-        logImportantMessage ("Resizing clears the FIFO");
+		logImportantMessage ("Resizing clears the FIFO");
 
 		fifo.push (origAudio, origMidi);
 

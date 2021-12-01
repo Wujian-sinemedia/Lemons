@@ -72,8 +72,8 @@ void Oscillator<SampleType>::getSamples (SampleType* output, int numSamples)
 template <typename SampleType>
 void Oscillator<SampleType>::getSamples (juce::AudioBuffer<SampleType>& output, int channel)
 {
-    getSamples (output.getWritePointer(channel),
-                output.getNumSamples());
+	getSamples (output.getWritePointer (channel),
+	            output.getNumSamples());
 }
 
 template struct Oscillator<float>;
@@ -211,67 +211,68 @@ template struct Triangle<double>;
 namespace lemons::tests
 {
 
-template<typename SampleType>
+template <typename SampleType>
 OscillatorTests<SampleType>::OscillatorTests()
-: DspTest (getDspTestName<SampleType>("Oscillator tests"))
-{ }
-
-template<typename SampleType>
-void OscillatorTests<SampleType>::runTest()
+    : DspTest (getDspTestName<SampleType> ("Oscillator tests"))
 {
-    beginTest ("Sine tests");
-    runOscillatorTests (sine);
-    
-    beginTest ("Saw tests");
-    runOscillatorTests (saw);
-    
-    beginTest ("Square tests");
-    runOscillatorTests (square);
-    
-    beginTest ("Triangle tests");
-    runOscillatorTests (triangle);
 }
 
-template<typename SampleType>
+template <typename SampleType>
+void OscillatorTests<SampleType>::runTest()
+{
+	beginTest ("Sine tests");
+	runOscillatorTests (sine);
+
+	beginTest ("Saw tests");
+	runOscillatorTests (saw);
+
+	beginTest ("Square tests");
+	runOscillatorTests (square);
+
+	beginTest ("Triangle tests");
+	runOscillatorTests (triangle);
+}
+
+template <typename SampleType>
 void OscillatorTests<SampleType>::runOscillatorTests (dsp::osc::Oscillator<SampleType>& osc)
 {
-    for (const auto samplerate : getTestingSamplerates())
-    {
-        for (const auto period : { 50, 220, 350, 520 })
-        {
-            const auto blocksize = period * 4;
-            
-            logImportantMessage ("Samplerate: " + String(samplerate) + "; Blocksize: " + String(blocksize));
-            
-            storage.setSize (1, blocksize, true, true, true);
-            storage.clear();
-            
-            const auto freq = math::freqFromPeriod (samplerate, period);
-            
-            osc.resetPhase();
-            
-            osc.setFrequency (static_cast<SampleType> (freq),
-                              static_cast<SampleType> (samplerate));
-            
-            osc.getSamples (storage);
-            
-            //beginTest ("Test that period is consistent");
-            
-//            const auto* samples = storage.getReadPointer(0);
-//
-//            for (int p = 0;
-//                 p < period && p + period < blocksize;
-//                 ++p)
-//            {
-//                expectWithinAbsoluteError (samples[p],
-//                                           samples[p + period],
-//                                           SampleType(0.01));
-//            }
-        }
-    }
+	for (const auto samplerate : getTestingSamplerates())
+	{
+		for (const auto period : { 50, 220, 350, 520 })
+		{
+			const auto blocksize = period * 4;
+
+			logImportantMessage ("Samplerate: " + String (samplerate) + "; Blocksize: " + String (blocksize));
+
+			storage.setSize (1, blocksize, true, true, true);
+			storage.clear();
+
+			const auto freq = math::freqFromPeriod (samplerate, period);
+
+			osc.resetPhase();
+
+			osc.setFrequency (static_cast<SampleType> (freq),
+			                  static_cast<SampleType> (samplerate));
+
+			osc.getSamples (storage);
+
+			// beginTest ("Test that period is consistent");
+
+			//            const auto* samples = storage.getReadPointer(0);
+			//
+			//            for (int p = 0;
+			//                 p < period && p + period < blocksize;
+			//                 ++p)
+			//            {
+			//                expectWithinAbsoluteError (samples[p],
+			//                                           samples[p + period],
+			//                                           SampleType(0.01));
+			//            }
+		}
+	}
 }
 
 template struct OscillatorTests<float>;
 template struct OscillatorTests<double>;
 
-}
+}  // namespace lemons::tests

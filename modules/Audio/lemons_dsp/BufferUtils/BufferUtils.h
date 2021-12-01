@@ -39,9 +39,9 @@ public:
 
 private:
 	void runTest() final;
-    
-    template<typename OtherFloatType>
-    void runConversionTests (int numChannels, int numSamples);
+
+	template <typename OtherFloatType>
+	void runConversionTests (int numChannels, int numSamples);
 
 	void resizeAllBuffers (int numSamples, int numChannels);
 

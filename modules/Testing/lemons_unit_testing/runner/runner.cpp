@@ -4,45 +4,45 @@ namespace lemons::tests
 class ConsoleLogger : public juce::Logger
 {
 public:
-    ConsoleLogger()
-    {
-        juce::Logger::setCurrentLogger (this);
-    }
-    
-    ~ConsoleLogger() override
-    {
-        juce::Logger::setCurrentLogger (nullptr);
-    }
-    
+	ConsoleLogger()
+	{
+		juce::Logger::setCurrentLogger (this);
+	}
+
+	~ConsoleLogger() override
+	{
+		juce::Logger::setCurrentLogger (nullptr);
+	}
+
 private:
-    void logMessage (const juce::String& message) final
-    {
-        std::cout << message << std::endl;
-        
+	void logMessage (const juce::String& message) final
+	{
+		std::cout << message << std::endl;
+
 #if JUCE_WINDOWS
-        juce::Logger::outputDebugString (message);
+		juce::Logger::outputDebugString (message);
 #endif
-    }
+	}
 };
 
 
 class ConsoleUnitTestRunner : public juce::UnitTestRunner
 {
 public:
-    bool hadAnyFailures() const
-    {
-        for (int i = 0; i < getNumResults(); ++i)
-            if (getResult (i)->failures > 0)
-                return true;
-        
-        return false;
-    }
-    
+	bool hadAnyFailures() const
+	{
+		for (int i = 0; i < getNumResults(); ++i)
+			if (getResult (i)->failures > 0)
+				return true;
+
+		return false;
+	}
+
 private:
-    void logMessage (const juce::String& message) final
-    {
-        juce::Logger::writeToLog (message);
-    }
+	void logMessage (const juce::String& message) final
+	{
+		juce::Logger::writeToLog (message);
+	}
 };
 
 
@@ -86,22 +86,22 @@ bool executeAllTests (const juce::ArgumentList& args)
 
 		return juce::Random::getSystemRandom().nextInt64();
 	}();
-    
-    ConsoleUnitTestRunner runner;
-    ConsoleLogger         logger;
-    
-#if LEMONS_GUI_UNIT_TESTS
-    // set up message manager, etc...
-#endif
-    
-    if (args.containsOption ("--category"))
-        runner.runTestsInCategory (args.getValueForOption ("--category"), seed);
-    else if (args.containsOption ("-c"))
-        runner.runTestsInCategory (args.getValueForOption ("-c"), seed);
-    else
-        runner.runAllTests (seed);
 
-    return ! runner.hadAnyFailures();
+	ConsoleUnitTestRunner runner;
+	ConsoleLogger         logger;
+
+#if LEMONS_GUI_UNIT_TESTS
+	// set up message manager, etc...
+#endif
+
+	if (args.containsOption ("--category"))
+		runner.runTestsInCategory (args.getValueForOption ("--category"), seed);
+	else if (args.containsOption ("-c"))
+		runner.runTestsInCategory (args.getValueForOption ("-c"), seed);
+	else
+		runner.runAllTests (seed);
+
+	return ! runner.hadAnyFailures();
 }
 
 }  // namespace lemons::tests
