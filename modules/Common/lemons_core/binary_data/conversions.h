@@ -50,7 +50,18 @@ template <typename SampleType>
 namespace lemons::tests
 {
 
+struct DataConversionTests : public CoreTest
+{
+    DataConversionTests();
+    
+private:
+    void runTest() final;
+    
+    template<typename SampleType>
+    void runTypedTests();
+};
 
+static DataConversionTests dataConversionTest;
 
 }
 

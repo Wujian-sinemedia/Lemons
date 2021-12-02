@@ -265,7 +265,67 @@ ValueTree valueTreeFromJSON (const String& jsonText)
 namespace lemons::tests
 {
 
+DataConversionTests::DataConversionTests()
+: CoreTest("Data conversion functions")
+{ }
 
+void DataConversionTests::runTest()
+{
+    /*
+     - image from binary
+     - image to binary
+     - ValueTree to JSON
+     - ValueTree from JSON
+     */
+    
+    beginTest ("Audio buffers");
+    runTypedTests<float>();
+    runTypedTests<double>();
+    
+    beginTest ("MIDI buffers");
+    
+    MidiBuffer origMidi;
+    
+    fillMidiBufferWithRandomEvents (origMidi, 256, getRandom());
+    
+    const auto block   = binary::midiToBinary (origMidi);
+    const auto decoded = binary::midiFromBinary (block);
+    
+    expect (midiBuffersAreEqual (origMidi, decoded));
+    
+    beginTest ("Memory block to/from string");
+    
+    const auto memStr     = binary::memoryBlockToString (block);
+    const auto memDecoded = binary::memoryBlockFromString (memStr);
+    
+    expect (block.matches (memDecoded.getData(), memDecoded.getSize()));
+}
+
+template<typename SampleType>
+void DataConversionTests::runTypedTests()
+{
+    const auto precisionString = []() -> String
+    {
+        if constexpr (std::is_same_v<SampleType, float>)
+            return "Float";
+        else
+            return "Double";
+    }();
+    
+    const auto subtest = beginSubtest (precisionString + " precision tests");
+    
+    AudioBuffer<SampleType> origAudio { 2, 512 };
+    
+    fillAudioBufferWithRandomNoise (origAudio, getRandom());
+    
+    const auto block   = binary::audioToBinary (origAudio);
+    const auto decoded = binary::audioFromBinary<SampleType> (block);
+    
+    expect (buffersAreReasonablyEqual (origAudio, decoded));
+}
+
+template void DataConversionTests::runTypedTests<float>();
+template void DataConversionTests::runTypedTests<double>();
 
 }
 
