@@ -45,6 +45,25 @@
 #endif
 
 
+//==============================================================================
+/** Config: LEMONS_BINARIES_UNIT_TESTS
+
+ Set this to 1 to include unit tests involving loading data from a Juce BinaryData target.
+ */
+#ifndef LEMONS_BINARIES_UNIT_TESTS
+#  if __has_include("BinaryData.h")
+#	define LEMONS_BINARIES_UNIT_TESTS 1
+#  else
+#	define LEMONS_BINARIES_UNIT_TESTS 0
+#  endif
+#endif
+
+#if LEMONS_BINARIES_UNIT_TESTS
+#  if ! __has_include("BinaryData.h")
+#	error "Cannot find the BinaryData header!"
+#  endif
+#endif
+
 /*=======================================================================*/
 
 

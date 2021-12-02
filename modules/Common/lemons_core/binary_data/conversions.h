@@ -1,6 +1,7 @@
 #pragma once
 
 #include <juce_audio_basics/juce_audio_basics.h>
+#include <juce_graphics/juce_graphics.h>
 
 
 namespace lemons::binary
@@ -40,3 +41,17 @@ template <typename SampleType>
 [[nodiscard]] ValueTree valueTreeFromJSON (const String& jsonText);
 
 }  // namespace lemons::binary
+
+
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+
+#if LEMONS_UNIT_TESTING
+
+namespace lemons::tests
+{
+
+
+
+}
+
+#endif

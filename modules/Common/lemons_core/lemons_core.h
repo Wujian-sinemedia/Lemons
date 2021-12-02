@@ -35,6 +35,11 @@
 #  endif
 #endif
 
+#if LEMONS_HAS_BINARY_DATA
+#  if ! __has_include("BinaryData.h")
+#	error "LEMONS_HAS_BINARY_DATA is on, but the BinaryData header cannot be found!"
+#  endif
+#endif
 
 //==============================================================================
 /** Config: LEMONS_USE_VDSP
@@ -66,8 +71,9 @@
 #  endif
 #endif
 
-
 /*=======================================================================*/
+
+#include <juce_data_structures/juce_data_structures.h>
 
 
 #include "misc/Preprocessor.h"
@@ -79,6 +85,10 @@
 #include "events/AutoLock.h"
 #include "events/DeviceRotation.h"
 #include "events/DeviceMotion.h"
+
+#if LEMONS_UNIT_TESTS
+#  include <lemons_unit_testing/lemons_unit_testing.h>
+#endif
 
 #include "files/FileUtilities.h"
 

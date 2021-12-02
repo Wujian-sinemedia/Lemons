@@ -102,3 +102,42 @@ juce::StringArray Data::getStrings (const String& textFileName)
 }
 
 }  // namespace lemons::binary
+
+
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+
+#if LEMONS_UNIT_TESTING
+
+namespace lemons::tests
+{
+
+BinaryDataTests::BinaryDataTests()
+: Test ("Binary data tests", "BinaryData")
+{
+    
+}
+
+#if ! LEMONS_BINARIES_UNIT_TESTS
+
+void BinaryDataTests::runTest()
+{
+    beginTest ("binary::Data objects are invalid");
+    
+    binary::Data data { "MyFile.txt" };
+    
+    expect (! data.isValid());
+}
+
+#else /* LEMONS_BINARIES_UNIT_TESTS is true... */
+
+void BinaryDataTests::runTest()
+{
+    
+}
+
+
+#endif
+
+}
+
+#endif

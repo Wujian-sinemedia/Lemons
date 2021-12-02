@@ -53,9 +53,6 @@ void AudioProcessorTestBase::runTest()
 		runTypedTests<double>();
 
     
-    if (! processor.getParameters().isEmpty())
-        runStateTests();
-
 	if (processor.hasEditor())
 	{
 #if LEMONS_GUI_UNIT_TESTS
@@ -204,14 +201,56 @@ void AudioProcessorTestBase::runTypedTests()
 
             if (! processor.getParameters().isEmpty())
             {
-                const auto subtest = beginSubtest ("Parameter fuzzing");
+                {
+                    const auto subtest = beginSubtest ("Parameter fuzzing");
+                    
+                    fuzzParameters();
+                    processor.processBlock (audioIO, midiIO);
+                    fuzzParameters();
+                    processor.processBlock (audioIO, midiIO);
+                    fuzzParameters();
+                    processor.processBlock (audioIO, midiIO);
+                }
+                
+                const auto subtest = beginSubtest ("State saving/loading");
                 
                 fuzzParameters();
+                
+                const auto prevState = getStateOfProcessorParameters (processor);
+                
+                audioIO.clear();
+                
                 processor.processBlock (audioIO, midiIO);
+                
+                AudioBuffer<SampleType> storage { 2, blocksize };
+                
+                dsp::buffers::copy (audioIO, storage);
+                
+                expect (buffersAreEqual (audioIO, storage));
+                
+                juce::MemoryBlock block { 1024, true };
+                processor.getStateInformation (block);
+                
                 fuzzParameters();
+                
                 processor.processBlock (audioIO, midiIO);
+                
+                expect (! processorMatchesParameterState (processor, prevState));
+                
+                if (! processor.isMidiEffect())
+                    expect (! buffersAreEqual (audioIO, storage));
+                
+                processor.setStateInformation (block.getData(), static_cast<int> (block.getSize()));
+                
+                expect (processorMatchesParameterState (processor, prevState));
+                expect (buffersAreEqual (audioIO, storage));
+                
                 fuzzParameters();
-                processor.processBlock (audioIO, midiIO);
+                
+                processor.releaseResources();
+                processor.setStateInformation (block.getData(), static_cast<int> (block.getSize()));
+                
+                expect (processorMatchesParameterState (processor, prevState));
             }
 		}
 	}
@@ -220,32 +259,6 @@ void AudioProcessorTestBase::runTypedTests()
 template void AudioProcessorTestBase::runTypedTests<float>();
 template void AudioProcessorTestBase::runTypedTests<double>();
 
-
-void AudioProcessorTestBase::runStateTests()
-{
-    beginTest ("State saving and loading");
-    
-    fuzzParameters();
-    
-    const auto prevState = getStateOfProcessorParameters (processor);
-    juce::MemoryBlock block { 1024, true };
-    processor.getStateInformation (block);
-    
-    fuzzParameters();
-    
-    expect (! processorMatchesParameterState (processor, prevState));
-    
-    processor.setStateInformation (block.getData(), static_cast<int> (block.getSize()));
-    
-    expect (processorMatchesParameterState (processor, prevState));
-    
-    fuzzParameters();
-    
-    processor.releaseResources();
-    processor.setStateInformation (block.getData(), static_cast<int> (block.getSize()));
-    
-    expect (processorMatchesParameterState (processor, prevState));
-}
 
 void AudioProcessorTestBase::runEditorTests (juce::AudioProcessorEditor& editor)
 {

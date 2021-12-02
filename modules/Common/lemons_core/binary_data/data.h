@@ -1,7 +1,5 @@
 #pragma once
 
-#include <juce_graphics/juce_graphics.h>
-
 
 namespace lemons::binary
 {
@@ -19,7 +17,7 @@ namespace lemons::binary
 
     To easily access binary data converted into higher level juce types, several static methods are provided. These methods all throw assertions if the data cannot be loaded.
  */
-struct Data
+struct Data final
 {
 	/** Creates a default, invalid RawData object. */
 	Data() = default;
@@ -31,10 +29,10 @@ struct Data
 	bool isValid() const noexcept;
 
 	/** Returns the data as a UTF-8 formatted string. */
-	String getAsString() const;
+    [[nodiscard]] String getAsString() const;
 
 	/** Returns a memory block representing this data. */
-	MemoryBlock getAsMemoryBlock() const;
+    [[nodiscard]] MemoryBlock getAsMemoryBlock() const;
 
 	/** The raw data. This may be null if the data cannot be found. */
 	const char* data = nullptr;
@@ -46,29 +44,55 @@ struct Data
 	/** Returns an image object from an image file in the BinaryData target.
 	    If the image can't be loaded, an assertion will be thrown.
 	 */
-	static Image getImage (const String& imageFileName);
+    [[nodiscard]] static Image getImage (const String& imageFileName);
 
 	/** Returns an audio buffer object from an audio file in the BinaryData target.
 	    If the audio can't be loaded, an assertion will be thrown.
 	 */
 	template <typename SampleType>
-	static AudioBuffer<SampleType> getAudio (const String& audioFileName);
+    [[nodiscard]] static AudioBuffer<SampleType> getAudio (const String& audioFileName);
 
 	/** Returns a MIDI buffer object from a MIDI file in the BinaryData target.
 	    If the MIDI can't be loaded, an assertion will be thrown.
 	 */
-	static MidiBuffer getMidi (const String& midiFileName);
+    [[nodiscard]] static MidiBuffer getMidi (const String& midiFileName);
 
 	/** Returns an array of strings, each containing a line of a text file in the BinaryData target.
 	    This loads the file as a string and parses it into tokens using line break and carriage return characters.
 	    If the file can't be loaded, an assertion will be thrown.
 	 */
-	static juce::StringArray getStrings (const String& textFileName);
+    [[nodiscard]] static juce::StringArray getStrings (const String& textFileName);
 
 	/** Returns an opaque blob of binary data from a file in the BinaryData target.
 	    If the data can't be loaded, an assertion will be thrown.
 	 */
-	static MemoryBlock getBlob (const String& filename);
+	[[nodiscard]] static MemoryBlock getBlob (const String& filename);
 };
 
 }  // namespace lemons::binary
+
+
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+
+#if LEMONS_UNIT_TESTING
+
+namespace lemons::tests
+{
+
+struct BinaryDataTests : public Test
+{
+    BinaryDataTests();
+    
+private:
+    void runTest() final;
+};
+
+}
+
+#if LEMONS_BINARIES_UNIT_TESTS
+#if ! LEMONS_HAS_BINARY_DATA
+#error "LEMONS_BINARIES_UNIT_TESTS is enabled, but LEMONS_HAS_BINARY_DATA is false!"
+#endif
+#endif
+
+#endif

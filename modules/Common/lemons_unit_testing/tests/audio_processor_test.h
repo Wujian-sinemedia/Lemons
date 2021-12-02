@@ -18,8 +18,6 @@ private:
     
     void fuzzParameters();
     
-    void runStateTests();
-
 	void runEditorTests (juce::AudioProcessorEditor& editor);
 
 	juce::AudioProcessor& processor;

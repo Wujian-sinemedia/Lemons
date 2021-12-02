@@ -256,3 +256,17 @@ ValueTree valueTreeFromJSON (const String& jsonText)
 }
 
 }  // namespace lemons::binary
+
+
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+
+#if LEMONS_UNIT_TESTING
+
+namespace lemons::tests
+{
+
+
+
+}
+
+#endif
