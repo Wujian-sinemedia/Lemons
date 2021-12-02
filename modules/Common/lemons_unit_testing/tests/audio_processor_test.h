@@ -6,7 +6,7 @@
 namespace lemons::tests
 {
 
-struct AudioProcessorTestBase : public DspTest
+struct AudioProcessorTestBase : public Test
 {
 	AudioProcessorTestBase (juce::AudioProcessor& processorToUse, const String& testName);
 

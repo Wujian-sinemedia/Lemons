@@ -154,7 +154,7 @@ void CircularBufferTests<FloatType>::runTest()
 
 		resizeAllBuffers (numSamples);
 
-		fillAudioBufferWithRandomNoise (origStorage);
+		fillAudioBufferWithRandomNoise (origStorage, getRandom());
         
         expect (noSamplesAreClipping (origStorage));
 

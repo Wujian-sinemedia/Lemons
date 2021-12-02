@@ -5,7 +5,6 @@
 #include "util/processor_helpers.cpp"
 
 #include "tests/test.cpp"
-#include "tests/dsp_test.cpp"
 #include "tests/audio_processor_test.cpp"
 
 #include "runner/runner.cpp"

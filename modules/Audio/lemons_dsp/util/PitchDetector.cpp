@@ -284,7 +284,7 @@ void PitchDetectorTests<FloatType>::runTest()
                 
                 for (int r = 0; r < defaultReps; ++r)
                 {
-                    fillAudioBufferWithRandomNoise (storage);
+                    fillAudioBufferWithRandomNoise (storage, getRandom());
                     
                     expectEquals (detector.detectPitch (storage), 0.f);
                 }

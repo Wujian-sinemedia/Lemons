@@ -155,8 +155,8 @@ void AudioEngineTests<FloatType>::runTest()
 		expectEquals (engine.getSamplerate(), samplerate);
 		expectEquals (engine.getNumChannels(), numChannels);
 
-		fillAudioBufferWithRandomNoise (audioIn);
-		fillMidiBufferWithRandomEvents (midiStorage, blocksize / 2);
+		fillAudioBufferWithRandomNoise (audioIn, getRandom());
+		fillMidiBufferWithRandomEvents (midiStorage, blocksize / 2, getRandom());
 
 		logImportantMessage ("Can call process()");
 

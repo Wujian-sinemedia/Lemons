@@ -136,8 +136,8 @@ void LatencyEngineTests<FloatType>::runTest()
 		audioIn.setSize (numChannels, blocksize, true, true, true);
 		audioOut.setSize (numChannels, blocksize, true, true, true);
 
-		fillAudioBufferWithRandomNoise (audioIn);
-		fillMidiBufferWithRandomEvents (midiStorage, blocksize / 2);
+		fillAudioBufferWithRandomNoise (audioIn, getRandom());
+		fillMidiBufferWithRandomEvents (midiStorage, blocksize / 2, getRandom());
 
 		engine.setSamplerate (samplerate);
 		expectEquals (engine.getSamplerate(), samplerate);

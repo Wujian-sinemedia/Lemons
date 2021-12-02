@@ -1,6 +1,30 @@
 namespace lemons::tests
 {
 
+void fillMidiBufferWithRandomEvents (MidiBuffer& buffer, int numEvents, juce::Random rng)
+{
+    buffer.clear();
+    
+    for (int i = 0; i < numEvents; ++i)
+        buffer.addEvent (juce::MidiMessage::controllerEvent (1, rng.nextInt (128), rng.nextInt (128)),
+                         i);
+}
+
+template <typename SampleType>
+void fillAudioBufferWithRandomNoise (AudioBuffer<SampleType>& buffer, juce::Random rng)
+{
+    for (int chan = 0; chan < buffer.getNumChannels(); ++chan)
+    {
+        auto* samples = buffer.getWritePointer (chan);
+        
+        for (int s = 0; s < buffer.getNumSamples(); ++s)
+            samples[s] = static_cast<SampleType> (juce::jmap (rng.nextFloat(), -1.f, 1.f));
+    }
+}
+
+template void fillAudioBufferWithRandomNoise (AudioBuffer<float>&, juce::Random);
+template void fillAudioBufferWithRandomNoise (AudioBuffer<double>&, juce::Random);
+
 template <typename FloatType>
 bool allSamplesAreEqual (const juce::AudioBuffer<FloatType>& buffer1,
                          const juce::AudioBuffer<FloatType>& buffer2,

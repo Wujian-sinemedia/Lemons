@@ -68,7 +68,7 @@ void MidiFifoTests::runTest()
 
 		const auto numEvents = numSamples / 2;
 
-		fillMidiBufferWithRandomEvents (input, numEvents);
+		fillMidiBufferWithRandomEvents (input, numEvents, getRandom());
 
 		fifo.clear();
 

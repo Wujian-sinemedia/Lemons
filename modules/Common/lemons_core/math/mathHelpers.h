@@ -12,7 +12,7 @@ template <typename FreqType>
 constexpr int periodInSamples (double samplerate, FreqType freqHz) noexcept
 {
 	jassert (freqHz > FreqType (0.0));
-	return juce::roundToInt (samplerate / freqHz);
+	return juce::roundToInt (samplerate / static_cast<double> (freqHz));
 }
 
 template <typename T>
@@ -29,20 +29,20 @@ constexpr PeriodType freqFromPeriod (double     samplerate,
 	jassert (period > PeriodType (0.0));
 
 	if constexpr (std::is_same_v<PeriodType, int>)
-		return juce::roundToInt (samplerate / period);
+		return juce::roundToInt (samplerate / static_cast<double> (period));
 	else
-		return PeriodType (samplerate / period);
+		return static_cast<PeriodType> (samplerate / static_cast<double> (period));
 }
 
 
 // converts a specified number of samples to milliseconds
-int sampsToMs (double samplerate, int numSamples) noexcept;
+double sampsToMs (double samplerate, int numSamples) noexcept;
 
 // converts a specified amount of time in milliseconds to the closest integer number of samples at the specified samplerate
 template <typename msType>
 constexpr int msToSamps (double samplerate, msType ms) noexcept
 {
-	return juce::roundToInt (samplerate / 1000.0f * ms);
+	return juce::roundToInt (samplerate / 1000. * static_cast<double> (ms));
 }
 
 
@@ -69,3 +69,26 @@ constexpr noteType freqToMidi (noteType freqHz) noexcept
 
 
 }  // namespace lemons::math
+
+
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+
+
+#if LEMONS_UNIT_TESTS
+
+namespace lemons::tests
+{
+
+struct MathTests : public CoreTest
+{
+	MathTests();
+
+private:
+	void runTest() final;
+};
+
+static MathTests mathFunctionsTest;
+
+}  // namespace lemons::tests
+
+#endif

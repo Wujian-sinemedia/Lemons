@@ -116,7 +116,7 @@ void AudioFifoTests<FloatType>::runTest()
 
 		resizeAllBuffers (numSamples, numChannels);
 
-		fillAudioBufferWithRandomNoise (origStorage);
+		fillAudioBufferWithRandomNoise (origStorage, getRandom());
 
 		fifo.pushSamples (origStorage);
 

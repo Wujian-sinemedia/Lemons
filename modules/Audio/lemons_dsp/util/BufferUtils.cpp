@@ -108,7 +108,7 @@ void AudioBufferUtilsTests<FloatType>::runTest()
 			expect (! buffersAreEqual (bufferA, bufferB));
             expect (! noSamplesAreClipping (bufferA));
 
-			fillAudioBufferWithRandomNoise (bufferA);
+			fillAudioBufferWithRandomNoise (bufferA, getRandom());
 
 			copy (bufferA, bufferB);
 
@@ -169,7 +169,7 @@ void AudioBufferUtilsTests<FloatType>::runConversionTests (int numChannels, int 
     
 	AudioBuffer<OtherFloatType> otherBuffer { numChannels, numSamples };
 
-	fillAudioBufferWithRandomNoise (bufferA);
+	fillAudioBufferWithRandomNoise (bufferA, getRandom());
 
 	const auto checkConvertedBuffers = [&] (const AudioBuffer<FloatType>& bufferToCheck)
 	{

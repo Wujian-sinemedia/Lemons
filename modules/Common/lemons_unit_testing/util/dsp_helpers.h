@@ -11,6 +11,11 @@ using AudioBuffer = juce::AudioBuffer<FloatType>;
 
 using MidiBuffer = juce::MidiBuffer;
 
+void fillMidiBufferWithRandomEvents (MidiBuffer& buffer, int numEvents, juce::Random rng);
+
+template <typename SampleType>
+void fillAudioBufferWithRandomNoise (AudioBuffer<SampleType>& buffer, juce::Random rng);
+
 template <typename FloatType>
 [[nodiscard]] bool buffersAreEqual (const AudioBuffer<FloatType>& buffer1,
                                     const AudioBuffer<FloatType>& buffer2);

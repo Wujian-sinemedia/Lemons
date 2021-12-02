@@ -5,7 +5,7 @@ namespace lemons::tests
 {
 
 AudioProcessorTestBase::AudioProcessorTestBase (juce::AudioProcessor& processorToUse, const String& testName)
-    : DspTest (testName, "AudioProcessors")
+    : Test (testName, "AudioProcessors")
     , processor (processorToUse)
 {
 }
@@ -101,8 +101,8 @@ void AudioProcessorTestBase::runTypedTests()
                 audioIO.setSize (2, blocksize, true, true, true);
                 midiIO.ensureSize (static_cast<size_t> (blocksize));
                 
-                fillAudioBufferWithRandomNoise (audioIO);
-                fillMidiBufferWithRandomEvents (midiIO, blocksize / 2);
+                fillAudioBufferWithRandomNoise (audioIO, getRandom());
+                fillMidiBufferWithRandomEvents (midiIO, blocksize / 2, getRandom());
             }
             
             {
@@ -136,7 +136,7 @@ void AudioProcessorTestBase::runTypedTests()
                 {
                     const auto bypassSubtest = beginSubtest ("Bypass parameter");
                     
-                    fillAudioBufferWithRandomNoise (audioIO);
+                    fillAudioBufferWithRandomNoise (audioIO, getRandom());
                     
                     bypass->setValueNotifyingHost (1.f);
                     processor.processBlock (audioIO, midiIO);
@@ -144,7 +144,7 @@ void AudioProcessorTestBase::runTypedTests()
                     auto out = processor.getBusBuffer (audioIO, false, 0);
                     expect (bufferIsSilent (out));
                     
-                    fillAudioBufferWithRandomNoise (audioIO);
+                    fillAudioBufferWithRandomNoise (audioIO, getRandom());
                     
                     bypass->setValueNotifyingHost (0.f);
                     processor.processBlockBypassed (audioIO, midiIO);

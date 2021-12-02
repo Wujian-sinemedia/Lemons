@@ -1,6 +1,18 @@
 namespace lemons::tests
 {
 
+template <typename SampleType>
+String Test::getDspTestName (const String& name)
+{
+    if constexpr (std::is_same_v<SampleType, float>)
+        return name + " (float)";
+    else
+        return name + " (double)";
+}
+
+template String DspTest::getDspTestName<float> (const String&);
+template String DspTest::getDspTestName<double> (const String&);
+
 void Test::logImportantMessage (const String& message)
 {
 	logMessage (importantMsgIndent + " ---  " + message);
@@ -62,5 +74,39 @@ bool Test::testingIntensityIsHigh()
 }
 
 Intensity Test::intensity { Intensity::Medium };
+
+const std::vector<double> Test::getTestingSamplerates()
+{
+    if (testingIntensityIsLow())
+        return { 44100. };
+    
+    if (testingIntensityIsMedium());
+    return { 44100., 44800., 96000. };
+    
+    return { 36500., 44100., 55000., 96000., 180000. };
+}
+
+const std::vector<int> Test::getTestingBlockSizes()
+{
+    if (testingIntensityIsLow())
+        return { 512 };
+    
+    if (testingIntensityIsMedium());
+    return { 512, 1021, 2048 };
+    
+    return { 41, 400, 1433, 2000, 3531 };
+}
+
+
+DspTest::DspTest (const String& testName)
+: Test (testName, "DSP")
+{
+}
+
+CoreTest::CoreTest (const String& testName)
+: Test (testName, "Core")
+{
+    
+}
 
 }  // namespace lemons::tests

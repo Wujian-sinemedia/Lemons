@@ -26,7 +26,7 @@ public:
     [[nodiscard]] static bool testingIntensityIsLow();
     [[nodiscard]] static bool testingIntensityIsMedium();
     [[nodiscard]] static bool testingIntensityIsHigh();
-
+    
 protected:
 	void logImportantMessage (const String& message);
     
@@ -41,6 +41,12 @@ protected:
     
     const Subtest beginSubtest (const String& name);
     
+    template <typename SampleType>
+    [[nodiscard]] static String getDspTestName (const String& name);
+    
+    [[nodiscard]] static const std::vector<int>    getTestingBlockSizes();
+    [[nodiscard]] static const std::vector<double> getTestingSamplerates();
+    
 private:
     friend struct Subtest;
     
@@ -51,6 +57,17 @@ private:
     String importantMsgIndent { "  " };
     
     static Intensity intensity;
+};
+
+
+struct DspTest : public Test
+{
+    DspTest (const String& testName);
+};
+
+struct CoreTest : public Test
+{
+    CoreTest (const String& testName);
 };
 
 }  // namespace lemons::tests

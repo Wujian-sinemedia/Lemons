@@ -119,7 +119,7 @@ void MonoStereoConverterTests<FloatType>::runTest()
     
     beginTest ("Mono to stereo");
     
-    fillAudioBufferWithRandomNoise (monoBuffer);
+    fillAudioBufferWithRandomNoise (monoBuffer, getRandom());
     
     converter.convertMonoToStereo (monoBuffer, stereoBuffer);
     
@@ -131,7 +131,7 @@ void MonoStereoConverterTests<FloatType>::runTest()
     monoBuffer.clear();
     stereoBuffer.clear();
     
-    fillAudioBufferWithRandomNoise (stereoBuffer);
+    fillAudioBufferWithRandomNoise (stereoBuffer, getRandom());
     
     {
         const auto subtest = beginSubtest ("Left only");
@@ -163,7 +163,6 @@ void MonoStereoConverterTests<FloatType>::runTest()
     
     expect (! bufferChannelsAreEqual (monoBuffer, 0, stereoBuffer, 0));
     expect (! bufferChannelsAreEqual (monoBuffer, 0, stereoBuffer, 1));
-    
     expect (noSamplesAreClipping (monoBuffer));
 }
 

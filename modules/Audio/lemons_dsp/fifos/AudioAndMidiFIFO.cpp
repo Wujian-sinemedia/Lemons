@@ -94,8 +94,8 @@ void AudioAndMidiFifoTests<FloatType>::runTest()
 
 		resizeAllBuffers (numSamples, numChannels);
 
-		fillAudioBufferWithRandomNoise (origAudio);
-		fillMidiBufferWithRandomEvents (origMidi, numSamples / 3);
+		fillAudioBufferWithRandomNoise (origAudio, getRandom());
+		fillMidiBufferWithRandomEvents (origMidi, numSamples / 3, getRandom());
 
 		fifo.push (origAudio, origMidi);
 
