@@ -97,6 +97,17 @@ const std::vector<int> Test::getTestingBlockSizes()
     return { 41, 400, 1433, 2000, 3531 };
 }
 
+int Test::getNumTestingRepetitions()
+{
+    if (testingIntensityIsLow())
+        return 1;
+    
+    if (testingIntensityIsMedium())
+        return 5;
+    
+    return 10;
+}
+
 
 DspTest::DspTest (const String& testName)
 : Test (testName, "DSP")

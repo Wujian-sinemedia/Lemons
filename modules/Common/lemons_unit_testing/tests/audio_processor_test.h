@@ -10,13 +10,17 @@ struct AudioProcessorTestBase : public Test
 {
 	AudioProcessorTestBase (juce::AudioProcessor& processorToUse, const String& testName);
 
-private:
-	void runTest() final;
-
-	template <typename SampleType>
-	void runTypedTests();
+protected:
+	void runTest() override;
     
     void fuzzParameters();
+    
+    template<typename SampleType>
+    void prepareProcessorForPlayback (double samplerate, int blocksize);
+
+private:
+	template <typename SampleType>
+	void runTypedTests();
     
 	void runEditorTests (juce::AudioProcessorEditor& editor);
 
@@ -35,6 +39,15 @@ struct AudioProcessorTest : public AudioProcessorTestBase
 	}
 
 private:
+    void runTest() final
+    {
+        AudioProcessorTestBase::runTest();
+        
+        runProductSpecificTests (processor);
+    }
+    
+    virtual void runProductSpecificTests (ProcessorType&) { }
+    
 	ProcessorType processor;
 };
 

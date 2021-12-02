@@ -242,7 +242,7 @@ void PitchDetectorTests<FloatType>::runOscillatorTest (dsp::osc::Oscillator<Floa
 
 	auto rand = getRandom();
 
-	for (int i = 0; i < defaultReps; ++i)
+	for (int i = 0; i < getNumTestingRepetitions(); ++i)
 		testFreq (juce::jmap (rand.nextFloat(), minDetectableFreq, maxDetectableFreq));
 }
 
@@ -282,7 +282,7 @@ void PitchDetectorTests<FloatType>::runTest()
             {
                 const auto subtest = beginSubtest ("Detect random noise as unpitched");
                 
-                for (int r = 0; r < defaultReps; ++r)
+                for (int r = 0; r < getNumTestingRepetitions(); ++r)
                 {
                     fillAudioBufferWithRandomNoise (storage, getRandom());
                     
@@ -294,7 +294,7 @@ void PitchDetectorTests<FloatType>::runTest()
             
             storage.clear();
             
-            for (int r = 0; r < defaultReps; ++r)
+            for (int r = 0; r < getNumTestingRepetitions(); ++r)
                 expectEquals (detector.detectPitch (storage), 0.f);
 		}
 	}
@@ -306,10 +306,7 @@ const std::vector<float> PitchDetectorTests<FloatType>::getConfidenceThresholdsT
     if (testingIntensityIsLow())
         return { 0.15f };
     
-    if (testingIntensityIsMedium())
-        return { 0.1f, 0.15f, 0.2f };
-    
-    return { };
+    return { 0.1f, 0.15f, 0.2f };
 }
 
 template struct PitchDetectorTests<float>;

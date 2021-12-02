@@ -111,7 +111,6 @@ private:
     
     static const std::vector<float> getConfidenceThresholdsToTest();
 
-	static constexpr auto defaultReps       = 3;
 	static constexpr auto minDetectableFreq = 30.f;
 	static constexpr auto maxDetectableFreq = 3000.f;
 

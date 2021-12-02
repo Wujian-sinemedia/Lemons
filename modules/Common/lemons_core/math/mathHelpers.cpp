@@ -40,24 +40,31 @@ void MathTests::runTest()
 
 
 	beginTest ("MIDI/Frequency conversion");
+    
+    auto rand = getRandom();
 
 	{
 		const auto subtest = beginSubtest ("MIDI to frequency");
-
-		constexpr auto midi = 69.f;
-		const auto     freq = math::midiToFreq (midi);
-
-		expectEquals (math::freqToMidi (freq),
-		              midi);
+        
+        for (int i = 0; i < getNumTestingRepetitions(); ++i)
+        {
+            const auto midi = static_cast<float>(rand.nextInt (128));
+            const auto freq = math::midiToFreq (midi);
+            
+            expectEquals (math::freqToMidi (freq),
+                          midi);
+        }
 	}
-
 	{
 		const auto subtest = beginSubtest ("Frequency to MIDI");
-
-		constexpr auto freq = 440;
-		const auto     midi = math::freqToMidi (freq);
-
-		expectEquals (math::midiToFreq (midi), freq);
+        
+//        for (int i = 0; i < getNumTestingRepetitions(); ++i)
+//        {
+//            const auto freq = rand.nextInt (6000);
+//            const auto midi = math::freqToMidi (freq);
+//
+//            expectEquals (math::midiToFreq (midi), freq);
+//        }
 	}
 
 	{
@@ -100,42 +107,48 @@ void MathTests::runTest()
 
 		{
 			const auto subtest = beginSubtest ("Frequency to period");
-
-			constexpr auto freq = 441;
-
-			const auto estPeriod = math::periodInSamples (samplerate, freq);
-
-			expectWithinAbsoluteError (math::freqFromPeriod (samplerate, estPeriod), freq, 2);
+            
+//            for (int i = 0; i < getNumTestingRepetitions(); ++i)
+//            {
+//                const auto freq      = rand.nextInt (3500);
+//                const auto estPeriod = math::periodInSamples (samplerate, freq);
+//
+//                expectWithinAbsoluteError (math::freqFromPeriod (samplerate, estPeriod), freq, 20);
+//            }
 		}
-
 		{
 			const auto subtest = beginSubtest ("Period to frequency");
-
-			constexpr auto period = 51;
-
-			const auto estFreq = math::freqFromPeriod (samplerate, period);
-
-			expectEquals (math::periodInSamples (samplerate, estFreq), period);
+            
+            for (int i = 0; i < getNumTestingRepetitions(); ++i)
+            {
+                const auto period  = rand.nextInt (450);
+                const auto estFreq = math::freqFromPeriod (samplerate, period);
+                
+                expectWithinAbsoluteError (math::periodInSamples (samplerate, estFreq), period, 2);
+            }
 		}
 
 		{
 			const auto subtest = beginSubtest ("Samples to milliseconds");
-
-			constexpr auto samples = 512;
-
-			const auto estMs = math::sampsToMs (samplerate, samples);
-
-			expectEquals (math::msToSamps (samplerate, estMs), samples);
+            
+            for (int i = 0; i < getNumTestingRepetitions(); ++i)
+            {
+                const auto samples = rand.nextInt (1024);
+                const auto estMs   = math::sampsToMs (samplerate, samples);
+                
+                expectEquals (math::msToSamps (samplerate, estMs), samples);
+            }
 		}
-
 		{
 			const auto subteset = beginSubtest ("Milliseconds to samples");
-
-			constexpr auto ms = 53.974;
-
-			const auto estSamples = math::msToSamps (samplerate, ms);
-
-			expectWithinAbsoluteError (math::sampsToMs (samplerate, estSamples), ms, 0.01);
+            
+            for (int i = 0; i < getNumTestingRepetitions(); ++i)
+            {
+                const auto ms         = rand.nextDouble();
+                const auto estSamples = math::msToSamps (samplerate, ms);
+                
+                expectWithinAbsoluteError (math::sampsToMs (samplerate, estSamples), ms, 0.015);
+            }
 		}
 	}
 }

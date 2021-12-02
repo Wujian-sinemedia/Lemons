@@ -47,6 +47,10 @@ AudioBuffer<SampleType> getAliasBuffer (AudioBuffer<SampleType>& bufferToAlias,
 		numChannels = bufferToAlias.getNumChannels();
 
 	jassert (numChannels > 0);
+    jassert (numSamples >= 0);
+    
+    jassert (numChannels <= bufferToAlias.getNumChannels());
+    jassert (numSamples <= bufferToAlias.getNumSamples());
 
 	return { bufferToAlias.getArrayOfWritePointers() + channelOffset, numChannels, startSample, numSamples };
 }
@@ -157,6 +161,11 @@ void AudioBufferUtilsTests<FloatType>::runTest()
 				runConversionTests<double> (numChannels, numSamples);
 			else
 				runConversionTests<float> (numChannels, numSamples);
+            
+            MidiBuffer midi;
+            fillMidiBufferWithRandomEvents (midi, 25, getRandom());
+            const auto copiedMidi = makeCopyOfMidiBuffer (midi);
+            //expect (midiBuffersAreEqual (midi, copiedMidi));
 		}
 	}
 }

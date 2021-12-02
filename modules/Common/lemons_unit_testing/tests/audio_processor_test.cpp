@@ -90,13 +90,10 @@ void AudioProcessorTestBase::runTypedTests()
 		{
             const auto blocksizeSubtest = beginSubtest ("Blocksize: " + String(blocksize));
 			
-			processor.enableAllBuses();
-            
             {
                 const auto subtest = beginSubtest ("Prepare to play");
                 
-                processor.setRateAndBufferSizeDetails (samplerate, blocksize);
-                processor.prepareToPlay (samplerate, blocksize);
+                prepareProcessorForPlayback<SampleType>(samplerate, blocksize);
                 
                 audioIO.setSize (2, blocksize, true, true, true);
                 midiIO.ensureSize (static_cast<size_t> (blocksize));
@@ -157,6 +154,56 @@ void AudioProcessorTestBase::runTypedTests()
                 processor.processBlockBypassed (audioIO, midiIO);
                 processor.processBlock (audioIO, midiIO);
             }
+            
+            {
+                const auto smallBlocksSubtest = beginSubtest ("Small blocksizes");
+                
+                {
+                    const auto subtest = beginSubtest ("Single sample blocksize");
+                    
+                    midiIO.clear();
+                    auto singleSample = dsp::buffers::getAliasBuffer (audioIO, 0, 1);
+                    
+                    processor.processBlock (singleSample, midiIO);
+                    processor.processBlock (singleSample, midiIO);
+                    
+                    fillMidiBufferWithRandomEvents (midiIO, 1, getRandom());
+                    
+                    processor.processBlock (singleSample, midiIO);
+                    
+                    fillMidiBufferWithRandomEvents (midiIO, 12, getRandom());
+                    
+                    processor.processBlock (singleSample, midiIO);
+                }
+                {
+                    const auto subtest = beginSubtest ("0 sample blocksize");
+                    
+                    midiIO.clear();
+                    auto empty = dsp::buffers::getAliasBuffer (audioIO, 0, 0);
+                    
+                    processor.processBlock (empty, midiIO);
+                    processor.processBlock (empty, midiIO);
+                    
+                    fillMidiBufferWithRandomEvents (midiIO, 1, getRandom());
+                    
+                    processor.processBlock (empty, midiIO);
+                    
+                    fillMidiBufferWithRandomEvents (midiIO, 12, getRandom());
+                    
+                    processor.processBlock (empty, midiIO);
+                }
+            }
+            {
+                const auto subtest = beginSubtest ("Erratic blocksize");
+                
+                auto rand = getRandom();
+                
+                for (int i = 0; i < getNumTestingRepetitions(); ++i)
+                {
+                    auto alias = dsp::buffers::getAliasBuffer (audioIO, 0, rand.nextInt (audioIO.getNumSamples()));
+                    processor.processBlock (alias, midiIO);
+                }
+            }
 
             processor.reset();
             
@@ -168,14 +215,13 @@ void AudioProcessorTestBase::runTypedTests()
             {
                 const auto subtest = beginSubtest ("Reset() stress test");
                 
-                processor.reset();
-                processor.processBlock (audioIO, midiIO);
-                processor.reset();
-                processor.processBlock (audioIO, midiIO);
-                processor.reset();
-                processor.processBlockBypassed (audioIO, midiIO);
-                processor.reset();
-                processor.processBlockBypassed (audioIO, midiIO);
+                for (int i = 0; i < getNumTestingRepetitions(); ++i)
+                {
+                    processor.reset();
+                    processor.processBlock (audioIO, midiIO);
+                    processor.reset();
+                    processor.processBlockBypassed (audioIO, midiIO);
+                }
             }
             
             {
@@ -204,12 +250,11 @@ void AudioProcessorTestBase::runTypedTests()
                 {
                     const auto subtest = beginSubtest ("Parameter fuzzing");
                     
-                    fuzzParameters();
-                    processor.processBlock (audioIO, midiIO);
-                    fuzzParameters();
-                    processor.processBlock (audioIO, midiIO);
-                    fuzzParameters();
-                    processor.processBlock (audioIO, midiIO);
+                    for (int i = 0; i < getNumTestingRepetitions(); ++i)
+                    {
+                        fuzzParameters();
+                        processor.processBlock (audioIO, midiIO);
+                    }
                 }
                 
                 const auto subtest = beginSubtest ("State saving/loading");
@@ -258,6 +303,25 @@ void AudioProcessorTestBase::runTypedTests()
 
 template void AudioProcessorTestBase::runTypedTests<float>();
 template void AudioProcessorTestBase::runTypedTests<double>();
+
+template<typename SampleType>
+void AudioProcessorTestBase::prepareProcessorForPlayback (double samplerate, int blocksize)
+{
+    jassert (samplerate > 0. && blocksize > 0);
+    
+    if constexpr (std::is_same_v<SampleType, float>)
+        processor.setProcessingPrecision (juce::AudioProcessor::ProcessingPrecision::singlePrecision);
+    else
+        processor.setProcessingPrecision (juce::AudioProcessor::ProcessingPrecision::doublePrecision);
+    
+    processor.enableAllBuses();
+    
+    processor.setRateAndBufferSizeDetails (samplerate, blocksize);
+    processor.prepareToPlay (samplerate, blocksize);
+}
+
+template void AudioProcessorTestBase::prepareProcessorForPlayback<float> (double, int);
+template void AudioProcessorTestBase::prepareProcessorForPlayback<double> (double, int);
 
 
 void AudioProcessorTestBase::runEditorTests (juce::AudioProcessorEditor& editor)

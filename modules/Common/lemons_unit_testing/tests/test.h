@@ -47,6 +47,8 @@ protected:
     [[nodiscard]] static const std::vector<int>    getTestingBlockSizes();
     [[nodiscard]] static const std::vector<double> getTestingSamplerates();
     
+    [[nodiscard]] static int getNumTestingRepetitions();
+    
 private:
     friend struct Subtest;
     

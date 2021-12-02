@@ -223,4 +223,18 @@ bool midiBuffersAreEqual (const MidiBuffer& buffer1,
 	return true;
 }
 
+MidiBuffer makeCopyOfMidiBuffer (const MidiBuffer& inputBuffer)
+{
+    MidiBuffer newBuffer;
+    
+    if (const auto numSamples = inputBuffer.getLastEventTime();
+        numSamples > 0)
+    {
+        newBuffer.addEvents (inputBuffer, 0, numSamples, 0);
+        jassert (! newBuffer.isEmpty());
+    }
+
+    return newBuffer;
+}
+
 }  // namespace lemons::tests
