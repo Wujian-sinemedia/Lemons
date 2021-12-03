@@ -492,6 +492,27 @@
       <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer1, const AudioBuffer&lt; FloatType &gt; &amp;buffer2)</arglist>
     </member>
     <member kind="function">
+      <type>void</type>
+      <name>fillAudioBufferWithRandomNoise</name>
+      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
+      <anchor>a8ecdb1df151eda76ed75304aea1dd2b7</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;buffer, juce::Random rng)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>fillMidiBufferWithRandomEvents</name>
+      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
+      <anchor>ac8657000a7bf8aaa4cc93c263c8dbc8e</anchor>
+      <arglist>(MidiBuffer &amp;buffer, int numEvents, juce::Random rng)</arglist>
+    </member>
+    <member kind="function">
+      <type>MidiBuffer</type>
+      <name>makeCopyOfMidiBuffer</name>
+      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
+      <anchor>a05dcafe4b31077a0cff23d9f6d9b9a83</anchor>
+      <arglist>(const MidiBuffer &amp;inputBuffer)</arglist>
+    </member>
+    <member kind="function">
       <type>bool</type>
       <name>midiBuffersAreEqual</name>
       <anchorfile>namespacelemons_1_1tests.html</anchorfile>
@@ -505,14 +526,6 @@
       <anchor>a91d1e7095657d0593a3baba099b5ed36</anchor>
       <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer)</arglist>
     </member>
-  </compound>
-  <compound kind="file">
-    <name>dsp_test.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_unit_testing/tests/</path>
-    <filename>dsp__test_8h.html</filename>
-    <class kind="struct">lemons::tests::DspTest</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::tests</namespace>
   </compound>
   <compound kind="file">
     <name>EditorBase.h</name>
@@ -919,10 +932,10 @@
       <arglist>(int percentOfTheTime) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
+      <type>double</type>
       <name>sampsToMs</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a1a4bcbd8b5e66d4577d65c3ce76d2775</anchor>
+      <anchor>ad7e11c0af37d156ec272e626a5e6f3b1</anchor>
       <arglist>(double samplerate, int numSamples) noexcept</arglist>
     </member>
   </compound>
@@ -1605,6 +1618,8 @@
     <name>test.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_unit_testing/tests/</path>
     <filename>test_8h.html</filename>
+    <class kind="struct">lemons::tests::CoreTest</class>
+    <class kind="struct">lemons::tests::DspTest</class>
     <class kind="struct">lemons::tests::Test::Subtest</class>
     <class kind="class">lemons::tests::Test</class>
     <namespace>lemons</namespace>
@@ -2281,17 +2296,10 @@
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
-      <name>fillAudioBufferWithRandomNoise</name>
-      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
-      <anchor>aef3341b45dda20ec913d6316bdc11d36</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;buffer)</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>fillMidiBufferWithRandomEvents</name>
-      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
-      <anchor>acf1b86e1ebc3db45f21293eb85906d8a</anchor>
-      <arglist>(MidiBuffer &amp;buffer, int numEvents)</arglist>
+      <name>fuzzParameters</name>
+      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
+      <anchor>aaa8c172210276d3a0df47fdc8e525d0e</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -2300,32 +2308,53 @@
       <anchor>a9c44d91c08ff84c15bbe15f6b37e35a0</anchor>
       <arglist>(const String &amp;message)</arglist>
     </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>prepareProcessorForPlayback</name>
+      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
+      <anchor>a5a771349b024270aa378bbecd8cc9687</anchor>
+      <arglist>(double samplerate, int blocksize)</arglist>
+    </member>
     <member kind="function" protection="protected" static="yes">
       <type>static String</type>
       <name>getDspTestName</name>
-      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
-      <anchor>a6cc7223cc87a106acea4f44b689df740</anchor>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>aca1fe9f7077f88d26de28011d924ecef</anchor>
       <arglist>(const String &amp;name)</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static int</type>
+      <name>getNumTestingRepetitions</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a9143b5bb744ae5a90b4aa47d35fb2484</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected" static="yes">
       <type>static const std::vector&lt; int &gt;</type>
       <name>getTestingBlockSizes</name>
-      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
-      <anchor>af9f694dc17dfdd7d3af59d134cf46a72</anchor>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>ae6366faf16b241a7b6e78715442e094e</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected" static="yes">
       <type>static const std::vector&lt; double &gt;</type>
       <name>getTestingSamplerates</name>
-      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
-      <anchor>a57be202f9cf92b54be161c513d4919d5</anchor>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>abc00c8dadae75662cb0e0d892f3f8fdd</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="private" virtualness="virtual">
+      <type>virtual void</type>
+      <name>runProductSpecificTests</name>
+      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test.html</anchorfile>
+      <anchor>a73497c75f5b4522c44c2be9554a2a360</anchor>
+      <arglist>(ProcessorType &amp;)</arglist>
     </member>
   </compound>
   <compound kind="struct">
     <name>lemons::tests::AudioProcessorTestBase</name>
     <filename>structlemons_1_1tests_1_1_audio_processor_test_base.html</filename>
-    <base>lemons::tests::DspTest</base>
+    <base>lemons::tests::Test</base>
     <member kind="function">
       <type></type>
       <name>AudioProcessorTestBase</name>
@@ -2377,17 +2406,10 @@
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
-      <name>fillAudioBufferWithRandomNoise</name>
-      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
-      <anchor>aef3341b45dda20ec913d6316bdc11d36</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;buffer)</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>fillMidiBufferWithRandomEvents</name>
-      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
-      <anchor>acf1b86e1ebc3db45f21293eb85906d8a</anchor>
-      <arglist>(MidiBuffer &amp;buffer, int numEvents)</arglist>
+      <name>fuzzParameters</name>
+      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
+      <anchor>aaa8c172210276d3a0df47fdc8e525d0e</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -2396,25 +2418,46 @@
       <anchor>a9c44d91c08ff84c15bbe15f6b37e35a0</anchor>
       <arglist>(const String &amp;message)</arglist>
     </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>prepareProcessorForPlayback</name>
+      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
+      <anchor>a5a771349b024270aa378bbecd8cc9687</anchor>
+      <arglist>(double samplerate, int blocksize)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>runTest</name>
+      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
+      <anchor>adfe05c422b0cb45e68f29ed48ba663dc</anchor>
+      <arglist>() override</arglist>
+    </member>
     <member kind="function" protection="protected" static="yes">
       <type>static String</type>
       <name>getDspTestName</name>
-      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
-      <anchor>a6cc7223cc87a106acea4f44b689df740</anchor>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>aca1fe9f7077f88d26de28011d924ecef</anchor>
       <arglist>(const String &amp;name)</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static int</type>
+      <name>getNumTestingRepetitions</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a9143b5bb744ae5a90b4aa47d35fb2484</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected" static="yes">
       <type>static const std::vector&lt; int &gt;</type>
       <name>getTestingBlockSizes</name>
-      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
-      <anchor>af9f694dc17dfdd7d3af59d134cf46a72</anchor>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>ae6366faf16b241a7b6e78715442e094e</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected" static="yes">
       <type>static const std::vector&lt; double &gt;</type>
       <name>getTestingSamplerates</name>
-      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
-      <anchor>a57be202f9cf92b54be161c513d4919d5</anchor>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>abc00c8dadae75662cb0e0d892f3f8fdd</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
@@ -3603,6 +3646,95 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>lemons::tests::CoreTest</name>
+    <filename>structlemons_1_1tests_1_1_core_test.html</filename>
+    <base>lemons::tests::Test</base>
+    <member kind="function">
+      <type></type>
+      <name>CoreTest</name>
+      <anchorfile>structlemons_1_1tests_1_1_core_test.html</anchorfile>
+      <anchor>a00909d8432df5dd6ddc64b54b0b26192</anchor>
+      <arglist>(const String &amp;testName)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Intensity</type>
+      <name>getTestingIntensityLevel</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>aae5d3a4c8d6beec3749a044fea476030</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>setGlobalTestingIntensityLevel</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>ac8e9c2467c498fcce12dfb5b5b8d4d1b</anchor>
+      <arglist>(Intensity intensityLevel)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>testingIntensityIsHigh</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>ac46ac43cc5d55eecdd13c6438005c29a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>testingIntensityIsLow</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a6cd4f026f0cdc32c7dbdbdf89a2980c9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>testingIntensityIsMedium</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a256c1c9b185e12d9190c8458d42a30a3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>const Subtest</type>
+      <name>beginSubtest</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a557b2274571a75b2cba3c8b59c1eb483</anchor>
+      <arglist>(const String &amp;name)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>logImportantMessage</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a9c44d91c08ff84c15bbe15f6b37e35a0</anchor>
+      <arglist>(const String &amp;message)</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static String</type>
+      <name>getDspTestName</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>aca1fe9f7077f88d26de28011d924ecef</anchor>
+      <arglist>(const String &amp;name)</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static int</type>
+      <name>getNumTestingRepetitions</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a9143b5bb744ae5a90b4aa47d35fb2484</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static const std::vector&lt; int &gt;</type>
+      <name>getTestingBlockSizes</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>ae6366faf16b241a7b6e78715442e094e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static const std::vector&lt; double &gt;</type>
+      <name>getTestingSamplerates</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>abc00c8dadae75662cb0e0d892f3f8fdd</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>lemons::binary::Data</name>
     <filename>structlemons_1_1binary_1_1_data.html</filename>
     <member kind="function">
@@ -4445,32 +4577,11 @@
       <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected">
-      <type></type>
-      <name>DspTest</name>
-      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
-      <anchor>ab22b66a49878451542d09d94b21a1680</anchor>
-      <arglist>(const String &amp;testName, const String &amp;testCategory)</arglist>
-    </member>
-    <member kind="function" protection="protected">
       <type>const Subtest</type>
       <name>beginSubtest</name>
       <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
       <anchor>a557b2274571a75b2cba3c8b59c1eb483</anchor>
       <arglist>(const String &amp;name)</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>fillAudioBufferWithRandomNoise</name>
-      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
-      <anchor>aef3341b45dda20ec913d6316bdc11d36</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;buffer)</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>fillMidiBufferWithRandomEvents</name>
-      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
-      <anchor>acf1b86e1ebc3db45f21293eb85906d8a</anchor>
-      <arglist>(MidiBuffer &amp;buffer, int numEvents)</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -4482,22 +4593,29 @@
     <member kind="function" protection="protected" static="yes">
       <type>static String</type>
       <name>getDspTestName</name>
-      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
-      <anchor>a6cc7223cc87a106acea4f44b689df740</anchor>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>aca1fe9f7077f88d26de28011d924ecef</anchor>
       <arglist>(const String &amp;name)</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static int</type>
+      <name>getNumTestingRepetitions</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a9143b5bb744ae5a90b4aa47d35fb2484</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected" static="yes">
       <type>static const std::vector&lt; int &gt;</type>
       <name>getTestingBlockSizes</name>
-      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
-      <anchor>af9f694dc17dfdd7d3af59d134cf46a72</anchor>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>ae6366faf16b241a7b6e78715442e094e</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected" static="yes">
       <type>static const std::vector&lt; double &gt;</type>
       <name>getTestingSamplerates</name>
-      <anchorfile>structlemons_1_1tests_1_1_dsp_test.html</anchorfile>
-      <anchor>a57be202f9cf92b54be161c513d4919d5</anchor>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>abc00c8dadae75662cb0e0d892f3f8fdd</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
@@ -15965,6 +16083,34 @@
       <anchor>a9c44d91c08ff84c15bbe15f6b37e35a0</anchor>
       <arglist>(const String &amp;message)</arglist>
     </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static String</type>
+      <name>getDspTestName</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>aca1fe9f7077f88d26de28011d924ecef</anchor>
+      <arglist>(const String &amp;name)</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static int</type>
+      <name>getNumTestingRepetitions</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a9143b5bb744ae5a90b4aa47d35fb2484</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static const std::vector&lt; int &gt;</type>
+      <name>getTestingBlockSizes</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>ae6366faf16b241a7b6e78715442e094e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static const std::vector&lt; double &gt;</type>
+      <name>getTestingSamplerates</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>abc00c8dadae75662cb0e0d892f3f8fdd</anchor>
+      <arglist>()</arglist>
+    </member>
     <member kind="friend" protection="private">
       <type>friend struct</type>
       <name>Subtest</name>
@@ -16088,12 +16234,12 @@
       <anchor>ad407c38f7cc06ecd141eaac5e9ec9052</anchor>
       <arglist>(FunctionType &amp;&amp;callbackToUse, int rateInMs=100, bool start=true)</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
+    <member kind="function">
+      <type></type>
       <name>~TimerCallback</name>
       <anchorfile>structlemons_1_1events_1_1_timer_callback.html</anchorfile>
-      <anchor>a86c68f9fd8bf648d7483e835ade9fe04</anchor>
-      <arglist>()</arglist>
+      <anchor>a941b01ce2a6e0d0b3e7e8c5b9a7c2916</anchor>
+      <arglist>() final</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -18033,10 +18179,10 @@
       <arglist>(int percentOfTheTime) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
+      <type>double</type>
       <name>sampsToMs</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a1a4bcbd8b5e66d4577d65c3ce76d2775</anchor>
+      <anchor>ad7e11c0af37d156ec272e626a5e6f3b1</anchor>
       <arglist>(double samplerate, int numSamples) noexcept</arglist>
     </member>
   </compound>
@@ -18250,6 +18396,7 @@
     <filename>namespacelemons_1_1tests.html</filename>
     <class kind="struct">lemons::tests::AudioProcessorTest</class>
     <class kind="struct">lemons::tests::AudioProcessorTestBase</class>
+    <class kind="struct">lemons::tests::CoreTest</class>
     <class kind="struct">lemons::tests::DspTest</class>
     <class kind="struct">lemons::tests::ProcessorParameterData</class>
     <class kind="class">lemons::tests::Runner</class>
@@ -18356,6 +18503,20 @@
       <arglist>(Intensity intensityLevel=Intensity::Medium, juce::File logOutput={}, juce::int64 seed=juce::Random::getSystemRandom().nextInt64(), const String &amp;singleTestName={}, const String &amp;categoryName={})</arglist>
     </member>
     <member kind="function">
+      <type>void</type>
+      <name>fillAudioBufferWithRandomNoise</name>
+      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
+      <anchor>a8ecdb1df151eda76ed75304aea1dd2b7</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;buffer, juce::Random rng)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>fillMidiBufferWithRandomEvents</name>
+      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
+      <anchor>ac8657000a7bf8aaa4cc93c263c8dbc8e</anchor>
+      <arglist>(MidiBuffer &amp;buffer, int numEvents, juce::Random rng)</arglist>
+    </member>
+    <member kind="function">
       <type>juce::AudioProcessorParameter *</type>
       <name>getNamedParameter</name>
       <anchorfile>namespacelemons_1_1tests.html</anchorfile>
@@ -18368,6 +18529,13 @@
       <anchorfile>namespacelemons_1_1tests.html</anchorfile>
       <anchor>a93f75ae33c1fdb0f059053f475dfe186</anchor>
       <arglist>(juce::AudioProcessor &amp;processor)</arglist>
+    </member>
+    <member kind="function">
+      <type>MidiBuffer</type>
+      <name>makeCopyOfMidiBuffer</name>
+      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
+      <anchor>a05dcafe4b31077a0cff23d9f6d9b9a83</anchor>
+      <arglist>(const MidiBuffer &amp;inputBuffer)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -19179,6 +19347,7 @@
     <namespace>lemons::tests</namespace>
     <class kind="struct">lemons::tests::AudioProcessorTest</class>
     <class kind="struct">lemons::tests::AudioProcessorTestBase</class>
+    <class kind="struct">lemons::tests::CoreTest</class>
     <class kind="struct">lemons::tests::DspTest</class>
     <class kind="struct">lemons::tests::Test::Subtest</class>
     <class kind="class">lemons::tests::Test</class>

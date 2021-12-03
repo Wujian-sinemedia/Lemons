@@ -4,8 +4,8 @@ var searchData=
   ['files_171',['files',['../group__files.html',1,'']]],
   ['fileutilities_2eh_172',['FileUtilities.h',['../_file_utilities_8h.html',1,'']]],
   ['fill_173',['fill',['../namespacelemons_1_1vecops.html#a239ba96be25a77d259c5357d702b7a44',1,'lemons::vecops']]],
-  ['fillaudiobufferwithrandomnoise_174',['fillAudioBufferWithRandomNoise',['../structlemons_1_1tests_1_1_dsp_test.html#aef3341b45dda20ec913d6316bdc11d36',1,'lemons::tests::DspTest']]],
-  ['fillmidibufferwithrandomevents_175',['fillMidiBufferWithRandomEvents',['../structlemons_1_1tests_1_1_dsp_test.html#acf1b86e1ebc3db45f21293eb85906d8a',1,'lemons::tests::DspTest']]],
+  ['fillaudiobufferwithrandomnoise_174',['fillAudioBufferWithRandomNoise',['../namespacelemons_1_1tests.html#a8ecdb1df151eda76ed75304aea1dd2b7',1,'lemons::tests']]],
+  ['fillmidibufferwithrandomevents_175',['fillMidiBufferWithRandomEvents',['../namespacelemons_1_1tests.html#ac8657000a7bf8aaa4cc93c263c8dbc8e',1,'lemons::tests']]],
   ['filter_176',['Filter',['../classlemons_1_1dsp_1_1_f_x_1_1_filter.html',1,'lemons::dsp::FX::Filter&lt; SampleType &gt;'],['../classlemons_1_1dsp_1_1filters_1_1_filter.html',1,'lemons::dsp::filters::Filter&lt; SampleType &gt;'],['../classlemons_1_1dsp_1_1_f_x_1_1_filter.html#a143721a8c22cc42b6fd6fe19de880b94',1,'lemons::dsp::FX::Filter::Filter()=default'],['../classlemons_1_1dsp_1_1_f_x_1_1_filter.html#a0c075466d10a461bb9f77c1828df3166',1,'lemons::dsp::FX::Filter::Filter(FilterType filterType, float frequency=440.f, float Qfactor=0.70710678118654752440f, float gainMult=1.f)']]],
   ['filterengine_177',['FilterEngine',['../structlemons_1_1dsp_1_1_f_x_1_1_filter_engine.html',1,'lemons::dsp::FX']]],
   ['filtergain_178',['filterGain',['../structlemons_1_1dsp_1_1_synth_base_1_1_timbre_mod_params.html#a0b7524dc00c833ee2f44ba951b21a246',1,'lemons::dsp::SynthBase::TimbreModParams']]],
@@ -27,5 +27,6 @@ var searchData=
   ['freqfromperiod_194',['freqFromPeriod',['../namespacelemons_1_1math.html#a808d4a3a3c59ce792e245ac0a2ca22e6',1,'lemons::math']]],
   ['freqtomidi_195',['freqToMidi',['../namespacelemons_1_1math.html#a81efa37877a0298ca462775352b46031',1,'lemons::math']]],
   ['frequencyparameter_196',['FrequencyParameter',['../structlemons_1_1plugin_1_1_frequency_parameter.html',1,'lemons::plugin::FrequencyParameter'],['../structlemons_1_1plugin_1_1_frequency_parameter.html#ac7ca1d5833308ace175eadfa126aca92',1,'lemons::plugin::FrequencyParameter::FrequencyParameter()']]],
-  ['frequencytomidi_197',['frequencyToMidi',['../classlemons_1_1midi_1_1_mts_client.html#ab2c323ee0a3947aa77e24367f8bd4ee1',1,'lemons::midi::MtsClient']]]
+  ['frequencytomidi_197',['frequencyToMidi',['../classlemons_1_1midi_1_1_mts_client.html#ab2c323ee0a3947aa77e24367f8bd4ee1',1,'lemons::midi::MtsClient']]],
+  ['fuzzparameters_198',['fuzzParameters',['../structlemons_1_1tests_1_1_audio_processor_test_base.html#aaa8c172210276d3a0df47fdc8e525d0e',1,'lemons::tests::AudioProcessorTestBase']]]
 ];

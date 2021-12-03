@@ -151,7 +151,7 @@ $(function() {
 : <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a1ad216ffc9c5b688b21d2896165de0d3">lemons::plugin::Parameter</a>
 </li>
 <li>getDspTestName()
-: <a class="el" href="structlemons_1_1tests_1_1_dsp_test.html#a6cc7223cc87a106acea4f44b689df740">lemons::tests::DspTest</a>
+: <a class="el" href="classlemons_1_1tests_1_1_test.html#aca1fe9f7077f88d26de28011d924ecef">lemons::tests::Test</a>
 </li>
 <li>getFilter()
 : <a class="el" href="structlemons_1_1dsp_1_1_f_x_1_1_filter_engine.html#ae9d94ae38c46f5f78fb4b2c1958bdf23">lemons::dsp::FX::FilterEngine&lt; SampleType &gt;</a>
@@ -288,6 +288,9 @@ $(function() {
 <li>getNumStoredSamples()
 : <a class="el" href="classlemons_1_1dsp_1_1_circular_buffer.html#a8d0f824cfa4e30813a42930de1896f42">lemons::dsp::CircularBuffer&lt; SampleType &gt;</a>
 </li>
+<li>getNumTestingRepetitions()
+: <a class="el" href="classlemons_1_1tests_1_1_test.html#a9143b5bb744ae5a90b4aa47d35fb2484">lemons::tests::Test</a>
+</li>
 <li>getNumVoices()
 : <a class="el" href="classlemons_1_1dsp_1_1_synth_base.html#a22a13afada1f072993befdbf3197d47c">lemons::dsp::SynthBase&lt; SampleType &gt;</a>
 </li>
@@ -322,7 +325,7 @@ $(function() {
 : <a class="el" href="classlemons_1_1midi_1_1_pitch_bend_tracker.html#a4b70bed3bd56b977599c954fa900417d">lemons::midi::PitchBendTracker</a>
 </li>
 <li>getRawCoefficients()
-: <a class="el" href="structlemons_1_1dsp_1_1filters_1_1_coefficients.html#a9eb2d24f7562e3562ec08a39ddbcb2f9">lemons::dsp::filters::Coefficients&lt; NumericType &gt;</a>
+: <a class="el" href="structlemons_1_1dsp_1_1filters_1_1_coefficients.html#aad5889503f4df7e24ca5f94d7dfaecc3">lemons::dsp::filters::Coefficients&lt; NumericType &gt;</a>
 </li>
 <li>getRightGain()
 : <a class="el" href="classlemons_1_1dsp_1_1_f_x_1_1_panner_base.html#a7b74c1c9ad8780a9c0a46e84e20bb730">lemons::dsp::FX::PannerBase</a>
@@ -343,8 +346,8 @@ $(function() {
 </li>
 <li>getSamples()
 : <a class="el" href="classlemons_1_1dsp_1_1_circular_buffer.html#a596b725d5dcfc529a1c7273630bf9ed3">lemons::dsp::CircularBuffer&lt; SampleType &gt;</a>
-, <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html#a0d4e7108f8cb508f01efeb7e7d423c84">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>
-, <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a2cffdfc5f7a2b191f25b7e2a41e735c6">lemons::dsp::psola::Shifter&lt; SampleType &gt;</a>
+, <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html#a60cacb1aeca5d4f2eed87c754b01fc6a">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>
+, <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a0517efb82243046286fc03585dbe0b6e">lemons::dsp::psola::Shifter&lt; SampleType &gt;</a>
 </li>
 <li>getSavedEditorSize()
 : <a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#a3814788aae0eff4e449e29dbcd16352f">lemons::plugin::ProcessorBase</a>
@@ -372,13 +375,13 @@ $(function() {
 : <a class="el" href="structlemons_1_1binary_1_1_data.html#a2c1c9b78a58b88c44e51b09668048e46">lemons::binary::Data</a>
 </li>
 <li>getTestingBlockSizes()
-: <a class="el" href="structlemons_1_1tests_1_1_dsp_test.html#af9f694dc17dfdd7d3af59d134cf46a72">lemons::tests::DspTest</a>
+: <a class="el" href="classlemons_1_1tests_1_1_test.html#ae6366faf16b241a7b6e78715442e094e">lemons::tests::Test</a>
 </li>
 <li>getTestingIntensityLevel()
 : <a class="el" href="classlemons_1_1tests_1_1_test.html#aae5d3a4c8d6beec3749a044fea476030">lemons::tests::Test</a>
 </li>
 <li>getTestingSamplerates()
-: <a class="el" href="structlemons_1_1tests_1_1_dsp_test.html#a57be202f9cf92b54be161c513d4919d5">lemons::tests::DspTest</a>
+: <a class="el" href="classlemons_1_1tests_1_1_test.html#abc00c8dadae75662cb0e0d892f3f8fdd">lemons::tests::Test</a>
 </li>
 <li>getTextForDenormalizedValue()
 : <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a455faf5cc388e774ca74b8c1a0dcf91e">lemons::plugin::Parameter</a>
@@ -414,7 +417,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 2 2021 00:43:09 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 3 2021 00:43:09 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -1,6 +1,7 @@
 <map id="lemons::tests::Test" name="lemons::tests::Test">
-<area shape="rect" id="node1" title=" " alt="" coords="43,5,187,32"/>
-<area shape="rect" id="node2" href="$structlemons_1_1tests_1_1_dsp_test.html" title=" " alt="" coords="30,80,199,107"/>
-<area shape="rect" id="node3" href="$structlemons_1_1tests_1_1_audio_processor_test_base.html" title=" " alt="" coords="5,155,224,196"/>
-<area shape="rect" id="node4" href="$structlemons_1_1tests_1_1_audio_processor_test.html" title=" " alt="" coords="5,244,224,285"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,71,149,98"/>
+<area shape="rect" id="node2" href="$structlemons_1_1tests_1_1_audio_processor_test_base.html" title=" " alt="" coords="197,5,416,47"/>
+<area shape="rect" id="node4" href="$structlemons_1_1tests_1_1_core_test.html" title=" " alt="" coords="219,71,394,98"/>
+<area shape="rect" id="node5" href="$structlemons_1_1tests_1_1_dsp_test.html" title=" " alt="" coords="222,122,391,149"/>
+<area shape="rect" id="node3" href="$structlemons_1_1tests_1_1_audio_processor_test.html" title=" " alt="" coords="464,5,683,47"/>
 </map>
