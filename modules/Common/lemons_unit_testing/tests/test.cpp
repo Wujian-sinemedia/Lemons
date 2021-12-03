@@ -73,7 +73,7 @@ bool Test::testingIntensityIsHigh()
     return intensity == Intensity::High;
 }
 
-Intensity Test::intensity { Intensity::Medium };
+Intensity Test::intensity { Intensity::Low };
 
 const std::vector<double> Test::getTestingSamplerates()
 {

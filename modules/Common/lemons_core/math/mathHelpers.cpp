@@ -121,7 +121,8 @@ void MathTests::runTest()
             
             for (int i = 0; i < getNumTestingRepetitions(); ++i)
             {
-                const auto period  = rand.nextInt (450);
+                const auto period  = rand.nextInt ({ 1, 450 });
+                
                 const auto estFreq = math::freqFromPeriod (samplerate, period);
                 
                 expectWithinAbsoluteError (math::periodInSamples (samplerate, estFreq), period, 2);
