@@ -56,7 +56,7 @@ private:
 namespace lemons::tests
 {
 
-struct MidiFifoTests : public DspTest
+struct MidiFifoTests : public MidiTest
 {
 public:
 	MidiFifoTests();

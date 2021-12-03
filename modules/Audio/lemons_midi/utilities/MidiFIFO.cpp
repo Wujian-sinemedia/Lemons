@@ -56,7 +56,7 @@ namespace lemons::tests
 {
 
 MidiFifoTests::MidiFifoTests()
-    : DspTest ("MIDI FIFO tests")
+    : MidiTest ("MIDI FIFO tests")
 {
 }
 

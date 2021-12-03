@@ -106,7 +106,7 @@ juce::StringArray Data::getStrings (const String& textFileName)
 
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 
-#if LEMONS_UNIT_TESTING
+#if LEMONS_UNIT_TESTS
 
 namespace lemons::tests
 {
@@ -114,7 +114,7 @@ namespace lemons::tests
 BinaryDataTests::BinaryDataTests()
 : Test ("Binary data tests", "BinaryData")
 {
-    
+
 }
 
 #if ! LEMONS_BINARIES_UNIT_TESTS
@@ -122,9 +122,9 @@ BinaryDataTests::BinaryDataTests()
 void BinaryDataTests::runTest()
 {
     beginTest ("binary::Data objects are invalid");
-    
+
     binary::Data data { "MyFile.txt" };
-    
+
     expect (! data.isValid());
 }
 
@@ -132,7 +132,7 @@ void BinaryDataTests::runTest()
 
 void BinaryDataTests::runTest()
 {
-    
+
 }
 
 

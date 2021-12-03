@@ -60,13 +60,10 @@ AudioProcessorTestBase::ProcessorParameterState AudioProcessorTestBase::getState
     return state;
 }
 
-bool AudioProcessorTestBase::processorMatchesParameterState (const ProcessorParameterState& state) const
+void AudioProcessorTestBase::checkProcessorMatchesParameterState (const ProcessorParameterState& state)
 {
     for (const auto& data : state)
-        if (getNamedParameter (data.name)->getValue() != data.value)
-            return false;
-    
-    return true;
+        expectEquals (getNamedParameter (data.name)->getValue(), data.value);
 }
 
 void AudioProcessorTestBase::fuzzParameters()
@@ -346,7 +343,16 @@ void AudioProcessorTestBase::runTypedTests()
                 
                 processor.processBlock (audioIO, midiIO);
                 
-                expect (! processorMatchesParameterState (prevState));
+                const auto stateIsDifferent = [&]() -> bool
+                {
+                    for (const auto& param : prevState)
+                        if (getNamedParameter (param.name)->getValue() != param.value)
+                            return true;
+                    
+                    return false;
+                }();
+                
+                expect (stateIsDifferent);
                 
                 if (processor.isMidiEffect())
                     expect (! midiBuffersAreEqual (midiStorage, midiIO));
@@ -355,7 +361,7 @@ void AudioProcessorTestBase::runTypedTests()
                 
                 processor.setStateInformation (block.getData(), static_cast<int> (block.getSize()));
                 
-                expect (processorMatchesParameterState (prevState));
+                checkProcessorMatchesParameterState (prevState);
                 
                 if (processor.isMidiEffect())
                     expect (midiBuffersAreEqual (midiStorage, midiIO));
@@ -367,7 +373,7 @@ void AudioProcessorTestBase::runTypedTests()
                 processor.releaseResources();
                 processor.setStateInformation (block.getData(), static_cast<int> (block.getSize()));
                 
-                expect (processorMatchesParameterState (prevState));
+                checkProcessorMatchesParameterState (prevState);
             }
 		}
 	}

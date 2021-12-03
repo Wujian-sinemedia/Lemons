@@ -9,7 +9,7 @@ template<typename SampleType>
 class PeakFinder final
 {
 public:
-    const juce::Array<int>& findPeaks (const SampleType* inputSamples, int numSamples, float period);
+    [[nodiscard]] const juce::Array<int>& findPeaks (const SampleType* inputSamples, int numSamples, float period);
     
     void prepare (int maxBlocksize);
     
@@ -52,12 +52,16 @@ struct PeakFinderTests : public DspTest
 private:
     void runTest() final;
     
-    void runOscillatorTest (dsp::osc::Oscillator<SampleType>& osc, double samplerate, double freq, int blocksize, int period);
+    void runOscillatorTest (dsp::osc::Oscillator<SampleType>& osc, double samplerate, double freq, int blocksize, int period, const String& waveName);
     
     dsp::psola::PeakFinder<SampleType> peakFinder;
     
-    dsp::osc::Sine<SampleType> osc;
     AudioBuffer<SampleType> audioStorage;
+    
+    dsp::osc::Sine<SampleType>     sine;
+    dsp::osc::Saw<SampleType>      saw;
+    dsp::osc::Square<SampleType>   square;
+    dsp::osc::Triangle<SampleType> triangle;
 };
 
 static PeakFinderTests<float> grainDetectorTest_float;

@@ -65,14 +65,19 @@ private:
 };
 
 
+struct CoreTest : public Test
+{
+    CoreTest (const String& testName);
+};
+
 struct DspTest : public Test
 {
     DspTest (const String& testName);
 };
 
-struct CoreTest : public Test
+struct MidiTest : public Test
 {
-    CoreTest (const String& testName);
+    MidiTest (const String& testName);
 };
 
 }  // namespace lemons::tests

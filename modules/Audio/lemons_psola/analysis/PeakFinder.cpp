@@ -351,20 +351,12 @@ namespace lemons::tests
 
 template<typename SampleType>
 PeakFinderTests<SampleType>::PeakFinderTests()
-: DspTest ("PSOLA grain detector tests")
+: DspTest (getDspTestName<SampleType>("PSOLA grain detector tests"))
 { }
 
 template<typename SampleType>
 void PeakFinderTests<SampleType>::runTest()
 {
-    /*
-     Heuristics:
-     - grains are approx 2 periods long
-     - grains overlap by approx 50%
-     - grains are centered on points of max energy in signal
-     - individual grain onsets are approx 1 period apart
-     */
-    
     constexpr auto samplerate = 44100.;
     
     for (const auto freq : { 215., 440., 755., 2036. })
@@ -379,7 +371,10 @@ void PeakFinderTests<SampleType>::runTest()
         
         audioStorage.setSize (1, blocksize);
         
-        
+        runOscillatorTest (sine, samplerate, freq, blocksize, period, "Sine");
+        runOscillatorTest (saw, samplerate, freq, blocksize, period, "Saw");
+        runOscillatorTest (square, samplerate, freq, blocksize, period, "Square");
+        runOscillatorTest (triangle, samplerate, freq, blocksize, period, "Triangle");
     }
 }
 
@@ -388,8 +383,11 @@ void PeakFinderTests<SampleType>::runOscillatorTest (dsp::osc::Oscillator<Sample
                                                      double samplerate,
                                                      double freq,
                                                      int blocksize,
-                                                     int period)
+                                                     int period,
+                                                     const String& waveName)
 {
+    const auto oscSubtest = beginSubtest (waveName + " oscillator");
+    
     osc.setFrequency (static_cast<SampleType> (freq),
                       static_cast<SampleType> (samplerate));
     
@@ -420,8 +418,15 @@ void PeakFinderTests<SampleType>::runOscillatorTest (dsp::osc::Oscillator<Sample
     
     const auto subtest = beginSubtest ("Grain spacing");
     
+    /*
+     Heuristics:
+     - grains are approx 2 periods long
+     - grains overlap by approx 50%
+     - grains are centered on points of max energy in signal
+     - individual grain onsets are approx 1 period apart
+     */
+    
     const auto halfPeriod = period / 2;
-    const auto threeQuarterPeriod = juce::roundToInt (period * 0.75f);
     
     for (int i = 0; i < indices.size() - 2; ++i)
     {
@@ -431,8 +436,8 @@ void PeakFinderTests<SampleType>::runOscillatorTest (dsp::osc::Oscillator<Sample
         
         expectWithinAbsoluteError (index3 - index1, period * 2, halfPeriod);
         
-        expectWithinAbsoluteError (index2 - index1, period, threeQuarterPeriod);
-        expectWithinAbsoluteError (index3 - index2, period, threeQuarterPeriod);
+        expectWithinAbsoluteError (index2 - index1, period, halfPeriod);
+        expectWithinAbsoluteError (index3 - index2, period, halfPeriod);
     }
 }
 

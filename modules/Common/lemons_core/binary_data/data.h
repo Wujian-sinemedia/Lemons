@@ -74,7 +74,7 @@ struct Data final
 
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 
-#if LEMONS_UNIT_TESTING
+#if LEMONS_UNIT_TESTS
 
 namespace lemons::tests
 {
@@ -82,7 +82,7 @@ namespace lemons::tests
 struct BinaryDataTests : public Test
 {
     BinaryDataTests();
-    
+
 private:
     void runTest() final;
 };

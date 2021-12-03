@@ -53,7 +53,7 @@ protected:
     
     [[nodiscard]] ProcessorParameterState getStateOfProcessorParameters() const;
     
-    [[nodiscard]] bool processorMatchesParameterState (const ProcessorParameterState& state) const;
+    void checkProcessorMatchesParameterState (const ProcessorParameterState& state);
 
 private:
 	template <typename SampleType>

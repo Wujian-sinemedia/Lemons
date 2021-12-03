@@ -12,9 +12,6 @@ File getFileOnDesktop (const String& fileName);
 String addFileExtensionIfMissing (const String& string,
                                   const String& extension);
 
-String removeFileExtensionIfThere (const String& string,
-                                   const String& extension);
-
 
 //==============================================================================
 

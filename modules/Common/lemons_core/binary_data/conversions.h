@@ -24,7 +24,7 @@ template <typename SampleType>
 [[nodiscard]] AudioBuffer<SampleType> audioFromBinary (const MemoryBlock& block);
 
 template <typename SampleType>
-[[nodiscard]] MemoryBlock audioToBinary (const AudioBuffer<SampleType>& buffer);
+[[nodiscard]] MemoryBlock audioToBinary (const AudioBuffer<SampleType>& buffer, double samplerate = 48000.);
 
 [[nodiscard]] MidiBuffer midiFromBinary (const MemoryBlock& block);
 
@@ -45,7 +45,7 @@ template <typename SampleType>
 
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 
-#if LEMONS_UNIT_TESTING
+#if LEMONS_UNIT_TESTS
 
 namespace lemons::tests
 {

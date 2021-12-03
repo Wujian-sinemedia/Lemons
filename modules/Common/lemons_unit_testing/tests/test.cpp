@@ -120,4 +120,10 @@ CoreTest::CoreTest (const String& testName)
     
 }
 
+MidiTest::MidiTest (const String& testName)
+: Test (testName, "MIDI")
+{
+    
+}
+
 }  // namespace lemons::tests

@@ -18,14 +18,6 @@ String addFileExtensionIfMissing (const String& string,
 }
 
 
-String removeFileExtensionIfThere (const String& string,
-                                   const String& extension)
-{
-	return (string.endsWith (extension))
-	         ? string.dropLastCharacters (extension.length()).trim()
-	         : string.trim();
-}
-
 
 //==============================================================================
 
