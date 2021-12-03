@@ -21,9 +21,9 @@ public:
 	template <typename NoteType>
 	float getAdjustedMidiPitch (NoteType midiPitch) const
 	{
-		if (lastRecievedPitchbend == 64) return static_cast<float> (midiPitch);
+		if (lastRecievedPitchbend == 64.f) return static_cast<float> (midiPitch);
 
-		if (lastRecievedPitchbend > 64)
+		if (lastRecievedPitchbend > 64.f)
 			return static_cast<float> (((rangeUp * (lastRecievedPitchbend - 65.f)) / 62.f)
 			                           + float (midiPitch));
 

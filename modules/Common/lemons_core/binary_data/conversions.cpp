@@ -30,6 +30,23 @@ AudioBuffer<float> audioFromBinary (const MemoryBlock& block)
 }
 
 template <>
+MemoryBlock audioToBinary (const AudioBuffer<float>& buffer, double samplerate)
+{
+    jassert (buffer.getNumChannels() > 0 && buffer.getNumSamples() > 0);
+    
+    MemoryBlock              block;
+    juce::MemoryOutputStream stream { block, false };
+    juce::FlacAudioFormat    format;
+    
+    if (auto* writer = format.createWriterFor (&stream, samplerate, static_cast<unsigned>(buffer.getNumChannels()), 24, {}, 0))
+        writer->writeFromAudioSampleBuffer (buffer, 0, buffer.getNumSamples());
+    else
+        jassertfalse;
+    
+    return block;
+}
+
+template <>
 AudioBuffer<double> audioFromBinary (const MemoryBlock& block)
 {
 	const auto floatBuf = audioFromBinary<float> (block);
@@ -43,22 +60,6 @@ AudioBuffer<double> audioFromBinary (const MemoryBlock& block)
 		vecops::convert (doubleBuf.getWritePointer (chan), floatBuf.getReadPointer (chan), numSamples);
 
 	return doubleBuf;
-}
-
-
-template <>
-MemoryBlock audioToBinary (const AudioBuffer<float>& buffer, double samplerate)
-{
-	MemoryBlock              block;
-	juce::MemoryOutputStream stream { block, false };
-	juce::FlacAudioFormat    format;
-
-	if (auto* writer = format.createWriterFor (&stream, samplerate, static_cast<unsigned>(buffer.getNumChannels()), 24, {}, 0))
-		writer->writeFromAudioSampleBuffer (buffer, 0, buffer.getNumSamples());
-    else
-        jassertfalse;
-
-	return block;
 }
 
 template <>
@@ -101,6 +102,51 @@ MemoryBlock imageToBinary (const Image& image)
 
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 
+MidiBuffer midiBufferFromMidiFile (const juce::MidiFile& file)
+{
+    if (const auto* track = file.getTrack (0))
+    {
+        return [sequence = *track]() -> MidiBuffer
+        {
+            MidiBuffer buffer;
+            
+            for (const auto* holder : sequence)
+                buffer.addEvent (holder->message,
+                                 juce::roundToInt (holder->message.getTimeStamp()));
+            
+            jassert (buffer.getNumEvents() == sequence.getNumEvents());
+            
+            return buffer;
+        }();
+    }
+    
+    jassertfalse;
+    return {};
+}
+
+juce::MidiFile midiBufferToMidiFile (const MidiBuffer& midi)
+{
+    juce::MidiFile file;
+    
+    const auto sequence = [&]() -> juce::MidiMessageSequence
+    {
+        juce::MidiMessageSequence seq;
+        
+        for (const auto meta : midi)
+            seq.addEvent (meta.getMessage());
+        
+        return seq;
+    }();
+    
+    jassert (sequence.getNumEvents() == midi.getNumEvents());
+    
+    file.addTrack (sequence);
+    
+    jassert (file.getLastTimestamp() == midi.getLastEventTime());
+    
+    return file;
+}
+
 
 MidiBuffer midiFromBinary (const MemoryBlock& block)
 {
@@ -109,38 +155,12 @@ MidiBuffer midiFromBinary (const MemoryBlock& block)
 	juce::MidiFile file;
 	file.readFrom (stream);
 
-	if (auto* track = file.getTrack (0))
-	{
-		return [sequence = *track]() -> juce::MidiBuffer
-		{
-			juce::MidiBuffer buffer;
-
-			for (const auto* holder : sequence)
-				buffer.addEvent (holder->message,
-				                 juce::roundToInt (holder->message.getTimeStamp()));
-
-			return buffer;
-		}();
-	}
-
-	return {};
+    return midiBufferFromMidiFile (file);
 }
 
 MemoryBlock midiToBinary (const MidiBuffer& midi)
 {
-	juce::MidiFile file;
-
-	const auto sequence = [&midi]() -> juce::MidiMessageSequence
-	{
-		juce::MidiMessageSequence seq;
-
-		for (auto meta : midi)
-			seq.addEvent (meta.getMessage());
-
-		return seq;
-	}();
-
-	file.addTrack (sequence);
+    const auto file = midiBufferToMidiFile (midi);
 
 	MemoryBlock              block;
 	juce::MemoryOutputStream stream { block, false };
@@ -185,7 +205,7 @@ juce::var valueTreeToVar (const ValueTree& tree)
 
 	juce::Array<juce::var> children;
 
-	for (auto child : tree)
+	for (const auto child : tree)
 		if (const auto childVar = valueTreeToVar (child); ! childVar.isVoid())
 			children.add (childVar);
 
@@ -280,13 +300,11 @@ DataConversionTests::DataConversionTests()
 void DataConversionTests::runTest()
 {
     /*
-     - image from binary
-     - image to binary
      - ValueTree to JSON
      - ValueTree from JSON
      */
     
-    beginTest ("Audio buffers");
+//    beginTest ("Audio buffers");
 //    runTypedTests<float>();
 //    runTypedTests<double>();
     
@@ -294,12 +312,37 @@ void DataConversionTests::runTest()
     
     MidiBuffer origMidi;
     
-    fillMidiBufferWithRandomEvents (origMidi, 256, getRandom());
+    constexpr auto numMidiEvents = 256;
+    
+    fillMidiBufferWithRandomEvents (origMidi, numMidiEvents, getRandom());
+    
+    {
+        const auto subtest = beginSubtest ("MIDI buffer to/from MIDI file");
+        
+        const auto file    = binary::midiBufferToMidiFile (origMidi);
+        const auto decoded = binary::midiBufferFromMidiFile (file);
+        
+        expect (midiBuffersAreEqual (origMidi, decoded));
+    }
     
     const auto block   = binary::midiToBinary (origMidi);
     const auto decoded = binary::midiFromBinary (block);
     
     //expect (midiBuffersAreEqual (origMidi, decoded));
+    
+    beginTest ("Images");
+    
+    constexpr auto imageWidth  = 250;
+    constexpr auto imageHeight = 250;
+    
+    juce::Image image { juce::Image::PixelFormat::RGB, imageWidth, imageHeight, true };
+    
+    const auto blob = binary::imageToBinary (image);
+    const auto decodedImage = binary::imageFromBinary (blob);
+    
+    expectEquals (decodedImage.getWidth(), imageWidth);
+    expectEquals (decodedImage.getHeight(), imageHeight);
+            
     
     beginTest ("Memory block to/from string");
     
@@ -331,7 +374,7 @@ void DataConversionTests::runTypedTests()
     
     const auto block   = binary::audioToBinary (origAudio);
     const auto decoded = binary::audioFromBinary<SampleType> (block);
-    
+
     expectEquals (decoded.getNumChannels(), numChannels);
     expectEquals (decoded.getNumSamples(), numSamples);
 

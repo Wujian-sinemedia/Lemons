@@ -75,10 +75,10 @@ void absVal (Type* data, int dataSize);
 
 /* returns the index in the vector of the minimum element */
 template <typename Type>
-int findIndexOfMinElement (const Type* data, int dataSize);
+[[nodiscard]] int findIndexOfMinElement (const Type* data, int dataSize);
 
 template <typename Type>
-int findIndexOfMinElement (const juce::Array<Type>& array)
+[[nodiscard]] int findIndexOfMinElement (const juce::Array<Type>& array)
 {
 	return findIndexOfMinElement (array.getRawDataPointer(), array.size());
 }
@@ -86,10 +86,10 @@ int findIndexOfMinElement (const juce::Array<Type>& array)
 
 /* returns the index in the vector of the maximum element */
 template <typename Type>
-int findIndexOfMaxElement (const Type* data, int dataSize);
+[[nodiscard]] int findIndexOfMaxElement (const Type* data, int dataSize);
 
 template <typename Type>
-int findIndexOfMaxElement (const juce::Array<Type>& array)
+[[nodiscard]] int findIndexOfMaxElement (const juce::Array<Type>& array)
 {
 	return findIndexOfMaxElement (array.getRawDataPointer(), array.size());
 }
@@ -164,11 +164,11 @@ void findExtrema (const juce::Array<Type>& array, Type& min, Type& max)
 
 /* returns the distance between the maximum and minimum element of the vector */
 template <typename Type>
-Type findRangeOfExtrema (const Type* data,
+[[nodiscard]] Type findRangeOfExtrema (const Type* data,
                          int         dataSize);
 
 template <typename Type>
-Type findRangeOfExtrema (const juce::Array<Type>& array)
+[[nodiscard]] Type findRangeOfExtrema (const juce::Array<Type>& array)
 {
 	return findRangeOfExtrema (array.getRawDataPointer(), array.size());
 }

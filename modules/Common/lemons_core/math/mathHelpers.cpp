@@ -1,10 +1,6 @@
 
 namespace lemons::math
 {
-bool probability (int percentOfTheTime) noexcept
-{
-	return juce::Random::getSystemRandom().nextInt (100) < percentOfTheTime;
-}
 
 double sampsToMs (double samplerate, int numSamples) noexcept
 {
@@ -51,19 +47,18 @@ void MathTests::runTest()
             const auto midi = static_cast<float>(rand.nextInt (128));
             const auto freq = math::midiToFreq (midi);
             
-            expectEquals (math::freqToMidi (freq),
-                          midi);
+            expectWithinAbsoluteError (math::freqToMidi (freq), midi, 0.001f);
         }
 	}
 	{
-		const auto subtest = beginSubtest ("Frequency to MIDI");
-        
+//		const auto subtest = beginSubtest ("Frequency to MIDI");
+//
 //        for (int i = 0; i < getNumTestingRepetitions(); ++i)
 //        {
 //            const auto freq = rand.nextInt (6000);
 //            const auto midi = math::freqToMidi (freq);
 //
-//            expectEquals (math::midiToFreq (midi), freq);
+//            expectWithinAbsoluteError (math::midiToFreq (midi), freq, 5);
 //        }
 	}
 
@@ -106,8 +101,8 @@ void MathTests::runTest()
 		beginTest ("Samplerate: " + String (samplerate));
 
 		{
-			const auto subtest = beginSubtest ("Frequency to period");
-            
+//			const auto subtest = beginSubtest ("Frequency to period");
+//
 //            for (int i = 0; i < getNumTestingRepetitions(); ++i)
 //            {
 //                const auto freq      = rand.nextInt (3500);
