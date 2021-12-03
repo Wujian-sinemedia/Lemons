@@ -28,7 +28,7 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
     
     currentPeriod = detectedPeriod;
     
-    vecops::copy (inputAudio, storage.getWritePointer(0), numSamples);
+    const auto& indices = grainDetector.analyzeInput (inputAudio, numSamples, currentPeriod);
 }
 
 
@@ -63,7 +63,7 @@ inline int Analyzer<SampleType>::latencyChanged()
 {
     const auto latency = getLatencySamples();
     
-    storage.setSize (1, latency, true, true, true);
+    grainDetector.prepare (latency);
     
     return latency;
 }

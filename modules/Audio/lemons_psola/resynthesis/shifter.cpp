@@ -56,12 +56,12 @@ void Shifter<SampleType>::getSamples (SampleType* output, int numSamples)
             
             const auto intPeriod = juce::roundToInt (analyzer.currentPeriod);
             
-            const auto* input = analyzer.storage.getReadPointer(0);
-            
-            for (int n = -intPeriod; n <= intPeriod; ++n)
-            {
-                output[n + outptr] += (input[n + inptr] * getWindowValue (SampleType(n) / analyzer.currentPeriod));
-            }
+//            const auto* input = analyzer.storage.getReadPointer(0);
+//
+//            for (int n = -intPeriod; n <= intPeriod; ++n)
+//            {
+//                output[n + outptr] += (input[n + inptr] * getWindowValue (SampleType(n) / analyzer.currentPeriod));
+//            }
         }
         else
         {
