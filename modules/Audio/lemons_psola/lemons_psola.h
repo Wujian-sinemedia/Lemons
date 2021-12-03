@@ -19,7 +19,7 @@ END_JUCE_MODULE_DECLARATION
  -------------------------------------------------------------------------------------*/
 
 
-#include "analysis/GrainDetector.h"
+#include "analysis/PeakFinder.h"
 #include "analysis/analyzer.h"
 
 #include "resynthesis/shifter.h"

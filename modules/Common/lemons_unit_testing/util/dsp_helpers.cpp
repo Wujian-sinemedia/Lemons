@@ -1,3 +1,5 @@
+#include <lemons_dsp/lemons_dsp.h>
+
 namespace lemons::tests
 {
 
@@ -222,6 +224,19 @@ bool midiBuffersAreEqual (const MidiBuffer& buffer1,
 
 	return true;
 }
+
+template<typename SampleType>
+AudioBuffer<SampleType> makeCopyOfAudioBuffer (const AudioBuffer<SampleType>& inputBuffer)
+{
+    AudioBuffer<SampleType> copy { inputBuffer.getNumChannels(), inputBuffer.getNumSamples() };
+    
+    dsp::buffers::copy (inputBuffer, copy);
+    
+    return copy;
+}
+
+template AudioBuffer<float> makeCopyOfAudioBuffer (const AudioBuffer<float>&);
+template AudioBuffer<double> makeCopyOfAudioBuffer (const AudioBuffer<double>&);
 
 MidiBuffer makeCopyOfMidiBuffer (const MidiBuffer& inputBuffer)
 {

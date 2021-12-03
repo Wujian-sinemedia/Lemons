@@ -6,20 +6,16 @@ namespace lemons::dsp::psola
 {
 
 template<typename SampleType>
-class GrainDetector final
+class PeakFinder final
 {
 public:
-    const juce::Array<int>& analyzeInput (const SampleType* inputSamples,
-                                          int numSamples,
-                                          float period);
+    const juce::Array<int>& findPeaks (const SampleType* inputSamples, int numSamples, float period);
     
     void prepare (int maxBlocksize);
     
     void releaseResources();
     
 private:
-    void findPeaks (const SampleType* inputSamples, int numSamples, float period);
-    
     [[nodiscard]] int findNextPeak (int frameStart, int frameEnd, int predictedPeak,
                                     const SampleType* inputSamples, float period, int grainSize);
     
@@ -31,8 +27,7 @@ private:
     
     [[nodiscard]] int chooseIdealPeakCandidate (const SampleType* inputSamples, int deltaTarget1, int deltaTarget2);
     
-    juce::Array<int> grainStartIndices, peakSearchingOrder, peakCandidates, finalHandful;
-    
+    juce::Array<int>   peakIndices, peakSearchingOrder, peakCandidates, finalHandful;
     juce::Array<float> candidateDeltas, finalHandfulDeltas;
     
     static constexpr auto numPeaksToTest = 5;
@@ -50,21 +45,23 @@ namespace lemons::tests
 {
 
 template<typename SampleType>
-struct GrainDetectorTests : public DspTest
+struct PeakFinderTests : public DspTest
 {
-    GrainDetectorTests();
+    PeakFinderTests();
     
 private:
     void runTest() final;
     
-    dsp::psola::GrainDetector<SampleType> grainDetector;
+    void runOscillatorTest (dsp::osc::Oscillator<SampleType>& osc, double samplerate, double freq, int blocksize, int period);
+    
+    dsp::psola::PeakFinder<SampleType> peakFinder;
     
     dsp::osc::Sine<SampleType> osc;
     AudioBuffer<SampleType> audioStorage;
 };
 
-static GrainDetectorTests<float> grainDetectorTest_float;
-static GrainDetectorTests<double> grainDetectorTest_double;
+static PeakFinderTests<float> grainDetectorTest_float;
+static PeakFinderTests<double> grainDetectorTest_double;
 
 }
 

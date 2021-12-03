@@ -29,7 +29,7 @@ private:
     inline int latencyChanged();
     
     PitchDetector<SampleType> pitchDetector;
-    GrainDetector<SampleType> grainDetector;
+    PeakFinder<SampleType>    peakFinder;
     
     float currentPeriod { 0.f };
 };

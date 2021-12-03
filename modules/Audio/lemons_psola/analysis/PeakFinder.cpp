@@ -2,18 +2,18 @@ namespace lemons::dsp::psola
 {
 
 template<typename SampleType>
-void GrainDetector<SampleType>::prepare (int maxBlocksize)
+void PeakFinder<SampleType>::prepare (int maxBlocksize)
 {
     jassert (maxBlocksize > 0);
     
-    grainStartIndices.ensureStorageAllocated (maxBlocksize);
+    peakIndices.ensureStorageAllocated (maxBlocksize);
     peakSearchingOrder.ensureStorageAllocated (maxBlocksize);
     peakCandidates.ensureStorageAllocated (numPeaksToTest + 1);
     candidateDeltas.ensureStorageAllocated (numPeaksToTest + 1);
     finalHandful.ensureStorageAllocated (defaultFinalHandfulSize);
     finalHandfulDeltas.ensureStorageAllocated (defaultFinalHandfulSize);
     
-    grainStartIndices.clearQuick();
+    peakIndices.clearQuick();
     peakSearchingOrder.clearQuick();
     peakCandidates.clearQuick();
     candidateDeltas.clearQuick();
@@ -22,9 +22,9 @@ void GrainDetector<SampleType>::prepare (int maxBlocksize)
 }
 
 template<typename SampleType>
-void GrainDetector<SampleType>::releaseResources()
+void PeakFinder<SampleType>::releaseResources()
 {
-    grainStartIndices.clear();
+    peakIndices.clear();
     peakSearchingOrder.clear();
     peakCandidates.clear();
     finalHandful.clear();
@@ -33,64 +33,9 @@ void GrainDetector<SampleType>::releaseResources()
 }
 
 template<typename SampleType>
-const juce::Array<int>& GrainDetector<SampleType>::analyzeInput (const SampleType* inputSamples,
-                                                                 int numSamples,
-                                                                 float period)
+const juce::Array<int>& PeakFinder<SampleType>::findPeaks (const SampleType* inputSamples, int numSamples, float period)
 {
-    jassert (period > 0.f);
-    jassert (numSamples >= juce::roundToInt (period * 2.f));
-    
-    findPeaks (inputSamples, numSamples, period);
-    
-    jassert (! grainStartIndices.isEmpty());
-    
-//    const auto grainLength = period * 2;
-//    const auto halfPeriod  = juce::roundToInt (period * 0.5f);
-//
-//    // create array of grain start indices, such that grains are 2 pitch periods long, CENTERED on points of synchronicity previously identified
-//
-//    for (int i = 0; i < grainStartIndices.size(); ++i)
-//    {
-//        // offset the peak index by the period so that the peak index will be in the center of the grain (if grain is 2 periods long)
-//        auto grainStart = grainStartIndices.getUnchecked (i) - juce::roundToInt (period);
-//
-//        if (grainStart < 0)
-//        {
-//            if (i < grainStartIndices.size() - 2 || grainStartIndices.size() > 1) continue;
-//
-//            while (grainStart < 0)
-//                grainStart += halfPeriod;
-//        }
-//
-//        if (grainStart + grainLength > numSamples)
-//        {
-//            if (i < grainStartIndices.size() - 2 || grainStartIndices.size() > 1) continue;
-//
-//            while (grainStart + grainLength > numSamples)
-//                grainStart -= halfPeriod;
-//
-//            if (grainStart < 0)
-//            {
-//                if (! grainStartIndices.isEmpty()) continue;
-//                grainStart = 0;
-//            }
-//        }
-//
-//        if (grainStart < 0 || grainStart + grainLength > numSamples)
-//            continue;
-//
-//        grainStartIndices.add (grainStart);
-//    }
-//
-//    jassert (! grainStartIndices.isEmpty());
-    
-    return grainStartIndices;
-}
-
-template<typename SampleType>
-void GrainDetector<SampleType>::findPeaks (const SampleType* inputSamples, int numSamples, float period)
-{
-    grainStartIndices.clearQuick();
+    peakIndices.clearQuick();
     
     // output grains are 2 periods long w/ 50% overlap
     const auto grainSize  = juce::roundToInt (2.f * period);
@@ -109,17 +54,17 @@ void GrainDetector<SampleType>::findPeaks (const SampleType* inputSamples, int n
         
         jassert (frameStart >= 0 && frameEnd <= numSamples);
         
-        grainStartIndices.add (findNextPeak (frameStart, frameEnd, std::min (analysisIndex, frameEnd),
+        peakIndices.add (findNextPeak (frameStart, frameEnd, std::min (analysisIndex, frameEnd),
                                              inputSamples, intPeriod, grainSize));
         
-        jassert (! grainStartIndices.isEmpty());
+        jassert (! peakIndices.isEmpty());
         
         const auto prevAnalysisIndex = analysisIndex;
-        const auto targetArraySize   = grainStartIndices.size();
+        const auto targetArraySize   = peakIndices.size();
         
         // analysisIndex marks the middle of our next analysis window, so it's where our next predicted peak should be:
-        analysisIndex = targetArraySize == 1 ? grainStartIndices.getUnchecked (0) + intPeriod
-                                             : grainStartIndices.getUnchecked (targetArraySize - 2) + grainSize;
+        analysisIndex = targetArraySize == 1 ? peakIndices.getUnchecked (0) + intPeriod
+                                             : peakIndices.getUnchecked (targetArraySize - 2) + grainSize;
         
         if (analysisIndex == prevAnalysisIndex)
             analysisIndex = prevAnalysisIndex + intPeriod;
@@ -127,10 +72,12 @@ void GrainDetector<SampleType>::findPeaks (const SampleType* inputSamples, int n
             jassert (analysisIndex > prevAnalysisIndex);
     }
     while (analysisIndex - halfPeriod < numSamples);
+    
+    return peakIndices;
 }
 
 template<typename SampleType>
-int GrainDetector<SampleType>::findNextPeak (int frameStart, int frameEnd, int predictedPeak,
+int PeakFinder<SampleType>::findNextPeak (int frameStart, int frameEnd, int predictedPeak,
                                              const SampleType* inputSamples, float period, int grainSize)
 {
     jassert (frameEnd > frameStart);
@@ -155,12 +102,12 @@ int GrainDetector<SampleType>::findNextPeak (int frameStart, int frameEnd, int p
             
         default :
         {
-            if (grainStartIndices.size() <= 1)
+            if (peakIndices.size() <= 1)
                 return choosePeakWithGreatestPower (inputSamples);
             
             return chooseIdealPeakCandidate (inputSamples,
-                                             grainStartIndices.getLast() + juce::roundToInt (period),
-                                             grainStartIndices.getUnchecked (grainStartIndices.size() - 2) + grainSize);
+                                             peakIndices.getLast() + juce::roundToInt (period),
+                                             peakIndices.getUnchecked (peakIndices.size() - 2) + grainSize);
         }
     }
 }
@@ -171,7 +118,7 @@ static inline double weighting_func (int index, int predicted, int numSamples)
 }
 
 template<typename SampleType>
-void GrainDetector<SampleType>::getPeakCandidateInRange (const SampleType* inputSamples, int startSample, int endSample, int predictedPeak)
+void PeakFinder<SampleType>::getPeakCandidateInRange (const SampleType* inputSamples, int startSample, int endSample, int predictedPeak)
 {
     jassert (! peakSearchingOrder.isEmpty());
     
@@ -239,7 +186,7 @@ void GrainDetector<SampleType>::getPeakCandidateInRange (const SampleType* input
 }
 
 template<typename SampleType>
-int GrainDetector<SampleType>::choosePeakWithGreatestPower (const SampleType* inputSamples) const
+int PeakFinder<SampleType>::choosePeakWithGreatestPower (const SampleType* inputSamples) const
 {
     auto strongestPeakIndex = peakCandidates.getUnchecked (0);
     auto strongestPeak      = std::abs (inputSamples[strongestPeakIndex]);
@@ -264,7 +211,7 @@ static inline float delta_weight (float delta, float totalDeltaRange)
 }
 
 template<typename SampleType>
-int GrainDetector<SampleType>::chooseIdealPeakCandidate (const SampleType* inputSamples, int deltaTarget1, int deltaTarget2)
+int PeakFinder<SampleType>::chooseIdealPeakCandidate (const SampleType* inputSamples, int deltaTarget1, int deltaTarget2)
 {
     candidateDeltas.clearQuick();
     finalHandful.clearQuick();
@@ -335,7 +282,7 @@ int GrainDetector<SampleType>::chooseIdealPeakCandidate (const SampleType* input
 }
 
 template<typename SampleType>
-void GrainDetector<SampleType>::sortSampleIndicesForPeakSearching (int startSample, int endSample, int predictedPeak)
+void PeakFinder<SampleType>::sortSampleIndicesForPeakSearching (int startSample, int endSample, int predictedPeak)
 {
     peakSearchingOrder.clearQuick();
     
@@ -379,10 +326,18 @@ void GrainDetector<SampleType>::sortSampleIndicesForPeakSearching (int startSamp
             }
         }
     }
+    
+#if LEMONS_UNIT_TESTS
+    for (auto idx : peakSearchingOrder)
+    {
+        jassert (idx >= startSample);
+        jassert (idx <= endSample);
+    }
+#endif
 }
 
-template class GrainDetector<float>;
-template class GrainDetector<double>;
+template class PeakFinder<float>;
+template class PeakFinder<double>;
 
 }
 
@@ -395,12 +350,12 @@ namespace lemons::tests
 {
 
 template<typename SampleType>
-GrainDetectorTests<SampleType>::GrainDetectorTests()
+PeakFinderTests<SampleType>::PeakFinderTests()
 : DspTest ("PSOLA grain detector tests")
 { }
 
 template<typename SampleType>
-void GrainDetectorTests<SampleType>::runTest()
+void PeakFinderTests<SampleType>::runTest()
 {
     /*
      Heuristics:
@@ -420,58 +375,69 @@ void GrainDetectorTests<SampleType>::runTest()
         
         const auto blocksize = period * 4;
         
-        grainDetector.prepare (blocksize);
+        peakFinder.prepare (blocksize);
         
         audioStorage.setSize (1, blocksize);
         
-        osc.setFrequency (static_cast<SampleType> (freq),
-                          static_cast<SampleType> (samplerate));
         
-        osc.getSamples (audioStorage);
-        
-        const auto& indices = grainDetector.analyzeInput (audioStorage.getReadPointer(0), blocksize, period);
-        
-        {
-            const auto subtest = beginSubtest ("Grains identified");
-            expectGreaterOrEqual (indices.size(), blocksize / period);
-        }
-        
-        {
-            const auto subtest = beginSubtest ("Indices are always increasing");
-            
-            for (int i = 0; i < indices.size() - 1; ++i)
-                expectGreaterThan (indices.getUnchecked (i + 1),
-                                   indices.getUnchecked (i));
-        }
-        
-        {
-            const auto subtest = beginSubtest ("Max and min index are within range");
-            
-            expectGreaterOrEqual (indices.getUnchecked (0), 0);
-            
-            expectLessOrEqual (indices.getUnchecked (indices.size() - 1), blocksize);
-        }
-        
-        const auto subtest = beginSubtest ("Grain spacing");
-        
-        const auto quarterPeriod = period / 4;
-        
-        for (int i = 0; i < indices.size() - 2; ++i)
-        {
-            const auto index1 = indices.getUnchecked (i);
-            const auto index2 = indices.getUnchecked (i + 1);
-            const auto index3 = indices.getUnchecked (i + 2);
-            
-            expectWithinAbsoluteError (index3 - index1, period * 2, quarterPeriod);
-            
-            expectWithinAbsoluteError (index2 - index1, period, quarterPeriod);
-            expectWithinAbsoluteError (index3 - index2, period, quarterPeriod);
-        }
     }
 }
 
-template struct GrainDetectorTests<float>;
-template struct GrainDetectorTests<double>;
+template<typename SampleType>
+void PeakFinderTests<SampleType>::runOscillatorTest (dsp::osc::Oscillator<SampleType>& osc,
+                                                     double samplerate,
+                                                     double freq,
+                                                     int blocksize,
+                                                     int period)
+{
+    osc.setFrequency (static_cast<SampleType> (freq),
+                      static_cast<SampleType> (samplerate));
+    
+    osc.getSamples (audioStorage);
+    
+    const auto& indices = peakFinder.findPeaks (audioStorage.getReadPointer(0), blocksize, period);
+    
+    {
+        const auto subtest = beginSubtest ("Grains identified");
+        expectGreaterOrEqual (indices.size(), blocksize / period);
+    }
+    
+    {
+        const auto subtest = beginSubtest ("Indices are always increasing");
+        
+        for (int i = 0; i < indices.size() - 1; ++i)
+            expectGreaterThan (indices.getUnchecked (i + 1),
+                               indices.getUnchecked (i));
+    }
+    
+    {
+        const auto subtest = beginSubtest ("Max and min index are within range");
+        
+        expectGreaterOrEqual (indices.getUnchecked (0), 0);
+        
+        expectLessOrEqual (indices.getUnchecked (indices.size() - 1), blocksize);
+    }
+    
+    const auto subtest = beginSubtest ("Grain spacing");
+    
+    const auto halfPeriod = period / 2;
+    const auto threeQuarterPeriod = juce::roundToInt (period * 0.75f);
+    
+    for (int i = 0; i < indices.size() - 2; ++i)
+    {
+        const auto index1 = indices.getUnchecked (i);
+        const auto index2 = indices.getUnchecked (i + 1);
+        const auto index3 = indices.getUnchecked (i + 2);
+        
+        expectWithinAbsoluteError (index3 - index1, period * 2, halfPeriod);
+        
+        expectWithinAbsoluteError (index2 - index1, period, threeQuarterPeriod);
+        expectWithinAbsoluteError (index3 - index2, period, threeQuarterPeriod);
+    }
+}
+
+template struct PeakFinderTests<float>;
+template struct PeakFinderTests<double>;
 
 }
 

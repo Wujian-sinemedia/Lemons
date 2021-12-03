@@ -28,7 +28,7 @@ void Analyzer<SampleType>::analyzeInput (const SampleType* inputAudio, int numSa
     
     currentPeriod = detectedPeriod;
     
-    const auto& indices = grainDetector.analyzeInput (inputAudio, numSamples, currentPeriod);
+    const auto& indices = peakFinder.findPeaks (inputAudio, numSamples, detectedPeriod);
 }
 
 
@@ -63,7 +63,7 @@ inline int Analyzer<SampleType>::latencyChanged()
 {
     const auto latency = getLatencySamples();
     
-    grainDetector.prepare (latency);
+    peakFinder.prepare (latency);
     
     return latency;
 }

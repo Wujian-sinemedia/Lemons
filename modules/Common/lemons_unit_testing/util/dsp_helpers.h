@@ -53,6 +53,9 @@ template <typename FloatType>
 
 [[nodiscard]] bool midiBuffersAreEqual (const MidiBuffer& buffer1, const MidiBuffer& buffer2);
 
+template<typename SampleType>
+[[nodiscard]] AudioBuffer<SampleType> makeCopyOfAudioBuffer (const AudioBuffer<SampleType>& inputBuffer);
+
 [[nodiscard]] MidiBuffer makeCopyOfMidiBuffer (const MidiBuffer& inputBuffer);
 
 }  // namespace lemons::tests

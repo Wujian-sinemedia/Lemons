@@ -68,7 +68,6 @@
 
 
 #include "util/dsp_helpers.h"
-#include "util/processor_helpers.h"
 
 #include "tests/test.h"
 #include "tests/audio_processor_test.h"

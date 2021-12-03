@@ -10,6 +10,65 @@ AudioProcessorTestBase::AudioProcessorTestBase (juce::AudioProcessor& processorT
 {
 }
 
+bool AudioProcessorTestBase::allParameterNamesAreUnique() const
+{
+    juce::StringArray names;
+    
+    for (const auto* parameter : processor.getParameters())
+    {
+        const auto name = parameter->getName(50);
+        
+        if (names.contains (name))
+            return false;
+        
+        names.add (name);
+    }
+    
+    return true;
+}
+
+juce::AudioProcessorParameter* AudioProcessorTestBase::getNamedParameter (const String& name)
+{
+    for (auto* parameter : processor.getParameters())
+        if (parameter->getName(50) == name)
+            return parameter;
+    
+    return nullptr;
+}
+
+const juce::AudioProcessorParameter* AudioProcessorTestBase::getNamedParameter (const String& name) const
+{
+    for (const auto* parameter : processor.getParameters())
+        if (parameter->getName(50) == name)
+            return parameter;
+    
+    return nullptr;
+}
+
+AudioProcessorTestBase::ProcessorParameterState AudioProcessorTestBase::getStateOfProcessorParameters() const
+{
+    ProcessorParameterState state;
+    
+    for (const auto* parameter : processor.getParameters())
+    {
+        ProcessorParameterData data;
+        data.name = parameter->getName(50);
+        data.value = parameter->getValue();
+        state.add (data);
+    }
+    
+    return state;
+}
+
+bool AudioProcessorTestBase::processorMatchesParameterState (const ProcessorParameterState& state) const
+{
+    for (const auto& data : state)
+        if (getNamedParameter (data.name)->getValue() != data.value)
+            return false;
+    
+    return true;
+}
+
 void AudioProcessorTestBase::fuzzParameters()
 {
     auto rand = getRandom();
@@ -31,7 +90,7 @@ void AudioProcessorTestBase::runTest()
     
     expect (! processor.getName().isEmpty());
     
-    expect (allParameterNamesAreUnique (processor));
+    expect (allParameterNamesAreUnique());
 
 	if (processor.isMidiEffect())
 		expect (processor.producesMidi());
@@ -44,9 +103,12 @@ void AudioProcessorTestBase::runTest()
         expect (processor.checkBusesLayoutSupported (layout));
     }
     
+    beginTest ("Programs API");
+    
     expect (! processor.getProgramName (processor.getCurrentProgram()).isEmpty());
-
-
+    expectGreaterThan (processor.getNumPrograms(), 0);
+    
+    
 	runTypedTests<float>();
 
 	if (processor.supportsDoublePrecisionProcessing())
@@ -60,14 +122,14 @@ void AudioProcessorTestBase::runTest()
 
 		auto* editor = processor.createEditor();
 
-		expect (editor != nullptr);
+        expect (editor != nullptr);
 
 		runEditorTests (*editor);
 #endif
 	}
 	else
 	{
-        logImportantMessage ("Processor should not create an editor...");
+        beginTest ("Processor should not create an editor...");
 		expect (processor.createEditor() == nullptr);
 	}
 }
@@ -104,6 +166,7 @@ void AudioProcessorTestBase::runTypedTests()
             
             {
                 const auto subtest = beginSubtest ("Can call process");
+                
                 processor.processBlock (audioIO, midiIO);
             }
 
@@ -124,7 +187,8 @@ void AudioProcessorTestBase::runTypedTests()
             
             expect (! bufferIsSilent (audioIO));
             
-			processor.processBlock (audioIO, midiIO);
+            for (int i = 0; i < getNumTestingRepetitions(); ++i)
+                processor.processBlock (audioIO, midiIO);
             
             {
                 const auto subtest = beginSubtest ("Bypassed processing");
@@ -153,6 +217,16 @@ void AudioProcessorTestBase::runTypedTests()
                 processor.processBlockBypassed (audioIO, midiIO);
                 processor.processBlockBypassed (audioIO, midiIO);
                 processor.processBlock (audioIO, midiIO);
+                
+                {
+                    const auto st = beginSubtest ("Alternate bypassed and normal processing");
+                    
+                    for (int i = 0; i < getNumTestingRepetitions(); ++i)
+                    {
+                        processor.processBlockBypassed (audioIO, midiIO);
+                        processor.processBlock (audioIO, midiIO);
+                    }
+                }
             }
             
             {
@@ -205,13 +279,6 @@ void AudioProcessorTestBase::runTypedTests()
                 }
             }
 
-            processor.reset();
-            
-			processor.processBlockBypassed (audioIO, midiIO);
-			processor.processBlock (audioIO, midiIO);
-			processor.processBlockBypassed (audioIO, midiIO);
-			processor.processBlock (audioIO, midiIO);
-            
             {
                 const auto subtest = beginSubtest ("Reset() stress test");
                 
@@ -235,14 +302,13 @@ void AudioProcessorTestBase::runTypedTests()
                 processor.processBlockBypassed (audioIO, midiIO);
                 processor.processBlock (audioIO, midiIO);
                 
-                processor.setNonRealtime (true);
-                processor.processBlock (audioIO, midiIO);
-                processor.setNonRealtime (false);
-                processor.processBlock (audioIO, midiIO);
-                processor.setNonRealtime (true);
-                processor.processBlock (audioIO, midiIO);
-                processor.setNonRealtime (false);
-                processor.processBlock (audioIO, midiIO);
+                for (int i = 0; i < getNumTestingRepetitions(); ++i)
+                {
+                    processor.setNonRealtime (true);
+                    processor.processBlock (audioIO, midiIO);
+                    processor.setNonRealtime (false);
+                    processor.processBlock (audioIO, midiIO);
+                }
             }
 
             if (! processor.getParameters().isEmpty())
@@ -261,17 +327,17 @@ void AudioProcessorTestBase::runTypedTests()
                 
                 fuzzParameters();
                 
-                const auto prevState = getStateOfProcessorParameters (processor);
+                const auto prevState = getStateOfProcessorParameters();
                 
                 audioIO.clear();
                 
                 processor.processBlock (audioIO, midiIO);
                 
-                AudioBuffer<SampleType> storage { 2, blocksize };
+                const auto audioStorage = makeCopyOfAudioBuffer (audioIO);
+                const auto midiStorage  = makeCopyOfMidiBuffer (midiIO);
                 
-                dsp::buffers::copy (audioIO, storage);
-                
-                expect (buffersAreEqual (audioIO, storage));
+                expect (buffersAreEqual (audioIO, audioStorage));
+                expect (midiBuffersAreEqual (midiStorage, midiIO));
                 
                 juce::MemoryBlock block { 1024, true };
                 processor.getStateInformation (block);
@@ -280,22 +346,28 @@ void AudioProcessorTestBase::runTypedTests()
                 
                 processor.processBlock (audioIO, midiIO);
                 
-                expect (! processorMatchesParameterState (processor, prevState));
+                expect (! processorMatchesParameterState (prevState));
                 
-                if (! processor.isMidiEffect())
-                    expect (! buffersAreEqual (audioIO, storage));
+                if (processor.isMidiEffect())
+                    expect (! midiBuffersAreEqual (midiStorage, midiIO));
+                else
+                    expect (! buffersAreEqual (audioIO, audioStorage));
                 
                 processor.setStateInformation (block.getData(), static_cast<int> (block.getSize()));
                 
-                expect (processorMatchesParameterState (processor, prevState));
-                expect (buffersAreEqual (audioIO, storage));
+                expect (processorMatchesParameterState (prevState));
+                
+                if (processor.isMidiEffect())
+                    expect (midiBuffersAreEqual (midiStorage, midiIO));
+                else
+                    expect (buffersAreEqual (audioIO, audioStorage));
                 
                 fuzzParameters();
                 
                 processor.releaseResources();
                 processor.setStateInformation (block.getData(), static_cast<int> (block.getSize()));
                 
-                expect (processorMatchesParameterState (processor, prevState));
+                expect (processorMatchesParameterState (prevState));
             }
 		}
 	}

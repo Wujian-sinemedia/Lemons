@@ -6,6 +6,9 @@
 namespace lemons::tests
 {
 
+using juce::String;
+
+
 enum class Intensity
 {
     Low,
