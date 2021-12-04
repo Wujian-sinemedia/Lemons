@@ -5,13 +5,13 @@ namespace lemons
 /**
     A class that represents a version of something, with major, minor, and patch numbers.
  */
-struct Version
+struct Version final
 {
 	/** Creates a default Version object with the value 0.0.1. */
-	Version() = default;
+	constexpr Version() = default;
 
 	/** Creates a Version object with a specified value. */
-	Version (int maj, int min, int p);
+	constexpr Version (int maj, int min, int p);
 
 	/** Returns true if this version is the same as the other one. */
 	bool operator== (const Version& other) const noexcept;
@@ -27,6 +27,12 @@ struct Version
 
 	/** Returns true if this version has the same major release number as the other one. */
 	[[nodiscard]] bool hasSameMajorVersion (const Version& other) const noexcept;
+
+	/** Returns true if this version is newer than the other one. */
+	[[nodiscard]] bool isNewerThan (const Version& other) const noexcept;
+
+	/** Returns true if this version is older than the other one. */
+	[[nodiscard]] bool isOlderThan (const Version& other) const noexcept;
 
 	/** Returns a String representation of this Version.
 	    @param separator A character that will be placed between the major, minor, and patch values. Defaults to ".".
@@ -58,10 +64,12 @@ struct Version
 	[[nodiscard]] Version withPatchBump() const;
 
 	/** Returns a Version object representing the version of Juce this module was compiled with. */
-	[[nodiscard]] static Version juceVersion();
-    
-    /** Returns a Version object representing the version of Lemons this module was compiled with. */
-    [[nodiscard]] static Version lemonsVersion();
+	[[nodiscard]] constexpr static Version juceVersion();
+
+	/** Returns a Version object representing the version of Lemons this module was compiled with. */
+	[[nodiscard]] constexpr static Version lemonsVersion();
+
+	[[nodiscard]] constexpr static Version projectVersion();
 
 private:
 	int major { 0 }, minor { 0 }, patch { 1 };

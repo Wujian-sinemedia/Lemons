@@ -6,7 +6,9 @@
 #include "math/ValueSmoother.cpp"
 
 #include "misc/misc.cpp"
+#include "misc/StringFunctions.cpp"
 #include "misc/Version.cpp"
+#include "misc/Dimensions.cpp"
 #include "misc/logger.cpp"
 
 #include "files/FileUtilities.cpp"

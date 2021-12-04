@@ -1,7 +1,7 @@
 
 namespace lemons
 {
-Version::Version (int maj, int min, int p)
+constexpr Version::Version (int maj, int min, int p)
     : major (maj)
     , minor (min)
     , patch (p)
@@ -34,6 +34,16 @@ bool Version::operator< (const Version& other) const noexcept
 	if (minor > other.minor) return false;
 
 	return patch < other.patch;
+}
+
+bool Version::isNewerThan (const Version& other) const noexcept
+{
+	return *this > other;
+}
+
+bool Version::isOlderThan (const Version& other) const noexcept
+{
+	return *this < other;
 }
 
 bool Version::hasSameMajorVersion (const Version& other) const noexcept
@@ -85,14 +95,19 @@ Version Version::withPatchBump() const
 		     patch + 1 };
 }
 
-Version Version::juceVersion()
+constexpr Version Version::juceVersion()
 {
 	return { JUCE_MAJOR_VERSION, JUCE_MINOR_VERSION, JUCE_BUILDNUMBER };
 }
 
-Version Version::lemonsVersion()
+constexpr Version Version::lemonsVersion()
 {
-    return { 0, 0, 1 };
+	return { 0, 0, 1 };
+}
+
+constexpr static Version projectVersion()
+{
+	return { 0, 0, 1 };
 }
 
 }  // namespace lemons

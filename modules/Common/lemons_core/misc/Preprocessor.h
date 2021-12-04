@@ -1,8 +1,5 @@
 #pragma once
 
-/** Expands to true if this module was cross-compiled for either iOS or Android. */
-#define LEMONS_MOBILE (JUCE_IOS || JUCE_ANDROID)
-
 
 /** Use this macro inside a class template to place inheritance constraints on a template argument.
     For example:
