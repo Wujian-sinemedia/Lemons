@@ -45,11 +45,10 @@
   </compound>
   <compound kind="file">
     <name>audio_processor_test.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_unit_testing/tests/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Testing/lemons_unit_testing/tests/</path>
     <filename>audio__processor__test_8h.html</filename>
     <class kind="struct">lemons::tests::AudioProcessorTest</class>
     <class kind="struct">lemons::tests::AudioProcessorTestBase</class>
-    <class kind="struct">lemons::tests::AudioProcessorTestBase::ProcessorParameterData</class>
     <namespace>lemons</namespace>
     <namespace>lemons::tests</namespace>
   </compound>
@@ -425,7 +424,7 @@
   </compound>
   <compound kind="file">
     <name>dsp_helpers.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_unit_testing/util/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Testing/lemons_unit_testing/util/</path>
     <filename>dsp__helpers_8h.html</filename>
     <namespace>lemons</namespace>
     <namespace>lemons::tests</namespace>
@@ -810,6 +809,11 @@
     <name>LemonsSetDefaultCpackGenerator.md</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_lemons_set_default_cpack_generator_8md.html</filename>
+  </compound>
+  <compound kind="file">
+    <name>LemonsTestingModules.md</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
+    <filename>_lemons_testing_modules_8md.html</filename>
   </compound>
   <compound kind="file">
     <name>LemonsTranslationFileGeneration.md</name>
@@ -1377,6 +1381,17 @@
     <namespace>lemons::plugin</namespace>
   </compound>
   <compound kind="file">
+    <name>ProcessorHolder.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_hosting/ProcessorHolder/</path>
+    <filename>_processor_holder_8h.html</filename>
+    <includes id="_preprocessor_8h" name="Preprocessor.h" local="no" imported="no">lemons_core/misc/Preprocessor.h</includes>
+    <class kind="struct">lemons::plugin::ProcessorHolder::ParameterStateData</class>
+    <class kind="struct">lemons::plugin::ProcessorHolder</class>
+    <class kind="struct">lemons::plugin::TypedProcessorHolder</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+  </compound>
+  <compound kind="file">
     <name>Processors.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin/processors/</path>
     <filename>_processors_8h.html</filename>
@@ -1403,7 +1418,7 @@
   </compound>
   <compound kind="file">
     <name>runner.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_unit_testing/runner/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Testing/lemons_unit_testing/runner/</path>
     <filename>runner_8h.html</filename>
     <class kind="class">lemons::tests::Runner</class>
     <namespace>lemons</namespace>
@@ -1576,7 +1591,7 @@
   </compound>
   <compound kind="file">
     <name>test.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_unit_testing/tests/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Testing/lemons_unit_testing/tests/</path>
     <filename>test_8h.html</filename>
     <class kind="struct">lemons::tests::CoreTest</class>
     <class kind="struct">lemons::tests::DspTest</class>
@@ -2249,10 +2264,10 @@
       <arglist>()</arglist>
     </member>
     <member kind="typedef" protection="protected">
-      <type>juce::Array&lt; ProcessorParameterData &gt;</type>
-      <name>ProcessorParameterState</name>
+      <type>plugin::ProcessorHolder</type>
+      <name>ProcessorHolder</name>
       <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
-      <anchor>a4591313ad649e33a5bf6d661987705b5</anchor>
+      <anchor>a522421ccd4232df183993cd8f2c0484e</anchor>
       <arglist></arglist>
     </member>
     <member kind="function" protection="protected">
@@ -2264,10 +2279,17 @@
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
+      <name>checkProcessorDoesNotMatchParameterState</name>
+      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
+      <anchor>aca6631cd54d3f656c2a9906f0e51a28e</anchor>
+      <arglist>(const ProcessorHolder::ParameterState &amp;state)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
       <name>checkProcessorMatchesParameterState</name>
       <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
-      <anchor>a66575828c685ec17f469715345a29aa5</anchor>
-      <arglist>(const ProcessorParameterState &amp;state)</arglist>
+      <anchor>a2638e18a9fec6928e3406437a7f723f5</anchor>
+      <arglist>(const ProcessorHolder::ParameterState &amp;state)</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -2277,53 +2299,11 @@
       <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected">
-      <type>juce::AudioProcessorParameter *</type>
-      <name>getNamedParameter</name>
-      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
-      <anchor>ab5d86975b705b74cfa509822c8deded6</anchor>
-      <arglist>(const String &amp;name)</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>const juce::AudioProcessorParameter *</type>
-      <name>getNamedParameter</name>
-      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
-      <anchor>af59f5f6cb35c61082d340764ff5d99aa</anchor>
-      <arglist>(const String &amp;name) const</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>ProcessorParameterState</type>
-      <name>getStateOfProcessorParameters</name>
-      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
-      <anchor>a718bb6624272063847660ad70ad29a6e</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>ParameterType *</type>
-      <name>getTypedParameter</name>
-      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
-      <anchor>a21412397ca5e3f4320671b6cb14473b0</anchor>
-      <arglist>(const String &amp;name)</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>const ParameterType *</type>
-      <name>getTypedParameter</name>
-      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
-      <anchor>ae1a18caef0ecb2de8786db64cbad1947</anchor>
-      <arglist>(const String &amp;name) const</arglist>
-    </member>
-    <member kind="function" protection="protected">
       <type>void</type>
       <name>logImportantMessage</name>
       <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
       <anchor>a9c44d91c08ff84c15bbe15f6b37e35a0</anchor>
       <arglist>(const String &amp;message)</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>prepareProcessorForPlayback</name>
-      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
-      <anchor>a5a771349b024270aa378bbecd8cc9687</anchor>
-      <arglist>(double samplerate, int blocksize)</arglist>
     </member>
     <member kind="function" protection="protected" static="yes">
       <type>static String</type>
@@ -2365,7 +2345,6 @@
     <name>lemons::tests::AudioProcessorTestBase</name>
     <filename>structlemons_1_1tests_1_1_audio_processor_test_base.html</filename>
     <base>lemons::tests::Test</base>
-    <class kind="struct">lemons::tests::AudioProcessorTestBase::ProcessorParameterData</class>
     <member kind="function">
       <type></type>
       <name>AudioProcessorTestBase</name>
@@ -2409,10 +2388,10 @@
       <arglist>()</arglist>
     </member>
     <member kind="typedef" protection="protected">
-      <type>juce::Array&lt; ProcessorParameterData &gt;</type>
-      <name>ProcessorParameterState</name>
+      <type>plugin::ProcessorHolder</type>
+      <name>ProcessorHolder</name>
       <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
-      <anchor>a4591313ad649e33a5bf6d661987705b5</anchor>
+      <anchor>a522421ccd4232df183993cd8f2c0484e</anchor>
       <arglist></arglist>
     </member>
     <member kind="function" protection="protected">
@@ -2424,10 +2403,17 @@
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
+      <name>checkProcessorDoesNotMatchParameterState</name>
+      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
+      <anchor>aca6631cd54d3f656c2a9906f0e51a28e</anchor>
+      <arglist>(const ProcessorHolder::ParameterState &amp;state)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
       <name>checkProcessorMatchesParameterState</name>
       <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
-      <anchor>a66575828c685ec17f469715345a29aa5</anchor>
-      <arglist>(const ProcessorParameterState &amp;state)</arglist>
+      <anchor>a2638e18a9fec6928e3406437a7f723f5</anchor>
+      <arglist>(const ProcessorHolder::ParameterState &amp;state)</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -2437,53 +2423,11 @@
       <arglist>()</arglist>
     </member>
     <member kind="function" protection="protected">
-      <type>juce::AudioProcessorParameter *</type>
-      <name>getNamedParameter</name>
-      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
-      <anchor>ab5d86975b705b74cfa509822c8deded6</anchor>
-      <arglist>(const String &amp;name)</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>const juce::AudioProcessorParameter *</type>
-      <name>getNamedParameter</name>
-      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
-      <anchor>af59f5f6cb35c61082d340764ff5d99aa</anchor>
-      <arglist>(const String &amp;name) const</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>ProcessorParameterState</type>
-      <name>getStateOfProcessorParameters</name>
-      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
-      <anchor>a718bb6624272063847660ad70ad29a6e</anchor>
-      <arglist>() const</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>ParameterType *</type>
-      <name>getTypedParameter</name>
-      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
-      <anchor>a21412397ca5e3f4320671b6cb14473b0</anchor>
-      <arglist>(const String &amp;name)</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>const ParameterType *</type>
-      <name>getTypedParameter</name>
-      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
-      <anchor>ae1a18caef0ecb2de8786db64cbad1947</anchor>
-      <arglist>(const String &amp;name) const</arglist>
-    </member>
-    <member kind="function" protection="protected">
       <type>void</type>
       <name>logImportantMessage</name>
       <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
       <anchor>a9c44d91c08ff84c15bbe15f6b37e35a0</anchor>
       <arglist>(const String &amp;message)</arglist>
-    </member>
-    <member kind="function" protection="protected">
-      <type>void</type>
-      <name>prepareProcessorForPlayback</name>
-      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
-      <anchor>a5a771349b024270aa378bbecd8cc9687</anchor>
-      <arglist>(double samplerate, int blocksize)</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -12615,6 +12559,24 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>lemons::plugin::ProcessorHolder::ParameterStateData</name>
+    <filename>structlemons_1_1plugin_1_1_processor_holder_1_1_parameter_state_data.html</filename>
+    <member kind="variable">
+      <type>String</type>
+      <name>name</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_holder_1_1_parameter_state_data.html</anchorfile>
+      <anchor>a56132dfbc8b967ad6897466aa1beae1d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>float</type>
+      <name>value</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_holder_1_1_parameter_state_data.html</anchorfile>
+      <anchor>a4a56a0a7c24bc7fda436b82dda4710c2</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>lemons::plugin::ParamUpdater</name>
     <filename>structlemons_1_1plugin_1_1_param_updater.html</filename>
     <base>lemons::plugin::Parameter::Listener</base>
@@ -13363,20 +13325,98 @@
     </member>
   </compound>
   <compound kind="struct">
-    <name>lemons::tests::AudioProcessorTestBase::ProcessorParameterData</name>
-    <filename>structlemons_1_1tests_1_1_audio_processor_test_base_1_1_processor_parameter_data.html</filename>
-    <member kind="variable">
-      <type>String</type>
-      <name>name</name>
-      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base_1_1_processor_parameter_data.html</anchorfile>
-      <anchor>a8c938b4203b04048a4dc419c6aa49adf</anchor>
+    <name>lemons::plugin::ProcessorHolder</name>
+    <filename>structlemons_1_1plugin_1_1_processor_holder.html</filename>
+    <class kind="struct">lemons::plugin::ProcessorHolder::ParameterStateData</class>
+    <member kind="typedef">
+      <type>juce::Array&lt; ParameterStateData &gt;</type>
+      <name>ParameterState</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_holder.html</anchorfile>
+      <anchor>a7809bb749782bf4a6ade6451e7217f54</anchor>
       <arglist></arglist>
     </member>
+    <member kind="function">
+      <type></type>
+      <name>ProcessorHolder</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_holder.html</anchorfile>
+      <anchor>a29d65c6015cf4f78f2e3c2b580e4a3a9</anchor>
+      <arglist>(juce::AudioProcessor &amp;processorToUse)</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~ProcessorHolder</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_holder.html</anchorfile>
+      <anchor>a7a091e66be92fbc7752cb0f2c30f0444</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::AudioProcessorParameter *</type>
+      <name>getNamedParameter</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_holder.html</anchorfile>
+      <anchor>a2fb4a3cd10407f8abc3428b44cf88821</anchor>
+      <arglist>(const String &amp;name)</arglist>
+    </member>
+    <member kind="function">
+      <type>const juce::AudioProcessorParameter *</type>
+      <name>getNamedParameter</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_holder.html</anchorfile>
+      <anchor>ab0fb7b5b5d84508d8066c25fbb1ee16a</anchor>
+      <arglist>(const String &amp;name) const</arglist>
+    </member>
+    <member kind="function">
+      <type>ParameterState</type>
+      <name>getStateOfParameters</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_holder.html</anchorfile>
+      <anchor>a38bb667bbdace1b14a4774562ff3556d</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>ParameterType *</type>
+      <name>getTypedParameter</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_holder.html</anchorfile>
+      <anchor>ae0bea34ef084d7b28d5707632664b77c</anchor>
+      <arglist>(const String &amp;name)</arglist>
+    </member>
+    <member kind="function">
+      <type>const ParameterType *</type>
+      <name>getTypedParameter</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_holder.html</anchorfile>
+      <anchor>a20fe18c9676e7ba8475c935257ec0028</anchor>
+      <arglist>(const String &amp;name) const</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::AudioProcessor *</type>
+      <name>operator-&gt;</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_holder.html</anchorfile>
+      <anchor>a93f7a4d05f810033c36a146af5850e26</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>const juce::AudioProcessor *</type>
+      <name>operator-&gt;</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_holder.html</anchorfile>
+      <anchor>af370acea369cdd662ed2654d7d549d6f</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>prepareForPlayback</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_holder.html</anchorfile>
+      <anchor>a3426a67fb1486f515d4244037d66dc9e</anchor>
+      <arglist>(double samplerate, int blocksize)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setStateOfParameters</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_holder.html</anchorfile>
+      <anchor>a05c3705605cdea57866c1c48d621d3ca</anchor>
+      <arglist>(const ParameterState &amp;state)</arglist>
+    </member>
     <member kind="variable">
-      <type>float</type>
-      <name>value</name>
-      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base_1_1_processor_parameter_data.html</anchorfile>
-      <anchor>a06b1ecccfeea58f4b7f6d53091118c57</anchor>
+      <type>juce::AudioProcessor &amp;</type>
+      <name>processor</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_holder.html</anchorfile>
+      <anchor>a35a8c3b7adda52f8308cf61d1d4ee8f0</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -17638,6 +17678,104 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>lemons::plugin::TypedProcessorHolder</name>
+    <filename>structlemons_1_1plugin_1_1_typed_processor_holder.html</filename>
+    <templarg></templarg>
+    <templarg></templarg>
+    <base>lemons::plugin::ProcessorHolder</base>
+    <member kind="typedef">
+      <type>juce::Array&lt; ParameterStateData &gt;</type>
+      <name>ParameterState</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_holder.html</anchorfile>
+      <anchor>a7809bb749782bf4a6ade6451e7217f54</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>TypedProcessorHolder</name>
+      <anchorfile>structlemons_1_1plugin_1_1_typed_processor_holder.html</anchorfile>
+      <anchor>a637e42d4662dc918958a8efd9e76b1fd</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::AudioProcessorParameter *</type>
+      <name>getNamedParameter</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_holder.html</anchorfile>
+      <anchor>a2fb4a3cd10407f8abc3428b44cf88821</anchor>
+      <arglist>(const String &amp;name)</arglist>
+    </member>
+    <member kind="function">
+      <type>const juce::AudioProcessorParameter *</type>
+      <name>getNamedParameter</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_holder.html</anchorfile>
+      <anchor>ab0fb7b5b5d84508d8066c25fbb1ee16a</anchor>
+      <arglist>(const String &amp;name) const</arglist>
+    </member>
+    <member kind="function">
+      <type>ParameterState</type>
+      <name>getStateOfParameters</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_holder.html</anchorfile>
+      <anchor>a38bb667bbdace1b14a4774562ff3556d</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>ParameterType *</type>
+      <name>getTypedParameter</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_holder.html</anchorfile>
+      <anchor>ae0bea34ef084d7b28d5707632664b77c</anchor>
+      <arglist>(const String &amp;name)</arglist>
+    </member>
+    <member kind="function">
+      <type>const ParameterType *</type>
+      <name>getTypedParameter</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_holder.html</anchorfile>
+      <anchor>a20fe18c9676e7ba8475c935257ec0028</anchor>
+      <arglist>(const String &amp;name) const</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::AudioProcessor *</type>
+      <name>operator-&gt;</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_holder.html</anchorfile>
+      <anchor>a93f7a4d05f810033c36a146af5850e26</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>const juce::AudioProcessor *</type>
+      <name>operator-&gt;</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_holder.html</anchorfile>
+      <anchor>af370acea369cdd662ed2654d7d549d6f</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>prepareForPlayback</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_holder.html</anchorfile>
+      <anchor>a3426a67fb1486f515d4244037d66dc9e</anchor>
+      <arglist>(double samplerate, int blocksize)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setStateOfParameters</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_holder.html</anchorfile>
+      <anchor>a05c3705605cdea57866c1c48d621d3ca</anchor>
+      <arglist>(const ParameterState &amp;state)</arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::AudioProcessor &amp;</type>
+      <name>processor</name>
+      <anchorfile>structlemons_1_1plugin_1_1_processor_holder.html</anchorfile>
+      <anchor>a35a8c3b7adda52f8308cf61d1d4ee8f0</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>ProcessorType</type>
+      <name>typedProcessor</name>
+      <anchorfile>structlemons_1_1plugin_1_1_typed_processor_holder.html</anchorfile>
+      <anchor>a2f1bcd57b42de98539435abc4de2c9e6</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>lemons::ValueSmoother</name>
     <filename>structlemons_1_1_value_smoother.html</filename>
     <templarg></templarg>
@@ -18392,6 +18530,7 @@
     <class kind="class">lemons::plugin::PresetBar</class>
     <class kind="class">lemons::plugin::Processor</class>
     <class kind="class">lemons::plugin::ProcessorBase</class>
+    <class kind="struct">lemons::plugin::ProcessorHolder</class>
     <class kind="struct">lemons::plugin::ProcessorWithEditor</class>
     <class kind="struct">lemons::plugin::SecondsParameter</class>
     <class kind="struct">lemons::plugin::SemitonesParameter</class>
@@ -18399,6 +18538,7 @@
     <class kind="class">lemons::plugin::StateToggleButtons</class>
     <class kind="struct">lemons::plugin::ToggleParameter</class>
     <class kind="class">lemons::plugin::TypedParameter</class>
+    <class kind="struct">lemons::plugin::TypedProcessorHolder</class>
     <member kind="typedef">
       <type>juce::Point&lt; int &gt;</type>
       <name>Dimensions</name>
@@ -18980,7 +19120,6 @@
     <title>Common</title>
     <filename>group___common.html</filename>
     <subgroup>lemons_core</subgroup>
-    <subgroup>lemons_unit_testing</subgroup>
   </compound>
   <compound kind="group">
     <name>EQ</name>
@@ -19031,6 +19170,7 @@
     <filename>group___plugins.html</filename>
     <subgroup>lemons_plugin</subgroup>
     <subgroup>lemons_plugin_gui</subgroup>
+    <subgroup>lemons_plugin_hosting</subgroup>
     <subgroup>lemons_plugin_parameters</subgroup>
   </compound>
   <compound kind="group">
@@ -19053,6 +19193,16 @@
     <name>PresetSavingComponent</name>
     <title>PresetSavingComponent</title>
     <filename>group___preset_saving_component.html</filename>
+  </compound>
+  <compound kind="group">
+    <name>ProcessorHolder</name>
+    <title>ProcessorHolder</title>
+    <filename>group___processor_holder.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+    <class kind="struct">lemons::plugin::ProcessorHolder::ParameterStateData</class>
+    <class kind="struct">lemons::plugin::ProcessorHolder</class>
+    <class kind="struct">lemons::plugin::TypedProcessorHolder</class>
   </compound>
   <compound kind="group">
     <name>Synth</name>
@@ -19080,6 +19230,12 @@
     <namespace>lemons::dsp::synth</namespace>
     <class kind="class">lemons::dsp::SynthVoiceBase</class>
     <class kind="class">lemons::dsp::synth::TimbreMod</class>
+  </compound>
+  <compound kind="group">
+    <name>Testing</name>
+    <title>Testing</title>
+    <filename>group___testing.html</filename>
+    <subgroup>lemons_unit_testing</subgroup>
   </compound>
   <compound kind="group">
     <name>analysis</name>
@@ -19277,6 +19433,12 @@
     <subgroup>PresetBar</subgroup>
     <subgroup>buttons</subgroup>
     <subgroup>sliders</subgroup>
+  </compound>
+  <compound kind="group">
+    <name>lemons_plugin_hosting</name>
+    <title>lemons_plugin_hosting</title>
+    <filename>group__lemons__plugin__hosting.html</filename>
+    <subgroup>ProcessorHolder</subgroup>
   </compound>
   <compound kind="group">
     <name>lemons_plugin_parameters</name>
@@ -19485,7 +19647,6 @@
     <class kind="struct">lemons::tests::CoreTest</class>
     <class kind="struct">lemons::tests::DspTest</class>
     <class kind="struct">lemons::tests::MidiTest</class>
-    <class kind="struct">lemons::tests::AudioProcessorTestBase::ProcessorParameterData</class>
     <class kind="struct">lemons::tests::Test::Subtest</class>
     <class kind="class">lemons::tests::Test</class>
   </compound>
@@ -19661,6 +19822,11 @@
     <name>LemonsSetDefaultCpackGenerator</name>
     <title>LemonsSetDefaultCpackGenerator</title>
     <filename>_lemons_set_default_cpack_generator</filename>
+  </compound>
+  <compound kind="page">
+    <name>LemonsTestingModules</name>
+    <title>LemonsTestingModules</title>
+    <filename>_lemons_testing_modules</filename>
   </compound>
   <compound kind="page">
     <name>LemonsTranslationFileGeneration</name>

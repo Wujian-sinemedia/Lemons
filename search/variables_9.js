@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['name_1859',['name',['../structlemons_1_1tests_1_1_audio_processor_test_base_1_1_processor_parameter_data.html#a8c938b4203b04048a4dc419c6aa49adf',1,'lemons::tests::AudioProcessorTestBase::ProcessorParameterData']]]
+  ['name_1879',['name',['../structlemons_1_1plugin_1_1_processor_holder_1_1_parameter_state_data.html#a56132dfbc8b967ad6897466aa1beae1d',1,'lemons::plugin::ProcessorHolder::ParameterStateData']]]
 ];
