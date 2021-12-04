@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['callback_72',['Callback',['../structlemons_1_1_device_rotation_1_1_listener.html#aa3f7d63bbf7f26ccd193c93f30546de9',1,'lemons::DeviceRotation::Listener']]],
-  ['changelatency_73',['changeLatency',['../classlemons_1_1dsp_1_1_latency_engine.html#af0419e5fefcb2a16b836cb18ab8cf023',1,'lemons::dsp::LatencyEngine']]],
-  ['changenumvoices_74',['changeNumVoices',['../classlemons_1_1dsp_1_1_synth_base.html#a283881d2fa2abaedc99cf1042c5d3eb9',1,'lemons::dsp::SynthBase']]],
+  ['callback_71',['Callback',['../structlemons_1_1_device_rotation_1_1_listener.html#aa3f7d63bbf7f26ccd193c93f30546de9',1,'lemons::DeviceRotation::Listener']]],
+  ['changelatency_72',['changeLatency',['../classlemons_1_1dsp_1_1_latency_engine.html#af0419e5fefcb2a16b836cb18ab8cf023',1,'lemons::dsp::LatencyEngine']]],
+  ['changenumvoices_73',['changeNumVoices',['../classlemons_1_1dsp_1_1_synth_base.html#a283881d2fa2abaedc99cf1042c5d3eb9',1,'lemons::dsp::SynthBase']]],
+  ['checkprocessormatchesparameterstate_74',['checkProcessorMatchesParameterState',['../structlemons_1_1tests_1_1_audio_processor_test_base.html#a66575828c685ec17f469715345a29aa5',1,'lemons::tests::AudioProcessorTestBase']]],
   ['choosable_2eh_75',['choosable.h',['../choosable_8h.html',1,'']]],
   ['choosableoscillator_76',['ChoosableOscillator',['../classlemons_1_1dsp_1_1osc_1_1_choosable_oscillator.html',1,'lemons::dsp::osc']]],
   ['choosableoscillator_3c_20float_20_3e_77',['ChoosableOscillator&lt; float &gt;',['../classlemons_1_1dsp_1_1osc_1_1_choosable_oscillator.html',1,'lemons::dsp::osc']]],

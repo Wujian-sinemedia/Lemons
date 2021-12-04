@@ -49,6 +49,7 @@
     <filename>audio__processor__test_8h.html</filename>
     <class kind="struct">lemons::tests::AudioProcessorTest</class>
     <class kind="struct">lemons::tests::AudioProcessorTestBase</class>
+    <class kind="struct">lemons::tests::AudioProcessorTestBase::ProcessorParameterData</class>
     <namespace>lemons</namespace>
     <namespace>lemons::tests</namespace>
   </compound>
@@ -278,8 +279,8 @@
       <type>MemoryBlock</type>
       <name>audioToBinary</name>
       <anchorfile>namespacelemons_1_1binary.html</anchorfile>
-      <anchor>a21e6e3db8df7c3f16c5cb22da1fd7077</anchor>
-      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;buffer)</arglist>
+      <anchor>adf812e68f33a59a33776402111d79db7</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;buffer, double samplerate=48000.)</arglist>
     </member>
     <member kind="function">
       <type>Image</type>
@@ -506,6 +507,13 @@
       <arglist>(MidiBuffer &amp;buffer, int numEvents, juce::Random rng)</arglist>
     </member>
     <member kind="function">
+      <type>AudioBuffer&lt; SampleType &gt;</type>
+      <name>makeCopyOfAudioBuffer</name>
+      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
+      <anchor>ab19c24a71eb5b03abd490ea31e88908e</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;inputBuffer)</arglist>
+    </member>
+    <member kind="function">
       <type>MidiBuffer</type>
       <name>makeCopyOfMidiBuffer</name>
       <anchorfile>namespacelemons_1_1tests.html</anchorfile>
@@ -577,13 +585,6 @@
       <anchorfile>namespacelemons.html</anchorfile>
       <anchor>a6d34be9e9d17562dcc43898b269053a1</anchor>
       <arglist>(File file)</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>removeFileExtensionIfThere</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>ab83a1770feca6178311afcdda9a29274</anchor>
-      <arglist>(const String &amp;string, const String &amp;extension)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -883,53 +884,46 @@
     <namespace>lemons</namespace>
     <namespace>lemons::math</namespace>
     <member kind="function">
-      <type>constexpr PeriodType</type>
+      <type>PeriodType</type>
       <name>freqFromPeriod</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a808d4a3a3c59ce792e245ac0a2ca22e6</anchor>
+      <anchor>a604aadb59f9c6905d7ba046cfbbd526b</anchor>
       <arglist>(double samplerate, PeriodType period) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>constexpr noteType</type>
+      <type>T</type>
       <name>freqToMidi</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a81efa37877a0298ca462775352b46031</anchor>
-      <arglist>(noteType freqHz) noexcept</arglist>
+      <anchor>ac4ac101ae2e62adde035af820402b5a0</anchor>
+      <arglist>(T freqHz) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>constexpr noteType</type>
+      <type>T</type>
       <name>midiToFreq</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a7d1c565513533843fed0d748e2b25cb6</anchor>
-      <arglist>(noteType midiNote) noexcept</arglist>
+      <anchor>a8e334d4926a3b6dc44ea8c3cacf56070</anchor>
+      <arglist>(T midiNote) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>constexpr int</type>
+      <type>int</type>
       <name>msToSamps</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a81114ea3689f2b578a269d06ea295c76</anchor>
+      <anchor>a0b61a87fdde626a08a8dd466f3327bb9</anchor>
       <arglist>(double samplerate, msType ms) noexcept</arglist>
     </member>
     <member kind="function">
       <type>constexpr bool</type>
       <name>numberIsEven</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>acaa92f7c8a7d31bc5d786d065208dead</anchor>
-      <arglist>(T number) noexcept</arglist>
+      <anchor>a7b8815e02637942415c8e71fdd58453f</anchor>
+      <arglist>(int number) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>constexpr int</type>
+      <type>int</type>
       <name>periodInSamples</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a0d3d657c9d1a4f9bcc2aafa9fd912c94</anchor>
+      <anchor>a835effc5b0e5514f7fd19d24db5acd66</anchor>
       <arglist>(double samplerate, FreqType freqHz) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>probability</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a45d4ec3a3e7da6c68a3e6881ba33e6c1</anchor>
-      <arglist>(int percentOfTheTime) noexcept</arglist>
     </member>
     <member kind="function">
       <type>double</type>
@@ -1269,6 +1263,15 @@
     <namespace>lemons::plugin</namespace>
   </compound>
   <compound kind="file">
+    <name>PeakFinder.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_psola/analysis/</path>
+    <filename>_peak_finder_8h.html</filename>
+    <class kind="class">lemons::dsp::psola::PeakFinder</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+    <namespace>lemons::dsp::psola</namespace>
+  </compound>
+  <compound kind="file">
     <name>PitchbendTracker.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_midi/tuning/</path>
     <filename>_pitchbend_tracker_8h.html</filename>
@@ -1364,49 +1367,6 @@
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_gui/PresetBar/PresetSavingComponent/</path>
     <filename>_preset_saving_component_8h.html</filename>
     <includes id="_name_popup_8h" name="NamePopup.h" local="yes" imported="no">NamePopup.h</includes>
-  </compound>
-  <compound kind="file">
-    <name>processor_helpers.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_unit_testing/util/</path>
-    <filename>processor__helpers_8h.html</filename>
-    <class kind="struct">lemons::tests::ProcessorParameterData</class>
-    <namespace>lemons</namespace>
-    <namespace>lemons::tests</namespace>
-    <member kind="typedef">
-      <type>juce::Array&lt; ProcessorParameterData &gt;</type>
-      <name>ProcessorParameterState</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a6bb7fb68ff1e696189979e0792862bb9</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>allParameterNamesAreUnique</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>aa6e8978a635ade337abbea96ddabb6aa</anchor>
-      <arglist>(juce::AudioProcessor &amp;processor)</arglist>
-    </member>
-    <member kind="function">
-      <type>juce::AudioProcessorParameter *</type>
-      <name>getNamedParameter</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>af32470e075de66ce34e03d4097f42bbf</anchor>
-      <arglist>(juce::AudioProcessor &amp;processor, const String &amp;name)</arglist>
-    </member>
-    <member kind="function">
-      <type>ProcessorParameterState</type>
-      <name>getStateOfProcessorParameters</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a93f75ae33c1fdb0f059053f475dfe186</anchor>
-      <arglist>(juce::AudioProcessor &amp;processor)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>processorMatchesParameterState</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>af51c1c27b8f139d16cf5b29f35a741be</anchor>
-      <arglist>(juce::AudioProcessor &amp;processor, const ProcessorParameterState &amp;state)</arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>ProcessorBase.h</name>
@@ -1620,6 +1580,7 @@
     <filename>test_8h.html</filename>
     <class kind="struct">lemons::tests::CoreTest</class>
     <class kind="struct">lemons::tests::DspTest</class>
+    <class kind="struct">lemons::tests::MidiTest</class>
     <class kind="struct">lemons::tests::Test::Subtest</class>
     <class kind="class">lemons::tests::Test</class>
     <namespace>lemons</namespace>
@@ -2287,6 +2248,13 @@
       <anchor>a256c1c9b185e12d9190c8458d42a30a3</anchor>
       <arglist>()</arglist>
     </member>
+    <member kind="typedef" protection="protected">
+      <type>juce::Array&lt; ProcessorParameterData &gt;</type>
+      <name>ProcessorParameterState</name>
+      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
+      <anchor>a4591313ad649e33a5bf6d661987705b5</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function" protection="protected">
       <type>const Subtest</type>
       <name>beginSubtest</name>
@@ -2296,10 +2264,52 @@
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
+      <name>checkProcessorMatchesParameterState</name>
+      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
+      <anchor>a66575828c685ec17f469715345a29aa5</anchor>
+      <arglist>(const ProcessorParameterState &amp;state)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
       <name>fuzzParameters</name>
       <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
       <anchor>aaa8c172210276d3a0df47fdc8e525d0e</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>juce::AudioProcessorParameter *</type>
+      <name>getNamedParameter</name>
+      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
+      <anchor>ab5d86975b705b74cfa509822c8deded6</anchor>
+      <arglist>(const String &amp;name)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>const juce::AudioProcessorParameter *</type>
+      <name>getNamedParameter</name>
+      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
+      <anchor>af59f5f6cb35c61082d340764ff5d99aa</anchor>
+      <arglist>(const String &amp;name) const</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>ProcessorParameterState</type>
+      <name>getStateOfProcessorParameters</name>
+      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
+      <anchor>a718bb6624272063847660ad70ad29a6e</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>ParameterType *</type>
+      <name>getTypedParameter</name>
+      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
+      <anchor>a21412397ca5e3f4320671b6cb14473b0</anchor>
+      <arglist>(const String &amp;name)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>const ParameterType *</type>
+      <name>getTypedParameter</name>
+      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
+      <anchor>ae1a18caef0ecb2de8786db64cbad1947</anchor>
+      <arglist>(const String &amp;name) const</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -2355,6 +2365,7 @@
     <name>lemons::tests::AudioProcessorTestBase</name>
     <filename>structlemons_1_1tests_1_1_audio_processor_test_base.html</filename>
     <base>lemons::tests::Test</base>
+    <class kind="struct">lemons::tests::AudioProcessorTestBase::ProcessorParameterData</class>
     <member kind="function">
       <type></type>
       <name>AudioProcessorTestBase</name>
@@ -2397,6 +2408,13 @@
       <anchor>a256c1c9b185e12d9190c8458d42a30a3</anchor>
       <arglist>()</arglist>
     </member>
+    <member kind="typedef" protection="protected">
+      <type>juce::Array&lt; ProcessorParameterData &gt;</type>
+      <name>ProcessorParameterState</name>
+      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
+      <anchor>a4591313ad649e33a5bf6d661987705b5</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function" protection="protected">
       <type>const Subtest</type>
       <name>beginSubtest</name>
@@ -2406,10 +2424,52 @@
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
+      <name>checkProcessorMatchesParameterState</name>
+      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
+      <anchor>a66575828c685ec17f469715345a29aa5</anchor>
+      <arglist>(const ProcessorParameterState &amp;state)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
       <name>fuzzParameters</name>
       <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
       <anchor>aaa8c172210276d3a0df47fdc8e525d0e</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>juce::AudioProcessorParameter *</type>
+      <name>getNamedParameter</name>
+      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
+      <anchor>ab5d86975b705b74cfa509822c8deded6</anchor>
+      <arglist>(const String &amp;name)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>const juce::AudioProcessorParameter *</type>
+      <name>getNamedParameter</name>
+      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
+      <anchor>af59f5f6cb35c61082d340764ff5d99aa</anchor>
+      <arglist>(const String &amp;name) const</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>ProcessorParameterState</type>
+      <name>getStateOfProcessorParameters</name>
+      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
+      <anchor>a718bb6624272063847660ad70ad29a6e</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>ParameterType *</type>
+      <name>getTypedParameter</name>
+      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
+      <anchor>a21412397ca5e3f4320671b6cb14473b0</anchor>
+      <arglist>(const String &amp;name)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>const ParameterType *</type>
+      <name>getTypedParameter</name>
+      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base.html</anchorfile>
+      <anchor>ae1a18caef0ecb2de8786db64cbad1947</anchor>
+      <arglist>(const String &amp;name) const</arglist>
     </member>
     <member kind="function" protection="protected">
       <type>void</type>
@@ -10859,6 +10919,95 @@
       <arglist>()</arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>lemons::tests::MidiTest</name>
+    <filename>structlemons_1_1tests_1_1_midi_test.html</filename>
+    <base>lemons::tests::Test</base>
+    <member kind="function">
+      <type></type>
+      <name>MidiTest</name>
+      <anchorfile>structlemons_1_1tests_1_1_midi_test.html</anchorfile>
+      <anchor>a554ae405709054464d9c116650505853</anchor>
+      <arglist>(const String &amp;testName)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static Intensity</type>
+      <name>getTestingIntensityLevel</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>aae5d3a4c8d6beec3749a044fea476030</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>setGlobalTestingIntensityLevel</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>ac8e9c2467c498fcce12dfb5b5b8d4d1b</anchor>
+      <arglist>(Intensity intensityLevel)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>testingIntensityIsHigh</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>ac46ac43cc5d55eecdd13c6438005c29a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>testingIntensityIsLow</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a6cd4f026f0cdc32c7dbdbdf89a2980c9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static bool</type>
+      <name>testingIntensityIsMedium</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a256c1c9b185e12d9190c8458d42a30a3</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>const Subtest</type>
+      <name>beginSubtest</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a557b2274571a75b2cba3c8b59c1eb483</anchor>
+      <arglist>(const String &amp;name)</arglist>
+    </member>
+    <member kind="function" protection="protected">
+      <type>void</type>
+      <name>logImportantMessage</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a9c44d91c08ff84c15bbe15f6b37e35a0</anchor>
+      <arglist>(const String &amp;message)</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static String</type>
+      <name>getDspTestName</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>aca1fe9f7077f88d26de28011d924ecef</anchor>
+      <arglist>(const String &amp;name)</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static int</type>
+      <name>getNumTestingRepetitions</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>a9143b5bb744ae5a90b4aa47d35fb2484</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static const std::vector&lt; int &gt;</type>
+      <name>getTestingBlockSizes</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>ae6366faf16b241a7b6e78715442e094e</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" protection="protected" static="yes">
+      <type>static const std::vector&lt; double &gt;</type>
+      <name>getTestingSamplerates</name>
+      <anchorfile>classlemons_1_1tests_1_1_test.html</anchorfile>
+      <anchor>abc00c8dadae75662cb0e0d892f3f8fdd</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
   <compound kind="class">
     <name>lemons::plugin::ModulationManager</name>
     <filename>classlemons_1_1plugin_1_1_modulation_manager.html</filename>
@@ -12491,6 +12640,32 @@
       <arglist>(float newNormalizedDefault)</arglist>
     </member>
   </compound>
+  <compound kind="class">
+    <name>lemons::dsp::psola::PeakFinder</name>
+    <filename>classlemons_1_1dsp_1_1psola_1_1_peak_finder.html</filename>
+    <templarg></templarg>
+    <member kind="function">
+      <type>const juce::Array&lt; int &gt; &amp;</type>
+      <name>findPeaks</name>
+      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_peak_finder.html</anchorfile>
+      <anchor>a9b307cd1cf5dfa57a16af4edef5257e5</anchor>
+      <arglist>(const SampleType *inputSamples, int numSamples, float period)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>prepare</name>
+      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_peak_finder.html</anchorfile>
+      <anchor>a49ddc1b352013a426319f74133bea934</anchor>
+      <arglist>(int maxBlocksize)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>releaseResources</name>
+      <anchorfile>classlemons_1_1dsp_1_1psola_1_1_peak_finder.html</anchorfile>
+      <anchor>a7e094e334ac553f624732849d8821360</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
   <compound kind="struct">
     <name>lemons::plugin::PercentParameter</name>
     <filename>structlemons_1_1plugin_1_1_percent_parameter.html</filename>
@@ -13188,20 +13363,20 @@
     </member>
   </compound>
   <compound kind="struct">
-    <name>lemons::tests::ProcessorParameterData</name>
-    <filename>structlemons_1_1tests_1_1_processor_parameter_data.html</filename>
+    <name>lemons::tests::AudioProcessorTestBase::ProcessorParameterData</name>
+    <filename>structlemons_1_1tests_1_1_audio_processor_test_base_1_1_processor_parameter_data.html</filename>
     <member kind="variable">
       <type>String</type>
       <name>name</name>
-      <anchorfile>structlemons_1_1tests_1_1_processor_parameter_data.html</anchorfile>
-      <anchor>adec637ea0e191cee539a9a460ef2218c</anchor>
+      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base_1_1_processor_parameter_data.html</anchorfile>
+      <anchor>a8c938b4203b04048a4dc419c6aa49adf</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>float</type>
       <name>value</name>
-      <anchorfile>structlemons_1_1tests_1_1_processor_parameter_data.html</anchorfile>
-      <anchor>a388cea51a844c5d1e3ef1aa33e72a031</anchor>
+      <anchorfile>structlemons_1_1tests_1_1_audio_processor_test_base_1_1_processor_parameter_data.html</anchorfile>
+      <anchor>a06b1ecccfeea58f4b7f6d53091118c57</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -17812,13 +17987,6 @@
       <arglist>(const int midiNoteNumber, const bool asSharps=true)</arglist>
     </member>
     <member kind="function">
-      <type>String</type>
-      <name>removeFileExtensionIfThere</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>ab83a1770feca6178311afcdda9a29274</anchor>
-      <arglist>(const String &amp;string, const String &amp;extension)</arglist>
-    </member>
-    <member kind="function">
       <type>bool</type>
       <name>renameFile</name>
       <anchorfile>namespacelemons.html</anchorfile>
@@ -17855,8 +18023,8 @@
       <type>MemoryBlock</type>
       <name>audioToBinary</name>
       <anchorfile>namespacelemons_1_1binary.html</anchorfile>
-      <anchor>a21e6e3db8df7c3f16c5cb22da1fd7077</anchor>
-      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;buffer)</arglist>
+      <anchor>adf812e68f33a59a33776402111d79db7</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;buffer, double samplerate=48000.)</arglist>
     </member>
     <member kind="function">
       <type>Image</type>
@@ -18054,6 +18222,7 @@
     <name>lemons::dsp::psola</name>
     <filename>namespacelemons_1_1dsp_1_1psola.html</filename>
     <class kind="class">lemons::dsp::psola::Analyzer</class>
+    <class kind="class">lemons::dsp::psola::PeakFinder</class>
     <class kind="class">lemons::dsp::psola::Shifter</class>
   </compound>
   <compound kind="namespace">
@@ -18130,53 +18299,46 @@
     <name>lemons::math</name>
     <filename>namespacelemons_1_1math.html</filename>
     <member kind="function">
-      <type>constexpr PeriodType</type>
+      <type>PeriodType</type>
       <name>freqFromPeriod</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a808d4a3a3c59ce792e245ac0a2ca22e6</anchor>
+      <anchor>a604aadb59f9c6905d7ba046cfbbd526b</anchor>
       <arglist>(double samplerate, PeriodType period) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>constexpr noteType</type>
+      <type>T</type>
       <name>freqToMidi</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a81efa37877a0298ca462775352b46031</anchor>
-      <arglist>(noteType freqHz) noexcept</arglist>
+      <anchor>ac4ac101ae2e62adde035af820402b5a0</anchor>
+      <arglist>(T freqHz) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>constexpr noteType</type>
+      <type>T</type>
       <name>midiToFreq</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a7d1c565513533843fed0d748e2b25cb6</anchor>
-      <arglist>(noteType midiNote) noexcept</arglist>
+      <anchor>a8e334d4926a3b6dc44ea8c3cacf56070</anchor>
+      <arglist>(T midiNote) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>constexpr int</type>
+      <type>int</type>
       <name>msToSamps</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a81114ea3689f2b578a269d06ea295c76</anchor>
+      <anchor>a0b61a87fdde626a08a8dd466f3327bb9</anchor>
       <arglist>(double samplerate, msType ms) noexcept</arglist>
     </member>
     <member kind="function">
       <type>constexpr bool</type>
       <name>numberIsEven</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>acaa92f7c8a7d31bc5d786d065208dead</anchor>
-      <arglist>(T number) noexcept</arglist>
+      <anchor>a7b8815e02637942415c8e71fdd58453f</anchor>
+      <arglist>(int number) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>constexpr int</type>
+      <type>int</type>
       <name>periodInSamples</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a0d3d657c9d1a4f9bcc2aafa9fd912c94</anchor>
+      <anchor>a835effc5b0e5514f7fd19d24db5acd66</anchor>
       <arglist>(double samplerate, FreqType freqHz) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>probability</name>
-      <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a45d4ec3a3e7da6c68a3e6881ba33e6c1</anchor>
-      <arglist>(int percentOfTheTime) noexcept</arglist>
     </member>
     <member kind="function">
       <type>double</type>
@@ -18398,7 +18560,7 @@
     <class kind="struct">lemons::tests::AudioProcessorTestBase</class>
     <class kind="struct">lemons::tests::CoreTest</class>
     <class kind="struct">lemons::tests::DspTest</class>
-    <class kind="struct">lemons::tests::ProcessorParameterData</class>
+    <class kind="struct">lemons::tests::MidiTest</class>
     <class kind="class">lemons::tests::Runner</class>
     <class kind="class">lemons::tests::Test</class>
     <member kind="typedef">
@@ -18415,13 +18577,6 @@
       <anchor>a03c16098e5790557328c667001923104</anchor>
       <arglist></arglist>
     </member>
-    <member kind="typedef">
-      <type>juce::Array&lt; ProcessorParameterData &gt;</type>
-      <name>ProcessorParameterState</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a6bb7fb68ff1e696189979e0792862bb9</anchor>
-      <arglist></arglist>
-    </member>
     <member kind="enumeration">
       <type></type>
       <name>Intensity</name>
@@ -18431,13 +18586,6 @@
       <enumvalue file="namespacelemons_1_1tests.html" anchor="abe71616eeadecd56537dd9a10376223ca28d0edd045e05cf5af64e35ae0c4c6ef">Low</enumvalue>
       <enumvalue file="namespacelemons_1_1tests.html" anchor="abe71616eeadecd56537dd9a10376223ca87f8a6ab85c9ced3702b4ea641ad4bb5">Medium</enumvalue>
       <enumvalue file="namespacelemons_1_1tests.html" anchor="abe71616eeadecd56537dd9a10376223ca655d20c1ca69519ca647684edbb2db35">High</enumvalue>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>allParameterNamesAreUnique</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>aa6e8978a635ade337abbea96ddabb6aa</anchor>
-      <arglist>(juce::AudioProcessor &amp;processor)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -18517,18 +18665,11 @@
       <arglist>(MidiBuffer &amp;buffer, int numEvents, juce::Random rng)</arglist>
     </member>
     <member kind="function">
-      <type>juce::AudioProcessorParameter *</type>
-      <name>getNamedParameter</name>
+      <type>AudioBuffer&lt; SampleType &gt;</type>
+      <name>makeCopyOfAudioBuffer</name>
       <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>af32470e075de66ce34e03d4097f42bbf</anchor>
-      <arglist>(juce::AudioProcessor &amp;processor, const String &amp;name)</arglist>
-    </member>
-    <member kind="function">
-      <type>ProcessorParameterState</type>
-      <name>getStateOfProcessorParameters</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>a93f75ae33c1fdb0f059053f475dfe186</anchor>
-      <arglist>(juce::AudioProcessor &amp;processor)</arglist>
+      <anchor>ab19c24a71eb5b03abd490ea31e88908e</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;inputBuffer)</arglist>
     </member>
     <member kind="function">
       <type>MidiBuffer</type>
@@ -18550,13 +18691,6 @@
       <anchorfile>namespacelemons_1_1tests.html</anchorfile>
       <anchor>a91d1e7095657d0593a3baba099b5ed36</anchor>
       <arglist>(const AudioBuffer&lt; FloatType &gt; &amp;buffer)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>processorMatchesParameterState</name>
-      <anchorfile>namespacelemons_1_1tests.html</anchorfile>
-      <anchor>af51c1c27b8f139d16cf5b29f35a741be</anchor>
-      <arglist>(juce::AudioProcessor &amp;processor, const ProcessorParameterState &amp;state)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -18955,6 +19089,7 @@
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::psola</namespace>
     <class kind="class">lemons::dsp::psola::Analyzer</class>
+    <class kind="class">lemons::dsp::psola::PeakFinder</class>
   </compound>
   <compound kind="group">
     <name>binary_data</name>
@@ -19349,6 +19484,8 @@
     <class kind="struct">lemons::tests::AudioProcessorTestBase</class>
     <class kind="struct">lemons::tests::CoreTest</class>
     <class kind="struct">lemons::tests::DspTest</class>
+    <class kind="struct">lemons::tests::MidiTest</class>
+    <class kind="struct">lemons::tests::AudioProcessorTestBase::ProcessorParameterData</class>
     <class kind="struct">lemons::tests::Test::Subtest</class>
     <class kind="class">lemons::tests::Test</class>
   </compound>
@@ -19382,7 +19519,6 @@
     <class kind="class">lemons::dsp::BasicProcessor</class>
     <class kind="class">lemons::dsp::MonoStereoConverter</class>
     <class kind="class">lemons::dsp::PitchDetector</class>
-    <class kind="struct">lemons::tests::ProcessorParameterData</class>
   </compound>
   <compound kind="group">
     <name>utilities</name>

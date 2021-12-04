@@ -70,6 +70,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-types">Protected Types</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
@@ -105,12 +106,31 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a256c1c9b185e12d9190c8458d42a30a3"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1tests_1_1_test.html#a256c1c9b185e12d9190c8458d42a30a3">testingIntensityIsMedium</a> ()</td></tr>
 <tr class="separator:a256c1c9b185e12d9190c8458d42a30a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-types"></a>
+Protected Types</h2></td></tr>
+<tr class="memitem:a4591313ad649e33a5bf6d661987705b5"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1tests_1_1_audio_processor_test_base.html#a4591313ad649e33a5bf6d661987705b5">ProcessorParameterState</a> = juce::Array&lt; <a class="el" href="structlemons_1_1tests_1_1_audio_processor_test_base_1_1_processor_parameter_data.html">ProcessorParameterData</a> &gt;</td></tr>
+<tr class="separator:a4591313ad649e33a5bf6d661987705b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a557b2274571a75b2cba3c8b59c1eb483"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structlemons_1_1tests_1_1_test_1_1_subtest.html">Subtest</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1tests_1_1_test.html#a557b2274571a75b2cba3c8b59c1eb483">beginSubtest</a> (const String &amp;name)</td></tr>
 <tr class="separator:a557b2274571a75b2cba3c8b59c1eb483"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66575828c685ec17f469715345a29aa5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1tests_1_1_audio_processor_test_base.html#a66575828c685ec17f469715345a29aa5">checkProcessorMatchesParameterState</a> (const <a class="el" href="structlemons_1_1tests_1_1_audio_processor_test_base.html#a4591313ad649e33a5bf6d661987705b5">ProcessorParameterState</a> &amp;state)</td></tr>
+<tr class="separator:a66575828c685ec17f469715345a29aa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa8c172210276d3a0df47fdc8e525d0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1tests_1_1_audio_processor_test_base.html#aaa8c172210276d3a0df47fdc8e525d0e">fuzzParameters</a> ()</td></tr>
 <tr class="separator:aaa8c172210276d3a0df47fdc8e525d0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5d86975b705b74cfa509822c8deded6"><td class="memItemLeft" align="right" valign="top">juce::AudioProcessorParameter *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1tests_1_1_audio_processor_test_base.html#ab5d86975b705b74cfa509822c8deded6">getNamedParameter</a> (const String &amp;name)</td></tr>
+<tr class="separator:ab5d86975b705b74cfa509822c8deded6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af59f5f6cb35c61082d340764ff5d99aa"><td class="memItemLeft" align="right" valign="top">const juce::AudioProcessorParameter *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1tests_1_1_audio_processor_test_base.html#af59f5f6cb35c61082d340764ff5d99aa">getNamedParameter</a> (const String &amp;name) const</td></tr>
+<tr class="separator:af59f5f6cb35c61082d340764ff5d99aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a718bb6624272063847660ad70ad29a6e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1tests_1_1_audio_processor_test_base.html#a4591313ad649e33a5bf6d661987705b5">ProcessorParameterState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1tests_1_1_audio_processor_test_base.html#a718bb6624272063847660ad70ad29a6e">getStateOfProcessorParameters</a> () const</td></tr>
+<tr class="separator:a718bb6624272063847660ad70ad29a6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21412397ca5e3f4320671b6cb14473b0"><td class="memTemplParams" colspan="2">template&lt;typename ParameterType &gt; </td></tr>
+<tr class="memitem:a21412397ca5e3f4320671b6cb14473b0"><td class="memTemplItemLeft" align="right" valign="top">ParameterType *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structlemons_1_1tests_1_1_audio_processor_test_base.html#a21412397ca5e3f4320671b6cb14473b0">getTypedParameter</a> (const String &amp;name)</td></tr>
+<tr class="separator:a21412397ca5e3f4320671b6cb14473b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1a18caef0ecb2de8786db64cbad1947"><td class="memTemplParams" colspan="2">template&lt;typename ParameterType &gt; </td></tr>
+<tr class="memitem:ae1a18caef0ecb2de8786db64cbad1947"><td class="memTemplItemLeft" align="right" valign="top">const ParameterType *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structlemons_1_1tests_1_1_audio_processor_test_base.html#ae1a18caef0ecb2de8786db64cbad1947">getTypedParameter</a> (const String &amp;name) const</td></tr>
+<tr class="separator:ae1a18caef0ecb2de8786db64cbad1947"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c44d91c08ff84c15bbe15f6b37e35a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1tests_1_1_test.html#a9c44d91c08ff84c15bbe15f6b37e35a0">logImportantMessage</a> (const String &amp;message)</td></tr>
 <tr class="separator:a9c44d91c08ff84c15bbe15f6b37e35a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a771349b024270aa378bbecd8cc9687"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
@@ -134,6 +154,29 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a73497c75f5b4522c44c2be9554a2a360"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1tests_1_1_audio_processor_test.html#a73497c75f5b4522c44c2be9554a2a360">runProductSpecificTests</a> (ProcessorType &amp;)</td></tr>
 <tr class="separator:a73497c75f5b4522c44c2be9554a2a360"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a4591313ad649e33a5bf6d661987705b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4591313ad649e33a5bf6d661987705b5">&#9670;&nbsp;</a></span>ProcessorParameterState</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="structlemons_1_1tests_1_1_audio_processor_test_base.html#a4591313ad649e33a5bf6d661987705b5">lemons::tests::AudioProcessorTestBase::ProcessorParameterState</a> =  juce::Array&lt;<a class="el" href="structlemons_1_1tests_1_1_audio_processor_test_base_1_1_processor_parameter_data.html">ProcessorParameterData</a>&gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a53f2e88274b234947c8acbea090d6423"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a53f2e88274b234947c8acbea090d6423">&#9670;&nbsp;</a></span>AudioProcessorTest()</h2>
@@ -170,6 +213,32 @@ template&lt;class ProcessorType , LEMONS_MUST_INHERIT_FROM(ProcessorType, juce::
           <td>(</td>
           <td class="paramtype">const String &amp;&#160;</td>
           <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a66575828c685ec17f469715345a29aa5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66575828c685ec17f469715345a29aa5">&#9670;&nbsp;</a></span>checkProcessorMatchesParameterState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lemons::tests::AudioProcessorTestBase::checkProcessorMatchesParameterState </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structlemons_1_1tests_1_1_audio_processor_test_base.html#a4591313ad649e33a5bf6d661987705b5">ProcessorParameterState</a> &amp;&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -235,6 +304,60 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
+<a id="ab5d86975b705b74cfa509822c8deded6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5d86975b705b74cfa509822c8deded6">&#9670;&nbsp;</a></span>getNamedParameter() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::AudioProcessorParameter* lemons::tests::AudioProcessorTestBase::getNamedParameter </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="structlemons_1_1tests_1_1_audio_processor_test_base.html#a21412397ca5e3f4320671b6cb14473b0">lemons::tests::AudioProcessorTestBase::getTypedParameter()</a>.</p>
+
+</div>
+</div>
+<a id="af59f5f6cb35c61082d340764ff5d99aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af59f5f6cb35c61082d340764ff5d99aa">&#9670;&nbsp;</a></span>getNamedParameter() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const juce::AudioProcessorParameter* lemons::tests::AudioProcessorTestBase::getNamedParameter </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a9143b5bb744ae5a90b4aa47d35fb2484"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9143b5bb744ae5a90b4aa47d35fb2484">&#9670;&nbsp;</a></span>getNumTestingRepetitions()</h2>
 
@@ -254,6 +377,31 @@ template&lt;typename SampleType &gt; </div>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a718bb6624272063847660ad70ad29a6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a718bb6624272063847660ad70ad29a6e">&#9670;&nbsp;</a></span>getStateOfProcessorParameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structlemons_1_1tests_1_1_audio_processor_test_base.html#a4591313ad649e33a5bf6d661987705b5">ProcessorParameterState</a> lemons::tests::AudioProcessorTestBase::getStateOfProcessorParameters </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -332,6 +480,66 @@ template&lt;typename SampleType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a21412397ca5e3f4320671b6cb14473b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21412397ca5e3f4320671b6cb14473b0">&#9670;&nbsp;</a></span>getTypedParameter() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ParameterType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ParameterType* lemons::tests::AudioProcessorTestBase::getTypedParameter </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="structlemons_1_1tests_1_1_audio_processor_test_base.html#ab5d86975b705b74cfa509822c8deded6">lemons::tests::AudioProcessorTestBase::getNamedParameter()</a>.</p>
+
+</div>
+</div>
+<a id="ae1a18caef0ecb2de8786db64cbad1947"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1a18caef0ecb2de8786db64cbad1947">&#9670;&nbsp;</a></span>getTypedParameter() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ParameterType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const ParameterType* lemons::tests::AudioProcessorTestBase::getTypedParameter </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="structlemons_1_1tests_1_1_audio_processor_test_base.html#ab5d86975b705b74cfa509822c8deded6">lemons::tests::AudioProcessorTestBase::getNamedParameter()</a>.</p>
 
 </div>
 </div>
@@ -534,7 +742,7 @@ template&lt;class ProcessorType , LEMONS_MUST_INHERIT_FROM(ProcessorType, juce::
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 3 2021 00:43:09 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 4 2021 00:43:06 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

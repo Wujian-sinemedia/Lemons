@@ -87,7 +87,7 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1tests_1_1_dsp_test.html">DspTest</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1tests_1_1_processor_parameter_data.html">ProcessorParameterData</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1tests_1_1_midi_test.html">MidiTest</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1tests_1_1_runner.html">Runner</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -101,8 +101,6 @@ Typedefs</h2></td></tr>
 <tr class="separator:aa422106235194433473c28fa45ff152b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03c16098e5790557328c667001923104"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#a03c16098e5790557328c667001923104">MidiBuffer</a> = juce::MidiBuffer</td></tr>
 <tr class="separator:a03c16098e5790557328c667001923104"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bb7fb68ff1e696189979e0792862bb9"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#a6bb7fb68ff1e696189979e0792862bb9">ProcessorParameterState</a> = juce::Array&lt; <a class="el" href="structlemons_1_1tests_1_1_processor_parameter_data.html">ProcessorParameterData</a> &gt;</td></tr>
-<tr class="separator:a6bb7fb68ff1e696189979e0792862bb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -114,8 +112,6 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa6e8978a635ade337abbea96ddabb6aa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#aa6e8978a635ade337abbea96ddabb6aa">allParameterNamesAreUnique</a> (juce::AudioProcessor &amp;processor)</td></tr>
-<tr class="separator:aa6e8978a635ade337abbea96ddabb6aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b7bf566585454b8ecab1b489ecf916c"><td class="memTemplParams" colspan="2">template&lt;typename FloatType &gt; </td></tr>
 <tr class="memitem:a7b7bf566585454b8ecab1b489ecf916c"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#a7b7bf566585454b8ecab1b489ecf916c">allSamplesAreEqual</a> (const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer1, const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer2, int startIndex1, int numSamples, int startIndex2=-1, int channel1=0, int channel2=-1)</td></tr>
 <tr class="separator:a7b7bf566585454b8ecab1b489ecf916c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -146,10 +142,9 @@ Functions</h2></td></tr>
 <tr class="separator:a8ecdb1df151eda76ed75304aea1dd2b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8657000a7bf8aaa4cc93c263c8dbc8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#ac8657000a7bf8aaa4cc93c263c8dbc8e">fillMidiBufferWithRandomEvents</a> (<a class="el" href="namespacelemons_1_1tests.html#a03c16098e5790557328c667001923104">MidiBuffer</a> &amp;buffer, int numEvents, juce::Random rng)</td></tr>
 <tr class="separator:ac8657000a7bf8aaa4cc93c263c8dbc8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af32470e075de66ce34e03d4097f42bbf"><td class="memItemLeft" align="right" valign="top">juce::AudioProcessorParameter *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#af32470e075de66ce34e03d4097f42bbf">getNamedParameter</a> (juce::AudioProcessor &amp;processor, const String &amp;name)</td></tr>
-<tr class="separator:af32470e075de66ce34e03d4097f42bbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93f75ae33c1fdb0f059053f475dfe186"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelemons_1_1tests.html#a6bb7fb68ff1e696189979e0792862bb9">ProcessorParameterState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#a93f75ae33c1fdb0f059053f475dfe186">getStateOfProcessorParameters</a> (juce::AudioProcessor &amp;processor)</td></tr>
-<tr class="separator:a93f75ae33c1fdb0f059053f475dfe186"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab19c24a71eb5b03abd490ea31e88908e"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
+<tr class="memitem:ab19c24a71eb5b03abd490ea31e88908e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#ab19c24a71eb5b03abd490ea31e88908e">makeCopyOfAudioBuffer</a> (const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; SampleType &gt; &amp;inputBuffer)</td></tr>
+<tr class="separator:ab19c24a71eb5b03abd490ea31e88908e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05dcafe4b31077a0cff23d9f6d9b9a83"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacelemons_1_1tests.html#a03c16098e5790557328c667001923104">MidiBuffer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#a05dcafe4b31077a0cff23d9f6d9b9a83">makeCopyOfMidiBuffer</a> (const <a class="el" href="namespacelemons_1_1tests.html#a03c16098e5790557328c667001923104">MidiBuffer</a> &amp;inputBuffer)</td></tr>
 <tr class="separator:a05dcafe4b31077a0cff23d9f6d9b9a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac131c73da0a08f4127224d450c02270e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#ac131c73da0a08f4127224d450c02270e">midiBuffersAreEqual</a> (const <a class="el" href="namespacelemons_1_1tests.html#a03c16098e5790557328c667001923104">MidiBuffer</a> &amp;buffer1, const <a class="el" href="namespacelemons_1_1tests.html#a03c16098e5790557328c667001923104">MidiBuffer</a> &amp;buffer2)</td></tr>
@@ -157,8 +152,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a91d1e7095657d0593a3baba099b5ed36"><td class="memTemplParams" colspan="2">template&lt;typename FloatType &gt; </td></tr>
 <tr class="memitem:a91d1e7095657d0593a3baba099b5ed36"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#a91d1e7095657d0593a3baba099b5ed36">noSamplesAreClipping</a> (const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer)</td></tr>
 <tr class="separator:a91d1e7095657d0593a3baba099b5ed36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af51c1c27b8f139d16cf5b29f35a741be"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#af51c1c27b8f139d16cf5b29f35a741be">processorMatchesParameterState</a> (juce::AudioProcessor &amp;processor, const <a class="el" href="namespacelemons_1_1tests.html#a6bb7fb68ff1e696189979e0792862bb9">ProcessorParameterState</a> &amp;state)</td></tr>
-<tr class="separator:af51c1c27b8f139d16cf5b29f35a741be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="aa422106235194433473c28fa45ff152b"></a>
@@ -185,20 +178,6 @@ template&lt;typename FloatType &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="namespacelemons_1_1tests.html#a03c16098e5790557328c667001923104">lemons::tests::MidiBuffer</a> = typedef juce::MidiBuffer</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6bb7fb68ff1e696189979e0792862bb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6bb7fb68ff1e696189979e0792862bb9">&#9670;&nbsp;</a></span>ProcessorParameterState</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespacelemons_1_1tests.html#a6bb7fb68ff1e696189979e0792862bb9">lemons::tests::ProcessorParameterState</a> = typedef juce::Array&lt;<a class="el" href="structlemons_1_1tests_1_1_processor_parameter_data.html">ProcessorParameterData</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -234,24 +213,6 @@ template&lt;typename FloatType &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="aa6e8978a635ade337abbea96ddabb6aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6e8978a635ade337abbea96ddabb6aa">&#9670;&nbsp;</a></span>allParameterNamesAreUnique()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool lemons::tests::allParameterNamesAreUnique </td>
-          <td>(</td>
-          <td class="paramtype">juce::AudioProcessor &amp;&#160;</td>
-          <td class="paramname"><em>processor</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a7b7bf566585454b8ecab1b489ecf916c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7b7bf566585454b8ecab1b489ecf916c">&#9670;&nbsp;</a></span>allSamplesAreEqual()</h2>
 
@@ -624,45 +585,19 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
-<a id="af32470e075de66ce34e03d4097f42bbf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af32470e075de66ce34e03d4097f42bbf">&#9670;&nbsp;</a></span>getNamedParameter()</h2>
+<a id="ab19c24a71eb5b03abd490ea31e88908e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab19c24a71eb5b03abd490ea31e88908e">&#9670;&nbsp;</a></span>makeCopyOfAudioBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">juce::AudioProcessorParameter* lemons::tests::getNamedParameter </td>
+          <td class="memname"><a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt;SampleType&gt; lemons::tests::makeCopyOfAudioBuffer </td>
           <td>(</td>
-          <td class="paramtype">juce::AudioProcessor &amp;&#160;</td>
-          <td class="paramname"><em>processor</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const String &amp;&#160;</td>
-          <td class="paramname"><em>name</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a93f75ae33c1fdb0f059053f475dfe186"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93f75ae33c1fdb0f059053f475dfe186">&#9670;&nbsp;</a></span>getStateOfProcessorParameters()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacelemons_1_1tests.html#a6bb7fb68ff1e696189979e0792862bb9">ProcessorParameterState</a> lemons::tests::getStateOfProcessorParameters </td>
-          <td>(</td>
-          <td class="paramtype">juce::AudioProcessor &amp;&#160;</td>
-          <td class="paramname"><em>processor</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>inputBuffer</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -736,38 +671,10 @@ template&lt;typename FloatType &gt; </div>
 
 </div>
 </div>
-<a id="af51c1c27b8f139d16cf5b29f35a741be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af51c1c27b8f139d16cf5b29f35a741be">&#9670;&nbsp;</a></span>processorMatchesParameterState()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool lemons::tests::processorMatchesParameterState </td>
-          <td>(</td>
-          <td class="paramtype">juce::AudioProcessor &amp;&#160;</td>
-          <td class="paramname"><em>processor</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="namespacelemons_1_1tests.html#a6bb7fb68ff1e696189979e0792862bb9">ProcessorParameterState</a> &amp;&#160;</td>
-          <td class="paramname"><em>state</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 3 2021 00:43:09 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 4 2021 00:43:06 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
