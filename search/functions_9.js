@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['juceversion_1556',['juceVersion',['../structlemons_1_1_version.html#a1f2ee8574b935bcab69f49c62b5d2cc7',1,'lemons::Version']]]
+  ['juceversion_1575',['juceVersion',['../structlemons_1_1_version.html#a523e34513ae29e24ac383c63848fbc08',1,'lemons::Version']]]
 ];

@@ -275,11 +275,25 @@
       <arglist>(const MemoryBlock &amp;block)</arglist>
     </member>
     <member kind="function">
+      <type>AudioBuffer&lt; SampleType &gt;</type>
+      <name>audioFromString</name>
+      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
+      <anchor>a1e84f71f0d1afaec4f3005d005d7e056</anchor>
+      <arglist>(const String &amp;string)</arglist>
+    </member>
+    <member kind="function">
       <type>MemoryBlock</type>
       <name>audioToBinary</name>
       <anchorfile>namespacelemons_1_1binary.html</anchorfile>
       <anchor>adf812e68f33a59a33776402111d79db7</anchor>
       <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;buffer, double samplerate=48000.)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>audioToString</name>
+      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
+      <anchor>ac2b9f7f1df4148c794777a0934c120a5</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;audio, double samplerate=48000.)</arglist>
     </member>
     <member kind="function">
       <type>Image</type>
@@ -289,10 +303,24 @@
       <arglist>(const MemoryBlock &amp;block)</arglist>
     </member>
     <member kind="function">
+      <type>Image</type>
+      <name>imageFromString</name>
+      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
+      <anchor>a608c221f5c2ca3b250e52da767a5da80</anchor>
+      <arglist>(const String &amp;string)</arglist>
+    </member>
+    <member kind="function">
       <type>MemoryBlock</type>
       <name>imageToBinary</name>
       <anchorfile>namespacelemons_1_1binary.html</anchorfile>
       <anchor>aa6884b97a3c3f2249b619bcd5b2c8e47</anchor>
+      <arglist>(const Image &amp;image)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>imageToString</name>
+      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
+      <anchor>a4dfd134689c888e1c22eb75d124418c4</anchor>
       <arglist>(const Image &amp;image)</arglist>
     </member>
     <member kind="function">
@@ -317,10 +345,24 @@
       <arglist>(const MemoryBlock &amp;block)</arglist>
     </member>
     <member kind="function">
+      <type>MidiBuffer</type>
+      <name>midiFromString</name>
+      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
+      <anchor>ab8ddbd8f0ff76a1577789824f74e050b</anchor>
+      <arglist>(const String &amp;string)</arglist>
+    </member>
+    <member kind="function">
       <type>MemoryBlock</type>
       <name>midiToBinary</name>
       <anchorfile>namespacelemons_1_1binary.html</anchorfile>
       <anchor>a41518c65837719a57867f339a74dd847</anchor>
+      <arglist>(const MidiBuffer &amp;midi)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>midiToString</name>
+      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
+      <anchor>a402a18ecd2e04c643239eded92d1a6ff</anchor>
       <arglist>(const MidiBuffer &amp;midi)</arglist>
     </member>
     <member kind="function">
@@ -411,6 +453,13 @@
     <class kind="struct">lemons::DeviceRotation</class>
     <class kind="struct">lemons::DeviceRotation::Listener</class>
     <class kind="struct">lemons::DeviceRotation::ScopedDisabler</class>
+    <namespace>lemons</namespace>
+  </compound>
+  <compound kind="file">
+    <name>Dimensions.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/misc/</path>
+    <filename>_dimensions_8h.html</filename>
+    <class kind="struct">lemons::Dimensions</class>
     <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
@@ -998,7 +1047,6 @@
     <name>misc.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/misc/</path>
     <filename>misc_8h.html</filename>
-    <class kind="struct">lemons::Dimensions</class>
     <class kind="struct">lemons::SystemInitializer</class>
     <namespace>lemons</namespace>
     <member kind="typedef">
@@ -1014,62 +1062,6 @@
       <anchorfile>namespacelemons.html</anchorfile>
       <anchor>a9269df64df6d88e4cda763ca7634ceb3</anchor>
       <arglist></arglist>
-    </member>
-    <member kind="function">
-      <type>const juce::juce_wchar</type>
-      <name>getFlatSymbol</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a8069bb853b330a2663fe7d46698ea94f</anchor>
-      <arglist>() noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>const juce::juce_wchar</type>
-      <name>getNaturalSymbol</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a39144b53cc0f3c1f1962d0ef60adf0c0</anchor>
-      <arglist>() noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>const juce::juce_wchar</type>
-      <name>getSharpSymbol</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>acede377c6ed68e7f7503aa6fca9fc751</anchor>
-      <arglist>() noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>midiPanIntToString</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>ac0a43873a965064b7afd13b7310d4a3c</anchor>
-      <arglist>(const int midiPan)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>midiPanStringToInt</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>adf86c4981184784bf191097632ce0176</anchor>
-      <arglist>(const String &amp;string)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>pitchClassFromString</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a4f2877aafe03319061abf89267bf66d3</anchor>
-      <arglist>(const String &amp;pitchClassName) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>String</type>
-      <name>pitchToString</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a3cba692a61f38cd62266680cbc27e39d</anchor>
-      <arglist>(const int midiNoteNumber, const bool asSharps=true)</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>stringToPitch</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>ad9c18a64dc09b2dafd886e3a8c0c275b</anchor>
-      <arglist>(const String &amp;string)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -1323,24 +1315,10 @@
     <filename>_preprocessor_8h.html</filename>
     <member kind="define">
       <type>#define</type>
-      <name>LEMONS_MOBILE</name>
-      <anchorfile>group__misc.html</anchorfile>
-      <anchor>gac999e6bb8b2b5b4c7bd5f4176f27e5b6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
       <name>LEMONS_MUST_INHERIT_FROM</name>
       <anchorfile>group__misc.html</anchorfile>
       <anchor>ga4be31aa0be590eae843d1a0be27e95a8</anchor>
       <arglist>(classToTest, requiredBaseClass)</arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>LEMONS_MOBILE</name>
-      <anchorfile>group__misc.html</anchorfile>
-      <anchor>gac999e6bb8b2b5b4c7bd5f4176f27e5b6</anchor>
-      <arglist></arglist>
     </member>
     <member kind="define">
       <type>#define</type>
@@ -1549,6 +1527,68 @@
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::FX</namespace>
+  </compound>
+  <compound kind="file">
+    <name>StringFunctions.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/misc/</path>
+    <filename>_string_functions_8h.html</filename>
+    <namespace>lemons</namespace>
+    <member kind="function">
+      <type>const juce_wchar</type>
+      <name>getFlatSymbol</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>ae7557d8ede749873745805823771d5f3</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>const juce_wchar</type>
+      <name>getNaturalSymbol</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>a3fa27cafc93559b1ad2c1694b33c67fa</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>const juce_wchar</type>
+      <name>getSharpSymbol</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>a46e98bfb7db12c74e0a55843f245d99c</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>midiPanIntToString</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>a805c54d8bf3a7623a56249926cd81a8c</anchor>
+      <arglist>(int midiPan) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>midiPanStringToInt</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>a41e2afadf455c049add0d03157bc5541</anchor>
+      <arglist>(const String &amp;string) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>pitchToString</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>ab6d14353177272f1e77200f5166e5891</anchor>
+      <arglist>(int midiNoteNumber, bool asSharps=true) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>stringToPitch</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>aeb9306732b6e02f718c0620a48e5bbdd</anchor>
+      <arglist>(const String &amp;string) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>stringToPitchClass</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>a35641cb7ab63ac22df032f31a45181d3</anchor>
+      <arglist>(const String &amp;pitchClassName) noexcept</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>SuperSaw.h</name>
@@ -4441,15 +4481,36 @@
       <type>constexpr</type>
       <name>Dimensions</name>
       <anchorfile>structlemons_1_1_dimensions.html</anchorfile>
+      <anchor>a8456cb2b7a5a5bdef3fa30f2a319d904</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr</type>
+      <name>Dimensions</name>
+      <anchorfile>structlemons_1_1_dimensions.html</anchorfile>
       <anchor>af24b0d1facb1ac43c326868fa3c9b973</anchor>
       <arglist>(int widthToUse, int heightToUse)</arglist>
     </member>
     <member kind="function">
-      <type></type>
-      <name>~Dimensions</name>
+      <type>float</type>
+      <name>getAspectRatio</name>
       <anchorfile>structlemons_1_1_dimensions.html</anchorfile>
-      <anchor>a20d57c9f40a63aac687756876e5a1ccf</anchor>
-      <arglist>()=default</arglist>
+      <anchor>a0e477d1dbbb418ae124b8ff763040139</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isValid</name>
+      <anchorfile>structlemons_1_1_dimensions.html</anchorfile>
+      <anchor>a9af142c13ec1f52cb9b2348d6ed485f8</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static constexpr Dimensions</type>
+      <name>getDefault</name>
+      <anchorfile>structlemons_1_1_dimensions.html</anchorfile>
+      <anchor>aa5e46b5ec4646920cdc7c128b939683a</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="variable">
       <type>int</type>
@@ -17837,17 +17898,17 @@
     <name>lemons::Version</name>
     <filename>structlemons_1_1_version.html</filename>
     <member kind="function">
-      <type></type>
+      <type>constexpr</type>
       <name>Version</name>
       <anchorfile>structlemons_1_1_version.html</anchorfile>
-      <anchor>a27e4ef58f9a1502a4ce105ff771638ff</anchor>
+      <anchor>afae79708babdd5845257f743b2abb91b</anchor>
       <arglist>()=default</arglist>
     </member>
     <member kind="function">
-      <type></type>
+      <type>constexpr</type>
       <name>Version</name>
       <anchorfile>structlemons_1_1_version.html</anchorfile>
-      <anchor>a13c58f684675e2a5ec266607cba9da83</anchor>
+      <anchor>a9c4c37f17104c344004e040b99fa3668</anchor>
       <arglist>(int maj, int min, int p)</arglist>
     </member>
     <member kind="function">
@@ -17876,6 +17937,20 @@
       <name>hasSameMajorVersion</name>
       <anchorfile>structlemons_1_1_version.html</anchorfile>
       <anchor>ab86869233665c42fa29c5230cb5c8e38</anchor>
+      <arglist>(const Version &amp;other) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isNewerThan</name>
+      <anchorfile>structlemons_1_1_version.html</anchorfile>
+      <anchor>ac7551d1d9a47cab38153d9629a60562d</anchor>
+      <arglist>(const Version &amp;other) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isOlderThan</name>
+      <anchorfile>structlemons_1_1_version.html</anchorfile>
+      <anchor>aae0bdc1e75d4280147f33635e01825b0</anchor>
       <arglist>(const Version &amp;other) const noexcept</arglist>
     </member>
     <member kind="function">
@@ -17935,17 +18010,24 @@
       <arglist>() const</arglist>
     </member>
     <member kind="function" static="yes">
-      <type>static Version</type>
+      <type>constexpr static Version</type>
       <name>juceVersion</name>
       <anchorfile>structlemons_1_1_version.html</anchorfile>
-      <anchor>a1f2ee8574b935bcab69f49c62b5d2cc7</anchor>
+      <anchor>a523e34513ae29e24ac383c63848fbc08</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" static="yes">
-      <type>static Version</type>
+      <type>constexpr static Version</type>
       <name>lemonsVersion</name>
       <anchorfile>structlemons_1_1_version.html</anchorfile>
-      <anchor>a55f32f9cd0cd397d9e2c2f36d96b2eb8</anchor>
+      <anchor>aa375bcbb25374d32e716def25e45e4d0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>constexpr static Version</type>
+      <name>projectVersion</name>
+      <anchorfile>structlemons_1_1_version.html</anchorfile>
+      <anchor>ab3d61b52ffbb99ff0ca7190ffbbb6ec8</anchor>
       <arglist>()</arglist>
     </member>
   </compound>
@@ -18048,24 +18130,24 @@
       <arglist>(const String &amp;fileName)</arglist>
     </member>
     <member kind="function">
-      <type>const juce::juce_wchar</type>
+      <type>const juce_wchar</type>
       <name>getFlatSymbol</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a8069bb853b330a2663fe7d46698ea94f</anchor>
+      <anchor>ae7557d8ede749873745805823771d5f3</anchor>
       <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
-      <type>const juce::juce_wchar</type>
+      <type>const juce_wchar</type>
       <name>getNaturalSymbol</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a39144b53cc0f3c1f1962d0ef60adf0c0</anchor>
+      <anchor>a3fa27cafc93559b1ad2c1694b33c67fa</anchor>
       <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
-      <type>const juce::juce_wchar</type>
+      <type>const juce_wchar</type>
       <name>getSharpSymbol</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>acede377c6ed68e7f7503aa6fca9fc751</anchor>
+      <anchor>a46e98bfb7db12c74e0a55843f245d99c</anchor>
       <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
@@ -18093,15 +18175,15 @@
       <type>String</type>
       <name>midiPanIntToString</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>ac0a43873a965064b7afd13b7310d4a3c</anchor>
-      <arglist>(const int midiPan)</arglist>
+      <anchor>a805c54d8bf3a7623a56249926cd81a8c</anchor>
+      <arglist>(int midiPan) noexcept</arglist>
     </member>
     <member kind="function">
       <type>int</type>
       <name>midiPanStringToInt</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>adf86c4981184784bf191097632ce0176</anchor>
-      <arglist>(const String &amp;string)</arglist>
+      <anchor>a41e2afadf455c049add0d03157bc5541</anchor>
+      <arglist>(const String &amp;string) noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -18111,18 +18193,11 @@
       <arglist>(File file)</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
-      <name>pitchClassFromString</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a4f2877aafe03319061abf89267bf66d3</anchor>
-      <arglist>(const String &amp;pitchClassName) noexcept</arglist>
-    </member>
-    <member kind="function">
       <type>String</type>
       <name>pitchToString</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a3cba692a61f38cd62266680cbc27e39d</anchor>
-      <arglist>(const int midiNoteNumber, const bool asSharps=true)</arglist>
+      <anchor>ab6d14353177272f1e77200f5166e5891</anchor>
+      <arglist>(int midiNoteNumber, bool asSharps=true) noexcept</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -18135,8 +18210,15 @@
       <type>int</type>
       <name>stringToPitch</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>ad9c18a64dc09b2dafd886e3a8c0c275b</anchor>
-      <arglist>(const String &amp;string)</arglist>
+      <anchor>aeb9306732b6e02f718c0620a48e5bbdd</anchor>
+      <arglist>(const String &amp;string) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>stringToPitchClass</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>a35641cb7ab63ac22df032f31a45181d3</anchor>
+      <arglist>(const String &amp;pitchClassName) noexcept</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -18158,11 +18240,25 @@
       <arglist>(const MemoryBlock &amp;block)</arglist>
     </member>
     <member kind="function">
+      <type>AudioBuffer&lt; SampleType &gt;</type>
+      <name>audioFromString</name>
+      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
+      <anchor>a1e84f71f0d1afaec4f3005d005d7e056</anchor>
+      <arglist>(const String &amp;string)</arglist>
+    </member>
+    <member kind="function">
       <type>MemoryBlock</type>
       <name>audioToBinary</name>
       <anchorfile>namespacelemons_1_1binary.html</anchorfile>
       <anchor>adf812e68f33a59a33776402111d79db7</anchor>
       <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;buffer, double samplerate=48000.)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>audioToString</name>
+      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
+      <anchor>ac2b9f7f1df4148c794777a0934c120a5</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;audio, double samplerate=48000.)</arglist>
     </member>
     <member kind="function">
       <type>Image</type>
@@ -18172,10 +18268,24 @@
       <arglist>(const MemoryBlock &amp;block)</arglist>
     </member>
     <member kind="function">
+      <type>Image</type>
+      <name>imageFromString</name>
+      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
+      <anchor>a608c221f5c2ca3b250e52da767a5da80</anchor>
+      <arglist>(const String &amp;string)</arglist>
+    </member>
+    <member kind="function">
       <type>MemoryBlock</type>
       <name>imageToBinary</name>
       <anchorfile>namespacelemons_1_1binary.html</anchorfile>
       <anchor>aa6884b97a3c3f2249b619bcd5b2c8e47</anchor>
+      <arglist>(const Image &amp;image)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>imageToString</name>
+      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
+      <anchor>a4dfd134689c888e1c22eb75d124418c4</anchor>
       <arglist>(const Image &amp;image)</arglist>
     </member>
     <member kind="function">
@@ -18200,10 +18310,24 @@
       <arglist>(const MemoryBlock &amp;block)</arglist>
     </member>
     <member kind="function">
+      <type>MidiBuffer</type>
+      <name>midiFromString</name>
+      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
+      <anchor>ab8ddbd8f0ff76a1577789824f74e050b</anchor>
+      <arglist>(const String &amp;string)</arglist>
+    </member>
+    <member kind="function">
       <type>MemoryBlock</type>
       <name>midiToBinary</name>
       <anchorfile>namespacelemons_1_1binary.html</anchorfile>
       <anchor>a41518c65837719a57867f339a74dd847</anchor>
+      <arglist>(const MidiBuffer &amp;midi)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>midiToString</name>
+      <anchorfile>namespacelemons_1_1binary.html</anchorfile>
+      <anchor>a402a18ecd2e04c643239eded92d1a6ff</anchor>
       <arglist>(const MidiBuffer &amp;midi)</arglist>
     </member>
     <member kind="function">
@@ -19504,13 +19628,6 @@
     <class kind="class">lemons::dsp::FX::DryWetMixer</class>
     <class kind="class">lemons::dsp::FX::Reverb</class>
     <class kind="class">lemons::dsp::FX::Saturator</class>
-    <member kind="define">
-      <type>#define</type>
-      <name>LEMONS_MOBILE</name>
-      <anchorfile>group__misc.html</anchorfile>
-      <anchor>gac999e6bb8b2b5b4c7bd5f4176f27e5b6</anchor>
-      <arglist></arglist>
-    </member>
     <member kind="define">
       <type>#define</type>
       <name>LEMONS_MUST_INHERIT_FROM</name>

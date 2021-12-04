@@ -69,19 +69,37 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structlemons_1_1_dimensions-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">lemons::Dimensions Struct Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A simple struct that represents the dimensions of a GUI.  
+ <a href="structlemons_1_1_dimensions.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a8456cb2b7a5a5bdef3fa30f2a319d904"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#a8456cb2b7a5a5bdef3fa30f2a319d904">Dimensions</a> ()=default</td></tr>
+<tr class="memdesc:a8456cb2b7a5a5bdef3fa30f2a319d904"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an invalid <a class="el" href="structlemons_1_1_dimensions.html" title="A simple struct that represents the dimensions of a GUI.">Dimensions</a> object.  <a href="structlemons_1_1_dimensions.html#a8456cb2b7a5a5bdef3fa30f2a319d904">More...</a><br /></td></tr>
+<tr class="separator:a8456cb2b7a5a5bdef3fa30f2a319d904"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af24b0d1facb1ac43c326868fa3c9b973"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#af24b0d1facb1ac43c326868fa3c9b973">Dimensions</a> (int widthToUse, int heightToUse)</td></tr>
+<tr class="memdesc:af24b0d1facb1ac43c326868fa3c9b973"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a valid <a class="el" href="structlemons_1_1_dimensions.html" title="A simple struct that represents the dimensions of a GUI.">Dimensions</a> object with a specified width and height.  <a href="structlemons_1_1_dimensions.html#af24b0d1facb1ac43c326868fa3c9b973">More...</a><br /></td></tr>
 <tr class="separator:af24b0d1facb1ac43c326868fa3c9b973"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20d57c9f40a63aac687756876e5a1ccf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#a20d57c9f40a63aac687756876e5a1ccf">~Dimensions</a> ()=default</td></tr>
-<tr class="separator:a20d57c9f40a63aac687756876e5a1ccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e477d1dbbb418ae124b8ff763040139"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#a0e477d1dbbb418ae124b8ff763040139">getAspectRatio</a> () const noexcept</td></tr>
+<tr class="memdesc:a0e477d1dbbb418ae124b8ff763040139"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the aspect ratio of the represented dimensions, calculated as width / height.  <a href="structlemons_1_1_dimensions.html#a0e477d1dbbb418ae124b8ff763040139">More...</a><br /></td></tr>
+<tr class="separator:a0e477d1dbbb418ae124b8ff763040139"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9af142c13ec1f52cb9b2348d6ed485f8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#a9af142c13ec1f52cb9b2348d6ed485f8">isValid</a> () const noexcept</td></tr>
+<tr class="memdesc:a9af142c13ec1f52cb9b2348d6ed485f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the width and height are both greater than 0.  <a href="structlemons_1_1_dimensions.html#a9af142c13ec1f52cb9b2348d6ed485f8">More...</a><br /></td></tr>
+<tr class="separator:a9af142c13ec1f52cb9b2348d6ed485f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:aa5e46b5ec4646920cdc7c128b939683a"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#aa5e46b5ec4646920cdc7c128b939683a">getDefault</a> ()</td></tr>
+<tr class="memdesc:aa5e46b5ec4646920cdc7c128b939683a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="structlemons_1_1_dimensions.html" title="A simple struct that represents the dimensions of a GUI.">Dimensions</a> object representing the size 1060 x 640.  <a href="structlemons_1_1_dimensions.html#aa5e46b5ec4646920cdc7c128b939683a">More...</a><br /></td></tr>
+<tr class="separator:aa5e46b5ec4646920cdc7c128b939683a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -90,9 +108,38 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a3ac9d19d87cf8d01a2f3ab7d3e483e9a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#a3ac9d19d87cf8d01a2f3ab7d3e483e9a">width</a> { 0 }</td></tr>
 <tr class="separator:a3ac9d19d87cf8d01a2f3ab7d3e483e9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A simple struct that represents the dimensions of a GUI. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a8456cb2b7a5a5bdef3fa30f2a319d904"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8456cb2b7a5a5bdef3fa30f2a319d904">&#9670;&nbsp;</a></span>Dimensions() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr lemons::Dimensions::Dimensions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates an invalid <a class="el" href="structlemons_1_1_dimensions.html" title="A simple struct that represents the dimensions of a GUI.">Dimensions</a> object. </p>
+
+</div>
+</div>
 <a id="af24b0d1facb1ac43c326868fa3c9b973"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af24b0d1facb1ac43c326868fa3c9b973">&#9670;&nbsp;</a></span>Dimensions()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af24b0d1facb1ac43c326868fa3c9b973">&#9670;&nbsp;</a></span>Dimensions() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -125,10 +172,13 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Creates a valid <a class="el" href="structlemons_1_1_dimensions.html" title="A simple struct that represents the dimensions of a GUI.">Dimensions</a> object with a specified width and height. </p>
+
 </div>
 </div>
-<a id="a20d57c9f40a63aac687756876e5a1ccf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20d57c9f40a63aac687756876e5a1ccf">&#9670;&nbsp;</a></span>~Dimensions()</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a0e477d1dbbb418ae124b8ff763040139"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e477d1dbbb418ae124b8ff763040139">&#9670;&nbsp;</a></span>getAspectRatio()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -137,7 +187,35 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">lemons::Dimensions::~Dimensions </td>
+          <td class="memname">float lemons::Dimensions::getAspectRatio </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the aspect ratio of the represented dimensions, calculated as width / height. </p>
+<p>If <a class="el" href="structlemons_1_1_dimensions.html#a9af142c13ec1f52cb9b2348d6ed485f8" title="Returns true if the width and height are both greater than 0.">isValid()</a> return false, then this function will return 0. </p>
+
+</div>
+</div>
+<a id="aa5e46b5ec4646920cdc7c128b939683a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5e46b5ec4646920cdc7c128b939683a">&#9670;&nbsp;</a></span>getDefault()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static constexpr <a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a> lemons::Dimensions::getDefault </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -145,10 +223,39 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns a <a class="el" href="structlemons_1_1_dimensions.html" title="A simple struct that represents the dimensions of a GUI.">Dimensions</a> object representing the size 1060 x 640. </p>
+
+</div>
+</div>
+<a id="a9af142c13ec1f52cb9b2348d6ed485f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9af142c13ec1f52cb9b2348d6ed485f8">&#9670;&nbsp;</a></span>isValid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::Dimensions::isValid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns true if the width and height are both greater than 0. </p>
 
 </div>
 </div>
@@ -182,12 +289,12 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="misc_8h.html">misc.h</a></li>
+<li><a class="el" href="_dimensions_8h.html">Dimensions.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 4 2021 07:07:06 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 4 2021 10:56:26 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
