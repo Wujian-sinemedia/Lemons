@@ -22,7 +22,7 @@ CPMAddPackage (
         GIT_TAG origin/main
         OPTIONS "LEMONS_BUILD_TESTS ON")
 
-include (LemonsAudioModules)
+include (LemonsPluginModules)
 
 #
 
@@ -35,7 +35,7 @@ target_compile_definitions (${PROJECT_NAME} PRIVATE
     JUCE_WEB_BROWSER=0
     JUCE_DISPLAY_SPLASH_SCREEN=0)
 
-target_link_libraries (${PROJECT_NAME} PUBLIC LemonsAudioModules LemonsCommonModules)
+target_link_libraries (${PROJECT_NAME} PUBLIC LemonsPluginModules LemonsAudioModules LemonsCommonModules)
 
 #
 

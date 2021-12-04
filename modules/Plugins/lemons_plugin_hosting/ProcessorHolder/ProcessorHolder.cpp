@@ -1,0 +1,86 @@
+namespace lemons::plugin
+{
+
+ProcessorHolder::ProcessorHolder (juce::AudioProcessor& processorToUse)
+: processor(processorToUse)
+{ }
+
+juce::AudioProcessor* ProcessorHolder::operator->()
+{
+    return &processor;
+}
+
+const juce::AudioProcessor* ProcessorHolder::operator->() const
+{
+    return &processor;
+}
+
+template<typename SampleType>
+void ProcessorHolder::prepareForPlayback (double samplerate, int blocksize)
+{
+    jassert (samplerate > 0. && blocksize > 0);
+    
+    if constexpr (std::is_same_v<SampleType, float>)
+        processor.setProcessingPrecision (juce::AudioProcessor::ProcessingPrecision::singlePrecision);
+    else
+        processor.setProcessingPrecision (juce::AudioProcessor::ProcessingPrecision::doublePrecision);
+    
+    processor.enableAllBuses();
+    
+    processor.setRateAndBufferSizeDetails (samplerate, blocksize);
+    processor.prepareToPlay (samplerate, blocksize);
+}
+
+template void ProcessorHolder::prepareForPlayback<float> (double, int);
+template void ProcessorHolder::prepareForPlayback<double> (double, int);
+
+juce::AudioProcessorParameter* ProcessorHolder::getNamedParameter (const String& name)
+{
+    for (auto* parameter : processor.getParameters())
+        if (parameter->getName(50) == name)
+            return parameter;
+    
+    return nullptr;
+}
+
+const juce::AudioProcessorParameter* ProcessorHolder::getNamedParameter (const String& name) const
+{
+    for (const auto* parameter : processor.getParameters())
+        if (parameter->getName(50) == name)
+            return parameter;
+    
+    return nullptr;
+}
+
+ProcessorHolder::ParameterState ProcessorHolder::getStateOfParameters() const
+{
+    ParameterState state;
+    
+    for (const auto* parameter : processor.getParameters())
+    {
+        ParameterStateData data;
+        data.name = parameter->getName(50);
+        data.value = parameter->getValue();
+        state.add (data);
+    }
+    
+    return state;
+}
+
+void ProcessorHolder::setStateOfParameters (const ParameterState& state)
+{
+    for (const auto& paramState : state)
+    {
+        if (auto* param = getNamedParameter (paramState.name))
+        {
+            param->setValueNotifyingHost (paramState.value);
+        }
+        else
+        {
+            jassertfalse;
+        }
+    }
+}
+
+}
+

@@ -1,7 +1,6 @@
 #pragma once
 
-#include <lemons_core/lemons_core.h>
-#include <juce_audio_processors/juce_audio_processors.h>
+#include <lemons_plugin_hosting/lemons_plugin_hosting.h>
 
 
 namespace lemons::tests
@@ -12,48 +11,15 @@ struct AudioProcessorTestBase : public Test
 	AudioProcessorTestBase (juce::AudioProcessor& processorToUse, const String& testName);
 
 protected:
+    using ProcessorHolder = plugin::ProcessorHolder;
+    
 	void runTest() override;
     
     void fuzzParameters();
     
-    template<typename SampleType>
-    void prepareProcessorForPlayback (double samplerate, int blocksize);
+    void checkProcessorMatchesParameterState (const ProcessorHolder::ParameterState& state);
     
-    [[nodiscard]] juce::AudioProcessorParameter* getNamedParameter (const String& name);
-    
-    [[nodiscard]] const juce::AudioProcessorParameter* getNamedParameter (const String& name) const;
-    
-    template<typename ParameterType>
-    [[nodiscard]] ParameterType* getTypedParameter (const String& name)
-    {
-        if (auto* p = getNamedParameter (name))
-            return dynamic_cast<ParameterType*>(p);
-            
-        return nullptr;
-    }
-    
-    template<typename ParameterType>
-    [[nodiscard]] const ParameterType* getTypedParameter (const String& name) const
-    {
-        if (const auto* p = getNamedParameter (name))
-            return dynamic_cast<const ParameterType*>(p);
-        
-        return nullptr;
-    }
-    
-    //
-    
-    struct ProcessorParameterData
-    {
-        String name;
-        float value;
-    };
-    
-    using ProcessorParameterState = juce::Array<ProcessorParameterData>;
-    
-    [[nodiscard]] ProcessorParameterState getStateOfProcessorParameters() const;
-    
-    void checkProcessorMatchesParameterState (const ProcessorParameterState& state);
+    void checkProcessorDoesNotMatchParameterState (const ProcessorHolder::ParameterState& state);
 
 private:
 	template <typename SampleType>
@@ -63,7 +29,7 @@ private:
     
     [[nodiscard]] bool allParameterNamesAreUnique() const;
 
-	juce::AudioProcessor& processor;
+    ProcessorHolder processor;
 
 	MidiBuffer midiIO;
 };
