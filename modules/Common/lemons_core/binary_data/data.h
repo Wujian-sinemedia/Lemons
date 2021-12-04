@@ -29,10 +29,10 @@ struct Data final
 	bool isValid() const noexcept;
 
 	/** Returns the data as a UTF-8 formatted string. */
-    [[nodiscard]] String getAsString() const;
+	[[nodiscard]] String getAsString() const;
 
 	/** Returns a memory block representing this data. */
-    [[nodiscard]] MemoryBlock getAsMemoryBlock() const;
+	[[nodiscard]] MemoryBlock getAsMemoryBlock() const;
 
 	/** The raw data. This may be null if the data cannot be found. */
 	const char* data = nullptr;
@@ -44,29 +44,29 @@ struct Data final
 	/** Returns an image object from an image file in the BinaryData target.
 	    If the image can't be loaded, an assertion will be thrown.
 	 */
-    [[nodiscard]] static Image getImage (const String& imageFileName);
+	[[nodiscard]] static Image getImage (const String& imageFileName);
 
 	/** Returns an audio buffer object from an audio file in the BinaryData target.
 	    If the audio can't be loaded, an assertion will be thrown.
 	 */
 	template <typename SampleType>
-    [[nodiscard]] static AudioBuffer<SampleType> getAudio (const String& audioFileName);
+	[[nodiscard]] static AudioBuffer<SampleType> getAudio (const String& audioFileName);
 
 	/** Returns a MIDI buffer object from a MIDI file in the BinaryData target.
 	    If the MIDI can't be loaded, an assertion will be thrown.
 	 */
-    [[nodiscard]] static MidiBuffer getMidi (const String& midiFileName);
-
-	/** Returns an array of strings, each containing a line of a text file in the BinaryData target.
-	    This loads the file as a string and parses it into tokens using line break and carriage return characters.
-	    If the file can't be loaded, an assertion will be thrown.
-	 */
-    [[nodiscard]] static juce::StringArray getStrings (const String& textFileName);
+	[[nodiscard]] static MidiBuffer getMidi (const String& midiFileName);
 
 	/** Returns an opaque blob of binary data from a file in the BinaryData target.
 	    If the data can't be loaded, an assertion will be thrown.
 	 */
 	[[nodiscard]] static MemoryBlock getBlob (const String& filename);
+
+	/** Returns an array of strings, each containing a line of a text file in the BinaryData target.
+	    This loads the file as a string and parses it into tokens using line break and carriage return characters.
+	    If the file can't be loaded, an assertion will be thrown.
+	 */
+	[[nodiscard]] static juce::StringArray getStrings (const String& textFileName);
 };
 
 }  // namespace lemons::binary
@@ -89,10 +89,10 @@ private:
 
 }
 
-#if LEMONS_BINARIES_UNIT_TESTS
-#if ! LEMONS_HAS_BINARY_DATA
-#error "LEMONS_BINARIES_UNIT_TESTS is enabled, but LEMONS_HAS_BINARY_DATA is false!"
-#endif
-#endif
+#  if LEMONS_BINARIES_UNIT_TESTS
+#	if ! LEMONS_HAS_BINARY_DATA
+#	  error "LEMONS_BINARIES_UNIT_TESTS is enabled, but LEMONS_HAS_BINARY_DATA is false!"
+#	endif
+#  endif
 
 #endif

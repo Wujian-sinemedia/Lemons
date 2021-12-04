@@ -13,6 +13,8 @@
 
 #include "files/FileUtilities.cpp"
 
+#include "binary_data/audio.cpp"
+#include "binary_data/ValueTree_JSON.cpp"
 #include "binary_data/conversions.cpp"
 #include "binary_data/data.cpp"
 

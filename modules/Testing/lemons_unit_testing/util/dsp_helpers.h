@@ -11,6 +11,7 @@ using AudioBuffer = juce::AudioBuffer<FloatType>;
 
 using MidiBuffer = juce::MidiBuffer;
 
+
 void fillMidiBufferWithRandomEvents (MidiBuffer& buffer, int numEvents, juce::Random rng);
 
 template <typename SampleType>

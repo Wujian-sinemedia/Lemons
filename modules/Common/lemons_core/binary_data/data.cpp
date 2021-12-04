@@ -117,7 +117,7 @@ BinaryDataTests::BinaryDataTests()
 
 }
 
-#if ! LEMONS_BINARIES_UNIT_TESTS
+#  if ! LEMONS_BINARIES_UNIT_TESTS
 
 void BinaryDataTests::runTest()
 {
@@ -128,7 +128,7 @@ void BinaryDataTests::runTest()
     expect (! data.isValid());
 }
 
-#else /* LEMONS_BINARIES_UNIT_TESTS is true... */
+#  else /* LEMONS_BINARIES_UNIT_TESTS is true... */
 
 void BinaryDataTests::runTest()
 {
@@ -136,7 +136,7 @@ void BinaryDataTests::runTest()
 }
 
 
-#endif
+#  endif
 
 }
 
