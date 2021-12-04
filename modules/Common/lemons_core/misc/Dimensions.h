@@ -22,7 +22,7 @@ struct Dimensions final
 	[[nodiscard]] float getAspectRatio() const noexcept;
 
 	/** Returns a Dimensions object representing the size 1060 x 640. */
-	static constexpr Dimensions getDefault();
+	[[nodiscard]] static constexpr Dimensions getDefault();
 
 	int width { 0 };
 	int height { 0 };

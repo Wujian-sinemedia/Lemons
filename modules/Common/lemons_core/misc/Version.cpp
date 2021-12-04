@@ -102,12 +102,12 @@ constexpr Version Version::juceVersion()
 
 constexpr Version Version::lemonsVersion()
 {
-	return { 0, 0, 1 };
+	return { LEMONS_VERSION_MAJOR, LEMONS_VERSION_MINOR, LEMONS_VERSION_PATCH };
 }
 
 constexpr static Version projectVersion()
 {
-	return { 0, 0, 1 };
+	return { LEMONS_PROJECT_VERSION_MAJOR, LEMONS_PROJECT_VERSION_MINOR, LEMONS_PROJECT_VERSION_PATCH };
 }
 
 }  // namespace lemons
