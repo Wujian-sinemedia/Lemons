@@ -32,11 +32,16 @@ using juce::juce_wchar;
 
 
 /** Returns a string description of a pitch to an integer representing the pitch class, where C is 0, C# is 1, D is 2... and B is 11.
-    The string should be in the format 'A#7', 'Bb9', etc. You can also use the Unicode sharp, flat, and natural symbols in the passed string.
+    The string should be in the format 'A#', 'Bb', etc. You can also use the Unicode sharp, flat, and natural symbols in the passed string.
     If the passed string is in the wrong format, or it can't be parsed correctly for some reason, this will return -1.
-    @see stringToPitch()
+    @see pitchClassToString()
  */
 [[nodiscard]] int stringToPitchClass (const String& pitchClassName) noexcept;
+
+/** Returns a string description of a pitch class in the range 0-11, with 0 being 'C', and 11 being 'B'.
+    @see stringToPitchClass()
+ */
+[[nodiscard]] String pitchClassToString (int pitchClass, bool asSharps = true) noexcept;
 
 
 /** Takes an integer in the range 0-127 and creates a panning description string, where 64 prints "C", 65 prints "1R", 127 prints "50R", 63 prints "1L", and 0 prints "50L".
@@ -51,3 +56,28 @@ using juce::juce_wchar;
 [[nodiscard]] int midiPanStringToInt (const String& string) noexcept;
 
 }  // namespace lemons
+
+
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+
+#if LEMONS_UNIT_TESTS
+
+#  include <lemons_unit_testing/lemons_unit_testing.h>
+
+
+namespace lemons::tests
+{
+
+struct StringFunctionsTests : public CoreTest
+{
+	StringFunctionsTests();
+
+private:
+	void runTest() final;
+};
+
+static StringFunctionsTests stringFunctionsTest;
+
+}  // namespace lemons::tests
+
+#endif
