@@ -34,9 +34,9 @@ template <typename FloatType>
 
 template <typename FloatType>
 [[nodiscard]] bool bufferChannelsAreEqual (const AudioBuffer<FloatType>& buffer1,
-                                           int channel1,
+                                           int                           channel1,
                                            const AudioBuffer<FloatType>& buffer2,
-                                           int channel2);
+                                           int                           channel2);
 
 template <typename FloatType>
 [[nodiscard]] bool allSamplesAreZero (const AudioBuffer<FloatType>& buffer,
@@ -53,7 +53,7 @@ template <typename FloatType>
 
 [[nodiscard]] bool midiBuffersAreEqual (const MidiBuffer& buffer1, const MidiBuffer& buffer2);
 
-template<typename SampleType>
+template <typename SampleType>
 [[nodiscard]] AudioBuffer<SampleType> makeCopyOfAudioBuffer (const AudioBuffer<SampleType>& inputBuffer);
 
 [[nodiscard]] MidiBuffer makeCopyOfMidiBuffer (const MidiBuffer& inputBuffer);

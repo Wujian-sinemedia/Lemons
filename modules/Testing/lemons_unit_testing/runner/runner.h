@@ -13,7 +13,7 @@ private:
 };
 
 
-[[nodiscard]] bool executeUnitTests (Intensity intensityLevel = Intensity::Medium,
+[[nodiscard]] bool executeUnitTests (Intensity  intensityLevel = Intensity::Medium,
                                      juce::File logOutput = {}, juce::int64 seed = juce::Random::getSystemRandom().nextInt64(),
                                      const String& singleTestName = {}, const String& categoryName = {});
 

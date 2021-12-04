@@ -11,25 +11,25 @@ struct AudioProcessorTestBase : public Test
 	AudioProcessorTestBase (juce::AudioProcessor& processorToUse, const String& testName);
 
 protected:
-    using ProcessorHolder = plugin::ProcessorHolder;
-    
+	using ProcessorHolder = plugin::ProcessorHolder;
+
 	void runTest() override;
-    
-    void fuzzParameters();
-    
-    void checkProcessorMatchesParameterState (const ProcessorHolder::ParameterState& state);
-    
-    void checkProcessorDoesNotMatchParameterState (const ProcessorHolder::ParameterState& state);
+
+	void fuzzParameters();
+
+	void checkProcessorMatchesParameterState (const ProcessorHolder::ParameterState& state);
+
+	void checkProcessorDoesNotMatchParameterState (const ProcessorHolder::ParameterState& state);
 
 private:
 	template <typename SampleType>
 	void runTypedTests();
-    
-	void runEditorTests (juce::AudioProcessorEditor& editor);
-    
-    [[nodiscard]] bool allParameterNamesAreUnique() const;
 
-    ProcessorHolder processor;
+	void runEditorTests (juce::AudioProcessorEditor& editor);
+
+	[[nodiscard]] bool allParameterNamesAreUnique() const;
+
+	ProcessorHolder processor;
 
 	MidiBuffer midiIO;
 };
@@ -44,15 +44,15 @@ struct AudioProcessorTest : public AudioProcessorTestBase
 	}
 
 private:
-    void runTest() final
-    {
-        AudioProcessorTestBase::runTest();
-        
-        runProductSpecificTests (processor);
-    }
-    
-    virtual void runProductSpecificTests (ProcessorType&) { }
-    
+	void runTest() final
+	{
+		AudioProcessorTestBase::runTest();
+
+		runProductSpecificTests (processor);
+	}
+
+	virtual void runProductSpecificTests (ProcessorType&) { }
+
 	ProcessorType processor;
 };
 

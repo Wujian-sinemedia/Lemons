@@ -86,10 +86,6 @@
 #include "events/DeviceRotation.h"
 #include "events/DeviceMotion.h"
 
-#if LEMONS_UNIT_TESTS
-#  include <lemons_unit_testing/lemons_unit_testing.h>
-#endif
-
 #include "files/FileUtilities.h"
 
 #include "binary_data/conversions.h"

@@ -5,23 +5,23 @@ namespace lemons::tests
 
 void fillMidiBufferWithRandomEvents (MidiBuffer& buffer, int numEvents, juce::Random rng)
 {
-    buffer.clear();
-    
-    for (int i = 0; i < numEvents; ++i)
-        buffer.addEvent (juce::MidiMessage::controllerEvent (1, rng.nextInt (128), rng.nextInt (128)),
-                         i);
+	buffer.clear();
+
+	for (int i = 0; i < numEvents; ++i)
+		buffer.addEvent (juce::MidiMessage::controllerEvent (1, rng.nextInt (128), rng.nextInt (128)),
+		                 i);
 }
 
 template <typename SampleType>
 void fillAudioBufferWithRandomNoise (AudioBuffer<SampleType>& buffer, juce::Random rng)
 {
-    for (int chan = 0; chan < buffer.getNumChannels(); ++chan)
-    {
-        auto* samples = buffer.getWritePointer (chan);
-        
-        for (int s = 0; s < buffer.getNumSamples(); ++s)
-            samples[s] = static_cast<SampleType> (juce::jmap (rng.nextFloat(), -1.f, 1.f));
-    }
+	for (int chan = 0; chan < buffer.getNumChannels(); ++chan)
+	{
+		auto* samples = buffer.getWritePointer (chan);
+
+		for (int s = 0; s < buffer.getNumSamples(); ++s)
+			samples[s] = static_cast<SampleType> (juce::jmap (rng.nextFloat(), -1.f, 1.f));
+	}
 }
 
 template void fillAudioBufferWithRandomNoise (AudioBuffer<float>&, juce::Random);
@@ -60,11 +60,11 @@ template bool allSamplesAreEqual (const AudioBuffer<double>&, const AudioBuffer<
 
 template <typename FloatType>
 bool bufferChannelsAreEqual (const AudioBuffer<FloatType>& buffer1,
-                                           int channel1,
-                                           const AudioBuffer<FloatType>& buffer2,
-                                           int channel2)
+                             int                           channel1,
+                             const AudioBuffer<FloatType>& buffer2,
+                             int                           channel2)
 {
-    return allSamplesAreEqual (buffer1, buffer2, 0, buffer1.getNumSamples(), 0, channel1, channel2);
+	return allSamplesAreEqual (buffer1, buffer2, 0, buffer1.getNumSamples(), 0, channel1, channel2);
 }
 
 template bool bufferChannelsAreEqual (const AudioBuffer<float>&, int, const AudioBuffer<float>&, int);
@@ -176,20 +176,20 @@ template bool allSamplesAreValid (const AudioBuffer<double>&);
 template <typename FloatType>
 bool noSamplesAreClipping (const AudioBuffer<FloatType>& buffer)
 {
-    for (int chan = 0; chan < buffer.getNumChannels(); ++chan)
-    {
-        const auto* samples = buffer.getReadPointer (chan);
-        
-        for (int s = 0; s < buffer.getNumSamples(); ++s)
-        {
-            const auto sample = samples[s];
-            
-            if (sample > FloatType(1) || sample < FloatType(-1))
-                return false;
-        }
-    }
-    
-    return true;
+	for (int chan = 0; chan < buffer.getNumChannels(); ++chan)
+	{
+		const auto* samples = buffer.getReadPointer (chan);
+
+		for (int s = 0; s < buffer.getNumSamples(); ++s)
+		{
+			const auto sample = samples[s];
+
+			if (sample > FloatType (1) || sample < FloatType (-1))
+				return false;
+		}
+	}
+
+	return true;
 }
 
 template bool noSamplesAreClipping (const AudioBuffer<float>&);
@@ -225,31 +225,31 @@ bool midiBuffersAreEqual (const MidiBuffer& buffer1,
 	return true;
 }
 
-template<typename SampleType>
+template <typename SampleType>
 AudioBuffer<SampleType> makeCopyOfAudioBuffer (const AudioBuffer<SampleType>& inputBuffer)
 {
-    AudioBuffer<SampleType> copy { inputBuffer.getNumChannels(), inputBuffer.getNumSamples() };
-    
-    dsp::buffers::copy (inputBuffer, copy);
-    
-    return copy;
+	AudioBuffer<SampleType> copy { inputBuffer.getNumChannels(), inputBuffer.getNumSamples() };
+
+	dsp::buffers::copy (inputBuffer, copy);
+
+	return copy;
 }
 
-template AudioBuffer<float> makeCopyOfAudioBuffer (const AudioBuffer<float>&);
+template AudioBuffer<float>  makeCopyOfAudioBuffer (const AudioBuffer<float>&);
 template AudioBuffer<double> makeCopyOfAudioBuffer (const AudioBuffer<double>&);
 
 MidiBuffer makeCopyOfMidiBuffer (const MidiBuffer& inputBuffer)
 {
-    MidiBuffer newBuffer;
-    
-    if (const auto numSamples = inputBuffer.getLastEventTime();
-        numSamples > 0)
-    {
-        newBuffer.addEvents (inputBuffer, 0, numSamples, 0);
-        jassert (! newBuffer.isEmpty());
-    }
+	MidiBuffer newBuffer;
 
-    return newBuffer;
+	if (const auto numSamples = inputBuffer.getLastEventTime();
+	    numSamples > 0)
+	{
+		newBuffer.addEvents (inputBuffer, 0, numSamples, 0);
+		jassert (! newBuffer.isEmpty());
+	}
+
+	return newBuffer;
 }
 
 }  // namespace lemons::tests

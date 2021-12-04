@@ -15,7 +15,6 @@ Building blocks for audio plugins
 include_guard (GLOBAL)
 
 include (LemonsCommonModules)
-include (LemonsGUIModules)
 include (LemonsAudioModules)
 include (LemonsPluginUtilities)
 

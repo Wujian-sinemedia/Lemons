@@ -106,7 +106,7 @@ juce::StringArray Data::getStrings (const String& textFileName)
 
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 
-#if LEMONS_UNIT_TESTS
+#if 0
 
 namespace lemons::tests
 {

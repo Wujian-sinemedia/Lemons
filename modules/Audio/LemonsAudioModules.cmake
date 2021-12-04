@@ -2,7 +2,7 @@
 JUCE modules for audio and DSP
 
 ## Includes:
-- LemonsJuceModuleUtilities
+- LemonsCommonModules
 
 ## Targets:
 - LemonsAudioModules
