@@ -1570,6 +1570,13 @@
     </member>
     <member kind="function">
       <type>String</type>
+      <name>pitchClassToString</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>aae670d7c14e499a1e17c65c678ef5b44</anchor>
+      <arglist>(int pitchClass, bool asSharps=true) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
       <name>pitchToString</name>
       <anchorfile>namespacelemons.html</anchorfile>
       <anchor>ab6d14353177272f1e77200f5166e5891</anchor>
@@ -2011,6 +2018,90 @@
     <filename>_version_8h.html</filename>
     <class kind="struct">lemons::Version</class>
     <namespace>lemons</namespace>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_PROJECT_VERSION_MAJOR</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga52ab1f8b6b9e166d12b4b96739838d5a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_PROJECT_VERSION_MINOR</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga906eafb2e72e1937dae95a1154cb1d4d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_PROJECT_VERSION_PATCH</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga656cf0efe739619c0fc96e8f70387727</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_VERSION_MAJOR</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga745cbaf7407f78551a03e6033abc2624</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_VERSION_MINOR</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga1fbe1a2b0c90a5464db0037161a6b21b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_VERSION_PATCH</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga537f07f6a8c6eb77ec4b1a2ab925f6c3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_PROJECT_VERSION_MAJOR</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga52ab1f8b6b9e166d12b4b96739838d5a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_PROJECT_VERSION_MINOR</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga906eafb2e72e1937dae95a1154cb1d4d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_PROJECT_VERSION_PATCH</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga656cf0efe739619c0fc96e8f70387727</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_VERSION_MAJOR</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga745cbaf7407f78551a03e6033abc2624</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_VERSION_MINOR</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga1fbe1a2b0c90a5464db0037161a6b21b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_VERSION_PATCH</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga537f07f6a8c6eb77ec4b1a2ab925f6c3</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>VoiceAllocator.h</name>
@@ -18194,6 +18285,13 @@
     </member>
     <member kind="function">
       <type>String</type>
+      <name>pitchClassToString</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>aae670d7c14e499a1e17c65c678ef5b44</anchor>
+      <arglist>(int pitchClass, bool asSharps=true) noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
       <name>pitchToString</name>
       <anchorfile>namespacelemons.html</anchorfile>
       <anchor>ab6d14353177272f1e77200f5166e5891</anchor>
@@ -19634,6 +19732,48 @@
       <anchorfile>group__misc.html</anchorfile>
       <anchor>ga4be31aa0be590eae843d1a0be27e95a8</anchor>
       <arglist>(classToTest, requiredBaseClass)</arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_VERSION_MAJOR</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga745cbaf7407f78551a03e6033abc2624</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_VERSION_MINOR</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga1fbe1a2b0c90a5464db0037161a6b21b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_VERSION_PATCH</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga537f07f6a8c6eb77ec4b1a2ab925f6c3</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_PROJECT_VERSION_MAJOR</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga52ab1f8b6b9e166d12b4b96739838d5a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_PROJECT_VERSION_MINOR</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga906eafb2e72e1937dae95a1154cb1d4d</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="define">
+      <type>#define</type>
+      <name>LEMONS_PROJECT_VERSION_PATCH</name>
+      <anchorfile>group__misc.html</anchorfile>
+      <anchor>ga656cf0efe739619c0fc96e8f70387727</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="group">

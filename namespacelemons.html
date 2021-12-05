@@ -166,6 +166,9 @@ Functions</h2></td></tr>
 <tr class="separator:a41e2afadf455c049add0d03157bc5541"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d34be9e9d17562dcc43898b269053a1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons.html#a6d34be9e9d17562dcc43898b269053a1">openFile</a> (File file)</td></tr>
 <tr class="separator:a6d34be9e9d17562dcc43898b269053a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae670d7c14e499a1e17c65c678ef5b44"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons.html#aae670d7c14e499a1e17c65c678ef5b44">pitchClassToString</a> (int pitchClass, bool asSharps=true) noexcept</td></tr>
+<tr class="memdesc:aae670d7c14e499a1e17c65c678ef5b44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string description of a pitch class in the range 0-11, with 0 being 'C', and 11 being 'B'.  <a href="namespacelemons.html#aae670d7c14e499a1e17c65c678ef5b44">More...</a><br /></td></tr>
+<tr class="separator:aae670d7c14e499a1e17c65c678ef5b44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6d14353177272f1e77200f5166e5891"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons.html#ab6d14353177272f1e77200f5166e5891">pitchToString</a> (int midiNoteNumber, bool asSharps=true) noexcept</td></tr>
 <tr class="memdesc:ab6d14353177272f1e77200f5166e5891"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a MIDI pitch to a string representation; e.g.  <a href="namespacelemons.html#ab6d14353177272f1e77200f5166e5891">More...</a><br /></td></tr>
 <tr class="separator:ab6d14353177272f1e77200f5166e5891"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -506,6 +509,45 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="aae670d7c14e499a1e17c65c678ef5b44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae670d7c14e499a1e17c65c678ef5b44">&#9670;&nbsp;</a></span>pitchClassToString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">String lemons::pitchClassToString </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pitchClass</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>asSharps</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a string description of a pitch class in the range 0-11, with 0 being 'C', and 11 being 'B'. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons.html#a35641cb7ab63ac22df032f31a45181d3" title="Returns a string description of a pitch to an integer representing the pitch class,...">stringToPitchClass()</a> </dd></dl>
+
+</div>
+</div>
 <a id="ab6d14353177272f1e77200f5166e5891"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab6d14353177272f1e77200f5166e5891">&#9670;&nbsp;</a></span>pitchToString()</h2>
 
@@ -634,14 +676,14 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Returns a string description of a pitch to an integer representing the pitch class, where C is 0, C# is 1, D is 2... </p>
-<p>and B is 11. The string should be in the format 'A#7', 'Bb9', etc. You can also use the Unicode sharp, flat, and natural symbols in the passed string. If the passed string is in the wrong format, or it can't be parsed correctly for some reason, this will return -1. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons.html#aeb9306732b6e02f718c0620a48e5bbdd" title="Converts a string description of a pitch to a MIDI note number.">stringToPitch()</a> </dd></dl>
+<p>and B is 11. The string should be in the format 'A#', 'Bb', etc. You can also use the Unicode sharp, flat, and natural symbols in the passed string. If the passed string is in the wrong format, or it can't be parsed correctly for some reason, this will return -1. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons.html#aae670d7c14e499a1e17c65c678ef5b44" title="Returns a string description of a pitch class in the range 0-11, with 0 being &#39;C&#39;,...">pitchClassToString()</a> </dd></dl>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 4 2021 10:56:26 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Dec 5 2021 00:47:00 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
