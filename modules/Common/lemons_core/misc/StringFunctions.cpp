@@ -62,17 +62,18 @@ int stringToPitchClass (const String& string) noexcept
 	return pitchClass;
 }
 
+
+static const char* const sharpNoteNames[] = {
+    "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"
+};
+
+static const char* const flatNoteNames[] = {
+    "C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"
+};
+
 String pitchClassToString (int pitchClass, bool asSharps) noexcept
 {
 	jassert (pitchClass >= 0 && pitchClass <= 11);
-
-	static const char* const sharpNoteNames[] = {
-		"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"
-	};
-
-	static const char* const flatNoteNames[] = {
-		"C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"
-	};
 
 	if (asSharps)
 		return sharpNoteNames[pitchClass];

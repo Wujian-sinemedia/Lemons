@@ -29,7 +29,7 @@ void MathTests::runTest()
 	beginTest ("numberIsEven");
 
 	for (const auto even : { 2, 4, 6, 12, 24, 138 })
-		expect (math::numberIsEven (even));
+        expect (math::numberIsEven (even));
 
 	for (const auto odd : { 1, 3, 5, 15, 23, 241 })
 		expect (! math::numberIsEven (odd));
