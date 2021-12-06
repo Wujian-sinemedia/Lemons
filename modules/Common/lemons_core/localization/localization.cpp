@@ -30,7 +30,7 @@ void initializeTranslations (const File& translationFile, bool ignoreCaseOfKeys)
 		    new juce::LocalisedStrings (translationFile, ignoreCaseOfKeys));
 }
 
-void initializeTranslations (binary::Data data,
+void initializeTranslations (const binary::Data& data,
                              bool         ignoreCaseOfKeys)
 {
 	if (! data.isValid())
@@ -43,6 +43,12 @@ void initializeTranslations (binary::Data data,
 void initializeDefaultTranslations()
 {
 	initializeTranslations (getDefaultTranslationFile());
+}
+
+
+TranslationsInitializer::TranslationsInitializer()
+{
+    initializeDefaultTranslations();
 }
 
 }  // namespace lemons

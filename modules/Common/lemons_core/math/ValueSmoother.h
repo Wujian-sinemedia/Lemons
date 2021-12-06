@@ -7,6 +7,8 @@ namespace lemons
 template <typename SampleType>
 struct ValueSmoother : juce::SmoothedValue<SampleType, juce::ValueSmoothingTypes::Multiplicative>
 {
+    using juce::SmoothedValue<SampleType, juce::ValueSmoothingTypes::Multiplicative>::SmoothedValue;
+    
 	void set (SampleType newGain, bool snapImmediately = false);
 
 	template <typename T>

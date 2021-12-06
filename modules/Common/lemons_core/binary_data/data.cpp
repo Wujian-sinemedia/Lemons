@@ -11,13 +11,15 @@ Data::Data (const String& fileToFind)
 #if LEMONS_HAS_BINARY_DATA
 	data = [&]() -> const char*
 	{
-		using namespace BinaryData;
+		using namespace LEMONS_BINARY_DATA_NAMESPACE;
+        
+        const auto utf8 = fileToFind.toRawUTF8();
 
 		for (int index = 0; index < namedResourceListSize; ++index)
 		{
 			const auto binaryName = namedResourceList[index];
 
-			if (getNamedResourceOriginalFilename (binaryName) == fileToFind.toRawUTF8())
+			if (getNamedResourceOriginalFilename (binaryName) == utf8)
 				return getNamedResource (binaryName, size);
 		}
 

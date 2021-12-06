@@ -39,6 +39,15 @@
 #  if ! __has_include("BinaryData.h")
 #	error "LEMONS_HAS_BINARY_DATA is on, but the BinaryData header cannot be found!"
 #  endif
+
+/** Config: LEMONS_BINARY_DATA_NAMESPACE
+ 
+    Use this to specify the namespace your binary data assets are in. Defaults to 'BinaryData'.
+ */
+#ifndef LEMONS_BINARY_DATA_NAMESPACE
+#define LEMONS_BINARY_DATA_NAMESPACE BinaryData
+#endif
+
 #endif
 
 //==============================================================================
@@ -76,8 +85,17 @@
 #include <juce_data_structures/juce_data_structures.h>
 
 
+namespace lemons
+{
+
+using juce::File;
+using juce::String;
+using juce::ValueTree;
+
+}
+
+
 #include "misc/Preprocessor.h"
-#include "misc/misc.h"
 #include "misc/StringFunctions.h"
 #include "misc/Version.h"
 #include "misc/Dimensions.h"

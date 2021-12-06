@@ -64,38 +64,28 @@ void MathTests::runTest()
 
 	{
 		const auto subtest = beginSubtest ("Hard-coded correct pairs");
-
-		struct MidiFreqPair
-		{
-			constexpr MidiFreqPair (double midiToUse, double freqToUse)
-			    : midi (midiToUse)
-			    , freq (freqToUse)
-			{
-			}
-
-			double midi, freq;
-		};
-
-		for (const auto pair : { MidiFreqPair (0., 8.1757989156),
-		                         MidiFreqPair (39., 77.7817459305),
-		                         MidiFreqPair (57., 220.),
-		                         MidiFreqPair (69., 440.) })
-		{
-			const auto estMidi = math::freqToMidi (pair.freq);
-			const auto estFreq = math::midiToFreq (pair.midi);
-
-			constexpr auto midiError = 0.0001;
-			constexpr auto freqError = 0.0001;
-
-			expectWithinAbsoluteError (estMidi, pair.midi, midiError);
-			expectWithinAbsoluteError (estFreq, pair.freq, freqError);
-
-			expectWithinAbsoluteError (math::freqToMidi (estFreq), pair.midi, midiError);
-			expectWithinAbsoluteError (math::midiToFreq (estMidi), pair.freq, freqError);
-		}
+        
+        const auto testPair = [&](double midi, double freq)
+        {
+            const auto estMidi = math::freqToMidi (freq);
+            const auto estFreq = math::midiToFreq (midi);
+            
+            constexpr auto midiError = 0.0001;
+            constexpr auto freqError = 0.0001;
+            
+            expectWithinAbsoluteError (estMidi, midi, midiError);
+            expectWithinAbsoluteError (estFreq, freq, freqError);
+            
+            expectWithinAbsoluteError (math::freqToMidi (estFreq), midi, midiError);
+            expectWithinAbsoluteError (math::midiToFreq (estMidi), freq, freqError);
+        };
+        
+        testPair (0., 8.1757989156);
+        testPair (39., 77.7817459305);
+        testPair (57., 220.);
+        testPair (69., 440.);
 	}
-
-
+    
 	for (const auto samplerate : getTestingSamplerates())
 	{
 		beginTest ("Samplerate: " + String (samplerate));

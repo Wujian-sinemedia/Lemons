@@ -4,10 +4,10 @@
 /** Use this macro inside a class template to place inheritance constraints on a template argument.
     For example:
     @code
-    template < class SerializableType, LEMONS_MUST_INHERIT_FROM(SerializableType, lemons::SerializableData) >
+    template < class ParameterType, LEMONS_MUST_INHERIT_FROM(ParameterType, juce::AudioProcessorParameter) >
     class SomeClass { };
     @endcode
-    With the above code, attempting to instantiate a specialization of SomeClass where the template argument is not a type that inherits from SerializableData will throw a compile-time error. \n
+    With the above code, attempting to instantiate a specialization of SomeClass where the template argument is not a type that inherits from juce::AudioProcessorParameter will throw a compile-time error. \n
     Note that both arguments to this macro must be fully specialized types.
  */
 #define LEMONS_MUST_INHERIT_FROM(classToTest, requiredBaseClass) \
