@@ -14,25 +14,25 @@ struct Version final
 	constexpr Version (int maj, int min, int p);
 
 	/** Returns true if this version is the same as the other one. */
-	bool operator== (const Version& other) const noexcept;
+	constexpr bool operator== (const Version& other) const noexcept;
 
 	/** Returns true if this version is not the same as the other one. */
-	bool operator!= (const Version& other) const noexcept;
+	constexpr bool operator!= (const Version& other) const noexcept;
 
 	/** Returns true if this version is newer than the other one. */
-	bool operator> (const Version& other) const noexcept;
+	constexpr bool operator> (const Version& other) const noexcept;
 
 	/** Returns true if this version is older than the other one. */
-	bool operator< (const Version& other) const noexcept;
+	constexpr bool operator< (const Version& other) const noexcept;
 
 	/** Returns true if this version has the same major release number as the other one. */
-	[[nodiscard]] bool hasSameMajorVersion (const Version& other) const noexcept;
+	[[nodiscard]] constexpr bool hasSameMajorVersion (const Version& other) const noexcept;
 
 	/** Returns true if this version is newer than the other one. */
-	[[nodiscard]] bool isNewerThan (const Version& other) const noexcept;
+	[[nodiscard]] constexpr bool isNewerThan (const Version& other) const noexcept;
 
 	/** Returns true if this version is older than the other one. */
-	[[nodiscard]] bool isOlderThan (const Version& other) const noexcept;
+	[[nodiscard]] constexpr bool isOlderThan (const Version& other) const noexcept;
 
 	/** Returns a String representation of this Version.
 	    @param separator A character that will be placed between the major, minor, and patch values. Defaults to ".".
@@ -51,17 +51,17 @@ struct Version final
 	/** Returns a new Version object with bumpMajor() applied.
 	    @see bumpMajor()
 	 */
-	[[nodiscard]] Version withMajorBump() const;
+	[[nodiscard]] constexpr Version withMajorBump() const;
 
 	/** Returns a new Version object with bumpMinor() applied.
 	    @see bumpMinor()
 	 */
-	[[nodiscard]] Version withMinorBump() const;
+	[[nodiscard]] constexpr Version withMinorBump() const;
 
 	/** Returns a new Version object with bumpPatch() applied.
 	    @see bumpPatch()
 	 */
-	[[nodiscard]] Version withPatchBump() const;
+	[[nodiscard]] constexpr Version withPatchBump() const;
 
 	/** Returns a Version object representing the version of Juce this module was compiled with. */
 	[[nodiscard]] constexpr static Version juceVersion();

@@ -2,7 +2,7 @@
 namespace lemons::math
 {
 
-double sampsToMs (double samplerate, int numSamples) noexcept
+constexpr double sampsToMs (double samplerate, int numSamples) noexcept
 {
 	jassert (samplerate > 0.0);
 	return (static_cast<double> (numSamples) / samplerate) * 1000.;

@@ -14,12 +14,12 @@ struct Dimensions final
 	constexpr Dimensions (int widthToUse, int heightToUse);
 
 	/** Returns true if the width and height are both greater than 0. */
-	[[nodiscard]] bool isValid() const noexcept;
+	[[nodiscard]] constexpr bool isValid() const noexcept;
 
 	/** Returns the aspect ratio of the represented dimensions, calculated as width / height.
 	    If isValid() return false, then this function will return 0.
 	 */
-	[[nodiscard]] float getAspectRatio() const noexcept;
+	[[nodiscard]] constexpr float getAspectRatio() const noexcept;
 
 	/** Returns a Dimensions object representing the size 1060 x 640. */
 	[[nodiscard]] static constexpr Dimensions getDefault();

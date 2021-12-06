@@ -7,12 +7,12 @@ constexpr Dimensions::Dimensions (int widthToUse, int heightToUse)
 {
 }
 
-bool Dimensions::isValid() const noexcept
+constexpr bool Dimensions::isValid() const noexcept
 {
 	return width > 0 && height > 0;
 }
 
-float Dimensions::getAspectRatio() const noexcept
+constexpr float Dimensions::getAspectRatio() const noexcept
 {
 	if (! isValid())
 		return 0.f;

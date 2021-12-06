@@ -31,17 +31,17 @@ constexpr Version::Version (int maj, int min, int p)
 {
 }
 
-bool Version::operator== (const Version& other) const noexcept
+constexpr bool Version::operator== (const Version& other) const noexcept
 {
 	return major == other.major && minor == other.minor && patch == other.patch;
 }
 
-bool Version::operator!= (const Version& other) const noexcept
+constexpr bool Version::operator!= (const Version& other) const noexcept
 {
 	return ! (*this == other);
 }
 
-bool Version::operator> (const Version& other) const noexcept
+constexpr bool Version::operator> (const Version& other) const noexcept
 {
 	if (major < other.major) return false;
 
@@ -50,7 +50,7 @@ bool Version::operator> (const Version& other) const noexcept
 	return patch > other.patch;
 }
 
-bool Version::operator< (const Version& other) const noexcept
+constexpr bool Version::operator< (const Version& other) const noexcept
 {
 	if (major > other.major) return false;
 
@@ -59,17 +59,17 @@ bool Version::operator< (const Version& other) const noexcept
 	return patch < other.patch;
 }
 
-bool Version::isNewerThan (const Version& other) const noexcept
+constexpr bool Version::isNewerThan (const Version& other) const noexcept
 {
 	return *this > other;
 }
 
-bool Version::isOlderThan (const Version& other) const noexcept
+constexpr bool Version::isOlderThan (const Version& other) const noexcept
 {
 	return *this < other;
 }
 
-bool Version::hasSameMajorVersion (const Version& other) const noexcept
+constexpr bool Version::hasSameMajorVersion (const Version& other) const noexcept
 {
 	return major == other.major;
 }
@@ -97,21 +97,21 @@ void Version::bumpPatch() noexcept
 	++patch;
 }
 
-Version Version::withMajorBump() const
+constexpr Version Version::withMajorBump() const
 {
 	return { major + 1,
 		     0,
 		     0 };
 }
 
-Version Version::withMinorBump() const
+constexpr Version Version::withMinorBump() const
 {
 	return { major,
 		     minor + 1,
 		     0 };
 }
 
-Version Version::withPatchBump() const
+constexpr Version Version::withPatchBump() const
 {
 	return { major,
 		     minor,

@@ -10,7 +10,7 @@ namespace lemons::math
 
 // returns the period in samples of a specified frequency in hz at a specified samplerate
 template <typename FreqType>
-[[nodiscard]] int periodInSamples (double samplerate, FreqType freqHz) noexcept
+[[nodiscard]] constexpr int periodInSamples (double samplerate, FreqType freqHz) noexcept
 {
 	jassert (freqHz > FreqType (0.0));
 	return juce::roundToInt (samplerate / static_cast<double> (freqHz));
@@ -18,7 +18,7 @@ template <typename FreqType>
 
 // returns the resultant fundamental frequency in Hz from a specified period in samples and samplerate
 template <typename PeriodType>
-[[nodiscard]] PeriodType freqFromPeriod (double     samplerate,
+[[nodiscard]] constexpr PeriodType freqFromPeriod (double     samplerate,
                                      PeriodType period) noexcept
 {
 	jassert (period > PeriodType (0.0));
@@ -33,11 +33,11 @@ template <typename PeriodType>
 
 
 // converts a specified number of samples to milliseconds
-[[nodiscard]] double sampsToMs (double samplerate, int numSamples) noexcept;
+[[nodiscard]] constexpr double sampsToMs (double samplerate, int numSamples) noexcept;
 
 // converts a specified amount of time in milliseconds to the closest integer number of samples at the specified samplerate
 template <typename msType>
-[[nodiscard]] int msToSamps (double samplerate, msType ms) noexcept
+[[nodiscard]] constexpr int msToSamps (double samplerate, msType ms) noexcept
 {
     const auto val = samplerate / 1000. * static_cast<double> (ms);
     
@@ -47,7 +47,7 @@ template <typename msType>
 
 // converts a midi note to a frequency in Hz
 template <typename T>
-[[nodiscard]] T midiToFreq (T midiNote) noexcept
+[[nodiscard]] constexpr T midiToFreq (T midiNote) noexcept
 {
     const auto val = 440. * std::pow (2., (static_cast<double>(midiNote) - 69.) / 12.);
     
@@ -60,7 +60,7 @@ template <typename T>
 
 // converts a frequency in Hz to a midi pitch
 template <typename T>
-[[nodiscard]] T freqToMidi (T freqHz) noexcept
+[[nodiscard]] constexpr T freqToMidi (T freqHz) noexcept
 {
     const auto val = 69. + 12. * std::log2 (static_cast<double>(freqHz) / 440.);
     
