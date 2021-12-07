@@ -48,7 +48,7 @@ private:
 	AudioBuffer<FloatType> bufferA, bufferB;
 };
 
-LEMONS_CREATE_DSP_TEST(AudioBufferUtilsTests)
+LEMONS_CREATE_DSP_TEST (AudioBufferUtilsTests)
 
 }  // namespace lemons::tests
 

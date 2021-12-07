@@ -108,8 +108,8 @@ private:
 	void runTest() final;
 
 	void runOscillatorTest (dsp::osc::Oscillator<FloatType>& osc, double samplerate, const String& waveName);
-    
-    static const std::vector<float> getConfidenceThresholdsToTest();
+
+	static const std::vector<float> getConfidenceThresholdsToTest();
 
 	static constexpr auto minDetectableFreq = 30.f;
 	static constexpr auto maxDetectableFreq = 3000.f;
@@ -125,7 +125,7 @@ private:
 	dsp::osc::SuperSaw<FloatType> superSaw;
 };
 
-LEMONS_CREATE_DSP_TEST(PitchDetectorTests)
+LEMONS_CREATE_DSP_TEST (PitchDetectorTests)
 
 }  // namespace lemons::tests
 

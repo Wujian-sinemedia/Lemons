@@ -10,9 +10,9 @@ static inline std::function<String (int)> createDefaultLfoNamingFunc()
 	};
 }
 
-ModulationManager::ModulationManager (//ParameterList& listToUse,
-                                      int            initNumLfos,
-                                      LfoNamingFunc  namingFuncToUse)
+ModulationManager::ModulationManager (  // ParameterList& listToUse,
+    int           initNumLfos,
+    LfoNamingFunc namingFuncToUse)
     //: paramList (listToUse)
     : namingFunc (namingFuncToUse)
 {

@@ -3,15 +3,15 @@ namespace lemons::plugin
 {
 
 template <typename ValueType>
-MetaParameter<ValueType>::MetaParameter (//ParameterList& parameterListToUse,
-                                         ValueType minimum, ValueType maximum, ValueType defaultValue,
-                                         String                                   paramName,
-                                         std::function<String (ValueType, int)>   stringFromValue,
-                                         std::function<ValueType (const String&)> valueFromString,
-                                         String paramLabel, bool isAutomatable,
-                                         juce::AudioProcessorParameter::Category parameterCategory)
+MetaParameter<ValueType>::MetaParameter (  // ParameterList& parameterListToUse,
+    ValueType minimum, ValueType maximum, ValueType defaultValue,
+    String                                   paramName,
+    std::function<String (ValueType, int)>   stringFromValue,
+    std::function<ValueType (const String&)> valueFromString,
+    String paramLabel, bool isAutomatable,
+    juce::AudioProcessorParameter::Category parameterCategory)
     : TypedParameter<ValueType> (minimum, maximum, defaultValue, paramName, stringFromValue, valueFromString, paramLabel, isAutomatable, true, parameterCategory)
-    //, parameterList (parameterListToUse)
+//, parameterList (parameterListToUse)
 {
 }
 
@@ -77,7 +77,7 @@ void MetaParameter<ValueType>::createOrEditConnection (Parameter& parameter, flo
 		connection.parameter = &parameter;
 		connection.min       = minAmt;
 		connection.max       = maxAmt;
-		//connection.paramList = &parameterList;
+		// connection.paramList = &parameterList;
 	};
 
 	if (auto* connection = getConnection (parameter))
@@ -142,8 +142,8 @@ template class MetaParameter<int>;
 /*----------------------------------------------------------------------------------------------------------------*/
 
 
-DefaultMetaParameter::DefaultMetaParameter (//ParameterList& parameterListToUse,
-                                            String         paramName)
+DefaultMetaParameter::DefaultMetaParameter (  // ParameterList& parameterListToUse,
+    String paramName)
     : MetaParameter<int> (/*parameterListToUse,*/ 0, 100, 50, paramName)
 {
 }

@@ -14,9 +14,9 @@ void initializeDefaultTranslations();
 
 struct TranslationsInitializer
 {
-    TranslationsInitializer();
-    
-    virtual ~TranslationsInitializer() = default;
+	TranslationsInitializer();
+
+	virtual ~TranslationsInitializer() = default;
 };
 
 }  // namespace lemons

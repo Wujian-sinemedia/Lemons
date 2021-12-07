@@ -185,11 +185,11 @@ private:
 	dsp::osc::Triangle<SampleType> triangle;
 
 	AudioBuffer<SampleType> storage;
-    
-    juce::Array<int> zeroCrossings;
+
+	juce::Array<int> zeroCrossings;
 };
 
-LEMONS_CREATE_DSP_TEST(OscillatorTests)
+LEMONS_CREATE_DSP_TEST (OscillatorTests)
 
 }  // namespace lemons::tests
 

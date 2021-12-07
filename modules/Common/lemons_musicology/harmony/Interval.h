@@ -6,30 +6,30 @@ namespace lemons::music
 class Interval final
 {
 public:
-    
-    /*
-     create from
-     - num semitones
-     - quality and interval
-     */
-    
-    enum class Quality
-    {
-        Major,
-        Minor,
-        Perfect,
-        Augmented,
-        Diminished
-    };
-    
-    [[nodiscard]] Quality getQuality() const;
-    
-    [[nodiscard]] int getNumSemitones() const { }
-    
-    // get string description
-    
+
+	/*
+	 create from
+	 - num semitones
+	 - quality and interval
+	 */
+
+	enum class Quality
+	{
+		Major,
+		Minor,
+		Perfect,
+		Augmented,
+		Diminished
+	};
+
+	[[nodiscard]] Quality getQuality() const;
+
+	[[nodiscard]] int getNumSemitones() const { }
+
+	// get string description
+
 private:
-    Quality quality;
+	Quality quality;
 };
 
-}
+}  // namespace lemons::music

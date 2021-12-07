@@ -128,7 +128,7 @@ public:
 	    The UndoManager will track change gestures, changing the default value, and changing the MIDI CC mapping.
 	    @see UndoManager
 	 */
-//	void setUndoManager (UndoManager& managerToUse);
+	//	void setUndoManager (UndoManager& managerToUse);
 
 	/** Returns true if this parameter is automatable by the user's DAW. */
 	bool isAutomatable() const final;
@@ -216,7 +216,7 @@ private:
 	std::function<String (float)>        valueToTextFunc;
 	std::function<float (const String&)> textToValueFunc;
 
-//	UndoManager* um = nullptr;
+	//	UndoManager* um = nullptr;
 
 	juce::ListenerList<Listener> listeners;
 

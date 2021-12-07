@@ -31,7 +31,7 @@ void initializeTranslations (const File& translationFile, bool ignoreCaseOfKeys)
 }
 
 void initializeTranslations (const binary::Data& data,
-                             bool         ignoreCaseOfKeys)
+                             bool                ignoreCaseOfKeys)
 {
 	if (! data.isValid())
 		return;
@@ -48,7 +48,7 @@ void initializeDefaultTranslations()
 
 TranslationsInitializer::TranslationsInitializer()
 {
-    initializeDefaultTranslations();
+	initializeDefaultTranslations();
 }
 
 }  // namespace lemons

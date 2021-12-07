@@ -3,55 +3,52 @@ namespace lemons::music
 
 bool Chord::operator== (const Chord& other) const
 {
-    return midiNotes == other.midiNotes;
+	return midiNotes == other.midiNotes;
 }
 
 bool Chord::operator!= (const Chord& other) const
 {
-    return ! (*this == other);
+	return ! (*this == other);
 }
 
 bool Chord::containsSamePitchClassesAs (const Chord& other) const
 {
-    
 }
 
 bool Chord::containsPitch (int midiNote) const
 {
-    jassert (midiNote >= 0 && midiNote <= 127);
-    return midiNotes.contains (midiNote);
+	jassert (midiNote >= 0 && midiNote <= 127);
+	return midiNotes.contains (midiNote);
 }
 
 bool Chord::containsPitchClass (int pitchClass) const
 {
-    jassert (pitchClass >= 0 && pitchClass <= 11);
-    
-    for (auto note : midiNotes)
-        if (note % 12 == pitchClass)
-            return true;
-    
-    return false;
+	jassert (pitchClass >= 0 && pitchClass <= 11);
+
+	for (auto note : midiNotes)
+		if (note % 12 == pitchClass)
+			return true;
+
+	return false;
 }
 
 int Chord::getNumPitches() const
 {
-    return midiNotes.size();
+	return midiNotes.size();
 }
 
 int Chord::getNumUniquePitchClasses() const
 {
-    
 }
 
 int Chord::getLowestPitch() const
 {
-    return juce::findMinimum (midiNotes.getRawDataPointer(), midiNotes.size());
+	return juce::findMinimum (midiNotes.getRawDataPointer(), midiNotes.size());
 }
 
 int Chord::getHighestPitch() const
 {
-    return juce::findMaximum (midiNotes.getRawDataPointer(), midiNotes.size());
+	return juce::findMaximum (midiNotes.getRawDataPointer(), midiNotes.size());
 }
 
-}
-
+}  // namespace lemons::music

@@ -161,9 +161,9 @@ void AudioEngineTests<FloatType>::runTest()
 		logImportantMessage ("Can call process()");
 
 		engine.process (audioIn);
-        
-        expect (allSamplesAreValid (audioIn));
-        
+
+		expect (allSamplesAreValid (audioIn));
+
 		engine.process (audioIn, midiStorage);
 
 		logImportantMessage ("Alternate bypassed/unbypassed processing");

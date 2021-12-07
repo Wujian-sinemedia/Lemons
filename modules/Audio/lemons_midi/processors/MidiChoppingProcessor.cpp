@@ -10,8 +10,8 @@ void MidiChoppingProcessor<SampleType>::prepare (int maxBlocksize)
 template <typename SampleType>
 void MidiChoppingProcessor<SampleType>::processBypassed (const MidiBuffer& midi)
 {
-    std::for_each (midi.findNextSamplePosition (0), midi.cend(), [&] (const juce::MidiMessageMetadata& meta)
-                   { handleMidiMessage (meta.getMessage()); });
+	std::for_each (midi.findNextSamplePosition (0), midi.cend(), [&] (const juce::MidiMessageMetadata& meta)
+	               { handleMidiMessage (meta.getMessage()); });
 }
 
 template <typename SampleType>

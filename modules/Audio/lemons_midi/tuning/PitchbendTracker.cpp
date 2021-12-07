@@ -39,14 +39,14 @@ namespace lemons::tests
 {
 
 PitchbendTests::PitchbendTests()
-: MidiTest("Pitchbend tracker")
-{ }
+    : MidiTest ("Pitchbend tracker")
+{
+}
 
 void PitchbendTests::runTest()
 {
-    
 }
 
-}
+}  // namespace lemons::tests
 
 #endif

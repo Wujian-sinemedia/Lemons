@@ -24,7 +24,7 @@ void ProcessorBase::saveEditorSize (int width, int height)
 
 juce::AudioProcessorParameter* ProcessorBase::getBypassParameter() const
 {
-	//return state.mainBypass.get();
+	// return state.mainBypass.get();
 }
 
 void ProcessorBase::prepareToPlay (double sampleRate, int samplesPerBlock)
@@ -59,12 +59,12 @@ void ProcessorBase::releaseResources()
 
 void ProcessorBase::getStateInformation (juce::MemoryBlock& block)
 {
-	//serializing::toBinary (state, block);
+	// serializing::toBinary (state, block);
 }
 
 void ProcessorBase::setStateInformation (const void* data, int size)
 {
-	//serializing::fromBinary (data, size, state);
+	// serializing::fromBinary (data, size, state);
 
 	if (auto* e = getActiveEditor())
 		e->setSize (state.dimensions.x, state.dimensions.y);
@@ -88,7 +88,7 @@ void ProcessorBase::processBlockBypassed (AudioBuffer<float>& audio, MidiBuffer&
 {
 	juce::ScopedNoDenormals nodenorms;
 
-	//state.mainBypass->set (true);
+	// state.mainBypass->set (true);
 	floatEngine.process (audio, midi);
 }
 
@@ -96,7 +96,7 @@ void ProcessorBase::processBlockBypassed (AudioBuffer<double>& audio, MidiBuffer
 {
 	juce::ScopedNoDenormals nodenorms;
 
-	//state.mainBypass->set (true);
+	// state.mainBypass->set (true);
 	doubleEngine.process (audio, midi);
 }
 

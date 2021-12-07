@@ -47,10 +47,10 @@ AudioBuffer<SampleType> getAliasBuffer (AudioBuffer<SampleType>& bufferToAlias,
 		numChannels = bufferToAlias.getNumChannels();
 
 	jassert (numChannels > 0);
-    jassert (numSamples >= 0);
-    
-    jassert (numChannels <= bufferToAlias.getNumChannels());
-    jassert (numSamples <= bufferToAlias.getNumSamples());
+	jassert (numSamples >= 0);
+
+	jassert (numChannels <= bufferToAlias.getNumChannels());
+	jassert (numSamples <= bufferToAlias.getNumSamples());
 
 	return { bufferToAlias.getArrayOfWritePointers() + channelOffset, numChannels, startSample, numSamples };
 }
@@ -88,11 +88,11 @@ void AudioBufferUtilsTests<FloatType>::runTest()
 {
 	for (const auto numChannels : { 1, 2, 3, 5, 8, 9 })
 	{
-        beginTest ("Num channels: " + String (numChannels));
-        
+		beginTest ("Num channels: " + String (numChannels));
+
 		for (const auto numSamples : getTestingBlockSizes())
 		{
-            const auto blocksizeSubtest = beginSubtest ("Blocksize: " + String (numSamples));
+			const auto blocksizeSubtest = beginSubtest ("Blocksize: " + String (numSamples));
 
 			resizeAllBuffers (numSamples, numChannels);
 
@@ -104,13 +104,13 @@ void AudioBufferUtilsTests<FloatType>::runTest()
 			expect (bufferIsSilent (bufferA));
 			expect (bufferIsSilent (bufferB));
 			expect (buffersAreEqual (bufferA, bufferB));
-            expect (noSamplesAreClipping (bufferA));
+			expect (noSamplesAreClipping (bufferA));
 
-			bufferA.setSample (0, 1, FloatType(1.001));
+			bufferA.setSample (0, 1, FloatType (1.001));
 
 			expect (! bufferIsSilent (bufferA));
 			expect (! buffersAreEqual (bufferA, bufferB));
-            expect (! noSamplesAreClipping (bufferA));
+			expect (! noSamplesAreClipping (bufferA));
 
 			fillAudioBufferWithRandomNoise (bufferA, getRandom());
 
@@ -161,11 +161,11 @@ void AudioBufferUtilsTests<FloatType>::runTest()
 				runConversionTests<double> (numChannels, numSamples);
 			else
 				runConversionTests<float> (numChannels, numSamples);
-            
-            MidiBuffer midi;
-            fillMidiBufferWithRandomEvents (midi, 25, getRandom());
-            const auto copiedMidi = makeCopyOfMidiBuffer (midi);
-            //expect (midiBuffersAreEqual (midi, copiedMidi));
+
+			MidiBuffer midi;
+			fillMidiBufferWithRandomEvents (midi, 25, getRandom());
+			const auto copiedMidi = makeCopyOfMidiBuffer (midi);
+			// expect (midiBuffersAreEqual (midi, copiedMidi));
 		}
 	}
 }
@@ -174,8 +174,8 @@ template <typename FloatType>
 template <typename OtherFloatType>
 void AudioBufferUtilsTests<FloatType>::runConversionTests (int numChannels, int numSamples)
 {
-    const auto subtest = beginSubtest ("Sample type conversion");
-    
+	const auto subtest = beginSubtest ("Sample type conversion");
+
 	AudioBuffer<OtherFloatType> otherBuffer { numChannels, numSamples };
 
 	fillAudioBufferWithRandomNoise (bufferA, getRandom());

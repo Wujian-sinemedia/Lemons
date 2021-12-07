@@ -7,12 +7,12 @@ template <typename ValueType>
 class MetaParameter : public TypedParameter<ValueType>
 {
 public:
-	MetaParameter (//ParameterList& parameterListToUse,
-	               ValueType minimum, ValueType maximum, ValueType defaultValue, String paramName,
-	               std::function<String (ValueType, int)>   stringFromValue = nullptr,
-	               std::function<ValueType (const String&)> valueFromString = nullptr,
-	               String paramLabel = {}, bool isAutomatable = true,
-	               juce::AudioProcessorParameter::Category parameterCategory = juce::AudioProcessorParameter::genericParameter);
+	MetaParameter (  // ParameterList& parameterListToUse,
+	    ValueType minimum, ValueType maximum, ValueType defaultValue, String paramName,
+	    std::function<String (ValueType, int)>   stringFromValue = nullptr,
+	    std::function<ValueType (const String&)> valueFromString = nullptr,
+	    String paramLabel = {}, bool isAutomatable = true,
+	    juce::AudioProcessorParameter::Category parameterCategory = juce::AudioProcessorParameter::genericParameter);
 
 	void removeInvalidConnections();
 
@@ -47,7 +47,7 @@ private:
 
 		void apply (float newMetaVal);
 
-		//ParameterList* paramList { nullptr };
+		// ParameterList* paramList { nullptr };
 	};
 
 	/*---------------------------------------------------------*/
@@ -77,7 +77,7 @@ private:
 
 	juce::Array<Connection> connections;
 
-	//ParameterList& parameterList;
+	// ParameterList& parameterList;
 };
 
 
@@ -91,6 +91,6 @@ struct DefaultMetaParameter : MetaParameter<int>
 namespace lemons
 {
 
-//using MetaParam = plugin::ParameterHolder<plugin::DefaultMetaParameter>;
+// using MetaParam = plugin::ParameterHolder<plugin::DefaultMetaParameter>;
 
 }

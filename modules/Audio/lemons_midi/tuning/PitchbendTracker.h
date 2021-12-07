@@ -49,14 +49,14 @@ namespace lemons::tests
 
 struct PitchbendTests : public MidiTest
 {
-    PitchbendTests();
-    
+	PitchbendTests();
+
 private:
-    void runTest() final;
+	void runTest() final;
 };
 
 static PitchbendTests pitchbendTest;
 
-}
+}  // namespace lemons::tests
 
 #endif

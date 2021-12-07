@@ -80,7 +80,7 @@ private:
 	MidiBuffer midiStorage;
 };
 
-LEMONS_CREATE_DSP_TEST(LatencyEngineTests)
+LEMONS_CREATE_DSP_TEST (LatencyEngineTests)
 
 }  // namespace lemons::tests
 

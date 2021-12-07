@@ -64,11 +64,11 @@ int stringToPitchClass (const String& string) noexcept
 
 
 static const char* const sharpNoteNames[] = {
-    "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"
+	"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"
 };
 
 static const char* const flatNoteNames[] = {
-    "C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"
+	"C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"
 };
 
 String pitchClassToString (int pitchClass, bool asSharps) noexcept
@@ -143,7 +143,7 @@ int midiPanStringToInt (const String& string) noexcept
 }
 
 
-}  // namespace lemons
+}  // namespace lemons::music
 
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -159,8 +159,8 @@ StringFunctionsTests::StringFunctionsTests()
 
 void StringFunctionsTests::runTest()
 {
-    using namespace lemons::music;
-    
+	using namespace lemons::music;
+
 	beginTest ("pitch class / string conversion");
 
 	const auto testPitchClass = [&] (int pitchClass, const String& string)

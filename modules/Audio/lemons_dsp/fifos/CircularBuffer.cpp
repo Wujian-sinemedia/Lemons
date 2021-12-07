@@ -155,8 +155,8 @@ void CircularBufferTests<FloatType>::runTest()
 		resizeAllBuffers (numSamples);
 
 		fillAudioBufferWithRandomNoise (origStorage, getRandom());
-        
-        expect (noSamplesAreClipping (origStorage));
+
+		expect (noSamplesAreClipping (origStorage));
 
 		circularBuffer.storeSamples (origStorage);
 
@@ -165,40 +165,40 @@ void CircularBufferTests<FloatType>::runTest()
 		circularBuffer.getSamples (circOutput);
 
 		expectEquals (circularBuffer.getNumStoredSamples(), 0);
-        expect (allSamplesAreValid (circOutput));
-        expect (noSamplesAreClipping (circOutput));
+		expect (allSamplesAreValid (circOutput));
+		expect (noSamplesAreClipping (circOutput));
 
 		expect (allSamplesAreEqual (circOutput, origStorage, 0, numSamples));
-        
-        const auto halfNumSamples = numSamples / 2;
 
-        {
-            const auto subtest = beginSubtest ("Retrieve fewer samples than were passed in");
-            
-            circularBuffer.storeSamples (origStorage);
-            
-            auto alias = dsp::buffers::getAliasBuffer (circOutput, 0, halfNumSamples);
-            
-            circularBuffer.getSamples (alias);
-            
-            expect (allSamplesAreEqual (alias, origStorage, 0, halfNumSamples));
-        }
+		const auto halfNumSamples = numSamples / 2;
 
-        {
-            const auto subtest = beginSubtest ("Retrieve more samples than are left in circ buffer");
-            
-            if (math::numberIsEven (numSamples))
-                expectEquals (circularBuffer.getNumStoredSamples(), halfNumSamples);
-            else
-                expectWithinAbsoluteError (circularBuffer.getNumStoredSamples(), halfNumSamples, 1);
-            
-            circularBuffer.getSamples (circOutput);
-            
-            expect (allSamplesAreZero (circOutput, 0, halfNumSamples));
-            expect (allSamplesAreEqual (circOutput, origStorage, halfNumSamples, halfNumSamples));
-        }
-		
-        const auto subtest = beginSubtest ("Resizing");
+		{
+			const auto subtest = beginSubtest ("Retrieve fewer samples than were passed in");
+
+			circularBuffer.storeSamples (origStorage);
+
+			auto alias = dsp::buffers::getAliasBuffer (circOutput, 0, halfNumSamples);
+
+			circularBuffer.getSamples (alias);
+
+			expect (allSamplesAreEqual (alias, origStorage, 0, halfNumSamples));
+		}
+
+		{
+			const auto subtest = beginSubtest ("Retrieve more samples than are left in circ buffer");
+
+			if (math::numberIsEven (numSamples))
+				expectEquals (circularBuffer.getNumStoredSamples(), halfNumSamples);
+			else
+				expectWithinAbsoluteError (circularBuffer.getNumStoredSamples(), halfNumSamples, 1);
+
+			circularBuffer.getSamples (circOutput);
+
+			expect (allSamplesAreZero (circOutput, 0, halfNumSamples));
+			expect (allSamplesAreEqual (circOutput, origStorage, halfNumSamples, halfNumSamples));
+		}
+
+		const auto subtest = beginSubtest ("Resizing");
 
 		circularBuffer.storeSamples (origStorage);
 

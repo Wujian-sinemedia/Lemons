@@ -7,10 +7,10 @@ namespace lemons::gui
  */
 struct Label : juce::Label
 {
-    /** Creates a label. */
-    Label (const String& textToUse = {});
+	/** Creates a label. */
+	Label (const String& textToUse = {});
 
-    /** Changes the label's text. */
+	/** Changes the label's text. */
 	void set (const String& newText);
 };
 

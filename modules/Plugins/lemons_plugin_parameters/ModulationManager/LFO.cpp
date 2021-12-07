@@ -2,7 +2,7 @@
 namespace lemons::plugin
 {
 LFO::LFO (/*ParameterList& listToUse,*/ String metaParameterName)
-    //: param (metaParameterName)
+//: param (metaParameterName)
 {
 }
 
@@ -19,12 +19,12 @@ void LFO::prepareToPlay (int numSamples, double samplerate)
 
 [[nodiscard]] DefaultMetaParameter& LFO::getParameter() noexcept
 {
-	//return *param.get();
+	// return *param.get();
 }
 
 void LFO::addParameterTo (juce::AudioProcessor& processor)
 {
-	//param.addTo (processor);
+	// param.addTo (processor);
 }
 
 }  // namespace lemons::plugin

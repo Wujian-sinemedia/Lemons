@@ -59,7 +59,7 @@ using juce::String;
  */
 [[nodiscard]] int midiPanStringToInt (const String& string) noexcept;
 
-}  // namespace lemons
+}  // namespace lemons::music
 
 
 /*---------------------------------------------------------------------------------------------------------------------------------*/

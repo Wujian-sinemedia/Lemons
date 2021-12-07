@@ -82,8 +82,8 @@ void MidiProcessor::processSoftPedal (int controllerValue)
 
 void MidiProcessor::getLastMovedCCinfo (int& controllerNumber, int& controllerValue) const noexcept
 {
-    controllerNumber = lastMovedController;
-    controllerValue = lastControllerValue;
+	controllerNumber = lastMovedController;
+	controllerValue  = lastControllerValue;
 }
 
 void MidiProcessor::handleNoteOn (int, float) { }

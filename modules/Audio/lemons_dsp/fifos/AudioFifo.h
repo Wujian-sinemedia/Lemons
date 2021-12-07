@@ -44,7 +44,7 @@ public:
 	void resize (int maxNumSamples, int numChannels = 2);
 
 private:
-    ConstructedArray<CircularBuffer<SampleType>> buffers;
+	ConstructedArray<CircularBuffer<SampleType>> buffers;
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudioFifo)
 };
@@ -76,7 +76,7 @@ private:
 	dsp::AudioFifo<FloatType> fifo;
 };
 
-LEMONS_CREATE_DSP_TEST(AudioFifoTests)
+LEMONS_CREATE_DSP_TEST (AudioFifoTests)
 
 }  // namespace lemons::tests
 

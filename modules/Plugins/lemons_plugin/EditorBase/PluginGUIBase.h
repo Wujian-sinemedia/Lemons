@@ -9,7 +9,7 @@ class GUIBase : public juce::Component
 {
 public:
 	/** Creates a new plugin GUI. */
-	GUIBase (StateBase& stateBaseToUse)//, Toggle& toggleInterfaceToUse)
+	GUIBase (StateBase& stateBaseToUse)  //, Toggle& toggleInterfaceToUse)
 	    : stateBase (stateBaseToUse)
 	{
 	}
@@ -41,7 +41,7 @@ public:
 
 protected:
 	/** The plugin's main state object. */
-	StateType&    state;
+	StateType& state;
 };
 
 }  // namespace lemons::plugin

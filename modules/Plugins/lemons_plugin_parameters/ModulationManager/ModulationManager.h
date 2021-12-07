@@ -13,9 +13,9 @@ public:
 	using LfoNamingFunc = std::function<String (int)>;
 
 	/** Creates a modulation manager. */
-	ModulationManager (//ParameterList& listToUse,
-	                   int            initNumLfos     = 1,
-	                   LfoNamingFunc  namingFuncToUse = nullptr);
+	ModulationManager (  // ParameterList& listToUse,
+	    int           initNumLfos     = 1,
+	    LfoNamingFunc namingFuncToUse = nullptr);
 
 	void addAllParametersTo (juce::AudioProcessor& processor);
 
@@ -49,7 +49,7 @@ public:
 private:
 	/*------------------------------*/
 
-	//ParameterList& paramList;
+	// ParameterList& paramList;
 
 	juce::OwnedArray<LFO> lfos;
 

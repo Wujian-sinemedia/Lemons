@@ -1,18 +1,18 @@
 
 namespace lemons::dsp
 {
-template < typename SampleType >
-void SynthBase< SampleType >::setPitchGlideTime (double glideTimeSeconds)
+template <typename SampleType>
+void SynthBase<SampleType>::setPitchGlideTime (double glideTimeSeconds)
 {
-    for (auto* voice : voices)
-        voice->setPitchGlideTime (glideTimeSeconds);
+	for (auto* voice : voices)
+		voice->setPitchGlideTime (glideTimeSeconds);
 }
 
-template < typename SampleType >
-void SynthBase< SampleType >::togglePitchGlide (bool shouldGlide)
+template <typename SampleType>
+void SynthBase<SampleType>::togglePitchGlide (bool shouldGlide)
 {
-    for (auto* voice : voices)
-        voice->togglePitchGlide (shouldGlide);
+	for (auto* voice : voices)
+		voice->togglePitchGlide (shouldGlide);
 }
 
 
@@ -21,43 +21,43 @@ void SynthBase< SampleType >::togglePitchGlide (bool shouldGlide)
  At 100, each voice's volume is entirely dependant on the velocity of its note-on message and subsequent aftertouch messages.
  At 0, velocity and aftertouch have no effect on the voices' volume.
  */
-template < typename SampleType >
-void SynthBase< SampleType >::updateMidiVelocitySensitivity (int newSensitivity)
+template <typename SampleType>
+void SynthBase<SampleType>::updateMidiVelocitySensitivity (int newSensitivity)
 {
-    jassert (newSensitivity >= 0 && newSensitivity <= 100);
+	jassert (newSensitivity >= 0 && newSensitivity <= 100);
 
-    const auto newSens = newSensitivity / 100.0f;
+	const auto newSens = newSensitivity / 100.0f;
 
-    if (velocityConverter.getSensitivity() == newSens) return;
+	if (velocityConverter.getSensitivity() == newSens) return;
 
-    velocityConverter.setSensitivity (newSens);
+	velocityConverter.setSensitivity (newSens);
 
-    for (auto* voice : voices)
-        if (voice->isVoiceActive())
-            voice->setVelocityMultiplier (velocityConverter.getGainForVelocity (voice->lastRecievedVelocity));
+	for (auto* voice : voices)
+		if (voice->isVoiceActive())
+			voice->setVelocityMultiplier (velocityConverter.getGainForVelocity (voice->lastRecievedVelocity));
 }
 
 /*
  Sets the range of the pitch wheel up and down, in semitones.
  */
-template < typename SampleType >
-void SynthBase< SampleType >::updatePitchbendRange (int rangeUp, int rangeDown)
+template <typename SampleType>
+void SynthBase<SampleType>::updatePitchbendRange (int rangeUp, int rangeDown)
 {
-    if ((pitch.bend.getRangeUp() == rangeUp) && (pitch.bend.getRangeDown() == rangeDown)) return;
+	if ((pitch.bend.getRangeUp() == rangeUp) && (pitch.bend.getRangeDown() == rangeDown)) return;
 
-    pitch.bend.setRange (rangeUp, rangeDown);
+	pitch.bend.setRange (rangeUp, rangeDown);
 
-    if (midi.router.getLastPitchwheelValue() == 64) return;
+	if (midi.router.getLastPitchwheelValue() == 64) return;
 
-    for (auto* voice : voices)
-        if (voice->isVoiceActive())
-            voice->setTargetOutputFrequency (pitch.getFrequencyForMidi (voice->getCurrentlyPlayingNote()));
+	for (auto* voice : voices)
+		if (voice->isVoiceActive())
+			voice->setTargetOutputFrequency (pitch.getFrequencyForMidi (voice->getCurrentlyPlayingNote()));
 }
 
-template < typename SampleType >
-void SynthBase< SampleType >::updatePitchbendRange (int rangeSemitones)
+template <typename SampleType>
+void SynthBase<SampleType>::updatePitchbendRange (int rangeSemitones)
 {
-    updatePitchbendRange (rangeSemitones, rangeSemitones);
+	updatePitchbendRange (rangeSemitones, rangeSemitones);
 }
 
 
@@ -73,21 +73,21 @@ void SynthBase< SampleType >::updatePitchbendRange (int rangeSemitones)
 /*
  Updates the settings for the main midi-triggered ADSR.
  */
-template < typename SampleType >
-void SynthBase< SampleType >::updateADSRsettings (float attack, float decay, float sustain, float release)
+template <typename SampleType>
+void SynthBase<SampleType>::updateADSRsettings (float attack, float decay, float sustain, float release)
 {
-    // attack/decay/release time in SECONDS; sustain ratio 0.0 - 1.0
+	// attack/decay/release time in SECONDS; sustain ratio 0.0 - 1.0
 
-    adsrParams.attack  = attack;
-    adsrParams.decay   = decay;
-    adsrParams.sustain = sustain;
-    adsrParams.release = release;
+	adsrParams.attack  = attack;
+	adsrParams.decay   = decay;
+	adsrParams.sustain = sustain;
+	adsrParams.release = release;
 
-    for (auto* voice : voices)
-        voice->setAdsrParameters (adsrParams);
+	for (auto* voice : voices)
+		voice->setAdsrParameters (adsrParams);
 
-    if (quickReleaseParams.release > adsrParams.release)
-        updateQuickReleaseMs (juce::roundToInt (adsrParams.release * 1000.f));
+	if (quickReleaseParams.release > adsrParams.release)
+		updateQuickReleaseMs (juce::roundToInt (adsrParams.release * 1000.f));
 }
 
 
@@ -95,14 +95,14 @@ void SynthBase< SampleType >::updateADSRsettings (float attack, float decay, flo
  Updates the synth's quick release time, in milliseconds.
  This is used to prevent clicks when stopping notes with no tail off, etc.
  */
-template < typename SampleType >
-void SynthBase< SampleType >::updateQuickReleaseMs (int newMs)
+template <typename SampleType>
+void SynthBase<SampleType>::updateQuickReleaseMs (int newMs)
 {
-    quickReleaseParams         = adsrParams;
-    quickReleaseParams.release = newMs * 0.001f;
+	quickReleaseParams         = adsrParams;
+	quickReleaseParams.release = newMs * 0.001f;
 
-    for (auto* voice : voices)
-        voice->setQuickReleaseParameters (quickReleaseParams);
+	for (auto* voice : voices)
+		voice->setQuickReleaseParameters (quickReleaseParams);
 }
 
 

@@ -1,11 +1,11 @@
 
 namespace lemons::plugin
 {
-//StateToggleButtons::StateToggleButtons (StateToggles& togglerToUse)
-//    : toggler (togglerToUse)
+// StateToggleButtons::StateToggleButtons (StateToggles& togglerToUse)
+//     : toggler (togglerToUse)
 //{
 //	gui::addAndMakeVisible (this, a_button, b_button, c_button);
-//}
+// }
 
 void StateToggleButtons::resized()
 {
@@ -16,15 +16,15 @@ void StateToggleButtons::resized()
 
 	if (vertical)
 	{
-//		scale (a_button, { 0.f, 0.f, 1.f, oneThird });
-//		scale (b_button, { 0.f, oneThird, 1.f, oneThird });
-//		scale (c_button, { 0.f, twoThirds, 1.f, oneThird });
+		//		scale (a_button, { 0.f, 0.f, 1.f, oneThird });
+		//		scale (b_button, { 0.f, oneThird, 1.f, oneThird });
+		//		scale (c_button, { 0.f, twoThirds, 1.f, oneThird });
 	}
 	else
 	{
-//		scale (a_button, { 0.f, 0.f, oneThird, 1.f });
-//		scale (b_button, { oneThird, 0.f, oneThird, 1.f });
-//		scale (c_button, { twoThirds, 0.f, oneThird, 1.f });
+		//		scale (a_button, { 0.f, 0.f, oneThird, 1.f });
+		//		scale (b_button, { oneThird, 0.f, oneThird, 1.f });
+		//		scale (c_button, { twoThirds, 0.f, oneThird, 1.f });
 	}
 }
 

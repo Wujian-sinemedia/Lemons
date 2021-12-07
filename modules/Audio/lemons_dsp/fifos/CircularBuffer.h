@@ -87,7 +87,7 @@ private:
 	dsp::CircularBuffer<FloatType> circularBuffer;
 };
 
-LEMONS_CREATE_DSP_TEST(CircularBufferTests)
+LEMONS_CREATE_DSP_TEST (CircularBufferTests)
 
 }  // namespace lemons::tests
 

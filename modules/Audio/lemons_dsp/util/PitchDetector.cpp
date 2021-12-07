@@ -216,10 +216,10 @@ PitchDetectorTests<FloatType>::PitchDetectorTests()
 template <typename FloatType>
 void PitchDetectorTests<FloatType>::runOscillatorTest (dsp::osc::Oscillator<FloatType>& osc,
                                                        double                           samplerate,
-                                                       const String& waveName)
+                                                       const String&                    waveName)
 {
-    const auto subtest = beginSubtest (waveName + " wave");
-    
+	const auto subtest = beginSubtest (waveName + " wave");
+
 	const auto testFreq = [&] (const float correctFreq)
 	{
 		osc.setFrequency (static_cast<FloatType> (correctFreq),
@@ -251,25 +251,25 @@ void PitchDetectorTests<FloatType>::runTest()
 {
 	for (const auto confidenceThresh : getConfidenceThresholdsToTest())
 	{
-        beginTest ("YIN confidence threshold: " + String (confidenceThresh));
-        
-        detector.setConfidenceThresh (confidenceThresh);
+		beginTest ("YIN confidence threshold: " + String (confidenceThresh));
+
+		detector.setConfidenceThresh (confidenceThresh);
 
 		for (const auto samplerate : getTestingSamplerates())
 		{
-            const auto samplerateSubtest = beginSubtest ("Samplerate: " + String (samplerate));
-            
+			const auto samplerateSubtest = beginSubtest ("Samplerate: " + String (samplerate));
+
 			const auto latency = detector.setSamplerate (samplerate);
 
 			storage.setSize (1, latency, true, true, true);
-            
-            {
-                const auto subtest = beginSubtest ("Detect frequencies of oscillators");
-                runOscillatorTest (sine, samplerate, "Sine");
-                runOscillatorTest (saw, samplerate, "Saw");
-                runOscillatorTest (square, samplerate, "Square");
-                runOscillatorTest (triangle, samplerate, "Triangle");
-            }
+
+			{
+				const auto subtest = beginSubtest ("Detect frequencies of oscillators");
+				runOscillatorTest (sine, samplerate, "Sine");
+				runOscillatorTest (saw, samplerate, "Saw");
+				runOscillatorTest (square, samplerate, "Square");
+				runOscillatorTest (triangle, samplerate, "Triangle");
+			}
 
 			//                for (const auto detune : { 0, 1, 5, 12 })
 			//                {
@@ -278,24 +278,24 @@ void PitchDetectorTests<FloatType>::runTest()
 			//                    superSaw.setDetuneAmount (detune);
 			//                    runOscillatorTest (superSaw, "SuperSaw", samplerate, 1);
 			//                }
-            
-            {
-                const auto subtest = beginSubtest ("Detect random noise as unpitched");
-                
-                for (int r = 0; r < getNumTestingRepetitions(); ++r)
-                {
-                    fillAudioBufferWithRandomNoise (storage, getRandom());
-                    
-                    expectEquals (detector.detectPitch (storage), 0.f);
-                }
-            }
-            
-            const auto subtest = beginSubtest ("Detect silence as unpitched");
-            
-            storage.clear();
-            
-            for (int r = 0; r < getNumTestingRepetitions(); ++r)
-                expectEquals (detector.detectPitch (storage), 0.f);
+
+			{
+				const auto subtest = beginSubtest ("Detect random noise as unpitched");
+
+				for (int r = 0; r < getNumTestingRepetitions(); ++r)
+				{
+					fillAudioBufferWithRandomNoise (storage, getRandom());
+
+					expectEquals (detector.detectPitch (storage), 0.f);
+				}
+			}
+
+			const auto subtest = beginSubtest ("Detect silence as unpitched");
+
+			storage.clear();
+
+			for (int r = 0; r < getNumTestingRepetitions(); ++r)
+				expectEquals (detector.detectPitch (storage), 0.f);
 		}
 	}
 }
@@ -303,10 +303,10 @@ void PitchDetectorTests<FloatType>::runTest()
 template <typename FloatType>
 const std::vector<float> PitchDetectorTests<FloatType>::getConfidenceThresholdsToTest()
 {
-    if (testingIntensityIsLow())
-        return { 0.15f };
-    
-    return { 0.1f, 0.15f, 0.2f };
+	if (testingIntensityIsLow())
+		return { 0.15f };
+
+	return { 0.1f, 0.15f, 0.2f };
 }
 
 template struct PitchDetectorTests<float>;

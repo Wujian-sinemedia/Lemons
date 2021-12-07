@@ -3,18 +3,18 @@
 namespace lemons::dsp
 {
 
-template<typename SampleType>
+template <typename SampleType>
 class WhiteNoiseGenerator
 {
 public:
-    SampleType getNextSample();
-    
-    void getSamples (SampleType* output, int numSamples);
-    
-    void getSamples (AudioBuffer<SampleType>& output, int channel = 0);
-    
+	SampleType getNextSample();
+
+	void getSamples (SampleType* output, int numSamples);
+
+	void getSamples (AudioBuffer<SampleType>& output, int channel = 0);
+
 private:
-    juce::Random rand;
+	juce::Random rand;
 };
 
-}
+}  // namespace lemons::dsp

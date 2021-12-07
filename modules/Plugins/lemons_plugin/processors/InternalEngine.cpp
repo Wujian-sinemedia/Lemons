@@ -4,8 +4,8 @@ template <typename SampleType>
 ProcessorBase::InternalEngine<SampleType>::InternalEngine (juce::AudioProcessor&    processorToUse,
                                                            StateBase&               stateToUse,
                                                            dsp::Engine<SampleType>& engineToUse)
-    : //ParameterProcessor<SampleType> (stateToUse.getParameters())
-     processor (processorToUse)
+    :  // ParameterProcessor<SampleType> (stateToUse.getParameters())
+    processor (processorToUse)
     , state (stateToUse)
     , engine (engineToUse)
 {
@@ -36,7 +36,7 @@ static inline int getIndexOfFirstValidChannelSet (const juce::AudioProcessor::Bu
 	return 0;
 }
 
-template<typename SampleType>
+template <typename SampleType>
 using AudioBuffer = juce::AudioBuffer<SampleType>;
 
 template <typename SampleType>
@@ -59,7 +59,7 @@ void ProcessorBase::InternalEngine<SampleType>::renderChunk (juce::AudioBuffer<S
 	const auto inBus     = findSubBuffer (processor, busLayout, audio, true);
 	auto       outBus    = findSubBuffer (processor, busLayout, audio, false);
 
-    engine.process (inBus, outBus, midi, false); //state.mainBypass->get());
+	engine.process (inBus, outBus, midi, false);  // state.mainBypass->get());
 }
 
 template class ProcessorBase::InternalEngine<float>;

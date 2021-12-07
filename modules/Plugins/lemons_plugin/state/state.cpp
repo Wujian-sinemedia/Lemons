@@ -7,14 +7,14 @@ StateBase::StateBase (const String& pluginName)
 
 void StateBase::addTo (juce::AudioProcessor& processor)
 {
-//	params.add (mainBypass);
-//	params.addParametersTo (processor);
+	//	params.add (mainBypass);
+	//	params.addParametersTo (processor);
 }
 
 void StateBase::addAllAsInternal()
 {
-//	params.add (mainBypass);
-//	params.addAllParametersAsInternal();
+	//	params.add (mainBypass);
+	//	params.addAllParametersAsInternal();
 }
 
 }  // namespace lemons::plugin

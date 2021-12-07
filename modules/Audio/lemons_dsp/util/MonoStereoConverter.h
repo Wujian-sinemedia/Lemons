@@ -5,9 +5,9 @@ namespace lemons::dsp
 
 enum class StereoReductionMode
 {
-    leftOnly,
-    rightOnly,
-    mixToMono
+	leftOnly,
+	rightOnly,
+	mixToMono
 };
 
 template <typename SampleType>
@@ -20,7 +20,7 @@ public:
 	void prepare (int blocksize);
 
 	void setStereoReductionMode (StereoReductionMode newmode);
-    
+
 	StereoReductionMode getStereoReductionMode() const noexcept { return toMonoMode; }
 
 	void convertStereoToMono (const SampleType* leftIn,
@@ -54,22 +54,22 @@ private:
 namespace lemons::tests
 {
 
-template<typename FloatType>
+template <typename FloatType>
 struct MonoStereoConverterTests : public DspTest
 {
 public:
-    MonoStereoConverterTests();
-    
+	MonoStereoConverterTests();
+
 private:
-    void runTest() final;
-    
-    AudioBuffer<FloatType> monoBuffer, stereoBuffer;
-    
-    dsp::MonoStereoConverter<FloatType> converter;
+	void runTest() final;
+
+	AudioBuffer<FloatType> monoBuffer, stereoBuffer;
+
+	dsp::MonoStereoConverter<FloatType> converter;
 };
 
-LEMONS_CREATE_DSP_TEST(MonoStereoConverterTests)
+LEMONS_CREATE_DSP_TEST (MonoStereoConverterTests)
 
-}
+}  // namespace lemons::tests
 
 #endif

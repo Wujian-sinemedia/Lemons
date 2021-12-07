@@ -5,9 +5,9 @@ namespace lemons::midi
 class MidiProcessor
 {
 public:
-    MidiProcessor() = default;
-    virtual ~MidiProcessor() = default;
-    
+	MidiProcessor()          = default;
+	virtual ~MidiProcessor() = default;
+
 	void reset();
 
 	void process (const MidiBuffer& buffer);

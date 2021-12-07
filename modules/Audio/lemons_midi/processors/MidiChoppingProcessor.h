@@ -23,7 +23,7 @@ private:
 	virtual void handleMidiMessage (const MidiMessage& m)           = 0;
 	virtual void renderChunk (AudioBuffer& audio, MidiBuffer& midi) = 0;
 
-	MidiBuffer  midiStorage;
+	MidiBuffer midiStorage;
 };
 
 }  // namespace lemons::midi

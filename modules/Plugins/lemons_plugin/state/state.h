@@ -9,7 +9,7 @@ using Dimensions = juce::Point<int>;
 
 
 /** The default plugin state toggler has 3 states, A/B/C. */
-//using StateToggles = serializing::Toggler<3>;
+// using StateToggles = serializing::Toggler<3>;
 
 
 /** Base class for a plugin's state.

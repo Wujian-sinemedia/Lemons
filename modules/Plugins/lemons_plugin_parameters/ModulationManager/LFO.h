@@ -30,7 +30,7 @@ struct LFO
 private:
 	Osc osc;
 
-	//MetaParam param;
+	// MetaParam param;
 
 	juce::AudioBuffer<float> storage;
 };

@@ -28,8 +28,8 @@ private:
     This type's constructor signature must be ContentComponentType (PluginState< StateType >&).
     @tparam StateType The type of your plugin's main state object.
  */
-template <typename ContentComponentType, typename StateType>//,
-          //LEMONS_MUST_INHERIT_FROM (ContentComponentType, GUIBase), LEMONS_MUST_INHERIT_FROM (StateType, StateBase)>
+template <typename ContentComponentType, typename StateType>  //,
+                                                              // LEMONS_MUST_INHERIT_FROM (ContentComponentType, GUIBase), LEMONS_MUST_INHERIT_FROM (StateType, StateBase)>
 class PluginEditor : public EditorBase
 {
 public:

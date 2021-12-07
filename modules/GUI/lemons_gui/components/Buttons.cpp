@@ -20,8 +20,8 @@ ToggleTextButton::ToggleTextButton (const String& buttonText, std::function<void
 
 ImageButton::ImageButton (const juce::Image& image, std::function<void()> whenClicked, float opacityRange)
 {
-    jassert (opacityRange >= 0.f && opacityRange <= 1.f);
-    
+	jassert (opacityRange >= 0.f && opacityRange <= 1.f);
+
 	onClick = std::move (whenClicked);
 
 	this->setImages (false, true, true,

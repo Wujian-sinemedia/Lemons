@@ -44,7 +44,7 @@ void MidiFIFO::popEvents (MidiBuffer& output, int numSamples)
 	numSamplesStored = std::max (0, numSamplesStored - numSamples);
 }
 
-}  // namespace lemons::dsp
+}  // namespace lemons::midi
 
 
 /*---------------------------------------------------------------------------------------------------------------------------------*/

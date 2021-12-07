@@ -69,7 +69,7 @@ private:
 	dsp::AudioAndMidiFIFO<FloatType> fifo;
 };
 
-LEMONS_CREATE_DSP_TEST(AudioAndMidiFifoTests)
+LEMONS_CREATE_DSP_TEST (AudioAndMidiFifoTests)
 
 }  // namespace lemons::tests
 

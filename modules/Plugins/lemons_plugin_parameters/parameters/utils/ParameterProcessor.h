@@ -17,12 +17,12 @@ public:
 	/** Creates a parameter processor.
 	    @param listToUse The ParameterList to reference.
 	 */
-	//ParameterProcessor (ParameterList& listToUse);
+	// ParameterProcessor (ParameterList& listToUse);
 
 private:
 	void handleMidiMessage (const juce::MidiMessage& m) final;
 
-	//ParameterList& list;
+	// ParameterList& list;
 };
 
 }  // namespace lemons::plugin

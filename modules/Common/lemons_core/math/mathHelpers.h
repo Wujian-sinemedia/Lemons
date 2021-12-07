@@ -5,12 +5,12 @@ namespace lemons::math
 
 [[nodiscard]] constexpr bool isDivisibleBy (int number, int divisor) noexcept
 {
-    return number % divisor == 0;
+	return number % divisor == 0;
 }
 
 [[nodiscard]] constexpr bool numberIsEven (int number) noexcept
 {
-    return isDivisibleBy (number, 2);
+	return isDivisibleBy (number, 2);
 }
 
 // returns the period in samples of a specified frequency in hz at a specified samplerate
@@ -24,11 +24,11 @@ template <typename FreqType>
 // returns the resultant fundamental frequency in Hz from a specified period in samples and samplerate
 template <typename PeriodType>
 [[nodiscard]] constexpr PeriodType freqFromPeriod (double     samplerate,
-                                     PeriodType period) noexcept
+                                                   PeriodType period) noexcept
 {
 	jassert (period > PeriodType (0.0));
-    
-    const auto val = samplerate / static_cast<double> (period);
+
+	const auto val = samplerate / static_cast<double> (period);
 
 	if constexpr (std::is_same_v<PeriodType, int>)
 		return juce::roundToInt (val);
@@ -44,8 +44,8 @@ template <typename PeriodType>
 template <typename msType>
 [[nodiscard]] constexpr int msToSamps (double samplerate, msType ms) noexcept
 {
-    const auto val = samplerate / 1000. * static_cast<double> (ms);
-    
+	const auto val = samplerate / 1000. * static_cast<double> (ms);
+
 	return juce::roundToInt (val);
 }
 
@@ -54,12 +54,12 @@ template <typename msType>
 template <typename T>
 [[nodiscard]] constexpr T midiToFreq (T midiNote) noexcept
 {
-    const auto val = 440. * std::pow (2., (static_cast<double>(midiNote) - 69.) / 12.);
-    
+	const auto val = 440. * std::pow (2., (static_cast<double> (midiNote) - 69.) / 12.);
+
 	if constexpr (std::is_same_v<T, int>)
 		return juce::roundToInt (val);
 	else
-        return static_cast<T>(val);
+		return static_cast<T> (val);
 }
 
 
@@ -67,12 +67,12 @@ template <typename T>
 template <typename T>
 [[nodiscard]] constexpr T freqToMidi (T freqHz) noexcept
 {
-    const auto val = 69. + 12. * std::log2 (static_cast<double>(freqHz) / 440.);
-    
+	const auto val = 69. + 12. * std::log2 (static_cast<double> (freqHz) / 440.);
+
 	if constexpr (std::is_same_v<T, int>)
 		return juce::roundToInt (val);
 	else
-        return static_cast<T>(val);
+		return static_cast<T> (val);
 }
 
 

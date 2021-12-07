@@ -165,7 +165,7 @@ void findExtrema (const juce::Array<Type>& array, Type& min, Type& max)
 /* returns the distance between the maximum and minimum element of the vector */
 template <typename Type>
 [[nodiscard]] Type findRangeOfExtrema (const Type* data,
-                         int         dataSize);
+                                       int         dataSize);
 
 template <typename Type>
 [[nodiscard]] Type findRangeOfExtrema (const juce::Array<Type>& array)

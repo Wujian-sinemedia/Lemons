@@ -14,11 +14,11 @@ namespace lemons::plugin
 class ProcessorBase : public dsp::BasicProcessor
     , private SystemInitializer
 {
-    using MidiBuffer = juce::MidiBuffer;
-    
-    template<typename SampleType>
-    using AudioBuffer = juce::AudioBuffer<SampleType>;
-    
+	using MidiBuffer = juce::MidiBuffer;
+
+	template <typename SampleType>
+	using AudioBuffer = juce::AudioBuffer<SampleType>;
+
 public:
 	/** Creates a processor.
 	    @param stateToUse The state object to reference. The internal ParameterProcessor will reference stateToUse.getParameters().
