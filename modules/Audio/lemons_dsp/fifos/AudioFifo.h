@@ -1,5 +1,7 @@
 #pragma once
 
+#include <lemons_core/lemons_core.h>
+
 namespace lemons::dsp
 {
 
@@ -42,7 +44,7 @@ public:
 	void resize (int maxNumSamples, int numChannels = 2);
 
 private:
-	juce::OwnedArray<CircularBuffer<SampleType>> buffers;
+    ConstructedArray<CircularBuffer<SampleType>> buffers;
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudioFifo)
 };

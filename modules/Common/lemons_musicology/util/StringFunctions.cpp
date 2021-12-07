@@ -1,4 +1,4 @@
-namespace lemons
+namespace lemons::music
 {
 
 const juce_wchar getSharpSymbol() noexcept
@@ -159,6 +159,8 @@ StringFunctionsTests::StringFunctionsTests()
 
 void StringFunctionsTests::runTest()
 {
+    using namespace lemons::music;
+    
 	beginTest ("pitch class / string conversion");
 
 	const auto testPitchClass = [&] (int pitchClass, const String& string)

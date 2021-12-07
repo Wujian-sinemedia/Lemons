@@ -9,28 +9,26 @@ AudioFifo<SampleType>::AudioFifo (int numSamples, int numChannels)
 template <typename SampleType>
 void AudioFifo<SampleType>::pushSamples (const AudioBuffer<SampleType>& input)
 {
-	jassert (buffers.size() >= input.getNumChannels());
+	jassert (buffers->size() >= input.getNumChannels());
 
 	const auto numSamples = input.getNumSamples();
 
 	for (int chan = 0; chan < input.getNumChannels(); ++chan)
 	{
-		buffers.getUnchecked (chan)->storeSamples (input.getReadPointer (chan),
-		                                           numSamples);
+        buffers[chan]->storeSamples (input.getReadPointer (chan), numSamples);
 	}
 }
 
 template <typename SampleType>
 void AudioFifo<SampleType>::popSamples (AudioBuffer<SampleType>& output)
 {
-	jassert (buffers.size() >= output.getNumChannels());
+	jassert (buffers->size() >= output.getNumChannels());
 
 	const auto numSamples = output.getNumSamples();
 
 	for (int chan = 0; chan < output.getNumChannels(); ++chan)
 	{
-		buffers.getUnchecked (chan)->getSamples (output.getWritePointer (chan),
-		                                         numSamples);
+        buffers[chan]->getSamples (output.getWritePointer (chan), numSamples);
 	}
 }
 
@@ -44,10 +42,10 @@ void AudioFifo<SampleType>::clear()
 template <typename SampleType>
 int AudioFifo<SampleType>::numStoredSamples() const noexcept
 {
-	if (buffers.isEmpty())
+	if (buffers->isEmpty())
 		return 0;
 
-	auto num = buffers.getUnchecked (0)->getNumStoredSamples();
+	auto num = buffers->getUnchecked (0)->getNumStoredSamples();
 
 	for (auto* buffer : buffers)
 		if (buffer->getNumStoredSamples() < num)
@@ -61,11 +59,7 @@ void AudioFifo<SampleType>::resize (int maxNumSamples, int numChannels)
 {
 	jassert (maxNumSamples > 0 && numChannels > 0);
 
-	while (buffers.size() < numChannels)
-		buffers.add (new CircularBuffer<SampleType>());
-
-	while (buffers.size() > numChannels)
-		buffers.removeLast();
+    buffers.resize (numChannels);
 
 	for (auto* buffer : buffers)
 		buffer->resize (maxNumSamples);
@@ -74,7 +68,7 @@ void AudioFifo<SampleType>::resize (int maxNumSamples, int numChannels)
 template <typename SampleType>
 int AudioFifo<SampleType>::numChannels() const noexcept
 {
-	return buffers.size();
+	return buffers->size();
 }
 
 template class AudioFifo<float>;

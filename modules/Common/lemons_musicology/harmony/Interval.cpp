@@ -1,4 +1,4 @@
-namespace lemons
+namespace lemons::music
 {
 
 Interval::Quality Interval::getQuality() const

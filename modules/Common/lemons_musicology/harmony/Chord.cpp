@@ -1,4 +1,4 @@
-namespace lemons
+namespace lemons::music
 {
 
 bool Chord::operator== (const Chord& other) const

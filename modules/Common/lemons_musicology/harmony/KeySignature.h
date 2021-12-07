@@ -1,7 +1,7 @@
 #pragma once
 
 
-namespace lemons
+namespace lemons::music
 {
 
 class KeySignature final

@@ -1,6 +1,6 @@
 #pragma once
 
-namespace lemons
+namespace lemons::music
 {
 
 class Interval final

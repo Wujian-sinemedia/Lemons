@@ -1,6 +1,6 @@
 #include <lemons_core/lemons_core.h>
 
-namespace lemons
+namespace lemons::music
 {
 
 constexpr TimeSignature::TimeSignature (int numBeats, int beatKind)

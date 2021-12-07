@@ -3,7 +3,7 @@
 #include <juce_core/juce_core.h>
 
 
-namespace lemons
+namespace lemons::music
 {
 
 using juce::juce_wchar;
