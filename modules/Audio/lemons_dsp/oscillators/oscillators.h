@@ -189,8 +189,7 @@ private:
     juce::Array<int> zeroCrossings;
 };
 
-static OscillatorTests<float>  oscillatorTest_float;
-static OscillatorTests<double> oscillatorTest_double;
+LEMONS_CREATE_DSP_TEST(OscillatorTests)
 
 }  // namespace lemons::tests
 

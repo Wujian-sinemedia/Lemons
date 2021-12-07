@@ -107,10 +107,7 @@ void AudioProcessorTestBase::runTest()
 template <typename SampleType>
 void AudioProcessorTestBase::runTypedTests()
 {
-	if constexpr (std::is_same_v<SampleType, float>)
-		beginTest ("Float precision processing");
-	else
-		beginTest ("Double precision processing");
+	beginTest (getPrecisionString<SampleType>() + " precision processing");
 
 	AudioBuffer<SampleType> audioIO;
 

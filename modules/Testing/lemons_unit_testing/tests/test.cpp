@@ -2,16 +2,25 @@ namespace lemons::tests
 {
 
 template <typename SampleType>
-String Test::getDspTestName (const String& name)
+String Test::getPrecisionString()
 {
 	if constexpr (std::is_same_v<SampleType, float>)
-		return name + " (float)";
+		return "Float";
 	else
-		return name + " (double)";
+		return "Double";
 }
 
-template String DspTest::getDspTestName<float> (const String&);
-template String DspTest::getDspTestName<double> (const String&);
+template String Test::getPrecisionString<float>();
+template String Test::getPrecisionString<double>();
+
+template <typename SampleType>
+String Test::getDspTestName (const String& name)
+{
+	return name + " (" + getPrecisionString<SampleType>() + ")";
+}
+
+template String Test::getDspTestName<float> (const String&);
+template String Test::getDspTestName<double> (const String&);
 
 void Test::logImportantMessage (const String& message)
 {

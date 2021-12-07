@@ -68,8 +68,7 @@ private:
     dsp::MonoStereoConverter<FloatType> converter;
 };
 
-static MonoStereoConverterTests<float> monoStereoConverterTest_float;
-static MonoStereoConverterTests<double> monoStereoConverterTest_double;
+LEMONS_CREATE_DSP_TEST(MonoStereoConverterTests)
 
 }
 

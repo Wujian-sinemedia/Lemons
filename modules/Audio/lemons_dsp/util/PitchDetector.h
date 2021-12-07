@@ -125,8 +125,7 @@ private:
 	dsp::osc::SuperSaw<FloatType> superSaw;
 };
 
-static PitchDetectorTests<float>  pitchDetectorTest_float;
-static PitchDetectorTests<double> pitchDetectorTest_double;
+LEMONS_CREATE_DSP_TEST(PitchDetectorTests)
 
 }  // namespace lemons::tests
 

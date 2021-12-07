@@ -137,8 +137,7 @@ private:
 	MidiBuffer midiStorage;
 };
 
-static AudioEngineTests<float>  audioEngineTest_float;
-static AudioEngineTests<double> audioEngineTest_double;
+LEMONS_CREATE_DSP_TEST(AudioEngineTests)
 
 }  // namespace lemons::tests
 

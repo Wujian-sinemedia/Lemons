@@ -177,15 +177,7 @@ void DataConversionTests::runTest()
 template <typename SampleType>
 void DataConversionTests::runTypedTests()
 {
-	const auto precisionString = []() -> String
-	{
-		if constexpr (std::is_same_v<SampleType, float>)
-			return "Float";
-		else
-			return "Double";
-	}();
-
-	const auto subtest = beginSubtest (precisionString + " precision tests");
+	const auto subtest = beginSubtest (getPrecisionString<SampleType>() + " precision tests");
 
 	constexpr auto numChannels = 2;
 	constexpr auto numSamples  = 512;

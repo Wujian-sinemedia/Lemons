@@ -45,6 +45,9 @@ protected:
 	const Subtest beginSubtest (const String& name);
 
 	template <typename SampleType>
+	[[nodiscard]] static String getPrecisionString();
+
+	template <typename SampleType>
 	[[nodiscard]] static String getDspTestName (const String& name);
 
 	[[nodiscard]] static const std::vector<int>    getTestingBlockSizes();
@@ -81,3 +84,7 @@ struct MidiTest : public Test
 };
 
 }  // namespace lemons::tests
+
+#define LEMONS_CREATE_DSP_TEST(ClassTemplate)         \
+  static ClassTemplate<float>  ClassTemplate##_float; \
+  static ClassTemplate<double> ClassTemplate##_double;
