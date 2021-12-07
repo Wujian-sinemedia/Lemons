@@ -12,6 +12,7 @@
 #include "filters/Filter.cpp"
 
 #include "util/BufferUtils.cpp"
+#include "util/WhiteNoiseGenerator.cpp"
 #include "util/BasicProcessor.cpp"
 #include "util/MonoStereoConverter.cpp"
 #include "util/PitchDetector.cpp"
