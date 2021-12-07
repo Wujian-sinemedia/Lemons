@@ -3,9 +3,14 @@
 namespace lemons::math
 {
 
+[[nodiscard]] constexpr bool isDivisibleBy (int number, int divisor) noexcept
+{
+    return number % divisor == 0;
+}
+
 [[nodiscard]] constexpr bool numberIsEven (int number) noexcept
 {
-    return number % 2 == 0;
+    return isDivisibleBy (number, 2);
 }
 
 // returns the period in samples of a specified frequency in hz at a specified samplerate

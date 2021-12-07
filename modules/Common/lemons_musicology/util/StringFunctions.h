@@ -1,9 +1,13 @@
 #pragma once
 
+#include <juce_core/juce_core.h>
+
+
 namespace lemons
 {
 
 using juce::juce_wchar;
+using juce::String;
 
 /** Returns a Unicode sharp symbol. */
 [[nodiscard]] const juce_wchar getSharpSymbol() noexcept;
