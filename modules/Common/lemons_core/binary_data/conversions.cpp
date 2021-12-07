@@ -34,17 +34,6 @@ MemoryBlock imageToBinary (const Image& image)
 	return block;
 }
 
-Image imageFromString (const String& string)
-{
-	return imageFromBinary (memoryBlockFromString (string));
-}
-
-String imageToString (const Image& image)
-{
-	return memoryBlockToString (imageToBinary (image));
-}
-
-
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 
 MidiBuffer midiBufferFromMidiFile (const juce::MidiFile& file)
@@ -115,21 +104,10 @@ MemoryBlock midiToBinary (const MidiBuffer& midi)
 	return block;
 }
 
-MidiBuffer midiFromString (const String& string)
-{
-	return midiFromBinary (memoryBlockFromString (string));
-}
-
-String midiToString (const MidiBuffer& midi)
-{
-	return memoryBlockToString (midiToBinary (midi));
-}
-
 }  // namespace lemons::binary
 
 
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
-
 
 #if LEMONS_UNIT_TESTS
 

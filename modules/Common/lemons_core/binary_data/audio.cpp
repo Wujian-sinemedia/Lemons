@@ -76,22 +76,4 @@ AudioBuffer<double> audioFromBinary (const MemoryBlock& block)
 	return doubleBuf;
 }
 
-template <typename SampleType>
-String audioToString (const AudioBuffer<SampleType>& audio, double samplerate)
-{
-	return memoryBlockToString (audioToBinary (audio, samplerate));
-}
-
-template String audioToString (const AudioBuffer<float>&, double);
-template String audioToString (const AudioBuffer<double>&, double);
-
-template <typename SampleType>
-AudioBuffer<SampleType> audioFromString (const String& string)
-{
-	return audioFromBinary<SampleType> (memoryBlockFromString (string));
-}
-
-template AudioBuffer<float>  audioFromString (const String&);
-template AudioBuffer<double> audioFromString (const String&);
-
 }  // namespace lemons::binary

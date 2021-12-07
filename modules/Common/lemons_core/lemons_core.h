@@ -108,6 +108,7 @@ using juce::ValueTree;
 #include "files/FileUtilities.h"
 
 #include "binary_data/conversions.h"
+#include "binary_data/VariantConversions.h"
 #include "binary_data/data.h"
 
 #include "localization/localization.h"

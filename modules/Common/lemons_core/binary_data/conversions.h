@@ -58,37 +58,16 @@ template <typename SampleType>
  */
 [[nodiscard]] MemoryBlock memoryBlockFromString (const String& string);
 
-/** Converts an Image to a String representation of one.
-    @see imageFromString()
- */
-[[nodiscard]] String imageToString (const Image& image);
 
-/** Returns an Image from a String representation of one.
-    @see imageToString()
+/** Converts a ValueTree to a var object.
+    @see valueTreeFromVar()
  */
-[[nodiscard]] Image imageFromString (const String& string);
+[[nodiscard]] juce::var valueTreeToVar (const ValueTree& tree);
 
-/** Converts an AudioBuffer to a String representation of one. Note that the sample rate may be optionally specified.
-    @see audioFromString()
+/** Converts a var object to a ValueTree.
+    @see valueTreeToVar()
  */
-template <typename SampleType>
-[[nodiscard]] String audioToString (const AudioBuffer<SampleType>& audio, double samplerate = 48000.);
-
-/** Returns an AudioBuffer from a String representation of one.
-    @see audioToString()
- */
-template <typename SampleType>
-[[nodiscard]] AudioBuffer<SampleType> audioFromString (const String& string);
-
-/** Converts a MidiBuffer to a String representation of one.
-    @see midiFromString()
- */
-[[nodiscard]] String midiToString (const MidiBuffer& midi);
-
-/** Returns a MidiBuffer from a String representation of one.
-    @see midiToString()
- */
-[[nodiscard]] MidiBuffer midiFromString (const String& string);
+[[nodiscard]] ValueTree valueTreeFromVar (const juce::var& v);
 
 
 /** Converts a ValueTree to a JSON string.
@@ -108,7 +87,7 @@ template <typename SampleType>
 
 #if LEMONS_UNIT_TESTS
 
-#include <lemons_unit_testing/lemons_unit_testing.h>
+#  include <lemons_unit_testing/lemons_unit_testing.h>
 
 
 namespace lemons::tests

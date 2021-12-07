@@ -5,6 +5,7 @@ constexpr auto NAME_PROP     = "_name";
 constexpr auto CHILDREN_PROP = "_children";
 constexpr auto BASE64_PROP   = "_base64:";
 
+
 juce::var valueTreeToVar (const ValueTree& tree)
 {
 	if (! tree.isValid())

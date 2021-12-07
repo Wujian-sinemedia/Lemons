@@ -12,8 +12,8 @@ Data::Data (const String& fileToFind)
 	data = [&]() -> const char*
 	{
 		using namespace LEMONS_BINARY_DATA_NAMESPACE;
-        
-        const auto utf8 = fileToFind.toRawUTF8();
+
+		const auto utf8 = fileToFind.toRawUTF8();
 
 		for (int index = 0; index < namedResourceListSize; ++index)
 		{
