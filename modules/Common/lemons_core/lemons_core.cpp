@@ -11,10 +11,11 @@
 
 #include "files/FileUtilities.cpp"
 
-#include "binary_data/audio.cpp"
-#include "binary_data/ValueTree_JSON.cpp"
-#include "binary_data/conversions.cpp"
-#include "binary_data/VariantConversions.cpp"
+#include "serializing/audio.cpp"
+#include "serializing/ValueTree_JSON.cpp"
+#include "serializing/conversions.cpp"
+#include "serializing/VariantConversions.cpp"
+
 #include "binary_data/data.cpp"
 
 #include "localization/localization.cpp"
