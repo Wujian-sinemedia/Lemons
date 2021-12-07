@@ -1,18 +1,18 @@
 var searchData=
 [
-  ['saturation_2eh_1268',['Saturation.h',['../_saturation_8h.html',1,'']]],
-  ['shifter_2eh_1269',['shifter.h',['../shifter_8h.html',1,'']]],
-  ['sliderbase_2eh_1270',['SliderBase.h',['../_slider_base_8h.html',1,'']]],
-  ['sliders_2eh_1271',['Sliders.h',['../_sliders_8h.html',1,'']]],
-  ['smoothedgain_2eh_1272',['SmoothedGain.h',['../_smoothed_gain_8h.html',1,'']]],
-  ['specializations_2eh_1273',['Specializations.h',['../_specializations_8h.html',1,'']]],
-  ['spline_2eh_1274',['Spline.h',['../_spline_8h.html',1,'']]],
-  ['splineeditor_2eh_1275',['SplineEditor.h',['../_spline_editor_8h.html',1,'']]],
-  ['state_2eh_1276',['state.h',['../state_8h.html',1,'']]],
-  ['statetogglebuttons_2eh_1277',['StateToggleButtons.h',['../_state_toggle_buttons_8h.html',1,'']]],
-  ['stereopanner_2eh_1278',['StereoPanner.h',['../_stereo_panner_8h.html',1,'']]],
-  ['stringfunctions_2eh_1279',['StringFunctions.h',['../_string_functions_8h.html',1,'']]],
-  ['supersaw_2eh_1280',['SuperSaw.h',['../_super_saw_8h.html',1,'']]],
-  ['synth_2eh_1281',['Synth.h',['../_synth_8h.html',1,'']]],
-  ['synthvoice_2eh_1282',['SynthVoice.h',['../_synth_voice_8h.html',1,'']]]
+  ['saturation_2eh_1258',['Saturation.h',['../_saturation_8h.html',1,'']]],
+  ['shifter_2eh_1259',['shifter.h',['../shifter_8h.html',1,'']]],
+  ['sliderbase_2eh_1260',['SliderBase.h',['../_slider_base_8h.html',1,'']]],
+  ['sliders_2eh_1261',['Sliders.h',['../_sliders_8h.html',1,'']]],
+  ['smoothedgain_2eh_1262',['SmoothedGain.h',['../_smoothed_gain_8h.html',1,'']]],
+  ['specializations_2eh_1263',['Specializations.h',['../_specializations_8h.html',1,'']]],
+  ['spline_2eh_1264',['Spline.h',['../_spline_8h.html',1,'']]],
+  ['splineeditor_2eh_1265',['SplineEditor.h',['../_spline_editor_8h.html',1,'']]],
+  ['state_2eh_1266',['state.h',['../state_8h.html',1,'']]],
+  ['statetogglebuttons_2eh_1267',['StateToggleButtons.h',['../_state_toggle_buttons_8h.html',1,'']]],
+  ['stereopanner_2eh_1268',['StereoPanner.h',['../_stereo_panner_8h.html',1,'']]],
+  ['stringfunctions_2eh_1269',['StringFunctions.h',['../_string_functions_8h.html',1,'']]],
+  ['supersaw_2eh_1270',['SuperSaw.h',['../_super_saw_8h.html',1,'']]],
+  ['synth_2eh_1271',['Synth.h',['../_synth_8h.html',1,'']]],
+  ['synthvoice_2eh_1272',['SynthVoice.h',['../_synth_voice_8h.html',1,'']]]
 ];

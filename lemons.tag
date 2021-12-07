@@ -895,6 +895,7 @@
     <name>localization.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/localization/</path>
     <filename>localization_8h.html</filename>
+    <class kind="struct">lemons::TranslationsInitializer</class>
     <namespace>lemons</namespace>
     <member kind="function">
       <type>void</type>
@@ -907,8 +908,8 @@
       <type>void</type>
       <name>initializeTranslations</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a0acd3154fabbe644319914faf72262a7</anchor>
-      <arglist>(binary::Data data, bool ignoreCaseOfKeys=true)</arglist>
+      <anchor>a2132b81f4246c5fae122ee42198b1119</anchor>
+      <arglist>(const binary::Data &amp;data, bool ignoreCaseOfKeys=true)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -937,31 +938,31 @@
     <namespace>lemons</namespace>
     <namespace>lemons::math</namespace>
     <member kind="function">
-      <type>PeriodType</type>
+      <type>constexpr PeriodType</type>
       <name>freqFromPeriod</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a604aadb59f9c6905d7ba046cfbbd526b</anchor>
+      <anchor>a808d4a3a3c59ce792e245ac0a2ca22e6</anchor>
       <arglist>(double samplerate, PeriodType period) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>T</type>
+      <type>constexpr T</type>
       <name>freqToMidi</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>ac4ac101ae2e62adde035af820402b5a0</anchor>
+      <anchor>a379a4863edaf6befd18862e926c4435e</anchor>
       <arglist>(T freqHz) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>T</type>
+      <type>constexpr T</type>
       <name>midiToFreq</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a8e334d4926a3b6dc44ea8c3cacf56070</anchor>
+      <anchor>a2f7ba670ce937b76f6646b9505643fd0</anchor>
       <arglist>(T midiNote) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
+      <type>constexpr int</type>
       <name>msToSamps</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a0b61a87fdde626a08a8dd466f3327bb9</anchor>
+      <anchor>a81114ea3689f2b578a269d06ea295c76</anchor>
       <arglist>(double samplerate, msType ms) noexcept</arglist>
     </member>
     <member kind="function">
@@ -972,17 +973,17 @@
       <arglist>(int number) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
+      <type>constexpr int</type>
       <name>periodInSamples</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a835effc5b0e5514f7fd19d24db5acd66</anchor>
+      <anchor>a0d3d657c9d1a4f9bcc2aafa9fd912c94</anchor>
       <arglist>(double samplerate, FreqType freqHz) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>double</type>
+      <type>constexpr double</type>
       <name>sampsToMs</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>ad7e11c0af37d156ec272e626a5e6f3b1</anchor>
+      <anchor>ae9fc819b92b39886d816fe4ed2c0b36c</anchor>
       <arglist>(double samplerate, int numSamples) noexcept</arglist>
     </member>
   </compound>
@@ -1041,27 +1042,6 @@
       <anchorfile>namespacelemons_1_1midi.html</anchorfile>
       <anchor>ae32c7b236b4feff5b1bc49ccda1a8517</anchor>
       <arglist>(const MidiBuffer &amp;readingBuffer, MidiBuffer &amp;destBuffer, const int startSampleOfInput, const int startSampleOfOutput, const int numSamples)</arglist>
-    </member>
-  </compound>
-  <compound kind="file">
-    <name>misc.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/misc/</path>
-    <filename>misc_8h.html</filename>
-    <class kind="struct">lemons::SystemInitializer</class>
-    <namespace>lemons</namespace>
-    <member kind="typedef">
-      <type>juce::Array&lt; T &gt;</type>
-      <name>Array</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>af2ae669ed5b0649ef8b8ab50f9c938f1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>juce::OwnedArray&lt; T &gt;</type>
-      <name>OwnedArray</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a9269df64df6d88e4cda763ca7634ceb3</anchor>
-      <arglist></arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -2018,90 +1998,6 @@
     <filename>_version_8h.html</filename>
     <class kind="struct">lemons::Version</class>
     <namespace>lemons</namespace>
-    <member kind="define">
-      <type>#define</type>
-      <name>LEMONS_PROJECT_VERSION_MAJOR</name>
-      <anchorfile>group__misc.html</anchorfile>
-      <anchor>ga52ab1f8b6b9e166d12b4b96739838d5a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>LEMONS_PROJECT_VERSION_MINOR</name>
-      <anchorfile>group__misc.html</anchorfile>
-      <anchor>ga906eafb2e72e1937dae95a1154cb1d4d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>LEMONS_PROJECT_VERSION_PATCH</name>
-      <anchorfile>group__misc.html</anchorfile>
-      <anchor>ga656cf0efe739619c0fc96e8f70387727</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>LEMONS_VERSION_MAJOR</name>
-      <anchorfile>group__misc.html</anchorfile>
-      <anchor>ga745cbaf7407f78551a03e6033abc2624</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>LEMONS_VERSION_MINOR</name>
-      <anchorfile>group__misc.html</anchorfile>
-      <anchor>ga1fbe1a2b0c90a5464db0037161a6b21b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>LEMONS_VERSION_PATCH</name>
-      <anchorfile>group__misc.html</anchorfile>
-      <anchor>ga537f07f6a8c6eb77ec4b1a2ab925f6c3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>LEMONS_PROJECT_VERSION_MAJOR</name>
-      <anchorfile>group__misc.html</anchorfile>
-      <anchor>ga52ab1f8b6b9e166d12b4b96739838d5a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>LEMONS_PROJECT_VERSION_MINOR</name>
-      <anchorfile>group__misc.html</anchorfile>
-      <anchor>ga906eafb2e72e1937dae95a1154cb1d4d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>LEMONS_PROJECT_VERSION_PATCH</name>
-      <anchorfile>group__misc.html</anchorfile>
-      <anchor>ga656cf0efe739619c0fc96e8f70387727</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>LEMONS_VERSION_MAJOR</name>
-      <anchorfile>group__misc.html</anchorfile>
-      <anchor>ga745cbaf7407f78551a03e6033abc2624</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>LEMONS_VERSION_MINOR</name>
-      <anchorfile>group__misc.html</anchorfile>
-      <anchor>ga1fbe1a2b0c90a5464db0037161a6b21b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>LEMONS_VERSION_PATCH</name>
-      <anchorfile>group__misc.html</anchorfile>
-      <anchor>ga537f07f6a8c6eb77ec4b1a2ab925f6c3</anchor>
-      <arglist></arglist>
-    </member>
   </compound>
   <compound kind="file">
     <name>VoiceAllocator.h</name>
@@ -4583,17 +4479,17 @@
       <arglist>(int widthToUse, int heightToUse)</arglist>
     </member>
     <member kind="function">
-      <type>float</type>
+      <type>constexpr float</type>
       <name>getAspectRatio</name>
       <anchorfile>structlemons_1_1_dimensions.html</anchorfile>
-      <anchor>a0e477d1dbbb418ae124b8ff763040139</anchor>
+      <anchor>a521fc010aefa94263df8e45fd640dc86</anchor>
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function">
-      <type>bool</type>
+      <type>constexpr bool</type>
       <name>isValid</name>
       <anchorfile>structlemons_1_1_dimensions.html</anchorfile>
-      <anchor>a9af142c13ec1f52cb9b2348d6ed485f8</anchor>
+      <anchor>ab6174a680d342d6daedf0f7fc5f31d88</anchor>
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function" static="yes">
@@ -7780,7 +7676,6 @@
     <filename>classlemons_1_1_gui_app.html</filename>
     <templarg></templarg>
     <templarg></templarg>
-    <base protection="private">lemons::SystemInitializer</base>
     <member kind="typedef">
       <type>juce::Point&lt; int &gt;</type>
       <name>Size</name>
@@ -13446,7 +13341,6 @@
     <name>lemons::plugin::ProcessorBase</name>
     <filename>classlemons_1_1plugin_1_1_processor_base.html</filename>
     <base>lemons::dsp::BasicProcessor</base>
-    <base protection="private">lemons::SystemInitializer</base>
     <member kind="function">
       <type></type>
       <name>ProcessorBase</name>
@@ -15738,24 +15632,6 @@
     </member>
   </compound>
   <compound kind="struct">
-    <name>lemons::SystemInitializer</name>
-    <filename>structlemons_1_1_system_initializer.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>SystemInitializer</name>
-      <anchorfile>structlemons_1_1_system_initializer.html</anchorfile>
-      <anchor>a3ce67bbd1b7e386122abdb622c76cd7d</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual</type>
-      <name>~SystemInitializer</name>
-      <anchorfile>structlemons_1_1_system_initializer.html</anchorfile>
-      <anchor>afd774b075d41e65b70e358d56034ef17</anchor>
-      <arglist>()=default</arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
     <name>lemons::dsp::TemplateSynth</name>
     <filename>structlemons_1_1dsp_1_1_template_synth.html</filename>
     <templarg></templarg>
@@ -16940,6 +16816,24 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>lemons::TranslationsInitializer</name>
+    <filename>structlemons_1_1_translations_initializer.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>TranslationsInitializer</name>
+      <anchorfile>structlemons_1_1_translations_initializer.html</anchorfile>
+      <anchor>a815b7b9420fae919bc42604ad2d06c4a</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual</type>
+      <name>~TranslationsInitializer</name>
+      <anchorfile>structlemons_1_1_translations_initializer.html</anchorfile>
+      <anchor>acd4bba35d1551fe591c7a273a94bed10</anchor>
+      <arglist>()=default</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>lemons::dsp::osc::Triangle</name>
     <filename>structlemons_1_1dsp_1_1osc_1_1_triangle.html</filename>
     <templarg></templarg>
@@ -18024,52 +17918,52 @@
       <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
-      <type>bool</type>
+      <type>constexpr bool</type>
       <name>hasSameMajorVersion</name>
       <anchorfile>structlemons_1_1_version.html</anchorfile>
-      <anchor>ab86869233665c42fa29c5230cb5c8e38</anchor>
+      <anchor>a309963d20eb0e640fed90907c378e5b0</anchor>
       <arglist>(const Version &amp;other) const noexcept</arglist>
     </member>
     <member kind="function">
-      <type>bool</type>
+      <type>constexpr bool</type>
       <name>isNewerThan</name>
       <anchorfile>structlemons_1_1_version.html</anchorfile>
-      <anchor>ac7551d1d9a47cab38153d9629a60562d</anchor>
+      <anchor>a69f60e5ab6e3d4ec855579d9ca09f2da</anchor>
       <arglist>(const Version &amp;other) const noexcept</arglist>
     </member>
     <member kind="function">
-      <type>bool</type>
+      <type>constexpr bool</type>
       <name>isOlderThan</name>
       <anchorfile>structlemons_1_1_version.html</anchorfile>
-      <anchor>aae0bdc1e75d4280147f33635e01825b0</anchor>
+      <anchor>aefc84ed9c65f0f0bcca70aea3936516c</anchor>
       <arglist>(const Version &amp;other) const noexcept</arglist>
     </member>
     <member kind="function">
-      <type>bool</type>
+      <type>constexpr bool</type>
       <name>operator!=</name>
       <anchorfile>structlemons_1_1_version.html</anchorfile>
-      <anchor>a9b1dcad08a3a75cbab2236c4a418b9bb</anchor>
+      <anchor>aa1f35950d95a2f5baa59a060275eafc2</anchor>
       <arglist>(const Version &amp;other) const noexcept</arglist>
     </member>
     <member kind="function">
-      <type>bool</type>
+      <type>constexpr bool</type>
       <name>operator&lt;</name>
       <anchorfile>structlemons_1_1_version.html</anchorfile>
-      <anchor>a717f1f2d61b2fc207ce822d138cc4f86</anchor>
+      <anchor>ad9a3237f502c64e2c43aecdbe03639b8</anchor>
       <arglist>(const Version &amp;other) const noexcept</arglist>
     </member>
     <member kind="function">
-      <type>bool</type>
+      <type>constexpr bool</type>
       <name>operator==</name>
       <anchorfile>structlemons_1_1_version.html</anchorfile>
-      <anchor>a01d57790a965f1d8a7a11a0861bf7a4e</anchor>
+      <anchor>a1f13afff10de9cd5cd1bda840e5eea9d</anchor>
       <arglist>(const Version &amp;other) const noexcept</arglist>
     </member>
     <member kind="function">
-      <type>bool</type>
+      <type>constexpr bool</type>
       <name>operator&gt;</name>
       <anchorfile>structlemons_1_1_version.html</anchorfile>
-      <anchor>a76c0c58ed2c3e89a83d79f83a8df4ee6</anchor>
+      <anchor>a0f37fde37fd195e2c69b7350c58e88fa</anchor>
       <arglist>(const Version &amp;other) const noexcept</arglist>
     </member>
     <member kind="function">
@@ -18080,24 +17974,24 @@
       <arglist>(const String &amp;separator=&quot;.&quot;) const noexcept</arglist>
     </member>
     <member kind="function">
-      <type>Version</type>
+      <type>constexpr Version</type>
       <name>withMajorBump</name>
       <anchorfile>structlemons_1_1_version.html</anchorfile>
-      <anchor>ae770a3c144130dd30939b29788edadeb</anchor>
+      <anchor>a2d2719c4805a764b8271b975bb697907</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>Version</type>
+      <type>constexpr Version</type>
       <name>withMinorBump</name>
       <anchorfile>structlemons_1_1_version.html</anchorfile>
-      <anchor>a93ff0cefe206eeb12aaea8651ddc30f8</anchor>
+      <anchor>a7f225f0d94687f4756c6c7fc391cbfde</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
-      <type>Version</type>
+      <type>constexpr Version</type>
       <name>withPatchBump</name>
       <anchorfile>structlemons_1_1_version.html</anchorfile>
-      <anchor>aa7e4074b4ce4a6a47c2c146c9cc88625</anchor>
+      <anchor>a3e8cf4a128ba1fb65bb60bf9ca402e81</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function" static="yes">
@@ -18182,23 +18076,9 @@
     <class kind="class">lemons::GuiApp</class>
     <class kind="class">lemons::Logger</class>
     <class kind="class">lemons::MotionManager</class>
-    <class kind="struct">lemons::SystemInitializer</class>
+    <class kind="struct">lemons::TranslationsInitializer</class>
     <class kind="struct">lemons::ValueSmoother</class>
     <class kind="struct">lemons::Version</class>
-    <member kind="typedef">
-      <type>juce::Array&lt; T &gt;</type>
-      <name>Array</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>af2ae669ed5b0649ef8b8ab50f9c938f1</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="typedef">
-      <type>juce::OwnedArray&lt; T &gt;</type>
-      <name>OwnedArray</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a9269df64df6d88e4cda763ca7634ceb3</anchor>
-      <arglist></arglist>
-    </member>
     <member kind="function">
       <type>String</type>
       <name>addFileExtensionIfMissing</name>
@@ -18252,8 +18132,8 @@
       <type>void</type>
       <name>initializeTranslations</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a0acd3154fabbe644319914faf72262a7</anchor>
-      <arglist>(binary::Data data, bool ignoreCaseOfKeys=true)</arglist>
+      <anchor>a2132b81f4246c5fae122ee42198b1119</anchor>
+      <arglist>(const binary::Data &amp;data, bool ignoreCaseOfKeys=true)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -18659,31 +18539,31 @@
     <name>lemons::math</name>
     <filename>namespacelemons_1_1math.html</filename>
     <member kind="function">
-      <type>PeriodType</type>
+      <type>constexpr PeriodType</type>
       <name>freqFromPeriod</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a604aadb59f9c6905d7ba046cfbbd526b</anchor>
+      <anchor>a808d4a3a3c59ce792e245ac0a2ca22e6</anchor>
       <arglist>(double samplerate, PeriodType period) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>T</type>
+      <type>constexpr T</type>
       <name>freqToMidi</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>ac4ac101ae2e62adde035af820402b5a0</anchor>
+      <anchor>a379a4863edaf6befd18862e926c4435e</anchor>
       <arglist>(T freqHz) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>T</type>
+      <type>constexpr T</type>
       <name>midiToFreq</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a8e334d4926a3b6dc44ea8c3cacf56070</anchor>
+      <anchor>a2f7ba670ce937b76f6646b9505643fd0</anchor>
       <arglist>(T midiNote) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
+      <type>constexpr int</type>
       <name>msToSamps</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a0b61a87fdde626a08a8dd466f3327bb9</anchor>
+      <anchor>a81114ea3689f2b578a269d06ea295c76</anchor>
       <arglist>(double samplerate, msType ms) noexcept</arglist>
     </member>
     <member kind="function">
@@ -18694,17 +18574,17 @@
       <arglist>(int number) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
+      <type>constexpr int</type>
       <name>periodInSamples</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>a835effc5b0e5514f7fd19d24db5acd66</anchor>
+      <anchor>a0d3d657c9d1a4f9bcc2aafa9fd912c94</anchor>
       <arglist>(double samplerate, FreqType freqHz) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>double</type>
+      <type>constexpr double</type>
       <name>sampsToMs</name>
       <anchorfile>namespacelemons_1_1math.html</anchorfile>
-      <anchor>ad7e11c0af37d156ec272e626a5e6f3b1</anchor>
+      <anchor>ae9fc819b92b39886d816fe4ed2c0b36c</anchor>
       <arglist>(double samplerate, int numSamples) noexcept</arglist>
     </member>
   </compound>
@@ -19732,48 +19612,6 @@
       <anchorfile>group__misc.html</anchorfile>
       <anchor>ga4be31aa0be590eae843d1a0be27e95a8</anchor>
       <arglist>(classToTest, requiredBaseClass)</arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>LEMONS_VERSION_MAJOR</name>
-      <anchorfile>group__misc.html</anchorfile>
-      <anchor>ga745cbaf7407f78551a03e6033abc2624</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>LEMONS_VERSION_MINOR</name>
-      <anchorfile>group__misc.html</anchorfile>
-      <anchor>ga1fbe1a2b0c90a5464db0037161a6b21b</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>LEMONS_VERSION_PATCH</name>
-      <anchorfile>group__misc.html</anchorfile>
-      <anchor>ga537f07f6a8c6eb77ec4b1a2ab925f6c3</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>LEMONS_PROJECT_VERSION_MAJOR</name>
-      <anchorfile>group__misc.html</anchorfile>
-      <anchor>ga52ab1f8b6b9e166d12b4b96739838d5a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>LEMONS_PROJECT_VERSION_MINOR</name>
-      <anchorfile>group__misc.html</anchorfile>
-      <anchor>ga906eafb2e72e1937dae95a1154cb1d4d</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="define">
-      <type>#define</type>
-      <name>LEMONS_PROJECT_VERSION_PATCH</name>
-      <anchorfile>group__misc.html</anchorfile>
-      <anchor>ga656cf0efe739619c0fc96e8f70387727</anchor>
-      <arglist></arglist>
     </member>
   </compound>
   <compound kind="group">

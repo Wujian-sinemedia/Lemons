@@ -107,6 +107,10 @@ Modules</h2></td></tr>
 </ul>
 <p>Set this to 1 if your project has a JUCE binary data target. The Lemons repo's cmake scripts set this automatically for you; if that's how you added the Lemons package, then you don't need to worry about setting this manually.</p>
 <ul>
+<li>LEMONS_BINARY_DATA_NAMESPACE</li>
+</ul>
+<p>Use this to specify the namespace your binary data assets are in. Defaults to 'BinaryData'.</p>
+<ul>
 <li>LEMONS_USE_VDSP</li>
 </ul>
 <p>Set this to 1 to use Apple's vDSP library for vecops SIMD. vDSP ships with the OS on Mac and iOS, which is why it's the default on Apple platforms. The Lemons repo's cmake scripts set this automatically for you; if that's how you added the Lemons package, then you don't need to worry about setting this manually.</p>
@@ -117,7 +121,7 @@ Modules</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 6 2021 00:45:28 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Dec 7 2021 00:45:50 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
