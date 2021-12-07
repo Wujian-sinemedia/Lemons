@@ -10,6 +10,7 @@
 #include "misc/logger.cpp"
 
 #include "files/FileUtilities.cpp"
+#include "files/AudioFile.cpp"
 
 #include "serializing/audio.cpp"
 #include "serializing/ValueTree_JSON.cpp"

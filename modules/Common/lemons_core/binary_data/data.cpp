@@ -78,16 +78,18 @@ Image Data::getImage (const String& imageFileName)
 	return juce::ImageCache::getFromMemory (d.data, d.size);
 }
 
-
-template <typename SampleType>
-AudioBuffer<SampleType> Data::getAudio (const String& audioFileName)
+AudioFile Data::getAudio (const String& audioFileName)
 {
-	return audioFromBinary<SampleType> (getBlob (audioFileName));
+	const auto block = getBlob (audioFileName);
+
+	auto stream = std::make_unique<juce::MemoryInputStream> (block, false);
+
+	AudioFile audio { std::move (stream) };
+
+	jassert (audio.isValid());
+
+	return audio;
 }
-
-template AudioBuffer<float>  Data::getAudio (const String&);
-template AudioBuffer<double> Data::getAudio (const String&);
-
 
 MidiBuffer Data::getMidi (const String& midiFileName)
 {

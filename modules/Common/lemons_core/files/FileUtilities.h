@@ -1,9 +1,29 @@
-
 #pragma once
 
-namespace lemons
+namespace lemons::files
 {
-File getFileOnDesktop (const String& fileName);
+
+enum class FileType
+{
+	XML,
+	JSON,
+	Opaque
+};
+
+template <FileType Type>
+[[nodiscard]] ValueTree loadValueTree (const File& file);
+
+template <FileType Type>
+bool saveValueTree (const File& file, const ValueTree& tree);
+
+
+//==============================================================================
+
+
+[[nodiscard]] bool isMidiFile (const File& file);
+
+
+[[nodiscard]] File getFileOnDesktop (const String& fileName);
 
 
 //==============================================================================
@@ -28,4 +48,4 @@ void deleteFile (const File& f);
 bool openFile (File file);
 
 
-}  // namespace lemons
+}  // namespace lemons::files

@@ -130,14 +130,12 @@ var VariantConverter<RelativeTime>::toVar (const RelativeTime& t)
 
 Colour VariantConverter<Colour>::fromVar (const var& v)
 {
-	const auto argb = static_cast<uint32> ((int) v);
-	Colour     c { argb };
-	return c;
+    return Colour::fromString (v.toString());
 }
 
 var VariantConverter<Colour>::toVar (const Colour& c)
 {
-	return { static_cast<int> (c.getARGB()) };
+	return { c.toString() };
 }
 
 }  // namespace juce

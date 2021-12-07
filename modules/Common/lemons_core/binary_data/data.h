@@ -46,11 +46,10 @@ struct Data final
 	 */
 	[[nodiscard]] static Image getImage (const String& imageFileName);
 
-	/** Returns an audio buffer object from an audio file in the BinaryData target.
-	    If the audio can't be loaded, an assertion will be thrown.
+	/** Returns an audio file from the BinaryData target. If the audio can't be loaded, an assertion will be thrown.
+	    @see AudioFile
 	 */
-	template <typename SampleType>
-	[[nodiscard]] static AudioBuffer<SampleType> getAudio (const String& audioFileName);
+	[[nodiscard]] static AudioFile getAudio (const String& audioFileName);
 
 	/** Returns a MIDI buffer object from a MIDI file in the BinaryData target.
 	    If the MIDI can't be loaded, an assertion will be thrown.

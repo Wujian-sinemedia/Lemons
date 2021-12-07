@@ -106,6 +106,7 @@ using juce::ValueTree;
 #include "events/DeviceMotion.h"
 
 #include "files/FileUtilities.h"
+#include "files/AudioFile.h"
 
 #include "serializing/conversions.h"
 #include "serializing/VariantConversions.h"
