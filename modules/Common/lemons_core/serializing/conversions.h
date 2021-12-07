@@ -4,7 +4,7 @@
 #include <juce_graphics/juce_graphics.h>
 
 
-namespace lemons::binary
+namespace lemons::serializing
 {
 
 using juce::Image;
@@ -59,17 +59,6 @@ template <typename SampleType>
 [[nodiscard]] MemoryBlock memoryBlockFromString (const String& string);
 
 
-/** Converts a ValueTree to a var object.
-    @see valueTreeFromVar()
- */
-[[nodiscard]] juce::var valueTreeToVar (const ValueTree& tree);
-
-/** Converts a var object to a ValueTree.
-    @see valueTreeToVar()
- */
-[[nodiscard]] ValueTree valueTreeFromVar (const juce::var& v);
-
-
 /** Converts a ValueTree to a JSON string.
     @see valueTreeFromJSON()
  */
@@ -80,7 +69,7 @@ template <typename SampleType>
  */
 [[nodiscard]] ValueTree valueTreeFromJSON (const String& jsonText);
 
-}  // namespace lemons::binary
+}  // namespace lemons::serializing
 
 
 /*---------------------------------------------------------------------------------------------------------------------------------*/

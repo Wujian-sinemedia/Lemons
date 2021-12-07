@@ -13,7 +13,7 @@ ValueTree loadValueTree<FileType::XML> (const File& file)
 template <>
 ValueTree loadValueTree<FileType::JSON> (const File& file)
 {
-	return binary::valueTreeFromJSON (file.loadFileAsString());
+	return serializing::valueTreeFromJSON (file.loadFileAsString());
 }
 
 template <>
@@ -66,7 +66,7 @@ bool saveValueTree<FileType::JSON> (const File& file, const ValueTree& tree)
 	return saveValueTreeImpl (file,
 	                          [&] (juce::FileOutputStream& os)
 	                          {
-		                          os.writeString (binary::valueTreeToJSON (tree));
+		                          os.writeString (serializing::valueTreeToJSON (tree));
 	                          });
 }
 

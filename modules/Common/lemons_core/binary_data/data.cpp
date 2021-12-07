@@ -80,9 +80,7 @@ Image Data::getImage (const String& imageFileName)
 
 AudioFile Data::getAudio (const String& audioFileName)
 {
-	const auto block = getBlob (audioFileName);
-
-	auto stream = std::make_unique<juce::MemoryInputStream> (block, false);
+	auto stream = std::make_unique<juce::MemoryInputStream> (getBlob (audioFileName), false);
 
 	AudioFile audio { std::move (stream) };
 
@@ -93,16 +91,21 @@ AudioFile Data::getAudio (const String& audioFileName)
 
 MidiBuffer Data::getMidi (const String& midiFileName)
 {
-	return midiFromBinary (getBlob (midiFileName));
+	return serializing::midiFromBinary (getBlob (midiFileName));
 }
 
-juce::StringArray Data::getStrings (const String& textFileName)
+String Data::getString (const String& textFileName)
 {
 	Data d { textFileName };
 
 	jassert (d.isValid());
 
-	return juce::StringArray::fromTokens (d.getAsString(), "\n\r\n", "");
+	return d.getAsString();
+}
+
+juce::StringArray Data::getStrings (const String& textFileName)
+{
+	return juce::StringArray::fromTokens (getString (textFileName), "\n\r\n", "");
 }
 
 }  // namespace lemons::binary

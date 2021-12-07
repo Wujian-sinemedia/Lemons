@@ -1,6 +1,6 @@
 #include <juce_audio_formats/juce_audio_formats.h>
 
-namespace lemons::binary
+namespace lemons::serializing
 {
 
 template <>
@@ -76,4 +76,4 @@ AudioBuffer<double> audioFromBinary (const MemoryBlock& block)
 	return doubleBuf;
 }
 
-}  // namespace lemons::binary
+}  // namespace lemons::serializing

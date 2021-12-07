@@ -3,6 +3,14 @@
 
 namespace lemons::binary
 {
+
+using juce::Image;
+using juce::MemoryBlock;
+using juce::MidiBuffer;
+
+template <typename T>
+using AudioBuffer = juce::AudioBuffer<T>;
+
 /** Represents a wrapper around some data contained in a juce BinaryData target.
     Simply provide the filename and this object will load the data contained by the named resource, if it can be located. \n
     Be sure to check isValid() before attempting to use the data! \n
@@ -61,9 +69,16 @@ struct Data final
 	 */
 	[[nodiscard]] static MemoryBlock getBlob (const String& filename);
 
+	/** Returns a text file in the BinaryData target as one string.
+	    If the data can't be loaded, an assertion will be thrown.
+	    @see getStrings()
+	 */
+	[[nodiscard]] static String getString (const String& textFileName);
+
 	/** Returns an array of strings, each containing a line of a text file in the BinaryData target.
 	    This loads the file as a string and parses it into tokens using line break and carriage return characters.
 	    If the file can't be loaded, an assertion will be thrown.
+	    @see getString()
 	 */
 	[[nodiscard]] static juce::StringArray getStrings (const String& textFileName);
 };

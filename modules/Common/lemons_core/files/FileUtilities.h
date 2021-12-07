@@ -7,7 +7,7 @@ enum class FileType
 {
 	XML,
 	JSON,
-	Opaque
+	Opaque /** Represents any non-standard/proprietary method of encoding and decoding information to/from binary. May not be human-readable. */
 };
 
 template <FileType Type>

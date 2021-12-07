@@ -23,6 +23,7 @@ juce::AudioFormatReader* createAudioReader (std::unique_ptr<juce::InputStream> a
 	return audio_formats.manager.createReaderFor (std::move (audioFileStream));
 }
 
+/*---------------------------------------------------------------------------------------------------------------------------------*/
 
 AudioFile::AudioFile (const File& audioFile)
     : AudioFile (createAudioReader (audioFile), audioFile)
@@ -48,8 +49,8 @@ AudioFile::AudioFile (juce::AudioFormatReader* reader, const juce::File& f)
 
 		if (isValid())
 		{
-			data.setSize (numChannels, lengthInSamples);
-			reader->read (&data, 0, lengthInSamples, 0, true, numChannels > 1);
+			float_data.setSize (numChannels, lengthInSamples);
+			reader->read (&float_data, 0, lengthInSamples, 0, true, numChannels > 1);
 		}
 	}
 	else
@@ -60,8 +61,39 @@ AudioFile::AudioFile (juce::AudioFormatReader* reader, const juce::File& f)
 		bitsPerSample   = 0;
 	}
 
-	jassert (data.getNumChannels() == numChannels);
-	jassert (data.getNumSamples() == lengthInSamples);
+	jassert (float_data.getNumChannels() == numChannels);
+	jassert (float_data.getNumSamples() == lengthInSamples);
+}
+
+template <>
+const AudioBuffer<float>& AudioFile::getData()
+{
+	jassert (float_data.getNumChannels() == numChannels);
+	jassert (float_data.getNumSamples() == lengthInSamples);
+
+	return float_data;
+}
+
+template <>
+const AudioBuffer<double>& AudioFile::getData()
+{
+	if (isValid())
+	{
+		if (double_data.getNumSamples() != float_data.getNumSamples()
+		    || double_data.getNumChannels() != float_data.getNumChannels())
+		{
+			double_data.setSize (numChannels, lengthInSamples);
+			double_data.clear();
+
+			for (int chan = 0; chan < numChannels; ++chan)
+				vecops::convert (double_data.getWritePointer (chan), float_data.getReadPointer (chan), lengthInSamples);
+		}
+	}
+
+	jassert (double_data.getNumChannels() == numChannels);
+	jassert (double_data.getNumSamples() == lengthInSamples);
+
+	return double_data;
 }
 
 double AudioFile::getLengthInSeconds() const noexcept
@@ -80,6 +112,41 @@ bool AudioFile::isValid() const noexcept
 bool AudioFile::existsOnDisk() const noexcept
 {
 	return file.existsAsFile();
+}
+
+double AudioFile::getSamplerate() const noexcept
+{
+	return samplerate;
+}
+
+int AudioFile::getNumSamples() const noexcept
+{
+	return lengthInSamples;
+}
+
+int AudioFile::getNumChannels() const noexcept
+{
+	return numChannels;
+}
+
+int AudioFile::getBitsPerSample() const noexcept
+{
+	return bitsPerSample;
+}
+
+File AudioFile::getFile() const noexcept
+{
+	return file;
+}
+
+String AudioFile::getFormatName() const noexcept
+{
+	return audioFormat;
+}
+
+const juce::StringPairArray& AudioFile::getMetadata() const noexcept
+{
+	return metadata;
 }
 
 }  // namespace lemons

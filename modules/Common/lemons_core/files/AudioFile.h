@@ -7,11 +7,16 @@ namespace lemons
 {
 using juce::File;
 
+template <typename T>
+using AudioBuffer = juce::AudioBuffer<T>;
+
 
 struct AudioFile final
 {
 	explicit AudioFile (const File& audioFile);
 	explicit AudioFile (std::unique_ptr<juce::InputStream> audioStream);
+
+	~AudioFile() = default;
 
 	[[nodiscard]] double getLengthInSeconds() const noexcept;
 
@@ -19,21 +24,39 @@ struct AudioFile final
 
 	[[nodiscard]] bool existsOnDisk() const noexcept;
 
+	template <typename SampleType>
+	[[nodiscard]] const AudioBuffer<SampleType>& getData();
+
+	[[nodiscard]] double getSamplerate() const noexcept;
+
+	[[nodiscard]] int getNumSamples() const noexcept;
+
+	[[nodiscard]] int getNumChannels() const noexcept;
+
+	[[nodiscard]] int getBitsPerSample() const noexcept;
+
+	[[nodiscard]] File getFile() const noexcept;
+
+	[[nodiscard]] String getFormatName() const noexcept;
+
+	[[nodiscard]] const juce::StringPairArray& getMetadata() const noexcept;
+
+private:
+	explicit AudioFile (juce::AudioFormatReader* reader, const File& f);
+
+	AudioBuffer<float>  float_data;
+	AudioBuffer<double> double_data;
+
 	double samplerate { 0. };
 	int    lengthInSamples { 0 };
 	int    numChannels { 0 };
 	int    bitsPerSample { 0 };
 
-	juce::StringPairArray metadata;
-
 	File file;
 
 	String audioFormat;
 
-	juce::AudioBuffer<float> data;
-
-private:
-	AudioFile (juce::AudioFormatReader* reader, const File& f);
+	juce::StringPairArray metadata;
 };
 
 }  // namespace lemons

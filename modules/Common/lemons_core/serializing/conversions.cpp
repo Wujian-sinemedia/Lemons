@@ -1,4 +1,4 @@
-namespace lemons::binary
+namespace lemons::serializing
 {
 
 String memoryBlockToString (const MemoryBlock& block)
@@ -104,7 +104,7 @@ MemoryBlock midiToBinary (const MidiBuffer& midi)
 	return block;
 }
 
-}  // namespace lemons::binary
+}  // namespace lemons::serializing
 
 
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
@@ -141,14 +141,14 @@ void DataConversionTests::runTest()
 	{
 		const auto subtest = beginSubtest ("MIDI buffer to/from MIDI file");
 
-		const auto file    = binary::midiBufferToMidiFile (origMidi);
-		const auto decoded = binary::midiBufferFromMidiFile (file);
+		const auto file    = serializing::midiBufferToMidiFile (origMidi);
+		const auto decoded = serializing::midiBufferFromMidiFile (file);
 
 		expect (midiBuffersAreEqual (origMidi, decoded));
 	}
 
-	const auto block   = binary::midiToBinary (origMidi);
-	const auto decoded = binary::midiFromBinary (block);
+	const auto block   = serializing::midiToBinary (origMidi);
+	const auto decoded = serializing::midiFromBinary (block);
 
 	// expect (midiBuffersAreEqual (origMidi, decoded));
 
@@ -159,8 +159,8 @@ void DataConversionTests::runTest()
 
 	juce::Image image { juce::Image::PixelFormat::RGB, imageWidth, imageHeight, true };
 
-	const auto blob         = binary::imageToBinary (image);
-	const auto decodedImage = binary::imageFromBinary (blob);
+	const auto blob         = serializing::imageToBinary (image);
+	const auto decodedImage = serializing::imageFromBinary (blob);
 
 	expectEquals (decodedImage.getWidth(), imageWidth);
 	expectEquals (decodedImage.getHeight(), imageHeight);
@@ -168,8 +168,8 @@ void DataConversionTests::runTest()
 
 	beginTest ("Memory block to/from string");
 
-	const auto memStr     = binary::memoryBlockToString (block);
-	const auto memDecoded = binary::memoryBlockFromString (memStr);
+	const auto memStr     = serializing::memoryBlockToString (block);
+	const auto memDecoded = serializing::memoryBlockFromString (memStr);
 
 	expect (block.matches (memDecoded.getData(), memDecoded.getSize()));
 }
@@ -194,8 +194,8 @@ void DataConversionTests::runTypedTests()
 
 	fillAudioBufferWithRandomNoise (origAudio, getRandom());
 
-	const auto block   = binary::audioToBinary (origAudio);
-	const auto decoded = binary::audioFromBinary<SampleType> (block);
+	const auto block   = serializing::audioToBinary (origAudio);
+	const auto decoded = serializing::audioFromBinary<SampleType> (block);
 
 	expectEquals (decoded.getNumChannels(), numChannels);
 	expectEquals (decoded.getNumSamples(), numSamples);

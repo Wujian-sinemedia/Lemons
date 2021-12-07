@@ -1,7 +1,7 @@
 namespace juce
 {
 
-using namespace lemons::binary;
+using namespace lemons::serializing;
 
 Image VariantConverter<Image>::fromVar (const var& v)
 {
@@ -51,16 +51,6 @@ MemoryBlock VariantConverter<MemoryBlock>::fromVar (const var& v)
 var VariantConverter<MemoryBlock>::toVar (const MemoryBlock& b)
 {
 	return { memoryBlockToString (b) };
-}
-
-ValueTree VariantConverter<ValueTree>::fromVar (const var& v)
-{
-	return valueTreefromVar (v);
-}
-
-var VariantConverter<ValueTree>::toVar (const ValueTree& t)
-{
-	return valueTreeToVar (t);
 }
 
 URL VariantConverter<URL>::fromVar (const var& v)
@@ -130,7 +120,7 @@ var VariantConverter<RelativeTime>::toVar (const RelativeTime& t)
 
 Colour VariantConverter<Colour>::fromVar (const var& v)
 {
-    return Colour::fromString (v.toString());
+	return Colour::fromString (v.toString());
 }
 
 var VariantConverter<Colour>::toVar (const Colour& c)
