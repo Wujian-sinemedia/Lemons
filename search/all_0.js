@@ -41,12 +41,10 @@ var searchData=
   ['audiofifo_38',['AudioFifo',['../classlemons_1_1dsp_1_1_audio_fifo.html',1,'lemons::dsp::AudioFifo&lt; SampleType &gt;'],['../classlemons_1_1dsp_1_1_audio_fifo.html#a5850587c8005473661752b39de8627ef',1,'lemons::dsp::AudioFifo::AudioFifo()']]],
   ['audiofifo_2eh_39',['AudioFifo.h',['../_audio_fifo_8h.html',1,'']]],
   ['audiofrombinary_40',['audioFromBinary',['../namespacelemons_1_1binary.html#a22fa378874115fd9990002a61ede3c48',1,'lemons::binary']]],
-  ['audiofromstring_41',['audioFromString',['../namespacelemons_1_1binary.html#a1e84f71f0d1afaec4f3005d005d7e056',1,'lemons::binary']]],
-  ['audioprocessortest_42',['AudioProcessorTest',['../structlemons_1_1tests_1_1_audio_processor_test.html',1,'lemons::tests::AudioProcessorTest&lt; ProcessorType, &gt;'],['../structlemons_1_1tests_1_1_audio_processor_test.html#a53f2e88274b234947c8acbea090d6423',1,'lemons::tests::AudioProcessorTest::AudioProcessorTest()']]],
-  ['audioprocessortestbase_43',['AudioProcessorTestBase',['../structlemons_1_1tests_1_1_audio_processor_test_base.html',1,'lemons::tests::AudioProcessorTestBase'],['../structlemons_1_1tests_1_1_audio_processor_test_base.html#aecfdce2a9e45b77367c5b4016820062d',1,'lemons::tests::AudioProcessorTestBase::AudioProcessorTestBase()']]],
-  ['audiotobinary_44',['audioToBinary',['../namespacelemons_1_1binary.html#adf812e68f33a59a33776402111d79db7',1,'lemons::binary']]],
-  ['audiotostring_45',['audioToString',['../namespacelemons_1_1binary.html#ac2b9f7f1df4148c794777a0934c120a5',1,'lemons::binary']]],
-  ['autolock_2eh_46',['AutoLock.h',['../_auto_lock_8h.html',1,'']]],
-  ['automatedharmonyvoice_47',['AutomatedHarmonyVoice',['../classlemons_1_1dsp_1_1synth_1_1_automated_harmony_voice.html',1,'lemons::dsp::synth::AutomatedHarmonyVoice&lt; SampleType &gt;'],['../classlemons_1_1dsp_1_1synth_1_1_automated_harmony_voice.html#a442214b60ee6d403a3e2e0f71e14ed2d',1,'lemons::dsp::synth::AutomatedHarmonyVoice::AutomatedHarmonyVoice()']]],
-  ['automatedharmonyvoice_2eh_48',['AutomatedHarmonyVoice.h',['../_automated_harmony_voice_8h.html',1,'']]]
+  ['audioprocessortest_41',['AudioProcessorTest',['../structlemons_1_1tests_1_1_audio_processor_test.html',1,'lemons::tests::AudioProcessorTest&lt; ProcessorType, &gt;'],['../structlemons_1_1tests_1_1_audio_processor_test.html#a53f2e88274b234947c8acbea090d6423',1,'lemons::tests::AudioProcessorTest::AudioProcessorTest()']]],
+  ['audioprocessortestbase_42',['AudioProcessorTestBase',['../structlemons_1_1tests_1_1_audio_processor_test_base.html',1,'lemons::tests::AudioProcessorTestBase'],['../structlemons_1_1tests_1_1_audio_processor_test_base.html#aecfdce2a9e45b77367c5b4016820062d',1,'lemons::tests::AudioProcessorTestBase::AudioProcessorTestBase()']]],
+  ['audiotobinary_43',['audioToBinary',['../namespacelemons_1_1binary.html#adf812e68f33a59a33776402111d79db7',1,'lemons::binary']]],
+  ['autolock_2eh_44',['AutoLock.h',['../_auto_lock_8h.html',1,'']]],
+  ['automatedharmonyvoice_45',['AutomatedHarmonyVoice',['../classlemons_1_1dsp_1_1synth_1_1_automated_harmony_voice.html',1,'lemons::dsp::synth::AutomatedHarmonyVoice&lt; SampleType &gt;'],['../classlemons_1_1dsp_1_1synth_1_1_automated_harmony_voice.html#a442214b60ee6d403a3e2e0f71e14ed2d',1,'lemons::dsp::synth::AutomatedHarmonyVoice::AutomatedHarmonyVoice()']]],
+  ['automatedharmonyvoice_2eh_46',['AutomatedHarmonyVoice.h',['../_automated_harmony_voice_8h.html',1,'']]]
 ];

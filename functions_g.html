@@ -195,6 +195,9 @@ $(function() {
 <li>getGravity()
 : <a class="el" href="classlemons_1_1_motion_manager.html#a1718847202792179b587538b63839521">lemons::MotionManager</a>
 </li>
+<li>getHighestPitch()
+: <a class="el" href="classlemons_1_1_chord.html#ac7510742e9fa8fb93d8a8e30a27e447a">lemons::Chord</a>
+</li>
 <li>getImage()
 : <a class="el" href="structlemons_1_1binary_1_1_data.html#a8cf059725220443050eec963b7e3d2ca">lemons::binary::Data</a>
 </li>
@@ -247,6 +250,9 @@ $(function() {
 <li>getLowestNote()
 : <a class="el" href="classlemons_1_1dsp_1_1synth_1_1_panning_manager.html#abc8d2d2af3b2a1a57982161f0f8047b2">lemons::dsp::synth::PanningManager&lt; SampleType &gt;</a>
 </li>
+<li>getLowestPitch()
+: <a class="el" href="classlemons_1_1_chord.html#a4ec06a74af5eb969d6aadf74a0dff224">lemons::Chord</a>
+</li>
 <li>getMax()
 : <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#a039379ee8787e3d1e2dd797ff83df122">lemons::plugin::Parameter</a>
 </li>
@@ -274,6 +280,9 @@ $(function() {
 <li>getNamedParameter()
 : <a class="el" href="structlemons_1_1plugin_1_1_processor_holder.html#a2fb4a3cd10407f8abc3428b44cf88821">lemons::plugin::ProcessorHolder</a>
 </li>
+<li>getNextSample()
+: <a class="el" href="classlemons_1_1dsp_1_1_white_noise_generator.html#ae3cab3546e1aea778b0b5a2bf14d80f3">lemons::dsp::WhiteNoiseGenerator&lt; SampleType &gt;</a>
+</li>
 <li>getNormalisableRange()
 : <a class="el" href="classlemons_1_1plugin_1_1_parameter.html#ad607d23979bbdbb9a78f1b3d013fc5b4">lemons::plugin::Parameter</a>
 </li>
@@ -292,11 +301,17 @@ $(function() {
 <li>getNumChannels()
 : <a class="el" href="classlemons_1_1dsp_1_1_engine.html#abcbd3bdeebea99be0e756ad1161190dc">lemons::dsp::Engine&lt; SampleType &gt;</a>
 </li>
+<li>getNumPitches()
+: <a class="el" href="classlemons_1_1_chord.html#a242ccb58a6867f98c4e946a96f30108e">lemons::Chord</a>
+</li>
 <li>getNumStoredSamples()
 : <a class="el" href="classlemons_1_1dsp_1_1_circular_buffer.html#a8d0f824cfa4e30813a42930de1896f42">lemons::dsp::CircularBuffer&lt; SampleType &gt;</a>
 </li>
 <li>getNumTestingRepetitions()
 : <a class="el" href="classlemons_1_1tests_1_1_test.html#a9143b5bb744ae5a90b4aa47d35fb2484">lemons::tests::Test</a>
+</li>
+<li>getNumUniquePitchClasses()
+: <a class="el" href="classlemons_1_1_chord.html#af0086fc6b82e4a55d0b51fa163f9b19b">lemons::Chord</a>
 </li>
 <li>getNumVoices()
 : <a class="el" href="classlemons_1_1dsp_1_1_synth_base.html#a22a13afada1f072993befdbf3197d47c">lemons::dsp::SynthBase&lt; SampleType &gt;</a>
@@ -354,7 +369,8 @@ $(function() {
 <li>getSamples()
 : <a class="el" href="classlemons_1_1dsp_1_1_circular_buffer.html#a719fb2a904df96cb3942259fbd0d71ef">lemons::dsp::CircularBuffer&lt; SampleType &gt;</a>
 , <a class="el" href="structlemons_1_1dsp_1_1osc_1_1_oscillator.html#a0d4e7108f8cb508f01efeb7e7d423c84">lemons::dsp::osc::Oscillator&lt; SampleType &gt;</a>
-, <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a2cffdfc5f7a2b191f25b7e2a41e735c6">lemons::dsp::psola::Shifter&lt; SampleType &gt;</a>
+, <a class="el" href="classlemons_1_1dsp_1_1psola_1_1_shifter.html#a0517efb82243046286fc03585dbe0b6e">lemons::dsp::psola::Shifter&lt; SampleType &gt;</a>
+, <a class="el" href="classlemons_1_1dsp_1_1_white_noise_generator.html#a21f4ea9e6f5ed15f0bb215ee02a1b43b">lemons::dsp::WhiteNoiseGenerator&lt; SampleType &gt;</a>
 </li>
 <li>getSavedEditorSize()
 : <a class="el" href="classlemons_1_1plugin_1_1_processor_base.html#a3814788aae0eff4e449e29dbcd16352f">lemons::plugin::ProcessorBase</a>
@@ -430,7 +446,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Dec 7 2021 00:45:51 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Dec 7 2021 07:11:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
