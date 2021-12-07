@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['data_1955',['data',['../structlemons_1_1binary_1_1_data.html#a3bb5e7c61585e98f0299b20cf263cf40',1,'lemons::binary::Data']]],
-  ['descant_1956',['descant',['../classlemons_1_1dsp_1_1_synth_base.html#a4483f9aef1275bfa7627cbacfcde85e2',1,'lemons::dsp::SynthBase']]],
-  ['dimensions_1957',['dimensions',['../classlemons_1_1plugin_1_1_state_base.html#af61d909bb4b2fbc6a101a389f87a3ae3',1,'lemons::plugin::StateBase']]],
-  ['dragstart_1958',['dragStart',['../structlemons_1_1spline_1_1_knot.html#ab0aa56e638a7cef7b7ee238378782cea',1,'lemons::spline::Knot']]]
+  ['coefficients_1996',['coefficients',['../structlemons_1_1dsp_1_1filters_1_1_coefficients.html#aa2956ada5f78984a5ef47f28cde1b8c0',1,'lemons::dsp::filters::Coefficients']]],
+  ['coefs_1997',['coefs',['../classlemons_1_1dsp_1_1filters_1_1_filter.html#aa2a2553de95ae712e5d0e74599dd908b',1,'lemons::dsp::filters::Filter::coefs()'],['../structlemons_1_1dsp_1_1filters_1_1_multi_filter.html#a9508ef62f004c93f863d0f1338d05ee9',1,'lemons::dsp::filters::MultiFilter::coefs()']]],
+  ['createdefaultvaluefromstringfunc_1998',['createDefaultValueFromStringFunc',['../namespacelemons_1_1plugin.html#a7e38f9c29a05a75b8d87f91d7909c688',1,'lemons::plugin']]]
 ];

@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['high_2025',['High',['../namespacelemons_1_1tests.html#abe71616eeadecd56537dd9a10376223ca655d20c1ca69519ca647684edbb2db35',1,'lemons::tests']]],
-  ['highpass_2026',['HighPass',['../namespacelemons_1_1dsp_1_1_f_x.html#a2a75c0c88cd8cbd576add3c0d4db1d14ae9456dc865a19e434997ea20bb5373f6',1,'lemons::dsp::FX']]],
-  ['highshelf_2027',['HighShelf',['../namespacelemons_1_1dsp_1_1_f_x.html#a2a75c0c88cd8cbd576add3c0d4db1d14aaafe3de5c829706a2fda73dd43fd740e',1,'lemons::dsp::FX']]]
+  ['diminished_2077',['Diminished',['../classlemons_1_1_interval.html#afd590d10f6a808ea478762881ae3d504a539ef79c5675bdcd6fead7bc93643d98',1,'lemons::Interval']]]
 ];

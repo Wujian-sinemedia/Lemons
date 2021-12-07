@@ -97,6 +97,13 @@
     <namespace>lemons::dsp</namespace>
   </compound>
   <compound kind="file">
+    <name>AudioFile.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/files/</path>
+    <filename>_audio_file_8h.html</filename>
+    <class kind="struct">lemons::AudioFile</class>
+    <namespace>lemons</namespace>
+  </compound>
+  <compound kind="file">
     <name>AutoLock.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/events/</path>
     <filename>_auto_lock_8h.html</filename>
@@ -263,7 +270,7 @@
   </compound>
   <compound kind="file">
     <name>conversions.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/binary_data/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/serializing/</path>
     <filename>conversions_8h.html</filename>
     <namespace>lemons</namespace>
     <namespace>lemons::binary</namespace>
@@ -585,40 +592,72 @@
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/files/</path>
     <filename>_file_utilities_8h.html</filename>
     <namespace>lemons</namespace>
+    <namespace>lemons::files</namespace>
+    <member kind="enumeration">
+      <type></type>
+      <name>FileType</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>ad8666caaa02a1d74f5e234b8900b5390</anchor>
+      <arglist></arglist>
+      <enumvalue file="namespacelemons_1_1files.html" anchor="ad8666caaa02a1d74f5e234b8900b5390a3501bb093d363810b671059b9cfed3f8">XML</enumvalue>
+      <enumvalue file="namespacelemons_1_1files.html" anchor="ad8666caaa02a1d74f5e234b8900b5390a0ecd11c1d7a287401d148a23bbd7a2f8">JSON</enumvalue>
+      <enumvalue file="namespacelemons_1_1files.html" anchor="ad8666caaa02a1d74f5e234b8900b5390afaa90538de35640e4b1e31ccf35b6eb5">Opaque</enumvalue>
+    </member>
     <member kind="function">
       <type>String</type>
       <name>addFileExtensionIfMissing</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a9858c6c582b810d207fd3a969b15d29c</anchor>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>a829e69b1947298540b02f74dcb5519ac</anchor>
       <arglist>(const String &amp;string, const String &amp;extension)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>deleteFile</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>ac71e326aa839854003fd6900105ff786</anchor>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>a8a7d8dab5985de95bef3c0fab9859174</anchor>
       <arglist>(const File &amp;f)</arglist>
     </member>
     <member kind="function">
       <type>File</type>
       <name>getFileOnDesktop</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a2f7ea380c254967eac9a199a97822a85</anchor>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>a1a09c77fee142fb1da7e1101433b4b75</anchor>
       <arglist>(const String &amp;fileName)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
+      <name>isMidiFile</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>a402868b2eee4e6897a4a2d458c2797e0</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>ValueTree</type>
+      <name>loadValueTree</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>a83377ad1e44d9e25ff0a5879975230c9</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
       <name>openFile</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a6d34be9e9d17562dcc43898b269053a1</anchor>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>a2688bf021d99260f64b07438ee61c8fb</anchor>
       <arglist>(File file)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
       <name>renameFile</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>ae6d22f8d34dd06bde1ab041f1fa7d2a4</anchor>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>ac170a1c420e60941cd5159c1869d6f20</anchor>
       <arglist>(const File &amp;f, const String &amp;newName)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>saveValueTree</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>af649a81a1c77e6b8667c62f6276e6d11</anchor>
+      <arglist>(const File &amp;file, const ValueTree &amp;tree)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -699,6 +738,13 @@
       <anchor>a50c25e0f00a4a2947cbcc1218eecbc31</anchor>
       <arglist>(const Knots &amp;data, float t, const int *k) noexcept</arglist>
     </member>
+  </compound>
+  <compound kind="file">
+    <name>Interval.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_musicology/harmony/</path>
+    <filename>_interval_8h.html</filename>
+    <class kind="class">lemons::Interval</class>
+    <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
     <name>KeySignature.h</name>
@@ -1741,7 +1787,7 @@
   </compound>
   <compound kind="file">
     <name>VariantConversions.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/binary_data/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/serializing/</path>
     <filename>_variant_conversions_8h.html</filename>
     <class kind="struct">juce::VariantConverter&lt; AudioBuffer&lt; double &gt; &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; AudioBuffer&lt; float &gt; &gt;</class>
@@ -2267,6 +2313,101 @@
       <anchorfile>classlemons_1_1dsp_1_1_audio_fifo.html</anchorfile>
       <anchor>acbdb303cddfa8c533cf2c073084f8ae2</anchor>
       <arglist>(int maxNumSamples, int numChannels=2)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>lemons::AudioFile</name>
+    <filename>structlemons_1_1_audio_file.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>AudioFile</name>
+      <anchorfile>structlemons_1_1_audio_file.html</anchorfile>
+      <anchor>a12926d13271dcbd3c1ec9eb3d6bef544</anchor>
+      <arglist>(const File &amp;audioFile)</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>AudioFile</name>
+      <anchorfile>structlemons_1_1_audio_file.html</anchorfile>
+      <anchor>ac3bd6ddf46a9b2fa8eeeffb3378f604b</anchor>
+      <arglist>(std::unique_ptr&lt; juce::InputStream &gt; audioStream)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>existsOnDisk</name>
+      <anchorfile>structlemons_1_1_audio_file.html</anchorfile>
+      <anchor>aba31217c05169d5d953a24bdb1435b30</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getLengthInSeconds</name>
+      <anchorfile>structlemons_1_1_audio_file.html</anchorfile>
+      <anchor>a420edac3a9b7c443d9f81eb3ae5a853d</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isValid</name>
+      <anchorfile>structlemons_1_1_audio_file.html</anchorfile>
+      <anchor>acfba858ff267ba47b198a626531bdfb0</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="variable">
+      <type>String</type>
+      <name>audioFormat</name>
+      <anchorfile>structlemons_1_1_audio_file.html</anchorfile>
+      <anchor>aa073b2e222dcc663687f74e3a4c1bcee</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>bitsPerSample</name>
+      <anchorfile>structlemons_1_1_audio_file.html</anchorfile>
+      <anchor>afa2cc12dbef5338994f95ae9056d653a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::AudioBuffer&lt; float &gt;</type>
+      <name>data</name>
+      <anchorfile>structlemons_1_1_audio_file.html</anchorfile>
+      <anchor>a27a0992a10c815a72dee48655a030c9b</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>File</type>
+      <name>file</name>
+      <anchorfile>structlemons_1_1_audio_file.html</anchorfile>
+      <anchor>a7bdaf8b75c985dff78b5ac53894a31dc</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>lengthInSamples</name>
+      <anchorfile>structlemons_1_1_audio_file.html</anchorfile>
+      <anchor>a229ac9a5efb436df3d2c8ad4a80c25d8</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::StringPairArray</type>
+      <name>metadata</name>
+      <anchorfile>structlemons_1_1_audio_file.html</anchorfile>
+      <anchor>a97b00837b0b90fc92265781329dee126</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>int</type>
+      <name>numChannels</name>
+      <anchorfile>structlemons_1_1_audio_file.html</anchorfile>
+      <anchor>a14d5cd0172db7b6d9d4e05b33c009978</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>double</type>
+      <name>samplerate</name>
+      <anchorfile>structlemons_1_1_audio_file.html</anchorfile>
+      <anchor>a009029d76ba62c3d8a3279211921ccab</anchor>
+      <arglist></arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -3898,10 +4039,10 @@
       <arglist>() const noexcept</arglist>
     </member>
     <member kind="function" static="yes">
-      <type>static AudioBuffer&lt; SampleType &gt;</type>
+      <type>static AudioFile</type>
       <name>getAudio</name>
       <anchorfile>structlemons_1_1binary_1_1_data.html</anchorfile>
-      <anchor>ab1d65e86c955eb8492ab1cdcdc42fc79</anchor>
+      <anchor>aa6cf49dff44bb2a1147032a0b58f8b43</anchor>
       <arglist>(const String &amp;audioFileName)</arglist>
     </member>
     <member kind="function" static="yes">
@@ -7854,6 +7995,36 @@
       <anchorfile>structlemons_1_1gui_1_1_image_button.html</anchorfile>
       <anchor>afccf21b8680b9849f267813470769a5a</anchor>
       <arglist>(const juce::Image &amp;image, std::function&lt; void()&gt; whenClicked, float opacityRange=0.2f)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lemons::Interval</name>
+    <filename>classlemons_1_1_interval.html</filename>
+    <member kind="enumeration">
+      <type></type>
+      <name>Quality</name>
+      <anchorfile>classlemons_1_1_interval.html</anchorfile>
+      <anchor>afd590d10f6a808ea478762881ae3d504</anchor>
+      <arglist></arglist>
+      <enumvalue file="classlemons_1_1_interval.html" anchor="afd590d10f6a808ea478762881ae3d504a3b329734e45b57e60f3df64c2cf412a9">Major</enumvalue>
+      <enumvalue file="classlemons_1_1_interval.html" anchor="afd590d10f6a808ea478762881ae3d504a6fed0c378a4b4e8c1e7dc5c16dabb388">Minor</enumvalue>
+      <enumvalue file="classlemons_1_1_interval.html" anchor="afd590d10f6a808ea478762881ae3d504a56cdd7e9e3cef1974f4075c03a80332d">Perfect</enumvalue>
+      <enumvalue file="classlemons_1_1_interval.html" anchor="afd590d10f6a808ea478762881ae3d504ab45f39670f767b2c62c8d6b211cbcb1a">Augmented</enumvalue>
+      <enumvalue file="classlemons_1_1_interval.html" anchor="afd590d10f6a808ea478762881ae3d504a539ef79c5675bdcd6fead7bc93643d98">Diminished</enumvalue>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumSemitones</name>
+      <anchorfile>classlemons_1_1_interval.html</anchorfile>
+      <anchor>aa226d693fae30d7f323f5998e7c42095</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>Quality</type>
+      <name>getQuality</name>
+      <anchorfile>classlemons_1_1_interval.html</anchorfile>
+      <anchor>ae90579a58abbba1876392150fe273aad</anchor>
+      <arglist>() const</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -18497,6 +18668,7 @@
     <namespace>lemons::binary</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::events</namespace>
+    <namespace>lemons::files</namespace>
     <namespace>lemons::gui</namespace>
     <namespace>lemons::math</namespace>
     <namespace>lemons::midi</namespace>
@@ -18504,12 +18676,14 @@
     <namespace>lemons::spline</namespace>
     <namespace>lemons::tests</namespace>
     <namespace>lemons::vecops</namespace>
+    <class kind="struct">lemons::AudioFile</class>
     <class kind="class">lemons::Chord</class>
     <class kind="struct">lemons::DefaultWindow</class>
     <class kind="struct">lemons::DefaultWindowBase</class>
     <class kind="struct">lemons::DeviceRotation</class>
     <class kind="struct">lemons::Dimensions</class>
     <class kind="class">lemons::GuiApp</class>
+    <class kind="class">lemons::Interval</class>
     <class kind="class">lemons::KeySignature</class>
     <class kind="class">lemons::Logger</class>
     <class kind="class">lemons::MotionManager</class>
@@ -18517,27 +18691,6 @@
     <class kind="struct">lemons::TranslationsInitializer</class>
     <class kind="struct">lemons::ValueSmoother</class>
     <class kind="struct">lemons::Version</class>
-    <member kind="function">
-      <type>String</type>
-      <name>addFileExtensionIfMissing</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a9858c6c582b810d207fd3a969b15d29c</anchor>
-      <arglist>(const String &amp;string, const String &amp;extension)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>deleteFile</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>ac71e326aa839854003fd6900105ff786</anchor>
-      <arglist>(const File &amp;f)</arglist>
-    </member>
-    <member kind="function">
-      <type>File</type>
-      <name>getFileOnDesktop</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a2f7ea380c254967eac9a199a97822a85</anchor>
-      <arglist>(const String &amp;fileName)</arglist>
-    </member>
     <member kind="function">
       <type>const juce_wchar</type>
       <name>getFlatSymbol</name>
@@ -18595,13 +18748,6 @@
       <arglist>(const String &amp;string) noexcept</arglist>
     </member>
     <member kind="function">
-      <type>bool</type>
-      <name>openFile</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a6d34be9e9d17562dcc43898b269053a1</anchor>
-      <arglist>(File file)</arglist>
-    </member>
-    <member kind="function">
       <type>String</type>
       <name>pitchClassToString</name>
       <anchorfile>namespacelemons.html</anchorfile>
@@ -18614,13 +18760,6 @@
       <anchorfile>namespacelemons.html</anchorfile>
       <anchor>ab6d14353177272f1e77200f5166e5891</anchor>
       <arglist>(int midiNoteNumber, bool asSharps=true) noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>renameFile</name>
-      <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>ae6d22f8d34dd06bde1ab041f1fa7d2a4</anchor>
-      <arglist>(const File &amp;f, const String &amp;newName)</arglist>
     </member>
     <member kind="function">
       <type>int</type>
@@ -18924,6 +19063,76 @@
     <name>lemons::events</name>
     <filename>namespacelemons_1_1events.html</filename>
     <class kind="struct">lemons::events::TimerCallback</class>
+  </compound>
+  <compound kind="namespace">
+    <name>lemons::files</name>
+    <filename>namespacelemons_1_1files.html</filename>
+    <member kind="enumeration">
+      <type></type>
+      <name>FileType</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>ad8666caaa02a1d74f5e234b8900b5390</anchor>
+      <arglist></arglist>
+      <enumvalue file="namespacelemons_1_1files.html" anchor="ad8666caaa02a1d74f5e234b8900b5390a3501bb093d363810b671059b9cfed3f8">XML</enumvalue>
+      <enumvalue file="namespacelemons_1_1files.html" anchor="ad8666caaa02a1d74f5e234b8900b5390a0ecd11c1d7a287401d148a23bbd7a2f8">JSON</enumvalue>
+      <enumvalue file="namespacelemons_1_1files.html" anchor="ad8666caaa02a1d74f5e234b8900b5390afaa90538de35640e4b1e31ccf35b6eb5">Opaque</enumvalue>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>addFileExtensionIfMissing</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>a829e69b1947298540b02f74dcb5519ac</anchor>
+      <arglist>(const String &amp;string, const String &amp;extension)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>deleteFile</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>a8a7d8dab5985de95bef3c0fab9859174</anchor>
+      <arglist>(const File &amp;f)</arglist>
+    </member>
+    <member kind="function">
+      <type>File</type>
+      <name>getFileOnDesktop</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>a1a09c77fee142fb1da7e1101433b4b75</anchor>
+      <arglist>(const String &amp;fileName)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isMidiFile</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>a402868b2eee4e6897a4a2d458c2797e0</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>ValueTree</type>
+      <name>loadValueTree</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>a83377ad1e44d9e25ff0a5879975230c9</anchor>
+      <arglist>(const File &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>openFile</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>a2688bf021d99260f64b07438ee61c8fb</anchor>
+      <arglist>(File file)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>renameFile</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>ac170a1c420e60941cd5159c1869d6f20</anchor>
+      <arglist>(const File &amp;f, const String &amp;newName)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>saveValueTree</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>af649a81a1c77e6b8667c62f6276e6d11</anchor>
+      <arglist>(const File &amp;file, const ValueTree &amp;tree)</arglist>
+    </member>
   </compound>
   <compound kind="namespace">
     <name>lemons::gui</name>
@@ -19858,6 +20067,8 @@
     <name>files</name>
     <title>files</title>
     <filename>group__files.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::files</namespace>
   </compound>
   <compound kind="group">
     <name>filters</name>
@@ -19916,6 +20127,7 @@
     <subgroup>localization</subgroup>
     <subgroup>math</subgroup>
     <subgroup>misc</subgroup>
+    <subgroup>serializing</subgroup>
   </compound>
   <compound kind="group">
     <name>lemons_dsp</name>
@@ -20136,6 +20348,13 @@
     <namespace>lemons</namespace>
     <namespace>lemons::tests</namespace>
     <class kind="class">lemons::tests::Runner</class>
+  </compound>
+  <compound kind="group">
+    <name>serializing</name>
+    <title>serializing</title>
+    <filename>group__serializing.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::binary</namespace>
   </compound>
   <compound kind="group">
     <name>sliders</name>

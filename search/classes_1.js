@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['basicprocessor_1009',['BasicProcessor',['../classlemons_1_1dsp_1_1_basic_processor.html',1,'lemons::dsp']]],
-  ['boolparameter_1010',['BoolParameter',['../structlemons_1_1plugin_1_1_bool_parameter.html',1,'lemons::plugin']]]
+  ['basicprocessor_1039',['BasicProcessor',['../classlemons_1_1dsp_1_1_basic_processor.html',1,'lemons::dsp']]],
+  ['boolparameter_1040',['BoolParameter',['../structlemons_1_1plugin_1_1_bool_parameter.html',1,'lemons::plugin']]]
 ];

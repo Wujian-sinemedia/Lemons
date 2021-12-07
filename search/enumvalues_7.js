@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rightonly_2036',['rightOnly',['../namespacelemons_1_1dsp.html#aaf020aad6edbe51634e978b1d97a37e2a97ed31f67756738d6c8d74a1ee8c565d',1,'lemons::dsp']]]
+  ['notch_2090',['Notch',['../namespacelemons_1_1dsp_1_1_f_x.html#a2a75c0c88cd8cbd576add3c0d4db1d14aa70ec028ca3f03d3bf0f8016f8c072a3',1,'lemons::dsp::FX']]]
 ];

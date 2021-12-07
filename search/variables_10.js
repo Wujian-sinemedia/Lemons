@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['width_1988',['width',['../structlemons_1_1_dimensions.html#a3ac9d19d87cf8d01a2f3ab7d3e483e9a',1,'lemons::Dimensions']]]
+  ['value_2036',['value',['../structlemons_1_1plugin_1_1_processor_holder_1_1_parameter_state_data.html#a4a56a0a7c24bc7fda436b82dda4710c2',1,'lemons::plugin::ProcessorHolder::ParameterStateData']]]
 ];

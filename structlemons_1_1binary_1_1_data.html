@@ -100,10 +100,9 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ab1d65e86c955eb8492ab1cdcdc42fc79"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
-<tr class="memitem:ab1d65e86c955eb8492ab1cdcdc42fc79"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="namespacelemons_1_1binary.html#a0ab1443f349d800d3ca96bbeed83703f">AudioBuffer</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structlemons_1_1binary_1_1_data.html#ab1d65e86c955eb8492ab1cdcdc42fc79">getAudio</a> (const String &amp;audioFileName)</td></tr>
-<tr class="memdesc:ab1d65e86c955eb8492ab1cdcdc42fc79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an audio buffer object from an audio file in the BinaryData target.  <a href="structlemons_1_1binary_1_1_data.html#ab1d65e86c955eb8492ab1cdcdc42fc79">More...</a><br /></td></tr>
-<tr class="separator:ab1d65e86c955eb8492ab1cdcdc42fc79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6cf49dff44bb2a1147032a0b58f8b43"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structlemons_1_1_audio_file.html">AudioFile</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1binary_1_1_data.html#aa6cf49dff44bb2a1147032a0b58f8b43">getAudio</a> (const String &amp;audioFileName)</td></tr>
+<tr class="memdesc:aa6cf49dff44bb2a1147032a0b58f8b43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an audio file from the BinaryData target.  <a href="structlemons_1_1binary_1_1_data.html#aa6cf49dff44bb2a1147032a0b58f8b43">More...</a><br /></td></tr>
+<tr class="separator:aa6cf49dff44bb2a1147032a0b58f8b43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae0a1b7c1c60e3de7b98c33da19974dd"><td class="memItemLeft" align="right" valign="top">static MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1binary_1_1_data.html#aae0a1b7c1c60e3de7b98c33da19974dd">getBlob</a> (const String &amp;filename)</td></tr>
 <tr class="memdesc:aae0a1b7c1c60e3de7b98c33da19974dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an opaque blob of binary data from a file in the BinaryData target.  <a href="structlemons_1_1binary_1_1_data.html#aae0a1b7c1c60e3de7b98c33da19974dd">More...</a><br /></td></tr>
 <tr class="separator:aae0a1b7c1c60e3de7b98c33da19974dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -231,19 +230,17 @@ Example: </p><div class="fragment"><div class="line"><a class="code" href="struc
 
 </div>
 </div>
-<a id="ab1d65e86c955eb8492ab1cdcdc42fc79"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1d65e86c955eb8492ab1cdcdc42fc79">&#9670;&nbsp;</a></span>getAudio()</h2>
+<a id="aa6cf49dff44bb2a1147032a0b58f8b43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6cf49dff44bb2a1147032a0b58f8b43">&#9670;&nbsp;</a></span>getAudio()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="namespacelemons_1_1binary.html#a0ab1443f349d800d3ca96bbeed83703f">AudioBuffer</a>&lt;SampleType&gt; lemons::binary::Data::getAudio </td>
+          <td class="memname">static <a class="el" href="structlemons_1_1_audio_file.html">AudioFile</a> lemons::binary::Data::getAudio </td>
           <td>(</td>
           <td class="paramtype">const String &amp;&#160;</td>
           <td class="paramname"><em>audioFileName</em></td><td>)</td>
@@ -257,8 +254,8 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns an audio buffer object from an audio file in the BinaryData target. </p>
-<p>If the audio can't be loaded, an assertion will be thrown. </p>
+<p>Returns an audio file from the BinaryData target. </p>
+<p>If the audio can't be loaded, an assertion will be thrown. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1_audio_file.html">AudioFile</a> </dd></dl>
 
 </div>
 </div>
@@ -447,7 +444,7 @@ template&lt;typename SampleType &gt; </div>
 <div class="ttc" id="astructlemons_1_1binary_1_1_data_html_a3bb5e7c61585e98f0299b20cf263cf40"><div class="ttname"><a href="structlemons_1_1binary_1_1_data.html#a3bb5e7c61585e98f0299b20cf263cf40">lemons::binary::Data::data</a></div><div class="ttdeci">const char * data</div><div class="ttdoc">The raw data.</div><div class="ttdef"><b>Definition:</b> data.h:42</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Dec 7 2021 07:11:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Dec 7 2021 09:32:39 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
