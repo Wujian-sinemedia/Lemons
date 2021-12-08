@@ -100,6 +100,16 @@ var VariantConverter<MidiBuffer>::toVar (const MidiBuffer& b)
 	return { memoryBlockToString (midiToBinary (b)) };
 }
 
+MidiFile VariantConverter<MidiFile>::fromVar (const var& v)
+{
+	return midiBufferToFile (VariantConverter<MidiBuffer>::fromVar (v));
+}
+
+var VariantConverter<MidiFile>::toVar (const MidiFile& f)
+{
+	return VariantConverter<MidiBuffer>::toVar (midiBufferFromFile (f));
+}
+
 RelativeTime VariantConverter<RelativeTime>::fromVar (const var& v)
 {
 	const auto ms = (int64) v;

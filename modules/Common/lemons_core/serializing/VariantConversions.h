@@ -68,6 +68,13 @@ struct VariantConverter<MidiBuffer>
 };
 
 template <>
+struct VariantConverter<MidiFile>
+{
+	static MidiFile fromVar (const var& v);
+	static var      toVar (const MidiFile& f);
+};
+
+template <>
 struct VariantConverter<RelativeTime>
 {
 	static RelativeTime fromVar (const var& v);
