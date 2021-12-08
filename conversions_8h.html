@@ -80,60 +80,54 @@ $(function() {
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacelemons"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons.html">lemons</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespacelemons_1_1binary"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html">lemons::binary</a></td></tr>
+<tr class="memitem:namespacelemons_1_1serializing"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html">lemons::serializing</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a0ab1443f349d800d3ca96bbeed83703f"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
-<tr class="memitem:a0ab1443f349d800d3ca96bbeed83703f"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a0ab1443f349d800d3ca96bbeed83703f">lemons::binary::AudioBuffer</a> = juce::AudioBuffer&lt; SampleType &gt;</td></tr>
-<tr class="separator:a0ab1443f349d800d3ca96bbeed83703f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebcdf9ccc626b6fb5a8dc121e65fec81"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
+<tr class="memitem:aebcdf9ccc626b6fb5a8dc121e65fec81"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#aebcdf9ccc626b6fb5a8dc121e65fec81">lemons::serializing::AudioBuffer</a> = juce::AudioBuffer&lt; SampleType &gt;</td></tr>
+<tr class="separator:aebcdf9ccc626b6fb5a8dc121e65fec81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a22fa378874115fd9990002a61ede3c48"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
-<tr class="memitem:a22fa378874115fd9990002a61ede3c48"><td class="memTemplItemLeft" align="right" valign="top">AudioBuffer&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a22fa378874115fd9990002a61ede3c48">lemons::binary::audioFromBinary</a> (const MemoryBlock &amp;block)</td></tr>
-<tr class="memdesc:a22fa378874115fd9990002a61ede3c48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an AudioBuffer from a binary representation of one.  <a href="namespacelemons_1_1binary.html#a22fa378874115fd9990002a61ede3c48">More...</a><br /></td></tr>
-<tr class="separator:a22fa378874115fd9990002a61ede3c48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf812e68f33a59a33776402111d79db7"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
-<tr class="memitem:adf812e68f33a59a33776402111d79db7"><td class="memTemplItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#adf812e68f33a59a33776402111d79db7">lemons::binary::audioToBinary</a> (const AudioBuffer&lt; SampleType &gt; &amp;buffer, double samplerate=48000.)</td></tr>
-<tr class="memdesc:adf812e68f33a59a33776402111d79db7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes an AudioBuffer as a blob of binary data.  <a href="namespacelemons_1_1binary.html#adf812e68f33a59a33776402111d79db7">More...</a><br /></td></tr>
-<tr class="separator:adf812e68f33a59a33776402111d79db7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af96b44c73d2d5f73254509447de9e26d"><td class="memItemLeft" align="right" valign="top">Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#af96b44c73d2d5f73254509447de9e26d">lemons::binary::imageFromBinary</a> (const MemoryBlock &amp;block)</td></tr>
-<tr class="memdesc:af96b44c73d2d5f73254509447de9e26d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an Image object from a binary representation of one.  <a href="namespacelemons_1_1binary.html#af96b44c73d2d5f73254509447de9e26d">More...</a><br /></td></tr>
-<tr class="separator:af96b44c73d2d5f73254509447de9e26d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6884b97a3c3f2249b619bcd5b2c8e47"><td class="memItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#aa6884b97a3c3f2249b619bcd5b2c8e47">lemons::binary::imageToBinary</a> (const Image &amp;image)</td></tr>
-<tr class="memdesc:aa6884b97a3c3f2249b619bcd5b2c8e47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes an Image object as a blob of binary data.  <a href="namespacelemons_1_1binary.html#aa6884b97a3c3f2249b619bcd5b2c8e47">More...</a><br /></td></tr>
-<tr class="separator:aa6884b97a3c3f2249b619bcd5b2c8e47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38be20103c4b36adfb97174059515a55"><td class="memItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a38be20103c4b36adfb97174059515a55">lemons::binary::memoryBlockFromString</a> (const String &amp;string)</td></tr>
-<tr class="memdesc:a38be20103c4b36adfb97174059515a55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a MemoryBlock from a String representation of one.  <a href="namespacelemons_1_1binary.html#a38be20103c4b36adfb97174059515a55">More...</a><br /></td></tr>
-<tr class="separator:a38be20103c4b36adfb97174059515a55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9a57f99653dd2f9d1bbdd08d8204992"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#ab9a57f99653dd2f9d1bbdd08d8204992">lemons::binary::memoryBlockToString</a> (const MemoryBlock &amp;block)</td></tr>
-<tr class="memdesc:ab9a57f99653dd2f9d1bbdd08d8204992"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a MemoryBlock to a String representation.  <a href="namespacelemons_1_1binary.html#ab9a57f99653dd2f9d1bbdd08d8204992">More...</a><br /></td></tr>
-<tr class="separator:ab9a57f99653dd2f9d1bbdd08d8204992"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab73da26365db70d14e83f50f4de1d299"><td class="memItemLeft" align="right" valign="top">MidiBuffer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#ab73da26365db70d14e83f50f4de1d299">lemons::binary::midiFromBinary</a> (const MemoryBlock &amp;block)</td></tr>
-<tr class="memdesc:ab73da26365db70d14e83f50f4de1d299"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a MidiBufer from a binary representation of one.  <a href="namespacelemons_1_1binary.html#ab73da26365db70d14e83f50f4de1d299">More...</a><br /></td></tr>
-<tr class="separator:ab73da26365db70d14e83f50f4de1d299"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41518c65837719a57867f339a74dd847"><td class="memItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a41518c65837719a57867f339a74dd847">lemons::binary::midiToBinary</a> (const MidiBuffer &amp;midi)</td></tr>
-<tr class="memdesc:a41518c65837719a57867f339a74dd847"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes a MidiBuffer as a blob of binary data.  <a href="namespacelemons_1_1binary.html#a41518c65837719a57867f339a74dd847">More...</a><br /></td></tr>
-<tr class="separator:a41518c65837719a57867f339a74dd847"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9e8c5e6a4914f6758ca0efa6bc83512"><td class="memItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#af9e8c5e6a4914f6758ca0efa6bc83512">lemons::binary::valueTreeFromJSON</a> (const String &amp;jsonText)</td></tr>
-<tr class="memdesc:af9e8c5e6a4914f6758ca0efa6bc83512"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a JSON string to a ValueTree.  <a href="namespacelemons_1_1binary.html#af9e8c5e6a4914f6758ca0efa6bc83512">More...</a><br /></td></tr>
-<tr class="separator:af9e8c5e6a4914f6758ca0efa6bc83512"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a696224c37de6cc39c80dd8ac7a9938e6"><td class="memItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#a696224c37de6cc39c80dd8ac7a9938e6">lemons::binary::valueTreeFromVar</a> (const juce::var &amp;v)</td></tr>
-<tr class="memdesc:a696224c37de6cc39c80dd8ac7a9938e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a var object to a ValueTree.  <a href="namespacelemons_1_1binary.html#a696224c37de6cc39c80dd8ac7a9938e6">More...</a><br /></td></tr>
-<tr class="separator:a696224c37de6cc39c80dd8ac7a9938e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad40f7a5189286960dca69cbb397bc6c5"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#ad40f7a5189286960dca69cbb397bc6c5">lemons::binary::valueTreeToJSON</a> (const ValueTree &amp;v)</td></tr>
-<tr class="memdesc:ad40f7a5189286960dca69cbb397bc6c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a ValueTree to a JSON string.  <a href="namespacelemons_1_1binary.html#ad40f7a5189286960dca69cbb397bc6c5">More...</a><br /></td></tr>
-<tr class="separator:ad40f7a5189286960dca69cbb397bc6c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae33b1231e381a12a95dea8992d56d958"><td class="memItemLeft" align="right" valign="top">juce::var&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1binary.html#ae33b1231e381a12a95dea8992d56d958">lemons::binary::valueTreeToVar</a> (const ValueTree &amp;tree)</td></tr>
-<tr class="memdesc:ae33b1231e381a12a95dea8992d56d958"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a ValueTree to a var object.  <a href="namespacelemons_1_1binary.html#ae33b1231e381a12a95dea8992d56d958">More...</a><br /></td></tr>
-<tr class="separator:ae33b1231e381a12a95dea8992d56d958"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab642a13438e30137d80cb0842d314f7b"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
+<tr class="memitem:ab642a13438e30137d80cb0842d314f7b"><td class="memTemplItemLeft" align="right" valign="top">AudioBuffer&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#ab642a13438e30137d80cb0842d314f7b">lemons::serializing::audioFromBinary</a> (const MemoryBlock &amp;block)</td></tr>
+<tr class="memdesc:ab642a13438e30137d80cb0842d314f7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an AudioBuffer from a binary representation of one.  <a href="namespacelemons_1_1serializing.html#ab642a13438e30137d80cb0842d314f7b">More...</a><br /></td></tr>
+<tr class="separator:ab642a13438e30137d80cb0842d314f7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf7966056fb84074c7d8acfafad74af2"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
+<tr class="memitem:adf7966056fb84074c7d8acfafad74af2"><td class="memTemplItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#adf7966056fb84074c7d8acfafad74af2">lemons::serializing::audioToBinary</a> (const AudioBuffer&lt; SampleType &gt; &amp;buffer, double samplerate=48000.)</td></tr>
+<tr class="memdesc:adf7966056fb84074c7d8acfafad74af2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes an AudioBuffer as a blob of binary data.  <a href="namespacelemons_1_1serializing.html#adf7966056fb84074c7d8acfafad74af2">More...</a><br /></td></tr>
+<tr class="separator:adf7966056fb84074c7d8acfafad74af2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71a2d7117ba93aff2cff74ce99ee2921"><td class="memItemLeft" align="right" valign="top">Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a71a2d7117ba93aff2cff74ce99ee2921">lemons::serializing::imageFromBinary</a> (const MemoryBlock &amp;block)</td></tr>
+<tr class="memdesc:a71a2d7117ba93aff2cff74ce99ee2921"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an Image object from a binary representation of one.  <a href="namespacelemons_1_1serializing.html#a71a2d7117ba93aff2cff74ce99ee2921">More...</a><br /></td></tr>
+<tr class="separator:a71a2d7117ba93aff2cff74ce99ee2921"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a844c15e8011970bd72cddbc16ac54886"><td class="memItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a844c15e8011970bd72cddbc16ac54886">lemons::serializing::imageToBinary</a> (const Image &amp;image)</td></tr>
+<tr class="memdesc:a844c15e8011970bd72cddbc16ac54886"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes an Image object as a blob of binary data.  <a href="namespacelemons_1_1serializing.html#a844c15e8011970bd72cddbc16ac54886">More...</a><br /></td></tr>
+<tr class="separator:a844c15e8011970bd72cddbc16ac54886"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8b999fef48958f498e30029bd9a7eeb"><td class="memItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#ac8b999fef48958f498e30029bd9a7eeb">lemons::serializing::memoryBlockFromString</a> (const String &amp;string)</td></tr>
+<tr class="memdesc:ac8b999fef48958f498e30029bd9a7eeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a MemoryBlock from a String representation of one.  <a href="namespacelemons_1_1serializing.html#ac8b999fef48958f498e30029bd9a7eeb">More...</a><br /></td></tr>
+<tr class="separator:ac8b999fef48958f498e30029bd9a7eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0567d1e8fe695183370d8d86edced3c6"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a0567d1e8fe695183370d8d86edced3c6">lemons::serializing::memoryBlockToString</a> (const MemoryBlock &amp;block)</td></tr>
+<tr class="memdesc:a0567d1e8fe695183370d8d86edced3c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a MemoryBlock to a String representation.  <a href="namespacelemons_1_1serializing.html#a0567d1e8fe695183370d8d86edced3c6">More...</a><br /></td></tr>
+<tr class="separator:a0567d1e8fe695183370d8d86edced3c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d943b0466e21cc2c329e8beeb2805ae"><td class="memItemLeft" align="right" valign="top">MidiBuffer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a2d943b0466e21cc2c329e8beeb2805ae">lemons::serializing::midiFromBinary</a> (const MemoryBlock &amp;block)</td></tr>
+<tr class="memdesc:a2d943b0466e21cc2c329e8beeb2805ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a MidiBufer from a binary representation of one.  <a href="namespacelemons_1_1serializing.html#a2d943b0466e21cc2c329e8beeb2805ae">More...</a><br /></td></tr>
+<tr class="separator:a2d943b0466e21cc2c329e8beeb2805ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f9b5afb4a6bd15f8c8801923c12e1f7"><td class="memItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a9f9b5afb4a6bd15f8c8801923c12e1f7">lemons::serializing::midiToBinary</a> (const MidiBuffer &amp;midi)</td></tr>
+<tr class="memdesc:a9f9b5afb4a6bd15f8c8801923c12e1f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes a MidiBuffer as a blob of binary data.  <a href="namespacelemons_1_1serializing.html#a9f9b5afb4a6bd15f8c8801923c12e1f7">More...</a><br /></td></tr>
+<tr class="separator:a9f9b5afb4a6bd15f8c8801923c12e1f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a28001c151ae9a72cee950b7b0c5fe0"><td class="memItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a3a28001c151ae9a72cee950b7b0c5fe0">lemons::serializing::valueTreeFromJSON</a> (const String &amp;jsonText)</td></tr>
+<tr class="memdesc:a3a28001c151ae9a72cee950b7b0c5fe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a JSON string to a ValueTree.  <a href="namespacelemons_1_1serializing.html#a3a28001c151ae9a72cee950b7b0c5fe0">More...</a><br /></td></tr>
+<tr class="separator:a3a28001c151ae9a72cee950b7b0c5fe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44dc62981a244f674a7b47738595d0ac"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a44dc62981a244f674a7b47738595d0ac">lemons::serializing::valueTreeToJSON</a> (const ValueTree &amp;v)</td></tr>
+<tr class="memdesc:a44dc62981a244f674a7b47738595d0ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a ValueTree to a JSON string.  <a href="namespacelemons_1_1serializing.html#a44dc62981a244f674a7b47738595d0ac">More...</a><br /></td></tr>
+<tr class="separator:a44dc62981a244f674a7b47738595d0ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Dec 7 2021 09:32:39 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 8 2021 00:45:32 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

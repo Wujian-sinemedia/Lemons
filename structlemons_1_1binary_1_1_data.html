@@ -112,6 +112,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a1701e824ca7a235d52fde08f622167b0"><td class="memItemLeft" align="right" valign="top">static MidiBuffer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1binary_1_1_data.html#a1701e824ca7a235d52fde08f622167b0">getMidi</a> (const String &amp;midiFileName)</td></tr>
 <tr class="memdesc:a1701e824ca7a235d52fde08f622167b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a MIDI buffer object from a MIDI file in the BinaryData target.  <a href="structlemons_1_1binary_1_1_data.html#a1701e824ca7a235d52fde08f622167b0">More...</a><br /></td></tr>
 <tr class="separator:a1701e824ca7a235d52fde08f622167b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af64eacdc8f9a77706277e1a4b4cca42c"><td class="memItemLeft" align="right" valign="top">static String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1binary_1_1_data.html#af64eacdc8f9a77706277e1a4b4cca42c">getString</a> (const String &amp;textFileName)</td></tr>
+<tr class="memdesc:af64eacdc8f9a77706277e1a4b4cca42c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a text file in the BinaryData target as one string.  <a href="structlemons_1_1binary_1_1_data.html#af64eacdc8f9a77706277e1a4b4cca42c">More...</a><br /></td></tr>
+<tr class="separator:af64eacdc8f9a77706277e1a4b4cca42c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c1c9b78a58b88c44e51b09668048e46"><td class="memItemLeft" align="right" valign="top">static juce::StringArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1binary_1_1_data.html#a2c1c9b78a58b88c44e51b09668048e46">getStrings</a> (const String &amp;textFileName)</td></tr>
 <tr class="memdesc:a2c1c9b78a58b88c44e51b09668048e46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an array of strings, each containing a line of a text file in the BinaryData target.  <a href="structlemons_1_1binary_1_1_data.html#a2c1c9b78a58b88c44e51b09668048e46">More...</a><br /></td></tr>
 <tr class="separator:a2c1c9b78a58b88c44e51b09668048e46"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -346,6 +349,35 @@ Example: </p><div class="fragment"><div class="line"><a class="code" href="struc
 
 </div>
 </div>
+<a id="af64eacdc8f9a77706277e1a4b4cca42c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af64eacdc8f9a77706277e1a4b4cca42c">&#9670;&nbsp;</a></span>getString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static String lemons::binary::Data::getString </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>textFileName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a text file in the BinaryData target as one string. </p>
+<p>If the data can't be loaded, an assertion will be thrown. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1binary_1_1_data.html#a2c1c9b78a58b88c44e51b09668048e46" title="Returns an array of strings, each containing a line of a text file in the BinaryData target.">getStrings()</a> </dd></dl>
+
+</div>
+</div>
 <a id="a2c1c9b78a58b88c44e51b09668048e46"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2c1c9b78a58b88c44e51b09668048e46">&#9670;&nbsp;</a></span>getStrings()</h2>
 
@@ -371,7 +403,7 @@ Example: </p><div class="fragment"><div class="line"><a class="code" href="struc
 </div><div class="memdoc">
 
 <p>Returns an array of strings, each containing a line of a text file in the BinaryData target. </p>
-<p>This loads the file as a string and parses it into tokens using line break and carriage return characters. If the file can't be loaded, an assertion will be thrown. </p>
+<p>This loads the file as a string and parses it into tokens using line break and carriage return characters. If the file can't be loaded, an assertion will be thrown. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="structlemons_1_1binary_1_1_data.html#af64eacdc8f9a77706277e1a4b4cca42c" title="Returns a text file in the BinaryData target as one string.">getString()</a> </dd></dl>
 
 </div>
 </div>
@@ -441,10 +473,10 @@ Example: </p><div class="fragment"><div class="line"><a class="code" href="struc
 </ul>
 </div><!-- contents -->
 <div class="ttc" id="astructlemons_1_1binary_1_1_data_html_abfc233b46701a09cef8a5fc3f78ccdb2"><div class="ttname"><a href="structlemons_1_1binary_1_1_data.html#abfc233b46701a09cef8a5fc3f78ccdb2">lemons::binary::Data::Data</a></div><div class="ttdeci">Data()=default</div><div class="ttdoc">Creates a default, invalid RawData object.</div></div>
-<div class="ttc" id="astructlemons_1_1binary_1_1_data_html_a3bb5e7c61585e98f0299b20cf263cf40"><div class="ttname"><a href="structlemons_1_1binary_1_1_data.html#a3bb5e7c61585e98f0299b20cf263cf40">lemons::binary::Data::data</a></div><div class="ttdeci">const char * data</div><div class="ttdoc">The raw data.</div><div class="ttdef"><b>Definition:</b> data.h:42</div></div>
+<div class="ttc" id="astructlemons_1_1binary_1_1_data_html_a3bb5e7c61585e98f0299b20cf263cf40"><div class="ttname"><a href="structlemons_1_1binary_1_1_data.html#a3bb5e7c61585e98f0299b20cf263cf40">lemons::binary::Data::data</a></div><div class="ttdeci">const char * data</div><div class="ttdoc">The raw data.</div><div class="ttdef"><b>Definition:</b> data.h:50</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Dec 7 2021 09:32:39 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 8 2021 00:45:32 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

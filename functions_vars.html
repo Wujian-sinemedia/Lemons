@@ -66,8 +66,8 @@ $(function() {
 &#160;
 
 <h3><a id="index_a"></a>- a -</h3><ul>
-<li>audioFormat
-: <a class="el" href="structlemons_1_1_audio_file.html#aa073b2e222dcc663687f74e3a4c1bcee">lemons::AudioFile</a>
+<li>array
+: <a class="el" href="structlemons_1_1_constructed_array.html#aeec75de76ffb978428307e53a6abd35d">lemons::ConstructedArray&lt; ObjectType &gt;</a>
 </li>
 </ul>
 
@@ -75,9 +75,6 @@ $(function() {
 <h3><a id="index_b"></a>- b -</h3><ul>
 <li>bend
 : <a class="el" href="structlemons_1_1midi_1_1_pitch_pipeline.html#a7ead7b0871d677ba8a4895db04debab3">lemons::midi::PitchPipeline</a>
-</li>
-<li>bitsPerSample
-: <a class="el" href="structlemons_1_1_audio_file.html#afa2cc12dbef5338994f95ae9056d653a">lemons::AudioFile</a>
 </li>
 </ul>
 
@@ -90,13 +87,15 @@ $(function() {
 : <a class="el" href="classlemons_1_1dsp_1_1filters_1_1_filter.html#aa2a2553de95ae712e5d0e74599dd908b">lemons::dsp::filters::Filter&lt; SampleType &gt;</a>
 , <a class="el" href="structlemons_1_1dsp_1_1filters_1_1_multi_filter.html#a9508ef62f004c93f863d0f1338d05ee9">lemons::dsp::filters::MultiFilter&lt; SampleType, numChannels &gt;</a>
 </li>
+<li>creationFunc
+: <a class="el" href="structlemons_1_1_constructed_array.html#a7aeaa32088d88a482416c0dcf37df82b">lemons::ConstructedArray&lt; ObjectType &gt;</a>
+</li>
 </ul>
 
 
 <h3><a id="index_d"></a>- d -</h3><ul>
 <li>data
-: <a class="el" href="structlemons_1_1_audio_file.html#a27a0992a10c815a72dee48655a030c9b">lemons::AudioFile</a>
-, <a class="el" href="structlemons_1_1binary_1_1_data.html#a3bb5e7c61585e98f0299b20cf263cf40">lemons::binary::Data</a>
+: <a class="el" href="structlemons_1_1binary_1_1_data.html#a3bb5e7c61585e98f0299b20cf263cf40">lemons::binary::Data</a>
 </li>
 <li>descant
 : <a class="el" href="classlemons_1_1dsp_1_1_synth_base.html#a4483f9aef1275bfa7627cbacfcde85e2">lemons::dsp::SynthBase&lt; SampleType &gt;</a>
@@ -111,9 +110,6 @@ $(function() {
 
 
 <h3><a id="index_f"></a>- f -</h3><ul>
-<li>file
-: <a class="el" href="structlemons_1_1_audio_file.html#a7bdaf8b75c985dff78b5ac53894a31dc">lemons::AudioFile</a>
-</li>
 <li>filterGain
 : <a class="el" href="structlemons_1_1dsp_1_1_synth_base_1_1_timbre_mod_params.html#a0b7524dc00c833ee2f44ba951b21a246">lemons::dsp::SynthBase&lt; SampleType &gt;::TimbreModParams</a>
 </li>
@@ -154,9 +150,6 @@ $(function() {
 
 
 <h3><a id="index_l"></a>- l -</h3><ul>
-<li>lengthInSamples
-: <a class="el" href="structlemons_1_1_audio_file.html#a229ac9a5efb436df3d2c8ad4a80c25d8">lemons::AudioFile</a>
-</li>
 <li>location
 : <a class="el" href="structlemons_1_1spline_1_1_knot.html#a0d2bdd96e97eba6698c2d274424325f8">lemons::spline::Knot</a>
 </li>
@@ -167,9 +160,6 @@ $(function() {
 <li>mainBypass
 : <a class="el" href="classlemons_1_1plugin_1_1_state_base.html#aeb826035e1976ec685c8bf3232d3bdc0">lemons::plugin::StateBase</a>
 </li>
-<li>metadata
-: <a class="el" href="structlemons_1_1_audio_file.html#a97b00837b0b90fc92265781329dee126">lemons::AudioFile</a>
-</li>
 <li>modManager
 : <a class="el" href="classlemons_1_1plugin_1_1_state_base.html#ae139e1bc96f05db7e27391c6d1241340">lemons::plugin::StateBase</a>
 </li>
@@ -179,9 +169,6 @@ $(function() {
 <h3><a id="index_n"></a>- n -</h3><ul>
 <li>name
 : <a class="el" href="structlemons_1_1plugin_1_1_processor_holder_1_1_parameter_state_data.html#a56132dfbc8b967ad6897466aa1beae1d">lemons::plugin::ProcessorHolder::ParameterStateData</a>
-</li>
-<li>numChannels
-: <a class="el" href="structlemons_1_1_audio_file.html#a14d5cd0172db7b6d9d4e05b33c009978">lemons::AudioFile</a>
 </li>
 </ul>
 
@@ -225,9 +212,6 @@ $(function() {
 
 
 <h3><a id="index_s"></a>- s -</h3><ul>
-<li>samplerate
-: <a class="el" href="structlemons_1_1_audio_file.html#a009029d76ba62c3d8a3279211921ccab">lemons::AudioFile</a>
-</li>
 <li>size
 : <a class="el" href="structlemons_1_1binary_1_1_data.html#afb63c14469a537e76fd151a06a8f1f39">lemons::binary::Data</a>
 </li>
@@ -296,7 +280,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Dec 7 2021 09:32:39 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 8 2021 00:45:33 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

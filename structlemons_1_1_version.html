@@ -117,9 +117,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0f37fde37fd195e2c69b7350c58e88fa"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_version.html#a0f37fde37fd195e2c69b7350c58e88fa">operator&gt;</a> (const <a class="el" href="structlemons_1_1_version.html">Version</a> &amp;other) const noexcept</td></tr>
 <tr class="memdesc:a0f37fde37fd195e2c69b7350c58e88fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if this version is newer than the other one.  <a href="structlemons_1_1_version.html#a0f37fde37fd195e2c69b7350c58e88fa">More...</a><br /></td></tr>
 <tr class="separator:a0f37fde37fd195e2c69b7350c58e88fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa44ea8c1696df245d0b8462592f02a4"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_version.html#afa44ea8c1696df245d0b8462592f02a4">toString</a> (const String &amp;separator=&quot;.&quot;) const noexcept</td></tr>
-<tr class="memdesc:afa44ea8c1696df245d0b8462592f02a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a String representation of this <a class="el" href="structlemons_1_1_version.html" title="A class that represents a version of something, with major, minor, and patch numbers.">Version</a>.  <a href="structlemons_1_1_version.html#afa44ea8c1696df245d0b8462592f02a4">More...</a><br /></td></tr>
-<tr class="separator:afa44ea8c1696df245d0b8462592f02a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a156d5c2e8ddfdcb73686b80f5620daff"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_version.html#a156d5c2e8ddfdcb73686b80f5620daff">toString</a> () const noexcept</td></tr>
+<tr class="memdesc:a156d5c2e8ddfdcb73686b80f5620daff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a String representation of this <a class="el" href="structlemons_1_1_version.html" title="A class that represents a version of something, with major, minor, and patch numbers.">Version</a>, with a '.  <a href="structlemons_1_1_version.html#a156d5c2e8ddfdcb73686b80f5620daff">More...</a><br /></td></tr>
+<tr class="separator:a156d5c2e8ddfdcb73686b80f5620daff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d2719c4805a764b8271b975bb697907"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structlemons_1_1_version.html">Version</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_version.html#a2d2719c4805a764b8271b975bb697907">withMajorBump</a> () const</td></tr>
 <tr class="memdesc:a2d2719c4805a764b8271b975bb697907"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new <a class="el" href="structlemons_1_1_version.html" title="A class that represents a version of something, with major, minor, and patch numbers.">Version</a> object with <a class="el" href="structlemons_1_1_version.html#a2b906ed4d93957ad4e93e4c712236081" title="Increments the major value and sets minor and patch to 0.">bumpMajor()</a> applied.  <a href="structlemons_1_1_version.html#a2d2719c4805a764b8271b975bb697907">More...</a><br /></td></tr>
 <tr class="separator:a2d2719c4805a764b8271b975bb697907"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -132,6 +132,9 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a785a7a9af4e4a1a632dff610312e0609"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structlemons_1_1_version.html">Version</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_version.html#a785a7a9af4e4a1a632dff610312e0609">fromString</a> (const String &amp;string)</td></tr>
+<tr class="memdesc:a785a7a9af4e4a1a632dff610312e0609"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="structlemons_1_1_version.html" title="A class that represents a version of something, with major, minor, and patch numbers.">Version</a> object from a String representation.  <a href="structlemons_1_1_version.html#a785a7a9af4e4a1a632dff610312e0609">More...</a><br /></td></tr>
+<tr class="separator:a785a7a9af4e4a1a632dff610312e0609"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a523e34513ae29e24ac383c63848fbc08"><td class="memItemLeft" align="right" valign="top">constexpr static <a class="el" href="structlemons_1_1_version.html">Version</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_version.html#a523e34513ae29e24ac383c63848fbc08">juceVersion</a> ()</td></tr>
 <tr class="memdesc:a523e34513ae29e24ac383c63848fbc08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="structlemons_1_1_version.html" title="A class that represents a version of something, with major, minor, and patch numbers.">Version</a> object representing the version of Juce this module was compiled with.  <a href="structlemons_1_1_version.html#a523e34513ae29e24ac383c63848fbc08">More...</a><br /></td></tr>
 <tr class="separator:a523e34513ae29e24ac383c63848fbc08"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -294,6 +297,35 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Increments the patch value. </p>
+
+</div>
+</div>
+<a id="a785a7a9af4e4a1a632dff610312e0609"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a785a7a9af4e4a1a632dff610312e0609">&#9670;&nbsp;</a></span>fromString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structlemons_1_1_version.html">Version</a> lemons::Version::fromString </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>string</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a <a class="el" href="structlemons_1_1_version.html" title="A class that represents a version of something, with major, minor, and patch numbers.">Version</a> object from a String representation. </p>
+<p>The string should be in the format '0.0.1', for example. </p>
 
 </div>
 </div>
@@ -572,8 +604,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="afa44ea8c1696df245d0b8462592f02a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa44ea8c1696df245d0b8462592f02a4">&#9670;&nbsp;</a></span>toString()</h2>
+<a id="a156d5c2e8ddfdcb73686b80f5620daff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a156d5c2e8ddfdcb73686b80f5620daff">&#9670;&nbsp;</a></span>toString()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -584,8 +616,7 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">String lemons::Version::toString </td>
           <td>(</td>
-          <td class="paramtype">const String &amp;&#160;</td>
-          <td class="paramname"><em>separator</em> = <code>&quot;.&quot;</code></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -596,13 +627,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a String representation of this <a class="el" href="structlemons_1_1_version.html" title="A class that represents a version of something, with major, minor, and patch numbers.">Version</a>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">separator</td><td>A character that will be placed between the major, minor, and patch values. Defaults to ".". </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Returns a String representation of this <a class="el" href="structlemons_1_1_version.html" title="A class that represents a version of something, with major, minor, and patch numbers.">Version</a>, with a '. </p>
+<p>' placed between the major, minor, and patch integers. </p>
 
 </div>
 </div>
@@ -696,7 +722,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Dec 7 2021 09:32:39 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 8 2021 00:45:32 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -94,9 +94,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab6174a680d342d6daedf0f7fc5f31d88"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#ab6174a680d342d6daedf0f7fc5f31d88">isValid</a> () const noexcept</td></tr>
 <tr class="memdesc:ab6174a680d342d6daedf0f7fc5f31d88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the width and height are both greater than 0.  <a href="structlemons_1_1_dimensions.html#ab6174a680d342d6daedf0f7fc5f31d88">More...</a><br /></td></tr>
 <tr class="separator:ab6174a680d342d6daedf0f7fc5f31d88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebbf6f2f2f2674fd975c67e0c0dc7c16"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#aebbf6f2f2f2674fd975c67e0c0dc7c16">toString</a> () const noexcept</td></tr>
+<tr class="memdesc:aebbf6f2f2f2674fd975c67e0c0dc7c16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string representation of these dimensions, eg '400x600'.  <a href="structlemons_1_1_dimensions.html#aebbf6f2f2f2674fd975c67e0c0dc7c16">More...</a><br /></td></tr>
+<tr class="separator:aebbf6f2f2f2674fd975c67e0c0dc7c16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
+<tr class="memitem:ab7c9e7c94935e817968e84851f35256b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#ab7c9e7c94935e817968e84851f35256b">fromString</a> (const String &amp;string)</td></tr>
+<tr class="memdesc:ab7c9e7c94935e817968e84851f35256b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="structlemons_1_1_dimensions.html" title="A simple struct that represents the dimensions of a GUI.">Dimensions</a> object from a string representation.  <a href="structlemons_1_1_dimensions.html#ab7c9e7c94935e817968e84851f35256b">More...</a><br /></td></tr>
+<tr class="separator:ab7c9e7c94935e817968e84851f35256b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5e46b5ec4646920cdc7c128b939683a"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_dimensions.html#aa5e46b5ec4646920cdc7c128b939683a">getDefault</a> ()</td></tr>
 <tr class="memdesc:aa5e46b5ec4646920cdc7c128b939683a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="structlemons_1_1_dimensions.html" title="A simple struct that represents the dimensions of a GUI.">Dimensions</a> object representing the size 1060 x 640.  <a href="structlemons_1_1_dimensions.html#aa5e46b5ec4646920cdc7c128b939683a">More...</a><br /></td></tr>
 <tr class="separator:aa5e46b5ec4646920cdc7c128b939683a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -177,6 +183,35 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab7c9e7c94935e817968e84851f35256b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7c9e7c94935e817968e84851f35256b">&#9670;&nbsp;</a></span>fromString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structlemons_1_1_dimensions.html">Dimensions</a> lemons::Dimensions::fromString </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>string</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a <a class="el" href="structlemons_1_1_dimensions.html" title="A simple struct that represents the dimensions of a GUI.">Dimensions</a> object from a string representation. </p>
+<p>The string should be formatted like '400x600'. </p>
+
+</div>
+</div>
 <a id="a521fc010aefa94263df8e45fd640dc86"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a521fc010aefa94263df8e45fd640dc86">&#9670;&nbsp;</a></span>getAspectRatio()</h2>
 
@@ -259,6 +294,33 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="aebbf6f2f2f2674fd975c67e0c0dc7c16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebbf6f2f2f2674fd975c67e0c0dc7c16">&#9670;&nbsp;</a></span>toString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">String lemons::Dimensions::toString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a string representation of these dimensions, eg '400x600'. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="a7edc258a0cbaa0f9ab9d216bc604e84e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7edc258a0cbaa0f9ab9d216bc604e84e">&#9670;&nbsp;</a></span>height</h2>
@@ -294,7 +356,7 @@ Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Dec 7 2021 09:32:39 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 8 2021 00:45:32 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
