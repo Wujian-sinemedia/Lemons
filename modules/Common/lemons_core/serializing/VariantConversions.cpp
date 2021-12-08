@@ -3,16 +3,6 @@ namespace juce
 
 using namespace lemons::serializing;
 
-Image VariantConverter<Image>::fromVar (const var& v)
-{
-	return imageFromBinary (memoryBlockFromString (v.toString()));
-}
-
-var VariantConverter<Image>::toVar (const Image& i)
-{
-	return { memoryBlockToString (imageToBinary (i)) };
-}
-
 AudioBuffer<float> VariantConverter<AudioBuffer<float>>::fromVar (const var& v)
 {
 	return audioFromBinary<float> (memoryBlockFromString (v.toString()));
@@ -33,44 +23,50 @@ var VariantConverter<AudioBuffer<double>>::toVar (const AudioBuffer<double>& b)
 	return { memoryBlockToString (audioToBinary (b)) };
 }
 
-MidiBuffer VariantConverter<MidiBuffer>::fromVar (const var& v)
+BigInteger VariantConverter<BigInteger>::fromVar (const var& v)
 {
-	return midiFromBinary (memoryBlockFromString (v.toString()));
+	BigInteger i;
+
+	if (const auto* block = v.getBinaryData())
+		i.loadFromMemoryBlock (*block);
+
+	return i;
 }
 
-var VariantConverter<MidiBuffer>::toVar (const MidiBuffer& b)
+var VariantConverter<BigInteger>::toVar (const BigInteger& i)
 {
-	return { memoryBlockToString (midiToBinary (b)) };
+	return { i.toMemoryBlock() };
 }
 
-MemoryBlock VariantConverter<MemoryBlock>::fromVar (const var& v)
+Colour VariantConverter<Colour>::fromVar (const var& v)
 {
-	return memoryBlockFromString (v.toString());
+	return Colour::fromString (v.toString());
 }
 
-var VariantConverter<MemoryBlock>::toVar (const MemoryBlock& b)
+var VariantConverter<Colour>::toVar (const Colour& c)
 {
-	return { memoryBlockToString (b) };
+	return { c.toString() };
 }
 
-URL VariantConverter<URL>::fromVar (const var& v)
+Image VariantConverter<Image>::fromVar (const var& v)
 {
-	return { v.toString() };
+	return imageFromBinary (memoryBlockFromString (v.toString()));
 }
 
-var VariantConverter<URL>::toVar (const URL& u)
+var VariantConverter<Image>::toVar (const Image& i)
 {
-	return { u.toString (true) };
+	return { memoryBlockToString (imageToBinary (i)) };
 }
 
-Uuid VariantConverter<Uuid>::fromVar (const var& v)
+IPAddress VariantConverter<IPAddress>::fromVar (const var& v)
 {
-	return { v.toString() };
+	IPAddress a { v.toString() };
+	return a;
 }
 
-var VariantConverter<Uuid>::toVar (const Uuid& u)
+var VariantConverter<IPAddress>::toVar (const IPAddress& a)
 {
-	return { u.toString() };
+	return { a.toString() };
 }
 
 MACAddress VariantConverter<MACAddress>::fromVar (const var& v)
@@ -84,15 +80,90 @@ var VariantConverter<MACAddress>::toVar (const MACAddress& a)
 	return { a.toString() };
 }
 
-IPAddress VariantConverter<IPAddress>::fromVar (const var& v)
+MemoryBlock VariantConverter<MemoryBlock>::fromVar (const var& v)
 {
-	IPAddress a { v.toString() };
-	return a;
+	return memoryBlockFromString (v.toString());
 }
 
-var VariantConverter<IPAddress>::toVar (const IPAddress& a)
+var VariantConverter<MemoryBlock>::toVar (const MemoryBlock& b)
 {
-	return { a.toString() };
+	return { memoryBlockToString (b) };
+}
+
+MidiBuffer VariantConverter<MidiBuffer>::fromVar (const var& v)
+{
+	return midiFromBinary (memoryBlockFromString (v.toString()));
+}
+
+var VariantConverter<MidiBuffer>::toVar (const MidiBuffer& b)
+{
+	return { memoryBlockToString (midiToBinary (b)) };
+}
+
+RelativeTime VariantConverter<RelativeTime>::fromVar (const var& v)
+{
+	const auto ms = (int64) v;
+	return RelativeTime::milliseconds (ms);
+}
+
+var VariantConverter<RelativeTime>::toVar (const RelativeTime& t)
+{
+	return { t.inMilliseconds() };
+}
+
+StringArray VariantConverter<StringArray>::fromVar (const var& v)
+{
+	StringArray arr;
+
+	if (const auto* vars = v.getArray())
+		for (const auto& var : *vars)
+			arr.add (var.toString());
+
+	return arr;
+}
+
+var VariantConverter<StringArray>::toVar (const StringArray& a)
+{
+	Array<var> vars;
+
+	for (const auto& string : a)
+		vars.add (string);
+
+	return { vars };
+}
+
+StringPairArray VariantConverter<StringPairArray>::fromVar (const var& v)
+{
+	StringPairArray arr;
+
+	if (auto* obj = v.getDynamicObject())
+	{
+		for (const auto& itr : obj->getProperties())
+		{
+			arr.set (itr.name.toString(),
+			         itr.value.toString());
+		}
+	}
+
+	return arr;
+}
+
+var VariantConverter<StringPairArray>::toVar (const StringPairArray& a)
+{
+	DynamicObject obj;
+
+	const auto& keys   = a.getAllKeys();
+	const auto& values = a.getAllValues();
+
+	jassert (keys.size() == values.size());
+
+	for (int i = 0; i < keys.size(); ++i)
+	{
+		obj.setProperty (keys.strings.getUnchecked (i),
+		                 values.strings.getUnchecked (i));
+	}
+
+	return { &obj };
 }
 
 Time VariantConverter<Time>::fromVar (const var& v)
@@ -107,25 +178,38 @@ var VariantConverter<Time>::toVar (const Time& t)
 	return { t.toMilliseconds() };
 }
 
-RelativeTime VariantConverter<RelativeTime>::fromVar (const var& v)
+Uuid VariantConverter<Uuid>::fromVar (const var& v)
 {
-	const auto ms = (int64) v;
-	return RelativeTime::milliseconds (ms);
+	return { v.toString() };
 }
 
-var VariantConverter<RelativeTime>::toVar (const RelativeTime& t)
+var VariantConverter<Uuid>::toVar (const Uuid& u)
 {
-	return { t.inMilliseconds() };
+	return { u.toString() };
 }
 
-Colour VariantConverter<Colour>::fromVar (const var& v)
+URL VariantConverter<URL>::fromVar (const var& v)
 {
-	return Colour::fromString (v.toString());
+	return { v.toString() };
 }
 
-var VariantConverter<Colour>::toVar (const Colour& c)
+var VariantConverter<URL>::toVar (const URL& u)
 {
-	return { c.toString() };
+	return { u.toString (true) };
+}
+
+
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+
+
+lemons::Dimensions VariantConverter<lemons::Dimensions>::fromVar (const var& v)
+{
+	return lemons::Dimensions::fromString (v.toString());
+}
+
+var VariantConverter<lemons::Dimensions>::toVar (const lemons::Dimensions& d)
+{
+	return { d.toString() };
 }
 
 lemons::Version VariantConverter<lemons::Version>::fromVar (const var& v)
@@ -136,16 +220,6 @@ lemons::Version VariantConverter<lemons::Version>::fromVar (const var& v)
 var VariantConverter<lemons::Version>::toVar (const lemons::Version& v)
 {
 	return { v.toString() };
-}
-
-lemons::Dimensions VariantConverter<lemons::Dimensions>::fromVar (const var& v)
-{
-	return lemons::Dimensions::fromString (v.toString());
-}
-
-var VariantConverter<lemons::Dimensions>::toVar (const lemons::Dimensions& d)
-{
-	return { d.toString() };
 }
 
 }  // namespace juce

@@ -19,7 +19,7 @@ ValueTree VariantConverter<ValueTree>::fromVar (const var& obj)
 
 		const auto base64PropLen = static_cast<int> (std::strlen (VT_BASE64_PROP));
 
-		for (auto itr : dobj->getProperties())
+		for (const auto& itr : dobj->getProperties())
 		{
 			const auto name = itr.name.toString();
 
@@ -27,15 +27,14 @@ ValueTree VariantConverter<ValueTree>::fromVar (const var& obj)
 
 			if (name.startsWith (VT_BASE64_PROP))
 			{
-				MemoryBlock mb;
+				tree.setProperty (name.substring (base64PropLen),
+				                  VariantConverter<MemoryBlock>::toVar (lemons::serializing::memoryBlockFromString (itr.value.toString())),
+				                  nullptr);
 
-				if (mb.fromBase64Encoding (itr.value.toString()))
-					tree.setProperty (name.substring (base64PropLen), var (mb), nullptr);
+				continue;
 			}
-			else
-			{
-				tree.setProperty (name, juce::var (itr.value), nullptr);
-			}
+
+			tree.setProperty (name, itr.value, nullptr);
 		}
 
 		return tree;
@@ -69,7 +68,9 @@ var VariantConverter<ValueTree>::toVar (const ValueTree& tree)
 
 		if (const auto* mb = val.getBinaryData())
 		{
-			obj.setProperty (VT_BASE64_PROP + name, mb->toBase64Encoding());
+			obj.setProperty (VT_BASE64_PROP + name,
+			                 VariantConverter<MemoryBlock>::toVar (*mb));
+
 			continue;
 		}
 
@@ -81,7 +82,7 @@ var VariantConverter<ValueTree>::toVar (const ValueTree& tree)
 		obj.setProperty (name, val.toString());
 	}
 
-	return juce::var (&obj);
+	return { &obj };
 }
 
 }  // namespace juce

@@ -36,29 +36,36 @@ MemoryBlock imageToBinary (const Image& image)
 
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 
-MidiBuffer midiBufferFromMidiFile (const juce::MidiFile& file)
+MidiBuffer midiBufferFromFile (const juce::MidiFile& file, int trackToRead)
 {
-	if (const auto* track = file.getTrack (0))
-	{
-		return [sequence = *track]() -> MidiBuffer
-		{
-			MidiBuffer buffer;
+	MidiBuffer buffer;
 
-			for (const auto* holder : sequence)
+	const auto addEventsFromTrack = [&] (int trackNum)
+	{
+		if (const auto* track = file.getTrack (trackNum))
+		{
+			for (const auto* holder : *track)
 				buffer.addEvent (holder->message,
 				                 juce::roundToInt (holder->message.getTimeStamp()));
+		}
+	};
 
-			jassert (buffer.getNumEvents() == sequence.getNumEvents());
-
-			return buffer;
-		}();
+	if (trackToRead > -1)
+	{
+		addEventsFromTrack (trackToRead);
+	}
+	else
+	{
+		for (int i = 0; i < file.getNumTracks(); ++i)
+			addEventsFromTrack (i);
 	}
 
-	jassertfalse;
-	return {};
+	jassert (juce::roundToInt (file.getLastTimestamp()) == buffer.getLastEventTime());
+
+	return buffer;
 }
 
-juce::MidiFile midiBufferToMidiFile (const MidiBuffer& midi)
+juce::MidiFile midiBufferToFile (const MidiBuffer& midi)
 {
 	juce::MidiFile file;
 
@@ -66,7 +73,7 @@ juce::MidiFile midiBufferToMidiFile (const MidiBuffer& midi)
 	{
 		juce::MidiMessageSequence seq;
 
-		for (const auto meta : midi)
+		for (const auto& meta : midi)
 			seq.addEvent (meta.getMessage());
 
 		return seq;
@@ -81,7 +88,6 @@ juce::MidiFile midiBufferToMidiFile (const MidiBuffer& midi)
 	return file;
 }
 
-
 MidiBuffer midiFromBinary (const MemoryBlock& block)
 {
 	juce::MemoryInputStream stream { block, false };
@@ -89,12 +95,12 @@ MidiBuffer midiFromBinary (const MemoryBlock& block)
 	juce::MidiFile file;
 	file.readFrom (stream);
 
-	return midiBufferFromMidiFile (file);
+	return midiBufferFromFile (file);
 }
 
 MemoryBlock midiToBinary (const MidiBuffer& midi)
 {
-	const auto file = midiBufferToMidiFile (midi);
+	const auto file = midiBufferToFile (midi);
 
 	MemoryBlock              block;
 	juce::MemoryOutputStream stream { block, false };
@@ -141,8 +147,8 @@ void DataConversionTests::runTest()
 	{
 		const auto subtest = beginSubtest ("MIDI buffer to/from MIDI file");
 
-		const auto file    = serializing::midiBufferToMidiFile (origMidi);
-		const auto decoded = serializing::midiBufferFromMidiFile (file);
+		const auto file    = serializing::midiBufferToFile (origMidi);
+		const auto decoded = serializing::midiBufferFromFile (file);
 
 		expect (midiBuffersAreEqual (origMidi, decoded));
 	}
