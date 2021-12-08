@@ -96,4 +96,18 @@ struct VariantConverter<Colour>
 	static var    toVar (const Colour& c);
 };
 
+template <>
+struct VariantConverter<lemons::Version>
+{
+	static lemons::Version fromVar (const var& v);
+	static var             toVar (const lemons::Version& v);
+};
+
+template <>
+struct VariantConverter<lemons::Dimensions>
+{
+	static lemons::Dimensions fromVar (const var& v);
+	static var                toVar (const lemons::Dimensions& d);
+};
+
 }  // namespace juce

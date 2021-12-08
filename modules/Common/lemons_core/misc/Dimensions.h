@@ -21,6 +21,12 @@ struct Dimensions final
 	 */
 	[[nodiscard]] constexpr float getAspectRatio() const noexcept;
 
+	/** Returns a string representation of these dimensions, eg '400x600'. */
+	[[nodiscard]] String toString() const noexcept;
+
+	/** Returns a Dimensions object from a string representation. The string should be formatted like '400x600'. */
+	[[nodiscard]] static Dimensions fromString (const String& string);
+
 	/** Returns a Dimensions object representing the size 1060 x 640. */
 	[[nodiscard]] static constexpr Dimensions getDefault();
 

@@ -128,4 +128,24 @@ var VariantConverter<Colour>::toVar (const Colour& c)
 	return { c.toString() };
 }
 
+lemons::Version VariantConverter<lemons::Version>::fromVar (const var& v)
+{
+	return lemons::Version::fromString (v.toString());
+}
+
+var VariantConverter<lemons::Version>::toVar (const lemons::Version& v)
+{
+	return { v.toString() };
+}
+
+lemons::Dimensions VariantConverter<lemons::Dimensions>::fromVar (const var& v)
+{
+	return lemons::Dimensions::fromString (v.toString());
+}
+
+var VariantConverter<lemons::Dimensions>::toVar (const lemons::Dimensions& d)
+{
+	return { d.toString() };
+}
+
 }  // namespace juce

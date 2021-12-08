@@ -74,11 +74,6 @@ constexpr bool Version::hasSameMajorVersion (const Version& other) const noexcep
 	return major == other.major;
 }
 
-String Version::toString (const String& separator) const noexcept
-{
-	return String (major) + separator + String (minor) + separator + String (patch);
-}
-
 void Version::bumpMajor() noexcept
 {
 	++major;
@@ -116,6 +111,20 @@ constexpr Version Version::withPatchBump() const
 	return { major,
 		     minor,
 		     patch + 1 };
+}
+
+String Version::toString() const noexcept
+{
+	return String (major) + "." + String (minor) + "." + String (patch);
+}
+
+Version Version::fromString (const String& string)
+{
+	const auto arr = juce::StringArray::fromTokens (string, ".", "");
+
+	jassert (arr.size() == 3);
+
+	return { arr[0].getIntValue(), arr[1].getIntValue(), arr[2].getIntValue() };
 }
 
 constexpr Version Version::juceVersion()

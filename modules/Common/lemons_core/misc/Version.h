@@ -34,11 +34,6 @@ struct Version final
 	/** Returns true if this version is older than the other one. */
 	[[nodiscard]] constexpr bool isOlderThan (const Version& other) const noexcept;
 
-	/** Returns a String representation of this Version.
-	    @param separator A character that will be placed between the major, minor, and patch values. Defaults to ".".
-	 */
-	[[nodiscard]] String toString (const String& separator = ".") const noexcept;
-
 	/** Increments the major value and sets minor and patch to 0. */
 	void bumpMajor() noexcept;
 
@@ -62,6 +57,14 @@ struct Version final
 	    @see bumpPatch()
 	 */
 	[[nodiscard]] constexpr Version withPatchBump() const;
+
+	/** Returns a String representation of this Version, with a '.' placed between the major, minor, and patch integers.
+	 */
+	[[nodiscard]] String toString() const noexcept;
+
+	/** Returns a Version object from a String representation. The string should be in the format '0.0.1', for example.
+	 */
+	[[nodiscard]] static Version fromString (const String& string);
 
 	/** Returns a Version object representing the version of Juce this module was compiled with. */
 	[[nodiscard]] constexpr static Version juceVersion();
