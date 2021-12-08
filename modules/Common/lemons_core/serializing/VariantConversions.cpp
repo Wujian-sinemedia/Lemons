@@ -3,6 +3,41 @@ namespace juce
 
 using namespace lemons::serializing;
 
+
+ADSR::Parameters VariantConverter<ADSR::Parameters>::fromVar (const var& v)
+{
+	ADSR::Parameters p;
+
+	if (const auto* obj = v.getDynamicObject())
+	{
+		if (obj->hasProperty (attack))
+			p.attack = obj->getProperty (attack);
+
+		if (obj->hasProperty (decay))
+			p.decay = obj->getProperty (decay);
+
+		if (obj->hasProperty (sustain))
+			p.sustain = obj->getProperty (sustain);
+
+		if (obj->hasProperty (release))
+			p.release = obj->getProperty (release);
+	}
+
+	return p;
+}
+
+var VariantConverter<ADSR::Parameters>::toVar (const ADSR::Parameters& p)
+{
+	DynamicObject obj;
+
+	obj.setProperty (attack, p.attack);
+	obj.setProperty (decay, p.decay);
+	obj.setProperty (sustain, p.sustain);
+	obj.setProperty (release, p.release);
+
+	return { &obj };
+}
+
 AudioBuffer<float> VariantConverter<AudioBuffer<float>>::fromVar (const var& v)
 {
 	return audioFromBinary<float> (memoryBlockFromString (v.toString()));
@@ -48,6 +83,16 @@ var VariantConverter<Colour>::toVar (const Colour& c)
 	return { c.toString() };
 }
 
+Identifier VariantConverter<Identifier>::fromVar (const var& v)
+{
+	return { v.toString() };
+}
+
+var VariantConverter<Identifier>::toVar (const Identifier& i)
+{
+	return { i.toString() };
+}
+
 Image VariantConverter<Image>::fromVar (const var& v)
 {
 	return imageFromBinary (memoryBlockFromString (v.toString()));
@@ -67,6 +112,16 @@ IPAddress VariantConverter<IPAddress>::fromVar (const var& v)
 var VariantConverter<IPAddress>::toVar (const IPAddress& a)
 {
 	return { a.toString() };
+}
+
+Justification VariantConverter<Justification>::fromVar (const var& v)
+{
+	return { (int) v };
+}
+
+var VariantConverter<Justification>::toVar (const Justification& j)
+{
+	return { j.getFlags() };
 }
 
 MACAddress VariantConverter<MACAddress>::fromVar (const var& v)
@@ -102,18 +157,84 @@ var VariantConverter<MidiBuffer>::toVar (const MidiBuffer& b)
 
 MidiFile VariantConverter<MidiFile>::fromVar (const var& v)
 {
-	return midiBufferToFile (VariantConverter<MidiBuffer>::fromVar (v));
+	juce::MidiFile file;
+
+	if (const auto* block = v.getBinaryData())
+	{
+		juce::MemoryInputStream stream { *block, false };
+		file.readFrom (stream);
+	}
+
+	return file;
 }
 
 var VariantConverter<MidiFile>::toVar (const MidiFile& f)
 {
-	return VariantConverter<MidiBuffer>::toVar (midiBufferFromFile (f));
+	MemoryBlock              block;
+	juce::MemoryOutputStream stream { block, false };
+
+	f.writeTo (stream);
+
+	return { block };
+}
+
+MidiMessage VariantConverter<MidiMessage>::fromVar (const var& v)
+{
+	if (const auto* obj = v.getDynamicObject())
+	{
+		if (obj->hasProperty (data_prop))
+		{
+			if (const auto* data = obj->getProperty (data_prop).getBinaryData())
+			{
+				const auto timestamp = [&]() -> double
+				{
+					if (obj->hasProperty (time_prop))
+						return obj->getProperty (time_prop);
+
+					return 0.;
+				}();
+
+				return { data->getData(), static_cast<int> (data->getSize()), timestamp };
+			}
+		}
+	}
+
+	return {};
+}
+
+var VariantConverter<MidiMessage>::toVar (const MidiMessage& m)
+{
+	DynamicObject obj;
+
+	MemoryBlock block { m.getRawData(), static_cast<size_t> (m.getRawDataSize()) };
+
+	obj.setProperty (data_prop, block);
+	obj.setProperty (time_prop, m.getTimeStamp());
+
+	return { &obj };
+}
+
+NamedValueSet VariantConverter<NamedValueSet>::fromVar (const var& v)
+{
+	if (auto* obj = v.getDynamicObject())
+		return obj->getProperties();
+
+	return {};
+}
+
+var VariantConverter<NamedValueSet>::toVar (const NamedValueSet& s)
+{
+	DynamicObject obj;
+
+	for (const auto& prop : s)
+		obj.setProperty (prop.name, prop.value);
+
+	return { &obj };
 }
 
 RelativeTime VariantConverter<RelativeTime>::fromVar (const var& v)
 {
-	const auto ms = (int64) v;
-	return RelativeTime::milliseconds (ms);
+	return RelativeTime::milliseconds ((int64) v);
 }
 
 var VariantConverter<RelativeTime>::toVar (const RelativeTime& t)
@@ -134,12 +255,7 @@ StringArray VariantConverter<StringArray>::fromVar (const var& v)
 
 var VariantConverter<StringArray>::toVar (const StringArray& a)
 {
-	Array<var> vars;
-
-	for (const auto& string : a)
-		vars.add (string);
-
-	return { vars };
+	return { a };
 }
 
 StringPairArray VariantConverter<StringPairArray>::fromVar (const var& v)
@@ -178,8 +294,7 @@ var VariantConverter<StringPairArray>::toVar (const StringPairArray& a)
 
 Time VariantConverter<Time>::fromVar (const var& v)
 {
-	const auto ms = (int64) v;
-	Time       t { ms };
+	Time t { (int64) v };
 	return t;
 }
 

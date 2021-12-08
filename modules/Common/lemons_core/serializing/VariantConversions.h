@@ -5,6 +5,19 @@ namespace juce
 {
 
 template <>
+struct VariantConverter<ADSR::Parameters>
+{
+	static ADSR::Parameters fromVar (const var& v);
+	static var              toVar (const ADSR::Parameters& p);
+
+private:
+	static constexpr auto attack  = "Attack";
+	static constexpr auto decay   = "Decay";
+	static constexpr auto sustain = "Sustain";
+	static constexpr auto release = "Release";
+};
+
+template <>
 struct VariantConverter<AudioBuffer<float>>
 {
 	static AudioBuffer<float> fromVar (const var& v);
@@ -33,6 +46,13 @@ struct VariantConverter<Colour>
 };
 
 template <>
+struct VariantConverter<Identifier>
+{
+	static Identifier fromVar (const var& v);
+	static var        toVar (const Identifier& i);
+};
+
+template <>
 struct VariantConverter<Image>
 {
 	static Image fromVar (const var& v);
@@ -44,6 +64,13 @@ struct VariantConverter<IPAddress>
 {
 	static IPAddress fromVar (const var& v);
 	static var       toVar (const IPAddress& a);
+};
+
+template <>
+struct VariantConverter<Justification>
+{
+	static Justification fromVar (const var& v);
+	static var           toVar (const Justification& j);
 };
 
 template <>
@@ -72,6 +99,24 @@ struct VariantConverter<MidiFile>
 {
 	static MidiFile fromVar (const var& v);
 	static var      toVar (const MidiFile& f);
+};
+
+template <>
+struct VariantConverter<MidiMessage>
+{
+	static MidiMessage fromVar (const var& v);
+	static var         toVar (const MidiMessage& m);
+
+private:
+	static constexpr auto data_prop = "Data";
+	static constexpr auto time_prop = "Timestamp";
+};
+
+template <>
+struct VariantConverter<NamedValueSet>
+{
+	static NamedValueSet fromVar (const var& v);
+	static var           toVar (const NamedValueSet& s);
 };
 
 template <>
@@ -121,6 +166,11 @@ struct VariantConverter<ValueTree>
 {
 	static ValueTree fromVar (const var& v);
 	static var       toVar (const ValueTree& t);
+
+private:
+	static constexpr auto NAME_PROP     = "_name";
+	static constexpr auto CHILDREN_PROP = "_children";
+	static constexpr auto BASE64_PROP   = "_base64:";
 };
 
 
