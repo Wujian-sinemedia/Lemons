@@ -13,6 +13,7 @@
 #include "files/AudioFile.cpp"
 
 #include "serializing/audio.cpp"
+#include "serializing/midi.cpp"
 #include "serializing/ValueTrees.cpp"
 #include "serializing/conversions.cpp"
 #include "serializing/VariantConversions.cpp"
