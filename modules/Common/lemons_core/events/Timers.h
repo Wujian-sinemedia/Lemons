@@ -10,7 +10,7 @@ namespace lemons::events
     @endcode
  */
 template <typename FunctionType>
-struct TimerCallback final : private juce::Timer
+struct TimerCallback final : public juce::Timer
 {
 	static_assert (std::is_invocable_v<FunctionType()>,
 	               "FunctionType must be invocable with no arguments!");

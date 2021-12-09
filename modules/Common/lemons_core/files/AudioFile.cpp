@@ -1,37 +1,30 @@
 namespace lemons
 {
 
-struct DefaultAudioFormats
+juce::AudioFormatManager& AudioFile::getFormatManager()
 {
-	DefaultAudioFormats()
+	struct DefaultAudioFormats : public juce::AudioFormatManager
 	{
-		manager.registerBasicFormats();
-	}
+		DefaultAudioFormats()
+		{
+			this->registerBasicFormats();
+		}
+	};
 
-	juce::AudioFormatManager manager;
-};
+	static DefaultAudioFormats manager;
 
-static DefaultAudioFormats audio_formats;
-
-juce::AudioFormatReader* createAudioReader (const File& audioFile)
-{
-	return audio_formats.manager.createReaderFor (audioFile);
-}
-
-juce::AudioFormatReader* createAudioReader (std::unique_ptr<juce::InputStream> audioFileStream)
-{
-	return audio_formats.manager.createReaderFor (std::move (audioFileStream));
+	return manager;
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 
 AudioFile::AudioFile (const File& audioFile)
-    : AudioFile (createAudioReader (audioFile), audioFile)
+    : AudioFile (getFormatManager().createReaderFor (audioFile), audioFile)
 {
 }
 
 AudioFile::AudioFile (std::unique_ptr<juce::InputStream> audioStream)
-    : AudioFile (createAudioReader (std::move (audioStream)), {})
+    : AudioFile (getFormatManager().createReaderFor (std::move (audioStream)), {})
 {
 }
 
@@ -79,8 +72,7 @@ const AudioBuffer<double>& AudioFile::getData()
 {
 	if (isValid())
 	{
-		if (double_data.getNumSamples() != float_data.getNumSamples()
-		    || double_data.getNumChannels() != float_data.getNumChannels())
+		if (double_data.getNumSamples() != lengthInSamples || double_data.getNumChannels() != numChannels)
 		{
 			double_data.setSize (numChannels, lengthInSamples);
 			double_data.clear();

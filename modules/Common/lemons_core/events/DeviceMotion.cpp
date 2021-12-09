@@ -85,38 +85,38 @@ namespace lemons
 
 /*-----------------------------------------------------------------------------------*/
 
-MotionManager::Listener::Listener (MotionManager& manager)
+DeviceMotion::Listener::Listener (DeviceMotion& manager)
     : m (manager)
 {
 	m.addListener (*this);
 }
 
-MotionManager::Listener::~Listener()
+DeviceMotion::Listener::~Listener()
 {
 	m.removeListener (*this);
 }
 
 /*-----------------------------------------------------------------------------------*/
 
-void MotionManager::addListener (Listener& l)
+void DeviceMotion::addListener (Listener& l)
 {
 	listeners.add (&l);
 }
 
-void MotionManager::removeListener (Listener& l)
+void DeviceMotion::removeListener (Listener& l)
 {
 	listeners.remove (&l);
 }
 
-MotionManager::Coords MotionManager::getAcceleration() const noexcept { return acceleration; }
+DeviceMotion::Coords DeviceMotion::getAcceleration() const noexcept { return acceleration; }
 
-MotionManager::Coords MotionManager::getGravity() const noexcept { return gravity; }
+DeviceMotion::Coords DeviceMotion::getGravity() const noexcept { return gravity; }
 
-MotionManager::Coords MotionManager::getRotation() const noexcept { return rotation; }
+DeviceMotion::Coords DeviceMotion::getRotation() const noexcept { return rotation; }
 
-MotionManager::Coords MotionManager::getAttitude() const noexcept { return attitude; }
+DeviceMotion::Coords DeviceMotion::getAttitude() const noexcept { return attitude; }
 
-void MotionManager::accelerationChanged (double x, double y, double z)
+void DeviceMotion::accelerationChanged (double x, double y, double z)
 {
 	acceleration.x = x;
 	acceleration.y = y;
@@ -126,7 +126,7 @@ void MotionManager::accelerationChanged (double x, double y, double z)
 	                { l.accelerationChanged (acceleration); });
 }
 
-void MotionManager::gravityChanged (double x, double y, double z)
+void DeviceMotion::gravityChanged (double x, double y, double z)
 {
 	gravity.x = x;
 	gravity.y = y;
@@ -136,7 +136,7 @@ void MotionManager::gravityChanged (double x, double y, double z)
 	                { l.gravityChanged (gravity); });
 }
 
-void MotionManager::rotationChanged (double x, double y, double z)
+void DeviceMotion::rotationChanged (double x, double y, double z)
 {
 	rotation.x = x;
 	rotation.y = y;
@@ -146,7 +146,7 @@ void MotionManager::rotationChanged (double x, double y, double z)
 	                { l.rotationChanged (rotation); });
 }
 
-void MotionManager::attitudeChanged (double x, double y, double z)
+void DeviceMotion::attitudeChanged (double x, double y, double z)
 {
 	attitude.x = x;
 	attitude.y = y;
@@ -156,7 +156,7 @@ void MotionManager::attitudeChanged (double x, double y, double z)
 	                { l.attitudeChanged (attitude); });
 }
 
-MotionManager::MotionManager()
+DeviceMotion::DeviceMotion()
 {
 #if JUCE_IOS
 	MotionManagerWrapper* newManager = [[MotionManagerWrapper alloc] initWithOwner:this];
@@ -165,14 +165,14 @@ MotionManager::MotionManager()
 #endif
 }
 
-MotionManager::~MotionManager()
+DeviceMotion::~DeviceMotion()
 {
 #if JUCE_IOS
 	[((MotionManagerWrapper*) motionManagerWrapper) release];
 #endif
 }
 
-void MotionManager::start()
+void DeviceMotion::start()
 {
 	if (running)
 		return;
@@ -207,7 +207,7 @@ void MotionManager::start()
 #endif
 }
 
-void MotionManager::stop()
+void DeviceMotion::stop()
 {
 	if (! running)
 		return;
@@ -230,7 +230,7 @@ void MotionManager::stop()
 #endif
 }
 
-bool MotionManager::isRunning() const noexcept
+bool DeviceMotion::isRunning() const noexcept
 {
 #if (JUCE_IOS || JUCE_ANDROID)
 	return running;

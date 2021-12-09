@@ -82,11 +82,14 @@ bool saveValueTree<FileType::Opaque> (const File& file, const ValueTree& tree)
 
 //==============================================================================
 
-const char* const soundFileWildCard = "*.wav;*.aiff;*.aif;*.ogg;*.mp3;*.flac;*.au;*.voc;*.caf;*.w64;*.rx2;*.rcy;*.rex;*.wfaf";
-
 bool isMidiFile (const File& file)
 {
 	return file.hasFileExtension ("mid;rmi;rmid;midi");
+}
+
+bool isAudioFile (const File& file)
+{
+	return file.hasFileExtension (AudioFile::getFormatManager().getWildcardForAllFormats());
 }
 
 
@@ -95,45 +98,5 @@ File getFileOnDesktop (const String& fileName)
 	return File::getSpecialLocation (File::userDesktopDirectory).getChildFile (fileName);
 }
 
-
-//==============================================================================
-
-
-String addFileExtensionIfMissing (const String& string,
-                                  const String& extension)
-{
-	return File::createLegalFileName (
-	    string.endsWith (extension) ? string.trim() : (string + extension).trim());
-}
-
-
-//==============================================================================
-
-bool renameFile (const File& f, const String& newName)
-{
-	jassert (! newName.isEmpty());
-
-	if (! f.existsAsFile())
-		return false;
-
-	return f.moveFileTo (f.getSiblingFile (newName));
-}
-
-void deleteFile (const File& f)
-{
-	if (f.existsAsFile())
-		if (! f.moveToTrash())
-			f.deleteFile();
-}
-
-//==============================================================================
-
-bool openFile (File file)
-{
-	if (! file.existsAsFile())
-		return false;
-
-	return file.startAsProcess();
-}
 
 }  // namespace lemons::files

@@ -3,17 +3,19 @@
 namespace lemons::math
 {
 
+/** Returns true if number is divisible by divisor with no remainder. */
 [[nodiscard]] constexpr bool isDivisibleBy (int number, int divisor) noexcept
 {
 	return number % divisor == 0;
 }
 
+/** Returns true if number is divisible by 2. */
 [[nodiscard]] constexpr bool numberIsEven (int number) noexcept
 {
 	return isDivisibleBy (number, 2);
 }
 
-// returns the period in samples of a specified frequency in hz at a specified samplerate
+/** Returns the period in samples of a frequency at the specified samplerate. */
 template <typename FreqType>
 [[nodiscard]] constexpr int periodInSamples (double samplerate, FreqType freqHz) noexcept
 {
@@ -21,7 +23,7 @@ template <typename FreqType>
 	return juce::roundToInt (samplerate / static_cast<double> (freqHz));
 }
 
-// returns the resultant fundamental frequency in Hz from a specified period in samples and samplerate
+/** Returns the frequency in Hz with a given period in samples at the specified samplerate. */
 template <typename PeriodType>
 [[nodiscard]] constexpr PeriodType freqFromPeriod (double     samplerate,
                                                    PeriodType period) noexcept
@@ -36,11 +38,14 @@ template <typename PeriodType>
 		return static_cast<PeriodType> (val);
 }
 
+/** Converts a number of samples to milliseconds at the specified samplerate. */
+[[nodiscard]] constexpr double sampsToMs (double samplerate, int numSamples) noexcept
+{
+	jassert (samplerate > 0.0);
+	return (static_cast<double> (numSamples) / samplerate) * 1000.;
+}
 
-// converts a specified number of samples to milliseconds
-[[nodiscard]] constexpr double sampsToMs (double samplerate, int numSamples) noexcept;
-
-// converts a specified amount of time in milliseconds to the closest integer number of samples at the specified samplerate
+/** Converts a number of milliseconds to the closest integer number of samples at the specified samplerate. */
 template <typename msType>
 [[nodiscard]] constexpr int msToSamps (double samplerate, msType ms) noexcept
 {
@@ -49,8 +54,7 @@ template <typename msType>
 	return juce::roundToInt (val);
 }
 
-
-// converts a midi note to a frequency in Hz
+/** Converts a MIDI note to a frequency in Hz. */
 template <typename T>
 [[nodiscard]] constexpr T midiToFreq (T midiNote) noexcept
 {
@@ -62,8 +66,7 @@ template <typename T>
 		return static_cast<T> (val);
 }
 
-
-// converts a frequency in Hz to a midi pitch
+/** Converts a frequency in Hz to a MIDI note. */
 template <typename T>
 [[nodiscard]] constexpr T freqToMidi (T freqHz) noexcept
 {

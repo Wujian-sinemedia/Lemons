@@ -1,7 +1,7 @@
 #include "lemons_core.h"
 
 
-#include "math/mathHelpers.cpp"
+#include "math/math_tests.cpp"
 #include "math/vecops.cpp"
 #include "math/ValueSmoother.cpp"
 

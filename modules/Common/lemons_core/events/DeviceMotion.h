@@ -9,7 +9,7 @@ namespace lemons
 
 /** Use this class to report various aspects of the device's motion, when sensor data is available, and register listeners.
  */
-class MotionManager final
+class DeviceMotion final
 {
 public:
 
@@ -24,7 +24,7 @@ public:
 	/** A listener that recieves callbacks with each kind of motion data. */
 	struct Listener
 	{
-		Listener (MotionManager& manager);
+		Listener (DeviceMotion& manager);
 
 		virtual ~Listener();
 
@@ -34,14 +34,14 @@ public:
 		virtual void attitudeChanged (Coords) { }
 
 	private:
-		MotionManager& m;
+		DeviceMotion& m;
 	};
 
 	/** Constructor. */
-	MotionManager();
+	DeviceMotion();
 
 	/** Destructor. */
-	~MotionManager();
+	~DeviceMotion();
 
 	/** Starts the motion manager's tracking of the device's sensor data. */
 	void start();

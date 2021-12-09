@@ -33,6 +33,9 @@ struct Data final
 	/** Creates a RawData object referencing a named resource. */
 	explicit Data (const String& fileToFind);
 
+	/** Destructor. */
+	~Data() = default;
+
 	/** Returns true if the requested data has been loaded successfully from the binary data target. */
 	bool isValid() const noexcept;
 
@@ -48,6 +51,10 @@ struct Data final
 	/** The size of the data, in bytes. */
 	int size { 0 };
 
+	/** Returns true if this module was compiled with the LEMONS_HAS_BINARY_DATA flag set to 1.
+	    If this returns false, every Data object you create will be invalid.
+	 */
+	[[nodiscard]] static constexpr bool hasBinaryData() noexcept { return LEMONS_HAS_BINARY_DATA; }
 
 	/** Returns an image object from an image file in the BinaryData target.
 	    If the image can't be loaded, an assertion will be thrown.

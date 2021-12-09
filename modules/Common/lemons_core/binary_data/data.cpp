@@ -33,11 +33,7 @@ Data::Data (const String& fileToFind)
 
 bool Data::isValid() const noexcept
 {
-#if LEMONS_HAS_BINARY_DATA
 	return data != nullptr && size > 0;
-#else
-	return false;
-#endif
 }
 
 String Data::getAsString() const
@@ -80,9 +76,7 @@ Image Data::getImage (const String& imageFileName)
 
 AudioFile Data::getAudio (const String& audioFileName)
 {
-	auto stream = std::make_unique<juce::MemoryInputStream> (getBlob (audioFileName), false);
-
-	AudioFile audio { std::move (stream) };
+	AudioFile audio { std::make_unique<juce::MemoryInputStream> (getBlob (audioFileName), false) };
 
 	jassert (audio.isValid());
 

@@ -1,19 +1,3 @@
-
-namespace lemons::math
-{
-
-constexpr double sampsToMs (double samplerate, int numSamples) noexcept
-{
-	jassert (samplerate > 0.0);
-	return (static_cast<double> (numSamples) / samplerate) * 1000.;
-}
-
-}  // namespace lemons::math
-
-
-/*---------------------------------------------------------------------------------------------------------------------------------*/
-
-
 #if LEMONS_UNIT_TESTS
 
 namespace lemons::tests
