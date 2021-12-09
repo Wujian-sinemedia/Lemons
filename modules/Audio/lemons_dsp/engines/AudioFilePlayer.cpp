@@ -3,7 +3,7 @@ namespace lemons::dsp
 
 template <typename SampleType>
 AudioFilePlayer<SampleType>::AudioFilePlayer (AudioFile& file)
-    : origAudio (file.getData<SampleType>())
+    : origAudio (file.getData<float>())
     , origSamplerate (file.getSamplerate())
     , origNumSamples (file.getNumSamples())
 {
@@ -13,6 +13,9 @@ AudioFilePlayer<SampleType>::AudioFilePlayer (AudioFile& file)
 	interpolators.resize (origAudio.getNumChannels());
 	readPositions.ensureStorageAllocated (origAudio.getNumChannels());
 	readPositions.fill (0);
+
+	if constexpr (std::is_same_v<SampleType, double>)
+		conversionBuffer.setSize (origAudio.getNumChannels(), origNumSamples);
 }
 
 template <typename SampleType>
@@ -29,6 +32,14 @@ void AudioFilePlayer<SampleType>::renderChunk (const AudioBuffer<SampleType>&,
 
 	const auto numSamples = output.getNumSamples();
 
+	auto& destBuf = [&]() -> AudioBuffer<float>&
+	{
+		if constexpr (std::is_same_v<SampleType, float>)
+			return output;
+		else
+			return conversionBuffer;
+	}();
+
 	for (int chan = 0;
 	     chan < std::min (interpolators->size(), output.getNumChannels());
 	     ++chan)
@@ -37,13 +48,16 @@ void AudioFilePlayer<SampleType>::renderChunk (const AudioBuffer<SampleType>&,
 
 		const auto numUsed = interpolators[chan]->process (speedRatio,
 		                                                   origAudio.getReadPointer (chan, prevReadPos),
-		                                                   output.getWritePointer (chan),
+		                                                   destBuf.getWritePointer (chan),
 		                                                   numSamples,
 		                                                   origNumSamples - prevReadPos,
 		                                                   0);
 
 		readPositions.set (chan, prevReadPos + numUsed);
 	}
+
+	if constexpr (std::is_same_v<SampleType, double>)
+		buffers::convert (conversionBuffer, output);
 }
 
 template <typename SampleType>
@@ -74,6 +88,6 @@ void AudioFilePlayer<SampleType>::onRelease()
 }
 
 template class AudioFilePlayer<float>;
-// template class AudioFilePlayer<double>;
+template class AudioFilePlayer<double>;
 
 }  // namespace lemons::dsp

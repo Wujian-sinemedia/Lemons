@@ -18,7 +18,7 @@ private:
 
 	void onRelease() final;
 
-	const AudioBuffer<SampleType>& origAudio;
+	const AudioBuffer<float>& origAudio;
 
 	const double origSamplerate;
 	const int    origNumSamples;
@@ -28,6 +28,8 @@ private:
 	juce::Array<int> readPositions;
 
 	ConstructedArray<InterpolatorType> interpolators;
+
+	AudioBuffer<float> conversionBuffer;  // needed for double version only
 };
 
 }  // namespace lemons::dsp

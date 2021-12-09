@@ -22,6 +22,9 @@ template void copy (const AudioBuffer<double>&, AudioBuffer<double>&);
 template <typename Type1, typename Type2>
 void convert (const AudioBuffer<Type1>& source, AudioBuffer<Type2>& dest)
 {
+    static_assert (! std::is_same_v<Type1, Type2>,
+                   "Converting between two buffers with the same sample type!");
+    
 	dest.clear();
 
 	const auto numSamples = source.getNumSamples();
