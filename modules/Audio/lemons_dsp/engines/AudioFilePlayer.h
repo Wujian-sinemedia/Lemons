@@ -4,7 +4,7 @@ namespace lemons::dsp
 {
 
 template <typename SampleType>
-class AudioFilePlayer : public LatencyEngine<SampleType>
+class AudioFilePlayer final : public LatencyEngine<SampleType>
 {
 public:
 	AudioFilePlayer (AudioFile& file);

@@ -8,6 +8,7 @@
 #include "engines/AudioEngine.cpp"
 #include "engines/LatencyEngine.cpp"
 #include "engines/AudioFilePlayer.cpp"
+#include "engines/EngineChain.cpp"
 
 #include "filters/Coeffecients.cpp"
 #include "filters/Filter.cpp"
