@@ -69,45 +69,71 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="structlemons_1_1_audio_file-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">lemons::AudioFile Struct Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This class represents the data of an audio file, including the AudioBuffer itself, as well as the samplerate, bit depth, and metadata information.  
+ <a href="structlemons_1_1_audio_file.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a12926d13271dcbd3c1ec9eb3d6bef544"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_audio_file.html#a12926d13271dcbd3c1ec9eb3d6bef544">AudioFile</a> (const File &amp;audioFile)</td></tr>
+<tr class="memdesc:a12926d13271dcbd3c1ec9eb3d6bef544"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an <a class="el" href="structlemons_1_1_audio_file.html" title="This class represents the data of an audio file, including the AudioBuffer itself,...">AudioFile</a> from a file on disk.  <a href="structlemons_1_1_audio_file.html#a12926d13271dcbd3c1ec9eb3d6bef544">More...</a><br /></td></tr>
 <tr class="separator:a12926d13271dcbd3c1ec9eb3d6bef544"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3bd6ddf46a9b2fa8eeeffb3378f604b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_audio_file.html#ac3bd6ddf46a9b2fa8eeeffb3378f604b">AudioFile</a> (std::unique_ptr&lt; juce::InputStream &gt; audioStream)</td></tr>
+<tr class="memdesc:ac3bd6ddf46a9b2fa8eeeffb3378f604b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an <a class="el" href="structlemons_1_1_audio_file.html" title="This class represents the data of an audio file, including the AudioBuffer itself,...">AudioFile</a> from any kind of input stream.  <a href="structlemons_1_1_audio_file.html#ac3bd6ddf46a9b2fa8eeeffb3378f604b">More...</a><br /></td></tr>
 <tr class="separator:ac3bd6ddf46a9b2fa8eeeffb3378f604b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c67263f338d6a172bc84de8c4e1d181"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_audio_file.html#a5c67263f338d6a172bc84de8c4e1d181">~AudioFile</a> ()=default</td></tr>
+<tr class="memdesc:a5c67263f338d6a172bc84de8c4e1d181"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="structlemons_1_1_audio_file.html#a5c67263f338d6a172bc84de8c4e1d181">More...</a><br /></td></tr>
 <tr class="separator:a5c67263f338d6a172bc84de8c4e1d181"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba31217c05169d5d953a24bdb1435b30"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_audio_file.html#aba31217c05169d5d953a24bdb1435b30">existsOnDisk</a> () const noexcept</td></tr>
+<tr class="memdesc:aba31217c05169d5d953a24bdb1435b30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the file this data represents exists locally on the current device.  <a href="structlemons_1_1_audio_file.html#aba31217c05169d5d953a24bdb1435b30">More...</a><br /></td></tr>
 <tr class="separator:aba31217c05169d5d953a24bdb1435b30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25ee70e2cecdd9929468f2dd3c3938a6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_audio_file.html#a25ee70e2cecdd9929468f2dd3c3938a6">getBitsPerSample</a> () const noexcept</td></tr>
+<tr class="memdesc:a25ee70e2cecdd9929468f2dd3c3938a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of bits per sample in this audio file.  <a href="structlemons_1_1_audio_file.html#a25ee70e2cecdd9929468f2dd3c3938a6">More...</a><br /></td></tr>
 <tr class="separator:a25ee70e2cecdd9929468f2dd3c3938a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a858d8343f97a1867e0f9974dc36bf611"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
 <tr class="memitem:a858d8343f97a1867e0f9974dc36bf611"><td class="memTemplItemLeft" align="right" valign="top">const <a class="el" href="namespacelemons.html#a14d02d4e2202a02c819ef08ec74cde96">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structlemons_1_1_audio_file.html#a858d8343f97a1867e0f9974dc36bf611">getData</a> ()</td></tr>
+<tr class="memdesc:a858d8343f97a1867e0f9974dc36bf611"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the actual audio data of this audio file.  <a href="structlemons_1_1_audio_file.html#a858d8343f97a1867e0f9974dc36bf611">More...</a><br /></td></tr>
 <tr class="separator:a858d8343f97a1867e0f9974dc36bf611"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec052c396515d901bf4edffa6415e42d"><td class="memItemLeft" align="right" valign="top">File&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_audio_file.html#aec052c396515d901bf4edffa6415e42d">getFile</a> () const noexcept</td></tr>
+<tr class="memdesc:aec052c396515d901bf4edffa6415e42d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the File object that this audio file was loaded from.  <a href="structlemons_1_1_audio_file.html#aec052c396515d901bf4edffa6415e42d">More...</a><br /></td></tr>
 <tr class="separator:aec052c396515d901bf4edffa6415e42d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1f11b26bc28770a7f0b4b26cc683cd5"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_audio_file.html#aa1f11b26bc28770a7f0b4b26cc683cd5">getFormatName</a> () const noexcept</td></tr>
+<tr class="memdesc:aa1f11b26bc28770a7f0b4b26cc683cd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of the audio format, eg, 'wav' or 'aiff'.  <a href="structlemons_1_1_audio_file.html#aa1f11b26bc28770a7f0b4b26cc683cd5">More...</a><br /></td></tr>
 <tr class="separator:aa1f11b26bc28770a7f0b4b26cc683cd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a420edac3a9b7c443d9f81eb3ae5a853d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_audio_file.html#a420edac3a9b7c443d9f81eb3ae5a853d">getLengthInSeconds</a> () const noexcept</td></tr>
+<tr class="memdesc:a420edac3a9b7c443d9f81eb3ae5a853d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the length in seconds of the entire audio file at its original samplerate.  <a href="structlemons_1_1_audio_file.html#a420edac3a9b7c443d9f81eb3ae5a853d">More...</a><br /></td></tr>
 <tr class="separator:a420edac3a9b7c443d9f81eb3ae5a853d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4d614c526fd7ce9f51f6245022f4b06"><td class="memItemLeft" align="right" valign="top">const juce::StringPairArray &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_audio_file.html#af4d614c526fd7ce9f51f6245022f4b06">getMetadata</a> () const noexcept</td></tr>
+<tr class="memdesc:af4d614c526fd7ce9f51f6245022f4b06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the audio file's metadata values.  <a href="structlemons_1_1_audio_file.html#af4d614c526fd7ce9f51f6245022f4b06">More...</a><br /></td></tr>
 <tr class="separator:af4d614c526fd7ce9f51f6245022f4b06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab50272ad25246baa4a1d5504f6e6aecb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_audio_file.html#ab50272ad25246baa4a1d5504f6e6aecb">getNumChannels</a> () const noexcept</td></tr>
+<tr class="memdesc:ab50272ad25246baa4a1d5504f6e6aecb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of channels in the audio file.  <a href="structlemons_1_1_audio_file.html#ab50272ad25246baa4a1d5504f6e6aecb">More...</a><br /></td></tr>
 <tr class="separator:ab50272ad25246baa4a1d5504f6e6aecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a982f74d16a12a63a0001342341fc1a63"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_audio_file.html#a982f74d16a12a63a0001342341fc1a63">getNumSamples</a> () const noexcept</td></tr>
+<tr class="memdesc:a982f74d16a12a63a0001342341fc1a63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of samples in the audio file.  <a href="structlemons_1_1_audio_file.html#a982f74d16a12a63a0001342341fc1a63">More...</a><br /></td></tr>
 <tr class="separator:a982f74d16a12a63a0001342341fc1a63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a827a280f21c8785dd2be734e3beb8387"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_audio_file.html#a827a280f21c8785dd2be734e3beb8387">getSamplerate</a> () const noexcept</td></tr>
+<tr class="memdesc:a827a280f21c8785dd2be734e3beb8387"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the samplerate of the audio file.  <a href="structlemons_1_1_audio_file.html#a827a280f21c8785dd2be734e3beb8387">More...</a><br /></td></tr>
 <tr class="separator:a827a280f21c8785dd2be734e3beb8387"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfba858ff267ba47b198a626531bdfb0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_audio_file.html#acfba858ff267ba47b198a626531bdfb0">isValid</a> () const noexcept</td></tr>
+<tr class="memdesc:acfba858ff267ba47b198a626531bdfb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the file's data was loaded successfully.  <a href="structlemons_1_1_audio_file.html#acfba858ff267ba47b198a626531bdfb0">More...</a><br /></td></tr>
 <tr class="separator:acfba858ff267ba47b198a626531bdfb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a2c1d4fbb733069aeea6452aa8930163d"><td class="memItemLeft" align="right" valign="top">static juce::AudioFormatManager &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_audio_file.html#a2c1d4fbb733069aeea6452aa8930163d">getFormatManager</a> ()</td></tr>
+<tr class="memdesc:a2c1d4fbb733069aeea6452aa8930163d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a static AudioFormatManager used for creating all AudioFiles.  <a href="structlemons_1_1_audio_file.html#a2c1d4fbb733069aeea6452aa8930163d">More...</a><br /></td></tr>
+<tr class="separator:a2c1d4fbb733069aeea6452aa8930163d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This class represents the data of an audio file, including the AudioBuffer itself, as well as the samplerate, bit depth, and metadata information. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a12926d13271dcbd3c1ec9eb3d6bef544"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a12926d13271dcbd3c1ec9eb3d6bef544">&#9670;&nbsp;</a></span>AudioFile() <span class="overload">[1/2]</span></h2>
 
@@ -131,6 +157,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Creates an <a class="el" href="structlemons_1_1_audio_file.html" title="This class represents the data of an audio file, including the AudioBuffer itself,...">AudioFile</a> from a file on disk. </p>
 
 </div>
 </div>
@@ -158,6 +186,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Creates an <a class="el" href="structlemons_1_1_audio_file.html" title="This class represents the data of an audio file, including the AudioBuffer itself,...">AudioFile</a> from any kind of input stream. </p>
+
 </div>
 </div>
 <a id="a5c67263f338d6a172bc84de8c4e1d181"></a>
@@ -182,6 +212,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Destructor. </p>
 
 </div>
 </div>
@@ -209,6 +241,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true if the file this data represents exists locally on the current device. </p>
+<p>This may return false if the file has been deleted since the construction of this object, or if you used the constructor that takes an input stream. </p>
+
 </div>
 </div>
 <a id="a25ee70e2cecdd9929468f2dd3c3938a6"></a>
@@ -234,6 +269,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the number of bits per sample in this audio file. </p>
+
 </div>
 </div>
 <a id="a858d8343f97a1867e0f9974dc36bf611"></a>
@@ -252,6 +289,9 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the actual audio data of this audio file. </p>
+<p>If <a class="el" href="structlemons_1_1_audio_file.html#acfba858ff267ba47b198a626531bdfb0" title="Returns true if the file&#39;s data was loaded successfully.">isValid()</a> returns false, then this function will return a buffer with a size of 0 channels and 0 samples. Internally, the data is always loaded as floats; the first time you call the double version of this function, the data will be converted to double precision internally. </p>
 
 </div>
 </div>
@@ -278,6 +318,36 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the File object that this audio file was loaded from. </p>
+<p>Note that this may return an invalid File object if you used the constructor that takes an input stream. </p>
+
+</div>
+</div>
+<a id="a2c1d4fbb733069aeea6452aa8930163d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c1d4fbb733069aeea6452aa8930163d">&#9670;&nbsp;</a></span>getFormatManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static juce::AudioFormatManager&amp; lemons::AudioFile::getFormatManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a static AudioFormatManager used for creating all AudioFiles. </p>
+
 </div>
 </div>
 <a id="aa1f11b26bc28770a7f0b4b26cc683cd5"></a>
@@ -302,6 +372,8 @@ template&lt;typename SampleType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the name of the audio format, eg, 'wav' or 'aiff'. </p>
 
 </div>
 </div>
@@ -328,6 +400,8 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the length in seconds of the entire audio file at its original samplerate. </p>
+
 </div>
 </div>
 <a id="af4d614c526fd7ce9f51f6245022f4b06"></a>
@@ -352,6 +426,8 @@ template&lt;typename SampleType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the audio file's metadata values. </p>
 
 </div>
 </div>
@@ -378,6 +454,8 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the number of channels in the audio file. </p>
+
 </div>
 </div>
 <a id="a982f74d16a12a63a0001342341fc1a63"></a>
@@ -402,6 +480,8 @@ template&lt;typename SampleType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns the number of samples in the audio file. </p>
 
 </div>
 </div>
@@ -428,6 +508,8 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the samplerate of the audio file. </p>
+
 </div>
 </div>
 <a id="acfba858ff267ba47b198a626531bdfb0"></a>
@@ -453,6 +535,8 @@ template&lt;typename SampleType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true if the file's data was loaded successfully. </p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
@@ -461,7 +545,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 9 2021 00:44:22 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 9 2021 21:00:31 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

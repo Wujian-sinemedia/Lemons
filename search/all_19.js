@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['z_1030',['z',['../structlemons_1_1_motion_manager_1_1_coords.html#a221af8e70b6316bf8b69cab2135a77e1',1,'lemons::MotionManager::Coords']]]
+  ['z_1031',['z',['../structlemons_1_1_device_motion_1_1_coords.html#a0ed98757bbcb54d5294a52559678bb49',1,'lemons::DeviceMotion::Coords']]]
 ];

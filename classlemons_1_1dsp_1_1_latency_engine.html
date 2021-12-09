@@ -83,7 +83,7 @@ $(function() {
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="classlemons_1_1dsp_1_1_latency_engine__inherit__graph.svg" width="215" height="142"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="classlemons_1_1dsp_1_1_latency_engine__inherit__graph.svg" width="222" height="231"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -128,9 +128,9 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:af171ed2c410e7e03dd8e583b27f81903"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_latency_engine.html#af171ed2c410e7e03dd8e583b27f81903">onPrepare</a> (int blocksize, double samplerate)</td></tr>
-<tr class="memdesc:af171ed2c410e7e03dd8e583b27f81903"><td class="mdescLeft">&#160;</td><td class="mdescRight">Your subclass may implement this to be informed when the engine is prepared.  <a href="classlemons_1_1dsp_1_1_latency_engine.html#af171ed2c410e7e03dd8e583b27f81903">More...</a><br /></td></tr>
-<tr class="separator:af171ed2c410e7e03dd8e583b27f81903"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05bb9ed6492f9ff70618669d770e99ea"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_latency_engine.html#a05bb9ed6492f9ff70618669d770e99ea">onPrepare</a> (int blocksize, double samplerate, int numChannels)</td></tr>
+<tr class="memdesc:a05bb9ed6492f9ff70618669d770e99ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Your subclass may implement this to be informed when the engine is prepared.  <a href="classlemons_1_1dsp_1_1_latency_engine.html#a05bb9ed6492f9ff70618669d770e99ea">More...</a><br /></td></tr>
+<tr class="separator:a05bb9ed6492f9ff70618669d770e99ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a836d66a52283875ec29eab8cbe1eea4a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_latency_engine.html#a836d66a52283875ec29eab8cbe1eea4a">onRelease</a> ()</td></tr>
 <tr class="memdesc:a836d66a52283875ec29eab8cbe1eea4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Your subclass may implement this to be informed when the engine is released.  <a href="classlemons_1_1dsp_1_1_latency_engine.html#a836d66a52283875ec29eab8cbe1eea4a">More...</a><br /></td></tr>
 <tr class="separator:a836d66a52283875ec29eab8cbe1eea4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -259,8 +259,8 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
-<a id="af171ed2c410e7e03dd8e583b27f81903"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af171ed2c410e7e03dd8e583b27f81903">&#9670;&nbsp;</a></span>onPrepare()</h2>
+<a id="a05bb9ed6492f9ff70618669d770e99ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05bb9ed6492f9ff70618669d770e99ea">&#9670;&nbsp;</a></span>onPrepare()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -280,7 +280,13 @@ template&lt;typename SampleType &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>samplerate</em>&#160;</td>
+          <td class="paramname"><em>samplerate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numChannels</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -732,7 +738,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 9 2021 00:44:22 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 9 2021 21:00:31 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

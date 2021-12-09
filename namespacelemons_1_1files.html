@@ -81,27 +81,27 @@ Enumerations</h2></td></tr>
 <a class="el" href="namespacelemons_1_1files.html#ad8666caaa02a1d74f5e234b8900b5390a0ecd11c1d7a287401d148a23bbd7a2f8">FileType::JSON</a>, 
 <a class="el" href="namespacelemons_1_1files.html#ad8666caaa02a1d74f5e234b8900b5390afaa90538de35640e4b1e31ccf35b6eb5">FileType::Opaque</a>
  }</td></tr>
+<tr class="memdesc:ad8666caaa02a1d74f5e234b8900b5390"><td class="mdescLeft">&#160;</td><td class="mdescRight">An enum used to describe various kinds of binary encodings of data.  <a href="namespacelemons_1_1files.html#ad8666caaa02a1d74f5e234b8900b5390">More...</a><br /></td></tr>
 <tr class="separator:ad8666caaa02a1d74f5e234b8900b5390"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a829e69b1947298540b02f74dcb5519ac"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1files.html#a829e69b1947298540b02f74dcb5519ac">addFileExtensionIfMissing</a> (const String &amp;string, const String &amp;extension)</td></tr>
-<tr class="separator:a829e69b1947298540b02f74dcb5519ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a7d8dab5985de95bef3c0fab9859174"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1files.html#a8a7d8dab5985de95bef3c0fab9859174">deleteFile</a> (const File &amp;f)</td></tr>
-<tr class="separator:a8a7d8dab5985de95bef3c0fab9859174"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a09c77fee142fb1da7e1101433b4b75"><td class="memItemLeft" align="right" valign="top">File&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1files.html#a1a09c77fee142fb1da7e1101433b4b75">getFileOnDesktop</a> (const String &amp;fileName)</td></tr>
+<tr class="memdesc:a1a09c77fee142fb1da7e1101433b4b75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a file on the desktop with the specified name.  <a href="namespacelemons_1_1files.html#a1a09c77fee142fb1da7e1101433b4b75">More...</a><br /></td></tr>
 <tr class="separator:a1a09c77fee142fb1da7e1101433b4b75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d383edb688ecb64088d1700766df9a6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1files.html#a8d383edb688ecb64088d1700766df9a6">isAudioFile</a> (const File &amp;file)</td></tr>
+<tr class="memdesc:a8d383edb688ecb64088d1700766df9a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the file has a file extension matching any of the audio file extensions that the default AudioFormatManager returned by <a class="el" href="structlemons_1_1_audio_file.html#a2c1d4fbb733069aeea6452aa8930163d" title="Returns a static AudioFormatManager used for creating all AudioFiles.">AudioFile::getFormatManager()</a> can handle.  <a href="namespacelemons_1_1files.html#a8d383edb688ecb64088d1700766df9a6">More...</a><br /></td></tr>
+<tr class="separator:a8d383edb688ecb64088d1700766df9a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a402868b2eee4e6897a4a2d458c2797e0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1files.html#a402868b2eee4e6897a4a2d458c2797e0">isMidiFile</a> (const File &amp;file)</td></tr>
+<tr class="memdesc:a402868b2eee4e6897a4a2d458c2797e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the file has a file extension matching any standard MIDI file extensions.  <a href="namespacelemons_1_1files.html#a402868b2eee4e6897a4a2d458c2797e0">More...</a><br /></td></tr>
 <tr class="separator:a402868b2eee4e6897a4a2d458c2797e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83377ad1e44d9e25ff0a5879975230c9"><td class="memTemplParams" colspan="2">template&lt;FileType Type&gt; </td></tr>
+<tr class="memitem:a83377ad1e44d9e25ff0a5879975230c9"><td class="memTemplParams" colspan="2">template&lt;FileType Type = FileType::JSON&gt; </td></tr>
 <tr class="memitem:a83377ad1e44d9e25ff0a5879975230c9"><td class="memTemplItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1files.html#a83377ad1e44d9e25ff0a5879975230c9">loadValueTree</a> (const File &amp;file)</td></tr>
+<tr class="memdesc:a83377ad1e44d9e25ff0a5879975230c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to load a ValueTree from a file of the specified format.  <a href="namespacelemons_1_1files.html#a83377ad1e44d9e25ff0a5879975230c9">More...</a><br /></td></tr>
 <tr class="separator:a83377ad1e44d9e25ff0a5879975230c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2688bf021d99260f64b07438ee61c8fb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1files.html#a2688bf021d99260f64b07438ee61c8fb">openFile</a> (File file)</td></tr>
-<tr class="separator:a2688bf021d99260f64b07438ee61c8fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac170a1c420e60941cd5159c1869d6f20"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1files.html#ac170a1c420e60941cd5159c1869d6f20">renameFile</a> (const File &amp;f, const String &amp;newName)</td></tr>
-<tr class="separator:ac170a1c420e60941cd5159c1869d6f20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af649a81a1c77e6b8667c62f6276e6d11"><td class="memTemplParams" colspan="2">template&lt;FileType Type&gt; </td></tr>
+<tr class="memitem:af649a81a1c77e6b8667c62f6276e6d11"><td class="memTemplParams" colspan="2">template&lt;FileType Type = FileType::JSON&gt; </td></tr>
 <tr class="memitem:af649a81a1c77e6b8667c62f6276e6d11"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1files.html#af649a81a1c77e6b8667c62f6276e6d11">saveValueTree</a> (const File &amp;file, const ValueTree &amp;tree)</td></tr>
+<tr class="memdesc:af649a81a1c77e6b8667c62f6276e6d11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves a ValueTree to a file in the specified format.  <a href="namespacelemons_1_1files.html#af649a81a1c77e6b8667c62f6276e6d11">More...</a><br /></td></tr>
 <tr class="separator:af649a81a1c77e6b8667c62f6276e6d11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
@@ -124,63 +124,20 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>An enum used to describe various kinds of binary encodings of data. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad8666caaa02a1d74f5e234b8900b5390a3501bb093d363810b671059b9cfed3f8"></a>XML&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ad8666caaa02a1d74f5e234b8900b5390a0ecd11c1d7a287401d148a23bbd7a2f8"></a>JSON&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ad8666caaa02a1d74f5e234b8900b5390afaa90538de35640e4b1e31ccf35b6eb5"></a>Opaque&#160;</td><td class="fielddoc"><p>Represents any non-standard/proprietary method of encoding and decoding information to/from binary. </p>
-<p>May not be human-readable. </p>
+<tr><td class="fieldname"><a id="ad8666caaa02a1d74f5e234b8900b5390a0ecd11c1d7a287401d148a23bbd7a2f8"></a>JSON&#160;</td><td class="fielddoc"><p>Represents an XML file. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad8666caaa02a1d74f5e234b8900b5390afaa90538de35640e4b1e31ccf35b6eb5"></a>Opaque&#160;</td><td class="fielddoc"><p>Represents a JSON file. </p>
+<p>Represents any non-standard/proprietary method of encoding and decoding information to/from binary. May not be human-readable. </p>
 </td></tr>
 </table>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a829e69b1947298540b02f74dcb5519ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a829e69b1947298540b02f74dcb5519ac">&#9670;&nbsp;</a></span>addFileExtensionIfMissing()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">String lemons::files::addFileExtensionIfMissing </td>
-          <td>(</td>
-          <td class="paramtype">const String &amp;&#160;</td>
-          <td class="paramname"><em>string</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const String &amp;&#160;</td>
-          <td class="paramname"><em>extension</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8a7d8dab5985de95bef3c0fab9859174"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a7d8dab5985de95bef3c0fab9859174">&#9670;&nbsp;</a></span>deleteFile()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void lemons::files::deleteFile </td>
-          <td>(</td>
-          <td class="paramtype">const File &amp;&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a1a09c77fee142fb1da7e1101433b4b75"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1a09c77fee142fb1da7e1101433b4b75">&#9670;&nbsp;</a></span>getFileOnDesktop()</h2>
 
@@ -196,6 +153,28 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a file on the desktop with the specified name. </p>
+
+</div>
+</div>
+<a id="a8d383edb688ecb64088d1700766df9a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d383edb688ecb64088d1700766df9a6">&#9670;&nbsp;</a></span>isAudioFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::files::isAudioFile </td>
+          <td>(</td>
+          <td class="paramtype">const File &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns true if the file has a file extension matching any of the audio file extensions that the default AudioFormatManager returned by <a class="el" href="structlemons_1_1_audio_file.html#a2c1d4fbb733069aeea6452aa8930163d" title="Returns a static AudioFormatManager used for creating all AudioFiles.">AudioFile::getFormatManager()</a> can handle. </p>
 
 </div>
 </div>
@@ -215,6 +194,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns true if the file has a file extension matching any standard MIDI file extensions. </p>
+
 </div>
 </div>
 <a id="a83377ad1e44d9e25ff0a5879975230c9"></a>
@@ -223,7 +204,7 @@ Functions</h2></td></tr>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;FileType Type&gt; </div>
+template&lt;FileType Type = FileType::JSON&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">ValueTree lemons::files::loadValueTree </td>
@@ -235,51 +216,7 @@ template&lt;FileType Type&gt; </div>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a2688bf021d99260f64b07438ee61c8fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2688bf021d99260f64b07438ee61c8fb">&#9670;&nbsp;</a></span>openFile()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool lemons::files::openFile </td>
-          <td>(</td>
-          <td class="paramtype">File&#160;</td>
-          <td class="paramname"><em>file</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac170a1c420e60941cd5159c1869d6f20"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac170a1c420e60941cd5159c1869d6f20">&#9670;&nbsp;</a></span>renameFile()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool lemons::files::renameFile </td>
-          <td>(</td>
-          <td class="paramtype">const File &amp;&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const String &amp;&#160;</td>
-          <td class="paramname"><em>newName</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Attempts to load a ValueTree from a file of the specified format. </p>
 
 </div>
 </div>
@@ -289,7 +226,7 @@ template&lt;FileType Type&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;FileType Type&gt; </div>
+template&lt;FileType Type = FileType::JSON&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">bool lemons::files::saveValueTree </td>
@@ -311,12 +248,14 @@ template&lt;FileType Type&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Saves a ValueTree to a file in the specified format. </p>
+
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 9 2021 00:44:23 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 9 2021 21:00:32 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

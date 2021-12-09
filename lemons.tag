@@ -111,6 +111,14 @@
     </member>
   </compound>
   <compound kind="file">
+    <name>AudioFilePlayer.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/engines/</path>
+    <filename>_audio_file_player_8h.html</filename>
+    <class kind="class">lemons::dsp::AudioFilePlayer</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::dsp</namespace>
+  </compound>
+  <compound kind="file">
     <name>AutoLock.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/events/</path>
     <filename>_auto_lock_8h.html</filename>
@@ -449,9 +457,9 @@
     <name>DeviceMotion.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/events/</path>
     <filename>_device_motion_8h.html</filename>
-    <class kind="struct">lemons::MotionManager::Coords</class>
-    <class kind="struct">lemons::MotionManager::Listener</class>
-    <class kind="class">lemons::MotionManager</class>
+    <class kind="struct">lemons::DeviceMotion::Coords</class>
+    <class kind="class">lemons::DeviceMotion</class>
+    <class kind="struct">lemons::DeviceMotion::Listener</class>
     <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
@@ -626,25 +634,18 @@
       <enumvalue file="namespacelemons_1_1files.html" anchor="ad8666caaa02a1d74f5e234b8900b5390afaa90538de35640e4b1e31ccf35b6eb5">Opaque</enumvalue>
     </member>
     <member kind="function">
-      <type>String</type>
-      <name>addFileExtensionIfMissing</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a829e69b1947298540b02f74dcb5519ac</anchor>
-      <arglist>(const String &amp;string, const String &amp;extension)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>deleteFile</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a8a7d8dab5985de95bef3c0fab9859174</anchor>
-      <arglist>(const File &amp;f)</arglist>
-    </member>
-    <member kind="function">
       <type>File</type>
       <name>getFileOnDesktop</name>
       <anchorfile>namespacelemons_1_1files.html</anchorfile>
       <anchor>a1a09c77fee142fb1da7e1101433b4b75</anchor>
       <arglist>(const String &amp;fileName)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isAudioFile</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>a8d383edb688ecb64088d1700766df9a6</anchor>
+      <arglist>(const File &amp;file)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -659,20 +660,6 @@
       <anchorfile>namespacelemons_1_1files.html</anchorfile>
       <anchor>a83377ad1e44d9e25ff0a5879975230c9</anchor>
       <arglist>(const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>openFile</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a2688bf021d99260f64b07438ee61c8fb</anchor>
-      <arglist>(File file)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>renameFile</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>ac170a1c420e60941cd5159c1869d6f20</anchor>
-      <arglist>(const File &amp;f, const String &amp;newName)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -2467,6 +2454,110 @@
       <anchor>acfba858ff267ba47b198a626531bdfb0</anchor>
       <arglist>() const noexcept</arglist>
     </member>
+    <member kind="function" static="yes">
+      <type>static juce::AudioFormatManager &amp;</type>
+      <name>getFormatManager</name>
+      <anchorfile>structlemons_1_1_audio_file.html</anchorfile>
+      <anchor>a2c1d4fbb733069aeea6452aa8930163d</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lemons::dsp::AudioFilePlayer</name>
+    <filename>classlemons_1_1dsp_1_1_audio_file_player.html</filename>
+    <templarg></templarg>
+    <base>lemons::dsp::LatencyEngine</base>
+    <member kind="function">
+      <type></type>
+      <name>AudioFilePlayer</name>
+      <anchorfile>classlemons_1_1dsp_1_1_audio_file_player.html</anchorfile>
+      <anchor>a19c65c799877522dda6b1dddd085f90f</anchor>
+      <arglist>(AudioFile &amp;file)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>changeLatency</name>
+      <anchorfile>classlemons_1_1dsp_1_1_latency_engine.html</anchorfile>
+      <anchor>af0419e5fefcb2a16b836cb18ab8cf023</anchor>
+      <arglist>(int newInternalBlocksize)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumChannels</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>abcbd3bdeebea99be0e756ad1161190dc</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getSamplerate</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a0c87ce560c5a841ae19764adb67e4dfc</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isInitialized</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a38a2e75c1ccdbe5fd3a7c1b376d4e40a</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>prepare</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a92fe69356c54445d91e70586cc9cdf73</anchor>
+      <arglist>(double samplerate, int blocksize, int numChannels=2)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a3f813b9e44ed7518183da4afe405f44e</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, bool isBypassed=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a48b37b72835d34fc060a1010a1fe2499</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>adfb2f088baaa0e07efa7bf794918d831</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, bool isBypassed=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>aa3668be93e3cc7b9a4340c5872be9b45</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>releaseResources</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a144323b4488420dcf49b89cee7837f8c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>reportLatency</name>
+      <anchorfile>classlemons_1_1dsp_1_1_latency_engine.html</anchorfile>
+      <anchor>a13fce9c2a64647375473f7df8b33db35</anchor>
+      <arglist>() const final</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setSamplerate</name>
+      <anchorfile>classlemons_1_1dsp_1_1_latency_engine.html</anchorfile>
+      <anchor>a89329e1d6ff9072befae739f72a5837b</anchor>
+      <arglist>(double samplerate)</arglist>
+    </member>
   </compound>
   <compound kind="struct">
     <name>lemons::tests::AudioProcessorTest</name>
@@ -4046,11 +4137,92 @@
       <anchor>aeec75de76ffb978428307e53a6abd35d</anchor>
       <arglist></arglist>
     </member>
-    <member kind="variable">
-      <type>ObjectCreationFunction</type>
-      <name>creationFunc</name>
+  </compound>
+  <compound kind="class">
+    <name>ConstructedArray&lt; InterpolatorType &gt;</name>
+    <filename>structlemons_1_1_constructed_array.html</filename>
+    <member kind="typedef">
+      <type>std::function&lt; InterpolatorType *()&gt;</type>
+      <name>ObjectCreationFunction</name>
       <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
-      <anchor>a7aeaa32088d88a482416c0dcf37df82b</anchor>
+      <anchor>a36ef6faf6ae33e0cfc133d4a584addb2</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>ConstructedArray</name>
+      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
+      <anchor>abedae38bb829dbafebcec48d7a40bd4b</anchor>
+      <arglist>(int initialNumObjects=0, ObjectCreationFunction &amp;&amp;objectCreationFunc=[]() { return new InterpolatorType();})</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~ConstructedArray</name>
+      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
+      <anchor>a2d77f9336ecc2e295ab43ab6aaa8c2c5</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
+      <type>InterpolatorType *const *</type>
+      <name>begin</name>
+      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
+      <anchor>adc90f3a2224c032716d006652fe232a7</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>InterpolatorType **</type>
+      <name>begin</name>
+      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
+      <anchor>ac844a8c41bec3b7f5409c41823ce1ed1</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>InterpolatorType *const *</type>
+      <name>end</name>
+      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
+      <anchor>aa1da327a1a1c988619a16a7d01ee78e2</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>InterpolatorType **</type>
+      <name>end</name>
+      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
+      <anchor>a052d7d0d70b4978b3f7cb813ac3ae308</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>const juce::OwnedArray&lt; InterpolatorType &gt; *</type>
+      <name>operator-&gt;</name>
+      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
+      <anchor>a137409d8630c290e66ea9f1a118d36ac</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::OwnedArray&lt; InterpolatorType &gt; *</type>
+      <name>operator-&gt;</name>
+      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
+      <anchor>a71ae1588a09cc616ae1c38294c6954fc</anchor>
+      <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>InterpolatorType *</type>
+      <name>operator[]</name>
+      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
+      <anchor>abef55413896e02f6ddaaedeea4f73076</anchor>
+      <arglist>(int index) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>resize</name>
+      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
+      <anchor>a5824a1fc1d19bc7fd219c3480864567c</anchor>
+      <arglist>(int newNumObjects)</arglist>
+    </member>
+    <member kind="variable">
+      <type>juce::OwnedArray&lt; InterpolatorType &gt;</type>
+      <name>array</name>
+      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
+      <anchor>aeec75de76ffb978428307e53a6abd35d</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -4141,36 +4313,29 @@
       <anchor>aeec75de76ffb978428307e53a6abd35d</anchor>
       <arglist></arglist>
     </member>
-    <member kind="variable">
-      <type>ObjectCreationFunction</type>
-      <name>creationFunc</name>
-      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
-      <anchor>a7aeaa32088d88a482416c0dcf37df82b</anchor>
-      <arglist></arglist>
-    </member>
   </compound>
   <compound kind="struct">
-    <name>lemons::MotionManager::Coords</name>
-    <filename>structlemons_1_1_motion_manager_1_1_coords.html</filename>
+    <name>lemons::DeviceMotion::Coords</name>
+    <filename>structlemons_1_1_device_motion_1_1_coords.html</filename>
     <member kind="variable">
       <type>double</type>
       <name>x</name>
-      <anchorfile>structlemons_1_1_motion_manager_1_1_coords.html</anchorfile>
-      <anchor>aa3908c3d444ec6e438c024f1c640ec4b</anchor>
+      <anchorfile>structlemons_1_1_device_motion_1_1_coords.html</anchorfile>
+      <anchor>aa877eea6e39b1a412a2c8810ad3bd738</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>double</type>
       <name>y</name>
-      <anchorfile>structlemons_1_1_motion_manager_1_1_coords.html</anchorfile>
-      <anchor>a853bb1f71f8a58e814f9f03e4c7e4d1f</anchor>
+      <anchorfile>structlemons_1_1_device_motion_1_1_coords.html</anchorfile>
+      <anchor>a51eb9ef857efccc9fb8c687e45fd8fbb</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
       <type>double</type>
       <name>z</name>
-      <anchorfile>structlemons_1_1_motion_manager_1_1_coords.html</anchorfile>
-      <anchor>a221af8e70b6316bf8b69cab2135a77e1</anchor>
+      <anchorfile>structlemons_1_1_device_motion_1_1_coords.html</anchorfile>
+      <anchor>a0ed98757bbcb54d5294a52559678bb49</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -4288,6 +4453,13 @@
       <arglist>(const String &amp;fileToFind)</arglist>
     </member>
     <member kind="function">
+      <type></type>
+      <name>~Data</name>
+      <anchorfile>structlemons_1_1binary_1_1_data.html</anchorfile>
+      <anchor>aadbb926992feee400c25ae1f31deb263</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
       <type>MemoryBlock</type>
       <name>getAsMemoryBlock</name>
       <anchorfile>structlemons_1_1binary_1_1_data.html</anchorfile>
@@ -4349,6 +4521,13 @@
       <anchorfile>structlemons_1_1binary_1_1_data.html</anchorfile>
       <anchor>a2c1c9b78a58b88c44e51b09668048e46</anchor>
       <arglist>(const String &amp;textFileName)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static constexpr bool</type>
+      <name>hasBinaryData</name>
+      <anchorfile>structlemons_1_1binary_1_1_data.html</anchorfile>
+      <anchor>afb121a510a44a8b5160ef6ded21e2e0c</anchor>
+      <arglist>() noexcept</arglist>
     </member>
     <member kind="variable">
       <type>const char *</type>
@@ -4930,6 +5109,75 @@
       <anchorfile>classlemons_1_1dsp_1_1_f_x_1_1_delay.html</anchorfile>
       <anchor>a3fd064c9d499bab90219c0f9fac7aaa6</anchor>
       <arglist>(int wetMixPercent)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lemons::DeviceMotion</name>
+    <filename>classlemons_1_1_device_motion.html</filename>
+    <class kind="struct">lemons::DeviceMotion::Coords</class>
+    <class kind="struct">lemons::DeviceMotion::Listener</class>
+    <member kind="function">
+      <type></type>
+      <name>DeviceMotion</name>
+      <anchorfile>classlemons_1_1_device_motion.html</anchorfile>
+      <anchor>a0aa8c4d0ca580b731e5ae4fdff3ded33</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>~DeviceMotion</name>
+      <anchorfile>classlemons_1_1_device_motion.html</anchorfile>
+      <anchor>ab5fbc8ae2ae27ac28a6b84ca90c250e6</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>Coords</type>
+      <name>getAcceleration</name>
+      <anchorfile>classlemons_1_1_device_motion.html</anchorfile>
+      <anchor>ad1866774a2ac81f4d4479aef10d60973</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>Coords</type>
+      <name>getAttitude</name>
+      <anchorfile>classlemons_1_1_device_motion.html</anchorfile>
+      <anchor>ab07f7b889fe9e229cc068be32184ba90</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>Coords</type>
+      <name>getGravity</name>
+      <anchorfile>classlemons_1_1_device_motion.html</anchorfile>
+      <anchor>a9ddfa5daa316ec9ded60263646f2ff12</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>Coords</type>
+      <name>getRotation</name>
+      <anchorfile>classlemons_1_1_device_motion.html</anchorfile>
+      <anchor>aa846762a056ce6946a9e50d4c7be8648</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isRunning</name>
+      <anchorfile>classlemons_1_1_device_motion.html</anchorfile>
+      <anchor>a7908a14626cd95657e5bd919bbb6e4af</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>start</name>
+      <anchorfile>classlemons_1_1_device_motion.html</anchorfile>
+      <anchor>ab6d611e59ab04698ab7e7ff0666e63c0</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>stop</name>
+      <anchorfile>classlemons_1_1_device_motion.html</anchorfile>
+      <anchor>a2dcc14bb19993a58bb04f4003622ae78</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -8957,8 +9205,8 @@
       <type>virtual void</type>
       <name>onPrepare</name>
       <anchorfile>classlemons_1_1dsp_1_1_latency_engine.html</anchorfile>
-      <anchor>af171ed2c410e7e03dd8e583b27f81903</anchor>
-      <arglist>(int blocksize, double samplerate)</arglist>
+      <anchor>a05bb9ed6492f9ff70618669d770e99ea</anchor>
+      <arglist>(int blocksize, double samplerate, int numChannels)</arglist>
     </member>
     <member kind="function" protection="private" virtualness="virtual">
       <type>virtual void</type>
@@ -9263,48 +9511,48 @@
     </member>
   </compound>
   <compound kind="struct">
-    <name>lemons::MotionManager::Listener</name>
-    <filename>structlemons_1_1_motion_manager_1_1_listener.html</filename>
+    <name>lemons::DeviceMotion::Listener</name>
+    <filename>structlemons_1_1_device_motion_1_1_listener.html</filename>
     <member kind="function">
       <type></type>
       <name>Listener</name>
-      <anchorfile>structlemons_1_1_motion_manager_1_1_listener.html</anchorfile>
-      <anchor>acecf98267e93e37eed9afc03b42eb0dd</anchor>
-      <arglist>(MotionManager &amp;manager)</arglist>
+      <anchorfile>structlemons_1_1_device_motion_1_1_listener.html</anchorfile>
+      <anchor>a506c632c0a799704bcc9bea25da0a164</anchor>
+      <arglist>(DeviceMotion &amp;manager)</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
       <name>~Listener</name>
-      <anchorfile>structlemons_1_1_motion_manager_1_1_listener.html</anchorfile>
-      <anchor>a04b9c1d7ab51e90f0af57f16e703ad77</anchor>
+      <anchorfile>structlemons_1_1_device_motion_1_1_listener.html</anchorfile>
+      <anchor>a03f3ffa47586cdde5d01ff09ff60c44f</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
       <name>accelerationChanged</name>
-      <anchorfile>structlemons_1_1_motion_manager_1_1_listener.html</anchorfile>
-      <anchor>a1db91bf86d2540d56ee0225ea947beb5</anchor>
+      <anchorfile>structlemons_1_1_device_motion_1_1_listener.html</anchorfile>
+      <anchor>a72b98ddb39c5a2ffdf10acc1d6c933a2</anchor>
       <arglist>(Coords)</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
       <name>attitudeChanged</name>
-      <anchorfile>structlemons_1_1_motion_manager_1_1_listener.html</anchorfile>
-      <anchor>a09a043b85eba69f46f956848adeceb68</anchor>
+      <anchorfile>structlemons_1_1_device_motion_1_1_listener.html</anchorfile>
+      <anchor>ae1c6e45bed826d42455532e6461895a6</anchor>
       <arglist>(Coords)</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
       <name>gravityChanged</name>
-      <anchorfile>structlemons_1_1_motion_manager_1_1_listener.html</anchorfile>
-      <anchor>a4e797fca7366eaeb1f87b7e07720d7ad</anchor>
+      <anchorfile>structlemons_1_1_device_motion_1_1_listener.html</anchorfile>
+      <anchor>a26cd203521fa3258187221cbd0244a9a</anchor>
       <arglist>(Coords)</arglist>
     </member>
     <member kind="function" virtualness="virtual">
       <type>virtual void</type>
       <name>rotationChanged</name>
-      <anchorfile>structlemons_1_1_motion_manager_1_1_listener.html</anchorfile>
-      <anchor>a5821047e8937cfdf0b7b4faba38e2b14</anchor>
+      <anchorfile>structlemons_1_1_device_motion_1_1_listener.html</anchorfile>
+      <anchor>a238166c6a6c2462957f7aea6fe430d35</anchor>
       <arglist>(Coords)</arglist>
     </member>
   </compound>
@@ -11817,75 +12065,6 @@
       <anchorfile>classlemons_1_1dsp_1_1_f_x_1_1_panner_base.html</anchorfile>
       <anchor>aced99c46979cbddd980c241cb476a55a</anchor>
       <arglist>(int newMidiPan, float &amp;leftGainOutput, float &amp;rightGainOutput)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>lemons::MotionManager</name>
-    <filename>classlemons_1_1_motion_manager.html</filename>
-    <class kind="struct">lemons::MotionManager::Coords</class>
-    <class kind="struct">lemons::MotionManager::Listener</class>
-    <member kind="function">
-      <type></type>
-      <name>MotionManager</name>
-      <anchorfile>classlemons_1_1_motion_manager.html</anchorfile>
-      <anchor>a364744f4f010bea85b4d77605b28f5b0</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>~MotionManager</name>
-      <anchorfile>classlemons_1_1_motion_manager.html</anchorfile>
-      <anchor>a54f296b3a685757e9930f592cc4f7f3f</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>Coords</type>
-      <name>getAcceleration</name>
-      <anchorfile>classlemons_1_1_motion_manager.html</anchorfile>
-      <anchor>a95b6c038637b80fb1c5d3b076ef0425c</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>Coords</type>
-      <name>getAttitude</name>
-      <anchorfile>classlemons_1_1_motion_manager.html</anchorfile>
-      <anchor>a1a39899bc1e9d317a559cd89a562b787</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>Coords</type>
-      <name>getGravity</name>
-      <anchorfile>classlemons_1_1_motion_manager.html</anchorfile>
-      <anchor>a1718847202792179b587538b63839521</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>Coords</type>
-      <name>getRotation</name>
-      <anchorfile>classlemons_1_1_motion_manager.html</anchorfile>
-      <anchor>add1f38a81ca4c2c1287779d3259b1b4e</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isRunning</name>
-      <anchorfile>classlemons_1_1_motion_manager.html</anchorfile>
-      <anchor>a44c36d99351c84799174958846694391</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>start</name>
-      <anchorfile>classlemons_1_1_motion_manager.html</anchorfile>
-      <anchor>a8ca1ecf19a6f69e1f5caf6fe938a9e88</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>stop</name>
-      <anchorfile>classlemons_1_1_motion_manager.html</anchorfile>
-      <anchor>a7eab01f39395984791f5c3ed26ab5575</anchor>
-      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -19210,11 +19389,11 @@
     <class kind="struct">lemons::ConstructedArray</class>
     <class kind="struct">lemons::DefaultWindow</class>
     <class kind="struct">lemons::DefaultWindowBase</class>
+    <class kind="class">lemons::DeviceMotion</class>
     <class kind="struct">lemons::DeviceRotation</class>
     <class kind="struct">lemons::Dimensions</class>
     <class kind="class">lemons::GuiApp</class>
     <class kind="class">lemons::Logger</class>
-    <class kind="class">lemons::MotionManager</class>
     <class kind="struct">lemons::TranslationsInitializer</class>
     <class kind="struct">lemons::ValueSmoother</class>
     <class kind="struct">lemons::Version</class>
@@ -19270,6 +19449,7 @@
     <namespace>lemons::dsp::synth</namespace>
     <class kind="class">lemons::dsp::AudioAndMidiFIFO</class>
     <class kind="class">lemons::dsp::AudioFifo</class>
+    <class kind="class">lemons::dsp::AudioFilePlayer</class>
     <class kind="class">lemons::dsp::BasicProcessor</class>
     <class kind="class">lemons::dsp::CircularBuffer</class>
     <class kind="class">lemons::dsp::Engine</class>
@@ -19465,25 +19645,18 @@
       <enumvalue file="namespacelemons_1_1files.html" anchor="ad8666caaa02a1d74f5e234b8900b5390afaa90538de35640e4b1e31ccf35b6eb5">Opaque</enumvalue>
     </member>
     <member kind="function">
-      <type>String</type>
-      <name>addFileExtensionIfMissing</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a829e69b1947298540b02f74dcb5519ac</anchor>
-      <arglist>(const String &amp;string, const String &amp;extension)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>deleteFile</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a8a7d8dab5985de95bef3c0fab9859174</anchor>
-      <arglist>(const File &amp;f)</arglist>
-    </member>
-    <member kind="function">
       <type>File</type>
       <name>getFileOnDesktop</name>
       <anchorfile>namespacelemons_1_1files.html</anchorfile>
       <anchor>a1a09c77fee142fb1da7e1101433b4b75</anchor>
       <arglist>(const String &amp;fileName)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isAudioFile</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>a8d383edb688ecb64088d1700766df9a6</anchor>
+      <arglist>(const File &amp;file)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -19498,20 +19671,6 @@
       <anchorfile>namespacelemons_1_1files.html</anchorfile>
       <anchor>a83377ad1e44d9e25ff0a5879975230c9</anchor>
       <arglist>(const File &amp;file)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>openFile</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>a2688bf021d99260f64b07438ee61c8fb</anchor>
-      <arglist>(File file)</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>renameFile</name>
-      <anchorfile>namespacelemons_1_1files.html</anchorfile>
-      <anchor>ac170a1c420e60941cd5159c1869d6f20</anchor>
-      <arglist>(const File &amp;f, const String &amp;newName)</arglist>
     </member>
     <member kind="function">
       <type>bool</type>
@@ -20595,6 +20754,7 @@
     <filename>group__engines.html</filename>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
+    <class kind="class">lemons::dsp::AudioFilePlayer</class>
     <class kind="class">lemons::dsp::Engine</class>
     <class kind="class">lemons::dsp::LatencyEngine</class>
   </compound>

@@ -76,12 +76,15 @@ $(function() {
 <div class="title">lemons::ConstructedArray&lt; ObjectType &gt; Struct Template Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A wrapper around juce::OwnedArray that automatically deletes or creates objects when you resize it.  
+ <a href="structlemons_1_1_constructed_array.html#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::ConstructedArray&lt; ObjectType &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="structlemons_1_1_constructed_array__inherit__graph.svg" width="314" height="186"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="structlemons_1_1_constructed_array__inherit__graph.svg" width="659" height="134"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -93,34 +96,48 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:abedae38bb829dbafebcec48d7a40bd4b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_constructed_array.html#abedae38bb829dbafebcec48d7a40bd4b">ConstructedArray</a> (int initialNumObjects=0, <a class="el" href="structlemons_1_1_constructed_array.html#a36ef6faf6ae33e0cfc133d4a584addb2">ObjectCreationFunction</a> &amp;&amp;objectCreationFunc=[]() { return new ObjectType();})</td></tr>
+<tr class="memdesc:abedae38bb829dbafebcec48d7a40bd4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an array with a specified initial number of objects, and an optional lambda function to create new objects.  <a href="structlemons_1_1_constructed_array.html#abedae38bb829dbafebcec48d7a40bd4b">More...</a><br /></td></tr>
 <tr class="separator:abedae38bb829dbafebcec48d7a40bd4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d77f9336ecc2e295ab43ab6aaa8c2c5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_constructed_array.html#a2d77f9336ecc2e295ab43ab6aaa8c2c5">~ConstructedArray</a> ()=default</td></tr>
+<tr class="memdesc:a2d77f9336ecc2e295ab43ab6aaa8c2c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="structlemons_1_1_constructed_array.html#a2d77f9336ecc2e295ab43ab6aaa8c2c5">More...</a><br /></td></tr>
 <tr class="separator:a2d77f9336ecc2e295ab43ab6aaa8c2c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc90f3a2224c032716d006652fe232a7"><td class="memItemLeft" align="right" valign="top">ObjectType *const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_constructed_array.html#adc90f3a2224c032716d006652fe232a7">begin</a> () const noexcept</td></tr>
+<tr class="memdesc:adc90f3a2224c032716d006652fe232a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls OwnedArray::begin.  <a href="structlemons_1_1_constructed_array.html#adc90f3a2224c032716d006652fe232a7">More...</a><br /></td></tr>
 <tr class="separator:adc90f3a2224c032716d006652fe232a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac844a8c41bec3b7f5409c41823ce1ed1"><td class="memItemLeft" align="right" valign="top">ObjectType **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_constructed_array.html#ac844a8c41bec3b7f5409c41823ce1ed1">begin</a> () noexcept</td></tr>
+<tr class="memdesc:ac844a8c41bec3b7f5409c41823ce1ed1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls OwnedArray::begin.  <a href="structlemons_1_1_constructed_array.html#ac844a8c41bec3b7f5409c41823ce1ed1">More...</a><br /></td></tr>
 <tr class="separator:ac844a8c41bec3b7f5409c41823ce1ed1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1da327a1a1c988619a16a7d01ee78e2"><td class="memItemLeft" align="right" valign="top">ObjectType *const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_constructed_array.html#aa1da327a1a1c988619a16a7d01ee78e2">end</a> () const noexcept</td></tr>
+<tr class="memdesc:aa1da327a1a1c988619a16a7d01ee78e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls OwnedArray::end.  <a href="structlemons_1_1_constructed_array.html#aa1da327a1a1c988619a16a7d01ee78e2">More...</a><br /></td></tr>
 <tr class="separator:aa1da327a1a1c988619a16a7d01ee78e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a052d7d0d70b4978b3f7cb813ac3ae308"><td class="memItemLeft" align="right" valign="top">ObjectType **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_constructed_array.html#a052d7d0d70b4978b3f7cb813ac3ae308">end</a> () noexcept</td></tr>
+<tr class="memdesc:a052d7d0d70b4978b3f7cb813ac3ae308"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls OwnedArray::end.  <a href="structlemons_1_1_constructed_array.html#a052d7d0d70b4978b3f7cb813ac3ae308">More...</a><br /></td></tr>
 <tr class="separator:a052d7d0d70b4978b3f7cb813ac3ae308"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a137409d8630c290e66ea9f1a118d36ac"><td class="memItemLeft" align="right" valign="top">const juce::OwnedArray&lt; ObjectType &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_constructed_array.html#a137409d8630c290e66ea9f1a118d36ac">operator-&gt;</a> () const noexcept</td></tr>
+<tr class="memdesc:a137409d8630c290e66ea9f1a118d36ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the underlying juce::OwnedArray.  <a href="structlemons_1_1_constructed_array.html#a137409d8630c290e66ea9f1a118d36ac">More...</a><br /></td></tr>
 <tr class="separator:a137409d8630c290e66ea9f1a118d36ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71ae1588a09cc616ae1c38294c6954fc"><td class="memItemLeft" align="right" valign="top">juce::OwnedArray&lt; ObjectType &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_constructed_array.html#a71ae1588a09cc616ae1c38294c6954fc">operator-&gt;</a> () noexcept</td></tr>
+<tr class="memdesc:a71ae1588a09cc616ae1c38294c6954fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the underlying juce::OwnedArray.  <a href="structlemons_1_1_constructed_array.html#a71ae1588a09cc616ae1c38294c6954fc">More...</a><br /></td></tr>
 <tr class="separator:a71ae1588a09cc616ae1c38294c6954fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abef55413896e02f6ddaaedeea4f73076"><td class="memItemLeft" align="right" valign="top">ObjectType *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_constructed_array.html#abef55413896e02f6ddaaedeea4f73076">operator[]</a> (int index) const noexcept</td></tr>
+<tr class="memdesc:abef55413896e02f6ddaaedeea4f73076"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internally calls OwnedArray::getUnchecked to return an item at a specified index in the array.  <a href="structlemons_1_1_constructed_array.html#abef55413896e02f6ddaaedeea4f73076">More...</a><br /></td></tr>
 <tr class="separator:abef55413896e02f6ddaaedeea4f73076"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5824a1fc1d19bc7fd219c3480864567c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_constructed_array.html#a5824a1fc1d19bc7fd219c3480864567c">resize</a> (int newNumObjects)</td></tr>
+<tr class="memdesc:a5824a1fc1d19bc7fd219c3480864567c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resizes the array.  <a href="structlemons_1_1_constructed_array.html#a5824a1fc1d19bc7fd219c3480864567c">More...</a><br /></td></tr>
 <tr class="separator:a5824a1fc1d19bc7fd219c3480864567c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aeec75de76ffb978428307e53a6abd35d"><td class="memItemLeft" align="right" valign="top">juce::OwnedArray&lt; ObjectType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_constructed_array.html#aeec75de76ffb978428307e53a6abd35d">array</a></td></tr>
+<tr class="memdesc:aeec75de76ffb978428307e53a6abd35d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The managed array.  <a href="structlemons_1_1_constructed_array.html#aeec75de76ffb978428307e53a6abd35d">More...</a><br /></td></tr>
 <tr class="separator:aeec75de76ffb978428307e53a6abd35d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7aeaa32088d88a482416c0dcf37df82b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1_constructed_array.html#a36ef6faf6ae33e0cfc133d4a584addb2">ObjectCreationFunction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_constructed_array.html#a7aeaa32088d88a482416c0dcf37df82b">creationFunc</a></td></tr>
-<tr class="separator:a7aeaa32088d88a482416c0dcf37df82b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename ObjectType&gt;<br />
+struct lemons::ConstructedArray&lt; ObjectType &gt;</h3>
+
+<p>A wrapper around juce::OwnedArray that automatically deletes or creates objects when you resize it. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a36ef6faf6ae33e0cfc133d4a584addb2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a36ef6faf6ae33e0cfc133d4a584addb2">&#9670;&nbsp;</a></span>ObjectCreationFunction</h2>
 
@@ -166,6 +183,8 @@ template&lt;typename ObjectType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Creates an array with a specified initial number of objects, and an optional lambda function to create new objects. </p>
+
 </div>
 </div>
 <a id="a2d77f9336ecc2e295ab43ab6aaa8c2c5"></a>
@@ -192,6 +211,8 @@ template&lt;typename ObjectType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Destructor. </p>
 
 </div>
 </div>
@@ -221,6 +242,8 @@ template&lt;typename ObjectType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Calls OwnedArray::begin. </p>
+
 </div>
 </div>
 <a id="ac844a8c41bec3b7f5409c41823ce1ed1"></a>
@@ -247,6 +270,8 @@ template&lt;typename ObjectType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Calls OwnedArray::begin. </p>
 
 </div>
 </div>
@@ -275,6 +300,8 @@ template&lt;typename ObjectType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Calls OwnedArray::end. </p>
+
 </div>
 </div>
 <a id="a052d7d0d70b4978b3f7cb813ac3ae308"></a>
@@ -301,6 +328,8 @@ template&lt;typename ObjectType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Calls OwnedArray::end. </p>
 
 </div>
 </div>
@@ -329,6 +358,8 @@ template&lt;typename ObjectType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns a pointer to the underlying juce::OwnedArray. </p>
+
 </div>
 </div>
 <a id="a71ae1588a09cc616ae1c38294c6954fc"></a>
@@ -355,6 +386,8 @@ template&lt;typename ObjectType &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns a pointer to the underlying juce::OwnedArray. </p>
 
 </div>
 </div>
@@ -384,6 +417,8 @@ template&lt;typename ObjectType &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Internally calls OwnedArray::getUnchecked to return an item at a specified index in the array. </p>
+
 </div>
 </div>
 <a id="a5824a1fc1d19bc7fd219c3480864567c"></a>
@@ -404,6 +439,9 @@ template&lt;typename ObjectType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Resizes the array. </p>
+<p>If the array contains more objects than newNumObjects, the extra objects will be deleted. If the array contains fewer objects, new objects will be added to the array, created using the lambda function passed to the constructor. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -421,25 +459,9 @@ template&lt;typename ObjectType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="structlemons_1_1_constructed_array.html#ac844a8c41bec3b7f5409c41823ce1ed1">lemons::ConstructedArray&lt; lemons::dsp::CircularBuffer&lt; SampleType &gt; &gt;::begin()</a>, <a class="el" href="structlemons_1_1_constructed_array.html#a052d7d0d70b4978b3f7cb813ac3ae308">lemons::ConstructedArray&lt; lemons::dsp::CircularBuffer&lt; SampleType &gt; &gt;::end()</a>, <a class="el" href="structlemons_1_1_constructed_array.html#a71ae1588a09cc616ae1c38294c6954fc">lemons::ConstructedArray&lt; lemons::dsp::CircularBuffer&lt; SampleType &gt; &gt;::operator-&gt;()</a>, <a class="el" href="structlemons_1_1_constructed_array.html#abef55413896e02f6ddaaedeea4f73076">lemons::ConstructedArray&lt; lemons::dsp::CircularBuffer&lt; SampleType &gt; &gt;::operator[]()</a>, and <a class="el" href="structlemons_1_1_constructed_array.html#a5824a1fc1d19bc7fd219c3480864567c">lemons::ConstructedArray&lt; lemons::dsp::CircularBuffer&lt; SampleType &gt; &gt;::resize()</a>.</p>
+<p>The managed array. </p>
 
-</div>
-</div>
-<a id="a7aeaa32088d88a482416c0dcf37df82b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7aeaa32088d88a482416c0dcf37df82b">&#9670;&nbsp;</a></span>creationFunc</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ObjectType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structlemons_1_1_constructed_array.html#a36ef6faf6ae33e0cfc133d4a584addb2">ObjectCreationFunction</a> <a class="el" href="structlemons_1_1_constructed_array.html">lemons::ConstructedArray</a>&lt; ObjectType &gt;::creationFunc</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="structlemons_1_1_constructed_array.html#a5824a1fc1d19bc7fd219c3480864567c">lemons::ConstructedArray&lt; lemons::dsp::CircularBuffer&lt; SampleType &gt; &gt;::resize()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="structlemons_1_1_constructed_array.html#ac844a8c41bec3b7f5409c41823ce1ed1">lemons::ConstructedArray&lt; InterpolatorType &gt;::begin()</a>, <a class="el" href="structlemons_1_1_constructed_array.html#a052d7d0d70b4978b3f7cb813ac3ae308">lemons::ConstructedArray&lt; InterpolatorType &gt;::end()</a>, <a class="el" href="structlemons_1_1_constructed_array.html#a71ae1588a09cc616ae1c38294c6954fc">lemons::ConstructedArray&lt; InterpolatorType &gt;::operator-&gt;()</a>, <a class="el" href="structlemons_1_1_constructed_array.html#abef55413896e02f6ddaaedeea4f73076">lemons::ConstructedArray&lt; InterpolatorType &gt;::operator[]()</a>, and <a class="el" href="structlemons_1_1_constructed_array.html#a5824a1fc1d19bc7fd219c3480864567c">lemons::ConstructedArray&lt; InterpolatorType &gt;::resize()</a>.</p>
 
 </div>
 </div>
@@ -449,7 +471,7 @@ template&lt;typename ObjectType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 9 2021 00:44:22 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 9 2021 21:00:31 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
