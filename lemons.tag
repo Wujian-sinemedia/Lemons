@@ -340,6 +340,20 @@
     </member>
     <member kind="function">
       <type>MidiBuffer</type>
+      <name>midiBufferFromFile</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a5a142ed1cd8fc8d2f69f9b459732a96c</anchor>
+      <arglist>(const juce::MidiFile &amp;file, int trackToRead=-1)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::MidiFile</type>
+      <name>midiBufferToFile</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>aced62684c90658470caab1dd9c4e52b5</anchor>
+      <arglist>(const MidiBuffer &amp;midi)</arglist>
+    </member>
+    <member kind="function">
+      <type>MidiBuffer</type>
       <name>midiFromBinary</name>
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
       <anchor>a2d943b0466e21cc2c329e8beeb2805ae</anchor>
@@ -1815,17 +1829,26 @@
     <name>VariantConversions.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/serializing/</path>
     <filename>_variant_conversions_8h.html</filename>
+    <class kind="struct">juce::VariantConverter&lt; ADSR::Parameters &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; AudioBuffer&lt; double &gt; &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; AudioBuffer&lt; float &gt; &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; BigInteger &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; Colour &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; Identifier &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; Image &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; IPAddress &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; Justification &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; lemons::Dimensions &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; lemons::Version &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; MACAddress &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; MemoryBlock &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; MidiBuffer &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; MidiFile &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; MidiMessage &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; NamedValueSet &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; RelativeTime &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; StringArray &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; StringPairArray &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; Time &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; URL &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; Uuid &gt;</class>
@@ -18459,6 +18482,24 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>juce::VariantConverter&lt; ADSR::Parameters &gt;</name>
+    <filename>structjuce_1_1_variant_converter_3_01_a_d_s_r_1_1_parameters_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static ADSR::Parameters</type>
+      <name>fromVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_a_d_s_r_1_1_parameters_01_4.html</anchorfile>
+      <anchor>ad917b762bf8c0eeccb23533518faf983</anchor>
+      <arglist>(const var &amp;v)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static var</type>
+      <name>toVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_a_d_s_r_1_1_parameters_01_4.html</anchorfile>
+      <anchor>accf3b1068897ffab345ebd3afd2cbefd</anchor>
+      <arglist>(const ADSR::Parameters &amp;p)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>juce::VariantConverter&lt; AudioBuffer&lt; double &gt; &gt;</name>
     <filename>structjuce_1_1_variant_converter_3_01_audio_buffer_3_01double_01_4_01_4.html</filename>
     <member kind="function" static="yes">
@@ -18495,6 +18536,24 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>juce::VariantConverter&lt; BigInteger &gt;</name>
+    <filename>structjuce_1_1_variant_converter_3_01_big_integer_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static BigInteger</type>
+      <name>fromVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_big_integer_01_4.html</anchorfile>
+      <anchor>a5ec60dd8a0b127921f1aa42c39907db9</anchor>
+      <arglist>(const var &amp;v)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static var</type>
+      <name>toVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_big_integer_01_4.html</anchorfile>
+      <anchor>ad9a8b3beaef701cad2b7bcf54dbf8669</anchor>
+      <arglist>(const BigInteger &amp;i)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>juce::VariantConverter&lt; Colour &gt;</name>
     <filename>structjuce_1_1_variant_converter_3_01_colour_01_4.html</filename>
     <member kind="function" static="yes">
@@ -18510,6 +18569,24 @@
       <anchorfile>structjuce_1_1_variant_converter_3_01_colour_01_4.html</anchorfile>
       <anchor>ac50c4dd951a41dae6a5964314df05e4d</anchor>
       <arglist>(const Colour &amp;c)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>juce::VariantConverter&lt; Identifier &gt;</name>
+    <filename>structjuce_1_1_variant_converter_3_01_identifier_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static Identifier</type>
+      <name>fromVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_identifier_01_4.html</anchorfile>
+      <anchor>a9ad4b30bfc967764b9a423aba3e725ab</anchor>
+      <arglist>(const var &amp;v)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static var</type>
+      <name>toVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_identifier_01_4.html</anchorfile>
+      <anchor>ad2b25eef616819bd4e2525faa67ea44c</anchor>
+      <arglist>(const Identifier &amp;i)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -18546,6 +18623,24 @@
       <anchorfile>structjuce_1_1_variant_converter_3_01_i_p_address_01_4.html</anchorfile>
       <anchor>a6364b83ba18f455ad3730d9675ba856c</anchor>
       <arglist>(const IPAddress &amp;a)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>juce::VariantConverter&lt; Justification &gt;</name>
+    <filename>structjuce_1_1_variant_converter_3_01_justification_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static Justification</type>
+      <name>fromVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_justification_01_4.html</anchorfile>
+      <anchor>a657e71eea237a6e45bc072986a60d347</anchor>
+      <arglist>(const var &amp;v)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static var</type>
+      <name>toVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_justification_01_4.html</anchorfile>
+      <anchor>a82b0722646478af27f2ba099be64e051</anchor>
+      <arglist>(const Justification &amp;j)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -18639,6 +18734,60 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>juce::VariantConverter&lt; MidiFile &gt;</name>
+    <filename>structjuce_1_1_variant_converter_3_01_midi_file_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static MidiFile</type>
+      <name>fromVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_midi_file_01_4.html</anchorfile>
+      <anchor>a9b345fa6b440bf27ad16f9c196956e15</anchor>
+      <arglist>(const var &amp;v)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static var</type>
+      <name>toVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_midi_file_01_4.html</anchorfile>
+      <anchor>a29dccf176406bc721390ac4cd781a934</anchor>
+      <arglist>(const MidiFile &amp;f)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>juce::VariantConverter&lt; MidiMessage &gt;</name>
+    <filename>structjuce_1_1_variant_converter_3_01_midi_message_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static MidiMessage</type>
+      <name>fromVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_midi_message_01_4.html</anchorfile>
+      <anchor>abcb6f2c92d072feb326726925164154d</anchor>
+      <arglist>(const var &amp;v)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static var</type>
+      <name>toVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_midi_message_01_4.html</anchorfile>
+      <anchor>a996976de18919fc78e173ee712211491</anchor>
+      <arglist>(const MidiMessage &amp;m)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>juce::VariantConverter&lt; NamedValueSet &gt;</name>
+    <filename>structjuce_1_1_variant_converter_3_01_named_value_set_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static NamedValueSet</type>
+      <name>fromVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_named_value_set_01_4.html</anchorfile>
+      <anchor>ac10639d17526b98f558fbf0d52aebbe4</anchor>
+      <arglist>(const var &amp;v)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static var</type>
+      <name>toVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_named_value_set_01_4.html</anchorfile>
+      <anchor>a93d7f9f7df4ced369cbbdf4383416bd4</anchor>
+      <arglist>(const NamedValueSet &amp;s)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>juce::VariantConverter&lt; RelativeTime &gt;</name>
     <filename>structjuce_1_1_variant_converter_3_01_relative_time_01_4.html</filename>
     <member kind="function" static="yes">
@@ -18654,6 +18803,42 @@
       <anchorfile>structjuce_1_1_variant_converter_3_01_relative_time_01_4.html</anchorfile>
       <anchor>a99b3e6702faf2ae8e0f26a60031d2b15</anchor>
       <arglist>(const RelativeTime &amp;t)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>juce::VariantConverter&lt; StringArray &gt;</name>
+    <filename>structjuce_1_1_variant_converter_3_01_string_array_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static StringArray</type>
+      <name>fromVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_string_array_01_4.html</anchorfile>
+      <anchor>aecb36ba1a2c7f36cb685b77787f82c5c</anchor>
+      <arglist>(const var &amp;v)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static var</type>
+      <name>toVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_string_array_01_4.html</anchorfile>
+      <anchor>a9830bcdc03a3aad99368703b5fd6af2e</anchor>
+      <arglist>(const StringArray &amp;a)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>juce::VariantConverter&lt; StringPairArray &gt;</name>
+    <filename>structjuce_1_1_variant_converter_3_01_string_pair_array_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static StringPairArray</type>
+      <name>fromVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_string_pair_array_01_4.html</anchorfile>
+      <anchor>ae6663016e3ed032a1f724b032c1b123b</anchor>
+      <arglist>(const var &amp;v)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static var</type>
+      <name>toVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_string_pair_array_01_4.html</anchorfile>
+      <anchor>a96469d9c3a72b689d9a80cef0e8e2efc</anchor>
+      <arglist>(const StringPairArray &amp;a)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -18980,17 +19165,26 @@
   <compound kind="namespace">
     <name>juce</name>
     <filename>namespacejuce.html</filename>
+    <class kind="struct">juce::VariantConverter&lt; ADSR::Parameters &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; AudioBuffer&lt; double &gt; &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; AudioBuffer&lt; float &gt; &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; BigInteger &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; Colour &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; Identifier &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; Image &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; IPAddress &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; Justification &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; lemons::Dimensions &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; lemons::Version &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; MACAddress &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; MemoryBlock &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; MidiBuffer &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; MidiFile &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; MidiMessage &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; NamedValueSet &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; RelativeTime &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; StringArray &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; StringPairArray &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; Time &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; URL &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; Uuid &gt;</class>
@@ -19682,6 +19876,20 @@
       <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
       <anchor>a0567d1e8fe695183370d8d86edced3c6</anchor>
       <arglist>(const MemoryBlock &amp;block)</arglist>
+    </member>
+    <member kind="function">
+      <type>MidiBuffer</type>
+      <name>midiBufferFromFile</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>a5a142ed1cd8fc8d2f69f9b459732a96c</anchor>
+      <arglist>(const juce::MidiFile &amp;file, int trackToRead=-1)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::MidiFile</type>
+      <name>midiBufferToFile</name>
+      <anchorfile>namespacelemons_1_1serializing.html</anchorfile>
+      <anchor>aced62684c90658470caab1dd9c4e52b5</anchor>
+      <arglist>(const MidiBuffer &amp;midi)</arglist>
     </member>
     <member kind="function">
       <type>MidiBuffer</type>

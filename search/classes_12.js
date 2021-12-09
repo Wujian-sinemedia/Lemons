@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['whitenoisegenerator_1232',['WhiteNoiseGenerator',['../classlemons_1_1dsp_1_1_white_noise_generator.html',1,'lemons::dsp']]]
+  ['whitenoisegenerator_1252',['WhiteNoiseGenerator',['../classlemons_1_1dsp_1_1_white_noise_generator.html',1,'lemons::dsp']]]
 ];

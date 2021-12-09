@@ -103,6 +103,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a0567d1e8fe695183370d8d86edced3c6"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a0567d1e8fe695183370d8d86edced3c6">memoryBlockToString</a> (const MemoryBlock &amp;block)</td></tr>
 <tr class="memdesc:a0567d1e8fe695183370d8d86edced3c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a MemoryBlock to a String representation.  <a href="namespacelemons_1_1serializing.html#a0567d1e8fe695183370d8d86edced3c6">More...</a><br /></td></tr>
 <tr class="separator:a0567d1e8fe695183370d8d86edced3c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a142ed1cd8fc8d2f69f9b459732a96c"><td class="memItemLeft" align="right" valign="top">MidiBuffer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a5a142ed1cd8fc8d2f69f9b459732a96c">midiBufferFromFile</a> (const juce::MidiFile &amp;file, int trackToRead=-1)</td></tr>
+<tr class="memdesc:a5a142ed1cd8fc8d2f69f9b459732a96c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a MIDI file object to a MIDI buffer.  <a href="namespacelemons_1_1serializing.html#a5a142ed1cd8fc8d2f69f9b459732a96c">More...</a><br /></td></tr>
+<tr class="separator:a5a142ed1cd8fc8d2f69f9b459732a96c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aced62684c90658470caab1dd9c4e52b5"><td class="memItemLeft" align="right" valign="top">juce::MidiFile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#aced62684c90658470caab1dd9c4e52b5">midiBufferToFile</a> (const MidiBuffer &amp;midi)</td></tr>
+<tr class="memdesc:aced62684c90658470caab1dd9c4e52b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a MIDI buffer to a MIDI file object.  <a href="namespacelemons_1_1serializing.html#aced62684c90658470caab1dd9c4e52b5">More...</a><br /></td></tr>
+<tr class="separator:aced62684c90658470caab1dd9c4e52b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d943b0466e21cc2c329e8beeb2805ae"><td class="memItemLeft" align="right" valign="top">MidiBuffer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a2d943b0466e21cc2c329e8beeb2805ae">midiFromBinary</a> (const MemoryBlock &amp;block)</td></tr>
 <tr class="memdesc:a2d943b0466e21cc2c329e8beeb2805ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a MidiBufer from a binary representation of one.  <a href="namespacelemons_1_1serializing.html#a2d943b0466e21cc2c329e8beeb2805ae">More...</a><br /></td></tr>
 <tr class="separator:a2d943b0466e21cc2c329e8beeb2805ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -274,6 +280,65 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
+<a id="a5a142ed1cd8fc8d2f69f9b459732a96c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a142ed1cd8fc8d2f69f9b459732a96c">&#9670;&nbsp;</a></span>midiBufferFromFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MidiBuffer lemons::serializing::midiBufferFromFile </td>
+          <td>(</td>
+          <td class="paramtype">const juce::MidiFile &amp;&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>trackToRead</em> = <code>-1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts a MIDI file object to a MIDI buffer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>The MIDI file object to read from. </td></tr>
+    <tr><td class="paramname">trackToRead</td><td>If this is greater than -1, then only events from the specified track number will be added to the returned buffer. If this is -1, then all events from every track of the MIDI file will be concatenated into the output buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#aced62684c90658470caab1dd9c4e52b5" title="Converts a MIDI buffer to a MIDI file object.">midiBufferToFile()</a> </dd></dl>
+
+</div>
+</div>
+<a id="aced62684c90658470caab1dd9c4e52b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aced62684c90658470caab1dd9c4e52b5">&#9670;&nbsp;</a></span>midiBufferToFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">juce::MidiFile lemons::serializing::midiBufferToFile </td>
+          <td>(</td>
+          <td class="paramtype">const MidiBuffer &amp;&#160;</td>
+          <td class="paramname"><em>midi</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converts a MIDI buffer to a MIDI file object. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="namespacelemons_1_1serializing.html#a5a142ed1cd8fc8d2f69f9b459732a96c" title="Converts a MIDI file object to a MIDI buffer.">midiBufferFromFile()</a> </dd></dl>
+
+</div>
+</div>
 <a id="a2d943b0466e21cc2c329e8beeb2805ae"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2d943b0466e21cc2c329e8beeb2805ae">&#9670;&nbsp;</a></span>midiFromBinary()</h2>
 
@@ -361,7 +426,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 8 2021 00:45:33 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 9 2021 00:44:23 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
