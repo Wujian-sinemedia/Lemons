@@ -33,7 +33,7 @@ private:
 	virtual void renderChunk (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages, bool isBypassed) = 0;
 
 	/** Your subclass may implement this to be informed when the engine is prepared. */
-	virtual void onPrepare (int blocksize, double samplerate);
+	virtual void onPrepare (int blocksize, double samplerate, int numChannels);
 
 	/** Your subclass may implement this to be informed when the engine is released. */
 	virtual void onRelease() { }

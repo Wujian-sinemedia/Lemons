@@ -16,7 +16,7 @@ void LatencyEngine<SampleType>::prepared (int blocksize, double samplerate, int 
 	inBuffer.setSize (numChannels, multiple, true, true, true);
 	outBuffer.setSize (numChannels, multiple, true, true, true);
 
-	onPrepare (blocksize, samplerate);
+	onPrepare (blocksize, samplerate, numChannels);
 }
 
 template <typename SampleType>
@@ -94,7 +94,7 @@ void LatencyEngine<SampleType>::renderBlock (const AudioBuffer<SampleType>& inpu
 }
 
 template <typename SampleType>
-void LatencyEngine<SampleType>::onPrepare (int, double)
+void LatencyEngine<SampleType>::onPrepare (int, double, int)
 {
 }
 
