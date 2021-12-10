@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['height_2072',['height',['../structlemons_1_1_dimensions.html#a7edc258a0cbaa0f9ab9d216bc604e84e',1,'lemons::Dimensions']]]
+  ['gain_2085',['gain',['../structlemons_1_1dsp_1_1_synth_base_1_1_timbre_mod_params.html#a55a72d269ec00d1571442f14a484b422',1,'lemons::dsp::SynthBase::TimbreModParams']]]
 ];

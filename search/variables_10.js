@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['value_2095',['value',['../structlemons_1_1plugin_1_1_processor_holder_1_1_parameter_state_data.html#a4a56a0a7c24bc7fda436b82dda4710c2',1,'lemons::plugin::ProcessorHolder::ParameterStateData']]]
+  ['size_2102',['size',['../structlemons_1_1binary_1_1_data.html#afb63c14469a537e76fd151a06a8f1f39',1,'lemons::binary::Data']]],
+  ['softpedal_2103',['softPedal',['../classlemons_1_1dsp_1_1_synth_base.html#a99921455c45ede8e43c3dcdc30ee0ff7',1,'lemons::dsp::SynthBase']]],
+  ['state_2104',['state',['../classlemons_1_1plugin_1_1_g_u_i.html#ab3aa4183884b14a9f09d0a99373576ae',1,'lemons::plugin::GUI::state()'],['../classlemons_1_1plugin_1_1_processor.html#ac0cb2050def44fe149c33f32ec217077',1,'lemons::plugin::Processor::state()']]],
+  ['statebase_2105',['stateBase',['../classlemons_1_1plugin_1_1_g_u_i_base.html#a282b917402312585cff6316028b9f5a8',1,'lemons::plugin::GUIBase']]]
 ];

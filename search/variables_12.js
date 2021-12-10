@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['x_2097',['x',['../structlemons_1_1_device_motion_1_1_coords.html#aa877eea6e39b1a412a2c8810ad3bd738',1,'lemons::DeviceMotion::Coords']]]
+  ['value_2110',['value',['../structlemons_1_1plugin_1_1_processor_holder_1_1_parameter_state_data.html#a4a56a0a7c24bc7fda436b82dda4710c2',1,'lemons::plugin::ProcessorHolder::ParameterStateData']]]
 ];
