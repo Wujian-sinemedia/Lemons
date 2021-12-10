@@ -15,8 +15,9 @@
 #include "serializing/audio.cpp"
 #include "serializing/midi.cpp"
 #include "serializing/ValueTrees.cpp"
-#include "serializing/conversions.cpp"
+#include "serializing/serializing.cpp"
 #include "serializing/VariantConversions.cpp"
+#include "serializing/VariantConversions_tests.cpp"
 
 #include "binary_data/data.cpp"
 
