@@ -17,10 +17,10 @@ public:
 	    This function exists so that you can update only the samplerate, without needing to call Engine::prepare() and provide the blocksize again.
 	 */
 	void setSamplerate (double samplerate);
-    
+
 protected:
-    /** Sets the latency in samples of the engine. */
-    void changeLatency (int newInternalBlocksize);
+	/** Sets the latency in samples of the engine. */
+	void changeLatency (int newInternalBlocksize);
 
 private:
 	void renderBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages, bool isBypassed) final;

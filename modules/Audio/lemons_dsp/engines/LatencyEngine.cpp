@@ -159,11 +159,11 @@ template <typename FloatType>
 void LatencyEngineTests<FloatType>::testLatency (int latency)
 {
 	{
-//		const auto srBefore = engine.getSamplerate();
-//
-//		engine.changeLatency (latency);
-//		expectEquals (engine.reportLatency(), latency);
-//		expectEquals (engine.getSamplerate(), srBefore);
+		//		const auto srBefore = engine.getSamplerate();
+		//
+		//		engine.changeLatency (latency);
+		//		expectEquals (engine.reportLatency(), latency);
+		//		expectEquals (engine.getSamplerate(), srBefore);
 	}
 
 	//    logImportantMessage ("Can call process()");

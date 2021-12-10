@@ -34,6 +34,7 @@ END_JUCE_MODULE_DECLARATION
 #include "engines/LatencyEngine.h"
 #include "engines/AudioFilePlayer.h"
 #include "engines/EngineChain.h"
+#include "engines/DspProtection.h"
 
 #include "oscillators/oscillators.h"
 #include "oscillators/SuperSaw.h"

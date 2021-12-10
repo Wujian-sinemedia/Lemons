@@ -9,6 +9,7 @@
 #include "engines/LatencyEngine.cpp"
 #include "engines/AudioFilePlayer.cpp"
 #include "engines/EngineChain.cpp"
+#include "engines/DspProtection.cpp"
 
 #include "filters/Coeffecients.cpp"
 #include "filters/Filter.cpp"
