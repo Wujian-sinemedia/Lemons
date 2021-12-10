@@ -2,6 +2,12 @@ namespace lemons::dsp
 {
 
 template <typename SampleType>
+EngineChain<SampleType>::Node::Node (std::unique_ptr<Engine<SampleType>> engineToUse)
+    : engine (std::move (engineToUse))
+{
+}
+
+template <typename SampleType>
 typename EngineChain<SampleType>::Node* EngineChain<SampleType>::getNode (int index)
 {
 	for (auto* node : nodes)
@@ -14,7 +20,7 @@ typename EngineChain<SampleType>::Node* EngineChain<SampleType>::getNode (int in
 template <typename SampleType>
 const typename EngineChain<SampleType>::Node* EngineChain<SampleType>::getNode (int index) const
 {
-	for (auto* node : nodes)
+	for (const auto* node : nodes)
 		if (node->index == index)
 			return node;
 
@@ -26,7 +32,7 @@ int EngineChain<SampleType>::getNextNodeIndex() const
 {
 	int idx = -1;
 
-	for (auto* node : nodes)
+	for (const auto* node : nodes)
 		if (node->index > idx)
 			idx = node->index;
 
@@ -53,12 +59,7 @@ void EngineChain<SampleType>::onPrepare (int blocksize, double samplerate, int n
 	int latency = 0;
 
 	for (const auto* node : nodes)
-	{
-		const auto l = node->engine->reportLatency();
-
-		if (l > latency)
-			latency = l;
-	}
+        latency = std::max (latency, node->engine->reportLatency());
 
 	if (latency != this->reportLatency())
 	{
@@ -75,6 +76,13 @@ void EngineChain<SampleType>::onRelease()
 {
 	for (auto* node : nodes)
 		node->engine->releaseResources();
+}
+
+template <typename SampleType>
+void EngineChain<SampleType>::addNode (Node* newNode)
+{
+	newNode->index = getNextNodeIndex();
+	nodes.add (newNode);
 }
 
 template class EngineChain<float>;
