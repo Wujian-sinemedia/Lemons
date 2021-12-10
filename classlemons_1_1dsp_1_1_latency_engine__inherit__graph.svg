@@ -21,7 +21,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="classlemons_1_1dsp_1_1_audio_file_player.html" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="classlemons_1_1dsp_1_1_audio_file_player.html" target="_top" xlink:title="A kind of AudioEngine that plays audio from an AudioFile object.">
 <polygon fill="none" stroke="black" points="0,-0.5 0,-30.5 158,-30.5 158,-0.5 0,-0.5"/>
 <text text-anchor="start" x="8" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::AudioFilePlayer</text>
 <text text-anchor="middle" x="79" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>
@@ -37,7 +37,7 @@
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="classlemons_1_1dsp_1_1_engine_chain.html" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="classlemons_1_1dsp_1_1_engine_chain.html" target="_top" xlink:title="A kind of engine that contains a chain of other Engine objects.">
 <polygon fill="none" stroke="black" points="176.5,-0.5 176.5,-30.5 319.5,-30.5 319.5,-0.5 176.5,-0.5"/>
 <text text-anchor="start" x="184.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">lemons::dsp::EngineChain</text>
 <text text-anchor="middle" x="248" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">&lt; SampleType &gt;</text>

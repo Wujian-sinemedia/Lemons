@@ -75,6 +75,9 @@ $(function() {
 <div class="title">lemons::dsp::EngineChain&lt; SampleType &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span><div class="ingroups"><a class="el" href="group___audio.html">Audio</a> &raquo; <a class="el" href="group__lemons__dsp.html">lemons_dsp</a> &raquo; <a class="el" href="group__engines.html">engines</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A kind of engine that contains a chain of other <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> objects.  
+ <a href="classlemons_1_1dsp_1_1_engine_chain.html#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::dsp::EngineChain&lt; SampleType &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -87,19 +90,56 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a node in an <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html" title="A kind of engine that contains a chain of other Engine objects.">EngineChain</a>.  <a href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:afad0718056f6ffd6913adf6bcfcf4f79"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#afad0718056f6ffd6913adf6bcfcf4f79">addNode</a> (<a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *newNode)</td></tr>
+<tr class="memdesc:afad0718056f6ffd6913adf6bcfcf4f79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a node to the end of the chain.  <a href="classlemons_1_1dsp_1_1_engine_chain.html#afad0718056f6ffd6913adf6bcfcf4f79">More...</a><br /></td></tr>
+<tr class="separator:afad0718056f6ffd6913adf6bcfcf4f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a71481569b0800c49963b8bf316eb96"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#a6a71481569b0800c49963b8bf316eb96">addNodeAfter</a> (<a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *newNode, const <a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *nodeToInsertAfter)</td></tr>
+<tr class="memdesc:a6a71481569b0800c49963b8bf316eb96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a node after the specified other node.  <a href="classlemons_1_1dsp_1_1_engine_chain.html#a6a71481569b0800c49963b8bf316eb96">More...</a><br /></td></tr>
+<tr class="separator:a6a71481569b0800c49963b8bf316eb96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a905aaf2a522be292d19c4823db83d4b9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#a905aaf2a522be292d19c4823db83d4b9">addNodeBefore</a> (<a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *newNode, const <a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *nodeToInsertBefore)</td></tr>
+<tr class="memdesc:a905aaf2a522be292d19c4823db83d4b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a node before the specified other node.  <a href="classlemons_1_1dsp_1_1_engine_chain.html#a905aaf2a522be292d19c4823db83d4b9">More...</a><br /></td></tr>
+<tr class="separator:a905aaf2a522be292d19c4823db83d4b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa53b499b28aa301ea7ca54bbbfaf3829"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#aa53b499b28aa301ea7ca54bbbfaf3829">addNodeToFront</a> (<a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *newNode)</td></tr>
+<tr class="memdesc:aa53b499b28aa301ea7ca54bbbfaf3829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a node to the front of the chain, at index 0.  <a href="classlemons_1_1dsp_1_1_engine_chain.html#aa53b499b28aa301ea7ca54bbbfaf3829">More...</a><br /></td></tr>
+<tr class="separator:aa53b499b28aa301ea7ca54bbbfaf3829"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0419e5fefcb2a16b836cb18ab8cf023"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_latency_engine.html#af0419e5fefcb2a16b836cb18ab8cf023">changeLatency</a> (int newInternalBlocksize)</td></tr>
 <tr class="memdesc:af0419e5fefcb2a16b836cb18ab8cf023"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the latency in samples of the engine.  <a href="classlemons_1_1dsp_1_1_latency_engine.html#af0419e5fefcb2a16b836cb18ab8cf023">More...</a><br /></td></tr>
 <tr class="separator:af0419e5fefcb2a16b836cb18ab8cf023"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab985841c4e9e2f53beac9e32a0568596"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#ab985841c4e9e2f53beac9e32a0568596">getNextNodeIndex</a> () const</td></tr>
-<tr class="separator:ab985841c4e9e2f53beac9e32a0568596"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d119e4e86f6cb30ae033287bd47d600"><td class="memTemplParams" colspan="2">template&lt;typename EngineType , typename... Args, LEMONS_MUST_INHERIT_FROM(EngineType, Engine&lt; SampleType &gt;) &gt; </td></tr>
+<tr class="memitem:a5d119e4e86f6cb30ae033287bd47d600"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#a5d119e4e86f6cb30ae033287bd47d600">createAndAddNode</a> (Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a5d119e4e86f6cb30ae033287bd47d600"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a node holding an engine of the specified type, and forwards all arguments to the engine's constructor.  <a href="classlemons_1_1dsp_1_1_engine_chain.html#a5d119e4e86f6cb30ae033287bd47d600">More...</a><br /></td></tr>
+<tr class="separator:a5d119e4e86f6cb30ae033287bd47d600"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbd043f8d6ebc977d37fa206683b6c6e"><td class="memTemplParams" colspan="2">template&lt;typename EngineType , typename... Args, LEMONS_MUST_INHERIT_FROM(EngineType, Engine&lt; SampleType &gt;) &gt; </td></tr>
+<tr class="memitem:adbd043f8d6ebc977d37fa206683b6c6e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#adbd043f8d6ebc977d37fa206683b6c6e">createAndAddNodeAfter</a> (const <a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *nodeToInsertAfter, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:adbd043f8d6ebc977d37fa206683b6c6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a node holding an engine of the specified type, and forwards all arguments to the engine's constructor.  <a href="classlemons_1_1dsp_1_1_engine_chain.html#adbd043f8d6ebc977d37fa206683b6c6e">More...</a><br /></td></tr>
+<tr class="separator:adbd043f8d6ebc977d37fa206683b6c6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a190c3181f527fe4f21aaaf06a276273b"><td class="memTemplParams" colspan="2">template&lt;typename EngineType , typename... Args, LEMONS_MUST_INHERIT_FROM(EngineType, Engine&lt; SampleType &gt;) &gt; </td></tr>
+<tr class="memitem:a190c3181f527fe4f21aaaf06a276273b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#a190c3181f527fe4f21aaaf06a276273b">createAndAddNodeBefore</a> (const <a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *nodeToInsertBefore, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a190c3181f527fe4f21aaaf06a276273b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a node holding an engine of the specified type, and forwards all arguments to the engine's constructor.  <a href="classlemons_1_1dsp_1_1_engine_chain.html#a190c3181f527fe4f21aaaf06a276273b">More...</a><br /></td></tr>
+<tr class="separator:a190c3181f527fe4f21aaaf06a276273b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a160574baa0f416fd1ec2a7385feac38e"><td class="memTemplParams" colspan="2">template&lt;typename EngineType , typename... Args, LEMONS_MUST_INHERIT_FROM(EngineType, Engine&lt; SampleType &gt;) &gt; </td></tr>
+<tr class="memitem:a160574baa0f416fd1ec2a7385feac38e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#a160574baa0f416fd1ec2a7385feac38e">createAndAddNodeToFront</a> (Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a160574baa0f416fd1ec2a7385feac38e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a node holding an engine of the specified type, and forwards all arguments to the engine's constructor.  <a href="classlemons_1_1dsp_1_1_engine_chain.html#a160574baa0f416fd1ec2a7385feac38e">More...</a><br /></td></tr>
+<tr class="separator:a160574baa0f416fd1ec2a7385feac38e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fe0576bcf0a69de441bef223cd6a3f1"><td class="memTemplParams" colspan="2">template&lt;typename EngineType , LEMONS_MUST_INHERIT_FROM(EngineType, Engine&lt; SampleType &gt;) &gt; </td></tr>
+<tr class="memitem:a7fe0576bcf0a69de441bef223cd6a3f1"><td class="memTemplItemLeft" align="right" valign="top">EngineType *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#a7fe0576bcf0a69de441bef223cd6a3f1">getEngineOfType</a> ()</td></tr>
+<tr class="memdesc:a7fe0576bcf0a69de441bef223cd6a3f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Similar to <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#af5d286d3f8aadea053bd1d612050d197" title="Returns a pointer to the first node found that holds an Engine of the specified type.">getNodeOfType()</a>, but returns a pointer to the actual engine object as its derived type, instead of a pointer to its containing node.  <a href="classlemons_1_1dsp_1_1_engine_chain.html#a7fe0576bcf0a69de441bef223cd6a3f1">More...</a><br /></td></tr>
+<tr class="separator:a7fe0576bcf0a69de441bef223cd6a3f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74577e9fe5f78807da60a6dbb85fd3a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#a74577e9fe5f78807da60a6dbb85fd3a3">getNode</a> (int index)</td></tr>
+<tr class="memdesc:a74577e9fe5f78807da60a6dbb85fd3a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the node at the specified index.  <a href="classlemons_1_1dsp_1_1_engine_chain.html#a74577e9fe5f78807da60a6dbb85fd3a3">More...</a><br /></td></tr>
 <tr class="separator:a74577e9fe5f78807da60a6dbb85fd3a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87df9c3d507b49758594c0847ccb8bcc"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#a87df9c3d507b49758594c0847ccb8bcc">getNode</a> (int index) const</td></tr>
+<tr class="memdesc:a87df9c3d507b49758594c0847ccb8bcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the node at the specified index.  <a href="classlemons_1_1dsp_1_1_engine_chain.html#a87df9c3d507b49758594c0847ccb8bcc">More...</a><br /></td></tr>
 <tr class="separator:a87df9c3d507b49758594c0847ccb8bcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5d286d3f8aadea053bd1d612050d197"><td class="memTemplParams" colspan="2">template&lt;typename EngineType , LEMONS_MUST_INHERIT_FROM(EngineType, Engine&lt; SampleType &gt;) &gt; </td></tr>
+<tr class="memitem:af5d286d3f8aadea053bd1d612050d197"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#af5d286d3f8aadea053bd1d612050d197">getNodeOfType</a> ()</td></tr>
+<tr class="memdesc:af5d286d3f8aadea053bd1d612050d197"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the first node found that holds an <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> of the specified type.  <a href="classlemons_1_1dsp_1_1_engine_chain.html#af5d286d3f8aadea053bd1d612050d197">More...</a><br /></td></tr>
+<tr class="separator:af5d286d3f8aadea053bd1d612050d197"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcbd3bdeebea99be0e756ad1161190dc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine.html#abcbd3bdeebea99be0e756ad1161190dc">getNumChannels</a> () const noexcept</td></tr>
 <tr class="memdesc:abcbd3bdeebea99be0e756ad1161190dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of channels this engine has been prepared to process.  <a href="classlemons_1_1dsp_1_1_engine.html#abcbd3bdeebea99be0e756ad1161190dc">More...</a><br /></td></tr>
 <tr class="separator:abcbd3bdeebea99be0e756ad1161190dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,14 +167,144 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a144323b4488420dcf49b89cee7837f8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine.html#a144323b4488420dcf49b89cee7837f8c">releaseResources</a> ()</td></tr>
 <tr class="memdesc:a144323b4488420dcf49b89cee7837f8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases all of the engine's internal resources.  <a href="classlemons_1_1dsp_1_1_engine.html#a144323b4488420dcf49b89cee7837f8c">More...</a><br /></td></tr>
 <tr class="separator:a144323b4488420dcf49b89cee7837f8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7988d3a60cac7fb486dc48bf4fd8ce55"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#a7988d3a60cac7fb486dc48bf4fd8ce55">removeNode</a> (int index)</td></tr>
+<tr class="memdesc:a7988d3a60cac7fb486dc48bf4fd8ce55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes and deletes a node object at the specified index from the chain.  <a href="classlemons_1_1dsp_1_1_engine_chain.html#a7988d3a60cac7fb486dc48bf4fd8ce55">More...</a><br /></td></tr>
+<tr class="separator:a7988d3a60cac7fb486dc48bf4fd8ce55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e915887f1435a6b980f36f010175a75"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#a4e915887f1435a6b980f36f010175a75">removeNode</a> (<a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *node)</td></tr>
+<tr class="memdesc:a4e915887f1435a6b980f36f010175a75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes and deletes a node object from the chain.  <a href="classlemons_1_1dsp_1_1_engine_chain.html#a4e915887f1435a6b980f36f010175a75">More...</a><br /></td></tr>
+<tr class="separator:a4e915887f1435a6b980f36f010175a75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13fce9c2a64647375473f7df8b33db35"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_latency_engine.html#a13fce9c2a64647375473f7df8b33db35">reportLatency</a> () const final</td></tr>
 <tr class="memdesc:a13fce9c2a64647375473f7df8b33db35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the latency in samples of the engine.  <a href="classlemons_1_1dsp_1_1_latency_engine.html#a13fce9c2a64647375473f7df8b33db35">More...</a><br /></td></tr>
 <tr class="separator:a13fce9c2a64647375473f7df8b33db35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89329e1d6ff9072befae739f72a5837b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_latency_engine.html#a89329e1d6ff9072befae739f72a5837b">setSamplerate</a> (double samplerate)</td></tr>
 <tr class="memdesc:a89329e1d6ff9072befae739f72a5837b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the samplerate of the engine.  <a href="classlemons_1_1dsp_1_1_latency_engine.html#a89329e1d6ff9072befae739f72a5837b">More...</a><br /></td></tr>
 <tr class="separator:a89329e1d6ff9072befae739f72a5837b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa00c719441f5aa43ef0512e434b878e8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#aa00c719441f5aa43ef0512e434b878e8">swapNodes</a> (<a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *node1, <a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *node2)</td></tr>
+<tr class="memdesc:aa00c719441f5aa43ef0512e434b878e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swaps the indices of two nodes in the chain.  <a href="classlemons_1_1dsp_1_1_engine_chain.html#aa00c719441f5aa43ef0512e434b878e8">More...</a><br /></td></tr>
+<tr class="separator:aa00c719441f5aa43ef0512e434b878e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c5dce38ae105e0a4c71b43e8b72a5f4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#a5c5dce38ae105e0a4c71b43e8b72a5f4">swapNodesAtIndices</a> (int index1, int index2)</td></tr>
+<tr class="memdesc:a5c5dce38ae105e0a4c71b43e8b72a5f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swaps the indices of the two nodes in the chain at the given indices.  <a href="classlemons_1_1dsp_1_1_engine_chain.html#a5c5dce38ae105e0a4c71b43e8b72a5f4">More...</a><br /></td></tr>
+<tr class="separator:a5c5dce38ae105e0a4c71b43e8b72a5f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename SampleType&gt;<br />
+class lemons::dsp::EngineChain&lt; SampleType &gt;</h3>
+
+<p>A kind of engine that contains a chain of other <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> objects. </p>
+<p>Each node in the chain must inherit from AudioEngine, and each node has an individual bypass setting. The latency of the entire chain will be the latency of the node with the greatest individual latency. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="afad0718056f6ffd6913adf6bcfcf4f79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afad0718056f6ffd6913adf6bcfcf4f79">&#9670;&nbsp;</a></span>addNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">lemons::dsp::EngineChain</a>&lt; SampleType &gt;::addNode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>newNode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a node to the end of the chain. </p>
+<dl class="section return"><dt>Returns</dt><dd>The index at which the node was added </dd></dl>
+
+</div>
+</div>
+<a id="a6a71481569b0800c49963b8bf316eb96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a71481569b0800c49963b8bf316eb96">&#9670;&nbsp;</a></span>addNodeAfter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">lemons::dsp::EngineChain</a>&lt; SampleType &gt;::addNodeAfter </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>newNode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>nodeToInsertAfter</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a node after the specified other node. </p>
+<p>Note that this may change the indices of any other nodes already in the chain! </p><dl class="section return"><dt>Returns</dt><dd>The index at which newNode was added </dd></dl>
+
+</div>
+</div>
+<a id="a905aaf2a522be292d19c4823db83d4b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a905aaf2a522be292d19c4823db83d4b9">&#9670;&nbsp;</a></span>addNodeBefore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">lemons::dsp::EngineChain</a>&lt; SampleType &gt;::addNodeBefore </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>newNode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>nodeToInsertBefore</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a node before the specified other node. </p>
+<p>Note that this may change the indices of any other nodes already in the chain! </p><dl class="section return"><dt>Returns</dt><dd>The index at which newNode was added </dd></dl>
+
+</div>
+</div>
+<a id="aa53b499b28aa301ea7ca54bbbfaf3829"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa53b499b28aa301ea7ca54bbbfaf3829">&#9670;&nbsp;</a></span>addNodeToFront()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">lemons::dsp::EngineChain</a>&lt; SampleType &gt;::addNodeToFront </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>newNode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a node to the front of the chain, at index 0. </p>
+<p>Note that this may change the indices of any other nodes already in the chain! </p>
+
+</div>
+</div>
 <a id="af0419e5fefcb2a16b836cb18ab8cf023"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af0419e5fefcb2a16b836cb18ab8cf023">&#9670;&nbsp;</a></span>changeLatency()</h2>
 
@@ -165,22 +335,177 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
-<a id="ab985841c4e9e2f53beac9e32a0568596"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab985841c4e9e2f53beac9e32a0568596">&#9670;&nbsp;</a></span>getNextNodeIndex()</h2>
+<a id="a5d119e4e86f6cb30ae033287bd47d600"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d119e4e86f6cb30ae033287bd47d600">&#9670;&nbsp;</a></span>createAndAddNode()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename SampleType &gt; </div>
+<div class="memtemplate">
+template&lt;typename EngineType , typename... Args, LEMONS_MUST_INHERIT_FROM(EngineType, Engine&lt; SampleType &gt;) &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">lemons::dsp::EngineChain</a>&lt; SampleType &gt;::getNextNodeIndex </td>
+          <td class="memname"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a>* <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">lemons::dsp::EngineChain</a>&lt; SampleType &gt;::createAndAddNode </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates a node holding an engine of the specified type, and forwards all arguments to the engine's constructor. </p>
+<p>Adds the node to the end of the chain. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">EngineType</td><td>The type of <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> object that the new node will hold. This type must inherit from Engine&lt;SampleType&gt;. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adbd043f8d6ebc977d37fa206683b6c6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbd043f8d6ebc977d37fa206683b6c6e">&#9670;&nbsp;</a></span>createAndAddNodeAfter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<div class="memtemplate">
+template&lt;typename EngineType , typename... Args, LEMONS_MUST_INHERIT_FROM(EngineType, Engine&lt; SampleType &gt;) &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a>* <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">lemons::dsp::EngineChain</a>&lt; SampleType &gt;::createAndAddNodeAfter </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>nodeToInsertAfter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a node holding an engine of the specified type, and forwards all arguments to the engine's constructor. </p>
+<p>Adds the node to the chain after the specified other node. Note that this may change the indices of any other nodes already in the chain! </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">EngineType</td><td>The type of <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> object that the new node will hold. This type must inherit from Engine&lt;SampleType&gt;. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="reference">References <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#a74577e9fe5f78807da60a6dbb85fd3a3">lemons::dsp::EngineChain&lt; SampleType &gt;::getNode()</a>.</p>
+
+</div>
+</div>
+<a id="a190c3181f527fe4f21aaaf06a276273b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a190c3181f527fe4f21aaaf06a276273b">&#9670;&nbsp;</a></span>createAndAddNodeBefore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<div class="memtemplate">
+template&lt;typename EngineType , typename... Args, LEMONS_MUST_INHERIT_FROM(EngineType, Engine&lt; SampleType &gt;) &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a>* <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">lemons::dsp::EngineChain</a>&lt; SampleType &gt;::createAndAddNodeBefore </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>nodeToInsertBefore</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a node holding an engine of the specified type, and forwards all arguments to the engine's constructor. </p>
+<p>Adds the node to the chain before the specified other node. Note that this may change the indices of any other nodes already in the chain! </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">EngineType</td><td>The type of <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> object that the new node will hold. This type must inherit from Engine&lt;SampleType&gt;. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="reference">References <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#a74577e9fe5f78807da60a6dbb85fd3a3">lemons::dsp::EngineChain&lt; SampleType &gt;::getNode()</a>.</p>
+
+</div>
+</div>
+<a id="a160574baa0f416fd1ec2a7385feac38e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a160574baa0f416fd1ec2a7385feac38e">&#9670;&nbsp;</a></span>createAndAddNodeToFront()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<div class="memtemplate">
+template&lt;typename EngineType , typename... Args, LEMONS_MUST_INHERIT_FROM(EngineType, Engine&lt; SampleType &gt;) &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a>* <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">lemons::dsp::EngineChain</a>&lt; SampleType &gt;::createAndAddNodeToFront </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a node holding an engine of the specified type, and forwards all arguments to the engine's constructor. </p>
+<p>Adds the node to the front of the chain, at index 0. Note that this may change the indices of any other nodes already in the chain! </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">EngineType</td><td>The type of <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> object that the new node will hold. This type must inherit from Engine&lt;SampleType&gt;. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7fe0576bcf0a69de441bef223cd6a3f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fe0576bcf0a69de441bef223cd6a3f1">&#9670;&nbsp;</a></span>getEngineOfType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<div class="memtemplate">
+template&lt;typename EngineType , LEMONS_MUST_INHERIT_FROM(EngineType, Engine&lt; SampleType &gt;) &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">EngineType* <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">lemons::dsp::EngineChain</a>&lt; SampleType &gt;::getEngineOfType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Similar to <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#af5d286d3f8aadea053bd1d612050d197" title="Returns a pointer to the first node found that holds an Engine of the specified type.">getNodeOfType()</a>, but returns a pointer to the actual engine object as its derived type, instead of a pointer to its containing node. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">EngineType</td><td>The type of <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> object to search for. This type must inherit from Engine&lt;SampleType&gt;. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#af5d286d3f8aadea053bd1d612050d197" title="Returns a pointer to the first node found that holds an Engine of the specified type.">getNodeOfType()</a> </dd></dl>
 
 </div>
 </div>
@@ -202,6 +527,10 @@ template&lt;typename SampleType &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the node at the specified index. </p>
+
+<p class="reference">Referenced by <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#adbd043f8d6ebc977d37fa206683b6c6e">lemons::dsp::EngineChain&lt; SampleType &gt;::createAndAddNodeAfter()</a>, and <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#a190c3181f527fe4f21aaaf06a276273b">lemons::dsp::EngineChain&lt; SampleType &gt;::createAndAddNodeBefore()</a>.</p>
+
 </div>
 </div>
 <a id="a87df9c3d507b49758594c0847ccb8bcc"></a>
@@ -221,6 +550,38 @@ template&lt;typename SampleType &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the node at the specified index. </p>
+
+</div>
+</div>
+<a id="af5d286d3f8aadea053bd1d612050d197"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5d286d3f8aadea053bd1d612050d197">&#9670;&nbsp;</a></span>getNodeOfType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<div class="memtemplate">
+template&lt;typename EngineType , LEMONS_MUST_INHERIT_FROM(EngineType, Engine&lt; SampleType &gt;) &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a>* <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">lemons::dsp::EngineChain</a>&lt; SampleType &gt;::getNodeOfType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a pointer to the first node found that holds an <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> of the specified type. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">EngineType</td><td>The type of <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> object to search for. This type must inherit from Engine&lt;SampleType&gt;. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html#a7fe0576bcf0a69de441bef223cd6a3f1" title="Similar to getNodeOfType(), but returns a pointer to the actual engine object as its derived type,...">getEngineOfType()</a> </dd></dl>
 
 </div>
 </div>
@@ -607,6 +968,52 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
+<a id="a7988d3a60cac7fb486dc48bf4fd8ce55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7988d3a60cac7fb486dc48bf4fd8ce55">&#9670;&nbsp;</a></span>removeNode() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">lemons::dsp::EngineChain</a>&lt; SampleType &gt;::removeNode </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes and deletes a node object at the specified index from the chain. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if the operation succeeds. </dd></dl>
+
+</div>
+</div>
+<a id="a4e915887f1435a6b980f36f010175a75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e915887f1435a6b980f36f010175a75">&#9670;&nbsp;</a></span>removeNode() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">lemons::dsp::EngineChain</a>&lt; SampleType &gt;::removeNode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes and deletes a node object from the chain. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if the operation succeeds. This will really only fail if you pass a pointer to a <a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html" title="Represents a node in an EngineChain.">Node</a> object that is not in this chain. </dd></dl>
+
+</div>
+</div>
 <a id="a13fce9c2a64647375473f7df8b33db35"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a13fce9c2a64647375473f7df8b33db35">&#9670;&nbsp;</a></span>reportLatency()</h2>
 
@@ -669,13 +1076,79 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
+<a id="aa00c719441f5aa43ef0512e434b878e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa00c719441f5aa43ef0512e434b878e8">&#9670;&nbsp;</a></span>swapNodes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">lemons::dsp::EngineChain</a>&lt; SampleType &gt;::swapNodes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>node1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>node2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Swaps the indices of two nodes in the chain. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if the operation was successful </dd></dl>
+
+</div>
+</div>
+<a id="a5c5dce38ae105e0a4c71b43e8b72a5f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c5dce38ae105e0a4c71b43e8b72a5f4">&#9670;&nbsp;</a></span>swapNodesAtIndices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">lemons::dsp::EngineChain</a>&lt; SampleType &gt;::swapNodesAtIndices </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Swaps the indices of the two nodes in the chain at the given indices. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if the operation was successful </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="_engine_chain_8h.html">EngineChain.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 10 2021 00:45:19 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 10 2021 02:19:47 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -68,25 +68,105 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="structlemons_1_1dsp_1_1_engine_chain_1_1_node-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">lemons::dsp::EngineChain&lt; SampleType &gt;::Node Struct Reference<div class="ingroups"><a class="el" href="group___audio.html">Audio</a> &raquo; <a class="el" href="group__lemons__dsp.html">lemons_dsp</a> &raquo; <a class="el" href="group__engines.html">engines</a></div></div>  </div>
+<div class="title">lemons::dsp::EngineChain&lt; SampleType &gt;::Node Struct Reference<span class="mlabels"><span class="mlabel">final</span></span><div class="ingroups"><a class="el" href="group___audio.html">Audio</a> &raquo; <a class="el" href="group__lemons__dsp.html">lemons_dsp</a> &raquo; <a class="el" href="group__engines.html">engines</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents a node in an <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html" title="A kind of engine that contains a chain of other Engine objects.">EngineChain</a>.  
+ <a href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html#details">More...</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:aa4a8989075bf9ebbafd532ced9a95104"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html#aa4a8989075bf9ebbafd532ced9a95104">bypassed</a> { false }</td></tr>
-<tr class="separator:aa4a8989075bf9ebbafd532ced9a95104"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a751429245611babec1c9b3d6090b0693"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classlemons_1_1dsp_1_1_engine.html">Engine</a>&lt; SampleType &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html#a751429245611babec1c9b3d6090b0693">engine</a></td></tr>
-<tr class="separator:a751429245611babec1c9b3d6090b0693"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3ad8f2d69d330eb86dea854032dc890"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html#ae3ad8f2d69d330eb86dea854032dc890">index</a> { 0 }</td></tr>
-<tr class="separator:ae3ad8f2d69d330eb86dea854032dc890"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a28d3f3af06065f18362eb935f191b6ce"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html#a28d3f3af06065f18362eb935f191b6ce">Node</a> (std::unique_ptr&lt; <a class="el" href="classlemons_1_1dsp_1_1_engine.html">Engine</a>&lt; SampleType &gt;&gt; engineToUse)</td></tr>
+<tr class="memdesc:a28d3f3af06065f18362eb935f191b6ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html" title="Represents a node in an EngineChain.">Node</a> holding the given <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> object.  <a href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html#a28d3f3af06065f18362eb935f191b6ce">More...</a><br /></td></tr>
+<tr class="separator:a28d3f3af06065f18362eb935f191b6ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee9e7410244c143615621358362a499d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html#aee9e7410244c143615621358362a499d">~Node</a> ()=default</td></tr>
+<tr class="memdesc:aee9e7410244c143615621358362a499d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html#aee9e7410244c143615621358362a499d">More...</a><br /></td></tr>
+<tr class="separator:aee9e7410244c143615621358362a499d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a065c698df145cfb7ec62506c5db0b3b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlemons_1_1dsp_1_1_engine.html">Engine</a>&lt; SampleType &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html#a065c698df145cfb7ec62506c5db0b3b9">getEngine</a> ()</td></tr>
+<tr class="memdesc:a065c698df145cfb7ec62506c5db0b3b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the managed <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> object.  <a href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html#a065c698df145cfb7ec62506c5db0b3b9">More...</a><br /></td></tr>
+<tr class="separator:a065c698df145cfb7ec62506c5db0b3b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a403cd1a62d555e7bae825c70c48b14ea"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html#a403cd1a62d555e7bae825c70c48b14ea">getIndex</a> () const noexcept</td></tr>
+<tr class="memdesc:a403cd1a62d555e7bae825c70c48b14ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns this node's current index in its parent <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html" title="A kind of engine that contains a chain of other Engine objects.">EngineChain</a>.  <a href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html#a403cd1a62d555e7bae825c70c48b14ea">More...</a><br /></td></tr>
+<tr class="separator:a403cd1a62d555e7bae825c70c48b14ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d8df45593401a7402a671586b34a3dc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html#a9d8df45593401a7402a671586b34a3dc">isBypassed</a> () const noexcept</td></tr>
+<tr class="memdesc:a9d8df45593401a7402a671586b34a3dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether this node's individual bypass setting is active or not.  <a href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html#a9d8df45593401a7402a671586b34a3dc">More...</a><br /></td></tr>
+<tr class="separator:a9d8df45593401a7402a671586b34a3dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f25f7152cd3aa4497c1fc1ea3b838d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html#a0f25f7152cd3aa4497c1fc1ea3b838d0">setBypassed</a> (bool shouldBeBypassed) noexcept</td></tr>
+<tr class="memdesc:a0f25f7152cd3aa4497c1fc1ea3b838d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets this node's individual bypass setting.  <a href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html#a0f25f7152cd3aa4497c1fc1ea3b838d0">More...</a><br /></td></tr>
+<tr class="separator:a0f25f7152cd3aa4497c1fc1ea3b838d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="aa4a8989075bf9ebbafd532ced9a95104"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4a8989075bf9ebbafd532ced9a95104">&#9670;&nbsp;</a></span>bypassed</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename SampleType&gt;<br />
+struct lemons::dsp::EngineChain&lt; SampleType &gt;::Node</h3>
+
+<p>Represents a node in an <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html" title="A kind of engine that contains a chain of other Engine objects.">EngineChain</a>. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a28d3f3af06065f18362eb935f191b6ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28d3f3af06065f18362eb935f191b6ce">&#9670;&nbsp;</a></span>Node()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">lemons::dsp::EngineChain</a>&lt; SampleType &gt;::Node::Node </td>
+          <td>(</td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classlemons_1_1dsp_1_1_engine.html">Engine</a>&lt; SampleType &gt;&gt;&#160;</td>
+          <td class="paramname"><em>engineToUse</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a <a class="el" href="structlemons_1_1dsp_1_1_engine_chain_1_1_node.html" title="Represents a node in an EngineChain.">Node</a> holding the given <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> object. </p>
+
+</div>
+</div>
+<a id="aee9e7410244c143615621358362a499d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee9e7410244c143615621358362a499d">&#9670;&nbsp;</a></span>~Node()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">lemons::dsp::EngineChain</a>&lt; SampleType &gt;::Node::~Node </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a065c698df145cfb7ec62506c5db0b3b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a065c698df145cfb7ec62506c5db0b3b9">&#9670;&nbsp;</a></span>getEngine()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -94,42 +174,104 @@ Public Attributes</h2></td></tr>
 template&lt;typename SampleType &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">lemons::dsp::EngineChain</a>&lt; SampleType &gt;::Node::bypassed { false }</td>
+          <td class="memname"><a class="el" href="classlemons_1_1dsp_1_1_engine.html">Engine</a>&lt;SampleType&gt;&amp; <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">lemons::dsp::EngineChain</a>&lt; SampleType &gt;::Node::getEngine </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the managed <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> object. </p>
+
 </div>
 </div>
-<a id="a751429245611babec1c9b3d6090b0693"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a751429245611babec1c9b3d6090b0693">&#9670;&nbsp;</a></span>engine</h2>
+<a id="a403cd1a62d555e7bae825c70c48b14ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a403cd1a62d555e7bae825c70c48b14ea">&#9670;&nbsp;</a></span>getIndex()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unique_ptr&lt;<a class="el" href="classlemons_1_1dsp_1_1_engine.html">Engine</a>&lt;SampleType&gt; &gt; <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">lemons::dsp::EngineChain</a>&lt; SampleType &gt;::Node::engine</td>
+          <td class="memname">int <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">lemons::dsp::EngineChain</a>&lt; SampleType &gt;::Node::getIndex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>Returns this node's current index in its parent <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html" title="A kind of engine that contains a chain of other Engine objects.">EngineChain</a>. </p>
+<p>Indices start at 0. Be careful storing these; a node's index may change if the <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html" title="A kind of engine that contains a chain of other Engine objects.">EngineChain</a> is manipulated! </p>
 
 </div>
 </div>
-<a id="ae3ad8f2d69d330eb86dea854032dc890"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3ad8f2d69d330eb86dea854032dc890">&#9670;&nbsp;</a></span>index</h2>
+<a id="a9d8df45593401a7402a671586b34a3dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d8df45593401a7402a671586b34a3dc">&#9670;&nbsp;</a></span>isBypassed()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">lemons::dsp::EngineChain</a>&lt; SampleType &gt;::Node::index { 0 }</td>
+          <td class="memname">bool <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">lemons::dsp::EngineChain</a>&lt; SampleType &gt;::Node::isBypassed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>Returns whether this node's individual bypass setting is active or not. </p>
+
+</div>
+</div>
+<a id="a0f25f7152cd3aa4497c1fc1ea3b838d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f25f7152cd3aa4497c1fc1ea3b838d0">&#9670;&nbsp;</a></span>setBypassed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1_engine_chain.html">lemons::dsp::EngineChain</a>&lt; SampleType &gt;::Node::setBypassed </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>shouldBeBypassed</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets this node's individual bypass setting. </p>
 
 </div>
 </div>
@@ -139,7 +281,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 10 2021 00:45:19 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 10 2021 02:19:47 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

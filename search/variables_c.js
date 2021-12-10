@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['name_2093',['name',['../structlemons_1_1plugin_1_1_processor_holder_1_1_parameter_state_data.html#a56132dfbc8b967ad6897466aa1beae1d',1,'lemons::plugin::ProcessorHolder::ParameterStateData']]]
+  ['q_2132',['Q',['../structlemons_1_1dsp_1_1_synth_base_1_1_timbre_mod_params.html#afb43b91bb53b621c4f48908e26af1b17',1,'lemons::dsp::SynthBase::TimbreModParams']]]
 ];

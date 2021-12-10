@@ -4112,6 +4112,13 @@
       <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
+      <type>void</type>
+      <name>for_each</name>
+      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
+      <anchor>a9eac9808ec27c7468fc4ff34b17b6c2c</anchor>
+      <arglist>(std::function&lt; void(ObjectType &amp;)&gt; func)</arglist>
+    </member>
+    <member kind="function">
       <type>const juce::OwnedArray&lt; ObjectType &gt; *</type>
       <name>operator-&gt;</name>
       <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
@@ -4200,6 +4207,13 @@
       <arglist>() noexcept</arglist>
     </member>
     <member kind="function">
+      <type>void</type>
+      <name>for_each</name>
+      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
+      <anchor>a9eac9808ec27c7468fc4ff34b17b6c2c</anchor>
+      <arglist>(std::function&lt; void(InterpolatorType &amp;)&gt; func)</arglist>
+    </member>
+    <member kind="function">
       <type>const juce::OwnedArray&lt; InterpolatorType &gt; *</type>
       <name>operator-&gt;</name>
       <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
@@ -4286,6 +4300,13 @@
       <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
       <anchor>a052d7d0d70b4978b3f7cb813ac3ae308</anchor>
       <arglist>() noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>for_each</name>
+      <anchorfile>structlemons_1_1_constructed_array.html</anchorfile>
+      <anchor>a9eac9808ec27c7468fc4ff34b17b6c2c</anchor>
+      <arglist>(std::function&lt; void(lemons::dsp::CircularBuffer&lt; SampleType &gt; &amp;)&gt; func)</arglist>
     </member>
     <member kind="function">
       <type>const juce::OwnedArray&lt; lemons::dsp::CircularBuffer&lt; SampleType &gt; &gt; *</type>
@@ -6908,6 +6929,34 @@
     <base>lemons::dsp::LatencyEngine</base>
     <class kind="struct">lemons::dsp::EngineChain::Node</class>
     <member kind="function">
+      <type>int</type>
+      <name>addNode</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
+      <anchor>afad0718056f6ffd6913adf6bcfcf4f79</anchor>
+      <arglist>(Node *newNode)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>addNodeAfter</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
+      <anchor>a6a71481569b0800c49963b8bf316eb96</anchor>
+      <arglist>(Node *newNode, const Node *nodeToInsertAfter)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>addNodeBefore</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
+      <anchor>a905aaf2a522be292d19c4823db83d4b9</anchor>
+      <arglist>(Node *newNode, const Node *nodeToInsertBefore)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>addNodeToFront</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
+      <anchor>aa53b499b28aa301ea7ca54bbbfaf3829</anchor>
+      <arglist>(Node *newNode)</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>changeLatency</name>
       <anchorfile>classlemons_1_1dsp_1_1_latency_engine.html</anchorfile>
@@ -6915,11 +6964,39 @@
       <arglist>(int newInternalBlocksize)</arglist>
     </member>
     <member kind="function">
-      <type>int</type>
-      <name>getNextNodeIndex</name>
+      <type>Node *</type>
+      <name>createAndAddNode</name>
       <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
-      <anchor>ab985841c4e9e2f53beac9e32a0568596</anchor>
-      <arglist>() const</arglist>
+      <anchor>a5d119e4e86f6cb30ae033287bd47d600</anchor>
+      <arglist>(Args &amp;&amp;... args)</arglist>
+    </member>
+    <member kind="function">
+      <type>Node *</type>
+      <name>createAndAddNodeAfter</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
+      <anchor>adbd043f8d6ebc977d37fa206683b6c6e</anchor>
+      <arglist>(const Node *nodeToInsertAfter, Args &amp;&amp;... args)</arglist>
+    </member>
+    <member kind="function">
+      <type>Node *</type>
+      <name>createAndAddNodeBefore</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
+      <anchor>a190c3181f527fe4f21aaaf06a276273b</anchor>
+      <arglist>(const Node *nodeToInsertBefore, Args &amp;&amp;... args)</arglist>
+    </member>
+    <member kind="function">
+      <type>Node *</type>
+      <name>createAndAddNodeToFront</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
+      <anchor>a160574baa0f416fd1ec2a7385feac38e</anchor>
+      <arglist>(Args &amp;&amp;... args)</arglist>
+    </member>
+    <member kind="function">
+      <type>EngineType *</type>
+      <name>getEngineOfType</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
+      <anchor>a7fe0576bcf0a69de441bef223cd6a3f1</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>Node *</type>
@@ -6934,6 +7011,13 @@
       <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
       <anchor>a87df9c3d507b49758594c0847ccb8bcc</anchor>
       <arglist>(int index) const</arglist>
+    </member>
+    <member kind="function">
+      <type>Node *</type>
+      <name>getNodeOfType</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
+      <anchor>af5d286d3f8aadea053bd1d612050d197</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>int</type>
@@ -6999,6 +7083,20 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
+      <type>bool</type>
+      <name>removeNode</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
+      <anchor>a7988d3a60cac7fb486dc48bf4fd8ce55</anchor>
+      <arglist>(int index)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>removeNode</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
+      <anchor>a4e915887f1435a6b980f36f010175a75</anchor>
+      <arglist>(Node *node)</arglist>
+    </member>
+    <member kind="function">
       <type>int</type>
       <name>reportLatency</name>
       <anchorfile>classlemons_1_1dsp_1_1_latency_engine.html</anchorfile>
@@ -7011,6 +7109,20 @@
       <anchorfile>classlemons_1_1dsp_1_1_latency_engine.html</anchorfile>
       <anchor>a89329e1d6ff9072befae739f72a5837b</anchor>
       <arglist>(double samplerate)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>swapNodes</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
+      <anchor>aa00c719441f5aa43ef0512e434b878e8</anchor>
+      <arglist>(Node *node1, Node *node2)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>swapNodesAtIndices</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine_chain.html</anchorfile>
+      <anchor>a5c5dce38ae105e0a4c71b43e8b72a5f4</anchor>
+      <arglist>(int index1, int index2)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -12426,25 +12538,53 @@
   <compound kind="struct">
     <name>lemons::dsp::EngineChain::Node</name>
     <filename>structlemons_1_1dsp_1_1_engine_chain_1_1_node.html</filename>
-    <member kind="variable">
-      <type>bool</type>
-      <name>bypassed</name>
+    <member kind="function">
+      <type></type>
+      <name>Node</name>
       <anchorfile>structlemons_1_1dsp_1_1_engine_chain_1_1_node.html</anchorfile>
-      <anchor>aa4a8989075bf9ebbafd532ced9a95104</anchor>
-      <arglist></arglist>
+      <anchor>a28d3f3af06065f18362eb935f191b6ce</anchor>
+      <arglist>(std::unique_ptr&lt; Engine&lt; SampleType &gt;&gt; engineToUse)</arglist>
     </member>
-    <member kind="variable">
-      <type>std::unique_ptr&lt; Engine&lt; SampleType &gt; &gt;</type>
-      <name>engine</name>
+    <member kind="function">
+      <type></type>
+      <name>~Node</name>
       <anchorfile>structlemons_1_1dsp_1_1_engine_chain_1_1_node.html</anchorfile>
-      <anchor>a751429245611babec1c9b3d6090b0693</anchor>
-      <arglist></arglist>
+      <anchor>aee9e7410244c143615621358362a499d</anchor>
+      <arglist>()=default</arglist>
     </member>
-    <member kind="variable">
+    <member kind="function">
+      <type>Engine&lt; SampleType &gt; &amp;</type>
+      <name>getEngine</name>
+      <anchorfile>structlemons_1_1dsp_1_1_engine_chain_1_1_node.html</anchorfile>
+      <anchor>a065c698df145cfb7ec62506c5db0b3b9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
       <type>int</type>
-      <name>index</name>
+      <name>getIndex</name>
       <anchorfile>structlemons_1_1dsp_1_1_engine_chain_1_1_node.html</anchorfile>
-      <anchor>ae3ad8f2d69d330eb86dea854032dc890</anchor>
+      <anchor>a403cd1a62d555e7bae825c70c48b14ea</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isBypassed</name>
+      <anchorfile>structlemons_1_1dsp_1_1_engine_chain_1_1_node.html</anchorfile>
+      <anchor>a9d8df45593401a7402a671586b34a3dc</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setBypassed</name>
+      <anchorfile>structlemons_1_1dsp_1_1_engine_chain_1_1_node.html</anchorfile>
+      <anchor>a0f25f7152cd3aa4497c1fc1ea3b838d0</anchor>
+      <arglist>(bool shouldBeBypassed) noexcept</arglist>
+    </member>
+    <member kind="friend" protection="private">
+      <type>friend class</type>
+      <name>EngineChain</name>
+      <anchorfile>structlemons_1_1dsp_1_1_engine_chain_1_1_node.html</anchorfile>
+      <anchor>a66a490eef5bdcb3211ac2efea0ec41d7</anchor>
       <arglist></arglist>
     </member>
   </compound>

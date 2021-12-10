@@ -113,6 +113,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a052d7d0d70b4978b3f7cb813ac3ae308"><td class="memItemLeft" align="right" valign="top">ObjectType **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_constructed_array.html#a052d7d0d70b4978b3f7cb813ac3ae308">end</a> () noexcept</td></tr>
 <tr class="memdesc:a052d7d0d70b4978b3f7cb813ac3ae308"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls OwnedArray::end.  <a href="structlemons_1_1_constructed_array.html#a052d7d0d70b4978b3f7cb813ac3ae308">More...</a><br /></td></tr>
 <tr class="separator:a052d7d0d70b4978b3f7cb813ac3ae308"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9eac9808ec27c7468fc4ff34b17b6c2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_constructed_array.html#a9eac9808ec27c7468fc4ff34b17b6c2c">for_each</a> (std::function&lt; void(ObjectType &amp;)&gt; func)</td></tr>
+<tr class="memdesc:a9eac9808ec27c7468fc4ff34b17b6c2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls a function with each object in the array.  <a href="structlemons_1_1_constructed_array.html#a9eac9808ec27c7468fc4ff34b17b6c2c">More...</a><br /></td></tr>
+<tr class="separator:a9eac9808ec27c7468fc4ff34b17b6c2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a137409d8630c290e66ea9f1a118d36ac"><td class="memItemLeft" align="right" valign="top">const juce::OwnedArray&lt; ObjectType &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_constructed_array.html#a137409d8630c290e66ea9f1a118d36ac">operator-&gt;</a> () const noexcept</td></tr>
 <tr class="memdesc:a137409d8630c290e66ea9f1a118d36ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the underlying juce::OwnedArray.  <a href="structlemons_1_1_constructed_array.html#a137409d8630c290e66ea9f1a118d36ac">More...</a><br /></td></tr>
 <tr class="separator:a137409d8630c290e66ea9f1a118d36ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -333,6 +336,28 @@ template&lt;typename ObjectType &gt; </div>
 
 </div>
 </div>
+<a id="a9eac9808ec27c7468fc4ff34b17b6c2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9eac9808ec27c7468fc4ff34b17b6c2c">&#9670;&nbsp;</a></span>for_each()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ObjectType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="structlemons_1_1_constructed_array.html">lemons::ConstructedArray</a>&lt; ObjectType &gt;::for_each </td>
+          <td>(</td>
+          <td class="paramtype">std::function&lt; void(ObjectType &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>func</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calls a function with each object in the array. </p>
+
+</div>
+</div>
 <a id="a137409d8630c290e66ea9f1a118d36ac"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a137409d8630c290e66ea9f1a118d36ac">&#9670;&nbsp;</a></span>operator-&gt;() <span class="overload">[1/2]</span></h2>
 
@@ -461,7 +486,7 @@ template&lt;typename ObjectType &gt; </div>
 
 <p>The managed array. </p>
 
-<p class="reference">Referenced by <a class="el" href="structlemons_1_1_constructed_array.html#ac844a8c41bec3b7f5409c41823ce1ed1">lemons::ConstructedArray&lt; InterpolatorType &gt;::begin()</a>, <a class="el" href="structlemons_1_1_constructed_array.html#a052d7d0d70b4978b3f7cb813ac3ae308">lemons::ConstructedArray&lt; InterpolatorType &gt;::end()</a>, <a class="el" href="structlemons_1_1_constructed_array.html#a71ae1588a09cc616ae1c38294c6954fc">lemons::ConstructedArray&lt; InterpolatorType &gt;::operator-&gt;()</a>, <a class="el" href="structlemons_1_1_constructed_array.html#abef55413896e02f6ddaaedeea4f73076">lemons::ConstructedArray&lt; InterpolatorType &gt;::operator[]()</a>, and <a class="el" href="structlemons_1_1_constructed_array.html#a5824a1fc1d19bc7fd219c3480864567c">lemons::ConstructedArray&lt; InterpolatorType &gt;::resize()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="structlemons_1_1_constructed_array.html#ac844a8c41bec3b7f5409c41823ce1ed1">lemons::ConstructedArray&lt; InterpolatorType &gt;::begin()</a>, <a class="el" href="structlemons_1_1_constructed_array.html#a052d7d0d70b4978b3f7cb813ac3ae308">lemons::ConstructedArray&lt; InterpolatorType &gt;::end()</a>, <a class="el" href="structlemons_1_1_constructed_array.html#a9eac9808ec27c7468fc4ff34b17b6c2c">lemons::ConstructedArray&lt; InterpolatorType &gt;::for_each()</a>, <a class="el" href="structlemons_1_1_constructed_array.html#a71ae1588a09cc616ae1c38294c6954fc">lemons::ConstructedArray&lt; InterpolatorType &gt;::operator-&gt;()</a>, <a class="el" href="structlemons_1_1_constructed_array.html#abef55413896e02f6ddaaedeea4f73076">lemons::ConstructedArray&lt; InterpolatorType &gt;::operator[]()</a>, and <a class="el" href="structlemons_1_1_constructed_array.html#a5824a1fc1d19bc7fd219c3480864567c">lemons::ConstructedArray&lt; InterpolatorType &gt;::resize()</a>.</p>
 
 </div>
 </div>
@@ -471,7 +496,7 @@ template&lt;typename ObjectType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 10 2021 00:45:19 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 10 2021 02:19:47 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
