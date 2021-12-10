@@ -2,7 +2,7 @@ namespace lemons::dsp
 {
 
 template <typename SampleType>
-Protector<SampleType>::Protector (bool hardClip, std::function<void()> whenMuteTriggered)
+Protector<SampleType>::Protector (bool hardClip, CallbackFunc&& whenMuteTriggered)
     : isHardClipping (hardClip)
     , muteCallback (std::move (whenMuteTriggered))
 {
@@ -15,12 +15,9 @@ bool Protector<SampleType>::isMuted() const noexcept
 }
 
 template <typename SampleType>
-void Protector<SampleType>::forceMute (bool callbackNow) noexcept
+void Protector<SampleType>::forceMute() noexcept
 {
 	mute = true;
-
-	if (callbackNow)
-		muteCallback();
 }
 
 template <typename SampleType>
@@ -76,7 +73,8 @@ void Protector<SampleType>::renderBlock (const AudioBuffer<SampleType>& input,
 	}
 
 	if (mute)
-		muteCallback();
+		if (muteCallback)
+			muteCallback (input);
 
 	internalEngine.process (input, output, midi, mute);
 }
