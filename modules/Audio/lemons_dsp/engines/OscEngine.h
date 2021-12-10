@@ -33,11 +33,9 @@ public:
 	}
 
 	/** Returns the oscillator's current frequency. */
-	float getFrequency() const noexcept { return frequency; }
+	[[nodiscard]] float getFrequency() const noexcept { return frequency; }
 
 private:
-	using Osc = Osctype<SampleType>;
-
 	void renderBlock (const AudioBuffer<SampleType>&,
 	                  AudioBuffer<SampleType>& output,
 	                  MidiBuffer&, bool isBypassed) final
@@ -55,17 +53,13 @@ private:
 		else
 		{
 			for (int chan = 0; chan < numChannels; ++chan)
-				oscillators.getUnchecked (chan)->getSamples (output, chan);
+				oscillators[chan]->getSamples (output, chan);
 		}
 	}
 
 	void prepared (int, double samplerate, int numChannels) final
 	{
-		while (oscillators.size() < numChannels)
-			oscillators.add (new Osc());
-
-		while (oscillators.size() > numChannels)
-			oscillators.removeLast();
+		oscillators.resize (numChannels);
 
 		for (auto* osc : oscillators)
 		{
@@ -75,7 +69,13 @@ private:
 		}
 	}
 
-	juce::OwnedArray<Osc> oscillators;
+	void released() final
+	{
+		for (auto* osc : oscillators)
+			osc->resetPhase();
+	}
+
+	ConstructedArray<Osctype<SampleType>> oscillators;
 
 	float frequency { 440.f };
 };

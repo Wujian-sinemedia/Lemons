@@ -38,7 +38,9 @@ END_JUCE_MODULE_DECLARATION
 
 #include "oscillators/oscillators.h"
 #include "oscillators/SuperSaw.h"
-#include "oscillators/OscEngine.h"
+
+#include "engines/OscEngine.h"
+
 #include "oscillators/choosable.h"
 
 #include "filters/Filter.h"
