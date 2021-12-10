@@ -34,6 +34,13 @@ struct ConstructedArray final
 		while (array.size() > newNumObjects)
 			array.removeLast();
 	}
+    
+    /** Calls a function with each object in the array. */
+    void for_each (std::function<void(ObjectType&)> func)
+    {
+        for (auto* obj : array)
+            func (*obj);
+    }
 
 	/** Returns a pointer to the underlying juce::OwnedArray. */
 	juce::OwnedArray<ObjectType>* operator->() noexcept { return &array; }
