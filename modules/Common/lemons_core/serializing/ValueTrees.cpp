@@ -77,7 +77,7 @@ var VariantConverter<ValueTree>::toVar (const ValueTree& tree)
 		obj.setProperty (name, val.toString());
 	}
 
-	return { &obj };
+	return { obj.clone().get() };
 }
 
 }  // namespace juce

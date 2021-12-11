@@ -35,7 +35,7 @@ var VariantConverter<ADSR::Parameters>::toVar (const ADSR::Parameters& p)
 	obj.setProperty (sustain, p.sustain);
 	obj.setProperty (release, p.release);
 
-	return { &obj };
+	return { obj.clone().get() };
 }
 
 AudioBuffer<float> VariantConverter<AudioBuffer<float>>::fromVar (const var& v)
@@ -62,15 +62,27 @@ BigInteger VariantConverter<BigInteger>::fromVar (const var& v)
 {
 	BigInteger i;
 
-	if (const auto* block = v.getBinaryData())
-		i.loadFromMemoryBlock (*block);
+	if (const auto* obj = v.getDynamicObject())
+	{
+		if (obj->hasProperty (data))
+			if (const auto* block = obj->getProperty (data).getBinaryData())
+				i.loadFromMemoryBlock (*block);
+
+		if (obj->hasProperty (negative))
+			i.setNegative ((bool) obj->getProperty (negative));
+	}
 
 	return i;
 }
 
 var VariantConverter<BigInteger>::toVar (const BigInteger& i)
 {
-	return { i.toMemoryBlock() };
+	DynamicObject obj;
+
+	obj.setProperty (data, i.toMemoryBlock());
+	obj.setProperty (negative, i.isNegative());
+
+	return { obj.clone().get() };
 }
 
 Colour VariantConverter<Colour>::fromVar (const var& v)
@@ -211,7 +223,7 @@ var VariantConverter<MidiMessage>::toVar (const MidiMessage& m)
 	obj.setProperty (data_prop, block);
 	obj.setProperty (time_prop, m.getTimeStamp());
 
-	return { &obj };
+	return { obj.clone().get() };
 }
 
 NamedValueSet VariantConverter<NamedValueSet>::fromVar (const var& v)
@@ -229,7 +241,7 @@ var VariantConverter<NamedValueSet>::toVar (const NamedValueSet& s)
 	for (const auto& prop : s)
 		obj.setProperty (prop.name, prop.value);
 
-	return { &obj };
+	return { obj.clone().get() };
 }
 
 RelativeTime VariantConverter<RelativeTime>::fromVar (const var& v)
@@ -289,7 +301,7 @@ var VariantConverter<StringPairArray>::toVar (const StringPairArray& a)
 		                 values.strings.getUnchecked (i));
 	}
 
-	return { &obj };
+	return { obj.clone().get() };
 }
 
 Time VariantConverter<Time>::fromVar (const var& v)

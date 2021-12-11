@@ -119,3 +119,4 @@ using juce::ValueTree;
 #include "math/mathHelpers.h"
 #include "math/ValueSmoother.h"
 #include "math/vecops.h"
+#include "misc/ArgParser.h"

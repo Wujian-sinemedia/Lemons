@@ -36,6 +36,10 @@ struct VariantConverter<BigInteger>
 {
 	static BigInteger fromVar (const var& v);
 	static var        toVar (const BigInteger& i);
+
+private:
+	static constexpr auto data     = "Data";
+	static constexpr auto negative = "Negative";
 };
 
 template <>
@@ -202,12 +206,14 @@ namespace lemons::tests
 
 struct VariantConversionTests : public CoreTest
 {
-    VariantConversionTests();
-    
+	VariantConversionTests();
+
 private:
-    void runTest() final;
+	void runTest() final;
 };
 
-}
+static VariantConversionTests variantConverterTest;
+
+}  // namespace lemons::tests
 
 #endif

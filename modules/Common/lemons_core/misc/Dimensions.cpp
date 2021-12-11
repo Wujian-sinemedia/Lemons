@@ -7,6 +7,11 @@ constexpr Dimensions::Dimensions (int widthToUse, int heightToUse)
 {
 }
 
+constexpr bool Dimensions::operator== (const Dimensions& other) const noexcept
+{
+    return width == other.width && height == other.height;
+}
+
 constexpr bool Dimensions::isValid() const noexcept
 {
 	return width > 0 && height > 0;
@@ -18,6 +23,11 @@ constexpr float Dimensions::getAspectRatio() const noexcept
 		return 0.f;
 
 	return static_cast<float> (width) / static_cast<float> (height);
+}
+
+constexpr bool Dimensions::hasSameAspectRatioAs (const Dimensions& other) const noexcept
+{
+    return getAspectRatio() == other.getAspectRatio();
 }
 
 String Dimensions::toString() const noexcept
