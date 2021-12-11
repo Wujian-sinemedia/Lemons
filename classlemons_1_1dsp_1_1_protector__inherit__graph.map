@@ -1,0 +1,4 @@
+<map id="lemons::dsp::Protector&lt; SampleType &gt;" name="lemons::dsp::Protector&lt; SampleType &gt;">
+<area shape="rect" id="node1" title="A DSP engine that, under normal conditions, simply passes the audio through; if any samples are inf o..." alt="" coords="5,95,173,136"/>
+<area shape="rect" id="node2" href="$classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine." alt="" coords="13,5,166,47"/>
+</map>
