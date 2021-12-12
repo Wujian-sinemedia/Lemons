@@ -140,8 +140,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a8ecdb1df151eda76ed75304aea1dd2b7"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
 <tr class="memitem:a8ecdb1df151eda76ed75304aea1dd2b7"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#a8ecdb1df151eda76ed75304aea1dd2b7">fillAudioBufferWithRandomNoise</a> (<a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; SampleType &gt; &amp;buffer, juce::Random rng)</td></tr>
 <tr class="separator:a8ecdb1df151eda76ed75304aea1dd2b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45aa6aca22218a8a1c13b549c17712e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#a45aa6aca22218a8a1c13b549c17712e3">fillImageWithRandomPixels</a> (Image &amp;image, juce::Random rng)</td></tr>
+<tr class="separator:a45aa6aca22218a8a1c13b549c17712e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8657000a7bf8aaa4cc93c263c8dbc8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#ac8657000a7bf8aaa4cc93c263c8dbc8e">fillMidiBufferWithRandomEvents</a> (<a class="el" href="namespacelemons_1_1tests.html#a03c16098e5790557328c667001923104">MidiBuffer</a> &amp;buffer, int numEvents, juce::Random rng)</td></tr>
 <tr class="separator:ac8657000a7bf8aaa4cc93c263c8dbc8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac207a10fbe432026788c9341794ac68a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#ac207a10fbe432026788c9341794ac68a">imagesAreEqual</a> (const Image &amp;image1, const Image &amp;image2)</td></tr>
+<tr class="separator:ac207a10fbe432026788c9341794ac68a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab19c24a71eb5b03abd490ea31e88908e"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
 <tr class="memitem:ab19c24a71eb5b03abd490ea31e88908e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#ab19c24a71eb5b03abd490ea31e88908e">makeCopyOfAudioBuffer</a> (const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; SampleType &gt; &amp;inputBuffer)</td></tr>
 <tr class="separator:ab19c24a71eb5b03abd490ea31e88908e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -551,6 +555,34 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
+<a id="a45aa6aca22218a8a1c13b549c17712e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45aa6aca22218a8a1c13b549c17712e3">&#9670;&nbsp;</a></span>fillImageWithRandomPixels()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lemons::tests::fillImageWithRandomPixels </td>
+          <td>(</td>
+          <td class="paramtype">Image &amp;&#160;</td>
+          <td class="paramname"><em>image</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">juce::Random&#160;</td>
+          <td class="paramname"><em>rng</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ac8657000a7bf8aaa4cc93c263c8dbc8e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac8657000a7bf8aaa4cc93c263c8dbc8e">&#9670;&nbsp;</a></span>fillMidiBufferWithRandomEvents()</h2>
 
@@ -574,6 +606,34 @@ template&lt;typename SampleType &gt; </div>
           <td></td>
           <td class="paramtype">juce::Random&#160;</td>
           <td class="paramname"><em>rng</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac207a10fbe432026788c9341794ac68a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac207a10fbe432026788c9341794ac68a">&#9670;&nbsp;</a></span>imagesAreEqual()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::tests::imagesAreEqual </td>
+          <td>(</td>
+          <td class="paramtype">const Image &amp;&#160;</td>
+          <td class="paramname"><em>image1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Image &amp;&#160;</td>
+          <td class="paramname"><em>image2</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -674,7 +734,7 @@ template&lt;typename FloatType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 12 2021 00:47:35 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Dec 12 2021 22:55:41 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

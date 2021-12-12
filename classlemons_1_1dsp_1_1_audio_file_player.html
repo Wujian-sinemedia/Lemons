@@ -69,7 +69,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="classlemons_1_1dsp_1_1_audio_file_player-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">lemons::dsp::AudioFilePlayer&lt; SampleType &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span><div class="ingroups"><a class="el" href="group___audio.html">Audio</a> &raquo; <a class="el" href="group__lemons__dsp.html">lemons_dsp</a> &raquo; <a class="el" href="group__engines.html">engines</a></div></div>  </div>
@@ -92,6 +91,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a19c65c799877522dda6b1dddd085f90f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_audio_file_player.html#a19c65c799877522dda6b1dddd085f90f">AudioFilePlayer</a> (<a class="el" href="structlemons_1_1_audio_file.html">AudioFile</a> &amp;file)</td></tr>
 <tr class="memdesc:a19c65c799877522dda6b1dddd085f90f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="classlemons_1_1dsp_1_1_audio_file_player.html#a19c65c799877522dda6b1dddd085f90f">More...</a><br /></td></tr>
 <tr class="separator:a19c65c799877522dda6b1dddd085f90f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48194de98feece6739681aa9e840053e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_latency_engine.html#a48194de98feece6739681aa9e840053e">changeLatency</a> (int newInternalBlocksize, bool setTopLevelEngineBlocksize=false)</td></tr>
+<tr class="memdesc:a48194de98feece6739681aa9e840053e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the latency in samples of the engine.  <a href="classlemons_1_1dsp_1_1_latency_engine.html#a48194de98feece6739681aa9e840053e">More...</a><br /></td></tr>
+<tr class="separator:a48194de98feece6739681aa9e840053e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac58db70a45245363b4cde47e068c93f1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine.html#ac58db70a45245363b4cde47e068c93f1">getBlocksize</a> () const noexcept</td></tr>
+<tr class="memdesc:ac58db70a45245363b4cde47e068c93f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the maximum blocksize this engine has been prepared to process.  <a href="classlemons_1_1dsp_1_1_engine.html#ac58db70a45245363b4cde47e068c93f1">More...</a><br /></td></tr>
+<tr class="separator:ac58db70a45245363b4cde47e068c93f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcbd3bdeebea99be0e756ad1161190dc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine.html#abcbd3bdeebea99be0e756ad1161190dc">getNumChannels</a> () const noexcept</td></tr>
 <tr class="memdesc:abcbd3bdeebea99be0e756ad1161190dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of channels this engine has been prepared to process.  <a href="classlemons_1_1dsp_1_1_engine.html#abcbd3bdeebea99be0e756ad1161190dc">More...</a><br /></td></tr>
 <tr class="separator:abcbd3bdeebea99be0e756ad1161190dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,18 +124,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a144323b4488420dcf49b89cee7837f8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_engine.html#a144323b4488420dcf49b89cee7837f8c">releaseResources</a> ()</td></tr>
 <tr class="memdesc:a144323b4488420dcf49b89cee7837f8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases all of the engine's internal resources.  <a href="classlemons_1_1dsp_1_1_engine.html#a144323b4488420dcf49b89cee7837f8c">More...</a><br /></td></tr>
 <tr class="separator:a144323b4488420dcf49b89cee7837f8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13fce9c2a64647375473f7df8b33db35"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_latency_engine.html#a13fce9c2a64647375473f7df8b33db35">reportLatency</a> () const final</td></tr>
-<tr class="memdesc:a13fce9c2a64647375473f7df8b33db35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the latency in samples of the engine.  <a href="classlemons_1_1dsp_1_1_latency_engine.html#a13fce9c2a64647375473f7df8b33db35">More...</a><br /></td></tr>
-<tr class="separator:a13fce9c2a64647375473f7df8b33db35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89329e1d6ff9072befae739f72a5837b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_latency_engine.html#a89329e1d6ff9072befae739f72a5837b">setSamplerate</a> (double samplerate)</td></tr>
-<tr class="memdesc:a89329e1d6ff9072befae739f72a5837b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the samplerate of the engine.  <a href="classlemons_1_1dsp_1_1_latency_engine.html#a89329e1d6ff9072befae739f72a5837b">More...</a><br /></td></tr>
-<tr class="separator:a89329e1d6ff9072befae739f72a5837b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:af0419e5fefcb2a16b836cb18ab8cf023"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_latency_engine.html#af0419e5fefcb2a16b836cb18ab8cf023">changeLatency</a> (int newInternalBlocksize)</td></tr>
-<tr class="memdesc:af0419e5fefcb2a16b836cb18ab8cf023"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the latency in samples of the engine.  <a href="classlemons_1_1dsp_1_1_latency_engine.html#af0419e5fefcb2a16b836cb18ab8cf023">More...</a><br /></td></tr>
-<tr class="separator:af0419e5fefcb2a16b836cb18ab8cf023"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd086f2b1631407ba7df71df15f958c9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_latency_engine.html#afd086f2b1631407ba7df71df15f958c9">reportLatency</a> () const noexcept final</td></tr>
+<tr class="memdesc:afd086f2b1631407ba7df71df15f958c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the latency in samples of the engine.  <a href="classlemons_1_1dsp_1_1_latency_engine.html#afd086f2b1631407ba7df71df15f958c9">More...</a><br /></td></tr>
+<tr class="separator:afd086f2b1631407ba7df71df15f958c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename SampleType&gt;<br />
@@ -170,8 +166,8 @@ template&lt;typename SampleType &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="af0419e5fefcb2a16b836cb18ab8cf023"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0419e5fefcb2a16b836cb18ab8cf023">&#9670;&nbsp;</a></span>changeLatency()</h2>
+<a id="a48194de98feece6739681aa9e840053e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48194de98feece6739681aa9e840053e">&#9670;&nbsp;</a></span>changeLatency()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -185,18 +181,65 @@ template&lt;typename SampleType &gt; </div>
           <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1_latency_engine.html">lemons::dsp::LatencyEngine</a>&lt; SampleType &gt;::changeLatency </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>newInternalBlocksize</em></td><td>)</td>
+          <td class="paramname"><em>newInternalBlocksize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>setTopLevelEngineBlocksize</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Sets the latency in samples of the engine. </p>
+<p>Note that you must call <a class="el" href="classlemons_1_1dsp_1_1_engine.html#a92fe69356c54445d91e70586cc9cdf73" title="Prepares the engine.">Engine::prepare()</a> at least once before calling this function, and the latency you specify here may be different than the blocksize you prepare the <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> base class with. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newInternalBlocksize</td><td>The new latency (and internal blocksize) of the engine, in samples. </td></tr>
+    <tr><td class="paramname">setTopLevelEngineBlocksize</td><td>When true, this calls <a class="el" href="classlemons_1_1dsp_1_1_engine.html#a92fe69356c54445d91e70586cc9cdf73" title="Prepares the engine.">Engine::prepare()</a> and sets the <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">Engine</a> base class's blocksize to be the new latency. This may be undesirable, because this will not allow you to call the top level <a class="el" href="classlemons_1_1dsp_1_1_engine.html#a48b37b72835d34fc060a1010a1fe2499" title="Processes the audio engine with in-place audio I/O and MIDI.">process()</a> function with blocksizes larger than the latency you've declared here. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac58db70a45245363b4cde47e068c93f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac58db70a45245363b4cde47e068c93f1">&#9670;&nbsp;</a></span>getBlocksize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename SampleType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classlemons_1_1dsp_1_1_engine.html">lemons::dsp::Engine</a>&lt; SampleType &gt;::getBlocksize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the maximum blocksize this engine has been prepared to process. </p>
+<p>This will return 0 if the engine is unprepared. </p>
 
 </div>
 </div>
@@ -583,8 +626,8 @@ template&lt;typename SampleType &gt; </div>
 
 </div>
 </div>
-<a id="a13fce9c2a64647375473f7df8b33db35"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13fce9c2a64647375473f7df8b33db35">&#9670;&nbsp;</a></span>reportLatency()</h2>
+<a id="afd086f2b1631407ba7df71df15f958c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd086f2b1631407ba7df71df15f958c9">&#9670;&nbsp;</a></span>reportLatency()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -603,45 +646,14 @@ template&lt;typename SampleType &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">virtual</span><span class="mlabel">noexcept</span><span class="mlabel">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Returns the latency in samples of the engine. </p>
 
-<p>Reimplemented from <a class="el" href="classlemons_1_1dsp_1_1_engine.html#a8cf8a2dd9e6cded85b3762f9db805310">lemons::dsp::Engine&lt; SampleType &gt;</a>.</p>
-
-</div>
-</div>
-<a id="a89329e1d6ff9072befae739f72a5837b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89329e1d6ff9072befae739f72a5837b">&#9670;&nbsp;</a></span>setSamplerate()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename SampleType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1_latency_engine.html">lemons::dsp::LatencyEngine</a>&lt; SampleType &gt;::setSamplerate </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>samplerate</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the samplerate of the engine. </p>
-<p>This function exists so that you can update only the samplerate, without needing to call <a class="el" href="classlemons_1_1dsp_1_1_engine.html#a92fe69356c54445d91e70586cc9cdf73" title="Prepares the engine.">Engine::prepare()</a> and provide the blocksize again. </p>
+<p>Reimplemented from <a class="el" href="classlemons_1_1dsp_1_1_engine.html#ab167e1944264df820f50cd637bfefc13">lemons::dsp::Engine&lt; SampleType &gt;</a>.</p>
 
 </div>
 </div>
@@ -651,7 +663,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 12 2021 00:47:34 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Dec 12 2021 22:55:41 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

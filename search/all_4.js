@@ -9,7 +9,7 @@ var searchData=
   ['enableonlyvertical_190',['enableOnlyVertical',['../structlemons_1_1_device_rotation.html#a0e2de5eccdc3b2507720466dcc0dd0cf',1,'lemons::DeviceRotation']]],
   ['end_191',['end',['../structlemons_1_1_constructed_array.html#a052d7d0d70b4978b3f7cb813ac3ae308',1,'lemons::ConstructedArray::end() noexcept'],['../structlemons_1_1_constructed_array.html#aa1da327a1a1c988619a16a7d01ee78e2',1,'lemons::ConstructedArray::end() const noexcept']]],
   ['endgesture_192',['endGesture',['../classlemons_1_1plugin_1_1_parameter.html#a6dcc681b173e3682f071e0423343e12f',1,'lemons::plugin::Parameter']]],
-  ['engine_193',['Engine',['../classlemons_1_1dsp_1_1_engine.html',1,'lemons::dsp::Engine&lt; SampleType &gt;'],['../classlemons_1_1dsp_1_1osc_1_1_engine.html',1,'lemons::dsp::osc::Engine&lt; SampleType, Osctype, &gt;'],['../classlemons_1_1dsp_1_1_engine.html#aff2070d0265ee64b3377e7551525efa6',1,'lemons::dsp::Engine::Engine()']]],
+  ['engine_193',['Engine',['../classlemons_1_1dsp_1_1osc_1_1_engine.html',1,'lemons::dsp::osc::Engine&lt; SampleType, Osctype, &gt;'],['../classlemons_1_1dsp_1_1_engine.html',1,'lemons::dsp::Engine&lt; SampleType &gt;'],['../classlemons_1_1dsp_1_1_engine.html#aff2070d0265ee64b3377e7551525efa6',1,'lemons::dsp::Engine::Engine()']]],
   ['engine_3c_20double_20_3e_194',['Engine&lt; double &gt;',['../classlemons_1_1dsp_1_1_engine.html',1,'lemons::dsp']]],
   ['engine_3c_20float_20_3e_195',['Engine&lt; float &gt;',['../classlemons_1_1dsp_1_1_engine.html',1,'lemons::dsp']]],
   ['engine_3c_20float_2c_20lemons_3a_3adsp_3a_3aosc_3a_3asaw_20_3e_196',['Engine&lt; float, lemons::dsp::osc::Saw &gt;',['../classlemons_1_1dsp_1_1osc_1_1_engine.html',1,'lemons::dsp::osc']]],
