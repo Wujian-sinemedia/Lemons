@@ -238,6 +238,9 @@ struct VariantConversionTests : public CoreTest
 
 private:
 	void runTest() final;
+
+	template <typename SampleType>
+	void runAudioBufferTest();
 };
 
 static VariantConversionTests variantConverterTest;

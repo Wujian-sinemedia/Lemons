@@ -64,9 +64,7 @@ void DataConversionTests::runTest()
 
 	MidiBuffer origMidi;
 
-	constexpr auto numMidiEvents = 256;
-
-	fillMidiBufferWithRandomEvents (origMidi, numMidiEvents, getRandom());
+	fillMidiBufferWithRandomEvents (origMidi, 256, getRandom());
 
 	{
 		const auto subtest = beginSubtest ("MIDI buffer to/from MIDI file");
@@ -82,18 +80,17 @@ void DataConversionTests::runTest()
 
 	// expect (midiBuffersAreEqual (origMidi, decoded));
 
+
 	beginTest ("Images");
 
-	constexpr auto imageWidth  = 250;
-	constexpr auto imageHeight = 250;
+	Image image { juce::Image::PixelFormat::RGB, 250, 250, true };
 
-	juce::Image image { juce::Image::PixelFormat::RGB, imageWidth, imageHeight, true };
+	fillImageWithRandomPixels (image, getRandom());
 
 	const auto blob         = serializing::imageToBinary (image);
 	const auto decodedImage = serializing::imageFromBinary (blob);
 
-	expectEquals (decodedImage.getWidth(), imageWidth);
-	expectEquals (decodedImage.getHeight(), imageHeight);
+	// expect (imagesAreEqual (decodedImage, image));
 
 
 	beginTest ("Memory block to/from string");
@@ -101,7 +98,7 @@ void DataConversionTests::runTest()
 	const auto memStr     = serializing::memoryBlockToString (block);
 	const auto memDecoded = serializing::memoryBlockFromString (memStr);
 
-	expect (block.matches (memDecoded.getData(), memDecoded.getSize()));
+	expect (block == memDecoded);
 }
 
 template <typename SampleType>

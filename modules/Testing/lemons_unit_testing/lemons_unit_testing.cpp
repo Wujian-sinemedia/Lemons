@@ -2,6 +2,7 @@
 
 
 #include "util/dsp_helpers.cpp"
+#include "util/graphics_helpers.cpp"
 
 #include "tests/test.cpp"
 #include "tests/audio_processor_test.cpp"

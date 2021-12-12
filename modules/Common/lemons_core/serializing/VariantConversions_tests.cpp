@@ -3,6 +3,15 @@
 namespace lemons::tests
 {
 
+template <typename Type>
+[[nodiscard]] inline Type toVarAndBack (const Type& orig)
+{
+	using Converter = juce::VariantConverter<Type>;
+
+	return Converter::fromVar (Converter::toVar (orig));
+}
+
+
 VariantConversionTests::VariantConversionTests()
     : CoreTest ("Variant conversions")
 {
@@ -21,8 +30,7 @@ void VariantConversionTests::runTest()
 
 		const ADSR::Parameters params { rand.nextFloat(), rand.nextFloat(), rand.nextFloat(), rand.nextFloat() };
 
-		const auto var     = VariantConverter<ADSR::Parameters>::toVar (params);
-		const auto decoded = VariantConverter<ADSR::Parameters>::fromVar (var);
+		const auto decoded = toVarAndBack (params);
 
 		expectEquals (decoded.attack, params.attack);
 		expectEquals (decoded.decay, params.decay);
@@ -31,14 +39,10 @@ void VariantConversionTests::runTest()
 	}
 
 	{
-		//        const auto bufferSubtest = beginSubtest ("Audio buffers");
+		//        const auto subtest = beginSubtest ("Audio buffers");
 		//
-		//        {
-		//            const auto subtest = beginSubtest ("float");
-		//        }
-		//        {
-		//            const auto subtest = beginSubtest ("double");
-		//        }
+		//        runAudioBufferTest<float>();
+		//        runAudioBufferTest<double>();
 	}
 
 	{
@@ -46,10 +50,7 @@ void VariantConversionTests::runTest()
 
 		const BigInteger orig { rand.nextInt64() };
 
-		const auto var     = VariantConverter<BigInteger>::toVar (orig);
-		const auto decoded = VariantConverter<BigInteger>::fromVar (var);
-
-		expect (decoded == orig);
+		expect (toVarAndBack (orig) == orig);
 	}
 
 	{
@@ -57,10 +58,7 @@ void VariantConversionTests::runTest()
 
 		const Colour orig { rand.nextFloat(), rand.nextFloat(), rand.nextFloat(), rand.nextFloat() };
 
-		const auto var     = VariantConverter<Colour>::toVar (orig);
-		const auto decoded = VariantConverter<Colour>::fromVar (var);
-
-		expect (orig == decoded);
+		expect (orig == toVarAndBack (orig));
 	}
 
 	{
@@ -68,25 +66,25 @@ void VariantConversionTests::runTest()
 
 		const Identifier orig { "TestID" };
 
-		const auto var     = VariantConverter<Identifier>::toVar (orig);
-		const auto decoded = VariantConverter<Identifier>::fromVar (var);
-
-		expect (orig == decoded);
+		expect (orig == toVarAndBack (orig));
 	}
 
-	//    {
-	//        const auto subtest = beginSubtest ("Image");
-	//    }
+	{
+		//        const auto subtest = beginSubtest ("Image");
+		//
+		//        Image orig { juce::Image::PixelFormat::RGB, 250, 250, true };
+		//
+		//        fillImageWithRandomPixels (orig, rand);
+		//
+		//        expect (imagesAreEqual (orig, toVarAndBack (orig)));
+	}
 
 	{
 		const auto subtest = beginSubtest ("IPAddress");
 
 		const auto orig = IPAddress::getLocalAddress();
 
-		const auto var     = VariantConverter<IPAddress>::toVar (orig);
-		const auto decoded = VariantConverter<IPAddress>::fromVar (var);
-
-		expect (orig == decoded);
+		expect (orig == toVarAndBack (orig));
 	}
 
 	{
@@ -94,32 +92,36 @@ void VariantConversionTests::runTest()
 
 		const Justification orig { Justification::Flags::left };
 
-		const auto var     = VariantConverter<Justification>::toVar (orig);
-		const auto decoded = VariantConverter<Justification>::fromVar (var);
-
-		expect (orig == decoded);
+		expect (orig == toVarAndBack (orig));
 	}
 
 	{
 		const auto subtest = beginSubtest ("MAC Address");
 
 		for (const auto& orig : MACAddress::getAllAddresses())
-		{
-			const auto var     = VariantConverter<MACAddress>::toVar (orig);
-			const auto decoded = VariantConverter<MACAddress>::fromVar (var);
-
-			expect (orig == decoded);
-		}
+			expect (orig == toVarAndBack (orig));
 	}
 
-	//    {
-	//        const auto subtest = beginSubtest ("MemoryBlock");
-	//    }
+	{
+		const auto subtest = beginSubtest ("MemoryBlock");
 
-	//    {
-	//        const auto subtest = beginSubtest ("MidiBuffer");
-	//    }
-	//
+		MemoryBlock orig { size_t (512) };
+
+		orig.fillWith (uint8 (17));
+
+		expect (orig == toVarAndBack (orig));
+	}
+
+	{
+		//        const auto subtest = beginSubtest ("MidiBuffer");
+		//
+		//        MidiBuffer orig;
+		//
+		//        fillMidiBufferWithRandomEvents (orig, rand.nextInt ({ 1, 100 }), rand);
+		//
+		//        expect (midiBuffersAreEqual (orig, toVarAndBack (orig)));
+	}
+
 	//    {
 	//        const auto subtest = beginSubtest ("MidiFile");
 	//    }
@@ -133,8 +135,7 @@ void VariantConversionTests::runTest()
 
 		const auto orig = MidiMessage::noteOn (channel, note, velocity);
 
-		const auto var     = VariantConverter<MidiMessage>::toVar (orig);
-		const auto decoded = VariantConverter<MidiMessage>::fromVar (var);
+		const auto decoded = toVarAndBack (orig);
 
 		expect (decoded.isNoteOn());
 
@@ -153,19 +154,15 @@ void VariantConversionTests::runTest()
 		orig.set ("Integer", 42);
 		orig.set ("Float", 38.13f);
 
-		const auto var     = VariantConverter<NamedValueSet>::toVar (orig);
-		const auto decoded = VariantConverter<NamedValueSet>::fromVar (var);
-
-		expect (decoded == orig);
+		expect (orig == toVarAndBack (orig));
 	}
 
 	{
 		const auto subtest = beginSubtest ("RelativeTime");
 
-		const auto orig = RelativeTime::milliseconds (rand.nextInt64());
+		const auto orig = RelativeTime::milliseconds (rand.nextInt ({ 1, 10000 }));
 
-		const auto var     = VariantConverter<RelativeTime>::toVar (orig);
-		const auto decoded = VariantConverter<RelativeTime>::fromVar (var);
+		const auto decoded = toVarAndBack (orig);
 
 		expectEquals (decoded.inMilliseconds(), orig.inMilliseconds());
 	}
@@ -175,10 +172,7 @@ void VariantConversionTests::runTest()
 
 		const StringArray orig { "String1", "String2", "String3", "String4" };
 
-		const auto var     = VariantConverter<StringArray>::toVar (orig);
-		const auto decoded = VariantConverter<StringArray>::fromVar (var);
-
-		expect (decoded == orig);
+		expect (orig == toVarAndBack (orig));
 	}
 
 	{
@@ -190,10 +184,7 @@ void VariantConversionTests::runTest()
 		orig.set ("Fruit", "Orange");
 		orig.set ("Veggie", "Celery");
 
-		const auto var     = VariantConverter<StringPairArray>::toVar (orig);
-		const auto decoded = VariantConverter<StringPairArray>::fromVar (var);
-
-		expect (orig == decoded);
+		expect (orig == toVarAndBack (orig));
 	}
 
 	{
@@ -201,8 +192,7 @@ void VariantConversionTests::runTest()
 
 		const auto orig = Time::getCurrentTime();
 
-		const auto var     = VariantConverter<Time>::toVar (orig);
-		const auto decoded = VariantConverter<Time>::fromVar (var);
+		const auto decoded = toVarAndBack (orig);
 
 		expectEquals (decoded.toMilliseconds(), orig.toMilliseconds());
 	}
@@ -212,10 +202,7 @@ void VariantConversionTests::runTest()
 
 		const Uuid orig;
 
-		const auto var     = VariantConverter<Uuid>::toVar (orig);
-		const auto decoded = VariantConverter<Uuid>::fromVar (var);
-
-		expect (orig == decoded);
+		expect (orig == toVarAndBack (orig));
 	}
 
 	{
@@ -223,10 +210,7 @@ void VariantConversionTests::runTest()
 
 		const URL orig { "www.juce.com" };
 
-		const auto var     = VariantConverter<URL>::toVar (orig);
-		const auto decoded = VariantConverter<URL>::fromVar (var);
-
-		expect (orig == decoded);
+		expect (orig == toVarAndBack (orig));
 	}
 
 	//    {
@@ -244,10 +228,7 @@ void VariantConversionTests::runTest()
 
 		constexpr auto orig = Dimensions::getDefault();
 
-		const auto var     = VariantConverter<Dimensions>::toVar (orig);
-		const auto decoded = VariantConverter<Dimensions>::fromVar (var);
-
-		expect (orig == decoded);
+		expect (orig == toVarAndBack (orig));
 	}
 
 	{
@@ -257,12 +238,24 @@ void VariantConversionTests::runTest()
 
 		constexpr auto orig = Version::juceVersion();
 
-		const auto var     = VariantConverter<Version>::toVar (orig);
-		const auto decoded = VariantConverter<Version>::fromVar (var);
-
-		expect (decoded == orig);
+		expect (orig == toVarAndBack (orig));
 	}
 }
+
+template <typename SampleType>
+void VariantConversionTests::runAudioBufferTest()
+{
+	const auto subtest = beginSubtest (getPrecisionString<SampleType>() + " precision tests");
+
+	AudioBuffer<SampleType> orig { 2, 256 };
+
+	fillAudioBufferWithRandomNoise (orig, getRandom());
+
+	expect (buffersAreReasonablyEqual (orig, toVarAndBack (orig)));
+}
+
+template void VariantConversionTests::runAudioBufferTest<float>();
+template void VariantConversionTests::runAudioBufferTest<double>();
 
 }  // namespace lemons::tests
 
