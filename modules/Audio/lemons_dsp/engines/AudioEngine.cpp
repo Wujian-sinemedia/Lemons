@@ -2,6 +2,30 @@ namespace lemons::dsp
 {
 
 template <typename SampleType>
+bool Engine<SampleType>::isInitialized() const noexcept
+{
+	return sampleRate > 0. && blockSize > 0;
+}
+
+template <typename SampleType>
+int Engine<SampleType>::reportLatency() const noexcept
+{
+	return 0;
+}
+
+template <typename SampleType>
+double Engine<SampleType>::getSamplerate() const noexcept
+{
+	return sampleRate;
+}
+
+template <typename SampleType>
+int Engine<SampleType>::getBlocksize() const noexcept
+{
+	return blockSize;
+}
+
+template <typename SampleType>
 void Engine<SampleType>::prepare (double samplerate, int blocksize, int numChannels)
 {
 	jassert (samplerate > 0 && blocksize > 0 && numChannels > 0);
@@ -9,6 +33,7 @@ void Engine<SampleType>::prepare (double samplerate, int blocksize, int numChann
 	dummyMidiBuffer.ensureSize (static_cast<size_t> (blocksize));
 	outputStorage.setSize (numChannels, blocksize, true, true, true);
 	sampleRate = samplerate;
+	blockSize  = blocksize;
 
 	prepared (blocksize, samplerate, numChannels);
 }
@@ -20,6 +45,7 @@ void Engine<SampleType>::releaseResources()
 	outputStorage.setSize (0, 0);
 	wasBypassedLastCallback = true;
 	sampleRate              = 0.;
+	blockSize               = 0;
 
 	released();
 }
@@ -67,6 +93,17 @@ void Engine<SampleType>::process (const AudioBuffer<SampleType>& input,
 template <typename SampleType>
 void Engine<SampleType>::processInternal (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages, bool isBypassed)
 {
+	const auto numSamples = output.getNumSamples();
+	jassert (numSamples == input.getNumSamples());
+
+	if (numSamples == 0)
+		return;
+
+	jassert (input.getNumChannels() == output.getNumChannels());
+
+	if (input.getNumChannels() == 0)
+		return;
+
 	jassert (isInitialized());
 
 	bool applyFadeIn                 = false;
@@ -85,8 +122,6 @@ void Engine<SampleType>::processInternal (const AudioBuffer<SampleType>& input, 
 	}
 
 	jassert (! (applyFadeIn && applyFadeOut));
-
-	const auto numSamples = output.getNumSamples();
 
 	auto alias = buffers::getAliasBuffer (outputStorage, 0, numSamples);
 

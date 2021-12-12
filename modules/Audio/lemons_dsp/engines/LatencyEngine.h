@@ -11,21 +11,18 @@ class LatencyEngine : public Engine<SampleType>
 {
 public:
 	/** Returns the latency in samples of the engine. */
-	int reportLatency() const final { return internalBlocksize; }
+	[[nodiscard]] int reportLatency() const noexcept final;
 
-	/** Sets the samplerate of the engine.
-	    This function exists so that you can update only the samplerate, without needing to call Engine::prepare() and provide the blocksize again.
+	/** Sets the latency in samples of the engine.
+	    Note that you must call Engine::prepare() at least once before calling this function, and the latency you specify here may be different than the blocksize you prepare the Engine base class with.
+	    @param newInternalBlocksize The new latency (and internal blocksize) of the engine, in samples.
+	    @param setTopLevelEngineBlocksize When true, this calls Engine::prepare() and sets the Engine base class's blocksize to be the new latency. This may be undesirable, because this will not allow you to call the top level process() function with blocksizes larger than the latency you've declared here.
 	 */
-	void setSamplerate (double samplerate);
-
-protected:
-	/** Sets the latency in samples of the engine. */
-	void changeLatency (int newInternalBlocksize);
+	void changeLatency (int newInternalBlocksize, bool setTopLevelEngineBlocksize = false);
 
 private:
 	void renderBlock (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages, bool isBypassed) final;
 
-	void prepared (int blocksize, double samplerate, int numChannels) final;
 	void released() final;
 
 	/** Your subclass should implement this function with your audio algorithm's rendering logic.
@@ -33,11 +30,11 @@ private:
 	 */
 	virtual void renderChunk (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages, bool isBypassed) = 0;
 
-	/** Your subclass may implement this to be informed when the engine is prepared. */
-	virtual void onPrepare (int blocksize, double samplerate, int numChannels);
-
 	/** Your subclass may implement this to be informed when the engine is released. */
 	virtual void onRelease() { }
+
+	/** Your subclass may implement this to be informed when the engine's latency is changed. */
+	virtual void latencyChanged (int newLatency);
 
 
 	int                          internalBlocksize { 0 };
@@ -64,8 +61,6 @@ public:
 
 private:
 	void runTest() final;
-
-	void testLatency (int latency);
 
 	struct PassThroughEngine : public dsp::LatencyEngine<FloatType>
 	{

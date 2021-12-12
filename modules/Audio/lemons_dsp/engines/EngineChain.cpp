@@ -15,6 +15,12 @@ Engine<SampleType>& EngineChain<SampleType>::Node::getEngine()
 }
 
 template <typename SampleType>
+Engine<SampleType>* EngineChain<SampleType>::Node::operator->()
+{
+	return engine.get();
+}
+
+template <typename SampleType>
 bool EngineChain<SampleType>::Node::isBypassed() const noexcept
 {
 	return bypassed;
@@ -81,7 +87,7 @@ void EngineChain<SampleType>::renderChunk (const AudioBuffer<SampleType>& input,
 }
 
 template <typename SampleType>
-void EngineChain<SampleType>::onPrepare (int blocksize, double samplerate, int numChannels)
+void EngineChain<SampleType>::prepared (int blocksize, double samplerate, int numChannels)
 {
 	int latency = 0;
 
@@ -89,13 +95,18 @@ void EngineChain<SampleType>::onPrepare (int blocksize, double samplerate, int n
 		latency = std::max (latency, node->engine->reportLatency());
 
 	if (latency != this->reportLatency())
-	{
 		this->changeLatency (latency);
-		return;
-	}
 
 	for (auto* node : nodes)
 		node->engine->prepare (samplerate, blocksize, numChannels);
+}
+
+template <typename SampleType>
+void EngineChain<SampleType>::latencyChanged (int newLatency)
+{
+	for (auto* node : nodes)
+		if (auto* latencyEngine = dynamic_cast<LatencyEngine<SampleType>*> (node->engine.get()))
+			latencyEngine->changeLatency (newLatency);
 }
 
 template <typename SampleType>

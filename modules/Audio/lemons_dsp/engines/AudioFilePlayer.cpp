@@ -61,10 +61,8 @@ void AudioFilePlayer<SampleType>::renderChunk (const AudioBuffer<SampleType>&,
 }
 
 template <typename SampleType>
-void AudioFilePlayer<SampleType>::onPrepare (int blocksize, double samplerate, int)
+void AudioFilePlayer<SampleType>::prepared (int, double samplerate, int)
 {
-	jassert (blocksize == this->reportLatency());
-
 	constexpr auto baseLatency = InterpolatorType::getBaseLatency();
 
 	speedRatio = origSamplerate / samplerate;

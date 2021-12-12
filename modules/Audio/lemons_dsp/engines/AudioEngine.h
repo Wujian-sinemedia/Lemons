@@ -16,9 +16,6 @@ public:
 	/** Destructor. */
 	virtual ~Engine() = default;
 
-	/** Returns the latency in samples of this engine. */
-	virtual int reportLatency() const { return 0; }
-
 
 	/** Processes the audio engine with in-place audio I/O and MIDI.
 	    @param inplaceInAndOut The audio buffer that the input will be read from and the output will be written to.
@@ -65,7 +62,7 @@ public:
 	/** Returns true if prepare() has been called at least once since the object's construction or the last releaseResources() call.
 	    @see prepare(), releaseResources()
 	 */
-	bool isInitialized() const noexcept { return sampleRate > 0.; }
+	[[nodiscard]] bool isInitialized() const noexcept;
 
 
 	/** Prepares the engine. */
@@ -74,15 +71,23 @@ public:
 	/** Releases all of the engine's internal resources. */
 	void releaseResources();
 
+	/** Returns the latency in samples of this engine. */
+	[[nodiscard]] virtual int reportLatency() const noexcept;
+
 	/** Returns the engine's samplerate.
 	    This will return 0. if the engine is unprepared.
 	 */
-	double getSamplerate() const noexcept { return sampleRate; }
+	[[nodiscard]] double getSamplerate() const noexcept;
 
 	/** Returns the number of channels this engine has been prepared to process.
 	    This will return 0 if the engine is unprepared.
 	 */
-	int getNumChannels() const noexcept;
+	[[nodiscard]] int getNumChannels() const noexcept;
+
+	/** Returns the maximum blocksize this engine has been prepared to process.
+	    This will return 0 if the engine is unprepared.
+	 */
+	[[nodiscard]] int getBlocksize() const noexcept;
 
 private:
 	void processInternal (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages, bool isBypassed);
@@ -99,8 +104,11 @@ private:
 	MidiBuffer dummyMidiBuffer;
 	bool       wasBypassedLastCallback { true };
 	double     sampleRate { 0. };
+	int        blockSize { 0 };
 
 	AudioBuffer<SampleType> outputStorage;
+
+	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Engine)
 };
 
 }  // namespace lemons::dsp

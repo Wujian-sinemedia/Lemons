@@ -18,7 +18,7 @@ private:
 
 	void renderChunk (const AudioBuffer<SampleType>&, AudioBuffer<SampleType>& output, MidiBuffer&, bool isBypassed) final;
 
-	void onPrepare (int blocksize, double samplerate, int numChannels) final;
+	void prepared (int, double samplerate, int) final;
 
 	void onRelease() final;
 

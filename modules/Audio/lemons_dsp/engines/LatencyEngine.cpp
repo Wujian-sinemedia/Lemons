@@ -2,21 +2,9 @@ namespace lemons::dsp
 {
 
 template <typename SampleType>
-void LatencyEngine<SampleType>::prepared (int blocksize, double samplerate, int numChannels)
+int LatencyEngine<SampleType>::reportLatency() const noexcept
 {
-	jassert (blocksize == internalBlocksize);
-
-	const auto multiple = blocksize * 4;
-
-	inputFIFO.setSize (multiple, numChannels);
-	outputFIFO.setSize (multiple, numChannels);
-
-	chunkMidiBuffer.ensureSize (static_cast<size_t> (blocksize));
-
-	inBuffer.setSize (numChannels, multiple, true, true, true);
-	outBuffer.setSize (numChannels, multiple, true, true, true);
-
-	onPrepare (blocksize, samplerate, numChannels);
+	return internalBlocksize;
 }
 
 template <typename SampleType>
@@ -33,32 +21,43 @@ void LatencyEngine<SampleType>::released()
 }
 
 template <typename SampleType>
-void LatencyEngine<SampleType>::changeLatency (int newInternalBlocksize)
+void LatencyEngine<SampleType>::changeLatency (int newInternalBlocksize, bool setTopLevelEngineBlocksize)
 {
 	jassert (newInternalBlocksize > 0);
+	jassert (this->isInitialized());
 
 	internalBlocksize = newInternalBlocksize;
 
-	auto channels = inBuffer.getNumChannels();
-	if (channels == 0) channels = 2;
+	const auto multiple = newInternalBlocksize * 4;
 
-	auto samplerate = this->getSamplerate();
-	if (samplerate == 0.) samplerate = 44100.;
+	const auto channels = this->getNumChannels();
+	jassert (channels > 0);
 
-	this->prepare (samplerate, internalBlocksize, channels);
-}
+	inputFIFO.setSize (multiple, channels);
+	outputFIFO.setSize (multiple, channels);
 
-template <typename SampleType>
-void LatencyEngine<SampleType>::setSamplerate (double samplerate)
-{
-	jassert (samplerate > 0.);
+	chunkMidiBuffer.ensureSize (static_cast<size_t> (newInternalBlocksize));
+	chunkMidiBuffer.clear();
 
-	auto channels = inBuffer.getNumChannels();
-	if (channels == 0) channels = 2;
+	inBuffer.setSize (channels, multiple, true, true, true);
+	outBuffer.setSize (channels, multiple, true, true, true);
 
-	if (internalBlocksize == 0) internalBlocksize = 512;
+	inBuffer.clear();
+	outBuffer.clear();
 
-	this->prepare (samplerate, internalBlocksize, channels);
+	// push newInternalBlocksize worth of silent samples into outputFIFO
+	outputFIFO.push (buffers::getAliasBuffer (outBuffer, 0, newInternalBlocksize),
+	                 chunkMidiBuffer);
+
+	latencyChanged (newInternalBlocksize);
+
+	if (setTopLevelEngineBlocksize)
+	{
+		const auto samplerate = this->getSamplerate();
+		jassert (samplerate > 0.);
+
+		this->prepare (samplerate, internalBlocksize, channels);
+	}
 }
 
 template <typename SampleType>
@@ -66,15 +65,8 @@ void LatencyEngine<SampleType>::renderBlock (const AudioBuffer<SampleType>& inpu
 {
 	jassert (internalBlocksize > 0);
 
-	if (input.getNumChannels() == 0 || output.getNumChannels() == 0)
-		return;
-
 	const auto totalNumSamples = input.getNumSamples();
-
 	jassert (totalNumSamples == output.getNumSamples());
-
-	if (totalNumSamples == 0)
-		return;
 
 	inputFIFO.push (input, midiMessages);
 
@@ -85,6 +77,8 @@ void LatencyEngine<SampleType>::renderBlock (const AudioBuffer<SampleType>& inpu
 
 		inputFIFO.pop (inAlias, chunkMidiBuffer);
 
+		outAlias.clear();
+
 		renderChunk (inAlias, outAlias, chunkMidiBuffer, isBypassed);
 
 		outputFIFO.push (outAlias, chunkMidiBuffer);
@@ -94,7 +88,7 @@ void LatencyEngine<SampleType>::renderBlock (const AudioBuffer<SampleType>& inpu
 }
 
 template <typename SampleType>
-void LatencyEngine<SampleType>::onPrepare (int, double, int)
+void LatencyEngine<SampleType>::latencyChanged (int)
 {
 }
 
@@ -139,40 +133,39 @@ void LatencyEngineTests<FloatType>::runTest()
 		fillAudioBufferWithRandomNoise (audioIn, getRandom());
 		fillMidiBufferWithRandomEvents (midiStorage, blocksize / 2, getRandom());
 
-		engine.setSamplerate (samplerate);
-		expectEquals (engine.getSamplerate(), samplerate);
+		const auto testLatency = [&] (int latency)
+		{
+			engine.prepare (samplerate, blocksize, numChannels);
 
-		expect (engine.isInitialized());
+			expect (engine.isInitialized());
+
+			engine.changeLatency (latency);
+
+			expectEquals (engine.reportLatency(), latency);
+
+			logImportantMessage ("Can call process()");
+
+			audioOut.clear();
+
+			engine.process (audioIn, audioOut, midiStorage);
+
+			expect (bufferIsSilent (dsp::buffers::getAliasBuffer (audioOut, 0, std::min (latency, audioOut.getNumSamples()))));
+
+			engine.process (audioIn, audioOut, midiStorage);
+			engine.process (audioIn, audioOut, midiStorage);
+
+			engine.releaseResources();
+		};
 
 		logImportantMessage ("Latency equal to blocksize");
 		testLatency (blocksize);
 
 		logImportantMessage ("Latency larger than blocksize");
-		testLatency (blocksize * 2 + 36);
+		testLatency (blocksize * 2);
 
 		logImportantMessage ("Latency smaller than blocksize");
 		testLatency (blocksize / 2);
 	}
-}
-
-template <typename FloatType>
-void LatencyEngineTests<FloatType>::testLatency (int latency)
-{
-	{
-		//		const auto srBefore = engine.getSamplerate();
-		//
-		//		engine.changeLatency (latency);
-		//		expectEquals (engine.reportLatency(), latency);
-		//		expectEquals (engine.getSamplerate(), srBefore);
-	}
-
-	//    logImportantMessage ("Can call process()");
-
-	audioOut.clear();
-
-	// engine.process (audioIn, audioOut, midiStorage);
-
-	// expect (allSamplesAreZero (audioOut, 0, latency));
 }
 
 template struct LatencyEngineTests<float>;
@@ -187,7 +180,9 @@ void LatencyEngineTests<FloatType>::PassThroughEngine::renderChunk (const AudioB
 	jassert (input.getNumChannels() == output.getNumChannels());
 	jassert (input.getNumSamples() == this->reportLatency());
 
-	if (! isBypassed)
+	if (isBypassed)
+		output.clear();
+	else
 		dsp::buffers::copy (input, output);
 }
 

@@ -25,6 +25,9 @@ public:
 		/** Returns the managed Engine object. */
 		[[nodiscard]] Engine<SampleType>& getEngine();
 
+		/** Returns a pointer to the managed Engine object. */
+		[[nodiscard]] Engine<SampleType>* operator->();
+
 		/** Returns whether this node's individual bypass setting is active or not. */
 		[[nodiscard]] bool isBypassed() const noexcept;
 
@@ -201,7 +204,9 @@ public:
 private:
 	void renderChunk (const AudioBuffer<SampleType>& input, AudioBuffer<SampleType>& output, MidiBuffer& midiMessages, bool isBypassed) final;
 
-	void onPrepare (int blocksize, double samplerate, int numChannels) final;
+	void prepared (int blocksize, double samplerate, int numChannels) final;
+
+	void latencyChanged (int newLatency) final;
 
 	void onRelease() final;
 
