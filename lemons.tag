@@ -44,6 +44,13 @@
     <namespace>lemons::dsp::psola</namespace>
   </compound>
   <compound kind="file">
+    <name>ArgParser.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/misc/</path>
+    <filename>_arg_parser_8h.html</filename>
+    <class kind="class">lemons::ArgParser</class>
+    <namespace>lemons</namespace>
+  </compound>
+  <compound kind="file">
     <name>audio_processor_test.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Testing/lemons_unit_testing/tests/</path>
     <filename>audio__processor__test_8h.html</filename>
@@ -2188,6 +2195,31 @@
       <anchorfile>classlemons_1_1dsp_1_1psola_1_1_analyzer.html</anchorfile>
       <anchor>ab0c6bf0dc83509d935bf350d9dace989</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lemons::ArgParser</name>
+    <filename>classlemons_1_1_arg_parser.html</filename>
+    <member kind="function">
+      <type>void</type>
+      <name>addArgument</name>
+      <anchorfile>classlemons_1_1_arg_parser.html</anchorfile>
+      <anchor>a842a0e288d5c6e162cb0cf4d9be0718e</anchor>
+      <arglist>(const String &amp;argOrFlags, bool required=false, const String &amp;defaultValue=&quot;&quot;, std::function&lt; void(const String &amp;)&gt; action=nullptr)</arglist>
+    </member>
+    <member kind="function">
+      <type>juce::StringPairArray</type>
+      <name>parseArguments</name>
+      <anchorfile>classlemons_1_1_arg_parser.html</anchorfile>
+      <anchor>ae967ee7dd148360942b5c779934b4157</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>printHelp</name>
+      <anchorfile>classlemons_1_1_arg_parser.html</anchorfile>
+      <anchor>a0443eab09c327321197be05118ca207d</anchor>
+      <arglist>()</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -6140,10 +6172,24 @@
     </member>
     <member kind="function">
       <type>constexpr bool</type>
+      <name>hasSameAspectRatioAs</name>
+      <anchorfile>structlemons_1_1_dimensions.html</anchorfile>
+      <anchor>a42effd3677b88fe02afb4dc430dff14f</anchor>
+      <arglist>(const Dimensions &amp;other) const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
       <name>isValid</name>
       <anchorfile>structlemons_1_1_dimensions.html</anchorfile>
       <anchor>ab6174a680d342d6daedf0f7fc5f31d88</anchor>
       <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>constexpr bool</type>
+      <name>operator==</name>
+      <anchorfile>structlemons_1_1_dimensions.html</anchorfile>
+      <anchor>a78be7eb317710033619126c61d5c2729</anchor>
+      <arglist>(const Dimensions &amp;other) const noexcept</arglist>
     </member>
     <member kind="function">
       <type>String</type>
@@ -20645,6 +20691,7 @@
     <namespace>lemons::spline</namespace>
     <namespace>lemons::tests</namespace>
     <namespace>lemons::vecops</namespace>
+    <class kind="class">lemons::ArgParser</class>
     <class kind="struct">lemons::AudioFile</class>
     <class kind="struct">lemons::ConstructedArray</class>
     <class kind="struct">lemons::DefaultWindow</class>
