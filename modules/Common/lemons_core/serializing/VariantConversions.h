@@ -50,6 +50,13 @@ struct VariantConverter<Colour>
 };
 
 template <>
+struct VariantConverter<DynamicObject>
+{
+	static DynamicObject fromVar (const var& v);
+	static var           toVar (const DynamicObject& d);
+};
+
+template <>
 struct VariantConverter<Identifier>
 {
 	static Identifier fromVar (const var& v);
@@ -124,6 +131,20 @@ struct VariantConverter<NamedValueSet>
 };
 
 template <>
+struct VariantConverter<PluginDescription>
+{
+	static PluginDescription fromVar (const var& v);
+	static var               toVar (const PluginDescription& d);
+};
+
+template <>
+struct VariantConverter<PropertySet>
+{
+	static PropertySet fromVar (const var& v);
+	static var         toVar (const PropertySet& s);
+};
+
+template <>
 struct VariantConverter<RelativeTime>
 {
 	static RelativeTime fromVar (const var& v);
@@ -175,6 +196,13 @@ private:
 	static constexpr auto NAME_PROP     = "_name";
 	static constexpr auto CHILDREN_PROP = "_children";
 	static constexpr auto BASE64_PROP   = "_base64:";
+};
+
+template <>
+struct VariantConverter<XmlElement>
+{
+	static XmlElement fromVar (const var& v);
+	static var        toVar (const XmlElement& e);
 };
 
 

@@ -95,6 +95,20 @@ var VariantConverter<Colour>::toVar (const Colour& c)
 	return { c.toString() };
 }
 
+DynamicObject VariantConverter<DynamicObject>::fromVar (const var& v)
+{
+	if (auto* obj = v.getDynamicObject())
+		return *obj;
+
+	return {};
+}
+
+var VariantConverter<DynamicObject>::toVar (const DynamicObject& d)
+{
+	DynamicObject clone { d };
+	return { clone.clone().get() };
+}
+
 Identifier VariantConverter<Identifier>::fromVar (const var& v)
 {
 	return { v.toString() };
@@ -244,6 +258,34 @@ var VariantConverter<NamedValueSet>::toVar (const NamedValueSet& s)
 	return { obj.clone().get() };
 }
 
+PluginDescription VariantConverter<PluginDescription>::fromVar (const var& v)
+{
+	PluginDescription d;
+
+	d.loadFromXml (VariantConverter<XmlElement>::fromVar (v));
+
+	return d;
+}
+
+var VariantConverter<PluginDescription>::toVar (const PluginDescription& d)
+{
+	return VariantConverter<XmlElement>::toVar (*d.createXml());
+}
+
+PropertySet VariantConverter<PropertySet>::fromVar (const var& v)
+{
+	PropertySet set;
+
+	set.restoreFromXml (VariantConverter<XmlElement>::fromVar (v));
+
+	return set;
+}
+
+var VariantConverter<PropertySet>::toVar (const PropertySet& s)
+{
+	return VariantConverter<XmlElement>::toVar (*s.createXml ("Properties"));
+}
+
 RelativeTime VariantConverter<RelativeTime>::fromVar (const var& v)
 {
 	return RelativeTime::milliseconds ((int64) v);
@@ -335,6 +377,15 @@ var VariantConverter<URL>::toVar (const URL& u)
 	return { u.toString (true) };
 }
 
+XmlElement VariantConverter<XmlElement>::fromVar (const var& v)
+{
+	return *XmlDocument::parse (v.toString());
+}
+
+var VariantConverter<XmlElement>::toVar (const XmlElement& e)
+{
+	return { e.toString() };
+}
 
 /*---------------------------------------------------------------------------------------------------------------------------------*/
 
