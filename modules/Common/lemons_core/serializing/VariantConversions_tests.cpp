@@ -156,6 +156,19 @@ void VariantConversionTests::runTest()
 
 		expect (orig == toVarAndBack (orig));
 	}
+    
+    {
+        const auto subtest = beginSubtest ("PropertySet");
+        
+        PropertySet set;
+        
+        set.setValue ("A_string", "Apple");
+        set.setValue ("A_number", 42);
+        set.setValue ("A_double", 36.18);
+        
+        auto decoded = toVarAndBack (set);
+        expect (set.getAllProperties() == decoded.getAllProperties());
+    }
 
 	{
 		const auto subtest = beginSubtest ("RelativeTime");
