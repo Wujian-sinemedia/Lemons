@@ -43,7 +43,7 @@ private:
 		const auto numSamples  = output.getNumSamples();
 		const auto numChannels = output.getNumChannels();
 
-		jassert (oscillators.size() == numChannels);
+		jassert (oscillators->size() == numChannels);
 
 		if (isBypassed)
 		{

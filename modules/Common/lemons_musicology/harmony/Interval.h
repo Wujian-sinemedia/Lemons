@@ -24,7 +24,7 @@ public:
 
 	[[nodiscard]] Quality getQuality() const;
 
-	[[nodiscard]] int getNumSemitones() const { }
+    [[nodiscard]] int getNumSemitones() const { return 0; }
 
 	// get string description
 

@@ -90,8 +90,7 @@ const std::vector<double> Test::getTestingSamplerates()
 		return { 44100. };
 
 	if (testingIntensityIsMedium())
-		;
-	return { 44100., 44800., 96000. };
+        return { 44100., 44800., 96000. };
 
 	return { 36500., 44100., 55000., 96000., 180000. };
 }
@@ -102,8 +101,7 @@ const std::vector<int> Test::getTestingBlockSizes()
 		return { 512 };
 
 	if (testingIntensityIsMedium())
-		;
-	return { 512, 1021, 2048 };
+        return { 512, 1021, 2048 };
 
 	return { 41, 400, 1433, 2000, 3531 };
 }
