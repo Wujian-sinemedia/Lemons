@@ -23,7 +23,7 @@ jobs:
     - name: Install deps
       uses: benthevining/DepsInstaller@v0.3.0
       with:
-        depfile_path: '$(pwd)/Depsfile'
+        depfile_path: '${{ github.workspace }}/Depsfile'
         category: 'Docs'
 
     - name: Run script
