@@ -96,10 +96,6 @@ If clang-format is found at configure time, my cmake scripts will automatically 
 
 (in progress...)
 
-## Installing dependencies and integrations
-
-To install all dependencies and integrations in a cross-platform way, simply run the script at `util/install_deps/install_deps.sh`. This is tested on GithubActions with Windows, MacOS, and Linux. The Windows version could still do with some improvements, though -- it relies on the GithubActions runner's pre-installed Linux subsystem for Windows...
-
 ---
 
 ## Example dev environment
