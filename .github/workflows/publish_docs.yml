@@ -21,7 +21,7 @@ jobs:
         submodules: recursive
 
     - name: Install deps
-      uses: benthevining/DepsInstaller@v0.3.0
+      uses: benthevining/DepsInstaller@v0.5.0
       with:
         depfile_path: '${{ github.workspace }}/Depsfile'
         category: 'Docs'
