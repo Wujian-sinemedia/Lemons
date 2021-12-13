@@ -11,7 +11,7 @@ class Engine
 {
 public:
 	/** Creates a default audio engine. */
-	Engine() = default;
+	explicit Engine() = default;
 
 	/** Destructor. */
 	virtual ~Engine() = default;

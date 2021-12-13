@@ -33,6 +33,8 @@ private:
 template <typename SampleType>
 struct Oscillator
 {
+    explicit Oscillator() = default;
+    
 	/** Destructor. */
 	virtual ~Oscillator() = default;
 
@@ -64,7 +66,7 @@ template <typename SampleType>
 struct Sine final : public Oscillator<SampleType>
 {
 	/** Constructs a default sine oscillator. */
-	Sine();
+	explicit Sine();
 
 	/** Resets the sine wave's phase. */
 	void resetPhase() final;
@@ -89,7 +91,7 @@ template <typename SampleType>
 struct Saw final : public Oscillator<SampleType>
 {
 	/** Constructs a default sawtooth oscillator. */
-	Saw();
+    explicit Saw();
 
 	/** Resets the sawtooth wave's phase. */
 	void resetPhase();
@@ -117,7 +119,7 @@ template <typename SampleType>
 struct Square final : public Oscillator<SampleType>
 {
 	/** Consructs a default square wave oscillator. */
-	Square();
+    explicit Square();
 
 	/** Resets the square wave's phase. */
 	void resetPhase() final;
@@ -143,7 +145,7 @@ template <typename SampleType>
 struct Triangle final : public Oscillator<SampleType>
 {
 	/** Constructs a default triangle wave. */
-	Triangle();
+    explicit Triangle();
 
 	/** Resets the triangle wave's phase. */
 	void resetPhase() final;

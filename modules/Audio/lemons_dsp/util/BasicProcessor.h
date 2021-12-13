@@ -13,7 +13,7 @@ public:
 	/** Creates a basic processor.
 	    The default constructor initializes an audio processor with stereo in and out buses.
 	 */
-	BasicProcessor (juce::AudioProcessor::BusesProperties busesLayout = BusesProperties()
+	explicit BasicProcessor (juce::AudioProcessor::BusesProperties busesLayout = BusesProperties()
 	                                                                        .withInput (TRANS ("Input"), juce::AudioChannelSet::stereo(), true)
 	                                                                        .withOutput (TRANS ("Output"), juce::AudioChannelSet::stereo(), true));
 

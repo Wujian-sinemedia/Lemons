@@ -12,7 +12,7 @@ class SuperSaw final : public Oscillator<SampleType>
 {
 public:
 	/** Constructs a default SuperSaw. */
-	SuperSaw();
+	explicit SuperSaw();
 
 	/** Resets the super saw's phase. */
 	void resetPhase() final;

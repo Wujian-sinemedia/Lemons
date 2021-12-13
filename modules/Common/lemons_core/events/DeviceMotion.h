@@ -24,7 +24,7 @@ public:
 	/** A listener that recieves callbacks with each kind of motion data. */
 	struct Listener
 	{
-		Listener (DeviceMotion& manager);
+		explicit Listener (DeviceMotion& manager);
 
 		virtual ~Listener();
 
@@ -38,7 +38,7 @@ public:
 	};
 
 	/** Constructor. */
-	DeviceMotion();
+	explicit DeviceMotion();
 
 	/** Destructor. */
 	~DeviceMotion();

@@ -14,7 +14,7 @@ void initializeDefaultTranslations();
 
 struct TranslationsInitializer
 {
-	TranslationsInitializer();
+	explicit TranslationsInitializer();
 
 	virtual ~TranslationsInitializer() = default;
 };

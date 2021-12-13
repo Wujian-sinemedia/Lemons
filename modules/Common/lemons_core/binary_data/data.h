@@ -28,7 +28,7 @@ using AudioBuffer = juce::AudioBuffer<T>;
 struct Data final
 {
 	/** Creates a default, invalid RawData object. */
-	Data() = default;
+	explicit Data() = default;
 
 	/** Creates a RawData object referencing a named resource. */
 	explicit Data (const String& fileToFind);

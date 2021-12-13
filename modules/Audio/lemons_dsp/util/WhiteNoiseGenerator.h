@@ -4,9 +4,11 @@ namespace lemons::dsp
 {
 
 template <typename SampleType>
-class WhiteNoiseGenerator
+class WhiteNoiseGenerator final
 {
 public:
+    explicit WhiteNoiseGenerator() = default;
+    
 	SampleType getNextSample();
 
 	void getSamples (SampleType* output, int numSamples);

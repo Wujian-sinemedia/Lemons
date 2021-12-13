@@ -14,7 +14,7 @@ template <typename SampleType>
 class MonoStereoConverter final
 {
 public:
-	MonoStereoConverter();
+	explicit MonoStereoConverter();
 	virtual ~MonoStereoConverter() = default;
 
 	void prepare (int blocksize);

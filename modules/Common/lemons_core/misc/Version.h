@@ -8,10 +8,10 @@ namespace lemons
 struct Version final
 {
 	/** Creates a default Version object with the value 0.0.1. */
-	constexpr Version() = default;
+	constexpr explicit Version() = default;
 
 	/** Creates a Version object with a specified value. */
-	constexpr Version (int maj, int min, int p);
+	constexpr explicit Version (int maj, int min, int p);
 
 	/** Returns true if this version is the same as the other one. */
 	constexpr bool operator== (const Version& other) const noexcept;

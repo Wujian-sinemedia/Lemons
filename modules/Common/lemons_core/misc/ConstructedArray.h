@@ -11,7 +11,7 @@ struct ConstructedArray final
 	using ObjectCreationFunction = std::function<ObjectType*()>;
 
 	/** Creates an array with a specified initial number of objects, and an optional lambda function to create new objects. */
-	ConstructedArray (
+	explicit ConstructedArray (
 	    int                      initialNumObjects  = 0,
 	    ObjectCreationFunction&& objectCreationFunc = []()
 	    { return new ObjectType(); })
@@ -34,13 +34,13 @@ struct ConstructedArray final
 		while (array.size() > newNumObjects)
 			array.removeLast();
 	}
-    
-    /** Calls a function with each object in the array. */
-    void for_each (std::function<void(ObjectType&)> func)
-    {
-        for (auto* obj : array)
-            func (*obj);
-    }
+
+	/** Calls a function with each object in the array. */
+	void for_each (std::function<void (ObjectType&)> func)
+	{
+		for (auto* obj : array)
+			func (*obj);
+	}
 
 	/** Returns a pointer to the underlying juce::OwnedArray. */
 	juce::OwnedArray<ObjectType>* operator->() noexcept { return &array; }

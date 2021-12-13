@@ -94,23 +94,23 @@ void Version::bumpPatch() noexcept
 
 constexpr Version Version::withMajorBump() const
 {
-	return { major + 1,
-		     0,
-		     0 };
+	return Version { major + 1,
+		             0,
+		             0 };
 }
 
 constexpr Version Version::withMinorBump() const
 {
-	return { major,
-		     minor + 1,
-		     0 };
+	return Version { major,
+		             minor + 1,
+		             0 };
 }
 
 constexpr Version Version::withPatchBump() const
 {
-	return { major,
-		     minor,
-		     patch + 1 };
+	return Version { major,
+		             minor,
+		             patch + 1 };
 }
 
 String Version::toString() const noexcept
@@ -124,22 +124,22 @@ Version Version::fromString (const String& string)
 
 	jassert (arr.size() == 3);
 
-	return { arr[0].getIntValue(), arr[1].getIntValue(), arr[2].getIntValue() };
+	return Version { arr[0].getIntValue(), arr[1].getIntValue(), arr[2].getIntValue() };
 }
 
 constexpr Version Version::juceVersion()
 {
-	return { JUCE_MAJOR_VERSION, JUCE_MINOR_VERSION, JUCE_BUILDNUMBER };
+	return Version { JUCE_MAJOR_VERSION, JUCE_MINOR_VERSION, JUCE_BUILDNUMBER };
 }
 
 constexpr Version Version::lemonsVersion()
 {
-	return { LEMONS_VERSION_MAJOR, LEMONS_VERSION_MINOR, LEMONS_VERSION_PATCH };
+	return Version { LEMONS_VERSION_MAJOR, LEMONS_VERSION_MINOR, LEMONS_VERSION_PATCH };
 }
 
 constexpr static Version projectVersion()
 {
-	return { LEMONS_PROJECT_VERSION_MAJOR, LEMONS_PROJECT_VERSION_MINOR, LEMONS_PROJECT_VERSION_PATCH };
+	return Version { LEMONS_PROJECT_VERSION_MAJOR, LEMONS_PROJECT_VERSION_MINOR, LEMONS_PROJECT_VERSION_PATCH };
 }
 
 }  // namespace lemons
