@@ -31,7 +31,7 @@ jobs:
         restore-keys: ${{ runner.os }}.unit_tests.
 
     - name: Install deps
-      uses: benthevining/DepsInstaller@v0.3.0
+      uses: benthevining/DepsInstaller@v0.4.0
       with:
         depfile_path: '${{ github.workspace }}/Depsfile'
 
