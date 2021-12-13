@@ -33,7 +33,7 @@ jobs:
     - name: Install deps
       uses: benthevining/DepsInstaller@v0.3.0
       with:
-        depfile_path: '$(pwd)/Depsfile'
+        depfile_path: '${{ env.GITHUB_WORKSPACE }}/Depsfile'
 
     - name: Configure CMake
       shell: bash
