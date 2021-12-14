@@ -7,7 +7,7 @@ var searchData=
   ['checkprocessordoesnotmatchparameterstate_87',['checkProcessorDoesNotMatchParameterState',['../structlemons_1_1tests_1_1_audio_processor_test_base.html#aca6631cd54d3f656c2a9906f0e51a28e',1,'lemons::tests::AudioProcessorTestBase']]],
   ['checkprocessormatchesparameterstate_88',['checkProcessorMatchesParameterState',['../structlemons_1_1tests_1_1_audio_processor_test_base.html#a2638e18a9fec6928e3406437a7f723f5',1,'lemons::tests::AudioProcessorTestBase']]],
   ['choosable_2eh_89',['choosable.h',['../choosable_8h.html',1,'']]],
-  ['choosableoscillator_90',['ChoosableOscillator',['../classlemons_1_1dsp_1_1osc_1_1_choosable_oscillator.html',1,'lemons::dsp::osc']]],
+  ['choosableoscillator_90',['ChoosableOscillator',['../classlemons_1_1dsp_1_1osc_1_1_choosable_oscillator.html',1,'lemons::dsp::osc::ChoosableOscillator&lt; SampleType &gt;'],['../classlemons_1_1dsp_1_1osc_1_1_choosable_oscillator.html#ac445772e410297fd1db99d78dcf8e7a2',1,'lemons::dsp::osc::ChoosableOscillator::ChoosableOscillator()']]],
   ['choosableoscillator_3c_20float_20_3e_91',['ChoosableOscillator&lt; float &gt;',['../classlemons_1_1dsp_1_1osc_1_1_choosable_oscillator.html',1,'lemons::dsp::osc']]],
   ['chord_92',['Chord',['../classlemons_1_1music_1_1_chord.html',1,'lemons::music']]],
   ['chord_2eh_93',['Chord.h',['../_chord_8h.html',1,'']]],

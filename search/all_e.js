@@ -15,7 +15,7 @@ var searchData=
   ['orientation_703',['Orientation',['../structlemons_1_1_device_rotation.html#a693951b64b01d378a1d19199fbaced2e',1,'lemons::DeviceRotation']]],
   ['osc_704',['Osc',['../structlemons_1_1plugin_1_1_l_f_o.html#a47b72909f6b14e0773810a4d3bed5ee0',1,'lemons::plugin::LFO']]],
   ['oscengine_2eh_705',['OscEngine.h',['../_osc_engine_8h.html',1,'']]],
-  ['oscillator_706',['Oscillator',['../structlemons_1_1dsp_1_1osc_1_1_oscillator.html',1,'lemons::dsp::osc']]],
+  ['oscillator_706',['Oscillator',['../structlemons_1_1dsp_1_1osc_1_1_oscillator.html',1,'lemons::dsp::osc::Oscillator&lt; SampleType &gt;'],['../structlemons_1_1dsp_1_1osc_1_1_oscillator.html#a9276c4db5f980e23b943392351880fd3',1,'lemons::dsp::osc::Oscillator::Oscillator()']]],
   ['oscillators_707',['oscillators',['../group__oscillators.html',1,'']]],
   ['oscillators_2eh_708',['oscillators.h',['../oscillators_8h.html',1,'']]],
   ['oscsynth_709',['OscSynth',['../structlemons_1_1dsp_1_1_osc_synth.html',1,'lemons::dsp']]],

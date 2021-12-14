@@ -130,6 +130,13 @@
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/events/</path>
     <filename>_auto_lock_8h.html</filename>
     <namespace>lemons</namespace>
+    <member kind="function">
+      <type>void</type>
+      <name>setAutoLockEnabled</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>a5a5b2cd2a233eba3e8638e95c1f3798c</anchor>
+      <arglist>(bool shouldBeEnabled)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>AutomatedHarmonyVoice.h</name>
@@ -3280,6 +3287,13 @@
     <filename>classlemons_1_1dsp_1_1osc_1_1_choosable_oscillator.html</filename>
     <templarg></templarg>
     <member kind="function">
+      <type></type>
+      <name>ChoosableOscillator</name>
+      <anchorfile>classlemons_1_1dsp_1_1osc_1_1_choosable_oscillator.html</anchorfile>
+      <anchor>ac445772e410297fd1db99d78dcf8e7a2</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
       <type>float</type>
       <name>getFrequency</name>
       <anchorfile>classlemons_1_1dsp_1_1osc_1_1_choosable_oscillator.html</anchorfile>
@@ -3332,6 +3346,13 @@
   <compound kind="class">
     <name>ChoosableOscillator&lt; float &gt;</name>
     <filename>classlemons_1_1dsp_1_1osc_1_1_choosable_oscillator.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>ChoosableOscillator</name>
+      <anchorfile>classlemons_1_1dsp_1_1osc_1_1_choosable_oscillator.html</anchorfile>
+      <anchor>ac445772e410297fd1db99d78dcf8e7a2</anchor>
+      <arglist>()=default</arglist>
+    </member>
     <member kind="function">
       <type>float</type>
       <name>getFrequency</name>
@@ -13770,6 +13791,13 @@
     <name>lemons::dsp::osc::Oscillator</name>
     <filename>structlemons_1_1dsp_1_1osc_1_1_oscillator.html</filename>
     <templarg></templarg>
+    <member kind="function">
+      <type></type>
+      <name>Oscillator</name>
+      <anchorfile>structlemons_1_1dsp_1_1osc_1_1_oscillator.html</anchorfile>
+      <anchor>a9276c4db5f980e23b943392351880fd3</anchor>
+      <arglist>()=default</arglist>
+    </member>
     <member kind="function" virtualness="virtual">
       <type>virtual</type>
       <name>~Oscillator</name>
@@ -20842,6 +20870,13 @@
     <filename>classlemons_1_1dsp_1_1_white_noise_generator.html</filename>
     <templarg></templarg>
     <member kind="function">
+      <type></type>
+      <name>WhiteNoiseGenerator</name>
+      <anchorfile>classlemons_1_1dsp_1_1_white_noise_generator.html</anchorfile>
+      <anchor>aedb9824eba8d0c5270f317cebe66bcf9</anchor>
+      <arglist>()=default</arglist>
+    </member>
+    <member kind="function">
       <type>SampleType</type>
       <name>getNextSample</name>
       <anchorfile>classlemons_1_1dsp_1_1_white_noise_generator.html</anchorfile>
@@ -20951,6 +20986,13 @@
       <anchorfile>namespacelemons.html</anchorfile>
       <anchor>a6112dcf9902dd13c43495fec3049c2bd</anchor>
       <arglist>(const File &amp;translationFile, bool ignoreCaseOfKeys=true)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setAutoLockEnabled</name>
+      <anchorfile>namespacelemons.html</anchorfile>
+      <anchor>a5a5b2cd2a233eba3e8638e95c1f3798c</anchor>
+      <arglist>(bool shouldBeEnabled)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
