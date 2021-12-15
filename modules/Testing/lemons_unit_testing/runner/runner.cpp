@@ -30,14 +30,22 @@ void printUnitTestHelp()
 }
 
 
-bool executeUnitTests (Intensity intensityLevel, juce::File logOutput, juce::int64 seed,
+bool executeUnitTests (Intensity intensityLevel, File logOutput, juce::int64 seed,
                        const String& singleTestName, const String& categoryName)
 {
 	jassert (! (! singleTestName.isEmpty() && ! categoryName.isEmpty()));
 
 	Test::setGlobalTestingIntensityLevel (intensityLevel);
+    
+    juce::FileLogger logger { logOutput, "", 0 };
+    
+    juce::Logger::setCurrentLogger (&logger);
+    
+    const auto atExit = [&]()
+    {
+        juce::Logger::setCurrentLogger (nullptr);
+    };
 
-	Logger logger { logOutput };
 	Runner runner;
 
 #if LEMONS_GUI_UNIT_TESTS
@@ -63,19 +71,24 @@ bool executeUnitTests (Intensity intensityLevel, juce::File logOutput, juce::int
 		    }())
 		{
 			runner.runTests ({ test }, seed);
+            atExit();
 			return ! runner.hadAnyFailures();
 		}
-
+        
+        logger.writeToLog ("Test " + singleTestName + " not found!");
+        atExit();
 		return false;
 	}
 
 	if (! categoryName.isEmpty())
 	{
 		runner.runTestsInCategory (categoryName, seed);
+        atExit();
 		return ! runner.hadAnyFailures();
 	}
 
 	runner.runAllTests (seed);
+    atExit();
 	return ! runner.hadAnyFailures();
 }
 

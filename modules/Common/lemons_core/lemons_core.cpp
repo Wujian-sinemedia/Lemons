@@ -7,7 +7,6 @@
 
 #include "misc/Version.cpp"
 #include "misc/Dimensions.cpp"
-#include "misc/logger.cpp"
 #include "misc/ArgParser.cpp"
 
 #include "files/FileUtilities.cpp"

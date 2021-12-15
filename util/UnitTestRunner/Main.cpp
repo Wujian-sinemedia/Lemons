@@ -6,7 +6,7 @@ int main (int argc, char **argv)
     juce::ArgumentList args (argc, argv);
     
     if (lemons::tests::executeUnitTests (args))
-        return 0;
+        return EXIT_SUCCESS;
     
-    return 1;
+    return EXIT_FAILURE;
 }

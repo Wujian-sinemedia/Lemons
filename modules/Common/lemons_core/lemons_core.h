@@ -98,7 +98,6 @@ using juce::ValueTree;
 #include "misc/Preprocessor.h"
 #include "misc/Version.h"
 #include "misc/Dimensions.h"
-#include "misc/logger.h"
 #include "misc/ConstructedArray.h"
 
 #include "events/Timers.h"
