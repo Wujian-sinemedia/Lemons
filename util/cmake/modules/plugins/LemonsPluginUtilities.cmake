@@ -4,7 +4,6 @@ Utilities for audio plugins.
 ## Includes:
 - LemonsJuceUtilities
 - LemonsAAXUtils
-- LemonsPluginvalUtils
 
 ## Include-time actions:
 Determines the list of all available plugin formats.
@@ -43,10 +42,6 @@ if (LEMONS_AAX_SDK_PATH AND NOT IOS AND (APPLE OR WIN32))
 endif()
 
 option (LEMONS_BUILD_TESTS "Build tests" OFF)
-
-if (LEMONS_BUILD_TESTS)
-    include (LemonsPluginvalUtils)
-endif()
 
 #
 
@@ -107,10 +102,6 @@ function (lemons_configure_juce_plugin)
     set (stdaln_target "${LEMONS_PLUGIN_TARGET}_Standalone")
     if (TARGET ${stdaln_target})
         _lemons_add_to_all_apps_target (${stdaln_target})
-    endif()
-
-    if (LEMONS_BUILD_TESTS)
-        lemons_configure_pluginval_tests (TARGET ${LEMONS_PLUGIN_TARGET})
     endif()
 
 endfunction()
