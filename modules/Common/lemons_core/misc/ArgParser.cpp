@@ -88,6 +88,7 @@ bool ArgParser::checkForRequiredArgs() const
 			if (! argList.containsOption (arg.argOrFlags))
 			{
 				std::cout << "Argument " << arg.argOrFlags << " is required!" << std::endl;
+				std::cout << "For usage help, run with --help or -h." << std::endl;
 				return false;
 			}
 		}
