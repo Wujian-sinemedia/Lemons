@@ -1,7 +1,7 @@
 namespace lemons::gui
 {
 
-bool serializeFont (const juce::Font& font, File& destFile, int maxNumChars, juce_wchar defaultChar)
+bool serializeFont (const juce::Font& font, const File& destFile, int maxNumChars, juce_wchar defaultChar)
 {
     destFile.deleteFile();
     

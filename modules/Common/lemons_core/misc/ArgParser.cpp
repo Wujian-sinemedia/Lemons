@@ -131,6 +131,12 @@ String ArgParser::getArgumentAsType (const String& argOrFlags) const
 }
 
 template <>
+juce_wchar ArgParser::getArgumentAsType (const String& argOrFlags) const
+{
+    return (*this)[argOrFlags][0];
+}
+
+template <>
 File ArgParser::getArgumentAsType (const String& argOrFlags) const
 {
 	return getFilepathForOption (argOrFlags);

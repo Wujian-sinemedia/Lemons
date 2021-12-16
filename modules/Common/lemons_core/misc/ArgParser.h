@@ -20,6 +20,7 @@ namespace lemons
 {
 
 using juce::File;
+using juce::juce_wchar;
 
 /** A command-line argument parser class modeled after Python's ArgParse.
     Use one of these to easily set default values and help strings for arguments, and then it can automatically print help and check for required arguments for you:
@@ -76,7 +77,8 @@ public:
 	[[nodiscard]] File getFilepathForOption (const String& argOrFlags) const;
 
 	/** Interprets an argument from the list as a specified type.
-	    Currently supports String, File, int, int64, float, or double.
+	    Currently supports String, juce_wchar, File, int, int64, float, or double.
+        The juce_wchar version returns the first character of the argument string.
 	 */
 	template <typename Type>
 	[[nodiscard]] Type getArgumentAsType (const String& argOrFlags) const;

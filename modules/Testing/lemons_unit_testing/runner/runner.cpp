@@ -64,7 +64,7 @@ bool executeUnitTests (Intensity intensityLevel, File logOutput, juce::int64 see
 	Runner runner;
 
 #if LEMONS_GUI_UNIT_TESTS
-	// set up message manager, etc...
+	const juce::ScopedJuceInitialiser_GUI guiInit;
 #endif
 
 	if (Test::testingIntensityIsLow())

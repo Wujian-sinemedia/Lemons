@@ -18,3 +18,4 @@ endif()
 
 add_subdirectory (KeyFileGenerator)
 add_subdirectory (RSAKeyGenerator)
+add_subdirectory (FontSerializer)
