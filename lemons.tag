@@ -47,6 +47,7 @@
     <name>audio_processor_test.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Testing/lemons_unit_testing/tests/</path>
     <filename>audio__processor__test_8h.html</filename>
+    <includes id="_processor_holder_8h" name="ProcessorHolder.h" local="no" imported="no">lemons_plugin_hosting/ProcessorHolder/ProcessorHolder.h</includes>
     <class kind="struct">lemons::tests::AudioProcessorTest</class>
     <class kind="struct">lemons::tests::AudioProcessorTestBase</class>
     <namespace>lemons</namespace>
@@ -1352,6 +1353,15 @@
     <namespace>lemons::plugin</namespace>
   </compound>
   <compound kind="file">
+    <name>ProcessorEngine.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_hosting/ProcessorHolder/</path>
+    <filename>_processor_engine_8h.html</filename>
+    <class kind="class">lemons::plugin::ProcessorEngine</class>
+    <class kind="struct">lemons::plugin::TypedProcessorEngine</class>
+    <namespace>lemons</namespace>
+    <namespace>lemons::plugin</namespace>
+  </compound>
+  <compound kind="file">
     <name>ProcessorHolder.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_hosting/ProcessorHolder/</path>
     <filename>_processor_holder_8h.html</filename>
@@ -2286,25 +2296,67 @@
     <name>lemons::ArgParser</name>
     <filename>classlemons_1_1_arg_parser.html</filename>
     <member kind="function">
+      <type></type>
+      <name>ArgParser</name>
+      <anchorfile>classlemons_1_1_arg_parser.html</anchorfile>
+      <anchor>ad065661a330ec9116090ba8e504bb32e</anchor>
+      <arglist>(int argc, char **argv)</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>addArgument</name>
       <anchorfile>classlemons_1_1_arg_parser.html</anchorfile>
-      <anchor>a842a0e288d5c6e162cb0cf4d9be0718e</anchor>
-      <arglist>(const String &amp;argOrFlags, bool required=false, const String &amp;defaultValue=&quot;&quot;, std::function&lt; void(const String &amp;)&gt; action=nullptr)</arglist>
+      <anchor>abff79e4fc079202b952bea04dd9affa9</anchor>
+      <arglist>(const String &amp;argOrFlags, bool required=false, const String &amp;help={}, const String &amp;defaultValue={})</arglist>
     </member>
     <member kind="function">
-      <type>juce::StringPairArray</type>
-      <name>parseArguments</name>
+      <type>bool</type>
+      <name>checkForHelpFlag</name>
       <anchorfile>classlemons_1_1_arg_parser.html</anchorfile>
-      <anchor>ae967ee7dd148360942b5c779934b4157</anchor>
-      <arglist>()</arglist>
+      <anchor>aea0161e14c347fad5c283a436b8bb81e</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>checkForRequiredArgs</name>
+      <anchorfile>classlemons_1_1_arg_parser.html</anchorfile>
+      <anchor>a191c2e219912d7b7a5d2b6c07669a1dd</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>containsOption</name>
+      <anchorfile>classlemons_1_1_arg_parser.html</anchorfile>
+      <anchor>abdf5db3b2ff3cedc2ac786d299d3d216</anchor>
+      <arglist>(const String &amp;argOrFlags, bool includeDefaults=false) const</arglist>
+    </member>
+    <member kind="function">
+      <type>Type</type>
+      <name>getArgumentAsType</name>
+      <anchorfile>classlemons_1_1_arg_parser.html</anchorfile>
+      <anchor>aecb53c502e6174925aca2f12e8d84eff</anchor>
+      <arglist>(const String &amp;argOrFlags) const</arglist>
+    </member>
+    <member kind="function">
+      <type>File</type>
+      <name>getFilepathForOption</name>
+      <anchorfile>classlemons_1_1_arg_parser.html</anchorfile>
+      <anchor>ac694b638dab9763b32e74d291a6f6ec7</anchor>
+      <arglist>(const String &amp;argOrFlags) const</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>operator[]</name>
+      <anchorfile>classlemons_1_1_arg_parser.html</anchorfile>
+      <anchor>a9373723d28283ff2d45ed8a020ca59a8</anchor>
+      <arglist>(const String &amp;argOrFlags) const</arglist>
     </member>
     <member kind="function">
       <type>void</type>
       <name>printHelp</name>
       <anchorfile>classlemons_1_1_arg_parser.html</anchorfile>
-      <anchor>a0443eab09c327321197be05118ca207d</anchor>
-      <arglist>()</arglist>
+      <anchor>ae0d629aee36d8a80943f8b4d0cf4849a</anchor>
+      <arglist>() const</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -15571,6 +15623,103 @@
       <arglist>(int width, int height)</arglist>
     </member>
   </compound>
+  <compound kind="class">
+    <name>lemons::plugin::ProcessorEngine</name>
+    <filename>classlemons_1_1plugin_1_1_processor_engine.html</filename>
+    <templarg></templarg>
+    <base>lemons::dsp::Engine</base>
+    <member kind="function">
+      <type></type>
+      <name>ProcessorEngine</name>
+      <anchorfile>classlemons_1_1plugin_1_1_processor_engine.html</anchorfile>
+      <anchor>a9d87f37cea6f5d630a5a86c7f1e30fa5</anchor>
+      <arglist>(juce::AudioProcessor &amp;processor)</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getBlocksize</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>ac58db70a45245363b4cde47e068c93f1</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumChannels</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>abcbd3bdeebea99be0e756ad1161190dc</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getSamplerate</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a0c87ce560c5a841ae19764adb67e4dfc</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isInitialized</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a38a2e75c1ccdbe5fd3a7c1b376d4e40a</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>prepare</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a92fe69356c54445d91e70586cc9cdf73</anchor>
+      <arglist>(double samplerate, int blocksize, int numChannels=2)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a3f813b9e44ed7518183da4afe405f44e</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, bool isBypassed=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a48b37b72835d34fc060a1010a1fe2499</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>adfb2f088baaa0e07efa7bf794918d831</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, bool isBypassed=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>aa3668be93e3cc7b9a4340c5872be9b45</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>releaseResources</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a144323b4488420dcf49b89cee7837f8c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>reportLatency</name>
+      <anchorfile>classlemons_1_1plugin_1_1_processor_engine.html</anchorfile>
+      <anchor>adea76582ad5a631b32f82c5c036c3b8c</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="variable">
+      <type>ProcessorHolder</type>
+      <name>processorHolder</name>
+      <anchorfile>classlemons_1_1plugin_1_1_processor_engine.html</anchorfile>
+      <anchor>a4b77c97b3f46e875a876e506379536f9</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
   <compound kind="struct">
     <name>lemons::plugin::ProcessorHolder</name>
     <filename>structlemons_1_1plugin_1_1_processor_holder.html</filename>
@@ -20089,6 +20238,112 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>lemons::plugin::TypedProcessorEngine</name>
+    <filename>structlemons_1_1plugin_1_1_typed_processor_engine.html</filename>
+    <templarg></templarg>
+    <templarg></templarg>
+    <templarg></templarg>
+    <base>lemons::plugin::ProcessorEngine</base>
+    <member kind="function">
+      <type></type>
+      <name>TypedProcessorEngine</name>
+      <anchorfile>structlemons_1_1plugin_1_1_typed_processor_engine.html</anchorfile>
+      <anchor>a542fc7d465e3aa602bc6771b3502f0f9</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getBlocksize</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>ac58db70a45245363b4cde47e068c93f1</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumChannels</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>abcbd3bdeebea99be0e756ad1161190dc</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getSamplerate</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a0c87ce560c5a841ae19764adb67e4dfc</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isInitialized</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a38a2e75c1ccdbe5fd3a7c1b376d4e40a</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>prepare</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a92fe69356c54445d91e70586cc9cdf73</anchor>
+      <arglist>(double samplerate, int blocksize, int numChannels=2)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a3f813b9e44ed7518183da4afe405f44e</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, bool isBypassed=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a48b37b72835d34fc060a1010a1fe2499</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>adfb2f088baaa0e07efa7bf794918d831</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, bool isBypassed=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>aa3668be93e3cc7b9a4340c5872be9b45</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>releaseResources</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a144323b4488420dcf49b89cee7837f8c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>reportLatency</name>
+      <anchorfile>classlemons_1_1plugin_1_1_processor_engine.html</anchorfile>
+      <anchor>adea76582ad5a631b32f82c5c036c3b8c</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="variable">
+      <type>ProcessorHolder</type>
+      <name>processorHolder</name>
+      <anchorfile>classlemons_1_1plugin_1_1_processor_engine.html</anchorfile>
+      <anchor>a4b77c97b3f46e875a876e506379536f9</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>ProcessorType</type>
+      <name>typedProcessor</name>
+      <anchorfile>structlemons_1_1plugin_1_1_typed_processor_engine.html</anchorfile>
+      <anchor>adc0abd61eeff3a9520f1a684909a6c0a</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>lemons::plugin::TypedProcessorHolder</name>
     <filename>structlemons_1_1plugin_1_1_typed_processor_holder.html</filename>
     <templarg></templarg>
@@ -21587,6 +21842,7 @@
     <class kind="class">lemons::plugin::PresetBar</class>
     <class kind="class">lemons::plugin::Processor</class>
     <class kind="class">lemons::plugin::ProcessorBase</class>
+    <class kind="class">lemons::plugin::ProcessorEngine</class>
     <class kind="struct">lemons::plugin::ProcessorHolder</class>
     <class kind="struct">lemons::plugin::ProcessorWithEditor</class>
     <class kind="struct">lemons::plugin::SecondsParameter</class>
@@ -21595,6 +21851,7 @@
     <class kind="class">lemons::plugin::StateToggleButtons</class>
     <class kind="struct">lemons::plugin::ToggleParameter</class>
     <class kind="class">lemons::plugin::TypedParameter</class>
+    <class kind="struct">lemons::plugin::TypedProcessorEngine</class>
     <class kind="struct">lemons::plugin::TypedProcessorHolder</class>
     <member kind="typedef">
       <type>juce::Point&lt; int &gt;</type>
@@ -22369,7 +22626,9 @@
     <namespace>lemons</namespace>
     <namespace>lemons::plugin</namespace>
     <class kind="struct">lemons::plugin::ProcessorHolder::ParameterStateData</class>
+    <class kind="class">lemons::plugin::ProcessorEngine</class>
     <class kind="struct">lemons::plugin::ProcessorHolder</class>
+    <class kind="struct">lemons::plugin::TypedProcessorEngine</class>
     <class kind="struct">lemons::plugin::TypedProcessorHolder</class>
   </compound>
   <compound kind="group">

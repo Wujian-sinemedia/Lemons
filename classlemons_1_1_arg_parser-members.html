@@ -74,13 +74,19 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="classlemons_1_1_arg_parser.html">lemons::ArgParser</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classlemons_1_1_arg_parser.html#a842a0e288d5c6e162cb0cf4d9be0718e">addArgument</a>(const String &amp;argOrFlags, bool required=false, const String &amp;defaultValue=&quot;&quot;, std::function&lt; void(const String &amp;)&gt; action=nullptr)</td><td class="entry"><a class="el" href="classlemons_1_1_arg_parser.html">lemons::ArgParser</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classlemons_1_1_arg_parser.html#ae967ee7dd148360942b5c779934b4157">parseArguments</a>()</td><td class="entry"><a class="el" href="classlemons_1_1_arg_parser.html">lemons::ArgParser</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classlemons_1_1_arg_parser.html#a0443eab09c327321197be05118ca207d">printHelp</a>()</td><td class="entry"><a class="el" href="classlemons_1_1_arg_parser.html">lemons::ArgParser</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classlemons_1_1_arg_parser.html#abff79e4fc079202b952bea04dd9affa9">addArgument</a>(const String &amp;argOrFlags, bool required=false, const String &amp;help={}, const String &amp;defaultValue={})</td><td class="entry"><a class="el" href="classlemons_1_1_arg_parser.html">lemons::ArgParser</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classlemons_1_1_arg_parser.html#ad065661a330ec9116090ba8e504bb32e">ArgParser</a>(int argc, char **argv)</td><td class="entry"><a class="el" href="classlemons_1_1_arg_parser.html">lemons::ArgParser</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classlemons_1_1_arg_parser.html#aea0161e14c347fad5c283a436b8bb81e">checkForHelpFlag</a>() const</td><td class="entry"><a class="el" href="classlemons_1_1_arg_parser.html">lemons::ArgParser</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classlemons_1_1_arg_parser.html#a191c2e219912d7b7a5d2b6c07669a1dd">checkForRequiredArgs</a>() const</td><td class="entry"><a class="el" href="classlemons_1_1_arg_parser.html">lemons::ArgParser</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classlemons_1_1_arg_parser.html#abdf5db3b2ff3cedc2ac786d299d3d216">containsOption</a>(const String &amp;argOrFlags, bool includeDefaults=false) const</td><td class="entry"><a class="el" href="classlemons_1_1_arg_parser.html">lemons::ArgParser</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classlemons_1_1_arg_parser.html#aecb53c502e6174925aca2f12e8d84eff">getArgumentAsType</a>(const String &amp;argOrFlags) const</td><td class="entry"><a class="el" href="classlemons_1_1_arg_parser.html">lemons::ArgParser</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classlemons_1_1_arg_parser.html#ac694b638dab9763b32e74d291a6f6ec7">getFilepathForOption</a>(const String &amp;argOrFlags) const</td><td class="entry"><a class="el" href="classlemons_1_1_arg_parser.html">lemons::ArgParser</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classlemons_1_1_arg_parser.html#a9373723d28283ff2d45ed8a020ca59a8">operator[]</a>(const String &amp;argOrFlags) const</td><td class="entry"><a class="el" href="classlemons_1_1_arg_parser.html">lemons::ArgParser</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classlemons_1_1_arg_parser.html#ae0d629aee36d8a80943f8b4d0cf4849a">printHelp</a>() const</td><td class="entry"><a class="el" href="classlemons_1_1_arg_parser.html">lemons::ArgParser</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 16 2021 04:40:14 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 16 2021 14:42:39 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

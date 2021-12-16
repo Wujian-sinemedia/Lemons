@@ -1,0 +1,5 @@
+<map id="lemons::plugin::TypedProcessorEngine&lt; SampleType, ProcessorType, &gt;" name="lemons::plugin::TypedProcessorEngine&lt; SampleType, ProcessorType, &gt;">
+<area shape="rect" id="node1" title="A ProcessorEngine that instantiates a custom subclass of AudioProcessor and automatically creates a P..." alt="" coords="5,184,285,225"/>
+<area shape="rect" id="node2" href="$classlemons_1_1plugin_1_1_processor_engine.html" title="A kind of dsp::Engine that holds a ProcessorHolder." alt="" coords="51,95,240,136"/>
+<area shape="rect" id="node3" href="$classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine." alt="" coords="69,5,222,47"/>
+</map>

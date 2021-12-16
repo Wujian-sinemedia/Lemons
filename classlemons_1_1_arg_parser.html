@@ -74,19 +74,102 @@ $(function() {
 <div class="title">lemons::ArgParser Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A command-line argument parser class modeled after Python's ArgParse.  
+ <a href="classlemons_1_1_arg_parser.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a842a0e288d5c6e162cb0cf4d9be0718e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1_arg_parser.html#a842a0e288d5c6e162cb0cf4d9be0718e">addArgument</a> (const String &amp;argOrFlags, bool required=false, const String &amp;defaultValue=&quot;&quot;, std::function&lt; void(const String &amp;)&gt; action=nullptr)</td></tr>
-<tr class="separator:a842a0e288d5c6e162cb0cf4d9be0718e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae967ee7dd148360942b5c779934b4157"><td class="memItemLeft" align="right" valign="top">juce::StringPairArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1_arg_parser.html#ae967ee7dd148360942b5c779934b4157">parseArguments</a> ()</td></tr>
-<tr class="separator:ae967ee7dd148360942b5c779934b4157"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0443eab09c327321197be05118ca207d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1_arg_parser.html#a0443eab09c327321197be05118ca207d">printHelp</a> ()</td></tr>
-<tr class="separator:a0443eab09c327321197be05118ca207d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad065661a330ec9116090ba8e504bb32e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1_arg_parser.html#ad065661a330ec9116090ba8e504bb32e">ArgParser</a> (int argc, char **argv)</td></tr>
+<tr class="memdesc:ad065661a330ec9116090ba8e504bb32e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an <a class="el" href="classlemons_1_1_arg_parser.html" title="A command-line argument parser class modeled after Python&#39;s ArgParse.">ArgParser</a> from a standard argc/argv pair.  <a href="classlemons_1_1_arg_parser.html#ad065661a330ec9116090ba8e504bb32e">More...</a><br /></td></tr>
+<tr class="separator:ad065661a330ec9116090ba8e504bb32e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abff79e4fc079202b952bea04dd9affa9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1_arg_parser.html#abff79e4fc079202b952bea04dd9affa9">addArgument</a> (const String &amp;argOrFlags, bool required=false, const String &amp;help={}, const String &amp;defaultValue={})</td></tr>
+<tr class="memdesc:abff79e4fc079202b952bea04dd9affa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an argument to the parser.  <a href="classlemons_1_1_arg_parser.html#abff79e4fc079202b952bea04dd9affa9">More...</a><br /></td></tr>
+<tr class="separator:abff79e4fc079202b952bea04dd9affa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea0161e14c347fad5c283a436b8bb81e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1_arg_parser.html#aea0161e14c347fad5c283a436b8bb81e">checkForHelpFlag</a> () const</td></tr>
+<tr class="memdesc:aea0161e14c347fad5c283a436b8bb81e"><td class="mdescLeft">&#160;</td><td class="mdescRight">If '&ndash;help' or '-h' was present on the command line, this prints the parser's help to cout and returns true.  <a href="classlemons_1_1_arg_parser.html#aea0161e14c347fad5c283a436b8bb81e">More...</a><br /></td></tr>
+<tr class="separator:aea0161e14c347fad5c283a436b8bb81e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a191c2e219912d7b7a5d2b6c07669a1dd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1_arg_parser.html#a191c2e219912d7b7a5d2b6c07669a1dd">checkForRequiredArgs</a> () const</td></tr>
+<tr class="memdesc:a191c2e219912d7b7a5d2b6c07669a1dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if all arguments marked as required were specified on the command line.  <a href="classlemons_1_1_arg_parser.html#a191c2e219912d7b7a5d2b6c07669a1dd">More...</a><br /></td></tr>
+<tr class="separator:a191c2e219912d7b7a5d2b6c07669a1dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdf5db3b2ff3cedc2ac786d299d3d216"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1_arg_parser.html#abdf5db3b2ff3cedc2ac786d299d3d216">containsOption</a> (const String &amp;argOrFlags, bool includeDefaults=false) const</td></tr>
+<tr class="memdesc:abdf5db3b2ff3cedc2ac786d299d3d216"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the parser contains a given option.  <a href="classlemons_1_1_arg_parser.html#abdf5db3b2ff3cedc2ac786d299d3d216">More...</a><br /></td></tr>
+<tr class="separator:abdf5db3b2ff3cedc2ac786d299d3d216"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecb53c502e6174925aca2f12e8d84eff"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
+<tr class="memitem:aecb53c502e6174925aca2f12e8d84eff"><td class="memTemplItemLeft" align="right" valign="top">Type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlemons_1_1_arg_parser.html#aecb53c502e6174925aca2f12e8d84eff">getArgumentAsType</a> (const String &amp;argOrFlags) const</td></tr>
+<tr class="memdesc:aecb53c502e6174925aca2f12e8d84eff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interprets an argument from the list as a specified type.  <a href="classlemons_1_1_arg_parser.html#aecb53c502e6174925aca2f12e8d84eff">More...</a><br /></td></tr>
+<tr class="separator:aecb53c502e6174925aca2f12e8d84eff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac694b638dab9763b32e74d291a6f6ec7"><td class="memItemLeft" align="right" valign="top">File&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1_arg_parser.html#ac694b638dab9763b32e74d291a6f6ec7">getFilepathForOption</a> (const String &amp;argOrFlags) const</td></tr>
+<tr class="memdesc:ac694b638dab9763b32e74d291a6f6ec7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resolves an argument to a filepath.  <a href="classlemons_1_1_arg_parser.html#ac694b638dab9763b32e74d291a6f6ec7">More...</a><br /></td></tr>
+<tr class="separator:ac694b638dab9763b32e74d291a6f6ec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9373723d28283ff2d45ed8a020ca59a8"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1_arg_parser.html#a9373723d28283ff2d45ed8a020ca59a8">operator[]</a> (const String &amp;argOrFlags) const</td></tr>
+<tr class="memdesc:a9373723d28283ff2d45ed8a020ca59a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns one of the arguments from the list (or its corresponding default, if there is one).  <a href="classlemons_1_1_arg_parser.html#a9373723d28283ff2d45ed8a020ca59a8">More...</a><br /></td></tr>
+<tr class="separator:a9373723d28283ff2d45ed8a020ca59a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0d629aee36d8a80943f8b4d0cf4849a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1_arg_parser.html#ae0d629aee36d8a80943f8b4d0cf4849a">printHelp</a> () const</td></tr>
+<tr class="memdesc:ae0d629aee36d8a80943f8b4d0cf4849a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the parser's help to std::cout.  <a href="classlemons_1_1_arg_parser.html#ae0d629aee36d8a80943f8b4d0cf4849a">More...</a><br /></td></tr>
+<tr class="separator:ae0d629aee36d8a80943f8b4d0cf4849a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A command-line argument parser class modeled after Python's ArgParse. </p>
+<p>Use one of these to easily set default values and help strings for arguments, and then it can automatically print help and check for required arguments for you: </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> process_file (juce::File file, <span class="keywordtype">int</span> someNumber);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main (<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="classlemons_1_1_arg_parser.html">lemons::ArgParser</a> args {argc, argv};</div>
+<div class="line"> </div>
+<div class="line">    args.addArgument (<span class="stringliteral">&quot;--file|-f&quot;</span>, <span class="keyword">true</span>, <span class="stringliteral">&quot;Path to the file to read&quot;</span>); <span class="comment">// this argument is required and has no default</span></div>
+<div class="line">    args.addArgument (<span class="stringliteral">&quot;--number|-n&quot;</span>, <span class="keyword">false</span>, <span class="stringliteral">&quot;Some number argument&quot;</span>, <span class="stringliteral">&quot;6&quot;</span>); <span class="comment">// this one isn&#39;t required and defaults to &quot;6&quot;</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (args.checkForHelpFlag())</div>
+<div class="line">        <span class="keywordflow">return</span> EXIT_SUCCESS;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (! args.checkForRequiredArgs())</div>
+<div class="line">        <span class="keywordflow">return</span> EXIT_FAILURE;</div>
+<div class="line"> </div>
+<div class="line">    process_file (args.getFilepathForOption (<span class="stringliteral">&quot;--file|-f&quot;</span>), args[<span class="stringliteral">&quot;--number|-n&quot;</span>]);</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ad065661a330ec9116090ba8e504bb32e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad065661a330ec9116090ba8e504bb32e">&#9670;&nbsp;</a></span>ArgParser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">lemons::ArgParser::ArgParser </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>argv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates an <a class="el" href="classlemons_1_1_arg_parser.html" title="A command-line argument parser class modeled after Python&#39;s ArgParse.">ArgParser</a> from a standard argc/argv pair. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a842a0e288d5c6e162cb0cf4d9be0718e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a842a0e288d5c6e162cb0cf4d9be0718e">&#9670;&nbsp;</a></span>addArgument()</h2>
+<a id="abff79e4fc079202b952bea04dd9affa9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abff79e4fc079202b952bea04dd9affa9">&#9670;&nbsp;</a></span>addArgument()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -107,13 +190,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const String &amp;&#160;</td>
-          <td class="paramname"><em>defaultValue</em> = <code>&quot;&quot;</code>, </td>
+          <td class="paramname"><em>help</em> = <code>{}</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; void(const String &amp;)&gt;&#160;</td>
-          <td class="paramname"><em>action</em> = <code>nullptr</code>&#160;</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>defaultValue</em> = <code>{}</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -123,27 +206,166 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Adds an argument to the parser. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">argOrFlags</td><td>The argument or flags that must be present on the command line. You can specify multiple flags separated by pipes, for example, '&ndash;file|-f'. </td></tr>
+    <tr><td class="paramname">required</td><td>Whether or not the parser will require this argument to be present. </td></tr>
+    <tr><td class="paramname">help</td><td>An optional help string for this argument. </td></tr>
+    <tr><td class="paramname">defaultValue</td><td>An optional default value for this argument. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="ae967ee7dd148360942b5c779934b4157"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae967ee7dd148360942b5c779934b4157">&#9670;&nbsp;</a></span>parseArguments()</h2>
+<a id="aea0161e14c347fad5c283a436b8bb81e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea0161e14c347fad5c283a436b8bb81e">&#9670;&nbsp;</a></span>checkForHelpFlag()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">juce::StringPairArray lemons::ArgParser::parseArguments </td>
+          <td class="memname">bool lemons::ArgParser::checkForHelpFlag </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>If '&ndash;help' or '-h' was present on the command line, this prints the parser's help to cout and returns true. </p>
+
 </div>
 </div>
-<a id="a0443eab09c327321197be05118ca207d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0443eab09c327321197be05118ca207d">&#9670;&nbsp;</a></span>printHelp()</h2>
+<a id="a191c2e219912d7b7a5d2b6c07669a1dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a191c2e219912d7b7a5d2b6c07669a1dd">&#9670;&nbsp;</a></span>checkForRequiredArgs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::ArgParser::checkForRequiredArgs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns true if all arguments marked as required were specified on the command line. </p>
+
+</div>
+</div>
+<a id="abdf5db3b2ff3cedc2ac786d299d3d216"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abdf5db3b2ff3cedc2ac786d299d3d216">&#9670;&nbsp;</a></span>containsOption()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lemons::ArgParser::containsOption </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>argOrFlags</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>includeDefaults</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns true if the parser contains a given option. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">argOrFlags</td><td>The argument flags as they were specified when you called <a class="el" href="classlemons_1_1_arg_parser.html#abff79e4fc079202b952bea04dd9affa9" title="Adds an argument to the parser.">addArgument()</a>. </td></tr>
+    <tr><td class="paramname">includeDefaults</td><td>If the specified argument was not specified on the command line, but you called <a class="el" href="classlemons_1_1_arg_parser.html#abff79e4fc079202b952bea04dd9affa9" title="Adds an argument to the parser.">addArgument()</a> with a non-empty default string, then this function will return true if this option is true. If this option is false, then this function will only return true if an argument was specified on the command line. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aecb53c502e6174925aca2f12e8d84eff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecb53c502e6174925aca2f12e8d84eff">&#9670;&nbsp;</a></span>getArgumentAsType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Type lemons::ArgParser::getArgumentAsType </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>argOrFlags</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Interprets an argument from the list as a specified type. </p>
+<p>Currently supports String, File, int, int64, float, or double. </p>
+
+</div>
+</div>
+<a id="ac694b638dab9763b32e74d291a6f6ec7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac694b638dab9763b32e74d291a6f6ec7">&#9670;&nbsp;</a></span>getFilepathForOption()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">File lemons::ArgParser::getFilepathForOption </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>argOrFlags</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Resolves an argument to a filepath. </p>
+<p>If the argument isn't present, this will return a null File object. If a relative path was specified on the command line, this will return a file relative to the current working directory. </p>
+
+</div>
+</div>
+<a id="a9373723d28283ff2d45ed8a020ca59a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9373723d28283ff2d45ed8a020ca59a8">&#9670;&nbsp;</a></span>operator[]()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">String lemons::ArgParser::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">const String &amp;&#160;</td>
+          <td class="paramname"><em>argOrFlags</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns one of the arguments from the list (or its corresponding default, if there is one). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">argOrFlags</td><td>The argument flags as they were specified when you called <a class="el" href="classlemons_1_1_arg_parser.html#abff79e4fc079202b952bea04dd9affa9" title="Adds an argument to the parser.">addArgument()</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae0d629aee36d8a80943f8b4d0cf4849a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0d629aee36d8a80943f8b4d0cf4849a">&#9670;&nbsp;</a></span>printHelp()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -152,10 +374,12 @@ Public Member Functions</h2></td></tr>
           <td class="memname">void lemons::ArgParser::printHelp </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Prints the parser's help to std::cout. </p>
 
 </div>
 </div>
@@ -163,9 +387,10 @@ Public Member Functions</h2></td></tr>
 <li><a class="el" href="_arg_parser_8h.html">ArgParser.h</a></li>
 </ul>
 </div><!-- contents -->
+<div class="ttc" id="aclasslemons_1_1_arg_parser_html"><div class="ttname"><a href="classlemons_1_1_arg_parser.html">lemons::ArgParser</a></div><div class="ttdoc">A command-line argument parser class modeled after Python's ArgParse.</div><div class="ttdef"><b>Definition:</b> ArgParser.h:48</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 16 2021 04:40:14 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 16 2021 14:42:39 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
