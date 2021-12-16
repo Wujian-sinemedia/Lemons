@@ -65,25 +65,31 @@ public:
 	/** Returns one of the arguments from the list (or its corresponding default, if there is one).
 	    @param argOrFlags The argument flags as they were specified when you called addArgument().
 	 */
-	String operator[] (const String& argOrFlags) const;
+	[[nodiscard]] String operator[] (const String& argOrFlags) const;
 
 	/** Resolves an argument to a filepath.
 	    If the argument isn't present, this will return a null File object.
 	    If a relative path was specified on the command line, this will return a file relative to the current working directory.
 	 */
-	File getFilepathForOption (const String& argOrFlags) const;
+	[[nodiscard]] File getFilepathForOption (const String& argOrFlags) const;
+
+	/** Interprets an argument from the list as a specified type.
+	    Currently supports String, File, int, int64, float, or double.
+	 */
+	template <typename Type>
+	[[nodiscard]] Type getArgumentAsType (const String& argOrFlags) const;
 
 	/** Returns true if all arguments marked as required were specified on the command line. */
-	bool checkForRequiredArgs() const;
+	[[nodiscard]] bool checkForRequiredArgs() const;
 
 	/** If '--help' or '-h' was present on the command line, this prints the parser's help to cout and returns true. */
-	bool checkForHelpFlag() const;
+	[[nodiscard]] bool checkForHelpFlag() const;
 
 	/** Returns true if the parser contains a given option.
 	    @param argOrFlags The argument flags as they were specified when you called addArgument().
 	    @param includeDefaults If the specified argument was not specified on the command line, but you called addArgument() with a non-empty default string, then this function will return true if this option is true. If this option is false, then this function will only return true if an argument was specified on the command line.
 	 */
-	bool containsOption (const String& argOrFlags, bool includeDefaults = false) const;
+	[[nodiscard]] bool containsOption (const String& argOrFlags, bool includeDefaults = false) const;
 
 private:
 	juce::ArgumentList argList;

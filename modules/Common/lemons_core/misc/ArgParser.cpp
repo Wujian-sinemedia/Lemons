@@ -124,4 +124,40 @@ bool ArgParser::containsOption (const String& argOrFlags, bool includeDefaults) 
 	return false;
 }
 
+template <>
+String ArgParser::getArgumentAsType (const String& argOrFlags) const
+{
+	return (*this)[argOrFlags];
+}
+
+template <>
+File ArgParser::getArgumentAsType (const String& argOrFlags) const
+{
+	return getFilepathForOption (argOrFlags);
+}
+
+template <>
+int ArgParser::getArgumentAsType (const String& argOrFlags) const
+{
+	return (*this)[argOrFlags].getIntValue();
+}
+
+template <>
+juce::int64 ArgParser::getArgumentAsType (const String& argOrFlags) const
+{
+	return (*this)[argOrFlags].getLargeIntValue();
+}
+
+template <>
+float ArgParser::getArgumentAsType (const String& argOrFlags) const
+{
+	return (*this)[argOrFlags].getFloatValue();
+}
+
+template <>
+double ArgParser::getArgumentAsType (const String& argOrFlags) const
+{
+	return (*this)[argOrFlags].getDoubleValue();
+}
+
 }  // namespace lemons
