@@ -40,6 +40,14 @@
       }
     },
     {
+      "name": "KeyfileGen",
+      "displayName": "Configure the keyfile generator",
+      "inherits": "base",
+      "cacheVariables": {
+        "LEMONS_BUILD_KEFILE_GEN": "ON"
+      }
+    },
+    {
       "name": "templates",
       "displayName": "Configure templates build",
       "description": "Configuration with the template projects enabled",
@@ -79,6 +87,12 @@
       "displayName": "Build the RSA key generator",
       "configurePreset": "RSAKeygen",
       "targets": ["RSAKeyGenerator"]
+    },
+    {
+      "name": "KeyfileGen",
+      "displayName": "Build the keyfile generator",
+      "configurePreset": "KeyfileGen",
+      "targets": ["KeyFileGenerator"]
     },
     {
       "name": "templates",

@@ -18,3 +18,7 @@ endif()
 if (LEMONS_BUILD_RSA_KEYGEN)
 	add_subdirectory (RSAKeyGenerator)
 endif()
+
+if (LEMONS_BUILD_KEFILE_GEN)
+	add_subdirectory (KeyFileGenerator)
+endif()

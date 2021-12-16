@@ -70,6 +70,8 @@ void generateKeyPair (const juce::File& outputFile, int numBits, const juce::Arr
     fileText << "Public key: " << publicKey.toString() << juce::newLine << "Private key: " << privateKey.toString();
     
     outputFile.replaceWithText (fileText);
+    
+    std::cout << fileText;
 }
 
 }
