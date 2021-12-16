@@ -1,39 +1,29 @@
 #include <lemons_cryptography/lemons_cryptography.h>
-
-void print_help()
-{
-	std::cout << "[--help|-h]" << std::endl
-	          << "[--file|-f <filePath>]" << std::endl
-	          << "[--bits|-b <numBits>]" << std::endl;
-}
+#include <lemons_core/lemons_core.h>
 
 
 int main (int argc, char** argv)
 {
-	juce::ArgumentList args (argc, argv);
-
-	if (args.containsOption ("--help|-h"))
-	{
-		print_help();
-		return EXIT_SUCCESS;
-	}
-
-	if (! args.containsOption ("--file|-f"))
-	{
-		print_help();
-		std::cout << "Option [--file|-f] is required!" << std::endl;
-		return EXIT_FAILURE;
-	}
-
+    lemons::ArgParser args {argc, argv};
+    
+    args.addArgument ("--file|-f", true,  "Path to the output file");
+    args.addArgument ("--bits|-b", false, "Number of bits for the generated keys");
+    
+    if (args.checkForHelpFlag())
+        return EXIT_SUCCESS;
+    
+    if (! args.checkForRequiredArgs())
+        return EXIT_FAILURE;
+    
 	const auto numBits = [&]() -> int
 	{
 		if (args.containsOption ("--bits|-b"))
-			return args.getValueForOption ("--bits|-b").getIntValue();
+			return args["--bits|-b"].getIntValue();
 
 		return 128;
 	}();
 
-	lemons::crypto::generateKeyPair (args.getFileForOption ("--file|-f"), numBits);
+	lemons::crypto::generateKeyPair (args.getFilepathForOption ("--file|-f"), numBits);
 
 	return EXIT_SUCCESS;
 }

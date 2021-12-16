@@ -22,7 +22,7 @@ CPMAddPackage (
         GIT_TAG origin/main
         OPTIONS "LEMONS_BUILD_KEFILE_GEN ON")
 
-include (LemonsJuceUtilities)
+include (LemonsCommonModules)
 
 #
 
@@ -35,4 +35,4 @@ target_compile_definitions (${PROJECT_NAME} PRIVATE
     JUCE_WEB_BROWSER=0
     JUCE_DISPLAY_SPLASH_SCREEN=0)
 
-target_link_libraries (${PROJECT_NAME} PUBLIC juce_product_unlocking)
+target_link_libraries (${PROJECT_NAME} PUBLIC lemons_core juce_product_unlocking)

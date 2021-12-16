@@ -1,87 +1,41 @@
 #include <juce_product_unlocking/juce_product_unlocking.h>
-
-
-void print_help()
-{
-	std::cout << "[--help|-h]" << std::endl
-	          << "[--file|-f <filePath>]" << std::endl
-	          << "[--app|-a <appName>]" << std::endl
-	          << "[--email|-e <userEmail>]" << std::endl
-	          << "[--name|-n <userName>]" << std::endl
-	          << "[--machine|-m <machineID>]" << std::endl
-	          << "[--key|-k <privateKey>]" << std::endl
-	          << "[--time|-t <expiryTime>]" << std::endl;
-}
+#include <lemons_core/lemons_core.h>
 
 
 int main (int argc, char** argv)
 {
-	juce::ArgumentList args (argc, argv);
-
-	if (args.containsOption ("--help|-h"))
-	{
-		print_help();
-		return EXIT_SUCCESS;
-	}
-
-	if (! args.containsOption ("--file|-f"))
-	{
-		print_help();
-		std::cout << "Option [--file|-f] is required!" << std::endl;
-		return EXIT_FAILURE;
-	}
-
-	if (! args.containsOption ("--app|-a"))
-	{
-		print_help();
-		std::cout << "Option [--app|-a] is required!" << std::endl;
-		return EXIT_FAILURE;
-	}
-
-	if (! args.containsOption ("--email|-e"))
-	{
-		print_help();
-		std::cout << "Option [--email|-e] is required!" << std::endl;
-		return EXIT_FAILURE;
-	}
-
-	if (! args.containsOption ("--name|-n"))
-	{
-		print_help();
-		std::cout << "Option [--name|-n] is required!" << std::endl;
-		return EXIT_FAILURE;
-	}
-
-	if (! args.containsOption ("--machine|-m"))
-	{
-		print_help();
-		std::cout << "Option [--machine|-m] is required!" << std::endl;
-		return EXIT_FAILURE;
-	}
-
-	if (! args.containsOption ("--key|-k"))
-	{
-		print_help();
-		std::cout << "Option [--key|-k] is required!" << std::endl;
-		return EXIT_FAILURE;
-	}
-
-	const auto file = args.getFileForOption ("--file|-f");
-
+    lemons::ArgParser args {argc, argv};
+    
+    args.addArgument ("--file|-f",    true,  "The path to the output file");
+    args.addArgument ("--app|-a",     true,  "The app name");
+    args.addArgument ("--email|-e",   true,  "The user's email address");
+    args.addArgument ("--name|-n",    true,  "The username");
+    args.addArgument ("--machine|-m", true,  "The machine ID(s)");
+    args.addArgument ("--key|-k",     true,  "The public RSA key");
+    args.addArgument ("--time|-t",    false, "ISO8601-formatted string representing the time the license expires");
+    
+    if (args.checkForHelpFlag())
+        return EXIT_SUCCESS;
+    
+    if (! args.checkForRequiredArgs())
+        return EXIT_FAILURE;
+    
+    const auto file = args.getFilepathForOption ("--file|-f");
+    
 	file.deleteFile();
 
-	const auto appName   = args.getValueForOption ("--app|-a");
-	const auto email     = args.getValueForOption ("--email|-e");
-	const auto username  = args.getValueForOption ("--name|-n");
-	const auto machineID = args.getValueForOption ("--machine|-m");
+	const auto appName   = args["--app|-a"];
+	const auto email     = args["--email|-e"];
+	const auto username  = args["--name|-n"];
+	const auto machineID = args["--machine|-m"];
 
-	const juce::RSAKey privateKey { args.getValueForOption ("--key|-k") };
+	const juce::RSAKey privateKey { args["--key|-k"] };
 
 	const auto string = [&]() -> juce::String
 	{
 		if (args.containsOption ("--time|-t"))
 		{
-			const auto expiryTime = juce::Time::fromISO8601 (args.getValueForOption ("--time|-t"));
+			const auto expiryTime = juce::Time::fromISO8601 (args["--time|-t"]);
 
 			return juce::KeyGeneration::generateExpiringKeyFile (appName, email, username, machineID, expiryTime, privateKey);
 		}
