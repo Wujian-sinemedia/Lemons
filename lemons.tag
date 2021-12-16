@@ -842,11 +842,6 @@
     <filename>_lemons_plugin_utilities_8md.html</filename>
   </compound>
   <compound kind="file">
-    <name>LemonsPluginvalUtils.md</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
-    <filename>_lemons_pluginval_utils_8md.html</filename>
-  </compound>
-  <compound kind="file">
     <name>LemonsSanitizerIntegration.md</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_lemons_sanitizer_integration_8md.html</filename>
@@ -915,13 +910,6 @@
       <anchor>a6112dcf9902dd13c43495fec3049c2bd</anchor>
       <arglist>(const File &amp;translationFile, bool ignoreCaseOfKeys=true)</arglist>
     </member>
-  </compound>
-  <compound kind="file">
-    <name>logger.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/misc/</path>
-    <filename>logger_8h.html</filename>
-    <class kind="class">lemons::Logger</class>
-    <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
     <name>main_page.md</name>
@@ -6760,105 +6748,6 @@
     </member>
   </compound>
   <compound kind="class">
-    <name>lemons::dsp::osc::Engine</name>
-    <filename>classlemons_1_1dsp_1_1osc_1_1_engine.html</filename>
-    <templarg></templarg>
-    <templarg>Osctype</templarg>
-    <templarg></templarg>
-    <base>lemons::dsp::Engine</base>
-    <member kind="function">
-      <type>int</type>
-      <name>getBlocksize</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>ac58db70a45245363b4cde47e068c93f1</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getFrequency</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1_engine.html</anchorfile>
-      <anchor>a9c15dd22b1c6fd7bf5999b665766e7d4</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getNumChannels</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>abcbd3bdeebea99be0e756ad1161190dc</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>getSamplerate</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a0c87ce560c5a841ae19764adb67e4dfc</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isInitialized</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a38a2e75c1ccdbe5fd3a7c1b376d4e40a</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a92fe69356c54445d91e70586cc9cdf73</anchor>
-      <arglist>(double samplerate, int blocksize, int numChannels=2)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a3f813b9e44ed7518183da4afe405f44e</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a48b37b72835d34fc060a1010a1fe2499</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>adfb2f088baaa0e07efa7bf794918d831</anchor>
-      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>aa3668be93e3cc7b9a4340c5872be9b45</anchor>
-      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>releaseResources</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a144323b4488420dcf49b89cee7837f8c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual int</type>
-      <name>reportLatency</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>ab167e1944264df820f50cd637bfefc13</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setFrequency</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1_engine.html</anchorfile>
-      <anchor>a1dff90309bc92e1b4dcaa66ac723f7cb</anchor>
-      <arglist>(float freqHz)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
     <name>lemons::dsp::Engine</name>
     <filename>classlemons_1_1dsp_1_1_engine.html</filename>
     <templarg></templarg>
@@ -6973,6 +6862,105 @@
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
       <anchor>a20e2f81d84b335b507e34eb129e87820</anchor>
       <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed)=0</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>lemons::dsp::osc::Engine</name>
+    <filename>classlemons_1_1dsp_1_1osc_1_1_engine.html</filename>
+    <templarg></templarg>
+    <templarg>Osctype</templarg>
+    <templarg></templarg>
+    <base>lemons::dsp::Engine</base>
+    <member kind="function">
+      <type>int</type>
+      <name>getBlocksize</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>ac58db70a45245363b4cde47e068c93f1</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getFrequency</name>
+      <anchorfile>classlemons_1_1dsp_1_1osc_1_1_engine.html</anchorfile>
+      <anchor>a9c15dd22b1c6fd7bf5999b665766e7d4</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumChannels</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>abcbd3bdeebea99be0e756ad1161190dc</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getSamplerate</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a0c87ce560c5a841ae19764adb67e4dfc</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isInitialized</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a38a2e75c1ccdbe5fd3a7c1b376d4e40a</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>prepare</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a92fe69356c54445d91e70586cc9cdf73</anchor>
+      <arglist>(double samplerate, int blocksize, int numChannels=2)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a3f813b9e44ed7518183da4afe405f44e</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, bool isBypassed=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a48b37b72835d34fc060a1010a1fe2499</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>adfb2f088baaa0e07efa7bf794918d831</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, bool isBypassed=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>aa3668be93e3cc7b9a4340c5872be9b45</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>releaseResources</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a144323b4488420dcf49b89cee7837f8c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual int</type>
+      <name>reportLatency</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>ab167e1944264df820f50cd637bfefc13</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setFrequency</name>
+      <anchorfile>classlemons_1_1dsp_1_1osc_1_1_engine.html</anchorfile>
+      <anchor>a1dff90309bc92e1b4dcaa66ac723f7cb</anchor>
+      <arglist>(float freqHz)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -10958,24 +10946,6 @@
       <anchorfile>structlemons_1_1plugin_1_1_typed_parameter_1_1_listener.html</anchorfile>
       <anchor>a6b091945117c5ffccf7d42e4ba1ae20a</anchor>
       <arglist>(ValueType)</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>lemons::Logger</name>
-    <filename>classlemons_1_1_logger.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>Logger</name>
-      <anchorfile>classlemons_1_1_logger.html</anchorfile>
-      <anchor>a814e7372762976fd8b796184a9f6b978</anchor>
-      <arglist>(File outputFile={})</arglist>
-    </member>
-    <member kind="function">
-      <type></type>
-      <name>~Logger</name>
-      <anchorfile>classlemons_1_1_logger.html</anchorfile>
-      <anchor>a9dd144696277c3f77a1fa01978b78bea</anchor>
-      <arglist>() override</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -20955,7 +20925,6 @@
     <class kind="struct">lemons::DeviceRotation</class>
     <class kind="struct">lemons::Dimensions</class>
     <class kind="class">lemons::GuiApp</class>
-    <class kind="class">lemons::Logger</class>
     <class kind="struct">lemons::TranslationsInitializer</class>
     <class kind="struct">lemons::ValueSmoother</class>
     <class kind="struct">lemons::Version</class>
@@ -22869,12 +22838,6 @@
     <name>LemonsPluginUtilities</name>
     <title>LemonsPluginUtilities</title>
     <filename>_lemons_plugin_utilities</filename>
-  </compound>
-  <compound kind="page">
-    <name>LemonsPluginvalUtils</name>
-    <title>LemonsPluginvalUtils</title>
-    <filename>_lemons_pluginval_utils</filename>
-    <docanchor file="_lemons_pluginval_utils.html" title="lemons_configure_pluginval_tests">lemons_configure_pluginval_tests</docanchor>
   </compound>
   <compound kind="page">
     <name>LemonsSanitizerIntegration</name>
