@@ -18,6 +18,7 @@
 #  include "BinaryData.h"
 #endif
 
+#include <lemons_midi/lemons_midi.h>
 
 namespace lemons::binary
 {
@@ -108,10 +109,10 @@ AudioFile Data::getAudio (const String& audioFileName)
 	return audio;
 }
 
-//MidiBuffer Data::getMidi (const String& midiFileName)
-//{
-//	return serializing::midiFromBinary (getBlob (midiFileName));
-//}
+MidiBuffer Data::getMidi (const String& midiFileName)
+{
+	return serializing::midiFromBinary (getBlob (midiFileName));
+}
 
 String Data::getString (const String& textFileName)
 {
@@ -127,16 +128,14 @@ juce::StringArray Data::getStrings (const String& textFileName)
 	return juce::StringArray::fromTokens (getString (textFileName), "\n\r\n", "");
 }
 
-//juce::CustomTypeface Data::getFont (const String& filename)
-//{
-//    const auto block = getBlob (filename);
-//
-//    juce::MemoryInputStream is { block, false };
-//
-//    juce::CustomTypeface face { is };
-//
-//    return face;
-//}
+std::unique_ptr<juce::CustomTypeface> Data::getFont (const String& fontFileName)
+{
+    const auto block = getBlob (fontFileName);
+
+    juce::MemoryInputStream is { block, false };
+    
+    return std::make_unique<juce::CustomTypeface> (is);
+}
 
 }  // namespace lemons::binary
 

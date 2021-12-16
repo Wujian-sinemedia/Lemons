@@ -74,6 +74,11 @@ struct Data final
 	    If this returns false, every Data object you create will be invalid.
 	 */
     [[nodiscard]] static constexpr bool hasBinaryData() noexcept;
+    
+    /** Returns an opaque blob of binary data from a file in the BinaryData target.
+        If the data can't be loaded, an assertion will be thrown.
+     */
+    [[nodiscard]] static MemoryBlock getBlob (const String& filename);
 
 	/** Returns an image object from an image file in the BinaryData target.
 	    If the image can't be loaded, an assertion will be thrown.
@@ -88,12 +93,7 @@ struct Data final
 	/** Returns a MIDI buffer object from a MIDI file in the BinaryData target.
 	    If the MIDI can't be loaded, an assertion will be thrown.
 	 */
-//	[[nodiscard]] static MidiBuffer getMidi (const String& midiFileName);
-
-	/** Returns an opaque blob of binary data from a file in the BinaryData target.
-	    If the data can't be loaded, an assertion will be thrown.
-	 */
-	[[nodiscard]] static MemoryBlock getBlob (const String& filename);
+	[[nodiscard]] static MidiBuffer getMidi (const String& midiFileName);
 
 	/** Returns a text file in the BinaryData target as one string.
 	    If the data can't be loaded, an assertion will be thrown.
@@ -107,6 +107,12 @@ struct Data final
 	    @see getString()
 	 */
 	[[nodiscard]] static juce::StringArray getStrings (const String& textFileName);
+    
+    /** Returns a font that has been previously serialized with the gui::serializeFont() method.
+        If the font can't be loaded, an assertion will be thrown.
+        @see gui::serializeFont()
+     */
+    [[nodiscard]] static std::unique_ptr<juce::CustomTypeface> getFont (const String& filename);
 };
 
 }  // namespace lemons::binary

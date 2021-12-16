@@ -37,13 +37,6 @@ static inline binary::Data getDefaultTranslationFile()
 	return binary::Data { languageToTranslationFileName (getLanguageToUse()) };
 }
 
-void initializeTranslations (const File& translationFile, bool ignoreCaseOfKeys)
-{
-	if (translationFile.existsAsFile())
-		juce::LocalisedStrings::setCurrentMappings (
-		    new juce::LocalisedStrings (translationFile, ignoreCaseOfKeys));
-}
-
 void initializeTranslations (const binary::Data& data,
                             bool                ignoreCaseOfKeys)
 {
