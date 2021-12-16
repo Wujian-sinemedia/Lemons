@@ -13,20 +13,26 @@
  ======================================================================================
  */
 
-
 #pragma once
 
-#include <juce_audio_utils/juce_audio_utils.h>
-
-namespace lemons::dsp
+namespace lemons
 {
 
-using juce::String;
+using juce::File;
 
-using juce::MidiBuffer;
-using juce::MidiMessage;
+void initializeTranslations (const File& translationFile, bool ignoreCaseOfKeys = true);
 
-template <typename T>
-using AudioBuffer = juce::AudioBuffer<T>;
+void initializeTranslations (const binary::Data& data, bool ignoreCaseOfKeys = true);
 
-}  // namespace lemons::dsp
+
+void initializeDefaultTranslations();
+
+
+struct TranslationsInitializer
+{
+	explicit TranslationsInitializer();
+
+	virtual ~TranslationsInitializer() = default;
+};
+
+}  // namespace lemons

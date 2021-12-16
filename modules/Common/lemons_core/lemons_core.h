@@ -85,8 +85,6 @@
 #include "serializing/serializing.h"
 #include "serializing/VariantConversions.h"
 
-#include "localization/localization.h"
-
 #include "math/mathHelpers.h"
 #include "math/vecops.h"
 #include "misc/ArgParser.h"

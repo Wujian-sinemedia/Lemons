@@ -20,3 +20,5 @@
 #include "audio_files/AudioFile.cpp"
 
 #include "binary_data/data.cpp"
+
+#include "localization/localization.cpp"

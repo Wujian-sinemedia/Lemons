@@ -71,3 +71,5 @@
 
 #include "binary_data/data.h"
 
+#include "localization/localization.h"
+

@@ -27,15 +27,15 @@ static constexpr auto TRANSLATION_FILE_PREFIX = "trans_";
 static constexpr auto TRANSLATION_FILE_XTN    = ".txt";
 
 
-//static inline binary::Data getDefaultTranslationFile()
-//{
-//	const auto languageToTranslationFileName = [] (const String& language) -> String
-//	{
-//		return TRANSLATION_FILE_PREFIX + language + TRANSLATION_FILE_XTN;
-//	};
-//
-//	return binary::Data { languageToTranslationFileName (getLanguageToUse()) };
-//}
+static inline binary::Data getDefaultTranslationFile()
+{
+	const auto languageToTranslationFileName = [] (const String& language) -> String
+	{
+		return TRANSLATION_FILE_PREFIX + language + TRANSLATION_FILE_XTN;
+	};
+
+	return binary::Data { languageToTranslationFileName (getLanguageToUse()) };
+}
 
 void initializeTranslations (const File& translationFile, bool ignoreCaseOfKeys)
 {
@@ -44,19 +44,19 @@ void initializeTranslations (const File& translationFile, bool ignoreCaseOfKeys)
 		    new juce::LocalisedStrings (translationFile, ignoreCaseOfKeys));
 }
 
-//void initializeTranslations (const binary::Data& data,
-//                             bool                ignoreCaseOfKeys)
-//{
-//	if (! data.isValid())
-//		return;
-//
-//	juce::LocalisedStrings::setCurrentMappings (new juce::LocalisedStrings (data.getAsString(), ignoreCaseOfKeys));
-//}
+void initializeTranslations (const binary::Data& data,
+                            bool                ignoreCaseOfKeys)
+{
+	if (! data.isValid())
+		return;
+
+	juce::LocalisedStrings::setCurrentMappings (new juce::LocalisedStrings (data.getAsString(), ignoreCaseOfKeys));
+}
 
 
 void initializeDefaultTranslations()
 {
-	//initializeTranslations (getDefaultTranslationFile());
+	initializeTranslations (getDefaultTranslationFile());
 }
 
 

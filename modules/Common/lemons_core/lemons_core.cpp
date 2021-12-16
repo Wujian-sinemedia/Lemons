@@ -31,8 +31,6 @@
 #include "serializing/VariantConversions.cpp"
 #include "serializing/VariantConversions_tests.cpp"
 
-#include "localization/localization.cpp"
-
 #include "events/AutoLock.cpp"
 #include "events/DeviceRotation.cpp"
 #include "events/DeviceMotion.cpp"

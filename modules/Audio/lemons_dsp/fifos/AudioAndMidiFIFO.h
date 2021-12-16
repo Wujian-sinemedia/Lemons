@@ -21,6 +21,8 @@
 namespace lemons::dsp
 {
 
+using juce::MidiBuffer;
+
 /** A FIFO for storing both audio and MIDI data together.
     @see AudioFifo, MidiFIFO
  */

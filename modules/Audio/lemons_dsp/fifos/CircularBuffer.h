@@ -19,6 +19,9 @@
 namespace lemons::dsp
 {
 
+template<typename SampleType>
+using AudioBuffer = juce::AudioBuffer<SampleType>;
+
 /**
     A circular buffer meant for storing a single channel's worth of audio samples.
     If you need to store more than one channel's worth of samples, use the AudioFifo class.

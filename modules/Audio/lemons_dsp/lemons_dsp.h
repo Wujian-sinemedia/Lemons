@@ -40,8 +40,6 @@ END_JUCE_MODULE_DECLARATION
 #endif
 
 
-#include "aliases.h"
-
 #include "fifos/CircularBuffer.h"
 #include "fifos/AudioFifo.h"
 #include "fifos/AudioAndMidiFIFO.h"
