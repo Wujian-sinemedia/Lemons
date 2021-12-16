@@ -12,7 +12,7 @@
  website:            http://benthevining.github.io/Lemons/
  license:            GPL-3.0
  minimumCppStandard: 17
- dependencies:       juce_cryptography
+ dependencies:       juce_product_unlocking
 
  END_JUCE_MODULE_DECLARATION
 
@@ -20,3 +20,4 @@
 
 
 #include "utils/utils.h"
+#include "product_unlocking/OnlineUnlock.h"
