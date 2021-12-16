@@ -15,13 +15,6 @@
     </member>
   </compound>
   <compound kind="file">
-    <name>GUI/lemons_gui/utilities/aliases.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/GUI/lemons_gui/utilities/</path>
-    <filename>_g_u_i_2lemons__gui_2utilities_2aliases_8h.html</filename>
-    <namespace>lemons</namespace>
-    <namespace>lemons::gui</namespace>
-  </compound>
-  <compound kind="file">
     <name>Plugins/lemons_plugin_parameters/aliases.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Plugins/lemons_plugin_parameters/</path>
     <filename>_plugins_2lemons__plugin__parameters_2aliases_8h.html</filename>
@@ -639,6 +632,20 @@
     <namespace>lemons::dsp::filters</namespace>
   </compound>
   <compound kind="file">
+    <name>Fonts.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/GUI/lemons_gui/utilities/</path>
+    <filename>_fonts_8h.html</filename>
+    <namespace>lemons</namespace>
+    <namespace>lemons::gui</namespace>
+    <member kind="function">
+      <type>bool</type>
+      <name>serializeFont</name>
+      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
+      <anchor>a344a10996f5513487d481dd43b3d8c48</anchor>
+      <arglist>(const juce::Font &amp;font, File &amp;destFile, int maxNumChars=127, juce_wchar defaultChar=&apos; &apos;)</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
     <name>graphics_helpers.h</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Testing/lemons_unit_testing/util/</path>
     <filename>graphics__helpers_8h.html</filename>
@@ -1035,6 +1042,13 @@
       <anchor>ae32c7b236b4feff5b1bc49ccda1a8517</anchor>
       <arglist>(const MidiBuffer &amp;readingBuffer, MidiBuffer &amp;destBuffer, const int startSampleOfInput, const int startSampleOfOutput, const int numSamples)</arglist>
     </member>
+    <member kind="function">
+      <type>String</type>
+      <name>getControllerName</name>
+      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
+      <anchor>aef2798e3e367683b2d4f7cf7c39a52b0</anchor>
+      <arglist>(int controllerNumber)</arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>ModulationManager.h</name>
@@ -1093,6 +1107,13 @@
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::FX</namespace>
+  </compound>
+  <compound kind="file">
+    <name>OnlineUnlock.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_cryptography/product_unlocking/</path>
+    <filename>_online_unlock_8h.html</filename>
+    <class kind="class">lemons::OnlineUnlock</class>
+    <namespace>lemons</namespace>
   </compound>
   <compound kind="file">
     <name>OscEngine.h</name>
@@ -1843,6 +1864,50 @@
       <anchorfile>namespacelemons_1_1plugin.html</anchorfile>
       <anchor>a7e38f9c29a05a75b8d87f91d7909c688</anchor>
       <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="file">
+    <name>utils.h</name>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_cryptography/utils/</path>
+    <filename>utils_8h.html</filename>
+    <class kind="struct">juce::VariantConverter&lt; RSAKey &gt;</class>
+    <namespace>juce</namespace>
+    <namespace>lemons</namespace>
+    <namespace>lemons::crypto</namespace>
+    <member kind="function">
+      <type>T</type>
+      <name>decryptObject</name>
+      <anchorfile>namespacelemons_1_1crypto.html</anchorfile>
+      <anchor>a817f09b84fafab293b314468d85b2f52</anchor>
+      <arglist>(const String &amp;encryptedString, const RSAKey &amp;privateKey)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>decryptString</name>
+      <anchorfile>namespacelemons_1_1crypto.html</anchorfile>
+      <anchor>aa62f717eea8e3e4a8d89496c1e7f7e20</anchor>
+      <arglist>(const String &amp;encryptedString, const RSAKey &amp;privateKey)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>encryptObject</name>
+      <anchorfile>namespacelemons_1_1crypto.html</anchorfile>
+      <anchor>a8e08aba1c557cf8eecb785b401842f04</anchor>
+      <arglist>(const T &amp;object, const RSAKey &amp;publicKey)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>encryptString</name>
+      <anchorfile>namespacelemons_1_1crypto.html</anchorfile>
+      <anchor>ad0f044934cda67095202c3c31eb297d2</anchor>
+      <arglist>(const String &amp;stringToEncrypt, const RSAKey &amp;publicKey)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>generateKeyPair</name>
+      <anchorfile>namespacelemons_1_1crypto.html</anchorfile>
+      <anchor>af7119c00b2e9bb3470d567417838f79e</anchor>
+      <arglist>(const juce::File &amp;outputFile, int numBits=128, const juce::Array&lt; int &gt; &amp;randomSeeds={})</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -6748,6 +6813,105 @@
     </member>
   </compound>
   <compound kind="class">
+    <name>lemons::dsp::osc::Engine</name>
+    <filename>classlemons_1_1dsp_1_1osc_1_1_engine.html</filename>
+    <templarg></templarg>
+    <templarg>Osctype</templarg>
+    <templarg></templarg>
+    <base>lemons::dsp::Engine</base>
+    <member kind="function">
+      <type>int</type>
+      <name>getBlocksize</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>ac58db70a45245363b4cde47e068c93f1</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>float</type>
+      <name>getFrequency</name>
+      <anchorfile>classlemons_1_1dsp_1_1osc_1_1_engine.html</anchorfile>
+      <anchor>a9c15dd22b1c6fd7bf5999b665766e7d4</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>int</type>
+      <name>getNumChannels</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>abcbd3bdeebea99be0e756ad1161190dc</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>double</type>
+      <name>getSamplerate</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a0c87ce560c5a841ae19764adb67e4dfc</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>isInitialized</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a38a2e75c1ccdbe5fd3a7c1b376d4e40a</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>prepare</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a92fe69356c54445d91e70586cc9cdf73</anchor>
+      <arglist>(double samplerate, int blocksize, int numChannels=2)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a3f813b9e44ed7518183da4afe405f44e</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, bool isBypassed=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a48b37b72835d34fc060a1010a1fe2499</anchor>
+      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>adfb2f088baaa0e07efa7bf794918d831</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, bool isBypassed=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>process</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>aa3668be93e3cc7b9a4340c5872be9b45</anchor>
+      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>releaseResources</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>a144323b4488420dcf49b89cee7837f8c</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual int</type>
+      <name>reportLatency</name>
+      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
+      <anchor>ab167e1944264df820f50cd637bfefc13</anchor>
+      <arglist>() const noexcept</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>setFrequency</name>
+      <anchorfile>classlemons_1_1dsp_1_1osc_1_1_engine.html</anchorfile>
+      <anchor>a1dff90309bc92e1b4dcaa66ac723f7cb</anchor>
+      <arglist>(float freqHz)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>lemons::dsp::Engine</name>
     <filename>classlemons_1_1dsp_1_1_engine.html</filename>
     <templarg></templarg>
@@ -6862,105 +7026,6 @@
       <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
       <anchor>a20e2f81d84b335b507e34eb129e87820</anchor>
       <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed)=0</arglist>
-    </member>
-  </compound>
-  <compound kind="class">
-    <name>lemons::dsp::osc::Engine</name>
-    <filename>classlemons_1_1dsp_1_1osc_1_1_engine.html</filename>
-    <templarg></templarg>
-    <templarg>Osctype</templarg>
-    <templarg></templarg>
-    <base>lemons::dsp::Engine</base>
-    <member kind="function">
-      <type>int</type>
-      <name>getBlocksize</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>ac58db70a45245363b4cde47e068c93f1</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>float</type>
-      <name>getFrequency</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1_engine.html</anchorfile>
-      <anchor>a9c15dd22b1c6fd7bf5999b665766e7d4</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>int</type>
-      <name>getNumChannels</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>abcbd3bdeebea99be0e756ad1161190dc</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>double</type>
-      <name>getSamplerate</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a0c87ce560c5a841ae19764adb67e4dfc</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>bool</type>
-      <name>isInitialized</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a38a2e75c1ccdbe5fd3a7c1b376d4e40a</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>prepare</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a92fe69356c54445d91e70586cc9cdf73</anchor>
-      <arglist>(double samplerate, int blocksize, int numChannels=2)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a3f813b9e44ed7518183da4afe405f44e</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a48b37b72835d34fc060a1010a1fe2499</anchor>
-      <arglist>(AudioBuffer&lt; SampleType &gt; &amp;inplaceInAndOut, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>adfb2f088baaa0e07efa7bf794918d831</anchor>
-      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>process</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>aa3668be93e3cc7b9a4340c5872be9b45</anchor>
-      <arglist>(const AudioBuffer&lt; SampleType &gt; &amp;input, AudioBuffer&lt; SampleType &gt; &amp;output, MidiBuffer &amp;midiMessages, bool isBypassed=false)</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>releaseResources</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>a144323b4488420dcf49b89cee7837f8c</anchor>
-      <arglist>()</arglist>
-    </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual int</type>
-      <name>reportLatency</name>
-      <anchorfile>classlemons_1_1dsp_1_1_engine.html</anchorfile>
-      <anchor>ab167e1944264df820f50cd637bfefc13</anchor>
-      <arglist>() const noexcept</arglist>
-    </member>
-    <member kind="function">
-      <type>void</type>
-      <name>setFrequency</name>
-      <anchorfile>classlemons_1_1dsp_1_1osc_1_1_engine.html</anchorfile>
-      <anchor>a1dff90309bc92e1b4dcaa66ac723f7cb</anchor>
-      <arglist>(float freqHz)</arglist>
     </member>
   </compound>
   <compound kind="class">
@@ -13757,6 +13822,38 @@
       <arglist>(float newThreshold_dB)</arglist>
     </member>
   </compound>
+  <compound kind="class">
+    <name>lemons::OnlineUnlock</name>
+    <filename>classlemons_1_1_online_unlock.html</filename>
+    <member kind="typedef">
+      <type>std::function&lt; String()&gt;</type>
+      <name>LoadingFunc</name>
+      <anchorfile>classlemons_1_1_online_unlock.html</anchorfile>
+      <anchor>ae08469508a07490027a0c18a54c33f49</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="typedef">
+      <type>std::function&lt; void(const String &amp;)&gt;</type>
+      <name>SavingFunc</name>
+      <anchorfile>classlemons_1_1_online_unlock.html</anchorfile>
+      <anchor>a5d653677a237f191749477c6656b1b27</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>OnlineUnlock</name>
+      <anchorfile>classlemons_1_1_online_unlock.html</anchorfile>
+      <anchor>a2a52c3104d038598ea77c01b7eb44e09</anchor>
+      <arglist>(const String &amp;productID, const String &amp;websiteName, const String &amp;authURL, const String &amp;publicKey, SavingFunc &amp;&amp;funcToSave, LoadingFunc &amp;&amp;funcToLoad)</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>hasValidLicense</name>
+      <anchorfile>classlemons_1_1_online_unlock.html</anchorfile>
+      <anchor>a18320f3dff6ffbd0d9e4e0c3f9eae2e6</anchor>
+      <arglist>() const</arglist>
+    </member>
+  </compound>
   <compound kind="struct">
     <name>lemons::dsp::osc::Oscillator</name>
     <filename>structlemons_1_1dsp_1_1osc_1_1_oscillator.html</filename>
@@ -20487,6 +20584,24 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>juce::VariantConverter&lt; RSAKey &gt;</name>
+    <filename>structjuce_1_1_variant_converter_3_01_r_s_a_key_01_4.html</filename>
+    <member kind="function" static="yes">
+      <type>static RSAKey</type>
+      <name>fromVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_r_s_a_key_01_4.html</anchorfile>
+      <anchor>a81c45a9ec8dae8040ee531ccb90e6283</anchor>
+      <arglist>(const var &amp;v)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static var</type>
+      <name>toVar</name>
+      <anchorfile>structjuce_1_1_variant_converter_3_01_r_s_a_key_01_4.html</anchorfile>
+      <anchor>ad69367329f97b5d77c331cf47b7478a9</anchor>
+      <arglist>(const RSAKey &amp;k)</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
     <name>juce::VariantConverter&lt; StringArray &gt;</name>
     <filename>structjuce_1_1_variant_converter_3_01_string_array_01_4.html</filename>
     <member kind="function" static="yes">
@@ -20892,6 +21007,7 @@
     <class kind="struct">juce::VariantConverter&lt; PluginDescription &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; PropertySet &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; RelativeTime &gt;</class>
+    <class kind="struct">juce::VariantConverter&lt; RSAKey &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; StringArray &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; StringPairArray &gt;</class>
     <class kind="struct">juce::VariantConverter&lt; Time &gt;</class>
@@ -20904,6 +21020,7 @@
     <name>lemons</name>
     <filename>namespacelemons.html</filename>
     <namespace>lemons::binary</namespace>
+    <namespace>lemons::crypto</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::events</namespace>
     <namespace>lemons::files</namespace>
@@ -20925,6 +21042,7 @@
     <class kind="struct">lemons::DeviceRotation</class>
     <class kind="struct">lemons::Dimensions</class>
     <class kind="class">lemons::GuiApp</class>
+    <class kind="class">lemons::OnlineUnlock</class>
     <class kind="struct">lemons::TranslationsInitializer</class>
     <class kind="struct">lemons::ValueSmoother</class>
     <class kind="struct">lemons::Version</class>
@@ -20974,6 +21092,45 @@
       <anchorfile>namespacelemons_1_1binary.html</anchorfile>
       <anchor>a4318620be715428c9e7bde3ad4de100b</anchor>
       <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="namespace">
+    <name>lemons::crypto</name>
+    <filename>namespacelemons_1_1crypto.html</filename>
+    <member kind="function">
+      <type>T</type>
+      <name>decryptObject</name>
+      <anchorfile>namespacelemons_1_1crypto.html</anchorfile>
+      <anchor>a817f09b84fafab293b314468d85b2f52</anchor>
+      <arglist>(const String &amp;encryptedString, const RSAKey &amp;privateKey)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>decryptString</name>
+      <anchorfile>namespacelemons_1_1crypto.html</anchorfile>
+      <anchor>aa62f717eea8e3e4a8d89496c1e7f7e20</anchor>
+      <arglist>(const String &amp;encryptedString, const RSAKey &amp;privateKey)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>encryptObject</name>
+      <anchorfile>namespacelemons_1_1crypto.html</anchorfile>
+      <anchor>a8e08aba1c557cf8eecb785b401842f04</anchor>
+      <arglist>(const T &amp;object, const RSAKey &amp;publicKey)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>encryptString</name>
+      <anchorfile>namespacelemons_1_1crypto.html</anchorfile>
+      <anchor>ad0f044934cda67095202c3c31eb297d2</anchor>
+      <arglist>(const String &amp;stringToEncrypt, const RSAKey &amp;publicKey)</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>generateKeyPair</name>
+      <anchorfile>namespacelemons_1_1crypto.html</anchorfile>
+      <anchor>af7119c00b2e9bb3470d567417838f79e</anchor>
+      <arglist>(const juce::File &amp;outputFile, int numBits=128, const juce::Array&lt; int &gt; &amp;randomSeeds={})</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -21236,6 +21393,13 @@
     <class kind="struct">lemons::gui::TextButton</class>
     <class kind="class">lemons::gui::ToggleButton</class>
     <class kind="struct">lemons::gui::ToggleTextButton</class>
+    <member kind="function">
+      <type>bool</type>
+      <name>serializeFont</name>
+      <anchorfile>namespacelemons_1_1gui.html</anchorfile>
+      <anchor>a344a10996f5513487d481dd43b3d8c48</anchor>
+      <arglist>(const juce::Font &amp;font, File &amp;destFile, int maxNumChars=127, juce_wchar defaultChar=&apos; &apos;)</arglist>
+    </member>
   </compound>
   <compound kind="namespace">
     <name>lemons::gui::colors</name>
@@ -21317,6 +21481,13 @@
       <anchorfile>namespacelemons_1_1midi.html</anchorfile>
       <anchor>ae32c7b236b4feff5b1bc49ccda1a8517</anchor>
       <arglist>(const MidiBuffer &amp;readingBuffer, MidiBuffer &amp;destBuffer, const int startSampleOfInput, const int startSampleOfOutput, const int numSamples)</arglist>
+    </member>
+    <member kind="function">
+      <type>String</type>
+      <name>getControllerName</name>
+      <anchorfile>namespacelemons_1_1midi.html</anchorfile>
+      <anchor>aef2798e3e367683b2d4f7cf7c39a52b0</anchor>
+      <arglist>(int controllerNumber)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -22115,6 +22286,7 @@
     <title>Common</title>
     <filename>group___common.html</filename>
     <subgroup>lemons_core</subgroup>
+    <subgroup>lemons_cryptography</subgroup>
     <subgroup>lemons_musicology</subgroup>
   </compound>
   <compound kind="group">
@@ -22407,6 +22579,13 @@
     <subgroup>serializing</subgroup>
   </compound>
   <compound kind="group">
+    <name>lemons_cryptography</name>
+    <title>lemons_cryptography</title>
+    <filename>group__lemons__cryptography.html</filename>
+    <subgroup>product_unlocking</subgroup>
+    <subgroup>utils</subgroup>
+  </compound>
+  <compound kind="group">
     <name>lemons_dsp</name>
     <title>lemons_dsp</title>
     <filename>group__lemons__dsp.html</filename>
@@ -22602,6 +22781,11 @@
     <class kind="class">lemons::plugin::Processor</class>
     <class kind="class">lemons::plugin::ProcessorBase</class>
     <class kind="struct">lemons::plugin::ProcessorWithEditor</class>
+  </compound>
+  <compound kind="group">
+    <name>product_unlocking</name>
+    <title>product_unlocking</title>
+    <filename>group__product__unlocking.html</filename>
   </compound>
   <compound kind="group">
     <name>resynthesis</name>
