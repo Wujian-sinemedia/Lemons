@@ -69,10 +69,9 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">serializing.h File Reference</div>  </div>
+<div class="title">Common/lemons_core/serializing/serializing.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
@@ -83,46 +82,14 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacelemons_1_1serializing"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html">lemons::serializing</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:aebcdf9ccc626b6fb5a8dc121e65fec81"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
-<tr class="memitem:aebcdf9ccc626b6fb5a8dc121e65fec81"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#aebcdf9ccc626b6fb5a8dc121e65fec81">lemons::serializing::AudioBuffer</a> = juce::AudioBuffer&lt; SampleType &gt;</td></tr>
-<tr class="separator:aebcdf9ccc626b6fb5a8dc121e65fec81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab642a13438e30137d80cb0842d314f7b"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
-<tr class="memitem:ab642a13438e30137d80cb0842d314f7b"><td class="memTemplItemLeft" align="right" valign="top">AudioBuffer&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#ab642a13438e30137d80cb0842d314f7b">lemons::serializing::audioFromBinary</a> (const MemoryBlock &amp;block)</td></tr>
-<tr class="memdesc:ab642a13438e30137d80cb0842d314f7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an AudioBuffer from a binary representation of one.  <a href="namespacelemons_1_1serializing.html#ab642a13438e30137d80cb0842d314f7b">More...</a><br /></td></tr>
-<tr class="separator:ab642a13438e30137d80cb0842d314f7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf7966056fb84074c7d8acfafad74af2"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
-<tr class="memitem:adf7966056fb84074c7d8acfafad74af2"><td class="memTemplItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#adf7966056fb84074c7d8acfafad74af2">lemons::serializing::audioToBinary</a> (const AudioBuffer&lt; SampleType &gt; &amp;buffer, double samplerate=48000.)</td></tr>
-<tr class="memdesc:adf7966056fb84074c7d8acfafad74af2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes an AudioBuffer as a blob of binary data.  <a href="namespacelemons_1_1serializing.html#adf7966056fb84074c7d8acfafad74af2">More...</a><br /></td></tr>
-<tr class="separator:adf7966056fb84074c7d8acfafad74af2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71a2d7117ba93aff2cff74ce99ee2921"><td class="memItemLeft" align="right" valign="top">Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a71a2d7117ba93aff2cff74ce99ee2921">lemons::serializing::imageFromBinary</a> (const MemoryBlock &amp;block)</td></tr>
-<tr class="memdesc:a71a2d7117ba93aff2cff74ce99ee2921"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an Image object from a binary representation of one.  <a href="namespacelemons_1_1serializing.html#a71a2d7117ba93aff2cff74ce99ee2921">More...</a><br /></td></tr>
-<tr class="separator:a71a2d7117ba93aff2cff74ce99ee2921"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a844c15e8011970bd72cddbc16ac54886"><td class="memItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a844c15e8011970bd72cddbc16ac54886">lemons::serializing::imageToBinary</a> (const Image &amp;image)</td></tr>
-<tr class="memdesc:a844c15e8011970bd72cddbc16ac54886"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes an Image object as a blob of binary data.  <a href="namespacelemons_1_1serializing.html#a844c15e8011970bd72cddbc16ac54886">More...</a><br /></td></tr>
-<tr class="separator:a844c15e8011970bd72cddbc16ac54886"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8b999fef48958f498e30029bd9a7eeb"><td class="memItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#ac8b999fef48958f498e30029bd9a7eeb">lemons::serializing::memoryBlockFromString</a> (const String &amp;string)</td></tr>
 <tr class="memdesc:ac8b999fef48958f498e30029bd9a7eeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a MemoryBlock from a String representation of one.  <a href="namespacelemons_1_1serializing.html#ac8b999fef48958f498e30029bd9a7eeb">More...</a><br /></td></tr>
 <tr class="separator:ac8b999fef48958f498e30029bd9a7eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0567d1e8fe695183370d8d86edced3c6"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a0567d1e8fe695183370d8d86edced3c6">lemons::serializing::memoryBlockToString</a> (const MemoryBlock &amp;block)</td></tr>
 <tr class="memdesc:a0567d1e8fe695183370d8d86edced3c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a MemoryBlock to a String representation.  <a href="namespacelemons_1_1serializing.html#a0567d1e8fe695183370d8d86edced3c6">More...</a><br /></td></tr>
 <tr class="separator:a0567d1e8fe695183370d8d86edced3c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a142ed1cd8fc8d2f69f9b459732a96c"><td class="memItemLeft" align="right" valign="top">MidiBuffer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a5a142ed1cd8fc8d2f69f9b459732a96c">lemons::serializing::midiBufferFromFile</a> (const juce::MidiFile &amp;file, int trackToRead=-1)</td></tr>
-<tr class="memdesc:a5a142ed1cd8fc8d2f69f9b459732a96c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a MIDI file object to a MIDI buffer.  <a href="namespacelemons_1_1serializing.html#a5a142ed1cd8fc8d2f69f9b459732a96c">More...</a><br /></td></tr>
-<tr class="separator:a5a142ed1cd8fc8d2f69f9b459732a96c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aced62684c90658470caab1dd9c4e52b5"><td class="memItemLeft" align="right" valign="top">juce::MidiFile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#aced62684c90658470caab1dd9c4e52b5">lemons::serializing::midiBufferToFile</a> (const MidiBuffer &amp;midi)</td></tr>
-<tr class="memdesc:aced62684c90658470caab1dd9c4e52b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a MIDI buffer to a MIDI file object.  <a href="namespacelemons_1_1serializing.html#aced62684c90658470caab1dd9c4e52b5">More...</a><br /></td></tr>
-<tr class="separator:aced62684c90658470caab1dd9c4e52b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d943b0466e21cc2c329e8beeb2805ae"><td class="memItemLeft" align="right" valign="top">MidiBuffer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a2d943b0466e21cc2c329e8beeb2805ae">lemons::serializing::midiFromBinary</a> (const MemoryBlock &amp;block)</td></tr>
-<tr class="memdesc:a2d943b0466e21cc2c329e8beeb2805ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a MidiBufer from a binary representation of one.  <a href="namespacelemons_1_1serializing.html#a2d943b0466e21cc2c329e8beeb2805ae">More...</a><br /></td></tr>
-<tr class="separator:a2d943b0466e21cc2c329e8beeb2805ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f9b5afb4a6bd15f8c8801923c12e1f7"><td class="memItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a9f9b5afb4a6bd15f8c8801923c12e1f7">lemons::serializing::midiToBinary</a> (const MidiBuffer &amp;midi)</td></tr>
-<tr class="memdesc:a9f9b5afb4a6bd15f8c8801923c12e1f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes a MidiBuffer as a blob of binary data.  <a href="namespacelemons_1_1serializing.html#a9f9b5afb4a6bd15f8c8801923c12e1f7">More...</a><br /></td></tr>
-<tr class="separator:a9f9b5afb4a6bd15f8c8801923c12e1f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a28001c151ae9a72cee950b7b0c5fe0"><td class="memItemLeft" align="right" valign="top">ValueTree&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a3a28001c151ae9a72cee950b7b0c5fe0">lemons::serializing::valueTreeFromJSON</a> (const String &amp;jsonText)</td></tr>
 <tr class="memdesc:a3a28001c151ae9a72cee950b7b0c5fe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a JSON string to a ValueTree.  <a href="namespacelemons_1_1serializing.html#a3a28001c151ae9a72cee950b7b0c5fe0">More...</a><br /></td></tr>
 <tr class="separator:a3a28001c151ae9a72cee950b7b0c5fe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -133,7 +100,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 16 2021 14:42:39 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 16 2021 16:59:35 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

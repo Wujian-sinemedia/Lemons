@@ -122,10 +122,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af370acea369cdd662ed2654d7d549d6f"><td class="memItemLeft" align="right" valign="top">const juce::AudioProcessor *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_processor_holder.html#af370acea369cdd662ed2654d7d549d6f">operator-&gt;</a> () const</td></tr>
 <tr class="memdesc:af370acea369cdd662ed2654d7d549d6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the managed AudioProcessor.  <a href="structlemons_1_1plugin_1_1_processor_holder.html#af370acea369cdd662ed2654d7d549d6f">More...</a><br /></td></tr>
 <tr class="separator:af370acea369cdd662ed2654d7d549d6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3426a67fb1486f515d4244037d66dc9e"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
-<tr class="memitem:a3426a67fb1486f515d4244037d66dc9e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_processor_holder.html#a3426a67fb1486f515d4244037d66dc9e">prepareForPlayback</a> (double samplerate, int blocksize)</td></tr>
-<tr class="memdesc:a3426a67fb1486f515d4244037d66dc9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the processor for playback.  <a href="structlemons_1_1plugin_1_1_processor_holder.html#a3426a67fb1486f515d4244037d66dc9e">More...</a><br /></td></tr>
-<tr class="separator:a3426a67fb1486f515d4244037d66dc9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cbc63f5f0f20aac0ff365a5c3ee6b69"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
+<tr class="memitem:a8cbc63f5f0f20aac0ff365a5c3ee6b69"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_processor_holder.html#a8cbc63f5f0f20aac0ff365a5c3ee6b69">prepareForPlayback</a> (double samplerate, int blocksize, int numChannels=2)</td></tr>
+<tr class="memdesc:a8cbc63f5f0f20aac0ff365a5c3ee6b69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the processor for playback.  <a href="structlemons_1_1plugin_1_1_processor_holder.html#a8cbc63f5f0f20aac0ff365a5c3ee6b69">More...</a><br /></td></tr>
+<tr class="separator:a8cbc63f5f0f20aac0ff365a5c3ee6b69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05c3705605cdea57866c1c48d621d3ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1plugin_1_1_processor_holder.html#a05c3705605cdea57866c1c48d621d3ca">setStateOfParameters</a> (const <a class="el" href="structlemons_1_1plugin_1_1_processor_holder.html#a7809bb749782bf4a6ade6451e7217f54">ParameterState</a> &amp;state)</td></tr>
 <tr class="memdesc:a05c3705605cdea57866c1c48d621d3ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restores a previous parameter state.  <a href="structlemons_1_1plugin_1_1_processor_holder.html#a05c3705605cdea57866c1c48d621d3ca">More...</a><br /></td></tr>
 <tr class="separator:a05c3705605cdea57866c1c48d621d3ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -414,8 +414,8 @@ template&lt;typename ParameterType , LEMONS_MUST_INHERIT_FROM(ParameterType, juc
 
 </div>
 </div>
-<a id="a3426a67fb1486f515d4244037d66dc9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3426a67fb1486f515d4244037d66dc9e">&#9670;&nbsp;</a></span>prepareForPlayback()</h2>
+<a id="a8cbc63f5f0f20aac0ff365a5c3ee6b69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cbc63f5f0f20aac0ff365a5c3ee6b69">&#9670;&nbsp;</a></span>prepareForPlayback()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -426,7 +426,7 @@ template&lt;typename SampleType &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void lemons::plugin::ProcessorHolder::prepareForPlayback </td>
+          <td class="memname">bool lemons::plugin::ProcessorHolder::prepareForPlayback </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>samplerate</em>, </td>
@@ -435,7 +435,13 @@ template&lt;typename SampleType &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>blocksize</em>&#160;</td>
+          <td class="paramname"><em>blocksize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numChannels</em> = <code>2</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -451,7 +457,7 @@ template&lt;typename SampleType &gt; </div>
 </div><div class="memdoc">
 
 <p>Prepares the processor for playback. </p>
-<p>Internally, this sets the appropriate processing precision and calls prepareToPlay(). </p>
+<p>Internally, this sets the appropriate processing precision and buses layout and calls prepareToPlay(). </p>
 
 </div>
 </div>
@@ -532,7 +538,7 @@ template&lt;typename ProcessorType , LEMONS_MUST_INHERIT_FROM(ProcessorType, juc
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 16 2021 14:42:40 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 16 2021 16:59:36 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

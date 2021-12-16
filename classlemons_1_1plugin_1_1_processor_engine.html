@@ -609,6 +609,7 @@ template&lt;typename SampleType &gt; </div>
 </div><div class="memdoc">
 
 <p>Reports the latency in samples of the managed AudioProcessor. </p>
+<p>Note that this class is a <a class="el" href="classlemons_1_1dsp_1_1_engine.html" title="Base class for an audio engine.">dsp::Engine</a>, and not a <a class="el" href="classlemons_1_1dsp_1_1_latency_engine.html" title="Base class for audio engines that require latency (ie, a consistent block size) for their processing.">dsp::LatencyEngine</a>; the AudioProcessor is expected to internally manage its own latency buffering if it requires any. </p>
 
 <p>Reimplemented from <a class="el" href="classlemons_1_1dsp_1_1_engine.html#ab167e1944264df820f50cd637bfefc13">lemons::dsp::Engine&lt; SampleType &gt;</a>.</p>
 
@@ -639,7 +640,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 16 2021 14:42:39 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 16 2021 16:59:36 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

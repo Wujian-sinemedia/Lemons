@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lemons: parameters Directory Reference</title>
+<title>Lemons: lemons_binaries</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -47,6 +47,7 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,39 +62,48 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_4fef79e7177ba769987a8da36c892c5f.html">build</a></li><li class="navelem"><a class="el" href="dir_d6740c8756ff0960b18a6e20d4fb7bc3.html">Plugins</a></li><li class="navelem"><a class="el" href="dir_9cd9f46a8542012862c116d3f6e4b545.html">lemons_plugin_parameters</a></li><li class="navelem"><a class="el" href="dir_d50b4ed5b7f6c3c57341b0cd0561821e.html">parameters</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#groups">Modules</a>  </div>
   <div class="headertitle">
-<div class="title">parameters Directory Reference</div>  </div>
+<div class="title">lemons_binaries<div class="ingroups"><a class="el" href="group___common.html">Common</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Utilities for working with embedded binary data.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="subdirs"></a>
-Directories</h2></td></tr>
-<tr class="memitem:dir_d58d0c6b95f29f70afc169cac8fe7abc"><td class="memItemLeft" align="right" valign="top">directory &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dir_d58d0c6b95f29f70afc169cac8fe7abc.html">utils</a></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:group__audio__files"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__audio__files.html">audio_files</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:_meta_parameter_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_meta_parameter_8h.html">MetaParameter.h</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:_parameter_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_parameter_8h.html">Parameter.h</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:_parameter_types_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_parameter_types_8h.html">ParameterTypes.h</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:_specializations_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_specializations_8h.html">Specializations.h</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:_typed_parameter_helpers_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_typed_parameter_helpers_8h.html">TypedParameterHelpers.h</a></td></tr>
+<tr class="memitem:group__binary__data"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__binary__data.html">binary_data</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Utilities for working with embedded binary data. </p>
+<ul>
+<li>ID: lemons_binaries</li>
+<li>vendor: Lemons</li>
+<li>version: 0.0.1</li>
+<li>name: lemons_binaries</li>
+<li>website: <a href="http://benthevining.github.io/Lemons/">http://benthevining.github.io/Lemons/</a></li>
+<li>license: GPL-3.0</li>
+<li>minimumCppStandard: 17</li>
+<li>dependencies: <a class="el" href="group__lemons__core.html">lemons_core</a> juce_audio_formats juce_graphics</li>
+</ul>
+<p>Preprocessor configuration flags:</p><ul>
+<li>LEMONS_HAS_BINARY_DATA</li>
+</ul>
+<p>Set this to 1 if your project has a JUCE binary data target. The Lemons repo's cmake scripts set this automatically for you; if that's how you added the Lemons package, then you don't need to worry about setting this manually.</p>
+<ul>
+<li>LEMONS_BINARY_DATA_NAMESPACE</li>
+</ul>
+<p>Use this to specify the namespace your binary data assets are in. Defaults to 'BinaryData'. </p>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 16 2021 14:42:40 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 16 2021 16:59:35 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

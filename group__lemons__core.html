@@ -75,8 +75,6 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
 Modules</h2></td></tr>
-<tr class="memitem:group__binary__data"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__binary__data.html">binary_data</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:group__events"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__events.html">events</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:group__files"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__files.html">files</a></td></tr>
@@ -100,19 +98,11 @@ Modules</h2></td></tr>
 <li>website: <a href="http://benthevining.github.io/Lemons/">http://benthevining.github.io/Lemons/</a></li>
 <li>license: GPL-3.0</li>
 <li>minimumCppStandard: 17</li>
-<li>dependencies: juce_audio_formats juce_audio_processors juce_gui_basics</li>
+<li>dependencies: juce_data_structures juce_core</li>
 <li>OSXFrameworks: Accelerate</li>
 <li>iOSFrameworks: Accelerate</li>
 </ul>
 <p>Preprocessor configuration flags:</p><ul>
-<li>LEMONS_HAS_BINARY_DATA</li>
-</ul>
-<p>Set this to 1 if your project has a JUCE binary data target. The Lemons repo's cmake scripts set this automatically for you; if that's how you added the Lemons package, then you don't need to worry about setting this manually.</p>
-<ul>
-<li>LEMONS_BINARY_DATA_NAMESPACE</li>
-</ul>
-<p>Use this to specify the namespace your binary data assets are in. Defaults to 'BinaryData'.</p>
-<ul>
 <li>LEMONS_USE_VDSP</li>
 </ul>
 <p>Set this to 1 to use Apple's vDSP library for vecops SIMD. vDSP ships with the OS on Mac and iOS, which is why it's the default on Apple platforms. The Lemons repo's cmake scripts set this automatically for you; if that's how you added the Lemons package, then you don't need to worry about setting this manually.</p>
@@ -123,7 +113,7 @@ Modules</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 16 2021 14:42:39 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 16 2021 16:59:35 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>
