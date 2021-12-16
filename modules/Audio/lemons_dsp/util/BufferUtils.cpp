@@ -21,6 +21,9 @@ namespace lemons::dsp::buffers
 template <typename SampleType>
 void copy (const AudioBuffer<SampleType>& source, AudioBuffer<SampleType>& dest)
 {
+    if (&source == &dest)
+        return;
+    
 	dest.clear();
 
 	const auto numSamples = source.getNumSamples();

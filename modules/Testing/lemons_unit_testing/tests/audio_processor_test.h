@@ -15,7 +15,7 @@
 
 #pragma once
 
-#include <lemons_plugin_hosting/lemons_plugin_hosting.h>
+#include <lemons_plugin_hosting/ProcessorHolder/ProcessorHolder.h>
 
 
 namespace lemons::tests
