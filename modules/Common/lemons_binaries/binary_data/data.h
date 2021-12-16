@@ -17,12 +17,14 @@
 #pragma once
 
 #include <juce_graphics/juce_graphics.h>
+#include <lemons_core/lemons_core.h>
 
 
 namespace lemons::binary
 {
 
 using juce::String;
+using juce::ValueTree;
 using juce::Image;
 using juce::MemoryBlock;
 using juce::MidiBuffer;
@@ -79,6 +81,13 @@ struct Data final
         If the data can't be loaded, an assertion will be thrown.
      */
     [[nodiscard]] static MemoryBlock getBlob (const String& filename);
+    
+    /** Returns a ValueTree from a serialized file in the BinaryData target in the specified format.
+        If the data can't be loaded, an assertion will be thrown.
+        @see files::saveValueTree()
+     */
+    template<files::FileType Type = files::FileType::JSON>
+    [[nodiscard]] static ValueTree getValueTree (const String& filename);
 
 	/** Returns an image object from an image file in the BinaryData target.
 	    If the image can't be loaded, an assertion will be thrown.

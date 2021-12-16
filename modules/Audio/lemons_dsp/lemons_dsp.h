@@ -35,6 +35,24 @@ END_JUCE_MODULE_DECLARATION
  -------------------------------------------------------------------------------------*/
 
 
+//==============================================================================
+/** Config: LEMONS_USE_VDSP
+
+    Set this to 1 to use Apple's vDSP library for vecops SIMD.
+    vDSP ships with the OS on Mac and iOS, which is why it's the default on Apple platforms.
+    The Lemons repo's cmake scripts set this automatically for you; if that's how you added the Lemons package, then you don't need to worry about setting this manually.
+ */
+#ifndef LEMONS_USE_VDSP
+#  if JUCE_IOS || JUCE_MAC
+#   define LEMONS_USE_VDSP 1
+#  else
+#   define LEMONS_USE_VDSP 0
+#  endif
+#endif
+
+/*=======================================================================*/
+
+
 #if LEMONS_UNIT_TESTS
 #  include <lemons_unit_testing/lemons_unit_testing.h>
 #endif
@@ -59,6 +77,7 @@ END_JUCE_MODULE_DECLARATION
 
 #include "filters/Filter.h"
 
+#include "util/vecops.h"
 #include "util/serializing.h"
 #include "util/ValueSmoother.h"
 #include "util/BufferUtils.h"

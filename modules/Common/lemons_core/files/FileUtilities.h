@@ -15,6 +15,8 @@
 
 #pragma once
 
+#include <juce_data_structures/juce_data_structures.h>
+
 namespace lemons::files
 {
 
@@ -32,6 +34,10 @@ enum class FileType
 /** Attempts to load a ValueTree from a file of the specified format. */
 template <FileType Type = FileType::JSON>
 [[nodiscard]] ValueTree loadValueTree (const File& file);
+
+/** Attempts to load a ValueTree from the contents of a file of the specified format. */
+template <FileType Type = FileType::JSON>
+[[nodiscard]] ValueTree loadValueTree (const String& fileContents);
 
 /** Saves a ValueTree to a file in the specified format. */
 template <FileType Type = FileType::JSON>

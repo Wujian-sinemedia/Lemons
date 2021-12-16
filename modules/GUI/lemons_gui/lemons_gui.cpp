@@ -8,3 +8,7 @@
 #include "components/PopupComponent.cpp"
 #include "components/Buttons.cpp"
 #include "components/Label.cpp"
+
+#include "device/AutoLock.cpp"
+#include "device/DeviceMotion.cpp"
+#include "device/DeviceRotation.cpp"

@@ -38,22 +38,6 @@
 
 
 //==============================================================================
-/** Config: LEMONS_USE_VDSP
-
-    Set this to 1 to use Apple's vDSP library for vecops SIMD.
-    vDSP ships with the OS on Mac and iOS, which is why it's the default on Apple platforms.
-    The Lemons repo's cmake scripts set this automatically for you; if that's how you added the Lemons package, then you don't need to worry about setting this manually.
- */
-#ifndef LEMONS_USE_VDSP
-#  if JUCE_IOS || JUCE_MAC
-#	define LEMONS_USE_VDSP 1
-#  else
-#	define LEMONS_USE_VDSP 0
-#  endif
-#endif
-
-
-//==============================================================================
 /** Config: LEMONS_UNIT_TESTS
 
     Set this to 1 to build the Lemons unit tests.
@@ -74,11 +58,7 @@
 #include "misc/Version.h"
 #include "misc/Dimensions.h"
 #include "misc/ConstructedArray.h"
-
-#include "events/Timers.h"
-#include "events/AutoLock.h"
-#include "events/DeviceRotation.h"
-#include "events/DeviceMotion.h"
+#include "misc/Timers.h"
 
 #include "files/FileUtilities.h"
 
@@ -86,5 +66,4 @@
 #include "serializing/VariantConversions.h"
 
 #include "math/mathHelpers.h"
-#include "math/vecops.h"
 #include "misc/ArgParser.h"

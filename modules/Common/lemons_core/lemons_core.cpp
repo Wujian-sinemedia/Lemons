@@ -18,7 +18,6 @@
 
 
 #include "math/math_tests.cpp"
-#include "math/vecops.cpp"
 
 #include "misc/Version.cpp"
 #include "misc/Dimensions.cpp"
@@ -30,7 +29,3 @@
 #include "serializing/serializing.cpp"
 #include "serializing/VariantConversions.cpp"
 #include "serializing/VariantConversions_tests.cpp"
-
-#include "events/AutoLock.cpp"
-#include "events/DeviceRotation.cpp"
-#include "events/DeviceMotion.cpp"

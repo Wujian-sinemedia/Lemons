@@ -91,6 +91,16 @@ MemoryBlock Data::getBlob (const String& filename)
 	return d.getAsMemoryBlock();
 }
 
+template<files::FileType Type>
+ValueTree Data::getValueTree (const String& filename)
+{
+    return files::loadValueTree<Type> (getString (filename));
+}
+
+template ValueTree Data::getValueTree<files::FileType::XML> (const String&);
+template ValueTree Data::getValueTree<files::FileType::JSON> (const String&);
+template ValueTree Data::getValueTree<files::FileType::Opaque> (const String&);
+
 Image Data::getImage (const String& imageFileName)
 {
 	const Data d { imageFileName };

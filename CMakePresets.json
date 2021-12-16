@@ -32,19 +32,11 @@
       }
     },
     {
-      "name": "RSAKeygen",
-      "displayName": "Configure for building the RSA key generator",
+      "name": "utils",
+      "displayName": "Configure for building the command line utilities",
       "inherits": "base",
       "cacheVariables": {
-        "LEMONS_BUILD_RSA_KEYGEN": "ON"
-      }
-    },
-    {
-      "name": "KeyfileGen",
-      "displayName": "Configure the keyfile generator",
-      "inherits": "base",
-      "cacheVariables": {
-        "LEMONS_BUILD_KEFILE_GEN": "ON"
+        "LEMONS_BUILD_UTILS": "ON"
       }
     },
     {
@@ -83,16 +75,10 @@
       "targets": ["UnitTestRunner"]
     },
     {
-      "name": "RSAKeygen",
-      "displayName": "Build the RSA key generator",
-      "configurePreset": "RSAKeygen",
-      "targets": ["RSAKeyGenerator"]
-    },
-    {
-      "name": "KeyfileGen",
-      "displayName": "Build the keyfile generator",
-      "configurePreset": "KeyfileGen",
-      "targets": ["KeyFileGenerator"]
+      "name": "utils",
+      "displayName": "Build the command line utilities",
+      "configurePreset": "utils",
+      "targets": ["CommandLineUtils"]
     },
     {
       "name": "templates",

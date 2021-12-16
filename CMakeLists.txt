@@ -24,9 +24,9 @@ include (CMakeDependentOption)
 cmake_dependent_option (LEMONS_BUILD_TESTS "Build the Lemons unit tests" OFF "NOT LEMONS_IGNORE_ALL_EXTRAS" OFF)
 cmake_dependent_option (LEMONS_BUILD_DOCS "Build the Lemons documentation" OFF "NOT LEMONS_IGNORE_ALL_EXTRAS" OFF)
 cmake_dependent_option (LEMONS_BUILD_TEMPLATES "Build the Lemons project templates" OFF "NOT LEMONS_IGNORE_ALL_EXTRAS" OFF)
-cmake_dependent_option (LEMONS_BUILD_TEST_LAB "Build the TestLab application" OFF "NOT LEMONS_IGNORE_ALL_EXTRAS" OFF)
-cmake_dependent_option (LEMONS_BUILD_RSA_KEYGEN "Build the RSA key generator" OFF "NOT LEMONS_IGNORE_ALL_EXTRAS" OFF)
-cmake_dependent_option (LEMONS_BUILD_KEFILE_GEN "Build the keyfile generator" OFF "NOT LEMONS_IGNORE_ALL_EXTRAS" OFF)
+cmake_dependent_option (LEMONS_BUILD_UTILS "Build the command line utilities" OFF "NOT LEMONS_IGNORE_ALL_EXTRAS" OFF)
+
+#cmake_dependent_option (LEMONS_BUILD_TEST_LAB "Build the TestLab application" OFF "NOT LEMONS_IGNORE_ALL_EXTRAS" OFF)
 
 if (LEMONS_BUILD_TESTS)
 	set (LEMONS_PLUGINVAL_LEVEL "10" CACHE STRING "Pluginval testing level")

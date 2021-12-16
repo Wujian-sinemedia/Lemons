@@ -14,7 +14,7 @@
  */
 
 #include <lemons_core/lemons_core.h>
-
+#include <lemons_dsp/lemons_dsp.h>
 
 namespace lemons
 {
@@ -36,6 +36,9 @@ juce::AudioFormatManager& AudioFile::getFormatManager()
 
 bool AudioFile::isValidAudioFile (const File& file)
 {
+    if (! file.existsAsFile())
+        return false;
+    
     return file.hasFileExtension (getFormatManager().getWildcardForAllFormats());
 }
 

@@ -13,6 +13,7 @@
  license:            GPL-3.0
  minimumCppStandard: 17
  dependencies:       lemons_core juce_gui_extra
+ iOSFrameworks:      CoreMotion
 
  END_JUCE_MODULE_DECLARATION
 
@@ -27,3 +28,7 @@
 #include "components/PopupComponent.h"
 #include "components/Buttons.h"
 #include "components/Label.h"
+
+#include "device/AutoLock.h"
+#include "device/DeviceMotion.h"
+#include "device/DeviceRotation.h"
