@@ -32,7 +32,7 @@ const juce::AudioProcessor* ProcessorHolder::operator->() const
 }
 
 template <typename SampleType>
-void ProcessorHolder::prepareForPlayback (double samplerate, int blocksize)
+bool ProcessorHolder::prepareForPlayback (double samplerate, int blocksize, int numChannels)
 {
 	jassert (samplerate > 0. && blocksize > 0);
 
@@ -40,15 +40,27 @@ void ProcessorHolder::prepareForPlayback (double samplerate, int blocksize)
 		processor.setProcessingPrecision (juce::AudioProcessor::ProcessingPrecision::singlePrecision);
 	else
 		processor.setProcessingPrecision (juce::AudioProcessor::ProcessingPrecision::doublePrecision);
+    
+    processor.setRateAndBufferSizeDetails (samplerate, blocksize);
+    processor.prepareToPlay (samplerate, blocksize);
+    
+    juce::AudioProcessor::BusesLayout layout;
+    
+    const auto channelSet = juce::AudioChannelSet::canonicalChannelSet (numChannels);
+    
+    layout.inputBuses.add  (channelSet);
+    layout.outputBuses.add (channelSet);
+    
+    if (! processor.setBusesLayout (layout))
+        return false;
 
 	processor.enableAllBuses();
 
-	processor.setRateAndBufferSizeDetails (samplerate, blocksize);
-	processor.prepareToPlay (samplerate, blocksize);
+    return true;
 }
 
-template void ProcessorHolder::prepareForPlayback<float> (double, int);
-template void ProcessorHolder::prepareForPlayback<double> (double, int);
+template bool ProcessorHolder::prepareForPlayback<float> (double, int, int);
+template bool ProcessorHolder::prepareForPlayback<double> (double, int, int);
 
 juce::AudioProcessorParameter* ProcessorHolder::getNamedParameter (const String& name)
 {

@@ -19,6 +19,7 @@
 -------------------------------------------------------------------------------------*/
 
 
+#include "utilities/serializing.h"
 #include "utilities/colors.h"
 #include "utilities/cursor.h"
 #include "utilities/Fonts.h"

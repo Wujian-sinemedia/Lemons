@@ -28,7 +28,7 @@
  website:            http://benthevining.github.io/Lemons/
  license:            GPL-3.0
  minimumCppStandard: 17
- dependencies:       lemons_plugin_hosting lemons_cryptography
+ dependencies:       lemons_binaries lemons_plugin_hosting lemons_cryptography lemons_gui
 
  END_JUCE_MODULE_DECLARATION
 

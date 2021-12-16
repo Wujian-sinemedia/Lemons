@@ -15,6 +15,8 @@
 
 #pragma once
 
+#include <juce_events/juce_events.h>
+
 namespace lemons::events
 {
 

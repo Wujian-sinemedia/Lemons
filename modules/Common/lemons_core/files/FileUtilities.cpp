@@ -102,11 +102,6 @@ bool isMidiFile (const File& file)
 	return file.hasFileExtension ("mid;rmi;rmid;midi");
 }
 
-bool isAudioFile (const File& file)
-{
-	return file.hasFileExtension (AudioFile::getFormatManager().getWildcardForAllFormats());
-}
-
 
 File getFileOnDesktop (const String& fileName)
 {

@@ -19,6 +19,8 @@
 namespace lemons
 {
 
+using juce::File;
+
 /** A command-line argument parser class modeled after Python's ArgParse.
     Use one of these to easily set default values and help strings for arguments, and then it can automatically print help and check for required arguments for you:
     @code

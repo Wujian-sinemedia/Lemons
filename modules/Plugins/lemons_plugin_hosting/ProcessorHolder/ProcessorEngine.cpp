@@ -49,7 +49,7 @@ void ProcessorEngine<SampleType>::renderBlock (const AudioBuffer<SampleType>& in
 template <typename SampleType>
 void ProcessorEngine<SampleType>::prepared (int blocksize, double samplerate, int numChannels)
 {
-	processorHolder.prepareForPlayback<SampleType> (samplerate, blocksize);
+	processorHolder.prepareForPlayback<SampleType> (samplerate, blocksize, numChannels);
 
 	scratchBuffer.setSize (numChannels, blocksize, true, true, true);
 }

@@ -35,7 +35,9 @@ public:
 	/** Creates an engine that will stream audio through the specified AudioProcessor. */
 	explicit ProcessorEngine (juce::AudioProcessor& processor);
 
-	/** Reports the latency in samples of the managed AudioProcessor. */
+	/** Reports the latency in samples of the managed AudioProcessor.
+        Note that this class is a dsp::Engine, and not a dsp::LatencyEngine; the AudioProcessor is expected to internally manage its own latency buffering if it requires any.
+     */
 	[[nodiscard]] int reportLatency() const noexcept;
 
 	/** The ProcessorHolder managing the AudioProcessor. */

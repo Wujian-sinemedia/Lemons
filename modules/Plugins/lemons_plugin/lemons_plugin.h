@@ -12,18 +12,28 @@
  website:            http://benthevining.github.io/Lemons/
  license:            GPL-3.0
  minimumCppStandard: 17
- dependencies:       lemons_plugin_parameters
+ dependencies:       lemons_dsp
 
  END_JUCE_MODULE_DECLARATION
 
 -------------------------------------------------------------------------------------*/
 
 
-//#include "state/state.h"
+#include "parameters/Parameter.h"
+#include "parameters/ParameterTypes.h"
+#include "parameters/Specializations.h"
+#include "parameters/MetaParameter.h"
 
-//#include "processors/ProcessorBase.h"
+#include "parameters/utils/ParamUpdater.h"
+#include "parameters/utils/ParameterProcessor.h"
 
-//#include "EditorBase/PluginGUIBase.h"
-//#include "EditorBase/EditorBase.h"
+// modulation manager
 
-//#include "processors/Processors.h"
+#include "state/state.h"
+
+#include "processors/ProcessorBase.h"
+
+#include "EditorBase/PluginGUIBase.h"
+#include "EditorBase/EditorBase.h"
+
+#include "processors/Processors.h"

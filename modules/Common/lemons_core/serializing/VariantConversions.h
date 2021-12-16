@@ -16,38 +16,9 @@
 
 #pragma once
 
-#include <juce_audio_processors/juce_audio_processors.h>
-
 
 namespace juce
 {
-
-template <>
-struct VariantConverter<ADSR::Parameters>
-{
-	static ADSR::Parameters fromVar (const var& v);
-	static var              toVar (const ADSR::Parameters& p);
-
-private:
-	static constexpr auto attack  = "Attack";
-	static constexpr auto decay   = "Decay";
-	static constexpr auto sustain = "Sustain";
-	static constexpr auto release = "Release";
-};
-
-template <>
-struct VariantConverter<AudioBuffer<float>>
-{
-	static AudioBuffer<float> fromVar (const var& v);
-	static var                toVar (const AudioBuffer<float>& b);
-};
-
-template <>
-struct VariantConverter<AudioBuffer<double>>
-{
-	static AudioBuffer<double> fromVar (const var& v);
-	static var                 toVar (const AudioBuffer<double>& b);
-};
 
 template <>
 struct VariantConverter<BigInteger>
@@ -58,13 +29,6 @@ struct VariantConverter<BigInteger>
 private:
 	static constexpr auto data     = "Data";
 	static constexpr auto negative = "Negative";
-};
-
-template <>
-struct VariantConverter<Colour>
-{
-	static Colour fromVar (const var& v);
-	static var    toVar (const Colour& c);
 };
 
 template <>
@@ -82,24 +46,10 @@ struct VariantConverter<Identifier>
 };
 
 template <>
-struct VariantConverter<Image>
-{
-	static Image fromVar (const var& v);
-	static var   toVar (const Image& i);
-};
-
-template <>
 struct VariantConverter<IPAddress>
 {
 	static IPAddress fromVar (const var& v);
 	static var       toVar (const IPAddress& a);
-};
-
-template <>
-struct VariantConverter<Justification>
-{
-	static Justification fromVar (const var& v);
-	static var           toVar (const Justification& j);
 };
 
 template <>
@@ -117,42 +67,10 @@ struct VariantConverter<MemoryBlock>
 };
 
 template <>
-struct VariantConverter<MidiBuffer>
-{
-	static MidiBuffer fromVar (const var& v);
-	static var        toVar (const MidiBuffer& b);
-};
-
-template <>
-struct VariantConverter<MidiFile>
-{
-	static MidiFile fromVar (const var& v);
-	static var      toVar (const MidiFile& f);
-};
-
-template <>
-struct VariantConverter<MidiMessage>
-{
-	static MidiMessage fromVar (const var& v);
-	static var         toVar (const MidiMessage& m);
-
-private:
-	static constexpr auto data_prop = "Data";
-	static constexpr auto time_prop = "Timestamp";
-};
-
-template <>
 struct VariantConverter<NamedValueSet>
 {
 	static NamedValueSet fromVar (const var& v);
 	static var           toVar (const NamedValueSet& s);
-};
-
-template <>
-struct VariantConverter<PluginDescription>
-{
-	static PluginDescription fromVar (const var& v);
-	static var               toVar (const PluginDescription& d);
 };
 
 template <>

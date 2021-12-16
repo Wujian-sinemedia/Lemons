@@ -45,10 +45,10 @@ struct ProcessorHolder
 	const juce::AudioProcessor* operator->() const;
 
 	/** Prepares the processor for playback.
-	    Internally, this sets the appropriate processing precision and calls prepareToPlay().
+	    Internally, this sets the appropriate processing precision and buses layout and calls prepareToPlay().
 	 */
 	template <typename SampleType>
-	void prepareForPlayback (double samplerate, int blocksize);
+	bool prepareForPlayback (double samplerate, int blocksize, int numChannels = 2);
 
 	/** Finds a parameter with a specified name. */
 	[[nodiscard]] juce::AudioProcessorParameter* getNamedParameter (const String& name);

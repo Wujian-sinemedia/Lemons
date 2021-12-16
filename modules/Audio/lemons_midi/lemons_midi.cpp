@@ -1,6 +1,7 @@
 #include "lemons_midi.h"
 
 
+#include "utilities/serializing.cpp"
 #include "utilities/MidiFIFO.cpp"
 #include "utilities/VelocityHelper.cpp"
 #include "utilities/MidiUtilities.cpp"

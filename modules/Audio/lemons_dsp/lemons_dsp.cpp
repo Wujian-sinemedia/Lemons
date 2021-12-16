@@ -30,6 +30,8 @@
 #include "filters/Coeffecients.cpp"
 #include "filters/Filter.cpp"
 
+#include "util/serializing.cpp"
+#include "util/ValueSmoother.cpp"
 #include "util/BufferUtils.cpp"
 #include "util/WhiteNoiseGenerator.cpp"
 #include "util/BasicProcessor.cpp"

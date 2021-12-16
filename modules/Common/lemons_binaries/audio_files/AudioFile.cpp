@@ -13,6 +13,9 @@
  ======================================================================================
  */
 
+#include <lemons_core/lemons_core.h>
+
+
 namespace lemons
 {
 
@@ -29,6 +32,11 @@ juce::AudioFormatManager& AudioFile::getFormatManager()
 	static DefaultAudioFormats manager;
 
 	return manager;
+}
+
+bool AudioFile::isValidAudioFile (const File& file)
+{
+    return file.hasFileExtension (getFormatManager().getWildcardForAllFormats());
 }
 
 /*---------------------------------------------------------------------------------------------------------------------------------*/

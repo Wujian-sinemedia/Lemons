@@ -20,60 +20,6 @@ namespace juce
 using namespace lemons::serializing;
 
 
-ADSR::Parameters VariantConverter<ADSR::Parameters>::fromVar (const var& v)
-{
-	ADSR::Parameters p;
-
-	if (const auto* obj = v.getDynamicObject())
-	{
-		if (obj->hasProperty (attack))
-			p.attack = obj->getProperty (attack);
-
-		if (obj->hasProperty (decay))
-			p.decay = obj->getProperty (decay);
-
-		if (obj->hasProperty (sustain))
-			p.sustain = obj->getProperty (sustain);
-
-		if (obj->hasProperty (release))
-			p.release = obj->getProperty (release);
-	}
-
-	return p;
-}
-
-var VariantConverter<ADSR::Parameters>::toVar (const ADSR::Parameters& p)
-{
-	DynamicObject obj;
-
-	obj.setProperty (attack, p.attack);
-	obj.setProperty (decay, p.decay);
-	obj.setProperty (sustain, p.sustain);
-	obj.setProperty (release, p.release);
-
-	return { obj.clone().get() };
-}
-
-AudioBuffer<float> VariantConverter<AudioBuffer<float>>::fromVar (const var& v)
-{
-	return audioFromBinary<float> (memoryBlockFromString (v.toString()));
-}
-
-var VariantConverter<AudioBuffer<float>>::toVar (const AudioBuffer<float>& b)
-{
-	return { memoryBlockToString (audioToBinary (b)) };
-}
-
-AudioBuffer<double> VariantConverter<AudioBuffer<double>>::fromVar (const var& v)
-{
-	return audioFromBinary<double> (memoryBlockFromString (v.toString()));
-}
-
-var VariantConverter<AudioBuffer<double>>::toVar (const AudioBuffer<double>& b)
-{
-	return { memoryBlockToString (audioToBinary (b)) };
-}
-
 BigInteger VariantConverter<BigInteger>::fromVar (const var& v)
 {
 	BigInteger i;
@@ -101,16 +47,6 @@ var VariantConverter<BigInteger>::toVar (const BigInteger& i)
 	return { obj.clone().get() };
 }
 
-Colour VariantConverter<Colour>::fromVar (const var& v)
-{
-	return Colour::fromString (v.toString());
-}
-
-var VariantConverter<Colour>::toVar (const Colour& c)
-{
-	return { c.toString() };
-}
-
 DynamicObject VariantConverter<DynamicObject>::fromVar (const var& v)
 {
 	if (auto* obj = v.getDynamicObject())
@@ -135,16 +71,6 @@ var VariantConverter<Identifier>::toVar (const Identifier& i)
 	return { i.toString() };
 }
 
-Image VariantConverter<Image>::fromVar (const var& v)
-{
-	return imageFromBinary (memoryBlockFromString (v.toString()));
-}
-
-var VariantConverter<Image>::toVar (const Image& i)
-{
-	return { memoryBlockToString (imageToBinary (i)) };
-}
-
 IPAddress VariantConverter<IPAddress>::fromVar (const var& v)
 {
 	IPAddress a { v.toString() };
@@ -154,16 +80,6 @@ IPAddress VariantConverter<IPAddress>::fromVar (const var& v)
 var VariantConverter<IPAddress>::toVar (const IPAddress& a)
 {
 	return { a.toString() };
-}
-
-Justification VariantConverter<Justification>::fromVar (const var& v)
-{
-	return { (int) v };
-}
-
-var VariantConverter<Justification>::toVar (const Justification& j)
-{
-	return { j.getFlags() };
 }
 
 MACAddress VariantConverter<MACAddress>::fromVar (const var& v)
@@ -187,75 +103,6 @@ var VariantConverter<MemoryBlock>::toVar (const MemoryBlock& b)
 	return { memoryBlockToString (b) };
 }
 
-MidiBuffer VariantConverter<MidiBuffer>::fromVar (const var& v)
-{
-	return midiFromBinary (memoryBlockFromString (v.toString()));
-}
-
-var VariantConverter<MidiBuffer>::toVar (const MidiBuffer& b)
-{
-	return { memoryBlockToString (midiToBinary (b)) };
-}
-
-MidiFile VariantConverter<MidiFile>::fromVar (const var& v)
-{
-	juce::MidiFile file;
-
-	if (const auto* block = v.getBinaryData())
-	{
-		juce::MemoryInputStream stream { *block, false };
-		file.readFrom (stream);
-	}
-
-	return file;
-}
-
-var VariantConverter<MidiFile>::toVar (const MidiFile& f)
-{
-	MemoryBlock              block;
-	juce::MemoryOutputStream stream { block, false };
-
-	f.writeTo (stream);
-
-	return { block };
-}
-
-MidiMessage VariantConverter<MidiMessage>::fromVar (const var& v)
-{
-	if (const auto* obj = v.getDynamicObject())
-	{
-		if (obj->hasProperty (data_prop))
-		{
-			if (const auto* data = obj->getProperty (data_prop).getBinaryData())
-			{
-				const auto timestamp = [&]() -> double
-				{
-					if (obj->hasProperty (time_prop))
-						return obj->getProperty (time_prop);
-
-					return 0.;
-				}();
-
-				return { data->getData(), static_cast<int> (data->getSize()), timestamp };
-			}
-		}
-	}
-
-	return {};
-}
-
-var VariantConverter<MidiMessage>::toVar (const MidiMessage& m)
-{
-	DynamicObject obj;
-
-	MemoryBlock block { m.getRawData(), static_cast<size_t> (m.getRawDataSize()) };
-
-	obj.setProperty (data_prop, block);
-	obj.setProperty (time_prop, m.getTimeStamp());
-
-	return { obj.clone().get() };
-}
-
 NamedValueSet VariantConverter<NamedValueSet>::fromVar (const var& v)
 {
 	if (auto* obj = v.getDynamicObject())
@@ -272,20 +119,6 @@ var VariantConverter<NamedValueSet>::toVar (const NamedValueSet& s)
 		obj.setProperty (prop.name, prop.value);
 
 	return { obj.clone().get() };
-}
-
-PluginDescription VariantConverter<PluginDescription>::fromVar (const var& v)
-{
-	PluginDescription d;
-
-	d.loadFromXml (VariantConverter<XmlElement>::fromVar (v));
-
-	return d;
-}
-
-var VariantConverter<PluginDescription>::toVar (const PluginDescription& d)
-{
-	return VariantConverter<XmlElement>::toVar (*d.createXml());
 }
 
 PropertySet VariantConverter<PropertySet>::fromVar (const var& v)

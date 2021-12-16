@@ -12,7 +12,7 @@
  website:            http://benthevining.github.io/Lemons/
  license:            GPL-3.0
  minimumCppStandard: 17
- dependencies:       juce_audio_basics
+ dependencies:       juce_audio_basics lemons_core
 
  END_JUCE_MODULE_DECLARATION
 
@@ -24,6 +24,7 @@
 #endif
 
 
+#include "utilities/serializing.h"
 #include "utilities/MidiUtilities.h"
 #include "utilities/MidiFIFO.h"
 #include "utilities/VelocityHelper.h"

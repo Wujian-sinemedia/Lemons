@@ -16,10 +16,13 @@
 
 #pragma once
 
+#include <juce_graphics/juce_graphics.h>
+
 
 namespace lemons::binary
 {
 
+using juce::String;
 using juce::Image;
 using juce::MemoryBlock;
 using juce::MidiBuffer;
@@ -43,10 +46,10 @@ using AudioBuffer = juce::AudioBuffer<T>;
  */
 struct Data final
 {
-	/** Creates a default, invalid RawData object. */
+	/** Creates a default, invalid Data object. */
 	explicit Data() = default;
 
-	/** Creates a RawData object referencing a named resource. */
+	/** Creates a Data object referencing a named resource. */
 	explicit Data (const String& fileToFind);
 
 	/** Destructor. */
@@ -62,7 +65,7 @@ struct Data final
 	[[nodiscard]] MemoryBlock getAsMemoryBlock() const;
 
 	/** The raw data. This may be null if the data cannot be found. */
-	const char* data = nullptr;
+    const char* data { nullptr };
 
 	/** The size of the data, in bytes. */
 	int size { 0 };
@@ -70,7 +73,7 @@ struct Data final
 	/** Returns true if this module was compiled with the LEMONS_HAS_BINARY_DATA flag set to 1.
 	    If this returns false, every Data object you create will be invalid.
 	 */
-	[[nodiscard]] static constexpr bool hasBinaryData() noexcept { return LEMONS_HAS_BINARY_DATA; }
+    [[nodiscard]] static constexpr bool hasBinaryData() noexcept;
 
 	/** Returns an image object from an image file in the BinaryData target.
 	    If the image can't be loaded, an assertion will be thrown.
@@ -85,7 +88,7 @@ struct Data final
 	/** Returns a MIDI buffer object from a MIDI file in the BinaryData target.
 	    If the MIDI can't be loaded, an assertion will be thrown.
 	 */
-	[[nodiscard]] static MidiBuffer getMidi (const String& midiFileName);
+//	[[nodiscard]] static MidiBuffer getMidi (const String& midiFileName);
 
 	/** Returns an opaque blob of binary data from a file in the BinaryData target.
 	    If the data can't be loaded, an assertion will be thrown.

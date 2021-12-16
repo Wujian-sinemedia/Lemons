@@ -19,6 +19,7 @@
 namespace lemons
 {
 
+
 /** A simple struct that represents the dimensions of a GUI.
  */
 struct Dimensions final

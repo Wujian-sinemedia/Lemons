@@ -20,6 +20,8 @@
 
 namespace lemons
 {
+
+using juce::String;
 using juce::File;
 
 template <typename T>
@@ -82,6 +84,9 @@ struct AudioFile final
 
 	/** Returns a static AudioFormatManager used for creating all AudioFiles. */
 	[[nodiscard]] static juce::AudioFormatManager& getFormatManager();
+    
+    /** Returns true if the file has a file extension matching any of the audio file extensions that the default AudioFormatManager can handle. */
+    [[nodiscard]] static bool isValidAudioFile (const File& file);
 
 private:
 	explicit AudioFile (juce::AudioFormatReader* reader, const File& f);

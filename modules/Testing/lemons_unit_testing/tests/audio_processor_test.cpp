@@ -137,7 +137,7 @@ void AudioProcessorTestBase::runTypedTests()
 			{
 				const auto subtest = beginSubtest ("Prepare to play");
 
-				processor.prepareForPlayback<SampleType> (samplerate, blocksize);
+				processor.prepareForPlayback<SampleType> (samplerate, blocksize, 2);
 
 				audioIO.setSize (2, blocksize, true, true, true);
 				midiIO.ensureSize (static_cast<size_t> (blocksize));

@@ -46,6 +46,15 @@ Data::Data (const String& fileToFind)
 #endif
 }
 
+constexpr bool Data::hasBinaryData() noexcept
+{
+#if LEMONS_HAS_BINARY_DATA
+    return true;
+#else
+    return false;
+#endif
+}
+
 
 bool Data::isValid() const noexcept
 {
@@ -99,10 +108,10 @@ AudioFile Data::getAudio (const String& audioFileName)
 	return audio;
 }
 
-MidiBuffer Data::getMidi (const String& midiFileName)
-{
-	return serializing::midiFromBinary (getBlob (midiFileName));
-}
+//MidiBuffer Data::getMidi (const String& midiFileName)
+//{
+//	return serializing::midiFromBinary (getBlob (midiFileName));
+//}
 
 String Data::getString (const String& textFileName)
 {

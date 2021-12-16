@@ -42,16 +42,16 @@ void VariantConversionTests::runTest()
 	beginTest ("Variant conversions - JUCE classes");
 
 	{
-		const auto subtest = beginSubtest ("ADSR::Parameters");
-
-		const ADSR::Parameters params { rand.nextFloat(), rand.nextFloat(), rand.nextFloat(), rand.nextFloat() };
-
-		const auto decoded = toVarAndBack (params);
-
-		expectEquals (decoded.attack, params.attack);
-		expectEquals (decoded.decay, params.decay);
-		expectEquals (decoded.sustain, params.sustain);
-		expectEquals (decoded.release, params.release);
+//		const auto subtest = beginSubtest ("ADSR::Parameters");
+//
+//		const ADSR::Parameters params { rand.nextFloat(), rand.nextFloat(), rand.nextFloat(), rand.nextFloat() };
+//
+//		const auto decoded = toVarAndBack (params);
+//
+//		expectEquals (decoded.attack, params.attack);
+//		expectEquals (decoded.decay, params.decay);
+//		expectEquals (decoded.sustain, params.sustain);
+//		expectEquals (decoded.release, params.release);
 	}
 
 	{
@@ -70,11 +70,11 @@ void VariantConversionTests::runTest()
 	}
 
 	{
-		const auto subtest = beginSubtest ("Colour");
-
-		const Colour orig { rand.nextFloat(), rand.nextFloat(), rand.nextFloat(), rand.nextFloat() };
-
-		expect (orig == toVarAndBack (orig));
+//		const auto subtest = beginSubtest ("Colour");
+//
+//		const Colour orig { rand.nextFloat(), rand.nextFloat(), rand.nextFloat(), rand.nextFloat() };
+//
+//		expect (orig == toVarAndBack (orig));
 	}
 
 	{
@@ -104,11 +104,11 @@ void VariantConversionTests::runTest()
 	}
 
 	{
-		const auto subtest = beginSubtest ("Justification");
-
-		const Justification orig { Justification::Flags::left };
-
-		expect (orig == toVarAndBack (orig));
+//		const auto subtest = beginSubtest ("Justification");
+//
+//		const Justification orig { Justification::Flags::left };
+//
+//		expect (orig == toVarAndBack (orig));
 	}
 
 	{
@@ -143,22 +143,22 @@ void VariantConversionTests::runTest()
 	//    }
 
 	{
-		const auto subtest = beginSubtest ("MidiMessage");
-
-		constexpr auto channel  = 1;
-		constexpr auto note     = 78;
-		constexpr auto velocity = 0.38f;
-
-		const auto orig = MidiMessage::noteOn (channel, note, velocity);
-
-		const auto decoded = toVarAndBack (orig);
-
-		expect (decoded.isNoteOn());
-
-		expectEquals (decoded.getChannel(), channel);
-		expectEquals (decoded.getNoteNumber(), note);
-
-		expectWithinAbsoluteError (decoded.getFloatVelocity(), velocity, 0.01f);
+//		const auto subtest = beginSubtest ("MidiMessage");
+//
+//		constexpr auto channel  = 1;
+//		constexpr auto note     = 78;
+//		constexpr auto velocity = 0.38f;
+//
+//		const auto orig = MidiMessage::noteOn (channel, note, velocity);
+//
+//		const auto decoded = toVarAndBack (orig);
+//
+//		expect (decoded.isNoteOn());
+//
+//		expectEquals (decoded.getChannel(), channel);
+//		expectEquals (decoded.getNoteNumber(), note);
+//
+//		expectWithinAbsoluteError (decoded.getFloatVelocity(), velocity, 0.01f);
 	}
 
 	{
@@ -274,13 +274,13 @@ void VariantConversionTests::runTest()
 template <typename SampleType>
 void VariantConversionTests::runAudioBufferTest()
 {
-	const auto subtest = beginSubtest (getPrecisionString<SampleType>() + " precision tests");
-
-	AudioBuffer<SampleType> orig { 2, 256 };
-
-	fillAudioBufferWithRandomNoise (orig, getRandom());
-
-	expect (buffersAreReasonablyEqual (orig, toVarAndBack (orig)));
+//	const auto subtest = beginSubtest (getPrecisionString<SampleType>() + " precision tests");
+//
+//	AudioBuffer<SampleType> orig { 2, 256 };
+//
+//	fillAudioBufferWithRandomNoise (orig, getRandom());
+//
+//	expect (buffersAreReasonablyEqual (orig, toVarAndBack (orig)));
 }
 
 template void VariantConversionTests::runAudioBufferTest<float>();

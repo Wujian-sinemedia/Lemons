@@ -28,7 +28,7 @@ description:        DSP/audio utilities and effects
 website:            http://benthevining.github.io/Lemons/
 license:            GPL-3.0
 minimumCppStandard: 17
-dependencies:       juce_audio_processors lemons_midi lemons_core
+dependencies:       juce_audio_processors lemons_midi lemons_binaries
 
 END_JUCE_MODULE_DECLARATION
 
@@ -61,6 +61,8 @@ END_JUCE_MODULE_DECLARATION
 
 #include "filters/Filter.h"
 
+#include "util/serializing.h"
+#include "util/ValueSmoother.h"
 #include "util/BufferUtils.h"
 #include "util/WhiteNoiseGenerator.h"
 #include "util/BasicProcessor.h"

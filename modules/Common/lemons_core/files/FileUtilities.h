@@ -18,11 +18,14 @@
 namespace lemons::files
 {
 
-/** An enum used to describe various kinds of binary encodings of data. */
+using juce::ValueTree;
+using juce::File;
+
+/** An enum used to describe various kinds of binary encodings of serialized data. */
 enum class FileType
 {
-	XML,   /** Represents an XML file. */
-	JSON,  /** Represents a JSON file. */
+	XML, /** Represents an XML file. */
+	JSON, /** Represents a JSON file. */
 	Opaque /** Represents any non-standard/proprietary method of encoding and decoding information to/from binary. May not be human-readable. */
 };
 
@@ -36,9 +39,6 @@ bool saveValueTree (const File& file, const ValueTree& tree);
 
 /** Returns true if the file has a file extension matching any standard MIDI file extensions. */
 [[nodiscard]] bool isMidiFile (const File& file);
-
-/** Returns true if the file has a file extension matching any of the audio file extensions that the default AudioFormatManager returned by AudioFile::getFormatManager() can handle. */
-[[nodiscard]] bool isAudioFile (const File& file);
 
 /** Returns a file on the desktop with the specified name. */
 [[nodiscard]] File getFileOnDesktop (const String& fileName);

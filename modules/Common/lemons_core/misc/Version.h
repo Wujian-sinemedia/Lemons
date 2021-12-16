@@ -16,8 +16,13 @@
 
 #pragma once
 
+#include <juce_core/juce_core.h>
+
 namespace lemons
 {
+
+using juce::String;
+
 /**
     A class that represents a version of something, with major, minor, and patch numbers.
  */
