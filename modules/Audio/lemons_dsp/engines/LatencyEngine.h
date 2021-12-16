@@ -1,8 +1,24 @@
+/*
+ ======================================================================================
+ 
+ ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
+ ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
+ ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
+ ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
+ ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
+ ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
+ 
+ This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
+ 
+ ======================================================================================
+ */
+
+
 #pragma once
 
 namespace lemons::dsp
 {
-/** Base class for audio engines that require latency (ie, a consistent block size) for their processing.
+/** Base class for audio engines that require latency (ie, a consistent block size) for their processing. The number of samples of the consistent blocksize the algorithm will recieve in its callbacks is the same as the algorithm's latecy in samples.
 
     @see Engine
  */
