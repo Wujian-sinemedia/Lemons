@@ -19,9 +19,9 @@
 -------------------------------------------------------------------------------------*/
 
 
-#include "utilities/aliases.h"
 #include "utilities/colors.h"
 #include "utilities/cursor.h"
+#include "utilities/Fonts.h"
 
 #include "components/PopupComponent.h"
 #include "components/Buttons.h"

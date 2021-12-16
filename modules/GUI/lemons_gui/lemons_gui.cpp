@@ -2,6 +2,7 @@
 
 
 #include "utilities/cursor.cpp"
+#include "utilities/Fonts.cpp"
 
 #include "components/PopupComponent.cpp"
 #include "components/Buttons.cpp"

@@ -58,7 +58,7 @@ MemoryBlock Data::getAsMemoryBlock() const
 
 MemoryBlock Data::getBlob (const String& filename)
 {
-	Data d { filename };
+	const Data d { filename };
 
 	jassert (d.isValid());
 
@@ -67,7 +67,7 @@ MemoryBlock Data::getBlob (const String& filename)
 
 Image Data::getImage (const String& imageFileName)
 {
-	Data d { imageFileName };
+	const Data d { imageFileName };
 
 	jassert (d.isValid());
 
@@ -90,7 +90,7 @@ MidiBuffer Data::getMidi (const String& midiFileName)
 
 String Data::getString (const String& textFileName)
 {
-	Data d { textFileName };
+	const Data d { textFileName };
 
 	jassert (d.isValid());
 
@@ -101,6 +101,17 @@ juce::StringArray Data::getStrings (const String& textFileName)
 {
 	return juce::StringArray::fromTokens (getString (textFileName), "\n\r\n", "");
 }
+
+//juce::CustomTypeface Data::getFont (const String& filename)
+//{
+//    const auto block = getBlob (filename);
+//
+//    juce::MemoryInputStream is { block, false };
+//
+//    juce::CustomTypeface face { is };
+//
+//    return face;
+//}
 
 }  // namespace lemons::binary
 

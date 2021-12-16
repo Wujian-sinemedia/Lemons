@@ -17,6 +17,7 @@ include_guard (GLOBAL)
 #
 
 include (LemonsPluginModules)
+include (LemonsGUIModules)
 
 option (LEMONS_BUILD_TESTS "Build tests" ON)
 

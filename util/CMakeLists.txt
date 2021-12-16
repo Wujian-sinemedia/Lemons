@@ -7,10 +7,14 @@ if (LEMONS_BUILD_TESTS)
     add_subdirectory (UnitTestRunner)
 endif()
 
-if (LEMONS_BUILD_TEST_LAB)
-	add_subdirectory (TestLab)
-endif()
+# if (LEMONS_BUILD_TEST_LAB)
+# 	add_subdirectory (TestLab)
+# endif()
 
 if (LEMONS_BUILD_TEMPLATES)
 	add_subdirectory (Templates)
+endif()
+
+if (LEMONS_BUILD_RSA_KEYGEN)
+	add_subdirectory (RSAKeyGenerator)
 endif()

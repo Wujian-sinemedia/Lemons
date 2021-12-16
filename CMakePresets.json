@@ -32,6 +32,14 @@
       }
     },
     {
+      "name": "RSAKeygen",
+      "displayName": "Configure for building the RSA key generator",
+      "inherits": "base",
+      "cacheVariables": {
+        "LEMONS_BUILD_RSA_KEYGEN": "ON"
+      }
+    },
+    {
       "name": "templates",
       "displayName": "Configure templates build",
       "description": "Configuration with the template projects enabled",
@@ -65,6 +73,12 @@
       "configurePreset": "tests",
       "configuration": "Debug",
       "targets": ["UnitTestRunner"]
+    },
+    {
+      "name": "RSAKeygen",
+      "displayName": "Build the RSA key generator",
+      "configurePreset": "RSAKeygen",
+      "targets": ["RSAKeyGenerator"]
     },
     {
       "name": "templates",
