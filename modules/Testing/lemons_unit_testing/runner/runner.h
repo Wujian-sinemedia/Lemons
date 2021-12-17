@@ -18,6 +18,8 @@
 namespace lemons::tests
 {
 
+using juce::File;
+
 class Runner : public juce::UnitTestRunner
 {
 public:
@@ -29,9 +31,7 @@ private:
 
 
 [[nodiscard]] bool executeUnitTests (Intensity  intensityLevel = Intensity::Medium,
-                                     juce::File logOutput = {}, juce::int64 seed = juce::Random::getSystemRandom().nextInt64(),
+                                     const File& logOutput = {}, juce::int64 seed = juce::Random::getSystemRandom().nextInt64(),
                                      const String& singleTestName = {}, const String& categoryName = {});
-
-[[nodiscard]] bool executeUnitTests (const juce::ArgumentList& args);
 
 }  // namespace lemons::tests

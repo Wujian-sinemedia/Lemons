@@ -33,34 +33,30 @@ void Runner::logMessage (const juce::String& message)
 }
 
 
-void printUnitTestHelp()
+struct RAII_FileLogger : public juce::FileLogger
 {
-	std::cout << " [--help|-h]" << std::endl
-	          << " [--list-categories|-l]" << std::endl
-	          << " [--category|-c <categoryName>]" << std::endl
-	          << " [--test|-t <testName>]" << std::endl
-	          << " [--file|-f <logFile>]" << std::endl
-	          << " [--seed|-s <seedValue>]" << std::endl
-	          << " [--intensity|-i <intensityLevel>]" << std::endl;
-}
+    explicit RAII_FileLogger (File output)
+    : FileLogger(output, "", 0)
+    {
+        juce::Logger::setCurrentLogger (this);
+    }
+    
+    ~RAII_FileLogger()
+    {
+        juce::Logger::setCurrentLogger (nullptr);
+    }
+};
 
 
-bool executeUnitTests (Intensity intensityLevel, File logOutput, juce::int64 seed,
+bool executeUnitTests (Intensity intensityLevel, const File& logOutput, juce::int64 seed,
                        const String& singleTestName, const String& categoryName)
 {
 	jassert (! (! singleTestName.isEmpty() && ! categoryName.isEmpty()));
 
 	Test::setGlobalTestingIntensityLevel (intensityLevel);
     
-    juce::FileLogger logger { logOutput, "", 0 };
+    RAII_FileLogger logger { logOutput };
     
-    juce::Logger::setCurrentLogger (&logger);
-    
-    const auto atExit = [&]()
-    {
-        juce::Logger::setCurrentLogger (nullptr);
-    };
-
 	Runner runner;
 
 #if LEMONS_GUI_UNIT_TESTS
@@ -86,88 +82,22 @@ bool executeUnitTests (Intensity intensityLevel, File logOutput, juce::int64 see
 		    }())
 		{
 			runner.runTests ({ test }, seed);
-            atExit();
 			return ! runner.hadAnyFailures();
 		}
-        
-        logger.writeToLog ("Test " + singleTestName + " not found!");
-        atExit();
-		return false;
+        else
+        {
+            std::cout << "Test " << singleTestName << " could not be found!" << std::endl;
+            return false;
+        }
 	}
-
-	if (! categoryName.isEmpty())
+	else if (! categoryName.isEmpty())
 	{
 		runner.runTestsInCategory (categoryName, seed);
-        atExit();
 		return ! runner.hadAnyFailures();
 	}
 
 	runner.runAllTests (seed);
-    atExit();
 	return ! runner.hadAnyFailures();
-}
-
-bool executeUnitTests (const juce::ArgumentList& args)
-{
-	if (args.containsOption ("--help|-h"))
-	{
-		printUnitTestHelp();
-		return true;
-	}
-
-	if (args.containsOption ("--list-categories|-l"))
-	{
-		for (const auto& category : juce::UnitTest::getAllCategories())
-			std::cout << category << std::endl;
-
-		return true;
-	}
-
-	const auto logFile = [&args]() -> juce::File
-	{
-		if (! args.containsOption ("--file|-f"))
-			return {};
-
-		const auto path = args.getValueForOption ("--file|-f");
-
-		if (juce::File::isAbsolutePath (path))
-			return { path };
-
-		return juce::File::getCurrentWorkingDirectory().getChildFile (path);
-	}();
-
-	const auto randomSeed = [&args]() -> juce::int64
-	{
-		if (! args.containsOption ("--seed|-s"))
-			return juce::Random::getSystemRandom().nextInt64();
-
-		const auto seedValueString = args.getValueForOption ("--seed|-s");
-
-		if (seedValueString.startsWith ("0x"))
-			return seedValueString.getHexValue64();
-
-		return seedValueString.getLargeIntValue();
-	}();
-
-	const auto intensity = [&args]() -> Intensity
-	{
-		if (! args.containsOption ("--intensity|-i"))
-			return Intensity::Medium;
-
-		const auto intensityString = args.getValueForOption ("--intensity|-i");
-
-		if (intensityString.equalsIgnoreCase ("high") || intensityString.getIntValue() == 2)
-			return Intensity::High;
-
-		if (intensityString.equalsIgnoreCase ("low") || intensityString.getIntValue() == 0)
-			return Intensity::Low;
-
-		return Intensity::Medium;
-	}();
-
-	return executeUnitTests (intensity, logFile, randomSeed,
-	                         args.getValueForOption ("--test|-t"),
-	                         args.getValueForOption ("--category|-c"));
 }
 
 }  // namespace lemons::tests
