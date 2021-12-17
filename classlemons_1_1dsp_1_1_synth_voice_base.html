@@ -110,7 +110,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af226880e9b8807ed388a3880f14b792a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9a65533c421d1d58c741dbd672992fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_synth_voice_base.html#ac9a65533c421d1d58c741dbd672992fb">prepare</a> (double samplerate, int blocksize)</td></tr>
 <tr class="separator:ac9a65533c421d1d58c741dbd672992fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d19f3d8208ebd1e52e2787dbf7df223"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_synth_voice_base.html#a5d19f3d8208ebd1e52e2787dbf7df223">renderBlock</a> (<a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;output)</td></tr>
+<tr class="memitem:a5d19f3d8208ebd1e52e2787dbf7df223"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_synth_voice_base.html#a5d19f3d8208ebd1e52e2787dbf7df223">renderBlock</a> (<a class="el" href="namespacelemons_1_1dsp.html#a18d4de532efb0450f4f594bfbe9cceb0">AudioBuffer</a>&lt; SampleType &gt; &amp;output)</td></tr>
 <tr class="separator:a5d19f3d8208ebd1e52e2787dbf7df223"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d8dc57f6251d2a144deb227f34ee922"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_synth_voice_base.html#a4d8dc57f6251d2a144deb227f34ee922">setPitchGlideTime</a> (double glideTimeSeconds)</td></tr>
 <tr class="separator:a4d8dc57f6251d2a144deb227f34ee922"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -133,7 +133,7 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:abbab8c9c5b9629c1ec586932d8a928b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15be3528f0fef97aa715aa266f8c3fd3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_synth_voice_base.html#a15be3528f0fef97aa715aa266f8c3fd3">released</a> ()</td></tr>
 <tr class="separator:a15be3528f0fef97aa715aa266f8c3fd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec72b1dfc5b6719d7bb35b35d06a2702"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_synth_voice_base.html#aec72b1dfc5b6719d7bb35b35d06a2702">renderPlease</a> (<a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;output, float desiredFrequency, double currentSamplerate)=0</td></tr>
+<tr class="memitem:aec72b1dfc5b6719d7bb35b35d06a2702"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1dsp_1_1_synth_voice_base.html#aec72b1dfc5b6719d7bb35b35d06a2702">renderPlease</a> (<a class="el" href="namespacelemons_1_1dsp.html#a18d4de532efb0450f4f594bfbe9cceb0">AudioBuffer</a>&lt; SampleType &gt; &amp;output, float desiredFrequency, double currentSamplerate)=0</td></tr>
 <tr class="separator:aec72b1dfc5b6719d7bb35b35d06a2702"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -638,7 +638,7 @@ template&lt;typename SampleType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="classlemons_1_1dsp_1_1_synth_voice_base.html">lemons::dsp::SynthVoiceBase</a>&lt; SampleType &gt;::renderBlock </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacelemons_1_1dsp.html#a18d4de532efb0450f4f594bfbe9cceb0">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
           <td class="paramname"><em>output</em></td><td>)</td>
           <td></td>
         </tr>
@@ -661,7 +661,7 @@ template&lt;typename SampleType &gt; </div>
         <tr>
           <td class="memname">virtual void <a class="el" href="classlemons_1_1dsp_1_1_synth_voice_base.html">lemons::dsp::SynthVoiceBase</a>&lt; SampleType &gt;::renderPlease </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacelemons_1_1dsp.html#a18d4de532efb0450f4f594bfbe9cceb0">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
           <td class="paramname"><em>output</em>, </td>
         </tr>
         <tr>
@@ -785,7 +785,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 16 2021 16:59:35 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 17 2021 00:47:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -27,7 +27,6 @@ var searchData=
   ['engines_216',['engines',['../group__engines.html',1,'']]],
   ['eq_217',['EQ',['../classlemons_1_1dsp_1_1_f_x_1_1_e_q.html',1,'lemons::dsp::FX::EQ&lt; SampleType &gt;'],['../classlemons_1_1dsp_1_1_f_x_1_1_e_q.html#a2dcdb60a42bb68a1f447336ee6127d1e',1,'lemons::dsp::FX::EQ::EQ()'],['../group___e_q.html',1,'(Global Namespace)']]],
   ['eq_2eh_218',['EQ.h',['../_e_q_8h.html',1,'']]],
-  ['events_219',['events',['../group__events.html',1,'']]],
-  ['executeunittests_220',['executeUnitTests',['../namespacelemons_1_1tests.html#a97d48e4d4a61d0a08ea45b826f0634b0',1,'lemons::tests::executeUnitTests(Intensity intensityLevel=Intensity::Medium, juce::File logOutput={}, juce::int64 seed=juce::Random::getSystemRandom().nextInt64(), const String &amp;singleTestName={}, const String &amp;categoryName={})'],['../namespacelemons_1_1tests.html#a0e01d6e10d184911f604f738ae18653d',1,'lemons::tests::executeUnitTests(const juce::ArgumentList &amp;args)']]],
-  ['existsondisk_221',['existsOnDisk',['../structlemons_1_1_audio_file.html#aba31217c05169d5d953a24bdb1435b30',1,'lemons::AudioFile']]]
+  ['executeunittests_219',['executeUnitTests',['../namespacelemons_1_1tests.html#a97d48e4d4a61d0a08ea45b826f0634b0',1,'lemons::tests::executeUnitTests(Intensity intensityLevel=Intensity::Medium, juce::File logOutput={}, juce::int64 seed=juce::Random::getSystemRandom().nextInt64(), const String &amp;singleTestName={}, const String &amp;categoryName={})'],['../namespacelemons_1_1tests.html#a0e01d6e10d184911f604f738ae18653d',1,'lemons::tests::executeUnitTests(const juce::ArgumentList &amp;args)']]],
+  ['existsondisk_220',['existsOnDisk',['../structlemons_1_1_audio_file.html#aba31217c05169d5d953a24bdb1435b30',1,'lemons::AudioFile']]]
 ];

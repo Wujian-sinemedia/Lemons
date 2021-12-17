@@ -94,10 +94,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a97b60e3696ef3e25e4fe24b4448ec4f1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_f_x_1_1_audio_effect.html#a97b60e3696ef3e25e4fe24b4448ec4f1">prepare</a> (double samplerate, int blocksize)</td></tr>
 <tr class="memdesc:a97b60e3696ef3e25e4fe24b4448ec4f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives the effect a chance to prepare itself.  <a href="structlemons_1_1dsp_1_1_f_x_1_1_audio_effect.html#a97b60e3696ef3e25e4fe24b4448ec4f1">More...</a><br /></td></tr>
 <tr class="separator:a97b60e3696ef3e25e4fe24b4448ec4f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72cd2a03ab39a2d605b1eda5693d26e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_f_x_1_1_sidechainable_audio_effect.html#a72cd2a03ab39a2d605b1eda5693d26e4">process</a> (<a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;audio) override</td></tr>
+<tr class="memitem:a72cd2a03ab39a2d605b1eda5693d26e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_f_x_1_1_sidechainable_audio_effect.html#a72cd2a03ab39a2d605b1eda5693d26e4">process</a> (<a class="el" href="namespacelemons_1_1dsp.html#a18d4de532efb0450f4f594bfbe9cceb0">AudioBuffer</a>&lt; SampleType &gt; &amp;audio) override</td></tr>
 <tr class="memdesc:a72cd2a03ab39a2d605b1eda5693d26e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the effect with the signal sidechained to itself.  <a href="structlemons_1_1dsp_1_1_f_x_1_1_sidechainable_audio_effect.html#a72cd2a03ab39a2d605b1eda5693d26e4">More...</a><br /></td></tr>
 <tr class="separator:a72cd2a03ab39a2d605b1eda5693d26e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44a8b2b00d00c72900bb24105c45909c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_f_x_1_1_sidechainable_audio_effect.html#a44a8b2b00d00c72900bb24105c45909c">process</a> (<a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;inOut, const <a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;sidechain)=0</td></tr>
+<tr class="memitem:a44a8b2b00d00c72900bb24105c45909c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1dsp_1_1_f_x_1_1_sidechainable_audio_effect.html#a44a8b2b00d00c72900bb24105c45909c">process</a> (<a class="el" href="namespacelemons_1_1dsp.html#a18d4de532efb0450f4f594bfbe9cceb0">AudioBuffer</a>&lt; SampleType &gt; &amp;inOut, const <a class="el" href="namespacelemons_1_1dsp.html#a18d4de532efb0450f4f594bfbe9cceb0">AudioBuffer</a>&lt; SampleType &gt; &amp;sidechain)=0</td></tr>
 <tr class="memdesc:a44a8b2b00d00c72900bb24105c45909c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Your subclass must implement this function with its custom processing logic.  <a href="structlemons_1_1dsp_1_1_f_x_1_1_sidechainable_audio_effect.html#a44a8b2b00d00c72900bb24105c45909c">More...</a><br /></td></tr>
 <tr class="separator:a44a8b2b00d00c72900bb24105c45909c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -197,7 +197,7 @@ template&lt;typename SampleType &gt; </div>
         <tr>
           <td class="memname">void <a class="el" href="structlemons_1_1dsp_1_1_f_x_1_1_sidechainable_audio_effect.html">lemons::dsp::FX::SidechainableAudioEffect</a>&lt; SampleType &gt;::process </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacelemons_1_1dsp.html#a18d4de532efb0450f4f594bfbe9cceb0">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
           <td class="paramname"><em>audio</em></td><td>)</td>
           <td></td>
         </tr>
@@ -231,13 +231,13 @@ template&lt;typename SampleType &gt; </div>
         <tr>
           <td class="memname">virtual void <a class="el" href="structlemons_1_1dsp_1_1_f_x_1_1_sidechainable_audio_effect.html">lemons::dsp::FX::SidechainableAudioEffect</a>&lt; SampleType &gt;::process </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacelemons_1_1dsp.html#a18d4de532efb0450f4f594bfbe9cceb0">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
           <td class="paramname"><em>inOut</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespacelemons_1_1dsp.html#a78ad3b3e43c505682f79858c70604006">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespacelemons_1_1dsp.html#a18d4de532efb0450f4f594bfbe9cceb0">AudioBuffer</a>&lt; SampleType &gt; &amp;&#160;</td>
           <td class="paramname"><em>sidechain</em>&#160;</td>
         </tr>
         <tr>
@@ -265,7 +265,7 @@ template&lt;typename SampleType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 16 2021 16:59:35 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 17 2021 00:47:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

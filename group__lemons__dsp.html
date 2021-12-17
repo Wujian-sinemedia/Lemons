@@ -64,8 +64,7 @@ $(function() {
 
 <div class="header">
   <div class="summary">
-<a href="#groups">Modules</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#groups">Modules</a>  </div>
   <div class="headertitle">
 <div class="title">lemons_dsp<div class="ingroups"><a class="el" href="group___audio.html">Audio</a></div></div>  </div>
 </div><!--header-->
@@ -86,13 +85,6 @@ Modules</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:group__util"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__util.html">util</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespacelemons"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons.html">lemons</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespacelemons_1_1dsp"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1dsp.html">lemons::dsp</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>DSP/audio utilities and effects. </p>
@@ -104,12 +96,16 @@ Namespaces</h2></td></tr>
 <li>website: <a href="http://benthevining.github.io/Lemons/">http://benthevining.github.io/Lemons/</a></li>
 <li>license: GPL-3.0</li>
 <li>minimumCppStandard: 17</li>
-<li>dependencies: juce_audio_processors <a class="el" href="group__lemons__midi.html">lemons_midi</a> <a class="el" href="group__lemons__binaries.html">lemons_binaries</a> </li>
+<li>dependencies: juce_audio_processors <a class="el" href="group__lemons__midi.html">lemons_midi</a> <a class="el" href="group__lemons__binaries.html">lemons_binaries</a></li>
 </ul>
+<p>Preprocessor configuration flags:</p><ul>
+<li>LEMONS_USE_VDSP</li>
+</ul>
+<p>Set this to 1 to use Apple's vDSP library for vecops SIMD. vDSP ships with the OS on Mac and iOS, which is why it's the default on Apple platforms. The Lemons repo's cmake scripts set this automatically for you; if that's how you added the Lemons package, then you don't need to worry about setting this manually. </p>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 16 2021 16:59:35 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 17 2021 00:47:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

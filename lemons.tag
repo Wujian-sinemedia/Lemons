@@ -1,20 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
 <tagfile>
   <compound kind="file">
-    <name>aliases.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/</path>
-    <filename>aliases_8h.html</filename>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
-    <member kind="typedef">
-      <type>juce::AudioBuffer&lt; T &gt;</type>
-      <name>AudioBuffer</name>
-      <anchorfile>namespacelemons_1_1dsp.html</anchorfile>
-      <anchor>a78ad3b3e43c505682f79858c70604006</anchor>
-      <arglist></arglist>
-    </member>
-  </compound>
-  <compound kind="file">
     <name>AllLemonsModules.md</name>
     <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/CMake/</path>
     <filename>_all_lemons_modules_8md.html</filename>
@@ -114,7 +100,7 @@
   </compound>
   <compound kind="file">
     <name>AutoLock.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/events/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/GUI/lemons_gui/device/</path>
     <filename>_auto_lock_8h.html</filename>
     <namespace>lemons</namespace>
     <member kind="function">
@@ -229,6 +215,13 @@
     <class kind="class">lemons::dsp::CircularBuffer</class>
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
+    <member kind="typedef">
+      <type>juce::AudioBuffer&lt; SampleType &gt;</type>
+      <name>AudioBuffer</name>
+      <anchorfile>namespacelemons_1_1dsp.html</anchorfile>
+      <anchor>a18d4de532efb0450f4f594bfbe9cceb0</anchor>
+      <arglist></arglist>
+    </member>
   </compound>
   <compound kind="file">
     <name>CMakeModules.md</name>
@@ -358,7 +351,7 @@
   </compound>
   <compound kind="file">
     <name>DeviceMotion.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/events/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/GUI/lemons_gui/device/</path>
     <filename>_device_motion_8h.html</filename>
     <class kind="struct">lemons::DeviceMotion::Coords</class>
     <class kind="class">lemons::DeviceMotion</class>
@@ -367,7 +360,7 @@
   </compound>
   <compound kind="file">
     <name>DeviceRotation.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/events/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/GUI/lemons_gui/device/</path>
     <filename>_device_rotation_8h.html</filename>
     <class kind="struct">lemons::DeviceRotation</class>
     <class kind="struct">lemons::DeviceRotation::Listener</class>
@@ -575,6 +568,13 @@
       <arglist>(const File &amp;file)</arglist>
     </member>
     <member kind="function">
+      <type>ValueTree</type>
+      <name>loadValueTree</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>aa4e640b5ec2d9c0d43ff33e1209376ea</anchor>
+      <arglist>(const String &amp;fileContents)</arglist>
+    </member>
+    <member kind="function">
       <type>bool</type>
       <name>saveValueTree</name>
       <anchorfile>namespacelemons_1_1files.html</anchorfile>
@@ -628,8 +628,8 @@
       <type>bool</type>
       <name>serializeFont</name>
       <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>a344a10996f5513487d481dd43b3d8c48</anchor>
-      <arglist>(const juce::Font &amp;font, File &amp;destFile, int maxNumChars=127, juce_wchar defaultChar=&apos; &apos;)</arglist>
+      <anchor>a41ac40d715d723d1c8c21902729e84c3</anchor>
+      <arglist>(const juce::Font &amp;font, const File &amp;destFile, int maxNumChars=127, juce_wchar defaultChar=&apos; &apos;)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -879,7 +879,7 @@
   </compound>
   <compound kind="file">
     <name>localization.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/localization/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_binaries/localization/</path>
     <filename>localization_8h.html</filename>
     <class kind="struct">lemons::TranslationsInitializer</class>
     <namespace>lemons</namespace>
@@ -894,8 +894,8 @@
       <type>void</type>
       <name>initializeTranslations</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a6112dcf9902dd13c43495fec3049c2bd</anchor>
-      <arglist>(const File &amp;translationFile, bool ignoreCaseOfKeys=true)</arglist>
+      <anchor>a2132b81f4246c5fae122ee42198b1119</anchor>
+      <arglist>(const binary::Data &amp;data, bool ignoreCaseOfKeys=true)</arglist>
     </member>
   </compound>
   <compound kind="file">
@@ -1798,7 +1798,7 @@
   </compound>
   <compound kind="file">
     <name>Timers.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/events/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/misc/</path>
     <filename>_timers_8h.html</filename>
     <class kind="struct">lemons::events::TimerCallback</class>
     <namespace>lemons</namespace>
@@ -1966,7 +1966,7 @@
   </compound>
   <compound kind="file">
     <name>vecops.h</name>
-    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Common/lemons_core/math/</path>
+    <path>/home/runner/work/Lemons/Lemons/Builds/docs/util/doxygen/build/Audio/lemons_dsp/util/</path>
     <filename>vecops_8h.html</filename>
     <namespace>lemons</namespace>
     <namespace>lemons::vecops</namespace>
@@ -5581,11 +5581,25 @@
       <arglist>(const String &amp;filename)</arglist>
     </member>
     <member kind="function" static="yes">
+      <type>static std::unique_ptr&lt; juce::CustomTypeface &gt;</type>
+      <name>getFont</name>
+      <anchorfile>structlemons_1_1binary_1_1_data.html</anchorfile>
+      <anchor>a2dac74a25c097542a54858482436c40a</anchor>
+      <arglist>(const String &amp;filename)</arglist>
+    </member>
+    <member kind="function" static="yes">
       <type>static Image</type>
       <name>getImage</name>
       <anchorfile>structlemons_1_1binary_1_1_data.html</anchorfile>
       <anchor>a8cf059725220443050eec963b7e3d2ca</anchor>
       <arglist>(const String &amp;imageFileName)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static MidiBuffer</type>
+      <name>getMidi</name>
+      <anchorfile>structlemons_1_1binary_1_1_data.html</anchorfile>
+      <anchor>a1701e824ca7a235d52fde08f622167b0</anchor>
+      <arglist>(const String &amp;midiFileName)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static String</type>
@@ -5600,6 +5614,13 @@
       <anchorfile>structlemons_1_1binary_1_1_data.html</anchorfile>
       <anchor>a2c1c9b78a58b88c44e51b09668048e46</anchor>
       <arglist>(const String &amp;textFileName)</arglist>
+    </member>
+    <member kind="function" static="yes">
+      <type>static ValueTree</type>
+      <name>getValueTree</name>
+      <anchorfile>structlemons_1_1binary_1_1_data.html</anchorfile>
+      <anchor>a29826a542383c272165b43af13793edb</anchor>
+      <arglist>(const String &amp;filename)</arglist>
     </member>
     <member kind="function" static="yes">
       <type>static constexpr bool</type>
@@ -21322,8 +21343,8 @@
       <type>void</type>
       <name>initializeTranslations</name>
       <anchorfile>namespacelemons.html</anchorfile>
-      <anchor>a6112dcf9902dd13c43495fec3049c2bd</anchor>
-      <arglist>(const File &amp;translationFile, bool ignoreCaseOfKeys=true)</arglist>
+      <anchor>a2132b81f4246c5fae122ee42198b1119</anchor>
+      <arglist>(const binary::Data &amp;data, bool ignoreCaseOfKeys=true)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -21412,10 +21433,10 @@
     <class kind="struct">lemons::dsp::TemplateSynth</class>
     <class kind="class">lemons::dsp::WhiteNoiseGenerator</class>
     <member kind="typedef">
-      <type>juce::AudioBuffer&lt; T &gt;</type>
+      <type>juce::AudioBuffer&lt; SampleType &gt;</type>
       <name>AudioBuffer</name>
       <anchorfile>namespacelemons_1_1dsp.html</anchorfile>
-      <anchor>a78ad3b3e43c505682f79858c70604006</anchor>
+      <anchor>a18d4de532efb0450f4f594bfbe9cceb0</anchor>
       <arglist></arglist>
     </member>
     <member kind="enumeration">
@@ -21614,6 +21635,13 @@
       <arglist>(const File &amp;file)</arglist>
     </member>
     <member kind="function">
+      <type>ValueTree</type>
+      <name>loadValueTree</name>
+      <anchorfile>namespacelemons_1_1files.html</anchorfile>
+      <anchor>aa4e640b5ec2d9c0d43ff33e1209376ea</anchor>
+      <arglist>(const String &amp;fileContents)</arglist>
+    </member>
+    <member kind="function">
       <type>bool</type>
       <name>saveValueTree</name>
       <anchorfile>namespacelemons_1_1files.html</anchorfile>
@@ -21641,8 +21669,8 @@
       <type>bool</type>
       <name>serializeFont</name>
       <anchorfile>namespacelemons_1_1gui.html</anchorfile>
-      <anchor>a344a10996f5513487d481dd43b3d8c48</anchor>
-      <arglist>(const juce::Font &amp;font, File &amp;destFile, int maxNumChars=127, juce_wchar defaultChar=&apos; &apos;)</arglist>
+      <anchor>a41ac40d715d723d1c8c21902729e84c3</anchor>
+      <arglist>(const juce::Font &amp;font, const File &amp;destFile, int maxNumChars=127, juce_wchar defaultChar=&apos; &apos;)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
@@ -22708,6 +22736,11 @@
     <class kind="struct">lemons::gui::ToggleTextButton</class>
   </compound>
   <compound kind="group">
+    <name>device</name>
+    <title>device</title>
+    <filename>group__device.html</filename>
+  </compound>
+  <compound kind="group">
     <name>dynamics</name>
     <title>dynamics</title>
     <filename>group__dynamics.html</filename>
@@ -22741,14 +22774,6 @@
     <class kind="class">lemons::dsp::LatencyEngine</class>
     <class kind="struct">lemons::dsp::EngineChain::Node</class>
     <class kind="class">lemons::dsp::Protector</class>
-  </compound>
-  <compound kind="group">
-    <name>events</name>
-    <title>events</title>
-    <filename>group__events.html</filename>
-    <namespace>lemons</namespace>
-    <namespace>lemons::events</namespace>
-    <class kind="struct">lemons::events::TimerCallback</class>
   </compound>
   <compound kind="group">
     <name>fifos</name>
@@ -22825,14 +22850,13 @@
     <filename>group__lemons__binaries.html</filename>
     <subgroup>audio_files</subgroup>
     <subgroup>binary_data</subgroup>
+    <subgroup>localization</subgroup>
   </compound>
   <compound kind="group">
     <name>lemons_core</name>
     <title>lemons_core</title>
     <filename>group__lemons__core.html</filename>
-    <subgroup>events</subgroup>
     <subgroup>files</subgroup>
-    <subgroup>localization</subgroup>
     <subgroup>math</subgroup>
     <subgroup>misc</subgroup>
     <subgroup>serializing</subgroup>
@@ -22853,14 +22877,13 @@
     <subgroup>filters</subgroup>
     <subgroup>oscillators</subgroup>
     <subgroup>util</subgroup>
-    <namespace>lemons</namespace>
-    <namespace>lemons::dsp</namespace>
   </compound>
   <compound kind="group">
     <name>lemons_gui</name>
     <title>lemons_gui</title>
     <filename>group__lemons__gui.html</filename>
     <subgroup>components</subgroup>
+    <subgroup>device</subgroup>
     <subgroup>utilities</subgroup>
   </compound>
   <compound kind="group">
@@ -22944,7 +22967,6 @@
     <filename>group__math.html</filename>
     <namespace>lemons</namespace>
     <namespace>lemons::math</namespace>
-    <namespace>lemons::vecops</namespace>
   </compound>
   <compound kind="group">
     <name>misc</name>
@@ -22953,10 +22975,12 @@
     <namespace>lemons</namespace>
     <namespace>lemons::dsp</namespace>
     <namespace>lemons::dsp::FX</namespace>
+    <namespace>lemons::events</namespace>
     <class kind="class">lemons::dsp::FX::DeEsser</class>
     <class kind="class">lemons::dsp::FX::DryWetMixer</class>
     <class kind="class">lemons::dsp::FX::Reverb</class>
     <class kind="class">lemons::dsp::FX::Saturator</class>
+    <class kind="struct">lemons::events::TimerCallback</class>
     <member kind="define">
       <type>#define</type>
       <name>LEMONS_MUST_INHERIT_FROM</name>
@@ -23147,6 +23171,7 @@
     <namespace>lemons::music</namespace>
     <namespace>lemons::serializing</namespace>
     <namespace>lemons::tests</namespace>
+    <namespace>lemons::vecops</namespace>
     <class kind="class">lemons::dsp::BasicProcessor</class>
     <class kind="class">lemons::dsp::MonoStereoConverter</class>
     <class kind="class">lemons::dsp::PitchDetector</class>

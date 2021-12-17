@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['dynamics_2326',['dynamics',['../group__dynamics.html',1,'']]]
+  ['device_2330',['device',['../group__device.html',1,'']]],
+  ['dynamics_2331',['dynamics',['../group__dynamics.html',1,'']]]
 ];
