@@ -79,6 +79,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1tests_1_1_dsp_serializing_tests.html">lemons::tests::DspSerializingTests</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjuce_1_1_variant_converter_3_01_a_d_s_r_1_1_parameters_01_4.html">juce::VariantConverter&lt; ADSR::Parameters &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjuce_1_1_variant_converter_3_01_audio_buffer_3_01double_01_4_01_4.html">juce::VariantConverter&lt; AudioBuffer&lt; double &gt; &gt;</a></td></tr>
@@ -95,6 +97,8 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacelemons"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons.html">lemons</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacelemons_1_1serializing"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html">lemons::serializing</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacelemons_1_1tests"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html">lemons::tests</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
@@ -113,11 +117,19 @@ Functions</h2></td></tr>
 <tr class="memitem:adf7966056fb84074c7d8acfafad74af2"><td class="memTemplItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#adf7966056fb84074c7d8acfafad74af2">lemons::serializing::audioToBinary</a> (const AudioBuffer&lt; SampleType &gt; &amp;buffer, double samplerate=48000.)</td></tr>
 <tr class="memdesc:adf7966056fb84074c7d8acfafad74af2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes an AudioBuffer as a blob of binary data.  <a href="namespacelemons_1_1serializing.html#adf7966056fb84074c7d8acfafad74af2">More...</a><br /></td></tr>
 <tr class="separator:adf7966056fb84074c7d8acfafad74af2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a8572b47f265c3e3a8bded97d1b6bb8"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
+<tr class="memitem:a5a8572b47f265c3e3a8bded97d1b6bb8"><td class="memTemplItemLeft" align="right" valign="top">AudioBuffer&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a5a8572b47f265c3e3a8bded97d1b6bb8">lemons::serializing::loadAudioFromFile</a> (const File &amp;file)</td></tr>
+<tr class="memdesc:a5a8572b47f265c3e3a8bded97d1b6bb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads an AudioBuffer from a file.  <a href="namespacelemons_1_1serializing.html#a5a8572b47f265c3e3a8bded97d1b6bb8">More...</a><br /></td></tr>
+<tr class="separator:a5a8572b47f265c3e3a8bded97d1b6bb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c233626921d368c3413e4a2a9f19232"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
+<tr class="memitem:a8c233626921d368c3413e4a2a9f19232"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a8c233626921d368c3413e4a2a9f19232">lemons::serializing::saveAudioToFile</a> (const AudioBuffer&lt; SampleType &gt; &amp;buffer, const File &amp;file, double samplerate=48000.)</td></tr>
+<tr class="memdesc:a8c233626921d368c3413e4a2a9f19232"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes an AudioBuffer to a File in FLAC format.  <a href="namespacelemons_1_1serializing.html#a8c233626921d368c3413e4a2a9f19232">More...</a><br /></td></tr>
+<tr class="separator:a8c233626921d368c3413e4a2a9f19232"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 17 2021 00:47:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 17 2021 03:58:30 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

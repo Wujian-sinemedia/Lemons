@@ -85,7 +85,13 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1tests_1_1_core_test.html">CoreTest</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1tests_1_1_dsp_serializing_tests.html">DspSerializingTests</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1tests_1_1_dsp_test.html">DspTest</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1tests_1_1_gui_serializing_tests.html">GuiSerializingTests</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1tests_1_1_midi_serializing_tests.html">MidiSerializingTests</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1tests_1_1_midi_test.html">MidiTest</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -133,10 +139,8 @@ Functions</h2></td></tr>
 <tr class="memitem:a7681e5e17b48965aa1416c51ea9c4a61"><td class="memTemplParams" colspan="2">template&lt;typename FloatType &gt; </td></tr>
 <tr class="memitem:a7681e5e17b48965aa1416c51ea9c4a61"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#a7681e5e17b48965aa1416c51ea9c4a61">buffersAreReasonablyEqual</a> (const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer1, const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer2)</td></tr>
 <tr class="separator:a7681e5e17b48965aa1416c51ea9c4a61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e01d6e10d184911f604f738ae18653d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#a0e01d6e10d184911f604f738ae18653d">executeUnitTests</a> (const juce::ArgumentList &amp;args)</td></tr>
-<tr class="separator:a0e01d6e10d184911f604f738ae18653d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97d48e4d4a61d0a08ea45b826f0634b0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#a97d48e4d4a61d0a08ea45b826f0634b0">executeUnitTests</a> (<a class="el" href="namespacelemons_1_1tests.html#abe71616eeadecd56537dd9a10376223c">Intensity</a> intensityLevel=<a class="el" href="namespacelemons_1_1tests.html#abe71616eeadecd56537dd9a10376223ca87f8a6ab85c9ced3702b4ea641ad4bb5">Intensity::Medium</a>, juce::File logOutput={}, juce::int64 seed=juce::Random::getSystemRandom().nextInt64(), const String &amp;singleTestName={}, const String &amp;categoryName={})</td></tr>
-<tr class="separator:a97d48e4d4a61d0a08ea45b826f0634b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a012b4a90230fe31d71ca56d673f078c3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#a012b4a90230fe31d71ca56d673f078c3">executeUnitTests</a> (<a class="el" href="namespacelemons_1_1tests.html#abe71616eeadecd56537dd9a10376223c">Intensity</a> intensityLevel=<a class="el" href="namespacelemons_1_1tests.html#abe71616eeadecd56537dd9a10376223ca87f8a6ab85c9ced3702b4ea641ad4bb5">Intensity::Medium</a>, const File &amp;logOutput={}, juce::int64 seed=juce::Random::getSystemRandom().nextInt64(), const String &amp;singleTestName={}, const String &amp;categoryName={})</td></tr>
+<tr class="separator:a012b4a90230fe31d71ca56d673f078c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ecdb1df151eda76ed75304aea1dd2b7"><td class="memTemplParams" colspan="2">template&lt;typename SampleType &gt; </td></tr>
 <tr class="memitem:a8ecdb1df151eda76ed75304aea1dd2b7"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#a8ecdb1df151eda76ed75304aea1dd2b7">fillAudioBufferWithRandomNoise</a> (<a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; SampleType &gt; &amp;buffer, juce::Random rng)</td></tr>
 <tr class="separator:a8ecdb1df151eda76ed75304aea1dd2b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -156,6 +160,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a91d1e7095657d0593a3baba099b5ed36"><td class="memTemplParams" colspan="2">template&lt;typename FloatType &gt; </td></tr>
 <tr class="memitem:a91d1e7095657d0593a3baba099b5ed36"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#a91d1e7095657d0593a3baba099b5ed36">noSamplesAreClipping</a> (const <a class="el" href="namespacelemons_1_1tests.html#aa422106235194433473c28fa45ff152b">AudioBuffer</a>&lt; FloatType &gt; &amp;buffer)</td></tr>
 <tr class="separator:a91d1e7095657d0593a3baba099b5ed36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b704d00dfdd20e65bafa6d53a06e4b5"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
+<tr class="memitem:a0b704d00dfdd20e65bafa6d53a06e4b5"><td class="memTemplItemLeft" align="right" valign="top">Type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#a0b704d00dfdd20e65bafa6d53a06e4b5">toVarAndBack</a> (const Type &amp;orig)</td></tr>
+<tr class="separator:a0b704d00dfdd20e65bafa6d53a06e4b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="aa422106235194433473c28fa45ff152b"></a>
@@ -461,26 +468,8 @@ template&lt;typename FloatType &gt; </div>
 
 </div>
 </div>
-<a id="a0e01d6e10d184911f604f738ae18653d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e01d6e10d184911f604f738ae18653d">&#9670;&nbsp;</a></span>executeUnitTests() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool lemons::tests::executeUnitTests </td>
-          <td>(</td>
-          <td class="paramtype">const juce::ArgumentList &amp;&#160;</td>
-          <td class="paramname"><em>args</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a97d48e4d4a61d0a08ea45b826f0634b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97d48e4d4a61d0a08ea45b826f0634b0">&#9670;&nbsp;</a></span>executeUnitTests() <span class="overload">[2/2]</span></h2>
+<a id="a012b4a90230fe31d71ca56d673f078c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a012b4a90230fe31d71ca56d673f078c3">&#9670;&nbsp;</a></span>executeUnitTests()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -494,7 +483,7 @@ template&lt;typename FloatType &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">juce::File&#160;</td>
+          <td class="paramtype">const File &amp;&#160;</td>
           <td class="paramname"><em>logOutput</em> = <code>{}</code>, </td>
         </tr>
         <tr>
@@ -731,10 +720,30 @@ template&lt;typename FloatType &gt; </div>
 
 </div>
 </div>
+<a id="a0b704d00dfdd20e65bafa6d53a06e4b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b704d00dfdd20e65bafa6d53a06e4b5">&#9670;&nbsp;</a></span>toVarAndBack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Type &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Type lemons::tests::toVarAndBack </td>
+          <td>(</td>
+          <td class="paramtype">const Type &amp;&#160;</td>
+          <td class="paramname"><em>orig</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 17 2021 00:47:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 17 2021 03:58:31 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

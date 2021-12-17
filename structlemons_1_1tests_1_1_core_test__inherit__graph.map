@@ -1,4 +1,7 @@
 <map id="lemons::tests::CoreTest" name="lemons::tests::CoreTest">
-<area shape="rect" id="node1" title=" " alt="" coords="5,80,180,107"/>
-<area shape="rect" id="node2" href="$classlemons_1_1tests_1_1_test.html" title=" " alt="" coords="21,5,165,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="197,78,372,105"/>
+<area shape="rect" id="node3" href="$structlemons_1_1tests_1_1_dsp_serializing_tests.html" title=" " alt="" coords="422,5,633,47"/>
+<area shape="rect" id="node4" href="$structlemons_1_1tests_1_1_gui_serializing_tests.html" title=" " alt="" coords="423,71,631,112"/>
+<area shape="rect" id="node5" href="$structlemons_1_1tests_1_1_midi_serializing_tests.html" title=" " alt="" coords="420,136,635,177"/>
+<area shape="rect" id="node2" href="$classlemons_1_1tests_1_1_test.html" title=" " alt="" coords="5,78,149,105"/>
 </map>

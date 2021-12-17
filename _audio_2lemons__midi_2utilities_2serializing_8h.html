@@ -78,6 +78,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1tests_1_1_midi_serializing_tests.html">lemons::tests::MidiSerializingTests</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjuce_1_1_variant_converter_3_01_midi_buffer_01_4.html">juce::VariantConverter&lt; MidiBuffer &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjuce_1_1_variant_converter_3_01_midi_file_01_4.html">juce::VariantConverter&lt; MidiFile &gt;</a></td></tr>
@@ -93,26 +95,46 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacelemons_1_1serializing"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html">lemons::serializing</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacelemons_1_1tests"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html">lemons::tests</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a5a142ed1cd8fc8d2f69f9b459732a96c"><td class="memItemLeft" align="right" valign="top">MidiBuffer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a5a142ed1cd8fc8d2f69f9b459732a96c">lemons::serializing::midiBufferFromFile</a> (const juce::MidiFile &amp;file, int trackToRead=-1)</td></tr>
-<tr class="memdesc:a5a142ed1cd8fc8d2f69f9b459732a96c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a MIDI file object to a MIDI buffer.  <a href="namespacelemons_1_1serializing.html#a5a142ed1cd8fc8d2f69f9b459732a96c">More...</a><br /></td></tr>
-<tr class="separator:a5a142ed1cd8fc8d2f69f9b459732a96c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aced62684c90658470caab1dd9c4e52b5"><td class="memItemLeft" align="right" valign="top">juce::MidiFile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#aced62684c90658470caab1dd9c4e52b5">lemons::serializing::midiBufferToFile</a> (const MidiBuffer &amp;midi)</td></tr>
-<tr class="memdesc:aced62684c90658470caab1dd9c4e52b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a MIDI buffer to a MIDI file object.  <a href="namespacelemons_1_1serializing.html#aced62684c90658470caab1dd9c4e52b5">More...</a><br /></td></tr>
-<tr class="separator:aced62684c90658470caab1dd9c4e52b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d943b0466e21cc2c329e8beeb2805ae"><td class="memItemLeft" align="right" valign="top">MidiBuffer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a2d943b0466e21cc2c329e8beeb2805ae">lemons::serializing::midiFromBinary</a> (const MemoryBlock &amp;block)</td></tr>
-<tr class="memdesc:a2d943b0466e21cc2c329e8beeb2805ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a MidiBufer from a binary representation of one.  <a href="namespacelemons_1_1serializing.html#a2d943b0466e21cc2c329e8beeb2805ae">More...</a><br /></td></tr>
-<tr class="separator:a2d943b0466e21cc2c329e8beeb2805ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f2eafe6c651e2100efa6506341d017f"><td class="memItemLeft" align="right" valign="top">MidiBuffer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a7f2eafe6c651e2100efa6506341d017f">lemons::serializing::loadMidiBufferFromFile</a> (const File &amp;file)</td></tr>
+<tr class="memdesc:a7f2eafe6c651e2100efa6506341d017f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a MidiBuffer from a file on disk.  <a href="namespacelemons_1_1serializing.html#a7f2eafe6c651e2100efa6506341d017f">More...</a><br /></td></tr>
+<tr class="separator:a7f2eafe6c651e2100efa6506341d017f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8e7d43517d8fa847dec1f55b483a504"><td class="memItemLeft" align="right" valign="top">MidiFile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#ae8e7d43517d8fa847dec1f55b483a504">lemons::serializing::loadMidiFromFile</a> (const File &amp;file)</td></tr>
+<tr class="memdesc:ae8e7d43517d8fa847dec1f55b483a504"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a MidiFile from a file on disk.  <a href="namespacelemons_1_1serializing.html#ae8e7d43517d8fa847dec1f55b483a504">More...</a><br /></td></tr>
+<tr class="separator:ae8e7d43517d8fa847dec1f55b483a504"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04f7d173de93a9bf72be15fb86f2f518"><td class="memItemLeft" align="right" valign="top">MidiBuffer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a04f7d173de93a9bf72be15fb86f2f518">lemons::serializing::midiBufferFromBinary</a> (const MemoryBlock &amp;block)</td></tr>
+<tr class="memdesc:a04f7d173de93a9bf72be15fb86f2f518"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a MidiBufer from a binary representation of one.  <a href="namespacelemons_1_1serializing.html#a04f7d173de93a9bf72be15fb86f2f518">More...</a><br /></td></tr>
+<tr class="separator:a04f7d173de93a9bf72be15fb86f2f518"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2752e9db22b821d34b58804297697c4"><td class="memItemLeft" align="right" valign="top">MidiBuffer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#ac2752e9db22b821d34b58804297697c4">lemons::serializing::midiBufferFromFile</a> (const MidiFile &amp;file, int trackToRead=-1)</td></tr>
+<tr class="memdesc:ac2752e9db22b821d34b58804297697c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a MIDI file object to a MIDI buffer.  <a href="namespacelemons_1_1serializing.html#ac2752e9db22b821d34b58804297697c4">More...</a><br /></td></tr>
+<tr class="separator:ac2752e9db22b821d34b58804297697c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c540907808f75d248afd17f13d87057"><td class="memItemLeft" align="right" valign="top">MidiFile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a3c540907808f75d248afd17f13d87057">lemons::serializing::midiBufferToFile</a> (const MidiBuffer &amp;midi)</td></tr>
+<tr class="memdesc:a3c540907808f75d248afd17f13d87057"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a MIDI buffer to a MIDI file object.  <a href="namespacelemons_1_1serializing.html#a3c540907808f75d248afd17f13d87057">More...</a><br /></td></tr>
+<tr class="separator:a3c540907808f75d248afd17f13d87057"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1464835a9b444ee16712c67565260518"><td class="memItemLeft" align="right" valign="top">MidiFile&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a1464835a9b444ee16712c67565260518">lemons::serializing::midiFileFromBinary</a> (const MemoryBlock &amp;block)</td></tr>
+<tr class="memdesc:a1464835a9b444ee16712c67565260518"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a MidiFile from a binary representation of one.  <a href="namespacelemons_1_1serializing.html#a1464835a9b444ee16712c67565260518">More...</a><br /></td></tr>
+<tr class="separator:a1464835a9b444ee16712c67565260518"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f9b5afb4a6bd15f8c8801923c12e1f7"><td class="memItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a9f9b5afb4a6bd15f8c8801923c12e1f7">lemons::serializing::midiToBinary</a> (const MidiBuffer &amp;midi)</td></tr>
 <tr class="memdesc:a9f9b5afb4a6bd15f8c8801923c12e1f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes a MidiBuffer as a blob of binary data.  <a href="namespacelemons_1_1serializing.html#a9f9b5afb4a6bd15f8c8801923c12e1f7">More...</a><br /></td></tr>
 <tr class="separator:a9f9b5afb4a6bd15f8c8801923c12e1f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeacda195ca89506992384c26458355cf"><td class="memItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#aeacda195ca89506992384c26458355cf">lemons::serializing::midiToBinary</a> (const MidiFile &amp;midi)</td></tr>
+<tr class="memdesc:aeacda195ca89506992384c26458355cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes a MidiFile as a blob of binary data.  <a href="namespacelemons_1_1serializing.html#aeacda195ca89506992384c26458355cf">More...</a><br /></td></tr>
+<tr class="separator:aeacda195ca89506992384c26458355cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a4980c2b38b88311ee40ade9aa299aa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a3a4980c2b38b88311ee40ade9aa299aa">lemons::serializing::saveMidiToFile</a> (const MidiBuffer &amp;midi, const File &amp;file)</td></tr>
+<tr class="memdesc:a3a4980c2b38b88311ee40ade9aa299aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves a MidiBuffer to a file on disk, formatted as a MidiFile.  <a href="namespacelemons_1_1serializing.html#a3a4980c2b38b88311ee40ade9aa299aa">More...</a><br /></td></tr>
+<tr class="separator:a3a4980c2b38b88311ee40ade9aa299aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02be9ff9b2eaa39d8ab1119123d88b1d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a02be9ff9b2eaa39d8ab1119123d88b1d">lemons::serializing::saveMidiToFile</a> (const MidiFile &amp;midi, const File &amp;file)</td></tr>
+<tr class="memdesc:a02be9ff9b2eaa39d8ab1119123d88b1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves a MidiFile to a file on disk.  <a href="namespacelemons_1_1serializing.html#a02be9ff9b2eaa39d8ab1119123d88b1d">More...</a><br /></td></tr>
+<tr class="separator:a02be9ff9b2eaa39d8ab1119123d88b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 17 2021 00:47:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 17 2021 03:58:30 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

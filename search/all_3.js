@@ -35,6 +35,7 @@ var searchData=
   ['drywetmixer_187',['DryWetMixer',['../classlemons_1_1dsp_1_1_f_x_1_1_dry_wet_mixer.html',1,'lemons::dsp::FX::DryWetMixer&lt; SampleType &gt;'],['../classlemons_1_1dsp_1_1_f_x_1_1_dry_wet_mixer.html#a21cda0dd28393401b26a3215d2826c25',1,'lemons::dsp::FX::DryWetMixer::DryWetMixer()'],['../classlemons_1_1dsp_1_1_f_x_1_1_dry_wet_mixer.html#a98f5a785665430b3547c2edbc0c70c81',1,'lemons::dsp::FX::DryWetMixer::DryWetMixer(int wetPercentMix, int wetLatencySamples=0)']]],
   ['dsp_5fhelpers_2eh_188',['dsp_helpers.h',['../dsp__helpers_8h.html',1,'']]],
   ['dspprotection_2eh_189',['DspProtection.h',['../_dsp_protection_8h.html',1,'']]],
-  ['dsptest_190',['DspTest',['../structlemons_1_1tests_1_1_dsp_test.html',1,'lemons::tests::DspTest'],['../structlemons_1_1tests_1_1_dsp_test.html#a047ba8d4fa52f504feceebef695bf198',1,'lemons::tests::DspTest::DspTest()']]],
-  ['dynamics_191',['dynamics',['../group__dynamics.html',1,'']]]
+  ['dspserializingtests_190',['DspSerializingTests',['../structlemons_1_1tests_1_1_dsp_serializing_tests.html',1,'lemons::tests::DspSerializingTests'],['../structlemons_1_1tests_1_1_dsp_serializing_tests.html#a6206bc4d6d4b00be5cd4bd2c9f4d0425',1,'lemons::tests::DspSerializingTests::DspSerializingTests()']]],
+  ['dsptest_191',['DspTest',['../structlemons_1_1tests_1_1_dsp_test.html',1,'lemons::tests::DspTest'],['../structlemons_1_1tests_1_1_dsp_test.html#a047ba8d4fa52f504feceebef695bf198',1,'lemons::tests::DspTest::DspTest()']]],
+  ['dynamics_192',['dynamics',['../group__dynamics.html',1,'']]]
 ];

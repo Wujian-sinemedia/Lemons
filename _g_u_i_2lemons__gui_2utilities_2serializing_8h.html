@@ -78,6 +78,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1tests_1_1_gui_serializing_tests.html">lemons::tests::GuiSerializingTests</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjuce_1_1_variant_converter_3_01_colour_01_4.html">juce::VariantConverter&lt; Colour &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjuce_1_1_variant_converter_3_01_image_01_4.html">juce::VariantConverter&lt; Image &gt;</a></td></tr>
@@ -93,6 +95,8 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacelemons_1_1serializing"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html">lemons::serializing</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacelemons_1_1tests"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html">lemons::tests</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -102,11 +106,20 @@ Functions</h2></td></tr>
 <tr class="memitem:a844c15e8011970bd72cddbc16ac54886"><td class="memItemLeft" align="right" valign="top">MemoryBlock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a844c15e8011970bd72cddbc16ac54886">lemons::serializing::imageToBinary</a> (const Image &amp;image)</td></tr>
 <tr class="memdesc:a844c15e8011970bd72cddbc16ac54886"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes an Image object as a blob of binary data.  <a href="namespacelemons_1_1serializing.html#a844c15e8011970bd72cddbc16ac54886">More...</a><br /></td></tr>
 <tr class="separator:a844c15e8011970bd72cddbc16ac54886"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a054624f2d6989afb27bcc5d3cafaee5c"><td class="memItemLeft" align="right" valign="top">Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#a054624f2d6989afb27bcc5d3cafaee5c">lemons::serializing::loadImageFromFile</a> (const File &amp;file)</td></tr>
+<tr class="memdesc:a054624f2d6989afb27bcc5d3cafaee5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads an Image from a File.  <a href="namespacelemons_1_1serializing.html#a054624f2d6989afb27bcc5d3cafaee5c">More...</a><br /></td></tr>
+<tr class="separator:a054624f2d6989afb27bcc5d3cafaee5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af85f04cdb5f864a3b6f6cd04b2c426bb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#af85f04cdb5f864a3b6f6cd04b2c426bb">lemons::serializing::saveImageToFile</a> (const Image &amp;image, const File &amp;file)</td></tr>
+<tr class="memdesc:af85f04cdb5f864a3b6f6cd04b2c426bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves an Image to a File.  <a href="namespacelemons_1_1serializing.html#af85f04cdb5f864a3b6f6cd04b2c426bb">More...</a><br /></td></tr>
+<tr class="separator:af85f04cdb5f864a3b6f6cd04b2c426bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3fe0ea51d88705b739303ba723d97a7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1serializing.html#ac3fe0ea51d88705b739303ba723d97a7">lemons::serializing::serializeFont</a> (const juce::Font &amp;font, const File &amp;destFile, int maxNumChars=127, juce_wchar defaultChar=' ')</td></tr>
+<tr class="memdesc:ac3fe0ea51d88705b739303ba723d97a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes a font to a file that can then be reloaded as a BinaryData file.  <a href="namespacelemons_1_1serializing.html#ac3fe0ea51d88705b739303ba723d97a7">More...</a><br /></td></tr>
+<tr class="separator:ac3fe0ea51d88705b739303ba723d97a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 17 2021 00:47:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 17 2021 03:58:30 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

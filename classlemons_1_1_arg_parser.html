@@ -83,9 +83,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad065661a330ec9116090ba8e504bb32e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1_arg_parser.html#ad065661a330ec9116090ba8e504bb32e">ArgParser</a> (int argc, char **argv)</td></tr>
 <tr class="memdesc:ad065661a330ec9116090ba8e504bb32e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an <a class="el" href="classlemons_1_1_arg_parser.html" title="A command-line argument parser class modeled after Python&#39;s ArgParse.">ArgParser</a> from a standard argc/argv pair.  <a href="classlemons_1_1_arg_parser.html#ad065661a330ec9116090ba8e504bb32e">More...</a><br /></td></tr>
 <tr class="separator:ad065661a330ec9116090ba8e504bb32e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abff79e4fc079202b952bea04dd9affa9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1_arg_parser.html#abff79e4fc079202b952bea04dd9affa9">addArgument</a> (const String &amp;argOrFlags, bool required=false, const String &amp;help={}, const String &amp;defaultValue={})</td></tr>
-<tr class="memdesc:abff79e4fc079202b952bea04dd9affa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an argument to the parser.  <a href="classlemons_1_1_arg_parser.html#abff79e4fc079202b952bea04dd9affa9">More...</a><br /></td></tr>
-<tr class="separator:abff79e4fc079202b952bea04dd9affa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab89c65a21478df97b4716c1d95d50ffa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1_arg_parser.html#ab89c65a21478df97b4716c1d95d50ffa">addArgument</a> (const String &amp;argOrFlags, bool required=false, const String &amp;help={}, const String &amp;defaultValue={}, const juce::StringArray &amp;options={})</td></tr>
+<tr class="memdesc:ab89c65a21478df97b4716c1d95d50ffa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an argument to the parser.  <a href="classlemons_1_1_arg_parser.html#ab89c65a21478df97b4716c1d95d50ffa">More...</a><br /></td></tr>
+<tr class="separator:ab89c65a21478df97b4716c1d95d50ffa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea0161e14c347fad5c283a436b8bb81e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemons_1_1_arg_parser.html#aea0161e14c347fad5c283a436b8bb81e">checkForHelpFlag</a> () const</td></tr>
 <tr class="memdesc:aea0161e14c347fad5c283a436b8bb81e"><td class="mdescLeft">&#160;</td><td class="mdescRight">If '&ndash;help' or '-h' was present on the command line, this prints the parser's help to cout and returns true.  <a href="classlemons_1_1_arg_parser.html#aea0161e14c347fad5c283a436b8bb81e">More...</a><br /></td></tr>
 <tr class="separator:aea0161e14c347fad5c283a436b8bb81e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -168,8 +168,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="abff79e4fc079202b952bea04dd9affa9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abff79e4fc079202b952bea04dd9affa9">&#9670;&nbsp;</a></span>addArgument()</h2>
+<a id="ab89c65a21478df97b4716c1d95d50ffa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab89c65a21478df97b4716c1d95d50ffa">&#9670;&nbsp;</a></span>addArgument()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -196,7 +196,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const String &amp;&#160;</td>
-          <td class="paramname"><em>defaultValue</em> = <code>{}</code>&#160;</td>
+          <td class="paramname"><em>defaultValue</em> = <code>{}</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const juce::StringArray &amp;&#160;</td>
+          <td class="paramname"><em>options</em> = <code>{}</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -213,6 +219,7 @@ Public Member Functions</h2></td></tr>
     <tr><td class="paramname">required</td><td>Whether or not the parser will require this argument to be present. </td></tr>
     <tr><td class="paramname">help</td><td>An optional help string for this argument. </td></tr>
     <tr><td class="paramname">defaultValue</td><td>An optional default value for this argument. </td></tr>
+    <tr><td class="paramname">options</td><td>If specified, the passed argument must be one of these choices. </td></tr>
   </table>
   </dd>
 </dl>
@@ -286,8 +293,8 @@ Public Member Functions</h2></td></tr>
 <p>Returns true if the parser contains a given option. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">argOrFlags</td><td>The argument flags as they were specified when you called <a class="el" href="classlemons_1_1_arg_parser.html#abff79e4fc079202b952bea04dd9affa9" title="Adds an argument to the parser.">addArgument()</a>. </td></tr>
-    <tr><td class="paramname">includeDefaults</td><td>If the specified argument was not specified on the command line, but you called <a class="el" href="classlemons_1_1_arg_parser.html#abff79e4fc079202b952bea04dd9affa9" title="Adds an argument to the parser.">addArgument()</a> with a non-empty default string, then this function will return true if this option is true. If this option is false, then this function will only return true if an argument was specified on the command line. </td></tr>
+    <tr><td class="paramname">argOrFlags</td><td>The argument flags as they were specified when you called <a class="el" href="classlemons_1_1_arg_parser.html#ab89c65a21478df97b4716c1d95d50ffa" title="Adds an argument to the parser.">addArgument()</a>. </td></tr>
+    <tr><td class="paramname">includeDefaults</td><td>If the specified argument was not specified on the command line, but you called <a class="el" href="classlemons_1_1_arg_parser.html#ab89c65a21478df97b4716c1d95d50ffa" title="Adds an argument to the parser.">addArgument()</a> with a non-empty default string, then this function will return true if this option is true. If this option is false, then this function will only return true if an argument was specified on the command line. </td></tr>
   </table>
   </dd>
 </dl>
@@ -357,7 +364,7 @@ template&lt;typename Type &gt; </div>
 <p>Returns one of the arguments from the list (or its corresponding default, if there is one). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">argOrFlags</td><td>The argument flags as they were specified when you called <a class="el" href="classlemons_1_1_arg_parser.html#abff79e4fc079202b952bea04dd9affa9" title="Adds an argument to the parser.">addArgument()</a>. </td></tr>
+    <tr><td class="paramname">argOrFlags</td><td>The argument flags as they were specified when you called <a class="el" href="classlemons_1_1_arg_parser.html#ab89c65a21478df97b4716c1d95d50ffa" title="Adds an argument to the parser.">addArgument()</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -390,7 +397,7 @@ template&lt;typename Type &gt; </div>
 <div class="ttc" id="aclasslemons_1_1_arg_parser_html"><div class="ttname"><a href="classlemons_1_1_arg_parser.html">lemons::ArgParser</a></div><div class="ttdoc">A command-line argument parser class modeled after Python's ArgParse.</div><div class="ttdef"><b>Definition:</b> ArgParser.h:51</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 17 2021 00:47:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 17 2021 03:58:31 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

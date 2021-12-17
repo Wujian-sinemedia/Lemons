@@ -1,5 +1,5 @@
 <map id="lemons::ConstructedArray&lt; ObjectType &gt;" name="lemons::ConstructedArray&lt; ObjectType &gt;">
-<area shape="rect" id="node1" title="A wrapper around juce::OwnedArray that automatically deletes or creates objects when you resize it." alt="" coords="5,399,196,441"/>
+<area shape="rect" id="node1" title="A wrapper around juce::OwnedArray that automatically deletes or creates objects when you resize it,..." alt="" coords="5,399,196,441"/>
 <area shape="rect" id="node2" href="$structlemons_1_1_constructed_array.html" title=" " alt="" coords="453,19,644,75"/>
 <area shape="rect" id="node3" href="$structlemons_1_1_constructed_array.html" title=" " alt="" coords="441,99,656,141"/>
 <area shape="rect" id="node4" href="$structlemons_1_1_constructed_array.html" title=" " alt="" coords="442,165,655,221"/>

@@ -77,7 +77,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>A wrapper around juce::OwnedArray that automatically deletes or creates objects when you resize it.  
+<p>A wrapper around juce::OwnedArray that automatically deletes or creates objects when you resize it, eg:  
  <a href="structlemons_1_1_constructed_array.html#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for lemons::ConstructedArray&lt; ObjectType &gt;:</div>
@@ -96,7 +96,7 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:abedae38bb829dbafebcec48d7a40bd4b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_constructed_array.html#abedae38bb829dbafebcec48d7a40bd4b">ConstructedArray</a> (int initialNumObjects=0, <a class="el" href="structlemons_1_1_constructed_array.html#a36ef6faf6ae33e0cfc133d4a584addb2">ObjectCreationFunction</a> &amp;&amp;objectCreationFunc=[]() { return new ObjectType();})</td></tr>
-<tr class="memdesc:abedae38bb829dbafebcec48d7a40bd4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an array with a specified initial number of objects, and an optional lambda function to create new objects.  <a href="structlemons_1_1_constructed_array.html#abedae38bb829dbafebcec48d7a40bd4b">More...</a><br /></td></tr>
+<tr class="memdesc:abedae38bb829dbafebcec48d7a40bd4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an array with a specified initial number of objects, and an optional lambda function that will be called to create new objects.  <a href="structlemons_1_1_constructed_array.html#abedae38bb829dbafebcec48d7a40bd4b">More...</a><br /></td></tr>
 <tr class="separator:abedae38bb829dbafebcec48d7a40bd4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d77f9336ecc2e295ab43ab6aaa8c2c5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlemons_1_1_constructed_array.html#a2d77f9336ecc2e295ab43ab6aaa8c2c5">~ConstructedArray</a> ()=default</td></tr>
 <tr class="memdesc:a2d77f9336ecc2e295ab43ab6aaa8c2c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="structlemons_1_1_constructed_array.html#a2d77f9336ecc2e295ab43ab6aaa8c2c5">More...</a><br /></td></tr>
@@ -139,8 +139,24 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><h3>template&lt;typename ObjectType&gt;<br />
 struct lemons::ConstructedArray&lt; ObjectType &gt;</h3>
 
-<p>A wrapper around juce::OwnedArray that automatically deletes or creates objects when you resize it. </p>
-</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<p>A wrapper around juce::OwnedArray that automatically deletes or creates objects when you resize it, eg: </p>
+<div class="fragment"><div class="line"><span class="keyword">struct </span>MyStruct</div>
+<div class="line">{</div>
+<div class="line">    MyStruct (SomeObject&amp; arg);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> doSomething();</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">SomeObject myObject;</div>
+<div class="line"> </div>
+<div class="line">ConstructedArray&lt;MyStruct&gt; myStructs { 1, [&amp;myObject]{ <span class="keywordflow">return</span> <span class="keyword">new</span> MyStruct(myObject) } };</div>
+<div class="line"> </div>
+<div class="line">myStructs.resize (5);</div>
+<div class="line"> </div>
+<div class="line">myStructs.for_each ([](MyStruct&amp; s){ s.doSomething(); });</div>
+<div class="line"> </div>
+<div class="line">myStructs.resize (1);</div>
+</div><!-- fragment --> </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a36ef6faf6ae33e0cfc133d4a584addb2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a36ef6faf6ae33e0cfc133d4a584addb2">&#9670;&nbsp;</a></span>ObjectCreationFunction</h2>
 
@@ -194,7 +210,7 @@ template&lt;typename ObjectType &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Creates an array with a specified initial number of objects, and an optional lambda function to create new objects. </p>
+<p>Creates an array with a specified initial number of objects, and an optional lambda function that will be called to create new objects. </p>
 
 </div>
 </div>
@@ -504,7 +520,7 @@ template&lt;typename ObjectType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 17 2021 00:47:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 17 2021 03:58:31 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lemons: Fonts.h File Reference</title>
+<title>Lemons: helpers.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_4fef79e7177ba769987a8da36c892c5f.html">build</a></li><li class="navelem"><a class="el" href="dir_06dc7e73c27e7e8d6a1da168a13de898.html">GUI</a></li><li class="navelem"><a class="el" href="dir_29182db3c4408eff1679fb52d1e69440.html">lemons_gui</a></li><li class="navelem"><a class="el" href="dir_2d4bb7bcae5c0f1a4fc8709c788b3c5f.html">utilities</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_4fef79e7177ba769987a8da36c892c5f.html">build</a></li><li class="navelem"><a class="el" href="dir_80e5431e2c14281a39eac6757a6cb02b.html">Testing</a></li><li class="navelem"><a class="el" href="dir_772b851fa24fe246d330201c065928e7.html">lemons_unit_testing</a></li><li class="navelem"><a class="el" href="dir_fdf1542d9f725ea343b50f2871e162d6.html">util</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -71,7 +71,7 @@ $(function() {
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Fonts.h File Reference</div>  </div>
+<div class="title">helpers.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
@@ -79,19 +79,23 @@ $(function() {
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacelemons"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons.html">lemons</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespacelemons_1_1gui"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1gui.html">lemons::gui</a></td></tr>
+<tr class="memitem:namespacelemons_1_1tests"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html">lemons::tests</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a41ac40d715d723d1c8c21902729e84c3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1gui.html#a41ac40d715d723d1c8c21902729e84c3">lemons::gui::serializeFont</a> (const juce::Font &amp;font, const File &amp;destFile, int maxNumChars=127, juce_wchar defaultChar=' ')</td></tr>
-<tr class="memdesc:a41ac40d715d723d1c8c21902729e84c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes a font to a file that can then be reloaded as a BinaryData file.  <a href="namespacelemons_1_1gui.html#a41ac40d715d723d1c8c21902729e84c3">More...</a><br /></td></tr>
-<tr class="separator:a41ac40d715d723d1c8c21902729e84c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45aa6aca22218a8a1c13b549c17712e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#a45aa6aca22218a8a1c13b549c17712e3">lemons::tests::fillImageWithRandomPixels</a> (Image &amp;image, juce::Random rng)</td></tr>
+<tr class="separator:a45aa6aca22218a8a1c13b549c17712e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac207a10fbe432026788c9341794ac68a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#ac207a10fbe432026788c9341794ac68a">lemons::tests::imagesAreEqual</a> (const Image &amp;image1, const Image &amp;image2)</td></tr>
+<tr class="separator:ac207a10fbe432026788c9341794ac68a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b704d00dfdd20e65bafa6d53a06e4b5"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
+<tr class="memitem:a0b704d00dfdd20e65bafa6d53a06e4b5"><td class="memTemplItemLeft" align="right" valign="top">Type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelemons_1_1tests.html#a0b704d00dfdd20e65bafa6d53a06e4b5">lemons::tests::toVarAndBack</a> (const Type &amp;orig)</td></tr>
+<tr class="separator:a0b704d00dfdd20e65bafa6d53a06e4b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 17 2021 00:47:13 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 17 2021 03:58:30 for Lemons by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['onlineunlock_2eh_1471',['OnlineUnlock.h',['../_online_unlock_8h.html',1,'']]],
-  ['oscengine_2eh_1472',['OscEngine.h',['../_osc_engine_8h.html',1,'']]],
-  ['oscillators_2eh_1473',['oscillators.h',['../oscillators_8h.html',1,'']]],
-  ['oscsynth_2eh_1474',['OscSynth.h',['../_osc_synth_8h.html',1,'']]]
+  ['namepopup_2eh_1484',['NamePopup.h',['../_name_popup_8h.html',1,'']]],
+  ['noisegate_2eh_1485',['NoiseGate.h',['../_noise_gate_8h.html',1,'']]]
 ];
