@@ -1,15 +1,15 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
@@ -18,13 +18,13 @@
 namespace lemons::math
 {
 
-/** Returns true if number is divisible by divisor with no remainder. */
+/** Returns true if the number is divisible by the divisor with no remainder. */
 [[nodiscard]] constexpr bool isDivisibleBy (int number, int divisor) noexcept
 {
 	return number % divisor == 0;
 }
 
-/** Returns true if number is divisible by 2. */
+/** Returns true if the number is divisible by 2. */
 [[nodiscard]] constexpr bool numberIsEven (int number) noexcept
 {
 	return isDivisibleBy (number, 2);

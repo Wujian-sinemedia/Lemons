@@ -1,15 +1,15 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
@@ -30,8 +30,8 @@ public:
 	    The default constructor initializes an audio processor with stereo in and out buses.
 	 */
 	explicit BasicProcessor (juce::AudioProcessor::BusesProperties busesLayout = BusesProperties()
-	                                                                        .withInput (TRANS ("Input"), juce::AudioChannelSet::stereo(), true)
-	                                                                        .withOutput (TRANS ("Output"), juce::AudioChannelSet::stereo(), true));
+	                                                                                 .withInput (TRANS ("Input"), juce::AudioChannelSet::stereo(), true)
+	                                                                                 .withOutput (TRANS ("Output"), juce::AudioChannelSet::stereo(), true));
 
 	/** Repaints the editor, if one exists.
 	    Internally, this uses the Juce MessageManager's callAsync method. Calling this on the audio thread should be avoided at all costs. I would personally only use this method in setStateInformation().

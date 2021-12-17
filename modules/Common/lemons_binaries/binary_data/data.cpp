@@ -1,15 +1,15 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
@@ -50,9 +50,9 @@ Data::Data (const String& fileToFind)
 constexpr bool Data::hasBinaryData() noexcept
 {
 #if LEMONS_HAS_BINARY_DATA
-    return true;
+	return true;
 #else
-    return false;
+	return false;
 #endif
 }
 
@@ -91,10 +91,10 @@ MemoryBlock Data::getBlob (const String& filename)
 	return d.getAsMemoryBlock();
 }
 
-template<files::FileType Type>
+template <files::FileType Type>
 ValueTree Data::getValueTree (const String& filename)
 {
-    return files::loadValueTree<Type> (getString (filename));
+	return files::loadValueTree<Type> (getString (filename));
 }
 
 template ValueTree Data::getValueTree<files::FileType::XML> (const String&);
@@ -119,9 +119,9 @@ AudioFile Data::getAudio (const String& audioFileName)
 	return audio;
 }
 
-MidiBuffer Data::getMidi (const String& midiFileName)
+MidiFile Data::getMidi (const String& midiFileName)
 {
-	return serializing::midiFromBinary (getBlob (midiFileName));
+	return serializing::midiFileFromBinary (getBlob (midiFileName));
 }
 
 String Data::getString (const String& textFileName)
@@ -140,11 +140,11 @@ juce::StringArray Data::getStrings (const String& textFileName)
 
 std::unique_ptr<juce::CustomTypeface> Data::getFont (const String& fontFileName)
 {
-    const auto block = getBlob (fontFileName);
+	const auto block = getBlob (fontFileName);
 
-    juce::MemoryInputStream is { block, false };
-    
-    return std::make_unique<juce::CustomTypeface> (is);
+	juce::MemoryInputStream is { block, false };
+
+	return std::make_unique<juce::CustomTypeface> (is);
 }
 
 }  // namespace lemons::binary

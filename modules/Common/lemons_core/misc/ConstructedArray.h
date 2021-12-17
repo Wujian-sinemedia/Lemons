@@ -19,14 +19,32 @@
 namespace lemons
 {
 
-/** A wrapper around juce::OwnedArray that automatically deletes or creates objects when you resize it.
+/** A wrapper around juce::OwnedArray that automatically deletes or creates objects when you resize it, eg:
+    @code
+    struct MyStruct
+    {
+        MyStruct (SomeObject& arg);
+
+        void doSomething();
+    };
+
+    SomeObject myObject;
+
+    ConstructedArray<MyStruct> myStructs { 1, [&myObject]{ return new MyStruct(myObject) } };
+
+    myStructs.resize (5);
+
+    myStructs.for_each ([](MyStruct& s){ s.doSomething(); });
+
+    myStructs.resize (1);
+    @endcode
  */
 template <typename ObjectType>
 struct ConstructedArray final
 {
 	using ObjectCreationFunction = std::function<ObjectType*()>;
 
-	/** Creates an array with a specified initial number of objects, and an optional lambda function to create new objects. */
+	/** Creates an array with a specified initial number of objects, and an optional lambda function that will be called to create new objects. */
 	explicit ConstructedArray (
 	    int                      initialNumObjects  = 0,
 	    ObjectCreationFunction&& objectCreationFunc = []()
@@ -65,19 +83,19 @@ struct ConstructedArray final
 	const juce::OwnedArray<ObjectType>* operator->() const noexcept { return &array; }
 
 	/** Internally calls OwnedArray::getUnchecked to return an item at a specified index in the array. */
-	ObjectType* operator[] (int index) const noexcept { return array.getUnchecked (index); }
+	[[nodiscard]] ObjectType* operator[] (int index) const noexcept { return array.getUnchecked (index); }
 
 	/** Calls OwnedArray::begin. */
-	ObjectType** begin() noexcept { return array.begin(); }
+	[[nodiscard]] ObjectType** begin() noexcept { return array.begin(); }
 
 	/** Calls OwnedArray::begin. */
-	ObjectType* const* begin() const noexcept { return array.begin(); }
+	[[nodiscard]] ObjectType* const* begin() const noexcept { return array.begin(); }
 
 	/** Calls OwnedArray::end. */
-	ObjectType** end() noexcept { return array.end(); }
+	[[nodiscard]] ObjectType** end() noexcept { return array.end(); }
 
 	/** Calls OwnedArray::end. */
-	ObjectType* const* end() const noexcept { return array.end(); }
+	[[nodiscard]] ObjectType* const* end() const noexcept { return array.end(); }
 
 	/** The managed array. */
 	juce::OwnedArray<ObjectType> array;

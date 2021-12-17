@@ -1,15 +1,15 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
@@ -97,20 +97,3 @@ var VariantConverter<ValueTree>::toVar (const ValueTree& tree)
 }
 
 }  // namespace juce
-
-/*---------------------------------------------------------------------------------------------------------------------------------*/
-
-namespace lemons::serializing
-{
-
-String valueTreeToJSON (const ValueTree& tree)
-{
-	return juce::JSON::toString (juce::VariantConverter<ValueTree>::toVar (tree));
-}
-
-ValueTree valueTreeFromJSON (const String& jsonText)
-{
-	return juce::VariantConverter<ValueTree>::fromVar (juce::JSON::parse (jsonText));
-}
-
-}  // namespace lemons::serializing

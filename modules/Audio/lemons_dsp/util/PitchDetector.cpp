@@ -1,15 +1,15 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
@@ -144,17 +144,17 @@ inline float PitchDetector<SampleType>::parabolicInterpolation (int periodEstima
 	if (x0 == periodEstimate)
 	{
 		if (yinData[periodEstimate] <= yinData[x2])
-            return static_cast<float> (periodEstimate);
+			return static_cast<float> (periodEstimate);
 
-        return static_cast<float> (x2);
+		return static_cast<float> (x2);
 	}
 
 	if (x2 == periodEstimate)
 	{
 		if (yinData[periodEstimate] <= yinData[x0])
-            return static_cast<float> (periodEstimate);
+			return static_cast<float> (periodEstimate);
 
-        return static_cast<float> (x0);
+		return static_cast<float> (x0);
 	}
 
 	const auto s0 = yinData[x0];

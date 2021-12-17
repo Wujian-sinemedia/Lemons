@@ -1,68 +1,68 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
 namespace lemons::files
 {
 
-template<>
+template <>
 ValueTree loadValueTree<FileType::XML> (const String& fileContents)
 {
-    if (auto xml = std::unique_ptr<juce::XmlElement> (juce::XmlDocument::parse (fileContents)))
-        return ValueTree::fromXml (*xml);
-    
-    return {};
+	if (auto xml = std::unique_ptr<juce::XmlElement> (juce::XmlDocument::parse (fileContents)))
+		return ValueTree::fromXml (*xml);
+
+	return {};
 }
 
 template <>
 ValueTree loadValueTree<FileType::XML> (const File& file)
 {
-    return loadValueTree<FileType::XML> (file.loadFileAsString());
+	return loadValueTree<FileType::XML> (file.loadFileAsString());
 }
 
-template<>
+template <>
 ValueTree loadValueTree<FileType::JSON> (const String& fileContents)
 {
-    return serializing::valueTreeFromJSON (fileContents);
+	return serializing::valueTreeFromJSON (fileContents);
 }
 
 template <>
 ValueTree loadValueTree<FileType::JSON> (const File& file)
 {
-    return loadValueTree<FileType::JSON> (file.loadFileAsString());
+	return loadValueTree<FileType::JSON> (file.loadFileAsString());
 }
 
-template<>
+template <>
 ValueTree loadValueTree<FileType::Opaque> (const String& fileContents)
 {
-    juce::CharPointer_UTF8 stringPointer (fileContents.toUTF8());
-    juce::MemoryBlock stringMemoryBlock (stringPointer.getAddress(), stringPointer.sizeInBytes());
-    
-    juce::MemoryInputStream is { stringMemoryBlock, false };
-    
-    return ValueTree::readFromStream (is);
+	juce::CharPointer_UTF8 stringPointer (fileContents.toUTF8());
+	juce::MemoryBlock      stringMemoryBlock (stringPointer.getAddress(), stringPointer.sizeInBytes());
+
+	juce::MemoryInputStream is { stringMemoryBlock, false };
+
+	return ValueTree::readFromStream (is);
 }
 
 template <>
 ValueTree loadValueTree<FileType::Opaque> (const File& file)
 {
-    juce::FileInputStream is { file };
-    
-    if (is.openedOk())
-        return ValueTree::readFromStream (is);
-    
-    return {};
+	juce::FileInputStream is { file };
+
+	if (is.openedOk())
+		return ValueTree::readFromStream (is);
+
+	return {};
 }
 
 
@@ -131,5 +131,34 @@ File getFileOnDesktop (const String& fileName)
 	return File::getSpecialLocation (File::userDesktopDirectory).getChildFile (fileName);
 }
 
+MemoryBlock loadFileAsBlock (const File& file)
+{
+	if (auto is = file.createInputStream())
+	{
+		if (! is->openedOk())
+			return false;
+
+		MemoryBlock block;
+
+		is->readIntoMemoryBlock (block);
+
+		return block;
+	}
+
+	return {};
+}
+
+bool saveBlockToFile (const MemoryBlock& block, const File& file)
+{
+	if (auto os = file.createOutputStream())
+	{
+		if (! os->openedOk())
+			return false;
+
+		return os->write (block.getData(), block.getSize());
+	}
+
+	return false;
+}
 
 }  // namespace lemons::files

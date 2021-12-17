@@ -33,7 +33,7 @@ void ArgParser::addArgument (const String& argOrFlags,
 	newArg.defaultValue = defaultValue;
 	newArg.required     = required;
 	newArg.help         = help;
-    newArg.options      = options;
+	newArg.options      = options;
 	args.add (newArg);
 }
 
@@ -45,16 +45,16 @@ void ArgParser::printHelp() const
 
 		if (! arg.help.isEmpty())
 			std::cout << " : " << arg.help;
-        
-        if (! arg.options.isEmpty())
-            std::cout << " - Options: " << arg.options.joinIntoString (" ");
+
+		if (! arg.options.isEmpty())
+			std::cout << " - Options: " << arg.options.joinIntoString (" ");
 
 		if (arg.required)
 			std::cout << " - [R]";
 
 		if (! arg.defaultValue.isEmpty())
 			std::cout << " - Default: " << arg.defaultValue;
-            
+
 		std::cout << std::endl;
 	}
 }
@@ -97,20 +97,20 @@ bool ArgParser::checkForRequiredArgs() const
 				return false;
 			}
 		}
-        
-        if (! arg.options.isEmpty())
-        {
-            if (argList.containsOption (arg.argOrFlags))
-            {
-                const auto passed = argList.getValueForOption (arg.argOrFlags);
-                
-                if (! arg.options.contains (passed))
-                {
-                    std::cout << "'" << passed << "' is not a valid choice for option " << arg.argOrFlags << "!" << std::endl;
-                    return false;
-                }
-            }
-        }
+
+		if (! arg.options.isEmpty())
+		{
+			if (argList.containsOption (arg.argOrFlags))
+			{
+				const auto passed = argList.getValueForOption (arg.argOrFlags);
+
+				if (! arg.options.contains (passed))
+				{
+					std::cout << "'" << passed << "' is not a valid choice for option " << arg.argOrFlags << "!" << std::endl;
+					return false;
+				}
+			}
+		}
 	}
 
 	return true;
@@ -152,7 +152,7 @@ String ArgParser::getArgumentAsType (const String& argOrFlags) const
 template <>
 juce_wchar ArgParser::getArgumentAsType (const String& argOrFlags) const
 {
-    return (*this)[argOrFlags][0];
+	return (*this)[argOrFlags][0];
 }
 
 template <>

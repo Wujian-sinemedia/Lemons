@@ -20,10 +20,14 @@
 -------------------------------------------------------------------------------------*/
 
 
+#if LEMONS_UNIT_TESTS
+#  include <lemons_unit_testing/lemons_unit_testing.h>
+#endif
+
+
 #include "utilities/serializing.h"
 #include "utilities/colors.h"
 #include "utilities/cursor.h"
-#include "utilities/Fonts.h"
 
 #include "components/PopupComponent.h"
 #include "components/Buttons.h"

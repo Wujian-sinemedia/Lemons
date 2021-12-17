@@ -1,15 +1,15 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
@@ -21,9 +21,9 @@ namespace lemons::dsp::buffers
 template <typename SampleType>
 void copy (const AudioBuffer<SampleType>& source, AudioBuffer<SampleType>& dest)
 {
-    if (&source == &dest)
-        return;
-    
+	if (&source == &dest)
+		return;
+
 	dest.clear();
 
 	const auto numSamples = source.getNumSamples();
@@ -41,9 +41,9 @@ template void copy (const AudioBuffer<double>&, AudioBuffer<double>&);
 template <typename Type1, typename Type2>
 void convert (const AudioBuffer<Type1>& source, AudioBuffer<Type2>& dest)
 {
-    static_assert (! std::is_same_v<Type1, Type2>,
-                   "Converting between two buffers with the same sample type!");
-    
+	static_assert (! std::is_same_v<Type1, Type2>,
+	               "Converting between two buffers with the same sample type!");
+
 	dest.clear();
 
 	const auto numSamples = source.getNumSamples();

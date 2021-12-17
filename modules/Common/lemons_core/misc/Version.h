@@ -35,16 +35,16 @@ struct Version final
 	constexpr explicit Version (int maj, int min, int p);
 
 	/** Returns true if this version is the same as the other one. */
-	constexpr bool operator== (const Version& other) const noexcept;
+	[[nodiscard]] constexpr bool operator== (const Version& other) const noexcept;
 
 	/** Returns true if this version is not the same as the other one. */
-	constexpr bool operator!= (const Version& other) const noexcept;
+	[[nodiscard]] constexpr bool operator!= (const Version& other) const noexcept;
 
 	/** Returns true if this version is newer than the other one. */
-	constexpr bool operator> (const Version& other) const noexcept;
+	[[nodiscard]] constexpr bool operator> (const Version& other) const noexcept;
 
 	/** Returns true if this version is older than the other one. */
-	constexpr bool operator< (const Version& other) const noexcept;
+	[[nodiscard]] constexpr bool operator< (const Version& other) const noexcept;
 
 	/** Returns true if this version has the same major release number as the other one. */
 	[[nodiscard]] constexpr bool hasSameMajorVersion (const Version& other) const noexcept;
@@ -93,6 +93,9 @@ struct Version final
 	/** Returns a Version object representing the version of Lemons this module was compiled with. */
 	[[nodiscard]] constexpr static Version lemonsVersion();
 
+	/** Returns a Version object representing the version of the current project that this module was compiled as a part of.
+	    Note that this will only be correct if you use the Lemons repo's CMake configuration scripts, or manually define the macros LEMONS_PROJECT_VERSION_MAJOR, LEMONS_PROJECT_VERSION_MINOR, and LEMONS_PROJECT_VERSION_PATCH.
+	 */
 	[[nodiscard]] constexpr static Version projectVersion();
 
 private:

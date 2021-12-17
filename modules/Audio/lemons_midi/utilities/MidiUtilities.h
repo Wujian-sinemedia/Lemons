@@ -3,9 +3,9 @@
 namespace lemons::midi
 {
 
-using juce::String;
 using juce::MidiBuffer;
 using juce::MidiMessage;
+using juce::String;
 
 // copies a range of events from one juce::MidiBuffer to another, optionally providing a sample offset
 void copyRangeOfMidiBuffer (const MidiBuffer& readingBuffer,

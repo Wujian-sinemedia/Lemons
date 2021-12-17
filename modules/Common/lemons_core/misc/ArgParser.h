@@ -56,13 +56,13 @@ public:
 	    @param required Whether or not the parser will require this argument to be present.
 	    @param help An optional help string for this argument.
 	    @param defaultValue An optional default value for this argument.
-        @param options If specified, the passed argument must be one of these choices.
+	    @param options If specified, the passed argument must be one of these choices.
 	 */
-	void addArgument (const String& argOrFlags,
-	                  bool          required     = false,
-	                  const String& help         = {},
-	                  const String& defaultValue = {},
-                      const juce::StringArray& options = {});
+	void addArgument (const String&            argOrFlags,
+	                  bool                     required     = false,
+	                  const String&            help         = {},
+	                  const String&            defaultValue = {},
+	                  const juce::StringArray& options      = {});
 
 	/** Prints the parser's help to std::cout. */
 	void printHelp() const;
@@ -80,7 +80,7 @@ public:
 
 	/** Interprets an argument from the list as a specified type.
 	    Currently supports String, juce_wchar, File, int, int64, float, or double.
-        The juce_wchar version returns the first character of the argument string.
+	    The juce_wchar version returns the first character of the argument string.
 	 */
 	template <typename Type>
 	[[nodiscard]] Type getArgumentAsType (const String& argOrFlags) const;
@@ -102,11 +102,11 @@ private:
 
 	struct Argument
 	{
-		String argOrFlags;
-		String help;
-		String defaultValue;
-		bool   required;
-        juce::StringArray options;
+		String            argOrFlags;
+		String            help;
+		String            defaultValue;
+		bool              required;
+		juce::StringArray options;
 	};
 
 	juce::Array<Argument> args;

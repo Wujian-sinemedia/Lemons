@@ -1,15 +1,15 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
@@ -23,14 +23,11 @@
 namespace lemons::binary
 {
 
-using juce::String;
-using juce::ValueTree;
 using juce::Image;
 using juce::MemoryBlock;
-using juce::MidiBuffer;
-
-template <typename T>
-using AudioBuffer = juce::AudioBuffer<T>;
+using juce::MidiFile;
+using juce::String;
+using juce::ValueTree;
 
 /** Represents a wrapper around some data contained in a juce BinaryData target.
     Simply provide the filename and this object will load the data contained by the named resource, if it can be located. \n
@@ -67,7 +64,7 @@ struct Data final
 	[[nodiscard]] MemoryBlock getAsMemoryBlock() const;
 
 	/** The raw data. This may be null if the data cannot be found. */
-    const char* data { nullptr };
+	const char* data { nullptr };
 
 	/** The size of the data, in bytes. */
 	int size { 0 };
@@ -75,22 +72,24 @@ struct Data final
 	/** Returns true if this module was compiled with the LEMONS_HAS_BINARY_DATA flag set to 1.
 	    If this returns false, every Data object you create will be invalid.
 	 */
-    [[nodiscard]] static constexpr bool hasBinaryData() noexcept;
-    
-    /** Returns an opaque blob of binary data from a file in the BinaryData target.
-        If the data can't be loaded, an assertion will be thrown.
-     */
-    [[nodiscard]] static MemoryBlock getBlob (const String& filename);
-    
-    /** Returns a ValueTree from a serialized file in the BinaryData target in the specified format.
-        If the data can't be loaded, an assertion will be thrown.
-        @see files::saveValueTree()
-     */
-    template<files::FileType Type = files::FileType::JSON>
-    [[nodiscard]] static ValueTree getValueTree (const String& filename);
+	[[nodiscard]] static constexpr bool hasBinaryData() noexcept;
+
+	/** Returns an opaque blob of binary data from a file in the BinaryData target.
+	    If the data can't be loaded, an assertion will be thrown.
+	    @see files::loadFileAsBlock(), files::saveBlockToFile()
+	 */
+	[[nodiscard]] static MemoryBlock getBlob (const String& filename);
+
+	/** Returns a ValueTree from a serialized file in the BinaryData target in the specified format.
+	    If the data can't be loaded, an assertion will be thrown.
+	    @see files::loadValueTree(), files::saveValueTree()
+	 */
+	template <files::FileType Type = files::FileType::JSON>
+	[[nodiscard]] static ValueTree getValueTree (const String& filename);
 
 	/** Returns an image object from an image file in the BinaryData target.
 	    If the image can't be loaded, an assertion will be thrown.
+	    @see serializing::loadImageFromFile(), serializing::saveImageToFile()
 	 */
 	[[nodiscard]] static Image getImage (const String& imageFileName);
 
@@ -101,8 +100,9 @@ struct Data final
 
 	/** Returns a MIDI buffer object from a MIDI file in the BinaryData target.
 	    If the MIDI can't be loaded, an assertion will be thrown.
+	    @see serializing::loadMidiFromFile(), serializing::saveMidiToFile()
 	 */
-	[[nodiscard]] static MidiBuffer getMidi (const String& midiFileName);
+	[[nodiscard]] static MidiFile getMidi (const String& midiFileName);
 
 	/** Returns a text file in the BinaryData target as one string.
 	    If the data can't be loaded, an assertion will be thrown.
@@ -116,12 +116,12 @@ struct Data final
 	    @see getString()
 	 */
 	[[nodiscard]] static juce::StringArray getStrings (const String& textFileName);
-    
-    /** Returns a font that has been previously serialized with the gui::serializeFont() method.
-        If the font can't be loaded, an assertion will be thrown.
-        @see gui::serializeFont()
-     */
-    [[nodiscard]] static std::unique_ptr<juce::CustomTypeface> getFont (const String& filename);
+
+	/** Returns a font that has been previously serialized with the serializing::serializeFont() method.
+	    If the font can't be loaded, an assertion will be thrown.
+	    @see serializing::serializeFont()
+	 */
+	[[nodiscard]] static std::unique_ptr<juce::CustomTypeface> getFont (const String& filename);
 };
 
 }  // namespace lemons::binary
