@@ -57,7 +57,7 @@ AudioFile::AudioFile (std::unique_ptr<juce::InputStream> audioStream)
 AudioFile::AudioFile (juce::AudioFormatReader* reader, const juce::File& f)
     : file (f)
 {
-	if (reader)
+	if (reader != nullptr)
 	{
 		audioFormat     = reader->getFormatName();
 		samplerate      = reader->sampleRate;

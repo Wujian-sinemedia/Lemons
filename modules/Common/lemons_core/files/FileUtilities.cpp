@@ -133,30 +133,20 @@ File getFileOnDesktop (const String& fileName)
 
 MemoryBlock loadFileAsBlock (const File& file)
 {
+    MemoryBlock block;
+    
 	if (auto is = file.createInputStream())
-	{
-		if (! is->openedOk())
-			return false;
+		if (is->openedOk())
+            is->readIntoMemoryBlock (block);
 
-		MemoryBlock block;
-
-		is->readIntoMemoryBlock (block);
-
-		return block;
-	}
-
-	return {};
+	return block;
 }
 
 bool saveBlockToFile (const MemoryBlock& block, const File& file)
 {
 	if (auto os = file.createOutputStream())
-	{
-		if (! os->openedOk())
-			return false;
-
-		return os->write (block.getData(), block.getSize());
-	}
+		if (os->openedOk())
+			return os->write (block.getData(), block.getSize());
 
 	return false;
 }

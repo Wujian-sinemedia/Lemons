@@ -83,12 +83,8 @@ MemoryBlock midiToBinary (const MidiFile& midi)
 bool saveMidiToFile (const MidiFile& midi, const File& file)
 {
 	if (auto os = file.createOutputStream())
-	{
-		if (! os->openedOk())
-			return false;
-
-		return midi.writeTo (*os);
-	}
+		if (os->openedOk())
+			return midi.writeTo (*os);
 
 	return false;
 }
