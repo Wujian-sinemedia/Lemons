@@ -1,3 +1,18 @@
+/*
+ ======================================================================================
+ 
+ ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
+ ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
+ ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
+ ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
+ ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
+ ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
+ 
+ This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
+ 
+ ======================================================================================
+ */
+
 namespace lemons::serializing
 {
 
@@ -47,13 +62,9 @@ AudioBuffer<float> audioFromBinary (const MemoryBlock& block)
 template <>
 MemoryBlock audioToBinary (const AudioBuffer<double>& buffer, double samplerate)
 {
-	const auto numSamples  = buffer.getNumSamples();
-	const auto numChannels = buffer.getNumChannels();
-
-	AudioBuffer<float> floatBuf { numSamples, numChannels };
-
-	for (int chan = 0; chan < numChannels; ++chan)
-		vecops::convert (floatBuf.getWritePointer (chan), buffer.getReadPointer (chan), numSamples);
+    AudioBuffer<float> floatBuf;
+    
+    floatBuf.makeCopyOf (buffer);
 
 	return audioToBinary (floatBuf, samplerate);
 }
@@ -63,13 +74,9 @@ AudioBuffer<double> audioFromBinary (const MemoryBlock& block)
 {
 	const auto floatBuf = audioFromBinary<float> (block);
 
-	const auto numSamples  = floatBuf.getNumSamples();
-	const auto numChannels = floatBuf.getNumChannels();
-
-	AudioBuffer<double> doubleBuf { numSamples, numChannels };
-
-	for (int chan = 0; chan < numChannels; ++chan)
-		vecops::convert (doubleBuf.getWritePointer (chan), floatBuf.getReadPointer (chan), numSamples);
+    AudioBuffer<double> doubleBuf;
+    
+    doubleBuf.makeCopyOf (floatBuf);
 
 	return doubleBuf;
 }

@@ -19,13 +19,19 @@
 
 namespace lemons
 {
+
+/** A simple wrapper around juce::SmoothedValue with some less wordy template syntax, and a couple convenience functions.
+ */
 template <typename SampleType>
-struct ValueSmoother : juce::SmoothedValue<SampleType, juce::ValueSmoothingTypes::Multiplicative>
+struct ValueSmoother final : juce::SmoothedValue<SampleType, juce::ValueSmoothingTypes::Multiplicative>
 {
+    /** Default constructor. */
 	using juce::SmoothedValue<SampleType, juce::ValueSmoothingTypes::Multiplicative>::SmoothedValue;
 
+    /** Sets the target output value, optionally snapping to it immediately. */
 	void set (SampleType newGain, bool snapImmediately = false);
 
+    /** Sets the target output value, optionally snapping to it immediately. */
 	template <typename T>
 	void set (T newGain, bool snapImmediately = false)
 	{

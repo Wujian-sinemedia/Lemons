@@ -19,16 +19,19 @@
 namespace lemons::dsp
 {
 
+/** A simple processor that generates random noise.
+ */
 template <typename SampleType>
 class WhiteNoiseGenerator final
 {
 public:
-	explicit WhiteNoiseGenerator() = default;
+    /** Returns the next sample of random noise. */
+	[[nodiscard]] SampleType getNextSample();
 
-	SampleType getNextSample();
-
+    /** Outputs a stream of random samples. */
 	void getSamples (SampleType* output, int numSamples);
 
+    /** Fills all channels of the AudioBuffer with random noise. */
 	void getSamples (AudioBuffer<SampleType>& output, int channel = 0);
 
 private:

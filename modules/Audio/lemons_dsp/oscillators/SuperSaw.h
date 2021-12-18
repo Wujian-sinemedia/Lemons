@@ -1,15 +1,15 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
@@ -19,7 +19,7 @@
 namespace lemons::dsp::osc
 {
 /** A basic "super saw" oscillator.
-    This oscillator contains 7 slightly detuned saw oscillators and returns their aggregate output. \n
+    This oscillator contains 7 detuned saw oscillators and returns their aggregate output. \n
     You can set the detuning amount in cents with setDetuneAmount().
     @see Saw, Oscillator, Phase
  */
@@ -38,20 +38,19 @@ public:
 	 */
 	void setFrequency (SampleType frequency, SampleType sampleRate) final;
 
+	/** Returns the SuperSaw's frequency. */
+	[[nodiscard]] SampleType getFrequency() const noexcept final;
+
 	/** Controls the total amount of pitch spread between the voices, in cents.
-	    @param totalPitchSpreadInCents The total pitch spread of all the voices.
-	    The 7 voices will be spread evenly around the super saw's center frequency, with the highest and lowest voices being this far apart in cents.
+	    @param totalPitchSpreadInCents The total pitch spread of all the voices. The 7 voices will be spread evenly around the super saw's center frequency, with the highest and lowest voices being this far apart in cents.
 	 */
 	void setDetuneAmount (int totalPitchSpreadInCents);
 
 	/** Returns the total pitch spread of the voices in cents. */
-	int getPitchSpreadCents() const noexcept;
-
-	/** Returns the next sample of the super saw's output. */
-	SampleType getSample() final;
+	[[nodiscard]] int getPitchSpreadCents() const noexcept;
 
 private:
-	juce::OwnedArray<Saw<SampleType>> saws;
+	ConstructedArray<Saw<SampleType>> saws { 7 };
 
 	int totalSpreadCents { 0 };
 

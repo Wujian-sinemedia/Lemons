@@ -63,6 +63,15 @@ struct Version final
 
 	/** Increments the patch value. */
 	void bumpPatch() noexcept;
+    
+    /** Returns the major version number. */
+    [[nodiscard]] constexpr int getMajor() const noexcept;
+    
+    /** Returns the minor version number. */
+    [[nodiscard]] constexpr int getMinor() const noexcept;
+    
+    /** Returns the patch version number. */
+    [[nodiscard]] constexpr int getPatch() const noexcept;
 
 	/** Returns a new Version object with bumpMajor() applied.
 	    @see bumpMajor()

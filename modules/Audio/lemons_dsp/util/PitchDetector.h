@@ -32,9 +32,6 @@ public:
 	 */
 	explicit PitchDetector (int minFreqHz = 60, float confidenceThreshold = 0.15f);
 
-	/** Destructor. */
-	~PitchDetector() = default;
-
 	/** Detects the pitch in Hz for a frame of audio.
 	    This can only be used for one channel at a time. If you need to track the pitch of multiple channels of audio, you need one PitchDetector object for each channel.
 	    The caller must ensure that there are at least enough samples in this frame of audio for analysis to be performed; ie, that inputAudio.getNumSamples() is greater than or equal to getLatencySamples().

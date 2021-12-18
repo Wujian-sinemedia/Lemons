@@ -21,9 +21,11 @@ namespace lemons::events
 {
 
 /** A timer callback that calls a lambda function.
-    e. g.
+    For example:
     @code
-    TimerCallback t { []{ callMyFunction(); }; };
+    void myFunction();
+ 
+    TimerCallback t { [&]{ myFunction(); }; };
     @endcode
  */
 template <typename FunctionType>
@@ -35,7 +37,7 @@ struct TimerCallback final : public juce::Timer
 	/** Creates a TimerCallback.
 	    @param callbackToUse The function to call as the timer callback.
 	    @param rateInMs The number of milliseconds between successive calls of callbackToUse when the timer is running.
-	    @param start If true, the timer will be started istantly when this object is created.
+	    @param start If true, the timer will be started instantly when this object is created.
 	 */
 	explicit TimerCallback (FunctionType&& callbackToUse,
 	                        int            rateInMs = 100,

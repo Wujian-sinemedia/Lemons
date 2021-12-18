@@ -16,12 +16,6 @@
 
 namespace lemons::dsp
 {
-template <typename SampleType>
-MonoStereoConverter<SampleType>::MonoStereoConverter()
-    : toMonoMode (StereoReductionMode::leftOnly)
-    , monoStorage (1, 0)
-{
-}
 
 template <typename SampleType>
 void MonoStereoConverter<SampleType>::prepare (int blocksize)
@@ -43,23 +37,25 @@ void MonoStereoConverter<SampleType>::convertStereoToMono (const SampleType* lef
                                                            SampleType*       monoOut,
                                                            int               numSamples)
 {
+    using FVO = juce::FloatVectorOperations;
+    
 	switch (toMonoMode)
 	{
 		case (StereoReductionMode::leftOnly) :
 		{
-			vecops::copy (leftIn, monoOut, numSamples);
+            FVO::copy (monoOut, leftIn, numSamples);
 			return;
 		}
 		case (StereoReductionMode::rightOnly) :
 		{
-			vecops::copy (rightIn, monoOut, numSamples);
+            FVO::copy (monoOut, rightIn, numSamples);
 			return;
 		}
 		case (StereoReductionMode::mixToMono) :
 		{
 			monoStorage.copyFrom (0, 0, leftIn, numSamples, SampleType (0.5));
 			monoStorage.addFrom (0, 0, rightIn, numSamples, SampleType (0.5));
-			vecops::copy (monoStorage.getReadPointer (0), monoOut, numSamples);
+            FVO::copy (monoOut, monoStorage.getReadPointer (0), numSamples);
 		}
 	}
 }
@@ -84,8 +80,10 @@ void MonoStereoConverter<SampleType>::convertMonoToStereo (const SampleType* mon
                                                            SampleType*       rightOut,
                                                            int               numSamples)
 {
-	vecops::copy (monoIn, leftOut, numSamples);
-	vecops::copy (monoIn, rightOut, numSamples);
+    using FVO = juce::FloatVectorOperations;
+    
+    FVO::copy (leftOut, monoIn, numSamples);
+	FVO::copy (rightOut, monoIn, numSamples);
 }
 
 template <typename SampleType>

@@ -19,7 +19,7 @@
 namespace lemons
 {
 
-/** A wrapper around juce::OwnedArray that automatically deletes or creates objects when you resize it, eg:
+/** A wrapper around juce::OwnedArray that automatically deletes or creates objects when you resize it. For example:
     @code
     struct MyStruct
     {
@@ -42,6 +42,7 @@ namespace lemons
 template <typename ObjectType>
 struct ConstructedArray final
 {
+    /** The function signature used to create new objects to add to the array. The function should return a pointer to the new object, and should not retain the pointer. */
 	using ObjectCreationFunction = std::function<ObjectType*()>;
 
 	/** Creates an array with a specified initial number of objects, and an optional lambda function that will be called to create new objects. */
@@ -53,9 +54,6 @@ struct ConstructedArray final
 	{
 		resize (initialNumObjects);
 	}
-
-	/** Destructor. */
-	~ConstructedArray() = default;
 
 	/** Resizes the array.
 	    If the array contains more objects than newNumObjects, the extra objects will be deleted. If the array contains fewer objects, new objects will be added to the array, created using the lambda function passed to the constructor.

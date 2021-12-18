@@ -29,7 +29,7 @@ CircularBuffer<SampleType>::CircularBuffer (int initialCapacity)
 template <typename SampleType>
 void CircularBuffer<SampleType>::storeSamples (const AudioBuffer<SampleType>& samples, int channel)
 {
-	jassert (channel >= 0);
+	jassert (channel >= 0 && channel < samples.getNumChannels());
 	storeSamples (samples.getReadPointer (channel), samples.getNumSamples());
 }
 
@@ -42,26 +42,28 @@ void CircularBuffer<SampleType>::storeSamples (const SampleType* samples, int nu
 
 	// the buffer isn't big enough to hold all the samples you want to store!
 	jassert (scopedWrite.blockSize1 + scopedWrite.blockSize2 == numSamples);
-
+    
+    using FVO = juce::FloatVectorOperations;
+    
 	if (scopedWrite.blockSize1 > 0)
 	{
-		vecops::copy (samples,
-		              buffer.getWritePointer (0, scopedWrite.startIndex1),
-		              scopedWrite.blockSize1);
+        FVO::copy (buffer.getWritePointer (0, scopedWrite.startIndex1),
+                   samples,
+                   scopedWrite.blockSize1);
 	}
 
 	if (scopedWrite.blockSize2 > 0)
 	{
-		vecops::copy (samples + scopedWrite.blockSize1,
-		              buffer.getWritePointer (0, scopedWrite.startIndex2),
-		              scopedWrite.blockSize2);
+        FVO::copy (buffer.getWritePointer (0, scopedWrite.startIndex2),
+                   samples + scopedWrite.blockSize1,
+                   scopedWrite.blockSize2);
 	}
 }
 
 template <typename SampleType>
 void CircularBuffer<SampleType>::getSamples (AudioBuffer<SampleType>& output, int channel)
 {
-	jassert (channel >= 0);
+	jassert (channel >= 0 && channel < output.getNumChannels());
 	getSamples (output.getWritePointer (channel), output.getNumSamples());
 }
 
@@ -75,22 +77,24 @@ void CircularBuffer<SampleType>::getSamples (SampleType* output, int numSamples)
 	const auto numZeroes = numSamples - (scopedRead.blockSize1 + scopedRead.blockSize2);
 
 	if (numZeroes > 0)
-		vecops::fill (output, SampleType (0), numZeroes);
+        juce::FloatVectorOperations::fill (output, SampleType (0), numZeroes);
 
 	auto* const sampleOutput = output + numZeroes;
+    
+    using FVO = juce::FloatVectorOperations;
 
 	if (scopedRead.blockSize1 > 0)
 	{
-		vecops::copy (buffer.getReadPointer (0, scopedRead.startIndex1),
-		              sampleOutput,
-		              scopedRead.blockSize1);
+        FVO::copy (sampleOutput,
+                   buffer.getReadPointer (0, scopedRead.startIndex1),
+                   scopedRead.blockSize1);
 	}
 
 	if (scopedRead.blockSize2 > 0)
 	{
-		vecops::copy (buffer.getReadPointer (0, scopedRead.startIndex2),
-		              sampleOutput + scopedRead.blockSize1,
-		              scopedRead.blockSize2);
+        FVO::copy (sampleOutput + scopedRead.blockSize1,
+                   buffer.getReadPointer (0, scopedRead.startIndex2),
+                   scopedRead.blockSize2);
 	}
 }
 

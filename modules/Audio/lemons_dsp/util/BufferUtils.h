@@ -27,6 +27,7 @@ template <typename Type1, typename Type2>
 void convert (const AudioBuffer<Type1>& source, AudioBuffer<Type2>& dest);
 
 /** Returns an alias buffer referring to the memory region owned by the original passed buffer.
+    This returns a new AudioBuffer object, but does not allocate any memory.
     If the numChannels argument is -1, the alias buffer will have the same number of channels as the buffer being aliased.
  */
 template <typename SampleType>

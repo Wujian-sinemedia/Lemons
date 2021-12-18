@@ -23,7 +23,7 @@ template<typename SampleType>
 using AudioBuffer = juce::AudioBuffer<SampleType>;
 
 /**
-    A circular buffer meant for storing a single channel's worth of audio samples.
+    A thread-safe circular buffer meant for storing a single channel's worth of audio samples.
     If you need to store more than one channel's worth of samples, use the AudioFifo class.
     @see AudioFifo, AudioAndMidiFIFO
  */
@@ -33,9 +33,6 @@ class CircularBuffer final
 public:
 	/** Creates a CircularBuffer with an initial size. */
 	explicit CircularBuffer (int initialCapacity = 512);
-
-	/** Destructor. */
-	~CircularBuffer() = default;
 
 	/** Stores samples in the buffer.
 	    If the buffer's capacity isn't big enough to hold all the passed samples, an assertion will be thrown.

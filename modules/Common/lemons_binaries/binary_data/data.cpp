@@ -56,6 +56,15 @@ constexpr bool Data::hasBinaryData() noexcept
 #endif
 }
 
+const char* const Data::getData() const noexcept
+{
+    return data;
+}
+
+int Data::getSize() const noexcept
+{
+    return size;
+}
 
 bool Data::isValid() const noexcept
 {

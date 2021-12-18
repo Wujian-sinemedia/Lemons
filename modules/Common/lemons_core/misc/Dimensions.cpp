@@ -33,6 +33,16 @@ constexpr bool Dimensions::isValid() const noexcept
 	return width > 0 && height > 0;
 }
 
+constexpr int Dimensions::getWidth() const noexcept
+{
+    return width;
+}
+
+constexpr int Dimensions::getHeight() const noexcept
+{
+    return height;
+}
+
 constexpr float Dimensions::getAspectRatio() const noexcept
 {
 	if (! isValid())

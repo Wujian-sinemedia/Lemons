@@ -23,7 +23,7 @@ namespace lemons::dsp
 
 using juce::MidiBuffer;
 
-/** A FIFO for storing both audio and MIDI data together.
+/** A FIFO for storing both audio and MIDI data together. Note that this class is not thread-safe.
     @see AudioFifo, MidiFIFO
  */
 template <typename SampleType>
@@ -32,9 +32,6 @@ class AudioAndMidiFIFO final
 public:
 	/** Creates a FIFO with an initial capacity. */
 	explicit AudioAndMidiFIFO (int samples = 1024);
-
-	/** Destructor. */
-	~AudioAndMidiFIFO() = default;
 
 	/** Pushes audio and MIDI into the FIFO. */
 	void push (const AudioBuffer<SampleType>& audioIn, const MidiBuffer& midiIn);

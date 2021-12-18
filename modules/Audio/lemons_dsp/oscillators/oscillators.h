@@ -1,15 +1,15 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
@@ -22,22 +22,22 @@ namespace lemons::dsp::osc
     @see Oscillator
  */
 template <typename SampleType>
-struct Phase
+struct Phase final
 {
 	/** Resets the phase, */
 	void resetPhase() noexcept;
 
-	/** Sets the output frequency of the oscillator and its samplerate. */
+	/** Sets the output frequency and samplerate. */
 	void setFrequency (SampleType frequency, SampleType sampleRate);
 
 	/** Returns the current phase increment. */
-	SampleType getIncrement() const noexcept;
+	[[nodiscard]] SampleType getIncrement() const noexcept;
 
 	/** Returns the next phase value and handles wraparound logic. */
-	SampleType next (SampleType wrapLimit) noexcept;
+	[[nodiscard]] SampleType next (SampleType wrapLimit) noexcept;
 
 private:
-	SampleType phase = 0, increment = 0;
+	SampleType phase { 0 }, increment { 0 };
 };
 
 /*--------------------------------------------------------------------------------------------*/
@@ -49,28 +49,36 @@ private:
 template <typename SampleType>
 struct Oscillator
 {
-    explicit Oscillator() = default;
-    
 	/** Destructor. */
 	virtual ~Oscillator() = default;
 
-	/** This should reset the oscillator's phase. */
+	/** Resets the oscillator's phase. */
 	virtual void resetPhase() = 0;
 
-	/** This should set the oscillator's output frequency. */
+	/** Sets the oscillator's output frequency and samplerate. */
 	virtual void setFrequency (SampleType frequency, SampleType sampleRate) = 0;
 
-	/** This should return the next output sample for the oscillator. */
-	virtual SampleType getSample() = 0;
+	/** Returns the oscillator's frequency. */
+	[[nodiscard]] virtual SampleType getFrequency() const noexcept = 0;
+
+	/** Returns the next output sample for the oscillator. */
+	[[nodiscard]] SampleType getSample();
 
 	/** Returns a stream of samples from the oscillator. */
 	void getSamples (SampleType* output, int numSamples);
 
 	/** Returns a stream of samples from the oscillator. */
-	void getSamples (juce::AudioBuffer<SampleType>& output, int channel = 0);
+	void getSamples (AudioBuffer<SampleType>& output, int channel = 0);
 
 	/** Skips a number of samples in the stream. */
 	void skipSamples (int numToSkip);
+
+protected:
+	/** Creates an oscillator with a specified lambda function for producing the next sample. */
+	explicit Oscillator (std::function<SampleType()>&& sampleFuncToUse);
+
+private:
+	std::function<SampleType()> sampleFunc;
 };
 
 /*--------------------------------------------------------------------------------------------*/
@@ -90,12 +98,12 @@ struct Sine final : public Oscillator<SampleType>
 	/** Sets the output frequency and samplerate of the sine wave. */
 	void setFrequency (SampleType frequency, SampleType sampleRate) final;
 
-	/** Returns the next sample of the sine wave. */
-	SampleType getSample() final;
+	/** Returns the sine wave's frequency. */
+	[[nodiscard]] SampleType getFrequency() const noexcept final;
 
 private:
-	Phase<SampleType>     phase;
-	static constexpr auto twoPi = static_cast<SampleType> (3.141592653589793238 * 2.0);
+	Phase<SampleType> phase;
+	SampleType        freq { 0 };
 };
 
 /*--------------------------------------------------------------------------------------------*/
@@ -107,7 +115,7 @@ template <typename SampleType>
 struct Saw final : public Oscillator<SampleType>
 {
 	/** Constructs a default sawtooth oscillator. */
-    explicit Saw();
+	explicit Saw();
 
 	/** Resets the sawtooth wave's phase. */
 	void resetPhase();
@@ -115,11 +123,12 @@ struct Saw final : public Oscillator<SampleType>
 	/** Sets the output frequency and samplerate of the sawtooth wave. */
 	void setFrequency (SampleType frequency, SampleType sampleRate) final;
 
-	/** Returns the next sample of the sawtooth wave. */
-	SampleType getSample() final;
+	/** Returns the sawtooth wave's frequency. */
+	[[nodiscard]] SampleType getFrequency() const noexcept final;
 
 private:
 	Phase<SampleType> phase;
+	SampleType        freq { 0 };
 };
 
 /*--------------------------------------------------------------------------------------------*/
@@ -135,7 +144,7 @@ template <typename SampleType>
 struct Square final : public Oscillator<SampleType>
 {
 	/** Consructs a default square wave oscillator. */
-    explicit Square();
+	explicit Square();
 
 	/** Resets the square wave's phase. */
 	void resetPhase() final;
@@ -143,13 +152,14 @@ struct Square final : public Oscillator<SampleType>
 	/** Sets the square wave's output frequency and samplerate. */
 	void setFrequency (SampleType frequency, SampleType sampleRate) final;
 
-	/** Returns the next sample of the square wave. */
-	SampleType getSample() final;
+	/** Returns the square wave's frequency. */
+	[[nodiscard]] SampleType getFrequency() const noexcept final;
 
 private:
 	friend struct Triangle<SampleType>;
 
 	Phase<SampleType> phase;
+	SampleType        freq { 0 };
 };
 
 /*--------------------------------------------------------------------------------------------*/
@@ -161,7 +171,7 @@ template <typename SampleType>
 struct Triangle final : public Oscillator<SampleType>
 {
 	/** Constructs a default triangle wave. */
-    explicit Triangle();
+	explicit Triangle();
 
 	/** Resets the triangle wave's phase. */
 	void resetPhase() final;
@@ -169,12 +179,13 @@ struct Triangle final : public Oscillator<SampleType>
 	/** Sets the triangle wave's output frequency and samplerate. */
 	void setFrequency (SampleType frequency, SampleType sampleRate) final;
 
-	/** Returns the next sample of the triangle wave. */
-	SampleType getSample() final;
+	/** Returns the square wave's frequency. */
+	[[nodiscard]] SampleType getFrequency() const noexcept final;
 
 private:
 	Square<SampleType> square;
-	SampleType         sum = 1;
+	SampleType         sum { 1 };
+	SampleType         freq { 0 };
 };
 
 }  // namespace lemons::dsp::osc

@@ -30,6 +30,7 @@ using AudioBuffer = juce::AudioBuffer<T>;
 
 
 /** This class represents the data of an audio file, including the AudioBuffer itself, as well as the samplerate, bit depth, and metadata information.
+    One of these can be created from an audio file on disk, or from any kind of juce::InputStream.
  */
 struct AudioFile final
 {
@@ -38,9 +39,6 @@ struct AudioFile final
 
 	/** Creates an AudioFile from any kind of input stream. */
 	explicit AudioFile (std::unique_ptr<juce::InputStream> audioStream);
-
-	/** Destructor. */
-	~AudioFile() = default;
 
 	/** Returns the length in seconds of the entire audio file at its original samplerate. */
 	[[nodiscard]] double getLengthInSeconds() const noexcept;

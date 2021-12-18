@@ -61,7 +61,7 @@ template <typename SampleType>
 
 	auto* yinData = yinBuffer.getWritePointer (0);
 
-	vecops::fill (yinData, SampleType (1), halfNumSamples);
+    juce::FloatVectorOperations::fill (yinData, SampleType (1), halfNumSamples);
 
 	// difference function
 	for (auto tau = 0; tau < halfNumSamples; ++tau)

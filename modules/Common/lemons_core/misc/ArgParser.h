@@ -23,9 +23,9 @@ using juce::File;
 using juce::juce_wchar;
 
 /** A command-line argument parser class modeled after Python's ArgParse.
-    Use one of these to easily set default values and help strings for arguments, and then it can automatically print help and check for required arguments for you:
+    Use one of these to easily set default values and help strings for arguments, and then it can automatically print help and check for required arguments for you. For example:
     @code
-    void process_file (juce::File file, int someNumber);
+    void process_file (const juce::File& file, int someNumber);
 
     int main (int argc, char** argv)
     {
@@ -85,7 +85,9 @@ public:
 	template <typename Type>
 	[[nodiscard]] Type getArgumentAsType (const String& argOrFlags) const;
 
-	/** Returns true if all arguments marked as required were specified on the command line. */
+	/** Returns true if all arguments marked as required were specified on the command line.
+        This also verifies that, for any arguments with a list of valid options specified, the argument passed on the command line is one of the valid options.
+     */
 	[[nodiscard]] bool checkForRequiredArgs() const;
 
 	/** If '--help' or '-h' was present on the command line, this prints the parser's help to cout and returns true. */
@@ -100,7 +102,7 @@ public:
 private:
 	juce::ArgumentList argList;
 
-	struct Argument
+	struct Argument final
 	{
 		String            argOrFlags;
 		String            help;

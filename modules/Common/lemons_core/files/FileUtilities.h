@@ -27,18 +27,23 @@ using juce::ValueTree;
 /** An enum used to describe various kinds of binary encodings of serialized data. */
 enum class FileType
 {
-	XML,   /** Represents an XML file. */
-	JSON,  /** Represents a JSON file. */
-	Opaque /** Represents any non-standard/proprietary method of encoding and decoding information to/from binary. May not be human-readable. */
+    /** Represents an XML file. */
+	XML,
+    
+    /** Represents a JSON file. */
+	JSON,
+    
+    /** Represents any non-standard/proprietary method of encoding and decoding information to/from binary. May not be human-readable. */
+	Opaque
 };
 
-/** Attempts to load a ValueTree from a file of the specified format.
+/** Attempts to load a ValueTree from a file of the specified format. The default format is JSON.
     @see saveValueTree()
  */
 template <FileType Type = FileType::JSON>
 [[nodiscard]] ValueTree loadValueTree (const File& file);
 
-/** Attempts to load a ValueTree from the contents of a file of the specified format.
+/** Attempts to load a ValueTree from the contents of a file of the specified format. The default format is JSON.
     @see saveValueTree()
  */
 template <FileType Type = FileType::JSON>

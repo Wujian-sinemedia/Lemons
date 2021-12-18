@@ -30,7 +30,6 @@
 #include "filters/Coeffecients.cpp"
 #include "filters/Filter.cpp"
 
-#include "util/vecops.cpp"
 #include "util/serializing.cpp"
 #include "util/ValueSmoother.cpp"
 #include "util/BufferUtils.cpp"

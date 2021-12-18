@@ -14,7 +14,6 @@
  */
 
 #include <lemons_core/lemons_core.h>
-#include <lemons_dsp/lemons_dsp.h>
 
 namespace lemons
 {
@@ -72,13 +71,6 @@ AudioFile::AudioFile (juce::AudioFormatReader* reader, const juce::File& f)
 			reader->read (&float_data, 0, lengthInSamples, 0, true, numChannels > 1);
 		}
 	}
-	else
-	{
-		samplerate      = 0.;
-		lengthInSamples = 0;
-		numChannels     = 0;
-		bitsPerSample   = 0;
-	}
 
 	jassert (float_data.getNumChannels() == numChannels);
 	jassert (float_data.getNumSamples() == lengthInSamples);
@@ -97,16 +89,8 @@ template <>
 const AudioBuffer<double>& AudioFile::getData()
 {
 	if (isValid())
-	{
 		if (double_data.getNumSamples() != lengthInSamples || double_data.getNumChannels() != numChannels)
-		{
-			double_data.setSize (numChannels, lengthInSamples);
-			double_data.clear();
-
-			for (int chan = 0; chan < numChannels; ++chan)
-				vecops::convert (double_data.getWritePointer (chan), float_data.getReadPointer (chan), lengthInSamples);
-		}
-	}
+            double_data.makeCopyOf (float_data);
 
 	jassert (double_data.getNumChannels() == numChannels);
 	jassert (double_data.getNumSamples() == lengthInSamples);

@@ -28,7 +28,7 @@
  website:            http://benthevining.github.io/Lemons/
  license:            GPL-3.0
  minimumCppStandard: 17
- dependencies:       lemons_core lemons_midi lemons_dsp juce_audio_formats juce_graphics
+ dependencies:       lemons_midi juce_audio_formats juce_graphics
 
  END_JUCE_MODULE_DECLARATION
 

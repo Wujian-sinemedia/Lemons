@@ -30,18 +30,22 @@ using juce::String;
 using juce::ValueTree;
 
 /** Represents a wrapper around some data contained in a juce BinaryData target.
-    Simply provide the filename and this object will load the data contained by the named resource, if it can be located. \n
-    Be sure to check isValid() before attempting to use the data! \n
-    Example:
+    Simply provide the filename and this object will load the data contained by the named resource, if it can be located.
+    @attention Be sure to check isValid() before attempting to use the data! \n
+    For example:
     @code
     Data data {"MyAudioFile.wav"};
 
     if (data.isValid())
         doSomethingWithData (data.data, data.size);
     @endcode
-    If your project doesn't define the LEMONS_HAS_BINARY_DATA macro to 1, every Data object you create will be invalid.
+    If your project doesn't define the LEMONS_HAS_BINARY_DATA macro to 1, every Data object you create will be invalid. \n
 
-    To easily access binary data converted into higher level juce types, several static methods are provided. These methods all throw assertions if the data cannot be loaded.
+    To easily access binary data converted into higher level types, several static methods are provided. These methods all throw assertions if the data cannot be loaded. \n
+    For example:
+    @code
+    auto image = Data::getImage ("myImage.jpg");
+    @endcode
  */
 struct Data final
 {
@@ -50,9 +54,6 @@ struct Data final
 
 	/** Creates a Data object referencing a named resource. */
 	explicit Data (const String& fileToFind);
-
-	/** Destructor. */
-	~Data() = default;
 
 	/** Returns true if the requested data has been loaded successfully from the binary data target. */
 	bool isValid() const noexcept;
@@ -63,11 +64,11 @@ struct Data final
 	/** Returns a memory block representing this data. */
 	[[nodiscard]] MemoryBlock getAsMemoryBlock() const;
 
-	/** The raw data. This may be null if the data cannot be found. */
-	const char* data { nullptr };
+	/** Returns a pointer to the raw data. This may be null if the data could not be loaded. */
+    [[nodiscard]] const char* const getData() const noexcept;
 
-	/** The size of the data, in bytes. */
-	int size { 0 };
+	/** Return the size of the data, in bytes. */
+    [[nodiscard]] int getSize() const noexcept;
 
 	/** Returns true if this module was compiled with the LEMONS_HAS_BINARY_DATA flag set to 1.
 	    If this returns false, every Data object you create will be invalid.
@@ -80,7 +81,7 @@ struct Data final
 	 */
 	[[nodiscard]] static MemoryBlock getBlob (const String& filename);
 
-	/** Returns a ValueTree from a serialized file in the BinaryData target in the specified format.
+	/** Returns a ValueTree from a serialized file in the BinaryData target in the specified format. The default format is JSON.
 	    If the data can't be loaded, an assertion will be thrown.
 	    @see files::loadValueTree(), files::saveValueTree()
 	 */
@@ -122,6 +123,11 @@ struct Data final
 	    @see serializing::serializeFont()
 	 */
 	[[nodiscard]] static std::unique_ptr<juce::CustomTypeface> getFont (const String& filename);
+    
+private:
+    const char* data { nullptr };
+    
+    int size { 0 };
 };
 
 }  // namespace lemons::binary

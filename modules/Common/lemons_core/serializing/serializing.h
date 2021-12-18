@@ -42,7 +42,7 @@ using juce::ValueTree;
  */
 [[nodiscard]] String valueTreeToJSON (const ValueTree& v);
 
-/** Converts a JSON string to a ValueTree.
+/** Converts a JSON string to a ValueTree. If the JSON cannpt be parsed correctly, a null ValueTree will be returned.
     @see valueTreeToJSON()
  */
 [[nodiscard]] ValueTree valueTreeFromJSON (const String& jsonText);

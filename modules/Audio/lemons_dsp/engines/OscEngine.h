@@ -43,9 +43,10 @@ public:
 		frequency = freqHz;
 
 		const auto sr = static_cast<SampleType> (this->getSamplerate());
+        const auto freq = static_cast<SampleType> (frequency);
 
 		for (auto* osc : oscillators)
-			osc->setFrequency (frequency, sr);
+			osc->setFrequency (freq, sr);
 	}
 
 	/** Returns the oscillator's current frequency. */
@@ -60,6 +61,8 @@ private:
 		const auto numChannels = output.getNumChannels();
 
 		jassert (oscillators->size() == numChannels);
+        
+        output.clear();
 
 		if (isBypassed)
 		{
@@ -80,8 +83,7 @@ private:
 		for (auto* osc : oscillators)
 		{
 			osc->resetPhase();
-			osc->setFrequency (frequency,
-			                   static_cast<SampleType> (samplerate));
+			osc->setFrequency (frequency, static_cast<SampleType> (samplerate));
 		}
 	}
 

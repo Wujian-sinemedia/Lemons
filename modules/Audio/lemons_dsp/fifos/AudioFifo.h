@@ -23,6 +23,7 @@ namespace lemons::dsp
 
 /** A multichannel audio FIFO.
     If you only need to store a single channel's worth of audio samples, consider using the CircularBuffer class instead.
+    Also note that while the CircularBuffer class is thread-safe, this class is not.
     @see CircularBuffer, AudioAndMidiFIFO
  */
 template <typename SampleType>
@@ -31,9 +32,6 @@ class AudioFifo final
 public:
 	/** Creates an AudioFifo with an initial capacity. */
 	explicit AudioFifo (int numSamples = 512, int numChannels = 2);
-
-	/** Destructor. */
-	~AudioFifo() = default;
 
 	/** Pushes samples into the FIFO.
 	    If the internal buffer's capacity isn't big enough to hold all the passed samples, an assertion will be thrown.

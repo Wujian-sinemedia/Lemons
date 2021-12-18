@@ -32,7 +32,9 @@ void copy (const AudioBuffer<SampleType>& source, AudioBuffer<SampleType>& dest)
 	const auto numChannels = std::min (source.getNumChannels(), dest.getNumChannels());
 
 	for (int chan = 0; chan < numChannels; ++chan)
-		vecops::copy (source.getReadPointer (chan), dest.getWritePointer (chan), numSamples);
+        juce::FloatVectorOperations::copy (dest.getWritePointer (chan),
+                                           source.getReadPointer (chan),
+                                           numSamples);
 }
 
 template void copy (const AudioBuffer<float>&, AudioBuffer<float>&);
@@ -44,15 +46,10 @@ void convert (const AudioBuffer<Type1>& source, AudioBuffer<Type2>& dest)
 	static_assert (! std::is_same_v<Type1, Type2>,
 	               "Converting between two buffers with the same sample type!");
 
-	dest.clear();
-
 	const auto numSamples = source.getNumSamples();
 	jassert (dest.getNumSamples() >= numSamples);
 
-	const auto numChannels = std::min (source.getNumChannels(), dest.getNumChannels());
-
-	for (int chan = 0; chan < numChannels; ++chan)
-		vecops::convert (dest.getWritePointer (chan), source.getReadPointer (chan), numSamples);
+    dest.makeCopyOf (source, true);
 }
 template void convert (const AudioBuffer<float>&, AudioBuffer<double>&);
 template void convert (const AudioBuffer<double>&, AudioBuffer<float>&);

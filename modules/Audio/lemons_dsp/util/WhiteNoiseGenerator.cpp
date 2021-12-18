@@ -33,8 +33,10 @@ void WhiteNoiseGenerator<SampleType>::getSamples (SampleType* output, int numSam
 template <typename SampleType>
 void WhiteNoiseGenerator<SampleType>::getSamples (AudioBuffer<SampleType>& output, int channel)
 {
-	jassert (channel < output.getNumChannels());
-	getSamples (output.getWritePointer (channel), output.getNumSamples());
+    const auto numSamples = output.getNumSamples();
+    
+    for (int chan = 0; chan < output.getNumChannels(); ++chan)
+        getSamples (output.getWritePointer (chan), numSamples);
 }
 
 template class WhiteNoiseGenerator<float>;

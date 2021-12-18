@@ -1,15 +1,15 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
@@ -20,9 +20,15 @@ namespace lemons::dsp::osc
 {
 template <typename SampleType>
 SuperSaw<SampleType>::SuperSaw()
+    : Oscillator<SampleType> ([&]
+                              {
+    auto sample = SampleType (0);
+    
+    for (auto* saw : saws)
+        sample += saw->getSample();
+    
+    return sample; })
 {
-	while (saws.size() < 7)
-		saws.add (new Saw<SampleType>());
 }
 
 template <typename SampleType>
@@ -38,17 +44,23 @@ void SuperSaw<SampleType>::setFrequency (SampleType frequency, SampleType sample
 	lastFrequency = frequency;
 	samplerate    = sampleRate;
 
-	const auto spreadSemitones = (float) totalSpreadCents * 0.01f;
-	const auto increment       = spreadSemitones / (float) saws.size();
+	const auto spreadSemitones = static_cast<SampleType> (totalSpreadCents) * SampleType (0.01);
+	const auto increment       = spreadSemitones / static_cast<SampleType> (saws->size());
 	const auto centerPitch     = math::freqToMidi (frequency);
 
-	auto lowBound = centerPitch - (spreadSemitones * 0.5f);
+	auto lowBound = centerPitch - (spreadSemitones * SampleType (0.5));
 
 	for (auto* saw : saws)
 	{
-		saw->setFrequency ((SampleType) math::midiToFreq (lowBound), sampleRate);
+		saw->setFrequency (static_cast<SampleType> (math::midiToFreq (lowBound)), sampleRate);
 		lowBound += increment;
 	}
+}
+
+template <typename SampleType>
+SampleType SuperSaw<SampleType>::getFrequency() const noexcept
+{
+	return lastFrequency;
 }
 
 template <typename SampleType>
@@ -63,17 +75,6 @@ template <typename SampleType>
 int SuperSaw<SampleType>::getPitchSpreadCents() const noexcept
 {
 	return totalSpreadCents;
-}
-
-template <typename SampleType>
-SampleType SuperSaw<SampleType>::getSample()
-{
-	auto sample = (SampleType) 0.;
-
-	for (auto* saw : saws)
-		sample += saw->getSample();
-
-	return sample;
 }
 
 template class SuperSaw<float>;

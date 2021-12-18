@@ -90,6 +90,21 @@ constexpr bool Version::hasSameMajorVersion (const Version& other) const noexcep
 	return major == other.major;
 }
 
+constexpr int Version::getMajor() const noexcept
+{
+    return major;
+}
+
+constexpr int Version::getMinor() const noexcept
+{
+    return minor;
+}
+
+constexpr int Version::getPatch() const noexcept
+{
+    return patch;
+}
+
 void Version::bumpMajor() noexcept
 {
 	++major;

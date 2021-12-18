@@ -1,15 +1,15 @@
 /*
  ======================================================================================
- 
+
  ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗███████╗
  ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║██╔════╝
  ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║███████╗
  ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║╚════██║
  ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║███████║
  ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
- 
+
  This file is part of the Lemons open source library and is licensed under the terms of the GNU Public License.
- 
+
  ======================================================================================
  */
 
@@ -24,56 +24,52 @@ void ChoosableOscillator<SampleType>::setOscType (OscType newType)
 }
 
 template <typename SampleType>
-void ChoosableOscillator<SampleType>::process (AudioBuffer<SampleType>& output)
+void ChoosableOscillator<SampleType>::renderBlock (const AudioBuffer<SampleType>& input,
+                                                   AudioBuffer<SampleType>& output, MidiBuffer& midi, bool isBypassed)
 {
 	output.clear();
 
-	switch (type)
+	if (isBypassed)
 	{
-		case (OscType::Sine) :
+		for (auto* osc : oscillators)
+			osc->process (input, output, midi, true);
+
+		return;
+	}
+
+	const auto* chosen = [&]() -> dsp::Engine<SampleType>*
+	{
+		switch (type)
 		{
-			sine.process (output, false);
-			saw.process (output, true);
-			square.process (output, true);
-			triangle.process (output, true);
-			return;
+			case (OscType::Sine) : return &sine;
+			case (OscType::Saw) : return &saw;
+			case (OscType::Square) : return &square;
+			case (OscType::Triangle) : return &triangle;
+			case (OscType::SuperSaw) : return &superSaw;
 		}
-		case (OscType::Saw) :
-		{
-			sine.process (output, true);
-			saw.process (output, false);
-			square.process (output, true);
-			triangle.process (output, true);
-			return;
-		}
-		case (OscType::Square) :
-		{
-			sine.process (output, true);
-			saw.process (output, true);
-			square.process (output, false);
-			triangle.process (output, true);
-			return;
-		}
-		case (OscType::Triangle) :
-		{
-			sine.process (output, true);
-			saw.process (output, true);
-			square.process (output, true);
-			triangle.process (output, false);
-			return;
-		}
+	}();
+
+	for (auto* osc : oscillators)
+	{
+		if (osc == chosen)
+			osc->process (input, output, midi, false);
+		else
+			osc->process (input, output, midi, true);
 	}
 }
 
 template <typename SampleType>
-void ChoosableOscillator<SampleType>::prepare (int blocksize, double samplerate)
+void ChoosableOscillator<SampleType>::prepared (int blocksize, double samplerate, int numChannels)
 {
-	sine.prepare (samplerate, blocksize);
-	saw.prepare (samplerate, blocksize);
-	square.prepare (samplerate, blocksize);
-	triangle.prepare (samplerate, blocksize);
+	for (auto* osc : oscillators)
+		osc->prepare (samplerate, blocksize, numChannels);
+}
 
-	prepared (blocksize);
+template <typename SampleType>
+void ChoosableOscillator<SampleType>::released()
+{
+	for (auto* osc : oscillators)
+		osc->releaseResources();
 }
 
 template <typename SampleType>
@@ -83,6 +79,7 @@ void ChoosableOscillator<SampleType>::setFrequency (float freqHz)
 	saw.setFrequency (freqHz);
 	square.setFrequency (freqHz);
 	triangle.setFrequency (freqHz);
+	superSaw.setFrequency (freqHz);
 
 	freq = freqHz;
 }

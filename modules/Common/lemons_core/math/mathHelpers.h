@@ -24,7 +24,7 @@ namespace lemons::math
 	return number % divisor == 0;
 }
 
-/** Returns true if the number is divisible by 2. */
+/** Returns true if the number is evenly divisible by 2. */
 [[nodiscard]] constexpr bool numberIsEven (int number) noexcept
 {
 	return isDivisibleBy (number, 2);

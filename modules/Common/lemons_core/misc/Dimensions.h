@@ -20,8 +20,7 @@ namespace lemons
 {
 
 
-/** A simple struct that represents the dimensions of a GUI.
- */
+/** A simple struct that represents the dimensions of a GUI. */
 struct Dimensions final
 {
 	/** Creates an invalid Dimensions object. */
@@ -35,6 +34,12 @@ struct Dimensions final
 
 	/** Returns true if the width and height are both greater than 0. */
 	[[nodiscard]] constexpr bool isValid() const noexcept;
+    
+    /** Returns the width of these dimensions. */
+    [[nodiscard]] constexpr int getWidth() const noexcept;
+    
+    /** Returns the height of these dimensions. */
+    [[nodiscard]] constexpr int getHeight() const noexcept;
 
 	/** Returns the aspect ratio of the represented dimensions, calculated as width / height.
 	    If isValid() return false, then this function will return 0.
@@ -53,6 +58,7 @@ struct Dimensions final
 	/** Returns a Dimensions object representing the size 1060 x 640. */
 	[[nodiscard]] static constexpr Dimensions getDefault();
 
+private:
 	int width { 0 };
 	int height { 0 };
 };
